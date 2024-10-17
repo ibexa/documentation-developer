@@ -15,8 +15,7 @@ To access a whole list of currencies, use `CurrencyServiceInterface::findCurrenc
 [[= include_file('code_samples/api/product_catalog/src/Command/CurrencyCommand.php', 49, 57) =]]
 ```
 
-To create a new currency, use `CurrencyServiceInterface::createCurrency()`
-and provide it with a `CurrencyCreateStruct` with code, number of fractional digits and a flag indicating if the currency is enabled:
+To create a new currency, use `CurrencyServiceInterface::createCurrency()` and provide it with a `CurrencyCreateStruct` with code, number of fractional digits and a flag indicating if the currency is enabled:
 
 ``` php
 [[= include_file('code_samples/api/product_catalog/src/Command/CurrencyCommand.php', 64, 67) =]]

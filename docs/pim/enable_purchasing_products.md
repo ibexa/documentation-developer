@@ -21,8 +21,7 @@ To enable adding product to cart and purchasing from the catalog, the following 
 
 All currencies available in the system must be enabled in the back office under **Product Catalog** -> **Currencies**.
 
-Additionally, you must configure currencies valid for specific SiteAccesses
-under the `ibexa.system.<scope>.product_catalog.currencies` [configuration key](configuration.md#configuration-files):
+Additionally, you must configure currencies valid for specific SiteAccesses under the `ibexa.system.<scope>.product_catalog.currencies` [configuration key](configuration.md#configuration-files):
 
 ``` yaml
 ibexa:
@@ -66,9 +65,7 @@ This example uses the currencies and regions set in the [VAT rates' example belo
 
 By default, the system always uses the first currency and the first region configured.
 
-To implement a different logic, for example a switcher for preferred currencies and regions,
-you need to subscribe to `Ibexa\Contracts\ProductCatalog\Events\CurrencyResolveEvent`
-and `Ibexa\Contracts\ProductCatalog\Events\RegionResolveEvent` in your customization.
+To implement a different logic, for example a switcher for preferred currencies and regions, you need to subscribe to `Ibexa\Contracts\ProductCatalog\Events\CurrencyResolveEvent` and `Ibexa\Contracts\ProductCatalog\Events\RegionResolveEvent` in your customization.
 
 ## VAT rates
 

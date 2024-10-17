@@ -16,12 +16,9 @@ You can also set different prices for specific products or product variants for 
 
 ### Assign prices dynamically
 
-You could create a customer group resolver that provides custom price logic, 
-for example, by retrieving user address from the customer profile, and assigning 
-a customer group to the customer based on the address. 
+You could create a customer group resolver that provides custom price logic, for example, by retrieving user address from the customer profile, and assigning a customer group to the customer based on the address.
 
-Such resolver must implement the `Ibexa\Contracts\ProductCatalog\CustomerGroupResolverInterface` 
-interface. 
+Such resolver must implement the `Ibexa\Contracts\ProductCatalog\CustomerGroupResolverInterface` interface.
 
 You must then register it as a service with the `ibexa.product_catalog.customer_group.resolver` tag.
 
@@ -32,5 +29,4 @@ To use currencies in your shop, you need to first enable them in the back office
 
 ## VAT
 
-You can [configure VAT rate globally](pim_configuration.md#vat-rates) (per SiteAccess),
-or set it individually for each product type and product.
+You can [configure VAT rate globally](pim_configuration.md#vat-rates) (per SiteAccess), or set it individually for each product type and product.

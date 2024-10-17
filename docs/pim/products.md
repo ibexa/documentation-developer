@@ -14,24 +14,23 @@ Product code can have up to 64 characters. It can contain only letters, numbers,
 ## Product types
 
 Product types represent categories that a product can belong to.
-A product type can be, for example, a sofa or a keyboard.
+A product type can be, for example, a sofa, or a keyboard.
 
-Product types, like content types, define the global properties of products and Fields a product consists of.
+Product types, like content types, define the global properties of products and fields a product consists of.
 A product type also defines the attributes that all products of this type can have.
 
 You can choose between two available types: `Physical` and `Virtual`:
 
-- `Physical` - tangible products with assigned stock. 
+- `Physical` - tangible products with assigned stock.
 They can use measurement attributes. They require shipment in the online purchase process.
 Examples: heaters, laptops, phones.
 - `Virtual` - non-tangible items. They can be sold individually, or as part of a product bundle.
-They don't require shipment in the online process. Examples: memberships, services, warranties. 
+They don't require shipment in the online process. Examples: memberships, services, warranties.
 
 ## Product attributes
 
-Product attributes provide different information about a product
-and can be used to create [product variants](#product-variants).
-Typical product attribute examples are: length, weight, color, format, and so on.
+Product attributes provide different information about a product and can be used to create [product variants](#product-variants).
+Typical product attribute examples are: length, weight, color, format, and more.
 
 The following attribute types are available:
 
@@ -49,11 +48,9 @@ You can assign both whole attribute groups or individual attributes to a product
 
 ## Product variants
 
-Product variants represent different versions of a product, for example, clothes in different colors,
-or laptops with different amounts of RAM.
+Product variants represent different versions of a product, for example, clothes in different colors, or laptops with different amounts of RAM.
 
-You can create product variants automatically based on attributes
-that have the "Used for product variants" flag enabled in the product type definition.
+You can create product variants automatically based on attributes that have the "Used for product variants" flag enabled in the product type definition.
 
 You can create variants for any combination of values of selected attributes.
 In the back office you can automatically generate all possible variants for a product.

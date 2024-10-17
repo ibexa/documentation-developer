@@ -64,8 +64,7 @@ The default offset is 0, and limit's 25.
 [[= include_file('code_samples/api/product_catalog/src/Command/ProductVariantCommand.php', 57, 60) =]]
 ```
 
-From a variant, you can access the attributes that are used to generate the variant
-by using `ProductVariant::getDiscriminatorAttributes()`.
+From a variant, you can access the attributes that are used to generate the variant by using `ProductVariant::getDiscriminatorAttributes()`.
 
 ``` php
 [[= include_file('code_samples/api/product_catalog/src/Command/ProductVariantCommand.php', 61, 68) =]]
@@ -128,9 +127,8 @@ You can then use `ProductAvailabilityServiceInterface::getStock` to get the stoc
 [[= include_file('code_samples/api/product_catalog/src/Command/ProductCommand.php', 98, 103) =]]        }
 ```
 
-To change availability for a product, use `updateProductAvailability()` with a `ProductAvailabilityUpdateStruct`
-and provide it with the product object. The second parameter defines whether product is available,
-and the third whether its stock is infinite. The fourth parameter is the stock number:
+To change availability for a product, use `updateProductAvailability()` with a `ProductAvailabilityUpdateStruct` and provide it with the product object.
+The second parameter defines whether product is available, and the third whether its stock is infinite. The fourth parameter is the stock number:
 
 ``` php
 [[= include_file('code_samples/api/product_catalog/src/Command/ProductCommand.php', 106, 109) =]]
@@ -138,8 +136,7 @@ and the third whether its stock is infinite. The fourth parameter is the stock n
 
 ## Attributes
 
-To get information about product attribute groups, use the `AttributeGroupServiceInterface`,
-or `LocalAttributeGroupServiceInterface` to modify attribute groups.
+To get information about product attribute groups, use the `AttributeGroupServiceInterface`, or `LocalAttributeGroupServiceInterface` to modify attribute groups.
 
 `AttributeGroupServiceInterface::getAttributeGroup()` enables you to get a single attribute group by its identifier.
 `AttributeGroupServiceInterface::findAttributeGroups()` get all attribute groups, base on optional query:
@@ -149,22 +146,19 @@ or `LocalAttributeGroupServiceInterface` to modify attribute groups.
 [[= include_file('code_samples/api/product_catalog/src/Command/AttributeCommand.php', 85, 90) =]]
 ```
 
-To create an attribute group, use `LocalAttributeGroupServiceinterface::createAttributeGroup`
-and provide it with an `AttributeGroupCreateStruct`:
+To create an attribute group, use `LocalAttributeGroupServiceinterface::createAttributeGroup` and provide it with an `AttributeGroupCreateStruct`:
 
 ``` php
 [[= include_file('code_samples/api/product_catalog/src/Command/AttributeCommand.php', 59, 63) =]]
 ```
 
-To get information about product attributes, use the `AttributeDefinitionServiceInterface`,
-or `LocalAttributeDefinitionServiceInterface` to modify attributes.
+To get information about product attributes, use the `AttributeDefinitionServiceInterface`, or `LocalAttributeDefinitionServiceInterface` to modify attributes.
 
 ``` php
 [[= include_file('code_samples/api/product_catalog/src/Command/AttributeCommand.php', 71, 73) =]]
 ```
 
-To create an attribute, use `LocalAttributeGroupServiceinterface::createAttributeDefinition`
-and provide it with an `AttributeDefinitionCreateStruct`:
+To create an attribute, use `LocalAttributeGroupServiceinterface::createAttributeDefinition` and provide it with an `AttributeDefinitionCreateStruct`:
 
 ``` php
 [[= include_file('code_samples/api/product_catalog/src/Command/AttributeCommand.php', 76, 82) =]]
