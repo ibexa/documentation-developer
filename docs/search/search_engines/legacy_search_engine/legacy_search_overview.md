@@ -14,7 +14,6 @@ For more information, check [search engine comparison](search_engines.md#search-
 !!! tip
 
     The features and performance of Legacy search engine are limited.
-    If you have specific search or performance needs, it's recommended to use [Solr](solr_overview.md)
-    or [Elasticsearch](elastic_search_overview.md) instead.
-    
+    If you have specific search or performance needs, it's recommended to use [Solr](solr_overview.md) or [Elasticsearch](elastic_search_overview.md) instead.
+
     Using the Legacy search engine disables most shop features, such as product search.

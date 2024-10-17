@@ -13,7 +13,7 @@ There are two possibilities of connection:
 - using [cluster of Elasticsearch nodes](#configure-clustering)
 - using [Elasticsearch Cloud](#configure-elasticsearch-cloud)
 
-No matter which option you choose, you have to define the connection settings under the `connections` key. 
+No matter which option you choose, you have to define the connection settings under the `connections` key.
 Set a name of the connection:
 
 ``` yaml
@@ -24,8 +24,7 @@ ibexa_elasticsearch:
 
 !!! tip "A default connection"
 
-    If you define more than one connection, for example, to create a separate connection for
-    each repository, you must select the one that [[= product_name =]] should use with the following setting:
+    If you define more than one connection, for example, to create a separate connection for each repository, you must select the one that [[= product_name =]] should use with the following setting:
 
     ``` yaml
     ibexa_elasticsearch:
@@ -52,7 +51,7 @@ distinct, you can change the default number.
 - `scheme` - a protocol used to access the node. Default value: `http`.
 - `path` - by default, path isn't used. Default value: `null`.
 If you have several Elasticsearch instances that run on the same host, and want to make them
-distinct, you can define a path for each instance.  
+distinct, you can define a path for each instance.
 - `user`/`pass` - credentials, if needed to log in to the host. Default values: `null`.
 
 Next, list the addresses of cluster nodes under the `hosts` key:
@@ -73,8 +72,7 @@ The easiest one is to pass them as a string:
 - https://<my.elasticsearch.domain>:9200/<path>/
 ```
 
-You can also pass the host configuration as an object that lists parameter-value pairs,
-for example, when your authentication settings contain special characters.  
+You can also pass the host configuration as an object that lists parameter-value pairs, for example, when your authentication settings contain special characters.
 
 ``` yaml
 - { host: '<my.elasticsearch.domain>', scheme: 'http', port: 9200, path: '/', user: <username>, pass: <password> }
@@ -108,16 +106,12 @@ ibexa_elasticsearch:
 
 ### Multi-node cluster behavior
 
-When you configure a cluster-based connection, and the cluster consists of many nodes, you can
-choose strategies that govern how the cluster reacts to changing operating conditions, or how
-workload is distributed among the nodes.
+When you configure a cluster-based connection, and the cluster consists of many nodes, you can choose strategies that govern how the cluster reacts to changing operating conditions, or how workload is distributed among the nodes.
 
 #### Connection pool
 
 With this setting you decide how a list of hosts that form a cluster is managed.
-The list of active hosts tends to change in time, due to different reasons, such as connectivity
-issues, host malfunction, or the fact that you add new hosts to the cluster to increase
-its performance.
+The list of active hosts tends to change in time, due to different reasons, such as connectivity issues, host malfunction, or the fact that you add new hosts to the cluster to increase its performance.
 By default, the `StaticNoPingConnectionPool` setting is used.
 
 You can change the default setting with the following key:
@@ -132,13 +126,11 @@ For more information and a list of available choices, see [Connection pool](http
 
 !!! tip "Load tests recommendation"
 
-    If you change the connection pool setting, it's recommended that you to perform load tests
-    to check whether the change doesn't negatively impact the performance of your environment.
+    If you change the connection pool setting, it's recommended that you to perform load tests to check whether the change doesn't negatively impact the performance of your environment.
 
 #### Connection selector
 
-When the cluster consists of many hosts, the `connection_selector` setting decides what strategy
-is used to pick a node to send query requests to.
+When the cluster consists of many hosts, the `connection_selector` setting decides what strategy is used to pick a node to send query requests to.
 By default, the `RoundRobinSelector` setting is used.
 
 If you prefer a different strategy, or have created your own, custom strategy, you can change the default setting with the following key:
@@ -153,8 +145,7 @@ For more information and a list of available choices, see [Selectors](https://ww
 
 ##### Number of retries
 
-The `retries` setting configures the number of attempts that [[= product_name =]] makes to connect
-to the nodes of the cluster before it throws an exception.
+The `retries` setting configures the number of attempts that [[= product_name =]] makes to connect to the nodes of the cluster before it throws an exception.
 By default, `null` is used, which means that the number of retries equals to the number of nodes in the cluster.
 
 ``` yaml
@@ -163,8 +154,7 @@ By default, `null` is used, which means that the number of retries equals to the
     retries: null
 ```
 
-Depending on the connection pool that you select, [[= product_name =]]'s reaction to reaching the maximum
-number of retries might differ.
+Depending on the connection pool that you select, [[= product_name =]]'s reaction to reaching the maximum number of retries might differ.
 
 For more information, see [Set retries](https://www.elastic.co/guide/en/elasticsearch/client/php-api/7.x/set-retries.html).
 
@@ -174,8 +164,7 @@ As an alternative to using your own cluster, you can use Elasticsearch Cloud, a 
 With Elasticsearch Cloud you don't have to build or manage your own Elasticsearch cluster.
 Also, you do all the configuration and administration in a graphical user interface.
 
-To connect to a cloud solution with [[= product_name =]], you must set the `elastic_cloud_id` parameter by
-providing an alphanumerical ID string that you get from the cloud's user interface, for example:
+To connect to a cloud solution with [[= product_name =]], you must set the `elastic_cloud_id` parameter by providing an alphanumerical ID string that you get from the cloud's user interface, for example:
 
 ``` yaml
 <connection_name>:
@@ -226,15 +215,13 @@ ibexa_elasticsearch:
 
 ### API key authentication
 
-If your Elasticsearch cluster is protected by API keys, you must provide the key and secret in authentication configuration to
-connect [[= product_name =]] with the cluster. With API key authentication you can define different
-authorization levels, such as [`create_index`, `index`, etc.](https://www.elastic.co/guide/en/elasticsearch/reference/7.x/security-privileges.html#privileges-list-indices).
+If your Elasticsearch cluster is protected by API keys, you must provide the key and secret in authentication configuration to connect [[= product_name =]] with the cluster.
+With API key authentication you can define different authorization levels, such as [`create_index`, `index`, etc.](https://www.elastic.co/guide/en/elasticsearch/reference/7.x/security-privileges.html#privileges-list-indices).
 Such approach proves useful if the cluster is available to the public.
 
 For more information, see [Create API key](https://www.elastic.co/guide/en/elasticsearch/reference/7.x/security-api-create-api-key.html).
 
-When using API key authentication, you must pass the following parameters to
-authenticate access to the cluster:
+When using API key authentication, you must pass the following parameters to authenticate access to the cluster:
 
 ``` yaml
 <connection_name>:
@@ -283,9 +270,7 @@ ibexa_elasticsearch:
                     pass: ~
 ```
 
-If you don't have a client certificate signed by public certificate authority,
-but you have a self-signed CA certificate generated by `elasticsearch-certutil` or another tool (for example for development purposes),
-use the following `ssl` configuration:
+If you don't have a client certificate signed by public certificate authority, but you have a self-signed CA certificate generated by `elasticsearch-certutil` or another tool (for example for development purposes), use the following `ssl` configuration:
 
 ``` yaml
 ibexa_elasticsearch:
@@ -297,11 +282,10 @@ ibexa_elasticsearch:
                 ca_cert:
                     path: '/path/to/ca_cert.pem'
 ```
-    
+
 If you configure both `ca_cert` and `cert` entries, the `ca_cert` parameter takes precedence over the `cert` parameter.
 
-After you have configured SSL, you can still disable it, for example when the certificates
-expire, or you're migrating to a new set of certificates.
+After you have configured SSL, you can still disable it, for example when the certificates expire, or you're migrating to a new set of certificates.
 To do this, pass the following setting under the `ssl` key:
 
 ``` yaml
@@ -364,8 +348,7 @@ Index names use the following pattern:
 
     `<repository>_<document_type>_<language_code>_<content_type_id>`
 
-    By default, repository name is set to `default`, however, in the context of an [[= product_name =]] instance,
-    there can be [several repositories with different names](repository_configuration.md#defining-custom-connection).
+    By default, repository name is set to `default`, however, in the context of an [[= product_name =]] instance, there can be [several repositories with different names](repository_configuration.md#defining-custom-connection).
     Document type can be either `content` or `location`.
     In a language code, hyphens are replaced with underscores, and all characters must be lowercase.
     An index name can therefore look like this:
@@ -373,8 +356,7 @@ Index names use the following pattern:
     `default_content_eng_gb_2`
 
     You can use the `patterns` setting when your data contains content in different languages.
-    You can create index templates with settings that apply to a specific language only,
-    for example, to eliminate stop words from the index, or help divide concatenations.
+    You can create index templates with settings that apply to a specific language only, for example, to eliminate stop words from the index, or help divide concatenations.
     You use patterns to identify index templates that contain settings specific for a given language:
 
   ``` yaml
@@ -390,8 +372,7 @@ Index names use the following pattern:
 
 For more information and a list of available settings, see [Elasticsearch documentation](https://www.elastic.co/guide/en/elasticsearch/reference/7.x/index-modules.html#index-modules-settings).
 
-    For example, you can define settings that convert text into a format that is optimized for
-    search, like a normalizer that changes a case of all phrases in the index:
+    For example, you can define settings that convert text into a format that is optimized for search, like a normalizer that changes a case of all phrases in the index:
 
   ``` yaml
     ibexa_elasticsearch:
@@ -413,8 +394,7 @@ For more information and a list of available settings, see [Elasticsearch docume
 
 For more information about mappings, see [Elasticsearch documentation](https://www.elastic.co/guide/en/elasticsearch/reference/7.x/mapping.html).
 
-    When you create a custom index template, with settings for your own field and document
-    types, make sure that it contains mappings for all searchable fields that are available in [[= product_name =]].
+    When you create a custom index template, with settings for your own field and document types, make sure that it contains mappings for all searchable fields that are available in [[= product_name =]].
     For an example of default configuration with a list of searchable fields.
     To see the default configuration, go to `vendor/ibexa/elasticsearch/src/bundle/Resources/config/` and open the `default-config.yaml` file.
 
@@ -423,8 +403,7 @@ For more information about mappings, see [Elasticsearch documentation](https://w
 Your search results can be adjusted by configuring additional parameters.
 For a list of available mapping parameters and their usage, see [Elasticsearch documentation](https://www.elastic.co/guide/en/elasticsearch/reference/7.x/mapping-params.html).
 
-For example, you can apply a mapping parameter, in this case, a normalizer, to a specific
-mapping under the `dynamic_templates` key:
+For example, you can apply a mapping parameter, in this case, a normalizer, to a specific mapping under the `dynamic_templates` key:
 
 ``` yaml
 ibexa_elasticsearch:
@@ -544,5 +523,4 @@ For more information about how Elasticsearch handles settings and mappings from 
 
 # Extend Elasticsearch
 
-To learn how you can create document field mappers, custom Search Criteria, 
-custom Sort Clauses and Aggregations, see [Create custom Search Criterion](create_custom_search_criterion.md).
+To learn how you can create document field mappers, custom Search Criteria, custom Sort Clauses and Aggregations, see [Create custom Search Criterion](create_custom_search_criterion.md).

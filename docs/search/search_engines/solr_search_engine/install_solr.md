@@ -6,7 +6,7 @@ description: Install Solr search engine to use it with Ibexa DXP.
 
 ## Configure and start Solr
 
-The example presents a configuration with a single core. 
+The example presents a configuration with a single core.
 For configuring Solr in other ways, including examples, see [Solr Cores and `solr.xml`](https://cwiki.apache.org/confluence/display/solr/Solr+Cores+and+solr.xml) and [core administration](https://wiki.apache.org/solr/CoreAdmin).
 
 ### Download Solr files
@@ -50,7 +50,7 @@ To set SolrCloud up follow [SolrCloud reference guide](https://lucene.apache.org
 
 ### Continue Solr configuration
 
-The bundle doesn't commit Solr index changes directly on Repository updates, leaving it up to you to tune this using `solrconfig.xml` as best practice suggests.
+The bundle doesn't commit Solr index changes directly on repository updates, leaving it up to you to tune this using `solrconfig.xml` as best practice suggests.
 
 This setting is **required** if you want to see the changes after publish. it's strongly recommended to set-up `solrconfig.xml` like this:
 
@@ -81,7 +81,8 @@ Execute the script from the [[= product_name =]] root directory for further info
 
 ## Configure the bundle
 
-The Solr Search Engine Bundle can be configured in many ways. The config further below assumes you have parameters set up for Solr DSN and search engine *(however both are optional)*, for example:
+The Solr Search Engine Bundle can be configured in many ways.
+The config further below assumes you have parameters set up for Solr DSN and search engine *(however both are optional)*, for example:
 
 ``` yaml
     env(SEARCH_ENGINE): solr
@@ -91,7 +92,7 @@ The Solr Search Engine Bundle can be configured in many ways. The config further
 
 ### Single-core example (default)
 
-Out of the box in [[= product_name =]] the following is enabled for a simple setup:
+Out of the box in [[= product_name =]] the following is enabled for a setup:
 
 ``` yaml
 ibexa_solr:
@@ -109,8 +110,8 @@ ibexa_solr:
 
 ### Shared-core example
 
-The following example separates one language. The installation contains several similar languages,
-and one very different language that should receive proper language analysis for proper stemming and sorting behavior by Solr:
+The following example separates one language.
+The installation contains several similar languages, and one different language that should receive proper language analysis for proper stemming and sorting behavior by Solr:
 
 ``` yaml
 ibexa_solr:

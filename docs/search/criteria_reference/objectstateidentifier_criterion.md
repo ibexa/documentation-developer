@@ -37,7 +37,7 @@ $query->query = new Criterion\ObjectStateIdentifier(['not_locked'], 'ez_lock');
             </ObjectStateIdentifierCriterion>
         </Filter>
     </Query>
-    ``` 
+    ```
 
 === "JSON"
 

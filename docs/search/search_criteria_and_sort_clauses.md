@@ -12,15 +12,13 @@ For an example of how to use and combine Criteria and Sort Clauses, refer to [Se
 ## Search engine handling of Search Criteria and Sort Clauses
 
 As Search Criteria and Sort Clauses are value objects which are used to define the query from API perspective, they're common for all storage engines.
-Each storage engine needs to implement its own handlers for the corresponding Criterion and Sort Clause value object,
-which are used to translate the value object into a storage-specific search query.
+Each storage engine needs to implement its own handlers for the corresponding Criterion and Sort Clause value object, which are used to translate the value object into a storage-specific search query.
 
-As an example take a look at the [`ContentId` Criterion handler](https://github.com/ibexa/core/blob/main/src/lib/Search/Legacy/Content/Common/Gateway/CriterionHandler/ContentId.php) in Legacy search engine
-or [`ContentId` Criterion handler](https://github.com/ibexa/solr/blob/main/src/lib/Query/Common/CriterionVisitor/ContentIdIn.php) in Solr search engine.
+As an example take a look at the [`ContentId` Criterion handler](https://github.com/ibexa/core/blob/main/src/lib/Search/Legacy/Content/Common/Gateway/CriterionHandler/ContentId.php) in Legacy search engine or [`ContentId` Criterion handler](https://github.com/ibexa/solr/blob/main/src/lib/Query/Common/CriterionVisitor/ContentIdIn.php) in Solr search engine.
 
 ## Custom Criteria and Sort Clauses
 
-Sometimes you can find that standard Search Criteria and Sort Clauses provided with [[= product_name =]] aren't sufficient for your needs. Most often this is the case if you have a custom field type using external storage which cannot be searched using the standard Field Criterion.
+Sometimes you can find that standard Search Criteria and Sort Clauses provided with [[= product_name =]] aren't sufficient for your needs. Most often this is the case if you have a custom field type using external storage which cannot be searched using the standard field Criterion.
 
 !!! note
 
@@ -31,13 +29,11 @@ In such cases you can implement a custom Criterion or Sort Clause, together with
 !!! caution "Using Field Criterion or Sort Clause with large databases"
 
     Field Criterion and Sort Clause don't perform well by design when using SQL database.
-    If you have a large database and want to use them, you either need to use the Solr search engine,
-    or develop your own Custom Criterion or Sort Clause. This way you can avoid using the attributes (fields) database table,
-    and instead use a custom simplified table which can handle the amount of data you have.
+    If you have a large database and want to use them, you either need to use the Solr search engine, or develop your own Custom Criterion or Sort Clause. This way you can avoid using the attributes (fields) database table, and instead use a custom simplified table which can handle the amount of data you have.
 
 ### Difference between Content and Location Search
 
-There are two basic types of searches, you can either search for Locations or for Content.
+There are two basic types of searches, you can either search for locations or for content.
 Each type has dedicated methods in the Search Service:
 
 | Type of search | Method in Search Service |
@@ -48,7 +44,7 @@ Each type has dedicated methods in the Search Service:
 | Location       | `findLocations()`        |
 
 All Criteria and Sort Clauses are accepted with Location Search, but not all of them can be used with Content Search.
-The reason for this is that while one Location always has exactly one content item, one content item can have multiple Locations.
+The reason for this is that while one Location always has exactly one content item, one content item can have multiple locations.
 In this context some Criteria and Sort Clauses would produce ambiguous queries that would not be accepted by Content Search.
 
 Content Search explicitly refuses to accept Criteria and Sort Clauses implementing these abstract classes:
@@ -58,7 +54,8 @@ Content Search explicitly refuses to accept Criteria and Sort Clauses implementi
 
 ### Configuring custom Criterion and Sort Clause handlers
 
-After you have implemented your Criterion / Sort Clause and its handler, you need to configure the handler for the [service container](php_api.md#service-container) by using dedicated service tags for each type of search. Doing so automatically registers it and handle your Criterion / Search Clause when it's given as a parameter to one of the Search Service methods.
+After you have implemented your Criterion / Sort Clause and its handler, you need to configure the handler for the [service container](php_api.md#service-container) by using dedicated service tags for each type of search.
+Doing so automatically registers it and handle your Criterion / Search Clause when it's given as a parameter to one of the Search Service methods.
 
 Available tags for Criterion handlers in Legacy Storage Engine are:
 
@@ -104,12 +101,13 @@ Ibexa\Core\Search\Legacy\Content\Location\Gateway\SortClauseHandler\Location\Dep
     tags:
         - {name: ibexa.search.legacy.gateway.sort_clause_handler.location}
 ```
-    
+
 For more information about passing parameters, see [Symfony Service Container documentation]([[= symfony_doc =]]/book/service_container.html#service-parameters).
 
 ## Search using custom Field Criterion [REST]
 
-REST search can be performed via `POST /views` using custom `FieldCriterion`. This allows you to build custom content logic queries with nested logical operators OR/AND/NOT.
+REST search can be performed via `POST /views` using custom `FieldCriterion`.
+This allows you to build custom content logic queries with nested logical operators OR/AND/NOT.
 
 Custom Field Criterion search mirrors the one already existing in PHP API `Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion\Field` by exposing it to REST.
 

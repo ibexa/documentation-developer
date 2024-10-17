@@ -6,7 +6,7 @@ page_type: reference
 # URL Sort Clauses
 
 URL Sort Clauses are the sorting options for URLs.
-they're only supported by [URL Search (`URLService::findUrls`)](url_api.md).
+They're only supported by [URL Search (`URLService::findUrls`)](url_api.md).
 
 All URL Sort Clauses can take the following optional argument:
 

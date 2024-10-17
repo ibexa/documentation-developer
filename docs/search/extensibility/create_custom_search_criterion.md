@@ -8,8 +8,7 @@ To provide support for a custom Search Criterion, do the following.
 
 ## Create Criterion class
 
-First, create a `CameraManufacturerCriterion.php` file 
-that contains the Criterion class:
+First, create a `CameraManufacturerCriterion.php` file that contains the Criterion class:
 
 === "Solr"
 

@@ -5,7 +5,7 @@ description: Create custom Aggregation to use with Solr and Elasticsearch search
 # Create custom Aggregation
 
 To create a custom Aggregation, create an aggregation class.
-In the following example, an aggregation groups the Location query results by the Location priority:
+In the following example, an aggregation groups the location query results by the Location priority:
 
 === "Solr"
 
@@ -26,8 +26,7 @@ In the following example, an aggregation groups the Location query results by th
 The `PriorityRangeAggregation` class extends `AbstractRangeAggregation`.
 The name of the class indicates that it aggregates the results by using the Range aggregation.
 
-An aggregation must implement the `Ibexa\Contracts\Core\Repository\Values\Content\Query\Aggregation` 
-interface or inherit one of following abstract classes:
+An aggregation must implement the `Ibexa\Contracts\Core\Repository\Values\Content\Query\Aggregation` interface or inherit one of following abstract classes:
 
 - `Ibexa\Contracts\Core\Repository\Values\Content\Query\Aggregation\AbstractRangeAggregation`
 - `Ibexa\Contracts\Core\Repository\Values\Content\Query\Aggregation\AbstractStatsAggregation`
@@ -41,22 +40,16 @@ An aggregation can also implement one of the following interfaces:
 
 !!! note "Aggregation definition"
 
-    An aggregation definition must contain at least the name of an aggregation 
-    and optional aggregation parameters, such as, for example, the path (string) 
-    that is used to limit aggregation results to a specific subtree, Content 
-    Type identifier, or field definition identifier, which is mapped 
-    to the search index field name.
-    
+    An aggregation definition must contain at least the name of an aggregation and optional aggregation parameters, such as, for example, the path (string) that is used to limit aggregation results to a specific subtree, content type identifier, or field definition identifier, which is mapped to the search index field name.
+
     Aggregation definition must be independent of the search engine used.
 
 A custom aggregation requires that the following elements are provided:
 
 - An aggregation visitor that returns an array of results
-- A result extractor that transforms raw aggregation results from the search engine 
-into `AggregationResult` objects
+- A result extractor that transforms raw aggregation results from the search engine into `AggregationResult` objects
 
-In simpler cases, you can apply one of the built-in visitors that correspond 
-to the aggregation type.
+In simpler cases, you can apply one of the built-in visitors that correspond to the aggregation type.
 The example below uses `RangeAggregationVisitor`:
 
 === "Solr"
@@ -101,8 +94,7 @@ You provide it with two arguments:
 
     Tag the service with `ibexa.elasticsearch.query.location.aggregation_visitor`.
 
-For the result extractor, you can use the built-in `RangeAggregationResultExtractor`
-and provide it with the aggregation class in the `aggregationClass` parameter.
+For the result extractor, you can use the built-in `RangeAggregationResultExtractor` and provide it with the aggregation class in the `aggregationClass` parameter.
 
 === "Solr"
 
@@ -176,8 +168,7 @@ In a more complex use case, you must create your own visitor and extractor.
     --8<--
     ```
 
-The `canVisit()` method checks whether the provided aggregation is of the supported type
-(in this case, your custom `PriorityRangeAggregation`).
+The `canVisit()` method checks whether the provided aggregation is of the supported type (in this case, your custom `PriorityRangeAggregation`).
 
 The `visit()` method returns an array of results.
 
@@ -185,8 +176,7 @@ The `visit()` method returns an array of results.
 
 === "Solr"
 
-    You must also create a result extractor, which implements  `Ibexa\Solr\ResultExtractor\AggregationResultExtractor` 
-    that transforms raw aggregation results from Solr into `AggregationResult` objects:
+    You must also create a result extractor, which implements  `Ibexa\Solr\ResultExtractor\AggregationResultExtractor` that transforms raw aggregation results from Solr into `AggregationResult` objects:
 
     ``` php
     --8<--
@@ -194,15 +184,13 @@ The `visit()` method returns an array of results.
     --8<--
     ```
 
-    The `canVisit()` method checks whether the provided aggregation is of the supported type
-    (in this case, your custom `PriorityRangeAggregation`).
+    The `canVisit()` method checks whether the provided aggregation is of the supported type (in this case, your custom `PriorityRangeAggregation`).
 
     The `extract()` method converts the [raw data provided by the search engine](https://solr.apache.org/guide/8_8/search-sample.html#aggregation) to a `RangeAggregationResult` object.
 
 === "Elasticsearch"
 
-    You must also create a result extractor, which implements  `Ibexa\Contracts\ElasticSearchEngine\Query\AggregationResultExtractor` 
-    that transforms raw aggregation results from Elasticsearch into `AggregationResult` objects:
+    You must also create a result extractor, which implements  `Ibexa\Contracts\ElasticSearchEngine\Query\AggregationResultExtractor` that transforms raw aggregation results from Elasticsearch into `AggregationResult` objects:
 
     ``` php
     --8<--
@@ -210,8 +198,7 @@ The `visit()` method returns an array of results.
     --8<--
     ```
 
-    The `supports()` method checks whether the provided aggregation is of the supported type
-    (in this case, your custom `PriorityRangeAggregation`).
+    The `supports()` method checks whether the provided aggregation is of the supported type (in this case, your custom `PriorityRangeAggregation`).
 
     The `extract()` method converts the [raw data provided by the search engine](https://www.elastic.co/guide/en/elasticsearch/reference/current/search-aggregations.html) to a `RangeAggregationResult` object.
 
@@ -220,8 +207,7 @@ Finally, register both the aggregation visitor and the result extractor as servi
 
 === "Solr"
 
-    Tag the aggregation visitor with `ibexa.search.solr.query.location.aggregation.visitor`
-    and the result extractor with `ibexa.search.solr.query.location.aggregation.result.extractor`:
+    Tag the aggregation visitor with `ibexa.search.solr.query.location.aggregation.visitor` and the result extractor with `ibexa.search.solr.query.location.aggregation.result.extractor`:
 
     ``` yaml
     --8<--
@@ -229,13 +215,11 @@ Finally, register both the aggregation visitor and the result extractor as servi
     --8<--
     ```
 
-    For content-based aggregations, use the `ibexa.search.solr.query.content.aggregation.visitor`
-    and `ibexa.search.solr.query.content.aggregation.result.extractor` tags respectively.
+    For content-based aggregations, use the `ibexa.search.solr.query.content.aggregation.visitor` and `ibexa.search.solr.query.content.aggregation.result.extractor` tags respectively.
 
 === "Elasticsearch"
 
-    Tag the aggregation visitor with `ibexa.elasticsearch.query.location.aggregation_visitor`
-    and the result extractor with `ibexa.elasticsearch.query.location.aggregation_result_extractor`:
+    Tag the aggregation visitor with `ibexa.elasticsearch.query.location.aggregation_visitor` and the result extractor with `ibexa.elasticsearch.query.location.aggregation_result_extractor`:
 
     ``` yaml
     --8<--
@@ -243,5 +227,4 @@ Finally, register both the aggregation visitor and the result extractor as servi
     --8<--
     ```
 
-    For content-based aggregations, use the `ibexa.search.elasticsearch.query.content.aggregation.visitor`
-    and `ibexa.search.elasticsearch.query.content.aggregation.result.extractor` tags respectively.
+    For content-based aggregations, use the `ibexa.search.elasticsearch.query.content.aggregation.visitor` and `ibexa.search.elasticsearch.query.content.aggregation.result.extractor` tags respectively.

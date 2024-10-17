@@ -60,8 +60,7 @@ All configuration is made in the `/config/packages/ibexa_elasticsearch.yaml` fil
 
 !!! note
 
-    All the settings, their order and meaning, correspond to the settings that are described in
-    the Elasticsearch documentation.
+    All the settings, their order and meaning, correspond to the settings that are described in the Elasticsearch documentation.
 
 First, decide how [[= product_name =]] connects to Elasticsearch and configure other connection settings.
 

@@ -13,17 +13,16 @@ description: Configure Solr search engine to use it with Ibexa DXP.
 
 !!! tip "How boosting interacts with Search API"
 
-    Boosting of fields or documents affects the score (relevance) of your search result hits
-    when using Search API for any Criteria you specify on `$query->query`, or in REST by using `Query` element.
+    Boosting of fields or documents affects the score (relevance) of your search result hits when using Search API for any Criteria you specify on `$query->query`, or in REST by using `Query` element.
     When you don't specify anything to sort on, the result is sorted by this relevance.
-    Anything set on `$query->filter`, or in REST using `Filter` element, *doesn't* affect scoring and only works
-    as a pure filter for the result. Thus make sure to place Criteria you want to affect scoring on `query`.
+    Anything set on `$query->filter`, or in REST using `Filter` element, *doesn't* affect scoring and only works as a pure filter for the result. Thus make sure to place Criteria you want to affect scoring on `query`.
 
 Boosting currently happens when indexing, so if you change your configuration you need to re-index.
 
-Boosting tells the search engine which parts of the content model have more importance when searching, and is an important part of tuning your search results relevance. Importance is defined using a numeric value, where `1.0` is default, values higher than that are more important, and values lower (down to `0.0`) are less important.
+Boosting tells the search engine which parts of the content model have more importance when searching, and is an important part of tuning your search results relevance.
+Importance is defined using a numeric value, where `1.0` is default, values higher than that are more important, and values lower (down to `0.0`) are less important.
 
-Boosting is configured per connection that you configure to use for a given Repository, like in this `config/packages/ibexa_solr.yaml` example:
+Boosting is configured per connection that you configure to use for a given repository, like in this `config/packages/ibexa_solr.yaml` example:
 
 ``` yaml
 ibexa_solr:
@@ -119,7 +118,7 @@ The configuration above results in the following boosting (content type / Field)
     Remember to clear the cache and perform search engine reindex afterwords.
 
     The above configuration results in the following boosting (content type / field):
-    
+
     - `folder/name: 20.0`
     - `folder/description: 10.0`
 
@@ -137,7 +136,7 @@ ibexa_solr:
             # ...
             indexing_depth:
                 # Default value: 0 - no relation indexing, 1 - direct relations, 2nd level  relations, 3rd level  relations (maximum value).
-                default: 1      
+                default: 1
                 content_type:
                     # Index depth defined for specific content type
                     article: 2
@@ -240,5 +239,4 @@ ibexa_solr:
 
 # Extend Solr
 
-To learn how you can create document field mappers, custom Search Criteria, 
-custom Sort Clauses and Aggregations, see [Search extensibility](create_custom_search_criterion.md).
+To learn how you can create document field mappers, custom Search Criteria, custom Sort Clauses and Aggregations, see [Search extensibility](create_custom_search_criterion.md).

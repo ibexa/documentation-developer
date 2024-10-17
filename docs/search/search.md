@@ -5,7 +5,8 @@ page_type: landing_page
 
 # Search
 
-[[= product_name =]] exposes a very powerful [Search API](search_api.md), allowing both full-text search and querying the content Repository using several built-in Search Criteria and Sort Clauses. These are supported across different search engines, allowing you to plug in another search engine without changing your code.
+[[= product_name =]] exposes a very powerful [Search API](search_api.md), allowing both full-text search and querying the content repository using several built-in Search Criteria and Sort Clauses.
+These are supported across different search engines, allowing you to plug in another search engine without changing your code.
 
 [[= cards([
     "search/search_engines/search_engines",

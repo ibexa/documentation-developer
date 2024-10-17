@@ -1,3 +1,7 @@
+---
+description: BasePrice Sort Clause
+---
+
 # BasePrice Sort Clause
 
 The `BasePrice` Sort Clause sorts search results by the product's base price.

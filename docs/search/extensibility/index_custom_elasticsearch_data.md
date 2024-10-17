@@ -12,12 +12,11 @@ To do so, subscribe to one of the following events:
 - `Ibexa\Contracts\ElasticSearchEngine\Mapping\Event\ContentIndexCreateEvent`
 - `Ibexa\Contracts\ElasticSearchEngine\Mapping\Event\LocationIndexCreateEvent`
 
-These events are called when the index is created for the content and Location documents, respectively.
+These events are called when the index is created for the content and location documents.
 
 You can pass the event to a subscriber which gives you access to the document that you can modify.
 
-In the following example, when an index in created for a content or a Location document,
-the event subscriber adds a `custom_field` of the type `StringField` to the index:
+In the following example, when an index in created for a content or a Location document, the event subscriber adds a `custom_field` of the type `StringField` to the index:
 
 ``` php hl_lines="19 20 21"
 <?php

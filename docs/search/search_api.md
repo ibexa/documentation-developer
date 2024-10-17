@@ -10,23 +10,19 @@ To do this, you can use the [`SearchService`](#searchservice) or [Repository fil
 
 ## SearchService
 
-[`SearchService`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-SearchService.html)
-enables you to perform search queries using the PHP API.
+[`SearchService`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-SearchService.html) enables you to perform search queries using the PHP API.
 
 The service should be [injected into the constructor of your command or controller](php_api.md#service-container).
 
 !!! tip "SearchService in the back office"
 
-    `SearchService` is also used in the back office of [[= product_name =]],
-    in components such as Universal Discovery Widget or Sub-items List.
+    `SearchService` is also used in the back office of [[= product_name =]], in components such as Universal Discovery Widget or Sub-items List.
 
 ### Performing a search
 
-To search through content you need to create a [`LocationQuery`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-LocationQuery.html)
-and provide your search criteria as a series of Criterion objects.
+To search through content you need to create a [`LocationQuery`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-LocationQuery.html) and provide your Search Criteria as a series of Criterion objects.
 
-For example, to search for all content of a selected content type, use one Criterion,
-[`Criterion\ContentTypeIdentifier`](contenttypeidentifier_criterion.md) (line 14).
+For example, to search for all content of a selected content type, use one Criterion, [`Criterion\ContentTypeIdentifier`](contenttypeidentifier_criterion.md) (line 14).
 
 The following command takes the content type identifier as an argument and lists all results:
 
@@ -41,8 +37,7 @@ The following command takes the content type identifier as an argument and lists
 retrieves [`ContentInfo`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Persistence-Content-ContentInfo.html) objects of the found content items.
 You can also use [`SearchService::findContent`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-SearchService.html#method_findContent) to get full Content objects, together with their field information.
 
-To query for a single result, for example by providing a Content ID,
-use the [`SearchService::findSingle`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-SearchService.html#method_findSingle) method:
+To query for a single result, for example by providing a Content ID, use the [`SearchService::findSingle`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-SearchService.html#method_findSingle) method:
 
 ``` php
 $criterion = new Criterion\ContentId($contentId);
@@ -56,7 +51,8 @@ $output->writeln($result->getName());
 
 !!! note "Search result limit"
 
-    By default search returns up to 25 results. You can change it by setting a different limit to the query:
+    By default search returns up to 25 results.
+    You can change it by setting a different limit to the query:
 
     ``` php
     $query->limit = 100;
@@ -79,7 +75,7 @@ To process a large result set, use [`Ibexa\Contracts\Core\Repository\Iterator\Ba
 `BatchIterator` divides the results of search or filtering into smaller batches.
 This enables iterating over results that are too large to handle due to memory constraints.
 
-`BatchIterator` takes one of the available adapters ([`\Ibexa\Contracts\Core\Repository\Iterator\BatchIteratorAdapter`](../api/php_api/php_api_reference/namespaces/ibexa-contracts-core-repository-iterator-batchiteratoradapter.html)) and optional batch size. For example: 
+`BatchIterator` takes one of the available adapters ([`\Ibexa\Contracts\Core\Repository\Iterator\BatchIteratorAdapter`](../api/php_api/php_api_reference/namespaces/ibexa-contracts-core-repository-iterator-batchiteratoradapter.html)) and optional batch size. For example:
 
 ``` php
 $query = new LocationQuery;
@@ -109,18 +105,15 @@ The following BatchIterator adapters are available, for both `query` and `filter
 
 ## Repository filtering
 
-You can use the `ContentService::find(Filter)` method to find content items or
-`LocationService::find(Filter)` to find Locations using a defined Filter.
+You can use the `ContentService::find(Filter)` method to find content items or `LocationService::find(Filter)` to find Locations using a defined Filter.
 
-`ContentService::find` returns an iterable [`ContentList`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-ContentList.html)
-while `LocationService::find` returns an iterable [`LocationList`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-LocationList.html).
+`ContentService::find` returns an iterable [`ContentList`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-ContentList.html) while `LocationService::find` returns an iterable [`LocationList`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-LocationList.html).
 
 Filtering differs from search. It doesn't use the `SearchService` and isn't based on indexed data.
 
-[`Filter`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Filter-Filter.html) enables you to configure a query using chained methods to select criteria, sorting, limit and offset.
+[`Filter`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Filter-Filter.html) enables you to configure a query using chained methods to select criteria, sorting, limit, and offset.
 
-For example, the following command lists all content items under the specified parent Location
-and sorts them by name in descending order:
+For example, the following command lists all content items under the specified parent location and sorts them by name in descending order:
 
 ``` php hl_lines="13-16"
 // ...
@@ -157,8 +150,7 @@ You can use the following methods of the Filter:
 - `sliceBy` - set limit and offset for pagination
 - `reset` - remove all Criteria, Sort Clauses, and pagination settings
 
-The following example filters for Folder content items under the parent Location 2,
-sorts them by publication date and returns 10 results, starting from the third one:
+The following example filters for Folder content items under the parent Location 2, sorts them by publication date and returns 10 results, starting from the third one:
 
 ``` php
 $filter = new Filter();
@@ -171,23 +163,20 @@ $filter
 
 !!! note "Search Criteria and Sort Clause availability"
 
-    Not all Search Criteria and Sort Clauses are available for use in Repository filtering.
+    Not all Search Criteria and Sort Clauses are available for use in repository filtering.
 
-    Only Criteria implementing [`FilteringCriterion`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Filter-FilteringCriterion.html)
-    and Sort Clauses implementing [`FilteringSortClause`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Filter-FilteringSortClause.html)
-    are supported.
+    Only Criteria implementing [`FilteringCriterion`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Filter-FilteringCriterion.html) and Sort Clauses implementing [`FilteringSortClause`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Filter-FilteringSortClause.html) are supported.
 
-    See [Search Criteria](search_criteria_reference.md)
-    and [Sort Clause reference](sort_clause_reference.md) for details.
+    See [Search Criteria](search_criteria_reference.md) and [Sort Clause reference](sort_clause_reference.md) for details.
 
 !!! tip
 
-    it's recommended to use an IDE that can recognize type hints when working with Repository Filtering.
+    It's recommended to use an IDE that can recognize type hints when working with Repository Filtering.
     If you try to use an unsupported Criterion or Sort Clause, the IDE indicates an issue.
 
 ## Searching in a controller
 
-You can use the `SearchService` or Repository filtering in a controller, as long as you provide the required parameters.
+You can use the `SearchService` or repository filtering in a controller, as long as you provide the required parameters.
 For example, in the code below, `locationId` is provided to list all children of a Location by using the `SearchService`.
 
 ``` php hl_lines="22-24"
@@ -270,7 +259,8 @@ that doesn't belong to the provided Section:
 
 ### Combining independent Criteria
 
-Criteria are independent of one another. This can lead to unexpected behavior, for instance because content can have multiple Locations.
+Criteria are independent of one another.
+This can lead to unexpected behavior, for instance because content can have multiple locations.
 
 For example, a content item has two Locations: visible Location A and hidden Location B.
 You perform the following query:
@@ -282,12 +272,11 @@ $query->filter = new Criterion\LogicalAnd([
 ]);
 ```
 
-The query searches for Location B using the [`LocationId` Criterion](locationid_criterion.md),
-and for visible content using the [`Visibility` Criterion](visibility_criterion.md).
+The query searches for location B using the [`LocationId` Criterion](locationid_criterion.md), and for visible content using the [`Visibility` Criterion](visibility_criterion.md).
 
-Even though the Location B is hidden, the query finds the content because both conditions are satisfied:
+Even though the location B is hidden, the query finds the content because both conditions are satisfied:
 
-- the content item has Location B
+- the content item has location B
 - the content item is visible (it has the visible Location A)
 
 
@@ -295,8 +284,7 @@ Even though the Location B is hidden, the query finds the content because both c
 
 To sort the results of a query, use one of more [Sort Clauses](sort_clause_reference.md).
 
-For example, to order search results by their publicationg date, from oldest to newest,
-and then alphabetically by content name, add the following Sort Clauses to the query:
+For example, to order search results by their publicationg date, from oldest to newest, and then alphabetically by content name, add the following Sort Clauses to the query:
 
 ``` php
 [[= include_file('code_samples/api/public_php_api/src/Command/FindComplexCommand.php', 55, 59) =]]
@@ -357,23 +345,20 @@ Aggregation results contain the name of the result and the count of found items:
 With field aggregations you can group search results according to the value of a specific field.
 In this case the aggregation takes the content type identifier and the field identifier as parameters.
 
-The following example creates an aggregation named `selection` that groups results
-according to the value of the `topic` field in the `article` content type:
+The following example creates an aggregation named `selection` that groups results according to the value of the `topic` field in the `article` content type:
 
 ``` php
 [[= include_file('code_samples/api/public_php_api/src/Command/FindWithAggregationCommand.php', 39, 40) =]]
 ```
 
 With term aggregation you can define additional limits to the results.
-The following example limits the number of terms returned to 5
-and only considers terms that have 10 or more results:
+The following example limits the number of terms returned to 5 and only considers terms that have 10 or more results:
 
 ``` php
 [[= include_file('code_samples/api/public_php_api/src/Command/FindWithAggregationCommand.php', 34, 37) =]]
 ```
 
-To use a range aggregation, you must provide a `ranges` array containing a set of `Range` objects
-that define the borders of the specific range sets.
+To use a range aggregation, you must provide a `ranges` array containing a set of `Range` objects that define the borders of the specific range sets.
 
 ``` php
 $query->aggregations[] = new IntegerRangeAggregation('range', 'person', 'age',
@@ -386,9 +371,8 @@ $query->aggregations[] = new IntegerRangeAggregation('range', 'person', 'age',
 
 !!! note
 
-    The beginning of the range is included and the end is excluded,
-    so a range between 1 and 30 includes value `1`, but not `30`.
-    
+    The beginning of the range is included and the end is excluded, so a range between 1 and 30 includes value `1`, but not `30`.
+
     `null` means that a range doesn't have an end.
     In the example all values above (and including) 60 are included in the last range.
 

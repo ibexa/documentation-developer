@@ -1,7 +1,10 @@
+---
+description: LogicalAnd Criterion
+---
+
 # LogicalAnd Criterion
 
-The [`LogicalAnd` URL Criterion](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-URL-Query-Criterion-LogicalAnd.html)
-matches a URL if all provided Criteria match.
+The [`LogicalAnd` URL Criterion](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-URL-Query-Criterion-LogicalAnd.html) matches a URL if all provided Criteria match.
 
 ## Arguments
 
