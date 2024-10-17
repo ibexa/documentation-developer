@@ -50,15 +50,15 @@ AI Actions can also be extended beyond the default setup by creating custom conn
 
 Actions are tasks or functions that the AI is set to perform.
 Each Action is a combination of an action type and an action configuration.
-Action types define what kind of task the AI will perform, while the action configuration specifies how the task should be executed.
-This clear separation allows for a flexible system where actions can be easily created, managed, and customized.
+Action types define what kind of task the AI performs, while action configurations specify how the task should be executed.
+This clear separation allows for a flexible system where actions can be created, managed, and customized with minimal effort.
 
 #### Action type
 
 Action types are predefined by developers.
 Each action type defines the structure and nature of the task that the AI service performs.
 Action types could be designed to generate alt text for images, summarize a passage of text, or even translate content into another language.
-By defining action types, developers can create a wide range of functionalities that can be easily deployed within the application.
+By defining action types, developers can create a wide range of functionalities that can be deployed within the application.
 
 #### Action configuration
 
@@ -119,8 +119,8 @@ For example, if this is your enterprise's requirement, a developer could write a
 
 ## Use cases
 
-Out of the box, the [[= product_name_base =]] AI Actions add-on comes with two action types that can help you roganization with the following tasks.
-Before you can start start using these features, some preliminary setup is required, which includes configuring access to an AI service.
+Out of the box, the [[= product_name_base =]] AI Actions add-on comes with two action types that can help your oganization with the following tasks.
+However, before you can start using these features, some preliminary setup is required, which includes configuring access to an AI service.
 
 ### Refining text
 

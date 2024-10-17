@@ -4,6 +4,10 @@ description: Add custom features to alternative text generation for images.
 
 # Customize alternative text generation
 
+Once you've enabled alt text generation, you can fine-tune the output to match technical requirements of your application or your company's voice and style.
+You can modify the settings of individual action configurations by selecting the preferred language, tone, and temperature, along with other customizable settings to ensure the generated alt text meets your specific needs.
+
+
 If you need more control over the alt text generation feature, you can customize, for example, by integrating a different AI service, and modifying the default behavior.
 
 ## Add custom glossaries

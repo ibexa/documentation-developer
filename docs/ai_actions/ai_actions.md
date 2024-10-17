@@ -10,16 +10,9 @@ Potentially, you can use AI for transforming text passages, generating illustrat
 
 [[= cards([
 "ai_actions/ai_actions_guide",
+"ai_actions/configure_access_to_openai",
 "ai_actions/install_ai_actions",
 "ai_actions/extend_ai_actions"
-], columns=4) =]]
-
-## Alt text generation
-
-[[= cards([
-"ai_actions/alt_text/enable_alt_text_generation",
-"ai_actions/alt_text/configure_alt_text_generation",
-"ai_actions/alt_text/customize_alt_text_generation"
 ], columns=4) =]]
 
 ## Explore AI Actions API

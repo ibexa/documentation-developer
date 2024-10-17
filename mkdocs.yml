@@ -322,11 +322,8 @@ nav:
         - AI Actions: ai_actions/ai_actions.md
         - AI Actions Guide: ai_actions/ai_actions_guide.md
         - Install AI Actions: ai_actions/install_ai_actions.md
+        - Configure access to Open AI: ai_actions/configure_access_to_openai.md
         - Extend AI Actions: ai_actions/extend_ai_actions.md
-        - Alt text generation:
-            - Enable alt text generation: ai_actions/alt_text/enable_alt_text_generation.md
-            - Configure alt text generation: ai_actions/alt_text/configure_alt_text_generation.md
-            - Customize alt text generation: ai_actions/alt_text/customize_alt_text_generation.md
     - PIM (Product management):
         - PIM (Product management): pim/pim.md
         - PIM guide: pim/pim_guide.md
