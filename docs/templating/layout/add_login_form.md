@@ -4,8 +4,9 @@ description: Customize the login form for new users in your site front end.
 
 # Add login form
 
-You can create a login form for your users. 
-Follow the instruction below to create a template with login form. If you want to configure more options for example, password expiration, see [other user management templates](user_registration.md#other-user-management-templates).
+You can create a login form for your users.
+Follow the instruction below to create a template with login form.
+If you want to configure more options for example, password expiration, see [other user management templates](user_registration.md#other-user-management-templates).
 
 First, make sure you have configured [login methods](login_methods.md).
 
@@ -51,11 +52,9 @@ In `templates/themes/<theme_name>/login`, create an `expired_credentials.html.tw
 
 ## Customize login form
 
-You can use a custom template for example to display information about password expiration
-or to customize [other user management templates](user_registration.md#other-user-management-templates).
+You can use a custom template for example to display information about password expiration or to customize [other user management templates](user_registration.md#other-user-management-templates).
 
-In case of more advanced template customization, you can use a subscriber,
-for example in `src/EventSubscriber/LoginFormViewSubscriber.php`:
+In case of more advanced template customization, you can use a subscriber, for example in `src/EventSubscriber/LoginFormViewSubscriber.php`:
 
 ``` php hl_lines="23 35 40 42"
 <?php
@@ -83,20 +82,20 @@ final class LoginFormViewSubscriber implements EventSubscriberInterface
             MVCEvents::PRE_CONTENT_VIEW => 'onPreContentView',
         ];
     }
-    
+
     public function onPreContentView(PreContentViewEvent $event): void
     {
         $view = $event->getContentView();
-        
+
         if (!($view instanceof LoginFormView)) {
             return ;
         }
-        
+
         $view->addParameters([
             'foo' => 'foo',
             'bar' => 'bar'
         ]);
-        
+
         if ($view->getLastAuthenticationException() instanceof CredentialsExpiredException) {
             // View with instruction to unlock account
             $view->setTemplateIdentifier('login/expired_credentials.html.twig');
@@ -109,8 +108,7 @@ In the provided example, in line 23, the `PRE_CONTENT_VIEW` event is used.
 You can also pass additional parameters to the view (line 35).
 In this case, at the instance of exception (line 40), the subscriber displays the `expired_credentials.html.twig` template (line 42).
 
-Remember to provide a template and point to it in the subscriber
-(in this case, in `templates/login/expired_credentials.html.twig`):
+Remember to provide a template and point to it in the subscriber (in this case, in `templates/login/expired_credentials.html.twig`):
 
 ```html+twig
 {% extends '@ibexadesign/Security/base.html.twig' %}

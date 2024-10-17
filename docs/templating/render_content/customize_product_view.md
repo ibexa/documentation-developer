@@ -5,8 +5,7 @@ edition: commerce
 
 # Customize product view
 
-The built-in storefront offers a set of templates covering all functionalities of a shop,
-divided into smaller components.
+The built-in storefront offers a set of templates covering all functionalities of a shop, divided into smaller components.
 
 To customize your shop, you can override either whole templates, or specific components.
 The built-in templates belong to the `storefront` [theme](design_engine.md).

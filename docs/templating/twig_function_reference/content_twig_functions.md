@@ -24,13 +24,11 @@ You can provide `ibexa_render()` with either a content item or a Location object
 
 !!! tip
 
-    Depending on whether you pass a content item or a Location object,
-    the helper automatically selects and uses one of internal Twig functions:
-    `ibexa_render_content()` or `ibexa_render_location()`.
+    Depending on whether you pass a content item or a Location object, the helper automatically selects and uses one of internal Twig functions: `ibexa_render_content()` or `ibexa_render_location()`.
 
 |Argument|Type|Description|
 |------|------|------|
-|`content`</br>or</br>`location`|`Ibexa\Contracts\Core\Repository\Values\Content\Content`</br>or</br>`Ibexa\Contracts\Core\Repository\Values\Content\Location`|Content item or its Location.|
+|`content`</br>or</br>`location`|`Ibexa\Contracts\Core\Repository\Values\Content\Content`</br>or</br>`Ibexa\Contracts\Core\Repository\Values\Content\Location`|Content item or its location.|
 |`method`|`string`|(optional) [Rendering method](#rendering-methods). One of: `direct`, `inline`, `esi`, `ssi`. (Default method is `direct`)|
 |`viewType`|`string`|(optional) [View type](template_configuration.md#view-types). (Default view type is `embed`)|
 
@@ -58,8 +56,7 @@ You can pass one of the following rendering methods to `ibexa_render()`:
 `ibexa_content_name()` renders the name of a content item.
 
 The function uses prioritized languages from SiteAccess settings unless you pass another language as `forcedLanguage`.
-If the content item doesn't have a translation in the prioritized or passed language,
-the function returns the name in the main language.
+If the content item doesn't have a translation in the prioritized or passed language, the function returns the name in the main language.
 
 | Argument | Type | Description |
 |---------------|------|-------------|
@@ -86,8 +83,7 @@ the function returns the name in the main language.
 
 ### `ibexa_seo()`
 
-`ibexa_seo()` attaches [SEO](https://doc.ibexa.co/projects/userguide/en/latest/search_engine_optimization/seo/) 
-data to the content item's HTML code.
+`ibexa_seo()` attaches [SEO](https://doc.ibexa.co/projects/userguide/en/latest/search_engine_optimization/seo/) data to the content item's HTML code.
 
 | Argument | Type | Description |
 |---------------|------|-------------|
@@ -126,7 +122,7 @@ data to the content item's HTML code.
 
 ### `ibexa_render_location_query()`
 
-`ibexa_render_location_query` renders the results of a non-content related Location query made by using a Query type.
+`ibexa_render_location_query` renders the results of a non-content related location query made by using a Query type.
 
 |Argument|Type|Description|
 |------|------|------|

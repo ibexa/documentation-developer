@@ -9,7 +9,8 @@ While in PHP, you may need to render the view of a content item (for example, fo
 !!! caution
 
     Avoid using PHP rendering in a controller as much as possible.
-    You can access a view directly through the route `/view/content/{contentId}/{viewType}[/{location}]`. For example, on a fresh installation, you can access `/view/content/52/line` which returns a small piece of HTML with a link to the content that could be used in Ajax.
+    You can access a view directly through the route `/view/content/{contentId}/{viewType}[/{location}]`.
+    For example, on a fresh installation, you can access `/view/content/52/line` which returns a small piece of HTML with a link to the content that could be used in Ajax.
     If you need a controller to have additional information available in the template or to customize the `Response` object, define the controller in a [view configuration](template_configuration.md) as shown in [Controllers](controllers.md), enhance the View object and return it.
 
 The following example is a command outputting the render of a content for a view type in the terminal.
@@ -38,7 +39,7 @@ Create the command in `src/Command/ViewCommand.php`:
 
     As `Ibexa\Core\MVC\Symfony\View\Builder\ContentViewBuilder` and `Ibexa\Core\MVC\Symfony\View\Renderer\TemplateRenderer` aren't part of the public PHP API's `Ibexa\Contracts` namespace, they might change without notice.
 
-Use the command with some simple views:
+Use the command with some views:
 
 ```bash
 php bin/console app:view --content-id=52

@@ -5,8 +5,7 @@ edition: commerce
 
 # Customize storefront layout
 
-The built-in storefront offers a set of templates covering all functionalities of a shop,
-divided into smaller components.
+The built-in storefront offers a set of templates covering all functionalities of a shop, divided into smaller components.
 
 To customize your shop, you can override either whole templates, or specific components.
 The built-in templates belong to the `storefront` [theme](design_engine.md).
@@ -14,8 +13,7 @@ To override any of them, copy its directory structure in your template directory
 
 ## Template customization example
 
-As an example, to change the cart display when it contains no products,
-you need to override [`vendor/ibexa/storefront/src/bundle/Resources/views/themes/storefront/cart/component/maincart/maincart_empty_cart.html.twig`](https://github.com/ibexa/storefront/blob/main/src/bundle/Resources/views/themes/storefront/cart/component/maincart/maincart_empty_cart.html.twig) template.
+As an example, to change the cart display when it contains no products, you need to override [`vendor/ibexa/storefront/src/bundle/Resources/views/themes/storefront/cart/component/maincart/maincart_empty_cart.html.twig`](https://github.com/ibexa/storefront/blob/main/src/bundle/Resources/views/themes/storefront/cart/component/maincart/maincart_empty_cart.html.twig) template.
 
 To do it, create your own template in `templates/theme/storefront/cart/component/maincart/maincart_empty_cart.html.twig`.
 
@@ -136,7 +134,8 @@ Next, add the button in the Twig file.
 ### Main cart
 
 You must customize the base widget for the main cart view, because out-of-the-box it consists only of the container with items.
-Each item consists of `<div>` wrappers with quantity input and remove item button. With customization you can add layout containers and items' data such as title or price.
+Each item consists of `<div>` wrappers with quantity input and remove item button.
+With customization you can add layout containers and items' data such as title or price.
 
 Available Twigs:
 
@@ -214,8 +213,7 @@ with parameters:
 
 ### Summary
 
-You could extend the summary widget to let buyers navigate from this view, 
-for example, to checkout, or back to shopping, by adding respective buttons.
+You could extend the summary widget to let buyers navigate from this view, for example, to checkout, or back to shopping, by adding respective buttons.
 
 |Template|Component|
 |---|---|

@@ -58,13 +58,11 @@ To create a custom breadcrumb generator you have to write a generator class and 
 
 The generator must implement `BreadcrumbsGeneratorInterface` and its two methods.
 
-You can use `AbstractWhiteOctoberBreadcrumbsGenerator`
-which implements this interface and provides access to the WhiteOctober breadcrumbs library.
+You can use `AbstractWhiteOctoberBreadcrumbsGenerator` which implements this interface and provides access to the WhiteOctober breadcrumbs library.
 
 Every breadcrumb generator has to add a `translationParameters` array with `type`, `identifier` and `content_type_id`.
 Always create all three keys and leave the elements empty if not needed.
 
-If you can't or don't want to use `AbstractWhiteOctoberBreadcrumbsGenerator`,
-your generator's `renderBreadcrumbs()` method must handle rendering the HTML code for the breadcrumbs.
+If you can't or don't want to use `AbstractWhiteOctoberBreadcrumbsGenerator`, your generator's `renderBreadcrumbs()` method must handle rendering the HTML code for the breadcrumbs.
 
 The highest priority generator which matches `canRender()` renders the breadcrumbs for the current request.

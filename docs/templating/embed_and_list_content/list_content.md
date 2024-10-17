@@ -4,8 +4,7 @@ description: Create and render a list of content items, for example, content in 
 
 # List content
 
-To render a list of content items, for example, content in a folder, blog posts in a blog, and so on,
-you can use one of two methods:
+To render a list of content items, for example, content in a folder, or blog posts in a blog, you can use one of two methods:
 
 - use a [Query type](#list-children-with-query-type)
 - create a content type with a [Content Query Field](#list-children-in-content-query-field)
@@ -37,17 +36,16 @@ Then, place the following template in `templates/themes/<my_theme>/full/folder.h
 [[= include_file('code_samples/front/list_content/templates/themes/my_theme/full/folder.html.twig') =]]
 ```
 
-This template uses the [`ibexa_render()` Twig function](content_twig_functions.md#ibexa_render)
-to render every child of the folder with the default template for the `line` view.
+This template uses the [`ibexa_render()` Twig function](content_twig_functions.md#ibexa_render) to render every child of the folder with the default template for the `line` view.
 
 ## List children in Content query Field
 
-A [Content query Field](contentqueryfield.md) is a Field that defines a query.
-The following example shows how to use a Content query Field to render a Blog with its Blog Post children.
+A [Content query Field](contentqueryfield.md) is a field that defines a query.
+The following example shows how to use a Content query field to render a Blog with its Blog Post children.
 
-First, create a Blog content type that contains a Content query Field with the identifier `query`.
+First, create a Blog content type that contains a Content query field with the identifier `query`.
 
-In the Field definition, select "Children" as the Query type. 
+In the Field definition, select "Children" as the Query type.
 Provide the `content` parameter that the Query type requires:
 
 ```
@@ -64,7 +62,7 @@ Then, in the content view configuration, add the configuration under `content_qu
 [[= include_file('code_samples/front/list_content/config/packages/views.yaml', 8, 9) =]][[= include_file('code_samples/front/list_content/config/packages/views.yaml', 22, 28) =]]
 ```
 
-The `match` configuration matches both the content type and the identifier of the Content query Field.
+The `match` configuration matches both the content type and the identifier of the Content query field.
 
 Finally, in the template `templates/themes/<my_theme/content_query/blog_posts.html.twig`, render all results of the query:
 

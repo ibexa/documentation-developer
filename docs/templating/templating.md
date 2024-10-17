@@ -7,8 +7,7 @@ page_type: landing_page
 
 To create a website front for your site, you can use the Twig-based templating system.
 
-You configure the templates to use by applying content view configuration
-that covers for different types of content and different parts of your website.
+You configure the templates to use by applying content view configuration that covers for different types of content and different parts of your website.
 
 The design engine lets you prepare differing template themes.
 Content view configuration is SiteAccess-aware.

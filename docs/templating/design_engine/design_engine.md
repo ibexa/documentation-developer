@@ -29,13 +29,13 @@ Each scope can use only one design.
 
 ## Design theme list
 
-A theme is a set of directories to look for templates in. At application level, theme's templates are placed in a directory under `templates/themes` which has the same name as the theme.
+A theme is a set of directories to look for templates in.
+At application level, theme's templates are placed in a directory under `templates/themes` which has the same name as the theme.
 For example, templates placed in `templates/themes/standard` directory are automatically added to the `standard` theme.
 
 !!! caution
 
-    After you create a new directory with a theme in `templates/themes`,
-    you must clear the cache (`php bin/console cache:clear`), even if you work in the dev environment.
+    After you create a new directory with a theme in `templates/themes`, you must clear the cache (`php bin/console cache:clear`), even if you work in the dev environment.
 
 The order of themes in a design is important.
 The design engine attempts to apply the first theme in configuration (for example, `theme2`).
@@ -51,6 +51,7 @@ Do this, for example, when you create a SiteAccess with a special design for a c
 !!! tip
 
     You can check the final design theme lists with the following command:
+
     ```shell
     php bin/console debug:container --parameter=ibexa.design.list --format=json
     ```
@@ -88,6 +89,7 @@ ibexa_design_engine:
 !!! tip
 
     You can check the final template directory list per theme with the following command:
+
     ```shell
     php bin/console debug:container --parameter=ibexa.design.templates.path_map --format=json
     ```

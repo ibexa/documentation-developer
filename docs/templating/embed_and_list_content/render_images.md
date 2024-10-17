@@ -4,7 +4,7 @@ description: Render content images and configure their variations.
 
 # Render images
 
-To render images contained in Image Asset or Image Fields, use the [`ibexa_render_field()`](field_twig_functions.md#ibexa_render_field) Twig function.
+To render images contained in Image Asset or Image fields, use the [`ibexa_render_field()`](field_twig_functions.md#ibexa_render_field) Twig function.
 
 ``` html+twig
 {{ ibexa_render_field(content, 'image') }}
@@ -24,11 +24,9 @@ You can pass the name of an [image variation](#configure-image-variation) as an 
 
 If a content item contains more than one image, you may want to select the first filled image to render.
 
-This enables you to avoid a situation where, for example, the featured image in an article is missing,
-because the first image Field was left empty.
+This enables you to avoid a situation where, for example, the featured image in an article is missing, because the first image field was left empty.
 
-The [`ibexa_content_field_identifier_first_filled_image()`](image_twig_functions.md#ibexa_content_field_identifier_first_filled_image) Twig function
-returns the identifier of the first image Field that isn't empty.
+The [`ibexa_content_field_identifier_first_filled_image()`](image_twig_functions.md#ibexa_content_field_identifier_first_filled_image) Twig function returns the identifier of the first image field that isn't empty.
 
 ``` html+twig
 {% set firstImage = ibexa_content_field_identifier_first_filled_image(content) %}
@@ -38,8 +36,8 @@ returns the identifier of the first image Field that isn't empty.
 
 !!! caution
 
-    This function works only for [Image](imagefield.md) Fields.
-    It doesn't work for [ImageAsset](imageassetfield.md) Fields.
+    This function works only for [Image](imagefield.md) fields.
+    It doesn't work for [ImageAsset](imageassetfield.md) fields.
 
 ## Configure image variation
 
@@ -47,8 +45,7 @@ The same image can have multiple variations differing in things such as scale, c
 
 You can use the built-in image variations or [configure your own](image_variations.md#custom-image-variations).
 
-The following example creates a custom variation that scales the image down to a 200 x 200 thumbnail
-and renders it in grayscale:
+The following example creates a custom variation that scales the image down to a 200 x 200 thumbnail and renders it in grayscale:
 
 ``` yaml
 ibexa:
@@ -78,13 +75,13 @@ In the [image editor](configure_image_editor.md) you can define a focal point fo
 The focal point doesn't have an instant effect when you use the default templates.
 However, you can use it to select the part of the image the view focuses on when the image is cropped.
 
-The following example shows how to use an image contained in an Image Field as a focussed background.
+The following example shows how to use an image contained in an Image field as a focussed background.
 
 !!! note
 
     This implementation is only an example and depends on the JavaScript framework you're using.
 
-First, in the main template, render the Image Field with a custom template:
+First, in the main template, render the Image field with a custom template:
 
 ``` html+twig
 {{ ibexa_render_field(content, 'image', {
@@ -92,8 +89,7 @@ First, in the main template, render the Image Field with a custom template:
 }) }}
 ```
 
-Then, create the custom Field template in `templates/fields/image.html.twig`,
-[overriding the default `ezimage_field` template block](render_content.md#field-templates):
+Then, create the custom Field template in `templates/fields/image.html.twig`, [overriding the default `ezimage_field` template block](render_content.md#field-templates):
 
 ``` html+twig
 {% block ezimage_field %}
@@ -116,5 +112,4 @@ Then, create the custom Field template in `templates/fields/image.html.twig`,
 {% endblock %}
 ```
 
-This template uses the focal point information contained in the image's additional data
-to position the background so that the focussed part of the image is displayed.
+This template uses the focal point information contained in the image's additional data to position the background so that the focussed part of the image is displayed.

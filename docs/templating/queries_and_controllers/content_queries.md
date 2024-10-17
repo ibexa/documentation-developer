@@ -25,8 +25,7 @@ You can also write [custom Query types](create_custom_query_type.md) for the cas
 
 ### Query type configuration
 
-To use a Query type, select the Query controller (`ibexa_query`) in the [content view configuration](template_configuration.md)
-and select the Query type under `params.query.query_type`:
+To use a Query type, select the Query controller (`ibexa_query`) in the [content view configuration](template_configuration.md) and select the Query type under `params.query.query_type`:
 
 ``` yaml hl_lines="2 6"
 folder:
@@ -44,7 +43,7 @@ folder:
 
 Use one of the following Query controller methods:
 
-- `locationQueryAction` runs a Location Search
+- `locationQueryAction` runs a location Search
 - `contentQueryAction` runs a content Search
 - `contentInfoQueryAction` runs a ContentInfo search
 - `pagingQueryAction` returns a `PagerFanta` object and can be used to quickly [paginate query results](#pagination)
@@ -63,13 +62,11 @@ All Query types take the following parameters:
 !!! tip
 
     Search results are a `SearchResult` object, which contains `SearchHit` objects.
-    To get the content or Locations that are in search results, you access the `valueObject`
-    of the `SearchHit`.
+    To get the content or Locations that are in search results, you access the `valueObject` of the `SearchHit`.
 
 ### Pagination
 
-To paginate the results of a query, use the `pagingQueryAction` of the Query controller
-and assign a limit per page in `params.query.limit`:
+To paginate the results of a query, use the `pagingQueryAction` of the Query controller and assign a limit per page in `params.query.limit`:
 
 ``` yaml hl_lines="4 12"
 [[= include_file('code_samples/front/query_pagination/config/packages/views.yaml', 8, 22) =]]
@@ -107,8 +104,7 @@ contentType: '@=returnedType'
 
 Select **Enable pagination** and set the number of items per page to paginate the results.
 
-You can override the pagination settings from field definition
-by setting the `enablePagination`, `disablePagination` or `itemsPerPage` parameters when rendering the content query field:
+You can override the pagination settings from field definition by setting the `enablePagination`, `disablePagination` or `itemsPerPage` parameters when rendering the content query field:
 
 ``` html+twig
 {{ ibexa_render_field(content, 'query', {
@@ -119,7 +115,7 @@ by setting the `enablePagination`, `disablePagination` or `itemsPerPage` paramet
 }) }}
 ```
 
-You can also define an offset for the results. 
+You can also define an offset for the results.
 Provide the offset in the Query type, or in parameters:
 
 ```
@@ -150,8 +146,7 @@ To render a content query field, in the content view configuration, use the `con
 [[= include_file('code_samples/front/list_content/config/packages/views.yaml', 8, 9) =]][[= include_file('code_samples/front/list_content/config/packages/views.yaml', 22, 28) =]]
 ```
 
-The identifier of the content query field must be matched by
-using the `'@Ibexa\FieldTypeQuery\ContentView\FieldDefinitionIdentifierMatcher'` matcher.
+The identifier of the content query field must be matched by using the `'@Ibexa\FieldTypeQuery\ContentView\FieldDefinitionIdentifierMatcher'` matcher.
 
 Query results are provided to the template in the `items` variable.
 See [List content](list_content.md#list-children-in-content-query-field) for an example of using the content query field.
