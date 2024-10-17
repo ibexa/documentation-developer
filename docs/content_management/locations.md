@@ -99,7 +99,7 @@ When the Location of a content item is hidden, the system doesn't display it on 
     it'sn't permission-based, and **doesn't restrict access to content**. Hidden content can be read through other means, like the REST API.
 
     If you need to restrict access to a given content item, you could create a role that grants read access for a given [**Section**](sections.md) or
-    [**Object State**](object_states.md), and set a different Section or Object State for the given Content.
+    [**Object State**](object_states.md), and set a different section or Object State for the given content.
     Or use other permission-based [**Limitations**](limitations.md).
 
 If a content item is hidden, it's invisible in all its Locations.

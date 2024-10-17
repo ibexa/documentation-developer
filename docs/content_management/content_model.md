@@ -38,9 +38,9 @@ The name is in the main language of the content item.
 
     `name` is always searchable, even if the field(s) used to generate it aren't.
 
-**`sectionId`** - the unique number of the Section to which the content item belongs.
-New content items are placed in the Standard Section by default.
-This behavior can be changed, but content must always belong to some Section.
+**`sectionId`** - the unique number of the section to which the content item belongs.
+New content items are placed in the Standard section by default.
+This behavior can be changed, but content must always belong to some section.
 
 For more information, see [Sections](sections.md).
 

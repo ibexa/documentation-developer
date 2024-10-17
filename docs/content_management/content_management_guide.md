@@ -187,10 +187,10 @@ There are, however, mechanisms to control access to content with even more conve
 ### Sections
 
 You can divide your content tree into nominal parts to better organize it.
-Once you have defined sections, for example, Media or Forms, and assigned them to content items, you can decide which roles have access to which Section of the tree.
+Once you have defined sections, for example, Media or Forms, and assigned them to content items, you can decide which roles have access to which section of the tree.
 
 The setting is inherited, which means that a child content item inherits a value of this setting from its parent.
-Changing a Section setting doesn't result in moving a content item to a different location within a content tree.
+Changing a section setting doesn't result in moving a content item to a different location within a content tree.
 
 ![Members of the Media Section](img/sections.png)
 
@@ -241,7 +241,7 @@ Again, this isn't part of content management, but at this point you can [publish
 **5\. Organize content**
 
 Organize the content of your website by copying or moving content items, [controlling Locations and URL addresses]([[= user_doc =]]/content_management/content_organization/manage_locations_urls/).
-Then work with Tags, Sections and Object States to [classify]([[= user_doc =]]/content_management/content_organization/classify_content/#sections) it.
+Then work with Tags, sections and Object States to [classify]([[= user_doc =]]/content_management/content_organization/classify_content/#sections) it.
 
 ## Benefits
 

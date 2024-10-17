@@ -193,7 +193,7 @@ The root node is `<ViewInput>` and it has two mandatory children: `<identifier>`
 
 You can add `version=1.1` to the `Content-Type` header to support the distinction between `ContentQuery` and `LocationQuery` instead of `Query` which implicitly looks only for content items.
 
-The following examples search for `article` and `news` typed content items everywhere or for content items of all types directly under Location `123`. All those content items must be in the `standard` Section.
+The following examples search for `article` and `news` typed content items everywhere or for content items of all types directly under Location `123`. All those content items must be in the `standard` section.
 
 === "XML"
 
