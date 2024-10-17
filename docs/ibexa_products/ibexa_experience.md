@@ -103,7 +103,7 @@ You can assign users to different recommendation groups and create advanced logi
 
 #### Customer Data Platform (CDP)
 
-[[[= product_name_cdp =]]](cdp_guide.md) is an add-on available for both Experience and [Commerce](ibexa_commerce.md) editions of [[= product_name =]].
+[Ibexa CDP](cdp_guide.md) is an add-on available for both Experience and [Commerce](ibexa_commerce.md) editions of [[= product_name =]].
 To use it, you must make arrangements with [[= product_name_base =]] to define the initial configuration.
 Once you activate [[= product_name_cdp =]], you can create complete customer profiles, including their interactions, behavior, and preferences.
 It helps you improve user engagement, conversion rates, and return on investment by segmenting your audience and delivering tailored campaigns and experiences.
@@ -115,7 +115,7 @@ This central data storage supports business growth with a scalable infrastructur
 
 #### [[= product_name_engage =]]
 
-Another add-on available for Experience and [Commerce](ibexa_commerce.md) edition is [[[= product_name_engage =]]](ibexa_engage.md).
+Another add-on available for Experience and [Commerce](ibexa_commerce.md) edition is [Ibexa Engage](ibexa_engage.md).
 To use it, you must make arrangements with [[= product_name_base =]] to define the initial configuration, and then get and set up a user account.
 [[= product_name_engage =]] is a data collection tool.
 It gives you the ability to use the [Qualifio](https://qualifio.com/) tools to engage your audiences. You can use Qualifio's existing templates and interactive elements, such as quizzes, pools, and forms, to create visually appealing, customized campaigns and collect important data.

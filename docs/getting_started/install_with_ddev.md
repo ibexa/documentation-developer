@@ -418,7 +418,7 @@ If the local project needs to answer to real production domains (for example, to
 You can use DDEV to locally simulate a production cluster.
 
 - See [Clustering with DDEV](clustering_with_ddev.md) to add Elasticsearch, Solr, Redis, or Memcached to your DDEV installation.
-- See [DDEV and [[= product_name_cloud =]]](ddev_and_ibexa_cloud.md) to locally run an [[= product_name =]] project by using DDEV.
+- See [DDEV and Ibexa Cloud](ddev_and_ibexa_cloud.md) to locally run an [[= product_name =]] project by using DDEV.
 
 ## Stop or remove the project
 

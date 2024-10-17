@@ -423,4 +423,4 @@ To make use of the [Link Manager](url_management.md#enabling-automatic-url-valid
 
 ## [[= product_name_cloud =]]
 
-If you want to host your application on [[= product_name_cloud =]], follow the [Install on [[= product_name_cloud =]]](install_on_ibexa_cloud.md) procedure.
+If you want to host your application on [[= product_name_cloud =]], follow the [Ibexa Cloud](install_on_ibexa_cloud.md) procedure.

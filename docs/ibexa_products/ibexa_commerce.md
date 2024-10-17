@@ -21,7 +21,7 @@ You can completely revamp your online stores and give your consumers exceptional
 
 To start using [[= product_name_com =]], you need to purchase a product license.
 
-For more information, see [[[= product_name_com =]] license pricing](https://www.ibexa.co/products/pricing?tab=3).
+For more information, see [Ibexa Commerce license pricing](https://www.ibexa.co/products/pricing?tab=3).
 You can also [contact us](https://www.ibexa.co/about-ibexa/contact-us) or [one of our partners](https://www.ibexa.co/partners).
 
 ## How it works
@@ -33,9 +33,9 @@ With an active license, you can start the [installation process](install_ibexa_d
 [[= product_name_com =]] is based on [Symfony]([[= symfony_doc =]]).
 With a help of documentation and trainings, any developer familiar with Symfony or even PHP alone can learn how to use available extension points and extend the platform.
 
-Version control systems and environment variables allow you to deploy your extensions and settings on several environments, such as [[[= product_name_cloud =]]](ibexa_cloud_guide.md).
+Version control systems and environment variables allow you to deploy your extensions and settings on several environments, such as [Ibexa Cloud](ibexa_cloud_guide.md).
 
-[[= product_name_com =]] is built on [[[= product_name_exp =]]](ibexa_experience.md) and includes all bundles, APIs, and features that come with both [Headless](ibexa_headless.md#core-features) and [Experience](ibexa_experience.md#core-features) editions.
+[[= product_name_com =]] is built on [Ibexa Experience](ibexa_experience.md) and includes all bundles, APIs, and features that come with both [Headless](ibexa_headless.md#core-features) and [Experience](ibexa_experience.md#core-features) editions.
 
 ## Capabilities and benefits
 

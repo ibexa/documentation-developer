@@ -8,7 +8,7 @@ This update procedure applies if you're using the newest v4.3 installation.
 
 This release deprecates all Commerce packages in[[= product_name =]]. They will be removed in v5.
 Until that time, they will be maintained by Ibexa with fixes, including security fixes, but they won't be further developed.
-Old packages are replaced by [the all-new [[= product_name_com =]] packages](ibexa_dxp_v4.4.md#all-new-ibexa-commerce-packages).
+Old packages are replaced by [the all-new Ibexa Commerce packages](ibexa_dxp_v4.4.md#all-new-ibexa-commerce-packages).
 
 For that reason, there are two update routes you can take.
 
