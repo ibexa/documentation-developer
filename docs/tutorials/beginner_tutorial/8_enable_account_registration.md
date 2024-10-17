@@ -199,8 +199,8 @@ Now add the following policies to the Contributors role.
 - User/Password
 - Content/Read
 - Content/Versionread
-- Content/Create with limitations: content type limited to Ride and Landmark content types and Subtree to the `Member Rides`
-- Content/Publish with limitations: content type limited to Ride and Landmark content types and Subtree to the `Member Rides`
+- Content/Create with limitations: content type limited to Ride and Landmark content types and subtree to the `Member Rides`
+- Content/Publish with limitations: content type limited to Ride and Landmark content types and subtree to the `Member Rides`
 - Content/Edit with limitation: Owner limited to `Self`
 - Section/View
 - Content/Reverserelatedlist

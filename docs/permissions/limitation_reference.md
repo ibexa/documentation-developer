@@ -295,7 +295,7 @@ The Shipment Owner (`ShipmentOwner`) limitation specifies whether the user can m
 
 ## Subtree limitation
 
-The Subtree (`Subtree`) limitation specifies whether the user has access to content within a specific Subtree of location, in case of `content/create` the parent Subtree of location is evaluated.
+The subtree (`Subtree`) limitation specifies whether the user has access to content within a specific subtree of location, in case of `content/create` the parent subtree of location is evaluated.
 
 This limitation can be used as a role limitation.
 
@@ -307,7 +307,7 @@ This limitation can be used as a role limitation.
 
 ### Usage notes
 
-For more information on how to restrict user's access to part of the Subtree, see [the example in the Admin management section](permission_use_cases.md#restrict-editing-to-part-of-the-tree).
+For more information on how to restrict user's access to part of the subtree, see [the example in the Admin management section](permission_use_cases.md#restrict-editing-to-part-of-the-tree).
 
 ## Version Lock limitation
 

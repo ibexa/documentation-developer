@@ -82,7 +82,7 @@ To limit the user's access to a subtree, use the `Subtree of Location` limitatio
 You do it by creating two new roles for a user group:
 
  1. Role with a `Subtree` limitation for the User
- 1. Role with a `Location` limitation for the Subtree
+ 1. Role with a `Location` limitation for the subtree
 
 Follow the example below to learn how to do that.
 
