@@ -44,7 +44,7 @@ the closing `</head>` tag.
     var yc = document.createElement('script'); 
     yc.type = 'text/javascript'; 
     yc.async = true;
-    yc.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'cdn.perso.ibexa.co/ibexa-tracker.js';
+    yc.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'cdn.perso.ibexa.co/ibexa-tracker.min.js';
     var ycs = document.getElementsByTagName('script')[0];
     ycs.parentNode.insertBefore(yc, ycs);
   })();
