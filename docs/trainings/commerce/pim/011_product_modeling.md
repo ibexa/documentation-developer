@@ -50,10 +50,12 @@ Product assets presented bellow are explaining why there is no need to add field
 
 Like fields, attributes are typed.
 
-Unlike fields, attributes are never translatable.
+Unlike fields, attributes are not translatable in the product.
+Attributes are translated from their definition.
 Attributes are product constant properties.
-Attributes values can't be translated because those properties don't change with the language.
-Only the display of those properties changes with the language. See the following concept examples:
+Attributes values can't be translated from the product because those properties don't change with the language.
+Only the display of those properties changes with the language.
+See the following concept examples:
 
 - The color of a product is the same whatever the language is, only the corresponding color name is translated.
 - The radius of a sphere doesn't depend on the language, only its numeral representation need translation according to local length units.
@@ -63,20 +65,19 @@ Attributes and attribute groups are to be reused from product type to product ty
 
 An attribute can be used to make product variant.
 
-TODO: Best practices:
-How to think product types?
-How to not have a product type per product?
-How to not want a "god" product type trying to cover everything?
-
-TODO: Variants
-
 ## Product and product variants
 
 Technically, a product is a content item.
 
 But a variant isn't.
+A variant has simpler representation
+refering to the base product
+and declaring values for the variable attributes.
 
 TODO: Continue content VS product VS variant
+
+A variant doesn't need translation.
+It combines base product's and attributes' translations.
 
 ## Product assets
 
@@ -93,6 +94,11 @@ A collection of assets is associated to attribute values used for variants.
 When displaying a product variant, the application combines the asset collections which suit its attribute values.
 For example, you can associate close-up photos of a feature to the checkbox representing its presence,
 while associating full views of the products to each of its available colors.
+
+Assets are not translatable.
+If a product is not the same from a region to another, from a language to another, this isn't the same product.
+For example, if you want to be able to select the language of the instruction manual whatever the user's region,
+you could set this choice in a selection attribute, then load a preview asset to each of its values. 
 
 ## Exercise: Bike modeling
 
@@ -268,6 +274,13 @@ But, if you're curious, you can read or implements as a bonus the following cust
         ORDER BY cg.group_id ASC, c.id ASC
     ;
     ```
+
+??? note "Bonus: Translation"
+
+    - Add a language to your installation (Admin > Languages > Add language).
+    - Translate your attribute groups and attributes using the "Translations" tab when you displaying a group or an attribute in the back office.
+    - Translate your product types.
+    - Translate your base products.
 
 Here are some assets for the Fuji bikes, and for the G02 bundles front gears:
 
