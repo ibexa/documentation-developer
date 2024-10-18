@@ -242,4 +242,4 @@ php bin/console ibexa:migrations:migrate --file=order_permissions.yaml
 
 ## Update to v4.5.latest
 
-You can now continue with the application of the 4.5 patches instructions starting with [v4.5.2](update_from_4.5.md#v452).
+You can now continue applying the instructions for the 4.5 patch releases, starting with [v4.5.2](update_from_4.5.md#v452).

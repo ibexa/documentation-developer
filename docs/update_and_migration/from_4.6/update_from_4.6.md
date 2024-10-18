@@ -29,7 +29,7 @@ First, run:
     composer recipes:install ibexa/commerce --force -v
     ```
 
-Then execute the instructions below from the version you're upgrading from (or the closest superior) to the end of this page.
+Then execute the instructions below starting from the version you're upgrading from.
 
 <!-- vale Ibexa.VariablesVersion = NO -->
 
