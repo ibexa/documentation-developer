@@ -23,7 +23,7 @@ Get an individual product by using the `ProductServiceInterface::getProduct()` m
 [[= include_file('code_samples/api/product_catalog/src/Command/ProductCommand.php', 68, 71) =]]
 ```
 
-Find multiple products with [`ProductServiceInterface::findProducts()`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-ProductServiceInterface.html#method_findProducts).
+Find multiple products with `ProductServiceInterface::findProducts()`.
 
 Provide the method with optional filter, query or Sort Clauses.
 
@@ -31,7 +31,7 @@ Provide the method with optional filter, query or Sort Clauses.
 [[= include_file('code_samples/api/product_catalog/src/Command/ProductCommand.php', 72, 82) =]]
 ```
 
-See [Product Search Criteria](product_search_criteria.md) and [Product Sort Clauses](product_sort_clauses.md) references for more to use with [`ProductQuery`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Values-Product-ProductQuery.html).
+See [Product Search Criteria](product_search_criteria.md) and [Product Sort Clauses](product_sort_clauses.md) references for more information about how to use the [`ProductQuery`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Values-Product-ProductQuery.html) class.
 
 ### Modifying products
 
@@ -41,7 +41,7 @@ To create, update and delete products, use the `LocalProductServiceInterface`.
 [[= include_file('code_samples/api/product_catalog/src/Command/ProductCommand.php', 93, 97) =]]
 ```
 
-To create a product, use [`LocalProductServiceInterface::newProductCreateStruct()`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Local-LocalProductServiceInterface.html#method_newProductCreateStruct).
+To create a product, use `LocalProductServiceInterface::newProductCreateStruct()` to get a [`ProductCreateStruct`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Local-Values-Product-ProductCreateStruct.html).
 Provide the method with the product type object and the main language code.
 You also need to set (at least) the code for the product and the required Field of the underlying content type, `name`:
 
@@ -145,7 +145,7 @@ To get information about product attribute groups, use the [`AttributeGroupServi
 or [`LocalAttributeGroupServiceInterface`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Local-LocalAttributeGroupServiceInterface.html) to modify attribute groups.
 
 `AttributeGroupServiceInterface::getAttributeGroup()` enables you to get a single attribute group by its identifier.
-`AttributeGroupServiceInterface::findAttributeGroups()` get all attribute groups, base on optional [`AttributeGroupQuery`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Values-AttributeGroup-AttributeGroupQuery.html):
+`AttributeGroupServiceInterface::findAttributeGroups()` gets attribute groups, all of them or filtered with an optional [`AttributeGroupQuery`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Values-AttributeGroup-AttributeGroupQuery.html) object:
 
 ``` php
 [[= include_file('code_samples/api/product_catalog/src/Command/AttributeCommand.php', 71, 72) =]]
