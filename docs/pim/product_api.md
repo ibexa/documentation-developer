@@ -58,7 +58,7 @@ To delete a product, use `LocalProductServiceInterface::deleteProduct()`:
 ### Product variants
 
 You can access the variants of a product by using `ProductServiceInterface::findProductVariants()`.
-The method takes the product object and a [`ProductVariantQuery`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Values-Product-ProductVariantQuery.html#constants) object as parameters.
+The method takes the product object and a [`ProductVariantQuery`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Values-Product-ProductVariantQuery.html) object as parameters.
 
 A `ProductVariantQuery` lets you define the offset and limit of the variant query.
 The default offset is 0, and limit is 25.
