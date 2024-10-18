@@ -174,7 +174,7 @@ About product search with `ProductServiceInterface::findProducts()`, also see th
 
 [Product API > Products > Product assets](product_api.md#product-assets) has an example of asset reading.
 
-[`AssetServiceInterface`](../../../api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-AssetServiceInterface.) is used to read product assets,
+[`AssetServiceInterface`](../../../api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-AssetServiceInterface.html) is used to read product assets,
 and [`LocalAssetServiceInterface`](../../../api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Local-LocalAssetServiceInterface.html) to write some.
 
 An asset collection as seen in the back office is represented by an associative array of tags (with attribute identifiers as keys),
