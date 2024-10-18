@@ -69,6 +69,5 @@
     },
     "config": {
         "allow-plugins": false
-    },
-    "minimum-stability": "dev"
+    }
 }
