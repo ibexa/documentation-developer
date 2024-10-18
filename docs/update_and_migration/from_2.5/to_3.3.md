@@ -152,6 +152,10 @@ Add the following rewrite rule to your web server configuration:
     rewrite "^/build/(.*)" "/build/$1" break;
     ```
 
-## Next steps
+## 6. Update the database
 
-Now, proceed to the last step, [updating to the latest v3.3 patch version](to_3.3.latest.md).
+[[% include 'snippets/update/db/update_db_2.5-3.3.md' %]]
+
+## 7. Update to the latest patch version
+
+Now, proceed to the last step, [updating to the latest v3.3 patch version](update_from_3.3.md).
