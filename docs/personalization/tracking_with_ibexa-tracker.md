@@ -22,6 +22,7 @@ It activates the tracking by inserting <https://cdn.perso.ibexa.co/ibexa-track
 <https://cdn.perso.ibexa.co/ibexa-tracker.min.js> into the page.
 
 To use this mechanism on your pages, copy the code snippet below, and replace: 
+
 - `<YOUR_MANDATOR_ID>` with the customer ID
 - `<CONTENT_TYPE_ID>` with the Content Type ID
 - `<CONTENT_ID>` with the content item ID
