@@ -1,5 +1,4 @@
 ---
-month_change: true
 ---
 
 # ContentName Criterion

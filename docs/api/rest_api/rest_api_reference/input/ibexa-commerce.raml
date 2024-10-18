@@ -13,7 +13,7 @@ displayName: eCommerce API (removed)
             200:
                 body:
                     application/vnd.ibexa.api.BasketListResponse+json:
-                        type: BasketListResponse
+                        type: BasketListResponseWrapper
                         example: !include examples/commerce/basket/headers/GET/BasketListResponse.json.example
             400:
                 body:
@@ -33,7 +33,7 @@ displayName: eCommerce API (removed)
                 200:
                     body:
                         application/vnd.ibexa.api.Basket+json:
-                            type: Basket
+                            type: BasketWrapper
                             example: !include examples/commerce/basket/Basket.json.example
 
         /{basketId}:
@@ -46,12 +46,12 @@ displayName: eCommerce API (removed)
                     200:
                         body:
                             application/vnd.ibexa.api.Basket+json:
-                                type: Basket
+                                type: BasketWrapper
                                 example: !include examples/commerce/basket/Basket.json.example
                     400:
                         body:
                             application/vnd.ibexa.api.ValidationResponse+json:
-                                type: ValidationResponse
+                                type: ValidationResponseWrapper
                                 example: !include examples/commerce/basket/current/copyfrom/_basket_id_/POST/ValidationResponse.json.example
 
         /referencenumber:
@@ -70,18 +70,18 @@ displayName: eCommerce API (removed)
                 description: Updates party (buyer, delivery, invoice) information in the basket. Removed as of Ibexa DXP 4.4.
                 body:
                     application/vnd.ibexa.api.PartyInvoice+json:
-                        type: PartyTypeInput
+                        type: PartyTypeInputWrapper
                         example: !include examples/commerce/basket/current/party/invoice/PATCH/PartyInvoice.json.example
                 responses:
                     200:
                         body:
                             application/vnd.ibexa.api.Basket+json:
-                                type: Basket
+                                type: BasketWrapper
                                 example: !include examples/commerce/basket/Basket.json.example
                     400:
                         body:
                             application/vnd.ibexa.api.ValidationResponse+json:
-                                type: ValidationResponse
+                                type: ValidationResponseWrapper
 
         /shippingmethod:
             patch:
@@ -95,12 +95,12 @@ displayName: eCommerce API (removed)
                     200:
                         body:
                             application/vnd.ibexa.api.Basket+json:
-                                type: Basket
+                                type: BasketWrapper
                                 example: !include examples/commerce/basket/Basket.json.example
                     400:
                         body:
                             application/vnd.ibexa.api.ValidationResponse+json:
-                                type: ValidationResponse
+                                type: ValidationResponseWrapper
 
         /paymentmethod:
             patch:
@@ -108,18 +108,18 @@ displayName: eCommerce API (removed)
                 description: Updates payment information in the current basket. Removed as of Ibexa DXP 4.4.
                 body:
                     application/vnd.ibexa.api.PaymentMethodData.json:
-                        type: PaymentMethodData
+                        type: PaymentMethodDataWrapper
                         example: !include examples/commerce/basket/current/paymentmethod/PATCH/PaymentMethodData.json.example
                 responses:
                     200:
                         body:
                             application/vnd.ibexa.api.Basket+json:
-                                type: Basket
+                                type: BasketWrapper
                                 example: !include examples/commerce/basket/Basket.json.example
                     400:
                         body:
                             application/vnd.ibexa.api.ValidationResponse+json:
-                                type: ValidationResponse
+                                type: ValidationResponseWrapper
 
         /voucher:
             patch:
@@ -127,18 +127,18 @@ displayName: eCommerce API (removed)
                 description: Updates and checks voucher in current basket. Removed as of Ibexa DXP 4.4.
                 body:
                     application/vnd.ibexa.api.VoucherData.json:
-                        type: VoucherData
+                        type: VoucherDataWrapper
                         example: !include examples/commerce/basket/current/voucher/PATCH/VoucherData.json.example
                 responses:
                     200:
                         body:
                             application/vnd.ibexa.api.Basket+json:
-                                type: Basket
+                                type: BasketWrapper
                                 example: !include examples/commerce/basket/Basket.json.example
                     400:
                         body:
                             application/vnd.ibexa.api.ValidationResponse+json:
-                                type: ValidationResponse
+                                type: ValidationResponseWrapper
 
         /line:
             post:
@@ -146,18 +146,18 @@ displayName: eCommerce API (removed)
                 description: Adds products to the current basket. Removed as of Ibexa DXP 4.4.
                 body:
                     application/vnd.ibexa.api.BasketLineData+json:
-                        type: BasketLineData
+                        type: BasketLineDataWrapper
                         example: !include examples/commerce/basket/current/lines/POST/BasketLineData.json.example
                 responses:
                     200:
                         body:
                             application/vnd.ibexa.api.Basket+json:
-                                type: Basket
+                                type: BasketWrapper
                                 example: !include examples/commerce/basket/Basket.json.example
                     400:
                         body:
                             application/vnd.ibexa.api.ValidationResponse+json:
-                                type: ValidationResponse
+                                type: ValidationResponseWrapper
                                 example: !include examples/commerce/basket/current/lines/POST/ValidationResponse.json.example
 
     /{basketId}:
@@ -168,7 +168,7 @@ displayName: eCommerce API (removed)
                 200:
                     body:
                         application/vnd.ibexa.api.Basket+json:
-                            type: Basket
+                            type: BasketWrapper
                             example: !include examples/commerce/basket/_id_/GET/Basket.json.example
         delete:
             displayName: Delete Basket by ID (removed)
@@ -189,13 +189,13 @@ displayName: eCommerce API (removed)
                     Removed as of Ibexa DXP 4.4, use PATCH /cart/{identifier} instead.
                 body:
                     application/vnd.ibexa.api.BasketHeaderData+json:
-                        type: BasketHeaderData
+                        type: BasketHeaderDataWrapper
                         example: !include examples/commerce/basket/_id_/_mode_/POST/BasketHeaderData.json.example
                 responses:
                     200:
                         body:
                             application/vnd.ibexa.api.Basket+json:
-                                type: Basket
+                                type: BasketWrapper
                                 example: !include examples/commerce/basket/Basket.json.example
 
         /note:
@@ -206,13 +206,13 @@ displayName: eCommerce API (removed)
                     Removed as of Ibexa DXP 4.4.
                 body:
                     application/vnd.ibexa.api.BasketHeaderData+json:
-                        type: BasketHeaderData
+                        type: BasketHeaderDataWrapper
                         example: !include examples/commerce/basket/_id_/_mode_/POST/BasketHeaderData.json.example
                 responses:
                     200:
                         body:
                             application/vnd.ibexa.api.Basket+json:
-                                type: Basket
+                                type: BasketWrapper
                                 example: !include examples/commerce/basket/Basket.json.example
 
         /line:
@@ -221,18 +221,18 @@ displayName: eCommerce API (removed)
                 description: Adds products to the stored basket. Removed as of Ibexa DXP 4.4, use POST /cart/{identifier}/entry instead.
                 body:
                     application/vnd.ibexa.api.BasketLineData+json:
-                        type: BasketLineData
+                        type: BasketLineDataWrapper
                         example: !include examples/commerce/basket/current/lines/POST/BasketLineData.json.example
                 responses:
                     200:
                         body:
                             application/vnd.ibexa.api.Basket+json:
-                                type: Basket
+                                type: BasketWrapper
                                 example: !include examples/commerce/basket/Basket.json.example
                     400:
                         body:
                             application/vnd.ibexa.api.ValidationResponse+json:
-                                type: ValidationResponse
+                                type: ValidationResponseWrapper
                                 example: !include examples/commerce/basket/current/lines/POST/ValidationResponse.json.example
 
         /line/{lineId}:
@@ -243,12 +243,12 @@ displayName: eCommerce API (removed)
                     200:
                         body:
                             application/vnd.ibexa.api.Basket+json:
-                                type: Basket
+                                type: BasketWrapper
                                 example: !include examples/commerce/basket/Basket.json.example
                     400:
                         body:
                             application/vnd.ibexa.api.ValidationResponse+json:
-                                type: ValidationResponse
+                                type: ValidationResponseWrapper
                                 example: !include examples/commerce/basket/_id_/line/_line_id_/DELETE/ValidationResponse.json.example
 
     /{basketName}:
@@ -259,12 +259,12 @@ displayName: eCommerce API (removed)
                 200:
                     body:
                         application/vnd.ibexa.api.Basket+json:
-                            type: Basket
+                            type: BasketWrapper
                             example: !include examples/commerce/basket/Basket.json.example
                 400:
                     body:
                         application/vnd.ibexa.api.ValidationResponse+json:
-                            type: ValidationResponse
+                            type: ValidationResponseWrapper
                             example: !include examples/commerce/basket/POST/ValidationResponse.json.example
 
 /checkout:
@@ -276,7 +276,7 @@ displayName: eCommerce API (removed)
                 200:
                     body:
                         application/vnd.ibexa.api.PaymentMethodDataResponse+json:
-                            type: PaymentMethodDataResponse
+                            type: PaymentMethodDataResponseWrapper
                             example: !include examples/commerce/checkout/payment-methods/GET/PaymentMethodDataResponse.json.example
 
     /shippingmethods:
@@ -287,7 +287,7 @@ displayName: eCommerce API (removed)
                 200:
                     body:
                         application/vnd.ibexa.api.ShippingMethodDataResponse+json:
-                            type: ShippingMethodDataResponse
+                            type: ShippingMethodDataResponseWrapper
                             example: !include examples/commerce/checkout/shipping-methods/GET/ShippingMethodDataResponse.json.example
 
 /customer/addresses/shipping:
@@ -298,7 +298,7 @@ displayName: eCommerce API (removed)
             200:
                 body:
                     application/json:
-                        type: ShippingAddressesResponse
+                        type: ShippingAddressesResponseWrapper
                         example: !include examples/commerce/customer/addresses/shipping/GET/ShippingAddressesResponse.json.example
 
 /customerprice:
@@ -307,13 +307,13 @@ displayName: eCommerce API (removed)
         description: Gets customer prices for the requested products. Removed as of Ibexa DXP 4.4.
         body:
             application/json:
-                type: CustomerPriceData
+                type: CustomerPriceDataWrapper
                 example: !include examples/commerce/customerprice/POST/CustomerPriceData.json.example
         responses:
             200:
                 body:
                     application/json:
-                        type: PriceResponse
+                        type: PriceResponseWrapper
                         example: !include examples/commerce/customerprice/POST/PriceResponse.json.example
 
 
@@ -330,5 +330,5 @@ displayName: eCommerce API (removed)
             200:
                 body:
                     application/json:
-                        type: CountrySelectionResponse
+                        type: CountrySelectionResponseWrapper
                         example: !include examples/commerce/country-selection/GET/CountrySelectionResponse.json.example

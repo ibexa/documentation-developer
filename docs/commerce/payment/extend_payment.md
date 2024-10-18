@@ -84,7 +84,7 @@ Then, register the validator as a service:
 Shut down the application, clear browser cache, and restart the application.
 Then, try creating a payment of the new type.
 
-![Payment method of custom type](custom_paymant_type.png "Payment method of custom type")
+![Payment method of custom type](custom_payment_type.png "Payment method of custom type")
 
 ## Attach custom data to payments
 

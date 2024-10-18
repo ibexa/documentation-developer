@@ -64,12 +64,20 @@ def define_env(env):
                     if match:
                         title = match.groups()[0]
                     else:
-                        title = ""
+                        match = re.search("<title>(.*)</title>", content, re.MULTILINE)
+                        if match:
+                            title = match.groups()[0]
+                        else:
+                            title = ""
                     match = re.search("<meta property=\"og:description\" content=\"(.*)\"", content, re.MULTILINE)
                     if match:
                         description = match.groups()[0]
                     else:
-                        description = ""
+                        match = re.search("<meta name=\"description\" content=\"(.*)\"", content, re.MULTILINE)
+                        if match:
+                            description = match.groups()[0]
+                        else:
+                            description = ""
                     href = page
             else:
                 with open("docs/%s.md" % page, "r") as doc_file:

@@ -1,5 +1,5 @@
 ---
-description: The Page Builder product guide provides a full description of its features as well as the benefits it brings to the client.
+description: Read about the Page Builder - a powerful tool for creating and modifying pages in Ibexa DXP.
 edition: experience
 ---
 
@@ -15,13 +15,15 @@ By editing pages you can customize the layout and content of your website.
 
 To create a new page:
 
-A\. In the main menu, go to **Content**.
+1\. In the main menu, go to **Content**.
 
-B\. Select **Content structure**.
+2\. Select **Content structure**.
 
-C\. On the right-side toolbar, click **Create content** and from the list of content items select **Landing Page**.
+3\. On the right-side toolbar, click **Create content**.
 
-D\. Select the layout and click **Create**.
+4\. From the list of content items select **Landing Page**.
+
+5\. Select the layout and click **Create**.
 
 ![Create page](create_page.png)
 
@@ -55,7 +57,7 @@ Page Builder user interface consists of:
 
 A. Drop zone
 
-B. Elements / Structure view toolbar
+B. Page blocks / Structure view toolbar
 
 C. Settings toolbar (including Fields, Visibility and Schedule settings)
 
@@ -69,7 +71,7 @@ E. Buttons:
 |![Preview segments](page_builder_toolbar_preview_segment.png)|Access preview of the Page for a given Segment.|
 |![Timeline button](page_builder_toolbartimelinetoggler.png)|Access the timeline to preview how the Page changes with time. You can also view the list of all upcoming scheduled events.|
 |![View toggler](page_builder_toolbar_devicestoggler.png)|Toggle through to see how the Page is rendered on different devices.|
-|![Elements menu](page_builder_toolbarelements.png)|Move Elements / Structure view to the other side of the screen.|
+|![Elements menu](page_builder_toolbarelements.png)|Move Page blocks / Structure view to the other side of the screen.|
 |![Undo](page_builder_undo.png)|Undo latest change.|
 |![Redo](page_builder_redo.png)|Redo latest change.|
 
@@ -87,9 +89,9 @@ F. Saving options
 
 Page Builder has two main views that you can use while creating a page:
 
-- Elements toolbar - consists of all available elements that you can use by dragging them and dropping on a drop zone.
+- Page blocks toolbar - consists of all available elements that you can use by dragging them and dropping on a drop zone.
 
-![Elements toolbar](elements_toolbar.png)
+![Page blocks](page_blocks_toolbar.png)
 
 - Structure view - shows a structure of the page, including its division into zones and the blocks that it contains. It follows the behavior of the Content Tree. Structure view has ability to reorder blocks using drag and drop.
 
@@ -115,7 +117,7 @@ For more information, see [Configure layout](render_page.md#configure-layout).
 #### Add blocks
 
 To customize your page in Page Builder you need to add blocks.
-To do it, access Elements toolbar, drag page block that you want to use, and drop it on the empty place on a drop zone.
+To do it, access Page blocks toolbar, drag page block that you want to use, and drop it on the empty place on a drop zone.
 
 When you add a new block to the drop zone, drop it in the blue highlighted area. Before you drop it, a bold line appears  - it helps you see the position of the newly added block in relation to other, already added blocks.
 
@@ -167,7 +169,7 @@ You can schedule content to be revealed, or hidden in Page Builder in two ways w
 
 ![Scheduler tab](scheduler_tab.png)
 
-- **Content Scheduler** - it's one of the blocks available in Page Builder Elements menu. To proceed with the schedule, go to **Basic** tab of the block, then click **Select content** and confirm your choice. Then set date and time in the **Content airtime settings** window.
+- **Content Scheduler** - it's one of the blocks available in Page Builder Page blocks menu. To proceed with the schedule, go to **Basic** tab of the block, then click **Select content** and confirm your choice. Then set date and time in the **Content airtime settings** window.
 
 ![Content Scheduler](content_scheduler.png)
 
@@ -178,7 +180,7 @@ For more information, see [Schedule publication]([[= user_doc =]]/content_manage
 ### Manage your pages without technical skills
 
 Thanks to intuitive and plain Page Builder interface, you can create and manage your website without the need of having advanced technical skills.
-Elements toolbar, visible page zones and Structure view - these are the elements that make working with Page Builder really intuitive and quick.
+Page blocks toolbar, visible page zones and Structure view - these are the elements that make working with Page Builder really intuitive and quick.
 
 ### Self schedule content, special offers and campaigns
 

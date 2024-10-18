@@ -12,13 +12,13 @@ post:
                 application/vnd.ibexa.api.CurrencyCreate+json
     body:
         application/vnd.ibexa.api.CurrencyCreate+json:
-            type: CurrencyCreate
+            type: CurrencyCreateWrapper
             example: !include examples/product/catalog/currency/POST/CurrencyCreate.json.example
     responses:
         200:
             body:
                 application/vnd.ibexa.api.Currency+json:
-                    type: CurrencyCreate
+                    type: CurrencyWrapper
                     example: !include examples/product/catalog/currency/POST/Currency.json.example
         400:
             description: Error - the input does not match the input schema definition.
@@ -39,7 +39,7 @@ get:
             description: OK - loads currencies.
             body:
                 application/vnd.ibexa.api.CurrencyList+json:
-                    type: CurrencyList
+                    type: CurrencyListWrapper
                     example: !include examples/product/catalog/currency/GET/CurrencyList.json.example
         401:
             description: Error - the user has no permission to read currencies.
@@ -57,7 +57,7 @@ get:
                 description: OK - loads the currency.
                 body:
                     application/vnd.ibexa.api.Currency+json:
-                        type: Currency
+                        type: CurrencyWrapper
                         example: !include examples/product/catalog/currency/currency_id/GET/Currency.json.example
             401:
                 description: Error - the user has no permission to read currencies.
@@ -68,7 +68,7 @@ get:
         description: Updates a currency.
         body:
             application/vnd.ibexa.api.CurrencyUpdate+json:
-                type: CurrencyUpdate
+                type: CurrencyUpdateWrapper
                 example: !include examples/product/catalog/currency/currency_id/PATCH/CurrencyUpdate.json.example
         headers:
             Accept:
@@ -83,7 +83,7 @@ get:
             200:
                 body:
                     application/vnd.ibexa.api.Currency+json:
-                        type: Currency
+                        type: CurrencyWrapper
                         example: !include examples/product/catalog/currency/currency_id/PATCH/Currency.json.example
             400:
                 description: Error - the input does not match the input schema definition.
@@ -121,7 +121,7 @@ get:
             application/vnd.ibexa.api.CurrencyViewInput+xml:
                 type: CurrencyViewInput
             application/vnd.ibexa.api.CurrencyViewInput+json:
-                type: CurrencyViewInput
+                type: CurrencyViewInputWrapper
                 example: !include examples/product/catalog/currency/POST/CurrencyViewInput.json.example
         responses:
             200:
@@ -129,7 +129,7 @@ get:
                     application/vnd.ibexa.api.CurrencyView+xml:
                         type: CurrencyView
                     application/vnd.ibexa.api.CurrencyView+json:
-                        type: CurrencyView
+                        type: CurrencyViewWrapper
                         example: !include examples/product/catalog/currency/POST/CurrencyView.json.example
             400:
                 description: Error - the input does not match the input schema definition.

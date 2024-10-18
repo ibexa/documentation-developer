@@ -1,5 +1,6 @@
 ---
 description: Data customization in Ibexa CDP.
+edition: experience
 ---
 
 # Data customization

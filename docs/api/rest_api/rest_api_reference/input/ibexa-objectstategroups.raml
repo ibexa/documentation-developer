@@ -18,7 +18,7 @@ get:
                     type: ObjectStateGroupList
                     example: !include examples/content/objectstategroups/GET/ObjectStateGroupList.xml.example
                 application/vnd.ibexa.api.ObjectStateGroupList+json:
-                    type: ObjectStateGroupList
+                    type: ObjectStateGroupListWrapper
                     example: !include examples/content/objectstategroups/GET/ObjectStateGroupList.json.example
         401:
             description: Error - The user has no permission to read Object state groups.
@@ -41,7 +41,7 @@ post:
             type: ObjectStateGroupCreate
             example: !include examples/content/objectstategroups/POST/ObjectStateGroupCreate.xml.example
         application/vnd.ibexa.api.ObjectStateGroupCreate+json:
-            type: ObjectStateGroupCreate
+            type: ObjectStateGroupCreateWrapper
             example: !include examples/content/objectstategroups/POST/ObjectStateGroupCreate.json.example
     responses:
         201:
@@ -51,7 +51,7 @@ post:
                     type: ObjectStateGroup
                     example: !include examples/content/objectstategroups/POST/ObjectStateGroup.xml.example
                 application/vnd.ibexa.api.ObjectStateGroup+json:
-                    type: ObjectStateGroup
+                    type: ObjectStateGroupWrapper
                     example: !include examples/content/objectstategroups/POST/ObjectStateGroup.json.example
         400:
             description: Error - The input does not match the input schema definition.
@@ -79,7 +79,7 @@ post:
                         type: ObjectStateGroup
                         example: !include examples/content/objectstategroups/object_state_group_id/GET/ObjectStateGroup.xml.example
                     application/vnd.ibexa.api.ObjectStateGroup+json:
-                        type: ObjectStateGroup
+                        type: ObjectStateGroupWrapper
                         example: !include examples/content/objectstategroups/object_state_group_id/GET/ObjectStateGroup.json.example
             401:
                 description: Error - The user is not authorized to read this Object state group.
@@ -106,7 +106,7 @@ post:
                 type: ObjectStateGroupUpdate
                 example: !include examples/content/objectstategroups/object_state_group_id/PATCH/ObjectStateGroupUpdate.xml.example
             application/vnd.ibexa.api.ObjectStateGroupUpdate+json:
-                type: ObjectStateGroupUpdate
+                type: ObjectStateGroupUpdateWrapper
                 example: !include examples/content/objectstategroups/object_state_group_id/PATCH/ObjectStateGroupUpdate.json.example
         responses:
             200:
@@ -116,7 +116,7 @@ post:
                         type: ObjectStateGroup
                         example: !include examples/content/objectstategroups/object_state_group_id/PATCH/ObjectStateGroup.xml.example
                     application/vnd.ibexa.api.ObjectStateGroup+json:
-                        type: ObjectStateGroup
+                        type: ObjectStateGroupWrapper
                         example: !include examples/content/objectstategroups/object_state_group_id/PATCH/ObjectStateGroup.json.example
             400:
                 description: Error - The input does not match the input schema definition.
@@ -156,7 +156,7 @@ post:
                             type: ObjectStateList
                             example: !include examples/content/objectstategroups/object_state_group_id/objectstates/GET/ObjectStateList.xml.example
                         application/vnd.ibexa.api.ObjectStateList+json:
-                            type: ObjectStateList
+                            type: ObjectStateListWrapper
                             example: !include examples/content/objectstategroups/object_state_group_id/objectstates/GET/ObjectStateList.json.example
                 401:
                     description: Error - The user has no permission to read Object states.
@@ -179,7 +179,7 @@ post:
                     type: ObjectStateCreate
                     example: !include examples/content/objectstategroups/object_state_group_id/objectstates/POST/ObjectStateCreate.xml.example
                 application/vnd.ibexa.api.ObjectStateCreate+json:
-                    type: ObjectStateCreate
+                    type: ObjectStateCreateWrapper
                     example: !include examples/content/objectstategroups/object_state_group_id/objectstates/POST/ObjectStateCreate.json.example
             responses:
                 201:
@@ -189,7 +189,7 @@ post:
                             type: ObjectState
                             example: !include examples/content/objectstategroups/object_state_group_id/objectstates/POST/ObjectState.xml.example
                         application/vnd.ibexa.api.ObjectState+json:
-                            type: ObjectState
+                            type: ObjectStateWrapper
                             example: !include examples/content/objectstategroups/object_state_group_id/objectstates/POST/ObjectState.json.example
                 400:
                     description: Error - The input does not match the input schema definition.
@@ -217,7 +217,7 @@ post:
                                 type: ObjectState
                                 example: !include examples/content/objectstategroups/object_state_group_id/objectstates/object_state_id/GET/ObjectState.xml.example
                             application/vnd.ibexa.api.ObjectState+json:
-                                type: ObjectState
+                                type: ObjectStateWrapper
                                 example: !include examples/content/objectstategroups/object_state_group_id/objectstates/object_state_id/GET/ObjectState.json.example
                     401:
                         description: Error - The user is not authorized to read this Object state.
@@ -244,7 +244,7 @@ post:
                         type: ObjectStateUpdate
                         example: !include examples/content/objectstategroups/object_state_group_id/objectstates/object_state_id/PATCH/ObjectStateUpdate.xml.example
                     application/vnd.ibexa.api.ObjectStateUpdate+json:
-                        type: ObjectStateUpdate
+                        type: ObjectStateUpdateWrapper
                         example: !include examples/content/objectstategroups/object_state_group_id/objectstates/object_state_id/PATCH/ObjectStateUpdate.json.example
                 responses:
                     200:
@@ -254,7 +254,7 @@ post:
                                 type: ObjectState
                                 example: !include examples/content/objectstategroups/object_state_group_id/objectstates/object_state_id/PATCH/ObjectState.xml.example
                             application/vnd.ibexa.api.ObjectState+json:
-                                type: ObjectState
+                                type: ObjectStateWrapper
                                 example: !include examples/content/objectstategroups/object_state_group_id/objectstates/object_state_id/PATCH/ObjectState.json.example
                     400:
                         description: Error - The input does not match the input schema definition.

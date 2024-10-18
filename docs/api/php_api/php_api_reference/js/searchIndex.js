@@ -1156,6 +1156,96 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/Ibexa-Contracts-AdminUi-Menu-AbstractBuilder.html#property_eventDispatcher"
         },                {
+            "fqsen": "\\Ibexa\\Contracts\\AdminUi\\Menu\\AbstractFormContextMenuBuilder",
+            "name": "AbstractFormContextMenuBuilder",
+            "summary": "Base\u0020builder\u0020for\u0020extendable\u0020AdminUI\u0020menus.",
+            "url": "classes/Ibexa-Contracts-AdminUi-Menu-AbstractFormContextMenuBuilder.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\AdminUi\\Menu\\AbstractFormContextMenuBuilder\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-AdminUi-Menu-AbstractFormContextMenuBuilder.html#method___construct"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\AdminUi\\Menu\\AbstractFormContextMenuBuilder\u003A\u003AgetSidebarType\u0028\u0029",
+            "name": "getSidebarType",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-AdminUi-Menu-AbstractFormContextMenuBuilder.html#method_getSidebarType"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\AdminUi\\Menu\\AbstractFormContextMenuBuilder\u003A\u003AgetSidebarActionMessage\u0028\u0029",
+            "name": "getSidebarActionMessage",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-AdminUi-Menu-AbstractFormContextMenuBuilder.html#method_getSidebarActionMessage"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\AdminUi\\Menu\\AbstractFormContextMenuBuilder\u003A\u003AgetConfigureEventName\u0028\u0029",
+            "name": "getConfigureEventName",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-AdminUi-Menu-AbstractFormContextMenuBuilder.html#method_getConfigureEventName"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\AdminUi\\Menu\\AbstractFormContextMenuBuilder\u003A\u003AcreateStructure\u0028\u0029",
+            "name": "createStructure",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-AdminUi-Menu-AbstractFormContextMenuBuilder.html#method_createStructure"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\AdminUi\\Menu\\AbstractFormContextMenuBuilder\u003A\u003AgetTranslationMessages\u0028\u0029",
+            "name": "getTranslationMessages",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-AdminUi-Menu-AbstractFormContextMenuBuilder.html#method_getTranslationMessages"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\AdminUi\\Menu\\CopyFormContextMenuBuilder",
+            "name": "CopyFormContextMenuBuilder",
+            "summary": "Builds\u0020menu\u0020with\u0020\u0022Copy\u0022\u0020nad\u0020\u0022Cancel\u0022\u0020items.",
+            "url": "classes/Ibexa-Contracts-AdminUi-Menu-CopyFormContextMenuBuilder.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\AdminUi\\Menu\\CopyFormContextMenuBuilder\u003A\u003AgetSidebarType\u0028\u0029",
+            "name": "getSidebarType",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-AdminUi-Menu-CopyFormContextMenuBuilder.html#method_getSidebarType"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\AdminUi\\Menu\\CopyFormContextMenuBuilder\u003A\u003AgetSidebarActionMessage\u0028\u0029",
+            "name": "getSidebarActionMessage",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-AdminUi-Menu-CopyFormContextMenuBuilder.html#method_getSidebarActionMessage"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\AdminUi\\Menu\\CreateFormContextMenuBuilder",
+            "name": "CreateFormContextMenuBuilder",
+            "summary": "Builds\u0020menu\u0020with\u0020\u0022Create\u0022\u0020nad\u0020\u0022Cancel\u0022\u0020items.",
+            "url": "classes/Ibexa-Contracts-AdminUi-Menu-CreateFormContextMenuBuilder.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\AdminUi\\Menu\\CreateFormContextMenuBuilder\u003A\u003AgetSidebarType\u0028\u0029",
+            "name": "getSidebarType",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-AdminUi-Menu-CreateFormContextMenuBuilder.html#method_getSidebarType"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\AdminUi\\Menu\\CreateFormContextMenuBuilder\u003A\u003AgetSidebarActionMessage\u0028\u0029",
+            "name": "getSidebarActionMessage",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-AdminUi-Menu-CreateFormContextMenuBuilder.html#method_getSidebarActionMessage"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\AdminUi\\Menu\\MenuItemFactoryInterface",
+            "name": "MenuItemFactoryInterface",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-AdminUi-Menu-MenuItemFactoryInterface.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\AdminUi\\Menu\\MenuItemFactoryInterface\u003A\u003AcreateLocationMenuItem\u0028\u0029",
+            "name": "createLocationMenuItem",
+            "summary": "Creates\u0020Location\u0020menu\u0020item\u0020only\u0020when\u0020user\u0020has\u0020content\u003Aread\u0020permission.",
+            "url": "classes/Ibexa-Contracts-AdminUi-Menu-MenuItemFactoryInterface.html#method_createLocationMenuItem"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\AdminUi\\Menu\\UpdateFormContextMenuBuilder",
+            "name": "UpdateFormContextMenuBuilder",
+            "summary": "Builds\u0020menu\u0020with\u0020\u0022Update\u0022\u0020nad\u0020\u0022Cancel\u0022\u0020items.",
+            "url": "classes/Ibexa-Contracts-AdminUi-Menu-UpdateFormContextMenuBuilder.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\AdminUi\\Menu\\UpdateFormContextMenuBuilder\u003A\u003AgetSidebarType\u0028\u0029",
+            "name": "getSidebarType",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-AdminUi-Menu-UpdateFormContextMenuBuilder.html#method_getSidebarType"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\AdminUi\\Menu\\UpdateFormContextMenuBuilder\u003A\u003AgetSidebarActionMessage\u0028\u0029",
+            "name": "getSidebarActionMessage",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-AdminUi-Menu-UpdateFormContextMenuBuilder.html#method_getSidebarActionMessage"
+        },                {
             "fqsen": "\\Ibexa\\Contracts\\AdminUi\\Notification\\NotificationHandlerInterface",
             "name": "NotificationHandlerInterface",
             "summary": "",
@@ -4291,6 +4381,31 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/Ibexa-Contracts-ConnectorPayum-Storage-PaymentQueryFactoryInterface.html#method_buildQuery"
         },                {
+            "fqsen": "\\Ibexa\\Contracts\\ConnectorQualifio\\Exception\\CampaignFeedNotFoundException",
+            "name": "CampaignFeedNotFoundException",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-ConnectorQualifio-Exception-CampaignFeedNotFoundException.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\ConnectorQualifio\\Exception\\CommunicationException",
+            "name": "CommunicationException",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-ConnectorQualifio-Exception-CommunicationException.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\ConnectorQualifio\\Exception\\NotConfiguredException",
+            "name": "NotConfiguredException",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-ConnectorQualifio-Exception-NotConfiguredException.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\ConnectorQualifio\\Exception\\NotConfiguredException\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-ConnectorQualifio-Exception-NotConfiguredException.html#method___construct"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\ConnectorQualifio\\Exception\\QualifioException",
+            "name": "QualifioException",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-ConnectorQualifio-Exception-QualifioException.html"
+        },                {
             "fqsen": "\\Ibexa\\Contracts\\ConnectorQualifio\\QualifioFieldMapResolverInterface",
             "name": "QualifioFieldMapResolverInterface",
             "summary": "",
@@ -5930,6 +6045,11 @@ Search.appendIndex(
             "name": "loadByUserIdAndLocationId",
             "summary": "Get\u0020bookmark\u0020by\u0020user\u0020id\u0020and\u0020location\u0020id.",
             "url": "classes/Ibexa-Contracts-Core-Persistence-Bookmark-Handler.html#method_loadByUserIdAndLocationId"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Persistence\\Bookmark\\Handler\u003A\u003AloadUserIdsByLocation\u0028\u0029",
+            "name": "loadUserIdsByLocation",
+            "summary": "Get\u0020user\u0020ids\u0020who\u0020have\u0020bookmarked\u0020given\u0020location.",
+            "url": "classes/Ibexa-Contracts-Core-Persistence-Bookmark-Handler.html#method_loadUserIdsByLocation"
         },                {
             "fqsen": "\\Ibexa\\Contracts\\Core\\Persistence\\Bookmark\\Handler\u003A\u003AloadUserBookmarks\u0028\u0029",
             "name": "loadUserBookmarks",
@@ -9255,6 +9375,71 @@ Search.appendIndex(
             "name": "ValueObject",
             "summary": "Base\u0020SPI\u0020Value\u0020object.",
             "url": "classes/Ibexa-Contracts-Core-Persistence-ValueObject.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Pool\\Pool",
+            "name": "Pool",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Pool-Pool.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Pool\\Pool\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Pool-Pool.html#method___construct"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Pool\\Pool\u003A\u003Ahas\u0028\u0029",
+            "name": "has",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Pool-Pool.html#method_has"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Pool\\Pool\u003A\u003Aget\u0028\u0029",
+            "name": "get",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Pool-Pool.html#method_get"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Pool\\Pool\u003A\u003AgetEntries\u0028\u0029",
+            "name": "getEntries",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Pool-Pool.html#method_getEntries"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Pool\\Pool\u003A\u003AsetExceptionArgumentName\u0028\u0029",
+            "name": "setExceptionArgumentName",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Pool-Pool.html#method_setExceptionArgumentName"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Pool\\Pool\u003A\u003AsetExceptionMessageTemplate\u0028\u0029",
+            "name": "setExceptionMessageTemplate",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Pool-Pool.html#method_setExceptionMessageTemplate"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Pool\\PoolInterface",
+            "name": "PoolInterface",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Pool-PoolInterface.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Pool\\PoolInterface\u003A\u003Ahas\u0028\u0029",
+            "name": "has",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Pool-PoolInterface.html#method_has"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Pool\\PoolInterface\u003A\u003Aget\u0028\u0029",
+            "name": "get",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Pool-PoolInterface.html#method_get"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Pool\\PoolInterface\u003A\u003AgetEntries\u0028\u0029",
+            "name": "getEntries",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Pool-PoolInterface.html#method_getEntries"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Pool\\PoolInterface\u003A\u003AsetExceptionArgumentName\u0028\u0029",
+            "name": "setExceptionArgumentName",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Pool-PoolInterface.html#method_setExceptionArgumentName"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Pool\\PoolInterface\u003A\u003AsetExceptionMessageTemplate\u0028\u0029",
+            "name": "setExceptionMessageTemplate",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Pool-PoolInterface.html#method_setExceptionMessageTemplate"
         },                {
             "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\BookmarkService",
             "name": "BookmarkService",
@@ -20501,6 +20686,21 @@ Search.appendIndex(
             "summary": "Criterion\u0020description\u0020function.",
             "url": "classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Criterion-Location-Depth.html#method_getSpecifications"
         },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\Content\\Query\\Criterion\\Location\\IsBookmarked",
+            "name": "IsBookmarked",
+            "summary": "This\u0020criterion\u0020only\u0020works\u0020for\u0020current\u0020user\u0020reference.",
+            "url": "classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Criterion-Location-IsBookmarked.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\Content\\Query\\Criterion\\Location\\IsBookmarked\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "Performs\u0020operator\u0020validation\u0020based\u0020on\u0020the\u0020Criterion\u0020specifications\u0020returned\u0020by\u0020\u007B\u0040see\u0020getSpecifications\u0028\u0029\u007D.",
+            "url": "classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Criterion-Location-IsBookmarked.html#method___construct"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\Content\\Query\\Criterion\\Location\\IsBookmarked\u003A\u003AgetSpecifications\u0028\u0029",
+            "name": "getSpecifications",
+            "summary": "Criterion\u0020description\u0020function.",
+            "url": "classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Criterion-Location-IsBookmarked.html#method_getSpecifications"
+        },                {
             "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\Content\\Query\\Criterion\\Location\\IsMainLocation",
             "name": "IsMainLocation",
             "summary": "A\u0020criterion\u0020that\u0020matches\u0020Location\u0020based\u0020on\u0020if\u0020it\u0020is\u0020main\u0020Location\u0020or\u0020not.",
@@ -26780,6 +26980,306 @@ Search.appendIndex(
             "name": "exists",
             "summary": "",
             "url": "classes/Ibexa-Contracts-CorePersistence-HandlerInterface.html#method_exists"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\CoreSearch\\Values\\Query\\AbstractCriterionQuery",
+            "name": "AbstractCriterionQuery",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-CoreSearch-Values-Query-AbstractCriterionQuery.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\CoreSearch\\Values\\Query\\AbstractCriterionQuery\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-CoreSearch-Values-Query-AbstractCriterionQuery.html#method___construct"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\CoreSearch\\Values\\Query\\AbstractCriterionQuery\u003A\u003AsetQuery\u0028\u0029",
+            "name": "setQuery",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-CoreSearch-Values-Query-AbstractCriterionQuery.html#method_setQuery"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\CoreSearch\\Values\\Query\\AbstractCriterionQuery\u003A\u003AgetQuery\u0028\u0029",
+            "name": "getQuery",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-CoreSearch-Values-Query-AbstractCriterionQuery.html#method_getQuery"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\CoreSearch\\Values\\Query\\AbstractCriterionQuery\u003A\u003AhasQuery\u0028\u0029",
+            "name": "hasQuery",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-CoreSearch-Values-Query-AbstractCriterionQuery.html#method_hasQuery"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\CoreSearch\\Values\\Query\\AbstractCriterionQuery\u003A\u003AgetOffset\u0028\u0029",
+            "name": "getOffset",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-CoreSearch-Values-Query-AbstractCriterionQuery.html#method_getOffset"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\CoreSearch\\Values\\Query\\AbstractCriterionQuery\u003A\u003AsetOffset\u0028\u0029",
+            "name": "setOffset",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-CoreSearch-Values-Query-AbstractCriterionQuery.html#method_setOffset"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\CoreSearch\\Values\\Query\\AbstractCriterionQuery\u003A\u003AgetLimit\u0028\u0029",
+            "name": "getLimit",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-CoreSearch-Values-Query-AbstractCriterionQuery.html#method_getLimit"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\CoreSearch\\Values\\Query\\AbstractCriterionQuery\u003A\u003AsetLimit\u0028\u0029",
+            "name": "setLimit",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-CoreSearch-Values-Query-AbstractCriterionQuery.html#method_setLimit"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\CoreSearch\\Values\\Query\\AbstractCriterionQuery\u003A\u003AgetSortClauses\u0028\u0029",
+            "name": "getSortClauses",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-CoreSearch-Values-Query-AbstractCriterionQuery.html#method_getSortClauses"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\CoreSearch\\Values\\Query\\AbstractCriterionQuery\u003A\u003AaddSortClause\u0028\u0029",
+            "name": "addSortClause",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-CoreSearch-Values-Query-AbstractCriterionQuery.html#method_addSortClause"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\CoreSearch\\Values\\Query\\AbstractCriterionQuery\u003A\u003AsetSortClauses\u0028\u0029",
+            "name": "setSortClauses",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-CoreSearch-Values-Query-AbstractCriterionQuery.html#method_setSortClauses"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\CoreSearch\\Values\\Query\\AbstractCriterionQuery\u003A\u003ADEFAULT_LIMIT",
+            "name": "DEFAULT_LIMIT",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-CoreSearch-Values-Query-AbstractCriterionQuery.html#constant_DEFAULT_LIMIT"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\CoreSearch\\Values\\Query\\AbstractSortClause",
+            "name": "AbstractSortClause",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-CoreSearch-Values-Query-AbstractSortClause.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\CoreSearch\\Values\\Query\\AbstractSortClause\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "Constructs\u0020a\u0020new\u0020SortClause\u0020on\u0020\u0024sortTarget\u0020in\u0020direction\u0020\u0024sortDirection.",
+            "url": "classes/Ibexa-Contracts-CoreSearch-Values-Query-AbstractSortClause.html#method___construct"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\CoreSearch\\Values\\Query\\AbstractSortClause\u003A\u003AgetDirection\u0028\u0029",
+            "name": "getDirection",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-CoreSearch-Values-Query-AbstractSortClause.html#method_getDirection"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\CoreSearch\\Values\\Query\\AbstractSortClause\u003A\u003AsetDirection\u0028\u0029",
+            "name": "setDirection",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-CoreSearch-Values-Query-AbstractSortClause.html#method_setDirection"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\CoreSearch\\Values\\Query\\AbstractSortClause\u003A\u003ASORT_ASC",
+            "name": "SORT_ASC",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-CoreSearch-Values-Query-AbstractSortClause.html#constant_SORT_ASC"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\CoreSearch\\Values\\Query\\AbstractSortClause\u003A\u003ASORT_DESC",
+            "name": "SORT_DESC",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-CoreSearch-Values-Query-AbstractSortClause.html#constant_SORT_DESC"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\CoreSearch\\Values\\Query\\Criterion\\AbstractCompositeCriterion",
+            "name": "AbstractCompositeCriterion",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-CoreSearch-Values-Query-Criterion-AbstractCompositeCriterion.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\CoreSearch\\Values\\Query\\Criterion\\AbstractCompositeCriterion\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-CoreSearch-Values-Query-Criterion-AbstractCompositeCriterion.html#method___construct"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\CoreSearch\\Values\\Query\\Criterion\\AbstractCompositeCriterion\u003A\u003Aadd\u0028\u0029",
+            "name": "add",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-CoreSearch-Values-Query-Criterion-AbstractCompositeCriterion.html#method_add"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\CoreSearch\\Values\\Query\\Criterion\\AbstractCompositeCriterion\u003A\u003Aremove\u0028\u0029",
+            "name": "remove",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-CoreSearch-Values-Query-Criterion-AbstractCompositeCriterion.html#method_remove"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\CoreSearch\\Values\\Query\\Criterion\\AbstractCompositeCriterion\u003A\u003AsetCriteria\u0028\u0029",
+            "name": "setCriteria",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-CoreSearch-Values-Query-Criterion-AbstractCompositeCriterion.html#method_setCriteria"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\CoreSearch\\Values\\Query\\Criterion\\AbstractCompositeCriterion\u003A\u003AgetCriteria\u0028\u0029",
+            "name": "getCriteria",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-CoreSearch-Values-Query-Criterion-AbstractCompositeCriterion.html#method_getCriteria"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\CoreSearch\\Values\\Query\\Criterion\\CriterionInterface",
+            "name": "CriterionInterface",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-CoreSearch-Values-Query-Criterion-CriterionInterface.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\CoreSearch\\Values\\Query\\Criterion\\FieldValueCriterion",
+            "name": "FieldValueCriterion",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-CoreSearch-Values-Query-Criterion-FieldValueCriterion.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\CoreSearch\\Values\\Query\\Criterion\\FieldValueCriterion\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-CoreSearch-Values-Query-Criterion-FieldValueCriterion.html#method___construct"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\CoreSearch\\Values\\Query\\Criterion\\FieldValueCriterion\u003A\u003AgetField\u0028\u0029",
+            "name": "getField",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-CoreSearch-Values-Query-Criterion-FieldValueCriterion.html#method_getField"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\CoreSearch\\Values\\Query\\Criterion\\FieldValueCriterion\u003A\u003AsetValue\u0028\u0029",
+            "name": "setValue",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-CoreSearch-Values-Query-Criterion-FieldValueCriterion.html#method_setValue"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\CoreSearch\\Values\\Query\\Criterion\\FieldValueCriterion\u003A\u003AgetValue\u0028\u0029",
+            "name": "getValue",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-CoreSearch-Values-Query-Criterion-FieldValueCriterion.html#method_getValue"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\CoreSearch\\Values\\Query\\Criterion\\FieldValueCriterion\u003A\u003AsetOperator\u0028\u0029",
+            "name": "setOperator",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-CoreSearch-Values-Query-Criterion-FieldValueCriterion.html#method_setOperator"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\CoreSearch\\Values\\Query\\Criterion\\FieldValueCriterion\u003A\u003AgetOperator\u0028\u0029",
+            "name": "getOperator",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-CoreSearch-Values-Query-Criterion-FieldValueCriterion.html#method_getOperator"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\CoreSearch\\Values\\Query\\Criterion\\FieldValueCriterion\u003A\u003ACOMPARISON_EQ",
+            "name": "COMPARISON_EQ",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-CoreSearch-Values-Query-Criterion-FieldValueCriterion.html#constant_COMPARISON_EQ"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\CoreSearch\\Values\\Query\\Criterion\\FieldValueCriterion\u003A\u003ACOMPARISON_NEQ",
+            "name": "COMPARISON_NEQ",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-CoreSearch-Values-Query-Criterion-FieldValueCriterion.html#constant_COMPARISON_NEQ"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\CoreSearch\\Values\\Query\\Criterion\\FieldValueCriterion\u003A\u003ACOMPARISON_LT",
+            "name": "COMPARISON_LT",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-CoreSearch-Values-Query-Criterion-FieldValueCriterion.html#constant_COMPARISON_LT"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\CoreSearch\\Values\\Query\\Criterion\\FieldValueCriterion\u003A\u003ACOMPARISON_LTE",
+            "name": "COMPARISON_LTE",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-CoreSearch-Values-Query-Criterion-FieldValueCriterion.html#constant_COMPARISON_LTE"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\CoreSearch\\Values\\Query\\Criterion\\FieldValueCriterion\u003A\u003ACOMPARISON_GT",
+            "name": "COMPARISON_GT",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-CoreSearch-Values-Query-Criterion-FieldValueCriterion.html#constant_COMPARISON_GT"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\CoreSearch\\Values\\Query\\Criterion\\FieldValueCriterion\u003A\u003ACOMPARISON_GTE",
+            "name": "COMPARISON_GTE",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-CoreSearch-Values-Query-Criterion-FieldValueCriterion.html#constant_COMPARISON_GTE"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\CoreSearch\\Values\\Query\\Criterion\\FieldValueCriterion\u003A\u003ACOMPARISON_IN",
+            "name": "COMPARISON_IN",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-CoreSearch-Values-Query-Criterion-FieldValueCriterion.html#constant_COMPARISON_IN"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\CoreSearch\\Values\\Query\\Criterion\\FieldValueCriterion\u003A\u003ACOMPARISON_NIN",
+            "name": "COMPARISON_NIN",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-CoreSearch-Values-Query-Criterion-FieldValueCriterion.html#constant_COMPARISON_NIN"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\CoreSearch\\Values\\Query\\Criterion\\FieldValueCriterion\u003A\u003ACOMPARISON_CONTAINS",
+            "name": "COMPARISON_CONTAINS",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-CoreSearch-Values-Query-Criterion-FieldValueCriterion.html#constant_COMPARISON_CONTAINS"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\CoreSearch\\Values\\Query\\Criterion\\FieldValueCriterion\u003A\u003ACOMPARISON_MEMBER_OF",
+            "name": "COMPARISON_MEMBER_OF",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-CoreSearch-Values-Query-Criterion-FieldValueCriterion.html#constant_COMPARISON_MEMBER_OF"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\CoreSearch\\Values\\Query\\Criterion\\FieldValueCriterion\u003A\u003ACOMPARISON_STARTS_WITH",
+            "name": "COMPARISON_STARTS_WITH",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-CoreSearch-Values-Query-Criterion-FieldValueCriterion.html#constant_COMPARISON_STARTS_WITH"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\CoreSearch\\Values\\Query\\Criterion\\FieldValueCriterion\u003A\u003ACOMPARISON_ENDS_WITH",
+            "name": "COMPARISON_ENDS_WITH",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-CoreSearch-Values-Query-Criterion-FieldValueCriterion.html#constant_COMPARISON_ENDS_WITH"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\CoreSearch\\Values\\Query\\Criterion\\LogicalAnd",
+            "name": "LogicalAnd",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-CoreSearch-Values-Query-Criterion-LogicalAnd.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\CoreSearch\\Values\\Query\\Criterion\\LogicalOr",
+            "name": "LogicalOr",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-CoreSearch-Values-Query-Criterion-LogicalOr.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\CoreSearch\\Values\\Query\\CriterionMapper",
+            "name": "CriterionMapper",
+            "summary": "Converts\u0020Criterion\u0020instances\u0020into\u0020objects\u0020that\u0020underlying\u0020Handler\u0020can\u0020understand.",
+            "url": "classes/Ibexa-Contracts-CoreSearch-Values-Query-CriterionMapper.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\CoreSearch\\Values\\Query\\CriterionMapper\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-CoreSearch-Values-Query-CriterionMapper.html#method___construct"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\CoreSearch\\Values\\Query\\CriterionMapper\u003A\u003Ahandle\u0028\u0029",
+            "name": "handle",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-CoreSearch-Values-Query-CriterionMapper.html#method_handle"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\CoreSearch\\Values\\Query\\CriterionMapperInterface",
+            "name": "CriterionMapperInterface",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-CoreSearch-Values-Query-CriterionMapperInterface.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\CoreSearch\\Values\\Query\\CriterionMapperInterface\u003A\u003AcanHandle\u0028\u0029",
+            "name": "canHandle",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-CoreSearch-Values-Query-CriterionMapperInterface.html#method_canHandle"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\CoreSearch\\Values\\Query\\CriterionMapperInterface\u003A\u003Ahandle\u0028\u0029",
+            "name": "handle",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-CoreSearch-Values-Query-CriterionMapperInterface.html#method_handle"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\CoreSearch\\Values\\Query\\SortClause\\FieldValueSortClause",
+            "name": "FieldValueSortClause",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-CoreSearch-Values-Query-SortClause-FieldValueSortClause.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\CoreSearch\\Values\\Query\\SortClause\\FieldValueSortClause\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "Constructs\u0020a\u0020new\u0020SortClause\u0020on\u0020\u0024sortTarget\u0020in\u0020direction\u0020\u0024sortDirection.",
+            "url": "classes/Ibexa-Contracts-CoreSearch-Values-Query-SortClause-FieldValueSortClause.html#method___construct"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\CoreSearch\\Values\\Query\\SortClause\\FieldValueSortClause\u003A\u003AgetField\u0028\u0029",
+            "name": "getField",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-CoreSearch-Values-Query-SortClause-FieldValueSortClause.html#method_getField"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\CoreSearch\\Values\\Query\\SortDirection",
+            "name": "SortDirection",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-CoreSearch-Values-Query-SortDirection.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\CoreSearch\\Values\\Query\\SortDirection\u003A\u003AisValid\u0028\u0029",
+            "name": "isValid",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-CoreSearch-Values-Query-SortDirection.html#method_isValid"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\CoreSearch\\Values\\Query\\SortDirection\u003A\u003AASC",
+            "name": "ASC",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-CoreSearch-Values-Query-SortDirection.html#constant_ASC"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\CoreSearch\\Values\\Query\\SortDirection\u003A\u003ADESC",
+            "name": "DESC",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-CoreSearch-Values-Query-SortDirection.html#constant_DESC"
         },                {
             "fqsen": "\\Ibexa\\Contracts\\CorporateAccount\\Commerce\\Address\\AddressMapper",
             "name": "AddressMapper",
@@ -35596,6 +36096,16 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/Ibexa-Contracts-ProductCatalog-Local-Attribute-AbstractValidatorError.html#method_getTarget"
         },                {
+            "fqsen": "\\Ibexa\\Contracts\\ProductCatalog\\Local\\Attribute\\ContextAwareValueValidatorInterface",
+            "name": "ContextAwareValueValidatorInterface",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-ProductCatalog-Local-Attribute-ContextAwareValueValidatorInterface.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\ProductCatalog\\Local\\Attribute\\ContextAwareValueValidatorInterface\u003A\u003AvalidateValue\u0028\u0029",
+            "name": "validateValue",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-ProductCatalog-Local-Attribute-ContextAwareValueValidatorInterface.html#method_validateValue"
+        },                {
             "fqsen": "\\Ibexa\\Contracts\\ProductCatalog\\Local\\Attribute\\IndexDataProviderInterface",
             "name": "IndexDataProviderInterface",
             "summary": "",
@@ -37196,6 +37706,16 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/Ibexa-Contracts-ProductCatalog-Local-LocalProductTypeServiceDecorator.html#method_findProductTypes"
         },                {
+            "fqsen": "\\Ibexa\\Contracts\\ProductCatalog\\Local\\LocalProductTypeServiceDecorator\u003A\u003AaddContentTypeFieldDefinition\u0028\u0029",
+            "name": "addContentTypeFieldDefinition",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-ProductCatalog-Local-LocalProductTypeServiceDecorator.html#method_addContentTypeFieldDefinition"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\ProductCatalog\\Local\\LocalProductTypeServiceDecorator\u003A\u003AremoveContentTypeFieldDefinition\u0028\u0029",
+            "name": "removeContentTypeFieldDefinition",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-ProductCatalog-Local-LocalProductTypeServiceDecorator.html#method_removeContentTypeFieldDefinition"
+        },                {
             "fqsen": "\\Ibexa\\Contracts\\ProductCatalog\\Local\\LocalProductTypeServiceDecorator\u003A\u003A\u0024innerService",
             "name": "innerService",
             "summary": "",
@@ -37240,6 +37760,16 @@ Search.appendIndex(
             "name": "deleteProductTypeTranslation",
             "summary": "",
             "url": "classes/Ibexa-Contracts-ProductCatalog-Local-LocalProductTypeServiceInterface.html#method_deleteProductTypeTranslation"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\ProductCatalog\\Local\\LocalProductTypeServiceInterface\u003A\u003AaddContentTypeFieldDefinition\u0028\u0029",
+            "name": "addContentTypeFieldDefinition",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-ProductCatalog-Local-LocalProductTypeServiceInterface.html#method_addContentTypeFieldDefinition"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\ProductCatalog\\Local\\LocalProductTypeServiceInterface\u003A\u003AremoveContentTypeFieldDefinition\u0028\u0029",
+            "name": "removeContentTypeFieldDefinition",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-ProductCatalog-Local-LocalProductTypeServiceInterface.html#method_removeContentTypeFieldDefinition"
         },                {
             "fqsen": "\\Ibexa\\Contracts\\ProductCatalog\\Local\\Values\\Asset\\AssetCreateStruct",
             "name": "AssetCreateStruct",
@@ -47331,6 +47861,11 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/Ibexa-Contracts-Taxonomy-Service-Decorator-TaxonomyServiceDecorator.html#method_loadEntryById"
         },                {
+            "fqsen": "\\Ibexa\\Contracts\\Taxonomy\\Service\\Decorator\\TaxonomyServiceDecorator\u003A\u003AloadEntriesByIds\u0028\u0029",
+            "name": "loadEntriesByIds",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Taxonomy-Service-Decorator-TaxonomyServiceDecorator.html#method_loadEntriesByIds"
+        },                {
             "fqsen": "\\Ibexa\\Contracts\\Taxonomy\\Service\\Decorator\\TaxonomyServiceDecorator\u003A\u003AloadEntryByIdentifier\u0028\u0029",
             "name": "loadEntryByIdentifier",
             "summary": "",
@@ -47445,6 +47980,11 @@ Search.appendIndex(
             "name": "loadEntryById",
             "summary": "",
             "url": "classes/Ibexa-Contracts-Taxonomy-Service-TaxonomyServiceInterface.html#method_loadEntryById"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Taxonomy\\Service\\TaxonomyServiceInterface\u003A\u003AloadEntriesByIds\u0028\u0029",
+            "name": "loadEntriesByIds",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Taxonomy-Service-TaxonomyServiceInterface.html#method_loadEntriesByIds"
         },                {
             "fqsen": "\\Ibexa\\Contracts\\Taxonomy\\Service\\TaxonomyServiceInterface\u003A\u003AloadEntryByIdentifier\u0028\u0029",
             "name": "loadEntryByIdentifier",
@@ -49276,6 +49816,11 @@ Search.appendIndex(
             "summary": "",
             "url": "namespaces/ibexa-contracts-connectorpayum-storage.html"
         },                {
+            "fqsen": "\\Ibexa\\Contracts\\ConnectorQualifio\\Exception",
+            "name": "Exception",
+            "summary": "",
+            "url": "namespaces/ibexa-contracts-connectorqualifio-exception.html"
+        },                {
             "fqsen": "\\Ibexa\\Contracts\\ConnectorQualifio",
             "name": "ConnectorQualifio",
             "summary": "",
@@ -49565,6 +50110,11 @@ Search.appendIndex(
             "name": "UserPreference",
             "summary": "",
             "url": "namespaces/ibexa-contracts-core-persistence-userpreference.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Pool",
+            "name": "Pool",
+            "summary": "",
+            "url": "namespaces/ibexa-contracts-core-pool.html"
         },                {
             "fqsen": "\\Ibexa\\Contracts\\Core\\Repository",
             "name": "Repository",
@@ -50045,6 +50595,31 @@ Search.appendIndex(
             "name": "CorePersistence",
             "summary": "",
             "url": "namespaces/ibexa-contracts-corepersistence.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\CoreSearch\\Values\\Query",
+            "name": "Query",
+            "summary": "",
+            "url": "namespaces/ibexa-contracts-coresearch-values-query.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\CoreSearch\\Values",
+            "name": "Values",
+            "summary": "",
+            "url": "namespaces/ibexa-contracts-coresearch-values.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\CoreSearch",
+            "name": "CoreSearch",
+            "summary": "",
+            "url": "namespaces/ibexa-contracts-coresearch.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\CoreSearch\\Values\\Query\\Criterion",
+            "name": "Criterion",
+            "summary": "",
+            "url": "namespaces/ibexa-contracts-coresearch-values-query-criterion.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\CoreSearch\\Values\\Query\\SortClause",
+            "name": "SortClause",
+            "summary": "",
+            "url": "namespaces/ibexa-contracts-coresearch-values-query-sortclause.html"
         },                {
             "fqsen": "\\Ibexa\\Contracts\\CorporateAccount\\Commerce\\Address",
             "name": "Address",
@@ -51345,6 +51920,26 @@ Search.appendIndex(
             "name": "Input",
             "summary": "",
             "url": "namespaces/ibexa-contracts-rest-input.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Rest\\Input\\Parser\\Query\\Criterion",
+            "name": "Criterion",
+            "summary": "",
+            "url": "namespaces/ibexa-contracts-rest-input-parser-query-criterion.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Rest\\Input\\Parser\\Query",
+            "name": "Query",
+            "summary": "",
+            "url": "namespaces/ibexa-contracts-rest-input-parser-query.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Rest\\Input\\Parser",
+            "name": "Parser",
+            "summary": "",
+            "url": "namespaces/ibexa-contracts-rest-input-parser.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Rest\\Input\\Parser\\Query\\SortClause",
+            "name": "SortClause",
+            "summary": "",
+            "url": "namespaces/ibexa-contracts-rest-input-parser-query-sortclause.html"
         },                {
             "fqsen": "\\Ibexa\\Contracts\\Rest\\Output\\Exceptions",
             "name": "Exceptions",
