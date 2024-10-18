@@ -159,8 +159,8 @@ and provide it with an [`AttributeGroupCreateStruct`](../api/php_api/php_api_ref
 [[= include_file('code_samples/api/product_catalog/src/Command/AttributeCommand.php', 66, 70) =]]
 ```
 
-To get information about product attributes, use the `AttributeDefinitionServiceInterface`,
-or `LocalAttributeDefinitionServiceInterface` to modify attributes.
+To get information about product attributes, use the [`AttributeDefinitionServiceInterface`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-AttributeDefinitionServiceInterface.),
+or [`LocalAttributeDefinitionServiceInterface`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Local-LocalAttributeDefinitionServiceInterface.html) to modify attributes.
 
 ``` php
 [[= include_file('code_samples/api/product_catalog/src/Command/AttributeCommand.php', 78, 80) =]]
