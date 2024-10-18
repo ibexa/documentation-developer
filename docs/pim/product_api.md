@@ -67,8 +67,8 @@ The default offset is 0, and limit is 25.
 [[= include_file('code_samples/api/product_catalog/src/Command/ProductVariantCommand.php', 57, 60) =]]
 ```
 
-From a variant, you can access the attributes that are used to generate the variant
-by using `ProductVariant::getDiscriminatorAttributes()`.
+From a variant ([`ProductVariantInterface`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Values-ProductVariantInterface.html)),
+you can access the attributes that are used to generate the variant by using `ProductVariantInterface::getDiscriminatorAttributes()`.
 
 ``` php
 [[= include_file('code_samples/api/product_catalog/src/Command/ProductVariantCommand.php', 61, 68) =]]
