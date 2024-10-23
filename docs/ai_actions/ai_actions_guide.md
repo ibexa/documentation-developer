@@ -16,7 +16,7 @@ It comes pre-configured with the following action types:
 - [Refine text](#refining-text): Rewrite existing text according to parameters set in a prompt
 - [Generate alternative text](#generating-alternative-text): Generate alt text for accessibility purposes
 
-![AI Actions schematic](img/guide_AI Actions.png)
+![AI Actions schematic](img/guide_ai_actions.png)
 
 You can extend its capabilities beyond the default setup by creating custom connector modules, allowing users to integrate additional AI services or customize the way data is processed and interpreted.
 For example, it could transform images, or generate illustrations for your articles based on their contents.

@@ -29,6 +29,12 @@ Create an OpenAI account, [get an API key](https://help.openai.com/en/articles/4
 
 Then, in the root folder of your project, modify the `.env` file: find the `OPENAI_API_KEY` key and replace a placeholder value with the API key that you got from the AI service.
 
+```
+###> ibexa/connector-openai ###
+OPENAI_API_KEY=sk-svcacct-AFCrCt1h2s3i4s5i6s7t8h9e0a1p2i3c4o5d6e
+###< ibexa/connector-openai ###
+```
+
 ### Modify the database schema
 
 Create the `add_ai_actions.sql` file that contains the following code:
@@ -37,13 +43,11 @@ Create the `add_ai_actions.sql` file that contains the following code:
 [[= include_file('code_samples/ai_actions/config/add_ai_actions.sql') =]]
 ```
 
-Run the following command:
+Run the following command. where `<database_name>` is the same name that you defined when you [installed [[= product_name =]]](install_ibexa_dxp.md#change-installation-parameters).
 
 ```bash
-mysql -u root <database_name> < <path_to_file>/add_ai_actions.sql
+mysql -u root <database_name> < add_ai_actions.sql
 ```
-
-https://doc.ibexa.co/en/master/getting_started/install_ibexa_dxp/#change-installation-parameters
 
 This command modifies the existing database schema by adding database configuration required for using AI Actions.
 
