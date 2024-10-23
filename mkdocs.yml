@@ -320,7 +320,7 @@ nav:
             - Add search form to front page: templating/layout/add_search_form.md
     - AI Actions:
         - AI Actions: ai_actions/ai_actions.md
-        - AI Actions Guide: ai_actions/ai_actions_guide.md
+        - AI Actions guide: ai_actions/ai_actions_guide.md
         - Install AI Actions: ai_actions/install_ai_actions.md
         - Extend AI Actions: ai_actions/extend_ai_actions.md
     - PIM (Product management):

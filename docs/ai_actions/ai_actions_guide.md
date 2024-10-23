@@ -1,5 +1,5 @@
 ---
-description: AI Actions add-on helps editors by automating repetitive tasks.
+description: AI Actions LTS update helps editors by automating repetitive tasks.
 ---
 
 # AI Actions product guide
@@ -7,7 +7,7 @@ description: AI Actions add-on helps editors by automating repetitive tasks.
 ## What are AI Actions
 
 In the evolving landscape of digital experience, artificial intelligence becomes more and more important by enhancing user interaction and automating complex processes.
-[[= product_name =]] can be equipped with the AI Actions add-on, which harnesses AI's potential to automate time-consuming editorial tasks.
+[[= product_name =]] can be equipped with the AI Actions LTS update, which harnesses AI's potential to automate time-consuming editorial tasks.
 AI Actions is an extensible solution for integrating features provided by AI services into your workflows, all managed through a user-friendly interface.
 
 Out-of-the-box, AI Actions includes two essential components: a framework package and an OpenAI connector package.
@@ -33,7 +33,7 @@ To begin using AI Actions, you must first [install the required packages and per
 
 ## How it works
 
-AI Actions add-on is built upon the PHP framework.
+AI Actions LTS update is built upon the PHP framework.
 The framework package is responsible for gathering information from various sources, such as AI action types, AI action configurations, and contextual details like SiteAccess, user details, locale settings, and more.
 This data can then be combined with user input.
 It's then passed to a service connector, such as the default OpenAI connector, for final processing on [[= product_name =]] side.
@@ -80,7 +80,7 @@ Handlers take parameters defined in the AI action type and configuration, combin
 
 ### Triggering actions from the UI
 
-Among other elements, AI Actions add-on includes UI components for:
+Among other elements, AI Actions LTS update includes UI components for:
 
 - AI action management in the **Admin** panel
 - text modification in online editor
@@ -92,7 +92,7 @@ Procedures are straightforward and intuitive, ensuring that users can quickly ac
 
 ### Triggering actions programmatically
 
-AI Actions add-on exposes a REST API interface that allows for programmatic execution of AI actions.
+AI Actions LTS update exposes a REST API interface that allows for programmatic execution of AI actions.
 With the API, developers can automate tasks and execute actions on batches of content by integrating them into workflows.
 <!---By issuing commands through the API, developers can trigger actions based on external events:
 ...--->
@@ -104,7 +104,7 @@ With the API, developers can automate tasks and execute actions on batches of co
 Users with the appropriate permissions, governed by role-based [policies](policies.md#ai-actions), can control the lifecycle of AI actions by creating, editing, executing, and deleting them.
 Additionally, AI action configurations can be enabled or disabled depending on the organization's needs.
 
-![Configurations management screen](img/ai_actions_list.md)
+![Configurations management screen](img/ai_actions_list.png)
 
 An intuitive AI Actions interface within the **Admin** panel displays a list of all available AI actions.
 Here, you can search for specific actions and filter them by type or status.
@@ -112,7 +112,7 @@ By accessing the detailed view of individual AI actions, you can quickly review 
 
 ### Extensibility
 
-Built-in AI action types offer a good starting point, but the real power of the AI Actions add-on lies in extensibility.
+Built-in AI action types offer a good starting point, but the real power of the AI Actions LTS update lies in extensibility.
 Extending AI Actions opens up new possibilities for content management and editing.
 Developers can define new models and AI action types that use the existing AI service or even integrate additional services.
 The latter involves developing a new service connector, writing a handler that communicates with the new service, defining a new AI action type, and creating a form for configuring options, which extends the default action configuration form shown in the **Admin** panel.
@@ -120,7 +120,7 @@ For example, if this is your organization's requirement, a developer could write
 
 ## Use cases
 
-Out of the box, after you configure access to the OpenAI service, the [[= product_name_base =]] AI Actions add-on comes with two action types that can help your organization with the following tasks.
+Out of the box, after you configure access to the OpenAI service, the [[= product_name_base =]] AI Actions LTS update comes with two action types that can help your organization with the following tasks.
 
 ### Refining text
 

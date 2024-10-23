@@ -1,10 +1,10 @@
 ---
-description: Install the AI Actions add-on.
+description: Install the AI Actions LTS update.
 ---
 
 # Install AI Actions
 
-AI Actions are available as an add-on to [[= product_name =]] in version v4.6.x or higher, regardless of its edition.
+AI Actions are available as an LTS update to [[= product_name =]] in version v4.6.x or higher, regardless of its edition.
 To use this feature you must first install the packages and configure them.
 
 ## Install packages
@@ -29,7 +29,7 @@ Create an OpenAI account, [get an API key](https://help.openai.com/en/articles/4
 
 Then, in the root folder of your project, modify the `.env` file: find the `OPENAI_API_KEY` key and replace a placeholder value with the API key that you got from the AI service.
 
-```
+```bash
 ###> ibexa/connector-openai ###
 OPENAI_API_KEY=sk-svcacct-AFCrCt1h2s3i4s5i6s7t8h9e0a1p2i3c4o5d6e
 ###< ibexa/connector-openai ###
@@ -43,7 +43,7 @@ Create the `add_ai_actions.sql` file that contains the following code:
 [[= include_file('code_samples/ai_actions/config/add_ai_actions.sql') =]]
 ```
 
-Run the following command. where `<database_name>` is the same name that you defined when you [installed [[= product_name =]]](install_ibexa_dxp.md#change-installation-parameters).
+Run the following command. where `<database_name>` is the same name that you defined when you [installed [[= product_name =]]](../getting_started/install_ibexa_dxp.md#change-installation-parameters).
 
 ```bash
 mysql -u root <database_name> < add_ai_actions.sql

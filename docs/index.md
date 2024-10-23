@@ -77,6 +77,7 @@
                 <div class="notification__content">
                     <h2>The latest release is v4.6</h2>
                     <div>The <a href="release_notes/ibexa_dxp_v4.6/">latest version of Ibexa DXP is v4.6</a>. You can now update your application to the latest version.</div>
+                    <div>The newest LTS Update to Ibexa DXP v4.6 is <a href="release_notes/ibexa_dxp_v4.6/#ai-actions-lts-update">AI Actions</a>. Install it to let AI help you with editorial tasks.</div>
                 </div>
                 <div class="notification__cta">
                     <a href="update_and_migration/from_4.5/update_from_4.5/">Update your application</a>
