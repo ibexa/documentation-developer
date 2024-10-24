@@ -35,11 +35,14 @@ Search Criterion let you filter product by specific attributes, for example, col
 |[ProductCategory](productcategory_criterion.md)|Product category assigned to product|
 |[ProductCode](productcode_criterion.md)|Product's code|
 |[ProductName](productname_criterion.md)|Product's name|
-|[ProductStock](productstock_criterion.md)|Product's numerical stock|
-|[ProductStockRange](productstockrange_criterion.md)|Product's numerical stock|
+|[RangeMeasurementAttributeMinimum](rangemeasurementattributeminimum_criterion.md)|Minimum value of product's measurement attribute|
+|[RangeMeasurementAttributeMaximum](rangemeasurementattributemaximum_criterion.md)|Maximum value of product's measurement attribute|
+|[SymbolAttribute](symbolattribute_criterion.md)|Value of product's symbol attribute|
+|[SimpleMeasurementAttribute](simplemeasurementattribute_criterion.md)|Value of product's measurement attribute|
+|[BasePrice](baseprice_criterion.md)|Product's base price|
+|[CustomPrice](customprice_criterion.md)|Product's custom price|
 |[ProductType](producttype_criterion.md)|Product type|
 |[RangeMeasurementAttributeMaximum](rangemeasurementattributemaximum_criterion.md)|Maximum value of product's measurement attribute|
 |[RangeMeasurementAttributeMinimum](rangemeasurementattributeminimum_criterion.md)|Minimum value of product's measurement attribute|
 |[SelectionAttribute](selectionattribute_criterion.md)|Value of product's selection attribute|
 |[SimpleMeasurementAttribute](simplemeasurementattribute_criterion.md)|Value of product's measurement attribute|
-
