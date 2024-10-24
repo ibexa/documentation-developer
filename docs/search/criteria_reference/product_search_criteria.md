@@ -36,6 +36,7 @@ Search Criterion let you filter product by specific attributes, for example: col
 |[ProductName](productname_criterion.md)|Product's name|
 |[RangeMeasurementAttributeMinimum](rangemeasurementattributeminimum_criterion.md)|Minimum value of product's measurement attribute|
 |[RangeMeasurementAttributeMaximum](rangemeasurementattributemaximum_criterion.md)|Maximum value of product's measurement attribute|
+|[SymbolAttribute](symbolattribute_criterion.md)|Value of product's symbol attribute|
 |[SimpleMeasurementAttribute](simplemeasurementattribute_criterion.md)|Value of product's measurement attribute|
 |[BasePrice](baseprice_criterion.md)|Product's base price|
 |[CustomPrice](customprice_criterion.md)|Product's custom price|
