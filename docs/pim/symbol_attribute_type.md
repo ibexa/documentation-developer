@@ -6,6 +6,8 @@ description: Create a symbol attribute type that enables for the efficient repre
 
 In product specifications, the symbol attribute type enables the efficient representation of string-based data and enforces their format.
 
+This feature allows you to store standard product identifiers (such as EAN or ISBN) in the [Product Information Management](pim_guide.md) system.
+
 ## Installation
 
 ### Download the bundle
@@ -13,25 +15,20 @@ In product specifications, the symbol attribute type enables the efficient repre
 To get the most recent stable version of this bundle, open a command terminal, navigate to your project directory, and run the following command:
 
 ``` bash
-ibexa/product-catalog-symbol-attribute
+composer require ibexa/product-catalog-symbol-attribute
 ```
-
-!!! caution
-
-    To use this command requires you need to first install the Composer locally.
-    For more information about Composer installation process, see [documentation](install_ibexa_dxp.md#get-composer).
 
 ### Enable the bundle
 
-Flex enables and configures the `IbexaProductCatalogSymbolAttributeBundle` automatically.
-If you don't use it, you can manually enable Flex by adding the line below to the Kernel of your project:
+Symfony Flex enables and configures the `IbexaProductCatalogSymbolAttributeBundle` automatically.
+If you don't use it, you can manually enable this bundle by adding the line below to the Kernel of your project:
 
 ``` php
 // config/bundles.php
 
 return [
    // ...
-   Ibexa\Bundle\ProductCatalogSymbolAttribute\IbexaProductCatalogSymbolAttributeBundle => ['all' => true],
+   Ibexa\Bundle\ProductCatalogSymbolAttribute\IbexaProductCatalogSymbolAttributeBundle::class => ['all' => true],
    // ...
 ];
 ```
@@ -41,7 +38,7 @@ return [
 To store symbol attribute values, the `IbexaProductCatalogSymbolAttributeBundle` needs an extra table.
 The following SQL query can be used to build the required database structure:
 
-``` bash
+``` sql
 create table ibexa_product_specification_attribute_symbol (
     id int not null primary key,
     value varchar(255) null,
@@ -100,88 +97,39 @@ ibexa_product_catalog_symbol_attribute:
                 - 'SEE-15444'
 ```
 
-The following example specifies the format for a "Manufacturer Part Number."
+This following example specifies the format for a "Manufacturer Part Number", defined with the `manufacturer_part_number` identifier.
 
-According to the pattern option, the value:
+The pattern is specified using a regular expression.
+According to the pattern option, the attribute value:
 
 - must be a string
-- uses a regular expression
-- begins with three capital letters
-- ends with five numbers
+- begins with three capital letters (A-Z), followed by a hyphen ("-")
+- ends with five numbers (0-9), with no other characters before or after
 
 Certain formats, such as the International Standard Book Number (ISBN-10) and the European Article Number (EAN-13), contain checksum digits and are self-validating.
 
 To validate checksum of symbol:
 
-1\. Implement `\Ibexa\Contracts\ProductCatalogSymbolAttribute\Value\ChecksumInterface`:
+1\. Create a class implementing the `\Ibexa\Contracts\ProductCatalogSymbolAttribute\Value\ChecksumInterface` interface.
 
-``` php
-<?php
-
-declare(strict_types=1);
-
-namespace Ibexa\Contracts\ProductCatalogSymbolAttribute\Value;
-
-use Ibexa\Contracts\ProductCatalog\Values\AttributeDefinitionInterface;
-
-interface ChecksumInterface
-{
-    public function validate(AttributeDefinitionInterface $attributeDefinition, string $value): bool;
-}
-```
-
-2\. Register service with `ibexa.product_catalog.attribute.symbol.checksum` tag and format attribute.
+2\. Register the class as a service using the `ibexa.product_catalog.attribute.symbol.checksum` tag and specify the format identifier using the `format` attribute.
 
 See below the example implementation of checksum validation using Luhn formula:
 
 ``` php
-<?php
-
-declare(strict_types=1);
-
-namespace App\PIM\Symbol\Format\Checksum;
-
-use Ibexa\Contracts\ProductCatalog\Values\AttributeDefinitionInterface;
-use Ibexa\Contracts\ProductCatalogSymbolAttribute\Value\ChecksumInterface;
-
-final class LuhnChecksum implements ChecksumInterface
-{
-    public function validate(AttributeDefinitionInterface $attributeDefinition, string $value): bool
-    {
-        $digits = $this->getDigits($value);
-
-        $count = count($digits);
-        $total = 0;
-        for ($i = $count - 2; $i >= 0; $i -= 2) {
-            $digit = $digits[$i];
-            if ($i % 2 === 0) {
-                $digit *= 2;
-            }
-
-            $total += $digit > 9 ? $digit - 9 : $digit;
-        }
-
-        $checksum = $digits[$count - 1];
-
-        return $total + $checksum === 0;
-    }
-
-    /**
-     * Returns an array of digits from the given value (skipping any formatting characters).
-     *
-     * @return int[]
-     */
-    private function getDigits(string $value): array
-    {
-        $chars = array_filter(
-            str_split($value),
-            static fn (string $char): bool => $char !== '-'
-        );
-
-        return array_map('intval', array_values($chars));
-    }
-}
+[[= include_file('code_samples/pim/Symbol/Format/Checksum/LuhnChecksum.php') =]]
 ```
+
+Example service definition:
+
+``` yaml
+services:
+    App\PIM\Symbol\Format\Checksum\LuhnChecksum:
+        tags:
+            -   name: ibexa.product_catalog.attribute.symbol.checksum
+                format: my_format
+```
+The format attribute (`my_format`) is the identifier used under the `ibexa_product_catalog_symbol_attribute.formats` key.
 
 ## Search for products with given symbol attribute
 
