@@ -154,7 +154,7 @@ If purge requests to Varnish is protected by Basic Auth, the Basic Auth credenti
 
 Varnish is enabled by default when using [[= product_name_cloud =]]. There is no need to specify `purge_servers` as this is detected
 automatically. When enabling Basic Auth on [[= product_name_cloud =]] when using Varnish, you do however need to specify the credentials
-using the following environments in order for purging to work:
+using the following environment variables in order for purging to work:
 
 ```
 env:HTTPCACHE_USERNAME=myuser
