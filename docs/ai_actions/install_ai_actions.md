@@ -1,5 +1,6 @@
 ---
 description: Install the AI Actions LTS update.
+month_change: true
 ---
 
 # Install AI Actions
@@ -37,13 +38,21 @@ OPENAI_API_KEY=sk-svcacct-AFCrCt1h2s3i4s5i6s7t8h9e0a1p2i3c4o5d6e
 
 ### Modify the database schema
 
-Create the `add_ai_actions.sql` file that contains the following code:
+Create the `add_ai_actions.sql` file that contains the following code.
 
-```sql
-[[= include_file('code_samples/ai_actions/config/add_ai_actions.sql') =]]
-```
+=== "MySQL"
 
-Run the following command. where `<database_name>` is the same name that you defined when you [installed [[= product_name =]]](../getting_started/install_ibexa_dxp.md#change-installation-parameters).
+    ``` sql
+    [[= include_file('code_samples/ai_actions/config/mysql/add_ai_actions.sql', 0, None, '    ') =]]
+    ```
+
+=== "PostgreSQL"
+
+    ``` sql
+    [[= include_file('code_samples/ai_actions/config/postgresql/add_ai_actions.sql', 0, None, '    ') =]]
+    ```
+
+Run the following command, where `<database_name>` is the same name that you defined when you [installed [[= product_name =]]](../getting_started/install_ibexa_dxp.md#change-installation-parameters).
 
 ```bash
 mysql -u root <database_name> < add_ai_actions.sql

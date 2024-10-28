@@ -1,5 +1,6 @@
 ---
 description: AI Actions LTS update helps editors by automating repetitive tasks.
+month_change: true
 ---
 
 # AI Actions product guide
@@ -70,7 +71,7 @@ Website administrators manage AI action configurations in the [**Admin** panel](
 It might involve setting specific parameters used by the AI service, a response length, an expense limit, or configuring how the output should be handled.
 By making such adjustments, administrators can ensure that the actions are tailored to meet the needs of your organization.
 
-#### Models
+#### Model
 
 Once an AI action is defined and configured, it must be executed, and this is where models come into play.
 Each model is designed to work with a specific AI service and AI action type pair.

@@ -14,6 +14,21 @@ description: Ibexa DXP v4.6 brings improvements to Commerce, PIM and Personaliza
 
 **Update**: [v4.5.x to v4.6](https://doc.ibexa.co/en/latest/update_and_migration/from_4.5/update_from_4.5/)
 
+
+## LTS Updates
+
+### AI Actions LTS update
+
+The AI Actions LTS update enhances the usability and flexibility of [[=product_name=]] v4.6 LTS by harnessing the potential of artificial intelligence to automate time-consuming editorial tasks.
+By default, the AI Actions feature can help users with their work in following scenarios:
+
+- Refining text: when editing a content item, users can request that a passage selected in online editor is modified, for example, by adjusting the length of the text, changing its tone, or correcting linguistic errors.
+- Generating alternative text: when working with images, users can ask AI to generate alternative text for them, which helps improve accessibility and SEO.
+
+![AI Assistant](../ai_actions/img/ai_assistant.png)
+
+For more information, see [AI Actions product guide](../ai_actions/ai_actions_guide.md).
+
 ## Notable changes
 
 ### Ibexa Headless
@@ -681,15 +696,3 @@ The following view matchers have been introduced in Ibexa DXP v4.6.0:
 | [[= product_name_headless =]] | [[= product_name_exp =]] | [[= product_name_com =]] |
 |---------------|------------------|---------------|
 | [[[= product_name_headless =]] v4.6](https://github.com/ibexa/headless/releases/tag/v4.6.0) | [[[= product_name_exp =]] v4.6](https://github.com/ibexa/experience/releases/tag/v4.6.0) | [[[= product_name_com =]] v4.6](https://github.com/ibexa/commerce/releases/tag/v4.6.0) |
-
-## AI Actions LTS update
-
-The AI Actions LTS update enhances the usability and flexibility of [[=product_name=]] v4.6 LTS by harnessing the potential of artificial intelligence to automate time-consuming editorial tasks.
-By default, the AI Actions feature can help users with their work in following scenarios:
-
-- Refining text: when editing a content item, users can request that a passage selected in online editor is modified, for example, by adjusting the length of the text, changing its tone, or correcting linguistic errors.
-- Generating alternative text: when working with images, users can ask AI to generate alternative text for them, which helps improve accessibility and SEO.
-
-![AI Assistant](../ai_actions/img/ai_assistant.png)
-
-For more information, see [AI Actions product guide](../ai_actions/ai_actions_guide.md).
