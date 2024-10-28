@@ -13,8 +13,8 @@ AI Actions is an extensible solution for integrating features provided by AI ser
 Out-of-the-box, AI Actions includes two essential components: a framework package and an OpenAI connector package.
 It comes pre-configured with the following action types:
 
-- [Refine text](#refining-text): Rewrite existing text according to parameters set in a prompt
-- [Generate alternative text](#generating-alternative-text): Generate alt text for accessibility purposes
+- [Refine text](#refining-text): Rewrite existing text according to instructions set in a prompt
+- [Generate alternative text](#generating-alternative-text): Generate alt text for images for accessibility purposes
 
 ![AI Actions schematic](img/guide_ai_actions.png)
 
@@ -33,7 +33,7 @@ To begin using AI Actions, you must first [install the required packages and per
 
 ## How it works
 
-AI Actions LTS update is built upon the PHP framework.
+AI Actions LTS update relies on an extensible AI framework written in PHP.
 The framework package is responsible for gathering information from various sources, such as AI action types, AI action configurations, and contextual details like SiteAccess, user details, locale settings, and more.
 This data can then be combined with user input.
 It's then passed to a service connector, such as the default OpenAI connector, for final processing on [[= product_name =]] side.
@@ -116,7 +116,7 @@ Built-in AI action types offer a good starting point, but the real power of the 
 Extending AI Actions opens up new possibilities for content management and editing.
 Developers can define new models and AI action types that use the existing AI service or even integrate additional services.
 The latter involves developing a new service connector, writing a handler that communicates with the new service, defining a new AI action type, and creating a form for configuring options, which extends the default action configuration form shown in the **Admin** panel.
-For example, if this is your organization's requirement, a developer could write a handler that uses an AI service to <insert_a description and link to Marek's use case> generate complete articles based on a short description, or illustrations based on a body of an article.
+For example, if this is your organization's requirement, a developer could write a handler that uses an AI service available internally, without exposing your data to a third-party service.
 
 ## Use cases
 

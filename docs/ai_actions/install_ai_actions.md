@@ -9,7 +9,7 @@ To use this feature you must first install the packages and configure them.
 
 ## Install packages
 
-Run the following command to install the bundle:
+Run the following commands to install the packages:
 
 ``` bash
 composer require ibexa/connector-ai
@@ -27,7 +27,7 @@ Once the packages are installed, before you can start using AI Actions, you must
 
 Create an OpenAI account, [get an API key](https://help.openai.com/en/articles/4936850-where-do-i-find-my-openai-api-key), and make sure that you [set up a billing method](https://help.openai.com/en/articles/9038407-how-can-i-set-up-billing-for-my-account).
 
-Then, in the root folder of your project, modify the `.env` file: find the `OPENAI_API_KEY` key and replace a placeholder value with the API key that you got from the AI service.
+Then, in the root folder of your project, modify the `.env` file: find the `OPENAI_API_KEY` variable and replace a placeholder value with the API key that you got from the AI service.
 
 ```bash
 ###> ibexa/connector-openai ###
