@@ -144,24 +144,22 @@ ibexa:
 
 #### Varnish and Basic Auth
 
-If purge requests to Varnish is protected by Basic Auth, the Basic Auth credentials can be specified with the
-`purge_servers` setting using the format:
+If the Varnish server is protected by Basic Auth, specify the Basic Auth credentials within the `purge_servers` setting using the format:
 
 ``` yaml
             http_cache:
                 purge_servers: [http://myuser:mypasswd@my.varnish.server:8081]
 ```
 
-Varnish is enabled by default when using [[= product_name_cloud =]]. There is no need to specify `purge_servers` as this is detected
-automatically. When enabling Basic Auth on [[= product_name_cloud =]] when using Varnish, you do however need to specify the credentials
-using the following environment variables in order for purging to work:
+Varnish is enabled by default when using [[= product_name_cloud =]] and the `purge_servers` setting is set automatically. 
+To enable Basic Auth on [[= product_name_cloud =]] when using Varnish, specify the credentials using the following environment variables to make sure that Varnish is reachable:
 
 ```
 env:HTTPCACHE_USERNAME=myuser
 env:HTTPCACHE_PASSWORD=mypasswd
 ```
 
-If you want to use Basic Auth with Fastly on [[= product_name_cloud =]], please see [Enable basic-auth on Fastly](...)
+If you want to use Basic Auth with Fastly on [[= product_name_cloud =]], please see [Enable basic-auth on Fastly](fastly.md#enable-basic-auth-on-fastly).
 
 !!! note "Invalidating Varnish cache using tokens"
 
