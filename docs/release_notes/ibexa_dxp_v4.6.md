@@ -17,7 +17,7 @@ description: Ibexa DXP v4.6 brings improvements to Commerce, PIM and Personaliza
 
 ## LTS Updates
 
-### AI Actions LTS update
+### AI Actions
 
 The AI Actions LTS update enhances the usability and flexibility of [[=product_name=]] v4.6 LTS by harnessing the potential of artificial intelligence to automate time-consuming editorial tasks.
 By default, the AI Actions feature can help users with their work in following scenarios:
