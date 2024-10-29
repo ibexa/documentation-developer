@@ -69,7 +69,37 @@ For more information, see [Submodels]([[= user_doc =]]/personalization/recommend
 |Parameter|Example|Description|Value|
 |---|---|---|---|
 |attribute key|`&color=red`|Applicable if a submodel with the same name and value is configured.|string|
-|`userattribute`|gender|If defined, the recommendation engine tries to find the attribute value for the current user and, if found, "prefers" recommendations that are typically followed by users with the same value of the attribute. The default value is null.|string, csv list|
+|`userattribute`|gender|If defined, the Personalization server tries to find the attribute value for the current user and, if found, "prefers" recommendations that are typically followed by users with the same value of the attribute. The default value is null.|string, csv list|
+
+!!! note "Multiple submodels in recommendations"
+
+    If you send a request with two attribute keys, the response contains an intersection of two recommendation sets that originate from submodels calculated for these attributes.
+    
+    For example, to get recommendations for items of certain type that are limited by submodels based on both a nominal and numeric attribute, you can send the following request:
+    
+    `GET https://reco.perso.ibexa.co/api/v2/00000/john.doe/landing_page.json?numrecs=50&outputtypeid=1&width-range=10:30&color=green`
+
+!!! note "Dynamic attribute submodels"
+
+    If dynamic attribute submodels are enabled, you only need to add submodel parameters to the request to trigger dynamic submodels in the upcoming model build.
+
+    Dynamic attribute submodels must be enabled by [[= product_name_base =]] Team.
+    To start using this functionality, contact support@ibexa.co.
+
+    When enabled, to build dynamic attribute submodels, you need to send the request (which includes `"ATTRIBUTE_NAME=VALUE"` query parameters) to the scenario with model you want to use submodels for:
+
+    `GET https://reco.perso.ibexa.co/api/v2/00000/john.doe/{SCENARIO_NAME}?numrecs=50&outputtypeid=1&color=red`
+
+##### Segment parameters
+
+If you have configured segments, you can use them in the recommendation model. Pass the following parameter
+to request recommendations for a specific segment or segment group.
+
+Parameter|Example|Description|Value|
+|---|---|---|---|
+|`segments`|`&segments=7,8,10,11`|ID from segment group management|string|
+
+For more information, see [Segments]([[= user_doc =]]/personalization/segment_management).
 
 ## Responses
 
