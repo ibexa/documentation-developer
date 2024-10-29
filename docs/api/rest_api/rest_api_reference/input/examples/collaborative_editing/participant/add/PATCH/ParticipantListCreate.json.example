@@ -1,0 +1,19 @@
+{
+    "ParticipantListCreate": {
+        "ParticipantCreate": [
+            {
+                "_media-type": "application\/vnd.ibexa.api.InternalParticipantCreate+json",
+                "User": {
+                    "_media-type": "application/vnd.ibexa.api.User+json",
+                    "_href": "/api/ibexa/v2/user/users/14"
+                },
+                "scope": "view"
+            },
+            {
+                "_media-type": "application\/vnd.ibexa.api.ExternalParticipantCreate+json",
+                "email": "user@link.invalid",
+                "scope": "view"
+            }
+        ]
+    }
+}

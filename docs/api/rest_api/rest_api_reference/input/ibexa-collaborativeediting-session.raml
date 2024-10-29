@@ -1,0 +1,73 @@
+/collaboration/session/create:
+    post:
+        displayName: Add participant
+        description: Adds new participant.
+        headers:
+            Accept:
+                description: If set, the new participant is returned in XML or JSON format.
+                example:
+                    application/vnd.ibexa.api.CollaborationSession+json
+                    application/vnd.ibexa.api.CollaborationSession+xml
+            Content-Type:
+                description: The participant schema encoded in XML or JSON format.
+                example:
+                    application/vnd.ibexa.api.CollaborationSessionCreate+json
+                    application/vnd.ibexa.api.CollaborationSessionCreate+xml
+        body:
+            application/vnd.ibexa.api.ParticipantList+json:
+                type: ProductList
+                example: !include examples/collaborative_editing/session/create/POST/CollaborationSessionCreate.json.example
+        responses:
+            201:
+                body:
+                    application/vnd.ibexa.api.ParticipantList+json:
+                        type: ProductList
+                        example: !include examples/
+            400:
+                description: Error - the input does not match the input schema definition.
+            401:
+                description: Error - the user is not authorized to update this product.
+            403:
+                description: Error - a participant with the same name already exists.
+            404:
+                description: Error - no participant with the given ID exists.
+
+/collaboration/session/{sessionId}/delete:
+    delete:
+        displayName: Delete session (collaboration)
+        description: The collaboration session is removed.
+        headers:
+            Cookie:
+                description: "{sessionName}={sessionID}"
+            X-CSRF-Token:
+                description: The {csrfToken} needed on all unsafe HTTP methods with session.
+        responses:
+            204:
+                description: OK - session deleted.
+            404:
+                description: Error - the session does not exist.
+
+/collaboration/session/{sessionId}/retrieve:
+        get:
+            displayName: Retrieve session
+            description: Get the collaboration session's information.
+            headers:
+                Cookie:
+                    description: "{sessionName}={sessionID}"
+                X-CSRF-Token:
+                    description: The {csrfToken} needed on all unsafe HTTP methods with session.
+                Accept:
+                    example: |
+                        application/vnd.ibexa.api.CollaborationSession+<xml
+                        application/vnd.ibexa.api.CollaborationSession+json
+            responses:
+                200:
+                    body:
+                        application/vnd.ibexa.api.CollaborationSession+xml:
+                            type: CollaborationSession
+                            example: !include examples/
+                        application/vnd.ibexa.api.CollaborationSession+json:
+                            type: CollaborationSession
+                            example: !include examples/
+                404:
+                    description: Error - the session does not exist.

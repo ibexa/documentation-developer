@@ -1,0 +1,28 @@
+{
+    "ParticipantList": {
+        "Participants": [
+            {
+                "User": {
+                    "_href": "/api/ibexa/v2/user/users/__FIXED_ID__",
+                    "_media-type": "application/vnd.ibexa.api.User+json"
+                },
+                "_media-type": "application/vnd.ibexa.api.InternalParticipant+json",
+                "createdAt": "__CREATED_AT__",
+                "id": "__FIXED_ID__",
+                "name": "Anonymous User",
+                "scope": "edit",
+                "updatedAt": "__UPDATED_AT__"
+            },
+            {
+                "_media-type": "application/vnd.ibexa.api.ExternalParticipant+json",
+                "createdAt": "__CREATED_AT__",
+                "email": "guest-foo@example.com",
+                "id": "__FIXED_ID__",
+                "name": "guest-foo@example.com",
+                "scope": "view",
+                "updatedAt": "__UPDATED_AT__"
+            }
+        ],
+        "_media-type": "application/vnd.ibexa.api.ParticipantList+json"
+    }
+}
