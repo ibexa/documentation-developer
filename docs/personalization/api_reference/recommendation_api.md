@@ -87,6 +87,17 @@ For more information, see [Submodels]([[= user_doc =]]/personalization/recommend
     
     `GET https://reco.perso.ibexa.co/api/v2/00000/john.doe/landing_page.json?numrecs=50&outputtypeid=1&width-range=10:30&color=green`
 
+!!! note "Dynamic attribute submodels"
+
+    If dynamic attribute submodels are enabled, you only need to add submodel parameters to the request to trigger dynamic submodels in the upcoming model build.
+
+    Dynamic attribute submodels must be enabled by [[= product_name_base =]] Team.
+    To start using this functionality, contact support@ibexa.co.
+
+    When enabled, to build dynamic attribute submodels, you need to send the request (which includes `"ATTRIBUTE_NAME=VALUE"` query parameters) to the scenario with model you want to use submodels for:
+
+    `GET https://reco.perso.ibexa.co/api/v2/00000/john.doe/{SCENARIO_NAME}?numrecs=50&outputtypeid=1&color=red`
+
 ##### Segment parameters
 
 If you have configured segments, you can use them in the recommendation model. Pass the following parameter
