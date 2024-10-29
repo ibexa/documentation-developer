@@ -95,9 +95,9 @@ For more information, see [Submodels]([[= user_doc =]]/personalization/recommend
     Dynamic attribute submodels must be enabled by [[= product_name_base =]] Team.
     To start using this functionality, contact support@ibexa.co.
 
-    When enabled, to build dynamic attribute submodels, you need to send the request, which includes `"ATTRIBUTE_NAME=VALUE"`, to the scenario with model, you want to use submodels for:
+    When enabled, to build dynamic attribute submodels, you need to send the request (which includes `"ATTRIBUTE_NAME=VALUE"` query parameters) to the scenario with model you want to use submodels for:
 
-    `GET https://reco.test.perso.ibexa.co/api/v2/00000/john.doe/{SCENARIO_NAME}?numrecs=50&outputtypeid=1&color=red`
+    `GET https://reco.perso.ibexa.co/api/v2/00000/john.doe/{SCENARIO_NAME}?numrecs=50&outputtypeid=1&color=red`
 
 ##### Segment parameters
 
