@@ -26,6 +26,7 @@
         "ibexa/rest": "4.6.x-dev",
         "ibexa/http-cache": "4.6.x-dev",
         "ibexa/core-persistence": "4.6.x-dev",
+        "ibexa/core-search": "4.6.x-dev",
         "ibexa/migrations": "4.6.x-dev",
         "ibexa/icons": "4.6.x-dev",
         "ibexa/cart": "4.6.x-dev",
