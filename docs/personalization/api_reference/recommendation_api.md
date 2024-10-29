@@ -97,7 +97,7 @@ For more information, see [Submodels]([[= user_doc =]]/personalization/recommend
 
     When enabled, to build dynamic attribute submodels, you need to send the request, which includes `"ATTRIBUTE_NAME=VALUE"`, to the scenario with model, you want to use submodels for:
 
-    `GET https://reco.test.perso.ibexa.co/api/v2/00000/john.doe/{SCENARIO_NAME}?numrecs=50&outputtypeid=1&*color=red`
+    `GET https://reco.test.perso.ibexa.co/api/v2/00000/john.doe/{SCENARIO_NAME}?numrecs=50&outputtypeid=1&color=red`
 
 ##### Segment parameters
 
