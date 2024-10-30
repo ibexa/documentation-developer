@@ -31,7 +31,7 @@ final class LLamaTextToTextActionHandler implements ActionHandlerInterface
     {
         /** @var \Ibexa\Contracts\ConnectorAi\Action\DataType\Text */
         $input = $action->getInput();
-        $text = str_replace(array("\n", "\r"), ' ', $input->getText());
+        $text = str_replace(["\n", "\r"], ' ', $input->getText());
 
         $handlerOptions = $action->getActionContext()?->getActionHandlerOptions();
 
