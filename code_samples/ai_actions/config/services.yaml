@@ -26,3 +26,20 @@ services:
     App\Command\AddMissingAltTextCommand:
         arguments:
             $projectDir: '%kernel.project_dir%'
+
+    App\Command\ImproveTextCommand:
+        arguments:
+            $richTextConverter: '@ibexa.richtext.converter.output.xhtml5'
+
+    App\AI\Handler\LLamaTextToTextActionHandler:
+        tags:
+            - { name: ibexa.ai.action.handler, priority: 0 }
+            - { name: ibexa.ai.action.handler.text_to_text, priority: 0 }
+
+    app.connector_ai.action_configuration.handler.llava_text_to_text.form_mapper.options:
+        class: Ibexa\Bundle\ConnectorAi\Form\FormMapper\ActionConfiguration\ActionHandlerOptionsFormMapper
+        arguments:
+            $formType: 'App\Form\Type\TextToTextOptionsType'
+        tags:
+            - name: ibexa.connector_ai.action_configuration.form_mapper.options
+              type: LLamaTextToText
