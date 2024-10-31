@@ -148,7 +148,7 @@ If the new bundle `ibexa/core-search` has not been added by the recipes, enable 
 
 This release comes with a command to clean up the duplicated entries in the `ezcontentobject_attribute` table, caused by the issue described in [IBX-8562](https://issues.ibexa.co/browse/IBX-8562).
 
-If you're affected you can remove the duplicated entries by running the `ibexa:content:remove-duplicate-fields` command:
+If you're affected you can remove the duplicated entries by running the following command:
 ``` bash
 php bin/console ibexa:content:remove-duplicate-fields
 ```
@@ -159,6 +159,6 @@ php bin/console ibexa:content:remove-duplicate-fields
 
 You can customize the behavior of the command with the following options:
 
-- `batch-size` or `b` - number of attributes affected per iteration. Default: 10000.
-- `max-iterations` or `i` - max. iterations count (default or -1: unlimited). Default: -1.
-- `sleep` or `s` - wait time between iterations, in milliseconds. Default: 0.
+- `batch-size` or `b` - number of attributes affected per iteration. Default value = 10000.
+- `max-iterations` or `i` - max. iterations count (default or -1: unlimited). Default value = -1.
+- `sleep` or `s` - wait time between iterations, in milliseconds. Default value = 0.
