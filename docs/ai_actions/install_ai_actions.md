@@ -57,13 +57,13 @@ Run the following command, where `<database_name>` is the same name that you def
 === "MySQL"
 
     ```bash
-    mysql -u root <database_name> < add_ai_actions.sql
+    mysql -u <username> -p <password> <database_name> < add_ai_actions.sql
     ```
 
 === "PostgreSQL"
 
     ```bash
-    psql --username=postgres <database_name> < add_ai_actions.sql
+    psql <database_name> < add_ai_actions.sql
     ```
 
 This command modifies the existing database schema by adding database configuration required for using AI Actions.
