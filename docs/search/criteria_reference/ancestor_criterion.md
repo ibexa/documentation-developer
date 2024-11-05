@@ -1,6 +1,6 @@
 # Ancestor Criterion
 
-The [`Ancestor` Search Criterion](https://github.com/ibexa/core/blob/main/src/contracts/Repository/Values/Content/Query/Criterion/Ancestor.php)
+The [`Ancestor` Search Criterion](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Criterion-Ancestor.html)
 searches for content that is an ancestor of the provided Location, including this Location.
 
 ## Arguments
@@ -9,9 +9,33 @@ searches for content that is an ancestor of the provided Location, including thi
 
 ## Example
 
+### PHP
+
 ``` php
 $query->query = new Criterion\Ancestor([$this->locationService->loadLocation(62)->pathString]);
 ```
+
+### REST API
+
+=== "XML"
+
+    ```xml
+    <Query>
+        <Filter>
+            <AncestorCriterion>/81/82/</AncestorCriterion>
+        </Filter>
+    </Query>
+    ```
+
+=== "JSON"
+
+    ```json
+    "Query": {
+        "Filter": {
+            "AncestorCriterion": "/81/82/"
+        }
+    }
+    ```
 
 ## Use case
 

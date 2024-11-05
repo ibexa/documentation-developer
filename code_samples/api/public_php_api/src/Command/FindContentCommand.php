@@ -20,12 +20,12 @@ class FindContentCommand extends Command
         parent::__construct('doc:find_content');
     }
 
-    protected function configure()
+    protected function configure(): void
     {
         $this
-            ->setDescription('Lists content belonging to the provided Content Type.')
+            ->setDescription('Lists content belonging to the provided content type.')
             ->setDefinition([
-                new InputArgument('contentTypeIdentifier', InputArgument::REQUIRED, 'Content Type identifier'),
+                new InputArgument('contentTypeIdentifier', InputArgument::REQUIRED, 'Content type identifier'),
             ]);
     }
 

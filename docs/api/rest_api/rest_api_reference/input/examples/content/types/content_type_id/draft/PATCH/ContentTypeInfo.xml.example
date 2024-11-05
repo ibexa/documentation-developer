@@ -4,10 +4,10 @@
     <status>DRAFT</status>
     <identifier>new_content_type</identifier>
     <names>
-        <value languageCode="eng-GB">Updated Content Type name</value>
+        <value languageCode="eng-GB">Updated content type name</value>
     </names>
     <descriptions>
-        <value languageCode="eng-GB">This is an updated Content Type description</value>
+        <value languageCode="eng-GB">This is an updated content type description</value>
     </descriptions>
     <creationDate>2019-02-06T10:56:36+01:00</creationDate>
     <modificationDate>2019-02-25T12:15:51+01:00</modificationDate>

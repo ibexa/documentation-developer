@@ -1,5 +1,6 @@
 ---
 description: Manage data migrations by adding files, converting from Kaliop migration bundle, checking migration status, and setting up configuration.
+month_change: true
 ---
 
 # Managing migrations
@@ -11,7 +12,7 @@ If you want to convert a file from the format used by the
 to the current migration format, use the `ibexa:migrations:kaliop:convert` command.
 
 The source file must use Kaliop mode and type combinations.
-The converter handles Kaliop types that are different from Ibexa types.
+The converter handles Kaliop types that are different from [[= product_name_base =]] types.
 
 ``` bash
 php bin/console ibexa:migrations:kaliop:convert --input=kaliop_format.yaml --output=ibexa_format.yaml
@@ -57,6 +58,21 @@ ibexa_migrations:
     migrations_files_subdir: migration_files
 ```
 
+!!! note "Multi-repository scenario"
+
+    In multi-repository environments, where data for different websites is stored in separate databases, you can migrate such databases separately, to prevent the migration processes from affecting each other.
+
+    The `ibexa_migrations.migration_directory` setting accepts a placeholder within a path.
+    The placeholder is dynamically replaced by a name of the repository that you want to migrate, based on the selected SiteAccess.
+
+    ``` yaml
+    ibexa_migrations:
+        migration_directory: '%kernel.project_dir%/data/<repository>'
+        ...
+    ```
+
+    Then, when you run the migration command, you must use the [`--siteaccess` option](exporting_data.md#siteaccess) and provide the name of the SiteAccess that you want to migrate.
+
 ## Preview configuration
 
 You can get default configuration along with option descriptions by executing the following command:
@@ -73,7 +89,7 @@ Since some migrations generate object properties (like IDs) during their executi
 references provide migrations with the ability to use previously created object properties in further migrations.
 They can be subsequently used by passing them in their desired place with `reference:` prefix.
 
-The example below creates a Content item of type "folder", and stores its Location path as `"ref_path__folder__media"`.
+The example below creates a content item of type "folder", and stores its Location path as `"ref_path__folder__media"`.
 Then this reference is reused as part of a new role, as a limitation.
 
 ```yaml

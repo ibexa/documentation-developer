@@ -1,6 +1,6 @@
 # Random Sort Clause
 
-The [`Random` Sort Clause](https://github.com/ibexa/core/blob/main/src/contracts/Repository/Values/Content/Query/SortClause/Random.php)
+The [`Random` Sort Clause](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-SortClause-Random.html)
 orders search results randomly.
 
 ## Arguments

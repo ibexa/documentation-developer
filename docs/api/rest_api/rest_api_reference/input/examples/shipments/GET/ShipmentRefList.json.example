@@ -1,0 +1,24 @@
+{
+    "ShipmentRefList": {
+        "_media-type": "application\/vnd.ibexa.api.ShipmentRefList+json",
+        "_href": "\/api\/ibexa\/v2\/shipments",
+        "shipmentRefList": [
+            {
+                "_media-type": "application\/vnd.ibexa.api.Shipment+json",
+                "_href": "\/api\/ibexa\/v2\/shipments\/foo"
+            },
+            {
+                "_media-type": "application\/vnd.ibexa.api.Shipment+json",
+                "_href": "\/api\/ibexa\/v2\/shipments\/bar"
+            },
+            {
+                "_media-type": "application\/vnd.ibexa.api.Shipment+json",
+                "_href": "\/api\/ibexa\/v2\/shipments\/baz"
+            },
+            {
+                "_media-type": "application\/vnd.ibexa.api.Shipment+json",
+                "_href": "\/api\/ibexa\/v2\/shipments\/qux"
+            }
+        ]
+    }
+}

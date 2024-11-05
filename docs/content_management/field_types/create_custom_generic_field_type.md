@@ -13,6 +13,8 @@ reduces the number of classes which must be created, and simplifies the tagging 
 
     You should not use the Generic Field Type when you need a very specific implementation or complete control over the way data is stored.
 
+[[= include_file('docs/snippets/simple_hash_value_caution.md') =]]
+
 ## Define value object
 
 First, create `Value.php` in the `src/FieldType/HelloWorld` directory.
@@ -95,17 +97,17 @@ Provide the template mapping under the `ibexa.system.<scope>.field_templates` [c
 
 ## Final results
 
-Finally, you should be able to add a new Content Type in the Back Office interface.
-Navigate to **Content Types** tab and under **Content** category create a new Content Type:
+Finally, you should be able to add a new content type in the Back Office interface.
+Navigate to **Content types** tab and under **Content** category create a new content type:
 
-![Creating new Content Type](extending_field_type_create.png)
+![Creating new content type](extending_field_type_create.png)
 
 Next, define a **Hello World** field:
 
 ![Defining Hello World](extending_field_type_definition.png)
 
-After saving, your **Hello World** Content Type should be available under **Content** in the sidebar menu.
+After saving, your **Hello World** content type should be available under **Content** in the sidebar menu.
 
 ![Creating Hello World](extending_field_type_hello_world.png)
 
-For more detailed tutorial on Generic Field Type follow [Creating a Point 2D Field Type ](creating_a_point2d_field_type.md).
+For more detailed tutorial on Generic Field Type follow [Creating a Point 2D Field Type](creating_a_point2d_field_type.md).

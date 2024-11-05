@@ -16,7 +16,7 @@ Each storage engine needs to implement its own handlers for the corresponding Cr
 which will be used to translate the value object into a storage-specific search query.
 
 As an example take a look at the [`ContentId` Criterion handler](https://github.com/ibexa/core/blob/main/src/lib/Search/Legacy/Content/Common/Gateway/CriterionHandler/ContentId.php) in Legacy search engine
-or [`ContentId` Criterion handler](https://github.com/ibexa/solr-search-engine/blob/main/lib/Query/Common/CriterionVisitor/ContentIdIn.php) in Solr search engine.
+or [`ContentId` Criterion handler](https://github.com/ibexa/solr/blob/main/src/lib/Query/Common/CriterionVisitor/ContentIdIn.php) in Solr search engine.
 
 ## Custom Criteria and Sort Clauses
 
@@ -48,7 +48,7 @@ Each type has dedicated methods in the Search Service:
 | Location       | `findLocations()`        |
 
 All Criteria and Sort Clauses will be accepted with Location Search, but not all of them can be used with Content Search.
-The reason for this is that while one Location always has exactly one Content item, one Content item can have multiple Locations.
+The reason for this is that while one Location always has exactly one content item, one content item can have multiple Locations.
 In this context some Criteria and Sort Clauses would produce ambiguous queries that would not be accepted by Content Search.
 
 Content Search explicitly refuses to accept Criteria and Sort Clauses implementing these abstract classes:
@@ -81,9 +81,9 @@ Available tags for Sort Clause handlers in Legacy Storage Engine are:
     - for Criterion handlers: `ibexa.core.trash.search.legacy.gateway.criterion_handler`
     - for Sort Clause handlers: `ibexa.core.trash.search.legacy.gateway.sort_clause_handler`
 
-    For more information about searching for Content items in Trash, see [Searching in trash](search_api.md#searching-in-trash).
+    For more information about searching for content items in Trash, see [Searching in trash](search_api.md#searching-in-trash).
 
-    For more information about the Criteria and Sort Clauses that are supported when searching for trashed Content items, see [Searching in trash reference](search_in_trash_reference.md).
+    For more information about the Criteria and Sort Clauses that are supported when searching for trashed content items, see [Searching in trash reference](search_in_trash_reference.md).
 
 The following example shows how to register a ContentId Criterion handler, common for both Content and Location Search:
 

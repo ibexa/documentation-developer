@@ -13,6 +13,8 @@ The `Currency` Search Criterion searches for payments based on the currency code
 
 ## Example
 
+### PHP
+
 ``` php
 $query->query = new \Ibexa\Contracts\Payment\Payment\Query\Criterion\Currency('EUR');
 ```

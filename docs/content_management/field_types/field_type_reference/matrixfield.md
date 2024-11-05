@@ -7,7 +7,7 @@ This Field represents and handles a table of rows and columns of data.
 | `Matrix` | `ezmatrix`    | `array`        |
 
 The Matrix Field Type is available via the Matrix Bundle
-provided by the [ibexa/matrix-fieldtype](https://github.com/ibexa/matrix-fieldtype) package.
+provided by the [ibexa/fieldtype-matrix](https://github.com/ibexa/fieldtype-matrix) package.
 
 ## PHP API Field Type
 
@@ -37,7 +37,7 @@ new FieldType\Value([
 
 ### Validation
 
-The minimum number of rows is set on Content Type level for each Field.
+The minimum number of rows is set on content type level for each Field.
 
 Validation checks for empty rows. A row is considered empty if it contains only empty cells (or cells containing only spaces). Empty rows are removed.
 
@@ -55,13 +55,13 @@ new FieldType\Value([
 
 ## GraphQL Field Type operations
 
-To get a Field of the Matrix Field Type with GraphQL, you will need to specify a Content ID, a Content Type, and a Field Type.
+To get a Field of the Matrix Field Type with GraphQL, you will need to specify a Content ID, a content type, and a Field Type.
 
 The types that are returned are named after the Type and the Field:
 
 - `{TypeIdentifier}{FieldIdentifier}Row`
 
-The example below shows a GraphQL query for a Recipe Content item (belonging to a Content Type with a Matrix Field added), that has two Fields:
+The example below shows a GraphQL query for a Recipe content item (belonging to a content type with a Matrix Field added), that has two Fields:
 
 - `name`: `ezstring`
 - `ingredients`: `ezmatrix` with two columns: `ingredient` and `quantity`
@@ -106,7 +106,7 @@ The Type returned for the Matrix Field exposes columns defined in the Field defi
 
 ### Query for the Field Type and Field definition's details
 
-With this query you can inspect details of specific Content Type. In case of a Matrix Field, you can ask for the list of columns, their names and identifiers.
+With this query you can inspect details of specific content type. In case of a Matrix Field, you can ask for the list of columns, their names and identifiers.
 
 ```
 {
@@ -172,7 +172,7 @@ The types that are used for input are named after the Type and the Field:
 
 - `{TypeIdentifier}{FieldIdentifier}RowInput` e.g. `dish.nutritionFacts`, `event.agenda`: `DishNutritionFactsRowInput`, `EventAgendaRowInput`
 
-The example below shows how to create a Recipe Content item (belonging to a Content Type with a Matrix Field Type added) that has two Fields:
+The example below shows how to create a Recipe content item (belonging to a content type with a Matrix Field Type added) that has two Fields:
 
 - `name`: `"Cake Ingredient List"`
 - `ingredients`: `ezmatrix` with two columns: `ingredient` and `quantity`

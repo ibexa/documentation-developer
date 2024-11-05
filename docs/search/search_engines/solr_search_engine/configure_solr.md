@@ -31,17 +31,17 @@ ibexa_solr:
         default:
             boost_factors:
                 content_type:
-                    # Boost a whole Content Type
+                    # Boost a whole content type
                     article: 2.0
                 meta_field:
-                    # Boost a meta Field (name, text) system wide, or for a given Content Type
+                    # Boost a meta Field (name, text) system wide, or for a given content type
                     name: 10.0
                     article:
                         # Boost the meta full text Field for article more than 2.0 set above
                         text: 5.0
 ```
 
-The configuration above will result in the following boosting (Content Type / Field):
+The configuration above will result in the following boosting (content type / Field):
 
 - `article/title: 2.0`
 - `news/description: 1.0` (default)
@@ -56,7 +56,7 @@ The configuration above will result in the following boosting (Content Type / Fi
     Unfortunately, this doesn't affect search performed in the administration interface.
 
     The following example presents boosting configuration for Folder's `name` and `description` fields.
-    First, in `ibexa_solr.yaml` configure [custom fulltext fields.](https://github.com/Novactive/NovaeZSolrSearchExtraBundle/blob/master/doc/custom_fields.md)
+    First, in `ibexa_solr.yaml` configure [custom fulltext fields](https://github.com/Novactive/NovaeZSolrSearchExtraBundle/blob/master/doc/custom_fields.md).
 
     ```yaml
     ez_solr_search_extra:
@@ -118,7 +118,7 @@ The configuration above will result in the following boosting (Content Type / Fi
 
     Remember to clear the cache and perform search engine reindex afterwords.
 
-    The above configuration will result in the following boosting (Content Type / Field):
+    The above configuration will result in the following boosting (content type / Field):
     
     - `folder/name: 20.0`
     - `folder/description: 10.0`
@@ -226,7 +226,7 @@ Connect to the Solr slave interface (http://localhost:8983/solr), go to your cor
 
 # Configure HTTP Client for Solr queries
 
-Ibexa Solr Bundle uses Symfony HTTP Client to fetch and update Solr index.
+[[= product_name_base =]] Solr Bundle uses Symfony HTTP Client to fetch and update Solr index.
 You can configure timeout and maximum number of retries for that client using Solr Bundle's Semantic configuration:
 
 ```yaml

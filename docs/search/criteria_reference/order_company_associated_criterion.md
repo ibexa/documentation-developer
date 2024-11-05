@@ -13,6 +13,8 @@ The `IsCompanyAssociatedCriterion` Search Criterion searches for orders based on
 
 ## Example
 
+### PHP
+
 ``` php
 $query = new OrderQuery(
     new \Ibexa\Contracts\OrderManagement\Value\Order\Query\Criterion\IsCompanyAssociatedCriterion(true)

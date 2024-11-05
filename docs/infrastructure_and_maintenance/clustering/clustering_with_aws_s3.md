@@ -14,13 +14,13 @@ meaning AWS S3 will be used to store binary files.
 ## Set up AWS S3 account
 
 1.  Go to <https://aws.amazon.com/> and create an account.
-An [existing Amazon account can be used](http://docs.aws.amazon.com/AmazonS3/latest/gsg/SigningUpforS3.html).
-1.  [Choose a region](http://docs.aws.amazon.com/storagegateway/latest/userguide/available-regions-intro.html).
+An [existing Amazon account can be used](https://docs.aws.amazon.com/AmazonS3/latest/userguide/setting-up-s3.html#sign-up-for-aws).
+1.  [Choose a region](https://docs.aws.amazon.com/storagegateway/latest/vgw/available-regions-intro.html).
 The example below uses EU (Ireland): `eu-west-1`
 1.  Create a bucket in your chosen region and make note of the bucket name:
-<http://docs.aws.amazon.com/AmazonS3/latest/gsg/CreatingABucket.html>.
+<https://docs.aws.amazon.com/AmazonS3/latest/userguide/creating-bucket.html>.
 1.  Go to the [IAM Management Console](https://console.aws.amazon.com/iam/home#/users) and create a user.
-See <http://docs.aws.amazon.com/AmazonS3/latest/dev/s3-access-control.html>.
+See <https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-access-control.html>.
 1.  Then create a group and assign the user to the group.
 1.  Assign policies to the group. The `AmazonS3FullAccess` policy gives read/write access to your bucket.
 1.  Still in the IAM console, view the user you created. Click the "Security credentials" tab.
@@ -30,7 +30,7 @@ The secret key cannot be retrieved again after the key has been created, so don'
 
 !!! note
 
-    Make sure that your bucket is [configured as Public](https://docs.aws.amazon.com/AmazonS3/latest/user-guide/block-public-access-bucket.html) to avoid facing 403 errors, as the current S3 handler is meant to store files publicly so they can be served directly from S3.
+    Make sure that your bucket is [configured as Public](https://docs.aws.amazon.com/AmazonS3/latest/userguide/configuring-block-public-access-bucket.html) to avoid facing 403 errors, as the current S3 handler is meant to store files publicly so they can be served directly from S3.
     
 ## Set up [[= product_name =]] for AWS S3
 
@@ -76,8 +76,8 @@ ibexa_io:
     `aws_s3` is an arbitrary handler identifier that is used in the config block below.
     You can configure multiple handlers.
 
-    For example, you could configure one called `gcloud_storage` for a third-party (community-supported)
-    [Google Cloud Storage adapter](https://github.com/thephpleague/flysystem#community-supported).
+    For example, you could configure one called `gcloud_storage` for a
+    [Google Cloud Storage adapter](https://github.com/thephpleague/flysystem#officially-supported-adapters).
 
 Under the `ibexa.system.<scope>.io` [configuration key](configuration.md#configuration-files), enable the binary data handler:
 
@@ -96,4 +96,4 @@ Clear all caches and reload, and that's it.
 ## Migrate your existing binary data to S3
 
 You can [migrate existing binary data](clustering.md#migrating-to-a-cluster-setup) to S3 using the `php bin/console ibexa:io:migrate-files` command
-which was added in [EZP-25946](https://jira.ez.no/browse/EZP-25946).
+which was added in [EZP-25946](https://issues.ibexa.co/browse/EZP-25946).

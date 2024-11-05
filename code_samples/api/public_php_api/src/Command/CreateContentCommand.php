@@ -35,18 +35,18 @@ class CreateContentCommand extends Command
         parent::__construct('doc:create_content');
     }
 
-    protected function configure()
+    protected function configure(): void
     {
         $this
             ->setDefinition([
                 new InputArgument('parentLocationId', InputArgument::REQUIRED, 'Parent Location ID'),
-                new InputArgument('contentType', InputArgument::REQUIRED, 'Identifier of a Content type with a Name and Description Field'),
+                new InputArgument('contentType', InputArgument::REQUIRED, 'Identifier of a content type with a Name and Description Field'),
                 new InputArgument('name', InputArgument::REQUIRED, 'Content for the Name field'),
             ])
-            ->addOption('publish', 'p', InputOption::VALUE_NONE, 'Do you want to publish the Content item?');
+            ->addOption('publish', 'p', InputOption::VALUE_NONE, 'Do you want to publish the content item?');
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $user = $this->userService->loadUserByLogin('admin');
         $this->permissionResolver->setCurrentUserReference($user);
@@ -67,7 +67,7 @@ class CreateContentCommand extends Command
 
         if ($input->getOption('publish')) {
             $content = $this->contentService->publishVersion($draft->versionInfo);
-            $output->writeln('Published Content item ' . $content->getName());
+            $output->writeln('Published content item ' . $content->getName());
         }
 
         return self::SUCCESS;

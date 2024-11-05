@@ -251,11 +251,11 @@ The Field Types unsupported in eZ Platform are:
 For Field Types which do not have specific procedures below, you must take one of the following actions:
 
 - implement them yourself in eZ Platform
-- remove them from all Content Types that use them
+- remove them from all content types that use them
 
 !!! tip
 
-    To find out which Content Types use a specific Field Type,
+    To find out which content types use a specific Field Type,
     you can run the following SQL query on your database (in this case, for the Star Rating Field Type):
 
     ``` sql
@@ -283,7 +283,7 @@ The script also has an `--image-content-types` option which you should use if yo
 
 `php bin/console ezxmltext:convert-to-richtext --image-content-types=image,custom_image -v`
 
-The script needs to know these identifiers in order to convert `<ezembed>` tags correctly. Failing to do so will prevent the editor from showing image thumbnails of embedded image objects. You may find the image Content Types in your installation by looking for these settings in `content.ini(.append.php)`:
+The script needs to know these identifiers in order to convert `<ezembed>` tags correctly. Failing to do so will prevent the editor from showing image thumbnails of embedded image objects. You may find the image content types in your installation by looking for these settings in `content.ini(.append.php)`:
 
 ```
 [RelationGroupSettings]
@@ -299,13 +299,13 @@ If the `--image-content-types` option is not specified, the default setting `ima
 
     `php bin/console ezxmltext:convert-to-richtext --fix-embedded-images-only -v`
 
-    The use of `--image-content-types` is also supported together with `--fix-embedded-images-only`. Use it to specify custom image Content Types.
+    The use of `--image-content-types` is also supported together with `--fix-embedded-images-only`. Use it to specify custom image content types.
 
 !!! note
 
     There is no corresponding `ImagesClassList[]` setting in eZ Platform. So even though you have customer image classes, you don't need to configure this in the eZ Platform configuration when migrating.
 
-If you later realize that you provided the convert script with incorrect image Content Type identifiers, it is perfectly safe to re-execute the command as long as you use the `--fix-embedded-images-only`.
+If you later realize that you provided the convert script with incorrect image content type identifiers, it is perfectly safe to re-execute the command as long as you use the `--fix-embedded-images-only`.
 
 So, if you first ran the command:
 
@@ -315,7 +315,7 @@ But later realize the last identifier should be `profile`, not ``custom_image``,
 
 `php bin/console ezxmltext:convert-to-richtext --image-content-types=image,profile -v`
 
-The last command would then ensure embedded objects with Content Type identifier `custom_image` are no longer tagged as images, while embedded objects with Content Type identifier `profile` are.
+The last command would then ensure embedded objects with content type identifier `custom_image` are no longer tagged as images, while embedded objects with content type identifier `profile` are.
 
 
 Using the option `--export-dir`, the conversion will export problematic `ezxmltext` to files with the name pattern `[export-dir]/ezxmltext_[contentobject_id]_[contentobject_attribute_id]_[version]_[language].xml`. A corresponding `.log` file will also be created which includes information about why the conversion failed. Be aware that the reported location of the problem may not be accurate or may be misleading.
@@ -426,7 +426,7 @@ When the conversion tool detects links with no reference it will issue a warning
 
 **`<literal>`**
 
-The `<literal>` tag is not yet supported in eZ Platform. For more information about this, please have a look at [EZP-29328](https://jira.ez.no/browse/EZP-29328) and [EZP-29027](https://jira.ez.no/browse/EZP-29027).
+The `<literal>` tag is not yet supported in eZ Platform. For more information about this, please have a look at [EZP-29328](https://issues.ibexa.co/browse/EZP-29328) and [EZP-29027](https://issues.ibexa.co/browse/EZP-29027).
 
 When you are ready to migrate your eZ Publish XmlText content to the eZ Platform RichText format and start using pure eZ Platform setup, start the conversion script without the `--dry-run` option. Execute the following from &lt;new-ez-root&gt;:
 

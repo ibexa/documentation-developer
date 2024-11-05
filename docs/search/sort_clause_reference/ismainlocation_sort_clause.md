@@ -1,7 +1,7 @@
 # IsMainLocation Sort Clause
 
-The [`Location\IsMainLocation` Sort Clause](https://github.com/ibexa/core/blob/main/src/contracts/Repository/Values/Content/Query/SortClause/Location/IsMainLocation.php)
-sorts search results by whether their Location is the main Location of the Content item.
+The [`Location\IsMainLocation` Sort Clause](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-SortClause-Location-IsMainLocation.html)
+sorts search results by whether their Location is the main Location of the content item.
 
 Locations that are not main Locations are ranked as lower values (e.g. with ascending order they will be returned first).
 

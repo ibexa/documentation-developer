@@ -9,6 +9,8 @@ See [a list of all changed namespaces, configuration key, service names, and oth
 
 An additional compatibility layer makes the process of updating your code easier.
 
+[[% include 'snippets/update/temporary_v4_conflicts.md' %]]
+
 !!! note "Symfony 5.4"
 
     If you are using Symfony 5.3, you need to update your installation to Symfony 5.4.
@@ -121,7 +123,7 @@ Apply the following database update script:
 
 ### Ibexa Open Source
 
-If you have no access to Ibexa DXP's `ibexa/installer` package, apply the following database upgrade script:
+If you have no access to [[= product_name =]]'s `ibexa/installer` package, apply the following database upgrade script:
 
 === "MySQL"
     ``` sql
@@ -159,22 +161,18 @@ If the dry run is successful, run:
 php bin/console ibexa:migrations:migrate
 ```
 
-### Migrate richtext namespaces
-
-Run the upgrade script for updating XML namespaces inside RichText Fields:
-
-```bash
-php bin/console ibexa:migrate:richtext-namespaces
-```
-
 ## Update your custom code
+
+### Back Office customization
+
+The v4 version of [[= product_name =]] is using Bootstrap 5 in the Back Office. If you were using Bootstrap 4 for styling, you need to update and adjust all custom Back Office components [following the migration guide from Bootstrap 4](https://getbootstrap.com/docs/5.0/migration/).
 
 ### Online editor
 
 #### Custom plugins and buttons
 
 If you added your own Online Editor plugins or buttons, you need to rewrite them
-using [CKEditor 5's extensibility](https://ckeditor.com/docs/ckeditor5/latest/framework/guides/plugins/creating-simple-plugin.html).
+using [CKEditor 5's extensibility](https://ckeditor.com/docs/ckeditor5/latest/tutorials/crash-course/plugins.html#creating-custom-plugins).
 
 #### Custom tags
 
@@ -201,7 +199,7 @@ Update your configuration, if it applies.
 
 ## Finish update
 
-Adapt your `composer.json` file according to [`manifest.json`](https://github.com/ibexa/recipes/blob/master/ibexa/commerce/4.0.x-dev/manifest.json#L170-L171), by adding the following lines:
+Adapt your `composer.json` file according to [`manifest.json`](https://github.com/ibexa/recipes/blob/master/ibexa/commerce/4.0/manifest.json#L170-L171), by adding the following lines:
 
 ``` json hl_lines="2-3"
 "yarn install": "script",
@@ -221,3 +219,16 @@ Finally, generate the new GraphQl schema:
 ``` bash
 php bin/console ibexa:graphql:generate-schema
 ```
+
+### Ibexa Cloud
+
+Update Platform.sh configuration and scripts.
+
+Generate new configuration with the following command:
+
+```bash
+composer ibexa:setup --platformsh
+```
+
+Review the changes applied to `.platform.app.yaml`, `.platform/` and `bin/platformsh_prestart_cacheclear.sh`,
+merge with your custom settings if needed, and commit them to Git.

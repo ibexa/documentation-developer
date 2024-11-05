@@ -4,7 +4,7 @@ description: Enhance product catalog by creating a custom product attribute type
 
 # Create custom attribute type
 
-Besides the [built-in attribute types](pim.md#product-attributes), you can also create custom ones.
+Besides the [built-in attribute types](products.md#product-attributes), you can also create custom ones.
 
 The example below shows how to add a Percentage attribute type.
 
@@ -25,9 +25,9 @@ A form mapper maps the data entered in an editing form into an attribute value.
 
 The form mapper must implement `Ibexa\Contracts\ProductCatalog\Local\Attribute\ValueFormMapperInterface`.
 
-In this example, you can use the Symfony's built-in `PercentType` class (line 42).
+In this example, you can use the Symfony's built-in `PercentType` class (line 40).
 
-``` php hl_lines="42"
+``` php hl_lines="40"
 [[= include_file('code_samples/catalog/custom_attribute_type/src/Attribute/Percent/Form/PercentValueFormMapper.php') =]]
 ```
 

@@ -13,7 +13,7 @@ extended in the workflow service.
 
 The service implements the following methods:
 
-- `start` - places a Content item in a workflow
+- `start` - places a content item in a workflow
 - `apply` - performs a transition
 - `can` - checks if a transition is possible
 
@@ -22,7 +22,7 @@ but the implementation in workflow service extends them, for example by providin
 
 ## Getting workflow information
 
-To get information about a specific workflow for a Content item, use `WorkflowServiceInterface::loadWorkflowMetadataForContent`:
+To get information about a specific workflow for a content item, use `WorkflowServiceInterface::loadWorkflowMetadataForContent`:
 
 ``` php
 [[= include_file('code_samples/api/public_php_api/src/Command/WorkflowCommand.php', 53, 57) =]]
@@ -30,10 +30,10 @@ To get information about a specific workflow for a Content item, use `WorkflowSe
 
 !!! tip
 
-    `marking`, a term from [Symfony Workflow,]([[= symfony_doc =]]/components/workflow.html)
+    `marking`, a term from [Symfony Workflow]([[= symfony_doc =]]/components/workflow.html),
     refers to a state in a workflow.
 
-To get a list of all workflows that can be used for a given Content item, use `WorkflowRegistry`:
+To get a list of all workflows that can be used for a given content item, use `WorkflowRegistry`:
 
 ``` php
 [[= include_file('code_samples/api/public_php_api/src/Command/WorkflowCommand.php', 47, 48) =]]
@@ -41,13 +41,13 @@ To get a list of all workflows that can be used for a given Content item, use `W
 
 ## Applying workflow transitions
 
-To place a Content item in a workflow, use `WorkflowService::start`:
+To place a content item in a workflow, use `WorkflowService::start`:
 
 ``` php
 [[= include_file('code_samples/api/public_php_api/src/Command/WorkflowCommand.php', 52, 53) =]]
 ```
 
-To apply a transition to a Content item, use `Workflow::apply`.
+To apply a transition to a content item, use `Workflow::apply`.
 Additionally, you can check if the transition is possible for the given object using `WorkflowService::can`:
 
 ``` php

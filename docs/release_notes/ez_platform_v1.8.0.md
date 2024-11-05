@@ -1,3 +1,5 @@
+<!-- vale VariablesVersion = NO -->
+
 # eZ Platform v1.8.0
 
 **The FAST TRACK v1.8.0 release of eZ Platform and eZ Platform Enterprise Edition is available as of February 16, 2017.**
@@ -17,7 +19,7 @@ If you are looking for the Long Term Support (LTS) release, see[ https://ezplat
 -   Improvements in the Online Editor:
     -   You now have the ability to rearrange elements in the editor by moving them up and down.
     -   You can now add links to internal content items in the Online Editor, decide in which tab the link should open, and set link title:![](link-options-oe.png)
--   Improvements to the Sub-Items view of a Content Item: You can now sort content items by clicking column headings
+-   Improvements to the Sub-Items view of a content item: You can now sort content items by clicking column headings
 
 ![](subitem-sorting.png)
 

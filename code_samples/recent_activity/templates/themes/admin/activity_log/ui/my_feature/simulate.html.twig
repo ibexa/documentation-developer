@@ -1,0 +1,21 @@
+{% extends '@ibexadesign/activity_log/ui/default.html.twig' %}
+
+{%- block activity_log_description_widget -%}
+    {% if log.getRelatedObject() is not null %}
+        <a
+                class="ibexa-al-data-grid__data-cell"
+                {#
+                href="{{ path('my.feature.view', {
+                    id: log.getObjectId(),
+                }) }}"
+                #}
+        >
+            {{- log.getRelatedObject().name -}}
+        </a>
+        {% if log.getRelatedObject().name != log.getObjectName() %}
+            (was named &ldquo;{{ log.getObjectName() }}&rdquo;)
+        {% endif %}
+    {% else %}
+        {{ log.getObjectName() }} (which doesn't exist anymore)
+    {% endif %}
+{%- endblock activity_log_description_widget -%}

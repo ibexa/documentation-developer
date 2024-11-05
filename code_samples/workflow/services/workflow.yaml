@@ -1,0 +1,5 @@
+services:
+    App\Checkout\Workflow\Strategy\NewWorkflow:
+        tags:
+            - name: ibexa.checkout.workflow.strategy
+              priority: 100

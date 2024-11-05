@@ -5,7 +5,7 @@ description: How to report security issues in Ibexa DXP?
 # Reporting security issues in Ibexa products
 
 The security of our software is a primary concern and we take it seriously.
-For more information on security in our products, see [Ibexa Security Policy](https://www.ibexa.co/about-ibexa/security).
+For more information on security in our products, see [Ibexa Security Policy](https://www.ibexa.co/software-information/security).
 
 No engineering team is perfect though, and if you do discover a security issue in one of our products we are very grateful for your help in reporting it to us privately, and refraining from public disclosure until we have found the solution and distributed it. Thank you!
 

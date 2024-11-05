@@ -16,13 +16,3 @@ The `ibexa_can_be_added_to_cart()` function checks whether the provided product 
 {% set is_disabled = (is_disabled or ibexa_can_be_added_to_cart(product) == false)|default(false) %}
 ```
 
-### `ibexa_format_price`
-
-The `ibexa_format_price` filter formats the price value by placing currency code 
-either on the left or on the right from the numerical value.
-
-``` html+twig
-{% for product.price in product.attributes %}
-    {{ product.price.getMoney()|ibexa_format_price }}
-{% endfor %}
-```

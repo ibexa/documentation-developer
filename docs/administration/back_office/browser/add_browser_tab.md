@@ -8,14 +8,14 @@ The Universal Discovery Widget (UDW) is a separate React module. By default, it 
 
 ![UDW default tabs](udw_tabs.png)
 
-Follow the instructions below to create and add a new tab called **Images** which displays all Content items of the type 'Image'.
+Follow the instructions below to create and add a new tab called **Images** which displays all content items of the type 'Image'.
 
 ## Create tab
 
 First, in `assets/js/image-tab/`, add an `image.tab.module.js` file.
 
 ``` js
-[[= include_file('code_samples/back_office/udw/assets/js/image-tab/image.tab.module.js', 0,14) =]]
+[[= include_file('code_samples/back_office/udw/assets/js/image-tab/image.tab.module.js', 0, 14) =]]
 ```
 
 Next, add the tab to the configuration in the same file.
@@ -29,7 +29,7 @@ Each tab definition is an object containing the following properties:
 |icon|string|Path to the icon, for example, `/bundles/ibexaadminui/img/ibexa-icons.svg#image`.|
 
 ```js
-[[= include_file('code_samples/back_office/udw/assets/js/image-tab/image.tab.module.js', 14,29) =]]
+[[= include_file('code_samples/back_office/udw/assets/js/image-tab/image.tab.module.js', 14, 29) =]]
 ```
 
 The module governs the creation of the new tab.

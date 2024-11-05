@@ -148,15 +148,15 @@ The block can receive the following variables:
 | Name | Type | Description |
 |------|------|-------------|
 | `field` | `Ibexa\Contracts\Core\Repository\Values\Content\Field` | The field to display |
-| `contentInfo` | `Ibexa\Contracts\Core\Repository\Values\Content\ContentInfo` | The ContentInfo of the Content item the Field belongs to |
-| `versionInfo` | `Ibexa\Contracts\Core\Repository\Values\Content\VersionInfo` | The VersionInfo of the Content item the Field belongs to |
+| `contentInfo` | `Ibexa\Contracts\Core\Repository\Values\Content\ContentInfo` | The ContentInfo of the content item the Field belongs to |
+| `versionInfo` | `Ibexa\Contracts\Core\Repository\Values\Content\VersionInfo` | The VersionInfo of the content item the Field belongs to |
 | `fieldSettings` | array | Settings of the Field (depends on the Field Type) |
 | `parameters` | hash | Options passed to `ibexa_render_field()` under the `'parameters'` key |
 | `attr` | hash | The attributes to add the generate the HTML markup, passed to ibexa_render_field()` under the `'attr'` key. <br> Contains at least a class entry, containing <fieldtypeidentifier>-field |
 
 ### Reusing blocks
 
-For easier Field Type template development you can take advantage of all defined blocks by using the [`block()` function](http://twig.sensiolabs.org/doc/functions/block.html).
+For easier Field Type template development you can take advantage of all defined blocks by using the [`block()` function](https://twig.symfony.com/doc/3.x/functions/block.html).
 
 You can for example use `simple_block_field`, `simple_inline_field` or `field_attributes` blocks provided in [`content_fields.html.twig`](https://github.com/ibexa/core/blob/main/src/bundle/Core/Resources/views/content_fields.html.twig#L486).
 

@@ -1,6 +1,6 @@
 # ParentLocationId Criterion
 
-The [`ParentLocationId` Search Criterion](https://github.com/ibexa/core/blob/main/src/contracts/Repository/Values/Content/Query/Criterion/ParentLocationId.php)
+The [`ParentLocationId` Search Criterion](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Criterion-ParentLocationId.html)
 searches for content based on the Location ID of its parent.
 
 ## Arguments
@@ -9,9 +9,33 @@ searches for content based on the Location ID of its parent.
 
 ## Example
 
+### PHP
+
 ``` php
 $query->query = new Criterion\ParentLocationId([54, 58]);
 ```
+
+### REST API
+
+=== "XML"
+
+    ```xml
+    <Query>
+        <Filter>
+            <ParentLocationIdCriterion>[81, 82]</ParentLocationIdCriterion>
+        </Filter>
+    </Query>
+    ```
+
+=== "JSON"
+
+    ```json
+    "Query": {
+        "Filter": {
+            "ParentLocationIdCriterion": [69, 72]
+        }
+    }
+    ```
 
 ## Use case
 

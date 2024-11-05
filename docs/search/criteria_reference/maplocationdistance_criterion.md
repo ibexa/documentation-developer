@@ -1,6 +1,6 @@
 # MapLocationDistance Criterion
 
-The [`MapLocationDistance` Search Criterion](https://github.com/ibexa/core/blob/main/src/contracts/Repository/Values/Content/Query/Criterion/MapLocationDistance.php)
+The [`MapLocationDistance` Search Criterion](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Criterion-MapLocationDistance.html)
 searches content based on the distance between the location contained in a MapLocation Field and the provided coordinates.
 
 ## Arguments
@@ -21,6 +21,8 @@ The `distance` argument requires:
 The `MapLocationDistance` Criterion is not available in [Repository filtering](search_api.md#repository-filtering).
 
 ## Example
+
+### PHP
 
 ``` php
 $query->query = new Criterion\MapLocationDistance('location', Criterion\Operator::LTE, 5, 51.395973, 22.531696);

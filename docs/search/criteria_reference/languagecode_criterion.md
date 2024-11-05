@@ -1,6 +1,6 @@
 # LanguageCode Criterion
 
-The [`LanguageCode` Search Criterion](https://github.com/ibexa/core/blob/main/src/contracts/Repository/Values/Content/Query/Criterion/Location.php)
+The [`LanguageCode` Search Criterion](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Criterion-Location.html)
 searches for content based on whether it is translated into the selected language.
 
 ## Arguments
@@ -11,9 +11,33 @@ should be returned even if it does not contain the selected language (default `t
 
 ## Example
 
+### PHP
+
 ``` php
 $query->query = new Criterion\LanguageCode('ger-DE', false);
 ```
+
+### REST API
+
+=== "XML"
+
+    ```xml
+    <Query>
+        <Filter>
+            <LanguageCodeCriterion>eng-GB</LanguageCodeCriterion>
+        </Filter>
+    </Query>
+    ```
+
+=== "JSON"
+
+    ```json
+    "Query": {
+        "Filter": {
+            "LanguageCodeCriterion": "eng-GB"
+        }
+    }
+    ```
 
 ## Use case
 

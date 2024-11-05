@@ -1,0 +1,10 @@
+services:
+    _defaults:
+        public: false
+        autowire: true
+        autoconfigure: true
+
+    App\Attribute\Percent\PercentNameSchemaStrategy:
+        tags:
+            - { name: ibexa.product_catalog.naming_schema_strategy }
+    

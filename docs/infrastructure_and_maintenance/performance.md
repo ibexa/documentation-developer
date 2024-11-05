@@ -52,6 +52,10 @@ In production setups:
 - Always enable opcache for php-fpm/`mod_php`.
 - Prefer php-fpm and web server using it over fast-cgi for lower overall memory usage.
 
+### Symfony
+
+- Review the [Symfony performance documentation]([[= symfony_doc =]]/performance.html) and apply matching suggestions, including OPCache configuration if enabled.
+
 ### Composer
 
 - Keep Composer up to date.
@@ -112,7 +116,7 @@ To avoid quickly running out of memory while executing such commands you should 
 !!! note "Memory will still grow"
 
     Even when everything is configured like described above, memory will grow for each iteration
-    of indexing/inserting a Content item with at least *1kb* per iteration after the initial first 100 rounds.
+    of indexing/inserting a content item with at least *1kb* per iteration after the initial first 100 rounds.
     This is expected behavior; to be able to handle more iterations you will have to do one or several of the following:
 
     - Change the import/index script in question to [use process forking](#process-forking-with-symfony) to avoid the issue.

@@ -1,6 +1,7 @@
 ---
 description: Ibexa DXP v4.1 enhances the PIM capabilities, adds a Measurement Field Type and attribute and a Dynamic Targeting block for the Page Builder.
 ---
+<!-- vale VariablesVersion = NO -->
 
 # Ibexa DXP v4.1
 
@@ -29,7 +30,7 @@ The product catalog is now fully integrated with the transactional system integr
 
 With the new Measurement Field Type users can now add a Measurement Field, with different pre-built units, to content:
 
-![Adding a Measurement Field to Content Type definition](4.1_measurement_ft.png)
+![Adding a Measurement Field to content type definition](4.1_measurement_ft.png)
 
 The new Measurement product attribute enables describing products with different types and units of measurement:
 

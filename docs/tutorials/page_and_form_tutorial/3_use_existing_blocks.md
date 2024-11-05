@@ -43,12 +43,12 @@ You do it in the Page's Edit mode by dragging a block from the menu on the right
 
 Drag a Content List block from the menu to the left zone on the page.
 Click the block and fill in the form. Here you name the block and decide what it will display.
-Choose the "Dog Breed Catalog" folder as the Parent, select Dog Breed as the Content Type to be displayed, and choose a limit (3).
+Choose the "Dog Breed Catalog" folder as the Parent, select Dog Breed as the content type to be displayed, and choose a limit (3).
 You'll display the first three Dog Breeds from the database.
 
 ![Window with Content List options](enterprise_tut_content_list_window.png)
 
-Click Submit and you should see a preview of what the block will look like with the dog breed information displayed.
+Click **Submit** and you should see a preview of what the block will look like with the dog breed information displayed.
 
 ![Content List Styled](enterprise_tut_content_list_styled.png "Content List Styled")
 
@@ -73,7 +73,7 @@ Create the new file `templates/blocks/schedule/featured.html.twig`:
 [[= include_file('code_samples/tutorials/page_tutorial/templates/blocks/schedule/featured.html.twig') =]]
 ```
 
-When you look at the template, you can see three blocks, each of which will render the Content items using the `featured` view (line 11).
+When you look at the template, you can see three blocks, each of which will render the content items using the `featured` view (line 11).
 So far you only have templates for `full` view for Articles. This means you need to create a `featured` view template,
 otherwise you will get an error when trying to add Content to the block.
 
@@ -119,7 +119,7 @@ Navigate to the "All Articles" folder and select the articles you had created an
 
 ![Selecting Articles for the Schedule Block](enterprise_tut_select_articles.png)
 
-Accept the suggested airtime and click Submit.
+Accept the suggested airtime and click **Submit**.
 
 Now click the Airtime button next to one of the Articles and choose a time in the future.
 This article will be listed in the queue.

@@ -1,3 +1,5 @@
+<!-- vale VariablesVersion = NO -->
+
 # eZ Platform v2.3
 
 **Version number**: v2.3
@@ -20,8 +22,8 @@
 
     ![Schedule tab](2.3_schedule_tab.png)
 
-    Content Scheduler is a special block with a queue of Content items, each with its own airtime.
-    The Content becomes available at the airtime, and is replaced with new Content items coming in from the queue.
+    Content Scheduler is a special block with a queue of content items, each with its own airtime.
+    The Content becomes available at the airtime, and is replaced with new content items coming in from the queue.
 
     ![Content Scheduler](2.3_content_scheduler.png)
 
@@ -39,7 +41,7 @@
 
 !!! dxp
 
-    The new Form Builder enables you to create Form Content items with multiple form fields.
+    The new Form Builder enables you to create Form content items with multiple form fields.
 
     ![Form Builder](2.3_form_builder.png)
 
@@ -83,7 +85,7 @@ eZ Platform can now display dates across the system using timezone from User Set
 ### Improved selection in UDW
 
 Selection of content in Universal Discovery Widget has seen improvements,
-in particular when selecting multiple Content items.
+in particular when selecting multiple content items.
 
 ![Multiple selection on UDW](2.3_udw_selection.png)
 
@@ -93,7 +95,7 @@ Improvements to the API cover:
 
 - [`UserPreferenceService`](https://github.com/ezsystems/ezpublish-kernel/blob/v7.3.0/eZ/Publish/API/Repository/UserPreferenceService.php)
 - [`ASSET` Relation type](https://github.com/ezsystems/ezpublish-kernel/blob/v7.3.0-rc2/eZ/Publish/Core/REST/Client/Input/Parser/Relation.php#L84)
-- `TrashItem->trashed` timestamp covers when a Content item was placed in Trash
+- `TrashItem->trashed` timestamp covers when a content item was placed in Trash
 
 #### Back Office translations
 

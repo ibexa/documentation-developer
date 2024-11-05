@@ -13,7 +13,7 @@ that the buyer intends to purchase.
 The component exposes the following:
 
 - [PHP API](cart_api.md) that allows for managing carts and cart entries, or checking cart validity
-- [REST API](../../api/rest_api/rest_api_reference/rest_api_reference.html#managing-ecommerce-carts) that helps get cart and products information over HTTP
+- [REST API](../../api/rest_api/rest_api_reference/rest_api_reference.html#managing-commerce-carts) that helps get cart and products information over HTTP
 - [Twig functions](cart_twig_functions.md) that enable checking whether product can be added to cart and formatting the price
 
 There is no specific configuration related to the cart component.
@@ -70,40 +70,6 @@ The `Cart` service object stores cart entry data and a cart summary, which conta
 The object exposes several methods, which you can use to get and modify cart entries.
 Only one instance of a `Cart` service object can be created.
 
-### Widgets
-
-To customize your store, you can override the Twig templates and extend their logic.
-For more information, see [Customize storefront layout](customize_storefront_layout.md).
-
-#### Main cart
-
-Main cart is the main user interface component of the cart.
-By default, it lists items selected for purchase and requested cart item quantities. 
-
-Users who view the Main cart can remove individual items.
-
-For more information, see [Customize storefront layout](customize_storefront_layout.md#main-cart).
-
-#### Add to Cart
-
-By default, the Add to Cart component consists of a quantity input field and a button.
-For example, to add variant selectors, you have to [extend the Twig and JavaScript](customize_storefront_layout.md#add-to-cart) component.
-
-#### Minicart
-
-By default, the Minicart component consists of a counter that displays a total number of cart items with `div` wrappers.
-The Minicart icon, titles and other [elements](customize_storefront_layout.md#mini-cart) can be customized for individual projects.
-
-#### Cart summary 
-
-By default, the Cart summary component displays a subtotal net value of cart lines, 
-a shipping cost disclaimer, a series of tax values applicable to products 
-added in cart, a composition of different taxes, and a total cart value (gross, shipping 
-and taxes included) in the selected currency.
-
-You could extend the Cart summary widget to let buyers navigate from this view, 
-for example, to checkout, or back to shopping, by adding respective buttons.
-
 ### Cart events
 
 When cart data is changed or loaded, the `ibexa-cart:cart-data-changed` event is triggered on `body`.
@@ -156,7 +122,6 @@ import Cart from '@ibexa-cart/src/bundle/Resources/public/js/component/cart';
 new Cart();
 ```
 
-
 ### Change request before sending
 
 Before every request is sent by `cartService`, the `ibexa-cart:prepare-request` event is triggered on `document`, so you can change request object by assigning a new one to `detail.request`:
@@ -170,3 +135,11 @@ document.addEventListener(
     false,
 );
 ```
+
+### Widgets
+
+[[= product_name =]] comes with a number of components that are interfaces to various functionalities exposed by the Cart.
+For a list of default components available in the storefront, see [Default UI components](storefront.md#default-ui-components).
+
+To customize your store, you can override the Twig templates and extend their logic.
+For more information, see [Customize storefront layout](customize_storefront_layout.md).

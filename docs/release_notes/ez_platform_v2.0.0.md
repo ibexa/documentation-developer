@@ -1,3 +1,5 @@
+<!-- vale VariablesVersion = NO -->
+
 # eZ Platform v2.0.0
 
 **Version number**: v2.0.0

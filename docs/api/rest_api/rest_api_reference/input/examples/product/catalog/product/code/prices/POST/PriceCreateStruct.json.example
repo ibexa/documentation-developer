@@ -1,0 +1,6 @@
+{
+  "PriceCreateStruct": {
+    "amount": 9,
+    "currency": "CHF"
+  }
+}

@@ -18,11 +18,12 @@ To provide online recommendations, the service must at least:
 - Provide recommendations on a customer's website
 
 [[= cards([
+    "personalization/personalization_guide",
     "personalization/how_it_works",
     "personalization/enable_personalization",
     "personalization/integrate_recommendation_service",
     "personalization/api_reference/api_reference",
-], columns=4) =]]
+], columns=3) =]]
 
 
 

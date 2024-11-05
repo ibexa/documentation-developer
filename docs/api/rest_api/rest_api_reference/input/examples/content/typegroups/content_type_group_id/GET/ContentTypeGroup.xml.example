@@ -111,7 +111,7 @@
 &lt;section xmlns=&quot;http://docbook.org/ns/docbook&quot; xmlns:xlink=&quot;http://www.w3.org/1999/xlink&quot; version=&quot;5.0-variant ezpublish-1.0&quot;/&gt;
 </value>
      <value key="xhtml5edit">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
-&lt;section xmlns=&quot;http://ez.no/namespaces/ezpublish5/xhtml5/edit&quot;/&gt;
+&lt;section xmlns=&quot;http://ibexa.co/namespaces/ezpublish5/xhtml5/edit&quot;/&gt;
 </value>
     </defaultValue>
     <isSearchable>true</isSearchable>
@@ -138,7 +138,7 @@
 &lt;section xmlns=&quot;http://docbook.org/ns/docbook&quot; xmlns:xlink=&quot;http://www.w3.org/1999/xlink&quot; version=&quot;5.0-variant ezpublish-1.0&quot;/&gt;
 </value>
      <value key="xhtml5edit">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
-&lt;section xmlns=&quot;http://ez.no/namespaces/ezpublish5/xhtml5/edit&quot;/&gt;
+&lt;section xmlns=&quot;http://ibexa.co/namespaces/ezpublish5/xhtml5/edit&quot;/&gt;
 </value>
     </defaultValue>
     <isSearchable>true</isSearchable>
@@ -308,7 +308,7 @@
 &lt;section xmlns=&quot;http://docbook.org/ns/docbook&quot; xmlns:xlink=&quot;http://www.w3.org/1999/xlink&quot; version=&quot;5.0-variant ezpublish-1.0&quot;/&gt;
 </value>
      <value key="xhtml5edit">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
-&lt;section xmlns=&quot;http://ez.no/namespaces/ezpublish5/xhtml5/edit&quot;/&gt;
+&lt;section xmlns=&quot;http://ibexa.co/namespaces/ezpublish5/xhtml5/edit&quot;/&gt;
 </value>
     </defaultValue>
     <isSearchable>true</isSearchable>
@@ -335,7 +335,7 @@
 &lt;section xmlns=&quot;http://docbook.org/ns/docbook&quot; xmlns:xlink=&quot;http://www.w3.org/1999/xlink&quot; version=&quot;5.0-variant ezpublish-1.0&quot;/&gt;
 </value>
      <value key="xhtml5edit">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
-&lt;section xmlns=&quot;http://ez.no/namespaces/ezpublish5/xhtml5/edit&quot;/&gt;
+&lt;section xmlns=&quot;http://ibexa.co/namespaces/ezpublish5/xhtml5/edit&quot;/&gt;
 </value>
     </defaultValue>
     <isSearchable>true</isSearchable>
@@ -482,7 +482,7 @@
 &lt;section xmlns=&quot;http://docbook.org/ns/docbook&quot; xmlns:xlink=&quot;http://www.w3.org/1999/xlink&quot; version=&quot;5.0-variant ezpublish-1.0&quot;/&gt;
 </value>
      <value key="xhtml5edit">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
-&lt;section xmlns=&quot;http://ez.no/namespaces/ezpublish5/xhtml5/edit&quot;/&gt;
+&lt;section xmlns=&quot;http://ibexa.co/namespaces/ezpublish5/xhtml5/edit&quot;/&gt;
 </value>
     </defaultValue>
     <isSearchable>true</isSearchable>
@@ -580,7 +580,7 @@
 &lt;section xmlns=&quot;http://docbook.org/ns/docbook&quot; xmlns:xlink=&quot;http://www.w3.org/1999/xlink&quot; version=&quot;5.0-variant ezpublish-1.0&quot;/&gt;
 </value>
      <value key="xhtml5edit">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
-&lt;section xmlns=&quot;http://ez.no/namespaces/ezpublish5/xhtml5/edit&quot;/&gt;
+&lt;section xmlns=&quot;http://ibexa.co/namespaces/ezpublish5/xhtml5/edit&quot;/&gt;
 </value>
     </defaultValue>
     <isSearchable>true</isSearchable>
@@ -605,7 +605,7 @@
 &lt;section xmlns=&quot;http://docbook.org/ns/docbook&quot; xmlns:xlink=&quot;http://www.w3.org/1999/xlink&quot; version=&quot;5.0-variant ezpublish-1.0&quot;/&gt;
 </value>
      <value key="xhtml5edit">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
-&lt;section xmlns=&quot;http://ez.no/namespaces/ezpublish5/xhtml5/edit&quot;/&gt;
+&lt;section xmlns=&quot;http://ibexa.co/namespaces/ezpublish5/xhtml5/edit&quot;/&gt;
 </value>
     </defaultValue>
     <isSearchable>true</isSearchable>
@@ -707,7 +707,7 @@
 &lt;section xmlns=&quot;http://docbook.org/ns/docbook&quot; xmlns:xlink=&quot;http://www.w3.org/1999/xlink&quot; version=&quot;5.0-variant ezpublish-1.0&quot;/&gt;
 </value>
      <value key="xhtml5edit">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
-&lt;section xmlns=&quot;http://ez.no/namespaces/ezpublish5/xhtml5/edit&quot;/&gt;
+&lt;section xmlns=&quot;http://ibexa.co/namespaces/ezpublish5/xhtml5/edit&quot;/&gt;
 </value>
     </defaultValue>
     <isSearchable>true</isSearchable>
@@ -734,7 +734,7 @@
 &lt;section xmlns=&quot;http://docbook.org/ns/docbook&quot; xmlns:xlink=&quot;http://www.w3.org/1999/xlink&quot; version=&quot;5.0-variant ezpublish-1.0&quot;/&gt;
 </value>
      <value key="xhtml5edit">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
-&lt;section xmlns=&quot;http://ez.no/namespaces/ezpublish5/xhtml5/edit&quot;/&gt;
+&lt;section xmlns=&quot;http://ibexa.co/namespaces/ezpublish5/xhtml5/edit&quot;/&gt;
 </value>
     </defaultValue>
     <isSearchable>true</isSearchable>
@@ -906,7 +906,7 @@
 &lt;section xmlns=&quot;http://docbook.org/ns/docbook&quot; xmlns:xlink=&quot;http://www.w3.org/1999/xlink&quot; version=&quot;5.0-variant ezpublish-1.0&quot;/&gt;
 </value>
      <value key="xhtml5edit">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
-&lt;section xmlns=&quot;http://ez.no/namespaces/ezpublish5/xhtml5/edit&quot;/&gt;
+&lt;section xmlns=&quot;http://ibexa.co/namespaces/ezpublish5/xhtml5/edit&quot;/&gt;
 </value>
     </defaultValue>
     <isSearchable>true</isSearchable>

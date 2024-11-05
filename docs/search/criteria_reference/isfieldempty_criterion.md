@@ -1,6 +1,6 @@
 # IsFieldEmpty Criterion
 
-The [`IsFieldEmpty` Search Criterion](https://github.com/ibexa/core/blob/main/src/contracts/Repository/Values/Content/Query/Criterion/IsFieldEmpty.php)
+The [`IsFieldEmpty` Search Criterion](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Criterion-IsFieldEmpty.html)
 searches for content based on whether a specified Field is empty or not.
 
 ## Arguments
@@ -16,6 +16,8 @@ The `IsFieldEmpty` Criterion is not available in [Repository filtering](search_a
 The Richtext Field Type (`ezrichtext`) is not searchable in the Legacy search engine.
 
 ## Example
+
+### PHP
 
 ``` php
 $query->query = new Criterion\IsFieldEmpty('title');

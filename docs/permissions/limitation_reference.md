@@ -35,6 +35,14 @@ Out of the box FunctionList uses it in the following way:
             - {name: ibexa.permissions.limitation_type, alias: FunctionList}
 ```
 
+## ActivityLogOwner Limitation
+
+The `ActivityLogOwner` Limitation specifies if a user can see only their own [recent activity](recent_activity.md) log entries, and not entries from other users. 
+
+| Value | UI value        | Description                                                  |
+|-------|-----------------|--------------------------------------------------------------|
+| `1`   | "Only own logs" | Current user can only access their own activity log entries. |
+
 ## CartOwner Limitation
 
 The `CartOwner` Limitation specifies whether the user can modify a cart.
@@ -48,17 +56,17 @@ The `CartOwner` Limitation specifies whether the user can modify a cart.
 
 ## Change Owner Limitation
 
-The Change Owner (`ChangeOwner`) Limitation specifies whether the user can change the owner of a Content item.
+The Change Owner (`ChangeOwner`) Limitation specifies whether the user can change the owner of a content item.
 
 ### Possible values
 
 |Value|UI value|Description|
 |------|------|------|
-|`1`|"Forbid"|The user cannot change owner of a Content item|
+|`1`|"Forbid"|The user cannot change owner of a content item|
 
-## Content Type Group Limitation
+## Content type Group Limitation
 
-The Content Type Group (`UserGroup`) Limitation specifies that only Users with at least one common *direct* User 
+The content type Group (`UserGroup`) Limitation specifies that only Users with at least one common *direct* User 
 Group with the owner of content get the selected access right.
 
 ### Possible values
@@ -67,10 +75,10 @@ Group with the owner of content get the selected access right.
 |------|------|------|
 |`1`|"self"|Only a User who has at least one common *direct* User Group with the owner gets access|
 
-## Content Type Group of Parent Limitation
+## Content type Group of Parent Limitation
 
-The Content Type Group of Parent (`ParentUserGroupLimitation`) Limitation specifies that only Users with at least one common *direct* User Group 
-with the owner of the parent Location of a Content item get a certain access right, 
+The content type Group of Parent (`ParentUserGroupLimitation`) Limitation specifies that only Users with at least one common *direct* User Group 
+with the owner of the parent Location of a content item get a certain access right, 
 used by `content/create` permission.
 
 ### Possible values
@@ -79,21 +87,21 @@ used by `content/create` permission.
 |------|------|------|
 |`1`|"self"|Only a User who has at least one common *direct* User Group with owner of the parent Location gets access|
 
-## Content Type Limitation
+## Content type Limitation
 
 The Content Typ (`ContentType`) Limitation specifies whether the User has access to content with a specific 
-Content Type.
+content type.
 
 ### Possible values
 
 |Value|UI value|Description|
 |------|------|------|
-|`<ContentType_id>`|`<ContentType_name>`|All valid Content Type IDs can be set as value(s)|
+|`<ContentType_id>`|`<ContentType_name>`|All valid content type IDs can be set as value(s)|
 
-## Content Type of Parent Limitation
+## Content type of Parent Limitation
 
-The Content Type of Parent (`ParentContentType`) Limitation specifies whether the User has access to content whose parent Location 
-contains a specific Content Type, used by `content/create`.
+The content type of Parent (`ParentContentType`) Limitation specifies whether the User has access to content whose parent Location 
+contains a specific content type, used by `content/create`.
 
 This Limitation combined with `ContentType` Limitation allows you to define business 
 rules like allowing Users to create "Blog Post" within a "Blog." 
@@ -104,7 +112,7 @@ access to create Blog Posts in the Users' own Blogs.
 
 |Value|UI value|Description|
 |------|------|------|
-|`<ContentType_id>`|`<ContentType_name>`|All valid Content Type IDs can be set as value(s)|
+|`<ContentType_id>`|`<ContentType_name>`|All valid content type IDs can be set as value(s)|
 
 ## Field Group Limitation [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
 
@@ -126,7 +134,7 @@ A Language (`Language`) Limitation specifies whether the User has access to work
 A user with this Limitation is allowed to:
 
  - Create new content with the given translation(s) only.
-This only applies to creating the first version of a Content item.
+This only applies to creating the first version of a content item.
 - Edit content by adding a new translation or modifying an existing translation.
 - Publish content only when it results in adding or modifying an allowed translation.
 - Delete content only when it contains a translation into the specified language.
@@ -198,7 +206,7 @@ The Order Owner (`OrderOwner`) Limitation specifies whether the user can modify 
 
 ## Owner Limitation
 
-The Owner (`Owner`) Limitation specifies that only the owner of the Content item gets the selected 
+The Owner (`Owner`) Limitation specifies that only the owner of the content item gets the selected 
 access right.
 
 ### Possible values
@@ -206,19 +214,19 @@ access right.
 |Value|UI value|Description|
 |------|------|------|
 |`1`|"self"|Only the User who is the owner gets access|
-|`2`|"session"|Deprecated and works exactly like "self" in Public API since it has no knowledge of user Sessions|
+|`2`|"session"|Deprecated and works exactly like "self" in public PHP API since it has no knowledge of user Sessions|
 
 ## Owner of Parent Limitation
 
 The Owner of Parent (`ParentOwner`) Limitation specifies that only the Users who own all parent Locations of 
-a Content item get a certain access right, used for `content/create` permission.
+a content item get a certain access right, used for `content/create` permission.
 
 ### Possible values
 
 |Value|UI value|Description|
 |------|------|------|
 |`1`|"self"|Only the User who is the owner of all parent Locations gets access|
-|`2`|"session"|Deprecated and works exactly like "self" in Public API since it has no knowledge of user Sessions|
+|`2`|"session"|Deprecated and works exactly like "self" in public PHP API since it has no knowledge of user Sessions|
 
 ## Parent Depth Limitation
 
@@ -256,7 +264,7 @@ The Product Type (`ProductType`) Limitation specifies whether the User has acces
 
 |Value|UI value|Description|
 |------|------|------|
-|`<ContentType_id>`|`<ContentType_name>`|All valid Content Type IDs can be set as value(s)|
+|`<ContentType_id>`|`<ContentType_name>`|All valid content type IDs can be set as value(s)|
 
 ## Section Limitation
 
@@ -297,7 +305,7 @@ by `user/login`.
 
 ### Legacy compatibility notes
 
-`SiteAccess` Limitation is deprecated and is not used actively in Public API, 
+`SiteAccess` Limitation is deprecated and is not used actively in public PHP API, 
 but is allowed for being able to read / create Limitations for legacy.
 
 ## Shipment Owner Limitation
@@ -332,7 +340,7 @@ follow [the example in the Admin management section](permission_use_cases.md#res
 ## Version Lock Limitation
 
 The Version Lock (`VersionLock`) Limitation specifies whether the User can perform actions, for example, edit 
-or unlock, on Content items that are in a workflow.
+or unlock, on content items that are in a workflow.
 
 This Limitation can be used as a Role Limitation.
 
@@ -340,7 +348,7 @@ This Limitation can be used as a Role Limitation.
 
 | Value | UI value | Description |
 |------|------|------|
-| `userId` | "Assigned only" | Users can perform actions only on Content items that are assigned to them or not assigned to anybody. |
+| `userId` | "Assigned only" | Users can perform actions only on content items that are assigned to them or not assigned to anybody. |
 | `null` | none | Users can perform actions on all drafts, regardless of the assignments or whether drafts are locked or not. |
 
 ## Workflow Stage Limitation

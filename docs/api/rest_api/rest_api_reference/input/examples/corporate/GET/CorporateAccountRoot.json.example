@@ -28,6 +28,11 @@
         "_href": "\/api\/ibexa\/v2\/content\/types\/49"
       },
       {
+        "_media-type": "application\/vnd.ibexa.api.SalesRepresentativesList+json",
+        "_rel": "ca-sales-representatives",
+        "_href": "\/api\/ibexa\/v2\/corporate\/sales-representatives"
+      },
+      {
         "_media-type": "application\/vnd.ibexa.api.Role+json",
         "_rel": "ca-role-admin",
         "_href": "\/api\/ibexa\/v2\/user\/roles\/14"

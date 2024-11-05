@@ -1,6 +1,6 @@
 # LogicalAnd Criterion
 
-The [`LogicalAnd` Search Criterion](https://github.com/ibexa/core/blob/main/src/contracts/Repository/Values/Content/Query/Criterion/LogicalAnd.php)
+The [`LogicalAnd` Search Criterion](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Criterion-LogicalAnd.html)
 matches content if all provided Criteria match.
 
 ## Arguments
@@ -9,6 +9,8 @@ matches content if all provided Criteria match.
 
 ## Example
 
+### PHP
+
 ``` php
 $query->query = new Criterion\LogicalAnd([
         new Criterion\ContentTypeIdentifier('article'),
@@ -16,3 +18,33 @@ $query->query = new Criterion\LogicalAnd([
     ]
 );
 ```
+
+### REST API
+
+=== "XML"
+
+    ```xml
+    <Query>
+        <Filter>
+            <AND>
+                <ContentTypeIdentifierCriterion>article</ContentTypeIdentifierCriterion>
+                <SectionIdentifierCriterion>news</SectionIdentifierCriterion>
+            </AND>
+        </Filter>
+    </Query>
+    ```
+
+=== "JSON"
+
+    ```json
+    {
+        "Query": {
+            "Filter": {
+                "AND": {
+                    "ContentTypeIdentifierCriterion": "article",
+                    "SectionIdentifierCriterion": "news"
+                }
+            }
+        }
+    }
+    ```

@@ -8,6 +8,8 @@ This update procedure applies if you are using v4.0.0.
 
 Go through the following steps to update to v4.1.
 
+[[% include 'snippets/update/temporary_v4_conflicts.md' %]]
+
 !!! note
 
     During the update process you can encounter the following error:
@@ -117,7 +119,7 @@ Apply the following database update scripts:
 
 #### Ibexa Open Source
 
-If you are using Ibexa OSS and have no access to Ibexa DXP's `ibexa/installer` package, database upgrade is not necessary.
+If you are using [[= product_name_oss =]] and have no access to [[= product_name =]]'s `ibexa/installer` package, database upgrade is not necessary.
 
 ## Update the app to latest version of v4.1
 

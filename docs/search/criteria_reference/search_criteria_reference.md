@@ -23,24 +23,32 @@ Due to this storage limitation, searching content using the Country Field Type o
 
 |Search Criterion|Search based on|Content Search |Location Search |Filtering |
 |-----|-----|-----|-----|-----|
-|[Ancestor](ancestor_criterion.md)|Whether the Content item is an ancestor of the provided Location|&#10004; |&#10004; |&#10004; |
+|[Ancestor](ancestor_criterion.md)|Whether the content item is an ancestor of the provided Location|&#10004; |&#10004; |&#10004; |
 |[ContentId](contentid_criterion.md)|Content item's ID|&#10004; |&#10004; |&#10004; |
-|[ContentTypeGroupId](contenttypegroupid_criterion.md)|ID of the Content item's Content Type group|&#10004; |&#10004; |&#10004; |
-|[ContentTypeId](contenttypeid_criterion.md)|ID of the Content item's Content Type|&#10004; |&#10004; |&#10004; |
-|[ContentTypeIdentifier](contenttypeidentifier_criterion.md)|Identifier of the Content item's Content Type|&#10004; |&#10004; |&#10004; |
+|[ContentName](contentname_criterion.md)|Content item's name|&#10004; |&#10004; |&#10004; |
+|[ContentTypeGroupId](contenttypegroupid_criterion.md)|ID of the content item's content type group|&#10004; |&#10004; |&#10004; |
+|[ContentTypeId](contenttypeid_criterion.md)|ID of the content item's content type|&#10004; |&#10004; |&#10004; |
+|[ContentTypeIdentifier](contenttypeidentifier_criterion.md)|Identifier of the content item's content type|&#10004; |&#10004; |&#10004; |
 |[CurrencyCodeCriterion](currencycode_criterion.md)|Currency code|&#10004; |&#10004; |&#10004; |
 |[DateMetadata](datemetadata_criterion.md)|The date when content was created or last modified|&#10004; |&#10004; |&#10004; |
 |[Depth](depth_criterion.md)|Location depth in the Content tree| |&#10004; |&#10004; |
-|[Field](field_criterion.md)|Content of one of Content item's Fields|&#10004; |&#10004; | |
+|[Field](field_criterion.md)|Content of one of content item's Fields|&#10004; |&#10004; | |
 |[FieldRelation](fieldrelation_criterion.md)|Content items the content in question has Relations to|&#10004; |&#10004; | |
-|[FullText](fulltext_criterion.md)|Full text content of a Content item's Fields|&#10004; |&#10004; | |
+|[FullText](fulltext_criterion.md)|Full text content of a content item's Fields|&#10004; |&#10004; | |
+|[Image](image_criterion.md)|Image by specified image attributes|&#10004;|&#10004;||
+|[ImageDimensions](imagedimensions_criterion.md)|Image dimensions: height and width|&#10004;|&#10004;||
+|[ImageFileSize](imagefilesize_criterion.md)|Image size in MB|&#10004;|&#10004;||
+|[ImageHeight](imageheight_criterion.md)|Image height in pixels|&#10004;|&#10004;||
+|[ImageMimeType](imagemimetype_criterion.md)|Image type|&#10004;|&#10004;||
+|[ImageOrientation](imageorientation_criterion.md)|Image orientation|&#10004;|&#10004;||
+|[ImageWidth](imagewidth_criterion.md)|Image width in pixels|&#10004;|&#10004;||
 |[IsCurrencyEnabledCriterion](iscurrencyenabled_criterion.md)|Whether a specified currency is enabled in the system| | | |
-|[IsFieldEmpty](isfieldempty_criterion.md)|Whether a specified Field of a Content item is empty or not|&#10004; |&#10004; | |
-|[IsMainLocation](ismainlocation_criterion.md)|Whether a Location is the main Location of a Content item| |&#10004; |&#10004; |
+|[IsFieldEmpty](isfieldempty_criterion.md)|Whether a specified Field of a content item is empty or not|&#10004; |&#10004; | |
+|[IsMainLocation](ismainlocation_criterion.md)|Whether a Location is the main Location of a content item| |&#10004; |&#10004; |
 |[IsProductBased](isproductbased_criterion.md)|Whether content represents a product|&#10004; |&#10004; |&#10004; |
 |[IsUserBased](isuserbased_criterion.md)|Whether content represents a User account|&#10004; |&#10004; |&#10004; |
 |[IsUserEnabled](isuserenabled_criterion.md)|Whether a User account is enabled|&#10004; |&#10004; |&#10004; |
-|[LanguageCode](languagecode_criterion.md)|Whether a Content item is translated into the selected language|&#10004; |&#10004; |&#10004; |
+|[LanguageCode](languagecode_criterion.md)|Whether a content item is translated into the selected language|&#10004; |&#10004; |&#10004; |
 |[LocationId](locationid_criterion.md)|Location ID|&#10004; |&#10004; |&#10004; |
 |[LocationRemoteId](locationremoteid_criterion.md)|Location remote ID|&#10004; |&#10004; |&#10004; |
 |[MapLocationDistance](maplocationdistance_criterion.md)|Distance between the location contained in a MapLocation Field and the provided coordinates|&#10004; |&#10004; | |
@@ -48,7 +56,8 @@ Due to this storage limitation, searching content using the Country Field Type o
 |[MatchNone](matchnone_criterion.md)|Returns no search results|&#10004; |&#10004; |&#10004; |
 |[ObjectStateId](objectstateid_criterion.md)|Object State ID|&#10004; |&#10004; |&#10004; |
 |[ObjectStateIdentifier](objectstateidentifier_criterion.md)|Object State Identifier|&#10004; |&#10004; |&#10004; |
-|[ParentLocationId](parentlocationid_criterion.md)|Location ID of a Content item's parent|&#10004; |&#10004; |&#10004; |
+|[ParentLocationId](parentlocationid_criterion.md)|Location ID of a content item's parent|&#10004; |&#10004; |&#10004; |
+|[ParentLocationRemoteId](parentlocationremoteId_criterion.md)|Location remote ID of a content item's parent|&#10004; |&#10004; |
 |[Priority](priority_criterion.md)|Location priority| |&#10004; |&#10004; |
 |[RemoteId](remoteid_criterion.md)|Remote content ID|&#10004; |&#10004; |&#10004; |
 |[SectionId](sectionid_criterion.md)|ID of the Section content is assigned to|&#10004; |&#10004; |&#10004; |
@@ -59,8 +68,8 @@ Due to this storage limitation, searching content using the Country Field Type o
 |[UserEmail](useremail_criterion.md)|Email address of a User account|&#10004; |&#10004; |&#10004; |
 |[UserId](userid_criterion.md)|User ID|&#10004; |&#10004; |&#10004; |
 |[UserLogin](userlogin_criterion.md)|User login|&#10004; |&#10004; |&#10004; |
-|[UserMetadata](usermetadata_criterion.md)|The creator or modifier of a Content item|&#10004; |&#10004; |&#10004; |
-|[Visibility](visibility_criterion.md)|Whether the Content item is visible or not|&#10004; |&#10004; |&#10004; |
+|[UserMetadata](usermetadata_criterion.md)|The creator or modifier of a content item|&#10004; |&#10004; |&#10004; |
+|[Visibility](visibility_criterion.md)|Whether the content item is visible or not|&#10004; |&#10004; |&#10004; |
 
 ### Logical operators
 

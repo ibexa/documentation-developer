@@ -1,6 +1,5 @@
 ---
 target_version: '3.3'
-latest_tag: '3.3.24'
 ---
 
 # Update the app to v3.3
@@ -10,12 +9,12 @@ Before you start this procedure, make sure you have completed the previous step,
 
 ## 5. Update to v3.3
 
-Ibexa DXP v3.3 uses [Symfony Flex]([[= symfony_doc =]]/quick_tour/flex_recipes.html).
+[[= product_name =]] v3.3 uses [Symfony Flex]([[= symfony_doc =]]/quick_tour/flex_recipes.html).
 When updating from v3.2 to v3.3, you need to follow a special update procedure.
 
 !!! note
 
-    Ibexa DXP v3.3 requires Composer 2.0.13 or higher.
+    [[= product_name =]] v3.3 requires Composer 2.0.13 or higher.
 
 First, create an update branch `update-[[=target_version=]]` in git and commit your work.
 
@@ -52,7 +51,7 @@ Merge the current skeleton into your project:
     ``` bash
     git remote add content-skeleton https://github.com/ibexa/content-skeleton.git
     git fetch content-skeleton --tags
-    git merge v[[= latest_tag =]] --allow-unrelated-histories
+    git merge v[[= latest_tag_3_3 =]] --allow-unrelated-histories
     ```
 
 === "Ibexa Experience"
@@ -60,7 +59,7 @@ Merge the current skeleton into your project:
     ``` bash
     git remote add experience-skeleton https://github.com/ibexa/experience-skeleton.git
     git fetch experience-skeleton --tags
-    git merge v[[= latest_tag =]] --allow-unrelated-histories
+    git merge v[[= latest_tag_3_3 =]] --allow-unrelated-histories
     ```
 
 === "Ibexa Commerce"
@@ -68,7 +67,7 @@ Merge the current skeleton into your project:
     ``` bash
     git remote add commerce-skeleton https://github.com/ibexa/commerce-skeleton.git
     git fetch commerce-skeleton --tags
-    git merge v[[= latest_tag =]] --allow-unrelated-histories
+    git merge v[[= latest_tag_3_3 =]] --allow-unrelated-histories
     ```
 
 This introduces changes from the relevant website skeleton and results in conflicts.
@@ -89,15 +88,53 @@ Resolve the conflicts in the following way:
 !!! caution
 
     It is impossible to update an Enterprise edition (`ezsystems/ezplatform-ee`)
-    to an Ibexa Content edition.
+    to an [[= product_name_content =]] edition.
+
+    Also, make sure that `composer.json` has the following `repositories` entry:
+
+    ```json
+    "ibexa": {
+        "type": "composer",
+        "url": "https://updates.ibexa.co"
+    }
+    ```
 
 ### B. Update the app
 
-Run `composer update` to update the dependencies:
+Update Symfony Flex, then update the dependencies:
 
 ``` bash
+composer update symfony/flex --no-plugins --no-scripts
 composer update
 ```
+
+!!! caution
+
+    Composer repository changes between 3.2 and 3.3 from `updates.ez.no` to `updates.ibexa.co`, therefore your credentials might be outdated.
+
+    `username` and `password` don't change.
+    The repository they're used on changes.
+
+    See [Composer authentication documentation](https://getcomposer.org/doc/articles/authentication-for-private-packages.md) to find the precedure that suits the way you're passing credentials.
+
+    In production, replace the old repository with the new one.
+    But as a developer, you may need to go back to an earlier version, and should keep the old repository as well.
+    For example, your `auth.json` may look like this:
+
+    ```json
+    {
+        "http-basic": {
+            "updates.ibexa.co": {
+                "username": "abcdefghijklmnopqrstuvwxyz012345",
+                "password": "6789abcdefghijklmnopqrstuvwxyz01"
+            },
+            "updates.ez.no": {
+                "username": "abcdefghijklmnopqrstuvwxyz012345",
+                "password": "6789abcdefghijklmnopqrstuvwxyz01"
+            }
+        }
+    }
+    ```
 
 ### C. Configure the web server
 
@@ -115,6 +152,10 @@ Add the following rewrite rule to your web server configuration:
     rewrite "^/build/(.*)" "/build/$1" break;
     ```
 
-## Next steps
+## 6. Update the database
 
-Now, proceed to the last step, [updating to the latest v3.3 patch version](to_3.3.latest.md).
+[[% include 'snippets/update/db/update_db_2.5-3.3.md' %]]
+
+## 7. Update to the latest patch version
+
+Now, proceed to the last step, [updating to the latest v3.3 patch version](update_from_3.3.md).

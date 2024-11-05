@@ -2,9 +2,9 @@
 description: Learn how to query for content and render it in a list.
 ---
 
-# Step 5 — Display a list of Content items
+# Step 5 — Display a list of content items
 
-Now that you know how to display a single Content item, you can take care of rendering a list of Content items.
+Now that you know how to display a single content item, you can take care of rendering a list of content items.
 
 In this step you will display a table of all Rides on the front page.
 
@@ -48,7 +48,7 @@ To get this list, you will use a Query Type.
 
 ## Create a QueryType for the home page
 
-QueryType objects are used to limit and sort results for Content Item queries.
+QueryType objects are used to limit and sort results for content item queries.
 For more information, see [Built-In Query Types](built-in_query_types.md).
 
 Here, you need to display `ride` objects that have been published (are visible).
@@ -88,7 +88,7 @@ class RideQueryType implements QueryType
 }
 ```
 
-This Query Type will find all visible Content items that belong to the `ride` Content Type (lines 21-22).
+This Query Type will find all visible content items that belong to the `ride` content type (lines 21-22).
 
 Now you need to indicate that this Query Type will be used in your configuration.
 
@@ -177,7 +177,7 @@ Because this template will be rendered inside a table, it starts with a `<tr>` t
 
 To be able to view the `photo` Field you have to add a `read` permission to `Media` section.
 
-From **Admin** (gear icon) in the left menu, go to the **Roles** management screen and click the **Anonymous** Role.
+In the main menu, go to **Admin** (gear icon) -> **Roles**, and click the **Anonymous** Role.
 
 ![Policies for the Anonymous Role without Media section](step5_admin_anonymous_policies_without_media_section.png)
 

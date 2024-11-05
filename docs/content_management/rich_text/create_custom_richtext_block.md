@@ -49,7 +49,7 @@ Line 2 is responsible for rendering the content from XML to HTML5:
 </div>
 ```
 
-Then, create a separate `templates/thmes/admin/blocks/my_block/config.html.twig` template:
+Then, create a separate `templates/themes/admin/blocks/my_block/config.html.twig` template:
 
 ``` html+twig
 {% extends '@IbexaPageBuilder/page_builder/block/config.html.twig' %}

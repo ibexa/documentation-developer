@@ -1,3 +1,5 @@
+<!-- vale VariablesVersion = NO -->
+
 # eZ Platform v1.7.0 LTS
 
 
@@ -27,7 +29,7 @@ With the LTS release, the [new product naming](http://ez.no/Blog/eZ-Announces-Na
 
 ![](udwre.png)
 
--   The Admin Panel now provides a way to get a very clean **digest view of Content Types** configured in the system, with the ability to clearly get access to properties and field definitions.
+-   The Admin Panel now provides a way to get a very clean **digest view of content types** configured in the system, with the ability to clearly get access to properties and field definitions.
 
 ![](contenttypeviews.png)
 
@@ -38,7 +40,7 @@ With the LTS release, the [new product naming](http://ez.no/Blog/eZ-Announces-Na
 ##### Notable technical improvements:
 
 -   Search:
-    -   Solr Search Engine: Plugins, extend the Solr index with custom data on Content, Translation and Location block level ([EZP-26368](https://jira.ez.no/browse/EZP-26368))
+    -   Solr Search Engine: Plugins, extend the Solr index with custom data on Content, Translation and Location block level ([EZP-26368](https://issues.ibexa.co/browse/EZP-26368))
         -   For when you need to extend the index with additional data not applicable for FieldType custom fields feature
         -   *[See Solr Bundle documentation for more info ](https://doc.ibexa.co/en/2.5/guide/search/solr/)*
     -   Solr Search Engine: Support for FieldRelation on location search ([EZP-26756](http://jira.ez.no/browse/EZP-26756))
@@ -79,7 +81,7 @@ Submitted results can be previewed in the UI or downloaded in a CSV file, and a 
 
 ### Updated Demo Sites
 
-The Enterprise demo site has been significantly improved featuring a new **Product Content Type** that is used to show products in the Tasteful Planet demo. The product we used are meals that, in a non-demo ideal world, would be available to order and consume. This ordering part is not in the demo, nevertheless, the content looks really yummy... Other improvements includes the good setup of all content type field categories and the demonstration of basic SEO field types. Demo content itself has also been upgraded with more content to better demonstrate the capabilities.
+The Enterprise demo site has been significantly improved featuring a new **Product content type** that is used to show products in the Tasteful Planet demo. The product we used are meals that, in a non-demo ideal world, would be available to order and consume. This ordering part is not in the demo, nevertheless, the content looks really yummy... Other improvements includes the good setup of all content type field categories and the demonstration of basic SEO field types. Demo content itself has also been upgraded with more content to better demonstrate the capabilities.
 
 ![](productcontenttype.png)
 

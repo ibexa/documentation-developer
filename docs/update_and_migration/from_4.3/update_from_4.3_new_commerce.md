@@ -5,6 +5,8 @@ description: Update procedure to v4.4 for people who don't use Commerce packages
 
 This update procedure applies if you have a v4.3 installation, and you do not use Commerce packages.
 
+[[% include 'snippets/update/temporary_v4_conflicts.md' %]]
+
 ## Update from v4.3.x to v4.3.latest
 
 Before you update to v4.4, you need to go through the following steps to update to the latest maintenance release of v4.3 (v[[= latest_tag_4_3 =]]).
@@ -31,9 +33,9 @@ Run:
 
 ## Remove deprecated Field Types
 
-By default, every v4.3 installation has a set of built-in Content Types.
+By default, every v4.3 installation has a set of built-in content types.
 Some of them use Field Types deprecated in v4.4, which need to be removed manually.
-Make sure to remove all occurrences of `sesspecificationstype`, `uivarvarianttype`, `sesselection`, `sesprofiledata` Field Types from your Content Types.
+Make sure to remove all occurrences of `sesspecificationstype`, `uivarvarianttype`, `sesselection`, `sesprofiledata` Field Types from your content types.
 
 This step should be performed on the working installation, omitting it will result in an error during update:
 
@@ -316,6 +318,88 @@ Apply the following database update scripts:
     psql <database_name> < vendor/ibexa/installer/upgrade/db/postgresql/commerce/ibexa-4.3.latest-to-4.4.0.sql
     ```
 
+If you used old Commerce packages before, and have migrated everything, you can remove the old tables.
+The tables that can be removed are prefixed with `ses_` and `sve_`.
+
+=== "MySQL"
+
+    To switch to the right database, issue the following command:
+    ``` sql
+    USE <database_name>;
+    ```
+
+    Then, to remove all the old tables, run the following queries:
+    ``` sql
+    DROP TABLE IF EXISTS ses_basket;
+    DROP TABLE IF EXISTS ses_basket_line;
+    DROP TABLE IF EXISTS ses_content_modification_queue;
+    DROP TABLE IF EXISTS ses_customer_prices;
+    DROP TABLE IF EXISTS ses_customer_sku;
+    DROP TABLE IF EXISTS ses_download;
+    DROP TABLE IF EXISTS ses_externaldata;
+    DROP TABLE IF EXISTS ses_gdpr_log;
+    DROP TABLE IF EXISTS ses_invoice;
+    DROP TABLE IF EXISTS ses_log_erp;
+    DROP TABLE IF EXISTS ses_log_mail;
+    DROP TABLE IF EXISTS ses_log_search;
+    DROP TABLE IF EXISTS ses_payment_basket_map;
+    DROP TABLE IF EXISTS ses_price;
+    DROP TABLE IF EXISTS ses_shipping_cost;
+    DROP TABLE IF EXISTS ses_stat_sessions;
+    DROP TABLE IF EXISTS ses_stock;
+    DROP TABLE IF EXISTS ses_token;
+    DROP TABLE IF EXISTS sve_class;
+    DROP TABLE IF EXISTS sve_class_attributes;
+    DROP TABLE IF EXISTS sve_object;
+    DROP TABLE IF EXISTS sve_object_attributes;
+    DROP TABLE IF EXISTS sve_object_attributes_tmp;
+    DROP TABLE IF EXISTS sve_object_catalog;
+    DROP TABLE IF EXISTS sve_object_catalog_tmp;
+    DROP TABLE IF EXISTS sve_object_tmp;
+    DROP TABLE IF EXISTS sve_object_urls;
+    DROP TABLE IF EXISTS sve_object_urls_tmp;
+    ```
+
+=== "PostgreSQL"
+
+    To switch to the right database, issue the following command:
+    ``` sql
+    \connect <database_name>;
+    ```
+
+
+    Then, to remove all the old tables, run the following queries:
+    ``` sql
+    DROP TABLE IF EXISTS ses_basket;
+    DROP TABLE IF EXISTS ses_basket_line;
+    DROP TABLE IF EXISTS ses_content_modification_queue;
+    DROP TABLE IF EXISTS ses_customer_prices;
+    DROP TABLE IF EXISTS ses_customer_sku;
+    DROP TABLE IF EXISTS ses_download;
+    DROP TABLE IF EXISTS ses_externaldata;
+    DROP TABLE IF EXISTS ses_gdpr_log;
+    DROP TABLE IF EXISTS ses_invoice;
+    DROP TABLE IF EXISTS ses_log_erp;
+    DROP TABLE IF EXISTS ses_log_mail;
+    DROP TABLE IF EXISTS ses_log_search;
+    DROP TABLE IF EXISTS ses_payment_basket_map;
+    DROP TABLE IF EXISTS ses_price;
+    DROP TABLE IF EXISTS ses_shipping_cost;
+    DROP TABLE IF EXISTS ses_stat_sessions;
+    DROP TABLE IF EXISTS ses_stock;
+    DROP TABLE IF EXISTS ses_token;
+    DROP TABLE IF EXISTS sve_class;
+    DROP TABLE IF EXISTS sve_class_attributes;
+    DROP TABLE IF EXISTS sve_object;
+    DROP TABLE IF EXISTS sve_object_attributes;
+    DROP TABLE IF EXISTS sve_object_attributes_tmp;
+    DROP TABLE IF EXISTS sve_object_catalog;
+    DROP TABLE IF EXISTS sve_object_catalog_tmp;
+    DROP TABLE IF EXISTS sve_object_tmp;
+    DROP TABLE IF EXISTS sve_object_urls;
+    DROP TABLE IF EXISTS sve_object_urls_tmp;
+    ```
+
 #### Ibexa Open Source
 
 If you have no access to Ibexa DXP's `ibexa/installer` package, database upgrade is not necessary.
@@ -324,7 +408,7 @@ If you have no access to Ibexa DXP's `ibexa/installer` package, database upgrade
 
 Following [Security advisory: IBEXA-SA-2022-009](https://developers.ibexa.co/security-advisories/ibexa-sa-2022-009-critical-vulnerabilities-in-graphql-role-assignment-ct-editing-and-drafts-tooltips),
 unless you can verify based on your log files that the vulnerability has not been exploited,
-you should [revoke passwords](https://doc.ibexa.co/en/latest/users/user_management/#revoking-passwords) for all affected users.
+you should [revoke passwords](https://doc.ibexa.co/en/latest/users/passwords/#revoking-passwords) for all affected users.
 
 ## Finish code update
 
@@ -342,5 +426,5 @@ you can now run data migration required by the Customer Portal applications feat
 
 ```bash
 php bin/console ibexa:migrations:import vendor/ibexa/corporate-account/src/bundle/Resources/migrations/application_internal_fields.yaml --name=2022_11_07_22_46_application_internal_fields.yaml
-php bin/console ibexa:migration:migrate --file=2022_11_07_22_46_application_internal_fields.yaml
+php bin/console ibexa:migrations:migrate --file=2022_11_07_22_46_application_internal_fields.yaml
 ```

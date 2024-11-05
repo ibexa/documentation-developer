@@ -1,0 +1,14 @@
+services:
+    app.payment.type.new_payment_method_type:
+        class: Ibexa\Contracts\Payment\PaymentMethod\Type\TypeInterface
+        factory: ['@Ibexa\Contracts\Payment\PaymentMethod\Type\TypeFactoryInterface', 'createType']
+        arguments:
+            $identifier: new_payment_method_type
+            $name: New Payment Method Type
+            $domain: <translation_domain>
+        tags:
+            - { name: ibexa.payment.payment_method.type, alias: new_payment_method_type }
+services:
+    App\Payment\PaymentMethod\Voter\NewPaymentMethodTypeVoter:
+        tags:
+            - { name: ibexa.payment.payment_method.voter, type: new_payment_method_type }

@@ -208,7 +208,7 @@ Recommendation service support following HTTP headers to allow cache control on 
 
 |Scope|||Example|Format|
 |---|---|---|---|---|
-|Request|`If-Modified-Since`|Allows a *304 Not Modified* to be returned if content is unchanged.|`If-Modified-Since: Sat, 29 Oct 2013 19:43:31 GMT`|"HTTP-date" format as defined by [RFC 2616](https://tools.ietf.org/html/rfc2616)|
+|Request|`If-Modified-Since`|Allows a *304 Not Modified* to be returned if content is unchanged.|`If-Modified-Since: Sat, 29 Oct 2013 19:43:31 GMT`|"HTTP-date" format as defined by [RFC 2616](https://datatracker.ietf.org/doc/html/rfc2616)|
 |Response|`Last-Modified`|The last modification date of the recommendations.|`Last-Modified: Tue, 15 Nov 2013 12:45:26 GMT`|-|
 ||`Expires`|Gives the date/time after which the response is considered to be outdated|`Expires: Thu, 01 Dec 2013 16:00:00 GMT`|-|
 

@@ -1,0 +1,45 @@
+- type: shipping_method
+  mode: create
+  name:
+      -
+          languageCode: eng-GB
+          value: TestName
+  description:
+      -
+          languageCode: eng-GB
+          value: TestDescription
+  vatCategory: standard
+  identifier: TestIdentifier
+  enabled: false
+  shippingType: free
+  options:
+      currency: 1
+      price: '12.34'
+  regions:
+      - germany
+
+- type: shipping_method
+  mode: create
+  name:
+      -
+          languageCode: eng-GB
+          value: TestName
+      -
+          languageCode: ger-DE
+          value: TestNameGerman
+  description:
+      -
+          languageCode: eng-GB
+          value: TestDescription
+      -
+          languageCode: ger-DE
+          value: TestDescriptionGerman
+  vatCategory: standard
+  identifier: TestIdentifier2
+  shippingType: flat_rate
+  options:
+      price: '12.34'
+      currency: 'PLN'
+  regions:
+      - germany
+      - france

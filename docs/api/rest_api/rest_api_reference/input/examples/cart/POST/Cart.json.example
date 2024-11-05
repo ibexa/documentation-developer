@@ -1,0 +1,22 @@
+{
+    "Cart": {
+        "_media-type": "application/vnd.ibexa.api.Cart+json",
+        "id": 12,
+        "identifier": "fafccc4b-cce1-40d7-8d23-29ad41638581",
+        "name": "Default",
+        "createdAt": "2023-10-12T10:02:51+00:00",
+        "updatedAt": "2023-10-12T10:02:51+00:00",
+        "owner": {
+            "_media-type": "application/vnd.ibexa.api.User+json",
+            "_href": "/api/ibexa/v2/user/users/14"
+        },
+        "Currency": {
+            "_media-type": "application/vnd.ibexa.api.Currency+json",
+            "id": 2,
+            "code": "EUR",
+            "subunits": 2,
+            "enabled": true
+        },
+        "entries": []
+    }
+}

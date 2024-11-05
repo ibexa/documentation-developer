@@ -5,6 +5,7 @@
   <link media-type="application/vnd.ibexa.api.ContentType+xml" rel="ca-types-company" href="/api/ibexa/v2/content/types/48"/>
   <link media-type="application/vnd.ibexa.api.ContentType+xml" rel="ca-types-member" href="/api/ibexa/v2/content/types/47"/>
   <link media-type="application/vnd.ibexa.api.ContentType+xml" rel="ca-types-address" href="/api/ibexa/v2/content/types/49"/>
+  <link media-type="application/vnd.ibexa.api.SalesRepresentativesList+xml" rel="ca-sales-representatives" href="/api/ibexa/v2/corporate/sales-representatives"/>
   <link media-type="application/vnd.ibexa.api.Role+xml" rel="ca-role-admin" href="/api/ibexa/v2/user/roles/14"/>
   <link media-type="application/vnd.ibexa.api.Role+xml" rel="ca-role-buyer" href="/api/ibexa/v2/user/roles/15"/>
 </CorporateAccountRoot>

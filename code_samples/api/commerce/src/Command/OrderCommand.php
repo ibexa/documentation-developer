@@ -6,6 +6,7 @@ namespace App\Command;
 
 use Ibexa\Contracts\Core\Repository\PermissionResolver;
 use Ibexa\Contracts\Core\Repository\UserService;
+use Ibexa\Contracts\CoreSearch\Values\Query\Criterion\LogicalOr;
 use Ibexa\Contracts\OrderManagement\OrderServiceInterface;
 use Ibexa\Contracts\OrderManagement\Value\Order\OrderQuery;
 use Ibexa\Contracts\OrderManagement\Value\Order\Query\Criterion\CompanyNameCriterion;
@@ -19,7 +20,6 @@ use Ibexa\Contracts\OrderManagement\Value\OrderUser;
 use Ibexa\Contracts\OrderManagement\Value\OrderValue;
 use Ibexa\Contracts\OrderManagement\Value\Struct\OrderCreateStruct;
 use Ibexa\Contracts\OrderManagement\Value\Struct\OrderUpdateStruct;
-use Ibexa\Contracts\ProductCatalog\Values\Common\Query\Criterion\LogicalOr;
 use Money;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
@@ -58,7 +58,7 @@ final class OrderCommand extends Command
         $orderIdentifier = '2e897b31-0d7a-46d3-ba45-4eb65fe02790';
         $order = $this->orderService->getOrderByIdentifier($orderIdentifier);
 
-        $output->writeln(sprintf('Order has status %s', $orderIdentifier, $order->getStatus()));
+        $output->writeln(sprintf('Order %s has status %s', $orderIdentifier, $order->getStatus()));
 
         // Get order by id
         $orderId = 1;

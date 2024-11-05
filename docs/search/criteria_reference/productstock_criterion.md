@@ -9,6 +9,8 @@ The `ProductStock` Search Criterion searches for products by their numerical sto
 
 ## Example
 
+### PHP
+
 ``` php
 $productQuery = new ProductQuery(
     null,

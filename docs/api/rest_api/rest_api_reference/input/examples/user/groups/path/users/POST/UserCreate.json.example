@@ -1,21 +1,33 @@
 {
   "UserCreate": {
     "mainLanguageCode": "eng-GB",
-    "remoteId": "remoteId-qwert426",
-    "login": "yura",
-    "email": "yurarajzer@example.net",
-    "password": "Password1!",
+    "remoteId": "remoteId-23456789",
+    "login": "johnsmith2",
+    "email": "example@example.com",
+    "password": "Secrepassword5!",
     "fields": {
       "field": [
         {
           "fieldDefinitionIdentifier": "first_name",
           "languageCode": "eng-GB",
-          "fieldValue": "Yura"
+          "fieldValue": "John"
         },
         {
           "fieldDefinitionIdentifier": "last_name",
           "languageCode": "eng-GB",
-          "fieldValue": "Rajzer"
+          "fieldValue": "Smith"
+        },
+        {
+          "fieldDefinitionIdentifier": "user_account",
+          "languageCode": "eng-GB",
+          "fieldValue": {
+            "hasStoredLogin": true,
+            "contentId": 14,
+            "login": "johnsmith",
+            "email": "example@example.com",
+            "enabled": true,
+            "maxLogin": 10
+			}
         }
       ]
     }

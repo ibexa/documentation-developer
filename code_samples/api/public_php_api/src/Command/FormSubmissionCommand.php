@@ -40,9 +40,9 @@ final class FormSubmissionCommand extends Command
 
         $formValue = $content->getFieldValue('form', 'eng-GB')->getFormValue();
         $data = [
-            ['identifier' => 'single_line', 'name' => 'Line', 'value' => 'The name'],
-            ['identifier' => 'number', 'name' => 'Number', 'value' => 123],
-            ['identifier' => 'checkbox', 'name' => 'Checkbox', 'value' => 0],
+            ['id' => 7, 'identifier' => 'single_line', 'name' => 'Line', 'value' => 'The name'],
+            ['id' => 8, 'identifier' => 'number', 'name' => 'Number', 'value' => 123],
+            ['id' => 9, 'identifier' => 'checkbox', 'name' => 'Checkbox', 'value' => 0],
         ];
 
         $this->formSubmissionService->create(
@@ -58,7 +58,7 @@ final class FormSubmissionCommand extends Command
         foreach ($submissions as $sub) {
             $output->write($sub->getId() . '. submitted on ');
             $output->write($sub->getCreated()->format('Y-m-d H:i:s') . ' by ');
-            $output->writeln($this->userService->loadUser($sub->getUserId())->getName());
+            $output->writeln((string) $this->userService->loadUser($sub->getUserId())->getName());
             foreach ($sub->getValues() as $value) {
                 $output->writeln('- ' . $value->getIdentifier() . ': ' . $value->getDisplayValue());
             }

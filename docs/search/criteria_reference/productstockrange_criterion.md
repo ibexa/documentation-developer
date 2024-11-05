@@ -9,6 +9,8 @@ The `ProductStockRange` Search Criterion searches for products by their numerica
 
 ## Example
 
+### PHP
+
 ``` php
 $productQuery = new ProductQuery(
     null,

@@ -24,7 +24,7 @@ See [example use case](permission_use_cases.md#restrict-editing-to-part-of-the-t
 
     Limitation specifies what a User can do, not what they can't do.
     A `Location` Limitation, for example, gives the User access to content with a specific Location, 
-    not prohibits it. See [Available Limitations](limitations.md#available-limitations) for further information.
+    not prohibits it. See [Limitation reference](limitation_reference.md) for further information.
 
 **Assignments**
 
@@ -35,7 +35,7 @@ Every User or User Group can have multiple Roles.
 A User can also belong to many groups, for example, Administrators, Editors, Subscribers.
 
 Best practice is to avoid assigning Roles to Users directly.
-Model your content (Content Types, Sections, Locations etc.) in a way that can be accessed by generic Roles.
+Model your content (content types, Sections, Locations etc.) in a way that can be accessed by generic Roles.
 That way system will be more secure and easier to manage.
 This approach also improves performance. Role assignments and Policies are taken into account during search/load queries.
 

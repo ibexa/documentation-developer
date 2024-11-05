@@ -7,7 +7,7 @@ description: Products in the PIM are characterized by attributes describing thei
 Products are a special type of content that contains typical content Fields
 as well as additional product information.
 
-Each product belongs to a product type (similar to how a Content item belongs to a Content Type).
+Each product belongs to a product type (similar to how a content item belongs to a content type).
 
 Each product has a unique identifying product code.
 Product code can have up to 64 characters. It can contain only letters, numbers, underscores, and dashes.
@@ -17,8 +17,16 @@ Product code can have up to 64 characters. It can contain only letters, numbers,
 Product types represent categories that a product can belong to.
 A product type can be, for example, a sofa or a keyboard.
 
-Product types, like Content Types, define the global properties of products and Fields a product consists of.
+Product types, like content types, define the global properties of products and Fields a product consists of.
 A product type also defines the attributes that all products of this type can have.
+
+You can choose between two available types: `Physical` and `Virtual`:
+
+- `Physical` - tangible products with assigned stock. 
+They can use measurement attributes. They require shipment in the online purchase process.
+Examples: heaters, laptops, phones.
+- `Virtual` - non-tangible items. They can be sold individually, or as part of a product bundle.
+They don't require shipment in the online process. Examples: memberships, services, warranties. 
 
 ## Product attributes
 

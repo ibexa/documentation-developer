@@ -1,5 +1,5 @@
 ---
-description: Use built-in Query types to quickly query Content items in templates.
+description: Use built-in Query types to quickly query content items in templates.
 page_type: reference
 ---
 
@@ -13,7 +13,7 @@ All built-in Query types take the following optional parameters:
 - `offset` - offset for search hits, used for paginating the results
 - `sort` - [sort order](#sort-order)
 - `filter` - additional query filters:
-    - `content_type` - return only results of given Content Types
+    - `content_type` - return only results of given content types
     - `visible_only` - return only visible results (default `true`)
     - `siteaccess_aware` - return only results limited to the current SiteAccess root (default `true`)
 
@@ -61,7 +61,7 @@ params:
 
 ## Siblings
 
-The `Siblings` Query type retrieves Locations that have the same parent as the provided Content item or Location.
+The `Siblings` Query type retrieves Locations that have the same parent as the provided content item or Location.
 
 It takes `location` or `content` as parameters.
 
@@ -95,14 +95,14 @@ params:
 
 ## RelatedToContent
 
-The `RelatedToContent` Query type retrieves content that is a reverse relation to the provided Content item.
+The `RelatedToContent` Query type retrieves content that is a reverse relation to the provided content item.
 
 !!! tip
 
-    Reverse relations mean that the Query type shows Content items that are *related to* the provided Content item.
+    Reverse relations mean that the Query type shows content items that are *related to* the provided content item.
     For example, if a blog post contains a link to an article, you can use a `RelatedToContent` query
     to find the blog post from the article.
-    To find all relations of a Content item (in this example, all content that the blog post is related to),
+    To find all relations of a content item (in this example, all content that the blog post is related to),
     refer to [Embed content](embed_content.md#embed-relations-with-a-custom-controller). 
 
 It takes `content` or `field` as required parameters.
@@ -144,7 +144,7 @@ params:
 
 ## Catalog
 
-The `Catalog` Query type retrieves products belonging to a [catalog](pim.md#catalogs).
+The `Catalog` Query type retrieves products belonging to a [catalog](catalogs.md).
 
 It takes the following parameters:
 

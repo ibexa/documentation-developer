@@ -1,0 +1,86 @@
+{
+  "ContentTypeCreate": {
+    "identifier": "new_content_type",
+    "names": {
+      "value": [
+        {
+          "_languageCode": "eng-GB",
+          "#text": "New content type"
+        }
+      ]
+    },
+    "descriptions": {
+      "value": [
+        {
+          "_languageCode": "eng-GB",
+          "#text": "This is a description"
+        }
+      ]
+    },
+    "remoteId": "remoteId-qwerty548",
+    "urlAliasSchema": "<title>",
+    "nameSchema": "<title>",
+    "isContainer": true,
+    "mainLanguageCode": "eng-GB",
+    "defaultAlwaysAvailable": true,
+    "defaultSortField": "PATH",
+    "defaultSortOrder": "ASC",
+    "FieldDefinitions": {
+      "FieldDefinition": [
+        {
+          "identifier": "title",
+          "fieldType": "ezstring",
+          "fieldGroup": "content",
+          "position": 1,
+          "isTranslatable": true,
+          "isRequired": true,
+          "isInfoCollector": false,
+          "defaultValue": "New Title",
+          "isSearchable": true,
+          "names": {
+            "value": [
+              {
+                "_languageCode": "eng-GB",
+                "#text": "Title"
+              }
+            ]
+          },
+          "descriptions": {
+            "value": [
+              {
+                "_languageCode": "eng-GB",
+                "#text": "This is the title"
+              }
+            ]
+          }
+        },
+        {
+          "identifier": "summary",
+          "fieldType": "ezrichtext",
+          "fieldGroup": "content",
+          "position": 2,
+          "isTranslatable": true,
+          "isRequired": false,
+          "isInfoCollector": false,
+          "isSearchable": true,
+          "names": {
+            "value": [
+              {
+                "_languageCode": "eng-GB",
+                "#text": "Summary"
+              }
+            ]
+          },
+          "descriptions": {
+            "value": [
+              {
+                "_languageCode": "eng-GB",
+                "#text": "This is the summary"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

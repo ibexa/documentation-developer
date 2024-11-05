@@ -5,7 +5,7 @@ edition: experience
 
 # Customize email notifications
 
-Email is one of the Submit button options you can add to a form in the Form Builder.
+Email is one of the **Submit** button options you can add to a form in the Form Builder.
 Use it to configure a list of email addresses that get notifications about newly filled forms.
 
 ![Email notification](email_notification.png)
@@ -18,7 +18,7 @@ Each of them is rendered independently and consists of three sets of parameters.
 
 |Parameter|Type|Description|
 |---------|----|-----------|
-|`content`|`Ibexa\Contracts\Core\Repository\Values\Content\Content`|Name of the form, its Content Type|
+|`content`|`Ibexa\Contracts\Core\Repository\Values\Content\Content`|Name of the form, its content type|
 |`form`|`Ibexa\Contracts\FormBuilder\FieldType\Model\Form`|Definition of the form|
 |`data`|`Ibexa\Contracts\FormBuilder\FieldType\Model\FormSubmission`|Sent data|  
 

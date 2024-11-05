@@ -1,6 +1,6 @@
 # Sibling Criterion
 
-The [`Sibling` Search Criterion](https://github.com/ibexa/core/blob/main/src/contracts/Repository/Values/Content/Query/Criterion/Sibling.php)
+The [`Sibling` Search Criterion](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Criterion-Sibling.html)
 searches for content under the same parent as the indicated Location.
 
 ## Arguments
@@ -9,6 +9,8 @@ searches for content under the same parent as the indicated Location.
 - `parentLocationId` - int representing the parent Location ID
 
 ## Example
+
+### PHP
 
 ``` php
 $query->query = new Criterion\Sibling(59, 2);
@@ -21,3 +23,33 @@ and provide it with the Location object:
 $location = $locationService->loadLocation(59);
 $query->query = Criterion\Sibling::fromLocation($location);
 ```
+
+### REST API
+
+### REST API
+
+=== "XML"
+
+    ```xml
+    <Query>
+        <Filter>
+            <SiblingCriterion>
+                <locationId>85</locationId>
+                <parentLocationId>81</parentLocationId>
+            </SiblingCriterion>
+        </Filter>
+    </Query>
+    ```
+
+=== "JSON"
+
+    ```json
+    "Query": {
+        "Filter": {
+            "SiblingCriterion": {
+                "locationId": 85,
+                "parentLocationId": 81
+            }
+        }
+    }
+    ```

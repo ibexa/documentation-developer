@@ -1,0 +1,48 @@
+{% set excluded_tags = ['todo', 'var', 'param', 'property', 'property-read', 'property-write', 'method', 'return', 'package', 'api', 'final', 'since',
+    'template', 'template-implements', 'template-extends', 'template-covariant', 'implements'] %}
+{% set tags = node.tags|filter((v,k) => k not in excluded_tags and not (k starts with 'phpstan-')) %}
+{% set has_tags = false %}
+{% for name,seriesOfTag in tags %}
+    {% if name in ['see', 'uses'] %}
+        {% set seriesOfTag = seriesOfTag|filter(tag => '<a ' in tag.reference|route('class:short')) %}
+    {% endif %}
+    {% if seriesOfTag|length > 0 %}
+        {% set has_tags = true %}
+        {% set break = true %}
+    {% endif %}
+{% endfor %}
+
+{% if has_tags and tags|first|length > 0 %}
+    <h5 class="phpdocumentor-tag-list__heading">
+        Tags
+        {{ include('components/headerlink.html.twig', {'on': node, 'at': 'tags'}, with_context = false) }}
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+        {% for name,seriesOfTag in tags %}
+            {% if name in ['see', 'uses'] %}
+                {%  set seriesOfTag = seriesOfTag|filter(tag => '<a ' in tag.reference|route('class:short')) %}
+            {% endif %}
+            {% for tag in seriesOfTag %}
+                <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">{{ name|capitalize }}</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                    {% if tag.version %}
+                        <span class="phpdocumentor-tag-link">{{ tag.version }}</span>
+                    {% endif %}
+                    {% if tag.type %}
+                        <span class="phpdocumentor-tag-link">{{ tag.type|route('class:short')|join('|')|raw }}</span>
+                    {% endif %}
+                    {% if tag.reference %}
+                        <span class="phpdocumentor-tag-link">{{ tag.reference|route('class:short')|join('|')|raw }}</span>
+                    {% endif %}
+                    {% if tag.link %}
+                        <a class="phpdocumentor-tag-link" href="{{ tag.link }}">{% if not tag.description.empty %} {{ tag.description | description | markdown }} {% else %} {{ tag.link }} {%  endif %}</a>
+                    {% else %}
+                         {{ include('components/description.html.twig', {'node': tag }) }}
+                    {% endif %}
+                </dd>
+            {% endfor %}
+        {% endfor %}
+    </dl>
+{% endif %}

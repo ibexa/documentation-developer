@@ -13,6 +13,8 @@ The `StatusCriterion` Search Criterion searches for orders based on order status
 
 ## Example
 
+### PHP
+
 ``` php
 $query = new OrderQuery(
     new \Ibexa\Contracts\OrderManagement\Value\Order\Query\Criterion\StatusCriterion('pending')

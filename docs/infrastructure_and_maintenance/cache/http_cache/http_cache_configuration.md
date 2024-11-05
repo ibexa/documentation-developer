@@ -29,7 +29,7 @@ As the system takes care of purges, the cache should not become stale with the e
 A few redirect and error pages are served through the content view system. If you set a high `default_ttl`, they can also be served from cache.
 
 To avoid this, the installation ships with configuration to match these specific situations and set a much lower TTL.
-[FOSHttpCacheBundle matching rules](http://foshttpcachebundle.readthedocs.io/en/2.8.0/reference/configuration/headers.html) enables you to specify a different TTL:
+[FOSHttpCacheBundle matching rules](https://foshttpcachebundle.readthedocs.io/en/latest/reference/configuration/headers.html) enables you to specify a different TTL:
 
 ``` yaml
 fos_http_cache:

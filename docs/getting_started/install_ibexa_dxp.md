@@ -11,23 +11,22 @@ description: Install Ibexa DXP on a Linux system and prepare your installation f
     To install [[= product_name =]] for development on macOS or Windows,
     see the [installation guide for macOS and Windows](install_on_mac_os_and_windows.md).
 
-!!! note "Installing Ibexa OSS"
+!!! note "Installing [[= product_name_oss =]]"
 
-    This installation guide details the steps to install Ibexa DXP for users who have a subscription agreement with Ibexa.
-    If you want to install Ibexa OSS, you do not need authentication tokens or an account on updates.ibexa.co,
+    This installation guide shows in details how to install [[= product_name =]] for users who have a subscription agreement with [[= product_name_base =]].
+    If you want to install [[= product_name_oss =]], you do not need authentication tokens or an account on updates.ibexa.co,
     but must adapt the steps shown here to the product edition and the `ibexa/oss-skeleton` repository.
 
 ## Prepare work environment
 
-To install [[= product_name =]] you need a stack with your operating system, MySQL and PHP.
+To install [[= product_name =]] you need a stack with your operating system, MySQL or MariaDB, and PHP.
 
 You can install it by following your favorite tutorial, for example: [Install LAMP stack on Ubuntu](https://www.digitalocean.com/community/tutorials/how-to-install-linux-apache-mysql-php-lamp-stack-ubuntu-18-04).
 
 Additional requirements:
 
-- [Node.js](https://nodejs.org/en/) and [Yarn](https://yarnpkg.com/lang/en/docs/install/#debian-stable) for asset management.
+- [Node.js](https://nodejs.org/en) and [Yarn](https://classic.yarnpkg.com/en/docs/install/#debian-stable) for asset management.
 - `git` for version control.
-- to use search in the shop front end, you must [install a search engine](#install-and-configure-a-search-engine).
 
 [For production](#prepare-installation-for-production) you also need Apache or nginx as the HTTP server (Apache is used as an example below).
 
@@ -51,12 +50,7 @@ composer -V
 
 !!! tip "Install Composer locally"
 
-    If you want to install Composer inside your project root directory only,
-    run the following command in the terminal:
-
-    ``` bash
-    php -r "readfile('https://getcomposer.org/installer');" | php
-    ```
+    If you want to install Composer inside your project root directory only, follow the instructions for [installing Composer in the current directory](https://getcomposer.org/download/).
 
     If you do so, you must replace `composer` with `php -d memory_limit=-1 composer.phar` in all commands below.
 
@@ -68,7 +62,7 @@ composer -V
 The site is password-protected. 
 You must set up authentication tokens to access the site.
 
-Log in to your service portal on [support.ibexa.co](https://support.ibexa.co), go to your **Service Portal**, and look for the following on the **Maintenance and Support agreement details** screen:
+Log in to your service portal on [support.ibexa.co](https://support.ibexa.co/), go to your **Service Portal**, and look for the following on the **Maintenance and Support agreement details** screen:
 
 ![Authentication token](using_composer_auth_token.png)
 
@@ -119,29 +113,31 @@ After this, when running Composer to get updates, you will be asked for a userna
 To use Composer to instantly create a project in the current folder with all the dependencies,
 run the following command:
 
-=== "[[= product_name_content =]]"
+!!! note "Using PHP 8.3 (recommended)"
 
-    ``` bash
-    composer create-project ibexa/headless-skeleton .
-    ```
+    === "[[= product_name_headless =]]"
 
-=== "[[= product_name_exp =]]"
+        ``` bash
+        composer create-project ibexa/headless-skeleton .
+        ```
 
-    ``` bash
-    composer create-project ibexa/experience-skeleton .
-    ```
+    === "[[= product_name_exp =]]"
 
-=== "[[= product_name_com =]]"
+        ``` bash
+        composer create-project ibexa/experience-skeleton .
+        ```
 
-    ``` bash
-    composer create-project ibexa/commerce-skeleton .
-    ```
+    === "[[= product_name_com =]]"
 
-??? note "Using PHP 7.4 or 8.0"
+        ``` bash
+        composer create-project ibexa/commerce-skeleton .
+        ```
 
-    If you are using PHP 7.4 or 8.0, use a different set of commands:
+??? note "Using PHP 8.2 or older"
 
-    === "[[= product_name_content =]]"
+    If you are using PHP 8.2 or any older version, use a different set of commands:
+
+    === "[[= product_name_headless =]]"
 
         ``` bash
         composer create-project ibexa/headless-skeleton --no-install .
@@ -178,7 +174,7 @@ run the following command:
 
 !!! note "Platform.sh"
 
-    If you are deploying your installation on [Platform.sh](https://docs.platform.sh/frameworks/ibexa.html),
+    If you are deploying your installation on [Platform.sh](https://docs.platform.sh/guides/ibexa/deploy.html),
     run the following command:
     
     ``` bash
@@ -190,10 +186,7 @@ run the following command:
 #### Add project to version control
 
 It is recommended to add your project to version control.
-
-First, create a `.gitignore` file based on the `.gitignore.dist` provided in the project.
-
-Then, initiate your project repository:
+Initiate your project repository:
 
 ``` bash
 git init; git add . > /dev/null; git commit -m "init" > /dev/null
@@ -247,15 +240,11 @@ In `DATABASE_VERSION` you can also configure the database server version (for a 
 
 !!! tip "Using PostgreSQL"
 
-    If you want an installation with PostgreSQL instead of MySQL, refer to [Using PostgreSQL](databases.md#using-postgresql).
+    If you want an installation with PostgreSQL instead of MySQL or MariaDB, refer to [Using PostgreSQL](databases.md#using-postgresql).
 
 #### Install and configure a search engine
 
-You may choose to replace the [default search engine](search.md#legacy-search-engine) with either Solr or Elasticsearch.
-
-!!! note "Shop front end requirement [[% include 'snippets/commerce_badge.md' %]]"
-
-    Search in the shop front end requires that you have either Solr or Elasticsearch as a search engine.
+You may choose to replace the [default search engine](legacy_search_overview.md) with either Solr or Elasticsearch.
 
 === "Solr"
 
@@ -316,7 +305,28 @@ You can also use [Symfony CLI](https://symfony.com/download):
 symfony serve
 ```
 
-## Prepare installation for production
+## Prepare installation for development
+
+Consider adding the Symfony DebugBundle which fixes memory outage when dumping objects with circular references.
+The DebugBundle contains the [VarDumper]([[= symfony_doc =]]/components/var_dumper.html) and [its Twig integration]([[= symfony_doc =]]/components/var_dumper.html#debugbundle-and-twig-integration).
+
+``` bash
+composer require --dev symfony/debug-bundle
+```
+
+For detailed information about request treatment, you can also install [Symfony Profiler]([[= symfony_doc =]]/profiler.html):
+
+``` bash
+composer require --dev symfony/profiler-pack
+```
+
+To get both features in one go use:
+
+``` bash
+composer require --dev symfony/debug-pack
+```
+
+## Configure an HTTP server
 
 To use [[= product_name =]] with an HTTP server, you need to [set up directory permissions](#set-up-permissions) and [prepare a virtual host](#set-up-virtual-host).
 
@@ -422,13 +432,8 @@ Finally, remove the temporary file:
 
 ### Enable the Link manager
 
-To make use of the [Link Manager](url_management.md#enable-automatic-url-validation).
-
-#### JMS payment secret [[% include 'snippets/commerce_badge.md' %]]
-
-To provide the `JMS_PAYMENT_SECRET` secret for the [[= product_name_com =]] payment system, run `./vendor/defuse/php-encryption/bin/generate-defuse-key`
-and use the generated secret.
+To make use of the [Link Manager](url_management.md#enabling-automatic-url-validation).
 
 ## Ibexa Cloud
 
-If you want to host your application on Ibexa Cloud, follow the [Install on Ibexa Cloud](install_on_ibexa_cloud.md) procedure.
+If you want to host your application on [[= product_name_cloud =]], follow the [Install on Ibexa Cloud](install_on_ibexa_cloud.md) procedure.

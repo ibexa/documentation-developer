@@ -9,6 +9,8 @@ The `IntegerAttribute` Search Criterion searches for products by the value of th
 
 ## Example
 
+### PHP
+
 ``` php
 $query = new ProductQuery(
     null,
@@ -18,3 +20,33 @@ $query = new ProductQuery(
     )
 );
 ```
+
+### REST API
+
+=== "XML"
+
+    ```xml
+    <AttributeQuery>
+        <Query>
+            <IntegerAttributeCriterion>
+                <identifier>size</identifier>
+                <value>38</value>
+            </IntegerAttributeCriterion>
+        </Query>
+    </AttributeQuery>
+    ```
+
+=== "JSON"
+
+    ```json
+    {
+        "AttributeQuery": {
+            "Query": {
+                "IntegerAttributeCriterion": {
+                    "identifier": "size",
+                    "value": 38
+                }
+            }
+        }
+    }
+    ```

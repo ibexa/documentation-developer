@@ -5,7 +5,7 @@ edition: experience
 
 # Render a Page
 
-Page is a special Content Type that contains a [Page Field](pagefield.md).
+Page is a special content type that contains a [Page Field](pagefield.md).
 
 A Page Field is a layout composed of zones. Each zone can contain multiple blocks.
 

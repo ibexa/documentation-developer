@@ -10,6 +10,8 @@ Note that all commerce packages as of v4.4 are deprecated and will be removed in
 Until that time, they will be maintained by Ibexa with fixes, including security fixes, but they won't be further developed.
 Old packages are replaced by [the all-new Ibexa Commerce packages](ibexa_dxp_v4.4.md#all-new-ibexa-commerce-packages).
 
+[[% include 'snippets/update/temporary_v4_conflicts.md' %]]
+
 ## Update from v4.3.x to v4.3.latest
 
 Before you update to v4.4, you need to go through the following steps to update to the latest maintenance release of v4.3 (v[[= latest_tag_4_3 =]]).
@@ -199,7 +201,7 @@ If you have no access to Ibexa DXP's `ibexa/installer` package, database upgrade
 
 Following [Security advisory: IBEXA-SA-2022-009](https://developers.ibexa.co/security-advisories/ibexa-sa-2022-009-critical-vulnerabilities-in-graphql-role-assignment-ct-editing-and-drafts-tooltips),
 unless you can verify based on your log files that the vulnerability has not been exploited,
-you should [revoke passwords](https://doc.ibexa.co/en/latest/users/user_management/#revoking-passwords) for all affected users.
+you should [revoke passwords](https://doc.ibexa.co/en/latest/users/passwords/#revoking-passwords) for all affected users.
 
 ## Finish code update
 
@@ -218,5 +220,5 @@ run data migration required by the Customer Portal applications feature:
 
 ```bash
 php bin/console ibexa:migrations:import vendor/ibexa/corporate-account/src/bundle/Resources/migrations/application_internal_fields.yaml --name=2022_11_07_22_46_application_internal_fields.yaml
-php bin/console ibexa:migration:migrate --file=2022_11_07_22_46_application_internal_fields.yaml
+php bin/console ibexa:migrations:migrate --file=2022_11_07_22_46_application_internal_fields.yaml
 ```

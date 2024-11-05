@@ -6,18 +6,19 @@ page_type: landing_page
 
 # Customer Portal
 
-Customer Portal enables [creating and handling of business accounts](https://doc.ibexa.co/projects/userguide/en/master/customer_management/manage_customers/).
-With this feature, your customers can [self-register](https://doc.ibexa.co/projects/userguide/en/master/customer_management/customer_portal/),
-[edit their organization information](https://doc.ibexa.co/projects/userguide/en/latest/shop_administration/customer_portal/),
-invite and view members and check their order history.
+A Customer Portal serves as a central entry point to your services and products. 
+It helps you provide a unique user experience with a single point of access to any relevant self-service options for your products and services.
 
-![Customer Portal dashboard](img/cp_dashboard_customer_portal.png)
+[[= product_name =]] Customer Portal and customer management that ships with it let you create and handle business accounts 
+and communicate with your partners in a personalized space.
+With this feature, your customers can self-register, edit their organization information, 
+invite and view members, check their order history and more.
 
 [[= cards([
-"customer_management/cp_configuration",
-"customer_management/cp_applications",
-"users/invitations",
-"customer_management/cp_page_builder",
-"customer_management/create_user_registration_form"
-], columns=5) =]]
-
+    "customer_management/customer_portal_guide",
+    "customer_management/cp_configuration",
+    "customer_management/cp_applications",
+    "users/invitations",
+    "customer_management/cp_page_builder",
+    "customer_management/create_user_registration_form"
+], columns=3) =]]

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sriracha|Roboto|Open+Sans">
+
+    {% if content is defined %}
+        {% set title = ez_content_name(content) %}
+    {% endif %}
+    <title>{{ title|default('Home'|trans) }} - {{ "It's a Dog's World!"|trans }}</title>
+</head>
+<body>
+<div class="container">
+    <div class="row main">
+        {% block content %}{% endblock %}
+    </div>
+</div>
+</body>
+</html>
