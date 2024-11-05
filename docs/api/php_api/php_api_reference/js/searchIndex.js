@@ -9628,12 +9628,12 @@ Search.appendIndex(
         },                {
             "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\ContentService\u003A\u003AaddRelation\u0028\u0029",
             "name": "addRelation",
-            "summary": "Adds\u0020a\u0020relation\u0020of\u0020type\u0020common.",
+            "summary": "Adds\u0020a\u0020common\u0020relation.",
             "url": "classes/Ibexa-Contracts-Core-Repository-ContentService.html#method_addRelation"
         },                {
             "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\ContentService\u003A\u003AdeleteRelation\u0028\u0029",
             "name": "deleteRelation",
-            "summary": "Removes\u0020a\u0020relation\u0020of\u0020type\u0020COMMON\u0020from\u0020a\u0020draft.",
+            "summary": "Removes\u0020a\u0020common\u0020relation\u0020from\u0020a\u0020draft.",
             "url": "classes/Ibexa-Contracts-Core-Repository-ContentService.html#method_deleteRelation"
         },                {
             "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\ContentService\u003A\u003AdeleteTranslation\u0028\u0029",
@@ -9678,12 +9678,12 @@ Search.appendIndex(
         },                {
             "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\ContentService\u003A\u003Afind\u0028\u0029",
             "name": "find",
-            "summary": "Fetch\u0020Content\u0020items\u0020from\u0020the\u0020Repository\u0020filtered\u0020by\u0020the\u0020given\u0020conditions.",
+            "summary": "Fetches\u0020Content\u0020items\u0020from\u0020the\u0020Repository\u0020filtered\u0020by\u0020the\u0020given\u0020conditions.",
             "url": "classes/Ibexa-Contracts-Core-Repository-ContentService.html#method_find"
         },                {
             "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\ContentService\u003A\u003Acount\u0028\u0029",
             "name": "count",
-            "summary": "Count\u0020total\u0020number\u0020of\u0020items\u0020returned\u0020by\u0020\u007B\u0040see\u0020ContentService\u003A\u003Afind\u0028\u0029\u007D\u0020method.",
+            "summary": "Gets\u0020the\u0020total\u0020number\u0020of\u0020fetchable\u0020Content\u0020items.",
             "url": "classes/Ibexa-Contracts-Core-Repository-ContentService.html#method_count"
         },                {
             "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\ContentService\u003A\u003ADEFAULT_PAGE_SIZE",
@@ -10048,12 +10048,12 @@ Search.appendIndex(
         },                {
             "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Decorator\\ContentServiceDecorator\u003A\u003AaddRelation\u0028\u0029",
             "name": "addRelation",
-            "summary": "Adds\u0020a\u0020relation\u0020of\u0020type\u0020common.",
+            "summary": "Adds\u0020a\u0020common\u0020relation.",
             "url": "classes/Ibexa-Contracts-Core-Repository-Decorator-ContentServiceDecorator.html#method_addRelation"
         },                {
             "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Decorator\\ContentServiceDecorator\u003A\u003AdeleteRelation\u0028\u0029",
             "name": "deleteRelation",
-            "summary": "Removes\u0020a\u0020relation\u0020of\u0020type\u0020COMMON\u0020from\u0020a\u0020draft.",
+            "summary": "Removes\u0020a\u0020common\u0020relation\u0020from\u0020a\u0020draft.",
             "url": "classes/Ibexa-Contracts-Core-Repository-Decorator-ContentServiceDecorator.html#method_deleteRelation"
         },                {
             "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Decorator\\ContentServiceDecorator\u003A\u003AdeleteTranslation\u0028\u0029",
@@ -10098,12 +10098,12 @@ Search.appendIndex(
         },                {
             "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Decorator\\ContentServiceDecorator\u003A\u003Afind\u0028\u0029",
             "name": "find",
-            "summary": "Fetch\u0020Content\u0020items\u0020from\u0020the\u0020Repository\u0020filtered\u0020by\u0020the\u0020given\u0020conditions.",
+            "summary": "Fetches\u0020Content\u0020items\u0020from\u0020the\u0020Repository\u0020filtered\u0020by\u0020the\u0020given\u0020conditions.",
             "url": "classes/Ibexa-Contracts-Core-Repository-Decorator-ContentServiceDecorator.html#method_find"
         },                {
             "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Decorator\\ContentServiceDecorator\u003A\u003Acount\u0028\u0029",
             "name": "count",
-            "summary": "Count\u0020total\u0020number\u0020of\u0020items\u0020returned\u0020by\u0020\u007B\u0040see\u0020ContentService\u003A\u003Afind\u0028\u0029\u007D\u0020method.",
+            "summary": "Gets\u0020the\u0020total\u0020number\u0020of\u0020fetchable\u0020Content\u0020items.",
             "url": "classes/Ibexa-Contracts-Core-Repository-Decorator-ContentServiceDecorator.html#method_count"
         },                {
             "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Decorator\\ContentServiceDecorator\u003A\u003A\u0024innerService",

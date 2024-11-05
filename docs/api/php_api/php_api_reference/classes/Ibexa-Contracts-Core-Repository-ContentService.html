@@ -36515,11 +36515,11 @@
         <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/core/src/contracts/Repository/ContentService.php">
         <abbr title="vendor/ibexa/core/src/contracts/Repository/ContentService.php">ContentService.php</abbr>
                 :
-        <span title="at line 484">484</span>
+        <span title="at line 427">427</span>
                 <img src="./images/copy.svg" title="Copy path" />
     </div>
         </div>
-    <p>Adds a relation of type common.</p>
+    <p>Adds a common relation.</p>
 
 <div class="highlight">
     <table class="highlighttable">
@@ -36543,7 +36543,7 @@
     </div>
     <section class="phpdocumentor-description">
         <p>The source of the relation is the content and version
-referenced by $versionInfo.</p>
+referenced by $sourceVersion.</p>
 
     </section>
     <h4>Parameters</h4>
@@ -36567,8 +36567,12 @@ referenced by $versionInfo.</p>
                     <td class="empty">
                                                     -
                                             </td>
-                    <td class="empty">
-                                                    -
+                    <td>
+                                                        <section class="phpdocumentor-description">
+        <p>The source content's version in relation with the destination.</p>
+
+    </section>
+
                                             </td>
                 </tr>
                             <tr>
@@ -36583,7 +36587,7 @@ referenced by $versionInfo.</p>
                                             </td>
                     <td>
                                                         <section class="phpdocumentor-description">
-        <p>the destination of the relation</p>
+        <p>The destination of the relation.</p>
 
     </section>
 
@@ -36594,11 +36598,11 @@ referenced by $versionInfo.</p>
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type"><a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-Relation.html"><abbr title="\Ibexa\Contracts\Core\Repository\Values\Content\Relation">Relation</abbr></a></p>
                 <section class="phpdocumentor-description">
-        <p>the newly created relation</p>
+        <p>The newly created relation.</p>
 
     </section>
 
-                                                    
+                                                                                            
     <h5 class="phpdocumentor-tag-list__heading">
         Tags
         <a href="classes/Ibexa-Contracts-Core-Repository-ContentService.html#method_addRelation#tags" class="headerlink"><i class="fas fa-link"></i></a>
@@ -36611,7 +36615,7 @@ referenced by $versionInfo.</p>
                 <dd class="phpdocumentor-tag-list__definition">
                                                                 <span class="phpdocumentor-tag-link"><a href="classes/Ibexa-Contracts-Core-Repository-Exceptions-UnauthorizedException.html"><abbr title="\Ibexa\Contracts\Core\Repository\Exceptions\UnauthorizedException">UnauthorizedException</abbr></a></span>
                                                                                          <section class="phpdocumentor-description">
-        <p>if the user is not allowed to edit this version</p>
+        <p>if the user is not allowed to edit this version.</p>
 
     </section>
 
@@ -36622,10 +36626,17 @@ referenced by $versionInfo.</p>
                 <dd class="phpdocumentor-tag-list__definition">
                                                                 <span class="phpdocumentor-tag-link"><a href="classes/Ibexa-Contracts-Core-Repository-Exceptions-BadStateException.html"><abbr title="\Ibexa\Contracts\Core\Repository\Exceptions\BadStateException">BadStateException</abbr></a></span>
                                                                                          <section class="phpdocumentor-description">
-        <p>if the version is not a draft</p>
+        <p>if the version is not a draft.</p>
 
     </section>
 
+                                    </dd>
+                                                                                        <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">See</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                    <span class="phpdocumentor-tag-link"><a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-Relation.html#constant_COMMON"><abbr title="\Ibexa\Contracts\Core\Repository\Values\Content\Relation::COMMON">Relation::COMMON</abbr></a></span>
+                                                                 
                                     </dd>
                                                                                     </dl>
             <div class="content-header">
@@ -36636,7 +36647,7 @@ referenced by $versionInfo.</p>
         <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/core/src/contracts/Repository/ContentService.php">
         <abbr title="vendor/ibexa/core/src/contracts/Repository/ContentService.php">ContentService.php</abbr>
                 :
-        <span title="at line 396">396</span>
+        <span title="at line 348">348</span>
                 <img src="./images/copy.svg" title="Copy path" />
     </div>
         </div>
@@ -36654,7 +36665,7 @@ all versions are copied, otherwise only the given version.</p>
                 </td>
                 <td class="code">
                     <div>
-                        <pre><code><span class="phpdocumentor-signature__visibility">public </span><span class="phpdocumentor-signature__name">copyContent</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-ContentInfo.html"><abbr title="\Ibexa\Contracts\Core\Repository\Values\Content\ContentInfo">ContentInfo</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$contentInfo</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type"><a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-LocationCreateStruct.html"><abbr title="\Ibexa\Contracts\Core\Repository\Values\Content\LocationCreateStruct">LocationCreateStruct</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$destinationLocationCreateStruct</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type"><a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-VersionInfo.html"><abbr title="\Ibexa\Contracts\Core\Repository\Values\Content\VersionInfo">VersionInfo</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$versionInfo</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-Content.html"><abbr title="\Ibexa\Contracts\Core\Repository\Values\Content\Content">Content</abbr></a></span></code></pre>
+                        <pre><code><span class="phpdocumentor-signature__visibility">public </span><span class="phpdocumentor-signature__name">copyContent</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-ContentInfo.html"><abbr title="\Ibexa\Contracts\Core\Repository\Values\Content\ContentInfo">ContentInfo</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$contentInfo</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type"><a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-LocationCreateStruct.html"><abbr title="\Ibexa\Contracts\Core\Repository\Values\Content\LocationCreateStruct">LocationCreateStruct</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$destinationLocationCreateStruct</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type"><a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-VersionInfo.html"><abbr title="\Ibexa\Contracts\Core\Repository\Values\Content\VersionInfo">VersionInfo</abbr></a>|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$versionInfo</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-Content.html"><abbr title="\Ibexa\Contracts\Core\Repository\Values\Content\Content">Content</abbr></a></span></code></pre>
                     </div>
                 </td>
             </tr>
@@ -36700,7 +36711,7 @@ all versions are copied, otherwise only the given version.</p>
                                             </td>
                     <td>
                                                         <section class="phpdocumentor-description">
-        <p>the target location where the content is copied to</p>
+        <p>The target location where the content is copied to.</p>
 
     </section>
 
@@ -36711,7 +36722,7 @@ all versions are copied, otherwise only the given version.</p>
                         $versionInfo
                     </td>
                     <td>
-                        <a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-VersionInfo.html"><abbr title="\Ibexa\Contracts\Core\Repository\Values\Content\VersionInfo">VersionInfo</abbr></a>
+                        <a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-VersionInfo.html"><abbr title="\Ibexa\Contracts\Core\Repository\Values\Content\VersionInfo">VersionInfo</abbr></a>|null
                     </td>
                     <td>
                                                                                     null
@@ -36737,7 +36748,7 @@ all versions are copied, otherwise only the given version.</p>
                 <dd class="phpdocumentor-tag-list__definition">
                                                                 <span class="phpdocumentor-tag-link"><a href="classes/Ibexa-Contracts-Core-Repository-Exceptions-UnauthorizedException.html"><abbr title="\Ibexa\Contracts\Core\Repository\Exceptions\UnauthorizedException">UnauthorizedException</abbr></a></span>
                                                                                          <section class="phpdocumentor-description">
-        <p>if the user is not allowed to copy the content to the given location</p>
+        <p>if the user is not allowed to copy the content to the given location.</p>
 
     </section>
 
@@ -36751,11 +36762,11 @@ all versions are copied, otherwise only the given version.</p>
         <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/core/src/contracts/Repository/ContentService.php">
         <abbr title="vendor/ibexa/core/src/contracts/Repository/ContentService.php">ContentService.php</abbr>
                 :
-        <span title="at line 618">618</span>
+        <span title="at line 548">548</span>
                 <img src="./images/copy.svg" title="Copy path" />
     </div>
         </div>
-    <p>Count total number of items returned by {@see ContentService::find()} method.</p>
+    <p>Gets the total number of fetchable Content items.</p>
 
 <div class="highlight">
     <table class="highlighttable">
@@ -36768,7 +36779,7 @@ all versions are copied, otherwise only the given version.</p>
                 </td>
                 <td class="code">
                     <div>
-                        <pre><code><span class="phpdocumentor-signature__visibility">public </span><span class="phpdocumentor-signature__name">count</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/Ibexa-Contracts-Core-Repository-Values-Filter-Filter.html"><abbr title="\Ibexa\Contracts\Core\Repository\Values\Filter\Filter">Filter</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$filter</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, string&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$languages</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">int</span></code></pre>
+                        <pre><code><span class="phpdocumentor-signature__visibility">public </span><span class="phpdocumentor-signature__name">count</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/Ibexa-Contracts-Core-Repository-Values-Filter-Filter.html"><abbr title="\Ibexa\Contracts\Core\Repository\Values\Filter\Filter">Filter</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$filter</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">array&lt;int, string&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$languages</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">int</span></code></pre>
                     </div>
                 </td>
             </tr>
@@ -36777,6 +36788,10 @@ all versions are copied, otherwise only the given version.</p>
 </div>
 <div class="phpdocumentor-label-line">
     </div>
+    <section class="phpdocumentor-description">
+        <p>Counts total number of items returned by <a href="classes/Ibexa-Contracts-Core-Repository-ContentService.html#method_find"><abbr title="\Ibexa\Contracts\Core\Repository\ContentService::find()">ContentService::find()</abbr></a> with the same parameters.</p>
+
+    </section>
     <h4>Parameters</h4>
     <table class="method-parameters">
         <thead>
@@ -36807,14 +36822,14 @@ all versions are copied, otherwise only the given version.</p>
                         $languages
                     </td>
                     <td>
-                        array&lt;string|int, string&gt;
+                        array&lt;int, string&gt;
                     </td>
                     <td>
                                                                                     null
                                                                         </td>
                     <td>
                                                         <section class="phpdocumentor-description">
-        <p>a list of language codes to be added as additional constraints.
+        <p>A list of language codes to be added as additional constraints.
 If skipped, by default, unless SiteAccessAware layer has been disabled, languages set
 for a SiteAccess in a current context will be used.</p>
 
@@ -36835,7 +36850,7 @@ for a SiteAccess in a current context will be used.</p>
         <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/core/src/contracts/Repository/ContentService.php">
         <abbr title="vendor/ibexa/core/src/contracts/Repository/ContentService.php">ContentService.php</abbr>
                 :
-        <span title="at line 287">287</span>
+        <span title="at line 257">257</span>
                 <img src="./images/copy.svg" title="Copy path" />
     </div>
         </div>
@@ -36862,7 +36877,7 @@ for a SiteAccess in a current context will be used.</p>
 <div class="phpdocumentor-label-line">
     </div>
     <section class="phpdocumentor-description">
-        <p>If no user is given the number of drafts for the authenticated user are returned</p>
+        <p>If no user is given the number of drafts for the authenticated user are returned.</p>
 
     </section>
     <h4>Parameters</h4>
@@ -36888,7 +36903,7 @@ for a SiteAccess in a current context will be used.</p>
                                                                         </td>
                     <td>
                                                         <section class="phpdocumentor-description">
-        <p>The user to load drafts for, if defined, otherwise drafts for current-user</p>
+        <p>The user to load drafts for, if defined, otherwise drafts for current user.</p>
 
     </section>
 
@@ -36899,7 +36914,7 @@ for a SiteAccess in a current context will be used.</p>
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type">int</p>
                 <section class="phpdocumentor-description">
-        <p>The number of drafts (<a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-VersionInfo.html"><abbr title="\Ibexa\Contracts\Core\Repository\Values\Content\VersionInfo">VersionInfo</abbr></a>) owned by the given user</p>
+        <p>The number of drafts (<a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-VersionInfo.html"><abbr title="\Ibexa\Contracts\Core\Repository\Values\Content\VersionInfo">VersionInfo</abbr></a>) owned by the given user.</p>
 
     </section>
 
@@ -36926,7 +36941,7 @@ for a SiteAccess in a current context will be used.</p>
         <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/core/src/contracts/Repository/ContentService.php">
         <abbr title="vendor/ibexa/core/src/contracts/Repository/ContentService.php">ContentService.php</abbr>
                 :
-        <span title="at line 431">431</span>
+        <span title="at line 383">383</span>
                 <img src="./images/copy.svg" title="Copy path" />
     </div>
         </div>
@@ -37011,7 +37026,7 @@ for a SiteAccess in a current context will be used.</p>
         <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/core/src/contracts/Repository/ContentService.php">
         <abbr title="vendor/ibexa/core/src/contracts/Repository/ContentService.php">ContentService.php</abbr>
                 :
-        <span title="at line 440">440</span>
+        <span title="at line 390">390</span>
                 <img src="./images/copy.svg" title="Copy path" />
     </div>
         </div>
@@ -37067,7 +37082,7 @@ for a SiteAccess in a current context will be used.</p>
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type">int</p>
                 <section class="phpdocumentor-description">
-        <p>The number of reverse relations (<a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-Relation.html"><abbr title="\Ibexa\Contracts\Core\Repository\Values\Content\Relation">Relation</abbr></a>)</p>
+        <p>The number of reverse relations (<a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-Relation.html"><abbr title="\Ibexa\Contracts\Core\Repository\Values\Content\Relation">Relation</abbr></a>).</p>
 
     </section>
 
@@ -37080,7 +37095,7 @@ for a SiteAccess in a current context will be used.</p>
         <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/core/src/contracts/Repository/ContentService.php">
         <abbr title="vendor/ibexa/core/src/contracts/Repository/ContentService.php">ContentService.php</abbr>
                 :
-        <span title="at line 225">225</span>
+        <span title="at line 202">202</span>
                 <img src="./images/copy.svg" title="Copy path" />
     </div>
         </div>
@@ -37109,7 +37124,7 @@ for a SiteAccess in a current context will be used.</p>
     <section class="phpdocumentor-description">
         <p>If a different userId is given in $contentCreateStruct it is assigned to the given user
 but this required special rights for the authenticated user
-(this is useful for content staging where the transfer process does not
+(this is useful for content staging where the transfer process doesn't
 have to authenticate with the user which created the content object in the source server).
 The user has to publish the draft if it should be visible.</p>
 
@@ -37151,7 +37166,7 @@ The user has to publish the draft if it should be visible.</p>
                                                                         </td>
                     <td>
                                                         <section class="phpdocumentor-description">
-        <p>an array of <a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-LocationCreateStruct.html"><abbr title="\Ibexa\Contracts\Core\Repository\Values\Content\LocationCreateStruct">LocationCreateStruct</abbr></a> for each location parent under which a location should be created for the content
+        <p>An array of <a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-LocationCreateStruct.html"><abbr title="\Ibexa\Contracts\Core\Repository\Values\Content\LocationCreateStruct">LocationCreateStruct</abbr></a> for each location parent under which a location should be created for the content.
 While optional, it's highly recommended to use Locations for content as a lot of features in the system is usually tied to the tree structure (including default Role policies).</p>
 
     </section>
@@ -37182,9 +37197,7 @@ for case of full validation. Empty identifiers array is equal to no validation.<
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type"><a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-Content.html"><abbr title="\Ibexa\Contracts\Core\Repository\Values\Content\Content">Content</abbr></a></p>
                 <section class="phpdocumentor-description">
-        <ul>
-<li>the newly created content draft</li>
-</ul>
+        <p>The newly created content draft.</p>
 
     </section>
 
@@ -37201,7 +37214,7 @@ for case of full validation. Empty identifiers array is equal to no validation.<
                 <dd class="phpdocumentor-tag-list__definition">
                                                                 <span class="phpdocumentor-tag-link"><a href="classes/Ibexa-Contracts-Core-Repository-Exceptions-UnauthorizedException.html"><abbr title="\Ibexa\Contracts\Core\Repository\Exceptions\UnauthorizedException">UnauthorizedException</abbr></a></span>
                                                                                          <section class="phpdocumentor-description">
-        <p>if the user is not allowed to create the content in the given location</p>
+        <p>if the user is not allowed to create the content in the given location.</p>
 
     </section>
 
@@ -37224,7 +37237,7 @@ are under the same parent or if the a field value is not accepted by the field t
                 <dd class="phpdocumentor-tag-list__definition">
                                                                 <span class="phpdocumentor-tag-link"><a href="classes/Ibexa-Contracts-Core-Repository-Exceptions-ContentFieldValidationException.html"><abbr title="\Ibexa\Contracts\Core\Repository\Exceptions\ContentFieldValidationException">ContentFieldValidationException</abbr></a></span>
                                                                                          <section class="phpdocumentor-description">
-        <p>if a field in the $contentCreateStruct is not valid</p>
+        <p>if a field in the $contentCreateStruct is not valid.</p>
 
     </section>
 
@@ -37235,7 +37248,7 @@ are under the same parent or if the a field value is not accepted by the field t
                 <dd class="phpdocumentor-tag-list__definition">
                                                                 <span class="phpdocumentor-tag-link"><a href="classes/Ibexa-Contracts-Core-Repository-Exceptions-ContentValidationException.html"><abbr title="\Ibexa\Contracts\Core\Repository\Exceptions\ContentValidationException">ContentValidationException</abbr></a></span>
                                                                                          <section class="phpdocumentor-description">
-        <p>if a required field is missing or is set to an empty value</p>
+        <p>if a required field is missing or is set to an empty value.</p>
 
     </section>
 
@@ -37249,7 +37262,7 @@ are under the same parent or if the a field value is not accepted by the field t
         <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/core/src/contracts/Repository/ContentService.php">
         <abbr title="vendor/ibexa/core/src/contracts/Repository/ContentService.php">ContentService.php</abbr>
                 :
-        <span title="at line 269">269</span>
+        <span title="at line 239">239</span>
                 <img src="./images/copy.svg" title="Copy path" />
     </div>
         </div>
@@ -37332,7 +37345,7 @@ It can be changed on updating the version.</p>
                                                                         </td>
                     <td>
                                                         <section class="phpdocumentor-description">
-        <p>Used as creator of the draft if given - otherwise uses current-user</p>
+        <p>Used as creator of the draft if given; otherwise uses current user.</p>
 
     </section>
 
@@ -37348,8 +37361,12 @@ It can be changed on updating the version.</p>
                     <td>
                                                                                     null
                                                                         </td>
-                    <td class="empty">
-                                                    -
+                    <td>
+                                                        <section class="phpdocumentor-description">
+        <p>If not set the draft is created with the initialLanguage code of the source version or if not present with the main language.</p>
+
+    </section>
+
                                             </td>
                 </tr>
                     </tbody>
@@ -37357,9 +37374,7 @@ It can be changed on updating the version.</p>
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type"><a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-Content.html"><abbr title="\Ibexa\Contracts\Core\Repository\Values\Content\Content">Content</abbr></a></p>
                 <section class="phpdocumentor-description">
-        <ul>
-<li>the newly created content draft</li>
-</ul>
+        <p>The newly created content draft.</p>
 
     </section>
 
@@ -37376,7 +37391,7 @@ It can be changed on updating the version.</p>
                 <dd class="phpdocumentor-tag-list__definition">
                                                                 <span class="phpdocumentor-tag-link"><a href="classes/Ibexa-Contracts-Core-Repository-Exceptions-UnauthorizedException.html"><abbr title="\Ibexa\Contracts\Core\Repository\Exceptions\UnauthorizedException">UnauthorizedException</abbr></a></span>
                                                                                          <section class="phpdocumentor-description">
-        <p>if the current-user is not allowed to create the draft</p>
+        <p>if the current user is not allowed to create the draft.</p>
 
     </section>
 
@@ -37390,7 +37405,7 @@ It can be changed on updating the version.</p>
         <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/core/src/contracts/Repository/ContentService.php">
         <abbr title="vendor/ibexa/core/src/contracts/Repository/ContentService.php">ContentService.php</abbr>
                 :
-        <span title="at line 251">251</span>
+        <span title="at line 223">223</span>
                 <img src="./images/copy.svg" title="Copy path" />
     </div>
         </div>
@@ -37407,7 +37422,7 @@ It can be changed on updating the version.</p>
                 </td>
                 <td class="code">
                     <div>
-                        <pre><code><span class="phpdocumentor-signature__visibility">public </span><span class="phpdocumentor-signature__name">deleteContent</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-ContentInfo.html"><abbr title="\Ibexa\Contracts\Core\Repository\Values\Content\ContentInfo">ContentInfo</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$contentInfo</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, int&gt;</span></code></pre>
+                        <pre><code><span class="phpdocumentor-signature__visibility">public </span><span class="phpdocumentor-signature__name">deleteContent</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-ContentInfo.html"><abbr title="\Ibexa\Contracts\Core\Repository\Values\Content\ContentInfo">ContentInfo</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$contentInfo</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;int, int&gt;</span></code></pre>
                     </div>
                 </td>
             </tr>
@@ -37444,9 +37459,9 @@ It can be changed on updating the version.</p>
                     </tbody>
     </table>
     <h4>Return values</h4>
-    <p class="phpdocumentor-signature__response_type">array&lt;string|int, int&gt;</p>
+    <p class="phpdocumentor-signature__response_type">array&lt;int, int&gt;</p>
                 <section class="phpdocumentor-description">
-        <p>Affected Location Id's (List of Locations of the Content that was deleted)</p>
+        <p>Affected Location IDs (List of Location IDs of the Content that was deleted).</p>
 
     </section>
 
@@ -37463,7 +37478,7 @@ It can be changed on updating the version.</p>
                 <dd class="phpdocumentor-tag-list__definition">
                                                                 <span class="phpdocumentor-tag-link"><a href="classes/Ibexa-Contracts-Core-Repository-Exceptions-UnauthorizedException.html"><abbr title="\Ibexa\Contracts\Core\Repository\Exceptions\UnauthorizedException">UnauthorizedException</abbr></a></span>
                                                                                          <section class="phpdocumentor-description">
-        <p>if the user is not allowed to delete the content (in one of the locations of the given content object)</p>
+        <p>if the user is not allowed to delete the content (in one of the locations of the given content object).</p>
 
     </section>
 
@@ -37477,11 +37492,11 @@ It can be changed on updating the version.</p>
         <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/core/src/contracts/Repository/ContentService.php">
         <abbr title="vendor/ibexa/core/src/contracts/Repository/ContentService.php">ContentService.php</abbr>
                 :
-        <span title="at line 496">496</span>
+        <span title="at line 438">438</span>
                 <img src="./images/copy.svg" title="Copy path" />
     </div>
         </div>
-    <p>Removes a relation of type COMMON from a draft.</p>
+    <p>Removes a common relation from a draft.</p>
 
 <div class="highlight">
     <table class="highlighttable">
@@ -37544,7 +37559,7 @@ It can be changed on updating the version.</p>
                 </tr>
                     </tbody>
     </table>
-                                                
+                                                                                        
     <h5 class="phpdocumentor-tag-list__heading">
         Tags
         <a href="classes/Ibexa-Contracts-Core-Repository-ContentService.html#method_deleteRelation#tags" class="headerlink"><i class="fas fa-link"></i></a>
@@ -37557,7 +37572,7 @@ It can be changed on updating the version.</p>
                 <dd class="phpdocumentor-tag-list__definition">
                                                                 <span class="phpdocumentor-tag-link"><a href="classes/Ibexa-Contracts-Core-Repository-Exceptions-UnauthorizedException.html"><abbr title="\Ibexa\Contracts\Core\Repository\Exceptions\UnauthorizedException">UnauthorizedException</abbr></a></span>
                                                                                          <section class="phpdocumentor-description">
-        <p>if the user is not allowed edit this version</p>
+        <p>if the user is not allowed edit this version.</p>
 
     </section>
 
@@ -37568,7 +37583,7 @@ It can be changed on updating the version.</p>
                 <dd class="phpdocumentor-tag-list__definition">
                                                                 <span class="phpdocumentor-tag-link"><a href="classes/Ibexa-Contracts-Core-Repository-Exceptions-BadStateException.html"><abbr title="\Ibexa\Contracts\Core\Repository\Exceptions\BadStateException">BadStateException</abbr></a></span>
                                                                                          <section class="phpdocumentor-description">
-        <p>if the version is not a draft</p>
+        <p>if the version is not a draft.</p>
 
     </section>
 
@@ -37579,10 +37594,17 @@ It can be changed on updating the version.</p>
                 <dd class="phpdocumentor-tag-list__definition">
                                                                 <span class="phpdocumentor-tag-link"><a href="classes/Ibexa-Contracts-Core-Repository-Exceptions-InvalidArgumentException.html"><abbr title="\Ibexa\Contracts\Core\Repository\Exceptions\InvalidArgumentException">InvalidArgumentException</abbr></a></span>
                                                                                          <section class="phpdocumentor-description">
-        <p>if there is no relation of type COMMON for the given destination</p>
+        <p>if there is no relation of type <a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-Relation.html#constant_COMMON"><abbr title="\Ibexa\Contracts\Core\Repository\Values\Content\Relation::COMMON">Relation::COMMON</abbr></a> for the given destination.</p>
 
     </section>
 
+                                    </dd>
+                                                                                        <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">See</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                    <span class="phpdocumentor-tag-link"><a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-Relation.html#constant_COMMON"><abbr title="\Ibexa\Contracts\Core\Repository\Values\Content\Relation::COMMON">Relation::COMMON</abbr></a></span>
+                                                                 
                                     </dd>
                                                                                     </dl>
             <div class="content-header">
@@ -37593,7 +37615,7 @@ It can be changed on updating the version.</p>
         <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/core/src/contracts/Repository/ContentService.php">
         <abbr title="vendor/ibexa/core/src/contracts/Repository/ContentService.php">ContentService.php</abbr>
                 :
-        <span title="at line 515">515</span>
+        <span title="at line 454">454</span>
                 <img src="./images/copy.svg" title="Copy path" />
     </div>
         </div>
@@ -37701,7 +37723,7 @@ to delete the content (in one of the locations of the given Content Item).</p>
                 <dd class="phpdocumentor-tag-list__definition">
                                                                 <span class="phpdocumentor-tag-link"><a href="classes/Ibexa-Contracts-Core-Repository-Exceptions-InvalidArgumentException.html"><abbr title="\Ibexa\Contracts\Core\Repository\Exceptions\InvalidArgumentException">InvalidArgumentException</abbr></a></span>
                                                                                          <section class="phpdocumentor-description">
-        <p>if languageCode argument
+        <p>if $languageCode argument
 is invalid for the given content.</p>
 
     </section>
@@ -37716,7 +37738,7 @@ is invalid for the given content.</p>
         <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/core/src/contracts/Repository/ContentService.php">
         <abbr title="vendor/ibexa/core/src/contracts/Repository/ContentService.php">ContentService.php</abbr>
                 :
-        <span title="at line 538">538</span>
+        <span title="at line 477">477</span>
                 <img src="./images/copy.svg" title="Copy path" />
     </div>
         </div>
@@ -37743,7 +37765,7 @@ is invalid for the given content.</p>
 <div class="phpdocumentor-label-line">
     </div>
     <section class="phpdocumentor-description">
-        <p>When using together with ContentService::publishVersion() method, make sure to not provide deleted translation
+        <p>When using together with <a href="classes/Ibexa-Contracts-Core-Repository-ContentService.html#method_publishVersion"><abbr title="\Ibexa\Contracts\Core\Repository\ContentService::publishVersion()">ContentService::publishVersion()</abbr></a> method, make sure to not provide deleted translation
 in translations array, as it is going to be copied again from published version.</p>
 
     </section>
@@ -37770,7 +37792,7 @@ in translations array, as it is going to be copied again from published version.
                                             </td>
                     <td>
                                                         <section class="phpdocumentor-description">
-        <p>Content Version Draft</p>
+        <p>Content Version Draft.</p>
 
     </section>
 
@@ -37788,7 +37810,7 @@ in translations array, as it is going to be copied again from published version.
                                             </td>
                     <td>
                                                         <section class="phpdocumentor-description">
-        <p>Language code of the Translation to be removed</p>
+        <p>Language code of the Translation to be removed.</p>
 
     </section>
 
@@ -37799,7 +37821,7 @@ in translations array, as it is going to be copied again from published version.
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type"><a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-Content.html"><abbr title="\Ibexa\Contracts\Core\Repository\Values\Content\Content">Content</abbr></a></p>
                 <section class="phpdocumentor-description">
-        <p>Content Draft w/o the specified Translation</p>
+        <p>Content Draft without the specified Translation.</p>
 
     </section>
 
@@ -37852,7 +37874,7 @@ is invalid for the given Draft.</p>
                 <dd class="phpdocumentor-tag-list__definition">
                                                                 <span class="phpdocumentor-tag-link"><a href="classes/Ibexa-Contracts-Core-Repository-Exceptions-NotFoundException.html"><abbr title="\Ibexa\Contracts\Core\Repository\Exceptions\NotFoundException">NotFoundException</abbr></a></span>
                                                                                          <section class="phpdocumentor-description">
-        <p>if specified Version was not found</p>
+        <p>if specified Version was not found.</p>
 
     </section>
 
@@ -37866,7 +37888,7 @@ is invalid for the given Draft.</p>
         <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/core/src/contracts/Repository/ContentService.php">
         <abbr title="vendor/ibexa/core/src/contracts/Repository/ContentService.php">ContentService.php</abbr>
                 :
-        <span title="at line 369">369</span>
+        <span title="at line 328">328</span>
                 <img src="./images/copy.svg" title="Copy path" />
     </div>
         </div>
@@ -37933,7 +37955,7 @@ is invalid for the given Draft.</p>
                                                                 <span class="phpdocumentor-tag-link"><a href="classes/Ibexa-Contracts-Core-Repository-Exceptions-BadStateException.html"><abbr title="\Ibexa\Contracts\Core\Repository\Exceptions\BadStateException">BadStateException</abbr></a></span>
                                                                                          <section class="phpdocumentor-description">
         <p>if the version is in
-published state or is a last version of Content in non draft state</p>
+published state or is a last version of Content in non-draft state.</p>
 
     </section>
 
@@ -37944,7 +37966,7 @@ published state or is a last version of Content in non draft state</p>
                 <dd class="phpdocumentor-tag-list__definition">
                                                                 <span class="phpdocumentor-tag-link"><a href="classes/Ibexa-Contracts-Core-Repository-Exceptions-UnauthorizedException.html"><abbr title="\Ibexa\Contracts\Core\Repository\Exceptions\UnauthorizedException">UnauthorizedException</abbr></a></span>
                                                                                          <section class="phpdocumentor-description">
-        <p>if the user is not allowed to remove this version</p>
+        <p>if the user is not allowed to remove this version.</p>
 
     </section>
 
@@ -37958,11 +37980,11 @@ published state or is a last version of Content in non draft state</p>
         <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/core/src/contracts/Repository/ContentService.php">
         <abbr title="vendor/ibexa/core/src/contracts/Repository/ContentService.php">ContentService.php</abbr>
                 :
-        <span title="at line 609">609</span>
+        <span title="at line 537">537</span>
                 <img src="./images/copy.svg" title="Copy path" />
     </div>
         </div>
-    <p>Fetch Content items from the Repository filtered by the given conditions.</p>
+    <p>Fetches Content items from the Repository filtered by the given conditions.</p>
 
 <div class="highlight">
     <table class="highlighttable">
@@ -37975,7 +37997,7 @@ published state or is a last version of Content in non draft state</p>
                 </td>
                 <td class="code">
                     <div>
-                        <pre><code><span class="phpdocumentor-signature__visibility">public </span><span class="phpdocumentor-signature__name">find</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/Ibexa-Contracts-Core-Repository-Values-Filter-Filter.html"><abbr title="\Ibexa\Contracts\Core\Repository\Values\Filter\Filter">Filter</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$filter</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, string&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$languages</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-ContentList.html"><abbr title="\Ibexa\Contracts\Core\Repository\Values\Content\ContentList">ContentList</abbr></a></span></code></pre>
+                        <pre><code><span class="phpdocumentor-signature__visibility">public </span><span class="phpdocumentor-signature__name">find</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/Ibexa-Contracts-Core-Repository-Values-Filter-Filter.html"><abbr title="\Ibexa\Contracts\Core\Repository\Values\Filter\Filter">Filter</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$filter</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">array&lt;int, string&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$languages</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-ContentList.html"><abbr title="\Ibexa\Contracts\Core\Repository\Values\Content\ContentList">ContentList</abbr></a></span></code></pre>
                     </div>
                 </td>
             </tr>
@@ -38014,14 +38036,14 @@ published state or is a last version of Content in non draft state</p>
                         $languages
                     </td>
                     <td>
-                        array&lt;string|int, string&gt;
+                        array&lt;int, string&gt;
                     </td>
                     <td>
                                                                                     null
                                                                         </td>
                     <td>
                                                         <section class="phpdocumentor-description">
-        <p>a list of language codes to be added as additional constraints.
+        <p>A list of language codes to be added as additional constraints.
 If skipped, by default, unless SiteAccessAware layer has been disabled, languages set
 for a SiteAccess in a current context will be used.</p>
 
@@ -38042,7 +38064,7 @@ for a SiteAccess in a current context will be used.</p>
         <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/core/src/contracts/Repository/ContentService.php">
         <abbr title="vendor/ibexa/core/src/contracts/Repository/ContentService.php">ContentService.php</abbr>
                 :
-        <span title="at line 550">550</span>
+        <span title="at line 488">488</span>
                 <img src="./images/copy.svg" title="Copy path" />
     </div>
         </div>
@@ -38069,8 +38091,8 @@ for a SiteAccess in a current context will be used.</p>
 <div class="phpdocumentor-label-line">
     </div>
     <section class="phpdocumentor-description">
-        <p>It does not persist hidden state on Location object itself.</p>
-<p>Content hidden by this API can be revealed by revealContent API.</p>
+        <p>It doesn't persist hidden state on Location object itself.</p>
+<p>Content hidden by this API can be revealed by <a href="classes/Ibexa-Contracts-Core-Repository-ContentService.html#method_revealContent"><abbr title="\Ibexa\Contracts\Core\Repository\ContentService::revealContent()">ContentService::revealContent()</abbr></a> API.</p>
 
     </section>
     <h4>Parameters</h4>
@@ -38123,7 +38145,7 @@ for a SiteAccess in a current context will be used.</p>
         <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/core/src/contracts/Repository/ContentService.php">
         <abbr title="vendor/ibexa/core/src/contracts/Repository/ContentService.php">ContentService.php</abbr>
                 :
-        <span title="at line 165">165</span>
+        <span title="at line 144">144</span>
                 <img src="./images/copy.svg" title="Copy path" />
     </div>
         </div>
@@ -38140,7 +38162,7 @@ for a SiteAccess in a current context will be used.</p>
                 </td>
                 <td class="code">
                     <div>
-                        <pre><code><span class="phpdocumentor-signature__visibility">public </span><span class="phpdocumentor-signature__name">loadContent</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$contentId</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, string&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$languages</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">int|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$versionNo</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">bool&nbsp;</span><span class="phpdocumentor-signature__argument__name">$useAlwaysAvailable</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">true</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-Content.html"><abbr title="\Ibexa\Contracts\Core\Repository\Values\Content\Content">Content</abbr></a></span></code></pre>
+                        <pre><code><span class="phpdocumentor-signature__visibility">public </span><span class="phpdocumentor-signature__name">loadContent</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$contentId</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">array&lt;int, string&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$languages</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">int|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$versionNo</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">bool&nbsp;</span><span class="phpdocumentor-signature__argument__name">$useAlwaysAvailable</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">true</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-Content.html"><abbr title="\Ibexa\Contracts\Core\Repository\Values\Content\Content">Content</abbr></a></span></code></pre>
                     </div>
                 </td>
             </tr>
@@ -38169,7 +38191,7 @@ for a SiteAccess in a current context will be used.</p>
                         $contentId
                     </td>
                     <td>
-                        mixed
+                        int
                     </td>
                     <td class="empty">
                                                     -
@@ -38183,7 +38205,7 @@ for a SiteAccess in a current context will be used.</p>
                         $languages
                     </td>
                     <td>
-                        array&lt;string|int, string&gt;
+                        array&lt;int, string&gt;
                     </td>
                     <td>
                                                                                     null
@@ -38209,7 +38231,7 @@ returned value object. If not given all languages are returned.</p>
                                                                         </td>
                     <td>
                                                         <section class="phpdocumentor-description">
-        <p>the version number. If not given the current version is returned</p>
+        <p>The version number. If not given the current version is returned.</p>
 
     </section>
 
@@ -38227,7 +38249,7 @@ returned value object. If not given all languages are returned.</p>
                                                                         </td>
                     <td>
                                                         <section class="phpdocumentor-description">
-        <p>Add Main language to $languages if true (default) and if alwaysAvailable is true</p>
+        <p>Add Main language to $languages if true (default) and if <a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-ContentInfo.html#property_alwaysAvailable"><abbr title="\Ibexa\Contracts\Core\Repository\Values\Content\ContentInfo::$alwaysAvailable">ContentInfo::$alwaysAvailable</abbr></a> is true.</p>
 
     </section>
 
@@ -38250,7 +38272,7 @@ returned value object. If not given all languages are returned.</p>
                 <dd class="phpdocumentor-tag-list__definition">
                                                                 <span class="phpdocumentor-tag-link"><a href="classes/Ibexa-Contracts-Core-Repository-Exceptions-NotFoundException.html"><abbr title="\Ibexa\Contracts\Core\Repository\Exceptions\NotFoundException">NotFoundException</abbr></a></span>
                                                                                          <section class="phpdocumentor-description">
-        <p>if the content or version with the given id and languages does not exist</p>
+        <p>if the content or version with the given id and languages doesn't exist.</p>
 
     </section>
 
@@ -38261,7 +38283,13 @@ returned value object. If not given all languages are returned.</p>
                 <dd class="phpdocumentor-tag-list__definition">
                                                                 <span class="phpdocumentor-tag-link"><a href="classes/Ibexa-Contracts-Core-Repository-Exceptions-UnauthorizedException.html"><abbr title="\Ibexa\Contracts\Core\Repository\Exceptions\UnauthorizedException">UnauthorizedException</abbr></a></span>
                                                                                          <section class="phpdocumentor-description">
-        <p>If the user has no access to read content and in case of un-published content: read versions</p>
+        <p>if the user lacks:</p>
+<ul>
+<li>
+<code class="prettyprint">content/read</code> permission for published content, or</li>
+<li>
+<code class="prettyprint">content/read</code> and <code class="prettyprint">content/versionread</code> permissions for draft content.</li>
+</ul>
 
     </section>
 
@@ -38275,7 +38303,7 @@ returned value object. If not given all languages are returned.</p>
         <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/core/src/contracts/Repository/ContentService.php">
         <abbr title="vendor/ibexa/core/src/contracts/Repository/ContentService.php">ContentService.php</abbr>
                 :
-        <span title="at line 133">133</span>
+        <span title="at line 116">116</span>
                 <img src="./images/copy.svg" title="Copy path" />
     </div>
         </div>
@@ -38292,7 +38320,7 @@ returned value object. If not given all languages are returned.</p>
                 </td>
                 <td class="code">
                     <div>
-                        <pre><code><span class="phpdocumentor-signature__visibility">public </span><span class="phpdocumentor-signature__name">loadContentByContentInfo</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-ContentInfo.html"><abbr title="\Ibexa\Contracts\Core\Repository\Values\Content\ContentInfo">ContentInfo</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$contentInfo</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$languages</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">int|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$versionNo</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">bool&nbsp;</span><span class="phpdocumentor-signature__argument__name">$useAlwaysAvailable</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">true</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-Content.html"><abbr title="\Ibexa\Contracts\Core\Repository\Values\Content\Content">Content</abbr></a></span></code></pre>
+                        <pre><code><span class="phpdocumentor-signature__visibility">public </span><span class="phpdocumentor-signature__name">loadContentByContentInfo</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-ContentInfo.html"><abbr title="\Ibexa\Contracts\Core\Repository\Values\Content\ContentInfo">ContentInfo</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$contentInfo</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">array&lt;int, string&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$languages</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">int|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$versionNo</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">bool&nbsp;</span><span class="phpdocumentor-signature__argument__name">$useAlwaysAvailable</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">true</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-Content.html"><abbr title="\Ibexa\Contracts\Core\Repository\Values\Content\Content">Content</abbr></a></span></code></pre>
                     </div>
                 </td>
             </tr>
@@ -38335,7 +38363,7 @@ returned value object. If not given all languages are returned.</p>
                         $languages
                     </td>
                     <td>
-                        array&lt;string|int, mixed&gt;
+                        array&lt;int, string&gt;
                     </td>
                     <td>
                                                                                     null
@@ -38361,7 +38389,7 @@ returned value object. If not given all languages are returned.</p>
                                                                         </td>
                     <td>
                                                         <section class="phpdocumentor-description">
-        <p>the version number. If not given the current version is returned from $contentInfo</p>
+        <p>The version number. If not given the current version is returned from $contentInfo.</p>
 
     </section>
 
@@ -38379,7 +38407,7 @@ returned value object. If not given all languages are returned.</p>
                                                                         </td>
                     <td>
                                                         <section class="phpdocumentor-description">
-        <p>Add Main language to $languages if true (default) and if alwaysAvailable is true</p>
+        <p>Add Main language to $languages if true (default) and if <a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-ContentInfo.html#property_alwaysAvailable"><abbr title="\Ibexa\Contracts\Core\Repository\Values\Content\ContentInfo::$alwaysAvailable">ContentInfo::$alwaysAvailable</abbr></a> is true.</p>
 
     </section>
 
@@ -38402,9 +38430,7 @@ returned value object. If not given all languages are returned.</p>
                 <dd class="phpdocumentor-tag-list__definition">
                                                                 <span class="phpdocumentor-tag-link"><a href="classes/Ibexa-Contracts-Core-Repository-Exceptions-NotFoundException.html"><abbr title="\Ibexa\Contracts\Core\Repository\Exceptions\NotFoundException">NotFoundException</abbr></a></span>
                                                                                          <section class="phpdocumentor-description">
-        <ul>
-<li>if version with the given number does not exist</li>
-</ul>
+        <p>if version with the given number doesn't exist.</p>
 
     </section>
 
@@ -38415,7 +38441,7 @@ returned value object. If not given all languages are returned.</p>
                 <dd class="phpdocumentor-tag-list__definition">
                                                                 <span class="phpdocumentor-tag-link"><a href="classes/Ibexa-Contracts-Core-Repository-Exceptions-UnauthorizedException.html"><abbr title="\Ibexa\Contracts\Core\Repository\Exceptions\UnauthorizedException">UnauthorizedException</abbr></a></span>
                                                                                          <section class="phpdocumentor-description">
-        <p>if the user is not allowed to load this version</p>
+        <p>if the user is not allowed to load this version.</p>
 
     </section>
 
@@ -38429,7 +38455,7 @@ returned value object. If not given all languages are returned.</p>
         <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/core/src/contracts/Repository/ContentService.php">
         <abbr title="vendor/ibexa/core/src/contracts/Repository/ContentService.php">ContentService.php</abbr>
                 :
-        <span title="at line 183">183</span>
+        <span title="at line 161">161</span>
                 <img src="./images/copy.svg" title="Copy path" />
     </div>
         </div>
@@ -38533,7 +38559,7 @@ returned value object. If not given all languages are returned.</p>
                                                                         </td>
                     <td>
                                                         <section class="phpdocumentor-description">
-        <p>Add Main language to $languages if true (default) and if alwaysAvailable is true</p>
+        <p>Add Main language to $languages if true (default) and if <a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-ContentInfo.html#property_alwaysAvailable"><abbr title="\Ibexa\Contracts\Core\Repository\Values\Content\ContentInfo::$alwaysAvailable">ContentInfo::$alwaysAvailable</abbr></a> is true.</p>
 
     </section>
 
@@ -38556,9 +38582,7 @@ returned value object. If not given all languages are returned.</p>
                 <dd class="phpdocumentor-tag-list__definition">
                                                                 <span class="phpdocumentor-tag-link"><a href="classes/Ibexa-Contracts-Core-Repository-Exceptions-NotFoundException.html"><abbr title="\Ibexa\Contracts\Core\Repository\Exceptions\NotFoundException">NotFoundException</abbr></a></span>
                                                                                          <section class="phpdocumentor-description">
-        <ul>
-<li>if the content or version with the given remote id does not exist</li>
-</ul>
+        <p>if the content or version with the given remote id doesn't exist.</p>
 
     </section>
 
@@ -38569,7 +38593,13 @@ returned value object. If not given all languages are returned.</p>
                 <dd class="phpdocumentor-tag-list__definition">
                                                                 <span class="phpdocumentor-tag-link"><a href="classes/Ibexa-Contracts-Core-Repository-Exceptions-UnauthorizedException.html"><abbr title="\Ibexa\Contracts\Core\Repository\Exceptions\UnauthorizedException">UnauthorizedException</abbr></a></span>
                                                                                          <section class="phpdocumentor-description">
-        <p>If the user has no access to read content and in case of un-published content: read versions</p>
+        <p>if the user lacks:</p>
+<ul>
+<li>
+<code class="prettyprint">content/read</code> permission for published content, or</li>
+<li>
+<code class="prettyprint">content/read</code> and <code class="prettyprint">content/versionread</code> permissions for draft content.</li>
+</ul>
 
     </section>
 
@@ -38583,7 +38613,7 @@ returned value object. If not given all languages are returned.</p>
         <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/core/src/contracts/Repository/ContentService.php">
         <abbr title="vendor/ibexa/core/src/contracts/Repository/ContentService.php">ContentService.php</abbr>
                 :
-        <span title="at line 147">147</span>
+        <span title="at line 127">127</span>
                 <img src="./images/copy.svg" title="Copy path" />
     </div>
         </div>
@@ -38665,7 +38695,7 @@ returned value object. If not given all languages are returned.</p>
                                                                         </td>
                     <td>
                                                         <section class="phpdocumentor-description">
-        <p>Add Main language to $languages if true (default) and if alwaysAvailable is true</p>
+        <p>Add Main language to $languages if true (default) and if <a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-ContentInfo.html#property_alwaysAvailable"><abbr title="\Ibexa\Contracts\Core\Repository\Values\Content\ContentInfo::$alwaysAvailable">ContentInfo::$alwaysAvailable</abbr></a> is true.</p>
 
     </section>
 
@@ -38688,7 +38718,7 @@ returned value object. If not given all languages are returned.</p>
                 <dd class="phpdocumentor-tag-list__definition">
                                                                 <span class="phpdocumentor-tag-link"><a href="classes/Ibexa-Contracts-Core-Repository-Exceptions-UnauthorizedException.html"><abbr title="\Ibexa\Contracts\Core\Repository\Exceptions\UnauthorizedException">UnauthorizedException</abbr></a></span>
                                                                                          <section class="phpdocumentor-description">
-        <p>if the user is not allowed to load this version</p>
+        <p>if the user is not allowed to load this version.</p>
 
     </section>
 
@@ -38702,7 +38732,7 @@ returned value object. If not given all languages are returned.</p>
         <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/core/src/contracts/Repository/ContentService.php">
         <abbr title="vendor/ibexa/core/src/contracts/Repository/ContentService.php">ContentService.php</abbr>
                 :
-        <span title="at line 317">317</span>
+        <span title="at line 283">283</span>
                 <img src="./images/copy.svg" title="Copy path" />
     </div>
         </div>
@@ -38729,7 +38759,7 @@ returned value object. If not given all languages are returned.</p>
 <div class="phpdocumentor-label-line">
     </div>
     <section class="phpdocumentor-description">
-        <p>If no user is given the drafts for the authenticated user are returned</p>
+        <p>If no user is given the drafts for the authenticated user are returned.</p>
 
     </section>
     <h4>Parameters</h4>
@@ -38755,7 +38785,7 @@ returned value object. If not given all languages are returned.</p>
                                                                         </td>
                     <td>
                                                         <section class="phpdocumentor-description">
-        <p>The user to load drafts for, if defined, otherwise drafts for current-user</p>
+        <p>The user to load drafts for, if defined; otherwise drafts for current user.</p>
 
     </section>
 
@@ -38802,7 +38832,7 @@ returned value object. If not given all languages are returned.</p>
         <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/core/src/contracts/Repository/ContentService.php">
         <abbr title="vendor/ibexa/core/src/contracts/Repository/ContentService.php">ContentService.php</abbr>
                 :
-        <span title="at line 302">302</span>
+        <span title="at line 272">272</span>
                 <img src="./images/copy.svg" title="Copy path" />
     </div>
         </div>
@@ -38819,7 +38849,7 @@ returned value object. If not given all languages are returned.</p>
                 </td>
                 <td class="code">
                     <div>
-                        <pre><code><span class="phpdocumentor-signature__visibility">public </span><span class="phpdocumentor-signature__name">loadContentDrafts</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type"><a href="classes/Ibexa-Contracts-Core-Repository-Values-User-User.html"><abbr title="\Ibexa\Contracts\Core\Repository\Values\User\User">User</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$user</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-VersionInfo.html"><abbr title="\Ibexa\Contracts\Core\Repository\Values\Content\VersionInfo">VersionInfo</abbr></a>&gt;</span></code></pre>
+                        <pre><code><span class="phpdocumentor-signature__visibility">public </span><span class="phpdocumentor-signature__name">loadContentDrafts</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type"><a href="classes/Ibexa-Contracts-Core-Repository-Values-User-User.html"><abbr title="\Ibexa\Contracts\Core\Repository\Values\User\User">User</abbr></a>|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$user</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-VersionInfo.html"><abbr title="\Ibexa\Contracts\Core\Repository\Values\Content\VersionInfo">VersionInfo</abbr></a>&gt;</span></code></pre>
                     </div>
                 </td>
             </tr>
@@ -38829,7 +38859,7 @@ returned value object. If not given all languages are returned.</p>
 <div class="phpdocumentor-label-line">
     </div>
     <section class="phpdocumentor-description">
-        <p>If no user is given the drafts for the authenticated user are returned</p>
+        <p>If no user is given the drafts for the authenticated user are returned.</p>
 
     </section>
     <h4>Parameters</h4>
@@ -38848,14 +38878,14 @@ returned value object. If not given all languages are returned.</p>
                         $user
                     </td>
                     <td>
-                        <a href="classes/Ibexa-Contracts-Core-Repository-Values-User-User.html"><abbr title="\Ibexa\Contracts\Core\Repository\Values\User\User">User</abbr></a>
+                        <a href="classes/Ibexa-Contracts-Core-Repository-Values-User-User.html"><abbr title="\Ibexa\Contracts\Core\Repository\Values\User\User">User</abbr></a>|null
                     </td>
                     <td>
                                                                                     null
                                                                         </td>
                     <td>
                                                         <section class="phpdocumentor-description">
-        <p>The user to load drafts for, if defined, otherwise drafts for current-user</p>
+        <p>The user to load drafts for. If <code class="prettyprint">null</code>, the current user's drafts are loaded.</p>
 
     </section>
 
@@ -38866,7 +38896,7 @@ returned value object. If not given all languages are returned.</p>
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-VersionInfo.html"><abbr title="\Ibexa\Contracts\Core\Repository\Values\Content\VersionInfo">VersionInfo</abbr></a>&gt;</p>
                 <section class="phpdocumentor-description">
-        <p>the drafts (<a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-VersionInfo.html"><abbr title="\Ibexa\Contracts\Core\Repository\Values\Content\VersionInfo">VersionInfo</abbr></a>) owned by the given user</p>
+        <p>The drafts owned by the given user.</p>
 
     </section>
 
@@ -38893,7 +38923,7 @@ returned value object. If not given all languages are returned.</p>
                 <dd class="phpdocumentor-tag-list__definition">
                                                                 <span class="phpdocumentor-tag-link"><a href="classes/Ibexa-Contracts-Core-Repository-Exceptions-UnauthorizedException.html"><abbr title="\Ibexa\Contracts\Core\Repository\Exceptions\UnauthorizedException">UnauthorizedException</abbr></a></span>
                                                                                          <section class="phpdocumentor-description">
-        <p>if the current-user is not allowed to load the draft list</p>
+        <p>if the current user is not allowed to load the draft list</p>
 
     </section>
 
@@ -38907,7 +38937,7 @@ returned value object. If not given all languages are returned.</p>
         <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/core/src/contracts/Repository/ContentService.php">
         <abbr title="vendor/ibexa/core/src/contracts/Repository/ContentService.php">ContentService.php</abbr>
                 :
-        <span title="at line 47">47</span>
+        <span title="at line 43">43</span>
                 <img src="./images/copy.svg" title="Copy path" />
     </div>
         </div>
@@ -38979,7 +39009,7 @@ returned value object. If not given all languages are returned.</p>
                 <dd class="phpdocumentor-tag-list__definition">
                                                                 <span class="phpdocumentor-tag-link"><a href="classes/Ibexa-Contracts-Core-Repository-Exceptions-UnauthorizedException.html"><abbr title="\Ibexa\Contracts\Core\Repository\Exceptions\UnauthorizedException">UnauthorizedException</abbr></a></span>
                                                                                          <section class="phpdocumentor-description">
-        <p>if the user is not allowed to read the content</p>
+        <p>if the user is not allowed to read the content.</p>
 
     </section>
 
@@ -38990,9 +39020,7 @@ returned value object. If not given all languages are returned.</p>
                 <dd class="phpdocumentor-tag-list__definition">
                                                                 <span class="phpdocumentor-tag-link"><a href="classes/Ibexa-Contracts-Core-Repository-Exceptions-NotFoundException.html"><abbr title="\Ibexa\Contracts\Core\Repository\Exceptions\NotFoundException">NotFoundException</abbr></a></span>
                                                                                          <section class="phpdocumentor-description">
-        <ul>
-<li>if the content with the given id does not exist</li>
-</ul>
+        <p>if the content with the given id doesn't exist.</p>
 
     </section>
 
@@ -39006,7 +39034,7 @@ returned value object. If not given all languages are returned.</p>
         <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/core/src/contracts/Repository/ContentService.php">
         <abbr title="vendor/ibexa/core/src/contracts/Repository/ContentService.php">ContentService.php</abbr>
                 :
-        <span title="at line 72">72</span>
+        <span title="at line 64">64</span>
                 <img src="./images/copy.svg" title="Copy path" />
     </div>
         </div>
@@ -39078,7 +39106,7 @@ returned value object. If not given all languages are returned.</p>
                 <dd class="phpdocumentor-tag-list__definition">
                                                                 <span class="phpdocumentor-tag-link"><a href="classes/Ibexa-Contracts-Core-Repository-Exceptions-UnauthorizedException.html"><abbr title="\Ibexa\Contracts\Core\Repository\Exceptions\UnauthorizedException">UnauthorizedException</abbr></a></span>
                                                                                          <section class="phpdocumentor-description">
-        <p>if the user is not allowed to read the content</p>
+        <p>if the user is not allowed to read the content.</p>
 
     </section>
 
@@ -39089,9 +39117,7 @@ returned value object. If not given all languages are returned.</p>
                 <dd class="phpdocumentor-tag-list__definition">
                                                                 <span class="phpdocumentor-tag-link"><a href="classes/Ibexa-Contracts-Core-Repository-Exceptions-NotFoundException.html"><abbr title="\Ibexa\Contracts\Core\Repository\Exceptions\NotFoundException">NotFoundException</abbr></a></span>
                                                                                          <section class="phpdocumentor-description">
-        <ul>
-<li>if the content with the given remote id does not exist</li>
-</ul>
+        <p>if the content with the given remote id doesn't exist.</p>
 
     </section>
 
@@ -39105,7 +39131,7 @@ returned value object. If not given all languages are returned.</p>
         <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/core/src/contracts/Repository/ContentService.php">
         <abbr title="vendor/ibexa/core/src/contracts/Repository/ContentService.php">ContentService.php</abbr>
                 :
-        <span title="at line 58">58</span>
+        <span title="at line 54">54</span>
                 <img src="./images/copy.svg" title="Copy path" />
     </div>
         </div>
@@ -39122,7 +39148,7 @@ returned value object. If not given all languages are returned.</p>
                 </td>
                 <td class="code">
                     <div>
-                        <pre><code><span class="phpdocumentor-signature__visibility">public </span><span class="phpdocumentor-signature__name">loadContentInfoList</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, int&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$contentIds</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-ContentInfo.html"><abbr title="\Ibexa\Contracts\Core\Repository\Values\Content\ContentInfo">ContentInfo</abbr></a>&gt;</span></code></pre>
+                        <pre><code><span class="phpdocumentor-signature__visibility">public </span><span class="phpdocumentor-signature__name">loadContentInfoList</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">array&lt;int, int&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$contentIds</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;int, <a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-ContentInfo.html"><abbr title="\Ibexa\Contracts\Core\Repository\Values\Content\ContentInfo">ContentInfo</abbr></a>&gt;</span></code></pre>
                     </div>
                 </td>
             </tr>
@@ -39132,7 +39158,7 @@ returned value object. If not given all languages are returned.</p>
 <div class="phpdocumentor-label-line">
     </div>
     <section class="phpdocumentor-description">
-        <p>Note: It does not throw exceptions on load, just skips erroneous (NotFound or Unauthorized) ContentInfo items.</p>
+        <p>Note: It doesn't throw exceptions on load, just skips erroneous (NotFound or Unauthorized) ContentInfo items.</p>
 
     </section>
     <h4>Parameters</h4>
@@ -39151,7 +39177,7 @@ returned value object. If not given all languages are returned.</p>
                         $contentIds
                     </td>
                     <td>
-                        array&lt;string|int, int&gt;
+                        array&lt;int, int&gt;
                     </td>
                     <td class="empty">
                                                     -
@@ -39163,9 +39189,9 @@ returned value object. If not given all languages are returned.</p>
                     </tbody>
     </table>
     <h4>Return values</h4>
-    <p class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-ContentInfo.html"><abbr title="\Ibexa\Contracts\Core\Repository\Values\Content\ContentInfo">ContentInfo</abbr></a>&gt;</p>
+    <p class="phpdocumentor-signature__response_type">array&lt;int, <a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-ContentInfo.html"><abbr title="\Ibexa\Contracts\Core\Repository\Values\Content\ContentInfo">ContentInfo</abbr></a>&gt;</p>
                 <section class="phpdocumentor-description">
-        <p>list of ContentInfo with Content Ids as keys</p>
+        <p>List of ContentInfo with content ids as keys</p>
 
     </section>
 
@@ -39178,7 +39204,7 @@ returned value object. If not given all languages are returned.</p>
         <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/core/src/contracts/Repository/ContentService.php">
         <abbr title="vendor/ibexa/core/src/contracts/Repository/ContentService.php">ContentService.php</abbr>
                 :
-        <span title="at line 200">200</span>
+        <span title="at line 178">178</span>
                 <img src="./images/copy.svg" title="Copy path" />
     </div>
         </div>
@@ -39195,7 +39221,7 @@ returned value object. If not given all languages are returned.</p>
                 </td>
                 <td class="code">
                     <div>
-                        <pre><code><span class="phpdocumentor-signature__visibility">public </span><span class="phpdocumentor-signature__name">loadContentListByContentInfo</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, <a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-ContentInfo.html"><abbr title="\Ibexa\Contracts\Core\Repository\Values\Content\ContentInfo">ContentInfo</abbr></a>&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$contentInfoList</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, string&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$languages</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">[]</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">bool&nbsp;</span><span class="phpdocumentor-signature__argument__name">$useAlwaysAvailable</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">true</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-Content.html"><abbr title="\Ibexa\Contracts\Core\Repository\Values\Content\Content">Content</abbr></a>&gt;</span></code></pre>
+                        <pre><code><span class="phpdocumentor-signature__visibility">public </span><span class="phpdocumentor-signature__name">loadContentListByContentInfo</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">array&lt;int, <a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-ContentInfo.html"><abbr title="\Ibexa\Contracts\Core\Repository\Values\Content\ContentInfo">ContentInfo</abbr></a>&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$contentInfoList</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">array&lt;int, string&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$languages</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">[]</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">bool&nbsp;</span><span class="phpdocumentor-signature__argument__name">$useAlwaysAvailable</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">true</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;int, <a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-Content.html"><abbr title="\Ibexa\Contracts\Core\Repository\Values\Content\Content">Content</abbr></a>&gt;</span></code></pre>
                     </div>
                 </td>
             </tr>
@@ -39205,7 +39231,7 @@ returned value object. If not given all languages are returned.</p>
 <div class="phpdocumentor-label-line">
     </div>
     <section class="phpdocumentor-description">
-        <p>Note: it does not throw exceptions on load, just ignores erroneous Content item.
+        <p>Note: it doesn't throw exceptions on load, just ignores erroneous Content item.
 Moreover, since the method works on pre-loaded ContentInfo list, it is assumed that user is
 allowed to access every Content on the list.</p>
 
@@ -39226,7 +39252,7 @@ allowed to access every Content on the list.</p>
                         $contentInfoList
                     </td>
                     <td>
-                        array&lt;string|int, <a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-ContentInfo.html"><abbr title="\Ibexa\Contracts\Core\Repository\Values\Content\ContentInfo">ContentInfo</abbr></a>&gt;
+                        array&lt;int, <a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-ContentInfo.html"><abbr title="\Ibexa\Contracts\Core\Repository\Values\Content\ContentInfo">ContentInfo</abbr></a>&gt;
                     </td>
                     <td class="empty">
                                                     -
@@ -39240,7 +39266,7 @@ allowed to access every Content on the list.</p>
                         $languages
                     </td>
                     <td>
-                        array&lt;string|int, string&gt;
+                        array&lt;int, string&gt;
                     </td>
                     <td>
                                                                                     []
@@ -39266,7 +39292,7 @@ returned value object. If not given all languages are returned.</p>
                                                                         </td>
                     <td>
                                                         <section class="phpdocumentor-description">
-        <p>Add Main language to $languages if true (default) and if alwaysAvailable is true,
+        <p>Add Main language to $languages if true (default) and if <a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-ContentInfo.html#property_alwaysAvailable"><abbr title="\Ibexa\Contracts\Core\Repository\Values\Content\ContentInfo::$alwaysAvailable">ContentInfo::$alwaysAvailable</abbr></a> is true,
 unless all languages have been asked for.</p>
 
     </section>
@@ -39276,9 +39302,9 @@ unless all languages have been asked for.</p>
                     </tbody>
     </table>
     <h4>Return values</h4>
-    <p class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-Content.html"><abbr title="\Ibexa\Contracts\Core\Repository\Values\Content\Content">Content</abbr></a>&gt;</p>
+    <p class="phpdocumentor-signature__response_type">array&lt;int, <a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-Content.html"><abbr title="\Ibexa\Contracts\Core\Repository\Values\Content\Content">Content</abbr></a>&gt;</p>
                 <section class="phpdocumentor-description">
-        <p>list of Content items with Content Ids as keys</p>
+        <p>List of Content items with Content Ids as keys</p>
 
     </section>
 
@@ -39291,7 +39317,7 @@ unless all languages have been asked for.</p>
         <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/core/src/contracts/Repository/ContentService.php">
         <abbr title="vendor/ibexa/core/src/contracts/Repository/ContentService.php">ContentService.php</abbr>
                 :
-        <span title="at line 419">419</span>
+        <span title="at line 371">371</span>
                 <img src="./images/copy.svg" title="Copy path" />
     </div>
         </div>
@@ -39415,7 +39441,7 @@ unless all languages have been asked for.</p>
         <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/core/src/contracts/Repository/ContentService.php">
         <abbr title="vendor/ibexa/core/src/contracts/Repository/ContentService.php">ContentService.php</abbr>
                 :
-        <span title="at line 407">407</span>
+        <span title="at line 359">359</span>
                 <img src="./images/copy.svg" title="Copy path" />
     </div>
         </div>
@@ -39432,7 +39458,7 @@ unless all languages have been asked for.</p>
                 </td>
                 <td class="code">
                     <div>
-                        <pre><code><span class="phpdocumentor-signature__visibility">public </span><span class="phpdocumentor-signature__name">loadRelations</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-VersionInfo.html"><abbr title="\Ibexa\Contracts\Core\Repository\Values\Content\VersionInfo">VersionInfo</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$versionInfo</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-Relation.html"><abbr title="\Ibexa\Contracts\Core\Repository\Values\Content\Relation">Relation</abbr></a>&gt;</span></code></pre>
+                        <pre><code><span class="phpdocumentor-signature__visibility">public </span><span class="phpdocumentor-signature__name">loadRelations</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-VersionInfo.html"><abbr title="\Ibexa\Contracts\Core\Repository\Values\Content\VersionInfo">VersionInfo</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$versionInfo</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;int, <a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-Relation.html"><abbr title="\Ibexa\Contracts\Core\Repository\Values\Content\Relation">Relation</abbr></a>&gt;</span></code></pre>
                     </div>
                 </td>
             </tr>
@@ -39469,7 +39495,7 @@ unless all languages have been asked for.</p>
                     </tbody>
     </table>
     <h4>Return values</h4>
-    <p class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-Relation.html"><abbr title="\Ibexa\Contracts\Core\Repository\Values\Content\Relation">Relation</abbr></a>&gt;</p>
+    <p class="phpdocumentor-signature__response_type">array&lt;int, <a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-Relation.html"><abbr title="\Ibexa\Contracts\Core\Repository\Values\Content\Relation">Relation</abbr></a>&gt;</p>
                                                                                 
     <h5 class="phpdocumentor-tag-list__heading">
         Tags
@@ -39483,7 +39509,7 @@ unless all languages have been asked for.</p>
                 <dd class="phpdocumentor-tag-list__definition">
                                                                 <span class="phpdocumentor-tag-link"><a href="classes/Ibexa-Contracts-Core-Repository-Exceptions-UnauthorizedException.html"><abbr title="\Ibexa\Contracts\Core\Repository\Exceptions\UnauthorizedException">UnauthorizedException</abbr></a></span>
                                                                                          <section class="phpdocumentor-description">
-        <p>if the user is not allowed to read this version</p>
+        <p>if the user is not allowed to read this version.</p>
 
     </section>
 
@@ -39494,7 +39520,7 @@ unless all languages have been asked for.</p>
                 <dd class="phpdocumentor-tag-list__definition">
                                             <span class="phpdocumentor-tag-link">4.5.7</span>
                                                                                                              <section class="phpdocumentor-description">
-        <p>The &quot;ContentService::loadRelations()&quot; method is deprecated, will be removed in 5.0.</p>
+        <p>It will be removed in 5.0. Use <a href="classes/Ibexa-Contracts-Core-Repository-ContentService.html#method_loadRelationList"><abbr title="\Ibexa\Contracts\Core\Repository\ContentService::loadRelationList()">ContentService::loadRelationList()</abbr></a> instead.</p>
 
     </section>
 
@@ -39508,7 +39534,7 @@ unless all languages have been asked for.</p>
         <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/core/src/contracts/Repository/ContentService.php">
         <abbr title="vendor/ibexa/core/src/contracts/Repository/ContentService.php">ContentService.php</abbr>
                 :
-        <span title="at line 468">468</span>
+        <span title="at line 409">409</span>
                 <img src="./images/copy.svg" title="Copy path" />
     </div>
         </div>
@@ -39536,8 +39562,7 @@ unless all languages have been asked for.</p>
     </div>
     <section class="phpdocumentor-description">
         <p>The relations come only from published versions of the source content objects.
-If the user is not allowed to read specific version then UnauthorizedRelationListItem is returned
-<a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-RelationList-Item-UnauthorizedRelationListItem.html"><abbr title="\Ibexa\Contracts\Core\Repository\Values\Content\RelationList\Item\UnauthorizedRelationListItem">UnauthorizedRelationListItem</abbr></a></p>
+If the user is not allowed to read specific version then <a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-RelationList-Item-UnauthorizedRelationListItem.html"><abbr title="\Ibexa\Contracts\Core\Repository\Values\Content\RelationList\Item\UnauthorizedRelationListItem">UnauthorizedRelationListItem</abbr></a> is returned</p>
 
     </section>
     <h4>Parameters</h4>
@@ -39606,7 +39631,7 @@ If the user is not allowed to read specific version then UnauthorizedRelationLis
         <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/core/src/contracts/Repository/ContentService.php">
         <abbr title="vendor/ibexa/core/src/contracts/Repository/ContentService.php">ContentService.php</abbr>
                 :
-        <span title="at line 453">453</span>
+        <span title="at line 401">401</span>
                 <img src="./images/copy.svg" title="Copy path" />
     </div>
         </div>
@@ -39623,7 +39648,7 @@ If the user is not allowed to read specific version then UnauthorizedRelationLis
                 </td>
                 <td class="code">
                     <div>
-                        <pre><code><span class="phpdocumentor-signature__visibility">public </span><span class="phpdocumentor-signature__name">loadReverseRelations</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-ContentInfo.html"><abbr title="\Ibexa\Contracts\Core\Repository\Values\Content\ContentInfo">ContentInfo</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$contentInfo</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-Relation.html"><abbr title="\Ibexa\Contracts\Core\Repository\Values\Content\Relation">Relation</abbr></a>&gt;</span></code></pre>
+                        <pre><code><span class="phpdocumentor-signature__visibility">public </span><span class="phpdocumentor-signature__name">loadReverseRelations</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-ContentInfo.html"><abbr title="\Ibexa\Contracts\Core\Repository\Values\Content\ContentInfo">ContentInfo</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$contentInfo</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;int, <a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-Relation.html"><abbr title="\Ibexa\Contracts\Core\Repository\Values\Content\Relation">Relation</abbr></a>&gt;</span></code></pre>
                     </div>
                 </td>
             </tr>
@@ -39664,7 +39689,7 @@ If the user is not allowed to read specific version then UnauthorizedRelationLis
                     </tbody>
     </table>
     <h4>Return values</h4>
-    <p class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-Relation.html"><abbr title="\Ibexa\Contracts\Core\Repository\Values\Content\Relation">Relation</abbr></a>&gt;</p>
+    <p class="phpdocumentor-signature__response_type">array&lt;int, <a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-Relation.html"><abbr title="\Ibexa\Contracts\Core\Repository\Values\Content\Relation">Relation</abbr></a>&gt;</p>
                                                     
     <h5 class="phpdocumentor-tag-list__heading">
         Tags
@@ -39678,7 +39703,7 @@ If the user is not allowed to read specific version then UnauthorizedRelationLis
                 <dd class="phpdocumentor-tag-list__definition">
                                                                 <span class="phpdocumentor-tag-link"><a href="classes/Ibexa-Contracts-Core-Repository-Exceptions-UnauthorizedException.html"><abbr title="\Ibexa\Contracts\Core\Repository\Exceptions\UnauthorizedException">UnauthorizedException</abbr></a></span>
                                                                                          <section class="phpdocumentor-description">
-        <p>if the user is not allowed to read this version</p>
+        <p>if the user is not allowed to read this version.</p>
 
     </section>
 
@@ -39692,7 +39717,7 @@ If the user is not allowed to read specific version then UnauthorizedRelationLis
         <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/core/src/contracts/Repository/ContentService.php">
         <abbr title="vendor/ibexa/core/src/contracts/Repository/ContentService.php">ContentService.php</abbr>
                 :
-        <span title="at line 87">87</span>
+        <span title="at line 76">76</span>
                 <img src="./images/copy.svg" title="Copy path" />
     </div>
         </div>
@@ -39719,7 +39744,7 @@ If the user is not allowed to read specific version then UnauthorizedRelationLis
 <div class="phpdocumentor-label-line">
     </div>
     <section class="phpdocumentor-description">
-        <p>If no version number is given, the method returns the current version</p>
+        <p>If no version number is given, the method returns the current version.</p>
 
     </section>
     <h4>Parameters</h4>
@@ -39782,9 +39807,7 @@ If the user is not allowed to read specific version then UnauthorizedRelationLis
                 <dd class="phpdocumentor-tag-list__definition">
                                                                 <span class="phpdocumentor-tag-link"><a href="classes/Ibexa-Contracts-Core-Repository-Exceptions-NotFoundException.html"><abbr title="\Ibexa\Contracts\Core\Repository\Exceptions\NotFoundException">NotFoundException</abbr></a></span>
                                                                                          <section class="phpdocumentor-description">
-        <ul>
-<li>if the version with the given number does not exist</li>
-</ul>
+        <p>if the version with the given number doesn't exist.</p>
 
     </section>
 
@@ -39795,7 +39818,7 @@ If the user is not allowed to read specific version then UnauthorizedRelationLis
                 <dd class="phpdocumentor-tag-list__definition">
                                                                 <span class="phpdocumentor-tag-link"><a href="classes/Ibexa-Contracts-Core-Repository-Exceptions-UnauthorizedException.html"><abbr title="\Ibexa\Contracts\Core\Repository\Exceptions\UnauthorizedException">UnauthorizedException</abbr></a></span>
                                                                                          <section class="phpdocumentor-description">
-        <p>if the user is not allowed to load this version</p>
+        <p>if the user is not allowed to load this version.</p>
 
     </section>
 
@@ -39809,7 +39832,7 @@ If the user is not allowed to read specific version then UnauthorizedRelationLis
         <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/core/src/contracts/Repository/ContentService.php">
         <abbr title="vendor/ibexa/core/src/contracts/Repository/ContentService.php">ContentService.php</abbr>
                 :
-        <span title="at line 102">102</span>
+        <span title="at line 88">88</span>
                 <img src="./images/copy.svg" title="Copy path" />
     </div>
         </div>
@@ -39836,7 +39859,7 @@ If the user is not allowed to read specific version then UnauthorizedRelationLis
 <div class="phpdocumentor-label-line">
     </div>
     <section class="phpdocumentor-description">
-        <p>If no version number is given, the method returns the current version</p>
+        <p>If no version number is given, the method returns the current version.</p>
 
     </section>
     <h4>Parameters</h4>
@@ -39899,9 +39922,7 @@ If the user is not allowed to read specific version then UnauthorizedRelationLis
                 <dd class="phpdocumentor-tag-list__definition">
                                                                 <span class="phpdocumentor-tag-link"><a href="classes/Ibexa-Contracts-Core-Repository-Exceptions-NotFoundException.html"><abbr title="\Ibexa\Contracts\Core\Repository\Exceptions\NotFoundException">NotFoundException</abbr></a></span>
                                                                                          <section class="phpdocumentor-description">
-        <ul>
-<li>if the version with the given number does not exist</li>
-</ul>
+        <p>if the version with the given number doesn't exist.</p>
 
     </section>
 
@@ -39912,7 +39933,7 @@ If the user is not allowed to read specific version then UnauthorizedRelationLis
                 <dd class="phpdocumentor-tag-list__definition">
                                                                 <span class="phpdocumentor-tag-link"><a href="classes/Ibexa-Contracts-Core-Repository-Exceptions-UnauthorizedException.html"><abbr title="\Ibexa\Contracts\Core\Repository\Exceptions\UnauthorizedException">UnauthorizedException</abbr></a></span>
                                                                                          <section class="phpdocumentor-description">
-        <p>if the user is not allowed to load this version</p>
+        <p>if the user is not allowed to load this version.</p>
 
     </section>
 
@@ -39926,7 +39947,7 @@ If the user is not allowed to read specific version then UnauthorizedRelationLis
         <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/core/src/contracts/Repository/ContentService.php">
         <abbr title="vendor/ibexa/core/src/contracts/Repository/ContentService.php">ContentService.php</abbr>
                 :
-        <span title="at line 115">115</span>
+        <span title="at line 101">101</span>
                 <img src="./images/copy.svg" title="Copy path" />
     </div>
         </div>
@@ -39943,7 +39964,7 @@ If the user is not allowed to read specific version then UnauthorizedRelationLis
                 </td>
                 <td class="code">
                     <div>
-                        <pre><code><span class="phpdocumentor-signature__visibility">public </span><span class="phpdocumentor-signature__name">loadVersionInfoListByContentInfo</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, <a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-ContentInfo.html"><abbr title="\Ibexa\Contracts\Core\Repository\Values\Content\ContentInfo">ContentInfo</abbr></a>&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$contentInfoList</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;int, <a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-VersionInfo.html"><abbr title="\Ibexa\Contracts\Core\Repository\Values\Content\VersionInfo">VersionInfo</abbr></a>&gt;</span></code></pre>
+                        <pre><code><span class="phpdocumentor-signature__visibility">public </span><span class="phpdocumentor-signature__name">loadVersionInfoListByContentInfo</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">array&lt;int, <a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-ContentInfo.html"><abbr title="\Ibexa\Contracts\Core\Repository\Values\Content\ContentInfo">ContentInfo</abbr></a>&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$contentInfoList</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;int, <a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-VersionInfo.html"><abbr title="\Ibexa\Contracts\Core\Repository\Values\Content\VersionInfo">VersionInfo</abbr></a>&gt;</span></code></pre>
                     </div>
                 </td>
             </tr>
@@ -39968,7 +39989,7 @@ If the user is not allowed to read specific version then UnauthorizedRelationLis
                         $contentInfoList
                     </td>
                     <td>
-                        array&lt;string|int, <a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-ContentInfo.html"><abbr title="\Ibexa\Contracts\Core\Repository\Values\Content\ContentInfo">ContentInfo</abbr></a>&gt;
+                        array&lt;int, <a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-ContentInfo.html"><abbr title="\Ibexa\Contracts\Core\Repository\Values\Content\ContentInfo">ContentInfo</abbr></a>&gt;
                     </td>
                     <td class="empty">
                                                     -
@@ -40023,7 +40044,7 @@ If the user is not allowed to read specific version then UnauthorizedRelationLis
         <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/core/src/contracts/Repository/ContentService.php">
         <abbr title="vendor/ibexa/core/src/contracts/Repository/ContentService.php">ContentService.php</abbr>
                 :
-        <span title="at line 382">382</span>
+        <span title="at line 338">338</span>
                 <img src="./images/copy.svg" title="Copy path" />
     </div>
         </div>
@@ -40040,7 +40061,7 @@ If the user is not allowed to read specific version then UnauthorizedRelationLis
                 </td>
                 <td class="code">
                     <div>
-                        <pre><code><span class="phpdocumentor-signature__visibility">public </span><span class="phpdocumentor-signature__name">loadVersions</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-ContentInfo.html"><abbr title="\Ibexa\Contracts\Core\Repository\Values\Content\ContentInfo">ContentInfo</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$contentInfo</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">int|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$status</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-VersionInfo.html"><abbr title="\Ibexa\Contracts\Core\Repository\Values\Content\VersionInfo">VersionInfo</abbr></a>&gt;</span></code></pre>
+                        <pre><code><span class="phpdocumentor-signature__visibility">public </span><span class="phpdocumentor-signature__name">loadVersions</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-ContentInfo.html"><abbr title="\Ibexa\Contracts\Core\Repository\Values\Content\ContentInfo">ContentInfo</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$contentInfo</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">int|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$status</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;int, <a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-VersionInfo.html"><abbr title="\Ibexa\Contracts\Core\Repository\Values\Content\VersionInfo">VersionInfo</abbr></a>&gt;</span></code></pre>
                     </div>
                 </td>
             </tr>
@@ -40091,9 +40112,9 @@ If the user is not allowed to read specific version then UnauthorizedRelationLis
                     </tbody>
     </table>
     <h4>Return values</h4>
-    <p class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-VersionInfo.html"><abbr title="\Ibexa\Contracts\Core\Repository\Values\Content\VersionInfo">VersionInfo</abbr></a>&gt;</p>
+    <p class="phpdocumentor-signature__response_type">array&lt;int, <a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-VersionInfo.html"><abbr title="\Ibexa\Contracts\Core\Repository\Values\Content\VersionInfo">VersionInfo</abbr></a>&gt;</p>
                 <section class="phpdocumentor-description">
-        <p>an array of <a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-VersionInfo.html"><abbr title="\Ibexa\Contracts\Core\Repository\Values\Content\VersionInfo">VersionInfo</abbr></a> sorted by creation date</p>
+        <p>An array of <a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-VersionInfo.html"><abbr title="\Ibexa\Contracts\Core\Repository\Values\Content\VersionInfo">VersionInfo</abbr></a> sorted by creation date.</p>
 
     </section>
 
@@ -40110,7 +40131,7 @@ If the user is not allowed to read specific version then UnauthorizedRelationLis
                 <dd class="phpdocumentor-tag-list__definition">
                                                                 <span class="phpdocumentor-tag-link"><a href="classes/Ibexa-Contracts-Core-Repository-Exceptions-UnauthorizedException.html"><abbr title="\Ibexa\Contracts\Core\Repository\Exceptions\UnauthorizedException">UnauthorizedException</abbr></a></span>
                                                                                          <section class="phpdocumentor-description">
-        <p>if the user is not allowed to list versions</p>
+        <p>if the user is not allowed to list versions.</p>
 
     </section>
 
@@ -40121,7 +40142,7 @@ If the user is not allowed to read specific version then UnauthorizedRelationLis
                 <dd class="phpdocumentor-tag-list__definition">
                                                                 <span class="phpdocumentor-tag-link"><a href="classes/Ibexa-Contracts-Core-Repository-Exceptions-InvalidArgumentException.html"><abbr title="\Ibexa\Contracts\Core\Repository\Exceptions\InvalidArgumentException">InvalidArgumentException</abbr></a></span>
                                                                                          <section class="phpdocumentor-description">
-        <p>if the given status is invalid</p>
+        <p>if the given status is invalid.</p>
 
     </section>
 
@@ -40135,7 +40156,7 @@ If the user is not allowed to read specific version then UnauthorizedRelationLis
         <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/core/src/contracts/Repository/ContentService.php">
         <abbr title="vendor/ibexa/core/src/contracts/Repository/ContentService.php">ContentService.php</abbr>
                 :
-        <span title="at line 572">572</span>
+        <span title="at line 504">504</span>
                 <img src="./images/copy.svg" title="Copy path" />
     </div>
         </div>
@@ -40162,7 +40183,7 @@ If the user is not allowed to read specific version then UnauthorizedRelationLis
 <div class="phpdocumentor-label-line">
     </div>
     <section class="phpdocumentor-description">
-        <p>alwaysAvailable is set to the ContentType's defaultAlwaysAvailable</p>
+        <p><a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-ContentCreateStruct.html#property_alwaysAvailable"><abbr title="\Ibexa\Contracts\Core\Repository\Values\Content\ContentCreateStruct::$alwaysAvailable">ContentCreateStruct::$alwaysAvailable</abbr></a> is set to the <a href="classes/Ibexa-Contracts-Core-Repository-Values-ContentType-ContentType.html#property_defaultAlwaysAvailable"><abbr title="\Ibexa\Contracts\Core\Repository\Values\ContentType\ContentType::$defaultAlwaysAvailable">ContentType::$defaultAlwaysAvailable</abbr></a>.</p>
 
     </section>
     <h4>Parameters</h4>
@@ -40217,7 +40238,7 @@ If the user is not allowed to read specific version then UnauthorizedRelationLis
         <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/core/src/contracts/Repository/ContentService.php">
         <abbr title="vendor/ibexa/core/src/contracts/Repository/ContentService.php">ContentService.php</abbr>
                 :
-        <span title="at line 579">579</span>
+        <span title="at line 509">509</span>
                 <img src="./images/copy.svg" title="Copy path" />
     </div>
         </div>
@@ -40254,7 +40275,7 @@ If the user is not allowed to read specific version then UnauthorizedRelationLis
         <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/core/src/contracts/Repository/ContentService.php">
         <abbr title="vendor/ibexa/core/src/contracts/Repository/ContentService.php">ContentService.php</abbr>
                 :
-        <span title="at line 586">586</span>
+        <span title="at line 514">514</span>
                 <img src="./images/copy.svg" title="Copy path" />
     </div>
         </div>
@@ -40291,7 +40312,7 @@ If the user is not allowed to read specific version then UnauthorizedRelationLis
         <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/core/src/contracts/Repository/ContentService.php">
         <abbr title="vendor/ibexa/core/src/contracts/Repository/ContentService.php">ContentService.php</abbr>
                 :
-        <span title="at line 358">358</span>
+        <span title="at line 319">319</span>
                 <img src="./images/copy.svg" title="Copy path" />
     </div>
         </div>
@@ -40308,7 +40329,7 @@ If the user is not allowed to read specific version then UnauthorizedRelationLis
                 </td>
                 <td class="code">
                     <div>
-                        <pre><code><span class="phpdocumentor-signature__visibility">public </span><span class="phpdocumentor-signature__name">publishVersion</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-VersionInfo.html"><abbr title="\Ibexa\Contracts\Core\Repository\Values\Content\VersionInfo">VersionInfo</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$versionInfo</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, string&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$translations</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">Language::ALL</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-Content.html"><abbr title="\Ibexa\Contracts\Core\Repository\Values\Content\Content">Content</abbr></a></span></code></pre>
+                        <pre><code><span class="phpdocumentor-signature__visibility">public </span><span class="phpdocumentor-signature__name">publishVersion</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-VersionInfo.html"><abbr title="\Ibexa\Contracts\Core\Repository\Values\Content\VersionInfo">VersionInfo</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$versionInfo</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">array&lt;int, string&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$translations</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">Language::ALL</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-Content.html"><abbr title="\Ibexa\Contracts\Core\Repository\Values\Content\Content">Content</abbr></a></span></code></pre>
                     </div>
                 </td>
             </tr>
@@ -40352,7 +40373,7 @@ Max archive versions are currently a configuration for default max limit, by def
                         $translations
                     </td>
                     <td>
-                        array&lt;string|int, string&gt;
+                        array&lt;int, string&gt;
                     </td>
                     <td>
                                                                                     Language::ALL
@@ -40361,8 +40382,8 @@ Max archive versions are currently a configuration for default max limit, by def
                                                         <section class="phpdocumentor-description">
         <p>List of language codes of translations which will be included
 in a published version.
-By default all translations from the current version will be published.
-If the list is provided but does not cover all currently published translations,
+By default, all translations from the current version will be published.
+If the list is provided but doesn't cover all currently published translations,
 the missing ones will be copied from the currently published version,
 overriding those in the current version.</p>
 
@@ -40387,7 +40408,7 @@ overriding those in the current version.</p>
                 <dd class="phpdocumentor-tag-list__definition">
                                                                 <span class="phpdocumentor-tag-link"><a href="classes/Ibexa-Contracts-Core-Repository-Exceptions-UnauthorizedException.html"><abbr title="\Ibexa\Contracts\Core\Repository\Exceptions\UnauthorizedException">UnauthorizedException</abbr></a></span>
                                                                                          <section class="phpdocumentor-description">
-        <p>if the user is not allowed to publish this version</p>
+        <p>if the user is not allowed to publish this version.</p>
 
     </section>
 
@@ -40398,7 +40419,7 @@ overriding those in the current version.</p>
                 <dd class="phpdocumentor-tag-list__definition">
                                                                 <span class="phpdocumentor-tag-link"><a href="classes/Ibexa-Contracts-Core-Repository-Exceptions-BadStateException.html"><abbr title="\Ibexa\Contracts\Core\Repository\Exceptions\BadStateException">BadStateException</abbr></a></span>
                                                                                          <section class="phpdocumentor-description">
-        <p>if the version is not a draft</p>
+        <p>if the version is not a draft.</p>
 
     </section>
 
@@ -40412,7 +40433,7 @@ overriding those in the current version.</p>
         <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/core/src/contracts/Repository/ContentService.php">
         <abbr title="vendor/ibexa/core/src/contracts/Repository/ContentService.php">ContentService.php</abbr>
                 :
-        <span title="at line 560">560</span>
+        <span title="at line 497">497</span>
                 <img src="./images/copy.svg" title="Copy path" />
     </div>
         </div>
@@ -40492,7 +40513,7 @@ overriding those in the current version.</p>
         <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/core/src/contracts/Repository/ContentService.php">
         <abbr title="vendor/ibexa/core/src/contracts/Repository/ContentService.php">ContentService.php</abbr>
                 :
-        <span title="at line 335">335</span>
+        <span title="at line 299">299</span>
                 <img src="./images/copy.svg" title="Copy path" />
     </div>
         </div>
@@ -40509,7 +40530,7 @@ overriding those in the current version.</p>
                 </td>
                 <td class="code">
                     <div>
-                        <pre><code><span class="phpdocumentor-signature__visibility">public </span><span class="phpdocumentor-signature__name">updateContent</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-VersionInfo.html"><abbr title="\Ibexa\Contracts\Core\Repository\Values\Content\VersionInfo">VersionInfo</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$versionInfo</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type"><a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-ContentUpdateStruct.html"><abbr title="\Ibexa\Contracts\Core\Repository\Values\Content\ContentUpdateStruct">ContentUpdateStruct</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$contentUpdateStruct</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, string&gt;|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$fieldIdentifiersToValidate</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-Content.html"><abbr title="\Ibexa\Contracts\Core\Repository\Values\Content\Content">Content</abbr></a></span></code></pre>
+                        <pre><code><span class="phpdocumentor-signature__visibility">public </span><span class="phpdocumentor-signature__name">updateContent</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-VersionInfo.html"><abbr title="\Ibexa\Contracts\Core\Repository\Values\Content\VersionInfo">VersionInfo</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$versionInfo</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type"><a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-ContentUpdateStruct.html"><abbr title="\Ibexa\Contracts\Core\Repository\Values\Content\ContentUpdateStruct">ContentUpdateStruct</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$contentUpdateStruct</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">array&lt;int, string&gt;|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$fieldIdentifiersToValidate</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-Content.html"><abbr title="\Ibexa\Contracts\Core\Repository\Values\Content\Content">Content</abbr></a></span></code></pre>
                     </div>
                 </td>
             </tr>
@@ -40562,7 +40583,7 @@ overriding those in the current version.</p>
                         $fieldIdentifiersToValidate
                     </td>
                     <td>
-                        array&lt;string|int, string&gt;|null
+                        array&lt;int, string&gt;|null
                     </td>
                     <td>
                                                                                     null
@@ -40581,7 +40602,7 @@ for case of full validation. Empty identifiers array is equal to no validation.<
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type"><a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-Content.html"><abbr title="\Ibexa\Contracts\Core\Repository\Values\Content\Content">Content</abbr></a></p>
                 <section class="phpdocumentor-description">
-        <p>the content draft with the updated fields</p>
+        <p>The content draft with the updated fields.</p>
 
     </section>
 
@@ -40598,7 +40619,7 @@ for case of full validation. Empty identifiers array is equal to no validation.<
                 <dd class="phpdocumentor-tag-list__definition">
                                                                 <span class="phpdocumentor-tag-link"><a href="classes/Ibexa-Contracts-Core-Repository-Exceptions-UnauthorizedException.html"><abbr title="\Ibexa\Contracts\Core\Repository\Exceptions\UnauthorizedException">UnauthorizedException</abbr></a></span>
                                                                                          <section class="phpdocumentor-description">
-        <p>if the user is not allowed to update this version</p>
+        <p>if the user is not allowed to update this version.</p>
 
     </section>
 
@@ -40609,7 +40630,7 @@ for case of full validation. Empty identifiers array is equal to no validation.<
                 <dd class="phpdocumentor-tag-list__definition">
                                                                 <span class="phpdocumentor-tag-link"><a href="classes/Ibexa-Contracts-Core-Repository-Exceptions-BadStateException.html"><abbr title="\Ibexa\Contracts\Core\Repository\Exceptions\BadStateException">BadStateException</abbr></a></span>
                                                                                          <section class="phpdocumentor-description">
-        <p>if the version is not a draft</p>
+        <p>if the version is not a draft.</p>
 
     </section>
 
@@ -40620,7 +40641,7 @@ for case of full validation. Empty identifiers array is equal to no validation.<
                 <dd class="phpdocumentor-tag-list__definition">
                                                                 <span class="phpdocumentor-tag-link"><a href="classes/Ibexa-Contracts-Core-Repository-Exceptions-ContentFieldValidationException.html"><abbr title="\Ibexa\Contracts\Core\Repository\Exceptions\ContentFieldValidationException">ContentFieldValidationException</abbr></a></span>
                                                                                          <section class="phpdocumentor-description">
-        <p>if a field in the $contentUpdateStruct is not valid</p>
+        <p>if a field in the $contentUpdateStruct is not valid.</p>
 
     </section>
 
@@ -40631,7 +40652,7 @@ for case of full validation. Empty identifiers array is equal to no validation.<
                 <dd class="phpdocumentor-tag-list__definition">
                                                                 <span class="phpdocumentor-tag-link"><a href="classes/Ibexa-Contracts-Core-Repository-Exceptions-ContentValidationException.html"><abbr title="\Ibexa\Contracts\Core\Repository\Exceptions\ContentValidationException">ContentValidationException</abbr></a></span>
                                                                                          <section class="phpdocumentor-description">
-        <p>if a required field is set to an empty value</p>
+        <p>if a required field is set to an empty value.</p>
 
     </section>
 
@@ -40642,7 +40663,7 @@ for case of full validation. Empty identifiers array is equal to no validation.<
                 <dd class="phpdocumentor-tag-list__definition">
                                                                 <span class="phpdocumentor-tag-link"><a href="classes/Ibexa-Contracts-Core-Repository-Exceptions-InvalidArgumentException.html"><abbr title="\Ibexa\Contracts\Core\Repository\Exceptions\InvalidArgumentException">InvalidArgumentException</abbr></a></span>
                                                                                          <section class="phpdocumentor-description">
-        <p>if a field value is not accepted by the field type</p>
+        <p>if a field value is not accepted by the field type.</p>
 
     </section>
 
@@ -40656,7 +40677,7 @@ for case of full validation. Empty identifiers array is equal to no validation.<
         <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/core/src/contracts/Repository/ContentService.php">
         <abbr title="vendor/ibexa/core/src/contracts/Repository/ContentService.php">ContentService.php</abbr>
                 :
-        <span title="at line 240">240</span>
+        <span title="at line 214">214</span>
                 <img src="./images/copy.svg" title="Copy path" />
     </div>
         </div>
@@ -40683,7 +40704,7 @@ for case of full validation. Empty identifiers array is equal to no validation.<
 <div class="phpdocumentor-label-line">
     </div>
     <section class="phpdocumentor-description">
-        <p>See <a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-ContentMetadataUpdateStruct.html"><abbr title="\Ibexa\Contracts\Core\Repository\Values\Content\ContentMetadataUpdateStruct">ContentMetadataUpdateStruct</abbr></a> of a content object - to update fields use updateContent</p>
+        <p>To update fields, use <a href="classes/Ibexa-Contracts-Core-Repository-ContentService.html#method_updateContent"><abbr title="\Ibexa\Contracts\Core\Repository\ContentService::updateContent()">ContentService::updateContent()</abbr></a>.</p>
 
     </section>
     <h4>Parameters</h4>
@@ -40730,7 +40751,7 @@ for case of full validation. Empty identifiers array is equal to no validation.<
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type"><a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-Content.html"><abbr title="\Ibexa\Contracts\Core\Repository\Values\Content\Content">Content</abbr></a></p>
                 <section class="phpdocumentor-description">
-        <p>the content with the updated attributes</p>
+        <p>The content with the updated attributes.</p>
 
     </section>
 
@@ -40747,7 +40768,7 @@ for case of full validation. Empty identifiers array is equal to no validation.<
                 <dd class="phpdocumentor-tag-list__definition">
                                                                 <span class="phpdocumentor-tag-link"><a href="classes/Ibexa-Contracts-Core-Repository-Exceptions-UnauthorizedException.html"><abbr title="\Ibexa\Contracts\Core\Repository\Exceptions\UnauthorizedException">UnauthorizedException</abbr></a></span>
                                                                                          <section class="phpdocumentor-description">
-        <p>if the user is not allowed to update the content meta data</p>
+        <p>if the user is not allowed to update the content metadata.</p>
 
     </section>
 
@@ -40758,7 +40779,7 @@ for case of full validation. Empty identifiers array is equal to no validation.<
                 <dd class="phpdocumentor-tag-list__definition">
                                                                 <span class="phpdocumentor-tag-link"><a href="classes/Ibexa-Contracts-Core-Repository-Exceptions-InvalidArgumentException.html"><abbr title="\Ibexa\Contracts\Core\Repository\Exceptions\InvalidArgumentException">InvalidArgumentException</abbr></a></span>
                                                                                          <section class="phpdocumentor-description">
-        <p>if the remoteId in $contentMetadataUpdateStruct is set but already exists</p>
+        <p>if the remoteId in $contentMetadataUpdateStruct is set but already exists.</p>
 
     </section>
 
@@ -40772,7 +40793,7 @@ for case of full validation. Empty identifiers array is equal to no validation.<
         <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/core/src/contracts/Repository/ContentService.php">
         <abbr title="vendor/ibexa/core/src/contracts/Repository/ContentService.php">ContentService.php</abbr>
                 :
-        <span title="at line 600">600</span>
+        <span title="at line 528">528</span>
                 <img src="./images/copy.svg" title="Copy path" />
     </div>
         </div>
@@ -40789,7 +40810,7 @@ for case of full validation. Empty identifiers array is equal to no validation.<
                 </td>
                 <td class="code">
                     <div>
-                        <pre><code><span class="phpdocumentor-signature__visibility">public </span><span class="phpdocumentor-signature__name">validate</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/Ibexa-Contracts-Core-Repository-Values-ValueObject.html"><abbr title="\Ibexa\Contracts\Core\Repository\Values\ValueObject">ValueObject</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$object</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$context</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, string&gt;|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$fieldIdentifiersToValidate</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span></code></pre>
+                        <pre><code><span class="phpdocumentor-signature__visibility">public </span><span class="phpdocumentor-signature__name">validate</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/Ibexa-Contracts-Core-Repository-Values-ValueObject.html"><abbr title="\Ibexa\Contracts\Core\Repository\Values\ValueObject">ValueObject</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$object</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$context</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">array&lt;int, string&gt;|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$fieldIdentifiersToValidate</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span></code></pre>
                     </div>
                 </td>
             </tr>
@@ -40846,14 +40867,14 @@ for case of full validation. Empty identifiers array is equal to no validation.<
                         $fieldIdentifiersToValidate
                     </td>
                     <td>
-                        array&lt;string|int, string&gt;|null
+                        array&lt;int, string&gt;|null
                     </td>
                     <td>
                                                                                     null
                                                                         </td>
                     <td>
                                                         <section class="phpdocumentor-description">
-        <p>List of field identifiers for partial validation or null
+        <p>List of field identifiers for partial validation, or null
 for case of full validation. Empty identifiers array is equal to no validation.</p>
 
     </section>
