@@ -1,6 +1,7 @@
 ---
 description: Step-by-step activation procedure of Ibexa CDP.
 page_type: landing_page
+edition: experience
 ---
 
 # CDP Activation

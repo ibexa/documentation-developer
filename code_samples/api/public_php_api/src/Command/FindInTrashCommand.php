@@ -19,7 +19,7 @@ class FindInTrashCommand extends Command
         parent::__construct('doc:find_in_trash');
     }
 
-    protected function configure()
+    protected function configure(): void
     {
         $this
             ->setDescription('Lists content in Trash belonging to the provided content type.')
@@ -28,7 +28,7 @@ class FindInTrashCommand extends Command
             ]);
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $contentTypeId = $input->getArgument('contentTypeId');
 

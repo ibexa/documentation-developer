@@ -17,7 +17,7 @@ post:
         application/vnd.ibexa.api.CartCreate+xml:
             type: CartCreate
         application/vnd.ibexa.api.CartCreate+json:
-            type: CartCreate
+            type: CartCreateWrapper
             example: !include examples/cart/POST/CartCreate.json.example
     responses:
         200:
@@ -25,7 +25,7 @@ post:
                 application/vnd.ibexa.api.Cart+xml:
                     type: Cart
                 application/vnd.ibexa.api.Cart+json:
-                    type: Cart
+                    type: CartWrapper
                     example: !include examples/cart/POST/Cart.json.example
         400:
             description: Error - The input does not match the input schema definition.
@@ -48,7 +48,7 @@ post:
             application/vnd.ibexa.api.CartViewInput+xml:
                 type: CartViewInput
             application/vnd.ibexa.api.CartViewInput+json:
-                type: CartViewInput
+                type: CartViewInputWrapper
                 example: !include examples/cart/view/CartViewInput.json.example
         responses:
             200:
@@ -57,7 +57,7 @@ post:
                     application/vnd.ibexa.api.CartView+xml:
                         type: CartView
                     application/vnd.ibexa.api.CartView+json:
-                        type: CartView
+                        type: CartViewWrapper
 /{identifier}:
     get:
         displayName: Get Cart
@@ -75,7 +75,7 @@ post:
                     application/vnd.ibexa.api.Cart+xml:
                         type: Cart
                     application/vnd.ibexa.api.Cart+json:
-                        type: Cart
+                        type: CartWrapper
                         example: !include examples/cart/POST/Cart.json.example
             401:
                 description: Error - the user is not authorized to get this cart.
@@ -97,7 +97,7 @@ post:
             application/vnd.ibexa.api.CartMetadataUpdate+xml:
                 type: CartMetadataUpdate
             application/vnd.ibexa.api.CartMetadataUpdate+json:
-                type: CartMetadataUpdate
+                type: CartMetadataUpdateWrapper
     /entry:
         post:
             displayName: Add Entry to Cart
@@ -112,7 +112,7 @@ post:
                 application/vnd.ibexa.api.CartEntryAdd+xml:
                     type: CartEntryAdd
                 application/vnd.ibexa.api.CartEntryAdd+json:
-                    type: CartEntryAdd
+                    type: CartEntryAddWrapper
                     example: !include examples/cart/entry/POST/CartEntryAdd.json.example
         /{entryId}:
             delete:
@@ -131,7 +131,7 @@ post:
                     application/vnd.ibexa.api.CartEntryUpdate+xml:
                         type: CartEntryUpdate
                     application/vnd.ibexa.api.CartEntryUpdate+json:
-                        type: CartEntryUpdate
+                        type: CartEntryUpdateWrapper
     /empty:
         post:
             displayName: Empty Cart
@@ -159,7 +159,7 @@ post:
                         application/vnd.ibexa.api.CartSummary+xml:
                             type: CartSummary
                         application/vnd.ibexa.api.CartSummary+json:
-                            type: CartSummary
+                            type: CartSummaryWrapper
                             example: !include examples/cart/summary/CartSummary.json.example
                 401:
                     description: Error - The user is not authorized to read this Cart.

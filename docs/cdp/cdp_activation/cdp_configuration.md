@@ -1,5 +1,6 @@
 ---
 description: Step-by-step configuration procedure of Ibexa CDP.
+edition: experience
 ---
 
 # Configuration
@@ -26,9 +27,10 @@ ibexa:
                         stream_file:
                             stream_id: 00000000-00000000-00000000-00000000
                 activations:
+                    -
                         client_id: '%env(CDP_ACTIVATION_CLIENT_ID)%'
                         client_secret: '%env(CDP_ACTIVATION_CLIENT_SECRET)%'
-                        segment_group_identifier: ibexa_cdp
+                        segment_group_identifier: example_segment_group_identifier
 ```
 
 - `account_number` - a [number](#account-number) obtained from Accounts settings in [[= product_name_cdp =]] dashboard

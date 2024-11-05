@@ -31,10 +31,10 @@ mkdir my-ddev-project && cd my-ddev-project
 Next, configure your DDEV environment with the following command:
 
 ```bash
-ddev config --project-type=php --php-version 8.1 --nodejs-version 18 --docroot=public --create-docroot
+ddev config --project-type=php --php-version 8.3 --nodejs-version 20 --docroot=public
 ```
 
-This command sets the project type to PHP, the PHP version to 8.1, the document root to `public` directory, and creates the document root.
+This command sets the project type to PHP, the PHP version to 8.3, the document root to `public` directory, and creates the document root if it doesn't exist.
 
 #### Use another database type (optional)
 
@@ -71,6 +71,16 @@ Now, configure the database connection for your [[= product_name =]] project. De
     ddev config --web-environment-add DATABASE_URL=mysql://db:db@db:3306/db
     ```
 
+    To ensure consistent character set when performing operations both in Symfony context and with the `ddev mysql` client add the following database server configuration.
+
+    Create the file `.ddev/mysql/utf8mb4.cnf` with the following content:
+
+    ```cfg
+    [mysqld]
+    character-set-server = utf8mb4
+    collation-server = utf8mb4_unicode_520_ci
+    ```
+
 === "PostgreSQL"
 
     ```bash
@@ -82,7 +92,7 @@ Now, configure the database connection for your [[= product_name =]] project. De
 If you're using macOS or Windows, you might want to enable [Mutagen](https://ddev.readthedocs.io/en/latest/users/install/performance/#mutagen) to improve performance. You can do this by running the following command:
 
 ```bash
-ddev config --mutagen-enabled
+ddev config --performance-mode=mutagen
 ```
 
 See [DDEV performance documentation](https://ddev.readthedocs.io/en/latest/users/install/performance/) for more.
@@ -93,7 +103,7 @@ By default, DDEV uses ports 80 and 443.
 You can [set different ports](https://ddev.readthedocs.io/en/latest/users/usage/troubleshooting/#method-2-fix-port-conflicts-by-configuring-your-project-to-use-different-ports) with a command like the following:
 
 ```bash
-ddev config --http-port=8080 --https-port=8443
+ddev config --router-http-port=8080 --router-https-port=8443
 ```
 
 ### 3. Start DDEV
@@ -391,7 +401,6 @@ Some DDEV configs can be shared among developers. For example, a common `.ddev/c
 Compared to running a clean install like described in [Installation steps](#installation), you can proceed as follows:
 
 - In [1. Create a DDEV project directory](#1-create-a-ddev-project-directory), you can use an existing directory that contains an [[= product_name =]] project instead of creating an empty directory.
-- In [2. Configure DDEV / Configure PHP version and document root](#configure-php-version-and-document-root), don't create the Document root, remove the `--create-docroot` option.
 - In [5. Create [[= product_name =]] project](#5-create-project), use only `ddev composer install` instead of `ddev composer create`.
 - Populate the database with [Ibexa data migration](importing_data.md) or [`ddev import-db`](https://ddev.readthedocs.io/en/latest/users/usage/commands/#import-db).
 
@@ -408,7 +417,7 @@ If the local project needs to answer to real production domains (for example, to
 DDEV can be useful to locally simulate a production cluster.
 
 - See [clustering with DDEV](clustering_with_ddev.md) to add Elasticsearch, Solr, Redis or Memcached to your DDEV installation.
-- See [Ibexa Cloud and DDEV](ibexa_cloud_and_ddev.md) to locally run an [[= product_name =]] project by using DDEV.
+- See [DDEV and Ibexa Cloud](ddev_and_ibexa_cloud.md) to locally run an [[= product_name =]] project by using DDEV.
 
 ## Stop or remove the project
 

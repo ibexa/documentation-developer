@@ -12,6 +12,8 @@ Before you update to v4.5, you need to go through the following steps to update 
 
 ### Update the application to v4.4.latest
 
+[[% include 'snippets/update/temporary_v4_conflicts.md' %]]
+
 Run:
 
 === "[[= product_name_content =]]"
@@ -28,6 +30,16 @@ Run:
 
     ``` bash
     composer require ibexa/commerce:[[= latest_tag_4_4 =]] --with-all-dependencies --no-scripts
+    ```
+
+!!! note "Remove temporary Composer `conflict`"
+
+    You can now remove the temporary Composer `conflict` entries from your `composer.json` file:
+    ```diff
+        "conflict": {
+    -        "jms/serializer": ">=3.30.0",
+    -        "gedmo/doctrine-extensions": ">=3.12.0"
+        },
     ```
 
 ## Update from v4.4.latest to v4.5
@@ -228,56 +240,6 @@ php bin/console ibexa:migrations:import vendor/ibexa/order-management/src/bundle
 php bin/console ibexa:migrations:migrate --file=order_permissions.yaml
 ```
 
-### v4.5.2
+## Update to v4.5.latest
 
-#### Database update
-
-Run the following scripts:
-
-=== "MySQL"
-
-    ``` sql
-    mysql -u <username> -p <password> <database_name> < vendor/ibexa/installer/upgrade/db/mysql/ibexa-4.5.1-to-4.5.2.sql
-    ```
-
-=== "PostgreSQL"
-
-    ``` sql
-    psql <database_name> < vendor/ibexa/installer/upgrade/db/postgresql/ibexa-4.5.1-to-4.5.2.sql
-    ```
-
-### v4.5.3
-
-#### Database update
-
-Run the following scripts:
-
-=== "MySQL"
-
-    ``` sql
-    mysql -u <username> -p <password> <database_name> < vendor/ibexa/installer/upgrade/db/mysql/ibexa-4.5.2-to-4.5.3.sql
-    ```
-
-=== "PostgreSQL"
-
-    ``` sql
-    psql <database_name> < vendor/ibexa/installer/upgrade/db/postgresql/ibexa-4.5.2-to-4.5.3.sql
-    ```
-
-### v4.5.4
-
-#### Database update
-
-Run the following scripts:
-
-=== "MySQL"
-
-    ``` sql
-    mysql -u <username> -p <password> <database_name> < vendor/ibexa/installer/upgrade/db/mysql/ibexa-4.5.3-to-4.5.4.sql
-    ```
-
-=== "PostgreSQL"
-
-    ``` sql
-    psql <database_name> < vendor/ibexa/installer/upgrade/db/postgresql/ibexa-4.5.3-to-4.5.4.sql
-    ```
+You can now continue applying the instructions for the 4.5 patch releases, starting with [v4.5.2](update_from_4.5.md#v452).

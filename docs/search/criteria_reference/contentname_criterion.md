@@ -1,3 +1,6 @@
+---
+---
+
 # ContentName Criterion
 
 The [`ContentName` Search Criterion](https://github.com/ibexa/core/blob/main/src/contracts/Repository/Values/Content/Query/Criterion/ContentName.php)

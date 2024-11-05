@@ -16,11 +16,11 @@ use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
 class RandomBlockListener implements EventSubscriberInterface
 {
-    private $contentService;
+    private ContentService $contentService;
 
-    private $locationService;
+    private LocationService $locationService;
 
-    private $searchService;
+    private SearchService $searchService;
 
     public function __construct(
         ContentService $contentService,

@@ -15,3 +15,4 @@ ibexa_taxonomy:
                 parent: parent_category
                 name: name
             assigned_content_tab: false
+            register_main_menu: false

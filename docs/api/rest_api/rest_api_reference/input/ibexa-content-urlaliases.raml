@@ -15,7 +15,7 @@ get:
                     type: UrlAliasRefList
                     example: !include examples/content/urlaliases/GET/UrlAliasRefList.xml.example
                 application/vnd.ibexa.api.UrlAliasRefList+json:
-                    type: UrlAliasRefList
+                    type: UrlAliasRefListWrapper
                     example: !include examples/content/urlaliases/GET/UrlAliasRefList.json.example
         401:
             description: Error - The user has no permission to read URL aliases.
@@ -38,7 +38,7 @@ post:
             type: UrlAliasCreate
             example: !include examples/content/urlaliases/POST/UrlAliasCreate.xml.example
         application/vnd.ibexa.api.UrlAliasCreate+json:
-            type: UrlAliasCreate
+            type: UrlAliasCreateWrapper
             example: !include examples/content/urlaliases/POST/UrlAliasCreate.json.example
     responses:
         201:
@@ -48,7 +48,7 @@ post:
                     type: UrlAlias
                     example: !include examples/content/urlaliases/POST/UrlAlias.xml.example
                 application/vnd.ibexa.api.UrlAlias+json:
-                    type: UrlAlias
+                    type: UrlAliasWrapper
                     example: !include examples/content/urlaliases/POST/UrlAlias.json.example
         400:
             description: Error - The input does not match the input schema definition.
@@ -74,7 +74,7 @@ post:
                         type: UrlAlias
                         example: !include examples/content/urlaliases/url_alias_id/GET/UrlAlias.xml.example
                     application/vnd.ibexa.api.UrlAlias+json:
-                        type: UrlAlias
+                        type: UrlAliasWrapper
                         example: !include examples/content/urlaliases/url_alias_id/GET/UrlAlias.json.example
             401:
                 description: Error - The user is not authorized to read URL aliases.

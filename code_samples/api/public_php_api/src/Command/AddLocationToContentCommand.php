@@ -30,7 +30,7 @@ class AddLocationToContentCommand extends Command
         parent::__construct('doc:add_location');
     }
 
-    protected function configure()
+    protected function configure(): void
     {
         $this
             ->setDescription('Add a Location to content item and hides it.')
@@ -40,7 +40,7 @@ class AddLocationToContentCommand extends Command
             ]);
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $user = $this->userService->loadUserByLogin('admin');
         $this->permissionResolver->setCurrentUserReference($user);

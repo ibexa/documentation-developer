@@ -57,7 +57,7 @@
                         <value key="hasStoredLogin">true</value>
                         <value key="contentId">14</value>
                         <value key="login">admin</value>
-                        <value key="email">nospam@ez.no</value>
+                        <value key="email">nospam@ibexa.co</value>
                         <value key="enabled">true</value>
                         <value key="maxLogin">10</value>
                     </fieldValue>
@@ -80,7 +80,7 @@
             <Relations media-type="application/vnd.ibexa.api.RelationList+xml" href="/api/ibexa/v2/content/objects/14/versions/3/relations"/>
         </Version>
         <login>admin</login>
-        <email>nospam@ez.no</email>
+        <email>nospam@ibexa.co</email>
         <enabled>true</enabled>
         <UserGroups media-type="application/vnd.ibexa.api.UserGroupList+xml" href="/api/ibexa/v2/user/users/14/groups"/>
         <Roles media-type="application/vnd.ibexa.api.RoleAssignmentList+xml" href="/api/ibexa/v2/user/users/14/roles"/>

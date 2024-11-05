@@ -23,7 +23,7 @@ class BlockEmbedEventEventSubscriber implements EventSubscriberInterface
         ];
     }
 
-    public function onBlockPreRender(PreRenderEvent $event)
+    public function onBlockPreRender(PreRenderEvent $event): void
     {
         $renderRequest = $event->getRenderRequest();
         $parameters = $event->getRenderRequest()->getParameters();

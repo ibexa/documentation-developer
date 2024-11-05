@@ -11,7 +11,7 @@ where the event must be sent [pixel tracking](integrate_recommendation_service.m
 For example, with HTML: 
 
 ``` html
-<img href="https://event.perso.ibexa.co/ebl/00000/click/johndoe/1/100?categorypath=/a/ab/abc" width="1" height="1">
+<img href="https://event.perso.ibexa.co/api/00000/click/johndoe/1/100?categorypath=/a/ab/abc" width="1" height="1">
 ```
 
 or with JavaScript:
@@ -19,7 +19,7 @@ or with JavaScript:
 ``` js
 <script type="text/javascript">
 var img = new Image(1,1);
-img.src = "https://event.perso.ibexa.co/ebl/00000/click/johndoe/1/100?categorypath=/a/ab/abc";
+img.src = "https://event.perso.ibexa.co/api/00000/click/johndoe/1/100?categorypath=/a/ab/abc";
 </script>
 ```
 

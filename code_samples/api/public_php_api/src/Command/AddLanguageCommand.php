@@ -25,12 +25,12 @@ class AddLanguageCommand extends Command
         parent::__construct('doc:add_language');
     }
 
-    protected function configure()
+    protected function configure(): void
     {
         $this->setDescription('Lists available languages and add Polish.');
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $user = $this->userService->loadUserByLogin('admin');
         $this->permissionResolver->setCurrentUserReference($user);

@@ -1,11 +1,12 @@
 ---
 description: Log and monitor activity through UI, PHP API and REST API.
-month_change: true
 ---
 
 # Recent activity [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
 
 Recent activity log displays last actions in the repository (whatever their origin is, for example, Back Office, REST, migration, CLI, or CRON).
+
+![Recent activity](admin_panel_recent_activity.png)
 
 To learn more about its Back Office usage and the actions logged by default, see [Recent activity in the User documentation]([[= user_doc =]]/recent_activity/recent_activity/).
 

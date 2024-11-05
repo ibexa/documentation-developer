@@ -1,6 +1,7 @@
 ---
 description: Import data into your Repository from prepared YAML files.
 page_type: reference
+month_change: false
 ---
 
 # Importing data
@@ -49,31 +50,31 @@ Then, the step is described by additional properties depending on its type and m
 
 The following data migration step modes are available:
 
-| `type`                 | `create` | `update` | `delete` |
-|------------------------|:--------:|:--------:|:--------:|
-| `attribute`            | &#10004; | &#10004; | &#10004; |
-| `attribute_group`      | &#10004; | &#10004; | &#10004; |
-| `content_type`         | &#10004; | &#10004; | &#10004; |
-| `content_type_group`   | &#10004; | &#10004; | &#10004; |
-| `content`              | &#10004; | &#10004; | &#10004; |
-| `currency`             | &#10004; | &#10004; | &#10004; |
-| `customer_group`       | &#10004; | &#10004; | &#10004; |
-| `language`             | &#10004; |          |          |
-| `location`             |          | &#10004; |          |
-| `object_state`         | &#10004; |          |          |
-| `object_state_group`   | &#10004; |          |          |
-| `payment_method`       | &#10004; |          |          |
-| `product_asset`        | &#10004; |          |          |
-| `product_availability` | &#10004; |          |          |
-| `product_price`        | &#10004; |          |          |
-| `product_variant`      | &#10004; |          |          |
-| `role`                 | &#10004; | &#10004; | &#10004; |
-| `section`              | &#10004; | &#10004; |          |
-| `segment`              | &#10004; | &#10004; | &#10004; |
-| `segment_group`        | &#10004; | &#10004; | &#10004; |
-| `setting`              | &#10004; | &#10004; | &#10004; |
-| `user`                 | &#10004; | &#10004; |          |
-| `user_group`           | &#10004; | &#10004; | &#10004; |
+| `type`                 | `create` | `update` | `delete` | `swap`   |
+|------------------------|:--------:|:--------:|:--------:|:--------:|
+| `attribute`            | &#10004; | &#10004; | &#10004; |          |
+| `attribute_group`      | &#10004; | &#10004; | &#10004; |          |
+| `content_type`         | &#10004; | &#10004; | &#10004; |          |
+| `content_type_group`   | &#10004; | &#10004; | &#10004; |          |
+| `content`              | &#10004; | &#10004; | &#10004; |          |
+| `currency`             | &#10004; | &#10004; | &#10004; |          |
+| `customer_group`       | &#10004; | &#10004; | &#10004; |          |
+| `language`             | &#10004; |          |          |          |
+| `location`             |          | &#10004; |          | &#10004; |
+| `object_state`         | &#10004; |          |          |          |
+| `object_state_group`   | &#10004; |          |          |          |
+| `payment_method`       | &#10004; |          |          |          |
+| `product_asset`        | &#10004; |          |          |          |
+| `product_availability` | &#10004; |          |          |          |
+| `product_price`        | &#10004; |          |          |          |
+| `product_variant`      | &#10004; |          |          |          |
+| `role`                 | &#10004; | &#10004; | &#10004; |          |
+| `section`              | &#10004; | &#10004; |          |          |
+| `segment`              | &#10004; | &#10004; | &#10004; |          |
+| `segment_group`        | &#10004; | &#10004; | &#10004; |          |
+| `setting`              | &#10004; | &#10004; | &#10004; |          |
+| `user`                 | &#10004; | &#10004; |          |          |
+| `user_group`           | &#10004; | &#10004; | &#10004; |          |
 
 ### Repeatable steps
 
@@ -157,7 +158,7 @@ Built-in expression language functions that are tagged with `ibexa.migrations.te
                     value: '###XXX to_string(123) XXX###'
 ```
 
-- `ibexa.migrations.template.reference` - references a specific object or resource within your application or configuration. Learn more about [migration references](managing_migrations.md#references).
+- `reference` - references a specific object or resource within your application or configuration. Learn more about [migration references](managing_migrations.md#references).
 
 ```yaml
                 -   fieldDefIdentifier: some_field
@@ -165,12 +166,25 @@ Built-in expression language functions that are tagged with `ibexa.migrations.te
                     value: '###XXX reference("example_reference") XXX###'
 ```
 
-- `ibexa.migrations.template.project_dir` - retrieves the project's root directory path, for example to construct file paths or access project-specific resources.
+- `project_dir` - retrieves the project's root directory path, for example to construct file paths or access project-specific resources.
 
 ```yaml
                 -   fieldDefIdentifier: project_directory
                     languageCode: eng-US
                     value: '###XXX project_dir() XXX###'
+```
+
+- `env` - retrieves the value of an environmental variable.
+
+```yaml
+                -
+                    type: user
+                    mode: update
+                    match:
+                        field: login
+                        value: admin
+                    metadata:
+                        password: '###XXX env("ADMIN_PASSWORD") XXX###'
 ```
 
 #### Custom functions
@@ -294,6 +308,16 @@ The following example shows how to delete the `Contributor` Role:
 ``` yaml
 [[= include_file('code_samples/data_migration/examples/delete_role.yaml') =]]
 ```
+
+### Locations
+
+The following example shows how to swap content items assigned to given locations.
+
+``` yaml
+[[= include_file('code_samples/data_migration/examples/swap_location.yaml') =]]
+```
+
+The metadata keys for Location are optional.
 
 ### Users
 

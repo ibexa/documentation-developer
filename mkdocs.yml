@@ -1,19 +1,20 @@
 INHERIT: plugins.yml
 
 site_name: Developer Documentation
-repo_url: https://github.com/ezsystems/developer-documentation
+repo_url: https://github.com/ibexa/documentation-developer
 site_url: https://doc.ibexa.co/en/latest/
 copyright: "Copyright 1999-2024 Ibexa AS and others"
 nav:
     - Ibexa Developer Documentation: index.md
     - Ibexa DXP editions:
         - Editions: ibexa_products/editions.md
-        - Ibexa Headless: ibexa_products/headless.md
+        - Ibexa Headless: ibexa_products/ibexa_headless.md
+        - Ibexa Experience: ibexa_products/ibexa_experience.md
+        - Ibexa Commerce: ibexa_products/ibexa_commerce.md
     - Getting started:
         - Getting started: getting_started/getting_started.md
         - Requirements: getting_started/requirements.md
         - Install Ibexa DXP: getting_started/install_ibexa_dxp.md
-        - Install on Ibexa Cloud: getting_started/install_on_ibexa_cloud.md
         - Install on MacOS and Windows: getting_started/install_on_mac_os_and_windows.md
         - Install with DDEV: getting_started/install_with_ddev.md
         - First steps: getting_started/first_steps.md
@@ -167,7 +168,8 @@ nav:
             - Extend Image Editor: content_management/images/extend_image_editor.md
             - Add Image Asset from DAM: content_management/images/add_image_asset_from_dam.md
             - Fastly Image Optimizer: content_management/images/fastly_io.md
-        - Rich Text:
+        - RichText:
+            - RichText: content_management/rich_text/rich_text.md
             - Online Editor guide: content_management/rich_text/online_editor_guide.md
             - Extend Online Editor: content_management/rich_text/extend_online_editor.md
             - Create custom RichText block: content_management/rich_text/create_custom_richtext_block.md
@@ -176,8 +178,8 @@ nav:
             - Binary and Media download: content_management/file_management/binary_and_media_download.md
             - File URL handling: content_management/file_management/file_url_handling.md
         - Pages:
-            - Page Builder guide: content_management/pages/page_builder_guide.md
             - Pages: content_management/pages/pages.md
+            - Page Builder guide: content_management/pages/page_builder_guide.md
             - Page blocks: content_management/pages/page_blocks.md
             - Page block attributes: content_management/pages/page_block_attributes.md
             - Page block validators: content_management/pages/page_block_validators.md
@@ -185,8 +187,9 @@ nav:
             - React App page block: content_management/pages/react_app_block.md
             - Ibexa Connect scenario block: content_management/pages/ibexa_connect_scenario_block.md
         - Forms:
-            - Form Builder guide: content_management/forms/form_builder_guide.md
             - Forms: content_management/forms/forms.md
+            - Form Builder guide: content_management/forms/form_builder_guide.md
+            - Work with Forms: content_management/forms/work_with_forms.md
             - Form API: content_management/forms/form_api.md
             - Create custom Form field: content_management/forms/create_custom_form_field.md
             - Create Form attribute: content_management/forms/create_form_attribute.md
@@ -378,11 +381,17 @@ nav:
             - Transactional email variables reference: commerce/transactional_emails/transactional_emails_parameters.md
             - Customize transactional emails: commerce/transactional_emails/extend_transactional_emails.md
     - Customer management:
-        - Customer Portal guide: customer_management/customer_portal.md
+        - Customer Portal: customer_management/customer_portal.md
+        - Customer Portal guide: customer_management/customer_portal_guide.md
         - Customer Portal configuration: customer_management/cp_configuration.md
         - Create Customer Portal: customer_management/cp_page_builder.md
         - Customer Portal Applications: customer_management/cp_applications.md
         - Create registration form: customer_management/create_user_registration_form.md
+    - Ibexa Engage:
+        - Ibexa Engage: ibexa_engage/ibexa_engage.md
+        - Install Ibexa Engage: ibexa_engage/install_ibexa_engage.md
+        - Create campaign with Ibexa Engage: ibexa_engage/create_campaign.md
+        - Integrate Ibexa Engage with Ibexa Connect: ibexa_engage/integrate_ibexa_connect.md
     - Multisite:
         - Multisite: multisite/multisite.md
         - Multisite configuration: multisite/multisite_configuration.md
@@ -425,7 +434,7 @@ nav:
           - Segment API: users/segment_api.md
     - Personalization:
         - Personalization: personalization/personalization.md
-        - Personalization guide : personalization/personalization_brochure.md
+        - Personalization guide : personalization/personalization_guide.md
         - How Personalization works: personalization/how_it_works.md
         - Enable Personalization: personalization/enable_personalization.md
         - Integrate recommendation service: personalization/integrate_recommendation_service.md
@@ -741,6 +750,11 @@ nav:
             - Customize Elasticsearch index structure: search/extensibility/customize_elasticsearch_index_structure.md
             - Manipulate Elasticsearch query: search/extensibility/manipulate_elasticsearch_query.md
         - Reindex search: search/reindex_search.md
+    - Ibexa Cloud:
+        - Ibexa Cloud: ibexa_cloud/ibexa_cloud.md
+        - Ibexa Cloud guide: ibexa_cloud/ibexa_cloud_guide.md
+        - Install on Ibexa Cloud: ibexa_cloud/install_on_ibexa_cloud.md
+        - DDEV and Ibexa Cloud: ibexa_cloud/ddev_and_ibexa_cloud.md
     - Infrastructure and maintenance:
         - Infrastructure and maintenance: infrastructure_and_maintenance/infrastructure_and_maintenance.md
         - Request lifecycle: infrastructure_and_maintenance/request_lifecycle.md
@@ -759,7 +773,6 @@ nav:
             - Clustering: infrastructure_and_maintenance/clustering/clustering.md
             - Clustering with AWS S3: infrastructure_and_maintenance/clustering/clustering_with_aws_s3.md
             - Clustering with DDEV: infrastructure_and_maintenance/clustering/clustering_with_ddev.md
-            - Ibexa Cloud and DDEV: infrastructure_and_maintenance/clustering/ibexa_cloud_and_ddev.md
         - DevOps: infrastructure_and_maintenance/devops.md
         - Backup: infrastructure_and_maintenance/backup.md
         - Performance: infrastructure_and_maintenance/performance.md
@@ -792,7 +805,7 @@ nav:
                 - 8. Update REST: update_and_migration/from_2.5/update_code/8_update_rest.md
                 - 9. Other code updates: update_and_migration/from_2.5/update_code/9_update_other.md
             - Update to v3.3: update_and_migration/from_2.5/to_3.3.md
-            - Update to latest v3.3: update_and_migration/from_2.5/to_3.3.latest.md
+            - Update to latest v3.3: update_and_migration/from_3.3/update_from_3.3.md
         - Update from v3.3:
             - Update to v3.3.latest: update_and_migration/from_3.3/update_from_3.3.md
             - Update to v4.0: update_and_migration/from_3.3/to_4.0.md
@@ -809,7 +822,9 @@ nav:
         - Update from v4.4:
             - Update to v4.5: update_and_migration/from_4.4/update_from_4.4.md
         - Update from v4.5:
-            - Update to v4.6: update_and_migration/from_4.5/update_from_4.5.md
+              - Update to v4.6: update_and_migration/from_4.5/update_from_4.5.md
+        - Update from v4.6:
+              - Update to v4.6: update_and_migration/from_4.6/update_from_4.6.md
         - Migrate to Ibexa DXP:
             - Migrate from eZ Publish Platform: update_and_migration/migrate_to_ibexa_dxp/migrating_from_ez_publish_platform.md
             - Migrate from eZ Publish: update_and_migration/migrate_to_ibexa_dxp/migrating_from_ez_publish.md
@@ -823,6 +838,8 @@ nav:
             - Report and follow issues: resources/contributing/report_and_follow_issues.md
             - Contribute translations: resources/contributing/contribute_translations.md
             - Package structure: resources/contributing/package_structure.md
+    - Product guides:
+        - Product guides: product_guides/product_guides.md
     - Release notes:
         - Release notes: release_notes/release_notes.md
         - Ibexa DXP v4.6 LTS: release_notes/ibexa_dxp_v4.6.md
@@ -893,16 +910,20 @@ extra:
   product_name_connect: 'Ibexa Connect'
   product_name_cloud: 'Ibexa Cloud'
   product_name_oss: 'Ibexa OSS'
+  product_name_engage: 'Ibexa Engage'
+
+  eol_versions: ['2.5']
+
   # Global variables - latest tag versions
   latest_tag_2_5: '2.5.32'
-  latest_tag_3_3: '3.3.37'
+  latest_tag_3_3: '3.3.40'
   latest_tag_4_0: '4.0.8'
   latest_tag_4_1: '4.1.5'
   latest_tag_4_2: '4.2.4'
   latest_tag_4_3: '4.3.5'
   latest_tag_4_4: '4.4.4'
   latest_tag_4_5: '4.5.7'
-  latest_tag_4_6: '4.6.7'
+  latest_tag_4_6: '4.6.13'
 
   symfony_doc: 'https://symfony.com/doc/5.4'
   user_doc: 'https://doc.ibexa.co/projects/userguide/en/master'

@@ -8,9 +8,9 @@ use Ibexa\Core\MVC\Symfony\View\View;
 
 class RelationController
 {
-    private $contentService;
+    private ContentService $contentService;
 
-    private $locationService;
+    private LocationService $locationService;
 
     public function __construct(ContentService $contentService, LocationService $locationService)
     {
@@ -18,7 +18,7 @@ class RelationController
         $this->locationService = $locationService;
     }
 
-    public function showContentAction(View $view, $locationId)
+    public function showContentAction(View $view, $locationId): View
     {
         $acceptedContentTypes = $view->getParameter('accepted_content_types');
 
