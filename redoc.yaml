@@ -1,0 +1,17 @@
+extends:
+  - recommended
+
+apis:
+  public:
+    root: ./api.yaml
+    decorators:
+      remove-x-internal: on
+
+theme:  
+  openapi:
+    expandDefaultServerVariables: true
+    pathInMiddlePanel: true
+    theme:
+      typography:
+        headings:
+          fontWeight: bold
