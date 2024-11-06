@@ -22,9 +22,11 @@
 
     doc.getElementById('searchbox').addEventListener('keyup', function (event) {
         const url = new URL(window.location);
-        url.searchParams.set('sq', event.target.value);
-        url.searchParams.set('p', 1);
-        window.history.pushState({}, '', url);
+        url.searchParams.set('sq', event.target.value.trim());
+        if (url.href != window.location.href) {
+            url.searchParams.set('p', 1);
+            window.history.pushState({}, '', url);
+        }
     })
 
     doc.getElementById('pagination').addEventListener('click', function (event) {
@@ -33,6 +35,10 @@
         url.searchParams.set('p', page);
         window.history.pushState({}, '', url);
     })
+
+    window.onpopstate = (event) => {
+        window.location.reload();
+    };
 
     search.addWidgets([
         instantsearch.widgets.configure({
