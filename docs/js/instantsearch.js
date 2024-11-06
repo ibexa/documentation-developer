@@ -1,32 +1,5 @@
 (function (global, doc) {
-    const getClearedItem = (item) => {
-        const REMOVED_PATTERN = '¶';
-        const hierarchy = Object.entries(item.hierarchy).reduce((output, [hierarchyIndex, hierarchy]) => {
-            return {
-                ...output,
-                [hierarchyIndex]: hierarchy?.replace(REMOVED_PATTERN, '') ?? null,
-            };
-        }, {});
-        const highlightResultHierarchy = Object.entries(item._highlightResult.hierarchy).reduce((output, [hierarchyIndex, hierarchy]) => {
-            return {
-                ...output,
-                [hierarchyIndex]: {
-                    ...hierarchy,
-                    value: hierarchy?.value.replace(REMOVED_PATTERN, '') ?? null,
-                },
-            };
-        }, {});
-
-        return {
-            ...item,
-            hierarchy,
-            _highlightResult: {
-                ...item._highlightResult,
-                hierarchy: highlightResultHierarchy,
-            },
-        }
-    }
-    let match = null;
+    let match;
     const search_query = (match = doc.location.search.match(/sq=(.*?)(&|$)/)) ? match[1] : '';
     const parsed_search_query = decodeURI(search_query.replace('+', ' '));
     const search_page = (match = doc.location.search.match(/p=(\d*?)(&|$)/)) ? match[1] : 1;
