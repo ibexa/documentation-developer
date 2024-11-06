@@ -78,135 +78,50 @@
         }),
         instantsearch.widgets.hits({
             container: '#hits',
-            transformItems(items) {
-                const outputItemsMap = {};
-
-                items.forEach((item) => {
-                    const hierarchy = Object.entries(item.hierarchy).filter(([, value]) => value);
-                    const breadcrumbsKeys = hierarchy.map(([key]) => key);
-                    const groupNameKey = breadcrumbsKeys.shift();
-                    const groupName = item.hierarchy[groupNameKey];
-                    const entryNameKey = breadcrumbsKeys.pop();
-                    const newItem = {
-                        groupNameKey,
-                        entryNameKey,
-                        breadcrumbsKeys,
-                        item: getClearedItem(item),
-                    };
-                    const groupChildren = outputItemsMap[groupName]?.children ?? [];
-
-                    outputItemsMap[groupName] = {
-                        children: [...groupChildren, newItem],
-                    };
-                });
-
-                return Object.values(outputItemsMap);
-            },
             templates: {
                 item: (hit) => {
-                    const {children} = hit;
-                    let resultHTML = '';
-                    let previousGroupName = null;
-                    let groupChildCount = 0;
-                    let groupContentHTML = '';
+                    const hierarchy = Object.entries(hit.hierarchy).filter(([, value]) => value);
+                    const breadcrumbsKeys = hierarchy.map(([key]) => key);
+                    const entryNameKey = breadcrumbsKeys.pop();
 
-                    children.forEach((childHit, index) => {
-                        const {groupNameKey, breadcrumbsKeys, entryNameKey, item: entryItem} = childHit;
-                        const headerHTML = `<h3 class="instantsearch__entry-header">
-                            ${instantsearch.highlight({
+                    const headerHTML = `<h3 class="instantsearch__entry-header">
+                        ${instantsearch.highlight({
                             attribute: `hierarchy.${entryNameKey}`,
                             highlightedTagName: 'mark',
-                            hit: entryItem
+                            hit: hit
                         })}
-                        </h3>`;
-                        let breadcrumbsHTML = '';
-                        let contentHTML = '';
+                    </h3>`;
 
-                        if (entryItem.content) {
-                            contentHTML = `<div class="instantsearch__entry-content">
-                                ${instantsearch.highlight({
+                    let breadcrumbsHTML = '';
+                    let contentHTML = '';
+
+                    if (hit.content) {
+                        contentHTML = `<div class="instantsearch__entry-content">
+                            ${instantsearch.highlight({
                                 attribute: `content`,
                                 highlightedTagName: 'mark',
-                                hit: entryItem
+                                hit: hit
                             })}
-                            </div>`;
-                        }
+                        </div>`;
+                    }
 
-                        breadcrumbsKeys?.forEach((breadcrumbKey) => {
-                            breadcrumbsHTML += `<span class="instantsearch__entry-breadcrumbs-item">
-                                ${instantsearch.highlight({
+                    breadcrumbsKeys?.forEach((breadcrumbKey) => {
+                        breadcrumbsHTML += `<span class="instantsearch__entry-breadcrumbs-item">
+                            ${instantsearch.highlight({
                                 attribute: `hierarchy.${breadcrumbKey}`,
                                 highlightedTagName: 'mark',
-                                hit: entryItem
+                                hit: hit
                             })}
-                            </span>`
-                        });
-
-                        const childHTML = `<a class="instantsearch__entry" href="${childHit.item.url}">
-                            ${headerHTML}
-                            ${contentHTML}
-                            <div class="instantsearch__entry-breadcrumbs">
-                                ${breadcrumbsHTML}
-                            </div>
-                        </a>`;
-
-                        let groupName = childHit.item.hierarchy[groupNameKey];
-                        if (index && groupName != previousGroupName) {
-                            // Not first and in a new group
-                            if (children.length === index + 1) {
-                                // Not first, last and in a new group: close previous group, close current group
-                                let groupHeaderHTML = `<h2 class="instantsearch__group-header">
-                                        ${previousGroupName}
-                                        <!--(${groupChildCount})-->
-                                    </h2>`;
-                                resultHTML += `${groupHeaderHTML}
-                                        <div class="instantsearch__group">
-                                            ${groupContentHTML}
-                                        </div>`;
-                                groupHeaderHTML = `<h2 class="instantsearch__group-header">
-                                        ${groupName}
-                                        (1)
-                                    </h2>`;
-                                resultHTML += `${groupHeaderHTML}
-                                        <div class="instantsearch__group">
-                                            ${childHTML}
-                                        </div>`;
-                            } else {
-                                // Not first, not last and in new group: close previous group, add to next group content
-                                let groupHeaderHTML = `<h2 class="instantsearch__group-header">
-                                        ${previousGroupName}
-                                        <!--(${groupChildCount})-->
-                                    </h2>`;
-                                resultHTML += `${groupHeaderHTML}
-                                        <div class="instantsearch__group">
-                                            ${groupContentHTML}
-                                        </div>`;
-                                groupContentHTML = childHTML;
-                                groupChildCount = 1;
-                            }
-                        } else if (children.length === index + 1) {
-                            // Last and in previous group: add to previous group and close previous group
-                            groupContentHTML += childHTML;
-                            groupChildCount++;
-                            let groupHeaderHTML = `<h2 class="instantsearch__group-header">
-                                    ${groupName}
-                                    <!--(${groupChildCount})-->
-                                </h2>`;
-                            resultHTML += `${groupHeaderHTML}
-                                    <div class="instantsearch__group">
-                                        ${groupContentHTML}
-                                    </div>`;
-                        } else {
-                            // Not last and in previous group: add to previous group
-                            groupContentHTML += childHTML;
-                            groupChildCount++;
-                        }
-                        previousGroupName = groupName;
+                        </span>`
                     });
 
-                    return `<div class="instantsearch">
-                        ${resultHTML}
-                    </div>`;
+                    return resultHTML = `<a class="instantsearch__entry" href="${hit.url}">
+                        ${headerHTML}
+                        ${contentHTML}
+                        <div class="instantsearch__entry-breadcrumbs">
+                            ${breadcrumbsHTML}
+                        </div>
+                    </a>`;
                 },
             },
         }),

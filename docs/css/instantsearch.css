@@ -38,33 +38,21 @@ footer.md-footer {
 }
 
 .md-content .ais-InstantSearch .ais-Hits-item {
-    padding: 5px 0 10px;
+    padding: 0px;
     width: initial;
     margin: 0;
     border: 0;
     box-shadow: none;
 }
 
+.md-content .ais-InstantSearch .ais-Hits-item + .ais-Hits-item {
+    border-top: 1px solid #E0E0E8;
+    margin-top: 16px;
+}
+
 .md-content .ais-InstantSearch .ais-Highlight-highlighted {
     background-color: #ECF4FF;
     color: #4191FF;
-    font-size: 14px;
-    line-height: 21px;
-}
-
-.md-content .ais-InstantSearch .instantsearch__group-header {
-    display: flex;
-    align-items: center;
-    font-size: 14px;
-    line-height: 21px;
-    letter-spacing: 0.12px;
-    height: 40px;
-    margin: 0;
-    padding: 0 16px;
-    background-color: #F2F2F5;
-}
-
-.md-content .ais-InstantSearch .instantsearch__group-header .ais-Highlight-highlighted {
     font-size: 14px;
     line-height: 21px;
 }
@@ -84,11 +72,6 @@ footer.md-footer {
 .md-content .ais-InstantSearch .instantsearch__entry:hover .instantsearch__entry-header mark,
 .md-content .ais-InstantSearch .instantsearch__entry:hover .instantsearch__entry-content mark {
     color: var(--ibexa-jazzberry)
-}
-
-.md-content .ais-InstantSearch .instantsearch__entry + .instantsearch__entry {
-    border-top: 1px solid #E0E0E8;
-    margin-top: 16px;
 }
 
 .md-content .ais-InstantSearch .instantsearch__entry-header {
