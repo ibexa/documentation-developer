@@ -6,6 +6,79 @@ description: Overview of major recent additions to Ibexa DXP documentation.
 
 This page contains recent highlights and notable changes in [[= product_name =]] documentation.
 
+## October 2024
+
+### Content management
+
+- Added a caution at the end of the [Create custom Page block](https://doc.ibexa.co/en/master/content_management/pages/create_custom_page_block/#add-edit-template) article
+- Added `add_block_to_available_blocks` to a [list of available data migration actions](https://doc.ibexa.co/en/latest/content_management/data_migration/data_migration_actions/#available-migration-actions)
+
+### Infrastructure and maintenance
+
+- Updated the [reverse proxy configuration instructions](https://doc.ibexa.co/en/master/infrastructure_and_maintenance/cache/http_cache/reverse_proxy/#varnish-and-basic-auth) by mentioning Basic Auth setup for Varnish
+- Reorganized the [Updating Ibexa DXP](https://doc.ibexa.co/en/latest/update_and_migration/update_ibexa_dxp/) section to put information in logical order and remove duplicates
+- [Added v4.6.11 to v4.6.12 update instructions](https://doc.ibexa.co/en/master/update_and_migration/from_4.6/update_from_4.6/#v4612)
+- [Added v4.6.12 to v4.6.13 update instructions](https://doc.ibexa.co/en/master/update_and_migration/from_4.6/update_from_4.6/#v4613) mentioning a command to clean up duplicated entries in the `ezcontentobject_attribute` table
+- Changed the [Update to v3.3](https://doc.ibexa.co/en/latest/update_and_migration/from_2.5/to_3.3/#b-update-the-app) instructions to help avoid an error at `composer update` stage
+- Changed the instructions by adding a requirement to handle the [[= product_name_cloud =]] configuration:
+    - [Update to v4.0](https://doc.ibexa.co/en/master/update_and_migration/from_3.3/to_4.0/#ibexa-cloud)
+    - [Update to v3.3.latest](https://doc.ibexa.co/en/master/update_and_migration/from_3.3/update_from_3.3/#v3313)
+- Added a suggestion to [remove obsolete database tables](https://doc.ibexa.co/en/master/update_and_migration/from_4.3/update_from_4.3_new_commerce/#update-the-database) that were used by a legacy Commerce package
+
+## Personalization
+
+- Added dynamic attribute submodels information by:
+    - mentioning them in [customizing the recommendation request](https://doc.ibexa.co/en/master/personalization/api_reference/recommendation_api/#customizing-the-recommendation-request) instructions
+    - describing them in [user documentation](https://doc.ibexa.co/projects/userguide/en/latest/personalization/recommendation_models/#dynamic-attributes)
+- Added time-slot based models information by:
+    - changing the list of parameters available when [customizing the recommendation request](https://doc.ibexa.co/en/master/personalization/api_reference/recommendation_api/#customizing-the-recommendation-request)
+    - describing them in [user documentation](https://doc.ibexa.co/projects/userguide/en/master/personalization/recommendation_models/#time-slot-based-models)
+
+- Updated configuration details (including endpoint addresses nad code examples) in multiple how-to articles:
+    - [Enable Personalization ](https://doc.ibexa.co/en/master/personalization/enable_personalization)
+    - [Integrate recommendation service](https://doc.ibexa.co/en/master/personalization/integrate_recommendation_service/)
+    - [Tracking integration](https://doc.ibexa.co/en/master/personalization/tracking_integration/)
+    - [Track events with ibexa-tracker.js](https://doc.ibexa.co/en/master/personalization/tracking_with_ibexa-tracker/)
+
+### PIM
+
+- Updated the [Product API](https://doc.ibexa.co/en/master/pim/product_api/) article by fixing method signatures and adding links to the PHP API reference
+
+### PHP API
+
+- Added missing classes in the following namespaces:
+    - [Ibexa\Contracts\AdminUi\Menu](https://doc.ibexa.co/en/master/api/php_api/php_api_reference/namespaces/ibexa-contracts-adminui-menu.html)
+    - [Ibexa\Contracts\Core\Pool](https://doc.ibexa.co/en/master/api/php_api/php_api_reference/namespaces/ibexa-contracts-core-pool.html)
+    - [Ibexa\Contracts\CoreSearch\Values\Query](https://doc.ibexa.co/en/master/api/php_api/php_api_reference/namespaces/ibexa-contracts-coresearch-values-query.html)
+    - [Ibexa\Contracts\ProductCatalog\Local\Attribute\ContextAwareValueValidatorInterface](https://doc.ibexa.co/en/master/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Local-Attribute-ContextAwareValueValidatorInterface.html)
+
+### REST API
+
+- Updated the [REST API authentication](https://doc.ibexa.co/en/master/api/rest_api/rest_api_authentication/) instructions
+
+
+## September 2024
+
+### Getting started
+
+- Updated product version requirements and database connection configuration instructions in [Install Ibexa DXP with DDEV](https://doc.ibexa.co/en/master/getting_started/install_with_ddev/#2-configure-ddev)
+
+### Infrastructure and maintenance
+
+- Modified v4.5.x to v4.6 update instructions by adding [Update Solr configuration](https://doc.ibexa.co/en/master/update_and_migration/from_4.5/update_from_4.5/#update-solr-configuration) section
+- [Added v4.6.8 to v4.6.11 update instructions](https://doc.ibexa.co/en/master/update_and_migration/from_4.6/update_from_4.6/#v4611)
+
+### PHP API
+
+- Added edition information to [PHP API reference](https://doc.ibexa.co/en/master/api/php_api/php_api_reference/) to aid navigation
+
+### REST API
+- Removed multiple obsolete RAML types from the [REST API reference](https://doc.ibexa.co/en/master/api/rest_api/rest_api_reference/rest_api_reference.html)
+
+### User management
+
+- Updated the OAuth server [installation instructions](https://doc.ibexa.co/en/master/users/oauth_server/#server-installation)
+
 ## August 2024
 
 ### Product guides

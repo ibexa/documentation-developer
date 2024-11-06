@@ -1,7 +1,7 @@
 ---
 title: Ibexa Commerce
 description: Explore all of the key features, functionalities, and advantages of Ibexa Commerce, the most powerful edition that Ibexa DXP has to offer.
-month_change: true
+month_change: false
 ---
 
 # Ibexa DXP Commerce edition product guide
