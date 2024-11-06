@@ -22,7 +22,7 @@
 
     doc.getElementById('searchbox').addEventListener('keyup', function (event) {
         const url = new URL(window.location);
-        url.searchParams.set('sq', encodeURI(event.target.value));
+        url.searchParams.set('sq', event.target.value);
         url.searchParams.set('p', 1);
         window.history.pushState({}, '', url);
     })
