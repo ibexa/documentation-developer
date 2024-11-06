@@ -95,13 +95,13 @@
                     let breadcrumbsHTML = '';
                     let contentHTML = '';
 
-                    if (hit.content) {
+                    if (hit.content && !hit._highlightResult.content.fullyHighlighted && hit._highlightResult.content.matchedWords.length) {
                         contentHTML = `<div class="instantsearch__entry-content">
                             ${instantsearch.highlight({
                                 attribute: `content`,
                                 highlightedTagName: 'mark',
                                 hit: hit
-                            })}
+                            }).replaceAll('&amp;', '&')}
                         </div>`;
                     }
 
