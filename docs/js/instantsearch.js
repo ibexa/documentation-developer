@@ -1,7 +1,7 @@
 (function (global, doc) {
     let match;
     const search_query = (match = doc.location.search.match(/sq=(.*?)(&|$)/)) ? match[1] : '';
-    const parsed_search_query = decodeURI(search_query.replace('+', ' '));
+    const parsed_search_query = decodeURI(search_query.replaceAll('+', ' '));
     const search_page = (match = doc.location.search.match(/p=(\d*?)(&|$)/)) ? match[1] : 1;
     const parsed_search_page = parseInt(search_page);
     let version = doc.location.pathname.split('/')[2];
@@ -68,7 +68,7 @@
                     let breadcrumbsHTML = '';
                     let contentHTML = '';
 
-                    if (hit.content && !hit._highlightResult.content.fullyHighlighted && hit._highlightResult.content.matchedWords.length) {
+                    if (hit.content && hit._highlightResult.content.matchedWords.length && (!hit._highlightResult.content.fullyHighlighted || 1 < hit._highlightResult.content.matchedWords.length)) {
                         contentHTML = `<div class="instantsearch__entry-content">
                             ${instantsearch.highlight({
                                 attribute: `content`,
