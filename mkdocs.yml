@@ -423,6 +423,7 @@ nav:
         - User setup:
           - Invitations: users/invitations.md
           - Registration: users/user_registration.md
+          - Update basic user data: users/update_basic_user_data.md
         - User authentication:
           - Login methods: users/login_methods.md
           - Passwords: users/passwords.md
