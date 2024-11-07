@@ -11,15 +11,15 @@ This page contains recent highlights and notable changes in [[= product_name =]]
 ### Content management
 
 - Added a caution at the end of the [Create custom Page block](https://doc.ibexa.co/en/master/content_management/pages/create_custom_page_block/#add-edit-template) article
-- Added `add_block_to_available_blocks` to a [list of available data migration actions](https://doc.ibexa.co/en/latest/content_management/data_migration/data_migration_actions/#available-migration-actions)
+- Added `add_block_to_available_blocks` to a [list of available data migration actions](https://doc.ibexa.co/en/master/content_management/data_migration/data_migration_actions/#available-migration-actions)
 
 ### Infrastructure and maintenance
 
 - Updated the [reverse proxy configuration instructions](https://doc.ibexa.co/en/master/infrastructure_and_maintenance/cache/http_cache/reverse_proxy/#varnish-and-basic-auth) by mentioning Basic Auth setup for Varnish
-- Reorganized the [Updating Ibexa DXP](https://doc.ibexa.co/en/latest/update_and_migration/update_ibexa_dxp/) section to put information in logical order and remove duplicates
+- Reorganized the [Updating Ibexa DXP](https://doc.ibexa.co/en/master/update_and_migration/update_ibexa_dxp/) section to put information in logical order and remove duplicates
 - [Added v4.6.11 to v4.6.12 update instructions](https://doc.ibexa.co/en/master/update_and_migration/from_4.6/update_from_4.6/#v4612)
 - [Added v4.6.12 to v4.6.13 update instructions](https://doc.ibexa.co/en/master/update_and_migration/from_4.6/update_from_4.6/#v4613) mentioning a command to clean up duplicated entries in the `ezcontentobject_attribute` table
-- Changed the [Update to v3.3](https://doc.ibexa.co/en/latest/update_and_migration/from_2.5/to_3.3/#b-update-the-app) instructions to help avoid an error at `composer update` stage
+- Changed the [Update to v3.3](https://doc.ibexa.co/en/master/update_and_migration/from_2.5/to_3.3/#b-update-the-app) instructions to help avoid an error at `composer update` stage
 - Changed the instructions by adding a requirement to handle the [[= product_name_cloud =]] configuration:
     - [Update to v4.0](https://doc.ibexa.co/en/master/update_and_migration/from_3.3/to_4.0/#ibexa-cloud)
     - [Update to v3.3.latest](https://doc.ibexa.co/en/master/update_and_migration/from_3.3/update_from_3.3/#v3313)
@@ -29,7 +29,7 @@ This page contains recent highlights and notable changes in [[= product_name =]]
 
 - Added dynamic attribute submodels information by:
     - mentioning them in [customizing the recommendation request](https://doc.ibexa.co/en/master/personalization/api_reference/recommendation_api/#customizing-the-recommendation-request) instructions
-    - describing them in [user documentation](https://doc.ibexa.co/projects/userguide/en/latest/personalization/recommendation_models/#dynamic-attributes)
+    - describing them in [user documentation](https://doc.ibexa.co/projects/userguide/en/master/personalization/recommendation_models/#dynamic-attributes)
 - Added time-slot based models information by:
     - changing the list of parameters available when [customizing the recommendation request](https://doc.ibexa.co/en/master/personalization/api_reference/recommendation_api/#customizing-the-recommendation-request)
     - describing them in [user documentation](https://doc.ibexa.co/projects/userguide/en/master/personalization/recommendation_models/#time-slot-based-models)
