@@ -7,11 +7,11 @@ month_change: true
 
 ## What are AI Actions
 
-In the evolving landscape of digital experience, artificial intelligence becomes more and more important by enhancing user interaction and automating complex processes.
+When you look around, artificial intelligence becomes more and more important by enhancing user interaction and automating complex processes.
 [[= product_name =]] can be equipped with the AI Actions LTS update, which harnesses AI's potential to automate time-consuming editorial tasks.
 AI Actions is an extensible solution for integrating features provided by AI services into your workflows, all managed through a user-friendly interface.
 
-Out-of-the-box, AI Actions includes two essential components: a framework package and an OpenAI connector package.
+Out-of-the-box, AI Actions solution includes two essential components: a framework package and an OpenAI connector package.
 It comes pre-configured with the following action types:
 
 - [Refine text](#refining-text): Rewrite existing text according to instructions set in a prompt
@@ -19,7 +19,7 @@ It comes pre-configured with the following action types:
 
 ![AI Actions schematic](img/guide_ai_actions.png)
 
-You can extend its capabilities beyond the default setup by creating custom connector modules, allowing users to integrate additional AI services or customize the way data is processed and interpreted.
+You can extend the solution's capabilities beyond the default setup by creating custom connector modules, allowing users to take advantage of additional AI services, or customize the way data is processed and interpreted.
 For example, it could transform images, or generate illustrations for your articles based on their contents.
 The possibilities are endless and you're not limited to a specific AI service, avoiding vendor lock-in.
 
@@ -34,8 +34,7 @@ To begin using AI Actions, you must first [install the required packages and per
 
 ## How it works
 
-AI Actions LTS update relies on an extensible AI framework written in PHP.
-The framework package is responsible for gathering information from various sources, such as AI action types, AI action configurations, and contextual details like SiteAccess, user details, locale settings, and more.
+AI Actions LTS update relies on an extensible AI framework, which is responsible for gathering information from various sources, such as AI action types, AI action configurations, and contextual details like SiteAccess, user details, locale settings, and more.
 This data can then be combined with user input.
 It's then passed to a service connector, such as the default OpenAI connector, for final processing on [[= product_name =]] side.
 The service connector wraps all data into a prompt or another suitable format and sends it to an external AI service.
@@ -52,16 +51,17 @@ It executes tasks that it receives through a service connector.
 
 #### Action
 
-Actions are tasks or functions that the AI service is set to perform.
+Actions are tasks or functions that executed by an external AI service.
 Each action is a combination of an AI action type and an AI action configuration.
 Action types define what kind of task the AI service performs, while AI action configurations specify how the task should be executed.
 This clear separation allows for a flexible system where actions can be created, managed, and customized with minimal effort.
 
 #### AI action type
 
-AI action types are templates predefined by developers.
+In simple words, AI action types are high level templates predefined by developers.
+AI action types correspond to tasks that users intend to perform when they interact with the interface.
 Each AI action type defines the structure and nature of the task that the AI service performs.
-AI action types could be designed, for example, to generate text based on an image, translate a passage of text, or generate a video clip based on a description.
+AI action types could be designed, for example, to generate alternative text based on an image, translate a selected passage of text, or generate a video clip based on a description provided in the field.
 By defining AI action types, developers can create a wide range of functionalities that can be deployed within the application.
 
 #### AI action configuration
@@ -81,11 +81,11 @@ Handlers take parameters defined in the AI action type and configuration, combin
 
 ### Triggering actions from the UI
 
-Among other elements, AI Actions LTS update includes UI components for:
+Among other elements, AI Actions LTS update includes UI components that are used in:
 
 - AI action management in the **Admin** panel
 - text modification in online editor
-- alt-text generation feature in the image management modal
+- alt-text generation in the image management modal
 
 These areas are user-friendly and well integrated with the existing application’s UI.
 Administrators can manage action configurations with ease, while editors can trigger actions with a click of a button.
