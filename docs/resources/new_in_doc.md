@@ -34,7 +34,7 @@ This page contains recent highlights and notable changes in [[= product_name =]]
     - changing the list of parameters available when [customizing the recommendation request](https://doc.ibexa.co/en/master/personalization/api_reference/recommendation_api/#customizing-the-recommendation-request)
     - describing them in [user documentation](https://doc.ibexa.co/projects/userguide/en/master/personalization/recommendation_models/#time-slot-based-models)
 
-- Updated configuration details (including endpoint addresses nad code examples) in multiple how-to articles:
+- Updated configuration details (including endpoint addresses and code examples) in multiple how-to articles:
     - [Enable Personalization ](https://doc.ibexa.co/en/master/personalization/enable_personalization)
     - [Integrate recommendation service](https://doc.ibexa.co/en/master/personalization/integrate_recommendation_service/)
     - [Tracking integration](https://doc.ibexa.co/en/master/personalization/tracking_integration/)
@@ -46,7 +46,7 @@ This page contains recent highlights and notable changes in [[= product_name =]]
 
 ### PHP API
 
-- Added missing classes in the following namespaces:
+- Added the following new classes to the public PHP API:
     - [Ibexa\Contracts\AdminUi\Menu](https://doc.ibexa.co/en/master/api/php_api/php_api_reference/namespaces/ibexa-contracts-adminui-menu.html)
     - [Ibexa\Contracts\Core\Pool](https://doc.ibexa.co/en/master/api/php_api/php_api_reference/namespaces/ibexa-contracts-core-pool.html)
     - [Ibexa\Contracts\CoreSearch\Values\Query](https://doc.ibexa.co/en/master/api/php_api/php_api_reference/namespaces/ibexa-contracts-coresearch-values-query.html)

@@ -15,8 +15,7 @@ All such user accounts have the same underlying mechanism and enable you to cont
 "users/user_management_guide",
 "users/invitations",
 "users/user_registration",
-"users/update_basic_user_data"
-], columns=4) =]]
+], columns=3) =]]
 
 ## Authenticate users
 
