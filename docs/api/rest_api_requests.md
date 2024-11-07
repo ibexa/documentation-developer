@@ -8,14 +8,14 @@ description: REST API requests can have a generic or a custom header. It defines
 
 Depending on the HTTP method used, different actions will be possible on the same resource. Example:
 
-| Action                                  | Description                                                          |
-|-----------------------------------------|----------------------------------------------------------------------|
-| `GET  /content/objects/2/version/3`     | Fetches data about version \#3 of Content item \#2                   |
-| `PATCH  /content/objects/2/version/3`   | Updates the version \#3 draft of Content item \#2                    |
-| `DELETE  /content/objects/2/version/3`  | Deletes the (draft or archived) version \#3 from Content item \#2    |
-| `COPY  /content/objects/2/version/3`    | Creates a new draft version of Content item \#2 from its version \#3 |
-| `PUBLISH  /content/objects/2/version/3` | Promotes the version \#3 of Content item \#2 from draft to published |
-| `OPTIONS  /content/objects/2/version/3` | Lists all the methods usable with this resource, the 5 ones above    |
+| Action                                   | Description                                                          |
+|------------------------------------------|----------------------------------------------------------------------|
+| `GET  /content/objects/2/versions/3`     | Fetches data about version \#3 of Content item \#2                   |
+| `PATCH  /content/objects/2/versions/3`   | Updates the version \#3 draft of Content item \#2                    |
+| `DELETE  /content/objects/2/versions/3`  | Deletes the (draft or archived) version \#3 from Content item \#2    |
+| `COPY  /content/objects/2/versions/3`    | Creates a new draft version of Content item \#2 from its version \#3 |
+| `PUBLISH  /content/objects/2/versions/3` | Promotes the version \#3 of Content item \#2 from draft to published |
+| `OPTIONS  /content/objects/2/versions/3` | Lists all the methods usable with this resource, the 5 ones above    |
 
 The following list of available methods gives an overview of the kind of action a method triggers on a resource, if available.
 For method action details per resource, see the [REST API reference](rest_api_reference/rest_api_reference.html).
