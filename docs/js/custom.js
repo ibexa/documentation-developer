@@ -104,7 +104,7 @@ $(document).ready(function() {
         }
     });
 
-    $('.md-content a:not(.md-icon):not(.md-source)')
+    $('.md-content a:not(.md-icon):not(.md-source):not(.instantsearch__entry)')
         .filter(function() {
             return this.hostname && this.hostname !== location.hostname;
         })
