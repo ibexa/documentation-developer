@@ -17,6 +17,9 @@ description: Ibexa DXP v4.6 brings improvements to Commerce, PIM and Personaliza
 
 ## LTS Updates
 
+LTS Updates are opt-in packages that bring cutting-edge technologies to an LTS release that they enhance, without compromising the product's stability.
+The features brought by an LTS Update become a standard part of the next LTS release.
+
 ### AI Actions
 
 The AI Actions LTS update enhances the usability and flexibility of [[=product_name=]] v4.6 LTS by harnessing the potential of artificial intelligence to automate time-consuming editorial tasks.

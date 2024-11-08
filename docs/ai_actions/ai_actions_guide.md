@@ -8,7 +8,7 @@ month_change: true
 ## What are AI Actions
 
 Wherever you look, artificial intelligence becomes more and more important by enhancing user interaction and automating complex processes.
-[[= product_name =]] can be equipped with the AI Actions LTS update, which harnesses AI's potential to automate time-consuming editorial tasks.
+[[= product_name =]] can be equipped with the AI Actions [LTS update](ibexa_dxp_v4.6.md#lts-updates), which harnesses AI's potential to automate time-consuming editorial tasks.
 AI Actions is an extensible solution for integrating features provided by AI services into your workflows, all managed through a user-friendly interface.
 
 Out-of-the-box, AI Actions solution includes two essential components: a framework package and an OpenAI connector package.
@@ -25,7 +25,7 @@ The possibilities are endless and you're not limited to a specific AI service, a
 
 ## Availability
 
-AI Actions are an opt-in capability available as an LTS Update to the v4.6.x version of [[= product_name =]], regardless of its edition.
+AI Actions are an opt-in capability available as an [LTS update](ibexa_dxp_v4.6.md#lts-updates) to the v4.6.x version of [[= product_name =]], regardless of its edition.
 To begin using AI Actions, you must first [install the required packages and perform initial configuration](install_ai_actions.md).
 
 !!! note "API Key"
@@ -66,7 +66,7 @@ Action type definitions specify the following information:
 - an identifier
 - a set of input parameters
 - a set of output fields
-- a type of action, for example, text-to-image, video-to-text
+- a category of action, for example, "text to image", "video to text"
 
 AI action types could be designed, for example, to generate alternative text based on an image, translate a selected passage of text, or generate a video clip based on a description provided in the field.
 By defining AI action types, developers can create a wide range of functionalities that can be deployed within the application.
