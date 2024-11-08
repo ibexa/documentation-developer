@@ -91,6 +91,9 @@ footer.md-footer {
     font-size: 14px;
     line-height: 21px;
     letter-spacing: 0.12px;
+    margin-top: 10px;
+    padding-left: 10px;
+    border-left: 2px solid var(--mid-grey);
 }
 
 .md-content .ais-InstantSearch .instantsearch__entry-content .ais-Highlight-highlighted {
@@ -102,15 +105,14 @@ footer.md-footer {
     font-size: 12px;
     line-height: 21px;
     letter-spacing: 0.12px;
-    margin-top: 16px;
 }
 
 .md-content .ais-InstantSearch .instantsearch__entry-breadcrumbs-item + .instantsearch__entry-breadcrumbs-item {
     margin-left: 12px;
 }
 
-.md-content .ais-InstantSearch .instantsearch__entry-breadcrumbs-item + .instantsearch__entry-breadcrumbs-item:before {
-    content: '>';
+.md-content .ais-InstantSearch .instantsearch__entry-breadcrumbs-item:before {
+    content: '<';
     display: inline-block;
     padding-right: 12px;
 }
