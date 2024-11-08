@@ -84,7 +84,7 @@
                         </div>`;
                     }
 
-                    breadcrumbsKeys?.toReversed().forEach((breadcrumbKey) => {
+                    breadcrumbsKeys?.forEach((breadcrumbKey) => {
                         breadcrumbsHTML += `<span class="instantsearch__entry-breadcrumbs-item">
                             ${instantsearch.highlight({
                                 attribute: `hierarchy.${breadcrumbKey}`,
@@ -95,10 +95,10 @@
                     });
 
                     return resultHTML = `<a class="instantsearch__entry" href="${hit.url}">
-                        ${headerHTML}
                         <div class="instantsearch__entry-breadcrumbs">
                             ${breadcrumbsHTML}
                         </div>
+                        ${headerHTML}
                         ${contentHTML}
                     </a>`;
                 },
