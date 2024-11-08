@@ -18,7 +18,7 @@
                 type: JWTInput
                 example: !include examples/user/token/jwt/POST/JWTInput.xml.example
             application/vnd.ibexa.api.JWTInput+json:
-                type: JWTInput
+                type: JWTInputWrapper
                 example: !include examples/user/token/jwt/POST/JWTInput.json.example
         responses:
             200:
@@ -27,9 +27,7 @@
                         type: JWT
                         example: !include examples/user/token/jwt/POST/JWT.xml.example
                     application/vnd.ibexa.api.JWT+json:
-                        type: JWT
+                        type: JWTWrapper
                         example: !include examples/user/token/jwt/POST/JWT.json.example
             401:
                 description: Error - Unauthorized
-            
-    

@@ -14,7 +14,7 @@ get:
                 application/vnd.ibexa.api.RegionList+xml:
                     type: RegionList
                 application/vnd.ibexa.api.RegionList+json:
-                    type: RegionList
+                    type: RegionListWrapper
                     example: !include examples/product/catalog/regions/GET/RegionList.json.example
         401:
             description: Error - the user has no permission to read regions.
@@ -35,7 +35,7 @@ get:
                     application/vnd.ibexa.api.Region+xml:
                         type: Region
                     application/vnd.ibexa.api.Region+json:
-                        type: Region
+                        type: RegionWrapper
             404:
                 description: Error - the region does not exist.
 
@@ -58,7 +58,7 @@ get:
             application/vnd.ibexa.api.RegionViewInput+xml:
                 type: RegionViewInput
             application/vnd.ibexa.api.RegionViewInput+json:
-                type: RegionViewInput
+                type: RegionViewInputWrapper
                 example: !include examples/product/catalog/regions/POST/RegionViewInput.json.example
         responses:
             200:
@@ -66,7 +66,7 @@ get:
                     application/vnd.ibexa.api.RegionView+xml:
                         type: RegionView
                     application/vnd.ibexa.api.RegionView+json:
-                        type: RegionView
+                        type: RegionViewWrapper
                         example: !include examples/product/catalog/regions/POST/RegionView.json.example
             400:
                 description: Error - the input does not match the input schema definition.

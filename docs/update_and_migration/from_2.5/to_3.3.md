@@ -1,6 +1,6 @@
 ---
 target_version: '3.3'
-latest_tag: '3.3.24'
+month_change: true
 ---
 
 # Update the app to v3.3
@@ -52,7 +52,7 @@ Merge the current skeleton into your project:
     ``` bash
     git remote add content-skeleton https://github.com/ibexa/content-skeleton.git
     git fetch content-skeleton --tags
-    git merge v[[= latest_tag =]] --allow-unrelated-histories
+    git merge v[[= latest_tag_3_3 =]] --allow-unrelated-histories
     ```
 
 === "Ibexa Experience"
@@ -60,7 +60,7 @@ Merge the current skeleton into your project:
     ``` bash
     git remote add experience-skeleton https://github.com/ibexa/experience-skeleton.git
     git fetch experience-skeleton --tags
-    git merge v[[= latest_tag =]] --allow-unrelated-histories
+    git merge v[[= latest_tag_3_3 =]] --allow-unrelated-histories
     ```
 
 === "Ibexa Commerce"
@@ -68,7 +68,7 @@ Merge the current skeleton into your project:
     ``` bash
     git remote add commerce-skeleton https://github.com/ibexa/commerce-skeleton.git
     git fetch commerce-skeleton --tags
-    git merge v[[= latest_tag =]] --allow-unrelated-histories
+    git merge v[[= latest_tag_3_3 =]] --allow-unrelated-histories
     ```
 
 This introduces changes from the relevant website skeleton and results in conflicts.
@@ -102,9 +102,10 @@ Resolve the conflicts in the following way:
 
 ### B. Update the app
 
-Run `composer update` to update the dependencies:
+Update Symfony Flex, then update the dependencies:
 
 ``` bash
+composer update symfony/flex --no-plugins --no-scripts
 composer update
 ```
 
@@ -152,6 +153,10 @@ Add the following rewrite rule to your web server configuration:
     rewrite "^/build/(.*)" "/build/$1" break;
     ```
 
-## Next steps
+## 6. Update the database
 
-Now, proceed to the last step, [updating to the latest v3.3 patch version](to_3.3.latest.md).
+[[% include 'snippets/update/db/update_db_2.5-3.3.md' %]]
+
+## 7. Update to the latest patch version
+
+Now, proceed to the last step, [updating to the latest v3.3 patch version](update_from_3.3.md).

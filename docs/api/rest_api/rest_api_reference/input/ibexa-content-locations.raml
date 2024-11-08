@@ -22,7 +22,7 @@ get:
                     type: Location
                     example: !include examples/content/locations/GET/LocationList.xml.example
                 application/vnd.ibexa.api.LocationList+json:
-                    type: Location
+                    type: LocationWrapper
                     example: !include examples/content/locations/GET/LocationList.json.example
         404:
             description: Error - the Location with the given ID (remote ID or URL  Alias) does not exist.
@@ -45,7 +45,7 @@ get:
                         type: Location
                         example: !include examples/content/locations/path/GET/Location.xml.example
                     application/vnd.ibexa.api.Location+json:
-                        type: Location
+                        type: LocationWrapper
                         example: !include examples/content/locations/path/GET/Location.json.example
             401:
                 description: Error - the user is not authorized to read this Location.
@@ -107,10 +107,10 @@ get:
                 description: ETag
         body:
             application/vnd.ibexa.api.LocationUpdate+xml:
-                type: LocationUpdateStruct
+                type: LocationUpdate
                 example: !include examples/content/locations/location_id/PATCH/LocationUpdate.xml.example
             application/vnd.ibexa.api.LocationUpdate+json:
-                type: LocationUpdateStruct
+                type: LocationUpdateWrapper
                 example: !include examples/content/locations/location_id/PATCH/LocationUpdate.json.example
         responses:
             200:
@@ -119,7 +119,7 @@ get:
                         type: Location
                         example: !include examples/content/locations/location_id/PATCH/Location.xml.example
                     application/vnd.ibexa.api.Location+json:
-                        type: Location
+                        type: LocationWrapper
                         example: !include examples/content/locations/location_id/PATCH/Location.json.example
             401:
                 description: Error - the user is not authorized to update this Location.
@@ -187,9 +187,9 @@ get:
                     body:
                         application/vnd.ibexa.api.UrlAliasRefList+xml:
                             type: UrlAliasRefList
-                            example: examples/content/locations/path/urlaliases/GET/UrlAliasRefList.xml.example
+                            example: !include examples/content/locations/path/urlaliases/GET/UrlAliasRefList.xml.example
                         application/vnd.ibexa.api.UrlAliasRefList+json:
-                            type: UrlAliasRefList
+                            type: UrlAliasRefListWrapper
                 400:
                     description: Error - The user has no permission to read URL aliases.
                 401:

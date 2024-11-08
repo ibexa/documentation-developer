@@ -85,6 +85,7 @@ Run the following scripts:
     ``` bash
     psql <database_name> < vendor/ibexa/installer/upgrade/db/postgresql/ibexa-4.5.3-to-4.5.4.sql
     ```
+
 ## Update from v4.5.latest to v4.6
 
 When you have the latest version of v4.5, you can update to v4.6.
@@ -218,7 +219,7 @@ And apply the following database script:
         gatewayName VARCHAR(255) NOT NULL,
         details LONGTEXT DEFAULT NULL COMMENT '(DC2Type:object)',
         PRIMARY KEY(hash)
-    ) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB;
+    ) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_520_ci` ENGINE = InnoDB;
     ```
 
 === "PostgreSQL"
@@ -413,6 +414,47 @@ The following migration example allows users with the `Editor` role to access th
                     values: []
 ```
 
+## Update Solr configuration
+
+Solr configuration changes with the addition of spellchecking feature.
+
+Configure the `spellcheck` component in `solrconfig.xml`:
+
+```xml
+  <searchComponent name="spellcheck" class="solr.SpellCheckComponent">
+    <lst name="spellchecker">
+      <str name="name">default</str>
+      <str name="field">meta_content__text_t</str>
+      <str name="classname">solr.DirectSolrSpellChecker</str>
+      <str name="distanceMeasure">internal</str>
+      <float name="accuracy">0.5</float>
+      <int name="maxEdits">2</int>
+      <int name="minPrefix">1</int>
+      <int name="maxInspections">5</int>
+      <int name="minQueryLength">4</int>
+      <float name="maxQueryFrequency">0.01</float>
+    </lst>
+  </searchComponent>
+```
+
+Add this `spellcheck` component to the `/select` request handler: 
+
+```xml
+  <requestHandler name="/select" class="solr.SearchHandler">
+    <arr name="last-components">
+      <str>spellcheck</str>
+    </arr>
+    <!-- […] -->
+  </requestHandler>
+```
+
+!!! note
+
+    You can [generate new Solr configuration files using `generate-solr-config.sh`](install_solr.md#generate-solr-configuration-automatically),
+    and merge `spellcheck` configuration by comparing new files with your existing setup.
+
+Restart Solr for `solrconfig.xml` changes to take effect.
+
 ## Update Elasticsearch schema
 
 Elasticsearch schema's templates change, for example, with the addition of new features such as spellchecking.
@@ -432,89 +474,6 @@ php bin/console ibexa:elasticsearch:put-index-template --overwrite
 php bin/console ibexa:reindex
 ```
 
-<!-- vale Ibexa.VariablesVersion = NO -->
+## Update to v4.6.latest
 
-## v4.6.2
-
-#### Database update
-
-Run the following scripts:
-
-=== "MySQL"
-
-    ``` bash
-    mysql -u <username> -p <password> <database_name> < vendor/ibexa/installer/upgrade/db/mysql/ibexa-4.6.1-to-4.6.2.sql
-    ```
-
-=== "PostgreSQL"
-
-    ``` bash
-    psql <database_name> < vendor/ibexa/installer/upgrade/db/postgresql/ibexa-4.6.1-to-4.6.2.sql
-    ```
-
-## v4.6.3
-
-### Notification config update
-
-The configuration of the package `ibexa/notifications` has changed.
-This package is required by other packages, such as `ibexa/connector-actito` for [Transactional emails](https://doc.ibexa.co/en/latest/commerce/transactional_emails/transactional_emails/), `ibexa/payment`, or `ibexa/user`.
-
-If you are customizing the configuration of the `ibexa/notifications` package, and using SiteAccess aware configuration to change the `Notification` subscriptions, you have to manually change your configuration by using the new node name `notifier` instead of the old `notifications`.
-
-For example, the following v4.6.2 config:
-
-```yaml hl_lines="4"
-ibexa:
-    system:
-        my_siteacces_name:
-            notifications: # old
-                subscriptions:
-                    Ibexa\Contracts\Shipping\Notification\ShipmentStatusChange:
-                        channels:
-                            - sms
-```
-
-becomes the following from v4.6.3:
-
-```yaml hl_lines="4"
-ibexa:
-    system:
-        my_siteacces_name:
-            notifier: # new
-                subscriptions:
-                    Ibexa\Contracts\Shipping\Notification\ShipmentStatusChange:
-                        channels:
-                            - sms
-```
-
-## v4.6.4
-
-#### Database update
-
-Run the following scripts:
-
-=== "MySQL"
-
-    ``` bash
-    mysql -u <username> -p <password> <database_name> < vendor/ibexa/installer/upgrade/db/mysql/ibexa-4.6.3-to-4.6.4.sql
-    ```
-
-=== "PostgreSQL"
-
-    ``` bash
-    psql <database_name> < vendor/ibexa/installer/upgrade/db/postgresql/ibexa-4.6.3-to-4.6.4.sql
-    ```
-
-## v4.6.8
-
-To avoid deprecations when updating from an older PHP version to PHP 8.2 or 8.3, run the following commands:
-
-``` bash
-composer config extra.runtime.error_handler
-"\\Ibexa\\Contracts\\Core\\MVC\\Symfony\\ErrorHandler\\Php82HideDeprecationsErrorHandler"
-composer dump-autoload
-```
-
-## v4.6.9
-
-No additional steps needed.
+Now, proceed to the last step, [updating to the latest v4.6 patch version](update_from_4.6.md).

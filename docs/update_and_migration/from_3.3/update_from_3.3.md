@@ -1,10 +1,12 @@
 ---
 description: Update your installation to the latest v3.3 version from an earlier v3.3 version.
+month_change: true
 ---
 
 # Update from v3.3.x to v3.3.latest
 
 This update procedure applies if you are using a v3.3 installation without the latest maintenance release.
+To update from an 3.2 to 3.3, see [Updating the app to v3.3](to_3.3.md). From older version, explore [this section](update_ibexa_dxp.md).
 
 Go through the following steps to update to the latest maintenance release of v3.3 (v[[= latest_tag_3_3 =]]).
 
@@ -41,8 +43,7 @@ Run:
 To avoid deprecations when updating from an older PHP version to PHP 8.2 or 8.3, run the following commands:
 
 ``` bash
-composer config extra.runtime.error_handler
-"\\Ibexa\\Contracts\\Core\\MVC\\Symfony\\ErrorHandler\\Php82HideDeprecationsErrorHandler"
+composer config extra.runtime.error_handler "\\Ibexa\\Contracts\\Core\\MVC\\Symfony\\ErrorHandler\\Php82HideDeprecationsErrorHandler"
 composer dump-autoload
 ```
 
@@ -170,6 +171,8 @@ If you are using MySQL, run the following update script:
 ``` sql
 mysql -u<username> -p<password> <database_name> < vendor/ibexa/installer/upgrade/db/mysql/ibexa-3.3.1-to-3.3.2.sql
 ```
+
+<!-- vale Ibexa.VariablesVersion = NO -->
 
 ### v3.3.4
 
@@ -314,6 +317,20 @@ Run the following scripts:
     composer update "symfony/*"
     ```
 
+#### Ibexa Cloud
+
+Update Platform.sh configuration and scripts.
+
+Generate new configuration with the following command:
+
+```bash
+composer ibexa:setup --platformsh
+```
+
+Review the changes applied to `.platform.app.yaml`, `.platform/` and `bin/platformsh_prestart_cacheclear.sh`,
+merge with your custom settings if needed, and commit them to Git.
+
+
 ### v3.3.14
 
 #### VCL configuration
@@ -420,3 +437,13 @@ Run the following scripts:
     ``` sql
     psql <database_name> < vendor/ibexa/installer/upgrade/db/postgresql/ibexa-3.3.33-to-3.3.34.sql
     ```
+
+### v3.3.40
+
+A command to deal with duplicated database entries, as reported in [IBX-8562](https://issues.ibexa.co/browse/IBX-8562), will be available soon.
+
+## Finish the update
+
+[[% include 'snippets/update/finish_the_update.md' %]]
+
+[[% include 'snippets/update/notify_support.md' %]]

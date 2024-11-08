@@ -1,5 +1,6 @@
 ---
 description: Create and configure custom Page blocks to add customized content to Pages.
+month_change: true
 ---
 
 # Create custom Page block
@@ -132,5 +133,8 @@ The following UDW configuration is used so only an `event` typed content item ca
 
 For more information, see [UDW configuration](browser.md#udw-configuration).
 
-Your custom page block is now ready. 
-Before you can use it in Page Builder, you must [enable it in Page field settings]([[= user_doc =]]/content_management/configure_ct_field_settings/#block-display).
+Your custom page block is now registered in the system.
+
+!!! caution
+
+    To use the new block in Page Builder, add it to the list of available blocks in a given content type's settings. This can be done manually in [Page field settings]([[= user_doc =]]/content_management/configure_ct_field_settings/#block-display) or by using the migration action [`add_block_to_available_blocks`](data_migration_actions.md#content-types).

@@ -8,10 +8,10 @@ OUTPUT_DIR=${2:-./docs/api/php_api/php_api_reference}; # Path to the directory w
 DXP_EDITION='commerce'; # Edition from and for which the Reference is built
 DXP_VERSION='4.6.*'; # Version from and for which the Reference is built
 DXP_EDITIONS=(oss headless experience commerce); # Available editions ordered by ascending capabilities
-PHPDOC_VERSION='3.5.0'; # Version of phpDocumentor used to build the Reference
+PHPDOC_VERSION='3.5.3'; # Version of phpDocumentor used to build the Reference
 PHPDOC_CONF="$(pwd)/tools/php_api_ref/phpdoc.dist.xml"; # Absolute path to phpDocumentor configuration file
 #PHPDOC_CONF="$(pwd)/tools/php_api_ref/phpdoc.dev.xml"; # Absolute path to phpDocumentor configuration file
-PHPDOC_TEMPLATE_VERSION='3.5.0'; # Version of the phpDocumentor base template set
+PHPDOC_TEMPLATE_VERSION='3.5.3'; # Version of the phpDocumentor base template set
 PHPDOC_DIR="$(pwd)/tools/php_api_ref/.phpdoc"; # Absolute path to phpDocumentor resource directory (containing the override template set)
 
 PHP_BINARY="php -d error_reporting=`php -r 'echo E_ALL & ~E_DEPRECATED;'`"; # Avoid depreciation messages from phpDocumentor/Reflection/issues/529 when using PHP 8.2 or higher
@@ -56,9 +56,12 @@ if [ 0 -eq $DXP_ALREADY_EXISTS ]; then
 fi;
 
 if [[ "$DXP_VERSION" == *".*"* ]]; then
+  export COMPOSER_ROOT_VERSION=0.0.0;
   DXP_VERSION=$(composer -n show ibexa/$DXP_EDITION | grep -E "^version" | cut -d 'v' -f 3);
   echo "Obtained version: $DXP_VERSION";
 fi;
+
+export COMPOSER_ROOT_VERSION=$DXP_VERSION;
 
 #if [ 0 -eq $DXP_ALREADY_EXISTS ]; then
 #  MY_PACKAGE='';
@@ -72,20 +75,30 @@ if [ 0 -eq $DXP_ALREADY_EXISTS ]; then
   if [[ -f $map ]]; then
     rm $map;
   fi;
-  echo '{% set package_edition_map = {' >> $map;
+  PACKAGE_MAP='{% set package_edition_map = {'
+  NAMESPACE_MAP='{% set namespace_package_map = {'
   for edition in ${DXP_EDITIONS[@]}; do
     echo -n "${edition}… ";
     while IFS= read -r line; do
       package=$(echo $line | cut -d '"' -f 2);
       if [[ ! "${DXP_EDITIONS[*]}" =~ "${package/ibexa\//}" ]]; then
-        echo "'$package': '$edition'," >> $map;
+        PACKAGE_MAP="$PACKAGE_MAP\n'$package': '$edition',"
+        NAMESPACES=$(composer show "$package" --available --format=json | \
+          jq -r --arg PACKAGE "$package" '"'\''\(.autoload | ."psr-4" | try to_entries[] catch empty | .key[:-1] | sub("\\\\";"\\\\\\";"g"))'\'': '\''\($PACKAGE)'\'',"')
+        NAMESPACE_MAP="$NAMESPACE_MAP\n$NAMESPACES"
       fi;
     done <<< "$(curl --no-progress-meter "https://raw.githubusercontent.com/ibexa/$edition/v$DXP_VERSION/composer.json" | jq .require | grep -E "(ibexa|ezsystems|silversolutions)")";
     if [ "$edition" == "$DXP_EDITION" ]; then
       break;
     fi;
   done;
-  echo '} %}{% block content %}{% endblock %}' >> $map;
+  PACKAGE_MAP="$PACKAGE_MAP\n} %}"
+  NAMESPACE_MAP="$NAMESPACE_MAP\n} %}"
+  {
+      echo -e "$PACKAGE_MAP";
+      echo -e "$NAMESPACE_MAP";
+      echo '{% block content %}{% endblock %}'
+  } >> "$map";
   echo 'OK';
 fi;
 

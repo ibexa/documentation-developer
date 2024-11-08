@@ -1,5 +1,6 @@
 ---
 description: Configure your project files to enable Personalization and set up items you want to track.
+month_change: true
 ---
 
 # Enable Personalization
@@ -15,7 +16,7 @@ instance must [request access to the service]([[= user_doc =]]/personalization/e
 ## Set up customer credentials
 
 When you receive the credentials, add them to your configuration.
-In the root folder of your project, edit either the `.env` or `.env.local` file 
+In the root folder of your project, edit the `.env.local` file
 by adding the following lines with your customer ID and license key: 
 
 ```
@@ -24,7 +25,7 @@ PERSONALIZATION_LICENSE_KEY=67890-1234-5678-90123-4567
 PERSONALIZATION_HOST_URI=https://server_uri
 ```
 
-!!! note "Configuring user credentials for different customers"
+!!! note "Configuring user credentials for multisite setup and different personalization customers"
 
     If your installation [hosts multiple sites]([[= user_doc =]]/personalization/use_cases/#multiple-website-hosting) with different 
     customer IDs, for example, to provide separate recommendations for different 
@@ -141,6 +142,9 @@ ibexa:
                     content:
                         use_remote_id: true
 ```
+!!! note "Support for alphanumeric content identifier"
+
+     Contact support@ibexa.co with your organization's requirements to have the alphanumeric content identifier enabled.
 
 #### Enable tracking
 
@@ -161,33 +165,41 @@ Place the following code snippet in the `<head>` section of your header template
 ### Check whether the bundle provides REST data
 
 You can verify the import controller of the bundle by calling the local API.
-Use the `Accept` header; you may need to add an `Authorization` header if authentication is required.
+As the API uses token based authorization you first need a valid bearer token.
 
-To check whether the `content` endpoint is working as expected, perform the following request:
+When you publish a content item a bearer token is created and saved to the `ibexa_token` db table.
 
+Additionally a POST request is send to the Personalization Engine,  containing the token
+and the Rest URL where the Personalization Engine can fetch the changed Content.
+
+The `BEARER_TOKEN` is the newest one in `ibexa_token` table having `type=1` and `identifier=update`. The token has a default lifetime of one day.
+
+You can use this token to check what is provided to the Personalization Engine:
+
+
+```bash
+curl --location '{PERSONALIZATION_HOST_URI}/api/ibexa/v2/personalization/v1/content/id/{contentId}?lang={comma_separated_languages}' \
+--header 'Accept: application/vnd.ibexa.api.Content+json' \
+--header 'Authorization: Bearer {BEARER_TOKEN}'
 ```
-GET http://<yourdomain>/api/ezp/v2/ibexa_personalization/v1/content/{contentId}
-Accept application/vnd.ez.api.Content+json
-Authorization Basic xxxxxxxx
+
+Additionally, check whether the `contentlist` endpoint is working with the following request:
+
+```bash
+curl --location '{PERSONALIZATION_HOST_URI}/api/ibexa/v2/personalization/v1/contentlist/{comma_separated_content_ids}?lang={comma_separated_languages}' \
+--header 'Accept: application/vnd.ibexa.api.ContentList+json' \
+--header 'Authorization: Bearer {BEARER_TOKEN}'
 ```
 
-Additionally, check whether the `contenttypes` endpoint is working with the following request:
-
-```
-GET http://<yourdomain>/api/ezp/v2/ibexa_personalization/v1/contenttypes/38?page=1&page_size=10
-Accept application/vnd.ez.api.Content+json
-Authorization Basic xxxxxxxx
-```
-
-The `content` endpoint returns one item and the `contenttypes` endpoint returns many.
+The `content` endpoint returns one item and the `contentlist` endpoint returns many.
 
 ``` json
 {
     "contentList": {
-        "_media-type": "application/vnd.ez.api.contentList+json",
+        "_media-type": "application/vnd.ibexa.api.ContentList+json",
         "content": [
             {
-                "_media-type": "application/vnd.ez.api.content+json",
+                "_media-type": "application/vnd.ibexa.api.Content+json",
                 "contentId": 72,
                 "contentTypeId": 38,
                 "identifier": "place",
@@ -197,18 +209,18 @@ The `content` endpoint returns one item and the `contenttypes` endpoint returns 
                 "uri": "/Places-Tastes/Places/Kochin-India",
                 "categoryPath": "/1/2/95/71/73/",
                 "mainLocation": {
-                    "_media-type": "application/vnd.ez.api.mainLocation+json",
+                    "_media-type": "application/vnd.ibexa.api.mainLocation+json",
                     "_href": "/api/ezp/v2/content/locations/1/2/95/71/73/"
                 },
                 "locations": {
-                    "_media-type": "application/vnd.ez.api.locations+json",
+                    "_media-type": "application/vnd.ibexa.api.locations+json",
                     "_href": "/api/ezp/v2/content/objects/72/locations"
                 },
                 "name": "Kochin, India",
-                "intro": "<![CDATA[<section xmlns=\"http://ez.no/namespaces/ezpublish5/xhtml5\"><p>We got the major port city on the south west coast of India.</p></section>\n]]>",
-                "description": "<![CDATA[<section xmlns=\"http://ez.no/namespaces/ezpublish5/xhtml5\"><p><strong>Kochi </strong>(formerly Cochin) ... </p></section>\n]]>",
+                "intro": "<![CDATA[<section xmlns=\"http://ibexa.co/namespaces/ezpublish5/xhtml5\"><p>We got the major port city on the south west coast of India.</p></section>\n]]>",
+                "description": "<![CDATA[<section xmlns=\"http://ibexa.co/namespaces/ezpublish5/xhtml5\"><p><strong>Kochi </strong>(formerly Cochin) ... </p></section>\n]]>",
                 "image": "/var/site/storage/images/places-tastes/places/kochin-india/282-5-eng-GB/Kochin-India.jpg",
-                "caption": "<![CDATA[<section xmlns=\"http://ez.no/namespaces/ezpublish5/xhtml5\"><p>Chinese fishing nets ... </p></section>\n]]>",
+                "caption": "<![CDATA[<section xmlns=\"http://ibexa.co/namespaces/ezpublish5/xhtml5\"><p>Chinese fishing nets ... </p></section>\n]]>",
                 "location": "kochin, india",
                 "authors_position": "Senior Editor",
                 "tags": "India, Kochin",
@@ -228,18 +240,7 @@ To get recommendations you must first export the item information to the Persona
 After you [define item types to be tracked and recommended](#set-up-item-type-tracking),
 start the full export.
 
-You do it with the `ibexa:personalization:run-export` command.
-
-If your installation hosts only one SiteAccess, run the following command to export your data:
-
-``` bash
-php bin/console ibexa:personalization:run-export
-    --item-type-identifier-list=<item_type>,<item_type>
-    -—languages=<language>,<language>
-```
-
-If your installation hosts multiple SiteAccesses with different customer IDs, 
-you must run the export separately for each of the `<site_access_name>`/`<customer_id>` pairs.
+You need to run the `ibexa:personalization:run-export command per SiteAccesses that you want to use together with Personalization. You need different customer IDs for different SiteAccesses.
 
 ``` bash
 php bin/console ibexa:personalization:run-export
@@ -247,11 +248,11 @@ php bin/console ibexa:personalization:run-export
     --siteaccess=<site_access_name>
     --customer-id=<customer_id>
     --license-key=<license_key>
-    -—languages=<language>,<language>
+    --languages=<language>,<language>
 ```
 
 The bundle exporter collects all content related to the `<site_access_name>`/`<customer_id>` 
-pair and stores it in files.
+pair and stores it in files to the folder `public/var/export/yyyy/mm/dd/hh/mm` of your project.
 After finishing, the system sends a POST request to the endpoint and informs the 
 Personalization server to fetch new content.
 An internal workflow is then triggered, so that the generated files are downloaded 
@@ -310,13 +311,13 @@ The username is the customer ID and the password is the license key.
                 <attribute value="/1/2/95/71/74/" key="categoryPath" type="TEXT"/>
                 <attribute value="Michael Wang" key="author" type="NOMINAL"/>
                 <attribute value="0" key="rating" type="TEXT"/>
-                <attribute value="&lt;![CDATA[&lt;section xmlns=&quot;http://ez.no/namespaces/ezpublish5/xhtml5&quot;&gt;&lt;p&gt;Outstanding beaches of Dominican Republic, Samana is one of them.&lt;/p&gt;&lt;p&gt;&lt;em&gt;Photograph by Brian Henry - Anchorage north shore Samana, Dominican Republic&lt;/em&gt;&lt;/p&gt;&lt;/section&gt;&#xA;]]&gt;" key="caption" type="TEXT"/>
+                <attribute value="&lt;![CDATA[&lt;section xmlns=&quot;http://ibexa.co/namespaces/ezpublish5/xhtml5&quot;&gt;&lt;p&gt;Outstanding beaches of Dominican Republic, Samana is one of them.&lt;/p&gt;&lt;p&gt;&lt;em&gt;Photograph by Brian Henry - Anchorage north shore Samana, Dominican Republic&lt;/em&gt;&lt;/p&gt;&lt;/section&gt;&#xA;]]&gt;" key="caption" type="TEXT"/>
                 <attribute value="/Places-Tastes/Places/Santo-Domingo-Dominican-Republic" key="uri" type="TEXT"/>
                 <attribute value="38" key="contentTypeId" type="TEXT"/>
                 <attribute value="Dominican Republic, Santo Domingo" key="tags" type="TEXT"/>
-                <attribute value="&lt;![CDATA[&lt;section xmlns=&quot;http://ez.no/namespaces/ezpublish5/xhtml5&quot;&gt;&lt;p&gt;Santo Domingo meaning &quot;Saint Dominic&quot;, officially Santo Domingo de Guzm&amp;aacute;n, is the capital and largest city in the ... &lt;/p&gt;&lt;/section&gt;&#xA;]]&gt;" key="description" type="TEXT"/>
+                <attribute value="&lt;![CDATA[&lt;section xmlns=&quot;http://ibexa.co/namespaces/ezpublish5/xhtml5&quot;&gt;&lt;p&gt;Santo Domingo meaning &quot;Saint Dominic&quot;, officially Santo Domingo de Guzm&amp;aacute;n, is the capital and largest city in the ... &lt;/p&gt;&lt;/section&gt;&#xA;]]&gt;" key="description" type="TEXT"/>
                 <attribute value="73" key="contentId" type="TEXT"/>
-                <attribute value="&lt;![CDATA[&lt;section xmlns=&quot;http://ez.no/namespaces/ezpublish5/xhtml5&quot;&gt;&lt;p&gt;The oldest European inhabited settlement in the Americas.&lt;/p&gt;&lt;/section&gt;&#xA;]]&gt;" key="intro" type="TEXT"/>
+                <attribute value="&lt;![CDATA[&lt;section xmlns=&quot;http://ibexa.co/namespaces/ezpublish5/xhtml5&quot;&gt;&lt;p&gt;The oldest European inhabited settlement in the Americas.&lt;/p&gt;&lt;/section&gt;&#xA;]]&gt;" key="intro" type="TEXT"/>
                 <attribute value="1442500260" key="publication_date" type="TEXT"/>
                 <attribute value="Santo Domingo, Dominican Republic" key="name" type="TEXT"/>
                 <attribute value="Santo Domingo, Dominican Republic" key="location" type="TEXT"/>
@@ -359,7 +360,7 @@ and it eventually fetches the affected content and updates it internally.
 To display recommendations on your site, you must include the asset in the template using the following code:
 
 ``` html+twig
-{{ encore_entry_script_tags('ezrecommendation-client-js', null, 'ezplatform') }}
+{{ encore_entry_script_tags('ibexa-personalization-client-js', null, 'ibexa') }}
 ```
 
 This file is responsible for sending notifications to the [Recommendation API](recommendation_api.md) after the user clicks a tracking element.
@@ -441,8 +442,8 @@ if the content Fields were previously exported by the export script.
                 "itemType": 38,
                 "relevance": 3,
                 "links": {
-                    "clickRecommended": "//event.test.perso.ibexa.co/api/723/clickrecommended/someuser/38/71?scenario=popular&modelid=4199&categorypath=&requestuuid=d75e7cf0-e4ca-11e7-a94d-0a64dbbea736",
-                    "rendered": "//event.test.perso.ibexa.co/api/723/rendered/someuser/38/71?scenario=popular&modelid=4199&categorypath=&requestuuid=d75e7cf0-e4ca-11e7-a94d-0a64dbbea736"
+                    "clickRecommended": "//event.perso.ibexa.co/api/723/clickrecommended/someuser/38/71?scenario=popular&modelid=4199&categorypath=&requestuuid=d75e7cf0-e4ca-11e7-a94d-0a64dbbea736",
+                    "rendered": "//event.perso.ibexa.co/api/723/rendered/someuser/38/71?scenario=popular&modelid=4199&categorypath=&requestuuid=d75e7cf0-e4ca-11e7-a94d-0a64dbbea736"
                 },
                 "attributes": [
                     {
@@ -476,8 +477,8 @@ if the content Fields were previously exported by the export script.
                 "itemType": 38,
                 "relevance": 1,
                 "links": {
-                    "clickRecommended": "//event.test.perso.ibexa.co/api/723/clickrecommended/someuser/38/75?scenario=popular&modelid=4199&categorypath=&requestuuid=d75e7cf0-e4ca-11e7-a94d-0a64dbbea736",
-                    "rendered": "//event.test.perso.ibexa.co/api/723/rendered/someuser/38/75?scenario=popular&modelid=4199&categorypath=&requestuuid=d75e7cf0-e4ca-11e7-a94d-0a64dbbea736"
+                    "clickRecommended": "//event.perso.ibexa.co/api/723/clickrecommended/someuser/38/75?scenario=popular&modelid=4199&categorypath=&requestuuid=d75e7cf0-e4ca-11e7-a94d-0a64dbbea736",
+                    "rendered": "//event.perso.ibexa.co/api/723/rendered/someuser/38/75?scenario=popular&modelid=4199&categorypath=&requestuuid=d75e7cf0-e4ca-11e7-a94d-0a64dbbea736"
                 },
                 "attributes": [
                     {

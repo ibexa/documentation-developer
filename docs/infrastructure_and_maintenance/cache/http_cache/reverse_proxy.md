@@ -1,5 +1,6 @@
 ---
 description: You can use Symfony HttpCache Proxy, Varnish or Fastly as reverse proxies with Ibexa DXP.
+month_change: true
 ---
 
 # Reverse proxy
@@ -142,6 +143,25 @@ ibexa:
                 purge_servers: [http://my.varnish.server:8081]
 ```
 
+#### Varnish and Basic Auth
+
+If the Varnish server is protected by Basic Auth, specify the Basic Auth credentials within the `purge_servers` setting using the format:
+
+``` yaml
+            http_cache:
+                purge_servers: [http://myuser:mypasswd@my.varnish.server:8081]
+```
+
+Varnish is enabled by default when using [[= product_name_cloud =]] and the `purge_servers` setting is set automatically. 
+To enable Basic Auth on [[= product_name_cloud =]] when using Varnish, specify the credentials using the following environment variables to make sure that Varnish is reachable:
+
+```
+env:HTTPCACHE_USERNAME=myuser
+env:HTTPCACHE_PASSWORD=mypasswd
+```
+
+If you want to use Basic Auth with Fastly on [[= product_name_cloud =]], please see [Enable basic-auth on Fastly](fastly.md#enable-basic-auth-on-fastly).
+
 !!! note "Invalidating Varnish cache using tokens"
 
     In setups where the Varnish server IP can change (for example, on [[= product_name_cloud =]]),
@@ -186,7 +206,7 @@ data-field-id="{{ field.id }}"
 
 As a result, your file should be similar to [this example](https://github.com/ibexa/form-builder/blob/main/src/bundle/Resources/views/themes/standard/fields/captcha.html.twig).
 
-For more information about configuring Captcha fields, see [Captcha field](forms.md#captcha-field).
+For more information about configuring Captcha fields, see [Captcha field](work_with_forms.md#captcha-field).
 
 ### Use Fastly as HttpCache proxy
 

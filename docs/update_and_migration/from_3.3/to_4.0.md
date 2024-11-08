@@ -1,3 +1,8 @@
+---
+description: Update your installation to v4.0 from the latest v3.3 version.
+month_change: true
+---
+
 # Update from v3.3.x to v4.0
 
 This update procedure applies if you are using v3.3.
@@ -219,3 +224,16 @@ Finally, generate the new GraphQl schema:
 ``` bash
 php bin/console ibexa:graphql:generate-schema
 ```
+
+### Ibexa Cloud
+
+Update Platform.sh configuration and scripts.
+
+Generate new configuration with the following command:
+
+```bash
+composer ibexa:setup --platformsh
+```
+
+Review the changes applied to `.platform.app.yaml`, `.platform/` and `bin/platformsh_prestart_cacheclear.sh`,
+merge with your custom settings if needed, and commit them to Git.

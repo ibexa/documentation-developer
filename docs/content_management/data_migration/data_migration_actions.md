@@ -1,6 +1,7 @@
 ---
 description: Data migration actions enable you to run special operations while executing data migrations, such as assigning Roles, Sections, Objects states, and so on.
 page_type: reference
+month_change: true
 ---
 
 # Data migration actions
@@ -58,6 +59,7 @@ The following migration actions are available out of the box:
 - `remove_drafts` (Content type Update)
 - `remove_field_by_identifier` (Content type Update)
 - `unassign_content_type_group` (Content type Update)
+- `add_block_to_available_blocks` (Content type Update)
 - `assign_role_to_user` (Role Create / Update)
 - `assign_role_to_user_group` (Role Create / Update)
 - `assign_user_to_role` (User Create / Update)
@@ -103,6 +105,7 @@ mode: Update
         - { action: unassign_content_type_group, value: 'Content' }
         - { action: remove_field_by_identifier, value: 'short_title' }
         - { action: remove_drafts, value: null }
+        - { action: add_block_to_available_blocks, fieldDefinitionIdentifier: 'page', blocks: ['event'] }
 ```
 
 ### Roles
