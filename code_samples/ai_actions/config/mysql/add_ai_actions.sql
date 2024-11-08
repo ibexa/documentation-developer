@@ -9,7 +9,8 @@ CREATE TABLE ibexa_action_configuration
     action_handler_identifier VARCHAR(64) NULL,
     created_at                DATETIME NULL COMMENT '(DC2Type:datetime_immutable)',
     updated_at                DATETIME NULL COMMENT '(DC2Type:datetime_immutable)',
-    CONSTRAINT ibexa_action_configuration_identifier_uc UNIQUE (identifier)
+    CONSTRAINT ibexa_action_configuration_identifier_uc
+        UNIQUE (identifier)
 ) COLLATE = utf8mb4_unicode_520_ci;
 
 CREATE INDEX ibexa_action_configuration_enabled_idx
