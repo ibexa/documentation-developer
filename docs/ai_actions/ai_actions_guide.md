@@ -51,16 +51,23 @@ It executes tasks that it receives through a service connector.
 
 #### Action
 
-Actions are tasks or functions that executed by an external AI service.
+Actions are tasks or functions that are executed by an external AI service.
 Each action is a combination of an AI action type and an AI action configuration.
 Action types define what kind of task the AI service performs, while AI action configurations specify how the task should be executed.
 This clear separation allows for a flexible system where actions can be created, managed, and customized with minimal effort.
 
 #### AI action type
 
-In simple words, AI action types are high level templates predefined by developers.
-AI action types correspond to tasks that users intend to perform when they interact with the interface.
-Each AI action type defines the structure and nature of the task that the AI service performs.
+AI action types are high level templates predefined by developers.
+AI action types correspond to tasks that users intend to perform when they interact with the interface. Each AI action type defines the structure and nature of the task that the AI service performs, and is interpreted by a handler.
+
+Action type definitions specify the following information:
+
+- an identifier
+- a set of input parameters
+- a set of output fields
+- a type of action, for example, text-to-image, video-to-text
+
 AI action types could be designed, for example, to generate alternative text based on an image, translate a selected passage of text, or generate a video clip based on a description provided in the field.
 By defining AI action types, developers can create a wide range of functionalities that can be deployed within the application.
 
