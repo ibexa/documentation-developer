@@ -4,7 +4,6 @@ const getIbexaConfig = require('./ibexa.webpack.config.js');
 const ibexaConfig = getIbexaConfig(Encore);
 const ibexaConfigManager = require('./ibexa.webpack.config.manager.js');
 const customConfigs = require('./ibexa.webpack.custom.configs.js');
-const configSetups = require('./var/encore/ibexa.config.setup.js');
 const {
     isReactBlockPathCreated,
 } = require('./ibexa.webpack.config.react.blocks.js');
@@ -38,16 +37,6 @@ Encore.addEntry('welcome-page-js', [
     path.resolve(__dirname, './assets/js/welcome.page.js'),
 ]);
 
-configSetups.forEach((configSetupPath) => {
-    const setupConfig = require(configSetupPath);
-
-    setupConfig(Encore);
-});
-
-Encore.addEntry('ai', [
-    path.resolve(__dirname, './assets/js/transcribe.audio.js'),
-]);
-
 ibexaConfigManager.add({
     ibexaConfig,
     entryName: 'ibexa-admin-ui-layout-js',
@@ -55,7 +44,6 @@ ibexaConfigManager.add({
         path.resolve(__dirname, './assets/js/addAudioModule.js')
     ],
 });
-
 
 if (isReactBlockPathCreated) {
     // React Blocks javascript

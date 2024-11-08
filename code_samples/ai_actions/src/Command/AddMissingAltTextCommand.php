@@ -2,16 +2,18 @@
 
 namespace App\Command;
 
-use Ibexa\ConnectorAi\ActionService;
+use Ibexa\AdminUi\Event\Options;
 use Ibexa\Contracts\ConnectorAi\Action\ActionContext;
 use Ibexa\Contracts\ConnectorAi\Action\DataType\Image;
 use Ibexa\Contracts\ConnectorAi\Action\DataType\Text;
 use Ibexa\Contracts\ConnectorAi\Action\GenerateAltTextAction;
 use Ibexa\Contracts\ConnectorAi\Action\RuntimeContext;
+use Ibexa\Contracts\ConnectorAi\ActionServiceInterface;
 use Ibexa\Contracts\Core\Repository\ContentService;
 use Ibexa\Contracts\Core\Repository\FieldTypeService;
 use Ibexa\Contracts\Core\Repository\PermissionResolver;
 use Ibexa\Contracts\Core\Repository\UserService;
+use Ibexa\Contracts\Core\Repository\Values\Content\ContentList;
 use Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion\ContentTypeIdentifier;
 use Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion\DateMetadata;
 use Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion\Operator;
@@ -24,7 +26,9 @@ use Symfony\Component\Console\Output\OutputInterface;
 
 final class AddMissingAltTextCommand extends Command
 {
-    protected static $defaultName = 'add-alt-text';
+    protected static $defaultName = 'app:add-alt-text';
+
+    private const IMAGE_FIELD_IDENTIFIER = 'image';
 
     private ContentService $contentService;
 
@@ -34,7 +38,7 @@ final class AddMissingAltTextCommand extends Command
 
     private FieldTypeService $fieldTypeService;
 
-    private ActionService $actionService;
+    private ActionServiceInterface $actionService;
 
     private string $projectDir;
 
@@ -43,7 +47,7 @@ final class AddMissingAltTextCommand extends Command
         PermissionResolver $permissionResolver,
         UserService $userService,
         FieldTypeService $fieldTypeService,
-        ActionService $actionService,
+        ActionServiceInterface $actionService,
         string $projectDir
     ) {
         parent::__construct();
@@ -62,40 +66,24 @@ final class AddMissingAltTextCommand extends Command
 
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
-        $user = $input->getArgument('user');
+        $this->setUser($input->getArgument('user'));
 
-        $this->permissionResolver->setCurrentUserReference($this->userService->loadUserByLogin($user));
-
-        // Find all Images modified in the last 24h
-        $filter = (new Filter())
-            ->withCriterion(
-                new DateMetadata(DateMetadata::MODIFIED, Operator::GTE, strtotime('-1 day'))
-            )
-            ->andWithCriterion(new ContentTypeIdentifier('image'));
-
-        $modifiedArticles = $this->contentService->find($filter);
-
-        $output->writeln(sprintf('Found %d modified image in the last 24h', $modifiedArticles->getTotalCount()));
+        $modifiedImages = $this->getModifiedImages();
+        $output->writeln(sprintf('Found %d modified image in the last 24h', $modifiedImages->getTotalCount()));
 
         /** @var \Ibexa\Core\Repository\Values\Content\Content $content */
-        foreach ($modifiedArticles as $content) {
-            $imageFieldIdentifier = 'image';
-            $field = $this->fieldTypeService->getFieldType('ezimage');
+        foreach ($modifiedImages as $content) {
             /** @var ?Value $value */
-            $value = $content->getFieldValue($imageFieldIdentifier);
+            $value = $content->getFieldValue(self::IMAGE_FIELD_IDENTIFIER);
 
-            if ($value === null || $this->fieldTypeService->getFieldType('ezimage')->isEmptyValue($value) || !$value->isAlternativeTextEmpty()) {
+            if ($value === null || !$this->shouldGenerateAltText($value)) {
                 $output->writeln(sprintf('Image %s has the image field empty or the alternative text is already specified. Skipping.', $content->getName()));
                 continue;
             }
 
-            $output->writeln(sprintf('Preparing alternative text for Image %s', $content->getName()));
-
             $contentUpdateStruct = $this->contentService->newContentUpdateStruct();
-            $altText = $this->getSuggestedAltText($this->convertImageToBase64($value->uri));
-            $output->writeln(['Suggestion: ', $altText]);
-            $value->alternativeText = $altText;
-            $contentUpdateStruct->setField('image', $value);
+            $value->alternativeText = $this->getSuggestedAltText($this->convertImageToBase64($value->uri), $content->getDefaultLanguageCode());
+            $contentUpdateStruct->setField(self::IMAGE_FIELD_IDENTIFIER, $value);
 
             $updatedContent = $this->contentService->updateContent(
                 $this->contentService->createContentDraft($content->getContentInfo())->getVersionInfo(),
@@ -107,18 +95,19 @@ final class AddMissingAltTextCommand extends Command
         return Command::SUCCESS;
     }
 
-    private function getSuggestedAltText(string $base64): string
+    private function getSuggestedAltText(string $imageEncodedInBase64, string $languageCode): string
     {
-        $action = new GenerateAltTextAction(new Image([$base64]));
-        // there should be an implementation of Options in the Contracts
+        $action = new GenerateAltTextAction(new Image([$imageEncodedInBase64]));
+
+        $action->setRuntimeContext(new RuntimeContext(['languageCode' => $languageCode]));
         $action->setActionContext(
             new ActionContext(
-                new RuntimeContext([]),
-                new RuntimeContext([]),
-                new RuntimeContext(
+                new Options(['default_locale_fallback' => 'en']), // System context
+                new Options(['max_lenght' => 100]), // Action Type options
+                new Options( // Action Handler options
                     [
-                        'prompt' => 'Mention Terry Pratchett in the description',
-                        'temperature' => 1.0,
+                        'prompt' => 'Generate the alt text for this image in less than 100 characters.',
+                        'temperature' => 0.7,
                         'max_tokens' => 4096,
                         'model' => 'gpt-4o-mini',
                     ]
@@ -141,5 +130,27 @@ final class AddMissingAltTextCommand extends Command
         }
 
         return 'data:image/jpeg;base64,' . base64_encode($file);
+    }
+
+    private function getModifiedImages(): ContentList
+    {
+        $filter = (new Filter())
+            ->withCriterion(
+                new DateMetadata(DateMetadata::MODIFIED, Operator::GTE, strtotime('-1 day'))
+            )
+        ->andWithCriterion(new ContentTypeIdentifier('image'));
+
+        return $this->contentService->find($filter);
+    }
+
+    private function shouldGenerateAltText(Value $value): bool
+    {
+        return $this->fieldTypeService->getFieldType('ezimage')->isEmptyValue($value) === false &&
+            $value->isAlternativeTextEmpty();
+    }
+
+    private function setUser(string $userLogin): void
+    {
+        $this->permissionResolver->setCurrentUserReference($this->userService->loadUserByLogin($userLogin));
     }
 }

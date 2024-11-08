@@ -105,7 +105,7 @@ Create a class implementing the [ActionHandlerInterface](../api/php_api/php_api_
 
 See the code sample below, together with a matching service definition:
 
-``` php hl_lines="27-29 32-67 69-71"
+``` php hl_lines="27-30 32-67 69-72"
 [[= include_file('code_samples/ai_actions/src/AI/Handler/LLaVaTextToTextActionHandler.php') =]]
 ```
 
@@ -156,7 +156,7 @@ Start by creating your own Action Type, a class implementing the [ActionTypeInte
 ```
 
 ``` yaml
-[[= include_file('code_samples/ai_actions/config/services.yaml', 46, 54) =]]
+[[= include_file('code_samples/ai_actions/config/services.yaml', 42, 50) =]]
 ```
 
 The service definition introduces a custom `app.connector_ai.action.handler.audio_to_text` service tag to mark all the handlers capable of working with this Action Type. The `ibexa.ai.action.type` service tag registers the class in the service container as a new Action Type.
@@ -190,7 +190,7 @@ Custom Form Type is needed if the Action Type requires additional options config
 ```
 
 ``` yaml
-[[= include_file('code_samples/ai_actions/config/services.yaml', 55, 63) =]]
+[[= include_file('code_samples/ai_actions/config/services.yaml', 51, 58) =]]
 ```
 
 The built-in `Ibexa\Bundle\ConnectorAi\Form\FormMapper\ActionConfiguration\ActionTypeOptionsFormMapper` renders the Form Type in the back office when editing the Action Configuration for a specific Action Type (indicated by the `type` attribute of the `ibexa.connector_ai.action_configuration.form_mapper.action_type_options` service tag).
@@ -204,7 +204,7 @@ An example Action Handler combines the input data and the Action Type options an
 ```
 
 ``` yaml
-[[= include_file('code_samples/ai_actions/config/services.yaml', 63, 67) =]]
+[[= include_file('code_samples/ai_actions/config/services.yaml', 59, 63) =]]
 ```
 
 ### Integrate with the REST API
@@ -219,7 +219,7 @@ Start by creating an Input Parser able to handle the `application/vnd.ibexa.api.
 ```
 
 ``` yaml
-[[= include_file('code_samples/ai_actions/config/services.yaml', 70, 74) =]]
+[[= include_file('code_samples/ai_actions/config/services.yaml', 65, 69) =]]
 ```
 
 The `TranscribeAudioAction` is a value object holding the parsed request data.
@@ -244,7 +244,7 @@ To transform the `TranscribeAudioAction` into a REST response you need to create
 ```
 
 ``` yaml
-[[= include_file('code_samples/ai_actions/config/services.yaml', 75, 78) =]]
+[[= include_file('code_samples/ai_actions/config/services.yaml', 70, 73) =]]
 ```
 
 - A visitor converting the response value object into a serialized REST response:
@@ -255,7 +255,7 @@ To transform the `TranscribeAudioAction` into a REST response you need to create
 ```
 
 ``` yaml
-[[= include_file('code_samples/ai_actions/config/services.yaml', 79, 83) =]]
+[[= include_file('code_samples/ai_actions/config/services.yaml', 74, 78) =]]
 ```
 
 You can now execute a specific Action Configuration for the new custom Action Type through REST API by sending the following request:
@@ -298,7 +298,7 @@ And add it to the SiteAccess configuration for the `admin_group`:
 The configuration of the AI component takes the following parameters:
 
 - `module_id` - name of the JavaScript module to handle the invoked action. `ImgToText` is a built-in one handling alternative text use case, `TranscribeAudio` is a custom one.
-- `ai_config_id` - identifier of the Action Type to load. The [ibexa_ai_config Twig function](ai_action_twig_functions.md#ibexa_ai_config) is used under the hood.
+- `ai_config_id` - identifier of the Action Type to load. The [ibexa_ai_config Twig function](ai_actions_twig_functions.md#ibexa_ai_config) is used under the hood.
 - `container_selector` - CSS selector to narrow down the HTML area which is affected by the AI component.
 - `input_selector` - CSS selector indicating the input field (must be the below the `container_selector` in the HTML structure).
 - `output_selector` - CSS selector indicating the output field (must be the below the `container_selector` in the HTML structure).
@@ -332,4 +332,4 @@ And include it into the back office using Webpack Encore. See [configuring asset
 
 Your custom Action Type is now fully integrated into the back office UI and can be used by the Editors.
 
-![Transcribe Audio Action Type integrated into the back office](img/ai_transcribe_audio.png "Transcribe Audio Action Type integrated into the back office")
+![Transcribe Audio Action Type integrated into the back office](img/transcribe_audio.png "Transcribe Audio Action Type integrated into the back office")

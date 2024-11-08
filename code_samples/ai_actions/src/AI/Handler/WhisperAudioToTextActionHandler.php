@@ -22,11 +22,8 @@ final class WhisperAudioToTextActionHandler implements ActionHandlerInterface
     {
         /** @var \App\AI\DataType\Audio $input */
         $input = $action->getInput();
-        $inputText = $input->getBase64();
 
-        $filename = uniqid('audio');
-        $path = sys_get_temp_dir() . \DIRECTORY_SEPARATOR . $filename;
-        file_put_contents($path, base64_decode($inputText));
+        $path = $this->saveInputToFile($input->getBase64());
 
         $arguments = ['whisper'];
 
@@ -42,10 +39,17 @@ final class WhisperAudioToTextActionHandler implements ActionHandlerInterface
         $process->run();
 
         if (!$process->isSuccessful()) {
+            unlink($path);
             throw new ProcessFailedException($process);
         }
 
         $output = $process->getOutput();
+
+        $includeTimestamps = $action->getActionContext()?->getActionTypeOptions()->get('include_timestamps', false) ?? false;
+
+        if (!$includeTimestamps) {
+            $output = $this->removeTimestamps($output);
+        }
 
         unlink($path);
 
@@ -55,5 +59,25 @@ final class WhisperAudioToTextActionHandler implements ActionHandlerInterface
     public static function getIdentifier(): string
     {
         return 'whisper_audio_to_text';
+    }
+
+    private function removeTimestamps(string $text): string
+    {
+        $lines = explode(PHP_EOL, $text);
+
+        $processed_lines = array_map(static function (string $line) {
+            return preg_replace('/^\[\d{2}:\d{2}\.\d{3} --> \d{2}:\d{2}\.\d{3}]\s*/', '', $line);
+        }, $lines);
+
+        return implode(PHP_EOL, $processed_lines);
+    }
+
+    private function saveInputToFile(string $audioEncodedInBase64): string
+    {
+        $filename = uniqid('audio');
+        $path = sys_get_temp_dir() . \DIRECTORY_SEPARATOR . $filename;
+        file_put_contents($path, base64_decode($audioEncodedInBase64));
+
+        return $path;
     }
 }

@@ -1,3 +1,7 @@
+---
+month_change: true
+---
+
 # Action Configuration Search Criterion reference
 
 Search criterions are found in the `Ibexa\Contracts\ConnectorAi\ActionConfiguration\Query\Criterion` namespace, implementing the [CriterionInterface](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorAi-ActionConfiguration-Query-CriterionInterface.html) interface:

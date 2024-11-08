@@ -27,11 +27,7 @@ services:
         arguments:
             $projectDir: '%kernel.project_dir%'
 
-    App\Command\ImproveTextCommand:
-        arguments:
-            $richTextConverter: '@ibexa.richtext.converter.output.xhtml5'
-
-    App\AI\Handler\LLamaTextToTextActionHandler:
+    App\AI\Handler\LLaVATextToTextActionHandler:
         tags:
             - { name: ibexa.ai.action.handler, priority: 0 }
             - { name: ibexa.ai.action.handler.text_to_text, priority: 0 }
@@ -42,35 +38,35 @@ services:
             $formType: 'App\Form\Type\TextToTextOptionsType'
         tags:
             - name: ibexa.connector_ai.action_configuration.form_mapper.options
-              type: LLamaTextToText
+              type: !php/const \App\AI\Handler\LLaVaTextToTextActionHandler::IDENTIFIER
 
     App\AI\ActionType\TranscribeAudioActionType:
         arguments:
             $actionHandlers: !tagged_iterator
-                tag: ibexa.ai.action.handler.audio_to_text
+                tag: app.connector_ai.action.handler.audio_to_text
                 default_index_method: getIdentifier
                 index_by: key
         tags:
             - { name: ibexa.ai.action.type, identifier: !php/const \App\AI\ActionType\TranscribeAudioActionType::IDENTIFIER }
 
+    app.connector_ai.action_configuration.handler.transcribe_audio.form_mapper.options:
+        class: Ibexa\Bundle\ConnectorAi\Form\FormMapper\ActionConfiguration\ActionTypeOptionsFormMapper
+        arguments:
+            $formType: 'App\Form\Type\TranscribeAudioOptionsType'
+        tags:
+            - name: ibexa.connector_ai.action_configuration.form_mapper.action_type_options
+              type: !php/const \App\AI\ActionType\TranscribeAudioActionType::IDENTIFIER
+
     App\AI\Handler\WhisperAudioToTextActionHandler:
         tags:
             - { name: ibexa.ai.action.handler, priority: 0 }
-            - { name: ibexa.ai.action.handler.audio_to_text, priority: 0 }
-
+            - { name: app.connector_ai.action.handler.audio_to_text, priority: 0 }
 
 #REST services
     App\AI\REST\Input\Parser\TranscribeAudio:
         parent: Ibexa\ConnectorAi\REST\Input\Parser\Action
-        autowire: true
         tags:
             - { name: ibexa.rest.input.parser, mediaType: application/vnd.ibexa.api.ai.TranscribeAudio }
-
-    App\AI\REST\Input\Parser\Audio:
-        parent: Ibexa\ConnectorAi\REST\Input\Parser\Action
-        autowire: true
-        tags:
-            - { name: ibexa.rest.input.parser, mediaType: application/vnd.ibexa.api.ai.Audio }
 
     App\AI\REST\Output\Resolver\AudioTextResolver:
         tags:

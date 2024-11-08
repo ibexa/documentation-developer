@@ -10,11 +10,13 @@ use Ibexa\Contracts\ConnectorAi\ActionInterface;
 use Ibexa\Contracts\ConnectorAi\ActionResponseInterface;
 use Symfony\Contracts\HttpClient\HttpClientInterface;
 
-final class LLamaTextToTextActionHandler implements ActionHandlerInterface
+final class LLaVaTextToTextActionHandler implements ActionHandlerInterface
 {
     private HttpClientInterface $client;
 
     private string $host;
+
+    public const string IDENTIFIER = 'LLaVATextToText';
 
     public function __construct(HttpClientInterface $client, string $host = 'http://localhost:8080')
     {
@@ -31,46 +33,31 @@ final class LLamaTextToTextActionHandler implements ActionHandlerInterface
     {
         /** @var \Ibexa\Contracts\ConnectorAi\Action\DataType\Text */
         $input = $action->getInput();
-        $text = str_replace(["\n", "\r"], ' ', $input->getText());
+        $text = $this->sanitizeInput($input->getText());
 
-        $handlerOptions = $action->getActionContext()?->getActionHandlerOptions();
-
-        if ($handlerOptions !== null) {
-            $systemMessage = $handlerOptions->has('system_prompt') ? $handlerOptions->get('system_prompt') : '';
-            $prompt = $handlerOptions->has('prompt') ? $handlerOptions->get('prompt') : '';
-            $system = $systemMessage . $prompt;
-        } else {
-            $system = '';
-        }
-
-        $content = $text;
-
-        $body = <<<BODY
-{
-    "model": "LLaMA_CPP",
-    "messages": [
-        {
-            "role": "system",
-            "content": "$system"
-        },
-        {
-            "role": "user",
-            "content": "$content"
-        }
-    ],
-    "temperature": 2.0
-}
-BODY;
+        $systemMessage = $action->hasActionContext() ? $action->getActionContext()->getActionHandlerOptions()->get('system_prompt', '') : '';
 
         $response = $this->client->request(
             'POST',
             sprintf('%s/v1/chat/completions', $this->host),
             [
                 'headers' => [
-                    'Content-Type' => 'Content-Type: application/json',
                     'Authorization: Bearer no-key',
                 ],
-                'body' => $body,
+                'json' => [
+                    'model' => 'LLaMA_CPP',
+                    'messages' => [
+                        [
+                            'role' => 'system',
+                            'content' => $systemMessage,
+                        ],
+                        [
+                            'role' => 'user',
+                            'content' => $text,
+                        ],
+                    ],
+                    'temperature' => 0.7,
+                ],
             ]
         );
 
@@ -81,6 +68,11 @@ BODY;
 
     public static function getIdentifier(): string
     {
-        return 'LLamaTextToText';
+        return self::IDENTIFIER;
+    }
+
+    private function sanitizeInput(string $text): string
+    {
+        return str_replace(["\n", "\r"], ' ', $text);
     }
 }

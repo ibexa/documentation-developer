@@ -34,7 +34,7 @@ which define, which parts of the application or website the user has access to.
 
 | Module                              | Function               | Effect                 | Possible Limitations |
 |-------------------------------------|------------------------|------------------------|----------------------|
-| <nobr>`action_configuration`</nobr> | <nobr>`view`</nobr>    | view AI Actions        |
+| <nobr>`action_configuration`</nobr> | <nobr>`view`</nobr>    | view AI Action         |
 |                                     | <nobr>`create`</nobr>  | create a new AI action |
 |                                     | <nobr>`edit`</nobr>    | edit an AI action      |
 |                                     | <nobr>`delete`</nobr>  | delete an AI action    |

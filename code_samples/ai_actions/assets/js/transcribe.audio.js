@@ -10,20 +10,14 @@ export default class TranscribeAudio extends BaseAIComponent {
         };
     }
 
-    getBase64Audio() {
+    getAudioInBase64() {
         var request = new XMLHttpRequest();
         request.open('GET', this.inputElement.href, false);
         request.overrideMimeType('text\/plain; charset=x-user-defined');
         request.send();
 
         if (request.status === 200) {
-            var data = request.responseText;
-            var binary = ""
-            for(var i=0;i<data.length;i++){
-                binary += String.fromCharCode(data.charCodeAt(i) & 0xff);
-            }
-
-            return btoa(binary);
+            return this.convertToBase64(request.responseText);
         }
     }
 
@@ -31,7 +25,7 @@ export default class TranscribeAudio extends BaseAIComponent {
         const body = {
             TranscribeAudio: {
                 Audio: {
-                    base64: this.getBase64Audio(),
+                    base64: this.getAudioInBase64(),
                 },
                 RuntimeContext: {},
             },
@@ -44,27 +38,27 @@ export default class TranscribeAudio extends BaseAIComponent {
         return JSON.stringify(body);
     }
 
-    getResponseValue(response) {
-        return response.AudioText.Text.text[0];
-    }
-
     afterFetchData(response) {
         super.afterFetchData();
 
         if (response) {
-            this.outputElement.value = this.getResponseValue(response);
+            this.outputElement.value = response.AudioText.Text.text[0];
         }
-    }
-
-    abortFetch() {
-        super.abortFetch();
-
-        this.outputElement.value = this.savePrevValue ? this.prevValue : '';
     }
 
     toggle(forceEnabled) {
         super.toggle(forceEnabled);
 
         this.outputElement.disabled = !forceEnabled || !this.outputElement.disabled;
+    }
+
+    convertToBase64(data) {
+        var binary = ""
+
+        for(var i=0;i<data.length;i++){
+            binary += String.fromCharCode(data.charCodeAt(i) & 0xff);
+        }
+
+        return btoa(binary);
     }
 }
