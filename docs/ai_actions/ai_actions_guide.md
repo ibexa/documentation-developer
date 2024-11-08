@@ -7,7 +7,7 @@ month_change: true
 
 ## What are AI Actions
 
-When you look around, artificial intelligence becomes more and more important by enhancing user interaction and automating complex processes.
+Wherever you look, artificial intelligence becomes more and more important by enhancing user interaction and automating complex processes.
 [[= product_name =]] can be equipped with the AI Actions LTS update, which harnesses AI's potential to automate time-consuming editorial tasks.
 AI Actions is an extensible solution for integrating features provided by AI services into your workflows, all managed through a user-friendly interface.
 
