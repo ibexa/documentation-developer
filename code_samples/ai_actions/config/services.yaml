@@ -1,0 +1,78 @@
+# This file is the entry point to configure your own services.
+# Files in the packages/ subdirectory configure your dependencies.
+
+# Put parameters here that don't need to change on each machine where the app is deployed
+# https://symfony.com/doc/current/best_practices.html#use-parameters-for-application-configuration
+parameters:
+
+services:
+    # default configuration for services in *this* file
+    _defaults:
+        autowire: true      # Automatically injects dependencies in your services.
+        autoconfigure: true # Automatically registers your services as commands, event subscribers, etc.
+
+    # makes classes in src/ available to be used as services
+    # this creates a service per class whose id is the fully-qualified class name
+    App\:
+        resource: '../src/'
+        exclude:
+            - '../src/DependencyInjection/'
+            - '../src/Entity/'
+            - '../src/Kernel.php'
+
+    # add more service definitions when explicit configuration is needed
+    # please note that last definitions always *replace* previous ones
+
+    App\Command\AddMissingAltTextCommand:
+        arguments:
+            $projectDir: '%kernel.project_dir%'
+
+    App\AI\Handler\LLaVATextToTextActionHandler:
+        tags:
+            - { name: ibexa.ai.action.handler, priority: 0 }
+            - { name: ibexa.ai.action.handler.text_to_text, priority: 0 }
+
+    app.connector_ai.action_configuration.handler.llava_text_to_text.form_mapper.options:
+        class: Ibexa\Bundle\ConnectorAi\Form\FormMapper\ActionConfiguration\ActionHandlerOptionsFormMapper
+        arguments:
+            $formType: 'App\Form\Type\TextToTextOptionsType'
+        tags:
+            - name: ibexa.connector_ai.action_configuration.form_mapper.options
+              type: !php/const \App\AI\Handler\LLaVaTextToTextActionHandler::IDENTIFIER
+
+    App\AI\ActionType\TranscribeAudioActionType:
+        arguments:
+            $actionHandlers: !tagged_iterator
+                tag: app.connector_ai.action.handler.audio_to_text
+                default_index_method: getIdentifier
+                index_by: key
+        tags:
+            - { name: ibexa.ai.action.type, identifier: !php/const \App\AI\ActionType\TranscribeAudioActionType::IDENTIFIER }
+
+    app.connector_ai.action_configuration.handler.transcribe_audio.form_mapper.options:
+        class: Ibexa\Bundle\ConnectorAi\Form\FormMapper\ActionConfiguration\ActionTypeOptionsFormMapper
+        arguments:
+            $formType: 'App\Form\Type\TranscribeAudioOptionsType'
+        tags:
+            - name: ibexa.connector_ai.action_configuration.form_mapper.action_type_options
+              type: !php/const \App\AI\ActionType\TranscribeAudioActionType::IDENTIFIER
+
+    App\AI\Handler\WhisperAudioToTextActionHandler:
+        tags:
+            - { name: ibexa.ai.action.handler, priority: 0 }
+            - { name: app.connector_ai.action.handler.audio_to_text, priority: 0 }
+
+#REST services
+    App\AI\REST\Input\Parser\TranscribeAudio:
+        parent: Ibexa\ConnectorAi\REST\Input\Parser\Action
+        tags:
+            - { name: ibexa.rest.input.parser, mediaType: application/vnd.ibexa.api.ai.TranscribeAudio }
+
+    App\AI\REST\Output\Resolver\AudioTextResolver:
+        tags:
+            - { name: ibexa.ai.action.mime_type, key: application/vnd.ibexa.api.ai.AudioText }
+
+    App\AI\REST\Output\ValueObjectVisitor\AudioText:
+        parent: Ibexa\Contracts\Rest\Output\ValueObjectVisitor
+        tags:
+            - { name: ibexa.rest.output.value_object.visitor, type: App\AI\REST\Value\AudioText }
