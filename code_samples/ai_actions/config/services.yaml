@@ -65,6 +65,7 @@ services:
 #REST services
     App\AI\REST\Input\Parser\TranscribeAudio:
         parent: Ibexa\ConnectorAi\REST\Input\Parser\Action
+        autowire: true
         tags:
             - { name: ibexa.rest.input.parser, mediaType: application/vnd.ibexa.api.ai.TranscribeAudio }
 
