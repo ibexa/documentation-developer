@@ -47,11 +47,11 @@ final class LLaVaTextToTextActionHandler implements ActionHandlerInterface
                 'json' => [
                     'model' => 'LLaMA_CPP',
                     'messages' => [
-                        [
+                        (object)[
                             'role' => 'system',
                             'content' => $systemMessage,
                         ],
-                        [
+                        (object)[
                             'role' => 'user',
                             'content' => $text,
                         ],
