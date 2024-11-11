@@ -30,6 +30,16 @@ which define, which parts of the application or website the user has access to.
 |------------------------------|--------------------|----------------------|-------------------------------------------------------------------------|
 | <nobr>`activity_log`</nobr> | <nobr>`read`</nobr> | access activity list | [ActivityLogOwner](limitation_reference.md#activitylogowner-limitation) |
 
+#### AI actions
+
+| Module                              | Function               | Effect                 | Possible Limitations |
+|-------------------------------------|------------------------|------------------------|----------------------|
+| <nobr>`action_configuration`</nobr> | <nobr>`view`</nobr>    | view AI Action         |
+|                                     | <nobr>`create`</nobr>  | create a new AI action |
+|                                     | <nobr>`edit`</nobr>    | edit an AI action      |
+|                                     | <nobr>`delete`</nobr>  | delete an AI action    |
+|                                     | <nobr>`execute`</nobr> | execute an AI action   |
+
 #### Customer groups
 
 | Module                        | Function              | Effect                  | Possible Limitations |
