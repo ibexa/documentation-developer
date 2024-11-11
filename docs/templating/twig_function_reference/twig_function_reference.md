@@ -21,5 +21,6 @@ and [Twig extensions provided by Symfony]([[= symfony_doc =]]/reference/twig_ref
   "templating/twig_function_reference/image_twig_functions",
   "templating/twig_function_reference/url_twig_functions",
   "templating/twig_function_reference/date_twig_filters",
+  "templating/twig_function_reference/ai_actions_twig_functions",
   "templating/twig_function_reference/other_twig_filters"
 ], columns=4) =]]
