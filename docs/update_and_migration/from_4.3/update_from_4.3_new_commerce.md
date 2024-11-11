@@ -1,5 +1,6 @@
 ---
 description: Update procedure to v4.4 for people who don't use Commerce packages and can remove them.
+month_change: true
 ---
 # Update with new Commerce packages
 

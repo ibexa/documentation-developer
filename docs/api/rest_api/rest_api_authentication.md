@@ -1,5 +1,6 @@
 ---
 description: To authenticate REST API communication you can use session (default), JWT, basic, OAuth and client certificate (SSL) authentication.
+month_change: true
 ---
 
 # REST API authentication

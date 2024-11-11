@@ -7,8 +7,8 @@ month_change: true
 
 ## What are AI Actions
 
-When you look around, artificial intelligence becomes more and more important by enhancing user interaction and automating complex processes.
-[[= product_name =]] can be equipped with the AI Actions LTS update, which harnesses AI's potential to automate time-consuming editorial tasks.
+Wherever you look, artificial intelligence becomes more and more important by enhancing user interaction and automating complex processes.
+[[= product_name =]] can be equipped with the AI Actions [LTS update](ibexa_dxp_v4.6.md#lts-updates), which harnesses AI's potential to automate time-consuming editorial tasks.
 AI Actions is an extensible solution for integrating features provided by AI services into your workflows, all managed through a user-friendly interface.
 
 Out-of-the-box, AI Actions solution includes two essential components: a framework package and an OpenAI connector package.
@@ -25,7 +25,7 @@ The possibilities are endless and you're not limited to a specific AI service, a
 
 ## Availability
 
-AI Actions are an opt-in capability available as an LTS Update to the v4.6.x version of [[= product_name =]], regardless of its edition.
+AI Actions are an opt-in capability available as an [LTS update](ibexa_dxp_v4.6.md#lts-updates) to the v4.6.x version of [[= product_name =]], regardless of its edition.
 To begin using AI Actions, you must first [install the required packages and perform initial configuration](install_ai_actions.md).
 
 !!! note "API Key"
@@ -51,16 +51,23 @@ It executes tasks that it receives through a service connector.
 
 #### Action
 
-Actions are tasks or functions that executed by an external AI service.
+Actions are tasks or functions that are executed by an external AI service.
 Each action is a combination of an AI action type and an AI action configuration.
 Action types define what kind of task the AI service performs, while AI action configurations specify how the task should be executed.
 This clear separation allows for a flexible system where actions can be created, managed, and customized with minimal effort.
 
 #### AI action type
 
-In simple words, AI action types are high level templates predefined by developers.
-AI action types correspond to tasks that users intend to perform when they interact with the interface.
-Each AI action type defines the structure and nature of the task that the AI service performs.
+AI action types are high level templates predefined by developers.
+AI action types correspond to tasks that users intend to perform when they interact with the interface. Each AI action type defines the structure and nature of the task that the AI service performs, and is interpreted by a handler.
+
+Action type definitions specify the following information:
+
+- an identifier
+- a set of input parameters
+- a set of output fields
+- a category of action, for example, "text to image", "video to text"
+
 AI action types could be designed, for example, to generate alternative text based on an image, translate a selected passage of text, or generate a video clip based on a description provided in the field.
 By defining AI action types, developers can create a wide range of functionalities that can be deployed within the application.
 

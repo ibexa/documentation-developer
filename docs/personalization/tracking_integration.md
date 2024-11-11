@@ -1,5 +1,6 @@
 ---
 description: See the methods of event tracking integration using tracking from server or from client-side.
+month_change: true
 ---
 
 # Tracking integration

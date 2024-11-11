@@ -1,5 +1,6 @@
 ---
 description: Integrate tracking with a Google-style JavaScript.
+month_change: true
 ---
 
 # Track events with ibexa-tracker.js
