@@ -10,6 +10,7 @@
         <api>
             <source dsn=".">
                 <path>vendor/ibexa/**/contracts/**/*</path>
+                <path>vendor/symfony/event-dispatcher-contracts/Event.php</path>
             </source>
             <ignore hidden="true" symlinks="true">
                 <path>vendor/**/Test/**/*</path>
