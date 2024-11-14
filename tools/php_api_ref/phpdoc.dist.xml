@@ -12,6 +12,7 @@
                 <path>vendor/ibexa/**/contracts/**/*</path>
             </source>
             <ignore hidden="true" symlinks="true">
+                <path>vendor/**/Test/**/*</path>
                 <path>vendor/**/tests/**/*</path>
             </ignore>
             <!-- Hide private elements -->
