@@ -22,6 +22,10 @@ baseUri: ../rest_api_usage/rest_api_usage/
     # /assets: !include ibexa-content-assets.raml
     #/binary: !include ibexa-content-binary.raml
 
+/collaboration:
+    displayName: Collaborative editing
+    /session: !include ibexa-collaborativeediting-session.raml
+
 /views: !include ibexa-views.raml
 
 /calendar: !include ibexa-calendar.raml

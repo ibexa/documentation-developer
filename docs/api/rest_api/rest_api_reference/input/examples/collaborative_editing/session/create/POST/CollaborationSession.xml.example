@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CollaborationSession media-type="application/vnd.ibexa.api.CollaborationSession+xml">
+    <id>20</id>
+    <token>076e749e-20ed-4df7-a8a0-e9c8ba8edbf5</token>
+    <createdAt>2024-11-15T10:06:04+00:00</createdAt>
+    <updatedAt>2024-11-15T10:06:04+00:00</updatedAt>
+    <ParticipantList media-type="application/vnd.ibexa.api.ParticipantList+xml">
+        <Participant media-type="application/vnd.ibexa.api.InternalParticipant+xml">
+            <id>47</id>
+            <name>Administrator User</name>
+            <scope>view</scope>
+            <User media-type="application/vnd.ibexa.api.User+xml" href="/api/ibexa/v2/user/users/14"/>
+            <createdAt>2024-11-15T10:06:04+00:00</createdAt>
+            <updatedAt>2024-11-15T10:06:04+00:00</updatedAt>
+        </Participant>
+        <Participant media-type="application/vnd.ibexa.api.ExternalParticipant+xml">
+            <id>48</id>
+            <name>user@link.invalid</name>
+            <scope>view</scope>
+            <email>user@link.invalid</email>
+            <createdAt>2024-11-15T10:06:04+00:00</createdAt>
+            <updatedAt>2024-11-15T10:06:04+00:00</updatedAt>
+        </Participant>
+    </ParticipantList>
+    <Owner media-type="application/vnd.ibexa.api.User+xml" href="/api/ibexa/v2/user/users/14"/>
+</CollaborationSession>

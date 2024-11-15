@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Invitation media-type="application/vnd.ibexa.api.Invitation+xml">
+    <id>3</id>
+    <status>pending</status>
+    <createdAt>2024-11-18T08:04:28+00:00</createdAt>
+    <updatedAt>2024-11-18T08:04:28+00:00</updatedAt>
+    <context>
+        <value key="simple_array">
+            <value key="element">
+                <value>test</value>
+                <value>value1</value>
+                <value>value2</value>
+                <value>value3</value>
+                <value>value4</value>
+                <value>value5</value>
+            </value>
+        </value>
+        <value key="single_value">value</value>
+        <value key="extended_array">
+            <value key="bar">bar_value</value>
+            <value key="baz">baz_value</value>
+            <value key="foo">foo_value</value>
+        </value>
+    </context>
+    <Sender media-type="application/vnd.ibexa.api.User+xml" href="/api/ibexa/v2/user/users/14"/>
+</Invitation>
