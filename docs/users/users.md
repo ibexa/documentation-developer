@@ -9,7 +9,7 @@ Users in [[= product_name =]] refer to all kinds of user accounts: administrator
 managers or shop customers.
 All such user accounts have the same underlying mechanism and enable you to control access to te application, both the Back Office and the website front, by using the [permission system](permissions.md).
 
-## Invite nad manage users
+## Invite and manage users
 
 [[= cards([
 "users/user_management_guide",
