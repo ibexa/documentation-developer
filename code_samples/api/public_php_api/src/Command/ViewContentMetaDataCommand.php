@@ -53,7 +53,7 @@ class ViewContentMetaDataCommand extends Command
         $user = $this->userService->loadUserByLogin('admin');
         $this->permissionResolver->setCurrentUserReference($user);
 
-        $contentId = $input->getArgument('contentId');
+        $contentId = (int) $input->getArgument('contentId');
 
         // Metadata
         $contentInfo = $this->contentService->loadContentInfo($contentId);
