@@ -1,0 +1,18 @@
+{
+    "InvitationCreate": {
+        "email": "anonymous@link.invalid",
+        "Sender": {
+            "_media-type": "application/vnd.ibexa.api.User+json",
+            "_href": "/api/ibexa/v2/user/users/14"
+        },
+        "context": {
+            "single_value": "value",
+            "simple_array": ["test","value1","value2","value3","value4","value5"],
+            "extended_array": {
+                "foo": "foo_value",
+                "bar": "bar_value",
+                "baz": "baz_value"
+            }
+        }
+    }
+}

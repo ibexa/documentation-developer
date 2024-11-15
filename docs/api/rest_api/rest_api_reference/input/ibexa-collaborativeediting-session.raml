@@ -1,41 +1,46 @@
-/collaboration/session/create:
-    post:
-        displayName: Add participant
-        description: Adds new participant.
-        headers:
-            Accept:
-                description: If set, the new participant is returned in XML or JSON format.
-                example:
-                    application/vnd.ibexa.api.CollaborationSession+json
-                    application/vnd.ibexa.api.CollaborationSession+xml
-            Content-Type:
-                description: The participant schema encoded in XML or JSON format.
-                example:
-                    application/vnd.ibexa.api.CollaborationSessionCreate+json
-                    application/vnd.ibexa.api.CollaborationSessionCreate+xml
-        body:
-            application/vnd.ibexa.api.ParticipantList+json:
-                type: ProductList
-                example: !include examples/collaborative_editing/session/create/POST/CollaborationSessionCreate.json.example
-        responses:
-            201:
-                body:
-                    application/vnd.ibexa.api.ParticipantList+json:
-                        type: ProductList
-                        example: !include examples/
-            400:
-                description: Error - the input does not match the input schema definition.
-            401:
-                description: Error - the user is not authorized to update this product.
-            403:
-                description: Error - a participant with the same name already exists.
-            404:
-                description: Error - no participant with the given ID exists.
+post:
+    displayName: Create session
+    description: Create collaborative editing session.
+    headers:
+        Accept:
+            description: If set, the new session is returned in XML or JSON format.
+            example:
+                application/vnd.ibexa.api.CollaborationSession+json
+                application/vnd.ibexa.api.CollaborationSession+xml
+        Content-Type:
+            description: The session schema encoded in XML or JSON format.
+            example:
+                application/vnd.ibexa.api.CollaborationSessionCreate+json
+                application/vnd.ibexa.api.CollaborationSessionCreate+xml
+    body:
+        application/vnd.ibexa.api.ParticipantList+xml:
+            type: Session
+            example: !include examples/collaborative_editing/session/create/POST/CollaborationSessionCreate.xml.example
+        application/vnd.ibexa.api.ParticipantList+json:
+            type: Session
+            example: !include examples/collaborative_editing/session/create/POST/CollaborationSessionCreate.json.example
+    responses:
+        201:
+            body:
+                application/vnd.ibexa.api.CollaborationSession+xml:
+                    type: Session
+                    example: !include examples/collaborative_editing/session/create/POST/CollaborationSession.xml.example
+                application/vnd.ibexa.api.CollaborationSession+json:
+                    type: Session
+                    example: !include examples/collaborative_editing/session/create/POST/CollaborationSession.json.example
+        400:
+            description: Error - the input does not match the input schema definition.
+        401:
+            description: Error - the user is not authorized to update this session.
+        403:
+            description: Error - a session with the same ID already exists.
+        404:
+            description: Error - no session with the given ID exists.
 
-/collaboration/session/{sessionId}/delete:
+/{sessionId}:
     delete:
         displayName: Delete session (collaboration)
-        description: The collaboration session is removed.
+        description: The collaboration session is deleted.
         headers:
             Cookie:
                 description: "{sessionName}={sessionID}"
@@ -46,28 +51,186 @@
                 description: OK - session deleted.
             404:
                 description: Error - the session does not exist.
+    get:
+        displayName: Retrieve session details
+        description: Get the collaboration session's information.
+        headers:
+            Cookie:
+                description: "{sessionName}={sessionID}"
+            X-CSRF-Token:
+                description: The {csrfToken} needed on all unsafe HTTP methods with session.
+            Accept:
+                example: |
+                    application/vnd.ibexa.api.CollaborationSession+xml
+                    application/vnd.ibexa.api.CollaborationSession+json
+        responses:
+            200:
+                body:
+                    application/vnd.ibexa.api.CollaborationSession+xml:
+                        type: CollaborationSession
+                        example: !include examples/collaborative_editing/session/GET/CollaborationSession.xml.example
+                    application/vnd.ibexa.api.CollaborationSession+json:
+                        type: CollaborationSession
+                        example: !include examples/collaborative_editing/session/GET/CollaborationSession.json.example
+            404:
+                description: Error - the session does not exist.
+/{sessionId}/participants:
+    get:
+        displayName: Load participant list
+        description: Loads participant list.
+        queryParameters:
+            sessionId:
+                description: Retrieves the participant list for a given collaboration session ID (e.g. GET /collaboration/session/1234).
+        headers:
+            Accept:
+                description: ParticipantList - If set, the participant list is returned in XML or JSON format.
+                    application/vnd.ibexa.api.ParticipantList+xml
+                    application/vnd.ibexa.api.ParticipantList+json
+        responses:
+            200:
+                description: OK - Loads participants for a given collaboration session ID.
+                body:
+                    application/vnd.ibexa.api.ParticipantList+xml:
+                        type: ParticipantList
+                        example: !include examples/collaborative_editing/participant/list/GET/ParticipantList.xml.example
+                    application/vnd.ibexa.api.ParticipantList+json:
+                        type: ParticipantList
+                        example: !include examples/collaborative_editing/participant/list/GET/ParticipantList.json.example
+            404:
+                description: If there are no visibile participants matching the filter.
 
-/collaboration/session/{sessionId}/retrieve:
-        get:
-            displayName: Retrieve session
-            description: Get the collaboration session's information.
-            headers:
-                Cookie:
-                    description: "{sessionName}={sessionID}"
-                X-CSRF-Token:
-                    description: The {csrfToken} needed on all unsafe HTTP methods with session.
-                Accept:
-                    example: |
-                        application/vnd.ibexa.api.CollaborationSession+<xml
-                        application/vnd.ibexa.api.CollaborationSession+json
-            responses:
-                200:
-                    body:
-                        application/vnd.ibexa.api.CollaborationSession+xml:
-                            type: CollaborationSession
-                            example: !include examples/
-                        application/vnd.ibexa.api.CollaborationSession+json:
-                            type: CollaborationSession
-                            example: !include examples/
-                404:
-                    description: Error - the session does not exist.
+/{sessionId}/participant:
+    post:
+        displayName: Add participant
+        description: Adds new participant.
+        headers:
+            Accept:
+                description: If set, the new participant is returned in XML or JSON format.
+                example:
+                    application/vnd.ibexa.api.ParticipantList+json
+                    application/vnd.ibexa.api.ParticipantList+xml
+            Content-Type:
+                description: The participant schema encoded in XML or JSON format.
+                example: 
+                    application/vnd.ibexa.api.ParticipantListCreate+json
+                    application/vnd.ibexa.api.ParticipantListCreate+xml
+        body:
+            application/vnd.ibexa.api.ParticipantListCreate+xml:
+                type: ParticipantList
+                example: !include examples/collaborative_editing/participant/add/POST/ParticipantListCreate.xml.example
+            application/vnd.ibexa.api.ParticipantListCreate+json:
+                type: ParticipantList
+                example: !include examples/collaborative_editing/participant/add/POST/ParticipantListCreate.json.example
+        responses:
+            201:
+                body:
+                    application/vnd.ibexa.api.ParticipantList+xml:
+                        type: ParticipantList
+                        example: !include examples/collaborative_editing/participant/add/POST/ParticipantList.xml.example
+                    application/vnd.ibexa.api.ParticipantList+json:
+                        type: ParticipantList
+                        example: !include examples/collaborative_editing/participant/add/POST/ParticipantList.json.example
+            400:
+                description: Error - the input does not match the input schema definition.
+            401:
+                description: Error - the user is not authorized to update this pparticipant.
+            403:
+                description: Error - a participant with the same name already exists.
+            404:
+                description: Error - no participant with the given ID exists.
+
+/{sessionId}/participant/{participantId}:
+    patch:
+        displayName: Update participant
+        description: Updates a participant.
+        headers:
+            Accept:
+                description: If set, the updated participant is returned in XML or JSON format.
+                example:  |
+                    application/vnd.ibexa.api.<Discriminator>Participant+json
+                    application/vnd.ibexa.api.<Discriminator>Participant+xml
+            Content-Type:
+                description: The ParticipantUpdate schema encoded in XML or JSON format.
+                example:  |
+                    application/vnd.ibexa.api.<Discriminator>ParticipantUpdate+json
+                    application/vnd.ibexa.api.<Discriminator>ParticipantUpdate+xml
+            If-Match:
+                description: Performs a PATCH only if the specified ETag is the current one.
+                # example: ETag
+        body:
+            application/vnd.ibexa.api.ParticipantUpdate+xml:
+                type: ParticipantUpdate
+                example: !include examples/collaborative_editing/participant/add/PATCH/InternalParticipantUpdate.xml.example
+            application/vnd.ibexa.api.ParticipantUpdate+json:
+                type: ParticipantUpdate
+                example: !include examples/collaborative_editing/participant/add/PATCH/InternalParticipantUpdate.json.example
+
+        responses:
+            200:
+                description: OK - participant updated.
+                body:
+                    application/vnd.ibexa.api.participant+xml:
+                        type: Participant
+                        example: !include examples/collaborative_editing/participant/add/PATCH/InternalParticipant.xml.example
+                    application/vnd.ibexa.api.participant+json:
+                        type: Participant
+                        example: !include examples/collaborative_editing/participant/add/PATCH/InternalParticipant.json.example
+            400:
+                description: Error - the input does not match the input schema definition.
+            401:
+                description: Error - the user is not authorized to update the User.
+            404:
+                description: Error - the User does not exist.
+            412:
+                description: Error - the current ETag does not match with the provided one in the If-Match header.
+    delete:
+        displayName: Delete participant
+        description: Deletes the given participant.
+        responses:
+            204:
+                description: No Content.
+            401:
+                description: Error - the user is not authorized to delete this participant.
+            403:
+                description: Error - the user is the same as the authenticated participant.
+            404:
+                description: Error - the participant does not exist.
+/{sessionId}/invitations:
+    post:
+        displayName: Create invitation
+        description: Creates an invitation to a session.
+        headers:
+            Accept:
+                description: If set, the new invitationt is returned in XML or JSON format.
+                example:
+                    application/vnd.ibexa.api.Invitation+json
+                    application/vnd.ibexa.api.Invitation+xml
+            Content-Type:
+                description: The invitation schema encoded in XML or JSON format.
+                example: 
+                    application/vnd.ibexa.api.InvitationCreate+json
+                    application/vnd.ibexa.api.InvitationCreate+xml
+        body:
+            application/vnd.ibexa.api.InvitationCreate+xml:
+                type: Invitation
+                example: !include examples/collaborative_editing/session/create/POST/InvitationCreate.xml.example
+            application/vnd.ibexa.api.InvitationCreate+json:
+                type: Invitation
+                example: !include examples/collaborative_editing/session/create/POST/InvitationCreate.json.example
+        responses:
+            201:
+                body:
+                    application/vnd.ibexa.api.Invitation+xml:
+                        type: Invitation
+                        example: !include examples/collaborative_editing/session/create/POST/Invitation.xml.example
+                    application/vnd.ibexa.api.Invitation+json:
+                        type: Invitation
+                        example: !include examples/collaborative_editing/session/create/POST/Invitation.xml.example
+            400:
+                description: Error - the input does not match the input schema definition.
+            401:
+                description: Error - the user is not authorized to create an invitation.
+            403:
+                description: Error - an invitation with the same ID already exists.
+            404:
+                description: Error - no session with the given ID exists.
