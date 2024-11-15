@@ -103,11 +103,11 @@ to get only versions of a specific status, e.g.:
 
 Content Relations are versioned.
 To list Relations to and from your content,
-you need to pass a `VersionInfo` object to the [`ContentService::loadRelations`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-ContentService.html#method_loadRelations) method.
+you need to pass a `VersionInfo` object to the [`ContentService::loadRelationList`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-ContentService.html#method_loadRelationList) method.
 You can get the current version's `VersionInfo` using [`ContentService::loadVersionInfo`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-ContentService.html#method_loadVersionInfo).
 
 ``` php
-[[= include_file('code_samples/api/public_php_api/src/Command/ViewContentMetaDataCommand.php', 100, 106) =]]
+[[= include_file('code_samples/api/public_php_api/src/Command/ViewContentMetaDataCommand.php', 100, 107) =]]
 ```
 
 You can also specify the version number as the second argument to get Relations for a specific version:
@@ -116,7 +116,8 @@ You can also specify the version number as the second argument to get Relations 
 $versionInfo = $this->contentService->loadVersionInfo($contentInfo, 2);
 ```
 
-`loadRelations` provides an array of [`Relation`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Relation.html) objects.
+`loadRelationList` provides an iterable [`RelationList`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-RelationList.html) object
+listing [`Relation`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Relation.html) objects.
 `Relation` has two main properties: `destinationContentInfo`, and `sourceContentInfo`.
 It also holds the [relation type](content_relations.md),
 and the optional Field this relation is made with.
@@ -126,7 +127,7 @@ and the optional Field this relation is made with.
 You can use the `getOwner` method of the `ContentInfo` object to load the content item's owner as a `User` value object.
 
 ``` php
-[[= include_file('code_samples/api/public_php_api/src/Command/ViewContentMetaDataCommand.php', 108, 109) =]]
+[[= include_file('code_samples/api/public_php_api/src/Command/ViewContentMetaDataCommand.php', 109, 110) =]]
 ```
 
 To get the creator of the current version and not the content item's owner,
@@ -139,7 +140,7 @@ the [`getSection`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-C
 of the ContentInfo object:
 
 ``` php
-[[= include_file('code_samples/api/public_php_api/src/Command/ViewContentMetaDataCommand.php', 111, 112) =]]
+[[= include_file('code_samples/api/public_php_api/src/Command/ViewContentMetaDataCommand.php', 112, 113) =]]
 ```
 
 !!! note
@@ -155,7 +156,7 @@ You need to provide it with the Object state group.
 All Object state groups can be retrieved through [`loadObjectStateGroups`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-ObjectStateService.html#method_loadObjectStateGroups).
 
 ``` php
-[[= include_file('code_samples/api/public_php_api/src/Command/ViewContentMetaDataCommand.php', 114, 119) =]]
+[[= include_file('code_samples/api/public_php_api/src/Command/ViewContentMetaDataCommand.php', 115, 120) =]]
 ```
 
 ## Viewing content with Fields

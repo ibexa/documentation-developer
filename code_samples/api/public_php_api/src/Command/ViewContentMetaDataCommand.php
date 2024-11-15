@@ -99,10 +99,11 @@ class ViewContentMetaDataCommand extends Command
 
         // Relations
         $versionInfo = $this->contentService->loadVersionInfo($contentInfo);
-        $relations = $this->contentService->loadRelations($versionInfo);
-        foreach ($relations as $relation) {
-            $name = $relation->destinationContentInfo->name;
-            $output->writeln('Relation to content ' . $name);
+        $relationCount = $this->contentService->countRelations($versionInfo);
+        $relationList = $this->contentService->loadRelationList($versionInfo, 0, $relationCount);
+        foreach ($relationList as $relationListItem) {
+            $name = $relationListItem->getRelation()->destinationContentInfo->name;
+            $output->writeln("Relation to content '$name'");
         }
 
         // Owner
