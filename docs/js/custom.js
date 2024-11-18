@@ -132,19 +132,14 @@ $(document).ready(function() {
             });
 
             let link = $('.ds-dropdown-menu a.search-page-link');
-            const href = '/en/' + branchName + '/search_results/?sq=' + encodeURI($('#search_input').val()) + '&p=1';
-
             if (!link.length) {
-                link = $('.ds-dropdown-menu').append(`<div class="search-page-link-wrapper">
+                $('.ds-dropdown-menu').append(`<div class="search-page-link-wrapper">
                     <a class="search-page-link" href="">See all results</a>
                 </div>`);
+                link = $('.ds-dropdown-menu a.search-page-link');
             }
-
-            link.attr('href', href).show();
-
-            if (hits.length < hitsPerPage) {
-                link.hide();
-            }
+            const href = '/en/' + branchName + '/search_results/?sq=' + encodeURI($('#search_input').val()) + '&p=1';
+            link.attr('href', href).toggle(hits.length >= hitsPerPage);
         },
         algoliaOptions: {
             facetFilters: ['lang:en', 'version:' + branchName],
