@@ -144,12 +144,22 @@ $(document).ready(function() {
         debug: true,
     });
     search.autocomplete.on('autocomplete:updated', event => {
-        $('.ds-dropdown-menu .ds-suggestion').each(function() {
-            let category = $(this).find('.algolia-docsearch-suggestion--subcategory-column');
-            let content = $(this).find('.algolia-docsearch-suggestion--title');
-            //if (content.text().trim() == category.text().trim()) {
-            //    content.remove();
-            //}
+        const searchedText = $('.ais-SearchBox-input')[0].value.trim();
+        $('.algolia-docsearch-suggestion--wrapper').each((index, element) => {
+            const title = $(element).find('.algolia-docsearch-suggestion--title');
+            const category = $(element).find('.algolia-docsearch-suggestion--subcategory-column-text');
+            category.append('<span class="aa-suggestion-title-separator" aria-hidden="true">&gt;</span>');
+            if (title.find('.aa-suggestion-title-separator').length) {
+                $.each(title.contents(), (i, e) => {
+                    if (title.contents().length > 1) {
+                        $(e).appendTo(category);
+                    }
+                });
+            }
+            const displayedText = $(element).find('.algolia-docsearch-suggestion--text');
+            if (displayedText.length && displayedText.text() == searchedText+'…') {
+                displayedText.remove();
+            }
         });
     });
 
