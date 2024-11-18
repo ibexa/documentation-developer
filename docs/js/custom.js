@@ -67,7 +67,9 @@ $(document).ready(function() {
             $('.rst-other-versions.switcher__list dl.versions dd strong').parent().addClass('rtd-current-item');
 
             if ('master' !== (vl = $('.rst-other-versions.switcher__list dl.versions')).find('dd:first').text()) {
-                vl.find('dd').each(function() {$(this).detach().prependTo(vl)});
+                vl.find('dd').each(function() {
+                    $(this).detach().prependTo(vl);
+                });
             }
 
             const allVersions = [...document.querySelectorAll('.switcher__list .versions dd')];
@@ -119,12 +121,12 @@ $(document).ready(function() {
         inputSelector: '#search_input',
         transformData: function(hits) {
             $.each(hits, function(index, hit) {
-                for (let lvl=2; lvl<=6; lvl++) {
-                    if (null !== hit.hierarchy['lvl'+lvl]) {
+                for (let lvl = 2; lvl <= 6; lvl++) {
+                    if (null !== hit.hierarchy['lvl' + lvl]) {
                         hits[index].hierarchy['lvl' + lvl] = hit.hierarchy['lvl' + lvl];
                     }
-                    if ('undefined' !== typeof hit._highlightResult.hierarchy['lvl'+lvl]) {
-                        hits[index]._highlightResult.hierarchy['lvl'+lvl].value = hit._highlightResult.hierarchy['lvl'+lvl].value;
+                    if ('undefined' !== typeof hit._highlightResult.hierarchy['lvl' + lvl]) {
+                        hits[index]._highlightResult.hierarchy['lvl' + lvl].value = hit._highlightResult.hierarchy['lvl' + lvl].value;
                     }
                 }
             });
@@ -148,7 +150,7 @@ $(document).ready(function() {
             facetFilters: ['lang:en', 'version:' + branchName],
             hitsPerPage: hitsPerPage,
         },
-        handleSelected: function (input, event, suggestion, datasetNumber, context) {
+        handleSelected: function(input, event, suggestion, datasetNumber, context) {
             if (context.selectionMethod == 'click') {
                 window.location = suggestion.url;
             } else if (context.selectionMethod == 'enterKey') {
@@ -171,7 +173,7 @@ $(document).ready(function() {
         if (event.keyCode == 13) {
             event.preventDefault();
 
-            return false
+            return false;
         }
     });
 
@@ -200,7 +202,7 @@ $(document).ready(function() {
 
     if ($('.md-sidebar--primary .md-sidebar__scrollwrap')[0] && $('.md-sidebar--primary .md-nav__item--active:not(.md-nav__item--nested)')[0]) {
         $('.md-sidebar--primary .md-sidebar__scrollwrap')[0].scrollTop =
-        $('.md-sidebar--primary .md-nav__item--active:not(.md-nav__item--nested)')[0].offsetTop - 33;
+            $('.md-sidebar--primary .md-nav__item--active:not(.md-nav__item--nested)')[0].offsetTop - 33;
     }
 
     $(document).scroll(function() {
@@ -231,5 +233,5 @@ $(document).ready(function() {
     });
 
     // Mark higher-level nodes with "New" pill, not only the actual item
-    $(".pill.new:not([hidden])").parents(".md-nav__item").children('label').children(".pill.new[hidden]").removeAttr('hidden');
+    $('.pill.new:not([hidden])').parents('.md-nav__item').children('label').children('.pill.new[hidden]').removeAttr('hidden');
 });
