@@ -19,15 +19,5 @@ It works with current user reference.
 ### PHP
 
 ``` php
-<?php declare(strict_types=1);
-
-use Ibexa\Contracts\Core\Repository\Values\Content\LocationQuery;
-use Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion\Location\IsBookmarked;
-
-$query = new LocationQuery();
-$query->filter = new IsBookmarked();
-
-/** @var \Ibexa\Contracts\Core\Repository\SearchService $searchService */
-
-$results = $searchService->findLocations($query);
+[[= include_file('code_samples/search/location/isbookmarked_criterion.php') =]]
 ```
