@@ -1,5 +1,6 @@
 ---
 target_version: '3.3'
+month_change: true
 ---
 
 # Update the app to v3.3

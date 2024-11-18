@@ -1,5 +1,6 @@
 ---
 description: Update your installation to the latest v4.6 version from an earlier v4.6 version.
+month_change: true
 ---
 
 # Update from v4.6.x to v4.6.latest
@@ -119,7 +120,7 @@ No additional steps needed.
 
 ## v4.6.10
 
-A command to deal with duplicated database entries, as reported in [IBX-8562](https://issues.ibexa.co/browse/IBX-8562), will be available soon.
+No additional steps needed.
 
 ## v4.6.11
 
@@ -138,8 +139,27 @@ merge with your custom settings if needed, and commit them to Git.
 
 ## v4.6.12
 
-If the new bundle `ibexa/core-search` has not been added by the recipies, enable it by adding the following line in `config/bundles.php`:
+If the new bundle `ibexa/core-search` has not been added by the recipes, enable it by adding the following line in `config/bundles.php`:
 
 ```php
     Ibexa\Bundle\CoreSearch\IbexaCoreSearchBundle::class => ['all' => true],
 ```
+
+## v4.6.13
+
+This release comes with a command to clean up the duplicated entries in the `ezcontentobject_attribute` table, caused by the issue described in [IBX-8562](https://issues.ibexa.co/browse/IBX-8562).
+
+If you're affected you can remove the duplicated entries by running the following command:
+``` bash
+php bin/console ibexa:content:remove-duplicate-fields
+```
+
+!!! caution
+
+    Remember about [**proper database backup**](backup.md) before running the command in the production environment.
+
+You can customize the behavior of the command with the following options:
+
+- `batch-size` or `b` - number of attributes affected per iteration. Default value = 10000.
+- `max-iterations` or `i` - max. iterations count (default or -1: unlimited). Default value = -1.
+- `sleep` or `s` - wait time between iterations, in milliseconds. Default value = 0.

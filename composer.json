@@ -60,7 +60,8 @@
         "ibexa/form-builder": "5.0.x-dev",
         "ibexa/solr": "5.0.x-dev",
         "ibexa/version-comparison": "5.0.x-dev",
-        "league/oauth2-google": "^4.0"
+        "league/oauth2-google": "^4.0",
+        "ibexa/core-search": "~5.0.x-dev"
     },
     "scripts": {
         "fix-cs": "php-cs-fixer fix --config=.php-cs-fixer.php -v --show-progress=dots",
