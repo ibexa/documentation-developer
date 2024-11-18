@@ -110,6 +110,7 @@ $(document).ready(function() {
         })
         .addClass('external');
 
+    const hitsPerPage = 10;
     let search = docsearch({
         container: '#docsearch',
         appId: '2DNYOU6YJZ',
@@ -117,15 +118,13 @@ $(document).ready(function() {
         indexName: 'ezplatform',
         inputSelector: '#search_input',
         transformData: function(hits) {
-            const hitsPerPage = 10;
-            const removedPattern = '¶';
             $.each(hits, function(index, hit) {
                 for (let lvl=2; lvl<=6; lvl++) {
                     if (null !== hit.hierarchy['lvl'+lvl]) {
-                        hits[index].hierarchy['lvl' + lvl] = hit.hierarchy['lvl' + lvl].replace(removedPattern, '');
+                        hits[index].hierarchy['lvl' + lvl] = hit.hierarchy['lvl' + lvl];
                     }
                     if ('undefined' !== typeof hit._highlightResult.hierarchy['lvl'+lvl]) {
-                        hits[index]._highlightResult.hierarchy['lvl'+lvl].value = hit._highlightResult.hierarchy['lvl'+lvl].value.replace(removedPattern, '');
+                        hits[index]._highlightResult.hierarchy['lvl'+lvl].value = hit._highlightResult.hierarchy['lvl'+lvl].value;
                     }
                 }
             });
@@ -147,7 +146,7 @@ $(document).ready(function() {
         },
         algoliaOptions: {
             facetFilters: ['lang:en', 'version:' + branchName],
-            hitsPerPage: 10,
+            hitsPerPage: hitsPerPage,
         },
         handleSelected: function (input, event, suggestion, datasetNumber, context) {
             if (context.selectionMethod == 'click') {
