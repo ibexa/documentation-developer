@@ -20,19 +20,39 @@
         },
     });
 
-    doc.getElementById('searchbox').addEventListener('keyup', function (event) {
+    getNextSearchURL = () => {
+        const searchInputElements = document.getElementsByClassName('ais-SearchBox-input');
+        const text = searchInputElements[0].value.trim();
+        const selectedPaginationItemElements = doc.getElementsByClassName('ais-Pagination-item--selected');
+        const page = selectedPaginationItemElements.length ? parseInt(selectedPaginationItemElements[0].innerText) : 1
         const url = new URL(window.location);
-        url.searchParams.set('sq', event.target.value.trim());
-        if (url.href != window.location.href) {
-            url.searchParams.set('p', 1);
+        url.searchParams.set('sq', text);
+        url.searchParams.set('p', page);
+        return url;
+    };
+
+    let idleTimer;
+    const startIdleTimer = (url) => {
+        stopIdleTimer();
+        idleTimer = window.setTimeout(()=>{
             window.history.pushState({}, '', url);
+        }, 1500);
+    };
+    const stopIdleTimer = () => {
+        window.clearTimeout(idleTimer);
+    }
+
+    doc.getElementById('searchbox').addEventListener('keyup', function (event) {
+        const url = getNextSearchURL();
+        if (url.searchParams.get('sq') != (new URL(window.location)).searchParams.get('sq')) {
+            url.searchParams.set('p', 1);
+            startIdleTimer(url);
         }
     })
 
     doc.getElementById('pagination').addEventListener('click', function (event) {
-        const page = doc.getElementsByClassName('ais-Pagination-item--selected').length ? parseInt(doc.getElementsByClassName('ais-Pagination-item--selected')[0].innerText) : 1
-        const url = new URL(window.location);
-        url.searchParams.set('p', page);
+        stopIdleTimer();
+        const url = getNextSearchURL();
         window.history.pushState({}, '', url);
     })
 
