@@ -120,17 +120,6 @@ $(document).ready(function() {
         indexName: 'ezplatform',
         inputSelector: '#search_input',
         transformData: function(hits) {
-            $.each(hits, function(index, hit) {
-                for (let lvl = 2; lvl <= 6; lvl++) {
-                    if (null !== hit.hierarchy['lvl' + lvl]) {
-                        hits[index].hierarchy['lvl' + lvl] = hit.hierarchy['lvl' + lvl];
-                    }
-                    if ('undefined' !== typeof hit._highlightResult.hierarchy['lvl' + lvl]) {
-                        hits[index]._highlightResult.hierarchy['lvl' + lvl].value = hit._highlightResult.hierarchy['lvl' + lvl].value;
-                    }
-                }
-            });
-
             let link = $('.ds-dropdown-menu a.search-page-link');
             if (!link.length) {
                 $('.ds-dropdown-menu').append(`<div class="search-page-link-wrapper">
@@ -152,15 +141,15 @@ $(document).ready(function() {
                 window.location = $('.ds-dropdown-menu a.search-page-link').attr('href');
             }
         },
-        debug: false,
+        debug: true,
     });
     search.autocomplete.on('autocomplete:updated', event => {
         $('.ds-dropdown-menu .ds-suggestion').each(function() {
             let category = $(this).find('.algolia-docsearch-suggestion--subcategory-column');
             let content = $(this).find('.algolia-docsearch-suggestion--title');
-            if (content.text().trim() == category.text().trim()) {
-                content.remove();
-            }
+            //if (content.text().trim() == category.text().trim()) {
+            //    content.remove();
+            //}
         });
     });
 
