@@ -134,6 +134,12 @@ $PHP_BINARY $PHPDOC_BIN -t php_api_reference;
 if [ $? -eq 0 ]; then
   echo -n 'Remove unneeded from phpDocumentor output… ';
   rm -rf ./php_api_reference/files ./php_api_reference/graphs ./php_api_reference/indices ./php_api_reference/packages;
+  echo -n 'Remove Symfony namespace from index… ';
+  awk 'NR==FNR{if (/.*"fqsen": "\\\\Symfony.*/) for (i=-1;i<=3;i++) del[NR+i]; next} !(FNR in del)' \
+    ./php_api_reference/js/searchIndex.js \
+    ./php_api_reference/js/searchIndex.js \
+    > ./php_api_reference/js/searchIndex.new.js;
+  mv -f ./php_api_reference/js/searchIndex.new.js ./php_api_reference/js/searchIndex.js;
   echo -n "Copy phpDocumentor output to ${OUTPUT_DIR}… ";
   cp -rf ./php_api_reference/* $OUTPUT_DIR;
   echo -n 'Remove surplus… ';
