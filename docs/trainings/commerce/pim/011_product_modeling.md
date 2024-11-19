@@ -202,20 +202,20 @@ To simplify casual customer experience (and above all the exercise), the vendor 
 
 The following table shows only properties that can vary. When not all combinations are available, the product has multiple lines.
 
-| Name        | Base code | Material | Frame shape                | Frameset + wheel size | Saddle           | Paint job              |  Gears   | Price |
-|:------------|:----------|:---------|:---------------------------|:----------------------|:-----------------|:-----------------------|:--------:|------:|
-| Fuji        | MTB-S4-4  | Aluminum | Diamond                    | [S, M, L, XL] + 29″   | Thin             | [Sakura, Ronin]        | G02-2x10 | 3776€ |
-| Fuji        | MTB-S4-4  | Aluminum | [Diamond, Step-through]    | [S, M, L] + 29″       | [Thin, Large]    | [Sakura, Ronin]        | G02-1x10 | 3676€ |
-| Fuji        | MTB-S4-4  | Aluminum | [Diamond, Step-through]    | XS + 27.5″            | [Thin, Large]    | [Sakura, Ronin]        | G02-1x08 | 3666€ |
-| Matterhorn  | MTB-S4-5  | Aluminum | Diamond                    | [S, M, L, XL] + 29″   | [Thin, Large]    | [Snow, Rock]           | G02-2x12 | 4478€ |
-| Annapurna   | MTB-S4-6  | Carbon   | Diamond w/ suspension      | [S, M, L, XL] + 29″   | [Thin, Noseless] | Annapurna              | G01-3x12 | 8091€ |
-| Etna        | MTB-S4-7  | Aluminum | [Diamond, Step-through]    | [S, M, L, XL] + 29″   | [Thin, Large]    | Etna                   | G02-1x06 | 3369€ |
-| Etna        | MTB-S4-7  | Aluminum | [Diamond, Step-through]    | XS + 27.5″            | [Thin, Large]    | Etna                   | G02-1x06 | 3339€ |
-| Kilimanjaro | MTB-S5-0  | Aluminum | Step-through w/ suspension | [S, M, L, XL] + 29″   | [Thin, Large]    | [Shira, Mawenzi, Kibo] | G03-2x12 | 5895€ |
-| Stádda      | MTB-S5-1  | Aluminum | Step-through               | XS + [26″, 27.5″]     | Large            | [Sunrise, Sunset]      | G04-1x03 | 1392€ |
-| Aconcagua   | MTB-S5-2  | Carbon   | Diamond w/ suspension      | [S, M, L, XL] + 29″   | [Thin, Noseless] | [Condor, Llama]        | G01-3x12 | 6960€ |
-| Ventoux     | MTB-S5-3  | Aluminum | Step-through               | XS + [26″, 27.5″]     | [Thin, Large]    | [Provence, Mistral]    | G04-1x04 | 1910€ |
-| Castor      | MTB-S5-4  | Aluminum | Diamond                    | [S, M, L, XL] + 29″   | [Thin, Large]    | [Castor, Pollux]       | G03-2x12 | 4225€ |
+| Series   | Name        | Base code | Material | Frame shape                | Frameset + wheel size | Saddle           | Paint job              |  Gears   | Price |
+|:---------|:------------|:----------|:---------|:---------------------------|:----------------------|:-----------------|:-----------------------|:--------:|------:|
+| 4 Series | Fuji        | MTB-S4-4  | Aluminum | Diamond                    | [S, M, L, XL] + 29″   | Thin             | [Sakura, Ronin]        | G02-2x10 | 3776€ |
+| 4 Series | Fuji        | MTB-S4-4  | Aluminum | [Diamond, Step-through]    | [S, M, L] + 29″       | [Thin, Large]    | [Sakura, Ronin]        | G02-1x10 | 3676€ |
+| 4 Series | Fuji        | MTB-S4-4  | Aluminum | [Diamond, Step-through]    | XS + 27.5″            | [Thin, Large]    | [Sakura, Ronin]        | G02-1x08 | 3666€ |
+| 4 Series | Matterhorn  | MTB-S4-5  | Aluminum | Diamond                    | [S, M, L, XL] + 29″   | [Thin, Large]    | [Snow, Rock]           | G02-2x12 | 4478€ |
+| 4 Series | Annapurna   | MTB-S4-6  | Carbon   | Diamond w/ suspension      | [S, M, L, XL] + 29″   | [Thin, Noseless] | Annapurna              | G01-3x12 | 8091€ |
+| 4 Series | Etna        | MTB-S4-7  | Aluminum | [Diamond, Step-through]    | [S, M, L, XL] + 29″   | [Thin, Large]    | Etna                   | G02-1x06 | 3369€ |
+| 4 Series | Etna        | MTB-S4-7  | Aluminum | [Diamond, Step-through]    | XS + 27.5″            | [Thin, Large]    | Etna                   | G02-1x06 | 3339€ |
+| 5 Series | Kilimanjaro | MTB-S5-0  | Aluminum | Step-through w/ suspension | [S, M, L, XL] + 29″   | [Thin, Large]    | [Shira, Mawenzi, Kibo] | G03-2x12 | 5895€ |
+| 5 Series | Stádda      | MTB-S5-1  | Aluminum | Step-through               | XS + [26″, 27.5″]     | Large            | [Sunrise, Sunset]      | G04-1x03 | 1392€ |
+| 5 Series | Aconcagua   | MTB-S5-2  | Carbon   | Diamond w/ suspension      | [S, M, L, XL] + 29″   | [Thin, Noseless] | [Condor, Llama]        | G01-3x12 | 6960€ |
+| 5 Series | Ventoux     | MTB-S5-3  | Aluminum | Step-through               | XS + [26″, 27.5″]     | [Thin, Large]    | [Provence, Mistral]    | G04-1x04 | 1910€ |
+| 5 Series | Castor      | MTB-S5-4  | Aluminum | Diamond                    | [S, M, L, XL] + 29″   | [Thin, Large]    | [Castor, Pollux]       | G03-2x12 | 4225€ |
 
 - Create the attribute group(s)
 - Create the attributes (TODO: two ways in the BO, Attributes page, or attribute group "Attributes" tab)
