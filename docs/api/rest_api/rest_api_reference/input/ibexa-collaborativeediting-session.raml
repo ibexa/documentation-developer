@@ -99,7 +99,7 @@ post:
             404:
                 description: If there are no visibile participants matching the filter.
 
-/{sessionId}/participant:
+/{sessionId}/participants:
     post:
         displayName: Add participant
         description: Adds new participant.
@@ -139,7 +139,7 @@ post:
             404:
                 description: Error - no participant with the given ID exists.
 
-/{sessionId}/participant/{participantId}:
+/{sessionId}/participants/{participantId}:
     patch:
         displayName: Update participant
         description: Updates a participant.
