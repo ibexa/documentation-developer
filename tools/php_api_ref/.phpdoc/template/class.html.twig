@@ -2,7 +2,7 @@
 
 {% block content %}
     {% include 'components/breadcrumbs.html.twig' %}
-    {% include 'components/class-title.html.twig' %}
+    {% include 'components/class-title.html.twig' with { symfony_version: '5.4' } %}
     {% include('components/element-header.html.twig') %}
     {% include 'components/constants.html.twig' %}
     {% include 'components/properties.html.twig' %}
