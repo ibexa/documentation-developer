@@ -8,10 +8,6 @@ searches for User accounts that are enabled or disabled.
 - (optional) `value` - bool representing whether to search for enabled (default `true`)
 or disabled User accounts
 
-## Limitations
-
-The `IsUserEnabled` Criterion is not available in Solr engine.
-
 ## Example
 
 ### PHP
