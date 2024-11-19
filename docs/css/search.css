@@ -131,3 +131,7 @@
     color: var(--ibexa-jazzberry);
     transition: color 125ms;
 }
+
+.md-header .md-search .algolia-autocomplete .algolia-docsearch-footer {
+    margin-right: 10px;
+}

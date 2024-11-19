@@ -141,7 +141,7 @@ $(document).ready(function() {
                 window.location = $('.ds-dropdown-menu a.search-page-link').attr('href');
             }
         },
-        debug: false,
+        debug: true,
     });
     search.autocomplete.on('autocomplete:updated', event => {
         const searchedText = $('.ais-SearchBox-input')[0].value.trim();
