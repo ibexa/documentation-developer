@@ -10,7 +10,7 @@ or disabled User accounts
 
 ## Limitations
 
-The `IsUserEnabled` Criterion is not available in Solr or Elastic search engines.
+The `IsUserEnabled` Criterion is not available in Solr engine.
 
 ## Example
 
