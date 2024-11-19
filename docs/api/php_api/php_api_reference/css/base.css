@@ -1573,6 +1573,10 @@ body.menu-resizing {
     background-image: url(../images/minus-white.svg);
 }
 
+.md-nav--primary .md-nav__item--nested:has(a[href="namespaces/symfony-contracts.html"]) {
+    display: none;
+}
+
 
 ul.breadcrumbs li.breadcrumb-item a {
     color: var(--dark-grey);

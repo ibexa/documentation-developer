@@ -31358,7 +31358,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\Ibexa\\Contracts\\Migration\\StepExecutor\\AbstractStepExecutor\u003A\u003AgetSubscribedServices\u0028\u0029",
             "name": "getSubscribedServices",
-            "summary": "",
+            "summary": "Returns\u0020an\u0020array\u0020of\u0020service\u0020types\u0020required\u0020by\u0020such\u0020instances,\u0020optionally\u0020keyed\u0020by\u0020the\u0020service\u0020names\u0020used\u0020internally.",
             "url": "classes/Ibexa-Contracts-Migration-StepExecutor-AbstractStepExecutor.html#method_getSubscribedServices"
         },                {
             "fqsen": "\\Ibexa\\Contracts\\Migration\\StepExecutor\\AbstractStepExecutor\u003A\u003AhandleActions\u0028\u0029",
@@ -48986,20 +48986,10 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/Ibexa-Contracts-Workflow-SupportStrategy-Matcher-MatcherInterface.html#method_getIdentifier"
         },                {
-            "fqsen": "\\Symfony\\Contracts\\EventDispatcher\\Event",
-            "name": "Event",
-            "summary": "Event\u0020is\u0020the\u0020base\u0020class\u0020for\u0020classes\u0020containing\u0020event\u0020data.",
-            "url": "classes/Symfony-Contracts-EventDispatcher-Event.html"
-        },                {
-            "fqsen": "\\Symfony\\Contracts\\EventDispatcher\\Event\u003A\u003AisPropagationStopped\u0028\u0029",
-            "name": "isPropagationStopped",
-            "summary": "\u007B\u0040inheritdoc\u007D",
-            "url": "classes/Symfony-Contracts-EventDispatcher-Event.html#method_isPropagationStopped"
-        },                {
-            "fqsen": "\\Symfony\\Contracts\\EventDispatcher\\Event\u003A\u003AstopPropagation\u0028\u0029",
-            "name": "stopPropagation",
-            "summary": "Stops\u0020the\u0020propagation\u0020of\u0020the\u0020event\u0020to\u0020further\u0020event\u0020listeners.",
-            "url": "classes/Symfony-Contracts-EventDispatcher-Event.html#method_stopPropagation"
+            "fqsen": "\\trigger_deprecation\u0028\u0029",
+            "name": "trigger_deprecation",
+            "summary": "Triggers\u0020a\u0020silenced\u0020deprecation\u0020notice.",
+            "url": "namespaces/default.html#function_trigger_deprecation"
         },                {
             "fqsen": "\\",
             "name": "\\",
@@ -51975,20 +51965,5 @@ Search.appendIndex(
             "name": "SupportStrategy",
             "summary": "",
             "url": "namespaces/ibexa-contracts-workflow-supportstrategy.html"
-        },                {
-            "fqsen": "\\Symfony\\Contracts\\EventDispatcher",
-            "name": "EventDispatcher",
-            "summary": "",
-            "url": "namespaces/symfony-contracts-eventdispatcher.html"
-        },                {
-            "fqsen": "\\Symfony\\Contracts",
-            "name": "Contracts",
-            "summary": "",
-            "url": "namespaces/symfony-contracts.html"
-        },                {
-            "fqsen": "\\Symfony",
-            "name": "Symfony",
-            "summary": "",
-            "url": "namespaces/symfony.html"
         }            ]
 );
