@@ -144,7 +144,7 @@ $(document).ready(function() {
         debug: false,
     });
     search.autocomplete.on('autocomplete:updated', event => {
-        const searchedText = $('.ais-SearchBox-input')[0].value.trim();
+        const searchedText = $('#search_input')[0].value.trim();
         $('.algolia-docsearch-suggestion--wrapper').each((index, element) => {
             const title = $(element).find('.algolia-docsearch-suggestion--title');
             const category = $(element).find('.algolia-docsearch-suggestion--subcategory-column-text');
