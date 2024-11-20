@@ -3,6 +3,8 @@
 namespace App\Command;
 
 use Ibexa\Contracts\Core\Repository\ContentService;
+use Ibexa\Contracts\Core\Repository\Iterator\BatchIterator;
+use Ibexa\Contracts\Core\Repository\Iterator\BatchIteratorAdapter\RelationListIteratorAdapter;
 use Ibexa\Contracts\Core\Repository\LocationService;
 use Ibexa\Contracts\Core\Repository\ObjectStateService;
 use Ibexa\Contracts\Core\Repository\PermissionResolver;
@@ -99,9 +101,13 @@ class ViewContentMetaDataCommand extends Command
 
         // Relations
         $versionInfo = $this->contentService->loadVersionInfo($contentInfo);
-        $relationCount = $this->contentService->countRelations($versionInfo);
-        $relationList = $this->contentService->loadRelationList($versionInfo, 0, $relationCount);
-        foreach ($relationList as $relationListItem) {
+        $relationListIterator = new BatchIterator(
+            new RelationListIteratorAdapter(
+                $this->contentService,
+                $versionInfo
+            )
+        );
+        foreach ($relationListIterator as $relationListItem) {
             $name = $relationListItem->hasRelation() ? $relationListItem->getRelation()->destinationContentInfo->name : '(Unauthorized)';
             $output->writeln("Relation to content '$name'");
         }
