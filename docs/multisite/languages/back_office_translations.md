@@ -30,7 +30,7 @@ If your browser language is set to French, the Back Office will be displayed in 
 
     `ibexa.system.<siteaccess>.user_preferences.additional_translations: ['pl_PL', 'fr_FR']`
 
-    Then, run `composer run post-update-cmd` which include a cache clear.
+    Then, run `composer run post-update-cmd` and `php bin/console cache:clear --siteaccess=admin`
 
 ### Contributing Back Office translations
 
