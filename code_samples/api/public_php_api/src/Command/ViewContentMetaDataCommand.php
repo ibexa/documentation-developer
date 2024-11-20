@@ -102,7 +102,7 @@ class ViewContentMetaDataCommand extends Command
         $relationCount = $this->contentService->countRelations($versionInfo);
         $relationList = $this->contentService->loadRelationList($versionInfo, 0, $relationCount);
         foreach ($relationList as $relationListItem) {
-            $name = $relationListItem->getRelation()->destinationContentInfo->name;
+            $name = $relationListItem->hasRelation() ? $relationListItem->getRelation()->destinationContentInfo->name : '(Unauthorized)';
             $output->writeln("Relation to content '$name'");
         }
 
