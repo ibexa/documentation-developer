@@ -103,7 +103,7 @@ to get only versions of a specific status, e.g.:
 
 Content Relations are versioned.
 To list Relations to and from your content,
-you need to pass a `VersionInfo` object to the [`ContentService::loadRelationList`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-ContentService.html#method_loadRelationList) method.
+you need to pass a `VersionInfo` object to the [`ContentService::loadRelationList`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-ContentService.html#method_loadRelationList) method which is paginated.
 You can get the current version's `VersionInfo` using [`ContentService::loadVersionInfo`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-ContentService.html#method_loadVersionInfo).
 
 ``` php
