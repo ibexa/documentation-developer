@@ -1934,3 +1934,15 @@ ul.breadcrumbs li.breadcrumb-item-current span {
     visibility: visible;
     opacity: 1;
 }
+
+.phpdocumentor-admonition svg {
+    float: left;
+    width: 24px;
+    height: 24px;
+    margin-right: 7px;
+
+}
+
+.phpdocumentor-admonition article {
+    padding-bottom: 0;
+}
