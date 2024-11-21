@@ -21,3 +21,25 @@ It works with current user reference.
 ``` php
 [[= include_file('code_samples/search/location/isbookmarked_criterion.php') =]]
 ```
+
+### REST API
+
+=== "XML"
+
+    ```xml
+    <Query>
+        <Filter>
+            <IsBookmarkedCriterion>true</IsBookmarkedCriterion>
+        </Filter>
+    </Query>
+    ```
+
+=== "JSON"
+
+    ```json
+    "Query": {
+        "Filter": {
+            "IsBookmarkedCriterion": true
+        }
+    }
+    ```
