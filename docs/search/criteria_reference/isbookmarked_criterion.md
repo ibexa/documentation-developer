@@ -6,9 +6,9 @@ description: IsBookmarked Search Criterion
 
 The [`IsBookmarked` Search Criterion](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Criterion-Location-IsBookmarked.html)
 searches for location based on whether it's bookmarked or not.
+It works with current user reference.
 
 This Criterion is available only for location Search.
-It works with current user reference.
 
 ## Arguments
 
@@ -19,7 +19,7 @@ It works with current user reference.
 ### PHP
 
 ``` php
-[[= include_file('code_samples/search/location/isbookmarked_criterion.php') =]]
+[[= include_file('code_samples/search/location/isbookmarked_criterion.php', 2) =]]
 ```
 
 ### REST API
