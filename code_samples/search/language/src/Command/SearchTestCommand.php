@@ -42,7 +42,7 @@ class SearchTestCommand extends Command
 
         $results = $this->searchService->findContent($query, ['eng-GB', 'fre-FR', 'ger-DE']);
         foreach ($results->searchHits as $searchHit) {
-            /** @var $content \Ibexa\Core\Repository\Values\Content\Content */
+            /** @var \Ibexa\Core\Repository\Values\Content\Content $content */
             $content = $searchHit->valueObject;
             dump($content->getName('eng-GB'));
         }
