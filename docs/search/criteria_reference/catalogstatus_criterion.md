@@ -1,6 +1,5 @@
 ---
 description: CatalogStatus Search Criterion
-edition: commerce
 ---
 
 # CatalogStatus Criterion

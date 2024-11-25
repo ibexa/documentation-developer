@@ -1,6 +1,5 @@
 ---
 description: LanguageCode Search Criterion
-edition: commerce
 ---
 
 # LanguageCode Criterion

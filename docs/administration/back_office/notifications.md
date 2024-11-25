@@ -12,7 +12,7 @@ It appears to whoever is doing a specific operation in the back office.
 ![Example of an info notification](notification2.png "Example of the notification bar")
 
 [Custom notifications](#create-custom-notifications) are sent to a specific user.
-They appears in their profile in the back office.
+They appear in their profile in the back office.
 
 ![Notification in profile](notification3.png)
 

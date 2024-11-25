@@ -17,10 +17,10 @@ Additionally, [[= product_name =]] also has an open-source version called [[= pr
 The [[= product_name_oss =]] code is available on GitHub under the GPLv2 license.
 It comes with no commercial support and maintenance services.
 
-[[= product_name_base =]] manage the release of [[= product_name =]] using an agile iterative process and a continuous software development model, which is why we provide two kinds of [[= product_name =]] releases:
+[[= product_name_base =]] manages the release of [[= product_name =]] using an agile iterative process and a continuous software development model, which is why we provide two kinds of [[= product_name =]] releases:
 
 - Long Term Support releases (LTS) which are supported by [[= product_name_base =]] for a long period of time.
-- Fast Track releases (FT) give access to the latest features and are supported for a short period of time. they're maintained only until the next FT release is introduced.
+- Fast Track releases (FT) give access to the latest features and are supported for a short period of time. They're maintained only until the next FT release is introduced.
 
 FT releases are tailored for those who want to stay up-to-date with newest functionalities, while LTS releases are suitable for highly stable enterprise rollouts.
 
@@ -40,7 +40,7 @@ Distribution files of [[= product_name_base =]] three editions are as follows:
 - for [[= product_name_exp =]]: ibexa-experience-vX.Y.Z.tgz
 - for [[= product_name_com =]]: ibexa-commerce-vX.Y.Z.tgz
 
-[[= product_name_base =]] supports and maintenances services specific to each release are only available from a given start date until an end date.
+[[= product_name_base =]]'s support and maintenance services specific to each release are only available from a given start date until an end date.
 The time in between the start and end dates is what [[= product_name_base =]] calls the product's **Service Life**.
 
 You can find the specific dates of service life for each release on [[= product_name_base =]] [support portal service life page](https://support.ibexa.co/Public/Service-Life).

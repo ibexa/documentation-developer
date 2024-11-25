@@ -6,7 +6,7 @@ description: Customize the login form for new users in your site front end.
 
 You can create a login form for your users.
 Follow the instruction below to create a template with login form.
-If you want to configure more options for example, password expiration, see [other user management templates](user_registration.md#other-user-management-templates).
+If you want to configure more options, for example, password expiration, see [other user management templates](user_registration.md#other-user-management-templates).
 
 First, make sure you have configured [login methods](login_methods.md).
 

@@ -1,6 +1,5 @@
 ---
 description: ProductType Search Criterion
-edition: commerce
 ---
 
 # ProductType Criterion

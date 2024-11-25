@@ -97,7 +97,7 @@ For more information, see [CDP add client-side tracking](https://doc.ibexa.co/en
 In the Audience Builder, you can create audiences - groups of users that meet the assumed conditions.
 You can choose specific conditions: `did`, `did not`, or `have`.
 The conditions `did` and `did not` allow you to use events like buy, visit or add to a cart from online tracking.
-The  `have` conditions are tied to personal characteristics and can be used to track the sum of all buys or top-visited categories.
+The `have` conditions are tied to personal characteristics and can be used to track the sum of all buys or top-visited categories.
 
 You can also connect created audiences to the activations.
 

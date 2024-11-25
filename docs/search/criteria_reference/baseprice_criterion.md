@@ -1,6 +1,5 @@
 ---
 description: BasePrice Search Criterion
-edition: commerce
 ---
 
 # BasePrice Criterion

@@ -1,6 +1,5 @@
 ---
 description: FloatAttribute Search Criterion
-edition: commerce
 ---
 
 # FloatAttribute Criterion

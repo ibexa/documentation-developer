@@ -1,6 +1,5 @@
 ---
 description: CreatedAtRange Search Criterion
-edition: commerce
 ---
 
 # CreatedAtRange Criterion

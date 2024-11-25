@@ -1,6 +1,5 @@
 ---
 description: Subtree Search Criterion
-edition: commerce
 ---
 
 # Subtree Criterion

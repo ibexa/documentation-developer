@@ -12,7 +12,7 @@ It means that you don't have to do any changes to the Fastly configuration to ma
 The information provided here is only applicable if you want to change the default Fastly configuration on [[= product_name_cloud =]], or if you're not using [[= product_name_cloud =]] and want to configure Fastly to work with [[= product_name =]] on premise.
 
 !!! note "The Fastly Web Interface isn't available for [[= product_name_cloud =]]"
-    It's recommend for [[= product_name_cloud =]] customers to use the Fastly CLI instead of using the Fastly API directly with `curl`, and more.
+    It's recommend for [[= product_name_cloud =]] customers to use the Fastly CLI instead of using the Fastly API directly with `curl`, or other alternatives.
 
 !!! note "Disable Varnish when you use Fastly"
     Varnish is automatically provisioned on [[= product_name_cloud =]]. Varnish needs to be disabled on all environments that use

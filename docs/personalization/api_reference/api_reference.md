@@ -11,5 +11,5 @@ This section provides documentation for the Personalization API operations.
     "personalization/api_reference/tracking_api",
     "personalization/api_reference/content_api",
     "personalization/api_reference/recommendation_api",
-    "personalization/api_reference/user_api"
+    "personalization/api_reference/user_api",
 ], columns=4) =]]

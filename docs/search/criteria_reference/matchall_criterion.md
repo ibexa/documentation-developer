@@ -1,6 +1,5 @@
 ---
 description: MatchAll Search Criterion
-edition: commerce
 ---
 
 # MatchAll Criterion

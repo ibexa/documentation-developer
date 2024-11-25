@@ -1,6 +1,5 @@
 ---
 description: ObjectStateIdentifier Search Criterion
-edition: commerce
 ---
 
 # ObjectStateIdentifier Criterion

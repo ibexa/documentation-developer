@@ -14,5 +14,5 @@ You can also integrate [[= product_name_engage =]] with [[= product_name_connect
 [[= cards([
     "ibexa_engage/install_ibexa_engage",
     "ibexa_engage/create_campaign",
-    "ibexa_engage/integrate_ibexa_connect"
+    "ibexa_engage/integrate_ibexa_connect",
 ], columns=3) =]]

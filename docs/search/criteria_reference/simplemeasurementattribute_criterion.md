@@ -1,6 +1,5 @@
 ---
 description: SimpleMeasurementAttribute Search Criterion
-edition: commerce
 ---
 
 # SimpleMeasurementAttribute Criterion

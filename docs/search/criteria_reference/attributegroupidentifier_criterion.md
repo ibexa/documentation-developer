@@ -1,6 +1,5 @@
 ---
 description: AttributeGroupIdentifier Search Criterion
-edition: commerce
 ---
 
 # AttributeGroupIdentifier Criterion

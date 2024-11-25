@@ -1,6 +1,5 @@
 ---
 description: DateMetadata Search Criterion
-edition: commerce
 ---
 
 # DateMetadata Criterion

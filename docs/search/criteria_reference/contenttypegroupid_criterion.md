@@ -1,6 +1,5 @@
 ---
 description: ContentTypeGroupId Search Criterion
-edition: commerce
 ---
 
 # ContentTypeGroupId Criterion

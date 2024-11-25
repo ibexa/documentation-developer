@@ -1,6 +1,5 @@
 ---
 description: Depth Search Criterion
-edition: commerce
 ---
 
 # Depth Criterion

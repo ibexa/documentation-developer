@@ -1,6 +1,5 @@
 ---
 description: IntegerAttribute Search Criterion
-edition: commerce
 ---
 
 # IntegerAttribute Criterion

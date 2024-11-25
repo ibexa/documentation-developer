@@ -1,6 +1,5 @@
 ---
 description: LocationId Search Criterion
-edition: commerce
 ---
 
 # LocationId Criterion

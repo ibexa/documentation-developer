@@ -1,6 +1,5 @@
 ---
 description: CatalogIdentifier Search Criterion
-edition: commerce
 ---
 
 # CatalogIdentifier Criterion

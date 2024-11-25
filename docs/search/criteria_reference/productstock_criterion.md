@@ -1,6 +1,5 @@
 ---
 description: ProductStock Search Criterion
-edition: commerce
 ---
 
 # ProductStock Criterion

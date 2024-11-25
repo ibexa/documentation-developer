@@ -1,6 +1,5 @@
 ---
 description: AttributeName Search Criterion
-edition: commerce
 ---
 
 # AttributeName Criterion

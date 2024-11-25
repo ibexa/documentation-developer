@@ -10,7 +10,7 @@ This field type represents a date without time information.
 
 ### Input expectations
 
-If input value is in `string` or `integer` format, it's' passed directly to [PHP's built-in `\DateTime` class constructor](https://www.php.net/manual/en/datetime.construct.php), therefore the same input format expectations apply.
+If input value is in `string` or `integer` format, it's passed directly to [PHP's built-in `\DateTime` class constructor](https://www.php.net/manual/en/datetime.construct.php), therefore the same input format expectations apply.
 
 It's also possible to directly pass an instance of `\DateTime`.
 

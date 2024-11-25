@@ -1,6 +1,5 @@
 ---
 description: ContentId Search Criterion
-edition: commerce
 ---
 
 # ContentId Criterion

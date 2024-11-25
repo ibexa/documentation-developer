@@ -1,6 +1,5 @@
 ---
 description: IsCurrencyEnabledCriterion Search Criterion
-edition: commerce
 ---
 
 # IsCurrencyEnabledCriterion Criterion

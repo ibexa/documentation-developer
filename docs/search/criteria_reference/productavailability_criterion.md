@@ -1,6 +1,5 @@
 ---
 description: ProductAvailability Search Criterion
-edition: commerce
 ---
 
 # ProductAvailability Criterion

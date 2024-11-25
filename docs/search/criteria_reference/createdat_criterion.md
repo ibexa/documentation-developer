@@ -1,6 +1,5 @@
 ---
 description: CreatedAt Search Criterion
-edition: commerce
 ---
 
 # CreatedAt Criterion

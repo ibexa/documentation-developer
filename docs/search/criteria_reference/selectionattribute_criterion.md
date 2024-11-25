@@ -1,6 +1,5 @@
 ---
 description: SelectionAttribute Search Criterion
-edition: commerce
 ---
 
 # SelectionAttribute Criterion

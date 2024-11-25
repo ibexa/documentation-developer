@@ -10,5 +10,5 @@ page_type: landing_page
 [[= cards([
     "api/rest_api/rest_api_usage/rest_api_usage",
     "api/php_api/php_api",
-    "api/graphql/graphql"
+    "api/graphql/graphql",
 ], columns=3) =]]

@@ -1,6 +1,5 @@
 ---
 description: ContentName Search Criterion
-edition: commerce
 ---
 
 # ContentName Criterion

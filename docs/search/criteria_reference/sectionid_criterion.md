@@ -1,6 +1,5 @@
 ---
 description: SectionId Search Criterion
-edition: commerce
 ---
 
 # SectionId Criterion

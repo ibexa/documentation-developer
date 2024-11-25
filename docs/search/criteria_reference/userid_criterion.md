@@ -1,6 +1,5 @@
 ---
 description: UserId Search Criterion
-edition: commerce
 ---
 
 # UserId Criterion

@@ -1,6 +1,5 @@
 ---
 description: MapLocationDistance Search Criterion
-edition: commerce
 ---
 
 # MapLocationDistance Criterion

@@ -1,6 +1,5 @@
 ---
 description: FloatAttributeRange Search Criterion
-edition: commerce
 ---
 
 # FloatAttributeRange Criterion

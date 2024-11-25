@@ -1,6 +1,5 @@
 ---
 description: ProductStockRange Search Criterion
-edition: commerce
 ---
 
 # ProductStockRange Criterion

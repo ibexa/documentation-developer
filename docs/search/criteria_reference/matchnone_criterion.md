@@ -1,6 +1,5 @@
 ---
 description: MatchNone Search Criterion
-edition: commerce
 ---
 
 # MatchNone Criterion

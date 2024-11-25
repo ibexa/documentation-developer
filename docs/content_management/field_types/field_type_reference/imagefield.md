@@ -30,7 +30,8 @@ The `value` property of an Image field returns an `Ibexa\Core\FieldType\Image\V
 
 !!! caution
 
-    Properties marked with an asterisk are currently unsupported. they're available but their value is always `null`.
+    Properties marked with an asterisk are currently unsupported.
+    They're available but their value is always `null`.
 
     Follow [EZP-27987](https://issues.ibexa.co/browse/EZP-27987) for future progress on this issue.
 
@@ -40,7 +41,8 @@ This field type doesn't support settings.
 
 ### Image variations
 
-Using the variation Service, variations of the original image can be obtained. they're `Ibexa\Contracts\Core\Variation\Values\ImageVariation` objects with the following properties:
+Using the variation Service, variations of the original image can be obtained.
+They're `Ibexa\Contracts\Core\Variation\Values\ImageVariation` objects with the following properties:
 
 | Property       | Type     | Example  | Description|
 |----------------|----------|----------|------------|
@@ -57,7 +59,8 @@ Using the variation Service, variations of the original image can be obtained. t
 
 !!! caution
 
-    Properties marked with an asterisk are currently unsupported. they're available but their value is always `null`.
+    Properties marked with an asterisk are currently unsupported.
+    They're available but their value is always `null`.
 
     Follow [EZP-27987](https://issues.ibexa.co/browse/EZP-27987) for future progress on this issue.
 

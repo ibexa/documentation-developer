@@ -1,6 +1,5 @@
 ---
 description: IsUserBased Search Criterion
-edition: commerce
 ---
 
 # IsUserBased Criterion

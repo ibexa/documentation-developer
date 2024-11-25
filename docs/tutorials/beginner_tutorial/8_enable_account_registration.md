@@ -143,7 +143,7 @@ Then create the `templates/user/registration_confirmation.html.twig` template:
             <h2>{{ 'Registration completed'|trans }}</h2>
 
             <div class="row confirmation-label">
-                {{ 'you're all set up and ready to go'|trans }}
+                {{ 'You're all set up and ready to go'|trans }}
             </div>
 
             <div class="row">

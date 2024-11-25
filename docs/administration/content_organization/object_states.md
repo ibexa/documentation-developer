@@ -5,7 +5,7 @@ description: Object states are user-defined states that can be assigned to conte
 # Object states
 
 Object states are user-defined states that can be assigned to content items.
-they're contained in groups.
+They're contained in groups.
 
 ![Object State group](admin_panel_object_state_groups.png "Object state group")
 

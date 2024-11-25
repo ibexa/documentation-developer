@@ -39,7 +39,8 @@ In the upper-right corner, click the avatar icon to unfold the drop-down menu an
 
 In the main menu, go to **Content** -> **Content types**.
 
-You can see a list of **Content type groups**. they're used to group content types in a logical way.
+You can see a list of **Content type groups**.
+They're used to group content types in a logical way.
 
 Select **Content** and then click the **Create** button. 
 

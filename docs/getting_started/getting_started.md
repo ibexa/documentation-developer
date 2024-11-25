@@ -10,5 +10,5 @@ To get started working with [[= product_name =]], see how you can get an install
 [[= cards([
     "getting_started/requirements",
     "getting_started/install_ibexa_dxp",
-    "getting_started/first_steps"
+    "getting_started/first_steps",
 ], columns=3) =]]

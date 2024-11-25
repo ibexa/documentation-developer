@@ -1,6 +1,5 @@
 ---
 description: Field Search Criterion
-edition: commerce
 ---
 
 # Field Criterion

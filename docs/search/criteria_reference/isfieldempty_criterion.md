@@ -1,6 +1,5 @@
 ---
 description: IsFieldEmpty Search Criterion
-edition: commerce
 ---
 
 # IsFieldEmpty Criterion

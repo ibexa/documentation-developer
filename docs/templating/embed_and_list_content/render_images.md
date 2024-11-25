@@ -112,4 +112,4 @@ Then, create the custom Field template in `templates/fields/image.html.twig`, [o
 {% endblock %}
 ```
 
-This template uses the focal point information contained in the image's additional data to position the background so that the focussed part of the image is displayed.
+This template uses the focal point information contained in the image's additional data to position the background so that the focused part of the image is displayed.

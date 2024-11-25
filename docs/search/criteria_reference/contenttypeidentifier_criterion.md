@@ -1,6 +1,5 @@
 ---
 description: ContentTypeIdentifier Search Criterion
-edition: commerce
 ---
 
 # ContentTypeIdentifier Criterion

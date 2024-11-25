@@ -18,5 +18,5 @@ B. If you use Commerce functionalities based on the deprecated packages, you can
 
 [[= cards([
     "update_and_migration/from_4.3/update_from_4.3_new_commerce",
-    "update_and_migration/from_4.3/update_from_4.3_old_commerce"
+    "update_and_migration/from_4.3/update_from_4.3_old_commerce",
 ], columns=2) =]]

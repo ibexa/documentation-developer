@@ -1,6 +1,5 @@
 ---
 description: CatalogName Search Criterion
-edition: commerce
 ---
 
 # CatalogName Criterion

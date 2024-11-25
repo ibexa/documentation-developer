@@ -1,6 +1,5 @@
 ---
 description: LocationRemoteId Search Criterion
-edition: commerce
 ---
 
 # LocationRemoteId Criterion

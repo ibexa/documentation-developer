@@ -16,7 +16,7 @@ For example, for [[= product_name_headless =]], see the [JSON file on GitHub](ht
 !!! caution "Deprecated legacy Commerce bundles"
 
     As of [[= product_name =]] v4.4 all `ibexa/commerce` packages are deprecated.
-    they're gradually replaced by their revamped counterparts and removed completely from the product in version v5.0.
+    They're gradually replaced by their revamped counterparts and removed completely from the product in version v5.0.
 
 ## Working with bundles
 
@@ -72,7 +72,7 @@ To remove a bundle (either one you created yourself, or an out-of-the-box one th
 |ibexa/oss|Core packages|
 |ibexa/content-tree|content tree functionality|
 |ibexa/connect|[[[= product_name_connect =]]](https://doc.ibexa.co/projects/connect/en/latest/)|
-|ibexa/calendar|**Calendar** tab with a calendar widget|
+|ibexa/calendar|Calendar tab with a calendar widget|
 |ibexa/connector-dam|Connector for DAM (Digital Asset Management) systems|
 |ibexa/elasticsearch|Integration with Elasticsearch search engine|
 |ibexa/fastly|Fastly support for `http-cache`, for use on Platform.sh or standalone|

@@ -20,7 +20,7 @@ Depending on your needs, the checkout process can be either complex or straightf
 For example, if the website is selling airline tickets, you may need several [additional steps](#add-checkout-step) with passengers defining their special needs.
 On the other side of the spectrum would be a store that sells books with personal pickup, where [one page checkout](#create-a-one-page-checkout) would be enough.
 
-Several factors can make checkout particularly flexible and customizable:
+Several factors make checkout particularly flexible and customizable:
 
 - it's based on Symfony workflow
 - it exposes a variety of APIs

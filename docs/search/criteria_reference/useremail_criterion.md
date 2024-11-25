@@ -1,6 +1,5 @@
 ---
 description: UserEmail Search Criterion
-edition: commerce
 ---
 
 # UserEmail Criterion

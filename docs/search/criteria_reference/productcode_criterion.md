@@ -1,6 +1,5 @@
 ---
 description: ProductCode Search Criterion
-edition: commerce
 ---
 
 # ProductCode Criterion

@@ -1,6 +1,5 @@
 ---
 description: RemoteId / ContentRemoteId Search Criterion
-edition: commerce
 ---
 
 # RemoteId / ContentRemoteId Criterion

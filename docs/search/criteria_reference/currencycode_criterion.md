@@ -1,6 +1,5 @@
 ---
 description: CurrencyCode Search Criterion
-edition: commerce
 ---
 
 # CurrencyCode Criterion

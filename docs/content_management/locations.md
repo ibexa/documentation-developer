@@ -96,7 +96,7 @@ When the location of a content item is hidden, the system doesn't display it on 
 
     The [visibility switcher](https://doc.ibexa.co/en/latest/content_management/locations/#location-visibility) is a convenient feature for withdrawing content from the frontend.
     It acts as a filter in the frontend by default. You can choose to respect it or ignore it in your code.
-    it'sn't permission-based, and **doesn't restrict access to content**. Hidden content can be read through other means, like the REST API.
+    It isn't permission-based, and **doesn't restrict access to content**. Hidden content can be read through other means, like the REST API.
 
     If you need to restrict access to a given content item, you could create a role that grants read access for a given [**Section**](sections.md) or
     [**Object State**](object_states.md), and set a different section or object state for the given content.
@@ -122,7 +122,7 @@ In the following example, the **Content item 1** is Hidden by superior in the **
 From the visitor's perspective a location behaves the same whether its status is Hidden or Hidden by superior – it's unavailable on the front page.
 
 The difference is that a location Hidden by superior cannot be revealed separately from their parent(s).
-It only becomes visible once all of its parent Llcations are made visible again.
+It only becomes visible once all of its parent locations are made visible again.
 
 A Hidden by superior status doesn't override a Hidden status.
 This means that if a location is Hidden manually and later one of its ancestors is hidden as well, the first location's status doesn't change – it remains Hidden (not Hidden by superior).

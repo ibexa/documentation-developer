@@ -1,6 +1,5 @@
 ---
 description: IsUserEnabled Search Criterion
-edition: commerce
 ---
 
 # IsUserEnabled Criterion

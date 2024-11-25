@@ -1,6 +1,5 @@
 ---
 description: FullText Search Criterion
-edition: commerce
 ---
 
 

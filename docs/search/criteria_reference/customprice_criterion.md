@@ -1,6 +1,5 @@
 ---
 description: CustomPrice Search Criterion
-edition: commerce
 ---
 
 # CustomPrice Criterion

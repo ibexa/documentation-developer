@@ -19,7 +19,7 @@ ibexa:
         # any SiteAccess or SiteAccess group
         admin_group:
             content_tree_module:
-                # defines how many children is be shown after expanding parent
+                # defines how many children are shown after expanding parent
                 load_more_limit: 15
                 # users won't be able to load more children than that
                 children_load_max_limit: 200

@@ -103,9 +103,9 @@ Use:
 
 !!! caution "Support agreement expiry"
 
-    If your Support agreement expires, your authentication token(s) doesn't longer work.
-    They become active again if the agreement is renewed, but this process may take up to 24 hours.
-    _(If the agreement is renewed before the expiry date, there is no disruption of service.)_
+    If your Support agreement expires, your authentication token(s) will no longer work.
+    They will become active again if the agreement is renewed, but this process may take up to 24 hours.
+    _(If the agreement is renewed before the expiry date, there will be no disruption of service.)_
 
 ### Create project
 

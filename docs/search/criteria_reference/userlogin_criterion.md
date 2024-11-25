@@ -1,6 +1,5 @@
 ---
 description: UserLogin Search Criterion
-edition: commerce
 ---
 
 # UserLogin Criterion

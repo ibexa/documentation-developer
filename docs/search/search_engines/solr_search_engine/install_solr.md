@@ -52,12 +52,13 @@ To set SolrCloud up follow [SolrCloud reference guide](https://lucene.apache.org
 
 The bundle doesn't commit Solr index changes directly on repository updates, leaving it up to you to tune this using `solrconfig.xml` as best practice suggests.
 
-This setting is **required** if you want to see the changes after publish. it's strongly recommended to set-up `solrconfig.xml` like this:
+This setting is **required** if you want to see the changes after publish.
+It's strongly recommended to set-up `solrconfig.xml` like this:
 
 ``` xml
 <!--solrconfig.xml-->
 <autoCommit>
-  <!-- autoCommit's here left as-is like it's out of the box in Solr, this controls hard commits for durability/replication -->
+  <!-- autoCommit is here left as-is like it is out of the box in Solr, this controls hard commits for durability/replication -->
   <maxTime>${solr.autoCommit.maxTime:15000}</maxTime>
   <openSearcher>false</openSearcher>
 </autoCommit>

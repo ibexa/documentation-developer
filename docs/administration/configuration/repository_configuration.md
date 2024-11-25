@@ -224,7 +224,7 @@ The command takes the following optional parameters:
 - `status` or `t` - status of versions to remove: `draft`, `archived` or `all`
 - `keep` or `k` - number of versions to keep
 - `user` or `u` - the User that the command is performed as. The user must have the `content/remove`, `content/read` and `content/versionread` policies. By default the `administrator` user is applied.
-- `excluded-content-types` - exclude versions of one or multiple content types from the cleanup procedure and separate multiple content types identifiers with the comma.
+- `excluded-content-types` - exclude versions of one or multiple content types from the cleanup procedure. Separate multiple content types identifiers with the comma.
 
 `ibexa:content:cleanup-versions --status <status name> --keep <number of versions> --user <user name> --excluded-content-types article,blog_post`
 

@@ -140,7 +140,7 @@ If you have no access to [[= product_name =]]'s `ibexa/installer` package, apply
 For every database connection you have configured, perform the following steps:
 
 1. Run `php bin/console doctrine:schema:update --dump-sql --em=ibexa_{connection}`
-2. Check the queries and verify that they're safe and doesn't damage the data.
+2. Check the queries and verify that they're safe and don't damage the data.
 3. Run `php bin/console doctrine:schema:update --dump-sql --em=ibexa_{connection} --force`
 
 Next, run the following commands to import necessary data migration scripts:

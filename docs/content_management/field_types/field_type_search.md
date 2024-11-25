@@ -13,7 +13,9 @@ The `Ibexa\Contracts\Core\FieldType\Indexable` interface defines the methods bel
 
 ### `getIndexData(Field $field, FieldDefinition $fieldDefinition)`
 
-This method returns the actual index data for the provided `Ibexa\Contracts\Core\Persistence\Content\Field`. The index data consists of an array of `Ibexa\Contracts\Core\Search\Field` instances. they're described below in further detail.
+This method returns the actual index data for the provided `Ibexa\Contracts\Core\Persistence\Content\Field`.
+The index data consists of an array of `Ibexa\Contracts\Core\Search\Field` instances.
+They're described below in further detail.
 
 ### `getIndexDefinition()`
 
@@ -26,7 +28,8 @@ To be able to query data properly an indexable field type also is required to re
 ]
 ```
 
-This example from the `Url` field type shows that the field type always returns two indexable values, both strings. They have the names `url` and `text` respectively.
+This example from the `Url` field type shows that the field type always returns two indexable values, both strings.
+They have the names `url` and `text` respectively.
 
 ### `getDefaultMatchField()`
 
@@ -52,7 +55,7 @@ Ibexa\Core\FieldType\Keyword\SearchField:
         - {name: ibexa.field_type.indexable, alias: ezkeyword}
 ```
 
-`alias` should be the same as field type ID.
+The `alias` should be the same as field type ID.
 
 ## Search field values
 

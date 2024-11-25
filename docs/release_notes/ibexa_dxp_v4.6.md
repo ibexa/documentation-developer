@@ -144,7 +144,7 @@ on the dashboard within Recent activity block, or on the user profile.
 
 For more information, see feature's [User Documentation](https://doc.ibexa.co/projects/userguide/en/master/recent_activity/recent_activity/), and [Developer Documentation](https://doc.ibexa.co/en/master/administration/recent_activity/recent_activity/).
 
-#### back office search
+#### Back office search
 
 ##### Search bar, suggestions, autocompletion, and spellcheck
 

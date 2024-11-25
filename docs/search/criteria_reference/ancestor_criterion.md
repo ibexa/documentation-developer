@@ -1,6 +1,5 @@
 ---
 description: Ancestor Search Criterion
-edition: commerce
 ---
 
 # Ancestor Criterion

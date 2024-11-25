@@ -174,7 +174,7 @@ ibexa:
             field_templates:
                 -
                     template: 'fields/custom_field_template.html.twig'
-                    # Priority is optional (default is 0). The higher it's, the higher your template gets in the list.
+                    # Priority is optional (default is 0). The higher it is, the higher your template gets in the list.
                     priority: 10
 ```
 

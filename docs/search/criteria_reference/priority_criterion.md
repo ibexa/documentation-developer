@@ -1,6 +1,5 @@
 ---
 description: Priority Search Criterion
-edition: commerce
 ---
 
 # Priority Criterion

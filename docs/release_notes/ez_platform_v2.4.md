@@ -150,9 +150,9 @@ This release introduces a few simplifications to API use for content types:
 - Adds possibility to load several content types in bulk using `ContentTypeService->loadContentTypeList()`.
 - `UserService` now exposes `isUser()` and `isUserGroup()`. They don't need to do a lookup to the database to tell if a content item is of type user or user group.
 
-#### Load multiple Locations
+#### Load multiple locations
 
-you're now able to load multiple Locations at once, using `LocationService->loadLocationList()`. The biggest benefit of this feature is saving load time on complex landing pages when HTTP cache is cold or disabled, including when in development mode.
+You're now able to load multiple locations at once, using `LocationService->loadLocationList()`. The biggest benefit of this feature is saving load time on complex landing pages when HTTP cache is cold or disabled, including when in development mode.
 
 ### BC breaks and important behavior changes
 

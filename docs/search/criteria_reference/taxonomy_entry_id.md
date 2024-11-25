@@ -1,6 +1,5 @@
 ---
 description: TaxonomyEntryId Search Criterion
-edition: commerce
 ---
 
 # TaxonomyEntryId Criterion

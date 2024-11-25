@@ -1,6 +1,5 @@
 ---
 description: FieldRelation Search Criterion
-edition: commerce
 ---
 
 # FieldRelation Criterion

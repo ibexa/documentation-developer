@@ -5,7 +5,7 @@ description: Start off working with Ibexa DXP by doing initial configuration and
 # First steps
 
 This page lists first steps you can take after installing [[= product_name =]].
-These steps are most common actions you may need to take in a new installation.
+These steps are the most common actions you may need to take in a new installation.
 
 !!! tip "Beginner tutorial"
 
@@ -90,7 +90,7 @@ For more information, see [Templates](templates.md) and [Twig documentation](htt
 
 ## Create content and test view templates
 
-1\. Go to the back office, activate content/content structure and create a new content item by clicking **Create content**.
+1\. Go to the back office, select **Content** -> **Content structure**, and create a new content item by clicking **Create content**.
 
 ![Creating a Blog Post](first-steps-create-content.png)
 

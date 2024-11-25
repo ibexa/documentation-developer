@@ -153,7 +153,8 @@ It allows you to make use of customer targeting of the segments and create perso
 
 The overall benefit of customer portals is the help they provide to retain customers and increase loyalty, while freeing up customer service employees time for higher-level work.
 They can achieve that by providing customers with up-to-date information about their orders and deliveries, personalize shopping experience, offer special deals available only to B2B partners, and do that in one, accessible space.
-Currently, Customer Portals are a standard in global sites such as Amazon. they're the level of quality that customers expect, and all businesses strive for.
+Currently, Customer Portals are a standard in global sites such as Amazon.
+They're the level of quality that customers expect, and all businesses strive for.
 
 ### Simplified shopping process
 

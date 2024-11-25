@@ -1,6 +1,5 @@
 ---
 description: ProductName Search Criterion
-edition: commerce
 ---
 
 # ProductName Criterion

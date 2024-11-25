@@ -58,7 +58,7 @@ You can access the variants of a product by using `ProductServiceInterface::find
 The method takes the product object and a `ProductVariantQuery` object as parameters.
 
 A `ProductVariantQuery` lets you define the offset and limit of the variant query.
-The default offset is 0, and limit's 25.
+The default offset is 0, and limit is 25.
 
 ``` php
 [[= include_file('code_samples/api/product_catalog/src/Command/ProductVariantCommand.php', 57, 60) =]]

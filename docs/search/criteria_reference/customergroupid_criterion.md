@@ -1,6 +1,5 @@
 ---
 description: CustomerGroupId Search Criterion
-edition: commerce
 ---
 
 # CustomerGroupId Criterion

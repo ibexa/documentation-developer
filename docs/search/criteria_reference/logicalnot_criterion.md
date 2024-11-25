@@ -1,6 +1,5 @@
 ---
 description: LogicalNot Search Criterion
-edition: commerce
 ---
 
 # LogicalNot Criterion

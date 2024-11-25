@@ -50,7 +50,7 @@ You can now change your password, or request a new one if you forgot it.
 
 !!! caution
 
-    The reaction time when requesting a reset of the password is vary depending on whether an account with the provided email exists in the database or not.
+    The reaction time when requesting a reset of the password varies depending on whether an account with the provided email exists in the database or not.
     This could be misused to confirm existing email addresses.
     To avoid this, set Swift Mailer to `spool` mode.
 

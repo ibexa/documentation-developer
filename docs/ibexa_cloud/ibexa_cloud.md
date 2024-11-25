@@ -11,5 +11,5 @@ month_change: false
 [[= cards([
     "ibexa_cloud/ibexa_cloud_guide",
     "ibexa_cloud/install_on_ibexa_cloud",
-    "ibexa_cloud/ddev_and_ibexa_cloud"
+    "ibexa_cloud/ddev_and_ibexa_cloud",
 ], columns=3) =]]

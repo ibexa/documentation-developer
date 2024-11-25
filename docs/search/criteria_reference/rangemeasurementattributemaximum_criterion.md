@@ -1,6 +1,5 @@
 ---
 description: RangeMeasurementAttributeMaximum Search Criterion
-edition: commerce
 ---
 
 # RangeMeasurementAttributeMaximum Criterion

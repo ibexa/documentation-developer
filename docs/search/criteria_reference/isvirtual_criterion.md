@@ -1,6 +1,5 @@
 ---
 description: IsVirtual Search Criterion
-edition: commerce
 ---
 
 # IsVirtual Criterion

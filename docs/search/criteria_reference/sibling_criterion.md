@@ -1,6 +1,5 @@
 ---
 description: Sibling Search Criterion
-edition: commerce
 ---
 
 # Sibling Criterion

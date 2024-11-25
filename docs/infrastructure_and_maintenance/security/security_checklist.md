@@ -172,7 +172,7 @@ Use the following checklist to ensure the roles and policies are secure:
 The [visibility switcher](https://doc.ibexa.co/en/latest/content_management/locations/#location-visibility) is a convenient feature for withdrawing content from the frontend.
 It acts as a filter in the frontend by default.
 You can choose to respect it or ignore it in your code.
-It'sn't permission-based, and doesn't restrict read access to content.
+It isn't permission-based, and doesn't restrict read access to content.
 Hidden content can be read through other means, like the REST API or GraphQL.
 
 If you need to restrict read access to a given content item, you could create a role that grants read access for a given [**Section**](https://doc.ibexa.co/en/latest/administration/content_organization/sections/) or [**Object State**](https://doc.ibexa.co/en/latest/administration/content_organization/object_states/), and set a different section or object State for the given content.

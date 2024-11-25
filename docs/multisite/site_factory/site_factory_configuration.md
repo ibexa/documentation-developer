@@ -32,7 +32,7 @@ ibexa_site_factory:
 ```
 
 Now, you can see the path to the new site's parent location under design selection.
-If you have sufficient permissions, you can change the defined Llcation during site creation.
+If you have sufficient permissions, you can change the defined location during site creation.
 If the parent location isn't defined, you have to choose it from Universal Discovery Widget.
 
 ## Site skeletons

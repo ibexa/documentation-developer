@@ -1,6 +1,5 @@
 ---
 description: ColorAttribute Search Criterion
-edition: commerce
 ---
 
 # ColorAttribute Criterion

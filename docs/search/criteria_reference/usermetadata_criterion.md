@@ -1,6 +1,5 @@
 ---
 description: UserMetadata Search Criterion
-edition: commerce
 ---
 
 # UserMetadata Criterion

@@ -1,6 +1,5 @@
 ---
 description: CheckboxAttribute Search Criterion
-edition: commerce
 ---
 
 # CheckboxAttribute Criterion

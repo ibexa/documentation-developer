@@ -1,6 +1,5 @@
 ---
 description: IsMainLocation Search Criterion
-edition: commerce
 ---
 
 # IsMainLocation Criterion

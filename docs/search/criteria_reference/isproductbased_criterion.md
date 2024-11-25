@@ -1,6 +1,5 @@
 ---
 description: IsProductBased Search Criterion
-edition: commerce
 ---
 
 # IsProductBased Criterion

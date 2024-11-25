@@ -1,6 +1,5 @@
 ---
 description: ParentLocationRemoteId Search Criterion
-edition: commerce
 ---
 
 # ParentLocationRemoteId Criterion

@@ -1,6 +1,5 @@
 ---
 description: Visibility Search Criterion
-edition: commerce
 ---
 
 # Visibility Criterion

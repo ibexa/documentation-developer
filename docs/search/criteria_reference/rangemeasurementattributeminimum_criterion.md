@@ -1,6 +1,5 @@
 ---
 description: RangeMeasurementAttributeMinimum Search Criterion
-edition: commerce
 ---
 
 # RangeMeasurementAttributeMinimum Criterion

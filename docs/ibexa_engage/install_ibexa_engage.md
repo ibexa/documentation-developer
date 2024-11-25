@@ -3,7 +3,7 @@ description: Install and configure Ibexa Engage.
 edition: experience
 ---
 
-# [[= product_name_engage =]]
+# Ibexa Engage
 
 [[= product_name_engage =]] is a data collection tool. It enables you to engage your audiences by using the [Qualifio](https://qualifio.com/) tools.
 You can use interactive content to gather valuable data, for example, customer data or recent orders list, and create connections.
@@ -51,4 +51,5 @@ In `config/packages` directory add the following `ibexa_connector_qualifio.yaml`
 
     [[= product_name_base =]] configures the `channel` and `client_id` values so that the selections can be filled up automatically on [[= product_name =]] side.
 
-    The `feed_url` and `variable_map` values don't need to be set at the installation process. they're preconfigured and can be overwritten.
+    The `feed_url` and `variable_map` values don't need to be set at the installation process.
+    They're preconfigured and can be overwritten.

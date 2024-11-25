@@ -28,7 +28,7 @@ For other security related subjects, see:
 This authentication method requires a session cookie to be sent with each request.
 
 If you use this authentication method with a web browser, this session cookie is automatically available as soon as your visitor logs in.
-Add it as a cookie to your REST requests, and the user can be authenticated.
+Add it as a cookie to your REST requests to authenticate the user.
 
 Sessions are created to re-authenticate the user only (and perform authorization), not to hold session state in the service.
 Because of that, you can use this method as supporting AJAX-based applications even if it violates the principles of RESTful services.
