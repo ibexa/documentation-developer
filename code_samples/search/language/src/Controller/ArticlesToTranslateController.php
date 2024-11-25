@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace App\Controller;
 
@@ -9,7 +9,8 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
-class ArticlesToTranslateController extends AbstractController {
+class ArticlesToTranslateController extends AbstractController
+{
     private SearchService $searchService;
 
     public function __construct(SearchService $searchService)
@@ -17,7 +18,8 @@ class ArticlesToTranslateController extends AbstractController {
         $this->searchService = $searchService;
     }
 
-    public function listView(Request $request): Response {
+    public function listView(Request $request): Response
+    {
         $languageCode = $request->get('language');
 
         $query = new Query();
@@ -25,7 +27,7 @@ class ArticlesToTranslateController extends AbstractController {
             new Criterion\ContentTypeIdentifier('article'),
             new Criterion\LogicalNot(
                 new Criterion\LanguageCode($languageCode, false)
-            )
+            ),
         ]);
 
         $results = $this->searchService->findContent($query);

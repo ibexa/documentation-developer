@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace App\Command;
 
@@ -13,12 +13,12 @@ use Symfony\Component\Console\Output\OutputInterface;
 class SearchTestCommand extends Command
 {
     protected static $defaultName = 'doc:test:search';
+
     private SearchService $searchService;
 
     public function __construct(
         SearchService $searchService
-    )
-    {
+    ) {
         parent::__construct(self::$defaultName);
         $this->searchService = $searchService;
     }
@@ -33,11 +33,10 @@ class SearchTestCommand extends Command
     {
         $text = implode(' ', $input->getArgument('text'));
 
-        $query = new Query(['query' =>
-            new Criterion\LogicalAnd([
+        $query = new Query(['query' => new Criterion\LogicalAnd([
                 new Criterion\FullText($text),
-                new Criterion\LanguageCode(['eng-GB'], false)
-            ])
+                new Criterion\LanguageCode(['eng-GB'], false),
+            ]),
         ]);
 
         $results = $this->searchService->findContent($query, ['eng-GB', 'fre-FR', 'ger-DE']);
