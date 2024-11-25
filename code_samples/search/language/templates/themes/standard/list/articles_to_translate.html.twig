@@ -1,0 +1,9 @@
+{% extends '@ibexadesign/pagelayout.html.twig' %}
+
+{% block content %}
+    <ul>
+        {% for article in articles %}
+            <li><a href="{{ ibexa_path(article.contentInfo) }}">{{ ibexa_content_name(article) }}</a></li>
+        {% endfor %}
+    </ul>
+{% endblock %}
