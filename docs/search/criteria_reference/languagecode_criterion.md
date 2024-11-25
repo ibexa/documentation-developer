@@ -45,14 +45,13 @@ You can use the `LanguageCode` Criterion to search for articles that are lacking
 into a specific language:
 
 ``` php hl_lines="5"
-$query = new LocationQuery;
+$query = new Query();
 $query->query = new Criterion\LogicalAnd([
     new Criterion\ContentTypeIdentifier('article'),
     new Criterion\LogicalNot(
         new Criterion\LanguageCode('ger-DE', false)
     )
-    ]
-);
+]);
 
 $results = $this->searchService->findContent($query);
 $articles = [];
