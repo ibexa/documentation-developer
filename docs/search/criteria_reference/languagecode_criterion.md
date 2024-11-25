@@ -45,7 +45,7 @@ You can use the `LanguageCode` Criterion to search for articles that are lacking
 into a specific language:
 
 ``` php hl_lines="5"
-[[= include_file('code_samples/search/language/src/Controller/ArticlesToTranslateController.php', 22, 39) =]]
+[[= include_file('code_samples/search/language/src/Controller/ArticlesToTranslateController.php', 24, 41) =]]
 ```
 
 You can use the `LanguageCode` Criterion to search in
