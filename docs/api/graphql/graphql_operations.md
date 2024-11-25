@@ -4,7 +4,7 @@ description: Use GraphQL operations to create, update, and delete content.
 
 # GraphQL operations
 
-Operations on content in GraphQL are performed using [mutations](https://graphql.org/learn/queries/#mutations).
+Operations on content in GraphQL are performed by using [mutations](https://graphql.org/learn/queries/#mutations).
 They include creating, updating, and deleting content items.
 
 The schema contains two mutations per content type, for example, `createFolder`, and `updateFolder`.

@@ -6,7 +6,7 @@ month_change: false
 
 # [[= product_name_cloud =]]
 
-[[= product_name_cloud =]] is a cloud hosting platform that enables you to host your application in the cloud using the Platform.sh service.
+[[= product_name_cloud =]] is a cloud hosting platform that enables you to host your application in the cloud by using the Platform.sh service.
 
 [[= cards([
     "ibexa_cloud/ibexa_cloud_guide",

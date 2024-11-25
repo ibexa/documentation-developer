@@ -7,7 +7,8 @@ edition: experience
 
 ## What is page
 
-[Page](pages.md) is a block-based type of content. You can create and modify it with a visual drag-and-drop editor - Page Builder.
+[Page](pages.md) is a block-based type of content.
+You can create and modify it with a visual drag-and-drop editor - Page Builder.
 Page is divided into zones into which you can drop various dynamic blocks.
 By editing pages you can customize the layout and content of your website.
 
@@ -29,14 +30,15 @@ To create a new page:
 
 ### Edit page
 
-You can edit any existing page by using Page Builder. To do it, in the back office go to **Content** and select **Content structure**.
+You can edit any existing page with the Page Builder.
+To do it, in the back office go to **Content** and select **Content structure**.
 Then, from the content tree choose the page and click **Edit**.
 
 ## What is Page Builder
 
 Page Builder is a visual tool that allows you to create and edit any page in [[= product_name =]].
 It's more than managing: it's about building pages, creating customized content and fully-targeted landing pages.
-Creating pages in Page Builder involves composing content using ready-to-use elements - blocks, properly configured and customized.
+Creating pages in Page Builder involves composing content from ready-to-use elements - blocks, properly configured and customized.
 It's also important to choose a layout - it determines the arrangement of drop zones that contain content elements.
 
 ![Page Builder - diagram](page_builder_diagram.png)
@@ -95,7 +97,9 @@ Page Builder has two main views that you can use while creating a page:
 
 ![Page blocks](page_blocks_toolbar.png)
 
-- Structure view - shows a structure of the page, including its division into zones and the blocks that it contains. It follows the behavior of the content tree. Structure view has ability to reorder blocks using drag and drop.
+- Structure view - shows a structure of the page, including its division into zones and the blocks that it contains.
+It follows the behavior of the content tree.
+Structure view has ability to reorder blocks using drag and drop.
 
 ![Structure view](structure_view.png)
 

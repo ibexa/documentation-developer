@@ -15,7 +15,7 @@ If you find any, update them with your comment or additional information instead
 
 !!! caution "Security issues"
 
-    If you discover a security issue, please don't report it using regular channels, but instead take a look at [Security section](reporting_issues.md).
+    If you discover a security issue, please don't report it through regular channels, but instead take a look at the [Security section](reporting_issues.md).
 
 If you have an [[= product_name =]] subscription, report your issues through the [support portal](https://support.ibexa.co) instead of JIRA.
 This ensures the issue can be quickly prioritized according to its impact.

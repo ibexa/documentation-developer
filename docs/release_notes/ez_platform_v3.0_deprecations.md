@@ -756,7 +756,7 @@ Insecure password hash types deprecated since v1.13 have been removed:
 - `PASSWORD_HASH_PLAINTEXT`
 
 Login with the removed hashes doesn't longer work.
-Users can request a new, valid password using the "Forgot password" feature.
+Users can use the "Forgot password" feature to request a new, valid password.
 
 ### Strict types for PHP API
 

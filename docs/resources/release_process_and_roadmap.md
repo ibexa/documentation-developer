@@ -17,7 +17,7 @@ Additionally, [[= product_name =]] also has an open-source version called [[= pr
 The [[= product_name_oss =]] code is available on GitHub under the GPLv2 license.
 It comes with no commercial support and maintenance services.
 
-[[= product_name_base =]] manages the release of [[= product_name =]] using an agile iterative process and a continuous software development model, which is why we provide two kinds of [[= product_name =]] releases:
+[[= product_name_base =]] manages the release of [[= product_name =]] by using an agile iterative process and a continuous software development model, which is why we provide two kinds of [[= product_name =]] releases:
 
 - Long Term Support releases (LTS) which are supported by [[= product_name_base =]] for a long period of time.
 - Fast Track releases (FT) give access to the latest features and are supported for a short period of time. They're maintained only until the next FT release is introduced.

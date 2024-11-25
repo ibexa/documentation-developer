@@ -7,7 +7,7 @@ description: Add a custom media type to REST API request headers.
 In this example case, you pass a new media type in the `Accept` header of a GET request to `/content/locations/{locationPath}` route and its controller action (`Controller/Location::loadLocation`).
 
 By default, this resource takes an `application/vnd.ibexa.api.Location+xml` (or `+json`) `Accept` header.
-The following example adds the handling of a new media type `application/app.api.Location+xml` (or `+json`) `Accept` header to obtain a different response using the same controller.
+The following example adds the handling of a new media type `application/app.api.Location+xml` (or `+json`) `Accept` header to obtain a different response with the same controller.
 
 You need the following elements:
 

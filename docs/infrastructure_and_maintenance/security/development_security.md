@@ -49,7 +49,7 @@ logout:
 
 ### Authentication using Symfony Security component
 
-Authentication is provided using the Symfony Security component.
+Authentication is provided by the Symfony Security component.
 
 [Native and universal `form_login`]([[= symfony_doc =]]/security/form_login_setup.html) is used, in conjunction with an extended `DaoAuthenticationProvider` (DAO stands for *Data Access Object*), the `RepositoryAuthenticationProvider`.
 Native behavior of `DaoAuthenticationProvider` has been preserved, making it possible to still use it for pure Symfony applications.

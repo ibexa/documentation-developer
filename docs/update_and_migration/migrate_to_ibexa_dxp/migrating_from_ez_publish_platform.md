@@ -17,21 +17,30 @@ You can then proceed with consecutive upgrades to further versions: v1.13 LTS an
 
 !!! caution "Things to be aware of when planning a migration"
 
-    1. While the instructions below are fully supported, we are aware that the community, partners and customers come from a wide range of different versions of eZ Publish, some with issues that don't surface before attempting a migration. That's why we and the community are actively gathering feedback on Slack and/or support channels for Enterprise customers to gradually improve the migration scripts and instructions. Reach out before you start so others who have done this before you can support you.
+    1. While the instructions below are fully supported, we are aware that the community, partners and customers come from a wide range of different versions of eZ Publish, some with issues that don't surface before attempting a migration.
+    That's why we and the community are actively gathering feedback on Slack and/or support channels for Enterprise customers to gradually improve the migration scripts and instructions.
+    Reach out before you start so others who have done this before you can support you.
 
-    1. As of eZ Platform v1.11, Legacy Bridge is a supported option for 1.x and future 2.x series. This means you can plan for a more gradual migration if you want, just like you could on eZ Publish Platform 5.x, with a more feature-rich version of eZ Platform and (with 2.x) also more recent version of Symfony. This is a great option for those who want the latest features and are comfortable with more frequent releases.
+    1. As of eZ Platform v1.11, Legacy Bridge is a supported option for 1.x and future 2.x series.
+    This means you can plan for a more gradual migration if you want, just like you could on eZ Publish Platform 5.x, with a more feature-rich version of eZ Platform and (with 2.x) also more recent version of Symfony.
+    This is a great option for those who want the latest features and are comfortable with more frequent releases.
 
     1. Additionally there are some other topics to be aware of for the code migration from eZ Publish to eZ Platform:
 
-        - Symfony deprecations. The recommended version to migrate to is eZ Platform v2.5 LTS, which is using Symfony 3.4 LTS.
+        - Symfony deprecations.
+        The recommended version to migrate to is eZ Platform v2.5 LTS, which is using Symfony 3.4 LTS.
         - [Field types reference](field_type_reference.md) for overview of field types that do and don't exist in eZ Platform
-        - API changes. While we have a strict backwards compatibility focus, some deprecated API features were removed and some changes were done to internal parts of the system. See [ezpublish-kernel:doc/bc/changes-6.0.md](https://github.com/ezsystems/ezpublish-kernel/blob/v6.7.0/doc/bc/changes-6.0.md)
+        - API changes.
+        While we have a strict backwards compatibility focus, some deprecated API features were removed and some changes were done to internal parts of the system.
+        See [ezpublish-kernel:doc/bc/changes-6.0.md](https://github.com/ezsystems/ezpublish-kernel/blob/v6.7.0/doc/bc/changes-6.0.md)
 
 !!! note
 
-    If you're migrating from a legacy eZ Publish version, this page contains the information you need. However, first have a look at an overview of the process in [Migrating from eZ Publish](migrating_from_ez_publish.md).
+    If you're migrating from a legacy eZ Publish version, this page contains the information you need.
+    However, first have a look at an overview of the process in [Migrating from eZ Publish](migrating_from_ez_publish.md).
 
-This section describes how to upgrade your existing  eZ Publish Platform  5.4/2014.11 installation to eZ Platform and eZ Enterprise. Make sure that you have a working [backup](backup.md) of the site before you do the actual upgrade, and that the installation you're performing the upgrade on is offline.
+This section describes how to upgrade your existing  eZ Publish Platform  5.4/2014.11 installation to eZ Platform and eZ Enterprise.
+Make sure that you have a working [backup](backup.md) of the site before you do the actual upgrade, and that the installation you're performing the upgrade on is offline.
 
 ### Note on Paths
 
@@ -75,13 +84,14 @@ Adapt the command with your `vendor`, `package`, version number, and add `"–d
 
 #### 2.2.2 Install XmlText field type
 
-While no longer bundled, the XmlText field type still exists and is needed to perform a migration from eZ Publish's XmlText to the new docbook-based format used by the RichText field type. If you plan to use Legacy Bridge for a while before migrating content, you also need this for rendering content with XMLText. From `<new-ez-root>` execute:
+While no longer bundled, the XmlText field type still exists and is needed to perform a migration from eZ Publish's XmlText to the new docbook-based format used by the RichText field type.
+If you plan to use Legacy Bridge for a while before migrating content, you also need this for rendering content with XMLText. From `<new-ez-root>` execute:
 
 `composer require --no-update "ezsystems/ezplatform-xmltext-fieldtype:^1.3.0"`
 
 !!! note
 
-    As of v1.3, be aware this field type now uses the Content View system introduced in eZ Platform 1.0, so make sure you adapt custom templates and override rules if you plan to use this for rendering content _(in Legacy Bridge setup)_.
+    As of v1.3, be aware this field type now uses the Content View system introduced in eZ Platform 1.0, so make sure you adapt custom templates and override rules if you plan to use this for rendering content (in Legacy Bridge setup).
 
 
 ### 2.3. Config
@@ -115,7 +125,8 @@ To move over your own custom configurations, follow the conventions below and ma
 
 !!! note "Make sure to adapt SiteAccess names"
 
-    In the default configurations in **ezplatform.yaml** you can find existing SiteAccesses like `site`, and depending on installation perhaps a few others, all under a site group called `site\_group`. Make sure to change those to what you had in **ezpublish.yaml** to avoid issues with having to log in to your website, given `user/login` policy rules need to be updated if you change names of SiteAccess as part of the upgrade.
+    In the default configurations in **ezplatform.yaml** you can find existing SiteAccesses like `site`, and depending on installation perhaps a few others, all under a site group called `site\_group`.
+    Make sure to change those to what you had in **ezpublish.yaml** to avoid issues with having to log in to your website, given `user/login` policy rules need to be updated if you change names of SiteAccess as part of the upgrade.
 
 #### 2.3.1 Image aliases
 
@@ -169,19 +180,27 @@ Move over registration of _your_ bundles you have from src and from composer pac
 
 ### 2.5. Optional: Install Legacy Bridge
 
-If you don't plan to migrate content directly to newer eZ Platform field types, you can optionally install Legacy Bridge and gradually handle code and subsequent content migration afterwards. For installation instructions see [here](https://github.com/ezsystems/LegacyBridge/blob/master/INSTALL.md).
+If you don't plan to migrate content directly to newer eZ Platform field types, you can optionally install Legacy Bridge and gradually handle code and subsequent content migration afterwards.
+For installation instructions see [here](https://github.com/ezsystems/LegacyBridge/blob/master/INSTALL.md).
 
 !!! note
 
-    The Legacy Bridge integration doesn't have the same performance, scalability or integrated experience as a pure Platform setup. Like on eZ Publish Platform 5.x there are known edge cases where, for instance, cache or search index cannot always be immediately updated across the two systems using the bridge. This is one of the many reasons why we recommend a pure Platform setup where that is possible.
+    The Legacy Bridge integration doesn't have the same performance, scalability or integrated experience as a pure Platform setup.
+    Like on eZ Publish Platform 5.x there are known edge cases where, for instance, cache or search index cannot always be immediately updated across the two systems using the bridge.
+    This is one of the many reasons why we recommend a pure Platform setup where that is possible.
 
 #### 2.5.1 Set up symlinks for legacy folders
 
 As eZ Publish legacy is installed via composer, we need to take care of placing some files outside its generated `<new-ez-root>/ezpublish_legacy/` folder, and for instance use symlink to place them inside during installation.
 
-1. For design and settings files that you typically version in git, you can now take advantage of Legacy Bridge's built-in symlink convention. So as installation already hinted about, you can generate a structure and set up symlinks using `bin/console ezpublish:legacy:symlink -c`. This creates folders you can use below in `<new-ez-root>/src/legacy_files/`.
+1. For design and settings files that you typically version in git, you can now take advantage of Legacy Bridge's built-in symlink convention.
+So as installation already hinted about, you can generate a structure and set up symlinks by using `bin/console ezpublish:legacy:symlink -c`.
+This creates folders you can use below in `<new-ez-root>/src/legacy_files/`.
 
-1. The same goes for the `<new-ez-root>/ezpublish_legacy/var/[<site>/]storage` folder. However, as it's typically not versioned in git, there's no predefined convention for this. If you create a folder within your project structure for symlinking into this folder, as opposed to a mount somewhere else, make sure to mark this folder as ignored by git once it and the corresponding `.keep` file have been added to your checkout. The example below assumes `<new-ez-root>/src/legacy_files/storage` was created for this purpose, if you opt for something else just adjust the instructions.
+1. The same goes for the `<new-ez-root>/ezpublish_legacy/var/[<site>/]storage` folder.
+However, as it's typically not versioned in git, there's no predefined convention for this.
+If you create a folder within your project structure for symlinking into this folder, as opposed to a mount somewhere else, make sure to mark this folder as ignored by git once it and the corresponding `.keep` file have been added to your checkout.
+The example below assumes `<new-ez-root>/src/legacy_files/storage` was created for this purpose, if you opt for something else just adjust the instructions.
 
 #### 2.5.2 Upgrade the legacy distribution files
 
@@ -440,7 +459,7 @@ eZ Platform now supports custom tags, including inline custom tags, and limited 
 After migrating to RichText, you need to adapt your custom tag config for eZ Platform and rewrite the custom tags in Twig.
 See [Custom tag documentation](https://doc.ibexa.co/en/2.5/guide/extending/extending_online_editor/#custom-tags) for more info.
 
-If you configured custom attributes in legacy in OE using [ezoe_attributes.ini](https://github.com/ezsystems/ezpublish-legacy/blob/master/extension/ezoe/settings/ezoe_attributes.ini#L33-L48), not all types are supported.
+If you configured custom attributes in legacy in OE by using [ezoe_attributes.ini](https://github.com/ezsystems/ezpublish-legacy/blob/master/extension/ezoe/settings/ezoe_attributes.ini#L33-L48), not all types are supported.
 
 Below is a table of the tags that are currently supported, and their corresponding names in eZ Platform.
 

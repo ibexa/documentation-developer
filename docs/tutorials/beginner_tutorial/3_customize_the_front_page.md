@@ -4,7 +4,7 @@ description: Try customizing the front page by using custom templates and adding
 
 # Step 3 — Customize the front page
 
-In this step you can create the global layout of your site, and display content using custom templates.
+In this step you can create the global layout of your site, and display content by using custom templates.
 
 First, go to the root of the site (`<yourdomain>`).
 You should now see the home page of the clean install, without any kind of layout.
@@ -67,7 +67,7 @@ Create a `home_page.html.twig` file in `templates/full/`:
 </div>
 ```
 
-Refresh the page and you can see an unstyled version of the message.
+Refresh the page to see an unstyled version of the message.
 
 !!! note
 

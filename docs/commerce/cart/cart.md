@@ -79,7 +79,7 @@ document.body.addEventListener(
 
 The Cart package provides `Ibexa\Contracts\Cart\CartServiceInterface` Symfony service, which is the entrypoint for calling the [backend API](cart_api.md).
 
-You can import the service using the following code:
+You can import the service with the following code:
 
 ```js
 import * as cartService from '@ibexa-cart/src/bundle/Resources/public/js/service/cart';

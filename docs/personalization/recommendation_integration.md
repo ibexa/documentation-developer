@@ -38,7 +38,7 @@ One of the possible ways to work around this limitation is JSONP.
 ## Load over proxy
 
 A better solution than JSONP is to provide the proxy on the server side, which forwards script requests to the Personalization service.
-It can be implemented as a basic proxy using the `mod_proxy` module of the Apache Webserver.
+It can be implemented as a basic proxy by using the `mod_proxy` module of the Apache Webserver.
 It transfers the data and the JavaScript renders the response into HTML itself.
 
 An alternative approach is to create the HTML code on the server side for every target page, to simplify the script on the client side.

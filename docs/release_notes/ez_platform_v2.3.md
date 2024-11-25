@@ -31,7 +31,7 @@
 
     ![Timeline and list of upcoming events](2.3_timeline_list.png)
 
-    The timeline also shows other events, such a Content published using the date-based publisher.
+    The timeline also shows other events, such a Content published with the date-based publisher.
 
 For more information, see [advanced publishing options](https://doc.ibexa.co/projects/userguide/en/2.5/publishing/advanced_publishing_options) in User Documentation.
 

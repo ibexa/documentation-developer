@@ -48,7 +48,7 @@ ibexa:
 
 You can use only one repository (database) per domain.
 This doesn't prohibit using [different repositories](persistence_cache.md#multi-repository-setup) on different subdomains.
-However, when using URI matching for multisite setup, all SiteAccesses sharing domain also need to share repository.
+However, when you use URI matching for multisite setup, all SiteAccesses sharing domain also need to share repository.
 For example:
 
 - `ibexa.co` domain can use `ibexa_repo`
@@ -59,7 +59,7 @@ But the following configuration would be invalid:
 - `ibexa.co` domain can use `ibexa_repo`
 - `ibexa.co/doc` **cannot** use `doc_repo`, as it's under the same domain.
 
-Invalid configuration causes problems for different parts of the system, for example back-end UI, REST interface, and other non-SiteAccess-aware Symfony routes such as `/_fos_user_context_hash` used by [HTTP cache](http_cache.md).
+Invalid configuration causes problems for different parts of the system, for example, back-end UI, REST interface, and other non-SiteAccess-aware Symfony routes such as `/_fos_user_context_hash` used by [HTTP cache](http_cache.md).
 
 ### Entity manager
 
@@ -84,7 +84,7 @@ For more information, see [DoctrineBundle documentation](https://symfony.com/doc
 
 !!! note
 
-    In contrast with DoctrineBundle, when using the SiteAccess-aware entity manager you need to explicitly set all options: `dir` (it still accepts relative path in case of bundles), `prefix`, `type`, and `is_bundle`.
+    In contrast with DoctrineBundle, when you use the SiteAccess-aware entity manager you need to explicitly set all options: `dir` (it still accepts relative path in case of bundles), `prefix`, `type`, and `is_bundle`.
 
 ### Defining custom connection
 

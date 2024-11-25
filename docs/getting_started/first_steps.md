@@ -120,7 +120,7 @@ ibexa:
             site_group: [site, de]
 ```
 
-The SiteAccess is automatically matched using the last part of the URI.
+The SiteAccess is automatically matched based on the last part of the URI.
 
 2\. You can now access the front page through the new SiteAccess: `<yourdomain>/de`.
 

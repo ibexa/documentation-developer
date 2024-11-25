@@ -10,7 +10,7 @@ Customized dashboard displays a set of widgets selected by the user.
 
 !!! tip
 
-     Detailed instruction on how to customize dashboard using Dashboard Builder is available in [[[= product_name =]] User Documentation](https://doc.ibexa.co/projects/userguide/en/latest/getting_started/dashboard/work_with_dashboard/#customize-dashboard).
+     For detailed instruction on how to customize dashboards with the Dashboard Builder, see [User Documentation](https://doc.ibexa.co/projects/userguide/en/latest/getting_started/dashboard/work_with_dashboard/#customize-dashboard).
 
 ## Manage permissions
 
@@ -30,9 +30,9 @@ For more information, see [Customize storefront layout](customize_storefront_lay
 
 ## Create custom blocks
 
-Dashboard builder provides set of ready-to-use blocks, for example, Common content, Quick actions, or [[= product_name =]] News.
+Dashboard Builder provides set of ready-to-use blocks, for example, Common content, Quick actions, or [[= product_name =]] News.
 
-For more information about available blocks, see [[[= product_name =]] User Documentation](https://doc.ibexa.co/projects/userguide/en/latest/getting_started/dashboard/dashboard_block_reference/).
+For more information about available blocks, see [User Documentation](https://doc.ibexa.co/projects/userguide/en/latest/getting_started/dashboard/dashboard_block_reference/).
 
 In addition to existing blocks available in Dashboard Builder, you can also create custom blocks.
 

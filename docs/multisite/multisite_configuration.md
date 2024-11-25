@@ -168,7 +168,7 @@ ibexa:
 
 If you need to change between SiteAccesses in Site mode, don't use any functions in the page itself (for example, a language switcher).
 This may cause unexpected errors.
-Instead, switch between SiteAccesses using the SiteAccess bar above the page.
+Instead, switch between SiteAccesses with the SiteAccess bar above the page.
 
 ## Location tree
 
@@ -189,8 +189,8 @@ ibexa:
 ```
 
 - `location_id` defines the location ID of the content root for the SiteAccess.
-- `excluded_uri_prefixes` defines which URIs ignore the root limit set using `location_id`.
-In the example above, the Media and Images folders are accessible using their own URI, even though they're outside the location provided in `content.tree_root.location_id`.
+- `excluded_uri_prefixes` defines which URIs ignore the root limit set by using `location_id`.
+In the example above, to access the Media and Images folders, you can use their own URI, even though they're outside the location provided in `content.tree_root.location_id`.
 - `index_page` is the page shown when you access the root index `/`.
 
 !!! note

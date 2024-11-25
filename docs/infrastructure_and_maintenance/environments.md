@@ -15,7 +15,7 @@ You can have different configuration sets for each of them.
 
 ## Web server configuration
 
-For example, using Apache, in the [`VirtualHost` example](https://raw.githubusercontent.com/ibexa/post-install/main/resources/templates/apache2/vhost.template) in your installation, the required `VirtualHost` configurations have been already included.
+For example, when you use Apache, in the [`VirtualHost` example](https://raw.githubusercontent.com/ibexa/post-install/main/resources/templates/apache2/vhost.template) in your installation, the required `VirtualHost` configurations have been already included.
 You can switch to the desired environment by setting the `ENVIRONMENT` variable to `prod`, `dev` or another custom value, like in the following example:
 
 ```

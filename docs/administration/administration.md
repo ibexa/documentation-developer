@@ -11,5 +11,5 @@ Administer and configure your [[= product_name =]] installation.
     "administration/admin_panel/admin_panel",
     "administration/project_organization/project_organization",
     "administration/configuration/configuration",
-    "administration/back_office/back_office"
+    "administration/back_office/back_office",
 ], columns=4) =]]

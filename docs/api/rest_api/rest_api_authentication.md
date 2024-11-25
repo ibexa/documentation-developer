@@ -249,7 +249,7 @@ Then, you have to make sure to confirm with the user if they want to perform an 
 
 Example:
 
-A rich JavaScript/web application is using `navigator.registerProtocolHandler()` to register "web+ez:" links to go against REST API.
+A rich JavaScript/web application uses `navigator.registerProtocolHandler()` to register "web+ez:" links to go against REST API.
 It uses a session-based authentication, and it's in widespread use across the net, or/and it's used by everyone within a company.
 A person with minimal insight into this application and the company can easily send out the following link to all employees in that company in email:
 `<a href="web+ez:DELETE /content/locations/1/2">latest reports</a>`.
@@ -383,7 +383,7 @@ Basic authentication requires the username and password to be sent *(username:pa
 For details, see [RFC 2617](https://datatracker.ietf.org/doc/html/rfc2617).
 
 Most HTTP client libraries and REST libraries support this method.
-[Creating content with binary attachments](rest_requests.md#creating-content-with-binary-attachments) has an example using basic authentication with [cURL](https://www.php.net/manual/en/book.curl.php) and its `CURLOPT_USERPWD`.
+[Creating content with binary attachments](rest_requests.md#creating-content-with-binary-attachments) is an example of using basic authentication with [cURL](https://www.php.net/manual/en/book.curl.php) and its `CURLOPT_USERPWD`.
 
 **Raw HTTP request with basic authentication**
 

@@ -6,7 +6,7 @@ page_type: reference
 # Limitations
 
 Limitations are part of the permissions system.
-They limit the access granted to users by [Policies](permission_overview.md).
+They limit the access granted to users by [policies](permission_overview.md).
 While a policy grants the user access to a function, Limitations narrow it down by different criteria.
 
 Limitations consist of two parts:
@@ -23,7 +23,7 @@ Currently, this covers [subtree of location](limitation_reference.md#subtree-lim
 | Method | Use |
 |--------|-----|
 | `evaluate` | Evaluates if the User has access to a given object in a certain context (for instance the context can be locations when the object is `Content`), under the condition of the `Limitation` value(s). |
-| `getCriterion` | Generates a `Criterion` using `Limitation` value and current User which `SearchService` by default applies to Search Criteria for filtering search based on permissions. |
+| `getCriterion` | Generates a `Criterion` based on `Limitation` value and current user which `SearchService` by default applies to Search Criteria for filtering search based on permissions. |
 
 ## Limitation reference
 

@@ -330,7 +330,8 @@ The personalization service also notifies other components of the Personalizatio
     If the export fails, the Personalization server doesn't have full content information.
     As a result, even if the recommendations are displayed, they might miss images, titles or deeplinks.
 
-To display recommendations on your site, you must include the asset in the template using the following code:
+To display recommendations on your site, you must include the asset in the template.
+To do it, use the following code:
 
 ``` html+twig
 {{ encore_entry_script_tags('ibexa-personalization-client-js', null, 'ibexa') }}

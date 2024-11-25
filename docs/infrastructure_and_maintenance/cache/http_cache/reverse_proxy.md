@@ -81,7 +81,7 @@ framework:
     trusted_proxies: '192.0.0.1,10.0.0.0/8'
 ```
 
-!!! caution "Careful when trusting dynamic IP using `REMOTE_ADDR` value or similar"
+!!! caution "Careful when trusting dynamic IP that uses `REMOTE_ADDR` value or similar"
 
     On Platform.sh, Varnish doesn't have a static IP, like with [AWS LB](https://symfony.com/doc/5.1/deployment/proxies.html#but-what-if-the-ip-of-my-reverse-proxy-changes-constantly).
     For this reason, the `TRUSTED_PROXIES` env variable supports being set to value `REMOTE_ADDR`, which is equal to:
@@ -133,7 +133,7 @@ ibexa:
                 purge_servers: [http://my.varnish.server:8081]
 ```
 
-!!! note "Invalidating Varnish cache using tokens"
+!!! note "Invalidating Varnish cache by using tokens"
 
     In setups where the Varnish server IP can change (for example, on [[= product_name_cloud =]]), you can use token-based cache invalidation through [`ez_purge_acl`](https://github.com/ibexa/http-cache/blob/main/docs/varnish/vcl/varnish5.vcl#L174).
 

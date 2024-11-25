@@ -30,7 +30,7 @@ The SPI `FieldValue` struct has properties which the field type can use:
 
 The Legacy storage engine uses the `ezcontentobject_attribute` table to store field values,
 and `ezcontentclass_attribute` to store field definition values.
-they're both based on the same principle.
+They're both based on the same principle.
 
 Each row represents a field or a field definition, and offers several free fields of different types, where the type can store its data.
 

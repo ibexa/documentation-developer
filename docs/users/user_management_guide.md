@@ -18,7 +18,7 @@ User management is available in all [[= product_name =]] versions.
 
 ## How does user management work
 
-[[= product_name =]] simplifies user management with an intuitive and powerful system of accounts, Roles, Permissions, groups, and segments.
+[[= product_name =]] simplifies user management with an intuitive and powerful system of accounts, roles, permissions, groups, and segments.
 You can find all user groups and users in the **Admin** panel by selecting **Users**.
 Here, you can manage users, their relations, roles, and policies.
 
@@ -60,7 +60,7 @@ Policies allow for fine-grained control of access based on various factors, such
 
 ### Custom policies
 
-[Tailor user access control](custom_policies.md) to your unique requirements using custom policies.
+[Tailor user access control](custom_policies.md) to your unique requirements by using custom policies.
 Define complex rules and access criteria for different users or groups.
 
 ### Limitations

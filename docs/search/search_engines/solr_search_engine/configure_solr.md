@@ -15,12 +15,13 @@ description: Configure Solr search engine to use it with Ibexa DXP.
 
     Boosting of fields or documents affects the score (relevance) of your search result hits when using Search API for any Criteria you specify on `$query->query`, or in REST by using `Query` element.
     When you don't specify anything to sort on, the result is sorted by this relevance.
-    Anything set on `$query->filter`, or in REST using `Filter` element, *doesn't* affect scoring and only works as a pure filter for the result. Thus make sure to place Criteria you want to affect scoring on `query`.
+    Anything set on `$query->filter`, or in REST by using `Filter` element, *doesn't* affect scoring and only works as a pure filter for the result.
+    Thus make sure to place Criteria you want to affect scoring on `query`.
 
 Boosting currently happens when indexing, so if you change your configuration you need to re-index.
 
 Boosting tells the search engine which parts of the content model have more importance when searching, and is an important part of tuning your search results relevance.
-Importance is defined using a numeric value, where `1.0` is default, values higher than that are more important, and values lower (down to `0.0`) are less important.
+Importance is defined by using a numeric value, where `1.0` is default, values higher than that are more important, and values lower (down to `0.0`) are less important.
 
 Boosting is configured per connection that you configure to use for a given repository, like in this `config/packages/ibexa_solr.yaml` example:
 

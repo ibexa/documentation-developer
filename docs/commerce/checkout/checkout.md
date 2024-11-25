@@ -54,6 +54,6 @@ Reorder functions as the variant for the checkout workflow and is accessible sol
 It initiates from the user's order history, where they can click **Reorder** and trigger the flow.
 Next, the user is moved to cart where the system validates the order against existing stock.
 If everything is available, customer can move to payment and summary.
-The system pre-fills address, shipping method, and payment details using information from the past order.
+The system uses information from the past order to pre-fill address, shipping method, and payment details.
 
 For more information, see [reorder documentation](reorder.md).

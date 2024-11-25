@@ -14,13 +14,19 @@ If you're looking for the Long Term Support (LTS) release, see[ https://ezplatf
 
 #### Multifile upload
 
-You can now create collections of content quickly: upload multiple files in bulk and they're imported directly into the content repository. The files are automatically imported as content using the content type that matches their MIME type. Go to the content view, drag and drop or select multiple files in the sub-items area and you get direct access for further editing. As ever, this solution can be customized so that you create your own matching rules.
+You can now create collections of content quickly: upload multiple files in bulk and they're imported directly into the content repository.
+The files are automatically imported as content using the content type that matches their MIME type.
+Go to the content view, drag and drop or select multiple files in the sub-items area and you get direct access for further editing.
+As ever, this solution can be customized so that you create your own matching rules.
 
 ![](catsfromtheMET.gif)
 
 #### Content browser
 
-In version 1.8 we introduced a new Content Browser in the Universal Discovery Widget (UDW). This Content Browser is now used to browse content everywhere, also when accessing the content tree through the left pane in Platform UI. This allows users to reach the entire repository from this toolbar (which was previously limited in terms of number of items per level), it also provides a much more consistent user experience. To reflect this change, the content tree button has been renamed **Content browse**.
+In version 1.8 we introduced a new Content Browser in the Universal Discovery Widget (UDW).
+This Content Browser is now used to browse content everywhere, also when accessing the content tree through the left pane in Platform UI.
+This allows users to reach the entire repository from this toolbar (which was previously limited in terms of number of items per level), it also provides a much more consistent user experience.
+To reflect this change, the content tree button has been renamed **Content browse**.
 
 ![](contentbrowse.gif)
 

@@ -111,7 +111,7 @@ To avoid quickly running out of memory while executing such commands you should 
                 buffer_size: 200
     ```
 
-1.  Run PHP without memory limits using: `php -d memory_limit=-1 bin/console <command>`
+1.  Run PHP without memory limits: `php -d memory_limit=-1 bin/console <command>`
 1.  Disable `xdebug` *(PHP extension to debug/profile php use)* when running the command, this causes php to use much more memory.
 
 !!! note "Memory still grows"

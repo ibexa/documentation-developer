@@ -87,10 +87,10 @@ For instance, `ContentInfo` contains `currentVersionNo` or `remoteId`, while `Co
 One of the responsibilities of the repository is user authentication.
 Every action is executed *as* a user.
 
-When using the PHP API, authentication is performed in three ways:
+When you use the PHP API, authentication is performed in three ways:
 
 - [automatically in the back office](#back-office-authentication)
-- [using `sudo()`](#using-sudo)
+- [by using `sudo()`](#using-sudo)
 - by [setting the Repository user](#setting-the-repository-user)
 
 ### Back office authentication
@@ -173,7 +173,7 @@ try {
 Symfony service container uses service tags to dedicate services to a specific purpose.
 They're usually used for extension points.
 
-[[= product_name =]] exposes multiple features using service tags.
+[[= product_name =]] uses service tags to expose multiple features.
 For example, field types are tagged `ibexa.field_type`.
 
 !!! tip

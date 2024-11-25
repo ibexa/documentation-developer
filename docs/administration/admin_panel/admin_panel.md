@@ -18,5 +18,5 @@ To access **Admin** panel, click the icon: ![Admin panel Icon](admin_panel_icon.
     "administration/admin_panel/segments_admin_panel",
     "administration/admin_panel/corporate_admin_panel",
     "administration/admin_panel/workflow_admin_panel",
-    "administration/admin_panel/system_information_admin_panel"
+    "administration/admin_panel/system_information_admin_panel",
 ], columns=4) =]]

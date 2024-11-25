@@ -53,7 +53,7 @@ You generate variations based on [filters](image_variations.md#available-variati
 Image variations are generated with [LiipImagineBundle](https://github.com/liip/LiipImagineBundle), by using the underlying [Imagine library](https://imagine.readthedocs.io/en/latest/). 
 The LiipImagineBundle bundle supports GD (default), Imagick or Gmagick PHP extensions, and enables you to define flexible filters in PHP. 
 Image files are stored by using the `IOService,` and are completely independent from the Image field type.
-they're generated only once and cleared on demand, for example, on content removal).
+They're generated only once and cleared on demand, for example, on content removal).
 
 LiipImagineBundle only works on image blobs, so no command line tool is needed.
 

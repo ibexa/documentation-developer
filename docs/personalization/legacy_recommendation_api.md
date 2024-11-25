@@ -244,7 +244,7 @@ If the website is implemented in a language which supports multithreading or non
 The page generation and the recommendation requests are accomplished in parallel.
 By combining this idea with the previous solution and placing the recommendation results at the bottom of the page you can avoid any interruption in the processing.
 
-#### Loading from JavaScript using JSONP
+#### Using JSONP to load from JavaScript
 
 It's not possible to request the recommendation controller server directly from the JavaScript (over AJAX library or directly over XMLHttpRequest) because of the cross-domain restriction in most browsers.
 One of the possible technique to work around this limitation is [JSONP](https://en.wikipedia.org/wiki/JSONP).

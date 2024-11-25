@@ -10,7 +10,7 @@ Three [[= product_name =]] product editions are available to help you accelerate
 [[= cards([
     "ibexa_products/ibexa_headless",
     "ibexa_products/ibexa_experience",
-    "ibexa_products/ibexa_commerce"
+    "ibexa_products/ibexa_commerce",
 ], columns=3) =]]
 
 ## Feature comparison

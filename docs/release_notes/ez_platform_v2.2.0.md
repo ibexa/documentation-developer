@@ -59,7 +59,7 @@ You can find the list of all bookmarks in *Browse content* section. There, you c
 
 ### Standard design
 
-eZ Platform now comes with two designs using the [design engine](https://doc.ibexa.co/en/2.5/guide/design_engine): `standard` for content view and `admin` for the back office.
+eZ Platform now comes with two designs that use the [design engine](https://doc.ibexa.co/en/2.5/guide/design_engine): `standard` for content view and `admin` for the back office.
 For more information, see [default designs](https://doc.ibexa.co/en/2.5/guide/design_engine/#default-designs).
 
 !!! caution

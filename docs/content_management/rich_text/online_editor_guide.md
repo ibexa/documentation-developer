@@ -18,7 +18,7 @@ Online Editor is available in all supported [[= product_name =]] versions and ed
 ## How to get started
 
 Online Editor is the default editing interface for all RichText fields. 
-To start using it, create any content item with a RichText field (for example, using the built-in Article content type) and edit this field.
+To start using it, create any content item with a RichText field (for example, based on the built-in Article content type) and edit this field.
 
 ## Capabilities
 

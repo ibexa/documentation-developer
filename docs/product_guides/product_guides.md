@@ -19,5 +19,5 @@ Discover the primary ones with the help of product guides. Condensed content all
     "personalization/personalization_guide",
     "pim/pim_guide",
     "ibexa_cloud/ibexa_cloud_guide",
-    "cdp/cdp_guide"
+    "cdp/cdp_guide",
 ], columns=4) =]]

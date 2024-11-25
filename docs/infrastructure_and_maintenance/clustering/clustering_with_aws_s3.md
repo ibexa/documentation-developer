@@ -93,4 +93,4 @@ Clear all caches and reload, and that's it.
 
 ## Migrate your existing binary data to S3
 
-You can [migrate existing binary data](clustering.md#migrating-to-a-cluster-setup) to S3 using the `php bin/console ibexa:io:migrate-files` command which was added in [EZP-25946](https://issues.ibexa.co/browse/EZP-25946).
+You can [migrate existing binary data](clustering.md#migrating-to-a-cluster-setup) to S3 with the `php bin/console ibexa:io:migrate-files` command that was added in [EZP-25946](https://issues.ibexa.co/browse/EZP-25946).

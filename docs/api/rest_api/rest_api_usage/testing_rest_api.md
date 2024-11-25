@@ -8,7 +8,7 @@ A standard web browser isn't sufficient to fully test the API.
 You can, however, try opening the root resource with it, using the session authentication: `http://example.com/api/ibexa/v2/`.
 Depending on how your browser understands XML, it either downloads the XML file, or opens it in the browser.
 
-The following examples show how to interrogate the REST API using cURL, PHP or JS.
+The following examples show how to interrogate the REST API with cURL, PHP or JS.
 
 To test further, you can use browser extensions, like [Advanced REST client for Chrome](https://chrome.google.com/webstore/detail/advanced-rest-client/hgmloofddffdnphfgcellkdfbfbjeloo) or [RESTClient for Firefox](https://addons.mozilla.org/en-US/firefox/addon/restclient/), or dedicated tools.
 For command line users, [HTTPie](https://github.com/httpie/cli) is a good tool.
@@ -36,7 +36,7 @@ Open a PHP shell in a terminal with <nobr>`php -a`</nobr> and copy-paste this co
 On a freshly installed [[= product_name =]], `52` is the Content ID of the home page.
 If necessary, substitute `52` with the content ID of an item from your database.
 
-For a content creation example using PHP, see [Creating content with binary attachments](rest_requests.md#creating-content-with-binary-attachments)
+For a content creation example that uses PHP, see [Creating content with binary attachments](rest_requests.md#creating-content-with-binary-attachments)
 
 ## JS
 

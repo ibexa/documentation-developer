@@ -47,7 +47,7 @@ It also varies on `Authorization` to cover any possible basic authorization head
 
 !!! note "Problems with stale user hash"
 
-    If you notice issues with stale hash usage, before you disable this cache, make sure login or logout always generates new session IDs and performs a full redirect to make sure no requests are being made using stale user context hashes.
+    If you notice issues with stale hash usage, before you disable this cache, make sure login or logout always generates new session IDs and performs a full redirect to make sure no requests are being made with stale user context hashes.
 
 !!! caution "Limitations of the user context hash"
 
@@ -129,7 +129,7 @@ However, **this is strongly discouraged** as it means increasing the amount of c
 Instead, you can create your own hash header for use cases where you need it.
 This way only controllers and views that really vary by your custom logic varies on it.
 
-You can do it using several methods, ranging from completely custom VCL logic and dedicated controller to respond with hash to trusted proxy lookups, but this means additional lookups.
+You can use several methods to do it, ranging from completely custom VCL logic and dedicated controller to respond with hash to trusted proxy lookups, but this means additional lookups.
 
 ### Example for custom vary by logic
 

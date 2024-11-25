@@ -36,7 +36,7 @@ For method action details per resource, see the [REST API reference](../rest_api
 !!! note "Caution with custom HTTP methods"
 
     Using custom HTTP methods can cause issues with several HTTP proxies, network firewall/security solutions and simpler web servers.
-    To avoid issues with this, REST API allows you to set these using the HTTP header `X-HTTP-Method-Override` alongside the standard `POST` method instead of using a custom HTTP method. For example: `X-HTTP-Method-Override: PUBLISH`
+    To avoid such issuess, REST API allows you to set these by using the HTTP header `X-HTTP-Method-Override` alongside the standard `POST` method instead of using a custom HTTP method. For example: `X-HTTP-Method-Override: PUBLISH`
 
     If applicable, both methods are always mentioned in the specifications.
 
@@ -104,7 +104,7 @@ X-Siteaccess: restapi
 ```
 
 One of the principles of REST is that the same resource (such as content item, location, content type) should be unique.
-It allows caching your REST API using a reverse proxy such as Varnish.
+It allows caching your REST API with a reverse proxy such as Varnish.
 If the same resource is available in multiple locations, cache purging is noticeably more complex.
 This is why SiteAccess matching with REST isn't enabled at URL level (or domain).
 
@@ -121,7 +121,7 @@ Media types are also used with the [`Content-Type` header](rest_responses.md#con
 See [Creating content with binary attachments](#creating-content-with-binary-attachments) below.
 Also see [Creating session](rest_api_authentication.md#creating-session) examples.
 
-If the resource only returns one media type, it's also possible to skip it and to specify the format using `application/xml` or `application/json`.
+If the resource only returns one media type, it's also possible to skip it and to specify the format with `application/xml` or `application/json`.
 
 A response indicates `href`s to related resources and their media types.
 

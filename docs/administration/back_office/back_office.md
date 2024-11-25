@@ -25,5 +25,5 @@ Some extensibility, such as [adding custom tags](extend_online_editor.md#configu
     "administration/back_office/notifications",
     "administration/back_office/browser/browser",
     "administration/back_office/add_user_setting",
-    "administration/back_office/customize_calendar"
+    "administration/back_office/customize_calendar",
 ], columns=4) =]]

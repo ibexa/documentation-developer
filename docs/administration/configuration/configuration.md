@@ -4,12 +4,13 @@ description: In Ibexa DXP you store and manage configuration in project files, t
 
 # Configuration
 
-[[= product_name =]] configuration is delivered using a number of dedicated configuration files.
+[[= product_name =]] configuration is delivered by means of a number of dedicated configuration files.
 It contains everything from selecting the content repository to SiteAccesses to language settings.
 
 ### Configuration format
 
-The recommended configuration format is YAML. It's used by default in the kernel (and in examples throughout the documentation).
+The recommended configuration format is YAML.
+It's used by default in the kernel (and in examples throughout the documentation).
 However, you can also use XML or PHP formats for configuration.
 
 ### Configuration files
@@ -22,7 +23,7 @@ It stores, among others, [SiteAccess](multisite.md) information and content view
 
 Other configuration is provided in respective files, for example, `config/packages/ibexa_admin_ui.yaml`, `config/packages/ibexa_http_cache.yaml`.
 
-Configuration can be made environment-specific using separate folders for each environment.
+You can make configuration environment-specific by using separate folders for each environment.
 These files contain additional settings and point to the general (not environment-specific) configuration that is applied in other cases.
 
 !!! note "New configuration files"

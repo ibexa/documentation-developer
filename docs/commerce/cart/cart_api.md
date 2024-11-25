@@ -162,7 +162,7 @@ $createStruct->setContext(new ArrayMap([
 $cart = $cartService->createCart($createStruct);
 ```
 
-In the above example, you create a cart using the `CartCreateStruct`, and set the context data using the `setContext` method.
+In the above example, you create a cart with the `CartCreateStruct` method, and set the context data with `setContext`.
 You also add "X1MF7699" coupon code as context data to the cart.
 
 ### Adding context data to cart entry
@@ -178,7 +178,7 @@ $entryAddStruct->setContext(new ArrayMap([
  $cartService->addEntry($cart, $entryAddStruct);
 ```
 
-In the above example, you create a cart entry using the `EntryAddStruct`.
+In the above example, you create a cart entry by using the `EntryAddStruct` method.
 The `setContext` method allows you to attach context data to the cart entry.
 In this case, you attach a "tshirt_text" attribute to the cart entry, which might represent custom text for a T-shirt.
 

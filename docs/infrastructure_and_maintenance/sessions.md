@@ -48,7 +48,7 @@ ibexa:
 
 ## Session handlers
 
-In Symfony, a session handler is configured using `framework.session.handler_id`.
+In Symfony, a session handler is configured with `framework.session.handler_id`.
 Symfony can be configured to use custom handlers, or fall back to what is configured in PHP by setting it to null (`~`).
 
 ### Default configuration
@@ -126,7 +126,7 @@ Ideally keep [persistence cache](persistence_cache.md) and session data separate
 
 If you want to make sure sessions survive Redis or server restarts, consider using a [persistent Redis](https://redis.io/docs/management/persistence/) instance for sessions.
 
-##### Alternative storing sessions in database using PDO
+##### Alternative storing sessions in database by using PDO
 
 For setups where database is preferred for storing sessions, you may use Symfony's PdoSessionHandler, although it's not currently recommended from performance perspective.
 

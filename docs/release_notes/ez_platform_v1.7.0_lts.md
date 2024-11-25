@@ -74,11 +74,15 @@ The interface lets the editor decide which of the Personalization scenarios conf
 
 ![](personalizationblock.png)
 
-- You can now take advantage of the **Date-Based Publishing** feature – when editing a draft, instead of publishing the content immediately you can select the date and time at which it's automatically published. All your content scheduled to be published are accessible in a dedicated widget on the dashboard.
+- You can now take advantage of the **Date-Based Publishing** feature – when editing a draft, instead of publishing the content immediately you can select the date and time at which it's automatically published.
+All your content scheduled to be published are accessible in a dedicated widget on the dashboard.
 
 ![](future_publication_window.png)
 
-- Create forms in your landing page using the **Form Builder**. A special Form Block allows you to add forms with different types of fields to the landing page. This system has been designed to be extended, so that you can create your own form fields. The system also provide an interface to access the data that has been collected, and download it as CSV files.
+- Create forms in your landing page with the **Form Builder**.
+A special Form Block allows you to add forms with different types of fields to the landing page.
+This system has been designed to be extended, so that you can create your own form fields.
+The system also provide an interface to access the data that has been collected, and download it as CSV files.
 
 ![](form-builder-1.png)
 
@@ -86,11 +90,12 @@ Submitted results can be previewed in the UI or downloaded in a CSV file, and a 
 
 ### Updated Demo Sites
 
-The Enterprise demo site has been significantly improved featuring a new **Product content type** that is used to show products in the Tasteful Planet demo. The product we used are meals that, in a non-demo ideal world, would be available to order and consume. This ordering part isn't in the demo, nevertheless, the content looks really yummy... Other improvements includes the good setup of all content type field categories and the demonstration of basic SEO field types. Demo content itself has also been upgraded with more content to better demonstrate the capabilities.
+The Enterprise demo site has been significantly improved featuring a new **Product content type** that is used to show products in the Tasteful Planet demo.
+The product we used are meals that, in a non-demo ideal world, would be available to order and consume.
+This ordering part isn't in the demo, nevertheless, the content looks really yummy... 
+Other improvements includes the good setup of all content type field categories and the demonstration of basic SEO field types. Demo content itself has also been upgraded with more content to better demonstrate the capabilities.
 
 ![](productcontenttype.png)
-
- 
 
 ### Installation
 

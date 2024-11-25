@@ -77,7 +77,7 @@ Confirm the creation of the content type by clicking **Save and close**.
     You can learn how to work with Pages in [another tutorial](page_and_form_tutorial.md).
 
 Go back to the content by selecting **Content structure** in the main menu.
-Then browse the content tree and create a Folder named *All Rides* using the **Create content** button on the top right of the screen.
+Then browse the content tree and create a Folder named *All Rides* by clicking the **Create content** button on the top right of the screen.
 Publish the Folder.
 
 While in the folder, create a few of Rides using the **Create content** button, add photos and publish them.

@@ -18,7 +18,8 @@ As an example take a look at the [`ContentId` Criterion handler](https://github.
 
 ## Custom Criteria and Sort Clauses
 
-Sometimes you can find that standard Search Criteria and Sort Clauses provided with [[= product_name =]] aren't sufficient for your needs. Most often this is the case if you have a custom field type using external storage which cannot be searched using the standard field Criterion.
+Sometimes you may find that standard Search Criteria and Sort Clauses provided with [[= product_name =]] aren't sufficient for your needs.
+Most often this is the case if you have a custom field type using external storage which cannot be searched using the standard field Criterion.
 
 !!! note
 
@@ -106,7 +107,7 @@ For more information about passing parameters, see [Symfony Service Container do
 
 ## Search using custom Field Criterion [REST]
 
-REST search can be performed via `POST /views` using custom `FieldCriterion`.
+REST search can be performed by calling the `POST /views` method with a custom `FieldCriterion`.
 This allows you to build custom content logic queries with nested logical operators OR/AND/NOT.
 
 Custom Field Criterion search mirrors the one already existing in PHP API `Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion\Field` by exposing it to REST.

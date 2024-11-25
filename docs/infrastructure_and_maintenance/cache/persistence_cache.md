@@ -82,7 +82,7 @@ ibexa:
 
 !!! note "One cache pool for each repository"
 
-    If your installation has several repositories *(databases)*, make sure every group of sites using different Repositories also uses a different cache pool.
+    If your installation has several repositories *(databases)*, make sure every group of sites that uses different repositories also uses a different cache pool.
 
 ### In-Memory cache configuration
 

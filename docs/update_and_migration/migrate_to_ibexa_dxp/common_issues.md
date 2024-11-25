@@ -4,8 +4,7 @@ description: Check common issues that occur when updating from earlier version t
 
 # Common migration issues
 
-Below you can find cleanup commands from the EzPublishMigrationBundle for the most common
-issues that can occur after migration to [[= product_name =]].
+Below you can find cleanup commands from the EzPublishMigrationBundle for the most common issues that can occur after migration to [[= product_name =]].
 
 !!! note "Enabling EzPublishMigrationBundle bundle"
 
@@ -45,11 +44,12 @@ php bin/console ezplatform:images:normalize-path
 
 ## Unknown relation type 0
 
-"Unknown relation type 0." error occurs only when using REST API. The issue doesn't occur
-the first time article is published (upon creation). It only happens after the article is
-edited and published.
+"Unknown relation type 0." error occurs only when using REST API.
+The issue doesn't occur the first time article is published (upon creation).
+It only happens after the article is edited and published.
 
-If this error occurs use the console command below. It cleans up redundant Relations rows:
+If this error occurs use the console command below.
+It cleans up redundant Relations rows:
 
 ```
 php bin/console ezpublish:update:legacy_storage_clean_up_relation_type_eq_zero
@@ -63,10 +63,9 @@ You can read more about this issue here: [EZP-27254](https://issues.ibexa.co/bro
 
 ## Always available flag set on all fields
 
-Always available flag is set on all fields, instead of only on fields in the main
-language. This problem occurs when [[= product_name =]] is used to create content that is both
-always available and has multiple translations. The cleanup script correctly sets
-always available flag for prioritized language filtering in Legacy search engine.
+Always available flag is set on all fields, instead of only on fields in the main language.
+This problem occurs when [[= product_name =]] is used to create content that is both always available and has multiple translations.
+The cleanup script correctly sets always available flag for prioritized language filtering in Legacy search engine.
 
 ```
 php bin/console ezpublish:update:legacy_storage_fix_fields_always_available_flag
@@ -78,9 +77,9 @@ You can read more about this issue here: [EZP-24882](https://issues.ibexa.co/bro
 
 ## Listing sub-content
 
-it's possible that after upgrade `sort_key_string` is left empty. This may cause problems
-in searches throughout the API. The cleanup script checks if fields of given field
-Type have correct sort key, and update it if needed.
+It's possible that after upgrade `sort_key_string` is left empty.
+This may cause problems in searches throughout the API.
+The cleanup script checks if fields of given field type have correct sort key, and update it if needed.
 
 Execute the following command from the installation root directory:
 

@@ -1,5 +1,5 @@
 ---
-description: Use granular permission system to grant access to various parts of the system using roles, policies, and limitations.
+description: Use granular permission system to grant access to various parts of the system by using roles, policies, and limitations.
 page_type: landing_page
 ---
 

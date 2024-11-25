@@ -13,7 +13,7 @@ All such user accounts have the same underlying mechanism and enable you to cont
 [[= cards([
     "users/user_management_guide",
     "users/invitations",
-    "users/user_registration"
+    "users/user_registration",
 ], columns=3) =]]
 
 ## Authenticate users
@@ -23,12 +23,12 @@ All such user accounts have the same underlying mechanism and enable you to cont
     "users/passwords",
     "users/user_authentication",
     "users/oauth_client",
-    "users/oauth_server"
+    "users/oauth_server",
 ], columns=5) =]]
 
 ## Group users
 
 [[= cards([
     "users/customer_groups",
-    "users/segment_api"
+    "users/segment_api",
 ], columns=2) =]]

@@ -19,5 +19,5 @@ In addition to the [native functions provided by Twig](https://twig.symfony.com/
     "templating/twig_function_reference/image_twig_functions",
     "templating/twig_function_reference/url_twig_functions",
     "templating/twig_function_reference/date_twig_filters",
-    "templating/twig_function_reference/other_twig_filters"
+    "templating/twig_function_reference/other_twig_filters",
 ], columns=4) =]]

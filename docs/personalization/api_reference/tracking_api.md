@@ -1,5 +1,5 @@
 ---
-description: Allows to track items using it ID. It covers many content types with the same ID configured for tracking.
+description: Allows to track items based on an ID. It covers many content types with the same ID configured for tracking.
 ---
 
 # Tracking API
@@ -220,7 +220,7 @@ The Click event often provides additional information about the category structu
 !!! note
 
     User IDs aren't stored in the database.
-    they're irreversibly anonymized before saving to disk or building the recommendation model.
+    They're irreversibly anonymized before saving to disk or building the recommendation model.
 
 The URL to track user clicks has the following format:
 

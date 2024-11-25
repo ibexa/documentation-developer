@@ -47,7 +47,7 @@ It lists all user accounts with duplicate emails.
 ## Login rules
 
 You can set the rules for allowed user names in the back office per user field.
-The rules are set using regular expressions.
+The rules are set by using regular expressions.
 
 For example, to ensure that user names can only contain lowercase letters, set `[a-z]+$` as **Username pattern**:
 

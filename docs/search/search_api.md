@@ -10,7 +10,7 @@ To do this, you can use the [`SearchService`](#searchservice) or [Repository fil
 
 ## SearchService
 
-[`SearchService`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-SearchService.html) enables you to perform search queries using the PHP API.
+[`SearchService`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-SearchService.html) enables you to perform search queries by using the PHP API.
 
 The service should be [injected into the constructor of your command or controller](php_api.md#service-container).
 
@@ -105,13 +105,14 @@ The following BatchIterator adapters are available, for both `query` and `filter
 
 ## Repository filtering
 
-You can use the `ContentService::find(Filter)` method to find content items or `LocationService::find(Filter)` to find Locations using a defined Filter.
+You can use the `ContentService::find(Filter)` method to find content items or `LocationService::find(Filter)` to find locations by using a defined Filter.
 
 `ContentService::find` returns an iterable [`ContentList`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-ContentList.html) while `LocationService::find` returns an iterable [`LocationList`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-LocationList.html).
 
-Filtering differs from search. It doesn't use the `SearchService` and isn't based on indexed data.
+Filtering differs from search.
+It doesn't use the `SearchService` and isn't based on indexed data.
 
-[`Filter`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Filter-Filter.html) enables you to configure a query using chained methods to select criteria, sorting, limit, and offset.
+[`Filter`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Filter-Filter.html) enables you to configure a query by using chained methods to select criteria, sorting, limit, and offset.
 
 For example, the following command lists all content items under the specified parent location and sorts them by name in descending order:
 
@@ -272,7 +273,7 @@ $query->filter = new Criterion\LogicalAnd([
 ]);
 ```
 
-The query searches for location B using the [`LocationId` Criterion](locationid_criterion.md), and for visible content using the [`Visibility` Criterion](visibility_criterion.md).
+The query searches for location B by using the [`LocationId` Criterion](locationid_criterion.md), and for visible content by using the [`Visibility` Criterion](visibility_criterion.md).
 
 Even though the location B is hidden, the query finds the content because both conditions are satisfied:
 

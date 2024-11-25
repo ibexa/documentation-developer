@@ -741,7 +741,7 @@ articles(sortBy:[_datePublished,_desc])
 
 GraphQL offers [cursor-based pagination](https://graphql.org/learn/pagination/) for paginating query results.
 
-You can paginate plural fields using `edges`:
+You can paginate plural fields by using `edges`:
 
 ```
 {

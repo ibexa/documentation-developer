@@ -241,7 +241,8 @@ The **URL wildcards** tab contains all the information about each URL wildcard. 
 
 !!! note
 
-    To be able to modify wildcard support settings in the user interface, you must have the `content/urltranslator` Policy. For more information about permissions, see [Permissions](permissions.md).
+    To be able to modify wildcard support settings in the user interface, you must have the `content/urltranslator` policy.
+    For more information about permissions, see [Permissions](permissions.md).
 
 
 ### Configuring URL wildcards with the public PHP API

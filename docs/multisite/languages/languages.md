@@ -47,7 +47,7 @@ It's only your decision to exclude the translation possibility for those fields 
 When a field isn't flagged as Translatable, its value is copied from the initial/main translation when a new language version is created. This copied value cannot be modified. When a field is Translatable, you have to enter its value in a new language version manually.
 
 For example, let's say that you need to store information about marathon contestants and their results.
-You build a "contestant" content type using the following fields: name, photo, age, nationality, finish time.
+You build a "contestant" content type that includes the following fields: name, photo, age, nationality, finish time.
 Allowing the translation of anything other than nationality would be pointless, since the values stored by the other fields are the same regardless of the language used to describe the contestant.
 In other words, the name, photo, age and finish time would be the same in, for example, both English and Norwegian.
 

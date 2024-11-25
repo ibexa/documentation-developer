@@ -46,7 +46,7 @@ If no pattern is provided, the system automatically uses the first field (option
 **URL alias name pattern** – a pattern which controls how the virtual URLs of the locations are generated when content items are created based on this content type.
 Only the last part of the virtual URL is affected.
 The pattern works in the same way as the content name pattern.
-Text outside the angle brackets is converted using the selected method of URL transformation.
+Text outside the angle brackets is converted with the selected method of URL transformation.
 If no pattern is provided, the system automatically uses the name of the content item itself (optional).
 
 !!! tip "Changing URL alias and content name patterns"

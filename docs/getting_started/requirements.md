@@ -428,7 +428,7 @@ Recommendation for production setups is to use Varnish/Fastly, Redis/Memcached, 
 
     - Verifying your requirements and ensuring they're supported by Platform.sh
     - Additional time for adaptation and configuration work, and testing by your development team
-    - Additional consulting/onboarding time with Platform.sh, Ibexa technical services, and/or one of the many partners with prior experience using Platform.sh with [[= product_name =]]
+    - Additional consulting/onboarding time with Platform.sh, Ibexa technical services, and/or one of the many partners with prior experience in using Platform.sh with [[= product_name =]]
 
     The cost and effort of this isn't included in [[= product_name_cloud =]] subscription and is vary depending on the project.
 
@@ -475,7 +475,7 @@ Recommendation for production setups is to use Varnish/Fastly, Redis/Memcached, 
 
     - Verifying your requirements and ensuring they're supported by Platform.sh
     - Additional time for adaptation and configuration work, and testing by your development team
-    - Additional consulting/onboarding time with Platform.sh, Ibexa technical services, and/or one of the many partners with prior experience using Platform.sh with [[= product_name =]]
+    - Additional consulting/onboarding time with Platform.sh, Ibexa technical services, and/or one of the many partners with prior experience in using Platform.sh with [[= product_name =]]
 
     The cost and effort of this isn't included in [[= product_name_cloud =]] subscription and is vary depending on the project.
 
@@ -514,7 +514,7 @@ Recommendation for production setups is to use Varnish/Fastly, Redis/Memcached, 
 
     - Verifying your legacy configuration and ensuring it's supported by Platform.sh
     - Additional time for adaptation and configuration work, and testing by your own team
-    - Additional consulting/onboarding time with Platform.sh, Ibexa technical services, and/or one of the many partners with prior experience using Platform.sh with eZ Publish legacy
+    - Additional consulting/onboarding time with Platform.sh, Ibexa technical services, and/or one of the many partners with prior experience in using Platform.sh with eZ Publish legacy
 
     The cost and effort of this isn't included in eZ Platform Cloud subscription and is vary depending on the project.
 

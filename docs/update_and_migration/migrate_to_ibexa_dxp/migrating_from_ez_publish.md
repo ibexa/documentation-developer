@@ -6,9 +6,13 @@ description: Migrate an older eZ Publish installation to eZ Platform.
 
 eZ Publish was eZ Platform's predecessor, a CMS in development for five major versions and several years.
 
-Users of eZ Publish can find eZ Platform largely similar to what they know. The improvements and enhancements did not turn the fundamental concepts underlying the system, such as the content model, upside down. However, specific features, solutions and recipes may work differently between the two versions.
+Users of eZ Publish can find eZ Platform largely similar to what they know.
+The improvements and enhancements did not turn the fundamental concepts underlying the system, such as the content model, upside down.
+However, specific features, solutions, and recipes may work differently between the two versions.
 
-The release of eZ Platform brought about an inevitable disruption in backwards compatibility with eZ Publish. This means that the process of migrating existing installations requires more effort than simply upgrading from one version to another. Here you can find details on moving existing Publish-powered websites to eZ Platform.
+The release of eZ Platform brought about an inevitable disruption in backwards compatibility with eZ Publish.
+This means that the process of migrating existing installations requires more effort than simply upgrading from one version to another.
+Here you can find details on moving existing Publish-powered websites to eZ Platform.
 
 ## Changes overview
 
@@ -29,7 +33,8 @@ The specific changes that are migrated and are incompatible with legacy are: 
 - Page field (ezflow) has been replaced by the [LandingPage](pagefield.md) field, and is now provided by our commercial product [eZ Platform Enterprise Edition](http://ezstudio.com/)
 - Incremental future improvements to the database schema to improve features and scalability of the content repository 
 
-Together these major improvements make it practically impossible to run eZ Platform side by side with eZ Publish legacy, like it was possible in 5.x series. *For these reasons we recommend that you use eZ Publish Enterprise 5.4  ([which is supported until end of 2021](https://support.ez.no/Public/Service-Life)) if you don't have the option to remake your web application yet, or want to do it gradually.*
+Together these major improvements make it practically impossible to run eZ Platform side by side with eZ Publish legacy, like it was possible in 5.x series.
+*For these reasons we recommend that you use eZ Publish Enterprise 5.4  ([which is supported until end of 2021](https://support.ez.no/Public/Service-Life)) if you don't have the option to remake your web application yet, or want to do it gradually.*
 
 ## Migration Path
 
@@ -37,7 +42,9 @@ Together these major improvements make it practically impossible to run eZ Platf
 
 If you're coming directly from legacy (4.x), you need to follow the best practice 5.x Platform migration path and do the following:
 
-- Rewrite custom field types for the new Platform stack. Alternatively you can use Null field type as a dummy implementation for the custom field types that you don't want to migrate. Using Null field type prevents errors from the Platform Stack, see [Null field type Reference](nullfield.md)
+- Rewrite custom field types for the new Platform stack.
+Alternatively you can use Null field type as a dummy implementation for the custom field types that you don't want to migrate.
+Using Null field type prevents errors from the Platform Stack, see [Null field type Reference](nullfield.md)
 - Rewrite custom web front end to use the new Platform/Symfony stack, see [Beginner Tutorial](beginner_tutorial.md)
 - Rewrite custom admin modules to use the new Platform/Symfony stack
     - And if you do this while on 5.x, you can use several of the [available legacy migration features](https://doc.ez.no/display/EZP/Legacy+code+and+features) to make the new code appear in legacy admin
@@ -48,10 +55,10 @@ See Upgrade documentation on how to perform the actual upgrade: [Upgrade (eZ Pub
 
     If you plan to migrate from from eZ Publish through eZ Publish Platform 5.4 to eZ Platform and further, an exception may occur when you try to migrate the database while it contains internal drafts of landing pages.
     This can happen because such drafts don't have an expected row in the `ezcontentobject_name` table.<a id="migration_exception"></a> 
-    
-    To avoid this exception, you must remove all internal drafts before you migrate. 
-    First, in `content.ini`, set the `InternalDraftsCleanUpLimit` and `InternalDraftsDuration` values to 0. 
-    Then run the [internal drafts cleanup](https://github.com/ezsystems/ezpublish-legacy/blob/2019.03/cronjobs/internal_drafts_cleanup.php) cron job. 
+
+    To avoid this exception, you must remove all internal drafts before you migrate.
+    First, in `content.ini`, set the `InternalDraftsCleanUpLimit` and `InternalDraftsDuration` values to 0.
+    Then run the [internal drafts cleanup](https://github.com/ezsystems/ezpublish-legacy/blob/2019.03/cronjobs/internal_drafts_cleanup.php) cron job.
 
 ### From Platform stack (5.4/2014.11) to eZ Platform
 

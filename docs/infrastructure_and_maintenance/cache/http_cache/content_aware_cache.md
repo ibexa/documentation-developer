@@ -5,7 +5,8 @@ description: Content-aware HTTP cache takes into account the content it's connec
 # Content-aware HTTP cache
 
 HTTP cache in [[= product_name =]] is aware of which content or entity it's connected to.
-This awareness is accomplished by means of cache tagging. All supported reverse proxies are content-aware.
+This awareness is accomplished by means of cache tagging.
+All supported reverse proxies are content-aware.
 
 !!! note "Tag header is stripped in production for security reasons"
 
@@ -41,7 +42,8 @@ Current content tags (and when the system purges on them):
 
     Tags aren't prefixed for default repository (index "0").
 
-The content tags are returned in a header in the responses from [[= product_name =]]. The header name is dependent on which HTTP Cache [[= product_name =]] is configured with:
+The content tags are returned in a header in the responses from [[= product_name =]].
+The header name is dependent on which HTTP Cache [[= product_name =]] is configured with:
 
 - Symfony reverse proxy: `X-Cache-Tags`
 - Varnish: `xkey`
@@ -194,7 +196,7 @@ See [Tagging from code](https://foshttpcachebundle.readthedocs.io/en/latest/feat
 
 4\. Use deprecated `X-Location-Id` header.
 
-For custom or built-in controllers (for example, REST) still using `X-Location-Id`, `XLocationIdResponseSubscriber` handles translating this header to tags.
+For custom or built-in controllers (for example, REST) that still use `X-Location-Id`, `XLocationIdResponseSubscriber` handles translating this header to tags.
 It supports singular and comma-separated location ID value(s):
 
 ```php
@@ -443,8 +445,7 @@ Some notes about each of these parameters:
   It's good practice to always include this header when imitating the HTTP Cache.
 - `--header "accept: application/vnd.fos.user-context-hash"` tells [[= product_name =]] that the client wants to receive the user-context-hash
 - `--header "x-fos-original-url: /"` is required by the fos-http-cache bundle to deliver the user-context-hash
-- `https://www.staging.foobar.com.us-2.platformsh.site/_fos_user_context_hash` : here we use the hostname we earlier told
-  curl how to resolve using `---resolve`. `/_fos_user_context_hash` is the route to the controller that are able to deliver the user-context-hash.
+- `https://www.staging.foobar.com.us-2.platformsh.site/_fos_user_context_hash` : here we use the hostname we earlier told curl how to resolve using `---resolve`. `/_fos_user_context_hash` is the route to the controller that are able to deliver the user-context-hash.
 - You may also provide the session cookie (`--cookie ".....=....") for a logged-in-user if you're interested in the x-user-context-hash for a different user but anonymous
 
 The output for this command should look similar to this:
@@ -498,7 +499,8 @@ The document might also be removed from the cache by purging any of the keys pro
 
 So back to the original problem here.
 This resource is for some reason not cached by Fastly (remember the `x-cache: MISS` we started with).
-But origin says this page can be cached for 1 day. How can that be?
+But origin says this page can be cached for 1 day.
+How can that be?
 The likely reason is that this page also contains some ESI fragments and that one or more of these aren't cachable.
 
 So, first let's see if there are any ESIs here.

@@ -19,10 +19,10 @@ To follow it, you should:
 
 ## Learning outcomes
 
-After finishing this tutorial, you:
+After finishing this tutorial, you should:
 
 - know how to construct the content model of a website.
-- are able to use templates to display your content according to your needs.
+- be able to use templates to display your content according to your needs.
 - know how to manage users and permissions.
 
 ## Scenario

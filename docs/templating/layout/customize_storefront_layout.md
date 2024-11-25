@@ -84,8 +84,8 @@ The most important templates are:
 To avoid self-reference, `@IbexaCart` is used instead of `@ibexadesign`.
 
 Built-in components aren't styled, so you can freely customize them according to your needs.
-You can add CSS classes to the base Twig using attributes' objects.
-For example, if you want to add custom CSS classes to quantity input in Add to Cart component, use the following:
+You can add CSS classes to the base Twig by using attribute objects.
+For example, to add custom CSS classes to quantity input in the "Add to Cart" component, use the following:
 
 ```html+twig
 {% set quantity_input_attr = {

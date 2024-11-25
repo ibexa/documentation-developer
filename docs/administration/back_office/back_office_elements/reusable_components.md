@@ -217,7 +217,7 @@ Next, pass a button under the `action` parameter to the table headline.
 Action buttons are rendered on the right side of the table headline (don't confuse it with the table header).
 You can also specify headline text, which is a table title displayed above, by passing it under `headline` parameter.
 
-You can generate various headline texts using the `results_headline` macro with a few parameters:
+You can generate various headline texts by using the `results_headline` macro with a few parameters:
 
 - `count` - of all results, not only displayed on the first page
 - `has_filters` - when using filters

@@ -265,7 +265,8 @@ php bin/console ibexa:migrations:migrate --file=2023_09_23_14_15_dashboard_struc
 
 !!! caution
 
-    The `2023_10_10_16_14_dashboard_permissions.yaml` migration creates a Role dedicated for dashboard management and assigns it to the Editors user group. If you have custom user groups which need to manipulate dashboards, you need to skip this migration, copy it to your migrations folder (by default, `src/Migrations/Ibexa/migrations`) and adjust it according to your needs before execution.
+    The `2023_10_10_16_14_dashboard_permissions.yaml` migration creates a role dedicated for dashboard management and assigns it to the Editors user group.
+    If you have custom user groups which need to manipulate dashboards, you need to skip this migration, copy it to your migrations folder (by default, `src/Migrations/Ibexa/migrations`) and adjust it according to your needs before execution.
 
 For [[= product_name_com =]] there's an additional migration:
 ``` bash

@@ -215,7 +215,7 @@ ibexa:
                 url_prefix: storage
 ```
 
-As an alternative, you may serve images from NFS using a dedicated web server.
+As an alternative, you may serve images from NFS by using a dedicated web server.
 If in the example above, this server listens on `http://static.example.com/` and uses `/path/to/nfs/storage` as the document root, configure `io.url_prefix` as follows:
 
 ``` yaml
@@ -282,4 +282,4 @@ If `--to` is omitted, the first non-default IO configuration is used.
 While the command is running, the files should not be modified.
 To avoid surprises you should create a [backup](backup.md) and/or execute a dry run before doing the actual update, using the `--dry-run` switch.
 
-Since this command can run for a long time, to avoid memory exhaustion run it in the production environment using the `--env=prod` switch.
+Since this command can run for a long time, to avoid memory exhaustion, use the `--env=prod` switch when you run it in the production environment.

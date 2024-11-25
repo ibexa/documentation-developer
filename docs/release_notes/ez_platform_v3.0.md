@@ -58,7 +58,7 @@ For details, see [Bundles](https://doc.ibexa.co/en/latest/guide/bundles).
 
     #### Schedule calendar
 
-    You can now easily view and perform scheduling actions using the Calendar widget available in the back office.
+    You can now easily view and perform scheduling actions with the Calendar widget that is available in the back office.
     By default, the widget displays content items scheduled for future publication, but custom events can be configured as well.
     You can also filter displayed events and toggle through a day, week, and month view.
 
