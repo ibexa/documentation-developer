@@ -39,7 +39,7 @@ $query->query = new Criterion\LanguageCode('ger-DE', false);
     }
     ```
 
-## Use case
+## Use cases
 
 You can use the `LanguageCode` Criterion to search for articles that are lacking a translation
 into a specific language:
