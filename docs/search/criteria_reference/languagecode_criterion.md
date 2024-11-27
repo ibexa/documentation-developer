@@ -51,6 +51,6 @@ into a specific language:
 You can use the `LanguageCode` Criterion to search in
 several languages while ensuring results have a translation in one specific language:
 
-``` php hl_lines="3 7"
-[[= include_file('code_samples/search/language/src/Command/SearchTestCommand.php', 35, 48) =]]
+``` php hl_lines="3 6"
+[[= include_file('code_samples/search/language/src/Command/SearchTestCommand.php', 35, 47) =]]
 ```

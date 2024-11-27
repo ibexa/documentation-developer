@@ -34,10 +34,9 @@ class SearchTestCommand extends Command
         $text = implode(' ', $input->getArgument('text'));
 
         $query = new Query(['query' => new Criterion\LogicalAnd([
-                new Criterion\FullText($text),
-                new Criterion\LanguageCode(['eng-GB'], false),
-            ]),
-        ]);
+            new Criterion\FullText($text),
+            new Criterion\LanguageCode(['eng-GB'], false),
+        ])]);
 
         $results = $this->searchService->findContent($query, ['eng-GB', 'fre-FR', 'ger-DE']);
         foreach ($results->searchHits as $searchHit) {
