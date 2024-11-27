@@ -8,13 +8,14 @@ page_type: landing_page
 Users in [[= product_name =]] refer to all kinds of user accounts: administrators, editors, managers, or shop customers.
 All such user accounts have the same underlying mechanism and enable you to control access to te application, both the back office and the website front, by using the [permission system](permissions.md).
 
-## Invite nad manage users
+## Invite and manage users
 
 [[= cards([
-    "users/user_management_guide",
-    "users/invitations",
-    "users/user_registration",
-], columns=3) =]]
+"users/user_management_guide",
+"users/invitations",
+"users/user_registration",
+"users/update_basic_user_data",
+], columns=4) =]]
 
 ## Authenticate users
 

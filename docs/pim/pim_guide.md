@@ -141,7 +141,7 @@ You can build upon it to connect to a remote PIM or ERP system, pull product dat
 
 ![Remote PIM](img/remote_pim_support.png)
 
-Remote PIM support is available in all [[= product_name =]] editions as of version v.4.6.0.
+Remote PIM support is available in all [[= product_name =]] editions as of version v4.6.0.
 An example implementation is delivered as an optional package that you can [install and customize](add_remote_pim_support.md) to fulfill your requirements.
 
 #### Capabilities

@@ -1,3 +1,8 @@
+---
+description: Update your installation to v4.0 from the latest v3.3 version.
+month_change: true
+---
+
 # Update from v3.3.x to v4.0
 
 This update procedure applies if you're using v3.3.

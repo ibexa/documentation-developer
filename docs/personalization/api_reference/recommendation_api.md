@@ -1,5 +1,6 @@
 ---
 description: Use HTTP GET request method to render recommendations.
+month_change: true
 ---
 
 # Recommendation API
@@ -58,6 +59,7 @@ You can use the following parameters to customize a request:
 |`categorypath`|`/Women/Shirts`|Category path for fetching recommendations. The format is the same as the category path used in event tracking. Add this parameter multiple times to get recommendations from multiple categories. The order of recommendations from different categories is defined by the calculated relevance. The default value is `%2F`, which stands for an entire website.|string[/string]* |
 |`usecontextcategorypath`| |Used in conjunction with `categorypath`. If set to true, the category path of given context item(s) is resolved by the Personalization server from the internal store and used as base category path. If more than one category is returned, all categories are used for providing recommendations. Setting this parameter to true increases the response time. If possible, use the `categorypath` parameter to provide the category to the recommender engine during the request. The default value is false.|boolean|
 |`recommendCategory`| |Used in conjunction with `categorypath`. If set to true, the neighboring category linked with the recommended items is delivered in the response as an additional field `category`. Helps find a suitable template for articles from several categories.<br/>For example, take an article about American football. The article is categorized as `Sport/Football` and `America/USA`. Depending on the category, the webpage displays a football field or an American flag in the background. If the article is recommended and clicked in the `Sport/Cricket` category, it must open with the "field" template. If clicked in the `America/Canada` category, it must open with the "flag" template. The category is returned only if the article is located in several categories and the "closer" category is found. The default value is false.|boolean|
+|`usetimeslot`| |If set to true, configured time-slots are active. As a result, recommendations are calculated for specific time frames and they have priority over the recommendations from the main model in the hours for which time slots are configured. Time slots must be enabled by and configured [[= product_name_base =]] Team.|true|
 
 ##### Submodel parameters
 
@@ -77,6 +79,17 @@ For more information, see [Submodels]([[= user_doc =]]/personalization/recommend
     For example, to get recommendations for items of certain type that are limited by submodels based on both a nominal and numeric attribute, you can send the following request:
 
     `GET https://reco.perso.ibexa.co/api/v2/00000/john.doe/landing_page.json?numrecs=50&outputtypeid=1&width-range=10:30&color=green`
+
+!!! note "Dynamic attribute submodels"
+
+    If dynamic attribute submodels are enabled, you only need to add submodel parameters to the request to trigger dynamic submodels in the upcoming model build.
+
+    Dynamic attribute submodels must be enabled by [[= product_name_base =]] Team.
+    To start using this functionality, contact support@ibexa.co.
+
+    When enabled, to build dynamic attribute submodels, you need to send the request (which includes `"ATTRIBUTE_NAME=VALUE"` query parameters) to the scenario with model you want to use submodels for:
+
+    `GET https://reco.perso.ibexa.co/api/v2/00000/john.doe/{SCENARIO_NAME}?numrecs=50&outputtypeid=1&color=red`
 
 ##### Segment parameters
 

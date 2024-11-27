@@ -216,8 +216,8 @@ nav:
             - Exporting data: content_management/data_migration/exporting_data.md
             - Managing migrations: content_management/data_migration/managing_migrations.md
             - Data migration actions: content_management/data_migration/data_migration_actions.md
-            - Create data migration action: content_management/data_migration/create_data_migration_action.md
             - Create data migration step: content_management/data_migration/create_data_migration_step.md
+            - Create data migration action: content_management/data_migration/create_data_migration_action.md
             - Add data migration matcher: content_management/data_migration/add_data_migration_matcher.md
             - Data migration API: content_management/data_migration/data_migration_api.md
         - Field types:
@@ -321,6 +321,11 @@ nav:
             - Add login form: templating/layout/add_login_form.md
             - Add navigation menu: templating/layout/add_navigation_menu.md
             - Add search form to front page: templating/layout/add_search_form.md
+    - AI Actions:
+        - AI Actions: ai_actions/ai_actions.md
+        - AI Actions guide: ai_actions/ai_actions_guide.md
+        - Install AI Actions: ai_actions/install_ai_actions.md
+#        - Extend AI Actions: ai_actions/extend_ai_actions.md
     - PIM (Product management):
         - PIM (Product management): pim/pim.md
         - PIM guide: pim/pim_guide.md
@@ -423,6 +428,7 @@ nav:
         - User setup:
           - Invitations: users/invitations.md
           - Registration: users/user_registration.md
+          - Update basic user data: users/update_basic_user_data.md
         - User authentication:
           - Login methods: users/login_methods.md
           - Passwords: users/passwords.md
@@ -498,6 +504,7 @@ nav:
             - ImageMimeType: search/criteria_reference/imagemimetype_criterion.md
             - ImageOrientation: search/criteria_reference/imageorientation_criterion.md
             - ImageWidth: search/criteria_reference/imagewidth_criterion.md
+            - IsBookmarked: search/criteria_reference/isbookmarked_criterion.md
             - IsCurrencyEnabled: search/criteria_reference/iscurrencyenabled_criterion.md
             - IsFieldEmpty: search/criteria_reference/isfieldempty_criterion.md
             - IsMainLocation: search/criteria_reference/ismainlocation_criterion.md
@@ -805,7 +812,7 @@ nav:
                 - 8. Update REST: update_and_migration/from_2.5/update_code/8_update_rest.md
                 - 9. Other code updates: update_and_migration/from_2.5/update_code/9_update_other.md
             - Update to v3.3: update_and_migration/from_2.5/to_3.3.md
-            - Update to latest v3.3: update_and_migration/from_2.5/to_3.3.latest.md
+            - Update to latest v3.3: update_and_migration/from_3.3/update_from_3.3.md
         - Update from v3.3:
             - Update to v3.3.latest: update_and_migration/from_3.3/update_from_3.3.md
             - Update to v4.0: update_and_migration/from_3.3/to_4.0.md
@@ -822,7 +829,9 @@ nav:
         - Update from v4.4:
             - Update to v4.5: update_and_migration/from_4.4/update_from_4.4.md
         - Update from v4.5:
-            - Update to v4.6: update_and_migration/from_4.5/update_from_4.5.md
+              - Update to v4.6: update_and_migration/from_4.5/update_from_4.5.md
+        - Update from v4.6:
+              - Update to v4.6: update_and_migration/from_4.6/update_from_4.6.md
         - Migrate to Ibexa DXP:
             - Migrate from eZ Publish Platform: update_and_migration/migrate_to_ibexa_dxp/migrating_from_ez_publish_platform.md
             - Migrate from eZ Publish: update_and_migration/migrate_to_ibexa_dxp/migrating_from_ez_publish.md
@@ -921,7 +930,7 @@ extra:
   latest_tag_4_3: '4.3.5'
   latest_tag_4_4: '4.4.4'
   latest_tag_4_5: '4.5.7'
-  latest_tag_4_6: '4.6.12'
+  latest_tag_4_6: '4.6.13'
 
   symfony_doc: 'https://symfony.com/doc/5.4'
   user_doc: 'https://doc.ibexa.co/projects/userguide/en/master'

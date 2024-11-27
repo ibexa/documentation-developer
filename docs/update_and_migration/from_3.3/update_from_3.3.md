@@ -1,10 +1,13 @@
 ---
 description: Update your installation to the latest v3.3 version from an earlier v3.3 version.
+month_change: true
 ---
 
 # Update from v3.3.x to v3.3.latest
 
 This update procedure applies if you're using a v3.3 installation without the latest maintenance release.
+To update from an 3.2 to 3.3, see [Updating the app to v3.3](to_3.3.md).
+From older version, explore [this section](update_ibexa_dxp.md).
 
 Go through the following steps to update to the latest maintenance release of v3.3 (v[[= latest_tag_3_3 =]]).
 
@@ -439,3 +442,9 @@ Run the following scripts:
 ### v3.3.40
 
 A command to deal with duplicated database entries, as reported in [IBX-8562](https://issues.ibexa.co/browse/IBX-8562), will be available soon.
+
+## Finish the update
+
+[[% include 'snippets/update/finish_the_update.md' %]]
+
+[[% include 'snippets/update/notify_support.md' %]]

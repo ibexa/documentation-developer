@@ -10,10 +10,6 @@ The [`IsUserEnabled` Search Criterion](../../api/php_api/php_api_reference/class
 
 - (optional) `value` - bool representing whether to search for enabled (default `true`) or disabled user accounts
 
-## Limitations
-
-The `IsUserEnabled` Criterion isn't available in Solr or Elasticsearch engines.
-
 ## Example
 
 ### PHP
