@@ -30,7 +30,7 @@ class RelationController
         $items = [];
 
         foreach ($relationList as $relationListItem) {
-            if (in_array($relationListItem->getRelation()->getDestinationContentInfo()->getContentType()->identifier, $acceptedContentTypes)) {
+            if ($relationListItem->hasRelation() && in_array($relationListItem->getRelation()->getDestinationContentInfo()->getContentType()->identifier, $acceptedContentTypes)) {
                 $items[] = $this->contentService->loadContentByContentInfo($relationListItem->getRelation()->getDestinationContentInfo());
             }
         }

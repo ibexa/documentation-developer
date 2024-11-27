@@ -104,7 +104,7 @@ to get only versions of a specific status, e.g.:
 Content Relations are versioned.
 To list Relations to and from your content,
 you can to pass a `VersionInfo` object to the [`ContentService::loadRelationList`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-ContentService.html#method_loadRelationList) method which is paginated.
-Or you can use the [`RelationListIteratorAdapter`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Iterator-BatchIteratorAdapter-RelationListIteratorAdapter.html) within a [`BatchIterator`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Iterator-BatchIterator.html).
+Or you can use the [`RelationListIteratorAdapter`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Iterator-BatchIteratorAdapter-RelationListIteratorAdapter.html) within a [`BatchIterator`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Iterator-BatchIterator.html). This method loads only the specified subset of relations to improve performance and was created with pagination in mind.
 You can get the current version's `VersionInfo` using [`ContentService::loadVersionInfo`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-ContentService.html#method_loadVersionInfo).
 
 ``` php
