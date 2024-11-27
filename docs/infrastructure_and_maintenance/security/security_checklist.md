@@ -171,6 +171,7 @@ Use the following checklist to ensure the Roles and Policies are secure:
 - Is the Role of self-created new users restricted as intended?
 - Is there a clear Role separation between the organisation's internal and external users?
 - Is access to user data properly restricted, in accordance with GDPR?
+- Is access to Form Builder uploads managed properly? Files uploaded with the Form Builder are accessible to any user by default. If this doesn't suit you, restrict access to the Form Uploads folder.
 
 ### Do not use "hide" for read access restriction
 
