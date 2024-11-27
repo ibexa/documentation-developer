@@ -77,8 +77,8 @@ Due to this storage limitation, searching content using the Country Field Type o
 All Logical operators are supported by Content and Location Search and
 [Repository filtering](search_api.md#repository-filtering).
 
-|Search Criterion|Search based on|
-|-----|-----|
-|[LogicalAnd](logicaland_criterion.md)|Implements a logical AND Criterion. It matches if ALL of the provided Criteria match.|
-|[LogicalNot](logicalnot_criterion.md)|Implements a logical NOT Criterion. It matches if the provided Criterion doesn't match.|
-|[LogicalOr](logicalor_criterion.md)|Implements a logical OR Criterion. It matches if at least one of the provided Criteria matches.|
+| Search Criterion                      | Search based on                                                                                 |
+|---------------------------------------|-------------------------------------------------------------------------------------------------|
+| [LogicalAnd](logicaland_criterion.md) | Implements a logical AND Criterion. It matches if ALL of the provided Criteria match.           |
+| [LogicalNot](logicalnot_criterion.md) | Implements a logical NOT Criterion. It matches if the provided Criterion doesn't match.         |
+| [LogicalOr](logicalor_criterion.md)   | Implements a logical OR Criterion. It matches if at least one of the provided Criteria matches. |
