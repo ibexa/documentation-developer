@@ -38,7 +38,7 @@ class SearchTestCommand extends Command
             new Criterion\LanguageCode(['eng-GB'], false),
         ])]);
 
-        $results = $this->searchService->findContent($query, ['eng-GB', 'fre-FR', 'ger-DE']);
+        $results = $this->searchService->findContent($query, ['languages' => ['eng-GB', 'fre-FR', 'ger-DE']]);
         foreach ($results->searchHits as $searchHit) {
             /** @var \Ibexa\Core\Repository\Values\Content\Content $content */
             $content = $searchHit->valueObject;
