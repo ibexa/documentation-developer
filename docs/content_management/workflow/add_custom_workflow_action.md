@@ -21,7 +21,7 @@ Configure the first custom action under the `ibexa.system.<scope>.workflows` [co
 ```
 
 The configuration indicates the name of the custom action (`legal_transition_action`).
-`data` contains additional data that is passed to the action. In this case, it is a message to display.
+`data` contains additional data that is passed to the action. In this case, it's a message to display.
 
 ## Create event listener
 

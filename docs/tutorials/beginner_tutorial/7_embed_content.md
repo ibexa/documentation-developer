@@ -5,7 +5,7 @@ description: Learn how to embed related content in another content item's templa
 # Step 7 — Embed content
 
 Creating lists and detailed views of content types and their respective items often involves loading related resources.
-In this step, you add a related object, a Landmark, which will be displayed on Ride pages.
+In this step, you add a related object, a Landmark, which is displayed on Ride pages.
 
 You can add as many or as little related resources as you like.
 
@@ -15,14 +15,15 @@ Now you need to add the second content type needed in the site, Landmark.
 
 Go to **Content types**, and in the **Content** group, add the Landmark content type.
 
-A Landmark is an interesting place that Rides go through. Each Ride may be related to multiple Landmarks.
+A Landmark is an interesting place that Rides go through.
+Each Ride may be related to multiple Landmarks.
 
 - **Name**: Landmark
 - **Identifier**: landmark
 
-Then add all Fields with the following information: 
+Then add all fields with the following information: 
 
-| Field Type   | Name             | Identifier       |  Required | Searchable | Translatable |
+| Field type   | Name             | Identifier       |  Required | Searchable | Translatable |
 | ------------ | ---------------- | ---------------- | --------- | ---------- | ------------ |
 | Text line    | Name             | `name`           | yes       | yes        | yes          |
 | Rich text    | Description      | `description`    | no        | yes        | yes          |
@@ -32,12 +33,12 @@ Then add all Fields with the following information: 
 Confirm the creation of the content type by selecting **Create**.
 
 Create a *Landmarks* Folder and add some Landmarks to it.
-Note that you will need pictures (for the Photo Field) to represent them.
+You need pictures (for the Photo field) to represent them.
 
 ## Add Landmarks to Ride content type definition
 
-Now edit the Ride content type in order to add a Multiple Content Relation between the two content types.
-Create a new **Content relations (multiple)** Field called "Landmarks" with identifier `landmarks` and allow content type "Landmark" to be added to it:
+Now edit the Ride content type to add a Multiple Content Relation between the two content types.
+Create a new **Content relations (multiple)** field called "Landmarks" with identifier `landmarks` and allow content type "Landmark" to be added to it:
 
 ![Adding Landmarks to the Ride content type](bike_ride_adding_landmarks_to_the_ride_content_type.png "Adding a relation between the Ride and the Landmark using Content Relations (multiple)")
 
@@ -174,7 +175,7 @@ ibexa:
 
 ### Add the Landmark in the Ride full view
 
-Now modify the Ride full view template to include a list of Landmarks, and the controller that you just created.
+Now modify the Ride full view template to include a list of Landmarks, and the controller that you created.
 Add the following lines at the end of `templates/full/ride.html.twig`, before the last `</div>` and the closing tag `{% endblock %}`:
 
 ``` html+twig

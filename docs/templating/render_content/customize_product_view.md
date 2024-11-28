@@ -5,8 +5,7 @@ edition: commerce
 
 # Customize product view
 
-The built-in storefront offers a set of templates covering all functionalities of a shop,
-divided into smaller components.
+The built-in storefront offers a set of templates covering all functionalities of a shop, divided into smaller components.
 
 To customize your shop, you can override either whole templates, or specific components.
 The built-in templates belong to the `storefront` [theme](design_engine.md).
@@ -37,7 +36,7 @@ To do it, create your own template in `templates/themes/storefront/storefront/co
 {% endif %}
 ```
 
-This template adds a "price currently unavailable" label when a product does not have a price specified.
+This template adds a "price currently unavailable" label when a product doesn't have a price specified.
 
 ## Available templates
 

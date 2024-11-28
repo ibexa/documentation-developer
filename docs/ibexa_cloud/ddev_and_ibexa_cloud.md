@@ -2,7 +2,7 @@
 description: Use DDEV to run an Ibexa Cloud project locally.
 ---
 
-# DDEV and Ibexa Cloud
+# DDEV and [[= product_name_cloud =]]
 
 Two ways are available to run an [[= product_name_cloud =]] project locally with DDEV:
 
@@ -11,28 +11,35 @@ Two ways are available to run an [[= product_name_cloud =]] project locally with
 
 !!! note
 
-    The following examples use [Ibexa Cloud CLI (`ibexa_cloud`)](https://cli.ibexa.co/).
+    The following examples use [[[= product_name_cloud =]] CLI (`ibexa_cloud`)](https://cli.ibexa.co/).
 
 ## With the `ddev-platformsh` add-on
 
 To configure the [`ddev/ddev-platformsh` add-on](https://github.com/ddev/ddev-platformsh), you need a [Platform.sh API Token](https://docs.platform.sh/administration/cli/api-tokens.html).
 
-The `ddev/ddev-platformsh` add-on configures the document root, the PHP version, the database, and the cache pool according to the [[= product_name_cloud =]] configuration. About the search engine, the add-on can configure Elasticsearch but can't configure Solr. If you use Solr on [[= product_name_cloud =]] and want to add it to your DDEV stack, see [clustering with DDEV and `ibexa/ddev-solr` add-on](clustering_with_ddev.md#solr).
+The `ddev/ddev-platformsh` add-on configures the document root, the PHP version, the database, and the cache pool according to the [[= product_name_cloud =]] configuration.
+About the search engine, the add-on can configure Elasticsearch but can't configure Solr.
+If you use Solr on [[= product_name_cloud =]] and want to add it to your DDEV stack, see [Clustering with DDEV and `ibexa/ddev-solr` add-on](clustering_with_ddev.md#solr).
 
 `COMPOSER_AUTH` from Platform.sh can't be used, because JSON commas are incorrectly interpreted by `--web-environment-add`, which sees them as multiple variable separators.
-But the variable must exist for Platform.sh `hooks` scripts to work. To use an `auth.json` file for this purpose, see [Using `auth.json`](install_with_ddev.md#using-authjson).
+But the variable must exist for Platform.sh `hooks` scripts to work.
+To use an `auth.json` file for this purpose, see [Using `auth.json`](install_with_ddev.md#using-authjson).
 
 You must remove Node.js and NVM installations as they're already included in DDEV.
 
 The following sequence of commands:
 
-1. Downloads the [[= product_name_cloud =]] Platform.sh project from the default environment "production" into a new directory using [Platform.sh CLI alias `ibexa_cloud` defined in introduction](#ibexa-cloud-and-ddev). (Replace `<project-ID>` with the hash of your own project. See [`ibexa_cloud help get`](https://docs.platform.sh/administration/cli.html#3-use) for options like selecting another environment).
+1. Downloads the [[= product_name_cloud =]] Platform.sh project from the default environment "production" into a new directory, based on the [Platform.sh CLI alias `ibexa_cloud` defined in introduction](#ibexa-cloud-and-ddev).
+(Replace `<project-ID>` with the hash of your own project.
+See [`ibexa_cloud help get`](https://docs.platform.sh/administration/cli.html#3-use) for options like selecting another environment).
 1. Configures a new DDEV project.
-1. Ignores `.ddev/` directory from Git. (Some DDEV config could be committed like in [this documentation](https://ddev.readthedocs.io/en/latest/users/extend/customization-extendibility/#extending-configyaml-with-custom-configyaml-files).)
+1. Ignores `.ddev/` directory from Git.
+(Some DDEV config could be committed like in [this documentation](https://ddev.readthedocs.io/en/latest/users/extend/customization-extendibility/#extending-configyaml-with-custom-configyaml-files).)
 1. Sets Composer authentication by using an already existing `auth.json` file.
 1. Creates a `public/var` directory if it doesn't exist, to allow the creation of `public/var/.platform.installed` by Platform.sh hook script.
 1. Installs the `ddev/ddev-platformsh` add-on which prompts for the Platform.sh API token, project ID and environment name.
-1. Comments out the Node.js and NVM installations from the hooks copied in `.ddev/config.platformsh.yaml`. (In this file, you may have to discard other specific features like New Relic.)
+1. Comments out the Node.js and NVM installations from the hooks copied in `.ddev/config.platformsh.yaml`.
+(In this file, you may have to discard other specific features like New Relic.)
 1. Changes `maxmemory-policy` from default `allkeys-lfu` to a [value accepted by the `RedisTagAwareAdapter`](https://github.com/symfony/cache/blob/5.4/Adapter/RedisTagAwareAdapter.php#L95).
 1. Starts the project.
 1. Gets the content from Platform.sh, both database and binary files by using `ddev pull platform` feature from the add-on.
@@ -58,7 +65,7 @@ ddev launch
 
 !!! note
 
-    The Platform.sh API token is set at user profile level, therefore it is stored globally under current user root as `PLATFORMSH_CLI_TOKEN` in `~/.ddev/global_config.yaml`.
+    The Platform.sh API token is set at user profile level, therefore it's stored globally under current user root as `PLATFORMSH_CLI_TOKEN` in `~/.ddev/global_config.yaml`.
 
 ## Without the Platform.sh add-on
 
@@ -66,9 +73,11 @@ The following example adapts the [manual method to run an already existing proje
 
 The following sequence of commands:
 
-1. Downloads the [[= product_name_cloud =]] Platform.sh project from the default environment "production" into a new directory using [Platform.sh CLI alias `ibexa_cloud` defined in introduction](#ibexa-cloud-and-ddev). (Replace `<project-ID>` with the hash of your own project. See [`ibexa_cloud help get`](https://docs.platform.sh/administration/cli.html#3-use) for options like selecting another environment).
+1. Downloads the [[= product_name_cloud =]] Platform.sh project from the default environment "production" into a new directory, based on the [Platform.sh CLI alias `ibexa_cloud` defined in introduction](#ibexa-cloud-and-ddev).
+(Replace `<project-ID>` with the hash of your own project. See [`ibexa_cloud help get`](https://docs.platform.sh/administration/cli.html#3-use) for options like selecting another environment).
 1. Configures a new DDEV project.
-1. Ignores `.ddev/` directory from Git. (Some DDEV config could be committed like in [this documentation](https://ddev.readthedocs.io/en/latest/users/extend/customization-extendibility/#extending-configyaml-with-custom-configyaml-files).)
+1. Ignores `.ddev/` directory from Git.
+(Some DDEV config could be committed like in [this documentation](https://ddev.readthedocs.io/en/latest/users/extend/customization-extendibility/#extending-configyaml-with-custom-configyaml-files).)
 1. Starts the DDEV project.
 1. Sets Composer authentication.
 1. [Gets the database content from Platform.sh](https://docs.platform.sh/add-services/mysql.html#exporting-data).
@@ -94,4 +103,4 @@ ddev launch
 
 From there, services can be added to get closer to [[= product_name_cloud =]] Platform.sh architecture.
 `.platform/services.yaml` indicates the services used.
-Refer to [clustering with DDEV](clustering_with_ddev.md) for those additions.
+For more information, see [Clustering with DDEV](clustering_with_ddev.md).

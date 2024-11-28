@@ -1,12 +1,12 @@
-# Keyword Field Type
+# Keyword field type
 
-This Field Type stores one or several comma-separated keywords as a string or array of strings.
+This field type stores one or several comma-separated keywords as a string or array of strings.
 
 | Name      | Internal name | Expected input|
 |-----------|---------------|---------------|
 | `Keyword` | `ezkeyword`   | `string[]|string` |
 
-## PHP API Field Type 
+## PHP API field type 
 
 ### Input expectations
 
@@ -20,7 +20,7 @@ This Field Type stores one or several comma-separated keywords as a string or ar
 
 ##### Properties
 
-The Value class of this Field Type contains the following properties:
+The Value class of this field type contains the following properties:
 
 | Property | Type       | Description|
 |----------|------------|------------|
@@ -39,7 +39,7 @@ $keyword->value = [ "php", "css3", "html5", "Ibexa Platform" ];
 
 #### Constructor
 
-The `Keyword\Value` constructor will initialize a new Value object with the value provided.
+The `Keyword\Value` constructor initializes a new value object with the value provided.
 
 It expects a list of keywords, either comma-separated in a string or as an array of strings.
 

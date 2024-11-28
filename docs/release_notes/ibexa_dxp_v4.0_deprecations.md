@@ -1,6 +1,6 @@
 <!-- vale VariablesVersion = NO -->
 
-# Ibexa DXP v4.0 deprecations and backwards compatibility breaks
+# [[= product_name =]] v4.0 deprecations and backwards compatibility breaks
 
 [[= product_name =]] v4.0 introduces changes to significant parts of the code
 to align with the product name change from earlier eZ Platform.
@@ -102,7 +102,7 @@ All service tag changes are listed in the `ibexa/compatibility-layer` repository
 Refer to [mapping reference](https://github.com/ibexa/compatibility-layer/blob/main/src/bundle/Resources/mappings/symfony-service-tag-name-map.php)
 for a full comparison of old and new service tags.
 
-## CSS classes for Back Office
+## CSS classes for back office
 
 CSS classes with the `ez-` prefix have been modified with an `ibexa-` prefix.
 

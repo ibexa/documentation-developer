@@ -1,5 +1,5 @@
 ---
-description: Payment Method LogicalAnd Criterion
+description: Payment Method LogicalAnd Search Criterion
 edition: commerce
 ---
 

@@ -1,5 +1,5 @@
 ---
-description: Sort Clauses help fine-tune sorting order when searching for content and Locations.
+description: Sort Clauses help fine-tune sorting order when searching for content and locations.
 page_type: reference
 ---
 
@@ -24,15 +24,15 @@ All Sort Clauses can take the following optional argument:
 | [CustomField](customfield_sort_clause.md)                     | Raw search index fields                                                                     | &#10004;       | &#10004;        |           |
 | [DateModified](datemodified_sort_clause.md)                   | The date when content was last modified                                                     | &#10004;       | &#10004;        | &#10004;  |
 | [DatePublished](datepublished_sort_clause.md)                 | The date when content was created                                                           | &#10004;       | &#10004;        | &#10004;  |
-| [Depth](depth_sort_clause.md)                                 | Location depth in the Content Tree                                                          |                | &#10004;        | &#10004;  |
-| [Field](field_sort_clause.md)                                 | Content of one of content item's Fields                                                     | &#10004;       | &#10004;        |           |
+| [Depth](depth_sort_clause.md)                                 | Location depth in the content tree                                                          |                | &#10004;        | &#10004;  |
+| [Field](field_sort_clause.md)                                 | Content of one of content item's fields                                                     | &#10004;       | &#10004;        |           |
 | [Id](id_sort_clause.md)                                       | Location ID                                                                                 |                | &#10004;        | &#10004;  |
-| [IsMainLocation](ismainlocation_sort_clause.md)               | Whether a Location is the main Location of a content item                                   |                | &#10004;        |           |
-| [MapLocationDistance](maplocationdistance_sort_clause.md)     | Distance between the location contained in a MapLocation Field and the provided coordinates | &#10004;       | &#10004;        |           |
+| [IsMainLocation](ismainlocation_sort_clause.md)               | Whether a location is the main location of a content item                                   |                | &#10004;        |           |
+| [MapLocationDistance](maplocationdistance_sort_clause.md)     | Distance between the location contained in a MapLocation field and the provided coordinates | &#10004;       | &#10004;        |           |
 | [Path](path_sort_clause.md)                                   | PathString of the Location                                                                  |                | &#10004;        | &#10004;  |
 | [Priority](priority_sort_clause.md)                           | Location priority                                                                           |                | &#10004;        | &#10004;  |
 | [Random](random_sort_clause.md)                               | Random seed                                                                                 | &#10004;       | &#10004;        |           |
 | [Score](score_sort_clause.md)                                 | Score of the search result                                                                  | &#10004;       | &#10004;        |           |
 | [SectionIdentifier](sectionidentifier_sort_clause.md)         | ID of the Section content is assigned to                                                    | &#10004;       | &#10004;        | &#10004;  |
 | [SectionName](sectionname_sort_clause.md)                     | Name of the Section content is assigned to                                                  | &#10004;       | &#10004;        | &#10004;  |
-| [Visibility](visibility_sort_clause.md)                       | Whether the Location is visible or not                                                      |                | &#10004;        | &#10004;  |
+| [Visibility](visibility_sort_clause.md)                       | Whether the location is visible or not                                                      |                | &#10004;        | &#10004;  |

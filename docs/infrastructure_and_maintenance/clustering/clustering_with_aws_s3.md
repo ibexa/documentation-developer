@@ -1,11 +1,10 @@
 ---
-description: When you are using a clustering configuration, you can store binary files on Amazon AWS S3.
+description: When you're using a clustering configuration, you can store binary files on Amazon AWS S3.
 ---
 
 # Clustering with Amazon AWS S3
 
-When setting up clustering, you can use Amazon AWS S3 as a binary handler,
-meaning AWS S3 will be used to store binary files.
+When setting up clustering, you can use Amazon AWS S3 as a binary handler, meaning AWS S3 is used to store binary files.
 
 !!! tip
 
@@ -23,7 +22,7 @@ The example below uses EU (Ireland): `eu-west-1`
 See <https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-access-control.html>.
 1.  Then create a group and assign the user to the group.
 1.  Assign policies to the group. The `AmazonS3FullAccess` policy gives read/write access to your bucket.
-1.  Still in the IAM console, view the user you created. Click the "Security credentials" tab.
+1.  Still in the IAM console, view the user you created. Click the **Security credentials** tab.
 1.  Click "Create access key" and make note of the "Access key ID" and the "Secret access key".
 The secret key cannot be retrieved again after the key has been created, so don't lose it.
 (However, you can create new keys if needed.)
@@ -31,7 +30,7 @@ The secret key cannot be retrieved again after the key has been created, so don'
 !!! note
 
     Make sure that your bucket is [configured as Public](https://docs.aws.amazon.com/AmazonS3/latest/userguide/configuring-block-public-access-bucket.html) to avoid facing 403 errors, as the current S3 handler is meant to store files publicly so they can be served directly from S3.
-    
+
 ## Set up [[= product_name =]] for AWS S3
 
 In your [[= product_name =]] root directory, run `php composer require league/flysystem-aws-s3-v3:^2.0`.
@@ -76,8 +75,7 @@ ibexa_io:
     `aws_s3` is an arbitrary handler identifier that is used in the config block below.
     You can configure multiple handlers.
 
-    For example, you could configure one called `gcloud_storage` for a
-    [Google Cloud Storage adapter](https://github.com/thephpleague/flysystem#officially-supported-adapters).
+    For example, you could configure one called `gcloud_storage` for a [Google Cloud Storage adapter](https://github.com/thephpleague/flysystem#officially-supported-adapters).
 
 Under the `ibexa.system.<scope>.io` [configuration key](configuration.md#configuration-files), enable the binary data handler:
 
@@ -95,5 +93,4 @@ Clear all caches and reload, and that's it.
 
 ## Migrate your existing binary data to S3
 
-You can [migrate existing binary data](clustering.md#migrating-to-a-cluster-setup) to S3 using the `php bin/console ibexa:io:migrate-files` command
-which was added in [EZP-25946](https://issues.ibexa.co/browse/EZP-25946).
+You can [migrate existing binary data](clustering.md#migrating-to-a-cluster-setup) to S3 with the `php bin/console ibexa:io:migrate-files` command that was added in [EZP-25946](https://issues.ibexa.co/browse/EZP-25946).

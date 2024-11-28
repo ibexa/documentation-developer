@@ -1,6 +1,10 @@
+---
+description: DateTimeRangeAggregation
+---
+
 # DateTimeRangeAggregation
 
-The Field-based [DateTimeRangeAggregation](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Aggregation-Field-DateTimeRangeAggregation.html) aggregates search results by the value of the Date, DateTime or Time Field.
+The field-based [DateTimeRangeAggregation](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Aggregation-Field-DateTimeRangeAggregation.html) aggregates search results by the value of the Date, DateTime, or Time field.
 
 ## Arguments
 

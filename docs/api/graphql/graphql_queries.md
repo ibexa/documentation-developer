@@ -10,8 +10,7 @@ You can query a single content item or a list of content items using fields defi
 
 ### Get a content item
 
-To get a specific content item by its content ID, Location ID, or URL alias, use its relevant singular field,
-for example `article`, `folder`, `image`, etc.:
+To get a specific content item by its content ID, location ID, or URL alias, use its relevant singular field, for example `article`, `folder`, or `image`.
 
 ```
 {
@@ -45,10 +44,10 @@ Response:
 }
 ```
 
-You can request any Fields of the content item. In the example above, these are `title` and `author`.
+You can request any fields of the content item. In the example above, these are `title` and `author`.
 
 You can also query the generic `item` object.
-The `item` object references a content item, but you can also get its [Location information](#querying-locations).
+The `item` object references a content item, but you can also get its [location information](#querying-locations).
 The query accepts `locationId`, `remoteId`, and `urlAlias` as arguments.
 
 ```
@@ -73,7 +72,7 @@ Response:
 
 #### Get language versions
 
-To get Fields of a content item in a specific language, use the `language` argument.
+To get fields of a content item in a specific language, use the `language` argument.
 The language must be configured for the current SiteAccess.
 
 ```
@@ -102,11 +101,11 @@ Response:
 }
 ```
 
-When you do not specify a language, the response contains the most prioritized translation.
+When you don't specify a language, the response contains the most prioritized translation.
 
 ### Get a group of content items
 
-To get a list of all content items of a selected type, use the plural field, e.g. `articles`:
+To get a list of all content items of a selected type, use the plural field, for example, `articles`:
 
 ```
 {
@@ -247,9 +246,9 @@ Response:
 You can get the Location object from any item by querying for `_location` or `_allLocations`.
 When you use `_location`, the API returns:
 
-- the Location specified in the `locationId` or `urlAlias` argument
-- the Location based on the current SiteAccess
-- the main Location
+- the location specified in the `locationId` or `urlAlias` argument
+- the location based on the current SiteAccess
+- the main location
 
 ```
 {
@@ -313,8 +312,7 @@ Response:
 
 ## Getting children of a Location
 
-To get a [Location's](#querying-locations) children,
-it is recommended to use the [Query Field](content_queries.md#content-query-field).
+To get a [location's](#querying-locations) children, it's recommended to use the [Query field](content_queries.md#content-query-field).
 
 Alternatively, you can query the `children` property of an `item` or `content` object:
 
@@ -608,7 +606,7 @@ To filter products based on attributes:
 }
 
 ```
- 
+
 If the attribute type (in this case, `measure`) cannot be found in the schema, the response is:
 
 ```
@@ -662,8 +660,7 @@ You can also query attributes by providing the attribute type:
 
 !!! note
 
-    You need to use aliases (for example, `sizeValue`) when querying attributes by the attribute type
-    due to the conflicting return types.
+    You need to use aliases (for example, `sizeValue`) when querying attributes by the attribute type due to the conflicting return types.
 
 Response:
 
@@ -744,7 +741,7 @@ articles(sortBy:[_datePublished,_desc])
 
 GraphQL offers [cursor-based pagination](https://graphql.org/learn/pagination/) for paginating query results.
 
-You can paginate plural fields using `edges`:
+You can paginate plural fields by using `edges`:
 
 ```
 {
@@ -765,8 +762,7 @@ You can paginate plural fields using `edges`:
 ```
 
 This query returns the first three articles, ordered by their publication date.
-If the current `Connection` (list of results) is not finished yet and there are more items to read,
-`hasNextPage` will be `true`.
+If the current `Connection` (list of results) isn't finished yet and there are more items to read, `hasNextPage` is `true`.
 
 For the `children` node, you can use the following pagination method:
 
@@ -830,6 +826,6 @@ To request a specific page, provide the `cursor` as an argument to `children`:
 children(first: 3, after: "YXJyYXljb25uZWN0aW9uOjM=")
 ```
 
-### Get Matrix Field Type
+### Get Matrix field type
 
-To get a Matrix Field Type with GraphQL, see [Matrix Field Type reference](matrixfield.md).
+To get a Matrix field type with GraphQL, see [Matrix field type reference](matrixfield.md).

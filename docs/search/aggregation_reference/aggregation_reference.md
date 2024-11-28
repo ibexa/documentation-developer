@@ -11,11 +11,11 @@ There are three types of aggregations:
 
 - Term aggregations group by value and count object in each group
 - Range aggregations count values in specified ranges
-- Stats aggregations compute stats over numeric fields: minimum, average and maximum value, count and sum of values
+- Stats aggregations compute stats over numeric fields: minimum, average and maximum value, count, and sum of values
 
 !!! tip
 
-    Aggregations are not available in the Legacy Search engine.
+    Aggregations aren't available in the Legacy Search engine.
 
 ## Content aggregations
 
@@ -38,7 +38,7 @@ There are three types of aggregations:
 
 ## Field aggregations
 
-|Name | Type | Based on Field|
+|Name | Type | Based on field|
 |---|---|---|
 |[AuthorTermAggregation](authorterm_aggregation.md) | Term | [Author](authorfield.md) |
 |[CheckboxTermAggregation](checkboxterm_aggregation.md) | Term |[Checkbox](checkboxfield.md)|

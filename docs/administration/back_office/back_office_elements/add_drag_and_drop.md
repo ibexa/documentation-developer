@@ -1,15 +1,15 @@
 ---
-description: Add custom drag-and-drop interactions to Back Office interface.
+description: Add custom drag-and-drop interactions to back office interface.
 ---
 
 # Add drag and drop
 
-You can create a generic interface for drag and drop interactions that you can reuse in many places across the Back Office.
+You can create a generic interface for drag and drop interactions that you can reuse in many places across the back office.
 
 First, prepare the HTML code structure and place it in a Twig template. See the example:
 
 ```html
-<div 
+<div
         class="items-container-drag"
         data-placeholder='<div class="item-placeholder-drag">item placeholder name</div>'
 >
