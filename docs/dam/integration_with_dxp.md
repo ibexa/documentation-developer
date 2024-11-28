@@ -17,7 +17,7 @@ the following search engines on your server:
 - [Solr](install_solr.md)
 
 
-## Enable OAuth Servers
+## Enable OAuth Server
 
 Next, enable 0Auth Server authentication. To do it, follow steps up to the [Client section](oauth_server.md).
 
