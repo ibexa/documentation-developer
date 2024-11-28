@@ -5,7 +5,7 @@ description: Integrate DAM with your Ibexa DXP project to use an effective tool 
 
 # Integrate DAM with DXP
 
-DAM integration with [[= product_name =]] is dedicated to [[= product_name_base =]] users who want to use [[= product_name_base =]] as a data storage. It enables using assets repository stored in the DXP in the Actito platform to build and insert marketing assets into campaign emails.
+DAM integration with [[= product_name =]] is dedicated to [[= product_name_base =]] users who want to use [[= product_name_base =]] as a data storage. It enables using assets repository stored in the DXP in the platform to build and insert marketing assets into campaign emails.
 For more information, see [Actito documentation](https://cdn3.actito.com/fe/actito-documentation/docs/Using_Assets_from_a_DAM/#connection-to-ibexa).
 
 ## Enable Elasticsearch or Solr
@@ -20,6 +20,39 @@ the following search engines on your server:
 ## Enable OAuth Server
 
 Next, enable 0Auth Server authentication. To do it, follow steps up to the [Client section](oauth_server.md).
+
+## Integration with Platform.sh
+
+If you have your [[= product_name =]] project deplyed on Platform.sh, the following steps are required:
+
+In the `.env` file, set paths to OAuth Server.
+Next, generate these keys and add them.
+
+```bash
+Platform.sh
+
+.platform.app.yaml
+
+variables:
+	env:
+		# OAuth2 Server paths to certificates
+		OAUTH2_PRIVATE_KEY_PATH: /app/oauth-server.key
+		OAUTH2_PUBLIC_KEY_PATH: /app/oauth-server.pub
+
+
+hooks:
+	build: |
+		# Generate OAuth2 Keys
+		openssl genrsa -out private.key 2048
+		openssl rsa -in private.key -pubout -out public.key
+
+		# OAuth2 Server credentials
+		export OAUTH2_PRIVATE_KEY="$(cat private.key | base64)"
+		export OAUTH2_PUBLIC_KEY="$(cat public.key | base64)"
+
+		echo "$OAUTH2_PRIVATE_KEY" | base64 -d > ~/oauth-server.key
+		echo "$OAUTH2_PUBLIC_KEY" | base64 -d > ~/oauth-server.pub
+```
 
 ## Install DAM package
 
@@ -149,9 +182,9 @@ nelmio_cors:
             allow_headers: ['Content-Type', 'Authorization', 'X-HTTP-Method-Override']
 ```
 
-Next, in the `.env` file provide path with a regular expression and change the domain to yours:
+Next, in the `.env` file provide path with a regular expression and change the domain accroding to your needs:
 
-`CORS_ALLOW_ORIGIN='^https?://(localhost|127\.0\.0\.1|(.+\.yourdomain\.(com|eu)))?(:[0-9]+)?$'`
+`CORS_ALLOW_ORIGIN='^https?://(localhost|127\.0\.0\.1|(.+\.acme\.(com|eu)))?(:[0-9]+)?$'`
 
 
 ### Override `nelmio` settings
