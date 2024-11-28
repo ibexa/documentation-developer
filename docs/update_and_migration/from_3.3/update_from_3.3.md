@@ -457,7 +457,7 @@ You can find the two advisories below:
 If you're using Varnish, update the VCL configuration to stop compressing both the [[= product_name =]]'s REST API and JSON responses from your backend.
 Fastly users are not affected.
 
-=== Varnish on [[= product_name_cloud =]]
+=== "Varnish on [[= product_name_cloud =]]"
 
     Update the Varnish configuration.
 
@@ -469,11 +469,11 @@ Fastly users are not affected.
 
     Review the changes, merge with your custom settings if needed, and commit them to Git before deployment.
 
-=== Varnish 6
+=== "Varnish 6"
 
     Update your Varnish VCL file to align it with the [`vendor/ezsystems/ezplatform-http-cache/docs/varnish/vcl/varnish5.vcl`](https://github.com/ezsystems/ezplatform-http-cache/blob/2.3/docs/varnish/vcl/varnish5.vcl) file.
 
-=== Varnish 7
+=== "Varnish 7"
 
     Update your Varnish VCL file to align it with the [`vendor/ezsystems/ezplatform-http-cache/docs/varnish/vcl/varnish7.vcl`](https://github.com/ezsystems/ezplatform-http-cache/blob/2.3/docs/varnish/vcl/varnish7.vcl) file.
     ```

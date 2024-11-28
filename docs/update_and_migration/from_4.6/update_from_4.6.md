@@ -170,7 +170,7 @@ You can customize the behavior of the command with the following options:
 
 This release contains security changes.
 For each of following advisories evaluate the vulnerability to determine whether you might have been affected. 
-If so, take appropriate action promptly, for example by [revoking passwords](https://doc.ibexa.co/en/latest/users/passwords/#revoking-passwords) for all affected users.
+If so, take appropriate action, for example by [revoking passwords](https://doc.ibexa.co/en/latest/users/passwords/#revoking-passwords) for all affected users.
 
 You can find the three advisories below:
 
@@ -179,7 +179,7 @@ You can find the three advisories below:
 If you're using Varnish, update the VCL configuration to stop compressing both the [[= product_name =]]'s REST API and JSON responses from your backend.
 Fastly users are not affected.
 
-=== Varnish on [[= product_name_cloud =]]
+=== "Varnish on [[= product_name_cloud =]]"
 
     Update Platform.sh configuration and scripts.
 
@@ -191,11 +191,11 @@ Fastly users are not affected.
 
     Review the changes, merge with your custom settings if needed, and commit them to Git before deployment.
 
-=== Varnish 6
+=== "Varnish 6"
 
     Update your Varnish VCL file to align it with the [`vendor/ibexa/http-cache/docs/varnish/vcl/varnish5.vcl`](https://github.com/ibexa/http-cache/blob/4.6/docs/varnish/vcl/varnish6.vcl) file.
 
-=== Varnish 7
+=== "Varnish 7"
 
     Update your Varnish VCL file to align it with the [`vendor/ibexa/http-cache/docs/varnish/vcl/varnish7.vcl`](https://github.com/ibexa/http-cache//blob/4.6/docs/varnish/vcl/varnish7.vcl) file.
     ```
@@ -204,16 +204,12 @@ For more information, see the security advisory[TODO: insert link].
 
 #### XSS in Content name pattern
 
-There are no code changes to apply.
-
-For more information, see the security advisory[TODO: insert link].
+There are no code changes to apply. For more information, see the security advisory[TODO: insert link].
 
 #### Outdated version of jQuery in ibexa/ezcommerce-shop package
 
 Only users of the [old Commerce solution](update_from_4.3_old_commerce.md) are affected.
-There are no code changes to apply.
-
-For more information, see the security advisory[TODO: insert link].
+There are no code changes to apply. For more information, see the security advisory[TODO: insert link].
 
 ### Disable translations of identifiers in Product Catalog's categories
 
