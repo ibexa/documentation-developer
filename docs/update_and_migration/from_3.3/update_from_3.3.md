@@ -478,7 +478,10 @@ Fastly users are not affected.
     Update your Varnish VCL file to align it with the [`vendor/ezsystems/ezplatform-http-cache/docs/varnish/vcl/varnish7.vcl`](https://github.com/ezsystems/ezplatform-http-cache/blob/2.3/docs/varnish/vcl/varnish7.vcl) file.
     ```
 
-For more information, see the security advisory[TODO: insert link].
+If you're not using a reverse proxy like Varnish or Fastly, adjust the compressed Content Type in the webserver configuration.
+For more information. see the [updated Apache and nginx template configuration](https://github.com/ibexa/post-install/pull/86/files).
+
+For more information about the vulnerability, see the security advisory[TODO: insert link].
 
 ##### Outdated version of jQuery in ibexa/ezcommerce-shop package
 

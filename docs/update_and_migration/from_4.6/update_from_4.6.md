@@ -200,6 +200,9 @@ Fastly users are not affected.
     Update your Varnish VCL file to align it with the [`vendor/ibexa/http-cache/docs/varnish/vcl/varnish7.vcl`](https://github.com/ibexa/http-cache//blob/4.6/docs/varnish/vcl/varnish7.vcl) file.
     ```
 
+If you're not using a reverse proxy like Varnish or Fastly, adjust the compressed Content Type in the webserver configuration.
+For more information. see the [updated Apache and nginx template configuration](https://github.com/ibexa/post-install/pull/86/files).
+
 For more information, see the security advisory[TODO: insert link].
 
 #### XSS in Content name pattern
