@@ -387,7 +387,7 @@ See [Recommendation API](recommendation_api.md) for more details.
 A trigger message includes requests for a Triggeropened and Clicktriggered event.
 The first is executed once, when the end user opens a trigger message (for example, embedded into a newsletter).
 The second is called each time the user follows a link to see the recommended item.
-Both requests provide the `triggername` parameter, which passes a unique alphanumerical identifier of the trigger that initiated the message.
+Both requests provide the `triggerName` parameter, which passes a unique alphanumerical identifier of the trigger that initiated the message.
 
 Example of a trigger message:
 
