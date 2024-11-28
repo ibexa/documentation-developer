@@ -485,7 +485,7 @@ For more information about the vulnerability, see the security advisory[TODO: in
 
 ##### Outdated version of jQuery in ibexa/ezcommerce-shop package
 
-There are no code changes to execute.
+There are no additional update steps to execute.
 For more information, see the security advisory[TODO: insert link].
 
 #### Other changes

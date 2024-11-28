@@ -207,12 +207,14 @@ For more information, see the security advisory[TODO: insert link].
 
 #### XSS in Content name pattern
 
-There are no code changes to apply. For more information, see the security advisory[TODO: insert link].
+There are no additional update steps to execute.
+For more information, see the security advisory[TODO: insert link].
 
 #### Outdated version of jQuery in ibexa/ezcommerce-shop package
 
 Only users of the [old Commerce solution](update_from_4.3_old_commerce.md) are affected.
-There are no code changes to apply. For more information, see the security advisory[TODO: insert link].
+There are no additional update steps to execute.
+For more information, see the security advisory[TODO: insert link].
 
 #### Other changes
 
