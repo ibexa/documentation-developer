@@ -42,7 +42,7 @@ Next, add technical users, required by DAM to your [[= product_name =]] instance
 To do it, first, import the migration file:
 
 ```bash
-    php bin/console ibexa:migrations:import vendor/ibexa/dam-user/src/bundle/Resources/migrations/2024_07_11_09_10_dam_technical_users.yaml
+php bin/console ibexa:migrations:import vendor/ibexa/dam-user/src/bundle/Resources/migrations/2024_07_11_09_10_dam_technical_users.yaml
 ```
 
 Next, run migrations:
