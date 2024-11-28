@@ -5,7 +5,7 @@ description: Integrate DAM with your Ibexa DXP project to use an effective tool 
 
 # Integrate DAM with DXP
 
-DAM integration with [[= product_name =]] is dedicated to [[= product_name_base =]] users who also use Actito services. It enables using assets repository stored in the DXP in the Actito platform to build and insert marketing assets into campaign emails.
+DAM integration with [[= product_name =]] is dedicated to [[= product_name_base =]] users who want to use [[= product_name_base =]] as a data storage. It enables using assets repository stored in the DXP in the Actito platform to build and insert marketing assets into campaign emails.
 For more information, see [Actito documentation](https://cdn3.actito.com/fe/actito-documentation/docs/Using_Assets_from_a_DAM/#connection-to-ibexa).
 
 ## Enable Elasticsearch or Solr
