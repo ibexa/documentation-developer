@@ -1,6 +1,10 @@
+---
+description: ProductCategory Search Criterion
+---
+
 # ProductCategory Criterion
 
-The `ProductCategory` Search Criterion searches for products by the category they are assigned to.
+The `ProductCategory` Search Criterion searches for products by the category they're assigned to.
 
 ## Arguments
 

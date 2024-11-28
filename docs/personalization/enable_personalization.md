@@ -10,14 +10,13 @@ To enable it, you must set up authentication parameters that you receive from [[
 
 ## Get authentication parameters
 
-First, either you or another [[= product_name_base =]] user responsible for managing the [[= product_name =]]  
-instance must [request access to the service]([[= user_doc =]]/personalization/enabling_personalization/#request-access-to-the-server).
+First, either you or another [[= product_name_base =]] user responsible for managing the [[= product_name =]] instance must [request access to the service]([[= user_doc =]]/personalization/enabling_personalization/#request-access-to-the-server).
 
 ## Set up customer credentials
 
 When you receive the credentials, add them to your configuration.
-In the root folder of your project, edit the `.env.local` file
-by adding the following lines with your customer ID and license key: 
+
+In the root folder of your project, edit the `.env.local` file by adding the following lines with your customer ID and license key: 
 
 ```
 PERSONALIZATION_CUSTOMER_ID=12345
@@ -27,17 +26,15 @@ PERSONALIZATION_HOST_URI=https://server_uri
 
 !!! note "Configuring user credentials for multisite setup and different personalization customers"
 
-    If your installation [hosts multiple sites]([[= user_doc =]]/personalization/use_cases/#multiple-website-hosting) with different 
-    customer IDs, for example, to provide separate recommendations for different 
-    language versions of the store, you can store all credentials in the same file:
-    
+    If your installation [hosts multiple sites]([[= user_doc =]]/personalization/use_cases/#multiple-website-hosting) with different customer IDs, for example, to provide separate recommendations for different language versions of the store, you can store all credentials in the same file:
+
     ```
     # Main credentials - ENU store
     PERSONALIZATION_CUSTOMER_ID=12345
     PERSONALIZATION_LICENSE_KEY=67890-1234-5678-90123-4567
     PERSONALIZATION_HOST_URI=https://server_uri
 
-    # Additional credentials - FRA store 
+    # Additional credentials - FRA store
     FRA_CUSTOMER_ID=54321
     FRA_LICENSE_KEY=09876-5432-1098-7654-3210
     FRA_HOST_URI=https://FRA_server_uri
@@ -47,30 +44,22 @@ PERSONALIZATION_HOST_URI=https://server_uri
 
 ## Configure Personalization
 
-The [Personalization package](https://github.com/ibexa/personalization-client) 
-adds a personalization solution to [[= product_name =]] and communicates with 
-the Personalization server.
+The [Personalization package](https://github.com/ibexa/personalization-client) adds a personalization solution to [[= product_name =]] and communicates with the Personalization server.
 
-Its job is to track the way visitors use the website and recommend content 
-based on their behavior.
+Its job is to track the way visitors use the website and recommend content based on their behavior.
 
-For more information about integrating the Personalization service,
-see [Developer guide](tracking_api.md) and [Best practices](tracking_integration.md).
+For more information about integrating the Personalization service, see [Developer guide](tracking_api.md) and [Best practices](tracking_integration.md).
 
 ### Set up item type tracking
 
-For the recommendations to be calculated, apart from visitor events (CLICK, BUY, etc.), 
-the Personalization server must receive a list of item types that are tracked.
+For the recommendations to be calculated, apart from visitor events (for example, CLICK or BUY), the Personalization server must receive a list of item types that are tracked.
 
 You define item types to be tracked in [configuration files](configuration.md#configuration-files).
 The content is then initially exported by a script.
-After this, it is synchronized with the Personalization service every time a change 
-occurs (using any method that triggers the event).
+After this, it's synchronized with the Personalization service every time a change occurs (using any method that triggers the event).
 
 The Personalization configuration is SiteAccess-aware.
-If your installation hosts multiple sites with different customer IDs, 
-for example, to provide separate recommendations for different language versions 
-of the site, provide the credentials that correspond to each of the sites.
+If your installation hosts multiple sites with different customer IDs, for example, to provide separate recommendations for different language versions of the site, provide the credentials that correspond to each of the sites.
 
 The configuration can resemble the following example:
 
@@ -90,7 +79,7 @@ ibexa:
                         title: 'title'
                         image: 'image_legend'
                         description: 'sub_title'
-                    456: 
+                    456:
                         title: 'short_title'
                         image: 'primary_image'
                         description: 'sub_title'
@@ -108,7 +97,7 @@ ibexa:
                         title: 'title'
                         image: 'image_legend'
                         description: 'sub_title'
-                    456: 
+                    456:
                         title: 'short_title'
                         image: 'primary_image'
                         description: 'sub_title'
@@ -116,10 +105,9 @@ ibexa:
 
 !!! note "Authentication"
 
-    For data exchange purposes, basic authentication is enabled by default. 
+    For data exchange purposes, basic authentication is enabled by default.
     To change this, contact support@ibexa.co.
-    For security reasons, [store the authentication credentials in the ENV file](#set-up-customer-credentials), 
-    and do not commit them to the Version Control System.
+    For security reasons, [store the authentication credentials in the ENV file](#set-up-customer-credentials), and don't commit them to the Version Control System.
     Then, use environment variables to pull them into the YAML file.
 
 | Parameter                            | Description                                               |
@@ -148,8 +136,7 @@ ibexa:
 
 #### Enable tracking
 
-The Personalization client bundle delivers a Twig extension
-which helps integrate the user tracking functionality into your site.
+The Personalization client bundle delivers a Twig extension which helps integrate the user tracking functionality into your site.
 Place the following code snippet in the `<head>` section of your header template:
 
 ``` html+twig
@@ -169,8 +156,7 @@ As the API uses token based authorization you first need a valid bearer token.
 
 When you publish a content item a bearer token is created and saved to the `ibexa_token` db table.
 
-Additionally a POST request is send to the Personalization Engine,  containing the token
-and the Rest URL where the Personalization Engine can fetch the changed Content.
+Additionally a POST request is send to the Personalization Engine,  containing the token and the Rest URL where the Personalization Engine can fetch the changed Content.
 
 The `BEARER_TOKEN` is the newest one in `ibexa_token` table having `type=1` and `identifier=update`. The token has a default lifetime of one day.
 
@@ -237,8 +223,7 @@ The `content` endpoint returns one item and the `contentlist` endpoint returns m
 
 To get recommendations you must first export the item information to the Personalization server.
 
-After you [define item types to be tracked and recommended](#set-up-item-type-tracking),
-start the full export.
+After you [define item types to be tracked and recommended](#set-up-item-type-tracking), start the full export.
 
 You need to run the `ibexa:personalization:run-export command per SiteAccesses that you want to use together with Personalization. You need different customer IDs for different SiteAccesses.
 
@@ -251,12 +236,9 @@ php bin/console ibexa:personalization:run-export
     --languages=<language>,<language>
 ```
 
-The bundle exporter collects all content related to the `<site_access_name>`/`<customer_id>` 
-pair and stores it in files to the folder `public/var/export/yyyy/mm/dd/hh/mm` of your project.
-After finishing, the system sends a POST request to the endpoint and informs the 
-Personalization server to fetch new content.
-An internal workflow is then triggered, so that the generated files are downloaded 
-and imported in the Personalization server's content store.
+The bundle exporter collects all content related to the `<site_access_name>`/`<customer_id>` pair and stores it in files to the folder `public/var/export/yyyy/mm/dd/hh/mm` of your project.
+After finishing, the system sends a POST request to the endpoint and informs the Personalization server to fetch new content.
+An internal workflow is then triggered, so that the generated files are downloaded and imported in the Personalization server's content store.
 
 The export process can take several minutes.
 
@@ -264,8 +246,7 @@ The export process can take several minutes.
 
 !!! caution "Re-exporting modified item types"
 
-    If the item types to be recommended change, you must perform a new full export
-    by running the `php bin/console ibexa:personalization:run-export` command again.
+    If the item types to be recommended change, you must perform a new full export by running the `php bin/console ibexa:personalization:run-export` command again.
 
 #### Check export results
 
@@ -283,7 +264,7 @@ To get the data of an imported item you can request the following REST resource:
 
 `GET https://admin.perso.ibexa.co/api/<your_customer_id>/item/<your_item_type_id>/<your_item_id>`
 
-This way uses basic authentication. 
+This way uses basic authentication.
 The username is the customer ID and the password is the license key.
 
 ??? note "Example response"
@@ -329,7 +310,7 @@ The username is the customer ID and the password is the license key.
 
 ##### Personalization backend
 
-In the Back Office, go to **Personalization** > **Import** and review the list of historical import operations to see whether a full import was successful.
+In the back office, go to **Personalization** > **Import** and review the list of historical import operations to see whether a full import was successful.
 
 ![Item Import tab with full import results](reco_full_import.png)
 
@@ -337,10 +318,8 @@ In the Back Office, go to **Personalization** > **Import** and review the list o
 
 The Personalization server is automatically kept in sync with the content in [[= product_name =]].
 
-Every time an editor creates, updates or deletes content in the Back Office,
-a notification is sent to https://admin.perso.ibexa.co/.
-The personalization service also notifies other components of the Personalization server
-and it eventually fetches the affected content and updates it internally.
+Every time an editor creates, updates or deletes content in the back office, a notification is sent to https://admin.perso.ibexa.co/.
+The personalization service also notifies other components of the Personalization server and it eventually fetches the affected content and updates it internally.
 
 ![Subsequent content exports](incremental_content_export.png)
 
@@ -348,16 +327,13 @@ and it eventually fetches the affected content and updates it internally.
 
 !!! note "Client-based recommendations"
 
-    Recommendations are fetched and rendered asynchronously, so there 
-    is no additional load on the server.
-    Therefore, it is crucial that you check whether the content export was successful, 
-    because certain references, for example, deeplinks and image references, are 
-    included.
-    If the export fails, the Personalization server does not have full content information.
-    As a result, even if the recommendations are displayed, they might miss images, 
-    titles or deeplinks.
+    Recommendations are fetched and rendered asynchronously, so there is no additional load on the server.
+    Therefore, it's crucial that you check whether the content export was successful, because certain references, for example, deeplinks and image references, are included.
+    If the export fails, the Personalization server doesn't have full content information.
+    As a result, even if the recommendations are displayed, they might miss images, titles or deeplinks.
 
-To display recommendations on your site, you must include the asset in the template using the following code:
+To display recommendations on your site, you must include the asset in the template.
+To do it, use the following code:
 
 ``` html+twig
 {{ encore_entry_script_tags('ibexa-personalization-client-js', null, 'ibexa') }}
@@ -380,8 +356,7 @@ render(controller('ibexa_personalization::showRecommendationsAction', {
 
 !!! tip
 
-    To check whether tracking is enabled on the front end, use the 
-    `ibexa_recommendation_enabled()` Twig function.
+    To check whether tracking is enabled on the front end, use the `ibexa_recommendation_enabled()` Twig function.
     You can wrap the call to the `RecommendationController` with:
 
     ``` html+twig
@@ -397,32 +372,29 @@ render(controller('ibexa_personalization::showRecommendationsAction', {
 | Parameter        | Type   | Description   |
 |------------------|--------|---------------|
 | `contextItems`   | int    | ID of the content you want to get recommendations for. |
-| `scenario`       | string | Scenario used to display recommendations. You can create custom scenarios in the Back Office. |
+| `scenario`       | string | Scenario used to display recommendations. You can create custom scenarios in the back office. |
 | `outputTypeId`   | string | Item type that you expect in response, for example, `blog_post`. |
 | `crossContentType`| bool | If set to `true`, returns recommendations for all content types specified in the scenario. |
 | `limit`          | int    | Number of recommendations to fetch. |
 | `template`       | string | Template name. |
-| `attributes`     | array  | Fields that are required and are requested from the Personalization server. These Field names are also used inside Handlebars templates. |
+| `attributes`     | array  | Fields that are required and are requested from the Personalization server. These field names are also used inside Handlebars templates. |
 
 You can also bypass named arguments with standard value passing as arguments.
 
 !!! note "Custom templates"
 
-    To use a custom template for displaying recommendations,
-    ensure that it includes `event_tracking.html.twig`:
+    To use a custom template for displaying recommendations, ensure that it includes `event_tracking.html.twig`:
 
     `{% include '@IbexaPersonalization/event_tracking.html.twig' %}`.
 
-Recommendation responses contain all content data that is requested as attribute 
-in the recommendation call.
+Recommendation responses contain all content data that is requested as attribute in the recommendation call.
 This response data can be used in templates to render and style recommendations.
 
-For example, the following GET request should deliver the response below
-if the content Fields were previously exported by the export script.
+For example, the following GET request should deliver the response below if the content fields were previously exported by the export script.
 
 `GET https://reco.perso.ibexa.co/api/v2/<your_customer_id>/someuser/popular.json?contextitems=71&numrecs=5&categorypath=/&outputtypeid=<your_item_type>&attribute=name,author,uri,image`
 
-??? note "Example response"
+!!! note "Example response"
 
     ``` json
     {
@@ -513,8 +485,7 @@ if the content Fields were previously exported by the export script.
 
 #### Modify recommendation data
 
-You can retrieve data returned from the Personalization server and modify it 
-before it is shown to the user.
+You can retrieve data returned from the Personalization server and modify it before it's shown to the user.
 
 To modify recommendation data, subscribe to `RecommendationResponseEvent`.
 See [`Event/Subscriber/RecommendationEventSubscriber.php`](https://github.com/ibexa/personalization-client/blob/main/src/lib/Event/Subscriber/RecommendationEventSubscriber.php) for an example:
@@ -528,18 +499,15 @@ public static function getSubscribedEvents(): array
 }
 ```
 
-The `-10` refers to priority, which must be negative so this action is performed 
-before the main subscriber is run.
+The `-10` refers to priority, which must be negative so this action is performed before the main subscriber is run.
 
 ### Image variations
 
-Displaying image variations is not supported out of the box.
+Displaying image variations isn't supported out of the box.
 
-You can work around this limitation by creating a template
-(based on [recommendations.html.twig](https://github.com/ibexa/personalization-client/blob/main/src/bundle/Resources/views/recommendations.html.twig)).
+You can work around this limitation by creating a template (based on [recommendations.html.twig](https://github.com/ibexa/personalization-client/blob/main/src/bundle/Resources/views/recommendations.html.twig)).
 
-To access a specific image variation through API, add the `image` parameter to the 
-request URL with the name of the variation as its value.
+To access a specific image variation through API, add the `image` parameter to the request URL with the name of the variation as its value.
 For example, to retrieve the `rss` variation of the image, use:
 
 `/api/ezp/v2/ibexa_recommendation/v1/contenttypes/16?lang=eng-GB&fields=title,description,image,intro,name&page=1&page_size=20&image=rss`
@@ -565,12 +533,8 @@ You can replace `info` with `debug` to increase verbosity.
 
 ## Set up user roles and permissions
 
-Depending on your requirements, you may need to set up `edit` and `view` [permissions](permissions.md) 
-to grant users access to recommendation settings that relate to different SiteAccesses 
-and results that come from these websites.
+Depending on your requirements, you may need to set up `edit` and `view` [permissions](permissions.md) to grant users access to recommendation settings that relate to different SiteAccesses and results that come from these websites.
 
 ## Configure recommendation logic
 
-When you enable the Personalization, you can go back to the Back Office, 
-refresh the Personalization dashboard and proceed with [configuring the logic]([[= user_doc =]]/personalization/perso_configuration) 
-used to calculate the recommendation results.
+When you enable the Personalization, you can go back to the back office, refresh the Personalization dashboard and proceed with [configuring the logic]([[= user_doc =]]/personalization/perso_configuration) used to calculate the recommendation results.

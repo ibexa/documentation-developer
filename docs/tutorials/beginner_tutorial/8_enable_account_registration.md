@@ -4,19 +4,21 @@ description: See how you can enable external users to register and contribute to
 
 # Step 8 — Enable account registration
 
-In this step you will enable other users to create accounts on your site, access the Back Office and create content.
+In this step you enable other users to create accounts on your site, access the back office and create content.
 
 ## Enable registration
 
-In the main menu, go to **Admin** (gear icon) -> **Roles**, and click the **Anonymous** Role.
+In the main menu, go to **Admin** (gear icon) -> **Roles**, and click the **Anonymous** role.
 
-![Available Roles](step_8_role_mgmt_screen.png)
+![Available roles](step_8_role_mgmt_screen.png)
 
-Add the `User/Register` Policy to the Anonymous User. This will allow any visitor to the website to access the registration form.
+Add the `User/Register` policy to the Anonymous user.
+This allows any visitor to the website to access the registration form.
 
 ![Policies for the Anonymous Role](step8_admin_anonymous_policies.png)
 
-Then go to `<yourdomain>/register`. The registration form is unstyled, so you need to add templates to it.
+Then go to `<yourdomain>/register`.
+The registration form is unstyled, so you need to add templates to it.
 
 ## Customize registration forms
 
@@ -32,7 +34,7 @@ ibexa:
                     form: user/registration_form.html.twig
 ```
 
-This indicates which template will be used to render the registration form.
+This indicates which template is used to render the registration form.
 
 Create the file `templates/user/registration_form.html.twig`:
 
@@ -60,7 +62,8 @@ Create the file `templates/user/registration_form.html.twig`:
 ```
 
 In line 10 you can see that another file is imported: `registration_content_form.html.twig`.
-The second template will render the actual fields of the registration form. Create this file as well (as `templates/user/registration_content_form.html.twig`):
+The second template renders the actual fields of the registration form.
+Create this file as well (as `templates/user/registration_content_form.html.twig`):
 
 ``` html+twig
 {% macro display_form(form) %}
@@ -113,7 +116,8 @@ The second template will render the actual fields of the registration form. Crea
 ```
 
 The third template you need to prepare covers the confirmation page that is displayed when a user completes the registration.
-First, point to the new template in the configuration. Add a `confirmation` key to `config/packages/views.yaml`:
+First, point to the new template in the configuration.
+Add a `confirmation` key to `config/packages/views.yaml`:
 
 ``` yaml hl_lines="4"
 user_registration:
@@ -139,7 +143,7 @@ Then create the `templates/user/registration_confirmation.html.twig` template:
             <h2>{{ 'Registration completed'|trans }}</h2>
 
             <div class="row confirmation-label">
-                {{ 'You are all set up and ready to go'|trans }}
+                {{ 'You're all set up and ready to go'|trans }}
             </div>
 
             <div class="row">
@@ -160,60 +164,60 @@ Fill in the form and register a user.
 
 !!! tip
 
-    If you log in as the new user at this point, you need to go to the Back Office (`<yourdomain>/admin`)
-    to log out again re-log in as Admin.
+    If you log in as the new user at this point, you need to go to the back office (`<yourdomain>/admin`) to log out again re-log in as Admin.
 
 ## Set up Permissions
 
-Users created through the registration form are placed in the _Guest accounts_ User Group.
-The User you have just created will have the Roles assigned to this group.
+Users created through the registration form are placed in the _Guest accounts_ user group.
+The user you created has the roles assigned to this group.
 
 !!! tip
 
-    You can change the group in which new Users are placed (but you don't need to do it for this tutorial).
-    See [Registering new users](user_registration.md) for more information.
+    You can change the group in which new users are placed (but you don't need to do it for this tutorial).
+    For more information, see [Registering new users](user_registration.md).
 
 At this point you don't want anyone who registers to be able to add content to the website.
-That's why you'll create a new User Group with additional permissions.
-When the administrator accepts a new User, they can move them to this new group.
+That's why you need to create a new user group with additional permissions.
+When the administrator accepts a new user, they can move them to this new group.
 
-### Create a User Group
+### Create a user group
 
-In the Back Office, go to **Admin** -> **Users**, click the **Create content** button and create a User Group named `Go Bike Members`.
+In the back office, go to **Admin** -> **Users**, click the **Create content** button and create a user group named `Go Bike Members`.
 
 ### Create a Folder for contributed Rides
 
 Go to the `All Rides` Folder and create inside it a new Folder named `Member Rides`.
-Go Bike Members will only be able to create Content in this Folder.
+Go Bike Members are only able to create Content in this Folder.
 
 ### Set permissions for Go Bike Members
 
-From Admin in the **Roles** screen, create a new Role named *Contributors*.
+From Admin in the **Roles** screen, create a new role named *Contributors*.
 
-Now add the following Policies to the Contributors Role.
+Now add the following policies to the Contributors role.
 
 - User/Login
 - User/Password
 - Content/Read
 - Content/Versionread
-- Content/Create with Limitations: content type limited to Ride and Landmark content types and Subtree to the `Member Rides`
-- Content/Publish with Limitations: content type limited to Ride and Landmark content types and Subtree to the `Member Rides`
-- Content/Edit with Limitation: Owner limited to `Self`
+- Content/Create with limitations: content type limited to Ride and Landmark content types and subtree to the `Member Rides`
+- Content/Publish with limitations: content type limited to Ride and Landmark content types and subtree to the `Member Rides`
+- Content/Edit with limitation: Owner limited to `Self`
 - Section/View
 - Content/Reverserelatedlist
 
 !!! tip
 
-    The Limitations are a powerful tool for fine-tuning the permission management of the Users.
-    See [the documentation about Limitations for more technical details](limitation_reference.md#content-type-group-limitation).
+    The limitations are a powerful tool for fine-tuning the permission management of the users.
+    See [the documentation about limitations for more technical details](limitation_reference.md#content-type-group-limitation).
 
-Once the Policies are set, go to the "Assignments" tab and assign the Role to the User Group *Go Bike Members*.
+Once the policies are set, go to the **Assignments** tab and assign the role to the user group *Go Bike Members*.
 
-Next, go to the Users page. Select the user you have just created and move them into the *Go Bike Members* user group.
+Next, go to the users page.
+Select the user you created and move them into the *Go Bike Members* user group.
 
 ### Create content as a Go Bike Member
 
-Log out as admin and then log in again into the Back Office with the credentials of the new user.
+Log out as admin and then log in again into the back office with the credentials of the new user.
 You now have the ability to create new Rides and Landmarks in the selected folder.
 
 ## Congratulations!

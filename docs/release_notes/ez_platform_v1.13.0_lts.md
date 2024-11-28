@@ -15,7 +15,7 @@
 
 The new Link manager enables you to manage all links to external websites that are embedded in the whole site,
 whether in Rich Text or in URL Field.
-You can edit a link in the manager and it will be updated automatically in all content items.
+You can edit a link in the manager and it's updated automatically in all content items.
 
 ![Link Manager](link_manager.png)
 
@@ -30,7 +30,7 @@ The maximum number of content items that can be copied this way can be set in co
 ### REST API improvements
 
 - [EZP-27752](https://issues.ibexa.co/browse/EZP-27752) adds a REST endpoint for deleting a translation from all versions of a content item.
-- [EZP-28253](https://issues.ibexa.co/browse/EZP-28253) adds a `fieldTypeIdentifier` field to the REST response for Version, which provides the Field Type.
+- [EZP-28253](https://issues.ibexa.co/browse/EZP-28253) adds a `fieldTypeIdentifier` field to the REST response for Version, which provides the field type.
 
 ### ezplatform-http-cache extensibility
 

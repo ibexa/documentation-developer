@@ -12,11 +12,7 @@ This page lists backwards compatibility breaks and deprecations introduced in eZ
 ## Symfony 5
 
 v3.0 now uses Symfony 5 instead of Symfony 3.
-Refer to [Symfony changelog for 4.0](https://github.com/symfony/symfony/blob/master/CHANGELOG-4.0.md)
-and [for 5.0](https://github.com/symfony/symfony/blob/master/CHANGELOG-5.0.md)
-as well as [Symfony upgrade guides for 4.0](https://github.com/symfony/symfony/blob/master/UPGRADE-4.0.md)
-and [for 5.0](https://github.com/symfony/symfony/blob/master/UPGRADE-5.0.md)
-to learn about all changes it entails.
+Refer to [Symfony changelog for 4.0](https://github.com/symfony/symfony/blob/master/CHANGELOG-4.0.md), [for 5.0](https://github.com/symfony/symfony/blob/master/CHANGELOG-5.0.md), [Symfony upgrade guides for 4.0](https://github.com/symfony/symfony/blob/master/UPGRADE-4.0.md), and [for 5.0](https://github.com/symfony/symfony/blob/master/UPGRADE-5.0.md) to learn about all changes it entails.
 
 See [v3.0 project update](adapt_code_to_v3.md) for the steps you need to take to update your project to Symfony 5.
 See also [full requirements for installing eZ Platform](https://doc.ibexa.co/en/latest/getting_started/requirements).
@@ -42,9 +38,9 @@ Following the upgrade to Symfony 5, the DFS IO handler must be configured in a d
 
 For more information, see the Doctrine connection configuration example in the [Clustering](https://doc.ibexa.co/en/latest/guide/clustering/#configuring-the-dfs-io-handler) article.
 
-## Field Types
+## Field types
 
-The following tags used to register Field Type features in the [service container](https://doc.ibexa.co/en/latest/api/public_php_api/#service-container) have been renamed:
+The following tags used to register field type features in the [service container](https://doc.ibexa.co/en/latest/api/public_php_api/#service-container) have been renamed:
 
 |Former name|New name|
 |-----------|--------|
@@ -59,7 +55,8 @@ The following tags used to register Field Type features in the [service containe
 |`ezpublish.fieldType.externalStorageHandler.gateway`|`ezplatform.field_type.external_storage_handler.gateway`|
 
 Deprecated method `eZ\Publish\SPI\FieldType\FieldType::getName` is now supported with a new signature similar to `eZ\Publish\SPI\FieldType\Nameable::getFieldName()`, which has been removed.
-See [eZ Platform v3.0 project update](https://doc.ibexa.co/en/latest/updating/4_3_upgrade_field_types) for further information.
+
+For more information, see [eZ Platform v3.0 project update](https://doc.ibexa.co/en/latest/updating/4_3_upgrade_field_types).
 
 The deprecated `eZ\Publish\Core\FieldType\RichText` namespace has been removed, as it was moved to a separate bundle in v2.4.
 
@@ -69,7 +66,7 @@ The following classes and namespaces have been deprecated and dropped:
 - `eZ\Publish\SPI\FieldType\Event`
 - `eZ\Publish\SPI\FieldType\Events\**`
 
-Deprecated `ezprice` and `ezpage` Field Types have been removed.
+Deprecated `ezprice` and `ezpage` field types have been removed.
 
 ## Configuration through `ezplatform`
 
@@ -199,7 +196,7 @@ Selected event names have been changed.
 
 #### Templates renamed
 
-The following templates used in the Back Office have been renamed:
+The following templates used in the back office have been renamed:
 
 |Former name|New name|
 |-----------|--------|
@@ -288,12 +285,11 @@ For the full list of UDW configuration keys and their descriptions, see [UDW con
 
 ### Online Editor
 
-All Online Editor front-end code and assets (such as JS, CSS, fonts, etc.)
-have been moved from `ezplatform-admin-ui` to `ezplatform-richtext`.
+All Online Editor front-end code and assets (such as JS, CSS, or fonts) have been moved from `ezplatform-admin-ui` to `ezplatform-richtext`.
 
-### Adding new tabs in the Back Office
+### Adding new tabs in the back office
 
-The way of adding custom tab groups in the Back Office has changed.
+The way of adding custom tab groups in the back office has changed.
 You now need to [make use of the `TabsComponent`](https://doc.ibexa.co/en/latest/extending/extending_tabs/#adding-a-new-tab-group).
 
 ### Content type forms
@@ -301,7 +297,7 @@ You now need to [make use of the `TabsComponent`](https://doc.ibexa.co/en/latest
 Content type editing, including Action Dispatchers, Form Processors, Types and Data classes related to content types/Limitations,
 has been moved to `ezplatform-admin-ui` from `repository-forms`.
 
-### Code cleanup in Back Office
+### Code cleanup in back office
 
 The following deprecated items have been removed:
 
@@ -471,7 +467,7 @@ Using dynamic settings (through `$setting$`) and getting settings from the [Conf
 or method call has been dropped.
 
 You should use the ConfigResolver instead.
-Do not store the values globally. Every time the value is needed call `ConfigResolverInterface::getParameter`.
+Don't store the values globally. Every time the value is needed call `ConfigResolverInterface::getParameter`.
 
 ### Controllers
 
@@ -490,20 +486,20 @@ Use:
 - `viewAction` instead of `viewLocation`
 - `embedAction` instead of `embedLocation`
 
-### Elastic Search
+### Elasticsearch
 
-Experimental, deprecated and unsupported code for Elastic Search 1.4.2 has been dropped from kernel,
+Experimental, deprecated and unsupported code for Elasticsearch 1.4.2 has been dropped from kernel,
 to be replaced with a dedicated bundle for the latest Elastic version in the future.
 
-### Field Types
+### Field types
 
 #### Star Rating
 
-The unused `ezsrrating` Field Type has been removed along with the related database storage and clean installation entries.
+The unused `ezsrrating` field type has been removed along with the related database storage and clean installation entries.
 
 #### RichText
 
-The `ezrichtext` Field Type has been removed from `ezplatform-kernel`.
+The `ezrichtext` field type has been removed from `ezplatform-kernel`.
 Use [`ezplatform-richtext`](https://github.com/ezsystems/ezplatform-richtext) instead.
 
 Following this change:
@@ -549,7 +545,7 @@ The following deprecated (since v6.11) Legacy Storage Gateways have been removed
 - `eZ\Publish\Core\FieldType\User\UserStorage\Gateway\LegacyStorage`
 
 Use `DoctrineStorage` Gateways from the same namespace instead.
-The removed classes refer to External Storage for core Field Types only.
+The removed classes refer to External Storage for core field types only.
 
 ### REST server
 
@@ -561,7 +557,7 @@ Transfer of REST code from kernel to a separate package results in the following
 ### SiteAccess-aware Repository
 
 The Repository now uses the SiteAccess-aware layer by default.
-This means Repository objects will now be loaded in the translation corresponding to the SiteAccess.
+This means Repository objects are now loaded in the translation corresponding to the SiteAccess.
 To load an object with all its translations, explicitly pass `eZ\Publish\API\Repository\Values\Content\Language::ALL`
 as the prioritized languages list.
 
@@ -759,8 +755,8 @@ Insecure password hash types deprecated since v1.13 have been removed:
 - `PASSWORD_HASH_MD5_SITE`
 - `PASSWORD_HASH_PLAINTEXT`
 
-Login with the removed hashes will no longer work.
-Users can request a new, valid password using the "Forgot password" feature.
+Login with the removed hashes doesn't longer work.
+Users can use the "Forgot password" feature to request a new, valid password.
 
 ### Strict types for PHP API
 
@@ -787,9 +783,9 @@ public function handle(CriteriaConverter $converter, QueryBuilder $query, Criter
 have been removed.
 Inject `\Doctrine\DBAL\Connection` via `ezpublish.persistence.connection` instead.
 
-#### Field Type External Storage Handlers
+#### Field type External Storage Handlers
 
-The Field Type External Storage Handlers `$context` arrays no longer have the "connection" key.
+The field type External Storage Handlers `$context` arrays no longer have the "connection" key.
 You should rely on injected Connection instead.
 
 The `$context` array of `\eZ\Publish\SPI\FieldType\FieldStorage` methods (`storeFieldData`,
@@ -844,7 +840,7 @@ For details, see [code cleanup in kernel](#code-cleanup-in-ez-platform-kernel).
 
 ### Input and output converters
 
-Following the removal of the `ezrichtext` Field Type from kernel, the following deprecated converter tags have been changed:
+Following the removal of the `ezrichtext` field type from kernel, the following deprecated converter tags have been changed:
 
 |Formerly|Currently|
 |--------|---------|
@@ -864,8 +860,7 @@ The following Webpack Encore entries have been changed:
 - `ezplatform-admin-ui-alloyeditor-css` replaced by `ezplatform-richtext-onlineeditor-css`
 - `ezplatform-admin-ui-alloyeditor-js` replaced by `ezplatform-richtext-onlineeditor-js`
 
-All Online Editor front-end code and assets (such as JS, CSS, fonts, etc.)
-have been moved from `ezplatform-admin-ui` to `ezplatform-richtext`.
+All Online Editor front-end code and assets (such as JS, CSS, or fonts) have been moved from `ezplatform-admin-ui` to `ezplatform-richtext`.
 
 #### Custom button configuration
 
@@ -940,7 +935,7 @@ The following locations have been changed:
 
 Forms for content creation have been moved to a new `ezplatform-content-forms` package.
 
-`repository-forms` remains as an additional layer ensuring that your custom implementations that use the package will still work.
+`repository-forms` remains as an additional layer ensuring that your custom implementations that use the package still work.
 To use this repository, you have to add the package manually to your `composer.json`.
 
 ## eZ Platform v3.0.2

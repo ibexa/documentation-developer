@@ -83,8 +83,8 @@ This page contains recent highlights and notable changes in [[= product_name =]]
 
 ### Product guides
 
-- [Ibexa Experience product guide](https://doc.ibexa.co/en/master/ibexa_products/ibexa_experience/)
-- [Ibexa Commerce product guide](https://doc.ibexa.co/en/master/ibexa_products/ibexa_commerce/)
+- [[[= product_name_exp =]] product guide](https://doc.ibexa.co/en/master/ibexa_products/ibexa_experience/)
+- [[[= product_name_com =]] product guide](https://doc.ibexa.co/en/master/ibexa_products/ibexa_commerce/)
 - Added [page collecting all feature product guides](https://doc.ibexa.co/en/master/product_guides/product_guides/)
 
 ### Content management
@@ -99,7 +99,7 @@ This page contains recent highlights and notable changes in [[= product_name =]]
 
 ### Getting started
 
-- Added instructions in [Install Ibexa DXP](https://doc.ibexa.co/en/master/getting_started/install_ibexa_dxp/#create-project) about using PHP 8.3 to create a project
+- Added instructions in [Install [[= product_name =]]](https://doc.ibexa.co/en/master/getting_started/install_ibexa_dxp/#create-project) about using PHP 8.3 to create a project
 - Updated the [requirements for running v3.3.x on PHP 8.3](https://doc.ibexa.co/en/master/getting_started/requirements/#php)
 
 ### Infrastructure and maintenance
@@ -113,23 +113,23 @@ This page contains recent highlights and notable changes in [[= product_name =]]
 - Added a note about multi-repository scenario in [Managing migration](https://doc.ibexa.co/en/master/content_management/data_migration/managing_migrations/#migration-folders)
 - Updated the instructions for [Importing data](https://doc.ibexa.co/en/master/content_management/data_migration/importing_data/#built-in-functions) by mentioning the `env` function and a possibility of swapping content items assigned to a location
 
-### Ibexa Cloud
+### [[= product_name_cloud =]]
 
-- Placed all articles about Ibexa Cloud [in a common location](https://doc.ibexa.co/en/master/ibexa_cloud/ibexa_cloud/)
+- Placed all articles about [[= product_name_cloud =]] [in a common location](https://doc.ibexa.co/en/master/ibexa_cloud/ibexa_cloud/)
 
-### Ibexa Engage
+### [[= product_name_engage =]]
 
-- [Added a landing page in the Ibexa Engage area](https://doc.ibexa.co/en/master/ibexa_engage/ibexa_engage/)
+- [Added a landing page in the [[= product_name_engage =]] area](https://doc.ibexa.co/en/master/ibexa_engage/ibexa_engage/)
 
 ### Product guides
 
-- [Ibexa Cloud product guide](https://doc.ibexa.co/en/master/ibexa_cloud/ibexa_cloud_guide/)
+- [[[= product_name_cloud =]] product guide](https://doc.ibexa.co/en/master/ibexa_cloud/ibexa_cloud_guide/)
 
 ## June 2024
 
-### Ibexa Engage
+### [[= product_name_engage =]]
 
-- [Learn more about Ibexa Engage](https://doc.ibexa.co/en/master/ibexa_engage/install_ibexa_engage/)
+- [Learn more about [[= product_name_engage =]]](https://doc.ibexa.co/en/master/ibexa_engage/install_ibexa_engage/)
 
 ### Search
 
@@ -142,7 +142,7 @@ This page contains recent highlights and notable changes in [[= product_name =]]
 
 ### Infrastructure and maintenance
 
-- [Updated Ibexa Cloud domain to ibexa.cloud](https://doc.ibexa.co/en/master/getting_started/install_on_ibexa_cloud/#4-push-the-project)
+- [Updated [[= product_name_cloud =]] domain to ibexa.cloud](https://doc.ibexa.co/en/master/getting_started/install_on_ibexa_cloud/#4-push-the-project)
 - [v4.6.3 to v4.6.4 update instructions](https://doc.ibexa.co/en/master/update_and_migration/from_4.5/update_from_4.5/#v464)
 
 ### Documentation
@@ -163,7 +163,7 @@ This page contains recent highlights and notable changes in [[= product_name =]]
 
 ### Product guides
 
-- [Ibexa CDP product guide](cdp_guide.md)
+- [[[= product_name_cdp =]] product guide](https://doc.ibexa.co/en/master/cdp/cdp_guide/)
 
 ### Infrastructure and maintenance
 
@@ -175,10 +175,10 @@ This page contains recent highlights and notable changes in [[= product_name =]]
 - [OAuth server](oauth_server.md)
 - Updated [OAuth client](oauth_client.md)
 
-### Back Office
+### Back office
 
-- [Customize Back Office search suggestions](customize_search_suggestion.md)
-- [Customize Back Office search result sorting](customize_search_sorting.md)
+- [Customize back office search suggestions](https://doc.ibexa.co/en/master/administration/back_office/customize_search_suggestion/)
+- [Customize back office search result sorting](https://doc.ibexa.co/en/master/administration/back_office/customize_search_sorting/)
 
 ### Templating
 
@@ -189,11 +189,11 @@ This page contains recent highlights and notable changes in [[= product_name =]]
 
 ### Permissions
 
-- Updated [Custom Policies](custom_policies.md) article
+- Updated [Custom policies](https://doc.ibexa.co/en/master/permissions/custom_policies/) article
 
 ### Content management
 
-- Updated [BinaryFile Field Type](binaryfilefield.md) description
+- Updated [BinaryFile field type](https://doc.ibexa.co/en/master/content_management/field_types/field_type_reference/binaryfilefield/) description
 
 ### Commerce
 
@@ -215,14 +215,14 @@ This page contains recent highlights and notable changes in [[= product_name =]]
 
 ### Dashboard
 
-- New dashboard sections in user documentation:
-    - [Dashboard](https://doc.ibexa.co/projects/userguide/en/latest/getting_started/dashboard/dashboard/)
-    - [Work with dashboard](https://doc.ibexa.co/projects/userguide/en/latest/getting_started/dashboard/work_with_dashboard/)
-    - [Dashboard block reference](https://doc.ibexa.co/projects/userguide/en/latest/getting_started/dashboard/dashboard_block_reference/)
-- Dashboard section in developer documentation:
-    - [Configure default dashboard](https://doc.ibexa.co/en/latest/administration/dashboard/configure_default_dashboard/)
-    - [Customize dashboard](https://doc.ibexa.co/en/latest/administration/dashboard/customize_dashboard/)
-    - [PHP API Dashboard service](https://doc.ibexa.co/en/latest/administration/dashboard/php_api_dashboard_service/)
+- New dashboard sections in User Documentation:
+    - [Dashboard](https://doc.ibexa.co/projects/userguide/en/master/getting_started/dashboard/dashboard/)
+    - [Work with dashboard](https://doc.ibexa.co/projects/userguide/en/master/getting_started/dashboard/work_with_dashboard/)
+    - [Dashboard block reference](https://doc.ibexa.co/projects/userguide/en/master/getting_started/dashboard/dashboard_block_reference/)
+- Dashboard section in Developer Documentation:
+    - [Configure default dashboard](https://doc.ibexa.co/en/master/administration/dashboard/configure_default_dashboard/)
+    - [Customize dashboard](https://doc.ibexa.co/en/master/administration/dashboard/customize_dashboard/)
+    - [PHP API Dashboard service](https://doc.ibexa.co/en/master/administration/dashboard/php_api_dashboard_service/)
 
 ### DAM
 
@@ -254,7 +254,7 @@ This page contains recent highlights and notable changes in [[= product_name =]]
 - New sections in taxonomy documentation:
     - [How to hide the delete button in large subtrees](https://doc.ibexa.co/en/master/content_management/taxonomy/taxonomy/#hide-delete-button-on-large-subtree)
     - [How to remove orphaned content items](https://doc.ibexa.co/en/master/content_management/taxonomy/taxonomy/#remove-orphaned-content-items)
-- Updated information in user documentation:
+- Updated information in User Documentation:
     - [Enhanced create and edit pages article](https://doc.ibexa.co/projects/userguide/en/master/content_management/create_edit_pages/)
     - [Edit embedded content items](https://doc.ibexa.co/projects/userguide/en/master/content_management/create_edit_content_items/#edit-embedded-content-items)
 
@@ -265,7 +265,7 @@ This page contains recent highlights and notable changes in [[= product_name =]]
 ### Getting started
 
 - [[[= product_name_headless =]] product guide](https://doc.ibexa.co/en/master/ibexa_products/headless/)
-- [Enhanced get started article](https://doc.ibexa.co/projects/userguide/en/master/getting_started/get_started/#edit-user-profile) in user documentation
+- [Enhanced get started article](https://doc.ibexa.co/projects/userguide/en/master/getting_started/get_started/#edit-user-profile) in User Documentation
 
 ### Image management
 
@@ -292,7 +292,7 @@ This page contains recent highlights and notable changes in [[= product_name =]]
 
 ### PIM
 
-- [Reorganized and updated information in user documentation](https://doc.ibexa.co/projects/userguide/en/master/pim/pim/)
+- [Reorganized and updated information in User Documentation](https://doc.ibexa.co/projects/userguide/en/master/pim/pim/)
 
 ### Templating
 
@@ -327,7 +327,7 @@ This page contains recent highlights and notable changes in [[= product_name =]]
 ### Others
 
 - [Redesigned requirements page](https://doc.ibexa.co/en/master/getting_started/requirements/)
-- [Updated Ibexa Cloud CLI](https://doc.ibexa.co/en/master/getting_started/install_on_ibexa_cloud/)
+- [Updated [[= product_name_cloud =]] CLI](https://doc.ibexa.co/en/master/getting_started/install_on_ibexa_cloud/)
 - [Updated React app block procedure](https://doc.ibexa.co/en/master/content_management/pages/react_app_block/)
 - [Added fulltext features in search](https://doc.ibexa.co/en/master/search/criteria_reference/fulltext_criterion/#supported-syntax)
 
@@ -373,7 +373,7 @@ This page contains recent highlights and notable changes in [[= product_name =]]
 
 - [Updated configuration for triggers](https://doc.ibexa.co/en/master/personalization/api_reference/tracking_api/#tracking-events-based-on-recommendations)
 - [Send messages with recommendations](https://doc.ibexa.co/en/master/personalization/integrate_recommendation_service/#send-messages-with-recommendations)
-- [Email triggers](https://doc.ibexa.co/projects/userguide/en/master/personalization/triggers/) in user documentation 
+- [Email triggers](https://doc.ibexa.co/projects/userguide/en/master/personalization/triggers/) in User Documentation
 
 ### PIM
 
@@ -395,7 +395,7 @@ This page contains recent highlights and notable changes in [[= product_name =]]
 
 ### Others
 
-- Product guides integrated into developer documentation
+- Product guides integrated into Developer Documentation
     - [Content management](https://doc.ibexa.co/en/master/content_management/content_management_guide/)
     - [Customer portal](https://doc.ibexa.co/en/master/customer_management/customer_portal/)
     - [Form Builder](https://doc.ibexa.co/en/master/content_management/forms/form_builder_guide/)
@@ -409,7 +409,7 @@ This page contains recent highlights and notable changes in [[= product_name =]]
 
 ### New home page
 
-- Redesigned [home page for the user documentation](https://doc.ibexa.co/projects/userguide/en/master/)
+- Redesigned [home page for User Documentation](https://doc.ibexa.co/projects/userguide/en/master/)
 
 ### Administration
 
@@ -452,15 +452,15 @@ This page contains recent highlights and notable changes in [[= product_name =]]
 
 ### New home page
 
-- Redesigned [home page for the developer documentation](https://doc.ibexa.co/en/master/)
+- Redesigned [home page for Developer Documentation](https://doc.ibexa.co/en/master/)
 
 ### Getting started
 
-- New cautions in [Install on Ibexa Cloud](https://doc.ibexa.co/en/master/getting_started/install_on_ibexa_cloud/) about using `cloud.ibexa.co` instead of `platform.sh`
+- New cautions in [Install on [[= product_name_cloud =]]](https://doc.ibexa.co/en/master/getting_started/install_on_ibexa_cloud/) about using `cloud.ibexa.co` instead of `platform.sh`
 
 ### Content management
 
-- New Page block [Ibexa Connect scenario block](https://doc.ibexa.co/en/master/content_management/pages/ibexa_connect_scenario_block/)
+- New Page block [[[= product_name_connect =]] scenario block](https://doc.ibexa.co/en/master/content_management/pages/ibexa_connect_scenario_block/)
 - Updated [Create custom Page blocks](https://doc.ibexa.co/en/master/content_management/pages/create_custom_page_block/#add-block-javascript)
 
 ### Customer Portal
@@ -470,14 +470,14 @@ This page contains recent highlights and notable changes in [[= product_name =]]
 ### Personalization
 
 - [Multiple attributes in submodel computation](https://doc.ibexa.co/en/master/personalization/api_reference/recommendation_api/#submodel-parameters)
-- [Multiple attributes in submodel computation](https://doc.ibexa.co/projects/userguide/en/master/personalization/recommendation_models/#submodels) in user documentation
+- [Multiple attributes in submodel computation](https://doc.ibexa.co/projects/userguide/en/master/personalization/recommendation_models/#submodels) in User Documentation
 
 ### PIM
 
 - Updated [Enable purchasing products](https://doc.ibexa.co/en/master/pim/enable_purchasing_products/#region-and-currency)
 - [Virtual products](https://doc.ibexa.co/en/master/pim/products/#product-types)
-- [Virtual products in user documentation](https://doc.ibexa.co/projects/userguide/en/master/pim/create_virtual_product/)
-- [Work with product attributes](https://doc.ibexa.co/projects/userguide/en/master/pim/work_with_product_attributes/) in user documentation
+- [Virtual products in User Documentation](https://doc.ibexa.co/projects/userguide/en/master/pim/create_virtual_product/)
+- [Work with product attributes](https://doc.ibexa.co/projects/userguide/en/master/pim/work_with_product_attributes/) in User Documentation
 
 ### REST API
 - Added example of input payload in JSON format for [ContentTypeCreate in REST API reference](https://doc.ibexa.co/en/master/api/rest_api/rest_api_reference/rest_api_reference.html#managing-content-create-content-type)
@@ -504,7 +504,7 @@ This page contains recent highlights and notable changes in [[= product_name =]]
         - [CatalogStatus Criterion](https://doc.ibexa.co/en/master/search/criteria_reference/catalogstatus_criterion/)
         - [FloatAttributeRange Criterion](https://doc.ibexa.co/en/master/search/criteria_reference/floatattributerange_criterion/)
         - [IntegerAttributeRange Criterion](https://doc.ibexa.co/en/master/search/criteria_reference/integerattributerange_criterion/)
-    
+
 ### Infrastructure and maintenance
 
 - [Configure and customize Fastly](https://doc.ibexa.co/en/master/infrastructure_and_maintenance/cache/http_cache/fastly/)
@@ -517,7 +517,7 @@ This page contains recent highlights and notable changes in [[= product_name =]]
 ### Personalization
 
 - [Email triggers](https://doc.ibexa.co/en/master/personalization/integrate_recommendation_service/#send-messages-with-recommendations)
-- [Email triggers](https://doc.ibexa.co/projects/userguide/en/master/personalization/triggers/) in user documentation
+- [Email triggers](https://doc.ibexa.co/projects/userguide/en/master/personalization/triggers/) in User Documentation
 
 ### Search
 
@@ -528,8 +528,8 @@ This page contains recent highlights and notable changes in [[= product_name =]]
 
 ### Commerce
 
-- [Shipping methods management](https://doc.ibexa.co/projects/userguide/en/master/commerce/shipping_management/work_with_shipping_methods/) in user documentation
-- [Payment methods management](https://doc.ibexa.co/projects/userguide/en/master/commerce/payment/work_with_payments/) in user documentation
+- [Shipping methods management](https://doc.ibexa.co/projects/userguide/en/master/commerce/shipping_management/work_with_shipping_methods/) in User Documentation
+- [Payment methods management](https://doc.ibexa.co/projects/userguide/en/master/commerce/payment/work_with_payments/) in User Documentation
 - Stock Search Criteria and Aggregation:
     - [ProductStockRangeAggregation](https://doc.ibexa.co/en/master/search/aggregation_reference/productstockrange_aggregation/)
     - [ProductStock](https://doc.ibexa.co/en/master/search/criteria_reference/productstock_criterion/)
@@ -558,23 +558,15 @@ This page contains recent highlights and notable changes in [[= product_name =]]
 
 ### Payment
 
-- [Payment management](https://doc.ibexa.co/en/master/commerce/payment/payment/),
-including [configuring payment workflow](https://doc.ibexa.co/en/master/commerce/payment/configure_payment/),
-as well as [payment](https://doc.ibexa.co/en/master/commerce/payment/payment_api/)
-and [payment method PHP API](https://doc.ibexa.co/en/master/commerce/payment/payment_method_api/).
+- [Payment management](https://doc.ibexa.co/en/master/commerce/payment/payment/), including [configuring payment workflow](https://doc.ibexa.co/en/master/commerce/payment/configure_payment/), [payment](https://doc.ibexa.co/en/master/commerce/payment/payment_api/), and [payment method PHP API](https://doc.ibexa.co/en/master/commerce/payment/payment_method_api/).
 
 ### Orders
 
-- [Order management](https://doc.ibexa.co/en/master/commerce/order_management/order_management/),
-including [configuring order workflow](https://doc.ibexa.co/en/master/commerce/order_management/configure_order_management/)
-and [Orders REST API reference](https://doc.ibexa.co/en/master/api/rest_api/rest_api_reference/rest_api_reference.html#orders).
+- [Order management](https://doc.ibexa.co/en/master/commerce/order_management/order_management/), including [configuring order workflow](https://doc.ibexa.co/en/master/commerce/order_management/configure_order_management/) and [Orders REST API reference](https://doc.ibexa.co/en/master/api/rest_api/rest_api_reference/rest_api_reference.html#orders).
 
 ### Shipping
 
-- [Shipping management](https://doc.ibexa.co/en/master/commerce/shipping_management/shipping_management/),
-including [configuring shipment workflow](https://doc.ibexa.co/en/master/commerce/shipping_management/configure_shipment/),
-as well as [shipment](https://doc.ibexa.co/en/master/commerce/shipping_management/shipment_api/)
-and [shipping method PHP API](https://doc.ibexa.co/en/master/commerce/shipping_management/shipping_method_api/).
+- [Shipping management](https://doc.ibexa.co/en/master/commerce/shipping_management/shipping_management/), including [configuring shipment workflow](https://doc.ibexa.co/en/master/commerce/shipping_management/configure_shipment/), [shipment](https://doc.ibexa.co/en/master/commerce/shipping_management/shipment_api/), and [shipping method PHP API](https://doc.ibexa.co/en/master/commerce/shipping_management/shipping_method_api/).
 
 ### Search
 
@@ -583,7 +575,7 @@ and [shipping method PHP API](https://doc.ibexa.co/en/master/commerce/shipping_m
     and [Sort Clauses](https://doc.ibexa.co/en/master/search/sort_clause_reference/order_sort_clauses/)
     - Payment [Search Criteria](https://doc.ibexa.co/en/master/search/criteria_reference/payment_search_criteria/)
     and [Sort Clauses](https://doc.ibexa.co/en/master/search/sort_clause_reference/payment_sort_clauses/)
-    - Payment method [Search Criteria](https://doc.ibexa.co/en/master/search/criteria_reference/payment_method_search_criteria/) 
+    - Payment method [Search Criteria](https://doc.ibexa.co/en/master/search/criteria_reference/payment_method_search_criteria/)
     and [Sort Clauses](https://doc.ibexa.co/en/master/search/sort_clause_reference/payment_method_sort_clauses/)
     - Shipment [Search Criteria](https://doc.ibexa.co/en/master/search/criteria_reference/shipment_search_criteria/)
     and [Sort Clauses](https://doc.ibexa.co/en/master/search/sort_clause_reference/shipment_sort_clauses/)
@@ -603,8 +595,8 @@ and [shipping method PHP API](https://doc.ibexa.co/en/master/commerce/shipping_m
 - [Order management API](https://doc.ibexa.co/en/master/commerce/order_management/order_management_api/)
 - [Customizing checkout](https://doc.ibexa.co/en/master/commerce/checkout/customize_checkout/)
 - Extended [table reusable component documentation](https://doc.ibexa.co/en/master/administration/back_office/back_office_elements/reusable_components/#tables)
-- How to [add GraphQL support to custom Field Types](https://doc.ibexa.co/en/master/api/graphql/graphql_custom_ft/)
-- How to [customize Field Type metadata](https://doc.ibexa.co/en/master/content_management/field_types/customize_field_type_metadata/)
+- How to [add GraphQL support to custom field types](https://doc.ibexa.co/en/master/api/graphql/graphql_custom_ft/)
+- How to [customize field type metadata](https://doc.ibexa.co/en/master/content_management/field_types/customize_field_type_metadata/)
 
 ## February 2023
 
@@ -621,10 +613,7 @@ and [extend Storefront](https://doc.ibexa.co/en/master/commerce/storefront/exten
 
 ### Checkout
 
-- [Checkout](https://doc.ibexa.co/en/master/commerce/checkout/checkout/) documentation,
-including how to [configure checkout](https://doc.ibexa.co/en/master/commerce/checkout/configure_checkout/).
-Description of main [PHP API methods](https://doc.ibexa.co/en/master/commerce/checkout/checkout_api/)
-as well as [checkout-related Twig functions](https://doc.ibexa.co/en/master/templating/twig_function_reference/checkout_twig_functions/).
+- [Checkout](https://doc.ibexa.co/en/master/commerce/checkout/checkout/) documentation, including [how to configure checkout](https://doc.ibexa.co/en/master/commerce/checkout/configure_checkout/), description of main [PHP API methods](https://doc.ibexa.co/en/master/commerce/checkout/checkout_api/), and [checkout-related Twig functions](https://doc.ibexa.co/en/master/templating/twig_function_reference/checkout_twig_functions/).
 
 ### Other
 
@@ -640,4 +629,4 @@ as well as [checkout-related Twig functions](https://doc.ibexa.co/en/master/temp
 ### Other
 
 - [Fastly Image Optimizer](https://doc.ibexa.co/en/master/content_management/images/fastly_io/)
-- [Storing Field Type settings externally](https://doc.ibexa.co/en/master/content_management/field_types/field_type_storage/#storing-field-type-settings-externally)
+- [Storing field type settings externally](https://doc.ibexa.co/en/master/content_management/field_types/field_type_storage/#storing-field-type-settings-externally)

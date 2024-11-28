@@ -1,7 +1,10 @@
+---
+description: UserLogin Search Criterion
+---
+
 # UserLogin Criterion
 
-The [`UserLogin` Search Criterion](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Criterion-UserLogin.html)
-searches for content based on the User ID.
+The [`UserLogin` Search Criterion](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Criterion-UserLogin.html) searches for content based on the User ID.
 
 ## Arguments
 

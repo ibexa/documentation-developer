@@ -1,5 +1,5 @@
 ---
-description: Events that are triggered when working with Segments.
+description: Events that are triggered when working with segments.
 page_type: reference
 ---
 

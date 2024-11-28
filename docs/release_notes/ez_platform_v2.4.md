@@ -28,14 +28,14 @@
 
 ### RichText
 
-#### RichText Field Type
+#### RichText field type
 
-RichText Field Type has been extracted to a separate bundle, [ezsystems/ezplatform-richtext](https://github.com/ezsystems/ezplatform-richtext). Relying on any class from the `eZ\Publish\Core\FieldType\RichText` namespace is deprecated.
+RichText field type has been extracted to a separate bundle, [ezsystems/ezplatform-richtext](https://github.com/ezsystems/ezplatform-richtext). Relying on any class from the `eZ\Publish\Core\FieldType\RichText` namespace is deprecated.
 
 If you're implementing any interface or extending any base class from the old namespace, refer to its PHPDoc to see what to implement or extend instead.
 Make sure to enable the new eZ Platform RichTextBundle.
 
-See [RichText Field Type Reference](https://doc.ibexa.co/en/2.5/api/field_types_reference/richtextfield).
+See [RichText field type Reference](https://doc.ibexa.co/en/2.5/api/field_types_reference/richtextfield).
 
 #### RichText block
 
@@ -80,7 +80,7 @@ This possibility is available automatically when you have the target language co
 
 ![Content type with existing translations](2.4_content_type_translations.png "Available translation of a content type")
 
-When you translate Content of this type, the content type information will be displayed in the new language.
+When you translate Content of this type, the content type information is displayed in the new language.
 
 ![Editing a content translation with translated Field names](2.4_translated_ct.png)
 
@@ -88,7 +88,7 @@ When you translate Content of this type, the content type information will be di
 
 New multi-file content management functionalities enable you to move and delete multiple files at the same time.
 
-See [Multi-file content management](https://doc.ibexa.co/projects/userguide/en/2.5/multi_file_content_management/#multi-file-content-management) for more information.
+For more information, see[Multi-file content management](https://doc.ibexa.co/projects/userguide/en/2.5/multi_file_content_management/#multi-file-content-management).
 
 !!! dxp
 
@@ -110,23 +110,23 @@ The list of all drafts can now be found in the **Administrator User** menu under
 
 ![Administrator User list of all Drafts](2.4_drafts_admin_user.png "Administrator User list of all Drafts")
 
-See [Reviewing a draft](https://doc.ibexa.co/projects/userguide/en/2.5/publishing/flex_workflow/#reviewing-a-draft) for more information.
+For more information, see [Reviewing a draft](https://doc.ibexa.co/projects/userguide/en/2.5/publishing/flex_workflow/#reviewing-a-draft).
 
 ### Subtree search filter
 
 A new filter enables you to filter search results by Subtree.
 
-See [Simplified Filtered search](https://doc.ibexa.co/projects/userguide/en/2.5/search/#simplified-filtered-search) for more information.
+For more information, see [Simplified Filtered search](https://doc.ibexa.co/projects/userguide/en/2.5/search/#simplified-filtered-search).
 
 ### Sub-items limit
 
-You can now set a number of items displayed in the table using sub-items from your User Settings.
+You can now set a number of items displayed in the table with the **Sub-items** setting in your User Settings.
 
 ![Setting for subitems limit in user preferences](2.4_subitems_limit_pref.png)
 
 ### Policy labels update
 
-The outdated Policy labels are now updated:
+The outdated policy labels are now updated:
 
 |Old|New|
 |---|---|
@@ -138,7 +138,7 @@ The outdated Policy labels are now updated:
 |parentowner|Owner of Parent|
 |subtree|Subtree of Location|
 
-![Updated Policy labels](2.4_policy_verbs.png)
+![Updated policy labels](2.4_policy_verbs.png)
 
 ### API improvements
 
@@ -146,13 +146,14 @@ The outdated Policy labels are now updated:
 
 This release introduces a few simplifications to API use for content types:
 
-- Exposes `content->getContentType()` for easier use, including from Twig as `content.contentType`. When iterating over the result set of content/Locations these will effectively be loaded all at once.
-- Adds possibility to load several content types in bulk using `ContentTypeService->loadContentTypeList()`.
-- `UserService` now exposes `isUser()` and `isUserGroup()`. They do not need to do a lookup to the database in order to tell if a content item is of type User or User Group.
+- Exposes `content->getContentType()` for easier use, including from Twig as `content.contentType`. When iterating over the result set of content/Locations these are effectively loaded all at once.
+- Adds a possibility to load several content types in bulk with `ContentTypeService->loadContentTypeList()`.
+- `UserService` now exposes `isUser()` and `isUserGroup()`. They don't need to do a lookup to the database to tell if a content item is of type user or user group.
 
-#### Load multiple Locations
+#### Load multiple locations
 
-You are now able to load multiple Locations at once, using `LocationService->loadLocationList()`. The biggest benefit of this feature is saving load time on complex landing pages when HTTP cache is cold or disabled, including when in development mode.  
+You're now able to load multiple locations at once, with `LocationService->loadLocationList()`.
+The biggest benefit of this feature is saving load time on complex landing pages when HTTP cache is cold or disabled, including when in development mode.
 
 ### BC breaks and important behavior changes
 
@@ -210,7 +211,9 @@ You are now able to load multiple Locations at once, using `LocationService->loa
                  enabled: false
     ```
 
-    By default `HS256` is used as signature algorithm for generated token but we strongly recommend switching to SSH keys. For more information see [`LexikJWTAuthenticationBundle` installation instruction](https://github.com/lexik/LexikJWTAuthenticationBundle/blob/master/Resources/doc/index.md#installation).
+    By default `HS256` is used as signature algorithm for generated token but we strongly recommend switching to SSH keys.
+    
+    For more information, see [`LexikJWTAuthenticationBundle` installation instruction](https://github.com/lexik/LexikJWTAuthenticationBundle/blob/master/Resources/doc/index.md#installation).
 
     3\. Add `EzSystems\EzPlatformPageBuilder\Security\EditorialMode\TokenAuthenticator` authentication provider to `ezpublish_front` firewall before `form_login` in `app/config/security.yml`:
 
@@ -227,7 +230,7 @@ You are now able to load multiple Locations at once, using `LocationService->loa
                  # ...
     ```
 
-    4\. Make sure that parameter `page_builder.token_authenticator.enabled` has value `true`. If the parameter is not present, add it to `/app/config/config.yml`:
+    4\. Make sure that parameter `page_builder.token_authenticator.enabled` has value `true`. If the parameter isn't present, add it to `/app/config/config.yml`:
 
     ``` yaml
      # ...

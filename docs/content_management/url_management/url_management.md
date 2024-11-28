@@ -4,7 +4,7 @@ description: Manage URL aliases and wildcards, and validate external URLs.
 
 # URL management
 
-You can manage external URL addresses and URL wildcards in the Back Office, **Admin** tab, the **URL Management** node.
+You can manage external URL addresses and URL wildcards in the back office, **Admin** tab, the **URL Management** node.
 Configure URL aliases to have human-readable URL addresses throughout your system.
 
 ## Link manager
@@ -12,7 +12,7 @@ Configure URL aliases to have human-readable URL addresses throughout your syste
 When developing a site, users can enter links to external websites in either RichText or URL fields.
 Each such link is then displayed in the URL table. You can view and update all external links that exist within the site, without having to modify and re-publish the individual content items.
 
-The Link manager tab contains all the information about each link, including its status (valid or invalid) and the time the system last attempted to validate the URL address.
+The **Link manager** tab contains all the information about each link, including its status (valid or invalid) and the time the system last attempted to validate the URL address.
 Click an entry in the list to display its details and check which content items use this link.
 Edit the entry to update the URL address in all the occurrences throughout the website.
 
@@ -71,7 +71,7 @@ ibexa:
                     	batch_size: 64
                     https:
                     	enabled: true
-                    	ignore_certificate: false             
+                    	ignore_certificate: false
                     mailto:
                     	enabled: false
 ```
@@ -137,22 +137,19 @@ The `scheme` attribute is mandatory and has to correspond to the name of the pro
 ## URL aliases
 
 You can define URL aliases for individual content items, for example, when you reorganize the content, and want to provide users with continuity.
-For each URL alias definition the history of changes is preserved, so that users who have bookmarked the URL addresses of content items can still find he information they desire.
+For each URL alias definition the history of changes is preserved, so that users who have bookmarked the URL addresses of content items can still find the information they desire.
 
 !!! note
 
-    Make sure that you correctly define languages used by the site in the configuration 
-    (under the `ibexa.system.<scope>.languages` key). 
-    Otherwise, redirections for the renamed Content with translations in multiple
-    languages may fail to work properly.
+    Make sure that you correctly define languages used by the site in the configuration (under the `ibexa.system.<scope>.languages` key).
+    Otherwise, redirections for the renamed Content with translations in multiple languages may fail to work properly.
 
 !!! caution "Legacy storage engine limitation"
 
-    The [Legacy storage engine](field_type_storage.md#legacy-storage-engine) does not archive URL aliases, which initially 
-    had the same name in multiple languages. 
-    For more information, see [the Jira ticket](https://issues.ibexa.co/browse/EZP-31818). 
+    The [Legacy storage engine](field_type_storage.md#legacy-storage-engine) doesn't archive URL aliases, which initially had the same name in multiple languages.
+    For more information, see [the Jira ticket](https://issues.ibexa.co/browse/EZP-31818).
 
-URL aliases are not SiteAccess-aware. When creating an alias, you can select a SiteAccess to base it on.
+URL aliases aren't SiteAccess-aware. When creating an alias, you can select a SiteAccess to base it on.
 If the SiteAccess root path (configured in `content.tree_root.location_id`) is different than the default,
 the prefix path that results from the configured content root is prepended to the final alias path.
 
@@ -199,11 +196,11 @@ Use it when:
 
 - you change URL alias configuration and want to regenerate old aliases
 - you encounter database corruption
-- you have content that does not have a URL alias
+- you have content that doesn't have a URL alias
 
 !!! caution
 
-    Before you apply the command, back up your database and make sure it is not modified while the command is running.
+    Before you apply the command, back up your database and make sure it's not modified while the command is running.
 
 
 Execute the following command to regenerate aliases:
@@ -214,8 +211,8 @@ bin/console ibexa:urls:regenerate-aliases
 
 You can also extend the command with the following parameters:
 
-- `--iteration-count` — Defines how many Locations are processed at once to reduce memory usage
-- `--location-id` — Regenerates URL addresses for specific Locations only, e.g. `ibexa:urls:regenerate-aliases --location-id=1 --location-id=2`
+- `--iteration-count` — Defines how many locations are processed at once to reduce memory usage
+- `--location-id` — Regenerates URL addresses for specific locations only, for example, `ibexa:urls:regenerate-aliases --location-id=1 --location-id=2`
 
 ## URL wildcards
 
@@ -228,7 +225,7 @@ Also, you can decide whether the user sees the content at the address that uses 
 For example, a URL wildcard called `pictures/*/*` can use `media/images/{1}/{2}` as destination.
 In this case, accessing `<yourdomain>/pictures/home/photo/` loads `<yourdomain>/media/images/home/photo/`.
 
-You can configure URL wildcards either in the Back Office, or with the public PHP API.
+You can configure URL wildcards either in the back office, or with the public PHP API.
 
 Before you configure URL wildcards, you must enable the feature in configuration:
 
@@ -238,13 +235,14 @@ ibexa:
         enabled: true
 ```
 
-### Configuring URL wildcards in the Back Office
+### Configuring URL wildcards in the back office
 
-The URL wildcards tab contains all the information about each URL wildcard. You can delete or modify existing entries, or create new ones.
+The **URL wildcards** tab contains all the information about each URL wildcard. You can delete or modify existing entries, or create new ones.
 
 !!! note
 
-    To be able to modify wildcard support settings in the user interface, you must have the `content/urltranslator` Policy. For more information about permissions, see [Permissions](permissions.md).
+    To be able to modify wildcard support settings in the user interface, you must have the `content/urltranslator` policy.
+    For more information about permissions, see [Permissions](permissions.md).
 
 
 ### Configuring URL wildcards with the public PHP API
@@ -263,4 +261,4 @@ $repository->sudo(function ($repository) use ($urlWildcardService, $source, $des
 ```
 
 If `$redirect` is set to `true`, the redirection changes the URL address.
-If it is `false`, the old URL address is be used, with the new content.
+If it's `false`, the old URL address is be used, with the new content.

@@ -1,5 +1,5 @@
 ---
-description: Shipment CreatedAt Criterion
+description: Shipment CreatedAt Search Criterion
 edition: commerce
 ---
 

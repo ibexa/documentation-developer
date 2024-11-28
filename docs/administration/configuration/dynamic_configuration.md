@@ -11,7 +11,7 @@ Dynamic configuration is handled by a ConfigResolver.
 It exposes the `hasParameter()` and `getParameter()` methods.
 You can use them to check the different *scopes* available for a given *namespace* to find the appropriate parameter.
 
-In order to work with the ConfigResolver, your dynamic settings must have the following name format: `<namespace>.<scope>.parameter.name`.
+To work with the ConfigResolver, your dynamic settings must have the following name format: `<namespace>.<scope>.parameter.name`.
 
 ``` yaml
 parameters:
@@ -27,8 +27,7 @@ parameters:
     myapp.default.my_param: Default value
 ```
 
-Inside a controller, in `site_group` SiteAccess, you can use the parameters in the following way
-(note that the same applies for `hasParameter()`):
+Inside a controller, in `site_group` SiteAccess, you can use the parameters in the following way (the same applies for `hasParameter()`):
 
 ``` php
 $configResolver = $this->getConfigResolver();
@@ -55,8 +54,8 @@ $myParamSettingAdmin = $configResolver->getParameter( 'my_param', 'myapp', 'admi
 Both `getParameter()` and `hasParameter()` can take three arguments:
 
 1. `$paramName` - the name of the parameter
-2. `$namespace` - your application namespace, `myapp` in the previous example. If null, the default namespace will be used, which is `ibexa.site_access.config` by default.
-3. `$scope` - a SiteAccess name. If null, the current SiteAccess will be used.
+2. `$namespace` - your application namespace, `myapp` in the previous example. If null, the default namespace is used, which is `ibexa.site_access.config` by default.
+3. `$scope` - a SiteAccess name. If null, the current SiteAccess is used.
 
 ## Inject ConfigResolver into services
 
@@ -71,13 +70,11 @@ services:
 
 You can also use the [autowire feature]([[= symfony_doc =]]/service_container/autowiring.html), by type hinting against ConfigResolverInterface.
 
-!!! tip
-
-    For more information about dependency injection, see [Service container](php_api.md#service-container).
+For more information about dependency injection, see [Service container](php_api.md#service-container).
 
 !!! note
 
-    Do not store the retrieved config value unless you know what you are doing. 
+    Don't store the retrieved config value unless you know what you're doing.
     SiteAccess can change during code execution, which means you might work on the wrong value.
 
 ``` php
@@ -96,7 +93,7 @@ class Service
     {
         $this->configResolver = $configResolver;
     }
-    
+
     public function someMethodThatNeedConfig()
     {
         $configValue = $this->configResolver->getParameter('my_param', 'myapp');
