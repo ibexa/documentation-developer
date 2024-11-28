@@ -355,28 +355,10 @@ The first one is executed when a recommendation is shown to the user.
 The second is called when a recommendation is clicked or otherwise accepted.
 Sending Rendered events causes as many requests as recommendations to be displayed, a Clickrecommended event is usually sent only once (when a user clicks on a specific recommendation item).
 
-Example of a recommendation response:
+Sample of a recommendation response:
 
 ``` json
-{
-  "recommendationItems": [
-    {
-      "relevance": 23,
-      "itemType": 1,
-      "itemId": 100175717,
-      "origin": {
-        "itemIds" : [10, 11],
-        "itemType" : 1,
-        "source" : "REQUEST"
-      },
-      "category" : "Men/Shirts",
-      "links" : {
-         "clickRecommended" : "//event.perso.ibexa.co/clickrecommended/johndoe/1/100175717?scenario=also_clicked&modelId=37",
-         "rendered" : "//event.perso.ibexa.co/rendered/johndoe/1/100175717"
-      }
-    }  
-  ]
-}
+[[= include_file('code_samples/personalization/response-body.json', 1, 16) =]]
 ```
 
 | Field name | Description |
