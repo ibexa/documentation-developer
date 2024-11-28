@@ -163,3 +163,65 @@ You can customize the behavior of the command with the following options:
 - `batch-size` or `b` - number of attributes affected per iteration. Default value = 10000.
 - `max-iterations` or `i` - max. iterations count (default or -1: unlimited). Default value = -1.
 - `sleep` or `s` - wait time between iterations, in milliseconds. Default value = 0.
+
+## v4.6.14
+
+### Security
+
+This release contains security changes.
+For each of following advisories evaluate the vulnerability to determine whether you might have been affected. 
+If so, take appropriate action promptly, for example by [revoking passwords](https://doc.ibexa.co/en/latest/users/passwords/#revoking-passwords) for all affected users.
+
+You can find the three advisories below:
+
+#### BREACH attack
+
+If you're using Varnish, update the VCL configuration to stop compressing both the [[= product_name =]]'s REST API and JSON responses from your backend.
+Fastly users are not affected.
+
+=== Varnish on [[= product_name_cloud =]]
+
+    Update Platform.sh configuration and scripts.
+
+    Generate new configuration with the following command:
+
+    ```bash
+    composer ibexa:setup --platformsh
+    ```
+
+    Review the changes, merge with your custom settings if needed, and commit them to Git before deployment.
+
+=== Varnish 6
+
+    Update your Varnish VCL file to align it with the [`vendor/ibexa/http-cache/docs/varnish/vcl/varnish5.vcl`](https://github.com/ibexa/http-cache/blob/4.6/docs/varnish/vcl/varnish6.vcl) file.
+
+=== Varnish 7
+
+    Update your Varnish VCL file to align it with the [`vendor/ibexa/http-cache/docs/varnish/vcl/varnish7.vcl`](https://github.com/ibexa/http-cache//blob/4.6/docs/varnish/vcl/varnish7.vcl) file.
+    ```
+
+For more information, see the security advisory[TODO: insert link].
+
+#### XSS in Content name pattern
+
+There are no code changes to apply.
+
+For more information, see the security advisory[TODO: insert link].
+
+#### Outdated version of jQuery in ibexa/ezcommerce-shop package
+
+Only users of the [old Commerce solution](update_from_4.3_old_commerce.md) are affected.
+There are no code changes to apply.
+
+For more information, see the security advisory[TODO: insert link].
+
+### Disable translations of identifiers in Product Catalog's categories
+
+The possibility of translating identifiers and parent information for the Categories in Product Catalog might lead to data consistency issues.
+
+Disable it by running the following migration:
+
+``` bash
+php bin/console ibexa:migrations:import vendor/ibexa/product-catalog/src/bundle/Resources/migrations/2024_07_25_07_00_non_translatable_product_categories.yaml --name=2024_07_25_07_00_non_translatable_product_categories.yaml
+php bin/console ibexa:migrations:migrate --file=2024_07_25_07_00_non_translatable_product_categories.yaml
+```

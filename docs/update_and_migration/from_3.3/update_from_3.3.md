@@ -440,7 +440,68 @@ Run the following scripts:
 
 ### v3.3.40
 
-A command to deal with duplicated database entries, as reported in [IBX-8562](https://issues.ibexa.co/browse/IBX-8562), will be available soon.
+No additional steps needed.
+
+## v3.3.41
+
+### Security
+
+This release contains security changes.
+For each of following advisories evaluate the vulnerability to determine whether you might have been affected. 
+If so, take appropriate action, for example by [revoking passwords](https://doc.ibexa.co/en/latest/users/passwords/#revoking-passwords) for all affected users.
+
+You can find the two advisories below:
+
+#### BREACH attack
+
+If you're using Varnish, update the VCL configuration to stop compressing both the [[= product_name =]]'s REST API and JSON responses from your backend.
+Fastly users are not affected.
+
+=== Varnish on [[= product_name_cloud =]]
+
+    Update the Varnish configuration.
+
+    Generate new configuration with the following command:
+
+    ```bash
+    composer ibexa:setup --platformsh
+    ```
+
+    Review the changes, merge with your custom settings if needed, and commit them to Git before deployment.
+
+=== Varnish 6
+
+    Update your Varnish VCL file to align it with the [`vendor/ezsystems/ezplatform-http-cache/docs/varnish/vcl/varnish5.vcl`](https://github.com/ezsystems/ezplatform-http-cache/blob/2.3/docs/varnish/vcl/varnish5.vcl) file.
+
+=== Varnish 7
+
+    Update your Varnish VCL file to align it with the [`vendor/ezsystems/ezplatform-http-cache/docs/varnish/vcl/varnish7.vcl`](https://github.com/ezsystems/ezplatform-http-cache/blob/2.3/docs/varnish/vcl/varnish7.vcl) file.
+    ```
+
+For more information, see the security advisory[TODO: insert link].
+
+#### Outdated version of jQuery in ibexa/ezcommerce-shop package
+
+There are no code changes to execute.
+For more information, see the security advisory[TODO: insert link].
+
+### Remove duplicated entries in `ezcontentobject_attribute` table
+This release comes with a command to clean up the duplicated entries in the `ezcontentobject_attribute` table, caused by the issue described in [IBX-8562](https://issues.ibexa.co/browse/IBX-8562).
+
+If you're affected you can remove the duplicated entries by running the following command:
+``` bash
+php bin/console ibexa:content:remove-duplicate-fields
+```
+
+!!! caution
+
+    Remember about [**proper database backup**](backup.md) before running the command in the production environment.
+
+You can customize the behavior of the command with the following options:
+
+- `batch-size` or `b` - number of attributes affected per iteration. Default value = 10000.
+- `max-iterations` or `i` - max. iterations count (default or -1: unlimited). Default value = -1.
+- `sleep` or `s` - wait time between iterations, in milliseconds. Default value = 0.
 
 ## Finish the update
 
