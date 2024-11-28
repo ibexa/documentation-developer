@@ -6771,6 +6771,11 @@ Search.appendIndex(
             "summary": "Removes\u0020all\u0020Locations\u0020under\u0020and\u0020including\u0020\u0024locationId.",
             "url": "classes/Ibexa-Contracts-Core-Persistence-Content-Location-Handler.html#method_removeSubtree"
         },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Persistence\\Content\\Location\\Handler\u003A\u003AdeleteChildrenDrafts\u0028\u0029",
+            "name": "deleteChildrenDrafts",
+            "summary": "Removes\u0020all\u0020draft\u0020contents\u0020that\u0020have\u0020no\u0020location\u0020assigned\u0020to\u0020them\u0020under\u0020the\u0020given\u0020parent\u0020location.",
+            "url": "classes/Ibexa-Contracts-Core-Persistence-Content-Location-Handler.html#method_deleteChildrenDrafts"
+        },                {
             "fqsen": "\\Ibexa\\Contracts\\Core\\Persistence\\Content\\Location\\Handler\u003A\u003AsetSectionForSubtree\u0028\u0029",
             "name": "setSectionForSubtree",
             "summary": "Set\u0020section\u0020on\u0020all\u0020content\u0020objects\u0020in\u0020the\u0020subtree.",
@@ -9628,12 +9633,12 @@ Search.appendIndex(
         },                {
             "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\ContentService\u003A\u003AaddRelation\u0028\u0029",
             "name": "addRelation",
-            "summary": "Adds\u0020a\u0020relation\u0020of\u0020type\u0020common.",
+            "summary": "Adds\u0020a\u0020common\u0020relation.",
             "url": "classes/Ibexa-Contracts-Core-Repository-ContentService.html#method_addRelation"
         },                {
             "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\ContentService\u003A\u003AdeleteRelation\u0028\u0029",
             "name": "deleteRelation",
-            "summary": "Removes\u0020a\u0020relation\u0020of\u0020type\u0020COMMON\u0020from\u0020a\u0020draft.",
+            "summary": "Removes\u0020a\u0020common\u0020relation\u0020from\u0020a\u0020draft.",
             "url": "classes/Ibexa-Contracts-Core-Repository-ContentService.html#method_deleteRelation"
         },                {
             "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\ContentService\u003A\u003AdeleteTranslation\u0028\u0029",
@@ -9678,12 +9683,12 @@ Search.appendIndex(
         },                {
             "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\ContentService\u003A\u003Afind\u0028\u0029",
             "name": "find",
-            "summary": "Fetch\u0020Content\u0020items\u0020from\u0020the\u0020Repository\u0020filtered\u0020by\u0020the\u0020given\u0020conditions.",
+            "summary": "Fetches\u0020Content\u0020items\u0020from\u0020the\u0020Repository\u0020filtered\u0020by\u0020the\u0020given\u0020conditions.",
             "url": "classes/Ibexa-Contracts-Core-Repository-ContentService.html#method_find"
         },                {
             "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\ContentService\u003A\u003Acount\u0028\u0029",
             "name": "count",
-            "summary": "Count\u0020total\u0020number\u0020of\u0020items\u0020returned\u0020by\u0020\u007B\u0040see\u0020ContentService\u003A\u003Afind\u0028\u0029\u007D\u0020method.",
+            "summary": "Gets\u0020the\u0020total\u0020number\u0020of\u0020fetchable\u0020Content\u0020items.",
             "url": "classes/Ibexa-Contracts-Core-Repository-ContentService.html#method_count"
         },                {
             "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\ContentService\u003A\u003ADEFAULT_PAGE_SIZE",
@@ -10048,12 +10053,12 @@ Search.appendIndex(
         },                {
             "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Decorator\\ContentServiceDecorator\u003A\u003AaddRelation\u0028\u0029",
             "name": "addRelation",
-            "summary": "Adds\u0020a\u0020relation\u0020of\u0020type\u0020common.",
+            "summary": "Adds\u0020a\u0020common\u0020relation.",
             "url": "classes/Ibexa-Contracts-Core-Repository-Decorator-ContentServiceDecorator.html#method_addRelation"
         },                {
             "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Decorator\\ContentServiceDecorator\u003A\u003AdeleteRelation\u0028\u0029",
             "name": "deleteRelation",
-            "summary": "Removes\u0020a\u0020relation\u0020of\u0020type\u0020COMMON\u0020from\u0020a\u0020draft.",
+            "summary": "Removes\u0020a\u0020common\u0020relation\u0020from\u0020a\u0020draft.",
             "url": "classes/Ibexa-Contracts-Core-Repository-Decorator-ContentServiceDecorator.html#method_deleteRelation"
         },                {
             "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Decorator\\ContentServiceDecorator\u003A\u003AdeleteTranslation\u0028\u0029",
@@ -10098,12 +10103,12 @@ Search.appendIndex(
         },                {
             "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Decorator\\ContentServiceDecorator\u003A\u003Afind\u0028\u0029",
             "name": "find",
-            "summary": "Fetch\u0020Content\u0020items\u0020from\u0020the\u0020Repository\u0020filtered\u0020by\u0020the\u0020given\u0020conditions.",
+            "summary": "Fetches\u0020Content\u0020items\u0020from\u0020the\u0020Repository\u0020filtered\u0020by\u0020the\u0020given\u0020conditions.",
             "url": "classes/Ibexa-Contracts-Core-Repository-Decorator-ContentServiceDecorator.html#method_find"
         },                {
             "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Decorator\\ContentServiceDecorator\u003A\u003Acount\u0028\u0029",
             "name": "count",
-            "summary": "Count\u0020total\u0020number\u0020of\u0020items\u0020returned\u0020by\u0020\u007B\u0040see\u0020ContentService\u003A\u003Afind\u0028\u0029\u007D\u0020method.",
+            "summary": "Gets\u0020the\u0020total\u0020number\u0020of\u0020fetchable\u0020Content\u0020items.",
             "url": "classes/Ibexa-Contracts-Core-Repository-Decorator-ContentServiceDecorator.html#method_count"
         },                {
             "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Decorator\\ContentServiceDecorator\u003A\u003A\u0024innerService",
@@ -26271,6 +26276,111 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/Ibexa-Contracts-Core-User-IdentityAware.html#method_setIdentity"
         },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Validation\\AbstractValidationStructWrapper",
+            "name": "AbstractValidationStructWrapper",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Validation-AbstractValidationStructWrapper.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Validation\\AbstractValidationStructWrapper\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Validation-AbstractValidationStructWrapper.html#method___construct"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Validation\\AbstractValidationStructWrapper\u003A\u003AgetStruct\u0028\u0029",
+            "name": "getStruct",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Validation-AbstractValidationStructWrapper.html#method_getStruct"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Validation\\AbstractValidationStructWrapper\u003A\u003A\u0024struct",
+            "name": "struct",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Validation-AbstractValidationStructWrapper.html#property_struct"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Validation\\StructValidator",
+            "name": "StructValidator",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Validation-StructValidator.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Validation\\StructValidator\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Validation-StructValidator.html#method___construct"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Validation\\StructValidator\u003A\u003AassertValidStruct\u0028\u0029",
+            "name": "assertValidStruct",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Validation-StructValidator.html#method_assertValidStruct"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Validation\\StructWrapperValidator",
+            "name": "StructWrapperValidator",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Validation-StructWrapperValidator.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Validation\\StructWrapperValidator\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Validation-StructWrapperValidator.html#method___construct"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Validation\\StructWrapperValidator\u003A\u003AgetMetadataFor\u0028\u0029",
+            "name": "getMetadataFor",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Validation-StructWrapperValidator.html#method_getMetadataFor"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Validation\\StructWrapperValidator\u003A\u003AhasMetadataFor\u0028\u0029",
+            "name": "hasMetadataFor",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Validation-StructWrapperValidator.html#method_hasMetadataFor"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Validation\\StructWrapperValidator\u003A\u003Avalidate\u0028\u0029",
+            "name": "validate",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Validation-StructWrapperValidator.html#method_validate"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Validation\\StructWrapperValidator\u003A\u003AvalidateProperty\u0028\u0029",
+            "name": "validateProperty",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Validation-StructWrapperValidator.html#method_validateProperty"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Validation\\StructWrapperValidator\u003A\u003AvalidatePropertyValue\u0028\u0029",
+            "name": "validatePropertyValue",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Validation-StructWrapperValidator.html#method_validatePropertyValue"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Validation\\StructWrapperValidator\u003A\u003AstartContext\u0028\u0029",
+            "name": "startContext",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Validation-StructWrapperValidator.html#method_startContext"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Validation\\StructWrapperValidator\u003A\u003AinContext\u0028\u0029",
+            "name": "inContext",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Validation-StructWrapperValidator.html#method_inContext"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Validation\\ValidationFailedException",
+            "name": "ValidationFailedException",
+            "summary": "This\u0020exception\u0020is\u0020thrown\u0020if\u0020a\u0020service\u0020method\u0020is\u0020called\u0020with\u0020an\u0020illegal\u0020or\u0020non\u0020appropriate\u0020value.",
+            "url": "classes/Ibexa-Contracts-Core-Validation-ValidationFailedException.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Validation\\ValidationFailedException\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Validation-ValidationFailedException.html#method___construct"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Validation\\ValidationFailedException\u003A\u003AgetErrors\u0028\u0029",
+            "name": "getErrors",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Validation-ValidationFailedException.html#method_getErrors"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Validation\\ValidationStructWrapperInterface",
+            "name": "ValidationStructWrapperInterface",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Validation-ValidationStructWrapperInterface.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Validation\\ValidationStructWrapperInterface\u003A\u003AgetStruct\u0028\u0029",
+            "name": "getStruct",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Validation-ValidationStructWrapperInterface.html#method_getStruct"
+        },                {
             "fqsen": "\\Ibexa\\Contracts\\Core\\Variation\\Values\\ImageVariation",
             "name": "ImageVariation",
             "summary": "Base\u0020class\u0020for\u0020file\u0020variations\u0020\u0028i.e.\u0020image\u0020aliases\u0029.",
@@ -26375,6 +26485,96 @@ Search.appendIndex(
             "name": "purge",
             "summary": "Purge\u0020all\u0020variations\u0020generated\u0020for\u0020aliases\u0020in\u0020\u0024aliasNames.",
             "url": "classes/Ibexa-Contracts-Core-Variation-VariationPurger.html#method_purge"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\DoctrineSchema\\Builder\\SchemaBuilderInterface",
+            "name": "SchemaBuilderInterface",
+            "summary": "Doctrine\\DBAL\\Schema\u0020event\u002Ddriven\u0020builder.",
+            "url": "classes/Ibexa-Contracts-DoctrineSchema-Builder-SchemaBuilderInterface.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\DoctrineSchema\\Builder\\SchemaBuilderInterface\u003A\u003AbuildSchema\u0028\u0029",
+            "name": "buildSchema",
+            "summary": "Build\u0020schema\u0020by\u0020dispatching\u0020the\u0020SchemaBuilderEvent\u0020event.",
+            "url": "classes/Ibexa-Contracts-DoctrineSchema-Builder-SchemaBuilderInterface.html#method_buildSchema"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\DoctrineSchema\\Builder\\SchemaBuilderInterface\u003A\u003AimportSchemaFromFile\u0028\u0029",
+            "name": "importSchemaFromFile",
+            "summary": "Import\u0020Schema\u0020from\u0020Yaml\u0020schema\u0020definition\u0020file\u0020into\u0020Schema\u0020object.",
+            "url": "classes/Ibexa-Contracts-DoctrineSchema-Builder-SchemaBuilderInterface.html#method_importSchemaFromFile"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\DoctrineSchema\\DbPlatformFactoryInterface",
+            "name": "DbPlatformFactoryInterface",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-DoctrineSchema-DbPlatformFactoryInterface.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\DoctrineSchema\\DbPlatformFactoryInterface\u003A\u003AcreateDatabasePlatformFromDriverName\u0028\u0029",
+            "name": "createDatabasePlatformFromDriverName",
+            "summary": "Create\u0020instance\u0020of\u0020Doctrine\u0020AbstractPlatform\u0020for\u0020the\u0020given\u0020driver\u0020name.",
+            "url": "classes/Ibexa-Contracts-DoctrineSchema-DbPlatformFactoryInterface.html#method_createDatabasePlatformFromDriverName"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\DoctrineSchema\\Event\\SchemaBuilderEvent",
+            "name": "SchemaBuilderEvent",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-DoctrineSchema-Event-SchemaBuilderEvent.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\DoctrineSchema\\Event\\SchemaBuilderEvent\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-DoctrineSchema-Event-SchemaBuilderEvent.html#method___construct"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\DoctrineSchema\\Event\\SchemaBuilderEvent\u003A\u003AgetSchema\u0028\u0029",
+            "name": "getSchema",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-DoctrineSchema-Event-SchemaBuilderEvent.html#method_getSchema"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\DoctrineSchema\\Event\\SchemaBuilderEvent\u003A\u003AgetSchemaBuilder\u0028\u0029",
+            "name": "getSchemaBuilder",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-DoctrineSchema-Event-SchemaBuilderEvent.html#method_getSchemaBuilder"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\DoctrineSchema\\Exception\\InvalidConfigurationException",
+            "name": "InvalidConfigurationException",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-DoctrineSchema-Exception-InvalidConfigurationException.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\DoctrineSchema\\Exception\\InvalidConfigurationException\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-DoctrineSchema-Exception-InvalidConfigurationException.html#method___construct"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\DoctrineSchema\\SchemaBuilderEvents",
+            "name": "SchemaBuilderEvents",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-DoctrineSchema-SchemaBuilderEvents.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\DoctrineSchema\\SchemaBuilderEvents\u003A\u003ABUILD_SCHEMA",
+            "name": "BUILD_SCHEMA",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-DoctrineSchema-SchemaBuilderEvents.html#constant_BUILD_SCHEMA"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\DoctrineSchema\\SchemaExporterInterface",
+            "name": "SchemaExporterInterface",
+            "summary": "Export\u0020the\u0020given\u0020database\u0020Schema\u0020object\u0020to\u0020the\u0020custom\u0020Yaml\u0020format.",
+            "url": "classes/Ibexa-Contracts-DoctrineSchema-SchemaExporterInterface.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\DoctrineSchema\\SchemaExporterInterface\u003A\u003Aexport\u0028\u0029",
+            "name": "export",
+            "summary": "Export\u0020\\Doctrine\\DBAL\\Schema\u0020object\u0020to\u0020the\u0020custom\u0020Yaml\u0020format.",
+            "url": "classes/Ibexa-Contracts-DoctrineSchema-SchemaExporterInterface.html#method_export"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\DoctrineSchema\\SchemaImporterInterface",
+            "name": "SchemaImporterInterface",
+            "summary": "Import\u0020database\u0020schema\u0020from\u0020custom\u0020Yaml\u0020Doctrine\u0020Schema\u0020format\u0020into\u0020Schema\u0020object.",
+            "url": "classes/Ibexa-Contracts-DoctrineSchema-SchemaImporterInterface.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\DoctrineSchema\\SchemaImporterInterface\u003A\u003AimportFromFile\u0028\u0029",
+            "name": "importFromFile",
+            "summary": "Import\u0020database\u0020schema\u0020into\u0020\\Doctrine\\DBAL\\Schema\u0020from\u0020file\u0020containing\u0020custom\u0020Yaml\u0020format.",
+            "url": "classes/Ibexa-Contracts-DoctrineSchema-SchemaImporterInterface.html#method_importFromFile"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\DoctrineSchema\\SchemaImporterInterface\u003A\u003AimportFromSource\u0028\u0029",
+            "name": "importFromSource",
+            "summary": "Import\u0020database\u0020schema\u0020into\u0020\\Doctrine\\DBAL\\Schema\u0020from\u0020string\u0020containing\u0020custom\u0020Yaml\u0020format.",
+            "url": "classes/Ibexa-Contracts-DoctrineSchema-SchemaImporterInterface.html#method_importFromSource"
         },                {
             "fqsen": "\\Ibexa\\Contracts\\CorePersistence\\Exception\\MappingException",
             "name": "MappingException",
@@ -29085,96 +29285,6 @@ Search.appendIndex(
             "name": "DESIGN_NAMESPACE",
             "summary": "",
             "url": "classes/Ibexa-Contracts-DesignEngine-DesignAwareInterface.html#constant_DESIGN_NAMESPACE"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\DoctrineSchema\\Builder\\SchemaBuilderInterface",
-            "name": "SchemaBuilderInterface",
-            "summary": "Doctrine\\DBAL\\Schema\u0020event\u002Ddriven\u0020builder.",
-            "url": "classes/Ibexa-Contracts-DoctrineSchema-Builder-SchemaBuilderInterface.html"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\DoctrineSchema\\Builder\\SchemaBuilderInterface\u003A\u003AbuildSchema\u0028\u0029",
-            "name": "buildSchema",
-            "summary": "Build\u0020schema\u0020by\u0020dispatching\u0020the\u0020SchemaBuilderEvent\u0020event.",
-            "url": "classes/Ibexa-Contracts-DoctrineSchema-Builder-SchemaBuilderInterface.html#method_buildSchema"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\DoctrineSchema\\Builder\\SchemaBuilderInterface\u003A\u003AimportSchemaFromFile\u0028\u0029",
-            "name": "importSchemaFromFile",
-            "summary": "Import\u0020Schema\u0020from\u0020Yaml\u0020schema\u0020definition\u0020file\u0020into\u0020Schema\u0020object.",
-            "url": "classes/Ibexa-Contracts-DoctrineSchema-Builder-SchemaBuilderInterface.html#method_importSchemaFromFile"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\DoctrineSchema\\DbPlatformFactoryInterface",
-            "name": "DbPlatformFactoryInterface",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-DoctrineSchema-DbPlatformFactoryInterface.html"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\DoctrineSchema\\DbPlatformFactoryInterface\u003A\u003AcreateDatabasePlatformFromDriverName\u0028\u0029",
-            "name": "createDatabasePlatformFromDriverName",
-            "summary": "Create\u0020instance\u0020of\u0020Doctrine\u0020AbstractPlatform\u0020for\u0020the\u0020given\u0020driver\u0020name.",
-            "url": "classes/Ibexa-Contracts-DoctrineSchema-DbPlatformFactoryInterface.html#method_createDatabasePlatformFromDriverName"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\DoctrineSchema\\Event\\SchemaBuilderEvent",
-            "name": "SchemaBuilderEvent",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-DoctrineSchema-Event-SchemaBuilderEvent.html"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\DoctrineSchema\\Event\\SchemaBuilderEvent\u003A\u003A__construct\u0028\u0029",
-            "name": "__construct",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-DoctrineSchema-Event-SchemaBuilderEvent.html#method___construct"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\DoctrineSchema\\Event\\SchemaBuilderEvent\u003A\u003AgetSchema\u0028\u0029",
-            "name": "getSchema",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-DoctrineSchema-Event-SchemaBuilderEvent.html#method_getSchema"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\DoctrineSchema\\Event\\SchemaBuilderEvent\u003A\u003AgetSchemaBuilder\u0028\u0029",
-            "name": "getSchemaBuilder",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-DoctrineSchema-Event-SchemaBuilderEvent.html#method_getSchemaBuilder"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\DoctrineSchema\\Exception\\InvalidConfigurationException",
-            "name": "InvalidConfigurationException",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-DoctrineSchema-Exception-InvalidConfigurationException.html"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\DoctrineSchema\\Exception\\InvalidConfigurationException\u003A\u003A__construct\u0028\u0029",
-            "name": "__construct",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-DoctrineSchema-Exception-InvalidConfigurationException.html#method___construct"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\DoctrineSchema\\SchemaBuilderEvents",
-            "name": "SchemaBuilderEvents",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-DoctrineSchema-SchemaBuilderEvents.html"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\DoctrineSchema\\SchemaBuilderEvents\u003A\u003ABUILD_SCHEMA",
-            "name": "BUILD_SCHEMA",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-DoctrineSchema-SchemaBuilderEvents.html#constant_BUILD_SCHEMA"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\DoctrineSchema\\SchemaExporterInterface",
-            "name": "SchemaExporterInterface",
-            "summary": "Export\u0020the\u0020given\u0020database\u0020Schema\u0020object\u0020to\u0020the\u0020custom\u0020Yaml\u0020format.",
-            "url": "classes/Ibexa-Contracts-DoctrineSchema-SchemaExporterInterface.html"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\DoctrineSchema\\SchemaExporterInterface\u003A\u003Aexport\u0028\u0029",
-            "name": "export",
-            "summary": "Export\u0020\\Doctrine\\DBAL\\Schema\u0020object\u0020to\u0020the\u0020custom\u0020Yaml\u0020format.",
-            "url": "classes/Ibexa-Contracts-DoctrineSchema-SchemaExporterInterface.html#method_export"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\DoctrineSchema\\SchemaImporterInterface",
-            "name": "SchemaImporterInterface",
-            "summary": "Import\u0020database\u0020schema\u0020from\u0020custom\u0020Yaml\u0020Doctrine\u0020Schema\u0020format\u0020into\u0020Schema\u0020object.",
-            "url": "classes/Ibexa-Contracts-DoctrineSchema-SchemaImporterInterface.html"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\DoctrineSchema\\SchemaImporterInterface\u003A\u003AimportFromFile\u0028\u0029",
-            "name": "importFromFile",
-            "summary": "Import\u0020database\u0020schema\u0020into\u0020\\Doctrine\\DBAL\\Schema\u0020from\u0020file\u0020containing\u0020custom\u0020Yaml\u0020format.",
-            "url": "classes/Ibexa-Contracts-DoctrineSchema-SchemaImporterInterface.html#method_importFromFile"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\DoctrineSchema\\SchemaImporterInterface\u003A\u003AimportFromSource\u0028\u0029",
-            "name": "importFromSource",
-            "summary": "Import\u0020database\u0020schema\u0020into\u0020\\Doctrine\\DBAL\\Schema\u0020from\u0020string\u0020containing\u0020custom\u0020Yaml\u0020format.",
-            "url": "classes/Ibexa-Contracts-DoctrineSchema-SchemaImporterInterface.html#method_importFromSource"
         },                {
             "fqsen": "\\Ibexa\\Contracts\\Elasticsearch\\ElasticSearch\\Index\\Group\\GroupResolverInterface",
             "name": "GroupResolverInterface",
@@ -39186,6 +39296,16 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/Ibexa-Contracts-ProductCatalog-ProductPriceServiceInterface.html#method_getPriceById"
         },                {
+            "fqsen": "\\Ibexa\\Contracts\\ProductCatalog\\ProductReferencesResolverStrategy",
+            "name": "ProductReferencesResolverStrategy",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-ProductCatalog-ProductReferencesResolverStrategy.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\ProductCatalog\\ProductReferencesResolverStrategy\u003A\u003AisProductReferenced\u0028\u0029",
+            "name": "isProductReferenced",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-ProductCatalog-ProductReferencesResolverStrategy.html#method_isProductReferenced"
+        },                {
             "fqsen": "\\Ibexa\\Contracts\\ProductCatalog\\ProductServiceInterface",
             "name": "ProductServiceInterface",
             "summary": "",
@@ -41970,6 +42090,46 @@ Search.appendIndex(
             "name": "setOperator",
             "summary": "",
             "url": "classes/Ibexa-Contracts-ProductCatalog-Values-Product-Query-Criterion-SelectionAttribute.html#method_setOperator"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\ProductCatalog\\Values\\Product\\Query\\Criterion\\UpdatedAt",
+            "name": "UpdatedAt",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-ProductCatalog-Values-Product-Query-Criterion-UpdatedAt.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\ProductCatalog\\Values\\Product\\Query\\Criterion\\UpdatedAt\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-ProductCatalog-Values-Product-Query-Criterion-UpdatedAt.html#method___construct"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\ProductCatalog\\Values\\Product\\Query\\Criterion\\UpdatedAt\u003A\u003AgetValue\u0028\u0029",
+            "name": "getValue",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-ProductCatalog-Values-Product-Query-Criterion-UpdatedAt.html#method_getValue"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\ProductCatalog\\Values\\Product\\Query\\Criterion\\UpdatedAt\u003A\u003AgetOperator\u0028\u0029",
+            "name": "getOperator",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-ProductCatalog-Values-Product-Query-Criterion-UpdatedAt.html#method_getOperator"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\ProductCatalog\\Values\\Product\\Query\\Criterion\\UpdatedAtRange",
+            "name": "UpdatedAtRange",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-ProductCatalog-Values-Product-Query-Criterion-UpdatedAtRange.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\ProductCatalog\\Values\\Product\\Query\\Criterion\\UpdatedAtRange\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-ProductCatalog-Values-Product-Query-Criterion-UpdatedAtRange.html#method___construct"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\ProductCatalog\\Values\\Product\\Query\\Criterion\\UpdatedAtRange\u003A\u003AgetMin\u0028\u0029",
+            "name": "getMin",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-ProductCatalog-Values-Product-Query-Criterion-UpdatedAtRange.html#method_getMin"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\ProductCatalog\\Values\\Product\\Query\\Criterion\\UpdatedAtRange\u003A\u003AgetMax\u0028\u0029",
+            "name": "getMax",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-ProductCatalog-Values-Product-Query-Criterion-UpdatedAtRange.html#method_getMax"
         },                {
             "fqsen": "\\Ibexa\\Contracts\\ProductCatalog\\Values\\Product\\Query\\CriterionInterface",
             "name": "CriterionInterface",
@@ -50051,6 +50211,11 @@ Search.appendIndex(
             "summary": "",
             "url": "namespaces/ibexa-contracts-core-user.html"
         },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Validation",
+            "name": "Validation",
+            "summary": "",
+            "url": "namespaces/ibexa-contracts-core-validation.html"
+        },                {
             "fqsen": "\\Ibexa\\Contracts\\Core\\Variation\\Values",
             "name": "Values",
             "summary": "",
@@ -50060,6 +50225,26 @@ Search.appendIndex(
             "name": "Variation",
             "summary": "",
             "url": "namespaces/ibexa-contracts-core-variation.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\DoctrineSchema\\Builder",
+            "name": "Builder",
+            "summary": "",
+            "url": "namespaces/ibexa-contracts-doctrineschema-builder.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\DoctrineSchema",
+            "name": "DoctrineSchema",
+            "summary": "",
+            "url": "namespaces/ibexa-contracts-doctrineschema.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\DoctrineSchema\\Event",
+            "name": "Event",
+            "summary": "",
+            "url": "namespaces/ibexa-contracts-doctrineschema-event.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\DoctrineSchema\\Exception",
+            "name": "Exception",
+            "summary": "",
+            "url": "namespaces/ibexa-contracts-doctrineschema-exception.html"
         },                {
             "fqsen": "\\Ibexa\\Contracts\\CorePersistence\\Exception",
             "name": "Exception",
@@ -50245,26 +50430,6 @@ Search.appendIndex(
             "name": "DesignEngine",
             "summary": "",
             "url": "namespaces/ibexa-contracts-designengine.html"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\DoctrineSchema\\Builder",
-            "name": "Builder",
-            "summary": "",
-            "url": "namespaces/ibexa-contracts-doctrineschema-builder.html"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\DoctrineSchema",
-            "name": "DoctrineSchema",
-            "summary": "",
-            "url": "namespaces/ibexa-contracts-doctrineschema.html"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\DoctrineSchema\\Event",
-            "name": "Event",
-            "summary": "",
-            "url": "namespaces/ibexa-contracts-doctrineschema-event.html"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\DoctrineSchema\\Exception",
-            "name": "Exception",
-            "summary": "",
-            "url": "namespaces/ibexa-contracts-doctrineschema-exception.html"
         },                {
             "fqsen": "\\Ibexa\\Contracts\\Elasticsearch\\ElasticSearch\\Index\\Group",
             "name": "Group",
