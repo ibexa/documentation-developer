@@ -168,15 +168,14 @@ You can customize the behavior of the command with the following options:
 
 ### Security
 
-This release contains security changes.
-For each of following advisories evaluate the vulnerability to determine whether you might have been affected. 
+This release contains security fixes.
+For more information, see [the published security advisory](https://developers.ibexa.co/security-advisories/ibexa-sa-2024-006-vulnerabilities-in-content-name-pattern-commerce-shop-and-varnish-vhost-templates).
+For each of the following fixes, evaluate the vulnerability to determine whether you might have been affected. 
 If so, take appropriate action, for example by [revoking passwords](https://doc.ibexa.co/en/latest/users/passwords/#revoking-passwords) for all affected users.
-
-You can find the three advisories below:
 
 #### <abbr title="Browser Reconnaissance & Exfiltration via Adaptive Compression of Hypertext">BREACH</abbr> vulnerability
 
-[The BREACH attack](https://www.breachattack.com/) is a security vulnerability against HTTPS when using HTTP compression.
+The [BREACH](https://www.breachattack.com/) attack is a security vulnerability against HTTPS when using HTTP compression.
 
 If you're using Varnish, update the VCL configuration to stop compressing both the [[= product_name =]]'s REST API and JSON responses from your backend.
 Fastly users are not affected.
@@ -202,21 +201,17 @@ Fastly users are not affected.
     Update your Varnish VCL file to align it with the [`vendor/ibexa/http-cache/docs/varnish/vcl/varnish7.vcl`](https://github.com/ibexa/http-cache//blob/4.6/docs/varnish/vcl/varnish7.vcl) file.
     ```
 
-If you're not using a reverse proxy like Varnish or Fastly, adjust the compressed Content Type in the webserver configuration.
+If you're not using a reverse proxy like Varnish or Fastly, adjust the compressed Content Type in the web server configuration.
 For more information. see the [updated Apache and nginx template configuration](https://github.com/ibexa/post-install/pull/86/files).
-
-For more information, see the security advisory[TODO: insert link].
 
 #### XSS in Content name pattern
 
 There are no additional update steps to execute.
-For more information, see the security advisory[TODO: insert link].
 
 #### Outdated version of jQuery in ibexa/ezcommerce-shop package
 
 Only users of the [old Commerce solution](update_from_4.3_old_commerce.md) are affected.
 There are no additional update steps to execute.
-For more information, see the security advisory[TODO: insert link].
 
 ### Other changes
 
@@ -231,8 +226,8 @@ php bin/console ibexa:migrations:import vendor/ibexa/product-catalog/src/bundle/
 php bin/console ibexa:migrations:migrate --file=2024_07_25_07_00_non_translatable_product_categories.yaml
 ```
 
-#### Update webserver configuration
+#### Update web server configuration
 
-Adjust the webserver configuration to prevent direct access to the `index.php` file when using URLs consisting of multiple path segments.
+Adjust the web server configuration to prevent direct access to the `index.php` file when using URLs consisting of multiple path segments.
 
 See [the updated Apache and nginx template files](https://github.com/ibexa/post-install/pull/70/files) for more information.
