@@ -444,7 +444,7 @@ The request parameters are:
 |`scenario`|Name of the scenario, where recommendations originated from. This parameter is required.|URL-encoded alphanumeric|
 
 The scenario parameter identifies the originating scenario to gain detailed statistics about the scenario that motivated the user to click on a recommendation.
-This information comes with the recommendation from the recommendation controller. 
+This information comes with the recommendation from the recommendation controller.
 
 The event is used for providing statistics about how often users accepted the recommendations of the configured recommendation scenario or considered them as valuable.
 
