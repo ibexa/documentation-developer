@@ -174,7 +174,9 @@ If so, take appropriate action, for example by [revoking passwords](https://doc.
 
 You can find the three advisories below:
 
-#### BREACH attack
+#### <abbr title="Browser Reconnaissance & Exfiltration via Adaptive Compression of Hypertext">BREACH</abbr> vulnerability
+
+[The BREACH attack](https://www.breachattack.com/) is a security vulnerability against HTTPS when using HTTP compression.
 
 If you're using Varnish, update the VCL configuration to stop compressing both the [[= product_name =]]'s REST API and JSON responses from your backend.
 Fastly users are not affected.
@@ -216,7 +218,7 @@ Only users of the [old Commerce solution](update_from_4.3_old_commerce.md) are a
 There are no additional update steps to execute.
 For more information, see the security advisory[TODO: insert link].
 
-#### Other changes
+### Other changes
 
 #### Disable translations of identifiers in Product Catalog's categories
 
@@ -228,3 +230,9 @@ Disable it by running the following migration:
 php bin/console ibexa:migrations:import vendor/ibexa/product-catalog/src/bundle/Resources/migrations/2024_07_25_07_00_non_translatable_product_categories.yaml --name=2024_07_25_07_00_non_translatable_product_categories.yaml
 php bin/console ibexa:migrations:migrate --file=2024_07_25_07_00_non_translatable_product_categories.yaml
 ```
+
+#### Update webserver configuration
+
+Adjust the webserver configuration to prevent direct access to the `index.php` file when using URLs consisting of multiple path segments.
+
+See [the updated Apache and nginx template files](https://github.com/ibexa/post-install/pull/70/files) for more information.

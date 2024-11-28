@@ -452,7 +452,9 @@ If so, take appropriate action, for example by [revoking passwords](https://doc.
 
 You can find the two advisories below:
 
-##### BREACH attack
+##### <abbr title="Browser Reconnaissance & Exfiltration via Adaptive Compression of Hypertext">BREACH</abbr> vulnerability
+
+[The BREACH attack](https://www.breachattack.com/) is a security vulnerability against HTTPS when using HTTP compression.
 
 If you're using Varnish, update the VCL configuration to stop compressing both the [[= product_name =]]'s REST API and JSON responses from your backend.
 Fastly users are not affected.
@@ -507,6 +509,13 @@ You can customize the behavior of the command with the following options:
 - `--batch-size` or `-b` - number of attributes affected per iteration. Default value = 10000.
 - `--max-iterations` or `-i` - max. iterations count (default or -1: unlimited). Default value = -1.
 - `--sleep` or `-s` - wait time between iterations, in milliseconds. Default value = 0.
+
+##### Update webserver configuration
+
+Adjust the webserver configuration to prevent direct access to the `index.php` file when using URLs consisting of multiple path segments.
+
+See [the updated Apache and nginx template files](https://github.com/ibexa/post-install/pull/70/files) for more information.
+
 
 ## Finish the update
 
