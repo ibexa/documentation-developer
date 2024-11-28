@@ -442,9 +442,9 @@ Run the following scripts:
 
 No additional steps needed.
 
-## v3.3.41
+### v3.3.41
 
-### Security
+#### Security
 
 This release contains security changes.
 For each of following advisories evaluate the vulnerability to determine whether you might have been affected. 
@@ -452,7 +452,7 @@ If so, take appropriate action, for example by [revoking passwords](https://doc.
 
 You can find the two advisories below:
 
-#### BREACH attack
+##### BREACH attack
 
 If you're using Varnish, update the VCL configuration to stop compressing both the [[= product_name =]]'s REST API and JSON responses from your backend.
 Fastly users are not affected.
@@ -480,12 +480,12 @@ Fastly users are not affected.
 
 For more information, see the security advisory[TODO: insert link].
 
-#### Outdated version of jQuery in ibexa/ezcommerce-shop package
+##### Outdated version of jQuery in ibexa/ezcommerce-shop package
 
 There are no code changes to execute.
 For more information, see the security advisory[TODO: insert link].
 
-### Remove duplicated entries in `ezcontentobject_attribute` table
+#### Remove duplicated entries in `ezcontentobject_attribute` table
 This release comes with a command to clean up the duplicated entries in the `ezcontentobject_attribute` table, caused by the issue described in [IBX-8562](https://issues.ibexa.co/browse/IBX-8562).
 
 If you're affected you can remove the duplicated entries by running the following command:
