@@ -488,7 +488,9 @@ For more information about the vulnerability, see the security advisory[TODO: in
 There are no code changes to execute.
 For more information, see the security advisory[TODO: insert link].
 
-#### Remove duplicated entries in `ezcontentobject_attribute` table
+#### Other changes
+
+##### Remove duplicated entries in `ezcontentobject_attribute` table
 This release comes with a command to clean up the duplicated entries in the `ezcontentobject_attribute` table, caused by the issue described in [IBX-8562](https://issues.ibexa.co/browse/IBX-8562).
 
 If you're affected you can remove the duplicated entries by running the following command:

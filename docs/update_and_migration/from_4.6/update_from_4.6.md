@@ -214,7 +214,9 @@ There are no code changes to apply. For more information, see the security advis
 Only users of the [old Commerce solution](update_from_4.3_old_commerce.md) are affected.
 There are no code changes to apply. For more information, see the security advisory[TODO: insert link].
 
-### Disable translations of identifiers in Product Catalog's categories
+#### Other changes
+
+#### Disable translations of identifiers in Product Catalog's categories
 
 The possibility of translating identifiers and parent information for the Categories in Product Catalog might lead to data consistency issues.
 
