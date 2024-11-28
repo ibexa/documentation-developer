@@ -948,4 +948,4 @@ CREATE INDEX idx_workflow_name ON ezeditorialworkflow_workflows(workflow_name);
 
 ## Update to v3.3
 
-it's strongly recommended to also [update to the latest LTS, v3.3](update_from_2.5.md).
+It's strongly recommended to also [update to the latest LTS, v3.3](update_from_2.5.md).

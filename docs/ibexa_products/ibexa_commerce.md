@@ -35,7 +35,7 @@ With a help of documentation and trainings, any developer familiar with Symfony 
 
 Version control systems and environment variables allow you to deploy your extensions and settings on several environments, such as [Ibexa Cloud](ibexa_cloud_guide.md).
 
-[[= product_name_com =]] is built on [Ibexa Experience](ibexa_experience.md) and includes all bundles, APIs, and features that come with both [Headless](ibexa_headless.md#core-features) and [Experience](ibexa_experience.md#core-features) editions.
+[[= product_name_com =]] is built on [[[= product_name_exp =]]](ibexa_experience.md) and includes all bundles, APIs, and features that come with both [[[= product_name_product_name_headless =]]](ibexa_headless.md#core-features) and [[[= product_name_exp =]]](ibexa_experience.md#core-features) editions.
 
 ## Capabilities and benefits
 
@@ -72,7 +72,7 @@ Depending on their role, users can also enable or disable shipping methods, chan
 #### Storefront
 
 The [Storefront](storefront.md) package includes a starter kit for developers.
-it's a foundational set of components that developers can customize and extend to create their own web store implementations.
+It's a foundational set of components that developers can customize and extend to create their own web store implementations.
 It contains default UI components and widgets that can be modified to [create a customized web store](customize_storefront_layout.md).
 
 #### Relevant faceted search

@@ -209,7 +209,7 @@ If product price filtering is activated, the information provided over the produ
 For more information, see [Content API](content_api.md).
 
 The currency is stored with the price and normalized only when statistic information is requested.
-it's often a good choice to select a base currency and convert prices before sending the buy event.
+It's often a good choice to select a base currency and convert prices before sending the buy event.
 The price attached to a buy event never overwrites the price which was defined in an item import.
 
 ### Click event

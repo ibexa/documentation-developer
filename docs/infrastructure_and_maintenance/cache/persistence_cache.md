@@ -138,7 +138,7 @@ There are two Redis adapters available out of the box that fit different needs.
 `volatile-ttl`, `volatile-lru` or `volatile-lfu` (Redis 4.0+).
 Use of LRU or LFU is recommended. it's also possible to use `noeviction`, but it's usually not practical.
 
-**Pros**: it's typically faster than `RedisAdapter`, because fewer lookups needed to cache backend.
+**Pros**: It's typically faster than `RedisAdapter`, because fewer lookups needed to cache backend.
 
 **Cons**: Consumes much more memory. To avoid situations where Redis stops accepting new cache
 (warnings about `Failed to save key`), set aside enough memory for the Redis server.
