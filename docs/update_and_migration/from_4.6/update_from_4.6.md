@@ -146,9 +146,9 @@ If the new bundle `ibexa/core-search` has not been added by the recipes, enable 
 
 ## v4.6.13
 
-This release comes with a command to clean up the duplicated entries in the `ezcontentobject_attribute` table, caused by the issue described in [IBX-8562](https://issues.ibexa.co/browse/IBX-8562).
+This release comes with a command to clean up duplicated entries in the `ezcontentobject_attribute` table, which were created due to an issue described in [IBX-8562](https://issues.ibexa.co/browse/IBX-8562).
 
-If you're affected you can remove the duplicated entries by running the following command:
+If you're affected, remove the duplicated entries by running the following command:
 ``` bash
 php bin/console ibexa:content:remove-duplicate-fields
 ```
@@ -159,6 +159,74 @@ php bin/console ibexa:content:remove-duplicate-fields
 
 You can customize the behavior of the command with the following options:
 
-- `batch-size` or `b` - number of attributes affected per iteration. Default value = 10000.
-- `max-iterations` or `i` - max. iterations count (default or -1: unlimited). Default value = -1.
-- `sleep` or `s` - wait time between iterations, in milliseconds. Default value = 0.
+- `--batch-size` or `-b` - number of attributes affected per iteration. Default value = 10000.
+- `--max-iterations` or `-i` - maximum iterations count. Default value = -1 (unlimited).
+- `--sleep` or `-s` - wait time between iterations, in milliseconds. Default value = 0.
+
+## v4.6.14
+
+### Security
+
+This release contains security fixes.
+For more information, see [the published security advisory](https://developers.ibexa.co/security-advisories/ibexa-sa-2024-006-vulnerabilities-in-content-name-pattern-commerce-shop-and-varnish-vhost-templates).
+For each of the following fixes, evaluate the vulnerability to determine whether you might have been affected.
+If so, take appropriate action, for example by [revoking passwords](https://doc.ibexa.co/en/latest/users/passwords/#revoking-passwords) for all affected users.
+
+#### <abbr title="Browser Reconnaissance & Exfiltration via Adaptive Compression of Hypertext">BREACH</abbr> vulnerability
+
+The [BREACH](https://www.breachattack.com/) attack is a security vulnerability against HTTPS when using HTTP compression.
+
+If you're using Varnish, update the VCL configuration to stop compressing both the [[= product_name =]]'s REST API and JSON responses from your backend.
+Fastly users are not affected.
+
+=== "Varnish on [[= product_name_cloud =]]"
+
+    Update Platform.sh configuration and scripts.
+
+    Generate new configuration with the following command:
+
+    ```bash
+    composer ibexa:setup --platformsh
+    ```
+
+    Review the changes, merge with your custom settings if needed, and commit them to Git before deployment.
+
+=== "Varnish 6"
+
+    Update your Varnish VCL file to align it with the [`vendor/ibexa/http-cache/docs/varnish/vcl/varnish6.vcl`](https://github.com/ibexa/http-cache/blob/4.6/docs/varnish/vcl/varnish6.vcl) file.
+
+=== "Varnish 7"
+
+    Update your Varnish VCL file to align it with the [`vendor/ibexa/http-cache/docs/varnish/vcl/varnish7.vcl`](https://github.com/ibexa/http-cache//blob/4.6/docs/varnish/vcl/varnish7.vcl) file.
+    ```
+
+If you're not using a reverse proxy like Varnish or Fastly, adjust the compressed `Content-Type` in the web server configuration.
+For more information, see the [updated Apache and nginx template configuration](https://github.com/ibexa/post-install/pull/86/files).
+
+#### XSS in Content name pattern
+
+There are no additional update steps to execute.
+
+#### Outdated version of jQuery in ibexa/ezcommerce-shop package
+
+Only users of the [old Commerce solution](update_from_4.3_old_commerce.md) are affected.
+There are no additional update steps to execute.
+
+### Other changes
+
+#### Disable translations of identifiers in Product Catalog's categories
+
+The possibility of translating identifiers and parent information for the Categories in Product Catalog might lead to data consistency issues.
+
+Disable it by running the following migration:
+
+``` bash
+php bin/console ibexa:migrations:import vendor/ibexa/product-catalog/src/bundle/Resources/migrations/2024_07_25_07_00_non_translatable_product_categories.yaml --name=2024_07_25_07_00_non_translatable_product_categories.yaml
+php bin/console ibexa:migrations:migrate --file=2024_07_25_07_00_non_translatable_product_categories.yaml
+```
+
+#### Update web server configuration
+
+Adjust the web server configuration to prevent direct access to the `index.php` file when using URLs consisting of multiple path segments.
+
+See [the updated Apache and nginx template files](https://github.com/ibexa/post-install/pull/70/files) for more information.

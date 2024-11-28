@@ -439,7 +439,79 @@ Run the following scripts:
 
 ### v3.3.40
 
-A command to deal with duplicated database entries, as reported in [IBX-8562](https://issues.ibexa.co/browse/IBX-8562), will be available soon.
+No additional steps needed.
+
+### v3.3.41
+
+#### Security
+
+This release contains security fixes.
+For more information, see [the published security advisory](https://developers.ibexa.co/security-advisories/ibexa-sa-2024-006-vulnerabilities-in-content-name-pattern-commerce-shop-and-varnish-vhost-templates).
+For each of the following fixes, evaluate the vulnerability to determine whether you might have been affected. 
+If so, take appropriate action, for example by [revoking passwords](https://doc.ibexa.co/en/latest/users/passwords/#revoking-passwords) for all affected users.
+
+##### <abbr title="Browser Reconnaissance & Exfiltration via Adaptive Compression of Hypertext">BREACH</abbr> vulnerability
+
+The [BREACH](https://www.breachattack.com/) attack is a security vulnerability against HTTPS when using HTTP compression.
+
+If you're using Varnish, update the VCL configuration to stop compressing both the [[= product_name =]]'s REST API and JSON responses from your backend.
+Fastly users are not affected.
+
+=== "Varnish on [[= product_name_cloud =]]"
+
+    Update the Varnish configuration.
+
+    Generate new configuration with the following command:
+
+    ```bash
+    composer ibexa:setup --platformsh
+    ```
+
+    Review the changes, merge with your custom settings if needed, and commit them to Git before deployment.
+
+=== "Varnish 6"
+
+    Update your Varnish VCL file to align it with the [`vendor/ezsystems/ezplatform-http-cache/docs/varnish/vcl/varnish5.vcl`](https://github.com/ezsystems/ezplatform-http-cache/blob/2.3/docs/varnish/vcl/varnish5.vcl) file.
+
+=== "Varnish 7"
+
+    Update your Varnish VCL file to align it with the [`vendor/ezsystems/ezplatform-http-cache/docs/varnish/vcl/varnish7.vcl`](https://github.com/ezsystems/ezplatform-http-cache/blob/2.3/docs/varnish/vcl/varnish7.vcl) file.
+    ```
+
+If you're not using a reverse proxy like Varnish or Fastly, adjust the compressed `Content-Type` in the web server configuration.
+For more information, see the [updated Apache and nginx template configuration](https://github.com/ibexa/post-install/pull/86/files).
+
+##### Outdated version of jQuery in ibexa/ezcommerce-shop package
+
+There are no additional update steps to execute.
+
+#### Other changes
+
+##### Remove duplicated entries in `ezcontentobject_attribute` table
+
+This release comes with a command to clean up duplicated entries in the `ezcontentobject_attribute` table, which were created due to an issue described in [IBX-8562](https://issues.ibexa.co/browse/IBX-8562).
+
+If you're affected, remove the duplicated entries by running the following command:
+``` bash
+php bin/console ibexa:content:remove-duplicate-fields
+```
+
+!!! caution
+
+    Remember about [**proper database backup**](backup.md) before running the command in the production environment.
+
+You can customize the behavior of the command with the following options:
+
+- `--batch-size` or `-b` - number of attributes affected per iteration. Default value = 10000.
+- `--max-iterations` or `-i` - maximum iterations count. Default value = -1 (unlimited).
+- `--sleep` or `-s` - wait time between iterations, in milliseconds. Default value = 0.
+
+##### Update web server configuration
+
+Adjust the web server configuration to prevent direct access to the `index.php` file when using URLs consisting of multiple path segments.
+
+See [the updated Apache and nginx template files](https://github.com/ibexa/post-install/pull/70/files) for more information.
+
 
 ## Finish the update
 
