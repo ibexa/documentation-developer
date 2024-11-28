@@ -37,7 +37,12 @@ Add the `ibexa_dam_oauth2_client_user` table to the database:
 php bin/console ibexa:doctrine:schema:dump-sql vendor/ibexa/dam-user/src/bundle/Resources/config/schema.yaml | mysql -u <username> -p <database_name>
 ```
 
-Next, add technical users, required by DAM to your [[= product_name =]] instance.
+Next, create technical users, required by DAM to your [[= product_name =]] instance:
+
+- `image-picker-reader` - with read permission
+- `imgage-picker-editor` - with edit/ delete permission
+
+Both users have limited access to Media folder only.
 
 To do it, first, import the migration file:
 
@@ -59,7 +64,15 @@ Create OAuth2 client for the DXP user:
 php bin/console ibexa:dam:create-oauth2-client <client-name> <user-identifier>
 ```
 
+For example:
+
+```bash
+php bin/console ibexa:dam:create-oauth2-client <acme> <image-picker-editor>
+```
+
 ## Override admin-ui
+
+Override parameters for `admin_group` and use `site_group` scope to make them available under REST API.
 
 Add the following configuration in the `yaml` file, for example, `ibexa_admin_ui_settings.yaml`:
 
@@ -136,9 +149,9 @@ nelmio_cors:
             allow_headers: ['Content-Type', 'Authorization', 'X-HTTP-Method-Override']
 ```
 
-Next, in the `.env` file provide path with a regular expression:
+Next, in the `.env` file provide path with a regular expression and change the domain to yours:
 
-`CORS_ALLOW_ORIGIN='^https?://(localhost|127\.0\.0\.1|(.+\.acme\.(com|eu)))?(:[0-9]+)?$'`
+`CORS_ALLOW_ORIGIN='^https?://(localhost|127\.0\.0\.1|(.+\.yourdomain\.(com|eu)))?(:[0-9]+)?$'`
 
 
 ### Override `nelmio` settings
