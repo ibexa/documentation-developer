@@ -358,7 +358,8 @@ Sending Rendered events causes as many requests as recommendations to be display
 Example of a recommendation response:
 
 ``` json
-"recommendationItems": [
+{
+  "recommendationItems": [
     {
       "relevance": 23,
       "itemType": 1,
@@ -372,7 +373,10 @@ Example of a recommendation response:
       "links" : {
          "clickRecommended" : "//event.perso.ibexa.co/clickrecommended/johndoe/1/100175717?scenario=also_clicked&modelId=37",
          "rendered" : "//event.perso.ibexa.co/rendered/johndoe/1/100175717"
-      },
+      }
+    }  
+  ]
+}
 ```
 
 | Field name | Description |
