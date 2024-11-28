@@ -202,7 +202,7 @@ Fastly users are not affected.
     ```
 
 If you're not using a reverse proxy like Varnish or Fastly, adjust the compressed Content Type in the web server configuration.
-For more information. see the [updated Apache and nginx template configuration](https://github.com/ibexa/post-install/pull/86/files).
+For more information, see the [updated Apache and nginx template configuration](https://github.com/ibexa/post-install/pull/86/files).
 
 #### XSS in Content name pattern
 
