@@ -504,9 +504,9 @@ php bin/console ibexa:content:remove-duplicate-fields
 
 You can customize the behavior of the command with the following options:
 
-- `batch-size` or `b` - number of attributes affected per iteration. Default value = 10000.
-- `max-iterations` or `i` - max. iterations count (default or -1: unlimited). Default value = -1.
-- `sleep` or `s` - wait time between iterations, in milliseconds. Default value = 0.
+- `--batch-size` or `-b` - number of attributes affected per iteration. Default value = 10000.
+- `--max-iterations` or `-i` - max. iterations count (default or -1: unlimited). Default value = -1.
+- `--sleep` or `-s` - wait time between iterations, in milliseconds. Default value = 0.
 
 ## Finish the update
 
