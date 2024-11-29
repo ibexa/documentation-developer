@@ -1,4 +1,4 @@
-(function (global, doc) {
+(function(global, doc) {
     let match;
     const search_query = (match = doc.location.search.match(/sq=(.*?)(&|$)/)) ? match[1] : '';
     const parsed_search_query = decodeURI(search_query.replaceAll('+', ' '));
@@ -16,7 +16,7 @@
         initialUiState: {
             ezplatform: {
                 query: parsed_search_query,
-                refinementList: {version: [version]},
+                refinementList: { version: [version] },
                 page: parsed_search_page,
             },
         },
@@ -35,7 +35,7 @@
         const searchInputElements = document.getElementsByClassName('ais-SearchBox-input');
         const text = searchInputElements[0].value.trim();
         const selectedPaginationItemElements = doc.getElementsByClassName('ais-Pagination-item--selected');
-        const page = selectedPaginationItemElements.length ? parseInt(selectedPaginationItemElements[0].innerText) : 1
+        const page = selectedPaginationItemElements.length ? parseInt(selectedPaginationItemElements[0].innerText) : 1;
         const url = new URL(window.location);
         url.searchParams.set('sq', text);
         url.searchParams.set('p', page);
@@ -45,27 +45,27 @@
     let idleTimer;
     const startIdleTimer = (url) => {
         stopIdleTimer();
-        idleTimer = window.setTimeout(()=>{
+        idleTimer = window.setTimeout(() => {
             window.history.pushState({}, '', url);
         }, 1500);
     };
     const stopIdleTimer = () => {
         window.clearTimeout(idleTimer);
-    }
+    };
 
-    doc.getElementById('searchbox').addEventListener('keyup', function (event) {
+    doc.getElementById('searchbox').addEventListener('keyup', function(event) {
         const url = getNextSearchURL();
         if (url.searchParams.get('sq') != (new URL(window.location)).searchParams.get('sq')) {
             url.searchParams.set('p', 1);
             startIdleTimer(url);
         }
-    })
+    });
 
-    doc.getElementById('pagination').addEventListener('click', function (event) {
+    doc.getElementById('pagination').addEventListener('click', function(event) {
         stopIdleTimer();
         const url = getNextSearchURL();
         window.history.pushState({}, '', url);
-    })
+    });
 
     window.onpopstate = (event) => {
         window.location.reload();
@@ -96,10 +96,10 @@
 
                     const headerHTML = `<h3 class="instantsearch__entry-header">
                         ${instantsearch.highlight({
-                            attribute: `hierarchy.${entryNameKey}`,
-                            highlightedTagName: 'mark',
-                            hit: hit
-                        })}
+                        attribute: `hierarchy.${entryNameKey}`,
+                        highlightedTagName: 'mark',
+                        hit: hit,
+                    })}
                     </h3>`;
 
                     let breadcrumbsHTML = '';
@@ -108,21 +108,21 @@
                     if (hit.content && hit._highlightResult.content.matchedWords.length && (!hit._highlightResult.content.fullyHighlighted || 1 < hit._highlightResult.content.matchedWords.length)) {
                         contentHTML = `<div class="instantsearch__entry-content">
                             ${instantsearch.highlight({
-                                attribute: `content`,
-                                highlightedTagName: 'mark',
-                                hit: hit
-                            }).replaceAll('&amp;', '&')}
+                            attribute: `content`,
+                            highlightedTagName: 'mark',
+                            hit: hit,
+                        }).replaceAll('&amp;', '&')}
                         </div>`;
                     }
 
                     breadcrumbsKeys?.forEach((breadcrumbKey) => {
                         breadcrumbsHTML += `<span class="instantsearch__entry-breadcrumbs-item">
                             ${instantsearch.highlight({
-                                attribute: `hierarchy.${breadcrumbKey}`,
-                                highlightedTagName: 'mark',
-                                hit: hit
-                            })}
-                        </span>`
+                            attribute: `hierarchy.${breadcrumbKey}`,
+                            highlightedTagName: 'mark',
+                            hit: hit,
+                        })}
+                        </span>`;
                     });
 
                     return resultHTML = `<a class="instantsearch__entry" href="${hit.url}">
