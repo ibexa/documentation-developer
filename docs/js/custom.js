@@ -148,7 +148,7 @@ $(document).ready(function() {
         $('.algolia-docsearch-suggestion--wrapper').each((index, element) => {
             const title = $(element).find('.algolia-docsearch-suggestion--title');
             const category = $(element).find('.algolia-docsearch-suggestion--subcategory-column-text');
-            category.append('<span class="aa-suggestion-title-separator" aria-hidden="true">&gt;</span>');
+            category.append('<span class="aa-suggestion-title-separator" aria-hidden="true"> › </span>');
             if (title.find('.aa-suggestion-title-separator').length) {
                 $.each(title.contents(), (i, e) => {
                     if (title.contents().length > 1) {
