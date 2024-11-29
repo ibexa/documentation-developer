@@ -9,6 +9,7 @@
         version = 'master';
     }
     const hitsContainer = '#hits';
+    const statsContainer = '#stats';
     const paginationContainer = '#pagination';
     const search = instantsearch({
         indexName: 'ezplatform',
@@ -23,9 +24,11 @@
         searchFunction(helper) {
             if (helper.state.query) {
                 helper.search();
+                $(statsContainer).css('visibility', 'visible');
                 $(paginationContainer).show();
             } else {
                 $(hitsContainer).empty();
+                $(statsContainer).css('visibility', 'hidden');
                 $(paginationContainer).hide();
             }
         },
@@ -76,7 +79,7 @@
             hitsPerPage: 10,
         }),
         instantsearch.widgets.stats({
-            container: '#stats',
+            container: statsContainer,
             templates: {
                 text: `<h1>
                 Search results ({{#helpers.formatNumber}}{{nbHits}}{{/helpers.formatNumber}})
