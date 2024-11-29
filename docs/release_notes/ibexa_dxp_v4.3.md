@@ -3,7 +3,7 @@ description: Ibexa DXP v4.3 adds the improvements to the Customer Portal, PIM an
 ---
 <!-- vale VariablesVersion = NO -->
 
-# [[= product_name =]] v4.3
+# Ibexa DXP v4.3
 
 **Version number**: v4.3
 

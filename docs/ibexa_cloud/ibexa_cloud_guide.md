@@ -4,7 +4,7 @@ title: Ibexa Cloud product guide
 month_change: false
 ---
 
-# [[= product_name_cloud =]] product guide
+# Ibexa Cloud product guide
 
 ## What is [[= product_name_cloud =]]
 
