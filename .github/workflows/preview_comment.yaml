@@ -31,7 +31,7 @@ jobs:
                       comment="Too many files modified in a single PR. Unable to post preview links, sorry!"
                     else
                       filenames=$(echo "$changed_files" | rev | cut -d / -f 1 | rev)
-                      urls=$(echo "$changed_files" | cut -d / -f 2- | sed -e "s/^/$build_url/")
+                      urls=$(echo "$changed_files" | cut -d / -f 2- | sed -e "s ^ $build_url ")
 
                       left_bracket=$(yes "[" | head -n $number_of__changed_files )
                       middle_brackets=$(yes "](" | head -n $number_of__changed_files )
