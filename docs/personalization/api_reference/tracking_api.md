@@ -380,7 +380,7 @@ Example of a trigger message:
 ``` json
    "customerID":"177751",
    "userExternalId":"user@ibexa.co",
-   "triggerType":"REACTIVATION|ABANDAONED_SHOPPING_CART",
+   "triggerType":"REACTIVATION|ABANDONED_SHOPPING_CART",
    "triggerName":"trigger_ref_code",
    "triggerOpenedLink":"//event.perso.ibexa.co/api/17751/triggeropened/johndoe?triggername=action_trigger_ref_code",
    "recommendations":[
@@ -389,8 +389,8 @@ Example of a trigger message:
          "itemType":46,
          "clickRecommended":"//event.perso.ibexa.co/api/17751/clicktriggered/johndoe/46/959?triggername=action_trigger_ref_code",
          "attributes":{
-            "ses_name":"Minimalista Coffee Table",
-			"ses_image":["img_1", "img_2"]
+            "ses_name":"Minimalist Coffee Table",
+            "ses_image":["img_1", "img_2"]
          }
       }
    ]
