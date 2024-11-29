@@ -207,7 +207,7 @@ For more information, see the [updated Apache and nginx template configuration](
 
 There are no additional update steps to execute.
 
-#### Outdated version of jQuery in ibexa/ezcommerce-shop package
+#### Outdated version of jQuery in ibexa/commerce-shop package
 
 Only users of the [old Commerce solution](update_from_4.3_old_commerce.md) are affected.
 There are no additional update steps to execute.
