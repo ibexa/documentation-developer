@@ -54,8 +54,8 @@ footer.md-footer {
 .md-content .ais-InstantSearch .ais-Highlight-highlighted {
     background-color: #ECF4FF;
     color: #4191FF;
-    font-size: 14px;
-    line-height: 21px;
+    font-size: inherit;
+    line-height: inherit;
 }
 
 .md-content .ais-InstantSearch .instantsearch__entry {
