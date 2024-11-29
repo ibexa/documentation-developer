@@ -25,9 +25,9 @@ jobs:
                     changed_files=$(git diff --name-only HEAD origin/$GITHUB_BASE_REF | grep -E ".md$" || [[ $? == 1 ]])
                     number_of__changed_files=$(echo $changed_files | wc -l)
 
-                    if [[ $changed_files -eq "" ]] then:
+                    if [[ $changed_files -eq "" ]] ; then
                       comment="No markdown files changed, no preview needed."
-                    elif [[ $number_of__changed_files -gt file_limit ]] then:
+                    elif [[ $number_of__changed_files -gt file_limit ]] ; then
                       comment="Too many files modified in a single PR. Unable to post preview links, sorry!"
                     else
                       filenames=$(echo "$changed_files" | rev | cut -d / -f 1 | rev)
