@@ -4,7 +4,7 @@ description: Ibexa DXP v4.5 adds new features to Ibexa Commerce, translation com
 
 <!-- vale off -->
 
-# Ibexa DXP v4.5
+# [[= product_name =]] v4.5
 
 **Version number**: v4.5
 

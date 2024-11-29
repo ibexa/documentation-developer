@@ -2,7 +2,7 @@
 description: Use DDEV to run an Ibexa Cloud project locally.
 ---
 
-# DDEV and Ibexa Cloud
+# DDEV and [[= product_name_cloud =]]
 
 Two ways are available to run an [[= product_name_cloud =]] project locally with DDEV:
 

@@ -2,7 +2,7 @@
 description: Install and configure Ibexa DXP to run in cloud using Ibexa Cloud.
 ---
 
-# Install on Ibexa Cloud
+# Install on [[= product_name_cloud =]]
 
 [[= product_name_cloud =]] enables you to host your application in the cloud by using the [Platform.sh](https://platform.sh/) service.
 

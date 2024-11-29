@@ -2,7 +2,7 @@
 description: The Ibexa DXP PHPStorm plugin helps you speed up your development by providing file templates, autocompletion, a quick installation wizard, and more.
 ---
 
-# Ibexa DXP plugin for PhpStorm
+# [[= product_name =]] plugin for PhpStorm
 
 [[= product_name =]] plugin for PhpStorm helps you to work with [[= product_name =]] by speeding up installation and providing file templates, intentions, autocompletion, and other features.
 

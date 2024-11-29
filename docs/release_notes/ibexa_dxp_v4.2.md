@@ -4,7 +4,7 @@ description: Ibexa DXP v4.2 adds the Customer Portal and user management capabil
 
 <!-- vale VariablesVersion = NO -->
 
-# Ibexa DXP v4.2
+# [[= product_name =]] v4.2
 
 **Version number**: v4.2
 

@@ -2,7 +2,7 @@
 description: Install Ibexa DXP on a Linux system and prepare your installation for production.
 ---
 
-# Install Ibexa DXP
+# Install [[= product_name =]]
 
 !!! note
 

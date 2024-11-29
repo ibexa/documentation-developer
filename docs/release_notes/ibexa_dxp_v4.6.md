@@ -4,7 +4,7 @@ description: Ibexa DXP v4.6 brings improvements to Commerce, PIM and Personaliza
 
 <!-- vale VariablesVersion = NO -->
 
-# Ibexa DXP v4.6
+# [[= product_name =]] v4.6
 
 **Version number**: v4.6
 
