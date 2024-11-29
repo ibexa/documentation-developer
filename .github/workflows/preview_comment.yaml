@@ -18,7 +18,6 @@ jobs:
 
             -   name: Create comment for changed files
                 run: |
-                    set -x #TMP
                     file_limit=100
                     build_url="https://ez-systems-developer-documentation--${{ github.event.pull_request.number }}.com.readthedocs.build/en/${{ github.event.pull_request.number }}/"
 
@@ -30,7 +29,7 @@ jobs:
                     elif [[ $number_of__changed_files -gt file_limit ]] ; then
                       comment="Too many files modified in a single PR. Unable to post preview links, sorry!"
                     else
-                      filenames=$(echo "$changed_files" | rev | cut -d / -f 1 | rev)
+                      filenames=$(echo "$changed_files" | rev | cut -d / -f 1 | rev | cut -d . -f 1)
                       urls=$(echo "$changed_files" | cut -d / -f 2- | sed -e "s ^ $build_url ")
 
                       left=$(yes "- [" | head -n $number_of__changed_files )
@@ -41,7 +40,9 @@ jobs:
                       comment="Preview of modified files:\n\n$comment"
                     fi
 
-                    echo $comment > comment.md
+                    echo -e $comment > comment.md
+
+                    cat comments.md #DEBUG
 
             -   name: Find comment
                 id: find-comment
