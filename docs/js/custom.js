@@ -23,7 +23,7 @@ $(document).ready(function() {
             'href',
             $(this)
                 .attr('href')
-                .replace('master/docs/', branchName + '/docs/')
+                .replace('master/docs/', branchName + '/docs/'),
         );
     });
 
@@ -153,11 +153,11 @@ $(document).ready(function() {
             const category = $(element).find('.algolia-docsearch-suggestion--subcategory-column-text');
             category.append(separatorHtml);
             if (title.find('.' + separatorClass).length) {
-                $.each(title.contents(), (i, e) => {
-                    if (title.contents().length > 1) {
-                        $(e).appendTo(category);
-                    }
-                });
+                const titleParts = title.html().split(separatorHtml);
+                for (let i = 0; i < titleParts.length - 1; i++) {
+                    category.html(category.html() + titleParts[i] + separatorHtml);
+                }
+                title.html(titleParts[titleParts.length - 1]);
             }
             if (separatorText != category.text().trim().slice(-1)) {
                 category.append(separatorHtml);
@@ -209,7 +209,7 @@ $(document).ready(function() {
         if ($('.md-sidebar--secondary .md-nav__link--active').length) {
             $('.md-sidebar--secondary .md-nav__link--active')[0].scrollIntoView({
                 behavior: 'instant',
-                block: 'nearest'
+                block: 'nearest',
             });
         } else {
             $('.md-sidebar--secondary .md-sidebar__scrollwrap').scrollTop(0);
