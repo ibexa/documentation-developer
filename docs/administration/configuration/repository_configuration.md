@@ -80,7 +80,7 @@ ibexa:
                 prefix: Ibexa\Bundle\Core\Entity
 ```
 
-For more information, see [DoctrineBundle documentation](https://symfony.com/doc/3.4/reference/configuration/doctrine.html).
+For more information, see [DoctrineBundle documentation]([[= symfony_doc =]]/reference/configuration/doctrine.html).
 
 !!! note
 
