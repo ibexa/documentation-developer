@@ -8,6 +8,8 @@
     if (!/^\d+\.\d+$/.test(version) && version !== 'latest') {
         version = 'master';
     }
+    const hitsContainer = '#hits';
+    const paginationContainer = '#pagination';
     const search = instantsearch({
         indexName: 'ezplatform',
         searchClient: algoliasearch('2DNYOU6YJZ', '21ce3e522455e18e7ee16cf7d66edb4b'),
@@ -17,6 +19,15 @@
                 refinementList: {version: [version]},
                 page: parsed_search_page,
             },
+        },
+        searchFunction(helper) {
+            if (helper.state.query) {
+                helper.search();
+                $(paginationContainer).show();
+            } else {
+                $(hitsContainer).empty();
+                $(paginationContainer).hide();
+            }
         },
     });
 
@@ -76,7 +87,7 @@
             container: '#searchbox',
         }),
         instantsearch.widgets.hits({
-            container: '#hits',
+            container: hitsContainer,
             templates: {
                 item: (hit) => {
                     const hierarchy = Object.entries(hit.hierarchy).filter(([, value]) => value);
@@ -125,7 +136,7 @@
             },
         }),
         instantsearch.widgets.pagination({
-            container: '#pagination',
+            container: paginationContainer,
             padding: 2,
             templates: {
                 first: `<svg class="tile-icon" width="16" height="16">
