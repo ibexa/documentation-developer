@@ -25,14 +25,10 @@ Next, enable 0Auth Server authentication. To do it, follow steps up to the [Clie
 
 If you have your [[= product_name =]] project deplyed on Platform.sh, the following steps are required:
 
-In the `.env` file, set paths to OAuth Server.
+In the `.platform.app.yaml` file, set paths for private and public keys to OAuth Server.
 Next, generate these keys and add them.
 
 ```bash
-Platform.sh
-
-.platform.app.yaml
-
 variables:
 	env:
 		# OAuth2 Server paths to certificates
