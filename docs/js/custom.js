@@ -156,6 +156,9 @@ $(document).ready(function() {
                     }
                 });
             }
+            if ('›' != category.text().trim().slice(-1)) {
+                category.append('<span class="aa-suggestion-title-separator" aria-hidden="true"> › </span>');
+            }
             const displayedText = $(element).find('.algolia-docsearch-suggestion--text');
             if (displayedText.length && displayedText.text() == searchedText+'…') {
                 displayedText.remove();
