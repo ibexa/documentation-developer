@@ -33,15 +33,16 @@ jobs:
                       filenames=$(echo "$changed_files" | rev | cut -d / -f 1 | rev)
                       urls=$(echo "$changed_files" | cut -d / -f 2- | sed -e "s ^ $build_url ")
 
-                      left_bracket=$(yes "[" | head -n $number_of__changed_files )
-                      middle_brackets=$(yes "](" | head -n $number_of__changed_files )
-                      right_bracket=$(yes ")" | head -n $number_of__changed_files )
+                      left=$(yes "- [" | head -n $number_of__changed_files )
+                      middle=$(yes "](" | head -n $number_of__changed_files )
+                      right=$(yes ")" | head -n $number_of__changed_files )
 
-                      comment=$(paste -d'\0' <(echo "$left_bracket") <(echo "$filenames") <(echo "$middle_brackets") <(echo "$urls") <(echo "$right_bracket"))
-                      comment="Preview of modified files:\n$comment"
+                      comment=$(paste -d'\0' <(echo "$left") <(echo "$filenames") <(echo "$middle") <(echo "$urls") <(echo "$right"))
+                      comment="Preview of modified files:\n\n$comment"
                     fi
 
-                    echo "comment=$comment" >> $GITHUB_ENV
+                    echo $comment > comment.md
+
             -   name: Find comment
                 id: find-comment
                 uses: peter-evans/find-comment@v3
@@ -49,10 +50,11 @@ jobs:
                     issue-number: ${{ github.event.pull_request.number }}
                     comment-author: 'github-actions[bot]'
                     body-includes: 'Preview of modified files'
+
             -   name: Create or update comment
                 uses: peter-evans/create-or-update-comment@v4
                 with:
                     comment-id: ${{ steps.fc.outputs.comment-id }}
                     issue-number: ${{ github.event.pull_request.number }}
-                    body: ${{ env.comment }}
+                    body-path: comment.md
                     edit-mode: replace
