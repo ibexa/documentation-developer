@@ -109,9 +109,9 @@ footer.md-footer {
 }
 
 .md-content .ais-InstantSearch .instantsearch__entry-breadcrumbs-item:after {
-    content: '>';
+    content: '›';
     display: inline-block;
-    padding: 0 10px;
+    padding: 0 5px;
 }
 
 .md-content .ais-InstantSearch .ais-Pagination .ais-Pagination-list:not([hidden]) {
