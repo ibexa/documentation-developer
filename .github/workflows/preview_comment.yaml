@@ -12,11 +12,7 @@ jobs:
             pull-requests: write
 
         steps:
-            -   name: Create a list of previ
-                id: list
-                run: |
-
-
+            - uses: actions/checkout@v4
 
             -   name: Create comment for changed files
                 run: |
