@@ -18,6 +18,7 @@ jobs:
 
             -   name: Create comment for changed files
                 run: |
+                    set -x #TMP
                     file_limit=100
                     build_url="https://ez-systems-developer-documentation--${{ github.event.pull_request.number }}.com.readthedocs.build/en/${{ github.event.pull_request.number }}/"
 
@@ -37,6 +38,7 @@ jobs:
                       right_bracket=$(yes ")" | head -n $number_of__changed_files )
 
                       comment=$(paste -d'\0' <(echo "$left_bracket") <(echo "$filenames") <(echo "$middle_brackets") <(echo "$urls") <(echo "$right_bracket"))
+                      comment="Preview of modified files:\n$comment"
                     fi
 
                     echo "comment=$comment" >> $GITHUB_ENV
