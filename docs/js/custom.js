@@ -148,7 +148,9 @@ $(document).ready(function() {
         $('.algolia-docsearch-suggestion--wrapper').each((index, element) => {
             const title = $(element).find('.algolia-docsearch-suggestion--title');
             const category = $(element).find('.algolia-docsearch-suggestion--subcategory-column-text');
-            category.append('<span class="aa-suggestion-title-separator" aria-hidden="true"> › </span>');
+            const separatorText = '›';
+            const separatorHtml = '<span class="aa-suggestion-title-separator" aria-hidden="true"> '+separatorText+' </span>';
+            category.append(separatorHtml);
             if (title.find('.aa-suggestion-title-separator').length) {
                 $.each(title.contents(), (i, e) => {
                     if (title.contents().length > 1) {
@@ -156,8 +158,8 @@ $(document).ready(function() {
                     }
                 });
             }
-            if ('›' != category.text().trim().slice(-1)) {
-                category.append('<span class="aa-suggestion-title-separator" aria-hidden="true"> › </span>');
+            if (separatorText != category.text().trim().slice(-1)) {
+                category.append(separatorHtml);
             }
             const displayedText = $(element).find('.algolia-docsearch-suggestion--text');
             if (displayedText.length && displayedText.text() == searchedText+'…') {
