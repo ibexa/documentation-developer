@@ -153,11 +153,11 @@ $(document).ready(function() {
             const category = $(element).find('.algolia-docsearch-suggestion--subcategory-column-text');
             category.append(separatorHtml);
             if (title.find('.' + separatorClass).length) {
-                $.each(title.contents(), (i, e) => {
-                    if (title.contents().length > 1) {
-                        $(e).appendTo(category);
-                    }
-                });
+                const titleParts = title.html().split(separatorHtml);
+                for (let i = 0; i < titleParts.length-2; i++) {
+                    $(titleParts[i]).appendTo(category);
+                }
+                title.html(titleParts[titleParts.length-1]);
             }
             if (separatorText != category.text().trim().slice(-1)) {
                 category.append(separatorHtml);
