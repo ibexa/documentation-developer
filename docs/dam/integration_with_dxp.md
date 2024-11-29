@@ -18,7 +18,7 @@ the following search engines on your server:
 
 ## Enable OAuth Server
 
-Next, enable 0Auth Server authentication. To do it, follow steps up to the [Client section](oauth_server.md).
+Next, enable OAuth Server authentication. To do it, follow steps up to the [Client section](oauth_server.md).
 
 ## Integration with Platform.sh
 
