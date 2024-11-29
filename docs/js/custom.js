@@ -145,13 +145,14 @@ $(document).ready(function() {
     });
     search.autocomplete.on('autocomplete:updated', event => {
         const searchedText = $('#search_input')[0].value.trim();
+        const separatorText = '›';
+        const separatorClass = 'aa-suggestion-title-separator';
+        const separatorHtml = '<span class="' + separatorClass + '" aria-hidden="true"> ' + separatorText + ' </span>';
         $('.algolia-docsearch-suggestion--wrapper').each((index, element) => {
             const title = $(element).find('.algolia-docsearch-suggestion--title');
             const category = $(element).find('.algolia-docsearch-suggestion--subcategory-column-text');
-            const separatorText = '›';
-            const separatorHtml = '<span class="aa-suggestion-title-separator" aria-hidden="true"> '+separatorText+' </span>';
             category.append(separatorHtml);
-            if (title.find('.aa-suggestion-title-separator').length) {
+            if (title.find('.' + separatorClass).length) {
                 $.each(title.contents(), (i, e) => {
                     if (title.contents().length > 1) {
                         $(e).appendTo(category);
@@ -162,7 +163,7 @@ $(document).ready(function() {
                 category.append(separatorHtml);
             }
             const displayedText = $(element).find('.algolia-docsearch-suggestion--text');
-            if (displayedText.length && displayedText.text() == searchedText+'…') {
+            if (displayedText.length && displayedText.text() == searchedText + '…') {
                 displayedText.remove();
             }
         });
