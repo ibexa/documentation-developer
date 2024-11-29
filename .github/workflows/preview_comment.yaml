@@ -32,7 +32,7 @@ jobs:
                       filenames=$(echo "$changed_files" | rev | cut -d / -f 1 | rev | cut -d . -f 1)
                       urls=$(echo "$changed_files" | cut -d / -f 2- | sed -e "s ^ $build_url ")
 
-                      left=$(yes "- [" | head -n $number_of__changed_files )
+                      left=$(yes -- "- [" | head -n $number_of__changed_files )
                       middle=$(yes "](" | head -n $number_of__changed_files )
                       right=$(yes ")" | head -n $number_of__changed_files )
 
