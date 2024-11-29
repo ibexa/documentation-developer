@@ -1,6 +1,6 @@
 <!-- vale VariablesVersion = NO -->
 
-# [[= product_name =]] v4.0
+# Ibexa DXP v4.0
 
 **Version number**: v4.0
 

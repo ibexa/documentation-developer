@@ -3,7 +3,7 @@ description: Ibexa DXP v4.1 enhances the PIM capabilities, adds a Measurement fi
 ---
 <!-- vale VariablesVersion = NO -->
 
-# [[= product_name =]] v4.1
+# Ibexa DXP v4.1
 
 **Version number**: v4.1
 

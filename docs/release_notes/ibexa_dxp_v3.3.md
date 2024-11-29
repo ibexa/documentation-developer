@@ -4,7 +4,7 @@ description: Ibexa DXP v3.3 is a Long Term Support release that offers a new Per
 
 <!-- vale off -->
 
-# [[= product_name =]] v3.3
+# Ibexa DXP v3.3
 
 **Version number**: v3.3
 
