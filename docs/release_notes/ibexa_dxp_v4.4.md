@@ -3,7 +3,7 @@ description: Ibexa DXP v4.4 adds the improvements to the Welcome Page, All-new I
 ---
 <!-- vale VariablesVersion = NO -->
 
-# [[= product_name =]] v4.4
+# Ibexa DXP v4.4
 
 **Version number**: v4.4
 
