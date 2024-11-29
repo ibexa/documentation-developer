@@ -22,10 +22,10 @@ jobs:
                     file_limit=100
                     build_url="https://ez-systems-developer-documentation--${{ github.event.pull_request.number }}.com.readthedocs.build/en/${{ github.event.pull_request.number }}/"
 
-                    changed_files=$(git diff --name-only HEAD origin/$GITHUB_BASE_REF | grep -E ".md$")
+                    changed_files=$(git diff --name-only HEAD origin/$GITHUB_BASE_REF | grep -E ".md$" || [[ $? == 1 ]])
                     number_of__changed_files=$(echo $changed_files | wc -l)
 
-                    if [[ $number_of__changed_files -eq 0 ]] then:
+                    if [[ $changed_files -eq "" ]] then:
                       comment="No markdown files changed, no preview needed."
                     elif [[ $number_of__changed_files -gt file_limit ]] then:
                       comment="Too many files modified in a single PR. Unable to post preview links, sorry!"
