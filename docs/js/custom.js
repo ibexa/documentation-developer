@@ -67,7 +67,9 @@ $(document).ready(function() {
             $('.rst-other-versions.switcher__list dl.versions dd strong').parent().addClass('rtd-current-item');
 
             if ('master' !== (vl = $('.rst-other-versions.switcher__list dl.versions')).find('dd:first').text()) {
-                vl.find('dd').each(function() {$(this).detach().prependTo(vl)});
+                vl.find('dd').each(function() {
+                    $(this).detach().prependTo(vl);
+                });
             }
 
             const allVersions = [...document.querySelectorAll('.switcher__list .versions dd')];
@@ -104,46 +106,73 @@ $(document).ready(function() {
         }
     });
 
-    $('.md-content a:not(.md-icon):not(.md-source)')
+    $('.md-content a:not(.md-icon):not(.md-source):not(.instantsearch__entry)')
         .filter(function() {
             return this.hostname && this.hostname !== location.hostname;
         })
         .addClass('external');
 
-    docsearch({
+    const hitsPerPage = 10;
+    let search = docsearch({
         apiKey: 'bfb5bd7cad971d31ef8be599174334f3',
         indexName: 'ezplatform',
         inputSelector: '#search_input',
         transformData: function(hits) {
-            let removedPattern = '¶';
-            $.each(hits, function(index, hit) {
-                for (let lvl=2; lvl<=6; lvl++) {
-                    if (null !== hit.hierarchy['lvl'+lvl]) {
-                        hits[index].hierarchy['lvl' + lvl] = hit.hierarchy['lvl' + lvl].replace(removedPattern, '');
-                    }
-                    if ('undefined' !== typeof hit._highlightResult.hierarchy['lvl'+lvl]) {
-                        hits[index]._highlightResult.hierarchy['lvl'+lvl].value = hit._highlightResult.hierarchy['lvl'+lvl].value.replace(removedPattern, '');
-                    }
-                }
-            });
+            let link = $('.ds-dropdown-menu a.search-page-link');
+            if (!link.length) {
+                $('.ds-dropdown-menu').append(`<div class="search-page-link-wrapper">
+                    <a class="search-page-link" href="">See all results</a>
+                </div>`);
+                link = $('.ds-dropdown-menu a.search-page-link');
+            }
+            const href = '/en/' + branchName + '/search_results/?sq=' + encodeURI($('#search_input').val()) + '&p=1';
+            link.attr('href', href).toggle(hits.length >= hitsPerPage);
         },
         algoliaOptions: {
             facetFilters: ['lang:en', 'version:' + branchName],
-            hitsPerPage: 10,
+            hitsPerPage: hitsPerPage,
+        },
+        handleSelected: function(input, event, suggestion, datasetNumber, context) {
+            if (context.selectionMethod == 'click') {
+                window.location = suggestion.url;
+            } else if (context.selectionMethod == 'enterKey') {
+                window.location = $('.ds-dropdown-menu a.search-page-link').attr('href');
+            }
         },
         debug: false,
     });
-
-    $(document).on('keypress', '#search_input', function(event) {
-        if (event.keyCode == 13) {
-            event.preventDefault();
-        }
+    search.autocomplete.on('autocomplete:updated', event => {
+        const searchedText = $('#search_input')[0].value.trim();
+        const separatorText = '›';
+        const separatorClass = 'aa-suggestion-title-separator';
+        const separatorHtml = '<span class="' + separatorClass + '" aria-hidden="true"> ' + separatorText + ' </span>';
+        $('.algolia-docsearch-suggestion--wrapper').each((index, element) => {
+            const title = $(element).find('.algolia-docsearch-suggestion--title');
+            const category = $(element).find('.algolia-docsearch-suggestion--subcategory-column-text');
+            category.append(separatorHtml);
+            if (title.find('.' + separatorClass).length) {
+                $.each(title.contents(), (i, e) => {
+                    if (title.contents().length > 1) {
+                        $(e).appendTo(category);
+                    }
+                });
+            }
+            if (separatorText != category.text().trim().slice(-1)) {
+                category.append(separatorHtml);
+            }
+            const displayedText = $(element).find('.algolia-docsearch-suggestion--text');
+            if (displayedText.length && displayedText.text() == searchedText + '…') {
+                displayedText.remove();
+            }
+        });
     });
 
-    $(document).on('blur', '#search_input', function(event) {
-        setTimeout(() => {
-            $('#search_input').val('');
-        }, 0);
+    $(document).on('keydown keypress', 'form.md-search__form', function(event) {
+        if (event.keyCode == 13) {
+            event.preventDefault();
+
+            return false;
+        }
     });
 
     $('#search_input, label.md-search__icon').on('click', function() {
@@ -171,7 +200,7 @@ $(document).ready(function() {
 
     if ($('.md-sidebar--primary .md-sidebar__scrollwrap')[0] && $('.md-sidebar--primary .md-nav__item--active:not(.md-nav__item--nested)')[0]) {
         $('.md-sidebar--primary .md-sidebar__scrollwrap')[0].scrollTop =
-        $('.md-sidebar--primary .md-nav__item--active:not(.md-nav__item--nested)')[0].offsetTop - 33;
+            $('.md-sidebar--primary .md-nav__item--active:not(.md-nav__item--nested)')[0].offsetTop - 33;
     }
 
     $(document).scroll(function() {
