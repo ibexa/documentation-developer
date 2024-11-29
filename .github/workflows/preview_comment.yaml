@@ -21,21 +21,23 @@ jobs:
                     file_limit=100
                     build_url="https://ez-systems-developer-documentation--${{ github.event.pull_request.number }}.com.readthedocs.build/en/${{ github.event.pull_request.number }}/"
 
-                    changed_files=$(git diff --name-only HEAD $GITHUB_BASE_REF | grep -E ".md$")
+                    changed_files=$(git diff --name-only HEAD origin/$GITHUB_BASE_REF | grep -E ".md$")
                     number_of__changed_files=$(echo $changed_files | wc -l)
 
-                    if [[ $number_of__changed_files -gt file_limit ]] then:
+                    if [[ $number_of__changed_files -eq 0 ]] then:
+                      comment="No markdown files changed, no preview needed."
+                    elif [[ $number_of__changed_files -gt file_limit ]] then:
                       comment="Too many files modified in a single PR. Unable to post preview links, sorry!"
+                    else
+                      filenames=$(echo "$changed_files" | rev | cut -d / -f 1 | rev)
+                      urls=$(echo "$changed_files" | cut -d / -f 2- | sed -e "s/^/$build_url/")
+
+                      left_bracket=$(yes "[" | head -n $number_of__changed_files )
+                      middle_brackets=$(yes "](" | head -n $number_of__changed_files )
+                      right_bracket=$(yes ")" | head -n $number_of__changed_files )
+
+                      comment=$(paste -d'\0' <(echo "$left_bracket") <(echo "$filenames") <(echo "$middle_brackets") <(echo "$urls") <(echo "$right_bracket"))
                     fi
-
-                    filenames=$(echo "$changed_files" | rev | cut -d / -f 1 | rev)
-                    urls=$(echo "$changed_files" | cut -d / -f 2- | sed -e "s/^/$build_url/")
-
-                    left_bracket=$(yes "[" | head -n $number_of__changed_files )
-                    middle_brackets=$(yes "](" | head -n $number_of__changed_files )
-                    right_bracket=$(yes ")" | head -n $number_of__changed_files )
-
-                    comment=$(paste -d'\0' <(echo "$left_bracket") <(echo "$filenames") <(echo "$middle_brackets") <(echo "$urls") <(echo "$right_bracket"))
 
                     echo "comment=$comment" >> $GITHUB_ENV
             -   name: Find comment
