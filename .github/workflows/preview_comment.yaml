@@ -1,0 +1,56 @@
+name: "Post preview links for changed files"
+
+on:
+    pull_request: ~
+
+jobs:
+    post-preview-links:
+        name: Post preview links for changed files
+        runs-on: ubuntu-latest
+        permissions:
+            # Needed to manage the comment
+            pull-requests: write
+
+        steps:
+            -   name: Create a list of previ
+                id: list
+                run: |
+
+
+
+            -   name: Create comment for changed files
+                run: |
+                    file_limit=100
+                    build_url="https://ez-systems-developer-documentation--${{ github.event.pull_request.number }}.com.readthedocs.build/en/${{ github.event.pull_request.number }}/"
+
+                    changed_files=$(git diff --name-only HEAD $GITHUB_BASE_REF | grep -E ".md$")
+                    number_of__changed_files=$(echo $changed_files | wc -l)
+
+                    if [[ $number_of__changed_files -gt file_limit ]] then:
+                      comment="Too many files modified in a single PR. Unable to post preview links, sorry!"
+                    fi
+
+                    filenames=$(echo "$changed_files" | rev | cut -d / -f 1 | rev)
+                    urls=$(echo "$changed_files" | cut -d / -f 2- | sed -e "s/^/$build_url/")
+
+                    left_bracket=$(yes "[" | head -n $number_of__changed_files )
+                    middle_brackets=$(yes "](" | head -n $number_of__changed_files )
+                    right_bracket=$(yes ")" | head -n $number_of__changed_files )
+
+                    comment=$(paste -d'\0' <(echo "$left_bracket") <(echo "$filenames") <(echo "$middle_brackets") <(echo "$urls") <(echo "$right_bracket"))
+
+                    echo "comment=$comment" >> $GITHUB_ENV
+            -   name: Find comment
+                id: find-comment
+                uses: peter-evans/find-comment@v3
+                with:
+                    issue-number: ${{ github.event.pull_request.number }}
+                    comment-author: 'github-actions[bot]'
+                    body-includes: 'Preview of modified files'
+            -   name: Create or update comment
+                uses: peter-evans/create-or-update-comment@v4
+                with:
+                    comment-id: ${{ steps.fc.outputs.comment-id }}
+                    issue-number: ${{ github.event.pull_request.number }}
+                    body: ${{ env.comment }}
+                    edit-mode: replace
