@@ -10,7 +10,5 @@ The latest stable and LTS (Long Term Support) version of [[= product_name =]] is
 
 [[= cards([
     "release_notes/ibexa_dxp_v4.6",
-    "release_notes/ibexa_dxp_v4.5",
     "release_notes/ibexa_dxp_v3.3",
-    "release_notes/ez_platform_v2.5",
-], columns=4) =]]
+], columns=3) =]]
