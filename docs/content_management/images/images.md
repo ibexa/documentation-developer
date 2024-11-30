@@ -108,16 +108,12 @@ You can also pass two additional parameters:
 With a placeholder generator you can download or generate placeholder images for any missing image.
 It proves useful when you're working on an existing database and are unable to download uploaded images to your local development environment, due to, for example, a large size of files.
 
-If the original image cannot be resolved, the `PlaceholderAliasGenerator::getVariation` method generates a placeholder by delegating it to the implementation of the `PlaceholderProvider` interface, and saves it under the original path.
+If the original image cannot be resolved, the `PlaceholderAliasGenerator::getVariation` method generates a placeholder by delegating it to the implementation of the [PlaceholderProvider](https://github.com/ibexa/core/blob/main/src/bundle/Core/Imagine/PlaceholderProvider.php) interface, and saves it under the original path.
 
 In [[= product_name =]], there are two implementations of the `PlaceholderProvider` interface:
 
 - [GenericProvider](#genericprovider)
 - [RemoteProvider](#remoteprovider)
-
-``` php
-[[= include_file('code_samples/back_office/images/src/PlaceholderProvider.php') =]]
-```
 
 ### GenericProvider
 
