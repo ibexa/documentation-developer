@@ -18,11 +18,12 @@ jobs:
 
             -   name: Create comment for changed files
                 run: |
+                    set -x #debug
                     file_limit=100
                     build_url="https://ez-systems-developer-documentation--${{ github.event.pull_request.number }}.com.readthedocs.build/en/${{ github.event.pull_request.number }}/"
 
-                    changed_files=$(git diff --name-only HEAD origin/$GITHUB_BASE_REF | grep -E ".md$" || [[ $? == 1 ]])
-                    number_of__changed_files=$(echo $changed_files | wc -l)
+                    changed_files=$(git diff --name-only HEAD "origin/$GITHUB_BASE_REF" | grep -E ".md$" || [[ $? == 1 ]])
+                    number_of__changed_files=$(echo "$changed_files" | wc -l)
 
                     if [[ $changed_files -eq "" ]] ; then
                       comment="Preview of modified files:: no markdown files changed, no preview needed."
@@ -32,11 +33,11 @@ jobs:
                       filenames=$(echo "$changed_files" | rev | cut -d / -f 1 | rev | cut -d . -f 1)
                       urls=$(echo "$changed_files" | cut -d / -f 2- | sed -e "s ^ $build_url ")
 
-                      left=$(yes "* [" | head -n $number_of__changed_files )
-                      middle=$(yes "](" | head -n $number_of__changed_files )
-                      right=$(yes ")" | head -n $number_of__changed_files )
+                      left=$(yes "A" | head -n "$number_of__changed_files" )
+                      middle=$(yes "B" | head -n "$number_of__changed_files" )
+                      right=$(yes "C" | head -n "$number_of__changed_files" )
 
-                      comment=$(paste -d'\0' <(echo "$left") <(echo "$filenames") <(echo "$middle") <(echo "$urls") <(echo "$right"))
+                      comment=$(paste -d' ' <(echo "$left") <(echo "$filenames") <(echo "$middle") <(echo "$urls") <(echo "$right"))
                       comment="Preview of modified files:\n\n$comment"
                     fi
 
