@@ -3,7 +3,7 @@ name: "Post preview links for changed files"
 on:
     pull_request:
         paths:
-           - '**.md'
+           - 'docs/**.md'
 
 jobs:
     post-preview-links:
@@ -32,7 +32,7 @@ jobs:
                     elif [[ $number_of__changed_files -gt file_limit ]] ; then
                       comment="Preview of modified files: too many files modified in a single PR. Unable to post preview links, sorry!"
                     else
-                      filenames=$(echo "$changed_files" | rev | cut -d / -f 1 | rev | cut -d . -f 1)
+                      filenames=$(echo "$changed_files" | rev | cut -d / -f 1 | cut -d . -f 2- | rev)
 
                       # Guess the URL based on Markdown file location. Remove the .md extension.
                       urls=$(echo "$changed_files" | cut -d / -f 2- | rev | cut -d '.' -f 2- | rev | sed -e "s ^ $build_url ")
