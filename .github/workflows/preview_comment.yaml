@@ -35,8 +35,8 @@ jobs:
                       filenames=$(echo "$changed_files" | rev | cut -d / -f 1 | rev | cut -d . -f 1)
                       urls=$(echo "$changed_files" | cut -d / -f 2- | sed -e "s ^ $build_url ")
 
-                      left=$(yes "* " | head -n "$number_of__changed_files" )
-                      middle=$(yes "B" | head -n "$number_of__changed_files" )
+                      left=$(yes "* [" | head -n "$number_of__changed_files" )
+                      middle=$(yes "]" | head -n "$number_of__changed_files" )
                       right=$(yes "C\n" | head -n "$number_of__changed_files" )
 
                       comment=$(paste -d'\0' <(echo "$left") <(echo "$filenames") <(echo "$middle") <(echo "$urls") <(echo "$right"))
