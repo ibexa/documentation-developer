@@ -25,14 +25,14 @@ jobs:
                     number_of__changed_files=$(echo $changed_files | wc -l)
 
                     if [[ $changed_files -eq "" ]] ; then
-                      comment="No markdown files changed, no preview needed."
+                      comment="Preview of modified files:: no markdown files changed, no preview needed."
                     elif [[ $number_of__changed_files -gt file_limit ]] ; then
-                      comment="Too many files modified in a single PR. Unable to post preview links, sorry!"
+                      comment="Preview of modified files: too many files modified in a single PR. Unable to post preview links, sorry!"
                     else
                       filenames=$(echo "$changed_files" | rev | cut -d / -f 1 | rev | cut -d . -f 1)
                       urls=$(echo "$changed_files" | cut -d / -f 2- | sed -e "s ^ $build_url ")
 
-                      left=$(yes -- "- [" | head -n $number_of__changed_files )
+                      left=$(yes "* [" | head -n $number_of__changed_files )
                       middle=$(yes "](" | head -n $number_of__changed_files )
                       right=$(yes ")" | head -n $number_of__changed_files )
 
