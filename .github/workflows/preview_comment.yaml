@@ -4,6 +4,13 @@ on:
     pull_request:
         paths:
            - 'docs/**.md'
+  workflow_call:
+      inputs:
+      project:
+        description: 'The project to build (dev doc, user doc)'
+        default: ''
+        required: false
+        type: string
 
 jobs:
     post-preview-links:
@@ -22,7 +29,7 @@ jobs:
                 run: |
                     set -x #debug
                     file_limit=100
-                    build_url="https://ez-systems-developer-documentation--${{ github.event.pull_request.number }}.com.readthedocs.build/en/${{ github.event.pull_request.number }}/"
+                    build_url="https://ez-systems-developer-documentation--${{ github.event.pull_request.number }}.com.readthedocs.build/${{inputs.project}}en/${{ github.event.pull_request.number }}/"
 
                     changed_files=$(git diff --name-only HEAD "origin/$GITHUB_BASE_REF" | grep -E ".md$" || [[ $? == 1 ]])
                     number_of__changed_files=$(echo "$changed_files" | wc -l)
