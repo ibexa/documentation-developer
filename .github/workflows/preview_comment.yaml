@@ -67,7 +67,7 @@ jobs:
             -   name: Create or update comment
                 uses: peter-evans/create-or-update-comment@v4
                 with:
-                    comment-id: ${{ steps.fc.outputs.comment-id }}
+                    comment-id: ${{ steps.preview-links-comment.outputs.comment-id }}
                     issue-number: ${{ github.event.pull_request.number }}
                     body-path: comment.md
                     edit-mode: replace
