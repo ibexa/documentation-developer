@@ -1,0 +1,185 @@
+deptrac:
+  skip_violations:
+    App\Attribute\Percent\Form\PercentValueFormMapper:
+      - Ibexa\Bundle\ProductCatalog\Validator\Constraints\AttributeValue
+    App\Attribute\Percent\PercentOptionsFormMapper:
+      - Ibexa\Bundle\ProductCatalog\Validator\Constraints\AttributeDefinitionOptions
+    App\Attribute\Percent\Storage\PercentStorageConverter:
+      - Ibexa\ProductCatalog\Local\Persistence\Legacy\Attribute\Float\StorageSchema
+    App\Attribute\Percent\Storage\PercentStorageDefinition:
+      - Ibexa\ProductCatalog\Local\Persistence\Legacy\Attribute\Float\StorageSchema
+    App\Block\Listener\MyBlockListener:
+      - Ibexa\FieldTypePage\FieldType\Page\Block\Renderer\BlockRenderEvents
+      - Ibexa\FieldTypePage\FieldType\Page\Block\Renderer\Event\PreRenderEvent
+    App\CatalogFilter\ProductNameFilterFormMapper:
+      - Ibexa\Bundle\ProductCatalog\Form\Type\TagifyType
+    App\Checkout\Workflow\Strategy\NewWorkflow:
+      - Ibexa\Checkout\Value\Workflow\Workflow
+    App\Checkout\Workflow\Strategy\NewWorkflowConditionalStep:
+      - Ibexa\Checkout\Value\Workflow\Workflow
+    App\Command\CalendarCommand:
+      - Ibexa\Scheduler\Calendar\EventAction\RescheduleEventActionContext
+    App\Command\CatalogCommand:
+      - Ibexa\ProductCatalog\Local\Repository\Values\Catalog\Status
+    App\Command\CreateImageCommand:
+      - Ibexa\Core\FieldType\Image\Value
+    App\Command\MigrationCommand:
+      - Ibexa\Migration\Repository\Migration
+    App\Command\PaymentMethodCommand:
+      - Ibexa\Payment\Values\PaymentMethodType
+    App\Command\SegmentCommand:
+      - Ibexa\Segmentation\Value\SegmentCreateStruct
+      - Ibexa\Segmentation\Value\SegmentGroupCreateStruct
+    App\Command\ShippingMethodCommand:
+      - Ibexa\ProductCatalog\Local\Repository\Values\Region
+      - Ibexa\Shipping\Value\ShippingMethodType
+    App\Command\ViewCommand:
+      - Ibexa\Core\MVC\Symfony\View\Builder\ContentViewBuilder
+      - Ibexa\Core\MVC\Symfony\View\Renderer\TemplateRenderer
+    App\Controller\AllContentListController:
+      - Ibexa\AdminUi\Form\Factory\FormFactory
+      - Ibexa\Core\Pagination\Pagerfanta\LocationSearchAdapter
+    App\Controller\BreadcrumbController:
+      - Ibexa\Bundle\Core\Controller
+    App\Controller\Checkout\OnePageCheckout:
+      - Ibexa\Bundle\Checkout\Controller\AbstractStepController
+    App\Controller\Checkout\Step\SelectSeatStepController:
+      - Ibexa\Bundle\Checkout\Controller\AbstractStepController
+    App\Controller\CustomCheckoutController:
+      - Ibexa\Bundle\Core\Controller
+    App\Controller\CustomController:
+      - Ibexa\Bundle\Core\Controller
+    App\Controller\CustomFilterController:
+      - Ibexa\Bundle\Core\Controller
+      - Ibexa\Core\MVC\Symfony\View\ContentView
+    App\Controller\PaginationController:
+      - Ibexa\Bundle\Core\Controller
+      - Ibexa\Core\Pagination\Pagerfanta\ContentSearchAdapter
+    App\Controller\RelationController:
+      - Ibexa\Core\MVC\Symfony\View\View
+    App\Controller\SvgController:
+      - Ibexa\Core\Helper\TranslationHelper
+      - Ibexa\Core\IO\IOServiceInterface
+      - Ibexa\Core\MVC\Symfony\Controller\Controller
+    App\Corporate\EventSubscriber\ApplicationDetailsViewSubscriber:
+      - Ibexa\Bundle\CorporateAccount\EventSubscriber\AbstractViewSubscriber
+      - Ibexa\Core\MVC\Symfony\SiteAccess\SiteAccessServiceInterface
+      - Ibexa\Core\MVC\Symfony\View\View
+      - Ibexa\CorporateAccount\View\ApplicationDetailsView
+    App\Corporate\EventSubscriber\VerifyStateEventSubscriber:
+      - Ibexa\CorporateAccount\Event\ApplicationWorkflowEvents
+      - Ibexa\CorporateAccount\Persistence\Legacy\ApplicationState\HandlerInterface
+      - Ibexa\CorporateAccount\Persistence\Values\ApplicationStateUpdateStruct
+    App\EventListener\TextAnchorMenuTabListener:
+      - Ibexa\AdminUi\Menu\ContentEditAnchorMenuBuilder
+      - Ibexa\AdminUi\Menu\Event\ConfigureMenuEvent
+    App\EventSubscriber\BreadcrumbsMenuSubscriber:
+      - Ibexa\Bundle\Storefront\Menu\Builder\BreadcrumbsMenuBuilder
+    App\EventSubscriber\FormFieldDefinitionSubscriber:
+      - Ibexa\FormBuilder\Definition\FieldAttributeDefinitionBuilder
+      - Ibexa\FormBuilder\Event\FieldDefinitionEvent
+      - Ibexa\FormBuilder\Event\FormEvents
+    App\EventSubscriber\MyMenuSubscriber:
+      - Ibexa\AdminUi\Menu\Event\ConfigureMenuEvent
+      - Ibexa\AdminUi\Menu\MainMenuBuilder
+    App\Event\RandomBlockListener:
+      - Ibexa\FieldTypePage\FieldType\Page\Block\Renderer\BlockRenderEvents
+      - Ibexa\FieldTypePage\FieldType\Page\Block\Renderer\Event\PreRenderEvent
+    App\Event\Subscriber\BlockEmbedEventEventSubscriber:
+      - Ibexa\FieldTypePage\FieldType\Page\Block\Renderer\BlockRenderEvents
+      - Ibexa\FieldTypePage\FieldType\Page\Block\Renderer\Event\PreRenderEvent
+    App\Event\Subscriber\RichTextBlockSubscriber:
+      - Ibexa\FieldTypePage\FieldType\Page\Block\Renderer\BlockRenderEvents
+      - Ibexa\FieldTypePage\FieldType\Page\Block\Renderer\Event\PreRenderEvent
+      - Ibexa\FieldTypePage\FieldType\Page\Block\Renderer\Twig\TwigRenderRequest
+      - Ibexa\FieldTypeRichText\RichText\DOMDocumentFactory
+    App\FieldType\HelloWorld\Comparison\Comparable:
+      - Ibexa\VersionComparison\ComparisonValue\StringComparisonValue
+    App\FieldType\HelloWorld\Comparison\HelloWorldComparisonEngine:
+      - Ibexa\VersionComparison\Engine\Value\StringComparisonEngine
+    App\FieldType\HelloWorld\Comparison\HelloWorldComparisonResult:
+      - Ibexa\VersionComparison\Result\Value\StringComparisonResult
+    App\FieldType\HelloWorld\Comparison\Value:
+      - Ibexa\VersionComparison\ComparisonValue\StringComparisonValue
+    App\FormBuilder\FieldType\Field\Mapper\CheckboxWithRichtextDescriptionFieldMapper:
+      - Ibexa\FormBuilder\FieldType\Field\Mapper\GenericFieldMapper
+    App\FormBuilder\Field\Mapper\CountryFieldMapper:
+      - Ibexa\FormBuilder\FieldType\Field\Mapper\GenericFieldMapper
+    App\FormBuilder\FormSubmission\Converter\RichtextDescriptionFieldSubmissionConverter:
+      - Ibexa\FormBuilder\FormSubmission\Converter\BooleanFieldSubmissionConverter
+    App\FormBuilder\Form\Type\FieldAttribute\AttributeRichtextDescriptionType:
+      - Ibexa\FieldTypeRichText\Form\Type\RichTextType
+    App\Form\Type\OnePageCheckoutType:
+      - Ibexa\Bundle\Checkout\Form\Type\AddressType
+      - Ibexa\Bundle\Payment\Form\Type\PaymentMethodChoiceType
+      - Ibexa\Bundle\Shipping\Form\Type\ShippingMethodChoiceType
+    App\GraphQL\Schema\MyCustomFieldDefinitionMapper:
+      - Ibexa\GraphQL\Schema\Domain\Content\Mapper\FieldDefinition\DecoratingFieldDefinitionMapper
+    App\Kernel:
+      - Ibexa\Bundle\Core\DependencyInjection\IbexaCoreExtension
+    App\Migrations\Action\AssignSection:
+      - Ibexa\Migration\ValueObject\Step\Action
+    App\Migrations\Action\AssignSectionExecutor:
+      - Ibexa\Migration\StepExecutor\ActionExecutor\ExecutorInterface
+      - Ibexa\Migration\ValueObject\Step\Action
+    App\Migrations\Matcher\SectionIdentifierGenerator:
+      - Ibexa\Migration\Generator\CriterionGenerator\GeneratorInterface
+    App\Migrations\Matcher\SectionIdentifierNormalizer:
+      - Ibexa\Bundle\Migration\Serializer\Normalizer\Criterion\AbstractCriterionNormalizer
+    App\Migrations\Step\ReplaceNameStep:
+      - Ibexa\Migration\ValueObject\Step\StepInterface
+    App\Migrations\Step\ReplaceNameStepExecutor:
+      - Ibexa\Core\FieldType\TextLine\Value
+      - Ibexa\Migration\ValueObject\Step\StepInterface
+    App\Migrations\Step\ReplaceNameStepNormalizer:
+      - Ibexa\Migration\ValueObject\Step\StepInterface
+    App\Notification\MyRenderer:
+      - Ibexa\Core\Notification\Renderer\NotificationRenderer
+    App\OAuth\GoogleResourceOwnerMapper:
+      - Ibexa\OAuth2Client\ResourceOwner\ResourceOwnerToExistingOrNewUserMapper
+    App\QueryType\LatestContentQueryType:
+      - Ibexa\Core\QueryType\QueryType
+    App\QueryType\MenuQueryType:
+      - Ibexa\Core\QueryType\QueryType
+    App\QueryType\OptionsBasedLatestContentQueryType:
+      - Ibexa\Core\QueryType\OptionsResolverBasedQueryType
+      - Ibexa\Core\QueryType\QueryType
+    App\Rest\Controller\DefaultController:
+      - Ibexa\Rest\Message
+      - Ibexa\Rest\Server\Controller
+    App\Rest\InputParser\GreetingInput:
+      - Ibexa\Rest\Input\BaseParser
+    App\Rest\ValueObjectVisitor\RestLocation:
+      - Ibexa\Rest\Server\Output\ValueObjectVisitor\RestLocation
+      - Ibexa\Rest\Server\Values\URLAliasRefList
+    App\Search\Model\Suggestion\ProductSuggestion:
+      - Ibexa\ProductCatalog\Local\Repository\Values\Product
+    App\Security\Limitation\CustomLimitationType:
+      - Ibexa\Core\Base\Exceptions\InvalidArgumentException
+      - Ibexa\Core\Base\Exceptions\InvalidArgumentType
+      - Ibexa\Core\FieldType\ValidationError
+    App\Security\Limitation\Mapper\CustomLimitationFormMapper:
+      - Ibexa\AdminUi\Limitation\LimitationFormMapperInterface
+      - Ibexa\Core\Limitation\LimitationIdentifierToLabelConverter
+    App\Security\Limitation\Mapper\CustomLimitationValueMapper:
+      - Ibexa\AdminUi\Limitation\LimitationValueMapperInterface
+    App\Security\MyPolicyProvider:
+      - Ibexa\Bundle\Core\DependencyInjection\Security\PolicyProvider\YamlPolicyProvider
+    App\Setting\Group\MyGroup:
+      - Ibexa\User\UserSetting\Group\AbstractGroup
+    App\Setting\Unit:
+      - Ibexa\Core\Base\Exceptions\InvalidArgumentException
+    App\ShippingMethodType\Storage\StorageDefinition:
+      - Ibexa\Shipping\Persistence\Legacy\ShippingMethod\AbstractOptionsStorageSchema
+    App\ShippingMethodType\Storage\StorageSchema:
+      - Ibexa\Shipping\Persistence\Legacy\ShippingMethod\AbstractOptionsStorageSchema
+    App\Tab\Dashboard\Everyone\EveryoneArticleTab:
+      - Ibexa\AdminUi\Tab\Dashboard\PagerLocationToDataMapper
+      - Ibexa\Core\Pagination\Pagerfanta\LocationSearchAdapter
+    App\View\Matcher\Owner:
+      - Ibexa\Core\MVC\Symfony\Matcher\ContentBased\MatcherInterface
+      - Ibexa\Core\MVC\Symfony\View\ContentValueView
+      - Ibexa\Core\MVC\Symfony\View\LocationValueView
+      - Ibexa\Core\MVC\Symfony\View\View
+    AttributeTypeExtension:
+      - Ibexa\PageBuilder\Form\Type\Attribute\AttributeType

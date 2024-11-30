@@ -4,9 +4,9 @@ namespace App\Calendar\Holidays;
 
 use DateTime;
 use DateTimeInterface;
-use Ibexa\Calendar\EventSource\InMemoryEventSource;
 use Ibexa\Contracts\Calendar\EventCollection;
 use Ibexa\Contracts\Calendar\EventSource\EventSourceInterface;
+use Ibexa\Contracts\Calendar\EventSource\InMemoryEventSource;
 
 class EventSourceFactory
 {
