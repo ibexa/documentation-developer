@@ -33,9 +33,11 @@ jobs:
                       comment="Preview of modified files: too many files modified in a single PR. Unable to post preview links, sorry!"
                     else
                       filenames=$(echo "$changed_files" | rev | cut -d / -f 1 | rev | cut -d . -f 1)
-                      urls=$(echo "$changed_files" | cut -d / -f 2- | cut -d '.' -f 1 | sed -e "s ^ $build_url ")
 
-                      left=$(yes "* [" | head -n "$number_of__changed_files" )
+                      # Guess the URL based on Markdown file location. Remove the .md extension.
+                      urls=$(echo "$changed_files" | cut -d / -f 2- | rev | cut -d '.' -f 2- | rev | sed -e "s ^ $build_url ")
+
+                      left=$(yes "+ [" | head -n "$number_of__changed_files" )
                       middle=$(yes "](" | head -n "$number_of__changed_files" )
                       right=$(yes ")\n" | head -n "$number_of__changed_files" )
 
