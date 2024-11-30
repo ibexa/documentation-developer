@@ -4,13 +4,13 @@ on:
     pull_request:
         paths:
            - 'docs/**.md'
-  workflow_call:
-      inputs:
-      project:
-        description: 'The project to build (dev doc, user doc)'
-        default: ''
-        required: false
-        type: string
+    workflow_call:
+        inputs:
+        project:
+          description: 'The project to build (dev doc, user doc)'
+          default: ''
+          required: false
+          type: string
 
 jobs:
     post-preview-links:
