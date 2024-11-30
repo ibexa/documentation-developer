@@ -6,11 +6,11 @@ on:
            - 'docs/**.md'
     workflow_call:
         inputs:
-        project:
-          description: 'The project to build (dev doc, user doc)'
-          default: ''
-          required: false
-          type: string
+            project:
+              description: 'The project to build (dev doc, user doc)'
+              default: ''
+              required: false
+              type: string
 
 jobs:
     post-preview-links:
