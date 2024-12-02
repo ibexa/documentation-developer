@@ -254,7 +254,7 @@ Enabling DNSSEC involves creating the DNSSEC records in your domain, activating 
 ### Enable domain update/delete protection
 
 Domain update/delete protection is a DNS setting that makes it harder for an attacker to take over a domain from the real owner, or hinder availability for users.
-This is configured with your domain registrar.
+You can enable this protection at your domain registrar's site.
 Log in to their site to enable these protection settings and save the new configuration.
 
 ### Enable Certificate Authority Authorization (CAA)
