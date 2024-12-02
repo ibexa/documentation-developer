@@ -223,6 +223,47 @@ This header has several directives for fine-tuning the referrer information.
 - `Permissions-Policy` - limits what features the browser can use, such as fullscreen, notifications, location, camera, or microphone.
 For example, if someone succeeds in injecting their JavaScript into your site, this header prevents them from using those features to attack your users.
 
+### Disable weak cipher suites in TLS
+
+Consider blocking the use of TLS 1.2 and older versions.
+The newer TLS 1.3 does not include the weaker cipher suites that are included in 1.2 and older.
+Removing them means attackers can't attempt to force other users to use weak ciphers and eavesdrop on their communications.
+TLS 1.3 is as of December 2024 [supported by ca. 97% of global internet users](https://caniuse.com/tls1-3).
+If you need to support Internet Explorer or old versions of other browsers, you can disable TLS 1.1 and older, leaving 1.2 and 1.3 enabled.
+
+When using [[= product_name_cloud =]], you can [set the minimum TLS version in .platform/routes.yaml](https://docs.platform.sh/define-routes/https.html#enforce-tls-13).
+
+### Enable HTTP Strict Transport Security (HSTS)
+
+HSTS forces clients to always communicate with your site over HTTPS.
+[Most browsers support this](https://caniuse.com/stricttransportsecurity), and there is no downside for browsers who don't.
+Read the requirements and instructions at [hstspreload.org](https://hstspreload.org/) before you enable HSTS.
+Make sure to also include subdomains using the `includeSubDomains` setting.
+
+When using [[= product_name_cloud =]], you can [configure HSTS in .platform/routes.yaml](https://docs.platform.sh/define-routes/https.html#enable-http-strict-transport-security-hsts).
+
+## Domain
+
+### Enable Domain Name System Security Extensions (DNSSEC)
+
+DNSSEC is an optional feature of DNS that authenticates responses to DNS requests.
+It protects against DNS poisoning attacks, which is when an attacker manipulates the reponse to DNS requests with the goal of directing users to an IP address the attacker controls.
+Enabling DNSSEC involves creating the DNSSEC records in your domain, activating DNSSEC with your domain registrar, and enabling DNSSEC signature validation on all DNS servers.
+I.e., you need to select DNS server(s) that support DNSSEC.
+[Read more on DNSSEC at ICANN](https://www.icann.org/resources/pages/dnssec-what-is-it-why-important-2019-03-05-en).
+
+### Enable domain update/delete protection
+
+Domain update/delete protection is a DNS setting that makes it harder for an attacker to take over a domain from the real owner, or hinder availability for users.
+This is configured with your domain registrar.
+Log in to their site to enable these protection settings and save the new configuration.
+
+### Enable Certificate Authority Authorization (CAA)
+
+CAA allows domain owners to specify which Certificate Authorities (CAs) are permitted to issue SSL/TLS certificates for their domain.
+This prevents attackers from having certificates issued for domains they don't own.
+CAA is configured in your DNS zone file.
+
 ## Database
 
 ### Use UTF8MB4 with MySQL/MariaDB
