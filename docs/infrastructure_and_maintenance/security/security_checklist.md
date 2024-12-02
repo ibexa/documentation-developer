@@ -236,7 +236,7 @@ When using [[= product_name_cloud =]], you can [set the minimum TLS version in .
 ### Enable HTTP Strict Transport Security (HSTS)
 
 HSTS forces clients to always communicate with your site over HTTPS.
-[Most browsers support this](https://caniuse.com/stricttransportsecurity), and there is no downside for browsers who don't.
+[Most browsers support this](https://caniuse.com/stricttransportsecurity), and there is no downside for browsers that don't.
 Read the requirements and instructions at [hstspreload.org](https://hstspreload.org/) before you enable HSTS.
 Make sure to also include subdomains using the `includeSubDomains` setting.
 
@@ -246,10 +246,10 @@ When using [[= product_name_cloud =]], you can [configure HSTS in .platform/rout
 
 ### Enable Domain Name System Security Extensions (DNSSEC)
 
-DNSSEC is an optional feature of DNS that authenticates responses to DNS requests.
-It protects against DNS poisoning attacks, which is when an attacker manipulates the reponse to DNS requests with the goal of directing users to an IP address the attacker controls.
+DNSSEC is a DNS feature that authenticates responses to DNS requests.
+It protects against DNS poisoning attacks.
+This is when an attacker manipulates the reponses to DNS requests with the goal of directing users to an IP address the attacker controls.
 Enabling DNSSEC involves creating the DNSSEC records in your domain, activating DNSSEC with your domain registrar, and enabling DNSSEC signature validation on all DNS servers.
-I.e., you need to select DNS server(s) that support DNSSEC.
 [Read more on DNSSEC at ICANN](https://www.icann.org/resources/pages/dnssec-what-is-it-why-important-2019-03-05-en).
 
 ### Enable domain update/delete protection
@@ -261,7 +261,7 @@ Log in to their site to enable these protection settings and save the new config
 ### Enable Certificate Authority Authorization (CAA)
 
 CAA allows domain owners to specify which Certificate Authorities (CAs) are permitted to issue SSL/TLS certificates for their domain.
-This prevents attackers from having certificates issued for domains they don't own.
+This prevents attackers from having certificates issued for domains they don't own, hindering some types of attack.
 CAA is configured in your DNS zone file.
 
 ## Database
