@@ -8,11 +8,22 @@ This page contains recent highlights and notable changes in [[= product_name =]]
 
 ## November 2024
 
-- [AI Actions documentation](ai_actions.md)
-- [New `ibexa:user:update-user` command to manage some basic user data from CLI](update_basic_user_data.md)
-- [New `IsBookmarked` location criterion](isbookmarked_criterion.md)
-- [`IsUserEnabled` is available on Solr and Elastisearch](isuserenabled_criterion.md)
-- `4.6.14` and `3.3.41` are out, and documentation is updated accordingly.
+### Infrastructure and maintenance
+
+- Added [v4.6.13 to v4.6.14 update instructions](https://doc.ibexa.co/en/master/update_and_migration/from_4.6/update_from_4.6/#v4614) which include security fixes.
+- Added [v3.3.40 to v3.3.41 update instructions](https://doc.ibexa.co/en/master/update_and_migration/from_3.3/update_from_3.3/#v3341) which include security fixes.
+
+### Content management
+
+- Added [AI Actions documentation](https://doc.ibexa.co/en/master/ai_actions/ai_actions/)
+
+### Search
+
+- Added [new `IsBookmarked` location criterion](https://doc.ibexa.co/en/master/search/criteria_reference/isbookmarked_criterion/)
+- [`IsUserEnabled` is now available on Solr and Elastisearch](https://doc.ibexa.co/en/master/search/criteria_reference/isuserenabled_criterion/)
+
+### Documentation
+
 - When searching from the top bar, you may see, at the bottom of the drop-down suggestion list, a link to a page to see more results.
 
 ## October 2024
