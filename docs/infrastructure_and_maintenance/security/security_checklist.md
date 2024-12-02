@@ -289,7 +289,7 @@ Not granting these rights to web app users reduces the damage that can result fr
 To avoid exposing your application to any DDOS vulnerabilities or other yet unknown security threats, make sure that you do the following:
 
 - Avoid exposing servers on the open internet when not strictly required.
-- Ensure any servers, services, ports and virtual hosts that were opened for testing purposes are shut down before going live.
+- Ensure any servers, services, ports, and virtual hosts that were opened for testing purposes are shut down before going live.
 - Ensure file system permissions are set up in such a way that the web server or PHP user can't access files they shouldn't be able to read.
 
 Those steps aren't needed when using [[= product_name_cloud =]], where the provider handles them.
