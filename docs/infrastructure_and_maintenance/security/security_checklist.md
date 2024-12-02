@@ -10,64 +10,6 @@ When getting ready to go live with your project for the first time, or when re-l
 
     Security is an ongoing process. After going live, you should pay attention to security advisories released via [your service portal](https://support.ibexa.co/), or via [Security advisories](https://developers.ibexa.co/security-advisories) if you're not a subscriber.
 
-## Symfony
-
-### `APP_SECRET`
-
-`APP_SECRET` needs to be a strong, random, securely stored value.
-
-- Don't use a default value like `ff6dc61a329dc96652bb092ec58981f7` or `ThisTokenIsNotSoSecretChangeIt`.
-- The secret must be secured against unwanted access. Don't commit the value to a version control system.
-- The secret must be long enough. 32 characters is minimum, longer is better.
-
-!!! tip
-
-    The following command generates a 64-character-long secure random value:
-
-    `php -r "print bin2hex(random_bytes(32));"`
-
-!!! note
-
-    On [[= product_name_cloud =]], if `APP_SECRET` isn't set, the system sets it to [`PLATFORM_PROJECT_ENTROPY`](https://docs.platform.sh/guides/symfony/environment-variables.html#symfony-environment-variables)
-
-### Symfony production mode
-
-Only expose Symfony production mode openly on the internet.
-Don't expose the dev mode on the internet, otherwise you may disclose things like `phpinfo` and environment variables.
-Exposing the dev mode exposes things like `phpinfo`, environment variables, and more.
-
-For more information about securing Symfony-based systems, see [Authentication and authorisation]([[= symfony_doc =]]/security.html), [more on this subject]([[= symfony_doc =]]/security.html#learn-more), and Symfony's [secrets management system]([[= symfony_doc =]]/configuration/secrets.html).
-
-## PHP
-
-### Enable `zend.exception_ignore_args` in PHP 7.4 and newer
-
-PHP 7.4 introduced the `zend.exception_ignore_args` setting in `php.ini`.
-The default value is 0 (disabled) for backwards compatibility.
-On production sites this should be set to 1 (enabled), to ensure stack traces don't include arguments passed to functions.
-Such arguments could include passwords or other sensitive information.
-You should also make sure no stack trace is ever visible to end users of production sites, though visible arguments are unsafe even if the stack traces only show up in log files.
-
-### Disable error output from PHP
-
-Symfony in production mode prevents exception messages from being visible to end users.
-However, if Symfony fails to boot properly, such exceptions may end up being visible, including stack traces.
-This can be prevented by [disabling error message output in PHP](https://www.php.net/manual/en/language.errors.basics.php).
-These `php.ini` configuration values should be used on production sites.
-When using [[= product_name_cloud =]], the same settings can be configured in [[= product_name =]]'s `.platform.app.yaml` file.
-
-```ini
-display_errors          = Off
-display_startup_errors  = Off
-```
-
-### Other PHP settings
-
-Consider what other security related settings are relevant for your needs.
-The [OWASP PHP Configuration Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/PHP_Configuration_Cheat_Sheet.html) contains several recommendations, but be aware that they may be out of date as they don't mention PHP 8.
-
-For more information, see [PHP's own security manual](https://www.php.net/manual/en/security.php).
-
 ## [[= product_name =]]
 
 ### Fully-vetted admin users
@@ -138,22 +80,10 @@ If you opt to allow them, make sure you take steps to mitigate the risk.
 
 The default list of blocked file types contains: `hta htm html jar js jse pgif phar php php3 php4 php5 phps phpt pht phtml svg swf xhtm xhtml`.
 
-### Block execution of scripts in `var` directory
-
-Make sure the web server blocks the execution of PHP files and other scripts in the `var` directory.
-See the line below `# Disable .php(3) and other executable extensions in the var directory` in the example virtual host files for Apache and Nginx, provided in the [installation documentation](install_ibexa_dxp.md#set-up-virtual-host).
-
 ### Use secure password hashing
 
 Use the most secure supported password hashing method.
 This is currently `bcrypt`, and it's enabled by default.
-
-### Use UTF8MB4 with MySQL/MariaDB
-
-If you're using MySQL/MariaDB, use the UTF8MB4 database character set and related collation.
-The older UTF8 can lead to truncation with 4-byte characters, like some emoji, which may have unpredictable side effects.
-
-See [Change from UTF8 to UTF8MB4](update_db_to_2.5.md#change-from-utf8-to-utf8mb4).
 
 ### Use secure roles and policies
 
@@ -203,19 +133,70 @@ Reduce your attack surface by exposing only what you must.
             - { path: ^/search, roles: ROLE_USER}
     ```
 
-## Underlying stack
+## Symfony
 
-Once you have properly configured secure user roles and permissions, to avoid exposing your application to any DDOS vulnerabilities or other yet unknown security threats, make sure that you do the following:
+### `APP_SECRET`
 
-- Avoid exposing servers on the open internet when not strictly required.
-- Ensure any servers, services, ports and virtual hosts that were opened for testing purposes are shut down before going live.
-- Ensure file system permissions are set up in such a way that the web server or PHP user can't access files they shouldn't be able to read.
-- Secure the database with a good password, keys, firewall.
-Optionally, ensure that the database user used by the web app only has permissions to do the operations needed by [[= product_name =]].
-The Data Definition Language (DDL) commands (create, alter, drop, truncate, comment) are only needed for installing and upgrading [[= product_name =]], and not for running it.
-Not granting these rights to web app users reduces the damage that can result from a security breach.
+`APP_SECRET` needs to be a strong, random, securely stored value.
 
-Those steps aren't needed when using [[= product_name_cloud =]], where the provider handles them.
+- Don't use a default value like `ff6dc61a329dc96652bb092ec58981f7` or `ThisTokenIsNotSoSecretChangeIt`.
+- The secret must be secured against unwanted access. Don't commit the value to a version control system.
+- The secret must be long enough. 32 characters is minimum, longer is better.
+
+!!! tip
+
+    The following command generates a 64-character-long secure random value:
+
+    `php -r "print bin2hex(random_bytes(32));"`
+
+!!! note
+
+    On [[= product_name_cloud =]], if `APP_SECRET` isn't set, the system sets it to [`PLATFORM_PROJECT_ENTROPY`](https://docs.platform.sh/guides/symfony/environment-variables.html#symfony-environment-variables)
+
+### Symfony production mode
+
+Only expose Symfony production mode openly on the internet.
+Don't expose the dev mode on the internet, otherwise you may disclose things like `phpinfo` and environment variables.
+Exposing the dev mode exposes things like `phpinfo`, environment variables, and more.
+
+For more information about securing Symfony-based systems, see [Authentication and authorisation]([[= symfony_doc =]]/security.html), [more on this subject]([[= symfony_doc =]]/security.html#learn-more), and Symfony's [secrets management system]([[= symfony_doc =]]/configuration/secrets.html).
+
+## PHP
+
+### Enable `zend.exception_ignore_args` in PHP 7.4 and newer
+
+PHP 7.4 introduced the `zend.exception_ignore_args` setting in `php.ini`.
+The default value is 0 (disabled) for backwards compatibility.
+On production sites this should be set to 1 (enabled), to ensure stack traces don't include arguments passed to functions.
+Such arguments could include passwords or other sensitive information.
+You should also make sure no stack trace is ever visible to end users of production sites, though visible arguments are unsafe even if the stack traces only show up in log files.
+
+### Disable error output from PHP
+
+Symfony in production mode prevents exception messages from being visible to end users.
+However, if Symfony fails to boot properly, such exceptions may end up being visible, including stack traces.
+This can be prevented by [disabling error message output in PHP](https://www.php.net/manual/en/language.errors.basics.php).
+These `php.ini` configuration values should be used on production sites.
+When using [[= product_name_cloud =]], the same settings can be configured in [[= product_name =]]'s `.platform.app.yaml` file.
+
+```ini
+display_errors          = Off
+display_startup_errors  = Off
+```
+
+### Other PHP settings
+
+Consider what other security related settings are relevant for your needs.
+The [OWASP PHP Configuration Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/PHP_Configuration_Cheat_Sheet.html) contains several recommendations, but be aware that they may be out of date as they don't mention PHP 8.
+
+For more information, see [PHP's own security manual](https://www.php.net/manual/en/security.php).
+
+## Web server
+
+### Block execution of scripts in `var` directory
+
+Make sure the web server blocks the execution of PHP files and other scripts in the `var` directory.
+See the line below `# Disable .php(3) and other executable extensions in the var directory` in the example virtual host files for Apache and Nginx, provided in the [installation documentation](install_ibexa_dxp.md#set-up-virtual-host).
 
 ### Security headers
 
@@ -241,6 +222,36 @@ For experimentation and testing, you can use `Content-Security-Policy-Report-Onl
 This header has several directives for fine-tuning the referrer information.
 - `Permissions-Policy` - limits what features the browser can use, such as fullscreen, notifications, location, camera, or microphone.
 For example, if someone succeeds in injecting their JavaScript into your site, this header prevents them from using those features to attack your users.
+
+## Database
+
+### Use UTF8MB4 with MySQL/MariaDB
+
+If you're using MySQL/MariaDB, use the UTF8MB4 database character set and related collation.
+The older UTF8 can lead to truncation with 4-byte characters, like some emoji, which may have unpredictable side effects.
+
+See [Change from UTF8 to UTF8MB4](update_db_to_2.5.md#change-from-utf8-to-utf8mb4).
+
+### Secure access
+
+Secure the database access with strong passwords, keys, firewall, encryption in transit, encryption at rest etc. as needed.
+When using [[= product_name_cloud =]], the provider handles this.
+
+### Limit database rights
+
+Optionally, ensure that the database user used by the web app only has permissions to do the operations needed by [[= product_name =]].
+The Data Definition Language (DDL) commands (create, alter, drop, truncate, comment) are only needed for installing and upgrading [[= product_name =]], and not for running it.
+Not granting these rights to web app users reduces the damage that can result from a security breach.
+
+## Underlying stack
+
+To avoid exposing your application to any DDOS vulnerabilities or other yet unknown security threats, make sure that you do the following:
+
+- Avoid exposing servers on the open internet when not strictly required.
+- Ensure any servers, services, ports and virtual hosts that were opened for testing purposes are shut down before going live.
+- Ensure file system permissions are set up in such a way that the web server or PHP user can't access files they shouldn't be able to read.
+
+Those steps aren't needed when using [[= product_name_cloud =]], where the provider handles them.
 
 ### Track dependencies
 
