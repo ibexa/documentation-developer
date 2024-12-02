@@ -123,7 +123,7 @@ $(document).ready(function() {
             let link = $('.ds-dropdown-menu a.search-page-link');
             if (!link.length) {
                 $('.ds-dropdown-menu').append(`<div class="search-page-link-wrapper">
-                    <a class="search-page-link" href="">See all results</a>
+                    <a class="search-page-link" href="">See more results</a>
                 </div>`);
                 link = $('.ds-dropdown-menu a.search-page-link');
             }
