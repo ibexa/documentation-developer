@@ -76,7 +76,6 @@ This page contains recent highlights and notable changes in [[= product_name =]]
 
 - Updated the [REST API authentication](https://doc.ibexa.co/en/master/api/rest_api/rest_api_authentication/) instructions
 
-
 ## September 2024
 
 ### Getting started
@@ -86,7 +85,7 @@ This page contains recent highlights and notable changes in [[= product_name =]]
 ### Infrastructure and maintenance
 
 - Modified v4.5.x to v4.6 update instructions by adding [Update Solr configuration](https://doc.ibexa.co/en/master/update_and_migration/from_4.5/update_from_4.5/#update-solr-configuration) section
-- [Added v4.6.8 to v4.6.11 update instructions](https://doc.ibexa.co/en/master/update_and_migration/from_4.6/update_from_4.6/#v4611)
+- Added [v4.6.8 to v4.6.11 update instructions](https://doc.ibexa.co/en/master/update_and_migration/from_4.6/update_from_4.6/#v4611)
 
 ### PHP API
 
@@ -124,8 +123,8 @@ This page contains recent highlights and notable changes in [[= product_name =]]
 
 ### Infrastructure and maintenance
 
-- [Added v4.6.4 to v4.6.8 update instructions](https://doc.ibexa.co/en/master/update_and_migration/from_4.5/update_from_4.5/#v468)
-- [Modified v3.3.x to v3.3.latest update instructions](https://doc.ibexa.co/en/master/update_and_migration/from_3.3/update_from_3.3/#update-the-application)
+- Added [v4.6.4 to v4.6.8 update instructions](https://doc.ibexa.co/en/master/update_and_migration/from_4.5/update_from_4.5/#v468)
+- Modified [v3.3.x to v3.3.latest update instructions](https://doc.ibexa.co/en/master/update_and_migration/from_3.3/update_from_3.3/#update-the-application)
 - Updated the recommendations in [Performance](https://doc.ibexa.co/en/master/infrastructure_and_maintenance/performance/#symfony) by mentioning Symfony
 
 ### Data migration
