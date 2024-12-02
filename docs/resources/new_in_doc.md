@@ -6,6 +6,15 @@ description: Overview of major recent additions to Ibexa DXP documentation.
 
 This page contains recent highlights and notable changes in [[= product_name =]] documentation.
 
+## November 2024
+
+- [AI Actions documentation](ai_actions.md)
+- [New `ibexa:user:update-user` command to manage some basic user data from CLI](update_basic_user_data.md)
+- [New `IsBookmarked` location criterion](isbookmarked_criterion.md)
+- [`IsUserEnabled` is available on Solr and Elastisearch](isuserenabled_criterion.md)
+- `4.6.14` and `3.3.41` are out, and documentation is updated accordingly.
+- When searching from the top bar, you may see, at the bottom of the drop-down suggestion list, a link to a page to see more results.
+
 ## October 2024
 
 ### Content management
