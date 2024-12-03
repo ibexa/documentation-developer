@@ -12,7 +12,7 @@ When getting ready to go live with your project for the first time, or when re-l
 
 ## [[= product_name =]]
 
-### Fully-vetted admin users
+### Carefully select admin users
 
 Make sure Admin users and other privileged users who have access to System Information and setup in the back end are vetted and fully trustworthy.
 
