@@ -255,6 +255,11 @@ Make sure to also include subdomains by means of the `includeSubDomains` setting
 
 When using [[= product_name_cloud =]], you can [configure HSTS in `.platform/routes.yaml`](https://docs.platform.sh/define-routes/https.html#enable-http-strict-transport-security-hsts).
 
+Beware if you are using a Varnish proxy:
+Your version of Varnish may not support HTTPS connections with your web server.
+If so, make sure to only enable HSTS between your public-facing proxy and the clients.
+When using [[= product_name_cloud =]], this is handled automatically.
+
 ## Domain
 
 ### Enable Domain Name System Security Extensions (DNSSEC)
