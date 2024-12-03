@@ -248,7 +248,7 @@ When using [[= product_name_cloud =]], you can [set the minimum TLS version in `
 HSTS forces clients to always communicate with your site over HTTPS.
 [Most browsers support this](https://caniuse.com/stricttransportsecurity), and there is no downside for browsers that don't.
 Read the requirements and instructions at [hstspreload.org](https://hstspreload.org/) before you enable HSTS.
-Make sure to also include subdomains using the `includeSubDomains` setting.
+Make sure to also include subdomains by means of the `includeSubDomains` setting.
 
 When using [[= product_name_cloud =]], you can [configure HSTS in .platform/routes.yaml](https://docs.platform.sh/define-routes/https.html#enable-http-strict-transport-security-hsts).
 
