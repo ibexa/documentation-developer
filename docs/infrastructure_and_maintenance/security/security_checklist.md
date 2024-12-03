@@ -205,7 +205,7 @@ For more information, see [PHP's own security manual](https://www.php.net/manual
 
 ### Block execution of scripts in `var` directory
 
-Make sure the web server blocks the execution of PHP files and other scripts in the `var` directory.
+Make sure that the web server blocks the execution of PHP files and other scripts in the `var` directory.
 See the line below `# Disable .php(3) and other executable extensions in the var directory` in the example virtual host files for Apache and Nginx, provided in the [installation documentation](install_ibexa_dxp.md#set-up-virtual-host).
 
 ### Security headers
