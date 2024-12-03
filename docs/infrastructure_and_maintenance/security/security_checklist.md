@@ -18,6 +18,10 @@ Make sure Admin users and other privileged users who have access to System Infor
 
 As administrator you have access to full information about the system through the `setup/system_info` policy, and also to user data, role editing, and many other critical aspects.
 
+The users in your organization who have backend access must be kept up-to-date.
+Any user leaving the organization must be disabled without delay.
+If a user takes on a new role in the organization, any required role changes for them in [[= product_name =]] must also be made as soon as possible.
+
 ### Strong passwords
 
 Enforce strong passwords for all users.
