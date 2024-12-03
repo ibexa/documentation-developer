@@ -1,5 +1,5 @@
 ---
-description: Shipment UpdatedAt Criterion
+description: Shipment UpdatedAt Search Criterion
 edition: commerce
 ---
 

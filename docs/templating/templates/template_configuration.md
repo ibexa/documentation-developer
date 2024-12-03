@@ -47,7 +47,8 @@ The default, built-in views are:
 - `asset_image` - used when an image asset is embedded in another content item
 
 The built-in views have built-in default templates.
-You can define any other custom views. For each custom view, you must define a custom template.
+You can define any other custom views.
+For each custom view, you must define a custom template.
 
 !!! tip "Direct path to previewing view types"
 
@@ -75,8 +76,7 @@ The `match` key can contain one or more [view matchers](view_matcher_reference.m
 You can use it together with the `template` key, or without it.
 
 `params` can provide additional parameters to the content view.
-Use them, for example, with [Query types](content_queries.md#query-types)
-or to provide [custom Twig variables](templates.md#custom-template-variables) to the template.
+Use them, for example, with [Query types](content_queries.md#query-types) or to provide [custom Twig variables](templates.md#custom-template-variables) to the template.
 
 ### Combining matchers
 
@@ -88,12 +88,12 @@ match:
     Identifier\Section: news
 ```
 
-In the example above, content which is either an article or a blog post is matched,
-but it must be in the "News" Section.
+In the example above, content which is either an article or a blog post is matched, but it must be in the "News" Section.
 
 ### Matching every content item
 
-When you use no matcher in a rule, this rule always match. Several values are available to declare no matcher:
+When you use no matcher in a rule, this rule always match.
+Several values are available to declare no matcher:
 
 ``` yaml
 match: ~

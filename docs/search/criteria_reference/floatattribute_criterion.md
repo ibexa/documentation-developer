@@ -1,3 +1,7 @@
+---
+description: FloatAttribute Search Criterion
+---
+
 # FloatAttribute Criterion
 
 The `FloatAttribute` Search Criterion searches for products by the value of their float attribute.

@@ -8,7 +8,7 @@ description: Ensure that your logs are secure and GDPR compliant by clearing the
 
 Some logs can contain personal information such as User ID or password.
 
-By default, [[= product_name =]] does not log User IDs.
+By default, [[= product_name =]] doesn't log User IDs.
 You can change this behavior by modifying the following setting:
 
 ``` yaml

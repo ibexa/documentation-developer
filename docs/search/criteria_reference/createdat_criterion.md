@@ -1,3 +1,7 @@
+---
+description: CreatedAt Search Criterion
+---
+
 # CreatedAt Criterion
 
 The `CreatedAt` Search Criterion searches for products based on the date when they were created.

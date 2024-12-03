@@ -1,5 +1,5 @@
 ---
-description: Payment Currency Criterion
+description: Payment Currency Search Criterion
 edition: commerce
 ---
 

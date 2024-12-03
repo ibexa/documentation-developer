@@ -4,8 +4,7 @@ description: The Ibexa DXP PHPStorm plugin helps you speed up your development b
 
 # Ibexa DXP plugin for PhpStorm
 
-Ibexa DXP plugin for PhpStorm helps you to work with Ibexa DXP by speeding up installation
-and providing file templates, intentions, autocompletion, and other features.
+[[= product_name =]] plugin for PhpStorm helps you to work with [[= product_name =]] by speeding up installation and providing file templates, intentions, autocompletion, and other features.
 
 ## Requirements
 
@@ -14,14 +13,13 @@ and providing file templates, intentions, autocompletion, and other features.
 
 ## Install PhpStorm plugin
 
-You can install the Ibexa DXP plugin for PhpStorm from the JetBrains Marketplace,
-or manually, from a downloaded .jar file.
+You can install the [[= product_name =]] plugin for PhpStorm from the JetBrains Marketplace, or manually, from a downloaded .jar file.
 
 ### Install from JetBrains Marketplace
 
 To install plugin from JetBrains marketplace:
 
-Look for "Ibexa DXP" in the plugin browser and click **Install**.
+Look for "[[= product_name =]]" in the plugin browser and click **Install**.
 
 ### Install from file
 
@@ -29,13 +27,11 @@ You can also install the plugin manually from a `.jar` file:
 
 1\. Download the latest version of the plugin from [JetBrains Marketplace](https://plugins.jetbrains.com/plugin/17239-ibexa-dxp/versions).
 
-2\. In PhpStorm settings/preferences (depending on your system), select **Plugins** > (gear icon) > **Install plugin from Disk...**
-and select the downloaded file.
+2\. In PhpStorm settings/preferences (depending on your system), select **Plugins** > (gear icon) > **Install plugin from Disk...** and select the downloaded file.
 
 ## Configuration
 
-Plugin configuration is available in PhpStorm settings/preferences (depending on your system), 
-under **PHP** > **Frameworks** > **Ibexa DXP**.
+Plugin configuration is available in PhpStorm settings/preferences (depending on your system), under **PHP** > **Frameworks** > **[[= product_name =]]**.
 
 You can use it to:
 
@@ -46,34 +42,33 @@ You can use it to:
 
 !!! note
 
-    Some plugin features depends on the selected product edition and version. 
-    For example, "deprecated namespaces usage" inspection is enabled only if the project uses v4.x.  
+    Some plugin features depends on the selected product edition and version.
+    For example, "deprecated namespaces usage" inspection is enabled only if the project uses v4.x.
 
-Plugin configuration is automatically resolved when opening Ibexa DXP project for the first time.
-If detection is successful, a notification appears with an "Enable Ibexa DXP support for this project" link.
+Plugin configuration is automatically resolved when opening [[= product_name =]] project for the first time.
+If detection is successful, a notification appears with an "Enable [[= product_name =]] support for this project" link.
 
-If you created your project by using Ibexa DXP project wizard, the plugin is automatically enabled and configured based 
-on wizard data.
+If you created your project by using [[= product_name =]] project wizard, the plugin is automatically enabled and configured based on wizard data.
 
 ## Features
 
 ### Project wizard
 
-The plugin enables creating a new Ibexa DXP project directly from PhpStorm.
-To do it, select **File** > **New Project...** > **Ibexa DXP**.
+The plugin enables creating a new [[= product_name =]] project directly from PhpStorm.
+To do it, select **File** > **New Project...** > **[[= product_name =]]**.
 
 In project settings form you can choose:
 
 - Location of the project
-- Product edition: Ibexa OSS, Ibexa Content, Ibexa Experience, Ibexa Commerce
+- Product edition: [[= product_name_oss =]], [[= product_name_headless =]], [[= product_name_exp =]], [[= product_name_com =]]
 - Authentication token (for Content, Experience and Commerce editions)
 - Product version: Default (latest LTS version), Latest (fast track or LTS), Latest LTS and "Next 3.x" (unstable, based on the 3.x branch) and "Next 4.x" (unstable, based on the 4.x branch)
-- Generate [Ibexa Cloud configuration](install_on_ibexa_cloud.md) 
+- Generate [Ibexa Cloud configuration](install_on_ibexa_cloud.md)
 - Composer settings
 
 ![Create a project](phpstorm_plugin_create_project.png)
 
-If you do not provide credentials for https://updates.ibexa.co/, the plugin uses the installation key and token password stored in global Composer configuration. Otherwise, it creates an `auth.json` file.
+If you don't provide credentials for https://updates.ibexa.co/, the plugin uses the installation key and token password stored in global Composer configuration. Otherwise, it creates an `auth.json` file.
 
 You can find details of the installation procedure in Composer log window.
 
@@ -83,16 +78,16 @@ The plugin provides the following built-in file templates:
 
 | Name | Comment |
 |---|---|
-| Back Office tab | Class implementing `Ibexa\Contracts\AdminUi\Tab` |
+| Back office tab | Class implementing `Ibexa\Contracts\AdminUi\Tab` |
 | Block event subscriber | Event subscriber for `BlockRenderEvents::getBlockPreRenderEventName(...)` event |
 | Command | Symfony command that uses content repository |
 | Composite Criterion | Criterion class based on `\Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion\CompositeCriterion` |
 | Field definition form mapper | Class implementing `Ibexa\AdminUi\FieldType\FieldDefinitionFormMapperInterface` |
-| Field Type | Field Type class based on `Ibexa\Contracts\Core\FieldType\Generic\Type` |
-| Field Type Comparable | Class implementing `Ibexa\Contracts\VersionComparison\FieldType\Comparable` |
-| Field Type Indexable | Class implementing `Ibexa\Contracts\Core\FieldType\Indexable` |
+| Field type | Field type class based on `Ibexa\Contracts\Core\FieldType\Generic\Type` |
+| Field type Comparable | Class implementing `Ibexa\Contracts\VersionComparison\FieldType\Comparable` |
+| Field type Indexable | Class implementing `Ibexa\Contracts\Core\FieldType\Indexable` |
 | Field value form mapper | Class implementing `Ibexa\Contracts\ContentForms\FieldType\FieldValueFormMapperInterface` |
-| Field value object | Field Type value class |
+| Field value object | Field type value class |
 | Installer Provisioner | Class implementing `\Ibexa\Installer\Provisioner\ProvisionerInterface`  |
 | Menu configuration event subscriber | Event subscriber for `Ibexa\AdminUi\Menu\Event\ConfigureMenuEvent::MAIN_MENU`  |
 | Policy provider | Class implementing `Ibexa\Bundle\Core\DependencyInjection\Security\PolicyProvider\PolicyProviderInterface` |
@@ -104,9 +99,9 @@ The plugin provides the following built-in file templates:
 | Value object visitor | REST value visitor class based on `Ibexa\Contracts\Rest\Output\ValueObjectVisitor` |
 | Workflow action listener | Workflow action listener class based on `Ibexa\Contracts\Workflow\Event\Action\AbstractTransitionWorkflowActionListener` |
 
-The templates are available in, for example, the context menu in **Project window** > **New** > **Ibexa DXP**.
+The templates are available in, for example, the context menu in **Project window** > **New** > **[[= product_name =]]**.
 
-The list of available file templates depends on the Ibexa DXP edition used by the project.
+The list of available file templates depends on the [[= product_name =]] edition used by the project.
 
 For all file templates you can customize:
 
@@ -146,9 +141,9 @@ and in PHP files:
 | Abbreviation | Comment |
 |---|---|
 | `ibx_create_c` | Create content |
-| `ibx_create_cd` | Create content draft | 
+| `ibx_create_cd` | Create content draft |
 | `ibx_create_ct` | Create content type |
-| `ibx_find_c` | Create and execute content query | 
+| `ibx_find_c` | Create and execute content query |
 | `ibx_find_ci` | Create and execute content info query |
 | `ibx_find_l` | Create and execute location query |
 | `ibx_load_c` | Load content by ID |
@@ -170,7 +165,7 @@ To customize live templates, go to **File** > **Settings**/**Preferences** > **E
 
 ### Autocompletion in configuration files
 
-Plugin provides autocompletion for Ibexa DXP configuration structure in YAML files placed in `config/packages/`.
+Plugin provides autocompletion for [[= product_name =]] configuration structure in YAML files placed in `config/packages/`.
 
 Besides configuration structure, for the following YAML keys addition suggestions are available:
 
@@ -214,8 +209,7 @@ To enable autocompletion, you must place the file in the `config` directory and 
 
 Parameter names suggestions are available in `Ibexa\Contracts\Core\SiteAccess\ConfigResolverInterface::{hasParameter,getParameter}` method calls.
 
-Suggested results take into account namespace argument, if its value can be resolved without running interpreter
-(for example, string literal or const reference).
+Suggested results take into account namespace argument, if its value can be resolved without running interpreter (for example, string literal or const reference).
 
 ### Query type name autocompletion
 
@@ -225,12 +219,11 @@ Suggestions are based on service definitions tagged as `ibexa.query_type`.
 
 ### Query type parameter autocompletion
 
-Parameter name suggestions are available for Query types which implement the `Ibexa\Core\QueryType\QueryType` interface
-or extend the `Ibexa\Core\QueryType\OptionsResolverBasedQueryType` class in the following places:
+Parameter name suggestions are available for Query types which implement the `Ibexa\Core\QueryType\QueryType` interface or extend the `Ibexa\Core\QueryType\OptionsResolverBasedQueryType` class in the following places:
 
 * `Ibexa\Core\QueryType\QueryType::getQuery` method calls
 * `Ibexa\Core\QueryType\QueryType::getQuery` method definition
-* `Ibexa\Core\QueryType\OptionsResolverBasedQueryType::doGetQuery` method definition 
+* `Ibexa\Core\QueryType\OptionsResolverBasedQueryType::doGetQuery` method definition
 
 ![Query Type parameter autocompletion](phpstorm_plugin_query_type_params.png)
 
@@ -244,7 +237,7 @@ For example, when plugin detects deprecated configuration key usage, it marks th
 
 ## Known issues
 
-It is not possible to create new project with Docker as PHP remote interpreter.
+It's not possible to create new project with Docker as PHP remote interpreter.
 See [related JetBrains issue](https://youtrack.jetbrains.com/issue/WI-61330) for more details.
 
 ## Feedback

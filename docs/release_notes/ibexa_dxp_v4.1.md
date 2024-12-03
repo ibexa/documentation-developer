@@ -1,5 +1,5 @@
 ---
-description: Ibexa DXP v4.1 enhances the PIM capabilities, adds a Measurement Field Type and attribute and a Dynamic Targeting block for the Page Builder.
+description: Ibexa DXP v4.1 enhances the PIM capabilities, adds a Measurement field type and attribute and a Dynamic Targeting block for the Page Builder.
 ---
 <!-- vale VariablesVersion = NO -->
 
@@ -15,7 +15,7 @@ description: Ibexa DXP v4.1 enhances the PIM capabilities, adds a Measurement Fi
 
 ### Product catalog enhancements
 
-With this release, product catalog brings new PHP APIs, productivity boost from new product search criteria and sort classes, advanced filtering in REST endpoints, auto-generated identifiers, product list sorting, and more.
+With this release, product catalog brings new PHP APIs, productivity boost from new product Search Criteria and Sort classes, advanced filtering in REST endpoints, auto-generated identifiers, product list sorting, and more.
 
 You can now use [advanced filtering on products, product types, attributes, and others in REST endpoints](https://doc.ibexa.co/en/latest/api/rest_api_reference/rest_api_reference.html#product-catalog-filter-currencies).
 
@@ -25,10 +25,10 @@ based on the current context (for example, selected locale).
 A new Color attribute enables adding a product attribute that uses the color picker to select a precise color.
 
 The product catalog is now fully integrated with the transactional system integration, enabling a full purchasing process.
-  
-### Measurement Field Type and attribute
 
-With the new Measurement Field Type users can now add a Measurement Field, with different pre-built units, to content:
+### Measurement field type and attribute
+
+With the new Measurement field type users can now add a Measurement Field, with different pre-built units, to content:
 
 ![Adding a Measurement Field to content type definition](4.1_measurement_ft.png)
 
@@ -44,16 +44,16 @@ The new Measurement product attribute enables describing products with different
 
 ### User interface improvements
 
-Several improvements to the Back Office interface enhance the user experience.
+Several improvements to the back office interface enhance the user experience.
 These include:
 
 - "Go to top" button
 - new DateTime widget
 - view switcher between lists, grids and calendar.
 
-Several new options have been added to the Content Tree's contextual menu, including Hide/Reveal, Create, Edit and Add translation, Add/Remove from bookmarks.
+Several new options have been added to the content tree's contextual menu, including Hide/Reveal, Create, Edit and Add translation, Add/Remove from bookmarks.
 
-![New Content Tree options](4.1_content_tree.png)
+![New content tree options](4.1_content_tree.png)
 
 ## Other changes
 
@@ -86,6 +86,6 @@ which prevents multiple processes from executing the same migration and causing 
 
 ## Full changelog
 
-| Ibexa Content  | Ibexa Experience  | Ibexa Commerce |
+| [[= product_name_content =]]  | [[= product_name_exp =]]  | [[= product_name_com =]] |
 |--------------|------------|------------|
-| [Ibexa Content v4.1](https://github.com/ibexa/content/releases/tag/v4.1.0) | [Ibexa Experience v4.1](https://github.com/ibexa/experience/releases/tag/v4.1.0) | [Ibexa Commerce v4.1](https://github.com/ibexa/commerce/releases/tag/v4.1.0)
+| [[[= product_name_content =]] v4.1](https://github.com/ibexa/content/releases/tag/v4.1.0) | [[[= product_name_exp =]] v4.1](https://github.com/ibexa/experience/releases/tag/v4.1.0) | [[[= product_name_com =]] v4.1](https://github.com/ibexa/commerce/releases/tag/v4.1.0)

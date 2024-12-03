@@ -4,7 +4,7 @@ description: Explore all of the key features, functionalities, and advantages of
 month_change: false
 ---
 
-# Ibexa DXP Commerce edition product guide
+# [[= product_name_com =]] edition product guide
 
 ## What is [[= product_name_com =]]
 
@@ -20,7 +20,8 @@ You can completely revamp your online stores and give your consumers exceptional
 ## Availability
 
 To start using [[= product_name_com =]], you need to purchase a product license.
-For more information, see [[[= product_name_com =]] license pricing](https://www.ibexa.co/products/pricing?tab=3).
+
+For more information, see [Ibexa Commerce license pricing](https://www.ibexa.co/products/pricing?tab=3).
 You can also [contact us](https://www.ibexa.co/about-ibexa/contact-us) or [one of our partners](https://www.ibexa.co/partners).
 
 ## How it works
@@ -34,7 +35,7 @@ With a help of documentation and trainings, any developer familiar with Symfony 
 
 Version control systems and environment variables allow you to deploy your extensions and settings on several environments, such as [Ibexa Cloud](ibexa_cloud_guide.md).
 
-[[= product_name_com =]] is built on [[[= product_name_exp =]]](ibexa_experience.md) and includes all bundles, APIs, and features that come with both [Headless](ibexa_headless.md#core-features) and [Experience](ibexa_experience.md#core-features) editions.
+[[= product_name_com =]] is built on [[[= product_name_exp =]]](ibexa_experience.md) and includes all bundles, APIs, and features that come with both [[[= product_name_product_name_headless =]]](ibexa_headless.md#core-features) and [[[= product_name_exp =]]](ibexa_experience.md#core-features) editions.
 
 ## Capabilities and benefits
 
@@ -71,7 +72,7 @@ Depending on their role, users can also enable or disable shipping methods, chan
 #### Storefront
 
 The [Storefront](storefront.md) package includes a starter kit for developers.
-It is a foundational set of components that developers can customize and extend to create their own web store implementations.
+It's a foundational set of components that developers can customize and extend to create their own web store implementations.
 It contains default UI components and widgets that can be modified to [create a customized web store](customize_storefront_layout.md).
 
 #### Relevant faceted search
@@ -103,7 +104,7 @@ Recommendations can be used to propose related, alternative, or complimentary pr
 
 #### Use effective merchandising
 
-Merchandising assists in keeping the consistency of the brand and providing customized product recommendations with captivating visuals and powerful search features. 
+Merchandising assists in keeping the consistency of the brand and providing customized product recommendations with captivating visuals and powerful search features.
 You can engage your customers with eye-catching graphics and information.
 The search engine makes it easy to find what they're looking for by providing quick and easy access to the product catalogs.
 
@@ -123,7 +124,7 @@ You can create online store that really fits your needs.
 
 #### Automate business processes
 
-With [[= product_name_com =]], the automation process becomes easier, which is essential if your company wants to do more with less effort. 
-It comes with all capabilities, including order and inventory management, customer data and custom pricing, which are needed to achieve it.
-You can integrate with over 1,300 standard apps, including your CRM, ERP, PIM and DAM systems, and build custom connectors.
+With [[= product_name_com =]], the automation process becomes easier, which is essential if your company wants to do more with less effort.
+It comes with all capabilities, including order and inventory management, customer data, and custom pricing, which are needed to achieve it.
+You can integrate with over 1,300 standard apps, including your CRM, ERP, PIM, and DAM systems, and build custom connectors.
 Also, you can use the ready-to-use pre-designed templates.

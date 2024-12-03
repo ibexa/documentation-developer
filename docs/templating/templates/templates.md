@@ -16,13 +16,11 @@ Templates use the Twig template engine.
 Templates can inherit from other templates.
 Use this, for example, to inherit a general page layout including a [navigation menu](add_navigation_menu.md) in article templates.
 
-To inherit from other templates, a template must extend the parent templates
-using the [`extends()`](https://twig.symfony.com/doc/3.x/tags/extends.html) Twig function.
+To inherit from other templates, a template must extend the parent templates by using the [`extends()`](https://twig.symfony.com/doc/3.x/tags/extends.html) Twig function.
 To extend a parent template, the child template must contain Twig blocks.
 These blocks are inserted in the parent template in relevant places.
 
-For example, to extend the [general layout of the page](template_configuration.md#view-rules-and-matching), which includes header, footer, navigation, and so on,
-in the child template place the content in a `content` block:
+For example, to extend the [general layout of the page](template_configuration.md#view-rules-and-matching), which includes, for example, header, footer, or navigation, in the child template place the content in a `content` block:
 
 ``` html+twig
 {% extends '@ibexadesign/pagelayout.html.twig' %}
@@ -40,8 +38,7 @@ The parent template (in this case, `pagelayout.html.twig`) must leave a place fo
 
 ## Template variables
 
-In templates, you can use variables related to the current content item,
-as well as general variables related to the current view and general application settings.
+In templates, you can use variables related to the current content item, and general variables related to the current view and general application settings.
 
 [[= include_file('docs/snippets/rendering_dump_variable.md') =]]
 
@@ -54,7 +51,7 @@ Main variables include:
 |`ibexa.siteaccess`| Current [SiteAccess](multisite.md). |
 |`ibexa.rootLocation`| Root Location object. |
 |`ibexa.requestedUriString`| Requested URI string. |
-|`ibexa.systemUriString`| System URI string. System URI is the URI for internal content controller. If the current route is not a URL alias, then the current PathInfo is returned. |
+|`ibexa.systemUriString`| System URI string. System URI is the URI for internal content controller. If the current route isn't a URL alias, then the current PathInfo is returned. |
 |`ibexa.viewParameters`| View parameters as a hash. |
 |`ibexa.viewParametersString`| View parameters as a string. |
 |`ibexa.translationSiteAccess`| Translation SiteAccess for a given language (null if the SiteAccess cannot be found). |
@@ -96,8 +93,7 @@ twig_variables:
 {{ custom_variable.nested_variable }}
 ```
 
-You can use [Symfony Expression language]([[= symfony_doc =]]/components/expression_language.html)
-to access other values, for example:
+You can use [Symfony Expression language]([[= symfony_doc =]]/components/expression_language.html) to access other values, for example:
 
 ``` yaml
 params:
@@ -106,5 +102,4 @@ params:
 
 !!! note
 
-    A custom variable can overwrite an existing variable,
-    so it is good practice to avoid existing variable names such as `content` or `location`.
+    A custom variable can overwrite an existing variable, so it's good practice to avoid existing variable names such as `content` or `location`.

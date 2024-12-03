@@ -1,11 +1,14 @@
+---
+description: IsVirtual Search Criterion
+---
+
 # IsVirtual Criterion
 
-The `IsVirtual` Search Criterion searches for virtual or physical products. 
+The `IsVirtual` Search Criterion searches for virtual or physical products.
 
 ## Arguments
 
-- (optional) `isVirtual` - bool representing whether to search for virtual (default `true`)
-or physical (`false`) products.
+- (optional) `isVirtual` - bool representing whether to search for virtual (default `true`) or physical (`false`) products.
 
 ## Example
 

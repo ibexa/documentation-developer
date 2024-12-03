@@ -4,7 +4,7 @@ title: Ibexa Cloud product guide
 month_change: false
 ---
 
-# [[= product_name_cloud =]] product guide
+# Ibexa Cloud product guide
 
 ## What is [[= product_name_cloud =]]
 
@@ -41,16 +41,18 @@ When you have an account, you can log in to https://console.ibexa.cloud.
 
 ### Platform as a Service
 
-[[= product_name_cloud =]] is a PaaS provider. It's a cloud-based subscription service that you can use for developing, managing, and running applications without infrastructure concerns.
+[[= product_name_cloud =]] is a PaaS provider.
+It's a cloud-based subscription service that you can use for developing, managing, and running applications without infrastructure concerns.
 This cloud computing approach gives users access to a full cloud platform, including hardware, software, and infrastructure.
-PaaS eliminates the requirement to buy and install the necessary hardware and software. All you have to do is access it and you can start deploying resources and developing right away.
+PaaS eliminates the requirement to buy and install the necessary hardware and software.
+All you have to do is access it and you can start deploying resources and developing right away.
 
 ![How PaaS works](how_paas_works.png)
 
 ### Performance management
 
 Make your applications more effective, scalable, and effective by using the [Observability Suite](https://platform.sh/features/observability-suite/).
-This package gives you the the ability to test, profile, and monitor your application before putting it into production.
+This package gives you the ability to test, profile, and monitor your application before putting it into production.
 Observability Suite comes with each [[= product_name_cloud =]] subscription.
 
 ### Automation
@@ -74,7 +76,8 @@ What's more, [[= product_name_cloud =]] as an end-to-end cloud hosting platform,
 
 Comprehensive data security procedures guarantee that you maintain complete ownership of your client's data, defining where it's stored.
 You can be sure that the safety protocols are compliant with all applicable legislation.
-What's more, all updates to your code and infrastructure are fully auditable. Global CDN (Content Delivery Network) is included and fully managed.
+What's more, all updates to your code and infrastructure are fully auditable.
+Global CDN (Content Delivery Network) is included and fully managed.
 [[= product_name_cloud =]], thanks to extensive [[= product_name_base =]] support, enables effortless deployment.
 You can create a clone not only of the code, but also data and the infrastructure.
 As the infrastructure is exactly the same as what's currently in production, you can be sure that everything works well when you conduct your release and push it live.
@@ -82,7 +85,8 @@ As the infrastructure is exactly the same as what's currently in production, you
 ### High availability and compatibility
 
 [[= product_name_cloud =]] is compatible with your choice of public cloud server and supports a variety of hosting platforms.
-It's a Git-native development - compatible with Git Flow. [[= product_name_cloud =]] deployment integrates naturally at the end of your existing production chain, including staging, and work in progress branch preview.
+It's a Git-native development - compatible with Git Flow.
+[[= product_name_cloud =]] deployment integrates naturally at the end of your existing production chain, including staging, and work in progress branch preview.
 You can also integrate with, for example, Bitbucket, GitHub, Gitlab.
 You can instantly clone every branch of both your code and infrastructure configuration.
 Platform.sh (and [[= product_name_cloud =]], by extension) uses the [Infrastracture as Code approach](https://docs.platform.sh/learn/overview.html#infrastructure-as-code).

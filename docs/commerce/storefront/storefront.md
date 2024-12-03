@@ -6,8 +6,7 @@ edition: commerce
 # Storefront
 
 The Storefront package provides a starting kit for the developers.
-It is a set of components that serves as a basis, which developers can 
-customize and extend to create their own implementation of a web store.
+It's a set of components that serves as a basis, which developers can customize and extend to create their own implementation of a web store.
 
 ## Default UI components
 
@@ -26,9 +25,9 @@ You can modify them when you build your own web store.
 | Mini cart widget | Consists of a counter that displays a total number of items added to a cart. |
 |Orders list|Displays a list of orders with such information as status, date, value, order ID. |
 | Product category page | Displays products that belong to a specific category. |
-| Product filters component | Allows for narrowing the list of products displayed in the listing by using different filters, such as product type, availability and price. |
+| Product filters component | Allows for narrowing the list of products displayed in the listing by using different filters, such as product type, availability, and price. |
 | Product listing page | Allows for browsing through products, displays product name, code, price, and image. |
-| Region menu | Enables selecting between regions, to dynamically change the contents of the product listing page. | 
+| Region menu | Enables selecting between regions, to dynamically change the contents of the product listing page. |
 | Reorder |Allows logged-in users to repurchase previously bought items. |
 |Searching and filtering of orders| Allows logged-in users to search and filter their past orders on the orders page.|
 | Search for specific product component | Allows for searching for products, for example on the product listing page. |

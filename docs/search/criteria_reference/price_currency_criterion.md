@@ -1,5 +1,5 @@
 ---
-description: Price Currency Criterion
+description: Price Currency Search Criterion
 ---
 
 # Price Currency Criterion
@@ -17,7 +17,7 @@ The `Currency` Search Criterion searches for prices based on the given currency.
 ``` php
 $currency = $priceService->getPriceById('EUR');
 
-$query = new PriceQuery( 
+$query = new PriceQuery(
     new \Ibexa\Contracts\ProductCatalog\Values\Price\Query\Criterion\Currency($currency)
 );
 ```

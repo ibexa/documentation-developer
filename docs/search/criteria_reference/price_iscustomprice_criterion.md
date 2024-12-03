@@ -1,5 +1,5 @@
 ---
-description: Price IsCustomPrice Criterion
+description: Price IsCustomPrice Search Criterion
 ---
 
 # Price IsCustomPrice Criterion
@@ -12,14 +12,14 @@ This Criterion takes no arguments.
 
 ## Limitations
 
-The `IsCustomPrice` Criterion is not available in Solr or Elasticsearch engines.
+The `IsCustomPrice` Criterion isn't available in Solr or Elasticsearch engines.
 
 ## Example
 
 ### PHP
 
 ``` php
-$query = new PriceQuery( 
+$query = new PriceQuery(
     new \Ibexa\Contracts\ProductCatalog\Values\Price\Query\Criterion\IsCustomPrice()
 );
 ```

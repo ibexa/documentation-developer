@@ -1,7 +1,10 @@
+---
+description: UserId Search Criterion
+---
+
 # UserId Criterion
 
-The [`UserId` Search Criterion](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Criterion-UserId.html)
-searches for content based on the User ID.
+The [`UserId` Search Criterion](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Criterion-UserId.html) searches for content based on the User ID.
 
 ## Arguments
 

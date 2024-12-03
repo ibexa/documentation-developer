@@ -16,8 +16,7 @@ To get a list of all languages in the system use [`LanguageService::loadLanguage
 
 ## Creating a language
 
-To create a new language, you need to create a [`LanguageCreateStruct`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-LanguageCreateStruct.html)
-and provide it with the language code and language name.
+To create a new language, you need to create a [`LanguageCreateStruct`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-LanguageCreateStruct.html) and provide it with the language code and language name.
 Then, use [`LanguageService::createLanguage`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-LanguageService.html#method_createLanguage) and pass the `LanguageCreateStruct` to it:
 
 ``` php

@@ -5,17 +5,15 @@ description: Ibexa DXP uses Symfony to handle user sessions, with support for Si
 # Sessions
 
 Sessions are handled by the Symfony framework, specifically API and underlying session handlers provided by the HttpFoundation component.
-It is further enhanced in [[= product_name =]] with support for SiteAccess-aware session cookie configuration.
+It's further enhanced in [[= product_name =]] with support for SiteAccess-aware session cookie configuration.
 
 !!! note
 
-    Use of Memcached, Redis (or experimentally PDO) as session handler is a requirement in a cluster setup,
-    for details [see below](#cluster-setup). For an overview of the clustering feature see [Clustering](clustering.md).
+    Use of Memcached, Redis (or experimentally PDO) as session handler is a requirement in a cluster setup, for details [see below](#cluster-setup). For an overview of the clustering feature see [Clustering](clustering.md).
 
 ## Configuration
 
-Symfony offers the possibility to change many session options at application level
-(for example, in Symfony [`framework` configuration]([[= symfony_doc =]]/reference/configuration/framework.html#session)).
+Symfony offers the possibility to change many session options at application level (for example, in Symfony [`framework` configuration]([[= symfony_doc =]]/reference/configuration/framework.html#session)).
 These options include:
 
 - `cookie_domain`
@@ -24,13 +22,11 @@ These options include:
 - `cookie_secure`
 - `cookie_httponly`
 
-However, in [[= product_name =]] you can set up several sites within one Symfony application,
-so you can also define session configuration per SiteAccess and SiteAccess group level.
+However, in [[= product_name =]] you can set up several sites within one Symfony application, so you can also define session configuration per SiteAccess and SiteAccess group level.
 
 ### Session options per SiteAccess
 
-All site-related session configuration can be defined per SiteAccess and SiteAccess group
-under the `ibexa.system.<scope>.session` [configuration key](configuration.md#configuration-files):
+All site-related session configuration can be defined per SiteAccess and SiteAccess group under the `ibexa.system.<scope>.session` [configuration key](configuration.md#configuration-files):
 
 ``` yaml
 ibexa:
@@ -52,8 +48,8 @@ ibexa:
 
 ## Session handlers
 
-In Symfony, a session handler is configured using `framework.session.handler_id`.
-Symfony can be configured to use custom handlers, or just fall back to what is configured in PHP by setting it to null (`~`).
+In Symfony, a session handler is configured with `framework.session.handler_id`.
+Symfony can be configured to use custom handlers, or fall back to what is configured in PHP by setting it to null (`~`).
 
 ### Default configuration
 
@@ -102,8 +98,7 @@ Alternatively if you need to configure Memcached servers dynamically:
 - Set `%ibexa.session.handler_id%` (or `SESSION_HANDLER_ID` env var) to `app.session.handler.native_memcached`
 - Set `%ibexa.session.save_path%` (or `SESSION_SAVE_PATH` env var) to [`save_path` config for Memcached](https://www.php.net/manual/en/memcached.sessions.php)
 
-Optionally tweak [`php-memcached` session settings](https://www.php.net/manual/en/memcached.configuration.php) for things like
-session locking.
+Optionally tweak [`php-memcached` session settings](https://www.php.net/manual/en/memcached.configuration.php) for things like session locking.
 
 ##### Handling sessions with Redis
 
@@ -117,24 +112,23 @@ Alternatively if you have needs to configure Redis servers dynamically:
 - Set `%ibexa.session.handler_id%` (or `SESSION_HANDLER_ID` env var) to `Ibexa\Bundle\Core\Session\Handler\NativeSessionHandler`
 - Set `%ibexa.session.save_path%` (or `SESSION_SAVE_PATH` env var) to [save_path config for Redis](https://github.com/phpredis/phpredis/#php-session-handler)
 
-!!! note "Ibexa Cloud"
+!!! note "[[= product_name_cloud =]]"
 
     For [[= product_name_cloud =]] (and Platform.sh), this is already configured in `config/env/platformsh.php` based on `.platform.yaml` config.
 
-If you are on `php-redis` v4.2.0 and higher, you can optionally tweak [`php-redis` settings](https://github.com/phpredis/phpredis#session-locking) for session locking.
+If you're on `php-redis` v4.2.0 and higher, you can optionally tweak [`php-redis` settings](https://github.com/phpredis/phpredis#session-locking) for session locking.
 
 Ideally keep [persistence cache](persistence_cache.md) and session data separated:
 
 - Sessions can't risk getting [randomly evicted](https://redis.io/docs/reference/eviction/#eviction-policies) when you run out of memory for cache.
-- You can't completely disable eviction either, as Redis will then start to refuse new entries once full, including new sessions.
+- You can't completely disable eviction either, as Redis then starts to refuse new entries once full, including new sessions.
     - Either way, you should monitor your Redis instances and make sure you have enough memory set aside for active sessions/cache items.
 
 If you want to make sure sessions survive Redis or server restarts, consider using a [persistent Redis](https://redis.io/docs/management/persistence/) instance for sessions.
 
-##### Alternative storing sessions in database using PDO
+##### Alternative storing sessions in database by using PDO
 
-For setups where database is preferred for storing sessions, you may use Symfony's PdoSessionHandler,
-although it is not currently recommended from performance perspective.
+For setups where database is preferred for storing sessions, you may use Symfony's PdoSessionHandler, although it's not currently recommended from performance perspective.
 
 Below is a configuration example for [[= product_name =]]. Refer to the [Symfony Cookbook]([[= symfony_doc =]]/doctrine/pdo_session_storage.html) for full documentation.
 

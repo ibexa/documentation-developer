@@ -1,6 +1,7 @@
-# ImageAsset Field Type
+# ImageAsset field type
 
-ImageAsset Field Type enables storing images in independent content items of a generic Image content type, in the media library. It makes them reusable across system.
+ImageAsset field type enables storing images in independent content items of a generic Image content type, in the media library.
+It makes them reusable across system.
 
 ### Input expectations
 
@@ -8,7 +9,7 @@ Example array:
 
 |Type|Description|Example|
 |------|------|------|
-|`Ibexa\Core\FieldType\ImageAsset\Value`|ImageAsset Field Type value object.|See below.|
+|`Ibexa\Core\FieldType\ImageAsset\Value`|ImageAsset field type value object.|See below.|
 |`Ibexa\Contracts\Core\Repository\Values\Content\ContentInfo`|ContentInfo instance of the Asset content item. |n/a|
 |`string`| ID of the Asset content item. |`"150"`|
 |`integer`| ID of the Asset content item. | `150`|
@@ -33,7 +34,8 @@ $imageAssetValue->alternativeText = "Picture of an apple.";
 
 ##### Constructor
 
-The `ImageAsset\Value` constructor will initialize a new value object with the value provided. It expects an ID of a content item representing asset and the alternative text.
+The `ImageAsset\Value` constructor initializes a new value object with the value provided.
+It expects an ID of a content item representing asset and the alternative text.
 
 ``` php
 // Constructor example
@@ -44,13 +46,13 @@ $imageAssetValue  = new ImageAsset\Value($contentInfo->id, "Picture of an apple.
 
 ### Validation
 
-This Field Type validates if:
+This field type validates if:
 
 - `destinationContentId` points to a content item which has correct content type
 
 ### Configuration
 
-ImageAsset Field Type allows configuring the following options:
+ImageAsset field type allows configuring the following options:
 
 |Name|Description|Default value|
 |----|-----------|-------------|
@@ -73,14 +75,15 @@ ibexa:
                     parent_location_id: 106
 ```
 
-## Customizing ImageAsset Field Type rendering
+## Customizing ImageAsset field type rendering
 
-Internally the Image Asset Type is rendered via subrequest (similar to other relation types). Rendering customization is possible by configuring view type `asset_image`:
+Internally the Image Asset Type is rendered via subrequest (similar to other relation types).
+Rendering customization is possible by configuring view type `asset_image`:
 
 ```php
 ibexa:
     system:
-       default:           
+       default:
             content_view:
                 asset_image:
                     default:
@@ -90,4 +93,4 @@ ibexa:
 
 ## Generating image variation from the Image Asset
 
-Thanks to the `Ibexa\Bundle\Core\Imagine\ImageAsset` decorator you can work with `Ibexa\Contracts\Core\Variation` in the same way as with [Image Field Type](imagefield.md).
+Thanks to the `Ibexa\Bundle\Core\Imagine\ImageAsset` decorator you can work with `Ibexa\Contracts\Core\Variation` in the same way as with [Image field type](imagefield.md).

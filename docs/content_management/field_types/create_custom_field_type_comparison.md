@@ -1,18 +1,18 @@
 ---
-description: Enable comparison of content Fields based on a custom Field Type.
+description: Enable comparison of content fields based on a custom field type.
 ---
 
-# Create custom Field Type comparison
+# Create custom field type comparison
 
-In the Back Office, you can compare the contents of Fields.
-Comparing is possible only between two versions of the same Field that are in the same language.
+In the back office, you can compare the contents of fields.
+Comparing is possible only between two versions of the same field that are in the same language.
 
-You can add the possibility to compare custom and other unsupported Field Types.
+You can add the possibility to compare custom and other unsupported field types.
 
 !!! note
 
-    The following task uses the [custom "Hello World" Field Type](create_custom_generic_field_type.md).
-    The configuration is based on the comparison mechanism created for the `ezstring` Field Type.
+    The following task uses the [custom "Hello World" field type](create_custom_generic_field_type.md).
+    The configuration is based on the comparison mechanism created for the `ezstring` field type.
 
 ## Create Comparable class
 
@@ -42,10 +42,10 @@ Next, create a `src/FieldType/HelloWorld/Comparison/Value.php` file that holds t
 
 ## Create comparison engine
 
-The comparison engine handles the operations required for comparing the contents of Fields.
-Each Field Type requires a separate comparison engine, which implements the `Ibexa\Contracts\VersionComparison\Engine\FieldTypeComparisonEngine` interface.
+The comparison engine handles the operations required for comparing the contents of fields.
+Each field type requires a separate comparison engine, which implements the `Ibexa\Contracts\VersionComparison\Engine\FieldTypeComparisonEngine` interface.
 
-For the "Hello World" Field Type, create the following comparison engine based on the engine for the TextLine Field Type.
+For the "Hello World" field type, create the following comparison engine based on the engine for the TextLine field type.
 Place it in `src/FieldType/HelloWorld/Comparison/HelloWorldComparisonEngine.php`:
 
 ``` php

@@ -1,3 +1,7 @@
+---
+description: CreatedAt Sort Clause
+---
+
 # CreatedAt Sort Clause
 
 The `CreatedAt` Sort Clause sorts search results by the date and time of the creation of a product.

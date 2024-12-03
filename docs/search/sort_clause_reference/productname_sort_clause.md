@@ -1,3 +1,7 @@
+---
+description: ProductName Sort Clause
+---
+
 # ProductName Sort Clause
 
 The `ProductName` Sort Clause sorts search results by the Product code.

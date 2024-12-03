@@ -1,5 +1,5 @@
 ---
-description: Events that are triggered when working with Roles.
+description: Events that are triggered when working with roles.
 page_type: reference
 ---
 
@@ -22,7 +22,7 @@ page_type: reference
 |`BeforeDeleteRoleEvent`|`RoleService::deleteRole`|`Role $role`|
 |`DeleteRoleEvent`|`RoleService::deleteRole`|`Role $role`|
 
-## Adding Policies
+## Adding policies
 
 | Event | Dispatched by | Properties |
 |---|---|---|
@@ -33,7 +33,7 @@ page_type: reference
 |`BeforeRemovePolicyByRoleDraftEvent`|`RoleService::removePolicyByRoleDraft`|`RoleDraft $roleDraft`</br>`PolicyDraft $policyDraft`</br>`RoleDraft|null $updatedRoleDraft`|
 |`RemovePolicyByRoleDraftEvent`|`RoleService::removePolicyByRoleDraft`|`RoleDraft $roleDraft`</br>`PolicyDraft $policyDraft`</br>`RoleDraft $updatedRoleDraft`|
 
-## Assigning Roles
+## Assigning roles
 
 | Event | Dispatched by | Properties |
 |---|---|---|

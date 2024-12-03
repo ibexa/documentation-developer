@@ -7,7 +7,7 @@ latest_tag: '3.2.8'
 
 !!! caution
 
-    Before you start updating to v3.3, make sure that you are currently using the latest version of v2.5 (v[[= latest_tag_2_5 =]]).
+    Before you start updating to v3.3, make sure that you're currently using the latest version of v2.5 (v[[= latest_tag_2_5 =]]).
     If not, refer to the [update guide for v2.5](update_db_to_2.5.md#d-update-to-v25).
 
 To move from v2.5 to v3.3, first, you need to bring the app to version v3.2.

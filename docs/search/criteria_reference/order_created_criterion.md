@@ -1,5 +1,5 @@
 ---
-description: Order CreatedAt Criterion
+description: Order CreatedAt Search Criterion
 edition: commerce
 ---
 

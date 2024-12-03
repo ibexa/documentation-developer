@@ -6,8 +6,7 @@ page_type: reference
 
 # Checkout Twig functions
 
-You can use checkout Twig functions to get information about the checkout process, 
-as well as total values related to cart and cart items.
+You can use checkout Twig functions to get information about the checkout process, and total values related to cart and cart items.
 
 ### `ibexa_checkout_step_label()`
 
@@ -33,18 +32,17 @@ The `ibexa_checkout_steps()` function returns a list of steps configured in `fra
 
 The `ibexa_checkout_step_path()` function returns a path to the step.
 
-``` html+twig 
+``` html+twig
 <a href="{{ ibexa_checkout_step_path(checkout, step) }}">{{ <link_label> }}</a>
 ```
 
 ### `ibexa_checkout_step_url()`
 
-The `ibexa_checkout_step_url()` function returns a URL address of the step. 
-By setting the optional argument to `true` you can decide whether the function 
-returns a relative or absolute URL of the checkout step.
+The `ibexa_checkout_step_url()` function returns a URL address of the step.
+By setting the optional argument to `true` you can decide whether the function returns a relative or absolute URL of the checkout step.
 The default value of the optional argument is `false`, which stands for the absolute URL.
 
-``` html+twig 
+``` html+twig
 <a href="{{ ibexa_checkout_step_url(checkout, step, true) }}">{{ <target_page_label> }}</a>
 ```
 
@@ -62,20 +60,19 @@ The `ibexa_checkout_step_number` function returns a sequential number of the ste
 
 The `ibexa_checkout_summary_entries` function takes in a single argument, a cart summary object, and returns the checkout summary.
 
-``` html+twig 
+``` html+twig
 {% block items %}
     {% for entry in ibexa_checkout_summary_entries(summary) %}
         // ...
     {% endfor %}
-{% endblock %}  
+{% endblock %}
 ```
 
 ### `ibexa_checkout_summary_vat_summaries()`
 
-The `ibexa_checkout_summary_vat_summaries()` function takes in a single argument, a cart summary object, 
-and returns an array of VAT summary objects for the cart. 
+The `ibexa_checkout_summary_vat_summaries()` function takes in a single argument, a cart summary object, and returns an array of VAT summary objects for the cart.
 Each VAT summary relates to a certain VAT rate, and contains information about the VAT rate, and the VAT value.
 
-``` html+twig 
+``` html+twig
 {% set vat_summaries = ibexa_checkout_summary_vat_summaries(summary) %}
 ```

@@ -1,7 +1,10 @@
+---
+description: UserEmail Search Criterion
+---
+
 # UserEmail Criterion
 
-The [`UserEmail` Search Criterion](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Criterion-UserEmail.html)
-searches for content based on the email assigned to the User account.
+The [`UserEmail` Search Criterion](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Criterion-UserEmail.html) searches for content based on the email assigned to the user account.
 
 ## Arguments
 

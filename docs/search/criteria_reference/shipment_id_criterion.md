@@ -1,5 +1,5 @@
 ---
-description: Shipment Id Criterion
+description: Shipment Id Search Criterion
 edition: commerce
 ---
 
@@ -16,7 +16,7 @@ The `Id` Search Criterion searches for shipments based on the shipment ID.
 ### PHP
 
 ``` php
-$query = new ShipmentQuery( 
+$query = new ShipmentQuery(
     new \Ibexa\Contracts\Shipping\Shipment\Query\Criterion\Id(2)
 );
 ```

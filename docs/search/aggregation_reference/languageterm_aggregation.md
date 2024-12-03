@@ -1,3 +1,7 @@
+---
+description: LanguageTermAggregation
+---
+
 # LanguageTermAggregation
 
 The [LanguageTermAggregation](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Aggregation-LanguageTermAggregation.html) aggregates search results by the content item's language.
