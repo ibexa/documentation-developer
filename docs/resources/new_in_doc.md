@@ -26,6 +26,16 @@ This page contains recent highlights and notable changes in [[= product_name =]]
 
 - When searching from the top bar, you may see, at the bottom of the drop-down suggestion list, a link to a page to see more results.
 
+### PHP API
+
+- Added the following new namespaces, interfaces, and classes to the public PHP API:
+    - [`Ibexa\Contracts\Core\Validation`](https://doc.ibexa.co/en/master/api/php_api/php_api_reference/namespaces/ibexa-contracts-core-validation.html) namespace and its descendants
+    - [`Ibexa\Contracts\Notifications\SystemNotification`](https://doc.ibexa.co/en/master/api/php_api/php_api_reference/namespaces/ibexa-contracts-notifications-systemnotification.html) namespace and its descendants
+    - [`Ibexa\Contracts\Notifications\Value\Recipent\UserRecipientInterface`](https://doc.ibexa.co/en/master/api/php_api/php_api_reference/classes/Ibexa-Contracts-Notifications-Value-Recipent-UserRecipientInterface.html)
+    - [`Ibexa\Contracts\ProductCatalog\Values\Product\Query\Criterion\UpdatedAt`](https://doc.ibexa.co/en/master/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Values-Product-Query-Criterion-UpdatedAt.html)
+    - [`Ibexa\Contracts\ProductCatalog\Values\Product\Query\Criterion\UpdatedAtRange`](https://doc.ibexa.co/en/master/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Values-Product-Query-Criterion-UpdatedAtRange.html)
+    - [`Ibexa\Contracts\ProductCatalog\ProductReferencesResolverStrategy`](https://doc.ibexa.co/en/master/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-ProductReferencesResolverStrategy.html)
+
 ## October 2024
 
 ### Content management
