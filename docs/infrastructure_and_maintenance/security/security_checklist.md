@@ -284,7 +284,7 @@ See [Change from UTF8 to UTF8MB4](update_db_to_2.5.md#change-from-utf8-to-utf8mb
 
 ### Secure access
 
-Secure the database access with strong passwords, keys, firewall, encryption in transit, encryption at rest etc. as needed.
+Secure the database access with strong passwords, keys, firewall, encryption in transit, encryption at rest, and so on, as needed.
 When using [[= product_name_cloud =]], the provider handles this.
 
 ### Limit database rights
