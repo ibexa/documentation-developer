@@ -241,7 +241,7 @@ Removing them means that attackers can't attempt to force other users to use wea
 As of December 2024, TLS 1.3 is [supported by ca. 97% of global internet users](https://caniuse.com/tls1-3).
 If you need to support Internet Explorer or old versions of other browsers, you can disable TLS 1.1 and older, leaving 1.2 and 1.3 enabled.
 
-When using [[= product_name_cloud =]], you can [set the minimum TLS version in .platform/routes.yaml](https://docs.platform.sh/define-routes/https.html#enforce-tls-13).
+When using [[= product_name_cloud =]], you can [set the minimum TLS version in `.platform/routes.yaml`](https://docs.platform.sh/define-routes/https.html#enforce-tls-13).
 
 ### Enable HTTP Strict Transport Security (HSTS)
 
