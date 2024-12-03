@@ -16,6 +16,7 @@ post:
     body:
         application/vnd.ibexa.api.CartCreate+xml:
             type: CartCreate
+            example: !include examples/cart/POST/CartCreate.xml.example
         application/vnd.ibexa.api.CartCreate+json:
             type: CartCreateWrapper
             example: !include examples/cart/POST/CartCreate.json.example
@@ -24,6 +25,7 @@ post:
             body:
                 application/vnd.ibexa.api.Cart+xml:
                     type: Cart
+                    example: !include examples/cart/POST/Cart.xml.example
                 application/vnd.ibexa.api.Cart+json:
                     type: CartWrapper
                     example: !include examples/cart/POST/Cart.json.example
@@ -47,6 +49,7 @@ post:
         body:
             application/vnd.ibexa.api.CartViewInput+xml:
                 type: CartViewInput
+                example: !include examples/cart/view/CartViewInput.xml.example
             application/vnd.ibexa.api.CartViewInput+json:
                 type: CartViewInputWrapper
                 example: !include examples/cart/view/CartViewInput.json.example
@@ -58,6 +61,7 @@ post:
                         type: CartView
                     application/vnd.ibexa.api.CartView+json:
                         type: CartViewWrapper
+                        example: !include examples/cart/view/CartView.json.example
 /{identifier}:
     get:
         displayName: Get Cart
@@ -74,6 +78,7 @@ post:
                 body:
                     application/vnd.ibexa.api.Cart+xml:
                         type: Cart
+                        example: !include examples/cart/POST/Cart.xml.example
                     application/vnd.ibexa.api.Cart+json:
                         type: CartWrapper
                         example: !include examples/cart/POST/Cart.json.example
@@ -165,3 +170,40 @@ post:
                     description: Error - The user is not authorized to read this Cart.
                 404:
                     description: Error - Cart not found.
+    /validate:
+        post:
+            displayName: Cart Validation
+            description: Validates a Cart against constraints
+            headers:
+                Accept:
+                    description: If set, the Cart Constraint Violations are returned in XML or JSON format.
+                    example: |
+                        application/vnd.ibexa.api.CartConstraintViolationList+xml
+                        application/vnd.ibexa.api.CartConstraintViolationList+json
+            responses:
+                200:
+                    body:
+                        application/vnd.ibexa.api.CartConstraintViolationList+xml:
+                            type: CartConstraintViolationList
+                            example: !include examples/cart/identifier/validate/CartConstraintViolationList.xml.example
+                        application/vnd.ibexa.api.CartConstraintViolationList+json:
+                            type: CartConstraintViolationListWrapper
+                            example: !include examples/cart/identifier/validate/CartConstraintViolationList.json.example
+/authorize:
+    post:
+        displayName: Cart Authorization
+        description: Returns the CSRF token required by anonymous user to interact with their own cart.
+        headers:
+            Accept:
+                example: |
+                    application/vnd.ibexa.api.Token+xml
+                    application/vnd.ibexa.api.Token+json
+        responses:
+            200:
+                body:
+                    application/vnd.ibexa.api.Token+xml:
+                        type: Token
+                        example: !include examples/cart/authorize/Token.xml.example
+                    application/vnd.ibexa.api.CartConstraintViolationList+json:
+                        type: Token
+                        example: !include examples/cart/authorize/Token.json.example
