@@ -36,10 +36,6 @@ This is specially important for admin accounts and other privileged users.
 
     See [setting up password rules](passwords.md#password-rules).
 
-### Secure secrets
-
-Ensure all other secrets are similarly secured: Varnish invalidate token, JWT passphrase (if in use), and any other application-specific secrets.
-
 ### Protect against brute force attacks
 
 Consider introducing a measure against brute force login attacks, like CAPTCHA.
@@ -150,9 +146,10 @@ Reduce your attack surface by exposing only what you must.
 
 ## Symfony
 
-### `APP_SECRET`
+### `APP_SECRET` and other secrets
 
 `APP_SECRET` needs to be a strong, random, securely stored value.
+This applies also to other secrets that may be in use, like the Varnish invalidate token, the JWT passphrase, and any other application-specific secrets.
 
 - Don't use a default value like `ff6dc61a329dc96652bb092ec58981f7` or `ThisTokenIsNotSoSecretChangeIt`.
 - The secret must be secured against unwanted access. Don't commit the value to a version control system. There are several ways of handling it, like with enviroment variables or files like `.env.local`. Files are considered more secure. If you store the secrets in files, make sure to add those files to `.gitignore` or similar, so they will never be committed to version control systems.
