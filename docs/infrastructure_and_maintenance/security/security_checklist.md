@@ -237,7 +237,7 @@ For example, if someone succeeds in injecting their JavaScript into your site, t
 
 Consider blocking the use of TLS 1.2 and older versions.
 The newer TLS 1.3 does not include the weaker cipher suites that are included in 1.2 and older.
-Removing them means attackers can't attempt to force other users to use weak ciphers and eavesdrop on their communications.
+Removing them means that attackers can't attempt to force other users to use weak ciphers and eavesdrop on their communications.
 TLS 1.3 is as of December 2024 [supported by ca. 97% of global internet users](https://caniuse.com/tls1-3).
 If you need to support Internet Explorer or old versions of other browsers, you can disable TLS 1.1 and older, leaving 1.2 and 1.3 enabled.
 
