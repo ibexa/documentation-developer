@@ -295,12 +295,6 @@ See [Change from UTF8 to UTF8MB4](update_db_to_2.5.md#change-from-utf8-to-utf8mb
 Secure the database access with strong passwords, keys, firewall, encryption in transit, encryption at rest, and so on, as needed.
 When using [[= product_name_cloud =]], the provider handles this.
 
-### Limit database rights
-
-Optionally, ensure that the database user used by the web app only has permissions to do the operations needed by [[= product_name =]].
-The Data Definition Language (DDL) commands (create, alter, drop, truncate, comment) are only needed for installing and upgrading [[= product_name =]], and not for running it.
-Not granting these rights to web app users reduces the damage that can result from a security breach.
-
 ## Underlying stack
 
 To avoid exposing your application to any DDOS vulnerabilities or other yet unknown security threats, make sure that you do the following:
@@ -319,3 +313,9 @@ Those steps aren't needed when using [[= product_name_cloud =]], where the provi
 to receive notifications when a security fix is released in a GitHub-hosted dependency.
 - If you're not using GitHub for your project, you can create a dummy project on GitHub with the same dependencies as your real project, and enable Dependabot notifications for that.
 - Ensure you get notifications about security fixes in JavaScript dependencies.
+
+### Monitor logs
+
+- Enable logging for [[= product_name =]], the web server, any frontend proxies, and the database.
+- Monitor the logs for unusual and suspicious activity. Consider using log monitoring software to make this easier.
+- Consider using different accounts for manual administrative tasks and for the day-to-day running of your installation. You could for instance configure [[= product_name =]] to use a different database user than the one you use during upgrades. This can make it easier to filter out noise in your log monitoring solution.
