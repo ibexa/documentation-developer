@@ -1,6 +1,6 @@
 {
     "SegmentGroup": {
-        "_media-type": "application\/vnd.ibexa.api.SegmentGroup+json",
+        "_media-type": "application/vnd.ibexa.api.SegmentGroup+json",
         "_href": "\/api\/ibexa\/v2\/segment_groups\/corporate_accounts",
         "id": 1,
         "identifier": "corporate_accounts",

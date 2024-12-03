@@ -1,6 +1,6 @@
 {
   "PaymentMethod": {
-    "_media-type": "application\/vnd.ibexa.api.PaymentMethod+json",
+    "_media-type": "application/vnd.ibexa.api.PaymentMethod+json",
     "identifier": "bank_transfer",
     "id": 1,
     "enabled": true,

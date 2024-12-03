@@ -1,28 +1,28 @@
 {
     "Company": {
-        "_media-type": "application\/vnd.ibexa.api.Company+json",
+        "_media-type": "application/vnd.ibexa.api.Company+json",
         "id": 66,
         "name": "Ibexa AS",
         "Content": {
-            "_media-type": "application\/vnd.ibexa.api.Content+json",
+            "_media-type": "application/vnd.ibexa.api.Content+json",
             "_href": "\/api\/ibexa\/v2\/content\/objects\/66",
             "_remoteId": "9f20fb03d0ab0a6aef9930f7e6720377",
             "_id": 66,
             "ContentType": {
-                "_media-type": "application\/vnd.ibexa.api.ContentType+json",
+                "_media-type": "application/vnd.ibexa.api.ContentType+json",
                 "_href": "\/api\/ibexa\/v2\/content\/types\/48"
             },
             "Name": "Ibexa AS",
             "TranslatedName": "Ibexa AS",
             "Versions": {
-                "_media-type": "application\/vnd.ibexa.api.VersionList+json",
+                "_media-type": "application/vnd.ibexa.api.VersionList+json",
                 "_href": "\/api\/ibexa\/v2\/content\/objects\/66\/versions"
             },
             "CurrentVersion": {
-                "_media-type": "application\/vnd.ibexa.api.Version+json",
+                "_media-type": "application/vnd.ibexa.api.Version+json",
                 "_href": "\/api\/ibexa\/v2\/content\/objects\/66\/currentversion",
                 "Version": {
-                    "_media-type": "application\/vnd.ibexa.api.Version+json",
+                    "_media-type": "application/vnd.ibexa.api.Version+json",
                     "_href": "\/api\/ibexa\/v2\/content\/objects\/66\/versions\/1",
                     "VersionInfo": {
                         "id": 593,
@@ -30,14 +30,14 @@
                         "status": "PUBLISHED",
                         "modificationDate": "2023-04-03T13:09:40+02:00",
                         "Creator": {
-                            "_media-type": "application\/vnd.ibexa.api.User+json",
+                            "_media-type": "application/vnd.ibexa.api.User+json",
                             "_href": "\/api\/ibexa\/v2\/user\/users\/14"
                         },
                         "creationDate": "2023-04-03T13:09:40+02:00",
                         "initialLanguageCode": "eng-GB",
                         "languageCodes": "eng-GB",
                         "VersionTranslationInfo": {
-                            "_media-type": "application\/vnd.ibexa.api.VersionTranslationInfo+json",
+                            "_media-type": "application/vnd.ibexa.api.VersionTranslationInfo+json",
                             "Language": [
                                 {
                                     "languageCode": "eng-GB"
@@ -53,7 +53,7 @@
                             ]
                         },
                         "Content": {
-                            "_media-type": "application\/vnd.ibexa.api.ContentInfo+json",
+                            "_media-type": "application/vnd.ibexa.api.ContentInfo+json",
                             "_href": "\/api\/ibexa\/v2\/content\/objects\/66"
                         }
                     },
@@ -167,12 +167,12 @@
                         ]
                     },
                     "Relations": {
-                        "_media-type": "application\/vnd.ibexa.api.RelationList+json",
+                        "_media-type": "application/vnd.ibexa.api.RelationList+json",
                         "_href": "\/api\/ibexa\/v2\/content\/objects\/66\/versions\/1\/relations",
                         "Relation": []
                     },
                     "Thumbnail": {
-                        "_media-type": "application\/vnd.ibexa.api.Thumbnail+json",
+                        "_media-type": "application/vnd.ibexa.api.Thumbnail+json",
                         "resource": "\/placeholder",
                         "width": null,
                         "height": null,
@@ -181,19 +181,19 @@
                 }
             },
             "Section": {
-                "_media-type": "application\/vnd.ibexa.api.Section+json",
+                "_media-type": "application/vnd.ibexa.api.Section+json",
                 "_href": "\/api\/ibexa\/v2\/content\/sections\/10"
             },
             "MainLocation": {
-                "_media-type": "application\/vnd.ibexa.api.Location+json",
+                "_media-type": "application/vnd.ibexa.api.Location+json",
                 "_href": "\/api\/ibexa\/v2\/content\/locations\/1\/65\/67"
             },
             "Locations": {
-                "_media-type": "application\/vnd.ibexa.api.LocationList+json",
+                "_media-type": "application/vnd.ibexa.api.LocationList+json",
                 "_href": "\/api\/ibexa\/v2\/content\/objects\/66\/locations"
             },
             "Owner": {
-                "_media-type": "application\/vnd.ibexa.api.User+json",
+                "_media-type": "application/vnd.ibexa.api.User+json",
                 "_href": "\/api\/ibexa\/v2\/user\/users\/14"
             },
             "lastModificationDate": "2023-04-03T13:09:40+02:00",
@@ -204,7 +204,7 @@
             "isHidden": false,
             "status": "PUBLISHED",
             "ObjectStates": {
-                "_media-type": "application\/vnd.ibexa.api.ContentObjectStates+json",
+                "_media-type": "application/vnd.ibexa.api.ContentObjectStates+json",
                 "_href": "\/api\/ibexa\/v2\/content\/objects\/66\/objectstates"
             }
         },
@@ -226,11 +226,11 @@
         "addressBookId": 68,
         "membersId": 67,
         "MemberList": {
-            "_media-type": "application\/vnd.ibexa.api.MemberList+json",
+            "_media-type": "application/vnd.ibexa.api.MemberList+json",
             "_href": "\/api\/ibexa\/v2\/corporate\/companies\/66\/members"
         },
         "Location": {
-            "_media-type": "application\/vnd.ibexa.api.Location+json",
+            "_media-type": "application/vnd.ibexa.api.Location+json",
             "_href": "\/api\/ibexa\/v2\/content\/locations\/1\/65\/67"
         },
         "locationPath": "\/1\/65\/67\/",
