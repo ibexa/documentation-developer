@@ -4,13 +4,15 @@ description: Update your installation to the latest v4.5 version from v4.4.x.
 
 # Update from v4.4.x to v4.5
 
-This update procedure applies if you are using a v4.4 installation.
+This update procedure applies if you're using a v4.4 installation.
 
 ## Update from v4.4.x to v4.4.latest
 
 Before you update to v4.5, you need to go through the following steps to update to the latest maintenance release of v4.4 (v[[= latest_tag_4_4 =]]).
 
 ### Update the application to v4.4.latest
+
+[[% include 'snippets/update/temporary_v4_conflicts.md' %]]
 
 Run:
 
@@ -28,6 +30,16 @@ Run:
 
     ``` bash
     composer require ibexa/commerce:[[= latest_tag_4_4 =]] --with-all-dependencies --no-scripts
+    ```
+
+!!! note "Remove temporary Composer `conflict`"
+
+    You can now remove the temporary Composer `conflict` entries from your `composer.json` file:
+    ```diff
+        "conflict": {
+    -        "jms/serializer": ">=3.30.0",
+    -        "gedmo/doctrine-extensions": ">=3.12.0"
+        },
     ```
 
 ## Update from v4.4.latest to v4.5
@@ -72,7 +84,8 @@ ibexa_measurement:
             my_unit: { symbol: my, is_base_unit: true }
 ```
 
-Next, add unit conversion to `src/bundle/Resources/config/services/conversion.yaml`. 
+Next, add unit conversion to `src/bundle/Resources/config/services/conversion.yaml`.
+
 For more information, see [Modify and add Measurement types and units](measurementfield.md#modify-and-add-measurement-types-and-units).
 
 ### Update the database
@@ -181,7 +194,7 @@ composer run post-install-cmd
 
 ## Run data migration
 
-If you are using Ibexa Experience or Ibexa Commerce,
+If you're using [[= product_name_exp =]] or [[= product_name_com =]],
 you can now run data migration required by the Customer Portal and Commerce features to finish the update process:
 
 - Customer Portal [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
@@ -228,56 +241,6 @@ php bin/console ibexa:migrations:import vendor/ibexa/order-management/src/bundle
 php bin/console ibexa:migrations:migrate --file=order_permissions.yaml
 ```
 
-### v4.5.2
+## Update to v4.5.latest
 
-#### Database update
-
-Run the following scripts:
-
-=== "MySQL"
-
-    ``` sql
-    mysql -u <username> -p <password> <database_name> < vendor/ibexa/installer/upgrade/db/mysql/ibexa-4.5.1-to-4.5.2.sql
-    ```
-
-=== "PostgreSQL"
-
-    ``` sql
-    psql <database_name> < vendor/ibexa/installer/upgrade/db/postgresql/ibexa-4.5.1-to-4.5.2.sql
-    ```
-
-### v4.5.3
-
-#### Database update
-
-Run the following scripts:
-
-=== "MySQL"
-
-    ``` sql
-    mysql -u <username> -p <password> <database_name> < vendor/ibexa/installer/upgrade/db/mysql/ibexa-4.5.2-to-4.5.3.sql
-    ```
-
-=== "PostgreSQL"
-
-    ``` sql
-    psql <database_name> < vendor/ibexa/installer/upgrade/db/postgresql/ibexa-4.5.2-to-4.5.3.sql
-    ```
-
-### v4.5.4
-
-#### Database update
-
-Run the following scripts:
-
-=== "MySQL"
-
-    ``` sql
-    mysql -u <username> -p <password> <database_name> < vendor/ibexa/installer/upgrade/db/mysql/ibexa-4.5.3-to-4.5.4.sql
-    ```
-
-=== "PostgreSQL"
-
-    ``` sql
-    psql <database_name> < vendor/ibexa/installer/upgrade/db/postgresql/ibexa-4.5.3-to-4.5.4.sql
-    ```
+You can now continue applying the instructions for the 4.5 patch releases, starting with [v4.5.2](update_from_4.5.md#v452).

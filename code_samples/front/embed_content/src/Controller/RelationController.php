@@ -8,9 +8,9 @@ use Ibexa\Core\MVC\Symfony\View\View;
 
 class RelationController
 {
-    private $contentService;
+    private ContentService $contentService;
 
-    private $locationService;
+    private LocationService $locationService;
 
     public function __construct(ContentService $contentService, LocationService $locationService)
     {
@@ -18,20 +18,20 @@ class RelationController
         $this->locationService = $locationService;
     }
 
-    public function showContentAction(View $view, $locationId)
+    public function showContentAction(View $view, $locationId): View
     {
         $acceptedContentTypes = $view->getParameter('accepted_content_types');
 
         $location = $this->locationService->loadLocation($locationId);
         $contentInfo = $location->getContentInfo();
         $versionInfo = $this->contentService->loadVersionInfo($contentInfo);
-        $relations = $this->contentService->loadRelations($versionInfo);
+        $relationList = $this->contentService->loadRelationList($versionInfo);
 
         $items = [];
 
-        foreach ($relations as $relation) {
-            if (in_array($relation->getDestinationContentInfo()->getContentType()->identifier, $acceptedContentTypes)) {
-                $items[] = $this->contentService->loadContentByContentInfo($relation->getDestinationContentInfo());
+        foreach ($relationList as $relationListItem) {
+            if ($relationListItem->hasRelation() && in_array($relationListItem->getRelation()->getDestinationContentInfo()->getContentType()->identifier, $acceptedContentTypes)) {
+                $items[] = $this->contentService->loadContentByContentInfo($relationListItem->getRelation()->getDestinationContentInfo());
             }
         }
 

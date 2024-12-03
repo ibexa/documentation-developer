@@ -46,9 +46,7 @@ if (isReactBlockPathCreated) {
 
 Encore.addEntry('app', './assets/app.js');
 
-Encore.addEntry('formbuilder-richtext-checkbox-js', [
-    path.resolve('./public/js/formbuilder-richtext-checkbox.js')
-]);
+Encore.addEntry('formbuilder-richtext-checkbox-js', './assets/js/formbuilder-richtext-checkbox.js');
 
 const projectConfig = Encore.getWebpackConfig();
 

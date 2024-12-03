@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<VersionUpdate xmlns:p="http://ez.no/API/Values"
+<VersionUpdate xmlns:p="http://ibexa.co/API/Values"
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://ez.no/API/Values ../VersionUpdate.xsd ">
+  xsi:schemaLocation="http://ibexa.co/API/Values ../VersionUpdate.xsd ">
   <modificationDate>2012-02-20T12:00:00</modificationDate>
   <initialLanguageCode>ger-DE</initialLanguageCode>
   <fields>

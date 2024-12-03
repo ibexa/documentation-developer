@@ -4,7 +4,7 @@ description: Embed a content item in another using query types or controllers.
 
 # Embed related content
 
-To embed content in another content item, you query for it in the Repository.
+To embed content in another content item, you query for it in the repository.
 There are two ways to query for a content item:
 
 - by using a [Query type](#embed-siblings-with-query-type)
@@ -28,7 +28,7 @@ The results of the Siblings query are placed in the `items` variable, which you 
 
 ## Embed Relations with a custom controller
 
-You can use a custom controller for any situation where Query types are not sufficient.
+You can use a custom controller for any situation where Query types aren't sufficient.
 
 ``` yaml
 [[= include_file('code_samples/front/embed_content/config/packages/views.yaml', 23, 30) =]]
@@ -42,8 +42,7 @@ This configuration points to a custom `RelationController` that should render al
 
 This controller uses the Public PHP API to get [the Relations of a content item](browsing_content.md#relations) (lines 27-28).
 
-The controller takes the custom parameter called `accepted_content_types` (line 23),
-which is an array of content type identifiers that are rendered.
+The controller takes the custom parameter called `accepted_content_types` (line 23), which is an array of content type identifiers that are rendered.
 
 This way you can control which content types you want to show or exclude.
 

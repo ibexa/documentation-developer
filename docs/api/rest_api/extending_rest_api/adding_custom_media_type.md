@@ -7,17 +7,18 @@ description: Add a custom media type to REST API request headers.
 In this example case, you pass a new media type in the `Accept` header of a GET request to `/content/locations/{locationPath}` route and its controller action (`Controller/Location::loadLocation`).
 
 By default, this resource takes an `application/vnd.ibexa.api.Location+xml` (or `+json`) `Accept` header.
-The following example adds the handling of a new media type `application/app.api.Location+xml` (or `+json`) `Accept` header to obtain a different response using the same controller.
+The following example adds the handling of a new media type `application/app.api.Location+xml` (or `+json`) `Accept` header to obtain a different response with the same controller.
 
 You need the following elements:
-* A `ValueObjectVisitor` to create the new response corresponding to the new media type;
-* A `ValueObjectVisitorDispatcher` to have this `ValueObjectVisitor` used to visit the default controller result;
-* An `Output\Visitor` service associating this new `ValueObjectVisitorDispatcher` with the new media type.
+
+- `ValueObjectVisitor` - to create the new response corresponding to the new media type
+- `ValueObjectVisitorDispatcher` - to have this `ValueObjectVisitor` used to visit the default controller result
+- `Output\Visitor` - service associating this new `ValueObjectVisitorDispatcher` with the new media type
 
 !!! note
 
     You can change the vendor name (from default `vnd.ibexa.api` to new `app.api` like in this example), or you can create a new media type in the default vendor (like `vnd.ibexa.api.Greeting` in the [Creating a new REST resource](creating_new_rest_resource.md) example).
-    To do so, tag your new ValueObjectVisitor with `ibexa.rest.output.value_object.visitor` to add it to the existing `ValueObjectVisitorDispatcher`, and a new one will not be needed.
+    To do so, tag your new ValueObjectVisitor with `ibexa.rest.output.value_object.visitor` to add it to the existing `ValueObjectVisitorDispatcher`, and a new one isn't needed.
     This way, the `media-type` attribute is also easier to create, because the default `Output\Generator` uses this default vendor.
     This example presents creating a new vendor as a good practice, to highlight that this is custom extensions that isn't available in a regular [[= product_name =]] installation.
 

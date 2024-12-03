@@ -10,20 +10,10 @@ use Ibexa\Contracts\Solr\FieldMapper\ContentFieldMapper;
 
 class WebinarEventTitleFulltextFieldMapper extends ContentFieldMapper
 {
-    /**
-     * @var \Ibexa\Contracts\Core\Persistence\Content\Type\Handler
-     */
-    protected \Ibexa\Contracts\Core\Persistence\Content\Type\Handler $contentHandler;
+    protected ContentHandler $contentHandler;
 
-    /**
-     * @var \Ibexa\Contracts\Core\Persistence\Content\Location\Handler
-     */
-    protected \Ibexa\Contracts\Core\Persistence\Content\Location\Handler $locationHandler;
+    protected LocationHandler $locationHandler;
 
-    /**
-     * @param \Ibexa\Contracts\Core\Persistence\Content\Handler $contentHandler
-     * @param \Ibexa\Contracts\Core\Persistence\Content\Location\Handler $locationHandler
-     */
     public function __construct(
         ContentHandler $contentHandler,
         LocationHandler $locationHandler

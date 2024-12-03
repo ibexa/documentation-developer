@@ -6,7 +6,7 @@ description: Install Solr search engine to use it with Ibexa DXP.
 
 ## Configure and start Solr
 
-The example presents a configuration with a single core. 
+The example presents a configuration with a single core.
 For configuring Solr in other ways, including examples, see [Solr Cores and `solr.xml`](https://cwiki.apache.org/confluence/display/solr/Solr+Cores+and+solr.xml) and [core administration](https://wiki.apache.org/solr/CoreAdmin).
 
 ### Download Solr files
@@ -50,9 +50,10 @@ To set SolrCloud up follow [SolrCloud reference guide](https://lucene.apache.org
 
 ### Continue Solr configuration
 
-The bundle does not commit Solr index changes directly on Repository updates, leaving it up to you to tune this using `solrconfig.xml` as best practice suggests.
+The bundle doesn't commit Solr index changes directly on repository updates, leaving it up to you to tune this using `solrconfig.xml` as best practice suggests.
 
-This setting is **required** if you want to see the changes after publish. It is strongly recommended to set-up `solrconfig.xml` like this:
+This setting is **required** if you want to see the changes after publish.
+It's strongly recommended to set-up `solrconfig.xml` like this:
 
 ``` xml
 <!--solrconfig.xml-->
@@ -71,7 +72,7 @@ This setting is **required** if you want to see the changes after publish. It is
 ### Generate Solr configuration automatically
 
 The command line tool `bin/generate-solr-config.sh` generates Solr 7 configuration automatically.
-It can be used for deploying to Ibexa Cloud (Platform.sh) and on-premise installs.
+It can be used for deploying to [[= product_name_cloud =]] (Platform.sh) and on-premise installs.
 
 Execute the script from the [[= product_name =]] root directory for further information:
 
@@ -81,7 +82,8 @@ Execute the script from the [[= product_name =]] root directory for further info
 
 ## Configure the bundle
 
-The Solr Search Engine Bundle can be configured in many ways. The config further below assumes you have parameters set up for Solr DSN and search engine *(however both are optional)*, for example:
+The Solr Search Engine Bundle can be configured in many ways.
+The config further below assumes you have parameters set up for Solr DSN and search engine *(however both are optional)*, for example:
 
 ``` yaml
     env(SEARCH_ENGINE): solr
@@ -91,7 +93,7 @@ The Solr Search Engine Bundle can be configured in many ways. The config further
 
 ### Single-core example (default)
 
-Out of the box in [[= product_name =]] the following is enabled for a simple setup:
+Out of the box in [[= product_name =]] the following is enabled for a setup:
 
 ``` yaml
 ibexa_solr:
@@ -109,8 +111,8 @@ ibexa_solr:
 
 ### Shared-core example
 
-The following example separates one language. The installation contains several similar languages,
-and one very different language that should receive proper language analysis for proper stemming and sorting behavior by Solr:
+The following example separates one language.
+The installation contains several similar languages, and one different language that should receive proper language analysis for proper stemming and sorting behavior by Solr:
 
 ``` yaml
 ibexa_solr:
@@ -139,7 +141,7 @@ If full language analysis features are preferred, then each language can be conf
 
 !!! note
 
-    Make sure to test this setup against a single-core setup, as it might perform worse than single-core if your project uses a lot of language fallbacks per SiteAccess, as queries will then be performed across several cores at once.
+    Make sure to test this setup against a single-core setup, as it might perform worse than single-core if your project uses a lot of language fallbacks per SiteAccess, as queries are then performed across several cores at once.
 
 ``` yaml
 ibexa_solr:
@@ -227,7 +229,10 @@ ibexa_solr:
 This solution uses the default SolrCloud [document routing strategy: `compositeId`](https://lucene.apache.org/solr/guide/7_7/shards-and-indexing-data-in-solrcloud.html#ShardsandIndexingDatainSolrCloud-DocumentRouting).
 
 ### Solr Basic HTTP Authorization
-Solr core can be secured with Basic HTTP Authorization. See more information here: [Solr Basic Authentication Plugin](https://cwiki.apache.org/confluence/display/solr/Basic+Authentication+Plugin).
+Solr core can be secured with Basic HTTP Authorization.
+
+For more information, see [Solr Basic Authentication Plugin](https://cwiki.apache.org/confluence/display/solr/Basic+Authentication+Plugin).
+
 In the example below we configured Solr Bundle to work with secured Solr core.
 
 ``` yaml
@@ -260,7 +265,7 @@ ibexa:
 
 ## Clear prod cache
 
-While Symfony `dev` environment keeps track of changes to YAML files, `prod` does not, so clear the cache to make sure Symfony reads the new config:
+While Symfony `dev` environment keeps track of changes to YAML files, `prod` doesn't, so clear the cache to make sure Symfony reads the new config:
 
 ``` bash
 php bin/console --env=prod cache:clear
@@ -276,16 +281,16 @@ php bin/console --env=prod --siteaccess=<name> ibexa:reindex
 
 ### Possible exceptions
 
-If you have not configured your setup correctly, some exceptions might happen on indexing.
+If you haven't configured your setup correctly, some exceptions might happen on indexing.
 Here are the most common issues you may encounter:
 
 - Exception if Binary files in database have an invalid path prefix
     - Make sure `var_dir` is configured properly in `ibexa.yaml` configuration.
     - If your database is inconsistent in regards to file paths, try to update entries to be correct *(make sure to make a backup first)*.
-- Exception on unsupported Field Types
-    - Make sure to implement all Field Types in your installation, or to configure missing ones as [NullType](nullfield.md) if implementation is not needed.
-- Content is not immediately available 
-    - Solr Bundle on purpose does not commit changes directly on Repository updates *(on indexing)*, but lets you control this using Solr configuration. Adjust Solr's `autoSoftCommit` (visibility of changes to search index) and/or `autoCommit` (hard commit, for durability and replication) to balance performance and load on your Solr instance against needs you have for "[NRT](https://cwiki.apache.org/confluence/display/solr/Near+Real+Time+Searching)".
+- Exception on unsupported field types
+    - Make sure to implement all field types in your installation, or to configure missing ones as [NullType](nullfield.md) if implementation isn't needed.
+- Content isn't immediately available 
+    - Solr Bundle on purpose doesn't commit changes directly on Repository updates *(on indexing)*, but lets you control this using Solr configuration. Adjust Solr's `autoSoftCommit` (visibility of changes to search index) and/or `autoCommit` (hard commit, for durability and replication) to balance performance and load on your Solr instance against needs you have for "[NRT](https://cwiki.apache.org/confluence/display/solr/Near+Real+Time+Searching)".
 - Running out of memory during indexing
     - In general make sure to run indexing using the prod environment to avoid debuggers and loggers from filling up memory.
     - Flysystem: You can find further info in https://issues.ibexa.co/browse/EZP-25325.

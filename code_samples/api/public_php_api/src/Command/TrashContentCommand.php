@@ -31,7 +31,7 @@ class TrashContentCommand extends Command
         parent::__construct('doc:trash_content');
     }
 
-    protected function configure()
+    protected function configure(): void
     {
         $this->setDefinition([
             new InputArgument('locationId', InputArgument::REQUIRED, 'Location to trash'),
@@ -40,7 +40,7 @@ class TrashContentCommand extends Command
             ->addOption('restore', 'r', InputOption::VALUE_NONE, 'Do you want to restore the content item?');
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $user = $this->userService->loadUserByLogin('admin');
         $this->permissionResolver->setCurrentUserReference($user);

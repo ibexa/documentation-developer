@@ -12,8 +12,7 @@ To create a custom migration step, you need:
 - A step normalizer, to convert YAML definition into your step class.
 - A step executor, to handle the step.
 
-The following example shows how to create a step that replaces all `ezstring` Fields
-that have an old company name with "New Company Name".
+The following example shows how to create a step that replaces all `ezstring` fields that have an old company name with "New Company Name".
 
 ## Create step class
 
@@ -32,7 +31,7 @@ in `src/Migrations/Step/ReplaceNameStepNormalizer.php`:
 [[= include_file('code_samples/data_migration/src/Migrations/Step/ReplaceNameStepNormalizer.php') =]]
 ```
 
-Then, tag the step normalizer, so it is recognized by the serializer used for migrations.
+Then, tag the step normalizer, so it's recognized by the serializer used for migrations.
 
 ``` yaml
 [[= include_file('code_samples/data_migration/config/custom_services.yaml', 18, 23) =]]

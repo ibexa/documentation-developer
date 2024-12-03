@@ -1,19 +1,20 @@
 INHERIT: plugins.yml
 
 site_name: Developer Documentation
-repo_url: https://github.com/ezsystems/developer-documentation
+repo_url: https://github.com/ibexa/documentation-developer
 site_url: https://doc.ibexa.co/en/latest/
 copyright: "Copyright 1999-2024 Ibexa AS and others"
 nav:
     - Ibexa Developer Documentation: index.md
     - Ibexa DXP editions:
         - Editions: ibexa_products/editions.md
-        - Ibexa Headless: ibexa_products/headless.md
+        - Ibexa Headless: ibexa_products/ibexa_headless.md
+        - Ibexa Experience: ibexa_products/ibexa_experience.md
+        - Ibexa Commerce: ibexa_products/ibexa_commerce.md
     - Getting started:
         - Getting started: getting_started/getting_started.md
         - Requirements: getting_started/requirements.md
         - Install Ibexa DXP: getting_started/install_ibexa_dxp.md
-        - Install on Ibexa Cloud: getting_started/install_on_ibexa_cloud.md
         - Install on MacOS and Windows: getting_started/install_on_mac_os_and_windows.md
         - Install with DDEV: getting_started/install_with_ddev.md
         - First steps: getting_started/first_steps.md
@@ -33,14 +34,14 @@ nav:
         - Page and Form tutorial:
             - Page and Form tutorial: tutorials/page_and_form_tutorial/page_and_form_tutorial.md
             - 1. Get a starter website: tutorials/page_and_form_tutorial/1_get_a_starter_website.md
-            - 2. Prepare the Landing Page: tutorials/page_and_form_tutorial/2_prepare_the_landing_page.md
+            - 2. Prepare the landing page: tutorials/page_and_form_tutorial/2_prepare_the_landing_page.md
             - 3. Use existing blocks: tutorials/page_and_form_tutorial/3_use_existing_blocks.md
             - 4. Create a custom block: tutorials/page_and_form_tutorial/4_create_a_custom_block.md
             - 5. Create a newsletter form: tutorials/page_and_form_tutorial/5_create_newsletter_form.md
-        - Generic Field Type:
-            - Creating Point 2D Field Type: tutorials/generic_field_type/creating_a_point2d_field_type.md
+        - Generic field type:
+            - Creating Point 2D field type: tutorials/generic_field_type/creating_a_point2d_field_type.md
             - 1. Implement Value class: tutorials/generic_field_type/1_implement_the_point2d_value_class.md
-            - 2. Define Field Type: tutorials/generic_field_type/2_define_point2d_field_type.md
+            - 2. Define field type: tutorials/generic_field_type/2_define_point2d_field_type.md
             - 3. Create a form: tutorials/generic_field_type/3_create_form_for_point2d.md
             - 4. Introduce a template: tutorials/generic_field_type/4_introduce_a_template.md
             - 5. Add a new Field: tutorials/generic_field_type/5_add_a_field.md
@@ -68,7 +69,7 @@ nav:
             - GraphQL queries: api/graphql/graphql_queries.md
             - GraphQL operations: api/graphql/graphql_operations.md
             - GraphQL customization: api/graphql/graphql_customization.md
-            - GraphQL custom Field Type: api/graphql/graphql_custom_ft.md
+            - GraphQL custom field type: api/graphql/graphql_custom_ft.md
         - Event reference:
             - Event reference: api/event_reference/event_reference.md
             - Content events: api/event_reference/content_events.md
@@ -118,11 +119,11 @@ nav:
             - Configuration: administration/configuration/configuration.md
             - Dynamic configuration: administration/configuration/dynamic_configuration.md
             - Repository configuration: administration/configuration/repository_configuration.md
-        - Back Office:
-            - Back Office: administration/back_office/back_office.md
+        - Back office:
+            - Back office: administration/back_office/back_office.md
             - Configuration: administration/back_office/back_office_configuration.md
-            - Content Tree: administration/back_office/content_tree.md
-            - Back Office elements:
+            - Content tree: administration/back_office/content_tree.md
+            - Back office elements:
                 - Reusable components: administration/back_office/back_office_elements/reusable_components.md
                 - Add drop-downs: administration/back_office/back_office_elements/add_dropdowns.md
                 - Custom icons: administration/back_office/back_office_elements/custom_icons.md
@@ -131,13 +132,13 @@ nav:
                 - Formatting date and time: administration/back_office/back_office_elements/formatting_date_and_time.md
                 - Extending thumbnails: administration/back_office/back_office_elements/extending_thumbnails.md
                 - Importing assets from a bundle: administration/back_office/back_office_elements/importing_assets_from_bundle.md
-            - Back Office tabs:
-                - Back Office tabs:  administration/back_office/back_office_tabs/back_office_tabs.md
+            - Back office tabs:
+                - Back office tabs:  administration/back_office/back_office_tabs/back_office_tabs.md
                 - Create dashboard tab: administration/back_office/back_office_tabs/create_dashboard_tab.md
             - Tab switcher in Content edit page: administration/back_office/content_tab_switcher.md
             - Add anchor menu to content type edit screen: administration/back_office/content_type_anchor_menu.md
-            - Back Office menus:
-                - Back Office menus: administration/back_office/back_office_menus/back_office_menus.md
+            - Back office menus:
+                - Back office menus: administration/back_office/back_office_menus/back_office_menus.md
                 - Add menu item: administration/back_office/back_office_menus/add_menu_item.md
             - Add user setting: administration/back_office/add_user_setting.md
             - Customize calendar: administration/back_office/customize_calendar.md
@@ -167,7 +168,8 @@ nav:
             - Extend Image Editor: content_management/images/extend_image_editor.md
             - Add Image Asset from DAM: content_management/images/add_image_asset_from_dam.md
             - Fastly Image Optimizer: content_management/images/fastly_io.md
-        - Rich Text:
+        - RichText:
+            - RichText: content_management/rich_text/rich_text.md
             - Online Editor guide: content_management/rich_text/online_editor_guide.md
             - Extend Online Editor: content_management/rich_text/extend_online_editor.md
             - Create custom RichText block: content_management/rich_text/create_custom_richtext_block.md
@@ -176,8 +178,8 @@ nav:
             - Binary and Media download: content_management/file_management/binary_and_media_download.md
             - File URL handling: content_management/file_management/file_url_handling.md
         - Pages:
-            - Page Builder guide: content_management/pages/page_builder_guide.md
             - Pages: content_management/pages/pages.md
+            - Page Builder guide: content_management/pages/page_builder_guide.md
             - Page blocks: content_management/pages/page_blocks.md
             - Page block attributes: content_management/pages/page_block_attributes.md
             - Page block validators: content_management/pages/page_block_validators.md
@@ -185,8 +187,9 @@ nav:
             - React App page block: content_management/pages/react_app_block.md
             - Ibexa Connect scenario block: content_management/pages/ibexa_connect_scenario_block.md
         - Forms:
-            - Form Builder guide: content_management/forms/form_builder_guide.md
             - Forms: content_management/forms/forms.md
+            - Form Builder guide: content_management/forms/form_builder_guide.md
+            - Work with Forms: content_management/forms/work_with_forms.md
             - Form API: content_management/forms/form_api.md
             - Create custom Form field: content_management/forms/create_custom_form_field.md
             - Create Form attribute: content_management/forms/create_form_attribute.md
@@ -213,60 +216,60 @@ nav:
             - Exporting data: content_management/data_migration/exporting_data.md
             - Managing migrations: content_management/data_migration/managing_migrations.md
             - Data migration actions: content_management/data_migration/data_migration_actions.md
-            - Create data migration action: content_management/data_migration/create_data_migration_action.md
             - Create data migration step: content_management/data_migration/create_data_migration_step.md
+            - Create data migration action: content_management/data_migration/create_data_migration_action.md
             - Add data migration matcher: content_management/data_migration/add_data_migration_matcher.md
             - Data migration API: content_management/data_migration/data_migration_api.md
-        - Field Types:
-            - Field Types: content_management/field_types/field_types.md
+        - Field types:
+            - Field types: content_management/field_types/field_types.md
             - Type and Value: content_management/field_types/type_and_value.md
             - Form and template: content_management/field_types/form_and_template.md
             - Storage: content_management/field_types/field_type_storage.md
             - Validation: content_management/field_types/field_type_validation.md
             - Searching: content_management/field_types/field_type_search.md
-            - Create custom generic Field Type: content_management/field_types/create_custom_generic_field_type.md
-            - Create custom Field Type comparison: content_management/field_types/create_custom_field_type_comparison.md
-            - Customize Field Type metadata: content_management/field_types/customize_field_type_metadata.md
-            - Field Type reference:
-                - Field Type reference: content_management/field_types/field_type_reference/field_type_reference.md
-                - Address Field Type: content_management/field_types/field_type_reference/addressfield.md
-                - Author Field Type: content_management/field_types/field_type_reference/authorfield.md
-                - BinaryFile Field Type: content_management/field_types/field_type_reference/binaryfilefield.md
-                - Checkbox Field Type: content_management/field_types/field_type_reference/checkboxfield.md
-                - Content query Field Type: content_management/field_types/field_type_reference/contentqueryfield.md
-                - Country Field Type: content_management/field_types/field_type_reference/countryfield.md
-                - CustomerGroup Field Type: content_management/field_types/field_type_reference/customergroupfield.md
-                - DateAndTime Field Type: content_management/field_types/field_type_reference/dateandtimefield.md
-                - Date Field Type: content_management/field_types/field_type_reference/datefield.md
-                - EmailAddress Field Type: content_management/field_types/field_type_reference/emailaddressfield.md
-                - Float Field Type: content_management/field_types/field_type_reference/floatfield.md
-                - Form Field Type: content_management/field_types/field_type_reference/formfield.md
-                - Image Field Type: content_management/field_types/field_type_reference/imagefield.md
-                - ImageAsset Field Type: content_management/field_types/field_type_reference/imageassetfield.md
-                - Integer Field Type: content_management/field_types/field_type_reference/integerfield.md
-                - ISBN Field Type: content_management/field_types/field_type_reference/isbnfield.md
-                - Keyword Field Type: content_management/field_types/field_type_reference/keywordfield.md
-                - MapLocation Field Type: content_management/field_types/field_type_reference/maplocationfield.md
-                - Matrix Field Type: content_management/field_types/field_type_reference/matrixfield.md
-                - Measurement Field Type: content_management/field_types/field_type_reference/measurementfield.md
-                - Media Field Type: content_management/field_types/field_type_reference/mediafield.md
-                - Null Field Type: content_management/field_types/field_type_reference/nullfield.md
-                - Page Field Type: content_management/field_types/field_type_reference/pagefield.md
-                - Relation Field Type: content_management/field_types/field_type_reference/relationfield.md
-                - RelationList Field Type: content_management/field_types/field_type_reference/relationlistfield.md
-                - RichText Field Type: content_management/field_types/field_type_reference/richtextfield.md
-                - Selection Field Type: content_management/field_types/field_type_reference/selectionfield.md
+            - Create custom generic field type: content_management/field_types/create_custom_generic_field_type.md
+            - Create custom field type comparison: content_management/field_types/create_custom_field_type_comparison.md
+            - Customize field type metadata: content_management/field_types/customize_field_type_metadata.md
+            - Field type reference:
+                - Field type reference: content_management/field_types/field_type_reference/field_type_reference.md
+                - Address field type: content_management/field_types/field_type_reference/addressfield.md
+                - Author field type: content_management/field_types/field_type_reference/authorfield.md
+                - BinaryFile field type: content_management/field_types/field_type_reference/binaryfilefield.md
+                - Checkbox field type: content_management/field_types/field_type_reference/checkboxfield.md
+                - Content query field type: content_management/field_types/field_type_reference/contentqueryfield.md
+                - Country field type: content_management/field_types/field_type_reference/countryfield.md
+                - CustomerGroup field type: content_management/field_types/field_type_reference/customergroupfield.md
+                - DateAndTime field type: content_management/field_types/field_type_reference/dateandtimefield.md
+                - Date field type: content_management/field_types/field_type_reference/datefield.md
+                - EmailAddress field type: content_management/field_types/field_type_reference/emailaddressfield.md
+                - Float field type: content_management/field_types/field_type_reference/floatfield.md
+                - Form field type: content_management/field_types/field_type_reference/formfield.md
+                - Image field type: content_management/field_types/field_type_reference/imagefield.md
+                - ImageAsset field type: content_management/field_types/field_type_reference/imageassetfield.md
+                - Integer field type: content_management/field_types/field_type_reference/integerfield.md
+                - ISBN field type: content_management/field_types/field_type_reference/isbnfield.md
+                - Keyword field type: content_management/field_types/field_type_reference/keywordfield.md
+                - MapLocation field type: content_management/field_types/field_type_reference/maplocationfield.md
+                - Matrix field type: content_management/field_types/field_type_reference/matrixfield.md
+                - Measurement field type: content_management/field_types/field_type_reference/measurementfield.md
+                - Media field type: content_management/field_types/field_type_reference/mediafield.md
+                - Null field type: content_management/field_types/field_type_reference/nullfield.md
+                - Page field type: content_management/field_types/field_type_reference/pagefield.md
+                - Relation field type: content_management/field_types/field_type_reference/relationfield.md
+                - RelationList field type: content_management/field_types/field_type_reference/relationlistfield.md
+                - RichText field type: content_management/field_types/field_type_reference/richtextfield.md
+                - Selection field type: content_management/field_types/field_type_reference/selectionfield.md
                 - SesExternalData: content_management/field_types/field_type_reference/sesexternaldata.md
                 - SesProfileData: content_management/field_types/field_type_reference/sesprofiledata.md
                 - SesSelection: content_management/field_types/field_type_reference/sesselection.md
                 - SpecificationsType: content_management/field_types/field_type_reference/specificationstype.md
-                - TaxonomyEntry Field Type: content_management/field_types/field_type_reference/taxonomyentryfield.md
-                - TaxonomyEntryAssignment Field Type: content_management/field_types/field_type_reference/taxonomyentryassignmentfield.md
-                - TextBlock Field Type: content_management/field_types/field_type_reference/textblockfield.md
-                - TextLine Field Type: content_management/field_types/field_type_reference/textlinefield.md
-                - Time Field Type: content_management/field_types/field_type_reference/timefield.md
-                - URL Field Type: content_management/field_types/field_type_reference/urlfield.md
-                - User Field Type: content_management/field_types/field_type_reference/userfield.md
+                - TaxonomyEntry field type: content_management/field_types/field_type_reference/taxonomyentryfield.md
+                - TaxonomyEntryAssignment field type: content_management/field_types/field_type_reference/taxonomyentryassignmentfield.md
+                - TextBlock field type: content_management/field_types/field_type_reference/textblockfield.md
+                - TextLine field type: content_management/field_types/field_type_reference/textlinefield.md
+                - Time field type: content_management/field_types/field_type_reference/timefield.md
+                - URL field type: content_management/field_types/field_type_reference/urlfield.md
+                - User field type: content_management/field_types/field_type_reference/userfield.md
     - Templating:
         - Templating: templating/templating.md
         - Render content:
@@ -318,6 +321,11 @@ nav:
             - Add login form: templating/layout/add_login_form.md
             - Add navigation menu: templating/layout/add_navigation_menu.md
             - Add search form to front page: templating/layout/add_search_form.md
+    - AI Actions:
+        - AI Actions: ai_actions/ai_actions.md
+        - AI Actions guide: ai_actions/ai_actions_guide.md
+        - Install AI Actions: ai_actions/install_ai_actions.md
+#        - Extend AI Actions: ai_actions/extend_ai_actions.md
     - PIM (Product management):
         - PIM (Product management): pim/pim.md
         - PIM guide: pim/pim_guide.md
@@ -378,11 +386,17 @@ nav:
             - Transactional email variables reference: commerce/transactional_emails/transactional_emails_parameters.md
             - Customize transactional emails: commerce/transactional_emails/extend_transactional_emails.md
     - Customer management:
-        - Customer Portal guide: customer_management/customer_portal.md
+        - Customer Portal: customer_management/customer_portal.md
+        - Customer Portal guide: customer_management/customer_portal_guide.md
         - Customer Portal configuration: customer_management/cp_configuration.md
         - Create Customer Portal: customer_management/cp_page_builder.md
         - Customer Portal Applications: customer_management/cp_applications.md
         - Create registration form: customer_management/create_user_registration_form.md
+    - Ibexa Engage:
+        - Ibexa Engage: ibexa_engage/ibexa_engage.md
+        - Install Ibexa Engage: ibexa_engage/install_ibexa_engage.md
+        - Create campaign with Ibexa Engage: ibexa_engage/create_campaign.md
+        - Integrate Ibexa Engage with Ibexa Connect: ibexa_engage/integrate_ibexa_connect.md
     - Multisite:
         - Multisite: multisite/multisite.md
         - Multisite configuration: multisite/multisite_configuration.md
@@ -399,7 +413,7 @@ nav:
         - Languages:
             - Languages: multisite/languages/languages.md
             - Language API: multisite/languages/language_api.md
-            - Back Office translations: multisite/languages/back_office_translations.md
+            - Back office translations: multisite/languages/back_office_translations.md
     - Permissions:
         - Permissions: permissions/permissions.md
         - Permission overview: permissions/permission_overview.md
@@ -407,13 +421,14 @@ nav:
         - Policies: permissions/policies.md
         - Limitations: permissions/limitations.md
         - Limitation reference: permissions/limitation_reference.md
-        - Custom Policies: permissions/custom_policies.md
+        - Custom policies: permissions/custom_policies.md
     - Users:
         - Users: users/users.md
         - User management guide: users/user_management_guide.md
         - User setup:
           - Invitations: users/invitations.md
           - Registration: users/user_registration.md
+          - Update basic user data: users/update_basic_user_data.md
         - User authentication:
           - Login methods: users/login_methods.md
           - Passwords: users/passwords.md
@@ -425,7 +440,7 @@ nav:
           - Segment API: users/segment_api.md
     - Personalization:
         - Personalization: personalization/personalization.md
-        - Personalization guide : personalization/personalization_brochure.md
+        - Personalization guide : personalization/personalization_guide.md
         - How Personalization works: personalization/how_it_works.md
         - Enable Personalization: personalization/enable_personalization.md
         - Integrate recommendation service: personalization/integrate_recommendation_service.md
@@ -489,6 +504,7 @@ nav:
             - ImageMimeType: search/criteria_reference/imagemimetype_criterion.md
             - ImageOrientation: search/criteria_reference/imageorientation_criterion.md
             - ImageWidth: search/criteria_reference/imagewidth_criterion.md
+            - IsBookmarked: search/criteria_reference/isbookmarked_criterion.md
             - IsCurrencyEnabled: search/criteria_reference/iscurrencyenabled_criterion.md
             - IsFieldEmpty: search/criteria_reference/isfieldempty_criterion.md
             - IsMainLocation: search/criteria_reference/ismainlocation_criterion.md
@@ -741,6 +757,11 @@ nav:
             - Customize Elasticsearch index structure: search/extensibility/customize_elasticsearch_index_structure.md
             - Manipulate Elasticsearch query: search/extensibility/manipulate_elasticsearch_query.md
         - Reindex search: search/reindex_search.md
+    - Ibexa Cloud:
+        - Ibexa Cloud: ibexa_cloud/ibexa_cloud.md
+        - Ibexa Cloud guide: ibexa_cloud/ibexa_cloud_guide.md
+        - Install on Ibexa Cloud: ibexa_cloud/install_on_ibexa_cloud.md
+        - DDEV and Ibexa Cloud: ibexa_cloud/ddev_and_ibexa_cloud.md
     - Infrastructure and maintenance:
         - Infrastructure and maintenance: infrastructure_and_maintenance/infrastructure_and_maintenance.md
         - Request lifecycle: infrastructure_and_maintenance/request_lifecycle.md
@@ -759,7 +780,6 @@ nav:
             - Clustering: infrastructure_and_maintenance/clustering/clustering.md
             - Clustering with AWS S3: infrastructure_and_maintenance/clustering/clustering_with_aws_s3.md
             - Clustering with DDEV: infrastructure_and_maintenance/clustering/clustering_with_ddev.md
-            - Ibexa Cloud and DDEV: infrastructure_and_maintenance/clustering/ibexa_cloud_and_ddev.md
         - DevOps: infrastructure_and_maintenance/devops.md
         - Backup: infrastructure_and_maintenance/backup.md
         - Performance: infrastructure_and_maintenance/performance.md
@@ -784,7 +804,7 @@ nav:
                 - Adapt code to v3: update_and_migration/from_2.5/adapt_code_to_v3.md
                 - 1. Update templates: update_and_migration/from_2.5/update_code/1_update_templates.md
                 - 2. Update configuration: update_and_migration/from_2.5/update_code/2_update_configuration.md
-                - 3. Update Field Types: update_and_migration/from_2.5/update_code/3_update_field_types.md
+                - 3. Update field types: update_and_migration/from_2.5/update_code/3_update_field_types.md
                 - 4. Update Signal Slots: update_and_migration/from_2.5/update_code/4_update_signal_slots.md
                 - 5. Update Online Editor: update_and_migration/from_2.5/update_code/5_update_online_editor.md
                 - 6. Update workflow: update_and_migration/from_2.5/update_code/6_update_workflow.md
@@ -792,7 +812,7 @@ nav:
                 - 8. Update REST: update_and_migration/from_2.5/update_code/8_update_rest.md
                 - 9. Other code updates: update_and_migration/from_2.5/update_code/9_update_other.md
             - Update to v3.3: update_and_migration/from_2.5/to_3.3.md
-            - Update to latest v3.3: update_and_migration/from_2.5/to_3.3.latest.md
+            - Update to latest v3.3: update_and_migration/from_3.3/update_from_3.3.md
         - Update from v3.3:
             - Update to v3.3.latest: update_and_migration/from_3.3/update_from_3.3.md
             - Update to v4.0: update_and_migration/from_3.3/to_4.0.md
@@ -809,7 +829,9 @@ nav:
         - Update from v4.4:
             - Update to v4.5: update_and_migration/from_4.4/update_from_4.4.md
         - Update from v4.5:
-            - Update to v4.6: update_and_migration/from_4.5/update_from_4.5.md
+              - Update to v4.6: update_and_migration/from_4.5/update_from_4.5.md
+        - Update from v4.6:
+              - Update to v4.6: update_and_migration/from_4.6/update_from_4.6.md
         - Migrate to Ibexa DXP:
             - Migrate from eZ Publish Platform: update_and_migration/migrate_to_ibexa_dxp/migrating_from_ez_publish_platform.md
             - Migrate from eZ Publish: update_and_migration/migrate_to_ibexa_dxp/migrating_from_ez_publish.md
@@ -823,6 +845,8 @@ nav:
             - Report and follow issues: resources/contributing/report_and_follow_issues.md
             - Contribute translations: resources/contributing/contribute_translations.md
             - Package structure: resources/contributing/package_structure.md
+    - Product guides:
+        - Product guides: product_guides/product_guides.md
     - Release notes:
         - Release notes: release_notes/release_notes.md
         - Ibexa DXP v4.6 LTS: release_notes/ibexa_dxp_v4.6.md
@@ -893,16 +917,20 @@ extra:
   product_name_connect: 'Ibexa Connect'
   product_name_cloud: 'Ibexa Cloud'
   product_name_oss: 'Ibexa OSS'
+  product_name_engage: 'Ibexa Engage'
+
+  eol_versions: ['2.5']
+
   # Global variables - latest tag versions
   latest_tag_2_5: '2.5.32'
-  latest_tag_3_3: '3.3.37'
+  latest_tag_3_3: '3.3.41'
   latest_tag_4_0: '4.0.8'
   latest_tag_4_1: '4.1.5'
   latest_tag_4_2: '4.2.4'
   latest_tag_4_3: '4.3.5'
   latest_tag_4_4: '4.4.4'
   latest_tag_4_5: '4.5.7'
-  latest_tag_4_6: '4.6.7'
+  latest_tag_4_6: '4.6.14'
 
   symfony_doc: 'https://symfony.com/doc/5.4'
   user_doc: 'https://doc.ibexa.co/projects/userguide/en/master'
@@ -915,6 +943,7 @@ extra_css:
   - css/custom.css
   - css/page-not-found.css
   - css/navigation.css
+  - css/search.css
   - css/docs.switcher.css
   - css/jquery-ui.min.css
   - '//cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css'

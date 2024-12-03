@@ -51,6 +51,7 @@ attributes:
 
 `embed` and `locationlist` use the Universal Discovery Widget (UDW).
 When creating a block with these two types you can configure the UDW behavior.
+
 For more information, see [Create custom page block / Add edit template](create_custom_page_block.md#add-edit-template)
 
 ## Custom attribute types
@@ -73,7 +74,7 @@ To define the type, create a `src/Block/Attribute/MyStringAttributeType.php` fil
 [[= include_file('code_samples/page/custom_attribute/src/Block/Attribute/MyStringAttributeType.php') =]]
 ```
 
-Note that the attribute uses `AbstractType` (line 5) and `TextType` (line 6).
+The attribute uses `AbstractType` (line 5) and `TextType` (line 6).
 Adding `getBlockPrefix` (line 15) returns a unique prefix key for a custom template of the attribute.
 
 ### Mapper
@@ -130,24 +131,24 @@ Now, you can create a block containing your custom attribute:
 
 The `nested_attribute` attribute is used when you want to create a group of attributes.
 
-First, make sure you have configured the attributes you want to use in the group. 
+First, make sure you have configured the attributes you want to use in the group.
 
 Next, provide the configuration. See the example:
 
 ``` yaml
-[[= include_file('code_samples/page/custom_page_block/config/packages/nested_attribute.yaml', 0,16) =]][[= include_file('code_samples/page/custom_page_block/config/packages/nested_attribute.yaml', 19,23) =]]
+[[= include_file('code_samples/page/custom_page_block/config/packages/nested_attribute.yaml', 0, 16) =]][[= include_file('code_samples/page/custom_page_block/config/packages/nested_attribute.yaml', 19, 23) =]]
 ```
 
 To set validation for each nested attribute:
 
 ``` yaml
-[[= include_file('code_samples/page/custom_page_block/config/packages/nested_attribute.yaml', 9,19) =]]
+[[= include_file('code_samples/page/custom_page_block/config/packages/nested_attribute.yaml', 9, 19) =]]
 ```
 
 Validators can be also set on a parent attribute (group defining level), it means all validators apply to each nested attribute:
 
 ``` yaml
-[[= include_file('code_samples/page/custom_page_block/config/packages/nested_attribute.yaml', 9,16) =]] [[= include_file('code_samples/page/custom_page_block/config/packages/nested_attribute.yaml', 19,26) =]]
+[[= include_file('code_samples/page/custom_page_block/config/packages/nested_attribute.yaml', 9, 16) =]] [[= include_file('code_samples/page/custom_page_block/config/packages/nested_attribute.yaml', 19, 26) =]]
 ```
 
 !!! caution "Moving attributes between groups"

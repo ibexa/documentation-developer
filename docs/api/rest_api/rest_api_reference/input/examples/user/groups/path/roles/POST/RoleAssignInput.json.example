@@ -1,23 +1,19 @@
 {
   "RoleAssignInput": {
     "Role": {
-      "_href": "/api/ibexa/v2/user/roles/2",
-      "media-type": "application/vnd.ibexa.api.RoleAssignInput+json",
-      "self-closing": "true"
+      "_href": "/api/ibexa/v2/user/roles/2"
     },
-    "Limitation": {
-      "identifier": "Section",
+    "limitation": {
+      "_identifier": "Section",
       "values": {
         "ref": [
           {
             "_href": "/api/ibexa/v2/content/sections/1",
-            "media-type": "application/vnd.ibexa.api.Section+json",
-            "self-closing": "true"
+            "_media-type": "application/vnd.ibexa.api.Section+json"
           },
           {
             "_href": "/api/ibexa/v2/content/sections/4",
-            "media-type": "application/vnd.ibexa.api.Section+json",
-            "self-closing": "true"
+            "_media-type": "application/vnd.ibexa.api.Section+json"
           }
         ]
       }

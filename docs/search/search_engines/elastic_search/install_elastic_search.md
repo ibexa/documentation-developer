@@ -60,13 +60,15 @@ All configuration is made in the `/config/packages/ibexa_elasticsearch.yaml` fil
 
 !!! note
 
-    All the settings, their order and meaning, correspond to the settings that are described in
-    the Elasticsearch documentation.
+    All the settings, their order and meaning, correspond to the settings that are described in the Elasticsearch documentation.
 
 First, decide how [[= product_name =]] connects to Elasticsearch and configure other connection settings.
+
 For more information, see [Configuring connections](configure_elastic_search.md#configure-connections).
 
-Then, define a Field Type mappings template that instructs Elasticsearch to interpret [[= product_name =]] fields as specific types. For more information, see [Configuring Field Type mappings](configure_elastic_search.md#define-field-type-mapping-templates).
+Then, define a field type mappings template that instructs Elasticsearch to interpret [[= product_name =]] fields as specific types.
+
+For more information, see [Configuring field type mappings](configure_elastic_search.md#define-field-type-mapping-templates).
 
 ## Push the templates
 
@@ -88,5 +90,5 @@ php bin/console ibexa:reindex
 
 !!! caution "Risks of premature indexing"
 
-    Do not reindex your data before you create index templates.
+    Don't reindex your data before you create index templates.
     Otherwise Elasticsearch attempts to use its [dynamic field mapping](https://www.elastic.co/guide/en/elasticsearch/reference/7.7/dynamic-field-mapping.html) feature to create type mappings automatically.

@@ -7,8 +7,7 @@ page_type: reference
 
 ### `ibexa_get_product`
 
-The `ibexa_get_product()` filter gets the selected product
-based on either a product object or a content item object that contains a product.
+The `ibexa_get_product()` filter gets the selected product based on either a product object or a content item object that contains a product.
 
 #### Examples
 
@@ -108,8 +107,7 @@ The `ibexa_get_product_stock` Twig function retrieves the stock quantity for a p
 
 ### `ibexa_format_price`
 
-The `ibexa_format_price` filter formats the price value by placing currency code 
-either on the left or on the right of the numerical value.
+The `ibexa_format_price` filter formats the price value by placing currency code either on the left or on the right of the numerical value.
 
 #### Examples
 

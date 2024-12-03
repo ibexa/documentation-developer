@@ -39,7 +39,7 @@
             </a>
         </div>
         <div class="col-12 col-lg-6 col-fhd-3">
-            <a class="info-tile" href="getting_started/install_on_ibexa_cloud/">
+            <a class="info-tile" href="ibexa_cloud/install_on_ibexa_cloud/">
                 <div class="info-tile__circle" style="background-color: #ecf8fb;">
                     <svg width="25" height="18"><use xlink:href="images/icons.svg#install-cloud" /></svg>
                 </div>
@@ -77,6 +77,7 @@
                 <div class="notification__content">
                     <h2>The latest release is v4.6</h2>
                     <div>The <a href="release_notes/ibexa_dxp_v4.6/">latest version of Ibexa DXP is v4.6</a>. You can now update your application to the latest version.</div>
+                    <div>The newest LTS Update to Ibexa DXP v4.6 is <a href="release_notes/ibexa_dxp_v4.6/#ai-actions">AI Actions</a>. Install it to let AI help you with editorial tasks.</div>
                 </div>
                 <div class="notification__cta">
                     <a href="update_and_migration/from_4.5/update_from_4.5/">Update your application</a>

@@ -196,6 +196,7 @@ body.menu-resizing {
 
 ul.breadcrumbs li.breadcrumb-item a {
     color: var(--dark-grey);
+    text-decoration: underline;
 }
 
 ul.breadcrumbs li.breadcrumb-item-current span {
@@ -270,22 +271,35 @@ ul.breadcrumbs li.breadcrumb-item-current span {
     margin-left: 8px;
 }
 
+.md-typeset .content-header__copy-fqcn:hover {
+    color: var(--ibexa-jazzberry);
+    border-color: var(--ibexa-jazzberry);
+}
+
 .md-typeset .content-header__found-in {
     font-size: 12px;
     line-height: 18px;
     color: #71767C;
 }
 
-.md-typeset abbr {
-    cursor: default;
-}
-
-.md-typeset a abbr {
-    cursor: pointer;
+.md-typeset .content-header__found-in:hover {
+    color: var(--ibexa-jazzberry);
 }
 
 .md-typeset .content-header__found-in img {
     display: inline-block;
+}
+
+.md-typeset .content-header__found-in:hover img {
+    filter: invert(0.4) sepia(1) saturate(20) hue-rotate(299deg) brightness(0.67);
+}
+
+.md-typeset abbr {
+    cursor: default;
+}
+
+.md-typeset a abbr, .md-typeset .content-header__found-in abbr {
+    cursor: pointer;
 }
 
 .md-typeset .content-header__subheader {
@@ -311,6 +325,11 @@ ul.breadcrumbs li.breadcrumb-item-current span {
     margin: 24px 0 0;
 }
 
+.md-typeset h5 {
+    font-size: 15px;
+    line-height: 18px;
+    margin: 24px 0 0;
+}
 
 {# --------------------------------------------------------------------------- #}
 {# ----------------------------- Highlighttable ------------------------------ #}
@@ -476,17 +495,21 @@ ul.breadcrumbs li.breadcrumb-item-current span {
     margin: 24px 0 0 0;
 }
 
-.md-typeset ul.namespace-list img {
+.md-typeset ul.namespace-list li .arrow {
     width: 12px;
     margin-right: 4px;
-    margin-top: 6px;
+}
+
+.md-typeset ul.namespace-list li span {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
 }
 
 .md-typeset ul.namespace-list li a {
     text-decoration: underline;
     white-space: nowrap;
     color: #3474cc;
-    flex-grow: 1;
 }
 
 .md-typeset ul.namespace-list li p {
@@ -494,6 +517,7 @@ ul.breadcrumbs li.breadcrumb-item-current span {
     padding-left: 12px;
     border-left: 1px solid #D9D9D9;
     color: #71767C;
+    flex-grow: 1;
 }
 
 .md-typeset .property-tags {
@@ -511,4 +535,47 @@ ul.breadcrumbs li.breadcrumb-item-current span {
     border-radius: 16px;
     border: 1px solid #B3B3BA;
     margin-left: 12px;
+}
+
+.popover {
+    visibility: hidden;
+    opacity: 0;
+    position: absolute;
+    z-index: 1;
+    color: #FFFFFF;
+    background-color: #2B333C;
+    border-radius: 4px;
+    padding: 4px 12px;
+    font-size: 16px;
+    line-height: 24px;
+    transition: opacity 0.2s;
+}
+
+.popover::after {
+    bottom: 100%;
+    left: 50%;
+    content: "";
+    height: 0;
+    width: 0;
+    position: absolute;
+    border: 4px solid transparent;
+    border-bottom-color: #2B333C;
+    margin-left: -4px;
+}
+
+.popover--visible {
+    visibility: visible;
+    opacity: 1;
+}
+
+.phpdocumentor-admonition svg {
+    float: left;
+    width: 24px;
+    height: 24px;
+    margin-right: 7px;
+
+}
+
+.phpdocumentor-admonition article {
+    padding-bottom: 0;
 }

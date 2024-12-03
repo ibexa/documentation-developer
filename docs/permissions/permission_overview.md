@@ -1,60 +1,62 @@
 ---
-description: The permission system is based on Policies that you assign to users or user groups in the form of Roles.
+description: The permission system is based on policies that you assign to users or user groups in the form of roles.
 ---
 
 # Permission overview
 
-A new User does not have permissions for any part of the system, unless they are explicitly given access.
-To get access they need to inherit Roles, typically assigned to the User Group they belong to.
+A new user doesn't have permissions for any part of the system, unless they're explicitly given access.
+To get access they need to inherit roles, typically assigned to the user group they belong to.
 
-Each Role can contain one or more **Policies**. A Policy is a rule that gives access to a single **function** in a **module**.
-For example, a `section/assign` Policy allows the User to assign content to Sections.
+Each role can contain one or more **Policies**.
+A policy is a rule that gives access to a single **function** in a **module**.
+For example, a `section/assign` policy allows the user to assign content to sections.
 
-When you add a Policy to a Role, you can also restrict it using one or more **Limitations**.
-A Policy with a Limitation will only apply when the condition in the Limitation is fulfilled.
-For example, a `content/publish` Policy with a `ContentType` Limitation on the "Blog Post" content type will allow the User to publish only Blog Posts, and not other content.
+When you add a policy to a role, you can also restrict it using one or more **Limitations**.
+A policy with a limitation only applies when the condition in the limitation is fulfilled.
+For example, a `content/publish` policy with a `ContentType` limitation on the "Blog Post" content type allows the user to publish only Blog Posts, and not other content.
 
-A Limitation, like a Policy, specifies what a User *can* do, not what they *can't do*.
-A `Section` Limitation, for example, *gives* the User access to the selected Section, not *prohibits* it.
+A limitation, like a policy, specifies what a user *can* do, not what they *can't do*.
+A `Section` limitation, for example, *gives* the user access to the selected section, not *prohibits* it.
 
-See [Limitation reference](limitation_reference.md) for further information
-and [Permission use cases](permission_use_cases.md) for example permission setups.
+For more information, see [Limitation reference](limitation_reference.md) and [Permission use cases](permission_use_cases.md).
 
-## Assigning Roles to Users
+## Assigning roles to users
 
-Every User or User Group can have many roles. A User can also belong to many groups, for example, Administrators, Editors, Subscribers.
+Every user or user group can have many roles.
+A user can also belong to many groups, for example, Administrators, Editors, Subscribers.
 
-It is best practice to avoid assigning Roles to users directly.
-Instead, try to organize your content so that it can be covered with general Roles assigned to User Groups.
+It's best practice to avoid assigning roles to users directly.
+Instead, try to organize your content so that it can be covered with general roles assigned to user groups.
 
-Using Groups is easier to manage and more secure. It also improves system performance.
-The more Role assignments and complex Policies you add for a given User, the more complex the search/load queries will be, because they always take permissions into account.
+Using groups is easier to manage and more secure.
+It also improves system performance.
+The more role assignments and complex policies you add for a given user, the more complex the search/load queries are, because they always take permissions into account.
 
 ## Permissions for custom controllers
 
 You can control access to a custom controller by implementing the `performAccessCheck()` method.
 
-In the following example the user does not have access to the controller unless they have the `section/view` Policy:
+In the following example the user doesn't have access to the controller unless they have the `section/view` policy:
 
 ``` php
 use Ibexa\Core\MVC\Symfony\Security\Authorization\Attribute;
 
 public function performAccessCheck(): void
 {
-    parent:performAccessCheck();
+    parent::performAccessCheck();
     $this->denyAccessUnlessGranted(new Attribute('section', 'view'));
 }
 ```
 
 `Attribute` accepts three arguments:
 
-- `module` is the Policy module (e.g. `content`)
-- `function` is the function inside the module (e.g. `read`)
-- `limitations` are optional Limitations to check against. Here you can provide two keys:
+- `module` is the policy module (for example,`content`)
+- `function` is the function inside the module (for example, `read`)
+- `limitations` are optional limitations to check against. Here you can provide two keys:
     - `valueObject` is the object you want to check for, for example `ContentInfo`.
     - `targets` are a table of value objects that are the target of the operation.
     For example, to check if content can be assigned to a Section, provide the Section as `targets`.
-    `targets` accept Location, Object state and Section objects.
+    `targets` accept location, object state and section objects.
 
 ### Checking user access
 
@@ -71,7 +73,7 @@ You can also use the permission resolver (`Ibexa\Core\Repository\Permission\Perm
 The `canUser()` method checks if the user can perform a given action with the selected object.
 
 For example: `canUser('content', 'edit', $content, [$location] );`
-checks the `content/edit` permission for the provided content item at the provided Location.
+checks the `content/edit` permission for the provided content item at the provided location.
 
 ### Blocking access to controller action
 

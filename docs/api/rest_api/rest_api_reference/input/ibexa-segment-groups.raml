@@ -12,18 +12,18 @@ get:
         200:
             description: OK - list the segment groups.
             body:
-                vnd.ibexa.api.SegmentGroupList+xml:
+                application/vnd.ibexa.api.SegmentGroupList+xml:
                     type: SegmentGroupList
                     example: !include examples/segment_groups/GET/SegmentGroupList.xml.example
-                vnd.ibexa.api.SegmentGroupList+json:
-                    type: SegmentGroupList
+                application/vnd.ibexa.api.SegmentGroupList+json:
+                    type: SegmentGroupListWrapper
                     example: !include examples/segment_groups/GET/SegmentGroupList.json.example
         401:
             description: Error - the user is not authorized to list segment groups.
             body:
-                application\/vnd.ibexa.api.ErrorMessage+xml:
+                application/vnd.ibexa.api.ErrorMessage+xml:
                     type: ErrorMessage
-                application\/vnd.ibexa.api.ErrorMessage+json:
+                application/vnd.ibexa.api.ErrorMessage+json:
                     type: ErrorMessage
 /{identifier}:
     get:
@@ -39,11 +39,11 @@ get:
             200:
                 description: OK - return the segment group.
                 body:
-                    vnd.ibexa.api.SegmentGroup+xml:
+                    application/vnd.ibexa.api.SegmentGroup+xml:
                         type: SegmentGroup
                         example: !include examples/segment_groups/identifier/GET/SegmentGroup.xml.example
-                    vnd.ibexa.api.SegmentGroup+json:
-                        type: SegmentGroup
+                    application/vnd.ibexa.api.SegmentGroup+json:
+                        type: SegmentGroupWrapper
                         example: !include examples/segment_groups/identifier/GET/SegmentGroup.json.example
             401:
                 description: Error - the user is not authorized to load this segment group.
@@ -63,11 +63,11 @@ get:
                 200:
                     description: OK - list the group's segments.
                     body:
-                        vnd.ibexa.api.SegmentList+xml:
+                        application/vnd.ibexa.api.SegmentList+xml:
                             type: SegmentList
                             example: !include examples/segment_groups/identifier/segments/GET/SegmentList.xml.example
-                        vnd.ibexa.api.SegmentList+json:
-                            type: SegmentList
+                        application/vnd.ibexa.api.SegmentList+json:
+                            type: SegmentListWrapper
                             example: !include examples/segment_groups/identifier/segments/GET/SegmentList.json.example
                 401:
                     description: Error - the user is not authorized to load this group's segments.

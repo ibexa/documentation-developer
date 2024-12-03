@@ -4,7 +4,9 @@ description: Update your installation to the latest v4.3 version from v4.2.x.
 
 # Update from v4.2.x to v4.3
 
-This update procedure applies if you are using a v4.2 installation.
+This update procedure applies if you're using a v4.2 installation.
+
+[[% include 'snippets/update/temporary_v4_conflicts.md' %]]
 
 ## Update from v4.2.x to v4.2.latest
 
@@ -68,7 +70,7 @@ Review the old YAML files and move your custom configuration to the relevant new
 
 #### Customer Portal self-registration
 
-If you are using [[= product_name_exp =]] or [[= product_name_com =]],
+If you're using [[= product_name_exp =]] or [[= product_name_com =]],
 run data migration required by the Customer Portal self-registration feature:
 
 ```bash
@@ -90,8 +92,8 @@ Use this option to define a user group that should be migrated to a new content 
 php bin/console ibexa:migrate:customers  --input-user-group=3a3beb3d09ae0dacebf1d324f61bbc34 --create-content-type
 ```
 
-- `--input-user-group` - represents the remote ID of a User Group you want to migrate to a new content type.
-After migration, this will also be the ID of a new Private Customer User Group.
+- `--input-user-group` - represents the remote ID of a user group you want to migrate to a new content type.
+After migration, this is also the ID of a new Private Customer user group.
 - `--create-content-type` - if you add this parameter, the system creates the new content type based on the one defined in `--input-user-content-type`
 
 ##### Additional parameters
@@ -107,7 +109,7 @@ If you don't have custom User content types, use the basic migration.
 
 !!! caution
 
-    This improvement will prevent logged in backend users from making purchases in the frontend store.
+    This improvement prevents logged in backend users from making purchases in the frontend store.
 
 #### Execute migrations
 
@@ -140,7 +142,7 @@ Apply the following database update scripts:
 
 #### Ibexa Open Source
 
-If you have no access to [[= product_name =]]'s `ibexa/installer` package, database upgrade is not necessary.
+If you have no access to [[= product_name =]]'s `ibexa/installer` package, database upgrade isn't necessary.
 
 ### Clean-up taxonomy database
 

@@ -1,6 +1,7 @@
 ---
-description: Data migration actions enable you to run special operations while executing data migrations, such as assigning Roles, Sections, Objects states, and so on.
+description: Data migration actions enable you to run special operations while executing data migrations, such as assigning roles, sections, Objects states, and more.
 page_type: reference
+month_change: true
 ---
 
 # Data migration actions
@@ -17,12 +18,12 @@ You can find which migration steps support actions in the table below:
 | `user_group`   |&#10004;|&#10004;||
 | `company`      |&#10004;|||
 
-Actions are optional operations that can be run after the main "body" of a migration has been executed
-(that is, content has been created / updated, Object state has been added, and so on).
+Actions are optional operations that can be run after the main "body" of a migration has been executed (for example, content has been created / updated, object state has been added).
 Their purpose is to allow additional operations to be performed as part of this particular migration.
-They are executed inside the same transaction, so in the event of failure they cause database rollback to occur.
+They're executed inside the same transaction, so in the event of failure they cause database rollback to occur.
 
 For example, when updating a content type object, some fields might be removed:
+
 ``` yaml
 -
     type: content_type
@@ -40,9 +41,9 @@ For example, when updating a content type object, some fields might be removed:
 When executed, this migration:
 
 - Finds content type using its identifier (`article`)
-- Assigns content type Group "Media"
-- Removes it from content type Group "Content"
-- Removes the `short_title` Field
+- Assigns content type group "Media"
+- Removes it from content type group "Content"
+- Removes the `short_title` field
 - Removes its existing drafts, if any.
 
 ## Available migration actions
@@ -58,15 +59,15 @@ The following migration actions are available out of the box:
 - `remove_drafts` (Content type Update)
 - `remove_field_by_identifier` (Content type Update)
 - `unassign_content_type_group` (Content type Update)
+- `add_block_to_available_blocks` (Content type Update)
 - `assign_role_to_user` (Role Create / Update)
 - `assign_role_to_user_group` (Role Create / Update)
 - `assign_user_to_role` (User Create / Update)
-- `assign_user_group_to_role` (User Group Create / Update)
-- `unassign_role_user_group` (User Group Update)
+- `assign_user_group_to_role` (User group Create / Update)
+- `unassign_role_user_group` (User group Update)
 
-In contrast with Kaliop migrations, actions provide you with ability to perform additional operations and extend
-the migration functionality. 
-See [creating your own Actions](create_data_migration_action.md).
+In contrast with Kaliop migrations, actions provide you with ability to perform additional operations and extend the migration functionality.
+For more information, see [creating your own Actions](create_data_migration_action.md).
 
 ## Action usage examples
 
@@ -103,6 +104,7 @@ mode: Update
         - { action: unassign_content_type_group, value: 'Content' }
         - { action: remove_field_by_identifier, value: 'short_title' }
         - { action: remove_drafts, value: null }
+        - { action: add_block_to_available_blocks, fieldDefinitionIdentifier: 'page', blocks: ['event'] }
 ```
 
 ### Roles
@@ -131,14 +133,14 @@ mode: Create and Update
 
 mode: Create and Update
 ``` yaml
-    actions: 
-        -   
+    actions:
+        -
             action: assign_user_to_role
             identifier: foo
-        -   
+        -
             action: assign_user_to_role
             id: 2
-        -   
+        -
             action: assign_user_to_role
             id: 2
             limitation:
@@ -147,7 +149,7 @@ mode: Create and Update
                     - 1
 ```
 
-### User Groups
+### User groups
 
 mode: Create and Update
 ``` yaml
@@ -158,7 +160,7 @@ mode: Create and Update
         -
             action: assign_user_group_to_role
             id: 2
-        -   
+        -
             action: assign_user_group_to_role
             id: 1
             limitation:
@@ -169,7 +171,7 @@ mode: Create and Update
 
 !!! note
 
-    In the `assign_user_group_to_role` action, Limitation type Section can only use Section ID.
+    In the `assign_user_group_to_role` action, limitation type section can only use section ID.
 
 mode: Update
 ``` yaml
@@ -181,4 +183,4 @@ mode: Update
 
 !!! note
 
-    In the `unassign_role_user_group` action, the ID is Role assignment ID from the `ezuser_role` table.
+    In the `unassign_role_user_group` action, the ID is role assignment ID from the `ezuser_role` table.

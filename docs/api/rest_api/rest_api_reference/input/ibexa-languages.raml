@@ -15,7 +15,7 @@ get:
                     type: LanguageList
                     example: !include examples/languages/GET/LanguageList.xml.example
                 application/vnd.ibexa.api.LanguageList+json:
-                    type: LanguageList
+                    type: LanguageListWrapper
                     example: !include examples/languages/GET/LanguageList.json.example
 
 /{code}:
@@ -34,5 +34,5 @@ get:
                         type: Language
                         example: !include examples/languages/code/GET/Language.xml.example
                     application/vnd.ibexa.api.Language+json:
-                        type: Language
+                        type: LanguageWrapper
                         example: !include examples/languages/code/GET/Language.json.example

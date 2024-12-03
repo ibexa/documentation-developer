@@ -5,11 +5,13 @@ edition: experience
 
 # Step 2 — Prepare the Page
 
-In this step you'll prepare and configure your front page, together with its layout and templates.
+In this step you can prepare and configure your front page, together with its layout and templates.
 
 ## Create Page layout
 
-Go to the front page of your website (`<yourdomain>`). You can see that it looks unfinished. (You can, however, still use the menu and look around the existing content in the website).
+Go to the front page of your website (`<yourdomain>`).
+You can see that it looks unfinished.
+However, you can still use the menu and look around the existing content in the website.
 
 ![It's a Dog's World - Starting point](enterprise_tut_starting_point.png "It's a Dog's World - Starting point")
 
@@ -21,23 +23,25 @@ Go to the front page of your website (`<yourdomain>`). You can see that it looks
 
     `yarn encore <dev|prod>`
 
-Log in to the Back Office. Go to **Content Structure**.
+Log in to the back office. Go to **Content Structure**.
 The **Ibexa Digital Experience Platform** content item is the first page that is shown to the visitor.
-Here you can check what content type it belongs to: it is a Landing Page.
+Here you can check what content type it belongs to: it's a landing page.
 
-![Ibexa Digital Experience Platform is a Landing Page](enterprise_tut_home_is_an_lp.png)
+![Ibexa Digital Experience Platform is a landing page](enterprise_tut_home_is_an_lp.png)
 
 The page contains one Code block and is displayed without any template.
-Click Edit to enter a mode that enables you to work with Pages.
-You can see that the home Page has only one zone with the block.
+Click **Edit** to enter a mode that enables you to work with pages.
+You can see that the home page has only one zone with the block.
 
 ![Empty Page with default layout](enterprise_tut_empty_single_block.png)
 
-Remove the Tag block. Hover over it and select the trash icon from the menu.
-Click the **Field** button on the left of the top bar to switch to editing Page Fields.
-Change the Title of the page to "Home". Then, publish the Page to update its name.
+Remove the Tag block.
+Hover over it and select the trash icon from the menu.
+Click the **Field** button on the left of the top bar to switch to editing page fields.
+Change the Title of the page to "Home".
+Then, publish the page to update its name.
 
-The design for the website you are making needs a layout with two zones: a main column and a narrower sidebar.
+The design for the website you're making needs a layout with two zones: a main column and a narrower sidebar.
 [[= product_name_exp =]] provides only a one-zone default layout, so you need to create a new one.
 
 Preparing a new layout requires three things:
@@ -60,16 +64,17 @@ First create a new file for layout configuration, `config/packages/ibexa_fieldty
 
     For a detailed description of creating a Page layout, see [Page layouts](render_page.md#render-a-layout).
 
-The `sidebar` (line 3) is the internal key of the layout. `name` (line 5) is displayed in the interface when the user selects a layout.
-The `thumbnail` (line 7) points to an image file that is shown when creating a new Landing Page next to the name.
+The `sidebar` (line 3) is the internal key of the layout.
+`name` (line 5) is displayed in the interface when the user selects a layout.
+The `thumbnail` (line 7) points to an image file that is shown when creating a new landing page next to the name.
 Use the [supplied thumbnail file](https://github.com/ibexa/documentation-developer/blob/master/code_samples/tutorials/page_tutorial_starting_point/public/assets/images/layouts/sidebar.png) and place it in the `public/assets/images/layouts/` folder.
 
 The `template` (line 8) points to the Twig file containing the template for this layout.
 
-#### Create Page template
+#### Create page template
 
 Configuration points to `sidebar.html.twig` as the template for the layout.
-The template defines what zones will be available in the layout.
+The template defines what zones are available in the layout.
 
 Create a `templates/layouts/sidebar.html.twig` file:
 
@@ -77,12 +82,12 @@ Create a `templates/layouts/sidebar.html.twig` file:
 [[= include_file('code_samples/tutorials/page_tutorial/templates/layouts/sidebar.html.twig') =]]
 ```
 
-The above template creates two columns and defines their widths. Each column is at the same time a zone, and each zone renders the blocks that it contains.
+The above template creates two columns and defines their widths.
+Each column is at the same time a zone, and each zone renders the blocks that it contains.
 
 !!! tip
 
-    In sites with multiple layouts you can separate the rendering of zones into a separate `zone.html.twig` template
-    to avoid repeating the same code in every layout.
+    In sites with multiple layouts you can separate the rendering of zones into a separate `zone.html.twig` template to avoid repeating the same code in every layout.
 
 !!! note
 
@@ -93,22 +98,24 @@ With these three elements: configuration, icon and template, the new layout is r
 
 ### Change Home Page layout
 
-Now you can change the Home Page to use the new layout. Edit Home and in the top bar select **Switch layout**.
+Now you can change the Home Page to use the new layout.
+Edit Home and in the top bar select **Switch layout**.
 Choose the new layout called "Main section with sidebar on the right".
-The empty zones you defined in the template will be visible in the editor.
+The empty zones you defined in the template are visible in the editor.
 
 ![Select layout window](enterprise_tut_select_layout.png)
 
 !!! tip
 
-    If the new layout is not available when editing the Page, you may need to clear the cache (using `php bin/console cache:clear`) and/or reload the app.
+    If the new layout isn't available when editing the page, you may need to clear the cache (using `php bin/console cache:clear`) and/or reload the app.
 
 ![Empty page with new layout](enterprise_tut_new_layout.png)
 
-Publish the Home Page. You will notice that it still has some additional text information.
-This is because the looks of a Page are controlled by two separate template files, and you have only prepared one of those.
+Publish the Home page.
+You can notice that it still has some additional text information.
+This is because the looks of a page are controlled by two separate template files, and you have only prepared one of those.
 The `sidebar.html.twig` file defines how zones are organized and how content is displayed in them.
-But you also need a general template file that will be used for every Page, regardless of its layout.
+But you also need a general template file that is used for every page, regardless of its layout.
 
 Add this new template, `templates/full/landing_page.html.twig`:
 
@@ -116,16 +123,17 @@ Add this new template, `templates/full/landing_page.html.twig`:
 [[= include_file('code_samples/tutorials/page_tutorial/templates/full/landing_page.html.twig') =]]
 ```
 
-This template simply renders the page content. If there is any additional content or formatting you would like to apply to every Page, it should be placed in this template.
+This template renders the page content.
+If there is any additional content or formatting you would like to apply to every page, it should be placed in this template.
 
-Now you need to tell the app to use this template to render Pages.
+Now you need to tell the app to use this template to render pages.
 Edit the `config/packages/views.yaml` file and add the following code under the `full:` key:
 
 ``` yaml
 [[= include_file('code_samples/tutorials/page_tutorial/config/packages/views.yaml', 35, 39) =]]
 ```
 
-After adding this template you can check the new Page.
-The part between menu and footer should be empty, because you have not added any content to it yet.
+After adding this template you can check the new page.
+The part between menu and footer should be empty, because you haven't added any content to it yet.
 
 ![Empty Page](enterprise_tut_empty_page.png)

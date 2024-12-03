@@ -3,11 +3,19 @@ let jquery = jQuery;
 
 $(document).ready(function() {
     // replace edit url
-    var branchName = 'master',
-        branchNameRegexp = /\/en\/([a-z0-9-_.]*)\//g.exec(document.location.href);
+    let branchName = 'master';
+    const branchNameRegexp = /\/en\/([a-z0-9-_.]*)\//g.exec(document.location.href);
+    const eolVersions = window.eol_versions ?? [];
 
     if (branchNameRegexp !== null && branchNameRegexp.hasOwnProperty(1) && branchNameRegexp[1].length) {
         branchName = branchNameRegexp[1];
+    }
+
+    // Show warning box for versions that have reached End Of Life
+    if (eolVersions.includes(branchName)) {
+        const warningBox = document.querySelector('#eol-warning-box');
+
+        warningBox.hidden = false;
     }
 
     $('.md-content a.md-icon').each(function() {
@@ -15,7 +23,7 @@ $(document).ready(function() {
             'href',
             $(this)
                 .attr('href')
-                .replace('master/docs/', branchName + '/docs/')
+                .replace('master/docs/', branchName + '/docs/'),
         );
     });
 
@@ -37,7 +45,7 @@ $(document).ready(function() {
     var update = setInterval(function() {
         let ready = false, version = '';
         if ($('readthedocs-flyout').length) {
-            $('dl.versions', $('readthedocs-flyout').prop('shadowRoot')).appendTo('.version-switcher .switcher__list');
+            $('dl.versions', $('readthedocs-flyout').prop('shadowRoot')).prependTo('.version-switcher .switcher__list');
             $('readthedocs-flyout').remove();
             version = $('.switcher__list dl.versions dd strong a').text();
             ready = true;
@@ -59,8 +67,31 @@ $(document).ready(function() {
             $('.rst-other-versions.switcher__list dl.versions dd strong').parent().addClass('rtd-current-item');
 
             if ('master' !== (vl = $('.rst-other-versions.switcher__list dl.versions')).find('dd:first').text()) {
-                vl.find('dd').each(function() {$(this).detach().prependTo(vl)});
+                vl.find('dd').each(function() {
+                    $(this).detach().prependTo(vl);
+                });
             }
+
+            const allVersions = [...document.querySelectorAll('.switcher__list .versions dd')];
+            const olderVersions = document.querySelector('#older-versions');
+
+            if (eolVersions.length > 0) {
+                olderVersions.hidden = false;
+            }
+
+            allVersions
+                .filter((versionNode) => eolVersions.includes(versionNode.textContent))
+                .forEach((versionNode) => {
+                    versionNode.hidden = true;
+                });
+
+            olderVersions.addEventListener('click', (event) => {
+                event.stopPropagation();
+                allVersions.forEach((versionNode) => {
+                    versionNode.hidden = false;
+                });
+                olderVersions.hidden = true;
+            });
         }
     }, 300);
     setTimeout(function() {
@@ -75,48 +106,75 @@ $(document).ready(function() {
         }
     });
 
-    $('.md-content a:not(.md-icon):not(.md-source)')
+    $('.md-content a:not(.md-icon):not(.md-source):not(.instantsearch__entry)')
         .filter(function() {
             return this.hostname && this.hostname !== location.hostname;
         })
         .addClass('external');
 
-    docsearch({
+    const hitsPerPage = 10;
+    let search = docsearch({
         container: '#docsearch',
         appId: '2DNYOU6YJZ',
         apiKey: '21ce3e522455e18e7ee16cf7d66edb4b',
         indexName: 'ezplatform',
         inputSelector: '#search_input',
         transformData: function(hits) {
-            let removedPattern = '¶';
-            $.each(hits, function(index, hit) {
-                for (let lvl=2; lvl<=6; lvl++) {
-                    if (null !== hit.hierarchy['lvl'+lvl]) {
-                        hits[index].hierarchy['lvl' + lvl] = hit.hierarchy['lvl' + lvl].replace(removedPattern, '');
-                    }
-                    if ('undefined' !== typeof hit._highlightResult.hierarchy['lvl'+lvl]) {
-                        hits[index]._highlightResult.hierarchy['lvl'+lvl].value = hit._highlightResult.hierarchy['lvl'+lvl].value.replace(removedPattern, '');
-                    }
-                }
-            });
+            let link = $('.ds-dropdown-menu a.search-page-link');
+            if (!link.length) {
+                $('.ds-dropdown-menu').append(`<div class="search-page-link-wrapper">
+                    <a class="search-page-link" href="">See all results</a>
+                </div>`);
+                link = $('.ds-dropdown-menu a.search-page-link');
+            }
+            const href = '/en/' + branchName + '/search_results/?sq=' + encodeURI($('#search_input').val()) + '&p=1';
+            link.attr('href', href).toggle(hits.length >= hitsPerPage);
         },
         algoliaOptions: {
             facetFilters: ['lang:en', 'version:' + branchName],
-            hitsPerPage: 10,
+            hitsPerPage: hitsPerPage,
+        },
+        handleSelected: function(input, event, suggestion, datasetNumber, context) {
+            if (context.selectionMethod == 'click') {
+                window.location = suggestion.url;
+            } else if (context.selectionMethod == 'enterKey') {
+                window.location = $('.ds-dropdown-menu a.search-page-link').attr('href');
+            }
         },
         debug: false,
     });
-
-    $(document).on('keypress', '#search_input', function(event) {
-        if (event.keyCode == 13) {
-            event.preventDefault();
-        }
+    search.autocomplete.on('autocomplete:updated', event => {
+        const searchedText = $('#search_input')[0].value.trim();
+        const separatorText = '›';
+        const separatorClass = 'aa-suggestion-title-separator';
+        const separatorHtml = '<span class="' + separatorClass + '" aria-hidden="true"> ' + separatorText + ' </span>';
+        $('.algolia-docsearch-suggestion--wrapper').each((index, element) => {
+            const title = $(element).find('.algolia-docsearch-suggestion--title');
+            const category = $(element).find('.algolia-docsearch-suggestion--subcategory-column-text');
+            category.append(separatorHtml);
+            if (title.find('.' + separatorClass).length) {
+                const titleParts = title.html().split(separatorHtml);
+                for (let i = 0; i < titleParts.length - 1; i++) {
+                    category.html(category.html() + titleParts[i] + separatorHtml);
+                }
+                title.html(titleParts[titleParts.length - 1]);
+            }
+            if (separatorText != category.text().trim().slice(-1)) {
+                category.append(separatorHtml);
+            }
+            const displayedText = $(element).find('.algolia-docsearch-suggestion--text');
+            if (displayedText.length && displayedText.text() == searchedText + '…') {
+                displayedText.remove();
+            }
+        });
     });
 
-    $(document).on('blur', '#search_input', function(event) {
-        setTimeout(() => {
-            $('#search_input').val('');
-        }, 0);
+    $(document).on('keydown keypress', 'form.md-search__form', function(event) {
+        if (event.keyCode == 13) {
+            event.preventDefault();
+
+            return false;
+        }
     });
 
     $('#search_input, label.md-search__icon').on('click', function() {
@@ -144,14 +202,14 @@ $(document).ready(function() {
 
     if ($('.md-sidebar--primary .md-sidebar__scrollwrap')[0] && $('.md-sidebar--primary .md-nav__item--active:not(.md-nav__item--nested)')[0]) {
         $('.md-sidebar--primary .md-sidebar__scrollwrap')[0].scrollTop =
-        $('.md-sidebar--primary .md-nav__item--active:not(.md-nav__item--nested)')[0].offsetTop - 33;
+            $('.md-sidebar--primary .md-nav__item--active:not(.md-nav__item--nested)')[0].offsetTop - 33;
     }
 
     $(document).scroll(function() {
         if ($('.md-sidebar--secondary .md-nav__link--active').length) {
             $('.md-sidebar--secondary .md-nav__link--active')[0].scrollIntoView({
                 behavior: 'instant',
-                block: 'nearest'
+                block: 'nearest',
             });
         } else {
             $('.md-sidebar--secondary .md-sidebar__scrollwrap').scrollTop(0);
@@ -173,4 +231,7 @@ $(document).ready(function() {
             closeBtn.closest('.notification').setAttribute('hidden', 'hidden');
         });
     });
+
+    // Mark higher-level nodes with "New" pill, not only the actual item
+    $('.pill.new:not([hidden])').parents('.md-nav__item').children('label').children('.pill.new[hidden]').removeAttr('hidden');
 });

@@ -43,8 +43,7 @@
                 "code": "AOA",
                 "subunits": 2,
                 "enabled": false
-            },
-            ...
+            }
         ]
     }
 }

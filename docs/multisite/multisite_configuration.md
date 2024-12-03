@@ -32,19 +32,17 @@ ibexa:
             event_group: [event]
 ```
 
-Groups are useful when you want to use common settings for several SiteAccesses and avoid duplicating configuration.
+You can use groups when you want to use common settings for several SiteAccesses and avoid duplicating configuration.
 SiteAccess groups act like regular SiteAccesses as far as configuration is concerned.
 A SiteAccess can be part of several groups. SiteAccess configuration has always precedence over group configuration.
 
 #### `admin` SiteAccess
 
-The predefined `admin` SiteAccess in `admin_group` (configured in `config/packages/ibexa_admin_ui.yaml`) serves the Back Office.
-Do not remove this group.
-If you need a multisite setup with multiple Back Offices, add any additional administration SiteAccesses to `admin_group`.
+The predefined `admin` SiteAccess in `admin_group` (configured in `config/packages/ibexa_admin_ui.yaml`) serves the back office.
+Don't remove this group.
+If you need a multisite setup with multiple back offices, add any additional administration SiteAccesses to `admin_group`.
 
-In cases where the sites are on separate databases, each needs its own [repository](repository_configuration.md)
-(including their own storage and search connection), var dir, [cache pool](persistence_cache.md#persistence-cache-configuration),
-and ideally also separate Varnish/Fastly configuration.
+In cases where the sites are on separate databases, each needs its own [repository](repository_configuration.md) (including their own storage and search connection), var dir, [cache pool](persistence_cache.md#persistence-cache-configuration), and ideally also separate Varnish/Fastly configuration.
 
 !!! caution
 
@@ -64,7 +62,8 @@ ibexa:
 ### SiteAccess matching
 
 The `match` setting defines the rule or set of rules by which SiteAccesses are matched.
-See [SiteAccess matching](siteaccess_matching.md) for more information.
+
+For more information, see [SiteAccess matching](siteaccess_matching.md).
 
 ``` yaml
 ibexa:
@@ -75,13 +74,11 @@ ibexa:
 
 ### SiteAccess name
 
-To create a better editorial experience, you can replace the SiteAccess code in the Back Office
-with a human-readable name of the website, for example `Company site` or `Summer Sale`.
+To create a better editorial experience, you can replace the SiteAccess code in the back office with a human-readable name of the website, for example `Company site` or `Summer Sale`.
 
-You can also translate SiteAccess names. Displayed names depend on the current Back Office language.
+You can also translate SiteAccess names. Displayed names depend on the current back office language.
 
-To define translations or SiteAccess names, place them in YAML file with correct language code,
-for example `translations/ibexa_siteaccess.en.yaml`:
+To define translations or SiteAccess names, place them in YAML file with correct language code, for example `translations/ibexa_siteaccess.en.yaml`:
 
 ``` yaml
 en: Company site
@@ -100,7 +97,7 @@ The available scopes are:
 4. `default`
 
 `global` overrides all other scopes.
-If `global` is not defined, the configuration then tries to match a SiteAccess, and then a SiteAccess group.
+If `global` isn't defined, the configuration then tries to match a SiteAccess, and then a SiteAccess group.
 Finally, if no other scope is matched, `default` is applied.
 
 In short: if you want a match that always applies, regardless of SiteAccesses, use `global`.
@@ -119,9 +116,8 @@ ibexa:
             # This value is only used if there is no setting for global scope, SiteAccess or SiteAccess group
 ```
 
-`global` and `default` scopes include the `admin` SiteAccess, which is responsible for the Back Office.
-For example, the following configuration defines both the front template for articles
-and the template used in the Back Office, unless you configure other templates for a specific SiteAccess or SiteAccess group:
+`global` and `default` scopes include the `admin` SiteAccess, which is responsible for the back office.
+For example, the following configuration defines both the front template for articles and the template used in the back office, unless you configure other templates for a specific SiteAccess or SiteAccess group:
 
 ``` yaml
 ibexa:
@@ -150,7 +146,7 @@ ibexa:
                 siteaccess_list: [site, de]
 ```
 
-If you are using multiple domains, list all domains for an admin SiteAccess under `siteaccess_hosts`:
+If you're using multiple domains, list all domains for an admin SiteAccess under `siteaccess_hosts`:
 
 ``` yaml
 ibexa:
@@ -165,19 +161,19 @@ ibexa:
 
 !!! caution "SiteAccess with separate admin domain"
 
-    If an admin SiteAccess in your installation uses a different domain than the front SiteAccesses,
-    be sure to use SSL (https protocol).
-    Otherwise, you cannot preview content in Page Builder from the Back Office.
+    If an admin SiteAccess in your installation uses a different domain than the front SiteAccesses, be sure to use SSL (https protocol).
+    Otherwise, you cannot preview content in Page Builder from the back office.
 
 #### SiteAccess switching in Page Builder
 
-If you need to change between SiteAccesses in Site mode, do not use any functions in the page itself (for example, a language switcher).
-This may cause unexpected errors. Instead, switch between SiteAccesses using the SiteAccess bar above the page.
+If you need to change between SiteAccesses in Site mode, don't use any functions in the page itself (for example, a language switcher).
+This may cause unexpected errors.
+Instead, switch between SiteAccesses with the SiteAccess bar above the page.
 
 ## Location tree
 
 You can restrict SiteAccesses to different parts of the content tree.
-When you do it, only the selected Location and its descendants are reachable from this SiteAccess.
+When you do it, only the selected location and its descendants are reachable from this SiteAccess.
 
 Configure this under the `ibexa.systems.<scope>.content.tree_root` [configuration key](configuration.md#configuration-files), for example:
 
@@ -192,15 +188,14 @@ ibexa:
             index_page: /EventFrontPage
 ```
 
-- `location_id` defines the Location ID of the content root for the SiteAccess.
-- `excluded_uri_prefixes` defines which URIs ignore the root limit set using `location_id`.
-In the example above, the Media and Images folders are accessible using their own URI,
-even though they are outside the Location provided in `content.tree_root.location_id`.
+- `location_id` defines the location ID of the content root for the SiteAccess.
+- `excluded_uri_prefixes` defines which URIs ignore the root limit set by using `location_id`.
+In the example above, to access the Media and Images folders, you can use their own URI, even though they're outside the location provided in `content.tree_root.location_id`.
 - `index_page` is the page shown when you access the root index `/`.
 
 !!! note
-    
-    Prefixes are not case sensitive.
+
+    Prefixes aren't case sensitive.
     Leading slashes (`/`) are automatically trimmed internally, so they can be ignored.
 
 !!! tip

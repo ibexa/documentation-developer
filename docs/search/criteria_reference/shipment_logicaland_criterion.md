@@ -1,5 +1,5 @@
 ---
-description: Shipment LogicalAnd Criterion
+description: Shipment LogicalAnd Search Criterion
 edition: commerce
 ---
 
