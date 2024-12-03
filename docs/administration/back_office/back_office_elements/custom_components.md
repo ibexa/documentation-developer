@@ -1,10 +1,10 @@
 ---
-description: Back Office components allow you to inject any custom widgets into selected places of the user interface.
+description: Back office components allow you to inject any custom widgets into selected places of the user interface.
 ---
 
 # Custom components
 
-The Back Office has designated places where you can use your own components.
+The back office has designated places where you can use your own components.
 
 Components enable you to inject widgets (for example, **My dashboard** blocks) and HTML code (for example, a tag for loading JS or CSS files).
 A component is any class that implements the `Renderable` interface.
@@ -37,8 +37,7 @@ App\Component\MyNewComponent:
 
 ## Base component classes
 
-If you only need to inject a short element (for example, a Twig template or a CSS link) without writing a class,
-you can make use of the following base classes:
+If you only need to inject a short element (for example, a Twig template or a CSS link) without writing a class, you can make use of the following base classes:
 
 - `TwigComponent` renders a Twig template.
 - `LinkComponent` renders the HTML `<link>` tag.
@@ -62,7 +61,7 @@ appbundle.components.my_twig_component:
 
 This renders the `path/to/file.html.twig` template with `first_param` and `second_param` as parameters.
 
-With `LinkComponent` and `ScriptComponent` you provide `$href` and `$src` as arguments, respectively:
+With `LinkComponent` and `ScriptComponent` you provide `$href` and `$src` as arguments:
 
 ``` yaml
 app.components.my_link_component:

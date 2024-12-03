@@ -1,5 +1,5 @@
 ---
-description: Payment Method Name Criterion
+description: Payment Method Name Search Criterion
 edition: commerce
 ---
 

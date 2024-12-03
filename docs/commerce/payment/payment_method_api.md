@@ -8,10 +8,10 @@ edition: commerce
 !!! tip "Order management REST API"
 
     To learn how to manage payment methods with the REST API, see the [REST API reference](../../api/rest_api/rest_api_reference/rest_api_reference.html#payment-methods).
-    
+
 To get payment methods and manage them, use the `Ibexa\Contracts\Payment\PaymentMethodServiceInterface` interface.
 
-From the developer's perspective, payment methods are referenced with identifiers defined manually at method creation stage in user interface. 
+From the developer's perspective, payment methods are referenced with identifiers defined manually at method creation stage in user interface.
 
 !!! note "Support for multilingual applications"
 
@@ -39,7 +39,8 @@ To access a single payment method by using its numerical ID, use the `PaymentMet
 
 ## Get multiple payment methods
 
-To fetch multiple payment methods, use the `PaymentMethodService::findPaymentMethods` method. 
+To fetch multiple payment methods, use the `PaymentMethodService::findPaymentMethods` method.
+
 It follows the same search query pattern as other APIs:
 
 ``` php
@@ -48,9 +49,14 @@ It follows the same search query pattern as other APIs:
 
 ## Create payment method
 
-To create a payment method, use the `PaymentMethodService::createPaymentMethod` method and provide it with 
-an `Ibexa\Contracts\Payment\PaymentMethod\PaymentMethodCreateStruct` object that takes the following parameters: 
-`identifier` string, `type` TypeInterface object, `names` array of string values, `descriptions` array of string values, `enabled` boolean value, and an `options` object.
+To create a payment method, use the `PaymentMethodService::createPaymentMethod` method and provide it with an `Ibexa\Contracts\Payment\PaymentMethod\PaymentMethodCreateStruct` object that takes the following parameters:
+
+- `identifier` string
+- `type` TypeInterface object
+- `names` array of string values
+- `descriptions` array of string values
+- `enabled` boolean value
+- `options` object.
 
 ``` php
 [[= include_file('code_samples/api/commerce/src/Command/PaymentMethodCommand.php', 58, 59) =]][[= include_file('code_samples/api/commerce/src/Command/PaymentMethodCommand.php', 77, 87) =]]
@@ -58,8 +64,9 @@ an `Ibexa\Contracts\Payment\PaymentMethod\PaymentMethodCreateStruct` object that
 
 ## Update payment method
 
-You can update the payment method after it is created. 
+You can update the payment method after it's created.
 An `Ibexa\Contracts\Payment\PaymentMethod\PaymentMethodUpdateStruct` object can take the following arguments: `identifier` string, `names` array of string values, `descriptions` array of string values, `enabled` boolean value, and an `options` object.
+
 To update payment method information, use the `PaymentMethodServiceInterface::updatePaymentMethod` method:
 
 ``` php
@@ -76,6 +83,7 @@ To delete a payment method from the system, use the `PaymentMethodService::delet
 ## Check whether payment method is used
 
 To check whether a payment method is used, for example, before you delete it, use the `PaymentMethodService::isPaymentMethodUsed` method:
+
 ``` php
 [[= include_file('code_samples/api/commerce/src/Command/PaymentMethodCommand.php', 109, 122) =]]
 ```

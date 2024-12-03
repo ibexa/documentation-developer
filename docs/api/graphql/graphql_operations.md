@@ -4,10 +4,10 @@ description: Use GraphQL operations to create, update, and delete content.
 
 # GraphQL operations
 
-Operations on content in GraphQL are performed using [mutations](https://graphql.org/learn/queries/#mutations).
+Operations on content in GraphQL are performed by using [mutations](https://graphql.org/learn/queries/#mutations).
 They include creating, updating, and deleting content items.
 
-The schema contains two mutations per content type, e.g. `createFolder` and `updateFolder`.
+The schema contains two mutations per content type, for example, `createFolder`, and `updateFolder`.
 You can also make use of the generic `deleteContent` and `uploadFiles` mutations.
 
 ## Creating content
@@ -70,7 +70,7 @@ Response:
 }
 ```
 
-Note that the input for updating a content item is the same as when creating it, but all fields are optional.
+The input for updating a content item is the same as when creating it, but all fields are optional.
 
 ## Deleting content
 
@@ -102,7 +102,7 @@ Response:
 
 !!! note
 
-    Uploading binary files is not possible through GraphiQL.
+    Uploading binary files isn't possible through GraphiQL.
     You can use alternative third-party clients such as [Altair GraphQL](https://altairgraphql.dev/).
 
 Uploading files makes use of dedicated mutations per content type, for example:
@@ -153,8 +153,8 @@ curl -v -X POST \
 
 !!! note "Authentication"
 
-    Note that the example above requires you to set your authentication cookie in the `$AUTH_COOKIE` variable.
-    See [Authentication](graphql.md#authentication) for more information.
+    The example above requires you to set your authentication cookie in the `$AUTH_COOKIE` variable.
+    For more information, see [Authentication](graphql.md#authentication).
 
 ### Uploading multiple files
 

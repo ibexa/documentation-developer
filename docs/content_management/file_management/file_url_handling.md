@@ -36,7 +36,7 @@ ibexa:
 
 !!! caution
 
-    For security reasons, do not map `/path/to/ibexa/public/` as
+    For security reasons, don't map `/path/to/ibexa/public/` as
     Document Root of the static server.
     Map the `/var/` directory directly to `/path/to/ibexa/public/var` instead.
 
@@ -49,7 +49,7 @@ Any BinaryFile returned by the public PHP API is prefixed with the value of thi
 Default value: `$var_dir$/$storage_dir$`
 Example: `/var/site/storage`
 
-You can use `io.url_prefix` to configure the default URL decorator service (`ibexa.core.io.default_url_decorator`), used by all binary data handlers to generate the URI of loaded files. It is always interpreted as an absolute URI, meaning that unless it contains a scheme (`http://`, `ftp://`), is prepended with a `/`.
+You can use `io.url_prefix` to configure the default URL decorator service (`ibexa.core.io.default_url_decorator`), used by all binary data handlers to generate the URI of loaded files. It's always interpreted as an absolute URI, meaning that unless it contains a scheme (`http://`, `ftp://`), is prepended with a `/`.
 
 This setting is SiteAccess-aware.
 
@@ -64,6 +64,6 @@ Two implementations are provided: `Prefix`, and `AbsolutePrefix`. They both add 
 Three URL decorator services are introduced:
 
 - `Ibexa\Core\IO\UrlDecorator\AbsolutePrefix` used by the binary data handlers to decorate all URIs sent out by the API. Uses `AbsolutePrefix`.
-- `Ibexa\Core\IO\UrlDecorator\Prefix` used through the `UrlRedecorator` by various legacy elements (converter, storage gateway, etc.) to generate its internal storage format for URIs. Uses a `Prefix`, not an `AbsolutePrefix`, meaning that no leading `/` is added.
+- `Ibexa\Core\IO\UrlDecorator\Prefix` used through the `UrlRedecorator` by various legacy elements (for example, converter or storage gateway) to generate its internal storage format for URIs. Uses a `Prefix`, not an `AbsolutePrefix`, meaning that no leading `/` is added.
 
 In addition, a URL redecorator service, `Ibexa\Core\IO\UrlDecorator\Prefix`, uses both previously mentioned decorators to convert URIs between what is used on the new stack, and what format legacy expects (relative URLs from the project root).

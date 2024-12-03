@@ -1,9 +1,10 @@
 ---
 description: Update procedure to v4.4 for people who don't use Commerce packages and can remove them.
+month_change: true
 ---
 # Update with new Commerce packages
 
-This update procedure applies if you have a v4.3 installation, and you do not use Commerce packages.
+This update procedure applies if you have a v4.3 installation, and you don't use Commerce packages.
 
 [[% include 'snippets/update/temporary_v4_conflicts.md' %]]
 
@@ -31,20 +32,20 @@ Run:
     composer require ibexa/commerce:[[= latest_tag_4_3 =]] --with-all-dependencies --no-scripts
     ```
 
-## Remove deprecated Field Types
+## Remove deprecated field types
 
 By default, every v4.3 installation has a set of built-in content types.
-Some of them use Field Types deprecated in v4.4, which need to be removed manually.
-Make sure to remove all occurrences of `sesspecificationstype`, `uivarvarianttype`, `sesselection`, `sesprofiledata` Field Types from your content types.
+Some of them use field types deprecated in v4.4, which need to be removed manually.
+Make sure to remove all occurrences of `sesspecificationstype`, `uivarvarianttype`, `sesselection`, `sesprofiledata` field types from your content types.
 
-This step should be performed on the working installation, omitting it will result in an error during update:
+This step should be performed on the working installation, omitting it results in an error during update:
 
 ```
   [Ibexa\Core\Persistence\Legacy\Content\FieldValue\Converter\Exception\NotFound (404)]
   Could not find 'Persistence Field Value Converter' with identifier 'sesspecificationstype'
 ```
 
-In that case, you can use [Null Field Type](nullfield.md) to define a replacement for deprecated Field Types in `config/services.yaml`:
+In that case, you can use [Null field type](nullfield.md) to define a replacement for deprecated field types in `config/services.yaml`:
 
 ```yaml
 services:
@@ -126,7 +127,7 @@ Review the old YAML files and move your custom configuration to the relevant new
 ### Flysystem v2
 
 Local adapters' `directory` key changed to `location`.
-It is defined in `config/packages/oneup_flysystem.yaml`:
+It's defined in `config/packages/oneup_flysystem.yaml`:
 
 ```yaml
 oneup_flysystem:
@@ -145,7 +146,7 @@ composer recipe:install --force --reset -- oneup/flysystem-bundle
 ### Remove `ibexa/commerce-*` packages with dependencies
 
 Remove the following bundles from `config/bundles.php`.
-You do not have to remove third-party bundles (`FOS\` to `JMS\`) if they are used by your installation.
+You don't have to remove third-party bundles (`FOS\` to `JMS\`) if they're used by your installation.
 
 === "[[= product_name_content =]]"
 
@@ -246,7 +247,7 @@ You do not have to remove third-party bundles (`FOS\` to `JMS\`) if they are use
     ```
 
 Next, remove related extensions' configuration.
-You do not have to remove third-party bundles (for example `config/packages/fos_rest.yaml`) if they are used by your installation.
+You don't have to remove third-party bundles (for example `config/packages/fos_rest.yaml`) if they're used by your installation.
 
 === "[[= product_name_content =]]"
 
@@ -299,8 +300,8 @@ Finally, remove related routes by deleting `config/routes/ibexa_commerce.yaml` f
 
 ### Update the database
 
-Next, update the database if you are using Ibexa Commerce.
-Ibexa Content and Ibexa Experience do not require the database update.
+Next, update the database if you're using [[= product_name_com =]].
+[[= product_name_content =]] and [[= product_name_exp =]] don't require the database update.
 
 [[% include 'snippets/update/db/db_backup_warning.md' %]]
 
@@ -318,9 +319,91 @@ Apply the following database update scripts:
     psql <database_name> < vendor/ibexa/installer/upgrade/db/postgresql/commerce/ibexa-4.3.latest-to-4.4.0.sql
     ```
 
+If you used old Commerce packages before, and have migrated everything, you can remove the old tables.
+The tables that can be removed are prefixed with `ses_` and `sve_`.
+
+=== "MySQL"
+
+    To switch to the right database, issue the following command:
+    ``` sql
+    USE <database_name>;
+    ```
+
+    Then, to remove all the old tables, run the following queries:
+    ``` sql
+    DROP TABLE IF EXISTS ses_basket;
+    DROP TABLE IF EXISTS ses_basket_line;
+    DROP TABLE IF EXISTS ses_content_modification_queue;
+    DROP TABLE IF EXISTS ses_customer_prices;
+    DROP TABLE IF EXISTS ses_customer_sku;
+    DROP TABLE IF EXISTS ses_download;
+    DROP TABLE IF EXISTS ses_externaldata;
+    DROP TABLE IF EXISTS ses_gdpr_log;
+    DROP TABLE IF EXISTS ses_invoice;
+    DROP TABLE IF EXISTS ses_log_erp;
+    DROP TABLE IF EXISTS ses_log_mail;
+    DROP TABLE IF EXISTS ses_log_search;
+    DROP TABLE IF EXISTS ses_payment_basket_map;
+    DROP TABLE IF EXISTS ses_price;
+    DROP TABLE IF EXISTS ses_shipping_cost;
+    DROP TABLE IF EXISTS ses_stat_sessions;
+    DROP TABLE IF EXISTS ses_stock;
+    DROP TABLE IF EXISTS ses_token;
+    DROP TABLE IF EXISTS sve_class;
+    DROP TABLE IF EXISTS sve_class_attributes;
+    DROP TABLE IF EXISTS sve_object;
+    DROP TABLE IF EXISTS sve_object_attributes;
+    DROP TABLE IF EXISTS sve_object_attributes_tmp;
+    DROP TABLE IF EXISTS sve_object_catalog;
+    DROP TABLE IF EXISTS sve_object_catalog_tmp;
+    DROP TABLE IF EXISTS sve_object_tmp;
+    DROP TABLE IF EXISTS sve_object_urls;
+    DROP TABLE IF EXISTS sve_object_urls_tmp;
+    ```
+
+=== "PostgreSQL"
+
+    To switch to the right database, issue the following command:
+    ``` sql
+    \connect <database_name>;
+    ```
+
+
+    Then, to remove all the old tables, run the following queries:
+    ``` sql
+    DROP TABLE IF EXISTS ses_basket;
+    DROP TABLE IF EXISTS ses_basket_line;
+    DROP TABLE IF EXISTS ses_content_modification_queue;
+    DROP TABLE IF EXISTS ses_customer_prices;
+    DROP TABLE IF EXISTS ses_customer_sku;
+    DROP TABLE IF EXISTS ses_download;
+    DROP TABLE IF EXISTS ses_externaldata;
+    DROP TABLE IF EXISTS ses_gdpr_log;
+    DROP TABLE IF EXISTS ses_invoice;
+    DROP TABLE IF EXISTS ses_log_erp;
+    DROP TABLE IF EXISTS ses_log_mail;
+    DROP TABLE IF EXISTS ses_log_search;
+    DROP TABLE IF EXISTS ses_payment_basket_map;
+    DROP TABLE IF EXISTS ses_price;
+    DROP TABLE IF EXISTS ses_shipping_cost;
+    DROP TABLE IF EXISTS ses_stat_sessions;
+    DROP TABLE IF EXISTS ses_stock;
+    DROP TABLE IF EXISTS ses_token;
+    DROP TABLE IF EXISTS sve_class;
+    DROP TABLE IF EXISTS sve_class_attributes;
+    DROP TABLE IF EXISTS sve_object;
+    DROP TABLE IF EXISTS sve_object_attributes;
+    DROP TABLE IF EXISTS sve_object_attributes_tmp;
+    DROP TABLE IF EXISTS sve_object_catalog;
+    DROP TABLE IF EXISTS sve_object_catalog_tmp;
+    DROP TABLE IF EXISTS sve_object_tmp;
+    DROP TABLE IF EXISTS sve_object_urls;
+    DROP TABLE IF EXISTS sve_object_urls_tmp;
+    ```
+
 #### Ibexa Open Source
 
-If you have no access to Ibexa DXP's `ibexa/installer` package, database upgrade is not necessary.
+If you have no access to [[= product_name =]]'s `ibexa/installer` package, database upgrade isn't necessary.
 
 ## Ensure password safety
 
@@ -339,7 +422,7 @@ composer run post-install-cmd
 
 ### Customer Portal self-registration
 
-If you are using Ibexa Experience or Ibexa Commerce,
+If you're using [[= product_name_exp =]] or [[= product_name_com =]],
 you can now run data migration required by the Customer Portal applications feature to finish the update process:
 
 ```bash

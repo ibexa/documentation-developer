@@ -1,17 +1,17 @@
-# TaxonomyEntry Field Type
+# TaxonomyEntry field type
 
-`TaxonomyEntry` is a general purpose Field Type that can store only one taxonomy entry (for example, tag or product category). 
-It is used as a parent for a tag or category.
+`TaxonomyEntry` is a general purpose field type that can store only one taxonomy entry (for example, tag or product category).
+It's used as a parent for a tag or category.
 
 | Name           | Internal name         | Expected input |
 |----------------|-----------------------|----------------|
 | `TaxonomyEntry`| `ibexa_taxonomy_entry`| `array`|
 
-## PHP API Field Type 
+## PHP API field type 
 
 ### Input expectations
 
-A `TaxonomyEntry` Field accepts an array with an `Ibexa\Contracts\Taxonomy\Value\TaxonomyEntry` object.
+A `TaxonomyEntry` field accepts an array with an `Ibexa\Contracts\Taxonomy\Value\TaxonomyEntry` object.
 
 | Type     | Description | Example         |
 |--------|-----------------|-----------------|
@@ -69,7 +69,7 @@ No validation.
 
 #### Settings
 
-The Field definition of this Field Type can be configured with the following options:
+The field definition of this field type can be configured with the following options:
 
 |Name|Type|Default value|Description|
 |------|------|------|------|

@@ -1,3 +1,7 @@
+---
+description: DateMetadataRangeAggregation
+---
+
 # DateMetadataRangeAggregation
 
 The [DateMetadataRangeAggregation](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Aggregation-Field-CountryTermAggregation.html) aggregates search results by the value of the content items' date metadata.

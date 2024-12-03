@@ -14,9 +14,27 @@ description: Ibexa DXP v4.6 brings improvements to Commerce, PIM and Personaliza
 
 **Update**: [v4.5.x to v4.6](https://doc.ibexa.co/en/latest/update_and_migration/from_4.5/update_from_4.5/)
 
+
+## LTS Updates
+
+LTS Updates are opt-in packages that bring cutting-edge technologies to an LTS release that they enhance, without compromising the product's stability.
+The features brought by an LTS Update become a standard part of the next LTS release.
+
+### AI Actions
+
+The AI Actions LTS update enhances the usability and flexibility of [[=product_name=]] v4.6 LTS by harnessing the potential of artificial intelligence to automate time-consuming editorial tasks.
+By default, the AI Actions feature can help users with their work in following scenarios:
+
+- Refining text: when editing a content item, users can request that a passage selected in online editor is modified, for example, by adjusting the length of the text, changing its tone, or correcting linguistic errors.
+- Generating alternative text: when working with images, users can ask AI to generate alternative text for them, which helps improve accessibility and SEO.
+
+![AI Assistant](../ai_actions/img/ai_assistant.png)
+
+For more information, see [AI Actions product guide](../ai_actions/ai_actions_guide.md).
+
 ## Notable changes
 
-### Ibexa Headless
+### [[= product_name_headless =]]
 
 [[= product_name_content =]] changes name to [[= product_name_headless =]] to emphasize [[= product_name_base =]]'s capacity for headless architecture.
 
@@ -35,7 +53,7 @@ For more information, see [Customizable dashboard](https://doc.ibexa.co/projects
 
 ### UX and UI improvements
 
-Several improvements to the Back Office interface enhance the user experience.
+Several improvements to the back office interface enhance the user experience.
 
 #### Page Builder improvements [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
 
@@ -68,8 +86,9 @@ For more information, see [Edit embedded content items](https://doc.ibexa.co/pro
 
 #### Focus mode
 
-With multiple changes to the Back Office UI intended to expose the most important information and actions, editors can now better focus on their work.
+With multiple changes to the back office UI intended to expose the most important information and actions, editors can now better focus on their work.
 The UI is now more friendly and appealing for marketers and editors, with simplified Content structure, designed with new and non-advanced users in mind.
+
 For more information, see [Focus mode](https://doc.ibexa.co/projects/userguide/en/latest/getting_started/discover_ui/#focus-mode).
 
 ![Focus mode](img/4.6_focus_mode.png "Focus mode")
@@ -79,14 +98,14 @@ As part of this effort, some other changes were introduced that apply to both re
 - In content item details view, tabs have been reordered by their relevance
 - **Authors** and **Sub-items** are now separate tabs in content item details view
 - Former **Details** tab is now called **Technical details** and changed its position
-- Preview is available in many new places, such as the **View** tab in content item details view, or as miniatures when you hover over the Content Tree
+- Preview is available in many new places, such as the **View** tab in content item details view, or as miniatures when you hover over the content tree
 - `ibexa_is_focus_mode_on` and `ibexa_is_focus_mode_off` Twig helpers have been introduced, which check whether focus mode is enabled or not.
 
 ![Sub-items tab](img/4.6_sub_items_tab.png "Sub-items tab")
 
 #### Ability to change site context
 
-With a drop-down list added to the top bar, which changes the site context, editors can choose that the Content Tree shows only those content items that belong to the selected website.
+With a drop-down list added to the top bar, which changes the site context, editors can choose that the content tree shows only those content items that belong to the selected website.
 And if content items belong to multiple websites but use different designs or languages depending on the SiteAccess settings, their previews also change.
 
 As part of this effort, the name of the "Sites" area of the main menu has changed to "Site management".
@@ -136,16 +155,14 @@ For more information, see [user profile and settings documentation](https://doc.
 #### Recent activity log
 
 Several actions on the repository or the application are logged.
-In the Back Office, last activity logs can be listed on a dedicated interface (Admin -> Activity list),
+In the back office, last activity logs can be listed on a dedicated interface (Admin -> Activity list),
 on the dashboard within Recent activity block, or on the user profile.
 
 ![Recent activity log](img/4.6_activity_list.png "Recent activity log")
 
-For more information,
-see feature's [user documentation](https://doc.ibexa.co/projects/userguide/en/master/recent_activity/recent_activity/),
-and [developer documentation](https://doc.ibexa.co/en/master/administration/recent_activity/recent_activity/).
+For more information, see feature's [User Documentation](https://doc.ibexa.co/projects/userguide/en/master/recent_activity/recent_activity/), and [Developer Documentation](https://doc.ibexa.co/en/master/administration/recent_activity/recent_activity/).
 
-#### Back Office search
+#### Back office search
 
 ##### Search bar, suggestions, autocompletion, and spellcheck
 
@@ -157,9 +174,7 @@ If a relevant suggestion occurs, it can be clicked, or navigated too with up/dow
 In the search result page, a spellcheck suggestion can be made.
 For example, if the searched text is "Comany", the result page may ask "Did you mean company?", which is clickable to relaunch the search with this word.
 
-For more information,
-see [user documentation](https://doc.ibexa.co/projects/userguide/en/master/search/search_for_content/),
-and how to [customize autocompletion suggestions](https://doc.ibexa.co/en/master/administration/back_office/customize_search_suggestion/).
+For more information, see [User Documentation](https://doc.ibexa.co/projects/userguide/en/master/search/search_for_content/), and how to [customize autocompletion suggestions](https://doc.ibexa.co/en/master/administration/back_office/customize_search_suggestion/).
 
 ##### Filtering and sorting
 
@@ -167,20 +182,18 @@ The search result page can be sorted in other orders than relevance. Name, publi
 
 Filters can be applied to the search page to narrow down the results.
 
-For more information,
-see [user documentation](https://doc.ibexa.co/projects/userguide/en/master/search/search_for_content/#filtered-search),
-and how to [customize search sorting](https://doc.ibexa.co/en/master/administration/back_office/customize_search_sorting/).
+For more information, see [User Documentation](https://doc.ibexa.co/projects/userguide/en/master/search/search_for_content/#filtered-search), and how to [customize search sorting](https://doc.ibexa.co/en/master/administration/back_office/customize_search_sorting/).
 
 #### New and updated content type icons
 
-To help users quickly identify different content types in the Back Office, all content type references are now accompanied with icons.
+To help users quickly identify different content types in the back office, all content type references are now accompanied with icons.
 Also, content type icons have changed slightly.
 
 ![Content type icons](img/4.6_content_type_icons.png "Content type icons")
 
 ### Ibexa Image picker
 
-Editors can now use a Digital Asset Management platform that enables storing media assets in a central location, as well as organizing, distributing, and sharing them across many channels.
+Editors can now use a Digital Asset Management platform that enables storing media assets in a central location, organizing, distributing, and sharing them across many channels.
 
 For more information, see [Ibexa DAM](https://doc.ibexa.co/projects/userguide/en/master/dam/ibexa_dam/).
 
@@ -218,7 +231,7 @@ For more information, see [Create virtual products](https://doc.ibexa.co/project
 
 #### Product page URLs
 
-When you are creating a new product type, you can set up a product URL alias name pattern.
+When you're creating a new product type, you can set up a product URL alias name pattern.
 With this feature, you can also create custom URL and URL alias name pattern field based on product attributes.
 Customized URLs are easier to remember, help with SEO optimization and reduce bounce rates on the website.
 
@@ -241,7 +254,7 @@ For more information, see [VAT rates](https://doc.ibexa.co/en/master/pim/pim_con
 
 #### Ability to search through products in a catalog
 
-When you are reviewing catalog details, on the **Products** tab, you can now see what criteria are used to include products in the catalog, and search for a specific product in the catalog.
+When you're reviewing catalog details, on the **Products** tab, you can now see what criteria are used to include products in the catalog, and search for a specific product in the catalog.
 
 #### New Twig functions
 
@@ -455,7 +468,7 @@ Any third party code that extends `\Ibexa\Contracts\Rest\Output\Generator` needs
 
 A new helper method `ibexa.helpers.contentType.getContentTypeDataByHref` has been introduced to help you get content type data in JavaScript.
 
-### Ibexa Connect
+### [[= product_name_connect =]]
 
 For a list of changes in [[= product_name_connect =]], see [Ibexa app release notes](https://doc.ibexa.co/projects/connect/en/latest/general/ibexa_app_release_notes/).
 
@@ -465,11 +478,13 @@ New [[= product_name_connect =]] scenario block retrieves and displays data from
 Scenario block is a regular Page block and can be configured on field definition level as any other block.
 You also need to configure scenario block in the Page Builder. To do it, you need to provide name for the block, enter webhook link for the [[= product_name_connect =]] webhook and select the template to be used to present the webhook.
 
-For more information, see [Ibexa Connect scenario block](https://doc.ibexa.co/en/master/content_management/pages/ibexa_connect_scenario_block/).
+For more information, see [[[= product_name_connect =]] scenario block](https://doc.ibexa.co/en/master/content_management/pages/ibexa_connect_scenario_block/).
 
 ### DDEV
 
-[Ibexa DXP can officially be run on DDEV](https://ddev.readthedocs.io/en/latest/users/quickstart/#ibexa-dxp). For more information, see the [DDEV guide](https://doc.ibexa.co/en/master/getting_started/install_with_ddev/), which offers a step-by-step walkthrough for installing Ibexa DXP.
+[[[= product_name =]] can officially be run on DDEV](https://ddev.readthedocs.io/en/latest/users/quickstart/#ibexa-dxp).
+
+For more information, see the [DDEV guide](https://doc.ibexa.co/en/master/getting_started/install_with_ddev/), which offers a step-by-step walkthrough for installing [[= product_name =]].
 
 ### Customer Data Platform (CDP)
 
@@ -482,7 +497,7 @@ For more information, see [CDP Activation](https://doc.ibexa.co/en/master/cdp/cd
 
 ### New packages 
 
-The following packages has been introduced in Ibexa DXP v4.6.0:
+The following packages has been introduced in [[= product_name =]] v4.6.0:
 
 - [ibexa/oauth2-server](oauth_server.md) (optional)
 - ibexa/site-context
@@ -503,7 +518,7 @@ The following packages has been introduced in Ibexa DXP v4.6.0:
 
 ### REST APIs
 
-Ibexa DXP v4.6.0 adds REST API coverage for the following features:
+[[= product_name =]] v4.6.0 adds REST API coverage for the following features:
 
 - Price engine
 - Shipping
@@ -668,7 +683,7 @@ The following events have been added in the v4.6.0 release (39 events in total):
 
 ### View matchers
 
-The following view matchers have been introduced in Ibexa DXP v4.6.0:
+The following view matchers have been introduced in [[= product_name =]] v4.6.0:
 
 - `\Ibexa\Core\MVC\Symfony\Matcher\ContentBased\IsPreview`
 - `\Ibexa\Taxonomy\View\Matcher\TaxonomyEntryBased\Id`

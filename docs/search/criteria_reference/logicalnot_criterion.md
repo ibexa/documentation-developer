@@ -1,7 +1,10 @@
+---
+description: LogicalNot Search Criterion
+---
+
 # LogicalNot Criterion
 
-The [`LogicalNot` Search Criterion](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Criterion-LogicalNot.html)
-matches content URL if the provided Criterion does not match.
+The [`LogicalNot` Search Criterion](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Criterion-LogicalNot.html) matches content URL if the provided Criterion doesn't match.
 
 It takes only one Criterion in the array parameter.
 

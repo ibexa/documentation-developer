@@ -1,6 +1,6 @@
-# Time Field Type
+# Time field type
 
-This Field Type represents time information.
+This field type represents time information.
 
 Date information is **not stored**.
 
@@ -10,13 +10,13 @@ What is stored is the number of seconds, calculated from the beginning of the da
 |--------|---------------|---------------------|
 | `Time` | `eztime`      | mixed             |
 
-## PHP API Field Type
+## PHP API field type
 
 ### Input expectations
 
-If input value is of type `string` or `integer`, it will be passed directly to the [PHP's built-in `\DateTime` class](https://www.php.net/manual/en/datetime.construct.php) constructor, therefore the same input format expectations apply.
+If input value is of type `string` or `integer`, it's passed directly to the [PHP's built-in `\DateTime` class](https://www.php.net/manual/en/datetime.construct.php) constructor, therefore the same input format expectations apply.
 
-It is also possible to directly pass an instance of `\DateTime`.
+It's also possible to directly pass an instance of `\DateTime`.
 
 |Type|Example|
 |------|------|
@@ -28,7 +28,7 @@ It is also possible to directly pass an instance of `\DateTime`.
 
 ##### Properties
 
-The Value class of this Field Type contains the following properties:
+The Value class of this field type contains the following properties:
 
 | Property | Type           | Description|
 |----------|----------------|------------|
@@ -36,11 +36,12 @@ The Value class of this Field Type contains the following properties:
 
 ##### Constructor
 
-The constructor for this Value object will initialize a new Value object with the value provided. It accepts an integer representing the number of seconds since the beginning of the day.
+The constructor for this value object initializes a new value object with the value provided.
+It accepts an integer representing the number of seconds since the beginning of the day.
 
 ##### String representation
 
-String representation of the date value will generate the date string in the format "H:i:s" as accepted by [PHP's built-in `date()` function](https://www.php.net/manual/en/function.date.php).
+String representation of the date value generates the date string in the format "H:i:s" as accepted by [PHP's built-in `date()` function](https://www.php.net/manual/en/function.date.php).
 
 |Character|Description|Example|
 |---------|----------|--------|
@@ -58,11 +59,11 @@ Example: `36000`
 
 ### Validation
 
-This Field Type does not perform validation of the input value.
+This field type doesn't perform validation of the input value.
 
 ### Settings
 
-The Field definition of this Field Type can be configured with several options:
+The Field definition of this field type can be configured with several options:
 
 |Name|Type|Default value|Description|
 |------|------|------|------|
@@ -70,7 +71,7 @@ The Field definition of this Field Type can be configured with several options:
 |`defaultType`|`Type::DEFAULT_EMPTY Type::DEFAULT_CURRENT_TIME`|`Type::DEFAULT_EMPTY`|The constant used here defines default input value when using back-end interface.|
 
 ``` php
-// Time Field Type example settings
+// Time field type example settings
 use Ibexa\Core\FieldType\Time\Type;
 
 $settings = [
@@ -80,11 +81,11 @@ $settings = [
 
 ## Template rendering
 
-The template called by [the `ibexa_render_field()` Twig function](field_twig_functions.md#ibexa_render_field) while rendering a Date Field has access to the following parameters:
+The template called by [the `ibexa_render_field()` Twig function](field_twig_functions.md#ibexa_render_field) while rendering a Date field has access to the following parameters:
 
 | Parameter | Type     | Default | Description|
 |-----------|----------|---------|------------|
-| `locale`  | `string` |   n/a   | Internal parameter set by the system based on current request locale or, if not set, calculated based on the language of the Field. |
+| `locale`  | `string` |   n/a   | Internal parameter set by the system based on current request locale or, if not set, calculated based on the language of the field. |
 
 Example:
 
