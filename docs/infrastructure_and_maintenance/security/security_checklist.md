@@ -259,7 +259,7 @@ When using [[= product_name_cloud =]], you can [configure HSTS in `.platform/rou
 DNSSEC is a DNS feature that authenticates responses to DNS requests.
 It protects against DNS poisoning attacks, which is when an attacker manipulates the reponses to DNS requests with the goal of directing users to an IP address the attacker controls.
 Enabling DNSSEC involves creating the DNSSEC records in your domain, activating DNSSEC with your domain registrar, and enabling DNSSEC signature validation on all DNS servers.
-[Read more on DNSSEC at ICANN](https://www.icann.org/resources/pages/dnssec-what-is-it-why-important-2019-03-05-en).
+[Read more on DNSSEC on ICANN's website](https://www.icann.org/resources/pages/dnssec-what-is-it-why-important-2019-03-05-en).
 
 ### Enable domain update/delete protection
 
