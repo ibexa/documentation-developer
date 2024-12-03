@@ -158,7 +158,9 @@ Reduce your attack surface by exposing only what you must.
 
     The following command generates a 64-character-long secure random value:
 
-    `php -r "print bin2hex(random_bytes(32));"`
+    ```shell
+    php -r "print bin2hex(random_bytes(32));"
+    ```
 
 !!! note
 
