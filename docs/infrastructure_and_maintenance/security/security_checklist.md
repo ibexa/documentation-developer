@@ -169,7 +169,7 @@ Reduce your attack surface by exposing only what you must.
 Only expose Symfony production mode openly on the internet.
 Don't expose the dev mode on the internet, otherwise you may disclose things like `phpinfo` and environment variables.
 
-For more information about securing Symfony-based systems, see [Authentication and authorisation]([[= symfony_doc =]]/security.html), [more on this subject]([[= symfony_doc =]]/security.html#learn-more), and Symfony's [secrets management system]([[= symfony_doc =]]/configuration/secrets.html).
+For more information about securing Symfony-based systems, see [Authentication and authorisation]([[= symfony_doc =]]/security.html), [more on this subject]([[= symfony_doc =]]/security.html#learn-more), and [secrets management system]([[= symfony_doc =]]/configuration/secrets.html), all from Symfony.
 
 ## PHP
 
