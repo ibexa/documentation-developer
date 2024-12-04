@@ -24,7 +24,7 @@ This page contains recent highlights and notable changes in [[= product_name =]]
 
 ### Documentation
 
-- When searching from the top bar, you may see, at the bottom of the drop-down suggestion list, a link to a page to see more results.
+- When you search using the top bar, if there are more than the 10 listed results, you can see a link to a page with further results at the bottom of the drop-down suggestion list.
 
 ### PHP API
 
