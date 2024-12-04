@@ -1,6 +1,6 @@
 ---
 description: Use HTTP GET request method to render recommendations.
-month_change: true
+month_change: false
 ---
 
 # Recommendation API

@@ -1,6 +1,6 @@
 ---
 description: Configure your project files to enable Personalization and set up items you want to track.
-month_change: true
+month_change: false
 ---
 
 # Enable Personalization
