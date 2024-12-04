@@ -1,0 +1,34 @@
+Attributes:
+- Size ([XS, S, M, L, XL]) - a generic one
+- Frame Shape/Features
+- Material - a generic one
+- Paint job/color - would probably require a couple of those (and a "Paints" attribute group) to take into account the various manufacturers and the parts
+-
+
+Hi!
+
+I went through the PIM mnodeling exercise.
+
+I watch a couple of math youtube channels and they're sometimes doing what they call "building intuition" - going through a couple of handpicked examples so that the viewer understand what's going on under the hood and gains deeper knowledge of the subject. I think you're doing the same with the Product Types explanation - showing the implementation details so that the readers knows what's going on. Nicely done!
+
+About the modeling exercise:
+- I've approached it in two phases:
+1) Modeling attributes
+2) Modeling Product Types
+
+About modelling attributes:
+- It feels extremely tempting to model similar attributes as a single attribute. For example to have a single attribute for size: [XS, S, M, L, XL].
+But I think it's a trap - even though both the frame and the fork might be size XL, if at some point their actual dimensions might have to be displayed (like in tshirt, where you often get additional info when buying - chest diameter) then bundling these two would be a problem.
+
+Same for color - one manufacturer's red might be different from the red from another one. Bundling them together might be a problem (especially when one part comes in 5 colors and there's a million for the second one - it would be confusing for the PIM manager to choose the right one).
+
+About modelling product types:
+- I didn't notice the series at first, so my initial idea was to model each model separately (Product Types: Fuji, Matterhorn, Annapurna, ...). I think it's mostly because the Series is not visible in the table - and started analyzing based on this :D
+- Then I noticed the series: and I think the suggested solution makes sense, if the models in each series are similar to each other.
+
+I started to think how can the product type information be used. Let's assume:
+- Series 4 might be targeted for families, and Series 5 might be targeted for semi-professionals
+
+My initial idea:
+-  so I'd use the product type to display the right templates etc.
+

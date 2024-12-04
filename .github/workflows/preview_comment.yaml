@@ -27,7 +27,6 @@ jobs:
 
             -   name: Create comment for changed files
                 run: |
-                    set -x #debug
                     file_limit=100
                     build_url="https://ez-systems-developer-documentation--${{ github.event.pull_request.number }}.com.readthedocs.build/${{inputs.project}}en/${{ github.event.pull_request.number }}/"
 
@@ -53,8 +52,6 @@ jobs:
                     fi
 
                     echo -e $comment > comment.md
-
-                    cat comment.md #DEBUG
 
             -   name: Find comment
                 id: find-comment
