@@ -1,7 +1,10 @@
+---
+description: URL Sort Clause
+---
+
 # URL Sort Clause
 
-The [`SortClause\Url` Sort Clause](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-URL-Query-SortClause-URL.html)
-sorts search results by the URLs.
+The [`SortClause\Url` Sort Clause](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-URL-Query-SortClause-URL.html) sorts search results by the URLs.
 
 ## Arguments
 

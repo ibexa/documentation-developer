@@ -11,7 +11,7 @@ This page explains how to install [[= product_name =]] on macOS or Windows.
     This procedure is **for development purposes only**.
     Installing [[= product_name =]] for production purposes is supported only on Linux.
 
-    For information about installing the product on Linux, see [Install [[= product_name =]]](install_ibexa_dxp.md).  
+    For information about installing the product on Linux, see [Install [[= product_name =]]](install_ibexa_dxp.md).
 
 ### Prepare work environment
 
@@ -22,7 +22,7 @@ If you want to use a web server, you need to install it as well:
 - For Windows: Apache
 - For macOS: Apache/nginx
 
-The instructions below assume that you are using Apache.
+The instructions below assume that you're using Apache.
 
 ??? note "Windows"
 
@@ -39,7 +39,7 @@ The instructions below assume that you are using Apache.
     ``` bash
     zend_extension=opcache.so
     ```
-    
+
     You can install Apache as a Windows service by running the following command in CMD as administrator:
 
     ``` bash
@@ -69,7 +69,7 @@ The instructions below assume that you are using Apache.
 
 === "Windows"
 
-    Download and run [Composer-Setup.exe](https://getcomposer.org/Composer-Setup.exe) - it will install the latest Composer version.
+    Download and run [Composer-Setup.exe](https://getcomposer.org/Composer-Setup.exe) - it installs the latest Composer version.
 
 ## Install [[= product_name =]]
 
@@ -88,7 +88,7 @@ Then restart the Apache server.
 ## Set up permissions
 
 Directories `var` and `web/var` need to be writable by CLI and web server user.
-Future files and directories created by these two users will need to inherit those permissions.
+Future files and directories created by these two users need to inherit those permissions.
 
 For more information, see [Setting up or Fixing File Permissions]([[= symfony_doc =]]/setup/file_permissions.html).
 

@@ -1,5 +1,5 @@
 ---
-description: Shipment ShippingMethod Criterion
+description: Shipment ShippingMethod Search Criterion
 edition: commerce
 ---
 
@@ -16,7 +16,7 @@ The `ShippingMethod` Search Criterion searches for shipments based on a shipping
 ### PHP
 
 ``` php
-$query = new ShipmentQuery( 
+$query = new ShipmentQuery(
     new \Ibexa\Contracts\Shipping\Shipment\Query\Criterion\ShippingMethod($shippingMethod)
 );
 ```

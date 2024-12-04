@@ -3593,7 +3593,7 @@ CartListViewResult:
     type: object
     properties:
         count: integer
-        Result: CartList
+        CartList: CartList
 
 CartList:
     description: 'This class represents a cart list.'
@@ -3613,6 +3613,34 @@ CartMetadataUpdate:
         defaultLanguageCode: string
         names: Value[]
         descriptions: Value[]
+
+CartConstraintViolationListWrapper:
+    description: 'JSON object with only a CartConstraintViolationList property.'
+    type: object
+    properties:
+        CartConstraintViolationList: CartConstraintViolationList
+
+CartConstraintViolationList:
+    description: 'This class represents a list of cart constraint violations.'
+    type: object
+    properties:
+        violations:
+            type: array
+            items: CartConstraintViolation
+
+CartConstraintViolation:
+    description: 'This class represents a cart constraint violation.'
+    type: object
+    properties:
+        code: string
+        propertyPath: string
+        message: string
+
+Token:
+    description: 'This class represents a CSRF token'
+    type: object
+    properties:
+        value: string
 
 CatalogWrapper:
     description: 'JSON object with only a Catalog property.'

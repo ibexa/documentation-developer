@@ -16,8 +16,7 @@ To get a single catalog, use `Ibexa\Contracts\ProductCatalog\CatalogServiceInter
 
 ## Get products in catalog
 
-To get products from a catalog, request the product query from the catalog object
-with `Ibexa\Contracts\ProductCatalog\Values\CatalogInterface::getQuery()`.
+To get products from a catalog, request the product query from the catalog object with `Ibexa\Contracts\ProductCatalog\Values\CatalogInterface::getQuery()`.
 Then, create a new `ProductQuery` based on it and run a product search with `ProductServiceInterface::findProduct()`:
 
 ``` php
@@ -26,7 +25,7 @@ Then, create a new `ProductQuery` based on it and run a product search with `Pro
 
 ## Create catalog
 
-To create a catalog, you need to prepare a `CatalogCreateStruct` that contains: identifier, name, description and Criteria for filtering products.
+To create a catalog, you need to prepare a `CatalogCreateStruct` that contains: identifier, name, description, and Criteria for filtering products.
 Then, pass this struct to `CatalogServiceInterface::createCatalog()`:
 
 ``` php

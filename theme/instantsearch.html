@@ -1,0 +1,35 @@
+{% extends "main.html" %}
+
+{% block styles %}
+  {{ super() }}
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/instantsearch.css@7/themes/algolia-min.css"/>
+  <link rel="stylesheet" href="{{ base_url }}/css/instantsearch.css"/>
+{% endblock %}
+
+{% block scripts %}
+  {{ super() }}
+
+  <script src="https://cdn.jsdelivr.net/npm/algoliasearch@4/dist/algoliasearch-lite.umd.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/instantsearch.js@4"></script>
+  <script src="{{ base_url }}/js/instantsearch.js"></script>
+{% endblock %}
+
+{% block site_nav %}
+{% endblock %}
+
+{% block content %}
+  {% raw %}
+    <div class="ais-InstantSearch">
+      <ul class="breadcrumbs">
+        <li class="breadcrumb-item">Documentation &gt;</li>
+        <li class="breadcrumb-item breadcrumb-item-current">Search results</li>
+      </ul>
+      <div id="stats"></div>
+      <div id="searchbox"></div>
+      <div id="hits"></div>
+      <div id="pagination"></div>
+      <div id="version"></div>
+    </div>
+  {% endraw %}
+{% endblock %}

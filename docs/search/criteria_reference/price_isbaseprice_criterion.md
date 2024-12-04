@@ -1,5 +1,5 @@
 ---
-description: Price IsBasePrice Criterion
+description: Price IsBasePrice Search Criterion
 ---
 
 # Price IsBasePrice Criterion
@@ -12,14 +12,14 @@ This Criterion takes no arguments.
 
 ## Limitations
 
-The `IsBasePrice` Criterion is not available in Solr or Elasticsearch engines.
+The `IsBasePrice` Criterion isn't available in Solr or Elasticsearch engines.
 
 ## Example
 
 ### PHP
 
 ``` php
-$query = new PriceQuery( 
+$query = new PriceQuery(
     new \Ibexa\Contracts\ProductCatalog\Values\Price\Query\Criterion\IsBasePrice()
 );
 ```

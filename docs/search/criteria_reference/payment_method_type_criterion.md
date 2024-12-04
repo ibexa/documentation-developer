@@ -1,5 +1,5 @@
 ---
-description: Payment Method Type Criterion
+description: Payment Method Type Search Criterion
 edition: commerce
 ---
 

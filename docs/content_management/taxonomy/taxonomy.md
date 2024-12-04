@@ -4,7 +4,7 @@ description: A taxonomy uses tags to categorize and organize content
 
 # Taxonomy
 
-Taxonomies (**Tags**) allow you to organize content to make it easy for your site users to browse and to deliver content appropriate for them. 
+Taxonomies (**Tags**) allow you to organize content to make it easy for your site users to browse and to deliver content appropriate for them.
 Taxonomies are classifications of logical relationships between content.
 In [[= product_name =]] you can create many taxonomies, each with many tags. The platform mechanism enables creating any entities with a tree structure and assign them to a content item.
 
@@ -18,12 +18,12 @@ The associated content type is `tag`.
 ## Configuration keys
 
 * `ibexa_taxonomies` - section responsible for taxonomy structure where you can [configure other taxonomies](#customize-taxonomy-structure)
-* `ibexa_taxonomies.tags.parent_location_remote_id` - Remote ID for Location where new content items representing tags are created
+* `ibexa_taxonomies.tags.parent_location_remote_id` - Remote ID for location where new content items representing tags are created
 * `ibexa_taxonomies.tags.content_type` - Content type identifier which stands for the tags
-* `ibexa_taxonomies.tags.field_mappings` - Field Types map of a content type which taxonomy receives information about the tag from. 
+* `ibexa_taxonomies.tags.field_mappings` - field types map of a content type which taxonomy receives information about the tag from.
 
 Three fields are available: `identifier`, `parent` and `name`.
-The identifiers correspond to Field names defined in the content type. The `name` Field is used to automatically generate an identifier.
+The identifiers correspond to field names defined in the content type. The `name` field is used to automatically generate an identifier.
 
 ## Customize taxonomy structure
 
@@ -38,22 +38,22 @@ Next, under the `ibexa_taxonomy.taxonomies` [key](configuration.md#configuration
 [[= include_file('code_samples/taxonomy/config/packages/ibexa_taxonomy.yaml', 9, 17) =]]
 ```
 
-Replace `<content_categories_remote_id>` with the new container's Location remote ID.
+Replace `<content_categories_remote_id>` with the new container's location remote ID.
 
 Translate the configuration identifier in the `ibexa_taxonomy` domain by, for example, creating a `translations/ibexa_taxonomy.en.yaml` file containing the following:
 ```yaml
 taxonomy.content_categories: 'Content categories'
 ```
 
-Then, create a content type with `content_category` identifier and include the following Field definitions:
+Then, create a content type with `content_category` identifier and include the following field definitions:
 
-* `name` of `ezstring` type and required. Use this Field, as `<name>`, for content name pattern.
+* `name` of `ezstring` type and required. Use this field, as `<name>`, for content name pattern.
 * `category_identifier` of `ezstring` type and required.
 * `parent_category` of `ibexa_taxonomy_entry` type and not required. In its Taxonomy drop-down menu, select Content categories (or `taxonomy.content_categories` if no translation has been provided).
 
 Finish taxonomy setup by creating a new Content category named Root with identifier `content_categories_root` under the previously created container folder named Content categories.
 
-To use this new taxonomy, add an `ibexa_taxonomy_entry_assignement` Field to a content type and select Content categories (or `taxonomy.content_categories`) in its Taxonomy drop-down setting.
+To use this new taxonomy, add an `ibexa_taxonomy_entry_assignement` field to a content type and select Content categories (or `taxonomy.content_categories`) in its Taxonomy drop-down setting.
 
 ### Hide Content tab
 
@@ -99,7 +99,7 @@ ibexa:
 
 ## Remove orphaned content items
 
-In some rare case, especially in [[= product_name =]] v4.2 and older, when deleting parent of huge subtrees, some Taxonomy entries are not properly deleted, leaving content items that point to a non-existing parent.
+In some rare case, especially in [[= product_name =]] v4.2 and older, when deleting parent of huge subtrees, some Taxonomy entries aren't properly deleted, leaving content items that point to a non-existing parent.
 The command `ibexa:taxonomy:remove-orphaned-content` deletes those orphaned content item.
 It works on a taxonomy passed as an argument, and has two options that act as a protective measure against deleting data by mistake:
 

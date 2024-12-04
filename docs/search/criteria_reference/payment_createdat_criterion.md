@@ -1,5 +1,5 @@
 ---
-description: Payment CreatedAt Criterion
+description: Payment CreatedAt Search Criterion
 edition: commerce
 ---
 

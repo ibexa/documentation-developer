@@ -10,18 +10,17 @@ description: Persistence cache caches SPI\Persistence calls used in common page 
 
 Persistence cache can best be described as an implementation of `SPI\Persistence` that decorates the main backend implementation, aka Storage Engine *(currently: "Legacy Storage Engine")*.
 
-As shown in the illustration, this is done in the exact same way as the Event layer is a custom implementation of `API\Repository` decorating the main Repository.
-In the case of Persistence Cache, instead of sending events on calls passed on to the decorated implementation, most of the load calls are cached, and calls that perform changes purge the affected caches.
-Cache handlers *(Memcached, Redis, Filesystem, etc.)* can be configured using Symfony configuration.
+As shown in the illustration, this is done in the exact same way as the event layer is a custom implementation of `API\Repository` decorating the main repository.
+In the case of persistence cache, instead of sending events on calls passed on to the decorated implementation, most of the load calls are cached, and calls that perform changes purge the affected caches.
+Cache handlers *(for example, Memcached, Redis, or Filesystem)* can be configured using Symfony configuration.
 For details on how to reuse this Cache service in your own custom code, see below.
 
 ## Transparent cache
 
-With the persistence cache, just like with the HTTP cache, [[= product_name =]] tries to follow principles of transparent caching.
-This can shortly be described as a cache which is invisible to the end user (admin/editors) of [[= product_name =]] where content
-is always returned *fresh*. In other words, there should be no need to manually clear the cache like it was frequently
-the case with eZ Publish 4.x. This is possible thanks to an interface that follows CRUD (Create Read Update Delete)
-operations per domain.
+With the persistence cache, like with the HTTP cache, [[= product_name =]] tries to follow principles of transparent caching.
+This can shortly be described as a cache which is invisible to the end user (admin/editors) of [[= product_name =]] where content is always returned *fresh*.
+In other words, there should be no need to manually clear the cache like it was frequently the case with eZ Publish 4.x.
+This is possible thanks to an interface that follows CRUD (Create Read Update Delete) operations per domain.
 
 ## What is cached?
 
@@ -33,14 +32,13 @@ Notes:
   order to allow clearing cache by alternative indexes.
   For instance tree operations or changes to content types are
   examples of operations that also need to invalidate content cache by tags.
-- Search is not defined as persistence and the queries themselves are not planned to be cached as they are too complex by design (for example, full text).
+- Search isn't defined as persistence and the queries themselves aren't planned to be cached as they're too complex by design (for example, full text).
   Use [Solr](solr_overview.md) which caches this for you to improve scale/performance, and to offload your database.
 
-For further details on which calls are cached or not, see details in the [Symfony Web Debug Toolbar](devops.md#web-debug-toolbar)
-which has info on cache use in two places:
+For further details on which calls are cached or not, see details in the [Symfony Web Debug Toolbar](devops.md#web-debug-toolbar) which has info on cache use in two places:
 
 - Symfony Cache tab: for Symfony Cache itself, the tab shows cache lookups to cache backends
-- [[= product_name_base =]] tab: shows calls made to database back end, and if they are cached or not
+- [[= product_name_base =]] tab: shows calls made to database back end, and if they're cached or not
 
 To see where and how to contribute additional caches, refer to the [source code](https://github.com/ibexa/core/blob/main/src/lib/Persistence/Cache/Readme.md).
 
@@ -48,8 +46,8 @@ To see where and how to contribute additional caches, refer to the [source code]
 
 !!! note
 
-    Current implementation uses Symfony cache. It technically supports the following cache backends:
-    [APCu, Array, Chain, Doctrine, Filesystem, Memcached, PDO & Doctrine DBAL, Php Array, Proxy, Redis]([[= symfony_doc =]]/components/cache/cache_pools.html#creating-cache-pools).
+    Current implementation uses Symfony cache.
+    It technically supports the following cache backends: [APCu, Array, Chain, Doctrine, Filesystem, Memcached, PDO & Doctrine DBAL, Php Array, Proxy, Redis]([[= symfony_doc =]]/components/cache/cache_pools.html#creating-cache-pools).
     [[= product_name =]] officially supports only using Filesystem for single server and Redis or Memcached for clustered setups.
 
 Use of Memcached or Redis as shared cache back end is a requirement for use in clustering setup.
@@ -61,12 +59,11 @@ Filesystem adapters, for example, are **not** intended to be used over a shared 
 The underlying cache system is exposed as an `ibexa.cache_pool` service, and can be reused by any other service as described in the [Using Cache service](#using-cache-service) section.
 
 By default, configuration uses the `cache.tagaware.filesystem` service to store cache files.
-The service is defined in `config/packages/cache_pool/cache.tagaware.filesystem.yaml`
-to use [FilesystemTagAwareAdapter](https://github.com/ibexa/recipes/blob/master/ibexa/oss/4.0/config/packages/cache_pool/cache.tagaware.filesystem.yaml#L8).
+The service is defined in `config/packages/cache_pool/cache.tagaware.filesystem.yaml` to use [FilesystemTagAwareAdapter](https://github.com/ibexa/recipes/blob/master/ibexa/oss/4.0/config/packages/cache_pool/cache.tagaware.filesystem.yaml#L8).
 
 You can select a different cache backend and configure its parameters in the relevant file in the `cache_pool` folder.
 
-### Multi Repository setup
+### Multi repository setup
 
 You can [configure multisite to work with multiple Repositories](repository_configuration.md#defining-custom-connection).
 Then, in configuration you can specify which cache pool you want to use on a SiteAccess or SiteAccess group level.
@@ -83,20 +80,20 @@ ibexa:
             cache_service_name: '%cache_pool%'
 ```
 
-!!! note "One cache pool for each Repository"
+!!! note "One cache pool for each repository"
 
-    If your installation has several Repositories *(databases)*, make sure every group of sites using different Repositories also uses a different cache pool.
+    If your installation has several repositories *(databases)*, make sure every group of sites that uses different repositories also uses a different cache pool.
 
 ### In-Memory cache configuration
 
 Persistence cache layer caches selected objects in-memory for a short time.
-It avoids loading repeatedly the same data from e.g. a remote Redis instance, which can take up to 4-5ms per call due to the network latency and Redis instance load.
-The cache is organized in 2 pools, one for metadata which is not updated frequently, and one for content related objects that is only meant as a short-lived burst cache.
+It avoids loading repeatedly the same data from, for example, a remote Redis instance, which can take up to 4-5ms per call due to the network latency and Redis instance load.
+The cache is organized in 2 pools, one for metadata which isn't updated frequently, and one for content related objects that is only meant as a short-lived burst cache.
 Limit is organized using a [least frequently used (LFU)](https://en.wikipedia.org/wiki/Least_frequently_used) approach.
-It makes sure repeatedly used objects will stay in-memory until expired, and those seldom used will be bulk evicted from cache every time the maximum number of cache items is reached.
+It makes sure repeatedly used objects stay in-memory until expired, and those seldom used are bulk evicted from cache every time the maximum number of cache items is reached.
 
-This in-memory cache will be purged *(for the current PHP process)* when clearing it using any of the mentioned methods below.
-For other processes, the object will be refreshed when it expires or evicted when it reaches the cache limits.
+This in-memory cache is purged *(for the current PHP process)* when clearing it using any of the mentioned methods below.
+For other processes, the object is refreshed when it expires or evicted when it reaches the cache limits.
 
 In-Memory cache is configured globally, and has the following default settings:
 
@@ -119,9 +116,9 @@ parameters:
 
 !!! caution "In-Memory cache is per-process"
 
-    **TTL and Limit need to have a low value.** Setting limit high will increase memory use.
-    High TTL value also increases exponentially risk for system acting on stale metadata (e.g. content type definitions).
-    The only case where it is safe to increase these values is for dev environment with single concurrency on writes.
+    **TTL and Limit need to have a low value.** Setting limit high increases memory use.
+    High TTL value also increases exponentially risk for system acting on stale metadata (for example, content type definitions).
+    The only case where it's safe to increase these values is for dev environment with single concurrency on writes.
     In prod environment you should only consider reducing them if you have heavy concurrency writes.
 
 ### Redis
@@ -129,8 +126,7 @@ parameters:
 [Redis](https://redis.io/), an in-memory data structure store, is one of the supported cache solutions for clustering.
 Redis is used via [Redis pecl extension](https://pecl.php.net/package/redis).
 
-See [Redis Cache Adapter in Symfony documentation]([[= symfony_doc =]]/components/cache/adapters/redis_adapter.html#configure-the-connection)
-for information on how to connect to Redis.
+See [Redis Cache Adapter in Symfony documentation]([[= symfony_doc =]]/components/cache/adapters/redis_adapter.html#configure-the-connection for information on how to connect to Redis.
 
 #### Supported Adapters
 
@@ -140,30 +136,30 @@ There are two Redis adapters available out of the box that fit different needs.
 
 **Requirement**: Redis server configured with eviction [`maxmemory-policy`](https://redis.io/docs/reference/eviction/#eviction-policies):
 `volatile-ttl`, `volatile-lru` or `volatile-lfu` (Redis 4.0+).
-Use of LRU or LFU is recommended. It is also possible to use `noeviction`, but it is usually not practical.
+Use of LRU or LFU is recommended. it's also possible to use `noeviction`, but it's usually not practical.
 
-**Pros**: It is typically faster than `RedisAdapter`, because fewer lookups needed to cache backend.
+**Pros**: It's typically faster than `RedisAdapter`, because fewer lookups needed to cache backend.
 
 **Cons**: Consumes much more memory. To avoid situations where Redis stops accepting new cache
 (warnings about `Failed to save key`), set aside enough memory for the Redis server.
 
 ##### `Symfony\Component\Cache\Adapter\RedisAdapter`
 
-**Pros**: Uses a bit less memory than `RedisTagAwareAdapter`, so it eliminated the risk of stopping saving cache when there is not enough memory.
+**Pros**: Uses a bit less memory than `RedisTagAwareAdapter`, so it eliminated the risk of stopping saving cache when there isn't enough memory.
 
 **Cons**: 1.5-2x more lookups to the back-end cache server then `RedisTagAwareAdapter`.
 Depending on the number of lookups and latency to cache server this might affect page load time.
 
 #### Adjusting configuration
 
-Out of the box in `config/packages/cache_pool/cache.redis.yaml` you'll find a default example that can be used.
+Out of the box in `config/packages/cache_pool/cache.redis.yaml` you can find a default example that can be used.
 
-!!! note "Ibexa Cloud"
+!!! note "[[= product_name_cloud =]]"
 
-    For Ibexa Cloud/Platform.sh: This is automatically configured in `vendor/ibexa/core/src/bundle/Core/DependencyInjection/IbexaCoreExtension.php` if you have enabled Redis as `rediscache` Platform.sh service.
+    For [[= product_name_cloud =]]/Platform.sh: This is automatically configured in `vendor/ibexa/core/src/bundle/Core/DependencyInjection/IbexaCoreExtension.php` if you have enabled Redis as `rediscache` Platform.sh service.
 
 For anything else, you can enable it with environment variables.
-For instance, if you set the following environment variables `export CACHE_POOL="cache.redis" CACHE_DSN="secret@example.com:1234/13"`, it will result in config like this:
+For instance, if you set the following environment variables `export CACHE_POOL="cache.redis" CACHE_DSN="secret@example.com:1234/13"`, it results in config like this:
 
 ``` yaml
 services:
@@ -183,23 +179,23 @@ See `.env`, `config/packages/ibexa.yaml` and `config/packages/cache_pool/cache.r
 
 !!! caution "Clearing Redis cache"
 
-    The regular `php bin/console cache:clear` command does not clear Redis persistence cache.
+    The regular `php bin/console cache:clear` command doesn't clear Redis persistence cache.
     Use a dedicated Symfony command to clear the pool you have configured: `php bin/console cache:pool:clear cache.redis`.
 
-##### Redis Clustering
+##### Redis clustering
 
 Persistence cache depends on all involved web servers, each of them seeing the same view of the cache because it's shared among them.
 With that in mind, the following configurations of Redis are possible:
 
 - [Redis Cluster](https://redis.io/docs/management/scaling/)
-    - Shards cache across several instances in order to be able to cache more than memory of one server allows
+    - Shards cache across several instances to be able to cache more than memory of one server allows
     - Shard slaves can improve availability, however [they use asynchronous replication](https://redis.io/docs/management/scaling/#redis-cluster-consistency-guarantees) so they can't be used for reads
     - Unsupported Redis features that can affect performance: [pipelining](https://github.com/phpredis/phpredis/blob/develop/cluster.md#pipelining) and [most multiple key commands](https://github.com/phpredis/phpredis/blob/develop/cluster.md#multiple-key-commands)
 - [Redis Sentinel](https://redis.io/docs/management/sentinel/)
-    - Provides high availability by providing one or several slaves (ideally 2 slaves or more, e.g. minimum 3 servers), and handle failover
+    - Provides high availability by providing one or several slaves (ideally 2 slaves or more, for example, minimum 3 servers), and handle failover
     - [Slaves are asynchronously replicated](https://redis.io/docs/management/sentinel/#fundamental-things-to-know-about-sentinel-before-deploying), so they can't be used for reads
-    - Typically used with a load balancer (e.g. HAproxy with occasional calls to Redis Sentinel API) in the front in order to only speak to elected master
-    - As of v3 you can also configure this [directly on the connection string]([[= symfony_doc =]]/components/cache/adapters/redis_adapter.html#configure-the-connection), **if** you use `Predis` instead of `php-redis` 
+    - Typically used with a load balancer (for example, HAproxy with occasional calls to Redis Sentinel API) in the front to only speak to elected master
+    - As of v3 you can also configure this [directly on the connection string]([[= symfony_doc =]]/components/cache/adapters/redis_adapter.html#configure-the-connection), **if** you use `Predis` instead of `php-redis`
 
 Several cloud providers have managed services that are easier to set up, handle replication and scalability for you, and might perform better. Notable services include:
 
@@ -207,9 +203,9 @@ Several cloud providers have managed services that are easier to set up, handle 
 - [Azure Redis Cache](https://azure.microsoft.com/en-us/products/cache/)
 - [Google Cloud Memorystore](https://cloud.google.com/memorystore/)
 
-###### Ibexa Cloud / Platform.sh usage
+###### [[= product_name_cloud =]] / Platform.sh usage
 
-!!! note "Ibexa Cloud"
+!!! note "[[= product_name_cloud =]]"
 
     If you use Platform.sh Enterprise you can benefit from the Redis Sentinel across three nodes for great fault tolerance.
     Platform.sh Professional and lower versions offer Redis in single instance mode only.
@@ -218,8 +214,7 @@ Several cloud providers have managed services that are easier to set up, handle 
 
 [Memcached, a distributed caching solution](http://memcached.org/) is a cache solution that is supported for clustering use, as an alternative to Redis.
 
-See [Memcached Cache Adapter in Symfony documentation]([[= symfony_doc =]]/components/cache/adapters/memcached_adapter.html#configure-the-connection)
-for information on how to configure Memcached.
+See [Memcached Cache Adapter in Symfony documentation]([[= symfony_doc =]]/components/cache/adapters/memcached_adapter.html#configure-the-connection) for information on how to configure Memcached.
 
 
 #### Supported Adapters
@@ -230,18 +225,19 @@ There is one Memcached adapter available out of the box.
 
 **Pros**: Memcached is able to handle much more concurrent load by design (multi threaded), and typically uses far less memory than Redis in general due to a simpler data structure.
 
-**Cons**: 1.5-2x more lookups to the back-end cache server then `RedisTagAwareAdapter`. Depending on the number of lookups and latency to cache server this might affect page load time.
+**Cons**: 1.5-2x more lookups to the back-end cache server then `RedisTagAwareAdapter`.
+Depending on the number of lookups and latency to cache server this might affect page load time.
 
 #### Adjusting configuration
 
-Out of the box in `config/packages/cache_pool/cache.memcached.yaml` you'll find a default example that can be used.
+Out of the box in `config/packages/cache_pool/cache.memcached.yaml` you can find a default example that can be used.
 
-!!! note "Ibexa Cloud"
+!!! note "[[= product_name_cloud =]]"
 
-    For Ibexa Cloud/Platform.sh: This is automatically configured in `vendor/ibexa/core/src/bundle/Core/DependencyInjection/IbexaCoreExtension.php` if you have enabled Memcached as `cache` Platform.sh service.
+    For [[= product_name_cloud =]]/Platform.sh: This is automatically configured in `vendor/ibexa/core/src/bundle/Core/DependencyInjection/IbexaCoreExtension.php` if you have enabled Memcached as `cache` Platform.sh service.
 
 For anything else, you can enable it with environment variables detected automatically by `vendor/ibexa/core/src/bundle/Core/DependencyInjection/IbexaCoreExtension.php`.
-For instance, if you set the following environment variables `export CACHE_POOL="cache.memcached" CACHE_DSN="user:pass@localhost?weight=33"`, it will result in config like this:
+For instance, if you set the following environment variables `export CACHE_POOL="cache.memcached" CACHE_DSN="user:pass@localhost?weight=33"`, it results in config like this:
 
 ``` yaml
 services:
@@ -259,7 +255,7 @@ See `config/default_parameters.yaml` and `config/cache_pool/cache.memcached.yaml
 
 !!! caution "Clearing Memcached cache"
 
-    The regular `php bin/console cache:clear` command does not clear Memcached persistence cache.
+    The regular `php bin/console cache:clear` command doesn't clear Memcached persistence cache.
     Use a dedicated Symfony command to clear the pool you have configured: `php bin/console cache:pool:clear cache.memcached`.
 
 
@@ -269,7 +265,7 @@ See `config/default_parameters.yaml` and `config/cache_pool/cache.memcached.yaml
 
 !!! note
 
-    Memcached must not be bound to the local address if clusters are in use, or user logins will fail.
+    Memcached must not be bound to the local address if clusters are in use, or user logins fail.
     To avoid this, in `/etc/memcached.conf` take a look under `# Specify which IP address to listen on. The default is to listen on all IP addresses`
 
     For development environments, change the address below this comment in `/etc/memcached.conf` to `-l 0.0.0.0`
@@ -278,12 +274,16 @@ See `config/default_parameters.yaml` and `config/cache_pool/cache.memcached.yaml
 
     > -l &lt;addr&gt;
 
-    > Listen on &lt;addr&gt;; default to INADDR\_ANY. &lt;addr&gt; may be specified as host:port. If you don't specify a port number, the value you specified with -p or -U is used. You may specify multiple addresses separated by comma or by using -l multiple times. This is an important option to consider as there is no other way to secure the installation. Binding to an internal or firewalled network interface is suggested.
+    > Listen on &lt;addr&gt;; default to INADDR\_ANY. &lt;addr&gt; may be specified as host:port.
+    If you don't specify a port number, the value you specified with -p or -U is used.
+    You may specify multiple addresses separated by comma or by using -l multiple times.
+    This is an important option to consider as there is no other way to secure the installation.
+    Binding to an internal or firewalled network interface is suggested.
 
 ## Using cache service
 
 Using the internal cache service allows you to use an interface and without caring whether the system is configured to place the cache in Memcached or on File system.
-And as [[= product_name =]] requires that instances use a cluster-aware cache in Cluster setup, you can safely assume your cache is shared *(and invalidated)* across all web servers.
+And as [[= product_name =]] requires that instances use a cluster-aware cache in cluster setup, you can safely assume your cache is shared *(and invalidated)* across all web servers.
 
 !!! note
 
@@ -292,7 +292,7 @@ And as [[= product_name =]] requires that instances use a cluster-aware cache in
 
 !!! caution "Use unique vendor prefix for Cache key"
 
-    When reusing the cache service within your own code, it is very important to not conflict with the cache keys used by others.
+    When reusing the cache service within your own code, it's very important to not conflict with the cache keys used by others.
     That is why the example of usage below starts with a unique `myApp` key.
     For the namespace of your own cache, you must do the same.
 
@@ -300,7 +300,7 @@ And as [[= product_name =]] requires that instances use a cluster-aware cache in
 
 ##### With dependency injection
 
-In your Symfony services configuration you can simply define that you require the cache service in your configuration like so:
+In your Symfony services configuration you can define that you require the cache service in your configuration like so:
 
 ``` yaml
 # yml configuration

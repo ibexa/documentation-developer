@@ -1,10 +1,10 @@
 ---
-description: Add a "sort by" method to the Back Office search result page.
+description: Add a "sort by" method to the back office search result page.
 ---
 
 # Customize search sorting
 
-You can customize the **Sort by** menu in the Back Office search result page, for example, by adding new sort criteria.
+You can customize the **Sort by** menu in the back office search result page, for example, by adding new sort criteria.
 
 To do it, you must create a service that implements the `Ibexa\Contracts\Search\SortingDefinition\SortingDefinitionProviderInterface` and tag it with `ibexa.search.sorting_definition.provider`.
 

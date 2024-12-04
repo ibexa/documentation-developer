@@ -1,6 +1,6 @@
 ### A. Create branch
 
-Create a new branch for handling update changes from the branch you are updating on:
+Create a new branch for handling update changes from the branch you're updating on:
 
 ``` bash
 git checkout -b update-[[= target_version =]]
@@ -10,7 +10,7 @@ This creates a new project branch (`update-[[= target_version =]]`) for the upda
 
 ### B. Add `upstream` remote
 
-If it is not added as a remote yet, add an `upstream` remote:
+If it's not added as a remote yet, add an `upstream` remote:
 
 === "ezplatform"
 
@@ -35,7 +35,7 @@ If it is not added as a remote yet, add an `upstream` remote:
 ??? note "Adding `sort-packages` option when updating from <=v1.13.4, v2.2.3, v2.3.2"
 
     Composer sorts packages listed in `composer.json`.
-    If your packages are not sorted yet, you should prepare for this update to make it clearer which changes you introduce.
+    If your packages aren't sorted yet, you should prepare for this update to make it clearer which changes you introduce.
 
     Assuming you have installed packages on your installation (`composer install`), do the following steps:
 
