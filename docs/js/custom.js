@@ -144,6 +144,7 @@ $(document).ready(function() {
         debug: false,
     });
     search.autocomplete.on('autocomplete:updated', event => {
+        $('.ds-cursor').removeClass('ds-cursor');
         const searchedText = $('#search_input')[0].value.trim();
         const separatorText = '›';
         const separatorClass = 'aa-suggestion-title-separator';
@@ -170,8 +171,9 @@ $(document).ready(function() {
     });
 
     $(document).on('keydown keypress', 'form.md-search__form', function(event) {
-        if (event.keyCode == 13) {
+        if (-1 != $.inArray(event.key, ['Enter', 'ArrowDown', 'ArrowUp'])) {
             event.preventDefault();
+            $('.ds-cursor').removeClass('ds-cursor');
 
             return false;
         }
