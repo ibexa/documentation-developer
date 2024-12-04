@@ -19,7 +19,7 @@ This page contains recent highlights and notable changes in [[= product_name =]]
 
 ### Search
 
-- Added [new `IsBookmarked` location criterion](https://doc.ibexa.co/en/master/search/criteria_reference/isbookmarked_criterion/)
+- New [`IsBookmarked` location criterion](https://doc.ibexa.co/en/master/search/criteria_reference/isbookmarked_criterion/)
 - [`IsUserEnabled` is now available on Solr and Elastisearch](https://doc.ibexa.co/en/master/search/criteria_reference/isuserenabled_criterion/)
 
 ### Documentation
@@ -28,7 +28,7 @@ This page contains recent highlights and notable changes in [[= product_name =]]
 
 ### PHP API
 
-- Added the following new namespaces, interfaces, and classes to the public PHP API:
+- Added the following namespaces, interfaces, and classes to the public PHP API:
     - [`Ibexa\Contracts\Core\Validation`](https://doc.ibexa.co/en/master/api/php_api/php_api_reference/namespaces/ibexa-contracts-core-validation.html) namespace and its descendants
     - [`Ibexa\Contracts\Notifications\SystemNotification`](https://doc.ibexa.co/en/master/api/php_api/php_api_reference/namespaces/ibexa-contracts-notifications-systemnotification.html) namespace and its descendants
     - [`Ibexa\Contracts\Notifications\Value\Recipent\UserRecipientInterface`](https://doc.ibexa.co/en/master/api/php_api/php_api_reference/classes/Ibexa-Contracts-Notifications-Value-Recipent-UserRecipientInterface.html)
