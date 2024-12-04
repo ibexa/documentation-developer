@@ -10,8 +10,7 @@ Define new form fields in configuration.
 
 ## Configure Form field
 
-For example, to create a Country Form field in the "Custom form fields" category,
-provide the following configuration under the `ibexa_form_builder.fields` [configuration key](configuration.md#configuration-files):
+For example, to create a Country Form field in the "Custom form fields" category, provide the following configuration under the `ibexa_form_builder.fields` [configuration key](configuration.md#configuration-files):
 
 ``` yaml
 [[= include_file('code_samples/forms/custom_form_field/config/packages/form_builder.yaml') =]]
@@ -28,7 +27,7 @@ Available attribute types are:
 |`multiple`|Multiple choice|
 |`select`|Dropdown|
 |`checkbox`|Checkbox|
-|`location`|Content Location|
+|`location`|Content location|
 |`radio`|Radio button|
 |`action`|Button|
 |`choices`|List of available options|
@@ -62,7 +61,7 @@ Then, register the mapper as a service:
 [[= include_file('code_samples/forms/custom_form_field/config/custom_services.yaml', 0, 7) =]]
 ```
 
-Now you can go to Back Office and build a new form.
+Now you can go to back office and build a new form.
 You should be able to see the new section in the list of available fields:
 
 ![Custom form fields](extending_form_builder_custom_form_fields.png)

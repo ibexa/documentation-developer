@@ -1,5 +1,5 @@
 ---
-description: With transactional emails you can notify end users about changes in the status of user registration, password recovery, orders, payments, shipments, and so on.
+description: With transactional emails you can notify end users about changes in the status of user registration, password recovery, orders, payments, shipments, and more.
 edition: commerce
 ---
 
@@ -77,7 +77,7 @@ For a complete list of parameters, see [Transactional email variables reference]
 
 !!! Tip
 
-    When you invent names for your campaigns, keep them simple, and do not use special characters or spaces.
+    When you invent names for your campaigns, keep them simple, and don't use special characters or spaces.
 
 
 Campaign emails can be sent in one language only.

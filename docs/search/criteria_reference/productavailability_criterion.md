@@ -1,3 +1,7 @@
+---
+description: ProductAvailability Search Criterion
+---
+
 # ProductAvailability Criterion
 
 The `ProductAvailability` Search Criterion searches for products by their availability.

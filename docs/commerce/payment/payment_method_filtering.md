@@ -10,8 +10,8 @@ To allow this filtering, you need to create a custom payment method type and reg
 
 ## Create custom payment method type
 
-There are different ways you can extend your Payment module implementation. 
-One of them is to [create a custom payment method type](extend_payment.md). 
+You can extend your Payment module implementation in different ways.
+One of them is to [create a custom payment method type](extend_payment.md).
 
 The following example shows, how to create `New Payment Method Type`.
 

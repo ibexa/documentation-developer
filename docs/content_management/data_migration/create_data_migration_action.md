@@ -25,7 +25,7 @@ in `src/Migrations/Action/AssignSectionDenormalizer.php`:
 [[= include_file('code_samples/data_migration/src/Migrations/Action/AssignSectionDenormalizer.php') =]]
 ```
 
-Then, tag the action denormalizer so it is recognized by the serializer used for migrations.
+Then, tag the action denormalizer so it's recognized by the serializer used for migrations.
 
 ``` yaml
 [[= include_file('code_samples/data_migration/config/custom_services.yaml', 0, 5) =]]
@@ -37,8 +37,7 @@ And finally, add an executor to perform the action, in `src/Migrations/Action/As
 [[= include_file('code_samples/data_migration/src/Migrations/Action/AssignSectionExecutor.php') =]]
 ```
 
-Tag the executor with `ibexa.migrations.executor.action.<type>` tag, where `<type>` is the "type" of the step
-that executor works with (`content`, `content_type`, `location`, and so on).
+Tag the executor with `ibexa.migrations.executor.action.<type>` tag, where `<type>` is the "type" of the step that executor works with (for example, `content`, `content_type`, or `location`).
 The tag has to have a `key` property with the action type.
 
 ```yaml

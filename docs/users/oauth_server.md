@@ -11,7 +11,7 @@ Client applications, such as mobile apps, are able to authenticate a user, and t
 
 ## Server installation
 
-[[= product_name =]] Oauth2 server package is `ibexa/oauth2-server` and is not part of the default installation.
+[[= product_name =]] Oauth2 server package is `ibexa/oauth2-server` and isn't part of the default installation.
 You can install it with the following command:
 
 ```bash
@@ -49,9 +49,11 @@ return [
 ### Keys
 
 To configure the server, you need private and public keys.
+
 For more information, see [Generating public and private keys](https://oauth2.thephpleague.com/installation/#generating-public-and-private-keys).
 
 You also need an encryption key.
+
 For more information, see [Generating encryption keys](https://oauth2.thephpleague.com/installation/#generating-encryption-keys).
 
 Set the following environment variables:
@@ -103,8 +105,7 @@ security:
 
 ## Resource Server configuration
 
-To allow resource routes to be accessible through OAuth authorization,
-you must define a firewall by using `Ibexa\OAuth2Server\Security\Guard\OAuth2Authenticator`.
+To allow resource routes to be accessible through OAuth authorization, you must define a firewall by using `Ibexa\OAuth2Server\Security\Guard\OAuth2Authenticator`.
 
 The following firewall example allows the REST API to be accessed as an OAuth resource.
 It must be placed before the firewall with a less restrictive pattern like `ibexa_front`.
@@ -157,13 +158,12 @@ php bin/console league:oauth2-server:update-client example-oauth2-client \
   --add-redirect-uri=https://example.com/another-oauth2-callback
 ```
 
-Other commands let you list all the configured clients (`league:oauth2-server:list-clients`)
-or delete a client (`league:oauth2-server:delete-client`).
+Other commands let you list all the configured clients (`league:oauth2-server:list-clients`) or delete a client (`league:oauth2-server:delete-client`).
 
 !!! note
 
     For a list of all the commands that you can use maintain your clients, in a terminal, run `bin/console list league:oauth2-server`.
-    To see usage details for each of the commands, run `bin/console help <command>` . 
+    To see usage details for each of the commands, run `bin/console help <command>` .
 
     For more information, see the package's [online documentation](https://github.com/thephpleague/oauth2-server-bundle/blob/master/docs/basic-setup.md).
 

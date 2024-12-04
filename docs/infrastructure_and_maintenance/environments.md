@@ -1,19 +1,22 @@
 ---
-description: In Ibexa DXP you can use environment provided by Symfony in virtual host configuration, as well as to create custom environments.
+description: In Ibexa DXP you can use environment provided by Symfony in virtual host configuration, and to create custom environments.
 ---
 
 # Environments
 
-Environment configuration is provided by Symfony. [[= product_name =]] additionally enables you to specify environments in virtual host configuration.
-You can configure several environments, such as production, development or staging. You can have different configuration sets for each of them.
+Environment configuration is provided by Symfony.
+[[= product_name =]] additionally enables you to specify environments in virtual host configuration.
+You can configure several environments, such as production, development, or staging.
+You can have different configuration sets for each of them.
 
 !!! tip
 
     See also [Environments in Symfony doc]([[= symfony_doc =]]/configuration.html#configuration-environments).
-    
+
 ## Web server configuration
 
-For example, using Apache, in the [`VirtualHost` example](https://raw.githubusercontent.com/ibexa/post-install/main/resources/templates/apache2/vhost.template) in your installation, the required `VirtualHost` configurations have been already included. You can switch to the desired environment by setting the `ENVIRONMENT` variable to `prod`, `dev` or another custom value, like in the following example:
+For example, when you use Apache, in the [`VirtualHost` example](https://raw.githubusercontent.com/ibexa/post-install/main/resources/templates/apache2/vhost.template) in your installation, the required `VirtualHost` configurations have been already included.
+You can switch to the desired environment by setting the `ENVIRONMENT` variable to `prod`, `dev` or another custom value, like in the following example:
 
 ```
 # Environment.

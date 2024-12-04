@@ -1,14 +1,14 @@
-# RichText Field Type
+# RichText field type
 
-The RichText Field Type is available via the RichText Field Type Bundle provided by the [ibexa/fieldtype-richtext](https://github.com/ibexa/fieldtype-richtext) package.
+The RichText field type is available via the RichText field type Bundle provided by the [ibexa/fieldtype-richtext](https://github.com/ibexa/fieldtype-richtext) package.
 
-This Field Type validates and stores structured rich text, and exposes it in several formats.
+This field type validates and stores structured rich text, and exposes it in several formats.
 
 |Name|Internal name|Expected input|
 |------|------|------|
 |`RichText`|`ezrichtext`|mixed|
 
-## PHP API Field Type 
+## PHP API field type
 
 ### Value object
 
@@ -22,19 +22,19 @@ This Field Type validates and stores structured rich text, and exposes it in sev
 
 |Type|Description|
 |------|------|
-|`string`|XML document in one of the Field Type's input formats as a string.|
-|`DOMDocument`|XML document in one of the Field Type's input formats as a `DOMDocument` object.|
-|`Ibexa\FieldTypeRichText\FieldType\RichText\Value`|An instance of the Field Type's `Value` object.|
+|`string`|XML document in one of the field type's input formats as a string.|
+|`DOMDocument`|XML document in one of the field type's input formats as a `DOMDocument` object.|
+|`Ibexa\FieldTypeRichText\FieldType\RichText\Value`|An instance of the field type's `Value` object.|
 
 ##### Input formats
 
-The Field Type expects an XML value as input, in the form of a string, `DOMDocument` object, or Field Type's `Value` object.
-The Field Type's `Value` object must hold the value in the Field Type's [internal format](#internal-format).
-For a string of a `DOMDocument` object, if the input does not conform to this format, it is converted into it.
+The field type expects an XML value as input, in the form of a string, `DOMDocument` object, or field type's `Value` object.
+The field type's `Value` object must hold the value in the field type's [internal format](#internal-format).
+For a string of a `DOMDocument` object, if the input doesn't conform to this format, it's converted into it.
 
 ##### Internal format
 
-As its internal format, the RichText Field Type uses a [custom flavor of the DocBook format](#custom-docbook-format).
+As its internal format, the RichText field type uses a [custom flavor of the DocBook format](#custom-docbook-format).
 
 ``` xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -64,11 +64,9 @@ The XHTML5 format is used by the Online Editor.
 
 !!! caution
 
-    The custom DocBook format described below is subject to change
-    and is not covered by backwards compatibility promise.
+    The custom DocBook format described below is subject to change and isn't covered by backwards compatibility promise.
 
-You can use the [[= product_name_base =]] flavor of the DocBook format in PHP API and in REST API requests
-by providing the DocBook content as a string.
+You can use the [[= product_name_base =]] flavor of the DocBook format in PHP API and in REST API requests by providing the DocBook content as a string.
 
 The following example shows how to pass DocBook content to a [create struct](creating_content.md#creating-content-item-draft):
 
@@ -106,10 +104,10 @@ When creating RichText content with the REST API, use the `xml` key of the `fiel
 
 The RichText format enriches [DocBook](https://docbook.org/) with the following custom elements:
 
-- `section` - main element of a RichText Field
+- `section` - main element of a RichText field
 - `ezembed` - holds embedded images
 - `ezembedinline` - holds embedded content items
-- `eztemplate` - holds custom tags, including built-in custom tags for embedded Facebook, Twitter and YouTube content
+- `eztemplate` - holds custom tags, including built-in custom tags for embedded Facebook, Twitter, and YouTube content
 - `eztemplateinline` - holds inline custom tags
 - `ezconfig` - contains configuration for custom tags and other elements
 - `ezvalue` - contains values for other elements, such as `ezconfig` or `ezembed`
@@ -117,7 +115,7 @@ The RichText format enriches [DocBook](https://docbook.org/) with the following 
 
 !!! note "Unsupported DocBook elements"
 
-    Some DocBook elements are not supported by RichText.
+    Some DocBook elements aren't supported by RichText.
     Refer to [`ezpublish.rng`](https://github.com/ibexa/fieldtype-richtext/blob/main/src/bundle/Resources/richtext/schemas/docbook/ezpublish.rng#L137) for a full list.
 
 ### Online Editor elements

@@ -13,17 +13,17 @@ description: Configure Solr search engine to use it with Ibexa DXP.
 
 !!! tip "How boosting interacts with Search API"
 
-    Boosting of fields or documents will affect the score (relevance) of your search result hits
-    when using Search API for any Criteria you specify on `$query->query`, or in REST by using `Query` element.
-    When you don't specify anything to sort on, the result will be sorted by this relevance.
-    Anything set on `$query->filter`, or in REST using `Filter` element, will *not* affect scoring and only works
-    as a pure filter for the result. Thus make sure to place Criteria you want to affect scoring on `query`.
+    Boosting of fields or documents affects the score (relevance) of your search result hits when using Search API for any Criteria you specify on `$query->query`, or in REST by using `Query` element.
+    When you don't specify anything to sort on, the result is sorted by this relevance.
+    Anything set on `$query->filter`, or in REST by using `Filter` element, *doesn't* affect scoring and only works as a pure filter for the result.
+    Thus make sure to place Criteria you want to affect scoring on `query`.
 
-Boosting currently happens when indexing, so if you change your configuration you will need to re-index.
+Boosting currently happens when indexing, so if you change your configuration you need to re-index.
 
-Boosting tells the search engine which parts of the content model have more importance when searching, and is an important part of tuning your search results relevance. Importance is defined using a numeric value, where `1.0` is default, values higher than that are more important, and values lower (down to `0.0`) are less important.
+Boosting tells the search engine which parts of the content model have more importance when searching, and is an important part of tuning your search results relevance.
+Importance is defined by using a numeric value, where `1.0` is default, values higher than that are more important, and values lower (down to `0.0`) are less important.
 
-Boosting is configured per connection that you configure to use for a given Repository, like in this `config/packages/ibexa_solr.yaml` example:
+Boosting is configured per connection that you configure to use for a given repository, like in this `config/packages/ibexa_solr.yaml` example:
 
 ``` yaml
 ibexa_solr:
@@ -41,7 +41,7 @@ ibexa_solr:
                         text: 5.0
 ```
 
-The configuration above will result in the following boosting (content type / Field):
+The configuration above results in the following boosting (content type / Field):
 
 - `article/title: 2.0`
 - `news/description: 1.0` (default)
@@ -52,7 +52,7 @@ The configuration above will result in the following boosting (content type / Fi
 !!! tip "How to configure boosting on specific fields"
 
     Currently, boosting on particular fields is missing.
-    However, it could be configured using 3rd party [Novactive/NovaeZSolrSearchExtraBundle](https://github.com/Novactive/NovaeZSolrSearchExtraBundle) in case of custom search implementation, e.g. to handle your front-end search form.
+    However, it could be configured using 3rd party [Novactive/NovaeZSolrSearchExtraBundle](https://github.com/Novactive/NovaeZSolrSearchExtraBundle) in case of custom search implementation, for example, to handle your front-end search form.
     Unfortunately, this doesn't affect search performed in the administration interface.
 
     The following example presents boosting configuration for Folder's `name` and `description` fields.
@@ -118,8 +118,8 @@ The configuration above will result in the following boosting (content type / Fi
 
     Remember to clear the cache and perform search engine reindex afterwords.
 
-    The above configuration will result in the following boosting (content type / Field):
-    
+    The above configuration results in the following boosting (content type / field):
+
     - `folder/name: 20.0`
     - `folder/description: 10.0`
 
@@ -137,7 +137,7 @@ ibexa_solr:
             # ...
             indexing_depth:
                 # Default value: 0 - no relation indexing, 1 - direct relations, 2nd level  relations, 3rd level  relations (maximum value).
-                default: 1      
+                default: 1
                 content_type:
                     # Index depth defined for specific content type
                     article: 2
@@ -184,7 +184,7 @@ You have to edit the same file on the slave server, and use the code below:
 <requestHandler name="/replication" class="solr.ReplicationHandler">
   <lst name="slave">
 
-    <!-- fully qualified url for the replication handler of master. It is
+    <!-- fully qualified url for the replication handler of master. it's
          possible to pass on this as a request param for the fetchindex command -->
     <str name="masterUrl">http://123.456.789.0:8983/solr/collection1/replication</str>
 
@@ -198,7 +198,7 @@ You have to edit the same file on the slave server, and use the code below:
          values are internal|external.  If the value is 'external' make sure
          that your master Solr has the settings to honor the accept-encoding header.
          See here for details: http://wiki.apache.org/solr/SolrHttpCompression
-         If it is 'internal' everything will be taken care of automatically.
+         If it's 'internal' everything will be taken care of automatically.
          USE THIS ONLY IF YOUR BANDWIDTH IS LOW.
          THIS CAN ACTUALLY SLOWDOWN REPLICATION IN A LAN -->
     <str name="compression">internal</str>
@@ -240,5 +240,4 @@ ibexa_solr:
 
 # Extend Solr
 
-To learn how you can create document field mappers, custom Search Criteria, 
-custom Sort Clauses and Aggregations, see [Search extensibility](create_custom_search_criterion.md).
+To learn how you can create document field mappers, custom Search Criteria, custom Sort Clauses and Aggregations, see [Search extensibility](create_custom_search_criterion.md).
