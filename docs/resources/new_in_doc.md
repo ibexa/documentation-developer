@@ -6,6 +6,36 @@ description: Overview of major recent additions to Ibexa DXP documentation.
 
 This page contains recent highlights and notable changes in [[= product_name =]] documentation.
 
+## November 2024
+
+### Infrastructure and maintenance
+
+- Added [v4.6.13 to v4.6.14 update instructions](https://doc.ibexa.co/en/master/update_and_migration/from_4.6/update_from_4.6/#v4614) which include security fixes.
+- Added [v3.3.40 to v3.3.41 update instructions](https://doc.ibexa.co/en/master/update_and_migration/from_3.3/update_from_3.3/#v3341) which include security fixes.
+
+### Content management
+
+- Added [AI Actions documentation](https://doc.ibexa.co/en/master/ai_actions/ai_actions/)
+
+### Search
+
+- New [`IsBookmarked` location criterion](https://doc.ibexa.co/en/master/search/criteria_reference/isbookmarked_criterion/)
+- [`IsUserEnabled` is now available on Solr and Elastisearch](https://doc.ibexa.co/en/master/search/criteria_reference/isuserenabled_criterion/)
+
+### Documentation
+
+- When you search using the top bar, if there are more than the 10 listed results, you can see a link to a page with further results at the bottom of the drop-down suggestion list.
+
+### PHP API
+
+- Added the following namespaces, interfaces, and classes to the public PHP API:
+    - [`Ibexa\Contracts\Core\Validation`](https://doc.ibexa.co/en/master/api/php_api/php_api_reference/namespaces/ibexa-contracts-core-validation.html) namespace and its descendants
+    - [`Ibexa\Contracts\Notifications\SystemNotification`](https://doc.ibexa.co/en/master/api/php_api/php_api_reference/namespaces/ibexa-contracts-notifications-systemnotification.html) namespace and its descendants
+    - [`Ibexa\Contracts\Notifications\Value\Recipent\UserRecipientInterface`](https://doc.ibexa.co/en/master/api/php_api/php_api_reference/classes/Ibexa-Contracts-Notifications-Value-Recipent-UserRecipientInterface.html)
+    - [`Ibexa\Contracts\ProductCatalog\Values\Product\Query\Criterion\UpdatedAt`](https://doc.ibexa.co/en/master/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Values-Product-Query-Criterion-UpdatedAt.html)
+    - [`Ibexa\Contracts\ProductCatalog\Values\Product\Query\Criterion\UpdatedAtRange`](https://doc.ibexa.co/en/master/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Values-Product-Query-Criterion-UpdatedAtRange.html)
+    - [`Ibexa\Contracts\ProductCatalog\ProductReferencesResolverStrategy`](https://doc.ibexa.co/en/master/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-ProductReferencesResolverStrategy.html)
+
 ## October 2024
 
 ### Content management
@@ -56,7 +86,6 @@ This page contains recent highlights and notable changes in [[= product_name =]]
 
 - Updated the [REST API authentication](https://doc.ibexa.co/en/master/api/rest_api/rest_api_authentication/) instructions
 
-
 ## September 2024
 
 ### Getting started
@@ -66,7 +95,7 @@ This page contains recent highlights and notable changes in [[= product_name =]]
 ### Infrastructure and maintenance
 
 - Modified v4.5.x to v4.6 update instructions by adding [Update Solr configuration](https://doc.ibexa.co/en/master/update_and_migration/from_4.5/update_from_4.5/#update-solr-configuration) section
-- [Added v4.6.8 to v4.6.11 update instructions](https://doc.ibexa.co/en/master/update_and_migration/from_4.6/update_from_4.6/#v4611)
+- Added [v4.6.8 to v4.6.11 update instructions](https://doc.ibexa.co/en/master/update_and_migration/from_4.6/update_from_4.6/#v4611)
 
 ### PHP API
 
@@ -104,8 +133,8 @@ This page contains recent highlights and notable changes in [[= product_name =]]
 
 ### Infrastructure and maintenance
 
-- [Added v4.6.4 to v4.6.8 update instructions](https://doc.ibexa.co/en/master/update_and_migration/from_4.5/update_from_4.5/#v468)
-- [Modified v3.3.x to v3.3.latest update instructions](https://doc.ibexa.co/en/master/update_and_migration/from_3.3/update_from_3.3/#update-the-application)
+- Added [v4.6.4 to v4.6.8 update instructions](https://doc.ibexa.co/en/master/update_and_migration/from_4.5/update_from_4.5/#v468)
+- Modified [v3.3.x to v3.3.latest update instructions](https://doc.ibexa.co/en/master/update_and_migration/from_3.3/update_from_3.3/#update-the-application)
 - Updated the recommendations in [Performance](https://doc.ibexa.co/en/master/infrastructure_and_maintenance/performance/#symfony) by mentioning Symfony
 
 ### Data migration
