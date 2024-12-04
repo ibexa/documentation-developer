@@ -114,6 +114,9 @@ After this, when running Composer to get updates, you will be asked for a userna
     They will become active again if the agreement is renewed, but this process may take up to 24 hours.
     _(If the agreement is renewed before the expiry date, there will be no disruption of service.)_
 
+If Composer asks for your GitHub token, you must log in to your GitHub account and generate a new token (edit your profile and go to **Developer settings** > **Personal access tokens** > **Generate new token** with default settings).
+This operation is performed only once, when you install [[= product_name =]] for the first time.
+
 ### Create project
 
 To use Composer to instantly create a project in the current folder with all the dependencies,
@@ -289,10 +292,6 @@ php bin/console ibexa:graphql:generate-schema
 ```
 
 Before executing the command make sure that the database user has sufficient permissions.
-
-If Composer asks for your token, you must log in to your GitHub account and generate a new token
-(edit your profile and go to **Developer settings** > **Personal access tokens** > **Generate new token** with default settings).
-This operation is performed only once, when you install [[= product_name =]] for the first time.
 
 ### Run post-installation script
 
