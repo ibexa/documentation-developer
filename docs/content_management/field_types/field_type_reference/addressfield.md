@@ -104,7 +104,7 @@ ibexa.address.field.tax_number.billing_address.DE
 
 #### Example event listener
 
-An event listener can also provide validation by using either one of [constraints provided by Symfony](https://symfony.com/doc/current/validation.html#supported-constraints),
+An event listener can also provide validation by using either one of [constraints provided by Symfony]([[= symfony_doc =]]/validation.html#supported-constraints),
 or a custom constraint.
 
 ```php
