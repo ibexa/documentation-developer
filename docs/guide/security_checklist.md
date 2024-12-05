@@ -120,7 +120,7 @@ Reduce your attack surface by exposing only what you must.
 - By default, a [Powered-By header](https://doc.ibexa.co/en/latest/update_and_migration/from_1.x_2.x/update_db_to_2.5/#powered-by-header) is set. It specifies what version of the DXP is running. For example, `x-powered-by: [[= product_name_exp =]] v4`. This doesn't expose anything that couldn't be detected through other means. But if you wish to obscure this, you can either omit the version number, or disable the header entirely by setting `enabled: false`.
 
     ```yaml
-    ibexa_system_info:
+    ezplatform_support_tools:
       system_info:
         powered_by:
           # major => v4 || minor => v4.6 || none
