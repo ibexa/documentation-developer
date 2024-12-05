@@ -11,9 +11,9 @@ export default class TranscribeAudio extends BaseAIComponent {
     }
 
     getAudioInBase64() {
-        var request = new XMLHttpRequest();
+        const request = new XMLHttpRequest();
         request.open('GET', this.inputElement.href, false);
-        request.overrideMimeType('text\/plain; charset=x-user-defined');
+        request.overrideMimeType('text/plain; charset=x-user-defined');
         request.send();
 
         if (request.status === 200) {
@@ -53,9 +53,9 @@ export default class TranscribeAudio extends BaseAIComponent {
     }
 
     convertToBase64(data) {
-        var binary = ""
+        let binary = '';
 
-        for(var i=0;i<data.length;i++){
+        for (let i = 0; i < data.length; i++) {
             binary += String.fromCharCode(data.charCodeAt(i) & 0xff);
         }
 
