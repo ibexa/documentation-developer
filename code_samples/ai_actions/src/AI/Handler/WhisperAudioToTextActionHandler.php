@@ -13,6 +13,8 @@ use Symfony\Component\Process\Process;
 
 final class WhisperAudioToTextActionHandler implements ActionHandlerInterface
 {
+    private const TIMESTAMP_FORMAT = '/^\[\d{2}:\d{2}\.\d{3} --> \d{2}:\d{2}\.\d{3}]\s*/';
+
     public function supports(ActionInterface $action): bool
     {
         return $action->getActionTypeIdentifier() === TranscribeAudioActionType::IDENTIFIER;
@@ -65,11 +67,11 @@ final class WhisperAudioToTextActionHandler implements ActionHandlerInterface
     {
         $lines = explode(PHP_EOL, $text);
 
-        $processed_lines = array_map(static function (string $line) {
-            return preg_replace('/^\[\d{2}:\d{2}\.\d{3} --> \d{2}:\d{2}\.\d{3}]\s*/', '', $line);
+        $processedLines = array_map(static function (string $line): string {
+            return preg_replace(self::TIMESTAMP_FORMAT, '', $line) ?? '';
         }, $lines);
 
-        return implode(PHP_EOL, $processed_lines);
+        return implode(PHP_EOL, $processedLines);
     }
 
     private function saveInputToFile(string $audioEncodedInBase64): string
