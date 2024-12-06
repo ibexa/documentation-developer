@@ -1,0 +1,4 @@
+list_articles_to_translate:
+    path: /list/articles_to_translate/{language}
+    defaults:
+        _controller: 'App\Controller\ArticlesToTranslateController::listView'
