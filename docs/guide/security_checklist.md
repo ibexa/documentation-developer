@@ -49,7 +49,7 @@ But they could still try to guess the password reset link.
 That's why this interval should be as short as possible.
 5 minutes is often enough.
 
-This timeout is entered as a [PHP DateInterval duration strings](https://www.php.net/manual/en/dateinterval.construct.php).
+This timeout is entered as a [PHP DateInterval duration string](https://www.php.net/manual/en/dateinterval.construct.php).
 The forgot password feature defaults to "PT1H" (one hour).
 
 ### Disable Varnish when using Fastly
