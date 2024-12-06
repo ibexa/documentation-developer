@@ -1,0 +1,30 @@
+{
+    "CollaborationSessionCreate": {
+        "Owner": {
+            "_media-type": "application/vnd.ibexa.api.User+json",
+            "_href": "/api/ibexa/v2/user/users/14"
+        },
+        "SessionTypeCreate": {
+            "_media-type": "application/vnd.ibexa.api.ExampleSessionCreate+json",
+            "subject": "example"
+        },
+        "ParticipantListCreate": {
+            "_media-type": "application\/vnd.ibexa.api.ParticipantListCreate+json",
+            "ParticipantCreate": [
+                {
+                    "_media-type": "application\/vnd.ibexa.api.InternalParticipantCreate+json",
+                    "User": {
+                        "_media-type": "application/vnd.ibexa.api.User+json",
+                        "_href": "/api/ibexa/v2/user/users/14"
+                    },
+                    "scope": "edit"
+                },
+                {
+                    "_media-type": "application\/vnd.ibexa.api.ExternalParticipantCreate+json",
+                    "email": "user@link.invalid",
+                    "scope": "view"
+                }
+            ]
+        }
+    }
+}
