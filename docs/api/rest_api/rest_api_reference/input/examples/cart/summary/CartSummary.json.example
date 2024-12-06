@@ -1,6 +1,6 @@
 {
     "CartSummary": {
-        "_media-type": "application\/vnd.ibexa.api.CartSummary+json",
+        "_media-type": "application/vnd.ibexa.api.CartSummary+json",
         "_href": "\/api\/ibexa\/v2\/cart\/fdfb2e95-b0b9-4f17-b0cc-08d4d2cfd8f1\/summary",
         "id": 1,
         "identifier": "fdfb2e95-b0b9-4f17-b0cc-08d4d2cfd8f1",
@@ -8,15 +8,15 @@
         "createdAt": "2023-01-10T12:48:40+00:00",
         "updatedAt": "2023-01-10T12:49:10+00:00",
         "Owner": {
-            "_media-type": "application\/vnd.ibexa.api.User+json",
+            "_media-type": "application/vnd.ibexa.api.User+json",
             "_href": "\/api\/ibexa\/v2\/user\/users\/14"
         },
         "SummaryEntryCollection": {
-            "_media-type": "application\/vnd.ibexa.api.SummaryEntryCollection+json",
+            "_media-type": "application/vnd.ibexa.api.SummaryEntryCollection+json",
             "count": "1",
             "SummaryEntry": [
                 {
-                    "_media-type": "application\/vnd.ibexa.api.CartSummaryEntry+json",
+                    "_media-type": "application/vnd.ibexa.api.CartSummaryEntry+json",
                     "identifier": "ddf3d7bf-ca17-4eff-8265-2d7e00877a91",
                     "id": 1,
                     "names": {
@@ -29,14 +29,14 @@
                     },
                     "quantity": 2,
                     "Price": {
-                        "_media-type": "application\/vnd.ibexa.api.Price+json",
+                        "_media-type": "application/vnd.ibexa.api.Price+json",
                         "RestPrice": {
-                            "_media-type": "application\/vnd.ibexa.api.RestPrice+json",
+                            "_media-type": "application/vnd.ibexa.api.RestPrice+json",
                             "Price": {
-                                "_media-type": "application\/vnd.ibexa.api.Price+json",
+                                "_media-type": "application/vnd.ibexa.api.Price+json",
                                 "amount": "100",
                                 "Currency": {
-                                    "_media-type": "application\/vnd.ibexa.api.Currency+json",
+                                    "_media-type": "application/vnd.ibexa.api.Currency+json",
                                     "id": 2,
                                     "code": "EUR",
                                     "subunits": 2,
@@ -47,14 +47,14 @@
                         }
                     },
                     "PriceInclVat": {
-                        "_media-type": "application\/vnd.ibexa.api.PriceInclVat+json",
+                        "_media-type": "application/vnd.ibexa.api.PriceInclVat+json",
                         "RestPrice": {
-                            "_media-type": "application\/vnd.ibexa.api.RestPrice+json",
+                            "_media-type": "application/vnd.ibexa.api.RestPrice+json",
                             "Price": {
-                                "_media-type": "application\/vnd.ibexa.api.Price+json",
+                                "_media-type": "application/vnd.ibexa.api.Price+json",
                                 "amount": "12300",
                                 "Currency": {
-                                    "_media-type": "application\/vnd.ibexa.api.Currency+json",
+                                    "_media-type": "application/vnd.ibexa.api.Currency+json",
                                     "id": 2,
                                     "code": "EUR",
                                     "subunits": 2,
@@ -65,14 +65,14 @@
                         }
                     },
                     "SubtotalPrice": {
-                        "_media-type": "application\/vnd.ibexa.api.SubtotalPrice+json",
+                        "_media-type": "application/vnd.ibexa.api.SubtotalPrice+json",
                         "RestPrice": {
-                            "_media-type": "application\/vnd.ibexa.api.RestPrice+json",
+                            "_media-type": "application/vnd.ibexa.api.RestPrice+json",
                             "Price": {
-                                "_media-type": "application\/vnd.ibexa.api.Price+json",
+                                "_media-type": "application/vnd.ibexa.api.Price+json",
                                 "amount": "20000",
                                 "Currency": {
-                                    "_media-type": "application\/vnd.ibexa.api.Currency+json",
+                                    "_media-type": "application/vnd.ibexa.api.Currency+json",
                                     "id": 2,
                                     "code": "EUR",
                                     "subunits": 2,
@@ -83,14 +83,14 @@
                         }
                     },
                     "SubtotalPriceInclVat": {
-                        "_media-type": "application\/vnd.ibexa.api.SubtotalPriceInclVat+json",
+                        "_media-type": "application/vnd.ibexa.api.SubtotalPriceInclVat+json",
                         "RestPrice": {
-                            "_media-type": "application\/vnd.ibexa.api.RestPrice+json",
+                            "_media-type": "application/vnd.ibexa.api.RestPrice+json",
                             "Price": {
-                                "_media-type": "application\/vnd.ibexa.api.Price+json",
+                                "_media-type": "application/vnd.ibexa.api.Price+json",
                                 "amount": "24600",
                                 "Currency": {
-                                    "_media-type": "application\/vnd.ibexa.api.Currency+json",
+                                    "_media-type": "application/vnd.ibexa.api.Currency+json",
                                     "id": 2,
                                     "code": "EUR",
                                     "subunits": 2,
@@ -101,41 +101,41 @@
                         }
                     },
                     "VatCategory": {
-                        "_media-type": "application\/vnd.ibexa.api.VatCategory+json",
+                        "_media-type": "application/vnd.ibexa.api.VatCategory+json",
                         "identifier": "default",
                         "region": "poland",
                         "vatValue": 23
                     },
                     "Product": {
-                        "_media-type": "application\/vnd.ibexa.api.Product+json",
+                        "_media-type": "application/vnd.ibexa.api.Product+json",
                         "code": "0001",
                         "name": "Flipper Zero",
                         "ProductType": {
-                            "_media-type": "application\/vnd.ibexa.api.ProductType+json",
+                            "_media-type": "application/vnd.ibexa.api.ProductType+json",
                             "identifier": "tool",
                             "name": "Tool",
                             "AttributeAssignmentList": []
                         },
                         "Content": {
-                            "_media-type": "application\/vnd.ibexa.api.Content+json",
+                            "_media-type": "application/vnd.ibexa.api.Content+json",
                             "_href": "\/api\/ibexa\/v2\/content\/objects\/67",
                             "_remoteId": "3a12e8a3480143ce0159a55e152533b1",
                             "_id": 67,
                             "ContentType": {
-                                "_media-type": "application\/vnd.ibexa.api.ContentType+json",
+                                "_media-type": "application/vnd.ibexa.api.ContentType+json",
                                 "_href": "\/api\/ibexa\/v2\/content\/types\/50"
                             },
                             "Name": "Flipper Zero",
                             "TranslatedName": "Flipper Zero",
                             "Versions": {
-                                "_media-type": "application\/vnd.ibexa.api.VersionList+json",
+                                "_media-type": "application/vnd.ibexa.api.VersionList+json",
                                 "_href": "\/api\/ibexa\/v2\/content\/objects\/67\/versions"
                             },
                             "CurrentVersion": {
-                                "_media-type": "application\/vnd.ibexa.api.Version+json",
+                                "_media-type": "application/vnd.ibexa.api.Version+json",
                                 "_href": "\/api\/ibexa\/v2\/content\/objects\/67\/currentversion",
                                 "Version": {
-                                    "_media-type": "application\/vnd.ibexa.api.Version+json",
+                                    "_media-type": "application/vnd.ibexa.api.Version+json",
                                     "_href": "\/api\/ibexa\/v2\/content\/objects\/67\/versions\/1",
                                     "VersionInfo": {
                                         "id": 527,
@@ -143,14 +143,14 @@
                                         "status": "PUBLISHED",
                                         "modificationDate": "2023-01-10T12:44:41+00:00",
                                         "Creator": {
-                                            "_media-type": "application\/vnd.ibexa.api.User+json",
+                                            "_media-type": "application/vnd.ibexa.api.User+json",
                                             "_href": "\/api\/ibexa\/v2\/user\/users\/14"
                                         },
                                         "creationDate": "2023-01-10T12:44:41+00:00",
                                         "initialLanguageCode": "eng-GB",
                                         "languageCodes": "eng-GB",
                                         "VersionTranslationInfo": {
-                                            "_media-type": "application\/vnd.ibexa.api.VersionTranslationInfo+json",
+                                            "_media-type": "application/vnd.ibexa.api.VersionTranslationInfo+json",
                                             "Language": [
                                                 {
                                                     "languageCode": "eng-GB"
@@ -166,7 +166,7 @@
                                             ]
                                         },
                                         "Content": {
-                                            "_media-type": "application\/vnd.ibexa.api.ContentInfo+json",
+                                            "_media-type": "application/vnd.ibexa.api.ContentInfo+json",
                                             "_href": "\/api\/ibexa\/v2\/content\/objects\/67"
                                         }
                                     },
@@ -233,12 +233,12 @@
                                         ]
                                     },
                                     "Relations": {
-                                        "_media-type": "application\/vnd.ibexa.api.RelationList+json",
+                                        "_media-type": "application/vnd.ibexa.api.RelationList+json",
                                         "_href": "\/api\/ibexa\/v2\/content\/objects\/67\/versions\/1\/relations",
                                         "Relation": []
                                     },
                                     "Thumbnail": {
-                                        "_media-type": "application\/vnd.ibexa.api.Thumbnail+json",
+                                        "_media-type": "application/vnd.ibexa.api.Thumbnail+json",
                                         "resource": "\/placeholder",
                                         "width": null,
                                         "height": null,
@@ -247,15 +247,15 @@
                                 }
                             },
                             "Section": {
-                                "_media-type": "application\/vnd.ibexa.api.Section+json",
+                                "_media-type": "application/vnd.ibexa.api.Section+json",
                                 "_href": "\/api\/ibexa\/v2\/content\/sections\/1"
                             },
                             "Locations": {
-                                "_media-type": "application\/vnd.ibexa.api.LocationList+json",
+                                "_media-type": "application/vnd.ibexa.api.LocationList+json",
                                 "_href": "\/api\/ibexa\/v2\/content\/objects\/67\/locations"
                             },
                             "Owner": {
-                                "_media-type": "application\/vnd.ibexa.api.User+json",
+                                "_media-type": "application/vnd.ibexa.api.User+json",
                                 "_href": "\/api\/ibexa\/v2\/user\/users\/14"
                             },
                             "lastModificationDate": "2023-01-10T12:44:41+00:00",
@@ -266,12 +266,12 @@
                             "isHidden": false,
                             "status": "PUBLISHED",
                             "ObjectStates": {
-                                "_media-type": "application\/vnd.ibexa.api.ContentObjectStates+json",
+                                "_media-type": "application/vnd.ibexa.api.ContentObjectStates+json",
                                 "_href": "\/api\/ibexa\/v2\/content\/objects\/67\/objectstates"
                             }
                         },
                         "Thumbnail": {
-                            "_media-type": "application\/vnd.ibexa.api.Thumbnail+json",
+                            "_media-type": "application/vnd.ibexa.api.Thumbnail+json",
                             "resource": "\/placeholder",
                             "width": null,
                             "height": null,
@@ -281,17 +281,17 @@
                         "updated_at": 1673354681,
                         "AttributesList": [],
                         "Availability": {
-                            "_media-type": "application\/vnd.ibexa.api.Availability+json",
+                            "_media-type": "application/vnd.ibexa.api.Availability+json",
                             "is_available": true,
                             "stock": 100,
                             "is_infinite": false
                         },
                         "Price": {
-                            "_media-type": "application\/vnd.ibexa.api.Price+json",
+                            "_media-type": "application/vnd.ibexa.api.Price+json",
                             "amount": "100.00",
                             "base_amount": "100.00",
                             "Currency": {
-                                "_media-type": "application\/vnd.ibexa.api.Currency+json",
+                                "_media-type": "application/vnd.ibexa.api.Currency+json",
                                 "id": 2,
                                 "code": "EUR",
                                 "subunits": 2,
@@ -305,14 +305,14 @@
             ]
         },
         "TotalPrice": {
-            "_media-type": "application\/vnd.ibexa.api.Price+json",
+            "_media-type": "application/vnd.ibexa.api.Price+json",
             "RestPrice": {
-                "_media-type": "application\/vnd.ibexa.api.RestPrice+json",
+                "_media-type": "application/vnd.ibexa.api.RestPrice+json",
                 "Price": {
-                    "_media-type": "application\/vnd.ibexa.api.Price+json",
+                    "_media-type": "application/vnd.ibexa.api.Price+json",
                     "amount": "20000",
                     "Currency": {
-                        "_media-type": "application\/vnd.ibexa.api.Currency+json",
+                        "_media-type": "application/vnd.ibexa.api.Currency+json",
                         "id": 2,
                         "code": "EUR",
                         "subunits": 2,
@@ -323,14 +323,14 @@
             }
         },
         "TotalPriceInclVat": {
-            "_media-type": "application\/vnd.ibexa.api.Price+json",
+            "_media-type": "application/vnd.ibexa.api.Price+json",
             "RestPrice": {
-                "_media-type": "application\/vnd.ibexa.api.RestPrice+json",
+                "_media-type": "application/vnd.ibexa.api.RestPrice+json",
                 "Price": {
-                    "_media-type": "application\/vnd.ibexa.api.Price+json",
+                    "_media-type": "application/vnd.ibexa.api.Price+json",
                     "amount": "24600",
                     "Currency": {
-                        "_media-type": "application\/vnd.ibexa.api.Currency+json",
+                        "_media-type": "application/vnd.ibexa.api.Currency+json",
                         "id": 2,
                         "code": "EUR",
                         "subunits": 2,
@@ -342,20 +342,20 @@
         },
         "vatCategorySummary": [
             {
-                "_media-type": "application\/vnd.ibexa.api.VatCategorySummary+json",
+                "_media-type": "application/vnd.ibexa.api.VatCategorySummary+json",
                 "VatCategory": {
-                    "_media-type": "application\/vnd.ibexa.api.VatCategory+json",
+                    "_media-type": "application/vnd.ibexa.api.VatCategory+json",
                     "identifier": "default",
                     "region": "poland",
                     "vatValue": 23
                 },
                 "RestPrice": {
-                    "_media-type": "application\/vnd.ibexa.api.RestPrice+json",
+                    "_media-type": "application/vnd.ibexa.api.RestPrice+json",
                     "Price": {
-                        "_media-type": "application\/vnd.ibexa.api.Price+json",
+                        "_media-type": "application/vnd.ibexa.api.Price+json",
                         "amount": "4600",
                         "Currency": {
-                            "_media-type": "application\/vnd.ibexa.api.Currency+json",
+                            "_media-type": "application/vnd.ibexa.api.Currency+json",
                             "id": 2,
                             "code": "EUR",
                             "subunits": 2,
@@ -367,7 +367,7 @@
             }
         ],
         "Currency": {
-            "_media-type": "application\/vnd.ibexa.api.Currency+json",
+            "_media-type": "application/vnd.ibexa.api.Currency+json",
             "id": 2,
             "code": "EUR",
             "subunits": 2,
