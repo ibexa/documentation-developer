@@ -42,7 +42,7 @@ Consider introducing a measure against brute force login attacks, like CAPTCHA.
 Adjust timeout limits to your needs:
 
 When using the "forgot password" feature, a token is created which expires if the user doesn't click the password reset link that gets mailed to them in time.
-The time before it expires is set in the parameter `ibexa.site_access.config.default.security.token_interval_spec`.
+The time before it expires is set in the parameter `ezsettings.default.security.token_interval_spec`.
 By nature this feature must be available to users before they have logged in, including would-be attackers.
 If an attacker uses this feature with someone else's email address, the attacker doesn't receive the email.
 But they could still try to guess the password reset link.
@@ -68,7 +68,7 @@ See [Security advisory: EZSA-2020-002](https://developers.ibexa.co/security-advi
 
 ### Block upload of unwanted file types
 
-The `ibexa.site_access.config.default.io.file_storage.file_type_blacklist` setting is defined in the config file `src/bundle/Core/Resources/config/default_settings.yml` in the Core bundle.
+The `ezsettings.default.io.file_storage.file_type_blacklist` setting is defined in the config file `src/bundle/Core/Resources/config/default_settings.yml` in the Core bundle.
 It prevents uploading files that might be executed on the server, a Remote Code Execution (RCE) vulnerability.
 The setting lists filename extensions for files that shouldn't be uploaded.
 Attempting to upload files from the list results in an error message.
