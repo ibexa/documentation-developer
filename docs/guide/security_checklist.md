@@ -49,17 +49,8 @@ But they could still try to guess the password reset link.
 That's why this interval should be as short as possible.
 5 minutes is often enough.
 
-[[= product_name =]] allows you to create and send invitations to create an account in the frontend as a customer, the back office
-as an employee, or the Corporate Portal as a business partner.
-You can send invitations to individual users or in bulk.
-These invitations time out according to the parameter
-`ibexa.site_access.config.default.user_invitation.hash_expiration_time`.
-This can safely be longer than the "forgot password" time, since attackers cannot generate invitations.
-Don't leave it longer than it needs to be, though.
-
-These timeouts are both entered as [PHP DateInterval duration strings](https://www.php.net/manual/en/dateinterval.construct.php).
+This timeout is entered as a [PHP DateInterval duration strings](https://www.php.net/manual/en/dateinterval.construct.php).
 The forgot password feature defaults to "PT1H" (one hour).
-The account invitation feature defaults to "P7D" (seven days).
 
 ### Disable Varnish when using Fastly
 
