@@ -5,11 +5,11 @@ edition: experience
 
 # Use Ibexa Connect
 
-You can create workflows using [Ibexa Connect](https://doc.ibexa.co/projects/connect/en/latest/general/ibexa_connect/).
+You can use [[[= product_name_connect =]]](https://doc.ibexa.co/projects/connect/en/latest/general/ibexa_connect/) to create workflows.
 [[= product_name_engage =]] collects user data and passes it directly to [[= product_name_connect =]].
 With this data, you can create scenarios, for example, to add a user to newsletter, or to specific user segment group.
 
-For more information, see [Ibexa Connect documentation](https://doc.ibexa.co/projects/connect/en/latest/).
+For more information, see [[[= product_name_connect =]] documentation](https://doc.ibexa.co/projects/connect/en/latest/).
 
 ## Integrate [[= product_name_engage =]] with [[= product_name_connect =]]
 
@@ -54,4 +54,5 @@ To do it, perform the following actions::
 
 ![Configure Ibexa Engage](configure_ibexa_engage.png "Configure Ibexa Engage")
 
-4\. Then, go to **Engage** -> **Integrations** -> **Push rules** to define the default or specific rules for new campaign or website. Select the created webhook.
+4\. Then, go to **Engage** -> **Integrations** -> **Push rules** to define the default or specific rules for new campaign or website.
+Select the created webhook.

@@ -6,8 +6,7 @@ description: Configure custom icons to use for content types.
 
 ## Customize content type icons
 
-To add custom icons for existing content types or custom content types in [[= product_name =]],
-use the following configuration under the `ibexa.system.<scope>.content_type` [configuration key](configuration.md#configuration-files):
+To add custom icons for existing content types or custom content types in [[= product_name =]], use the following configuration under the `ibexa.system.<scope>.content_type` [configuration key](configuration.md#configuration-files):
 
 ```yaml
 ibexa:
@@ -22,7 +21,7 @@ Place the icon in `public/assets/images` and run `yarn encore <dev|prod>` after 
 
 !!! note "Icons format"
 
-    To ensure proper display in the Back Office, all icons should have SVG format with `symbol`.
+    To ensure proper display in the back office, all icons should have SVG format with `symbol`.
 
 If you want to configure icons per SiteAccess, see [Icon sets](#icon-sets).
 
@@ -62,7 +61,7 @@ return (
 
 ### Icons React component
 
-You can use a React component to change icons in Back Office and Page Builder.
+You can use a React component to change icons in back office and Page Builder.
 
 The following example from the `alert.js` file shows configuration for icons in the [alert](reusable_components.md#alerts) component:
 

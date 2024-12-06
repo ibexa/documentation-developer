@@ -1,11 +1,11 @@
 ---
-description: You can enable users to create new content in the Repository by using forms available in the front end of the site.
+description: You can enable users to create new content in the repository by using forms available in the front end of the site.
 ---
 
 # User-generated content
 
 [[= product_name =]] comes with content edition features via the Symfony stack.
-They are meant to allow the implementation of user-generated content from the front end, without entering the Back Office.
+They're meant to allow the implementation of user-generated content from the front end, without entering the back office.
 
 ## Creating a new draft
 
@@ -22,11 +22,11 @@ The `/content/edit/nodraft` route shows a content item creation form for a given
 |-------------------------|-----------|----------------------------------------------------------------------------|
 | `contentTypeIdentifier` | `string`  | The identifier of the content type to create. Example: `folder`, `article` |
 | `languageCode`          | `string`  | Language code the content item must be created in. Example: `eng-GB`       |
-| `parentLocationId`      | `integer` | ID of the Location the content item must be created in. Example: `2`       |
+| `parentLocationId`      | `integer` | ID of the location the content item must be created in. Example: `2`       |
 
-This means that `/content/create/nodraft/folder/eng-GB/2` enables you to create a Folder in English as a child of Location with ID 2.
+This means that `/content/create/nodraft/folder/eng-GB/2` enables you to create a Folder in English as a child of location with ID 2.
 
-A limited subset of Field Types is supported:
+A limited subset of field types is supported:
 
 - `TextLine`
 - `TextBlock`

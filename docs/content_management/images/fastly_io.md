@@ -13,8 +13,8 @@ To be able to configure this feature, you need [Fastly IO subscription](https://
 
 To use Fastly Image Optimizer, you first need a [working setup of Ibexa DXP and Fastly](reverse_proxy.md#using-varnish-or-fastly)
 with shielding enabled.
-To enable shielding, follow the steps in [Fastly developer documentation](https://developer.fastly.com/learning/concepts/shielding/#enabling-and-disabling-shielding).
-Remember to choose a shield location from the **Shielding** menu, as described in [Fastly user documentation](https://docs.fastly.com/en/guides/shielding#enabling-shielding).
+To enable shielding, follow the steps in [Fastly Developer Documentation](https://developer.fastly.com/learning/concepts/shielding/#enabling-and-disabling-shielding).
+Remember to choose a shield location from the **Shielding** menu, as described in [Fastly User Documentation](https://docs.fastly.com/en/guides/shielding#enabling-shielding).
 
 ## VCL configuration
 
@@ -52,7 +52,7 @@ For more information about Fastly configuration and CLI usage examples, see [Con
 Fastly IO configuration is SiteAccess aware.
 You can define what handler should be used for a specific SiteAccess under `variation_handler_identifier` [configuration key](configuration.md#configuration-files).
 You need to set it up as `fastly`, so Fastly IO can generate all image links.
-By default, it is set as `alias`, and it points to a built-in image optimizer.
+By default, it's set as `alias`, and it points to a built-in image optimizer.
 You can also set up a custom handler if your setup requires it.
 
 ```yaml
@@ -76,9 +76,9 @@ that they should reflect variations in your original setup.
 The built-in image optimizer serves as backup to Fastly IO in case of misconfiguration,
 so it needs to be able to serve the same image variations.
 
-Fastly IO image filters are not compatible with our built-in filters,
-so you will not be able to reflect your original filters accurately with Fastly.
-The script below will help you find replacement filters within Fastly configuration for the basic filters.
+Fastly IO image filters aren't compatible with [[= product_name_base =]] built-in filters,
+so you aren't able to reflect your original filters accurately with Fastly.
+The script below helps you find replacement filters within Fastly configuration for the basic filters.
 For more optimization options on Fastly side, see [Fastly IO reference](https://developer.fastly.com/reference/io/).
 
 To generate your original image configuration run:
@@ -139,5 +139,5 @@ ibexa:
 You can select defined image variations during content item creation in the image options.
 Variations can include different sizing options and other filters that are applied to the image.
 
-![Fastly Image Variations](img/fastly_variations.png)
+![Fastly image variations](img/fastly_variations.png)
 

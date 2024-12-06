@@ -1,3 +1,7 @@
+---
+description: ProductPriceRangeAggregation
+---
+
 # ProductPriceRangeAggregation
 
 The ProductPriceRangeAggregation aggregates search results by the value of the product's price.

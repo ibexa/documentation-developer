@@ -1,6 +1,6 @@
 ---
 description: Use PHP API to manage products in PIM, their attributes, availability and prices.
-month_change: true
+month_change: false
 ---
 
 # Product API
@@ -68,8 +68,7 @@ The default offset is 0, and limit is 25.
 [[= include_file('code_samples/api/product_catalog/src/Command/ProductVariantCommand.php', 57, 60) =]]
 ```
 
-From a variant ([`ProductVariantInterface`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Values-ProductVariantInterface.html)),
-you can access the attributes that are used to generate the variant by using `ProductVariantInterface::getDiscriminatorAttributes()`.
+From a variant ([`ProductVariantInterface`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Values-ProductVariantInterface.html)), you can access the attributes that are used to generate the variant by using `ProductVariantInterface::getDiscriminatorAttributes()`.
 
 ``` php
 [[= include_file('code_samples/api/product_catalog/src/Command/ProductVariantCommand.php', 61, 68) =]]
@@ -132,9 +131,8 @@ You can then use `ProductAvailabilityServiceInterface::getStock()` to get the st
 [[= include_file('code_samples/api/product_catalog/src/Command/ProductCommand.php', 104, 109) =]]        }
 ```
 
-To change availability for a product, use `ProductAvailabilityServiceInterface::updateProductAvailability()` with a [`ProductAvailabilityUpdateStruct`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Values-Availability-ProductAvailabilityUpdateStruct.html)
-and provide it with the product object. The second parameter defines whether product is available,
-and the third whether its stock is infinite. The fourth parameter is the stock number:
+To change availability for a product, use `ProductAvailabilityServiceInterface::updateProductAvailability()` with a [`ProductAvailabilityUpdateStruct`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Values-Availability-ProductAvailabilityUpdateStruct.html) and provide it with the product object.
+The second parameter defines whether product is available, and the third whether its stock is infinite. The fourth parameter is the stock number:
 
 ``` php
 [[= include_file('code_samples/api/product_catalog/src/Command/ProductCommand.php', 112, 115) =]]
@@ -142,8 +140,7 @@ and the third whether its stock is infinite. The fourth parameter is the stock n
 
 ## Attributes
 
-To get information about product attribute groups, use the [`AttributeGroupServiceInterface`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-AttributeGroupServiceInterface.html),
-or [`LocalAttributeGroupServiceInterface`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Local-LocalAttributeGroupServiceInterface.html) to modify attribute groups.
+To get information about product attribute groups, use the [`AttributeGroupServiceInterface`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-AttributeGroupServiceInterface.html), or [`LocalAttributeGroupServiceInterface`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Local-LocalAttributeGroupServiceInterface.html) to modify attribute groups.
 
 `AttributeGroupServiceInterface::getAttributeGroup()` enables you to get a single attribute group by its identifier.
 `AttributeGroupServiceInterface::findAttributeGroups()` gets attribute groups, all of them or filtered with an optional [`AttributeGroupQuery`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Values-AttributeGroup-AttributeGroupQuery.html) object:
@@ -153,22 +150,19 @@ or [`LocalAttributeGroupServiceInterface`](../api/php_api/php_api_reference/clas
 [[= include_file('code_samples/api/product_catalog/src/Command/AttributeCommand.php', 92, 97) =]]
 ```
 
-To create an attribute group, use `LocalAttributeGroupServiceinterface::createAttributeGroup()`
-and provide it with an [`AttributeGroupCreateStruct`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Local-Values-AttributeGroup-AttributeGroupCreateStruct.html):
+To create an attribute group, use `LocalAttributeGroupServiceinterface::createAttributeGroup()` and provide it with an [`AttributeGroupCreateStruct`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Local-Values-AttributeGroup-AttributeGroupCreateStruct.html):
 
 ``` php
 [[= include_file('code_samples/api/product_catalog/src/Command/AttributeCommand.php', 66, 70) =]]
 ```
 
-To get information about product attributes, use the [`AttributeDefinitionServiceInterface`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-AttributeDefinitionServiceInterface.html),
-or [`LocalAttributeDefinitionServiceInterface`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Local-LocalAttributeDefinitionServiceInterface.html) to modify attributes.
+To get information about product attributes, use the [`AttributeDefinitionServiceInterface`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-AttributeDefinitionServiceInterface.html), or [`LocalAttributeDefinitionServiceInterface`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Local-LocalAttributeDefinitionServiceInterface.html) to modify attributes.
 
 ``` php
 [[= include_file('code_samples/api/product_catalog/src/Command/AttributeCommand.php', 78, 80) =]]
 ```
 
-To create an attribute, use `LocalAttributeGroupServiceinterface::createAttributeDefinition()`
-and provide it with an [`AttributeDefinitionCreateStruct`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Local-Values-AttributeDefinition-AttributeDefinitionCreateStruct.html):
+To create an attribute, use `LocalAttributeGroupServiceinterface::createAttributeDefinition()` and provide it with an [`AttributeDefinitionCreateStruct`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Local-Values-AttributeDefinition-AttributeDefinitionCreateStruct.html):
 
 ``` php
 [[= include_file('code_samples/api/product_catalog/src/Command/AttributeCommand.php', 83, 89) =]]

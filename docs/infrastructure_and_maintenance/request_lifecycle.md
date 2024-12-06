@@ -11,7 +11,8 @@ When entering the server infrastructure, the HTTP request can be handled by seve
 
 For an overview of what happens on a reverse proxy like Varnish or Fastly, see [Context-aware HTTP cache / Request lifecycle](context_aware_cache.md#request-lifecycle).
 
-When arriving at a web server, the request is filtered by Apache Virtual Host, Nginx Server Blocks or equivalent. There, requests of static resources are separated from requests to PHP interpreter.
+When arriving at a web server, the request is filtered by Apache virtual host, Nginx Server Blocks, or equivalent.
+There, requests of static resources are separated from requests to PHP interpreter.
 
 As [[= product_name =]] is a Symfony application, the handling of requests starts like in Symfony (see [Symfony and HTTP Fundamentals](https://symfony.com/doc/current/introduction/http_fundamentals.html)).
 
@@ -19,7 +20,8 @@ If the HTTP request is to be treated by [[= product_name =]], it goes to the `pu
 
 The front controller transforms the HTTP request into a PHP [`Request` object](https://symfony.com/doc/current/introduction/http_fundamentals.html#symfony-request-object) and passes it to Symfony's Kernel to get a [`Response` object](https://symfony.com/doc/current/introduction/http_fundamentals.html#symfony-response-object) that is transformed and sent back as an HTTP response.
 
-The schemas start with a regular `Request` object from a browser that enters Symfony and [[= product_name =]]. There is no ESI, no REST, and no GraphQL request performed.
+The schemas start with a regular `Request` object from a browser that enters Symfony and [[= product_name =]].
+There is no ESI, no REST, and no GraphQL request performed.
 
 
 ## Lifecycle flowcharts
@@ -41,19 +43,19 @@ This schema is described below event by event.
 !!! tip
 
     To list all listeners that listen to an event, run `php bin/console debug:event-dispatcher <event.name>`, for example:
-    
+
     ```bash
     php bin/console debug:event-dispatcher kernel.request
     ```
-    
+
     To view details of a service (including class, arguments and tags), run `php bin/console debug:container --show-arguments <service.name>`, for example:
-    
+
     ```bash
     php bin/console debug:container --show-arguments ibexa.siteaccess_match_listener`
     ```
-    
+
     To list all services with a specific tag, run `php bin/console debug:container --tag=<tag>`, for example:
-    
+
     ```bash
     php bin/console debug:container --tag=router
     ```
@@ -79,13 +81,11 @@ The `ibexa.siteaccess_match_listener` service:
 - then dispatches the `Ibexa\Core\MVC\Symfony\SiteAccess` event (`MVCEvents::SITEACCESS`).
 
 The `SiteAccessListener` (`Ibexa\Bundle\Core\EventListener\SiteAccessListener`) subscribes to this `Ibexa\Core\MVC\Symfony\SiteAccess` event with top priority (priority 255).
-The `SiteAccessListener` adds the **`semanticPathinfo`** attribute, the path without SiteAccess indications ([`URIElement`](siteaccess_matching.md#urielement), [`URIText`](siteaccess_matching.md#uritext),
-or [`Map\URI`](siteaccess_matching.md#mapuri) implementing the `URILexer` interface) to the request.
+The `SiteAccessListener` adds the **`semanticPathinfo`** attribute, the path without SiteAccess indications ([`URIElement`](siteaccess_matching.md#urielement), [`URIText`](siteaccess_matching.md#uritext), or [`Map\URI`](siteaccess_matching.md#mapuri) implementing the `URILexer` interface) to the request.
 
 ### Routing
 
-Finally, the `Symfony\Component\HttpKernel\EventListener\RouterListener` (`router_listener`) (priority 32), which also listens to the `kernel.request` event,
-calls `Ibexa\Core\MVC\Symfony\Routing\ChainRouter::matchRequest` and adds its returned parameters to the request.
+Finally, the `Symfony\Component\HttpKernel\EventListener\RouterListener` (`router_listener`) (priority 32), which also listens to the `kernel.request` event, calls `Ibexa\Core\MVC\Symfony\Routing\ChainRouter::matchRequest` and adds its returned parameters to the request.
 
 #### `ChainRouter`
 
@@ -109,8 +109,8 @@ If a wildcard matches, the request's `semanticPathinfo` is updated and the route
 ### `UrlAliasRouter`
 
 `UrlAliasRouter` (`Ibexa\Bundle\Core\Routing\UrlAliasRouter`):
-This router uses the `UrlAliasService` to associate the `semanticPathinfo` to a Location.
-If it finds a Location, the request receives the attributes **`locationId`** and **`contentId`**, **`viewType`** is set to `full`, and the **`_controller`** is set to `ibexa_content:viewAction` for now.
+This router uses the `UrlAliasService` to associate the `semanticPathinfo` to a location.
+If it finds a location, the request receives the attributes **`locationId`** and **`contentId`**, **`viewType`** is set to `full`, and the **`_controller`** is set to `ibexa_content:viewAction` for now.
 
 The `locale_listener` (priority 16) sets the request's **`_locale`** attribute.
 
@@ -118,7 +118,7 @@ The `locale_listener` (priority 16) sets the request's **`_locale`** attribute.
 
     Another `kernel.request` event listener is the `Ibexa\AdminUi\EventListener\RequestListener` (priority 13).
     When a route gets a `siteaccess_group_whitelist` parameter, this listener checks that the current SiteAccess is in one of the listed groups.
-    For example, the Back Office sets an early protection of its routes by passing them a `siteaccess_group_whitelist` containing only the `admin_group`.
+    For example, the back office sets an early protection of its routes by passing them a `siteaccess_group_whitelist` containing only the `admin_group`.
 
 Now, when the `Request` knows its controller, the `HttpKernel` dispatches the `kernel.controller` event.
 
@@ -153,7 +153,8 @@ The `HttpKernel` then dispatches a `kernel.controller_arguments` (`KernelEvents:
 
 ## Controller execution
 
-The `HttpKernel` extracts from the request the controller and the arguments to pass to the controller. [Argument resolvers](https://symfony.com/doc/5.4/controller/argument_value_resolver.html) work in a way similar to autowiring.
+The `HttpKernel` extracts from the request the controller and the arguments to pass to the controller.
+[Argument resolvers](https://symfony.com/doc/5.4/controller/argument_value_resolver.html) work in a way similar to autowiring.
 The `HttpKernel` executes the controller with those arguments.
 
 As a reminder, the controller and its argument can be:
@@ -233,4 +234,6 @@ The `HttpKernel` retrieves the response attached to the event and continues.
 
 ## End of HTTP response
 
-The web server outputs the HTTP response. Depending on the architecture, few things may still occur. For example, Varnish or Fastly can take specific headers into account when setting the cache or serving it.
+The web server outputs the HTTP response.
+Depending on the architecture, few things may still occur.
+For example, Varnish or Fastly can take specific headers into account when setting the cache or serving it.

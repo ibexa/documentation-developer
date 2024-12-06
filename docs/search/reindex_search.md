@@ -22,4 +22,4 @@ php bin/console ibexa:reindex --since=yesterday
 php bin/console ibexa:reindex --content-ids=3,45,33
 ```
 
-For further info on possible options, see `php bin/console ibexa:reindex --help`.
+For more information, see `php bin/console ibexa:reindex --help`.

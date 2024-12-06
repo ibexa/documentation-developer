@@ -8,14 +8,12 @@ description: Install Ibexa DXP on a Linux system and prepare your installation f
 
     Installation for production is only supported on Linux.
 
-    To install [[= product_name =]] for development on macOS or Windows,
-    see the [installation guide for macOS and Windows](install_on_mac_os_and_windows.md).
+    To install [[= product_name =]] for development on macOS or Windows, see the [installation guide for macOS and Windows](install_on_mac_os_and_windows.md).
 
 !!! note "Installing [[= product_name_oss =]]"
 
     This installation guide shows in details how to install [[= product_name =]] for users who have a subscription agreement with [[= product_name_base =]].
-    If you want to install [[= product_name_oss =]], you do not need authentication tokens or an account on updates.ibexa.co,
-    but must adapt the steps shown here to the product edition and the `ibexa/oss-skeleton` repository.
+    If you want to install [[= product_name_oss =]], you don't need authentication tokens or an account on updates.ibexa.co, but must adapt the steps shown here to the product edition and the `ibexa/oss-skeleton` repository.
 
 ## Prepare work environment
 
@@ -25,12 +23,12 @@ You can install it by following your favorite tutorial, for example: [Install LA
 
 Additional requirements:
 
-- [Node.js](https://nodejs.org/en) and [Yarn](https://classic.yarnpkg.com/en/docs/install/#debian-stable) for asset management.
-- `git` for version control.
+- [Node.js](https://nodejs.org/en) and [Yarn](https://classic.yarnpkg.com/en/docs/install/#debian-stable) for asset management
+- `git` for version control
 
 [For production](#prepare-installation-for-production) you also need Apache or nginx as the HTTP server (Apache is used as an example below).
 
-Before getting started, make sure you review other [requirements](requirements.md) to see the systems we support and use for testing.
+Before getting started, make sure you review other [requirements](requirements.md) to see the systems that is supported and used for testing.
 
 ### Get Composer
 
@@ -59,7 +57,7 @@ composer -V
 ### Set up authentication tokens
 
 [[= product_name =]] subscribers have access to commercial packages at [updates.ibexa.co](https://updates.ibexa.co/).
-The site is password-protected. 
+The site is password-protected.
 You must set up authentication tokens to access the site.
 
 Log in to your service portal on [support.ibexa.co](https://support.ibexa.co/), go to your **Service Portal**, and look for the following on the **Maintenance and Support agreement details** screen:
@@ -67,14 +65,14 @@ Log in to your service portal on [support.ibexa.co](https://support.ibexa.co/), 
 ![Authentication token](using_composer_auth_token.png)
 
 1. Select **Create token** (this requires the **Portal administrator** access level).
-2. Fill in a label describing the use of the token. This will allow you to revoke access later.
-3. Save the password, **you will not get access to it again**!
+2. Fill in a label describing the use of the token.
+This allows you to revoke access later.
+3. Save the password, **you aren't able to access it again**.
 
 !!! tip "Save the authentication token in `auth.json` to avoid re-typing it"
 
-    Composer will ask whether you want to save the token every time you perform an update.
-    If you prefer, you can decline and create an `auth.json` file globally
-    in [`COMPOSER_HOME`](https://getcomposer.org/doc/03-cli.md#composer-home) directory for machine-wide use:
+    Composer asks whether you want to save the token every time you perform an update.
+    If you prefer, you can decline and create an `auth.json` file globally in [`COMPOSER_HOME`](https://getcomposer.org/doc/03-cli.md#composer-home) directory for machine-wide use:
 
     ``` bash
     composer config --global http-basic.updates.ibexa.co <installation-key> <token-password>
@@ -85,22 +83,23 @@ Log in to your service portal on [support.ibexa.co](https://support.ibexa.co/), 
     ``` bash
     export COMPOSER_AUTH='{"http-basic":{"updates.ibexa.co": {"username": "<your-key>", "password": "<your-password>"}}}'
     ```
-    
+
     You then need to [add the contents of this variable to `auth.json`](#authentication-token).
 
 !!! tip "Different tokens for different projects on a single host"
 
-    If you configure several projects on one machine, make sure that
-    you set different tokens for each of the projects in their respective `auth.json` files.
+    If you configure several projects on one machine, make sure that you set different tokens for each of the projects in their respective `auth.json` files.
 
-After this, when running Composer to get updates, you will be asked for a username and password. Use:
+After this, when running Composer to get updates, you're asked for a username and password.
+Use:
 
 - as username - your Installation key found on the **Maintenance and Support agreement details** page in the service portal
-- as password - the token password you retrieved in step 3 above.
+- as password - the token password you retrieved in step 3 above
 
 !!! note "Authentication token validation delay"
 
-    You can encounter some delay between creating the token and being able to use it in Composer. It might take up to 15 minutes.
+    You can encounter some delay between creating the token and being able to use it in Composer.
+    It might take up to 15 minutes.
 
 !!! caution "Support agreement expiry"
 
@@ -108,10 +107,12 @@ After this, when running Composer to get updates, you will be asked for a userna
     They will become active again if the agreement is renewed, but this process may take up to 24 hours.
     _(If the agreement is renewed before the expiry date, there will be no disruption of service.)_
 
+If Composer asks for your GitHub token, you must log in to your GitHub account and generate a new token (edit your profile and go to **Developer settings** > **Personal access tokens** > **Generate new token** with default settings).
+This operation is performed only once, when you install [[= product_name =]] for the first time.
+
 ### Create project
 
-To use Composer to instantly create a project in the current folder with all the dependencies,
-run the following command:
+To use Composer to instantly create a project in the current folder with all the dependencies, run the following command:
 
 !!! note "Using PHP 8.3 (recommended)"
 
@@ -135,7 +136,7 @@ run the following command:
 
 ??? note "Using PHP 8.2 or older"
 
-    If you are using PHP 8.2 or any older version, use a different set of commands:
+    If you're using PHP 8.2 or any older version, use a different set of commands:
 
     === "[[= product_name_headless =]]"
 
@@ -160,13 +161,11 @@ run the following command:
 
 !!! tip "Authentication token"
 
-    <a id="authentication-token"></a>If you added credentials to the `COMPOSER_AUTH` variable,
-    at this point add this variable to `auth.json` (for example, by running `echo $COMPOSER_AUTH > auth.json`).
+    <a id="authentication-token"></a>If you added credentials to the `COMPOSER_AUTH` variable, at this point add this variable to `auth.json` (for example, by running `echo $COMPOSER_AUTH > auth.json`).
 
 !!! tip
 
-    You can set [different version constraints](https://getcomposer.org/doc/articles/versions.md):
-    specific tag (`3.3.2`), version range (`~3.3.2`), stability (`^3.3@rc`), etc.:
+    You can set [different version constraints](https://getcomposer.org/doc/articles/versions.md), for example, specific tag (`3.3.2`), version range (`~3.3.2`), or stability (`^3.3@rc`):
 
     ``` bash
     composer create-project ibexa/experience-skeleton:3.3.2 .
@@ -174,18 +173,17 @@ run the following command:
 
 !!! note "Platform.sh"
 
-    If you are deploying your installation on [Platform.sh](https://docs.platform.sh/guides/ibexa/deploy.html),
-    run the following command:
-    
+    If you're deploying your installation on [Platform.sh](https://docs.platform.sh/guides/ibexa/deploy.html), run the following command:
+
     ``` bash
     composer ibexa:setup --platformsh
     ```
-    
+
     This command provides the necessary configuration for using Platform.sh.
 
 #### Add project to version control
 
-It is recommended to add your project to version control.
+It's recommended to add your project to version control.
 Initiate your project repository:
 
 ``` bash
@@ -194,8 +192,7 @@ git init; git add . > /dev/null; git commit -m "init" > /dev/null
 
 ### Change installation parameters
 
-At this point configure your database via the `DATABASE_URL` in the `.env` file,
-depending of the database you are using:
+At this point configure your database via the `DATABASE_URL` in the `.env` file, depending of the database you're using:
 
 `DATABASE_URL=mysql://user:password@host:port/database_name`.
 
@@ -211,30 +208,29 @@ or
 
 ### Add entropy to improve cryptographic randomness
 
-Choose a [secret]([[= symfony_doc =]]/reference/configuration/framework.html#secret)
-and provide it in the `APP_SECRET` parameter in `.env`.
+Choose a [secret]([[= symfony_doc =]]/reference/configuration/framework.html#secret) and provide it in the `APP_SECRET` parameter in `.env`.
 It should be a random string, made up of at least 32 characters, numbers, and symbols.
-This is used by Symfony when generating [CSRF tokens]([[= symfony_doc =]]/security/csrf.html),
-[encrypting cookies]([[= symfony_doc =]]/cookbook/security/remember_me.html),
-and for creating signed URIs when using [ESI (Edge Side Includes)]([[= symfony_doc =]]/http_cache/esi.html).
+It's used by Symfony when generating [CSRF tokens]([[= symfony_doc =]]/security/csrf.html), [encrypting cookies]([[= symfony_doc =]]/cookbook/security/remember_me.html), and for creating signed URIs when using [ESI (Edge Side Includes)]([[= symfony_doc =]]/http_cache/esi.html).
 
 !!! caution
 
-    The app secret is crucial to the security of your installation. Be careful about how you generate it, and how you store it.
+    The app secret is crucial to the security of your installation.
+    Be careful about how you generate it, and how you store it.
     Here's one way to generate a 64 characters long, secure random string as your secret, from command line:
-    
+
     ``` bash
     php -r "print bin2hex(random_bytes(32));"
     ```
 
-    Do not commit the secret to version control systems, or share it with anyone who does not strictly need it.
+    Don't commit the secret to version control systems, or share it with anyone who doesn't strictly need it.
     If you have any suspicion that the secret may have been exposed, replace it with a new one.
-    The same goes for other secrets, like database password, Varnish invalidate token, JWT passphrase, etc.
-    
-    After changing the app secret, make sure that you clear the application cache and log out all the users.
-    For more information, see [Symfony documentation]([[= symfony_doc =]]/reference/configuration/framework.html#secret).   
+    The same goes for other secrets, like database password, Varnish invalidate token, JWT passphrase, and more.
 
-    It is recommended to store the database credentials in your `.env.local` file and not commit it to the Version Control System.
+    After changing the app secret, make sure that you clear the application cache and log out all the users.
+
+    For more information, see [Symfony documentation]([[= symfony_doc =]]/reference/configuration/framework.html#secret).
+
+    It's recommended to store the database credentials in your `.env.local` file and not commit it to the Version Control System.
 
 In `DATABASE_VERSION` you can also configure the database server version (for a MariaDB database, prefix the value with `mariadb-`).
 
@@ -277,10 +273,6 @@ php bin/console ibexa:graphql:generate-schema
 
 Before executing the command make sure that the database user has sufficient permissions.
 
-If Composer asks for your token, you must log in to your GitHub account and generate a new token
-(edit your profile and go to **Developer settings** > **Personal access tokens** > **Generate new token** with default settings).
-This operation is performed only once, when you install [[= product_name =]] for the first time.
-
 ### Run post-installation script
 
 Run the post-installation script with the following command:
@@ -297,7 +289,7 @@ For development you can use the built-in PHP server.
 php -S 127.0.0.1:8000 -t public
 ```
 
-Your PHP web server will be accessible at `http://127.0.0.1:8000`
+Your PHP web server is accessible at `http://127.0.0.1:8000`
 
 You can also use [Symfony CLI](https://symfony.com/download):
 
@@ -339,19 +331,18 @@ chown -R www-data:www-data <your installation directory>
 ```
 
 Directories `var` and `public/var` must be writable by CLI and the web server user.
-Future files and directories created by these two users will need to inherit those permissions.
+Future files and directories created by these two users need to inherit those permissions.
 
 !!! caution
 
-    For security reasons, in production, the web server cannot have write access to other directories than `var`. 
+    For security reasons, in production, the web server cannot have write access to other directories than `var`.
     Skip the step above and follow the link below for production needs instead.
 
     You must also make sure that the web server cannot interpret the files in the `var` directory through PHP.
     To do so, follow the instructions on [setting up a virtual host below](#set-up-virtual-host).
 
-To set up permissions for production, it is recommended to use an ACL (Access Control List).
-See [Setting up or Fixing File Permissions]([[= symfony_doc =]]/setup/file_permissions.html) in Symfony documentation
-for information on how to do it on different systems.
+To set up permissions for production, it's recommended to use an ACL (Access Control List).
+See [Setting up or Fixing File Permissions]([[= symfony_doc =]]/setup/file_permissions.html) in Symfony documentation for information on how to do it on different systems.
 
 ### Set up virtual host
 
@@ -363,8 +354,7 @@ Prepare a [virtual host configuration](https://en.wikipedia.org/wiki/Virtual_hos
     to `/etc/apache2/sites-available` as a `.conf` file and modify it to fit your project.
 
     Specify `/<your installation directory>/public` as the `DocumentRoot` and `Directory`, or ensure `BASEDIR` is set in the environment.
-    Uncomment the line that starts with `#if [APP_ENV]` and set the value to `prod` or `dev`, depending on the environment that you are configuring,
-    or ensure `APP_ENV` is set in the environment.
+    Uncomment the line that starts with `#if [APP_ENV]` and set the value to `prod` or `dev`, depending on the environment that you're configuring, or ensure `APP_ENV` is set in the environment.
 
     ```
     SetEnvIf Request_URI ".*" APP_ENV=prod
@@ -387,13 +377,11 @@ Prepare a [virtual host configuration](https://en.wikipedia.org/wiki/Virtual_hos
 
 === "nginx"
 
-    You can use [this example vhost file](https://raw.githubusercontent.com/ibexa/post-install/main/resources/templates/nginx/vhost.template)
-    and modify it to fit your project. You will also need the `ibexa_params.d` files that should reside in a subdirectory below where the main file is,
-    [as is shown here](https://github.com/ibexa/post-install/tree/main/resources/templates/nginx).
+    You can use [this example vhost file](https://raw.githubusercontent.com/ibexa/post-install/main/resources/templates/nginx/vhost.template) and modify it to fit your project. You also need the `ibexa_params.d` files that should reside in a subdirectory below where the main file is, [as is shown here](https://github.com/ibexa/post-install/tree/main/resources/templates/nginx).
 
 
     Specify `/<your installation directory>/public` as the `root`, or ensure `BASEDIR` is set in the environment.
-    Ensure `APP_ENV` is set to `prod` or `dev` in the environment, depending on the environment that you are configuring, and uncomment the line that starts with `#if[APP_ENV`.
+    Ensure `APP_ENV` is set to `prod` or `dev` in the environment, depending on the environment that you're configuring, and uncomment the line that starts with `#if[APP_ENV`.
 
     When the virtual host file is ready, enable the virtual host and disable the default.
     Finally, restart the nginx server.
@@ -406,8 +394,7 @@ You should see the welcome page.
 
 !!! note "Security checklist"
 
-    See the [Security checklist](security_checklist.md) for a list of security-related issues
-    you should take care of before going live with a project.
+    See the [Security checklist](security_checklist.md) for a list of security-related issues you should take care of before going live with a project.
 
 ### Enable Date-based Publisher
 
@@ -434,6 +421,6 @@ Finally, remove the temporary file:
 
 To make use of the [Link Manager](url_management.md#enabling-automatic-url-validation).
 
-## Ibexa Cloud
+## [[= product_name_cloud =]]
 
-If you want to host your application on [[= product_name_cloud =]], follow the [Install on Ibexa Cloud](install_on_ibexa_cloud.md) procedure.
+If you want to host your application on [[= product_name_cloud =]], follow the [Ibexa Cloud](install_on_ibexa_cloud.md) procedure.

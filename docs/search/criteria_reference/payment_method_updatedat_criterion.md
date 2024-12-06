@@ -1,5 +1,5 @@
 ---
-description: Payment Method UpdatedAt Criterion
+description: Payment Method UpdatedAt Search Criterion
 edition: commerce
 ---
 

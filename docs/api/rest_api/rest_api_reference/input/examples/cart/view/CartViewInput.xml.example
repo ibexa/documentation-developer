@@ -1,0 +1,8 @@
+<CartViewInput>
+    <identifier>loadUserCarts</identifier>
+    <CartQuery>
+        <offset>0</offset>
+        <limit>10</limit>
+        <ownerId>10</ownerId>
+    </CartQuery>
+</CartViewInput>

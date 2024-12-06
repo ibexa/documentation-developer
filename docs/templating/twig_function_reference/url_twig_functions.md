@@ -5,9 +5,9 @@ page_type: reference
 
 # URL Twig functions
 
-- [`ibexa_path()`](#ibexa_path) returns the relative URL to a content item or Location.
-- [`ibexa_url()`](#ibexa_url) returns the absolute URL to a content item or Location.
-- [`ibexa.url.alias`](#ibexaurlalias) generates URLs for a Location from the given arguments.
+- [`ibexa_path()`](#ibexa_path) returns the relative URL to a content item or location.
+- [`ibexa_url()`](#ibexa_url) returns the absolute URL to a content item or location.
+- [`ibexa.url.alias`](#ibexaurlalias) generates URLs for a location from the given arguments.
 - [`ibexa_route()`](#ibexa_route) generates a RouteReference object from the given parameters.
 - [`ibexa_oauth2_connect_path()`](#ibexa_oauth2_connect_path) generates a relative path for the given OAuth2 route.
 - [`ibexa_oauth2_connect_url()`](#ibexa_oauth2_connect_url) generates an absolute URL for the given OAuth2 route.
@@ -16,11 +16,11 @@ page_type: reference
 
 ### `ibexa_path()`
 
-`ibexa_path()` returns the relative URL to a content item or Location.
+`ibexa_path()` returns the relative URL to a content item or location.
 
 |Argument|Type|Description|
 |------|------|------|
-|`name`|`string`</br>`Ibexa\Contracts\Core\Repository\Values\Content\Location`</br>`Ibexa\Contracts\Core\Repository\Values\Content\Content`</br>`Ibexa\Contracts\Core\Repository\Values\Content\ContentInfo`</br>`Ibexa\Contracts\Core\Repository\Values\Content\Location`</br>`Ibexa\Core\MVC\Symfony\Routing\RouteReference`|The name of the route, Location or Content.|
+|`name`|`string`</br>`Ibexa\Contracts\Core\Repository\Values\Content\Location`</br>`Ibexa\Contracts\Core\Repository\Values\Content\Content`</br>`Ibexa\Contracts\Core\Repository\Values\Content\ContentInfo`</br>`Ibexa\Contracts\Core\Repository\Values\Content\Location`</br>`Ibexa\Core\MVC\Symfony\Routing\RouteReference`|The name of the route, location, or content.|
 |`parameters`|`array`|Route parameters.|
 |`relative`|`boolean`|Whether to generate a relative path.|
 
@@ -30,11 +30,11 @@ page_type: reference
 
 ### `ibexa_url()`
 
-`ibexa_url()` returns the absolute URL to a content item or Location.
+`ibexa_url()` returns the absolute URL to a content item or location.
 
 |Argument|Type|Description|
 |------|------|------|
-|`name`|`string`</br>`Ibexa\Contracts\Core\Repository\Values\Content\Location`</br>`Ibexa\Contracts\Core\Repository\Values\Content\Content`</br>`Ibexa\Contracts\Core\Repository\Values\Content\ContentInfo`</br>`Ibexa\Contracts\Core\Repository\Values\Content\Location`</br>`Ibexa\Core\MVC\Symfony\Routing\RouteReference`|The name of the route, Location or Content.|
+|`name`|`string`</br>`Ibexa\Contracts\Core\Repository\Values\Content\Location`</br>`Ibexa\Contracts\Core\Repository\Values\Content\Content`</br>`Ibexa\Contracts\Core\Repository\Values\Content\ContentInfo`</br>`Ibexa\Contracts\Core\Repository\Values\Content\Location`</br>`Ibexa\Core\MVC\Symfony\Routing\RouteReference`|The name of the route, location, or content.|
 |`parameters`|`array`|Route parameters.|
 |`schemeRelative`|`boolean`|Whether to generate a relative URL.|
 

@@ -1,13 +1,12 @@
 ---
 description: Integrate recommendation service into your website.
-month_change: true
+month_change: false
 ---
 
 # Integrate recommendation service
 
 To return recommendations, you must first [enable the Personalization service](enable_personalization.md).
-Next, integrate the service with [[= product_name =]] by activating
-event tracking and embedding recommendation results into the website.
+Next, integrate the service with [[= product_name =]] by activating event tracking and embedding recommendation results into the website.
 
 !!! note
 
@@ -17,18 +16,15 @@ event tracking and embedding recommendation results into the website.
 ## Track events
 
 The service primarily relies on event tracking.
-For the events to be registered, every content item or product page must call
-a special tracking URL.
-The easiest way of embedding the tracking URL is placing a one pixel image on every page,
-like in the case of analytical tools or visitor counters.
+For the events to be registered, every content item or product page must call a special tracking URL.
+The easiest way of embedding the tracking URL is placing a one pixel image on every page, like in the case of analytical tools or visitor counters.
 A code that includes an image looks like this:
 
 `<img href="https://event.perso.ibexa.co/api/00000/click/<user_ID>/<content_type_ID>/<content_ID>" width="1" height="1">`
 
 where:
 
-- `<user_ID>` stands either for the user ID or session ID of the user who is currently
-logged into your website (any URL-encoded string is allowed).
+- `<user_ID>` stands either for the user ID or session ID of the user who is currently logged into your website (any URL-encoded string is allowed).
 
 - `<content_type_ID>` stands for the [contentTypeId](content_model.md#content-information) of the content item or product that you want to track and recommend.
 
@@ -217,10 +213,8 @@ The object contains links to the recommended items (`triggerOpenedLink`, `clickR
 
 ## Advanced integration
 
-You can configure integration at a more advanced level to track more events,
-use additional parameters, apply custom scenario configurations, filters,
-and enable additional features.
+You can configure integration at a more advanced level to track more events, use additional parameters, apply custom scenario configurations, filters, and enable additional features.
 
-For more information about available functionalities, see the [User Documentation]([[= user_doc =]]/personalization/personalization).
+For more information about available functionalities, see [User Documentation]([[= user_doc =]]/personalization/personalization).
 
 For more information about integrating the Personalization service, see [tracking API](tracking_api.md) and [tracking integration](tracking_integration.md) documentation.

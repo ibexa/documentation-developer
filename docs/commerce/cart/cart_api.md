@@ -16,7 +16,7 @@ To get carts and work with them, use the `Ibexa\Contracts\Cart\CartServiceInterf
 - carts of registered users use database-based storage
 - anonymous user carts are stored in the PHP session
 
-From the developer's perspective, carts and entries are referenced with a UUID identifier. 
+From the developer's perspective, carts and entries are referenced with a UUID identifier.
 
 ## Get single cart by identifier
 
@@ -28,7 +28,7 @@ To access a single cart, use the `CartServiceInterface::getCart` method:
 
 ## Get multiple carts
 
-To fetch multiple carts, use the `CartServiceInterface::findCarts` method. 
+To fetch multiple carts, use the `CartServiceInterface::findCarts` method.
 It follows the same search Query pattern as other APIs:
 
 ``` php
@@ -40,8 +40,7 @@ It follows the same search Query pattern as other APIs:
 
 ## Create cart
 
-To create a cart, use the `CartServiceInterface::createCart` method and provide 
-it with `Ibexa\Contracts\Cart\Value\CartCreateStruct` that contains metadata (name, currency, owner):
+To create a cart, use the `CartServiceInterface::createCart` method and provide it with `Ibexa\Contracts\Cart\Value\CartCreateStruct` that contains metadata (name, currency, owner):
 
 ``` php
 [[= include_file('code_samples/api/commerce/src/Command/CartCommand.php', 8, 9) =]]
@@ -52,9 +51,8 @@ it with `Ibexa\Contracts\Cart\Value\CartCreateStruct` that contains metadata (na
 
 ## Update cart metadata
 
-You can update cart metadata after the cart is created. 
-You could do it to support a scenario when, for example, the user changes a currency 
-and the cart should recalculate all item prices to a new currency. 
+You can update cart metadata after the cart is created.
+You could do it to support a scenario when, for example, the user changes a currency and the cart should recalculate all item prices to a new currency.
 To update cart metadata, use the `CartServiceInterface::updateCartMetadata` method:
 
 ``` php
@@ -79,8 +77,7 @@ $cart = $cartService->updateCartMetadata($cart, $updateMetadataStruct);
 
 ## Delete cart
 
-To delete a cart permanently, use the `CartServiceInterface::deleteCart` method 
-and pass the `CartInterface` object:
+To delete a cart permanently, use the `CartServiceInterface::deleteCart` method and pass the `CartInterface` object:
 
 ``` php
 [[= include_file('code_samples/api/commerce/src/Command/CartCommand.php', 88, 89) =]]
@@ -89,8 +86,7 @@ and pass the `CartInterface` object:
 
 ## Empty cart
 
-To remove all products from the cart in a single operation, use the 
-`CartServiceInterface::emptyCart` method:
+To remove all products from the cart in a single operation, use the `CartServiceInterface::emptyCart` method:
 
 ``` php
 [[= include_file('code_samples/api/commerce/src/Command/CartCommand.php', 88, 89) =]]
@@ -99,12 +95,10 @@ To remove all products from the cart in a single operation, use the
 
 ## Check cart validity
 
-Items in cart can become invalid, for example, when item price is unavailable 
-in cart currency, or the product is no longer available. 
-To prevent checking out a cart with invalid items, check cart validity first. 
-To validate the cart, use the `CartServiceInterface::validateCart` method. 
-Validation is done with help from the `symfony/validator` component, and the method 
-returns a `Symfony\Component\Validator\ConstraintViolationListInterface` object.
+Items in cart can become invalid, for example, when item price is unavailable in cart currency, or the product is no longer available.
+To prevent checking out a cart with invalid items, check cart validity first.
+To validate the cart, use the `CartServiceInterface::validateCart` method.
+Validation is done with help from the `symfony/validator` component, and the method returns a `Symfony\Component\Validator\ConstraintViolationListInterface` object.
 
 ``` php
 [[= include_file('code_samples/api/commerce/src/Command/CartCommand.php', 88, 89) =]]
@@ -113,9 +107,8 @@ returns a `Symfony\Component\Validator\ConstraintViolationListInterface` object.
 
 ## Add entry to cart
 
-To add entries (products) to the cart, create an `Ibexa\Contracts\Cart\Value\EntryAddStruct`, 
-where you specify the requested quantity of the product.
-Then pass it to the `CartServiceInterface::addEntry` method: 
+To add entries (products) to the cart, create an `Ibexa\Contracts\Cart\Value\EntryAddStruct`, where you specify the requested quantity of the product.
+Then pass it to the `CartServiceInterface::addEntry` method:
 
 ``` php
 [[= include_file('code_samples/api/commerce/src/Command/CartCommand.php', 11, 12) =]]
@@ -139,9 +132,8 @@ To remove an entry from the cart, use the `CartServiceInterface::removeEntry` me
 
 ## Update entry metadata
 
-Entries have their own metadata, for example, quantity. 
-To change entry metadata, use the `CartServiceInterface::updateEntry` method 
-and provide it with `Ibexa\Contracts\Cart\Value\EntryUpdateStruct`.
+Entries have their own metadata, for example, quantity.
+To change entry metadata, use the `CartServiceInterface::updateEntry` method and provide it with `Ibexa\Contracts\Cart\Value\EntryUpdateStruct`.
 
 ``` php
 [[= include_file('code_samples/api/commerce/src/Command/CartCommand.php', 12, 13) =]]
@@ -170,9 +162,8 @@ $createStruct->setContext(new ArrayMap([
 $cart = $cartService->createCart($createStruct);
 ```
 
-In the above example, you create a cart using the `CartCreateStruct`,
-and set the context data using the `setContext` method.
-You've also added "X1MF7699" coupon code as context data to the cart.
+In the above example, you create a cart with the `CartCreateStruct` method, and set the context data with `setContext`.
+You also add "X1MF7699" coupon code as context data to the cart.
 
 ### Adding context data to cart entry
 
@@ -187,13 +178,13 @@ $entryAddStruct->setContext(new ArrayMap([
  $cartService->addEntry($cart, $entryAddStruct);
 ```
 
-In the above example, you create a cart entry using the `EntryAddStruct`.
+In the above example, you create a cart entry by using the `EntryAddStruct` method.
 The `setContext` method allows you to attach context data to the cart entry.
-In this case, you've attached a "tshirt_text" attribute to the cart entry, which might represent custom text for a T-shirt.
+In this case, you attach a "tshirt_text" attribute to the cart entry, which might represent custom text for a T-shirt.
 
 ## Merge carts
 
-To combine the contents of multiple shopping carts into a target cart, use the `CartServiceInterface::mergeCarts` method. 
+To combine the contents of multiple shopping carts into a target cart, use the `CartServiceInterface::mergeCarts` method.
 This operation is helpful when you want to consolidate items from a reorder cart and a current cart into a single order.
 
 ```php

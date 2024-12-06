@@ -12,13 +12,13 @@
 
 ### Content scheduling
 
-!!! dxp
+!!! note
 
     You can now schedule content on a Page to become visible at a specific time in the future.
 
-    To do this you can use the Schedule tab in any block's configuration or a special Content Scheduler block.
+    To do this you can use the **Schedule** tab in any block's configuration or a special Content Scheduler block.
 
-    In the Schedule tab you can define when any block becomes visible and when it disappears from a Page.
+    In the **Schedule** tab you can define when any block becomes visible and when it disappears from a Page.
 
     ![Schedule tab](2.3_schedule_tab.png)
 
@@ -31,35 +31,31 @@
 
     ![Timeline and list of upcoming events](2.3_timeline_list.png)
 
-    The timeline also shows other events, such a Content published using the date-based publisher.
+    The timeline also shows other events, such a Content published with the date-based publisher.
 
-    !!! tip "User documentation"
-
-        You can also check user documentation on [advanced publishing options](https://doc.ibexa.co/projects/userguide/en/2.5/publishing/advanced_publishing_options)
+For more information, see [advanced publishing options](https://doc.ibexa.co/projects/userguide/en/2.5/publishing/advanced_publishing_options) in User Documentation.
 
 ### Form Builder
 
-!!! dxp
+!!! note
 
     The new Form Builder enables you to create Form content items with multiple form fields.
 
     ![Form Builder](2.3_form_builder.png)
 
-    You can preview and download submissions in the Back Office.
+    You can preview and download submissions in the back office.
 
     ![Form Builder submissions](2.3_form_builder_submissions.png)
 
     See [Extending Form Builder](https://doc.ibexa.co/en/2.5/guide/extending/extending_form_builder) for information on how to modify and create Form fields.
 
-    !!! tip "User documentation"
+For more information, see [forms](https://doc.ibexa.co/projects/userguide/en/2.5/creating_content_advanced/#forms) in User Documentation.
 
-        You can also check user documentation on [forms](https://doc.ibexa.co/projects/userguide/en/2.5/creating_content_advanced/#forms)
-
-### ImageAsset Field Type
+### ImageAsset field type
 
 You can now create a single source media library with images that can be reused across the system.
 
-See [Reusing images](https://doc.ibexa.co/en/2.5/guide/images/#reusing-images) and [ImageAsset Field Type reference](https://doc.ibexa.co/en/2.5/api/field_types_reference/imageassetfield) for more information.
+For more information, see [Reusing images](https://doc.ibexa.co/en/2.5/guide/images/#reusing-images) and [ImageAsset field type reference](https://doc.ibexa.co/en/2.5/api/field_types_reference/imageassetfield).
 
 ![Set up multiple relations with image](2.3_image_asset.png)
 
@@ -68,7 +64,7 @@ See [Reusing images](https://doc.ibexa.co/en/2.5/guide/images/#reusing-images) a
 A new `ezplatform:urls:regenerate-aliases` command enables you to regenerate all URL aliases.
 You can use it after changing URL alias configuration, or in case of database corruption.
 
-See [Regenerating URL aliases](https://doc.ibexa.co/en/2.5/guide/url_management/#regenerating-url-aliases) for more information.
+For more information, see [Regenerating URL aliases](https://doc.ibexa.co/en/2.5/guide/url_management/#regenerating-url-aliases).
 
 ### User preferences
 
@@ -76,7 +72,7 @@ You can now access and set user preferences in the user menu.
 
 ![User preferences screen with time zone settings](2.3_user_preferences.png)
 
-It is covered by the `user/preferences` Policy.
+It's covered by the `user/preferences` policy.
 
 ### Dates in preferred timezone
 
@@ -97,14 +93,14 @@ Improvements to the API cover:
 - [`ASSET` Relation type](https://github.com/ezsystems/ezpublish-kernel/blob/v7.3.0-rc2/eZ/Publish/Core/REST/Client/Input/Parser/Relation.php#L84)
 - `TrashItem->trashed` timestamp covers when a content item was placed in Trash
 
-#### Back Office translations
+#### Back office translations
 
-There are three new ways you can now contribute to Back Office translations:
+There are three new ways you can now contribute to back office translations:
 - translate in-context with bookmarks
 - translate in-context with console
 - translate directly on the Crowdin website
 
-See [How to translate the interface using Crowdin](https://doc.ibexa.co/en/2.5/community_resources/translations/#how-to-translate-the-interface-using-crowdin) for more information.
+For more information, see [How to translate the interface using Crowdin](https://doc.ibexa.co/en/2.5/community_resources/translations/#how-to-translate-the-interface-using-crowdin).
 
 ## Full list of new features, improvements and bug fixes since v2.2.0
 
