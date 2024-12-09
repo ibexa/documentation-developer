@@ -35,6 +35,11 @@ jobs:
             - name: Run PHP CS Fixer
               run: tools/php-cs-fixer/vendor/bin/php-cs-fixer fix --config=.php-cs-fixer.php -v --show-progress=dots
 
+            - name: Run Prettier
+              run: |
+                    yarn install
+                    yarn prettier-test --write
+
             - name: Commit changes
               uses: stefanzweifel/git-auto-commit-action@v4
               with:
