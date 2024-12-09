@@ -21,7 +21,7 @@ final class TextToTextOptionsType extends AbstractType
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
-            'translation_domain' => 'ibexa_connector_ai',
+            'translation_domain' => 'app_ai',
             'translation_mode' => false,
         ]);
 

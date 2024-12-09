@@ -4,8 +4,8 @@ namespace App\AI\Handler;
 
 use Ibexa\Contracts\ConnectorAi\Action\ActionHandlerInterface;
 use Ibexa\Contracts\ConnectorAi\Action\DataType\Text;
+use Ibexa\Contracts\ConnectorAi\Action\Response\TextResponse;
 use Ibexa\Contracts\ConnectorAi\Action\TextToText\Action as TextToTextAction;
-use Ibexa\Contracts\ConnectorAi\Action\TextToText\ActionResponse as TextToTextActionResponse;
 use Ibexa\Contracts\ConnectorAi\ActionInterface;
 use Ibexa\Contracts\ConnectorAi\ActionResponseInterface;
 use Symfony\Contracts\HttpClient\HttpClientInterface;
@@ -63,7 +63,7 @@ final class LLaVaTextToTextActionHandler implements ActionHandlerInterface
 
         $output = strip_tags(json_decode($response->getContent(), true)['choices'][0]['message']['content']);
 
-        return new TextToTextActionResponse(new Text([$output]));
+        return new TextResponse(new Text([$output]));
     }
 
     public static function getIdentifier(): string

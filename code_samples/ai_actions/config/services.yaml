@@ -62,9 +62,12 @@ services:
             - { name: ibexa.ai.action.handler, priority: 0 }
             - { name: app.connector_ai.action.handler.audio_to_text, priority: 0 }
 
+    Ibexa\Contracts\ConnectorAi\ActionConfiguration\OptionsFormatterInterface:
+        alias: Ibexa\ConnectorAi\ActionConfiguration\JsonOptionsFormatter
+
 #REST services
     App\AI\REST\Input\Parser\TranscribeAudio:
-        parent: Ibexa\ConnectorAi\REST\Input\Parser\Action
+        parent: Ibexa\Rest\Server\Common\Parser
         tags:
             - { name: ibexa.rest.input.parser, mediaType: application/vnd.ibexa.api.ai.TranscribeAudio }
 

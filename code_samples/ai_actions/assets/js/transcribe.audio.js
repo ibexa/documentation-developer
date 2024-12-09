@@ -1,6 +1,5 @@
 import BaseAIComponent from '../../vendor/ibexa/connector-ai/src/bundle/Resources/public/js/core/base.ai.component';
-
-export default class TranscribeAudio extends BaseAIComponent {
+export class TranscribeAudio extends BaseAIComponent {
     constructor(mainElement, config) {
         super(mainElement, config);
 
@@ -18,6 +17,9 @@ export default class TranscribeAudio extends BaseAIComponent {
 
         if (request.status === 200) {
             return this.convertToBase64(request.responseText);
+        }
+        else {
+            this.processError('Error occured when decoding the file.');
         }
     }
 

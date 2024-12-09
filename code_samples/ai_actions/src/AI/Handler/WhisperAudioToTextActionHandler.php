@@ -5,7 +5,7 @@ namespace App\AI\Handler;
 use App\AI\ActionType\TranscribeAudioActionType;
 use Ibexa\Contracts\ConnectorAi\Action\ActionHandlerInterface;
 use Ibexa\Contracts\ConnectorAi\Action\DataType\Text;
-use Ibexa\Contracts\ConnectorAi\Action\TextToText\ActionResponse;
+use Ibexa\Contracts\ConnectorAi\Action\Response\TextResponse;
 use Ibexa\Contracts\ConnectorAi\ActionInterface;
 use Ibexa\Contracts\ConnectorAi\ActionResponseInterface;
 use Symfony\Component\Process\Exception\ProcessFailedException;
@@ -55,7 +55,7 @@ final class WhisperAudioToTextActionHandler implements ActionHandlerInterface
 
         unlink($path);
 
-        return new ActionResponse(new Text([$output]));
+        return new TextResponse(new Text([$output]));
     }
 
     public static function getIdentifier(): string
