@@ -6,3 +6,5 @@ __pycache__/*
 .php-cs-fixer.cache
 composer.lock
 tools/php-cs-fixer/vendor
+node_modules/
+.yarn
