@@ -219,7 +219,7 @@ Example of updated query
 </td></tr>
 <tr><td colspan="2">The following query is made for several content types, and the content or location ID is injected before requesting it.
 <br>
-For example, `$criterion='locationId: 2';`</td></tr>
+For example, <code>$criterion='locationId: 2';</code></td></tr>
 <tr><td class="compare">
 ```
 {
