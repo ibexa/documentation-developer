@@ -168,6 +168,99 @@ php bin/console ibexa:migrations:migrate
 
 ## Update your custom code
 
+### GraphQL
+
+TODO: Confirm it happens between 3.3 and 4.0
+
+Some property names has changed and your GraphQL queries need to be updated.
+
+TODO: Complete the list of renamed elements
+
+| 3.3 name                     | 4.0 name                  |
+|:-----------------------------|:--------------------------|
+| `id`                         | `contentId`               |
+| `_info`                      | `_contentInfo`            |
+| `FolderContent`              | `FolderItem`              |
+| `<ContentType>Content`       | `<ContentType>Item`       |
+| `createFolderContent`        | `createFolderItem`        |
+| `create<ContentType>Content` | `create<ContentType>Item` |
+
+TODO: Example with more renamed elements
+
+Example of updated query
+
+<table>
+<thead><tr><th scope="col">3.3</th><th scope="col">4.0</th></tr></thead>
+<tbody>
+<tr><td class="compare">
+```graphql
+{
+  content {
+    folder(id: 1) {
+      _info {
+        name
+      }
+    }
+  }
+}
+```
+</td><td class="compare">
+```graphql
+{
+  content {
+    folder(contentId: 1) {
+       _contentInfo{
+        name
+      }
+    }
+  }
+}
+```
+</td></tr>
+<tr><td colspan="2">The following query is made for several content types, and the content or location ID is injected before requesting it.
+<br>
+For example, <code>$criterion='locationId: 2';</code></td></tr>
+<tr><td class="compare">
+```
+{
+  item ($criterion) {
+    ... on FolderContent {
+      name
+    }
+    ... on LandingPageContent {
+      name
+    }
+    ... on ArticleContent {
+      title
+      intro {
+        html5
+      }
+    }
+  }
+}
+```
+</td><td class="compare">
+```
+{
+  item (locationId: 2) {
+    ... on FolderItem {
+      name
+    }
+    ... on LandingPageItem {
+      name
+    }
+    ... on ArticleItem {
+      title
+      intro {
+        html5
+      }
+    }
+  }
+}
+```
+</td></tr>
+</tbody></table>
+
 ### Back office customization
 
 The v4 version of [[= product_name =]] is using Bootstrap 5 in the back office. If you were using Bootstrap 4 for styling, you need to update and adjust all custom back office components [following the migration guide from Bootstrap 4](https://getbootstrap.com/docs/5.0/migration/).
