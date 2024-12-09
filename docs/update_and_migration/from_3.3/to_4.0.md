@@ -168,6 +168,48 @@ php bin/console ibexa:migrations:migrate
 
 ## Update your custom code
 
+### GraphQL
+
+TODO: Confirm it happens between 3.3 and 4.0
+
+Some property names has changed and your GraphQL queries need to be updated.
+
+TODO: Complete the list of renamed elements
+
+| 3.3 name | 4.0 name |
+|:---------|:---------|
+|`_info`|`_contentInfo`|
+
+TODO: Example with more renamed elements
+
+Example of updated query
+
+<table><tbody><tr><td>
+```graphql
+{
+  content {
+    folder(id: 1) {
+      _info {
+        name
+      }
+    }
+  }
+}
+```
+</td><td>
+```graphql
+{
+  content {
+    folder(contentId: 1) {
+       _contentInfo{
+        name
+      }
+    }
+  }
+}
+```
+</td></tr></tbody></table>
+
 ### Back office customization
 
 The v4 version of [[= product_name =]] is using Bootstrap 5 in the back office. If you were using Bootstrap 4 for styling, you need to update and adjust all custom back office components [following the migration guide from Bootstrap 4](https://getbootstrap.com/docs/5.0/migration/).
