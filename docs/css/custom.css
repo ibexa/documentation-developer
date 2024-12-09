@@ -379,6 +379,10 @@ ul li li li {
     background-color: var(--table-header);
 }
 
+.md-typeset table td.compare {
+    border: 0.05rem solid var(--md-typeset-table-color)
+}
+
 .md-nav__link[data-md-state=blur] {
     color: rgb(19, 28, 38);
 }

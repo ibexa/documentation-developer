@@ -176,15 +176,23 @@ Some property names has changed and your GraphQL queries need to be updated.
 
 TODO: Complete the list of renamed elements
 
-| 3.3 name | 4.0 name |
-|:---------|:---------|
-|`_info`|`_contentInfo`|
+| 3.3 name                     | 4.0 name                  |
+|:-----------------------------|:--------------------------|
+| `id`                         | `contentId`               |
+| `_info`                      | `_contentInfo`            |
+| `FolderContent`              | `FolderItem`              |
+| `<ContentType>Content`       | `<ContentType>Item`       |
+| `createFolderContent`        | `createFolderItem`        |
+| `create<ContentType>Content` | `create<ContentType>Item` |
 
 TODO: Example with more renamed elements
 
 Example of updated query
 
-<table><tbody><tr><td>
+<table>
+<thead><tr><th scope="col">3.3</th><th scope="col">4.0</th></tr></thead>
+<tbody>
+<tr><td class="compare">
 ```graphql
 {
   content {
@@ -196,7 +204,7 @@ Example of updated query
   }
 }
 ```
-</td><td>
+</td><td class="compare">
 ```graphql
 {
   content {
@@ -208,7 +216,50 @@ Example of updated query
   }
 }
 ```
-</td></tr></tbody></table>
+</td></tr>
+<tr><td colspan="2">The following query is made for several content types, and the content or location ID is injected before requesting it.
+<br>
+For example, `$criterion='locationId: 2';`</td></tr>
+<tr><td class="compare">
+```
+{
+  item ($criterion) {
+    ... on FolderContent {
+      name
+    }
+    ... on LandingPageContent {
+      name
+    }
+    ... on ArticleContent {
+      title
+      intro {
+        html5
+      }
+    }
+  }
+}
+```
+</td><td class="compare">
+```
+{
+  item ($criterion) {
+    ... on FolderContent {
+      name
+    }
+    ... on LandingPageContent {
+      name
+    }
+    ... on ArticleContent {
+      title
+      intro {
+        html5
+      }
+    }
+  }
+}
+```
+</td></tr>
+</tbody></table>
 
 ### Back office customization
 
