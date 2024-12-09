@@ -242,14 +242,14 @@ For example, <code>$criterion='locationId: 2';</code></td></tr>
 </td><td class="compare">
 ```
 {
-  item ($criterion) {
-    ... on FolderContent {
+  item (locationId: 2) {
+    ... on FolderItem {
       name
     }
-    ... on LandingPageContent {
+    ... on LandingPageItem {
       name
     }
-    ... on ArticleContent {
+    ... on ArticleItem {
       title
       intro {
         html5
