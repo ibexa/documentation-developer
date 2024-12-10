@@ -1,6 +1,9 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}{{ node.name }} | {{ parent() }}{% endblock %}
+{% block meta %}
+    <meta name="description" content="{{ node.summary }}" />
+{% endblock %}
 
 {% block content %}
     {% include 'components/breadcrumbs.html.twig' %}
