@@ -1,5 +1,5 @@
 import BaseAIComponent from '../../vendor/ibexa/connector-ai/src/bundle/Resources/public/js/core/base.ai.component';
-export class TranscribeAudio extends BaseAIComponent {
+export default class TranscribeAudio extends BaseAIComponent {
     constructor(mainElement, config) {
         super(mainElement, config);
 
