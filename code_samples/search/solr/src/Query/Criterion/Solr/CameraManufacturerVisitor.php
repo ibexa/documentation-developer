@@ -21,7 +21,7 @@ final class CameraManufacturerVisitor extends CriterionVisitor
             function ($value): string {
                 return 'exif_camera_manufacturer_id:"' . $this->escapeQuote((string) $value) . '"';
             },
-            property_exists($criterion, 'value')?(array)$criterion->value:[]
+            property_exists($criterion, 'value') ? (array)$criterion->value : []
         );
 
         return '(' . implode(' OR ', $expressions) . ')';

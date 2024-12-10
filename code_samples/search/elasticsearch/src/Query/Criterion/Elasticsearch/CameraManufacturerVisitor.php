@@ -20,7 +20,7 @@ final class CameraManufacturerVisitor implements CriterionVisitor
         /** @var \Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion $criterion */
         return [
             'terms' => [
-                'exif_camera_manufacturer_id' => property_exists($criterion, 'value')?(array)$criterion->value:[],
+                'exif_camera_manufacturer_id' => property_exists($criterion, 'value') ? (array)$criterion->value : [],
             ],
         ];
     }
