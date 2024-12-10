@@ -1,5 +1,7 @@
 {% extends 'base.html.twig' %}
 
+{% block title %}{{ node.name }} | {{ project.name }} (Ibexa Documentation){% endblock %}
+
 {% block content %}
     {% include 'components/breadcrumbs.html.twig' %}
     {% include 'components/namespace-title.html.twig' with { add_edition: true } %}
