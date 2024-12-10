@@ -15,6 +15,9 @@ final class CameraManufacturerVisitor implements CriterionVisitor
         return $criterion instanceof CameraManufacturerCriterion;
     }
 
+    /**
+     * @param \App\Query\Criterion\Elasticsearch\CameraManufacturerCriterion $criterion
+     */
     public function visit(CriterionVisitor $dispatcher, CriterionInterface $criterion, LanguageFilter $languageFilter): array
     {
         return [

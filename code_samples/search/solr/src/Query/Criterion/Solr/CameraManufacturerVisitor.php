@@ -14,6 +14,9 @@ final class CameraManufacturerVisitor extends CriterionVisitor
         return $criterion instanceof CameraManufacturerCriterion;
     }
 
+    /**
+     * @param \App\Query\Criterion\Solr\CameraManufacturerCriterion $criterion
+     */
     public function visit(CriterionInterface $criterion, CriterionVisitor $subVisitor = null)
     {
         $expressions = array_map(
