@@ -1,6 +1,6 @@
 ---
 description: Create and configure custom Page blocks to add customized content to Pages.
-month_change: true
+month_change: false
 ---
 
 # Create custom Page block

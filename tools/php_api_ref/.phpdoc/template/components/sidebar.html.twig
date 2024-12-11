@@ -11,7 +11,7 @@
                         <ul class="md-nav__list">
                             <li></li>
                             {% for namespace in project.namespace.children %}
-                                {% include 'components/menu.html.twig' with { entry: namespace, depth: 0 } %}
+                                {% include 'components/menu.html.twig' with { entry: namespace, depth: 0, nav_id: loop.index } %}
                                 {% set break = true %}
                             {% endfor %}
                         </ul>

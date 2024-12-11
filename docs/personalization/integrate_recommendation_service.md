@@ -1,6 +1,6 @@
 ---
 description: Integrate recommendation service into your website.
-month_change: true
+month_change: false
 ---
 
 # Integrate recommendation service

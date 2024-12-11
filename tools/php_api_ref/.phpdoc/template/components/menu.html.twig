@@ -3,7 +3,7 @@
         {% for child in entry.children %}
             {% include 'components/menu-entry.html.twig' with {
                 title: entry.name|shortFQSEN ~ ' ' ~ child.name|shortFQSEN,
-                nav_id: loop.index,
+                nav_id: nav_id ~ '-' ~ loop.index,
                 expanded: true,
                 entry: child,
             } %}
