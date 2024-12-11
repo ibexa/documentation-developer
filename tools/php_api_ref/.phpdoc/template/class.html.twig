@@ -1,5 +1,11 @@
 {% extends 'base.html.twig' %}
 
+{% block title %}{{ node.name }} | {{ parent() }}{% endblock %}
+{% block meta %}
+    <meta name="description" content="{{ node.summary|escape }}" />
+    {{ parent() }}
+{% endblock %}
+
 {% block content %}
     {% include 'components/breadcrumbs.html.twig' %}
     {% include 'components/class-title.html.twig' with { symfony_version: symfony_version } %}
