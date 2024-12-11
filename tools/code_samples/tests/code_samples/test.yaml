@@ -1,0 +1,5 @@
+ibexa:
+    tests:
+        - first: true
+        - visible: false
+        - second: true

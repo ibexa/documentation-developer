@@ -1,0 +1,43 @@
+
+tools/code_samples/tests/code_samples/test.js
+
+docs/tests.md@3:```js
+docs/tests.md@4:--8<--
+docs/tests.md@5:tools/code_samples/tests/code_samples/test.js
+docs/tests.md@6:--8<--
+docs/tests.md@7:```
+
+001⫶let test=true;
+002⫶console.log(test);
+
+
+tools/code_samples/tests/code_samples/test.php
+
+docs/tests.md@9:```php hl_lines="2"
+docs/tests.md@10:[[= include_file('tools/code_samples/tests/code_samples/test.php', 2, 3) =]]
+docs/tests.md@11:```
+
+001⫶$test=true;
+
+docs/tests.md@13:```shell
+docs/tests.md@14:# Mustn't happen
+docs/tests.md@15:php tools/code_samples/tests/code_samples/test.php
+docs/tests.md@16:```
+
+001⫶# Mustn't happen
+002⫶php tools/code_samples/tests/code_samples/test.php
+
+
+tools/code_samples/tests/code_samples/test.yaml
+
+docs/tests.md@18:```yaml
+docs/tests.md@19:# test.yaml
+docs/tests.md@20:[[= include_file('tools/code_samples/tests/code_samples/test.yaml', 0, 3) =]][[= include_file('tools/code_samples/tests/code_samples/test.yaml', 4, 5) =]]
+docs/tests.md@21:```
+
+001⫶# test.yaml
+002⫶ibexa:
+003⫶    tests:
+004⫶        - first: true
+005⫶        - second: true
+
