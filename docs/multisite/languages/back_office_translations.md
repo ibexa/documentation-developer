@@ -117,5 +117,5 @@ The language to display is then selected automatically based on [user preference
 
 !!! note
 
-    Run `composer run post-update-cmd` which installs your JavaScript translations by using the `BazingaJsTranslationBundle`, and clears the default SiteAccess cache.
+    Run `composer run post-update-cmd` which installs your JavaScript translations by using `BazingaJsTranslationBundle`, and clears the default SiteAccess cache.
     Run `php bin/console cache:clear --siteaccess=admin` to clear the back office cache (adapt SiteAccess if needed).
