@@ -28,15 +28,6 @@ They can be referenced as relative to the root, for example `assets/js/script.j
 
 All project assets are accessible through the `assets` path.
 
-??? note "Removing `assets` manually"
-
-    If you ever remove the `assets` folder manually, you need to dump translations before performing
-    the `yarn encore <dev|prod>` command:
-    
-    ```
-    php bin/console bazinga:js-translation:dump assets --merge-domains
-    ```
-
 ## Configuration
 
 You project's configuration is placed in the respective files in `config/packages`.
