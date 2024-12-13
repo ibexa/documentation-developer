@@ -524,7 +524,7 @@ If you rely on them in your project, for example by using Symfony's `ObjectNorma
 composer require symfony/serializer-pack
 ```
 
-and verify that Symfony Flex installs the versions you were using before.
+Then, verify that Symfony Flex installed the versions you were using before.
 
 
 ## Finish the update
