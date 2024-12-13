@@ -514,6 +514,18 @@ Adjust the web server configuration to prevent direct access to the `index.php` 
 
 See [the updated Apache and nginx template files](https://github.com/ibexa/post-install/pull/70/files) for more information.
 
+### Removed `symfony/serializer-pack` dependency
+
+This release no longer directly requires the `symfony/serializer-pack` Composer dependency, which can remove some dependencies from your project during the update process.
+
+If you rely on them in your project and need to continue using them, run the following command before updating Ibexa packages:
+
+``` bash
+composer require symfony/serializer-pack
+```
+
+and verify that Symfony Flex installs the versions you were using before.
+
 
 ## Finish the update
 
