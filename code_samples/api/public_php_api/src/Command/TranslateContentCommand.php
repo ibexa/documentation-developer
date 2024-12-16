@@ -43,7 +43,7 @@ class TranslateContentCommand extends Command
         $user = $this->userService->loadUserByLogin('admin');
         $this->permissionResolver->setCurrentUserReference($user);
 
-        $contentId = $input->getArgument('contentId');
+        $contentId = (int) $input->getArgument('contentId');
         $language = $input->getArgument('language');
         $newName = $input->getArgument('nameInNewLanguage');
         $secondaryLanguage = $input->getArgument('secondaryLanguage');
