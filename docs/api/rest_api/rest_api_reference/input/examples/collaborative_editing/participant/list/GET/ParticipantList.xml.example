@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<ParticipantList media-type="application/vnd.ibexa.api.ParticipantList+xml">
+    <Participant media-type="application/vnd.ibexa.api.InternalParticipant+xml">
+        <id>__FIXED_ID__</id>
+        <name>Anonymous User</name>
+        <scope>edit</scope>
+        <User href="/api/ibexa/v2/user/users/__FIXED_ID__" media-type="application/vnd.ibexa.api.User+xml"/>
+        <createdAt>__CREATED_AT__</createdAt>
+        <updatedAt>__UPDATED_AT__</updatedAt>
+    </Participant>
+    <Participant media-type="application/vnd.ibexa.api.ExternalParticipant+xml">
+        <id>__FIXED_ID__</id>
+        <name>guest-foo@example.com</name>
+        <scope>view</scope>
+        <email>guest-foo@example.com</email>
+        <createdAt>__CREATED_AT__</createdAt>
+        <updatedAt>__UPDATED_AT__</updatedAt>
+    </Participant>
+</ParticipantList>

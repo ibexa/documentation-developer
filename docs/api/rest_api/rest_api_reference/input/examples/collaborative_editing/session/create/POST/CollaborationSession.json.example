@@ -1,0 +1,39 @@
+{
+    "CollaborationSession": {
+        "_media-type": "application/vnd.ibexa.api.CollaborationSession+json",
+        "id": 17,
+        "token": "f637f415-688a-4655-a3c5-e209e2bd6771",
+        "createdAt": "2024-11-14T11:34:40+00:00",
+        "updatedAt": "2024-11-14T11:34:40+00:00",
+        "ParticipantList": {
+            "_media-type": "application/vnd.ibexa.api.ParticipantList+json",
+            "Participants": [
+                {
+                    "_media-type": "application/vnd.ibexa.api.InternalParticipant+json",
+                    "id": 39,
+                    "name": "Administrator User",
+                    "scope": "edit",
+                    "User": {
+                        "_media-type": "application/vnd.ibexa.api.User+json",
+                        "_href": "/api/ibexa/v2/user/users/14"
+                    },
+                    "createdAt": "2024-11-14T11:34:41+00:00",
+                    "updatedAt": "2024-11-14T11:34:41+00:00"
+                },
+                {
+                    "_media-type": "application/vnd.ibexa.api.ExternalParticipant+json",
+                    "id": 40,
+                    "name": "user@link.invalid",
+                    "scope": "view",
+                    "email": "user@link.invalid",
+                    "createdAt": "2024-11-14T11:34:41+00:00",
+                    "updatedAt": "2024-11-14T11:34:41+00:00"
+                }
+            ]
+        },
+        "Owner": {
+            "_media-type": "application/vnd.ibexa.api.User+json",
+            "_href": "/api/ibexa/v2/user/users/14"
+        }
+    }
+}
