@@ -38,7 +38,7 @@ class DeleteContentCommand extends Command
         $user = $this->userService->loadUserByLogin('admin');
         $this->permissionResolver->setCurrentUserReference($user);
 
-        $locationId = $input->getArgument('locationId');
+        $locationId = (int) $input->getArgument('locationId');
 
         $location = $this->locationService->loadLocation($locationId);
 
