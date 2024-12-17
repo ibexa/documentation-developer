@@ -7,6 +7,7 @@
      "scss": "node-sass --watch scss -o docs/css"
   },
   "dependencies": {
-    "node-sass": "^9.0.0"
+    "node-sass": "^9.0.0",
+    "redoc": "2.1.5"
   }
 }
