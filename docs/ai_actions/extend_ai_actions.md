@@ -23,10 +23,10 @@ This action is parameterized with the [RuntimeContext](../api/php_api/php_api_re
 
 | Type of context | Type of options | Usage | Example |
 |---|---|---|---|
-| Runtime Context | Runtime options | Set additional parameters that are relevant to the specific action that is currently executed | Information about the language of the content that is being processed |
+| Runtime Context | Runtime options | Sets additional parameters that are relevant to the specific action that is currently executed | Information about the language of the content that is being processed |
 | Action Context | Action Type options | Sets additional parameters for the Action Type | Information about the expected response length |
-| Action Context | Action Handler options |Set additional parameters for the Action Handler | Information about the model, temperature, prompt, and max tokens allowed. |
-| Action Context | System options | Set additional information, not matching the other option collections | Information about the fallback locale |
+| Action Context | Action Handler options | Sets additional parameters for the Action Handler | Information about the model, temperature, prompt, and max tokens allowed |
+| Action Context | System options | Sets additional information, not matching the other option collections | Information about the fallback locale |
 
 Both `ActionContext` and `RuntimeContext` are passed to the Action Handler (an object implementing the [ActionHandlerInterface](../api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorAi-Action-ActionHandlerInterface.html)) to execute the action. The Action Handler is responsible for combining all the options together, sending them to the AI service and returning an [ActionResponse](../api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorAi-ActionResponseInterface.html).
 
@@ -65,9 +65,9 @@ To manage Action Configurations through the PHP API, you need to use the [Action
 
 You can manage them using the following methods:
 
-- Create them with `ActionConfigurationServiceInterface::createActionConfiguration()`, passing the [ActionConfigurationCreateStruct](../api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorAi-ActionConfiguration-ActionConfigurationCreateStruct.html).
-- Update them with `ActionConfigurationServiceInterface::updateActionConfiguration()`, passing the [ActionConfigurationUpdateStruct](../api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorAi-ActionConfiguration-ActionConfigurationUpdateStruct.html).
-- Delete them with `ActionConfigurationServiceInterface::deleteActionConfiguration()`, passing the [ActionConfigurationInterface](../api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorAi-ActionConfigurationInterface.html).
+- Creating them with `ActionConfigurationServiceInterface::createActionConfiguration()` by passing the [ActionConfigurationCreateStruct](../api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorAi-ActionConfiguration-ActionConfigurationCreateStruct.html).
+- Updating them with `ActionConfigurationServiceInterface::updateActionConfiguration()` by passing the [ActionConfigurationUpdateStruct](../api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorAi-ActionConfiguration-ActionConfigurationUpdateStruct.html).
+- Deleting them with `ActionConfigurationServiceInterface::deleteActionConfiguration()` by passing the [ActionConfigurationInterface](../api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorAi-ActionConfigurationInterface.html).
 
 See the [AI Actions event reference](ai_action_events.md#action-configurations-management) for a list of events related to these operations.
 
@@ -326,7 +326,7 @@ This template embeds the AI component, but only if a dedicated `transcript` fiel
 
 And add it to the SiteAccess configuration for the `admin_group`:
 ``` yaml
-[[= include_file('code_samples/ai_actions/config/packages/ibexa_admin_ui.yaml', 4, 5) =]][[= include_file('code_samples/ai_actions/config/packages/ibexa_admin_ui.yaml', 13, 15) =]][[= include_file('code_samples/ai_actions/config/packages/ibexa_admin_ui.yaml', 84) =]]
+[[= include_file('code_samples/ai_actions/config/packages/ibexa_admin_ui.yaml') =]]
 ```
 
 The configuration of the AI component takes the following parameters:
@@ -362,7 +362,7 @@ And include it into the back office using Webpack Encore.
 See [configuring assets from main project files](importing_assets_from_bundle.md#configuration-from-main-project-files) to learn more about this mechanism.
 
 ``` js
-[[= include_file('code_samples/ai_actions/webpack.config.js', 39, 47) =]]
+[[= include_file('code_samples/ai_actions/webpack.config.js') =]]
 ```
 
 Your custom Action Type is now fully integrated into the back office UI and can be used by the Editors.
