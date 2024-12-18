@@ -5,41 +5,43 @@ month_change: true
 
 # Extend AI Actions
 
-By extending AI Actions you can enhance the attractiveness of mundane content management and editing tasks and make them less burdensome.
-You can start by integrating additional AI services to the existing action types or develop custom ones affecting completely new areas of application.
-For example, you could write a handler that connects to a translation model and use it to translate your website on-the-fly, or generate illustrations based on a body of an article.
+By extending AI Actions, you can make regular content management and editing tasks more appealing and less demanding.
+You can start by integrating additional AI services to the existing action types or develop custom ones that impact completely new areas of application.
+For example, you can create a handler that connects to a translation model and use it to translate your website on-the-fly, or generate illustrations based on a body of an article.
 
 ## Execute Actions
+
 You can execute AI Actions by using the [ActionServiceInterface](../api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorAi-ActionServiceInterface.html) service, as in the following example:
 
 ``` php
 [[= include_file('code_samples/ai_actions/src/Command/AddMissingAltTextCommand.php', 101, 120) =]]
 ```
 
-The `GenerateAltTextAction` is a built-in action implementing the [ActionInterface](../api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorAi-ActionInterface.html), taking an [Image](../api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorAi-Action-DataType-Image.html) as an input and generating the alternative text in the response.
+The `GenerateAltTextAction` is a built-in action that implements the [ActionInterface](../api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorAi-ActionInterface.html), takes an [Image](../api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorAi-Action-DataType-Image.html) as an input, and generates the alternative text in the response.
 
-This action is parameterized using the [RuntimeContext](../api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorAi-Action-RuntimeContext.html) and the [ActionContext](../api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorAi-Action-ActionContext.html), allowing you to pass additional options to the Action before it's executed.
+This action is parameterized with the [RuntimeContext](../api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorAi-Action-RuntimeContext.html) and the [ActionContext](../api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorAi-Action-ActionContext.html), which allows you to pass additional options to the Action before it's executed.
 
-| Type of context | Type of options | Usage | In the example |
+| Type of context | Type of options | Usage | Example |
 |---|---|---|---|
-| Runtime Context | Runtime options | Set additional parameters that are relevant to the specific action that is currently executed | Information about the language of the content that is being processed. |
-| Action Context | Action Type options | Set additional parameters for the Action Type | Information about the expected response length. |
+| Runtime Context | Runtime options | Set additional parameters that are relevant to the specific action that is currently executed | Information about the language of the content that is being processed |
+| Action Context | Action Type options | Sets additional parameters for the Action Type | Information about the expected response length |
 | Action Context | Action Handler options |Set additional parameters for the Action Handler | Information about the model, temperature, prompt, and max tokens allowed. |
 | Action Context | System options | Set additional information, not matching the other option collections | Information about the fallback locale |
 
 Both `ActionContext` and `RuntimeContext` are passed to the Action Handler (an object implementing the [ActionHandlerInterface](../api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorAi-Action-ActionHandlerInterface.html)) to execute the action. The Action Handler is responsible for combining all the options together, sending them to the AI service and returning an [ActionResponse](../api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorAi-ActionResponseInterface.html).
 
-You can pass the Action Handler directly to the `ActionServiceInterface::execute()` method, overriding all the other ways of selecting the Action Handler.
-You can also specify the Action Handler by making it part of the passed [Action Configuration](#action-configurations).
+You can pass the Action Handler directly to the `ActionServiceInterface::execute()` method, which overrides all the other ways of selecting the Action Handler.
+You can also specify the Action Handler by including it in the provided [Action Configuration](#action-configurations).
 In other cases, the Action Handler is selected automatically. 
-You can influence this choice by creating your own class implementing the [ActionHandlerResolverInterface](../api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorAi-Action-ActionHandlerResolverInterface.html) or by listening to the [ResolveActionHandlerEvent](../api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorAi-Events-ResolveActionHandlerEvent.html) Event that the default implementation emits.
+You can affect this choice by creating your own class implementing the [ActionHandlerResolverInterface](../api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorAi-Action-ActionHandlerResolverInterface.html) or by listening to the [ResolveActionHandlerEvent](../api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorAi-Events-ResolveActionHandlerEvent.html) Event sent by the default implementation.
 
 You can influence the execution of an Action with two events:
 
 - [BeforeExecuteEvent](../api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorAi-Action-Event-BeforeExecuteEvent.html), fired before the Action is executed
 - [ExecuteEvent](../api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorAi-Action-Event-ExecuteEvent.html), fired after the Action is executed
 
-Below you can find the full example of a Symfony Command, together with a matching service definition. The command finds the images modified in the last 24 hours, and adds the alternative text to them if it's missing.
+Below you can find the full example of a Symfony Command, together with a matching service definition.
+The command finds the images modified in the last 24 hours, and adds the alternative text to them if it's missing.
 
 ``` php hl_lines="87 100-125"
 [[= include_file('code_samples/ai_actions/src/Command/AddMissingAltTextCommand.php') =]]
@@ -49,15 +51,17 @@ Below you can find the full example of a Symfony Command, together with a matchi
 [[= include_file('code_samples/ai_actions/config/services.yaml', 25, 28) =]]
 ```
 
-Executing Actions this way has a major drawback: all the parameters are stored directly in the code and cannot be easily reused or changed. To manage configurations of an AI Action you need to use another concept: Action Configurations.
+Executing Actions this way has a major drawback: all the parameters are stored directly in the code and cannot be easily reused or changed.
+To manage configurations of an AI Action you need to use another concept: Action Configurations.
 
 ## Action Configurations
 
 ### Manage Action Configurations
 
-Action Configurations allow you to store the parameters for a given Action in the database and reuse them when needed. They can be managed [through the back office]([[= user_doc =]]/ai_actions/work_with_ai_actions.md), through [data migrations](importing_data.md#ai-action-configurations), and through the PHP API.
+Action Configurations allow you to store the parameters for a given Action in the database and reuse them when needed.
+They can be managed [through the back office]([[= user_doc =]]/ai_actions/work_with_ai_actions.md), [data migrations](importing_data.md#ai-action-configurations), or through the PHP API.
 
-To manage Action Configurations through the PHP API use the [ActionConfigurationServiceInterface](../api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorAi-ActionConfigurationServiceInterface.html) service.
+To manage Action Configurations through the PHP API, you need to use the [ActionConfigurationServiceInterface](../api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorAi-ActionConfigurationServiceInterface.html) service.
 
 You can manage them using the following methods:
 
@@ -67,7 +71,8 @@ You can manage them using the following methods:
 
 See the [AI Actions event reference](ai_action_events.md#action-configurations-management) for a list of events related to these operations.
 
-You can get a specific Action Configuration using the `ActionConfigurationServiceInterface::getActionConfiguration()` method and search for them using the `ActionConfigurationServiceInterface::findActionConfigurations()` method. See [Action Configuration Search Criteria reference](action_configuration_criteria.md) and [Action Configuration Search Sort Clauses reference](action_configuration_sort_clauses.md) to discover query possibilities.
+You can get a specific Action Configuration using the `ActionConfigurationServiceInterface::getActionConfiguration()` method and search for them using the `ActionConfigurationServiceInterface::findActionConfigurations()` method.
+See [Action Configuration Search Criteria reference](action_configuration_criteria.md) and [Action Configuration Search Sort Clauses reference](action_configuration_sort_clauses.md) to discover query possibilities.
 
 The following example creates a new Action Configuration:
 
@@ -79,7 +84,8 @@ Actions Configurations are tied to a specific Action Type and are translatable.
 
 ### Execute Actions with Action Configurations
 
-Reuse existing Action Configurations to simplify the execution of AI Actions. You can pass one directly to the `ActionServiceInterface::execute()` method:
+Reuse existing Action Configurations to simplify the execution of AI Actions.
+You can pass one directly to the `ActionServiceInterface::execute()` method:
 
 ``` php hl_lines="7-8"
 [[= include_file('code_samples/ai_actions/src/Command/ActionConfigurationCreateCommand.php', 77, 85) =]]
@@ -90,7 +96,7 @@ The `ActionServiceInterface` service extracts the configuration options from the
 
 - Action Type options are mapped to Action Type options in the Action Context
 - Action Handler options are mapped to Action Handler options in the Action Context
-- Use the [ContextEvent](ai_action_events.md#others) event to modify the System Context options.
+- System Context options are modified using the [ContextEvent](ai_action_events.md#others) event
 
 ## Create custom Action Handler
 
@@ -102,7 +108,7 @@ The following example adds a new Action Handler connecting to a local AI run usi
 
 Create a class implementing the [ActionHandlerInterface](../api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorAi-Action-ActionHandlerInterface.html) and register it as a service:
 
-- The `ActionHandlerInterface::supports()` method decided whether the Action Handler is able to execute given Action.
+- The `ActionHandlerInterface::supports()` method decides whether the Action Handler is able to execute given Action.
 - The `ActionHandlerInterface::handle()` method is responsible for combining all the Action options together, sending them to the AI service and forming an Action Response.
 - The `ActionHandlerInterface::getIdentifier()` method returns the identifier of the Action Handler which you can use to refer to it in other places in the code.
 
@@ -136,9 +142,12 @@ The example handler uses the `system_prompt` option, which becomes part of the A
 [[= include_file('code_samples/ai_actions/config/services.yaml', 34, 41) =]]
 ```
 
-The created Form Type adds the `system_prompt` field to the Form. Use the `Ibexa\Bundle\ConnectorAi\Form\FormMapper\ActionConfiguration\ActionHandlerOptionsFormMapper` class together with the `ibexa.connector_ai.action_configuration.form_mapper.options` service tag to make it part of the Action Handler options form. Pass the Action Handler identifier (`LLaVATextToText`) as the type when tagging the service.
+The created Form Type adds the `system_prompt` field to the Form.
+Use the `Ibexa\Bundle\ConnectorAi\Form\FormMapper\ActionConfiguration\ActionHandlerOptionsFormMapper` class together with the `ibexa.connector_ai.action_configuration.form_mapper.options` service tag to make it part of the Action Handler options form.
+Pass the Action Handler identifier (`LLaVATextToText`) as the type when tagging the service.
 
-The Action Handler and Action Type options are rendered in the back office using the built-in Twig option formatter. You can create your own formatting by creating a class implementing the [OptionsFormatterInterface](../api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorAi-ActionConfiguration-OptionsFormatterInterface.html) interface and aliasing it to `Ibexa\Contracts\ConnectorAi\ActionConfiguration\OptionsFormatterInterface`.
+The Action Handler and Action Type options are rendered in the back office using the built-in Twig option formatter.
+You can create your own formatting by creating a class implementing the [OptionsFormatterInterface](../api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorAi-ActionConfiguration-OptionsFormatterInterface.html) interface and aliasing it to `Ibexa\Contracts\ConnectorAi\ActionConfiguration\OptionsFormatterInterface`.
 
 The following service definition switches the options rendering to the other built-in option formatter, displaying the options as JSON.
 
@@ -148,13 +157,15 @@ The following service definition switches the options rendering to the other bui
 
 ## Custom Action Type use case
 
-With custom Action Types you can create your own tasks for the AI services to perform. They can be integrated with the rest of the AI framework provided by [[= product_name_base =]] and incorporated into the back office.
+With custom Action Types you can create your own tasks for the AI services to perform.
+They can be integrated with the rest of the AI framework provided by [[= product_name_base =]] and incorporated into the back office.
 
 The following example shows how to implement a custom Action Type dedicated for transcribing audio with an example Handler using [the OpenAI's Whisper](https://github.com/openai/whisper) project.
 
 ### Create custom Action Type
 
-Start by creating your own Action Type, a class implementing the [ActionTypeInterface](../api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorAi-ActionType-ActionTypeInterface.html). The class needs to define Action Type's:
+Start by creating your own Action Type, a class implementing the [ActionTypeInterface](../api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorAi-ActionType-ActionTypeInterface.html).
+The class needs to define following  parameters of the Action Type:
 
 - name
 - identifier
@@ -170,11 +181,14 @@ Start by creating your own Action Type, a class implementing the [ActionTypeInte
 [[= include_file('code_samples/ai_actions/config/services.yaml', 42, 50) =]]
 ```
 
-The service definition introduces a custom `app.connector_ai.action.handler.audio_to_text` service tag to mark all the handlers capable of working with this Action Type. The `ibexa.ai.action.type` service tag registers the class in the service container as a new Action Type.
+The service definition introduces a custom `app.connector_ai.action.handler.audio_to_text` service tag to mark all the handlers capable of working with this Action Type.
+The `ibexa.ai.action.type` service tag registers the class in the service container as a new Action Type.
 
-If the Action Type is meant to be used mainly with prompt-based systems you can use the [LLMBaseActionTypeInterface](../api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorAi-Action-LLMBaseActionTypeInterface.html) interface as the base for your Action Type. This allows you to define a base prompt directly in the Action Type that can be common for all Action Configurations.
+If the Action Type is meant to be used mainly with prompt-based systems you can use the [LLMBaseActionTypeInterface](../api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorAi-Action-LLMBaseActionTypeInterface.html) interface as the base for your Action Type.
+It allows you to define a base prompt directly in the Action Type that can be common for all Action Configurations.
 
-Action Type names can be localized using the Translation component. See the built-in Action Types like Generate Alt Text or Refine Text for an example.
+Action Type names can be localized using the Translation component.
+See the built-in Action Types like Generate Alt Text or Refine Text for an example.
 
 ### Create custom Data classes
 
@@ -194,7 +208,8 @@ The `TranscribeAudio` Action Type requires adding two data classes that exists i
 
 ### Create custom Action Type options form
 
-Custom Form Type is needed if the Action Type requires additional options configurable in the UI. The following example adds a checkbox field that indicates to the Action Handler whether the transcription should include the timestamps.
+Custom Form Type is needed if the Action Type requires additional options configurable in the UI.
+The following example adds a checkbox field that indicates to the Action Handler whether the transcription should include the timestamps.
 
 ``` php hl_lines="16-20"
 [[= include_file('code_samples/ai_actions/src/Form/Type/TranscribeAudioOptionsType.php') =]]
@@ -208,7 +223,9 @@ The built-in `Ibexa\Bundle\ConnectorAi\Form\FormMapper\ActionConfiguration\Actio
 
 ### Create custom Action Handler
 
-An example Action Handler combines the input data and the Action Type options and passes them to the Whisper executable to form an Action Response. The language of the transcribed data is extracted from the Runtime Context for better results. The Action Type options provided in the Action Context dictate whether the timestamps will be removed before returning the result.
+An example Action Handler combines the input data and the Action Type options and passes them to the Whisper executable to form an Action Response.
+The language of the transcribed data is extracted from the Runtime Context for better results.
+The Action Type options provided in the Action Context dictate whether the timestamps will be removed before returning the result.
 
 ``` php hl_lines="34-37 52-55"
 [[= include_file('code_samples/ai_actions/src/AI/Handler/WhisperAudioToTextActionHandler.php') =]]
@@ -220,9 +237,12 @@ An example Action Handler combines the input data and the Action Type options an
 
 ### Integrate with the REST API
 
-At this point the custom Action Type can already be executed by using the PHP API. To integrate it with the [AI Actions execute endpoint](../api/rest_api/rest_api_reference/rest_api_reference.html#ai-actions-execute-ai-action) you need to create additional classes responsible for parsing the request and response data. See [adding custom media type](adding_custom_media_type.md) and [creating new REST resource](creating_new_rest_resource.md) to learn more about extending the REST API.
+At this point the custom Action Type can already be executed by using the PHP API.
+To integrate it with the [AI Actions execute endpoint](../api/rest_api/rest_api_reference/rest_api_reference.html#ai-actions-execute-ai-action) you need to create additional classes responsible for parsing the request and response data.
+See [adding custom media type](adding_custom_media_type.md) and [creating new REST resource](creating_new_rest_resource.md) to learn more about extending the REST API.
 
 #### Handle input data
+
 Start by creating an Input Parser able to handle the `application/vnd.ibexa.api.ai.TranscribeAudio` media type.
 
 ``` php
@@ -240,6 +260,7 @@ The `TranscribeAudioAction` is a value object holding the parsed request data.
 ```
 
 #### Handle output data
+
 To transform the `TranscribeAudioAction` into a REST response you need to create:
 
 - An `AudioText` value object holding the REST response data
@@ -248,7 +269,8 @@ To transform the `TranscribeAudioAction` into a REST response you need to create
 [[= include_file('code_samples/ai_actions/src/AI/REST/Value/AudioText.php') =]]
 ```
 
-- A resolver converting the Action Response returned from the PHP API layer into the `AudioText` object. The resolver is activated when `application/vnd.ibexa.api.ai.AudioText` media type is specified in the `Accept` header:
+- A resolver converting the Action Response returned from the PHP API layer into the `AudioText` object.
+The resolver is activated when `application/vnd.ibexa.api.ai.AudioText` media type is specified in the `Accept` header:
 
 ``` php
 [[= include_file('code_samples/ai_actions/src/AI/REST/Output/Resolver/AudioTextResolver.php') =]]
@@ -294,7 +316,8 @@ Content-Type: application/vnd.ibexa.api.ai.TranscribeAudio+json
 
 The last step in fully integrating the Transcribe Audio Action Type embeds it directly into the back office, allowing Editors to invoke it while doing their daily work.
 
-Extend the default editing template of the `ezbinaryfile` fieldtype by creating a new file called `templates/themes/admin/admin/ui/fieldtype/edit/form_fields_binary_ai.html.twig`. This template embeds the AI component, but only if a dedicated `transcript` field (of `eztext` type) is available in the same content type to store the content of the transcription.
+Extend the default editing template of the `ezbinaryfile` fieldtype by creating a new file called `templates/themes/admin/admin/ui/fieldtype/edit/form_fields_binary_ai.html.twig`.
+This template embeds the AI component, but only if a dedicated `transcript` field (of `eztext` type) is available in the same content type to store the content of the transcription.
 
 
 ``` twig
@@ -311,8 +334,8 @@ The configuration of the AI component takes the following parameters:
 - `module_id` - name of the JavaScript module to handle the invoked action. `ImgToText` is a built-in one handling alternative text use case, `TranscribeAudio` is a custom one.
 - `ai_config_id` - identifier of the Action Type to load Action Configurations for. The [ibexa_ai_config Twig function](ai_actions_twig_functions.md#ibexa_ai_config) is used under the hood.
 - `container_selector` - CSS selector to narrow down the HTML area which is affected by the AI component.
-- `input_selector` - CSS selector indicating the input field (must be the below the `container_selector` in the HTML structure).
-- `output_selector` - CSS selector indicating the output field (must be the below the `container_selector` in the HTML structure).
+- `input_selector` - CSS selector indicating the input field (must be below the `container_selector` in the HTML structure).
+- `output_selector` - CSS selector indicating the output field (must be below the `container_selector` in the HTML structure).
 - `cancel_wrapper_selector` - CSS selector indicating the element to which the "Cancel AI" UI element is attached.
 
 Now create the JavaScript module mentioned in the template that is responsible for:
@@ -335,7 +358,8 @@ Create a file called `assets/js/addAudioModule.js`:
 [[= include_file('code_samples/ai_actions/assets/js/addAudioModule.js') =]]
 ```
 
-And include it into the back office using Webpack Encore. See [configuring assets from main project files](importing_assets_from_bundle.md#configuration-from-main-project-files) to learn more about this mechanism.
+And include it into the back office using Webpack Encore.
+See [configuring assets from main project files](importing_assets_from_bundle.md#configuration-from-main-project-files) to learn more about this mechanism.
 
 ``` js
 [[= include_file('code_samples/ai_actions/webpack.config.js', 39, 47) =]]
