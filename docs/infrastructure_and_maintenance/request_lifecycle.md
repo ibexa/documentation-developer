@@ -14,11 +14,11 @@ For an overview of what happens on a reverse proxy like Varnish or Fastly, see [
 When arriving at a web server, the request is filtered by Apache virtual host, Nginx Server Blocks, or equivalent.
 There, requests of static resources are separated from requests to PHP interpreter.
 
-As [[= product_name =]] is a Symfony application, the handling of requests starts like in Symfony (see [Symfony and HTTP Fundamentals](https://symfony.com/doc/current/introduction/http_fundamentals.html)).
+As [[= product_name =]] is a Symfony application, the handling of requests starts like in Symfony (see [Symfony and HTTP Fundamentals]([[= symfony_doc =]]/introduction/http_fundamentals.html)).
 
-If the HTTP request is to be treated by [[= product_name =]], it goes to the `public/index.php` of the [Symfony Front Controller](https://symfony.com/doc/current/configuration/front_controllers_and_kernel.html#the-front-controller).
+If the HTTP request is to be treated by [[= product_name =]], it goes to the `public/index.php` of the [Symfony Front Controller]([[= symfony_doc =]]/configuration/front_controllers_and_kernel.html#the-front-controller).
 
-The front controller transforms the HTTP request into a PHP [`Request` object](https://symfony.com/doc/current/introduction/http_fundamentals.html#symfony-request-object) and passes it to Symfony's Kernel to get a [`Response` object](https://symfony.com/doc/current/introduction/http_fundamentals.html#symfony-response-object) that is transformed and sent back as an HTTP response.
+The front controller transforms the HTTP request into a PHP [`Request` object]([[= symfony_doc =]]/introduction/http_fundamentals.html#symfony-request-object) and passes it to Symfony's Kernel to get a [`Response` object]([[= symfony_doc =]]/introduction/http_fundamentals.html#symfony-response-object) that is transformed and sent back as an HTTP response.
 
 The schemas start with a regular `Request` object from a browser that enters Symfony and [[= product_name =]].
 There is no ESI, no REST, and no GraphQL request performed.
@@ -63,7 +63,7 @@ This schema is described below event by event.
 
 ## Kernel's request event
 
-When the request enters the Symfony's kernel (and goes underneath the [`HttpKernel`](https://symfony.com/doc/current/components/http_kernel.html), `http_kernel`), a `kernel.request` event (`KernelEvents::REQUEST`) is dispatched.
+When the request enters the Symfony's kernel (and goes underneath the [`HttpKernel`]([[= symfony_doc =]]/components/http_kernel.html), `http_kernel`), a `kernel.request` event (`KernelEvents::REQUEST`) is dispatched.
 Several listeners are called in decreasing priority.
 
 ### SiteAccess matching
@@ -97,7 +97,7 @@ The `DefaultRouter` is always added to the collection with top priority (priorit
 #### `DefaultRouter`
 
 `DefaultRouter` (`router.default`):
-The `DefaultRouter` tries to match the `semanticPathinfo` against routes, close to [the way pure Symfony does](https://symfony.com/doc/current/routing.html), by extending and using `Symfony\Component\Routing\Router`.
+The `DefaultRouter` tries to match the `semanticPathinfo` against routes, close to [the way pure Symfony does]([[= symfony_doc =]]/routing.html), by extending and using `Symfony\Component\Routing\Router`.
 If a route matches, the controller associated with it is responsible for building a `View` or `Response` object.
 
 ### `UrlWildcardRouter`
@@ -154,7 +154,7 @@ The `HttpKernel` then dispatches a `kernel.controller_arguments` (`KernelEvents:
 ## Controller execution
 
 The `HttpKernel` extracts from the request the controller and the arguments to pass to the controller.
-[Argument resolvers](https://symfony.com/doc/5.4/controller/argument_value_resolver.html) work in a way similar to autowiring.
+[Argument resolvers]([[= symfony_doc =]]/controller/argument_value_resolver.html) work in a way similar to autowiring.
 The `HttpKernel` executes the controller with those arguments.
 
 As a reminder, the controller and its argument can be:
