@@ -27,7 +27,7 @@ class CustomLimitationType implements Type
         }
     }
 
-    /** @return \Ibexa\Core\FieldType\ValidationError[] */
+    /** @return \Ibexa\Contracts\Core\FieldType\ValidationError[] */
     public function validate(Limitation $limitationValue): array
     {
         $validationErrors = [];
