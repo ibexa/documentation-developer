@@ -724,6 +724,14 @@ div.pills {
     background-color: var(--ibexa-jazzberry);
 }
 
+.optional-pill::after {
+    content: "Optional";
+}
+
+.optional-pill {
+    background-color: var(--sherpa-blue);
+}
+
 .md-clipboard:focus, .md-clipboard:hover {
   color: var(--ibexa-jazzberry);
 }
@@ -1631,6 +1639,11 @@ ul.breadcrumbs li.breadcrumb-item-current span {
 .md-typeset .content-header .commerce-pill {
     color: var(--ibexa-jazzberry);
     border: 1px solid var(--ibexa-jazzberry);
+}
+
+.md-typeset .content-header .optional-pill {
+    color: var(--sherpa-blue);
+    border: 1px solid var(--sherpa-blue);
 }
 
 .md-typeset .content-header img {

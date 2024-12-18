@@ -1,0 +1,8 @@
+{
+    "GenerateAltText": {
+        "Image": {
+            "base64": "abcdefghijkl"
+        },
+        "RuntimeContext": {}
+    }
+}
