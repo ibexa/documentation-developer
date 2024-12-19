@@ -8,6 +8,10 @@
     add_edition: true,
 } %}
     {% block subheader %}
+        {% if node.isAbstract %}
+            <div class="content-header__subheader">Abstract</div>
+        {% endif %}
+
         {% if node.parent %}
             <div class="content-header__subheader">
                 {% if node.parent.__toString starts with '\\Symfony\\' %}
@@ -39,4 +43,5 @@
             </div>
         {% endif %}
     {% endblock %}
+
 {% endembed %}
