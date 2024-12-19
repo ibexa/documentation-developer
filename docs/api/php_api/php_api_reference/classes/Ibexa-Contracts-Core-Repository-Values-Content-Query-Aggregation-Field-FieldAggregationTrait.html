@@ -2,10 +2,12 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-            <title>PHP API Reference (Ibexa Documentation)</title>
+            <title>FieldAggregationTrait | PHP API Reference (Ibexa Documentation)</title>
     
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <base href="../">
+        <meta name="description" content="" />
+        
+    <base href="../">
     <link rel="icon" href="images/favicon.png"/>
             <link rel="stylesheet" href="css/base.css">
         <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css">
@@ -36996,20 +36998,25 @@
         </span>
     </li>
 </ul>
+    
+<div class="content-header">
+            <div class="pills">
+                
+                    
+            </div>
+        <h1 id="FieldAggregationTrait">
+        FieldAggregationTrait            </h1>
+            <button class="content-header__copy-fqcn copy-to-clipboard" title="Ibexa\Contracts\Core\Repository\Values\Content\Query\Aggregation\Field\FieldAggregationTrait" data-copy-value="Ibexa\Contracts\Core\Repository\Values\Content\Query\Aggregation\Field\FieldAggregationTrait">Copy FQCN</button>
+        <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/core/src/contracts/Repository/Values/Content/Query/Aggregation/Field/FieldAggregationTrait.php">
+        <abbr title="vendor/ibexa/core/src/contracts/Repository/Values/Content/Query/Aggregation/Field/FieldAggregationTrait.php">FieldAggregationTrait.php</abbr>
+                :
+        <span title="at line 11">11</span>
+                <img src="./images/copy.svg" title="Copy path" />
+    </div>
+            <div class="content-header__subheader">Trait</div>
 
-    <article class="phpdocumentor-element -trait">
-        <h2 class="phpdocumentor-content__title">
-    FieldAggregationTrait
-    </h2>
-
-        <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="vendor/ibexa/core/src/contracts/Repository/Values/Content/Query/Aggregation/Field/FieldAggregationTrait.php"><a href="files/vendor-ibexa-core-src-contracts-repository-values-content-query-aggregation-field-fieldaggregationtrait.html"><abbr title="vendor/ibexa/core/src/contracts/Repository/Values/Content/Query/Aggregation/Field/FieldAggregationTrait.php">FieldAggregationTrait.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">11</span>
-
-    </aside>
-
-        
+                </div>
+    
 
 
                             
@@ -37022,11 +37029,8 @@
 
 
 
-
-
-        
-
-        
+    
+    
         <h2 id="properties">
             Properties<a class="headerlink" href="classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Aggregation-Field-FieldAggregationTrait.html#properties" title="Permanent link">¶</a>
 </h2>
@@ -37100,8 +37104,7 @@
 </div>
                     
                                                                             </section>
-
-        
+    
     <h2 id="methods">
         Methods<a class="headerlink" href="classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Aggregation-Field-FieldAggregationTrait.html#methods" title="Permanent link">¶</a>
 </h2>
@@ -37178,101 +37181,7 @@
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type">string</p>
                         
-    
-        <div class="phpdocumentor-modal" id="source-view">
-    <div class="phpdocumentor-modal-bg" data-exit-button></div>
-    <div class="phpdocumentor-modal-container">
-        <div class="phpdocumentor-modal-content">
-            <pre style="max-height: 500px; overflow-y: scroll" data-src="files/vendor/ibexa/core/src/contracts/Repository/Values/Content/Query/Aggregation/Field/FieldAggregationTrait.php.txt" class="language-php line-numbers linkable-line-numbers"></pre>
-        </div>
-        <button data-exit-button class="phpdocumentor-modal__close">&times;</button>
-    </div>
-</div>
-
-    <script type="text/javascript">
-        (function () {
-            function loadExternalCodeSnippet(el, url, line) {
-                Array.prototype.slice.call(el.querySelectorAll('pre[data-src]')).forEach((pre) => {
-                    const src = url || pre.getAttribute('data-src').replace(/\\/g, '/');
-                    const language = 'php';
-
-                    const code = document.createElement('code');
-                    code.className = 'language-' + language;
-                    pre.textContent = '';
-                    pre.setAttribute('data-line', line)
-                    code.textContent = 'Loading…';
-                    pre.appendChild(code);
-
-                    var xhr = new XMLHttpRequest();
-
-                    xhr.open('GET', src, true);
-
-                    xhr.onreadystatechange = function () {
-                        if (xhr.readyState !== 4) {
-                            return;
-                        }
-
-                        if (xhr.status < 400 && xhr.responseText) {
-                            code.textContent = xhr.responseText;
-                            Prism.highlightElement(code);
-                            return;
-                        }
-
-                        if (xhr.status === 404) {
-                            code.textContent = '✖ Error: File could not be found';
-                            return;
-                        }
-
-                        if (xhr.status >= 400) {
-                            code.textContent = '✖ Error ' + xhr.status + ' while fetching file: ' + xhr.statusText;
-                            return;
-                        }
-
-                        code.textContent = '✖ Error: An unknown error occurred';
-                    };
-
-                    xhr.send(null);
-                });
-            }
-
-            const modalButtons = document.querySelectorAll("[data-modal]");
-            const openedAsLocalFile = window.location.protocol === 'file:';
-            if (modalButtons.length > 0 && openedAsLocalFile) {
-                console.warn(
-                    'Viewing the source code is unavailable because you are opening this page from the file:// scheme; ' +
-                    'browsers block XHR requests when a page is opened this way'
-                );
-            }
-
-            modalButtons.forEach(function (trigger) {
-                if (openedAsLocalFile) {
-                    trigger.setAttribute("hidden", "hidden");
-                }
-
-                trigger.addEventListener("click", function (event) {
-                    event.preventDefault();
-                    const modal = document.getElementById(trigger.dataset.modal);
-                    if (!modal) {
-                        console.error(`Modal with id "${trigger.dataset.modal}" could not be found`);
-                        return;
-                    }
-                    modal.classList.add("phpdocumentor-modal__open");
-
-                    loadExternalCodeSnippet(modal, trigger.dataset.src || null, trigger.dataset.line)
-                    const exits = modal.querySelectorAll("[data-exit-button]");
-                    exits.forEach(function (exit) {
-                        exit.addEventListener("click", function (event) {
-                            event.preventDefault();
-                            modal.classList.remove("phpdocumentor-modal__open");
-                        });
-                    });
-                });
-            });
-        })();
-    </script>
-
-    </article>
-                        </div>
+                            </div>
                     </article>
                 </div>
 
@@ -37281,33 +37190,50 @@
                             <div class="md-sidebar__inner">
                                 <nav class="md-nav md-nav--secondary" aria-label="">
                                                 
-    <section class="phpdocumentor-on-this-page__content">
-        <strong class="phpdocumentor-on-this-page__title">On this page</strong>
-
-        <ul class="phpdocumentor-list -clean">
-            <li class="phpdocumentor-on-this-page-section__title">Table Of Contents</li>
-            <li>
-                <ul class="phpdocumentor-list -clean">
-                                                            <li><a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Aggregation-Field-FieldAggregationTrait.html#toc-properties">Properties</a></li>
-                                                            <li><a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Aggregation-Field-FieldAggregationTrait.html#toc-methods">Methods</a></li>
-                                    </ul>
+            <label class="md-nav__title" for="__toc" title="FieldAggregationTrait">
+            FieldAggregationTrait
+        </label>
+    
+    <ul class="md-nav__list">
+                            <li class="md-nav__item level-1 with-children">
+                <a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Aggregation-Field-FieldAggregationTrait.html#properties" title="Properties" class="md-nav__link">
+                    Properties
+                </a>
+                <nav class="md-nav">
+                    <ul class="md-nav__list">
+                                                                                                            <li class="md-nav__item level-2">
+                                    <a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Aggregation-Field-FieldAggregationTrait.html#property_contentTypeIdentifier" title="contentTypeIdentifier" class="md-nav__link">
+                                        contentTypeIdentifier
+                                    </a>
+                                </li>
+                                                                                                                                                <li class="md-nav__item level-2">
+                                    <a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Aggregation-Field-FieldAggregationTrait.html#property_fieldDefinitionIdentifier" title="fieldDefinitionIdentifier" class="md-nav__link">
+                                        fieldDefinitionIdentifier
+                                    </a>
+                                </li>
+                                                                                                        </ul>
+                </nav>
             </li>
-                                    <li class="phpdocumentor-on-this-page-section__title">Properties</li>
-            <li>
-                <ul class="phpdocumentor-list -clean">
-                                            <li class=""><a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Aggregation-Field-FieldAggregationTrait.html#property_contentTypeIdentifier">$contentTypeIdentifier</a></li>
-                                            <li class=""><a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Aggregation-Field-FieldAggregationTrait.html#property_fieldDefinitionIdentifier">$fieldDefinitionIdentifier</a></li>
-                                    </ul>
+                            <li class="md-nav__item level-1 with-children">
+                <a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Aggregation-Field-FieldAggregationTrait.html#methods" title="Methods" class="md-nav__link">
+                    Methods
+                </a>
+                <nav class="md-nav">
+                    <ul class="md-nav__list">
+                                                    <li class="md-nav__item level-2">
+                                <a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Aggregation-Field-FieldAggregationTrait.html#method_getContentTypeIdentifier" title="getContentTypeIdentifier" class="md-nav__link">
+                                    getContentTypeIdentifier()
+                                </a>
+                            </li>
+                                                    <li class="md-nav__item level-2">
+                                <a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Aggregation-Field-FieldAggregationTrait.html#method_getFieldDefinitionIdentifier" title="getFieldDefinitionIdentifier" class="md-nav__link">
+                                    getFieldDefinitionIdentifier()
+                                </a>
+                            </li>
+                                            </ul>
+                </nav>
             </li>
-                                    <li class="phpdocumentor-on-this-page-section__title">Methods</li>
-            <li>
-                <ul class="phpdocumentor-list -clean">
-                                            <li class=""><a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Aggregation-Field-FieldAggregationTrait.html#method_getContentTypeIdentifier">getContentTypeIdentifier()</a></li>
-                                            <li class=""><a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Aggregation-Field-FieldAggregationTrait.html#method_getFieldDefinitionIdentifier">getFieldDefinitionIdentifier()</a></li>
-                                    </ul>
-            </li>
-                    </ul>
-    </section>
+            </ul>
 
                                 </nav>
                             </div>
