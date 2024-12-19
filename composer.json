@@ -26,6 +26,8 @@
         "ibexa/rest": "5.0.x-dev",
         "ibexa/http-cache": "5.0.x-dev",
         "ibexa/core-persistence": "5.0.x-dev",
+        "ibexa/connector-ai": "5.0.x-dev",
+        "ibexa/connector-openai": "5.0.x-dev",
         "ibexa/migrations": "5.0.x-dev",
         "ibexa/icons": "5.0.x-dev",
         "ibexa/cart": "5.0.x-dev",

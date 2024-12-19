@@ -102,8 +102,7 @@ Procedures are straightforward and intuitive, ensuring that users can quickly ac
 
 AI Actions LTS update exposes a REST API interface that allows for programmatic execution of AI actions.
 With the API, developers can automate tasks and execute actions on batches of content by integrating them into workflows.
-<!---By issuing commands through the API, developers can trigger actions based on external events:
-...--->
+For more information, see the [AI actions section in the REST API Reference](../api/rest_api/rest_api_reference/rest_api_reference.html#ai-actions-execute-ai-action).
 
 ## Capabilities
 

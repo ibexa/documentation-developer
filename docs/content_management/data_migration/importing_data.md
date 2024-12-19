@@ -47,6 +47,7 @@ The following data migration step modes are available:
 
 | `type`                 | `create` | `update` | `delete` | `swap`   |
 |------------------------|:--------:|:--------:|:--------:|:--------:|
+| `action_configuration` | &#10004; | &#10004; | &#10004; |          |
 | `attribute`            | &#10004; | &#10004; | &#10004; |          |
 | `attribute_group`      | &#10004; | &#10004; | &#10004; |          |
 | `content_type`         | &#10004; | &#10004; | &#10004; |          |
@@ -476,6 +477,26 @@ When updating a content type, use:
 
 ``` yaml
 [[= include_file('code_samples/data_migration/examples/update_tag.yaml') =]]
+```
+
+### AI action configurations
+
+- The following example shows how you can create a new action configuration in your system:
+
+``` yaml
+[[= include_file('code_samples/data_migration/examples/ai/action_configuration_create.yaml') =]]
+```
+
+- Use the `update` mode to modify an existing action configuration:
+
+``` yaml
+[[= include_file('code_samples/data_migration/examples/ai/action_configuration_update.yaml') =]]
+```
+
+- Use the `delete` mode to delete an existing action configuration:
+
+``` yaml
+[[= include_file('code_samples/data_migration/examples/ai/action_configuration_delete.yaml') =]]
 ```
 
 ## Criteria
