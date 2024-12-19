@@ -19,6 +19,8 @@
         "ibexa/doctrine-schema": "4.6.x-dev",
         "ibexa/search": "4.6.x-dev",
         "ibexa/content-forms": "4.6.x-dev",
+        "ibexa/connector-ai": "4.6.x-dev",
+        "ibexa/connector-openai": "4.6.x-dev",
         "ibexa/design-engine": "4.6.x-dev",
         "ibexa/user": "4.6.x-dev",
         "ibexa/notifications": "4.6.x-dev",
