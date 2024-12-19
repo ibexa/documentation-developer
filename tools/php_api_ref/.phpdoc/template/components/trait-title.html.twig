@@ -1,0 +1,23 @@
+{% set breadcrumbs = usesNamespaces ? breadcrumbs(node) : packages(node) %}
+{% set fqcn = breadcrumbs|map(breadcrumb => breadcrumb.name)|join('\\') ~ '\\' ~ node.name %}
+
+{% embed 'components/content-header.html.twig' with { 
+    anchor: node.name,
+    anchor_link: '#' ~ node.name,
+    fqcn,
+    add_edition: true,
+} %}
+    {% block subheader %}
+        <div class="content-header__subheader">Trait</div>
+
+        {% if node.usedTraits is not empty %}
+            <div class="content-header__subheader">
+                Uses
+                {% for trait in node.usedTraits %}
+                    {{ trait|route('class:short') }}{% if not loop.last %}, {% endif %}
+                {% endfor %}
+            </div>
+        {% endif %}
+    {% endblock %}
+
+{% endembed %}
