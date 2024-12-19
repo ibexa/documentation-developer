@@ -37026,10 +37026,11 @@ validating the Value object and to generate criteria for content/location search
         <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/core/src/contracts/Limitation/Type.php">
         <abbr title="vendor/ibexa/core/src/contracts/Limitation/Type.php">Type.php</abbr>
                 :
-        <span title="at line 34">34</span>
+        <span title="at line 46">46</span>
                 <img src="./images/copy.svg" title="Copy path" />
     </div>
         </div>
+    <p>The type abstains from voting.</p>
 
 <div class="highlight">
     <table class="highlighttable">
@@ -37049,6 +37050,13 @@ validating the Value object and to generate criteria for content/location search
         </tbody>
     </table>
 </div>
+    <section class="phpdocumentor-description">
+        <p>Constant for return value of <a href="classes/Ibexa-Contracts-Core-Limitation-Type.html#method_evaluate"><abbr title="\Ibexa\Contracts\Core\Limitation\Type::evaluate()">Type::evaluate()</abbr></a>.</p>
+<p>Returning ACCESS_ABSTAIN must mean that evaluate does not support the provided $object or $targets,
+this is only supported by role limitations as policy limitations should not allow this.</p>
+<p>Note: In future version constant values might change to 1, 0 and -1 as used in Symfony.</p>
+
+    </section>
                             
             <div class="content-header">
         <h3 id="constant_ACCESS_DENIED">
@@ -37057,10 +37065,11 @@ validating the Value object and to generate criteria for content/location search
         <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/core/src/contracts/Limitation/Type.php">
         <abbr title="vendor/ibexa/core/src/contracts/Limitation/Type.php">Type.php</abbr>
                 :
-        <span title="at line 35">35</span>
+        <span title="at line 57">57</span>
                 <img src="./images/copy.svg" title="Copy path" />
     </div>
         </div>
+    <p>Access is denied.</p>
 
 <div class="highlight">
     <table class="highlighttable">
@@ -37080,6 +37089,11 @@ validating the Value object and to generate criteria for content/location search
         </tbody>
     </table>
 </div>
+    <section class="phpdocumentor-description">
+        <p>Constant for return value of <a href="classes/Ibexa-Contracts-Core-Limitation-Type.html#method_evaluate"><abbr title="\Ibexa\Contracts\Core\Limitation\Type::evaluate()">Type::evaluate()</abbr></a>.</p>
+<p>Note: In future version constant values might change to 1, 0 and -1 as used in Symfony.</p>
+
+    </section>
                             
             <div class="content-header">
         <h3 id="constant_ACCESS_GRANTED">
@@ -37088,11 +37102,11 @@ validating the Value object and to generate criteria for content/location search
         <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/core/src/contracts/Limitation/Type.php">
         <abbr title="vendor/ibexa/core/src/contracts/Limitation/Type.php">Type.php</abbr>
                 :
-        <span title="at line 33">33</span>
+        <span title="at line 32">32</span>
                 <img src="./images/copy.svg" title="Copy path" />
     </div>
         </div>
-    <p>Constants for return value of {@see evaluate()}.</p>
+    <p>Access is granted.</p>
 
 <div class="highlight">
     <table class="highlighttable">
@@ -37113,8 +37127,7 @@ validating the Value object and to generate criteria for content/location search
     </table>
 </div>
     <section class="phpdocumentor-description">
-        <p>Currently ACCESS_ABSTAIN must mean that evaluate does not support the provided $object or $targets,
-this is currently only supported by role limitations as policy limitations should not allow this.</p>
+        <p>Constant for return value of <a href="classes/Ibexa-Contracts-Core-Limitation-Type.html#method_evaluate"><abbr title="\Ibexa\Contracts\Core\Limitation\Type::evaluate()">Type::evaluate()</abbr></a>.</p>
 <p>Note: In future version constant values might change to 1, 0 and -1 as used in Symfony.</p>
 
     </section>
@@ -37126,11 +37139,11 @@ this is currently only supported by role limitations as policy limitations shoul
         <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/core/src/contracts/Limitation/Type.php">
         <abbr title="vendor/ibexa/core/src/contracts/Limitation/Type.php">Type.php</abbr>
                 :
-        <span title="at line 43">43</span>
+        <span title="at line 66">66</span>
                 <img src="./images/copy.svg" title="Copy path" />
     </div>
         </div>
-    <p>Constants for valueSchema() return values.</p>
+    <p>Limitation&#039;s value must be an array of location IDs.</p>
 
 <div class="highlight">
     <table class="highlighttable">
@@ -37151,8 +37164,8 @@ this is currently only supported by role limitations as policy limitations shoul
     </table>
 </div>
     <section class="phpdocumentor-description">
-        <p>Used in cases where a certain value is accepted but the options are to many to return as a hash of options.
-GUI should typically present option to browse content tree to select limitation value(s).</p>
+        <p>Constant for <a href="classes/Ibexa-Contracts-Core-Limitation-Type.html#method_valueSchema"><abbr title="\Ibexa\Contracts\Core\Limitation\Type::valueSchema()">Type::valueSchema()</abbr></a> return values.</p>
+<p>GUI should typically present option to browse content tree to select limitation value(s).</p>
 
     </section>
                             
@@ -37163,10 +37176,11 @@ GUI should typically present option to browse content tree to select limitation 
         <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/core/src/contracts/Limitation/Type.php">
         <abbr title="vendor/ibexa/core/src/contracts/Limitation/Type.php">Type.php</abbr>
                 :
-        <span title="at line 44">44</span>
+        <span title="at line 75">75</span>
                 <img src="./images/copy.svg" title="Copy path" />
     </div>
         </div>
+    <p>Limitation&#039;s value must be an array of location paths.</p>
 
 <div class="highlight">
     <table class="highlighttable">
@@ -37186,6 +37200,11 @@ GUI should typically present option to browse content tree to select limitation 
         </tbody>
     </table>
 </div>
+    <section class="phpdocumentor-description">
+        <p>Constant for <a href="classes/Ibexa-Contracts-Core-Limitation-Type.html#method_valueSchema"><abbr title="\Ibexa\Contracts\Core\Limitation\Type::valueSchema()">Type::valueSchema()</abbr></a> return values.</p>
+<p>GUI should typically present option to browse content tree to select limitation value(s).</p>
+
+    </section>
                             
         
     <h2 id="methods">
@@ -37200,7 +37219,7 @@ GUI should typically present option to browse content tree to select limitation 
         <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/core/src/contracts/Limitation/Type.php">
         <abbr title="vendor/ibexa/core/src/contracts/Limitation/Type.php">Type.php</abbr>
                 :
-        <span title="at line 55">55</span>
+        <span title="at line 86">86</span>
                 <img src="./images/copy.svg" title="Copy path" />
     </div>
         </div>
@@ -37284,7 +37303,7 @@ GUI should typically present option to browse content tree to select limitation 
         <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/core/src/contracts/Limitation/Type.php">
         <abbr title="vendor/ibexa/core/src/contracts/Limitation/Type.php">Type.php</abbr>
                 :
-        <span title="at line 78">78</span>
+        <span title="at line 109">109</span>
                 <img src="./images/copy.svg" title="Copy path" />
     </div>
         </div>
@@ -37353,7 +37372,7 @@ the reverse relation is provided by means of identifier lookup (Value has identi
         <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/core/src/contracts/Limitation/Type.php">
         <abbr title="vendor/ibexa/core/src/contracts/Limitation/Type.php">Type.php</abbr>
                 :
-        <span title="at line 97">97</span>
+        <span title="at line 128">128</span>
                 <img src="./images/copy.svg" title="Copy path" />
     </div>
         </div>
@@ -37456,7 +37475,7 @@ objects, if null: none where provided by caller</p>
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type">bool|null</p>
                 <section class="phpdocumentor-description">
-        <p>Returns one of ACCESS_* constants</p>
+        <p>Returns one of ACCESS_* constants, <a href="classes/Ibexa-Contracts-Core-Limitation-Type.html#constant_ACCESS_GRANTED"><abbr title="\Ibexa\Contracts\Core\Limitation\Type::ACCESS_GRANTED">Type::ACCESS_GRANTED</abbr></a>, <a href="classes/Ibexa-Contracts-Core-Limitation-Type.html#constant_ACCESS_ABSTAIN"><abbr title="\Ibexa\Contracts\Core\Limitation\Type::ACCESS_ABSTAIN">Type::ACCESS_ABSTAIN</abbr></a>, or <a href="classes/Ibexa-Contracts-Core-Limitation-Type.html#constant_ACCESS_DENIED"><abbr title="\Ibexa\Contracts\Core\Limitation\Type::ACCESS_DENIED">Type::ACCESS_DENIED</abbr></a>.</p>
 
     </section>
 
@@ -37501,7 +37520,7 @@ Example if OwnerLimitationValue-&gt;limitationValues[0] is not one of: [ 1,  2 ]
         <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/core/src/contracts/Limitation/Type.php">
         <abbr title="vendor/ibexa/core/src/contracts/Limitation/Type.php">Type.php</abbr>
                 :
-        <span title="at line 110">110</span>
+        <span title="at line 141">141</span>
                 <img src="./images/copy.svg" title="Copy path" />
     </div>
         </div>
@@ -37598,7 +37617,7 @@ being used as a Criterion.</p>
         <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/core/src/contracts/Limitation/Type.php">
         <abbr title="vendor/ibexa/core/src/contracts/Limitation/Type.php">Type.php</abbr>
                 :
-        <span title="at line 66">66</span>
+        <span title="at line 97">97</span>
                 <img src="./images/copy.svg" title="Copy path" />
     </div>
         </div>
@@ -37666,7 +37685,7 @@ being used as a Criterion.</p>
         <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/core/src/contracts/Limitation/Type.php">
         <abbr title="vendor/ibexa/core/src/contracts/Limitation/Type.php">Type.php</abbr>
                 :
-        <span title="at line 119">119</span>
+        <span title="at line 151">151</span>
                 <img src="./images/copy.svg" title="Copy path" />
     </div>
         </div>
@@ -37683,7 +37702,7 @@ being used as a Criterion.</p>
                 </td>
                 <td class="code">
                     <div>
-                        <pre><code><span class="phpdocumentor-signature__visibility">public </span><span class="phpdocumentor-signature__name">valueSchema</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;|int</span></code></pre>
+                        <pre><code><span class="phpdocumentor-signature__visibility">public </span><span class="phpdocumentor-signature__name">valueSchema</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string, string&gt;|<abbr title="\Ibexa\Contracts\Core\Limitation\Traversable">Traversable</abbr>|int</span></code></pre>
                     </div>
                 </td>
             </tr>
@@ -37693,11 +37712,12 @@ being used as a Criterion.</p>
 <div class="phpdocumentor-label-line">
     </div>
     <h4>Return values</h4>
-    <p class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;|int</p>
+    <p class="phpdocumentor-signature__response_type">array&lt;string, string&gt;|<abbr title="\Ibexa\Contracts\Core\Limitation\Traversable">Traversable</abbr>|int</p>
                 <section class="phpdocumentor-description">
-        <p>In case of array, a hash with key as valid limitations value and value as human readable name
-of that option, in case of int on of VALUE_SCHEMA_* constants.
-Note: The hash might be an instance of Traversable, and not a native php array.</p>
+        <p>In case of array, a hash with key as valid limitations value and value as human-readable name
+of that option. Note: The hash might be an instance of Traversable instead of a native PHP array.
+In case of int, one of VALUE_SCHEMA_* constants. Used in cases where a certain value is accepted
+but the options are too many to return as a hash of options.</p>
 
     </section>
 
