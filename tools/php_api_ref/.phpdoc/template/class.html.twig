@@ -52,12 +52,16 @@
                 </a>
                 <nav class="md-nav">
                     <ul class="md-nav__list">
+                        {% set treated_properties = [] %}
                         {% for property in properties|sortByVisibility %}
-                            <li class="md-nav__item level-2">
-                                <a href="{{ link(property) }}" title="{{ property.name }}" class="md-nav__link">
-                                    {{ property.name }}
-                                </a>
-                            </li>
+                            {% if property.__toString() not in treated_properties %}
+                                <li class="md-nav__item level-2">
+                                    <a href="{{ link(property) }}" title="{{ property.name }}" class="md-nav__link">
+                                        {{ property.name }}
+                                    </a>
+                                </li>
+                                {% set treated_properties = treated_properties|merge([property.__toString()]) %}
+                            {% endif %}
                         {% endfor %}
                     </ul>
                 </nav>
