@@ -54,7 +54,7 @@ class SectionCommand extends Command
 
         $sectionName = $input->getArgument('sectionName');
         $sectionIdentifier = $input->getArgument('sectionIdentifier');
-        $contentId = $input->getArgument('contentId');
+        $contentId = (int) $input->getArgument('contentId');
 
         $sectionCreateStruct = $this->sectionService->newSectionCreateStruct();
         $sectionCreateStruct->name = $sectionName;

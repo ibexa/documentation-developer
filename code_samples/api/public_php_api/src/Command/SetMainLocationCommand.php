@@ -41,8 +41,8 @@ class SetMainLocationCommand extends Command
         $user = $this->userService->loadUserByLogin('admin');
         $this->permissionResolver->setCurrentUserReference($user);
 
-        $contentId = $input->getArgument('contentId');
-        $locationId = $input->getArgument('locationId');
+        $contentId = (int) $input->getArgument('contentId');
+        $locationId = (int) $input->getArgument('locationId');
 
         $contentInfo = $this->contentService->loadContentInfo($contentId);
 

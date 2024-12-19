@@ -41,7 +41,7 @@ class UpdateContentCommand extends Command
         $user = $this->userService->loadUserByLogin('admin');
         $this->permissionResolver->setCurrentUserReference($user);
 
-        $contentId = $input->getArgument('contentId');
+        $contentId = (int) $input->getArgument('contentId');
         $newName = $input->getArgument('newName');
 
         $contentInfo = $this->contentService->loadContentInfo($contentId);

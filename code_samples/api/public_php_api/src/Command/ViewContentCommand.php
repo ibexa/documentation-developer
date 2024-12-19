@@ -37,7 +37,7 @@ class ViewContentCommand extends Command
 
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
-        $contentId = $input->getArgument('contentId');
+        $contentId = (int) $input->getArgument('contentId');
 
         $content = $this->contentService->loadContent($contentId);
         $contentType = $this->contentTypeService->loadContentType($content->contentInfo->contentTypeId);
