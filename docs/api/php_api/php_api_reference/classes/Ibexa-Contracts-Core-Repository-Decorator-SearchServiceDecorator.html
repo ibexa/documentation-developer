@@ -37196,8 +37196,8 @@
                                                         <section class="phpdocumentor-description">
         <p>Configuration for specifying prioritized languages query will be performed on.
 Also used to define which field languages are loaded for the returned content.
-Currently supports: <code class="prettyprint">array(&quot;languages&quot; =&gt; array(<language1>,..), &quot;useAlwaysAvailable&quot; =&gt; bool)</code>
-useAlwaysAvailable defaults to true to avoid exceptions on missing translations</p>
+Currently, supports <code class="prettyprint">['languages' =&gt; [&lt;language_code_string&gt;,…], 'useAlwaysAvailable' =&gt; &lt;bool&gt;]</code>.
+<code class="prettyprint">useAlwaysAvailable</code> defaults to <code class="prettyprint">true</code> to avoid exceptions on missing translations.</p>
 
     </section>
 
@@ -37215,7 +37215,7 @@ useAlwaysAvailable defaults to true to avoid exceptions on missing translations<
                                                                         </td>
                     <td>
                                                         <section class="phpdocumentor-description">
-        <p>if true only the objects which the user is allowed to read are returned.</p>
+        <p>if <code class="prettyprint">true</code> (default), only the objects which the user is allowed to read are returned.</p>
 
     </section>
 
@@ -37304,8 +37304,8 @@ where content will be loaded by separate code, like an ESI based sub requests th
                     <td>
                                                         <section class="phpdocumentor-description">
         <p>Configuration for specifying prioritized languages query will be performed on.
-Currently supports: <code class="prettyprint">array(&quot;languages&quot; =&gt; array(<language1>,..), &quot;useAlwaysAvailable&quot; =&gt; bool)</code>
-useAlwaysAvailable defaults to true to avoid exceptions on missing translations</p>
+Currently, supports <code class="prettyprint">['languages' =&gt; [&lt;language_code_string&gt;,…], 'useAlwaysAvailable' =&gt; &lt;bool&gt;]</code>.
+<code class="prettyprint">useAlwaysAvailable</code> defaults to <code class="prettyprint">true</code> to avoid exceptions on missing translations.</p>
 
     </section>
 
@@ -37323,7 +37323,7 @@ useAlwaysAvailable defaults to true to avoid exceptions on missing translations<
                                                                         </td>
                     <td>
                                                         <section class="phpdocumentor-description">
-        <p>if true (default) only the objects which is the user allowed to read are returned.</p>
+        <p>if <code class="prettyprint">true</code> (default), only the objects which the user is allowed to read are returned.</p>
 
     </section>
 
@@ -37406,8 +37406,9 @@ useAlwaysAvailable defaults to true to avoid exceptions on missing translations<
                     <td>
                                                         <section class="phpdocumentor-description">
         <p>Configuration for specifying prioritized languages query will be performed on.
-Currently supports: <code class="prettyprint">array(&quot;languages&quot; =&gt; array(<language1>,..), &quot;useAlwaysAvailable&quot; =&gt; bool)</code>
-useAlwaysAvailable defaults to true to avoid exceptions on missing translations</p>
+Also used to define which field languages are loaded for the returned content.
+Currently, supports <code class="prettyprint">['languages' =&gt; [&lt;language_code_string&gt;,…], 'useAlwaysAvailable' =&gt; &lt;bool&gt;]</code>.
+<code class="prettyprint">useAlwaysAvailable</code> defaults to <code class="prettyprint">true</code> to avoid exceptions on missing translations.</p>
 
     </section>
 
@@ -37425,7 +37426,7 @@ useAlwaysAvailable defaults to true to avoid exceptions on missing translations<
                                                                         </td>
                     <td>
                                                         <section class="phpdocumentor-description">
-        <p>if true only the objects which is the user allowed to read are returned.</p>
+        <p>if <code class="prettyprint">true</code> (default), only the objects which the user is allowed to read are returned.</p>
 
     </section>
 
@@ -37508,8 +37509,8 @@ useAlwaysAvailable defaults to true to avoid exceptions on missing translations<
                     <td>
                                                         <section class="phpdocumentor-description">
         <p>Configuration for specifying prioritized languages query will be performed on.
-Currently supports: <code class="prettyprint">array(&quot;languages&quot; =&gt; array(<language1>,..), &quot;useAlwaysAvailable&quot; =&gt; bool)</code>
-useAlwaysAvailable defaults to true to avoid exceptions on missing translations</p>
+Currently, supports <code class="prettyprint">['languages' =&gt; [&lt;language_code_string&gt;,…], 'useAlwaysAvailable' =&gt; &lt;bool&gt;]</code>.
+<code class="prettyprint">useAlwaysAvailable</code> defaults to <code class="prettyprint">true</code> to avoid exceptions on missing translations.</p>
 
     </section>
 
@@ -37527,7 +37528,7 @@ useAlwaysAvailable defaults to true to avoid exceptions on missing translations<
                                                                         </td>
                     <td>
                                                         <section class="phpdocumentor-description">
-        <p>if true only the objects which is the user allowed to read are returned.</p>
+        <p>if <code class="prettyprint">true</code> (default), only the objects which the user is allowed to read are returned.</p>
 
     </section>
 
@@ -37703,7 +37704,14 @@ useAlwaysAvailable defaults to true to avoid exceptions on missing translations<
                                             </td>
                     <td>
                                                         <section class="phpdocumentor-description">
-        <p>One of CAPABILITY_* constants.</p>
+        <p>One of the CAPABILITY_* constants (only a single one, not a bitwise combination):
+<a href="classes/Ibexa-Contracts-Core-Repository-SearchService.html#constant_CAPABILITY_SCORING"><abbr title="\Ibexa\Contracts\Core\Repository\SearchService::CAPABILITY_SCORING">CAPABILITY_SCORING</abbr></a>,
+<a href="classes/Ibexa-Contracts-Core-Repository-SearchService.html#constant_CAPABILITY_FACETS"><abbr title="\Ibexa\Contracts\Core\Repository\SearchService::CAPABILITY_FACETS">CAPABILITY_FACETS</abbr></a>,
+<a href="classes/Ibexa-Contracts-Core-Repository-SearchService.html#constant_CAPABILITY_CUSTOM_FIELDS"><abbr title="\Ibexa\Contracts\Core\Repository\SearchService::CAPABILITY_CUSTOM_FIELDS">CAPABILITY_CUSTOM_FIELDS</abbr></a>,
+<a href="classes/Ibexa-Contracts-Core-Repository-SearchService.html#constant_CAPABILITY_SPELLCHECK"><abbr title="\Ibexa\Contracts\Core\Repository\SearchService::CAPABILITY_SPELLCHECK">CAPABILITY_SPELLCHECK</abbr></a>,</p>
+<p><a href="classes/Ibexa-Contracts-Core-Repository-SearchService.html#constant_CAPABILITY_SUGGEST"><abbr title="\Ibexa\Contracts\Core\Repository\SearchService::CAPABILITY_SUGGEST">CAPABILITY_SUGGEST</abbr></a>,
+<a href="classes/Ibexa-Contracts-Core-Repository-SearchService.html#constant_CAPABILITY_ADVANCED_FULLTEXT"><abbr title="\Ibexa\Contracts\Core\Repository\SearchService::CAPABILITY_ADVANCED_FULLTEXT">CAPABILITY_ADVANCED_FULLTEXT</abbr></a>, or
+<a href="classes/Ibexa-Contracts-Core-Repository-SearchService.html#constant_CAPABILITY_AGGREGATIONS"><abbr title="\Ibexa\Contracts\Core\Repository\SearchService::CAPABILITY_AGGREGATIONS">CAPABILITY_AGGREGATIONS</abbr></a>.</p>
 
     </section>
 

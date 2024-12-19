@@ -37920,21 +37920,20 @@ there is an API for handling those.</p>
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</p>
                 <section class="phpdocumentor-description">
-        <p>Hash with relation type as key and array of destination content ids as value.</p>
-<p>Example:
-<code class="prettyprint">
-array(
-\Ibexa\Contracts\Core\Repository\Values\Content\Relation::LINK =&gt; array(
-&quot;contentIds&quot; =&gt; array( 12, 13, 14 ),
-&quot;locationIds&quot; =&gt; array( 24 )
-),
-\Ibexa\Contracts\Core\Repository\Values\Content\Relation::EMBED =&gt; array(
-&quot;contentIds&quot; =&gt; array( 12 ),
-&quot;locationIds&quot; =&gt; array( 24, 45 )
-),
-\Ibexa\Contracts\Core\Repository\Values\Content\Relation::FIELD =&gt; array( 12 )
-)
-</code></p>
+        <p>Hash with relation type as key and array of destination content IDs as value.</p>
+<p>Example:</p>
+<pre class="prettyprint"><code class="prettyprint">[
+    \Ibexa\Contracts\Core\Repository\Values\Content\Relation::LINK =&gt; [
+        'contentIds' =&gt; [12, 13, 14],
+        'locationIds' =&gt; [24]
+    ],
+    \Ibexa\Contracts\Core\Repository\Values\Content\Relation::EMBED =&gt; [
+        'contentIds&quot; =&gt; [12],
+        'locationIds' =&gt; [24, 45]
+    ],
+    \Ibexa\Contracts\Core\Repository\Values\Content\Relation::FIELD =&gt; [12]
+]
+</code></pre>
 
     </section>
 
@@ -38039,20 +38038,19 @@ consumer.</p>
 <p>Best practice:</p>
 <p>It is considered best practice to return a hash map, which contains
 rudimentary settings structures, like e.g. for the &quot;ezstring&quot; FieldType</p>
-<code class="prettyprint">
- array(
-     'stringLength' => array(
-         'minStringLength' => array(
-             'type'    => 'int',
-             'default' => 0,
-         ),
-         'maxStringLength' => array(
-             'type'    => 'int'
-             'default' => null,
-         )
-     ),
- );
-</code>
+<pre class="prettyprint"><code class="prettyprint">[
+    'stringLength' =&gt; [
+        'minStringLength' =&gt; [
+            'type'    =&gt; 'int',
+            'default' =&gt; 0,
+        ],
+        'maxStringLength' =&gt; [
+            'type'    =&gt; 'int'
+            'default' =&gt; null,
+        ],
+    ],
+];
+</code></pre>
 
     </section>
                     
@@ -38783,19 +38781,18 @@ configuration of the type.</p>
 <div class="phpdocumentor-label-line">
     </div>
     <section class="phpdocumentor-description">
-        <p>This is an operation method for <abbr title="\Ibexa\Contracts\Core\FieldType\Generic\acceptValue()">acceptValue()</abbr>.</p>
+        <p>This is an operation method for <a href="classes/Ibexa-Contracts-Core-FieldType-Generic-Type.html#method_acceptValue"><abbr title="\Ibexa\Contracts\Core\FieldType\Generic\Type::acceptValue()">Type::acceptValue()</abbr></a>.</p>
 <p>Default implementation expects the value class to reside in the same namespace as its
 FieldType class and is named &quot;Value&quot;.</p>
-<p>Example implementation:
-<code class="prettyprint">
-protected function checkValueType($value): void
-{
-if ( !$inputValue instanceof \My\FieldType\CookieJar\Value ) )
-{
-throw new InvalidArgumentException( &quot;Given value type is not supported.&quot; );
-}
-}
-</code></p>
+<p>Example implementation:</p>
+<pre class="prettyprint"><code class="prettyprint"> protected function checkValueType($value): void
+ {
+     if (!$inputValue instanceof \My\FieldType\CookieJar\Value))
+     {
+         throw new InvalidArgumentException(&quot;Given value type isn't supported.&quot;);
+     }
+ }
+</code></pre>
 
     </section>
     <h4>Parameters</h4>
@@ -38821,7 +38818,7 @@ throw new InvalidArgumentException( &quot;Given value type is not supported.&quo
                                             </td>
                     <td>
                                                         <section class="phpdocumentor-description">
-        <p>A value returned by <abbr title="\Ibexa\Contracts\Core\FieldType\Generic\createValueFromInput()">createValueFromInput()</abbr>.</p>
+        <p>A value returned by <a href="classes/Ibexa-Contracts-Core-FieldType-Generic-Type.html#method_createValueFromInput"><abbr title="\Ibexa\Contracts\Core\FieldType\Generic\Type::createValueFromInput()">Type::createValueFromInput()</abbr></a>.</p>
 
     </section>
 
@@ -38885,19 +38882,18 @@ throw new InvalidArgumentException( &quot;Given value type is not supported.&quo
     <section class="phpdocumentor-description">
         <p>If given $inputValue could not be converted or is already an instance of dedicate value object,
 the method should simply return it.</p>
-<p>This is an operation method for <abbr title="\Ibexa\Contracts\Core\FieldType\Generic\acceptValue()">acceptValue()</abbr>.</p>
-<p>Example implementation:
-<code class="prettyprint">
-protected function createValueFromInput( $inputValue )
-{
-if ( is_array( $inputValue ) )
-{
-$inputValue = \My\FieldType\CookieJar\Value( $inputValue );
-}</p>
-<pre class="prettyprint"><code class="prettyprint"> return $inputValue;
+<p>This is an operation method for <a href="classes/Ibexa-Contracts-Core-FieldType-Generic-Type.html#method_acceptValue"><abbr title="\Ibexa\Contracts\Core\FieldType\Generic\Type::acceptValue()">Type::acceptValue()</abbr></a>.</p>
+<p>Example implementation:</p>
+<pre class="prettyprint"><code class="prettyprint"> protected function createValueFromInput($inputValue)
+ {
+     if (is_array($inputValue))
+     {
+         $inputValue = \My\FieldType\CookieJar\Value($inputValue);
+     }
+
+     return $inputValue;
+ }
 </code></pre>
-<p>}
-</code></p>
 
     </section>
     <h4>Parameters</h4>

@@ -37822,21 +37822,20 @@ there is an API for handling those.</p>
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</p>
                 <section class="phpdocumentor-description">
-        <p>Hash with relation type as key and array of destination content ids as value.</p>
-<p>Example:
-<code class="prettyprint">
-array(
-\Ibexa\Contracts\Core\Repository\Values\Content\Relation::LINK =&gt; array(
-&quot;contentIds&quot; =&gt; array( 12, 13, 14 ),
-&quot;locationIds&quot; =&gt; array( 24 )
-),
-\Ibexa\Contracts\Core\Repository\Values\Content\Relation::EMBED =&gt; array(
-&quot;contentIds&quot; =&gt; array( 12 ),
-&quot;locationIds&quot; =&gt; array( 24, 45 )
-),
-\Ibexa\Contracts\Core\Repository\Values\Content\Relation::FIELD =&gt; array( 12 )
-)
-</code></p>
+        <p>Hash with relation type as key and array of destination content IDs as value.</p>
+<p>Example:</p>
+<pre class="prettyprint"><code class="prettyprint">[
+    \Ibexa\Contracts\Core\Repository\Values\Content\Relation::LINK =&gt; [
+        'contentIds' =&gt; [12, 13, 14],
+        'locationIds' =&gt; [24]
+    ],
+    \Ibexa\Contracts\Core\Repository\Values\Content\Relation::EMBED =&gt; [
+        'contentIds&quot; =&gt; [12],
+        'locationIds' =&gt; [24, 45]
+    ],
+    \Ibexa\Contracts\Core\Repository\Values\Content\Relation::FIELD =&gt; [12]
+]
+</code></pre>
 
     </section>
 
@@ -37941,20 +37940,19 @@ consumer.</p>
 <p>Best practice:</p>
 <p>It is considered best practice to return a hash map, which contains
 rudimentary settings structures, like e.g. for the &quot;ezstring&quot; FieldType</p>
-<code class="prettyprint">
- array(
-     'stringLength' => array(
-         'minStringLength' => array(
-             'type'    => 'int',
-             'default' => 0,
-         ),
-         'maxStringLength' => array(
-             'type'    => 'int'
-             'default' => null,
-         )
-     ),
- );
-</code>
+<pre class="prettyprint"><code class="prettyprint">[
+    'stringLength' =&gt; [
+        'minStringLength' =&gt; [
+            'type'    =&gt; 'int',
+            'default' =&gt; 0,
+        ],
+        'maxStringLength' =&gt; [
+            'type'    =&gt; 'int'
+            'default' =&gt; null,
+        ],
+    ],
+];
+</code></pre>
 
     </section>
                     

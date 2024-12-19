@@ -37230,7 +37230,7 @@
                 <img src="./images/copy.svg" title="Copy path" />
     </div>
         </div>
-    <p>Count total number of items returned by {@see find} method.</p>
+    <p>Counts total number of items matching the filter.</p>
 
 <div class="highlight">
     <table class="highlighttable">
@@ -37252,6 +37252,10 @@
 </div>
 <div class="phpdocumentor-label-line">
     </div>
+    <section class="phpdocumentor-description">
+        <p>Return the count of items that would be returned by <a href="classes/Ibexa-Contracts-Core-Repository-LocationService.html#method_find"><abbr title="\Ibexa\Contracts\Core\Repository\LocationService::find()">LocationService::find()</abbr></a> method.</p>
+
+    </section>
     <h4>Parameters</h4>
     <table class="method-parameters">
         <thead>
@@ -37799,7 +37803,7 @@ for a SiteAccess in a current context will be used.</p>
                 </td>
                 <td class="code">
                     <div>
-                        <pre><code><span class="phpdocumentor-signature__visibility">public </span><span class="phpdocumentor-signature__name">loadAllLocations</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$offset</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">0</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$limit</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">25</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-Location.html"><abbr title="\Ibexa\Contracts\Core\Repository\Values\Content\Location">Location</abbr></a>&gt;</span></code></pre>
+                        <pre><code><span class="phpdocumentor-signature__visibility">public </span><span class="phpdocumentor-signature__name">loadAllLocations</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$offset</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">0</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$limit</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">25</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;int, <a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-Location.html"><abbr title="\Ibexa\Contracts\Core\Repository\Values\Content\Location">Location</abbr></a>&gt;</span></code></pre>
                     </div>
                 </td>
             </tr>
@@ -37850,7 +37854,7 @@ for a SiteAccess in a current context will be used.</p>
                     </tbody>
     </table>
     <h4>Return values</h4>
-    <p class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-Location.html"><abbr title="\Ibexa\Contracts\Core\Repository\Values\Content\Location">Location</abbr></a>&gt;</p>
+    <p class="phpdocumentor-signature__response_type">array&lt;int, <a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-Location.html"><abbr title="\Ibexa\Contracts\Core\Repository\Values\Content\Location">Location</abbr></a>&gt;</p>
                         
             <div class="content-header">
         <h3 id="method_loadLocation">
@@ -38201,7 +38205,7 @@ Consider using <a href="classes/Ibexa-Contracts-Core-Repository-SearchService.ht
                 </td>
                 <td class="code">
                     <div>
-                        <pre><code><span class="phpdocumentor-signature__visibility">public </span><span class="phpdocumentor-signature__name">loadLocationList</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$locationIds</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$prioritizedLanguages</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">bool|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$useAlwaysAvailable</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-Location.html"><abbr title="\Ibexa\Contracts\Core\Repository\Values\Content\Location">Location</abbr></a>&gt;|iterable&lt;string|int, mixed&gt;</span></code></pre>
+                        <pre><code><span class="phpdocumentor-signature__visibility">public </span><span class="phpdocumentor-signature__name">loadLocationList</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$locationIds</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$prioritizedLanguages</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">bool|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$useAlwaysAvailable</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;int, <a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-Location.html"><abbr title="\Ibexa\Contracts\Core\Repository\Values\Content\Location">Location</abbr></a>&gt;|iterable&lt;string|int, mixed&gt;</span></code></pre>
                     </div>
                 </td>
             </tr>
@@ -38278,7 +38282,7 @@ Consider using <a href="classes/Ibexa-Contracts-Core-Repository-SearchService.ht
                     </tbody>
     </table>
     <h4>Return values</h4>
-    <p class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-Location.html"><abbr title="\Ibexa\Contracts\Core\Repository\Values\Content\Location">Location</abbr></a>&gt;|iterable&lt;string|int, mixed&gt;</p>
+    <p class="phpdocumentor-signature__response_type">array&lt;int, <a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-Location.html"><abbr title="\Ibexa\Contracts\Core\Repository\Values\Content\Location">Location</abbr></a>&gt;|iterable&lt;string|int, mixed&gt;</p>
                         
             <div class="content-header">
         <h3 id="method_loadLocations">

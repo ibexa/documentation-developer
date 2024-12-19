@@ -37785,11 +37785,11 @@ Writable properties must be public and must be documented inline.</p>
         <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/core/src/contracts/Repository/Values/ValueObject.php">
         <abbr title="vendor/ibexa/core/src/contracts/Repository/Values/ValueObject.php">ValueObject.php</abbr>
                 :
-        <span title="at line 50">50</span>
+        <span title="at line 51">51</span>
                 <img src="./images/copy.svg" title="Copy path" />
     </div>
         </div>
-    <p>Function where list of properties are returned.</p>
+    <p>Returns list of available properties&#039; names.</p>
 
 <div class="highlight">
     <table class="highlighttable">
@@ -37802,7 +37802,7 @@ Writable properties must be public and must be documented inline.</p>
                 </td>
                 <td class="code">
                     <div>
-                        <pre><code><span class="phpdocumentor-signature__visibility">protected </span><span class="phpdocumentor-signature__name">getProperties</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$dynamicProperties</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">[]</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span></code></pre>
+                        <pre><code><span class="phpdocumentor-signature__visibility">protected </span><span class="phpdocumentor-signature__name">getProperties</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type">array&lt;int, string&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$dynamicProperties</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">[]</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;int, string&gt;</span></code></pre>
                     </div>
                 </td>
             </tr>
@@ -37812,7 +37812,7 @@ Writable properties must be public and must be documented inline.</p>
 <div class="phpdocumentor-label-line">
     </div>
     <section class="phpdocumentor-description">
-        <p>Used by <abbr title="\Ibexa\Contracts\Core\Repository\Values\attributes()">attributes()</abbr>, override to add dynamic properties</p>
+        <p>Override to add dynamic properties.</p>
 
     </section>
     <h4>Parameters</h4>
@@ -37831,7 +37831,7 @@ Writable properties must be public and must be documented inline.</p>
                         $dynamicProperties
                     </td>
                     <td>
-                        array&lt;string|int, mixed&gt;
+                        array&lt;int, string&gt;
                     </td>
                     <td>
                                                                                     []
@@ -37847,7 +37847,7 @@ Writable properties must be public and must be documented inline.</p>
                     </tbody>
     </table>
     <h4>Return values</h4>
-    <p class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</p>
+    <p class="phpdocumentor-signature__response_type">array&lt;int, string&gt;</p>
                         
                             </div>
                     </article>
