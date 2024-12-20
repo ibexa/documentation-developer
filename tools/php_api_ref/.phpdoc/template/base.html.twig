@@ -6,7 +6,7 @@
     {{ parent() }}
 
     <script>
-        window.symfonyVersion = '5.4';
+        window.symfonyVersion = '{{ symfony_version }}';
         window.addEventListener('keyup', (event) => {
             if (event.key === '/') {
                 event.stopImmediatePropagation();
