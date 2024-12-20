@@ -59,7 +59,7 @@ To manage configurations of an AI Action you need to use another concept: Action
 ### Manage Action Configurations
 
 Action Configurations allow you to store the parameters for a given Action in the database and reuse them when needed.
-They can be managed [through the back office]([[= user_doc =]]/ai_actions/work_with_ai_actions.md), [data migrations](importing_data.md#ai-action-configurations), or through the PHP API.
+They can be managed [through the back office]([[= user_doc =]]/ai_actions/work_with_ai_actions), [data migrations](importing_data.md#ai-action-configurations), or through the PHP API.
 
 To manage Action Configurations through the PHP API, you need to use the [ActionConfigurationServiceInterface](../api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorAi-ActionConfigurationServiceInterface.html) service.
 
