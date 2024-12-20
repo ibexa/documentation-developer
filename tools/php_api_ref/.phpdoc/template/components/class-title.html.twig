@@ -14,14 +14,7 @@
 
         {% if node.parent %}
             <div class="content-header__subheader">
-                {% if node.parent.__toString starts with '\\Symfony\\' %}
-                    Extends
-                    <a href="{{ 'https://github.com/symfony/symfony/blob/' ~ symfony_version ~ '/src' ~ node.parent|replace({'\\': '/'}) ~ '.php' }}" class="external">
-                        <abbr title="{{ node.parent }}">{{ node.parent.name }}</abbr>
-                    </a>
-                {% else %}
-                    Extends {{ node.parent|route('class:short') }}
-                {% endif %}
+                Extends {{ node.parent|route('class:short') }}
             </div>
         {% endif %}
 
