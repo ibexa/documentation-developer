@@ -37323,7 +37323,7 @@ this is only supported by role limitations as policy limitations should not allo
                 </td>
                 <td class="code">
                     <div>
-                        <pre><code><span class="phpdocumentor-signature__visibility">public </span><span class="phpdocumentor-signature__name">buildValue</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$limitationValues</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Ibexa-Contracts-Core-Repository-Values-User-Limitation.html"><abbr title="\Ibexa\Contracts\Core\Repository\Values\User\Limitation">Limitation</abbr></a></span></code></pre>
+                        <pre><code><span class="phpdocumentor-signature__visibility">public </span><span class="phpdocumentor-signature__name">buildValue</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">array&lt;int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$limitationValues</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Ibexa-Contracts-Core-Repository-Values-User-Limitation.html"><abbr title="\Ibexa\Contracts\Core\Repository\Values\User\Limitation">Limitation</abbr></a></span></code></pre>
                     </div>
                 </td>
             </tr>
@@ -37333,7 +37333,7 @@ this is only supported by role limitations as policy limitations should not allo
 <div class="phpdocumentor-label-line">
     </div>
     <section class="phpdocumentor-description">
-        <p>The is the method to create values as Limitation type needs value knowledge anyway in acceptValue,
+        <p>This is the method to create values as Limitation type needs value knowledge anyway in acceptValue,
 the reverse relation is provided by means of identifier lookup (Value has identifier, and so does RoleService).</p>
 
     </section>
@@ -37353,7 +37353,7 @@ the reverse relation is provided by means of identifier lookup (Value has identi
                         $limitationValues
                     </td>
                     <td>
-                        array&lt;string|int, mixed&gt;
+                        array&lt;int, mixed&gt;
                     </td>
                     <td class="empty">
                                                     -
@@ -37392,7 +37392,7 @@ the reverse relation is provided by means of identifier lookup (Value has identi
                 </td>
                 <td class="code">
                     <div>
-                        <pre><code><span class="phpdocumentor-signature__visibility">public </span><span class="phpdocumentor-signature__name">evaluate</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/Ibexa-Contracts-Core-Repository-Values-User-Limitation.html"><abbr title="\Ibexa\Contracts\Core\Repository\Values\User\Limitation">Limitation</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$value</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type"><a href="classes/Ibexa-Contracts-Core-Repository-Values-User-UserReference.html"><abbr title="\Ibexa\Contracts\Core\Repository\Values\User\UserReference">UserReference</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$currentUser</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type"><a href="classes/Ibexa-Contracts-Core-Repository-Values-ValueObject.html"><abbr title="\Ibexa\Contracts\Core\Repository\Values\ValueObject">ValueObject</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$object</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, <a href="classes/Ibexa-Contracts-Core-Repository-Values-ValueObject.html"><abbr title="\Ibexa\Contracts\Core\Repository\Values\ValueObject">ValueObject</abbr></a>&gt;|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$targets</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool|null</span></code></pre>
+                        <pre><code><span class="phpdocumentor-signature__visibility">public </span><span class="phpdocumentor-signature__name">evaluate</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/Ibexa-Contracts-Core-Repository-Values-User-Limitation.html"><abbr title="\Ibexa\Contracts\Core\Repository\Values\User\Limitation">Limitation</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$value</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type"><a href="classes/Ibexa-Contracts-Core-Repository-Values-User-UserReference.html"><abbr title="\Ibexa\Contracts\Core\Repository\Values\User\UserReference">UserReference</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$currentUser</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type"><a href="classes/Ibexa-Contracts-Core-Repository-Values-ValueObject.html"><abbr title="\Ibexa\Contracts\Core\Repository\Values\ValueObject">ValueObject</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$object</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">array&lt;int, <a href="classes/Ibexa-Contracts-Core-Repository-Values-ValueObject.html"><abbr title="\Ibexa\Contracts\Core\Repository\Values\ValueObject">ValueObject</abbr></a>&gt;|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$targets</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool|null</span></code></pre>
                     </div>
                 </td>
             </tr>
@@ -37459,7 +37459,7 @@ the reverse relation is provided by means of identifier lookup (Value has identi
                         $targets
                     </td>
                     <td>
-                        array&lt;string|int, <a href="classes/Ibexa-Contracts-Core-Repository-Values-ValueObject.html"><abbr title="\Ibexa\Contracts\Core\Repository\Values\ValueObject">ValueObject</abbr></a>&gt;|null
+                        array&lt;int, <a href="classes/Ibexa-Contracts-Core-Repository-Values-ValueObject.html"><abbr title="\Ibexa\Contracts\Core\Repository\Values\ValueObject">ValueObject</abbr></a>&gt;|null
                     </td>
                     <td>
                                                                                     null
@@ -37637,7 +37637,7 @@ being used as a Criterion.</p>
                 </td>
                 <td class="code">
                     <div>
-                        <pre><code><span class="phpdocumentor-signature__visibility">public </span><span class="phpdocumentor-signature__name">validate</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/Ibexa-Contracts-Core-Repository-Values-User-Limitation.html"><abbr title="\Ibexa\Contracts\Core\Repository\Values\User\Limitation">Limitation</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$limitationValue</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Ibexa-Contracts-Core-FieldType-ValidationError.html"><abbr title="\Ibexa\Contracts\Core\FieldType\ValidationError">ValidationError</abbr></a>&gt;</span></code></pre>
+                        <pre><code><span class="phpdocumentor-signature__visibility">public </span><span class="phpdocumentor-signature__name">validate</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/Ibexa-Contracts-Core-Repository-Values-User-Limitation.html"><abbr title="\Ibexa\Contracts\Core\Repository\Values\User\Limitation">Limitation</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$limitationValue</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;int, <a href="classes/Ibexa-Contracts-Core-FieldType-ValidationError.html"><abbr title="\Ibexa\Contracts\Core\FieldType\ValidationError">ValidationError</abbr></a>&gt;</span></code></pre>
                     </div>
                 </td>
             </tr>
@@ -37678,7 +37678,7 @@ being used as a Criterion.</p>
                     </tbody>
     </table>
     <h4>Return values</h4>
-    <p class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Ibexa-Contracts-Core-FieldType-ValidationError.html"><abbr title="\Ibexa\Contracts\Core\FieldType\ValidationError">ValidationError</abbr></a>&gt;</p>
+    <p class="phpdocumentor-signature__response_type">array&lt;int, <a href="classes/Ibexa-Contracts-Core-FieldType-ValidationError.html"><abbr title="\Ibexa\Contracts\Core\FieldType\ValidationError">ValidationError</abbr></a>&gt;</p>
                         
             <div class="content-header">
         <h3 id="method_valueSchema">
