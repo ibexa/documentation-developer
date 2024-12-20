@@ -3,18 +3,18 @@
 
 {% embed 'components/content-header.html.twig' with { 
     anchor: node.name,
-    anchor_link: link(node) ~ '#' ~ node.name,
+    anchor_link: '#' ~ node.name,
     fqcn,
     add_edition: true,
 } %}
     {% block subheader %}
-        <div class="content-header__subheader">Interface</div>
+        <div class="content-header__subheader">Trait</div>
 
-        {% if node.parent is not empty %}
+        {% if node.usedTraits is not empty %}
             <div class="content-header__subheader">
-                Extends
-                {% for interface in node.parent %}
-                    {{ interface|route('class:short') }}{% if not loop.last %}, {% endif %}
+                Uses
+                {% for trait in node.usedTraits %}
+                    {{ trait|route('class:short') }}{% if not loop.last %}, {% endif %}
                 {% endfor %}
             </div>
         {% endif %}
