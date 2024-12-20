@@ -5972,3 +5972,66 @@ ActivityLogGroup:
 ActivityLog:
     description: 'This class represents an activity log entry.'
     type: object
+
+GenerateAltTextWrapper:
+    type: object
+    properties:
+        GenerateAltText:
+            type: object
+            properties:
+                Image:
+                    type: object
+                    properties:
+                        base64:
+                            type: string
+                            description: Base64 encoded image
+                RuntimeContext:
+                    type: object
+                    description: Additional data passed to the action
+
+RefineTextWrapper:
+    type: object
+    properties:
+        RefineText:
+            type: object
+            properties:
+                _media-type:
+                    string: type
+                Text:
+                    type: object
+                    properties:
+                        _media_type: 
+                            type: string
+                        text: 
+                            type: string[]
+
+RefineTextInputWrapper:
+    type: object
+    properties:
+        RefineText:
+            type: object
+            properties:
+                Text:
+                    type: object
+                    properties:
+                        text:
+                            type: string
+        RuntimeContext:
+            type: object
+            description: Additional data passed to the action
+
+AltTextWrapper:
+    type: object
+    properties:
+        AltText:
+            type: object
+            properties:
+                _media-type:
+                    string: type
+                Text:
+                    type: object
+                    properties:
+                        _media_type: 
+                            type: string
+                        text: 
+                            type: string[]
