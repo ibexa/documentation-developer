@@ -1,5 +1,3 @@
-//TODO:         window.symfonyVersion = '{{ symfony_version }}';
-//TODO: <script src="js/external-links.js"></script>
 $(() => {
     $('abbr').each((index, element) => {
         let $this = $(element);
