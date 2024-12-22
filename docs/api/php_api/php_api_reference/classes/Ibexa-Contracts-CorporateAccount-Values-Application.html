@@ -37007,9 +37007,9 @@
 
 
     <section class="phpdocumentor-description">
-        <p>Supports readonly properties by marking them as protected.
+        <p>Supports read-only properties by marking them as protected.
 In this case they will only be writable using constructor, and need to be documented
-using property-read <type> &lt;$var&gt; annotation in class doc in addition to inline property doc.
+using <code class="prettyprint">@property-read &lt;type&gt; &lt;$var&gt;</code> annotation in class doc in addition to inline property doc.
 Writable properties must be public and must be documented inline.</p>
 
     </section>
@@ -37066,7 +37066,7 @@ Writable properties must be public and must be documented inline.</p>
 <div class="phpdocumentor-label-line">
     </div>
     <section class="phpdocumentor-description">
-        <p>Readonly properties values must be set using $properties as they are not writable anymore
+        <p>Readonly properties values must be set using <code class="prettyprint">$properties</code> as they aren't writable anymore
 after object has been created.</p>
 
     </section>
