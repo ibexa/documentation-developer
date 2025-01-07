@@ -18,7 +18,8 @@ $(document).ready(function() {
         warningBox.hidden = false;
     }
 
-    $('.md-content a.md-icon').each(function() {
+    // Insert version into header links
+    $('.md-content a.md-logo, #site-name > a').each(function() {
         $(this).attr(
             'href',
             $(this)
