@@ -114,7 +114,9 @@ $(document).ready(function() {
 
     const hitsPerPage = 10;
     let search = docsearch({
-        apiKey: 'bfb5bd7cad971d31ef8be599174334f3',
+        container: '#docsearch',
+        appId: '2DNYOU6YJZ',
+        apiKey: '21ce3e522455e18e7ee16cf7d66edb4b',
         indexName: 'ezplatform',
         inputSelector: '#search_input',
         transformData: function(hits) {
@@ -231,4 +233,7 @@ $(document).ready(function() {
             closeBtn.closest('.notification').setAttribute('hidden', 'hidden');
         });
     });
+
+    // Mark higher-level nodes with "New" pill, not only the actual item
+    $('.pill.new:not([hidden])').parents('.md-nav__item').children('label').children('.pill.new[hidden]').removeAttr('hidden');
 });
