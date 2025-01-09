@@ -73,7 +73,7 @@ class ObjectStateCommand extends Command
         }
 
         if ($input->getArgument('contentID')) {
-            $contentId = $input->getArgument('contentID');
+            $contentId = (int) $input->getArgument('contentID');
             $objectStateToAssign = $objectStateIdentifierList[0];
             $contentInfo = $this->contentService->loadContentInfo($contentId);
             $objectStateGroup = $this->objectStateService->loadObjectStateGroupByIdentifier($objectStateGroupIdentifier);

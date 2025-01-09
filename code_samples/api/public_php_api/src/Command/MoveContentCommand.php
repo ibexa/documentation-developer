@@ -41,8 +41,8 @@ class MoveContentCommand extends Command
         $user = $this->userService->loadUserByLogin('admin');
         $this->permissionResolver->setCurrentUserReference($user);
 
-        $locationId = $input->getArgument('locationId');
-        $targetLocationId = $input->getArgument('targetLocationId');
+        $locationId = (int) $input->getArgument('locationId');
+        $targetLocationId = (int) $input->getArgument('targetLocationId');
 
         $sourceLocation = $this->locationService->loadLocation($locationId);
         $targetLocation = $this->locationService->loadLocation($targetLocationId);

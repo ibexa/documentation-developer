@@ -45,9 +45,9 @@ class TrashContentCommand extends Command
         $user = $this->userService->loadUserByLogin('admin');
         $this->permissionResolver->setCurrentUserReference($user);
 
-        $locationId = $input->getArgument('locationId');
+        $locationId = (int) $input->getArgument('locationId');
         if ($input->getArgument('newParentId')) {
-            $newParentId = $input->getArgument('newParentId');
+            $newParentId = (int) $input->getArgument('newParentId');
         }
 
         $location = $this->locationService->loadLocation($locationId);

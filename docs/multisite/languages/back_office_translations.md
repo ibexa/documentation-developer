@@ -31,7 +31,7 @@ If your browser language is set to French, the back office is displayed in Frenc
 
     `ibexa.system.<siteaccess>.user_preferences.additional_translations: ['pl_PL', 'fr_FR']`
 
-    Then, run `composer run post-update-cmd` and clear the cache.
+    Then, run `composer run post-update-cmd` and `php bin/console cache:clear --siteaccess=admin`.
 
 ### Contributing back office translations
 
@@ -117,4 +117,8 @@ The language to display is then selected automatically based on [user preference
 
 !!! note
 
-    You may need to clear the cache after adding new translations, before they're available in the back office.
+    Run `composer run post-update-cmd` which installs your JavaScript translations by using `BazingaJsTranslationBundle`,
+    and clears the cache of the default SiteAccess.
+
+    Run `php bin/console cache:clear --siteaccess=admin` to clear the back office cache.
+    You may need to replace `admin` with the back office's SiteAccess name used in your installation.
