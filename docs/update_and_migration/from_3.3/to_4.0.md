@@ -217,49 +217,11 @@ Example of updated query
 }
 ```
 </td></tr>
-<tr><td colspan="2">The following query is made for several content types, and the content or location ID is injected before requesting it.
-<br>
-For example, <code>$criterion='locationId: 2';</code></td></tr>
-<tr><td class="compare">
-```
-{
-  item ($criterion) {
-    ... on FolderContent {
-      name
-    }
-    ... on LandingPageContent {
-      name
-    }
-    ... on ArticleContent {
-      title
-      intro {
-        html5
-      }
-    }
-  }
-}
-```
-</td><td class="compare">
-```
-{
-  item (locationId: 2) {
-    ... on FolderItem {
-      name
-    }
-    ... on LandingPageItem {
-      name
-    }
-    ... on ArticleItem {
-      title
-      intro {
-        html5
-      }
-    }
-  }
-}
-```
-</td></tr>
 </tbody></table>
+
+While revisiting GraphQL queries, you may consider the new feature `item`
+allowing to fetch a content item without knowing its content type.
+For more information, see [Get a content item](graphql_queries.md#get-a-content-item)
 
 ### Back office customization
 
