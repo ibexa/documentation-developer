@@ -7,21 +7,11 @@ description: Create custom Aggregation to use with Solr and Elasticsearch search
 To create a custom Aggregation, create an aggregation class.
 In the following example, an aggregation groups the location query results by the location priority:
 
-=== "Solr"
-
-    ``` php
-    --8<--
-    code_samples/search/solr/src/Query/Aggregation/Solr/PriorityRangeAggregation.php
-    --8<--
-    ```
-
-=== "Elasticsearch"
-
-    ``` php
-    --8<--
-    code_samples/search/elasticsearch/src/Query/Aggregation/Elasticsearch/PriorityRangeAggregation.php
-    --8<--
-    ```
+``` php
+--8<--
+code_samples/search/custom/src/Query/Aggregation/PriorityRangeAggregation.php
+--8<--
+```
 
 The `PriorityRangeAggregation` class extends `AbstractRangeAggregation`.
 The name of the class indicates that it aggregates the results by using the Range aggregation.
@@ -55,29 +45,15 @@ The example below uses `RangeAggregationVisitor`:
 === "Solr"
 
     ``` yaml
-    app.search.solr.query.aggregation_visitor.priority_range_aggregation:
-        class: Ibexa\Solr\Query\Common\AggregationVisitor\RangeAggregationVisitor
-        factory: [ '@Ibexa\Solr\Query\Common\AggregationVisitor\Factory\ContentFieldAggregationVisitorFactory', 'createRangeAggregationVisitor' ]
-        arguments:
-            $aggregationClass: 'App\Query\Aggregation\Solr\PriorityRangeAggregation'
-            $searchIndexFieldName: 'priority_i'
-        tags:
-            - { name: ibexa.search.solr.query.content.aggregation.visitor }
-            - { name: ibexa.search.solr.query.location.aggregation.visitor }
+    services:
+    [[= include_file('code_samples/search/custom/config/aggregation_services.yaml', 1, 10) =]]
     ```
 
 === "Elasticsearch"
 
     ``` yaml
-    app.search.elasticsearch.query.aggregation_visitor.priority_range_aggregation:
-        class: Ibexa\Elasticsearch\Query\AggregationVisitor\RangeAggregationVisitor
-        factory: [ '@Ibexa\Elasticsearch\Query\AggregationVisitor\Factory\SearchFieldAggregationVisitorFactory', 'createRangeAggregationVisitor' ]
-        arguments:
-            $aggregationClass: 'App\Query\Aggregation\Elasticsearch\PriorityRangeAggregation'
-            $searchIndexFieldName: 'priority_i'
-        tags:
-            - { name: ibexa.search.elasticsearch.query.location.aggregation.visitor }
-            - { name: ibexa.search.elasticsearch.query.content.aggregation.visitor }
+    services:
+    [[= include_file('code_samples/search/custom/config/aggregation_services.yaml', 11, 20) =]]
     ```
 
 The visitor is created by `SearchFieldAggregationVisitorFactory`.
@@ -98,31 +74,22 @@ For the result extractor, you can use the built-in `RangeAggregationResultExtrac
 
 === "Solr"
 
-    Tag the service with `ibexa.search.solr.query.location.aggregation.result.extractor`.
+    Tag the service with `ibexa.search.solr.query.location.aggregation.result.extractor`
+    and `ibexa.search.solr.query.content.aggregation.result.extractor`.
 
     ``` yaml
-    app.search.solr.query.aggregation_result_extractor.priority_range_aggregation:
-        class: Ibexa\Solr\ResultExtractor\AggregationResultExtractor\RangeAggregationResultExtractor
-        arguments:
-            $aggregationClass: 'App\Query\Aggregation\Solr\PriorityRangeAggregation'
-            $keyMapper: 'Ibexa\Solr\ResultExtractor\AggregationResultExtractor\RangeAggregationKeyMapper\IntRangeAggregationKeyMapper'
-        tags:
-            - { name: ibexa.search.solr.query.location.aggregation.result.extractor }
-            - { name: ibexa.search.solr.query.content.aggregation.result.extractor }
+    services:
+    [[= include_file('code_samples/search/custom/config/aggregation_services.yaml', 21, 29) =]]
     ```
 
 === "Elasticsearch"
 
-    Tag the service with `ibexa.search.elasticsearch.query.location.aggregation.result.extractor`.
+    Tag the service with `ibexa.search.elasticsearch.query.location.aggregation.result.extractor`
+    and `ibexa.search.elasticsearch.query.content.aggregation.result.extractor`.
 
     ``` yaml
-    app.search.elasticsearch.query.aggregation_result_extractor.priority_range_aggregation:
-        class: Ibexa\Elasticsearch\Query\ResultExtractor\AggregationResultExtractor\RangeAggregationResultExtractor
-        arguments:
-            $aggregationClass: 'App\Query\Aggregation\Elasticsearch\PriorityRangeAggregation'
-        tags:
-            - { name: ibexa.search.elasticsearch.query.location.aggregation.result.extractor }
-            - { name: ibexa.search.elasticsearch.query.content.aggregation.result.extractor }
+    services:
+    [[= include_file('code_samples/search/custom/config/aggregation_services.yaml', 30, 37) =]]
     ```
 
 You can use a different type of aggregation, followed by respective visitor and extractor classes:
@@ -154,7 +121,7 @@ In a more complex use case, you must create your own visitor and extractor.
 
     ``` php
     --8<--
-    code_samples/search/solr/src/Query/Aggregation/Solr/PriorityRangeAggregationVisitor.php
+    code_samples/search/custom/src/Query/Aggregation/Solr/PriorityRangeAggregationVisitor.php
     --8<--
     ```
 
@@ -164,7 +131,7 @@ In a more complex use case, you must create your own visitor and extractor.
 
     ``` php
     --8<--
-    code_samples/search/elasticsearch/src/Query/Aggregation/Elasticsearch/PriorityAggregationVisitor.php
+    code_samples/search/custom/src/Query/Aggregation/Elasticsearch/PriorityRangeAggregationVisitor.php
     --8<--
     ```
 
@@ -180,7 +147,7 @@ The `visit()` method returns an array of results.
 
     ``` php
     --8<--
-    code_samples/search/solr/src/Query/Aggregation/Solr/PriorityAggregationResultExtractor.php
+    code_samples/search/custom/src/Query/Aggregation/Solr/PriorityRangeAggregationResultExtractor.php
     --8<--
     ```
 
@@ -194,7 +161,7 @@ The `visit()` method returns an array of results.
 
     ``` php
     --8<--
-    code_samples/search/elasticsearch/src/Query/Aggregation/Elasticsearch/PriorityAggregationResultExtractor.php
+    code_samples/search/custom/src/Query/Aggregation/Elasticsearch/PriorityRangeAggregationResultExtractor.php
     --8<--
     ```
 
@@ -210,9 +177,8 @@ Finally, register both the aggregation visitor and the result extractor as servi
     Tag the aggregation visitor with `ibexa.search.solr.query.location.aggregation.visitor` and the result extractor with `ibexa.search.solr.query.location.aggregation.result.extractor`:
 
     ``` yaml
-    --8<--
-    code_samples/search/solr/config/aggregation_services.yaml
-    --8<--
+    services:
+    [[= include_file('code_samples/search/custom/config/aggregation_services.yaml', 38, 47) =]]
     ```
 
     For content-based aggregations, use the `ibexa.search.solr.query.content.aggregation.visitor` and `ibexa.search.solr.query.content.aggregation.result.extractor` tags respectively.
@@ -222,9 +188,8 @@ Finally, register both the aggregation visitor and the result extractor as servi
     Tag the aggregation visitor with `ibexa.elasticsearch.query.location.aggregation_visitor` and the result extractor with `ibexa.elasticsearch.query.location.aggregation_result_extractor`:
 
     ``` yaml
-    --8<--
-    code_samples/search/elasticsearch/config/aggregation_services.yaml
-    --8<--
+    services:
+    [[= include_file('code_samples/search/custom/config/aggregation_services.yaml', 48, 57) =]]
     ```
 
     For content-based aggregations, use the `ibexa.search.elasticsearch.query.content.aggregation.visitor` and `ibexa.search.elasticsearch.query.content.aggregation.result.extractor` tags respectively.

@@ -57,13 +57,13 @@ The example relies on a use case of indexing webinar data on the webinar events,
 The field mapper could then look like this:
 
 ```php
-[[= include_file('code_samples/search/solr/src/Search/FieldMapper/WebinarEventTitleFulltextFieldMapper.php') =]]
+[[= include_file('code_samples/search/custom/src/Search/FieldMapper/WebinarEventTitleFulltextFieldMapper.php') =]]
 ```
 
 You index full text data only on the content document, therefore, you would register the service like this:
 
 ``` yaml
-[[= include_file('code_samples/search/solr/config/field_mapper_services.yaml') =]]
+[[= include_file('code_samples/search/custom/config/field_mapper_services.yaml') =]]
 ```
 
 !!! caution "Permission issues when using Repository API in document field mappers"
