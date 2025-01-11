@@ -351,7 +351,7 @@ parameters:
 			path: code_samples/page/page_listener/src/Block/Listener/MyBlockListener.php
 
 		-
-			message: "#^Method App\\\\Query\\\\Aggregation\\\\Elasticsearch\\\\PriorityAggregationResultExtractor\\:\\:extract\\(\\) has parameter \\$data with no value type specified in iterable type array\\.$#"
+			message: "#^Method App\\\\Query\\\\Aggregation\\\\Elasticsearch\\\\PriorityRangeAggregationResultExtractor\\:\\:extract\\(\\) has parameter \\$data with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: code_samples/search/custom/src/Query/Aggregation/Elasticsearch/PriorityRangeAggregationResultExtractor.php
 
@@ -371,12 +371,12 @@ parameters:
 			path: code_samples/search/custom/src/Query/Aggregation/Solr/PriorityRangeAggregationResultExtractor.php
 
 		-
-			message: "#^Method App\\\\Query\\\\Aggregation\\\\Solr\\\\PriorityAggregationResultExtractor\\:\\:canVisit\\(\\) has parameter \\$languageFilter with no value type specified in iterable type array\\.$#"
+			message: "#^Method App\\\\Query\\\\Aggregation\\\\Solr\\\\PriorityRangeAggregationResultExtractor\\:\\:canVisit\\(\\) has parameter \\$languageFilter with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: code_samples/search/custom/src/Query/Aggregation/Solr/PriorityRangeAggregationResultExtractor.php
 
 		-
-			message: "#^Method App\\\\Query\\\\Aggregation\\\\Solr\\\\PriorityAggregationResultExtractor\\:\\:extract\\(\\) has parameter \\$languageFilter with no value type specified in iterable type array\\.$#"
+			message: "#^Method App\\\\Query\\\\Aggregation\\\\Solr\\\\PriorityRangeAggregationResultExtractor\\:\\:extract\\(\\) has parameter \\$languageFilter with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: code_samples/search/custom/src/Query/Aggregation/Solr/PriorityRangeAggregationResultExtractor.php
 
