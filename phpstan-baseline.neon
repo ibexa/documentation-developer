@@ -353,7 +353,7 @@ parameters:
 		-
 			message: "#^Method App\\\\Query\\\\Aggregation\\\\Elasticsearch\\\\PriorityAggregationResultExtractor\\:\\:extract\\(\\) has parameter \\$data with no value type specified in iterable type array\\.$#"
 			count: 1
-			path: code_samples/search/custom/src/Query/Aggregation/Elasticsearch/PriorityAggregationResultExtractor.php
+			path: code_samples/search/custom/src/Query/Aggregation/Elasticsearch/PriorityRangeAggregationResultExtractor.php
 
 		-
 			message: "#^Method App\\\\Query\\\\Criterion\\\\Elasticsearch\\\\CameraManufacturerVisitor\\:\\:visit\\(\\) return type has no value type specified in iterable type array\\.$#"
@@ -368,17 +368,17 @@ parameters:
 		-
 			message: "#^Argument of an invalid type stdClass supplied for foreach, only iterables are supported\\.$#"
 			count: 1
-			path: code_samples/search/custom/src/Query/Aggregation/Solr/PriorityAggregationResultExtractor.php
+			path: code_samples/search/custom/src/Query/Aggregation/Solr/PriorityRangeAggregationResultExtractor.php
 
 		-
 			message: "#^Method App\\\\Query\\\\Aggregation\\\\Solr\\\\PriorityAggregationResultExtractor\\:\\:canVisit\\(\\) has parameter \\$languageFilter with no value type specified in iterable type array\\.$#"
 			count: 1
-			path: code_samples/search/custom/src/Query/Aggregation/Solr/PriorityAggregationResultExtractor.php
+			path: code_samples/search/custom/src/Query/Aggregation/Solr/PriorityRangeAggregationResultExtractor.php
 
 		-
 			message: "#^Method App\\\\Query\\\\Aggregation\\\\Solr\\\\PriorityAggregationResultExtractor\\:\\:extract\\(\\) has parameter \\$languageFilter with no value type specified in iterable type array\\.$#"
 			count: 1
-			path: code_samples/search/custom/src/Query/Aggregation/Solr/PriorityAggregationResultExtractor.php
+			path: code_samples/search/custom/src/Query/Aggregation/Solr/PriorityRangeAggregationResultExtractor.php
 
 		-
 			message: "#^Method App\\\\Query\\\\Aggregation\\\\Solr\\\\PriorityRangeAggregationVisitor\\:\\:formatRangeValue\\(\\) has parameter \\$value with no type specified\\.$#"
