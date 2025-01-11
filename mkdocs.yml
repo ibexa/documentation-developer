@@ -643,7 +643,7 @@ nav:
             - ObjectCriterion: search/activity_log_search_reference/object_criterion.md
             - ObjectNameCriterion: search/activity_log_search_reference/object_name_criterion.md
             - UserCriterion: search/activity_log_search_reference/user_criterion.md
-        - Action Configuration Search Criteria:: search/ai_actions_search_reference/action_configuration_criteria.md
+        - Action Configuration Search Criteria: search/ai_actions_search_reference/action_configuration_criteria.md
         - Sort Clause reference:
             - General Sort Clauses:
                 - General Sort Clause reference: search/sort_clause_reference/sort_clause_reference.md
