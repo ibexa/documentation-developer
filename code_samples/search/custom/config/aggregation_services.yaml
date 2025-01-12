@@ -1,6 +1,6 @@
 services:
     app.search.solr.query.aggregation_visitor.priority_range_aggregation:
-        class: Ibexa\Solr\Query\Common\AggregationVisitor\PriorityRangeAggregationVisitor
+        class: Ibexa\Solr\Query\Common\AggregationVisitor\RangeAggregationVisitor
         factory: [ '@Ibexa\Solr\Query\Common\AggregationVisitor\Factory\ContentFieldAggregationVisitorFactory', 'createRangeAggregationVisitor' ]
         arguments:
             $aggregationClass: 'App\Query\Aggregation\Solr\PriorityRangeAggregation'
@@ -10,7 +10,7 @@ services:
             - { name: ibexa.search.solr.query.location.aggregation.visitor }
 
     app.search.elasticsearch.query.aggregation_visitor.priority_range_aggregation:
-        class: Ibexa\Elasticsearch\Query\AggregationVisitor\PriorityRangeAggregationVisitor
+        class: Ibexa\Elasticsearch\Query\AggregationVisitor\RangeAggregationVisitor
         factory: [ '@Ibexa\Elasticsearch\Query\AggregationVisitor\Factory\SearchFieldAggregationVisitorFactory', 'createRangeAggregationVisitor' ]
         arguments:
             $aggregationClass: 'App\Query\Aggregation\Elasticsearch\PriorityRangeAggregation'
