@@ -482,6 +482,7 @@ nav:
             - Legacy search engine: 
                 - Overview: search/search_engines/legacy_search_engine/legacy_search_overview.md
                 - Configure repository: search/search_engines/legacy_search_engine/configure_repository.md
+        - Search API: search/search_api.md
         - Search Criteria and Sort Clauses: search/search_criteria_and_sort_clauses.md
         - Search Criteria reference:
             - Search Criteria reference: search/criteria_reference/search_criteria_reference.md
@@ -641,7 +642,7 @@ nav:
             - ObjectCriterion: search/activity_log_search_reference/object_criterion.md
             - ObjectNameCriterion: search/activity_log_search_reference/object_name_criterion.md
             - UserCriterion: search/activity_log_search_reference/user_criterion.md
-        - Action Configuration Search Criteria:: search/ai_actions_search_reference/action_configuration_criteria.md
+        - Action Configuration Search Criteria: search/ai_actions_search_reference/action_configuration_criteria.md
         - Sort Clause reference:
             - General Sort Clauses:
                 - General Sort Clause reference: search/sort_clause_reference/sort_clause_reference.md
@@ -709,7 +710,6 @@ nav:
                 - Url Sort Clause: search/url_search_reference/url_url_sort_clause.md
             - Activity Log Sort Clauses: search/activity_log_search_reference/activity_log_sort_clauses.md
             - Action Configuration Sort Clauses: search/ai_actions_search_reference/action_configuration_sort_clauses.md
-        - Search API: search/search_api.md
         - Aggregation reference:
               # Content aggregations
             - Aggregation reference: search/aggregation_reference/aggregation_reference.md
