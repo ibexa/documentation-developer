@@ -1,7 +1,7 @@
 services:
     app.search.solr.query.aggregation_visitor.priority_range_aggregation:
         class: Ibexa\Solr\Query\Common\AggregationVisitor\RangeAggregationVisitor
-        factory: [ '@Ibexa\Solr\Query\Common\AggregationVisitor\Factory\ContentFieldAggregationVisitorFactory', 'createRangeAggregationVisitor' ]
+        factory: [ '@Ibexa\Solr\Query\Common\AggregationVisitor\Factory\SearchFieldAggregationVisitorFactory', 'createRangeAggregationVisitor' ]
         arguments:
             $aggregationClass: 'App\Query\Aggregation\Solr\PriorityRangeAggregation'
             $searchIndexFieldName: 'priority_i'
