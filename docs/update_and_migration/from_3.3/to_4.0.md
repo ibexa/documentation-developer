@@ -170,11 +170,7 @@ php bin/console ibexa:migrations:migrate
 
 ### GraphQL
 
-TODO: Confirm it happens between 3.3 and 4.0
-
 Some property names has changed and your GraphQL queries need to be updated.
-
-TODO: Complete the list of renamed elements
 
 | 3.3 name                     | 4.0 name                  |
 |:-----------------------------|:--------------------------|
@@ -182,8 +178,6 @@ TODO: Complete the list of renamed elements
 | `_info`                      | `_contentInfo`            |
 | `FolderContent`              | `FolderItem`              |
 | `<ContentType>Content`       | `<ContentType>Item`       |
-| `createFolderContent`        | `createFolderItem`        |
-| `create<ContentType>Content` | `create<ContentType>Item` |
 
 TODO: Example with more renamed elements
 
