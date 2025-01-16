@@ -396,11 +396,6 @@ figcaption {
     font-style: italic;
     text-align: center;
 }
-
-a.external:not(.card) {
-    white-space: nowrap;
-}
-
 a.external:not(.card):after {
     content: url(../images/open-in-new.svg);
     font-style: normal;
