@@ -179,8 +179,6 @@ Some property names has changed and your GraphQL queries need to be updated.
 | `FolderContent`              | `FolderItem`              |
 | `<ContentType>Content`       | `<ContentType>Item`       |
 
-TODO: Example with more renamed elements
-
 Example of updated query
 
 <table>
