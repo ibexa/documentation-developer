@@ -1296,6 +1296,21 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/Ibexa-Contracts-AdminUi-Notification-TranslatableNotificationHandlerInterface.html#method_error"
         },                {
+            "fqsen": "\\Ibexa\\Contracts\\AdminUi\\Permission\\PermissionCheckContextProviderInterface",
+            "name": "PermissionCheckContextProviderInterface",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-AdminUi-Permission-PermissionCheckContextProviderInterface.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\AdminUi\\Permission\\PermissionCheckContextProviderInterface\u003A\u003Asupports\u0028\u0029",
+            "name": "supports",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-AdminUi-Permission-PermissionCheckContextProviderInterface.html#method_supports"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\AdminUi\\Permission\\PermissionCheckContextProviderInterface\u003A\u003AgetPermissionCheckContext\u0028\u0029",
+            "name": "getPermissionCheckContext",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-AdminUi-Permission-PermissionCheckContextProviderInterface.html#method_getPermissionCheckContext"
+        },                {
             "fqsen": "\\Ibexa\\Contracts\\AdminUi\\Permission\\PermissionCheckerInterface",
             "name": "PermissionCheckerInterface",
             "summary": "",
@@ -1720,6 +1735,31 @@ Search.appendIndex(
             "name": "SORT_CLAUSE_CONTENT_NAME",
             "summary": "",
             "url": "classes/Ibexa-Contracts-AdminUi-UniversalDiscovery-Provider.html#constant_SORT_CLAUSE_CONTENT_NAME"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\AdminUi\\Values\\PermissionCheckContext",
+            "name": "PermissionCheckContext",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-AdminUi-Values-PermissionCheckContext.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\AdminUi\\Values\\PermissionCheckContext\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-AdminUi-Values-PermissionCheckContext.html#method___construct"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\AdminUi\\Values\\PermissionCheckContext\u003A\u003AgetSubject\u0028\u0029",
+            "name": "getSubject",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-AdminUi-Values-PermissionCheckContext.html#method_getSubject"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\AdminUi\\Values\\PermissionCheckContext\u003A\u003AgetTargets\u0028\u0029",
+            "name": "getTargets",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-AdminUi-Values-PermissionCheckContext.html#method_getTargets"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\AdminUi\\Values\\PermissionCheckContext\u003A\u003AgetCriteria\u0028\u0029",
+            "name": "getCriteria",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-AdminUi-Values-PermissionCheckContext.html#method_getCriteria"
         },                {
             "fqsen": "\\Ibexa\\Contracts\\Calendar\\CalendarServiceInterface",
             "name": "CalendarServiceInterface",
@@ -3520,6 +3560,16 @@ Search.appendIndex(
             "name": "deleteCheckout",
             "summary": "",
             "url": "classes/Ibexa-Contracts-Checkout-CheckoutServiceInterface.html#method_deleteCheckout"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Checkout\\Discounts\\DataMapper\\DiscountsDataMapperInterface",
+            "name": "DiscountsDataMapperInterface",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Checkout-Discounts-DataMapper-DiscountsDataMapperInterface.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Checkout\\Discounts\\DataMapper\\DiscountsDataMapperInterface\u003A\u003AmapToDiscountData\u0028\u0029",
+            "name": "mapToDiscountData",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Checkout-Discounts-DataMapper-DiscountsDataMapperInterface.html#method_mapToDiscountData"
         },                {
             "fqsen": "\\Ibexa\\Contracts\\Checkout\\Event\\BeforeCreateCheckoutEvent",
             "name": "BeforeCreateCheckoutEvent",
@@ -42711,6 +42761,11 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/Ibexa-Contracts-ProductCatalog-Values-Price-PriceStampInterface.html#method_getNewPrice"
         },                {
+            "fqsen": "\\Ibexa\\Contracts\\ProductCatalog\\Values\\Price\\PriceStampInterface\u003A\u003AgetOriginalPrice\u0028\u0029",
+            "name": "getOriginalPrice",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-ProductCatalog-Values-Price-PriceStampInterface.html#method_getOriginalPrice"
+        },                {
             "fqsen": "\\Ibexa\\Contracts\\ProductCatalog\\Values\\Price\\ProductPriceStructInterface",
             "name": "ProductPriceStructInterface",
             "summary": "",
@@ -44358,7 +44413,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\Ibexa\\Contracts\\Rest\\Exceptions\\NotFoundException",
             "name": "NotFoundException",
-            "summary": "Implementation\u0020of\u0020the\u0020\u007B\u0040link\u0020\\Ibexa\\Contracts\\Core\\Repository\\Exceptions\\NotFoundException\u007D\ninterface.",
+            "summary": "REST\u0020API\u0020equivalent\u0020of\u0020PHP\u0020API\u0027s\u0020NotFoundException.",
             "url": "classes/Ibexa-Contracts-Rest-Exceptions-NotFoundException.html"
         },                {
             "fqsen": "\\Ibexa\\Contracts\\Rest\\Exceptions\\Parser",
@@ -46005,6 +46060,16 @@ Search.appendIndex(
             "name": "resolve",
             "summary": "",
             "url": "classes/Ibexa-Contracts-Seo-Resolver-FieldReferenceResolverInterface.html#method_resolve"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Seo\\Resolver\\FieldValueResolverInterface",
+            "name": "FieldValueResolverInterface",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Seo-Resolver-FieldValueResolverInterface.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Seo\\Resolver\\FieldValueResolverInterface\u003A\u003Aresolve\u0028\u0029",
+            "name": "resolve",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Seo-Resolver-FieldValueResolverInterface.html#method_resolve"
         },                {
             "fqsen": "\\Ibexa\\Contracts\\Seo\\Value\\ValueInterface",
             "name": "ValueInterface",
@@ -51061,6 +51126,11 @@ Search.appendIndex(
             "summary": "",
             "url": "namespaces/ibexa-contracts-adminui-universaldiscovery.html"
         },                {
+            "fqsen": "\\Ibexa\\Contracts\\AdminUi\\Values",
+            "name": "Values",
+            "summary": "",
+            "url": "namespaces/ibexa-contracts-adminui-values.html"
+        },                {
             "fqsen": "\\Ibexa\\Contracts\\Calendar",
             "name": "Calendar",
             "summary": "",
@@ -51130,6 +51200,16 @@ Search.appendIndex(
             "name": "Checkout",
             "summary": "",
             "url": "namespaces/ibexa-contracts-checkout.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Checkout\\Discounts\\DataMapper",
+            "name": "DataMapper",
+            "summary": "",
+            "url": "namespaces/ibexa-contracts-checkout-discounts-datamapper.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Checkout\\Discounts",
+            "name": "Discounts",
+            "summary": "",
+            "url": "namespaces/ibexa-contracts-checkout-discounts.html"
         },                {
             "fqsen": "\\Ibexa\\Contracts\\Checkout\\Event",
             "name": "Event",
