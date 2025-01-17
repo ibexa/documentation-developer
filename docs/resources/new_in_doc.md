@@ -6,6 +6,27 @@ description: Overview of major recent additions to Ibexa DXP documentation.
 
 This page contains recent highlights and notable changes in [[= product_name =]] documentation.
 
+## December 2024
+
+### Infrastructure and maintenance
+
+- Added [v4.6.14 to v4.6.15 update instructions](https://doc.ibexa.co/en/master/update_and_migration/from_4.6/update_from_4.6/#v4614).
+
+## AI Actions
+
+- Added [extending AI Actions](extend_ai_actions.md) documentation.
+
+### Security
+
+- Expanded the [Security checklist](security_checklist.md) with advice on TLS, HSTS, DNSSEC, CAA, and domain update protection.
+
+### PHP API
+
+- Added the following interfaces to the public PHP API:
+- [`Ibexa\Contracts\ProductCatalog\Values\Price\PriceEnvelopeInterface`](https://doc.ibexa.co/en/latest/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Values-Price-PriceEnvelopeInterface.html)
+- [`Ibexa\Contracts\ProductCatalog\Values\Price\PriceStampInterface`](https://doc.ibexa.co/en/latest/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Values-Price-PriceStampInterface.html)
+- [`Ibexa\Contracts\ProductCatalog\Values\StampInterface`](https://doc.ibexa.co/en/latest/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Values-StampInterface.html)
+
 ## November 2024
 
 ### Infrastructure and maintenance
