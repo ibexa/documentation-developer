@@ -245,3 +245,7 @@ composer require symfony/serializer-pack symfony/orm-pack
 ```
 
 Then, verify that Symfony Flex installed the versions you were using before.
+
+## v4.6.16
+
+No additional steps needed.
