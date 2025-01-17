@@ -10,7 +10,7 @@ This page contains recent highlights and notable changes in [[= product_name =]]
 
 ### Infrastructure and maintenance
 
-- Added [v4.6.14 to v4.6.15 update instructions](https://doc.ibexa.co/en/master/update_and_migration/from_4.6/update_from_4.6/#v4614).
+- Added [v4.6.14 to v4.6.15 update instructions](https://doc.ibexa.co/en/master/update_and_migration/from_4.6/update_from_4.6/#v4615).
 
 ## AI Actions
 
