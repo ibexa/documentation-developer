@@ -29,7 +29,8 @@ You must remove Node.js and NVM installations as they're already included in DDE
 
 The following sequence of commands:
 
-1. Downloads the [[= product_name_cloud =]] Platform.sh project from the default environment "production" into a new directory, based on the [Platform.sh CLI alias `ibexa_cloud` defined in introduction](#ibexa-cloud-and-ddev).
+1. Downloads the [[= product_name_cloud =]] Ibexa Cloud project from the default environment "production" into a new directory,
+using the [`ibexa_cloud` command](https://cli.ibexa.co/).
 (Replace `<project-ID>` with the hash of your own project.
 See [`ibexa_cloud help get`](https://docs.platform.sh/administration/cli.html#3-use) for options like selecting another environment).
 1. Configures a new DDEV project.
