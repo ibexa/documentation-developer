@@ -6,18 +6,18 @@ description: Use DDEV to run an Ibexa Cloud project locally.
 
 Two ways are available to run an [[= product_name_cloud =]] project locally with DDEV:
 
-- [by using the Platform.sh's `ddev-platformsh` add-on](#with-the-ddev-platformsh-add-on)
+- [by using the Platform.sh's `ddev-ibexa-cloud` add-on](#with-the-ddev-ibexa-cloud-add-on)
 - [like other existing project, without this add-on](#without-the-platformsh-add-on).
 
 !!! note
 
     The following examples use [[[= product_name_cloud =]] CLI (`ibexa_cloud`)](https://cli.ibexa.co/).
 
-## With the `ddev-platformsh` add-on
+## With the `ddev-ibexa-cloud` add-on
 
-To configure the [`ddev/ddev-platformsh` add-on](https://github.com/ddev/ddev-platformsh), you need a [Platform.sh API Token](https://docs.platform.sh/administration/cli/api-tokens.html).
+To configure the [`ddev/ddev-ibexa-cloud` add-on](https://github.com/ddev/ddev-ibexa-cloud), you need a [Platform.sh API Token](https://docs.platform.sh/administration/cli/api-tokens.html).
 
-The `ddev/ddev-platformsh` add-on configures the document root, the PHP version, the database, and the cache pool according to the [[= product_name_cloud =]] configuration.
+The `ddev/ddev-ibexa-cloud` add-on configures the document root, the PHP version, the database, and the cache pool according to the [[= product_name_cloud =]] configuration.
 About the search engine, the add-on can configure Elasticsearch but can't configure Solr.
 If you use Solr on [[= product_name_cloud =]] and want to add it to your DDEV stack, see [Clustering with DDEV and `ibexa/ddev-solr` add-on](clustering_with_ddev.md#solr).
 
@@ -37,7 +37,7 @@ See [`ibexa_cloud help get`](https://docs.platform.sh/administration/cli.html#3-
 (Some DDEV config could be committed like in [this documentation](https://ddev.readthedocs.io/en/latest/users/extend/customization-extendibility/#extending-configyaml-with-custom-configyaml-files).)
 1. Sets Composer authentication by using an already existing `auth.json` file.
 1. Creates a `public/var` directory if it doesn't exist, to allow the creation of `public/var/.platform.installed` by Platform.sh hook script.
-1. Installs the `ddev/ddev-platformsh` add-on which prompts for the Platform.sh API token, project ID and environment name.
+1. Installs the `ddev/ddev-ibexa-cloud` add-on which prompts for the Platform.sh API token, project ID and environment name.
 1. Comments out the Node.js and NVM installations from the hooks copied in `.ddev/config.platformsh.yaml`.
 (In this file, you may have to discard other specific features like New Relic.)
 1. Changes `maxmemory-policy` from default `allkeys-lfu` to a [value accepted by the `RedisTagAwareAdapter`](https://github.com/symfony/cache/blob/5.4/Adapter/RedisTagAwareAdapter.php#L95).
@@ -53,7 +53,7 @@ ddev config --project-type=php --web-environment-add COMPOSER_AUTH=''
 echo '.ddev/' >> .gitignore
 mkdir -p .ddev/homeadditions/.composer && cp <path-to-an>/auth.json .ddev/homeadditions/.composer
 if [ ! -d public/var ]; then mkdir public/var; fi
-ddev get ddev/ddev-platformsh
+ddev get ddev/ddev-ibexa-cloud
 sed -i -E "s/( +)(.*nvm (install|use).*)/\1#\2/" .ddev/config.platformsh.yaml
 sed -i 's/maxmemory-policy allkeys-lfu/maxmemory-policy volatile-lfu/' .ddev/redis/redis.conf
 ddev start
