@@ -58,7 +58,7 @@ ddev get ddev/ddev-ibexa-cloud
 sed -i -E "s/( +)(.*nvm (install|use).*)/\1#\2/" .ddev/config.platformsh.yaml
 sed -i 's/maxmemory-policy allkeys-lfu/maxmemory-policy volatile-lfu/' .ddev/redis/redis.conf
 ddev start
-ddev pull platform -y
+ddev pull ibexa-cloud -y
 ddev restart
 ddev describe
 ddev launch
