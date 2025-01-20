@@ -43,7 +43,7 @@ See [`ibexa_cloud help get`](https://docs.platform.sh/administration/cli.html#3-
 (In this file, you may have to discard other specific features like New Relic.)
 1. Changes `maxmemory-policy` from default `allkeys-lfu` to a [value accepted by the `RedisTagAwareAdapter`](https://github.com/symfony/cache/blob/5.4/Adapter/RedisTagAwareAdapter.php#L95).
 1. Starts the project.
-1. Gets the content from Platform.sh, both database and binary files by using `ddev pull platform` feature from the add-on.
+1. Gets the content from Ibexa Cloud, both database and binary files by using `ddev pull ibexa-cloud` feature from the add-on.
 1. Restarts the project.
 1. Displays information about the project services.
 1. Opens the project in a browser.
