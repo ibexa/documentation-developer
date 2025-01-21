@@ -95,7 +95,7 @@ echo '.ddev/' >> .gitignore
 ddev start
 ddev composer config --global http-basic.updates.ibexa.co <installation-key> <token-password>
 ibexa_cloud db:dump --gzip --file=production.sql.gz
-ddev import-db --src=production.sql.gz && rm production.sql.gz
+ddev import-db --file=production.sql.gz && rm production.sql.gz
 ibexa_cloud mount:download --mount public/var --target public/var
 ddev composer install
 ddev describe
