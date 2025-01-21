@@ -37,6 +37,7 @@ Recommendation for production setups is to use Varnish/Fastly, Redis/Memcached, 
     |Debian 11 "Bullseye"|11.0-11.7+|
     |Ubuntu  "Focal Fossa" | 20.04 |
     |Ubuntu "Jammy Jellyfish"| 22.04 |
+    |Ubuntu "Noble Numbat"| 24.04 |
     |RHEL / CentOS | 8.1-8.5+ |
 
     If you see a "+" next to the product version, it indicates a recommended version or higher within the same major release.
