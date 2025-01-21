@@ -34,30 +34,30 @@ using the [`ibexa_cloud` command](https://cli.ibexa.co/).
 (Replace `<project-ID>` with the hash of your own project.
 See [`ibexa_cloud help get`](https://docs.platform.sh/administration/cli.html#3-use) for options like selecting another environment).
 1. Configures a new DDEV project.
+1. Configures the `ddev/ddev-ibexa-cloud` add-on.
+1. Configures `ibexa_cloud` command token. See [Create an API token](https://docs.platform.sh/administration/cli/api-tokens.html#2-create-an-api-token) for more information.
 1. Ignores `.ddev/` directory from Git.
 (Some DDEV config could be committed like in [this documentation](https://ddev.readthedocs.io/en/latest/users/extend/customization-extendibility/#extending-configyaml-with-custom-configyaml-files).)
 1. Sets Composer authentication by using an already existing `auth.json` file.
-1. Creates a `public/var` directory if it doesn't exist, to allow the creation of `public/var/.platform.installed` by Platform.sh hook script.
-1. Installs the `ddev/ddev-ibexa-cloud` add-on which prompts for the Platform.sh API token, project ID and environment name.
+1. Installs the `ddev/ddev-ibexa-cloud` add-on.
 (Check `.ddev/config.ibexa-cloud.yaml` and adapt if needed. For example, you may have to comment out New Relic.)
-1. Changes `maxmemory-policy` from default `allkeys-lfu` to a [value accepted by the `RedisTagAwareAdapter`](https://github.com/symfony/cache/blob/5.4/Adapter/RedisTagAwareAdapter.php#L95).
 1. Starts the project.
+1. Install dependencies.
 1. Gets the content from Ibexa Cloud, both database and binary files by using `ddev pull ibexa-cloud` feature from the add-on.
-1. Restarts the project.
 1. Displays information about the project services.
 1. Opens the project in a browser.
 
 ```bash
 ibexa_cloud project:get <project-ID> my-ddev-project && cd my-ddev-project
-ddev config --project-type=php --web-environment-add COMPOSER_AUTH=''
+ddev config --project-type=php --php-version 8.1 --web-environment-add COMPOSER_AUTH='',DATABASE_URL=mysql://db:db@db:3306/db
+ddev config --web-environment-add IBEXA_PROJECT=$PROJECT,IBEXA_ENVIRONMENT=$ENVIRONMENT,IBEXA_APP=app
+ddev config --web-environment-add IBEXA_CLI_TOKEN=$IBEXA_CLI_TOKEN
 echo '.ddev/' >> .gitignore
 mkdir -p .ddev/homeadditions/.composer && cp <path-to-an>/auth.json .ddev/homeadditions/.composer
-if [ ! -d public/var ]; then mkdir public/var; fi
-ddev add-on get ddev/ddev-ibexa-cloud
-sed -i 's/maxmemory-policy allkeys-lfu/maxmemory-policy volatile-lfu/' .ddev/redis/redis.conf
+ddev add-on get ddev/ddev-ibexa-cloud             
 ddev start
+ddev composer install
 ddev pull ibexa-cloud -y
-ddev restart
 ddev describe
 ddev launch
 ```
