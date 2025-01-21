@@ -39,8 +39,7 @@ See [`ibexa_cloud help get`](https://docs.platform.sh/administration/cli.html#3-
 1. Sets Composer authentication by using an already existing `auth.json` file.
 1. Creates a `public/var` directory if it doesn't exist, to allow the creation of `public/var/.platform.installed` by Platform.sh hook script.
 1. Installs the `ddev/ddev-ibexa-cloud` add-on which prompts for the Platform.sh API token, project ID and environment name.
-1. Comments out the Node.js and NVM installations from the hooks copied in `.ddev/config.platformsh.yaml`.
-(In this file, you may have to discard other specific features like New Relic.)
+(Check `.ddev/config.ibexa-cloud.yaml` and adapt if needed. For example, you may have to comment out New Relic.)
 1. Changes `maxmemory-policy` from default `allkeys-lfu` to a [value accepted by the `RedisTagAwareAdapter`](https://github.com/symfony/cache/blob/5.4/Adapter/RedisTagAwareAdapter.php#L95).
 1. Starts the project.
 1. Gets the content from Ibexa Cloud, both database and binary files by using `ddev pull ibexa-cloud` feature from the add-on.
@@ -55,7 +54,6 @@ echo '.ddev/' >> .gitignore
 mkdir -p .ddev/homeadditions/.composer && cp <path-to-an>/auth.json .ddev/homeadditions/.composer
 if [ ! -d public/var ]; then mkdir public/var; fi
 ddev add-on get ddev/ddev-ibexa-cloud
-sed -i -E "s/( +)(.*nvm (install|use).*)/\1#\2/" .ddev/config.platformsh.yaml
 sed -i 's/maxmemory-policy allkeys-lfu/maxmemory-policy volatile-lfu/' .ddev/redis/redis.conf
 ddev start
 ddev pull ibexa-cloud -y
