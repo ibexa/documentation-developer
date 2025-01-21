@@ -41,6 +41,15 @@ jobs:
                 run: |
                     mkdocs build --strict
 
+            - name: Verify that there are no variables in generated HTML
+              run: |
+                    # Check for raw MkDocs variables in the generated HTML
+                    if grep -Erl "\[\[=.*=\]\]" site > /dev/null; then
+                        echo "Raw variables detected in the following files:"
+                        grep -Erl "\[\[=.*=\]\]" site
+                        exit 1
+                    fi
+
     vale-check:
         runs-on: ubuntu-latest
         if: github.event_name == 'pull_request'
