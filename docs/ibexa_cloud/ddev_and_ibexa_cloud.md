@@ -54,7 +54,7 @@ ddev config --project-type=php --web-environment-add COMPOSER_AUTH=''
 echo '.ddev/' >> .gitignore
 mkdir -p .ddev/homeadditions/.composer && cp <path-to-an>/auth.json .ddev/homeadditions/.composer
 if [ ! -d public/var ]; then mkdir public/var; fi
-ddev get ddev/ddev-ibexa-cloud
+ddev add-on get ddev/ddev-ibexa-cloud
 sed -i -E "s/( +)(.*nvm (install|use).*)/\1#\2/" .ddev/config.platformsh.yaml
 sed -i 's/maxmemory-policy allkeys-lfu/maxmemory-policy volatile-lfu/' .ddev/redis/redis.conf
 ddev start
