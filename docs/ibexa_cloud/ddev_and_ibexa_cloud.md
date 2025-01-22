@@ -21,7 +21,7 @@ The `ddev/ddev-ibexa-cloud` add-on configures the document root, the PHP version
 About the search engine, the add-on can configure Elasticsearch but can't configure Solr.
 If you use Solr on [[= product_name_cloud =]] and want to add it to your DDEV stack, see [Clustering with DDEV and `ibexa/ddev-solr` add-on](clustering_with_ddev.md#solr).
 
-`COMPOSER_AUTH` from Platform.sh can't be used, because JSON commas are incorrectly interpreted by `--web-environment-add`, which sees them as multiple variable separators.
+`env:COMPOSER_AUTH` from Platform.sh can't be used, because JSON commas are incorrectly interpreted by `--web-environment-add`, which sees them as multiple variable separators.
 But the variable must exist for Platform.sh `hooks` scripts to work.
 To use an `auth.json` file for this purpose, see [Using `auth.json`](install_with_ddev.md#using-authjson).
 
