@@ -6,20 +6,23 @@ description: Use DDEV to run an Ibexa Cloud project locally.
 
 Two ways are available to run an [[= product_name_cloud =]] project locally with DDEV:
 
-- [by using the Platform.sh's `ddev-ibexa-cloud` add-on](#with-the-ddev-ibexa-cloud-add-on)
+- [by using the Platform.sh's `ddev-platformsh` and `ddev-ibexa-cloud` add-ons](#with-the-ddev-platformsh-and-ddev-ibexa-cloud-add-ons)
 - [like other existing project, without this add-on](#without-the-ibexa-cloud-add-on).
 
 !!! note
 
     The following examples use [[[= product_name_cloud =]] CLI (`ibexa_cloud`)](https://cli.ibexa.co/).
 
-## With the `ddev-ibexa-cloud` add-on
+## With the `ddev-platformsh` and `ddev-ibexa-cloud` add-ons
 
-To configure the [`ddev/ddev-ibexa-cloud` add-on](https://github.com/ddev/ddev-ibexa-cloud), you need a [Platform.sh API Token](https://docs.platform.sh/administration/cli/api-tokens.html).
+To configure [`ddev/ddev-platformsh` add-on](https://github.com/ddev/ddev-platformsh) and [`ddev/ddev-ibexa-cloud` add-on](https://github.com/ddev/ddev-ibexa-cloud), you need a [Platform.sh API Token](https://docs.platform.sh/administration/cli/api-tokens.html).
 
-The `ddev/ddev-ibexa-cloud` add-on configures the document root, the PHP version, the database, and the cache pool according to the [[= product_name_cloud =]] configuration.
+The `ddev/ddev-platformsh` add-on configures the document root, the PHP version, the database, and the cache pool according to the [[= product_name_cloud =]] configuration.
 About the search engine, the add-on can configure Elasticsearch but can't configure Solr.
 If you use Solr on [[= product_name_cloud =]] and want to add it to your DDEV stack, see [Clustering with DDEV and `ibexa/ddev-solr` add-on](clustering_with_ddev.md#solr).
+
+The `ddev/ddev-ibexa-cloud` add-on integrate the `ibexa_cloud` command,
+and eases the pull of cloud contents into the local installation.
 
 `env:COMPOSER_AUTH` from Platform.sh can't be used, because JSON commas are incorrectly interpreted by `--web-environment-add`, which sees them as multiple variable separators.
 But the variable must exist for Platform.sh `hooks` scripts to work.
@@ -29,20 +32,21 @@ You must remove Node.js and NVM installations as they're already included in DDE
 
 The following sequence of commands:
 
-1. Downloads the [[= product_name_cloud =]] project from the default environment "production" into a new directory (for example `my-ddev-project`),
-using the [`ibexa_cloud` command](https://cli.ibexa.co/).
-(Replace `<project-ID>` with the hash of your own project.
+1. Downloads the [[= product_name_cloud =]] project from the default environment "production"
+   into a new directory (for example `my-ddev-project`), using the [`ibexa_cloud` command](https://cli.ibexa.co/).
+   (Replace `<project-ID>` with the hash of your own project.
 See [`ibexa_cloud help get`](https://docs.platform.sh/administration/cli.html#3-use) for options like selecting another environment).
 1. Configures a new DDEV project.
 1. Configures the `ddev/ddev-ibexa-cloud` add-on with `<project-ID>` and environment name (for example, `production`).
 1. Configures `ibexa_cloud` command token. See [Create an API token](https://docs.platform.sh/administration/cli/api-tokens.html#2-create-an-api-token) for more information.
 1. Ignores `.ddev/` directory from Git.
-(Some DDEV config could be committed like in [this documentation](https://ddev.readthedocs.io/en/latest/users/extend/customization-extendibility/#extending-configyaml-with-custom-configyaml-files).)
+   (Some DDEV config could be committed like in [this documentation](https://ddev.readthedocs.io/en/latest/users/extend/customization-extendibility/#extending-configyaml-with-custom-configyaml-files).)
 1. Sets Composer authentication by using an already existing `auth.json` file.
+1. Installs the `ddev/ddev-platformsh` add-on which prompts for the Platform.sh API token, project ID and environment name.
+1. Changes `maxmemory-policy` from default `allkeys-lfu` to a [value accepted by the `RedisTagAwareAdapter`](https://github.com/symfony/cache/blob/5.4/Adapter/RedisTagAwareAdapter.php#L95).
+   (Check `.ddev/config.platformsh.yaml` and adapt if needed. For example, you may have to comment out New Relic.)
 1. Installs the `ddev/ddev-ibexa-cloud` add-on.
-(Check `.ddev/config.ibexa-cloud.yaml` and adapt if needed. For example, you may have to comment out New Relic.)
 1. Starts the project.
-1. Install dependencies.
 1. Gets the content from [[= product_name_cloud =]], both database and binary files by using `ddev pull ibexa-cloud` feature from the add-on.
 1. Displays information about the project services.
 1. Opens the project in a browser.
@@ -54,9 +58,10 @@ ddev config --web-environment-add IBEXA_PROJECT=<project-ID>,IBEXA_ENVIRONMENT=p
 ddev config --web-environment-add IBEXA_CLI_TOKEN=<api-token>
 echo '.ddev/' >> .gitignore
 mkdir -p .ddev/homeadditions/.composer && cp <path-to-an>/auth.json .ddev/homeadditions/.composer
+ddev add-on get ddev/ddev-platformsh
+sed -i 's/maxmemory-policy allkeys-lfu/maxmemory-policy volatile-lfu/' .ddev/redis/redis.conf
 ddev add-on get ddev/ddev-ibexa-cloud             
 ddev start
-ddev composer install
 ddev pull ibexa-cloud -y
 ddev describe
 ddev launch
