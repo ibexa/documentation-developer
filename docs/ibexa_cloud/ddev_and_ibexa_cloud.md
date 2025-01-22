@@ -29,7 +29,7 @@ You must remove Node.js and NVM installations as they're already included in DDE
 
 The following sequence of commands:
 
-1. Downloads the [[= product_name_cloud =]] Ibexa Cloud project from the default environment "production" into a new directory,
+1. Downloads the [[= product_name_cloud =]] project from the default environment "production" into a new directory,
 using the [`ibexa_cloud` command](https://cli.ibexa.co/).
 (Replace `<project-ID>` with the hash of your own project.
 See [`ibexa_cloud help get`](https://docs.platform.sh/administration/cli.html#3-use) for options like selecting another environment).
@@ -43,7 +43,7 @@ See [`ibexa_cloud help get`](https://docs.platform.sh/administration/cli.html#3-
 (Check `.ddev/config.ibexa-cloud.yaml` and adapt if needed. For example, you may have to comment out New Relic.)
 1. Starts the project.
 1. Install dependencies.
-1. Gets the content from Ibexa Cloud, both database and binary files by using `ddev pull ibexa-cloud` feature from the add-on.
+1. Gets the content from [[= product_name_cloud =]], both database and binary files by using `ddev pull ibexa-cloud` feature from the add-on.
 1. Displays information about the project services.
 1. Opens the project in a browser.
 
