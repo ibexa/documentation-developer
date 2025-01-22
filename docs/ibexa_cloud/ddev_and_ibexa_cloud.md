@@ -29,12 +29,12 @@ You must remove Node.js and NVM installations as they're already included in DDE
 
 The following sequence of commands:
 
-1. Downloads the [[= product_name_cloud =]] project from the default environment "production" into a new directory,
+1. Downloads the [[= product_name_cloud =]] project from the default environment "production" into a new directory (for example `my-ddev-project`),
 using the [`ibexa_cloud` command](https://cli.ibexa.co/).
 (Replace `<project-ID>` with the hash of your own project.
 See [`ibexa_cloud help get`](https://docs.platform.sh/administration/cli.html#3-use) for options like selecting another environment).
 1. Configures a new DDEV project.
-1. Configures the `ddev/ddev-ibexa-cloud` add-on.
+1. Configures the `ddev/ddev-ibexa-cloud` add-on with `<project-ID>` and environment name (for example, `production`).
 1. Configures `ibexa_cloud` command token. See [Create an API token](https://docs.platform.sh/administration/cli/api-tokens.html#2-create-an-api-token) for more information.
 1. Ignores `.ddev/` directory from Git.
 (Some DDEV config could be committed like in [this documentation](https://ddev.readthedocs.io/en/latest/users/extend/customization-extendibility/#extending-configyaml-with-custom-configyaml-files).)
@@ -50,8 +50,8 @@ See [`ibexa_cloud help get`](https://docs.platform.sh/administration/cli.html#3-
 ```bash
 ibexa_cloud project:get <project-ID> my-ddev-project && cd my-ddev-project
 ddev config --project-type=php --php-version 8.1 --web-environment-add COMPOSER_AUTH='',DATABASE_URL=mysql://db:db@db:3306/db
-ddev config --web-environment-add IBEXA_PROJECT=$PROJECT,IBEXA_ENVIRONMENT=$ENVIRONMENT,IBEXA_APP=app
-ddev config --web-environment-add IBEXA_CLI_TOKEN=$IBEXA_CLI_TOKEN
+ddev config --web-environment-add IBEXA_PROJECT=<project-ID>,IBEXA_ENVIRONMENT=production,IBEXA_APP=app
+ddev config --web-environment-add IBEXA_CLI_TOKEN=<api-token>
 echo '.ddev/' >> .gitignore
 mkdir -p .ddev/homeadditions/.composer && cp <path-to-an>/auth.json .ddev/homeadditions/.composer
 ddev add-on get ddev/ddev-ibexa-cloud             
