@@ -172,12 +172,11 @@ php bin/console ibexa:migrations:migrate
 
 Some GraphQL property names have changed. Adapt your queries according to the table below.
 
-| 3.3 name                     | 4.0 name                  |
-|:-----------------------------|:--------------------------|
-| `id`                         | `contentId`               |
-| `_info`                      | `_contentInfo`            |
-| `FolderContent`              | `FolderItem`              |
-| `<ContentType>Content`       | `<ContentType>Item`       |
+| 3.3 name                                          | 4.0 name                                    |
+|:--------------------------------------------------|:--------------------------------------------|
+| `id` argument                                     | `contentId` argument                        |
+| `_info`                                           | `_contentInfo`                              |
+| `<ContentType>Content` (example: `FolderContent`) | `<ContentType>Item` (example: `FolderItem`) |
 
 Example of an updated query:
 
@@ -190,6 +189,7 @@ Example of an updated query:
   content {
     folder(id: 1) {
       _info {
+        id
         name
       }
     }
@@ -202,6 +202,7 @@ Example of an updated query:
   content {
     folder(contentId: 1) {
        _contentInfo{
+        id
         name
       }
     }
@@ -210,6 +211,8 @@ Example of an updated query:
 ```
 </td></tr>
 </tbody></table>
+
+Notice that the argument have been updated to `contentId` while the `id` property keeps its name.
 
 While revisiting GraphQL queries, you may consider the new feature `item`
 allowing to fetch a content item without knowing its content type.
