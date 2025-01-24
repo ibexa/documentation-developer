@@ -170,7 +170,7 @@ php bin/console ibexa:migrations:migrate
 
 ### GraphQL
 
-Some property names has changed and your GraphQL queries need to be updated.
+Some GraphQL property names have changed. Adapt your queries according to the table below.
 
 | 3.3 name                     | 4.0 name                  |
 |:-----------------------------|:--------------------------|
@@ -179,7 +179,7 @@ Some property names has changed and your GraphQL queries need to be updated.
 | `FolderContent`              | `FolderItem`              |
 | `<ContentType>Content`       | `<ContentType>Item`       |
 
-Example of updated query
+Example of an updated query:
 
 <table>
 <thead><tr><th scope="col">3.3</th><th scope="col">4.0</th></tr></thead>
@@ -213,7 +213,7 @@ Example of updated query
 
 While revisiting GraphQL queries, you may consider the new feature `item`
 allowing to fetch a content item without knowing its content type.
-For more information, see [Get a content item](graphql_queries.md#get-a-content-item)
+For more information, see [Get a content item](graphql_queries.md#get-a-content-item).
 
 ### Back office customization
 
