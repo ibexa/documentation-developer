@@ -10,21 +10,11 @@ To provide support for a custom Search Criterion, do the following.
 
 First, create a `CameraManufacturerCriterion.php` file that contains the Criterion class:
 
-=== "Solr"
-
-    ``` php
-    --8<--
-    code_samples/search/solr/src/Query/Criterion/Solr/CameraManufacturerCriterion.php
-    --8<--
-    ```
-
-=== "Elasticsearch"
-
-    ``` php
-    --8<--
-    code_samples/search/elasticsearch/src/Query/Criterion/Elasticsearch/CameraManufacturerCriterion.php
-    --8<--
-    ```
+``` php
+--8<--
+code_samples/search/custom/src/Query/Criterion/CameraManufacturerCriterion.php
+--8<--
+```
 
 ## Create Criterion visitor
 
@@ -34,7 +24,7 @@ Then, add a `CameraManufacturerVisitor` class, implementing `CriterionVisitor`:
 
     ``` php
     --8<--
-    code_samples/search/solr/src/Query/Criterion/Solr/CameraManufacturerVisitor.php
+    code_samples/search/custom/src/Query/Criterion/Solr/CameraManufacturerVisitor.php
     --8<--
     ```
 
@@ -42,7 +32,7 @@ Then, add a `CameraManufacturerVisitor` class, implementing `CriterionVisitor`:
 
     ``` php
     --8<--
-    code_samples/search/elasticsearch/src/Query/Criterion/Elasticsearch/CameraManufacturerVisitor.php
+    code_samples/search/custom/src/Query/Criterion/Elasticsearch/CameraManufacturerVisitor.php
     --8<--
     ```
 
@@ -54,15 +44,13 @@ To choose the search type, use either `content` or `location` in the tag when re
 === "Solr"
 
     ``` yaml
-    --8<--
-    code_samples/search/solr/config/criterion_services.yaml
-    --8<--
+    services:
+    [[= include_file('code_samples/search/custom/config/criterion_services.yaml', 1, 5) =]]
     ```
 
 === "Elasticsearch"
 
     ``` yaml
-    --8<--
-    code_samples/search/elasticsearch/config/criterion_services.yaml
-    --8<--
+    services:
+    [[= include_file('code_samples/search/custom/config/criterion_services.yaml', 6, 10) =]]
     ```

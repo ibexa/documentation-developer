@@ -44,13 +44,13 @@ This resolver must implement `Ibexa\Contracts\Elasticsearch\ElasticSearch\Index\
 In this example, create a `ContentTypeGroupGroupResolver` based on the content type Group ID of the document:
 
 ``` php
-[[= include_file('code_samples/search/elasticsearch/src/GroupResolver/ContentTypeGroupGroupResolver.php') =]]
+[[= include_file('code_samples/search/custom/src/GroupResolver/ContentTypeGroupGroupResolver.php') =]]
 ```
 
 Register the resolver as a service:
 
 ``` yaml
-[[= include_file('code_samples/search/elasticsearch/config/group_resolver_services.yaml') =]]
+[[= include_file('code_samples/search/custom/config/group_resolver_services.yaml') =]]
 ```
 
 ### Configure indexing strategy
@@ -58,6 +58,5 @@ Register the resolver as a service:
 Finally, in configuration indicate that Elasticsearch should use your custom indexing strategy:
 
 ``` yaml
-[[= include_file('code_samples/search/elasticsearch/config/packages/elasticsearch.yaml') =]]
+[[= include_file('code_samples/search/custom/config/packages/elasticsearch.yaml') =]]
 ```
-
