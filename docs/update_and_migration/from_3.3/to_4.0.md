@@ -175,7 +175,7 @@ Some GraphQL property names have changed. Adapt your queries according to the ta
 | 3.3 name                                          | 4.0 name                                    |
 |:--------------------------------------------------|:--------------------------------------------|
 | `id` argument                                     | `contentId` argument                        |
-| `_info`                                           | `_contentInfo`                              |
+| `_info` content item property                     | `_contentInfo` content item property        |
 | `<ContentType>Content` (example: `FolderContent`) | `<ContentType>Item` (example: `FolderItem`) |
 
 Example of an updated query:
