@@ -170,7 +170,7 @@ php bin/console ibexa:migrations:migrate
 
 ### GraphQL
 
-Some GraphQL property names have changed. Adapt your queries according to the table below.
+Some GraphQL names have changed. Adapt your queries according to the table below.
 
 | 3.3 name                                          | 4.0 name                                    |
 |:--------------------------------------------------|:--------------------------------------------|
