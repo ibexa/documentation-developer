@@ -17,12 +17,23 @@ Additionally, [[= product_name =]] also has an open-source version called [[= pr
 The [[= product_name_oss =]] code is available on GitHub under the GPLv2 license.
 It comes with no commercial support and maintenance services.
 
-[[= product_name_base =]] manages the release of [[= product_name =]] by using an agile iterative process and a continuous software development model, which is why we provide two kinds of [[= product_name =]] releases:
+[[= product_name_base =]] manages the release of [[= product_name =]] by using an agile iterative process and a continuous software development model, which is why we provide Long Term Support releases (LTS) of [[= product_name =]] releases.
 
-- Long Term Support releases (LTS) which are supported by [[= product_name_base =]] for a long period of time.
-- Fast Track releases (FT) give access to the latest features and are supported for a short period of time. They're maintained only until the next FT release is introduced.
+Long Term Support releases (LTS) are supported by [[= product_name_base =]] for a long period of time.
+They're suitable for highly stable enterprise rollouts.
 
-FT releases are tailored for those who want to stay up-to-date with newest functionalities, while LTS releases are suitable for highly stable enterprise rollouts.
+LTS releases provide you with:
+
+- **Reliability and stability**, as they go through extensive testing to ensure they are free from major bugs and issues.
+- **Long-term security**, as a result of updates and security patches.
+- **Predictability** that comes from following an established release plan.
+- **Reduced maintenance**, because you avoid the frequent upgrade cycles.
+
+With LTS Updates customers can maintain their competitiveness by incorporating cutting-edge technologies into their LTS releases without losing stability.
+LTS Updates are intended to improve the current platform by providing new features.
+What's important, you are not required to switch to a newer version of [[= product_name =]] to use LTS Updates.
+You can install them whenever you choose, and you can be sure that the next LTS release will include them by default.
+You won't have to manually install or configure them after upgrading, so you can make the switch smoothly when the time comes.
 
 ## Versioning conventions
 
