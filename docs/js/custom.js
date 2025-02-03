@@ -18,18 +18,19 @@ $(document).ready(function() {
         warningBox.hidden = false;
     }
 
-    $('.md-content a.md-icon').each(function() {
+    if (!/^\d+\.\d+$/.test(branchName) && branchName !== 'latest') {
+        branchName = 'master';
+    }
+
+    // Insert version into header links
+    $('.md-header a.md-logo, #site-name > a').each(function() {
         $(this).attr(
             'href',
             $(this)
                 .attr('href')
-                .replace('master/docs/', branchName + '/docs/'),
+                .replace(/\/en\/[^\/]+\//, '/en/' + branchName + '/'),
         );
     });
-
-    if (!/^\d+\.\d+$/.test(branchName) && branchName !== 'latest') {
-        branchName = 'master';
-    }
 
     // Add version pill to top of navigation
     $('#site-name').append('<span class="pill">' + branchName + '</span>');

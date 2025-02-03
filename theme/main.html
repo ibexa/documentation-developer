@@ -19,7 +19,11 @@
       <div class="main_nav">
         <div class="main_nav_content">
           <div class="site-header" id="site-name">
-            <a href="/">{{ config.site_name }}</a>
+            {% set site_url = config.site_url | default(nav.homepage.url, true) | url %}
+            {% if not config.use_directory_urls and site_url[0] == site_url[-1] == "." %}
+              {% set site_url = site_url ~ "/index.html" %}
+            {% endif %}
+            <a href="{{ site_url }}">{{ config.site_name }}</a>
           </div>
           <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
             <div class="md-sidebar__scrollwrap">
