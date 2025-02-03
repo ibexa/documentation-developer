@@ -33,7 +33,7 @@ With LTS Updates customers can maintain their competitiveness by incorporating c
 LTS Updates are intended to improve the current platform by providing new features.
 What's important, you are not required to switch to a newer version of [[= product_name =]] to use LTS Updates.
 You can install them whenever you choose, and you can be sure that the next LTS release will include them by default.
-You won't have to manually install or configure them after upgrading, so you can make the switch over smoothly when the time comes.
+You won't have to manually install or configure them after upgrading, so you can make the switch smoothly when the time comes.
 
 ## Versioning conventions
 
