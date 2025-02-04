@@ -104,7 +104,7 @@ First, run:
     rm symfony.lock
     composer require ibexa/headless:[[= latest_tag_4_6 =]] --with-all-dependencies --no-scripts
     composer recipes:install ibexa/headless --force -v
-    # Bump CKEditor dependencies
+    # Update CKEditor dependencies
     yarn add @ckeditor/ckeditor5-alignment@^40.1.0 @ckeditor/ckeditor5-build-inline@^40.1.0 @ckeditor/ckeditor5-dev-utils@^39.0.0 @ckeditor/ckeditor5-widget@^40.1.0 @ckeditor/ckeditor5-theme-lark@^40.1.0 @ckeditor/ckeditor5-code-block@^40.1.0
     ```
 === "[[= product_name_exp =]]"
@@ -112,7 +112,7 @@ First, run:
     ``` bash
     composer require ibexa/experience:[[= latest_tag_4_6 =]] --with-all-dependencies --no-scripts
     composer recipes:install ibexa/experience --force -v
-    # Bump CKEditor dependencies
+    # Update CKEditor dependencies
     yarn add @ckeditor/ckeditor5-alignment@^40.1.0 @ckeditor/ckeditor5-build-inline@^40.1.0 @ckeditor/ckeditor5-dev-utils@^39.0.0 @ckeditor/ckeditor5-widget@^40.1.0 @ckeditor/ckeditor5-theme-lark@^40.1.0 @ckeditor/ckeditor5-code-block@^40.1.0
     ```
 === "[[= product_name_com =]]"
@@ -120,12 +120,14 @@ First, run:
     ``` bash
     composer require ibexa/commerce:[[= latest_tag_4_6 =]] --with-all-dependencies --no-scripts
     composer recipes:install ibexa/commerce --force -v
-    # Bump CKEditor dependencies
+    # Update CKEditor dependencies
     yarn add @ckeditor/ckeditor5-alignment@^40.1.0 @ckeditor/ckeditor5-build-inline@^40.1.0 @ckeditor/ckeditor5-dev-utils@^39.0.0 @ckeditor/ckeditor5-widget@^40.1.0 @ckeditor/ckeditor5-theme-lark@^40.1.0 @ckeditor/ckeditor5-code-block@^40.1.0
     ```
 
 The `recipes:install` command installs new YAML configuration files.
 Review the old YAML files and move your custom configuration to the relevant new files.
+
+If you're using custom CKEditor plugins, update them as well to use the same version range for all CKEditor dependencies.
 
 ## Remove `node_modules` and `yarn.lock`
 

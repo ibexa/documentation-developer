@@ -387,7 +387,7 @@ A CKEditor plugin is installed locally by using `yarn add ` or `npm install`, an
 A local installation looks like:
 
 ```bash
-yarn add @ckeditor/ckeditor5-special-characters
+yarn add @ckeditor/ckeditor5-special-characters@40.2.0
 ```
 
 The CKEditor plugin must be added to the `ibexa.richText.CKEditor.extraPlugins` array.
