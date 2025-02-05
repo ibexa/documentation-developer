@@ -1,4 +1,6 @@
 {% set properties = properties(node)|sortByVisibility %}
+{% set explorable_properties = properties(node)|sortByVisibility %}
+{% set treated_properties = [] %}
 
 {% if properties is not empty %}
         <h2 id="properties">
@@ -7,7 +9,14 @@
         </h2>
 
         {% for property in properties %}
-            {% include 'components/property.html.twig' %}
+            {% if property.__toString() not in treated_properties %}
+                {% for explored_property in explorable_properties %}
+                    {% if explored_property.__toString() == property.__toString() %}
+                        {% include 'components/property.html.twig' with {'property': explored_property} %}
+                    {% endif %}
+                {% endfor %}
+                {% set treated_properties = treated_properties|merge([property.__toString()]) %}
+            {% endif %}
         {% endfor %}
     </section>
 {% endif %}

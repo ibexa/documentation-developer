@@ -1296,6 +1296,21 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/Ibexa-Contracts-AdminUi-Notification-TranslatableNotificationHandlerInterface.html#method_error"
         },                {
+            "fqsen": "\\Ibexa\\Contracts\\AdminUi\\Permission\\PermissionCheckContextProviderInterface",
+            "name": "PermissionCheckContextProviderInterface",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-AdminUi-Permission-PermissionCheckContextProviderInterface.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\AdminUi\\Permission\\PermissionCheckContextProviderInterface\u003A\u003Asupports\u0028\u0029",
+            "name": "supports",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-AdminUi-Permission-PermissionCheckContextProviderInterface.html#method_supports"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\AdminUi\\Permission\\PermissionCheckContextProviderInterface\u003A\u003AgetPermissionCheckContext\u0028\u0029",
+            "name": "getPermissionCheckContext",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-AdminUi-Permission-PermissionCheckContextProviderInterface.html#method_getPermissionCheckContext"
+        },                {
             "fqsen": "\\Ibexa\\Contracts\\AdminUi\\Permission\\PermissionCheckerInterface",
             "name": "PermissionCheckerInterface",
             "summary": "",
@@ -1720,6 +1735,31 @@ Search.appendIndex(
             "name": "SORT_CLAUSE_CONTENT_NAME",
             "summary": "",
             "url": "classes/Ibexa-Contracts-AdminUi-UniversalDiscovery-Provider.html#constant_SORT_CLAUSE_CONTENT_NAME"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\AdminUi\\Values\\PermissionCheckContext",
+            "name": "PermissionCheckContext",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-AdminUi-Values-PermissionCheckContext.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\AdminUi\\Values\\PermissionCheckContext\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-AdminUi-Values-PermissionCheckContext.html#method___construct"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\AdminUi\\Values\\PermissionCheckContext\u003A\u003AgetSubject\u0028\u0029",
+            "name": "getSubject",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-AdminUi-Values-PermissionCheckContext.html#method_getSubject"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\AdminUi\\Values\\PermissionCheckContext\u003A\u003AgetTargets\u0028\u0029",
+            "name": "getTargets",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-AdminUi-Values-PermissionCheckContext.html#method_getTargets"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\AdminUi\\Values\\PermissionCheckContext\u003A\u003AgetCriteria\u0028\u0029",
+            "name": "getCriteria",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-AdminUi-Values-PermissionCheckContext.html#method_getCriteria"
         },                {
             "fqsen": "\\Ibexa\\Contracts\\Calendar\\CalendarServiceInterface",
             "name": "CalendarServiceInterface",
@@ -3520,6 +3560,16 @@ Search.appendIndex(
             "name": "deleteCheckout",
             "summary": "",
             "url": "classes/Ibexa-Contracts-Checkout-CheckoutServiceInterface.html#method_deleteCheckout"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Checkout\\Discounts\\DataMapper\\DiscountsDataMapperInterface",
+            "name": "DiscountsDataMapperInterface",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Checkout-Discounts-DataMapper-DiscountsDataMapperInterface.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Checkout\\Discounts\\DataMapper\\DiscountsDataMapperInterface\u003A\u003AmapToDiscountData\u0028\u0029",
+            "name": "mapToDiscountData",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Checkout-Discounts-DataMapper-DiscountsDataMapperInterface.html#method_mapToDiscountData"
         },                {
             "fqsen": "\\Ibexa\\Contracts\\Checkout\\Event\\BeforeCreateCheckoutEvent",
             "name": "BeforeCreateCheckoutEvent",
@@ -34571,6 +34621,16 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/Ibexa-Contracts-OrderManagement-Value-Struct-OrderUpdateStruct.html#method_setOwner"
         },                {
+            "fqsen": "\\Ibexa\\Contracts\\OrderManagement\\Value\\Struct\\OrderUpdateStruct\u003A\u003AsetContext\u0028\u0029",
+            "name": "setContext",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-OrderManagement-Value-Struct-OrderUpdateStruct.html#method_setContext"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\OrderManagement\\Value\\Struct\\OrderUpdateStruct\u003A\u003AgetContext\u0028\u0029",
+            "name": "getContext",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-OrderManagement-Value-Struct-OrderUpdateStruct.html#method_getContext"
+        },                {
             "fqsen": "\\Ibexa\\Contracts\\OrderManagement\\Workflow\\WorkflowResolverInterface",
             "name": "WorkflowResolverInterface",
             "summary": "",
@@ -42641,6 +42701,36 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/Ibexa-Contracts-ProductCatalog-Values-Price-PriceContextInterface.html#method_setCustomerGroup"
         },                {
+            "fqsen": "\\Ibexa\\Contracts\\ProductCatalog\\Values\\Price\\PriceEnvelopeInterface",
+            "name": "PriceEnvelopeInterface",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-ProductCatalog-Values-Price-PriceEnvelopeInterface.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\ProductCatalog\\Values\\Price\\PriceEnvelopeInterface\u003A\u003Awith\u0028\u0029",
+            "name": "with",
+            "summary": "Adds\u0020one\u0020or\u0020more\u0020stamps.",
+            "url": "classes/Ibexa-Contracts-ProductCatalog-Values-Price-PriceEnvelopeInterface.html#method_with"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\ProductCatalog\\Values\\Price\\PriceEnvelopeInterface\u003A\u003AwithoutAll\u0028\u0029",
+            "name": "withoutAll",
+            "summary": "Removes\u0020all\u0020stamps\u0020of\u0020the\u0020given\u0020class.",
+            "url": "classes/Ibexa-Contracts-ProductCatalog-Values-Price-PriceEnvelopeInterface.html#method_withoutAll"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\ProductCatalog\\Values\\Price\\PriceEnvelopeInterface\u003A\u003AwithoutStampsOfType\u0028\u0029",
+            "name": "withoutStampsOfType",
+            "summary": "Removes\u0020all\u0020stamps\u0020that\u0020implement\u0020the\u0020given\u0020type.",
+            "url": "classes/Ibexa-Contracts-ProductCatalog-Values-Price-PriceEnvelopeInterface.html#method_withoutStampsOfType"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\ProductCatalog\\Values\\Price\\PriceEnvelopeInterface\u003A\u003Alast\u0028\u0029",
+            "name": "last",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-ProductCatalog-Values-Price-PriceEnvelopeInterface.html#method_last"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\ProductCatalog\\Values\\Price\\PriceEnvelopeInterface\u003A\u003Aall\u0028\u0029",
+            "name": "all",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-ProductCatalog-Values-Price-PriceEnvelopeInterface.html#method_all"
+        },                {
             "fqsen": "\\Ibexa\\Contracts\\ProductCatalog\\Values\\Price\\PriceListInterface",
             "name": "PriceListInterface",
             "summary": "",
@@ -42660,6 +42750,21 @@ Search.appendIndex(
             "name": "PriceQuery",
             "summary": "",
             "url": "classes/Ibexa-Contracts-ProductCatalog-Values-Price-PriceQuery.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\ProductCatalog\\Values\\Price\\PriceStampInterface",
+            "name": "PriceStampInterface",
+            "summary": "This\u0020class\u0020and\u0020all\u0020its\u0020derivatives\u0020is\u0020inspired\u0020by\u0020Symfony\\Component\\Messenger\\Envelope\u0020stamps\u0020concept.",
+            "url": "classes/Ibexa-Contracts-ProductCatalog-Values-Price-PriceStampInterface.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\ProductCatalog\\Values\\Price\\PriceStampInterface\u003A\u003AgetNewPrice\u0028\u0029",
+            "name": "getNewPrice",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-ProductCatalog-Values-Price-PriceStampInterface.html#method_getNewPrice"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\ProductCatalog\\Values\\Price\\PriceStampInterface\u003A\u003AgetOriginalPrice\u0028\u0029",
+            "name": "getOriginalPrice",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-ProductCatalog-Values-Price-PriceStampInterface.html#method_getOriginalPrice"
         },                {
             "fqsen": "\\Ibexa\\Contracts\\ProductCatalog\\Values\\Price\\ProductPriceStructInterface",
             "name": "ProductPriceStructInterface",
@@ -44111,6 +44216,11 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/Ibexa-Contracts-ProductCatalog-Values-RegionInterface.html#method_getIdentifier"
         },                {
+            "fqsen": "\\Ibexa\\Contracts\\ProductCatalog\\Values\\StampInterface",
+            "name": "StampInterface",
+            "summary": "This\u0020class\u0020and\u0020all\u0020its\u0020derivatives\u0020is\u0020inspired\u0020by\u0020Symfony\\Component\\Messenger\\Envelope\u0020stamps\u0020concept.",
+            "url": "classes/Ibexa-Contracts-ProductCatalog-Values-StampInterface.html"
+        },                {
             "fqsen": "\\Ibexa\\Contracts\\ProductCatalog\\Values\\TranslatableInterface",
             "name": "TranslatableInterface",
             "summary": "",
@@ -44303,7 +44413,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\Ibexa\\Contracts\\Rest\\Exceptions\\NotFoundException",
             "name": "NotFoundException",
-            "summary": "Implementation\u0020of\u0020the\u0020\u007B\u0040link\u0020\\Ibexa\\Contracts\\Core\\Repository\\Exceptions\\NotFoundException\u007D\ninterface.",
+            "summary": "REST\u0020API\u0020equivalent\u0020of\u0020PHP\u0020API\u0027s\u0020NotFoundException.",
             "url": "classes/Ibexa-Contracts-Rest-Exceptions-NotFoundException.html"
         },                {
             "fqsen": "\\Ibexa\\Contracts\\Rest\\Exceptions\\Parser",
@@ -45068,7 +45178,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\Ibexa\\Contracts\\Search\\Event\\BuildSuggestionCollectionEvent",
             "name": "BuildSuggestionCollectionEvent",
-            "summary": "",
+            "summary": "Event\u0020is\u0020the\u0020base\u0020class\u0020for\u0020classes\u0020containing\u0020event\u0020data.",
             "url": "classes/Ibexa-Contracts-Search-Event-BuildSuggestionCollectionEvent.html"
         },                {
             "fqsen": "\\Ibexa\\Contracts\\Search\\Event\\BuildSuggestionCollectionEvent\u003A\u003A__construct\u0028\u0029",
@@ -45950,6 +46060,16 @@ Search.appendIndex(
             "name": "resolve",
             "summary": "",
             "url": "classes/Ibexa-Contracts-Seo-Resolver-FieldReferenceResolverInterface.html#method_resolve"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Seo\\Resolver\\FieldValueResolverInterface",
+            "name": "FieldValueResolverInterface",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Seo-Resolver-FieldValueResolverInterface.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Seo\\Resolver\\FieldValueResolverInterface\u003A\u003Aresolve\u0028\u0029",
+            "name": "resolve",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Seo-Resolver-FieldValueResolverInterface.html#method_resolve"
         },                {
             "fqsen": "\\Ibexa\\Contracts\\Seo\\Value\\ValueInterface",
             "name": "ValueInterface",
@@ -51006,6 +51126,11 @@ Search.appendIndex(
             "summary": "",
             "url": "namespaces/ibexa-contracts-adminui-universaldiscovery.html"
         },                {
+            "fqsen": "\\Ibexa\\Contracts\\AdminUi\\Values",
+            "name": "Values",
+            "summary": "",
+            "url": "namespaces/ibexa-contracts-adminui-values.html"
+        },                {
             "fqsen": "\\Ibexa\\Contracts\\Calendar",
             "name": "Calendar",
             "summary": "",
@@ -51075,6 +51200,16 @@ Search.appendIndex(
             "name": "Checkout",
             "summary": "",
             "url": "namespaces/ibexa-contracts-checkout.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Checkout\\Discounts\\DataMapper",
+            "name": "DataMapper",
+            "summary": "",
+            "url": "namespaces/ibexa-contracts-checkout-discounts-datamapper.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Checkout\\Discounts",
+            "name": "Discounts",
+            "summary": "",
+            "url": "namespaces/ibexa-contracts-checkout-discounts.html"
         },                {
             "fqsen": "\\Ibexa\\Contracts\\Checkout\\Event",
             "name": "Event",

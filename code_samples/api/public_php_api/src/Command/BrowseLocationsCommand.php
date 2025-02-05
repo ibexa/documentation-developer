@@ -40,7 +40,7 @@ class BrowseLocationsCommand extends Command
 
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
-        $locationId = $input->getArgument('locationId');
+        $locationId = (int) $input->getArgument('locationId');
 
         $location = $this->locationService->loadLocation($locationId);
         $this->browseLocation($location, $output);

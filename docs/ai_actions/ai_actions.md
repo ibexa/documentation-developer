@@ -13,5 +13,6 @@ You can also extend it to perform other tasks or support additional AI services.
 
 [[= cards([
 "ai_actions/ai_actions_guide",
-"ai_actions/install_ai_actions"
+"ai_actions/install_ai_actions",
+"ai_actions/extend_ai_actions",
 ], columns=4) =]]
