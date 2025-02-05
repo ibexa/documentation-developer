@@ -24,7 +24,7 @@ For examples of using `curl`, refer to:
 
 ## PHP
 
-You can use [Symfony HttpClient](https://symfony.com/doc/5.4/http_client.html) to test REST API.
+You can use [Symfony HttpClient]([[= symfony_doc =]]/http_client.html) to test REST API.
 Open a PHP shell in a terminal with <nobr>`php -a`</nobr> and copy-paste this code into it:
 
 ``` php
