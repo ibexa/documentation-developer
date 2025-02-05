@@ -1,0 +1,61 @@
+name: "Post preview links for changed files"
+
+on:
+    pull_request:
+        paths:
+           - 'docs/**.md'
+    workflow_call:
+        inputs:
+            project:
+              description: 'The project to build (dev doc, user doc)'
+              default: ''
+              required: false
+              type: string
+
+jobs:
+    post-preview-links:
+        name: Post preview links for changed files
+        runs-on: ubuntu-latest
+        permissions:
+            # Needed to manage the comment
+            pull-requests: write
+
+        steps:
+            - uses: actions/checkout@v4
+              with:
+                  fetch-depth: 0
+
+            -   name: Create comment for changed files
+                run: |
+                    file_limit=100
+                    build_url="https://ez-systems-developer-documentation--${{ github.event.pull_request.number }}.com.readthedocs.build/${{inputs.project}}en/${{ github.event.pull_request.number }}/"
+
+                    changed_files=$(git diff --name-only HEAD "origin/$GITHUB_BASE_REF" | grep -E ".md$" || [[ $? == 1 ]])
+                    number_of__changed_files=$(echo "$changed_files" | wc -l)
+
+                    if [[ $changed_files -eq "" ]] ; then
+                      comment="Preview of modified Markdown files:: No Markdown change to preview."
+                    elif [[ $number_of__changed_files -gt $file_limit ]] ; then
+                      comment="Preview of modified Markdown files: Too many files modified in a single PR, preview link list is skipped. ($number_of__changed_files files &gth; $file_limit)"
+                    else
+                      comment=$(git diff --name-only HEAD "origin/master" | grep -E "^docs\/.*\.md$" | sed -E "s|^docs/(.*)\.md$|- [docs/\1.md](${build_url}\1/)|")
+                      comment="Preview of modified Markdown files:\n\n$comment"
+                    fi
+
+                    echo -e $comment > comment.md
+
+            -   name: Find comment
+                id: find-comment
+                uses: peter-evans/find-comment@v3
+                with:
+                    issue-number: ${{ github.event.pull_request.number }}
+                    comment-author: 'github-actions[bot]'
+                    body-includes: 'Preview of modified Markdown files'
+
+            -   name: Create or update comment
+                uses: peter-evans/create-or-update-comment@v4
+                with:
+                    comment-id: ${{ steps.find-comment.outputs.comment-id }}
+                    issue-number: ${{ github.event.pull_request.number }}
+                    body-path: comment.md
+                    edit-mode: replace
