@@ -1,0 +1,27 @@
+imports:
+  - deptrac.baseline.yaml
+
+deptrac:
+    paths:
+        - ./code_samples
+    layers:
+        - name: CodeSamples
+          collectors:
+              - type: directory
+                value: code_samples
+        - name: IbexaContracts
+          collectors:
+              - type: classLike
+                value: .*Ibexa\\Contracts\\.*
+        - name: IbexaNotContracts
+          collectors:
+          - type: bool
+            must:
+              - type: classLike
+                value: .*Ibexa\\.*
+            must_not:
+              - type: classLike
+                value: .*Ibexa\\Contracts.*
+    ruleset:
+        CodeSamples:
+          - IbexaContracts
