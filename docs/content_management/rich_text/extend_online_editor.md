@@ -383,7 +383,7 @@ For a full list of standard buttons, see the RichText module's [configuration fi
 Regular CKEditor plugins can be added to the Online Editor.
 This procedure is illustrated with the addition of the [Special characters plugin](https://ckeditor.com/docs/ckeditor5/latest/features/special-characters.html).
 
-You can install a CKEditor plugin locally by using `yarn add ` or `npm install`, and deployt it by committing the `yarn.lock` file.
+You can install a CKEditor plugin locally by using `yarn add ` or `npm install`, and deploy it by committing the `yarn.lock` file.
 A local installation looks like:
 
 ```bash
