@@ -82,8 +82,8 @@ if [ 0 -eq $DXP_ALREADY_EXISTS ]; then
   if [[ -f $map ]]; then
     rm $map;
   fi;
-  PACKAGE_MAP='{% set package_edition_map = {'
-  NAMESPACE_MAP='{% set namespace_package_map = {'
+  PACKAGE_MAP=''
+  NAMESPACE_MAP=''
   for edition in ${DXP_EDITIONS[@]}; do
     echo -n "${edition}… ";
     while IFS= read -r line; do
@@ -91,16 +91,22 @@ if [ 0 -eq $DXP_ALREADY_EXISTS ]; then
       if [[ ! "${DXP_EDITIONS[*]}" =~ "${package/ibexa\//}" ]]; then
         PACKAGE_MAP="$PACKAGE_MAP\n'$package': '$edition',"
         NAMESPACES=$(composer show "$package" --available --format=json | \
-          jq -r --arg PACKAGE "$package" '"'\''\(.autoload | ."psr-4" | try to_entries[] catch empty | .key[:-1] | sub("\\\\";"\\\\\\";"g"))'\'': '\''\($PACKAGE)'\'',"')
+          jq -r --arg PACKAGE "$package" '"'\''\(.autoload | ."psr-4" | try to_entries[] catch empty | .key | sub("\\\\";"\\\\\\";"g"))'\'': '\''\($PACKAGE)'\'',"')
         NAMESPACE_MAP="$NAMESPACE_MAP\n$NAMESPACES"
       fi;
     done <<< "$(curl --no-progress-meter "https://raw.githubusercontent.com/ibexa/$edition/v$DXP_VERSION/composer.json" | jq .require | grep -E "(ibexa|ezsystems|silversolutions)")";
     if [ "$edition" == "$DXP_EDITION" ]; then
       break;
     fi;
+    for package in "${DXP_ADD_ONS[@]}"; do
+        NAMESPACES=$(composer show "ibexa/$package" --available --format=json | \
+          jq -r --arg PACKAGE "ibexa/$package" '"'\''\(.autoload | ."psr-4" | try to_entries[] catch empty | .key | sub("\\\\";"\\\\\\";"g"))'\'': '\''\($PACKAGE)'\'',"')
+        NAMESPACE_MAP="$NAMESPACE_MAP\n$NAMESPACES"
+        PACKAGE_MAP="$PACKAGE_MAP\n'$package': 'optional',"
+    done;
   done;
-  PACKAGE_MAP="$PACKAGE_MAP\n} %}"
-  NAMESPACE_MAP="$NAMESPACE_MAP\n} %}"
+  PACKAGE_MAP="{% set package_edition_map = {\n$PACKAGE_MAP\n} %}"
+  NAMESPACE_MAP="{% set namespace_package_map = {\n$NAMESPACE_MAP\n} %}"
   {
       echo -e "$PACKAGE_MAP";
       echo -e "$NAMESPACE_MAP";
