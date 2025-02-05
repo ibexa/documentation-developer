@@ -77,7 +77,7 @@ For example, to disable cache for the block, use `$event->getResponse()->setPriv
 
 ## When to use ESI
 
-[Edge Side Includes](https://symfony.com/doc/current/http_cache/esi.html) (ESI) can be used to split out the different parts of a web page into separate fragments that can be freely reused as pieces by reverse proxy.
+[Edge Side Includes]([[= symfony_doc =]]/http_cache/esi.html) (ESI) can be used to split out the different parts of a web page into separate fragments that can be freely reused as pieces by reverse proxy.
 
 In practice, with ESI, every sub-request is regenerated from application perspective.
 And while you can tune your system to reduce this, it always causes additional overhead in the following situations:
