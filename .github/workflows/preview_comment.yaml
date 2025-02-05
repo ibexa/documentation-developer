@@ -38,11 +38,11 @@ jobs:
                     elif [[ $number_of__changed_files -gt $file_limit ]] ; then
                       comment="Preview of modified Markdown files: Too many files modified in a single PR, preview link list is skipped. ($number_of__changed_files files &gth; $file_limit)"
                     else
-                      comment=$(git diff --name-only HEAD "origin/$GITHUB_BASE_REF" | grep -E "^docs\/.*\.md$" | sed -E "s|^docs/(.*)\.md$|- [docs/\1.md](${build_url}\1\/)|")
+                      comment=$(git diff --name-only HEAD "origin/$GITHUB_BASE_REF" | grep -E "^docs\/.*\.md$" | sed -E "s|^docs/(.*)\.md$|- [docs/\1.md](${build_url}\1/)\n|")
                       comment="Preview of modified Markdown files:\n\n$comment"
                     fi
 
-                    echo -e $comment > comment.md
+                    echo -e "$comment" > comment.md
 
             -   name: Find comment
                 id: find-comment
