@@ -70,7 +70,19 @@ You can set this token as an environment variable.
 When you do, make sure the **Visible during runtime** box in Platform.sh configuration is unchecked.
 This ensures that the token isn't exposed.
 
-![Setting token to be invisible during runtime](psh_addvariable.png)
+### Composer authentication using the web console
+
+In **Settings** (top right gear icon) -> **Project Settings** -> **Variables** -> **+ Create variable**
+
+![Setting token to be invisible during runtime](ibexa_cloud-composer_auth.png)
+
+### Composer authentication using the CLI command
+
+```bash
+ibexa_cloud variable:create --level project --name env:COMPOSER_AUTH \
+  --json true --visible-runtime false --sensitive true --visible-build true \
+  --value '{"http-basic": {"updates.ibexa.co": {"username": "<installation-key>", "password": "<token-password>"}}}'
+```
 
 ## 4. Push the project
 
