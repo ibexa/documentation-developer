@@ -127,7 +127,7 @@ First, run:
 The `recipes:install` command installs new YAML configuration files.
 Review the old YAML files and move your custom configuration to the relevant new files.
 
-If you're using custom CKEditor plugins, update them as well to use the same version range for all CKEditor dependencies.
+If you're using [custom CKEditor plugins](extend_online_editor.md#add-ckeditor-plugins), update them as well to use the same version range for all CKEditor dependencies.
 
 ## Remove `node_modules` and `yarn.lock`
 
