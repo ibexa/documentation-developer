@@ -44,7 +44,14 @@
         ],
         "context": {
             "foo": "bar",
-            "baz": 123
+            "baz": 123,
+            "shipping_cost_incl_vat": {
+                "type": "Money\\Money",
+                "data": {
+                    "amount": "1100",
+                    "currency_code": "EUR"
+                }
+            }
         }
     }
 }
