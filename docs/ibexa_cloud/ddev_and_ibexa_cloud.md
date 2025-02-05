@@ -6,14 +6,14 @@ description: Use DDEV to run an Ibexa Cloud project locally.
 
 Two ways are available to run an [[= product_name_cloud =]] project locally with DDEV:
 
-- [by using the Platform.sh's `ddev-platformsh` and `ddev-ibexa-cloud` add-ons](#with-the-ddev-platformsh-and-ddev-ibexa-cloud-add-ons)
-- [like other existing project, without this add-on](#without-the-ibexa-cloud-add-on).
+- [by using the `ddev-platformsh` and `ddev-ibexa-cloud` add-ons](#with-ibexa-cloud-add-ons)
+- [like other existing project, without these add-ons](#without-ibexa-cloud-add-ons).
 
 !!! note
 
     The following examples use [[[= product_name_cloud =]] CLI (`ibexa_cloud`)](https://cli.ibexa.co/).
 
-## With the `ddev-platformsh` and `ddev-ibexa-cloud` add-ons
+## With Ibexa Cloud add-ons
 
 To configure [`ddev/ddev-platformsh` add-on](https://github.com/ddev/ddev-platformsh) and [`ddev/ddev-ibexa-cloud` add-on](https://github.com/ddev/ddev-ibexa-cloud), you need a [Platform.sh API Token](https://docs.platform.sh/administration/cli/api-tokens.html).
 
@@ -21,14 +21,12 @@ The `ddev/ddev-platformsh` add-on configures the document root, the PHP version,
 About the search engine, the add-on can configure Elasticsearch but can't configure Solr.
 If you use Solr on [[= product_name_cloud =]] and want to add it to your DDEV stack, see [Clustering with DDEV and `ibexa/ddev-solr` add-on](clustering_with_ddev.md#solr).
 
-The `ddev/ddev-ibexa-cloud` add-on integrate the `ibexa_cloud` command,
+The `ddev/ddev-ibexa-cloud` add-on integrates the `ibexa_cloud` command inside the container,
 and eases the pull of cloud contents into the local installation.
 
 `env:COMPOSER_AUTH` from Platform.sh can't be used, because JSON commas are incorrectly interpreted by `--web-environment-add`, which sees them as multiple variable separators.
 But the variable must exist for Platform.sh `hooks` scripts to work.
 To use an `auth.json` file for this purpose, see [Using `auth.json`](install_with_ddev.md#using-authjson).
-
-You must remove Node.js and NVM installations as they're already included in DDEV.
 
 The following sequence of commands:
 
@@ -37,7 +35,8 @@ The following sequence of commands:
    (Replace `<project-ID>` with the hash of your own project.
 See [`ibexa_cloud help get`](https://docs.platform.sh/administration/cli.html#3-use) for options like selecting another environment).
 1. Configures a new DDEV project.
-1. Configures the `ddev/ddev-ibexa-cloud` add-on with `<project-ID>` and environment name (for example, `production`).
+1. Configures the `ddev/ddev-ibexa-cloud` add-on with `<project-ID>`, environment name (for example, `production`),
+   and application name (for example, `app` from `name: app` line in `.platform.app.yaml` file).
 1. Configures `ibexa_cloud` command token. See [Create an API token](https://docs.platform.sh/administration/cli/api-tokens.html#2-create-an-api-token) for more information.
 1. Ignores `.ddev/` directory from Git.
    (Some DDEV config could be committed like in [this documentation](https://ddev.readthedocs.io/en/latest/users/extend/customization-extendibility/#extending-configyaml-with-custom-configyaml-files).)
@@ -60,7 +59,7 @@ echo '.ddev/' >> .gitignore
 mkdir -p .ddev/homeadditions/.composer && cp <path-to-an>/auth.json .ddev/homeadditions/.composer
 ddev add-on get ddev/ddev-platformsh
 sed -i 's/maxmemory-policy allkeys-lfu/maxmemory-policy volatile-lfu/' .ddev/redis/redis.conf
-ddev add-on get ddev/ddev-ibexa-cloud             
+ddev add-on get ddev/ddev-ibexa-cloud
 ddev start
 ddev pull ibexa-cloud -y
 ddev describe
@@ -71,13 +70,13 @@ ddev launch
 
     The Platform.sh API token is set at user profile level, therefore it's stored globally under current user root as `PLATFORMSH_CLI_TOKEN` in `~/.ddev/global_config.yaml`.
 
-## Without the Ibexa Cloud add-on
+## Without Ibexa Cloud add-ons
 
 The following example adapts the [manual method to run an already existing project](install_with_ddev.md#run-an-already-existing-project) to the Platform.sh case:
 
 The following sequence of commands:
 
-1. Downloads the [[= product_name_cloud =]] Platform.sh project from the default environment "production" into a new directory, based on the [Platform.sh CLI alias `ibexa_cloud` defined in introduction](#ibexa-cloud-and-ddev).
+1. Downloads the [[= product_name_cloud =]] Platform.sh project from the default environment "production" into a new directory, using the [[[= product_name_cloud =]] CLI](https://cli.ibexa.co/).
 (Replace `<project-ID>` with the hash of your own project. See [`ibexa_cloud help get`](https://docs.platform.sh/administration/cli.html#3-use) for options like selecting another environment).
 1. Configures a new DDEV project.
 1. Ignores `.ddev/` directory from Git.
