@@ -26,7 +26,7 @@ The application now uses Symfony Events instead of SignalSlots.
 The application triggers two Events per operation: one before and one after the relevant thing happens
 (see for example [BookmarkService](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/Core/Event/BookmarkService.php)).
 
-To use Symfony Events, create [Event Listeners](https://symfony.com/doc/5.0/event_dispatcher.html) in your code.
+To use Symfony Events, create [Event Listeners]([[= symfony_doc =]]/event_dispatcher.html) in your code.
 
 ### New bundles
 
@@ -271,7 +271,7 @@ For full list of deprecations and removals, see  [eZ Platform v3.0 deprecations 
 ### SignalSlots
 
 SignalSlots are removed from the application.
-Use [Event Listeners](https://symfony.com/doc/5.0/event_dispatcher.html) in your code instead.
+Use [Event Listeners]([[= symfony_doc =]]/event_dispatcher.html) in your code instead.
 
 ### Deprecated field types
 
