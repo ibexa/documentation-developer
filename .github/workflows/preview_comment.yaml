@@ -1,9 +1,7 @@
 name: "Post preview links for changed files"
 
 on:
-    pull_request:
-        paths:
-           - 'docs/**.md'
+    pull_request: ~
     workflow_call:
         inputs:
             project:
