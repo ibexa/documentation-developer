@@ -32,7 +32,7 @@ jobs:
                     change_count=$(echo "$change_list" | wc -l)
 
                     if [[ $change_list -eq '' ]] ; then
-                      comment="Preview of modified Markdown files:: No Markdown change to preview."
+                      comment="Preview of modified Markdown files: no Markdown changes to preview."
                     elif [[ $change_count -gt $file_limit ]] ; then
                       comment="Preview of modified Markdown files: Too many files modified in a single PR, preview link list is skipped. ($change_count files &gth; $file_limit)"
                     else
