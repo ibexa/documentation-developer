@@ -131,8 +131,6 @@ The same Filter can be applied to find locations instead of content items, for e
 [[= include_file('code_samples/api/public_php_api/src/Command/FilterLocationCommand.php', 32, 52) =]]
 ```
 
-Notice that the total number of items is retrieved differently for `ContentList` and `LocationList`.
-
 !!! caution
 
     The total count is the total number of matched items, regardless of pagination settings.
