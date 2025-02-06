@@ -22,8 +22,6 @@ Download and extract Solr:
 
 Copy the necessary configuration files. In the example below from the root of your project to the place you extracted Solr:
 
-I AM A RANDOM CHANGE
-
 ``` bash
 # Make sure to replace the /opt/solr/ path with where you have placed Solr
 cd /opt/solr
