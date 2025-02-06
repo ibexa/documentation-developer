@@ -1,0 +1,25 @@
+{
+    "ActionConfiguration": {
+        "_media-type": "application/vnd.ibexa.api.ai.ActionConfiguration+json",
+        "Identifier": "expand_text",
+        "Enabled": true,
+        "ActionType": {
+            "_media-type": "application/vnd.ibexa.api.ai.ActionType+json",
+            "identifier": "refine_text",
+            "name": "Refine text",
+            "inputIdentifier": "text",
+            "outputIdentifier": "text",
+            "options": {}
+        },
+        "ActionTypeOptions": {},
+        "ActionHandlerIdentifier": "openai-text-to-text",
+        "ActionHandlerOptions": {
+            "max_tokens": 4000,
+            "temperature": 1,
+            "prompt": "Expand the given text by 25%. Preserve meaning and crucial information.",
+            "model": "gpt-4-turbo"
+        },
+        "CreatedAt": "2024-12-09T09:02:44+00:00",
+        "UpdatedAt": "2024-12-09T09:02:44+00:00"
+    }
+}

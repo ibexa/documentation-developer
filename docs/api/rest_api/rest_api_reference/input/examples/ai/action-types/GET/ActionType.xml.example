@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ActionType media-type="application/vnd.ibexa.api.ai.ActionType+xml">
+    <identifier>generate_alt_text</identifier>
+    <name>Generate alternative text</name>
+    <inputIdentifier>image</inputIdentifier>
+    <outputIdentifier>text</outputIdentifier>
+    <options>
+        <width>512</width>
+        <height>512</height>
+        <image_quality>85</image_quality>
+    </options>
+</ActionType>

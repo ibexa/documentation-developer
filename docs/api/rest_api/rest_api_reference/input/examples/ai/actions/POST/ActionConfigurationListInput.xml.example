@@ -1,0 +1,6 @@
+<ActionConfigurationListInput media-type="application/vnd.ibexa.api.ai.ActionConfigurationListInput+xml">
+    <query>Proofread</query>
+    <action_type_identifier>refine_text</action_type_identifier>
+    <limit>10</limit>
+    <enabled>1</enabled>
+</ActionConfigurationListInput>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ActionConfiguration media-type="application/vnd.ibexa.api.ai.ActionConfiguration+xml">
+    <Identifier>expand_text</Identifier>
+    <Enabled>1</Enabled>
+    <ActionType media-type="application/vnd.ibexa.api.ai.ActionType+xml">
+        <identifier>refine_text</identifier>
+        <name>Refine text</name>
+        <inputIdentifier>text</inputIdentifier>
+        <outputIdentifier>text</outputIdentifier>
+        <options/>
+    </ActionType>
+    <ActionTypeOptions/>
+    <ActionHandlerIdentifier>openai-text-to-text</ActionHandlerIdentifier>
+    <ActionHandlerOptions>
+        <max_tokens>4000</max_tokens>
+        <temperature>1</temperature>
+        <prompt>Expand the given text by 25%. Preserve meaning and crucial information.</prompt>
+        <model>gpt-4-turbo</model>
+    </ActionHandlerOptions>
+    <CreatedAt>2024-12-09T09:02:44+00:00</CreatedAt>
+    <UpdatedAt>2024-12-09T09:02:44+00:00</UpdatedAt>
+</ActionConfiguration>

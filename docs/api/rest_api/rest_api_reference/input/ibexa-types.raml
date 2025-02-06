@@ -45,7 +45,7 @@ assetMetadata:
     description: 'Asset metadata object. Depending on the provider, it can contain different parameters.'
     properties:
         alternativeText:
-            type: datetime
+            type: string
             description: 'Alternative text for the image asset'
         width:
             type: integer
@@ -6134,7 +6134,7 @@ AltTextWrapper:
             type: object
             properties:
                 _media-type:
-                    string: type
+                    type: string
                 Text:
                     type: object
                     properties:
@@ -6142,3 +6142,112 @@ AltTextWrapper:
                             type: string
                         text: 
                             type: string[]
+ActionTypeListWrapper:
+    type: object
+    properties:
+        ActionTypeList:
+            type: ActionTypeList
+
+ActionTypeList:
+    type: object
+    properties:
+        _media-type:
+            type: string
+            xml:
+                attribute: true
+                name: media-type
+        _href:
+            type: string
+            xml:
+                attribute: true
+                name: href
+        ActionType:
+            type: ActionType[]
+
+ActionType:
+    type: object
+    propeties:
+        _media-type:
+            type: string
+            xml:
+                attribute: true
+                name: media-type
+        identifier:
+            type: string
+        name:
+            type: string
+        inputIdentifier:
+            type: string
+        outputIdentifier:
+            type: string
+        options:
+            type: object
+
+ActionConfigurationListInput:
+    type: object
+    properties:
+        query:
+            type: string
+        action_type_identifier:
+            type: string
+        enabled:
+            type: boolean
+        limit:
+            type: integer
+        page:
+            type: integer
+
+ActionConfigurationListInputWrapper:
+    type: object
+    properties:
+        ActionConfigurationListInput:
+            type: ActionConfigurationListInput
+
+
+ActionConfigurationListWrapper:
+    type: object
+    properties:
+        ActionConfigurationList:
+            type: ActionConfigurationList
+
+ActionConfigurationList:
+    type: object
+    properties:
+        _media-type:
+            type: string
+            xml:
+                attribute: true
+                name: media-type
+        _href:
+            type: string
+            xml:
+                attribute: true
+                name: href
+        ActionConfiguration:
+            type: ActionConfiguration[]
+
+ActionConfiguration:
+    type: object
+    properties:
+        _media-type:
+            type: string
+            xml:
+                attribute: true
+                name: media-type
+        Identifier:
+            type: string
+        Enabled:
+            type: boolean
+        ActionType:
+            type: ActionType
+        ActionTypeOptions:
+            type: object
+        ActionHandlerIdentifier:
+            type: string
+        ActionHandlerOptions:
+            type: object
+        CreatedAt:
+            type: datetime
+        UpdatesAt:
+            type: datetime
+
