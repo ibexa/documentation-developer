@@ -32,11 +32,11 @@ jobs:
                     change_count=$(echo "$change_list" | wc -l)
 
                     if [[ $change_list -eq '' ]] ; then
-                      comment="Preview of modified Markdown files: no Markdown changes to preview."
+                      comment="Preview of modified Markdown: no Markdown change to preview."
                     elif [[ $change_count -gt $file_limit ]] ; then
-                      comment="Preview of modified Markdown files: Too many files modified in a single PR, preview link list is skipped. ($change_count files &gth; $file_limit)"
+                      comment="Preview of modified Markdown: Too many files modified in a single PR, preview link list is skipped. ($change_count files &gth; $file_limit)"
                     else
-                      comment="Preview of modified Markdown files:\n\n$change_list"
+                      comment="Preview of modified Markdown:\n\n$change_list"
                     fi
 
                     echo -e "$comment" > comment.md
@@ -47,7 +47,7 @@ jobs:
                 with:
                     issue-number: ${{ github.event.pull_request.number }}
                     comment-author: 'github-actions[bot]'
-                    body-includes: 'Preview of modified Markdown files'
+                    body-includes: 'Preview of modified Markdown'
 
             -   name: Create or update comment
                 uses: peter-evans/create-or-update-comment@v4
