@@ -30,16 +30,15 @@ jobs:
                     file_limit=100
                     build_url="https://ez-systems-developer-documentation--${{ github.event.pull_request.number }}.com.readthedocs.build/${{inputs.project}}en/${{ github.event.pull_request.number }}/"
 
-                    changed_files=$(git diff --name-only HEAD "origin/$GITHUB_BASE_REF" | grep -E ".md$" || [[ $? == 1 ]])
-                    number_of__changed_files=$(echo "$changed_files" | wc -l)
+                    change_list=$(git diff --name-only HEAD "origin/$GITHUB_BASE_REF" | grep -E "^docs\/.*\.md$" | sed -E "s|^docs/(.*)\.md$|- [docs/\1.md](${build_url}\1/)|")
+                    change_count=$(echo "$change_list" | wc -l)
 
-                    if [[ $changed_files -eq "" ]] ; then
+                    if [[ $change_list -eq '' ]] ; then
                       comment="Preview of modified Markdown files:: No Markdown change to preview."
-                    elif [[ $number_of__changed_files -gt $file_limit ]] ; then
-                      comment="Preview of modified Markdown files: Too many files modified in a single PR, preview link list is skipped. ($number_of__changed_files files &gth; $file_limit)"
+                    elif [[ $change_count -gt $file_limit ]] ; then
+                      comment="Preview of modified Markdown files: Too many files modified in a single PR, preview link list is skipped. ($change_count files &gth; $file_limit)"
                     else
-                      comment=$(git diff --name-only HEAD "origin/$GITHUB_BASE_REF" | grep -E "^docs\/.*\.md$" | sed -E "s|^docs/(.*)\.md$|- [docs/\1.md](${build_url}\1/)|")
-                      comment="Preview of modified Markdown files:\n\n$comment"
+                      comment="Preview of modified Markdown files:\n\n$change_list"
                     fi
 
                     echo -e "$comment" > comment.md
