@@ -1,5 +1,5 @@
-displayName: AI Actions
-/execute/{actionConfiguration}:
+displayName: AI actions
+/actions/execute/{actionConfiguration}:
     post:
         displayName: Execute AI Action
         description: Executes an AI action using the specified Action Configuration identifier.
@@ -21,35 +21,162 @@ displayName: AI Actions
         body:
             application/vnd.ibexa.api.ai.AltText+json:
                 type: GenerateAltTextWrapper
-                example: !include examples/ai/POST/GenerateAltText.json.example
+                example: !include examples/ai/actions/execute/POST/GenerateAltText.json.example
             application/vnd.ibexa.api.ai.AltText+xml:
                 type: GenerateAltTextWrapper
-                example: !include examples/ai/POST/GenerateAltText.xml.example
+                example: !include examples/ai/actions/execute/POST/GenerateAltText.xml.example
             application/vnd.ibexa.api.ai.RefineText+json:
                 type: RefineTextInputWrapper
-                example: !include examples/ai/POST/RefineTextInput.json.example
+                example: !include examples/ai/actions/execute/POST/RefineTextInput.json.example
             application/vnd.ibexa.api.ai.RefineText+xml:
                 type: RefineTextInputWrapper
-                example: !include examples/ai/POST/RefineTextInput.xml.example
+                example: !include examples/ai/actions/execute/POST/RefineTextInput.xml.example
         responses:
             200:
                 description: Action executed successfuly
                 body:
                     application/vnd.ibexa.api.ai.AltText+json:
                         type: AltTextWrapper
-                        example: !include examples/ai/POST/AltText.json.example
+                        example: !include examples/ai/actions/execute/POST/AltText.json.example
                     application/vnd.ibexa.api.ai.AltText+xml:
                         type: AltTextWrapper
-                        example: !include examples/ai/POST/AltText.xml.example
+                        example: !include examples/ai/actions/execute/POST/AltText.xml.example
                     application/vnd.ibexa.api.ai.RefineText+json:
                         type: RefineTextWrapper
-                        example: !include examples/ai/POST/RefineText.json.example
+                        example: !include examples/ai/actions/execute/POST/RefineText.json.example
                     application/vnd.ibexa.api.ai.RefineText+xml:
                         type: RefineTextWrapper
-                        example: !include examples/ai/POST/RefineText.xml.example
+                        example: !include examples/ai/actions/execute/POST/RefineText.xml.example
             400:
                 description: Error - the request is invalid
             401:
                 description: Error - the user is not authorized to execute an AI action.
             404:
                 description: Error - the given Action Configuration identifier does not exist
+
+/actions:
+    get:
+        displayName: List action configurations
+        description: Returns a list of action configurations
+        queryParameters:
+            limit:
+                description: The number of results per page
+                type: integer
+            page:
+                description: The page for which the results should be returned
+                type: integer
+                default: 1
+            enabled:
+                description: Return only enabled (1) or disabled (0) action configurations
+                type: integer
+            action_type_identifier:
+                description: Return action configurations for the specified action type identifier
+                type: string
+            query:
+                type: string
+                description: Return action configurations with identifier matching the given value, or the name starting with given value
+        headers:
+            Accept:
+                description: If set, the list is returned in XML or JSON format.
+                example: |
+                    application/vnd.ibexa.api.ai.ActionConfigurationList+json
+                    application/vnd.ibexa.api.ai.ActionConfigurationList+xml
+        responses:
+            200:
+                body:
+                    application/vnd.ibexa.api.ai.ActionConfigurationList+json:
+                        type: ActionConfigurationListWrapper
+                        example: !include examples/ai/actions/GET/ActionConfigurationList.json.example
+                    application/vnd.ibexa.api.ai.ActionConfigurationList+xml:
+                        type: ActionConfigurationListWrapper
+                        example: !include examples/ai/actions/GET/ActionConfigurationList.xml.example
+    post:
+        displayName: List action configurations (POST)
+        description: Returns a list of action configurations, the same data as the GET endpoint.
+        headers:
+            Accept:
+                description: Specifies the expected response type. If set, the list is returned in XML or JSON format.
+                example: |
+                    application/vnd.ibexa.api.ai.ActionConfigurationList+json
+                    application/vnd.ibexa.api.ai.ActionConfigurationList+xml
+            Content-Type:
+                description: Specifies the input type.
+                example: |
+                    application/vnd.ibexa.api.ai.ActionConfigurationListInput+json
+                    application/vnd.ibexa.api.ai.ActionConfigurationListInput+xml   
+        body:
+            application/vnd.ibexa.api.ai.ActionConfigurationListInput+json:
+                type: ActionConfigurationListInputWrapper
+                example: !include examples/ai/actions/POST/ActionConfigurationListInput.json.example
+            application/vnd.ibexa.api.ai.ActionConfigurationListInput+xml:
+                type: ActionConfigurationListInputWrapper
+                example: !include examples/ai/actions/POST/ActionConfigurationListInput.xml.example
+        responses:
+            200:
+                body:
+                    application/vnd.ibexa.api.ai.ActionConfigurationList+json:
+                        type: ActionConfigurationListWrapper
+                        example: !include examples/ai/actions/GET/ActionConfigurationList.json.example
+                    application/vnd.ibexa.api.ai.ActionConfigurationList+xml:
+                        type: ActionConfigurationListWrapper
+                        example: !include examples/ai/actions/GET/ActionConfigurationList.xml.example
+
+    /{identifier}:
+        get:
+            displayName: Get an action configuration
+            description: Returns an action configuration with specified identifier.
+            headers:
+                Accept:
+                    description: If set, the list is returned in XML or JSON format.
+                    example: |
+                        application/vnd.ibexa.api.ai.ActionConfiguration+json
+                        application/vnd.ibexa.api.ai.ActionConfiguration+xml
+            responses:
+                200:
+                    body:
+                        application/vnd.ibexa.api.ai.ActionConfigurationList+json:
+                            type: ActionConfiguration
+                            example: !include examples/ai/actions/GET/ActionConfiguration.json.example
+                        application/vnd.ibexa.api.ai.ActionConfigurationList+xml:
+                            type: ActionConfiguration
+                            example: !include examples/ai/actions/GET/ActionConfiguration.xml.example
+
+/action-types:
+    get:
+        displayName: List action types
+        description: Returns a list of AI action types.
+        headers:
+            Accept:
+                description: If set, the list is returned in XML or JSON format.
+                example: |
+                    application/vnd.ibexa.api.ai.ActionTypeList+json
+                    application/vnd.ibexa.api.ai.ActionTypeList+xml
+        responses:
+            200:
+                body:
+                    application/vnd.ibexa.api.ai.ActionTypeList+json:
+                        type: ActionTypeListWrapper
+                        example: !include examples/ai/action-types/GET/ActionTypeList.json.example
+                    application/vnd.ibexa.api.ai.ActionTypeList+xml:
+                        type: ActionTypeListWrapper
+                        example: !include examples/ai/action-types/GET/ActionTypeList.xml.example
+
+    /{identifier}:
+        get:
+            displayName: Get action type
+            description: Returns the AI action type with given identifier.
+            headers:
+                Accept:
+                    description: If set, the list is returned in XML or JSON format.
+                    example: |
+                        application/vnd.ibexa.api.ai.ActionType+json
+                        application/vnd.ibexa.api.ai.ActionType+xml
+            responses:
+                200:
+                    body:
+                        application/vnd.ibexa.api.ai.ActionType+json:
+                            type: ActionType
+                            example: !include examples/ai/action-types/GET/ActionType.json.example
+                        application/vnd.ibexa.api.ai.ActionType+xml:
+                            type: ActionType
+                            example: !include examples/ai/action-types/GET/ActionType.xml.example
