@@ -14,12 +14,18 @@
         {% set output_selector = '#ezplatform_content_forms_content_edit_fieldsData_transcript_value' %}
         {% set cancel_wrapper_selector = '.ibexa-field-edit-preview__media-wrapper' %}
 
-        {% embed '@ibexadesign/connector_ai/ui/ai_module/ai_component.html.twig' with {
-            ai_config_id,
-            container_selector,
-            input_selector,
-            output_selector,
+        <div class="btn ibexa-btn ibexa-btn--secondary">
+            Use AI
+        {% include '@ibexadesign/connector_ai/ui/ai_module/ai_assistant_component.html.twig' with {
+            'module_id': module_id,
+            'ai_config_id': ai_config_id,
+            'class': 'ibexa-input-text-wrapper__action-btn',
+            'scroll_selector': '.ibexa-edit-content',
+            'container_selector': container_selector,
+            'input_selector': input_selector,
+            'output_selector': output_selector
         } %}
-        {% endembed %}
+        </div>
+
     {% endif %}
 {% endblock %}
