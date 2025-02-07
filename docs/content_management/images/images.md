@@ -62,6 +62,7 @@ For more information, see the [bundle's documentation](https://symfony.com/bundl
 !!! caution "Code injection in images"
 
     Images must be treated like any other user-submitted data - as potentially malicious.
+
     - EXIF metadata of an image may contain for example, HTML, JavaScript, or PHP code. 
       [[= product_name =]] itself doesn't parse EXIF metadata, but third-party bundles must be secured against this eventuality.
       Make sure that metadata is properly escaped before use.
