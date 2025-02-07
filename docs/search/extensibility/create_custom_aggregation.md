@@ -78,6 +78,9 @@ For the result extractor, you can use the built-in `RangeAggregationResultExtrac
 
     Tag the service with `ibexa.search.solr.query.location.aggregation.result.extractor`.
 
+    As `$keyMapper` to transform raw keys into more usable objects or scalar values, use `IntRangeAggregationKeyMapper`
+    or create your own implementing [`RangeAggregationKeyMapper`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Solr-ResultExtractor-AggregationResultExtractor-RangeAggregationKeyMapper.html).
+
     ``` yaml
     services:
     [[= include_file('code_samples/search/custom/config/aggregation_services.yaml', 19, 26) =]]
