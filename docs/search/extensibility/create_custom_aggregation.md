@@ -99,20 +99,27 @@ You can use a different type of aggregation, followed by respective visitor and 
 
 === "Solr"
 
-    - `Ibexa\Solr\Query\Common\AggregationVisitor\StatsAggregationVisitor`
-    - `Ibexa\Solr\Query\Common\AggregationVisitor\TermAggregationVisitor`
-    - `Ibexa\Solr\ResultExtractor\AggregationResultExtractor\StatsAggregationResultExtractor`
-    - `Ibexa\Solr\ResultExtractor\AggregationResultExtractor\TermAggregationResultExtractor`
+    - Range
+        - `Ibexa\Solr\Query\Common\AggregationVisitor\RangeAggregationVisitor`
+        - `Ibexa\Solr\ResultExtractor\AggregationResultExtractor\RangeAggregationResultExtractor`
+    - Stats (count, minimum, maximum, average, sum)
+        - `Ibexa\Solr\Query\Common\AggregationVisitor\StatsAggregationVisitor`
+        - `Ibexa\Solr\ResultExtractor\AggregationResultExtractor\StatsAggregationResultExtractor`
+    - Term
+        - `Ibexa\Solr\Query\Common\AggregationVisitor\TermAggregationVisitor`
+        - `Ibexa\Solr\ResultExtractor\AggregationResultExtractor\TermAggregationResultExtractor`
 
 === "Elasticsearch"
 
-    - `Ibexa\ElasticSearchEngine\Query\AggregationVisitor\RangeAggregationVisitor`
-    - `Ibexa\ElasticSearchEngine\Query\AggregationVisitor\StatsAggregationVisitor`
-    - `Ibexa\ElasticSearchEngine\Query\AggregationVisitor\TermAggregationVisitor`
-
-    - `Ibexa\ElasticSearchEngine\Query\ResultExtractor\AggregationResultExtractor\RangeAggregationResultExtractor`
-    - `Ibexa\ElasticSearchEngine\Query\ResultExtractor\AggregationResultExtractor\StatsAggregationResultExtractor`
-    - `Ibexa\ElasticSearchEngine\Query\ResultExtractor\AggregationResultExtractor\TermAggregationResultExtractor`
+    - Range
+        - `Ibexa\ElasticSearchEngine\Query\AggregationVisitor\RangeAggregationVisitor`
+        - `Ibexa\ElasticSearchEngine\Query\ResultExtractor\AggregationResultExtractor\RangeAggregationResultExtractor`
+    - Stats (count, minimum, maximum, average, sum)
+        - `Ibexa\ElasticSearchEngine\Query\AggregationVisitor\StatsAggregationVisitor`
+        - `Ibexa\ElasticSearchEngine\Query\ResultExtractor\AggregationResultExtractor\StatsAggregationResultExtractor`
+    - Term
+        - `Ibexa\ElasticSearchEngine\Query\AggregationVisitor\TermAggregationVisitor`
+        - `Ibexa\ElasticSearchEngine\Query\ResultExtractor\AggregationResultExtractor\TermAggregationResultExtractor`
 
 In a more complex use case, you must create your own visitor and extractor.
 
