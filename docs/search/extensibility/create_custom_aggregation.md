@@ -4,6 +4,8 @@ description: Create custom Aggregation to use with Solr and Elasticsearch search
 
 # Create custom Aggregation
 
+## Create aggregation class
+
 To create a custom Aggregation, create an aggregation class.
 In the following example, an aggregation groups the location query results by the location priority:
 
