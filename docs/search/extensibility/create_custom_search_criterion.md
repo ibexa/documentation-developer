@@ -39,7 +39,7 @@ Then, add a `CameraManufacturerVisitor` class, implementing `CriterionVisitor`:
 Finally, register the visitor as a service.
 
 Search Criteria can be valid for both Content and Location search.
-To choose the search type, use either `content` or `location` in the tag when registering the visitor as a service::
+To choose the search type, use either `content` or `location` in the tag when registering the visitor as a service:
 
 === "Solr"
 
@@ -54,3 +54,8 @@ To choose the search type, use either `content` or `location` in the tag when re
     services:
     [[= include_file('code_samples/search/custom/config/criterion_services.yaml', 6, 10) =]]
     ```
+
+This example pretends a new `exif_camera_manufacturer_id` data is indexed.
+For more information about indexing new additional data,
+see [Solr document field mappers](solr_document_field_mappers.md)
+or [Index custom Elasticsearch data](index_custom_elasticsearch_data.md).
