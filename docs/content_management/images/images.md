@@ -59,11 +59,14 @@ LiipImagineBundle only works on image blobs, so no command line tool is needed.
 
 For more information, see the [bundle's documentation](https://symfony.com/bundles/LiipImagineBundle/current/configuration.html).
 
-!!! caution "Code injection in image EXIF"
+!!! caution "Code injection in images"
 
-    EXIF metadata of an image may contain for example, HTML, JavaScript, or PHP code. 
-    [[= product_name =]] itself doesn't parse EXIF metadata, but third-party bundles must be secured against this eventuality.
-    Images must be treated like any other user-submitted data - make sure that metadata is properly escaped before use.
+    Images must be treated like any other user-submitted data - as potentially malicious.
+    - EXIF metadata of an image may contain for example, HTML, JavaScript, or PHP code. 
+      [[= product_name =]] itself doesn't parse EXIF metadata, but third-party bundles must be secured against this eventuality.
+      Make sure that metadata is properly escaped before use.
+    - Images may contain specially crafted flaws that exploit vulnerabilities in common image libraries
+      like GD or Imagick, leading to code execution. It's important to keep these libraries up to date with security updates.
 
 ### Image URL resolution
 
