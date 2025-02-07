@@ -62,7 +62,7 @@ For more information, see the [bundle's documentation](https://symfony.com/bundl
 !!! caution "Code injection in image EXIF"
 
     EXIF metadata of an image may contain for example, HTML, JavaScript, or PHP code. 
-    [[= product_name =]] is itself doesn't parse EXIF metadata, but third-party bundles must be secured against this eventuality.
+    [[= product_name =]] itself doesn't parse EXIF metadata, but third-party bundles must be secured against this eventuality.
     Images must be treated like any other user-submitted data - make sure that metadata is properly escaped before use.
 
 ### Image URL resolution
