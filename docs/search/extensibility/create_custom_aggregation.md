@@ -48,14 +48,14 @@ The example below uses `RangeAggregationVisitor`:
 
     ``` yaml
     services:
-    [[= include_file('code_samples/search/custom/config/aggregation_services.yaml', 1, 10) =]]
+    [[= include_file('code_samples/search/custom/config/aggregation_services.yaml', 1, 9) =]]
     ```
 
 === "Elasticsearch"
 
     ``` yaml
     services:
-    [[= include_file('code_samples/search/custom/config/aggregation_services.yaml', 11, 20) =]]
+    [[= include_file('code_samples/search/custom/config/aggregation_services.yaml', 10, 18) =]]
     ```
 
 The visitor is created by `SearchFieldAggregationVisitorFactory`.
@@ -76,22 +76,20 @@ For the result extractor, you can use the built-in `RangeAggregationResultExtrac
 
 === "Solr"
 
-    Tag the service with `ibexa.search.solr.query.location.aggregation.result.extractor`
-    and `ibexa.search.solr.query.content.aggregation.result.extractor`.
+    Tag the service with `ibexa.search.solr.query.location.aggregation.result.extractor`.
 
     ``` yaml
     services:
-    [[= include_file('code_samples/search/custom/config/aggregation_services.yaml', 21, 29) =]]
+    [[= include_file('code_samples/search/custom/config/aggregation_services.yaml', 19, 26) =]]
     ```
 
 === "Elasticsearch"
 
-    Tag the service with `ibexa.search.elasticsearch.query.location.aggregation.result.extractor`
-    and `ibexa.search.elasticsearch.query.content.aggregation.result.extractor`.
+    Tag the service with `ibexa.search.elasticsearch.query.location.aggregation.result.extractor`.
 
     ``` yaml
     services:
-    [[= include_file('code_samples/search/custom/config/aggregation_services.yaml', 30, 37) =]]
+    [[= include_file('code_samples/search/custom/config/aggregation_services.yaml', 27, 33) =]]
     ```
 
 You can use a different type of aggregation, followed by respective visitor and extractor classes:
@@ -141,6 +139,31 @@ The `canVisit()` method checks whether the provided aggregation is of the suppor
 
 The `visit()` method returns an array of results.
 
+Finally, register the aggregation visitor as a service.
+
+=== "Solr"
+
+    Tag the aggregation visitor with `ibexa.search.solr.query.location.aggregation.visitor`:
+
+    ``` yaml
+    services:
+    [[= include_file('code_samples/search/custom/config/aggregation_services.yaml', 34, 37) =]]
+    ```
+
+    For content-based aggregations, use the `ibexa.search.solr.query.content.aggregation.visitor` tag.
+
+=== "Elasticsearch"
+
+    Tag the aggregation visitor with `ibexa.elasticsearch.query.location.aggregation_visitor`:
+
+    ``` yaml
+    services:
+    [[= include_file('code_samples/search/custom/config/aggregation_services.yaml', 42, 45) =]]
+    ```
+
+    For content-based aggregations, use the `ibexa.search.elasticsearch.query.content.aggregation.visitor` tag.
+
+
 ### Create result extractor
 
 === "Solr"
@@ -172,26 +195,26 @@ The `visit()` method returns an array of results.
     The `extract()` method converts the [raw data provided by the search engine](https://www.elastic.co/guide/en/elasticsearch/reference/current/search-aggregations.html) to a `RangeAggregationResult` object.
 
 
-Finally, register both the aggregation visitor and the result extractor as services.
+Finally, register the result extractor as a service.
 
 === "Solr"
 
-    Tag the aggregation visitor with `ibexa.search.solr.query.location.aggregation.visitor` and the result extractor with `ibexa.search.solr.query.location.aggregation.result.extractor`:
+    Tag the result extractor with `ibexa.search.solr.query.location.aggregation.result.extractor`:
 
     ``` yaml
     services:
-    [[= include_file('code_samples/search/custom/config/aggregation_services.yaml', 38, 47) =]]
+    [[= include_file('code_samples/search/custom/config/aggregation_services.yaml', 38, 41) =]]
     ```
 
-    For content-based aggregations, use the `ibexa.search.solr.query.content.aggregation.visitor` and `ibexa.search.solr.query.content.aggregation.result.extractor` tags respectively.
+    For content-based aggregations, use the `ibexa.search.solr.query.content.aggregation.result.extractor` tag.
 
 === "Elasticsearch"
 
-    Tag the aggregation visitor with `ibexa.elasticsearch.query.location.aggregation_visitor` and the result extractor with `ibexa.elasticsearch.query.location.aggregation_result_extractor`:
+    Tag the result extractor with `ibexa.elasticsearch.query.location.aggregation_result_extractor`:
 
     ``` yaml
     services:
-    [[= include_file('code_samples/search/custom/config/aggregation_services.yaml', 48, 57) =]]
+    [[= include_file('code_samples/search/custom/config/aggregation_services.yaml', 46, 49) =]]
     ```
 
-    For content-based aggregations, use the `ibexa.search.elasticsearch.query.content.aggregation.visitor` and `ibexa.search.elasticsearch.query.content.aggregation.result.extractor` tags respectively.
+    For content-based aggregations, use the `ibexa.search.elasticsearch.query.content.aggregation.result.extractor` tag.
