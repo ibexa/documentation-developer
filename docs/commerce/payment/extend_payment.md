@@ -59,7 +59,7 @@ Next, create a mapper that maps the information that the user inputs in the form
 [[= include_file('code_samples/front/shop/payment/src/PaymentMethodType/PayPal/OptionsFormMapper.php') =]]
 ```
 
-Then, register `OptionsFormMapper` a service:
+Then, register `OptionsFormMapper` as a service:
 
 ``` yaml
 [[= include_file('code_samples/front/shop/payment/config/services.yaml', 0, 1) =]][[= include_file('code_samples/front/shop/payment/config/services.yaml', 16, 20) =]]
