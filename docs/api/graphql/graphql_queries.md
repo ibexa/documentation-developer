@@ -15,7 +15,7 @@ To get a specific content item by its content ID, location ID, or URL alias, use
 ```
 {
   content {
-    article (contentId: 62) {
+    article(contentId: 62) {
       title
       author {
         name
@@ -52,8 +52,17 @@ The query accepts `locationId`, `remoteId`, and `urlAlias` as arguments.
 
 ```
 {
-  item (locationId: 2) {
+  item(locationId: 2) {
     _name
+    ... on FolderItem {
+        name
+    }
+    ... on LandingPageItem {
+        name
+    }
+    ... on ArticleItem {
+        title
+    }
   }
 }
 ```
@@ -181,9 +190,9 @@ To get the IDs and names of all Fields in the `article` content type:
 {
   content {
     _types {
-      article{
+      article {
         _info {
-          fieldDefinitions{
+          fieldDefinitions {
             id
             name
           }
@@ -318,8 +327,8 @@ Alternatively, you can query the `children` property of an `item` or `content` o
 
 ```
 {
-  item (locationId: 2) {
-    _location{
+  item(locationId: 2) {
+    _location {
       children {
         edges {
           node {

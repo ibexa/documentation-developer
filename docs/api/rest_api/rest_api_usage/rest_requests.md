@@ -157,7 +157,7 @@ When searching for content items (or locations), the query grammar is also parti
 
 ### Creating content with binary attachments
 
-The example below is a command-line script to upload images. It's based on the [Symfony HttpClient](https://symfony.com/doc/5.4/http_client.html).
+The example below is a command-line script to upload images. It's based on the [Symfony HttpClient]([[= symfony_doc =]]/http_client.html).
 
 This script:
 
