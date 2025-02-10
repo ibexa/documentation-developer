@@ -173,10 +173,15 @@ jobs:
             -   name: Convert code_samples usages for comment
                 if: steps.list.outputs.CODE_SAMPLES_CHANGE != '' && steps.diff.outputs.CODE_SAMPLES_DIFF != '0'
                 run: |
-                    echo '# code_samples/ change report' >> code_samples_usage.diff.md
+                    echo '# code_samples/ change report' > code_samples_usage.diff.md
                     echo '' >> code_samples_usage.diff.md
                     php tools/code_samples/code_samples_usage_diff2html.php $HOME/code_samples_usage.diff >> code_samples_usage.diff.md
                     echo '<a href="${{ steps.artifact.outputs.artifact-url }}">Download colorized diff</a>' >> code_samples_usage.diff.md
+                    if [[ `wc -c < code_samples_usage.diff.md | xargs` -ge $((2**16)) ]]; then
+                        echo '# code_samples/ change report' > code_samples_usage.diff.md
+                        echo '' >> code_samples_usage.diff.md
+                        echo 'Diff is too long to be displayed.' >> code_samples_usage.diff.md
+                    fi
             -   name: Find Comment
                 id: find-comment
                 uses: peter-evans/find-comment@v3
