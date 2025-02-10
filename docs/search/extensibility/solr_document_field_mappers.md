@@ -29,15 +29,15 @@ You can create the field mapper class anywhere inside your bundle, as long as yo
 There are three different field mappers.
 Each mapper implements two methods, by the same name, but accepting different arguments:
 
-- `ContentFieldMapper`
-    - `::accept(Content $content)`
-    - `::mapFields(Content $content)`
-- `ContentTranslationFieldMapper`
-    - `::accept(Content $content, $languageCode)`
-    - `::mapFields(Content $content, $languageCode)`
-- `LocationFieldMapper`
-    - `::accept(Location $content)`
-    - `::mapFields(Location $content)`
+- [`ContentFieldMapper`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Solr-FieldMapper-ContentTranslationFieldMapper.html)
+    - [`::accept(Content $content)`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Solr-FieldMapper-ContentTranslationFieldMapper.html#method_accept)
+    - [`::mapFields(Content $content)`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Solr-FieldMapper-ContentTranslationFieldMapper.html#method_mapFields)
+- [`ContentTranslationFieldMapper`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Solr-FieldMapper-ContentTranslationFieldMapper.html)
+    - [`::accept(Content $content, $languageCode)`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Solr-FieldMapper-ContentTranslationFieldMapper.html#method_accept)
+    - [`::mapFields(Content $content, $languageCode)`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Solr-FieldMapper-ContentTranslationFieldMapper.html#method_mapFields)
+- [`LocationFieldMapper`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Solr-FieldMapper-LocationFieldMapper.html)
+    - [`::accept(Location $content)`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Solr-FieldMapper-LocationFieldMapper.html#method_accept)
+    - [`::mapFields(Location $content)`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Solr-FieldMapper-LocationFieldMapper.html#method_mapFields)
 
 Mappers can be used on the extension points by registering them with the [service container](php_api.md#service-container) by using service tags, as follows:
 
