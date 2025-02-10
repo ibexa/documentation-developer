@@ -12,43 +12,9 @@ The following example shows how to add a Search Criterion to all queries.
 Depending on your configuration, this might impact all search queries, including those used for search and content tree in the back office.
 
 ``` php hl_lines="34"
-<?php
-
-declare(strict_types=1);
-
-namespace App\EventSubscriber;
-
-use Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion\LogicalAnd;
-use Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion\ObjectStateIdentifier;
-use Ibexa\Contracts\ElasticSearch\Query\Event\QueryFilterEvent;
-use Symfony\Component\EventDispatcher\EventSubscriberInterface;
-
-final class CustomQueryFilterSubscriber implements EventSubscriberInterface
-{
-    public function onQueryFilter(QueryFilterEvent $event): void
-    {
-        $query = $event->getQuery();
-
-        $additionalCriteria = new ObjectStateIdentifier('locked');
-
-        if ($query->filter !== null) {
-            $query->filter = $additionalCriteria;
-        } else {
-            // Append Criterion to existing filter
-            $query->filter = new LogicalAnd([
-                $query->filter,
-                $additionalCriteria
-            ]);
-        }
-    }
-
-    public static function getSubscribedEvents(): array
-    {
-        return [
-            QueryFilterEvent::class => 'onQueryFilter'
-        ];
-    }
-}
+--8<--
+code_samples/search/custom/src/EventSubscriber/CustomQueryFilterSubscriber.php
+--8<--
 ```
 
 If your subscriber is not automatically properly configured, register it as a service:
