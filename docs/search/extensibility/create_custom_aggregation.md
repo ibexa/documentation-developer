@@ -64,13 +64,20 @@ You provide it with two arguments:
 - The aggregation class in `aggregationClass`
 - The field name in search index in `searchIndexFieldName`
 
+In this example, the field is `priority_i` which exists only for locations.
+
 === "Solr"
 
     Tag the service with `ibexa.search.solr.query.location.aggregation.visitor`.
 
+    For content-based aggregations, use the ibexa.search.solr.query.content.aggregation.visitor tag.
+
 === "Elasticsearch"
 
-    Tag the service with `ibexa.elasticsearch.query.location.aggregation_visitor`.
+    Tag the service with `ibexa.search.elasticsearch.query.location.aggregation_visitor`.
+
+    For content-based aggregations, use the ibexa.search.elasticsearch.query.content.aggregation.visitor tag.
+
 
 For the result extractor, you can use the built-in `RangeAggregationResultExtractor` and provide it with the aggregation class in the `aggregationClass` parameter.
 
