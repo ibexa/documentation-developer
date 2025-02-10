@@ -21,7 +21,7 @@ The strategies are:
 - `NullGroupResolver` - groups all documents into a single group.
 - `LanguageGroupResolver` - groups documents by language code.
 - `ContentTypeGroupResolver`- groups documents by content type ID.
-- `CompositeGroupResolver` - allows combining multiple group resolves together to have a more granular index.
+- `CompositeGroupResolver` - allows combining multiple group resolves together to have a more granular index (default).
 
 The default strategy is the composite of language and content type ID, resulting in indexes in the form of `<repository>_<document_type>_<language>_<content_type_id>`.
 
