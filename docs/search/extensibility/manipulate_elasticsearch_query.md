@@ -51,7 +51,7 @@ final class CustomQueryFilterSubscriber implements EventSubscriberInterface
 }
 ```
 
-Remember to register the subscriber as a service:
+If your subscriber is not automatically properly configured, register it as a service:
 
 ``` yaml
 services:
