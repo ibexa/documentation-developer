@@ -9,8 +9,8 @@ Besides what is indexed automatically, you can add additional data to the Elasti
 
 To do so, subscribe to one of the following events:
 
-- `Ibexa\Contracts\ElasticSearchEngine\Mapping\Event\ContentIndexCreateEvent`
-- `Ibexa\Contracts\ElasticSearchEngine\Mapping\Event\LocationIndexCreateEvent`
+- [`Ibexa\Contracts\ElasticSearchEngine\Mapping\Event\ContentIndexCreateEvent`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Elasticsearch-Mapping-Event-ContentIndexCreateEvent.html)
+- [`Ibexa\Contracts\ElasticSearchEngine\Mapping\Event\LocationIndexCreateEvent`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Elasticsearch-Mapping-Event-LocationIndexCreateEvent.html)
 
 These events are called when the index is created for the content and location documents.
 
