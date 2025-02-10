@@ -23,7 +23,7 @@ final class CustomQueryFilterSubscriber implements EventSubscriberInterface
             // Append Criterion to existing filter
             $query->filter = new LogicalAnd([
                 $query->filter,
-                $additionalCriteria
+                $additionalCriteria,
             ]);
         }
     }
@@ -31,7 +31,7 @@ final class CustomQueryFilterSubscriber implements EventSubscriberInterface
     public static function getSubscribedEvents(): array
     {
         return [
-            QueryFilterEvent::class => 'onQueryFilter'
+            QueryFilterEvent::class => 'onQueryFilter',
         ];
     }
 }

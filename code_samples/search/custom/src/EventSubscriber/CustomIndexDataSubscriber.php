@@ -36,7 +36,7 @@ final class CustomIndexDataSubscriber implements EventSubscriberInterface
     {
         return [
             ContentIndexCreateEvent::class => 'onContentDocumentCreate',
-            LocationIndexCreateEvent::class => 'onLocationDocumentCreate'
+            LocationIndexCreateEvent::class => 'onLocationDocumentCreate',
         ];
     }
 }
