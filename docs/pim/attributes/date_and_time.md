@@ -74,4 +74,4 @@ When creating an attribute based on the date and time attribute type you can sel
 | Month | July 2025 |
 | Day  | 2025-07-06 |
 | Minute | 2025-07-06 11:15 |
-| Second | 2025-07-06 11:15:37 | 
+| Second | 2025-07-06 11:15:37 |
