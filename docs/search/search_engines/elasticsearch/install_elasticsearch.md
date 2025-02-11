@@ -64,11 +64,11 @@ All configuration is made in the `/config/packages/ibexa_elasticsearch.yaml` fil
 
 First, decide how [[= product_name =]] connects to Elasticsearch and configure other connection settings.
 
-For more information, see [Configuring connections](configure_elastic_search.md#configure-connections).
+For more information, see [Configuring connections](configure_elasticsearch.md#configure-connections).
 
 Then, define a field type mappings template that instructs Elasticsearch to interpret [[= product_name =]] fields as specific types.
 
-For more information, see [Configuring field type mappings](configure_elastic_search.md#define-field-type-mapping-templates).
+For more information, see [Configuring field type mappings](configure_elasticsearch.md#define-field-type-mapping-templates).
 
 ## Push the templates
 
