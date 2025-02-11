@@ -492,7 +492,7 @@ For information about configuring an analyzer for each specific language, see [E
 An adoption of the [English analyzer](https://www.elastic.co/guide/en/elasticsearch/reference/7.17/analysis-lang-analyzer.html#english-analyzer) in [[= product_name =]] configuration looks like this:
 
 ```yaml hl_lines="3-5 15-23 35 41-52 94 99"
-[[= include_file('code_samples/search/elasticsearch/config/packages/elasticsearch-en.yaml') =]]
+[[= include_file('code_samples/search/custom/config/packages/elasticsearch-en.yaml') =]]
 ```
 
 Then, you must bind this language template to your Elasticsearch connection.
