@@ -25,6 +25,7 @@ Search Criterion let you filter product by specific attributes, for example, col
 |[CreatedAtRange](createdatrange_criterion.md)|Date and time range when product was created|
 |[CustomPrice](customprice_criterion.md)|Product's custom price|
 |[DateTimeAttribute](datetimeattribute_criterion.md)|Value of product's date and time attribute|
+|[DateTimeAttributeRange](datetimeattributerange_criterion.md)|Value of product's date and time attribute and given time range|
 |[FloatAttribute](floatattribute_criterion.md)|Value of product's float attribute|
 |[FloatAttributeRange](floatattributerange_criterion.md)|Value of product's float attribute|
 |[IntegerAttribute](integerattribute_criterion.md)|Value of product's integer attribute|
