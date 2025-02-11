@@ -333,6 +333,8 @@ nav:
         - PIM guide: pim/pim_guide.md
         - PIM configuration: pim/pim_configuration.md
         - Products: pim/products.md
+        - Attributes:
+            - Date and Time attribute: pim/attributes/date_and_time.md
         - Product API: pim/product_api.md
         - Catalogs: pim/catalogs.md
         - Catalog API: pim/catalog_api.md

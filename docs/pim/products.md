@@ -40,6 +40,7 @@ The following attribute types are available:
 - Integer
 - Measurement
 - Selection
+- [Date and time](date_and_time.md)
 
 Product attributes are collected in groups.
 An example of an attribute group can be dimensions (length, width, height).

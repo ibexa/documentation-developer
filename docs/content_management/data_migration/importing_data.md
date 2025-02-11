@@ -346,6 +346,14 @@ You can also update attributes, including changing which attribute group they be
 
 You can't change the attribute type of an existing attribute.
 
+##### Date and time attribute
+
+If you're using the [Date and time attribute LTS update](date_and_time.md) you can create it through the migrations as well:
+
+``` yaml
+[[= include_file('code_samples/data_migration/examples/create_datetime_attribute.yaml') =]]
+```
+
 #### Product types
 
 The following example shows how to create a product type.

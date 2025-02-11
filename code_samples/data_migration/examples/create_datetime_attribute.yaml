@@ -1,0 +1,10 @@
+-   type: attribute
+    mode: create
+    identifier: event_date
+    attribute_group_identifier: example
+    attribute_type_identifier: datetime
+    position: 1
+    names:
+        eng-GB: 'Event date'
+    options:
+        accuracy: day # One of: second, minute, day, month, trimester, year
