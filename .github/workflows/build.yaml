@@ -191,7 +191,7 @@ jobs:
                     if [[ `wc -m < code_samples_usage.diff.md | xargs` -ge $((2**16)) ]]; then
                         echo "$title" > code_samples_usage.diff.md
                         echo '' >> code_samples_usage.diff.md
-                        echo 'Report's diff is too long to be displayed in a comment.' >> code_samples_usage.diff.md
+                        echo "Report's diff is too long to be displayed in a comment." >> code_samples_usage.diff.md
                         echo '' >> code_samples_usage.diff.md
                         echo "$link" >> code_samples_usage.diff.md
                     fi
