@@ -348,7 +348,7 @@ You can't change the attribute type of an existing attribute.
 
 ##### Date and time attribute
 
-If you're using the [Date and time attribute LTS update](date_and_time.md) you can create it through the migrations as well:
+If you're using the [Date and time attribute](date_and_time.md) you can manage it through the migrations as well, for example:
 
 ``` yaml
 [[= include_file('code_samples/data_migration/examples/create_datetime_attribute.yaml') =]]
