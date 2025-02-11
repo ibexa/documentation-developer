@@ -4,7 +4,7 @@ description: DateTimeAttribute Criterion
 
 # DateTimeAttribute criterion
 
-The [`DateTimeAttribute Search Criterion`](TODO: PHP REF)  searches for products by their [date and time attribute](symbol_attribute_type.md) value.
+The [`DateTimeAttribute Search Criterion`](TODO: PHP REF)  searches for products by their [date and time attribute](date_and_time.md) value.
 
 ## Arguments
 
