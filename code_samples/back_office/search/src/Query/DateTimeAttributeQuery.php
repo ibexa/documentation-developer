@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 use DateTimeImmutable;
 use Ibexa\Contracts\CoreSearch\Values\Query\Criterion\FieldValueCriterion;
@@ -9,5 +9,5 @@ $query = new ProductQuery();
 $filter = new DateTimeAttribute('event_date', new DateTimeImmutable('2025-07-06'));
 $filter->setOperator(FieldValueCriterion::EQ);
 $query->setFilter($filter);
-/** @var \Ibexa\Contracts\ProductCatalog\ProductServiceInterface $productService*/
+/** @var \Ibexa\Contracts\ProductCatalog\ProductServiceInterface $productService */
 $results = $productService->findProducts($query);
