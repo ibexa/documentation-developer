@@ -345,6 +345,7 @@ nav:
             - Create product code generator: pim/create_product_code_generator.md
             - Create custom catalog filter: pim/create_custom_catalog_filter.md
             - Create custom name schema: pim/create_custom_name_schema_strategy.md
+        - Use symbol attribute type: pim/symbol_attribute_type.md
         - Add remote PIM support: pim/add_remote_pim_support.md
     - Commerce:
         - Commerce: commerce/commerce.md
