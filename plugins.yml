@@ -446,7 +446,7 @@ plugins:
             'search/shop_search/search_autosuggest.md': 'search/search.md'
             'search/search_engines/elastic_search/install_elastic_search.md': 'search/search_engines/elasticsearch/install_elasticsearch.md'
             'search/search_engines/elastic_search/configure_elastic_search.md': 'search/search_engines/elasticsearch/configure_elasticsearch.md'
-            'docs/search/search_engines/elastic_search/elastic_search_overview.md': 'docs/search/search_engines/elasticsearch/elasticsearch_overview.md'
+            'search/search_engines/elastic_search/elastic_search_overview.md': 'search/search_engines/elasticsearch/elasticsearch_overview.md'
 
             'api/public_php_api_managing_repository.md': 'content_management/content_management_api/bookmark_api.md'
             'guide/request_lifecycle.md': 'infrastructure_and_maintenance/request_lifecycle.md'
