@@ -24,7 +24,8 @@ code_samples/search/custom/src/EventSubscriber/CustomIndexDataSubscriber.php
 --8<--
 ```
 
-If your subscriber is not automatically properly configured, register it as a service:
+If you're not using [Symfony's autoconfiguration]([[= symfony_doc =]]/service_container.html#the-autoconfigure-option)
+for event subscribers, register it as a service:
 
 ``` yaml
 services:
