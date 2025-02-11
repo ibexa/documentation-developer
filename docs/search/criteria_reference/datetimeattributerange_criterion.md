@@ -4,7 +4,7 @@ description: DateTimeAttributeRange Criterion
 
 # DateTimeAttribute criterion
 
-The [`DateTimeAttributeRange Search Criterion`](TODO: PHP REF)` Search Criterion searches for products by their [date and time attribute](date_and_time.md), allowing you to search for values fitting into a given range.
+The [`DateTimeAttributeRange Search Criterion`](TODO: PHP REF)` searches for products by value of a specified attribute, which must be based on the [date and time attribute](date_and_time.md) type.
 
 ## Arguments
 
@@ -15,6 +15,9 @@ The [`DateTimeAttributeRange Search Criterion`](TODO: PHP REF)` Search Criterion
 ## Example
 
 ### PHP
+
+The following example lists all products for which the `event_date` attribute has value greater than 2025-01-01.
+
 
 ``` php
 [[= include_file('code_samples/back_office/search/src/Query/DateTimeAttributeRangeQuery.php') =]]
