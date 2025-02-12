@@ -6,6 +6,24 @@ description: Overview of major recent additions to Ibexa DXP documentation.
 
 This page contains recent highlights and notable changes in [[= product_name =]] documentation.
 
+## January 2025
+
+### Trainings
+
+- The Content editor training has been released. Learn more in the [annoucement blogpost](https://www.ibexa.co/blog/constant-development-is-key-so-here-s-a-new-training-for-content-editors).
+
+### Infrastructure and maintenance
+
+- The upgrade instructions from v3.3 to v4.6 have been expanded with a section describing the [GraphQL changes in v4](to_4.0.md/#graphql)
+
+### PHP API
+
+- Added the following interfaces and classes to the public PHP API:
+    - [`Ibexa\Contracts\AdminUi\Permission\PermissionCheckContextProviderInterface`](https://doc.ibexa.co/en/master/api/php_api/php_api_reference/classes/Ibexa-Contracts-AdminUi-Permission-PermissionCheckContextProviderInterface.html)
+    - [`Ib exa\Contracts\AdminUi\Values\PermissionCheckContext`](https://doc.ibexa.co/en/master/api/php_api/php_api_reference/classes/Ibexa-Contracts-AdminUi-Values-PermissionCheckContext.html)
+    - [`Ibexa\Contracts\Checkout\Discounts\DataMapper\DiscountsDataMapperInterface`]https://doc.ibexa.co/en/master/api/php_api/php_api_reference/classes/Ibexa-Contracts-Checkout-Discounts-DataMapper-DiscountsDataMapperInterface.html)
+    - [`Ibexa\Contracts\Seo\Resolver\FieldValueResolverInterface`](https://doc.ibexa.co/en/master/api/php_api/php_api_reference/classes/Ibexa-Contracts-Seo-Resolver-FieldValueResolverInterface.html)
+
 ## December 2024
 
 ### Infrastructure and maintenance
