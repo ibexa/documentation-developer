@@ -351,54 +351,49 @@ parameters:
 			path: code_samples/page/page_listener/src/Block/Listener/MyBlockListener.php
 
 		-
-			message: "#^Method App\\\\Query\\\\Aggregation\\\\Elasticsearch\\\\PriorityAggregationResultExtractor\\:\\:extract\\(\\) has parameter \\$data with no value type specified in iterable type array\\.$#"
+			message: "#^Method App\\\\Query\\\\Aggregation\\\\Elasticsearch\\\\PriorityRangeAggregationResultExtractor\\:\\:extract\\(\\) has parameter \\$data with no value type specified in iterable type array\\.$#"
 			count: 1
-			path: code_samples/search/elasticsearch/src/Query/Aggregation/Elasticsearch/PriorityAggregationResultExtractor.php
-
-		-
-			message: "#^Method App\\\\Query\\\\Aggregation\\\\Elasticsearch\\\\PriorityAggregationVisitor\\:\\:visit\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: code_samples/search/elasticsearch/src/Query/Aggregation/Elasticsearch/PriorityAggregationVisitor.php
+			path: code_samples/search/custom/src/Query/Aggregation/Elasticsearch/PriorityRangeAggregationResultExtractor.php
 
 		-
 			message: "#^Method App\\\\Query\\\\Criterion\\\\Elasticsearch\\\\CameraManufacturerVisitor\\:\\:visit\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
-			path: code_samples/search/elasticsearch/src/Query/Criterion/Elasticsearch/CameraManufacturerVisitor.php
+			path: code_samples/search/custom/src/Query/Criterion/Elasticsearch/CameraManufacturerVisitor.php
 
 		-
 			message: "#^Method App\\\\Query\\\\SortClause\\\\Elasticsearch\\\\ScoreVisitor\\:\\:visit\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
-			path: code_samples/search/elasticsearch/src/Query/SortClause/Elasticsearch/ScoreVisitor.php
+			path: code_samples/search/custom/src/Query/SortClause/Elasticsearch/ScoreVisitor.php
 
 		-
 			message: "#^Argument of an invalid type stdClass supplied for foreach, only iterables are supported\\.$#"
 			count: 1
-			path: code_samples/search/solr/src/Query/Aggregation/Solr/PriorityAggregationResultExtractor.php
+			path: code_samples/search/custom/src/Query/Aggregation/Solr/PriorityRangeAggregationResultExtractor.php
 
 		-
-			message: "#^Method App\\\\Query\\\\Aggregation\\\\Solr\\\\PriorityAggregationResultExtractor\\:\\:canVisit\\(\\) has parameter \\$languageFilter with no value type specified in iterable type array\\.$#"
+			message: "#^Method App\\\\Query\\\\Aggregation\\\\Solr\\\\PriorityRangeAggregationResultExtractor\\:\\:canVisit\\(\\) has parameter \\$languageFilter with no value type specified in iterable type array\\.$#"
 			count: 1
-			path: code_samples/search/solr/src/Query/Aggregation/Solr/PriorityAggregationResultExtractor.php
+			path: code_samples/search/custom/src/Query/Aggregation/Solr/PriorityRangeAggregationResultExtractor.php
 
 		-
-			message: "#^Method App\\\\Query\\\\Aggregation\\\\Solr\\\\PriorityAggregationResultExtractor\\:\\:extract\\(\\) has parameter \\$languageFilter with no value type specified in iterable type array\\.$#"
+			message: "#^Method App\\\\Query\\\\Aggregation\\\\Solr\\\\PriorityRangeAggregationResultExtractor\\:\\:extract\\(\\) has parameter \\$languageFilter with no value type specified in iterable type array\\.$#"
 			count: 1
-			path: code_samples/search/solr/src/Query/Aggregation/Solr/PriorityAggregationResultExtractor.php
+			path: code_samples/search/custom/src/Query/Aggregation/Solr/PriorityRangeAggregationResultExtractor.php
 
 		-
 			message: "#^Method App\\\\Query\\\\Aggregation\\\\Solr\\\\PriorityRangeAggregationVisitor\\:\\:formatRangeValue\\(\\) has parameter \\$value with no type specified\\.$#"
 			count: 1
-			path: code_samples/search/solr/src/Query/Aggregation/Solr/PriorityRangeAggregationVisitor.php
+			path: code_samples/search/custom/src/Query/Aggregation/Solr/PriorityRangeAggregationVisitor.php
 
 		-
 			message: "#^Method App\\\\Query\\\\Aggregation\\\\Solr\\\\PriorityRangeAggregationVisitor\\:\\:visit\\(\\) should return array\\<string\\> but returns array\\<string, array\\<string, array\\<string, string\\>\\>\\|string\\>\\.$#"
 			count: 1
-			path: code_samples/search/solr/src/Query/Aggregation/Solr/PriorityRangeAggregationVisitor.php
+			path: code_samples/search/custom/src/Query/Aggregation/Solr/PriorityRangeAggregationVisitor.php
 
 		-
 			message: "#^Parameter \\#2 \\$array of function array_map expects array, array\\<bool\\|float\\|int\\|string\\>\\|bool\\|float\\|int\\|string given\\.$#"
 			count: 1
-			path: code_samples/search/solr/src/Query/Criterion/Solr/CameraManufacturerVisitor.php
+			path: code_samples/search/custom/src/Query/Criterion/Solr/CameraManufacturerVisitor.php
 
 		-
 			message: "#^Call to an undefined method Ibexa\\\\FieldTypePage\\\\FieldType\\\\Page\\\\Block\\\\Renderer\\\\RenderRequestInterface\\:\\:getParameters\\(\\)\\.$#"

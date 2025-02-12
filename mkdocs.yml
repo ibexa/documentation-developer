@@ -472,9 +472,9 @@ nav:
         - Search engines: 
             - Search engines: search/search_engines/search_engines.md
             - Elasticsearch search engine: 
-                - Overview: search/search_engines/elastic_search/elastic_search_overview.md
-                - Install Elasticsearch: search/search_engines/elastic_search/install_elastic_search.md
-                - Configure Elasticsearch: search/search_engines/elastic_search/configure_elastic_search.md
+                - Overview: search/search_engines/elasticsearch/elasticsearch_overview.md
+                - Install Elasticsearch: search/search_engines/elasticsearch/install_elasticsearch.md
+                - Configure Elasticsearch: search/search_engines/elasticsearch/configure_elasticsearch.md
             - Solr search engine:
                 - Overview: search/search_engines/solr_search_engine/solr_overview.md
                 - Install Solr: search/search_engines/solr_search_engine/install_solr.md
