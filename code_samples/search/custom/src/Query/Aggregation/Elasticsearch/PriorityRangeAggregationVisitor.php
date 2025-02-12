@@ -18,6 +18,8 @@ final class PriorityRangeAggregationVisitor implements AggregationVisitor
 
     /**
      * @param \App\Query\Aggregation\PriorityRangeAggregation $aggregation
+     *
+     * @return array<string, array<string, mixed>>
      */
     public function visit(AggregationVisitor $dispatcher, Aggregation $aggregation, LanguageFilter $languageFilter): array
     {

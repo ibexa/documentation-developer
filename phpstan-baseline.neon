@@ -356,11 +356,6 @@ parameters:
 			path: code_samples/search/custom/src/Query/Aggregation/Elasticsearch/PriorityRangeAggregationResultExtractor.php
 
 		-
-			message: "#^Method App\\\\Query\\\\Aggregation\\\\Elasticsearch\\\\PriorityAggregationVisitor\\:\\:visit\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: code_samples/search/elasticsearch/src/Query/Aggregation/Elasticsearch/PriorityAggregationVisitor.php
-
-		-
 			message: "#^Method App\\\\Query\\\\Criterion\\\\Elasticsearch\\\\CameraManufacturerVisitor\\:\\:visit\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: code_samples/search/custom/src/Query/Criterion/Elasticsearch/CameraManufacturerVisitor.php

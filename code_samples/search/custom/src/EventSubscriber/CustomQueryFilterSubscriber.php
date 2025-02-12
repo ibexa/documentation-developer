@@ -6,7 +6,7 @@ namespace App\EventSubscriber;
 
 use Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion\LogicalAnd;
 use Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion\ObjectStateIdentifier;
-use Ibexa\Contracts\ElasticSearch\Query\Event\QueryFilterEvent;
+use Ibexa\Contracts\Elasticsearch\Query\Event\QueryFilterEvent;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
 final class CustomQueryFilterSubscriber implements EventSubscriberInterface
