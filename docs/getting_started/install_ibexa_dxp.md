@@ -250,11 +250,11 @@ You may choose to replace the [default search engine](legacy_search_overview.md)
 
     Do the following steps to enable Elasticsearch:
 
-    1. [Download and install Elasticsearch](install_elastic_search.md)
-    2. [Verify that the Elasticsearch instance is up](install_elastic_search.md#verify-the-instance)
-    3. [Set the default search engine](install_elastic_search.md#set-the-default-search-engine)
-    4. [Configure the search engine](configure_elastic_search.md)
-    5. [Push the templates](install_elastic_search.md#push-the-templates)
+    1. [Download and install Elasticsearch](install_elasticsearch.md)
+    2. [Verify that the Elasticsearch instance is up](install_elasticsearch.md#verify-the-instance)
+    3. [Set the default search engine](install_elasticsearch.md#set-the-default-search-engine)
+    4. [Configure the search engine](configure_elasticsearch.md)
+    5. [Push the templates](install_elasticsearch.md#push-the-templates)
 
     Configure the following parameter in the `.env` file:
 
