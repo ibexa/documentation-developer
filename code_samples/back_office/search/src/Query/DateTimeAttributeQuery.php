@@ -7,7 +7,7 @@ use Ibexa\Contracts\ProductCatalogDateTimeAttribute\Search\Criterion\DateTimeAtt
 
 $query = new ProductQuery();
 $filter = new DateTimeAttribute('event_date', new DateTimeImmutable('2025-07-06'));
-$filter->setOperator(FieldValueCriterion::EQ);
+$filter->setOperator(FieldValueCriterion::COMPARISON_EQ);
 $query->setFilter($filter);
 /** @var \Ibexa\Contracts\ProductCatalog\ProductServiceInterface $productService */
 $results = $productService->findProducts($query);
