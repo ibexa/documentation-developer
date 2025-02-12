@@ -183,7 +183,7 @@ This page contains recent highlights and notable changes in [[= product_name =]]
 
 ### Search
 
-- [Configuring Elasticsearch with analyzers for different languages](https://doc.ibexa.co/en/master/search/search_engines/elastic_search/configure_elastic_search/#add-language-specific-analysers)
+- [Configuring Elasticsearch with analyzers for different languages](https://doc.ibexa.co/en/master/search/search_engines/elasticsearch/configure_elasticsearch/#add-language-specific-analysers)
 - [ContentName search criterion](https://doc.ibexa.co/en/master/search/criteria_reference/contentname_criterion/)
 
 ### Dashboard
@@ -251,7 +251,7 @@ This page contains recent highlights and notable changes in [[= product_name =]]
 
 ### Search
 
-- Updated [Elasticsearch search engine](elastic_search_overview.md) description
+- Updated [Elasticsearch search engine](https://doc.ibexa.co/en/master/search/search_engines/elasticsearch/elasticsearch_overview/) description
 - New Search Criteria:
     - [Image](image_criterion.md)
     - [ImageDimensions](imagedimensions_criterion.md)
@@ -572,7 +572,7 @@ This page contains recent highlights and notable changes in [[= product_name =]]
 ### Search
 
 - [Updated search engines documentation](https://doc.ibexa.co/en/master/search/search_engines/search_engines/):
-    - [Elasticsearch search engine](https://doc.ibexa.co/en/master/search/search_engines/elastic_search/elastic_search_overview/)
+    - [Elasticsearch search engine](https://doc.ibexa.co/en/master/search/search_engines/elasticsearch/elasticsearch_overview/)
     - [Solr search engine](https://doc.ibexa.co/en/master/search/search_engines/solr_search_engine/solr_overview/)
     - [Legacy search engine](https://doc.ibexa.co/en/master/search/search_engines/legacy_search_engine/legacy_search_overview/#legacy-search-engine)
 

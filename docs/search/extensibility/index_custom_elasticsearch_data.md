@@ -4,7 +4,7 @@ description: Index custom data when using the Elasticsearch search engine.
 
 # Index custom Elasticsearch data
 
-[Elasticsearch](elastic_search_overview.md) indexes content and location data out of the box.
+[Elasticsearch](elasticsearch_overview.md) indexes content and location data out of the box.
 Besides what is indexed automatically, you can add additional data to the Elasticsearch index.
 
 To do so, subscribe to one of the following events:
