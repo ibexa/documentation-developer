@@ -1,5 +1,6 @@
 ---
 description: Overview of major recent additions to Ibexa DXP documentation.
+month_change: true
 ---
 
 # New in documentation
