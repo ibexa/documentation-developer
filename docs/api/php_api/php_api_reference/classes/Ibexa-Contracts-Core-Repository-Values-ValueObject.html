@@ -38321,9 +38321,9 @@
 
 
     <section class="phpdocumentor-description">
-        <p>Supports readonly properties by marking them as protected.
+        <p>Supports read-only properties by marking them as protected.
 In this case they will only be writable using constructor, and need to be documented
-using property-read <type> &lt;$var&gt; annotation in class doc in addition to inline property doc.
+using <code class="prettyprint">@property-read &lt;type&gt; &lt;$var&gt;</code> annotation in class doc in addition to inline property doc.
 Writable properties must be public and must be documented inline.</p>
 
     </section>
@@ -38370,7 +38370,7 @@ Writable properties must be public and must be documented inline.</p>
                 </td>
                 <td class="code">
                     <div>
-                        <pre><code><span class="phpdocumentor-signature__visibility">public </span><span class="phpdocumentor-signature__name">__construct</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$properties</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">[]</span><span> ]</span></span><span>)</span></code></pre>
+                        <pre><code><span class="phpdocumentor-signature__visibility">public </span><span class="phpdocumentor-signature__name">__construct</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type">array&lt;string, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$properties</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">[]</span><span> ]</span></span><span>)</span></code></pre>
                     </div>
                 </td>
             </tr>
@@ -38380,7 +38380,7 @@ Writable properties must be public and must be documented inline.</p>
 <div class="phpdocumentor-label-line">
     </div>
     <section class="phpdocumentor-description">
-        <p>Readonly properties values must be set using $properties as they are not writable anymore
+        <p>Readonly properties values must be set using <code class="prettyprint">$properties</code> as they aren't writable anymore
 after object has been created.</p>
 
     </section>
@@ -38400,7 +38400,7 @@ after object has been created.</p>
                         $properties
                     </td>
                     <td>
-                        array&lt;string|int, mixed&gt;
+                        array&lt;string, mixed&gt;
                     </td>
                     <td>
                                                                                     []
@@ -38420,11 +38420,11 @@ after object has been created.</p>
         <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/core/src/contracts/Repository/Values/ValueObject.php">
         <abbr title="vendor/ibexa/core/src/contracts/Repository/Values/ValueObject.php">ValueObject.php</abbr>
                 :
-        <span title="at line 53">53</span>
+        <span title="at line 54">54</span>
                 <img src="./images/copy.svg" title="Copy path" />
     </div>
         </div>
-    <p>Function where list of properties are returned.</p>
+    <p>Returns list of available properties&#039; names.</p>
 
 <div class="highlight">
     <table class="highlighttable">
@@ -38437,7 +38437,7 @@ after object has been created.</p>
                 </td>
                 <td class="code">
                     <div>
-                        <pre><code><span class="phpdocumentor-signature__visibility">protected </span><span class="phpdocumentor-signature__name">getProperties</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$dynamicProperties</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">[]</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span></code></pre>
+                        <pre><code><span class="phpdocumentor-signature__visibility">protected </span><span class="phpdocumentor-signature__name">getProperties</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type">array&lt;int, string&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$dynamicProperties</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">[]</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;int, string&gt;</span></code></pre>
                     </div>
                 </td>
             </tr>
@@ -38447,7 +38447,7 @@ after object has been created.</p>
 <div class="phpdocumentor-label-line">
     </div>
     <section class="phpdocumentor-description">
-        <p>Used by <abbr title="\Ibexa\Contracts\Core\Repository\Values\attributes()">attributes()</abbr>, override to add dynamic properties</p>
+        <p>Override to add dynamic properties.</p>
 
     </section>
     <h4>Parameters</h4>
@@ -38466,7 +38466,7 @@ after object has been created.</p>
                         $dynamicProperties
                     </td>
                     <td>
-                        array&lt;string|int, mixed&gt;
+                        array&lt;int, string&gt;
                     </td>
                     <td>
                                                                                     []
@@ -38482,7 +38482,7 @@ after object has been created.</p>
                     </tbody>
     </table>
     <h4>Return values</h4>
-    <p class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</p>
+    <p class="phpdocumentor-signature__response_type">array&lt;int, string&gt;</p>
                                                     
     <h5 class="phpdocumentor-tag-list__heading">
         Tags
