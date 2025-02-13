@@ -65,5 +65,5 @@ ibexa.addConfig(
         icon: ibexa.helpers.icon.getIconPath('radio-button'),
         identifier: IDENTIFIER,
     },
-    true
+    true,
 );
