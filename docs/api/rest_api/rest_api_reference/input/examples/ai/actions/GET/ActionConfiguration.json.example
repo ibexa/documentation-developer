@@ -1,25 +1,33 @@
 {
     "ActionConfiguration": {
         "_media-type": "application/vnd.ibexa.api.ai.ActionConfiguration+json",
-        "Identifier": "expand_text",
-        "Enabled": true,
+        "identifier": "gen_alt_text",
+        "name": "Generate alternative text",
+        "description": "",
+        "enabled": true,
         "ActionType": {
             "_media-type": "application/vnd.ibexa.api.ai.ActionType+json",
-            "identifier": "refine_text",
-            "name": "Refine text",
-            "inputIdentifier": "text",
+            "identifier": "generate_alt_text",
+            "name": "Generate alternative text",
+            "inputIdentifier": "image",
             "outputIdentifier": "text",
-            "options": {}
+            "options": {
+                "width": 512,
+                "height": 512,
+                "image_quality": 85
+            }
         },
-        "ActionTypeOptions": {},
-        "ActionHandlerIdentifier": "openai-text-to-text",
-        "ActionHandlerOptions": {
+        "actionTypeOptions": {
+            "max_length": 140
+        },
+        "actionHandlerIdentifier": "openai-image-to-text",
+        "actionHandlerOptions": {
             "max_tokens": 4000,
             "temperature": 1,
-            "prompt": "Expand the given text by 25%. Preserve meaning and crucial information.",
+            "prompt": "",
             "model": "gpt-4-turbo"
         },
-        "CreatedAt": "2024-12-09T09:02:44+00:00",
-        "UpdatedAt": "2024-12-09T09:02:44+00:00"
+        "createdAt": "2025-02-06T13:20:24+00:00",
+        "updatedAt": "2025-02-06T13:20:24+00:00"
     }
 }
