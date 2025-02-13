@@ -30,10 +30,10 @@ class ObjectStateCommand extends Command
         parent::__construct('doc:object_state');
     }
 
-    protected function configure()
+    protected function configure(): void
     {
         $this
-            ->setDescription('Creates OS group with provided States and assigned the Lock OS to provided Content item')
+            ->setDescription('Creates OS group with provided States and assigned the Lock OS to provided content item')
             ->setDefinition([
                 new InputArgument('objectStateGroupIdentifier', InputArgument::REQUIRED, 'Identifier of new OG group to create'),
                 new InputArgument('objectStateIdentifier', InputArgument::REQUIRED, 'Identifier(s) of a new Object State'),
@@ -41,7 +41,7 @@ class ObjectStateCommand extends Command
             ]);
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $user = $this->userService->loadUserByLogin('admin');
         $this->permissionResolver->setCurrentUserReference($user);
@@ -73,7 +73,7 @@ class ObjectStateCommand extends Command
         }
 
         if ($input->getArgument('contentID')) {
-            $contentId = $input->getArgument('contentID');
+            $contentId = (int) $input->getArgument('contentID');
             $objectStateToAssign = $objectStateIdentifierList[0];
             $contentInfo = $this->contentService->loadContentInfo($contentId);
             $objectStateGroup = $this->objectStateService->loadObjectStateGroupByIdentifier($objectStateGroupIdentifier);

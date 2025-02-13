@@ -26,7 +26,7 @@ class DeleteContentCommand extends Command
         parent::__construct('doc:delete_content');
     }
 
-    protected function configure()
+    protected function configure(): void
     {
         $this->setDefinition([
             new InputArgument('locationId', InputArgument::REQUIRED, 'Location to delete'),
@@ -38,7 +38,7 @@ class DeleteContentCommand extends Command
         $user = $this->userService->loadUserByLogin('admin');
         $this->permissionResolver->setCurrentUserReference($user);
 
-        $locationId = $input->getArgument('locationId');
+        $locationId = (int) $input->getArgument('locationId');
 
         $location = $this->locationService->loadLocation($locationId);
 

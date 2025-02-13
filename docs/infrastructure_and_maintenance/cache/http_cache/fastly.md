@@ -4,26 +4,25 @@ description: Configure Fastly for use with Ibexa DXP.
 
 # Configure and customize Fastly
 
-You can configure Fastly by using API calls or through the Fastly Web Interface. 
+You can configure Fastly by using API calls or through the Fastly Web Interface.
 Fastly provides a [Fastly CLI](https://developer.fastly.com/reference/cli/) for configuring Fastly through its API.
 
-Ibexa Cloud is delivered with Fastly preconfigured. 
-It means that you don't have to do any changes to the Fastly configuration to make your site work. 
-The information provided here is only applicable if you want to change the default Fastly configuration on Ibexa Cloud, 
-or if you are not using Ibexa Cloud and want to configure Fastly to work with [[= product_name =]] on premise.
+[[= product_name_cloud =]] is delivered with Fastly preconfigured.
+It means that you don't have to do any changes to the Fastly configuration to make your site work.
+The information provided here is only applicable if you want to change the default Fastly configuration on [[= product_name_cloud =]], or if you're not using [[= product_name_cloud =]] and want to configure Fastly to work with [[= product_name =]] on premise.
 
-!!! note "The Fastly Web Interface is not available for Ibexa Cloud"
-    It's recommend for Ibexa Cloud customers to use the Fastly CLI instead of using the Fastly API directly with `curl`, and so on.
+!!! note "The Fastly Web Interface isn't available for [[= product_name_cloud =]]"
+    It's recommend for [[= product_name_cloud =]] customers to use the Fastly CLI instead of using the Fastly API directly with `curl`, or other alternatives.
 
 !!! note "Disable Varnish when you use Fastly"
-    Varnish is automatically provisioned on Ibexa Cloud. Varnish needs to be disabled on all environments that use
+    Varnish is automatically provisioned on [[= product_name_cloud =]]. Varnish needs to be disabled on all environments that use
     Fastly. See [documentation on how to do that](https://docs.platform.sh/guides/ibexa/fastly.html).
 
 ## Prepare for using Fastly locally
 
-These steps are not needed when you use Ibexa Cloud, because Fastly is preconfigured in it.
+These steps aren't needed when you use [[= product_name_cloud =]], because Fastly is preconfigured in it.
 
-### Get Fastly credentials from Ibexa Cloud installation
+### Get Fastly credentials from [[= product_name_cloud =]] installation
 
 To use Fastly CLI or Fastly API directly, you need to obtain the credentials for your site.
 To obtain the credentials, connect to your Fastly-enabled environment (for example, production or staging) through SSH and run the following command:
@@ -34,7 +33,7 @@ FASTLY_KEY=...
 FASTLY_SERVICE_ID=...
 ```
 
-These credentials are different for your production and staging environments. 
+These credentials are different for your production and staging environments.
 When you configure the Fastly CLI, use the credentials for the environment that you want to change.
 
 !!! note "Different environment variable names between products"
@@ -47,7 +46,7 @@ You also need to set up domains, HTTPS and origin configuration (not covered her
 All commands are explained in detail [below](#view-and-modify-vcl-configuration):
 
 ``` bash
-fastly vcl custom create --name=ez_main.vcl --version=active --autoclone --content=vendor/ibexa/fastly/fastly/ --version=latest --main
+fastly vcl custom create --name=ez_main.vcl --version=active --autoclone --content=vendor/ibexa/fastly/fastly/ez_main.vcl --main
 fastly vcl custom create --name=ez_user_hash.vcl --content=vendor/ibexa/fastly/fastly/ez_user_hash.vcl --version=latest
 fastly vcl snippet create --name="Re-Enable shielding on restart" --version=latest --priority 100 --type recv --content=vendor/ibexa/fastly/fastly/snippet_re_enable_shielding.vcl
 fastly service-version activate --version=latest
@@ -56,7 +55,7 @@ fastly service-version activate --version=latest
 ## Quick introduction to Fastly CLI
 
 Fastly configuration is versioned, which means that when you alter the configuration, you create a new version
-and activate it. 
+and activate it.
 If needed, you can revert the configuration to one of previous versions at any point.
 
 ### List configuration versions
@@ -99,10 +98,10 @@ fastly service-version clone --version=latest
 ```
 
 !!! note "Command parameters"
-    Most Fastly CLI commands have the `--version` parameter. 
+    Most Fastly CLI commands have the `--version` parameter.
     In addition to a specific version number, the `--version` parameter always supports aliases like `active` and `latest`.
 
-    Most Fastly CLI commands that alter the config also support the `--autoclone` parameter. 
+    Most Fastly CLI commands that alter the config also support the `--autoclone` parameter.
     With such commands, when you use the `--autoclone` parameter, calling `fastly service-version clone` is no longer needed.
 
 ### Activate version
@@ -115,7 +114,7 @@ fastly service-version activate --version=latest
 
 ## View and modify VCL configuration
 
-Fastly configuration is stored in Varnish Configuration Language (VCL) files. 
+Fastly configuration is stored in Varnish Configuration Language (VCL) files.
 You can change the behaviour of Fastly by [uploading custom VCL files](https://docs.fastly.com/en/guides/uploading-custom-vcl).
 [[= product_name =]] ships with two VCL files that need to be enabled for Fastly to work correctly with the platform; `ez_main.vcl` and `ez_user_hash.vcl` (located in `vendor/ibexa/fastly/fastly/`)
 
@@ -193,7 +192,7 @@ Versions: 8
 
 ### Modify Fastly configuration
 
-You can modify the existing Fastly configuration, for example, by uploading a modified `.vcl` file. 
+You can modify the existing Fastly configuration, for example, by uploading a modified `.vcl` file.
 
 Create a new version based on the one that is currently active, and upload the file:
 
@@ -215,12 +214,12 @@ fastly service-version activate --version=latest
 
 ## Snippets
 
-You can also add VCL code to the Fastly configuration without modifying the custom `.vcl` files directly. 
+You can also add VCL code to the Fastly configuration without modifying the custom `.vcl` files directly.
 You do it by creating [snippets](https://docs.fastly.com/en/guides/about-vcl-snippets).
-It is recommended that you use snippets instead of changing the VCL files provided by [[= product_name =]] as much as possible, which makes it easier to upgrade the [[= product_name =]] VCL configuration later.
+it's recommended that you use snippets instead of changing the VCL files provided by [[= product_name =]] as much as possible, which makes it easier to upgrade the [[= product_name =]] VCL configuration later.
 
 When you use snippets, the snippet code is injected into the VCL where the `#FASTLY ...` macros are placed.
-For example, if you create a snippet for the `recv` subroutine, it is injected into the `ez_main.vcl` file, the
+For example, if you create a snippet for the `recv` subroutine, it's injected into the `ez_main.vcl` file, the
 line where `#FASTLY recv` is found.
 
 ### List available snippets for specific version
@@ -236,7 +235,7 @@ KlUh0J1fnw1JY1aEQ0up    8        Re-Enable shielding on restart  false    1iJWIf
 
 ### Get details of installed snippets
 
-Use the `vcl snippet list` command with the `--verbose` option to get information such as: priority, which subroutine it is attached to (`vcl_recv`, `vcl_fetch` etc.) and the code itself.
+Use the `vcl snippet list` command with the `--verbose` option to get information such as: priority, which subroutine it's attached to (for example, `vcl_recv` or `vcl_fetch`) and the code itself.
 
 ``` bash
 fastly vcl snippet list --version=active -v
@@ -303,8 +302,8 @@ fastly service-version activate --version=latest
 
 ### Get diff between two versions
 
-You can easily view the diff between two different versions by using the Fastly web interface.
-Unfortunately, Fastly CLI does not support this functionality.
+You can view the diff between two different versions by using the Fastly web interface.
+Unfortunately, Fastly CLI doesn't support this functionality.
 However, Fastly API and GNU diff can help you get an identical result.
 
 Use the Fastly API to download the generated `.vcl` file. It includes the VCL configuration that Fastly generates
@@ -346,7 +345,7 @@ Usernames and passwords can be stored inside the VCL file, but in this case cred
 
 ### Create and activate dictionary
 
-Fastly configuration includes a dictionary named `basicauth`. 
+Fastly configuration includes a dictionary named `basicauth`.
 Using a dictionary instead of storing usernames directly in a `.vcl` file is beneficial, because you can add or remove records without having to create and activate new configuration versions.
 
 ``` bash
@@ -390,8 +389,8 @@ fastly dictionary-entry list --dictionary-id=ltC6Rg4pqw4qaNKF5tEW33
 ```
 
 Now your dictionary stores new username and password. The next thing to do is to alter the Fastly VCL configuration
-and add the basic-auth support. 
-This example uses [snippets](https://docs.fastly.com/en/guides/about-vcl-snippets), so that no changes are needed in the `.vcl` files that are shipped with [[= product_name =]]. 
+and add the basic-auth support.
+This example uses [snippets](https://docs.fastly.com/en/guides/about-vcl-snippets), so that no changes are needed in the `.vcl` files that are shipped with [[= product_name =]].
 You need two snippets, store these as files in your system:
 
 In `snippet_basic_auth_error.vcl`:
@@ -443,7 +442,7 @@ declare local var.username STRING;
 declare local var.password STRING;
 declare local var.result STRING;
 
-# Basic auth is checked on edge nodes only. The logic below makes sure that it is only run at the edge.
+# Basic auth is checked on edge nodes only. The logic below makes sure that it's only run at the edge.
 if (fastly.ff.visits_this_service == 0 && req.restarts == 0) {
   if (req.http.Authorization ~ "(?i)^Basic ([a-z0-9_=]+)$") {
     set var.credential = digest.base64_decode(re.group.1);
@@ -480,4 +479,3 @@ fastly vcl snippet create --name="BasicAuth error" --version=latest --priority 1
 fastly service-version activate --version=latest
 ```
 
- 

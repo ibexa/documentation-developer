@@ -37,8 +37,8 @@ By adding additional steps and options, you can build a process that perfectly m
 
 ### SEO configuration exposed
 
-SEO configuration gains a more prominent place on the Content Type editing screen.
-For example, to enable SEO, you now have to edit the Content Type that you want to modify, 
+SEO configuration gains a more prominent place on the content type editing screen.
+For example, to enable SEO, you now have to edit the content type that you want to modify, 
 scroll down to the SEO section and switch the **Enable SEO for this content type** toggle.
 
 For more information, see [Work with SEO](https://doc.ibexa.co/projects/userguide/en/latest/search_engine_optimization/work_with_seo/).
@@ -67,14 +67,13 @@ You can now move assets between collections by using drag and drop.
 
 ![Moving assets between collection with drag and drop](img/4.3_collection_dnd.png)
 
-From product's Completeness tab you can now jump directly to editing the product prices in all configured currencies.
+From product's **Completeness** tab you can now jump directly to editing the product prices in all configured currencies.
 
 ![Editing product price from Completeness tab](img/4.3_edit_product_price.png)
 
 #### Catalog filters
 
-In catalogs, you can now [configure default filters](https://doc.ibexa.co/en/master/pim/pim_configuration/#catalog-filters) that are always added to a catalog,
-as well as define filter order and group custom filters.
+In catalogs, you can now [configure default filters](https://doc.ibexa.co/en/master/pim/pim_configuration/#catalog-filters) that are always added to a catalog, define filter order, and group custom filters.
 Built-in filters are also divided into groups now for easier browsing.
 
 Filtering by the Color attribute is now possible.
@@ -86,10 +85,11 @@ and can be used for recommendation engine filtering.
 
 ### Users
 
-#### New User Content Type
+#### New User content type
 
-This release brings you a new Content Type for private customers registering from the front page.
+This release brings you a new content type for private customers registering from the front page.
 We also prepared a migration command for already existing users to ease your upgrade process.
+
 For more information, refer to upgrade documentation.
 
 ### API improvements
@@ -103,7 +103,7 @@ The catalogs functionality in PIM is now covered in REST API, including:
 
 ### Personalization improvements
 
-Now, as a Personalization admin, after editing a model in the Back Office,
+Now, as a Personalization admin, after editing a model in the back office,
 [you can build this model](https://doc.ibexa.co/projects/userguide/en/master/personalization/recommendation_models/#trigger-model-build), use the **Trigger model build** button to build this model with your modifications.
 
 ### Taxonomy improvements
@@ -111,18 +111,18 @@ Now, as a Personalization admin, after editing a model in the Back Office,
 Objects of `Ibexa\Contracts\Taxonomy\Value\TaxonomyEntry` type,
 which are returned by `TaxonomyService`, now contain the information about nesting level in the tree.
 
-The `TaxonomyEntryId` Search Criterion is not available in Legacy search Engine.
+The `TaxonomyEntryId` Search Criterion isn't available in Legacy search Engine.
 
 ### Other improvements
 
 - You can now [customize Elasticsearch index structure](https://doc.ibexa.co/en/master/search/extensibility/customize_elasticsearch_index_structure/) to manage how documents in the index are grouped.
-- A new [`ibexa_seo_is_empty()` Twig function](https://doc.ibexa.co/en/master/templating/twig_function_reference/content_twig_functions/#ibexa_content_name) checks whether SEO data is available for a Content item.
+- A new [`ibexa_seo_is_empty()` Twig function](https://doc.ibexa.co/en/master/templating/twig_function_reference/content_twig_functions/#ibexa_content_name) checks whether SEO data is available for a content item.
 
 ## Full changelog
 
-| Ibexa Content  | Ibexa Experience  | Ibexa Commerce |
+| [[= product_name_content =]]  | [[= product_name_exp =]]  | [[= product_name_com =]] |
 |--------------|------------|------------|
-| [Ibexa Content v4.3](https://github.com/ibexa/content/releases/tag/v4.3.0) | [Ibexa Experience v4.3](https://github.com/ibexa/experience/releases/tag/v4.3.0) | [Ibexa Commerce v4.3](https://github.com/ibexa/commerce/releases/tag/v4.3.0)|
+| [[[= product_name_content =]] v4.3](https://github.com/ibexa/content/releases/tag/v4.3.0) | [[[= product_name_exp =]] v4.3](https://github.com/ibexa/experience/releases/tag/v4.3.0) | [[[= product_name_com =]] v4.3](https://github.com/ibexa/commerce/releases/tag/v4.3.0)|
 
 ## v4.3.1
 

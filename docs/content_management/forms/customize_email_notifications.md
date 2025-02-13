@@ -18,14 +18,14 @@ Each of them is rendered independently and consists of three sets of parameters.
 
 |Parameter|Type|Description|
 |---------|----|-----------|
-|`content`|`Ibexa\Contracts\Core\Repository\Values\Content\Content`|Name of the form, its Content Type|
+|`content`|`Ibexa\Contracts\Core\Repository\Values\Content\Content`|Name of the form, its content type|
 |`form`|`Ibexa\Contracts\FormBuilder\FieldType\Model\Form`|Definition of the form|
-|`data`|`Ibexa\Contracts\FormBuilder\FieldType\Model\FormSubmission`|Sent data|  
+|`data`|`Ibexa\Contracts\FormBuilder\FieldType\Model\FormSubmission`|Sent data|
 
 ## Configure sender details
 
 Some email providers require a sender address to be set, so to avoid unsent emails when using Form Builder,
-it is recommended to configure `sender_address` in `config/packages/swiftmailer.yaml`.
+it's recommended to configure `sender_address` in `config/packages/swiftmailer.yaml`.
 This email acts as a sender and return address for all bounced messages.
 
 !!! note

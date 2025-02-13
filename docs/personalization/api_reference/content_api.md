@@ -4,10 +4,8 @@ description: Personalization server can use external information about the items
 
 # Content API
 
-Apart from the [events]([[= user_doc =]]/personalization/event_types) collected by the Personalization client, 
-the Personalization server can use external information about the products.
-This information must be uploaded to the Personalization server by the administrator 
-of the website.
+Apart from the [events]([[= user_doc =]]/personalization/event_types) collected by the Personalization client, the Personalization server can use external information about the products.
+This information must be uploaded to the Personalization server by the administrator of the website.
 
 The following information can be loaded to the recommendation solution:
 
@@ -18,22 +16,19 @@ The following information can be loaded to the recommendation solution:
 For more information about personalization, see [Introduction](personalization.md) and [Best practices](recommendation_integration.md).
 
 The Personalization client provides a REST interface that accepts items in XML format.
-You can use the interface to post item information within the request's body into the store, 
-and to display or update the items directly.
+You can use the interface to post item information within the request's body into the store, and to display or update the items directly.
 
 You can use HTTP methods to create, update or retrieve items that are in the data store.
 
 !!! note "Authentication"
 
     For getting or posting content data, basic authentication is enabled by default.
-    Use your customer ID and license key as username and password. 
-    If authentication is enabled for recommendation requests and you want to change 
-    this, contact support@ibexa.co.
+    Use your customer ID and license key as username and password.
+    If authentication is enabled for recommendation requests and you want to change this, contact support@ibexa.co.
 
 ## GET requests
 
-Use the GET method to retrieve all information that is stored in the database 
-for the given item ID:
+Use the GET method to retrieve all information that is stored in the database for the given item ID:
 
 `GET: https://admin.perso.ibexa.co/api/[customerid]/item/[itemtypeid]/[itemid]`
 
@@ -44,12 +39,11 @@ Use the POST request to create or update items with the given ID in the database
 `POST: https://admin.perso.ibexa.co/api/[customerid]/item`
 
 A body of the request must contain a valid XML document.
-Once uploaded, the item is scheduled to be inserted in the database, and it 
-is not directly available.
+Once uploaded, the item is scheduled to be inserted in the database, and isn't directly available.
 
 ## DELETE requests
 
-Use the DELETE method to delete all information that is related to the given item ID. 
+Use the DELETE method to delete all information that is related to the given item ID.
 
 `DELETE: https://admin.perso.ibexa.co/api/[customerid]/item/[itemtypeid]/[itemid]?lang=<language_code>`
 
@@ -62,13 +56,13 @@ The following call attributes are available:
 | Parameter name | Description | Value |
 |---|---|---|
 | `customerid` | A customer ID (for example "00000"), as defined when [enabling Personalization](enable_personalization.md#get-authentication-parameters). Can be used to identify a website in installations that [hosts multiple SiteAccesses]([[= user_doc =]]/personalization/use_cases/#multiple-website-hosting). | alphanumeric |
-| `itemid` | A unique ID of the Content item/product. Used to identify the item in the database. | integer |
-| `itemtypeid` | An ID of the type of Content item/product. In most cases, the value is 1 but you might have items/products of more than one type. | integer |
-| `lang` | A [language code](languages.md) of the Content item/product (for example, "ger-DE"). This parameter is optional. | string |
+| `itemid` | A unique ID of the content item/product. Used to identify the item in the database. | integer |
+| `itemtypeid` | An ID of the type of content item/product. In most cases, the value is 1 but you might have items/products of more than one type. | integer |
+| `lang` | A [language code](languages.md) of the content item/product (for example, "ger-DE"). This parameter is optional. | string |
 
 ### Request object format
 
-An XML representation of the data object used for item import can look like this: 
+An XML representation of the data object used for item import can look like this:
 
 ``` xml
 <items version="1">
@@ -104,8 +98,7 @@ An XML representation of the data object used for item import can look like this
 
 !!! note "XML schema definition"
 
-    The current schema that is used for interpreting the XML objects 
-    can be seen [here](https://admin.perso.ibexa.co/api/00000/item/schema.xsd).
+    The current schema that is used for interpreting the XML objects can be seen [here](https://admin.perso.ibexa.co/api/00000/item/schema.xsd).
 
 The following keys and attributes used in the XML object are available:
 
@@ -138,62 +131,53 @@ To check how many digits the fractional unit of a currency has, see the [ISO 421
 
 ##### Validity
 
-Items with defined validity are recommended only in the specified timeframe. 
-Values in the `validto` and `validfrom` attributes must follow the [XSD format](https://www.w3.org/TR/xmlschema-2/#dateTime) 
-and do not include the time zone. 
+Items with defined validity are recommended only in the specified timeframe.
+Values in the `validto` and `validfrom` attributes must follow the [XSD format](https://www.w3.org/TR/xmlschema-2/#dateTime) and don't include the time zone.
 Time zone is always your time zone.
 
 ##### Category path
 
-With the data import interface, you can upload information about the paths 
-to categories in which the product is located.
+With the data import interface, you can upload information about the paths to categories in which the product is located.
 However, the category path can be also updated as a result of the "Click" events.
-If you regularly upload product data, the "Click" event cannot contain the category 
-path information.
+If you regularly upload product data, the "Click" event cannot contain the category path information.
 Otherwise, the following negative side effects occur:
 
 - Every new category path attached to the "Click" event is appended to a list of the categories of the product
 - Imported product data overwrites the collected category paths
 
-For example, when a product that is originally located under `Garden` is clicked 
-in the "Hot Sellers" section, the category path `TopSeller` is sent.
+For example, when a product that is originally located under `Garden` is clicked in the "Hot Sellers" section, the category path `TopSeller` is sent.
 
 #### Content items/products with no attributes
 
 All the elements and attributes except the `type` and `id` are optional.
 You can therefore upload a product without any additional information.
-You do it, for example, when a random recommendation model is used 
-or you want to want to apply ad-hoc boosting and filtering of recommendations.
+You do it, for example, when a random recommendation model is used or you want to want to apply ad-hoc boosting and filtering of recommendations.
 As a result, the Personalization server randomly recommends the imported items/products.
-This can prove useful for a news agency, where new items are published very often.
+This can prove useful for a news agency, where new items are published often.
 
 #### Custom attributes
 
 You can also define custom attributes under the `<attributes>` key.
 This section can only contain values that are distinct and used to build pre-filtered models.
 
-By default, it is assumed that every attribute is of type "NOMINAL", which means that 
-there is a limited set of values, and values of an attribute are treated as distinct 
-when calculating the results of a content-based model.
+By default, it's assumed that every attribute is of type "NOMINAL", which means that there is a limited set of values, and values of an attribute are treated as distinct when calculating the results of a content-based model.
 
-If you have an attribute that is of type "NUMERIC", and you add another attribute 
-of the same type, the Personalization server treats the two values as a range.
+If you have an attribute that is of type "NUMERIC", and you add another attribute of the same type, the Personalization server treats the two values as a range.
 
 ``` xml
 <attribute key="size" value="4" type="NUMERIC" />
 ```
 
-However, if the other attribute is of type "NOMINAL", they are both treated 
-as different and have no "distance-based similarity".
+However, if the other attribute is of type "NOMINAL", they're both treated as different and have no "distance-based similarity".
 
-Another typical example of a custom attribute is the color of an item. 
+Another typical example of a custom attribute is the color of an item.
 To upload the value to the data store, add the following line under the `<attributes>` key.
 
 ``` xml
 <attribute key="color" value="green" />
 ```
 
-You can have multiple attributes with the same name and different type. 
+You can have multiple attributes with the same name and different type.
 For example, `size` can be expressed as a number (40.5) or as a code ("L").
 
 ## Responses
@@ -211,11 +195,8 @@ The following HTTP response codes are used by the recommendation controller:
 
 ## Transferring item identifiers
 
-You could use the data import interface to help migrate the database, 
-when it involves changing item IDs of items that are supported by the 
-Personalization server.
-If you transfer items from one ID to another, you can use the events recorded 
-for "old" item IDs to calculate model results that present "new" IDs.
+You could use the data import interface to help migrate the database, when it involves changing item IDs of items that are supported by the Personalization server.
+If you transfer items from one ID to another, you can use the events recorded for "old" item IDs to calculate model results that present "new" IDs.
 
 Use the following method to pass the XML object:
 
@@ -236,6 +217,4 @@ The old item is wiped, including all attributes.
 
 !!! note
 
-    The attributes of the "old" item ID are not moved or merged, and if you 
-    rely on attributes, for example, for filtering based on prices, 
-    you must reimport the new item.
+    The attributes of the "old" item ID aren't moved or merged, and if you rely on attributes, for example, for filtering based on prices, you must reimport the new item.

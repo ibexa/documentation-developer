@@ -73,7 +73,7 @@ class ContentContext implements Context
     }
 
     /**
-     * @Given I create :contentTypeIdentifier Content items in :parentPathString
+     * @Given I create :contentTypeIdentifier content items in :parentPathString
      */
     public function createContentItems($contentTypeIdentifier, $parentPathString, TableNode $contentItemsData): void
     {

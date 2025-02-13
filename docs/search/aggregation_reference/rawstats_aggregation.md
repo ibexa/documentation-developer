@@ -1,7 +1,11 @@
+---
+description: RawStatsAggregation
+---
+
 # RawStatsAggregation
 
-The [RawStatsAggregation](https://github.com/ibexa/core/blob/main/src/contracts/Repository/Values/Content/Query/Aggregation/RawStatsAggregation.php) aggregates search results by the value of the selected search index field
-and provides statistical information for the values. You can use the provided getters to access the values:
+The [RawStatsAggregation](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Aggregation-RawStatsAggregation.html) aggregates search results by the value of the selected search index field and provides statistical information for the values.
+You can use the provided getters to access the values:
 
 - sum (`getSum()`)
 - count of values (`getCount()`)
@@ -18,7 +22,7 @@ and provides statistical information for the values. You can use the provided ge
 
 !!! caution
 
-    To keep your project search engine independent, do not use the `RawStatsAggregation` Aggregation in production code.
+    To keep your project search engine independent, don't use the `RawStatsAggregation` Aggregation in production code.
     Valid use cases are: testing, or temporary (one-off) tools.
 
 ## Example

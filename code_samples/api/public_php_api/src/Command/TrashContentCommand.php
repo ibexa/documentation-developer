@@ -31,23 +31,23 @@ class TrashContentCommand extends Command
         parent::__construct('doc:trash_content');
     }
 
-    protected function configure()
+    protected function configure(): void
     {
         $this->setDefinition([
             new InputArgument('locationId', InputArgument::REQUIRED, 'Location to trash'),
             new InputArgument('newParentId', InputArgument::OPTIONAL, 'New Location to restore under'),
         ])
-            ->addOption('restore', 'r', InputOption::VALUE_NONE, 'Do you want to restore the Content item?');
+            ->addOption('restore', 'r', InputOption::VALUE_NONE, 'Do you want to restore the content item?');
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $user = $this->userService->loadUserByLogin('admin');
         $this->permissionResolver->setCurrentUserReference($user);
 
-        $locationId = $input->getArgument('locationId');
+        $locationId = (int) $input->getArgument('locationId');
         if ($input->getArgument('newParentId')) {
-            $newParentId = $input->getArgument('newParentId');
+            $newParentId = (int) $input->getArgument('newParentId');
         }
 
         $location = $this->locationService->loadLocation($locationId);

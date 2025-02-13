@@ -22,7 +22,7 @@ Both `breadcrumb_path` and `breadcrumb_names` must be configured for the breadcr
 |Option|Description|
 |--- |--- |
 |`breadcrumb_path`|Valid route identifier which exists in at least one of the routing YAML files.|
-|`breadcrumb_names`|Name for the breadcrumb element. If the translation is not set, there will be a fallback to route translation.</br>In the example above if the `Blog List` key has no translation, the fallback key is `custom_blog_index|breadcrumb`.|
+|`breadcrumb_names`|Name for the breadcrumb element. If the translation isn't set, there is a fallback to route translation.</br>In the example above if the `Blog List` key has no translation, the fallback key is `custom_blog_index|breadcrumb`.|
 
 ### Multi-part routes
 
@@ -58,13 +58,11 @@ To create a custom breadcrumb generator you have to write a generator class and 
 
 The generator must implement `BreadcrumbsGeneratorInterface` and its two methods.
 
-You can use `AbstractWhiteOctoberBreadcrumbsGenerator`
-which implements this interface and provides access to the WhiteOctober breadcrumbs library.
+You can use `AbstractWhiteOctoberBreadcrumbsGenerator` which implements this interface and provides access to the WhiteOctober breadcrumbs library.
 
 Every breadcrumb generator has to add a `translationParameters` array with `type`, `identifier` and `content_type_id`.
 Always create all three keys and leave the elements empty if not needed.
 
-If you can't or do not want to use `AbstractWhiteOctoberBreadcrumbsGenerator`,
-your generator's `renderBreadcrumbs()` method must handle rendering the HTML code for the breadcrumbs.
+If you can't or don't want to use `AbstractWhiteOctoberBreadcrumbsGenerator`, your generator's `renderBreadcrumbs()` method must handle rendering the HTML code for the breadcrumbs.
 
 The highest priority generator which matches `canRender()` renders the breadcrumbs for the current request.

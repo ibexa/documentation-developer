@@ -12,17 +12,17 @@
 
 ### Custom Tags
 
-You can now add custom tags to RichText Fields.
+You can now add custom tags to RichText fields.
 
-Custom tags enable you to extend the menu of available elements when editing a RichText Field with the Online Editor.
+Custom tags enable you to extend the menu of available elements when editing a RichText field with the Online Editor.
 
-See [Custom tags](https://doc.ibexa.co/en/2.5/guide/extending/extending_online_editor/#custom-tags) for more information.
+For more information, see [Custom tags](https://doc.ibexa.co/en/2.5/guide/extending/extending_online_editor/#custom-tags).
 
 ### Object states
 
 Object states enable you to create sets of custom states and then assign them to Content.
 
-!["Lock" Object state](2.1_object_state_lock.png)
+!["Lock" object state](2.1_object_state_lock.png)
 
 Object states can be used in conjunction with [permissions](https://doc.ibexa.co/en/2.5/guide/limitation_reference/#state-limitation).
 
@@ -34,7 +34,7 @@ Content on the fly enables you to create new Content anywhere in the application
 
 ### URL alias management
 
-You can now add custom URL aliases to Content items from the URL tab. Aliases can be set per language of the Content item.
+You can now add custom URL aliases to content items from the URL tab. Aliases can be set per language of the content item.
 
 ![Custom URL aliases](url_aliases.png)
 
@@ -50,13 +50,13 @@ You can now change your password, or request a new one if you forgot it.
 
 !!! caution
 
-    The reaction time when requesting a reset of the password will vary depending on whether an account with the provided email exists in the database or not.
+    The reaction time when requesting a reset of the password varies depending on whether an account with the provided email exists in the database or not.
     This could be misused to confirm existing email addresses.
     To avoid this, set Swift Mailer to `spool` mode.
 
 ### Simplified filtered search
 
-During search you can now filter the results by Content type, Section, Modified and Created dates.
+During search you can now filter the results by content type, Section, Modified and Created dates.
 
 ![Simplified filtered search](filtered_search.png)
 
@@ -66,9 +66,9 @@ You can now perform REST search via `POST /views` using custom `FieldCriterion`.
 
 ### Other UI improvements
 
-- When accessing the Back Office from a link to a specific Content item, after logging in you will now be redirected to the proper content view.
-- In edit mode you can now preview content as it will look in any SiteAccess it is available in.
-- When you start editing a Content item that already has an open draft, you will see a draft conflict screen:
+- When accessing the back office from a link to a specific content item, after logging in you're now redirected to the proper content view.
+- In edit mode you can now preview content as it looks in any SiteAccess it's available in.
+- When you start editing a content item that already has an open draft, you can see a draft conflict screen:
 
 ![Draft conflict window](draft_conflict.png)
 

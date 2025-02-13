@@ -2,15 +2,15 @@
 description: Learn how to query for content and render it in a list.
 ---
 
-# Step 5 — Display a list of Content items
+# Step 5 — Display a list of content items
 
-Now that you know how to display a single Content item, you can take care of rendering a list of Content items.
+Now that you know how to display a single content item, you can take care of rendering a list of content items.
 
-In this step you will display a table of all Rides on the front page.
+In this step you can display a table of all Rides on the front page.
 
 ## Customize the homepage template
 
-In `templates/full/home_page.html.twig` replace the "Hello world" with a table that will display the list of all existing Rides:
+In `templates/full/home_page.html.twig` replace the "Hello world" with a table that displays the list of all existing Rides:
 
 ``` html+twig hl_lines="15 16"
 {% extends "main_layout.html.twig" %}
@@ -44,11 +44,12 @@ In `templates/full/home_page.html.twig` replace the "Hello world" with a table t
 ```
 
 The `rides` variable you use in line 15 above needs to contain a list of all Rides.
-To get this list, you will use a Query Type.
+To get this list, you use a Query Type.
 
 ## Create a QueryType for the home page
 
-QueryType objects are used to limit and sort results for Content Item queries.
+QueryType objects are used to limit and sort results for content item queries.
+
 For more information, see [Built-In Query Types](built-in_query_types.md).
 
 Here, you need to display `ride` objects that have been published (are visible).
@@ -88,20 +89,20 @@ class RideQueryType implements QueryType
 }
 ```
 
-This Query Type will find all visible Content items that belong to the `ride` Content Type (lines 21-22).
+This Query Type finds all visible content items that belong to the `ride` content type (lines 21-22).
 
-Now you need to indicate that this Query Type will be used in your configuration.
+Now you need to indicate that this Query Type is used in your configuration.
 
 ## Add Query Type to configuration
 
 Edit `config/packages/ibexa.yaml`.
-In the view configuration for the home page indicate that this view will use the Query Type:
+In the view configuration for the home page indicate that this view uses the Query Type:
 
 ``` yaml hl_lines="6 10 11 12 13 14 15"
 site:
     content_view:
         full:
-            # existing keys, do not change them
+            # existing keys, don't change them
             home_page:
                 controller: ibexa_query::pagingQueryAction
                 template: full/home_page.html.twig
@@ -117,8 +118,7 @@ site:
 The `query_type` parameter in line 12 indicates which Query Type to use.
 You defined the name `Ride` in the Query Type file in the `getName` method.
 
-Using the `pagingQueryAction` of the built-in `ibexa_query` controller (line 6)
-enables you to automatically get paginated results.
+Using the `pagingQueryAction` of the built-in `ibexa_query` controller (line 6) enables you to automatically get paginated results.
 You can set the limit of results per page in the `limit` parameter.
 
 ### View types
@@ -147,7 +147,7 @@ system:
 
 Create the `templates/line/rides.html.twig` template.
 
-Because this template will be rendered inside a table, it starts with a `<tr>` tag.
+Because this template is rendered inside a table, it starts with a `<tr>` tag.
 
 ``` html+twig
 <tr>
@@ -175,16 +175,16 @@ Because this template will be rendered inside a table, it starts with a `<tr>` t
 ```
 ### Add Media permission
 
-To be able to view the `photo` Field you have to add a `read` permission to `Media` section.
+To be able to view the `photo` field you have to add a `read` permission to `Media` section.
 
-From **Admin** (gear icon) in the left menu, go to the **Roles** management screen and click the **Anonymous** Role.
+In the main menu, go to **Admin** (gear icon) -> **Roles**, and click the **Anonymous** role.
 
 ![Policies for the Anonymous Role without Media section](step5_admin_anonymous_policies_without_media_section.png)
 
-Edit the **Content/Read** Policy line to add the `Media` section to **Limitation** along with the `Standard` section.
+Edit the **Content/Read** policy line to add the `Media` section to **Limitation** along with the `Standard` section.
 
 ![Policies for the Anonymous Role with Media section](step5_admin_anonymous_policies_with_media_section.png)
 
-Now go to the homepage of your website and you will see the list of Rides.
+Now go to the homepage of your website and you can see the list of Rides.
 However, the Ride photos are too large and stretch the table.
-In the next step you will ensure they are displayed in proper size.
+In the next step you can ensure they're displayed in proper size.

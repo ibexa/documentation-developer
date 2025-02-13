@@ -1,13 +1,12 @@
 ---
-description: Configure custom icons to use for Content Types.
+description: Configure custom icons to use for content types.
 ---
 
 # Custom icons
 
-## Customize Content Type icons
+## Customize content type icons
 
-To add custom icons for existing Content Types or custom Content Types in [[= product_name =]],
-use the following configuration under the `ibexa.system.<scope>.content_type` [configuration key](configuration.md#configuration-files):
+To add custom icons for existing content types or custom content types in [[= product_name =]], use the following configuration under the `ibexa.system.<scope>.content_type` [configuration key](configuration.md#configuration-files):
 
 ```yaml
 ibexa:
@@ -22,7 +21,7 @@ Place the icon in `public/assets/images` and run `yarn encore <dev|prod>` after 
 
 !!! note "Icons format"
 
-    To ensure proper display in the Back Office, all icons should have SVG format with `symbol`.
+    To ensure proper display in the back office, all icons should have SVG format with `symbol`.
 
 If you want to configure icons per SiteAccess, see [Icon sets](#icon-sets).
 
@@ -30,8 +29,8 @@ To see more configuration options, see [icon sizes](other_twig_filters.md).
 
 ### Access icons in Twig templates
 
-Content Type icons are accessible in Twig templates via the `ibexa_content_type_icon` function.
-It requires Content Type identifier as an argument. The function returns the path to a Content Type icon.
+Content type icons are accessible in Twig templates via the `ibexa_content_type_icon` function.
+It requires content type identifier as an argument. The function returns the path to a content type icon.
 
 ```twig
 <svg class="ibexa-icon ibexa-icon-{{ content.contentType.identifier }}">
@@ -41,13 +40,13 @@ It requires Content Type identifier as an argument. The function returns the pat
 
 ### Access icons in JavaScript
 
-Content Types icons configuration is stored in a global object: `ibexa.adminUiConfig.contentTypes`.
+Content types icons configuration is stored in a global object: `ibexa.adminUiConfig.contentTypes`.
 
 You can retrieve the icon URL with the `getContentTypeIcon` helper function that is set on the global `ibexa.helpers.contentType` object.
-It takes Content Type identifier as an argument and returns one of the following items:
+It takes content type identifier as an argument and returns one of the following items:
 
-- URL of a specified Content Type's icon
-- `null` if there is no Content Type with specified identifier
+- URL of a specified content type's icon
+- `null` if there is no content type with specified identifier
 
 Example with `getContentTypeIcon`:
 
@@ -62,7 +61,7 @@ return (
 
 ### Icons React component
 
-You can use a React component to change icons in Back Office and Page Builder.
+You can use a React component to change icons in back office and Page Builder.
 
 The following example from the `alert.js` file shows configuration for icons in the [alert](reusable_components.md#alerts) component:
 

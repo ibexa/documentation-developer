@@ -1,7 +1,10 @@
+---
+description: SectionIdentifier Criterion
+---
+
 # SectionIdentifier Criterion
 
-The [SectionIdentifier URL Criterion](https://github.com/ibexa/core/blob/main/src/contracts/Repository/Values/URL/Query/Criterion/SectionIdentifier.php)
-matches URLs related to the content placed in a specified section identifier.
+The [SectionIdentifier URL Criterion](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-URL-Query-Criterion-SectionIdentifier.html) matches URLs related to the content placed in a specified section identifier.
 
 ## Arguments
 

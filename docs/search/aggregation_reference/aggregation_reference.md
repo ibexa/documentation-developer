@@ -11,21 +11,21 @@ There are three types of aggregations:
 
 - Term aggregations group by value and count object in each group
 - Range aggregations count values in specified ranges
-- Stats aggregations compute stats over numeric fields: minimum, average and maximum value, count and sum of values
+- Stats aggregations compute stats over numeric fields: minimum, average and maximum value, count, and sum of values
 
 !!! tip
 
-    Aggregations are not available in the Legacy Search engine.
+    Aggregations aren't available in the Legacy Search engine.
 
 ## Content aggregations
 
 |Name | Type | Based on|
 |---|---|---|
-|[ContentTypeTermAggregation](contenttypeterm_aggregation.md) | Term | Content Type  |
-|[ContentTypeGroupTermAggregation](contenttypegroupterm_aggregation.md) | Term | Content Type group |
+|[ContentTypeTermAggregation](contenttypeterm_aggregation.md) | Term | Content type  |
+|[ContentTypeGroupTermAggregation](contenttypegroupterm_aggregation.md) | Term | Content type group |
 |[DateMetadataRangeAggregation](datemetadatarange_aggregation.md) | Range | Date metadata |
-|[LocationChildrenTermAggregation](locationchildrenterm_aggregation.md) | Term | Children on a Location |
 |[LanguageTermAggregation](languageterm_aggregation.md) | Term | Content language |
+|[LocationChildrenTermAggregation](locationchildrenterm_aggregation.md) | Term | Children on a Location |
 |[ObjectStateTermAggregation](objectstateterm_aggregation.md) | Term | Object state |
 |[RawRangeAggregation](rawrange_aggregation.md) | Range | Search index field |
 |[RawStatsAggregation](rawstats_aggregation.md) | Stats | Search index field |
@@ -38,7 +38,7 @@ There are three types of aggregations:
 
 ## Field aggregations
 
-|Name | Type | Based on Field|
+|Name | Type | Based on field|
 |---|---|---|
 |[AuthorTermAggregation](authorterm_aggregation.md) | Term | [Author](authorfield.md) |
 |[CheckboxTermAggregation](checkboxterm_aggregation.md) | Term |[Checkbox](checkboxfield.md)|

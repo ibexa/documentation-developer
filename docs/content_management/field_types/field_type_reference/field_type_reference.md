@@ -1,29 +1,34 @@
 ---
-description: Ibexa DXP offers a range of built-in Field Types that cover most common needs when creating content.
+description: Ibexa DXP offers a range of built-in field types that cover most common needs when creating content.
 page_type: reference
 ---
 
-# Field Type reference
+# Field type reference
 
-A Field Type is the underlying building block of the content model. It consists of two entities: Field value and Field definition. Field value is determined by values entered into the Content Field. Field definition is provided by the Content Type, and holds any user defined rules used by Field Type to determine how a Field Value is validated, stored, retrieved, formatted and so on.
+A field type is the underlying building block of the content model.
+It consists of two entities: field value and field definition.
+Field value is determined by values entered into the content field.
+Field definition is provided by the content type, and holds any user defined rules used by field type to determine how a field value is, for example, validated, stored, retrieved, or formatted.
 
-[[= product_name =]] comes with a collection of Field Types that can be used to build powerful and complex content structures. In addition, it is possible to extend the system by creating custom types for special needs.
+[[= product_name =]] comes with a collection of field types that can be used to build powerful and complex content structures.
+In addition, it's possible to extend the system by creating custom types for special needs.
 
 !!! tip
 
-    For general Field Type documentation, see [Field Type](field_types.md).
+    For general field type documentation, see [field type](field_types.md).
 
-Custom Field Types have to be programmed in PHP. However, the built-in Field Types are usually sufficient enough for typical scenarios. The following table gives an overview of the supported Field Types that come with [[= product_name =]].
+Custom field types have to be programmed in PHP. However, the built-in field types are usually sufficient enough for typical scenarios.
+The following table gives an overview of the supported field types that come with [[= product_name =]].
 
 
-## Available Field Types
+## Available field types
 
-| Field Type | Description | Searchable in Legacy Storage engine | Searchable with Solr/Elasticsearch |
+| Field type | Description | Searchable in Legacy Storage engine | Searchable with Solr/Elasticsearch |
 |------------|-------------|-------------------------------------|----------------------|
 | [Author](authorfield.md) | Stores a list of authors, each consisting of author name and author email. | No | Yes |
 | [BinaryFile](binaryfilefield.md) | Stores a file.| Yes | Yes |
 | [Checkbox](checkboxfield.md) | Stores a boolean value. | Yes | Yes |
-| [Content query](contentqueryfield.md) | Maps an executable Repository query to a Field. | No | No |
+| [Content query](contentqueryfield.md) | Maps an executable repository query to a field. | No | No |
 | [Country](countryfield.md) | Stores country names as a string. | Yes[^1^](#1-note-on-legacy-search-engine) | Yes |
 | [Customer group](customergroupfield.md) | Stores customer group to which a user belongs.
 | [DateAndTime](dateandtimefield.md) | Stores a full date including time information. | Yes | Yes |
@@ -32,7 +37,7 @@ Custom Field Types have to be programmed in PHP. However, the built-in Field Ty
 | [Float](floatfield.md) | Validates and stores a floating-point number. | No | Yes |
 | [Form](formfield.md) | Stores a form. | No | Yes |
 | [Image](imagefield.md) | Validates and stores an image. | No | Yes |
-|[ImageAsset](imageassetfield.md)|Stores images in independent Content items of a generic Image Content Type.| No | Yes |
+|[ImageAsset](imageassetfield.md)|Stores images in independent content items of a generic Image content type.| No | Yes |
 | [Integer](integerfield.md) | Validates and stores an integer value. | Yes | Yes |
 | [ISBN](isbnfield.md) | Handles International Standard Book Number (ISBN) in 10-digit or 13-digit format.  | Yes | Yes |
 | [Keyword](keywordfield.md) | Stores keywords. | Yes[^1^](#1-note-on-legacy-search-engine) | Yes |
@@ -40,10 +45,10 @@ Custom Field Types have to be programmed in PHP. However, the built-in Field Ty
 | [Matrix](matrixfield.md) | Represents and handles a table of rows and columns of data. | No | No |
 | [Measurement](measurementfield.md) | Validates and stores a unit of measure, and either a single measurement value, or top and bottom values of a measurement range. | Yes | Yes |
 | [Media](mediafield.md) | Validates and stores a media file. | No | Yes |
-| [Null](nullfield.md) | Used as fallback for missing Field Types and for testing purposes. | N/A | N/A |
+| [Null](nullfield.md) | Used as fallback for missing field types and for testing purposes. | N/A | N/A |
 | [Page](pagefield.md) | Stores a Page with a layout consisting of multiple zones. | N/A | N/A |
-| [Relation](relationfield.md) | Validates and stores a relation to a Content item. | Yes, with both [`Field`](fieldrelation_criterion.md) Criteria | Yes |
-| [RelationList](relationlistfield.md) | Validates and stores a list of relations to Content items. | Yes, with [`FieldRelation` Criterion](fieldrelation_criterion.md) | Yes |
+| [Relation](relationfield.md) | Validates and stores a relation to a content item. | Yes, with both [`Field`](fieldrelation_criterion.md) Criteria | Yes |
+| [RelationList](relationlistfield.md) | Validates and stores a list of relations to content items. | Yes, with [`FieldRelation` Criterion](fieldrelation_criterion.md) | Yes |
 | [RichText](richtextfield.md) | Validates and stores structured rich text in DocBook xml format, and exposes it in several formats. Available via [IbexaFieldTypeRichTextBundle](https://github.com/ibexa/fieldtype-richtext). | Yes[^1^](#1-note-on-legacy-search-engine)  | Yes |
 | [Selection](selectionfield.md) | Validates and stores a single selection or multiple choices from a list of options. | Yes[^1^](#1-note-on-legacy-search-engine) | Yes |
 | [SesExternaldata](sesexternaldata.md) | Uses external storage to store data. |||
@@ -60,8 +65,6 @@ Custom Field Types have to be programmed in PHP. However, the built-in Field Ty
 
 <a id="1-note-on-legacy-search-engine"></a>**^[1]^ Note on Legacy Search Engine**
 
-Legacy Search/Storage Engine index is limited to 255 characters in database design,
-so formatted and unformatted text blocks will only index the first part.
-In case of multiple selection Field Types like Keyword, Selection, Country, etc.,
-only the first choices are indexed. They are indexed only as a text blob separated by string separator.
-Proper indexing of these Field Types is done with [Solr Search engine](solr_overview.md).
+Legacy Search/Storage Engine index is limited to 255 characters in database design, so formatted and unformatted text blocks only index the first part.
+In case of multiple selection field types like, for example, Keyword, Selection, or Country, only the first choices are indexed. they're indexed only as a text blob separated by string separator.
+Proper indexing of these field types is done with [Solr Search engine](solr_overview.md).

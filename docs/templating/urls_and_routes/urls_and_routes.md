@@ -1,11 +1,11 @@
 ---
-description: Add links to Content items or specific built-in and custom routes in your templates.
+description: Add links to content items or specific built-in and custom routes in your templates.
 ---
 
 # URLs and routes
 
-To link to a [Location](url_twig_functions.md#ibexa_path) Twig function.
-You need to provide the function with a Location, Content, ContentInfo or [RouteReference](#routereference) object:
+To link to a [Location](locations.md) or [Content item](content_model.md#content-items), use the [`ibexa_path()`](url_twig_functions.md#ibexa_path) Twig function.
+You need to provide the function with a location, content, ContentInfo, or [RouteReference](#routereference) object:
 
 ``` html+twig
 <p><a href="{{ ibexa_path(location) }}">Location</a></p>
@@ -13,7 +13,7 @@ You need to provide the function with a Location, Content, ContentInfo or [Route
 <p><a href="{{ ibexa_path(content.contentInfo) }}">Content Info</a></p>
 ```
 
-Use [`ibexa_url()`](url_twig_functions.md#ibexa_url) to get an absolute URL to a Content item or Location:
+Use [`ibexa_url()`](url_twig_functions.md#ibexa_url) to get an absolute URL to a content item or location:
 
 ``` html+twig
 <p><a href="{{ ibexa_url(location) }}">Location</a></p>
@@ -21,22 +21,28 @@ Use [`ibexa_url()`](url_twig_functions.md#ibexa_url) to get an absolute URL to a
 
 ## RouteReference
 
-You can use the [`ibexa_route()`](url_twig_functions.md#ibexa_route) Twig function
-to create a RouteReference object based on the provided information.
+You can use the [`ibexa_route()`](url_twig_functions.md#ibexa_route) Twig function to create a RouteReference object based on the provided information.
 
-A RouteReference contains a route with its parameters and can be modified after it is created.
-Here, the route is based on the ID of the Location.
+A RouteReference contains a route with its parameters and can be modified after it's created.
+Here, the route is based on the ID of the location.
 
 ``` html+twig
 {% set routeReference = ibexa_route("ibexa.url.alias", { 'locationId': 2 }) %}
 <p><a href="{{ ibexa_path(routeReference) }}">Route</a></p>
 ```
 
-A route can also be based on the ID of the Content item.
-The resulting link points to the Content item's main Location.
+A route can also be based on the ID of the content item.
+The resulting link points to the content item's main location.
 
 ``` html+twig
 {% set routeReference = ibexa_route("ibexa.url.alias", { 'contentId': 456 }) %}
+<p><a href="{{ ibexa_path(routeReference) }}">Route</a></p>
+```
+
+For cross-SiteAccess links, you can pass the parameter `siteaccess` with a SiteAccess identifier.
+
+``` html+twig
+{% set routeReference = ibexa_route("ibexa.url.alias", { 'contentId': 456, 'siteaccess': 'shop' }) %}
 <p><a href="{{ ibexa_path(routeReference) }}">Route</a></p>
 ```
 
@@ -72,7 +78,7 @@ The following built-in routes are available for the front of the website.
 
 !!! tip
 
-    To view all routes existing in the system, including internal and Back-Office related ones, run:
+    To view all routes existing in the system, including internal and back office related ones, run:
 
     ``` bash
     php bin/console debug:router
@@ -115,8 +121,8 @@ The following built-in routes are available for the front of the website.
 |Route name|Path|Description|
 |---|---|---|
 | `ibexa_content_download` | `/content/download/{contentId}/{fieldIdentifier}/{filename}` | Downloading a binary file |
-| `ibexa.content.create_no_draft` | `/content/create/nodraft/{contentTypeIdentifier}/{language}/{parentLocationId}` | [Creating a Content item without using a draft](user_generated_content.md#creating-a-content-item-without-using-a-draft) |
-| `ibexa.content.draft.edit` | `/content/edit/draft/{contentId}/{versionNo}/{language}/{locationId}` | [Editing a Content item](user_generated_content.md#editing-a-content-item) |
+| `ibexa.content.create_no_draft` | `/content/create/nodraft/{contentTypeIdentifier}/{language}/{parentLocationId}` | [Creating a content item without using a draft](user_generated_content.md#creating-a-content-item-without-using-a-draft) |
+| `ibexa.content.draft.edit` | `/content/edit/draft/{contentId}/{versionNo}/{language}/{locationId}` | [Editing a content item](user_generated_content.md#editing-a-content-item) |
 | `ibexa.content.draft.create` | `/content/create/draft/{contentId}/{fromVersionNo}/{fromLanguage}` | [Creating a new draft](user_generated_content.md#creating-a-new-draft) |
 
 ### Search

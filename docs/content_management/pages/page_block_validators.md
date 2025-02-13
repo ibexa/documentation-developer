@@ -11,16 +11,15 @@ The following block validators are available:
 - `regexp` - validates attribute according to the provided regular expression
 - `not_blank` - checks whether the attribute isn't left empty
 - `not_blank_richtext` - checks whether a `richtext` attribute isn't left empty
-- `content_type` - checks whether the selected Content Types match the provided values
-- `content_container` - checks whether the selected Content item is a container
+- `content_type` - checks whether the selected content types match the provided values
+- `content_container` - checks whether the selected content item is a container
 
 !!! note
 
-    Do not use the `required` and `not_blank` validators for `richtext` attributes.
+    Don't use the `required` and `not_blank` validators for `richtext` attributes.
     Instead, use `not_blank_richtext`.
 
-For each validator you can provide a message that displays in the Page Builder
-when an attribute field doesn't fulfil the criteria.
+For each validator you can provide a message that displays in the Page Builder when an attribute field doesn't fulfill the criteria.
 
 Additionally, for some validators you can provide settings under the
 `ibexa_fieldtype_page.blocks.<block_name>.validators.regexp.options` [configuration key](configuration.md#configuration-files), for example:
@@ -65,4 +64,14 @@ Finally, add the validator to one of your block attributes, for example:
 
 ``` yaml hl_lines="16-18"
 [[= include_file('code_samples/page/custom_block_validator/config/packages/page_blocks.yaml', 0, 1) =]][[= include_file('code_samples/page/custom_block_validator/config/packages/page_blocks.yaml', 3, 20) =]]
+```
+
+### Custom required validator
+
+By default, only `not_blank` and `not_blank_richtext` validators mark a block attribute as required.
+
+If you create a custom validator `custom_not_blank` with attribute-specific logic, you can extend the `AttributeType` class with a Symfony form type extension to make sure that the attribute is also considered required:
+
+``` php hl_lines="15"
+[[= include_file('code_samples/page/custom_block_validator/src/Form/Extension/AttributeTypeExtension.php') =]]
 ```

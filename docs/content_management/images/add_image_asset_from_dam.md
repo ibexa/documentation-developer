@@ -26,7 +26,7 @@ To add the Unsplash connector to your system add the `ibexa/connector-unsplash` 
 
 ## Add Image Asset in Page Builder [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
 
-To add Image Assets directly in the Page Builder, you can do it by using the Embed block. 
+To add Image Assets directly in the Page Builder, you can do it by using the Embed block.
 The example below shows how to add images from [Unsplash](https://unsplash.com/).
 
 First, in `templates/themes/standard/embed/`, create a custom template `dam.html.twig`:
@@ -41,9 +41,10 @@ First, in `templates/themes/standard/embed/`, create a custom template `dam.html
 {% endif %}
 ```
 
-The `770px` parameter in the template above is used to render the DAM image. It is the `unsplash` specific image variation and must be defined separately.
+The `770px` parameter in the template above is used to render the DAM image. It's the `unsplash` specific image variation and must be defined separately.
 
-Next, in `config/packages/ibexa.yaml`, set the `dam.html.twig` template for the `embed` view type that is matched for the Content Type, which you created for DAM images. 
+Next, in `config/packages/ibexa.yaml`, set the `dam.html.twig` template for the `embed` view type that is matched for the content type, which you created for DAM images.
+
 For more information about displaying content, see [Content rendering](render_content.md).
 
 ``` yaml
@@ -58,12 +59,12 @@ For more information about displaying content, see [Content rendering](render_co
                Identifier\ContentType: <dam_image_content_type_identifier>
 ```
 
-In you [configuration file](configuration.md#configuration-files) add the following configuration:
+In your [configuration file](configuration.md#configuration-files) add the following configuration:
 
 ``` yaml
 dam_unsplash:
     application_id: <your_application_access_key>
-    utm_source: <your_utm_source_name>  
+    utm_source: <your_utm_source_name> 
     variations:
        770px:
             fm: jpg
@@ -72,11 +73,12 @@ dam_unsplash:
             fit: max
 ```
 
-You can customize the parameters according to your needs. 
+You can customize the parameters according to your needs.
+
 For more information about supported parameters, see the [Unsplash documentation](https://unsplash.com/documentation#dynamically-resizable-images).
 
-In the Back Office, go to **Admin** > **Content Types**.
-In the **Content** group, create a Content Type for DAM images, which includes the ImageAsset Field. 
+In the back office, go to **Admin** > **Content types**.
+In the **Content** group, create a content type for DAM images, which includes the ImageAsset field.
 
 Now, when you use the Embed block in the Page Builder, you should see a DAM Image.
 

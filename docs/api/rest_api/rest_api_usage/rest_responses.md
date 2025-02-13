@@ -25,7 +25,7 @@ For code details per resource, see the [REST API reference](../rest_api_referenc
 | `409` | Conflict               | The request is in conflict with another part of the repository (for example, trying to create a new item with an identifier already used).                                                                                                                  |
 | `415` | Unsupported Media Type | The request payload media type doesn't match the media type specified in the request header.                                                                                                                                                                |
 | `500` | Internal Server Error  | The server encountered an unexpected condition, usually an exception, which prevents it from fulfilling the request, like database down, permissions or configuration error.                                                                                |
-| `501` | Not Implemented        | Returned when the requested method hasn't yet been implemented. For [[= product_name =]], most of Users, User groups, Content items, Locations and Content Types have been implemented. Some of their methods, as well as other features, may return a 501. |
+| `501` | Not Implemented        | Returned when the requested method hasn't yet been implemented. For [[= product_name =]], most of users, user groups, content items, locations and content types have been implemented. Some of their methods, and other features, may return a 501. |
 
 ## Response headers
 
@@ -88,17 +88,17 @@ Content-Type: application/vnd.ibexa.api.Content+json
 Accept-Patch: application/vnd.ibexa.api.ContentUpdate+json
 ```
 
-Those example `Accept-Path` headers above indicate that the content could be modified by sending a [ContentUpdateStruct](https://github.com/ibexa/core/blob/main/src/contracts/Repository/Values/Content/ContentUpdateStruct.php) in XML or JSON.
+Those example `Accept-Path` headers above indicate that the content could be modified by sending a [ContentUpdateStruct](../../php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-ContentUpdateStruct.html) in XML or JSON.
 
 ### Location header
 
-For example, [creating content](../rest_api_reference/rest_api_reference.html#managing-content-create-content-type) and [getting a Content item's current version](../rest_api_reference/rest_api_reference.html#managing-content-get-current-version)
+For example, [creating content](../rest_api_reference/rest_api_reference.html#managing-content-create-content-type) and [getting a content item's current version](../rest_api_reference/rest_api_reference.html#managing-content-get-current-version)
 both send a `Location` header to provide you with the requested resource's ID.
 
 Those particular headers generally match a specific list of HTTP response codes.
 `Location` is mainly sent alongside `201 Created`, `301 Moved permanently`, `307 Temporary redirect responses`.
 
-In the following example, the Content item's remote ID 34720ff636e1d4ce512f762dc638e4ac corresponds to the ID 52:
+In the following example, the content item's remote ID 34720ff636e1d4ce512f762dc638e4ac corresponds to the ID 52:
 
 ```http
 GET /content/objects?remoteId=34720ff636e1d4ce512f762dc638e4ac" HTTP/1.1
@@ -137,10 +137,7 @@ Content-Type: application/vnd.ibexa.api.Content+json
 
 [Cross-Origin Resource Sharing (CORS)](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) can allow the REST API to be reached from a page on another domain.
 
-!!! tip "More information about CORS"
-
-    - [WHATWG's CORS Protocol specification](https://fetch.spec.whatwg.org/#cors-protocol)
-    - [Overview of CORS on developer.mozilla.org](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS)
+For more information about CORS, see [WHATWG's CORS Protocol specification](https://fetch.spec.whatwg.org/#cors-protocol) and [Overview of CORS on developer.mozilla.org](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS).
 
 CORS support is provided by the third party [nelmio/cors-bundle](https://packagist.org/packages/nelmio/cors-bundle). You can read more about it in [NelmioCorsBundle's README](https://github.com/nelmio/NelmioCorsBundle/blob/master/README.md).
 
@@ -154,15 +151,13 @@ To enable CORS, add regular expression for an allowed domain using the `.env` va
 
 For example, to allow the JS test above to be executed alongside this page, you could add the following to an `.env` file (like the `.env.local`): `CORS_ALLOW_ORIGIN=^https?://doc.ibexa.co`.
 
-To add several domains, filter on URIs, or change the default (like not allowing all the methods),
-refer to [NelmioCorsBundle Configuration Documentation](https://symfony.com/bundles/NelmioCorsBundle/current/index.html#configuration)
-to learn how to edit `config/packages/nelmio_cors.yaml`.
+To add several domains, filter on URIs, or change the default (like not allowing all the methods), refer to [NelmioCorsBundle Configuration Documentation](https://symfony.com/bundles/NelmioCorsBundle/current/index.html#configuration) to learn how to edit `config/packages/nelmio_cors.yaml`.
 
 ## Response body
 
 The Response body is often a serialization in XML or JSON of an object as it could be retrieved using the Public PHP API.
 
-For example, the resource `/content/objects/52` with the `Accept: application/vnd.ibexa.api.ContentInfo+xml` header returns a serialized version of a [ContentInfo](https://github.com/ibexa/core/blob/main/src/contracts/Repository/Values/Content/ContentInfo.php) object.
+For example, the resource `/content/objects/52` with the `Accept: application/vnd.ibexa.api.ContentInfo+xml` header returns a serialized version of a [ContentInfo](../../php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-ContentInfo.html) object.
 
 ```shell
 curl https://api.example.com/content/objects/52 --header 'Accept: application/vnd.ibexa.api.ContentInfo+xml';

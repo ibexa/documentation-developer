@@ -4,7 +4,9 @@ description: Update your installation to the v4.2.latest version from an v4.1 ve
 
 # Update from v4.1.x to v4.2
 
-This update procedure applies if you are using a v4.1 installation.
+This update procedure applies if you're using a v4.1 installation.
+
+[[% include 'snippets/update/temporary_v4_conflicts.md' %]]
 
 ## Update from v4.1.x to v4.1.latest
 
@@ -84,13 +86,13 @@ Next, run data migration required by Product Categories:
 php bin/console ibexa:migrations:import vendor/ibexa/product-catalog/src/bundle/Resources/migrations/2022_06_23_09_39_product_categories.yaml --name=013_product_categories.yaml
 ```
 
-If you are using [[= product_name_exp =]] or [[= product_name_com =]], run data migration required by the Customer portal feature:
+If you're using [[= product_name_exp =]] or [[= product_name_com =]], run data migration required by the Customer portal feature:
 
 ``` bash
 php bin/console ibexa:migrations:import vendor/ibexa/corporate-account/src/bundle/Resources/migrations/corporate_account.yaml --name=001_corporate_account.yaml
 ```
 
-If you are using [[= product_name_com =]], additionally run:
+If you're using [[= product_name_com =]], additionally run:
 
 ``` bash
 php bin/console ibexa:migrations:import vendor/ibexa/corporate-account/src/bundle/Resources/migrations/corporate_account_commerce.yaml --name=002_corporate_account_commerce.yaml
@@ -127,7 +129,7 @@ Apply the following database update scripts:
 
 #### Ibexa Open Source
 
-If you have no access to [[= product_name =]]'s `ibexa/installer` package, database upgrade is not necessary.
+If you have no access to [[= product_name =]]'s `ibexa/installer` package, database upgrade isn't necessary.
 
 ## Ensure password safety
 
@@ -135,7 +137,7 @@ Following [Security advisory: IBEXA-SA-2022-009](https://developers.ibexa.co/sec
 unless you can verify based on your log files that the vulnerability has not been exploited,
 you should [revoke passwords](https://doc.ibexa.co/en/latest/users/passwords/#revoking-passwords) for all affected users.
 
-### Remove `node_modules` and `yarn.lock`
+## Remove `node_modules` and `yarn.lock`
 
 Next, remove `node_modules` and `yarn.lock` before running `composer run post-update-cmd`,
 otherwise you can encounter errors during compiling.

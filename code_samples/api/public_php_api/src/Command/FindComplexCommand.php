@@ -25,20 +25,20 @@ class FindComplexCommand extends Command
         parent::__construct('doc:find_complex');
     }
 
-    protected function configure()
+    protected function configure(): void
     {
         $this
-            ->setDescription('Lists content belonging to the provided Content Type.')
+            ->setDescription('Lists content belonging to the provided content type.')
             ->setDefinition([
                 new InputArgument('locationId', InputArgument::REQUIRED, ''),
-                new InputArgument('contentTypeIdentifier', InputArgument::REQUIRED, 'Content Type identifier'),
+                new InputArgument('contentTypeIdentifier', InputArgument::REQUIRED, 'Content type identifier'),
                 new InputArgument('text', InputArgument::REQUIRED, ''),
             ]);
     }
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $locationId = $input->getArgument('locationId');
+        $locationId = (int) $input->getArgument('locationId');
         $contentTypeIdentifier = $input->getArgument('contentTypeIdentifier');
         $text = $input->getArgument('text');
 

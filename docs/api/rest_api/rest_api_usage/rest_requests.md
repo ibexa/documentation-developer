@@ -1,5 +1,5 @@
 ---
-description: REST API requests can have a generic or a custom header. It defines additional options in the request, such as the accepted Content Type of response.
+description: REST API requests can have a generic or a custom header. It defines additional options in the request, such as the accepted content type of response.
 ---
 
 # REST requests
@@ -10,12 +10,12 @@ Depending on the HTTP method used, different actions are possible on the same re
 
 | Action                                  | Description                                                          |
 |-----------------------------------------|----------------------------------------------------------------------|
-| `GET  /content/objects/2/version/3`     | Fetches data about version \#3 of Content item \#2                   |
-| `PATCH  /content/objects/2/version/3`   | Updates the version \#3 draft of Content item \#2                    |
-| `DELETE  /content/objects/2/version/3`  | Deletes the (draft or archived) version \#3 from Content item \#2    |
-| `COPY  /content/objects/2/version/3`    | Creates a new draft version of Content item \#2 from its version \#3 |
-| `PUBLISH  /content/objects/2/version/3` | Promotes the version \#3 of Content item \#2 from draft to published |
-| `OPTIONS  /content/objects/2/version/3` | Lists all the methods usable with this resource, the 5 ones above    |
+| `GET  /content/objects/2/versions/3`     | Fetches data about version \#3 of content item \#2                   |
+| `PATCH  /content/objects/2/versions/3`   | Updates the version \#3 draft of content item \#2                    |
+| `DELETE  /content/objects/2/versions/3`  | Deletes the (draft or archived) version \#3 from content item \#2    |
+| `COPY  /content/objects/2/versions/3`    | Creates a new draft version of content item \#2 from its version \#3 |
+| `PUBLISH  /content/objects/2/versions/3` | Promotes the version \#3 of content item \#2 from draft to published |
+| `OPTIONS  /content/objects/2/versions/3` | Lists all the methods usable with this resource, the 5 ones above    |
 
 The following list of available methods gives an overview of the kind of action a method triggers on a resource, if available.
 For method action details per resource, see the [REST API reference](../rest_api_reference/rest_api_reference.html).
@@ -29,15 +29,14 @@ For method action details per resource, see the [REST API reference](../rest_api
 | [PATCH](https://datatracker.ietf.org/doc/html/rfc5789)               | Custom   | Update an item         | No   |
 | COPY                                                                 | Custom   | Duplicate an item      | No   |
 | [MOVE](https://datatracker.ietf.org/doc/html/rfc2518)                | Custom   | Move an item           | No   |
-| SWAP                                                                 | Custom   | Swap two Locations     | No   |
+| SWAP                                                                 | Custom   | Swap two locations     | No   |
 | PUBLISH                                                              | Custom   | Publish an item        | No   |
 | [DELETE](https://datatracker.ietf.org/doc/html/rfc2616#section-9.7)  | Standard | Remove an item         | No   |
 
 !!! note "Caution with custom HTTP methods"
 
     Using custom HTTP methods can cause issues with several HTTP proxies, network firewall/security solutions and simpler web servers.
-    To avoid issues with this, REST API allows you to set these using the HTTP header `X-HTTP-Method-Override` alongside the standard `POST` method
-    instead of using a custom HTTP method. For example: `X-HTTP-Method-Override: PUBLISH`
+    To avoid such issuess, REST API allows you to set these by using the HTTP header `X-HTTP-Method-Override` alongside the standard `POST` method instead of using a custom HTTP method. For example: `X-HTTP-Method-Override: PUBLISH`
 
     If applicable, both methods are always mentioned in the specifications.
 
@@ -104,8 +103,8 @@ Accept: application/vnd.ibexa.api.Root+json
 X-Siteaccess: restapi
 ```
 
-One of the principles of REST is that the same resource (such as Content item, Location, Content Type) should be unique.
-It allows caching your REST API using a reverse proxy such as Varnish.
+One of the principles of REST is that the same resource (such as content item, location, content type) should be unique.
+It allows caching your REST API with a reverse proxy such as Varnish.
 If the same resource is available in multiple locations, cache purging is noticeably more complex.
 This is why SiteAccess matching with REST isn't enabled at URL level (or domain).
 
@@ -115,21 +114,21 @@ On top of methods, HTTP request headers allow you to personalize the request's b
 On every resource, you can use the `Accept` header to indicate which format you want to communicate in, JSON or XML.
 This header is also used to specify the response type you want the server to send when multiple types are available.
 
--   `Accept: application/vnd.ibexa.api.Content+xml` to get `Content` (full data, Fields included) as **[XML](https://www.w3.org/XML/)**
--   `Accept: application/vnd.ibexa.api.ContentInfo+json` to get `ContentInfo` (metadata only) as **[JSON](https://www.json.org/)**
+- `Accept: application/vnd.ibexa.api.Content+xml` to get `Content` (full data, fields included) as **[XML](https://www.w3.org/XML/)**
+- `Accept: application/vnd.ibexa.api.ContentInfo+json` to get `ContentInfo` (metadata only) as **[JSON](https://www.json.org/)**
 
 Media types are also used with the [`Content-Type` header](rest_responses.md#content-type-header) to characterize a [request body](#request-body) or a [response body](rest_responses.md#response-body).
 See [Creating content with binary attachments](#creating-content-with-binary-attachments) below.
 Also see [Creating session](rest_api_authentication.md#creating-session) examples.
 
-If the resource only returns one media type, it's also possible to skip it and to just specify the format using `application/xml` or `application/json`.
+If the resource only returns one media type, it's also possible to skip it and to specify the format with `application/xml` or `application/json`.
 
 A response indicates `href`s to related resources and their media types.
 
 ### Destination
 
 The `Destination` request header is the request counterpart of the `Location` response header.
-It's used for a `COPY`, `MOVE` or `SWAP` operation to indicate where the resource should be moved, copied to or swapped with by using the ID of the parent or target Location.
+It's used for a `COPY`, `MOVE` or `SWAP` operation to indicate where the resource should be moved, copied to or swapped with by using the ID of the parent or target location.
 
 Examples of such requests are:
 
@@ -143,24 +142,22 @@ The `X-Expected-User` header specifies the user needed for the request execution
 With this header, if the current username on server side isn't equal to `X-Expected-User` value, a `401 Unauthorized` error is returned.
 Without this header, the request is executed with the current user who might be unexpected (like the Anonymous user if a previous authentication has expired) and an ambiguous response might be returned as a success not informing about a wrong user.
 
-For example, it prevents a Content request to be executed with Anonymous user in the case of an expired authentication,
-and the response being a `200 OK` but missing Content items due to access rights difference with the expected user.
+For example, it prevents a Content request to be executed with Anonymous user in the case of an expired authentication, and the response being a `200 OK` but missing content items due to access rights difference with the expected user.
 
 ## Request body
 
-You can pass some short scalar parameters in the URIs or as GET parameters, but other resources need heavier structured payloads passed in the request body,
-in particular the ones to create (`POST`) or update (`PATCH`) items.
+You can pass some short scalar parameters in the URIs or as GET parameters, but other resources need heavier structured payloads passed in the request body, in particular the ones to create (`POST`) or update (`PATCH`) items.
 In the [REST API reference](../rest_api_reference/rest_api_reference.html), request payload examples are given when needed.
 
 One example is the [creation of an authentication session](rest_api_authentication.md#establishing-session).
 
-When creating a Content item, a special payload is needed if the ContentType has some [Image](imagefield.md) or [BinaryFile](binaryfilefield.md) Fields as files need to be attached. See the example of a [script uploading images](#creating-content-with-binary-attachments) below.
+When creating a content item, a special payload is needed if the content type has some [Image](imagefield.md) or [BinaryFile](binaryfilefield.md) fields as files need to be attached. See the example of a [script uploading images](#creating-content-with-binary-attachments) below.
 
-When searching for Content items (or Locations), the query grammar is also particular. See the [Search section](#search-views) below.
+When searching for content items (or locations), the query grammar is also particular. See the [Search section](#search-views) below.
 
 ### Creating content with binary attachments
 
-The example below is a command-line script to upload images. It's based on the [Symfony HttpClient](https://symfony.com/doc/5.4/http_client.html).
+The example below is a command-line script to upload images. It's based on the [Symfony HttpClient]([[= symfony_doc =]]/http_client.html).
 
 This script:
 
@@ -194,9 +191,9 @@ Most [Sort Clauses](sort_clause_reference.md#sort-clauses) are available too. Th
 The search request has a `Content-Type: application/vnd.ibexa.api.ViewInput+xml` or `+json` header to specify the format of its body's payload.
 The root node is `<ViewInput>` and it has two mandatory children: `<identifier>` and `<Query>`.
 
-You can add `version=1.1` to the `Content-Type` header to support the distinction between `ContentQuery` and `LocationQuery` instead of just `Query` which implicitly looks only for Content items.
+You can add `version=1.1` to the `Content-Type` header to support the distinction between `ContentQuery` and `LocationQuery` instead of `Query` which implicitly looks only for content items.
 
-The following examples search for `article` and `news` typed Content items everywhere or for Content items of all types directly under Location `123`. All those Content items must be in the `standard` Section.
+The following examples search for `article` and `news` typed content items everywhere or for content items of all types directly under location `123`. All those content items must be in the `standard` section.
 
 === "XML"
 

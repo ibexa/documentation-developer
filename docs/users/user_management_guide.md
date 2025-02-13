@@ -1,5 +1,5 @@
 ---
-description: The user management product guide provides a full description of its features as well as the benefits it brings to the client.
+description: Find out what's user management and check what functions Ibexa DXP offers in this area to effectively manage the digital ecosystem.
 ---
 
 # User management product guide
@@ -18,9 +18,9 @@ User management is available in all [[= product_name =]] versions.
 
 ## How does user management work
 
-[[= product_name =]] simplifies user management with an intuitive and powerful system of accounts, Roles, Permissions, groups, and Segments.
-You can find all user groups and Users in the **Admin Panel** by selecting **Users**.
-Here, you can manage users, their relations, Roles, and Policies.
+[[= product_name =]] simplifies user management with an intuitive and powerful system of accounts, roles, permissions, groups, and segments.
+You can find all user groups and users in the **Admin** panel by selecting **Users**.
+Here, you can manage users, their relations, roles, and policies.
 
 ![User's section](users_section.png)
 
@@ -28,7 +28,7 @@ Here's how it works:
 
 - User accounts - create and manage user accounts. This includes capturing user information, such as name, email, and profile details.
 
-- Roles and Permissions - define Roles and assign Permissions to them. This ensures that users have appropriate access to content and functionalities. Roles can be customized to match the organization's specific needs.
+- Roles and permissions - define roles and assign permissions to them. This ensures that users have appropriate access to content and functionalities. Roles can be customized to match the organization's specific needs.
 
 - Authentication methods - enable multiple authentication methods, including traditional username and password, OAuth, and external service logins. This flexibility allows organizations to adapt to various user authentication requirements.
 
@@ -42,31 +42,30 @@ Here's how it works:
 
 ## Capabilities
 
-The detailed capabilities of [[= product_name_base =]] User Management,
-which provide organizations with the tools they need to deliver personalized, secure,
-and efficient user experiences while ensuring that user access and content delivery align with their business goals and strategies.
+The detailed capabilities of [[= product_name_base =]] user management, which provide organizations with the tools they need to deliver personalized, secure, and efficient user experiences while ensuring that user access and content delivery align with their business goals and strategies.
 
-### User Roles and Permissions
+### User roles and permissions
 
-[[= product_name_base =]] allows you to define custom user [Roles with granular Permissions](permission_overview.md), ensuring that users have access to only the specific parts of the system they need.
+[[= product_name_base =]] allows you to define custom user [roles with granular permissions](permission_overview.md), ensuring that users have access to only the specific parts of the system they need.
 Furthermore, you can create user groups to simplify Permission management.
 Assign multiple users to a group to ensure consistency and ease of access control.
 This helps maintain effortless security and control.
 
-To help you understand further the role each element serves, here's a brief summary: 
+To help you understand further the role each element serves, here's a brief summary:
 
 - Role - represents a collection of Permissions that can be assigned to users or user groups. Roles streamline permission management by grouping related Permissions together.
 - Permission - defines a specific action or access level that can be granted or denied within the system.
-- Policy - is a set of rules or conditions that determine under what circumstances a specific permission is granted or denied by applying Limitations.
+- Policy - is a set of rules or conditions that determine under what circumstances a specific permission is granted or denied by applying limitations.
 Policies allow for fine-grained control of access based on various factors, such as user attributes or system states.
 
-### Custom Policies
+### Custom policies
 
-[Tailor user access control](custom_policies.md) to your unique requirements using custom policies. Define complex rules and access criteria for different users or groups.
+[Tailor user access control](custom_policies.md) to your unique requirements by using custom policies.
+Define complex rules and access criteria for different users or groups.
 
 ### Limitations
 
-[Implement Limitations](limitations.md) on user actions based on specific criteria, such as time-based restrictions or geographic locations.
+[Implement limitations](limitations.md) on user actions based on specific criteria, such as time-based restrictions or geographic locations.
 
 ### Authentication methods
 
@@ -77,8 +76,8 @@ Policies allow for fine-grained control of access based on various factors, such
 Available options:
 
 - [Username and password](passwords.md) - ideal for most users, this traditional method offers a secure login process with username and password.
-- [OAuth](oauth_authentication.md) - integrating OAuth authentication allows users to log in using their existing social media or third-party credentials like Google, Facebook, and Twitter, streamlining the registration process.
-- [external service](add_login_through_external_service.md) - for enterprise users, integration with an external service like Active Directory or LDAP ensures that user authentication aligns with the organization's existing systems.
+- [OAuth client](oauth_client.md) - integrating OAuth authentication allows users to log in using their existing social media credentials (like Google, Facebook, and Twitter), or the enterprise's system (like Active Directory or LDAP).
+- [OAuth server](oauth_server.md) - client applications (such as mobile apps) can authenticate a user by using the platform's login screen, then access resources.
 
 ### Invitations
 
@@ -90,15 +89,15 @@ Track the status of invitations, including when they were sent, whether they wer
 ### User segmentation and personalization
 
 [[= product_name_base =]]'s segmentation and personalization features allow organizations to deliver customized user experiences.
-Track user behavior, such as page views, search queries, and interactions, to create Segments and Segment Groups for users who share similar behaviors.
+Track user behavior, such as page views, search queries, and interactions, to create segments and segment groups for users who share similar behaviors.
 
-![Segment Groups](../administration/img/admin_panel_segment_groups.png)
+![Segment groups](../administration/img/admin_panel_segment_groups.png)
 
 Possible uses:
 
 - Demographics - segment users based on demographic data such as age, location, and gender to personalize content, promotions, and recommendations.
 - Behavior - tailor content based on user behavior, such as frequent content consumption, shopping patterns, or search history, ensuring users see what they're interested in.
-- Preferences - utilize user preferences to offer a customized experience, from language preferences to Content Type preferences.
+- Preferences - utilize user preferences to offer a customized experience, from language preferences to content type preferences.
 
 ### Customer groups
 
@@ -118,14 +117,14 @@ With role-based access control and personalized content, users have a more engag
 
 ### Enhanced security
 
-The flexible authentication methods and Permission management help safeguard sensitive data and maintain security.
+The flexible authentication methods and permission management help safeguard sensitive data and maintain security.
 
-With the ability to define and manage user Roles and Permissions, clients can ensure that sensitive data and actions are protected.
+With the ability to define and manage user roles and permissions, clients can ensure that sensitive data and actions are protected.
 User management helps prevent unauthorized access.
 
 ### Efficient user onboarding
 
-Invitations and easy account creation streamline the process of onboarding new users.
+Invitations and account creation streamline the process of onboarding new users.
 
 ### Targeted marketing
 

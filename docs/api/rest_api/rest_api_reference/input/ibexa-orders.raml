@@ -1,0 +1,196 @@
+displayName: Orders
+
+/orders:
+    post:
+        displayName: Create order
+        description: Creates a new order.
+        headers:
+            Accept:
+                description: If set, the new order is returned in JSON format.
+                example:  |
+                    application/vnd.ibexa.api.Order+json
+            Content-Type:
+                description: The Order schema encoded in XML or JSON format.
+                example:  |
+                    application/vnd.ibexa.api.OrderCreate+json
+        body:
+            application/vnd.ibexa.api.OrderCreate+json:
+                type: OrderCreateWrapper
+                example: !include examples/orders/POST/OrderCreate.json.example
+        responses:
+            200:
+                body:
+                    application/vnd.ibexa.api.Order+json:
+                        type: OrderWrapper
+                        example: !include examples/orders/POST/Order.json.example
+            400:
+                description: Error - the input does not match the input schema definition.
+            401:
+                description: Error - the user is not authorized to create this order.
+            406:
+                description: Error - a order with this identifier already exists.
+    get:
+        displayName: Load orders
+        description: Loads a list of orders.
+        headers:
+            Accept:
+                description: OrderList - If set, the orders list returned in XML or JSON format.
+                example:  |
+                    application/vnd.ibexa.api.OrderList+xml
+                    application/vnd.ibexa.api.OrderList+json
+        responses:
+            200:
+                description: OK - loads orders.
+                body:
+                    application/vnd.ibexa.api.OrderList+xml:
+                        type: OrderList
+                    application/vnd.ibexa.api.OrderList+json:
+                        type: OrderListWrapper
+                        example: !include examples/orders/GET/OrderList.json.example
+            401:
+                description: Error - the user has no permission to read orders.
+/order:
+    /{identifier}:
+        get:
+            displayName: Load order by identifier
+            description: Loads an order by its identifier (UUID).
+            headers:
+                Accept:
+                    description: Order - If set, the order returned in XML or JSON format.
+                    example:  |
+                        application/vnd.ibexa.api.Order+xml
+                        application/vnd.ibexa.api.Order+json
+            responses:
+                200:
+                    description: OK - loads the order.
+                    body:
+                        application/vnd.ibexa.api.Order+xml:
+                            type: Order
+                        application/vnd.ibexa.api.Order+json:
+                            type: OrderWrapper
+                            example: !include examples/orders/GET/Order.json.example
+                401:
+                    description: Error - the user has no permission to read orders.
+                404:
+                    description: Error - the order does not exist.
+                    
+        /shipments:
+            get:
+                displayName: Load shipments
+                description: Loads a order's list of shipments.
+                headers:
+                    Accept:
+                        description: If set, the shipments are returned in XML or JSON format.
+                        example:  |
+                            application/vnd.ibexa.api.ShipmentRefList+xml
+                            application/vnd.ibexa.api.ShipmentRefList+json
+                responses:
+                    200:
+                        description: OK - loads the shipments.
+                        body:
+                            application/vnd.ibexa.api.ShipmentRefList+xml:
+                                type: ShipmentRefList
+                                example: !include examples/shipments/GET/ShipmentRefList.xml.example
+                            application/vnd.ibexa.api.ShipmentRefList+json:
+                                type: ShipmentRefListWrapper
+                                example: !include examples/shipments/GET/ShipmentRefList.json.example
+                    401:
+                        description: Error - the user has no permission to read order's shipment lists.
+                    404:
+                        description: Error - the order does not exist.
+            post:
+                displayName: Create shipment
+                description: Creates and adds a shipment to an order
+                headers:
+                    Accept:
+                        description: If set, the shipments are returned in XML or JSON format.
+                        example: |
+                            application/vnd.ibexa.api.Shipment+xml
+                            application/vnd.ibexa.api.Shipment+json
+                    Content-Type:
+                        description: The shipments schema encoded in XML or JSON format.
+                        example: |
+                            application/vnd.ibexa.api.ShipmentCreate+xml
+                            application/vnd.ibexa.api.ShipmentCreate+json
+                body:
+                    application/vnd.ibexa.api.ShipmentCreate+xml:
+                        type: ShipmentCreate
+                        example: !include examples/orders/POST/ShipmentCreate.xml.example
+                    application/vnd.ibexa.api.ShipmentCreate+json:
+                        type: ShipmentCreateWrapper
+                        example: !include examples/orders/POST/ShipmentCreate.json.example
+                responses:
+                    200:
+                        description: Shipment is created and returned
+                        body:
+                            application/vnd.ibexa.api.Shipment+xml:
+                                type: Shipment
+                            application/vnd.ibexa.api.Shipment+json:
+                                type: ShipmentWrapper
+
+    /{id}:
+        get:
+            displayName: Load order by ID
+            description: Loads an order by its numerical ID.
+            headers:
+                Accept:
+                    description: Order - If set, the order returned in XML or JSON format.
+                    example:  |
+                        application/vnd.ibexa.api.Order+xml
+                        application/vnd.ibexa.api.Order+json
+            responses:
+                200:
+                    description: OK - loads the order.
+                    body:
+                        application/vnd.ibexa.api.Order+xml:
+                            type: Order
+                        application/vnd.ibexa.api.Order+json:
+                            type: OrderWrapper
+                            example: !include examples/orders/GET/Order.json.example
+                401:
+                    description: Error - the user has no permission to read orders.
+                404:
+                    description: Error - the order does not exist.
+        patch:
+            displayName: Update order
+            description: Updates an order.
+            body:
+                application/vnd.ibexa.api.OrderUpdate+json:
+                    type: OrderUpdateWrapper
+                    example: !include examples/orders/PATCH/OrderUpdate.json.example
+            headers:
+                Accept:
+                    description: If set, the updated order is returned in XML or JSON format.
+                    example:  |
+                        application/vnd.ibexa.api.Order+json
+                Content-Type:
+                    description: The OrderUpdate schema encoded in XML or JSON format.
+                    example:  |
+                        application/vnd.ibexa.api.OrderUpdate+json
+            responses:
+                200:
+                    body:
+                        application/vnd.ibexa.api.Order+json:
+                            type: OrderWrapper
+                            example: !include examples/orders/GET/Order.json.example
+                400:
+                    description: Error - the input does not match the input schema definition.
+                401:
+                    description: Error - the user is not authorized to update this order.
+                404:
+                    description: Error - the order with the given ID does not exist.
+                406:
+                    description: Error - the order cannot be cancelled due to not-allowed workflow transition
+    /cancel/{id}:
+        post:
+            displayName: Cancel order
+            description: Cancels the given order.
+            responses:
+                204:
+                    description: No content - the given order is cancelled.
+                401:
+                    description: Error - the user is not authorized to delete this order.
+                404:
+                    description: Error - the order with the given ID does not exist.
+                406:
+                    description: Error - the order cannot be cancelled due to not-allowed workflow transition

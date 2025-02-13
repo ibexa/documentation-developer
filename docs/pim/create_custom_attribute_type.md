@@ -25,9 +25,9 @@ A form mapper maps the data entered in an editing form into an attribute value.
 
 The form mapper must implement `Ibexa\Contracts\ProductCatalog\Local\Attribute\ValueFormMapperInterface`.
 
-In this example, you can use the Symfony's built-in `PercentType` class (line 42).
+In this example, you can use the Symfony's built-in `PercentType` class (line 40).
 
-``` php hl_lines="42"
+``` php hl_lines="40"
 [[= include_file('code_samples/catalog/custom_attribute_type/src/Attribute/Percent/Form/PercentValueFormMapper.php') =]]
 ```
 
@@ -151,6 +151,6 @@ Register the storage definition as a service and tag it with `ibexa.product_cata
 
 ## Use new attribute type
 
-In the Back Office you can now add a new Percent attribute to your product type and create a product with it.
+In the back office you can now add a new Percent attribute to your product type and create a product with it.
 
 ![Creating a product with a custom Percent attribute](catalog_custom_attribute_type.png)

@@ -1,5 +1,5 @@
 ---
-description: Data migration enables you to import and export Repository data by using YAML files.
+description: Data migration enables you to import and export repository data by using YAML files.
 page_type: landing_page
 ---
 
@@ -7,15 +7,14 @@ page_type: landing_page
 
 Data migration allows exporting and importing selected data from an [[= product_name =]] installation.
 
-[*Exporting*](exporting_data.md) data consists in saving selected Repository information in YAML format.
-[*Importing*](importing_data.md) reads migration YAML files and creates or modifies Repository content based on them.
-You can migrate your Repository data, that is Content items, as well as Content Types, languages, Object states, Sections, and so on,
-between installations.
+[*Exporting*](exporting_data.md) data consists in saving selected repository information in YAML format.
+[*Importing*](importing_data.md) reads migration YAML files and creates or modifies repository content based on them.
+Between installation, you can migrate your repository data, for example, content items, content types, languages, object states, or sections.
 
 You can use migrations in projects that require the same data to be present across multiple instances.
-They can be useful for project templates. Migrations are able to store shared data, so they can be applied for each new project you start,
-or incrementally upgrade older projects to your new standard, if needed.
-They are a developer-friendly tool that allows you to share data without writing code.
+You can use them for project templates.
+Migrations are able to store shared data, so they can be applied for each new project you start, or incrementally upgrade older projects to your new standard, if needed.
+They're a developer-friendly tool that allows you to share data without writing code.
 
 You can run data migrations either with a command, or with the [PHP API](data_migration_api.md).
 

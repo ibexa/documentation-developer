@@ -1,7 +1,10 @@
+---
+description: CustomField Sort Clause
+---
+
 # CustomField Sort Clause
 
-The [`CustomField` Sort Clause](https://github.com/ibexa/core/blob/main/src/contracts/Repository/Values/Content/Query/SortClause/CustomField.php)
-sorts search results by raw search index fields.
+The [`CustomField` Sort Clause](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-SortClause-CustomField.html) sorts search results by raw search index fields.
 
 ## Arguments
 
@@ -12,10 +15,10 @@ sorts search results by raw search index fields.
 
 !!! caution
 
-    To keep your project search engine independent, do not use the `CustomField` Sort Clause in production code.
+    To keep your project search engine independent, don't use the `CustomField` Sort Clause in production code.
     Valid use cases are: testing, or temporary (one-off) tools.
 
-The `CustomField` Sort Clause is not available in [Repository filtering](search_api.md#repository-filtering).
+The `CustomField` Sort Clause isn't available in [Repository filtering](search_api.md#repository-filtering).
 
 ## Example
 

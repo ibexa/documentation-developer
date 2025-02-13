@@ -1,12 +1,12 @@
-# Selection Field Type
+# Selection field type
 
-The Selection Field Type stores single selections or multiple choices from a list of options, by populating a hash with the list of selected values.
+The Selection field type stores single selections or multiple choices from a list of options, by populating a hash with the list of selected values.
 
 | Name        | Internal name | Expected input type |
 |-------------|---------------|---------------------|
 | `Selection` | `ezselection` | mixed             |
 
-## PHP API Field Type
+## PHP API field type
 
 ### Input expectations
 
@@ -18,7 +18,7 @@ The Selection Field Type stores single selections or multiple choices from a 
 
 ##### Properties
 
-The Value class of this Field Type contains the following properties:
+The Value class of this field type contains the following properties:
 
 | Property     | Type    | Description|
 |--------------|---------|------------|
@@ -47,13 +47,13 @@ $selectionValue = new Selection\Value( [ 1, 2 ] );
 
 ##### String representation
 
-String representation of this Field Type is its list of selections as a string, concatenated with a comma.
+String representation of this field type is its list of selections as a string, concatenated with a comma.
 
 Example: `"1,2,24,42"`
 
 ### Hash format
 
-Hash format of this Field Type is the same as Value object's `selection` property.
+Hash format of this field type is the same as value object's `selection` property.
 
 ``` php
 // Example of value in hash format
@@ -63,18 +63,19 @@ $hash = [ 1, 2 ];
 
 ### Validation
 
-This Field Type validates the input, verifying if all selected options exist in the Field definition and checks if multiple selections are allowed in the Field definition.
-If any of these validations fail, a `ValidationError` is thrown, specifying the error message. When option validation fails, a list with the invalid options is also presented.
+This field type validates the input, verifying if all selected options exist in the field definition and checks if multiple selections are allowed in the field definition.
+If any of these validations fail, a `ValidationError` is thrown, specifying the error message.
+When option validation fails, a list with the invalid options is also presented.
 
 ### Settings
 
 | Name         | Type      | Default value | Description|
 |--------------|-----------|---------------|------------|
 | `isMultiple` | `boolean` | `false`       | Used to allow or prohibit multiple selection from the option list. |
-| `options`    | `hash`    | `[]`     | Stores the list of options defined in the Field definition.    |
+| `options`    | `hash`    | `[]`     | Stores the list of options defined in the field definition.    |
 
 ``` php
-// Selection Field Type example settings
+// Selection field type example settings
 
 use Ibexa\Core\FieldType\Selection\Type;
 

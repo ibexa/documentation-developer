@@ -1,7 +1,10 @@
+---
+description: DateTrashed Sort Clause
+---
+
 # DateTrashed Sort Clause
 
-The [`DateTrashed` Sort Clause](https://github.com/ibexa/core/blob/main/src/contracts/Repository/Values/Content/Query/SortClause/Trash/DateTrashed.php)
-sorts the results of searching in Trash by the date and time when the Content item was sent to trash.
+The [`DateTrashed` Sort Clause](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-SortClause-Trash-DateTrashed.html) sorts the results of searching in Trash by the date and time when the content item was sent to trash.
 
 ## Arguments
 

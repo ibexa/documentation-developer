@@ -26,7 +26,7 @@ class MoveContentCommand extends Command
         parent::__construct('doc:move_content');
     }
 
-    protected function configure()
+    protected function configure(): void
     {
         $this
             ->setDescription('Moves the selected Location with its subtree.')
@@ -36,13 +36,13 @@ class MoveContentCommand extends Command
             ]);
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $user = $this->userService->loadUserByLogin('admin');
         $this->permissionResolver->setCurrentUserReference($user);
 
-        $locationId = $input->getArgument('locationId');
-        $targetLocationId = $input->getArgument('targetLocationId');
+        $locationId = (int) $input->getArgument('locationId');
+        $targetLocationId = (int) $input->getArgument('targetLocationId');
 
         $sourceLocation = $this->locationService->loadLocation($locationId);
         $targetLocation = $this->locationService->loadLocation($targetLocationId);

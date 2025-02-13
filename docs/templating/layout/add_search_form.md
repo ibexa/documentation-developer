@@ -4,16 +4,13 @@ description: Add a search bar and customize the search form in your site front e
 
 # Add search form to front page
 
-You can add a search form to selected parts of your front page
-and decide which parts of the form, such as filters, are rendered.
+You can add a search form to selected parts of your front page and decide which parts of the form, such as filters, are rendered.
 
-This example shows how to add a basic search bar to the top of every page
-and to configure search form and result rendering.
+This example shows how to add a basic search bar to the top of every page and to configure search form and result rendering.
 
 ## Add a search bar
 
-First, prepare a general layout template in a `templates/themes/<theme_name>/pagelayout.html.twig` file, 
-and include a search bar in this template:
+First, prepare a general layout template in a `templates/themes/<theme_name>/pagelayout.html.twig` file, and include a search bar in this template:
 
 ``` html+twig hl_lines="1"
 [[= include_file('code_samples/front/search/search_bar/templates/themes/my_theme/pagelayout.html.twig', 19, 22) =]]
@@ -51,7 +48,7 @@ Now, add the `full/search.html.twig` template:
 [[= include_file('code_samples/front/search/search_bar/templates/themes/my_theme/full/search.html.twig') =]]
 ```
 
-This template replaces the default table that displays search results with a simple unnumbered list.
+This template replaces the default table that displays search results with an unnumbered list.
 
 ## Render search form
 
@@ -63,5 +60,4 @@ Create the `parts/search_form.html.twig` file:
 ```
 
 This template renders only a basic query field and a submit button.
-`'render_rest': false` ensures that the fields you do not explicitly add to the template are not rendered
-(in this case, date selection, Content Type, and so on).
+`'render_rest': false` ensures that the fields you don't explicitly add to the template aren't rendered (in this case, date selection, content type, and more).

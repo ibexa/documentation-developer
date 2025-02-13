@@ -1,19 +1,19 @@
-# User Field Type
+# User field type
 
-This Field Type validates and stores information about a user.
+This field type validates and stores information about a user.
 
 | Name   | Internal name | Expected input |
 |--------|---------------|----------------|
 | `User` | `ezuser`      | ignored        |
 
-## PHP API Field Type
+## PHP API field type
 
-### Value Object
+### Value object
 
 |Property|Type|Description|Example|
 |------|------|------|------|
 |`hasStoredLogin`|`boolean`|Denotes if user has stored login.|`true`|
-|`contentId`|`int|string`|ID of the Content item corresponding to the user.|`42`|
+|`contentId`|`int|string`|ID of the content item corresponding to the user.|`42`|
 |`login`|`string`|Username.|`john`|
 |`email`|`string`|The user's email address.|`john@smith.com`|
 |`passwordHash`|`string`|Hash of the user's password.|`1234567890abcdef`|
@@ -30,9 +30,11 @@ This Field Type validates and stores information about a user.
 
 !!! caution
 
-    Old password hash types like MD5 have numerical hash type value from 1 to 5. These types were deprecated in v1.13 and removed in v3.0.
+    Old password hash types like MD5 have numerical hash type value from 1 to 5.
+    These types were deprecated in v1.13 and removed in v3.0.
     Between v1.13 and v3.0 it was possible to update hashes automatically when users logged in.
-    Since v3.0, login is only possible with hash type 6 or larger. Automatic updates of older types on login are not possible anymore.
+    Since v3.0, login is only possible with hash type 6 or larger.
+    Automatic updates of older types on login aren't possible anymore.
     A mass migration of all hashes has never been possible, because this would require knowing the passwords, which only users themselves do.
     Users who still have an old, unsupported password hash type can request a new, valid password using the "Forgot password" feature.
 

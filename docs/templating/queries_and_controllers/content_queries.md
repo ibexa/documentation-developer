@@ -1,12 +1,12 @@
 ---
-description: Query content by using Query types and content query Field.
+description: Query content by using Query types and content query field.
 ---
 
 # Content queries
 
 With content queries you can find and render specific content according to criteria that you define.
 
-You can use queries to list or embed Content items, such as:
+You can use queries to list or embed content items, such as:
 
 - [children in a folder](list_content.md#list-children-with-query-type)
 - related articles
@@ -19,14 +19,13 @@ For more complex cases, you can build custom [controllers](controllers.md).
 ## Query types
 
 The Query controller offers a set of [built-in Query types](built-in_query_types.md).
-You can use them in the content view configuration, or in the [Content query Field](#content-query-field).
+You can use them in the content view configuration, or in the [content query field](#content-query-field).
 
-You can also write [custom Query types](create_custom_query_type.md) for the cases that are not covered by the built-in ones.
+You can also write [custom Query types](create_custom_query_type.md) for the cases that aren't covered by the built-in ones.
 
 ### Query type configuration
 
-To use a Query type, select the Query controller (`ibexa_query`) in the [content view configuration](template_configuration.md)
-and select the Query type under `params.query.query_type`:
+To use a Query type, select the Query controller (`ibexa_query`) in the [content view configuration](template_configuration.md) and select the Query type under `params.query.query_type`:
 
 ``` yaml hl_lines="2 6"
 folder:
@@ -44,7 +43,7 @@ folder:
 
 Use one of the following Query controller methods:
 
-- `locationQueryAction` runs a Location Search
+- `locationQueryAction` runs a location Search
 - `contentQueryAction` runs a content Search
 - `contentInfoQueryAction` runs a ContentInfo search
 - `pagingQueryAction` returns a `PagerFanta` object and can be used to quickly [paginate query results](#pagination)
@@ -63,13 +62,11 @@ All Query types take the following parameters:
 !!! tip
 
     Search results are a `SearchResult` object, which contains `SearchHit` objects.
-    To get the content or Locations that are in search results, you access the `valueObject`
-    of the `SearchHit`.
+    To get the content or Locations that are in search results, you access the `valueObject` of the `SearchHit`.
 
 ### Pagination
 
-To paginate the results of a query, use the `pagingQueryAction` of the Query controller
-and assign a limit per page in `params.query.limit`:
+To paginate the results of a query, use the `pagingQueryAction` of the Query controller and assign a limit per page in `params.query.limit`:
 
 ``` yaml hl_lines="4 12"
 [[= include_file('code_samples/front/query_pagination/config/packages/views.yaml', 8, 22) =]]
@@ -81,23 +78,23 @@ Use the [`pagerfanta`](https://www.babdev.com/open-source/packages/pagerfanta/do
 [[= include_file('code_samples/front/query_pagination/templates/themes/my_theme/full/folder.html.twig') =]]
 ```
 
-## Content query Field
+## Content query field
 
-The [Content query Field](contentqueryfield.md) is a Field that defines a query.
-The results of the query are available in the Field value.
+The [Content query field](contentqueryfield.md) is a field that defines a query.
+The results of the query are available in the field value.
 
-![Content query Field definition](content_query_field_definition.png)
+![Content query field definition](content_query_field_definition.png)
 
 ### Query type
 
-When adding the Field to a Content Type definition, select the Query type in the **Query type** dropdown.
+When adding the field to a content type definition, select the Query type in the **Query type** dropdown.
 All Query types in the application are available, both [built-in](built-in_query_types.md) and [custom ones](create_custom_query_type.md).
 
 ### Returned types
 
-Select the Content Type of items you want to return in the **Returned type** dropdown.
-To take it into account, your Query type must filter on the Content Type.
-Provide the selected Content Type through the `returnedType` variable:
+Select the content type of items you want to return in the **Returned type** dropdown.
+To take it into account, your Query type must filter on the content type.
+Provide the selected content type through the `returnedType` variable:
 
 ```
 contentType: '@=returnedType'
@@ -107,8 +104,7 @@ contentType: '@=returnedType'
 
 Select **Enable pagination** and set the number of items per page to paginate the results.
 
-You can override the pagination settings from Field definition
-by setting the `enablePagination`, `disablePagination` or `itemsPerPage` parameters when rendering the Content query Field:
+You can override the pagination settings from field definition by setting the `enablePagination`, `disablePagination` or `itemsPerPage` parameters when rendering the content query field:
 
 ``` html+twig
 {{ ibexa_render_field(content, 'query', {
@@ -119,7 +115,7 @@ by setting the `enablePagination`, `disablePagination` or `itemsPerPage` paramet
 }) }}
 ```
 
-You can also define an offset for the results. 
+You can also define an offset for the results.
 Provide the offset in the Query type, or in parameters:
 
 ```
@@ -136,22 +132,21 @@ For example, with `itemsPerPage` 10, first page starts with 0, second page start
 
 The following variables are available in parameter expressions:
 
-- `returnedType` - the identifier of the Content Type selected in the **Returned type** dropdown
-- `content` - the current Content item
-- `location` - the current Location of the Content item
-- `mainLocation` - the main Location of the Content item
-- `contentInfo` - the current Content item's ContentInfo
+- `returnedType` - the identifier of the content type selected in the **Returned type** dropdown
+- `content` - the current content item
+- `location` - the current Location of the content item
+- `mainLocation` - the main Location of the content item
+- `contentInfo` - the current content item's ContentInfo
 
 ### Content view configuration
 
-To render a Content query Field, in the content view configuration, use the `content_query_field` view type:
+To render a content query field, in the content view configuration, use the `content_query_field` view type:
 
 ``` yaml
 [[= include_file('code_samples/front/list_content/config/packages/views.yaml', 8, 9) =]][[= include_file('code_samples/front/list_content/config/packages/views.yaml', 22, 28) =]]
 ```
 
-The identifier of the Content query Field must be matched by
-using the `'@Ibexa\FieldTypeQuery\ContentView\FieldDefinitionIdentifierMatcher'` matcher.
+The identifier of the content query field must be matched by using the `'@Ibexa\FieldTypeQuery\ContentView\FieldDefinitionIdentifierMatcher'` matcher.
 
 Query results are provided to the template in the `items` variable.
-See [List content](list_content.md#list-children-in-content-query-field) for an example of using the Content query Field.
+See [List content](list_content.md#list-children-in-content-query-field) for an example of using the content query field.

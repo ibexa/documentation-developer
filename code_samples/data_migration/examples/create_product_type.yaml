@@ -18,6 +18,7 @@
         -   identifier: specification
             type: ibexa_product_specification
             required: true
+            translatable: false
             translations:
                 eng-GB:
                     name: Specification

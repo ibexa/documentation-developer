@@ -1,11 +1,15 @@
+---
+description: ObjectStateTermAggregation
+---
+
 # ObjectStateTermAggregation
 
-The [ObjectStateTermAggregation](https://github.com/ibexa/core/blob/main/src/contracts/Repository/Values/Content/Query/Aggregation/ObjectStateTermAggregation.php) aggregates search results by the Content item's Object state.
+The [ObjectStateTermAggregation](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Aggregation-ObjectStateTermAggregation.html) aggregates search results by the content item's object state.
 
 ## Arguments
 
 - `name` - name of the Aggregation object
-- `objectStateGroupIdentifier` - string representing the identifier of the Object state group to aggregate results by
+- `objectStateGroupIdentifier` - string representing the identifier of the object state group to aggregate results by
 
 ## Example
 

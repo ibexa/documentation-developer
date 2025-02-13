@@ -1,3 +1,7 @@
+---
+description: ProductAvailabilityTerm
+---
+
 # ProductAvailabilityTerm
 
 The ProductAvailabilityTermAggregation aggregates search results by product availability (available/unavailable).

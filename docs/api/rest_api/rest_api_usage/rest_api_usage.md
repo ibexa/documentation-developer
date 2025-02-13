@@ -1,16 +1,15 @@
 ---
-description: The REST API covers objects in the Ibexa DXP Repository with regular and custom HTTP methods, such as GET or PUBLISH, as well as HTTP headers.
+description: The REST API covers objects in the Ibexa DXP Repository with regular and custom HTTP methods, such as GET or PUBLISH, and HTTP headers.
 ---
 
 # REST API usage
 
-The REST API in [[= product_name =]] allows you to interact with an [[= product_name =]] installation using the HTTP protocol,
-following a [REST](https://en.wikipedia.org/wiki/Representational_state_transfer) interaction model.
+The REST API in [[= product_name =]] allows you to interact with an [[= product_name =]] installation by using the HTTP protocol, following a [REST](https://en.wikipedia.org/wiki/Representational_state_transfer) interaction model.
 
 Each resource (URI) interacts with a part of the system (like content, users or search).
-Every interaction with the Repository than you can do from Back Office or using the [Public PHP API](php_api.md) can also be done using the REST API.
+Every interaction with the repository than you can do from back office or by using the [Public PHP API](php_api.md) can also be done with the REST API.
 
-The REST API uses HTTP methods (such as `GET` and `PUBLISH`), as well as HTTP headers to specify the type of request.
+The REST API uses HTTP methods (such as `GET` and `PUBLISH`), and HTTP headers to specify the type of request.
 
 ## URIs
 
@@ -30,7 +29,7 @@ If you need to the select a SiteAccess, see the [`X-Siteaccess` HTTP header](res
 URI parameters (query string) can be used on some resources.
 They usually serve as options or filters for the requested resource.
 
-As an example, the request below would paginate the results and return the first 5 relations for version 3 of the Content item 59:
+As an example, the request below would paginate the results and return the first 5 relations for version 3 of the content item 59:
 
 ```http
 GET /content/objects/59/versions/3/relations?limit=5 HTTP/1.1
@@ -58,7 +57,7 @@ curl -H "Accept: application/json" https://api.example.com/api/ibexa/v2/
 
 ### Country list
 
-Alongside regular Repository interactions, there is a REST service providing a list of countries with their names, [ISO-3166](https://en.wikipedia.org/wiki/ISO_3166) codes and International Dialing Codes (IDC). It could be useful when presenting a country options list from any application.
+Alongside regular Repository interactions, there is a REST service providing a list of countries with their names, [ISO-3166](https://en.wikipedia.org/wiki/ISO_3166) codes and International Dialing Codes (IDC). You can use it when presenting a country options list from any application.
 
 This country list's URI is `/services/countries`.
 
@@ -66,7 +65,7 @@ The ISO-3166 country codes can be represented as:
 
 - two-letter code (alpha-2) — recommended as the general purpose code
 - three-letter code (alpha-3) — related to the country name
-- three-digit numeric code (numeric-3) — useful if you need to avoid using Latin script
+- three-digit numeric code (numeric-3) — use it if you need to avoid using Latin script
 
 For details, see the [ISO-3166 glossary](https://www.iso.org/glossary-for-iso-3166.html).
 

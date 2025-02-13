@@ -1,19 +1,20 @@
 ---
-description: Prepare templates for Page layouts and render Page blocks.
+description: Prepare templates for page layouts and render page blocks.
 edition: experience
 ---
 
-# Render a Page
+# Render a page
 
-Page is a special Content Type that contains a [Page Field](pagefield.md).
+Page is a special content type that contains a [page field](pagefield.md).
 
-A Page Field is a layout composed of zones. Each zone can contain multiple blocks.
+A page field is a layout composed of zones.
+Each zone can contain multiple blocks.
 
 ## Render a layout
 
 ### Configure layout
 
-The default, built-in Page layout has only one zone.
+The default, built-in page layout has only one zone.
 You can create other layouts in configuration, under the `ibexa_fieldtype_page.layouts` key.
 
 To create a new layout called "Right sidebar", use the following [configuration](configuration.md#configuration-files):
@@ -39,8 +40,8 @@ To render the "Right sidebar" layout, add the following template to `templates/t
 
 ## Render a block
 
-Every built-in Page block has a default template, [which you can override](#override-default-block-templates).
-Every Page block can also have multiple other templates.
+Every built-in page block has a default template, [which you can override](#override-default-block-templates).
+Every page block can also have multiple other templates.
 The editor chooses a template when creating a block in the Page Builder.
 
 [[% include 'snippets/page_block_cache_clear.md' %]]
@@ -74,8 +75,7 @@ For example:
 
 !!! tip
 
-    To use a different file structure when overriding default templates,
-    add an import statement to the template.
+    To use a different file structure when overriding default templates, add an import statement to the template.
 
     For example, in `templates/bundles/IbexaFieldTypePageBundle/blocks/contentlist.html.twig`:
 
@@ -84,4 +84,4 @@ For example:
     ```
 
     Then, place the actual template in the imported file `templates/blocks/contentlist/new_default.html.twig`.
-    
+

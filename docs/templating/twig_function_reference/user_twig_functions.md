@@ -13,8 +13,7 @@ page_type: reference
 {{ ibexa_user_get_current().login }}
 ```
 
-You can get the underlying Content item, for example to display the user's last name,
-by accessing the `content` property:
+You can get the underlying content item, for example to display the user's last name, by accessing the `content` property:
 
 ``` html+twig
 {{ ibexa_render_field(ibexa_user_get_current().content, 'last_name') }}

@@ -1,5 +1,5 @@
 ---
-description: The Page Builder product guide provides a full description of its features as well as the benefits it brings to the client.
+description: Read about the Page Builder - a powerful tool for creating and modifying pages in Ibexa DXP.
 edition: experience
 ---
 
@@ -7,7 +7,8 @@ edition: experience
 
 ## What is page
 
-[Page](pages.md) is a block-based type of content. You can create and modify it with a visual drag-and-drop editor - Page Builder.
+[Page](pages.md) is a block-based type of content.
+You can create and modify it with a visual drag-and-drop editor - Page Builder.
 Page is divided into zones into which you can drop various dynamic blocks.
 By editing pages you can customize the layout and content of your website.
 
@@ -15,27 +16,30 @@ By editing pages you can customize the layout and content of your website.
 
 To create a new page:
 
-A\. In the left panel, go to **Content**.
+1\. In the main menu, go to **Content**.
 
-B\. Select **Content structure**.
+2\. Select **Content structure**.
 
-C\. On the right-side toolbar, click **Create content** and from the list of Content items select **Landing Page**.
+3\. On the right-side toolbar, click **Create content**.
 
-D\. Select the layout and click **Create**.
+4\. From the list of content items select **Landing Page**.
+
+5\. Select the layout and click **Create**.
 
 ![Create page](create_page.png)
 
 ### Edit page
 
-You can edit any existing page by using Page Builder. To do it, in the Back Office go to **Content** and select **Content structure**.
-Then, from the Content Tree choose the page and click **Edit**.
+You can edit any existing page with the Page Builder.
+To do it, in the back office go to **Content** and select **Content structure**.
+Then, from the content tree choose the page and click **Edit**.
 
 ## What is Page Builder
 
 Page Builder is a visual tool that allows you to create and edit any page in [[= product_name =]].
-It is more than managing: it is about building pages, creating customized content and fully-targeted landing pages.
-Creating pages in Page Builder involves composing content using ready-to-use elements - blocks, properly configured and customized.
-It is also important to choose a layout - it determines the arrangement of drop zones that contain content elements.
+It's more than managing: it's about building pages, creating customized content and fully-targeted landing pages.
+Creating pages in Page Builder involves composing content from ready-to-use elements - blocks, properly configured and customized.
+It's also important to choose a layout - it determines the arrangement of drop zones that contain content elements.
 
 ![Page Builder - diagram](page_builder_diagram.png)
 
@@ -55,7 +59,7 @@ Page Builder user interface consists of:
 
 A. Drop zone
 
-B. Elements / Structure view toolbar
+B. Page blocks / Structure view toolbar
 
 C. Settings toolbar (including Fields, Visibility and Schedule settings)
 
@@ -65,11 +69,11 @@ E. Buttons:
 
 |Button|Description|
 |------|-----------|
-|![Edit and preview switch](page_builder_toolbar_editpreview.png)|Access main properties of the Page, like title and description.|
-|![Preview segments](page_builder_toolbar_preview_segment.png)|Access preview of the Page for a given Segment.|
-|![Timeline button](page_builder_toolbartimelinetoggler.png)|Access the timeline to preview how the Page changes with time. You can also view the list of all upcoming scheduled events.|
-|![View toggler](page_builder_toolbar_devicestoggler.png)|Toggle through to see how the Page is rendered on different devices.|
-|![Elements menu](page_builder_toolbarelements.png)|Move Elements / Structure view to the other side of the screen.|
+|![Edit and preview switch](page_builder_toolbar_editpreview.png)|Access main properties of the page, like title and description.|
+|![Preview segments](page_builder_toolbar_preview_segment.png)|Access preview of the page for a given segment.|
+|![Timeline button](page_builder_toolbartimelinetoggler.png)|Access the timeline to preview how the page changes with time. You can also view the list of all upcoming scheduled events.|
+|![View toggler](page_builder_toolbar_devicestoggler.png)|Toggle through to see how the page is rendered on different devices.|
+|![Page blocks menu](page_builder_toolbarelements.png)|Move Page blocks / Structure view to the other side of the screen.|
 |![Undo](page_builder_undo.png)|Undo latest change.|
 |![Redo](page_builder_redo.png)|Redo latest change.|
 
@@ -83,15 +87,19 @@ F. Saving options
 |Save draft|Save the page draft*.|
 |Delete draft|Delete the page draft.|
 
-*To help you preserve your work, system saves drafts of Content items automatically. For more information, see [Autosave]([[= user_doc =]]/content_management/content_versions/#autosave).
+*To help you preserve your work, system saves drafts of content items automatically.
+
+For more information, see [Autosave]([[= user_doc =]]/content_management/content_versions/#autosave).
 
 Page Builder has two main views that you can use while creating a page:
 
-- Elements toolbar - consists of all available elements that you can use by dragging them and dropping on a drop zone.
+- Page blocks toolbar - consists of all available elements that you can use by dragging them and dropping on a drop zone.
 
-![Elements toolbar](elements_toolbar.png)
+![Page blocks](page_blocks_toolbar.png)
 
-- Structure view - shows a structure of the page, including its division into zones and the blocks that it contains. It follows the behavior of the Content Tree. Structure view has ability to reorder blocks using drag and drop.
+- Structure view - shows a structure of the page, including its division into zones and the blocks that it contains.
+It follows the behavior of the content tree.
+Structure view has ability to reorder blocks using drag and drop.
 
 ![Structure view](structure_view.png)
 
@@ -99,10 +107,10 @@ Page Builder has two main views that you can use while creating a page:
 
 For newly created Page you can choose a [layout]([[= user_doc =]]/content_management/configure_ct_field_settings/#available-page-layouts) which defines the available zones.
 
-Applying a layout divides the Page into the defined zones. The zones are placeholders for Content items.
+Applying a layout divides the Page into the defined zones. The zones are placeholders for content items.
 
 On the Page creation modal, select the layout and click **Create draft**.
-Now you are ready to add blocks of content to the Page.
+Now you're ready to add blocks of content to the Page.
 
 The page layouts that an editor has access to are up to you to choose.
 In the `Select layouts` section, you can select layouts that you want to be available for the Page.
@@ -110,12 +118,13 @@ In the `Select layouts` section, you can select layouts that you want to be avai
 ![Switch layout](switch_layout_window.png)
 
 The default, built-in Page layout has only one zone, but developers can create other layouts in configuration.
+
 For more information, see [Configure layout](render_page.md#configure-layout).
 
 #### Add blocks
 
 To customize your page in Page Builder you need to add blocks.
-To do it, access Elements toolbar, drag page block that you want to use, and drop it on the empty place on a drop zone.
+To do it, access Page blocks toolbar, drag page block that you want to use, and drop it on the empty place on a drop zone.
 
 When you add a new block to the drop zone, drop it in the blue highlighted area. Before you drop it, a bold line appears  - it helps you see the position of the newly added block in relation to other, already added blocks.
 
@@ -167,7 +176,7 @@ You can schedule content to be revealed, or hidden in Page Builder in two ways w
 
 ![Scheduler tab](scheduler_tab.png)
 
-- **Content Scheduler** - it's one of the blocks available in Page Builder Elements menu. To proceed with the schedule, go to **Basic** tab of the block, then click **Select content** and confirm your choice. Then set date and time in the **Content airtime settings** window.
+- **Content Scheduler** - it's one of the blocks available in Page Builder Page blocks menu. To proceed with the schedule, go to **Basic** tab of the block, then click **Select content** and confirm your choice. Then set date and time in the **Content airtime settings** window.
 
 ![Content Scheduler](content_scheduler.png)
 
@@ -178,7 +187,7 @@ For more information, see [Schedule publication]([[= user_doc =]]/content_manage
 ### Manage your pages without technical skills
 
 Thanks to intuitive and plain Page Builder interface, you can create and manage your website without the need of having advanced technical skills.
-Elements toolbar, visible page zones and Structure view - these are the elements that make working with Page Builder really intuitive and quick.
+Page blocks toolbar, visible page zones and Structure view - these are the elements that make working with Page Builder really intuitive and quick.
 
 ### Self schedule content, special offers and campaigns
 
@@ -199,9 +208,9 @@ Additionaly, Page Builder offers you a selection of ready-to-use page blocks tha
 
 A. **Default** blocks:
 
-- Dynamic targeting - embeds recommended items based on the Segment the user belongs to.
-- Personalized - displays a list of Content items/products that are recommended to end users when specific scenarios are triggered.
-- Targeting - embeds a Content item based on the Segment the user belongs to.
+- Dynamic targeting - embeds recommended items based on the segment the user belongs to.
+- Personalized - displays a list of content items/products that are recommended to end users when specific scenarios are triggered.
+- Targeting - embeds a content item based on the segment the user belongs to.
 
 B. **PIM** blocks:
 

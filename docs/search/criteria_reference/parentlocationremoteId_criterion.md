@@ -1,10 +1,14 @@
+---
+description: ParentLocationRemoteId Search Criterion
+---
+
 # ParentLocationRemoteId Criterion
 
-The `ParentLocationRemoteId` Search Criterion searches for content based on the Location remote ID of its parent.
+The `ParentLocationRemoteId` Search Criterion searches for content based on the location remote ID of its parent.
 
 ## Arguments
 
-- `value` - int(s) representing the parent Location remote IDs
+- `value` - int(s) representing the parent location remote IDs
 
 
 ### REST API

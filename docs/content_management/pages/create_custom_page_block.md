@@ -1,5 +1,6 @@
 ---
 description: Create and configure custom Page blocks to add customized content to Pages.
+month_change: false
 ---
 
 # Create custom Page block
@@ -17,26 +18,27 @@ The following example shows how to create a block that showcases an event.
 First, add the following [YAML configuration](configuration.md#configuration-files):
 
 ``` yaml
-[[= include_file('code_samples/page/custom_page_block/config/packages/page_blocks.yaml', 0, 6) =]][[= include_file('code_samples/page/custom_page_block/config/packages/page_blocks.yaml', 16, 39) =]]
+[[= include_file('code_samples/page/custom_page_block/config/packages/page_blocks.yaml', 0, 6) =]][[= include_file('code_samples/page/custom_page_block/config/packages/page_blocks.yaml', 16, 47) =]]
 ```
 
 `event` is the internal name for the block, and `name` indicates the name under which the block is available in the interface.
-You also set up the category in the Elements panel that the block appears in.
+You also set up the category in the **Page blocks** toolbox that the block appears in.
 In this case, it doesn't show with the rest of the built-in blocks, but in a separate "Custom" category.
-The thumbnail for the block can be one of the pre-existing icons, like in the example above,
-or you can use a custom SVG file.
+The thumbnail for the block can be one of the pre-existing icons, like in the example above, or you can use a custom SVG file.
 
-A block can have multiple attributes that you edit when adding it to a Page.
-In this example, you configure three attributes: name of the event, category it belongs to,
-and an event Content item that you select and embed.
+A block can have multiple attributes that you edit when adding it to a page.
+In this example, you configure three attributes: name of the event, category it belongs to, and an event content item that you select and embed.
 
 For a list of all available attribute types, see [Page block attributes](page_block_attributes.md).
 
-Each attribute can have [validators](page_block_validators.md). The `not_blank` validators in the example ensure that the user fills in the two block fields.
+Each attribute can have [validators](page_block_validators.md).
+The `not_blank` validators in the example ensure that the user fills in the two block fields.
+The `content_type` validator in the example ensure that the user choose a content item of the content type `event`.
+The `regexp` validator ensure that the final value looks like a content ID.
 
 ## Add block templates
 
-A block can have different templates that you select when adding it to a Page.
+A block can have different templates that you select when adding it to a page.
 
 To configure block templates, add them to block configuration:
 
@@ -59,7 +61,7 @@ The template with the greatest priority is used as the default one.
 
 ## Add block JavaScript
 
-If your block is animated with JavaScript, you may have to take precaution to keep it working when previewed in Back Office's Page Builder.
+If your block is animated with JavaScript, you may have to take precaution to keep it working when previewed in back office's Page Builder.
 
 If you use an event related to the page being loaded to trigger the initialisation of your custom block, a freshly added block doesn't work in the Page Builder preview.
 For example, the [`DOMContentLoaded`](https://developer.mozilla.org/en-US/docs/Web/API/Document/DOMContentLoaded_event) event isn't fired when a block is dragged into the page as the DOM is already loaded.
@@ -87,10 +89,24 @@ document.getElementsByTagName('body')[0].addEventListener('ibexa-render-block-pr
 !!! note
 
     For the addition of your custom block's JS and CSS files, see [Assets](assets.md).
-    
+
     If you consider using React JavaScript library, see [React App block](react_app_block.md).
 
-## Add edit templates
+## Add pre-render event listener
+
+If you need to compute variables to pass to the template, you can listen or subscribe to the block pre-render event.
+
+For example, the following event subscriber loads the `event` content item and passes it to the template as `event_content`:
+
+``` php
+[[= include_file('code_samples/page/custom_page_block/src/Event/Subscriber/BlockEmbedEventEventSubscriber.php') =]]
+```
+
+The block view template could now use `ibexa_render(event_content, {'viewType': 'embed'})` instead of `render(controller('ibexa_content::viewAction', {'contentId': event, 'viewType': 'embed'}))`, other [content Twig functions](content_twig_functions.md), or [field Twig functions](field_twig_functions.md).
+
+For more information, see [Block events](page_blocks.md#block-events).
+
+## Add edit template
 
 You can also customize the template for the block settings modal.
 Do this under the `configuration_template` [configuration key](configuration.md#configuration-files):
@@ -99,11 +115,30 @@ Do this under the `configuration_template` [configuration key](configuration.md#
 [[= include_file('code_samples/page/custom_page_block/config/packages/page_blocks.yaml', 0, 7) =]]
 ```
 
-Place the edit template in `templates/themes/<your_theme>/blocks/event/config.html.twig'`:
+Place the edit template in `templates/themes/<your_theme>/blocks/event/config.html.twig`:
 
 ``` html+twig
 [[= include_file('code_samples/page/custom_page_block/templates/themes/standard/blocks/event/config.html.twig') =]]
 ```
 
-Your custom page block is now ready. 
-Before you can use it in Page Builder, you must [enable it in Page field settings]([[= user_doc =]]/content_management/configure_ct_field_settings/#block-display).
+This example template overrides the `embed` attribute widget to customize the Universal Discovery Widget (UDW).
+It adds itself to the `form_templates` and defines a `block_configuration_attribute_embed_widget` block.
+The following UDW configuration is used so only an `event` typed content item can be selected:
+
+``` yaml
+[[= include_file('code_samples/page/custom_page_block/config/packages/page_blocks.yaml', 48, 57) =]]
+```
+
+For more information, see [UDW configuration](browser.md#udw-configuration).
+
+Your custom page block is now ready.
+
+!!! caution
+
+    Before you can use it in Page Builder, you must [enable it in Page field settings]([[= user_doc =]]/content_management/configure_ct_field_settings/#block-display).
+
+Your custom page block is now registered in the system.
+
+!!! caution
+
+    To use the new block in Page Builder, add it to the list of available blocks in a given content type's settings. This can be done manually in [Page field settings]([[= user_doc =]]/content_management/configure_ct_field_settings/#block-display) or by using the migration action [`add_block_to_available_blocks`](data_migration_actions.md#content-types).

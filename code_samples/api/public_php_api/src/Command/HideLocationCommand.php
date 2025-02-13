@@ -26,7 +26,7 @@ class HideLocationCommand extends Command
         parent::__construct('doc:hide');
     }
 
-    protected function configure()
+    protected function configure(): void
     {
         $this
             ->setDescription('Hides and reveals again selected Location.')
@@ -35,12 +35,12 @@ class HideLocationCommand extends Command
             ]);
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $user = $this->userService->loadUserByLogin('admin');
         $this->permissionResolver->setCurrentUserReference($user);
 
-        $locationId = $input->getArgument('location_id');
+        $locationId = (int) $input->getArgument('location_id');
 
         $location = $this->locationService->loadLocation($locationId);
 

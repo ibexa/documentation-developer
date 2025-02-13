@@ -1,5 +1,5 @@
 ---
-description: Events that are triggered when working with users and User Groups.
+description: Events that are triggered when working with users and user groups.
 page_type: reference
 ---
 
@@ -14,7 +14,7 @@ page_type: reference
 |`BeforeDeleteUserEvent`|`UserService::deleteUser`|`User $user`</br>`array|null $locations`|
 |`DeleteUserEvent`|`UserService::deleteUser`|`User $user`</br>`array $locations`|
 
-## User Groups
+## User groups
 
 | Event | Dispatched by | Properties |
 |---|---|---|
@@ -27,7 +27,7 @@ page_type: reference
 |`BeforeMoveUserGroupEvent`|`UserService::moveUserGroup`|`UserGroup $userGroup`</br>`UserGroup $newParent`|
 |`MoveUserGroupEvent`|`UserService::moveUserGroup`|`UserGroup $userGroup`</br>`UserGroup $newParent`|
 
-## Assigning to User Groups
+## Assigning to user groups
 
 | Event | Dispatched by | Properties |
 |---|---|---|

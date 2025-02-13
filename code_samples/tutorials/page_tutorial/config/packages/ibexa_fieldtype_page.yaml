@@ -39,7 +39,7 @@ ibexa_fieldtype_page:
                         regexp:
                             options:
                                 pattern: '/[0-9]+/'
-                            message: Choose a Content item
+                            message: Choose a content item
         form:
             views:
                 default:

@@ -1,0 +1,24 @@
+<div class="main_nav">
+    <div class="main_nav_content">
+        <div class="site-header" id="site-name">
+            <a href=".">{{ project.name }}</a>
+            <span class="pill">latest</span>
+        </div>
+        <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+            <div class="md-sidebar__scrollwrap">
+                <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+                        <ul class="md-nav__list">
+                            <li></li>
+                            {% for namespace in project.namespace.children %}
+                                {% include 'components/menu.html.twig' with { entry: namespace, depth: 0, nav_id: loop.index } %}
+                                {% set break = true %}
+                            {% endfor %}
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="main_nav__resize-handler"></div>
+</div>

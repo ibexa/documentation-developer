@@ -4,10 +4,11 @@ description: Try customizing the front page by using custom templates and adding
 
 # Step 3 — Customize the front page
 
-In this step you will create the global layout of your site, and display content using custom templates.
+In this step you can create the global layout of your site, and display content by using custom templates.
 
-First, go to the root of the site (`<yourdomain>`). You should now see the home page of the clean install, without any kind of layout.
-You will customize this step by instructing the platform to use a custom template to render this Content item.
+First, go to the root of the site (`<yourdomain>`).
+You should now see the home page of the clean install, without any kind of layout.
+You can customize this step by instructing the platform to use a custom template to render this content item.
 
 ## Content rendering configuration
 
@@ -17,7 +18,7 @@ To use a custom template when rendering the root content, create a `content_view
 
     When pasting YAML code, pay attention to indentation and levels.
     The code blocks shown here include the full structure of the YAML file to help you learn where to place new blocks.
-    Be careful not to duplicate existing keys, because YAML does not allow it.
+    Be careful not to duplicate existing keys, because YAML doesn't allow it.
 
 Edit `config/packages/ibexa.yaml`.
 Add the following block under `site` while paying attention to indentation - `content_view` should be one level below `site`:
@@ -35,13 +36,14 @@ ibexa:
 ```
 
 This tells [[= product_name =]] to use the `template` when rendering content with Location ID `2`.
-`2` is the default Location for the root Content item.
+`2` is the default location for the root content item.
 
 `Id\Location` is one of several [view matchers](view_matcher_reference.md) that you can use to customize rendering depending on different criteria.
 
 !!! note "Clear the cache"
 
-    Each time you change the YAML files, you should clear the cache. It's not mandatory in dev environment.
+    Each time you change the YAML files, you should clear the cache.
+    It's not mandatory in dev environment.
 
     To clear the cache:
 
@@ -65,7 +67,7 @@ Create a `home_page.html.twig` file in `templates/full/`:
 </div>
 ```
 
-Refresh the page and you will see a simple, unstyled version of the message.
+Refresh the page to see an unstyled version of the message.
 
 !!! note
 
@@ -74,7 +76,7 @@ Refresh the page and you will see a simple, unstyled version of the message.
 ### Add the site's main layout
 
 Most sites have a general layout which includes things like header with a logo or footer.
-It is displayed on every page, and the content of the page is placed inside it.
+It's displayed on every page, and the content of the page is placed inside it.
 
 To add a template like this to your site, create a `main_layout.html.twig` file in `templates/` and paste the following code into it:
 
@@ -173,12 +175,13 @@ To add a template like this to your site, create a `main_layout.html.twig` file 
 </html>
 ```
 
-Note that in the highlighted lines (12 and 89) the template takes advantage of [Symfony Webpack Encore]([[= symfony_doc =]]/frontend.html#webpack-encore).
-This tutorial will lead you through configuring Webpack, but first you need assets.
+In the highlighted lines (12 and 89) the template takes advantage of [Symfony Webpack Encore]([[= symfony_doc =]]/frontend.html#webpack-encore).
+This tutorial leads you through configuring Webpack, but first you need assets.
 
 ### Adding assets
 
-The site has no stylesheets or assets yet. You need to download [`assets.zip`](img/assets.zip) which contains the prepared asset files.
+The site has no stylesheets or assets yet.
+You need to download [`assets.zip`](img/assets.zip) which contains the prepared asset files.
 
 Then unpack its contents to the following directories:
 
@@ -193,7 +196,8 @@ Before proceeding, ensure that the structure of the added files looks like this:
 
 In [[= product_name =]], you can add assets by using [Symfony Webpack Encore]([[= symfony_doc =]]/frontend.html#webpack-encore)
 — an integration of Webpack that enables you to build bundles of CSS stylesheets and JS scripts and add them to the project.
-For more details, see [Importing assets from a bundle](importing_assets_from_bundle.md).
+
+For more information, see [Importing assets from a bundle](importing_assets_from_bundle.md).
 
 To create bundles, first, indicate which files to include in them.
 
@@ -213,8 +217,7 @@ Encore
     ]);
 ```
 
-Note that `.addStyleEntry('tutorial', [])` and `.addEntry('tutorial-js', [])` refer respectively to
-`{{  encore_entry_link_tags('tutorial') }}` and `{{ encore_entry_script_tags('tutorial-js') }}` from `main_layout.html.twig`.
+`.addStyleEntry('tutorial', [])` and `.addEntry('tutorial-js', [])` refer to `{{  encore_entry_link_tags('tutorial') }}` and `{{ encore_entry_script_tags('tutorial-js') }}` from `main_layout.html.twig`.
 This configuration creates a bundle consisting of files to be added to a template.
 
 At this point the bundles are created and ready to be used.
@@ -236,11 +239,13 @@ To add one template to another, edit `templates/full/home_page.html.twig` and re
 ```
 
 The templating language Twig supports [template inheritance](https://twig.symfony.com/doc/3.x/tags/extends.html).
-Templates can contain named blocks. Any template can extend other templates, and modify the blocks defined by its parents.
+Templates can contain named blocks.
+Any template can extend other templates, and modify the blocks defined by its parents.
 
-The code above points to `main_layout.html.twig` in line 1. It also wraps your "Hello world" message in a `content` block.
+The code above points to `main_layout.html.twig` in line 1.
+It also wraps your "Hello world" message in a `content` block.
 If you look back at the main layout template, you can see an empty `{% block content %}{% endblock %}` section (lines 52-53).
-This is where the `home_page.html.twig` will be rendered.
+This is where the `home_page.html.twig` is rendered.
 
 Clear the cache and regenerate the assets by running the following commands:
 
@@ -252,7 +257,7 @@ yarn encore <dev|prod>
 
 !!! tip
 
-    You should run the `yarn encore` command with the [environment](environments.md) you are using.
+    You should run the `yarn encore` command with the [environment](environments.md) you're using.
 
     By default, [[= product_name =]] installs in the dev environment.
     If you changed it to prod, use `yarn encore prod`.
@@ -261,4 +266,5 @@ Refresh the page and you should see the "Hello world" placed inside a styled lay
 
 ![Homepage with a Hello world](bike_tutorial_hello_world.png)
 
-At this point, the template is static. It does not render any dynamic data from the Repository.
+At this point, the template is static.
+It doesn't render any dynamic data from the repository.

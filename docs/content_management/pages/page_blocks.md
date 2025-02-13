@@ -8,11 +8,9 @@ Page blocks are configured in YAML files, under the `ibexa_fieldtype_page` key.
 Keep in mind that Page block configuration isn't SiteAccess-aware.
 
 [[= product_name =]] ships with a number of page blocks.
-For a list of all page blocks that are available out-of-the-box,
-see [Page block reference]([[= user_doc =]]/content_management/block_reference/).
+For a list of all page blocks that are available out-of-the-box, see [Page block reference]([[= user_doc =]]/content_management/block_reference/).
 
-For information on how to create and configure new layouts for the Page,
-see [Page layouts](render_page.md#render-a-layout).
+For information on how to create and configure new layouts for the Page, see [Page layouts](render_page.md#render-a-layout).
 
 [[% include 'snippets/page_block_cache_clear.md' %]]
 
@@ -23,10 +21,10 @@ Each configured block has an identifier and the following settings:
 | Setting                  | Description                                                                                                                                                   |
 |--------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `name`                   | Name of the block used in the Page Builder interface.                                                                                                         |
-| `category`               | Category in the Page Builder elements menu that the block is shown in.                                                                                        |
-| `thumbnail`              | Thumbnail used in the Page Builder elements menu.                                                                                                             |
+| `category`               | Category in the Page Builder **Page blocks** toolbox that the block is shown in.                                                                                        |
+| `thumbnail`              | Thumbnail used in the Page Builder **Page blocks** toolbox.                                                                                                             |
 | `views`                  | Available [templates for the block](#block-templates).                                                                                                        |
-| `visible`                | (Optional) Toggles the block's visibility in the Page Builder elements menu. Remove the block from the layout before you publish another version of the page. |
+| `visible`                | (Optional) Toggles the block's visibility in the Page Builder **Page blocks** toolbox. Remove the block from the layout before you publish another version of the page. |
 | `configuration_template` | (Optional) Template for the block settings modal.                                                                                                             |
 | `attributes`             | (Optional) List of [block attributes](page_block_attributes.md).                                                                                              |
 
@@ -64,7 +62,7 @@ The highest number shows first on the list.
 !!! tip
 
     Default views have a `priority` of -255.
-    It is good practice to keep the value between -255 and 255.
+    It's good practice to keep the value between -255 and 255.
 
 ### Block modal template
 
@@ -88,8 +86,7 @@ The following example wraps all form fields for block attributes in an ordered l
 
 ## Block events
 
-To add functionalities to your block that go beyond the available attributes,
-you can use an event listener.
+To add functionalities to your block that go beyond the available attributes, you can use an event listener.
 
 You can listen to events related to block definition and block rendering.
 
@@ -115,8 +112,8 @@ You can use this parameter, for example, in block template:
 
 #### Exposing content relations from blocks
 
-Page blocks, for example Embed block or Collection block, can embed other Content items.
-Publishing a Page with such blocks creates Relations to those Content items.
+Page blocks, for example Embed block or Collection block, can embed other content items.
+Publishing a page with such blocks creates Relations to those content items.
 
 When creating a custom block with embeds, you can ensure such Relations are created using the block Relation collection event.
 
@@ -126,4 +123,4 @@ You can hook your event listener to the `BlockRelationEvents::getCollectBlockRel
 To expose relations, pass an array containing Content IDs to the `Ibexa\FieldTypePage\Event\CollectBlockRelationsEvent::setRelations()` method.
 If embedded Content changes, old Relations are removed automatically.
 
-Providing Relations also invalidates HTTP cache for your block response in one of the related Content items changes.
+Providing Relations also invalidates HTTP cache for your block response in one of the related content items changes.

@@ -7,8 +7,7 @@ page_type: reference
 
 ### `ibexa_get_product`
 
-The `ibexa_get_product()` filter gets the selected product
-based on either a product object or a Content item object that contains a product.
+The `ibexa_get_product()` filter gets the selected product based on either a product object or a content item object that contains a product.
 
 #### Examples
 
@@ -108,11 +107,26 @@ The `ibexa_get_product_stock` Twig function retrieves the stock quantity for a p
 
 ### `ibexa_format_price`
 
-The `ibexa_format_price` filter formats the price value by placing currency code 
-either on the left or on the right of the numerical value.
+The `ibexa_format_price` filter formats the price value by placing currency code either on the left or on the right of the numerical value.
+
+#### Examples
 
 ``` html+twig
 {% for product.price in product.attributes %}
     {{ product.price.getMoney()|ibexa_format_price }}
 {% endfor %}
+```
+
+### `ibexa_is_pim_local`
+
+The `ibexa_is_pim_local` is a helper Twig function that enables changing the behavior of templates depending on the source of product data.
+
+#### Examples
+
+``` html+twig
+{% if ibexa_is_pim_local() == true %}
+    <div class="conditional-content">
+        <button type="button">Modify product data</button>
+    </div>
+{% endif %}
 ```

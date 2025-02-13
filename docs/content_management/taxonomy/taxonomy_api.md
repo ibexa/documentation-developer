@@ -26,7 +26,7 @@ and use `TaxonomyServiceInterface::loadEntryByIdentifier()`:
     $springs[] = $this->taxonomyService->loadEntryByIdentifier('spring', 'devices');
     ```
 
-You can also get a taxonomy entry from the ID of its underlying Content item, by using `TaxonomyServiceInterface::loadEntryByContentId()`.
+You can also get a taxonomy entry from the ID of its underlying content item, by using `TaxonomyServiceInterface::loadEntryByContentId()`.
 
 To get the root (main) entry of a given taxonomy, use `TaxonomyServiceInterface::loadRootEntry()`
 and provide it with the taxonomy name.
@@ -66,3 +66,8 @@ and a `position` parameter, which is either `TaxonomyServiceInterface::MOVE_POSI
 ``` php
 [[= include_file('code_samples/api/public_php_api/src/Command/TaxonomyCommand.php', 59, 61) =]]
 ```
+
+!!! note
+
+    Taxonomy entry management functions triggers events you can listen to.
+    For more information, see [Taxonomy events](taxonomy_events.md).

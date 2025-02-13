@@ -4,45 +4,46 @@
 
 **The FAST TRACK v1.11.0 release of eZ Platform and eZ Platform Enterprise Edition is available as of August 24, 2017.**
 
-If you are looking for the Long Term Support (LTS) release, see [https://ezplatform.com/Blog/Long-Term-Support-is-Here](https://ezplatform.com/Blog/Long-Term-Support-is-Here)
+If you're looking for the Long Term Support (LTS) release, see [https://ezplatform.com/Blog/Long-Term-Support-is-Here](https://ezplatform.com/Blog/Long-Term-Support-is-Here)
 
 ## Notable changes since v1.10.0
 
 ### eZ Platform
 
-#### Improved way of writing Field Type gateways
+#### Improved way of writing field type gateways
 
 [EZP-26885](https://issues.ibexa.co/browse/EZP-26885): you now have access to the Doctrine connection instead of
-the Zeta Components Database connection-like object which has been exposed to Field Types until now.
-Note that the former way will be removed in a future major version.
+the Zeta Components Database connection-like object which has been exposed to field types until now.
+The former way will be removed in a future major version.
 
-#### Content Type limitation for Relation (single) field
+#### Content type limitation for Relation (single) field
 
-[EZP-24800](https://issues.ibexa.co/browse/EZP-24800): you can now specify a Content Type limitation for the Relation field,
+[EZP-24800](https://issues.ibexa.co/browse/EZP-24800): you can now specify a content type limitation for the Relation field,
 just like with the Relation List field. This enables you to limit what kind of relations Editors can select also on singular relation fields.
 
-![Adding a new Relation (single) Field with allowed Content Types](relation_single_allowed_cts.png)
+![Adding a new Relation (single) Field with allowed content types](relation_single_allowed_cts.png)
 
 This has been made possible by initial legacy contribution from [@peterkeung](https://github.com/peterkeung), and [@slaci](https://github.com/slaci) who ported this feature over to eZ Platform so that both could go in.
 
 #### API endpoint for removing translations
 
-[EZP-27417](https://issues.ibexa.co/browse/EZP-27417) provides an API endpoint to remove a given translation completely from a Content item.
+[EZP-27417](https://issues.ibexa.co/browse/EZP-27417) provides an API endpoint to remove a given translation completely from a content item.
 
 ### eZ Platform Enterprise Edition
 
 #### Collection block
 
-New Collection block is available in the Landing Page editor.
-It enables you to manually select a set of Content items to be displayed.
+New Collection block is available in the landing page editor.
+It enables you to manually select a set of content items to be displayed.
 
-![Collection block options with three Content items selected](collection_block.png)
+![Collection block options with three content items selected](collection_block.png)
 
 !!! note
 
     To enable adding content to a Collection block in a clean installation,
-    you need to configure the views for the block and define which Content Types can be embedded in it.
-    See [block templates](https://doc.ibexa.co/en/latest/content_management/pages/page_blocks/#block-templates) for more information and an example.
+    you need to configure the views for the block and define which content types can be embedded in it.
+
+    For more information and an example, see [block templates](https://doc.ibexa.co/en/latest/content_management/pages/page_blocks/#block-templates).
 
 #### RecommendationBundle adapted for YooChoose v2
 
@@ -64,13 +65,13 @@ There is a corresponding new eZ Publish legacy release called 2017.08 available 
 Unlike eZ Publish 5.4LTS, this should be seen as a Fast Track release of legacy: it's tailored for those that want
 a more modern eZ Platform and Symfony version to take advantage of all new features of the platform and facilitate
 the migration. More info on this in a separate blog post soon. As with eZ Platform itself, Enterprise users will receive the same
-full support, maintenance, and priority security patch handling as they are used to for this setup.
+full support, maintenance, and priority security patch handling as they're used to for this setup.
 
 !!! note
 
-    Not supported for clean/new installs, intended for use with migrations. The Legacy Bridge integration does not have same performance,
+    Not supported for clean/new installs, intended for use with migrations. The Legacy Bridge integration doesn't have same performance,
     scalability or integrated experience as pure Platform setup. There are known edge cases where for instance cache or search index
-    won't always be immediately updated across the two systems using the bridge, which is one of the many reasons why we recommend
+    cannot always be immediately updated across the two systems using the bridge, which is one of the many reasons why we recommend
     a pure Platform setup where that is possible.
 
 ## Full list of new features, improvements and bug fixes since v1.10.0

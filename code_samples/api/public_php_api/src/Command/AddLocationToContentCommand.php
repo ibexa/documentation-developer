@@ -30,23 +30,23 @@ class AddLocationToContentCommand extends Command
         parent::__construct('doc:add_location');
     }
 
-    protected function configure()
+    protected function configure(): void
     {
         $this
-            ->setDescription('Add a Location to Content item and hides it.')
+            ->setDescription('Add a Location to content item and hides it.')
             ->setDefinition([
                 new InputArgument('contentId', InputArgument::REQUIRED, 'Content ID'),
                 new InputArgument('parentLocationId', InputArgument::REQUIRED, 'Parent Location ID'),
             ]);
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $user = $this->userService->loadUserByLogin('admin');
         $this->permissionResolver->setCurrentUserReference($user);
 
-        $parentLocationId = $input->getArgument('parentLocationId');
-        $contentId = $input->getArgument('contentId');
+        $parentLocationId = (int) $input->getArgument('parentLocationId');
+        $contentId = (int) $input->getArgument('contentId');
 
         $locationCreateStruct = $this->locationService->newLocationCreateStruct($parentLocationId);
 
@@ -56,7 +56,7 @@ class AddLocationToContentCommand extends Command
         $contentInfo = $this->contentService->loadContentInfo($contentId);
         $newLocation = $this->locationService->createLocation($contentInfo, $locationCreateStruct);
 
-        $output->writeln('Added hidden location ' . $newLocation->id . ' to Content item: ' . $contentInfo->name);
+        $output->writeln('Added hidden location ' . $newLocation->id . ' to content item: ' . $contentInfo->name);
 
         return self::SUCCESS;
     }

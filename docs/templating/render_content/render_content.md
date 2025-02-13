@@ -1,12 +1,11 @@
 ---
-description: Customize rendering of Content items on the site front end by using templates with proper content view configuration.
+description: Customize rendering of content items on the site front end by using templates with proper content view configuration.
 ---
 
 # Render content
 
 Content is rendered automatically by using default, basic templates.
-To render content with a custom template, you create a template file
-and inform the system, through configuration, when to use this template.
+To render content with a custom template, you create a template file and inform the system, through configuration, when to use this template.
 
 You do it by using the [content view configuration](template_configuration.md).
 
@@ -16,25 +15,24 @@ For example, to apply a custom template to all articles, add the following [conf
 [[= include_file('code_samples/front/render_content/config/packages/views.yaml', 4, 7) =]][[= include_file('code_samples/front/render_content/config/packages/views.yaml', 9, 15) =]]
 ```
 
-This configuration defines a `full` view for all Content items that fulfill the conditions in `match`.
-`match` indicates that all Content items with the Content Type `article` should use this configuration.
+This configuration defines a `full` view for all content items that fulfill the conditions in `match`.
+`match` indicates that all content items with the content type `article` should use this configuration.
 The indicated `template` is `@ibexadesign/full/article.html.twig`.
 
 !!! tip "Designs"
 
     This configuration uses the [design engine](design_engine.md), as indicated by the `@ibexadesign` in the template path.
     In this example, the theme used by the design is `my_theme`.
-    
+
     Using the design engine is recommended, but you can also set direct paths to templates, for example:
-    
+
     ``` yaml
     template: 'full/article.html.twig'
     ```
-    
+
     You must then ensure that the `templates/full` folder contains the template file.
 
-The configuration requires that you add the `article.html.twig` template file to `templates/themes/<theme_name>/full`,
-in this example, `templates/themes/my_theme/full`.
+The configuration requires that you add the `article.html.twig` template file to `templates/themes/<theme_name>/full`, in this example, `templates/themes/my_theme/full`.
 
 ``` html+twig
 [[= include_file('code_samples/front/render_content/templates/themes/my_theme/full/article.html.twig', 3, 18) =]]
@@ -42,17 +40,16 @@ in this example, `templates/themes/my_theme/full`.
 
 ## Get content information
 
-To render general content information, such as content name,
-use the [`ibexa_content_name()`](content_twig_functions.md#ibexa_content_name) Twig function.
+To render general content information, such as content name, use the [`ibexa_content_name()`](content_twig_functions.md#ibexa_content_name) Twig function.
 
-Content name is based on the [content name pattern](content_types.md#content-type-metadata) of the Content Type.
+Content name is based on the [content name pattern](content_types.md#content-type-metadata) of the content type.
 
 ``` html+twig
 [[= include_file('code_samples/front/render_content/templates/themes/my_theme/full/article.html.twig', 3, 4) =]]
 ```
 
-You can get general information about the content, Location and view parameters by using the [available variables](templates.md#template-variables).
-For example, to get the publication date of the current Content item, use:
+You can get general information about the content, location and view parameters by using the [available variables](templates.md#template-variables).
+For example, to get the publication date of the current content item, use:
 
 ``` html+twig
 [[= include_file('code_samples/front/render_content/templates/themes/my_theme/full/article.html.twig', 5, 6) =]]
@@ -60,10 +57,10 @@ For example, to get the publication date of the current Content item, use:
 
 [[= include_file('docs/snippets/rendering_dump_variable.md') =]]
 
-## Render Fields
+## Render fields
 
-You can render a single Field of a Content item by using the [`ibexa_render_field()`](field_twig_functions.md#ibexa_render_field) Twig function.
-It takes the Content item and the identifier of the Field as arguments:
+You can render a single field of a content item by using the [`ibexa_render_field()`](field_twig_functions.md#ibexa_render_field) Twig function.
+It takes the content item and the identifier of the Field as arguments:
 
 ``` html+twig
 [[= include_file('code_samples/front/render_content/templates/themes/my_theme/full/article.html.twig', 7, 8) =]]
@@ -90,8 +87,7 @@ for example `templates/themes/my_theme/fields`.
 [[= include_file('code_samples/front/render_content/templates/themes/my_theme/fields/author.html.twig') =]]
 ```
 
-The Field template must be placed in a block that corresponds to the Field Type identifier,
-in this case `{% block ezauthor_field %}`.
+The field template must be placed in a block that corresponds to the field type identifier, in this case `{% block ezauthor_field %}`.
 
 !!! tip "Template blocks"
 

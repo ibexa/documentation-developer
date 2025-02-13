@@ -1,10 +1,12 @@
 ---
-description: Use different formats to render dates and times in the Back Office and website front.
+description: Use different formats to render dates and times in the back office and website front.
 ---
 
 # Formatting date and time
 
-## Using Twig filters and PHP services
+Two methods exist that allow you to specify how the date and time should be formatted.
+
+## With Twig filters and PHP services
 
 You can format date and time by using the following services:
 
@@ -54,16 +56,16 @@ class MyService
 Then, add the following to `config/services.yaml`:
 
 ``` yaml
-services:    
+services:
     App\Service\MyService:
         arguments:
             $shortDateTimeFormatter: '@ibexa.user.settings.short_datetime_format.formatter'
 ```
 
-## Using User settings menu
+## Within User settings menu
 
-Users can set their preferred date and time formats in the User settings menu.
-This format is used throughout the Back Office.
+Users can set their preferred date and time formats in the user settings menu.
+This format is used throughout the back office.
 
 You can set the list of available formats under the `ibexa.system.<scope>.user_preferences` [configuration key](configuration.md#configuration-files):
 

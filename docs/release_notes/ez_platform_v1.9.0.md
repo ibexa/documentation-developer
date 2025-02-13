@@ -5,7 +5,7 @@
 
 **The FAST TRACK v1.9.0 release of eZ Platform and eZ Platform Enterprise Edition is available as of April 19, 2017.**
 
-If you are looking for the Long Term Support (LTS) release, see[ https://ezplatform.com/Blog/Long-Term-Support-is-Here](https://ezplatform.com/Blog/Long-Term-Support-is-Here)
+If you're looking for the Long Term Support (LTS) release, see[ https://ezplatform.com/Blog/Long-Term-Support-is-Here](https://ezplatform.com/Blog/Long-Term-Support-is-Here)
 
 
 ## Notable changes since v1.8.0
@@ -14,33 +14,39 @@ If you are looking for the Long Term Support (LTS) release, see[ https://ezplat
 
 #### Multifile upload
 
-You can now create collections of content quickly: upload multiple files in bulk and they will be imported directly into the content repository. The files will automatically be imported as content using the Content Type that matches their MIME type. Go to the content view, drag and drop or select multiple files in the sub-items area and you will get direct access for further editing. As ever, this solution can be customized so that you create your own matching rules.
+You can now create collections of content quickly: upload multiple files in bulk and they're imported directly into the content repository.
+The files are automatically imported as content using the content type that matches their MIME type.
+Go to the content view, drag and drop or select multiple files in the sub-items area and you get direct access for further editing.
+As ever, this solution can be customized so that you create your own matching rules.
 
 ![](catsfromtheMET.gif)
 
 #### Content browser
 
-In version 1.8 we introduced a new Content Browser in the Universal Discovery Widget (UDW). This Content Browser is now used to browse content everywhere, also when accessing the content tree through the left pane in Platform UI. This allows users to reach the entire repository from this toolbar (which was previously limited in terms of number of items per level), it also provides a much more consistent user experience. To reflect this change, the Content tree button has been renamed **Content browse**.
+In version 1.8 we introduced a new Content Browser in the Universal Discovery Widget (UDW).
+This Content Browser is now used to browse content everywhere, also when accessing the content tree through the left pane in Platform UI.
+This allows users to reach the entire repository from this toolbar (which was previously limited in terms of number of items per level), it also provides a much more consistent user experience.
+To reflect this change, the content tree button has been renamed **Content browse**.
 
 ![](contentbrowse.gif)
 
 #### Miscellaneous
 
--   The Details tab in content view now provides information about the Section the Content item belongs to.
+-   The **Details** tab in content view now provides information about the Section the content item belongs to.
 
 ![Section details in Details tab](section-details.png "Section details in Details tab")
 
--   You can now edit a Content item directly from its parent's Sub-items table, and sort the table:
+-   You can now edit a content item directly from its parent's Sub-items table, and sort the table:
 
 ![Sub-items table with Edit button and sorting](sub-items-improved.png "Sub-items table with Edit button and sorting")
 
 -   You can now restore from Trash content whose original Location has been deleted.
--   Pasted thead/tfood tags are now kept in RichText Field Type, and its Online Editor
+-   Pasted thead/tfood tags are now kept in RichText field type, and its Online Editor
 -   Solr 6 is now supported in [Solr Bundle](https://doc.ibexa.co/en/latest/guide/search/solr)
 
 ### eZ Platform Enterprise Edition - Studio
 
--   It is now possible to configure Landing Page blocks used by the Landing Page editor in a simpler way. The configuration is done in a YAML file (see <https://issues.ibexa.co/browse/EZEE-1421>)
+-   It's now possible to configure landing page blocks used by the landing page editor in a simpler way. The configuration is done in a YAML file (see <https://issues.ibexa.co/browse/EZEE-1421>)
 -   *..lots of other bug fixes and smaller improvements..*
 
 ### eZ Platform Enterprise Edition - Studio Demo

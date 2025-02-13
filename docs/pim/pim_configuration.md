@@ -32,11 +32,11 @@ ibexa_product_catalog:
                 product_type_group_identifier: 'product'
 ```
 
-The `local` type is the built-in type of catalog based on the Repository.
+The `local` type is the built-in type of catalog based on the repository.
 
-Under `options.product_type_group_identifier` you can define the identifier of the Content Type Group used for storing products.
+Under `options.product_type_group_identifier` you can define the identifier of the content type Group used for storing products.
 
-`root_location_remote_id` indicates the remote ID of the Location where products are stored.
+`root_location_remote_id` indicates the remote ID of the location where products are stored.
 
 ## VAT rates
 
@@ -64,7 +64,7 @@ ibexa:
 ```
 
 VAT rates configuration accepts additional flags under the `extras` key.
-It is an extension point that you can build upon to add custom functionalities. 
+It's an extension point that you can build upon to add custom functionalities.
 You can use it, for example, to pass additional information to the UI or define region-specific exclusions when calculating the tax values.
 
 For each VAT category value, setting a value to "null" (~) is equal to making the following setting:
@@ -117,4 +117,4 @@ ibexa:
                         - product_availability
 ```
 
-The order of filters in this configuration reflects the order in which they are displayed in the Back Office.
+The order of filters in this configuration reflects the order in which they're displayed in the back office.

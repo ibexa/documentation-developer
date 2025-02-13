@@ -1,5 +1,5 @@
 ---
-description: Add a new tab to the Back Office dashboard that welcomes every user after logging in.
+description: Add a new tab to the back office dashboard that welcomes every user after logging in.
 ---
 
 # Create dashboard tab
@@ -11,13 +11,10 @@ This adds a tab to the **Common content** dashboard block that displays all arti
 [[= include_file('code_samples/back_office/dashboard/article_tab/src/Tab/Dashboard/Everyone/EveryoneArticleTab.php') =]]
 ```
 
-This tab searches for content with Content Type "Article" (lines 57-60)
-and renders the results using the built-in `all_content.html.twig` template,
-which ensures the tab looks the same as the existing tabs (lines 71-73).
+This tab searches for content with content type "Article" (lines 57-60) and uses the built-in `all_content.html.twig` template to render the results, which ensures that the tab looks the same as the existing tabs (lines 71-73).
 
-The tab also implements OrderedTabInterface (line 17),
-which enables you to define the order in which the tab is displayed on the dashboard page.
-This is done using the `getOrder()` method (line 45).
+The tab also implements OrderedTabInterface (line 17), which enables you to define the order in which the tab is displayed on the dashboard page.
+It's done with the `getOrder()` method (line 45).
 
 Register this tab as a service:
 

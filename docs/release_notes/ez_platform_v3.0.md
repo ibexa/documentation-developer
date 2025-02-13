@@ -26,7 +26,7 @@ The application now uses Symfony Events instead of SignalSlots.
 The application triggers two Events per operation: one before and one after the relevant thing happens
 (see for example [BookmarkService](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/Core/Event/BookmarkService.php)).
 
-To use Symfony Events, create [Event Listeners](https://symfony.com/doc/5.0/event_dispatcher.html) in your code.
+To use Symfony Events, create [Event Listeners]([[= symfony_doc =]]/event_dispatcher.html) in your code.
 
 ### New bundles
 
@@ -47,30 +47,29 @@ For details, see [Bundles](https://doc.ibexa.co/en/latest/guide/bundles).
 
     ### Site Factory
 
-    The new Site management User Interface is now integrated with Back Office.
-    It enables you to easily create and manage multiple sites from the Back Office without editing the configuration files.
+    The new Site management User Interface is now integrated with back office.
+    It enables you to easily create and manage multiple sites from the back office without editing the configuration files.
 
-    For more information about:
+    For more information about enabling and configuring, see [Enable Site Factory](https://doc.ibexa.co/en/latest/guide/multisite/site_factory/#enable-site-factory).
 
-    - enabling and configuring, see [Enable Site Factory](https://doc.ibexa.co/en/latest/guide/multisite/site_factory/#enable-site-factory)
-    - using the Site Factory, see [User Guide]([[= user_doc =]]/site_organization/site_factory)
+    For more information about using the Site Factory, see [User Documentation]([[= user_doc =]]/site_organization/site_factory)
 
     ### Scheduling
 
     #### Schedule calendar
 
-    You can now easily view and perform scheduling actions using the Calendar widget available in the Back Office.
-    By default, the widget displays Content items scheduled for future publication, but custom events can be configured as well.
+    You can now easily view and perform scheduling actions with the Calendar widget that is available in the back office.
+    By default, the widget displays content items scheduled for future publication, but custom events can be configured as well.
     You can also filter displayed events and toggle through a day, week, and month view.
 
     #### Manage planned publications with Dashboard
 
     You can now reschedule or cancel planned future publications right from the Dashboard.
 
-    #### Schedule hiding a Content item
+    #### Schedule hiding a content item
 
-    You can now schedule hiding Content items.
-    Using Calendar widget available in the Back Office you can also reschedule or cancel hiding a Content item.
+    You can now schedule hiding content items.
+    Using Calendar widget available in the back office you can also reschedule or cancel hiding a content item.
 
     ### Defining buttons in Online Editor
 
@@ -101,7 +100,7 @@ For details, see [Bundles](https://doc.ibexa.co/en/latest/guide/bundles).
 
     ## Version comparison
 
-    You can now compare two versions of the same Content item and preview changes in their Fields:
+    You can now compare two versions of the same content item and preview changes in their Fields:
 
     ![Version comparison](compare_results.png "Version comparison in one-column view")
 
@@ -117,20 +116,20 @@ New functionalities and changes include:
 
 For full list of changes, see [Backwards compatibility doc](https://doc.ibexa.co/en/latest/releases/ez_platform_v3.0_deprecations/#universal-discovery-widget) and [Configuration](https://doc.ibexa.co/en/latest/extending/extending_udw/#configuration).
 
-### Field Types
+### Field types
 
-#### Content query Field Type
+#### Content query field type
 
-The new [Content query Field Type](https://doc.ibexa.co/en/latest/api/field_types_reference/contentqueryfield)
-enables you to configure a Content query that will use parameters from a Field definition.
+The new [Content query field type](https://doc.ibexa.co/en/latest/api/field_types_reference/contentqueryfield)
+enables you to configure a Content query that uses parameters from a Field definition.
 
-#### Field Type creation
+#### Field type creation
 
-You can now use [Generic Field Type](https://doc.ibexa.co/en/latest/extending/extending_field_type) as a template for your custom Field Types.
+You can now use [Generic field type](https://doc.ibexa.co/en/latest/extending/extending_field_type) as a template for your custom field types.
 
-#### Keyword Field Type
+#### Keyword field type
 
-The `keyword` Field Type can now recognize versions of a Content item.
+The `keyword` field type can now recognize versions of a content item.
 
 ### Login and password options
 
@@ -145,7 +144,7 @@ for user passwords.
 
 ### Duplicate a role
 
-You can now duplicate a role with a single click in the Back Office.
+You can now duplicate a role with a single click in the back office.
 
 ![Duplicate a role](3.0_duplicate_roles.png "Duplicate a role icon")
 
@@ -161,7 +160,7 @@ The following new Search Criteria have been added:
 |-----|-----|
 |[IsUserBased](https://doc.ibexa.co/en/latest/guide/search/criteria_reference/isuserbased_criterion)|Whether content represents a User account|
 |[IsUserEnabled](https://doc.ibexa.co/en/latest/guide/search/criteria_reference/isuserenabled_criterion)|Whether a User account is enabled|
-|[ObjectStateIdentifier](https://doc.ibexa.co/en/latest/guide/search/criteria_reference/objectstateidentifier_criterion)|Object State Identifier|
+|[ObjectStateIdentifier](https://doc.ibexa.co/en/latest/guide/search/criteria_reference/objectstateidentifier_criterion)|Object state Identifier|
 |[SectionId](https://doc.ibexa.co/en/latest/guide/search/criteria_reference/sectionid_criterion)|ID of the Section content is assigned to|
 |[SectionIdentifier](https://doc.ibexa.co/en/latest/guide/search/criteria_reference/sectionidentifier_criterion)|Identifier of the Section content is assigned to|
 |[UserEmail](https://doc.ibexa.co/en/latest/guide/search/criteria_reference/useremail_criterion)|Email address of a User account|
@@ -183,7 +182,7 @@ They can be defined per SiteAccess, or per content view.
 Five built-in ready-to-use Query Types have been added: `Children`, `Siblings`, `Ancestors`, `RelatedToContent`, and `GeoLocation`.
 
 You can now use the `ez_render_content_query` and `ez_render_location_query` Twig functions
-to make use of Query Types that do not use the current content or Location.
+to make use of Query Types that don't use the current content or Location.
 
 ### Grouping blocks in Page Builder
 
@@ -191,7 +190,7 @@ You can now assign Page Builder blocks to groups using the `ezplatform_page_fiel
 
 ### Bulk actions in Sub-items list
 
-You can now use the Sub-items list to quickly hide, reveal, to add Locations to multiple Content items.
+You can now use the Sub-items list to quickly hide, reveal, to add Locations to multiple content items.
 
 ### Tooltips
 
@@ -200,6 +199,7 @@ You can now add custom tooltips to provide more information for the users when t
 ### Thumbnails
 
 The new thumbnails API allows you to easily choose an image for each content.
+
 For more information, see [Extending thumbnails](https://doc.ibexa.co/en/latest/extending/extending_thumbnails).
 
 ### Type hints for public PHP API
@@ -216,7 +216,7 @@ In GraphQL, you can now [query Locations and their children](https://doc.ibexa.c
 
 #### Improved translating of notifications
 
-`TranslationService` is not injected into the `NotificationService`.
+`TranslationService` isn't injected into the `NotificationService`.
 You can now use `TranslatableNotificationHandlerInterface` for translated notifications.
 
 #### Multilingual content route
@@ -225,7 +225,7 @@ New multilingual content route for internal translations has been added.
 
 ### Renamed templates and parameters
 
-Templates and parameters used by the Back Office have been renamed for consistency.
+Templates and parameters used by the back office have been renamed for consistency.
 For A full list of changes, see [Backwards compatibility doc](https://doc.ibexa.co/en/latest/releases/ez_platform_v3.0_deprecations).
 
 ### HTTP Cache
@@ -237,14 +237,14 @@ For a full list of changes this entails, see [Backwards compatibility doc](https
 
 New helper method `window.eZ.helpers.contentType.getContentTypeName` replaces deprecated `ContentTypeNames`.
 
-### User Field Type
+### User field type
 
 User data is now treated as an external storage.
 
 ### SiteAccess-aware Repository
 
 The Repository now uses the SiteAccess-aware layer by default.
-This means that Repository objects will now be loaded in the translation corresponding to the SiteAccess.
+This means that Repository objects are now loaded in the translation corresponding to the SiteAccess.
 
 ### REST API
 
@@ -271,17 +271,17 @@ For full list of deprecations and removals, see  [eZ Platform v3.0 deprecations 
 ### SignalSlots
 
 SignalSlots are removed from the application.
-Use [Event Listeners](https://symfony.com/doc/5.0/event_dispatcher.html) in your code instead.
+Use [Event Listeners]([[= symfony_doc =]]/event_dispatcher.html) in your code instead.
 
-### Deprecated Field Types
+### Deprecated field types
 
-The deprecated `ezprice` and `ezpage` Field Types have been removed.
+The deprecated `ezprice` and `ezpage` field types have been removed.
 Nameable field type interface has been removed and replaced by `eZ\Publish\SPI\FieldType\FieldType::getName`.
-For a full list of changes on Field Types, see [Backwards compatibility doc](https://doc.ibexa.co/en/latest/releases/ez_platform_v3.0_deprecations/#field-types).
+For a full list of changes on field types, see [Backwards compatibility doc](https://doc.ibexa.co/en/latest/releases/ez_platform_v3.0_deprecations/#field-types).
 
-### Elastic Search
+### Elasticsearch
 
-Elastic Search support has been dropped.
+Elasticsearch support has been dropped.
 
 ### REST server
 
@@ -304,7 +304,7 @@ In YAML configuration, the main configuration key is now `ezplatform` instead of
 ### Content forms
 
 The new `ezplatform-content-forms` package contains forms for content creation moved from `repository-forms`,
-while Content Type editing has been moved to `ezplatform-admin-ui` from `repository-forms`.
+while content type editing has been moved to `ezplatform-admin-ui` from `repository-forms`.
 
 ### Custom Installers
 

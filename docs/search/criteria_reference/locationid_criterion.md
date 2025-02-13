@@ -1,11 +1,14 @@
+---
+description: LocationId Search Criterion
+---
+
 # LocationId Criterion
 
-The [`LocationId` Search Criterion](https://github.com/ibexa/core/blob/main/src/contracts/Repository/Values/Content/Query/Criterion/LocationId.php)
-searches for content based in the Location ID.
+The [`LocationId` Search Criterion](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Criterion-LocationId.html) searches for content based in the location ID.
 
 ## Arguments
 
-- `value` - int(s) representing the Location ID(s)
+- `value` - int(s) representing the location ID(s)
 
 ## Example
 

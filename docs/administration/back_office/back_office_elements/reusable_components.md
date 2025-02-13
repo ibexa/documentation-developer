@@ -1,10 +1,10 @@
 ---
-description: Speed up creating Back Office templates with the help of ready-made reusable components.
+description: Speed up creating back office templates with the help of ready-made reusable components.
 ---
 
 # Reusable components
 
-When you extend the Back Office, you can use base Twig templates for commonly used UI components such as tables or tabs.
+When you extend the back office, you can use base Twig templates for commonly used UI components such as tables or tabs.
 
 The available templates are:
 
@@ -19,9 +19,9 @@ With `embed` you can override blocks that are defined inside the included templa
 
 The alert component has the following properties:
 
-- `type` - available types of alert: error, info, success and warning
+- `type` - available types of alert: error, info, success, and warning
 - `icon` - name of the icon, taken from the default icon set
-- `icon_path` - full icon path, in case you do not want to use an icon from the default icon set
+- `icon_path` - full icon path, in case you don't want to use an icon from the default icon set
 - `title` - alert title
 - `subtitle` - displays subtitle content
 - `show_subtitle_below` - default set to `false`, the subtitle is displayed next to the title
@@ -53,12 +53,12 @@ Variables:
 
 |Name|Type|Values|
 |----|----|-----------|
-|`headline` (optional)|string|if not specified, the header is not rendered|
+|`headline` (optional)|string|if not specified, the header isn't rendered|
 |`headline_items`|array|
 |`view_mode`|string|`vertical`, default set to `''`|
 |`items`|hash|{`label`, `content_raw`, `content`}|
 
-If `headline` is not specified, the `headline_items` is not rendered.
+If `headline` isn't specified, the `headline_items` isn't rendered.
 
 ## Modal
 
@@ -80,7 +80,7 @@ Variables:
 |Name|Type|Values|
 |----|----|-----------|
 |`size`|string|`small`, `large`, `extra-large`, default set to: `''`|
-|`subtitle`|string|no default value, if not defined, the `subheader` is not rendered|
+|`subtitle`|string|no default value, if not defined, the `subheader` isn't rendered|
 |`no_header`|boolean|default set to `false`|
 |`no_header_border`|boolean|default set to `false`|
 |`class`|string|default `''`|
@@ -208,16 +208,16 @@ The following example shows how to render both text and hyperlink which redirect
 See the example below to learn how to create an action button which removes the article in the table.
 The table component has to be wrapped into the remove article form.
 
-As in many cases you want a button to be disabled when no item in a table is selected and enabled otherwise, there is a built-in mechanism for this. 
+As in many cases you want a button to be disabled when no item in a table is selected and enabled otherwise, there is a built-in mechanism for this.
 To enable it you need to add the `ibexa-toggle-btn-state` CSS class to the form element alongside `data-toggle-button-id` data-attribute
 which holds the id of the button that should be enabled/disabled after a checkbox state change.
 
 Next, pass a button under the `action` parameter to the table headline.
 
-Action buttons are rendered on the right side of the table headline (do not confuse it with the table header).
-You can also specify headline text, which is a table title displayed above, by passing it under `headline` parameter. 
+Action buttons are rendered on the right side of the table headline (don't confuse it with the table header).
+You can also specify headline text, which is a table title displayed above, by passing it under `headline` parameter.
 
-You can generate various headline texts using the `results_headline` macro with a few parameters:
+You can generate various headline texts by using the `results_headline` macro with a few parameters:
 
 - `count` - of all results, not only displayed on the first page
 - `has_filters` - when using filters
@@ -230,10 +230,10 @@ Column types available for the table header :
 - normal content column `{ content: col_name }` (content is the title of the column)
 - icon column `{ has_icon: true }`
 - checkbox column `{ has_checkbox: true }`
-- action buttons column `{  }` 
+- action buttons column `{  }`
 
 Additional parameters available for all of the objects mentioned earlier:
- 
+
     - class (CSS class)
     - attr (HTML attributes)
 
@@ -263,7 +263,7 @@ See the example:
         { has_checkbox: true },
         { has_icon: true },
         { content: 'article.list.name'|trans|desc('Name') },
-        { content: 'article.list.content_type'|trans|desc('Content Type') },
+        { content: 'article.list.content_type'|trans|desc('Content type') },
         { },
     ],
     body_rows,
@@ -284,7 +284,7 @@ Other table component parameters include:
 - `attr` - (other HTML attributes applied on the HTML table element), for example:
     - `attr: { 'data-some-data-attribute-you-need': 'foo' }`
 - `table_body_class` and `table_body_attr` are the same as mentioned earlier, but applied on the table element
-- `show_head_cols_if_empty` - (default: `false`), by default, when `body_rows` is empty, the table component does not show the table header, but you may want to have it because for example rows are rendered dynamically with JavaScript on the browser side.
+- `show_head_cols_if_empty` - (default: `false`), by default, when `body_rows` is empty, the table component doesn't show the table header, but you may want to have it because for example rows are rendered dynamically with JavaScript on the browser side.
 
 To avoid wrapping headline inside the form, as it's done in the earlier example, you can `embed` table and override the `between_header_and_table` block:
 
@@ -297,10 +297,11 @@ To avoid wrapping headline inside the form, as it's done in the earlier example,
 {% endblock %}
 ```
 
-This method is useful in case of another form inside headline actions or to avoid interferences with the form like button triggering its submission.
+This method is practical in case of another form inside headline actions or to avoid interferences with the form like button triggering its submission.
 
 By default, tables are wrapped in a scrollable wrapper which prevents them from being too long.
 To disable it, set the `is_scrollable` parameter to `false`.
+
 !!! tip
 
     For an example of using the table component, see [Add menu item](add_menu_item.md).
@@ -317,7 +318,7 @@ The tab component supports the following variables:
 - `id` - tab ID
 - `label` - human-readable label for the tab
 - `active` - true if tab is active
-- `content` - HTML content of tab if `tab_content` is not overridden
+- `content` - HTML content of tab if `tab_content` isn't overridden
 - `tab_content_class` - additional CSS classes attached to `.tab-content`
 - `tab_content_attributes` - additional HTML attributes added to `.tab-content`
 

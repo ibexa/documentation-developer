@@ -4,7 +4,7 @@ description: Add custom actions that are performed during specific workflow tran
 
 # Add custom workflow action
 
-Built-in workflow actions enable you to [automatically publish a Content item](workflow.md#content-publishing)
+Built-in workflow actions enable you to [automatically publish a content item](workflow.md#content-publishing)
 or to [send a notification to reviewers](workflow.md#notifications).
 
 You can also create custom actions that are called when content reaches a specific stage
@@ -16,22 +16,22 @@ The following example shows how to configure two custom actions that send custom
 
 Configure the first custom action under the `ibexa.system.<scope>.workflows` [configuration key](configuration.md#configuration-files):
 
-``` yaml hl_lines="15-18"
-[[= include_file('code_samples/workflow/custom_workflow/config/packages/workflows.yaml', 0, 5) =]][[= include_file('code_samples/workflow/custom_workflow/config/packages/workflows.yaml', 23, 36) =]]
+``` yaml hl_lines="16-19"
+[[= include_file('code_samples/workflow/custom_workflow/config/packages/workflows.yaml', 0, 5) =]][[= include_file('code_samples/workflow/custom_workflow/config/packages/workflows.yaml', 23, 37) =]]
 ```
 
 The configuration indicates the name of the custom action (`legal_transition_action`).
-`data` contains additional data that is passed to the action. In this case, it is a message to display.
+`data` contains additional data that is passed to the action. In this case, it's a message to display.
 
 ## Create event listener
 
 To define what the action does, create an event listener `src/EventListener/LegalTransitionListener.php`:
 
-``` php hl_lines="27 36"
+``` php hl_lines="27 37"
 [[= include_file('code_samples/workflow/custom_workflow/src/EventListener/LegalTransitionListener.php') =]]
 ```
 
-This listener displays a notification bar at the bottom of the page when a Content item goes through the `to_legal` transition.
+This listener displays a notification bar at the bottom of the page when a content item goes through the `to_legal` transition.
 
 The content of the notification is the message configured in `actions.legal_transition_action.data`.
 To get it, access the metadata for this transition through `getActionMetadata()` (line 27).
@@ -45,10 +45,10 @@ Register the listener as a service (in `config/services.yaml`):
 ## Use custom transition value
 
 Line 36 in the listener above sets a custom result value for the transition.
-You can use this value in other stages and transitions for this Content item, for example:
+You can use this value in other stages and transitions for this content item, for example:
 
 ``` yaml hl_lines="10 11"
-[[= include_file('code_samples/workflow/custom_workflow/config/packages/workflows.yaml', 42, 53) =]]
+[[= include_file('code_samples/workflow/custom_workflow/config/packages/workflows.yaml', 43, 54) =]]
 ```
 
 The action indicated here is performed only if the result from the `legal_transition_action` is set to `true`.
@@ -73,7 +73,7 @@ The message is contained in the context of the action.
 The context contains:
 
 - `$workflowId` - the ID of the current workflow
-- `$message` - content of the user's message when sending the Content item through the transitions
+- `$message` - content of the user's message when sending the content item through the transitions
 - `$reviewerId` - ID of the user who was selected as a reviewer
 - `$result` - an array of transition actions performed so far
 

@@ -16,7 +16,7 @@ final class Type extends GenericType implements FieldValueFormMapperInterface
         return 'point2d';
     }
 
-    public function mapFieldValueForm(FormInterface $fieldForm, FieldData $data)
+    public function mapFieldValueForm(FormInterface $fieldForm, FieldData $data): void
     {
         $definition = $data->fieldDefinition;
         $fieldForm->add('value', Point2DType::class, [

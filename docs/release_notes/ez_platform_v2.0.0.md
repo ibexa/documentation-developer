@@ -23,7 +23,7 @@ eZ Platform has become a pure Symfony application, based on Symfony 3, which bri
 
 !!! note
 
-    Note that the move to [Symfony 3](https://symfony.com/roadmap?version=3.4) causes some changes, for example to the project's directory structure.
+    The move to [Symfony 3](https://symfony.com/roadmap?version=3.4) causes some changes, for example to the project's directory structure.
 
     Among others, the `var` directory now contains cache and logs.
     The `bin` directory is now used to call the `console` command, so use `bin/console` instead of `app/console`.

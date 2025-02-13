@@ -1,5 +1,5 @@
 ---
-description: You can use PHP API to get Segment information, create and manage Segments, and assign users to them.
+description: You can use PHP API to get segment information, create and manage segments, and assign users to them.
 edition: experience
 ---
 
@@ -7,18 +7,18 @@ edition: experience
 
 Segments enable you to profile the content displayed to specific users.
 
-To manage Segments, use the `SegmentationService`.
+To manage segments, use the `SegmentationService`.
 
-## Getting Segment information
+## Getting segment information
 
-To load a Segment Group, use `SegmentationService::loadSegmentGroupByIdentifier()`.
-Get all Segments assigned to the group with `SegmentationService::loadSegmentsAssignedToGroup()`:
+To load a segment group, use `SegmentationService::loadSegmentGroupByIdentifier()`.
+Get all segments assigned to the group with `SegmentationService::loadSegmentsAssignedToGroup()`:
 
 ``` php
-[[= include_file('code_samples/api/public_php_api/src/Command/SegmentCommand.php', 53, 60) =]]
+[[= include_file('code_samples/api/public_php_api/src/Command/SegmentCommand.php', 54, 62) =]]
 ```
 
-Similarly, you can load a Segment in a group by using `SegmentationService::loadSegmentIdentifier()`:
+Similarly, you can load a segment by using `SegmentationService::loadSegmentByIdentifier()`:
 
 ``` php
 [[= include_file('code_samples/api/public_php_api/src/Command/SegmentCommand.php', 62, 63) =]]
@@ -26,48 +26,43 @@ Similarly, you can load a Segment in a group by using `SegmentationService::load
 
 ## Checking assignment
 
-You can check whether a User is assigned to a Segment with `SegmentationService::isUserAssignedToSegment()`:
+You can check whether a user is assigned to a segment with `SegmentationService::isUserAssignedToSegment()`:
 
 ``` php
-[[= include_file('code_samples/api/public_php_api/src/Command/SegmentCommand.php', 65, 69) =]]
+[[= include_file('code_samples/api/public_php_api/src/Command/SegmentCommand.php', 66, 71) =]]
 ```
 
-## Assigning Users
+## Assigning users
 
-To assign a User to a Segment, use `SegmentationService::assignUserToSegment()`:
+To assign a user to a segment, use `SegmentationService::assignUserToSegment()`:
 
 ``` php
-[[= include_file('code_samples/api/public_php_api/src/Command/SegmentCommand.php', 64, 66) =]]
+[[= include_file('code_samples/api/public_php_api/src/Command/SegmentCommand.php', 64, 65) =]]
 ```
 
-## Creating Segments
+## Creating segments
 
-Each Segment must be assigned to a Segment Group.
+Each segment must be assigned to a segment group.
 
-To create a Segment Group, use `SegmentationService::createSegmentGroup()`
-and provide it with a `SegmentGroupCreateStruct`:
+To create a segment group, use `SegmentationService::createSegmentGroup()` and provide it with a `SegmentGroupCreateStruct`:
 
 ``` php
-[[= include_file('code_samples/api/public_php_api/src/Command/SegmentCommand.php', 37, 44) =]]
+[[= include_file('code_samples/api/public_php_api/src/Command/SegmentCommand.php', 38, 45) =]]
 ```
 
-To add a Segment, use `SegmentationService::createSegment()`
-and provide it with a `SegmentCreateStruct`, which takes an existing group as one of the parameters:
+To add a segment, use `SegmentationService::createSegment()` and provide it with a `SegmentCreateStruct`, which takes an existing group as one of the parameters:
 
 ``` php
-[[= include_file('code_samples/api/public_php_api/src/Command/SegmentCommand.php', 45, 52) =]]
+[[= include_file('code_samples/api/public_php_api/src/Command/SegmentCommand.php', 46, 53) =]]
 ```
 
-## Updating Segments
+## Updating segments
 
-To update a Segment or a Segment Group, use `SegmentationService::updateSegment()`
-or `SegmentationService::updateSegmentGroup()` and provide it with `SegmentUpdateStruct`
-or `SegmentGroupUpdateStruct`, respectively.
+To update a segment or a segment group, use `SegmentationService::updateSegment()` or `SegmentationService::updateSegmentGroup()` and provide it with `SegmentUpdateStruct` or `SegmentGroupUpdateStruct`.
 
-## Deleting Segments
+## Deleting segments
 
-To delete a Segment or a Segment Group, use `SegmentationService::removeSegment()`
-or `SegmentationService::removeSegmentGroup()`, respectively:
+To delete a segment or a segment group, use `SegmentationService::removeSegment()` or `SegmentationService::removeSegmentGroup()`:
 
 ``` php
 $this->segmentationService->removeSegmentGroup($group);

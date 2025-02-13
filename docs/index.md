@@ -39,7 +39,7 @@
             </a>
         </div>
         <div class="col-12 col-lg-6 col-fhd-3">
-            <a class="info-tile" href="getting_started/install_on_ibexa_cloud/">
+            <a class="info-tile" href="ibexa_cloud/install_on_ibexa_cloud/">
                 <div class="info-tile__circle" style="background-color: #ecf8fb;">
                     <svg width="25" height="18"><use xlink:href="images/icons.svg#install-cloud" /></svg>
                 </div>
@@ -75,11 +75,12 @@
         <div class="col-12">
             <div class="notification" id="tile2">
                 <div class="notification__content">
-                    <h2>The latest release is v4.5</h2>
-                    <div>The <a href="release_notes/ibexa_dxp_v4.5/">latest version of Ibexa DXP is v4.5</a>. You can now update your application to the latest version.</div>
+                    <h2>The latest release is v4.6</h2>
+                    <div>The <a href="release_notes/ibexa_dxp_v4.6/">latest version of Ibexa DXP is v4.6</a>. You can now update your application to the latest version.</div>
+                    <div>The newest LTS Update to Ibexa DXP v4.6 is <a href="release_notes/ibexa_dxp_v4.6/#ai-actions">AI Actions</a>. Install it to let AI help you with editorial tasks.</div>
                 </div>
                 <div class="notification__cta">
-                    <a href="update_and_migration/from_4.4/update_from_4.4/">Update your application</a>
+                    <a href="update_and_migration/from_4.5/update_from_4.5/">Update your application</a>
                 </div>
                 <div class="notification__image">
                     <img src="images/notification-image.png" alt="The latest release" />
@@ -90,7 +91,7 @@
             <div class="accordion">
                 <details>
                     <summary>
-                        <h2>Notable changes in v4.5</h2>
+                        <h2>Notable changes in v4.6</h2>
                         <div class="accordion__toggler">
                             <svg><use xlink:href="images/icons.svg#toggler" /></svg>
                         </div>
@@ -98,16 +99,16 @@
                     <div class="row">
                         <div class="col-12 col-lg-6 col-fhd-3">
                             <ul>
-                                <li><a href="release_notes/ibexa_dxp_v4.5/#all-new-ibexa-commerce-packages">All-new Ibexa Commerce packages</a></li>
-                                <li><a href="release_notes/ibexa_dxp_v4.5/#new-commerce-page-blocks">New commerce page blocks</a></li>
-                                <li><a href="release_notes/ibexa_dxp_v4.5/#page-builder-for-b2b-portals">Page Builder for B2B portals</a></li>
+                                <li><a href="release_notes/ibexa_dxp_v4.6/#customizable-dashboard">Customizable dashboard</a></li>
+                                <li><a href="release_notes/ibexa_dxp_v4.6/#page-builder-improvements">Page Builder improvements</a></li>
+                                <li><a href="release_notes/ibexa_dxp_v4.6/#focus-mode">Focus mode</a></li>
                             </ul>
                         </div>
                         <div class="col-12 col-lg-6 col-fhd-3">
                             <ul>
-                                <li><a href="release_notes/ibexa_dxp_v4.5/#personalization-improvements">Personalization improvements</a></li>
-                                <li><a href="release_notes/ibexa_dxp_v4.5/#customer-data-platform-cdp-configuration">Customer Data Platform (CDP) configuration</a></li>
-                                <li><a href="release_notes/ibexa_dxp_v4.5/#api-improvements">API improvements</a></li>
+                                <li><a href="release_notes/ibexa_dxp_v4.6/#remote-pim-support">Remote PIM</a></li>
+                                <li><a href="release_notes/ibexa_dxp_v4.6/#reorder">Changes in Order management</a></li>
+                                <li><a href="release_notes/ibexa_dxp_v4.6/#triggers">Personalization triggers</a></li>
                             </ul>
                         </div>
                     </div>
@@ -127,7 +128,7 @@
                         <div class="col-12 col-lg-6 col-fhd-3">
                             <ul>
                                 <li><a href="api/php_api/php_api/">PHP API</a></li>
-                                <li><a href="search/solr_search_engine/">Solr search engine</a></li>
+                                <li><a href="content_management/rich_text/rich_text/">RichText and Online Editor</a></li>
                                 <li><a href="search/search_api/">Search API</a></li>
                             </ul>
                         </div>

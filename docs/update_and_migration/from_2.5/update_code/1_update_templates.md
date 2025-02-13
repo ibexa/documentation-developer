@@ -2,7 +2,7 @@
 
 ## Back-Office templates
 
-The naming and location of templates in the Back Office have been changed.
+The naming and location of templates in the back office have been changed.
 If you extend or modify these templates, you need to adapt your code.
 
 For the full list of template changes, see [the list of removals and deprecations](ez_platform_v3.0_deprecations.md#template-organization).
@@ -24,7 +24,7 @@ For example:
 
 ## Form templates
 
-Content Type editing has been [moved from `repository-forms` to `ezplatform-admin-ui`](ez_platform_v3.0_deprecations.md#content-type-forms).
+Content type editing has been [moved from `repository-forms` to `ezplatform-admin-ui`](ez_platform_v3.0_deprecations.md#content-type-forms).
 
 Forms for content creation have been [moved from `repository-forms` to `ezplatform-content-forms`](ez_platform_v3.0_deprecations.md#repository-forms).
 

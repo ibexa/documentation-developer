@@ -19,7 +19,7 @@ class BrowseLocationsCommand extends Command
         parent::__construct('doc:browse_locations');
     }
 
-    protected function configure()
+    protected function configure(): void
     {
         $this
             ->setDescription('Lists all descendants of the Location')
@@ -28,7 +28,7 @@ class BrowseLocationsCommand extends Command
             ]);
     }
 
-    private function browseLocation(Location $location, OutputInterface $output, $depth = 0)
+    private function browseLocation(Location $location, OutputInterface $output, int $depth = 0): void
     {
         $output->writeln($location->contentInfo->name);
 
@@ -38,9 +38,9 @@ class BrowseLocationsCommand extends Command
         }
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
-        $locationId = $input->getArgument('locationId');
+        $locationId = (int) $input->getArgument('locationId');
 
         $location = $this->locationService->loadLocation($locationId);
         $this->browseLocation($location, $output);

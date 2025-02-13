@@ -26,23 +26,23 @@ class SetMainLocationCommand extends Command
         parent::__construct('doc:set_main_location');
     }
 
-    protected function configure()
+    protected function configure(): void
     {
         $this
-            ->setDescription('Set a Location as Content item\'s main')
+            ->setDescription('Set a Location as content item\'s main')
             ->setDefinition([
                 new InputArgument('contentId', InputArgument::REQUIRED, 'The Content ID'),
                 new InputArgument('locationId', InputArgument::REQUIRED, 'One of the Locations of the Content'),
             ]);
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $user = $this->userService->loadUserByLogin('admin');
         $this->permissionResolver->setCurrentUserReference($user);
 
-        $contentId = $input->getArgument('contentId');
-        $locationId = $input->getArgument('locationId');
+        $contentId = (int) $input->getArgument('contentId');
+        $locationId = (int) $input->getArgument('locationId');
 
         $contentInfo = $this->contentService->loadContentInfo($contentId);
 

@@ -1,12 +1,12 @@
 ---
 description: Integrate recommendation service into your website.
+month_change: false
 ---
 
 # Integrate recommendation service
 
 To return recommendations, you must first [enable the Personalization service](enable_personalization.md).
-Next, integrate the service with [[= product_name =]] by activating
-event tracking and embedding recommendation results into the website.
+Next, integrate the service with [[= product_name =]] by activating event tracking and embedding recommendation results into the website.
 
 !!! note
 
@@ -16,22 +16,19 @@ event tracking and embedding recommendation results into the website.
 ## Track events
 
 The service primarily relies on event tracking.
-For the events to be registered, every Content item or product page must call
-a special tracking URL.
-The easiest way of embedding the tracking URL is placing a one pixel image on every page,
-like in the case of analytical tools or visitor counters.
+For the events to be registered, every content item or product page must call a special tracking URL.
+The easiest way of embedding the tracking URL is placing a one pixel image on every page, like in the case of analytical tools or visitor counters.
 A code that includes an image looks like this:
 
-`<img href="https://event.perso.ibexa.co/ebl/00000/click/<user_ID>/<content_type_ID>/<content_ID>" width="1" height="1">`
+`<img href="https://event.perso.ibexa.co/api/00000/click/<user_ID>/<content_type_ID>/<content_ID>" width="1" height="1">`
 
 where:
 
-- `<user_ID>` stands either for the user ID or session ID of the user who is currently
-logged into your website (any URL-encoded string is allowed).
+- `<user_ID>` stands either for the user ID or session ID of the user who is currently logged into your website (any URL-encoded string is allowed).
 
-- `<content_type_ID>` stands for the [contentTypeId](content_model.md#content-information) of the Content item or product that you want to track and recommend.
+- `<content_type_ID>` stands for the [contentTypeId](content_model.md#content-information) of the content item or product that you want to track and recommend.
 
-- `<content_ID>` stands for the [id](content_model.md#content-information) of the Content item or product that you want to track and recommend.
+- `<content_ID>` stands for the [id](content_model.md#content-information) of the content item or product that you want to track and recommend.
 
 The following examples show how you can integrate a CLICK event:
 
@@ -39,9 +36,10 @@ PHP:
 
 ``` php
 $mandator_id = '00000';
+$content_type_id = '1';
 $product_id = '123';
 $server = '//event.perso.ibexa.co';
-$tracking = $server.'/ebl/'.$mandator_id.'/click/'.urlencode(session_id()).'/1/'.$product_id;
+$tracking = $server.'/api/'.$mandator_id.'/click/'.urlencode(user_id()).$content_type_id.$product_id;
 echo "<img href='$tracking' width='1' height='1'>";
 ```
 
@@ -49,9 +47,10 @@ JavaScript:
 
 ``` js
 var mandator_id = '00000';
+var content_type_id = '1';
 var product_id = '123';
 var server = '//event.perso.ibexa.co';
-var url = server + '/api/' + mandator_id + '/click/' + getSessionId() + '/1/' + product_id;
+var url = server + '/api/' + mandator_id + '/click/' + getUserId() + content_type_id + product_id;
 var ycimg=new Image(1,1);
 ycimg.src=url;
 ```
@@ -61,7 +60,7 @@ A similar tracking image can be placed on a confirmation page that ends the paym
 ``` php
 $server = '//event.perso.ibexa.co';
 foreach ($just_bought_products as $product_id) {
-   $tracking = $server.'/ebl/'.$mandator_id.'/buy/'.urlencode(session_id()).'/1/'.$product_id;
+   $tracking = $server.'/api/'.$mandator_id.'/buy/'.urlencode(user_id()).$content_type_id.$product_id;
    echo "<img href='$tracking' width='1' height='1'>\n";
 }
 ```
@@ -128,7 +127,7 @@ $mandator_id = '00000';
 $license_key = '67890-1234-5678-90123-4567';
 $server = "https://reco.perso.ibexa.co";
 $scenario = "category_page";
-$url = $server.'/ebl/00000/'.urlencode(session_id()).'/'.urlencode($scenario).'.json';
+$url = $server.'/api/v2/00000/'.urlencode(user_id()).'/'.urlencode($scenario).'.json';
 
 $curl = curl_init();
 $request = array(
@@ -158,7 +157,7 @@ With this feature, your organization can invite individual visitors to return to
 Before you can start [using triggers]([[= user_doc =]]/personalization/triggers), you must contact [[= product_name_base =]] and define specific conditions, for example:
 
 - the time that must pass before messages start being sent
-- Content Types and attributes that are included in a response
+- content types and attributes that are included in a response
 - a number of repetitions
 
 Triggers are then processed on the Personalization server and responses are delivered to a dedicated endpoint.
@@ -214,10 +213,8 @@ The object contains links to the recommended items (`triggerOpenedLink`, `clickR
 
 ## Advanced integration
 
-You can configure integration at a more advanced level to track more events,
-use additional parameters, apply custom scenario configurations, filters,
-and enable additional features.
+You can configure integration at a more advanced level to track more events, use additional parameters, apply custom scenario configurations, filters, and enable additional features.
 
-For more information about available functionalities, see the [User Documentation]([[= user_doc =]]/personalization/personalization).
+For more information about available functionalities, see [User Documentation]([[= user_doc =]]/personalization/personalization).
 
 For more information about integrating the Personalization service, see [tracking API](tracking_api.md) and [tracking integration](tracking_integration.md) documentation.

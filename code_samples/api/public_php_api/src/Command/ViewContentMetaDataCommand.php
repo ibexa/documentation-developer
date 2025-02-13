@@ -39,21 +39,21 @@ class ViewContentMetaDataCommand extends Command
         parent::__construct('doc:view_metadata');
     }
 
-    protected function configure()
+    protected function configure(): void
     {
         $this
-            ->setDescription('Output various metadata about a Content item.')
+            ->setDescription('Output various metadata about a content item.')
             ->setDefinition([
                 new InputArgument('contentId', InputArgument::REQUIRED, 'An existing content ID'),
             ]);
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $user = $this->userService->loadUserByLogin('admin');
         $this->permissionResolver->setCurrentUserReference($user);
 
-        $contentId = $input->getArgument('contentId');
+        $contentId = (int) $input->getArgument('contentId');
 
         // Metadata
         $contentInfo = $this->contentService->loadContentInfo($contentId);
@@ -74,9 +74,9 @@ class ViewContentMetaDataCommand extends Command
             $output->writeln('URL alias: ' . $urlAlias->path);
         }
 
-        // Content Type
+        // Content type
         $content = $this->contentService->loadContent($contentId);
-        $output->writeln('Content Type: ' . $content->getContentType()->getName());
+        $output->writeln('Content type: ' . $content->getContentType()->getName());
 
         // Versions
         $versionInfos = $this->contentService->loadVersions($contentInfo);
@@ -86,7 +86,7 @@ class ViewContentMetaDataCommand extends Command
             $output->writeln(' in ' . $versionInfo->getInitialLanguage()->name);
         }
 
-        $versionInfoArray = $this->contentService->loadVersions($contentInfo, VersionInfo::STATUS_ARCHIVED);
+        $versionInfoArray = iterator_to_array($this->contentService->loadVersions($contentInfo, VersionInfo::STATUS_ARCHIVED));
         if (count($versionInfoArray)) {
             $output->writeln('Archived versions:');
             foreach ($versionInfoArray as $versionInfo) {
@@ -99,10 +99,11 @@ class ViewContentMetaDataCommand extends Command
 
         // Relations
         $versionInfo = $this->contentService->loadVersionInfo($contentInfo);
-        $relations = $this->contentService->loadRelations($versionInfo);
-        foreach ($relations as $relation) {
-            $name = $relation->destinationContentInfo->name;
-            $output->writeln('Relation to content ' . $name);
+        $relationCount = $this->contentService->countRelations($versionInfo);
+        $relationList = $this->contentService->loadRelationList($versionInfo, 0, $relationCount);
+        foreach ($relationList as $relationListItem) {
+            $name = $relationListItem->hasRelation() ? $relationListItem->getRelation()->destinationContentInfo->name : '(Unauthorized)';
+            $output->writeln("Relation to content '$name'");
         }
 
         // Owner

@@ -1,6 +1,10 @@
+---
+description: IntegerRangeAggregation
+---
+
 # IntegerRangeAggregation
 
-The Field-based [IntegerRangeAggregation](https://github.com/ibexa/core/blob/main/src/contracts/Repository/Values/Content/Query/Aggregation/Field/IntegerRangeAggregation.php) aggregates search results by the value of the Integer Field.
+The field-based [IntegerRangeAggregation](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Aggregation-Field-IntegerRangeAggregation.html) aggregates search results by the value of the Integer field.
 
 ## Arguments
 
