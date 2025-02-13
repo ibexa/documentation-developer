@@ -1,7 +1,7 @@
 ---
 description: AI Actions functions allows you to embed AI Actions in your templates
 page_type: reference
-month_change: true
+month_change: false
 ---
 
 # AI Actions Twig functions
