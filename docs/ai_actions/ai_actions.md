@@ -1,7 +1,7 @@
 ---
 description: AI Actions help editors by automating repetitive tasks.
 page_type: landing_page
-month_change: true
+month_change: false
 ---
 
 # AI Actions

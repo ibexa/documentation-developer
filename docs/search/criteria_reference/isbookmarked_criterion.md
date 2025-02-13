@@ -1,6 +1,6 @@
 ---
 description: IsBookmarked Search Criterion
-month_change: true
+month_change: false
 ---
 
 # IsBookmarked Criterion
