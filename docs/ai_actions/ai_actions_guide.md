@@ -137,7 +137,7 @@ While working on content, editors can select a specific passage and request that
 
 ![AI Assistant](img/ai_assistant.png)
 
-This functionality is available in content types that include a RichText field, and certain Page Builder blocks.
+This functionality is available in content types that include RichText or Text line fields, and certain Page Builder blocks.
 
 ### Generating alternative text
 
