@@ -80,7 +80,7 @@ final class AddMissingAltTextCommand extends Command
             $value = $content->getFieldValue(self::IMAGE_FIELD_IDENTIFIER);
 
             if ($value === null || !$this->shouldGenerateAltText($value)) {
-                $output->writeln(sprintf('Image %s has the image field empty or the alternative text is already specified. Skipping.', $content->getName()));
+                $output->writeln(sprintf('Image %s has the image field empty, the file cannot be accessed, or the alternative text is already specified. Skipping.', $content->getName()));
                 continue;
             }
 
@@ -125,12 +125,8 @@ final class AddMissingAltTextCommand extends Command
         return $output->getText();
     }
 
-    private function convertImageToBase64(?string $uri): string
+    private function convertImageToBase64(string $uri): string
     {
-        if ($uri === null) {
-            throw new \DomainException('Image field type is missing the uri property');
-        }
-
         $id = $this->binaryDataHandler->getIdFromUri($uri);
         $file = $this->binaryDataHandler->getContents($id);
 
@@ -148,10 +144,12 @@ final class AddMissingAltTextCommand extends Command
         return $this->contentService->find($filter);
     }
 
+    /** @phpstan-assert-if-true string $value->uri */
     private function shouldGenerateAltText(Value $value): bool
     {
         return $this->fieldTypeService->getFieldType('ezimage')->isEmptyValue($value) === false &&
-            $value->isAlternativeTextEmpty();
+            $value->isAlternativeTextEmpty() &&
+            $value->uri !== null;
     }
 
     private function setUser(string $userLogin): void
