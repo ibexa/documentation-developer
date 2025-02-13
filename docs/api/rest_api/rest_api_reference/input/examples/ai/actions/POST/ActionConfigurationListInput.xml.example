@@ -3,4 +3,5 @@
     <action_type_identifier>refine_text</action_type_identifier>
     <limit>10</limit>
     <enabled>1</enabled>
+    <page>1</page>
 </ActionConfigurationListInput>
