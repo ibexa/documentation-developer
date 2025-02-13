@@ -11,7 +11,7 @@ This page contains recent highlights and notable changes in [[= product_name =]]
 
 ### Trainings
 
-- The Content editor training has been released. Learn more in the [annoucement blogpost](https://www.ibexa.co/blog/constant-development-is-key-so-here-s-a-new-training-for-content-editors).
+- The Content Editor Training has been released. Learn more in the [annoucement blogpost](https://www.ibexa.co/blog/constant-development-is-key-so-here-s-a-new-training-for-content-editors).
 
 ### Infrastructure and maintenance
 
