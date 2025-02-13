@@ -5,7 +5,7 @@ month_change: false
 
 # Extend AI Actions
 
-By extending AI Actions, you can make regular content management and editing tasks more appealing and less demanding.
+By extending [AI Actions](ai_actions_guide.md), you can make regular content management and editing tasks more appealing and less demanding.
 You can start by integrating additional AI services to the existing action types or develop custom ones that impact completely new areas of application.
 For example, you can create a handler that connects to a translation model and use it to translate your website on-the-fly, or generate illustrations based on a body of an article.
 
@@ -14,7 +14,7 @@ For example, you can create a handler that connects to a translation model and u
 You can execute AI Actions by using the [ActionServiceInterface](../api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorAi-ActionServiceInterface.html) service, as in the following example:
 
 ``` php
-[[= include_file('code_samples/ai_actions/src/Command/AddMissingAltTextCommand.php', 101, 120) =]]
+[[= include_file('code_samples/ai_actions/src/Command/AddMissingAltTextCommand.php', 102, 121) =]]
 ```
 
 The `GenerateAltTextAction` is a built-in action that implements the [ActionInterface](../api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorAi-ActionInterface.html), takes an [Image](../api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorAi-Action-DataType-Image.html) as an input, and generates the alternative text in the response.
@@ -43,7 +43,7 @@ You can influence the execution of an Action with two events:
 Below you can find the full example of a Symfony Command, together with a matching service definition.
 The command finds the images modified in the last 24 hours, and adds the alternative text to them if it's missing.
 
-``` php hl_lines="87 100-125"
+``` php hl_lines="88 101-126"
 [[= include_file('code_samples/ai_actions/src/Command/AddMissingAltTextCommand.php') =]]
 ```
 
@@ -114,7 +114,7 @@ Create a class implementing the [ActionHandlerInterface](../api/php_api/php_api_
 
 See the code sample below, together with a matching service definition:
 
-``` php hl_lines="21 29-31 34-69 71-74"
+``` php hl_lines="21 29-32 34-69 71-74"
 [[= include_file('code_samples/ai_actions/src/AI/Handler/LLaVaTextToTextActionHandler.php') =]]
 ```
 
@@ -146,10 +146,14 @@ The created Form Type adds the `system_prompt` field to the Form.
 Use the `Ibexa\Bundle\ConnectorAi\Form\FormMapper\ActionConfiguration\ActionHandlerOptionsFormMapper` class together with the `ibexa.connector_ai.action_configuration.form_mapper.options` service tag to make it part of the Action Handler options form.
 Pass the Action Handler identifier (`LLaVATextToText`) as the type when tagging the service.
 
-The Action Handler and Action Type options are rendered in the back office using the built-in Twig option formatter.
+The Action Handler and Action Type options are rendered in the back office using the built-in Twig options formatter.
+
+![Custom Action Handler options rendered using the default Twig options formatter](img/action_handler_options.png "Custom Action Handler options rendered using the default Twig options formatter")
+
+
 You can create your own formatting by creating a class implementing the [OptionsFormatterInterface](../api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorAi-ActionConfiguration-OptionsFormatterInterface.html) interface and aliasing it to `Ibexa\Contracts\ConnectorAi\ActionConfiguration\OptionsFormatterInterface`.
 
-The following service definition switches the options rendering to the other built-in option formatter, displaying the options as JSON.
+The following service definition switches the options rendering to the other built-in options formatter, displaying the options as JSON.
 
 ``` yaml
 [[= include_file('code_samples/ai_actions/config/services.yaml', 64, 66) =]]
@@ -192,7 +196,7 @@ See the built-in Action Types like Generate Alt Text or Refine Text for an examp
 
 ### Create custom Data classes
 
-The `TranscribeAudio` Action Type requires adding two data classes that exists in its definition:
+The `TranscribeAudio` Action Type requires adding two data classes that exist in its definition:
 
 - an `Audio` class, implementing the [DataType interface](../api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorAi-DataType.html), to store the input data for the Action
 
