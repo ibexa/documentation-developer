@@ -134,7 +134,7 @@ There are two Redis adapters available out of the box that fit different needs.
 
 ##### `Symfony\Component\Cache\Adapter\RedisTagAwareAdapter`
 
-**Requirement**: Redis server configured with eviction [`maxmemory-policy`](https://redis.io/docs/reference/eviction/#eviction-policies):
+**Requirement**: Redis server configured with eviction [`maxmemory-policy`](https://redis.io/docs/latest/develop/reference/eviction/#eviction-policies):
 `volatile-ttl`, `volatile-lru` or `volatile-lfu` (Redis 4.0+).
 Use of LRU or LFU is recommended. it's also possible to use `noeviction`, but it's usually not practical.
 
@@ -187,13 +187,13 @@ See `.env`, `config/packages/ibexa.yaml` and `config/packages/cache_pool/cache.r
 Persistence cache depends on all involved web servers, each of them seeing the same view of the cache because it's shared among them.
 With that in mind, the following configurations of Redis are possible:
 
-- [Redis Cluster](https://redis.io/docs/management/scaling/)
+- [Redis Cluster](https://redis.io/docs/latest/operate/oss_and_stack/management/scaling/)
     - Shards cache across several instances to be able to cache more than memory of one server allows
-    - Shard slaves can improve availability, however [they use asynchronous replication](https://redis.io/docs/management/scaling/#redis-cluster-consistency-guarantees) so they can't be used for reads
+    - Shard slaves can improve availability, however [they use asynchronous replication](https://redis.io/docs/latest/operate/oss_and_stack/management/scaling/#redis-cluster-consistency-guarantees) so they can't be used for reads
     - Unsupported Redis features that can affect performance: [pipelining](https://github.com/phpredis/phpredis/blob/develop/cluster.md#pipelining) and [most multiple key commands](https://github.com/phpredis/phpredis/blob/develop/cluster.md#multiple-key-commands)
-- [Redis Sentinel](https://redis.io/docs/management/sentinel/)
+- [Redis Sentinel](https://redis.io/docs/latest/operate/oss_and_stack/management/sentinel/)
     - Provides high availability by providing one or several slaves (ideally 2 slaves or more, for example, minimum 3 servers), and handle failover
-    - [Slaves are asynchronously replicated](https://redis.io/docs/management/sentinel/#fundamental-things-to-know-about-sentinel-before-deploying), so they can't be used for reads
+    - [Slaves are asynchronously replicated](https://redis.io/docs/latest/operate/oss_and_stack/management/sentinel/#fundamental-things-to-know-about-sentinel-before-deploying), so they can't be used for reads
     - Typically used with a load balancer (for example, HAproxy with occasional calls to Redis Sentinel API) in the front to only speak to elected master
     - As of v3 you can also configure this [directly on the connection string]([[= symfony_doc =]]/components/cache/adapters/redis_adapter.html#configure-the-connection), **if** you use `Predis` instead of `php-redis`
 
