@@ -1,7 +1,9 @@
 <?php
 
 /**
- * Store a internal or external URL,
+ * URL to be tested.
+ *
+ * Store an internal or external URL,
  * optionally the text of the corresponding link,
  * optionally where it has been found (in which file at which line),
  * and offers to test/check the existence of URL's destination.
@@ -55,7 +57,8 @@ class TestableUrl
     public const DEFAULT_SCHEME = 'https';
 
     /**
-     * Represent a URL, potentially extracted from a file, which can be tested
+     * Represent a URL, potentially extracted from a file, which can be tested.
+     *
      * @param string $url The URL itself
      * @param string|null $text The text of the link to the URL
      * @param string|null $file The file in which the URL has been found
@@ -64,7 +67,7 @@ class TestableUrl
      * @param bool|string|null $find By default, URL is considered absolute or relative; If true, the URL will be considered partial and the target must be searched to solve the URL; If a string is given, this string will be used as a search prefix
      * @param bool $test Set to true to test the URL immediately at construction time
      */
-    public function __construct(string $url, string $text = null, string $file = null, string $line = null, array $replacements = null, mixed $find = false, bool $test = false)
+    public function __construct(string $url, ?string $text = null, ?string $file = null, ?string $line = null, ?array $replacements = null, mixed $find = false, bool $test = false)
     {
         $this->url = $url;
         $this->text = $text;
@@ -78,7 +81,8 @@ class TestableUrl
     }
 
     /**
-     * Test/check the URL and fill its related properties (code, headers, etc.)
+     * Test/check the URL and fill its related properties (code, headers, etc.).
+     *
      * @param bool $testLocations If it's a redirection (through a `location` header), test the redirect target
      * @param bool $testFragment If the eventual fragment/hash/anchor part should be tested
      * @param bool $cache Test again even if already tested
@@ -99,7 +103,8 @@ class TestableUrl
     }
 
     /**
-     * Has the URL been tested/checked
+     * Has the URL been tested/checked.
+     *
      * @return bool
      */
     public function isTested(): bool
@@ -109,6 +114,7 @@ class TestableUrl
 
     /**
      * The raw URL
+     *
      * @return string
      */
     public function getUrl(): string
@@ -184,9 +190,12 @@ class TestableUrl
     }
 
     /**
+     * Get testable URI.
+     *
      * If the file where the URL has been found is known,
      * solve relative path of internal URL
-     * or add file URL to fragment
+     * or add file URL to fragment.
+     *
      * @return string
      */
     public function getSolvedUrl(): string
@@ -269,18 +278,19 @@ class TestableUrl
     public const NOT_TESTABLE_CODE = 999;
 
     /**
-     * Test/check a URL and return result data
+     * Test/check a URL and return result data.
+     *
      * If the URL is external, return the response HTTP headers (as an array), the HTTP status code as an integer, the eventual `location` HTTP header used for redirection, if there is a fragment to test, if that fragment has been found in the content available at the URL
      * If the URL is internal, return the code 200 if the target exists, 404 if not, if there is a fragment to test, if that fragment has been found in the content available at the URL
      * @param string $url The URL istsel
-     * @param bool|null $external If it's an external URL or not
+     * @param bool|null $external If it's an external URL (`true`) or not (`false`), if `null`, the system try to guess it using {@see \TestableUrl::isExternalUrl()}
      * @param bool $testFragment If the eventual fragment/hash/anchor part should be tested
      * @param int $retryCount Number of retries on time out
      * @param int $retryDelay Delay in seconds before retrying
      * @param int $tryNumber Try number (first try is numbered 1)
      * @return array ['headers' => null|array, 'code' => int, 'location' => null|string, 'fragment_found' => null|bool]
      */
-    public static function testUrl(string $url, bool $external = null, bool $testFragment = true, int $retryCount = 1, int $retryDelay = 300, int $tryNumber = 1): array
+    public static function testUrl(string $url, ?bool $external = null, bool $testFragment = true, int $retryCount = 1, int $retryDelay = 300, int $tryNumber = 1): array
     {
         $headers = null;
         $code = self::NOT_TESTABLE_CODE;
