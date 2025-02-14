@@ -201,7 +201,7 @@ Several cloud providers have managed services that are easier to set up, handle 
 
 - [Amazon ElastiCache](https://aws.amazon.com/elasticache/)
 - [Azure Redis Cache](https://azure.microsoft.com/en-us/products/cache/)
-- [Google Cloud Memorystore](https://cloud.google.com/memorystore/)
+- [Google Cloud Memorystore](https://cloud.google.com/memorystore)
 
 ###### [[= product_name_cloud =]] / Platform.sh usage
 
