@@ -40,13 +40,13 @@ Flex installs and activates the package.
 
 ### Configure Actito integration
 
-Before you can start configuring the notifier engine to process and dispatch notifications to be forwarded as transactional emails, you must first obtain and configure an [Actito license](lihttps://www.actito.com/en-BE/pricing/nk).
+Before you can start configuring the notifier engine to process and dispatch notifications to be forwarded as transactional emails, you must first obtain and configure an [Actito license](https://www.actito.com/en-BE/pricing/nk).
 
 Once you gain access to the Actito dashboard:
 
 1\. Configure the API to make calls with the GET method.
 
-2\. Get the [API key](https://cdn3.actito.com/fe/actito-documentation/docs/Managing_API_users) and entity name.
+2\. Get the [API key](http://cdn3.actito.com/fe/actito-documentation/docs/Managing_API_users/) and entity name.
 
 3\. Set these values in the YAML configuration files, under the `ibexa.system.default.connector_actito` key:
 
@@ -67,7 +67,7 @@ ibexa:
     By default, a trigger message coming from [[= product_name =]] contains the following attributes with information about the end-user: name, surname, and email.
 
     Those attributes can then be used to present statistics in the Actito dashboard.
-    If this set of attributes is insufficient for your needs, you can [add more attributes to the trigger message](extend_transactional_emails.md#customize-actito-end-user-profile-schema).
+    If this set of attributes is insufficient for your needs, you can [add more attributes to the trigger message](extend_transactional_emails.md#customize-actito-end-user-profile).
 
 ### Create email campaigns
 
