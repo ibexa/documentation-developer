@@ -107,5 +107,3 @@ Next, define a **Hello World** field:
 After saving, your **Hello World** content type should be available under **Content** in the sidebar menu.
 
 ![Creating Hello World](extending_field_type_hello_world.png)
-
-For more detailed tutorial on Generic field type follow [Creating a Point 2D field type](creating_a_point2d_field_type.md).
