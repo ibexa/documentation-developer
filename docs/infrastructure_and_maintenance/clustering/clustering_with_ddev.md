@@ -64,7 +64,7 @@ See [Elasticsearch REST API reference](https://www.elastic.co/guide/en/elasticse
 
 !!! tip
 
-    You can use [`jq`](https://jqlang.github.io/jq/) to format and colorize Elasticsearch REST API outputs.
+    You can use [`jq`](https://jqlang.org/) to format and colorize Elasticsearch REST API outputs.
 
 ### Solr
 
@@ -119,7 +119,7 @@ You can now check whether Redis works.
 
 For example, the `ddev redis-cli MONITOR` command returns outputs, for example, `"SETEX" "ezp:`, `"MGET" "ezp:`, `"SETEX" "PHPREDIS_SESSION:`, or `"GET" "PHPREDIS_SESSION:`, while navigating into the website, in particular the back office.
 
-See [Redis commands](https://redis.io/commands/) for more details such as information about the [`MONITOR`](https://redis.io/commands/monitor/) command used in the previous example.
+See [Redis commands](https://redis.io/docs/latest/commands/) for more details such as information about the [`MONITOR`](https://redis.io/docs/latest/commands/monitor/) command used in the previous example.
 
 ### Install Memcached
 
