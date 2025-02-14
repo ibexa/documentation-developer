@@ -64,7 +64,7 @@ See [Elasticsearch REST API reference](https://www.elastic.co/guide/en/elasticse
 
 !!! tip
 
-    You can use [`jq`](https://jqlang.github.io/jq/) to format and colorize Elasticsearch REST API outputs.
+    You can use [`jq`](https://jqlang.org/) to format and colorize Elasticsearch REST API outputs.
 
 ### Solr
 
