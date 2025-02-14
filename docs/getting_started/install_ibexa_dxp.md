@@ -26,7 +26,7 @@ Additional requirements:
 - [Node.js](https://nodejs.org/en) and [Yarn](https://classic.yarnpkg.com/en/docs/install/#debian-stable) for asset management
 - `git` for version control
 
-[For production](#prepare-installation-for-production) you also need Apache or nginx as the HTTP server (Apache is used as an example below).
+For production, you need to [configure an HTTP server](#configure-an-http-server), Apache or nginx (Apache is used as an example below).
 
 Before getting started, make sure you review other [requirements](requirements.md) to see the systems that is supported and used for testing.
 
