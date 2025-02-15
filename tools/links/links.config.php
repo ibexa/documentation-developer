@@ -52,7 +52,7 @@ $exclusionTests = array_merge_recursive(UrlTester::getDefaultExclusionTests(), [
                 ;
         },
         function (string $url, ?string $file = null): bool {
-            return (bool)preg_match('@(https?:)?//([a-z]+\.)?(localhost|127.0.0.1)(:[0-9]+)?(/.*|$)@', $url);
+            return (bool)preg_match('@(https?:)?//([a-z]+\.)?(localhost|127.0.0.1|123.456.789.0)(:[0-9]+)?(/.*|$)@', $url);
         },
         function (string $url, ?string $file = null): bool {
             // Fake, placeholders, local servers, etc.
@@ -67,7 +67,8 @@ $exclusionTests = array_merge_recursive(UrlTester::getDefaultExclusionTests(), [
                 || str_contains($url, '//FRA_server_uri')
                 || str_contains($url, '//user:password@host')
                 || str_contains($url, '//user:pass@localhost')
-                || str_contains($url, '//varnish')
+                || str_contains($url, '//elasticsearch:9200')
+                || str_contains($url, '//varnish:80')
                 || str_contains($url, '//my.varnish.server')
                 ;
         },
