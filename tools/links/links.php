@@ -495,7 +495,7 @@ class UrlExtractor
      * @param bool|string $find If the URL target must be searched for instead of just being considered as a relative path; If a string is given, it will be used as search prefix
      * @see UrlExtractor::getDefaultPatterns For an example of pattern map.
      */
-    public function __construct(array $patterns = null, array $replacements = null, mixed $find = false)
+    public function __construct(?array $patterns = null, ?array $replacements = null, mixed $find = false)
     {
         $this->patterns = null === $patterns ? self::getDefaultPatterns() : $patterns;
         $this->flattenPatterns();
@@ -580,7 +580,7 @@ class UrlExtractor
         return $urls;
     }
 
-    private function flattenPatterns(string $reRunExtension = null): self
+    private function flattenPatterns(?string $reRunExtension = null): self
     {
         if (array_key_exists('*', $this->patterns)) {
             unset($this->patterns['*']);
@@ -825,10 +825,10 @@ class UrlTester
      * @param array[]|null $exclusionTests An associative array of arrays of functions testing if a URL should be excluded from test
      * @param array|null $replacements A replacement map to apply on each URL
      * @param bool|string $find If the URL target must be searched for instead of just being considered as a relative path; If a string is given, it will be used as search prefix
-     * @param $output
-     * @param $error
+     * @param callable|null $output A callable to pass standard output message to
+     * @param callable|null $error A callable to pass error message to
      */
-    public function __construct(array $usageFiles = [], array $resourceFiles = [], array $exclusionTests = null, array $replacements = null, mixed $find = false, $output = null, $error = null)
+    public function __construct(array $usageFiles = [], array $resourceFiles = [], ?array $exclusionTests = null, ?array $replacements = null, mixed $find = false, ?callable $output = null, ?callable $error = null)
     {
         $this->setUsageFiles($usageFiles);
         $this->setResourceFiles($resourceFiles);
@@ -913,22 +913,22 @@ class UrlTester
     {
         return [
             'url' => [
-                function (string $url, string $file = null): bool {
+                function (string $url, ?string $file = null): bool {
                     return str_contains($url, 'example.com');
                 },
             ],
             'header' => [
-                function (string $url, int $code, array $headers, string $file = null) {
+                function (string $url, int $code, array $headers, ?string $file = null) {
                     return 403 === $code && in_array('Server: cloudflare', $headers);
                 },
             ],
             'location' => [
-                //function (string $url, string $location, string $file = null): bool {
+                //function (string $url, string $location, ?string $file = null): bool {
                 //    return …;
                 //},
             ],
             'fragment' => [
-                function (string $url, string $file = null): bool {
+                function (string $url, ?string $file = null): bool {
                     if (str_starts_with($url, 'https://github.com/')) {
                         $fragment = TestableUrl::getUrlFragment($url);
                         if (preg_match('@^L[0-9]+(-L[0-9]+)?$@', $fragment)) {
@@ -939,7 +939,7 @@ class UrlTester
                     }
                     return false;
                 },
-                function (string $url, string $file = null): bool {
+                function (string $url, ?string $file = null): bool {
                     return preg_match('@\.eot\?#@', $url);
                 },
             ],
@@ -1168,7 +1168,7 @@ class UrlTester
         return $url;
     }
 
-    private function outputUrl(TestableUrl $testableUrl, TestableUrl $testedUrl = null, $withFile = false, $withLine = true, $withCode = true): self
+    private function outputUrl(TestableUrl $testableUrl, ?TestableUrl $testedUrl = null, $withFile = false, $withLine = true, $withCode = true): self
     {
         $file = $testableUrl->getFile();
         $file = $withFile && $file !== null ? "{$file}@" : '';
@@ -1221,7 +1221,7 @@ class Finder
     private $includedTypes = [];
     private $excludedTypes = [];
 
-    public function __construct(string $where = '.', int $minDepth = null, int $maxDepth = null)
+    public function __construct(string $where = '.', ?int $minDepth = null, ?int $maxDepth = null)
     {
         $this->where = preg_replace('@/$@', '', $where);
         $this->minDepth = $minDepth;
@@ -1384,7 +1384,7 @@ class UrlTestCommand
         return $finder;
     }
 
-    static function newUrlTesterFromCommand(array $argv, array $exclusionTests = null, array $replacements = null, mixed $find = false): UrlTester
+    static function newUrlTesterFromCommand(array $argv, ?array $exclusionTests = null, ?array $replacements = null, mixed $find = false): UrlTester
     {
         $finders = [
             'usage' => [],
