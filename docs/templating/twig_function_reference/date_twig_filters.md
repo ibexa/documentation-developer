@@ -5,7 +5,7 @@ page_type: reference
 
 # Date Twig filters
 
-Date and time Twig filters format a date and time object (`DateTimeInterface`) in one of the formats defined in [user preferences](formatting_date_and_time.md#using-user-settings-menu).
+Date and time Twig filters format a date and time object (`DateTimeInterface`) in one of the formats defined in [user preferences](formatting_date_and_time.md#within-user-settings-menu).
 
 - `ibexa_full_datetime`
 - `ibexa_full_date`
