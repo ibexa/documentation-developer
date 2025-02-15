@@ -11,7 +11,7 @@ DDEV is an open-source tool that simplifies the process of setting up local PHP 
 
 Before you start the installation, ensure that you have the following software installed:
 
-- [Docker](https://docs.docker.com/get-docker/)
+- [Docker](https://docs.docker.com/get-started/get-docker/)
 - [DDEV](https://ddev.readthedocs.io/en/latest/users/install/ddev-installation/)
 
 ## Installation
