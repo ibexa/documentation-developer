@@ -290,7 +290,7 @@ You can define this environment variable directly in web server configuration:
 !!! tip
 
     You can configure the variable by using the PHP-FPM configuration file.
-    For more information, see [PHP-FPM documentation](https://www.php.net/manual/en/install.fpm.configuration.php#example-25).
+    For more information, see [PHP-FPM documentation](https://www.php.net/manual/en/install.fpm.configuration.php).
 
 !!! note "Precedence"
 
