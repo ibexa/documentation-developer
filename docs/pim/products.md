@@ -46,6 +46,13 @@ An example of an attribute group can be dimensions (length, width, height).
 
 You can assign both whole attribute groups or individual attributes to a product type.
 
+!!! note "Attribute translations"
+
+    Product attributes are not translatable.
+    Unlike content fields, product attribute names and values cannot differ between languages.
+
+    To help mitigate this limitation, for the information that is intended to be displayed, consider using TextLine fields for short text, RichText fields for longer text that may require formatting, and product attributes for precise product properties or specifications.
+
 ## Product variants
 
 Product variants represent different versions of a product, for example, clothes in different colors, or laptops with different amounts of RAM.
