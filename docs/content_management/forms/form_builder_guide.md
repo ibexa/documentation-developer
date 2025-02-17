@@ -3,7 +3,7 @@ description: See the Form Builder product guide and learn how to create various 
 edition: experience
 ---
 
-# Form Builder product guide 
+# Form Builder product guide
 
 ## What is Form Builder
 
@@ -12,6 +12,8 @@ Form Builder is a tool that lets you build forms consisting of different fields.
 By adding forms on the website, you can increase its functionality and improve user experience.
 Use Form Builder to create various forms, such as survey, questionnaire, sign-up form, using basic form fields available in the Form Builder.
 You can also manage your forms and review the results gathered from the website users.
+
+<!--ARCADE EMBED START--><div style="position: relative; padding-bottom: calc(51.27314814814815% + 41px); height: 0; width: 100%;"><iframe src="https://demo.arcade.software/6TuwPfbDTXTo6SnYSiyW?embed&embed_mobile=tab&embed_desktop=inline&show_copy_link=true" title="Form Builder interface" frameborder="0" loading="lazy" webkitallowfullscreen mozallowfullscreen allowfullscreen allow="clipboard-write" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; color-scheme: light;" ></iframe></div><!--ARCADE EMBED END-->
 
 ## Availability
 
