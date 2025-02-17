@@ -46,7 +46,7 @@ Once you gain access to the Actito dashboard:
 
 1\. Configure the API to make calls with the GET method.
 
-2\. Get the [API key](http://cdn3.actito.com/fe/actito-documentation/docs/Managing_API_users/) and entity name.
+2\. Get the [API key](https://cdn3.actito.com/fe/actito-documentation/docs/Managing_API_users/) and entity name.
 
 3\. Set these values in the YAML configuration files, under the `ibexa.system.default.connector_actito` key:
 

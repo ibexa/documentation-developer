@@ -7,7 +7,7 @@ edition: commerce
 
 By using Payum to integrate PayPal into your application, you can offer your customers a versatile payment processing service that supports various payment methods, including credit cards, debit cards, Pay Later options, and alternative payment methods.
 
-Before you can proceed with integrating PayPal, you must [create a PayPal business account](https://www.paypal.com/unifiedonboarding/entry) and obtain API credentials.
+Before you can proceed with integrating PayPal, you must [create a PayPal business account](https://www.paypal.com/bizsignup/#/singlePageSignup) and obtain API credentials.
 
 Install the PayPal package:
 
