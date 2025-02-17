@@ -16,7 +16,7 @@ This page contains recent highlights and notable changes in [[= product_name =]]
 ### Infrastructure and maintenance
 
 - The upgrade instructions from v3.3 to v4.6 have been expanded with a section describing the [GraphQL changes in v4](https://doc.ibexa.co/en/latest/update_and_migration/from_3.3/to_4.0/#graphql).
-- Ubuntu 24.04 has been added to the [list of officialy supported operating systems](https://doc.ibexa.co/en/latest/getting_started/requirements#operating-system).
+- Ubuntu 24.04 has been added to the [list of officialy supported operating systems](https://doc.ibexa.co/en/latest/getting_started/requirements/#operating-system).
 
 ### PHP API
 
@@ -106,7 +106,7 @@ This page contains recent highlights and notable changes in [[= product_name =]]
     - describing them in [user documentation](https://doc.ibexa.co/projects/userguide/en/master/personalization/recommendation_models/#time-slot-based-models)
 
 - Updated configuration details (including endpoint addresses and code examples) in multiple how-to articles:
-    - [Enable Personalization ](https://doc.ibexa.co/en/master/personalization/enable_personalization)
+    - [Enable Personalization ](https://doc.ibexa.co/en/master/personalization/enable_personalization/)
     - [Integrate recommendation service](https://doc.ibexa.co/en/master/personalization/integrate_recommendation_service/)
     - [Tracking integration](https://doc.ibexa.co/en/master/personalization/tracking_integration/)
     - [Track events with ibexa-tracker.js](https://doc.ibexa.co/en/master/personalization/tracking_with_ibexa-tracker/)
