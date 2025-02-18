@@ -107,6 +107,9 @@ Use:
     They will become active again if the agreement is renewed, but this process may take up to 24 hours.
     _(If the agreement is renewed before the expiry date, there will be no disruption of service.)_
 
+If Composer asks for your GitHub token, you must log in to your GitHub account and generate a new token (edit your profile and go to **Developer settings** > **Personal access tokens** > **Generate new token** with default settings).
+This operation is performed only once, when you install [[= product_name =]] for the first time.
+
 ### Create project
 
 To use Composer to instantly create a project in the current folder with all the dependencies, run the following command:
@@ -247,11 +250,11 @@ You may choose to replace the [default search engine](legacy_search_overview.md)
 
     Do the following steps to enable Elasticsearch:
 
-    1. [Download and install Elasticsearch](install_elastic_search.md)
-    2. [Verify that the Elasticsearch instance is up](install_elastic_search.md#verify-the-instance)
-    3. [Set the default search engine](install_elastic_search.md#set-the-default-search-engine)
-    4. [Configure the search engine](configure_elastic_search.md)
-    5. [Push the templates](install_elastic_search.md#push-the-templates)
+    1. [Download and install Elasticsearch](install_elasticsearch.md)
+    2. [Verify that the Elasticsearch instance is up](install_elasticsearch.md#verify-the-instance)
+    3. [Set the default search engine](install_elasticsearch.md#set-the-default-search-engine)
+    4. [Configure the search engine](configure_elasticsearch.md)
+    5. [Push the templates](install_elasticsearch.md#push-the-templates)
 
     Configure the following parameter in the `.env` file:
 
@@ -269,9 +272,6 @@ php bin/console ibexa:graphql:generate-schema
 ```
 
 Before executing the command make sure that the database user has sufficient permissions.
-
-If Composer asks for your token, you must log in to your GitHub account and generate a new token (edit your profile and go to **Developer settings** > **Personal access tokens** > **Generate new token** with default settings).
-This operation is performed only once, when you install [[= product_name =]] for the first time.
 
 ### Run post-installation script
 

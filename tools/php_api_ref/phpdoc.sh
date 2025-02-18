@@ -7,6 +7,7 @@ OUTPUT_DIR=${2:-./docs/api/php_api/php_api_reference}; # Path to the directory w
 
 DXP_EDITION='commerce'; # Edition from and for which the Reference is built
 DXP_VERSION='4.6.*'; # Version from and for which the Reference is built
+DXP_ADD_ONS=(connector-ai connector-openai); # Packages not included in $DXP_EDITION but added to the Reference, listed without their vendor "ibexa"
 DXP_EDITIONS=(oss headless experience commerce); # Available editions ordered by ascending capabilities
 PHPDOC_VERSION='3.5.3'; # Version of phpDocumentor used to build the Reference
 PHPDOC_CONF="$(pwd)/tools/php_api_ref/phpdoc.dist.xml"; # Absolute path to phpDocumentor configuration file
@@ -62,6 +63,12 @@ if [[ "$DXP_VERSION" == *".*"* ]]; then
 fi;
 
 export COMPOSER_ROOT_VERSION=$DXP_VERSION;
+
+if [ 0 -eq $DXP_ALREADY_EXISTS ]; then
+  for additional_package in "${DXP_ADD_ONS[@]}"; do
+    composer require --no-interaction --ignore-platform-reqs --no-scripts ibexa/$additional_package:$DXP_VERSION
+  done;
+fi;
 
 #if [ 0 -eq $DXP_ALREADY_EXISTS ]; then
 #  MY_PACKAGE='';
@@ -134,6 +141,13 @@ $PHP_BINARY $PHPDOC_BIN -t php_api_reference;
 if [ $? -eq 0 ]; then
   echo -n 'Remove unneeded from phpDocumentor output… ';
   rm -rf ./php_api_reference/files ./php_api_reference/graphs ./php_api_reference/indices ./php_api_reference/packages;
+  rm -f ./php_api_reference/classes/Symfony-*.html ./php_api_reference/namespaces/symfony*.html
+  echo -n 'Remove Symfony namespace from index… ';
+  awk 'NR==FNR{if (/.*"fqsen": "\\\\Symfony.*/) for (i=-1;i<=3;i++) del[NR+i]; next} !(FNR in del)' \
+    ./php_api_reference/js/searchIndex.js \
+    ./php_api_reference/js/searchIndex.js \
+    > ./php_api_reference/js/searchIndex.new.js;
+  mv -f ./php_api_reference/js/searchIndex.new.js ./php_api_reference/js/searchIndex.js;
   echo -n "Copy phpDocumentor output to ${OUTPUT_DIR}… ";
   cp -rf ./php_api_reference/* $OUTPUT_DIR;
   echo -n 'Remove surplus… ';

@@ -1,6 +1,6 @@
 ---
 description: Configure your project files to enable Personalization and set up items you want to track.
-month_change: true
+month_change: false
 ---
 
 # Enable Personalization
@@ -516,7 +516,7 @@ For example, to retrieve the `rss` variation of the image, use:
 
 #### Logging
 
-Most operations are logged by using the `ibexa-personalization` [Monolog channel](https://symfony.com/doc/5.4/logging/channels_handlers.html).
+Most operations are logged by using the `ibexa-personalization` [Monolog channel]([[= symfony_doc =]]/logging/channels_handlers.html).
 To log everything about Personalization to `dev.recommendation.log`, add the following configuration:
 
 ``` yaml

@@ -190,6 +190,10 @@ body.menu-resizing {
     background-image: url(../images/minus-white.svg);
 }
 
+.md-nav--primary .md-nav__item--nested:has(a[href="namespaces/symfony-contracts.html"]) {
+    display: none;
+}
+
 {# --------------------------------------------------------------------------- #}
 {# ------------------------------- Breadcrumbs ------------------------------- #}
 {# --------------------------------------------------------------------------- #}
@@ -250,6 +254,11 @@ ul.breadcrumbs li.breadcrumb-item-current span {
 .md-typeset .content-header .commerce-pill {
     color: var(--ibexa-jazzberry);
     border: 1px solid var(--ibexa-jazzberry);
+}
+
+.md-typeset .content-header .optional-pill {
+    color: var(--sherpa-blue);
+    border: 1px solid var(--sherpa-blue);
 }
 
 .md-typeset .content-header img {

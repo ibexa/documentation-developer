@@ -1,10 +1,81 @@
 ---
 description: Overview of major recent additions to Ibexa DXP documentation.
+month_change: true
 ---
 
 # New in documentation
 
 This page contains recent highlights and notable changes in [[= product_name =]] documentation.
+
+## January 2025
+
+### Trainings
+
+- The Content Editor Training has been released. Learn more in the [annoucement blogpost](https://www.ibexa.co/blog/constant-development-is-key-so-here-s-a-new-training-for-content-editors).
+
+### Infrastructure and maintenance
+
+- The upgrade instructions from v3.3 to v4.6 have been expanded with a section describing the [GraphQL changes in v4](https://doc.ibexa.co/en/latest/update_and_migration/from_3.3/to_4.0/#graphql).
+- Ubuntu 24.04 has been added to the [list of officialy supported operating systems](https://doc.ibexa.co/en/latest/getting_started/requirements#operating-system).
+
+### PHP API
+
+- Added the following interfaces and classes to the public PHP API:
+    - [`Ibexa\Contracts\AdminUi\Permission\PermissionCheckContextProviderInterface`](https://doc.ibexa.co/en/latest/api/php_api/php_api_reference/classes/Ibexa-Contracts-AdminUi-Permission-PermissionCheckContextProviderInterface.html)
+    - [`Ibexa\Contracts\AdminUi\Values\PermissionCheckContext`](https://doc.ibexa.co/en/latest/api/php_api/php_api_reference/classes/Ibexa-Contracts-AdminUi-Values-PermissionCheckContext.html)
+    - [`Ibexa\Contracts\Checkout\Discounts\DataMapper\DiscountsDataMapperInterface`](https://doc.ibexa.co/en/latest/api/php_api/php_api_reference/classes/Ibexa-Contracts-Checkout-Discounts-DataMapper-DiscountsDataMapperInterface.html)
+    - [`Ibexa\Contracts\Seo\Resolver\FieldValueResolverInterface`](https://doc.ibexa.co/en/latest/api/php_api/php_api_reference/classes/Ibexa-Contracts-Seo-Resolver-FieldValueResolverInterface.html)
+
+## December 2024
+
+### Infrastructure and maintenance
+
+- Added [v4.6.14 to v4.6.15 update instructions](https://doc.ibexa.co/en/master/update_and_migration/from_4.6/update_from_4.6/#v4615).
+
+## AI Actions
+
+- Added [extending AI Actions](extend_ai_actions.md) documentation.
+
+### Security
+
+- Expanded the [Security checklist](security_checklist.md) with advice on TLS, HSTS, DNSSEC, CAA, and domain update protection.
+
+### PHP API
+
+- Added the following interfaces to the public PHP API:
+    - [`Ibexa\Contracts\ProductCatalog\Values\Price\PriceEnvelopeInterface`](https://doc.ibexa.co/en/latest/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Values-Price-PriceEnvelopeInterface.html)
+    - [`Ibexa\Contracts\ProductCatalog\Values\Price\PriceStampInterface`](https://doc.ibexa.co/en/latest/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Values-Price-PriceStampInterface.html)
+    - [`Ibexa\Contracts\ProductCatalog\Values\StampInterface`](https://doc.ibexa.co/en/latest/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Values-StampInterface.html)
+
+## November 2024
+
+### Infrastructure and maintenance
+
+- Added [v4.6.13 to v4.6.14 update instructions](https://doc.ibexa.co/en/master/update_and_migration/from_4.6/update_from_4.6/#v4614) which include security fixes.
+- Added [v3.3.40 to v3.3.41 update instructions](https://doc.ibexa.co/en/master/update_and_migration/from_3.3/update_from_3.3/#v3341) which include security fixes.
+
+### Content management
+
+- Added [AI Actions documentation](https://doc.ibexa.co/en/master/ai_actions/ai_actions/)
+
+### Search
+
+- New [`IsBookmarked` location criterion](https://doc.ibexa.co/en/master/search/criteria_reference/isbookmarked_criterion/)
+- [`IsUserEnabled` is now available on Solr and Elastisearch](https://doc.ibexa.co/en/master/search/criteria_reference/isuserenabled_criterion/)
+
+### Documentation
+
+- When you search using the top bar, if there are more than the 10 listed results, you can see a link to a page with further results at the bottom of the drop-down suggestion list.
+
+### PHP API
+
+- Added the following namespaces, interfaces, and classes to the public PHP API:
+    - [`Ibexa\Contracts\Core\Validation`](https://doc.ibexa.co/en/master/api/php_api/php_api_reference/namespaces/ibexa-contracts-core-validation.html) namespace and its descendants
+    - [`Ibexa\Contracts\Notifications\SystemNotification`](https://doc.ibexa.co/en/master/api/php_api/php_api_reference/namespaces/ibexa-contracts-notifications-systemnotification.html) namespace and its descendants
+    - [`Ibexa\Contracts\Notifications\Value\Recipent\UserRecipientInterface`](https://doc.ibexa.co/en/master/api/php_api/php_api_reference/classes/Ibexa-Contracts-Notifications-Value-Recipent-UserRecipientInterface.html)
+    - [`Ibexa\Contracts\ProductCatalog\Values\Product\Query\Criterion\UpdatedAt`](https://doc.ibexa.co/en/master/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Values-Product-Query-Criterion-UpdatedAt.html)
+    - [`Ibexa\Contracts\ProductCatalog\Values\Product\Query\Criterion\UpdatedAtRange`](https://doc.ibexa.co/en/master/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Values-Product-Query-Criterion-UpdatedAtRange.html)
+    - [`Ibexa\Contracts\ProductCatalog\ProductReferencesResolverStrategy`](https://doc.ibexa.co/en/master/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-ProductReferencesResolverStrategy.html)
 
 ## October 2024
 
@@ -56,7 +127,6 @@ This page contains recent highlights and notable changes in [[= product_name =]]
 
 - Updated the [REST API authentication](https://doc.ibexa.co/en/master/api/rest_api/rest_api_authentication/) instructions
 
-
 ## September 2024
 
 ### Getting started
@@ -66,7 +136,7 @@ This page contains recent highlights and notable changes in [[= product_name =]]
 ### Infrastructure and maintenance
 
 - Modified v4.5.x to v4.6 update instructions by adding [Update Solr configuration](https://doc.ibexa.co/en/master/update_and_migration/from_4.5/update_from_4.5/#update-solr-configuration) section
-- [Added v4.6.8 to v4.6.11 update instructions](https://doc.ibexa.co/en/master/update_and_migration/from_4.6/update_from_4.6/#v4611)
+- Added [v4.6.8 to v4.6.11 update instructions](https://doc.ibexa.co/en/master/update_and_migration/from_4.6/update_from_4.6/#v4611)
 
 ### PHP API
 
@@ -104,8 +174,8 @@ This page contains recent highlights and notable changes in [[= product_name =]]
 
 ### Infrastructure and maintenance
 
-- [Added v4.6.4 to v4.6.8 update instructions](https://doc.ibexa.co/en/master/update_and_migration/from_4.5/update_from_4.5/#v468)
-- [Modified v3.3.x to v3.3.latest update instructions](https://doc.ibexa.co/en/master/update_and_migration/from_3.3/update_from_3.3/#update-the-application)
+- Added [v4.6.4 to v4.6.8 update instructions](https://doc.ibexa.co/en/master/update_and_migration/from_4.5/update_from_4.5/#v468)
+- Modified [v3.3.x to v3.3.latest update instructions](https://doc.ibexa.co/en/master/update_and_migration/from_3.3/update_from_3.3/#update-the-application)
 - Updated the recommendations in [Performance](https://doc.ibexa.co/en/master/infrastructure_and_maintenance/performance/#symfony) by mentioning Symfony
 
 ### Data migration
@@ -133,7 +203,7 @@ This page contains recent highlights and notable changes in [[= product_name =]]
 
 ### Search
 
-- [Configuring Elasticsearch with analyzers for different languages](https://doc.ibexa.co/en/master/search/search_engines/elastic_search/configure_elastic_search/#add-language-specific-analysers)
+- [Configuring Elasticsearch with analyzers for different languages](https://doc.ibexa.co/en/master/search/search_engines/elasticsearch/configure_elasticsearch/#add-language-specific-analysers)
 - [ContentName search criterion](https://doc.ibexa.co/en/master/search/criteria_reference/contentname_criterion/)
 
 ### Dashboard
@@ -201,7 +271,7 @@ This page contains recent highlights and notable changes in [[= product_name =]]
 
 ### Search
 
-- Updated [Elasticsearch search engine](https://doc.ibexa.co/en/master/search/search_engines/elastic_search/elastic_search_overview/) description
+- Updated [Elasticsearch search engine](https://doc.ibexa.co/en/master/search/search_engines/elasticsearch/elasticsearch_overview/) description
 - New Search Criteria:
     - [Image](https://doc.ibexa.co/en/master/search/criteria_reference/image_criterion/)
     - [ImageDimensions](https://doc.ibexa.co/en/master/search/criteria_reference/imagedimensions_criterion/)
@@ -522,7 +592,7 @@ This page contains recent highlights and notable changes in [[= product_name =]]
 ### Search
 
 - [Updated search engines documentation](https://doc.ibexa.co/en/master/search/search_engines/search_engines/):
-    - [Elasticsearch search engine](https://doc.ibexa.co/en/master/search/search_engines/elastic_search/elastic_search_overview/)
+    - [Elasticsearch search engine](https://doc.ibexa.co/en/master/search/search_engines/elasticsearch/elasticsearch_overview/)
     - [Solr search engine](https://doc.ibexa.co/en/master/search/search_engines/solr_search_engine/solr_overview/)
     - [Legacy search engine](https://doc.ibexa.co/en/master/search/search_engines/legacy_search_engine/legacy_search_overview/#legacy-search-engine)
 

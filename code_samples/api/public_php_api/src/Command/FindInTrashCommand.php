@@ -30,7 +30,7 @@ class FindInTrashCommand extends Command
 
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
-        $contentTypeId = $input->getArgument('contentTypeId');
+        $contentTypeId = (int) $input->getArgument('contentTypeId');
 
         $query = new Query();
 

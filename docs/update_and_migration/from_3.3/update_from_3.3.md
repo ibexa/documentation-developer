@@ -1,6 +1,6 @@
 ---
 description: Update your installation to the latest v3.3 version from an earlier v3.3 version.
-month_change: true
+month_change: false
 ---
 
 # Update from v3.3.x to v3.3.latest
@@ -513,6 +513,18 @@ You can customize the behavior of the command with the following options:
 Adjust the web server configuration to prevent direct access to the `index.php` file when using URLs consisting of multiple path segments.
 
 See [the updated Apache and nginx template files](https://github.com/ibexa/post-install/pull/70/files) for more information.
+
+### Removed `symfony/serializer-pack` dependency
+
+This release no longer directly requires the `symfony/serializer-pack` Composer dependency, which can remove some dependencies from your project during the update process.
+
+If you rely on them in your project, for example by using Symfony's `ObjectNormalizer` to create your own REST endpoints, run the following command before updating [[= product_name_base =]] packages:
+
+``` bash
+composer require symfony/serializer-pack
+```
+
+Then, verify that Symfony Flex installed the versions you were using before.
 
 
 ## Finish the update

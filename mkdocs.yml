@@ -90,6 +90,7 @@ nav:
             - Site events: api/event_reference/site_events.md
             - URL events: api/event_reference/url_events.md
             - Trash events: api/event_reference/trash_events.md
+            - AI Action events: api/event_reference/ai_action_events.md
             - Other events: api/event_reference/other_events.md
     - Administration:
         - Administration: administration/administration.md
@@ -298,6 +299,7 @@ nav:
             - Storefront Twig functions: templating/twig_function_reference/storefront_twig_functions.md
             - URL Twig functions: templating/twig_function_reference/url_twig_functions.md
             - User Twig functions: templating/twig_function_reference/user_twig_functions.md
+            - AI Twig functions: templating/twig_function_reference/ai_actions_twig_functions.md
             - Other Twig filters: templating/twig_function_reference/other_twig_filters.md
         - URLs and routes:
             - URLs and routes: templating/urls_and_routes/urls_and_routes.md
@@ -325,7 +327,7 @@ nav:
         - AI Actions: ai_actions/ai_actions.md
         - AI Actions guide: ai_actions/ai_actions_guide.md
         - Install AI Actions: ai_actions/install_ai_actions.md
-#        - Extend AI Actions: ai_actions/extend_ai_actions.md
+        - Extend AI Actions: ai_actions/extend_ai_actions.md
     - PIM (Product management):
         - PIM (Product management): pim/pim.md
         - PIM guide: pim/pim_guide.md
@@ -471,9 +473,9 @@ nav:
         - Search engines: 
             - Search engines: search/search_engines/search_engines.md
             - Elasticsearch search engine: 
-                - Overview: search/search_engines/elastic_search/elastic_search_overview.md
-                - Install Elasticsearch: search/search_engines/elastic_search/install_elastic_search.md
-                - Configure Elasticsearch: search/search_engines/elastic_search/configure_elastic_search.md
+                - Overview: search/search_engines/elasticsearch/elasticsearch_overview.md
+                - Install Elasticsearch: search/search_engines/elasticsearch/install_elasticsearch.md
+                - Configure Elasticsearch: search/search_engines/elasticsearch/configure_elasticsearch.md
             - Solr search engine:
                 - Overview: search/search_engines/solr_search_engine/solr_overview.md
                 - Install Solr: search/search_engines/solr_search_engine/install_solr.md
@@ -481,6 +483,7 @@ nav:
             - Legacy search engine: 
                 - Overview: search/search_engines/legacy_search_engine/legacy_search_overview.md
                 - Configure repository: search/search_engines/legacy_search_engine/configure_repository.md
+        - Search API: search/search_api.md
         - Search Criteria and Sort Clauses: search/search_criteria_and_sort_clauses.md
         - Search Criteria reference:
             - Search Criteria reference: search/criteria_reference/search_criteria_reference.md
@@ -640,6 +643,7 @@ nav:
             - ObjectCriterion: search/activity_log_search_reference/object_criterion.md
             - ObjectNameCriterion: search/activity_log_search_reference/object_name_criterion.md
             - UserCriterion: search/activity_log_search_reference/user_criterion.md
+        - Action Configuration Search Criteria: search/ai_actions_search_reference/action_configuration_criteria.md
         - Sort Clause reference:
             - General Sort Clauses:
                 - General Sort Clause reference: search/sort_clause_reference/sort_clause_reference.md
@@ -706,7 +710,7 @@ nav:
                 - Id Sort Clause: search/url_search_reference/id_url_sort_clause.md
                 - Url Sort Clause: search/url_search_reference/url_url_sort_clause.md
             - Activity Log Sort Clauses: search/activity_log_search_reference/activity_log_sort_clauses.md
-        - Search API: search/search_api.md
+            - Action Configuration Sort Clauses: search/ai_actions_search_reference/action_configuration_sort_clauses.md
         - Aggregation reference:
               # Content aggregations
             - Aggregation reference: search/aggregation_reference/aggregation_reference.md
@@ -930,7 +934,7 @@ extra:
   latest_tag_4_3: '4.3.5'
   latest_tag_4_4: '4.4.4'
   latest_tag_4_5: '4.5.7'
-  latest_tag_4_6: '4.6.14'
+  latest_tag_4_6: '4.6.16'
 
   symfony_doc: 'https://symfony.com/doc/5.4'
   user_doc: 'https://doc.ibexa.co/projects/userguide/en/master'

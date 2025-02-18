@@ -1,0 +1,55 @@
+displayName: AI Actions
+/execute/{actionConfiguration}:
+    post:
+        displayName: Execute AI Action
+        description: Executes an AI action using the specified Action Configuration identifier.
+        headers:
+            Accept:
+                description: Specifies the expected response type. If set, the list is returned in XML or JSON format.
+                example: |
+                    application/vnd.ibexa.api.ai.AltText+json
+                    application/vnd.ibexa.api.ai.AltText+xml
+                    application/vnd.ibexa.api.ai.RefineText+json
+                    application/vnd.ibexa.api.ai.RefineText+xml
+            Content-Type:
+                description: Specifies the input type.
+                example: |
+                    application/vnd.ibexa.api.ai.GenerateAltText+json
+                    application/vnd.ibexa.api.ai.GenerateAltText+xml
+                    application/vnd.ibexa.api.ai.RefineText+json
+                    application/vnd.ibexa.api.ai.RefineText+xml
+        body:
+            application/vnd.ibexa.api.ai.AltText+json:
+                type: GenerateAltTextWrapper
+                example: !include examples/ai/POST/GenerateAltText.json.example
+            application/vnd.ibexa.api.ai.AltText+xml:
+                type: GenerateAltTextWrapper
+                example: !include examples/ai/POST/GenerateAltText.xml.example
+            application/vnd.ibexa.api.ai.RefineText+json:
+                type: RefineTextInputWrapper
+                example: !include examples/ai/POST/RefineTextInput.json.example
+            application/vnd.ibexa.api.ai.RefineText+xml:
+                type: RefineTextInputWrapper
+                example: !include examples/ai/POST/RefineTextInput.xml.example
+        responses:
+            200:
+                description: Action executed successfuly
+                body:
+                    application/vnd.ibexa.api.ai.AltText+json:
+                        type: AltTextWrapper
+                        example: !include examples/ai/POST/AltText.json.example
+                    application/vnd.ibexa.api.ai.AltText+xml:
+                        type: AltTextWrapper
+                        example: !include examples/ai/POST/AltText.xml.example
+                    application/vnd.ibexa.api.ai.RefineText+json:
+                        type: RefineTextWrapper
+                        example: !include examples/ai/POST/RefineText.json.example
+                    application/vnd.ibexa.api.ai.RefineText+xml:
+                        type: RefineTextWrapper
+                        example: !include examples/ai/POST/RefineText.xml.example
+            400:
+                description: Error - the request is invalid
+            401:
+                description: Error - the user is not authorized to execute an AI action.
+            404:
+                description: Error - the given Action Configuration identifier does not exist

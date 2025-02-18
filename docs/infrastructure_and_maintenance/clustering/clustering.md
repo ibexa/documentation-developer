@@ -26,7 +26,7 @@ For more information on requirements, see [Requirements page](requirements.md).
 
 It's also recommended to use:
 
-- [Solr](solr_overview.md) or [Elasticsearch](elastic_search_overview.md) for better search and performance
+- [Solr](solr_overview.md) or [Elasticsearch](elasticsearch_overview.md) for better search and performance
 - a CDN for improved performance and faster ping time worldwide
     - you can use Fastly, which has native support as HTTP cache and CDN.
 - active/passive database for failover

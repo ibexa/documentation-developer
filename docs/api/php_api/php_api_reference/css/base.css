@@ -578,9 +578,9 @@ figcaption {
 }
 
 a.external:not(.card):after {
-    content: url(../images/open-in-new.svg);
+    content: url(../../../../images/open-in-new.svg);
     font-style: normal;
-    padding-left: 2px;
+    padding-left: 0px;
     position: relative;
     font-size: 11px;
     top: -5px;
@@ -722,6 +722,14 @@ div.pills {
 
 .commerce-pill {
     background-color: var(--ibexa-jazzberry);
+}
+
+.optional-pill::after {
+    content: "Optional";
+}
+
+.optional-pill {
+    background-color: var(--sherpa-blue);
 }
 
 .md-clipboard:focus, .md-clipboard:hover {
@@ -1573,6 +1581,10 @@ body.menu-resizing {
     background-image: url(../images/minus-white.svg);
 }
 
+.md-nav--primary .md-nav__item--nested:has(a[href="namespaces/symfony-contracts.html"]) {
+    display: none;
+}
+
 
 ul.breadcrumbs li.breadcrumb-item a {
     color: var(--dark-grey);
@@ -1627,6 +1639,11 @@ ul.breadcrumbs li.breadcrumb-item-current span {
 .md-typeset .content-header .commerce-pill {
     color: var(--ibexa-jazzberry);
     border: 1px solid var(--ibexa-jazzberry);
+}
+
+.md-typeset .content-header .optional-pill {
+    color: var(--sherpa-blue);
+    border: 1px solid var(--sherpa-blue);
 }
 
 .md-typeset .content-header img {

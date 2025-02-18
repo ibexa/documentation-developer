@@ -1,6 +1,6 @@
 ---
 description: Update your installation to the latest v4.6 version from an earlier v4.6 version.
-month_change: true
+month_change: false
 ---
 
 # Update from v4.6.x to v4.6.latest
@@ -231,3 +231,21 @@ php bin/console ibexa:migrations:migrate --file=2024_07_25_07_00_non_translatabl
 Adjust the web server configuration to prevent direct access to the `index.php` file when using URLs consisting of multiple path segments.
 
 See [the updated Apache and nginx template files](https://github.com/ibexa/post-install/pull/70/files) for more information.
+
+## v4.6.15
+
+### Removed `symfony/orm-pack` and `symfony/serializer-pack` dependencies
+
+This release no longer directly requires the `symfony/orm-pack` and `symfony/serializer-pack` Composer dependencies, which can remove some dependencies from your project during the update process.
+
+If you rely on them in your project, for example by using Symfony's `ObjectNormalizer` to create your own REST endpoints, run the following command before updating [[= product_name_base =]] packages:
+
+``` bash
+composer require symfony/serializer-pack symfony/orm-pack
+```
+
+Then, verify that Symfony Flex installed the versions you were using before.
+
+## v4.6.16
+
+No additional steps needed.

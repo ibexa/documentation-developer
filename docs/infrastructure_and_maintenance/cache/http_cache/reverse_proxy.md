@@ -1,6 +1,6 @@
 ---
 description: You can use Symfony HttpCache Proxy, Varnish or Fastly as reverse proxies with Ibexa DXP.
-month_change: true
+month_change: false
 ---
 
 # Reverse proxy
@@ -73,7 +73,7 @@ Failing to configure reverse proxies correctly may introduce several problems, i
 
 ### Configure Symfony front controller
 
-You need to consider your `TrustedProxy` configuration when you use Symfony [behind a load balancer or a reverse proxy](https://symfony.com/doc/5.1/deployment/proxies.html).
+You need to consider your `TrustedProxy` configuration when you use Symfony [behind a load balancer or a reverse proxy]([[= symfony_doc =]]/deployment/proxies.html).
 
 To configure trusted proxies, use [Symfony semantic configuration]([[= symfony_doc =]]/deployment/proxies.html#solution-settrustedproxies) under the `framework.trusted_proxies` [configuration key](configuration.md#configuration-files), for example:
 
@@ -84,7 +84,7 @@ framework:
 
 !!! caution "Careful when trusting dynamic IP that uses `REMOTE_ADDR` value or similar"
 
-    On Platform.sh, Varnish doesn't have a static IP, like with [AWS LB](https://symfony.com/doc/5.1/deployment/proxies.html#but-what-if-the-ip-of-my-reverse-proxy-changes-constantly).
+    On Platform.sh, Varnish doesn't have a static IP, like with [AWS LB]([[= symfony_doc =]]/deployment/proxies.html#but-what-if-the-ip-of-my-reverse-proxy-changes-constantly).
     For this reason, the `TRUSTED_PROXIES` env variable supports being set to value `REMOTE_ADDR`, which is equal to:
 
     ```php
