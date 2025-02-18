@@ -11,7 +11,7 @@ parameters:
 			path: code_samples/api/graphql/src/DependencyInjection/Compiler/MyCustomTypeGraphQLCompilerPass.php
 
 		-
-			message: "#^Parameter \\#1 \\$migration of method Ibexa\\\\Migration\\\\MigrationService\\:\\:executeOne\\(\\) expects Ibexa\\\\Migration\\\\Repository\\\\Migration, Ibexa\\\\Migration\\\\Repository\\\\Migration\\|null given\\.$#"
+			message: "#^Parameter \\#1 \\$migration of method Ibexa\\\\Contracts\\\\Migration\\\\MigrationService\\:\\:executeOne\\(\\) expects Ibexa\\\\Migration\\\\Repository\\\\Migration, Ibexa\\\\Migration\\\\Repository\\\\Migration\\|null given\\.$#"
 			count: 1
 			path: code_samples/api/migration/src/Command/MigrationCommand.php
 
@@ -174,11 +174,6 @@ parameters:
 			message: "#^Cannot call method addChild\\(\\) on Knp\\\\Menu\\\\ItemInterface\\|null\\.$#"
 			count: 1
 			path: code_samples/back_office/content_type/src/EventListener/TextAnchorMenuTabListener.php
-
-		-
-			message: "#^Method Ibexa\\\\Bundle\\\\Core\\\\Imagine\\\\PlaceholderProvider\\:\\:getPlaceholder\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: code_samples/back_office/images/src/PlaceholderProvider.php
 
 		-
 			message: "#^Return type \\(bool\\) of method App\\\\Security\\\\Limitation\\\\Mapper\\\\CustomLimitationValueMapper\\:\\:mapLimitationValue\\(\\) should be compatible with return type \\(array\\) of method Ibexa\\\\AdminUi\\\\Limitation\\\\LimitationValueMapperInterface\\:\\:mapLimitationValue\\(\\)$#"
