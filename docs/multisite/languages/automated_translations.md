@@ -6,12 +6,18 @@ description: With the automated translation add-on, users can translate content 
 
 The automated translation add-on package allows users have content items machine-translated into multiple languages by using either Google Translate or DeepL external translation engine.
 The package integrates with [[= product_name =]], and allows users to [request from the UI]([[= user_doc =]]/content_management/translate_content.md#add-translations) that a content item is translated.
-However, you can also run an API command to translate a specific content item.
-Either way, as a result, a new version of the content item is created, with the following elements translated into a target language:
+However, you can also run an Console Command to translate a specific content item.
+Either way, as a result, a new version of the content item is created.
 
+The following field types are supported out of the box:
 
-- for pages: blocks that have the `text` or `richtext` [block attributes](../../content_management/pages/page_block_attributes/#block-attribute-types) 
-- for other content types: Fields of the [TextLine](../../content_management/field_types/field_type_reference//textlinefield.md) and [RichText](../../content_management/field_types/field_type_reference//richtextfield.md) type
+- [TextLine](textlinefield.md)
+- [TextBlock](textblockfield.md)
+- [RichText](richtextfield.md)
+- [Page](pagefield.md):
+    - The content of `text` and `richtext` [block attributes](page_block_attributes.md#block-attribute-types)
+
+See [adding a custom field encoder](##add-a-custom-field-encoder) for more information on how to expand this.
 
 !!! note "DeepL limitations"
 
@@ -30,7 +36,7 @@ composer require ibexa/automated-translation
 !!! caution "Modify the default configuration"
 
     Symfony Flex installs and activates the package.
-    However, you must modify the `config/bundles.php` file to change the template loading order:
+    However, you must modify the `config/bundles.php` file to change the bundle loading order so that`IbexaAutomatedTranslationBundle` is before `IbexaAdminUiBundle`:
 
     ```php
     <?php
@@ -62,9 +68,7 @@ ibexa_automated_translation:
                     authKey: "deepl-pro-key"
 ```
 
-!!! note
-
-    The configuration is SiteAccess-aware, therefore, you can configure different engines to be used for different sites.
+The configuration is SiteAccess-aware, therefore, you can configure different engines to be used for different sites.
 
 ## Translate content items with CLI
 
@@ -81,6 +85,20 @@ You would do it, for example, when a new service emerges on the market, or your 
 
 To add a custom engine to a list of available translation services, do the following:
 
-1. Create a service that implements ` Ibexa\AutomatedTranslation\Client\ClientInterface`
-1. Implement the `translate` method
+1. Create a service that implements the [`\Ibexa\AutomatedTranslation\Client\ClientInterface`](REFERENCE LINK) interface
 1. In `services.yaml` file, tag the service as `ibexa.automated_translation.client`
+
+See the example below:
+
+<example here>
+
+The whole automated translation process consists of 3 phases:
+1. Encoding - the raw data stored in the fieldtype is processed so that it can be translated by the automated translation service. Google and Deepl can h
+1. Translating - the data is translated using an Automated Translatin client.
+1. Decoding - the translated data is decoded back to the original structure so that it can be stored back in [= product_name =]]
+
+## Add a custom field or block encoder
+
+
+
+
