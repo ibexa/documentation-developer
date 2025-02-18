@@ -13,8 +13,6 @@ By adding forms on the website, you can increase its functionality and improve u
 Use Form Builder to create various forms, such as survey, questionnaire, sign-up form, using basic form fields available in the Form Builder.
 You can also manage your forms and review the results gathered from the website users.
 
-<!--ARCADE EMBED START--><div style="position: relative; padding-bottom: calc(51.27314814814815% + 41px); height: 0; width: 100%;"><iframe src="https://demo.arcade.software/6TuwPfbDTXTo6SnYSiyW?embed&embed_mobile=tab&embed_desktop=inline&show_copy_link=true" title="Form Builder interface" frameborder="0" loading="lazy" webkitallowfullscreen mozallowfullscreen allowfullscreen allow="clipboard-write" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; color-scheme: light;" ></iframe></div><!--ARCADE EMBED END-->
-
 ## Availability
 
 Form Builder is available in [[= product_name_exp =]] and [[= product_name_com =]].
@@ -36,6 +34,8 @@ D. Search bar
 E. Discard button
 
 ![Form Builder interface](img/form_builder_interface.png)
+
+<!--ARCADE EMBED START--><div style="position: relative; padding-bottom: calc(51.27314814814815% + 41px); height: 0; width: 100%;"><iframe src="https://demo.arcade.software/6TuwPfbDTXTo6SnYSiyW?embed&embed_mobile=tab&embed_desktop=inline&show_copy_link=true" title="Form Builder interface" frameborder="0" loading="lazy" webkitallowfullscreen mozallowfullscreen allowfullscreen allow="clipboard-write" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; color-scheme: light;" ></iframe></div><!--ARCADE EMBED END-->
 
 ### Form fields
 
@@ -65,6 +65,8 @@ The available basic form fields are:
 Editors can use the created form anywhere on the website.
 Forms can be used in page blocks, embedded in the online editor or even used as a field relation.
 The same form can be placed at multiple locations on the website.
+
+<!--ARCADE EMBED START--><div style="position: relative; padding-bottom: calc(51.27314814814815% + 41px); height: 0; width: 100%;"><iframe src="https://demo.arcade.software/YayMqLkQ6QeCZFeVyQxp?embed&embed_mobile=tab&embed_desktop=inline&show_copy_link=true" title="Build a form" frameborder="0" loading="lazy" webkitallowfullscreen mozallowfullscreen allowfullscreen allow="clipboard-write" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; color-scheme: light;" ></iframe></div><!--ARCADE EMBED END-->
 
 To learn more, see [Work with forms]([[= user_doc =]]/content_management/work_with_forms/).
 

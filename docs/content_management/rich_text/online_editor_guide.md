@@ -11,8 +11,6 @@ It offers standard editing capabilities and extensibility points to customize th
 
 Online Editor is based on [CKEditor 5](https://ckeditor.com/ckeditor-5/).
 
-<!--ARCADE EMBED START--><div style="position: relative; padding-bottom: calc(51.27314814814815% + 41px); height: 0; width: 100%;"><iframe src="https://demo.arcade.software/wkdL1r9PRunTeF6hPtEs?embed&embed_mobile=tab&embed_desktop=inline&show_copy_link=true" title="Online Editor - work in Rich Text field" frameborder="0" loading="lazy" webkitallowfullscreen mozallowfullscreen allowfullscreen allow="clipboard-write" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; color-scheme: light;" ></iframe></div><!--ARCADE EMBED END-->
-
 ## Availability
 
 Online Editor is available in all supported [[= product_name =]] versions and editions.
@@ -28,6 +26,8 @@ To start using it, create any content item with a RichText field (for example, b
 
 Online Editor covers all fundamental formatting options for rich text, such as headings, lists, tables, inline text formatting, anchors, and links. 
 It also allows embedding other content from the repository, but also from Facebook, Twitter, or YouTube.
+
+<!--ARCADE EMBED START--><div style="position: relative; padding-bottom: calc(51.27314814814815% + 41px); height: 0; width: 100%;"><iframe src="https://demo.arcade.software/wkdL1r9PRunTeF6hPtEs?embed&embed_mobile=tab&embed_desktop=inline&show_copy_link=true" title="Online Editor - work in Rich Text field" frameborder="0" loading="lazy" webkitallowfullscreen mozallowfullscreen allowfullscreen allow="clipboard-write" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; color-scheme: light;" ></iframe></div><!--ARCADE EMBED END-->
 
 #### Links
 
