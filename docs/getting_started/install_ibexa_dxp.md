@@ -165,10 +165,10 @@ To use Composer to instantly create a project in the current folder with all the
 
 !!! tip
 
-    You can set [different version constraints](https://getcomposer.org/doc/articles/versions.md), for example, specific tag (`3.3.2`), version range (`~3.3.2`), or stability (`^3.3@rc`):
+    You can set [different version constraints](https://getcomposer.org/doc/articles/versions.md), for example, specific tag (`4.6.16`), version range (`~4.6.10`), or stability (`^4.6@rc`):
 
     ``` bash
-    composer create-project ibexa/experience-skeleton:3.3.2 .
+    composer create-project ibexa/experience-skeleton:4.6.16 .
     ```
 
 !!! note "Platform.sh"
