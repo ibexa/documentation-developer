@@ -125,4 +125,4 @@ For more information on how to modify checkout, see [Checkout API documentation]
 ### Cart PHP API
 
 Reorder also facilitates `Ibexa\Contracts\Cart\CartServiceInterface` interface `mergeCarts` method.
-For more information on it, see [Cart API documentation](cart_api.md#merge-cart).
+For more information on it, see [Cart API documentation](cart_api.md#merge-carts).
