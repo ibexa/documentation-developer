@@ -76,9 +76,9 @@ final class ActionConfigurationCreateCommand extends Command
         $this->actionConfigurationService->createActionConfiguration($actionConfigurationCreateStruct);
 
         $action = new RefineTextAction(new Text([
-            <<<TEXT
-            Proteins differ from one another primarily in their sequence of amino acids, which is dictated by the nucleotide sequence of their genes, 
-            and which usually results in protein folding into a specific 3D structure that determines its activity.
+<<<TEXT
+Proteins differ from one another primarily in their sequence of amino acids, which is dictated by the nucleotide sequence of their genes, 
+and which usually results in protein folding into a specific 3D structure that determines its activity.
 TEXT
         ]));
         $actionConfiguration = $this->actionConfigurationService->getActionConfiguration('rewrite_casual');
