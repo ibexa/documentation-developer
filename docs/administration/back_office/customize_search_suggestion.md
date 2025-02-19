@@ -110,7 +110,7 @@ To allow template override and ease HTML writing, the example is also loading a 
 
 Here is a complete `assets/js/admin.search.autocomplete.product.js` from the product suggestion example:
 
-``` js hl_lines="8"
+``` js hl_lines="9"
 [[= include_file('code_samples/back_office/search/assets/js/admin.search.autocomplete.product.js') =]]
 ```
 
