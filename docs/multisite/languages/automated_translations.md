@@ -51,7 +51,7 @@ Before you can start using the feature you must configure access to your Google 
 
 1\. Get the [Google API key](https://developers.google.com/maps/documentation/javascript/get-api-key) and/or [DeepL Pro key](https://support.deepl.com/hc/en-us/articles/360020695820-API-Key-for-DeepL-s-API).
 
-3\. Set these values in the YAML configuration files, under the `ibexa_automated_translation.system.default.configurations` key:
+2\. Set these values in the YAML configuration files, under the `ibexa_automated_translation.system.default.configurations` key:
 
 ``` yaml
 ibexa_automated_translation:
@@ -94,7 +94,7 @@ The following example adds a new translation service.
 It uses the [AI actions framework](ai_actions_md) and assumes a custom `TranslateAction` AI Action exists.
 To learn how to build custom AI actions see [Extending AI actions](extend_ai_actions.md#custom-action-type-use-case).
 
-1. Create a service that implements the [`\Ibexa\AutomatedTranslation\Client\ClientInterface`](REFERENCE LINK) interface
+1. Create a service that implements the [`\Ibexa\AutomatedTranslation\Client\ClientInterface`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-AutomatedTranslation-Client-ClientInterface.html) interface
 
 ``` php
 [[= include_file('code_samples/multisite/automated_translation/src/AutomatedTranslation/AiClient.php') =]]
@@ -126,7 +126,7 @@ The following example adds support for automatically translating alternative tex
 
 1. Create a class implementing the [`FieldEncoderInterface`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-AutomatedTranslation-Encoder-Field-FieldEncoderInterface.html) and add the required methods:
 
-``` php hl_lines="11-14 16-19 21-27 33-38" 
+``` php hl_lines="11-14 16-19 21-27 33-38"
 [[= include_file('code_samples/multisite/automated_translation/src/AutomatedTranslation/ImageFieldEncoder.php') =]]
 ```
 In this example, the methods are responsible for:
@@ -136,7 +136,7 @@ In this example, the methods are responsible for:
 - `encode` - extracting the alternative text from the field type.
 - `decode` - saving the translated alternative text in the field type's value object.
 
-2\. Register it as a service. If you're not using [Symfony's autoconfiguration]([[= symfony_doc =]]/service_container.html#the-autoconfigure-option), use the `ibexa.automated_translation.field_encoder` service tag. 
+2\. Register it as a service. If you're not using [Symfony's autoconfiguration]([[= symfony_doc =]]/service_container.html#the-autoconfigure-option), use the `ibexa.automated_translation.field_encoder` service tag.
 
 ``` yaml
 [[= include_file('code_samples/multisite/automated_translation/config/services.yaml', 19, 22) =]]
