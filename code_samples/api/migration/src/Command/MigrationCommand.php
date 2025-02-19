@@ -2,7 +2,7 @@
 
 namespace App\Command;
 
-use Ibexa\Migration\MigrationService;
+use Ibexa\Contracts\Migration\MigrationService;
 use Ibexa\Migration\Repository\Migration;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
