@@ -18,8 +18,7 @@ export default class TranscribeAudio extends BaseAIComponent {
 
         if (request.status === 200) {
             return this.convertToBase64(request.responseText);
-        }
-        else {
+        } else {
             this.processError('Error occured when decoding the file.');
         }
     }
