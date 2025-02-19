@@ -39,6 +39,8 @@ jobs:
               run: |
                     yarn install
                     yarn prettier-test --write
+                    rm -rf node_modules 
+                    rm yarn.lock
 
             - name: Commit changes
               uses: stefanzweifel/git-auto-commit-action@v4
