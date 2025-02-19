@@ -17,6 +17,7 @@ $resourceFiles = call_user_func(function (array $a): array {
     (new Finder('./docs'))
         ->includeName('*.png')
         ->includeName('*.jpg')
+        ->excludeWholeName('./docs/release_notes/*')//TMP
         ->find(),
 );
 
@@ -29,6 +30,7 @@ $exclusionTests = array_merge_recursive(UrlTester::getDefaultExclusionTests(), [
         function (string $url, ?string $file = null): bool {
             // ibexa.co APIs needing authentication, namespaces, commercial aliases, etc.
             return str_starts_with($url, 'https://updates.ibexa.co') // 401
+                || str_starts_with($url, 'https://flex.ibexa.co') // 404
                 || str_starts_with($url, 'https://support.ibexa.co') // 302 → /login
                 || str_starts_with($url, 'https://connect.ibexa.co') // 302 → https://ibexa.integromat.celonis.com/
                 || str_starts_with($url, 'http://ibexa.co/namespaces/') // 301
@@ -101,6 +103,9 @@ $exclusionTests = array_merge_recursive(UrlTester::getDefaultExclusionTests(), [
     ],
     'location' => [
         function (string $url, string $location, ?string $file = null): bool {
+            return str_starts_with($url, 'https://issues.ibexa.co/') && str_starts_with($location, 'https://issues.ibexa.co/login.jsp');
+        },
+        function (string $url, string $location, ?string $file = null): bool {
             return $url === $location && str_starts_with($url, 'https://twitter.com/');
         },
         function (string $url, string $location, ?string $file = null): bool {
@@ -126,6 +131,9 @@ $exclusionTests = array_merge_recursive(UrlTester::getDefaultExclusionTests(), [
             return str_starts_with($url, 'https://classic.yarnpkg.com/en/docs/')
                 || str_starts_with($url, 'https://ddev.readthedocs.io/');
         },
+        function (string $url, ?string $file = null): bool {
+            return $url == 'https://www.paypal.com/bizsignup/#/singlePageSignup';
+        }
     ],
 ]);
 
