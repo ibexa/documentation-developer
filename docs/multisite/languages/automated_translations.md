@@ -32,16 +32,16 @@ composer require ibexa/automated-translation
 !!! caution "Modify the default configuration"
 
     Symfony Flex installs and activates the package.
-    However, you must modify the `config/bundles.php` file to change the bundle loading order so tha `IbexaAutomatedTranslationBundle` is loaded before `IbexaAdminUiBundle`:
+    However, you must modify the `config/bundles.php` file to change the bundle loading order so that `IbexaAutomatedTranslationBundle` is loaded before `IbexaAdminUiBundle`:
 
     ```php
     <?php
 
     return [
-        ...
+        // ...
         Ibexa\Bundle\AutomatedTranslation\IbexaAutomatedTranslationBundle::class => ['all' => true],
         Ibexa\Bundle\AdminUi\IbexaAdminUiBundle::class => ['all' => true],
-        ...
+        // ...
     ];
     ```
 
@@ -94,19 +94,19 @@ The following example adds a new translation service.
 It uses the [AI actions framework](ai_actions_md) and assumes a custom `TranslateAction` AI Action exists.
 To learn how to build custom AI actions see [Extending AI actions](extend_ai_actions.md#custom-action-type-use-case).
 
-1. Create a service that implements the [`\Ibexa\AutomatedTranslation\Client\ClientInterface`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-AutomatedTranslation-Client-ClientInterface.html) interface
+1. Create a service that implements the [`\Ibexa\AutomatedTranslation\Client\ClientInterface`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-AutomatedTranslation-Client-ClientInterface.html) interface:
 
-``` php
+``` php hl_lines="36-52"
 [[= include_file('code_samples/multisite/automated_translation/src/AutomatedTranslation/AiClient.php') =]]
 ```
 
-2\. Tag the service as `ibexa.automated_translation.client` in the Symfony container
+2\. Tag the service as `ibexa.automated_translation.client` in the Symfony container:
 
 ``` yaml
 [[= include_file('code_samples/multisite/automated_translation/config/services.yaml', 15, 18) =]]
 ```
 
-3\. Specify the configuration under the `ibexa_automated_translation.system.default.configurations` key
+3\. Specify the configuration under the `ibexa_automated_translation.system.default.configurations` key:
 
 ``` yaml
 [[= include_file('code_samples/multisite/automated_translation/config/services.yaml', 23, 32) =]]
@@ -122,7 +122,7 @@ The whole automated translation process consists of 3 phases:
 1. **Translating** - the serialized XML is sent into specified translation service
 1. **Decoding** - the translated response is deserialized into the original data structures for storage in [[= product_name =]]
 
-The following example adds support for automatically translating alternative text in image fields by using the [AI Actions](ai_actions.md).
+The following example adds support for automatically translating alternative text in image fields.
 
 1. Create a class implementing the [`FieldEncoderInterface`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-AutomatedTranslation-Encoder-Field-FieldEncoderInterface.html) and add the required methods:
 
