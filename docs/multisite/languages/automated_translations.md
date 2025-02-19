@@ -17,11 +17,7 @@ The following field types are supported out of the box:
 - [Page](pagefield.md):
     - The content of `text` and `richtext` [block attributes](page_block_attributes.md#block-attribute-types)
 
-See [adding a custom field encoder](##add-a-custom-field-encoder) for more information on how to expand this.
-
-!!! note "DeepL limitations"
-
-    At this point a list of languages available when using DeepL is limited to English, German, French, Spanish, Italian, Dutch, Polish and Japanese.
+See [adding a custom field or block attribute encoder](##add-a-custom-field-encoder) for more information how you can extend this list.
 
 ## Configure automated content translation
 
@@ -36,7 +32,7 @@ composer require ibexa/automated-translation
 !!! caution "Modify the default configuration"
 
     Symfony Flex installs and activates the package.
-    However, you must modify the `config/bundles.php` file to change the bundle loading order so that`IbexaAutomatedTranslationBundle` is before `IbexaAdminUiBundle`:
+    However, you must modify the `config/bundles.php` file to change the bundle loading order so tha `IbexaAutomatedTranslationBundle` is loaded before `IbexaAdminUiBundle`:
 
     ```php
     <?php
@@ -72,33 +68,78 @@ The configuration is SiteAccess-aware, therefore, you can configure different en
 
 ## Translate content items with CLI
 
-To create a machine translation of a specific content item, run the following command:
+To create a machine translation of a specific content item, you can use the `ibexa:automated:translate` command.
 
-```shell
-php bin/console ibexa:automated:translate [contentId] [serviceName] --from=eng-GB --to=fre-FR
+The following arguments and options are supported:
+
+- `--from` - the source language
+- `--to` - the target language
+- `contentId` - ID of the content to translate
+- `serviceName` - the service to use for translation
+
+For example, to translate the root content item from the English translation into French with the help of Google Translate, run:
+
+``` bash
+php bin/console ibexa:automated:translate --from=eng-GB --to=fre-FR 52 google
 ```
 
-## Add a custom machine translation service
+## Extend automated content translations
+
+### Add a custom machine translation service
 
 By default, the automated translation package can connect to Google Translate or DeepL, but you can configure it to use a custom machine translation service.
 You would do it, for example, when a new service emerges on the market, or your company requires that a specific service is used.
 
-To add a custom engine to a list of available translation services, do the following:
+The following example adds a new translation service.
+It uses the [AI actions framework](ai_actions_md) and assumes a custom `TranslateAction` AI Action exists.
+To learn how to build custom AI actions see [Extending AI actions](extend_ai_actions.md#custom-action-type-use-case).
 
 1. Create a service that implements the [`\Ibexa\AutomatedTranslation\Client\ClientInterface`](REFERENCE LINK) interface
-1. In `services.yaml` file, tag the service as `ibexa.automated_translation.client`
 
-See the example below:
+``` php
+[[= include_file('code_samples/multisite/automated_translation/src/AutomatedTranslation/AiClient.php') =]]
+```
 
-<example here>
+2\. Tag the service as `ibexa.automated_translation.client` in the Symfony container
+
+``` yaml
+[[= include_file('code_samples/multisite/automated_translation/config/services.yaml', 15, 18) =]]
+```
+
+3\. Specify the configuration under the `ibexa_automated_translation.system.default.configurations` key
+
+``` yaml
+[[= include_file('code_samples/multisite/automated_translation/config/services.yaml', 23, 32) =]]
+```
+
+### Create custom field or block attribute encoder
+
+You can expand the list of supported field types and block attributes for automated translation, adding support for even more use cases than the ones built into [[= product_name =]].
 
 The whole automated translation process consists of 3 phases:
-1. Encoding - the raw data stored in the fieldtype is processed so that it can be translated by the automated translation service. Google and Deepl can h
-1. Translating - the data is translated using an Automated Translatin client.
-1. Decoding - the translated data is decoded back to the original structure so that it can be stored back in [= product_name =]]
 
-## Add a custom field or block encoder
+1. **Encoding** - data is extracted from the field types and block attributes and serialized into XML format
+1. **Translating** - the serialized XML is sent into specified translation service
+1. **Decoding** - the translated response is deserialized into the original data structures for storage in [[= product_name =]]
 
+The following example adds support for automatically translating alternative text in image fields by using the [AI Actions](ai_actions.md).
 
+1. Create a class implementing the [`FieldEncoderInterface`](TODO:Referencelink) and add the required methods:
 
+``` php hl_lines="11-14 16-19 21-27 33-38" 
+[[= include_file('code_samples/multisite/automated_translation/src/AutomatedTranslation/ImageFieldEncoder.php') =]]
+```
+In this example, the methods are responsible for:
 
+- `canEncode` - deciding if the field to be encoded is an [Image](imagefield.md) field.
+- `canDecode` - deciding if the field to be decoded is an [Image](imagefield.md) field.
+- `encode` - extracting the alternative text from the field type.
+- `decode` - saving the translated alternative text in the field type's value object.
+
+2\. Register it as a service. If you're not using [Symfony's autoconfiguration]([[= symfony_doc =]]/service_container.html#the-autoconfigure-option), use the `ibexa.automated_translation.field_encoder` service tag. 
+
+``` yaml
+[[= include_file('code_samples/multisite/automated_translation/config/services.yaml', 19, 22) =]]
+```
+
+For custom block attributes the appropriate interface is [`BlockAttributeEncoderInterface`](TODO: Reference link) and the service tag is `ibexa.automated_translation.block_attribute_encoder`.
