@@ -86,7 +86,7 @@ ibexa_site_factory:
             user_group_skeleton_remote_ids: [ <id_skeleton3>, <id_skeleton4>, ... ]
 ```
 
-Manage the permissions associated to the user group skeleton by [assigning roles](https://doc.ibexa.co/projects/userguide/en/latest/site_organization/organizing_the_site/#managing-permissions).
+Manage the permissions associated to the user group skeleton by [assigning roles](https://doc.ibexa.co/projects/userguide/en/latest/permission_management/work_with_permissions/#assign-a-role-to-users).
 Make sure that the roles that you assign to the user group skeleton don't contain location-based limitations.
 User group skeletons cannot contain individual user content items either.
 
