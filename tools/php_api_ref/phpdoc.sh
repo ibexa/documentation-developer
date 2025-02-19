@@ -91,7 +91,7 @@ if [ 0 -eq $DXP_ALREADY_EXISTS ]; then
       if [[ ! "${DXP_EDITIONS[*]}" =~ "${package/ibexa\//}" ]]; then
         PACKAGE_MAP="$PACKAGE_MAP\n'$package': '$edition',"
         NAMESPACES=$(composer show "$package" --available --format=json | \
-          jq -r --arg PACKAGE "$package" '"'\''\(.autoload | ."psr-4" | try to_entries[] catch empty | .key | sub("\\\\";"\\\\\\";"g"))'\'': '\''\($PACKAGE)'\'',"')
+          jq -r --arg PACKAGE "$package" '"'\''\(.autoload | ."psr-4" | try to_entries[] catch empty | .key[:-1] | sub("\\\\";"\\\\\\";"g"))'\'': '\''\($PACKAGE)'\'',"')
         NAMESPACE_MAP="$NAMESPACE_MAP\n$NAMESPACES"
       fi;
     done <<< "$(curl --no-progress-meter "https://raw.githubusercontent.com/ibexa/$edition/v$DXP_VERSION/composer.json" | jq .require | grep -E "(ibexa|ezsystems|silversolutions)")";
@@ -102,7 +102,7 @@ if [ 0 -eq $DXP_ALREADY_EXISTS ]; then
 
   for package in "${DXP_ADD_ONS[@]}"; do
     NAMESPACES=$(composer show "ibexa/$package" --available --format=json | \
-      jq -r --arg PACKAGE "ibexa/$package" '"'\''\(.autoload | ."psr-4" | try to_entries[] catch empty | .key | sub("\\\\";"\\\\\\";"g"))'\'': '\''\($PACKAGE)'\'',"')
+      jq -r --arg PACKAGE "ibexa/$package" '"'\''\(.autoload | ."psr-4" | try to_entries[] catch empty | .key[:-1] | sub("\\\\";"\\\\\\";"g"))'\'': '\''\($PACKAGE)'\'',"')
     NAMESPACE_MAP="$NAMESPACE_MAP\n$NAMESPACES"
     PACKAGE_MAP="$PACKAGE_MAP\n'ibexa/$package': 'optional',"
   done;

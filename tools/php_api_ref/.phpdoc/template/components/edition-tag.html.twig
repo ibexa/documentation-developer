@@ -12,7 +12,7 @@
         {% set package = node.file.path|split('/')|slice(1, 2)|join('/') %}
     {% else %}
         {% for namespace in namespace_package_map|keys %}
-            {% if fqcn ~ "\\" starts with namespace %}
+            {% if fqcn ~ "\\" starts with namespace ~ "\\" %}
                 {% set package = namespace_package_map[namespace] %}
             {% endif %}
         {% endfor %}
