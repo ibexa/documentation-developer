@@ -46,7 +46,7 @@ Unsafe methods require a CSRF token if [session-based authentication](rest_api_a
 
 Any REST API URI responds to an `OPTIONS` request.
 
-The response contains an [`Allow` header](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.7), which lists the methods accepted by the resource.
+The response contains an [`Allow` header](https://www.rfc-editor.org/rfc/rfc9110.html#name-allow), which lists the methods accepted by the resource.
 
 ```shell
 curl -IX OPTIONS https://api.example.com/api/ibexa/v2/content/objects/1

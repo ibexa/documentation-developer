@@ -25,7 +25,7 @@ services:
 
     App\Command\AddMissingAltTextCommand:
         arguments:
-            $projectDir: '%kernel.project_dir%'
+            $binaryDataHandler: '@Ibexa\Core\IO\IOBinarydataHandler\SiteAccessDependentBinaryDataHandler'
 
     App\AI\Handler\LLaVATextToTextActionHandler:
         tags:
