@@ -43,7 +43,7 @@ jobs:
             - name: Commit changes
               uses: stefanzweifel/git-auto-commit-action@v4
               with:
-                  commit_message: PPHP & JS CS Fixes
+                  commit_message: PHP & JS CS Fixes
 
             - name: Install dependencies
               run: |
