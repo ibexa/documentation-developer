@@ -113,7 +113,7 @@ class TestableUrl
     }
 
     /**
-     * The raw URL
+     * Get the raw URL.
      *
      * @return string
      */
@@ -122,6 +122,9 @@ class TestableUrl
         return $this->url;
     }
 
+    /**
+     * Execute URL transformations like replacements.
+     */
     public function getTransformedUrl(): string
     {
         if (null === $this->transformedUrl) {
@@ -282,7 +285,7 @@ class TestableUrl
      *
      * If the URL is external, return the response HTTP headers (as an array), the HTTP status code as an integer, the eventual `location` HTTP header used for redirection, if there is a fragment to test, if that fragment has been found in the content available at the URL
      * If the URL is internal, return the code 200 if the target exists, 404 if not, if there is a fragment to test, if that fragment has been found in the content available at the URL
-     * @param string $url The URL istsel
+     * @param string $url The URL itself
      * @param bool|null $external If it's an external URL (`true`) or not (`false`), if `null`, the system try to guess it using {@see \TestableUrl::isExternalUrl()}
      * @param bool $testFragment If the eventual fragment/hash/anchor part should be tested
      * @param int $retryCount Number of retries on time out
@@ -703,6 +706,7 @@ class UrlExtractor
 
     public function getGrepUrlSearchPattern(string $extension, string $url): string
     {
+        // If (.md and $find…)
         return implode('|', array_map(function (string $pattern) use ($url) {
             return
                 self::convertPatternFromPhpUrlExtractionToGrepUrlSearch($pattern, $url)
@@ -1079,7 +1083,7 @@ class UrlTester
                 $found = false;
                 foreach ($this->getUsageFiles() as $usageFile) {
                     $relativeUrl = TestableUrl::getRelativePath($usageFile, $url);
-                    $grepOutput = trim(shell_exec($this->urlExtractor->getGrepUrlSearchCommand($usageFile, $relativeUrl)));
+                    $grepOutput = trim(shell_exec($this->urlExtractor->getGrepUrlSearchCommand($usageFile, $relativeUrl))??'');
                     if (!empty($grepOutput)) {
                         $found = true;
                         break;
