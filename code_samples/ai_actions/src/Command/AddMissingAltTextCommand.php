@@ -21,6 +21,7 @@ use Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion\DateMetadata;
 use Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion\Operator;
 use Ibexa\Contracts\Core\Repository\Values\Filter\Filter;
 use Ibexa\Core\FieldType\Image\Value;
+use Ibexa\Core\IO\IOBinarydataHandler;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
@@ -42,7 +43,7 @@ final class AddMissingAltTextCommand extends Command
 
     private ActionServiceInterface $actionService;
 
-    private string $projectDir;
+    private IOBinarydataHandler $binaryDataHandler;
 
     public function __construct(
         ContentService $contentService,
@@ -50,7 +51,7 @@ final class AddMissingAltTextCommand extends Command
         UserService $userService,
         FieldTypeService $fieldTypeService,
         ActionServiceInterface $actionService,
-        string $projectDir
+        IOBinarydataHandler $binaryDataHandler
     ) {
         parent::__construct();
         $this->contentService = $contentService;
@@ -58,7 +59,7 @@ final class AddMissingAltTextCommand extends Command
         $this->userService = $userService;
         $this->fieldTypeService = $fieldTypeService;
         $this->actionService = $actionService;
-        $this->projectDir = $projectDir;
+        $this->binaryDataHandler = $binaryDataHandler;
     }
 
     protected function configure(): void
@@ -75,11 +76,11 @@ final class AddMissingAltTextCommand extends Command
 
         /** @var \Ibexa\Contracts\Core\Repository\Values\Content\Content $content */
         foreach ($modifiedImages as $content) {
-            /** @var ?Value $value */
+            /** @var \Ibexa\Core\FieldType\Image\Value $value */
             $value = $content->getFieldValue(self::IMAGE_FIELD_IDENTIFIER);
 
             if ($value === null || !$this->shouldGenerateAltText($value)) {
-                $output->writeln(sprintf('Image %s has the image field empty or the alternative text is already specified. Skipping.', $content->getName()));
+                $output->writeln(sprintf('Image %s has the image field empty, the file cannot be accessed, or the alternative text is already specified. Skipping.', $content->getName()));
                 continue;
             }
 
@@ -124,12 +125,10 @@ final class AddMissingAltTextCommand extends Command
         return $output->getText();
     }
 
-    private function convertImageToBase64(?string $uri): string
+    private function convertImageToBase64(string $uri): string
     {
-        $file = file_get_contents($this->projectDir . \DIRECTORY_SEPARATOR . 'public' . \DIRECTORY_SEPARATOR . $uri);
-        if ($file === false) {
-            throw new \RuntimeException('Cannot read file');
-        }
+        $id = $this->binaryDataHandler->getIdFromUri($uri);
+        $file = $this->binaryDataHandler->getContents($id);
 
         return 'data:image/jpeg;base64,' . base64_encode($file);
     }
@@ -145,10 +144,12 @@ final class AddMissingAltTextCommand extends Command
         return $this->contentService->find($filter);
     }
 
+    /** @phpstan-assert-if-true string $value->uri */
     private function shouldGenerateAltText(Value $value): bool
     {
         return $this->fieldTypeService->getFieldType('ezimage')->isEmptyValue($value) === false &&
-            $value->isAlternativeTextEmpty();
+            $value->isAlternativeTextEmpty() &&
+            $value->uri !== null;
     }
 
     private function setUser(string $userLogin): void
