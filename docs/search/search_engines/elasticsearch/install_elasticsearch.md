@@ -7,7 +7,7 @@ description: Install Elasticsearch to use it with Ibexa DXP.
 ## Download and install Elasticsearch
 
 [Install Elasticsearch](https://www.elastic.co/guide/en/elasticsearch/reference/7.7/install-elasticsearch.html) on your server.
-As an example, use the following [Docker](https://docs.docker.com/get-started/overview/) command:
+As an example, use the following [Docker](https://docs.docker.com/get-started/docker-overview/) command:
 
 ```yml
 docker run -d --name ibexa-dxp-elasticsearch -p 9200:9200 -p 9300:9300 -e "discovery.type=single-node" docker.elastic.co/elasticsearch/elasticsearch:7.16.2
