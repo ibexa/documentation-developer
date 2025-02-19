@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SegmentGroupCreate>
+    <identifier>segment_group_identifier</identifier>
+    <name>Segment Group Name</name>
+</SegmentGroupCreate>
