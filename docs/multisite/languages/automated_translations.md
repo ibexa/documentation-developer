@@ -124,7 +124,7 @@ The whole automated translation process consists of 3 phases:
 
 The following example adds support for automatically translating alternative text in image fields by using the [AI Actions](ai_actions.md).
 
-1. Create a class implementing the [`FieldEncoderInterface`](TODO:Referencelink) and add the required methods:
+1. Create a class implementing the [`FieldEncoderInterface`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-AutomatedTranslation-Encoder-Field-FieldEncoderInterface.html) and add the required methods:
 
 ``` php hl_lines="11-14 16-19 21-27 33-38" 
 [[= include_file('code_samples/multisite/automated_translation/src/AutomatedTranslation/ImageFieldEncoder.php') =]]
@@ -142,4 +142,4 @@ In this example, the methods are responsible for:
 [[= include_file('code_samples/multisite/automated_translation/config/services.yaml', 19, 22) =]]
 ```
 
-For custom block attributes the appropriate interface is [`BlockAttributeEncoderInterface`](TODO: Reference link) and the service tag is `ibexa.automated_translation.block_attribute_encoder`.
+For custom block attributes the appropriate interface is [`BlockAttributeEncoderInterface`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-AutomatedTranslation-Encoder-BlockAttribute-BlockAttributeEncoderInterface.html) and the service tag is `ibexa.automated_translation.block_attribute_encoder`.
