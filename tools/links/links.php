@@ -88,10 +88,10 @@ class TestableUrl
      * @param bool $cache Test again even if already tested
      * @return $this Returns itself for chain like $this->test()->getCode()
      */
-    public function test(bool $testLocations = true, bool $testFragment = true, bool $cache = true): self
+    public function test(bool $testLocations = true, bool $testFragment = true, bool $useCurl = false, bool $cache = true): self
     {
         if (!$this->isTested() || !$cache) {
-            $test = self::testUrl($this->getSolvedUrl(), $this->isExternal(), $testFragment);
+            $test = self::testUrl($this->getSolvedUrl(), $this->isExternal(), $testFragment, $useCurl);
             $this->headers = $test['headers'];
             $this->code = $test['code'];
             $this->location = null === $test['location'] ? null : new TestableUrl($test['location'], null, $this->getFile(), $this->getLine(), null, false, $testLocations);
@@ -293,7 +293,7 @@ class TestableUrl
      * @param int $tryNumber Try number (first try is numbered 1)
      * @return array ['headers' => null|array, 'code' => int, 'location' => null|string, 'fragment_found' => null|bool]
      */
-    public static function testUrl(string $url, ?bool $external = null, bool $testFragment = true, int $retryCount = 1, int $retryDelay = 300, int $tryNumber = 1): array
+    public static function testUrl(string $url, ?bool $external = null, bool $testFragment = true, bool $useCurl = false, int $retryCount = 1, int $retryDelay = 300, int $tryNumber = 1): array
     {
         $headers = null;
         $code = self::NOT_TESTABLE_CODE;
@@ -306,8 +306,8 @@ class TestableUrl
 
         if ($external) {
             $defaultScheme = self::DEFAULT_SCHEME;
-            $headers = @get_headers('//' === substr($url, 0, 2) ? "$defaultScheme:$url" : $url);
-            if ($headers && count($headers)) {
+            $headers = self::requestHeaders('//' === substr($url, 0, 2) ? "$defaultScheme:$url" : $url, $useCurl);
+            if ($headers && count($headers) && strlen($headers[0])) {
                 $firstLinePart = explode(' ', $headers[0]);
                 $code = (int)$firstLinePart[1];
             }
@@ -317,7 +317,7 @@ class TestableUrl
 
         switch ($code) {
             case 200: // OK
-                $contents = $external || $testFragment && self::isUrlWithFragment($url) ? @file_get_contents(self::getUrlWithoutFragment($url)) : '';
+                $contents = $external || $testFragment && self::isUrlWithFragment($url) ? self::requestBody(self::getUrlWithoutFragment($url), $useCurl) : '';
                 $refreshTagPattern = '@<meta http-equiv="refresh" content="[^"]*; ?url=(?P<url>[^"]+)"@i';
                 if ($external && preg_match($refreshTagPattern, $contents, $matches)) { // Soft redirect
                     $location = preg_match('@^https?://@', $matches['url']) ? $matches['url'] : self::solveRelativePath(self::getUrlWithoutFragment($url), $matches['url']);
@@ -372,7 +372,7 @@ class TestableUrl
             case 522: // Connection Timed Out
                 if ($tryNumber <= $retryCount+1) {
                     sleep($retryDelay);
-                    return self::testUrl($url, $external, $testFragment, $retryCount, $retryDelay, $tryNumber++);
+                    return self::testUrl($url, $external, $testFragment, $useCurl, $retryCount, $retryDelay, $tryNumber++);
                 }
             case 400: // Bad Request
             case 401: // Unauthorized
@@ -389,6 +389,22 @@ class TestableUrl
             'location' => $location,
             'fragment_found' => $fragmentFound,
         ];
+    }
+
+    public static function requestHeaders($url, $useCurl = false): array
+    {
+        if ($useCurl) {
+            return preg_split('/\R/', trim(shell_exec("curl -s -I $url") ?? ''));
+        }
+        return @get_headers($url) ?: [];
+    }
+
+    public static function requestBody($url, $useCurl = false): string
+    {
+        if ($useCurl) {
+            return shell_exec("curl -s $url") ?? '';
+        }
+        return @file_get_contents($url) ?: '';
     }
 
     /** @return string[] */
@@ -801,6 +817,8 @@ class UrlTester
         'fragment' => [],
     ];
 
+    private $curlUsageTests = [];
+
     /** @var null|string[] */
     private $replacements = [];
 
@@ -824,19 +842,21 @@ class UrlTester
     public const VERBOSITY_DEFAULT = 300;
 
     /**
-     * @param string[] $usageFiles The list of files to extract URLs from
-     * @param string[] $resourceFiles The list of files that should be used by those URLs
-     * @param array[]|null $exclusionTests An associative array of arrays of functions testing if a URL should be excluded from test
-     * @param array|null $replacements A replacement map to apply on each URL
+     * @param array<int, string> $usageFiles The list of files to extract URLs from
+     * @param array<int, string> $resourceFiles The list of files that should be used by those URLs
+     * @param array<string, array<int, callable>>|null $exclusionTests An associative array of arrays of functions testing if a URL should be excluded from test
+     * @param array<int, callable>|null $curlUsageTests An array of functions testing if URL should be requested using `curl` instead of PHP
+     * @param array<string, string>|null $replacements A replacement map to apply on each URL
      * @param bool|string $find If the URL target must be searched for instead of just being considered as a relative path; If a string is given, it will be used as search prefix
      * @param callable|null $output A callable to pass standard output message to
      * @param callable|null $error A callable to pass error message to
      */
-    public function __construct(array $usageFiles = [], array $resourceFiles = [], ?array $exclusionTests = null, ?array $replacements = null, mixed $find = false, ?callable $output = null, ?callable $error = null)
+    public function __construct(array $usageFiles = [], array $resourceFiles = [], ?array $exclusionTests = null, ?array $curlUsageTests = null, ?array $replacements = null, mixed $find = false, ?callable $output = null, ?callable $error = null)
     {
         $this->setUsageFiles($usageFiles);
         $this->setResourceFiles($resourceFiles);
         $this->setExclusionTests(is_array($exclusionTests) ? $exclusionTests : self::getDefaultExclusionTests());
+        $this->curlUsageTests = $curlUsageTests ?? [];
         $this->replacements = $replacements;
         $this->find = $find;
         foreach ([
@@ -989,7 +1009,7 @@ class UrlTester
                 if ($this->isExcludedUrl($testableUrl)) {
                     continue;
                 }
-                $testableUrl->test(false, $fragmentValidity);
+                $testableUrl->test(false, $fragmentValidity, $this->mustUseCurl($testableUrl));
                 if ($testableUrl->isExternal() && $this->isExcludedHeader($testableUrl)) {
                     continue;
                 }
@@ -1021,7 +1041,7 @@ class UrlTester
                     // Already tested, retrieve the TestableUrl object on which the test has been run, the first one.
                     $testedLocation = $this->urls[$url][0];
                 } else {
-                    $testedLocation = $location->test(false, $fragmentValidity);
+                    $testedLocation = $location->test(false, $fragmentValidity, $this->mustUseCurl($location));
                     $this->urls[$url] = [$testedLocation];
                 }
                 $this->urls[$url][] = $testedUrl;//Store that this URL is used (indirectly) by "this file at this line"
@@ -1118,10 +1138,21 @@ class UrlTester
         return $valid;
     }
 
+    public function mustUseCurl(TestableUrl $testableUrl): bool
+    {
+        foreach ($this->curlUsageTests as $test) {
+            if ($test(self::formatUrl($testableUrl->getSolvedUrl()), $testableUrl->getFile())) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     public function isExcludedUrl(TestableUrl $testableUrl): bool
     {
+        $url = self::formatUrl($testableUrl->getSolvedUrl());
         foreach ($this->exclusionTests['url'] as $test) {
-            if ($test(self::formatUrl($testableUrl->getSolvedUrl()), $testableUrl->getFile())) {
+            if ($test($url, $testableUrl->getFile())) {
                 return true;
             }
         }
@@ -1132,8 +1163,9 @@ class UrlTester
     {
         $headers = $testableUrl->getHeaders();
         if ($testableUrl->isExternal() && !empty($headers)) {
+            $url = self::formatUrl($testableUrl->getSolvedUrl());
             foreach ($this->exclusionTests['header'] as $test) {
-                if ($test(self::formatUrl($testableUrl->getSolvedUrl()), (int)$testableUrl->getCode(), $headers)) {
+                if ($test($url, (int)$testableUrl->getCode(), $headers)) {
                     return true;
                 }
             }
@@ -1161,6 +1193,12 @@ class UrlTester
         return false;
     }
 
+    /**
+     * Format URL.
+     *
+     * If the URL is external: possibly replace heading "//" with "https://".
+     * If the URL is internal: possibly remove leading "./".
+     */
     public static function formatUrl(string $url): string
     {
         if (TestableUrl::isExternalUrl($url)) {
@@ -1529,7 +1567,7 @@ class UrlTestCommand
             }, array_unique($files[$category]));
         }
 
-        return new UrlTester($files['usage'], $files['resource'], $exclusionTests, $replacements, $find);
+        return new UrlTester($files['usage'], $files['resource'], $exclusionTests, null, $replacements, $find);
     }
 }
 
@@ -1558,6 +1596,7 @@ $usageFiles = $usageFiles ?? [];
 $resourceFiles = $resourceFiles ?? [];
 $helpDesc = $helpDesc ?? '';
 $exclusionTests = $exclusionTests ?? null;
+$curlUsageTests = $curlUsageTests ?? null;
 $replacements = $replacements ?? null;
 $find = $find ?? false;
 
@@ -1581,7 +1620,7 @@ if (!empty($options) && (in_array('-v', $options) || in_array('--verbose', $opti
 }
 
 $urlTester = !empty($options) ? UrlTestCommand::newUrlTesterFromCommand($options, $exclusionTests, $replacements, $find)
-    : new UrlTester($usageFiles, $resourceFiles, $exclusionTests, $replacements, $find);
+    : new UrlTester($usageFiles, $resourceFiles, $exclusionTests, $curlUsageTests, $replacements, $find);
 
 $usageTestSuccess = $urlTester->testUsages(300, true, $verbosity);
 $resourceTestSuccess = $urlTester->testResources($verbosity);
