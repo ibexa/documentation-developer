@@ -19,23 +19,33 @@ page_type: reference
 </svg>
 ```
 
+The icons can be displayed in different colors and sizes.
+
 #### Icon color variants
 
-By default the icon inherits the [`fill`](https://developer.mozilla.org/en-US/docs/Web/CSS/fill) attribute from the parent element.
-You can change it by using one of the available CSS classes:
+By default, the icon inherits the [`fill`](https://developer.mozilla.org/en-US/docs/Web/CSS/fill) attribute from the parent element.
+You can change it by using one of the available CSS modifiers:
 
-- `ibexa-icon--light` - to be used on dark backgrounds
-- `ibexa-icon--dark` - to be used on light backgrounds
-- `ibexa-icon--base-dark` - to be used on light backgrounds
-- `ibexa-icon--primary` - to use the primary back office color
-- `ibexa-icon--secondary` - to use the secondary back office color
+|Modifier|Usage|
+|---|---|
+| `--light` | To be used on dark backgrounds |
+| `--dark` | To be used on light backgrounds |
+| `--base-dark` | To be used on light backgrounds |
+| `--primary` | To use the primary back office color |
+| `--secondary` | To use the secondary back office color |
+
+```html+twig
+<svg class="ibexa-icon ibexa-icon--dark">
+    <use xlink:href="{{ ibexa_icon_path('edit') }}"></use>
+</svg>
+```
 
 #### Icon size variants
 
 The default icon size in the back office is `32px`.
 To change the default size, in the template add the modifier to the class name.
 
-``` twig
+``` html+twig
 <svg class="ibexa-icon ibexa-icon--medium">
   <use xlink:href="{{ ibexa_icon_path('create') }}"></use>
 </svg>
@@ -43,7 +53,7 @@ To change the default size, in the template add the modifier to the class name.
 
 The list of available icon sizes:
 
-|Size|Class postfix (modifiers)|
+|Size| Modifier|
 |----|---------|
 |`8px`|`--tiny`|
 |`12px`|`--tiny-small`|
