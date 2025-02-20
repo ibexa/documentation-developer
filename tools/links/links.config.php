@@ -17,7 +17,7 @@ $resourceFiles = call_user_func(function (array $a): array {
     (new Finder('./docs'))
         ->includeName('*.png')
         ->includeName('*.jpg')
-        ->excludeWholeName('./docs/release_notes/*')//TMP
+        ->excludeWholeName('./docs/release_notes/img/*')//TMP
         ->find(),
 );
 
@@ -117,6 +117,11 @@ $exclusionTests = array_merge_recursive(UrlTester::getDefaultExclusionTests(), [
         function (string $url, string $location, ?string $file = null): bool {
             return 'https://www.json.org/' === $url && 'https://www.JSON.org/json-en.html' === $location;
         },
+        function (string $url, string $location, ?string $file = null): bool {
+            return $url === 'https://console.aws.amazon.com/iam/home#/users'
+                && preg_match('@https://[a-z0-9-]+\.console\.aws\.amazon\.com/iam/home#/users@', $location);
+        },
+
     ],
     'fragment' => [
         /*function (string $url, ?string $file = null): bool {
@@ -136,6 +141,12 @@ $exclusionTests = array_merge_recursive(UrlTester::getDefaultExclusionTests(), [
         }
     ],
 ]);
+
+$curlUsageTests = [
+    function (string $url, ?string $file = null): bool {
+        return str_starts_with($url, 'https://docs.aws.amazon.com/');
+    },
+];
 
 $replacements = [//TODO Get from mkdocs.yml
     '[[= symfony_doc =]]' => 'https://symfony.com/doc/5.4',
