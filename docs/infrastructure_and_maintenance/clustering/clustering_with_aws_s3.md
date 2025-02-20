@@ -13,13 +13,13 @@ When setting up clustering, you can use Amazon AWS S3 as a binary handler, meani
 ## Set up AWS S3 account
 
 1.  Go to <https://aws.amazon.com/> and create an account.
-An [existing Amazon account can be used](https://docs.aws.amazon.com/AmazonS3/latest/userguide/setting-up-s3.html#sign-up-for-aws).
+An [existing Amazon account can be used](https://docs.aws.amazon.com/AmazonS3/latest/userguide/GetStartedWithS3.html#sign-up-for-aws).
 1.  [Choose a region](https://docs.aws.amazon.com/storagegateway/latest/vgw/available-regions-intro.html).
 The example below uses EU (Ireland): `eu-west-1`
 1.  Create a bucket in your chosen region and make note of the bucket name:
-<https://docs.aws.amazon.com/AmazonS3/latest/userguide/creating-bucket.html>.
+<https://docs.aws.amazon.com/AmazonS3/latest/userguide/GetStartedWithS3.html#creating-bucket >.
 1.  Go to the [IAM Management Console](https://console.aws.amazon.com/iam/home#/users) and create a user.
-See <https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-access-control.html>.
+See <https://docs.aws.amazon.com/AmazonS3/latest/userguide/security-iam.html>.
 1.  Then create a group and assign the user to the group.
 1.  Assign policies to the group. The `AmazonS3FullAccess` policy gives read/write access to your bucket.
 1.  Still in the IAM console, view the user you created. Click the **Security credentials** tab.
