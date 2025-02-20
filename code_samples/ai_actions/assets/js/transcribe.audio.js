@@ -2,7 +2,6 @@ import BaseAIAssistantComponent from '@ibexa-connector-ai/src/bundle/Resources/p
 import Textarea from '@ibexa-connector-ai-modules/ai-assistant/fields/textarea/textarea.js';
 
 export default class TranscribeAudio extends BaseAIAssistantComponent {
-
     constructor(mainElement, extraConfig) {
         super(mainElement, extraConfig);
 
