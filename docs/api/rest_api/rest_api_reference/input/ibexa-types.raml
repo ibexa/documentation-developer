@@ -2175,7 +2175,7 @@ SegmentGroupUpdate:
             type: string
             required: true
         name:
-            description: 'The updated name of the segment group.'
+            description: 'A name of the segment group.'
             type: string
             required: true
 
@@ -2207,9 +2207,15 @@ SegmentGroup:
     description: 'This class represents a segment group.'
     type: BaseObject
     properties:
-        id: integer
-        identifier: string
-        name: string
+        id:
+            description: 'A unique numeric identifier for the segment group.'
+            type: integer
+        identifier:
+            description: 'A unique string identifier for the segment group.'
+            type: string
+        name:
+            description: 'A name of the segment group.'
+            type: string
 
 SegmentListWrapper:
     description: 'JSON object with only a SegmentList property.'
@@ -2233,10 +2239,71 @@ Segment:
     description: 'This class represents a segment.'
     type: BaseObject
     properties:
-        id: integer
-        identifier: string
-        name: string
-        SegmentGroup: SegmentGroup
+        id:
+            description: 'A unique numeric identifier for the segment.'
+            type: integer
+        identifier:
+            description: 'A unique numeric identifier for the segment.'
+            type: string
+        name:
+            description: 'A name of the segment.'
+            type: string
+        SegmentGroup:
+            description: 'A reference to the segment group to which this segment belongs.'
+            type: object
+            properties:
+                media-type:
+                    description: 'Mmedia type of the segment group resource.'
+                    type: string
+                href:
+                    description: 'A URL reference to the segment group resource.'
+                    type: string
+
+SegmentCreate:
+    description: 'This class represents a new segment to create.'
+    type: object
+    properties:
+        identifier:
+            description: 'A unique identifier for the segment.'
+            type: string
+            required: true
+        name:
+            description: 'A name of the segment.'
+            type: string
+            required: true
+        group:
+            description: 'A segment group to which the segment belongs.'
+            type: string
+            required: true
+
+SegmentCreateWrapper:
+    description: 'JSON object with only a SegmentCreate property.'
+    type: object
+    properties:
+        SegmentCreate: SegmentCreate
+
+SegmentUpdate:
+    description: 'This class represents an update to an existing segment.'
+    type: object
+    properties:
+        identifier:
+            description: 'A unique identifier for the segment.'
+            type: string
+            required: true
+        name:
+            description: 'A name of the segment.'
+            type: string
+            required: true
+        group:
+            description: 'A group to which the segment belongs.'
+            type: string
+            required: true
+
+SegmentUpdateWrapper:
+    description: 'JSON object with only a SegmentUpdate property.'
+    type: object
+    properties:
+        SegmentCreate: SegmentUpdate
 
 SortClause:
     description: 'This class is the base for SortClause classes, used to set sorting of content queries.'

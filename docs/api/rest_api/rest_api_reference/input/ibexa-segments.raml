@@ -1,4 +1,56 @@
 displayName: Segments
+post:
+    displayName: Create a segment
+    description: Creates a segment.
+    headers:
+        Content-Type:
+            description: A SegmentCreate schema encoded in XML or JSON format.
+            example: |
+                application/vnd.ibexa.api.SegmentCreate+xml
+                application/vnd.ibexa.api.SegmentCreate+json
+        Accept:
+            description: A segment is returned in XML or JSON format.
+            example: |
+                application/vnd.ibexa.api.Segment+xml
+                application/vnd.ibexa.api.Segment+json
+    body:
+        application/vnd.ibexa.api.SegmentCreate+xml:
+            type: SegmentCreate
+            example: !include examples/segments/POST/SegmentCreate.xml.example
+        application/vnd.ibexa.api.SegmentCreate+json:
+            type: SegmentCreateWrapper
+            example: !include examples/segments/POST/SegmentCreate.json.example
+    responses:
+        200:
+            description: OK - returns new segment's data.
+            body:
+                application/vnd.ibexa.api.Segment+xml:
+                    type: Segment
+                    example: !include examples/segments/POST/Segment.xml.example
+                application/vnd.ibexa.api.Segment+json:
+                    type: SegmentWrapper
+                    example: !include examples/segments/POST/Segment.json.example
+        400:
+            description: Error - input data validation failed.
+            body:
+                application/vnd.ibexa.api.ErrorMessage+xml:
+                    type: ErrorMessage
+                application/vnd.ibexa.api.ErrorMessage+json:
+                    type: ErrorMessage
+        401:
+            description: Error - the user is not authorized to create segments.
+            body:
+                application/vnd.ibexa.api.ErrorMessage+xml:
+                    type: ErrorMessage
+                application/vnd.ibexa.api.ErrorMessage+json:
+                    type: ErrorMessage
+        406:
+            description: Error - input data is not acceptable.
+            body:
+                application/vnd.ibexa.api.ErrorMessage+xml:
+                    type: ErrorMessage
+                application/vnd.ibexa.api.ErrorMessage+json:
+                    type: ErrorMessage
 /{identifier}:
     get:
         displayName: Load segment
@@ -18,6 +70,79 @@ displayName: Segments
                     application/vnd.ibexa.api.Segment+json:
                         type: SegmentWrapper
             401:
-                description: Error - the user is not authorized to load this group's segments.
+                description: Error - the user is not authorized to load this segment.
             404:
-                description: Error - the identifier doesn't match any segment group.
+                description: Error - the identifier doesn't match any segment.
+/{id}:
+    patch:
+        displayName: Update segment data
+        description: Updates the segment's data.
+        headers:
+            Content-Type:
+                description: The SegmentUpdate schema encoded in XML or JSON format.
+                example: |
+                    application/vnd.ibexa.api.SegmentUpdate+xml
+                    application/vnd.ibexa.api.SegmentUpdate+json
+            Accept:
+                description: A segment is returned in XML or JSON format.
+                example: |
+                    application/vnd.ibexa.api.Segment+xml
+                    application/vnd.ibexa.api.Segment+json
+        body:
+            application/vnd.ibexa.api.SegmentUpdate+xml:
+                type: SegmentUpdate
+                example: !include examples/segments/id/PATCH/SegmentUpdate.xml.example
+            application/vnd.ibexa.api.SegmentUpdate+json:
+                type: SegmentUpdateWrapper
+                example: !include examples/segments/id/PATCH/SegmentUpdate.json.example
+        responses:
+            200:
+                description: OK- returns updated segment's data.
+                body:
+                    application/vnd.ibexa.api.Segment+xml:
+                        type: Segment
+                        example: !include examples/segments/id/PATCH/Segment.xml.example
+                    application/vnd.ibexa.api.Segment+json:
+                        type: SegmentWrapper
+                        example: !include examples/segments/id/PATCH/Segment.json.example
+            400:
+                description: Error - input data validation failed.
+                body:
+                    application/vnd.ibexa.api.ErrorMessage+xml:
+                        type: ErrorMessage
+                    application/vnd.ibexa.api.ErrorMessage+json:
+                        type: ErrorMessage
+            401:
+                description: Error - the user is not authorized to create segments.
+                body:
+                    application/vnd.ibexa.api.ErrorMessage+xml:
+                        type: ErrorMessage
+                    application/vnd.ibexa.api.ErrorMessage+json:
+                        type: ErrorMessage
+            406:
+                description: Error - input data is not acceptable.
+                body:
+                    application/vnd.ibexa.api.ErrorMessage+xml:
+                        type: ErrorMessage
+                    application/vnd.ibexa.api.ErrorMessage+json:
+                        type: ErrorMessage
+    delete:
+        displayName: Delete a segment
+        description: Deletes the segment.
+        responses:
+            204:
+                description: Segment does not exist.
+            401:
+                description: Error - the user is not authorized to delete segments.
+                body:
+                    application/vnd.ibexa.api.ErrorMessage+xml:
+                        type: ErrorMessage
+                    application/vnd.ibexa.api.ErrorMessage+json:
+                        type: ErrorMessage
+            404:
+                description: Error - the identifier doesn't match any segment.
+                body:
+                    application/vnd.ibexa.api.ErrorMessage+xml:
+                        type: ErrorMessage
+                    application/vnd.ibexa.api.ErrorMessage+json:
+                        type: ErrorMessage
