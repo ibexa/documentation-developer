@@ -25,6 +25,90 @@ get:
                     type: ErrorMessage
                 application/vnd.ibexa.api.ErrorMessage+json:
                     type: ErrorMessage
+post:
+    displayName: Create a segment group
+    description: Creates a segment group.
+    headers:
+        Content-Type:
+            description: A SegmentGroupCreate schema encoded in XML or JSON format.
+            example: |
+                application/vnd.ibexa.api.SegmentGroupCreate+xml
+                application/vnd.ibexa.api.SegmentGroupCreate+json
+        Accept:
+            description: A segment group is returned in XML or JSON format.
+            example: |
+                vnd.ibexa.api.SegmentGroup+xml
+                vnd.ibexa.api.SegmentGroup+json
+    body:
+        application/vnd.ibexa.api.SegmentGroupCreate+xml:
+            type: SegmentGroupCreate
+            example: !include examples/segment_groups/POST/SegmentGroupCreate.xml.example
+        application/vnd.ibexa.api.SegmentGroupCreate+json:
+            type: SegmentGroupCreateWrapper
+            example: !include examples/segment_groups/POST/SegmentGroupCreate.json.example
+    responses:
+        200:
+            description: OK - list the segment groups.
+            body:
+                application/vnd.ibexa.api.SegmentGroup+xml:
+                    type: SegmentGroup
+                    example: !include examples/segment_groups/POST/SegmentGroup.xml.example
+                application/vnd.ibexa.api.SegmentGroup+json:
+                    type: SegmentGroupWrapper
+                    example: !include examples/segment_groups/POST/SegmentGroup.json.example
+        400:
+            description: Error - input data validation failed.
+            body:
+                application/vnd.ibexa.api.ErrorMessage+xml:
+                    type: ErrorMessage
+                application/vnd.ibexa.api.ErrorMessage+json:
+                    type: ErrorMessage
+        401:
+            description: Error - the user is not authorized to list segment groups.
+            body:
+                application/vnd.ibexa.api.ErrorMessage+xml:
+                    type: ErrorMessage
+                application/vnd.ibexa.api.ErrorMessage+json:
+                    type: ErrorMessage
+        406:
+            description: Error - input data is not acceptable.
+            body:
+                application/vnd.ibexa.api.ErrorMessage+xml:
+                    type: ErrorMessage
+                application/vnd.ibexa.api.ErrorMessage+json:
+                    type: ErrorMessage
+/{id}:
+    patch:
+        displayName: Update segment group data
+        description: Updates the segment group's data.
+        headers:
+            Content-Type:
+                description: The SegmentGroupUpdate schema encoded in XML or JSON format.
+                example: |
+                    application/vnd.ibexa.api.SegmentGroupUpdate+xml
+                    application/vnd.ibexa.api.SegmentGroupUpdate+json
+            Accept:
+                description: A segment group is returned in XML or JSON format.
+                example: |
+                    vnd.ibexa.api.SegmentGroup+xml
+                    vnd.ibexa.api.SegmentGroup+json
+        body:
+            application/vnd.ibexa.api.SegmentGroupUpdate+xml:
+                type: SegmentGroupUpdate
+                example: !include examples/segment_groups/id/PATCH/SegmentGroupUpdate.xml.example
+            application/vnd.ibexa.api.SegmentGroupUpdate+json:
+                type: SegmentGroupUpdateWrapper
+                example: !include examples/segment_groups/id/PATCH/SegmentGroupUpdate.json.example
+        responses:
+            200:
+                description: OK - list the segment groups.
+                body:
+                    application/vnd.ibexa.api.SegmentGroup+xml:
+                        type: SegmentGroup
+                        example: !include examples/segment_groups/id/PATCH/SegmentGroup.xml.example
+                    application/vnd.ibexa.api.SegmentGroup+json:
+                        type: SegmentGroupWrapper
+                        example: !include examples/segment_groups/id/PATCH/SegmentGroup.json.example
 /{identifier}:
     get:
         displayName: Load segment group

@@ -2147,6 +2147,44 @@ Session:
             description: 'User.'
             type: BaseObject
 
+SegmentGroupCreate:
+    description: 'This class represents a new segment group to create.'
+    type: object
+    properties:
+        identifier:
+            description: 'A unique identifier for the segment group.'
+            type: string
+            required: true
+        name:
+            description: 'A name of the segment group.'
+            type: string
+            required: true
+
+SegmentGroupCreateWrapper:
+    description: 'JSON object with only a SegmentGroupCreate property.'
+    type: object
+    properties:
+        SegmentGroupCreate: SegmentGroupCreate
+
+SegmentGroupUpdate:
+    description: 'This class represents an update to an existing segment group.'
+    type: object
+    properties:
+        identifier:
+            description: 'A unique identifier for the segment group.'
+            type: string
+            required: true
+        name:
+            description: 'The updated name of the segment group.'
+            type: string
+            required: true
+
+SegmentGroupUpdateWrapper:
+    description: 'JSON object with only a SegmentGroupUpdate property.'
+    type: object
+    properties:
+        SegmentGroupUpdate: SegmentGroupUpdate
+
 SegmentGroupListWrapper:
     description: 'JSON object with only a SegmentGroupList property.'
     type: object
