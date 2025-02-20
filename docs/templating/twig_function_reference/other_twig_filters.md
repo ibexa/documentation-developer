@@ -19,6 +19,17 @@ page_type: reference
 </svg>
 ```
 
+#### Icon color variants
+
+By default the icon inherits the [`fill`](https://developer.mozilla.org/en-US/docs/Web/CSS/fill) attribute from the parent element.
+You can change it by using one of the available CSS classes:
+
+- `ibexa-icon--light` - to be used on dark backgrounds
+- `ibexa-icon--dark` - to be used on light backgrounds
+- `ibexa-icon--base-dark` - to be used on light backgrounds
+- `ibexa-icon--primary` - to use the primary back office color
+- `ibexa-icon--secondary` - to use the secondary back office color
+
 #### Icon size variants
 
 The default icon size in the back office is `32px`.
