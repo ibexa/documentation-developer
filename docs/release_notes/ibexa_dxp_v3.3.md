@@ -93,4 +93,4 @@ See [list of changes in Symfony 5.2](https://symfony.com/blog/symfony-5-2-curate
 
 The version v3.3.15 moves [[= product_name =]] to Symfony 5.4.
 
-For more information, see [Symfony 5.4 documentation](https://symfony.com/releases/5.4) and [update documentation](update_from_3.3.md#3315).
+For more information, see [Symfony 5.4 documentation](https://symfony.com/releases/5.4) and [update documentation](update_from_3.3.md#v3315).
