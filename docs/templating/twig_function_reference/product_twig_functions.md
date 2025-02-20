@@ -130,3 +130,14 @@ The `ibexa_is_pim_local` is a helper Twig function that enables changing the beh
     </div>
 {% endif %}
 ```
+
+### `ibexa_product_catalog_group_attributes`
+
+The `ibexa_product_catalog_group_attributes` filter groups product attributes based on the [attribute group]([[= user_doc =]]/pim/work_with_product_attributes/#create-attribute-groups) they belong to.
+
+#### Example
+
+``` html+twig
+{% for group, attributes in product.attributes | ibexa_product_catalog_group_attributes %}
+{{ group.getIdentifier() }}:{{ attributes|map(attribute => attribute.getAttributeDefinition().getIdentifier())|join(' ') }}
+```
