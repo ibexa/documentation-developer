@@ -54,7 +54,7 @@ For reverse proxies to work properly with your installation, you need to add the
     - `snippet_re_enable_shielding.vcl` as snippet
 
 The provided `.vcl` files work both with [Fastly Shielding](https://docs.fastly.com/en/guides/shielding) enabled and without it.
-If you decide to use Fastly VCL, consider using [Fastly CLI](https://developer.fastly.com/learning/tools/cli/#installing) with it to manage VCL files from the command line.
+If you decide to use Fastly VCL, consider using [Fastly CLI](https://www.fastly.com/documentation/reference/tools/cli/#installing) with it to manage VCL files from the command line.
 To learn more, see [Prepare to use Fastly locally](fastly.md#prepare-for-using-fastly-locally) and [Introduction to Fastly CLI](fastly.md#quick-introduction-to-fastly-cli).
 
 !!! tip "Support for Fastly Shielding was added in [[= product_name =]] v3.3.24 and v4.1.6"
@@ -73,7 +73,7 @@ Failing to configure reverse proxies correctly may introduce several problems, i
 
 ### Configure Symfony front controller
 
-You need to consider your `TrustedProxy` configuration when you use Symfony [behind a load balancer or a reverse proxy](https://symfony.com/doc/5.1/deployment/proxies.html).
+You need to consider your `TrustedProxy` configuration when you use Symfony [behind a load balancer or a reverse proxy]([[= symfony_doc =]]/deployment/proxies.html).
 
 To configure trusted proxies, use [Symfony semantic configuration]([[= symfony_doc =]]/deployment/proxies.html#solution-settrustedproxies) under the `framework.trusted_proxies` [configuration key](configuration.md#configuration-files), for example:
 
@@ -84,7 +84,7 @@ framework:
 
 !!! caution "Careful when trusting dynamic IP that uses `REMOTE_ADDR` value or similar"
 
-    On Platform.sh, Varnish doesn't have a static IP, like with [AWS LB](https://symfony.com/doc/5.1/deployment/proxies.html#but-what-if-the-ip-of-my-reverse-proxy-changes-constantly).
+    On Platform.sh, Varnish doesn't have a static IP, like with [AWS LB]([[= symfony_doc =]]/deployment/proxies.html#but-what-if-the-ip-of-my-reverse-proxy-changes-constantly).
     For this reason, the `TRUSTED_PROXIES` env variable supports being set to value `REMOTE_ADDR`, which is equal to:
 
     ```php

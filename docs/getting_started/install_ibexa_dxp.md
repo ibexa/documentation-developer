@@ -19,14 +19,14 @@ description: Install Ibexa DXP on a Linux system and prepare your installation f
 
 To install [[= product_name =]] you need a stack with your operating system, MySQL or MariaDB, and PHP.
 
-You can install it by following your favorite tutorial, for example: [Install LAMP stack on Ubuntu](https://www.digitalocean.com/community/tutorials/how-to-install-linux-apache-mysql-php-lamp-stack-ubuntu-18-04).
+You can install it by following your favorite tutorial, for example: [Install LAMP stack on Ubuntu](https://www.digitalocean.com/community/tutorials/how-to-install-lamp-stack-on-ubuntu).
 
 Additional requirements:
 
 - [Node.js](https://nodejs.org/en) and [Yarn](https://classic.yarnpkg.com/en/docs/install/#debian-stable) for asset management
 - `git` for version control
 
-[For production](#prepare-installation-for-production) you also need Apache or nginx as the HTTP server (Apache is used as an example below).
+For production, you need to [configure an HTTP server](#configure-an-http-server), Apache or nginx (Apache is used as an example below).
 
 Before getting started, make sure you review other [requirements](requirements.md) to see the systems that is supported and used for testing.
 
@@ -165,10 +165,10 @@ To use Composer to instantly create a project in the current folder with all the
 
 !!! tip
 
-    You can set [different version constraints](https://getcomposer.org/doc/articles/versions.md), for example, specific tag (`3.3.2`), version range (`~3.3.2`), or stability (`^3.3@rc`):
+    You can set [different version constraints](https://getcomposer.org/doc/articles/versions.md), for example, specific tag (`[[= latest_tag_4_6 =]]`), version range (`~4.6.10`), or stability (`^4.6@rc`):
 
     ``` bash
-    composer create-project ibexa/experience-skeleton:3.3.2 .
+    composer create-project ibexa/experience-skeleton:[[= latest_tag_4_6 =]] .
     ```
 
 !!! note "Platform.sh"
@@ -250,11 +250,11 @@ You may choose to replace the [default search engine](legacy_search_overview.md)
 
     Do the following steps to enable Elasticsearch:
 
-    1. [Download and install Elasticsearch](install_elastic_search.md)
-    2. [Verify that the Elasticsearch instance is up](install_elastic_search.md#verify-the-instance)
-    3. [Set the default search engine](install_elastic_search.md#set-the-default-search-engine)
-    4. [Configure the search engine](configure_elastic_search.md)
-    5. [Push the templates](install_elastic_search.md#push-the-templates)
+    1. [Download and install Elasticsearch](install_elasticsearch.md)
+    2. [Verify that the Elasticsearch instance is up](install_elasticsearch.md#verify-the-instance)
+    3. [Set the default search engine](install_elasticsearch.md#set-the-default-search-engine)
+    4. [Configure the search engine](configure_elasticsearch.md)
+    5. [Push the templates](install_elasticsearch.md#push-the-templates)
 
     Configure the following parameter in the `.env` file:
 

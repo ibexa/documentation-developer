@@ -5,7 +5,7 @@ edition: commerce
 
 # Payum integration
 
-[Payum](https://payum.gitbook.io/payum/) is a payment processing solution that simplifies the integration of various payment services like Stripe and PayPal into your application.
+[Payum](https://payum.gitbook.io/payum) is a payment processing solution that simplifies the integration of various payment services like Stripe and PayPal into your application.
 These services provide security of online transactions, and allow you to accept multiple payment methods while ensuring a seamless experience for the customers.
 By configuring service gateways, mapping workflow actions and translating payment service names, you streamline the online payment process, and can offer a diverse payment experience.
 

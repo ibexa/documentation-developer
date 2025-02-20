@@ -65,7 +65,7 @@ For more information, see [Using `ez_render` Twig helpers](https://doc.ibexa.co/
 
 ### JWT authentication
 
-You can now use JWT tokens to authenticate in [REST API](https://doc.ibexa.co/en/latest/api/general_rest_usage/#jwt-authentication)
+You can now use JWT tokens to authenticate in [REST API](https://doc.ibexa.co/en/latest/api/rest_api/rest_api_authentication/#jwt-authentication)
 and [GraphQL](https://doc.ibexa.co/en/latest/api/graphql/#jwt-authentication).
 
 See [JWT authentication](https://doc.ibexa.co/en/latest/guide/security/#jwt-authentication) to learn how to configure this authentication method.

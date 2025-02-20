@@ -10,7 +10,7 @@ These are supported across different search engines, allowing you to plug in ano
 
 [[= cards([
     "search/search_engines/search_engines",
-    "search/search_engines/elastic_search/elastic_search_overview",
+    "search/search_engines/elasticsearch/elasticsearch_overview",
     "search/search_engines/solr_search_engine/solr_overview",
     "search/search_api",
     "search/search_criteria_and_sort_clauses",
