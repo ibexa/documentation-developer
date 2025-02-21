@@ -1,6 +1,6 @@
 mkdocs==1.6.1
 Pygments==2.19.1
-pymdown-extensions==10.0.1
+pymdown-extensions==10.14.3
 Markdown==3.7
 mkdocs-material==9.1.1
 mkdocs-macros-plugin==0.7.0
