@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ActionTypeList media-type="application/vnd.ibexa.api.ai.ActionTypeList+xml" href="/api/ibexa/v2/ai/action-types">
+    <ActionType media-type="application/vnd.ibexa.api.ai.ActionType+xml">
+        <identifier>transcribe_audio</identifier>
+        <name>Transcribe audio</name>
+        <inputIdentifier>audio</inputIdentifier>
+        <outputIdentifier>text</outputIdentifier>
+        <options/>
+    </ActionType>
+    <ActionType media-type="application/vnd.ibexa.api.ai.ActionType+xml">
+        <identifier>generate_alt_text</identifier>
+        <name>Generate alternative text</name>
+        <inputIdentifier>image</inputIdentifier>
+        <outputIdentifier>text</outputIdentifier>
+        <options>
+            <width>512</width>
+            <height>512</height>
+            <image_quality>85</image_quality>
+        </options>
+    </ActionType>
+    <ActionType media-type="application/vnd.ibexa.api.ai.ActionType+xml">
+        <identifier>refine_text</identifier>
+        <name>Refine text</name>
+        <inputIdentifier>text</inputIdentifier>
+        <outputIdentifier>text</outputIdentifier>
+        <options/>
+    </ActionType>
+</ActionTypeList>
