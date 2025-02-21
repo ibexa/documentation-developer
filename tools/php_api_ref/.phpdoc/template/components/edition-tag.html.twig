@@ -12,13 +12,13 @@
         {% set package = node.file.path|split('/')|slice(1, 2)|join('/') %}
     {% else %}
         {% for namespace in namespace_package_map|keys %}
-            {% if fqcn starts with namespace %}
+            {% if fqcn ~ "\\" starts with namespace ~ "\\" %}
                 {% set package = namespace_package_map[namespace] %}
             {% endif %}
         {% endfor %}
     {% endif %}
 
-    {% if package_edition_map[package] is defined %}
+    {% if package_edition_map[package] is defined and package_edition_map[package] != 'optional' %}
         {% if package_edition_map[package] in edition_pill_list %}
             {% set is_supporting = false %}
             {# display edition pills since minimal edition supporting the package #}
@@ -31,8 +31,7 @@
                 {% endif %}
             {% endfor %}
         {% endif %}
-    {% else %}
-        {# if package is not in an edition #}
+    {% elseif package_edition_map[package] == 'optional' %}
         <div class="pill optional-pill" title="Included in the optional package {{ package }}"></div>
     {% endif %}
 {% endblock %}

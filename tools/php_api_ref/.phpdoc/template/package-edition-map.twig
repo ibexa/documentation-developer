@@ -1,4 +1,5 @@
 {% set package_edition_map = {
+
 'ibexa/doctrine-schema': 'oss',
 'ibexa/system-info': 'oss',
 'ibexa/admin-ui': 'oss',
@@ -66,8 +67,12 @@
 'ibexa/payment': 'commerce',
 'ibexa/shipping': 'commerce',
 'ibexa/connector-payum': 'commerce',
+'ibexa/connector-ai': 'optional',
+'ibexa/connector-openai': 'optional',
+'ibexa/automated-translation': 'optional',
 } %}
 {% set namespace_package_map = {
+
 'Ibexa\\DoctrineSchema': 'ibexa/doctrine-schema',
 'EzSystems\\DoctrineSchema': 'ibexa/doctrine-schema',
 'Ibexa\\Bundle\\DoctrineSchema': 'ibexa/doctrine-schema',
@@ -357,5 +362,16 @@
 'Ibexa\\Bundle\\ConnectorPayum': 'ibexa/connector-payum',
 'Ibexa\\Contracts\\ConnectorPayum': 'ibexa/connector-payum',
 'Ibexa\\ConnectorPayum': 'ibexa/connector-payum',
+'Ibexa\\Bundle\\ConnectorAi': 'ibexa/connector-ai',
+'Ibexa\\Contracts\\ConnectorAi': 'ibexa/connector-ai',
+'Ibexa\\ConnectorAi': 'ibexa/connector-ai',
+'Ibexa\\Bundle\\ConnectorOpenAi': 'ibexa/connector-openai',
+'Ibexa\\Contracts\\ConnectorOpenAi': 'ibexa/connector-openai',
+'Ibexa\\ConnectorOpenAi': 'ibexa/connector-openai',
+'Ibexa\\AutomatedTranslation': 'ibexa/automated-translation',
+'Ibexa\\Bundle\\AutomatedTranslation': 'ibexa/automated-translation',
+'Ibexa\\Contracts\\AutomatedTranslation': 'ibexa/automated-translation',
+'EzSystems\\EzPlatformAutomatedTranslation': 'ibexa/automated-translation',
+'EzSystems\\EzPlatformAutomatedTranslationBundle': 'ibexa/automated-translation',
 } %}
 {% block content %}{% endblock %}

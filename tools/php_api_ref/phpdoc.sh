@@ -7,7 +7,7 @@ OUTPUT_DIR=${2:-./docs/api/php_api/php_api_reference}; # Path to the directory w
 
 DXP_EDITION='commerce'; # Edition from and for which the Reference is built
 DXP_VERSION='4.6.*'; # Version from and for which the Reference is built
-DXP_ADD_ONS=(connector-ai connector-openai); # Packages not included in $DXP_EDITION but added to the Reference, listed without their vendor "ibexa"
+DXP_ADD_ONS=(connector-ai connector-openai automated-translation); # Packages not included in $DXP_EDITION but added to the Reference, listed without their vendor "ibexa"
 DXP_EDITIONS=(oss headless experience commerce); # Available editions ordered by ascending capabilities
 PHPDOC_VERSION='3.5.3'; # Version of phpDocumentor used to build the Reference
 PHPDOC_CONF="$(pwd)/tools/php_api_ref/phpdoc.dist.xml"; # Absolute path to phpDocumentor configuration file
@@ -82,8 +82,8 @@ if [ 0 -eq $DXP_ALREADY_EXISTS ]; then
   if [[ -f $map ]]; then
     rm $map;
   fi;
-  PACKAGE_MAP='{% set package_edition_map = {'
-  NAMESPACE_MAP='{% set namespace_package_map = {'
+  PACKAGE_MAP=''
+  NAMESPACE_MAP=''
   for edition in ${DXP_EDITIONS[@]}; do
     echo -n "${edition}… ";
     while IFS= read -r line; do
@@ -99,8 +99,16 @@ if [ 0 -eq $DXP_ALREADY_EXISTS ]; then
       break;
     fi;
   done;
-  PACKAGE_MAP="$PACKAGE_MAP\n} %}"
-  NAMESPACE_MAP="$NAMESPACE_MAP\n} %}"
+
+  for package in "${DXP_ADD_ONS[@]}"; do
+    NAMESPACES=$(composer show "ibexa/$package" --available --format=json | \
+      jq -r --arg PACKAGE "ibexa/$package" '"'\''\(.autoload | ."psr-4" | try to_entries[] catch empty | .key[:-1] | sub("\\\\";"\\\\\\";"g"))'\'': '\''\($PACKAGE)'\'',"')
+    NAMESPACE_MAP="$NAMESPACE_MAP\n$NAMESPACES"
+    PACKAGE_MAP="$PACKAGE_MAP\n'ibexa/$package': 'optional',"
+  done;
+  
+  PACKAGE_MAP="{% set package_edition_map = {\n$PACKAGE_MAP\n} %}"
+  NAMESPACE_MAP="{% set namespace_package_map = {\n$NAMESPACE_MAP\n} %}"
   {
       echo -e "$PACKAGE_MAP";
       echo -e "$NAMESPACE_MAP";
