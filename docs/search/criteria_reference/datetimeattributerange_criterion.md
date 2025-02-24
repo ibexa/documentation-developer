@@ -2,15 +2,15 @@
 description: DateTimeAttributeRange Criterion
 ---
 
-# DateTimeAttribute criterion
+# DateTimeAttributeRange criterion
 
 The [`DateTimeAttributeRange Search Criterion`](TODO: PHP REF)` searches for products by value of a specified attribute, which must be based on the [date and time attribute](date_and_time.md) type.
 
 ## Arguments
 
 - `identifier` - attribute's identifier (string)
-- `min` - lower range value ([DateTimeImmutable](https://www.php.net/manual/en/class.datetimeimmutable.php), optional)
-- `max` - upper range value ([DateTimeImmutable](https://www.php.net/manual/en/class.datetimeimmutable.php), optional)
+- `min` - lower range value (inclusive) of [DateTimeImmutable](https://www.php.net/manual/en/class.datetimeimmutable.php) type. Optional.
+- `max` - upper range value (inclusive) of [DateTimeImmutable](https://www.php.net/manual/en/class.datetimeimmutable.php) type. Optional.
 
 ## Example
 
