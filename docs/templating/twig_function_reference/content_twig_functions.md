@@ -112,7 +112,7 @@ If the content item doesn't have a translation in the prioritized or passed lang
 
 | Argument | Type | Description |
 |---------------|------|-------------|
-| `content` | [`Ibexa\Contracts\Core\Repository\Values\Content\Content`](php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Content.html) | Content item to display the category name for. |
+| `content` | [`Ibexa\Contracts\Core\Repository\Values\Content\Content`](../../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Content.html) | Content item to display the category name for. |
 
 ```html+twig
 {{ content|ibexa_taxonomy_entries_for_content|map(entry => "#{entry.name}")|join(', ') }}
