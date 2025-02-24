@@ -139,5 +139,11 @@ The `ibexa_product_catalog_group_attributes` filter groups product attributes ba
 
 ``` html+twig
 {% for group, attributes in product.attributes | ibexa_product_catalog_group_attributes %}
-{{ group.getIdentifier() }}:{{ attributes|map(attribute => attribute.getAttributeDefinition().getIdentifier())|join(' ') }}
+    <ul>{{ group.name | capitalize }}
+        {% for attribute in attributes %}
+            {% set attribute_definition = attribute.attributeDefinition %}
+            <li>{{ attribute_definition.name }} : {{ attribute | ibexa_format_product_attribute }}</li>
+        {% endfor %}
+    </ul>
+{% endfor %}
 ```
