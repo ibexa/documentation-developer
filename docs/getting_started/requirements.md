@@ -287,7 +287,7 @@ Recommendation for production setups is to use Varnish/Fastly, Redis/Memcached, 
 
 ## [[= product_name_cloud =]] requirements and setup
 
-=== "[[= product_name_cloud =]] v4.6"
+=== "[[= product_name =]] v4.6"
 
     ### Cloud hosting with [[= product_name_cloud =]] and Platform.sh
 
@@ -334,7 +334,7 @@ Recommendation for production setups is to use Varnish/Fastly, Redis/Memcached, 
     For example, you can create an integration with S3 by means of setting up your own S3 bucket and configuring the relevant parts of [[= product_name =]].
     We recommend giving the development team working on the project access to the bucket to ensure work is done in a DevOps way without depending on external teams when changes are needed.
 
-=== "[[= product_name_cloud =]] v3.3"
+=== "[[= product_name =]] v3.3"
 
     ### Cloud hosting with [[= product_name_cloud =]] and Platform.sh
 
