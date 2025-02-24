@@ -17,6 +17,8 @@ jobs:
         permissions:
             # Needed to manage the comment
             pull-requests: write
+            # Needed to checkout private repositories
+            contents: read
 
         steps:
             - uses: actions/checkout@v4
