@@ -60,7 +60,7 @@ If the content item doesn't have a translation in the prioritized or passed lang
 
 | Argument | Type | Description |
 |---------------|------|-------------|
-| `content` | `Ibexa\Contracts\Core\Repository\Values\Content\Content`</br>or</br>`Ibexa\Contracts\Core\Repository\Values\Content\ContentInfo` | Content item or its ContentInfo object.|
+| `content` or `contentaware` | [`Ibexa\Contracts\Core\Repository\Values\Content\Content`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Content.html)</br>or</br>[`Ibexa\Contracts\Core\Repository\Values\Content\ContentInfo`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-ContentInfo.html)</br>or</br>[`Ibexa\Contracts\Core\Repository\Values\Content\ContentAwareInterface`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-ContentAwareInterface.html) | Content item or its ContentInfo object.|
 | `forcedLanguage` | `string` | (optional) Language to use (for example, `fre-FR`). |
 
 ``` html+twig
@@ -75,7 +75,7 @@ If the content item doesn't have a translation in the prioritized or passed lang
 
 | Argument | Type | Description |
 |---------------|------|-------------|
-| `content` | `Ibexa\Contracts\Core\Repository\Values\Content\Content`</br>or</br>`Ibexa\Contracts\Core\Repository\Values\Content\ContentInfo` | Content item or its ContentInfo object.|
+| `content` or `contentaware` | [`Ibexa\Contracts\Core\Repository\Values\Content\Content`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Content.html)</br>or</br>[`Ibexa\Contracts\Core\Repository\Values\Content\ContentInfo`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-ContentInfo.html)</br>or</br>[`Ibexa\Contracts\Core\Repository\Values\Content\ContentAwareInterface`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-ContentAwareInterface.html) | Content item or its ContentInfo object.|
 
 ``` html+twig
 {{ ibexa_seo_is_empty(content) }}
@@ -87,7 +87,7 @@ If the content item doesn't have a translation in the prioritized or passed lang
 
 | Argument | Type | Description |
 |---------------|------|-------------|
-| `content` | `Ibexa\Contracts\Core\Repository\Values\Content\Content`</br>or</br>`Ibexa\Contracts\Core\Repository\Values\Content\ContentInfo` | Content item or its ContentInfo object.|
+| `content` or `contentaware` | [`Ibexa\Contracts\Core\Repository\Values\Content\Content`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Content.html)</br>or</br>[`Ibexa\Contracts\Core\Repository\Values\Content\ContentInfo`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-ContentInfo.html)</br>or</br>[`Ibexa\Contracts\Core\Repository\Values\Content\ContentAwareInterface`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-ContentAwareInterface.html) | Content item or its ContentInfo object.|
 
 ``` html+twig
 {{ ibexa_seo(content) }}
@@ -112,12 +112,11 @@ If the content item doesn't have a translation in the prioritized or passed lang
 
 | Argument | Type | Description |
 |---------------|------|-------------|
-| `content` | [`Ibexa\Contracts\Core\Repository\Values\Content\Content`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Content.html) | Content item to display the category name for. |
+| `content` or `contentaware` | [`Ibexa\Contracts\Core\Repository\Values\Content\Content`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Content.html)</br>or</br>[`Ibexa\Contracts\Core\Repository\Values\Content\ContentAwareInterface`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-ContentAwareInterface.html) | Content item to display the category name for. |
 
 ```html+twig
 {{ content|ibexa_taxonomy_entries_for_content|map(entry => "#{entry.name}")|join(', ') }}
 ```
-
 
 ## Non-content related queries
 
