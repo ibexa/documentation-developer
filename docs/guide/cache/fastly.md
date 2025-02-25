@@ -463,6 +463,11 @@ if (fastly.ff.visits_this_service == 0 && req.restarts == 0) {
     error 401 "Restricted";
   }
 }
+
+# Unsetting req.http.Authorization to avoid reaching "return(pass)" in vcl_recv for the first ESI request
+if (req.is_esi_subreq) {
+    unset req.http.Authorization;
+}
 ```
 
 To enable basic-auth for one domain only, alter `snippet_basic_auth_recv.vcl`:
