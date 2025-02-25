@@ -33,7 +33,7 @@ displayName: AI actions
                 example: !include examples/ai/actions/execute/POST/RefineTextInput.xml.example
         responses:
             200:
-                description: Action executed successfuly
+                description: Action executed successfuly.
                 body:
                     application/vnd.ibexa.api.ai.AltText+json:
                         type: AltTextWrapper
@@ -48,33 +48,33 @@ displayName: AI actions
                         type: RefineTextWrapper
                         example: !include examples/ai/actions/execute/POST/RefineText.xml.example
             400:
-                description: Error - the request is invalid
+                description: Error - the request is invalid.
             401:
                 description: Error - the user is not authorized to execute an AI action.
             404:
-                description: Error - the given Action Configuration identifier does not exist
+                description: Error - the given Action Configuration identifier does not exist.
 
 /actions:
     get:
         displayName: List action configurations
-        description: Returns a list of action configurations
+        description: Returns a list of action configurations.
         queryParameters:
             limit:
-                description: The number of results per page
+                description: The number of results per page.
                 type: integer
             page:
-                description: The page for which the results should be returned
+                description: The page for which the results should be returned.
                 type: integer
                 default: 1
             enabled:
-                description: Return only enabled (1) or disabled (0) action configurations
+                description: Return only enabled (1) or disabled (0) action configurations.
                 type: integer
             action_type_identifier:
-                description: Return action configurations for the specified action type identifier
+                description: Return action configurations for the specified action type identifier.
                 type: string
             query:
                 type: string
-                description: Return action configurations with identifier matching the given value, or the name starting with given value
+                description: Return action configurations with identifier matching the given value, or the name starting with given value.
         headers:
             Accept:
                 description: If set, the list is returned in XML or JSON format.
@@ -92,7 +92,7 @@ displayName: AI actions
                         example: !include examples/ai/actions/GET/ActionConfigurationList.xml.example
     post:
         displayName: List action configurations (POST)
-        description: Returns a list of action configurations, the same data as the GET endpoint.
+        description: Returns a list of action configurations, the same data as the GET endpoint. 
         headers:
             Accept:
                 description: Specifies the expected response type. If set, the list is returned in XML or JSON format.
