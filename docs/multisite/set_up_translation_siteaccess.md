@@ -60,10 +60,13 @@ ibexa:
             languages: [fre-FR, eng-GB]
         site:
             languages: [eng-GB]
+        admin_group:
+            languages: [fre-FR, eng-GB]
 ```
 
 With this configuration, the main English site displays content in English and ignores French content.
 The French site displays content in French, but also in English, if it doesn't exist in French.
+The back office SiteAccess uses all languages used by the frontend SiteAccesses.
 
 Clear the cache by running: `php bin/console cache:clear`.
 
