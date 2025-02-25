@@ -11,6 +11,7 @@ Some sort clauses are exclusive to trash search.
 
 ## Search Criteria
 
+- [ContentName](contentname_criterion.md)
 - [ContentTypeId](contenttypeid_criterion.md)
 - [DateMetadata](datemetadata_criterion.md) (which can use the additional exclusive target `DateMetadata::TRASHED`)
 - [MatchAll](matchall_criterion.md)
