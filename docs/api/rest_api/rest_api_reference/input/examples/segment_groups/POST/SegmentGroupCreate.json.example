@@ -1,0 +1,6 @@
+{
+    "SegmentGroupCreate": {
+        "identifier": "segment_group_identifier",
+        "name": "Segment Group Name"
+    }
+}
