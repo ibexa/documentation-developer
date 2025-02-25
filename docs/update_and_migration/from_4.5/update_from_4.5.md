@@ -463,11 +463,12 @@ Restart Solr for `solrconfig.xml` changes to take effect.
 Elasticsearch schema's templates change, for example, with the addition of new features such as spellchecking.
 When this happens, you need to erase the index, update the schema, and rebuild the index.
 
-To delete the index, you can use an HTTP request.
+To delete the index, use the [delete index REST API](https://www.elastic.co/guide/en/elasticsearch/reference/7.17/indices-delete-index.html).
 Use the command as in the following example:
 
 ```bash
-curl --request DELETE 'https://elasticsearch:9200/_all'
+curl --request DELETE 'https://elasticsearch:9200/default_location*'
+curl --request DELETE 'https://elasticsearch:9200/default_content*'
 ```
 
 To update the schema, and then reindex the content, use the following commands:
