@@ -32,7 +32,7 @@ The field is rendered with the default template, but you can optionally pass a d
 
 | Argument | Type | Description |
 | ------ | ----- | ----- |
-| `content` | `Ibexa\Contracts\Core\Repository\Values\Content\Content` | Content item the field belongs to. |
+| `content` or `contentaware` | [`Ibexa\Contracts\Core\Repository\Values\Content\Content`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Content.html)</br>or</br>[`Ibexa\Contracts\Core\Repository\Values\Content\ContentAwareInterface`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-ContentAwareInterface.html) | Content item the field belongs to. |
 | `fieldDefinitionIdentifier` | `string` | Field identifier. |
 | `params` | `hash` | (optional) Hash of parameters passed to the template block. |
 
@@ -80,7 +80,7 @@ If the content item doesn't have a translation in the prioritized or passed lang
 
 | Argument | Type | Description |
 |-----|------|-----|
-| `content`| `Ibexa\Contracts\Core\Repository\Values\Content\Content` | Content item the field belongs to.|
+| `content` or `contentaware` | [`Ibexa\Contracts\Core\Repository\Values\Content\Content`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Content.html)</br>or</br>[`Ibexa\Contracts\Core\Repository\Values\Content\ContentAwareInterface`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-ContentAwareInterface.html) | Content item the field belongs to.|
 | `fieldDefIdentifier` | `string` | Identifier of the field. |
 | `forcedLanguage`  | `string` | (optional) Language to use (for example, "fre-FR"). |
 
@@ -96,7 +96,7 @@ If the content item doesn't have a translation in the prioritized or passed lang
 
 | Argument | Type | Description |
 |-------|------|------|
-| `content`| `Ibexa\Contracts\Core\Repository\Values\Content\Content` | Content item the field belongs to.|
+| `content` or `contentaware` | [`Ibexa\Contracts\Core\Repository\Values\Content\Content`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Content.html)</br>or</br>[`Ibexa\Contracts\Core\Repository\Values\Content\ContentAwareInterface`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-ContentAwareInterface.html) | Content item the field belongs to.|
 | `fieldDefIdentifier` | `string` | Identifier of the field. |
 | `forcedLanguage` | `string` | {optional) Language to use (for example, "fre-FR"). |
 
@@ -120,7 +120,7 @@ If the content item doesn't have a translation in the prioritized or passed lang
 
 | Argument | Type | Description |
 |---------------|------|-------------|
-| `content` | `Ibexa\Contracts\Core\Repository\Values\Content\Content` or `Ibexa\Contracts\Core\Repository\Values\Content\ContentInfo` | Content item the field belongs to. |
+| `content` or `contentaware` | [`Ibexa\Contracts\Core\Repository\Values\Content\Content`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Content.html)</br>or</br>[`Ibexa\Contracts\Core\Repository\Values\Content\ContentInfo`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-ContentInfo.html)</br>or</br>[`Ibexa\Contracts\Core\Repository\Values\Content\ContentAwareInterface`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-ContentAwareInterface.html) | Content item the field belongs to. |
 | `fieldDefIdentifier` | `string` | Identifier of the field. |
 | `forcedLanguage` | `string` | (optional) Language to use (for example, `fre-FR`). |
 
@@ -140,7 +140,7 @@ If the content item doesn't have a translation in the prioritized or passed lang
 
 | Argument | Type | Description |
 |---------------|------|-------------|
-| `content` | `Ibexa\Contracts\Core\Repository\Values\Content\Content` or `Ibexa\Contracts\Core\Repository\Values\Content\ContentInfo` | Content item the field belongs to. |
+| `content` or `contentaware` | [`Ibexa\Contracts\Core\Repository\Values\Content\Content`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Content.html)</br>or</br>[`Ibexa\Contracts\Core\Repository\Values\Content\ContentInfo`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-ContentInfo.html)</br>or</br>[`Ibexa\Contracts\Core\Repository\Values\Content\ContentAwareInterface`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-ContentAwareInterface.html) | Content item the field belongs to. |
 | `fieldDefIdentifier` | `string` | Identifier of the field. |
 | `forcedLanguage` | `string` | (optional) Language to use (for example, `fre-FR`). |
 
@@ -156,7 +156,7 @@ If the content item doesn't have a translation in the prioritized or passed lang
 
 | Argument | Type | Description |
 |---------------|------|-------------|
-| `content` | `Ibexa\Contracts\Core\Repository\Values\Content\Content` or `Ibexa\Contracts\Core\Repository\Values\Content\ContentInfo` | Content item the field belongs to. |
+| `content` or `contentaware` | [`Ibexa\Contracts\Core\Repository\Values\Content\Content`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Content.html)</br>or</br>[`Ibexa\Contracts\Core\Repository\Values\Content\ContentInfo`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-ContentInfo.html)</br>or</br>[`Ibexa\Contracts\Core\Repository\Values\Content\ContentAwareInterface`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-ContentAwareInterface.html) | Content item the field belongs to. |
 | `fieldDefIdentifier` | `string` | Identifier of the field. |
 | `forcedLanguage` | `string` | (optional) Language to use (for example, `fre-FR`). |
 
@@ -193,7 +193,7 @@ For example, use `ibexa_field_is_empty()` to check whether a field is empty or f
 
 | Argument | Type | Description |
 |---------------|------|-------------|
-| `content` | `Ibexa\Contracts\Core\Repository\Values\Content\Content` | Content item the field may belong to. |
+| `content` or `contentaware` | [`Ibexa\Contracts\Core\Repository\Values\Content\Content`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Content.html)</br>or</br>[`Ibexa\Contracts\Core\Repository\Values\Content\ContentAwareInterface`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-ContentAwareInterface.html) | Content item the field may belong to. |
 | `fieldDefIdentifier` | `string` | Identifier of the field. |
 
 ``` html+twig
