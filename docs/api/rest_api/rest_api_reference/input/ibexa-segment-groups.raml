@@ -118,20 +118,20 @@ post:
         body:
             application/vnd.ibexa.api.SegmentGroupUpdate+xml:
                 type: SegmentGroupUpdate
-                example: !include examples/segment_groups/id/PATCH/SegmentGroupUpdate.xml.example
+                example: !include examples/segment_groups/identifier/PATCH/SegmentGroupUpdate.xml.example
             application/vnd.ibexa.api.SegmentGroupUpdate+json:
                 type: SegmentGroupUpdateWrapper
-                example: !include examples/segment_groups/id/PATCH/SegmentGroupUpdate.json.example
+                example: !include examples/segment_groups/identifier/PATCH/SegmentGroupUpdate.json.example
         responses:
             200:
                 description: OK - returns updated segment group's data.
                 body:
                     application/vnd.ibexa.api.SegmentGroup+xml:
                         type: SegmentGroup
-                        example: !include examples/segment_groups/id/PATCH/SegmentGroup.xml.example
+                        example: !include examples/segment_groups/identifier/PATCH/SegmentGroup.xml.example
                     application/vnd.ibexa.api.SegmentGroup+json:
                         type: SegmentGroupWrapper
-                        example: !include examples/segment_groups/id/PATCH/SegmentGroup.json.example
+                        example: !include examples/segment_groups/identifier/PATCH/SegmentGroup.json.example
     delete:
         displayName: Delete a segment group
         description: Deletes the segment group.

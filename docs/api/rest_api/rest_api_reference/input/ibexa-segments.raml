@@ -74,8 +74,10 @@ post:
                 body:
                     application/vnd.ibexa.api.Segment+xml:
                         type: Segment
+                        example: !include examples/segments/identifier/GET/Segment.xml.example
                     application/vnd.ibexa.api.Segment+json:
                         type: SegmentWrapper
+                        example: !include examples/segments/identifier/GET/Segment.json.example
             401:
                 description: Error - the user is not authorized to load this segment.
             404:
@@ -97,20 +99,20 @@ post:
         body:
             application/vnd.ibexa.api.SegmentUpdate+xml:
                 type: SegmentUpdate
-                example: !include examples/segments/id/PATCH/SegmentUpdate.xml.example
+                example: !include examples/segments/identifier/PATCH/SegmentUpdate.xml.example
             application/vnd.ibexa.api.SegmentUpdate+json:
                 type: SegmentUpdateWrapper
-                example: !include examples/segments/id/PATCH/SegmentUpdate.json.example
+                example: !include examples/segments/identifier/PATCH/SegmentUpdate.json.example
         responses:
             200:
                 description: OK - returns updated segment's data.
                 body:
                     application/vnd.ibexa.api.Segment+xml:
                         type: Segment
-                        example: !include examples/segments/id/PATCH/Segment.xml.example
+                        example: !include examples/segments/identifier/PATCH/Segment.xml.example
                     application/vnd.ibexa.api.Segment+json:
                         type: SegmentWrapper
-                        example: !include examples/segments/id/PATCH/Segment.json.example
+                        example: !include examples/segments/identifier/PATCH/Segment.json.example
             400:
                 description: Error - input data validation failed.
                 body:
