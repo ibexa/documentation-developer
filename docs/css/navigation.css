@@ -118,6 +118,10 @@
 /* End Page TOC */
 
 /* Main nav */
+[dir=ltr] .md-nav--primary .md-nav__list {
+    padding-left: 0;
+}
+
 .md-nav--primary .md-nav__link {
     font-size: 16px;
 }
