@@ -67,11 +67,11 @@ You can manage it through the back office, [data migrations](importing_data.md#d
 
 When creating an attribute based on the date and time attribute type you can select the accuracy level to match your needs:
 
-| Accuracy | Example |
-|---|---|
-| Year | 2025 |
-| Trimester | Q3 2025 |
-| Month | July 2025 |
-| Day  | 2025-07-06 |
-| Minute | 2025-07-06 11:15 |
-| Second | 2025-07-06 11:15:37 |
+| Accuracy | Example | Limitations |
+|---|---|---|
+| Year | 2025 | Number between 1000 and 9999 |
+| Trimester | Q3 2025 | |
+| Month | July 2025 | |
+| Day  | 2025-07-06 | |
+| Minute | 2025-07-06 11:15 | |
+| Second | 2025-07-06 11:15:37| |
