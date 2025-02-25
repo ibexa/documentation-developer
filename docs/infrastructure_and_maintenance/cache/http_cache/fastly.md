@@ -5,7 +5,7 @@ description: Configure Fastly for use with Ibexa DXP.
 # Configure and customize Fastly
 
 You can configure Fastly by using API calls or through the Fastly Web Interface.
-Fastly provides a [Fastly CLI](https://developer.fastly.com/reference/cli/) for configuring Fastly through its API.
+Fastly provides a [Fastly CLI](https://www.fastly.com/documentation/reference/cli/) for configuring Fastly through its API.
 
 [[= product_name_cloud =]] is delivered with Fastly preconfigured.
 It means that you don't have to do any changes to the Fastly configuration to make your site work.
@@ -334,11 +334,11 @@ diff -ruN generated_vcl_11_json_done generated_vcl_12_json_done
 
 ## Enable basic-auth on Fastly
 
-To enable basic-auth, use [Fastly documentation](https://developer.fastly.com/solutions/examples/http-basic-auth/) as an example.
+To enable basic-auth, use [Fastly documentation](https://www.fastly.com/documentation/solutions/examples/http-basic-auth/) as an example.
 
 Follow the steps below.
 
-Usernames and passwords can be stored inside the VCL file, but in this case credentials are stored in a [dictionary](https://docs.fastly.com/en/guides/working-with-dictionaries-using-the-web-interface#working-with-dictionaries-using-vcl-snippets).
+Usernames and passwords can be stored inside the VCL file, but in this case credentials are stored in a [dictionary](https://docs.fastly.com/en/guides/working-with-dictionaries#working-with-dictionaries-using-vcl-snippets).
 
 !!! note
     To make this example work, you must run [[= product_name =]] in version 3.3.16 or later, or 4.5.
@@ -462,6 +462,11 @@ if (fastly.ff.visits_this_service == 0 && req.restarts == 0) {
     error 401 "Restricted";
   }
 }
+
+# Unsetting req.http.Authorization to avoid reaching "return(pass)" in vcl_recv for the first ESI request
+if (req.is_esi_subreq) {
+    unset req.http.Authorization;
+}
 ```
 
 To enable basic-auth for one domain only, alter `snippet_basic_auth_recv.vcl`:
@@ -478,4 +483,3 @@ fastly vcl snippet create --name="BasicAuth recv" --version=active --autoclone -
 fastly vcl snippet create --name="BasicAuth error" --version=latest --priority 100 --type error --content=snippet_basic_auth_error.vcl
 fastly service-version activate --version=latest
 ```
-

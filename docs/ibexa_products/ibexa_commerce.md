@@ -90,7 +90,7 @@ You can set up your search engine using [[= product_name_com =]] to help clients
 
 Commerce allows you to send transactional emails - messages that [[= product_name_base =]] can send through the [Actito](https://www.actito.com/en-BE/) gateway to your end-users.
 These emails include notifications about changes in the status of various actions taken in relation to your commerce presence.
-With this feature you can also [create email campaigns](transactional_emails.md##create-email-campaigns) to engage users and increase sales.
+With this feature you can also [create email campaigns](transactional_emails.md#create-email-campaigns) to engage users and increase sales.
 
 ### Use cases
 

@@ -4,4 +4,4 @@ ibexa:
             admin_ui_forms:
                 content_edit:
                     form_templates:
-                        - { template: '@ibexadesign/admin/ui/fieldtype/edit/form_fields_binary_ai.html.twig', priority: -10 } }
+                        - { template: '@ibexadesign/admin/ui/fieldtype/edit/form_fields_binary_ai.html.twig', priority: -10 }
