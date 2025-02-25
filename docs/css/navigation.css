@@ -125,7 +125,8 @@
     padding-left: 0;
 }
 
-.md-nav--primary .md-nav__link {
+[dir=ltr] .md-nav--primary .md-nav__item > .md-nav__link {
+    margin-right: 0;
     font-size: 16px;
 }
 
