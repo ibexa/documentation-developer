@@ -463,7 +463,7 @@ if (fastly.ff.visits_this_service == 0 && req.restarts == 0) {
   }
 }
 
-# 1st ESI request still has req.http.Authorization set - making the request uncacheable 
+# Unsetting req.http.Authorization to avoid reaching "return(pass)" in vcl_recv for first ESI
 if (req.is_esi_subreq) {
     unset req.http.Authorization;
 }
