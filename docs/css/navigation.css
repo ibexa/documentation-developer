@@ -64,9 +64,12 @@
     position: relative;
 }
 
-[dir=ltr] .md-nav--secondary > ul.md-nav__list {
+.md-nav--secondary > ul {
     border-left: 1px solid var(--mid-grey);
     margin-left: 0.4rem;
+}
+
+[dir=ltr] .md-nav--secondary ul.md-nav__list {
     padding-left: 0;
 }
 
