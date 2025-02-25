@@ -463,7 +463,7 @@ if (fastly.ff.visits_this_service == 0 && req.restarts == 0) {
   }
 }
 
-# Unsetting req.http.Authorization to avoid reaching "return(pass)" in vcl_recv for first ESI
+# Unsetting req.http.Authorization to avoid reaching "return(pass)" in vcl_recv for the first ESI request
 if (req.is_esi_subreq) {
     unset req.http.Authorization;
 }
