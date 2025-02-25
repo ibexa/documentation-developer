@@ -44,8 +44,15 @@ post:
                     type: ErrorMessage
                 application/vnd.ibexa.api.ErrorMessage+json:
                     type: ErrorMessage
+        404:
+            description: Error - segment group with given identifier does not exist.
+            body:
+                application/vnd.ibexa.api.ErrorMessage+xml:
+                    type: ErrorMessage
+                application/vnd.ibexa.api.ErrorMessage+json:
+                    type: ErrorMessage
         406:
-            description: Error - input data is not acceptable.
+            description: Error - input data is not acceptable, for example segment identifier is not unique.
             body:
                 application/vnd.ibexa.api.ErrorMessage+xml:
                     type: ErrorMessage
@@ -73,7 +80,6 @@ post:
                 description: Error - the user is not authorized to load this segment.
             404:
                 description: Error - the identifier doesn't match any segment.
-/{id}:
     patch:
         displayName: Update segment data
         description: Updates the segment's data.
@@ -97,7 +103,7 @@ post:
                 example: !include examples/segments/id/PATCH/SegmentUpdate.json.example
         responses:
             200:
-                description: OK- returns updated segment's data.
+                description: OK - returns updated segment's data.
                 body:
                     application/vnd.ibexa.api.Segment+xml:
                         type: Segment
@@ -119,8 +125,15 @@ post:
                         type: ErrorMessage
                     application/vnd.ibexa.api.ErrorMessage+json:
                         type: ErrorMessage
+            404:
+                description: Error - segment or segment group with given identifier does not exist.
+                body:
+                    application/vnd.ibexa.api.ErrorMessage+xml:
+                        type: ErrorMessage
+                    application/vnd.ibexa.api.ErrorMessage+json:
+                        type: ErrorMessage
             406:
-                description: Error - input data is not acceptable.
+                description: Error - input data is not acceptable, for example segment identifier is not unique.
                 body:
                     application/vnd.ibexa.api.ErrorMessage+xml:
                         type: ErrorMessage
@@ -131,7 +144,7 @@ post:
         description: Deletes the segment.
         responses:
             204:
-                description: Segment does not exist.
+                description: Segment deleted.
             401:
                 description: Error - the user is not authorized to delete segments.
                 body:

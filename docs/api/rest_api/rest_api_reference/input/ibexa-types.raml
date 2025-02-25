@@ -2152,7 +2152,7 @@ SegmentGroupCreate:
     type: object
     properties:
         identifier:
-            description: 'A unique identifier for the segment group.'
+            description: 'A unique string identifier for the segment group.'
             type: string
             required: true
         name:
@@ -2171,7 +2171,7 @@ SegmentGroupUpdate:
     type: object
     properties:
         identifier:
-            description: 'A unique identifier for the segment group.'
+            description: 'A unique string identifier for the segment group.'
             type: string
             required: true
         name:
@@ -2243,7 +2243,7 @@ Segment:
             description: 'A unique numeric identifier for the segment.'
             type: integer
         identifier:
-            description: 'A unique numeric identifier for the segment.'
+            description: 'A unique string identifier for the segment.'
             type: string
         name:
             description: 'A name of the segment.'
@@ -2252,10 +2252,10 @@ Segment:
             description: 'A reference to the segment group to which this segment belongs.'
             type: object
             properties:
-                media-type:
-                    description: 'Mmedia type of the segment group resource.'
+                _media-type:
+                    description: 'Media type of the segment group resource.'
                     type: string
-                href:
+                _href:
                     description: 'A URL reference to the segment group resource.'
                     type: string
 
@@ -2264,7 +2264,7 @@ SegmentCreate:
     type: object
     properties:
         identifier:
-            description: 'A unique identifier for the segment.'
+            description: 'A unique string identifier for the segment.'
             type: string
             required: true
         name:
@@ -2272,7 +2272,7 @@ SegmentCreate:
             type: string
             required: true
         group:
-            description: 'A segment group to which the segment belongs.'
+            description: 'A string identifier of a segment group to which the segment belongs.'
             type: string
             required: true
 
@@ -2287,7 +2287,7 @@ SegmentUpdate:
     type: object
     properties:
         identifier:
-            description: 'A unique identifier for the segment.'
+            description: 'A unique string identifier for the segment.'
             type: string
             required: true
         name:
@@ -2295,7 +2295,7 @@ SegmentUpdate:
             type: string
             required: true
         group:
-            description: 'A group to which the segment belongs.'
+            description: 'A string identifier of a segment group to which the segment belongs.'
             type: string
             required: true
 
