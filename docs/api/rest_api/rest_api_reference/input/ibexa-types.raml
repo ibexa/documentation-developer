@@ -6082,176 +6082,196 @@ ActivityLog:
 
 GenerateAltTextWrapper:
     type: object
+    description: 'JSON object with only a GenerateAltText property.'
     properties:
         GenerateAltText:
             type: object
+            description: 'Object containing the input data for GenerateAltText action type.'
             properties:
                 Image:
                     type: object
+                    description: 'Object representing the input image.'
                     properties:
                         base64:
                             type: string
-                            description: Base64 encoded image
+                            description: 'Base64 encoded image.'
                 RuntimeContext:
                     type: object
-                    description: Additional data passed to the action
+                    description: 'Additional data passed to the action'
 
 RefineTextWrapper:
     type: object
+    description: 'JSON object with only RefineText property.'
     properties:
         RefineText:
             type: object
+            description: 'Encapsulates the text refinement response.'
             properties:
                 _media-type:
-                    string: type
+                    type: string
+                    description: 'Specifies the media type of the RefineText object.'
                 Text:
                     type: object
+                    description: 'Contains the refined text.'
                     properties:
                         _media_type: 
                             type: string
+                            description: 'Specifies the media type of the text content.'
                         text: 
                             type: string[]
+                            description: 'An array of text strings containing the refined text.'
 
 RefineTextInputWrapper:
     type: object
+    description: 'JSON object with only RefineText property.'
     properties:
         RefineText:
             type: object
+            description: 'Object containing the text refinement input data.'
             properties:
                 Text:
                     type: object
+                    description: 'Contains the text content to be refined.'
                     properties:
                         text:
                             type: string
+                            description: 'The raw text that needs to be refined or processed.'
         RuntimeContext:
             type: object
             description: Additional data passed to the action
 
 AltTextWrapper:
     type: object
+    description: 'JSON object with only AltText property.'
     properties:
         AltText:
             type: object
+            description: 'Encapsulates alternative text data.'
             properties:
                 _media-type:
                     type: string
+                    description: 'Specifies the media type of the AltText object.'
                 Text:
                     type: object
+                    description: 'Contains the generated alternative text.'
                     properties:
                         _media_type: 
                             type: string
+                            description: 'Specifies the media type of the text content.'
                         text: 
                             type: string[]
+                            description: 'An array of generated alternative text strings.'
+
 ActionTypeListWrapper:
     type: object
+    description: 'JSON object with only ActionTypeList property.'
     properties:
         ActionTypeList:
             type: ActionTypeList
+            description: 'Object representing a list of Action Types.'
 
 ActionTypeList:
-    type: object
+    type: BaseObject
+    description: 'Object containing an ActionType property with all the Action Types.'
     properties:
-        _media-type:
-            type: string
-            xml:
-                attribute: true
-                name: media-type
-        _href:
-            type: string
-            xml:
-                attribute: true
-                name: href
         ActionType:
             type: ActionType[]
+            description: 'Array of ActionType objects.'
 
 ActionType:
-    type: object
+    type: BaseObject
     propeties:
-        _media-type:
-            type: string
-            xml:
-                attribute: true
-                name: media-type
         identifier:
             type: string
+            description: 'Unique identifier for the action type.'
         name:
             type: string
+            description: 'Human-readable name of the action type.'
         inputIdentifier:
             type: string
+            description: 'Specifies the expected input type of the action.'
         outputIdentifier:
             type: string
+            description: 'Specifies the expected output type of the action.'
         options:
             type: object
+            description: 'Additional configurable options that define the behavior of the action type.'
 
 ActionConfigurationListInput:
     type: object
+    description: 'Input parameters for filtering and paginating a list of action configurations.'
     properties:
         query:
             type: string
+            description: 'Search query to filter action configurations by name.'
         action_type_identifier:
             type: string
+            description: 'Identifier of the action type to filter configurations.'
         enabled:
             type: boolean
+            description: 'Filters action configurations based on their enabled status.'
         limit:
             type: integer
+            description: 'Maximum number of action configurations to return.'
         page:
             type: integer
+            description: 'Specifies the page number for paginated results.'
 
 ActionConfigurationListInputWrapper:
     type: object
+    description: 'Wrapper object for ActionConfigurationListInput.'
     properties:
         ActionConfigurationListInput:
             type: ActionConfigurationListInput
-
+            description: 'Object describing the criteria used to search for Action Conigurations.'
 
 ActionConfigurationListWrapper:
     type: object
+    description: 'Wrapper object for a list of action configurations.'
     properties:
         ActionConfigurationList:
             type: ActionConfigurationList
+            description: 'List of action configurations.'
 
 ActionConfigurationList:
-    type: object
+    type: BaseObject
+    description: 'A collection of action configurations.'
     properties:
-        _media-type:
-            type: string
-            xml:
-                attribute: true
-                name: media-type
-        _href:
-            type: string
-            xml:
-                attribute: true
-                name: href
         ActionConfiguration:
             type: ActionConfiguration[]
+            description: 'An array of action configurations, each defining a specific action and its settings.'
 
 ActionConfiguration:
-    type: object
+    type: BaseObject
     properties:
-        _media-type:
-            type: string
-            xml:
-                attribute: true
-                name: media-type
         identifier:
             type: string
+            description: 'Unique identifier for the action configuration.'
         name:
             type: string
+            description: 'Human-readable name of the action configuration.'
         description:
             type: string
+            description: 'Description of the action configuration.'
         enabled:
             type: boolean
+            description: 'Indicates whether the action is enabled or disabled.'
         ActionType:
             type: ActionType
+            description: 'Defines the type of action being configured, including its input and output.'
         actionTypeOptions:
             type: object
+            description: 'Additional options specific to the action type, allowing customization of its behavior.'
         actionHandlerIdentifier:
             type: string
+            description: 'Identifier for the handler responsible for executing the action.'
         ActionHandlerOptions:
             type: object
+            description: 'Configuration options for the action handler, such as parameters controlling its execution.'
         createdAt:
             type: datetime
+            description: 'Timestamp indicating when the action configuration was created.'
         updatedAt:
             type: datetime
+            description: 'Timestamp indicating when the action configuration was last updated.'
 
