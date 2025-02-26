@@ -48,10 +48,14 @@ To render images, use the [`ibexa_render_field()`](field_twig_functions.md#ibexa
 
 | Argument | Type | Description |
 | ------ |----- | ----- |
-| `content` or `contentaware` | [`Ibexa\Contracts\Core\Repository\Values\Content\Content`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Content.html)</br>or</br>[`Ibexa\Contracts\Core\Repository\Values\Content\ContentAwareInterface`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-ContentAwareInterface.html) | Content item to display the image for. |
+| `content` | [`Ibexa\Contracts\Core\Repository\Values\Content\Content`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Content.html)</br>or</br>[`Ibexa\Contracts\Core\Repository\Values\Content\ContentAwareInterface`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-ContentAwareInterface.html) | Content item to display the image for. |
 
 ``` html+twig
 {% set firstImage = ibexa_content_field_identifier_first_filled_image(content) %}
+```
+
+``` html+twig
+{% set firstImage = ibexa_content_field_identifier_first_filled_image(product) %}
 ```
 
 #### Examples
