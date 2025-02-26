@@ -14,8 +14,7 @@ The following field types are supported out of the box:
 - [TextLine](textlinefield.md)
 - [TextBlock](textblockfield.md)
 - [RichText](richtextfield.md)
-- [Page](pagefield.md):
-    - The content of `text` and `richtext` [block attributes](page_block_attributes.md#block-attribute-types)
+- [Page](pagefield.md): the content of `text` and `richtext` [block attributes](page_block_attributes.md#block-attribute-types)
 
 See [adding a custom field or block attribute encoder](##add-a-custom-field-encoder) for more information how you can extend this list.
 
@@ -131,10 +130,10 @@ The following example adds support for automatically translating alternative tex
 ```
 In this example, the methods are responsible for:
 
-- `canEncode` - deciding if the field to be encoded is an [Image](imagefield.md) field.
-- `canDecode` - deciding if the field to be decoded is an [Image](imagefield.md) field.
-- `encode` - extracting the alternative text from the field type.
-- `decode` - saving the translated alternative text in the field type's value object.
+- `canEncode` - deciding if the field to be encoded is an [Image](imagefield.md) field
+- `canDecode` - deciding if the field to be decoded is an [Image](imagefield.md) field
+- `encode` - extracting the alternative text from the field type
+- `decode` - saving the translated alternative text in the field type's value object
 
 2\. Register it as a service. If you're not using [Symfony's autoconfiguration]([[= symfony_doc =]]/service_container.html#the-autoconfigure-option), use the `ibexa.automated_translation.field_encoder` service tag.
 
