@@ -105,6 +105,47 @@ Run the following scripts:
     psql <database_name> < vendor/ibexa/installer/upgrade/db/postgresql/ibexa-4.6.3-to-4.6.4.sql
     ```
 
+##### Ibexa Open Source
+
+If you have no access to [[= product_name =]]'s `ibexa/installer` package, apply the following database upgrade script:
+
+=== "MySQL"
+``` sql
+-- IBX-6592: The state/assign policy shouldn't utilize neither Location nor Subtree limitations
+DELETE l
+FROM `ezpolicy_limitation` l
+INNER JOIN `ezpolicy` p ON p.id = l.policy_id
+WHERE p.function_name = 'assign'
+  AND p.module_name = 'state'
+  AND l.identifier IN ('Node', 'Subtree');
+
+DELETE lv
+FROM `ezpolicy_limitation_value` lv
+LEFT JOIN `ezpolicy_limitation` ON `ezpolicy_limitation`.id = lv.limitation_id
+WHERE `ezpolicy_limitation`.id IS NULL;
+```
+
+=== "PostgreSQL"
+``` sql
+-- IBX-6592: The state/assign policy shouldn't utilize neither Location nor Subtree limitations
+DELETE
+FROM "ezpolicy_limitation"
+WHERE "ezpolicy_limitation".id IN
+      (SELECT "ezpolicy_limitation".id
+       FROM "ezpolicy_limitation"
+                INNER JOIN "ezpolicy" ON "ezpolicy".id = "ezpolicy_limitation".policy_id
+       WHERE "ezpolicy".function_name = 'assign'
+         AND "ezpolicy".module_name = 'state'
+         AND "ezpolicy_limitation".identifier IN ('Node', 'Subtree'));
+DELETE
+FROM "ezpolicy_limitation_value"
+WHERE "ezpolicy_limitation_value".id IN
+      (SELECT "ezpolicy_limitation_value".id
+       FROM "ezpolicy_limitation_value"
+                LEFT JOIN "ezpolicy_limitation" ON "ezpolicy_limitation".id = "ezpolicy_limitation_value".limitation_id
+       WHERE "ezpolicy_limitation".id IS NULL);
+```
+
 ## v4.6.8
 
 To avoid deprecations when updating from an older PHP version to PHP 8.2 or 8.3, run the following commands:

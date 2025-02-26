@@ -50,6 +50,27 @@ Run the following scripts:
     psql <database_name> < vendor/ibexa/installer/upgrade/db/postgresql/ibexa-4.5.1-to-4.5.2.sql
     ```
 
+##### Ibexa Open Source
+
+If you have no access to [[= product_name =]]'s `ibexa/installer` package, apply the following database upgrade script:
+
+=== "MySQL"
+``` sql
+ALTER TABLE `ezcontentobject_link` ADD INDEX `ezco_link_cca_id` (`contentclassattribute_id`);
+ALTER TABLE `ezcontentclass_attribute` ADD INDEX `ezcontentclass_attr_dts` (`data_type_string`);
+ALTER TABLE `ezurl_object_link` ADD INDEX `ezurl_ol_coa_id_cav` (`contentobject_attribute_id`,`contentobject_attribute_version`);
+ALTER TABLE `ezcontentobject_attribute` ADD INDEX `ezcontentobject_attribute_co_id_ver` (`contentobject_id`,`version`);
+```
+
+=== "PostgreSQL"
+``` sql
+CREATE INDEX "ezco_link_cca_id" ON "ezcontentobject_link" ("contentclassattribute_id");
+CREATE INDEX "ezcontentclass_attr_dts" ON "ezcontentclass_attribute" ("data_type_string");
+CREATE INDEX "ezcontentobject_attribute_co_id_ver" ON "ezcontentobject_attribute" ("contentobject_id", "version");
+CREATE INDEX "ezurl_ol_coa_id_cav" ON "ezurl_object_link" ("contentobject_attribute_id", "contentobject_attribute_version");
+```
+
+
 ### v4.5.3
 
 #### Database update [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
@@ -193,6 +214,36 @@ Apply the following database update scripts:
     psql <database_name> < vendor/ibexa/installer/upgrade/db/postgresql/ibexa-4.5.latest-to-4.6.0.sql
     ```
 
+### Ibexa Open Source
+
+If you have no access to [[= product_name =]]'s `ibexa/installer` package, apply the following database upgrade script:
+
+=== "MySQL"
+``` sql
+ALTER TABLE `ibexa_token`
+    ADD COLUMN `revoked` BOOLEAN NOT NULL DEFAULT false;
+
+-- Rewrites max file size values from data_int1 to data_float1 column and stores size unit
+UPDATE ezcontentclass_attribute
+SET data_float1 = CAST(data_int1 AS DOUBLE), data_int1 = NULL, data_text1 = 'MB'
+WHERE data_type_string = 'ezimage';
+
+UPDATE ezcontentclass_attribute SET is_searchable = 1 WHERE data_type_string = 'ezimage' AND contentclass_id = (SELECT id FROM ezcontentclass WHERE identifier = 'image');
+```
+
+=== "PostgreSQL"
+``` sql
+ALTER TABLE "ibexa_token"
+    ADD "revoked" BOOLEAN DEFAULT false NOT NULL;
+
+-- Rewrites max file size values from data_int1 to data_float1 column and stores size unit
+UPDATE ezcontentclass_attribute
+SET data_float1 = CAST(data_int1 AS DOUBLE PRECISION), data_int1 = NULL, data_text1 = 'MB'
+WHERE data_type_string = 'ezimage';
+
+UPDATE ezcontentclass_attribute SET is_searchable = 1 WHERE data_type_string = 'ezimage' AND contentclass_id = (SELECT id FROM ezcontentclass WHERE identifier = 'image');
+```
+
 ### Update [[= product_name_com =]] database [[% include 'snippets/commerce_badge.md' %]]
 
 For [[= product_name_com =]] installations, you also need to run the following command line:
@@ -276,24 +327,6 @@ For [[= product_name_com =]] there's an additional migration:
 php bin/console ibexa:migrations:import vendor/ibexa/order-management/src/bundle/Resources/install/migrations/dashboard_structure.yaml --name=2023_11_20_14_33_order_dashboard_structure.yaml
 php bin/console ibexa:migrations:migrate --file=2023_11_20_14_33_order_dashboard_structure.yaml
 ```
-
-### Ibexa Open Source
-
-If you don't have access to [[= product_name =]]'s `ibexa/installer` package and cannot apply the scripts from `vendor/ibexa/installer` directory, apply the following database update instead:
-
-=== "MySQL"
-
-    ``` sql
-    ALTER TABLE `ibexa_token`
-    ADD COLUMN `revoked` BOOLEAN NOT NULL DEFAULT false;
-    ```
-
-=== "PostgreSQL"
-
-    ``` sql
-    ALTER TABLE "ibexa_token"
-    ADD "revoked" BOOLEAN DEFAULT false NOT NULL;
-    ```
 
 ## Revisit configuration
 
