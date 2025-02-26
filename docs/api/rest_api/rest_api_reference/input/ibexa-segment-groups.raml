@@ -25,6 +25,58 @@ get:
                     type: ErrorMessage
                 application/vnd.ibexa.api.ErrorMessage+json:
                     type: ErrorMessage
+post:
+    displayName: Create a segment group
+    description: Creates a segment group.
+    headers:
+        Content-Type:
+            description: A SegmentGroupCreate schema encoded in XML or JSON format.
+            example: |
+                application/vnd.ibexa.api.SegmentGroupCreate+xml
+                application/vnd.ibexa.api.SegmentGroupCreate+json
+        Accept:
+            description: A segment group is returned in XML or JSON format.
+            example: |
+                application/vnd.ibexa.api.SegmentGroup+xml
+                application/vnd.ibexa.api.SegmentGroup+json
+    body:
+        application/vnd.ibexa.api.SegmentGroupCreate+xml:
+            type: SegmentGroupCreate
+            example: !include examples/segment_groups/POST/SegmentGroupCreate.xml.example
+        application/vnd.ibexa.api.SegmentGroupCreate+json:
+            type: SegmentGroupCreateWrapper
+            example: !include examples/segment_groups/POST/SegmentGroupCreate.json.example
+    responses:
+        200:
+            description: OK - list the segment groups.
+            body:
+                application/vnd.ibexa.api.SegmentGroup+xml:
+                    type: SegmentGroup
+                    example: !include examples/segment_groups/POST/SegmentGroup.xml.example
+                application/vnd.ibexa.api.SegmentGroup+json:
+                    type: SegmentGroupWrapper
+                    example: !include examples/segment_groups/POST/SegmentGroup.json.example
+        400:
+            description: Error - input data validation failed.
+            body:
+                application/vnd.ibexa.api.ErrorMessage+xml:
+                    type: ErrorMessage
+                application/vnd.ibexa.api.ErrorMessage+json:
+                    type: ErrorMessage
+        401:
+            description: Error - the user is not authorized to list segment groups.
+            body:
+                application/vnd.ibexa.api.ErrorMessage+xml:
+                    type: ErrorMessage
+                application/vnd.ibexa.api.ErrorMessage+json:
+                    type: ErrorMessage
+        406:
+            description: Error - input data is not acceptable, for example, segment group identifier is not unique.
+            body:
+                application/vnd.ibexa.api.ErrorMessage+xml:
+                    type: ErrorMessage
+                application/vnd.ibexa.api.ErrorMessage+json:
+                    type: ErrorMessage
 /{identifier}:
     get:
         displayName: Load segment group
@@ -33,8 +85,8 @@ get:
             Accept:
                 description: If set, the segment group is returned in XML or JSON format.
                 example: |
-                    vnd.ibexa.api.SegmentGroup+xml
-                    vnd.ibexa.api.SegmentGroup+json
+                    application/vnd.ibexa.api.SegmentGroup+xml
+                    application/vnd.ibexa.api.SegmentGroup+json
         responses:
             200:
                 description: OK - return the segment group.
@@ -49,6 +101,57 @@ get:
                 description: Error - the user is not authorized to load this segment group.
             404:
                 description: Error - the identifier doesn't match any segment group.
+    patch:
+        displayName: Update segment group data
+        description: Updates the segment group's data.
+        headers:
+            Content-Type:
+                description: The SegmentGroupUpdate schema encoded in XML or JSON format.
+                example: |
+                    application/vnd.ibexa.api.SegmentGroupUpdate+xml
+                    application/vnd.ibexa.api.SegmentGroupUpdate+json
+            Accept:
+                description: A segment group is returned in XML or JSON format.
+                example: |
+                    application/vnd.ibexa.api.SegmentGroup+xml
+                    application/vnd.ibexa.api.SegmentGroup+json
+        body:
+            application/vnd.ibexa.api.SegmentGroupUpdate+xml:
+                type: SegmentGroupUpdate
+                example: !include examples/segment_groups/identifier/PATCH/SegmentGroupUpdate.xml.example
+            application/vnd.ibexa.api.SegmentGroupUpdate+json:
+                type: SegmentGroupUpdateWrapper
+                example: !include examples/segment_groups/identifier/PATCH/SegmentGroupUpdate.json.example
+        responses:
+            200:
+                description: OK - returns updated segment group's data.
+                body:
+                    application/vnd.ibexa.api.SegmentGroup+xml:
+                        type: SegmentGroup
+                        example: !include examples/segment_groups/identifier/PATCH/SegmentGroup.xml.example
+                    application/vnd.ibexa.api.SegmentGroup+json:
+                        type: SegmentGroupWrapper
+                        example: !include examples/segment_groups/identifier/PATCH/SegmentGroup.json.example
+    delete:
+        displayName: Delete a segment group
+        description: Deletes the segment group.
+        responses:
+            204:
+                description: Segment group deleted.
+            401:
+                description: Error - the user is not authorized to delete segment groups.
+                body:
+                    application/vnd.ibexa.api.ErrorMessage+xml:
+                        type: ErrorMessage
+                    application/vnd.ibexa.api.ErrorMessage+json:
+                        type: ErrorMessage
+            404:
+                description: Error - the identifier doesn't match any segment group.
+                body:
+                    application/vnd.ibexa.api.ErrorMessage+xml:
+                        type: ErrorMessage
+                    application/vnd.ibexa.api.ErrorMessage+json:
+                        type: ErrorMessage
     /segments:
         get:
             displayName: List segment group's segments
@@ -57,8 +160,8 @@ get:
                 Accept:
                     description: If set, the segment group is returned in XML or JSON format.
                     example: |
-                        vnd.ibexa.api.SegmentList+xml
-                        vnd.ibexa.api.SegmentList+json
+                        application/vnd.ibexa.api.SegmentList+xml
+                        application/vnd.ibexa.api.SegmentList+json
             responses:
                 200:
                     description: OK - list the group's segments.
