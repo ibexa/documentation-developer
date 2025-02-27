@@ -1,0 +1,13 @@
+{% extends '@ezdesign/ui/field_type/image_asset_view.html.twig' %}
+
+{% block asset_preview %}
+    {{ parent() }}
+    <div>
+        {{ 'ezimageasset.commons.author_attribute'|trans({
+            '%page_url%': asset.assetMetadata.page_url,
+            '%author%': asset.assetMetadata.author,
+            '%license_url%': asset.assetMetadata.license_url,
+            '%license%': asset.assetMetadata.license,
+        })|desc('<a href="%page_url%">Image</a> by %author% under <a href="%license_url%">%license%</a>')|raw }}
+    </div>
+{% endblock %}

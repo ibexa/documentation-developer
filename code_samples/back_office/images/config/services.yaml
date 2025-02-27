@@ -6,3 +6,20 @@ services:
             - '@ibexa.api.service.content'
             - '@ibexa.field_type.ezbinaryfile.io_service'
             - '@Ibexa\Core\Helper\TranslationHelper'
+
+    WikimediaCommonsConnector\Handler\WikimediaCommonsHandler:
+        arguments:
+            $httpClient: '@http_client'
+        tags:
+            - { name: 'ibexa.platform.connector.dam.handler', source: 'commons'  }
+
+    WikimediaCommonsConnector\Transformation\TransformationFactory:
+        arguments:
+            $httpClient: '@http_client'
+        tags:
+            - { name: 'ibexa.platform.connector.dam.transformation_factory', source: 'commons' }
+
+    commons_asset_variation_generator:
+        class: Ibexa\Connector\Dam\Variation\URLBasedVariationGenerator
+        tags:
+            - { name: ibexa.platform.connector.dam.variation_generator, source: commons }
