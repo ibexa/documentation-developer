@@ -32,5 +32,5 @@ that tracks visitor events in relation to Content Types.
 ## Configuring recommendation logic
 
 Once you enable the recommendation client, you can go back to the Back Office, 
-refresh the Personalization dashboard and proceed with [configuring the logic]([[= user_doc =]]/personalization/perso_configuration) used to calculate 
+refresh the Personalization dashboard and proceed with [configuring the logic]([[= user_doc =]]/personalization/perso_configuration/) used to calculate 
 the recommendation results.
