@@ -130,6 +130,7 @@ ibexa:
                     content:
                         use_remote_id: true
 ```
+
 !!! note "Support for alphanumeric content identifier"
 
      Contact support@ibexa.co with your organization's requirements to have the alphanumeric content identifier enabled.
