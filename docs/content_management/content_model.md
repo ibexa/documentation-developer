@@ -12,7 +12,7 @@ Each content item is an instance of a content type.
 
 !!! tip
 
-    An introduction to the content model for non-developer users is available in User Documentation](https://doc.ibexa.co/projects/userguide/en/latest/content_management/content_model/).
+    An introduction to the content model for non-developer users is available in User Documentation]([[= user_doc =]]/content_management/content_model/).
 
 ## Content items
 
