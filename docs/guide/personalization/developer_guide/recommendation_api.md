@@ -28,7 +28,7 @@ For the request to return recommendations, you must provide the following parame
 
 |Parameter|Description|Value|
 |---|---|---|
-|`customerid`|Your customer ID, as defined when [enabling Personalization](../enabling_personalization.md#configuring-customer-credentials) (for example, "00000").|alphanumeric|
+|`customerid`|Your customer ID, as defined when [enabling Personalization](enabling_personalization.md#setting-up-customer-credentials) (for example, "00000").|alphanumeric|
 |`userid`|An ID of the tracked user in the website (for example, an internal customer code, a session code or a cookie for anonymous users.|alphanumeric|
 |`scenarioid`|An ID of the scenario used for providing recommendations, as defined in the Back Office.|alphanumeric|
 |`extension`|A format of the response (either JSON or JSONP).|`json` or `jsonp`|
@@ -53,7 +53,7 @@ You can use the following parameters to customize a request:
 |Parameter|Example|Description|Value|
 |---|---|---|---|
 |`numrecs`|20|Defines a number of recommendations to be delivered. The lower this value, the shorter the response time. The default value is 10. |1 to 50|
-|`contextitems`|10,13,14 or "CLICKED"|A comma-separated list of items that the user is viewing on the web page. The list is required by [context-based recommendations]([[= user_doc =]]/personalization/recommendation_models). All items must be of the same type. The type is defined in the scenario configuration. If history code is used ("CLICKED","CONSUMED", "OWNS", "RATED" or "BASKET"), context items are pulled from the user profile (for example, the most recent clicks or purchases). This parameter is optional. |1 to 2147483647 (or alphanumeric if enabled)|
+|`contextitems`|10,13,14 or "CLICKED"|A comma-separated list of items that the user is viewing on the web page. The list is required by [context-based recommendations]([[= user_doc =]]/personalization/recommendation_models/). All items must be of the same type. The type is defined in the scenario configuration. If history code is used ("CLICKED","CONSUMED", "OWNS", "RATED" or "BASKET"), context items are pulled from the user profile (for example, the most recent clicks or purchases). This parameter is optional. |1 to 2147483647 (or alphanumeric if enabled)|
 |`outputtypeid`|1|Required for scenarios that are defined with multiple output item types, otherwise optional. By default it is the first/lowest output type enabled in the scenario config.|numeric|
 |`jsonpCallback`|"myCallback"|Function or method name (used for JSONP request only). It can be a function ("callme"), or a method ("obj.callme"). The default value is "jsonpCallback".|legal JavaScript function call|
 |`attribute`|"title" or "description"|If you apply this parameter, the engine tries to fetch the value of the attribute. For example, `&attribute=title` means fetching the title for the item that is delivered in the response, if available. The fetch works if content import has been successful. You can pass multiple attributes: `&attribute=title&attribute=description` or `&attribute=title,description`. Use this to pull "pure" client-based recommendations without requesting local customer data.|string|
@@ -99,7 +99,7 @@ Parameter|Example|Description|Value|
 |---|---|---|---|
 |`segments`|`&segments=7,8,10,11`|ID from segment group management|string|
 
-For more information, see [Segments]([[= user_doc =]]/personalization/segment_management).
+For more information, see [Segments]([[= user_doc_4_6 =]]/personalization/segment_management/).
 
 ## Responses
 
@@ -111,7 +111,7 @@ For more information, see inline comments below.
 !!! note "Previewing recommendations"
 
     You can preview the actual responses that come from the recommendation engine and how they are rendered in the user interface.
-    For more information, see [Scenarios]([[= user_doc =]]/personalization/scenarios/#previewing-scenario-results).
+    For more information, see [Scenarios]([[= user_doc =]]/personalization/previewing_scenario/).
     
 For more information about integrating recommendations in the web page, see [Best practices](../best_practices/recommendation_integration.md).
 
