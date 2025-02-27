@@ -4,7 +4,7 @@ description: Personalization server can use external information about the items
 
 # Content API
 
-Apart from the [events]([[= user_doc =]]/personalization/event_types) 
+Apart from the [events]([[= user_doc =]]/personalization/event_types/) 
 collected by the recommendation client, the recommendation engine can use external information 
 about the products.
 This information must be uploaded to the recommendation engine by the administrator of the website.
@@ -58,7 +58,7 @@ The following call attributes are available:
 
 | Parameter name | Description | Value |
 |---|---|---|
-| `customerid` | Your customer ID, as defined when [enabling Personalization](../enabling_personalization.md#configuring-customer-credentials) (for example, "00000"). | alphanumeric |
+| `customerid` | Your customer ID, as defined when [enabling Personalization](enabling_personalization.md#setting-up-customer-credentials) (for example, "00000"). | alphanumeric |
 | `itemid` | A unique ID of the Content item/product. Used to identify the item in the database. | integer |
 | `itemtypeid` | An ID of the type of Content item/product. In most cases, the value is 1 but you might have items/products of more than one type. | integer |
 | `lang` | A [language code](../../internationalization.md) of the Content item/product (for example, "ger-DE"). This parameter is optional. | string |
