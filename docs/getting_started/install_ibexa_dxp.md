@@ -210,7 +210,7 @@ or
 
 Choose a [secret]([[= symfony_doc =]]/reference/configuration/framework.html#secret) and provide it in the `APP_SECRET` parameter in `.env`.
 It should be a random string, made up of at least 32 characters, numbers, and symbols.
-It's used by Symfony when generating [CSRF tokens]([[= symfony_doc =]]/security/csrf.html), [encrypting cookies]([[= symfony_doc =]]/cookbook/security/remember_me.html), and for creating signed URIs when using [ESI (Edge Side Includes)]([[= symfony_doc =]]/http_cache/esi.html).
+It's used by Symfony when generating [CSRF tokens]([[= symfony_doc =]]/security/csrf.html), [encrypting cookies]([[= symfony_doc =]]/security/remember_me.html), and for creating signed URIs when using [ESI (Edge Side Includes)]([[= symfony_doc =]]/http_cache/esi.html).
 
 !!! caution
 
