@@ -1,13 +1,19 @@
-import BaseAIComponent from '../../vendor/ibexa/connector-ai/src/bundle/Resources/public/js/core/base.ai.component';
+import BaseAIAssistantComponent from '@ibexa-connector-ai/src/bundle/Resources/public/js/core/base.ai.assistant.component';
+import Textarea from '@ibexa-connector-ai-modules/ai-assistant/fields/textarea/textarea';
 
-export default class TranscribeAudio extends BaseAIComponent {
-    constructor(mainElement, config) {
-        super(mainElement, config);
+export default class TranscribeAudio extends BaseAIAssistantComponent {
+    constructor(mainElement, extraConfig) {
+        super(mainElement, extraConfig);
 
         this.requestHeaders = {
             Accept: 'application/vnd.ibexa.api.ai.AudioText+json',
             'Content-Type': 'application/vnd.ibexa.api.ai.TranscribeAudio+json',
         };
+
+        this.getRequestBody = this.getRequestBody.bind(this);
+        this.getResponseValue = this.getResponseValue.bind(this);
+
+        this.replacedField = Textarea;
     }
 
     getAudioInBase64() {
@@ -18,16 +24,15 @@ export default class TranscribeAudio extends BaseAIComponent {
 
         if (request.status === 200) {
             return this.convertToBase64(request.responseText);
-        } else {
-            this.processError('Error occured when decoding the file.');
         }
     }
 
     getRequestBody() {
+        const inputValue = this.getInputValue();
         const body = {
             TranscribeAudio: {
                 Audio: {
-                    base64: this.getAudioInBase64(),
+                    base64: inputValue,
                 },
                 RuntimeContext: {},
             },
@@ -40,20 +45,6 @@ export default class TranscribeAudio extends BaseAIComponent {
         return JSON.stringify(body);
     }
 
-    afterFetchData(response) {
-        super.afterFetchData();
-
-        if (response) {
-            this.outputElement.value = response.AudioText.Text.text[0];
-        }
-    }
-
-    toggle(forceEnabled) {
-        super.toggle(forceEnabled);
-
-        this.outputElement.disabled = !forceEnabled || !this.outputElement.disabled;
-    }
-
     convertToBase64(data) {
         let binary = '';
 
@@ -62,5 +53,16 @@ export default class TranscribeAudio extends BaseAIComponent {
         }
 
         return btoa(binary);
+    }
+
+    getResponseValue(response) {
+        return response.AudioText.Text.text[0];
+    }
+
+    handleAIDialogConfirm(responseText) {
+        this.outputElement.value = responseText;
+        this.outputElement.dispatchEvent(new Event('input'));
+
+        super.handleAIDialogClose(responseText);
     }
 }
