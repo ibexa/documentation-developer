@@ -3,11 +3,6 @@
 {% block asset_preview %}
     {{ parent() }}
     <div>
-        {{ 'ezimageasset.commons.author_attribute'|trans({
-            '%page_url%': asset.assetMetadata.page_url,
-            '%author%': asset.assetMetadata.author,
-            '%license_url%': asset.assetMetadata.license_url,
-            '%license%': asset.assetMetadata.license,
-        })|desc('<a href="%page_url%">Image</a> by %author% under <a href="%license_url%">%license%</a>')|raw }}
-    </div>
+        <a href="{{ asset.assetMetadata.page_url }}">Image</a> by {{ asset.assetMetadata.author }} under 
+        <a href="{{ asset.assetMetadata.license_url }}">{{ asset.assetMetadata.license }}</a>.    </div>
 {% endblock %}

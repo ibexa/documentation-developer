@@ -165,7 +165,7 @@ For this to happen, register the variations generator as a service:
 
 The template deffines how images that come from Wikimedia Commons appear in the back office.
 
-In `src/WikimediaCommonsConnector/Resources/views/themes/standard/`, add the `commons_asset_view.html.twig` file that resembles the following example:
+In `templates/bundles/WikimediaCommonsConnector/`, add the `commons_asset_view.html.twig` file that resembles the following example:
 
 ```html+twig
 [[= include_file('code_samples/back_office/images/src/WikimediaCommonsConnector/Resources/views/themes/standard/commons_asset_view.html.twig') =]]
@@ -177,7 +177,7 @@ Then, register the template in configuration files:
 [[= include_file('code_samples/back_office/images/config/views.yaml') =]]
 ```
 
-## Add Wikimedia Commons connection to DAM configuration
+### Add Wikimedia Commons connection to DAM configuration
 
 You can now configure a connection with Wikimedia Commons under the `ibexa.system.<scope>.content.dam` key:
 
