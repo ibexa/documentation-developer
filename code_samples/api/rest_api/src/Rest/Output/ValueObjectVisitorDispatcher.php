@@ -6,7 +6,7 @@ use Ibexa\Contracts\Rest\Output\Generator;
 use Ibexa\Contracts\Rest\Output\ValueObjectVisitorDispatcher as BaseValueObjectVisitorDispatcher;
 use Ibexa\Contracts\Rest\Output\Visitor;
 
-class ValueObjectVisitorDispatcher extends BaseValueObjectVisitorDispatcher
+class ValueObjectVisitorDispatcher // extends BaseValueObjectVisitorDispatcher TODO: Rewrite this example in  https://issues.ibexa.co/browse/IBX-8190 
 {
     private array $visitors;
 
