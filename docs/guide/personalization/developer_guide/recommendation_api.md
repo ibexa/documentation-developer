@@ -40,7 +40,7 @@ For the request to return recommendations, you must provide the following parame
 ### Customizing the recommendation request
 
 You can customize the recommendation request by using additional query string parameters. 
-For example, you can send the following request to the recommendation engine: 
+For example, you can send the following request to the recommendation engine:
 
 `GET https://reco.yoochoose.net/api/v2/00000/john.doe/landing_page.json ?contextitems=123&categorypath=%2FCamera%2FCompact&attribute=title&attribute=deeplink,description&numrecs=8`
 
@@ -258,7 +258,7 @@ Error messages can change, do not use them for automated processing.
 
 In most cases the recommendation engine's response can be cached. 
 Depending on the recommendation model and context, it can drastically reduce the number of recommendation requests. 
-The recommendation service supports the following HTTP headers to enable cache control on the client side (all date values must follow the "HTTP-date" format as defined by [RFC 2616](https://tools.ietf.org/html/rfc2616)):
+The recommendation service supports the following HTTP headers to enable cache control on the client side (all date values must follow the "HTTP-date" format as defined by [RFC 2616](https://datatracker.ietf.org/doc/html/rfc2616)):
 
 |Scope|Header|Description|Example|
 |---|---|---|---|
