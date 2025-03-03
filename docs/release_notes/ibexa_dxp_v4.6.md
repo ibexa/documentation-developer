@@ -22,7 +22,7 @@ The features brought by an LTS Update become a standard part of the next LTS rel
 
 ### Date and time attribute type
 
-The Date and time attributes allow you to efficiently represent date and time values as part of the product specification in the [Product Information Management](pim_guide.md) system.
+The Date and time attributes allow you to represent date and time values as part of the product specification in the [Product Information Management](pim_guide.md) system.
 
 For more information, see [Date and time attributes](date_and_time.md).
 
