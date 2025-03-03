@@ -92,7 +92,7 @@ Apache has a [hard](https://github.com/apache/httpd/blob/5f32ea94af5f1e7ea68d6fc
 1\. For inline rendering just displaying the content name, image attribute, and/or link, it would be enough to:
 
 - Look into how many inline (non ESI) render calls for content rendering you are doing, and see if you can organize it differently.
-- Consider inlining the views not used elsewhere in the given template and [tagging the response in Twig](#response-tagging-in-twig) with "relation" tags.
+- Consider inlining the views not used elsewhere in the given template and [tagging the response in Twig](#response-tagging-in-templates) with "relation" tags.
     - (Optional) You can set reduced cache TTL for the given view, to reduce the risk of stale cache on subtree operations affecting the inlined content.
 
 2\. You can opt in to set a max length parameter (in bytes) and corresponding ttl (in seconds) 
@@ -197,7 +197,7 @@ but parent response needs these tags to get refreshed if they are deleted:
 $responseTagger->addTags([ContentTagInterface::RELATION_PREFIX . '33', ContentTagInterface::RELATION_PREFIX . '34']);
 ```
 
-See [Tagging from code](https://foshttpcachebundle.readthedocs.io/en/2.8.0/features/tagging.html#tagging-and-invalidating-from-php-code) in FOSHttpCacheBundle doc.
+See [Tagging from code](https://foshttpcachebundle.readthedocs.io/en/stable/features/tagging.html#tagging-and-invalidating-from-php-code) in FOSHttpCacheBundle doc.
 
 4\. Use deprecated `X-Location-Id` header.
 
@@ -250,7 +250,7 @@ As a last resort you can also use the following function from FOS which lets you
 {{ fos_httpcache_tag(['r33', 'r44']) }}
 ```
 
-See [Tagging from Twig Templates](https://foshttpcachebundle.readthedocs.io/en/latest/features/tagging.html#tagging-from-twig-templates) in FOSHttpCacheBundle documentation.
+See [Tagging from Twig Templates](https://foshttpcachebundle.readthedocs.io/en/stable/features/tagging.html#tagging-from-twig-templates) in FOSHttpCacheBundle documentation.
 
 ## Tag purging
 
@@ -400,7 +400,7 @@ To find a valid route, click an element in the **URLs** drop-down for the specif
 A route may look like this:
 `https://www.staging.foobar.com.us-2.platformsh.site/`
 
-In this case the region is `us-2` and you can find the public IP list on [Platform.sh documentation page](https://docs.platform.sh/development/public-ips.html)
+In this case the region is `us-2` and you can find the public IP list on [Platform.sh documentation page](https://docs.platform.sh/development/regions.html#public-ip-addresses)
 Typically, you can add a `gw` to the hostname and use nslookup to find it.
 
 ```bash
