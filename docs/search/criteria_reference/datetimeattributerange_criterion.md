@@ -4,7 +4,7 @@ description: DateTimeAttributeRange Criterion
 
 # DateTimeAttributeRange criterion
 
-The [`DateTimeAttributeRange Search Criterion`](TODO: PHP REF)` searches for products by value of a specified attribute, which must be based on the [date and time attribute](date_and_time.md) type.
+The [`DateTimeAttributeRange Search Criterion`](TODO: PHP REF) searches for products by value of a specified attribute, which must be based on the [date and time attribute](date_and_time.md) type.
 
 ## Arguments
 
