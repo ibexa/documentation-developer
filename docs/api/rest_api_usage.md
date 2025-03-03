@@ -5,7 +5,7 @@ description: The REST API covers objects in the Ibexa DXP Repository with regula
 # REST API usage
 
 The REST API in [[= product_name =]] allows you to interact with an [[= product_name =]] installation using the HTTP protocol,
-following a [REST](http://en.wikipedia.org/wiki/Representational_state_transfer) interaction model.
+following a [REST](https://en.wikipedia.org/wiki/Representational_state_transfer) interaction model.
 
 Each resource (URI) interacts with a part of the system (content, users, search, and so on).
 Every interaction with the Repository than you can do from Back Office or using the [Public PHP API](public_php_api.md) can also be done using the REST API.
@@ -58,7 +58,7 @@ curl -H "Accept: application/json" https://api.example.com/api/ezp/v2/
 
 ### Country list
 
-Alongside regular Repository interactions, there is a REST service providing a list of countries with their names, [ISO-3166](http://en.wikipedia.org/wiki/ISO_3166) codes and International Dialing Codes (IDC). It could be useful when presenting a country options list from any application.
+Alongside regular Repository interactions, there is a REST service providing a list of countries with their names, [ISO-3166](https://en.wikipedia.org/wiki/ISO_3166) codes and International Dialing Codes (IDC). It could be useful when presenting a country options list from any application.
 
 This country list's URI is `/services/countries`.
 
