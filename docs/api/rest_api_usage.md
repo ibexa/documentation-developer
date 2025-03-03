@@ -68,7 +68,7 @@ The ISO-3166 country codes can be represented as:
 - three-letter code (alpha-3) — related to the country name
 - three-digit numeric code (numeric-3) — useful if you need to avoid using Latin script
 
-For details, see the [ISO-3166 glossary](http://www.iso.org/iso/home/standards/country_codes/country_codes_glossary.htm).
+For details, see the [ISO-3166 glossary](https://www.iso.org/glossary-for-iso-3166.html).
 
 ## REST communication summary
 
