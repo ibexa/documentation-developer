@@ -19,12 +19,12 @@ A product type can be, for example, a sofa, or a keyboard.
 Product types, like content types, define the global properties of products and fields a product consists of.
 A product type also defines the attributes that all products of this type can have.
 
-You can choose between two available types: `Physical` and `Virtual`:
+You can choose between two available types: `physical` and `virtual`:
 
-- `Physical` - tangible products with assigned stock.
+- `physical` - tangible products with assigned stock.
 They can use measurement attributes. They require shipment in the online purchase process.
 Examples: heaters, laptops, phones.
-- `Virtual` - non-tangible items. They can be sold individually, or as part of a product bundle.
+- `virtual` - non-tangible items. They can be sold individually, or as part of a product bundle.
 They don't require shipment in the online process. Examples: memberships, services, warranties.
 
 ## Product attributes
@@ -34,13 +34,13 @@ Typical product attribute examples are: length, weight, color, format, and more.
 
 The following attribute types are available:
 
-- Checkbox
-- Color
-- Float
-- Integer
-- Measurement
-- Selection
-- [Date and time](date_and_time.md)
+- checkbox
+- color
+- [date and time](date_and_time.md)
+- float
+- integer
+- measurement
+- selection
 
 Product attributes are collected in groups.
 An example of an attribute group can be dimensions (length, width, height).
