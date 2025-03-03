@@ -12,7 +12,7 @@ The built-in Product Content Type contains the following Fields:
 |Long description | `ses_long_description` | `ezrichtext` | Long product description  |
 |Specifications | `ses_specifications` | `sesspecificationstype` | A set of product specification values. They are indexed in the search engine and can be used for faceted search |
 |EAN | `ses_ean` | `ezstring` | European Article Number |
-|Variants | `ses_variants` | `uivarvarianttype` | [Product variants](#product-variants) |
+|Variants | `ses_variants` | `uivarvarianttype` | [Product variants](product_variants.md) |
 |Manufacturer SKU | `ses_manufacturer_sku` | `ezstring` | SKU of the product  as assigned by the manufacturer |
 |Unit price | `ses_unit_price` | `ezstring` | Product price |
 |Product image | `ses_image_main` | ezimage | Main product image |
