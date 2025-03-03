@@ -4,7 +4,7 @@ description: Date and time attribute type allows you to store product informatio
 
 # Date and time attributes
 
-The date and time [attribute type](products.md#attributes) allows you to efficiently represent date and time values as part of the product specification in the [Product Information Management](pim_guide.md) system.
+The date and time [attribute type](products.md#attributes) allows you to represent date and time values as part of the product specification in the [Product Information Management](pim_guide.md) system.
 
 It's released as an [LTS update](release_process_and_roadmap.md) that you can install on top of your current project to expand the capabilities of your [[= product_name =]].
 
