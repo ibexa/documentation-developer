@@ -10,7 +10,7 @@ To do this, you can use the [`SearchService`](#searchservice) or [Repository fil
 
 ## SearchService
 
-[`SearchService`](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/API/Repository/SearchService.php)
+[`SearchService`](https://github.com/ezsystems/ezplatform-kernel/blob/v1.3.0/eZ/Publish/API/Repository/SearchService.php)
 enables you to perform search queries using the PHP API.
 
 The service should be [injected into the constructor of your command or controller](../api/public_php_api.md#service-container).
@@ -22,7 +22,7 @@ The service should be [injected into the constructor of your command or controll
 
 ### Performing a search
 
-To search through content you need to create a [`LocationQuery`](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/API/Repository/Values/Content/LocationQuery.php)
+To search through content you need to create a [`LocationQuery`](https://github.com/ezsystems/ezplatform-kernel/blob/v1.3.0/eZ/Publish/API/Repository/Values/Content/LocationQuery.php)
 and provide your search criteria as a series of Criterion objects.
 
 For example, to search for all content of a selected Content Type, use one Criterion,
@@ -36,12 +36,12 @@ The following command takes the Content Type identifier as an argument and lists
 [[= include_file('code_samples/api/public_php_api/src/Command/FindContentCommand.php', 31, 47) =]]
 ```
 
-[`SearchService::findContentInfo`](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/API/Repository/SearchService.php#L144) (line 16)
-retrieves [`ContentInfo`](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/API/Repository/Values/Content/ContentInfo.php) objects of the found Content items.
-You can also use [`SearchService::findContent`](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/API/Repository/SearchService.php#L124) to get full Content objects, together with their Field information.
+[`SearchService::findContentInfo`](https://github.com/ezsystems/ezplatform-kernel/blob/v1.3.0/eZ/Publish/API/Repository/SearchService.php#L144) (line 16)
+retrieves [`ContentInfo`](https://github.com/ezsystems/ezplatform-kernel/blob/v1.3.0/eZ/Publish/API/Repository/Values/Content/ContentInfo.php) objects of the found Content items.
+You can also use [`SearchService::findContent`](https://github.com/ezsystems/ezplatform-kernel/blob/v1.3.0/eZ/Publish/API/Repository/SearchService.php#L124) to get full Content objects, together with their Field information.
 
 To query for a single result, for example by providing a Content ID,
-use the [`SearchService::findSingle`](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/API/Repository/SearchService.php#L161) method:
+use the [`SearchService::findSingle`](https://github.com/ezsystems/ezplatform-kernel/blob/v1.3.0/eZ/Publish/API/Repository/SearchService.php#L161) method:
 
 ``` php
 $criterion = new Criterion\ContentId($contentId);
@@ -107,12 +107,12 @@ The following BatchIterator adapters are available, for both `query` and `filter
 You can use the `ContentService::find(Filter)` method to find Content items or
 `LocationService::find(Filter)` to find Locations using a defined Filter.
 
-`ContentService::find` returns an iterable [`ContentList`](https://github.com/ezsystems/ezplatform-kernel/blob/v1.1.0/eZ/Publish/API/Repository/Values/Content/ContentList)
-while `LocationService::find` returns an iterable [`LocationList`](https://github.com/ezsystems/ezplatform-kernel/blob/v1.1.0/eZ/Publish/API/Repository/Values/Content/LocationList).
+`ContentService::find` returns an iterable [`ContentList`](https://github.com/ezsystems/ezplatform-kernel/blob/v1.3.0/eZ/Publish/API/Repository/Values/Content/ContentList.php)
+while `LocationService::find` returns an iterable [`LocationList`](https://github.com/ezsystems/ezplatform-kernel/blob/v1.3.0/eZ/Publish/API/Repository/Values/Content/LocationList.php).
 
 Filtering differs from search. It does not use the `SearchService` and is not based on indexed data.
 
-[`Filter`](https://github.com/ezsystems/ezplatform-kernel/blob/v1.1.0/eZ/Publish/API/Repository/Values/Filter/Filter.php) enables you to configure a query using chained methods to select criteria, sorting, limit and offset.
+[`Filter`](https://github.com/ezsystems/ezplatform-kernel/blob/v1.3.0/eZ/Publish/API/Repository/Values/Filter/Filter.php) enables you to configure a query using chained methods to select criteria, sorting, limit and offset.
 
 For example, the following command lists all Content items under the specified parent Location
 and sorts them by name in descending order:
@@ -168,8 +168,8 @@ $filter
 
     Not all Search Criteria and Sort Clauses are available for use in Repository filtering.
 
-    Only Criteria implementing [`FilteringCriterion`](https://github.com/ezsystems/ezplatform-kernel/blob/v1.1.0/eZ/Publish/SPI/Repository/Values/Filter/FilteringCriterion.php)
-    and Sort Clauses implementing [`FilteringSortClause`](https://github.com/ezsystems/ezplatform-kernel/blob/v1.1.0/eZ/Publish/SPI/Repository/Values/Filter/FilteringSortClause.php)
+    Only Criteria implementing [`FilteringCriterion`](https://github.com/ezsystems/ezplatform-kernel/blob/v1.3.0/eZ/Publish/SPI/Repository/Values/Filter/FilteringCriterion.php)
+    and Sort Clauses implementing [`FilteringSortClause`](https://github.com/ezsystems/ezplatform-kernel/blob/v1.3.0/eZ/Publish/SPI/Repository/Values/Filter/FilteringSortClause.php)
     are supported.
 
     See [Search Criteria](../guide/search/criteria_reference/search_criteria_reference.md)
@@ -203,7 +203,7 @@ When using Repository filtering, provide the results of `ContentService::find()`
 
 ### Paginating search results
 
-To paginate search or filtering results, it is recommended to use the [Pagerfanta library](https://github.com/whiteoctober/Pagerfanta) and [[[= product_name =]]'s adapters for it.](https://github.com/ezsystems/ezplatform-kernel/tree/v1.0.0/eZ/Publish/Core/Pagination/Pagerfanta)
+To paginate search or filtering results, it is recommended to use the [Pagerfanta library](https://github.com/whiteoctober/Pagerfanta) and [[[= product_name =]]'s adapters for it.](https://github.com/ezsystems/ezplatform-kernel/tree/v1.3.0/eZ/Publish/Core/Pagination/Pagerfanta)
 
 ``` php
 // ...
@@ -242,12 +242,12 @@ You can access the following additional search result data from PagerFanta:
 
 |Adapter class name|Description|
 |------|------|
-|[`ContentSearchAdapter`](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/Core/Pagination/Pagerfanta/ContentSearchAdapter.php)|Makes a search against passed Query and returns [Content](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/API/Repository/Values/Content/Content.php) objects.|
-|[`ContentSearchHitAdapter`](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/Core/Pagination/Pagerfanta/ContentSearchHitAdapter.php)|Makes a search against passed Query and returns [SearchHit](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/API/Repository/Values/Content/Search/SearchHit.php) objects instead.|
-|[`LocationSearchAdapter`](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/Core/Pagination/Pagerfanta/LocationSearchAdapter.php)|Makes a Location search against passed Query and returns [Location](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/API/Repository/Values/Content/Location.php) objects.|
-|[`LocationSearchHitAdapter`](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/Core/Pagination/Pagerfanta/LocationSearchHitAdapter.php)|Makes a Location search against passed Query and  returns [SearchHit](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/API/Repository/Values/Content/Search/SearchHit.php) objects instead.|
-|[`ContentFilteringAdapter`](https://github.com/ezsystems/ezplatform-kernel/blob/master/eZ/Publish/Core/Pagination/Pagerfanta/ContentFilteringAdapter.php)|Applies a Content filter and returns a `ContentList` object.|
-|[`LocationFilteringAdapter`](https://github.com/ezsystems/ezplatform-kernel/blob/master/eZ/Publish/Core/Pagination/Pagerfanta/LocationFilteringAdapter.php)|Applies a Location filter and returns a `LocationList` object.|
+|[`ContentSearchAdapter`](https://github.com/ezsystems/ezplatform-kernel/blob/v1.3.0/eZ/Publish/Core/Pagination/Pagerfanta/ContentSearchAdapter.php)|Makes a search against passed Query and returns [Content](https://github.com/ezsystems/ezplatform-kernel/blob/v1.3.0/eZ/Publish/API/Repository/Values/Content/Content.php) objects.|
+|[`ContentSearchHitAdapter`](https://github.com/ezsystems/ezplatform-kernel/blob/v1.3.0/eZ/Publish/Core/Pagination/Pagerfanta/ContentSearchHitAdapter.php)|Makes a search against passed Query and returns [SearchHit](https://github.com/ezsystems/ezplatform-kernel/blob/v1.3.0/eZ/Publish/API/Repository/Values/Content/Search/SearchHit.php) objects instead.|
+|[`LocationSearchAdapter`](https://github.com/ezsystems/ezplatform-kernel/blob/v1.3.0/eZ/Publish/Core/Pagination/Pagerfanta/LocationSearchAdapter.php)|Makes a Location search against passed Query and returns [Location](https://github.com/ezsystems/ezplatform-kernel/blob/v1.3.0/eZ/Publish/API/Repository/Values/Content/Location.php) objects.|
+|[`LocationSearchHitAdapter`](https://github.com/ezsystems/ezplatform-kernel/blob/v1.3.0/eZ/Publish/Core/Pagination/Pagerfanta/LocationSearchHitAdapter.php)|Makes a Location search against passed Query and  returns [SearchHit](https://github.com/ezsystems/ezplatform-kernel/blob/v1.3.0/eZ/Publish/API/Repository/Values/Content/Search/SearchHit.php) objects instead.|
+|[`ContentFilteringAdapter`](https://github.com/ezsystems/ezplatform-kernel/blob/v1.3.0/eZ/Publish/Core/Pagination/Pagerfanta/ContentFilteringAdapter.php)|Applies a Content filter and returns a `ContentList` object.|
+|[`LocationFilteringAdapter`](https://github.com/ezsystems/ezplatform-kernel/blob/v1.3.0/eZ/Publish/Core/Pagination/Pagerfanta/LocationFilteringAdapter.php)|Applies a Location filter and returns a `LocationList` object.|
 
 ## Complex search
 
