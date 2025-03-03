@@ -83,7 +83,7 @@ See [shared sessions in the clustering guide](clustering.md#shared-sessions).
 
 To set up [[= product_name =]] using [Memcached](https://pecl.php.net/package/memcached) you need to:
 
-- [Configure the session save handler settings in `php.ini`](http://php.net/manual/en/memcached.sessions.php)
+- [Configure the session save handler settings in `php.ini`](https://www.php.net/manual/en/memcached.sessions.php)
 - Set `%ezplatform.session.handler_id%` to `~` (null) in `config/packages/ezplatform.yaml`
 
 Alternatively if you need to configure Memcached servers dynamically:
@@ -99,9 +99,9 @@ Alternatively if you need to configure Memcached servers dynamically:
 ```
 
 - Set `%ezplatform.session.handler_id%` (or `SESSION_HANDLER_ID` env var) to `app.session.handler.native_memcached`
-- Set `%ezplatform.session.save_path%` (or `SESSION_SAVE_PATH` env var) to [`save_path` config for Memcached](http://php.net/manual/en/memcached.sessions.php)
+- Set `%ezplatform.session.save_path%` (or `SESSION_SAVE_PATH` env var) to [`save_path` config for Memcached](https://www.php.net/manual/en/memcached.sessions.php)
 
-Optionally tweak [`php-memcached` session settings](http://php.net/manual/en/memcached.configuration.php) for things like
+Optionally tweak [`php-memcached` session settings](https://www.php.net/manual/en/memcached.configuration.php) for things like
 session locking.
 
 ##### Handling sessions with Redis
@@ -124,18 +124,18 @@ If you are on `php-redis` v4.2.0 and higher, you can optionally tweak [`php-redi
 
 Ideally keep [persistence cache](persistence_cache.md) and session data separated:
 
-- Sessions can't risk getting [randomly evicted](https://redis.io/topics/lru-cache#eviction-policies) when you run out of memory for cache.
+- Sessions can't risk getting [randomly evicted](https://redis.io/docs/latest/develop/reference/eviction/#eviction-policies) when you run out of memory for cache.
 - You can't completely disable eviction either, as Redis will then start to refuse new entries once full, including new sessions.
   - Either way, you should monitor your Redis instances and make sure you have enough memory set aside for active sessions/cache items.
 
-If you want to make sure sessions survive Redis or server restarts, consider using a [persistent Redis](https://redis.io/topics/persistence) instance for sessions.
+If you want to make sure sessions survive Redis or server restarts, consider using a [persistent Redis](https://redis.io/docs/latest/operate/oss_and_stack/management/persistence/) instance for sessions.
 
 ##### Alternative storing sessions in database using PDO
 
 For setups where database is preferred for storing sessions, you may use Symfony's PdoSessionHandler,
 although it is not currently recommended from performance perspective.
 
-Below is a configuration example for [[= product_name =]]. Refer to the [Symfony Cookbook]([[= symfony_doc =]]/doctrine/pdo_session_storage.html) for full documentation.
+Below is a configuration example for [[= product_name =]]. Refer to the [Symfony Cookbook]([[= symfony_doc =]]/session.html#session-database-pdo) for full documentation.
 
 ``` yaml
 framework:

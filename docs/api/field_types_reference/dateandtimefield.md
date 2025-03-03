@@ -10,7 +10,7 @@ This Field Type represents a full date and time information.
 
 ### Input expectations
 
-If input value is of type `string` or `integer`, it will be passed directly to the [PHP's built-in `\DateTime` class constructor](http://www.php.net/manual/en/datetime.construct.php), therefore the same input format expectations apply.
+If input value is of type `string` or `integer`, it will be passed directly to the [PHP's built-in `\DateTime` class constructor](https://www.php.net/manual/en/datetime.construct.php), therefore the same input format expectations apply.
 
 It is also possible to directly pass an instance of `\DateTime`.
 
@@ -36,7 +36,7 @@ The constructor for this value object will initialize a new Value object with t
 
 ##### String representation
 
-String representation of the date value will generate the date string in the format `D Y-d-m H:i:s` as accepted by [PHP's built-in `date()` function](http://www.php.net/manual/en/function.date.php).
+String representation of the date value will generate the date string in the format `D Y-d-m H:i:s` as accepted by [PHP's built-in `date()` function](https://www.php.net/manual/en/function.date.php).
 
 |Character|Description|Example|
 |---------|----------|--------|
@@ -54,10 +54,10 @@ Example: `Wed 2016-22-05 12:19:18`
 
 Hash value of this Field Type is an array with two keys:
 
-|Key|Type|Description|Example|
-|------|------|------|------|
-|`timestamp`|`integer`|Time information in [Unix format timestamp](http://en.wikipedia.org/wiki/Unix_time).|`1400856992`|
-|`rfc850`|`string`|Time information as a string in [RFC 850 date format](http://tools.ietf.org/html/rfc850). As input, this will have precedence over the timestamp value.|`"Friday, 23-May-14 14:56:14 GMT+0000"`|
+|Key|Type| Description                                                                                                                                             |Example|
+|------|------|---------------------------------------------------------------------------------------------------------------------------------------------------------|------|
+|`timestamp`|`integer`| Time information in [Unix format timestamp](https://en.wikipedia.org/wiki/Unix_time).                                                                   |`1400856992`|
+|`rfc850`|`string`| Time information as a string in [RFC 850 date format](https://datatracker.ietf.org/doc/html/rfc850). As input, this will have precedence over the timestamp value. |`"Friday, 23-May-14 14:56:14 GMT+0000"`|
 
 ``` php
 $hash = [

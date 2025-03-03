@@ -118,7 +118,7 @@ services:
 
 #### `parent`
 
-As described in the [Symfony service container documentation]([[= symfony_doc =]]/components/dependency_injection/parentservices.html), the `parent` config key indicates that you want your service to inherit from the parent's dependencies, including constructor arguments and method calls. This helps avoiding repetition in your Field Type configuration and keeps consistency between all Field Types.
+As described in the [Symfony service container documentation]([[= symfony_doc =]]/service_container/parent_services.html), the `parent` config key indicates that you want your service to inherit from the parent's dependencies, including constructor arguments and method calls. This helps avoiding repetition in your Field Type configuration and keeps consistency between all Field Types.
 If you need to inject other services into your Type class, skip using the `parent` config key.
 
 #### `tags`
@@ -128,7 +128,7 @@ Like most API components, Field Types use the [Symfony service tag mechanism]([[
 A service can be assigned one or several tags, with specific parameters.
 When the [service container](../api/public_php_api.md#service-container) is compiled into a PHP file, 
 tags are read by `CompilerPass` implementations that add extra handling for tagged services.
-Each service tagged as `ezplatform.field_type` is added to a [registry](http://martinfowler.com/eaaCatalog/registry.html) using the `alias` key as its unique `fieldTypeIdentifier` e.g. `ezstring`.
+Each service tagged as `ezplatform.field_type` is added to a [registry](https://martinfowler.com/eaaCatalog/registry.html) using the `alias` key as its unique `fieldTypeIdentifier` e.g. `ezstring`.
 Each Field Type must also inherit from the abstract `ezplatform.field_type` service.
 This ensures that the initialization steps shared by all Field Types are executed.
 

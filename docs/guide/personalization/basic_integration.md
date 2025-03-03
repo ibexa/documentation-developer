@@ -153,7 +153,7 @@ curl_close($curl);
 
 Triggers are push messages with recommendations.
 With this feature, your organization can invite individual visitors to return to the website or remind them of items abandoned in a cart by delivering a message, for example, by sending emails.
-Before you can start [using triggers]([[= user_doc =]]/personalization/triggers), you must contact [[= product_name_base =]] and define specific conditions, for example:
+Before you can start [using triggers]([[= user_doc_4_6 =]]/personalization/triggers/), you must contact [[= product_name_base =]] and define specific conditions, for example:
 
 - the time that must pass before messages start being sent
 - Content Types and attributes that are included in a response
@@ -216,6 +216,6 @@ You can configure integration at a more advanced level to track more events,
 use additional parameters, apply custom scenario configurations, apply filters, 
 and enable additional features.
 
-For more information about available functionalities, see the [User Documentation]([[= user_doc =]]/personalization/personalization).
+For more information about available functionalities, see the [User Documentation]([[= user_doc =]]/personalization/personalization/).
 
 For more information about integrating the Personalization service, see [Developer guide](developer_guide/tracking_api.md) and [Best practices](best_practices/tracking_integration.md).

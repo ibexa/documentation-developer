@@ -9,7 +9,7 @@ edition: commerce
 
 Due to a restriction in JmsPaymentBundle, an order exceeding 99999.99999 causes an error message.
 
-It is possible to extend this limit using an [official workaround for the JMSPaymentCoreBundle.](http://jmspaymentcorebundle.readthedocs.io/en/latest/guides/overriding_entity_mapping.html)
+It is possible to extend this limit using an [official workaround for the JMSPaymentCoreBundle.](https://jmspaymentcorebundle.readthedocs.io/en/latest/guides/overriding_entity_mapping.html)
 
 You need to override the service class `Siso\Bundle\PaymentBundle\Api\StandardPaymentService` and modify the `EXCEEDED_ENTITY_AMOUNT_VALUE` constant.
 This constant is read by late static binding and will use the overridden value.
@@ -49,7 +49,7 @@ Error: Maximum execution time of 60 seconds exceeded
 Occured in file /var/www/project/vendor/jms/payment-core-bundle/JMS/Payment/CoreBundle/Cryptography/MCryptEncryptionService.php line 91
 ```
 
-The problem is with the usage of the PHP function [`mcrypt_create_iv`](http://php.net/manual/en/function.mcrypt-create-iv.php) in that line.
+The problem is with the usage of the PHP function [`mcrypt_create_iv`](https://www.php.net/manual/en/function.mcrypt-create-iv.php) in that line.
 The default implementation uses the `/dev/urandom` device to determine a random number.
 This can take a long time if the hosting system doesn't generate random events fast enough.
 Then the call runs into a timeout.

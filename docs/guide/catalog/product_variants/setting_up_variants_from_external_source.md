@@ -7,11 +7,11 @@ You can set the variants up by [using a variant Field Type](product_variants.md)
 You can also set up variants if you are not using the default Content Types
 and don't want to set up variants manually in the Back Office.
 
-To do this, you need to map your variant structure to the [`VariantProductNode`](product_variants.md#variantproductsnode) structure.
+To do this, you need to map your variant structure to the [`VariantProductNode`](product_variant_api.md#variantproductnode) structure.
 
 !!! tip
     
-    The main job of every catalog factory is to fill the [`VariantProductNode`](product_variants.md#variantproductsnode) attribute `variantCharacteristics`.
+    The main job of every catalog factory is to fill the [`VariantProductNode`](product_variant_api.md#variantproductnode) attribute `variantCharacteristics`.
     The basic concept is to take information from the provided `dataMap`
     (e.g. coming from the data provider, either from the content model or from an external source)
     and create an attribute `variantCharacteristic` for the `VariantProductNode`.

@@ -464,7 +464,7 @@ if the content Fields were previously exported by the export script.
 You can retrieve data returned from the recommendation engine and modify it before it is shown to the user.
 
 To modify recommendation data, subscribe to `RecommendationResponseEvent`.
-See [`Event/Subscriber/RecommendationEventSubscriber.php`](https://github.com/ezsystems/ezrecommendation-client/blob/master/src/lib/Event/Subscriber/RecommendationEventSubscriber.php) for example:
+See [`Event/Subscriber/RecommendationEventSubscriber.php`](https://github.com/ezsystems/ezrecommendation-client/blob/2.1/src/lib/Event/Subscriber/RecommendationEventSubscriber.php) for example:
 
 ``` php
 public static function getSubscribedEvents(): array
@@ -482,7 +482,7 @@ The `-10` refers to priority, which must be negative so this action is performed
 Displaying image variations is not readily supported yet.
 
 You can work around this limitation by creating a template
-(based on [recommendations.html.twig](https://github.com/ezsystems/ezrecommendation-client/blob/master/src/bundle/Resources/views/recommendations.html.twig)).
+(based on [recommendations.html.twig](https://github.com/ezsystems/ezrecommendation-client/blob/2.1/src/bundle/Resources/views/recommendations.html.twig)).
 
 To access a specific image variation through API, add the `image` parameter to the request URL with the name of the variation as its value.
 For example, to retrieve the `rss` variation of the image, use:
@@ -493,7 +493,7 @@ For example, to retrieve the `rss` variation of the image, use:
 
 ### Logging
 
-Most operations are logged via the `ez_recommendation` [Monolog channel]([[= symfony_doc =]]/cookbook/logging/channels_handlers.html).
+Most operations are logged via the `ez_recommendation` [Monolog channel]([[= symfony_doc =]]/logging/channels_handlers.html).
 To log everything about Recommendation to `dev.recommendation.log`, add the following to the `ezplatform.yaml`:
 
 ``` yaml

@@ -54,7 +54,7 @@ see the [How to Remove a Bundle]([[= symfony_doc =]]/bundles/remove.html) instru
 |[ezsystems/ezplatform-rest](https://github.com/ezsystems/ezplatform-rest)|REST API|
 |[ezsystems/ezplatform-richtext](https://github.com/ezsystems/ezplatform-richtext)|Field Type for supporting rich-formatted text stored in a structured XML format|
 |[ezsystems/ezplatform-search](https://github.com/ezsystems/ezplatform-search)|Common search functionalities|
-|[ezsystems/ezplatform-solr-search-engine](https://github.com/ezsystems/ezplatform-solr-search-engine)|[Solr-powered](http://lucene.apache.org/solr/) search handler|
+|[ezsystems/ezplatform-solr-search-engine](https://github.com/ezsystems/ezplatform-solr-search-engine)|[Solr-powered](https://solr.apache.org/) search handler|
 |[ezsystems/ezplatform-standard-design](https://github.com/ezsystems/ezplatform-standard-design)|Standard design and theme to be handled by `ezplatform-design-engine`|
 |[ezsystems/ezplatform-user](https://github.com/ezsystems/ezplatform-user)|User management|
 

@@ -13,7 +13,7 @@ The most popular user events are:
 - Login - When a user logs in on a website
 - Clickrecommended - When a user clicks a recommendation
 
-For a complete list of events, see [Event types]([[= user_doc =]]/personalization/event_types) in the user documentation. 
+For a complete list of events, see [Event types]([[= user_doc =]]/personalization/event_types/) in the user documentation. 
 Depending on the event type, some additional parameters, such as item price 
 or user rating, must be provided.
 
@@ -171,7 +171,7 @@ For a list of embedded parameters that each of the events may use, see the follo
 
 |Name|Description|Values|
 |---|---|---|
-|`customerid`|A customer ID (for example "00000"). Can be used to identify a website in installations that [hosts multiple SiteAccesses]([[= user_doc =]]/personalization/use_cases/#multiple-website-hosting).|alphanumeric|
+|`customerid`|A customer ID (for example "00000"). Can be used to identify a website in installations that [hosts multiple SiteAccesses]([[= user_doc_4_6 =]]/personalization/use_cases/#multiple-website-hosting).|alphanumeric|
 |userid|A user's ID on the website of the customer. It could be an internal customer code, a session code or a cookie for anonymous users.|URL-encoded alphanumeric|
 |`itemtypeid`|Item type ID.|1 to 2147483647|
 |`itemid`|A unique ID of the item the user has clicked.</br>String-based identifiers are also supported as item IDs to track content on a website, but it is discouraged due to fraud and security issues. If you are unable to provide numeric identifiers for the tracking process, contact Ibexa for further information and implementation notes.|1 to 2147483647|

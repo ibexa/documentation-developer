@@ -13,7 +13,7 @@ and creating [custom buttons](online_editor_button.md) and
 [custom plugins](online_editor_plugin.md).
 
 Online Editor is based on the Alloy Editor.
-Refer to [Alloy Editor documentation](https://alloyeditor.com/docs/develop/) to learn 
+Refer to [Alloy Editor documentation](https://alloyeditor.com/docs/develop/about.html) to learn 
 how you can extend the Online Editor with even more elements.
 For more information about extending the Back Office UI, see [Extend Back Office](extending_back_office.md).
 

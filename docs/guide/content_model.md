@@ -12,7 +12,7 @@ Each Content item is an instance of a Content Type.
 
 !!! tip
 
-    An introduction to the content model for non-developer users is available in [[[= product_name =]] user documentation](https://doc.ezplatform.com/projects/userguide/en/latest/content_model/).
+    An introduction to the content model for non-developer users is available in [[[= product_name =]] user documentation]([[= user_doc =]]/content_model/).
 
 ## Content items
 
