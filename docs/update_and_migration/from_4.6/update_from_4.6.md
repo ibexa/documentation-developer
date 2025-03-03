@@ -249,3 +249,27 @@ Then, verify that Symfony Flex installed the versions you were using before.
 ## v4.6.16
 
 No additional steps needed.
+
+## v4.6.17
+
+### Security
+
+This release contains security fixes.
+For more information, see [the published security advisory](https://developers.ibexa.co/security-advisories/ibexa-sa-2025-001-vulnerabilities-).
+For each of the following fixes, evaluate the vulnerability to determine whether you might have been affected.
+If so, take appropriate action.
+
+#### CartOwner permission limitation exposes carts
+
+This fixes a critical vulnerability in the REST API regarding shopping carts.
+There are no additional update steps to execute.
+
+#### Unauthorized user can cancel scheduled publish events
+
+It fixes vulnerability in publish scheduling, ensures that `edit/create` policies are correctly checked.
+There are no additional update steps to execute.
+
+#### Dependency upgrades
+
+This release upgrades the requirements for Twig to v3.19 and PHPSpreadsheet to v1.29.9, resolving several vulnerabilities of varying severity in those dependencies.
+There are no additional update steps to execute.
