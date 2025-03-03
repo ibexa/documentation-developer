@@ -235,7 +235,7 @@ To add one template to another, edit `templates/full/home_page.html.twig` and re
 {% endblock %}
 ```
 
-The templating language Twig supports [template inheritance](http://twig.sensiolabs.org/doc/templates.html#template-inheritance).
+The templating language Twig supports [template inheritance](https://twig.symfony.com/doc/2.x/templates.html#template-inheritance).
 Templates can contain named blocks. Any template can extend other templates, and modify the blocks defined by its parents.
 
 The code above points to `main_layout.html.twig` in line 1. It also wraps your "Hello world" message in a `content` block.
