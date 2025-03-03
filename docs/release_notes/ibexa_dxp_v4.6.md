@@ -20,11 +20,11 @@ description: Ibexa DXP v4.6 brings improvements to Commerce, PIM and Personaliza
 LTS Updates are opt-in packages that bring cutting-edge technologies to an LTS release that they enhance, without compromising the product's stability.
 The features brought by an LTS Update become a standard part of the next LTS release.
 
-### Date and time attribute
+### Date and time attribute type
 
-The Date and time attribute allows you to efficiently represent date and time values as part of the product specification in the [Product Information Management](pim_guide.md) system.
+The Date and time attributes allow you to efficiently represent date and time values as part of the product specification in the [Product Information Management](pim_guide.md) system.
 
-For more information, see [Date and time attribute](date_and_time.md).
+For more information, see [Date and time attributes](date_and_time.md).
 
 ### AI Actions
 
