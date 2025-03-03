@@ -14,8 +14,8 @@
     "require-dev": {
         "ibexa/code-style": "^1.0",
         "friendsofphp/php-cs-fixer": "^3.30",
-        "phpstan/phpstan": "^1.10",
-        "phpstan/phpstan-symfony": "^1.3",
+        "phpstan/phpstan": "^2.0",
+        "phpstan/phpstan-symfony": "^2.0",
         "ibexa/doctrine-schema": "5.0.x-dev",
         "ibexa/search": "5.0.x-dev",
         "ibexa/content-forms": "5.0.x-dev",
@@ -23,6 +23,7 @@
         "ibexa/user": "5.0.x-dev",
         "ibexa/notifications": "5.0.x-dev",
         "ibexa/fieldtype-richtext": "5.0.x-dev",
+        "ibexa/rector": "5.0.x-dev",
         "ibexa/rest": "5.0.x-dev",
         "ibexa/http-cache": "5.0.x-dev",
         "ibexa/core-persistence": "5.0.x-dev",
