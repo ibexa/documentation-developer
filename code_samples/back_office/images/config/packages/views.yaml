@@ -2,6 +2,6 @@ parameters:
     ibexa.default.image_asset_view_defaults:
         full:
             default:
-                template: '@WikimediaCommonsConnector/commons_asset_view.html.twig'
+                template: '@ibexadesign/commons_asset_view.html.twig'
                 match:
                     SourceBasedViewMatcher: commons
