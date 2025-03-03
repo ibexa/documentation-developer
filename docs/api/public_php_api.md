@@ -134,7 +134,7 @@ $permissionResolver->setCurrentUserReference($user);
 
 ## Exception handling
 
-PHP API uses [Exceptions](http://php.net/exceptions) to handle errors.
+PHP API uses [Exceptions](https://www.php.net/exceptions) to handle errors.
 Each API method may throw different exceptions, depending on what it does.
 
 It is good practice to cover every exception you expect to happen.
@@ -156,9 +156,9 @@ try {
 
 ## Service container
 
-[[= product_name =]] uses the [Symfony service container]([[=symfony_doc=]]/service_container.html) for dependency resolution.
+[[= product_name =]] uses the [Symfony service container]([[= symfony_doc =]]/service_container.html) for dependency resolution.
 
-[Symfony dependency injection]([[=symfony_doc=]]/components/dependency_injection.html) ensures that any required services are available in your custom code
+[Symfony dependency injection]([[= symfony_doc =]]/components/dependency_injection.html) ensures that any required services are available in your custom code
 (for example, controllers) when you inject them into the constructor.
 
 Symfony service container uses service tags to dedicate services to a specific purpose. They are usually used for extension points.
@@ -167,4 +167,4 @@ Symfony service container uses service tags to dedicate services to a specific p
 
 !!! tip
 
-    For a list of all service tags exposed by Symfony, see its [reference documentation]([[=symfony_doc=]]/reference/dic_tags.html).
+    For a list of all service tags exposed by Symfony, see its [reference documentation]([[= symfony_doc =]]/reference/dic_tags.html).

@@ -24,7 +24,7 @@ You can configure the following reCAPTCHA options in the Back Office:
 
 ### 1\. Generate the reCAPTCHA API-Key pair
 
-Go to: http://www.google.com/recaptcha/admin and log in.
+Go to: https://www.google.com/recaptcha/admin and log in.
 
 Register a new domain to get a pair of keys.
 
