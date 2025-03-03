@@ -86,7 +86,7 @@ For more information about block customization (defined templates, variations), 
 
 ## Extend DAM support by adding custom connector
 
-To extend the DAM support built into [= product_name =], you must create a custom handler and transformation factory.
+To extend the DAM support built into [[= product_name =]], you must create a custom handler and transformation factory.
 
 !!! note "Wikimedia Commons licensing"
 
