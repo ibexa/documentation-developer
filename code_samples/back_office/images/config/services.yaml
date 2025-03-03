@@ -7,13 +7,13 @@ services:
             - '@ibexa.field_type.ezbinaryfile.io_service'
             - '@Ibexa\Core\Helper\TranslationHelper'
 
-    WikimediaCommonsConnector\Handler\WikimediaCommonsHandler:
+    App\Connector\Dam\Handler\WikimediaCommonsHandler:
         arguments:
             $httpClient: '@http_client'
         tags:
             - { name: 'ibexa.platform.connector.dam.handler', source: 'commons'  }
 
-    WikimediaCommonsConnector\Transformation\TransformationFactory:
+    App\Connector\Dam\Transformation\TransformationFactory:
         arguments:
             $httpClient: '@http_client'
         tags:

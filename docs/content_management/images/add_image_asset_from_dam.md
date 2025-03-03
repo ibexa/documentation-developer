@@ -86,36 +86,20 @@ For more information about block customization (defined templates, variations), 
 
 ## Extend DAM support by adding custom connector
 
-To extend the DAM support built into [= product_name =], you must create a custom Symfony bundle.
+To extend the DAM support built into [= product_name =], you must create a custom handler and transformation factory.
 
 !!! note "Wikimedia Commons licensing"
 
     Before you use Wikimedia Commons assets in a production environment, ensure that you comply with their [license requirements](https://commons.wikimedia.org/wiki/Commons:Reusing_content_outside_Wikimedia#How_to_comply_with_a_file's_license_requirements).
 
-### Create bundle structure
-
-In your project's `src` directory, create a folder for the new bundle, for example, `WikimediaCommonsConnector`.
-
-In that folder, create the main class file `WikimediaCommonsConnector.php` for the bundle:
-
-```php
-[[= include_file('code_samples/back_office/images/src/WikimediaCommonsConnector/WikimediaCommonsConnector.php') =]]
-```
-
-Then, in `config/bundles.php`, at the end of an array with a list of bundles, add the following line:
-
-```php
-[[= include_file('code_samples/back_office/images/config/bundles.php') =]]
-```
-
 ###  Create DAM handler
 
 This class handles searching through Wikimedia Commons for images and fetching assets.
 
-In `src\WikimediaCommonsConnector\Handler` folder, create the `WikimediaHandler.php` file that resembles the following example, which uses `search()` and `fetchAsset()` functions to query the server for images and return asset objects, respectively:
+In `src\Connector\Dam\Handler` folder, create the `WikimediaCommonsHandler.php` file that resembles the following example, which uses `search()` and `fetchAsset()` functions to query the server for images and return asset objects, respectively:
 
 ```php
-[[= include_file('code_samples/back_office/images/src/WikimediaCommonsConnector/Handler/WikimediaCommonsHandler.php') =]]
+[[= include_file('code_samples/back_office/images/src/Connector/Dam/Handler/WikimediaCommonsHandler.php') =]]
 ```
 
 Then, in `config\services.yaml`, register the handler as a service:
@@ -124,16 +108,15 @@ Then, in `config\services.yaml`, register the handler as a service:
 [[= include_file('code_samples/back_office/images/config/services.yaml', 9, 14) =]]
 ```
 
-
 ### Create transformation factory
 
 The transformation factory transforms image variations coming from Wikimedia Commons to the ones used by [= product_name =].
 
-In `src\WikimediaCommonsConnector\Transformation` folder, create the `TransformationFactory.php` file that resembles the following example:
+In `src\Connector\Dam\Transformation` folder, create the `WikimediaCommonsTransformationFactory.php` file that resembles the following example:
 
 
 ```php
-[[= include_file('code_samples/back_office/images/src/WikimediaCommonsConnector/Transformation/TransformationFactory.php') =]]
+[[= include_file('code_samples/back_office/images/src/Connector/Dam/Transformation/WikimediaCommonsTransformationFactory.php') =]]
 ```
 
 Then register the transformation factory as a service:
@@ -145,7 +128,7 @@ Then register the transformation factory as a service:
 ### Register variations generator
 
 The variation generator applies map parameters coming from the transformation factory to build a fetch request to the DAM.
-The `WikimediaCommonsConnector` uses the built-in `URLBasedVariationGenerator` class, which adds all the map elements as query parameters of the request.
+The solution uses the built-in `URLBasedVariationGenerator` class, which adds all the map elements as query parameters of the request.
 
 For example, the handler generates the following URL with `new AssetUri()`:
 
@@ -168,13 +151,13 @@ The template deffines how images that come from Wikimedia Commons appear in the 
 In `templates/bundles/WikimediaCommonsConnector/`, add the `commons_asset_view.html.twig` file that resembles the following example:
 
 ```html+twig
-[[= include_file('code_samples/back_office/images/src/WikimediaCommonsConnector/Resources/views/themes/standard/commons_asset_view.html.twig') =]]
+[[= include_file('code_samples/back_office/images/templates/themes/standard/commons_asset_view.html.twig') =]]
 ```
 
 Then, register the template in configuration files:
 
 ```yaml
-[[= include_file('code_samples/back_office/images/config/views.yaml') =]]
+[[= include_file('code_samples/back_office/images/config/packages/views.yaml') =]]
 ```
 
 ### Add Wikimedia Commons connection to DAM configuration

@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace WikimediaCommonsConnector\Handler;
+namespace App\Connector\Dam\Handler;
 
 use Ibexa\Platform\Contracts\Connector\Dam\Asset;
 use Ibexa\Platform\Contracts\Connector\Dam\AssetCollection;

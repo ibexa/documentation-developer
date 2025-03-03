@@ -1,11 +1,11 @@
 <?php declare(strict_types=1);
 
-namespace WikimediaCommonsConnector\Transformation;
+namespace App\Connector\Dam\Transformation;
 
 use Ibexa\Platform\Contracts\Connector\Dam\Variation\Transformation;
 use Ibexa\Platform\Contracts\Connector\Dam\Variation\TransformationFactory as TransformationFactoryInterface;
 
-class TransformationFactory implements TransformationFactoryInterface
+class WikimediaCommonsTransformationFactory implements TransformationFactoryInterface
 {
     public function build(?string $transformationName = null, array $transformationParameters = []): Transformation
     {
