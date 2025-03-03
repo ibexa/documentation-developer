@@ -17,7 +17,7 @@ An [existing Amazon account can be used](https://docs.aws.amazon.com/AmazonS3/la
 1.  [Choose a region](https://docs.aws.amazon.com/storagegateway/latest/vgw/available-regions-intro.html).
 The example below uses EU (Ireland): `eu-west-1`
 1.  Create a bucket in your chosen region and make note of the bucket name:
-<https://docs.aws.amazon.com/AmazonS3/latest/userguide/GetStartedWithS3.html#creating-bucket >.
+<https://docs.aws.amazon.com/AmazonS3/latest/userguide/GetStartedWithS3.html#creating-bucket>.
 1.  Go to the [IAM Management Console](https://console.aws.amazon.com/iam/home#/users) and create a user.
 See <https://docs.aws.amazon.com/AmazonS3/latest/userguide/security-iam.html>.
 1.  Then create a group and assign the user to the group.
