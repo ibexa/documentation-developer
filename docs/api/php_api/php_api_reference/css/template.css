@@ -909,3 +909,6 @@ div.path {
 .path p.description {
     color: var(--ibexa-dusk-black);
 }
+.phpdocumentor-uml-diagram svg {
+    cursor: zoom-in;
+}
