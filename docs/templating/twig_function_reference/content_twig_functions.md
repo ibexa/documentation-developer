@@ -81,7 +81,7 @@ If the content item doesn't have a translation in the prioritized or passed lang
 
 | Argument | Type | Description |
 |---------------|------|-------------|
-| `content` | [`Content`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Content.html) or [`ContentAwareInterface`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-ContentAwareInterface.html) | Content item, its ContentInfo object, or ContentAwareInterface object.|
+| `content` | [`Content`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Content.html) or [`ContentAwareInterface`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-ContentAwareInterface.html) | Content item or ContentAwareInterface object.|
 
 ``` html+twig
 {{ ibexa_seo_is_empty(content) }}
@@ -97,7 +97,7 @@ If the content item doesn't have a translation in the prioritized or passed lang
 
 | Argument | Type | Description |
 |---------------|------|-------------|
-| `content` | [`Content`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Content.html) or [`ContentAwareInterface`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-ContentAwareInterface.html) | Content item, its ContentInfo object, or ContentAwareInterface object.|
+| `content` | [`Content`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Content.html) or [`ContentAwareInterface`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-ContentAwareInterface.html) | Content item or ContentAwareInterface object.|
 
 ``` html+twig
 {{ ibexa_seo(content) }}
