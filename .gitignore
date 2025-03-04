@@ -9,4 +9,3 @@ tools/php-cs-fixer/vendor
 node_modules/
 .yarn
 yarn.lock
-get-pip.py
