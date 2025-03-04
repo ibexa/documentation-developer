@@ -43,5 +43,5 @@ Reference it with `ibexa.repositories.<your_repository>.shipment.workflow: your_
 
 ## Configure shipping methods
 
-You can define the shipping methods [in the UI]([[= user_doc =]]/commerce/shipping/configure_shipping_method/).
+You can define the shipping methods [in the UI]([[= user_doc =]]/commerce/shipping_management/work_with_shipping_methods/).
 The following shipping method types are available by default: `flat rate` and `free`.
