@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ActionConfigurationList media-type="application/vnd.ibexa.api.ai.ActionConfigurationList+xml" href="/api/ibexa/v2/ai/actions">
+    <ActionConfiguration media-type="application/vnd.ibexa.api.ai.ActionConfiguration+xml">
+        <identifier>gen_alt_text</identifier>
+        <name>Generate alternative text</name>
+        <description></description>
+        <enabled>1</enabled>
+        <ActionType media-type="application/vnd.ibexa.api.ai.ActionType+xml">
+            <identifier>generate_alt_text</identifier>
+            <name>Generate alternative text</name>
+            <inputIdentifier>image</inputIdentifier>
+            <outputIdentifier>text</outputIdentifier>
+            <options>
+                <width>512</width>
+                <height>512</height>
+                <image_quality>85</image_quality>
+            </options>
+        </ActionType>
+        <actionTypeOptions>
+            <max_length>140</max_length>
+        </actionTypeOptions>
+        <actionHandlerIdentifier>openai-image-to-text</actionHandlerIdentifier>
+        <actionHandlerOptions>
+            <max_tokens>4000</max_tokens>
+            <temperature>1</temperature>
+            <prompt></prompt>
+            <model>gpt-4-turbo</model>
+        </actionHandlerOptions>
+        <createdAt>2025-02-06T13:20:24+00:00</createdAt>
+        <updatedAt>2025-02-06T13:20:24+00:00</updatedAt>
+    </ActionConfiguration>
+    <ActionConfiguration media-type="application/vnd.ibexa.api.ai.ActionConfiguration+xml">
+        <identifier>improve_readability</identifier>
+        <name>Improve readability</name>
+        <description></description>
+        <enabled>1</enabled>
+        <ActionType media-type="application/vnd.ibexa.api.ai.ActionType+xml">
+            <identifier>refine_text</identifier>
+            <name>Refine text</name>
+            <inputIdentifier>text</inputIdentifier>
+            <outputIdentifier>text</outputIdentifier>
+            <options/>
+        </ActionType>
+        <actionTypeOptions/>
+        <actionHandlerIdentifier>openai-text-to-text</actionHandlerIdentifier>
+        <actionHandlerOptions>
+            <max_tokens>4000</max_tokens>
+            <temperature>1</temperature>
+            <prompt>Rewrite this content to improve readability. Preserve meaning and crucial information.</prompt>
+            <model>gpt-4-turbo</model>
+        </actionHandlerOptions>
+        <createdAt>2025-02-06T13:20:24+00:00</createdAt>
+        <updatedAt>2025-02-06T13:20:24+00:00</updatedAt>
+    </ActionConfiguration>
+    <ActionConfiguration media-type="application/vnd.ibexa.api.ai.ActionConfiguration+xml">
+        <identifier>proofread</identifier>
+        <name>Proofread</name>
+        <description></description>
+        <enabled>1</enabled>
+        <ActionType media-type="application/vnd.ibexa.api.ai.ActionType+xml">
+            <identifier>refine_text</identifier>
+            <name>Refine text</name>
+            <inputIdentifier>text</inputIdentifier>
+            <outputIdentifier>text</outputIdentifier>
+            <options/>
+        </ActionType>
+        <actionTypeOptions/>
+        <actionHandlerIdentifier>openai-text-to-text</actionHandlerIdentifier>
+        <actionHandlerOptions>
+            <max_tokens>4000</max_tokens>
+            <temperature>1</temperature>
+            <prompt>Rewrite given text to identify and fix grammatical and punctuation errors. Preserve meaning and crucial information.</prompt>
+            <model>gpt-4-turbo</model>
+        </actionHandlerOptions>
+        <createdAt>2025-02-06T13:20:24+00:00</createdAt>
+        <updatedAt>2025-02-06T13:20:24+00:00</updatedAt>
+    </ActionConfiguration>
+    <ActionConfiguration media-type="application/vnd.ibexa.api.ai.ActionConfiguration+xml">
+        <identifier>shorten_text</identifier>
+        <name>Shorten text</name>
+        <description></description>
+        <enabled>1</enabled>
+        <ActionType media-type="application/vnd.ibexa.api.ai.ActionType+xml">
+            <identifier>refine_text</identifier>
+            <name>Refine text</name>
+            <inputIdentifier>text</inputIdentifier>
+            <outputIdentifier>text</outputIdentifier>
+            <options/>
+        </ActionType>
+        <actionTypeOptions/>
+        <actionHandlerIdentifier>openai-text-to-text</actionHandlerIdentifier>
+        <actionHandlerOptions>
+            <max_tokens>4000</max_tokens>
+            <temperature>1</temperature>
+            <prompt>Shorten the given text by 25%. Preserve meaning and crucial information.</prompt>
+            <model>gpt-4-turbo</model>
+        </actionHandlerOptions>
+        <createdAt>2025-02-06T13:20:24+00:00</createdAt>
+        <updatedAt>2025-02-06T13:20:24+00:00</updatedAt>
+    </ActionConfiguration>
+    <ActionConfiguration media-type="application/vnd.ibexa.api.ai.ActionConfiguration+xml">
+        <identifier>expand_text</identifier>
+        <name>Expand text</name>
+        <description></description>
+        <enabled>1</enabled>
+        <ActionType media-type="application/vnd.ibexa.api.ai.ActionType+xml">
+            <identifier>refine_text</identifier>
+            <name>Refine text</name>
+            <inputIdentifier>text</inputIdentifier>
+            <outputIdentifier>text</outputIdentifier>
+            <options/>
+        </ActionType>
+        <actionTypeOptions/>
+        <actionHandlerIdentifier>openai-text-to-text</actionHandlerIdentifier>
+        <actionHandlerOptions>
+            <max_tokens>4000</max_tokens>
+            <temperature>1</temperature>
+            <prompt>Expand the given text by 25%. Preserve meaning and crucial information.</prompt>
+            <model>gpt-4-turbo</model>
+        </actionHandlerOptions>
+        <createdAt>2025-02-06T13:20:24+00:00</createdAt>
+        <updatedAt>2025-02-06T13:20:24+00:00</updatedAt>
+    </ActionConfiguration>
+    <ActionConfiguration media-type="application/vnd.ibexa.api.ai.ActionConfiguration+xml">
+        <identifier>summarize_text</identifier>
+        <name>Summarize</name>
+        <description></description>
+        <enabled>1</enabled>
+        <ActionType media-type="application/vnd.ibexa.api.ai.ActionType+xml">
+            <identifier>refine_text</identifier>
+            <name>Refine text</name>
+            <inputIdentifier>text</inputIdentifier>
+            <outputIdentifier>text</outputIdentifier>
+            <options/>
+        </ActionType>
+        <actionTypeOptions/>
+        <actionHandlerIdentifier>openai-text-to-text</actionHandlerIdentifier>
+        <actionHandlerOptions>
+            <max_tokens>4000</max_tokens>
+            <temperature>1</temperature>
+            <prompt>Summarize text into one sentence. Preserve meaning and crucial information.</prompt>
+            <model>gpt-4-turbo</model>
+        </actionHandlerOptions>
+        <createdAt>2025-02-06T13:20:24+00:00</createdAt>
+        <updatedAt>2025-02-06T13:20:24+00:00</updatedAt>
+    </ActionConfiguration>
+    <ActionConfiguration media-type="application/vnd.ibexa.api.ai.ActionConfiguration+xml">
+        <identifier>rewrite_with_professional_tone</identifier>
+        <name>Rewrite in professional tone</name>
+        <description></description>
+        <enabled>1</enabled>
+        <ActionType media-type="application/vnd.ibexa.api.ai.ActionType+xml">
+            <identifier>refine_text</identifier>
+            <name>Refine text</name>
+            <inputIdentifier>text</inputIdentifier>
+            <outputIdentifier>text</outputIdentifier>
+            <options/>
+        </ActionType>
+        <actionTypeOptions/>
+        <actionHandlerIdentifier>openai-text-to-text</actionHandlerIdentifier>
+        <actionHandlerOptions>
+            <max_tokens>4000</max_tokens>
+            <temperature>1</temperature>
+            <prompt>Rewrite text in professional tone. Preserve meaning and crucial information.</prompt>
+            <model>gpt-4-turbo</model>
+        </actionHandlerOptions>
+        <createdAt>2025-02-06T13:20:24+00:00</createdAt>
+        <updatedAt>2025-02-06T13:20:24+00:00</updatedAt>
+    </ActionConfiguration>
+    <ActionConfiguration media-type="application/vnd.ibexa.api.ai.ActionConfiguration+xml">
+        <identifier>rewrite_with_friendly_tone</identifier>
+        <name>Rewrite in friendly tone</name>
+        <description></description>
+        <enabled>1</enabled>
+        <ActionType media-type="application/vnd.ibexa.api.ai.ActionType+xml">
+            <identifier>refine_text</identifier>
+            <name>Refine text</name>
+            <inputIdentifier>text</inputIdentifier>
+            <outputIdentifier>text</outputIdentifier>
+            <options/>
+        </ActionType>
+        <actionTypeOptions/>
+        <actionHandlerIdentifier>openai-text-to-text</actionHandlerIdentifier>
+        <actionHandlerOptions>
+            <max_tokens>4000</max_tokens>
+            <temperature>1</temperature>
+            <prompt>Rewrite text in friendly tone. Preserve meaning and crucial information.</prompt>
+            <model>gpt-4-turbo</model>
+        </actionHandlerOptions>
+        <createdAt>2025-02-06T13:20:24+00:00</createdAt>
+        <updatedAt>2025-02-06T13:20:24+00:00</updatedAt>
+    </ActionConfiguration>
+</ActionConfigurationList>
