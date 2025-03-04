@@ -188,7 +188,7 @@ If the content item doesn't have a translation in the prioritized or passed lang
 
 | Argument | Type | Description |
 |---------------|------|-------------|
-| `content` | [`Content`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Content.html), [`ContentInfo`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-ContentInfo.html), or [`ContentAwareInterface`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-ContentAwareInterface.html) | Content item the field belongs to. |
+| `content` | [`Content`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Content.html) or [`ContentAwareInterface`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-ContentAwareInterface.html) | Content item the field belongs to. |
 | `fieldDefIdentifier` | `string` | Identifier of the field. |
 | `forcedLanguage` | `string` | (optional) Language to use (for example, `fre-FR`). |
 
