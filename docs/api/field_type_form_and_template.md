@@ -156,7 +156,7 @@ The block can receive the following variables:
 
 ### Reusing blocks
 
-For easier Field Type template development you can take advantage of all defined blocks by using the [`block()` function](https://twig.symfony.com/doc/2.x/functions/block.html).
+For easier Field Type template development you can take advantage of all defined blocks by using the [`block()` function](https://twig.symfony.com/doc/3.x/functions/block.html).
 
 You can for example use `simple_block_field`, `simple_inline_field` or `field_attributes` blocks provided in [`content_fields.html.twig`](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Bundle/EzPublishCoreBundle/Resources/views/content_fields.html.twig#L477).
 
