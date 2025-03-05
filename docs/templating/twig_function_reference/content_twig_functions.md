@@ -77,7 +77,7 @@ If the content item doesn't have a translation in the prioritized or passed lang
 
 ### `ibexa_seo_is_empty()`
 
-`ibexa_seo_is_empty()` returns a Boolean value which indicates whether [SEO](https://doc.ibexa.co/projects/userguide/en/latest/search_engine_optimization/seo/) data is available for the content item that is passed as an argument.
+`ibexa_seo_is_empty()` returns a Boolean value which indicates whether [SEO]([[= user_doc =]]/search_engine_optimization/seo/) data is available for the content item that is passed as an argument.
 
 | Argument | Type | Description |
 |---------------|------|-------------|
@@ -93,7 +93,7 @@ If the content item doesn't have a translation in the prioritized or passed lang
 
 ### `ibexa_seo()`
 
-`ibexa_seo()` attaches [SEO](https://doc.ibexa.co/projects/userguide/en/latest/search_engine_optimization/seo/) data to the content item's HTML code.
+`ibexa_seo()` attaches [SEO]([[= user_doc =]]/search_engine_optimization/seo/) data to the content item's HTML code.
 
 | Argument | Type | Description |
 |---------------|------|-------------|

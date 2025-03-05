@@ -20,7 +20,7 @@ Some client types require additional packages.
 Missing package is indicated in an error message.
 
 For example, the following configuration creates a `google` client for Google OAuth2 Authorization Server to log users in.
-Two environment variables, `OAUTH_GOOGLE_CLIENT_ID` and `OAUTH_GOOGLE_CLIENT_SECRET`, correspond to [the set-up on Google side](https://support.google.com/cloud/answer/6158849).
+Two environment variables, `OAUTH_GOOGLE_CLIENT_ID` and `OAUTH_GOOGLE_CLIENT_SECRET`, correspond to [the set-up on Google side](https://support.google.com/cloud/answer/15549257).
 
 ``` yaml
 [[= include_file('code_samples/user_management/oauth_google/config/packages/knpu_oauth2_client.yaml') =]]
