@@ -34,6 +34,7 @@
         "ibexa/cart": "4.6.x-dev",
         "ibexa/installer": "4.6.x-dev",
         "ibexa/product-catalog": "4.6.x-dev",
+        "ibexa/product-catalog-date-time-attribute": "4.6.x-dev",
         "ibexa/graphql": "4.6.x-dev",
         "ibexa/personalization": "4.6.x-dev",
         "ibexa/taxonomy": "4.6.x-dev",
