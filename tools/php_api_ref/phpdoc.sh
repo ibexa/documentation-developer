@@ -9,10 +9,10 @@ DXP_EDITION='commerce'; # Edition from and for which the Reference is built
 DXP_VERSION='4.6.*'; # Version from and for which the Reference is built
 DXP_ADD_ONS=(connector-ai connector-openai automated-translation); # Packages not included in $DXP_EDITION but added to the Reference, listed without their vendor "ibexa"
 DXP_EDITIONS=(oss headless experience commerce); # Available editions ordered by ascending capabilities
-PHPDOC_VERSION='3.5.3'; # Version of phpDocumentor used to build the Reference
+PHPDOC_VERSION='3.7.1'; # Version of phpDocumentor used to build the Reference
 PHPDOC_CONF="$(pwd)/tools/php_api_ref/phpdoc.dist.xml"; # Absolute path to phpDocumentor configuration file
 #PHPDOC_CONF="$(pwd)/tools/php_api_ref/phpdoc.dev.xml"; # Absolute path to phpDocumentor configuration file
-PHPDOC_TEMPLATE_VERSION='3.5.3'; # Version of the phpDocumentor base template set
+PHPDOC_TEMPLATE_VERSION='3.7.1'; # Version of the phpDocumentor base template set
 PHPDOC_DIR="$(pwd)/tools/php_api_ref/.phpdoc"; # Absolute path to phpDocumentor resource directory (containing the override template set)
 
 PHP_BINARY="php -d error_reporting=`php -r 'echo E_ALL & ~E_DEPRECATED;'`"; # Avoid depreciation messages from phpDocumentor/Reflection/issues/529 when using PHP 8.2 or higher
@@ -106,7 +106,7 @@ if [ 0 -eq $DXP_ALREADY_EXISTS ]; then
     NAMESPACE_MAP="$NAMESPACE_MAP\n$NAMESPACES"
     PACKAGE_MAP="$PACKAGE_MAP\n'ibexa/$package': 'optional',"
   done;
-  
+
   PACKAGE_MAP="{% set package_edition_map = {\n$PACKAGE_MAP\n} %}"
   NAMESPACE_MAP="{% set namespace_package_map = {\n$NAMESPACE_MAP\n} %}"
   {
