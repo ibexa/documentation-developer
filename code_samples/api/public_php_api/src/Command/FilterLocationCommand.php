@@ -41,7 +41,7 @@ class FilterLocationCommand extends Command
 
         $result = $this->locationService->find($filter, []);
 
-        $output->writeln('Found ' . $result->totalCount . ' items');
+        $output->writeln('Found ' . $result->getTotalCount() . ' items');
 
         foreach ($result as $content) {
             $output->writeln($content->getContent()->getName());

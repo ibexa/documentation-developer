@@ -130,6 +130,6 @@ Effectively evaluate quality of recommendations and compare with your KPIs.
 
 ## Use cases
 
-- [eCommerce]([[= user_doc =]]/personalization/use_cases/#ecommerce.md)
-- [Content publishing]([[= user_doc =]]/personalization/use_cases/#content-publishing.md)
-- [Multiple website hosting]([[= user_doc =]]/personalization/use_cases/#multiple-website-hosting.md)
+- [eCommerce]([[= user_doc =]]/personalization/use_cases/#ecommerce)
+- [Content publishing]([[= user_doc =]]/personalization/use_cases/#content-publishing)
+- [Multiple website hosting]([[= user_doc =]]/personalization/use_cases/#multiple-website-hosting)

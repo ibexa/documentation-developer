@@ -25,7 +25,7 @@ Place the icon in `public/assets/images` and run `yarn encore <dev|prod>` after 
 
 If you want to configure icons per SiteAccess, see [Icon sets](#icon-sets).
 
-To see more configuration options, see [icon sizes](other_twig_filters.md).
+To see more configuration options, see [the icon reference](icon_twig_functions.md).
 
 ### Access icons in Twig templates
 

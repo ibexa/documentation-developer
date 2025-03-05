@@ -1,0 +1,9 @@
+{
+    "ActionConfigurationListInput": {
+        "query": "Proofread",
+        "action_type_identifier": "refine_text",
+        "enabled": true,
+        "limit": 10,
+        "page": 1
+    }
+}
