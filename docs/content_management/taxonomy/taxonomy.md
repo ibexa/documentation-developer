@@ -78,7 +78,7 @@ You can hide this menu item by setting a value of the `register_main_menu` confi
 [[= include_file('code_samples/taxonomy/config/packages/ibexa_taxonomy.yaml', 17, 18) =]]
 ```
 
-For more information about available functionalities of tags, see [User Documentation]([[= user_doc =]]/taxonomy).
+For more information about available functionalities of tags, see [User Documentation]([[= user_doc =]]/content_management/taxonomy/taxonomy/).
 
 ## Hide delete button on large subtree
 

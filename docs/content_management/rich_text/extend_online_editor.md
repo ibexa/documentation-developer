@@ -445,7 +445,7 @@ ibexa:
 
 Build the assets and clear the cache by running `composer run-script auto-scripts`.
 
-For more information, see [CKEditor plugins documentation](https://ckeditor.com/docs/ckeditor5/latest/installation/plugins/plugins.html).
+For more information, see [CKEditor plugins documentation](https://ckeditor.com/docs/ckeditor5/latest/framework/architecture/plugins.html).
 
 ## Change CKEditor configuration
 

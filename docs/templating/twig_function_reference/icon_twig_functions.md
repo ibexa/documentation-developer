@@ -1,8 +1,9 @@
 ---
+description: Icon Twig functions enable referencing SVG icons in templates.
 page_type: reference
 ---
 
-# Other Twig filters
+# Icon Twig functions
 
 ### `ibexa_icon_path()`
 
@@ -53,16 +54,16 @@ To change the default size, in the template add the modifier to the class name.
 
 The list of available icon sizes:
 
-|Size| Modifier|
+|Modifier|Size|
 |----|---------|
-|`8px`|`--tiny`|
-|`12px`|`--tiny-small`|
-|`16px`|`--small`|
-|`20px`|`--small-medium`|
-|`24px`|`--medium`|
-|`38px`|`--medium-large`|
-|`48px`|`--large`|
-|`64px`|`--extra-large`|
+|`--tiny`|`8px`|
+|`--tiny-small`|`12px`|
+|`--small`|`16px`|
+|`--small-medium`|`20px`|
+|`--medium`|`24px`|
+|`--medium-large`|`38px`|
+|`--large`|`48px`|
+|`--extra-large`|`64px`|
 
 #### Icons reference
 
@@ -395,15 +396,3 @@ The following icons are available out-of-the-box:
 | ![interface-block](img/icons/interface-block.svg.png)                           | `interface-block`              |
 | ![full-view](img/icons/full-view.svg.png)                                       | `full-view`                    |
 | ![un-full-view](img/icons/un-full-view.svg.png)                                 | `un-full-view`                 |
-
-### `ibexa_taxonomy_entries_for_content()`
-
-`ibexa_taxonomy_entries_for_content()` fetches names of content categories.
-
-| Argument | Type | Description |
-|---------------|------|-------------|
-| `content` | `Ibexa\Contracts\Core\Repository\Values\Content\Content` | Content item to display the category name for. |
-
-```html+twig
-{{ content|ibexa_taxonomy_entries_for_content|map(entry => "#{entry.name}")|join(', ') }}
-```

@@ -32,7 +32,7 @@ The field is rendered with the default template, but you can optionally pass a d
 
 | Argument | Type | Description |
 | ------ | ----- | ----- |
-| `content` | `Ibexa\Contracts\Core\Repository\Values\Content\Content` | Content item the field belongs to. |
+| `content` | [`Content`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Content.html) or [`ContentAwareInterface`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-ContentAwareInterface.html) | Content item the field belongs to. |
 | `fieldDefinitionIdentifier` | `string` | Field identifier. |
 | `params` | `hash` | (optional) Hash of parameters passed to the template block. |
 
@@ -40,6 +40,18 @@ The field is rendered with the default template, but you can optionally pass a d
 {{ ibexa_render_field(content, 'title') }}
 
 {{ ibexa_render_field(content, 'image', {
+    'template': '@ibexadesign/fields/image.html.twig',
+    'attr': {class: 'thumbnail-image'},
+    'parameters': {
+        'alias': 'small'
+    }
+}) }}
+```
+
+``` html+twig
+{{ ibexa_render_field(product, 'name') }}
+
+{{ ibexa_render_field(product, 'image', {
     'template': '@ibexadesign/fields/image.html.twig',
     'attr': {class: 'thumbnail-image'},
     'parameters': {
@@ -80,12 +92,16 @@ If the content item doesn't have a translation in the prioritized or passed lang
 
 | Argument | Type | Description |
 |-----|------|-----|
-| `content`| `Ibexa\Contracts\Core\Repository\Values\Content\Content` | Content item the field belongs to.|
+| `content` | [`Content`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Content.html) or [`ContentAwareInterface`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-ContentAwareInterface.html) | Content item the field belongs to.|
 | `fieldDefIdentifier` | `string` | Identifier of the field. |
 | `forcedLanguage`  | `string` | (optional) Language to use (for example, "fre-FR"). |
 
 ``` html+twig
 {{ ibexa_field_value(content, 'image') }}
+```
+
+``` html+twig
+{{ ibexa_field_value(product, 'image') }}
 ```
 
 ### `ibexa_field()`
@@ -96,7 +112,7 @@ If the content item doesn't have a translation in the prioritized or passed lang
 
 | Argument | Type | Description |
 |-------|------|------|
-| `content`| `Ibexa\Contracts\Core\Repository\Values\Content\Content` | Content item the field belongs to.|
+| `content` | [`Content`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Content.html) or [`ContentAwareInterface`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-ContentAwareInterface.html) | Content item the field belongs to.|
 | `fieldDefIdentifier` | `string` | Identifier of the field. |
 | `forcedLanguage` | `string` | {optional) Language to use (for example, "fre-FR"). |
 
@@ -107,6 +123,10 @@ You can use `ibexa_field()` to access the field type identifier:
 
 ``` html+twig
 {{ ibexa_field(content, 'my_field').fieldTypeIdentifier }}
+```
+
+``` html+twig
+{{ ibexa_field(product, 'my_field').fieldTypeIdentifier }}
 ```
 
 ## Field information
@@ -120,7 +140,7 @@ If the content item doesn't have a translation in the prioritized or passed lang
 
 | Argument | Type | Description |
 |---------------|------|-------------|
-| `content` | `Ibexa\Contracts\Core\Repository\Values\Content\Content` or `Ibexa\Contracts\Core\Repository\Values\Content\ContentInfo` | Content item the field belongs to. |
+| `content` | [`Content`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Content.html), [`ContentInfo`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-ContentInfo.html), or [`ContentAwareInterface`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-ContentAwareInterface.html) | Content item the field belongs to. |
 | `fieldDefIdentifier` | `string` | Identifier of the field. |
 | `forcedLanguage` | `string` | (optional) Language to use (for example, `fre-FR`). |
 
@@ -129,6 +149,12 @@ If the content item doesn't have a translation in the prioritized or passed lang
 {{ ibexa_field_name(content, 'title') }}
 
 {{ ibexa_field_name(content, 'title', 'ger-DE') }}
+```
+
+``` html+twig
+{{ ibexa_field_name(product, 'name') }}
+
+{{ ibexa_field_name(product, 'name', 'pl-PL') }}
 ```
 
 ### `ibexa_field_description()`
@@ -140,7 +166,7 @@ If the content item doesn't have a translation in the prioritized or passed lang
 
 | Argument | Type | Description |
 |---------------|------|-------------|
-| `content` | `Ibexa\Contracts\Core\Repository\Values\Content\Content` or `Ibexa\Contracts\Core\Repository\Values\Content\ContentInfo` | Content item the field belongs to. |
+| `content` | [`Content`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Content.html), [`ContentInfo`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-ContentInfo.html), or [`ContentAwareInterface`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-ContentAwareInterface.html) | Content item the field belongs to. |
 | `fieldDefIdentifier` | `string` | Identifier of the field. |
 | `forcedLanguage` | `string` | (optional) Language to use (for example, `fre-FR`). |
 
@@ -150,18 +176,28 @@ If the content item doesn't have a translation in the prioritized or passed lang
 {{ ibexa_field_description(content, 'title', 'ger-DE') }}
 ```
 
+``` html+twig
+{{ ibexa_field_description(product, 'name') }}
+
+{{ ibexa_field_description(product, 'name', 'fr-FR') }}
+```
+
 ### `ibexa_field_is_empty()`
 
 `ibexa_field_is_empty()` returns Boolean information whether a given field of a content item is empty.
 
 | Argument | Type | Description |
 |---------------|------|-------------|
-| `content` | `Ibexa\Contracts\Core\Repository\Values\Content\Content` or `Ibexa\Contracts\Core\Repository\Values\Content\ContentInfo` | Content item the field belongs to. |
+| `content` | [`Content`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Content.html) or [`ContentAwareInterface`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-ContentAwareInterface.html) | Content item the field belongs to. |
 | `fieldDefIdentifier` | `string` | Identifier of the field. |
 | `forcedLanguage` | `string` | (optional) Language to use (for example, `fre-FR`). |
 
 ``` html+twig
 {{ ibexa_field_is_empty(content, 'title') }}
+```
+
+``` html+twig
+{{ ibexa_field_is_empty(product, 'name') }}
 ```
 
 #### Examples
@@ -171,6 +207,12 @@ For example, use `ibexa_field_is_empty()` to check whether a field is empty or f
 ``` html+twig
 {% if not ibexa_field_is_empty(content, 'image') %}
     {{ ibexa_render_field(content, 'image') }}
+{% endif %}
+```
+
+``` html+twig
+{% if not ibexa_field_is_empty(product, 'image') %}
+    {{ ibexa_render_field(product, 'image') }}
 {% endif %}
 ```
 
@@ -193,11 +235,17 @@ For example, use `ibexa_field_is_empty()` to check whether a field is empty or f
 
 | Argument | Type | Description |
 |---------------|------|-------------|
-| `content` | `Ibexa\Contracts\Core\Repository\Values\Content\Content` | Content item the field may belong to. |
+| `content` | [`Content`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Content.html) or [`ContentAwareInterface`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-ContentAwareInterface.html) | Content item the field may belong to. |
 | `fieldDefIdentifier` | `string` | Identifier of the field. |
 
 ``` html+twig
 {% if ibexa_has_field(content, 'existing') %}
     {{ ibexa_render_field(content, 'existing') }}
+{% endif %}
+```
+
+``` html+twig
+{% if ibexa_has_field(product, 'existing') %}
+    {{ ibexa_render_field(product, 'existing') }}
 {% endif %}
 ```

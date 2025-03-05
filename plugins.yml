@@ -190,7 +190,7 @@ plugins:
             'guide/content_rendering/twig_function_reference/image_twig_functions.md': 'templating/twig_function_reference/image_twig_functions.md'
             'guide/content_rendering/twig_function_reference/url_twig_functions.md': 'templating/twig_function_reference/url_twig_functions.md'
             'guide/content_rendering/twig_function_reference/date_twig_filters.md': 'templating/twig_function_reference/date_twig_filters.md'
-            'guide/content_rendering/twig_function_reference/other_twig_filters.md': 'templating/twig_function_reference/other_twig_filters.md'
+            'guide/content_rendering/twig_function_reference/other_twig_filters.md': 'templating/twig_function_reference/icon_twig_functions.md'
             'guide/content_rendering/urls_and_routes.md': 'templating/urls_and_routes/urls_and_routes.md'
             'guide/content_rendering/custom_breadcrumbs.md': 'templating/urls_and_routes/custom_breadcrumbs.md'
             'guide/content_rendering/design_engine/design_engine.md': 'templating/design_engine/design_engine.md'
@@ -531,6 +531,7 @@ plugins:
             'getting_started/install_ez_platform.md': 'getting_started/install_ibexa_dxp.md'
 
             'templating/layout/create_user_registration_form.md': 'customer_management/create_user_registration_form.md'
+            'templating/twig_function_reference/other_twig_filters.md': 'templating/twig_function_reference/icon_twig_functions.md'
 
             'tutorials/platform_beginner/building_a_bicycle_route_tracker_in_ez_platform.md': 'tutorials/beginner_tutorial/beginner_tutorial.md'
             'tutorials/platform_beginner/1_get_ready.md': 'tutorials/beginner_tutorial/1_get_ready.md'

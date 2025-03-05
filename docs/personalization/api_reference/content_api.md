@@ -4,7 +4,7 @@ description: Personalization server can use external information about the items
 
 # Content API
 
-Apart from the [events]([[= user_doc =]]/personalization/event_types) collected by the Personalization client, the Personalization server can use external information about the products.
+Apart from the [events]([[= user_doc =]]/personalization/event_types/) collected by the Personalization client, the Personalization server can use external information about the products.
 This information must be uploaded to the Personalization server by the administrator of the website.
 
 The following information can be loaded to the recommendation solution:
