@@ -12,6 +12,7 @@
         }
     ],
     "require-dev": {
+        "ibexa/automated-translation": "4.6.x-dev",
         "ibexa/code-style": "^1.0",
         "friendsofphp/php-cs-fixer": "^3.30",
         "phpstan/phpstan": "^1.10",
