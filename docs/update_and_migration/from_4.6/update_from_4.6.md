@@ -255,7 +255,7 @@ No additional steps needed.
 ### Security
 
 This release contains security fixes.
-For more information, see [the published security advisory](https://developers.ibexa.co/security-advisories/ibexa-sa-2025-001-vulnerabilities-).
+For more information, see [the published security advisory](https://developers.ibexa.co/security-advisories/ibexa-sa-2025-001-vulnerabilities-in-shopping-cart-and-publish-unscheduling).
 For each of the following fixes, evaluate the vulnerability to determine whether you might have been affected.
 If so, take appropriate action.
 
