@@ -187,7 +187,7 @@ ez_publish_rest:
 ```
 
 The `router.generate` renders a URI based on the name of the route and its parameters. The parameter values can be a real value or a placeholder. For example, `'router.generate("ibexa.rest.load_location", {locationPath: "1/2"})'` results in `/api/ezp/v2/content/locations/1/2` while `'router.generate("ibexa.rest.load_location", {locationPath: "{locationPath}"})'` gives `/api/ezp/v2/content/locations/{locationPath}`.
-This syntax is based on Symfony's [expression language]([[= symfony_doc =]]/components/expression_language/index.html), an extensible component that allows limited/readable scripting to be used outside the code context.
+This syntax is based on Symfony's [expression language]([[= symfony_doc =]]/components/expression_language.html), an extensible component that allows limited/readable scripting to be used outside the code context.
 
 In this example, `app.rest.greeting` is available in every SiteAccess (`default`):
 

@@ -7,7 +7,7 @@ edition: commerce
 
 You can use special translation Content items called "text modules" to create translations of the interface.
 The translation service first checks if a Content item with a specific identifier exists and then returns the text attribute of this object.
-If it does not find any translations, the [standard Symfony translation service]([[= symfony_doc =]]/book/translation.html) is used.
+If it does not find any translations, the [standard Symfony translation service]([[= symfony_doc =]]/translation.html) is used.
 
 ## Twig filter
 

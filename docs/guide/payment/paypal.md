@@ -34,7 +34,7 @@ _siso_paypal_payment:
 
 ## Getting API credentials
 
-Provide your [PayPal API credentials](https://developer.paypal.com/docs/nvp-soap-api/apiCredentials/#api-certificates) in configuration:
+Provide your [PayPal API credentials](https://developer.paypal.com/api/nvp-soap/apiCredentials/#api-certificates) in configuration:
 
 ``` yaml
 jms_payment_paypal:

@@ -5,7 +5,7 @@ description: Configure Fastly for use with Ibexa DXP.
 # Configure and customize Fastly
 
 You can configure Fastly by using API calls or through the Fastly Web Interface. 
-Fastly provides a [Fastly CLI](https://developer.fastly.com/reference/cli/) for configuring Fastly through its API.
+Fastly provides a [Fastly CLI](https://www.fastly.com/documentation/reference/cli/) for configuring Fastly through its API.
 
 Ibexa Cloud is delivered with Fastly preconfigured. 
 It means that you don't have to do any changes to the Fastly configuration to make your site work. 
@@ -44,7 +44,7 @@ When you configure the Fastly CLI, use the credentials for the environment that 
 
 Use the commands below to install VCL configuration required for running Fastly with [[= product_name =]].
 You also need to set up domains, HTTPS and origin configuration (not covered here).
-All commands are explained in detail [below](#viewing-and-modifying-the-vcl-configuration):
+All commands are explained in detail [below](#view-and-modify-vcl-configuration):
 
 ``` bash
 fastly vcl custom create --name=ez_main.vcl --version=active --autoclone --content=vendor/ezsystems/ezplatform-http-cache-fastly/fastly/ez_main.vcl --main
@@ -335,11 +335,11 @@ diff -ruN generated_vcl_11_json_done generated_vcl_12_json_done
 
 ## Enable basic-auth on Fastly
 
-To enable basic-auth, use [Fastly documentation](https://developer.fastly.com/solutions/examples/http-basic-auth) as an example.
+To enable basic-auth, use [Fastly documentation](https://www.fastly.com/documentation/solutions/examples/http-basic-auth/) as an example.
 
 Follow the steps below.
 
-Usernames and passwords can be stored inside the VCL file, but in this case credentials are stored in a [dictionary](https://docs.fastly.com/en/guides/working-with-dictionaries-using-the-web-interface#working-with-dictionaries-using-vcl-snippets).
+Usernames and passwords can be stored inside the VCL file, but in this case credentials are stored in a [dictionary](https://docs.fastly.com/en/guides/working-with-dictionaries#working-with-dictionaries-using-vcl-snippets).
 
 !!! note
     To make this example work, you must run [[= product_name =]] in version 3.3.16 or later, or 4.5.
@@ -484,5 +484,3 @@ fastly vcl snippet create --name="BasicAuth recv" --version=active --autoclone -
 fastly vcl snippet create --name="BasicAuth error" --version=latest --priority 100 --type error --content=snippet_basic_auth_error.vcl
 fastly service-version activate --version=latest
 ```
-
- 

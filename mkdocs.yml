@@ -703,8 +703,9 @@ extra:
   latest_tag_4_5: '4.5.7'
   latest_tag_4_6: '4.6.17'
 
-  symfony_doc: 'http://symfony.com/doc/5.4'
-  user_doc: 'https://doc.ibexa.co/projects/userguide/en/master'
+  symfony_doc: 'https://symfony.com/doc/5.x'
+  user_doc: 'https://doc.ibexa.co/projects/userguide/en/3.3'
+  user_doc_4_6: 'https://doc.ibexa.co/projects/userguide/en/4.6'
 
 extra_css:
   - fonts/MavenPro.css

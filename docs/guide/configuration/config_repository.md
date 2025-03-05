@@ -26,9 +26,9 @@ ezplatform:
 
     Legacy storage engine is the default storage engine for the Repository.
 
-    It uses [Doctrine DBAL](http://docs.doctrine-project.org/projects/doctrine-dbal/en/latest/) (Database Abstraction Layer).
+    It uses [Doctrine DBAL](https://www.doctrine-project.org/projects/doctrine-dbal/en/latest/) (Database Abstraction Layer).
     Database settings are supplied by [DoctrineBundle](https://github.com/doctrine/DoctrineBundle).
-    As such, you can refer to [DoctrineBundle's documentation](https://github.com/doctrine/DoctrineBundle/blob/master/Resources/doc/configuration.rst#doctrine-dbal-configuration).
+    As such, you can refer to [DoctrineBundle's documentation](https://github.com/doctrine/DoctrineBundle/blob/2.3.x/Resources/doc/configuration.rst#doctrine-dbal-configuration).
 
 If no Repository is specified for a SiteAccess or SiteAccess group,
 the first Repository defined under `ezplatform.repositories` will be used:
@@ -83,7 +83,7 @@ ezplatform:
                 prefix: eZ\Bundle\EzPublishCoreBundle\Entity
 ```
 
-Refer to [DoctrineBundle documentation](https://symfony.com/doc/3.4/reference/configuration/doctrine.html)
+Refer to [DoctrineBundle documentation](https://symfony.com/doc/5.x/reference/configuration/doctrine.html)
 for more information.
 
 !!! note

@@ -99,4 +99,4 @@ The following UDW configuration is used so only an `event` typed content item ca
 For more information, see [UDW configuration](extending_udw.md#udw-configuration).
 
 Your custom page block is now ready. 
-Before you can use it in Page Builder, you must [enable it in Page field settings]([[= user_doc =]]/content_management/configure_ct_field_settings/#block-display).
+Before you can use it in Page Builder, you must [enable it in Page field settings]([[= user_doc_4_6 =]]/content_management/configure_ct_field_settings/#block-display).

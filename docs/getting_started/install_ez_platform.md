@@ -21,11 +21,11 @@ description: Install Ibexa DXP on a Linux system and prepare your installation f
 
 To install [[= product_name =]] you need a stack with your operating system, MySQL or MariaDB, and PHP.
 
-You can install it by following your favorite tutorial, for example: [Install LAMP stack on Ubuntu](https://www.digitalocean.com/community/tutorials/how-to-install-linux-apache-mysql-php-lamp-stack-ubuntu-18-04).
+You can install it by following your favorite tutorial, for example: [Install LAMP stack on Ubuntu](https://www.digitalocean.com/community/tutorials/how-to-install-lamp-stack-on-ubuntu).
 
 Additional requirements:
 
-- [Node.js](https://nodejs.org/en/) and [Yarn](https://yarnpkg.com/lang/en/docs/install/#debian-stable) for asset management.
+- [Node.js](https://nodejs.org/en/) and [Yarn](https://classic.yarnpkg.com/en/docs/install/) for asset management.
 - `git` for version control.
 - to use search in the shop front end, you must [install a search engine](#install-and-configure-a-search-engine).
 
@@ -183,7 +183,7 @@ run the following command:
 
 !!! note "Platform.sh"
 
-    If you are deploying your installation on [Platform.sh](https://docs.platform.sh/frameworks/ibexa.html),
+    If you are deploying your installation on [Platform.sh](https://docs.platform.sh/guides/ibexa/deploy.html),
     run the following command:
     
     ``` bash
@@ -227,7 +227,7 @@ Choose a [secret]([[= symfony_doc =]]/reference/configuration/framework.html#sec
 and provide it in the `APP_SECRET` parameter in `.env`.
 It should be a random string, made up of at least 32 characters, numbers, and symbols.
 This is used by Symfony when generating [CSRF tokens]([[= symfony_doc =]]/security/csrf.html),
-[encrypting cookies]([[= symfony_doc =]]/cookbook/security/remember_me.html),
+[encrypting cookies]([[= symfony_doc =]]/security/remember_me.html),
 and for creating signed URIs when using [ESI (Edge Side Includes)]([[= symfony_doc =]]/http_cache/esi.html).
 
 !!! caution
@@ -264,7 +264,7 @@ You may choose to replace the [default search engine](../guide/search/search.md#
 
 === "Solr"
 
-    Follow [How to set up Solr search engine](../guide/search/solr.md#how-to-set-up-solr-search-engine) to install Solr.
+    Follow [How to set up Solr search engine](solr.md#set-up-solr-search-engine) to install Solr.
 
 === "Elasticsearch"
 
@@ -423,7 +423,7 @@ Finally, remove the temporary file:
 
 ### Enable the Link manager
 
-To make use of the [Link Manager](../guide/url_management.md), you must [set up cron](../guide/url_management.md#enable-automatic-url-validation).
+To make use of the [Link Manager](../guide/url_management.md), you must [set up cron](url_management.md#enabling-automatic-url-validation).
 
 #### JMS payment secret [[% include 'snippets/commerce_badge.md' %]]
 
