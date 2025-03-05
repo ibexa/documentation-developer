@@ -4,7 +4,7 @@ description: DateTimeAttribute Criterion
 
 # DateTimeAttribute criterion
 
-The [`DateTimeAttribute Search Criterion`](TODO: PHP REF) searches for products by value of a specified attribute, based on the [date and time attribute](date_and_time.md) type.
+The [`DateTimeAttribute Search Criterion`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalogDateTimeAttribute-Search-Criterion-DateTimeAttribute.html) searches for products by value of a specified attribute, based on the [date and time attribute](date_and_time.md) type.
 
 ## Arguments
 
