@@ -133,11 +133,11 @@ Out of the box, after you configure access to the OpenAI service, the [[= produc
 
 Content editors can benefit from using AI capabilities to [enhance or modify text]([[= user_doc =]]/content_management/create_edit_content_items/#ai-assistant).
 With a few clicks, they can improve content quality or reduce the workload.
-While working on content, editors can select a specific passage and request that AI performs specific actions such as: adjusting the length of the text, changing the tone, or correcting linguistic errors.
+While working on content, editors can request that AI performs specific actions such as: adjusting the length of the text, changing the tone, or correcting linguistic errors.
 
 ![AI Assistant](img/ai_assistant.png)
 
-This functionality is available in content types that include a RichText field, and certain Page Builder blocks.
+This functionality is available in content types that include RichText, Text line, Text Block fields, and certain Page Builder blocks.
 
 ### Generating alternative text
 

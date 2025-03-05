@@ -293,6 +293,7 @@ nav:
             - Content Twig functions: templating/twig_function_reference/content_twig_functions.md
             - Date Twig filters: templating/twig_function_reference/date_twig_filters.md
             - Field Twig functions: templating/twig_function_reference/field_twig_functions.md
+            - Icon Twig functions: templating/twig_function_reference/icon_twig_functions.md
             - Image Twig functions: templating/twig_function_reference/image_twig_functions.md
             - Product Twig functions: templating/twig_function_reference/product_twig_functions.md
             - Site context Twig functions: templating/twig_function_reference/site_context_twig_functions.md
@@ -300,7 +301,6 @@ nav:
             - URL Twig functions: templating/twig_function_reference/url_twig_functions.md
             - User Twig functions: templating/twig_function_reference/user_twig_functions.md
             - AI Twig functions: templating/twig_function_reference/ai_actions_twig_functions.md
-            - Other Twig filters: templating/twig_function_reference/other_twig_filters.md
         - URLs and routes:
             - URLs and routes: templating/urls_and_routes/urls_and_routes.md
             - Custom breadcrumbs: templating/urls_and_routes/custom_breadcrumbs.md
@@ -816,7 +816,6 @@ nav:
                 - 8. Update REST: update_and_migration/from_2.5/update_code/8_update_rest.md
                 - 9. Other code updates: update_and_migration/from_2.5/update_code/9_update_other.md
             - Update to v3.3: update_and_migration/from_2.5/to_3.3.md
-            - Update to latest v3.3: update_and_migration/from_3.3/update_from_3.3.md
         - Update from v3.3:
             - Update to v3.3.latest: update_and_migration/from_3.3/update_from_3.3.md
             - Update to v4.0: update_and_migration/from_3.3/to_4.0.md
@@ -934,7 +933,7 @@ extra:
   latest_tag_4_3: '4.3.5'
   latest_tag_4_4: '4.4.4'
   latest_tag_4_5: '4.5.7'
-  latest_tag_4_6: '4.6.16'
+  latest_tag_4_6: '4.6.17'
 
   symfony_doc: 'https://symfony.com/doc/5.x'
   user_doc: 'https://doc.ibexa.co/projects/userguide/en/master'

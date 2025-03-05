@@ -41,7 +41,7 @@ The following sequence of commands:
 4. Injects the schema and reindexes the content.
 
 ```bash
-ddev get ddev/ddev-elasticsearch
+ddev add-on get ddev/ddev-elasticsearch
 ddev config --web-environment-add SEARCH_ENGINE=elasticsearch
 ddev config --web-environment-add ELASTICSEARCH_DSN=http://elasticsearch:9200
 ddev restart
@@ -71,7 +71,7 @@ See [Elasticsearch REST API reference](https://www.elastic.co/guide/en/elasticse
 To simplify the installation of Solr, you can use the `ibexa/ddev-solr` add-on:
 
 ```bash
-ddev get ibexa/ddev-solr
+ddev add-on get ibexa/ddev-solr
 ddev restart
 ```
 
@@ -105,7 +105,7 @@ The following sequence of commands:
 1. Restarts the DDEV cluster and clears application cache.
 
 ```bash
-ddev get ddev/ddev-redis
+ddev add-on get ddev/ddev-redis
 ddev config --web-environment-add CACHE_POOL=cache.redis
 ddev config --web-environment-add CACHE_DSN=redis
 ddev config --web-environment-add SESSION_HANDLER_ID='Ibexa\\Bundle\\Core\\Session\\Handler\\NativeSessionHandler'
@@ -142,7 +142,7 @@ The following sequence of commands:
 1. Restarts the DDEV cluster and clears application cache.
 
 ```bash
-ddev get ddev/ddev-memcached
+ddev add-on get ddev/ddev-memcached
 ddev config --web-environment-add CACHE_POOL=cache.memcached
 ddev config --web-environment-add CACHE_DSN=memcached
 ddev config --web-environment-add SESSION_HANDLER_ID=app.session.handler.native_memcached
