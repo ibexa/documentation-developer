@@ -45856,6 +45856,46 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/Ibexa-Contracts-ProductCatalog-ViewMatcher-ProductTypeBased-IsProduct.html"
         },                {
+            "fqsen": "\\Ibexa\\Contracts\\ProductCatalogDateTimeAttribute\\Search\\Criterion\\DateTimeAttribute",
+            "name": "DateTimeAttribute",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-ProductCatalogDateTimeAttribute-Search-Criterion-DateTimeAttribute.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\ProductCatalogDateTimeAttribute\\Search\\Criterion\\DateTimeAttribute\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-ProductCatalogDateTimeAttribute-Search-Criterion-DateTimeAttribute.html#method___construct"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\ProductCatalogDateTimeAttribute\\Search\\Criterion\\DateTimeAttribute\u003A\u003AgetValue\u0028\u0029",
+            "name": "getValue",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-ProductCatalogDateTimeAttribute-Search-Criterion-DateTimeAttribute.html#method_getValue"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\ProductCatalogDateTimeAttribute\\Search\\Criterion\\DateTimeAttributeRange",
+            "name": "DateTimeAttributeRange",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-ProductCatalogDateTimeAttribute-Search-Criterion-DateTimeAttributeRange.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\ProductCatalogDateTimeAttribute\\Search\\Criterion\\DateTimeAttributeRange\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-ProductCatalogDateTimeAttribute-Search-Criterion-DateTimeAttributeRange.html#method___construct"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\ProductCatalogDateTimeAttribute\\Search\\Criterion\\DateTimeAttributeRange\u003A\u003AgetMin\u0028\u0029",
+            "name": "getMin",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-ProductCatalogDateTimeAttribute-Search-Criterion-DateTimeAttributeRange.html#method_getMin"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\ProductCatalogDateTimeAttribute\\Search\\Criterion\\DateTimeAttributeRange\u003A\u003AgetMax\u0028\u0029",
+            "name": "getMax",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-ProductCatalogDateTimeAttribute-Search-Criterion-DateTimeAttributeRange.html#method_getMax"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\ProductCatalogDateTimeAttribute\\Search\\Criterion\\DateTimeAttributeRange\u003A\u003AgetIdentifier\u0028\u0029",
+            "name": "getIdentifier",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-ProductCatalogDateTimeAttribute-Search-Criterion-DateTimeAttributeRange.html#method_getIdentifier"
+        },                {
             "fqsen": "\\Ibexa\\Contracts\\Rest\\Event\\BeforeParseEvent",
             "name": "BeforeParseEvent",
             "summary": "Event\u0020emitted\u0020before\u0020action\u0020execution.",
@@ -55070,6 +55110,21 @@ Search.appendIndex(
             "name": "ProductTypeBased",
             "summary": "",
             "url": "namespaces/ibexa-contracts-productcatalog-viewmatcher-producttypebased.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\ProductCatalogDateTimeAttribute\\Search\\Criterion",
+            "name": "Criterion",
+            "summary": "",
+            "url": "namespaces/ibexa-contracts-productcatalogdatetimeattribute-search-criterion.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\ProductCatalogDateTimeAttribute\\Search",
+            "name": "Search",
+            "summary": "",
+            "url": "namespaces/ibexa-contracts-productcatalogdatetimeattribute-search.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\ProductCatalogDateTimeAttribute",
+            "name": "ProductCatalogDateTimeAttribute",
+            "summary": "",
+            "url": "namespaces/ibexa-contracts-productcatalogdatetimeattribute.html"
         },                {
             "fqsen": "\\Ibexa\\Contracts\\Rest\\Event",
             "name": "Event",
