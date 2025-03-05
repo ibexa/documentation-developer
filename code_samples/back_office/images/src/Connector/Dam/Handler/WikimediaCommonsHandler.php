@@ -2,15 +2,15 @@
 
 namespace App\Connector\Dam\Handler;
 
-use Ibexa\Platform\Contracts\Connector\Dam\Asset;
-use Ibexa\Platform\Contracts\Connector\Dam\AssetCollection;
-use Ibexa\Platform\Contracts\Connector\Dam\AssetIdentifier;
-use Ibexa\Platform\Contracts\Connector\Dam\AssetMetadata;
-use Ibexa\Platform\Contracts\Connector\Dam\AssetSource;
-use Ibexa\Platform\Contracts\Connector\Dam\AssetUri;
-use Ibexa\Platform\Contracts\Connector\Dam\Handler\Handler as HandlerInterface;
-use Ibexa\Platform\Contracts\Connector\Dam\Search\AssetSearchResult;
-use Ibexa\Platform\Contracts\Connector\Dam\Search\Query;
+use Ibexa\Contracts\Connector\Dam\Asset;
+use Ibexa\Contracts\Connector\Dam\AssetCollection;
+use Ibexa\Contracts\Connector\Dam\AssetIdentifier;
+use Ibexa\Contracts\Connector\Dam\AssetMetadata;
+use Ibexa\Contracts\Connector\Dam\AssetSource;
+use Ibexa\Contracts\Connector\Dam\AssetUri;
+use Ibexa\Contracts\Connector\Dam\Handler\Handler as HandlerInterface;
+use Ibexa\Contracts\Connector\Dam\Search\AssetSearchResult;
+use Ibexa\Contracts\Connector\Dam\Search\Query;
 
 class WikimediaCommonsHandler implements HandlerInterface
 {

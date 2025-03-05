@@ -2,8 +2,8 @@
 
 namespace App\Connector\Dam\Transformation;
 
-use Ibexa\Platform\Contracts\Connector\Dam\Variation\Transformation;
-use Ibexa\Platform\Contracts\Connector\Dam\Variation\TransformationFactory as TransformationFactoryInterface;
+use Ibexa\Contracts\Connector\Dam\Variation\Transformation;
+use Ibexa\Contracts\Connector\Dam\Variation\TransformationFactory as TransformationFactoryInterface;
 
 class WikimediaCommonsTransformationFactory implements TransformationFactoryInterface
 {
