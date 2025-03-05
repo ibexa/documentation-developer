@@ -55,10 +55,10 @@ The constructor for this value object will initialize a new Value object with t
 
 Hash value of this Field Type is an array with two keys:
 
-|Key|Type| Description                                                                                                                                                    |Example|
-|------|------|----------------------------------------------------------------------------------------------------------------------------------------------------------------|------|
-|`timestamp`|`integer`| Time information in [unix format timestamp](https://en.wikipedia.org/wiki/Unix_time).                                                                          |`1400856992`|
-|`rfc850`|`string`| Time information as a string in [RFC 850 date format](https://datatracker.ietf.org/doc/html/rfc850). As input, this will have higher precedence over the timestamp value. |`"Friday, 23-May-14 14:56:14 GMT+0000"`|
+|Key|Type|Description|Example|
+|------|------|------|------|
+|`timestamp`|`integer`|Time information in [unix format timestamp](https://en.wikipedia.org/wiki/Unix_time).|`1400856992`|
+|`rfc850`|`string`|Time information as a string in [RFC 850 date format](https://datatracker.ietf.org/doc/html/rfc850). As input, this will have higher precedence over the timestamp value.|`"Friday, 23-May-14 14:56:14 GMT+0000"`|
 
 ``` php
 // Example of the hash value in PHP
