@@ -168,7 +168,7 @@ While configuring blocks that include Rich Text section, for example, Text block
 
 ![Distraction free mode](distraction_free_mode.png)
 
-For more information, see [Distraction free mode]([[= user_doc =]]/content_management/create_edit_content_items/#distraction-free-mode/).
+For more information, see [Distraction free mode]([[= user_doc =]]/content_management/create_edit_content_items/#distraction-free-mode).
 
 #### Schedule content
 
