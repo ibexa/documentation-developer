@@ -6,6 +6,8 @@ description: "Ibexa DXP releases new versions periodically in different flavors:
 
 ## Release process
 
+### Distributions
+
 [[= product_name =]] has three distributions:
 
 - [[= product_name_headless =]] is a multichannel and headless content management system.
@@ -16,6 +18,8 @@ Additionally, [[= product_name =]] also has an open-source version called [[= pr
 [[= product_name_oss =]] is developed by [[= product_name_base =]] together with the open source community.
 The [[= product_name_oss =]] code is available on GitHub under the GPLv2 license.
 It comes with no commercial support and maintenance services.
+
+### Long Term Support releases
 
 [[= product_name_base =]] manages the release of [[= product_name =]] by using an agile iterative process and a continuous software development model, which is why we provide Long Term Support releases (LTS) of [[= product_name =]] releases.
 
@@ -28,6 +32,8 @@ LTS releases provide you with:
 - **Long-term security**, as a result of updates and security patches.
 - **Predictability** that comes from following an established release plan.
 - **Reduced maintenance**, because you avoid the frequent upgrade cycles.
+
+### LTS Updates
 
 With LTS Updates customers can maintain their competitiveness by incorporating cutting-edge technologies into their LTS releases without losing stability.
 LTS Updates are intended to improve the current platform by providing new features.

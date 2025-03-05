@@ -22,6 +22,7 @@
         "ibexa/design-engine": "5.0.x-dev",
         "ibexa/user": "5.0.x-dev",
         "ibexa/notifications": "5.0.x-dev",
+        "ibexa/product-catalog-date-time-attribute": "5.0.x-dev",
         "ibexa/fieldtype-richtext": "5.0.x-dev",
         "ibexa/rector": "5.0.x-dev",
         "ibexa/rest": "5.0.x-dev",
