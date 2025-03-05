@@ -110,7 +110,7 @@ Then, in `config\services.yaml`, register the handler as a service:
 
 ### Create transformation factory
 
-The transformation factory transforms image variations coming from Wikimedia Commons to the ones used by [= product_name =].
+The transformation factory transforms image variations coming from Wikimedia Commons to the ones used by [[= product_name =]].
 
 In `src\Connector\Dam\Transformation` folder, create the `WikimediaCommonsTransformationFactory.php` file that resembles the following example:
 
@@ -134,7 +134,7 @@ For example, the handler generates the following URL with `new AssetUri()`:
 
 `https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Ibexa_Logo.svg`
 
-When the user requests a specific variation of the image, the variation generator modifies the URL and returns it in the following form:
+When the user requests a specific variation of the image, for example, "large", the variation generator modifies the URL and returns it in the following form:
 
 `https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Ibexa_Logo.svg&width=300`
 
@@ -146,7 +146,7 @@ For this to happen, register the variations generator as a service:
 
 ### Create Twig template for Admin UI
 
-The template deffines how images that come from Wikimedia Commons appear in the back office.
+The template defines how images that come from Wikimedia Commons appear in the back office.
 
 In `templates/bundles/WikimediaCommonsConnector/`, add the `commons_asset_view.html.twig` file that resembles the following example:
 
@@ -159,6 +159,10 @@ Then, register the template in configuration files:
 ```yaml
 [[= include_file('code_samples/back_office/images/config/packages/views.yaml') =]]
 ```
+
+!!! caution
+
+    As it overrides the parameter, make sure that you define the default template, too.
 
 ### Add Wikimedia Commons connection to DAM configuration
 
