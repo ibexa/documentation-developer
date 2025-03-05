@@ -114,3 +114,7 @@ def define_env(env):
             )
 
         return """<div class="%s col-%s">%s</div>""" % (style, columns, "\n".join(cards))
+
+    @env.macro
+    def version_to_anchor(version : str = '') -> str:
+        return version.replace('.', '')

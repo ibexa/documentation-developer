@@ -4,23 +4,34 @@ description: Ibexa DXP v4.6 brings improvements to Commerce, PIM and Personaliza
 
 <!-- vale VariablesVersion = NO -->
 
-# Ibexa DXP v4.6
+# Ibexa DXP v4.6 LTS
 
-**Version number**: v4.6
+[[% set version = 'v4.6.16' %]]
+## [[= product_name =]] [[= version =]]
+2025-01-16
 
-**Release date**: February 13, 2024
+[[% include 'snippets/release_46.md' %]]
 
-**Release type**: [LTS](https://support.ibexa.co/Public/service-life)
+[[% set version = 'v4.6.15' %]]
+## [[= product_name =]] [[= version =]]
+2024-12-13
 
-**Update**: [v4.5.x to v4.6](https://doc.ibexa.co/en/latest/update_and_migration/from_4.5/update_from_4.5/)
+[[% include 'snippets/release_46.md' %]]
 
+[[% set version = 'v4.6.14' %]]
+## [[= product_name =]] [[= version =]]
+2024-11-28
 
-## LTS Updates
+[[% include 'snippets/release_46.md' %]]
 
-LTS Updates are opt-in packages that bring cutting-edge technologies to an LTS release that they enhance, without compromising the product's stability.
-The features brought by an LTS Update become a standard part of the next LTS release.
+[[% set version = 'v4.6.13' %]]
+## [[= product_name =]] [[= version =]]
+2024-10-22
 
-### AI Actions
+[[% include 'snippets/release_46.md' %]]
+
+## AI Actions
+2024-08-04
 
 The AI Actions LTS update enhances the usability and flexibility of [[=product_name=]] v4.6 LTS by harnessing the potential of artificial intelligence to automate time-consuming editorial tasks.
 By default, the AI Actions feature can help users with their work in following scenarios:
@@ -32,15 +43,91 @@ By default, the AI Actions feature can help users with their work in following s
 
 For more information, see [AI Actions product guide](../ai_actions/ai_actions_guide.md).
 
-## Notable changes
+[[% set version = 'v4.6.12' %]]
+## [[= product_name =]] [[= version =]]
+2024-10-04
 
-### [[= product_name_headless =]]
+[[% include 'snippets/release_46.md' %]]
+
+[[% set version = 'v4.6.11' %]]
+## [[= product_name =]] [[= version =]]
+2024-09-16
+
+[[% include 'snippets/release_46.md' %]]
+
+[[% set version = 'v4.6.10' %]]
+## [[= product_name =]] [[= version =]]
+2024-08-14
+
+[[% include 'snippets/release_46.md' %]]
+
+[[% set version = 'v4.6.9' %]]
+## [[= product_name =]] [[= version =]]
+2024-07-31
+
+[[% include 'snippets/release_46.md' %]]
+
+[[% set version = 'v4.6.8' %]]
+## [[= product_name =]] [[= version =]]
+2024-07-11
+
+[[% include 'snippets/release_46.md' %]]
+
+[[% set version = 'v4.6.7' %]]
+## [[= product_name =]] [[= version =]]
+2024-06-10
+
+[[% include 'snippets/release_46.md' %]]
+
+[[% set version = 'v4.6.6' %]]
+## [[= product_name =]] [[= version =]]
+2024-05-17
+
+[[% include 'snippets/release_46.md' %]]
+
+[[% set version = 'v4.6.5' %]]
+## [[= product_name =]] [[= version =]]
+2024-05-14
+
+[[% include 'snippets/release_46.md' %]]
+
+[[% set version = 'v4.6.4' %]]
+## [[= product_name =]] [[= version =]]
+2024-05-13
+
+[[% include 'snippets/release_46.md' %]]
+
+[[% set version = 'v4.6.3' %]]
+## [[= product_name =]] [[= version =]]
+2024-04-11
+
+[[% include 'snippets/release_46.md' %]]
+
+[[% set version = 'v4.6.2' %]]
+## [[= product_name =]] [[= version =]]
+2024-03-20
+
+[[% include 'snippets/release_46.md' %]]
+
+[[% set version = 'v4.6.1' %]]
+## [[= product_name =]] [[= version =]]
+2024-02-28
+
+[[% include 'snippets/release_46.md' %]]
+
+[[% set version = 'v4.6.0' %]]
+## [[= product_name =]] [[= version =]]
+2024-02-13
+
+### Notable changes
+
+#### [[= product_name_headless =]]
 
 [[= product_name_content =]] changes name to [[= product_name_headless =]] to emphasize [[= product_name_base =]]'s capacity for headless architecture.
 
 The feature set and capabilities of the product remain the same.
 
-### Customizable dashboard [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
+#### Customizable dashboard [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
 
 Users can now customize the dashboard depending on their needs and preferences, select required blocks, and easily access important information.
 This solution uses an online editor - Dashboard Builder.
@@ -51,11 +138,11 @@ and helps to make better business decisions based on data.
 
 For more information, see [Customizable dashboard](https://doc.ibexa.co/projects/userguide/en/master/getting_started/dashboard/dashboard/#customizable-dashboard).
 
-### UX and UI improvements
+#### UX and UI improvements
 
 Several improvements to the back office interface enhance the user experience.
 
-#### Page Builder improvements [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
+##### Page Builder improvements [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
 
 Page Builder user interface has new functionalities and improvements.
 
@@ -74,7 +161,7 @@ Here are the most important changes:
 
 For more information, see [Page Builder interface](https://doc.ibexa.co/projects/userguide/en/master/content_management/create_edit_pages/#page-builder-interface).
 
-#### Editing embedded content items
+##### Editing embedded content items
 
 User can now edit embedded content items without leaving current window.
 This function is available in the Rich Text Field when creating content items, for selected blocks in the Page Builder,
@@ -84,7 +171,7 @@ and while adding or modifying a Content relation.
 
 For more information, see [Edit embedded content items](https://doc.ibexa.co/projects/userguide/en/master/content_management/create_edit_content_items/#edit-embedded-content-items).
 
-#### Focus mode
+##### Focus mode
 
 With multiple changes to the back office UI intended to expose the most important information and actions, editors can now better focus on their work.
 The UI is now more friendly and appealing for marketers and editors, with simplified Content structure, designed with new and non-advanced users in mind.
@@ -103,7 +190,7 @@ As part of this effort, some other changes were introduced that apply to both re
 
 ![Sub-items tab](img/4.6_sub_items_tab.png "Sub-items tab")
 
-#### Ability to change site context
+##### Ability to change site context
 
 With a drop-down list added to the top bar, which changes the site context, editors can choose that the content tree shows only those content items that belong to the selected website.
 And if content items belong to multiple websites but use different designs or languages depending on the SiteAccess settings, their previews also change.
@@ -112,7 +199,7 @@ As part of this effort, the name of the "Sites" area of the main menu has change
 
 ![Site context selector](img/4.6_site_selector.png "Site context selector")
 
-#### Distraction free mode
+##### Distraction free mode
 
 While editing Rich Text Fields, user can switch to distraction free mode.
 It expands the workspace to full screen and shows only editor toolbar.
@@ -121,20 +208,20 @@ It expands the workspace to full screen and shows only editor toolbar.
 
 For more information, see [Distraction free mode](https://doc.ibexa.co/projects/userguide/en/master/content_management/create_edit_content_items/#distraction-free-mode).
 
-#### Simplified user actions
+##### Simplified user actions
 
 Button text now precisely describes actions, so that users who create or edit content understand the purpose of each button.
 
 ![Improved button text](img/4.6_publishing_options.png "Improved button text")
 
-#### Draft section added to Content
+##### Draft section added to Content
 
 For streamlining purpose, the **Draft** section is now situated under **Content**.
 Users can now easily find and manage their drafts and published content from one area.
 
 ![Draft section added to Content](img/4.6_drafts.png "Draft section added to Content")
 
-#### User profile and new options in user settings
+##### User profile and new options in user settings
 
 With personal touch in mind, editors can now upload their photos (avatar), and provide the following information in their user profiles:
 
@@ -152,7 +239,7 @@ Also, editors and other users can customize their experience even better, with n
 
 For more information, see [user profile and settings documentation](https://doc.ibexa.co/projects/userguide/en/master/getting_started/get_started/#edit-user-profile).
 
-#### Recent activity log
+##### Recent activity log
 
 Several actions on the repository or the application are logged.
 In the back office, last activity logs can be listed on a dedicated interface (Admin -> Activity list),
@@ -162,9 +249,9 @@ on the dashboard within Recent activity block, or on the user profile.
 
 For more information, see feature's [User Documentation](https://doc.ibexa.co/projects/userguide/en/master/recent_activity/recent_activity/), and [Developer Documentation](https://doc.ibexa.co/en/master/administration/recent_activity/recent_activity/).
 
-#### Back office search
+##### Back office search
 
-##### Search bar, suggestions, autocompletion, and spellcheck
+###### Search bar, suggestions, autocompletion, and spellcheck
 
 The search bar can be focused with the shortcut Ctrl+/ (Windows, Linux) or Command+/ (Mac).
 
@@ -176,7 +263,7 @@ For example, if the searched text is "Comany", the result page may ask "Did you 
 
 For more information, see [User Documentation](https://doc.ibexa.co/projects/userguide/en/master/search/search_for_content/), and how to [customize autocompletion suggestions](https://doc.ibexa.co/en/master/administration/back_office/customize_search_suggestion/).
 
-##### Filtering and sorting
+###### Filtering and sorting
 
 The search result page can be sorted in other orders than relevance. Name, publication of modification dates, this can be extended.
 
@@ -184,22 +271,22 @@ Filters can be applied to the search page to narrow down the results.
 
 For more information, see [User Documentation](https://doc.ibexa.co/projects/userguide/en/master/search/search_for_content/#filtered-search), and how to [customize search sorting](https://doc.ibexa.co/en/master/administration/back_office/customize_search_sorting/).
 
-#### New and updated content type icons
+##### New and updated content type icons
 
 To help users quickly identify different content types in the back office, all content type references are now accompanied with icons.
 Also, content type icons have changed slightly.
 
 ![Content type icons](img/4.6_content_type_icons.png "Content type icons")
 
-### Ibexa Image picker
+#### Ibexa Image picker
 
 Editors can now use a Digital Asset Management platform that enables storing media assets in a central location, organizing, distributing, and sharing them across many channels.
 
 For more information, see [Ibexa DAM](https://doc.ibexa.co/projects/userguide/en/master/dam/ibexa_dam/).
 
-### New features and improvements in PIM
+#### New features and improvements in PIM
 
-#### Remote PIM support
+##### Remote PIM support
 
 This release introduces a foundation for connecting [[= product_name =]] to other sources of product data.
 You can use it to implement a custom solution and connect to external PIM or ERP systems, import product data, and present it side-by-side with your organization's existing content, while managing product data in a remote system of your choice.
@@ -222,14 +309,14 @@ Among other things, the Remote PIM support feature allows [[= product_name =]] c
 
 For more information about Remote PIM support and the solution's limitations, see [PIM product guide](https://doc.ibexa.co/en/master/pim/pim_guide/#limitations).
 
-#### Virtual products
+##### Virtual products
 
 With this feature, you can create virtual products - non-tangible items such as memberships, services, warranties.
 Default Checkout and Order workflows have been adjusted to allow purchase of virtual products.
 
 For more information, see [Create virtual products](https://doc.ibexa.co/projects/userguide/en/master/pim/create_virtual_product/).
 
-#### Product page URLs
+##### Product page URLs
 
 When you're creating a new product type, you can set up a product URL alias name pattern.
 With this feature, you can also create custom URL and URL alias name pattern field based on product attributes.
@@ -237,7 +324,7 @@ Customized URLs are easier to remember, help with SEO optimization and reduce bo
 
 For more information, see [Product page URLs](https://doc.ibexa.co/projects/userguide/en/master/pim/work_with_product_page_urls/).
 
-#### Improved UX of VAT rate assignment
+##### Improved UX of VAT rate assignment
 
 Users who are creating or editing a product type are less likely to forget about setting VAT rates, because they now have a more prominent place.
 
@@ -245,37 +332,37 @@ Users who are creating or editing a product type are less likely to forget about
 
 For more information, see [Create product types](https://doc.ibexa.co/projects/userguide/en/master/pim/create_product_types/).
 
-#### Updated VAT configuration
+##### Updated VAT configuration
 
 VAT rates configuration has been extended to accept additional flags under the `extras` key.
 Developers can use them, for example, to pass additional information to the UI, or define special exclusion rules.
 
 For more information, see [VAT rates](https://doc.ibexa.co/en/master/pim/pim_configuration/#vat-rates).
 
-#### Ability to search through products in a catalog
+##### Ability to search through products in a catalog
 
 When you're reviewing catalog details, on the **Products** tab, you can now see what criteria are used to include products in the catalog, and search for a specific product in the catalog.
 
-#### New Twig functions
+##### New Twig functions
 
 The `ibexa_is_pim_local` Twig helper has been introduced, which can be used in templates to [check whether product data comes from a local or remote data source](https://doc.ibexa.co/en/master/templating/twig_function_reference/storefront_twig_functions/#ibexa_is_pim_local), and adjust their behavior accordingly.
 Also, several new Twig functions have been implemented that help [get product availability information](https://doc.ibexa.co/en/master/templating/twig_function_reference/product_twig_functions/#ibexa_has_product_availability).
 
-#### New and modified query types
+##### New and modified query types
 
 The `ProductContentAwareListQueryType` has been created to allow finding products that come from a local database, while `ProductListQueryType` has been modified to find products from an external source of truth.
 
-#### New Search Criterion
+##### New Search Criterion
 
 With `IsVirtual` criterion that searches for virtual or physical products, product search now supports products of virtual and physical type.
 
-#### Product migration
+##### Product migration
 
 [Product variants](https://doc.ibexa.co/en/master/content_management/data_migration/importing_data/#product-variants) and [product assets](https://doc.ibexa.co/en/master/content_management/data_migration/importing_data/#product-assets) can now be created through [data migration](https://doc.ibexa.co/en/master/content_management/data_migration/data_migration/).
 
-###  New features and improvements in Commerce [[% include 'snippets/commerce_badge.md' %]]
+####  New features and improvements in Commerce [[% include 'snippets/commerce_badge.md' %]]
 
-#### Reorder
+##### Reorder
 
 With the new Reorder feature, customers can effortlessly repurchase previously bought items
 directly from their order history with a single click, eliminating the need for manual item selection.
@@ -284,14 +371,14 @@ This feature is exclusively accessible to logged-in users, ensuring a secure and
 
 For more information, see [reorder documentation](https://doc.ibexa.co/en/master/commerce/checkout/reorder/).
 
-#### Orders block
+##### Orders block
 
 Orders block displays a list of orders associated with a specific company or an individual customer.
 This block allows users to configure orders statuses, columns, number of orders, and sorting order.
 
 For more information, see [Orders block documentation](https://doc.ibexa.co/projects/userguide/en/master/content_management/block_reference/#orders-block).
 
-#### Quick order
+##### Quick order
 
 The quick order form allows users to streamline the process of placing orders
 with multiple items in bulk directly from the storefront.
@@ -304,17 +391,17 @@ Quick order form is available to both registered and guest users.
 
 For more information, see [Quick order documentation](https://doc.ibexa.co/en/master/commerce/cart/quick_order/).
 
-#### Cancel order
+##### Cancel order
 
 This version allows you to customize order cancellations by defining a specific order status and related transition.
 
 For more information, see [Define cancel order](https://doc.ibexa.co/en/master/commerce/order_management/configure_order_management/#define-cancel-order).
 
-#### Integrate with payment gateways
+##### Integrate with payment gateways
 
 [[= product_name =]] can now be configured to integrate with various payment gateways, like Stripe and PayPal, by using the solution provided by [Payum](https://github.com/Payum).
 
-#### Shipments
+##### Shipments
 
 Users can now work with the shipments: view and modify their status, filter shipments in shipment lists and check all the details.
 You can access shipments for your own orders or all the shipments that exist in the system, depending on your permissions.
@@ -323,14 +410,14 @@ You can access shipments for your own orders or all the shipments that exist in 
 
 For more information, see [Work with shipments](https://doc.ibexa.co/projects/userguide/en/master/commerce/shipping_management/work_with_shipments/).
 
-#### Owner criterion
+##### Owner criterion
 
 Orders and shipments search now supports user reference:
 
 - `OwnerCriterion` Criterion searches for orders based on the user reference.
 - `Owner` Criterion searches for shipments based on the user reference.
 
-#### Customize checkout workflow
+##### Customize checkout workflow
 
 You can create a PHP definition of the new strategy that allows for workflow manipulation.
 Defining strategy allows to add conditional steps for workflow if needed.
@@ -338,13 +425,13 @@ When a conditional step is added, the checkout process uses the specified workfl
 
 For more information, see [Create custom strategy](https://doc.ibexa.co/en/master/commerce/checkout/customize_checkout/#create-custom-strategy).
 
-#### Manage multiple checkout workflows
+##### Manage multiple checkout workflows
 
 When working with multiple checkout workflows, you can now specify the desired workflow by passing its name as an argument to the checkout initiation button or link.
 
 For more information, see [Manage multiple workflows](https://doc.ibexa.co/en/master/commerce/checkout/customize_checkout/#manage-multiple-workflows).
 
-#### Adding context data to cart
+##### Adding context data to cart
 
 Attach context data to both the Cart and its individual Cart Entries.
 This feature enhances the flexibility and customization of your e-commerce application,
@@ -354,9 +441,9 @@ you can tailor the shopping experience for your customers and enhance the capabi
 
 For more information, see [Adding context data](https://doc.ibexa.co/en/master/commerce/cart/cart_api/#adding-context-data).
 
-### New features and improvements in Personalization
+#### New features and improvements in Personalization
 
-#### Triggers
+##### Triggers
 
 Triggers are push messages delivered to end users.
 With triggers, store managers can increase the engagement of their visitors and customers by delivering recommendations straight to their devices or mailboxes.
@@ -373,27 +460,27 @@ The feature requires that your organization exposes an endpoint that passes data
 
 For more information, see [Email triggers](https://doc.ibexa.co/projects/userguide/en/master/personalization/triggers/).
 
-#### Multiple attributes in recommendation computation
+##### Multiple attributes in recommendation computation
 
 With this feature, you get an option to combine several attribute types when computing recommendations.
 As a result, users can be presented with recommendations from an intersection of submodel results.
 
 For more information, see [Submodel parameters](https://doc.ibexa.co/en/master/personalization/api_reference/recommendation_api/#submodel-parameters) and [Submodels](https://doc.ibexa.co/projects/userguide/en/latest/personalization/recommendation_models/#submodels).
 
-#### New scenario filter
+##### New scenario filter
 
 Depending on a setting that you make when defining a scenario, the recommendation response can now include either product variants or base products only.
 This way you can deliver more accurate recommendations and avoid showing multiple variants of the same product to the client.
 
 For more information, see [Commerce-specific filters](https://doc.ibexa.co/projects/userguide/en/latest/personalization/filters/#commerce-specific-filters).
 
-## Other changes
+### Other changes
 
-### Expression Language
+#### Expression Language
 
 New `project_dir()` expression language function that allows you to reference current project directory in YAML migration files.
 
-### Site Factory events
+#### Site Factory events
 
 Site Factory events have been moved from the `Ibexa\SiteFactory\ServiceEvent\Events` namespace to the `Ibexa\Contracts\SiteFactory\Events` namespace, keeping the backward compatibility.
 For a full list of events, see [Site events](https://doc.ibexa.co/en/latest/api/event_reference/site_events/).
@@ -401,26 +488,26 @@ For a full list of events, see [Site events](https://doc.ibexa.co/en/latest/api/
 Event handling system was improved with the addition of listeners based on `CreateSiteEvent`, `DeleteSiteEvent`, and `UpdateSiteEvent`.
 New listeners automatically grant permissions to log in to a site, providing a more seamless site management experience.
 
-### Integration with Actito
+#### Integration with Actito
 
 By using the Actito gateway you can send emails to the end-users about changes in the status of various operations in your commerce presence.
 
-### Integration with Qualifio Engage
+#### Integration with Qualifio Engage
 
 Use Qualifio Engage integration to create engaging marketing experiences to your customers.
 
-### Integration with SeenThis!
+#### Integration with SeenThis!
 
 Unlike conventional streaming services, integration with SeenThis! service provides an adaptive streaming technology with no limitations.
 It allows you to preserve the best video quality with a minimum amount of data transfer.
 
 For more information, see [SeenThis! block](https://doc.ibexa.co/projects/userguide/en/master/content_management/block_reference/#seenthis-block).
 
-### API improvements
+#### API improvements
 
-#### REST API
+##### REST API
 
-##### REST API for shipping [[% include 'snippets/commerce_badge.md' %]]
+###### REST API for shipping [[% include 'snippets/commerce_badge.md' %]]
 
 Endpoints that allow you to manage shipping methods and shipments by using REST API:
 
@@ -433,13 +520,13 @@ Endpoints that allow you to manage shipping methods and shipments by using REST 
 - GET `/shipping/method-types/{identifier}` - loads shipping methods type based on their identifiers
 - GET `/orders/order/{identifier}/shipments` - loads a list of shipments
 
-##### REST API for company accounts [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
+###### REST API for company accounts [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
 
 Endpoints that allow you to manage companies in your platform with REST API:
 
 - GET `/sales-representatives` - returns paginated list of available sales representatives
 
-##### REST API for prices
+###### REST API for prices
 
 Endpoints that allow you to manage prices in your platform with REST API:
 
@@ -450,7 +537,7 @@ Endpoints that allow you to manage prices in your platform with REST API:
 - PATCH `/product/catalog/products/{code}/prices/{id}` - updates price or custom price for a given product
 - DELETE `/product/catalog/products/{code}/prices/{id}` - deletes price for a given product
 
-##### New method signature
+###### New method signature
 
 A signature for the `\Ibexa\Contracts\Rest\Output\Generator::startValueElement` method has been updated to the following:
 
@@ -464,15 +551,15 @@ A signature for the `\Ibexa\Contracts\Rest\Output\Generator::startValueElement` 
 
 Any third party code that extends `\Ibexa\Contracts\Rest\Output\Generator` needs to update the method signature accordingly.
 
-### Helpers
+#### Helpers
 
 A new helper method `ibexa.helpers.contentType.getContentTypeDataByHref` has been introduced to help you get content type data in JavaScript.
 
-### [[= product_name_connect =]]
+#### [[= product_name_connect =]]
 
 For a list of changes in [[= product_name_connect =]], see [Ibexa app release notes](https://doc.ibexa.co/projects/connect/en/latest/general/ibexa_app_release_notes/).
 
-#### Scenario block
+##### Scenario block
 
 New [[= product_name_connect =]] scenario block retrieves and displays data from an [[= product_name_connect =]] webhook.
 Scenario block is a regular Page block and can be configured on field definition level as any other block.
@@ -480,22 +567,22 @@ You also need to configure scenario block in the Page Builder. To do it, you nee
 
 For more information, see [[[= product_name_connect =]] scenario block](https://doc.ibexa.co/en/master/content_management/pages/ibexa_connect_scenario_block/).
 
-### DDEV
+#### DDEV
 
 [[[= product_name =]] can officially be run on DDEV](https://ddev.readthedocs.io/en/latest/users/quickstart/#ibexa-dxp).
 
 For more information, see the [DDEV guide](https://doc.ibexa.co/en/master/getting_started/install_with_ddev/), which offers a step-by-step walkthrough for installing [[= product_name =]].
 
-### Customer Data Platform (CDP)
+#### Customer Data Platform (CDP)
 
 In this release, the CDP configuration allows you to automate the process of exporting data.
 Users can now export not only Content, but also Users and Products data.
 
 For more information, see [CDP Activation](https://doc.ibexa.co/en/master/cdp/cdp_activation/cdp_activation/).
 
-## Developer experience
+### Developer experience
 
-### New packages 
+#### New packages 
 
 The following packages has been introduced in [[= product_name =]] v4.6.0:
 
@@ -516,7 +603,7 @@ The following packages has been introduced in [[= product_name =]] v4.6.0:
 
     The ibexa/content package has been renamed to ibexa/headless.
 
-### REST APIs
+#### REST APIs
 
 [[= product_name =]] v4.6.0 adds REST API coverage for the following features:
 
@@ -526,7 +613,7 @@ The following packages has been introduced in [[= product_name =]] v4.6.0:
 - Activity Log
 - UDW configuration (internal)
 
-#### Endpoints list
+##### Endpoints list
 
 The following endpoints have been added in 4.6.0 release (27 endpoints in total):
 
@@ -560,7 +647,7 @@ The following endpoints have been added in 4.6.0 release (27 endpoints in total)
 | `ibexa.shipping.rest.shipment.create`                                    | POST      | ANY | ANY | `/api/ibexa/v2/orders/order/{orderIdentifier}/shipments`                                                              |
 | `ibexa.shipping.rest.shipment.update`                                    | PATCH     | ANY | ANY | `/api/ibexa/v2/shipments/{shipmentIdentifier}`                                                                        |
 
-### PHP API
+#### PHP API
 
 - Autosave API (`\Ibexa\Contracts\AdminUi\Autosave\AutosaveServiceInterface`)
 - Activity Log API
@@ -572,7 +659,7 @@ The following endpoints have been added in 4.6.0 release (27 endpoints in total)
 - ContentAware API (`\Ibexa\Contracts\Core\Repository\Values\Content\ContentAwareInterface`)
 - Sorting Definition API (`\Ibexa\Contracts\Search\SortingDefinition`)
 
-### Search Criteria
+#### Search Criteria
 
 Content
 
@@ -590,11 +677,11 @@ Product
 - `\Ibexa\Contracts\ProductCatalog\Values\Product\Query\Criterion\IsVirtual`
 - `ProductStock` and `ProductStockRange`
 
-### Sort Clauses
+#### Sort Clauses
 
 - `\Ibexa\Contracts\ProductCatalog\Values\Product\Query\SortClause\ProductStock`
 
-### Aggregations
+#### Aggregations
 
 - Aggregation API for product catalog
 - Labeled ranges
@@ -607,7 +694,7 @@ Product
     - `\Ibexa\Contracts\Core\Repository\Values\Content\Search\AggregationResult\TermAggregationResult::getKeys`
     - `\Ibexa\Contracts\Core\Repository\Values\Content\Search\AggregationResult\RangeAggregationResult::getKeys`
 
-### Events
+#### Events
 
 The following events have been added in the v4.6.0 release (39 events in total):
 
@@ -663,7 +750,7 @@ The following events have been added in the v4.6.0 release (39 events in total):
     - `\Ibexa\Contracts\SiteFactory\Events\DeleteSiteEvent`
     - `\Ibexa\Contracts\SiteFactory\Events\UpdateSiteEvent`
 
-### Twig functions
+#### Twig functions
 
 - `ibexa_is_user_profile_available`
 - `ibexa_is_focus_mode_on`
@@ -681,7 +768,7 @@ The following events have been added in the v4.6.0 release (39 events in total):
 - `ibexa_taxonomy_entries_for_content`
 - `ibexa_url` / `ibexa_path` (support for content wrappers)
 
-### View matchers
+#### View matchers
 
 The following view matchers have been introduced in [[= product_name =]] v4.6.0:
 
@@ -691,7 +778,7 @@ The following view matchers have been introduced in [[= product_name =]] v4.6.0:
 - `\Ibexa\Taxonomy\View\Matcher\TaxonomyEntryBased\Level`
 - `\Ibexa\Taxonomy\View\Matcher\TaxonomyEntryBased\Taxonomy`
 
-## Full changelog
+### Full changelog
 
 | [[= product_name_headless =]] | [[= product_name_exp =]] | [[= product_name_com =]] |
 |---------------|------------------|---------------|
