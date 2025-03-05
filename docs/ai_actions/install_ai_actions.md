@@ -68,7 +68,7 @@ Run the following command, where `<database_name>` is the same name that you def
 
 This command modifies the existing database schema by adding database configuration required for using AI Actions.
 
-You can now restart you application and start [working with the AI Actions feature]([[= user_doc =]]/ai_actions/work_with_ai_actions//).
+You can now restart you application and start [working with the AI Actions feature]([[= user_doc =]]/ai_actions/work_with_ai_actions/).
 
 ### Install sample AI action configurations (optional)
 

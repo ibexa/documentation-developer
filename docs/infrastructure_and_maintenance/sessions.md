@@ -130,7 +130,7 @@ If you want to make sure sessions survive Redis or server restarts, consider usi
 
 For setups where database is preferred for storing sessions, you may use Symfony's PdoSessionHandler, although it's not currently recommended from performance perspective.
 
-Below is a configuration example for [[= product_name =]]. Refer to the [Symfony Cookbook]([[= symfony_doc =]]/doctrine/pdo_session_storage.html) for full documentation.
+Below is a configuration example for [[= product_name =]]. Refer to the [Symfony Cookbook]([[= symfony_doc =]]/session.html#session-database-pdo) for full documentation.
 
 ``` yaml
 framework:

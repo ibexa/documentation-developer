@@ -50,5 +50,5 @@ so that the system can identify which of your workflows handles the payment proc
 
 ## Configure payment methods
 
-You can define payment methods [in the UI]([[= user_doc =]]/commerce/payment/configure_payment_method/).
+You can define payment methods [in the UI]([[= user_doc =]]/commerce/payment/work_with_payment_methods/).
 There is only one default payment method type available: `offline`, but you can configure more by [integrating with Payum](payum_integration.md), or [add custom ones](extend_payment.md).

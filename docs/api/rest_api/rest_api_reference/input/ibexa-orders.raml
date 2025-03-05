@@ -32,6 +32,13 @@ displayName: Orders
     get:
         displayName: Load orders
         description: Loads a list of orders.
+        queryParameters:
+            offset:
+                description: The offset of the result set.
+                type: integer
+            limit:
+                description: The number of orders returned.
+                type: integer
         headers:
             Accept:
                 description: OrderList - If set, the orders list returned in XML or JSON format.
