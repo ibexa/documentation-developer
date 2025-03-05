@@ -1,0 +1,33 @@
+{
+    "ActionConfiguration": {
+        "_media-type": "application/vnd.ibexa.api.ai.ActionConfiguration+json",
+        "identifier": "gen_alt_text",
+        "name": "Generate alternative text",
+        "description": "",
+        "enabled": true,
+        "ActionType": {
+            "_media-type": "application/vnd.ibexa.api.ai.ActionType+json",
+            "identifier": "generate_alt_text",
+            "name": "Generate alternative text",
+            "inputIdentifier": "image",
+            "outputIdentifier": "text",
+            "options": {
+                "width": 512,
+                "height": 512,
+                "image_quality": 85
+            }
+        },
+        "actionTypeOptions": {
+            "max_length": 140
+        },
+        "actionHandlerIdentifier": "openai-image-to-text",
+        "actionHandlerOptions": {
+            "max_tokens": 4000,
+            "temperature": 1,
+            "prompt": "",
+            "model": "gpt-4-turbo"
+        },
+        "createdAt": "2025-02-06T13:20:24+00:00",
+        "updatedAt": "2025-02-06T13:20:24+00:00"
+    }
+}
