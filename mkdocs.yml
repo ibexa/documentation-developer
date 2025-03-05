@@ -418,6 +418,7 @@ nav:
             - Languages: multisite/languages/languages.md
             - Language API: multisite/languages/language_api.md
             - Back office translations: multisite/languages/back_office_translations.md
+            - Automated content translation: multisite/languages/automated_translations.md
     - Permissions:
         - Permissions: permissions/permissions.md
         - Permission overview: permissions/permission_overview.md
