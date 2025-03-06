@@ -1,0 +1,124 @@
+.release-notes-filters__visible-items {
+  display: flex;
+}
+.release-notes-filters__visible-item {
+  padding: 4px 24px 4px 8px;
+  margin-left: 8px;
+  background-color: #ECECF1;
+  border-radius: 16px;
+  font-size: 12px;
+  line-height: 1.5;
+  position: relative;
+}
+.release-notes-filters__visible-item--hidden {
+  display: none;
+}
+.release-notes-filters__visible-item-remove {
+  display: inherit;
+  position: absolute;
+  top: 50%;
+  right: 5px;
+  width: 16px;
+  height: 16px;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+.release-notes-filters__visible-item-remove::before, .release-notes-filters__visible-item-remove::after {
+  content: "";
+  width: 1px;
+  height: 12px;
+  background: #131C26;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+}
+.release-notes-filters__visible-item-remove::before {
+  transform: translate(50%, -50%) rotate(-45deg);
+}
+.release-notes-filters__visible-item-remove::after {
+  transform: translate(50%, -50%) rotate(45deg);
+}
+
+.release-note {
+  position: relative;
+  font-size: 14px;
+  line-height: 1.5;
+  padding-left: 24px;
+  padding-bottom: 48px;
+}
+.release-note__tags {
+  display: flex;
+  padding-bottom: 4px;
+}
+.release-note__tag {
+  font-size: 12px;
+  padding: 1px 8px;
+  border: 1px solid;
+  margin-right: 8px;
+}
+.release-note__tag--headless {
+  color: #C4234A;
+  border-color: #C4234A;
+}
+.release-note__tag--experience {
+  color: #D3822B;
+  border-color: #D3822B;
+}
+.release-note__tag--commerce {
+  color: #A32768;
+  border-color: #A32768;
+}
+.release-note__tag--lts-update {
+  color: #5DA7C0;
+  border-color: #5DA7C0;
+}
+.release-note__tag--new-feature {
+  color: #2C9445;
+  border-color: #2C9445;
+}
+.release-note__date {
+  color: #71767C;
+  margin-bottom: 24px;
+}
+.release-note h2 {
+  font-size: 22px;
+  line-height: 1.5;
+  margin: 0;
+}
+.release-note p {
+  margin: 0 0 12px;
+}
+.release-note p:last-child {
+  margin-bottom: 0;
+}
+.release-note p:empty {
+  display: none;
+}
+.release-note::before {
+  display: block;
+  content: "";
+  position: absolute;
+  z-index: 1;
+  left: 0;
+  top: 40px;
+  width: 9px;
+  height: 9px;
+  border: 1px solid #A32768;
+  border-radius: 50%;
+}
+.release-note::after {
+  display: block;
+  content: "";
+  position: absolute;
+  z-index: 0;
+  top: 48px;
+  left: 4px;
+  width: 1px;
+  height: calc(100% - 8px);
+  background-color: #E0E0E8;
+}
+.release-note--hidden {
+  display: none;
+}
+
+/*# sourceMappingURL=release-notes.css.map */

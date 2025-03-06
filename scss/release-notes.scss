@@ -1,0 +1,137 @@
+@use 'variables';
+
+.release-notes-filters {
+    &__visible-items {
+        display: flex;
+    }
+
+    &__visible-item {
+        padding: 4px 24px 4px 8px;
+        margin-left: 8px;
+        background-color: variables.$color-light-400;
+        border-radius: 16px;
+        font-size: 12px;
+        line-height: 1.5;
+        position: relative;
+
+        &--hidden {
+            display: none;
+        }
+    }
+    &__visible-item-remove {
+        display: inherit;
+        position: absolute;
+        top: 50%;
+        right: 5px;
+        width: 16px;
+        height: 16px;
+        transform: translateY(-50%);
+        cursor: pointer;
+
+        &::before,
+        &::after {
+            content: '';
+            width: 1px;
+            height: 12px;
+            background: variables.$color-dark-main;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+        }
+
+        &::before {
+            transform: translate(50%, -50%) rotate(-45deg);
+        }
+
+        &::after {
+            transform: translate(50%, -50%) rotate(45deg);
+        }
+    }
+}
+
+.release-note {
+    position: relative;
+    font-size: 14px;
+    line-height: 1.5;
+    padding-left: 24px;
+    padding-bottom: 48px;
+
+    &__tags {
+        display: flex;
+        padding-bottom: 4px;
+    }
+
+    &__tag {
+        font-size: 12px;
+        padding: 1px 8px;
+        border: 1px solid;
+        margin-right: 8px;
+
+        $types:
+            'headless' variables.$color-error-main,
+            'experience' variables.$color-warning-dark-01,
+            'commerce' variables.$color-primary-main,
+            'lts-update' variables.$color-info-main,
+            'new-feature' variables.$color-success-main;
+
+        
+        @each $name, $color in $types {
+            &--#{$name} {
+                color: $color;
+                border-color: $color;
+            }
+        }
+    }
+
+    &__date {
+        color: variables.$color-dark-400;
+        margin-bottom: 24px;
+    }
+
+    h2 {
+        font-size: 22px;
+        line-height: 1.5;
+        margin: 0;
+    }
+
+    p {
+        margin: 0 0 12px;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    
+        &:empty {
+            display: none;
+        }
+    }
+
+    &::before {
+        display: block;
+        content: '';
+        position: absolute;
+        z-index: 1;
+        left: 0;
+        top: 40px;
+        width: 9px;
+        height: 9px;
+        border: 1px solid variables.$color-primary-main;
+        border-radius: 50%;
+    }
+
+    &::after {
+        display: block;
+        content: '';
+        position: absolute;
+        z-index: 0;
+        top: 48px;
+        left: 4px;
+        width: 1px;
+        height: calc(100% - 8px);
+        background-color: variables.$color-light-main;
+    }
+
+    &--hidden {
+        display: none;
+    }
+}
