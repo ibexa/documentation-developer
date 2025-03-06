@@ -4,70 +4,80 @@ description: Ibexa DXP v4.6 brings improvements to Commerce, PIM and Personaliza
 
 <!-- vale VariablesVersion = NO -->
 
-<div class="release-notes-header" markdown="1">
-# Ibexa DXP v4.6 LTS
-<div class="release-notes-filters">
-    <div class="release-notes-filters__visible-items">
-        <div 
-            class="release-notes-filters__visible-item release-notes-filters__visible-item--hidden" 
-            data-filter="filter-headless"
-        >
-            Headless
-            <button type="button" class="release-notes-filters__visible-item-remove"></button>
+<div class="release-notes-header">
+    <h1>Ibexa DXP v4.6 LTS</h1>
+    <div class="release-notes-filters">
+        <div class="release-notes-filters__visible-items">
+            <div 
+                class="release-notes-filters__visible-item release-notes-filters__visible-item--hidden" 
+                data-filter="filter-headless"
+            >
+                Headless
+                <button type="button" class="release-notes-filters__visible-item-remove"></button>
+            </div>
+            <div 
+                class="release-notes-filters__visible-item release-notes-filters__visible-item--hidden" 
+                data-filter="filter-experience"
+            >
+                Experience
+                <button type="button" class="release-notes-filters__visible-item-remove"></button>
+            </div>
+            <div 
+                class="release-notes-filters__visible-item release-notes-filters__visible-item--hidden" 
+                data-filter="filter-commerce"
+            >
+                Commerce
+                <button type="button" class="release-notes-filters__visible-item-remove"></button>
+            </div>
+            <div 
+                class="release-notes-filters__visible-item release-notes-filters__visible-item--hidden" 
+                data-filter="filter-lts-update"
+            >
+                LTS Update
+                <button type="button" class="release-notes-filters__visible-item-remove"></button>
+            </div>
+            <div 
+                class="release-notes-filters__visible-item release-notes-filters__visible-item--hidden" 
+                data-filter="filter-new-feature"
+            >
+                New feature
+                <button type="button" class="release-notes-filters__visible-item-remove"></button>
+            </div>
         </div>
-        <div 
-            class="release-notes-filters__visible-item release-notes-filters__visible-item--hidden" 
-            data-filter="filter-experience"
-        >
-            Experience
-            <button type="button" class="release-notes-filters__visible-item-remove"></button>
-        </div>
-        <div 
-            class="release-notes-filters__visible-item release-notes-filters__visible-item--hidden" 
-            data-filter="filter-commerce"
-        >
-            Commerce
-            <button type="button" class="release-notes-filters__visible-item-remove"></button>
-        </div>
-        <div 
-            class="release-notes-filters__visible-item release-notes-filters__visible-item--hidden" 
-            data-filter="filter-lts-update"
-        >
-            LTS Update
-            <button type="button" class="release-notes-filters__visible-item-remove"></button>
-        </div>
-        <div 
-            class="release-notes-filters__visible-item release-notes-filters__visible-item--hidden" 
-            data-filter="filter-new-feature"
-        >
-            New feature
-            <button type="button" class="release-notes-filters__visible-item-remove"></button>
-        </div>
-    </div>
-    <div class="release-notes-filters__items">
-        <div class="release-notes-filters__item">
-            <input type="checkbox" id="filter-headless" />
-            <label for="filter-headless">Headless</label>
-        </div>
-        <div class="release-notes-filters__item">
-            <input type="checkbox" id="filter-experience" />
-            <label for="filter-experience">Experience</label>
-        </div>
-        <div class="release-notes-filters__item">
-            <input type="checkbox" id="filter-commerce" />
-            <label for="filter-commerce">Commerce</label>
-        </div>
-        <div class="release-notes-filters__item">
-            <input type="checkbox" id="filter-lts-update" />
-            <label for="filter-lts-update">LTS Update</label>
-        </div>
-        <div class="release-notes-filters__item">
-            <input type="checkbox" id="filter-new-feature" />
-            <label for="filter-new-feature">New feature</label>
+        <div class="release-notes-filters__widget">
+            <button type="button" class="release-notes-filters__btn">
+                <span class="release-notes-filters__btn-icon">
+                    <svg width="16" height="16"><use xlink:href="../../images/icons.svg#filters" /></svg>
+                </span>
+                Filters
+            </button>
+            <div class="release-notes-filters__items">
+                <div class="release-notes-filters__item">
+                    <input type="checkbox" id="filter-headless" />
+                    <label for="filter-headless">Headless</label>
+                </div>
+                <div class="release-notes-filters__item">
+                    <input type="checkbox" id="filter-experience" />
+                    <label for="filter-experience">Experience</label>
+                </div>
+                <div class="release-notes-filters__item">
+                    <input type="checkbox" id="filter-commerce" />
+                    <label for="filter-commerce">Commerce</label>
+                </div>
+                <div class="release-notes-filters__item">
+                    <input type="checkbox" id="filter-lts-update" />
+                    <label for="filter-lts-update">LTS Update</label>
+                </div>
+                <div class="release-notes-filters__item">
+                    <input type="checkbox" id="filter-new-feature" />
+                    <label for="filter-new-feature">New feature</label>
+                </div>
+            </div>
         </div>
     </div>
 </div>
-</div>
+
+<div class="release-notes" markdown="1">
 
 <div class="release-note" markdown="1">
 <div class="release-note__tags">

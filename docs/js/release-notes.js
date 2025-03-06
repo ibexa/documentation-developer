@@ -1,13 +1,16 @@
 (function (global, doc) {
-    const filtersWidget = doc.querySelector('.release-notes-filters');
+    const filtersContainer = doc.querySelector('.release-notes-filters');
 
-    if (!filtersWidget) {
+    if (!filtersContainer) {
         return;
     }
 
-    const filterItemsContainer = filtersWidget.querySelector('.release-notes-filters__items');
+    const filterItemsWidget = filtersContainer.querySelector('.release-notes-filters__widget');
+    const filterItemsBtn = filterItemsWidget.querySelector('.release-notes-filters__btn');
+    const filterItemsBtnIcon = filterItemsBtn.querySelector('.release-notes-filters__btn-icon');
+    const filterItemsContainer = filterItemsWidget.querySelector('.release-notes-filters__items');
     const filterItems = filterItemsContainer.querySelectorAll('.release-notes-filters__item input[type="checkbox"]');
-    const visibleItemsContainer = filtersWidget.querySelector('.release-notes-filters__visible-items');
+    const visibleItemsContainer = filtersContainer.querySelector('.release-notes-filters__visible-items');
     const visibleItems = visibleItemsContainer.querySelectorAll('.release-notes-filters__visible-item');
     const releaseNotesNodes = doc.querySelectorAll('.release-note');
     const releaseNotesItems = [...releaseNotesNodes].map((releaseNotesNode) => {
@@ -18,6 +21,27 @@
             node: releaseNotesNode,
             tags: tagsItems,
         };
+    });
+    const handleClickOutside = ({ target }) => {
+        if (filterItemsWidget.contains(target)) {
+            return;
+        }
+
+        filterItemsWidget.classList.toggle('release-notes-filters__widget--expanded', false);
+        removeClickOutsideEventListener();
+
+        // hideAutocomplete();
+    };
+    const addClickOutsideEventListener = () => {
+        doc.body.addEventListener('click', handleClickOutside, false);
+    };
+    const removeClickOutsideEventListener = () => {
+        doc.body.removeEventListener('click', handleClickOutside, false);
+    };
+
+    filterItemsBtn.addEventListener('click', () => {
+        filterItemsWidget.classList.toggle('release-notes-filters__widget--expanded');
+        addClickOutsideEventListener();
     });
 
     filterItems.forEach((filterItem) => {
@@ -34,6 +58,7 @@
 
                 visibleItem.classList.toggle('release-notes-filters__visible-item--hidden', !isVisible);
             });
+            filterItemsBtnIcon.classList.toggle('release-notes-filters__btn-icon--selected', checkedItems.length > 0);
         }, false);
     });
 
@@ -46,6 +71,6 @@
 
             itemCheckbox.click();
         });
-    })
+    });
 
 })(window, window.document);
