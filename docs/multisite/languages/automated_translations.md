@@ -5,7 +5,7 @@ description: With the automated translation add-on, users can translate content 
 # Automated content translation
 
 With the automated translation add-on package, users can translate their content items into multiple languages automatically by using either Google Translate or DeepL external translation engine.
-The package integrates with [[= product_name =]], and allows users to [request from the UI]([[= user_doc =]]/content_management/translate_content.md#add-translations) that a content item is translated.
+The package integrates with [[= product_name =]], and allows users to [request from the UI]([[= user_doc =]]/content_management/translate_content/#add-translations) that a content item is translated.
 However, you can also run a Console Command to translate a specific content item.
 Either way, as a result, a new version of the content item is created.
 
@@ -90,7 +90,7 @@ By default, the automated translation package can connect to Google Translate or
 You would do it, for example, when a new service emerges on the market, or your company requires that a specific service is used.
 
 The following example adds a new translation service.
-It uses the [AI actions framework](ai_actions_md) and assumes a custom `TranslateAction` AI Action exists.
+It uses the [AI actions framework](ai_actions.md) and assumes a custom `TranslateAction` AI Action exists.
 To learn how to build custom AI actions see [Extending AI actions](extend_ai_actions.md#custom-action-type-use-case).
 
 1. Create a service that implements the [`\Ibexa\AutomatedTranslation\Client\ClientInterface`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-AutomatedTranslation-Client-ClientInterface.html) interface:
