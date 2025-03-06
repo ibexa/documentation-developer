@@ -126,9 +126,7 @@ footer.md-footer {
     margin: 0;
 }
 
-.md-content .ais-InstantSearch .ais-Pagination .ais-Pagination-link,
-.md-content .ais-InstantSearch .ais-Pagination .ais-Pagination-link:focus {
-    background-color: transparent;
+.md-content .ais-InstantSearch .ais-Pagination .ais-Pagination-link {
     border: none;
     font-size: 14px;
     line-height: 21px;
