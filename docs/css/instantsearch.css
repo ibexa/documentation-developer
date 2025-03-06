@@ -130,7 +130,9 @@ footer.md-footer {
     display: none;
 }
 
-.md-content .ais-InstantSearch .ais-Pagination .ais-Pagination-link {
+.md-content .ais-InstantSearch .ais-Pagination .ais-Pagination-link,
+.md-content .ais-InstantSearch .ais-Pagination .ais-Pagination-link:focus {
+    background-color: transparent;
     border: none;
     font-size: 14px;
     line-height: 21px;
