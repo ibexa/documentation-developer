@@ -126,6 +126,10 @@ footer.md-footer {
     margin: 0;
 }
 
+.md-content .ais-InstantSearch .ais-Pagination .ais-Pagination-list .ais-Pagination-item--lastPage {
+    display: none;
+}
+
 .md-content .ais-InstantSearch .ais-Pagination .ais-Pagination-link {
     border: none;
     font-size: 14px;
