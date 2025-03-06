@@ -16,7 +16,7 @@ The following field types are supported out of the box:
 - [RichText](richtextfield.md)
 - [Page](pagefield.md): the content of `text` and `richtext` [block attributes](page_block_attributes.md#block-attribute-types)
 
-See [adding a custom field or block attribute encoder](##add-a-custom-field-encoder) for more information on how you can extend this list.
+See [adding a custom field or block attribute encoder](#create-custom-field-or-block-attribute-encoder) for more information on how you can extend this list.
 
 ## Configure automated content translation
 
