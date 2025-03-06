@@ -120,7 +120,7 @@ body {
   text-decoration: none; }
 
 .md-typeset .front-page .notification {
-  background-color: #f3f3f6;
+  background: linear-gradient(to bottom, #e5e8f1, #ddd3e1);
   border-radius: 12px;
   color: #131c26;
   font-size: 12px;
@@ -128,7 +128,7 @@ body {
   margin: 30px 40px 40px 0;
   position: relative; }
   .md-typeset .front-page .notification__content {
-    padding-right: 260px;
+    padding-right: 200px;
     padding-bottom: 32px; }
     .md-typeset .front-page .notification__content h2 {
       margin: 0 0 14px; }
@@ -145,13 +145,29 @@ body {
     padding: 15px 16px;
     border-radius: 12px;
     font-size: 14px; }
+    .md-typeset .front-page .notification__cta__secondary a {
+      display: inline-block;
+      background: #FFF;
+      color: #ae1164;
+      text-decoration: none;
+      padding: 15px 16px;
+      border-color: red;
+      border-radius: 12px;
+      border-color: #000;
+      border-width: 2px;
+      font-size: 14px; }
+      a.button__secondary {
+        height: 1000px;
+        border-color: #000;
+        font-size: 100px;
+      }
   .md-typeset .front-page .notification__image {
     position: absolute;
     right: -40px;
-    top: -30px;
+    top: 0px;
     height: 272px; }
     .md-typeset .front-page .notification__image img {
-      height: 275px; }
+      height: 224px; }
 
 .md-typeset .front-page .accordion {
   border: 1px solid #ececf1;

@@ -6,7 +6,7 @@
             <h1>Ibexa Developer Documentation</h1>
             <h2>How to start?</h2>
         </div>
-        <div class="col-12 col-lg-6 col-fhd-3">
+        <div class="col-12 col-lg-3">
             <a class="info-tile" href="getting_started/requirements/">
                 <div class="info-tile__circle" style="background-color: #fff7ec;">
                     <svg width="20" height="25"><use xlink:href="images/icons.svg#check-requirements" /></svg>
@@ -22,7 +22,7 @@
                 </div>
             </a>
         </div>
-        <div class="col-12 col-lg-6 col-fhd-3">
+        <div class="col-12 col-lg-3">
             <a class="info-tile" href="getting_started/install_ibexa_dxp/">
                 <div class="info-tile__circle" style="background-color: #f6e7ef;">
                     <svg width="25" height="25"><use xlink:href="images/icons.svg#install-dxp" /></svg>
@@ -38,7 +38,7 @@
                 </div>
             </a>
         </div>
-        <div class="col-12 col-lg-6 col-fhd-3">
+        <div class="col-12 col-lg-3">
             <a class="info-tile" href="ibexa_cloud/install_on_ibexa_cloud/">
                 <div class="info-tile__circle" style="background-color: #ecf8fb;">
                     <svg width="25" height="18"><use xlink:href="images/icons.svg#install-cloud" /></svg>
@@ -54,7 +54,7 @@
                 </div>
             </a>
         </div>
-        <div class="col-12 col-lg-6 col-fhd-3">
+        <div class="col-12 col-lg-3">
             <a class="info-tile" href="getting_started/first_steps/">
                 <div class="info-tile__circle" style="background-color: #f3f3f6;">
                     <svg width="25" height="24"><use xlink:href="images/icons.svg#first-steps" /></svg>
@@ -72,20 +72,36 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-12">
+        <div class="col-6">
             <div class="notification" id="tile2">
                 <div class="notification__content">
-                    <h2>The latest release is v4.6</h2>
-                    <div>The <a href="release_notes/ibexa_dxp_v4.6/">latest version of Ibexa DXP is v4.6</a>. You can now update your application to the latest version.</div>
-                    <div>The newest LTS Update to Ibexa DXP v4.6 is <a href="release_notes/ibexa_dxp_v4.6/#ai-actions">AI Actions</a>. Install it to let AI help you with editorial tasks.</div>
+                    <h2>The latest release is [[= latest_tag_4_6 =]]</h2>
+                    <div>The <a href="release_notes/ibexa_dxp_v4.6/">latest version of Ibexa DXP is [[= latest_tag_4_6 =]]</a>. You can now update your application to the latest version.</div>
                 </div>
                 <div class="notification__cta">
-                    <a href="update_and_migration/from_4.5/update_from_4.5/">Update your application</a>
+                    <a href="update_and_migration/from_4.5/update_from_4.5/">Release notes</a>
                 </div>
                 <div class="notification__image">
-                    <img src="images/notification-image.png" alt="The latest release" />
+                    <img src="images/image1.png" alt="" />
                 </div>
             </div>
+        </div>
+        <div class="col-6">
+            <div class="notification border border-light" id="tile3">
+                <div class="notification__content">
+                    <h2>The newest LTS Update is AI Actions</h2>
+                    <div>Install it to let AI help you with editorial tasks.</div>
+                </div>
+                <div class="notification__cta__secondary">
+                <div class="btn-group" role="group">
+                    <a href="onet.pl">More about AI Actions</a>
+                    <a href="onet.pl">LTS Updates list</a>
+                </div>
+                <div class="notification__image">
+                    <img src="images/notification-image.png" alt="" />
+                </div>
+                </div>
+        </div>
         </div>
         <div class="col-12">
             <div class="accordion">
