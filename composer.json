@@ -61,6 +61,7 @@
         "ibexa/checkout": "5.0.x-dev",
         "ibexa/elasticsearch": "5.0.x-dev",
         "ibexa/oauth2-client": "5.0.x-dev",
+        "ibexa/oauth2-server": "5.0.x-dev",
         "ibexa/form-builder": "5.0.x-dev",
         "ibexa/solr": "5.0.x-dev",
         "ibexa/version-comparison": "5.0.x-dev",
