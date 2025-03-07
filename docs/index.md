@@ -72,18 +72,30 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-12">
-            <div class="notification" id="tile2">
+        <div class="col-12 notifications">
+            <div class="notification notification--latest-release" id="tile2">
                 <div class="notification__content">
-                    <h2>The latest release is v4.6</h2>
-                    <div>The <a href="release_notes/ibexa_dxp_v4.6/">latest version of Ibexa DXP is v4.6</a>. You can now update your application to the latest version.</div>
-                    <div>The newest LTS Update to Ibexa DXP v4.6 is <a href="release_notes/ibexa_dxp_v4.6/#ai-actions">AI Actions</a>. Install it to let AI help you with editorial tasks.</div>
+                    <h2>The latest release is [[= latest_tag_4_6 =]]</h2>
+                    <div>The <a href="release_notes/ibexa_dxp_v4.6/">latest version of Ibexa DXP is [[= latest_tag_4_6 =]]</a>. You can now update your application to the latest version.</div>
                 </div>
                 <div class="notification__cta">
-                    <a href="update_and_migration/from_4.5/update_from_4.5/">Update your application</a>
+                    <a href="release_notes/ibexa_dxp_v4.6/">Release notes</a>
                 </div>
                 <div class="notification__image">
-                    <img src="images/notification-image.png" alt="The latest release" />
+                    <img src="images/notification-latest-release.svg" alt="The latest release" />
+                </div>
+            </div>
+            <div class="notification notification--lts-update" id="tile3">
+                <div class="notification__content">
+                    <h2>The newest LTS Update to Ibexa DXP v4.6 is AI Actions</h2>
+                    <div>Install it to let AI help you with editorial tasks. </div>
+                </div>
+                <div class="notification__cta">
+                    <a href="release_notes/ibexa_dxp_v4.6/">More about AI Actions</a>
+                    <a href="release_notes/ibexa_dxp_v4.6/">LTS Updates List</a>
+                </div>
+                <div class="notification__image">
+                    <img src="images/notification-lts-update.svg" alt="LTS Update" />
                 </div>
             </div>
         </div>

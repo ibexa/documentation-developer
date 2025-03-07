@@ -1,8 +1,21 @@
+.release-notes-header h1 {
+  font-size: 24px;
+}
+
+.release-notes h2 {
+  font-size: 20px;
+}
+
 .release-notes-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   border-bottom: 1px solid #DCDDDE;
+  padding: 8px 0;
+}
+.release-notes-header h1 {
+  line-height: 1.5;
+  margin: 0;
 }
 
 .release-notes {
@@ -170,7 +183,7 @@
 }
 .release-note__tags {
   display: flex;
-  padding-bottom: 4px;
+  padding: 4px 0 8px;
 }
 .release-note__tag {
   font-size: 12px;
@@ -203,7 +216,6 @@
   margin-bottom: 24px;
 }
 .release-note h2 {
-  font-size: 22px;
   line-height: 1.5;
   margin: 0;
 }
@@ -219,7 +231,7 @@
   position: absolute;
   z-index: 1;
   left: 0;
-  top: 40px;
+  top: 11px;
   width: 9px;
   height: 9px;
   border: 1px solid #A32768;
@@ -230,7 +242,7 @@
   content: "";
   position: absolute;
   z-index: 0;
-  top: 48px;
+  top: 19px;
   left: 4px;
   width: 1px;
   height: calc(100% - 8px);
@@ -240,7 +252,7 @@
   padding-bottom: 0;
 }
 .release-note:last-of-type::after {
-  height: calc(100% - 48px);
+  height: calc(100% - 19px);
 }
 .release-note--hidden {
   display: none;

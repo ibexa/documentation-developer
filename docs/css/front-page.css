@@ -137,21 +137,32 @@ body {
   box-shadow: 0px 22px 24px 0px rgba(174, 17, 100, 0.1);
   text-decoration: none;
 }
+.md-typeset .front-page .notifications {
+  display: flex;
+  gap: 24px;
+  margin: 30px 0 40px;
+}
 .md-typeset .front-page .notification {
-  background-color: #f3f3f6;
   border-radius: 12px;
   color: #131c26;
   font-size: 12px;
   padding: 32px;
-  margin: 30px 40px 40px 0;
   position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: space-between;
+  flex: 1 1 0;
 }
 .md-typeset .front-page .notification__content {
-  padding-right: 260px;
   padding-bottom: 32px;
+  position: relative;
+  z-index: 1;
+  height: 100%;
 }
 .md-typeset .front-page .notification__content h2 {
-  margin: 0 0 14px;
+  margin: 0 0 8px;
+  line-height: 1.5;
 }
 .md-typeset .front-page .notification__content a {
   color: #131c26;
@@ -160,23 +171,48 @@ body {
 .md-typeset .front-page .notification__content a:hover {
   color: #3474cc;
 }
+.md-typeset .front-page .notification__cta {
+  position: relative;
+  z-index: 1;
+  flex-shrink: 0;
+}
 .md-typeset .front-page .notification__cta a {
   display: inline-block;
-  background: linear-gradient(to right, #db0032 0%, #ae1164 100%);
-  color: #ffffff;
   text-decoration: none;
   padding: 15px 16px;
   border-radius: 12px;
   font-size: 14px;
+  color: #ae1164;
+}
+.md-typeset .front-page .notification__cta a + a {
+  margin-left: 8px;
 }
 .md-typeset .front-page .notification__image {
   position: absolute;
-  right: -40px;
-  top: -30px;
-  height: 272px;
+  right: 0;
+  top: 0;
+  height: 100%;
+  z-index: 0;
 }
 .md-typeset .front-page .notification__image img {
-  height: 275px;
+  height: 100%;
+}
+.md-typeset .front-page .notification--latest-release {
+  background-image: url("../images/background-gradient.svg");
+  background-size: cover;
+}
+.md-typeset .front-page .notification--latest-release .notification__content {
+  padding-right: 260px;
+}
+.md-typeset .front-page .notification--latest-release .notification__cta a {
+  background: linear-gradient(to right, #db0032 0%, #ae1164 100%);
+  color: #ffffff;
+}
+.md-typeset .front-page .notification--lts-update {
+  border: 2px solid #e0e0e8;
+}
+.md-typeset .front-page .notification--lts-update .notification__cta a:first-child {
+  border: 1px solid #ae1164;
 }
 .md-typeset .front-page .accordion {
   border: 1px solid #ececf1;

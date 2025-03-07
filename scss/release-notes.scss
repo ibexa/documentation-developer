@@ -1,10 +1,26 @@
 @use 'variables';
 
+// TODO: remove after changing header font sizes globally
+.release-notes-header h1 {
+    font-size: variables.$h1-font-size;
+}
+
+.release-notes h2 {
+    font-size: variables.$h2-font-size;
+}
+// END
+
 .release-notes-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     border-bottom: 1px solid variables.$color-dark-85-white;
+    padding: 8px 0;
+
+    h1 {
+        line-height: 1.5;
+        margin: 0;
+    }
 }
 
 .release-notes {
@@ -208,7 +224,7 @@
 
     &__tags {
         display: flex;
-        padding-bottom: 4px;
+        padding: 4px 0 8px;
     }
 
     &__tag {
@@ -239,7 +255,6 @@
     }
 
     h2 {
-        font-size: 22px;
         line-height: 1.5;
         margin: 0;
     }
@@ -258,7 +273,7 @@
         position: absolute;
         z-index: 1;
         left: 0;
-        top: 40px;
+        top: 11px;
         width: 9px;
         height: 9px;
         border: 1px solid variables.$color-primary-main;
@@ -270,7 +285,7 @@
         content: '';
         position: absolute;
         z-index: 0;
-        top: 48px;
+        top: 19px;
         left: 4px;
         width: 1px;
         height: calc(100% - 8px);
@@ -280,7 +295,7 @@
     &:last-of-type {
         padding-bottom: 0;
         &::after {
-            height: calc(100% - 48px);
+            height: calc(100% - 19px);
         }
     }
 
