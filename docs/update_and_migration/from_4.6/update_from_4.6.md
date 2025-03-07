@@ -273,3 +273,7 @@ There are no additional update steps to execute.
 
 This release upgrades the requirements for [Twig to v3.19](https://github.com/twigphp/Twig/security/advisories/GHSA-3xg3-cgvq-2xwr) and [PHPSpreadsheet to v1.29.9](https://github.com/PHPOffice/PhpSpreadsheet/security), resolving several vulnerabilities of varying severity in those dependencies.
 There are no additional update steps to execute.
+
+## v4.6.18
+
+No additional steps needed.
