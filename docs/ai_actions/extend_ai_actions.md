@@ -13,6 +13,8 @@ For example, you can create a handler that connects to a translation model and u
 
 You can execute AI Actions by using the [ActionServiceInterface](../api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorAi-ActionServiceInterface.html) service, as in the following example:
 
+You can execute AI Actions by using the [ActionServiceInterface](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorAi-ActionServiceInterface.html) service, as in the following example:
+
 ``` php
 [[= include_file('code_samples/ai_actions/src/Command/AddMissingAltTextCommand.php', 102, 121) =]]
 ```
