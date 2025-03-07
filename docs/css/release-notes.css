@@ -19,7 +19,7 @@
 }
 
 .release-notes {
-  margin-top: 48px;
+  margin-top: 24px;
 }
 .release-notes p:empty {
   display: none;
@@ -90,6 +90,12 @@
   align-items: center;
   height: 24px;
 }
+.release-notes-filters__btn:hover {
+  color: #A32768;
+}
+.release-notes-filters__btn:hover svg {
+  fill: #A32768;
+}
 .release-notes-filters__btn-icon {
   position: relative;
   display: inline-flex;
@@ -116,14 +122,15 @@
   z-index: 10;
   bottom: 0;
   left: 50%;
+  padding: 8px;
   transform: translate(-50%, 100%);
   border: 1px solid #DCDDDE;
   background-color: #FFFFFF;
-  border-radius: 4px;
+  border-radius: 8px;
   display: none;
 }
 .release-notes-filters__item {
-  padding: 12px;
+  padding: 8px;
   white-space: nowrap;
 }
 .release-notes-filters__item label {
@@ -170,16 +177,13 @@
 .release-notes-filters__item input[type=checkbox]:checked::after {
   border-color: #FFFFFF;
 }
-.release-notes-filters__item + .release-notes-filters__item {
-  padding: 4px 12px 12px;
-}
 
 .release-note {
   position: relative;
   font-size: 14px;
   line-height: 1.5;
   padding-left: 24px;
-  padding-bottom: 48px;
+  padding-bottom: 36px;
 }
 .release-note__tags {
   display: flex;
