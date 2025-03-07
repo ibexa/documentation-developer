@@ -417,6 +417,11 @@ Finally, remove the temporary file:
 
 `rm ezp_cron.txt`
 
+### Configure recent activity log
+
+Actions in a repository are logged in its database,
+you may want to [limit this log length by setting its automatic truncation](recent_activity.md#configuration-and-cronjob).
+
 ### Enable the Link manager
 
 To make use of the [Link Manager](url_management.md#enabling-automatic-url-validation).
