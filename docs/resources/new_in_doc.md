@@ -7,6 +7,9 @@ month_change: true
 
 This page contains recent highlights and notable changes in [[= product_name =]] documentation.
 
+## February 2025
+
+
 ## January 2025
 
 ### Trainings
