@@ -1,0 +1,8 @@
+{% extends '@ibexadesign/ui/field_type/image_asset_view.html.twig' %}
+
+{% block asset_preview %}
+    {{ parent() }}
+    <div>
+        <a href="{{ asset.assetMetadata.page_url }}">Image</a> by {{ asset.assetMetadata.author }} under 
+        <a href="{{ asset.assetMetadata.license_url }}">{{ asset.assetMetadata.license }}</a>.    </div>
+{% endblock %}
