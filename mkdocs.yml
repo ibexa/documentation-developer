@@ -6,8 +6,12 @@ site_url: https://doc.ibexa.co/en/latest/
 copyright: "Copyright 1999-2024 Ibexa AS and others"
 validation:
     links:
+        # omitted_files: warn # TODO: Remove docs/personalization/legacy_recommendation_api.md
         absolute_links: relative_to_docs
         unrecognized_links: warn
+not_in_nav: |
+    search_results.md
+    /snippets/*
 nav:
     - Ibexa Developer Documentation: index.md
     - Ibexa DXP editions:
