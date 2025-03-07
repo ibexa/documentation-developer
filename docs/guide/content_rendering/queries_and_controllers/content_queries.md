@@ -8,7 +8,7 @@ With content queries you can find and render specific content according to crite
 
 You can use queries to list or embed Content items, such as:
 
-- [children in a folder](../embed_and_list_content/list_content.md#children-query-type)
+- [children in a folder](../embed_and_list_content/list_content.md#list-children-with-query-type)
 - related articles
 - [most recent blog posts](custom_query_type.md)
 - recommended products
