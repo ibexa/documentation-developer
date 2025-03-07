@@ -17,17 +17,17 @@ It accepts optional query parameters:
 - `version`: The content version number that the file is downloaded for. Requires the `content / read` permission for a published version and additionally `content / versionread` permission for an unpublished version. If not specified, uses the published version.
 - `inLanguage`: The language the file should be downloaded in. If not specified, the most prioritized language for the SiteAccess is used.
 
-The [`ibexa_render_field`](../content_rendering/twig_function_reference/field_twig_functions.md#ibexa_render_field) Twig helper by default generates a working link.
+The [`ez_render_field`](field_twig_functions.md#ez_render_field) Twig helper by default generates a working link.
 
 ## Download link generation
 
 To generate a direct download link for the `File` Field Type you have to create
-a [RouteReference](../content_rendering/urls_and_routes.md#routereference) with the `ibexa_route` helper, passing `content` and `File` Field identifier as parameters.
+a [RouteReference](../content_rendering/urls_and_routes.md#routereference) with the `ez_route` helper, passing `content` and `File` Field identifier as parameters.
 Optional parameter `inLanguage` may be used to specify File content translation.
 
 ```html+twig
-{% set routeReference = ibexa_route( 'ibexa.content.download', {'content': content, 'fieldIdentifier': 'file', 'inLanguage': content.prioritizedFieldLanguageCode  } ) %}
-<a href="{{ ibexa_path( routeReference ) }}">Download</a>
+{% set routeReference = ez_route( 'ez_content_download', {'content': content, 'fieldIdentifier': 'file', 'inLanguage': content.prioritizedFieldLanguageCode  } ) %}
+<a href="{{ ez_path( routeReference ) }}">Download</a>
 ```
 
 ## REST API: `uri` property

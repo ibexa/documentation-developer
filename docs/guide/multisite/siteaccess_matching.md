@@ -60,7 +60,7 @@ The matching configuration is passed to `setMatchingConfiguration()`.
 - [`Map\Host`](#maphost)
 - [`Map\URI`](#mapuri)
 - [`Map\Port`](#mapport)
-- [`EzSystems\EzPlatformSiteFactory\SiteAccessMatcher`](#siteaccessmatcher)
+- [`EzSystems\EzPlatformSiteFactory\SiteAccessMatcher`](#ezsystemsezplatformsitefactorysiteaccessmatcher)
 
 ### `URIElement`
 
