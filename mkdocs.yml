@@ -9,6 +9,7 @@ validation:
         # omitted_files: warn # TODO: Remove docs/personalization/legacy_recommendation_api.md
         absolute_links: relative_to_docs
         unrecognized_links: warn
+        # anchors: warn # TODO: Fix IBX-9578
 not_in_nav: |
     search_results.md
     /snippets/*
