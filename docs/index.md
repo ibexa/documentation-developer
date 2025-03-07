@@ -71,8 +71,8 @@
             </a>
         </div>
     </div>
-    <div class="row">
-        <div class="col-12 notifications">
+    <div class="row notifications">
+        <div class="col-12 col-lg-6">
             <div class="notification notification--latest-release" id="tile2">
                 <div class="notification__content">
                     <h2>The latest release is [[= latest_tag_4_6 =]]</h2>
@@ -85,6 +85,8 @@
                     <img src="images/notification-latest-release.svg" alt="The latest release" />
                 </div>
             </div>
+        </div>
+        <div class="col-12 col-lg-6">
             <div class="notification notification--lts-update" id="tile3">
                 <div class="notification__content">
                     <h2>The newest LTS Update to Ibexa DXP v4.6 is AI Actions</h2>
@@ -99,6 +101,8 @@
                 </div>
             </div>
         </div>
+    </div>
+    <div class="row">
         <div class="col-12">
             <div class="accordion">
                 <details>
