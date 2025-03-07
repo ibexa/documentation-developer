@@ -25,7 +25,7 @@ The possibilities are endless and you're not limited to a specific AI service, a
 
 ## Availability
 
-AI Actions are an opt-in capability available as an [LTS update](ibexa_dxp_v4.6.md#lts-updates) to the v4.6.x version of [[= product_name =]], regardless of its edition.
+AI Actions are an opt-in capability available as an [LTS update](ibexa_dxp_v4.6.md#lts-updates) starting with the v4.6.12 version of [[= product_name =]], regardless of its edition.
 To begin using AI Actions, you must first [install the required packages and perform initial configuration](install_ai_actions.md).
 
 !!! note "API Key"
