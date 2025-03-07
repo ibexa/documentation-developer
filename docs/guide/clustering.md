@@ -56,7 +56,7 @@ On [[= product_name_cloud =]] (and Platform.sh) Redis is preferred and supported
 
 ### Shared binary files
 
-[[= product_name =]] supports multi-server setups by means of [custom IO handlers](file_management.md#dfs-io-handler).
+[[= product_name =]] supports multi-server setups by means of [custom IO handlers](file_management.md#dfs-cluster-handler).
 They make sure that files are correctly synchronized among the multiple clients using the data.
 
 ## DFS IO handler
