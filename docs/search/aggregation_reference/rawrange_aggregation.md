@@ -4,7 +4,7 @@ description: RawRangeAggregation
 
 # RawRangeAggregation
 
-The [RawRangeAggregation](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Aggregation-RawRangeAggregation.html) aggregates search results by the value of the selected search index field.
+The [RawRangeAggregation](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Aggregation-RawRangeAggregation.html) aggregates search results by the value of the selected search index field.
 
 ## Arguments
 
