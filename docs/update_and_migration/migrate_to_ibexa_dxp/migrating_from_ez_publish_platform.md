@@ -497,7 +497,7 @@ For date-based publisher and Form Builder, there are additional tables, you can 
 
 ### Varnish *(optional)*
 
-If you use Varnish, the recommended Varnish (4 or higher) VCL configuration can be found in the [Using Varnish](reverse_proxy.md#configure-varnish-or-fastly) page.
+If you use Varnish, the recommended Varnish (4 or higher) VCL configuration can be found in the [Using Varnish](reverse_proxy.md#configure-varnish-and-fastly) page.
 
 ### Web server configuration
 
