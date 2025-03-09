@@ -4,6 +4,9 @@ site_name: Developer Documentation
 repo_url: https://github.com/ibexa/documentation-developer
 site_url: https://doc.ibexa.co/en/latest/
 copyright: "Copyright 1999-2024 Ibexa AS and others"
+validation:
+    links:
+        absolute_links: relative_to_docs
 nav:
     - 'Ibexa Developer Documentation': 'index.md'
     - Getting started:
