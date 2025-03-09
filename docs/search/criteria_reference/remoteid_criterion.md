@@ -4,7 +4,7 @@ description: RemoteId / ContentRemoteId Search Criterion
 
 # RemoteId / ContentRemoteId Criterion
 
-The [`RemoteId` / `ContentRemoteId` Search Criterion](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Criterion-RemoteId.html)
+The [`RemoteId` / `ContentRemoteId` Search Criterion](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Criterion-RemoteId.html)
 searches for content based on its remote content ID.
 
 ## Arguments

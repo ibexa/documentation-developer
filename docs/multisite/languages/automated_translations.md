@@ -93,7 +93,7 @@ The following example adds a new translation service.
 It uses the [AI actions framework](ai_actions.md) and assumes a custom `TranslateAction` AI Action exists.
 To learn how to build custom AI actions see [Extending AI actions](extend_ai_actions.md#custom-action-type-use-case).
 
-1. Create a service that implements the [`\Ibexa\AutomatedTranslation\Client\ClientInterface`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-AutomatedTranslation-Client-ClientInterface.html) interface:
+1. Create a service that implements the [`\Ibexa\AutomatedTranslation\Client\ClientInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-AutomatedTranslation-Client-ClientInterface.html) interface:
 
 ``` php hl_lines="35-52"
 [[= include_file('code_samples/multisite/automated_translation/src/AutomatedTranslation/AiClient.php') =]]
@@ -123,7 +123,7 @@ The whole automated translation process consists of 3 phases:
 
 The following example adds support for automatically translating alternative text in image fields.
 
-1. Create a class implementing the [`FieldEncoderInterface`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-AutomatedTranslation-Encoder-Field-FieldEncoderInterface.html) and add the required methods:
+1. Create a class implementing the [`FieldEncoderInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-AutomatedTranslation-Encoder-Field-FieldEncoderInterface.html) and add the required methods:
 
 ``` php hl_lines="11-14 16-19 21-27 33-38"
 [[= include_file('code_samples/multisite/automated_translation/src/AutomatedTranslation/ImageFieldEncoder.php') =]]
@@ -142,4 +142,4 @@ If you're not using [Symfony's autoconfiguration]([[= symfony_doc =]]/service_co
 [[= include_file('code_samples/multisite/automated_translation/config/services.yaml', 19, 22) =]]
 ```
 
-For custom block attributes, the appropriate interface is [`BlockAttributeEncoderInterface`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-AutomatedTranslation-Encoder-BlockAttribute-BlockAttributeEncoderInterface.html) and the service tag is `ibexa.automated_translation.block_attribute_encoder`.
+For custom block attributes, the appropriate interface is [`BlockAttributeEncoderInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-AutomatedTranslation-Encoder-BlockAttribute-BlockAttributeEncoderInterface.html) and the service tag is `ibexa.automated_translation.block_attribute_encoder`.

@@ -6,7 +6,7 @@ page_type: reference
 # Search in trash reference
 
 When you [search for content items that are held in trash](search_api.md#searching-in-trash), you can apply only a limited subset of Search Criteria and Sort Clauses
-which can be used by [`Ibexa\Contracts\Core\Repository\TrashService::findTrashItems`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-TrashService.html#method_findTrashItems).
+which can be used by [`Ibexa\Contracts\Core\Repository\TrashService::findTrashItems`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-TrashService.html#method_findTrashItems).
 Some sort clauses are exclusive to trash search.
 
 ## Search Criteria
