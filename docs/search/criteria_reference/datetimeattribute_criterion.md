@@ -4,7 +4,7 @@ description: DateTimeAttribute Criterion
 
 # DateTimeAttribute criterion
 
-The [`DateTimeAttribute Search Criterion`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalogDateTimeAttribute-Search-Criterion-DateTimeAttribute.html) searches for products by value of a specified attribute, based on the [date and time attribute](date_and_time.md) type.
+The [`DateTimeAttribute Search Criterion`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalogDateTimeAttribute-Search-Criterion-DateTimeAttribute.html) searches for products by value of a specified attribute, based on the [date and time attribute](date_and_time.md) type.
 
 ## Arguments
 
@@ -15,12 +15,12 @@ The [`DateTimeAttribute Search Criterion`](../../api/php_api/php_api_reference/c
 
 The following operators are supported:
 
-- [FieldValueCriterion::COMPARISON_EQ](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-CoreSearch-Values-Query-Criterion-FieldValueCriterion.html#constant_COMPARISON_EQ)
-- [FieldValueCriterion::COMPARISON_NEQ](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-CoreSearch-Values-Query-Criterion-FieldValueCriterion.html#constant_COMPARISON_NEQ)
-- [FieldValueCriterion::COMPARISON_LT](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-CoreSearch-Values-Query-Criterion-FieldValueCriterion.html#constant_COMPARISON_LT)
-- [FieldValueCriterion::COMPARISON_LTE](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-CoreSearch-Values-Query-Criterion-FieldValueCriterion.html#constant_COMPARISON_LTE)
-- [FieldValueCriterion::COMPARISON_GT](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-CoreSearch-Values-Query-Criterion-FieldValueCriterion.html#constant_COMPARISON_GT)
-- [FieldValueCriterion::COMPARISON_GTE](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-CoreSearch-Values-Query-Criterion-FieldValueCriterion.html#constant_COMPARISON_GTE)
+- [FieldValueCriterion::COMPARISON_EQ](/api/php_api/php_api_reference/classes/Ibexa-Contracts-CoreSearch-Values-Query-Criterion-FieldValueCriterion.html#constant_COMPARISON_EQ)
+- [FieldValueCriterion::COMPARISON_NEQ](/api/php_api/php_api_reference/classes/Ibexa-Contracts-CoreSearch-Values-Query-Criterion-FieldValueCriterion.html#constant_COMPARISON_NEQ)
+- [FieldValueCriterion::COMPARISON_LT](/api/php_api/php_api_reference/classes/Ibexa-Contracts-CoreSearch-Values-Query-Criterion-FieldValueCriterion.html#constant_COMPARISON_LT)
+- [FieldValueCriterion::COMPARISON_LTE](/api/php_api/php_api_reference/classes/Ibexa-Contracts-CoreSearch-Values-Query-Criterion-FieldValueCriterion.html#constant_COMPARISON_LTE)
+- [FieldValueCriterion::COMPARISON_GT](/api/php_api/php_api_reference/classes/Ibexa-Contracts-CoreSearch-Values-Query-Criterion-FieldValueCriterion.html#constant_COMPARISON_GT)
+- [FieldValueCriterion::COMPARISON_GTE](/api/php_api/php_api_reference/classes/Ibexa-Contracts-CoreSearch-Values-Query-Criterion-FieldValueCriterion.html#constant_COMPARISON_GTE)
 
 ## Example
 
