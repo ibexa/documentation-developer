@@ -5,7 +5,7 @@ page_type: reference
 
 # PHP API
 
-The [public PHP API](../php_api_reference/) enables you to interact with [[= product_name =]]'s Repository and content model from your PHP code.
+The [public PHP API](/api/php_api/php_api_reference/index.html) enables you to interact with [[= product_name =]]'s Repository and content model from your PHP code.
 
 You can use it to create, read, update, manage, and delete all objects available in [[= product_name =]], namely content and related objects such as sections, locations, content types, or languages.
 
