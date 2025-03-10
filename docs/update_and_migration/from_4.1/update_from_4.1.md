@@ -129,7 +129,69 @@ Apply the following database update scripts:
 
 #### Ibexa Open Source
 
-If you have no access to [[= product_name =]]'s `ibexa/installer` package, database upgrade isn't necessary.
+If you have no access to [[= product_name =]]'s `ibexa/installer` package, apply the following database upgrade script:
+
+=== "MySQL"
+``` sql
+CREATE TABLE IF NOT EXISTS ibexa_user_invitations
+(
+    id               int auto_increment primary key,
+    email            varchar(255) not null,
+    site_access_name varchar(255) not null,
+    hash             varchar(255) not null,
+    creation_date    int          not null,
+    used             tinyint(1)   null,
+    constraint ibexa_user_invitations_email_uindex
+    unique (email(191)),
+    constraint ibexa_user_invitations_hash_uindex
+    unique (hash(191))
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE utf8mb4_general_ci;
+
+CREATE TABLE IF NOT EXISTS ibexa_user_invitations_assignments
+(
+    id               int auto_increment primary key,
+    invitation_id    int          not null,
+    user_group_id    int          null,
+    role_id          int          null,
+    limitation_type  varchar(255) null,
+    limitation_value varchar(255) null,
+    constraint ibexa_user_invitations_assignments_ibexa_user_invitations_id_fk
+    foreign key (invitation_id) references ibexa_user_invitations (id)
+    on update cascade on delete cascade
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE utf8mb4_general_ci;
+```
+
+=== "PostgreSQL"
+``` sql
+CREATE TABLE IF NOT EXISTS ibexa_user_invitations
+(
+    id               SERIAL PRIMARY KEY,
+    email            VARCHAR(255) NOT NULL,
+    site_access_name VARCHAR(255) NOT NULL,
+    hash             VARCHAR(255) NOT NULL,
+    creation_date    INTEGER      NOT NULL,
+    used             BOOLEAN      DEFAULT false NOT NULL
+);
+
+CREATE UNIQUE INDEX IF NOT EXISTS ibexa_user_invitations_email_uindex
+    ON ibexa_user_invitations (email);
+
+CREATE UNIQUE INDEX IF NOT EXISTS ibexa_user_invitations_hash_uindex
+    ON ibexa_user_invitations (hash);
+
+CREATE TABLE IF NOT EXISTS ibexa_user_invitations_assignments
+(
+    id               SERIAL PRIMARY KEY,
+    invitation_id    INTEGER      NOT NULL,
+    user_group_id    INTEGER      NULL,
+    role_id          INTEGER      NULL,
+    limitation_type  VARCHAR(255) NULL,
+    limitation_value VARCHAR(255) NULL,
+    CONSTRAINT ibexa_content_customer_group_attribute_fk
+    FOREIGN KEY (invitation_id) REFERENCES ibexa_user_invitations (id)
+    ON UPDATE CASCADE ON DELETE CASCADE
+);
+```
 
 ## Ensure password safety
 
