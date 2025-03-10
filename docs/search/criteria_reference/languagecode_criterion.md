@@ -4,7 +4,7 @@ description: LanguageCode Search Criterion
 
 # LanguageCode Criterion
 
-The [`LanguageCode` Search Criterion](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Criterion-Location.html) searches for content based on whether it's translated into the selected language.
+The [`LanguageCode` Search Criterion](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Criterion-Location.html) searches for content based on whether it's translated into the selected language.
 
 ## Arguments
 
