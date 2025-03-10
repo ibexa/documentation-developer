@@ -472,7 +472,7 @@ function SpecialCharactersNbsp( editor ) {
     editor.plugins.get( 'SpecialCharacters' ).addItems( 'Text', [
         { title: 'Non-Breaking Space', character: '\u00a0' }
     ] );
-    // add a keyboard shortcut 
+    // add a keyboard shortcut
     editor.keystrokes.set( 'Ctrl+space', ( key, stop ) => {
         editor.execute( 'input', { text: '\u00a0' } );
         stop();
