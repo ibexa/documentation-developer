@@ -214,7 +214,7 @@ It points to a custom controller that handles the downloading of the SVG file.
 The controller's definition (that you place in the `config/services.yaml` file under `services` key) and implementation are as follows:
 
 ```yaml
-[[= include_file('code_samples/back_office/images/config/services.yaml') =]]
+[[= include_file('code_samples/back_office/images/config/services.yaml', 0, 8) =]]
 ```
 
 ```php
