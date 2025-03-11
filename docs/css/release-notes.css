@@ -1,9 +1,26 @@
-.release-notes-header h1 {
+.release-notes-header h1,
+.release-notes h1 {
   font-size: 24px;
 }
-
+.release-notes-header h2,
 .release-notes h2 {
   font-size: 20px;
+}
+.release-notes-header h3,
+.release-notes h3 {
+  font-size: 18px;
+}
+.release-notes-header h4,
+.release-notes h4 {
+  font-size: 16px;
+}
+.release-notes-header h5,
+.release-notes h5 {
+  font-size: 14px;
+}
+.release-notes-header h6,
+.release-notes h6 {
+  font-size: 12px;
 }
 
 .release-notes-header {

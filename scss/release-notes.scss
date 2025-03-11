@@ -1,12 +1,26 @@
 @use 'variables';
 
 // TODO: remove after changing header font sizes globally
-.release-notes-header h1 {
-    font-size: variables.$h1-font-size;
-}
-
-.release-notes h2 {
-    font-size: variables.$h2-font-size;
+.release-notes-header,
+.release-notes {
+    h1 {
+        font-size: variables.$h1-font-size;
+    }
+    h2 {
+        font-size: variables.$h2-font-size;
+    }
+    h3 {
+        font-size: variables.$h3-font-size;
+    }
+    h4 {
+        font-size: variables.$h4-font-size;
+    }
+    h5 {
+        font-size: variables.$h5-font-size;
+    }
+    h6 {
+        font-size: variables.$h6-font-size;
+    }
 }
 // END
 
