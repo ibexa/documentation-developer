@@ -118,3 +118,74 @@ def define_env(env):
     @env.macro
     def version_to_anchor(version : str = '') -> str:
         return version.replace('.', '')
+
+    @env.macro
+    def release_notes_filters(header : str, categories : list[str]) -> str:
+        filters = "".join(
+            ["""
+            <div 
+                class="release-notes-filters__visible-item release-notes-filters__visible-item--hidden" 
+                data-filter="filter-{category_slug}"
+            >
+                {category}
+                <button type="button" class="release-notes-filters__visible-item-remove"></button>
+            </div>
+            """.format(category_slug=slugify(category), category=category) for category in categories])
+        
+        categories_dropdown = "".join(
+            ["""
+                <div class="release-notes-filters__item">
+                    <input type="checkbox" id="filter-{category_slug}" />
+                    <label for="filter-{category_slug}">{category}</label>
+                </div>
+             """.format(category_slug=slugify(category), category=category) for category in categories]
+        )
+
+        return """
+<div class="release-notes-header">
+    <h1>{header}</h1>
+    <div class="release-notes-filters">
+        <div class="release-notes-filters__visible-items">
+            {visible_filters}
+        </div>
+        <div class="release-notes-filters__widget">
+            <button type="button" class="release-notes-filters__btn">
+                <span class="release-notes-filters__btn-icon">
+                    <svg width="16" height="16"><use xlink:href="../../images/icons.svg#filters" /></svg>
+                </span>
+                Filters
+            </button>
+            <div class="release-notes-filters__items">
+                {categories_dropdown}
+            </div>
+        </div>
+    </div>
+</div>
+        """.format(header=header, visible_filters=filters, categories_dropdown=categories_dropdown)
+
+    @env.macro
+    def release_note_entry_begin(header : str, date: str, categories : list[str]) -> str:
+        category_badges = "".join(
+            [
+                """
+<div class="release-note__tag release-note__tag--{category_slug}" data-filter="{category_slug}">{category}</div>
+                """.format(category_slug=slugify(category), category=category) 
+                for category in categories
+            ]
+        )
+
+        return """
+<div class="release-note" markdown="1">
+## {header}
+<div class="release-note__tags">
+{category_badges}
+</div>
+<div class="release-note__date">{date}</div>
+""".format(header=header, date=date, category_badges=category_badges)
+
+    @env.macro
+    def release_note_entry_end() -> str:
+        return "</div>"
+
+    def slugify(text: str) -> str:
+        return text.lower().replace(' ', '-')

@@ -4,100 +4,24 @@ description: Ibexa DXP v4.6 brings improvements to Commerce, PIM and Personaliza
 
 <!-- vale VariablesVersion = NO -->
 
-<div class="release-notes-header">
-    <h1>Ibexa DXP v4.6 LTS</h1>
-    <div class="release-notes-filters">
-        <div class="release-notes-filters__visible-items">
-            <div 
-                class="release-notes-filters__visible-item release-notes-filters__visible-item--hidden" 
-                data-filter="filter-headless"
-            >
-                Headless
-                <button type="button" class="release-notes-filters__visible-item-remove"></button>
-            </div>
-            <div 
-                class="release-notes-filters__visible-item release-notes-filters__visible-item--hidden" 
-                data-filter="filter-experience"
-            >
-                Experience
-                <button type="button" class="release-notes-filters__visible-item-remove"></button>
-            </div>
-            <div 
-                class="release-notes-filters__visible-item release-notes-filters__visible-item--hidden" 
-                data-filter="filter-commerce"
-            >
-                Commerce
-                <button type="button" class="release-notes-filters__visible-item-remove"></button>
-            </div>
-            <div 
-                class="release-notes-filters__visible-item release-notes-filters__visible-item--hidden" 
-                data-filter="filter-lts-update"
-            >
-                LTS Update
-                <button type="button" class="release-notes-filters__visible-item-remove"></button>
-            </div>
-            <div 
-                class="release-notes-filters__visible-item release-notes-filters__visible-item--hidden" 
-                data-filter="filter-new-feature"
-            >
-                New feature
-                <button type="button" class="release-notes-filters__visible-item-remove"></button>
-            </div>
-        </div>
-        <div class="release-notes-filters__widget">
-            <button type="button" class="release-notes-filters__btn">
-                <span class="release-notes-filters__btn-icon">
-                    <svg width="16" height="16"><use xlink:href="../../images/icons.svg#filters" /></svg>
-                </span>
-                Filters
-            </button>
-            <div class="release-notes-filters__items">
-                <div class="release-notes-filters__item">
-                    <input type="checkbox" id="filter-headless" />
-                    <label for="filter-headless">Headless</label>
-                </div>
-                <div class="release-notes-filters__item">
-                    <input type="checkbox" id="filter-experience" />
-                    <label for="filter-experience">Experience</label>
-                </div>
-                <div class="release-notes-filters__item">
-                    <input type="checkbox" id="filter-commerce" />
-                    <label for="filter-commerce">Commerce</label>
-                </div>
-                <div class="release-notes-filters__item">
-                    <input type="checkbox" id="filter-lts-update" />
-                    <label for="filter-lts-update">LTS Update</label>
-                </div>
-                <div class="release-notes-filters__item">
-                    <input type="checkbox" id="filter-new-feature" />
-                    <label for="filter-new-feature">New feature</label>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+[[= release_notes_filters('Ibexa DXP v4.6 LTS', ['Headless', 'Experience', 'Commerce', 'LTS Update', 'New feature']) =]]
 
 <div class="release-notes" markdown="1">
 
-<div class="release-note" markdown="1">
 [[% set version = 'v4.6.16' %]]
-## [[= product_name =]] [[= version =]]
-<div class="release-note__tags">
-    <div class="release-note__tag release-note__tag--headless" data-filter="headless">Headless</div>
-    <div class="release-note__tag release-note__tag--experience" data-filter="experience">Experience</div>
-    <div class="release-note__tag release-note__tag--commerce" data-filter="commerce">Commerce</div>
-</div>
-<div class="release-note__date">2025-01-16</div>
+[[= release_note_entry_begin("Ibexa DXP " + version, '2025-01-16', ['Headless', 'Experience', 'Commerce', 'LTS Update', 'New feature']) =]]
 
+### This is normal Markdown text.
 [[% include 'snippets/release_46.md' %]]
-</div>
+
+[[= release_note_entry_end() =]]
 
 <div class="release-note" markdown="1">
 [[% set version = 'v4.6.15' %]]
 ## [[= product_name =]] [[= version =]]
 <div class="release-note__tags">
-    <div class="release-note__tag release-note__tag--lts-update" data-filter="lts-update">LTS Update</div>
-    <div class="release-note__tag release-note__tag--new-feature" data-filter="new-feature">New feature</div>
+<div class="release-note__tag release-note__tag--lts-update" data-filter="lts-update">LTS Update</div>
+<div class="release-note__tag release-note__tag--new-feature" data-filter="new-feature">New feature</div>
 </div>
 <div class="release-note__date">2024-12-13</div>
 
@@ -108,8 +32,8 @@ description: Ibexa DXP v4.6 brings improvements to Commerce, PIM and Personaliza
 [[% set version = 'v4.6.14' %]]
 ## [[= product_name =]] [[= version =]]
 <div class="release-note__tags">
-    <div class="release-note__tag release-note__tag--experience" data-filter="experience">Experience</div>
-    <div class="release-note__tag release-note__tag--commerce" data-filter="commerce">Commerce</div>
+<div class="release-note__tag release-note__tag--experience" data-filter="experience">Experience</div>
+<div class="release-note__tag release-note__tag--commerce" data-filter="commerce">Commerce</div>
 </div>
 <div class="release-note__date">2024-11-28</div>
 
@@ -120,8 +44,8 @@ description: Ibexa DXP v4.6 brings improvements to Commerce, PIM and Personaliza
 [[% set version = 'v4.6.13' %]]
 ## [[= product_name =]] [[= version =]]
 <div class="release-note__tags">
-    <div class="release-note__tag release-note__tag--lts-update" data-filter="lts-update">LTS Update</div>
-    <div class="release-note__tag release-note__tag--new-feature" data-filter="new-feature">New feature</div>
+<div class="release-note__tag release-note__tag--lts-update" data-filter="lts-update">LTS Update</div>
+<div class="release-note__tag release-note__tag--new-feature" data-filter="new-feature">New feature</div>
 </div>
 <div class="release-note__date">2024-10-22</div>
 
@@ -131,8 +55,8 @@ description: Ibexa DXP v4.6 brings improvements to Commerce, PIM and Personaliza
 <div class="release-note" markdown="1">
 ## AI Actions
 <div class="release-note__tags">
-    <div class="release-note__tag release-note__tag--lts-update" data-filter="lts-update">LTS Update</div>
-    <div class="release-note__tag release-note__tag--new-feature" data-filter="new-feature">New feature</div>
+<div class="release-note__tag release-note__tag--lts-update" data-filter="lts-update">LTS Update</div>
+<div class="release-note__tag release-note__tag--new-feature" data-filter="new-feature">New feature</div>
 </div>
 <div class="release-note__date">2024-08-04</div>
 

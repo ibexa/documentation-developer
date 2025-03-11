@@ -54,3 +54,12 @@ Compare all features available in [[= product_name_headless =]], [[= product_nam
 | [Checkout](checkout.md) |  |  | &#10004; |
 | [Storefront](storefront.md) |  |  | &#10004; |
 | [Transactional emails](transactional_emails.md) |  |  | &#10004; |
+
+## LTS Updates
+
+Compare all features available in [[= product_name_headless =]], [[= product_name_exp =]], and [[= product_name_com =]] to help you choose the right products for your needs:
+
+| Feature | [[= product_name_headless =]] | [[= product_name_exp =]] | [[= product_name_com =]] |
+|-----------------|-----------------|-----------------|-----------------|
+| [AI Actions](ai_actions_guide.md) | &#10004; | &#10004; | &#10004; |
+| [Date and time attribute type](user_management_guide.md) | &#10004; | &#10004; | &#10004; |
