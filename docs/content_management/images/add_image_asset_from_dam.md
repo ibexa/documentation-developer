@@ -110,7 +110,7 @@ Then, in `config\services.yaml`, register the handler as a service:
 
 ### Create transformation factory
 
-The transformation factory transforms image variations coming from Wikimedia Commons to the ones used by [[= product_name =]].
+The transformation factory maps [[= product_name =]]'s image variations to corresponding variations from Wikimedia Commons.
 
 In `src\Connector\Dam\Transformation` folder, create the `WikimediaCommonsTransformationFactory.php` file that resembles the following example:
 
@@ -128,7 +128,7 @@ Then register the transformation factory as a service:
 ### Register variations generator
 
 The variation generator applies map parameters coming from the transformation factory to build a fetch request to the DAM.
-The solution uses the built-in `URLBasedVariationGenerator` class, which adds all the map elements as query parameters of the request.
+The solution uses the built-in `URLBasedVariationGenerator` class, which adds all the map elements as query parameters to the request.
 
 For example, the handler generates the following URL with `new AssetUri()`:
 
@@ -154,15 +154,11 @@ In `templates/bundles/WikimediaCommonsConnector/`, add the `commons_asset_view.h
 [[= include_file('code_samples/back_office/images/templates/themes/standard/commons_asset_view.html.twig') =]]
 ```
 
-Then, register the template in configuration files:
+Then, register the template and a fallback template in configuration files:
 
 ```yaml
 [[= include_file('code_samples/back_office/images/config/packages/views.yaml') =]]
 ```
-
-!!! caution
-
-    As it overrides the parameter, make sure that you define the default template, too.
 
 ### Add Wikimedia Commons connection to DAM configuration
 

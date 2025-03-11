@@ -21,24 +21,54 @@ class WikimediaCommonsHandler implements HandlerInterface
             . '&sroffset=' . $offset
             . '&srlimit=' . $limit
         ;
-        $response = json_decode(file_get_contents($searchUrl), true);
+
+        $jsonResponse = file_get_contents($searchUrl);
+        if ($jsonResponse === false) {
+            return new AssetSearchResult(0, new AssetCollection([]));
+        }
+
+        $response = json_decode($jsonResponse, true);
+        if (!isset($response['query']['search'])) {
+            return new AssetSearchResult(0, new AssetCollection([]));
+        }
 
         $assets = [];
         foreach ($response['query']['search'] as $result) {
             $identifier = str_replace('File:', '', $result['title']);
-            $assets[] = $this->fetchAsset($identifier);
+            $asset = $this->fetchAsset($identifier);
+            if ($asset) {
+                $assets[] = $asset;
+            }
         }
 
-        return new AssetSearchResult((int) $response['query']['searchinfo']['totalhits'], new AssetCollection($assets));
+        return new AssetSearchResult(
+            (int) ($response['query']['searchinfo']['totalhits'] ?? 0),
+            new AssetCollection($assets)
+        );
     }
 
-    public function fetchAsset(string $id): Asset
+    public function fetchAsset(string $id): ?Asset
     {
-        $metadataUrl = 'https://commons.wikipedia.org/w/api.php?action=query&prop=imageinfo&iiprop=extmetadata&format=json'
+        $metadataUrl = 'https://commons.wikimedia.org/w/api.php?action=query&prop=imageinfo&iiprop=extmetadata&format=json'
             . '&titles=File%3a' . urlencode($id)
         ;
-        $response = json_decode(file_get_contents($metadataUrl), true);
-        $imageInfo = array_values($response['query']['pages'])[0]['imageinfo'][0]['extmetadata'];
+
+        $jsonResponse = file_get_contents($metadataUrl);
+        if ($jsonResponse === false) {
+            return null;
+        }
+
+        $response = json_decode($jsonResponse, true);
+        if (!isset($response['query']['pages'])) {
+            return null;
+        }
+
+        $pageData = array_values($response['query']['pages'])[0] ?? null;
+        if (!isset($pageData['imageinfo'][0]['extmetadata'])) {
+            return null;
+        }
+
+        $imageInfo = $pageData['imageinfo'][0]['extmetadata'];
 
         return new Asset(
             new AssetIdentifier($id),
@@ -46,9 +76,9 @@ class WikimediaCommonsHandler implements HandlerInterface
             new AssetUri('https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/' . urlencode($id)),
             new AssetMetadata([
                 'page_url' => "https://commons.wikimedia.org/wiki/File:$id",
-                'author' => array_key_exists('Artist', $imageInfo) ? $imageInfo['Artist']['value'] : null,
-                'license' => array_key_exists('LicenseShortName', $imageInfo) ? $imageInfo['LicenseShortName']['value'] : null,
-                'license_url' => array_key_exists('LicenseUrl', $imageInfo) ? $imageInfo['LicenseUrl']['value'] : null,
+                'author' => $imageInfo['Artist']['value'] ?? null,
+                'license' => $imageInfo['LicenseShortName']['value'] ?? null,
+                'license_url' => $imageInfo['LicenseUrl']['value'] ?? null,
             ])
         );
     }
