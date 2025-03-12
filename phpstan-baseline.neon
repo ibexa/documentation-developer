@@ -1,451 +1,769 @@
 parameters:
 	ignoreErrors:
 		-
-			message: "#^Parameter \\#1 \\$product of class Ibexa\\\\Contracts\\\\Cart\\\\Value\\\\EntryAddStruct constructor expects Ibexa\\\\Contracts\\\\ProductCatalog\\\\Values\\\\AvailabilityAwareInterface&Ibexa\\\\Contracts\\\\ProductCatalog\\\\Values\\\\ContentAwareProductInterface&Ibexa\\\\Contracts\\\\ProductCatalog\\\\Values\\\\PriceAwareInterface, Ibexa\\\\Contracts\\\\ProductCatalog\\\\Values\\\\ProductInterface given\\.$#"
+			message: '#^Class App\\Form\\Type\\TextToTextOptionsType extends generic class Symfony\\Component\\Form\\AbstractType but does not specify its types\: TData$#'
+			identifier: missingType.generics
+			count: 1
+			path: code_samples/ai_actions/src/Form/Type/TextToTextOptionsType.php
+
+		-
+			message: '#^Class App\\Form\\Type\\TranscribeAudioOptionsType extends generic class Symfony\\Component\\Form\\AbstractType but does not specify its types\: TData$#'
+			identifier: missingType.generics
+			count: 1
+			path: code_samples/ai_actions/src/Form/Type/TranscribeAudioOptionsType.php
+
+		-
+			message: '#^Parameter \#1 \$product of class Ibexa\\Contracts\\Cart\\Value\\EntryAddStruct constructor expects Ibexa\\Contracts\\ProductCatalog\\Values\\AvailabilityAwareInterface&Ibexa\\Contracts\\ProductCatalog\\Values\\ContentAwareProductInterface&Ibexa\\Contracts\\ProductCatalog\\Values\\PriceAwareInterface, Ibexa\\Contracts\\ProductCatalog\\Values\\ProductInterface given\.$#'
+			identifier: argument.type
 			count: 1
 			path: code_samples/api/commerce/src/Command/CartCommand.php
 
 		-
-			message: "#^Cannot access offset 'my_custom_fieldtype' on array\\|bool\\|float\\|int\\|string\\|null\\.$#"
+			message: '#^Cannot access offset ''my_custom_fieldtype'' on array\|bool\|float\|int\|string\|null\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
 			count: 1
 			path: code_samples/api/graphql/src/DependencyInjection/Compiler/MyCustomTypeGraphQLCompilerPass.php
 
 		-
-			message: "#^Parameter \\#1 \\$migration of method Ibexa\\\\Migration\\\\MigrationService\\:\\:executeOne\\(\\) expects Ibexa\\\\Migration\\\\Repository\\\\Migration, Ibexa\\\\Migration\\\\Repository\\\\Migration\\|null given\\.$#"
+			message: '#^Parameter \#1 \$migration of method Ibexa\\Migration\\MigrationService\:\:executeOne\(\) expects Ibexa\\Migration\\Repository\\Migration, Ibexa\\Migration\\Repository\\Migration\|null given\.$#'
+			identifier: argument.type
 			count: 1
 			path: code_samples/api/migration/src/Command/MigrationCommand.php
 
 		-
-			message: "#^Call to an undefined method Ibexa\\\\Contracts\\\\ProductCatalog\\\\Values\\\\ProductInterface\\:\\:getPrice\\(\\)\\.$#"
+			message: '#^Call to an undefined method Ibexa\\Contracts\\ProductCatalog\\Values\\ProductInterface\:\:getPrice\(\)\.$#'
+			identifier: method.notFound
 			count: 1
 			path: code_samples/api/product_catalog/src/Command/ProductPriceCommand.php
 
 		-
-			message: "#^Parameter \\#1 \\$value of class Ibexa\\\\Contracts\\\\ProductCatalog\\\\Values\\\\Price\\\\Query\\\\Criterion\\\\CustomerGroup constructor expects array\\<Ibexa\\\\Contracts\\\\ProductCatalog\\\\Values\\\\CustomerGroupInterface\\>\\|Ibexa\\\\Contracts\\\\ProductCatalog\\\\Values\\\\CustomerGroupInterface, string given\\.$#"
+			message: '#^Parameter \#1 \$value of class Ibexa\\Contracts\\ProductCatalog\\Values\\Price\\Query\\Criterion\\CustomerGroup constructor expects array\<Ibexa\\Contracts\\ProductCatalog\\Values\\CustomerGroupInterface\>\|Ibexa\\Contracts\\ProductCatalog\\Values\\CustomerGroupInterface, string given\.$#'
+			identifier: argument.type
 			count: 1
 			path: code_samples/api/product_catalog/src/Command/ProductPriceCommand.php
 
 		-
-			message: "#^Cannot call method getDateTime\\(\\) on Ibexa\\\\Contracts\\\\Calendar\\\\Event\\|null\\.$#"
+			message: '#^Cannot call method getDateTime\(\) on Ibexa\\Contracts\\Calendar\\Event\|null\.$#'
+			identifier: method.nonObject
 			count: 1
 			path: code_samples/api/public_php_api/src/Command/CalendarCommand.php
 
 		-
-			message: "#^Cannot call method getName\\(\\) on Ibexa\\\\Contracts\\\\Calendar\\\\Event\\|null\\.$#"
+			message: '#^Cannot call method getName\(\) on Ibexa\\Contracts\\Calendar\\Event\|null\.$#'
+			identifier: method.nonObject
 			count: 1
 			path: code_samples/api/public_php_api/src/Command/CalendarCommand.php
 
 		-
-			message: "#^Variable \\$copyIdentifier might not be defined\\.$#"
+			message: '#^Variable \$copyIdentifier might not be defined\.$#'
+			identifier: variable.undefined
 			count: 3
 			path: code_samples/api/public_php_api/src/Command/CreateContentTypeCommand.php
 
 		-
-			message: "#^Parameter \\#1 \\$messages of method Symfony\\\\Component\\\\Console\\\\Output\\\\OutputInterface\\:\\:writeln\\(\\) expects iterable\\<string\\>\\|string, string\\|null given\\.$#"
+			message: '#^Parameter \#1 \$messages of method Symfony\\Component\\Console\\Output\\OutputInterface\:\:writeln\(\) expects iterable\<string\>\|string, string\|null given\.$#'
+			identifier: argument.type
 			count: 1
 			path: code_samples/api/public_php_api/src/Command/FilterLocationCommand.php
 
 		-
-			message: "#^Access to an undefined property Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\ValueObject\\:\\:\\$name\\.$#"
+			message: '#^Access to an undefined property Ibexa\\Contracts\\Core\\Repository\\Values\\ValueObject\:\:\$name\.$#'
+			identifier: property.notFound
 			count: 1
 			path: code_samples/api/public_php_api/src/Command/FindComplexCommand.php
 
 		-
-			message: "#^Access to an undefined property Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\ValueObject\\:\\:\\$name\\.$#"
+			message: '#^Access to an undefined property Ibexa\\Contracts\\Core\\Repository\\Values\\ValueObject\:\:\$name\.$#'
+			identifier: property.notFound
 			count: 1
 			path: code_samples/api/public_php_api/src/Command/FindContentCommand.php
 
 		-
-			message: "#^Access to protected property Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\URL\\\\URL\\:\\:\\$url\\.$#"
+			message: '#^Access to protected property Ibexa\\Contracts\\Core\\Repository\\Values\\URL\\URL\:\:\$url\.$#'
+			identifier: property.protected
 			count: 1
 			path: code_samples/api/public_php_api/src/Command/FindUrlCommand.php
 
 		-
-			message: "#^Argument of an invalid type Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\Content\\\\Search\\\\AggregationResult supplied for foreach, only iterables are supported\\.$#"
+			message: '#^Argument of an invalid type Ibexa\\Contracts\\Core\\Repository\\Values\\Content\\Search\\AggregationResult supplied for foreach, only iterables are supported\.$#'
+			identifier: foreach.nonIterable
 			count: 2
 			path: code_samples/api/public_php_api/src/Command/FindWithAggregationCommand.php
 
 		-
-			message: "#^Cannot call method getFormValue\\(\\) on Ibexa\\\\Contracts\\\\Core\\\\FieldType\\\\Value\\|null\\.$#"
+			message: '#^Cannot call method getFormValue\(\) on Ibexa\\Contracts\\Core\\FieldType\\Value\|null\.$#'
+			identifier: method.nonObject
 			count: 1
 			path: code_samples/api/public_php_api/src/Command/FormSubmissionCommand.php
 
 		-
-			message: "#^Parameter \\#1 \\$messages of method Symfony\\\\Component\\\\Console\\\\Output\\\\OutputInterface\\:\\:writeln\\(\\) expects iterable\\<string\\>\\|string, string\\|null given\\.$#"
+			message: '#^Parameter \#1 \$messages of method Symfony\\Component\\Console\\Output\\OutputInterface\:\:writeln\(\) expects iterable\<string\>\|string, string\|null given\.$#'
+			identifier: argument.type
 			count: 2
 			path: code_samples/api/public_php_api/src/Command/ObjectStateCommand.php
 
 		-
-			message: "#^Access to an undefined property Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\ValueObject\\:\\:\\$name\\.$#"
+			message: '#^Access to an undefined property Ibexa\\Contracts\\Core\\Repository\\Values\\ValueObject\:\:\$name\.$#'
+			identifier: property.notFound
 			count: 1
 			path: code_samples/api/public_php_api/src/Command/SectionCommand.php
 
 		-
-			message: "#^Cannot access property \\$name on Ibexa\\\\Contracts\\\\Taxonomy\\\\Value\\\\TaxonomyEntry\\|null\\.$#"
+			message: '#^Cannot access property \$name on Ibexa\\Contracts\\Taxonomy\\Value\\TaxonomyEntry\|null\.$#'
+			identifier: property.nonObject
 			count: 1
 			path: code_samples/api/public_php_api/src/Command/TaxonomyCommand.php
 
 		-
-			message: "#^Cannot access property \\$id on Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\Content\\\\Location\\|null\\.$#"
+			message: '#^Cannot access property \$id on Ibexa\\Contracts\\Core\\Repository\\Values\\Content\\Location\|null\.$#'
+			identifier: property.nonObject
 			count: 1
 			path: code_samples/api/public_php_api/src/Controller/CustomFilterController.php
 
 		-
-			message: "#^Parameter \\#1 \\$string of function base64_encode expects string, string\\|false given\\.$#"
+			message: '#^Parameter \#1 \$string of function base64_encode expects string, string\|false given\.$#'
+			identifier: argument.type
 			count: 1
 			path: code_samples/api/rest_api/create_image.json.php
 
 		-
-			message: "#^Cannot access property \\$nodeName on DOMNode\\|null\\.$#"
+			message: '#^Cannot access property \$nodeName on DOMNode\|null\.$#'
+			identifier: property.nonObject
 			count: 3
 			path: code_samples/api/rest_api/create_image.xml.php
 
 		-
-			message: "#^Cannot access property \\$nodeValue on DOMElement\\|null\\.$#"
+			message: '#^Cannot access property \$nodeValue on DOMElement\|null\.$#'
+			identifier: property.nonObject
 			count: 6
 			path: code_samples/api/rest_api/create_image.xml.php
 
 		-
-			message: "#^Cannot call method getAttribute\\(\\) on DOMNode\\|null\\.$#"
+			message: '#^Cannot call method getAttribute\(\) on DOMNode\|null\.$#'
+			identifier: method.nonObject
 			count: 1
 			path: code_samples/api/rest_api/create_image.xml.php
 
 		-
-			message: "#^Cannot call method hasAttribute\\(\\) on DOMNode\\|null\\.$#"
+			message: '#^Cannot call method hasAttribute\(\) on DOMNode\|null\.$#'
+			identifier: method.nonObject
 			count: 1
 			path: code_samples/api/rest_api/create_image.xml.php
 
 		-
-			message: "#^Parameter \\#1 \\$string of function base64_encode expects string, string\\|false given\\.$#"
+			message: '#^Parameter \#1 \$string of function base64_encode expects string, string\|false given\.$#'
+			identifier: argument.type
 			count: 1
 			path: code_samples/api/rest_api/create_image.xml.php
 
 		-
-			message: "#^Result of && is always false\\.$#"
+			message: '#^Result of && is always false\.$#'
+			identifier: booleanAnd.alwaysFalse
 			count: 1
 			path: code_samples/api/rest_api/create_image.xml.php
 
 		-
-			message: "#^Strict comparison using \\=\\=\\= between 'ErrorMessage' and 'Content' will always evaluate to false\\.$#"
+			message: '#^Strict comparison using \=\=\= between ''ErrorMessage'' and ''Content'' will always evaluate to false\.$#'
+			identifier: identical.alwaysFalse
 			count: 1
 			path: code_samples/api/rest_api/create_image.xml.php
 
 		-
-			message: "#^Method App\\\\Rest\\\\Output\\\\ValueObjectVisitorDispatcher\\:\\:__construct\\(\\) has parameter \\$visitors with no value type specified in iterable type iterable\\.$#"
+			message: '#^Method App\\Rest\\Output\\ValueObjectVisitorDispatcher\:\:__construct\(\) has parameter \$visitors with no value type specified in iterable type iterable\.$#'
+			identifier: missingType.iterableValue
 			count: 1
 			path: code_samples/api/rest_api/src/Rest/Output/ValueObjectVisitorDispatcher.php
 
 		-
-			message: "#^Property App\\\\Rest\\\\Output\\\\ValueObjectVisitorDispatcher\\:\\:\\$visitors type has no value type specified in iterable type array\\.$#"
+			message: '#^Property App\\Rest\\Output\\ValueObjectVisitorDispatcher\:\:\$visitors type has no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
 			count: 1
 			path: code_samples/api/rest_api/src/Rest/Output/ValueObjectVisitorDispatcher.php
 
 		-
-			message: "#^Method App\\\\Rest\\\\ValueObjectVisitor\\\\Greeting\\:\\:visit\\(\\) has no return type specified\\.$#"
+			message: '#^Method App\\Rest\\ValueObjectVisitor\\Greeting\:\:visit\(\) has no return type specified\.$#'
+			identifier: missingType.return
 			count: 1
 			path: code_samples/api/rest_api/src/Rest/ValueObjectVisitor/Greeting.php
 
 		-
-			message: "#^Method App\\\\Rest\\\\ValueObjectVisitor\\\\RestLocation\\:\\:visit\\(\\) has no return type specified\\.$#"
+			message: '#^Method App\\Rest\\ValueObjectVisitor\\RestLocation\:\:visit\(\) has no return type specified\.$#'
+			identifier: missingType.return
 			count: 1
 			path: code_samples/api/rest_api/src/Rest/ValueObjectVisitor/RestLocation.php
 
 		-
-			message: "#^Parameter \\#1 \\.\\.\\.\\$arrays of function array_merge expects array, iterable\\<Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\Content\\\\URLAlias\\> given\\.$#"
+			message: '#^Parameter \#1 \.\.\.\$arrays of function array_merge expects array, iterable\<Ibexa\\Contracts\\Core\\Repository\\Values\\Content\\URLAlias\> given\.$#'
+			identifier: argument.type
 			count: 1
 			path: code_samples/api/rest_api/src/Rest/ValueObjectVisitor/RestLocation.php
 
 		-
-			message: "#^Parameter \\#2 \\.\\.\\.\\$arrays of function array_merge expects array, iterable\\<Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\Content\\\\URLAlias\\> given\\.$#"
+			message: '#^Parameter \#2 \.\.\.\$arrays of function array_merge expects array, iterable\<Ibexa\\Contracts\\Core\\Repository\\Values\\Content\\URLAlias\> given\.$#'
+			identifier: argument.type
 			count: 1
 			path: code_samples/api/rest_api/src/Rest/ValueObjectVisitor/RestLocation.php
 
 		-
-			message: "#^Parameter \\#1 \\$json of function json_decode expects string, string\\|false given\\.$#"
+			message: '#^Parameter \#1 \$json of function json_decode expects string, string\|false given\.$#'
+			identifier: argument.type
 			count: 1
 			path: code_samples/back_office/calendar/src/Calendar/Holidays/EventSourceFactory.php
 
 		-
-			message: "#^Method App\\\\Calendar\\\\Holidays\\\\EventType\\:\\:__construct\\(\\) has parameter \\$actions with no value type specified in iterable type iterable\\.$#"
+			message: '#^Method App\\Calendar\\Holidays\\EventType\:\:__construct\(\) has parameter \$actions with no value type specified in iterable type iterable\.$#'
+			identifier: missingType.iterableValue
 			count: 1
 			path: code_samples/back_office/calendar/src/Calendar/Holidays/EventType.php
 
 		-
-			message: "#^Cannot call method addChild\\(\\) on Knp\\\\Menu\\\\ItemInterface\\|null\\.$#"
+			message: '#^Cannot call method addChild\(\) on Knp\\Menu\\ItemInterface\|null\.$#'
+			identifier: method.nonObject
 			count: 1
 			path: code_samples/back_office/content_type/src/EventListener/TextAnchorMenuTabListener.php
 
 		-
-			message: "#^Method Ibexa\\\\Bundle\\\\Core\\\\Imagine\\\\PlaceholderProvider\\:\\:getPlaceholder\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
+			message: '#^Method Ibexa\\Bundle\\Core\\Imagine\\PlaceholderProvider\:\:getPlaceholder\(\) has parameter \$options with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
 			count: 1
 			path: code_samples/back_office/images/src/PlaceholderProvider.php
 
 		-
-			message: "#^Return type \\(bool\\) of method App\\\\Security\\\\Limitation\\\\Mapper\\\\CustomLimitationValueMapper\\:\\:mapLimitationValue\\(\\) should be compatible with return type \\(array\\) of method Ibexa\\\\AdminUi\\\\Limitation\\\\LimitationValueMapperInterface\\:\\:mapLimitationValue\\(\\)$#"
+			message: '#^Method App\\Security\\Limitation\\Mapper\\CustomLimitationFormMapper\:\:mapLimitationForm\(\) has parameter \$form with generic interface Symfony\\Component\\Form\\FormInterface but does not specify its types\: TData$#'
+			identifier: missingType.generics
+			count: 1
+			path: code_samples/back_office/limitation/src/Security/Limitation/Mapper/CustomLimitationFormMapper.php
+
+		-
+			message: '#^Return type \(bool\) of method App\\Security\\Limitation\\Mapper\\CustomLimitationValueMapper\:\:mapLimitationValue\(\) should be compatible with return type \(array\<mixed\>\) of method Ibexa\\AdminUi\\Limitation\\LimitationValueMapperInterface\:\:mapLimitationValue\(\)$#'
+			identifier: method.childReturnType
 			count: 1
 			path: code_samples/back_office/limitation/src/Security/Limitation/Mapper/CustomLimitationValueMapper.php
 
 		-
-			message: "#^Method App\\\\Security\\\\MyPolicyProvider\\:\\:getFiles\\(\\) return type has no value type specified in iterable type array\\.$#"
+			message: '#^Method App\\Security\\MyPolicyProvider\:\:getFiles\(\) return type has no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
 			count: 1
 			path: code_samples/back_office/limitation/src/Security/MyPolicyProvider.php
 
 		-
-			message: "#^Cannot call method addChild\\(\\) on Knp\\\\Menu\\\\ItemInterface\\|null\\.$#"
+			message: '#^Cannot call method addChild\(\) on Knp\\Menu\\ItemInterface\|null\.$#'
+			identifier: method.nonObject
 			count: 1
 			path: code_samples/back_office/menu/menu_item/src/EventSubscriber/MyMenuSubscriber.php
 
 		-
-			message: "#^Cannot call method setExtra\\(\\) on Knp\\\\Menu\\\\ItemInterface\\|null\\.$#"
+			message: '#^Cannot call method setExtra\(\) on Knp\\Menu\\ItemInterface\|null\.$#'
+			identifier: method.nonObject
 			count: 1
 			path: code_samples/back_office/menu/menu_item/src/EventSubscriber/MyMenuSubscriber.php
 
 		-
-			message: "#^Cannot call method getValue\\(\\) on Ibexa\\\\Contracts\\\\FieldTypePage\\\\FieldType\\\\LandingPage\\\\Model\\\\Attribute\\|null\\.$#"
+			message: '#^Cannot call method getValue\(\) on Ibexa\\Contracts\\FieldTypePage\\FieldType\\LandingPage\\Model\\Attribute\|null\.$#'
+			identifier: method.nonObject
 			count: 1
 			path: code_samples/back_office/online_editor/src/event/subscriber/RichTextBlockSubscriber.php
 
 		-
-			message: "#^Cannot call method error\\(\\) on Psr\\\\Log\\\\LoggerInterface\\|null\\.$#"
+			message: '#^Cannot call method error\(\) on Psr\\Log\\LoggerInterface\|null\.$#'
+			identifier: method.nonObject
 			count: 1
 			path: code_samples/back_office/search/src/EventSubscriber/MySuggestionEventSubscriber.php
 
 		-
-			message: "#^Parameter \\#2 \\$string of function explode expects string, string\\|null given\\.$#"
+			message: '#^Parameter \#2 \$string of function explode expects string, string\|null given\.$#'
+			identifier: argument.type
 			count: 1
 			path: code_samples/back_office/search/src/EventSubscriber/MySuggestionEventSubscriber.php
 
 		-
-			message: "#^Method App\\\\Setting\\\\Group\\\\MyGroup\\:\\:__construct\\(\\) has parameter \\$values with no value type specified in iterable type array\\.$#"
+			message: '#^Method App\\Setting\\Group\\MyGroup\:\:__construct\(\) has parameter \$values with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
 			count: 1
 			path: code_samples/back_office/settings/src/Setting/Group/MyGroup.php
 
 		-
-			message: "#^Method App\\\\Strategy\\\\StaticThumbnailStrategy\\:\\:getThumbnail\\(\\) has parameter \\$fields with no value type specified in iterable type array\\.$#"
+			message: '#^Method App\\Setting\\Unit\:\:mapFieldForm\(\) has parameter \$formBuilder with generic interface Symfony\\Component\\Form\\FormBuilderInterface but does not specify its types\: TData$#'
+			identifier: missingType.generics
+			count: 1
+			path: code_samples/back_office/settings/src/Setting/Unit.php
+
+		-
+			message: '#^Method App\\Setting\\Unit\:\:mapFieldForm\(\) return type with generic interface Symfony\\Component\\Form\\FormBuilderInterface does not specify its types\: TData$#'
+			identifier: missingType.generics
+			count: 1
+			path: code_samples/back_office/settings/src/Setting/Unit.php
+
+		-
+			message: '#^Method App\\Strategy\\StaticThumbnailStrategy\:\:getThumbnail\(\) has parameter \$fields with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
 			count: 1
 			path: code_samples/back_office/thumbnails/src/Strategy/StaticThumbnailStrategy.php
 
 		-
-			message: "#^Class App\\\\Attribute\\\\Percent\\\\Storage\\\\PercentStorageConverter implements generic interface Ibexa\\\\Contracts\\\\ProductCatalog\\\\Local\\\\Attribute\\\\StorageConverterInterface but does not specify its types\\: TPersistenceValue, TValue$#"
+			message: '#^Method App\\Strategy\\StaticThumbnailStrategy\:\:getThumbnail\(\) never returns null so it can be removed from the return type\.$#'
+			identifier: return.unusedType
+			count: 1
+			path: code_samples/back_office/thumbnails/src/Strategy/StaticThumbnailStrategy.php
+
+		-
+			message: '#^Method App\\Attribute\\Percent\\Form\\PercentValueFormMapper\:\:createValueForm\(\) has parameter \$builder with generic interface Symfony\\Component\\Form\\FormBuilderInterface but does not specify its types\: TData$#'
+			identifier: missingType.generics
+			count: 1
+			path: code_samples/catalog/custom_attribute_type/src/Attribute/Percent/Form/PercentValueFormMapper.php
+
+		-
+			message: '#^Class App\\Attribute\\Percent\\PercentAttributeOptionsType extends generic class Symfony\\Component\\Form\\AbstractType but does not specify its types\: TData$#'
+			identifier: missingType.generics
+			count: 1
+			path: code_samples/catalog/custom_attribute_type/src/Attribute/Percent/PercentAttributeOptionsType.php
+
+		-
+			message: '#^Method App\\Attribute\\Percent\\PercentOptionsFormMapper\:\:createOptionsForm\(\) has parameter \$builder with generic interface Symfony\\Component\\Form\\FormBuilderInterface but does not specify its types\: TData$#'
+			identifier: missingType.generics
+			count: 1
+			path: code_samples/catalog/custom_attribute_type/src/Attribute/Percent/PercentOptionsFormMapper.php
+
+		-
+			message: '#^Class App\\Attribute\\Percent\\Storage\\PercentStorageConverter implements generic interface Ibexa\\Contracts\\ProductCatalog\\Local\\Attribute\\StorageConverterInterface but does not specify its types\: TPersistenceValue, TValue$#'
+			identifier: missingType.generics
 			count: 1
 			path: code_samples/catalog/custom_attribute_type/src/Attribute/Percent/Storage/PercentStorageConverter.php
 
 		-
-			message: "#^Class App\\\\CatalogFilter\\\\DataTransformer\\\\ProductNameCriterionTransformer implements generic interface Symfony\\\\Component\\\\Form\\\\DataTransformerInterface but does not specify its types\\: T, R$#"
+			message: '#^Class App\\CatalogFilter\\DataTransformer\\ProductNameCriterionTransformer implements generic interface Symfony\\Component\\Form\\DataTransformerInterface but does not specify its types\: T, R$#'
+			identifier: missingType.generics
 			count: 1
 			path: code_samples/catalog/custom_catalog_filter/src/CatalogFilter/DataTransformer/ProductNameCriterionTransformer.php
 
 		-
-			message: "#^Method App\\\\CatalogFilter\\\\ProductNameFilter\\:\\:getTranslationMessages\\(\\) return type has no value type specified in iterable type array\\.$#"
+			message: '#^Method App\\CatalogFilter\\ProductNameFilter\:\:getTranslationMessages\(\) return type has no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
 			count: 1
 			path: code_samples/catalog/custom_catalog_filter/src/CatalogFilter/ProductNameFilter.php
 
 		-
-			message: "#^Cannot call method getCode\\(\\) on Ibexa\\\\Contracts\\\\ProductCatalog\\\\Values\\\\ProductInterface\\|null\\.$#"
+			message: '#^Method App\\CatalogFilter\\ProductNameFilterFormMapper\:\:createFilterForm\(\) has parameter \$builder with generic interface Symfony\\Component\\Form\\FormBuilderInterface but does not specify its types\: TData$#'
+			identifier: missingType.generics
+			count: 1
+			path: code_samples/catalog/custom_catalog_filter/src/CatalogFilter/ProductNameFilterFormMapper.php
+
+		-
+			message: '#^Cannot call method getCode\(\) on Ibexa\\Contracts\\ProductCatalog\\Values\\ProductInterface\|null\.$#'
+			identifier: method.nonObject
 			count: 1
 			path: code_samples/catalog/custom_code_generator_strategy/src/CodeGenerator/Strategy/CustomIncrementalCodeGenerator.php
 
 		-
-			message: "#^Method App\\\\FieldType\\\\Point2D\\\\Type\\:\\:getSettingsSchema\\(\\) return type has no value type specified in iterable type array\\.$#"
+			message: '#^Class App\\Corporate\\Form\\VerifyType extends generic class Symfony\\Component\\Form\\AbstractType but does not specify its types\: TData$#'
+			identifier: missingType.generics
+			count: 1
+			path: code_samples/customer_portal/src/Form/VerifyType.php
+
+		-
+			message: '#^Method App\\FieldType\\Point2D\\Type\:\:getSettingsSchema\(\) return type has no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
 			count: 1
 			path: code_samples/field_types/2dpoint_ft/src/FieldType/Point2D/Type.php
 
 		-
-			message: "#^Method App\\\\FieldType\\\\Point2D\\\\Value\\:\\:__construct\\(\\) has parameter \\$coords with no value type specified in iterable type array\\.$#"
+			message: '#^Method App\\FieldType\\Point2D\\Type\:\:mapFieldDefinitionForm\(\) has parameter \$fieldDefinitionForm with generic interface Symfony\\Component\\Form\\FormInterface but does not specify its types\: TData$#'
+			identifier: missingType.generics
+			count: 1
+			path: code_samples/field_types/2dpoint_ft/src/FieldType/Point2D/Type.php
+
+		-
+			message: '#^Method App\\FieldType\\Point2D\\Type\:\:mapFieldValueForm\(\) has parameter \$fieldForm with generic interface Symfony\\Component\\Form\\FormInterface but does not specify its types\: TData$#'
+			identifier: missingType.generics
+			count: 1
+			path: code_samples/field_types/2dpoint_ft/src/FieldType/Point2D/Type.php
+
+		-
+			message: '#^Method App\\FieldType\\Point2D\\Value\:\:__construct\(\) has parameter \$coords with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
 			count: 1
 			path: code_samples/field_types/2dpoint_ft/src/FieldType/Point2D/Value.php
 
 		-
-			message: "#^Method App\\\\FieldType\\\\Point2D\\\\Type\\:\\:getSettingsSchema\\(\\) return type has no value type specified in iterable type array\\.$#"
+			message: '#^Class App\\Form\\Type\\Point2DSettingsType extends generic class Symfony\\Component\\Form\\AbstractType but does not specify its types\: TData$#'
+			identifier: missingType.generics
+			count: 1
+			path: code_samples/field_types/2dpoint_ft/src/Form/Type/Point2DSettingsType.php
+
+		-
+			message: '#^Class App\\Form\\Type\\Point2DType extends generic class Symfony\\Component\\Form\\AbstractType but does not specify its types\: TData$#'
+			identifier: missingType.generics
+			count: 1
+			path: code_samples/field_types/2dpoint_ft/src/Form/Type/Point2DType.php
+
+		-
+			message: '#^Method App\\Serializer\\Point2D\\ValueNormalizer\:\:normalize\(\) never returns ArrayObject\<\(int\|string\), mixed\> so it can be removed from the return type\.$#'
+			identifier: return.unusedType
+			count: 1
+			path: code_samples/field_types/2dpoint_ft/src/Serializer/Point2D/ValueNormalizer.php
+
+		-
+			message: '#^Method App\\Serializer\\Point2D\\ValueNormalizer\:\:normalize\(\) never returns bool so it can be removed from the return type\.$#'
+			identifier: return.unusedType
+			count: 1
+			path: code_samples/field_types/2dpoint_ft/src/Serializer/Point2D/ValueNormalizer.php
+
+		-
+			message: '#^Method App\\Serializer\\Point2D\\ValueNormalizer\:\:normalize\(\) never returns float so it can be removed from the return type\.$#'
+			identifier: return.unusedType
+			count: 1
+			path: code_samples/field_types/2dpoint_ft/src/Serializer/Point2D/ValueNormalizer.php
+
+		-
+			message: '#^Method App\\Serializer\\Point2D\\ValueNormalizer\:\:normalize\(\) never returns int so it can be removed from the return type\.$#'
+			identifier: return.unusedType
+			count: 1
+			path: code_samples/field_types/2dpoint_ft/src/Serializer/Point2D/ValueNormalizer.php
+
+		-
+			message: '#^Method App\\Serializer\\Point2D\\ValueNormalizer\:\:normalize\(\) never returns null so it can be removed from the return type\.$#'
+			identifier: return.unusedType
+			count: 1
+			path: code_samples/field_types/2dpoint_ft/src/Serializer/Point2D/ValueNormalizer.php
+
+		-
+			message: '#^Method App\\Serializer\\Point2D\\ValueNormalizer\:\:normalize\(\) never returns string so it can be removed from the return type\.$#'
+			identifier: return.unusedType
+			count: 1
+			path: code_samples/field_types/2dpoint_ft/src/Serializer/Point2D/ValueNormalizer.php
+
+		-
+			message: '#^Class App\\Form\\Type\\Point2DType extends generic class Symfony\\Component\\Form\\AbstractType but does not specify its types\: TData$#'
+			identifier: missingType.generics
+			count: 1
+			path: code_samples/field_types/2dpoint_ft/steps/step_3/Point2DType.php
+
+		-
+			message: '#^Method App\\FieldType\\Point2D\\Type\:\:mapFieldValueForm\(\) has parameter \$fieldForm with generic interface Symfony\\Component\\Form\\FormInterface but does not specify its types\: TData$#'
+			identifier: missingType.generics
+			count: 1
+			path: code_samples/field_types/2dpoint_ft/steps/step_3/Type.php
+
+		-
+			message: '#^Method App\\FieldType\\Point2D\\Type\:\:getSettingsSchema\(\) return type has no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
 			count: 1
 			path: code_samples/field_types/2dpoint_ft/steps/step_6/Type.php
 
 		-
-			message: "#^Call to an undefined method Ibexa\\\\Contracts\\\\Core\\\\FieldType\\\\Value\\:\\:getName\\(\\)\\.$#"
+			message: '#^Method App\\FieldType\\Point2D\\Type\:\:mapFieldValueForm\(\) has parameter \$fieldForm with generic interface Symfony\\Component\\Form\\FormInterface but does not specify its types\: TData$#'
+			identifier: missingType.generics
+			count: 1
+			path: code_samples/field_types/2dpoint_ft/steps/step_6/Type.php
+
+		-
+			message: '#^Call to an undefined method Ibexa\\Contracts\\Core\\FieldType\\Value\:\:getName\(\)\.$#'
+			identifier: method.notFound
 			count: 1
 			path: code_samples/field_types/generic_ft/src/FieldType/HelloWorld/Comparison/Comparable.php
 
 		-
-			message: "#^Method App\\\\FormBuilder\\\\FieldType\\\\Field\\\\Mapper\\\\CheckboxWithRichtextDescriptionFieldMapper\\:\\:mapFormOptions\\(\\) return type has no value type specified in iterable type array\\.$#"
+			message: '#^Method App\\FieldType\\HelloWorld\\Type\:\:mapFieldValueForm\(\) has parameter \$fieldForm with generic interface Symfony\\Component\\Form\\FormInterface but does not specify its types\: TData$#'
+			identifier: missingType.generics
+			count: 1
+			path: code_samples/field_types/generic_ft/src/FieldType/HelloWorld/Type.php
+
+		-
+			message: '#^Class App\\Form\\Type\\HelloWorldType extends generic class Symfony\\Component\\Form\\AbstractType but does not specify its types\: TData$#'
+			identifier: missingType.generics
+			count: 1
+			path: code_samples/field_types/generic_ft/src/Form/Type/HelloWorldType.php
+
+		-
+			message: '#^Method App\\FormBuilder\\FieldType\\Field\\Mapper\\CheckboxWithRichtextDescriptionFieldMapper\:\:mapFormOptions\(\) return type has no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
 			count: 1
 			path: code_samples/forms/custom_form_attribute/src/FormBuilder/FieldType/Field/Mapper/CheckboxWithRichtextDescriptionFieldMapper.php
 
 		-
-			message: "#^Method App\\\\FormBuilder\\\\Field\\\\Mapper\\\\CountryFieldMapper\\:\\:mapFormOptions\\(\\) return type has no value type specified in iterable type array\\.$#"
+			message: '#^Class App\\FormBuilder\\Form\\Type\\CheckboxWithRichtextDescriptionType extends generic class Symfony\\Component\\Form\\AbstractType but does not specify its types\: TData$#'
+			identifier: missingType.generics
+			count: 1
+			path: code_samples/forms/custom_form_attribute/src/FormBuilder/Form/Type/CheckboxWithRichtextDescriptionType.php
+
+		-
+			message: '#^Class App\\FormBuilder\\Form\\Type\\FieldAttribute\\AttributeRichtextDescriptionType extends generic class Symfony\\Component\\Form\\AbstractType but does not specify its types\: TData$#'
+			identifier: missingType.generics
+			count: 1
+			path: code_samples/forms/custom_form_attribute/src/FormBuilder/Form/Type/FieldAttribute/AttributeRichtextDescriptionType.php
+
+		-
+			message: '#^Method App\\FormBuilder\\Field\\Mapper\\CountryFieldMapper\:\:mapFormOptions\(\) return type has no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
 			count: 1
 			path: code_samples/forms/custom_form_field/src/FormBuilder/Field/Mapper/CountryFieldMapper.php
 
 		-
-			message: "#^Method App\\\\QueryType\\\\LatestContentQueryType\\:\\:getQuery\\(\\) has parameter \\$parameters with no value type specified in iterable type array\\.$#"
+			message: '#^Method App\\QueryType\\LatestContentQueryType\:\:getQuery\(\) has parameter \$parameters with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
 			count: 1
 			path: code_samples/front/custom_query_type/src/QueryType/LatestContentQueryType.php
 
 		-
-			message: "#^Method App\\\\QueryType\\\\LatestContentQueryType\\:\\:getSupportedParameters\\(\\) return type has no value type specified in iterable type array\\.$#"
+			message: '#^Method App\\QueryType\\LatestContentQueryType\:\:getSupportedParameters\(\) return type has no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
 			count: 1
 			path: code_samples/front/custom_query_type/src/QueryType/LatestContentQueryType.php
 
 		-
-			message: "#^Method App\\\\QueryType\\\\OptionsBasedLatestContentQueryType\\:\\:doGetQuery\\(\\) has parameter \\$parameters with no value type specified in iterable type array\\.$#"
+			message: '#^Method App\\QueryType\\OptionsBasedLatestContentQueryType\:\:doGetQuery\(\) has parameter \$parameters with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
 			count: 1
 			path: code_samples/front/custom_query_type/src/QueryType/OptionsBasedLatestContentQueryType.php
 
 		-
-			message: "#^Method App\\\\Controller\\\\RelationController\\:\\:showContentAction\\(\\) has parameter \\$locationId with no type specified\\.$#"
+			message: '#^Method App\\Controller\\RelationController\:\:showContentAction\(\) has parameter \$locationId with no type specified\.$#'
+			identifier: missingType.parameter
 			count: 1
 			path: code_samples/front/embed_content/src/Controller/RelationController.php
 
 		-
-			message: "#^Method App\\\\Controller\\\\BreadcrumbController\\:\\:showBreadcrumbsAction\\(\\) has parameter \\$locationId with no type specified\\.$#"
+			message: '#^Method App\\Controller\\BreadcrumbController\:\:showBreadcrumbsAction\(\) has parameter \$locationId with no type specified\.$#'
+			identifier: missingType.parameter
 			count: 1
 			path: code_samples/front/layouts/breadcrumbs/src/Controller/BreadcrumbController.php
 
 		-
-			message: "#^Method App\\\\QueryType\\\\MenuQueryType\\:\\:getQuery\\(\\) has parameter \\$parameters with no value type specified in iterable type array\\.$#"
+			message: '#^Method App\\QueryType\\MenuQueryType\:\:getQuery\(\) has parameter \$parameters with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
 			count: 1
 			path: code_samples/front/layouts/menu/src/QueryType/MenuQueryType.php
 
 		-
-			message: "#^Method App\\\\QueryType\\\\MenuQueryType\\:\\:getSupportedParameters\\(\\) return type has no value type specified in iterable type array\\.$#"
+			message: '#^Method App\\QueryType\\MenuQueryType\:\:getSupportedParameters\(\) return type has no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
 			count: 1
 			path: code_samples/front/layouts/menu/src/QueryType/MenuQueryType.php
 
 		-
-			message: "#^Method App\\\\Controller\\\\Checkout\\\\Step\\\\SelectSeatStepController\\:\\:getSeatsLayout\\(\\) return type has no value type specified in iterable type array\\.$#"
+			message: '#^Method App\\Controller\\Checkout\\Step\\SelectSeatStepController\:\:getSeatsLayout\(\) return type has no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
 			count: 1
 			path: code_samples/front/shop/checkout/src/Controller/Checkout/Step/SelectSeatStepController.php
 
 		-
-			message: "#^Class App\\\\ShippingMethodType\\\\Storage\\\\StorageConverter implements generic interface Ibexa\\\\Contracts\\\\Shipping\\\\Local\\\\ShippingMethod\\\\StorageConverterInterface but does not specify its types\\: TPersistenceValue, TValue$#"
+			message: '#^Class App\\Form\\Type\\OnePageCheckoutType extends generic class Symfony\\Component\\Form\\AbstractType but does not specify its types\: TData$#'
+			identifier: missingType.generics
+			count: 1
+			path: code_samples/front/shop/checkout/src/Form/Type/OnePageCheckoutType.php
+
+		-
+			message: '#^Class App\\Form\\Type\\SelectSeatType extends generic class Symfony\\Component\\Form\\AbstractType but does not specify its types\: TData$#'
+			identifier: missingType.generics
+			count: 1
+			path: code_samples/front/shop/checkout/src/Form/Type/SelectSeatType.php
+
+		-
+			message: '#^Class App\\Form\\Type\\PayPalOptionsType extends generic class Symfony\\Component\\Form\\AbstractType but does not specify its types\: TData$#'
+			identifier: missingType.generics
+			count: 1
+			path: code_samples/front/shop/payment/src/Form/Type/PayPalOptionsType.php
+
+		-
+			message: '#^Method App\\Form\\Type\\OptionsFormMapper\:\:createOptionsForm\(\) has parameter \$builder with generic interface Symfony\\Component\\Form\\FormBuilderInterface but does not specify its types\: TData$#'
+			identifier: missingType.generics
+			count: 1
+			path: code_samples/front/shop/payment/src/PaymentMethodType/PayPal/OptionsFormMapper.php
+
+		-
+			message: '#^Class App\\ShippingMethodType\\Form\\Type\\CustomShippingMethodOptionsType extends generic class Symfony\\Component\\Form\\AbstractType but does not specify its types\: TData$#'
+			identifier: missingType.generics
+			count: 1
+			path: code_samples/front/shop/shipping/src/ShippingMethodType/Form/Type/CustomShippingMethodOptionsType.php
+
+		-
+			message: '#^Class App\\ShippingMethodType\\Storage\\StorageConverter implements generic interface Ibexa\\Contracts\\Shipping\\Local\\ShippingMethod\\StorageConverterInterface but does not specify its types\: TPersistenceValue, TValue$#'
+			identifier: missingType.generics
 			count: 1
 			path: code_samples/front/shop/shipping/src/ShippingMethodType/Storage/StorageConverter.php
 
 		-
-			message: "#^Cannot call method setUri\\(\\) on Knp\\\\Menu\\\\ItemInterface\\|null\\.$#"
+			message: '#^Cannot call method setUri\(\) on Knp\\Menu\\ItemInterface\|null\.$#'
+			identifier: method.nonObject
 			count: 1
 			path: code_samples/front/shop/storefront/src/EventSubscriber/BreadcrumbsMenuSubscriber.php
 
 		-
-			message: "#^Method App\\\\Block\\\\Attribute\\\\MyStringAttributeMapper\\:\\:map\\(\\) has parameter \\$constraints with no value type specified in iterable type array\\.$#"
+			message: '#^Method App\\Block\\Attribute\\MyStringAttributeMapper\:\:map\(\) has parameter \$constraints with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
 			count: 1
 			path: code_samples/page/custom_attribute/src/Block/Attribute/MyStringAttributeMapper.php
 
 		-
-			message: "#^Call to an undefined method Ibexa\\\\FieldTypePage\\\\FieldType\\\\Page\\\\Block\\\\Renderer\\\\RenderRequestInterface\\:\\:getParameters\\(\\)\\.$#"
+			message: '#^Method App\\Block\\Attribute\\MyStringAttributeMapper\:\:map\(\) has parameter \$formBuilder with generic interface Symfony\\Component\\Form\\FormBuilderInterface but does not specify its types\: TData$#'
+			identifier: missingType.generics
+			count: 1
+			path: code_samples/page/custom_attribute/src/Block/Attribute/MyStringAttributeMapper.php
+
+		-
+			message: '#^Method App\\Block\\Attribute\\MyStringAttributeMapper\:\:map\(\) return type with generic interface Symfony\\Component\\Form\\FormBuilderInterface does not specify its types\: TData$#'
+			identifier: missingType.generics
+			count: 1
+			path: code_samples/page/custom_attribute/src/Block/Attribute/MyStringAttributeMapper.php
+
+		-
+			message: '#^Class App\\Block\\Attribute\\MyStringAttributeType extends generic class Symfony\\Component\\Form\\AbstractType but does not specify its types\: TData$#'
+			identifier: missingType.generics
+			count: 1
+			path: code_samples/page/custom_attribute/src/Block/Attribute/MyStringAttributeType.php
+
+		-
+			message: '#^Call to an undefined method Ibexa\\FieldTypePage\\FieldType\\Page\\Block\\Renderer\\RenderRequestInterface\:\:getParameters\(\)\.$#'
+			identifier: method.notFound
 			count: 1
 			path: code_samples/page/custom_page_block/src/Event/Subscriber/BlockEmbedEventEventSubscriber.php
 
 		-
-			message: "#^Call to an undefined method Ibexa\\\\FieldTypePage\\\\FieldType\\\\Page\\\\Block\\\\Renderer\\\\RenderRequestInterface\\:\\:setParameters\\(\\)\\.$#"
+			message: '#^Call to an undefined method Ibexa\\FieldTypePage\\FieldType\\Page\\Block\\Renderer\\RenderRequestInterface\:\:setParameters\(\)\.$#'
+			identifier: method.notFound
 			count: 1
 			path: code_samples/page/custom_page_block/src/Event/Subscriber/BlockEmbedEventEventSubscriber.php
 
 		-
-			message: "#^Call to an undefined method Ibexa\\\\FieldTypePage\\\\FieldType\\\\Page\\\\Block\\\\Renderer\\\\RenderRequestInterface\\:\\:getParameters\\(\\)\\.$#"
+			message: '#^Call to an undefined method Ibexa\\FieldTypePage\\FieldType\\Page\\Block\\Renderer\\RenderRequestInterface\:\:getParameters\(\)\.$#'
+			identifier: method.notFound
 			count: 1
 			path: code_samples/page/page_listener/src/Block/Listener/MyBlockListener.php
 
 		-
-			message: "#^Call to an undefined method Ibexa\\\\FieldTypePage\\\\FieldType\\\\Page\\\\Block\\\\Renderer\\\\RenderRequestInterface\\:\\:setParameters\\(\\)\\.$#"
+			message: '#^Call to an undefined method Ibexa\\FieldTypePage\\FieldType\\Page\\Block\\Renderer\\RenderRequestInterface\:\:setParameters\(\)\.$#'
+			identifier: method.notFound
 			count: 1
 			path: code_samples/page/page_listener/src/Block/Listener/MyBlockListener.php
 
 		-
-			message: "#^Method App\\\\Query\\\\Aggregation\\\\Elasticsearch\\\\PriorityRangeAggregationResultExtractor\\:\\:extract\\(\\) has parameter \\$data with no value type specified in iterable type array\\.$#"
+			message: '#^Method App\\Query\\Aggregation\\Elasticsearch\\PriorityRangeAggregationResultExtractor\:\:extract\(\) has parameter \$data with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
 			count: 1
 			path: code_samples/search/custom/src/Query/Aggregation/Elasticsearch/PriorityRangeAggregationResultExtractor.php
 
 		-
-			message: "#^Method App\\\\Query\\\\Criterion\\\\Elasticsearch\\\\CameraManufacturerVisitor\\:\\:visit\\(\\) return type has no value type specified in iterable type array\\.$#"
+			message: '#^Argument of an invalid type stdClass supplied for foreach, only iterables are supported\.$#'
+			identifier: foreach.nonIterable
+			count: 1
+			path: code_samples/search/custom/src/Query/Aggregation/Solr/PriorityRangeAggregationResultExtractor.php
+
+		-
+			message: '#^Method App\\Query\\Aggregation\\Solr\\PriorityRangeAggregationResultExtractor\:\:canVisit\(\) has parameter \$languageFilter with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: code_samples/search/custom/src/Query/Aggregation/Solr/PriorityRangeAggregationResultExtractor.php
+
+		-
+			message: '#^Method App\\Query\\Aggregation\\Solr\\PriorityRangeAggregationResultExtractor\:\:extract\(\) has parameter \$languageFilter with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: code_samples/search/custom/src/Query/Aggregation/Solr/PriorityRangeAggregationResultExtractor.php
+
+		-
+			message: '#^Method App\\Query\\Aggregation\\Solr\\PriorityRangeAggregationVisitor\:\:formatRangeValue\(\) has parameter \$value with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: code_samples/search/custom/src/Query/Aggregation/Solr/PriorityRangeAggregationVisitor.php
+
+		-
+			message: '#^Method App\\Query\\Aggregation\\Solr\\PriorityRangeAggregationVisitor\:\:visit\(\) should return array\<string\> but returns array\<string, array\<string, array\<string, string\>\>\|string\>\.$#'
+			identifier: return.type
+			count: 1
+			path: code_samples/search/custom/src/Query/Aggregation/Solr/PriorityRangeAggregationVisitor.php
+
+		-
+			message: '#^Method App\\Query\\Criterion\\Elasticsearch\\CameraManufacturerVisitor\:\:visit\(\) return type has no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
 			count: 1
 			path: code_samples/search/custom/src/Query/Criterion/Elasticsearch/CameraManufacturerVisitor.php
 
 		-
-			message: "#^Method App\\\\Query\\\\SortClause\\\\Elasticsearch\\\\ScoreVisitor\\:\\:visit\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: code_samples/search/custom/src/Query/SortClause/Elasticsearch/ScoreVisitor.php
-
-		-
-			message: "#^Argument of an invalid type stdClass supplied for foreach, only iterables are supported\\.$#"
-			count: 1
-			path: code_samples/search/custom/src/Query/Aggregation/Solr/PriorityRangeAggregationResultExtractor.php
-
-		-
-			message: "#^Method App\\\\Query\\\\Aggregation\\\\Solr\\\\PriorityRangeAggregationResultExtractor\\:\\:canVisit\\(\\) has parameter \\$languageFilter with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: code_samples/search/custom/src/Query/Aggregation/Solr/PriorityRangeAggregationResultExtractor.php
-
-		-
-			message: "#^Method App\\\\Query\\\\Aggregation\\\\Solr\\\\PriorityRangeAggregationResultExtractor\\:\\:extract\\(\\) has parameter \\$languageFilter with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: code_samples/search/custom/src/Query/Aggregation/Solr/PriorityRangeAggregationResultExtractor.php
-
-		-
-			message: "#^Method App\\\\Query\\\\Aggregation\\\\Solr\\\\PriorityRangeAggregationVisitor\\:\\:formatRangeValue\\(\\) has parameter \\$value with no type specified\\.$#"
-			count: 1
-			path: code_samples/search/custom/src/Query/Aggregation/Solr/PriorityRangeAggregationVisitor.php
-
-		-
-			message: "#^Method App\\\\Query\\\\Aggregation\\\\Solr\\\\PriorityRangeAggregationVisitor\\:\\:visit\\(\\) should return array\\<string\\> but returns array\\<string, array\\<string, array\\<string, string\\>\\>\\|string\\>\\.$#"
-			count: 1
-			path: code_samples/search/custom/src/Query/Aggregation/Solr/PriorityRangeAggregationVisitor.php
-
-		-
-			message: "#^Parameter \\#2 \\$array of function array_map expects array, array\\<bool\\|float\\|int\\|string\\>\\|bool\\|float\\|int\\|string given\\.$#"
+			message: '#^Parameter \#2 \$array of function array_map expects array, array\<bool\|float\|int\|string\>\|bool\|float\|int\|string given\.$#'
+			identifier: argument.type
 			count: 1
 			path: code_samples/search/custom/src/Query/Criterion/Solr/CameraManufacturerVisitor.php
 
 		-
-			message: "#^Call to an undefined method Ibexa\\\\FieldTypePage\\\\FieldType\\\\Page\\\\Block\\\\Renderer\\\\RenderRequestInterface\\:\\:getParameters\\(\\)\\.$#"
+			message: '#^Method App\\Query\\SortClause\\Elasticsearch\\ScoreVisitor\:\:visit\(\) return type has no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: code_samples/search/custom/src/Query/SortClause/Elasticsearch/ScoreVisitor.php
+
+		-
+			message: '#^Call to an undefined method Ibexa\\FieldTypePage\\FieldType\\Page\\Block\\Renderer\\RenderRequestInterface\:\:getParameters\(\)\.$#'
+			identifier: method.notFound
 			count: 1
 			path: code_samples/tutorials/page_tutorial/src/Event/RandomBlockListener.php
 
 		-
-			message: "#^Call to an undefined method Ibexa\\\\FieldTypePage\\\\FieldType\\\\Page\\\\Block\\\\Renderer\\\\RenderRequestInterface\\:\\:setParameters\\(\\)\\.$#"
+			message: '#^Call to an undefined method Ibexa\\FieldTypePage\\FieldType\\Page\\Block\\Renderer\\RenderRequestInterface\:\:setParameters\(\)\.$#'
+			identifier: method.notFound
 			count: 1
 			path: code_samples/tutorials/page_tutorial/src/Event/RandomBlockListener.php
 
 		-
-			message: "#^Cannot call method getValue\\(\\) on Ibexa\\\\Contracts\\\\FieldTypePage\\\\FieldType\\\\LandingPage\\\\Model\\\\Attribute\\|null\\.$#"
+			message: '#^Cannot call method getValue\(\) on Ibexa\\Contracts\\FieldTypePage\\FieldType\\LandingPage\\Model\\Attribute\|null\.$#'
+			identifier: method.nonObject
 			count: 1
 			path: code_samples/tutorials/page_tutorial/src/Event/RandomBlockListener.php
 
 		-
-			message: "#^Method App\\\\Event\\\\RandomBlockListener\\:\\:findContentItems\\(\\) return type has no value type specified in iterable type array\\.$#"
+			message: '#^Method App\\Event\\RandomBlockListener\:\:findContentItems\(\) return type has no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
 			count: 1
 			path: code_samples/tutorials/page_tutorial/src/Event/RandomBlockListener.php
 
 		-
-			message: "#^Parameter \\#1 \\$locationId of method Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\LocationService\\:\\:loadLocation\\(\\) expects int, int\\|null given\\.$#"
+			message: '#^Parameter \#1 \$locationId of method Ibexa\\Contracts\\Core\\Repository\\LocationService\:\:loadLocation\(\) expects int, int\|null given\.$#'
+			identifier: argument.type
 			count: 1
 			path: code_samples/tutorials/page_tutorial/src/Event/RandomBlockListener.php
 
 		-
-			message: "#^Method App\\\\QueryType\\\\MenuQueryType\\:\\:getQuery\\(\\) has parameter \\$parameters with no value type specified in iterable type array\\.$#"
+			message: '#^Method App\\QueryType\\MenuQueryType\:\:getQuery\(\) has parameter \$parameters with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
 			count: 1
 			path: code_samples/tutorials/page_tutorial/src/QueryType/MenuQueryType.php
 
 		-
-			message: "#^Method App\\\\QueryType\\\\MenuQueryType\\:\\:getSupportedParameters\\(\\) return type has no value type specified in iterable type array\\.$#"
+			message: '#^Method App\\QueryType\\MenuQueryType\:\:getSupportedParameters\(\) return type has no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
 			count: 1
 			path: code_samples/tutorials/page_tutorial/src/QueryType/MenuQueryType.php
 
 		-
-			message: "#^Method App\\\\QueryType\\\\MenuQueryType\\:\\:getQuery\\(\\) has parameter \\$parameters with no value type specified in iterable type array\\.$#"
+			message: '#^Method App\\QueryType\\MenuQueryType\:\:getQuery\(\) has parameter \$parameters with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
 			count: 1
 			path: code_samples/tutorials/page_tutorial_starting_point/src/QueryType/MenuQueryType.php
 
 		-
-			message: "#^Method App\\\\QueryType\\\\MenuQueryType\\:\\:getSupportedParameters\\(\\) return type has no value type specified in iterable type array\\.$#"
+			message: '#^Method App\\QueryType\\MenuQueryType\:\:getSupportedParameters\(\) return type has no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
 			count: 1
 			path: code_samples/tutorials/page_tutorial_starting_point/src/QueryType/MenuQueryType.php
 
 		-
-			message: "#^Parameter \\#2 \\$email of method Ibexa\\\\Contracts\\\\OAuth2Client\\\\Repository\\\\OAuth2UserService\\:\\:newOAuth2UserCreateStruct\\(\\) expects string, string\\|null given\\.$#"
+			message: '#^Method App\\OAuth\\GoogleResourceOwnerMapper\:\:createUser\(\) never returns null so it can be removed from the return type\.$#'
+			identifier: return.unusedType
 			count: 1
 			path: code_samples/user_management/oauth_google/src/OAuth/GoogleResourceOwnerMapper.php
 
 		-
-			message: "#^Offset 'data' does not exist on array\\|null\\.$#"
+			message: '#^Method App\\OAuth\\GoogleResourceOwnerMapper\:\:loadUser\(\) never returns null so it can be removed from the return type\.$#'
+			identifier: return.unusedType
+			count: 1
+			path: code_samples/user_management/oauth_google/src/OAuth/GoogleResourceOwnerMapper.php
+
+		-
+			message: '#^Parameter \#2 \$email of method Ibexa\\Contracts\\OAuth2Client\\Repository\\OAuth2UserService\:\:newOAuth2UserCreateStruct\(\) expects string, string\|null given\.$#'
+			identifier: argument.type
+			count: 1
+			path: code_samples/user_management/oauth_google/src/OAuth/GoogleResourceOwnerMapper.php
+
+		-
+			message: '#^Offset ''data'' might not exist on array\|null\.$#'
+			identifier: offsetAccess.notFound
 			count: 1
 			path: code_samples/workflow/custom_workflow/src/EventListener/LegalTransitionListener.php
