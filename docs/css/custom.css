@@ -538,7 +538,6 @@ a.external:not(.card):after {
     color: var(--md-accent-fg-color);
 }
 
-
 .js .md-typeset .tabbed-labels:before {
     background: var(--md-accent-fg-color);
 }
