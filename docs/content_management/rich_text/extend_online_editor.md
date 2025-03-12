@@ -465,7 +465,9 @@ ibexa.addConfig('richText.CKEditor.extraConfig', { specialCharacters: { order: [
 
 ![CKEditor Special characters: Arrows category on top of the character filter](ckeditor-special-characters_arrows-on-top.png)
 
-You can also use custom functions to modify the plugin configuration. The following example adds two ways to add a non-breaking space character:
+You can also use custom functions to modify the plugin configuration.
+The following example adds two ways to add a non-breaking space character:
+
 ```js
 function SpecialCharactersNbsp( editor ) {
     // add non-breaking space to the SpecialCharacters plugin
