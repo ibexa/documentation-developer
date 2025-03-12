@@ -182,7 +182,7 @@ In this case it's recommended to either create base implementation which each ga
 
 Just like in the case of data, storing [field type settings](type_and_value.md#field-type-settings) in content item tables may prove insufficient.
 It's not a problem if your setting specifies, for example, the allowed number of characters in a text field.
-However, the field type may represent a more complex object, for example, it may consist of two or more other fields, such as the name, SKU, and price, and there can be a set of default values instead of just one.
+However, the field type may represent a more complex object, for example, it may consist of two or more other fields, such as the name, product code (SKU), and price, and there can be a set of default values instead of just one.
 Once you add validation rules for these field values, then it becomes an issue.
 
 You can overcome this obstacle:
