@@ -6,7 +6,7 @@ site_url: https://doc.ibexa.co/en/latest/
 copyright: "Copyright 1999-2024 Ibexa AS and others"
 validation:
     links:
-        absolute_links: relative_to_docs
+        absolute_links: info
 nav:
     - Ibexa Developer Documentation: index.md
     - Ibexa DXP editions:
