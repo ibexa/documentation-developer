@@ -18,17 +18,17 @@ code_samples/search/custom/src/Query/Aggregation/PriorityRangeAggregation.php
 The `PriorityRangeAggregation` class extends `AbstractRangeAggregation`.
 The name of the class indicates that it aggregates the results by using the Range aggregation.
 
-An aggregation must implement the [`Ibexa\Contracts\Core\Repository\Values\Content\Query\Aggregation`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Aggregation.html) interface or inherit one of following abstract classes:
+An aggregation must implement the [`Ibexa\Contracts\Core\Repository\Values\Content\Query\Aggregation`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Aggregation.html) interface or inherit one of following abstract classes:
 
-- [`Ibexa\Contracts\Core\Repository\Values\Content\Query\Aggregation\AbstractRangeAggregation`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Aggregation-AbstractRangeAggregation.html)
-- [`Ibexa\Contracts\Core\Repository\Values\Content\Query\Aggregation\AbstractStatsAggregation`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Aggregation-AbstractStatsAggregation.html)
-- [`Ibexa\Contracts\Core\Repository\Values\Content\Query\Aggregation\AbstractTermAggregation`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Aggregation-AbstractTermAggregation.html)
+- [`Ibexa\Contracts\Core\Repository\Values\Content\Query\Aggregation\AbstractRangeAggregation`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Aggregation-AbstractRangeAggregation.html)
+- [`Ibexa\Contracts\Core\Repository\Values\Content\Query\Aggregation\AbstractStatsAggregation`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Aggregation-AbstractStatsAggregation.html)
+- [`Ibexa\Contracts\Core\Repository\Values\Content\Query\Aggregation\AbstractTermAggregation`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Aggregation-AbstractTermAggregation.html)
 
 An aggregation can also implement one of the following interfaces:
 
-- [`Ibexa\Contracts\Core\Repository\Values\Content\Query\Aggregation\FieldAggregation`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Aggregation-FieldAggregation.html), based on content field
-- [`Ibexa\Contracts\Core\Repository\Values\Content\Query\Aggregation\LocationAggregation`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Aggregation-LocationAggregation.html), based on content location
-- [`Ibexa\Contracts\Core\Repository\Values\Content\Query\Aggregation\RawAggregation`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Aggregation-RawAggregation.html), based on details of the index structure
+- [`Ibexa\Contracts\Core\Repository\Values\Content\Query\Aggregation\FieldAggregation`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Aggregation-FieldAggregation.html), based on content field
+- [`Ibexa\Contracts\Core\Repository\Values\Content\Query\Aggregation\LocationAggregation`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Aggregation-LocationAggregation.html), based on content location
+- [`Ibexa\Contracts\Core\Repository\Values\Content\Query\Aggregation\RawAggregation`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Aggregation-RawAggregation.html), based on details of the index structure
 
 !!! note "Aggregation definition"
 
@@ -86,14 +86,14 @@ For the result extractor, you can use the built-in `RangeAggregationResultExtrac
     Tag the service with `ibexa.search.solr.query.location.aggregation.result.extractor`.
 
     As `$keyMapper` to transform raw keys into more usable objects or scalar values, use `IntRangeAggregationKeyMapper`
-    or create your own implementing [`RangeAggregationKeyMapper`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Solr-ResultExtractor-AggregationResultExtractor-RangeAggregationKeyMapper.html).
+    or create your own implementing [`RangeAggregationKeyMapper`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Solr-ResultExtractor-AggregationResultExtractor-RangeAggregationKeyMapper.html).
 
     ``` yaml
     services:
     [[= include_file('code_samples/search/custom/config/aggregation_services.yaml', 19, 26) =]]
     ```
 
-    For other cases, a [`TermAggregationKeyMapper`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Solr-ResultExtractor-AggregationResultExtractor-TermAggregationKeyMapper.html) interface is also available.
+    For other cases, a [`TermAggregationKeyMapper`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Solr-ResultExtractor-AggregationResultExtractor-TermAggregationKeyMapper.html) interface is also available.
 
 === "Elasticsearch"
 
@@ -136,7 +136,7 @@ In a more complex use case, you must create your own visitor and extractor.
 
 === "Solr"
 
-    The aggregation visitor must implement [`Ibexa\Contracts\Solr\Query\AggregationVisitor`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Solr-Query-AggregationVisitor.html):
+    The aggregation visitor must implement [`Ibexa\Contracts\Solr\Query\AggregationVisitor`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Solr-Query-AggregationVisitor.html):
 
     ``` php
     --8<--
@@ -146,7 +146,7 @@ In a more complex use case, you must create your own visitor and extractor.
 
 === "Elasticsearch"
 
-    The aggregation visitor must implement [`Ibexa\Contracts\ElasticSearchEngine\Query\AggregationVisitor`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Elasticsearch-Query-AggregationVisitor.html):
+    The aggregation visitor must implement [`Ibexa\Contracts\ElasticSearchEngine\Query\AggregationVisitor`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Elasticsearch-Query-AggregationVisitor.html):
 
     ``` php
     --8<--
@@ -187,7 +187,7 @@ Finally, register the aggregation visitor as a service.
 
 === "Solr"
 
-    You must also create a result extractor, which implements [`Ibexa\Contracts\Solr\ResultExtractor\AggregationResultExtractor`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Solr-ResultExtractor-AggregationResultExtractor.html) that transforms raw aggregation results from Solr into `AggregationResult` objects:
+    You must also create a result extractor, which implements [`Ibexa\Contracts\Solr\ResultExtractor\AggregationResultExtractor`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Solr-ResultExtractor-AggregationResultExtractor.html) that transforms raw aggregation results from Solr into `AggregationResult` objects:
 
     ``` php
     --8<--
@@ -201,7 +201,7 @@ Finally, register the aggregation visitor as a service.
 
 === "Elasticsearch"
 
-    You must also create a result extractor, which implements  [`Ibexa\Contracts\ElasticSearchEngine\Query\AggregationResultExtractor`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Elasticsearch-Query-AggregationResultExtractor.html) that transforms raw aggregation results from Elasticsearch into `AggregationResult` objects:
+    You must also create a result extractor, which implements  [`Ibexa\Contracts\ElasticSearchEngine\Query\AggregationResultExtractor`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Elasticsearch-Query-AggregationResultExtractor.html) that transforms raw aggregation results from Elasticsearch into `AggregationResult` objects:
 
     ``` php
     --8<--
