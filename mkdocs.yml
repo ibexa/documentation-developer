@@ -11,6 +11,7 @@ validation:
     # anchors: warn # TODO: Fix IBX-9578
 not_in_nav: |
     search_results.md
+    personalization/legacy_recommendation_api.md
     /snippets/*
 nav:
     - Ibexa Developer Documentation: index.md
