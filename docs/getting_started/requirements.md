@@ -35,7 +35,7 @@ Recommendation for production setups is to use Varnish/Fastly, Redis/Memcached, 
     |Ubuntu  "Focal Fossa" | 20.04 |
     |Ubuntu "Jammy Jellyfish"| 22.04 |
     |Ubuntu "Noble Numbat"| 24.04 |
-    |RHEL / CentOS | 8.1-8.5+ |
+    |RHEL / CentOS / CentOS Stream | 8.1-9.5+ |
 
     If you see a "+" next to the product version, it indicates a recommended version or higher within the same major release. For example, "1.18+" means any 1.x version equal to or higher than 1.18, but not 2.x.
 
