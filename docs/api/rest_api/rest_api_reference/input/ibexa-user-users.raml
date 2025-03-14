@@ -344,7 +344,8 @@ head:
                             type: UserSegmentList
                         application/vnd.ibexa.api.UserSegmentList+json:
                             type: UserSegmentListWrapper
-                #TODO: 404, 401, …?
+                404:
+                    description: Error - the user doesn't exist.
         post:
             displayName: Assign Segments to User
             description: Assigns Segments from payload to User given by ID.
