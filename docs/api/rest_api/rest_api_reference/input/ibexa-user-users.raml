@@ -330,13 +330,21 @@ head:
     /segments:
         get:
             displayName: View user segments
-            description: TODO
+            description: Return user's segment list.
             headers:
                 Accept:
                     description: If set, the user's segment list is returned in XML or JSON format.
                     example: |
                         application/vnd.ibexa.api.UserSegmentList+xml
                         application/vnd.ibexa.api.UserSegmentList+json
+            responses:
+                200:
+                    body:
+                        application/vnd.ibexa.api.UserSegmentList+xml:
+                            type: UserSegmentList
+                        application/vnd.ibexa.api.UserSegmentList+json:
+                            type: UserSegmentListWrapper
+                #TODO: 404, 401, …?
         post:
             displayName: Assign Segments to User
             description: Assigns Segments from payload to User given by ID.

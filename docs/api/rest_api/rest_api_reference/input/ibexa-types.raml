@@ -2305,6 +2305,29 @@ SegmentUpdateWrapper:
     properties:
         SegmentCreate: SegmentUpdate
 
+UserSegmentList:
+    type: object
+    properties:
+        UserSegment:
+            type: UserSegment[]
+
+UserSegmentListWrapper:
+    description: 'JSON object with only a UserSegmentList property'
+    type: object
+    properties:
+        UserSegmentList: UserSegmentList
+
+UserSegment:
+    type: object
+    properties:
+        id: integer
+        identifier: string
+        name: string
+        SegmentGroup:
+            type: Ref
+        User:
+            type: Ref
+
 SortClause:
     description: 'This class is the base for SortClause classes, used to set sorting of content queries.'
     type: object
@@ -6274,4 +6297,3 @@ ActionConfiguration:
         updatedAt:
             type: datetime
             description: 'Timestamp indicating when the action configuration was last updated.'
-
