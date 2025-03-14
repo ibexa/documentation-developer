@@ -33,7 +33,7 @@ get:
                 application/vnd.ibexa.api.UserRefList+json:
                     type: UserRefListWrapper
         404:
-            description: If there are no visibile Users matching the filter.
+            description: If there are no visible Users matching the filter.
 head:
     displayName: Verify Users
     description: Verifies if there are Users matching given filter.
@@ -50,7 +50,7 @@ head:
         200:
             description: OK - verifies if there are Users matching the given filter.
         404:
-            description: Error - there are no visibile Users matching the filter.
+            description: Error - there are no visible Users matching the filter.
 /current:
     get:
         displayName: Load current User
@@ -330,13 +330,22 @@ head:
     /segments:
         get:
             displayName: View user segments
-            description: TODO
+            description: Return user's segment list.
             headers:
                 Accept:
                     description: If set, the user's segment list is returned in XML or JSON format.
                     example: |
                         application/vnd.ibexa.api.UserSegmentList+xml
                         application/vnd.ibexa.api.UserSegmentList+json
+            responses:
+                200:
+                    body:
+                        application/vnd.ibexa.api.UserSegmentList+xml:
+                            type: UserSegmentList
+                        application/vnd.ibexa.api.UserSegmentList+json:
+                            type: UserSegmentListWrapper
+                404:
+                    description: Error - the user doesn't exist.
         post:
             displayName: Assign Segments to User
             description: Assigns Segments from payload to User given by ID.
