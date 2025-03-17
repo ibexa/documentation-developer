@@ -170,11 +170,28 @@ post:
                         example: |
                             application/vnd.ibexa.api.CartEntryUpdate+xml
                             application/vnd.ibexa.api.CartEntryUpdate+json
+                    Accept:
+                        description: The updated Cart is returned in XML or JSON format.
+                        example: |
+                            application/vnd.ibexa.api.Cart+xml
+                            application/vnd.ibexa.api.Cart+json
                 body:
                     application/vnd.ibexa.api.CartEntryUpdate+xml:
                         type: CartEntryUpdate
                     application/vnd.ibexa.api.CartEntryUpdate+json:
                         type: CartEntryUpdateWrapper
+                responses:
+                    200:
+                        description: OK - return the updated cart
+                        body:
+                            application/vnd.ibexa.api.Cart+xml:
+                                type: Cart
+                            application/vnd.ibexa.api.Cart+json:
+                                type: CartWrapper
+                    401:
+                        description: Error - the user is not authorized to remove an entry from this cart.
+                    404:
+                        description: Error - the identifier doesn't match any cart.
     /empty:
         post:
             displayName: Empty Cart
