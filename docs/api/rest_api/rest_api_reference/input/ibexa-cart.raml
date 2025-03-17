@@ -99,7 +99,7 @@ post:
                     application/vnd.ibexa.api.CartMetadataUpdate+xml
                     application/vnd.ibexa.api.CartMetadataUpdate+json
             Accept:
-                description: The Cart is returned in XML or JSON format.
+                description: The updated Cart is returned in XML or JSON format.
                 example: |
                     application/vnd.ibexa.api.Cart+xml
                     application/vnd.ibexa.api.Cart+json
@@ -114,10 +114,8 @@ post:
                 body:
                     application/vnd.ibexa.api.Cart+xml:
                         type: Cart
-                        example: !include examples/cart/POST/Cart.xml.example
                     application/vnd.ibexa.api.Cart+json:
                         type: CartWrapper
-                        example: !include examples/cart/POST/Cart.json.example
             400:
                 description: Error - the input doesn't match the input schema definition.
             401:
@@ -134,12 +132,31 @@ post:
                     example: |
                         application/vnd.ibexa.api.CartEntryAdd+xml
                         application/vnd.ibexa.api.CartEntryAdd+json
+                Accept:
+                    description: The updated Cart is returned in XML or JSON format.
+                    example: |
+                        application/vnd.ibexa.api.Cart+xml
+                        application/vnd.ibexa.api.Cart+json
             body:
                 application/vnd.ibexa.api.CartEntryAdd+xml:
                     type: CartEntryAdd
                 application/vnd.ibexa.api.CartEntryAdd+json:
                     type: CartEntryAddWrapper
                     example: !include examples/cart/entry/POST/CartEntryAdd.json.example
+            responses:
+                200:
+                    description: OK - return the updated cart
+                    body:
+                        application/vnd.ibexa.api.Cart+xml:
+                            type: Cart
+                        application/vnd.ibexa.api.Cart+json:
+                            type: CartWrapper
+                400:
+                    description: Error - the input doesn't match the input schema definition.
+                401:
+                    description: Error - the user is not authorized to add an entry to this cart.
+                404:
+                    description: Error - the identifier doesn't match any cart.
         /{entryId}:
             delete:
                 displayName: Remove Entry from Cart
