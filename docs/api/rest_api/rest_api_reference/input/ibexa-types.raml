@@ -2306,6 +2306,7 @@ SegmentUpdateWrapper:
         SegmentCreate: SegmentUpdate
 
 UserSegmentList:
+    description: 'This class lists segment assignements.'
     type: object
     properties:
         UserSegment:
@@ -2318,6 +2319,7 @@ UserSegmentListWrapper:
         UserSegmentList: UserSegmentList
 
 UserSegment:
+    description: 'This class reprensents a segment assigned to a user'
     type: object
     properties:
         id: integer
@@ -2327,6 +2329,20 @@ UserSegment:
             type: Ref
         User:
             type: Ref
+
+UserSegmentAssignInput:
+    description: 'This class represents a segment assignment input.'
+    type: object
+    properties:
+        segments:
+            type: array
+            items: string
+
+UserSegmentAssignInputWrapper:
+    description: 'JSON object with only a UserSegmentAssignInput property.'
+    type: object
+    properties:
+        UserSegmentAssignInput: UserSegmentAssignInput
 
 SortClause:
     description: 'This class is the base for SortClause classes, used to set sorting of content queries.'

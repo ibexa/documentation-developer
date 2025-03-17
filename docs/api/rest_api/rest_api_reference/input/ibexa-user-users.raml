@@ -342,8 +342,10 @@ head:
                     body:
                         application/vnd.ibexa.api.UserSegmentList+xml:
                             type: UserSegmentList
+                            example: !include examples/user/users/user_id/segments/UserSegmentList.xml.example
                         application/vnd.ibexa.api.UserSegmentList+json:
                             type: UserSegmentListWrapper
+                            example: !include examples/user/users/user_id/segments/UserSegmentList.json.example
                 404:
                     description: Error - the user doesn't exist.
         post:
@@ -355,10 +357,31 @@ head:
                     example: |
                         application/vnd.ibexa.api.UserSegmentAssignInput+xml
                         application/vnd.ibexa.api.UserSegmentAssignInput+json
+            body:
+                application/vnd.ibexa.api.UserSegmentAssignInput+xml:
+                    type: UserSegmentAssignInput
+                    example: !include examples/user/users/user_id/segments/UserSegmentAssignInput.xml.example
+                application/vnd.ibexa.api.UserSegmentAssignInput+json:
+                    type: UserSegmentAssignInputWrapper
+                    example: !include examples/user/users/user_id/segments/UserSegmentAssignInput.json.example
+            responses:
+                204:
+                    description: No Content - segments assigned to user.
+                401:
+                    description: Error - the requesting user is not authorized to assign this segment to the given user.
+                404:
+                    description: Error - the user doesn't exist.
         /{segmentIdentifier}:
             delete:
                 displayName: Unassign Segment from User
                 description: The Segment designated by its identifier is unassigned from the User given by ID.
+                responses:
+                    204:
+                        description: No Content - segments unassigned from user.
+                    401:
+                        description: Error - the requesting user is not authorized to unassign this segment from the given user.
+                    404:
+                        description: Error - the segment or the user doesn't exist.
     /drafts:
         get:
             displayName: Load user drafts
