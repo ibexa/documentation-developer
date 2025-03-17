@@ -161,6 +161,29 @@ post:
             delete:
                 displayName: Remove Entry from Cart
                 description: Removes the given entry from the given Cart.
+                headers:
+                    Accept:
+                        description: The updated Cart is returned in XML or JSON format.
+                        example: |
+                            application/vnd.ibexa.api.Cart+xml
+                            application/vnd.ibexa.api.Cart+json
+                body:
+                    application/vnd.ibexa.api.CartEntryUpdate+xml:
+                        type: CartEntryUpdate
+                    application/vnd.ibexa.api.CartEntryUpdate+json:
+                        type: CartEntryUpdateWrapper
+                responses:
+                    200:
+                        description: OK - return the updated cart
+                        body:
+                            application/vnd.ibexa.api.Cart+xml:
+                                type: Cart
+                            application/vnd.ibexa.api.Cart+json:
+                                type: CartWrapper
+                    401:
+                        description: Error - the user is not authorized to remove an entry from this cart.
+                    404:
+                        description: Error - the identifiers don't match any cart or entry.
             patch:
                 displayName: Update Entry from Cart
                 description: Updates the given entry from the given Cart.
@@ -188,10 +211,12 @@ post:
                                 type: Cart
                             application/vnd.ibexa.api.Cart+json:
                                 type: CartWrapper
+                    400:
+                        description: Error - the input doesn't match the input schema definition.
                     401:
                         description: Error - the user is not authorized to remove an entry from this cart.
                     404:
-                        description: Error - the identifier doesn't match any cart.
+                        description: Error - the identifiers don't match any cart or entry.
     /empty:
         post:
             displayName: Empty Cart
