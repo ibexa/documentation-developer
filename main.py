@@ -27,7 +27,6 @@ def define_env(env):
     - macro: a decorator function, to declare a macro.
     """
 
-
     @env.macro
     def include_file(filename, start_line=0, end_line=None, glue=''):
         """
@@ -121,6 +120,8 @@ def define_env(env):
 
     @env.macro
     def release_notes_filters(header : str, categories : list[str]) -> str:
+        validate_categories(categories)
+
         filters = "".join(
             ["""
             <div 
@@ -165,6 +166,8 @@ def define_env(env):
 
     @env.macro
     def release_note_entry_begin(header : str, date: str, categories : list[str]) -> str:
+        validate_categories(categories)
+
         category_badges = "".join(
             [
                 """
@@ -189,3 +192,12 @@ def define_env(env):
 
     def slugify(text: str) -> str:
         return text.lower().replace(' ', '-')
+
+    def validate_categories(categories: list[str]) -> None:
+        available_categories = ['Headless', 'Experience', 'Commerce', 'LTS Update', 'New feature']
+
+        for category in categories:
+            if category not in available_categories:
+                raise ValueError(
+                    "Unknown category: {category}. Available categories are: {available_categories}".format(category=category, available_categories=" ".join(available_categories))
+                    )
