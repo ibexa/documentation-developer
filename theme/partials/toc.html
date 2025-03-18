@@ -24,19 +24,6 @@
                     <li class="md-nav__item level-2">
                       <a href="{{ toc_item.url }}" title="{{ toc_item.title }}" class="md-nav__link">
                         {{ toc_item.title }}
-                        <!-- {% if toc_item.children %}
-                        <nav class="md-nav">
-                          <ul class="md-nav__list">
-                              {% for toc_item in toc_item.children %}
-                                <li class="md-nav__item level-2">
-                                  <a href="{{ toc_item.url }}" title="{{ toc_item.title }}" class="md-nav__link">
-                                    NESTED {{ toc_item.title }}
-                                  </a>
-                                </li>
-                              {% endfor %}
-                          </ul>
-                        </nav>
-                    {% endif %} -->
                       </a>
                     </li>
                   {% endfor %}
