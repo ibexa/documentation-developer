@@ -57,9 +57,9 @@ Compare all features available in [[= product_name_headless =]], [[= product_nam
 
 ## LTS Updates
 
-Compare all features available in [[= product_name_headless =]], [[= product_name_exp =]], and [[= product_name_com =]] to help you choose the right products for your needs:
+LTS Updates are opt-in packages that bring additional features to the LTS release that they enhance.
 
 | Feature | [[= product_name_headless =]] | [[= product_name_exp =]] | [[= product_name_com =]] |
 |-----------------|-----------------|-----------------|-----------------|
 | [AI Actions](ai_actions_guide.md) | &#10004; | &#10004; | &#10004; |
-| [Date and time attribute type](user_management_guide.md) | &#10004; | &#10004; | &#10004; |
+| [Date and time attribute type](date_and_time.md) | &#10004; | &#10004; | &#10004; |
