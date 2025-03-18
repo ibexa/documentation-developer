@@ -14,9 +14,9 @@ description: Ibexa DXP v4.6 brings improvements to Commerce, PIM and Personaliza
 #### PHP API
 The PHP API has been enhanced with the following new classes:
 
-- [`Ibexa\Contracts\ProductCatalog\Form\Data\ProductSelectorData`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Form-Data-ProductSelectorData.html)
-- [`Ibexa\Contracts\ProductCatalog\Form\Data\ProductsSelectorData`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Form-Data-ProductsSelectorData.html)
-- [`Ibexa\Contracts\ProductCatalog\Form\Type\ProductSelectorType`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Form-Type-ProductSelectorType.html)
+- [`Ibexa\Contracts\ProductCatalog\Form\Data\ProductSelectorData`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Form-Data-ProductSelectorData.html)
+- [`Ibexa\Contracts\ProductCatalog\Form\Data\ProductsSelectorData`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Form-Data-ProductsSelectorData.html)
+- [`Ibexa\Contracts\ProductCatalog\Form\Type\ProductSelectorType`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Form-Type-ProductSelectorType.html)
 
 #### Full changelog
 [[% include 'snippets/release_46.md' %]]
@@ -41,11 +41,11 @@ You can now [duplicate AI actions]([[= user_doc =]]/) in the AI actions list.
 
 The PHP API has been expanded with the following classes and interfaces:
 
-- [`Ibexa\Contracts\ConnectorAi\ActionConfiguration\ActionConfigurationCopyStruct`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorAi-ActionConfiguration-ActionConfigurationCopyStruct.html)
-- [`Ibexa\Contracts\ConnectorAi\ActionHandlerRegistryInterface`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorAi-ActionHandlerRegistryInterface.html)
-- [`Ibexa\Contracts\ConnectorAi\Prompt\PromptFactory`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorAi-Prompt-PromptFactory.html)
-- [`Ibexa\Contracts\ConnectorAi\Prompt\PromptInterface`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorAi-Prompt-PromptInterface.html)
-- [`Ibexa\Contracts\ConnectorAi\PromptResolverInterface`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorAi-PromptResolverInterface.html)
+- [`Ibexa\Contracts\ConnectorAi\ActionConfiguration\ActionConfigurationCopyStruct`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorAi-ActionConfiguration-ActionConfigurationCopyStruct.html)
+- [`Ibexa\Contracts\ConnectorAi\ActionHandlerRegistryInterface`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorAi-ActionHandlerRegistryInterface.html)
+- [`Ibexa\Contracts\ConnectorAi\Prompt\PromptFactory`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorAi-Prompt-PromptFactory.html)
+- [`Ibexa\Contracts\ConnectorAi\Prompt\PromptInterface`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorAi-Prompt-PromptInterface.html)
+- [`Ibexa\Contracts\ConnectorAi\PromptResolverInterface`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorAi-PromptResolverInterface.html)
 
 [[= release_note_entry_end() =]]
 [[= release_note_entry_begin("Ibexa DXP " + version, '2025-03-04', ['Headless', 'Experience', 'Commerce', 'New feature']) =]]
@@ -56,9 +56,9 @@ To learn more, see the [corresponding security advisory](https://developers.ibex
 
 #### Features
 
-- New REST API endpoints for [Segments](../../api/rest_api/rest_api_reference/rest_api_reference.html#segments) and [Segment Groups](http://localhost:8103/en/latest/api/rest_api/rest_api_reference/rest_api_reference.html#segment-groups)
-- REST API Client ([`Ibexa\Contracts\Connect\ConnectClientInterface`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-ConnectClientInterface.html)) for [Ibexa Connect]([[= connect_doc =]])
-- The following Twig functions now additionally support objects implementing the [`ContentAwareInterface`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-ContentAwareInterface.html) as arguments:
+- New REST API endpoints for [Segments](../api/rest_api/rest_api_reference/rest_api_reference.html#segments) and [Segment Groups](http://localhost:8103/en/latest/api/rest_api/rest_api_reference/rest_api_reference.html#segment-groups)
+- REST API Client ([`Ibexa\Contracts\Connect\ConnectClientInterface`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-ConnectClientInterface.html)) for [Ibexa Connect]([[= connect_doc =]])
+- The following Twig functions now additionally support objects implementing the [`ContentAwareInterface`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-ContentAwareInterface.html) as arguments:
     - [`ibexa_content_field_identifier_first_filled_image`](image_twig_functions.md#ibexa_content_field_identifier_first_filled_image)
     - [`ibexa_content_name`](content_twig_functions.md#ibexa_content_name)
     - [`ibexa_field_is_empty`](field_twig_functions.md#ibexa_field_is_empty)
@@ -78,69 +78,69 @@ To learn more, see the [corresponding security advisory](https://developers.ibex
 The PHP API has been enhanced with the following new classes and interfaces:
 
 - `Ibexa\Contracts\Cart`:
-    - [`Value\Query\Criterion\LogicalAnd`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Cart-Value-Query-Criterion-LogicalAnd.html)
-    - [`Value\Query\Criterion\OwnerCriterion`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Cart-Value-Query-Criterion-OwnerCriterion.html)
-    - [`Value\Query\CriterionInterface`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Cart-Value-Query-CriterionInterface.html)
+    - [`Value\Query\Criterion\LogicalAnd`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Cart-Value-Query-Criterion-LogicalAnd.html)
+    - [`Value\Query\Criterion\OwnerCriterion`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Cart-Value-Query-Criterion-OwnerCriterion.html)
+    - [`Value\Query\CriterionInterface`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Cart-Value-Query-CriterionInterface.html)
 - `Ibexa\Contracts\Segmentation`:
-    - [`Exception\ValidationFailedExceptionInterface`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Segmentation-Exception-ValidationFailedExceptionInterface.html)
+    - [`Exception\ValidationFailedExceptionInterface`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Segmentation-Exception-ValidationFailedExceptionInterface.html)
 - `Ibexa\Contracts\ProductCatalog`:
-    - [`Iterator\BatchIteratorAdapter\RegionFetchAdapter`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Iterator-BatchIteratorAdapter-RegionFetchAdapter.html)
+    - [`Iterator\BatchIteratorAdapter\RegionFetchAdapter`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Iterator-BatchIteratorAdapter-RegionFetchAdapter.html)
 - `Ibexa\Contracts\Connect`:
-    - [`ConnectClientInterface`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-ConnectClientInterface.html)
-    - [`Exception\BadResponseException`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Exception-BadResponseException.html)
-    - [`Exception\UnserializablePayload`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Exception-UnserializablePayload.html)
-    - [`Exception\UnserializableResponse`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Exception-UnserializableResponse.html)
-    - [`PaginationInterface`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-PaginationInterface.html)
-    - [`Resource\DataStructure\DataStructureBuilder`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Resource-DataStructure-DataStructureBuilder.html)
-    - [`Resource\DataStructure\DataStructureCreateStruct`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Resource-DataStructure-DataStructureCreateStruct.html)
-    - [`Resource\DataStructure\DataStructureFilter`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Resource-DataStructure-DataStructureFilter.html)
-    - [`Resource\DataStructure\DataStructureProperty`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Resource-DataStructure-DataStructureProperty.html)
-    - [`Resource\DataStructure\DataStructurePropertyType`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Resource-DataStructure-DataStructurePropertyType.html)
-    - [`Resource\DataStructureInterface`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Resource-DataStructureInterface.html)
-    - [`Resource\Hook\HookCreateStruct`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Resource-Hook-HookCreateStruct.html)
-    - [`Resource\Hook\HookFilter`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Resource-Hook-HookFilter.html)
-    - [`Resource\Hook\HookSetDetailsStruct`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Resource-Hook-HookSetDetailsStruct.html)
-    - [`Resource\HookInterface`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Resource-HookInterface.html)
-    - [`Resource\Scenario\ScenarioCreateStruct`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Resource-Scenario-ScenarioCreateStruct.html)
-    - [`Resource\Scenario\ScenarioFilter`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Resource-Scenario-ScenarioFilter.html)
-    - [`Resource\ScenarioInterface`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Resource-ScenarioInterface.html)
-    - [`Resource\Team\TeamVariableCreateStruct`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Resource-Team-TeamVariableCreateStruct.html)
-    - [`Resource\Team\TeamVariableFilter`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Resource-Team-TeamVariableFilter.html)
-    - [`Resource\Team\TeamVariableUpdateStruct`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Resource-Team-TeamVariableUpdateStruct.html)
-    - [`Resource\TeamInterface`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Resource-TeamInterface.html)
-    - [`Resource\Template\TemplateCreateStruct`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Resource-Template-TemplateCreateStruct.html)
-    - [`Resource\Template\TemplateFilter`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Resource-Template-TemplateFilter.html)
-    - [`Resource\TemplateInterface`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Resource-TemplateInterface.html)
-    - [`Response\DataStructure\CreateResponse`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Response-DataStructure-CreateResponse.html)
-    - [`Response\DataStructure\ListResponse`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Response-DataStructure-ListResponse.html)
-    - [`Response\DataStructure\RetrieveResponse`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Response-DataStructure-RetrieveResponse.html)
-    - [`Response\Hook\CreateResponse`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Response-Hook-CreateResponse.html)
-    - [`Response\Hook\ListResponse`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Response-Hook-ListResponse.html)
-    - [`Response\Hook\RetrieveResponse`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Response-Hook-RetrieveResponse.html)
-    - [`Response\Hook\SetDetailsResponse`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Response-Hook-SetDetailsResponse.html)
-    - [`Response\Scenario\CreateResponse`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Response-Scenario-CreateResponse.html)
-    - [`Response\Scenario\ListResponse`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Response-Scenario-ListResponse.html)
-    - [`Response\Scenario\RetrieveResponse`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Response-Scenario-RetrieveResponse.html)
-    - [`Response\Team\TeamVariableCreateResponse`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Response-Team-TeamVariableCreateResponse.html)
-    - [`Response\Team\TeamVariableListResponse`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Response-Team-TeamVariableListResponse.html)
-    - [`Response\Team\TeamVariableRetrieveResponse`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Response-Team-TeamVariableRetrieveResponse.html)
-    - [`Response\Team\TeamVariableUpdateResponse`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Response-Team-TeamVariableUpdateResponse.html)
-    - [`Response\Template\BlueprintResponse`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Response-Template-BlueprintResponse.html)
-    - [`Response\Template\CreateResponse`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Response-Template-CreateResponse.html)
-    - [`Response\Template\ListResponse`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Response-Template-ListResponse.html)
-    - [`Response\Template\RetrieveResponse`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Response-Template-RetrieveResponse.html)
-    - [`ResponseInterface`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-ResponseInterface.html)
-    - [`TransportInterface`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-TransportInterface.html)
-    - [`Value\Blueprint\Flow`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Value-Blueprint-Flow.html)
-    - [`Value\Blueprint\Metadata\Scenario`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Value-Blueprint-Metadata-Scenario.html)
-    - [`Value\Blueprint\Metadata`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Value-Blueprint-Metadata.html)
-    - [`Value\Blueprint\Module\CustomWebhook`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Value-Blueprint-Module-CustomWebhook.html)
-    - [`Value\Blueprint\Module\JsonCreate`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Value-Blueprint-Module-JsonCreate.html)
-    - [`Value\Blueprint\Module\ModuleDesigner`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Value-Blueprint-Module-ModuleDesigner.html)
-    - [`Value\Blueprint\Module\WebhookRespond`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Value-Blueprint-Module-WebhookRespond.html)
-    - [`Value\Blueprint`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Value-Blueprint.html)
-    - [`Value\Controller`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Value-Controller.html)
-    - [`Value\Scheduling`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Value-Scheduling.html)
+    - [`ConnectClientInterface`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-ConnectClientInterface.html)
+    - [`Exception\BadResponseException`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Exception-BadResponseException.html)
+    - [`Exception\UnserializablePayload`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Exception-UnserializablePayload.html)
+    - [`Exception\UnserializableResponse`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Exception-UnserializableResponse.html)
+    - [`PaginationInterface`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-PaginationInterface.html)
+    - [`Resource\DataStructure\DataStructureBuilder`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Resource-DataStructure-DataStructureBuilder.html)
+    - [`Resource\DataStructure\DataStructureCreateStruct`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Resource-DataStructure-DataStructureCreateStruct.html)
+    - [`Resource\DataStructure\DataStructureFilter`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Resource-DataStructure-DataStructureFilter.html)
+    - [`Resource\DataStructure\DataStructureProperty`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Resource-DataStructure-DataStructureProperty.html)
+    - [`Resource\DataStructure\DataStructurePropertyType`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Resource-DataStructure-DataStructurePropertyType.html)
+    - [`Resource\DataStructureInterface`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Resource-DataStructureInterface.html)
+    - [`Resource\Hook\HookCreateStruct`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Resource-Hook-HookCreateStruct.html)
+    - [`Resource\Hook\HookFilter`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Resource-Hook-HookFilter.html)
+    - [`Resource\Hook\HookSetDetailsStruct`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Resource-Hook-HookSetDetailsStruct.html)
+    - [`Resource\HookInterface`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Resource-HookInterface.html)
+    - [`Resource\Scenario\ScenarioCreateStruct`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Resource-Scenario-ScenarioCreateStruct.html)
+    - [`Resource\Scenario\ScenarioFilter`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Resource-Scenario-ScenarioFilter.html)
+    - [`Resource\ScenarioInterface`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Resource-ScenarioInterface.html)
+    - [`Resource\Team\TeamVariableCreateStruct`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Resource-Team-TeamVariableCreateStruct.html)
+    - [`Resource\Team\TeamVariableFilter`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Resource-Team-TeamVariableFilter.html)
+    - [`Resource\Team\TeamVariableUpdateStruct`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Resource-Team-TeamVariableUpdateStruct.html)
+    - [`Resource\TeamInterface`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Resource-TeamInterface.html)
+    - [`Resource\Template\TemplateCreateStruct`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Resource-Template-TemplateCreateStruct.html)
+    - [`Resource\Template\TemplateFilter`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Resource-Template-TemplateFilter.html)
+    - [`Resource\TemplateInterface`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Resource-TemplateInterface.html)
+    - [`Response\DataStructure\CreateResponse`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Response-DataStructure-CreateResponse.html)
+    - [`Response\DataStructure\ListResponse`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Response-DataStructure-ListResponse.html)
+    - [`Response\DataStructure\RetrieveResponse`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Response-DataStructure-RetrieveResponse.html)
+    - [`Response\Hook\CreateResponse`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Response-Hook-CreateResponse.html)
+    - [`Response\Hook\ListResponse`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Response-Hook-ListResponse.html)
+    - [`Response\Hook\RetrieveResponse`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Response-Hook-RetrieveResponse.html)
+    - [`Response\Hook\SetDetailsResponse`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Response-Hook-SetDetailsResponse.html)
+    - [`Response\Scenario\CreateResponse`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Response-Scenario-CreateResponse.html)
+    - [`Response\Scenario\ListResponse`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Response-Scenario-ListResponse.html)
+    - [`Response\Scenario\RetrieveResponse`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Response-Scenario-RetrieveResponse.html)
+    - [`Response\Team\TeamVariableCreateResponse`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Response-Team-TeamVariableCreateResponse.html)
+    - [`Response\Team\TeamVariableListResponse`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Response-Team-TeamVariableListResponse.html)
+    - [`Response\Team\TeamVariableRetrieveResponse`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Response-Team-TeamVariableRetrieveResponse.html)
+    - [`Response\Team\TeamVariableUpdateResponse`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Response-Team-TeamVariableUpdateResponse.html)
+    - [`Response\Template\BlueprintResponse`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Response-Template-BlueprintResponse.html)
+    - [`Response\Template\CreateResponse`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Response-Template-CreateResponse.html)
+    - [`Response\Template\ListResponse`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Response-Template-ListResponse.html)
+    - [`Response\Template\RetrieveResponse`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Response-Template-RetrieveResponse.html)
+    - [`ResponseInterface`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-ResponseInterface.html)
+    - [`TransportInterface`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-TransportInterface.html)
+    - [`Value\Blueprint\Flow`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Value-Blueprint-Flow.html)
+    - [`Value\Blueprint\Metadata\Scenario`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Value-Blueprint-Metadata-Scenario.html)
+    - [`Value\Blueprint\Metadata`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Value-Blueprint-Metadata.html)
+    - [`Value\Blueprint\Module\CustomWebhook`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Value-Blueprint-Module-CustomWebhook.html)
+    - [`Value\Blueprint\Module\JsonCreate`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Value-Blueprint-Module-JsonCreate.html)
+    - [`Value\Blueprint\Module\ModuleDesigner`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Value-Blueprint-Module-ModuleDesigner.html)
+    - [`Value\Blueprint\Module\WebhookRespond`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Value-Blueprint-Module-WebhookRespond.html)
+    - [`Value\Blueprint`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Value-Blueprint.html)
+    - [`Value\Controller`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Value-Controller.html)
+    - [`Value\Scheduling`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Value-Scheduling.html)
 
 #### Full changelog
 [[% include 'snippets/release_46.md' %]]
@@ -161,10 +161,10 @@ The new AI Assistant allows you to use the AI capabilities in additional places,
 
 The PHP API has been enhanced with the following new classes:
 
-- [`Ibexa\Contracts\AdminUi\Permission\PermissionCheckContextProviderInterface`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-AdminUi-Permission-PermissionCheckContextProviderInterface.html)
-- [`Ibexa\Contracts\AdminUi\Values\PermissionCheckContext`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-AdminUi-Values-PermissionCheckContext.html)
-- [`Ibexa\Contracts\Checkout\Discounts\DataMapper\DiscountsDataMapperInterface`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Checkout-Discounts-DataMapper-DiscountsDataMapperInterface.html)
-- [`Ibexa\Contracts\Seo\Resolver\FieldValueResolverInterface`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Seo-Resolver-FieldValueResolverInterface.html)
+- [`Ibexa\Contracts\AdminUi\Permission\PermissionCheckContextProviderInterface`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-AdminUi-Permission-PermissionCheckContextProviderInterface.html)
+- [`Ibexa\Contracts\AdminUi\Values\PermissionCheckContext`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-AdminUi-Values-PermissionCheckContext.html)
+- [`Ibexa\Contracts\Checkout\Discounts\DataMapper\DiscountsDataMapperInterface`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Checkout-Discounts-DataMapper-DiscountsDataMapperInterface.html)
+- [`Ibexa\Contracts\Seo\Resolver\FieldValueResolverInterface`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Seo-Resolver-FieldValueResolverInterface.html)
 
 #### Full changelog
 [[% include 'snippets/release_46.md' %]]
@@ -177,8 +177,8 @@ The PHP API has been enhanced with the following new classes:
 
 The REST API has been extended to include endpoints for:
 
-- [Action Configurations](../../api/rest_api/rest_api_reference/rest_api_reference.html#ai-actions-list-action-configurations)
-- [Action Types](../../api/rest_api/rest_api_reference/rest_api_reference.html#ai-actions-list-action-types)
+- [Action Configurations](../api/rest_api/rest_api_reference/rest_api_reference.html#ai-actions-list-action-configurations)
+- [Action Types](../api/rest_api/rest_api_reference/rest_api_reference.html#ai-actions-list-action-types)
 [[= release_note_entry_end() =]]
 
 
@@ -191,9 +191,9 @@ You can now reuse Page Builder blocks between landing pages using the ["Copy blo
 #### PHP API
 The PHP API has been enhanced with the following new classes and interfaces:
 
-- [`Ibexa\Contracts\ProductCatalog\Values\Price\PriceEnvelopeInterface`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Values-Price-PriceEnvelopeInterface.html)
-- [`Ibexa\Contracts\ProductCatalog\Values\Price\PriceStampInterface`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Values-Price-PriceStampInterface.html)
-- [`Ibexa\Contracts\ProductCatalog\Values\StampInterface`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Values-StampInterface.html)
+- [`Ibexa\Contracts\ProductCatalog\Values\Price\PriceEnvelopeInterface`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Values-Price-PriceEnvelopeInterface.html)
+- [`Ibexa\Contracts\ProductCatalog\Values\Price\PriceStampInterface`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Values-Price-PriceStampInterface.html)
+- [`Ibexa\Contracts\ProductCatalog\Values\StampInterface`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Values-StampInterface.html)
 
 #### Full changelog
 [[% include 'snippets/release_46.md' %]]
@@ -219,18 +219,18 @@ To learn more, see the [corresponding security advisory](https://developers.ibex
 
 The PHP API has been enhanced with the following new classes and interfaces:
 
-- [`Ibexa\Contracts\Core\Validation\AbstractValidationStructWrapper`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Validation-AbstractValidationStructWrapper.html)
-- [`Ibexa\Contracts\Core\Validation\StructValidator`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Validation-StructValidator.html)
-- [`Ibexa\Contracts\Core\Validation\StructWrapperValidator`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Validation-StructWrapperValidator.html)
-- [`Ibexa\Contracts\Core\Validation\ValidationFailedException`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Validation-ValidationFailedException.html)
-- [`Ibexa\Contracts\Core\Validation\ValidationStructWrapperInterface`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Validation-ValidationStructWrapperInterface.html)
-- [`Ibexa\Contracts\Notifications\SystemNotification\SystemMessage`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Notifications-SystemNotification-SystemMessage.html)
-- [`Ibexa\Contracts\Notifications\SystemNotification\SystemNotification`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Notifications-SystemNotification-SystemNotification.html)
-- [`Ibexa\Contracts\Notifications\SystemNotification\SystemNotificationInterface`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Notifications-SystemNotification-SystemNotificationInterface.html)
-- [`Ibexa\Contracts\Notifications\Value\Recipent\UserRecipientInterface`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Notifications-Value-Recipent-UserRecipientInterface.html)
-- [`Ibexa\Contracts\ProductCatalog\ProductReferencesResolverStrategy`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-ProductReferencesResolverStrategy.html)
-- [`Ibexa\Contracts\ProductCatalog\Values\Product\Query\Criterion\UpdatedAt`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Values-Product-Query-Criterion-UpdatedAt.html)
-- [`Ibexa\Contracts\ProductCatalog\Values\Product\Query\Criterion\UpdatedAtRange`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Values-Product-Query-Criterion-UpdatedAtRange.html)
+- [`Ibexa\Contracts\Core\Validation\AbstractValidationStructWrapper`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Validation-AbstractValidationStructWrapper.html)
+- [`Ibexa\Contracts\Core\Validation\StructValidator`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Validation-StructValidator.html)
+- [`Ibexa\Contracts\Core\Validation\StructWrapperValidator`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Validation-StructWrapperValidator.html)
+- [`Ibexa\Contracts\Core\Validation\ValidationFailedException`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Validation-ValidationFailedException.html)
+- [`Ibexa\Contracts\Core\Validation\ValidationStructWrapperInterface`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Validation-ValidationStructWrapperInterface.html)
+- [`Ibexa\Contracts\Notifications\SystemNotification\SystemMessage`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Notifications-SystemNotification-SystemMessage.html)
+- [`Ibexa\Contracts\Notifications\SystemNotification\SystemNotification`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Notifications-SystemNotification-SystemNotification.html)
+- [`Ibexa\Contracts\Notifications\SystemNotification\SystemNotificationInterface`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Notifications-SystemNotification-SystemNotificationInterface.html)
+- [`Ibexa\Contracts\Notifications\Value\Recipent\UserRecipientInterface`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Notifications-Value-Recipent-UserRecipientInterface.html)
+- [`Ibexa\Contracts\ProductCatalog\ProductReferencesResolverStrategy`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-ProductReferencesResolverStrategy.html)
+- [`Ibexa\Contracts\ProductCatalog\Values\Product\Query\Criterion\UpdatedAt`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Values-Product-Query-Criterion-UpdatedAt.html)
+- [`Ibexa\Contracts\ProductCatalog\Values\Product\Query\Criterion\UpdatedAtRange`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Values-Product-Query-Criterion-UpdatedAtRange.html)
 
 #### Full changelog
 [[% include 'snippets/release_46.md' %]]
@@ -243,10 +243,10 @@ The PHP API has been enhanced with the following new classes and interfaces:
 
 The PHP API has been enhanced with the following new classes and interfaces:
 
-- [Ibexa\Contracts\CoreSearch\Persistence\CriterionMapper\AbstractCompositeCriterionMapper](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-CoreSearch-Persistence-CriterionMapper-AbstractCompositeCriterionMapper.html)
-- [Ibexa\Contracts\CoreSearch\Persistence\CriterionMapper\AbstractFieldCriterionMapper](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-CoreSearch-Persistence-CriterionMapper-AbstractFieldCriterionMapper.html)
-- [Ibexa\Contracts\Rest\Output\Exceptions\AbstractExceptionVisitor](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Rest-Output-Exceptions-AbstractExceptionVisitor.html)
-- [Ibexa\Contracts\CoreSearch\Values\Query\CriterionMapper](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-CoreSearch-Values-Query-CriterionMapper.html)
+- [Ibexa\Contracts\CoreSearch\Persistence\CriterionMapper\AbstractCompositeCriterionMapper](../api/php_api/php_api_reference/classes/Ibexa-Contracts-CoreSearch-Persistence-CriterionMapper-AbstractCompositeCriterionMapper.html)
+- [Ibexa\Contracts\CoreSearch\Persistence\CriterionMapper\AbstractFieldCriterionMapper](../api/php_api/php_api_reference/classes/Ibexa-Contracts-CoreSearch-Persistence-CriterionMapper-AbstractFieldCriterionMapper.html)
+- [Ibexa\Contracts\Rest\Output\Exceptions\AbstractExceptionVisitor](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Rest-Output-Exceptions-AbstractExceptionVisitor.html)
+- [Ibexa\Contracts\CoreSearch\Values\Query\CriterionMapper](../api/php_api/php_api_reference/classes/Ibexa-Contracts-CoreSearch-Values-Query-CriterionMapper.html)
 
 #### Full changelog
 
@@ -276,25 +276,25 @@ For more information, see [AI Actions product guide](/ai_actions_guide.md).
 
 The PHP API has been enhanced with the following new classes and interfaces:
 
-- [Ibexa\Contracts\AdminUi\Menu\AbstractFormContextMenuBuilder](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-AdminUi-Menu-AbstractFormContextMenuBuilder.html)
-- [Ibexa\Contracts\AdminUi\Menu\CopyFormContextMenuBuilder](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-AdminUi-Menu-CopyFormContextMenuBuilder.html)
-- [Ibexa\Contracts\AdminUi\Menu\CreateFormContextMenuBuilder](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-AdminUi-Menu-CreateFormContextMenuBuilder.html)
-- [Ibexa\Contracts\AdminUi\Menu\MenuItemFactoryInterface](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-AdminUi-Menu-MenuItemFactoryInterface.html)
-- [Ibexa\Contracts\AdminUi\Menu\UpdateFormContextMenuBuilder](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-AdminUi-Menu-UpdateFormContextMenuBuilder.html)
-- [Ibexa\Contracts\Core\Pool\Pool](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Pool-Pool.html)
-- [Ibexa\Contracts\Core\Pool\PoolInterface](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Pool-PoolInterface.html)
-- [Ibexa\Contracts\CoreSearch\Values\Query\AbstractCriterionQuery](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-CoreSearch-Values-Query-AbstractCriterionQuery.html)
-- [Ibexa\Contracts\CoreSearch\Values\Query\AbstractSortClause](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-CoreSearch-Values-Query-AbstractSortClause.html)
-- [Ibexa\Contracts\CoreSearch\Values\Query\Criterion\AbstractCompositeCriterion](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-CoreSearch-Values-Query-Criterion-AbstractCompositeCriterion.html)
-- [Ibexa\Contracts\CoreSearch\Values\Query\Criterion\CriterionInterface](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-CoreSearch-Values-Query-Criterion-CriterionInterface.html)
-- [Ibexa\Contracts\CoreSearch\Values\Query\Criterion\FieldValueCriterion](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-CoreSearch-Values-Query-Criterion-FieldValueCriterion.html)
-- [Ibexa\Contracts\CoreSearch\Values\Query\Criterion\LogicalAnd](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-CoreSearch-Values-Query-Criterion-LogicalAnd.html)
-- [Ibexa\Contracts\CoreSearch\Values\Query\Criterion\LogicalOr](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-CoreSearch-Values-Query-Criterion-LogicalOr.html)
-- [Ibexa\Contracts\CoreSearch\Values\Query\CriterionMapper](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-CoreSearch-Values-Query-CriterionMapper.html)
-- [Ibexa\Contracts\CoreSearch\Values\Query\CriterionMapperInterface](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-CoreSearch-Values-Query-CriterionMapperInterface.html)
-- [Ibexa\Contracts\CoreSearch\Values\Query\SortClause\FieldValueSortClause](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-CoreSearch-Values-Query-SortClause-FieldValueSortClause.html)
-- [Ibexa\Contracts\CoreSearch\Values\Query\SortDirection](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-CoreSearch-Values-Query-SortDirection.html)
-- [Ibexa\Contracts\ProductCatalog\Local\Attribute\ContextAwareValueValidatorInterface](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Local-Attribute-ContextAwareValueValidatorInterface.html)
+- [Ibexa\Contracts\AdminUi\Menu\AbstractFormContextMenuBuilder](../api/php_api/php_api_reference/classes/Ibexa-Contracts-AdminUi-Menu-AbstractFormContextMenuBuilder.html)
+- [Ibexa\Contracts\AdminUi\Menu\CopyFormContextMenuBuilder](../api/php_api/php_api_reference/classes/Ibexa-Contracts-AdminUi-Menu-CopyFormContextMenuBuilder.html)
+- [Ibexa\Contracts\AdminUi\Menu\CreateFormContextMenuBuilder](../api/php_api/php_api_reference/classes/Ibexa-Contracts-AdminUi-Menu-CreateFormContextMenuBuilder.html)
+- [Ibexa\Contracts\AdminUi\Menu\MenuItemFactoryInterface](../api/php_api/php_api_reference/classes/Ibexa-Contracts-AdminUi-Menu-MenuItemFactoryInterface.html)
+- [Ibexa\Contracts\AdminUi\Menu\UpdateFormContextMenuBuilder](../api/php_api/php_api_reference/classes/Ibexa-Contracts-AdminUi-Menu-UpdateFormContextMenuBuilder.html)
+- [Ibexa\Contracts\Core\Pool\Pool](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Pool-Pool.html)
+- [Ibexa\Contracts\Core\Pool\PoolInterface](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Pool-PoolInterface.html)
+- [Ibexa\Contracts\CoreSearch\Values\Query\AbstractCriterionQuery](../api/php_api/php_api_reference/classes/Ibexa-Contracts-CoreSearch-Values-Query-AbstractCriterionQuery.html)
+- [Ibexa\Contracts\CoreSearch\Values\Query\AbstractSortClause](../api/php_api/php_api_reference/classes/Ibexa-Contracts-CoreSearch-Values-Query-AbstractSortClause.html)
+- [Ibexa\Contracts\CoreSearch\Values\Query\Criterion\AbstractCompositeCriterion](../api/php_api/php_api_reference/classes/Ibexa-Contracts-CoreSearch-Values-Query-Criterion-AbstractCompositeCriterion.html)
+- [Ibexa\Contracts\CoreSearch\Values\Query\Criterion\CriterionInterface](../api/php_api/php_api_reference/classes/Ibexa-Contracts-CoreSearch-Values-Query-Criterion-CriterionInterface.html)
+- [Ibexa\Contracts\CoreSearch\Values\Query\Criterion\FieldValueCriterion](../api/php_api/php_api_reference/classes/Ibexa-Contracts-CoreSearch-Values-Query-Criterion-FieldValueCriterion.html)
+- [Ibexa\Contracts\CoreSearch\Values\Query\Criterion\LogicalAnd](../api/php_api/php_api_reference/classes/Ibexa-Contracts-CoreSearch-Values-Query-Criterion-LogicalAnd.html)
+- [Ibexa\Contracts\CoreSearch\Values\Query\Criterion\LogicalOr](../api/php_api/php_api_reference/classes/Ibexa-Contracts-CoreSearch-Values-Query-Criterion-LogicalOr.html)
+- [Ibexa\Contracts\CoreSearch\Values\Query\CriterionMapper](../api/php_api/php_api_reference/classes/Ibexa-Contracts-CoreSearch-Values-Query-CriterionMapper.html)
+- [Ibexa\Contracts\CoreSearch\Values\Query\CriterionMapperInterface](../api/php_api/php_api_reference/classes/Ibexa-Contracts-CoreSearch-Values-Query-CriterionMapperInterface.html)
+- [Ibexa\Contracts\CoreSearch\Values\Query\SortClause\FieldValueSortClause](../api/php_api/php_api_reference/classes/Ibexa-Contracts-CoreSearch-Values-Query-SortClause-FieldValueSortClause.html)
+- [Ibexa\Contracts\CoreSearch\Values\Query\SortDirection](../api/php_api/php_api_reference/classes/Ibexa-Contracts-CoreSearch-Values-Query-SortDirection.html)
+- [Ibexa\Contracts\ProductCatalog\Local\Attribute\ContextAwareValueValidatorInterface](../api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Local-Attribute-ContextAwareValueValidatorInterface.html)
 
 #### Full changelog
 
@@ -310,15 +310,15 @@ The PHP API has been enhanced with the following new classes and interfaces:
 #### PHP API
 The PHP API has been enhanced with the following new classes and interfaces:
 
-- [`Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion\Location\IsBookmarked`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Criterion-Location-IsBookmarked.html)
+- [`Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion\Location\IsBookmarked`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Criterion-Location-IsBookmarked.html)
 
 And the new methods are:
 
-- [`Ibexa\Contracts\Core\Persistence\Bookmark\Handler::loadUserIdsByLocation()`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Persistence-Bookmark-Handler.html#method_loadUserIdsByLocation)
-- [`Ibexa\Contracts\ProductCatalog\Local\LocalProductTypeServiceDecorator::addContentTypeFieldDefinition()`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Local-LocalProductTypeServiceDecorator.html#method_addContentTypeFieldDefinition)
-- [`Ibexa\Contracts\ProductCatalog\Local\LocalProductTypeServiceDecorator::removeContentTypeFieldDefinition()`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Local-LocalProductTypeServiceDecorator.html#method_removeContentTypeFieldDefinition)
-- [`Ibexa\Contracts\ProductCatalog\Local\LocalProductTypeServiceInterface::addContentTypeFieldDefinition()`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Local-LocalProductTypeServiceInterface.html#methods)
-- [`Ibexa\Contracts\ProductCatalog\Local\LocalProductTypeServiceInterface::removeContentTypeFieldDefinition()`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Local-LocalProductTypeServiceInterface.html#method_removeContentTypeFieldDefinition)
+- [`Ibexa\Contracts\Core\Persistence\Bookmark\Handler::loadUserIdsByLocation()`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Persistence-Bookmark-Handler.html#method_loadUserIdsByLocation)
+- [`Ibexa\Contracts\ProductCatalog\Local\LocalProductTypeServiceDecorator::addContentTypeFieldDefinition()`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Local-LocalProductTypeServiceDecorator.html#method_addContentTypeFieldDefinition)
+- [`Ibexa\Contracts\ProductCatalog\Local\LocalProductTypeServiceDecorator::removeContentTypeFieldDefinition()`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Local-LocalProductTypeServiceDecorator.html#method_removeContentTypeFieldDefinition)
+- [`Ibexa\Contracts\ProductCatalog\Local\LocalProductTypeServiceInterface::addContentTypeFieldDefinition()`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Local-LocalProductTypeServiceInterface.html#methods)
+- [`Ibexa\Contracts\ProductCatalog\Local\LocalProductTypeServiceInterface::removeContentTypeFieldDefinition()`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Local-LocalProductTypeServiceInterface.html#method_removeContentTypeFieldDefinition)
 
 [[% include 'snippets/release_46.md' %]]
 [[= release_note_entry_end() =]]
@@ -344,10 +344,10 @@ To learn more, see the [corresponding security advisory](https://developers.ibex
 
 The PHP API has been enhanced with the following new classes and interfaces:
 
-- [`Ibexa\Contracts\ConnectorQualifio\Exception\QualifioException`](../../api/php_api/php_api_reference/classes/ibexa-contracts-connectorqualifio-exception-QualifioException.html)
-- [`Ibexa\Contracts\ConnectorQualifio\Exception\CampaignFeedNotFoundException`](../../api/php_api/php_api_reference/classes/ibexa-contracts-connectorqualifio-exception-CampaignFeedNotFoundException.html)
-- [`Ibexa\Contracts\ConnectorQualifio\Exception\CommunicationException`](../../api/php_api/php_api_reference/classes/ibexa-contracts-connectorqualifio-exception-CommunicationException.html)
-- [`Ibexa\Contracts\ConnectorQualifio\Exception\NotConfiguredException`](../../api/php_api/php_api_reference/classes/ibexa-contracts-connectorqualifio-exception-NotConfiguredException.html)
+- [`Ibexa\Contracts\ConnectorQualifio\Exception\QualifioException`](../api/php_api/php_api_reference/classes/ibexa-contracts-connectorqualifio-exception-QualifioException.html)
+- [`Ibexa\Contracts\ConnectorQualifio\Exception\CampaignFeedNotFoundException`](../api/php_api/php_api_reference/classes/ibexa-contracts-connectorqualifio-exception-CampaignFeedNotFoundException.html)
+- [`Ibexa\Contracts\ConnectorQualifio\Exception\CommunicationException`](../api/php_api/php_api_reference/classes/ibexa-contracts-connectorqualifio-exception-CommunicationException.html)
+- [`Ibexa\Contracts\ConnectorQualifio\Exception\NotConfiguredException`](../api/php_api/php_api_reference/classes/ibexa-contracts-connectorqualifio-exception-NotConfiguredException.html)
 
 [[% include 'snippets/release_46.md' %]]
 [[= release_note_entry_end() =]]
@@ -359,7 +359,7 @@ The PHP API has been enhanced with the following new classes and interfaces:
 
 The PHP API has been enhanced with the following new class:
 
-- [`Ibexa\Contracts\FieldTypeRichText\Configuration\ProviderConfiguratorInterface`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-FieldTypeRichText-Configuration-ProviderConfiguratorInterface.html)
+- [`Ibexa\Contracts\FieldTypeRichText\Configuration\ProviderConfiguratorInterface`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-FieldTypeRichText-Configuration-ProviderConfiguratorInterface.html)
 
 #### Full changelog
 
@@ -373,10 +373,10 @@ The PHP API has been enhanced with the following new class:
 
 The PHP API has been enhanced with the following new classes:
 
--  [`Ibexa\Contracts\Calendar\EventAction\EventActionCollection`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Calendar-EventAction-EventActionCollection.html)
-- [`Ibexa\Contracts\Calendar\EventSource\InMemoryEventSource`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Calendar-EventSource-InMemoryEventSource.html)
-- [`Ibexa\Contracts\Core\Event\Mapper\ResolveMissingFieldEvent`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Event-Mapper-ResolveMissingFieldEvent.html)
-- [`Ibexa\Contracts\Core\FieldType\DefaultDataFieldStorage`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-FieldType-DefaultDataFieldStorage.html)
+-  [`Ibexa\Contracts\Calendar\EventAction\EventActionCollection`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Calendar-EventAction-EventActionCollection.html)
+- [`Ibexa\Contracts\Calendar\EventSource\InMemoryEventSource`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Calendar-EventSource-InMemoryEventSource.html)
+- [`Ibexa\Contracts\Core\Event\Mapper\ResolveMissingFieldEvent`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Event-Mapper-ResolveMissingFieldEvent.html)
+- [`Ibexa\Contracts\Core\FieldType\DefaultDataFieldStorage`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-FieldType-DefaultDataFieldStorage.html)
 
 #### Full changelog
 
