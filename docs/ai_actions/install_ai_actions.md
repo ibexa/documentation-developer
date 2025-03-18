@@ -5,7 +5,7 @@ month_change: false
 
 # Install AI Actions
 
-AI Actions are available as an LTS update to [[= product_name =]] in version v4.6.x or higher, regardless of its edition.
+AI Actions are available as an LTS update to [[= product_name =]] starting with version v4.6.12 or higher, regardless of its edition.
 To use this feature you must first install the packages and configure them.
 
 ## Install packages
@@ -68,7 +68,7 @@ Run the following command, where `<database_name>` is the same name that you def
 
 This command modifies the existing database schema by adding database configuration required for using AI Actions.
 
-You can now restart you application and start [working with the AI Actions feature]([[= user_doc =]]/ai_actions/work_with_ai_actions//).
+You can now restart you application and start [working with the AI Actions feature]([[= user_doc =]]/ai_actions/work_with_ai_actions/).
 
 ### Install sample AI action configurations (optional)
 

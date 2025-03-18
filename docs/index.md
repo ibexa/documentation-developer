@@ -89,12 +89,12 @@
         <div class="col-12 col-lg-6">
             <div class="notification notification--lts-update" id="tile3">
                 <div class="notification__content">
-                    <h2>The newest LTS Update to Ibexa DXP v4.6 is AI Actions</h2>
-                    <div>Install it to let AI help you with editorial tasks. </div>
+                    <h2>The newest LTS Update to Ibexa DXP v4.6 is the Date and time attribute type</h2>
+                    <div> Install it to add time-related values to product specifications.</div>
                 </div>
                 <div class="notification__cta">
-                    <a href="release_notes/ibexa_dxp_v4.6/">More about AI Actions</a>
-                    <a href="release_notes/ibexa_dxp_v4.6/">LTS Updates List</a>
+                    <a href="pim/attributes/date_and_time">More about Date and Time attribute type</a>
+                    <a href="ibexa_products/editions#lts-updates">LTS Updates List</a>
                 </div>
                 <div class="notification__image">
                     <img src="images/notification-lts-update.svg" alt="LTS Update" />

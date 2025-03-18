@@ -8,57 +8,254 @@ description: Ibexa DXP v4.6 brings improvements to Commerce, PIM and Personaliza
 
 <div class="release-notes" markdown="1">
 
-[[% set version = 'v4.6.16' %]]
-[[= release_note_entry_begin("Ibexa DXP " + version, '2025-01-16', ['Headless', 'Experience', 'Commerce', 'LTS Update', 'New feature']) =]]
+[[% set version = 'v4.6.18' %]]
+[[= release_note_entry_begin("Ibexa DXP " + version, '2025-03-06', ['Headless', 'Experience', 'Commerce']) =]]
 
-### This is normal Markdown text.
+#### PHP API
+The PHP API has been enhanced with the following new classes:
+
+- [`Ibexa\Contracts\ProductCatalog\Form\Data\ProductSelectorData`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Form-Data-ProductSelectorData.html)
+- [`Ibexa\Contracts\ProductCatalog\Form\Data\ProductsSelectorData`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Form-Data-ProductsSelectorData.html)
+- [`Ibexa\Contracts\ProductCatalog\Form\Type\ProductSelectorType`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Form-Type-ProductSelectorType.html)
+
+#### Full changelog
 [[% include 'snippets/release_46.md' %]]
 
 [[= release_note_entry_end() =]]
 
-<div class="release-note" markdown="1">
+[[= release_note_entry_begin("Date and time attribute", '2025-03-04', ['Headless', 'Experience', 'Commerce', 'LTS Update', 'New feature']) =]]
+
+The Date and time attributes allow you to represent date and time values as part of the product specification in the [Product Information Management](pim_guide.md) system.
+
+For more information, see [Date and time attributes](date_and_time.md).
+
+[[= release_note_entry_end() =]]
+
+[[% set version = 'v4.6.17' %]]
+[[= release_note_entry_begin("AI Actions " + version, '2025-03-04', ['LTS Update', 'New feature']) =]]
+
+#### Features
+You can now [duplicate AI actions]([[= user_doc =]]/) in the AI actions list.
+
+#### PHP API
+
+The PHP API has been expanded with the following classes and interfaces:
+
+- [`Ibexa\Contracts\ConnectorAi\ActionConfiguration\ActionConfigurationCopyStruct`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorAi-ActionConfiguration-ActionConfigurationCopyStruct.html)
+- [`Ibexa\Contracts\ConnectorAi\ActionHandlerRegistryInterface`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorAi-ActionHandlerRegistryInterface.html)
+- [`Ibexa\Contracts\ConnectorAi\Prompt\PromptFactory`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorAi-Prompt-PromptFactory.html)
+- [`Ibexa\Contracts\ConnectorAi\Prompt\PromptInterface`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorAi-Prompt-PromptInterface.html)
+- [`Ibexa\Contracts\ConnectorAi\PromptResolverInterface`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorAi-PromptResolverInterface.html)
+
+[[= release_note_entry_end() =]]
+[[= release_note_entry_begin("Ibexa DXP " + version, '2025-03-04', ['Headless', 'Experience', 'Commerce', 'New feature']) =]]
+#### Security
+
+This release includes security fixes.
+To learn more, see the [corresponding security advisory](https://developers.ibexa.co/security-advisories/ibexa-sa-2025-001-vulnerabilities-in-shopping-cart-and-publish-unscheduling).
+
+#### Features
+
+- New REST API endpoints for [Segments](../../api/rest_api/rest_api_reference/rest_api_reference.html#segments) and [Segment Groups](http://localhost:8103/en/latest/api/rest_api/rest_api_reference/rest_api_reference.html#segment-groups)
+- REST API Client ([`Ibexa\Contracts\Connect\ConnectClientInterface`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-ConnectClientInterface.html)) for [Ibexa Connect]([[= connect_doc =]])
+- The following Twig functions now additionally support objects implementing the [`ContentAwareInterface`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-ContentAwareInterface.html) as arguments:
+    - [`ibexa_content_field_identifier_first_filled_image`](image_twig_functions.md#ibexa_content_field_identifier_first_filled_image)
+    - [`ibexa_content_name`](content_twig_functions.md#ibexa_content_name)
+    - [`ibexa_field_is_empty`](field_twig_functions.md#ibexa_field_is_empty)
+    - [`ibexa_field_description`](field_twig_functions.md#ibexa_field_description)
+    - [`ibexa_field_name`](field_twig_functions.md#ibexa_field_name)
+    - [`ibexa_field_value`](field_twig_functions.md#ibexa_field_value)
+    - [`ibexa_field`](field_twig_functions.md#ibexa_field)
+    - [`ibexa_has_field`](field_twig_functions.md#ibexa_has_field)
+    - [`ibexa_render_field`](field_twig_functions.md#ibexa_render_field)
+    - [`ibexa_seo_is_empty`](content_twig_functions.md#ibexa_seo_is_empty)
+    - [`ibexa_seo`](content_twig_functions.md#ibexa_seo)
+    - [`ibexa_taxonomy_entries_for_content`](content_twig_functions.md#ibexa_taxonomy_entries_for_content-filter)
+- Added new Twig filter for product attributes grouping: [`ibexa_product_catalog_group_attributes`](product_twig_functions.md#ibexa_product_catalog_group_attributes)
+
+#### PHP API
+
+The PHP API has been enhanced with the following new classes and interfaces:
+
+- `Ibexa\Contracts\Cart`:
+    - [`Value\Query\Criterion\LogicalAnd`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Cart-Value-Query-Criterion-LogicalAnd.html)
+    - [`Value\Query\Criterion\OwnerCriterion`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Cart-Value-Query-Criterion-OwnerCriterion.html)
+    - [`Value\Query\CriterionInterface`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Cart-Value-Query-CriterionInterface.html)
+- `Ibexa\Contracts\Segmentation`:
+    - [`Exception\ValidationFailedExceptionInterface`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Segmentation-Exception-ValidationFailedExceptionInterface.html)
+- `Ibexa\Contracts\ProductCatalog`:
+    - [`Iterator\BatchIteratorAdapter\RegionFetchAdapter`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Iterator-BatchIteratorAdapter-RegionFetchAdapter.html)
+- `Ibexa\Contracts\Connect`:
+    - [`ConnectClientInterface`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-ConnectClientInterface.html)
+    - [`Exception\BadResponseException`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Exception-BadResponseException.html)
+    - [`Exception\UnserializablePayload`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Exception-UnserializablePayload.html)
+    - [`Exception\UnserializableResponse`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Exception-UnserializableResponse.html)
+    - [`PaginationInterface`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-PaginationInterface.html)
+    - [`Resource\DataStructure\DataStructureBuilder`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Resource-DataStructure-DataStructureBuilder.html)
+    - [`Resource\DataStructure\DataStructureCreateStruct`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Resource-DataStructure-DataStructureCreateStruct.html)
+    - [`Resource\DataStructure\DataStructureFilter`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Resource-DataStructure-DataStructureFilter.html)
+    - [`Resource\DataStructure\DataStructureProperty`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Resource-DataStructure-DataStructureProperty.html)
+    - [`Resource\DataStructure\DataStructurePropertyType`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Resource-DataStructure-DataStructurePropertyType.html)
+    - [`Resource\DataStructureInterface`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Resource-DataStructureInterface.html)
+    - [`Resource\Hook\HookCreateStruct`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Resource-Hook-HookCreateStruct.html)
+    - [`Resource\Hook\HookFilter`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Resource-Hook-HookFilter.html)
+    - [`Resource\Hook\HookSetDetailsStruct`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Resource-Hook-HookSetDetailsStruct.html)
+    - [`Resource\HookInterface`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Resource-HookInterface.html)
+    - [`Resource\Scenario\ScenarioCreateStruct`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Resource-Scenario-ScenarioCreateStruct.html)
+    - [`Resource\Scenario\ScenarioFilter`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Resource-Scenario-ScenarioFilter.html)
+    - [`Resource\ScenarioInterface`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Resource-ScenarioInterface.html)
+    - [`Resource\Team\TeamVariableCreateStruct`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Resource-Team-TeamVariableCreateStruct.html)
+    - [`Resource\Team\TeamVariableFilter`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Resource-Team-TeamVariableFilter.html)
+    - [`Resource\Team\TeamVariableUpdateStruct`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Resource-Team-TeamVariableUpdateStruct.html)
+    - [`Resource\TeamInterface`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Resource-TeamInterface.html)
+    - [`Resource\Template\TemplateCreateStruct`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Resource-Template-TemplateCreateStruct.html)
+    - [`Resource\Template\TemplateFilter`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Resource-Template-TemplateFilter.html)
+    - [`Resource\TemplateInterface`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Resource-TemplateInterface.html)
+    - [`Response\DataStructure\CreateResponse`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Response-DataStructure-CreateResponse.html)
+    - [`Response\DataStructure\ListResponse`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Response-DataStructure-ListResponse.html)
+    - [`Response\DataStructure\RetrieveResponse`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Response-DataStructure-RetrieveResponse.html)
+    - [`Response\Hook\CreateResponse`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Response-Hook-CreateResponse.html)
+    - [`Response\Hook\ListResponse`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Response-Hook-ListResponse.html)
+    - [`Response\Hook\RetrieveResponse`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Response-Hook-RetrieveResponse.html)
+    - [`Response\Hook\SetDetailsResponse`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Response-Hook-SetDetailsResponse.html)
+    - [`Response\Scenario\CreateResponse`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Response-Scenario-CreateResponse.html)
+    - [`Response\Scenario\ListResponse`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Response-Scenario-ListResponse.html)
+    - [`Response\Scenario\RetrieveResponse`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Response-Scenario-RetrieveResponse.html)
+    - [`Response\Team\TeamVariableCreateResponse`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Response-Team-TeamVariableCreateResponse.html)
+    - [`Response\Team\TeamVariableListResponse`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Response-Team-TeamVariableListResponse.html)
+    - [`Response\Team\TeamVariableRetrieveResponse`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Response-Team-TeamVariableRetrieveResponse.html)
+    - [`Response\Team\TeamVariableUpdateResponse`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Response-Team-TeamVariableUpdateResponse.html)
+    - [`Response\Template\BlueprintResponse`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Response-Template-BlueprintResponse.html)
+    - [`Response\Template\CreateResponse`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Response-Template-CreateResponse.html)
+    - [`Response\Template\ListResponse`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Response-Template-ListResponse.html)
+    - [`Response\Template\RetrieveResponse`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Response-Template-RetrieveResponse.html)
+    - [`ResponseInterface`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-ResponseInterface.html)
+    - [`TransportInterface`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-TransportInterface.html)
+    - [`Value\Blueprint\Flow`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Value-Blueprint-Flow.html)
+    - [`Value\Blueprint\Metadata\Scenario`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Value-Blueprint-Metadata-Scenario.html)
+    - [`Value\Blueprint\Metadata`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Value-Blueprint-Metadata.html)
+    - [`Value\Blueprint\Module\CustomWebhook`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Value-Blueprint-Module-CustomWebhook.html)
+    - [`Value\Blueprint\Module\JsonCreate`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Value-Blueprint-Module-JsonCreate.html)
+    - [`Value\Blueprint\Module\ModuleDesigner`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Value-Blueprint-Module-ModuleDesigner.html)
+    - [`Value\Blueprint\Module\WebhookRespond`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Value-Blueprint-Module-WebhookRespond.html)
+    - [`Value\Blueprint`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Value-Blueprint.html)
+    - [`Value\Controller`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Value-Controller.html)
+    - [`Value\Scheduling`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Value-Scheduling.html)
+
+#### Full changelog
+[[% include 'snippets/release_46.md' %]]
+[[= release_note_entry_end() =]]
+
+[[% set version = 'v4.6.16' %]]
+[[= release_note_entry_begin("AI Actions " + version, '2025-01-16', ['LTS Update', 'New feature']) =]]
+
+#### Features
+
+The new AI Assistant allows you to use the AI capabilities in additional places, including RichText, Text line, Text Block fields, and certain Page Builder blocks.
+
+[[= release_note_entry_end() =]]
+
+[[= release_note_entry_begin("Ibexa DXP " + version, '2025-01-16', ['Headless', 'Experience', 'Commerce']) =]]
+
+#### PHP API
+
+The PHP API has been enhanced with the following new classes:
+
+- [`Ibexa\Contracts\AdminUi\Permission\PermissionCheckContextProviderInterface`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-AdminUi-Permission-PermissionCheckContextProviderInterface.html)
+- [`Ibexa\Contracts\AdminUi\Values\PermissionCheckContext`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-AdminUi-Values-PermissionCheckContext.html)
+- [`Ibexa\Contracts\Checkout\Discounts\DataMapper\DiscountsDataMapperInterface`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Checkout-Discounts-DataMapper-DiscountsDataMapperInterface.html)
+- [`Ibexa\Contracts\Seo\Resolver\FieldValueResolverInterface`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Seo-Resolver-FieldValueResolverInterface.html)
+
+#### Full changelog
+[[% include 'snippets/release_46.md' %]]
+[[= release_note_entry_end() =]]
+
 [[% set version = 'v4.6.15' %]]
-## [[= product_name =]] [[= version =]]
-<div class="release-note__tags">
-<div class="release-note__tag release-note__tag--lts-update" data-filter="lts-update">LTS Update</div>
-<div class="release-note__tag release-note__tag--new-feature" data-filter="new-feature">New feature</div>
-</div>
-<div class="release-note__date">2024-12-13</div>
+[[= release_note_entry_begin("AI Actions " + version, '2024-12-13', ['LTS Update', 'New feature']) =]]
 
+#### REST API
+
+The REST API has been extended to include endpoints for:
+
+- [Action Configurations](../../api/rest_api/rest_api_reference/rest_api_reference.html#ai-actions-list-action-configurations)
+- [Action Types](../../api/rest_api/rest_api_reference/rest_api_reference.html#ai-actions-list-action-types)
+[[= release_note_entry_end() =]]
+
+
+[[= release_note_entry_begin("Ibexa DXP " + version, '2024-12-13', ['Headless', 'Experience', 'Commerce', 'New feature']) =]]
+
+### Features
+
+You can now reuse Page Builder blocks between landing pages using the ["Copy block" action]([[= user_doc =]]/content_management/create_edit_pages/#copy-blocks).
+
+#### PHP API
+The PHP API has been enhanced with the following new classes and interfaces:
+
+- [`Ibexa\Contracts\ProductCatalog\Values\Price\PriceEnvelopeInterface`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Values-Price-PriceEnvelopeInterface.html)
+- [`Ibexa\Contracts\ProductCatalog\Values\Price\PriceStampInterface`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Values-Price-PriceStampInterface.html)
+- [`Ibexa\Contracts\ProductCatalog\Values\StampInterface`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Values-StampInterface.html)
+
+#### Full changelog
 [[% include 'snippets/release_46.md' %]]
-</div>
+[[= release_note_entry_end() =]]
 
-<div class="release-note" markdown="1">
 [[% set version = 'v4.6.14' %]]
-## [[= product_name =]] [[= version =]]
-<div class="release-note__tags">
-<div class="release-note__tag release-note__tag--experience" data-filter="experience">Experience</div>
-<div class="release-note__tag release-note__tag--commerce" data-filter="commerce">Commerce</div>
-</div>
-<div class="release-note__date">2024-11-28</div>
+[[= release_note_entry_begin("Ibexa DXP " + version, '2024-11-28', ['Headless', 'Experience', 'Commerce']) =]]
 
+#### Security
+This release includes security fixes.
+To learn more, see the [corresponding security advisory](https://developers.ibexa.co/security-advisories/ibexa-sa-2024-006-vulnerabilities-in-content-name-pattern-commerce-shop-and-varnish-vhost-templates).
+
+#### UX Improvements
+
+- The identifiers for content types and field definitions are now autogenerated based on the provided name
+- You can now search in [Trash]([[= user_doc =]]/content_management/content_organization/copy_move_hide_content/#remove-content) by content's name
+
+#### Search
+
+- New search criterion: [IsUserEnabled](isuserenabled_criterion.md)
+
+#### PHP API
+
+The PHP API has been enhanced with the following new classes and interfaces:
+
+- [`Ibexa\Contracts\Core\Validation\AbstractValidationStructWrapper`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Validation-AbstractValidationStructWrapper.html)
+- [`Ibexa\Contracts\Core\Validation\StructValidator`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Validation-StructValidator.html)
+- [`Ibexa\Contracts\Core\Validation\StructWrapperValidator`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Validation-StructWrapperValidator.html)
+- [`Ibexa\Contracts\Core\Validation\ValidationFailedException`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Validation-ValidationFailedException.html)
+- [`Ibexa\Contracts\Core\Validation\ValidationStructWrapperInterface`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Validation-ValidationStructWrapperInterface.html)
+- [`Ibexa\Contracts\Notifications\SystemNotification\SystemMessage`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Notifications-SystemNotification-SystemMessage.html)
+- [`Ibexa\Contracts\Notifications\SystemNotification\SystemNotification`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Notifications-SystemNotification-SystemNotification.html)
+- [`Ibexa\Contracts\Notifications\SystemNotification\SystemNotificationInterface`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Notifications-SystemNotification-SystemNotificationInterface.html)
+- [`Ibexa\Contracts\Notifications\Value\Recipent\UserRecipientInterface`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Notifications-Value-Recipent-UserRecipientInterface.html)
+- [`Ibexa\Contracts\ProductCatalog\ProductReferencesResolverStrategy`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-ProductReferencesResolverStrategy.html)
+- [`Ibexa\Contracts\ProductCatalog\Values\Product\Query\Criterion\UpdatedAt`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Values-Product-Query-Criterion-UpdatedAt.html)
+- [`Ibexa\Contracts\ProductCatalog\Values\Product\Query\Criterion\UpdatedAtRange`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Values-Product-Query-Criterion-UpdatedAtRange.html)
+
+#### Full changelog
 [[% include 'snippets/release_46.md' %]]
-</div>
+[[= release_note_entry_end() =]]
 
-<div class="release-note" markdown="1">
 [[% set version = 'v4.6.13' %]]
-## [[= product_name =]] [[= version =]]
-<div class="release-note__tags">
-<div class="release-note__tag release-note__tag--lts-update" data-filter="lts-update">LTS Update</div>
-<div class="release-note__tag release-note__tag--new-feature" data-filter="new-feature">New feature</div>
-</div>
-<div class="release-note__date">2024-10-22</div>
+[[= release_note_entry_begin("Ibexa DXP " + version, '2024-10-22', ['Headless', 'Experience', 'Commerce']) =]]
+
+#### PHP API
+
+The PHP API has been enhanced with the following new classes and interfaces:
+
+- [Ibexa\Contracts\CoreSearch\Persistence\CriterionMapper\AbstractCompositeCriterionMapper](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-CoreSearch-Persistence-CriterionMapper-AbstractCompositeCriterionMapper.html)
+- [Ibexa\Contracts\CoreSearch\Persistence\CriterionMapper\AbstractFieldCriterionMapper](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-CoreSearch-Persistence-CriterionMapper-AbstractFieldCriterionMapper.html)
+- [Ibexa\Contracts\Rest\Output\Exceptions\AbstractExceptionVisitor](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Rest-Output-Exceptions-AbstractExceptionVisitor.html)
+- [Ibexa\Contracts\CoreSearch\Values\Query\CriterionMapper](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-CoreSearch-Values-Query-CriterionMapper.html)
+
+#### Full changelog
 
 [[% include 'snippets/release_46.md' %]]
-</div>
+[[= release_note_entry_end() =]]
 
-<div class="release-note" markdown="1">
-## AI Actions
-<div class="release-note__tags">
-<div class="release-note__tag release-note__tag--lts-update" data-filter="lts-update">LTS Update</div>
-<div class="release-note__tag release-note__tag--new-feature" data-filter="new-feature">New feature</div>
-</div>
-<div class="release-note__date">2024-08-04</div>
+[[% set version = 'v4.6.12' %]]
+
+[[= release_note_entry_begin("AI Actions", '2024-10-04', ['Headless', 'Experience', 'Commerce', 'LTS Update', 'New feature']) =]]
 
 The AI Actions LTS update enhances the usability and flexibility of [[=product_name=]] v4.6 LTS by harnessing the potential of artificial intelligence to automate time-consuming editorial tasks.
 By default, the AI Actions feature can help users with their work in following scenarios:
@@ -66,87 +263,177 @@ By default, the AI Actions feature can help users with their work in following s
 - Refining text: when editing a content item, users can request that a passage selected in online editor is modified, for example, by adjusting the length of the text, changing its tone, or correcting linguistic errors.
 - Generating alternative text: when working with images, users can ask AI to generate alternative text for them, which helps improve accessibility and SEO.
 
-![AI Assistant](../ai_actions/img/ai_assistant.png)
+![AI Assistant](ai_assistant.png)
 
-For more information, see [AI Actions product guide](../ai_actions/ai_actions_guide.md).
-</div>
+For more information, see [AI Actions product guide](/ai_actions_guide.md).
+
+[[= release_note_entry_end() =]]
 
 
-[[% set version = 'v4.6.12' %]]
-## [[= product_name =]] [[= version =]]
-2024-10-04
+[[= release_note_entry_begin("Ibexa DXP " + version, '2024-10-04', ['Headless', 'Experience', 'Commerce']) =]]
+
+#### PHP API
+
+The PHP API has been enhanced with the following new classes and interfaces:
+
+- [Ibexa\Contracts\AdminUi\Menu\AbstractFormContextMenuBuilder](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-AdminUi-Menu-AbstractFormContextMenuBuilder.html)
+- [Ibexa\Contracts\AdminUi\Menu\CopyFormContextMenuBuilder](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-AdminUi-Menu-CopyFormContextMenuBuilder.html)
+- [Ibexa\Contracts\AdminUi\Menu\CreateFormContextMenuBuilder](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-AdminUi-Menu-CreateFormContextMenuBuilder.html)
+- [Ibexa\Contracts\AdminUi\Menu\MenuItemFactoryInterface](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-AdminUi-Menu-MenuItemFactoryInterface.html)
+- [Ibexa\Contracts\AdminUi\Menu\UpdateFormContextMenuBuilder](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-AdminUi-Menu-UpdateFormContextMenuBuilder.html)
+- [Ibexa\Contracts\Core\Pool\Pool](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Pool-Pool.html)
+- [Ibexa\Contracts\Core\Pool\PoolInterface](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Pool-PoolInterface.html)
+- [Ibexa\Contracts\CoreSearch\Values\Query\AbstractCriterionQuery](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-CoreSearch-Values-Query-AbstractCriterionQuery.html)
+- [Ibexa\Contracts\CoreSearch\Values\Query\AbstractSortClause](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-CoreSearch-Values-Query-AbstractSortClause.html)
+- [Ibexa\Contracts\CoreSearch\Values\Query\Criterion\AbstractCompositeCriterion](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-CoreSearch-Values-Query-Criterion-AbstractCompositeCriterion.html)
+- [Ibexa\Contracts\CoreSearch\Values\Query\Criterion\CriterionInterface](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-CoreSearch-Values-Query-Criterion-CriterionInterface.html)
+- [Ibexa\Contracts\CoreSearch\Values\Query\Criterion\FieldValueCriterion](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-CoreSearch-Values-Query-Criterion-FieldValueCriterion.html)
+- [Ibexa\Contracts\CoreSearch\Values\Query\Criterion\LogicalAnd](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-CoreSearch-Values-Query-Criterion-LogicalAnd.html)
+- [Ibexa\Contracts\CoreSearch\Values\Query\Criterion\LogicalOr](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-CoreSearch-Values-Query-Criterion-LogicalOr.html)
+- [Ibexa\Contracts\CoreSearch\Values\Query\CriterionMapper](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-CoreSearch-Values-Query-CriterionMapper.html)
+- [Ibexa\Contracts\CoreSearch\Values\Query\CriterionMapperInterface](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-CoreSearch-Values-Query-CriterionMapperInterface.html)
+- [Ibexa\Contracts\CoreSearch\Values\Query\SortClause\FieldValueSortClause](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-CoreSearch-Values-Query-SortClause-FieldValueSortClause.html)
+- [Ibexa\Contracts\CoreSearch\Values\Query\SortDirection](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-CoreSearch-Values-Query-SortDirection.html)
+- [Ibexa\Contracts\ProductCatalog\Local\Attribute\ContextAwareValueValidatorInterface](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Local-Attribute-ContextAwareValueValidatorInterface.html)
+
+#### Full changelog
 
 [[% include 'snippets/release_46.md' %]]
+[[= release_note_entry_end() =]]
 
 [[% set version = 'v4.6.11' %]]
-## [[= product_name =]] [[= version =]]
-2024-09-16
+[[= release_note_entry_begin("Ibexa DXP " + version, '2024-09-16', ['Headless', 'Experience', 'Commerce']) =]]
+
+#### Search
+- New search criterion: [IsBookmarked](isbookmarked_criterion.md)
+
+#### PHP API
+The PHP API has been enhanced with the following new classes and interfaces:
+
+- [`Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion\Location\IsBookmarked`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Criterion-Location-IsBookmarked.html)
+
+And the new methods are:
+
+- [`Ibexa\Contracts\Core\Persistence\Bookmark\Handler::loadUserIdsByLocation()`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Persistence-Bookmark-Handler.html#method_loadUserIdsByLocation)
+- [`Ibexa\Contracts\ProductCatalog\Local\LocalProductTypeServiceDecorator::addContentTypeFieldDefinition()`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Local-LocalProductTypeServiceDecorator.html#method_addContentTypeFieldDefinition)
+- [`Ibexa\Contracts\ProductCatalog\Local\LocalProductTypeServiceDecorator::removeContentTypeFieldDefinition()`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Local-LocalProductTypeServiceDecorator.html#method_removeContentTypeFieldDefinition)
+- [`Ibexa\Contracts\ProductCatalog\Local\LocalProductTypeServiceInterface::addContentTypeFieldDefinition()`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Local-LocalProductTypeServiceInterface.html#methods)
+- [`Ibexa\Contracts\ProductCatalog\Local\LocalProductTypeServiceInterface::removeContentTypeFieldDefinition()`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Local-LocalProductTypeServiceInterface.html#method_removeContentTypeFieldDefinition)
 
 [[% include 'snippets/release_46.md' %]]
+[[= release_note_entry_end() =]]
 
 [[% set version = 'v4.6.10' %]]
-## [[= product_name =]] [[= version =]]
-2024-08-14
+[[= release_note_entry_begin("Ibexa DXP " + version, '2024-08-14', ['Headless', 'Experience', 'Commerce']) =]]
+#### Security
+
+This release includes security fixes.
+To learn more, see the [corresponding security advisory](https://developers.ibexa.co/security-advisories/ibexa-sa-2024-005-persistent-xss-in-richtext).
 
 [[% include 'snippets/release_46.md' %]]
+[[= release_note_entry_end() =]]
 
 [[% set version = 'v4.6.9' %]]
-## [[= product_name =]] [[= version =]]
-2024-07-31
+[[= release_note_entry_begin("Ibexa DXP " + version, '2024-07-31', ['Headless', 'Experience', 'Commerce']) =]]
+#### Security
+
+This release includes security fixes.
+To learn more, see the [corresponding security advisory](https://developers.ibexa.co/security-advisories/ibexa-sa-2024-004-dom-based-xss-in-file-upload).
+
+#### PHP API
+
+The PHP API has been enhanced with the following new classes and interfaces:
+
+- [`Ibexa\Contracts\ConnectorQualifio\Exception\QualifioException`](../../api/php_api/php_api_reference/classes/ibexa-contracts-connectorqualifio-exception-QualifioException.html)
+- [`Ibexa\Contracts\ConnectorQualifio\Exception\CampaignFeedNotFoundException`](../../api/php_api/php_api_reference/classes/ibexa-contracts-connectorqualifio-exception-CampaignFeedNotFoundException.html)
+- [`Ibexa\Contracts\ConnectorQualifio\Exception\CommunicationException`](../../api/php_api/php_api_reference/classes/ibexa-contracts-connectorqualifio-exception-CommunicationException.html)
+- [`Ibexa\Contracts\ConnectorQualifio\Exception\NotConfiguredException`](../../api/php_api/php_api_reference/classes/ibexa-contracts-connectorqualifio-exception-NotConfiguredException.html)
 
 [[% include 'snippets/release_46.md' %]]
+[[= release_note_entry_end() =]]
 
 [[% set version = 'v4.6.8' %]]
-## [[= product_name =]] [[= version =]]
-2024-07-11
+[[= release_note_entry_begin("Ibexa DXP " + version, '2024-07-11', ['Headless', 'Experience', 'Commerce']) =]]
+
+#### PHP API
+
+The PHP API has been enhanced with the following new class:
+
+- [`Ibexa\Contracts\FieldTypeRichText\Configuration\ProviderConfiguratorInterface`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-FieldTypeRichText-Configuration-ProviderConfiguratorInterface.html)
+
+#### Full changelog
 
 [[% include 'snippets/release_46.md' %]]
+[[= release_note_entry_end() =]]
 
 [[% set version = 'v4.6.7' %]]
-## [[= product_name =]] [[= version =]]
-2024-06-10
+[[= release_note_entry_begin("Ibexa DXP " + version, '2024-06-10', ['Headless', 'Experience', 'Commerce']) =]]
+
+#### PHP API
+
+The PHP API has been enhanced with the following new classes:
+
+-  [`Ibexa\Contracts\Calendar\EventAction\EventActionCollection`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Calendar-EventAction-EventActionCollection.html)
+- [`Ibexa\Contracts\Calendar\EventSource\InMemoryEventSource`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Calendar-EventSource-InMemoryEventSource.html)
+- [`Ibexa\Contracts\Core\Event\Mapper\ResolveMissingFieldEvent`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Event-Mapper-ResolveMissingFieldEvent.html)
+- [`Ibexa\Contracts\Core\FieldType\DefaultDataFieldStorage`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-FieldType-DefaultDataFieldStorage.html)
+
+#### Full changelog
 
 [[% include 'snippets/release_46.md' %]]
+[[= release_note_entry_end() =]]
 
 [[% set version = 'v4.6.6' %]]
-## [[= product_name =]] [[= version =]]
-2024-05-17
-
+[[= release_note_entry_begin("Ibexa DXP " + version, '2024-05-17', ['Headless', 'Experience', 'Commerce']) =]]
 [[% include 'snippets/release_46.md' %]]
+[[= release_note_entry_end() =]]
 
 [[% set version = 'v4.6.5' %]]
-## [[= product_name =]] [[= version =]]
-2024-05-14
-
+[[= release_note_entry_begin("Ibexa DXP " + version, '2024-05-14', ['Headless', 'Experience', 'Commerce']) =]]
 [[% include 'snippets/release_46.md' %]]
+[[= release_note_entry_end() =]]
 
 [[% set version = 'v4.6.4' %]]
-## [[= product_name =]] [[= version =]]
-2024-05-13
+[[= release_note_entry_begin("Ibexa DXP " + version, '2024-05-13', ['Headless', 'Experience', 'Commerce', 'New feature']) =]]
+#### Security
+
+This release includes security fixes.
+To learn more, see the [corresponding security advisory](https://developers.ibexa.co/security-advisories/ibexa-sa-2024-003-vulnerability-in-image-optimizer-dependency).
+
+### Ibexa Engage
+
+[Ibexa Engage](ibexa_engage.md) is a data collection tool you can use to engage your audiences.
+
+#### Full changelog
 
 [[% include 'snippets/release_46.md' %]]
+[[= release_note_entry_end() =]]
 
 [[% set version = 'v4.6.3' %]]
-## [[= product_name =]] [[= version =]]
-2024-04-11
-
+[[= release_note_entry_begin("Ibexa DXP " + version, '2024-04-11', ['Headless', 'Experience', 'Commerce']) =]]
 [[% include 'snippets/release_46.md' %]]
+[[= release_note_entry_end() =]]
 
 [[% set version = 'v4.6.2' %]]
-## [[= product_name =]] [[= version =]]
-2024-03-20
+[[= release_note_entry_begin("Ibexa DXP " + version, '2024-03-20', ['Headless', 'Experience', 'Commerce']) =]]
+
+#### Security
+
+This release includes security fixes.
+To learn more, see the [corresponding security advisory](https://developers.ibexa.co/security-advisories/ibexa-sa-2024-002-file-validation-and-workflow-stages).
+
+#### Full changelog
 
 [[% include 'snippets/release_46.md' %]]
+[[= release_note_entry_end() =]]
 
 [[% set version = 'v4.6.1' %]]
-## [[= product_name =]] [[= version =]]
-2024-02-28
-
+[[= release_note_entry_begin("Ibexa DXP " + version, '2024-02-28', ['Headless', 'Experience', 'Commerce']) =]]
 [[% include 'snippets/release_46.md' %]]
+[[= release_note_entry_end() =]]
 
 [[% set version = 'v4.6.0' %]]
-## [[= product_name =]] [[= version =]]
-2024-02-13
+[[= release_note_entry_begin("Ibexa DXP " + version, '2024-02-13', ['Headless', 'Experience', 'Commerce', 'New feature']) =]]
 
 ### Notable changes
 
@@ -809,8 +1096,7 @@ The following view matchers have been introduced in [[= product_name =]] v4.6.0:
 
 ### Full changelog
 
-| [[= product_name_headless =]] | [[= product_name_exp =]] | [[= product_name_com =]] |
-|---------------|------------------|---------------|
-| [[[= product_name_headless =]] v4.6](https://github.com/ibexa/headless/releases/tag/v4.6.0) | [[[= product_name_exp =]] v4.6](https://github.com/ibexa/experience/releases/tag/v4.6.0) | [[[= product_name_com =]] v4.6](https://github.com/ibexa/commerce/releases/tag/v4.6.0) |
+[[% include 'snippets/release_46.md' %]]
+[[= release_note_entry_end() =]]
 
 </div>

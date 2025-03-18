@@ -4,6 +4,9 @@ site_name: Developer Documentation
 repo_url: https://github.com/ibexa/documentation-developer
 site_url: https://doc.ibexa.co/en/latest/
 copyright: "Copyright 1999-2024 Ibexa AS and others"
+validation:
+    links:
+        absolute_links: relative_to_docs
 nav:
     - Ibexa Developer Documentation: index.md
     - Ibexa DXP editions:
@@ -333,6 +336,8 @@ nav:
         - PIM guide: pim/pim_guide.md
         - PIM configuration: pim/pim_configuration.md
         - Products: pim/products.md
+        - Attributes:
+            - Date and Time attribute: pim/attributes/date_and_time.md
         - Product API: pim/product_api.md
         - Catalogs: pim/catalogs.md
         - Catalog API: pim/catalog_api.md
@@ -416,6 +421,7 @@ nav:
             - Languages: multisite/languages/languages.md
             - Language API: multisite/languages/language_api.md
             - Back office translations: multisite/languages/back_office_translations.md
+            - Automated content translation: multisite/languages/automated_translations.md
     - Permissions:
         - Permissions: permissions/permissions.md
         - Permission overview: permissions/permission_overview.md
@@ -543,15 +549,17 @@ nav:
             - Product Search Criteria: search/criteria_reference/product_search_criteria.md
             - AttributeName: search/criteria_reference/attributename_criterion.md
             - AttributeGroupIdentifier: search/criteria_reference/attributegroupidentifier_criterion.md
+            - BasePrice: search/criteria_reference/baseprice_criterion.md
             - CatalogIdentifier: search/criteria_reference/catalogidentifier_criterion.md
             - CatalogName: search/criteria_reference/catalogname_criterion.md
             - CatalogStatus: search/criteria_reference/catalogstatus_criterion.md
-            - BasePrice: search/criteria_reference/baseprice_criterion.md
             - CheckboxAttribute: search/criteria_reference/checkboxattribute_criterion.md
             - ColorAttribute: search/criteria_reference/colorattribute_criterion.md
             - CreatedAt: search/criteria_reference/createdat_criterion.md
             - CreatedAtRange: search/criteria_reference/createdatrange_criterion.md
             - CustomPrice: search/criteria_reference/customprice_criterion.md
+            - DateTimeAttribute: search/criteria_reference/datetimeattribute_criterion.md
+            - DateTimeAttributeRange: search/criteria_reference/datetimeattributerange_criterion.md
             - FloatAttribute: search/criteria_reference/floatattribute_criterion.md
             - FloatAttributeRange: search/criteria_reference/floatattributerange_criterion.md
             - IntegerAttribute: search/criteria_reference/integerattribute_criterion.md
@@ -933,7 +941,7 @@ extra:
   latest_tag_4_3: '4.3.5'
   latest_tag_4_4: '4.4.4'
   latest_tag_4_5: '4.5.7'
-  latest_tag_4_6: '4.6.16'
+  latest_tag_4_6: '4.6.18'
 
   symfony_doc: 'https://symfony.com/doc/5.x'
   user_doc: 'https://doc.ibexa.co/projects/userguide/en/master'
