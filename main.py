@@ -4,6 +4,7 @@ import re
 import urllib.request
 from mkdocs.structure.pages import Page
 from mkdocs.utils import meta
+from typing import List
 
 CARDS_TEMPLATE = """
 <div class="card-wrapper">
@@ -119,7 +120,7 @@ def define_env(env):
         return version.replace('.', '')
 
     @env.macro
-    def release_notes_filters(header : str, categories : list[str]) -> str:
+    def release_notes_filters(header : str, categories : List[str]) -> str:
         validate_categories(categories)
 
         filters = "".join(
@@ -165,7 +166,7 @@ def define_env(env):
         """.format(header=header, visible_filters=filters, categories_dropdown=categories_dropdown)
 
     @env.macro
-    def release_note_entry_begin(header : str, date: str, categories : list[str]) -> str:
+    def release_note_entry_begin(header : str, date: str, categories : List[str]) -> str:
         validate_categories(categories)
 
         category_badges = "".join(
@@ -193,7 +194,7 @@ def define_env(env):
     def slugify(text: str) -> str:
         return text.lower().replace(' ', '-')
 
-    def validate_categories(categories: list[str]) -> None:
+    def validate_categories(categories: List[str]) -> None:
         available_categories = ['Headless', 'Experience', 'Commerce', 'LTS Update', 'New feature']
 
         for category in categories:
