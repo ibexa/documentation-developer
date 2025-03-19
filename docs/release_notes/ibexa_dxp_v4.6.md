@@ -265,7 +265,7 @@ By default, the AI Actions feature can help users with their work in following s
 
 ![AI Assistant](ai_assistant.png)
 
-For more information, see [AI Actions product guide](/ai_actions_guide.md).
+For more information, see [AI Actions product guide](ai_actions_guide.md).
 
 [[= release_note_entry_end() =]]
 
@@ -344,10 +344,10 @@ To learn more, see the [corresponding security advisory](https://developers.ibex
 
 The PHP API has been enhanced with the following new classes and interfaces:
 
-- [`Ibexa\Contracts\ConnectorQualifio\Exception\QualifioException`](../api/php_api/php_api_reference/classes/ibexa-contracts-connectorqualifio-exception-QualifioException.html)
-- [`Ibexa\Contracts\ConnectorQualifio\Exception\CampaignFeedNotFoundException`](../api/php_api/php_api_reference/classes/ibexa-contracts-connectorqualifio-exception-CampaignFeedNotFoundException.html)
-- [`Ibexa\Contracts\ConnectorQualifio\Exception\CommunicationException`](../api/php_api/php_api_reference/classes/ibexa-contracts-connectorqualifio-exception-CommunicationException.html)
-- [`Ibexa\Contracts\ConnectorQualifio\Exception\NotConfiguredException`](../api/php_api/php_api_reference/classes/ibexa-contracts-connectorqualifio-exception-NotConfiguredException.html)
+- [`Ibexa\Contracts\ConnectorQualifio\Exception\QualifioException`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorQualifio-Exception-QualifioException.html)
+- [`Ibexa\Contracts\ConnectorQualifio\Exception\CampaignFeedNotFoundException`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorQualifio-Exception-CampaignFeedNotFoundException.html)
+- [`Ibexa\Contracts\ConnectorQualifio\Exception\CommunicationException`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorQualifio-Exception-CommunicationException.html)
+- [`Ibexa\Contracts\ConnectorQualifio\Exception\NotConfiguredException`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorQualifio-Exception-NotConfiguredException.html)
 
 [[% include 'snippets/release_46.md' %]]
 [[= release_note_entry_end() =]]
