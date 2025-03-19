@@ -66,7 +66,7 @@ This page contains recent highlights and notable changes in [[= product_name =]]
 
 ### [[= product_name_cloud =]]
 
-- Described how to [set up Composer authentication] when creating an [[= product_name_cloud =]] project(install_on_ibexa_cloud.md#composer-authentication-using-the-web-console).
+- Described how to [set up Composer authentication](install_on_ibexa_cloud.md#composer-authentication-using-the-web-console) when creating an [[= product_name_cloud =]] project.
 
 #### PHP API
 
