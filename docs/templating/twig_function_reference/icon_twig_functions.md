@@ -1,6 +1,7 @@
 ---
 description: Icon Twig functions enable referencing SVG icons in templates.
 page_type: reference
+month_change: true
 ---
 
 # Icon Twig functions

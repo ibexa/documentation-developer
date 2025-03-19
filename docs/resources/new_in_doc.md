@@ -9,6 +9,133 @@ This page contains recent highlights and notable changes in [[= product_name =]]
 
 ## February 2025
 
+### Security
+
+- Expanded security recommendations to follow when working with [images submitted by users](images.md#configuring-image-variations).
+
+### Date and time attributes
+
+- Added documentation for the latest LTS Update: [Date and time attributes](date_and_time.md)
+
+### Automated Translation
+
+- Added information about how you can install and extend the [Automated Translation](automated_translations.md) feature.
+
+### Interactive demos
+
+- The [Form Builder](form_builder_guide.md#how-does-form-builder-work), [Page Builder](page_builder_guide.md#edit-page), and [Online Editor](online_editor_guide.md#what-is-online-editor) product guides now include interactive demos presenting these features.
+
+### Page Builder clipboard
+
+- Described how you can use the [Page Builder's clipboard]([[= user_doc =]]content_management/create_edit_pages/#copy-blocks) to copy blocks between landing pages.
+
+### REST API
+
+- Described endpoints for [Segments](../api/rest_api/rest_api_reference/rest_api_reference.html#segments) and [Segment Groups](http://localhost:8103/en/latest/api/rest_api/rest_api_reference/rest_api_reference.html#segment-groups) management.
+- Described endpoints for [AI Action Configurations](../api/rest_api/rest_api_reference/rest_api_reference.html#ai-actions-list-action-configurations) and [AI Action Types](../api/rest_api/rest_api_reference/rest_api_reference.html#ai-actions-list-action-types)
+- Improved the example for [creating Orders](../api/rest_api/rest_api_reference/rest_api_reference.html#orders-create-order), showing how to pass shipping cost data.
+
+### HTTP Cache
+
+- Improved the VCL snippet to cache the first ESI request when [using Basic Auth with Fastly](fastly.md#enable-basic-auth-on-fastly).
+
+### Search
+- The lists of [search criteria](search_criteria_reference.md) and [sort clauses](sort_clause_reference.md) have been expanded to show their support for [searching in Trash](search_in_trash_reference.md).
+
+### Templating
+
+- The new [icon reference](icon_twig_functions.md#icons-reference) lists all the icons you can use when extending the back office.
+- The following Twig functions now support objects implementing the [`ContentAwareInterface`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-ContentAwareInterface.html) as arguments:
+    - [`ibexa_content_field_identifier_first_filled_image`](image_twig_functions.md#ibexa_content_field_identifier_first_filled_image)
+    - [`ibexa_content_name`](content_twig_functions.md#ibexa_content_name)
+    - [`ibexa_field_is_empty`](field_twig_functions.md#ibexa_field_is_empty)
+    - [`ibexa_field_description`](field_twig_functions.md#ibexa_field_description)
+    - [`ibexa_field_name`](field_twig_functions.md#ibexa_field_name)
+    - [`ibexa_field_value`](field_twig_functions.md#ibexa_field_value)
+    - [`ibexa_field`](field_twig_functions.md#ibexa_field)
+    - [`ibexa_has_field`](field_twig_functions.md#ibexa_has_field)
+    - [`ibexa_render_field`](field_twig_functions.md#ibexa_render_field)
+    - [`ibexa_seo_is_empty`](content_twig_functions.md#ibexa_seo_is_empty)
+    - [`ibexa_seo`](content_twig_functions.md#ibexa_seo)
+    - [`ibexa_taxonomy_entries_for_content`](content_twig_functions.md#ibexa_taxonomy_entries_for_content-filter)
+- Described new Twig filter for product attributes grouping: [`ibexa_product_catalog_group_attributes`](product_twig_functions.md#ibexa_product_catalog_group_attributes)
+
+### DDEV
+
+- Described how you can use the [[[= product_name_cloud =]] addons](ddev_and_ibexa_cloud.md#with-ibexa-cloud-add-ons) when working with [[= product_name_cloud =]] projects.
+
+### [[= product_name_cloud =]]
+
+- Described how to [set up Composer authentication] when creating an [[= product_name_cloud =]] project(install_on_ibexa_cloud.md#composer-authentication-using-the-web-console).
+
+#### PHP API
+
+The PHP API has been enhanced with the following new classes and interfaces:
+
+- `Ibexa\Contracts\Cart`:
+    - [`Value\Query\Criterion\LogicalAnd`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Cart-Value-Query-Criterion-LogicalAnd.html)
+    - [`Value\Query\Criterion\OwnerCriterion`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Cart-Value-Query-Criterion-OwnerCriterion.html)
+    - [`Value\Query\CriterionInterface`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Cart-Value-Query-CriterionInterface.html)
+- `Ibexa\Contracts\Segmentation`:
+    - [`Exception\ValidationFailedExceptionInterface`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Segmentation-Exception-ValidationFailedExceptionInterface.html)
+- `Ibexa\Contracts\ProductCatalog`:
+    - [`Iterator\BatchIteratorAdapter\RegionFetchAdapter`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Iterator-BatchIteratorAdapter-RegionFetchAdapter.html)
+- `Ibexa\Contracts\Connect`:
+    - [`ConnectClientInterface`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-ConnectClientInterface.html)
+    - [`Exception\BadResponseException`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Exception-BadResponseException.html)
+    - [`Exception\UnserializablePayload`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Exception-UnserializablePayload.html)
+    - [`Exception\UnserializableResponse`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Exception-UnserializableResponse.html)
+    - [`PaginationInterface`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-PaginationInterface.html)
+    - [`Resource\DataStructure\DataStructureBuilder`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Resource-DataStructure-DataStructureBuilder.html)
+    - [`Resource\DataStructure\DataStructureCreateStruct`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Resource-DataStructure-DataStructureCreateStruct.html)
+    - [`Resource\DataStructure\DataStructureFilter`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Resource-DataStructure-DataStructureFilter.html)
+    - [`Resource\DataStructure\DataStructureProperty`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Resource-DataStructure-DataStructureProperty.html)
+    - [`Resource\DataStructure\DataStructurePropertyType`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Resource-DataStructure-DataStructurePropertyType.html)
+    - [`Resource\DataStructureInterface`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Resource-DataStructureInterface.html)
+    - [`Resource\Hook\HookCreateStruct`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Resource-Hook-HookCreateStruct.html)
+    - [`Resource\Hook\HookFilter`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Resource-Hook-HookFilter.html)
+    - [`Resource\Hook\HookSetDetailsStruct`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Resource-Hook-HookSetDetailsStruct.html)
+    - [`Resource\HookInterface`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Resource-HookInterface.html)
+    - [`Resource\Scenario\ScenarioCreateStruct`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Resource-Scenario-ScenarioCreateStruct.html)
+    - [`Resource\Scenario\ScenarioFilter`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Resource-Scenario-ScenarioFilter.html)
+    - [`Resource\ScenarioInterface`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Resource-ScenarioInterface.html)
+    - [`Resource\Team\TeamVariableCreateStruct`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Resource-Team-TeamVariableCreateStruct.html)
+    - [`Resource\Team\TeamVariableFilter`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Resource-Team-TeamVariableFilter.html)
+    - [`Resource\Team\TeamVariableUpdateStruct`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Resource-Team-TeamVariableUpdateStruct.html)
+    - [`Resource\TeamInterface`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Resource-TeamInterface.html)
+    - [`Resource\Template\TemplateCreateStruct`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Resource-Template-TemplateCreateStruct.html)
+    - [`Resource\Template\TemplateFilter`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Resource-Template-TemplateFilter.html)
+    - [`Resource\TemplateInterface`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Resource-TemplateInterface.html)
+    - [`Response\DataStructure\CreateResponse`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Response-DataStructure-CreateResponse.html)
+    - [`Response\DataStructure\ListResponse`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Response-DataStructure-ListResponse.html)
+    - [`Response\DataStructure\RetrieveResponse`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Response-DataStructure-RetrieveResponse.html)
+    - [`Response\Hook\CreateResponse`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Response-Hook-CreateResponse.html)
+    - [`Response\Hook\ListResponse`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Response-Hook-ListResponse.html)
+    - [`Response\Hook\RetrieveResponse`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Response-Hook-RetrieveResponse.html)
+    - [`Response\Hook\SetDetailsResponse`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Response-Hook-SetDetailsResponse.html)
+    - [`Response\Scenario\CreateResponse`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Response-Scenario-CreateResponse.html)
+    - [`Response\Scenario\ListResponse`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Response-Scenario-ListResponse.html)
+    - [`Response\Scenario\RetrieveResponse`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Response-Scenario-RetrieveResponse.html)
+    - [`Response\Team\TeamVariableCreateResponse`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Response-Team-TeamVariableCreateResponse.html)
+    - [`Response\Team\TeamVariableListResponse`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Response-Team-TeamVariableListResponse.html)
+    - [`Response\Team\TeamVariableRetrieveResponse`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Response-Team-TeamVariableRetrieveResponse.html)
+    - [`Response\Team\TeamVariableUpdateResponse`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Response-Team-TeamVariableUpdateResponse.html)
+    - [`Response\Template\BlueprintResponse`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Response-Template-BlueprintResponse.html)
+    - [`Response\Template\CreateResponse`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Response-Template-CreateResponse.html)
+    - [`Response\Template\ListResponse`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Response-Template-ListResponse.html)
+    - [`Response\Template\RetrieveResponse`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Response-Template-RetrieveResponse.html)
+    - [`ResponseInterface`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-ResponseInterface.html)
+    - [`TransportInterface`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-TransportInterface.html)
+    - [`Value\Blueprint\Flow`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Value-Blueprint-Flow.html)
+    - [`Value\Blueprint\Metadata\Scenario`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Value-Blueprint-Metadata-Scenario.html)
+    - [`Value\Blueprint\Metadata`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Value-Blueprint-Metadata.html)
+    - [`Value\Blueprint\Module\CustomWebhook`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Value-Blueprint-Module-CustomWebhook.html)
+    - [`Value\Blueprint\Module\JsonCreate`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Value-Blueprint-Module-JsonCreate.html)
+    - [`Value\Blueprint\Module\ModuleDesigner`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Value-Blueprint-Module-ModuleDesigner.html)
+    - [`Value\Blueprint\Module\WebhookRespond`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Value-Blueprint-Module-WebhookRespond.html)
+    - [`Value\Blueprint`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Value-Blueprint.html)
+    - [`Value\Controller`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Value-Controller.html)
+    - [`Value\Scheduling`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Value-Scheduling.html)
 
 ## January 2025
 
