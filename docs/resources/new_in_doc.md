@@ -62,7 +62,7 @@ This page contains recent highlights and notable changes in [[= product_name =]]
 
 ### DDEV
 
-- Described how you can use the [[[= product_name_cloud =]] addons](ddev_and_ibexa_cloud.md#with-ibexa-cloud-add-ons) when working with [[= product_name_cloud =]] projects.
+- Described how you can use the [Ibexa Cloud addons](ddev_and_ibexa_cloud.md#with-ibexa-cloud-add-ons) when working with [[= product_name_cloud =]] projects.
 
 ### [[= product_name_cloud =]]
 
