@@ -29,8 +29,6 @@
 
         filterItemsWidget.classList.toggle('release-notes-filters__widget--expanded', false);
         removeClickOutsideEventListener();
-
-        // hideAutocomplete();
     };
     const addClickOutsideEventListener = () => {
         doc.body.addEventListener('click', handleClickOutside, false);
