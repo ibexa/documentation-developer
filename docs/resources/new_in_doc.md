@@ -31,7 +31,7 @@ This page contains recent highlights and notable changes in [[= product_name =]]
 
 ### REST API
 
-- Described endpoints for [Segments](../api/rest_api/rest_api_reference/rest_api_reference.html#segments) and [Segment Groups](http://localhost:8103/en/latest/api/rest_api/rest_api_reference/rest_api_reference.html#segment-groups) management.
+- Described endpoints for [Segment](../api/rest_api/rest_api_reference/rest_api_reference.html#segments) and [Segment Group](http://localhost:8103/en/latest/api/rest_api/rest_api_reference/rest_api_reference.html#segment-groups) management.
 - Described endpoints for [AI Action Configurations](../api/rest_api/rest_api_reference/rest_api_reference.html#ai-actions-list-action-configurations) and [AI Action Types](../api/rest_api/rest_api_reference/rest_api_reference.html#ai-actions-list-action-types)
 - Improved the example for [creating Orders](../api/rest_api/rest_api_reference/rest_api_reference.html#orders-create-order), showing how to pass shipping cost data.
 
