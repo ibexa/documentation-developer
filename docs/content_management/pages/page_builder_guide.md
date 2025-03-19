@@ -1,6 +1,7 @@
 ---
 description: Read about the Page Builder - a powerful tool for creating and modifying pages in Ibexa DXP.
 edition: experience
+month_change: true
 ---
 
 # Page Builder product guide

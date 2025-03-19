@@ -1,5 +1,6 @@
 ---
 description: Configure Fastly for use with Ibexa DXP.
+month_change: true
 ---
 
 # Configure and customize Fastly
