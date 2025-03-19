@@ -57,7 +57,7 @@ To learn more, see the [corresponding security advisory](https://developers.ibex
 #### Features
 
 - New REST API endpoints for [Segments](../api/rest_api/rest_api_reference/rest_api_reference.html#segments) and [Segment Groups](http://localhost:8103/en/latest/api/rest_api/rest_api_reference/rest_api_reference.html#segment-groups)
-- REST API Client ([`Ibexa\Contracts\Connect\ConnectClientInterface`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-ConnectClientInterface.html)) for [Ibexa Connect]([[= connect_doc =]])
+- PHP API Client ([`Ibexa\Contracts\Connect\ConnectClientInterface`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-ConnectClientInterface.html)) for [Ibexa Connect]([[= connect_doc =]])
 - The following Twig functions now additionally support objects implementing the [`ContentAwareInterface`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-ContentAwareInterface.html) as arguments:
     - [`ibexa_content_field_identifier_first_filled_image`](image_twig_functions.md#ibexa_content_field_identifier_first_filled_image)
     - [`ibexa_content_name`](content_twig_functions.md#ibexa_content_name)
