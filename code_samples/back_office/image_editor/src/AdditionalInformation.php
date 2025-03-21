@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 $fieldValue = new FieldValue([
      'data' => [
