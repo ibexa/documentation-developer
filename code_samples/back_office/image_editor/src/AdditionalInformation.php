@@ -1,6 +1,6 @@
 <?php
 
-new FieldValue([
+$fieldValue = new FieldValue([
      'data' => [
          'width' => '100',
          'height' => '200',
@@ -14,4 +14,4 @@ new FieldValue([
              'author' => 'John Smith',
          ],
      ],
- ]),
+    ]);
