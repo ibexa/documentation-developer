@@ -105,7 +105,7 @@ if [ 0 -eq $DXP_ALREADY_EXISTS ]; then
           jq -r --arg PACKAGE "$package" '"'\''\(.autoload | ."psr-4" | try to_entries[] catch empty | .key[:-1] | sub("\\\\";"\\\\\\";"g"))'\'': '\''\($PACKAGE)'\'',"')
         NAMESPACE_MAP="$NAMESPACE_MAP\n$NAMESPACES"
       fi;
-    done <<< "$(curl --no-progress-meter "https://raw.githubusercontent.com/ibexa/$edition/v$DXP_VERSION/composer.json" | jq .require | grep -E "(ibexa|ezsystems|silversolutions)")";
+    done <<< "$(curl --no-progress-meter "https://raw.githubusercontent.com/ibexa/$edition/$GIT_REF/composer.json" | jq .require | grep -E "(ibexa|ezsystems|silversolutions)")";
     if [ "$edition" == "$DXP_EDITION" ]; then
       break;
     fi;
