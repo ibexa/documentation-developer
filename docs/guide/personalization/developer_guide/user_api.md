@@ -38,7 +38,7 @@ For the requests to function, you must provide the following parameters:
 
 |Parameter|Description|Value|
 |---|---|---|
-|`customerid`|Your customer ID, as defined when [enabling Personalization](../enabling_personalization.md#set-up-customer-credentials) (for example, "00000").|alphanumeric|
+|`customerid`|Your customer ID, as defined when [enabling Personalization](enabling_personalization.md#setting-up-customer-credentials) (for example, "00000").|alphanumeric|
 |`source`|An ID of the source of the specified user's metadata.|alphanumeric|
 |`userid`|An ID of the tracked user in the website (for example, an internal customer code, a session code or a cookie for anonymous users.|alphanumeric|
   

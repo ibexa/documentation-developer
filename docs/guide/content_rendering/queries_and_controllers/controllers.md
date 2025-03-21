@@ -16,7 +16,7 @@ You indicate which controller to use in the [content view configuration](../temp
 [[= include_file('code_samples/front/embed_content/src/Controller/RelationController.php', 2, 9) =]]
 ```
 
-For a full example of using a custom controller, see [Embed content](../embed_and_list_content/embed_content.md#custom-controller).
+For a full example of using a custom controller, see [Embed content](embed_content.md#embed-relations-with-a-custom-controller).
 
 If you do not want to use the default view controller and only use a custom one,
 use the same configuration, but do not provide the `template` key.

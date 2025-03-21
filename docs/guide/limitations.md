@@ -126,7 +126,7 @@ Beyond that the following Limitations are available:
 `content/versionread`:
 
 - [Owner](limitation_reference.md#owner-limitation)
-- [Status](limitation_reference.md#status-limitation)
+- Status
 - [Location](limitation_reference.md#location-limitation)
 - [Subtree of Location](limitation_reference.md#subtree-of-location-limitation)
 - [State](limitation_reference.md#state-limitation)
@@ -134,7 +134,7 @@ Beyond that the following Limitations are available:
 `content/versionremove`:
 
 - [Owner](limitation_reference.md#owner-limitation)
-- [Status](limitation_reference.md#status-limitation)
+- Status
 - [Location](limitation_reference.md#location-limitation)
 - [Subtree of Location](limitation_reference.md#subtree-of-location-limitation)
 - [State](limitation_reference.md#state-limitation)

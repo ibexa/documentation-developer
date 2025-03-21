@@ -60,4 +60,4 @@ As eZ Platform introduced completely new user interfaces with greatly improved u
 - Write UI code for custom Field Types for the new JavaScript-based editorial interface, (see [Page blocks](../guide/content_rendering/render_content/render_page.md)
 - Adjust custom admin modules for the new Symfony-based admin interface
 
-For a detailed guide through these developments see [Upgrading from 5.4.x and 2014.11 to 16.xx](migrating_from_ez_publish_platform.md#upgrading-from-54x-and-201411-to-16xx) 
+For a detailed guide through these developments see [Upgrading from 5.4.x and 2014.11 to 16.xx](migrating_from_ez_publish_platform.md).
