@@ -4,7 +4,7 @@ description: IsFieldEmpty Search Criterion
 
 # IsFieldEmpty Criterion
 
-The [`IsFieldEmpty` Search Criterion](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Criterion-IsFieldEmpty.html) searches for content based on whether a specified field is empty or not.
+The [`IsFieldEmpty` Search Criterion](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Criterion-IsFieldEmpty.html) searches for content based on whether a specified field is empty or not.
 
 ## Arguments
 

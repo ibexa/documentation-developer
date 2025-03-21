@@ -4,7 +4,7 @@ description: Subtree Search Criterion
 
 # Subtree Criterion
 
-The [`Subtree` Search Criterion](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Criterion-Subtree.html) searches for content based on its location ID subtree path.
+The [`Subtree` Search Criterion](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Criterion-Subtree.html) searches for content based on its location ID subtree path.
 It returns the content item and all the content items below it in the subtree.
 
 ## Arguments
