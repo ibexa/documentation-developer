@@ -4,7 +4,7 @@ description: DatePublished Sort Clause
 
 # DatePublished Sort Clause
 
-The [`DatePublished` Sort Clause](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-SortClause-DatePublished.html) sorts search results by the date and time of the first publication of a content item.
+The [`DatePublished` Sort Clause](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-SortClause-DatePublished.html) sorts search results by the date and time of the first publication of a content item.
 
 ## Arguments
 

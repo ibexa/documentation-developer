@@ -4,7 +4,7 @@ description: Field Search Criterion
 
 # Field Criterion
 
-The [`Field` Search Criterion](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Criterion-Field.html) searches for content based on the content of one of its fields.
+The [`Field` Search Criterion](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Criterion-Field.html) searches for content based on the content of one of its fields.
 
 ## Arguments
 
