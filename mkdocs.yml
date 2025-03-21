@@ -956,6 +956,7 @@ extra_css:
   - css/navigation.css
   - css/search.css
   - css/docs.switcher.css
+  - css/release-notes.css
   - css/jquery-ui.min.css
   - '//cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css'
 
@@ -963,6 +964,7 @@ extra_javascript:
   - js/jquery.min.js
   - js/jquery-ui.min.js
   - js/custom.js
+  - js/release-notes.js
   - js/docs.switcher.js
   - '//cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js'
 

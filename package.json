@@ -7,7 +7,7 @@
     "scss": "sass --watch scss:docs/css",
     "test": "yarn prettier-test && yarn eslint-test",
     "fix": "yarn prettier-test --write && yarn eslint-test --fix",
-    "eslint-test": "eslint \"./code_samples/**/*.js\"",
+    "eslint-test": "eslint \"./docs/js/**/*.js\"",
     "prettier-test": "yarn prettier \"./code_samples/**/*.{js,scss}\" --check"
   },
   "prettier": "eslint-config-ibexa/prettier",
