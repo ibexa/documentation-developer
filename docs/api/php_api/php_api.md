@@ -5,7 +5,7 @@ page_type: reference
 
 # PHP API
 
-The [public PHP API](../php_api_reference/) enables you to interact with [[= product_name =]]'s Repository and content model from your PHP code.
+The [public PHP API](/api/php_api/php_api_reference/index.html) enables you to interact with [[= product_name =]]'s Repository and content model from your PHP code.
 
 You can use it to create, read, update, manage, and delete all objects available in [[= product_name =]], namely content and related objects such as sections, locations, content types, or languages.
 
@@ -18,37 +18,37 @@ The API provides access to content, user, content types, and other features thro
 
 The full list of available services covers:
 
-- [BatchOrderService](php_api_reference/classes/Ibexa-Contracts-Cart-BatchOrderServiceInterface.html)
-- [CorporateAccountService](php_api_reference/classes/Ibexa-Contracts-CorporateAccount-Service-CorporateAccountService.html) (recommended for company creation)
-- [CompanyService](php_api_reference/classes/Ibexa-Contracts-CorporateAccount-Service-CompanyService.html)
-- [ContentService](php_api_reference/classes/Ibexa-Contracts-Core-Repository-ContentService.html)
-- [ContentTypeService](php_api_reference/classes/Ibexa-Contracts-Core-Repository-ContentTypeService.html)
-- [FieldTypeService](php_api_reference/classes/Ibexa-Contracts-Core-Repository-FieldTypeService.html)
-- [InvitationService](php_api_reference/classes/Ibexa-Contracts-User-Invitation-InvitationService.html)
-- [LanguageService](php_api_reference/classes/Ibexa-Contracts-Core-Repository-LanguageService.html)
-- [LocationService](php_api_reference/classes/Ibexa-Contracts-Core-Repository-LocationService.html)
-- [MemberService](php_api_reference/classes/Ibexa-Contracts-CorporateAccount-Service-MemberService.html)
-- [NotificationService](php_api_reference/classes/Ibexa-Contracts-Core-Repository-NotificationService.html)
-- [ObjectStateService](php_api_reference/classes/Ibexa-Contracts-Core-Repository-ObjectStateService.html)
-- [RoleService](php_api_reference/classes/Ibexa-Contracts-Core-Repository-RoleService.html)
-- [SearchService](php_api_reference/classes/Ibexa-Contracts-Core-Repository-SearchService.html)
-- [SectionService](php_api_reference/classes/Ibexa-Contracts-Core-Repository-SectionService.html)
-- [ShippingAddressService](php_api_reference/classes/Ibexa-Contracts-CorporateAccount-Service-ShippingAddressService.html)
-- [SpreadsheetProcessorInterface](php_api_reference/classes/Ibexa-Contracts-Cart-FileProcessor-SpreadsheetProcessorInterface.html)
-- [TaxonomyService](php_api_reference/classes/Ibexa-Contracts-Taxonomy-Service-TaxonomyServiceInterface.html)
-- [TranslationService](php_api_reference/classes/Ibexa-Contracts-Core-Repository-TranslationService.html)
-- [TrashService](php_api_reference/classes/Ibexa-Contracts-Core-Repository-TrashService.html)
-- [URLAliasService](php_api_reference/classes/Ibexa-Contracts-Core-Repository-URLAliasService.html)
-- [URLService](php_api_reference/classes/Ibexa-Contracts-Core-Repository-URLService.html)
-- [URLWildcardService](php_api_reference/classes/Ibexa-Contracts-Core-Repository-URLWildcardService.html)
-- [UserPreferenceService](php_api_reference/classes/Ibexa-Contracts-Core-Repository-UserPreferenceService.html)
-- [UserService](php_api_reference/classes/Ibexa-Contracts-Core-Repository-UserService.html)
+- [BatchOrderService](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Cart-BatchOrderServiceInterface.html)
+- [CorporateAccountService](/api/php_api/php_api_reference/classes/Ibexa-Contracts-CorporateAccount-Service-CorporateAccountService.html) (recommended for company creation)
+- [CompanyService](/api/php_api/php_api_reference/classes/Ibexa-Contracts-CorporateAccount-Service-CompanyService.html)
+- [ContentService](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-ContentService.html)
+- [ContentTypeService](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-ContentTypeService.html)
+- [FieldTypeService](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-FieldTypeService.html)
+- [InvitationService](/api/php_api/php_api_reference/classes/Ibexa-Contracts-User-Invitation-InvitationService.html)
+- [LanguageService](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-LanguageService.html)
+- [LocationService](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-LocationService.html)
+- [MemberService](/api/php_api/php_api_reference/classes/Ibexa-Contracts-CorporateAccount-Service-MemberService.html)
+- [NotificationService](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-NotificationService.html)
+- [ObjectStateService](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-ObjectStateService.html)
+- [RoleService](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-RoleService.html)
+- [SearchService](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-SearchService.html)
+- [SectionService](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-SectionService.html)
+- [ShippingAddressService](/api/php_api/php_api_reference/classes/Ibexa-Contracts-CorporateAccount-Service-ShippingAddressService.html)
+- [SpreadsheetProcessorInterface](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Cart-FileProcessor-SpreadsheetProcessorInterface.html)
+- [TaxonomyService](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Taxonomy-Service-TaxonomyServiceInterface.html)
+- [TranslationService](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-TranslationService.html)
+- [TrashService](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-TrashService.html)
+- [URLAliasService](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-URLAliasService.html)
+- [URLService](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-URLService.html)
+- [URLWildcardService](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-URLWildcardService.html)
+- [UserPreferenceService](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-UserPreferenceService.html)
+- [UserService](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-UserService.html)
 
 You can access the PHP API by injecting relevant services into your code:
 
 - By using [auto-wiring]([[= symfony_doc =]]/service_container/autowiring.html), and the service classname in the `Ibexa\Contracts` namespace (see `bin/console debug:autowiring | grep Ibexa.Contracts`).
 - By using [service parameters]([[= symfony_doc =]]/service_container.html#service-parameters), and service aliases (see `bin/console debug:autowiring | grep ibexa.api`).
-- By using the repository's `get[ServiceName]()` methods, for example, [`Repository::getContentService()`](php_api_reference/classes/Ibexa-Contracts-Core-Repository-Repository.html#method_getContentService), or [`getUserService()`](php_api_reference/classes/Ibexa-Contracts-Core-Repository-Repository.html#method_getUserService).
+- By using the repository's `get[ServiceName]()` methods, for example, [`Repository::getContentService()`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Repository.html#method_getContentService), or [`getUserService()`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Repository.html#method_getUserService).
   (Prefer injecting several Repository's dedicated services instead of the whole Repository if the Repository itself isn't needed.)
 
 !!! caution
@@ -57,12 +57,12 @@ You can access the PHP API by injecting relevant services into your code:
 
 ## Value objects
 
-The services provide interaction with read-only value objects from the [`Ibexa\Contracts\Core\Repository\Values`](php_api_reference/namespaces/ibexa-contracts-core-repository-values.html) namespace.
-Those objects are divided into sub-namespaces, such as [`Content`](php_api_reference/namespaces/ibexa-contracts-core-repository-values-content.html), [`User`](php_api_reference/namespaces/ibexa-contracts-core-repository-values-user.html) or [`ObjectState`](php_api_reference/namespaces/ibexa-contracts-core-repository-values-objectstate.html).
+The services provide interaction with read-only value objects from the [`Ibexa\Contracts\Core\Repository\Values`](/api/php_api/php_api_reference/namespaces/ibexa-contracts-core-repository-values.html) namespace.
+Those objects are divided into sub-namespaces, such as [`Content`](/api/php_api/php_api_reference/namespaces/ibexa-contracts-core-repository-values-content.html), [`User`](/api/php_api/php_api_reference/namespaces/ibexa-contracts-core-repository-values-user.html) or [`ObjectState`](/api/php_api/php_api_reference/namespaces/ibexa-contracts-core-repository-values-objectstate.html).
 Each sub-namespace contains a set of value objects,
-such as [`Content\Content`](php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Content.html) or [`User\Role`](php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-User-Role.html).
+such as [`Content\Content`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Content.html) or [`User\Role`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-User-Role.html).
 
-Value objects come with their own properties, such as `$content->id` or `$location->hidden`, and with methods that provide access to more related information, such as [`Content\Relation::getSourceContentInfo()`](php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Relation.html#method_getSourceContentInfo) or [`User\Role::getPolicies()`](php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-User-Role.html#method_getPolicies).
+Value objects come with their own properties, such as `$content->id` or `$location->hidden`, and with methods that provide access to more related information, such as [`Content\Relation::getSourceContentInfo()`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Relation.html#method_getSourceContentInfo) or [`User\Role::getPolicies()`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-User-Role.html#method_getPolicies).
 
 ### Creating and updating objects
 
@@ -131,7 +131,7 @@ To identify as a different user, you need to use the `UserService` together with
 
 !!! tip
 
-    [`Ibexa\Contracts\Core\Repository\PermissionService`](php_api_reference/classes/Ibexa-Contracts-Core-Repository-PermissionService.html) can be injected to have a Service which provides both `PermissionResolver` and `PermissionCriterionResolver`.
+    [`Ibexa\Contracts\Core\Repository\PermissionService`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-PermissionService.html) can be injected to have a Service which provides both `PermissionResolver` and `PermissionCriterionResolver`.
     It supports auto-wiring.
 
 This isn't required in template functions or controller code, as the HTTP layer takes care of identifying the user, and automatically sets it in the repository.

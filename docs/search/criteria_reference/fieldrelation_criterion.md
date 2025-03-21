@@ -4,7 +4,7 @@ description: FieldRelation Search Criterion
 
 # FieldRelation Criterion
 
-The [`FieldRelation` Search Criterion](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Criterion-FieldRelation.html) searches for content based on the content items it has Relations to.
+The [`FieldRelation` Search Criterion](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Criterion-FieldRelation.html) searches for content based on the content items it has Relations to.
 
 ## Arguments
 
