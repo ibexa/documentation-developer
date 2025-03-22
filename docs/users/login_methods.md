@@ -20,7 +20,7 @@ security:
         ibexa_username:
             id: ibexa.security.user_provider.username
 
-       ibexa_email:
+        ibexa_email:
             id: ibexa.security.user_provider.email
 
     firewalls:
