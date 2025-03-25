@@ -7,16 +7,147 @@ month_change: true
 
 This page contains recent highlights and notable changes in [[= product_name =]] documentation.
 
+## February 2025
+
+### Security
+
+- Expanded security recommendations to follow when working with [images submitted by users](https://doc.ibexa.co/en/latest/content_management/images/images/#configuring-image-variations)
+
+### Date and time attributes
+
+- Added documentation for the latest LTS Update: [Date and time attributes](https://doc.ibexa.co/en/latest/pim/attributes/date_and_time/)
+
+### Automated Translation
+
+- Added information about how you can install and extend the [Automated Translation](https://doc.ibexa.co/en/latest/multisite/languages/automated_translations/) feature
+
+### Interactive demos
+
+- Updated [Form Builder](https://doc.ibexa.co/en/latest/content_management/forms/form_builder_guide/#how-does-form-builder-work), [Page Builder](https://doc.ibexa.co/en/latest/content_management/pages/page_builder_guide/#create-page), and [Online Editor](https://doc.ibexa.co/en/latest/content_management/rich_text/online_editor_guide/) product guides by addng interactive demos that present these features
+
+### Page Builder clipboard
+
+- Described how you can use the [Page Builder's clipboard](https://doc.ibexa.co/projects/userguide/en/latest/content_management/create_edit_pages/#copy-blocks) to copy blocks between pages
+
+### REST API
+
+- Described endpoints for [Segment](https://doc.ibexa.co/en/latest/api/rest_api/rest_api_reference/rest_api_reference.html#segments) and [Segment Group](https://doc.ibexa.co/en/latest/api/rest_api/rest_api_reference/rest_api_reference.html#segment-groups) management
+- Described endpoints for [AI Action Configurations](https://doc.ibexa.co/en/latest/api/rest_api/rest_api_reference/rest_api_reference.html#ai-actions-list-action-configurations) and [AI Action Types](https://doc.ibexa.co/en/latest/api/rest_api/rest_api_reference/rest_api_reference.html#ai-actions-list-action-types)
+- Improved the example for [creating Orders](https://doc.ibexa.co/en/latest/api/rest_api/rest_api_reference/rest_api_reference.html#orders-create-order), to show how to pass shipping cost data
+
+### HTTP Cache
+
+- Improved the VCL snippet to cache the first ESI request when [using Basic Auth with Fastly](https://doc.ibexa.co/en/latest/infrastructure_and_maintenance/cache/http_cache/fastly/#enable-basic-auth-on-fastly)
+
+### Search
+
+- Expanded the lists of [search criteria](https://doc.ibexa.co/en/latest/search/criteria_reference/search_criteria_reference/) and [sort clauses](https://doc.ibexa.co/en/latest/search/sort_clause_reference/sort_clause_reference/) to show their support for [searching in Trash](https://doc.ibexa.co/en/latest/search/search_in_trash_reference/)
+
+### Templating
+
+- Added the [icon reference](https://doc.ibexa.co/en/latest/templating/twig_function_reference/icon_twig_functions/#icons-reference) that lists all the icons you can use when extending the back office
+- Updated descriptions of the following Twig functions to mention their support for objects implementing the [`ContentAwareInterface`](https://doc.ibexa.co/en/latest/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-ContentAwareInterface.html) as arguments:
+    - [`ibexa_content_field_identifier_first_filled_image`](https://doc.ibexa.co/en/latest/templating/twig_function_reference/image_twig_functions/#ibexa_content_field_identifier_first_filled_image)
+    - [`ibexa_content_name`](https://doc.ibexa.co/en/latest/templating/twig_function_reference/content_twig_functions/#ibexa_content_name)
+    - [`ibexa_field_is_empty`](https://doc.ibexa.co/en/latest/templating/twig_function_reference/field_twig_functions/#ibexa_field_is_empty)
+    - [`ibexa_field_description`](https://doc.ibexa.co/en/latest/templating/twig_function_reference/field_twig_functions/#ibexa_field_description)
+    - [`ibexa_field_name`](https://doc.ibexa.co/en/latest/templating/twig_function_reference/field_twig_functions/#ibexa_field_name)
+    - [`ibexa_field_value`](https://doc.ibexa.co/en/latest/templating/twig_function_reference/field_twig_functions/#ibexa_field_value)
+    - [`ibexa_field`](https://doc.ibexa.co/en/latest/templating/twig_function_reference/field_twig_functions/#ibexa_field)
+    - [`ibexa_has_field`](https://doc.ibexa.co/en/latest/templating/twig_function_reference/field_twig_functions/#ibexa_has_field)
+    - [`ibexa_render_field`](https://doc.ibexa.co/en/latest/templating/twig_function_reference/field_twig_functions/#field-rendering)
+    - [`ibexa_seo_is_empty`](https://doc.ibexa.co/en/latest/templating/twig_function_reference/content_twig_functions/#ibexa_content_name)
+    - [`ibexa_seo`](https://doc.ibexa.co/en/latest/templating/twig_function_reference/content_twig_functions/#ibexa_seo_is_empty)
+    - [`ibexa_taxonomy_entries_for_content`](https://doc.ibexa.co/en/latest/templating/twig_function_reference/content_twig_functions/#ibexa_seo)
+- Described new Twig filter for product attributes grouping: [`ibexa_product_catalog_group_attributes`](https://doc.ibexa.co/en/latest/templating/twig_function_reference/product_twig_functions/#ibexa_product_catalog_group_attributes)
+
+### DDEV
+
+- Described how you can use the [Ibexa Cloud addons](https://doc.ibexa.co/en/latest/ibexa_cloud/ddev_and_ibexa_cloud/#with-ibexa-cloud-add-ons) when working with [[= product_name_cloud =]] projects
+
+### [[= product_name_cloud =]]
+
+- Described how to [set up Composer authentication](https://doc.ibexa.co/en/latest/ibexa_cloud/install_on_ibexa_cloud/#composer-authentication-using-the-web-console) when creating an [[= product_name_cloud =]] project
+
+#### PHP API
+
+Enhanced the PHP API with the following new classes and interfaces:
+
+- `Ibexa\Contracts\Cart`:
+    - [`Value\Query\Criterion\LogicalAnd`](https://doc.ibexa.co/en/latest/api/php_api/php_api_reference/classes/Ibexa-Contracts-Cart-Value-Query-Criterion-LogicalAnd.html)
+    - [`Value\Query\Criterion\OwnerCriterion`](https://doc.ibexa.co/en/latest/api/php_api/php_api_reference/classes/Ibexa-Contracts-Cart-Value-Query-Criterion-OwnerCriterion.html)
+    - [`Value\Query\CriterionInterface`](https://doc.ibexa.co/en/latest/api/php_api/php_api_reference/classes/Ibexa-Contracts-Cart-Value-Query-CriterionInterface.html)
+- `Ibexa\Contracts\Segmentation`:
+    - [`Exception\ValidationFailedExceptionInterface`](https://doc.ibexa.co/en/latest/api/php_api/php_api_reference/classes/Ibexa-Contracts-Segmentation-Exception-ValidationFailedExceptionInterface.html)
+- `Ibexa\Contracts\ProductCatalog`:
+    - [`Iterator\BatchIteratorAdapter\RegionFetchAdapter`](https://doc.ibexa.co/en/latest/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Iterator-BatchIteratorAdapter-RegionFetchAdapter.html)
+- `Ibexa\Contracts\Connect`:
+    - [`ConnectClientInterface`](https://doc.ibexa.co/en/latest/api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-ConnectClientInterface.html)
+    - [`Exception\BadResponseException`](https://doc.ibexa.co/en/latest/api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Exception-BadResponseException.html)
+    - [`Exception\UnserializablePayload`](https://doc.ibexa.co/en/latest/api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Exception-UnserializablePayload.html)
+    - [`Exception\UnserializableResponse`](https://doc.ibexa.co/en/latest/api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Exception-UnserializableResponse.html)
+    - [`PaginationInterface`](https://doc.ibexa.co/en/latest/api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-PaginationInterface.html)
+    - [`Resource\DataStructure\DataStructureBuilder`](https://doc.ibexa.co/en/latest/api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Resource-DataStructure-DataStructureBuilder.html)
+    - [`Resource\DataStructure\DataStructureCreateStruct`](https://doc.ibexa.co/en/latest/api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Resource-DataStructure-DataStructureCreateStruct.html)
+    - [`Resource\DataStructure\DataStructureFilter`](https://doc.ibexa.co/en/latest/api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Resource-DataStructure-DataStructureFilter.html)
+    - [`Resource\DataStructure\DataStructureProperty`](https://doc.ibexa.co/en/latest/api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Resource-DataStructure-DataStructureProperty.html)
+    - [`Resource\DataStructure\DataStructurePropertyType`](https://doc.ibexa.co/en/latest/api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Resource-DataStructure-DataStructurePropertyType.html)
+    - [`Resource\DataStructureInterface`](https://doc.ibexa.co/en/latest/api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Resource-DataStructureInterface.html)
+    - [`Resource\Hook\HookCreateStruct`](https://doc.ibexa.co/en/latest/api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Resource-Hook-HookCreateStruct.html)
+    - [`Resource\Hook\HookFilter`](https://doc.ibexa.co/en/latest/api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Resource-Hook-HookFilter.html)
+    - [`Resource\Hook\HookSetDetailsStruct`](https://doc.ibexa.co/en/latest/api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Resource-Hook-HookSetDetailsStruct.html)
+    - [`Resource\HookInterface`](https://doc.ibexa.co/en/latest/api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Resource-HookInterface.html)
+    - [`Resource\Scenario\ScenarioCreateStruct`](https://doc.ibexa.co/en/latest/api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Resource-Scenario-ScenarioCreateStruct.html)
+    - [`Resource\Scenario\ScenarioFilter`](https://doc.ibexa.co/en/latest/api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Resource-Scenario-ScenarioFilter.html)
+    - [`Resource\ScenarioInterface`](https://doc.ibexa.co/en/latest/api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Resource-ScenarioInterface.html)
+    - [`Resource\Team\TeamVariableCreateStruct`](https://doc.ibexa.co/en/latest/api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Resource-Team-TeamVariableCreateStruct.html)
+    - [`Resource\Team\TeamVariableFilter`](https://doc.ibexa.co/en/latest/api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Resource-Team-TeamVariableFilter.html)
+    - [`Resource\Team\TeamVariableUpdateStruct`](https://doc.ibexa.co/en/latest/api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Resource-Team-TeamVariableUpdateStruct.html)
+    - [`Resource\TeamInterface`](https://doc.ibexa.co/en/latest/api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Resource-TeamInterface.html)
+    - [`Resource\Template\TemplateCreateStruct`](https://doc.ibexa.co/en/latest/api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Resource-Template-TemplateCreateStruct.html)
+    - [`Resource\Template\TemplateFilter`](https://doc.ibexa.co/en/latest/api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Resource-Template-TemplateFilter.html)
+    - [`Resource\TemplateInterface`](https://doc.ibexa.co/en/latest/api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Resource-TemplateInterface.html)
+    - [`Response\DataStructure\CreateResponse`](https://doc.ibexa.co/en/latest/api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Response-DataStructure-CreateResponse.html)
+    - [`Response\DataStructure\ListResponse`](https://doc.ibexa.co/en/latest/api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Response-DataStructure-ListResponse.html)
+    - [`Response\DataStructure\RetrieveResponse`](https://doc.ibexa.co/en/latest/api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Response-DataStructure-RetrieveResponse.html)
+    - [`Response\Hook\CreateResponse`](https://doc.ibexa.co/en/latest/api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Response-Hook-CreateResponse.html)
+    - [`Response\Hook\ListResponse`](https://doc.ibexa.co/en/latest/api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Response-Hook-ListResponse.html)
+    - [`Response\Hook\RetrieveResponse`](https://doc.ibexa.co/en/latest/api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Response-Hook-RetrieveResponse.html)
+    - [`Response\Hook\SetDetailsResponse`](https://doc.ibexa.co/en/latest/api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Response-Hook-SetDetailsResponse.html)
+    - [`Response\Scenario\CreateResponse`](https://doc.ibexa.co/en/latest/api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Response-Scenario-CreateResponse.html)
+    - [`Response\Scenario\ListResponse`](https://doc.ibexa.co/en/latest/api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Response-Scenario-ListResponse.html)
+    - [`Response\Scenario\RetrieveResponse`](https://doc.ibexa.co/en/latest/api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Response-Scenario-RetrieveResponse.html)
+    - [`Response\Team\TeamVariableCreateResponse`](https://doc.ibexa.co/en/latest/api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Response-Team-TeamVariableCreateResponse.html)
+    - [`Response\Team\TeamVariableListResponse`](https://doc.ibexa.co/en/latest/api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Response-Team-TeamVariableListResponse.html)
+    - [`Response\Team\TeamVariableRetrieveResponse`](https://doc.ibexa.co/en/latest/api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Response-Team-TeamVariableRetrieveResponse.html)
+    - [`Response\Team\TeamVariableUpdateResponse`](https://doc.ibexa.co/en/latest/api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Response-Team-TeamVariableUpdateResponse.html)
+    - [`Response\Template\BlueprintResponse`](https://doc.ibexa.co/en/latest/api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Response-Template-BlueprintResponse.html)
+    - [`Response\Template\CreateResponse`](https://doc.ibexa.co/en/latest/api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Response-Template-CreateResponse.html)
+    - [`Response\Template\ListResponse`](https://doc.ibexa.co/en/latest/api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Response-Template-ListResponse.html)
+    - [`Response\Template\RetrieveResponse`](https://doc.ibexa.co/en/latest/api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Response-Template-RetrieveResponse.html)
+    - [`ResponseInterface`](https://doc.ibexa.co/en/latest/api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-ResponseInterface.html)
+    - [`TransportInterface`](https://doc.ibexa.co/en/latest/api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-TransportInterface.html)
+    - [`Value\Blueprint\Flow`](https://doc.ibexa.co/en/latest/api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Value-Blueprint-Flow.html)
+    - [`Value\Blueprint\Metadata\Scenario`](https://doc.ibexa.co/en/latest/api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Value-Blueprint-Metadata-Scenario.html)
+    - [`Value\Blueprint\Metadata`](https://doc.ibexa.co/en/latest/api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Value-Blueprint-Metadata.html)
+    - [`Value\Blueprint\Module\CustomWebhook`](https://doc.ibexa.co/en/latest/api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Value-Blueprint-Module-CustomWebhook.html)
+    - [`Value\Blueprint\Module\JsonCreate`](https://doc.ibexa.co/en/latest/api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Value-Blueprint-Module-JsonCreate.html)
+    - [`Value\Blueprint\Module\ModuleDesigner`](https://doc.ibexa.co/en/latest/api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Value-Blueprint-Module-ModuleDesigner.html)
+    - [`Value\Blueprint\Module\WebhookRespond`](https://doc.ibexa.co/en/latest/api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Value-Blueprint-Module-WebhookRespond.html)
+    - [`Value\Blueprint`](https://doc.ibexa.co/en/latest/api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Value-Blueprint.html)
+    - [`Value\Controller`](https://doc.ibexa.co/en/latest/api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Value-Controller.html)
+    - [`Value\Scheduling`](https://doc.ibexa.co/en/latest/api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Value-Scheduling.html)
+
 ## January 2025
 
 ### Trainings
 
-- The Content Editor Training has been released. Learn more in the [annoucement blogpost](https://www.ibexa.co/blog/constant-development-is-key-so-here-s-a-new-training-for-content-editors).
+- The Content Editor Training has been released. Learn more in the [annoucement blogpost](https://www.ibexa.co/blog/constant-development-is-key-so-here-s-a-new-training-for-content-editors)
 
 ### Infrastructure and maintenance
 
-- The upgrade instructions from v3.3 to v4.6 have been expanded with a section describing the [GraphQL changes in v4](https://doc.ibexa.co/en/latest/update_and_migration/from_3.3/to_4.0/#graphql).
-- Ubuntu 24.04 has been added to the [list of officialy supported operating systems](https://doc.ibexa.co/en/latest/getting_started/requirements/#operating-system).
+- The upgrade instructions from v3.3 to v4.6 have been expanded with a section describing the [GraphQL changes in v4](https://doc.ibexa.co/en/latest/update_and_migration/from_3.3/to_4.0/#graphql)
+- Ubuntu 24.04 has been added to the [list of officialy supported operating systems](https://doc.ibexa.co/en/latest/getting_started/requirements/#operating-system)
 
 ### PHP API
 
@@ -30,15 +161,15 @@ This page contains recent highlights and notable changes in [[= product_name =]]
 
 ### Infrastructure and maintenance
 
-- Added [v4.6.14 to v4.6.15 update instructions](https://doc.ibexa.co/en/latest/update_and_migration/from_4.6/update_from_4.6/#v4615).
+- Added [v4.6.14 to v4.6.15 update instructions](https://doc.ibexa.co/en/latest/update_and_migration/from_4.6/update_from_4.6/#v4615)
 
 ## AI Actions
 
-- Added [extending AI Actions](extend_ai_actions.md) documentation.
+- Added [extending AI Actions](extend_ai_actions.md) documentation
 
 ### Security
 
-- Expanded the [Security checklist](security_checklist.md) with advice on TLS, HSTS, DNSSEC, CAA, and domain update protection.
+- Expanded the [Security checklist](security_checklist.md) with advice on TLS, HSTS, DNSSEC, CAA, and domain update protection
 
 ### PHP API
 
@@ -51,8 +182,8 @@ This page contains recent highlights and notable changes in [[= product_name =]]
 
 ### Infrastructure and maintenance
 
-- Added [v4.6.13 to v4.6.14 update instructions](https://doc.ibexa.co/en/latest/update_and_migration/from_4.6/update_from_4.6/#v4614) which include security fixes.
-- Added [v3.3.40 to v3.3.41 update instructions](https://doc.ibexa.co/en/latest/update_and_migration/from_3.3/update_from_3.3/#v3341) which include security fixes.
+- Added [v4.6.13 to v4.6.14 update instructions](https://doc.ibexa.co/en/latest/update_and_migration/from_4.6/update_from_4.6/#v4614) which include security fixes
+- Added [v3.3.40 to v3.3.41 update instructions](https://doc.ibexa.co/en/latest/update_and_migration/from_3.3/update_from_3.3/#v3341) which include security fixes
 
 ### Content management
 
@@ -65,7 +196,7 @@ This page contains recent highlights and notable changes in [[= product_name =]]
 
 ### Documentation
 
-- When you search using the top bar, if there are more than the 10 listed results, you can see a link to a page with further results at the bottom of the drop-down suggestion list.
+- When you search using the top bar, if there are more than the 10 listed results, you can see a link to a page with further results at the bottom of the drop-down suggestion list
 
 ### PHP API
 
@@ -217,7 +348,7 @@ This page contains recent highlights and notable changes in [[= product_name =]]
 
 ### Documentation
 
-- A "new" pill now appears in the table of content alongside pages which have been recently created, or have recent important updates or additions.
+- A "new" pill now appears in the table of content alongside pages which have been recently created, or have recent important updates or additions
 
 ## May 2024
 
@@ -628,15 +759,15 @@ This page contains recent highlights and notable changes in [[= product_name =]]
 
 ### Payment
 
-- [Payment management](https://doc.ibexa.co/en/latest/commerce/payment/payment/), including [configuring payment workflow](https://doc.ibexa.co/en/latest/commerce/payment/configure_payment/), [payment](https://doc.ibexa.co/en/latest/commerce/payment/payment_api/), and [payment method PHP API](https://doc.ibexa.co/en/latest/commerce/payment/payment_method_api/).
+- [Payment management](https://doc.ibexa.co/en/latest/commerce/payment/payment/), including [configuring payment workflow](https://doc.ibexa.co/en/latest/commerce/payment/configure_payment/), [payment](https://doc.ibexa.co/en/latest/commerce/payment/payment_api/), and [payment method PHP API](https://doc.ibexa.co/en/latest/commerce/payment/payment_method_api/)
 
 ### Orders
 
-- [Order management](https://doc.ibexa.co/en/latest/commerce/order_management/order_management/), including [configuring order workflow](https://doc.ibexa.co/en/latest/commerce/order_management/configure_order_management/) and [Orders REST API reference](https://doc.ibexa.co/en/latest/api/rest_api/rest_api_reference/rest_api_reference.html#orders).
+- [Order management](https://doc.ibexa.co/en/latest/commerce/order_management/order_management/), including [configuring order workflow](https://doc.ibexa.co/en/latest/commerce/order_management/configure_order_management/) and [Orders REST API reference](https://doc.ibexa.co/en/latest/api/rest_api/rest_api_reference/rest_api_reference.html#orders)
 
 ### Shipping
 
-- [Shipping management](https://doc.ibexa.co/en/latest/commerce/shipping_management/shipping_management/), including [configuring shipment workflow](https://doc.ibexa.co/en/latest/commerce/shipping_management/configure_shipment/), [shipment](https://doc.ibexa.co/en/latest/commerce/shipping_management/shipment_api/), and [shipping method PHP API](https://doc.ibexa.co/en/latest/commerce/shipping_management/shipping_method_api/).
+- [Shipping management](https://doc.ibexa.co/en/latest/commerce/shipping_management/shipping_management/), including [configuring shipment workflow](https://doc.ibexa.co/en/latest/commerce/shipping_management/configure_shipment/), [shipment](https://doc.ibexa.co/en/latest/commerce/shipping_management/shipment_api/), and [shipping method PHP API](https://doc.ibexa.co/en/latest/commerce/shipping_management/shipping_method_api/)
 
 ### Search
 
@@ -683,7 +814,7 @@ and [extend Storefront](https://doc.ibexa.co/en/latest/commerce/storefront/exten
 
 ### Checkout
 
-- [Checkout](https://doc.ibexa.co/en/latest/commerce/checkout/checkout/) documentation, including [how to configure checkout](https://doc.ibexa.co/en/latest/commerce/checkout/configure_checkout/), description of main [PHP API methods](https://doc.ibexa.co/en/latest/commerce/checkout/checkout_api/), and [checkout-related Twig functions](https://doc.ibexa.co/en/latest/templating/twig_function_reference/checkout_twig_functions/).
+- [Checkout](https://doc.ibexa.co/en/latest/commerce/checkout/checkout/) documentation, including [how to configure checkout](https://doc.ibexa.co/en/latest/commerce/checkout/configure_checkout/), description of main [PHP API methods](https://doc.ibexa.co/en/latest/commerce/checkout/checkout_api/), and [checkout-related Twig functions](https://doc.ibexa.co/en/latest/templating/twig_function_reference/checkout_twig_functions/)
 
 ### Other
 
@@ -694,7 +825,7 @@ and [extend Storefront](https://doc.ibexa.co/en/latest/commerce/storefront/exten
 
 ### Page Builder
 
-- Description of new Page Builder blocks: [Catalog](https://doc.ibexa.co/projects/userguide/en/latest/content_management/block_reference/#catalog-block) and [Product collection](https://doc.ibexa.co/projects/userguide/en/latest/content_management/block_reference/#product-collection-block).
+- Description of new Page Builder blocks: [Catalog](https://doc.ibexa.co/projects/userguide/en/latest/content_management/block_reference/#catalog-block) and [Product collection](https://doc.ibexa.co/projects/userguide/en/latest/content_management/block_reference/#product-collection-block)
 
 ### Other
 
