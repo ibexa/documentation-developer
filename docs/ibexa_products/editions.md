@@ -57,7 +57,8 @@ Compare all features available in [[= product_name_headless =]], [[= product_nam
 
 ## LTS Updates
 
-LTS Updates are opt-in packages that bring additional features to the LTS release that they enhance.
+LTS Updates are opt-in packages that bring additional features to the [LTS releases](release_process_and_roadmap.md#long-term-support-releases) that they enhance.
+The features brought by LTS Updates become standard parts of the next LTS release.
 
 | Feature | [[= product_name_headless =]] | [[= product_name_exp =]] | [[= product_name_com =]] |
 |-----------------|-----------------|-----------------|-----------------|

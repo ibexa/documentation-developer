@@ -266,10 +266,11 @@ body {
         &--latest-release {
             background-image: url('../images/background-gradient.svg');
             background-size: cover;
+            height: calc(100%);
 
             .notification {
                 &__content {
-                    padding-right: 260px;
+                    padding-right: 240px;
                 }
 
                 &__cta {
@@ -284,6 +285,7 @@ body {
         &--lts-update {
             border: 2px solid $ibexa-color-light;
             height: calc(100%);
+            padding-top: 30px;
 
             .notification {
                 &__cta {

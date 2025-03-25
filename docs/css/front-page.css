@@ -198,9 +198,10 @@ body {
 .md-typeset .front-page .notification--latest-release {
   background-image: url("../images/background-gradient.svg");
   background-size: cover;
+  height: 100%;
 }
 .md-typeset .front-page .notification--latest-release .notification__content {
-  padding-right: 260px;
+  padding-right: 240px;
 }
 .md-typeset .front-page .notification--latest-release .notification__cta a {
   background: linear-gradient(to right, #db0032 0%, #ae1164 100%);
@@ -209,6 +210,7 @@ body {
 .md-typeset .front-page .notification--lts-update {
   border: 2px solid #e0e0e8;
   height: 100%;
+  padding-top: 30px;
 }
 .md-typeset .front-page .notification--lts-update .notification__cta a:first-child {
   border: 1px solid #ae1164;
