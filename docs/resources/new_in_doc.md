@@ -41,7 +41,7 @@ This page contains recent highlights and notable changes in [[= product_name =]]
 
 ### Search
 
-- The lists of [search criteria](https://doc.ibexa.co/en/latest/search/criteria_reference/search_criteria_reference/) and [sort clauses](https://doc.ibexa.co/en/latest/search/sort_clause_reference/sort_clause_reference/) have been expanded to show their support for [searching in Trash](https://doc.ibexa.co/en/latest/search/search_in_trash_reference/)
+- Expanded the lists of [search criteria](https://doc.ibexa.co/en/latest/search/criteria_reference/search_criteria_reference/) and [sort clauses](https://doc.ibexa.co/en/latest/search/sort_clause_reference/sort_clause_reference/) to show their support for [searching in Trash](https://doc.ibexa.co/en/latest/search/search_in_trash_reference/)
 
 ### Templating
 
