@@ -1,0 +1,323 @@
+@use 'variables';
+
+// TODO: remove after changing header font sizes globally
+.release-notes-header,
+.release-notes {
+    h1 {
+        font-size: variables.$h1-font-size;
+    }
+    h2 {
+        font-size: variables.$h2-font-size;
+    }
+    h3 {
+        font-size: variables.$h3-font-size;
+    }
+    h4 {
+        font-size: variables.$h4-font-size;
+    }
+    h5 {
+        font-size: variables.$h5-font-size;
+    }
+    h6 {
+        font-size: variables.$h6-font-size;
+    }
+}
+// END
+
+.release-notes-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid variables.$color-dark-85-white;
+    padding: 8px 0;
+
+    h1 {
+        line-height: 1.5;
+        margin: 0;
+    }
+}
+
+.release-notes {
+    margin-top: 24px;
+
+    p {
+        &:empty {
+            display: none;
+        }
+    }
+}
+
+.release-notes-filters {
+    display: flex;
+    justify-content: flex-end;
+    font-size: 14px;
+    line-height: 1.5;
+    height: 24px;
+
+    &__visible-items {
+        display: flex;
+        padding-right: 24px;
+    }
+
+    &__visible-item {
+        padding: 4px 24px 4px 8px;
+        margin-left: 8px;
+        background-color: variables.$color-light-400;
+        border-radius: 16px;
+        font-size: 12px;
+        position: relative;
+
+        &--hidden {
+            display: none;
+        }
+    }
+
+    &__visible-item-remove {
+        display: inherit;
+        position: absolute;
+        top: 50%;
+        right: 5px;
+        width: 16px;
+        height: 16px;
+        transform: translateY(-50%);
+        cursor: pointer;
+
+        &::before,
+        &::after {
+            content: '';
+            width: 1px;
+            height: 12px;
+            background: variables.$color-dark;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+        }
+
+        &::before {
+            transform: translate(50%, -50%) rotate(-45deg);
+        }
+
+        &::after {
+            transform: translate(50%, -50%) rotate(45deg);
+        }
+    }
+
+    &__widget {
+        position: relative;
+
+        &--expanded {
+            .release-notes-filters {
+                &__btn {
+                    color: variables.$color-primary-main;
+        
+                    svg {
+                        fill: variables.$color-primary-main;
+                    }
+                }
+            
+                &__items {
+                    display: block;
+                }
+            }
+        }
+    }
+
+    &__btn {
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        height: 24px;
+
+        &:hover {
+            color: variables.$color-primary-main;
+
+            svg {
+                fill: variables.$color-primary-main;
+            }
+        }
+    }
+
+    &__btn-icon {
+        position: relative;
+        display: inline-flex;
+        align-items: center;
+        margin-right: 8px;
+
+        &::after {
+            position: absolute;
+            z-index: 1;
+            right: 0;
+            top: 0;
+            display: none;
+            content: '';
+            background-color: variables.$color-error-main;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+        }
+
+        &--selected {
+            &::after {
+                display: block;
+            }
+        }
+    }
+
+    &__items {
+        position: absolute;
+        z-index: 10;
+        bottom: 0;
+        left: 50%;
+        padding: 8px;
+        transform: translate(-50%, 100%);
+        border: 1px solid variables.$color-dark-85-white;
+        background-color: variables.$color-dark-100-white;
+        border-radius: 8px;
+        display: none;
+    }
+
+    &__item {
+        padding: 8px;
+        white-space: nowrap;
+
+        label {
+            cursor: pointer;
+        }
+        
+        input[type="checkbox"] {
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            position: relative;
+            cursor: pointer;
+            background-color: variables.$color-dark-100-white;
+            width: 16px;
+            height: 16px;
+            border-radius: 2px;
+            outline: none;
+            transition: all variables.$transition-duration variables.$transition-timing-function;
+            border: 1px solid variables.$color-dark-400;
+            margin: 0 8px -2.5px 0;
+
+            &::after {
+                content: ' ';
+                position: absolute;
+                top: 3px;
+                left: 3px;
+                display: block;
+                width: 8px;
+                height: 5px;
+                border-left: 2px solid transparent;
+                border-bottom: 2px solid transparent;
+                transform: rotate(-45deg);
+            }
+
+            &:hover {
+                border-color: variables.$color-primary;
+            }
+        
+            &:focus {
+                border-color: variables.$color-primary;
+                box-shadow: 0 0 0 4px rgba(variables.$color-primary, 0.25);
+            }
+
+            &:checked {
+                border-color: variables.$color-primary;
+                background-color: variables.$color-primary;
+    
+                &::after {
+                    border-color: variables.$color-dark-100-white;
+                }
+            }
+        }
+    }
+}
+
+.release-note {
+    position: relative;
+    font-size: 14px;
+    line-height: 1.5;
+    padding-left: 24px;
+    padding-bottom: 36px;
+
+    &__tags {
+        display: flex;
+        padding: 4px 0 8px;
+    }
+
+    &__tag {
+        font-size: 12px;
+        padding: 1px 8px;
+        border: 1px solid;
+        margin-right: 8px;
+
+        $types:
+            'headless' variables.$color-error-main,
+            'experience' variables.$color-warning-dark-01,
+            'commerce' variables.$color-primary-main,
+            'lts-update' variables.$color-info-main,
+            'new-feature' variables.$color-success-main;
+
+        
+        @each $name, $color in $types {
+            &--#{$name} {
+                color: $color;
+                border-color: $color;
+            }
+        }
+    }
+
+    &__date {
+        color: variables.$color-dark-400;
+        margin-bottom: 24px;
+    }
+
+    h2 {
+        line-height: 1.5;
+        margin: 0;
+    }
+
+    p {
+        margin: 0 0 12px;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    &::before {
+        display: block;
+        content: '';
+        position: absolute;
+        z-index: 1;
+        left: 0;
+        top: 11px;
+        width: 9px;
+        height: 9px;
+        border: 1px solid variables.$color-primary-main;
+        border-radius: 50%;
+    }
+
+    &::after {
+        display: block;
+        content: '';
+        position: absolute;
+        z-index: 0;
+        top: 19px;
+        left: 4px;
+        width: 1px;
+        height: calc(100% - 8px);
+        background-color: variables.$color-light;
+    }
+
+    &:last-of-type {
+        padding-bottom: 0;
+        &::after {
+            height: calc(100% - 19px);
+        }
+    }
+
+    &--hidden {
+        display: none;
+    }
+}

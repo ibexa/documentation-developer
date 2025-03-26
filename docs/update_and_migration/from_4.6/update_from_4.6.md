@@ -34,6 +34,10 @@ Then execute the instructions below starting from the version you're upgrading f
 
 <!-- vale Ibexa.VariablesVersion = NO -->
 
+## v4.6.1
+
+No additional steps needed.
+
 ## v4.6.2
 
 #### Database update
@@ -104,6 +108,18 @@ Run the following scripts:
     ``` bash
     psql <database_name> < vendor/ibexa/installer/upgrade/db/postgresql/ibexa-4.6.3-to-4.6.4.sql
     ```
+
+## v4.6.5
+
+No additional steps needed.
+
+## v4.6.6
+
+No additional steps needed.
+
+## v4.6.7
+
+No additional steps needed.
 
 ## v4.6.8
 
