@@ -266,7 +266,7 @@ body {
         &--latest-release {
             background-image: url('../images/background-gradient.svg');
             background-size: cover;
-            height: calc(100%);
+            height: calc(100% - 4px);
 
             .notification {
                 &__content {
