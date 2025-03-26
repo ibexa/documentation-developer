@@ -439,6 +439,24 @@ Run the following scripts:
     psql <database_name> < vendor/ibexa/installer/upgrade/db/postgresql/ibexa-3.3.33-to-3.3.34.sql
     ```
 
+### Ibexa Open Source
+
+If you have no access to [[= product_name =]]'s `ibexa/installer` package, apply the following database upgrade script:
+
+=== "MySQL"
+``` sql
+ALTER TABLE `ezcontentobject_attribute` ADD INDEX `ezcontentobject_attribute_co_id_ver` (`contentobject_id`,`version`);
+ALTER TABLE `ezurl_object_link` ADD INDEX `ezurl_ol_coa_id_cav` (`contentobject_attribute_id`,`contentobject_attribute_version`);
+ALTER TABLE `ezcontentobject_link` ADD INDEX `ezco_link_cca_id` (`contentclassattribute_id`);
+```
+
+=== "PostgreSQL"
+``` sql
+CREATE INDEX "ezco_link_cca_id" O##N "ezcontentobject_link" ("contentclassattribute_id");
+CREATE INDEX "ezcontentobject_attribute_co_id_ver" ON "ezcontentobject_attribute" ("contentobject_id", "version");
+CREATE INDEX "ezurl_ol_coa_id_cav" ON "ezurl_object_link" ("contentobject_attribute_id", "contentobject_attribute_version");
+```
+
 ### v3.3.40
 
 No additional steps needed.
