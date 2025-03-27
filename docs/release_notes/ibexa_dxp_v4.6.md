@@ -35,7 +35,7 @@ For more information, see [Date and time attributes](date_and_time.md).
 [[= release_note_entry_begin("AI Actions " + version, '2025-03-04', ['LTS Update', 'New feature']) =]]
 
 #### Features
-You can now [duplicate AI actions]([[= user_doc =]]/) in the AI actions list.
+You can now [duplicate AI actions]([[= user_doc =]]/ai_actions/work_with_ai_actions/#duplicate-ai-actions) in the AI actions list.
 
 #### PHP API
 
