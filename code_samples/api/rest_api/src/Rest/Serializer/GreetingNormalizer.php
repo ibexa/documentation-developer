@@ -29,6 +29,5 @@ class GreetingNormalizer implements NormalizerInterface, NormalizerAwareInterfac
             'recipient' => $object->recipient,
             'sentence' => "{$object->salutation} {$object->recipient}",
         ]], $format, $context);
-        //var_dump($object);die('TODO: Implement normalize() method.');
     }
 }

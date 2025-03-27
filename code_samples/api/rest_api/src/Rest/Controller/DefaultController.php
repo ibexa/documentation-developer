@@ -31,6 +31,5 @@ class DefaultController extends Controller
     public function greet(Request $request): Greeting
     {
         return new Greeting();
-        //return new Response('TEST');
     }
 }
