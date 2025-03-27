@@ -20,7 +20,7 @@ class GreetingNormalizer implements NormalizerInterface, NormalizerAwareInterfac
     }
 
     /**
-     * @param Greeting $object
+     * @param \App\Rest\Values\Greeting $object
      */
     public function normalize(mixed $object, ?string $format = null, array $context = []): array
     {
