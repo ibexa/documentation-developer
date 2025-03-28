@@ -30,9 +30,9 @@ use Symfony\Component\Serializer\SerializerInterface;
 )]
 class DefaultController extends Controller
 {
-    const DEFAULT_FORMAT = 'xml';
+    public const DEFAULT_FORMAT = 'xml';
 
-    const AVAILABLE_FORMATS = ['json', 'xml'];
+    public const AVAILABLE_FORMATS = ['json', 'xml'];
 
     public function __construct(private SerializerInterface $serializer)
     {
