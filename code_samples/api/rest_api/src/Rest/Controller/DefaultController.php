@@ -9,6 +9,8 @@ use App\Rest\Values\Greeting;
 use Ibexa\Rest\Server\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Serializer\Encoder\XmlEncoder;
+use Symfony\Component\Serializer\SerializerInterface;
 
 #[Get(
     uriTemplate: '/greet',
@@ -28,8 +30,31 @@ use Symfony\Component\HttpFoundation\Response;
 )]
 class DefaultController extends Controller
 {
-    public function greet(Request $request): Greeting
+    const DEFAULT_FORMAT = 'xml';
+
+    const AVAILABLE_FORMATS = ['json', 'xml'];
+
+    public function __construct(private SerializerInterface $serializer)
     {
-        return new Greeting();
+    }
+
+    public function greet(Request $request): Response//Greeting
+    {
+        //$this->serializer->deserialize($request->getContent())
+
+        //return new Greeting();
+
+        $accept = $request->headers->get('Accept', 'application/' . self::DEFAULT_FORMAT);
+        preg_match('@.*[/+](?P<format>[^/+]+)@', $accept, $matches);
+        $format = empty($matches['format']) ? self::DEFAULT_FORMAT : $matches['format'];
+        if (!in_array($format, self::AVAILABLE_FORMATS)) {
+            $format = self::DEFAULT_FORMAT;
+        }
+
+        $serialized = $this->serializer->serialize(new Greeting('Salut', 'Monde'), $format, [
+            XmlEncoder::ROOT_NODE_NAME => 'Greeting',
+        ]);
+
+        return new Response($serialized, Response::HTTP_OK);
     }
 }

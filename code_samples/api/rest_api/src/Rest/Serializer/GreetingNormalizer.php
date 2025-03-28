@@ -24,10 +24,15 @@ class GreetingNormalizer implements NormalizerInterface, NormalizerAwareInterfac
      */
     public function normalize(mixed $object, ?string $format = null, array $context = []): array
     {
-        return $this->normalizer->normalize(['greeting' => [
+        $data = [
             'salutation' => $object->salutation,
             'recipient' => $object->recipient,
             'sentence' => "{$object->salutation} {$object->recipient}",
-        ]], $format, $context);
+        ];
+        if ('json' === $format) {
+            $data = ['greeting' => $data];
+        }
+
+        return $this->normalizer->normalize($data, $format, $context);
     }
 }
