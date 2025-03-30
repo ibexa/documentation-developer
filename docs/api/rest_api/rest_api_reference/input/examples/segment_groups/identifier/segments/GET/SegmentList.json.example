@@ -1,6 +1,6 @@
 {
     "SegmentList": {
-        "_media-type": "application\/vnd.ibexa.api.SegmentList+json",
+        "_media-type": "application/vnd.ibexa.api.SegmentList+json",
         "_href": "\/api\/ibexa\/v2\/segment_groups\/corporate_accounts\/segments",
         "Segment": []
     }
