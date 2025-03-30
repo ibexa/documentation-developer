@@ -10,11 +10,10 @@ ibexa_fieldtype_page:
                     name: Group name
                     type: nested_attribute
                     options:
-                        help:
-                            text: 'Root class text'
-                            html: true # true|false
-                            attr:
-                                class: 'root-class-1 root-class-2'
+                        help: 'Root class text'
+                        help_html: true
+                        help_attr:
+                            class: 'root-class-1 root-class-2'
                         attributes:
                             integer:
                                 name: Age
@@ -23,11 +22,10 @@ ibexa_fieldtype_page:
                                     not_blank:
                                         message: 'Provide a value'
                                 options:
-                                    help:
-                                        text: 'Nested attribute text'
-                                        html: true
-                                        attr:
-                                            class: 'nested-1 nested-2'
+                                    help: 'Nested attribute text'
+                                    help_html: true
+                                    help_attr:
+                                        class: 'nested-1 nested-2'
                             string:
                                 name: Name
                                 type: string
