@@ -39,7 +39,7 @@ services:
         parent: Ibexa\Rest\Server\Controller
         autowire: true
         autoconfigure: true
-        tags: [ 'controller.service_arguments' ]
+        tags: [ 'controller.service_arguments', 'ibexa.api_platform.resource' ]
 
 
     App\Rest\Serializer\:
