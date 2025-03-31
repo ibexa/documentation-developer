@@ -12,6 +12,90 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Serializer\Encoder\XmlEncoder;
 use Symfony\Component\Serializer\SerializerInterface;
 
+#[Get(
+    uriTemplate: '/greet',
+    extraProperties: [OpenApiFactory::OVERRIDE_OPENAPI_RESPONSES => false],
+    openapi: new Model\Operation(
+        summary: 'Greet',
+        description: 'Greets a recipient with a salutation',
+        tags: [
+            'App',
+        ],
+        parameters: [
+            new Model\Parameter(
+                name: 'Accept',
+                in: 'header',
+                required: false,
+                description: 'If set, the greeting is returned in XML or JSON format.',
+                schema: [
+                    'type' => 'string',
+                ],
+                example: 'application/vnd.ibexa.api.Greeting+json',
+            ),
+        ],
+        responses: [
+            Response::HTTP_OK => [
+                'description' => 'OK - Return a greeting',
+                'content' => [
+                    'application/vnd.ibexa.api.Greeting+xml' => [
+                        'schema' => [
+                            'xml' => [
+                                'name' => 'Greeting',
+                                'wrapped' => false,
+                            ],
+                            'properties' => [
+                                'salutation' => [
+                                    'type' => 'string',
+                                ],
+                                'recipient' => [
+                                    'type' => 'string',
+                                ],
+                                'sentence' => [
+                                    'type' => 'string',
+                                    'description' => 'Composed sentence using salutation and recipient.'
+                                ]
+                            ],
+                        ],
+                        'example' => [
+                            'salutation' => 'Hello',
+                            'recipient' => 'World',
+                            'sentence' => 'Hello World',
+                        ],
+                    ],
+                    'application/vnd.ibexa.api.Greeting+json' => [
+                        'schema' => [
+                            'type' => 'object',
+                            'properties' => [
+                                'Greeting' => [
+                                    'type' => 'object',
+                                    'properties' => [
+                                        'salutation' => [
+                                            'type' => 'string',
+                                        ],
+                                        'recipient' => [
+                                            'type' => 'string',
+                                        ],
+                                        'sentence' => [
+                                            'type' => 'string',
+                                            'description' => 'Composed sentence using salutation and recipient.'
+                                        ],
+                                    ],
+                                ],
+                            ],
+                        ],
+                        'example' => [
+                            'Greeting' => [
+                                'salutation' => 'Hello',
+                                'recipient' => 'World',
+                                'sentence' => 'Hello World',
+                            ],
+                        ],
+                    ],
+                ],
+            ],
+        ],
+    ),
+)]
 #[Post(
     uriTemplate: '/greet',
     extraProperties: [OpenApiFactory::OVERRIDE_OPENAPI_RESPONSES => false],
@@ -30,15 +114,17 @@ use Symfony\Component\Serializer\SerializerInterface;
                 schema: [
                     'type' => 'string',
                 ],
+                example: 'application/vnd.ibexa.api.GreetingInput+json',
             ),
             new Model\Parameter(
                 name: 'Accept',
                 in: 'header',
-                required: true,
+                required: false,
                 description: 'If set, the greeting is returned in XML or JSON format.',
                 schema: [
                     'type' => 'string',
                 ],
+                example: 'application/vnd.ibexa.api.Greeting+json',
             ),
         ],
         requestBody: new Model\RequestBody(
@@ -138,6 +224,7 @@ use Symfony\Component\Serializer\SerializerInterface;
                                         ],
                                         'sentence' => [
                                             'type' => 'string',
+                                            'description' => 'Composed sentence using salutation and recipient.'
                                         ],
                                     ],
                                 ],
