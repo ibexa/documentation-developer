@@ -355,24 +355,10 @@ The first one is executed when a recommendation is shown to the user.
 The second is called when a recommendation is clicked or otherwise accepted.
 Sending Rendered events causes as many requests as recommendations to be displayed, a Clickrecommended event is usually sent only once (when a user clicks on a specific recommendation item).
 
-Example of a recommendation response:
+Sample of a recommendation response:
 
 ``` json
-"recommendationItems": [
-    {
-      "relevance": 23,
-      "itemType": 1,
-      "itemId": 100175717,
-      "origin": {
-        "itemIds" : [10, 11],
-        "itemType" : 1,
-        "source" : "REQUEST"
-      },
-      "category" : "Men/Shirts",
-      "links" : {
-         "clickRecommended" : "//event.perso.ibexa.co/clickrecommended/johndoe/1/100175717?scenario=also_clicked&modelId=37",
-         "rendered" : "//event.perso.ibexa.co/rendered/johndoe/1/100175717"
-      },
+[[= include_file('code_samples/personalization/response-body.json', 1, 16) =]]
 ```
 
 | Field name | Description |
@@ -387,14 +373,14 @@ See [Recommendation API](recommendation_api.md) for more details.
 A trigger message includes requests for a Triggeropened and Clicktriggered event.
 The first is executed once, when the end user opens a trigger message (for example, embedded into a newsletter).
 The second is called each time the user follows a link to see the recommended item.
-Both requests provide the `triggername` parameter, which passes a unique alphanumerical identifier of the trigger that initiated the message.
+Both requests provide the `triggerName` parameter, which passes a unique alphanumerical identifier of the trigger that initiated the message.
 
 Example of a trigger message:
 
 ``` json
    "customerID":"177751",
    "userExternalId":"user@ibexa.co",
-   "triggerType":"REACTIVATION|ABANDAONED_SHOPPING_CART",
+   "triggerType":"REACTIVATION|ABANDONED_SHOPPING_CART",
    "triggerName":"trigger_ref_code",
    "triggerOpenedLink":"//event.perso.ibexa.co/api/17751/triggeropened/johndoe?triggername=action_trigger_ref_code",
    "recommendations":[
@@ -403,8 +389,8 @@ Example of a trigger message:
          "itemType":46,
          "clickRecommended":"//event.perso.ibexa.co/api/17751/clicktriggered/johndoe/46/959?triggername=action_trigger_ref_code",
          "attributes":{
-            "ses_name":"Minimalista Coffee Table",
-			"ses_image":["img_1", "img_2"]
+            "ses_name":"Minimalist Coffee Table",
+            "ses_image":["img_1", "img_2"]
          }
       }
    ]
@@ -444,7 +430,7 @@ The request parameters are:
 |`scenario`|Name of the scenario, where recommendations originated from. This parameter is required.|URL-encoded alphanumeric|
 
 The scenario parameter identifies the originating scenario to gain detailed statistics about the scenario that motivated the user to click on a recommendation.
-This information comes with the recommendation from the recommendation controller. 
+This information comes with the recommendation from the recommendation controller.
 
 The event is used for providing statistics about how often users accepted the recommendations of the configured recommendation scenario or considered them as valuable.
 
