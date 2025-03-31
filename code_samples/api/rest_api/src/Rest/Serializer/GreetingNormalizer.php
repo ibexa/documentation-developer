@@ -20,7 +20,7 @@ class GreetingNormalizer implements NormalizerInterface, NormalizerAwareInterfac
     }
 
     /**
-     * @param \App\Rest\Values\Greeting $object
+     * @param Greeting $object
      */
     public function normalize(mixed $object, ?string $format = null, array $context = []): array
     {
@@ -30,7 +30,7 @@ class GreetingNormalizer implements NormalizerInterface, NormalizerAwareInterfac
             'sentence' => "{$object->salutation} {$object->recipient}",
         ];
         if ('json' === $format) {
-            $data = ['greeting' => $data];
+            $data = ['Greeting' => $data];
         }
 
         return $this->normalizer->normalize($data, $format, $context);

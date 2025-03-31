@@ -41,8 +41,8 @@ class DefaultController extends Controller
     public function greet(Request $request): Response//Greeting
     {
         //$this->serializer->deserialize($request->getContent())
-
-        //return new Greeting();
+        $salutation = 'Salut';
+        $recipient = 'Monde';
 
         $accept = $request->headers->get('Accept', 'application/' . self::DEFAULT_FORMAT);
         preg_match('@.*[/+](?P<format>[^/+]+)@', $accept, $matches);
@@ -51,8 +51,12 @@ class DefaultController extends Controller
             $format = self::DEFAULT_FORMAT;
         }
 
-        $serialized = $this->serializer->serialize(new Greeting('Salut', 'Monde'), $format, [
-            XmlEncoder::ROOT_NODE_NAME => 'Greeting',
+        $greeting = new Greeting($salutation, $recipient);
+
+        //return $greeting;
+
+        $serialized = $this->serializer->serialize($greeting, $format, [
+            XmlEncoder::ROOT_NODE_NAME => substr(strrchr(get_class($greeting), '\\'), 1),
         ]);
 
         return new Response($serialized, Response::HTTP_OK);
