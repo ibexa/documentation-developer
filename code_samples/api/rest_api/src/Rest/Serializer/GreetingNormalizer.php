@@ -25,9 +25,9 @@ class GreetingNormalizer implements NormalizerInterface, NormalizerAwareInterfac
     public function normalize(mixed $object, ?string $format = null, array $context = []): array
     {
         $data = [
-            'salutation' => $object->salutation,
-            'recipient' => $object->recipient,
-            'sentence' => "{$object->salutation} {$object->recipient}",
+            'Salutation' => $object->salutation,
+            'Recipient' => $object->recipient,
+            'Sentence' => "{$object->salutation} {$object->recipient}",
         ];
         if ('json' === $format) {
             $data = ['Greeting' => $data];
