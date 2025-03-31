@@ -52,8 +52,8 @@ use Symfony\Component\Serializer\SerializerInterface;
                                 ],
                                 'sentence' => [
                                     'type' => 'string',
-                                    'description' => 'Composed sentence using salutation and recipient.'
-                                ]
+                                    'description' => 'Composed sentence using salutation and recipient.',
+                                ],
                             ],
                         ],
                         'example' => [
@@ -77,7 +77,7 @@ use Symfony\Component\Serializer\SerializerInterface;
                                         ],
                                         'sentence' => [
                                             'type' => 'string',
-                                            'description' => 'Composed sentence using salutation and recipient.'
+                                            'description' => 'Composed sentence using salutation and recipient.',
                                         ],
                                     ],
                                 ],
@@ -224,7 +224,7 @@ use Symfony\Component\Serializer\SerializerInterface;
                                         ],
                                         'sentence' => [
                                             'type' => 'string',
-                                            'description' => 'Composed sentence using salutation and recipient.'
+                                            'description' => 'Composed sentence using salutation and recipient.',
                                         ],
                                     ],
                                 ],
