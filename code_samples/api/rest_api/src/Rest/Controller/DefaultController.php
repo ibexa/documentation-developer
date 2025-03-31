@@ -2,7 +2,6 @@
 
 namespace App\Rest\Controller;
 
-use ApiPlatform\Metadata\Get;
 use ApiPlatform\Metadata\Post;
 use ApiPlatform\OpenApi\Factory\OpenApiFactory;
 use ApiPlatform\OpenApi\Model;
@@ -114,8 +113,8 @@ use Symfony\Component\Serializer\SerializerInterface;
                                 ],
                                 'sentence' => [
                                     'type' => 'string',
-                                    'description' => 'Composed sentence using salutation and recipient.'
-                                ]
+                                    'description' => 'Composed sentence using salutation and recipient.',
+                                ],
                             ],
                         ],
                         'example' => [
