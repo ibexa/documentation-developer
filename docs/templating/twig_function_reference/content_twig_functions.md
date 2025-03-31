@@ -28,7 +28,7 @@ You can provide `ibexa_render()` with either a content item or a Location object
 
 |Argument|Type|Description|
 |------|------|------|
-|`content` or `location`|[`Content`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Content.html) or [`Location`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Location.html)|Content item or its location.|
+|`content` or `location`|[`Content`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Content.html), [`ContentAwareInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-ContentAwareInterface.html) or [`Location`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Location.html)|Content item or its location.|
 |`method`|`string`|(optional) [Rendering method](#rendering-methods). One of: `direct`, `inline`, `esi`, `ssi`. (Default method is `direct`)|
 |`viewType`|`string`|(optional) [View type](template_configuration.md#view-types). (Default view type is `embed`)|
 
