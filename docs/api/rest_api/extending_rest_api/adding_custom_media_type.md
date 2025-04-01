@@ -12,13 +12,13 @@ The following example adds the handling of a new media type `application/app.api
 You need the following elements:
 
 - `ValueObjectVisitor` - to create the new response corresponding to the new media type
-- `ValueObjectVisitorDispatcher` - to have this `ValueObjectVisitor` used to visit the default controller result
-- `Output\Visitor` - service associating this new `ValueObjectVisitorDispatcher` with the new media type
+- `ValueObjectVisitorResolver` - to have this `ValueObjectVisitor` used to visit the default controller result
+- `Output\Visitor` - service associating this new `ValueObjectVisitorResolver` with the new media type
 
 !!! note
 
     You can change the vendor name (from default `vnd.ibexa.api` to new `app.api` like in this example), or you can create a new media type in the default vendor (like `vnd.ibexa.api.Greeting` in the [Creating a new REST resource](creating_new_rest_resource.md) example).
-    To do so, tag your new ValueObjectVisitor with `ibexa.rest.output.value_object.visitor` to add it to the existing `ValueObjectVisitorDispatcher`, and a new one isn't needed.
+    To do so, tag your new `ValueObjectVisitor` with `ibexa.rest.output.value_object.visitor` to add it to the existing `ValueObjectVisitorResolver`, and a new one isn't needed.
     This way, the `media-type` attribute is also easier to create, because the default `Output\Generator` uses this default vendor.
     This example presents creating a new vendor as a good practice, to highlight that this is custom extensions that isn't available in a regular [[= product_name =]] installation.
 
@@ -41,27 +41,27 @@ This tag has a `type` property to associate the new `ValueObjectVisitor` with th
 ``` yaml
 services:
     #…
-[[= include_file('code_samples/api/rest_api/config/services.yaml', 28, 35) =]]
+[[= include_file('code_samples/api/rest_api/config/services.yaml', 33, 41) =]]
 ```
 
-## New `ValueObjectVisitorDispatcher`
+## New `ValueObjectVisitorResolver`
 
-The new `ValueObjectVisitorDispatcher` receives the `ValueObjectVisitor`s tagged `app.rest.output.value_object.visitor`.
-As not all value FQCNs are handled, the new `ValueObjectVisitorDispatcher` also receives the default one as a fallback.
+The new `ValueObjectVisitorResolver` receives the `ValueObjectVisitor`s tagged `app.rest.output.value_object.visitor`.
+As not all value FQCNs are handled, the new `ValueObjectVisitorResolver` also receives the default one as a fallback.
 
 ``` yaml
 services:
     #…
-[[= include_file('code_samples/api/rest_api/config/services.yaml', 22, 27) =]]
+[[= include_file('code_samples/api/rest_api/config/services.yaml', 28, 32) =]]
 ```
 
 ``` php
-[[= include_file('code_samples/api/rest_api/src/Rest/Output/ValueObjectVisitorDispatcher.php') =]]
+[[= include_file('code_samples/api/rest_api/src/Rest/Output/ValueObjectVisitorResolver.php') =]]
 ```
 
 ## New `Output\Visitor` service
 
-The following new pair of `Ouput\Visitor` entries associates `Accept` headers starting with `application/app.api.` to the new `ValueObjectVisitorDispatcher` for both XML and JSON.
+The following new pair of `Ouput\Visitor` entries associates `Accept` headers starting with `application/app.api.` to the new `ValueObjectVisitorResolver` for both XML and JSON.
 A priority is set higher than other `ibexa.rest.output.visitor` tagged built-in services.
 
 ``` yaml
@@ -70,7 +70,7 @@ parameters:
 [[= include_file('code_samples/api/rest_api/config/services.yaml', 1, 3) =]]
 services:
     #…
-[[= include_file('code_samples/api/rest_api/config/services.yaml', 6, 21) =]]
+[[= include_file('code_samples/api/rest_api/config/services.yaml', 6, 27) =]]
 ```
 
 ## Testing the new media-type
