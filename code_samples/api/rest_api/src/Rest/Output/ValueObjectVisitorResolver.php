@@ -7,10 +7,12 @@ use Ibexa\Contracts\Rest\Output\ValueObjectVisitorResolverInterface;
 
 class ValueObjectVisitorResolver implements ValueObjectVisitorResolverInterface
 {
+    /** @var array<string, ValueObjectVisitor> */
     private array $visitors;
 
     private ValueObjectVisitorResolverInterface $valueObjectVisitorResolver;
 
+    /** @param iterable<string, ValueObjectVisitor> $visitors */
     public function __construct(iterable $visitors, ValueObjectVisitorResolverInterface $resolver)
     {
         $this->visitors = [];
