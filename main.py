@@ -4,6 +4,7 @@ import re
 import urllib.request
 from mkdocs.structure.pages import Page
 from mkdocs.utils import meta
+from typing import List
 
 CARDS_TEMPLATE = """
 <div class="card-wrapper">
@@ -26,7 +27,6 @@ def define_env(env):
     - variables: the dictionary that contains the environment variables
     - macro: a decorator function, to declare a macro.
     """
-
 
     @env.macro
     def include_file(filename, start_line=0, end_line=None, glue=''):
@@ -114,3 +114,91 @@ def define_env(env):
             )
 
         return """<div class="%s col-%s">%s</div>""" % (style, columns, "\n".join(cards))
+
+    @env.macro
+    def version_to_anchor(version : str = '') -> str:
+        return version.replace('.', '')
+
+    @env.macro
+    def release_notes_filters(header : str, categories : List[str]) -> str:
+        validate_categories(categories)
+
+        filters = "".join(
+            ["""
+            <div 
+                class="release-notes-filters__visible-item release-notes-filters__visible-item--hidden" 
+                data-filter="filter-{category_slug}"
+            >
+                {category}
+                <button type="button" class="release-notes-filters__visible-item-remove"></button>
+            </div>
+            """.format(category_slug=slugify(category), category=category) for category in categories])
+        
+        categories_dropdown = "".join(
+            ["""
+                <div class="release-notes-filters__item">
+                    <input type="checkbox" id="filter-{category_slug}" />
+                    <label for="filter-{category_slug}">{category}</label>
+                </div>
+             """.format(category_slug=slugify(category), category=category) for category in categories]
+        )
+
+        return """
+<div class="release-notes-header">
+    <h1>{header}</h1>
+    <div class="release-notes-filters">
+        <div class="release-notes-filters__visible-items">
+            {visible_filters}
+        </div>
+        <div class="release-notes-filters__widget">
+            <button type="button" class="release-notes-filters__btn">
+                <span class="release-notes-filters__btn-icon">
+                    <svg width="16" height="16"><use xlink:href="../../images/icons.svg#filters" /></svg>
+                </span>
+                Filters
+            </button>
+            <div class="release-notes-filters__items">
+                {categories_dropdown}
+            </div>
+        </div>
+    </div>
+</div>
+        """.format(header=header, visible_filters=filters, categories_dropdown=categories_dropdown)
+
+    @env.macro
+    def release_note_entry_begin(header : str, date: str, categories : List[str]) -> str:
+        validate_categories(categories)
+
+        category_badges = "".join(
+            [
+                """
+<div class="release-note__tag release-note__tag--{category_slug}" data-filter="{category_slug}">{category}</div>
+                """.format(category_slug=slugify(category), category=category) 
+                for category in categories
+            ]
+        )
+
+        return """
+<div class="release-note" markdown="1">
+## {header}
+<div class="release-note__tags">
+{category_badges}
+</div>
+<div class="release-note__date">{date}</div>
+""".format(header=header, date=date, category_badges=category_badges)
+
+    @env.macro
+    def release_note_entry_end() -> str:
+        return "</div>"
+
+    def slugify(text: str) -> str:
+        return text.lower().replace(' ', '-')
+
+    def validate_categories(categories: List[str]) -> None:
+        available_categories = ['Headless', 'Experience', 'Commerce', 'LTS Update', 'New feature']
+
+        for category in categories:
+            if category not in available_categories:
+                raise ValueError(
+                    "Unknown category: {category}. Available categories are: {available_categories}".format(category=category, available_categories=" ".join(available_categories))
+                    )

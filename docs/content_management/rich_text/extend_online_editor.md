@@ -1,5 +1,6 @@
 ---
 description: Add custom tags, styles and data attributes to enrich the functionality of the Online Editor. Change Online Editor configuration.
+month_change: true
 ---
 
 # Extend Online Editor
@@ -464,3 +465,21 @@ ibexa.addConfig('richText.CKEditor.extraConfig', { specialCharacters: { order: [
 ```
 
 ![CKEditor Special characters: Arrows category on top of the character filter](ckeditor-special-characters_arrows-on-top.png)
+
+You can also use custom functions to modify the plugin configuration.
+The following example adds two ways to add a non-breaking space character:
+
+```js
+function SpecialCharactersNbsp( editor ) {
+    // add non-breaking space to the SpecialCharacters plugin
+    editor.plugins.get( 'SpecialCharacters' ).addItems( 'Text', [
+        { title: 'Non-Breaking Space', character: '\u00a0' }
+    ] );
+    // add a keyboard shortcut
+    editor.keystrokes.set( 'Ctrl+space', ( key, stop ) => {
+        editor.execute( 'input', { text: '\u00a0' } );
+        stop();
+    } );
+}
+ibexa.addConfig('richText.CKEditor.extraPlugins', [ SpecialCharacters, SpecialCharactersEssentials, SpecialCharactersNbsp ], true);
+```
