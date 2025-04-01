@@ -48,7 +48,7 @@ You can use the following configuration to have all controllers from the `App\Re
 ``` yaml
 services:
     #…
-[[= include_file('code_samples/api/rest_api/config/services.yaml', 36, 42) =]]
+[[= include_file('code_samples/api/rest_api/config/services.yaml', 41, 47) =]]
 ```
 
 Having the REST controllers set as services enables using features such as the `InputDispatcher` service in the [Controller action](#controller-action).
@@ -98,7 +98,7 @@ The `Values/Greeting` class is linked to its `ValueObjectVisitor` through the se
 ``` yaml
 services:
     #…
-[[= include_file('code_samples/api/rest_api/config/services.yaml', 43, 48) =]]
+[[= include_file('code_samples/api/rest_api/config/services.yaml', 48, 53) =]]
 ```
 
 Here, the media type is `application/vnd.ibexa.api.Greeting` plus a format.
@@ -120,7 +120,7 @@ In other cases, it could return whatever object is needed to represent the input
 ``` yaml
 services:
     #…
-[[= include_file('code_samples/api/rest_api/config/services.yaml', 48, 53) =]]
+[[= include_file('code_samples/api/rest_api/config/services.yaml', 53, 58) =]]
 ```
 
 ## Testing the new resource
