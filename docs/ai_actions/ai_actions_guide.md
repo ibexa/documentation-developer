@@ -8,7 +8,7 @@ month_change: false
 ## What are AI Actions
 
 Wherever you look, artificial intelligence becomes more and more important by enhancing user interaction and automating complex processes.
-[[= product_name =]] can be equipped with the AI Actions [LTS update](editions#lts-updates), which harnesses AI's potential to automate time-consuming editorial tasks.
+[[= product_name =]] can be equipped with the AI Actions [LTS update](editions.md#lts-updates), which harnesses AI's potential to automate time-consuming editorial tasks.
 AI Actions is an extensible solution for integrating features provided by AI services into your workflows, all managed through a user-friendly interface.
 
 Out-of-the-box, AI Actions solution includes two essential components: a framework package and an OpenAI connector package.
@@ -25,7 +25,7 @@ The possibilities are endless and you're not limited to a specific AI service, a
 
 ## Availability
 
-AI Actions are an opt-in capability available as an [LTS update](ibexa_dxp_v4.6.md#lts-updates) starting with the v4.6.12 version of [[= product_name =]], regardless of its edition.
+AI Actions are an opt-in capability available as an [LTS update](editions.md#lts-updates) starting with the v4.6.12 version of [[= product_name =]], regardless of its edition.
 To begin using AI Actions, you must first [install the required packages and perform initial configuration](install_ai_actions.md).
 
 !!! note "API Key"
