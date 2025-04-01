@@ -9,6 +9,10 @@ This page contains recent highlights and notable changes in [[= product_name =]]
 
 ## March 2025
 
+### Release notes
+
+- New [Release notes page](https://doc.ibexa.co/en/latest/release_notes/ibexa_dxp_v4.6/) implemented
+
 ### AI Actions
 
 - Specified minimum [[= product_name =]] version supported while working with AI Actions
