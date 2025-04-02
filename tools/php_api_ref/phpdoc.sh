@@ -18,6 +18,8 @@ PHPDOC_DIR="$(pwd)/tools/php_api_ref/.phpdoc"; # Absolute path to phpDocumentor 
 PHP_BINARY="php -d error_reporting=`php -r 'echo E_ALL & ~E_DEPRECATED;'`"; # Avoid depreciation messages from phpDocumentor/Reflection/issues/529 when using PHP 8.2 or higher
 TMP_DXP_DIR=/tmp/ibexa-dxp-phpdoc; # Absolute path of the temporary directory in which Ibexa DXP will be installed and the PHP API Reference built
 FORCE_DXP_INSTALL=1; # If 1, empty the temporary directory, install DXP from scratch, build, remove temporary directory; if 0, potentially reuse the DXP already installed in temporary directory, keep temporary directory for future uses.
+BASE_DXP_BRANCH=''; # Branch from and for which the Reference is built when using a dev branch as version
+VIRTUAL_DXP_VERSION=''; # Version for which the reference is supposedly built when using dev branch as version
 
 if [ ! -d $OUTPUT_DIR ]; then
   echo -n "Creating ${OUTPUT_DIR}… ";
@@ -49,9 +51,18 @@ cd $TMP_DXP_DIR; # /!\ Change working directory (reason why all paths must be ab
 
 if [ 0 -eq $DXP_ALREADY_EXISTS ]; then
   echo "Creating ibexa/$DXP_EDITION-skeleton:$DXP_VERSION project in ${TMP_DXP_DIR}…";
-  composer create-project ibexa/$DXP_EDITION-skeleton:$DXP_VERSION . --no-interaction --no-install --ignore-platform-reqs --no-scripts;
-  if [ -n "$AUTH_JSON" ]; then
-    cp $AUTH_JSON ./;
+  if [[ "$DXP_VERSION" == *".x-dev" ]]; then
+    composer create-project ibexa/website-skeleton:$DXP_VERSION . --no-interaction --no-install --ignore-platform-reqs --no-scripts --stability=dev;
+    if [ -n "$AUTH_JSON" ]; then
+      cp $AUTH_JSON ./;
+    fi;
+    composer config repositories.ibexa composer https://updates.ibexa.co;
+    composer require ibexa/$DXP_EDITION:$DXP_VERSION --no-interaction --update-with-all-dependencies --no-install --ignore-platform-reqs --no-scripts;
+  else
+    composer create-project ibexa/$DXP_EDITION-skeleton:$DXP_VERSION . --no-interaction --no-install --ignore-platform-reqs --no-scripts;
+    if [ -n "$AUTH_JSON" ]; then
+      cp $AUTH_JSON ./;
+    fi;
   fi;
   composer install --no-interaction --ignore-platform-reqs --no-scripts;
 fi;
@@ -70,11 +81,11 @@ if [ 0 -eq $DXP_ALREADY_EXISTS ]; then
   done;
 fi;
 
-#if [ 0 -eq $DXP_ALREADY_EXISTS ]; then
-#  MY_PACKAGE='';
-#  MY_BRANCH='';
-#  composer require --no-interaction --ignore-platform-reqs --no-scripts ibexa/$MY_PACKAGE "$MY_BRANCH as $DXP_VERSION";
-#fi;
+if [[ "$DXP_VERSION" == *".x-dev" ]]; then
+  GIT_REF=$BASE_DXP_BRANCH;
+else
+  GIT_REF="v$DXP_VERSION";
+fi
 
 if [ 0 -eq $DXP_ALREADY_EXISTS ]; then
   echo -n 'Building package→edition map… ';
@@ -94,7 +105,7 @@ if [ 0 -eq $DXP_ALREADY_EXISTS ]; then
           jq -r --arg PACKAGE "$package" '"'\''\(.autoload | ."psr-4" | try to_entries[] catch empty | .key[:-1] | sub("\\\\";"\\\\\\";"g"))'\'': '\''\($PACKAGE)'\'',"')
         NAMESPACE_MAP="$NAMESPACE_MAP\n$NAMESPACES"
       fi;
-    done <<< "$(curl --no-progress-meter "https://raw.githubusercontent.com/ibexa/$edition/v$DXP_VERSION/composer.json" | jq .require | grep -E "(ibexa|ezsystems|silversolutions)")";
+    done <<< "$(curl --no-progress-meter "https://raw.githubusercontent.com/ibexa/$edition/$GIT_REF/composer.json" | jq .require | grep -E "(ibexa|ezsystems|silversolutions)")";
     if [ "$edition" == "$DXP_EDITION" ]; then
       break;
     fi;
@@ -115,6 +126,10 @@ if [ 0 -eq $DXP_ALREADY_EXISTS ]; then
       echo '{% block content %}{% endblock %}'
   } >> "$map";
   echo 'OK';
+fi;
+
+if [[ "$DXP_VERSION" == *".x-dev" ]]; then
+  DXP_VERSION=$VIRTUAL_DXP_VERSION;
 fi;
 
 echo 'Set up phpDocumentor…';

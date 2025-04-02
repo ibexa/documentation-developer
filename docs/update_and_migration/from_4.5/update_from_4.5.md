@@ -356,7 +356,7 @@ php bin/console ibexa:migrations:migrate --file=2023_12_07_20_23_editor_content_
 
 Site context is used in content tree to display only those content items that belong to the selected website.
 
-You can add locations that shoudn't be publicly accessible to the list of excluded paths:
+You can add locations that shouldn't be publicly accessible to the list of excluded paths:
 
 ```yaml
 # /config/packages/ibexa_site_context.yaml

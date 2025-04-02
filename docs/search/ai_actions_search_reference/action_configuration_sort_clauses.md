@@ -4,11 +4,11 @@ month_change: false
 
 # Action Configuration Search Sort Clauses reference
 
-Sort Clauses are found in the `Ibexa\Contracts\ConnectorAi\ActionConfiguration\Query\SortClause` namespace, implementing the [SortClauseInterface](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorAi-ActionConfiguration-Query-SortClauseInterface.html) interface:
+Sort Clauses are found in the `Ibexa\Contracts\ConnectorAi\ActionConfiguration\Query\SortClause` namespace, implementing the [SortClauseInterface](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorAi-ActionConfiguration-Query-SortClauseInterface.html) interface:
 
-- [Enabled](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorAi-ActionConfiguration-Query-SortClause-Enabled.html)
-- [Id](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorAi-ActionConfiguration-Query-SortClause-Id.html)
-- [Identifier](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorAi-ActionConfiguration-Query-SortClause-Identifier.html)
+- [Enabled](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorAi-ActionConfiguration-Query-SortClause-Enabled.html)
+- [Id](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorAi-ActionConfiguration-Query-SortClause-Id.html)
+- [Identifier](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorAi-ActionConfiguration-Query-SortClause-Identifier.html)
 
 The following example shows how to use them to sort the searched Action Configurations:
 ``` php

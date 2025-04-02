@@ -12,7 +12,7 @@ Each content item is an instance of a content type.
 
 !!! tip
 
-    An introduction to the content model for non-developer users is available in User Documentation]([[= user_doc =]]/content_management/content_model/).
+    An introduction to the content model for non-developer users is available in [User Documentation]([[= user_doc =]]/content_management/content_model/).
 
 ## Content items
 
@@ -24,7 +24,7 @@ The fields can cover data ranging from single variables and text lines to media 
 
 #### Content information
 
-General information about a content item is stored in a [`ContentInfo`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-ContentInfo.html) object.
+General information about a content item is stored in a [`ContentInfo`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-ContentInfo.html) object.
 `ContentInfo` doesn't include fields. It contains following information:
 
 **`id`** - the unique ID of the Content object. These numbers aren't recycled, so if an item is deleted, its ID isn't reused when a new one is created.

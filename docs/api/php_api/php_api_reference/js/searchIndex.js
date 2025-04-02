@@ -39041,6 +39041,101 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/Ibexa-Contracts-ProductCatalog-Exceptions-ConfigurationException.html"
         },                {
+            "fqsen": "\\Ibexa\\Contracts\\ProductCatalog\\Form\\Data\\ProductSelectorData",
+            "name": "ProductSelectorData",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-ProductCatalog-Form-Data-ProductSelectorData.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\ProductCatalog\\Form\\Data\\ProductSelectorData\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-ProductCatalog-Form-Data-ProductSelectorData.html#method___construct"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\ProductCatalog\\Form\\Data\\ProductSelectorData\u003A\u003AgetProductCode\u0028\u0029",
+            "name": "getProductCode",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-ProductCatalog-Form-Data-ProductSelectorData.html#method_getProductCode"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\ProductCatalog\\Form\\Data\\ProductSelectorData\u003A\u003AaddVariant\u0028\u0029",
+            "name": "addVariant",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-ProductCatalog-Form-Data-ProductSelectorData.html#method_addVariant"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\ProductCatalog\\Form\\Data\\ProductSelectorData\u003A\u003AgetProductVariants\u0028\u0029",
+            "name": "getProductVariants",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-ProductCatalog-Form-Data-ProductSelectorData.html#method_getProductVariants"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\ProductCatalog\\Form\\Data\\ProductSelectorData\u003A\u003AgetProductVariantCodes\u0028\u0029",
+            "name": "getProductVariantCodes",
+            "summary": "Determines\u0020if\u0020there\u0020are\u0020any\u0020specific\u0020variants\u0020selected.",
+            "url": "classes/Ibexa-Contracts-ProductCatalog-Form-Data-ProductSelectorData.html#method_getProductVariantCodes"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\ProductCatalog\\Form\\Data\\ProductSelectorData\u003A\u003AgetProduct\u0028\u0029",
+            "name": "getProduct",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-ProductCatalog-Form-Data-ProductSelectorData.html#method_getProduct"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\ProductCatalog\\Form\\Data\\ProductsSelectorData",
+            "name": "ProductsSelectorData",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-ProductCatalog-Form-Data-ProductsSelectorData.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\ProductCatalog\\Form\\Data\\ProductsSelectorData\u003A\u003AgetProducts\u0028\u0029",
+            "name": "getProducts",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-ProductCatalog-Form-Data-ProductsSelectorData.html#method_getProducts"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\ProductCatalog\\Form\\Data\\ProductsSelectorData\u003A\u003AgetProductByCode\u0028\u0029",
+            "name": "getProductByCode",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-ProductCatalog-Form-Data-ProductsSelectorData.html#method_getProductByCode"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\ProductCatalog\\Form\\Data\\ProductsSelectorData\u003A\u003AsetProducts\u0028\u0029",
+            "name": "setProducts",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-ProductCatalog-Form-Data-ProductsSelectorData.html#method_setProducts"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\ProductCatalog\\Form\\Data\\ProductsSelectorData\u003A\u003AaddProduct\u0028\u0029",
+            "name": "addProduct",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-ProductCatalog-Form-Data-ProductsSelectorData.html#method_addProduct"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\ProductCatalog\\Form\\Data\\ProductsSelectorData\u003A\u003AremoveProduct\u0028\u0029",
+            "name": "removeProduct",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-ProductCatalog-Form-Data-ProductsSelectorData.html#method_removeProduct"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\ProductCatalog\\Form\\Type\\ProductSelectorType",
+            "name": "ProductSelectorType",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-ProductCatalog-Form-Type-ProductSelectorType.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\ProductCatalog\\Form\\Type\\ProductSelectorType\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-ProductCatalog-Form-Type-ProductSelectorType.html#method___construct"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\ProductCatalog\\Form\\Type\\ProductSelectorType\u003A\u003AbuildForm\u0028\u0029",
+            "name": "buildForm",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-ProductCatalog-Form-Type-ProductSelectorType.html#method_buildForm"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\ProductCatalog\\Form\\Type\\ProductSelectorType\u003A\u003AconfigureOptions\u0028\u0029",
+            "name": "configureOptions",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-ProductCatalog-Form-Type-ProductSelectorType.html#method_configureOptions"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\ProductCatalog\\Form\\Type\\ProductSelectorType\u003A\u003AgetParent\u0028\u0029",
+            "name": "getParent",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-ProductCatalog-Form-Type-ProductSelectorType.html#method_getParent"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\ProductCatalog\\Form\\Type\\ProductSelectorType\u003A\u003AgetBlockPrefix\u0028\u0029",
+            "name": "getBlockPrefix",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-ProductCatalog-Form-Type-ProductSelectorType.html#method_getBlockPrefix"
+        },                {
             "fqsen": "\\Ibexa\\Contracts\\ProductCatalog\\Iterator\\BatchIteratorAdapter\\AttributeDefinitionFetchAdapter",
             "name": "AttributeDefinitionFetchAdapter",
             "summary": "",
@@ -44705,6 +44800,16 @@ Search.appendIndex(
             "name": "setLimit",
             "summary": "",
             "url": "classes/Ibexa-Contracts-ProductCatalog-Values-Product-ProductVariantQuery.html#method_setLimit"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\ProductCatalog\\Values\\Product\\ProductVariantQuery\u003A\u003AgetVariantCodes\u0028\u0029",
+            "name": "getVariantCodes",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-ProductCatalog-Values-Product-ProductVariantQuery.html#method_getVariantCodes"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\ProductCatalog\\Values\\Product\\ProductVariantQuery\u003A\u003AsetVariantCodes\u0028\u0029",
+            "name": "setVariantCodes",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-ProductCatalog-Values-Product-ProductVariantQuery.html#method_setVariantCodes"
         },                {
             "fqsen": "\\Ibexa\\Contracts\\ProductCatalog\\Values\\Product\\ProductVariantQuery\u003A\u003ADEFAULT_LIMIT",
             "name": "DEFAULT_LIMIT",
@@ -54745,6 +54850,21 @@ Search.appendIndex(
             "name": "Exceptions",
             "summary": "",
             "url": "namespaces/ibexa-contracts-productcatalog-exceptions.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\ProductCatalog\\Form\\Data",
+            "name": "Data",
+            "summary": "",
+            "url": "namespaces/ibexa-contracts-productcatalog-form-data.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\ProductCatalog\\Form",
+            "name": "Form",
+            "summary": "",
+            "url": "namespaces/ibexa-contracts-productcatalog-form.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\ProductCatalog\\Form\\Type",
+            "name": "Type",
+            "summary": "",
+            "url": "namespaces/ibexa-contracts-productcatalog-form-type.html"
         },                {
             "fqsen": "\\Ibexa\\Contracts\\ProductCatalog\\Iterator\\BatchIteratorAdapter",
             "name": "BatchIteratorAdapter",

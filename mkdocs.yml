@@ -4,6 +4,9 @@ site_name: Developer Documentation
 repo_url: https://github.com/ibexa/documentation-developer
 site_url: https://doc.ibexa.co/en/latest/
 copyright: "Copyright 1999-2024 Ibexa AS and others"
+validation:
+    links:
+        absolute_links: relative_to_docs
 nav:
     - Ibexa Developer Documentation: index.md
     - Ibexa DXP editions:
@@ -938,7 +941,7 @@ extra:
   latest_tag_4_3: '4.3.5'
   latest_tag_4_4: '4.4.4'
   latest_tag_4_5: '4.5.7'
-  latest_tag_4_6: '4.6.17'
+  latest_tag_4_6: '4.6.18'
 
   symfony_doc: 'https://symfony.com/doc/5.x'
   user_doc: 'https://doc.ibexa.co/projects/userguide/en/master'
@@ -953,6 +956,7 @@ extra_css:
   - css/navigation.css
   - css/search.css
   - css/docs.switcher.css
+  - css/release-notes.css
   - css/jquery-ui.min.css
   - '//cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css'
 
@@ -960,6 +964,7 @@ extra_javascript:
   - js/jquery.min.js
   - js/jquery-ui.min.js
   - js/custom.js
+  - js/release-notes.js
   - js/docs.switcher.js
   - '//cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js'
 

@@ -1,5 +1,6 @@
 ---
 description: Manage image assets by using DAM systems, configuring image variations, optimizing and using placeholders.
+month_change: true
 ---
 
 # Images

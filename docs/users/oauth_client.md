@@ -58,7 +58,7 @@ By adding the `Ibexa\Bundle\OAuth2Client\Security\Authenticator\OAuth2Authentica
 
 Resource owner mappers map the data received from the OAuth2 authorization server to user information in the repository.
 
-Resource owner mappers must implement the [`Ibexa\Contracts\OAuth2Client\ResourceOwner\ResourceOwnerMapper`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-OAuth2Client-ResourceOwner-ResourceOwnerMapper.html) interface.
+Resource owner mappers must implement the [`Ibexa\Contracts\OAuth2Client\ResourceOwner\ResourceOwnerMapper`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-OAuth2Client-ResourceOwner-ResourceOwnerMapper.html) interface.
 
 Four implementations of `ResourceOwnerMapper` are proposed by default:
 

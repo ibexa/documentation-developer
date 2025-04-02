@@ -54,3 +54,13 @@ Compare all features available in [[= product_name_headless =]], [[= product_nam
 | [Checkout](checkout.md) |  |  | &#10004; |
 | [Storefront](storefront.md) |  |  | &#10004; |
 | [Transactional emails](transactional_emails.md) |  |  | &#10004; |
+
+## LTS Updates
+
+LTS Updates are opt-in packages that bring additional features to the [LTS releases](release_process_and_roadmap.md#long-term-support-releases) that they enhance.
+The features brought by LTS Updates become standard parts of the next LTS release.
+
+| Feature | [[= product_name_headless =]] | [[= product_name_exp =]] | [[= product_name_com =]] |
+|-----------------|-----------------|-----------------|-----------------|
+| [AI Actions](ai_actions_guide.md) | &#10004; | &#10004; | &#10004; |
+| [Date and time attribute type](date_and_time.md) | &#10004; | &#10004; | &#10004; |
