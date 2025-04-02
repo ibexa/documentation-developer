@@ -8,18 +8,14 @@ services:
             - '@Ibexa\Core\Helper\TranslationHelper'
 
     App\Connector\Dam\Handler\WikimediaCommonsHandler:
-        arguments:
-            $httpClient: '@http_client'
         tags:
             - { name: 'ibexa.platform.connector.dam.handler', source: 'commons'  }
 
     App\Connector\Dam\Transformation\TransformationFactory:
-        arguments:
-            $httpClient: '@http_client'
         tags:
             - { name: 'ibexa.platform.connector.dam.transformation_factory', source: 'commons' }
 
     commons_asset_variation_generator:
         class: Ibexa\Connector\Dam\Variation\URLBasedVariationGenerator
         tags:
-            - { name: ibexa.platform.connector.dam.variation_generator, source: commons }
+            - { name: 'ibexa.platform.connector.dam.variation_generator', source: 'commons' }
