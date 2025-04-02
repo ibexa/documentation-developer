@@ -5,8 +5,9 @@
             "_href": "/api/ibexa/v2/user/users/14"
         },
         "SessionTypeCreate": {
-            "_media-type": "application/vnd.ibexa.api.ExampleSessionCreate+json",
-            "subject": "example"
+            "_media-type": "application/vnd.ibexa.api.ContentSessionCreate+json",
+            "contentId": 57,
+            "versionNo": 1
         },
         "ParticipantListCreate": {
             "_media-type": "application\/vnd.ibexa.api.ParticipantListCreate+json",
@@ -17,7 +18,7 @@
                         "_media-type": "application/vnd.ibexa.api.User+json",
                         "_href": "/api/ibexa/v2/user/users/14"
                     },
-                    "scope": "edit"
+                    "scope": "view"
                 },
                 {
                     "_media-type": "application\/vnd.ibexa.api.ExternalParticipantCreate+json",

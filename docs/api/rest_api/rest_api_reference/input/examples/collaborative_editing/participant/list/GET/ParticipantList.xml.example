@@ -1,19 +1,43 @@
-<?xml version="1.0"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <ParticipantList media-type="application/vnd.ibexa.api.ParticipantList+xml">
     <Participant media-type="application/vnd.ibexa.api.InternalParticipant+xml">
-        <id>__FIXED_ID__</id>
-        <name>Anonymous User</name>
+        <id>37</id>
+        <name>Editor0 User0</name>
         <scope>edit</scope>
-        <User href="/api/ibexa/v2/user/users/__FIXED_ID__" media-type="application/vnd.ibexa.api.User+xml"/>
-        <createdAt>__CREATED_AT__</createdAt>
-        <updatedAt>__UPDATED_AT__</updatedAt>
+        <User media-type="application/vnd.ibexa.api.User+xml" href="/api/ibexa/v2/user/users/307"/>
+        <createdAt>2025-04-02T08:17:16+00:00</createdAt>
+        <updatedAt>2025-04-02T08:17:16+00:00</updatedAt>
+    </Participant>
+    <Participant media-type="application/vnd.ibexa.api.InternalParticipant+xml">
+        <id>38</id>
+        <name>Administrator User</name>
+        <scope>view</scope>
+        <User media-type="application/vnd.ibexa.api.User+xml" href="/api/ibexa/v2/user/users/14"/>
+        <createdAt>2025-04-02T08:59:45+00:00</createdAt>
+        <updatedAt>2025-04-02T08:59:45+00:00</updatedAt>
     </Participant>
     <Participant media-type="application/vnd.ibexa.api.ExternalParticipant+xml">
-        <id>__FIXED_ID__</id>
-        <name>guest-foo@example.com</name>
+        <id>39</id>
+        <name>user@link.invalid</name>
         <scope>view</scope>
-        <email>guest-foo@example.com</email>
-        <createdAt>__CREATED_AT__</createdAt>
-        <updatedAt>__UPDATED_AT__</updatedAt>
+        <email>user@link.invalid</email>
+        <createdAt>2025-04-02T08:59:45+00:00</createdAt>
+        <updatedAt>2025-04-02T08:59:45+00:00</updatedAt>
+    </Participant>
+    <Participant media-type="application/vnd.ibexa.api.InternalParticipant+xml">
+        <id>41</id>
+        <name>Administrator User</name>
+        <scope>view</scope>
+        <User media-type="application/vnd.ibexa.api.User+xml" href="/api/ibexa/v2/user/users/14"/>
+        <createdAt>2025-04-02T09:06:23+00:00</createdAt>
+        <updatedAt>2025-04-02T09:06:23+00:00</updatedAt>
+    </Participant>
+    <Participant media-type="application/vnd.ibexa.api.ExternalParticipant+xml">
+        <id>42</id>
+        <name>testuser@link.invalid</name>
+        <scope>view</scope>
+        <email>testuser@link.invalid</email>
+        <createdAt>2025-04-02T09:06:23+00:00</createdAt>
+        <updatedAt>2025-04-02T09:06:23+00:00</updatedAt>
     </Participant>
 </ParticipantList>

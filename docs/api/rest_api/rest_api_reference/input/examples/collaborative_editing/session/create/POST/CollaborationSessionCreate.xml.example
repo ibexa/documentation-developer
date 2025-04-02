@@ -17,7 +17,8 @@
             <scope>view</scope>
         </ParticipantCreate>
     </ParticipantListCreate>
-    <SessionTypeCreate media-type="application/vnd.ibexa.api.ExampleSessionCreate+xml">
-        <subject>example</subject>
+    <SessionTypeCreate media-type="application/vnd.ibexa.api.ContentSessionCreate+xml">
+        <contentId>51</contentId>
+        <versionNo>1</versionNo>
     </SessionTypeCreate>
 </CollaborationSessionCreate>

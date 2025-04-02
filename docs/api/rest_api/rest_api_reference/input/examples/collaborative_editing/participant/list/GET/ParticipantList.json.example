@@ -4,24 +4,57 @@
         "Participants": [
             {
                 "_media-type": "application/vnd.ibexa.api.InternalParticipant+json",
-                "id": 39,
-                "name": "Administrator User",
+                "id": 37,
+                "name": "Editor0 User0",
                 "scope": "edit",
+                "User": {
+                    "_media-type": "application/vnd.ibexa.api.User+json",
+                    "_href": "/api/ibexa/v2/user/users/307"
+                },
+                "createdAt": "2025-04-02T08:17:16+00:00",
+                "updatedAt": "2025-04-02T08:17:16+00:00"
+            },
+            {
+                "_media-type": "application/vnd.ibexa.api.InternalParticipant+json",
+                "id": 38,
+                "name": "Administrator User",
+                "scope": "view",
                 "User": {
                     "_media-type": "application/vnd.ibexa.api.User+json",
                     "_href": "/api/ibexa/v2/user/users/14"
                 },
-                "createdAt": "2024-11-14T11:34:41+00:00",
-                "updatedAt": "2024-11-14T11:34:41+00:00"
+                "createdAt": "2025-04-02T08:59:45+00:00",
+                "updatedAt": "2025-04-02T08:59:45+00:00"
             },
             {
                 "_media-type": "application/vnd.ibexa.api.ExternalParticipant+json",
-                "id": 40,
+                "id": 39,
                 "name": "user@link.invalid",
                 "scope": "view",
                 "email": "user@link.invalid",
-                "createdAt": "2024-11-14T11:34:41+00:00",
-                "updatedAt": "2024-11-14T11:34:41+00:00"
+                "createdAt": "2025-04-02T08:59:45+00:00",
+                "updatedAt": "2025-04-02T08:59:45+00:00"
+            },
+            {
+                "_media-type": "application/vnd.ibexa.api.InternalParticipant+json",
+                "id": 41,
+                "name": "Administrator User",
+                "scope": "view",
+                "User": {
+                    "_media-type": "application/vnd.ibexa.api.User+json",
+                    "_href": "/api/ibexa/v2/user/users/14"
+                },
+                "createdAt": "2025-04-02T09:06:23+00:00",
+                "updatedAt": "2025-04-02T09:06:23+00:00"
+            },
+            {
+                "_media-type": "application/vnd.ibexa.api.ExternalParticipant+json",
+                "id": 42,
+                "name": "testuser@link.invalid",
+                "scope": "view",
+                "email": "testuser@link.invalid",
+                "createdAt": "2025-04-02T09:06:23+00:00",
+                "updatedAt": "2025-04-02T09:06:23+00:00"
             }
         ]
     }

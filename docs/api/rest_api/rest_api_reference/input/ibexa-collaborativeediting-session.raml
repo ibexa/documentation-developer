@@ -41,11 +41,6 @@ post:
     delete:
         displayName: Delete session (collaboration)
         description: The collaboration session is deleted.
-        headers:
-            Cookie:
-                description: "{sessionName}={sessionID}"
-            X-CSRF-Token:
-                description: The {csrfToken} needed on all unsafe HTTP methods with session.
         responses:
             204:
                 description: OK - session deleted.
@@ -55,10 +50,6 @@ post:
         displayName: Retrieve session details
         description: Get the collaboration session's information.
         headers:
-            Cookie:
-                description: "{sessionName}={sessionID}"
-            X-CSRF-Token:
-                description: The {csrfToken} needed on all unsafe HTTP methods with session.
             Accept:
                 example: |
                     application/vnd.ibexa.api.CollaborationSession+xml
@@ -98,8 +89,6 @@ post:
                         example: !include examples/collaborative_editing/participant/list/GET/ParticipantList.json.example
             404:
                 description: If there are no visibile participants matching the filter.
-
-/{sessionId}/participants:
     post:
         displayName: Add participant
         description: Adds new participant.
@@ -234,3 +223,23 @@ post:
                 description: Error - an invitation with the same ID already exists.
             404:
                 description: Error - no session with the given ID exists.
+/{sessionId}/link:
+    get:
+        displayName: Retrieve collaboration session link.
+        description: Get the collaboration session link.
+        headers:
+            Accept:
+                example: |
+                    application/vnd.ibexa.api.CollaborationSession+xml
+                    application/vnd.ibexa.api.CollaborationSession+json
+        responses:
+            200:
+                body:
+                    application/vnd.ibexa.api.Session+xml:
+                        type: Session
+                        example: !include examples/collaborative_editing/session/GET/Session.xml.example
+                    application/vnd.ibexa.api.Session+json:
+                        type: Session
+                        example: !include examples/collaborative_editing/session/GET/Session.json.example
+            404:
+                description: Error - the session does not exist.
