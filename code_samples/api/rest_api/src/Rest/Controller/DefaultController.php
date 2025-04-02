@@ -254,7 +254,7 @@ class DefaultController extends Controller
     {
     }
 
-    public function greet(Request $request): Response//Greeting
+    public function greet(Request $request): Response|Greeting
     {
         $contentType = $request->headers->get('Content-Type');
         if ($contentType) {
@@ -266,6 +266,8 @@ class DefaultController extends Controller
             $greeting = new Greeting();
         }
 
+        //return $greeting;
+
         $accept = $request->headers->get('Accept', 'application/' . self::DEFAULT_FORMAT);
         preg_match('@.*[/+](?P<format>[^/+]+)@', $accept, $matches);
         $format = empty($matches['format']) ? self::DEFAULT_FORMAT : $matches['format'];
@@ -273,10 +275,8 @@ class DefaultController extends Controller
             $format = self::DEFAULT_FORMAT;
         }
 
-        //return $greeting;
-
         $serialized = $this->serializer->serialize($greeting, $format, [
-            XmlEncoder::ROOT_NODE_NAME => substr(strrchr(get_class($greeting), '\\'), 1),
+            XmlEncoder::ROOT_NODE_NAME => 'Greeting',
         ]);
 
         return new Response($serialized, Response::HTTP_OK, ['Content-Type' => "application/vnd.ibexa.api.Greeting+$format"]);
