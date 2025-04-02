@@ -9,6 +9,10 @@ class WikimediaCommonsTransformationFactory implements TransformationFactoryInte
 {
     public function build(?string $transformationName = null, array $transformationParameters = []): Transformation
     {
+        if (null === $transformationName) {
+            return new Transformation(null, $transformationParameters);
+        }
+
         $transformations = $this->buildAll();
 
         if (array_key_exists($transformationName, $transformations)) {
