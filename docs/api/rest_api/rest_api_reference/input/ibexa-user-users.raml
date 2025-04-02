@@ -33,7 +33,7 @@ get:
                 application/vnd.ibexa.api.UserRefList+json:
                     type: UserRefListWrapper
         404:
-            description: If there are no visibile Users matching the filter.
+            description: If there are no visible Users matching the filter.
 head:
     displayName: Verify Users
     description: Verifies if there are Users matching given filter.
@@ -50,7 +50,7 @@ head:
         200:
             description: OK - verifies if there are Users matching the given filter.
         404:
-            description: Error - there are no visibile Users matching the filter.
+            description: Error - there are no visible Users matching the filter.
 /current:
     get:
         displayName: Load current User
@@ -330,13 +330,24 @@ head:
     /segments:
         get:
             displayName: View user segments
-            description: TODO
+            description: Return user's segment list.
             headers:
                 Accept:
                     description: If set, the user's segment list is returned in XML or JSON format.
                     example: |
                         application/vnd.ibexa.api.UserSegmentList+xml
                         application/vnd.ibexa.api.UserSegmentList+json
+            responses:
+                200:
+                    body:
+                        application/vnd.ibexa.api.UserSegmentList+xml:
+                            type: UserSegmentList
+                            example: !include examples/user/users/user_id/segments/UserSegmentList.xml.example
+                        application/vnd.ibexa.api.UserSegmentList+json:
+                            type: UserSegmentListWrapper
+                            example: !include examples/user/users/user_id/segments/UserSegmentList.json.example
+                404:
+                    description: Error - the user doesn't exist.
         post:
             displayName: Assign Segments to User
             description: Assigns Segments from payload to User given by ID.
@@ -346,10 +357,31 @@ head:
                     example: |
                         application/vnd.ibexa.api.UserSegmentAssignInput+xml
                         application/vnd.ibexa.api.UserSegmentAssignInput+json
+            body:
+                application/vnd.ibexa.api.UserSegmentAssignInput+xml:
+                    type: UserSegmentAssignInput
+                    example: !include examples/user/users/user_id/segments/UserSegmentAssignInput.xml.example
+                application/vnd.ibexa.api.UserSegmentAssignInput+json:
+                    type: UserSegmentAssignInputWrapper
+                    example: !include examples/user/users/user_id/segments/UserSegmentAssignInput.json.example
+            responses:
+                204:
+                    description: No Content - segments assigned to user.
+                401:
+                    description: Error - the requesting user is not authorized to assign this segment to the given user.
+                404:
+                    description: Error - the user doesn't exist.
         /{segmentIdentifier}:
             delete:
                 displayName: Unassign Segment from User
                 description: The Segment designated by its identifier is unassigned from the User given by ID.
+                responses:
+                    204:
+                        description: No Content - segments unassigned from user.
+                    401:
+                        description: Error - the requesting user is not authorized to unassign this segment from the given user.
+                    404:
+                        description: Error - the segment or the user doesn't exist.
     /drafts:
         get:
             displayName: Load user drafts
