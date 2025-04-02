@@ -35,10 +35,7 @@ class WikimediaCommonsHandler implements HandlerInterface
         $assets = [];
         foreach ($response['query']['search'] as $result) {
             $identifier = str_replace('File:', '', $result['title']);
-            $asset = $this->fetchAsset($identifier);
-            if ($asset) {
-                $assets[] = $asset;
-            }
+            $assets[] = $this->fetchAsset($identifier);
         }
 
         return new AssetSearchResult(
