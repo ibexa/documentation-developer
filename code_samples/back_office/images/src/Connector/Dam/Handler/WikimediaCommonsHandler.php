@@ -47,7 +47,7 @@ class WikimediaCommonsHandler implements HandlerInterface
         );
     }
 
-    public function fetchAsset(string $id): ?Asset
+    public function fetchAsset(string $id): Asset
     {
         $metadataUrl = 'https://commons.wikimedia.org/w/api.php?action=query&prop=imageinfo&iiprop=extmetadata&format=json'
             . '&titles=File%3a' . urlencode($id)
@@ -55,17 +55,17 @@ class WikimediaCommonsHandler implements HandlerInterface
 
         $jsonResponse = file_get_contents($metadataUrl);
         if ($jsonResponse === false) {
-            return null;
+            throw new \RuntimeException('TODO: Couldn\'t retrieve asset metadata');
         }
 
         $response = json_decode($jsonResponse, true);
         if (!isset($response['query']['pages'])) {
-            return null;
+            throw new \RuntimeException('TODO');
         }
 
         $pageData = array_values($response['query']['pages'])[0] ?? null;
         if (!isset($pageData['imageinfo'][0]['extmetadata'])) {
-            return null;
+            throw new \RuntimeException('TODO');
         }
 
         $imageInfo = $pageData['imageinfo'][0]['extmetadata'];
