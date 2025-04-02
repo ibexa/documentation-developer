@@ -11,7 +11,7 @@ services:
         tags:
             - { name: 'ibexa.platform.connector.dam.handler', source: 'commons' }
 
-    App\Connector\Dam\Transformation\TransformationFactory:
+    App\Connector\Dam\Transformation\WikimediaCommonsTransformationFactory:
         tags:
             - { name: 'ibexa.platform.connector.dam.transformation_factory', source: 'commons' }
 
