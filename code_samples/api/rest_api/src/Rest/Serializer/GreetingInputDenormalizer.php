@@ -26,12 +26,16 @@ class GreetingInputDenormalizer implements DenormalizerInterface, DenormalizerAw
 
     public function supportsDenormalization(mixed $data, string $type, ?string $format = null): bool
     {
+        if (!is_array($data)) {
+            return false;
+        }
+
         if ('json' === $format) {
             $data = $data[array_key_first($data)];
         }
         $data = array_change_key_case($data);
 
-        return Greeting::class === $type && is_array($data) &&
+        return Greeting::class === $type &&
             (array_key_exists('salutation', $data) || array_key_exists('recipient', $data));
     }
 }
