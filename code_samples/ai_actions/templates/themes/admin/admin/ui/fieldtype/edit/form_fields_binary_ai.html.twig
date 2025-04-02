@@ -1,0 +1,29 @@
+{% extends '@ibexadesign/ui/field_type/edit/ezbinaryfile.html.twig' %}
+
+{% block ezbinaryfile_preview %}
+    {{ parent() }}
+
+    {% import '@ibexadesign/connector_ai/ui/ai_module/macros.html.twig' as ai_macros %}
+
+    {% set transcriptFieldIdentifier = 'transcript' %}
+    {% set fieldTypeIdentifiers = form.parent.parent.vars.value|keys %}
+
+    {% if transcriptFieldIdentifier in fieldTypeIdentifiers %}
+        {% set use_ai_btn_attr = {
+            class: 'btn ibexa-btn ibexa-btn--secondary ibexa-ai-component--custom-btn',
+            module_id: 'TranscribeAudio',
+            scroll_selector: '.ibexa-edit-content',
+            container_selector: '.ibexa-edit-content',
+            input_selector: '.ibexa-field-edit-preview__action--preview',
+            output_selector: '#ezplatform_content_forms_content_edit_fieldsData_transcript_value',
+            ai_config_id: 'transcribe_audio',
+        } %}
+
+        <button {{ ai_macros.attributes(use_ai_btn_attr) }}>
+            <svg class="ibexa-icon ibexa-icon--small ibexa-icon--primary">
+                <use xlink:href="{{ ibexa_icon_path('explore') }}"></use>
+            </svg>
+            {{ 'ibexa_connector_ai.use_ai.label'|trans({}, 'ibexa_connector_ai')|desc('Use AI') }}
+        </button>
+    {% endif %}
+{% endblock %}

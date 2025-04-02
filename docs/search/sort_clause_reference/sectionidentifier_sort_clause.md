@@ -1,7 +1,10 @@
+---
+description: SectionIdentifier Sort Clause
+---
+
 # SectionIdentifier Sort Clause
 
-The [`SectionIdentifier` Sort Clause](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-SortClause-SectionIdentifier.html)
-sorts search results by the Section IDs of the content items.
+The [`SectionIdentifier` Sort Clause](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-SortClause-SectionIdentifier.html) sorts search results by the Section IDs of the content items.
 
 ## Arguments
 

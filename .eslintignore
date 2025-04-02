@@ -1,0 +1,6 @@
+**/webpack.config.js
+vendor
+docs/js/*.min.js
+docs/js/custom.js
+docs/js/docs.switcher.js
+docs/js/instantsearch.js

@@ -25,13 +25,13 @@ class RelationController
         $location = $this->locationService->loadLocation($locationId);
         $contentInfo = $location->getContentInfo();
         $versionInfo = $this->contentService->loadVersionInfo($contentInfo);
-        $relations = $this->contentService->loadRelations($versionInfo);
+        $relationList = $this->contentService->loadRelationList($versionInfo);
 
         $items = [];
 
-        foreach ($relations as $relation) {
-            if (in_array($relation->getDestinationContentInfo()->getContentType()->identifier, $acceptedContentTypes)) {
-                $items[] = $this->contentService->loadContentByContentInfo($relation->getDestinationContentInfo());
+        foreach ($relationList as $relationListItem) {
+            if ($relationListItem->hasRelation() && in_array($relationListItem->getRelation()->getDestinationContentInfo()->getContentType()->identifier, $acceptedContentTypes)) {
+                $items[] = $this->contentService->loadContentByContentInfo($relationListItem->getRelation()->getDestinationContentInfo());
             }
         }
 

@@ -1,0 +1,7 @@
+{
+    "SegmentUpdate": {
+        "identifier": "modified_segment_identifier",
+        "name": "Modified Segment Name",
+        "group": "small_companies"
+    }
+}

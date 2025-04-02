@@ -1,6 +1,10 @@
+---
+description: SubtreeTermAggregation
+---
+
 # SubtreeTermAggregation
 
-The [SubtreeTermAggregation](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Aggregation-Location-SubtreeTermAggregation.html) aggregates search results by the Location's subtree path.
+The [SubtreeTermAggregation](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Aggregation-Location-SubtreeTermAggregation.html) aggregates search results by the location's subtree path.
 
 ## Arguments
 

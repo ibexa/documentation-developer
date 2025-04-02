@@ -16,7 +16,7 @@ description: Ibexa DXP v4.5 adds new features to Ibexa Commerce, translation com
 
 ## Notable changes
 
-### All-new Ibexa Commerce packages [[% include 'snippets/commerce_badge.md' %]]
+### All-new [[= product_name_com =]] packages [[% include 'snippets/commerce_badge.md' %]]
 
 This release brings new packages to complement the redesigned and reconstructed Commerce offering.
 You can use them to further enhance your e-commerce presence:
@@ -25,21 +25,21 @@ You can use them to further enhance your e-commerce presence:
 - `ibexa/payment`
 - `ibexa/shipping`
 
-Modules can interact with each other, for example, to decrease stock as a result of a sale, or cancel shipments and payments when orders are cancelled, and so on.
+Modules can interact with each other, for example, to decrease stock as a result of a sale, or cancel shipments and payments when orders are cancelled.
 
 #### Order management
 
-With order management in place, it is now possible to create orders, configure and customize the order processing workflow, as well as manage orders by using the APIs. 
+With order management in place, it's now possible to create orders, configure and customize the order processing workflow, and manage orders by using the APIs. 
 
-New screens added to the Back Office user interface let [[= product_name =]] users search for orders and filter search results. 
-Users can also review order details and completion status, as well as cancel orders.
+New screens added to the back office user interface let [[= product_name =]] users search for orders and filter search results. 
+Users can also review order details and completion status, and cancel orders.
 
 ![The order list screen](img/4.5_order_list.png "The order list screen")
 
 #### Payment
 
 The all-new Payment module brings a possibility of tracking payment progress and defining a custom payment processing workflow. 
-New Back Office screens allow users to search for payment methods and payments, as well as define, enable and disable offline payment methods.
+New back office screens allow users to search for payment methods and payments, and also define, enable, and disable offline payment methods.
 
 Additionally, new APIs are available, which can be used for managing payment methods and payments.
 
@@ -47,7 +47,8 @@ Additionally, new APIs are available, which can be used for managing payment met
 
 #### Shipping
 
-With the arrival of the Shipping module, it is now possible to define and manage shipping methods of different types, together with their related costs, on a dedicated Back Office screen, as well as configure and customize the shipment workflow.
+With the arrival of the Shipping module, it's now possible to define and manage shipping methods of different types, together with their related costs, on a dedicated back office screen.
+You can now also configure and customize the shipment workflow.
 
 New APIs enable managing shipping methods and payments, while an extension point can be used to expand the default list of shipping method types. 
 
@@ -88,7 +89,7 @@ For more information, see [Translation comparison](https://doc.ibexa.co/projects
 
 ### Page Builder for B2B portals [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
 
-With this release, you will be able to use Page Builder to create custom Customer Portals for your clients.
+With this release, you're able to use Page Builder to create custom Customer Portals for your clients.
 With new Sales rep page block and using all available blocks from the original Page Builder, you can create a unique experience for each customer group.
 Additionally, you can assign each customer group to a specific Customer Portal or create an availability hierarchy based on rules and configuration.
 
@@ -124,6 +125,7 @@ and allows supporting other transport types accepted by CDP.
 Currently, only `stream_file` transport is supported and can be initialized from the configuration.
 
 [[= product_name =]] v4.5 adds the abstraction that allows you to implement other transport types from third parties.
+
 For more information, see [CDP configuration](https://doc.ibexa.co/en/4.5/cdp/cdp_activation/#configuration).
 
 ### API improvements
@@ -205,9 +207,9 @@ It's no longer necessary to take other taxonomies into account when creating tag
 You can now enhance password security with a setting that prevents using passwords that have been exposed in a public breach.
 To do it, the system checks the password against known password dumps by using the https://haveibeenpwned.com/ API.
 
-See [Breached passwords](https://doc.ibexa.co/en/4.5/users/user_management/#breached-passwords) for more information.
+For more information, see [Breached passwords](https://doc.ibexa.co/en/4.5/users/user_management/#breached-passwords).
 
-### Ibexa Connect
+### [[= product_name_connect =]]
 
 For list of changes in [[= product_name_connect =]], see [Ibexa app release notes](https://doc.ibexa.co/projects/connect/en/latest/general/ibexa_app_release_notes/).
 
@@ -227,9 +229,9 @@ Deprecations:
 
 ## Full changelog
 
-| Ibexa Content | Ibexa Experience | Ibexa Commerce|
+| [[= product_name_content =]] | [[= product_name_exp =]] | [[= product_name_com =]]|
 |---------------|------------------|---------------|
-| [Ibexa Content v4.5](https://github.com/ibexa/content/releases/tag/v4.5.0) | [Ibexa Experience v4.5](https://github.com/ibexa/experience/releases/tag/v4.5.0) | [Ibexa Commerce v4.5](https://github.com/ibexa/commerce/releases/tag/v4.5.0) |
+| [[[= product_name_content =]] v4.5](https://github.com/ibexa/content/releases/tag/v4.5.0) | [[[= product_name_exp =]] v4.5](https://github.com/ibexa/experience/releases/tag/v4.5.0) | [[[= product_name_com =]] v4.5](https://github.com/ibexa/commerce/releases/tag/v4.5.0) |
 
 ## v4.5.1
 

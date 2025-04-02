@@ -6,8 +6,7 @@ description: Configure custom icons to use for content types.
 
 ## Customize content type icons
 
-To add custom icons for existing content types or custom content types in [[= product_name =]],
-use the following configuration under the `ibexa.system.<scope>.content_type` [configuration key](configuration.md#configuration-files):
+To add custom icons for existing content types or custom content types in [[= product_name =]], use the following configuration under the `ibexa.system.<scope>.content_type` [configuration key](configuration.md#configuration-files):
 
 ```yaml
 ibexa:
@@ -22,11 +21,11 @@ Place the icon in `public/assets/images` and run `yarn encore <dev|prod>` after 
 
 !!! note "Icons format"
 
-    To ensure proper display in the Back Office, all icons should have SVG format with `symbol`.
+    To ensure proper display in the back office, all icons should have SVG format with `symbol`.
 
 If you want to configure icons per SiteAccess, see [Icon sets](#icon-sets).
 
-To see more configuration options, see [icon sizes](other_twig_filters.md).
+To see more configuration options, see [the icon reference](icon_twig_functions.md).
 
 ### Access icons in Twig templates
 
@@ -43,13 +42,13 @@ It requires content type identifier as an argument. The function returns the pat
 
 Content types icons configuration is stored in a global object: `ibexa.adminUiConfig.contentTypes`.
 
-You can retrieve the icon URL with the `getContentTypeIcon` helper function that is set on the global `ibexa.helpers.contentType` object.
+You can retrieve the icon URL with the `getContentTypeIconUrl` helper function that is set on the global `ibexa.helpers.contentType` object.
 It takes content type identifier as an argument and returns one of the following items:
 
 - URL of a specified content type's icon
 - `null` if there is no content type with specified identifier
 
-Example with `getContentTypeIcon`:
+Example with `getContentTypeIconUrl`:
 
 ```jsx
 const contentTypeIconUrl = ibexa.helpers.contentType.getContentTypeIconUrl(contentTypeIdentifier);
@@ -62,7 +61,7 @@ return (
 
 ### Icons React component
 
-You can use a React component to change icons in Back Office and Page Builder.
+You can use a React component to change icons in back office and Page Builder.
 
 The following example from the `alert.js` file shows configuration for icons in the [alert](reusable_components.md#alerts) component:
 

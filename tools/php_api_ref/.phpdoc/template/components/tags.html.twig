@@ -1,9 +1,9 @@
 {% set excluded_tags = ['todo', 'var', 'param', 'property', 'property-read', 'property-write', 'method', 'return', 'package', 'api', 'final', 'since',
-    'template', 'template-implements', 'template-extends', 'template-covariant', 'implements'] %}
+    'extends', 'template', 'template-implements', 'template-extends', 'template-covariant', 'implements'] %}
 {% set tags = node.tags|filter((v,k) => k not in excluded_tags and not (k starts with 'phpstan-')) %}
 {% set has_tags = false %}
 {% for name,seriesOfTag in tags %}
-    {% if name in ['see', 'uses'] %}
+    {% if name in ['see', 'uses', 'used-by'] %}
         {% set seriesOfTag = seriesOfTag|filter(tag => '<a ' in tag.reference|route('class:short')) %}
     {% endif %}
     {% if seriesOfTag|length > 0 %}
@@ -19,7 +19,7 @@
     </h5>
     <dl class="phpdocumentor-tag-list">
         {% for name,seriesOfTag in tags %}
-            {% if name in ['see', 'uses'] %}
+            {% if name in ['see', 'uses', 'used-by'] %}
                 {%  set seriesOfTag = seriesOfTag|filter(tag => '<a ' in tag.reference|route('class:short')) %}
             {% endif %}
             {% for tag in seriesOfTag %}

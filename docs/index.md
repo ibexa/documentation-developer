@@ -71,21 +71,38 @@
             </a>
         </div>
     </div>
-    <div class="row">
-        <div class="col-12">
-            <div class="notification" id="tile2">
+    <div class="row notifications">
+        <div class="col-12 col-lg-6">
+            <div class="notification notification--latest-release" id="tile2">
                 <div class="notification__content">
-                    <h2>The latest release is v4.6</h2>
-                    <div>The <a href="release_notes/ibexa_dxp_v4.6/">latest version of Ibexa DXP is v4.6</a>. You can now update your application to the latest version.</div>
+                    <h2>The latest release is [[= latest_tag_4_6 =]]</h2>
+                    <div>The latest version of Ibexa DXP is [[= latest_tag_4_6 =]]. You can now update your application to the latest version.</div>
                 </div>
                 <div class="notification__cta">
-                    <a href="update_and_migration/from_4.5/update_from_4.5/">Update your application</a>
+                    <a href="release_notes/ibexa_dxp_v4.6/">Release notes</a>
                 </div>
                 <div class="notification__image">
-                    <img src="images/notification-image.png" alt="The latest release" />
+                    <img src="images/notification-latest-release.svg" alt="The latest release" />
                 </div>
             </div>
         </div>
+        <div class="col-12 col-lg-6">
+            <div class="notification notification--lts-update" id="tile3">
+                <div class="notification__content">
+                    <h2>The newest LTS Update is the Date and time attribute type</h2>
+                    <div>Install it to add time-related values to product specifications.</div>
+                </div>
+                <div class="notification__cta">
+                    <a href="pim/attributes/date_and_time">Learn more about this LTS Update</a>
+                    <a href="ibexa_products/editions#lts-updates">Discover other LTS Updates</a>
+                </div>
+                <div class="notification__image">
+                    <img src="images/notification-lts-update.svg" alt="LTS Update" />
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
         <div class="col-12">
             <div class="accordion">
                 <details>
@@ -127,7 +144,7 @@
                         <div class="col-12 col-lg-6 col-fhd-3">
                             <ul>
                                 <li><a href="api/php_api/php_api/">PHP API</a></li>
-                                <li><a href="search/solr_search_engine/">Solr search engine</a></li>
+                                <li><a href="content_management/rich_text/rich_text/">RichText and Online Editor</a></li>
                                 <li><a href="search/search_api/">Search API</a></li>
                             </ul>
                         </div>

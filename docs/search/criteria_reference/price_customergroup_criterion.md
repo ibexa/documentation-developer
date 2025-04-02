@@ -1,5 +1,5 @@
 ---
-description: Price CustomerGroup Criterion
+description: Price CustomerGroup Search Criterion
 ---
 
 # Price CustomerGroup Criterion
@@ -17,7 +17,7 @@ The `CustomerGroup` Search Criterion searches for prices based on the customer g
 ``` php
 $customerGroup = $customerGroupService->getCustomerGroup(123);
 
-$query = new PriceQuery( 
+$query = new PriceQuery(
     new \Ibexa\Contracts\ProductCatalog\Values\Price\Query\Criterion\CustomerGroup($customerGroup)
 );
 ```

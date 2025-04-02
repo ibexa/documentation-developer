@@ -3,21 +3,22 @@ title: Ibexa Headless
 description: Get to know Ibexa Headless - an edition that focuses on content management.
 ---
 
-# Ibexa DXP Headless edition product guide
+# [[= product_name_headless =]] edition product guide
 
 ## What is [[= product_name_headless =]]
 
 The Headless edition of [[= product_name =]] focuses on content management.
 It provides tools to collaboratively create content, and interfaces (API) to distribute this content.
 
-Multilingual, multichannel, extensible, [[= product_name_headless =]] is an advanced Content Management Framework (CMF), a Product Information Management (PIM) platform, as well as a Digital Asset Management (DAM) repository.
-It's provided without a default front office, but with a complete Back Office and several APIs to manage and access content.
+Multilingual, multichannel, extensible, [[= product_name_headless =]] is an advanced Content Management Framework (CMF), a Product Information Management (PIM) platform, and a Digital Asset Management (DAM) repository.
+It's provided without a default front office, but with a complete back office and several APIs to manage and access content.
 
 ![Ibexa Headless](ibexa_headless.png)
 
 ## Availability
 
 To start using [[= product_name_headless =]] you must purchase a product license.
+
 For more information, see [[[= product_name_headless =]] license pricing](https://www.ibexa.co/products/pricing?tab=1).
 You can [contact us](https://www.ibexa.co/about-ibexa/contact-us) or [contact one of our partners](https://www.ibexa.co/partners).
 
@@ -25,9 +26,9 @@ You can [contact us](https://www.ibexa.co/about-ibexa/contact-us) or [contact on
 
 ### Editorial stage
 
-You access with any web browser from any platform to a rich Back Office, the main place to
+You access with any web browser from any platform to a rich back office, the main place to
 
-- define users and their rights (customers, subscribers, editors, etc.),
+- define users and their rights (for example, customers, subscribers, or editors),
 - organize content (content types, fields, tree, tags, languages, and more),
 - edit content in a collaborative workplace with versions and workflows.
 
@@ -35,15 +36,14 @@ Then, content is available to end users through REST, GraphQL, or every output y
 
 ### Technical backstage
 
-When you have a license, you install [[= product_name_headless =]] through Composer
-on an architecture including at least a web server with PHP and a relational database server.
+When you have a license, you install [[= product_name_headless =]] through Composer on an architecture including at least a web server with PHP and a relational database server.
 For performance, several bricks can be added to your stack such as a reverse proxy or a search engine.
 
 [[= product_name_headless =]] is based on Symfony. Any Symfony developer, or even PHP developer, can quickly learn how to extend it with the help of an online documentation.
 
 By using a version control system and environment variables, you can deploy your configuration and extensions on several environments including [[= product_name_cloud =]].
 
-Standard web APIs and [[[= product_name_connect =]]]([[= connect_doc =]]/general/ibexa_connect/) help establish interoperability, even if you aren't an advanced developer.
+Standard web APIs and [[[= product_name_connect =]]]([[= connect_doc =]]/general/ibexa_connect/) help establish interoperability, even if you'ren't an advanced developer.
 
 ![Ibexa Headless data inputs and outputs](img/headless.png)
 
@@ -53,17 +53,15 @@ APIs summary:
 - The OAuth 2 [Client](oauth_client.md) and [Server](oauth_server.md) allow to connect to an SSO or be the SSO.
 - The design engine and its theme templates mechanism allows to serve the content in several shapes.
 - The PHP API opens [[= product_name_headless =]] to extendability to fit your needs.
-  For example, content can be computed, edited or served in specific ways such as
-  scheduled/live imports/exports, automated edition tasks, or specific controllers to communicate with other applications.
+  For example, content can be computed, edited, or served in specific ways such as scheduled/live imports/exports, automated edition tasks, or specific controllers to communicate with other applications.
 
 ## Capabilities and benefits
 
-[[= product_name_headless =]] is a tool box with a Back Office.
+[[= product_name_headless =]] is a tool box with a back office.
 It comes without a default front office.
-You don't lose time to develop a theme for a provided front office before discovering it won't fit your needs.
+You don't lose time to develop a theme for a provided front office before discovering it doesn't fit your needs.
 No distraction.
-[[= product_name_headless =]] helps you focus on the content, create and organize with its straightforward user interface (UI),
-imagine its inputs/outputs, and implement them with its various layers' APIs.
+[[= product_name_headless =]] helps you focus on the content, create and organize with its straightforward user interface (UI), imagine its inputs/outputs, and implement them with its various layers' APIs.
 
 ### Core features
 
@@ -77,7 +75,7 @@ Content modeling and management are the foundation of [[= product_name =]] with 
 - An item can have multiple locations in this tree.
 - Content items are typed.
 - Content types are sets of typed data fields, with optional conditions on the possible values.
-- Rich Text Field Type comes with an [online editor](online_editor_guide.md).
+- Rich Text field type comes with an [online editor](online_editor_guide.md).
 - Multilingual, it can store a content in several languages, the content model defines which field must be translated, and which don't vary.
 
 For more information, see [Content management product guide](content_management_guide.md).
@@ -97,15 +95,15 @@ There are many paths to access the content in many shapes:
 - [[= product_name_headless =]] offers a complete PHP API to extend the ways to access content.
 - A design engine and a view controller offer to create plain text content views (such as HTML, JSON, XML, CSS, JS, CSV, or Markdown),
   and to factorize those views by using theme cascades.
-  This design engine is used in the Back Office which is equally extendable.
+  This design engine is used in the back office which is equally extendable.
 - Multichannel, content can be accessed through several channel configurations,
   such as the domain name it replies to, the sub-part of the content tree it starts from, the users rights, or the design theme.
-  The Back Office itself is such a channel.
+  The back office itself is such a channel.
 - Multi-repository, the same platform can use separate databases if data isolation is needed between channel groups.
 
 ### Advanced features
 
-On top of this strong core, [[= product_name_headless =]] brings tools to increase user experience, from final front users to Back Office contributors.
+On top of this strong core, [[= product_name_headless =]] brings tools to increase user experience, from final front users to back office contributors.
 
 #### Complete DXP
 
@@ -116,7 +114,7 @@ On top of this strong core, [[= product_name_headless =]] brings tools to increa
 - Content scheduler, which allows you to establish the future of the content and use events to have a living front application, even when the editorial team is absent or reduced.
 This way, visitors can discover new content at midnight, during weekends or vacations.
 A calendar summarises those scheduled content events.
-Like everything in the Back Office, the calendar is extendable: you can add an event source to coordinate content events with other company events.
+Like everything in the back office, the calendar is extendable: you can add an event source to coordinate content events with other company events.
 
 #### Many ways to structure and organize content
 
@@ -127,7 +125,7 @@ Like everything in the Back Office, the calendar is extendable: you can add an e
 - Product variants can rapidly be created by the automatic declination of attributes that have a defined set of values.
 - With taxonomy, you can tag content items to organize them by topics in a much intuitive way for the editor than a content tree with multiple locations would.
 Tags themselves are organized in a tree, and synonyms are linked to favorite terms.
-Tag organization can be handled by a supervisor who won't need to move content items around a corporate content tree.
+Tag organization can be handled by a supervisor who doesn't need to move content items around a corporate content tree.
 At search time, tags can be keywords with a high value in relevance score to help the end user having results closer to the searched topic.
 
 #### Collaboration
@@ -172,22 +170,14 @@ Several features help end users collaborate on the content, such as:
 
 ## Use cases
 
-As a content repository with an omnipotent Back Office,
-many APIs to absorb, compute and distribute content,
-even a recommendation engine to deliver the right content to various readers,
-[[= product_name_headless =]] can be used in several cases.
+As a content repository with an omnipotent back office, many APIs to absorb, compute and distribute content, even a recommendation engine to deliver the right content to various readers, [[= product_name_headless =]] can be used in several cases.
 Here are few examples.
 
 ### Brick and mortar, but with an online showcase
 
-If you prefer the human warmth of a retail store,
-if your products' numerous complex options should be discussed,
-or if you're simply not ready yet to sell online,
-[[= product_name_headless =]] helps to build an exposition of your product catalog and your philosophy,
-an online presence to keep earlier customers interested and gather new ones.
-It can be a structuring first step to test customer's adoption of your website,
-before increasing user experience with [[= product_name_exp =]],
-and finally becoming an online store with [[= product_name_com =]].
+If you prefer the human warmth of a retail store, if your products' numerous complex options should be discussed,
+or if you're not ready yet to sell online, [[= product_name_headless =]] helps to build an exposition of your product catalog and your philosophy, an online presence to keep earlier customers interested and gather new ones.
+It can be a structuring first step to test customer's adoption of your website, before increasing user experience with [[= product_name_exp =]], and finally becoming an online store with [[= product_name_com =]].
 
 ### Large network with multiple inputs and outputs
 
@@ -196,4 +186,4 @@ Thanks to migration feature and PHP API, existing content has been imported from
 Fine-tuned user rights and workflows ensure that each collaborator can focus on their own tasks without the risk to disturb the content model or content organization.
 Content is distributed on several websites and applications, some running on the [[= product_name_base =]] platform itself, some on third parties' servers, some as native mobile apps.
 Part of the content has multiple locations or is translated, and reused from place to place.
-While the Back Office offers to search into the whole repository, the front end apps have correctly circumscribed search capabilities.
+While the back office offers to search into the whole repository, the front end apps have correctly circumscribed search capabilities.

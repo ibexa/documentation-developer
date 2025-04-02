@@ -1,0 +1,49 @@
+services:
+    app.search.solr.query.aggregation_visitor.priority_range_aggregation:
+        class: Ibexa\Solr\Query\Common\AggregationVisitor\RangeAggregationVisitor
+        factory: [ '@Ibexa\Solr\Query\Common\AggregationVisitor\Factory\SearchFieldAggregationVisitorFactory', 'createRangeAggregationVisitor' ]
+        arguments:
+            $aggregationClass: 'App\Query\Aggregation\Solr\PriorityRangeAggregation'
+            $searchIndexFieldName: 'priority_i'
+        tags:
+            - { name: ibexa.search.solr.query.location.aggregation.visitor }
+
+    app.search.elasticsearch.query.aggregation_visitor.priority_range_aggregation:
+        class: Ibexa\Elasticsearch\Query\AggregationVisitor\RangeAggregationVisitor
+        factory: [ '@Ibexa\Elasticsearch\Query\AggregationVisitor\Factory\SearchFieldAggregationVisitorFactory', 'createRangeAggregationVisitor' ]
+        arguments:
+            $aggregationClass: 'App\Query\Aggregation\Elasticsearch\PriorityRangeAggregation'
+            $searchIndexFieldName: 'priority_i'
+        tags:
+            - { name: ibexa.search.elasticsearch.query.location.aggregation.visitor }
+
+    app.search.solr.query.aggregation_result_extractor.priority_range_aggregation:
+        class: Ibexa\Solr\ResultExtractor\AggregationResultExtractor\RangeAggregationResultExtractor
+        arguments:
+            $aggregationClass: 'App\Query\Aggregation\Solr\PriorityRangeAggregation'
+            $keyMapper: 'Ibexa\Solr\ResultExtractor\AggregationResultExtractor\RangeAggregationKeyMapper\IntRangeAggregationKeyMapper'
+        tags:
+            - { name: ibexa.search.solr.query.location.aggregation.result.extractor }
+
+    app.search.elasticsearch.query.aggregation_result_extractor.priority_range_aggregation:
+        class: Ibexa\Elasticsearch\Query\ResultExtractor\AggregationResultExtractor\RangeAggregationResultExtractor
+        arguments:
+            $aggregationClass: 'App\Query\Aggregation\Elasticsearch\PriorityRangeAggregation'
+        tags:
+            - { name: ibexa.search.elasticsearch.query.location.aggregation.result.extractor }
+
+    App\Query\Aggregation\Solr\PriorityRangeAggregationVisitor:
+        tags:
+            - { name: ibexa.search.solr.query.location.aggregation.visitor }
+
+    App\Query\Aggregation\Solr\PriorityRangeAggregationResultExtractor:
+        tags:
+            - { name: ibexa.search.solr.query.location.aggregation.result.extractor }
+
+    App\Query\Aggregation\Elasticsearch\PriorityRangeAggregationVisitor:
+        tags:
+            - { name: ibexa.search.elasticsearch.query.location.aggregation.visitor }
+
+    App\Query\Aggregation\Elasticsearch\PriorityRangeAggregationResultExtractor:
+        tags:
+            - { name: ibexa.search.elasticsearch.query.location.aggregation.result.extractor }

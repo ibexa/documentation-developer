@@ -23,7 +23,7 @@ plugins:
             'commerce/basket.md': 'commerce/commerce.md'
             'templating/layout/customize_basket.md': 'commerce/commerce.md'
             'guide/search/extend_solr.md': 'search/search_engines/solr_search_engine/solr_overview.md'
-            'guide/search/extend_elasticsearch.md': 'search/search_engines/elastic_search/elastic_search_overview.md'
+            'guide/search/extend_elasticsearch.md': 'search/search_engines/elasticsearch/elasticsearch_overview.md'
 
             'api/public_php_api.md': 'api/php_api/php_api.md'
             'api/rest_api_usage.md': 'api/rest_api/rest_api_usage/rest_api_usage.md'
@@ -190,7 +190,7 @@ plugins:
             'guide/content_rendering/twig_function_reference/image_twig_functions.md': 'templating/twig_function_reference/image_twig_functions.md'
             'guide/content_rendering/twig_function_reference/url_twig_functions.md': 'templating/twig_function_reference/url_twig_functions.md'
             'guide/content_rendering/twig_function_reference/date_twig_filters.md': 'templating/twig_function_reference/date_twig_filters.md'
-            'guide/content_rendering/twig_function_reference/other_twig_filters.md': 'templating/twig_function_reference/other_twig_filters.md'
+            'guide/content_rendering/twig_function_reference/other_twig_filters.md': 'templating/twig_function_reference/icon_twig_functions.md'
             'guide/content_rendering/urls_and_routes.md': 'templating/urls_and_routes/urls_and_routes.md'
             'guide/content_rendering/custom_breadcrumbs.md': 'templating/urls_and_routes/custom_breadcrumbs.md'
             'guide/content_rendering/design_engine/design_engine.md': 'templating/design_engine/design_engine.md'
@@ -300,7 +300,7 @@ plugins:
             'guide/personalization/best_practices/recommendation_integration.md': 'personalization/recommendation_integration.md'
 
             'guide/search/search.md': 'search/search.md'
-            'guide/search/elastic.md': 'search/search_engines/elastic_search/elastic_search_overview.md'
+            'guide/search/elastic.md': 'search/search_engines/elasticsearch/elasticsearch_overview.md'
             'guide/search/solr.md': 'search/search_engines/solr_search_engine/solr_overview.md'
             'api/public_php_api_search.md': 'search/search_api.md'
             'guide/search/criteria_reference/search_criteria_reference.md': 'search/criteria_reference/search_criteria_reference.md'
@@ -444,6 +444,9 @@ plugins:
             'search/shop_search/search_indexing.md': 'search/search.md'
             'search/shop_search/search_synonyms.md': 'search/search.md'
             'search/shop_search/search_autosuggest.md': 'search/search.md'
+            'search/search_engines/elastic_search/install_elastic_search.md': 'search/search_engines/elasticsearch/install_elasticsearch.md'
+            'search/search_engines/elastic_search/configure_elastic_search.md': 'search/search_engines/elasticsearch/configure_elasticsearch.md'
+            'search/search_engines/elastic_search/elastic_search_overview.md': 'search/search_engines/elasticsearch/elasticsearch_overview.md'
 
             'api/public_php_api_managing_repository.md': 'content_management/content_management_api/bookmark_api.md'
             'guide/request_lifecycle.md': 'infrastructure_and_maintenance/request_lifecycle.md'
@@ -528,6 +531,7 @@ plugins:
             'getting_started/install_ez_platform.md': 'getting_started/install_ibexa_dxp.md'
 
             'templating/layout/create_user_registration_form.md': 'customer_management/create_user_registration_form.md'
+            'templating/twig_function_reference/other_twig_filters.md': 'templating/twig_function_reference/icon_twig_functions.md'
 
             'tutorials/platform_beginner/building_a_bicycle_route_tracker_in_ez_platform.md': 'tutorials/beginner_tutorial/beginner_tutorial.md'
             'tutorials/platform_beginner/1_get_ready.md': 'tutorials/beginner_tutorial/1_get_ready.md'

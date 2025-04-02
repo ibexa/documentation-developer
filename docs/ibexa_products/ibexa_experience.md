@@ -4,7 +4,7 @@ description: Learn about all the main attributes, features, and benefits of the 
 month_change: false
 ---
 
-# Ibexa DXP Experience edition product guide
+# [[= product_name_exp =]] edition product guide
 
 ## What is [[= product_name_exp =]]
 
@@ -18,6 +18,7 @@ It also provides tools for using segmentation and targeting, and it can be widel
 ## Availability
 
 To start using [[= product_name_exp =]], you need to purchase a product license.
+
 For more information, see [[[= product_name_exp =]] license pricing](https://www.ibexa.co/products/pricing?tab=2).
 You can also [contact us](https://www.ibexa.co/about-ibexa/contact-us) or [one of our partners](https://www.ibexa.co/partners).
 
@@ -32,7 +33,7 @@ With a help of documentation and trainings, any developer familiar with Symfony 
 
 [[= product_name_exp =]] is built on top of [[[= product_name_headless =]]](ibexa_headless.md), therefore it includes all bundles, APIs, and [features that come with Headless edition](ibexa_headless.md#core-features), but also more advanced features for digital experience management.
 
-Version control systems and environment variables allow you to deploy your projects and settings on several environments, such as Ibexa Cloud.
+Version control systems and environment variables allow you to deploy your projects and settings on several environments, such as [[= product_name_cloud =]].
 
 ## Capabilities and benefits
 
@@ -63,7 +64,7 @@ Additionaly, you can monitor and manage the information obtained from website vi
 
 #### Site Factory
 
-[Site Factory ](site_factory.md) is a site management interface, integrated with the Back Office.
+[Site Factory ](site_factory.md) is a site management interface, integrated with the back office.
 It enables you to configure new sites without leaving the administration interface and editing SiteAccess configuration.
 With this feature you can create and deploy multiple websites at lightning speed and at scale.
 It allows you to manage expenses and resources while industrializing your web presence.
@@ -112,11 +113,11 @@ This central data storage supports business growth with a scalable infrastructur
 
 ![CDP](cdp.png)
 
-#### Ibexa Engage
+#### [[= product_name_engage =]]
 
 Another add-on available for Experience and [Commerce](ibexa_commerce.md) edition is [Ibexa Engage](ibexa_engage.md).
 To use it, you must make arrangements with [[= product_name_base =]] to define the initial configuration, and then get and set up a user account.
-Ibexa Engage is a data collection tool.
+[[= product_name_engage =]] is a data collection tool.
 It gives you the ability to use the [Qualifio](https://qualifio.com/) tools to engage your audiences. You can use Qualifio's existing templates and interactive elements, such as quizzes, pools, and forms, to create visually appealing, customized campaigns and collect important data.
 To promote your campaign, you can add a Campaign block to a page in Page Builder or embed a campaign within the Rich Text field by using a Campaign custom tag.
 
@@ -125,7 +126,7 @@ To promote your campaign, you can add a Campaign block to a page in Page Builder
 ### Use cases
 
 With [[= product_name_exp =]], your customers are the main focus of all that you do.
-It makes it simpler than ever to create the different touchpoints that your customers have with your brand, giving you the ability to guide them through your significant business procedures. 
+It makes it simpler than ever to create the different touchpoints that your customers have with your brand, giving you the ability to guide them through your significant business procedures.
 
 #### Build new pages and integrated forms
 

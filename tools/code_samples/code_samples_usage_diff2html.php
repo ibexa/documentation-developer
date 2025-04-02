@@ -33,7 +33,7 @@ foreach ($diffFileContents as $diffLineIndex => $diffLine) {
         continue;
     }
     $statusChar = strlen($diffLine) ? $diffLine[0] : '';
-    $realLine = $str = substr($diffLine, 1);
+    $realLine = str_replace(['<', '>'], ['&lt;', '&gt;'], substr($diffLine, 1));
     if ($previousStatusChar !== $statusChar) {
         switch ("$previousStatusChar$statusChar") {
             case ' +':

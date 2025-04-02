@@ -7,7 +7,7 @@ edition: commerce
 
 To get shipping methods and manage them, use the `Ibexa\Contracts\Shipping\ShippingMethodServiceInterface` interface.
 
-Shipping methods are referenced with identifiers defined manually at method creation stage in user interface. 
+Shipping methods are referenced with identifiers defined manually at method creation stage in user interface.
 
 ## Get shipping method
 
@@ -31,7 +31,7 @@ The method takes a string as `$id` parameter and uses a prioritized language fro
 
 ## Get multiple shipping methods
 
-To fetch multiple shipping methods, use the `ShippingMethodServiceInterface::getShippingMethod` method. 
+To fetch multiple shipping methods, use the `ShippingMethodServiceInterface::getShippingMethod` method.
 It follows the same search query pattern as other APIs:
 
 ``` php

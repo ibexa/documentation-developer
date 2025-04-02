@@ -4,6 +4,9 @@ site_name: Developer Documentation
 repo_url: https://github.com/ibexa/documentation-developer
 site_url: https://doc.ibexa.co/en/latest/
 copyright: "Copyright 1999-2024 Ibexa AS and others"
+validation:
+    links:
+        absolute_links: relative_to_docs
 nav:
     - Ibexa Developer Documentation: index.md
     - Ibexa DXP editions:
@@ -34,14 +37,14 @@ nav:
         - Page and Form tutorial:
             - Page and Form tutorial: tutorials/page_and_form_tutorial/page_and_form_tutorial.md
             - 1. Get a starter website: tutorials/page_and_form_tutorial/1_get_a_starter_website.md
-            - 2. Prepare the Landing Page: tutorials/page_and_form_tutorial/2_prepare_the_landing_page.md
+            - 2. Prepare the landing page: tutorials/page_and_form_tutorial/2_prepare_the_landing_page.md
             - 3. Use existing blocks: tutorials/page_and_form_tutorial/3_use_existing_blocks.md
             - 4. Create a custom block: tutorials/page_and_form_tutorial/4_create_a_custom_block.md
             - 5. Create a newsletter form: tutorials/page_and_form_tutorial/5_create_newsletter_form.md
-        - Generic Field Type:
-            - Creating Point 2D Field Type: tutorials/generic_field_type/creating_a_point2d_field_type.md
+        - Generic field type:
+            - Creating Point 2D field type: tutorials/generic_field_type/creating_a_point2d_field_type.md
             - 1. Implement Value class: tutorials/generic_field_type/1_implement_the_point2d_value_class.md
-            - 2. Define Field Type: tutorials/generic_field_type/2_define_point2d_field_type.md
+            - 2. Define field type: tutorials/generic_field_type/2_define_point2d_field_type.md
             - 3. Create a form: tutorials/generic_field_type/3_create_form_for_point2d.md
             - 4. Introduce a template: tutorials/generic_field_type/4_introduce_a_template.md
             - 5. Add a new Field: tutorials/generic_field_type/5_add_a_field.md
@@ -69,7 +72,7 @@ nav:
             - GraphQL queries: api/graphql/graphql_queries.md
             - GraphQL operations: api/graphql/graphql_operations.md
             - GraphQL customization: api/graphql/graphql_customization.md
-            - GraphQL custom Field Type: api/graphql/graphql_custom_ft.md
+            - GraphQL custom field type: api/graphql/graphql_custom_ft.md
         - Event reference:
             - Event reference: api/event_reference/event_reference.md
             - Content events: api/event_reference/content_events.md
@@ -90,6 +93,7 @@ nav:
             - Site events: api/event_reference/site_events.md
             - URL events: api/event_reference/url_events.md
             - Trash events: api/event_reference/trash_events.md
+            - AI Action events: api/event_reference/ai_action_events.md
             - Other events: api/event_reference/other_events.md
     - Administration:
         - Administration: administration/administration.md
@@ -119,11 +123,11 @@ nav:
             - Configuration: administration/configuration/configuration.md
             - Dynamic configuration: administration/configuration/dynamic_configuration.md
             - Repository configuration: administration/configuration/repository_configuration.md
-        - Back Office:
-            - Back Office: administration/back_office/back_office.md
+        - Back office:
+            - Back office: administration/back_office/back_office.md
             - Configuration: administration/back_office/back_office_configuration.md
-            - Content Tree: administration/back_office/content_tree.md
-            - Back Office elements:
+            - Content tree: administration/back_office/content_tree.md
+            - Back office elements:
                 - Reusable components: administration/back_office/back_office_elements/reusable_components.md
                 - Add drop-downs: administration/back_office/back_office_elements/add_dropdowns.md
                 - Custom icons: administration/back_office/back_office_elements/custom_icons.md
@@ -132,13 +136,13 @@ nav:
                 - Formatting date and time: administration/back_office/back_office_elements/formatting_date_and_time.md
                 - Extending thumbnails: administration/back_office/back_office_elements/extending_thumbnails.md
                 - Importing assets from a bundle: administration/back_office/back_office_elements/importing_assets_from_bundle.md
-            - Back Office tabs:
-                - Back Office tabs:  administration/back_office/back_office_tabs/back_office_tabs.md
+            - Back office tabs:
+                - Back office tabs:  administration/back_office/back_office_tabs/back_office_tabs.md
                 - Create dashboard tab: administration/back_office/back_office_tabs/create_dashboard_tab.md
             - Tab switcher in Content edit page: administration/back_office/content_tab_switcher.md
             - Add anchor menu to content type edit screen: administration/back_office/content_type_anchor_menu.md
-            - Back Office menus:
-                - Back Office menus: administration/back_office/back_office_menus/back_office_menus.md
+            - Back office menus:
+                - Back office menus: administration/back_office/back_office_menus/back_office_menus.md
                 - Add menu item: administration/back_office/back_office_menus/add_menu_item.md
             - Add user setting: administration/back_office/add_user_setting.md
             - Customize calendar: administration/back_office/customize_calendar.md
@@ -220,56 +224,56 @@ nav:
             - Create data migration action: content_management/data_migration/create_data_migration_action.md
             - Add data migration matcher: content_management/data_migration/add_data_migration_matcher.md
             - Data migration API: content_management/data_migration/data_migration_api.md
-        - Field Types:
-            - Field Types: content_management/field_types/field_types.md
+        - Field types:
+            - Field types: content_management/field_types/field_types.md
             - Type and Value: content_management/field_types/type_and_value.md
             - Form and template: content_management/field_types/form_and_template.md
             - Storage: content_management/field_types/field_type_storage.md
             - Validation: content_management/field_types/field_type_validation.md
             - Searching: content_management/field_types/field_type_search.md
-            - Create custom generic Field Type: content_management/field_types/create_custom_generic_field_type.md
-            - Create custom Field Type comparison: content_management/field_types/create_custom_field_type_comparison.md
-            - Customize Field Type metadata: content_management/field_types/customize_field_type_metadata.md
-            - Field Type reference:
-                - Field Type reference: content_management/field_types/field_type_reference/field_type_reference.md
-                - Address Field Type: content_management/field_types/field_type_reference/addressfield.md
-                - Author Field Type: content_management/field_types/field_type_reference/authorfield.md
-                - BinaryFile Field Type: content_management/field_types/field_type_reference/binaryfilefield.md
-                - Checkbox Field Type: content_management/field_types/field_type_reference/checkboxfield.md
-                - Content query Field Type: content_management/field_types/field_type_reference/contentqueryfield.md
-                - Country Field Type: content_management/field_types/field_type_reference/countryfield.md
-                - CustomerGroup Field Type: content_management/field_types/field_type_reference/customergroupfield.md
-                - DateAndTime Field Type: content_management/field_types/field_type_reference/dateandtimefield.md
-                - Date Field Type: content_management/field_types/field_type_reference/datefield.md
-                - EmailAddress Field Type: content_management/field_types/field_type_reference/emailaddressfield.md
-                - Float Field Type: content_management/field_types/field_type_reference/floatfield.md
-                - Form Field Type: content_management/field_types/field_type_reference/formfield.md
-                - Image Field Type: content_management/field_types/field_type_reference/imagefield.md
-                - ImageAsset Field Type: content_management/field_types/field_type_reference/imageassetfield.md
-                - Integer Field Type: content_management/field_types/field_type_reference/integerfield.md
-                - ISBN Field Type: content_management/field_types/field_type_reference/isbnfield.md
-                - Keyword Field Type: content_management/field_types/field_type_reference/keywordfield.md
-                - MapLocation Field Type: content_management/field_types/field_type_reference/maplocationfield.md
-                - Matrix Field Type: content_management/field_types/field_type_reference/matrixfield.md
-                - Measurement Field Type: content_management/field_types/field_type_reference/measurementfield.md
-                - Media Field Type: content_management/field_types/field_type_reference/mediafield.md
-                - Null Field Type: content_management/field_types/field_type_reference/nullfield.md
-                - Page Field Type: content_management/field_types/field_type_reference/pagefield.md
-                - Relation Field Type: content_management/field_types/field_type_reference/relationfield.md
-                - RelationList Field Type: content_management/field_types/field_type_reference/relationlistfield.md
-                - RichText Field Type: content_management/field_types/field_type_reference/richtextfield.md
-                - Selection Field Type: content_management/field_types/field_type_reference/selectionfield.md
+            - Create custom generic field type: content_management/field_types/create_custom_generic_field_type.md
+            - Create custom field type comparison: content_management/field_types/create_custom_field_type_comparison.md
+            - Customize field type metadata: content_management/field_types/customize_field_type_metadata.md
+            - Field type reference:
+                - Field type reference: content_management/field_types/field_type_reference/field_type_reference.md
+                - Address field type: content_management/field_types/field_type_reference/addressfield.md
+                - Author field type: content_management/field_types/field_type_reference/authorfield.md
+                - BinaryFile field type: content_management/field_types/field_type_reference/binaryfilefield.md
+                - Checkbox field type: content_management/field_types/field_type_reference/checkboxfield.md
+                - Content query field type: content_management/field_types/field_type_reference/contentqueryfield.md
+                - Country field type: content_management/field_types/field_type_reference/countryfield.md
+                - CustomerGroup field type: content_management/field_types/field_type_reference/customergroupfield.md
+                - DateAndTime field type: content_management/field_types/field_type_reference/dateandtimefield.md
+                - Date field type: content_management/field_types/field_type_reference/datefield.md
+                - EmailAddress field type: content_management/field_types/field_type_reference/emailaddressfield.md
+                - Float field type: content_management/field_types/field_type_reference/floatfield.md
+                - Form field type: content_management/field_types/field_type_reference/formfield.md
+                - Image field type: content_management/field_types/field_type_reference/imagefield.md
+                - ImageAsset field type: content_management/field_types/field_type_reference/imageassetfield.md
+                - Integer field type: content_management/field_types/field_type_reference/integerfield.md
+                - ISBN field type: content_management/field_types/field_type_reference/isbnfield.md
+                - Keyword field type: content_management/field_types/field_type_reference/keywordfield.md
+                - MapLocation field type: content_management/field_types/field_type_reference/maplocationfield.md
+                - Matrix field type: content_management/field_types/field_type_reference/matrixfield.md
+                - Measurement field type: content_management/field_types/field_type_reference/measurementfield.md
+                - Media field type: content_management/field_types/field_type_reference/mediafield.md
+                - Null field type: content_management/field_types/field_type_reference/nullfield.md
+                - Page field type: content_management/field_types/field_type_reference/pagefield.md
+                - Relation field type: content_management/field_types/field_type_reference/relationfield.md
+                - RelationList field type: content_management/field_types/field_type_reference/relationlistfield.md
+                - RichText field type: content_management/field_types/field_type_reference/richtextfield.md
+                - Selection field type: content_management/field_types/field_type_reference/selectionfield.md
                 - SesExternalData: content_management/field_types/field_type_reference/sesexternaldata.md
                 - SesProfileData: content_management/field_types/field_type_reference/sesprofiledata.md
                 - SesSelection: content_management/field_types/field_type_reference/sesselection.md
                 - SpecificationsType: content_management/field_types/field_type_reference/specificationstype.md
-                - TaxonomyEntry Field Type: content_management/field_types/field_type_reference/taxonomyentryfield.md
-                - TaxonomyEntryAssignment Field Type: content_management/field_types/field_type_reference/taxonomyentryassignmentfield.md
-                - TextBlock Field Type: content_management/field_types/field_type_reference/textblockfield.md
-                - TextLine Field Type: content_management/field_types/field_type_reference/textlinefield.md
-                - Time Field Type: content_management/field_types/field_type_reference/timefield.md
-                - URL Field Type: content_management/field_types/field_type_reference/urlfield.md
-                - User Field Type: content_management/field_types/field_type_reference/userfield.md
+                - TaxonomyEntry field type: content_management/field_types/field_type_reference/taxonomyentryfield.md
+                - TaxonomyEntryAssignment field type: content_management/field_types/field_type_reference/taxonomyentryassignmentfield.md
+                - TextBlock field type: content_management/field_types/field_type_reference/textblockfield.md
+                - TextLine field type: content_management/field_types/field_type_reference/textlinefield.md
+                - Time field type: content_management/field_types/field_type_reference/timefield.md
+                - URL field type: content_management/field_types/field_type_reference/urlfield.md
+                - User field type: content_management/field_types/field_type_reference/userfield.md
     - Templating:
         - Templating: templating/templating.md
         - Render content:
@@ -292,13 +296,14 @@ nav:
             - Content Twig functions: templating/twig_function_reference/content_twig_functions.md
             - Date Twig filters: templating/twig_function_reference/date_twig_filters.md
             - Field Twig functions: templating/twig_function_reference/field_twig_functions.md
+            - Icon Twig functions: templating/twig_function_reference/icon_twig_functions.md
             - Image Twig functions: templating/twig_function_reference/image_twig_functions.md
             - Product Twig functions: templating/twig_function_reference/product_twig_functions.md
             - Site context Twig functions: templating/twig_function_reference/site_context_twig_functions.md
             - Storefront Twig functions: templating/twig_function_reference/storefront_twig_functions.md
             - URL Twig functions: templating/twig_function_reference/url_twig_functions.md
             - User Twig functions: templating/twig_function_reference/user_twig_functions.md
-            - Other Twig filters: templating/twig_function_reference/other_twig_filters.md
+            - AI Twig functions: templating/twig_function_reference/ai_actions_twig_functions.md
         - URLs and routes:
             - URLs and routes: templating/urls_and_routes/urls_and_routes.md
             - Custom breadcrumbs: templating/urls_and_routes/custom_breadcrumbs.md
@@ -321,11 +326,18 @@ nav:
             - Add login form: templating/layout/add_login_form.md
             - Add navigation menu: templating/layout/add_navigation_menu.md
             - Add search form to front page: templating/layout/add_search_form.md
+    - AI Actions:
+        - AI Actions: ai_actions/ai_actions.md
+        - AI Actions guide: ai_actions/ai_actions_guide.md
+        - Install AI Actions: ai_actions/install_ai_actions.md
+        - Extend AI Actions: ai_actions/extend_ai_actions.md
     - PIM (Product management):
         - PIM (Product management): pim/pim.md
         - PIM guide: pim/pim_guide.md
         - PIM configuration: pim/pim_configuration.md
         - Products: pim/products.md
+        - Attributes:
+            - Date and Time attribute: pim/attributes/date_and_time.md
         - Product API: pim/product_api.md
         - Catalogs: pim/catalogs.md
         - Catalog API: pim/catalog_api.md
@@ -408,7 +420,8 @@ nav:
         - Languages:
             - Languages: multisite/languages/languages.md
             - Language API: multisite/languages/language_api.md
-            - Back Office translations: multisite/languages/back_office_translations.md
+            - Back office translations: multisite/languages/back_office_translations.md
+            - Automated content translation: multisite/languages/automated_translations.md
     - Permissions:
         - Permissions: permissions/permissions.md
         - Permission overview: permissions/permission_overview.md
@@ -416,7 +429,7 @@ nav:
         - Policies: permissions/policies.md
         - Limitations: permissions/limitations.md
         - Limitation reference: permissions/limitation_reference.md
-        - Custom Policies: permissions/custom_policies.md
+        - Custom policies: permissions/custom_policies.md
     - Users:
         - Users: users/users.md
         - User management guide: users/user_management_guide.md
@@ -466,9 +479,9 @@ nav:
         - Search engines: 
             - Search engines: search/search_engines/search_engines.md
             - Elasticsearch search engine: 
-                - Overview: search/search_engines/elastic_search/elastic_search_overview.md
-                - Install Elasticsearch: search/search_engines/elastic_search/install_elastic_search.md
-                - Configure Elasticsearch: search/search_engines/elastic_search/configure_elastic_search.md
+                - Overview: search/search_engines/elasticsearch/elasticsearch_overview.md
+                - Install Elasticsearch: search/search_engines/elasticsearch/install_elasticsearch.md
+                - Configure Elasticsearch: search/search_engines/elasticsearch/configure_elasticsearch.md
             - Solr search engine:
                 - Overview: search/search_engines/solr_search_engine/solr_overview.md
                 - Install Solr: search/search_engines/solr_search_engine/install_solr.md
@@ -476,6 +489,7 @@ nav:
             - Legacy search engine: 
                 - Overview: search/search_engines/legacy_search_engine/legacy_search_overview.md
                 - Configure repository: search/search_engines/legacy_search_engine/configure_repository.md
+        - Search API: search/search_api.md
         - Search Criteria and Sort Clauses: search/search_criteria_and_sort_clauses.md
         - Search Criteria reference:
             - Search Criteria reference: search/criteria_reference/search_criteria_reference.md
@@ -499,6 +513,7 @@ nav:
             - ImageMimeType: search/criteria_reference/imagemimetype_criterion.md
             - ImageOrientation: search/criteria_reference/imageorientation_criterion.md
             - ImageWidth: search/criteria_reference/imagewidth_criterion.md
+            - IsBookmarked: search/criteria_reference/isbookmarked_criterion.md
             - IsCurrencyEnabled: search/criteria_reference/iscurrencyenabled_criterion.md
             - IsFieldEmpty: search/criteria_reference/isfieldempty_criterion.md
             - IsMainLocation: search/criteria_reference/ismainlocation_criterion.md
@@ -534,15 +549,17 @@ nav:
             - Product Search Criteria: search/criteria_reference/product_search_criteria.md
             - AttributeName: search/criteria_reference/attributename_criterion.md
             - AttributeGroupIdentifier: search/criteria_reference/attributegroupidentifier_criterion.md
+            - BasePrice: search/criteria_reference/baseprice_criterion.md
             - CatalogIdentifier: search/criteria_reference/catalogidentifier_criterion.md
             - CatalogName: search/criteria_reference/catalogname_criterion.md
             - CatalogStatus: search/criteria_reference/catalogstatus_criterion.md
-            - BasePrice: search/criteria_reference/baseprice_criterion.md
             - CheckboxAttribute: search/criteria_reference/checkboxattribute_criterion.md
             - ColorAttribute: search/criteria_reference/colorattribute_criterion.md
             - CreatedAt: search/criteria_reference/createdat_criterion.md
             - CreatedAtRange: search/criteria_reference/createdatrange_criterion.md
             - CustomPrice: search/criteria_reference/customprice_criterion.md
+            - DateTimeAttribute: search/criteria_reference/datetimeattribute_criterion.md
+            - DateTimeAttributeRange: search/criteria_reference/datetimeattributerange_criterion.md
             - FloatAttribute: search/criteria_reference/floatattribute_criterion.md
             - FloatAttributeRange: search/criteria_reference/floatattributerange_criterion.md
             - IntegerAttribute: search/criteria_reference/integerattribute_criterion.md
@@ -634,6 +651,7 @@ nav:
             - ObjectCriterion: search/activity_log_search_reference/object_criterion.md
             - ObjectNameCriterion: search/activity_log_search_reference/object_name_criterion.md
             - UserCriterion: search/activity_log_search_reference/user_criterion.md
+        - Action Configuration Search Criteria: search/ai_actions_search_reference/action_configuration_criteria.md
         - Sort Clause reference:
             - General Sort Clauses:
                 - General Sort Clause reference: search/sort_clause_reference/sort_clause_reference.md
@@ -700,7 +718,7 @@ nav:
                 - Id Sort Clause: search/url_search_reference/id_url_sort_clause.md
                 - Url Sort Clause: search/url_search_reference/url_url_sort_clause.md
             - Activity Log Sort Clauses: search/activity_log_search_reference/activity_log_sort_clauses.md
-        - Search API: search/search_api.md
+            - Action Configuration Sort Clauses: search/ai_actions_search_reference/action_configuration_sort_clauses.md
         - Aggregation reference:
               # Content aggregations
             - Aggregation reference: search/aggregation_reference/aggregation_reference.md
@@ -798,7 +816,7 @@ nav:
                 - Adapt code to v3: update_and_migration/from_2.5/adapt_code_to_v3.md
                 - 1. Update templates: update_and_migration/from_2.5/update_code/1_update_templates.md
                 - 2. Update configuration: update_and_migration/from_2.5/update_code/2_update_configuration.md
-                - 3. Update Field Types: update_and_migration/from_2.5/update_code/3_update_field_types.md
+                - 3. Update field types: update_and_migration/from_2.5/update_code/3_update_field_types.md
                 - 4. Update Signal Slots: update_and_migration/from_2.5/update_code/4_update_signal_slots.md
                 - 5. Update Online Editor: update_and_migration/from_2.5/update_code/5_update_online_editor.md
                 - 6. Update workflow: update_and_migration/from_2.5/update_code/6_update_workflow.md
@@ -806,7 +824,6 @@ nav:
                 - 8. Update REST: update_and_migration/from_2.5/update_code/8_update_rest.md
                 - 9. Other code updates: update_and_migration/from_2.5/update_code/9_update_other.md
             - Update to v3.3: update_and_migration/from_2.5/to_3.3.md
-            - Update to latest v3.3: update_and_migration/from_3.3/update_from_3.3.md
         - Update from v3.3:
             - Update to v3.3.latest: update_and_migration/from_3.3/update_from_3.3.md
             - Update to v4.0: update_and_migration/from_3.3/to_4.0.md
@@ -917,16 +934,16 @@ extra:
 
   # Global variables - latest tag versions
   latest_tag_2_5: '2.5.32'
-  latest_tag_3_3: '3.3.40'
+  latest_tag_3_3: '3.3.41'
   latest_tag_4_0: '4.0.8'
   latest_tag_4_1: '4.1.5'
   latest_tag_4_2: '4.2.4'
   latest_tag_4_3: '4.3.5'
   latest_tag_4_4: '4.4.4'
   latest_tag_4_5: '4.5.7'
-  latest_tag_4_6: '4.6.13'
+  latest_tag_4_6: '4.6.18'
 
-  symfony_doc: 'https://symfony.com/doc/5.4'
+  symfony_doc: 'https://symfony.com/doc/5.x'
   user_doc: 'https://doc.ibexa.co/projects/userguide/en/master'
   connect_doc: 'https://doc.ibexa.co/projects/connect/en/latest'
 
@@ -937,7 +954,9 @@ extra_css:
   - css/custom.css
   - css/page-not-found.css
   - css/navigation.css
+  - css/search.css
   - css/docs.switcher.css
+  - css/release-notes.css
   - css/jquery-ui.min.css
   - '//cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css'
 
@@ -945,6 +964,7 @@ extra_javascript:
   - js/jquery.min.js
   - js/jquery-ui.min.js
   - js/custom.js
+  - js/release-notes.js
   - js/docs.switcher.js
   - '//cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js'
 

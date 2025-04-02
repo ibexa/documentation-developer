@@ -3,14 +3,14 @@ description: Learn more about various Ibexa DXP editions' features to help yours
 page_type: landing_page
 ---
 
-# Ibexa DXP editions
+# [[= product_name =]] editions
 
 Three [[= product_name =]] product editions are available to help you accelerate your digital transformation at the speed and cost that work best for you.
 
 [[= cards([
-"ibexa_products/ibexa_headless",
-"ibexa_products/ibexa_experience",
-"ibexa_products/ibexa_commerce"
+    "ibexa_products/ibexa_headless",
+    "ibexa_products/ibexa_experience",
+    "ibexa_products/ibexa_commerce",
 ], columns=3) =]]
 
 ## Feature comparison
@@ -45,7 +45,7 @@ Compare all features available in [[= product_name_headless =]], [[= product_nam
 | [Customer Portal](customer_portal_guide.md) |  | &#10004; | &#10004; |
 | [Segments](segments_admin_panel.md) |  | &#10004; | &#10004; |
 | [Recent activity](recent_activity.md) |  | &#10004; | &#10004; |
-| [Ibexa Engage add-on]([[= user_doc =]]/ibexa_engage/ibexa_engage/) |  | &#10004; | &#10004; |
+| [[[= product_name_engage =]] add-on]([[= user_doc =]]/ibexa_engage/ibexa_engage/) |  | &#10004; | &#10004; |
 | [Customer Data Platform (CDP) add-on](cdp_guide.md) |  | &#10004; | &#10004; |
 | [Order management](order_management.md) |  |  | &#10004; |
 | [Payment management](payment.md) |  |  | &#10004; |
@@ -54,3 +54,13 @@ Compare all features available in [[= product_name_headless =]], [[= product_nam
 | [Checkout](checkout.md) |  |  | &#10004; |
 | [Storefront](storefront.md) |  |  | &#10004; |
 | [Transactional emails](transactional_emails.md) |  |  | &#10004; |
+
+## LTS Updates
+
+LTS Updates are opt-in packages that bring additional features to the [LTS releases](release_process_and_roadmap.md#long-term-support-releases) that they enhance.
+The features brought by LTS Updates become standard parts of the next LTS release.
+
+| Feature | [[= product_name_headless =]] | [[= product_name_exp =]] | [[= product_name_com =]] |
+|-----------------|-----------------|-----------------|-----------------|
+| [AI Actions](ai_actions_guide.md) | &#10004; | &#10004; | &#10004; |
+| [Date and time attribute type](date_and_time.md) | &#10004; | &#10004; | &#10004; |

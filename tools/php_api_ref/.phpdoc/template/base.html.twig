@@ -1,9 +1,12 @@
 {% extends 'layout.html.twig' %}
 
+{% set symfony_version = '5.4' %}
+
 {% block javascripts %}
     {{ parent() }}
 
     <script>
+        window.symfonyVersion = '{{ symfony_version }}';
         window.addEventListener('keyup', (event) => {
             if (event.key === '/') {
                 event.stopImmediatePropagation();

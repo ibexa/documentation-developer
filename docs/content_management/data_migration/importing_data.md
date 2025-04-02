@@ -1,18 +1,16 @@
 ---
-description: Import data into your Repository from prepared YAML files.
+description: Import data into your repository from prepared YAML files.
 page_type: reference
 month_change: false
 ---
 
 # Importing data
 
-To import data from YAML migration files into Repository, you run the `ibexa:migrations:migrate` command.
+To import data from YAML migration files into repository, you run the `ibexa:migrations:migrate` command.
 
 The `ibexa:migrations:import` command automatically places migration files in the correct folder.
 
-Alternatively, you can place the files manually in the `src/Migrations/Ibexa/migrations` folder
-or in [a custom folder that you configure](managing_migrations.md#migration-folders),
-and specify the file name within this folder as parameter.
+Alternatively, you can place the files manually in the `src/Migrations/Ibexa/migrations` folder or in [a custom folder that you configure](managing_migrations.md#migration-folders), and specify the file name within this folder as parameter.
 If you don't specify the file, all files within this directory are used.
 
 ``` bash
@@ -20,17 +18,14 @@ php bin/console ibexa:migrations:migrate --file=my_data_export.yaml --siteaccess
 ```
 
 Migrations store execution metadata in the `ibexa_migrations` database table.
-This allows incremental upgrades:
-the `ibexa:migrations:migrate` command ignores files that it had previously executed.
+This allows incremental upgrades: the `ibexa:migrations:migrate` command ignores files that it had previously executed.
 
 The [`--siteaccess` option](exporting_data.md#siteaccess) usage can be relevant when multiple languages or multiple repositories are used.
 
 ## Migration step
 
-A data migration step is a single operation in data migration process
-that combines a mode (for example: `create`, `update`, `delete`)
-and a type (for example: `content`, `section`, `currency`),
-with optional additional information depending on the specific step.
+A data migration step is a single operation in data migration process that combines a mode (for example: `create`, `update`, `delete`)
+and a type (for example: `content`, `section`, `currency`), with optional additional information depending on the specific step.
 
 In a migration file, a step is an array item starting with the mandatory properties `type` and `mode`, for example:
 
@@ -52,6 +47,7 @@ The following data migration step modes are available:
 
 | `type`                 | `create` | `update` | `delete` | `swap`   |
 |------------------------|:--------:|:--------:|:--------:|:--------:|
+| `action_configuration` | &#10004; | &#10004; | &#10004; |          |
 | `attribute`            | &#10004; | &#10004; | &#10004; |          |
 | `attribute_group`      | &#10004; | &#10004; | &#10004; |          |
 | `content_type`         | &#10004; | &#10004; | &#10004; |          |
@@ -88,8 +84,7 @@ A repeatable migration performs the defined migration steps as many times as the
 
 !!! tip
 
-    You can use repeatable migration steps, for example,
-    to quickly generate large numbers of content items for testing purposes.
+    You can use repeatable migration steps, for example, to quickly generate large numbers of content items for testing purposes.
 
 You can vary the operations using the iteration counter.
 
@@ -109,7 +104,7 @@ In the example above, the expression is enclosed in `###` and the repeated strin
 
 #### Generating fake data
 
-You can also generate fake data with the help of [`FakerPHP`](https://fakerphp.github.io/).
+You can also generate fake data with the help of [`FakerPHP`](https://fakerphp.org/).
 
 To use it, first install Faker on your system:
 
@@ -123,12 +118,11 @@ Then, you can use `faker()` in expressions, for example:
 [[= include_file('code_samples/data_migration/examples/repeatable_step.yaml', 16, 19) =]]
 ```
 
-This step generates Field values with fake personal names.
+This step generates field values with fake personal names.
 
 ### Expression syntax
 
-You can use [Symfony expression syntax]([[= symfony_doc =]]/reference/formats/expression_language.html) in data migrations,
-like in [repeatable steps](#repeatable-steps), where you can use it to generate varied content in migration steps.
+You can use [Symfony expression syntax]([[= symfony_doc =]]/reference/formats/expression_language.html) in data migrations, like in [repeatable steps](#repeatable-steps), where you can use it to generate varied content in migration steps.
 
 The expression syntax uses the following structure: `###<IDENTIFIER> <EXPRESSION> <IDENTIFIER>###`
 
@@ -189,8 +183,7 @@ Built-in expression language functions that are tagged with `ibexa.migrations.te
 
 #### Custom functions
 
-To add custom functionality into Migration's expression language declare it as a service
-and tag it with `ibexa.migrations.template.expression_language.function`.
+To add custom functionality into Migration's expression language declare it as a service and tag it with `ibexa.migrations.template.expression_language.function`.
 
 Example:
 
@@ -214,8 +207,7 @@ ibexa.migrations.template.faker:
             function: faker
 ```
 
-Service-based functions can be also added, but they must be callable,
-requiring either an `__invoke` function or a wrapping service with one.
+Service-based functions can be also added, but they must be callable, requiring either an `__invoke` function or a wrapping service with one.
 
 ## Migration examples
 
@@ -223,11 +215,11 @@ The following examples show what data you can import using data migrations.
 
 ### Content types
 
-The following example shows how to create a content type with two Field definitions.
+The following example shows how to create a content type with two field definitions.
 
 The required metadata keys are: `identifier`, `mainTranslation`, `contentTypeGroups` and `translations`.
 
-The default values of Field definition properties mirror the underlying PHP API, for example:
+The default values of field definition properties mirror the underlying PHP API, for example:
 
 - `translatable` defaults to `true`
 - `required` defaults to `false`
@@ -240,13 +232,10 @@ The default values of Field definition properties mirror the underlying PHP API,
 
 The following example shows how to create two content items: a folder and an article inside it.
 
-When creating a content item, three metadata keys are required:
-`contentType`, `mainTranslation`, and `parentLocationId`.
+When creating a content item, three metadata keys are required: `contentType`, `mainTranslation`, and `parentLocationId`.
 
-To use the Location ID of the folder, which is created automatically by the system,
-you can use a [reference](managing_migrations.md#references).
-In this case you assign the `parent_folder_location_id` reference name to the Location ID,
-and then use it when creating the article.
+To use the location ID of the folder, which is created automatically by the system, you can use a [reference](managing_migrations.md#references).
+In this case you assign the `parent_folder_location_id` reference name to the location ID, and then use it when creating the article.
 
 ``` yaml hl_lines="15 24"
 [[= include_file('code_samples/data_migration/examples/create_parent_and_child_content.yaml') =]]
@@ -254,8 +243,7 @@ and then use it when creating the article.
 
 ### Images
 
-The following example shows how to migrate an `example-image.png` located in
-`public/var/site/storage/images/3/8/3/0/383-1-eng-GB` without manually placing it in the appropriate path.
+The following example shows how to migrate an `example-image.png` located in `public/var/site/storage/images/3/8/3/0/383-1-eng-GB` without manually placing it in the appropriate path.
 
 To prevent the manual addition of images to specific DFS or local locations, such as `public/var/site/storage/images/` you can move image files to, for example `src/Migrations/images`.
 Adjust the migration file and configure the `image` field data as follows:
@@ -269,41 +257,39 @@ Adjust the migration file and configure the `image` field data as follows:
                 path: src/Migrations/images/example-image.png
 ```
 
-This migration copies the image to the appropriate directory,
-in this case `public/var/site/storage/images/3/8/3/0/254-1-eng-GB/example-image.png`,
-enabling swift file migration regardless of storage (local, DFS).
+This migration copies the image to the appropriate directory, in this case `public/var/site/storage/images/3/8/3/0/254-1-eng-GB/example-image.png`, enabling swift file migration regardless of storage (local, DFS).
 
 ### Roles
 
-The following example shows how to create a Role.
-A Role requires the `identifier` metadata key.
+The following example shows how to create a role.
+A role requires the `identifier` metadata key.
 
-For each Policy assigned to the Role, you select the module and function, with optional Limitations.
+For each policy assigned to the role, you select the module and function, with optional limitations.
 
-The following example shows the creation of a `Contributor` Role:
+The following example shows the creation of a `Contributor` role:
 
 ``` yaml
 [[= include_file('code_samples/data_migration/examples/create_role.yaml') =]]
 ```
 
-To update an existing Role, two policies' modes are available:
+To update an existing role, two policies' modes are available:
 
 - `replace`: (default) All existing policies are replaced by the ones from the migration.
 - `append`: Migration policies are added while already existing ones are kept.
 
-The following example shows how to replace the policies of the existing `Editor` Role:
+The following example shows how to replace the policies of the existing `Editor` role:
 
 ``` yaml
 [[= include_file('code_samples/data_migration/examples/update_role.yaml', 0, 16) =]]
 ```
 
-The following example shows the addition of a policy to the `Anonymous` Role:
+The following example shows the addition of a policy to the `Anonymous` role:
 
 ``` yaml hl_lines="7"
 [[= include_file('code_samples/data_migration/examples/update_role.yaml', 18, 32) =]]
 ```
 
-The following example shows how to delete the `Contributor` Role:
+The following example shows how to delete the `Contributor` role:
 
 ``` yaml
 [[= include_file('code_samples/data_migration/examples/delete_role.yaml') =]]
@@ -326,7 +312,7 @@ The following example shows how to create a user.
 The required metadata keys are: `login`, `email`, `password`, `enabled`, `mainLanguage`, and `contentType`.
 You also need to provide the user group's remote content ID.
 
-You can use an [action](data_migration_actions.md) to assign a Role to the user.
+You can use an [action](data_migration_actions.md) to assign a role to the user.
 
 ``` yaml hl_lines="22-23"
 [[= include_file('code_samples/data_migration/examples/create_user.yaml') =]]
@@ -360,13 +346,21 @@ You can also update attributes, including changing which attribute group they be
 
 You can't change the attribute type of an existing attribute.
 
+##### Date and time attributes
+
+If you're using attributes of the [date and time type](date_and_time.md), you can manage it through the migrations as well, for example:
+
+``` yaml
+[[= include_file('code_samples/data_migration/examples/create_datetime_attribute.yaml') =]]
+```
+
 #### Product types
 
 The following example shows how to create a product type.
 
 The main part of the migration file is the same as when creating a regular content type.
 
-A product type must also contain the definition for an `ibexa_product_specification` Field.
+A product type must also contain the definition for an `ibexa_product_specification` field.
 `fieldSettings` contains information about the product attributes.
 
 ``` yaml
@@ -391,13 +385,13 @@ The following example shows how to create variants for a product identified by i
 
 #### Product assets
 
-The following example creates an image [content item](#content-items) from a local image file, and then uses it as a product asset for a variant ([created in previous example](#product-variant)):
+The following example creates an image [content item](#content-items) from a local image file, and then uses it as a product asset for a variant ([created in previous example](#product-variants)):
 
 ``` yaml
 [[= include_file('code_samples/data_migration/examples/create_product_asset.yaml') =]]
 ```
 
-This migration uses a [reference](managing_migrations.md#references) to store the created image Content ID, and then uses it while creating the asset.
+This migration uses a [reference](managing_migrations.md#references) to store the created image content ID, and then uses it while creating the asset.
 It uses an [expression syntax](#expression-syntax) to [concat (`~`)]([[= symfony_doc =]]/reference/formats/expression_language.html#string-operators)
 the mandatory scheme `ezcontent://` and the image content ID through the [`reference` function](#built-in-functions) used on the reference's name.
 
@@ -481,7 +475,7 @@ If the content type associated with the tags is changed, the configuration shoul
     If there are multiple taxonomies, the `taxonomy` field is then necessary here (line 21).
 
 
-You can use the following example to assign tags to a Content (content type Article has an additional Field):
+You can use the following example to assign tags to a Content (content type Article has an additional field):
 
 ``` yaml
 [[= include_file('code_samples/data_migration/examples/assign_tag.yaml') =]]
@@ -491,6 +485,26 @@ When updating a content type, use:
 
 ``` yaml
 [[= include_file('code_samples/data_migration/examples/update_tag.yaml') =]]
+```
+
+### AI action configurations
+
+- The following example shows how you can create a new action configuration in your system:
+
+``` yaml
+[[= include_file('code_samples/data_migration/examples/ai/action_configuration_create.yaml') =]]
+```
+
+- Use the `update` mode to modify an existing action configuration:
+
+``` yaml
+[[= include_file('code_samples/data_migration/examples/ai/action_configuration_update.yaml') =]]
+```
+
+- Use the `delete` mode to delete an existing action configuration:
+
+``` yaml
+[[= include_file('code_samples/data_migration/examples/ai/action_configuration_delete.yaml') =]]
 ```
 
 ## Criteria

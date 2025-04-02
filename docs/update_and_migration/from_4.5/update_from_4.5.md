@@ -4,7 +4,7 @@ description: Update your installation to the latest v4.6 version from v4.5.x.
 
 # Update from v4.5.x to v4.6
 
-This update procedure applies if you are using a v4.5 installation.
+This update procedure applies if you're using a v4.5 installation.
 
 ## Update from v4.5.x to v4.5.latest
 
@@ -104,7 +104,7 @@ First, run:
     rm symfony.lock
     composer require ibexa/headless:[[= latest_tag_4_6 =]] --with-all-dependencies --no-scripts
     composer recipes:install ibexa/headless --force -v
-    # Bump CKEditor dependencies
+    # Update CKEditor dependencies
     yarn add @ckeditor/ckeditor5-alignment@^40.1.0 @ckeditor/ckeditor5-build-inline@^40.1.0 @ckeditor/ckeditor5-dev-utils@^39.0.0 @ckeditor/ckeditor5-widget@^40.1.0 @ckeditor/ckeditor5-theme-lark@^40.1.0 @ckeditor/ckeditor5-code-block@^40.1.0
     ```
 === "[[= product_name_exp =]]"
@@ -112,7 +112,7 @@ First, run:
     ``` bash
     composer require ibexa/experience:[[= latest_tag_4_6 =]] --with-all-dependencies --no-scripts
     composer recipes:install ibexa/experience --force -v
-    # Bump CKEditor dependencies
+    # Update CKEditor dependencies
     yarn add @ckeditor/ckeditor5-alignment@^40.1.0 @ckeditor/ckeditor5-build-inline@^40.1.0 @ckeditor/ckeditor5-dev-utils@^39.0.0 @ckeditor/ckeditor5-widget@^40.1.0 @ckeditor/ckeditor5-theme-lark@^40.1.0 @ckeditor/ckeditor5-code-block@^40.1.0
     ```
 === "[[= product_name_com =]]"
@@ -120,12 +120,14 @@ First, run:
     ``` bash
     composer require ibexa/commerce:[[= latest_tag_4_6 =]] --with-all-dependencies --no-scripts
     composer recipes:install ibexa/commerce --force -v
-    # Bump CKEditor dependencies
+    # Update CKEditor dependencies
     yarn add @ckeditor/ckeditor5-alignment@^40.1.0 @ckeditor/ckeditor5-build-inline@^40.1.0 @ckeditor/ckeditor5-dev-utils@^39.0.0 @ckeditor/ckeditor5-widget@^40.1.0 @ckeditor/ckeditor5-theme-lark@^40.1.0 @ckeditor/ckeditor5-code-block@^40.1.0
     ```
 
 The `recipes:install` command installs new YAML configuration files.
 Review the old YAML files and move your custom configuration to the relevant new files.
+
+If you're using [custom CKEditor plugins](extend_online_editor.md#add-ckeditor-plugins), update them as well to use the same version range for all CKEditor dependencies.
 
 ## Remove `node_modules` and `yarn.lock`
 
@@ -241,7 +243,7 @@ And apply the following database script:
 
 ### Image picker migration
 
-The new Image picker by default expects an `ezkeyword` Field Type to exist in the `image` content type.
+The new Image picker by default expects an `ezkeyword` field type to exist in the `image` content type.
 
 You can add it running the following commands:
 
@@ -252,7 +254,7 @@ php bin/console ibexa:migrations:migrate --file=2023_12_06_15_00_image_content_t
 
 ### Dashboard migration [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
 
-If you are using [[= product_name_exp =]] or [[= product_name_com =]],
+If you're using [[= product_name_exp =]] or [[= product_name_com =]],
 you must run data migration required by the dashboard and other features to finish the upgrade process:
 
 ```bash
@@ -266,7 +268,8 @@ php bin/console ibexa:migrations:migrate --file=2023_09_23_14_15_dashboard_struc
 
 !!! caution
 
-    The `2023_10_10_16_14_dashboard_permissions.yaml` migration creates a Role dedicated for dashboard management and assigns it to the Editors User Group. If you have custom User Groups which need to manipulate dashboards, you need to skip this migration, copy it to your migrations folder (by default, `src/Migrations/Ibexa/migrations`) and adjust it according to your needs before execution.
+    The `2023_10_10_16_14_dashboard_permissions.yaml` migration creates a role dedicated for dashboard management and assigns it to the Editors user group.
+    If you have custom user groups which need to manipulate dashboards, you need to skip this migration, copy it to your migrations folder (by default, `src/Migrations/Ibexa/migrations`) and adjust it according to your needs before execution.
 
 For [[= product_name_com =]] there's an additional migration:
 ``` bash
@@ -341,7 +344,7 @@ ibexa:
                 field_groups: ['about', 'contact']
 ```
 
-You can use your own content type that represents the Back Office user, or use the default one provided by [[= product_name =]]:
+You can use your own content type that represents the back office user, or use the default one provided by [[= product_name =]]:
 
 ```bash
 php bin/console ibexa:migrations:import vendor/ibexa/installer/src/bundle/Resources/install/migrations/2023_12_07_20_23_editor_content_type.yaml --name=2023_12_07_20_23_editor_content_type.yaml
@@ -351,9 +354,9 @@ php bin/console ibexa:migrations:migrate --file=2023_12_07_20_23_editor_content_
 
 #### Site context
 
-Site context is used in Content Tree to display only those content items that belong to the selected website.
+Site context is used in content tree to display only those content items that belong to the selected website.
 
-You can add locations that shoudn't be publicly accessible to the list of excluded paths:
+You can add locations that shouldn't be publicly accessible to the list of excluded paths:
 
 ```yaml
 # /config/packages/ibexa_site_context.yaml
@@ -393,7 +396,7 @@ ibexa:
 
 #### Recent activity [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
 
-You must add the "Activity Log / Read" policy (`activity_log/read`) to every role that has access to the Back Office, at least with the "Only own log" limitation.
+You must add the `Activity Log / Read` policy (`activity_log/read`) to every role that has access to the back office, at least with the "Only own log" limitation.
 This policy is mandatory to display the "Recent activity" block in [dashboards](#dashboard-migration), and the "Recent activity" block in [user profiles](#user-profile).
 
 The following migration example allows users with the `Editor` role to access their own activity log:

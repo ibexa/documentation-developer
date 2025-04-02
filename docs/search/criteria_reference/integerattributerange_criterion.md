@@ -1,3 +1,7 @@
+---
+description: IntegerAttributeRange Search Criterion
+---
+
 # IntegerAttributeRange Criterion
 
 The `IntegerAttributeRange` Search Criterion searches for products by the range of values of their integer attribute.

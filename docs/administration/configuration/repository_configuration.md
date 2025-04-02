@@ -1,16 +1,17 @@
 ---
-description: Configure Repository connections, archive limits, Field groups and other settings.
+description: Configure repository connections, archive limits, field groups and other settings.
 ---
 
 # Repository configuration
 
-You can define several Repositories within a single application. However, you can only use one per site.
+You can define several repositories within a single application.
+However, you can only use one per site.
 
 ## Repository connection
 
 ### Using default values
 
-To use the default Repository connection, you do not need to specify its details:
+To use the default repository connection, you don't need to specify its details:
 
 ``` yaml
 ibexa:
@@ -24,14 +25,13 @@ ibexa:
 
 !!! note "Legacy storage engine"
 
-    Legacy storage engine is the default storage engine for the Repository.
+    Legacy storage engine is the default storage engine for the repository.
 
     It uses [Doctrine DBAL](https://www.doctrine-project.org/projects/doctrine-dbal/en/latest/) (Database Abstraction Layer).
     Database settings are supplied by [DoctrineBundle](https://github.com/doctrine/DoctrineBundle).
     As such, you can refer to [DoctrineBundle's documentation](https://github.com/doctrine/DoctrineBundle/blob/2.7.x/Resources/doc/configuration.rst#doctrine-dbal-configuration).
 
-If no Repository is specified for a SiteAccess or SiteAccess group,
-the first Repository defined under `ibexa.repositories` will be used:
+If no repository is specified for a SiteAccess or SiteAccess group, the first repository defined under `ibexa.repositories` is used:
 
 ``` yaml
 ibexa:
@@ -44,11 +44,11 @@ ibexa:
             # ...
 ```
 
-#### Multisite URI matching with multi-Repository setup
+#### Multisite URI matching with multi-repository setup
 
-You can use only one Repository (database) per domain.
-This does not prohibit using [different Repositories](persistence_cache.md#multi-repository-setup) on different subdomains.
-However, when using URI matching for multisite setup, all SiteAccesses sharing domain also need to share Repository.
+You can use only one repository (database) per domain.
+This doesn't prohibit using [different repositories](persistence_cache.md#multi-repository-setup) on different subdomains.
+However, when you use URI matching for multisite setup, all SiteAccesses sharing domain also need to share repository.
 For example:
 
 - `ibexa.co` domain can use `ibexa_repo`
@@ -57,16 +57,13 @@ For example:
 But the following configuration would be invalid:
 
 - `ibexa.co` domain can use `ibexa_repo`
-- `ibexa.co/doc` **cannot** use `doc_repo`, as it is under the same domain.
+- `ibexa.co/doc` **cannot** use `doc_repo`, as it's under the same domain.
 
-Invalid configuration causes problems for different parts of the system,
-for example back-end UI, REST interface and other non-SiteAccess-aware Symfony routes
-such as `/_fos_user_context_hash` used by [HTTP cache](http_cache.md).
+Invalid configuration causes problems for different parts of the system, for example, back-end UI, REST interface, and other non-SiteAccess-aware Symfony routes such as `/_fos_user_context_hash` used by [HTTP cache](http_cache.md).
 
 ### Entity manager
 
-If you use the [Doctrine entity manager](https://www.doctrine-project.org/projects/doctrine-orm/en/2.10/tutorials/getting-started.html#obtaining-the-entitymanager),
-you are unable to connect different SiteAccesses to different databases.
+If you use the [Doctrine entity manager](https://www.doctrine-project.org/projects/doctrine-orm/en/2.10/tutorials/getting-started.html#obtaining-the-entitymanager), you're unable to connect different SiteAccesses to different databases.
 
 To have this possibility, you need to use the SiteAccess-aware entity manager: `ibexa.doctrine.orm.entity_manager`.
 
@@ -83,17 +80,15 @@ ibexa:
                 prefix: Ibexa\Bundle\Core\Entity
 ```
 
-Refer to [DoctrineBundle documentation](https://symfony.com/doc/3.4/reference/configuration/doctrine.html)
-for more information.
+For more information, see [DoctrineBundle documentation]([[= symfony_doc =]]/reference/configuration/doctrine.html).
 
 !!! note
 
-    In contrast with DoctrineBundle, when using the SiteAccess-aware entity manager you need to explicitly set all options:
-    `dir` (it still accepts relative path in case of bundles), `prefix`, `type`, and `is_bundle`.
+    In contrast with DoctrineBundle, when you use the SiteAccess-aware entity manager you need to explicitly set all options: `dir` (it still accepts relative path in case of bundles), `prefix`, `type`, and `is_bundle`.
 
 ### Defining custom connection
 
-You can also explicitly define a custom Repository connection:
+You can also explicitly define a custom repository connection:
 
 ``` yaml
 doctrine:
@@ -119,8 +114,8 @@ doctrine:
 
 ibexa:
     repositories:
-        first_repository: 
-            storage: 
+        first_repository:
+            storage:
                 engine: legacy
                 connection: my_connection_name
                 config: {}
@@ -135,7 +130,7 @@ ibexa:
             search:
                 connection: my_second_connection_name
         another_repository:
-            storage: 
+            storage:
                 engine: legacy
                 connection: another_connection_name
                 config: {}
@@ -161,7 +156,7 @@ SECOND_DATABASE_URL=otherdb://otheruser:otherpasswd@otherhost:otherport/otherdbn
 ## Field groups configuration
 
 Field groups, used in content and content type editing, can be configured under the `repositories` key.
-Values entered there are Field group *identifiers*:
+Values entered there are field group *identifiers*:
 
 ``` yaml
 repositories:
@@ -171,9 +166,10 @@ repositories:
             default: content
 ```
 
-These identifiers can be given human-readable values and can be translated. Those values are used when editing content types.
+These identifiers can be given human-readable values and can be translated.
+Those values are used when editing content types.
 The translation domain is `ibexa_fields_groups`.
-This example in `translations/ibexa_fields_groups.en.yaml` defines English names for Field groups:
+This example in `translations/ibexa_fields_groups.en.yaml` defines English names for field groups:
 
 ``` yaml
 content: Content
@@ -183,8 +179,8 @@ user_data: User data
 
 ## Limit of archived content versions
 
-`default_version_archive_limit` controls the number of archived versions per content item that are stored in the Repository.
-By default it is set to 5. This setting is configured in the following way (typically in `ibexa.yaml`):
+`default_version_archive_limit` controls the number of archived versions per content item that are stored in the repository.
+By default it's set to 5. This setting is configured in the following way (typically in `ibexa.yaml`):
 
 ``` yaml
 ibexa:
@@ -199,9 +195,8 @@ This limit is enforced on publishing a new version and only covers archived vers
 !!! tip
 
     Don't set `default_version_archive_limit` too high.
-    In Legacy storage engine you will see performance degradation if you store too many versions.
-    The default value of 5 is the recommended value, but the less content you have overall,
-    the more you can increase this to, for instance, 25 or even 50.
+    In Legacy storage engine you can see performance degradation if you store too many versions.
+    The default value of 5 is the recommended value, but the less content you have overall, the more you can increase this to, for instance, 25 or even 50.
 
 ### Removing versions on publication
 
@@ -218,8 +213,7 @@ ibexa:
 `remove_archived_versions_on_publish` is set to `true` by default.
 Set it to `false` if you have multiple older versions of content and need to avoid performance drops when publishing.
 
-When you set the value to `false`, run [`ibexa:content:cleanup-versions`](#removing-old-versions) periodically
-to make sure that content item versions that exceed the limit are removed.
+When you set the value to `false`, run [`ibexa:content:cleanup-versions`](#removing-old-versions) periodically to make sure that content item versions that exceed the limit are removed.
 
 ### Removing old versions
 
@@ -229,8 +223,8 @@ The command takes the following optional parameters:
 
 - `status` or `t` - status of versions to remove: `draft`, `archived` or `all`
 - `keep` or `k` - number of versions to keep
-- `user` or `u` - the User that the command will be performed as. The User must have the `content/remove`, `content/read` and `content/versionread` Policies. By default the `administrator` user is applied.
-- `excluded-content-types` - exclude versions of one or multiple content types from the cleanup procedure; separate multiple content types identifiers with the comma.
+- `user` or `u` - the User that the command is performed as. The user must have the `content/remove`, `content/read` and `content/versionread` policies. By default the `administrator` user is applied.
+- `excluded-content-types` - exclude versions of one or multiple content types from the cleanup procedure. Separate multiple content types identifiers with the comma.
 
 `ibexa:content:cleanup-versions --status <status name> --keep <number of versions> --user <user name> --excluded-content-types article,blog_post`
 
@@ -250,12 +244,12 @@ ibexa:
             user_group_content_type_identifier: [user_group]
 ```
 
-You can override these settings if you have other content types that should be treated as users/user groups in the Back Office.
-When viewing such Content in the Back Office you will be able to see e.g. the assigned Policies.
+You can override these settings if you have other content types that should be treated as users/user groups in the back office.
+When viewing such content in the back office you're able to see, for example, the assigned policies.
 
 ## Top-level Locations
 
-You can change the default path for top-level Locations such as Content or Media in the Back Office, e.g.:
+You can change the default path for top-level locations such as content or media in the back office, for example:
 
 ```yaml
 ibexa:
@@ -269,8 +263,7 @@ ibexa:
 ## Content Scheduler snapshots
 
 Content Scheduler snapshots speed up the rendering of Content Scheduler blocks and reduce the space used in the database.
-By default, five snapshots are stored, but you can modify this number with the following configuration,
-depending on the complexity of the Content Scheduler blocks:
+By default, five snapshots are stored, but you can modify this number with the following configuration, depending on the complexity of the Content Scheduler blocks:
 
 ``` yaml
 parameters:
@@ -279,14 +272,13 @@ parameters:
 
 ## Repository-aware configuration
 
-In your custom development, you can create Repository-aware configuration settings.
+In your custom development, you can create repository-aware configuration settings.
 
-This enables you to use different settings for different Repositories.
+This enables you to use different settings for different repositories.
 
 !!! tip "SiteAccess-aware configuration"
 
-    If you need to use different settings per SiteAccess, not per Repository,
-    see [SiteAccess-aware configuration](siteaccess_aware_configuration.md).
+    If you need to use different settings per SiteAccess, not per repository, see [SiteAccess-aware configuration](siteaccess_aware_configuration.md).
 
 To do this, create a parser that implements `Ibexa\Bundle\Core\DependencyInjection\Configuration\RepositoryConfigParserInterface`:
 

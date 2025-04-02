@@ -51,7 +51,7 @@ class CreateContentCommand extends Command
         $user = $this->userService->loadUserByLogin('admin');
         $this->permissionResolver->setCurrentUserReference($user);
 
-        $parentLocationId = $input->getArgument('parentLocationId');
+        $parentLocationId = (int) $input->getArgument('parentLocationId');
         $contentTypeIdentifier = $input->getArgument('contentType');
         $name = $input->getArgument('name');
 

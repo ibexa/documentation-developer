@@ -1,7 +1,10 @@
+---
+description: DateMetadata Search Criterion
+---
+
 # DateMetadata Criterion
 
-The [`DateMetadata` Search Criterion](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Criterion-DateMetadata.html)
-searches for content based on the date when it was created or last modified.
+The [`DateMetadata` Search Criterion](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Criterion-DateMetadata.html) searches for content based on the date when it was created or last modified.
 
 ## Arguments
 

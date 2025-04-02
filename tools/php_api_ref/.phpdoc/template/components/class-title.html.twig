@@ -8,6 +8,10 @@
     add_edition: true,
 } %}
     {% block subheader %}
+        {% if node.isAbstract %}
+            <div class="content-header__subheader">Abstract</div>
+        {% endif %}
+
         {% if node.parent %}
             <div class="content-header__subheader">
                 Extends {{ node.parent|route('class:short') }}

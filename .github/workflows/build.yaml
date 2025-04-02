@@ -35,10 +35,17 @@ jobs:
             - name: Run PHP CS Fixer
               run: tools/php-cs-fixer/vendor/bin/php-cs-fixer fix --config=.php-cs-fixer.php -v --show-progress=dots
 
+            - name: Run Prettier
+              run: |
+                    yarn install
+                    yarn prettier-test --write
+                    rm -rf node_modules 
+                    rm yarn.lock
+
             - name: Commit changes
               uses: stefanzweifel/git-auto-commit-action@v4
               with:
-                  commit_message: PHP CS Fixes
+                  commit_message: PHP & JS CS Fixes
 
             - name: Install dependencies
               run: |
@@ -48,6 +55,15 @@ jobs:
             - name: Run build
               run: |
                   mkdocs build --strict
+
+            - name: Verify that there are no variables in generated HTML
+              run: |
+                    # Check for raw MkDocs variables in the generated HTML
+                    if grep -Erl "\[\[=.*=\]\]" site > /dev/null; then
+                        echo "Raw variables detected in the following files:"
+                        grep -Erl "\[\[=.*=\]\]" site
+                        exit 1
+                    fi
 
     vale-check:
         runs-on: ubuntu-latest
@@ -173,10 +189,19 @@ jobs:
             -   name: Convert code_samples usages for comment
                 if: steps.list.outputs.CODE_SAMPLES_CHANGE != '' && steps.diff.outputs.CODE_SAMPLES_DIFF != '0'
                 run: |
-                    echo '# code_samples/ change report' >> code_samples_usage.diff.md
+                    title='# code_samples/ change report'
+                    link='<a href="${{ steps.artifact.outputs.artifact-url }}">Download colorized diff</a>'
+                    echo "$title" > code_samples_usage.diff.md
                     echo '' >> code_samples_usage.diff.md
                     php tools/code_samples/code_samples_usage_diff2html.php $HOME/code_samples_usage.diff >> code_samples_usage.diff.md
-                    echo '<a href="${{ steps.artifact.outputs.artifact-url }}">Download colorized diff</a>' >> code_samples_usage.diff.md
+                    echo "$link" >> code_samples_usage.diff.md
+                    if [[ `wc -m < code_samples_usage.diff.md | xargs` -ge $((2**16)) ]]; then
+                        echo "$title" > code_samples_usage.diff.md
+                        echo '' >> code_samples_usage.diff.md
+                        echo "Report's diff is too long to be displayed in a comment." >> code_samples_usage.diff.md
+                        echo '' >> code_samples_usage.diff.md
+                        echo "$link" >> code_samples_usage.diff.md
+                    fi
             -   name: Find Comment
                 id: find-comment
                 uses: peter-evans/find-comment@v3

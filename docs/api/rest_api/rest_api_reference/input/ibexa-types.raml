@@ -45,7 +45,7 @@ assetMetadata:
     description: 'Asset metadata object. Depending on the provider, it can contain different parameters.'
     properties:
         alternativeText:
-            type: datetime
+            type: string
             description: 'Alternative text for the image asset'
         width:
             type: integer
@@ -2147,6 +2147,44 @@ Session:
             description: 'User.'
             type: BaseObject
 
+SegmentGroupCreate:
+    description: 'This class represents a new segment group to create.'
+    type: object
+    properties:
+        identifier:
+            description: 'A unique string identifier for the segment group.'
+            type: string
+            required: true
+        name:
+            description: 'A name for the segment group.'
+            type: string
+            required: true
+
+SegmentGroupCreateWrapper:
+    description: 'JSON object with only a SegmentGroupCreate property.'
+    type: object
+    properties:
+        SegmentGroupCreate: SegmentGroupCreate
+
+SegmentGroupUpdate:
+    description: 'This class represents an update to an existing segment group.'
+    type: object
+    properties:
+        identifier:
+            description: 'A unique string identifier for the segment group.'
+            type: string
+            required: true
+        name:
+            description: 'A new name for the segment group.'
+            type: string
+            required: true
+
+SegmentGroupUpdateWrapper:
+    description: 'JSON object with only a SegmentGroupUpdate property.'
+    type: object
+    properties:
+        SegmentGroupUpdate: SegmentGroupUpdate
+
 SegmentGroupListWrapper:
     description: 'JSON object with only a SegmentGroupList property.'
     type: object
@@ -2169,9 +2207,15 @@ SegmentGroup:
     description: 'This class represents a segment group.'
     type: BaseObject
     properties:
-        id: integer
-        identifier: string
-        name: string
+        id:
+            description: 'A unique numeric identifier of the segment group.'
+            type: integer
+        identifier:
+            description: 'A unique string identifier of the segment group.'
+            type: string
+        name:
+            description: 'A name of the segment group.'
+            type: string
 
 SegmentListWrapper:
     description: 'JSON object with only a SegmentList property.'
@@ -2195,10 +2239,71 @@ Segment:
     description: 'This class represents a segment.'
     type: BaseObject
     properties:
-        id: integer
-        identifier: string
-        name: string
-        SegmentGroup: SegmentGroup
+        id:
+            description: 'A unique numeric identifier of the segment.'
+            type: integer
+        identifier:
+            description: 'A unique string identifier of the segment.'
+            type: string
+        name:
+            description: 'A name of the segment.'
+            type: string
+        SegmentGroup:
+            description: 'A reference to the segment group to which this segment belongs.'
+            type: object
+            properties:
+                _media-type:
+                    description: 'Media type of the segment group resource.'
+                    type: string
+                _href:
+                    description: 'A URL reference to the segment group resource.'
+                    type: string
+
+SegmentCreate:
+    description: 'This class represents a new segment to create.'
+    type: object
+    properties:
+        identifier:
+            description: 'A unique string identifier for the segment.'
+            type: string
+            required: true
+        name:
+            description: 'A name for the segment.'
+            type: string
+            required: true
+        group:
+            description: 'A string identifier of a segment group to which the segment belongs.'
+            type: string
+            required: true
+
+SegmentCreateWrapper:
+    description: 'JSON object with only a SegmentCreate property.'
+    type: object
+    properties:
+        SegmentCreate: SegmentCreate
+
+SegmentUpdate:
+    description: 'This class represents an update to an existing segment.'
+    type: object
+    properties:
+        identifier:
+            description: 'A unique string identifier for the segment.'
+            type: string
+            required: true
+        name:
+            description: 'A new name for the segment.'
+            type: string
+            required: true
+        group:
+            description: 'A string identifier of a segment group to which the segment belongs.'
+            type: string
+            required: true
+
+SegmentUpdateWrapper:
+    description: 'JSON object with only a SegmentUpdate property.'
+    type: object
+    properties:
+        SegmentCreate: SegmentUpdate
 
 SortClause:
     description: 'This class is the base for SortClause classes, used to set sorting of content queries.'
@@ -3593,7 +3698,7 @@ CartListViewResult:
     type: object
     properties:
         count: integer
-        Result: CartList
+        CartList: CartList
 
 CartList:
     description: 'This class represents a cart list.'
@@ -3613,6 +3718,34 @@ CartMetadataUpdate:
         defaultLanguageCode: string
         names: Value[]
         descriptions: Value[]
+
+CartConstraintViolationListWrapper:
+    description: 'JSON object with only a CartConstraintViolationList property.'
+    type: object
+    properties:
+        CartConstraintViolationList: CartConstraintViolationList
+
+CartConstraintViolationList:
+    description: 'This class represents a list of cart constraint violations.'
+    type: object
+    properties:
+        violations:
+            type: array
+            items: CartConstraintViolation
+
+CartConstraintViolation:
+    description: 'This class represents a cart constraint violation.'
+    type: object
+    properties:
+        code: string
+        propertyPath: string
+        message: string
+
+Token:
+    description: 'This class represents a CSRF token'
+    type: object
+    properties:
+        value: string
 
 CatalogWrapper:
     description: 'JSON object with only a Catalog property.'
@@ -5182,6 +5315,8 @@ OrderList:
     description: 'This class represents an orders list.'
     type: object
     properties:
+        count:
+            type: integer
         Order:
             type: Order[]
 
@@ -5944,6 +6079,202 @@ ActivityLogGroup:
 ActivityLog:
     description: 'This class represents an activity log entry.'
     type: object
+
+GenerateAltTextWrapper:
+    type: object
+    description: 'JSON object with only the GenerateAltText property.'
+    properties:
+        GenerateAltText:
+            type: object
+            description: 'Object containing the input data for the GenerateAltText action type.'
+            properties:
+                Image:
+                    type: object
+                    description: 'Object representing the input image.'
+                    properties:
+                        base64:
+                            type: string
+                            description: 'Base64 encoded image.'
+                RuntimeContext:
+                    type: object
+                    description: 'Additional data passed to the action'
+
+RefineTextWrapper:
+    type: object
+    description: 'JSON object with only the RefineText property.'
+    properties:
+        RefineText:
+            type: object
+            description: 'Encapsulates the text refinement response.'
+            properties:
+                _media-type:
+                    type: string
+                    description: 'Specifies the media type of the RefineText object.'
+                Text:
+                    type: object
+                    description: 'Contains the refined text.'
+                    properties:
+                        _media_type: 
+                            type: string
+                            description: 'Specifies the media type of the text content.'
+                        text: 
+                            type: string[]
+                            description: 'An array of text strings containing the refined text.'
+
+RefineTextInputWrapper:
+    type: object
+    description: 'JSON object with only the RefineText property.'
+    properties:
+        RefineText:
+            type: object
+            description: 'Object containing the text refinement input data.'
+            properties:
+                Text:
+                    type: object
+                    description: 'Contains the text content to be refined.'
+                    properties:
+                        text:
+                            type: string
+                            description: 'The raw text that needs to be refined or processed.'
+        RuntimeContext:
+            type: object
+            description: Additional data passed to the action
+
+AltTextWrapper:
+    type: object
+    description: 'JSON object with only the AltText property.'
+    properties:
+        AltText:
+            type: object
+            description: 'Encapsulates alternative text data.'
+            properties:
+                _media-type:
+                    type: string
+                    description: 'Specifies the media type of the AltText object.'
+                Text:
+                    type: object
+                    description: 'Contains the generated alternative text.'
+                    properties:
+                        _media_type: 
+                            type: string
+                            description: 'Specifies the media type of the text content.'
+                        text: 
+                            type: string[]
+                            description: 'An array of generated alternative text strings.'
+
+ActionTypeListWrapper:
+    type: object
+    description: 'JSON object with only the ActionTypeList property.'
+    properties:
+        ActionTypeList:
+            type: ActionTypeList
+            description: 'Object representing a list of Action Types.'
+
+ActionTypeList:
+    type: BaseObject
+    description: 'Object containing an ActionType property with all the Action Types.'
+    properties:
+        ActionType:
+            type: ActionType[]
+            description: 'Array of ActionType objects.'
+
+ActionType:
+    type: BaseObject
+    propeties:
+        identifier:
+            type: string
+            description: 'Unique identifier for the action type.'
+        name:
+            type: string
+            description: 'Human-readable name of the action type.'
+        inputIdentifier:
+            type: string
+            description: 'Specifies the expected input type of the action.'
+        outputIdentifier:
+            type: string
+            description: 'Specifies the expected output type of the action.'
+        options:
+            type: object
+            description: 'Additional configurable options that define the behavior of the action type.'
+
+ActionConfigurationListInput:
+    type: object
+    description: 'Input parameters for filtering and paginating a list of action configurations.'
+    properties:
+        query:
+            type: string
+            description: 'Search query to filter action configurations by name.'
+        action_type_identifier:
+            type: string
+            description: 'Identifier of the action type to filter configurations.'
+        enabled:
+            type: boolean
+            description: 'Filters action configurations based on their enabled status.'
+        limit:
+            type: integer
+            description: 'Maximum number of action configurations to return.'
+        page:
+            type: integer
+            description: 'Specifies the page number for paginated results.'
+
+ActionConfigurationListInputWrapper:
+    type: object
+    description: 'Wrapper object for ActionConfigurationListInput.'
+    properties:
+        ActionConfigurationListInput:
+            type: ActionConfigurationListInput
+            description: 'Object describing the criteria used to search for Action Configurations.'
+
+ActionConfigurationListWrapper:
+    type: object
+    description: 'Wrapper object for a list of action configurations.'
+    properties:
+        ActionConfigurationList:
+            type: ActionConfigurationList
+            description: 'List of action configurations.'
+
+ActionConfigurationList:
+    type: BaseObject
+    description: 'A collection of action configurations.'
+    properties:
+        ActionConfiguration:
+            type: ActionConfiguration[]
+            description: 'An array of action configurations, each defining a specific action and its settings.'
+
+ActionConfiguration:
+    type: BaseObject
+    properties:
+        identifier:
+            type: string
+            description: 'Unique identifier for the action configuration.'
+        name:
+            type: string
+            description: 'Human-readable name of the action configuration.'
+        description:
+            type: string
+            description: 'Description of the action configuration.'
+        enabled:
+            type: boolean
+            description: 'Indicates whether the action is enabled or disabled.'
+        ActionType:
+            type: ActionType
+            description: 'Defines the type of action being configured, including its input and output.'
+        actionTypeOptions:
+            type: object
+            description: 'Additional options specific to the action type, allowing customization of its behavior.'
+        actionHandlerIdentifier:
+            type: string
+            description: 'Identifier for the handler responsible for executing the action.'
+        ActionHandlerOptions:
+            type: object
+            description: 'Configuration options for the action handler, such as parameters controlling its execution.'
+        createdAt:
+            type: datetime
+            description: 'Timestamp indicating when the action configuration was created.'
+        updatedAt:
+            type: datetime
+            description: 'Timestamp indicating when the action configuration was last updated.'
+
 
 CollaborationSession:
     type: object

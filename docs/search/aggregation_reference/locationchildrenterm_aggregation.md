@@ -1,6 +1,10 @@
+---
+description: LocationChildrenTermAggregation
+---
+
 # LocationChildrenTermAggregation
 
-The [LocationChildrenTermAggregation](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Aggregation-Location-LocationChildrenTermAggregation.html) aggregates search results by the number of children of a Location.
+The [LocationChildrenTermAggregation](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Aggregation-Location-LocationChildrenTermAggregation.html) aggregates search results by the number of children of a location.
 
 ## Arguments
 

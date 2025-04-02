@@ -1,13 +1,15 @@
 ---
 description: Read about the Page Builder - a powerful tool for creating and modifying pages in Ibexa DXP.
 edition: experience
+month_change: true
 ---
 
 # Page Builder product guide
 
 ## What is page
 
-[Page](pages.md) is a block-based type of content. You can create and modify it with a visual drag-and-drop editor - Page Builder.
+[Page](pages.md) is a block-based type of content.
+You can create and modify it with a visual drag-and-drop editor - Page Builder.
 Page is divided into zones into which you can drop various dynamic blocks.
 By editing pages you can customize the layout and content of your website.
 
@@ -29,15 +31,18 @@ To create a new page:
 
 ### Edit page
 
-You can edit any existing page by using Page Builder. To do it, in the Back Office go to **Content** and select **Content structure**.
-Then, from the Content Tree choose the page and click **Edit**.
+You can edit any existing page with the Page Builder.
+To do it, in the back office go to **Content** and select **Content structure**.
+Then, from the content tree choose the page and click **Edit**.
+
+<!--ARCADE EMBED START--><div style="position: relative; padding-bottom: calc(51.27314814814815% + 41px); height: 0; width: 100%;"><iframe src="https://demo.arcade.software/d4T5EgOwz6bri2Zgy53M?embed&embed_mobile=tab&embed_desktop=inline&show_copy_link=true" title="Edit existing page" frameborder="0" loading="lazy" webkitallowfullscreen mozallowfullscreen allowfullscreen allow="clipboard-write" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; color-scheme: light;" ></iframe></div><!--ARCADE EMBED END-->
 
 ## What is Page Builder
 
 Page Builder is a visual tool that allows you to create and edit any page in [[= product_name =]].
-It is more than managing: it is about building pages, creating customized content and fully-targeted landing pages.
-Creating pages in Page Builder involves composing content using ready-to-use elements - blocks, properly configured and customized.
-It is also important to choose a layout - it determines the arrangement of drop zones that contain content elements.
+It's more than managing: it's about building pages, creating customized content and fully-targeted landing pages.
+Creating pages in Page Builder involves composing content from ready-to-use elements - blocks, properly configured and customized.
+It's also important to choose a layout - it determines the arrangement of drop zones that contain content elements.
 
 ![Page Builder - diagram](page_builder_diagram.png)
 
@@ -67,11 +72,11 @@ E. Buttons:
 
 |Button|Description|
 |------|-----------|
-|![Edit and preview switch](page_builder_toolbar_editpreview.png)|Access main properties of the Page, like title and description.|
-|![Preview segments](page_builder_toolbar_preview_segment.png)|Access preview of the Page for a given Segment.|
-|![Timeline button](page_builder_toolbartimelinetoggler.png)|Access the timeline to preview how the Page changes with time. You can also view the list of all upcoming scheduled events.|
-|![View toggler](page_builder_toolbar_devicestoggler.png)|Toggle through to see how the Page is rendered on different devices.|
-|![Elements menu](page_builder_toolbarelements.png)|Move Page blocks / Structure view to the other side of the screen.|
+|![Edit and preview switch](page_builder_toolbar_editpreview.png)|Access main properties of the page, like title and description.|
+|![Preview segments](page_builder_toolbar_preview_segment.png)|Access preview of the page for a given segment.|
+|![Timeline button](page_builder_toolbartimelinetoggler.png)|Access the timeline to preview how the page changes with time. You can also view the list of all upcoming scheduled events.|
+|![View toggler](page_builder_toolbar_devicestoggler.png)|Toggle through to see how the page is rendered on different devices.|
+|![Page blocks menu](page_builder_toolbarelements.png)|Move Page blocks / Structure view to the other side of the screen.|
 |![Undo](page_builder_undo.png)|Undo latest change.|
 |![Redo](page_builder_redo.png)|Redo latest change.|
 
@@ -85,7 +90,9 @@ F. Saving options
 |Save draft|Save the page draft*.|
 |Delete draft|Delete the page draft.|
 
-*To help you preserve your work, system saves drafts of content items automatically. For more information, see [Autosave]([[= user_doc =]]/content_management/content_versions/#autosave).
+*To help you preserve your work, system saves drafts of content items automatically.
+
+For more information, see [Autosave]([[= user_doc =]]/content_management/content_versions/#autosave).
 
 Page Builder has two main views that you can use while creating a page:
 
@@ -93,9 +100,13 @@ Page Builder has two main views that you can use while creating a page:
 
 ![Page blocks](page_blocks_toolbar.png)
 
-- Structure view - shows a structure of the page, including its division into zones and the blocks that it contains. It follows the behavior of the Content Tree. Structure view has ability to reorder blocks using drag and drop.
+- Structure view - shows a structure of the page, including its division into zones and the blocks that it contains.
+It follows the behavior of the content tree.
+Structure view has ability to reorder blocks using drag and drop.
 
 ![Structure view](structure_view.png)
+
+<!--ARCADE EMBED START--><div style="position: relative; padding-bottom: calc(51.27314814814815% + 41px); height: 0; width: 100%;"><iframe src="https://demo.arcade.software/kbdnGkdrkXL2VAJW6c3O?embed&embed_mobile=tab&embed_desktop=inline&show_copy_link=true" title="Page Builder interface" frameborder="0" loading="lazy" webkitallowfullscreen mozallowfullscreen allowfullscreen allow="clipboard-write" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; color-scheme: light;" ></iframe></div><!--ARCADE EMBED END-->
 
 ##### Choose layout
 
@@ -104,7 +115,7 @@ For newly created Page you can choose a [layout]([[= user_doc =]]/content_manage
 Applying a layout divides the Page into the defined zones. The zones are placeholders for content items.
 
 On the Page creation modal, select the layout and click **Create draft**.
-Now you are ready to add blocks of content to the Page.
+Now you're ready to add blocks of content to the Page.
 
 The page layouts that an editor has access to are up to you to choose.
 In the `Select layouts` section, you can select layouts that you want to be available for the Page.
@@ -112,6 +123,7 @@ In the `Select layouts` section, you can select layouts that you want to be avai
 ![Switch layout](switch_layout_window.png)
 
 The default, built-in Page layout has only one zone, but developers can create other layouts in configuration.
+
 For more information, see [Configure layout](render_page.md#configure-layout).
 
 #### Add blocks
@@ -157,7 +169,7 @@ While configuring blocks that include Rich Text section, for example, Text block
 
 ![Distraction free mode](distraction_free_mode.png)
 
-For more information, see [Distraction free mode]([[= user_doc =]]/content_management/create_edit_content_items/#distraction-free-mode/).
+For more information, see [Distraction free mode]([[= user_doc =]]/content_management/create_edit_content_items/#distraction-free-mode).
 
 #### Schedule content
 
@@ -201,9 +213,9 @@ Additionaly, Page Builder offers you a selection of ready-to-use page blocks tha
 
 A. **Default** blocks:
 
-- Dynamic targeting - embeds recommended items based on the Segment the user belongs to.
+- Dynamic targeting - embeds recommended items based on the segment the user belongs to.
 - Personalized - displays a list of content items/products that are recommended to end users when specific scenarios are triggered.
-- Targeting - embeds a content item based on the Segment the user belongs to.
+- Targeting - embeds a content item based on the segment the user belongs to.
 
 B. **PIM** blocks:
 

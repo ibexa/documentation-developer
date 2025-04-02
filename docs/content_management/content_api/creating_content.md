@@ -6,7 +6,7 @@ description: Create, publish, update and translate content items by using the PH
 
 !!! note
 
-    Creating most objects will be impossible for an anonymous user.
+    Creating most objects is impossible for an anonymous user.
     Make sure to [authenticate](php_api.md#setting-the-repository-user) as a user with sufficient permissions.
 
 !!! tip "Content REST API"
@@ -17,54 +17,53 @@ description: Create, publish, update and translate content items by using the PH
 
 Value objects such as content items are read-only, so to create or modify them you need to use structs.
 
-[`ContentService::newContentCreateStruct`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-ContentService.html#method_newContentCreateStruct)
-returns a new [`ContentCreateStruct`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-ContentCreateStruct.html) object.
+[`ContentService::newContentCreateStruct`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-ContentService.html#method_newContentCreateStruct)
+returns a new [`ContentCreateStruct`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-ContentCreateStruct.html) object.
 
 ``` php hl_lines="2-3 5"
 [[= include_file('code_samples/api/public_php_api/src/Command/CreateContentCommand.php', 57, 66) =]]
 ```
 
-This command creates a draft using [`ContentService::createContent`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-ContentService.html#method_createContent) (line 7).
-This method must receive a `ContentCreateStruct` and an array of Location structs.
+This command creates a draft using [`ContentService::createContent`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-ContentService.html#method_createContent) (line 7).
+This method must receive a `ContentCreateStruct` and an array of location structs.
 
-`ContentCreateStruct` (which extends `ContentStruct`) is created through [`ContentService::newContentCreateStruct`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-ContentService.html#method_newContentCreateStruct) (line 2),
+`ContentCreateStruct` (which extends `ContentStruct`) is created through [`ContentService::newContentCreateStruct`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-ContentService.html#method_newContentCreateStruct) (line 2),
 which receives the content type and the primary language for the content item.
 For information about translating a content item into other languages, see [Translating content](#translating-content).
 
-[`ContentStruct::setField`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-ContentStruct.html#method_setField) (line 3) enables you to define the Field values.
-When the Field accepts a simple value, you can provide it directly, as in the example above.
-For some Field Types, for example [images](#creating-an-image), you need to provide an instance of a Value type.
+[`ContentStruct::setField`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-ContentStruct.html#method_setField) (line 3) enables you to define the field values.
+When the field accepts a simple value, you can provide it directly, as in the example above.
+For some field types, for example [images](#creating-an-image), you need to provide an instance of a Value type.
 
 ### Creating an image
 
-Image Field Type requires an instance of its Value type, which you must provide to the [`ContentStruct::setField`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-ContentStruct.html#method_setField) method.
-Therefore, when creating a content item of the Image type (or any other content type with an `image` Field Type),
+Image field type requires an instance of its Value type, which you must provide to the [`ContentStruct::setField`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-ContentStruct.html#method_setField) method.
+Therefore, when creating a content item of the Image type (or any other content type with an `image` field type),
 the `ContentCreateStruct` is slightly more complex than in the previous example:
 
 ``` php
 [[= include_file('code_samples/api/public_php_api/src/Command/CreateImageCommand.php', 56, 69) =]]
 ```
 
-Value of the Image Field Type contains the path to the image file, as well as other basic information
-based on the input file.
+Value of the Image field type contains the path to the image file and other basic information based on the input file.
 
 ### Creating content with RichText
 
-The RichText Field accepts values in a custom flavor of [Docbook](https://github.com/docbook/wiki/wiki) format.
-For example, to add a simple RichText paragraph, provide the following as input:
+The RichText field accepts values in a custom flavor of [Docbook](https://github.com/docbook/wiki/wiki) format.
+For example, to add a RichText paragraph, provide the following as input:
 
 ``` xml
 <section xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:ezxhtml="http://ibexa.co/xmlns/dxp/docbook/xhtml" xmlns:ezcustom="http://ibexa.co/xmlns/dxp/docbook/custom" version="5.0-variant ezpublish-1.0"><para>Description of your content item.</para></section>
 ```
 
 To learn more about the format and how it represents different elements of rich text, see
-[RichText Field Type reference](richtextfield.md#custom-docbook-format).
+[RichText field type reference](richtextfield.md#custom-docbook-format).
 
 ## Publishing a draft
 
-[`ContentService::createContent`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-ContentService.html#method_createContent) creates a content item with only one draft version.
-To publish it, use [`ContentService::publishVersion`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-ContentService.html#method_publishVersion).
-This method must get the [`VersionInfo`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-VersionInfo.html) object of a draft version.
+[`ContentService::createContent`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-ContentService.html#method_createContent) creates a content item with only one draft version.
+To publish it, use [`ContentService::publishVersion`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-ContentService.html#method_publishVersion).
+This method must get the [`VersionInfo`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-VersionInfo.html) object of a draft version.
 
 ``` php
 [[= include_file('code_samples/api/public_php_api/src/Command/CreateContentCommand.php', 68, 69) =]]
@@ -72,9 +71,9 @@ This method must get the [`VersionInfo`](../../api/php_api/php_api_reference/cla
 
 ## Updating content
 
-To update an existing content item, you need to prepare a [`ContentUpdateStruct`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-ContentUpdateStruct.html)
-and pass it to [`ContentService::updateContent`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-ContentService.html#method_updateContent).
-This method works on a draft, so to publish your changes you need to use [`ContentService::publishVersion`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-ContentService.html#method_publishVersion) as well:
+To update an existing content item, you need to prepare a [`ContentUpdateStruct`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-ContentUpdateStruct.html)
+and pass it to [`ContentService::updateContent`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-ContentService.html#method_updateContent).
+This method works on a draft, so to publish your changes you need to use [`ContentService::publishVersion`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-ContentService.html#method_publishVersion) as well:
 
 ``` php
 [[= include_file('code_samples/api/public_php_api/src/Command/UpdateContentCommand.php', 47, 55) =]]
@@ -100,7 +99,7 @@ Only one language can still be set as a version's initial language:
 
 ### Deleting a translation
 
-You can delete a single translation from a content item's version using [`ContentService::deleteTranslationFromDraft`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-ContentService.html#method_deleteTranslationFromDraft).
+You can delete a single translation from a content item's version using [`ContentService::deleteTranslationFromDraft`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-ContentService.html#method_deleteTranslationFromDraft).
 The method must be provided with a `VersionInfo` object and the code of the language to delete:
 
 ``` php

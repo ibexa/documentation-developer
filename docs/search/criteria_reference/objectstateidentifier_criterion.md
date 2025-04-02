@@ -1,12 +1,15 @@
+---
+description: ObjectStateIdentifier Search Criterion
+---
+
 # ObjectStateIdentifier Criterion
 
-The [`ObjectStateIdentifier` Search Criterion](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Criterion-ObjectStateId.html)
-searches for content based on its Object State identifier.
+The [`ObjectStateIdentifier` Search Criterion](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Criterion-ObjectStateId.html) searches for content based on its object state identifier.
 
 ## Arguments
 
-- `value` - string(s) representing the Object State identifier(s)
-- `target` (optional for PHP)  - string representing the Object State group
+- `value` - string(s) representing the object state identifier(s)
+- `target` (optional for PHP)  - string representing the object state group
 
 ## Example
 
@@ -33,7 +36,7 @@ $query->query = new Criterion\ObjectStateIdentifier(['not_locked'], 'ez_lock');
             </ObjectStateIdentifierCriterion>
         </Filter>
     </Query>
-    ``` 
+    ```
 
 === "JSON"
 

@@ -25,7 +25,8 @@ ibexa:
 
 `ibexa.siteaccess.match` can contain multiple matchers.
 
-The first matcher succeeding always wins, so be careful when using catch-all matchers like `URIElement`. In the following example, `Compound\LogicalAnd` is placed before the `Map\Host` for `my.site/corporate` to be reachable:
+The first matcher succeeding always wins, so be careful when using catch-all matchers like `URIElement`.
+In the following example, `Compound\LogicalAnd` is placed before the `Map\Host` for `my.site/corporate` to be reachable:
 
 ```yaml
 ibexa:
@@ -43,11 +44,9 @@ ibexa:
                 my.site: mysite
 ```
 
-If the matcher class does not start with a backslash (`\`), it is relative to `Ibexa\Core\MVC\Symfony\SiteAccess\Matcher`
-(for example, `Map\URI` refers to `Ibexa\Core\MVC\Symfony\SiteAccess\Matcher\Map\URI`)
+If the matcher class doesn't start with a backslash (`\`), it's relative to `Ibexa\Core\MVC\Symfony\SiteAccess\Matcher` (for example, `Map\URI` refers to `Ibexa\Core\MVC\Symfony\SiteAccess\Matcher\Map\URI`)
 
-You can specify [custom matchers](#custom-matchers) by using a fully qualified class name (e.g. `\My\SiteAccess\Matcher`)
-or a service identifier (e.g. `@my_matcher_service`).
+You can specify [custom matchers](#custom-matchers) by using a fully qualified class name (for example, `\My\SiteAccess\Matcher`) or a service identifier (for example, `@my_matcher_service`).
 In the case of a fully qualified class name, the matching configuration is passed in the constructor.
 In the case of a service, it must implement `Ibexa\Bundle\Core\SiteAccess\Matcher`.
 The matching configuration is passed to `setMatchingConfiguration()`.
@@ -150,8 +149,7 @@ Example host name `www.page.com` matches SiteAccess `event`.
 
 !!! note
 
-    If you encounter problems with the `Map\Host` matcher, make sure that your installation is
-    [properly configured to use token-based authentication](ez_platform_v2.4.md#update-ez-enterprise-v24-to-v242).
+    If you encounter problems with the `Map\Host` matcher, make sure that your installation is [properly configured to use token-based authentication](ez_platform_v2.4.md#update-ez-enterprise-v24-to-v242).
 
 ### `Map\URI`
 
@@ -190,7 +188,7 @@ Example URL `http://my_site.com:8080/content` matches SiteAccess `site`.
 ### `Ibexa\SiteFactory\SiteAccessMatcher` [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
 
 Enables the use of [Site Factory](site_factory.md).
-Does not take any parameters in configuration:
+Doesn't take any parameters in configuration:
 
 ``` yaml
 ibexa:
@@ -214,9 +212,7 @@ ibexa:
             '@App\Matcher\MySiteaccessMatcher': ~
 ```
 
-The service must be tagged with `ibexa.site_access.matcher`
-and must implement `Ibexa\Bundle\Core\SiteAccess\Matcher`
-(and `Ibexa\Core\MVC\Symfony\SiteAccess\VersatileMatcher` if you want to use compound logical matchers).
+The service must be tagged with `ibexa.site_access.matcher` and must implement `Ibexa\Bundle\Core\SiteAccess\Matcher` (and `Ibexa\Core\MVC\Symfony\SiteAccess\VersatileMatcher` if you want to use compound logical matchers).
 
 ## Combining SiteAccess matchers
 
@@ -294,7 +290,7 @@ You can define this environment variable directly in web server configuration:
 !!! tip
 
     You can configure the variable by using the PHP-FPM configuration file.
-    See [PHP-FPM documentation](https://www.php.net/manual/en/install.fpm.configuration.php#example-25) for more information.
+    For more information, see [PHP-FPM documentation](https://www.php.net/manual/en/install.fpm.configuration.php).
 
 !!! note "Precedence"
 
