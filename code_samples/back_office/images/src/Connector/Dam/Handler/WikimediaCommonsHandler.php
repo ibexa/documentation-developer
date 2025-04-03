@@ -52,17 +52,17 @@ class WikimediaCommonsHandler implements HandlerInterface
 
         $jsonResponse = file_get_contents($metadataUrl);
         if ($jsonResponse === false) {
-            throw new \RuntimeException('TODO: Couldn\'t retrieve asset metadata');
+            throw new \RuntimeException('Couldn\'t retrieve asset metadata');
         }
 
         $response = json_decode($jsonResponse, true);
         if (!isset($response['query']['pages'])) {
-            throw new \RuntimeException('TODO');
+            throw new \RuntimeException('Couldn\'t parse asset metadata');
         }
 
         $pageData = array_values($response['query']['pages'])[0] ?? null;
         if (!isset($pageData['imageinfo'][0]['extmetadata'])) {
-            throw new \RuntimeException('TODO');
+            throw new \RuntimeException('Couldn\'t parse image asset metadata');
         }
 
         $imageInfo = $pageData['imageinfo'][0]['extmetadata'];
