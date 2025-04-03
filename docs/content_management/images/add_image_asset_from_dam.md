@@ -184,7 +184,7 @@ Then, register the template and a fallback template in configuration files
 
 In the back office, an image asset field is displayed followed by a table of metadata.
 
-As some new specific ones are used in this example, some new translation are needed.
+As some new specific ones are used in this example, some new translations are needed.
 
 ```yaml
 [[= include_file('code_samples/back_office/images/translations/ibexa_fieldtypes_preview.en.yaml') =]]
