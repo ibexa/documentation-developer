@@ -110,6 +110,8 @@ Then, in `config\services.yaml`, register the handler as a service:
 [[= include_file('code_samples/back_office/images/config/services.yaml', 9, 12) =]]
 ```
 
+Notice the `source` parameter passed in the tag, this is the identifier of this new DAM connector and it will be used in other places to glue elements together.
+
 ### Create transformation factory
 
 The transformation factory maps [[= product_name =]]'s image variations to corresponding variations from Wikimedia Commons.
@@ -193,7 +195,7 @@ As some new specific ones are used in this example, some new translations are ne
 
 ### Add Wikimedia Commons connection to DAM configuration
 
-You can now configure a connection with Wikimedia Commons under the `ibexa.system.<scope>.content.dam` key:
+You can now configure a connection with Wikimedia Commons under the `ibexa.system.<scope>.content.dam` key using the source identifier `commons`:
 
 ```yaml
 ibexa:
