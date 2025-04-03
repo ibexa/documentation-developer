@@ -11,7 +11,7 @@ class WikimediaCommonsTransformationFactory implements TransformationFactoryInte
     public function build(?string $transformationName = null, array $transformationParameters = []): Transformation
     {
         if (null === $transformationName) {
-            return new Transformation(null, $transformationParameters);
+            return new Transformation(null, array_map('strval', $transformationParameters));
         }
 
         $transformations = $this->buildAll();
