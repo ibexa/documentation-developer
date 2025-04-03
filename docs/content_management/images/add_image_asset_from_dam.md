@@ -114,7 +114,8 @@ Then, in `config\services.yaml`, register the handler as a service:
 
 The transformation factory maps [[= product_name =]]'s image variations to corresponding variations from Wikimedia Commons.
 
-In `src\Connector\Dam\Transformation` folder, create the `WikimediaCommonsTransformationFactory.php` file that resembles the following example:
+In `src\Connector\Dam\Transformation` folder, create the `WikimediaCommonsTransformationFactory.php` file that resembles the following example
+implementing the [`TransformationFactory` interface](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Connector-Dam-Variation-TransformationFactory.html):
 
 ```php
 [[= include_file('code_samples/back_office/images/src/Connector/Dam/Transformation/WikimediaCommonsTransformationFactory.php') =]]
@@ -131,7 +132,7 @@ Then register the transformation factory as a service:
 The variation generator applies map parameters coming from the transformation factory to build a fetch request to the DAM.
 The solution uses the built-in `URLBasedVariationGenerator` class, which adds all the map elements as query parameters to the request.
 
-For example, the handler generates the following URL with `new AssetUri()`:
+For example, the handler generates the following URL with [`new AssetUri()`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Connector-Dam-AssetUri.html#method___construct):
 
 `https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Ibexa_Logo.svg`
 
