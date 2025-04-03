@@ -97,7 +97,7 @@ To extend the DAM support built into [[= product_name =]], you must create a cus
 This class handles searching through Wikimedia Commons for images and fetching image assets.
 
 In `src\Connector\Dam\Handler` folder, create the `WikimediaCommonsHandler.php` file that resembles the following example,
-which implements [`search()`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Connector-Dam-Handler-Handler.html#method_search)  to query the server
+which implements [`search()`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Connector-Dam-Handler-Handler.html#method_search) to query the server
 and [`fetchAsset()`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Connector-Dam-Handler-Handler.html#method_fetchAsset) to return asset objects:
 
 ```php
