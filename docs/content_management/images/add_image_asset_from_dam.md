@@ -110,7 +110,7 @@ Then, in `config\services.yaml`, register the handler as a service:
 [[= include_file('code_samples/back_office/images/config/services.yaml', 9, 12) =]]
 ```
 
-Notice the `source` parameter passed in the tag, this is the identifier of this new DAM connector and it will be used in other places to glue elements together.
+Notice the `source` parameter passed in the tag, this is the identifier of this new DAM connector and is used in other places to glue elements together.
 
 ### Create transformation factory
 
