@@ -40,11 +40,15 @@ OPENAI_API_KEY=sk-svcacct-AFCrCt1h2s3i4s5i6s7t8h9e0a1p2i3c4o5d6e
 
 First, get the credentials by contacting [Ibexa Support](https://support.ibexa.co).
 
+### Create team
+
 In [[= product_name_connect =]], set up the account, and [create a team](https://doc.ibexa.co/projects/connect/en/latest/access_management/teams/#creating-teams).
 Navigate to the team details page and note down the numerical value of the **Team id** variable.
 
 Creating a team matters, because [scenarios](https://doc.ibexa.co/projects/connect/en/latest/scenarios/creating_a_scenario/) that process data coming from your AI action are associated with a team.
-This way, if your organization has more than one application, each application can be linked to a different team and so can be scenarios coming from those applications. 
+This way, if your organization has more than one application, each application can be linked to a different team and so can be scenarios coming from those applications.
+
+If specific users from the team are supposed to modify scenario settings, you must [assign the right roles](https://doc.ibexa.co/projects/connect/en/latest/access_management/teams/#managing-teams) to them.
 
 #### Create token
 
