@@ -11,7 +11,11 @@ This page contains recent highlights and notable changes in [[= product_name =]]
 
 ### Release notes
 
-- New [Release notes page](https://doc.ibexa.co/en/latest/release_notes/ibexa_dxp_v4.6/) implemented
+- Redesigned [Release notes page](https://doc.ibexa.co/en/latest/release_notes/ibexa_dxp_v4.6/) now includes filters to easily sort by product edition or LTS update type, while the updated documentation homepage provides quick access to essential details, showcasing changes introduced in the latest patch and LTS Updates releases
+
+### Requirements update
+
+- Updated [requirements](https://doc.ibexa.co/en/latest/getting_started/requirements/#operating-system) for [[= product_name =]]: RHEL 9.5 and CentOS Stream 9 are now supported for v4.6
 
 ### AI Actions
 
@@ -21,11 +25,11 @@ This page contains recent highlights and notable changes in [[= product_name =]]
 
 ### Online Editor
 
-- Added example in the Online Editor documentation showing how to [add characters and shortcuts for specific characters to the SpecialCharacters plugin in CKEditor configuration](https://doc.ibexa.co/en/latest/content_management/rich_text/extend_online_editor/#change-ckeditor-configuration)
+- Added an example in the Online Editor documentation showing how to [add characters and shortcuts for specific characters to the SpecialCharacters plugin in CKEditor configuration](https://doc.ibexa.co/en/latest/content_management/rich_text/extend_online_editor/#change-ckeditor-configuration)
 
 ### Templating
 
-- Updated description of the [`ibexa_render`](https://doc.ibexa.co/en/latest/templating/twig_function_reference/content_twig_functions/#content-rendering) Twig function to mention its support for objects implementing the [`ContentAwareInterface`](https://doc.ibexa.co/en/latest/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-ContentAwareInterface.html) as argument
+- Updated a description of the [`ibexa_render`](https://doc.ibexa.co/en/latest/templating/twig_function_reference/content_twig_functions/#content-rendering) Twig function to mention its support for objects implementing the [`ContentAwareInterface`](https://doc.ibexa.co/en/latest/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-ContentAwareInterface.html) as argument
 
 ## February 2025
 
