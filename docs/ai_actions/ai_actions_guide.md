@@ -12,7 +12,11 @@ Wherever you look, artificial intelligence becomes more and more important by en
 AI Actions is an extensible solution for integrating features provided by AI services into your workflows, all managed through a user-friendly interface.
 
 Out-of-the-box, AI Actions solution includes two essential components: a framework package and an OpenAI connector package.
-It comes pre-configured with the following action types:
+
+As of version v4.6.19, AI Actions can integrate with [[[= product_name_connect =]]](https://doc.ibexa.co/projects/connect/en/latest/general/ibexa_connect/), to give you an opportunity to build complex data transformation workflows without having to rely on custom code.
+From the developer's perspective, the integration removes the burden of maintaining third-party AI handlers, and accelerates the deployment of AI-based solutions.
+
+AI Actions solution comes pre-configured with the following action types:
 
 - [Refine text](#refining-text): Rewrite existing text according to instructions set in a prompt
 - [Generate alternative text](#generating-alternative-text): Generate alt text for images for accessibility purposes
@@ -26,20 +30,28 @@ The possibilities are endless and you're not limited to a specific AI service, a
 ## Availability
 
 AI Actions are an opt-in capability available as an [LTS update](editions.md#lts-updates) starting with the v4.6.12 version of [[= product_name =]], regardless of its edition.
+[[= product_name_connect =]] integration is available starting with v4.6.19.
 To begin using AI Actions, you must first [install the required packages and perform initial configuration](install_ai_actions.md).
 
-!!! note "API Key"
+### Prerequisites
 
-    The OpenAI connector requires that you first [get an API key](https://help.openai.com/en/articles/4936850-where-do-i-find-my-openai-api-key) and make sure that you [set up a billing method](https://help.openai.com/en/articles/9038407-how-can-i-set-up-billing-for-my-account).
+The OpenAI connector requires that you first [get an API key](https://help.openai.com/en/articles/4936850-where-do-i-find-my-openai-api-key) and make sure that you [set up a billing method](https://help.openai.com/en/articles/9038407-how-can-i-set-up-billing-for-my-account).
+
+Integration with [[= product_name_connect =]] requires that you first [get the credentials](https://doc.ibexa.co/projects/connect/en/latest/general/ibexa_connect/#access-ibexa-connect) to your account, and the [API token](install_ai_actions.md#token).
+
+!!! note "[[= product_name_connect =]] Availability"
+
+    [[= product_name_connect =]] comes with all contracts signed from 2023.
+    If you signed your contract earlier, contact your customer success manager to use [[= product_name_connect =]].
 
 ## How it works
 
 AI Actions LTS update relies on an extensible AI framework, which is responsible for gathering information from various sources, such as AI action types, AI action configurations, and contextual details like SiteAccess, user details, locale settings, and more.
 This data can then be combined with user input.
-It's then passed to a service connector, such as the default OpenAI connector, for final processing on [[= product_name =]] side.
-The service connector wraps all data into a prompt or another suitable format and sends it to an external AI service.
+It's then passed to a service connector, such as the default OpenAI connector or the [[= product_name_connect =]] connector, for final processing on [[= product_name =]] side.
+The service connector wraps all data into a prompt or another suitable format and sends it to an external service.
 
-When the AI Service returns a response, the response goes back through the service connector and passes to the framework.
+When the external service returns a response, the response goes back through the service connector and passes to the framework.
 It can then be presented to the user in any way necessary.
 
 ### Core concepts
@@ -147,3 +159,10 @@ Once the feature is configured, editors can generate alt text for images they up
 ![Alt text generation](img/alt_text_use_ai.png)
 
 With some customization, administrators could use the API to run a batch process against a larger collection of illustrations.
+
+### Performing advanced image to text analysis
+
+With some additional customization, store managers could benefit from automating part of product management by integrating their [[= product_name =]] with Google Cloud Vision and [PIM](pim_guide.md) by using [[= product_name_connect =]].
+Instead of manually selecting and linking images stored in a [DAM](add_image_asset_from_dam.md) solution to their products, they could use of a no-code workflow where an AI service, for example, Google Cloud Vision, extracts text and attributes from product images, which are then matched with existing items in a product catalog.
+
+This would enable automatic product identification, tagging, and catalog updates, resulting in less manual work and more efficient product management.

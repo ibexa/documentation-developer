@@ -36,6 +36,62 @@ OPENAI_API_KEY=sk-svcacct-AFCrCt1h2s3i4s5i6s7t8h9e0a1p2i3c4o5d6e
 ###< ibexa/connector-openai ###
 ```
 
+### Configure access to [[= product_name_connect =]]
+
+First, get the credentials by contacting [Ibexa Support](https://support.ibexa.co).
+
+In [[= product_name_connect =]], set up the account, and [create a team](https://doc.ibexa.co/projects/connect/en/latest/access_management/teams/#creating-teams).
+Navigate to the team details page and note down the numerical value of the **Team id** variable.
+
+Creating a team matters, because [scenarios](https://doc.ibexa.co/projects/connect/en/latest/scenarios/creating_a_scenario/) that process data coming from your AI action are associated with a team.
+This way, if your organization has more than one application, each application can be linked to a different team and so can be scenarios coming from those applications. 
+
+#### Create token
+
+Navigate to your [[= product_name_connect =]] user's profile, and on the **API ACCESS** tab, create a new token.
+Copy the token code that appears next to the label.
+
+![Creating an API token](img/connect_api_token.png)
+
+#### Set up credentials
+
+In the root folder of your project, modify the `.env` file.
+Replace a placeholder value of the `IBEXA_CONNECT_TOKEN` variable with the token that you got from [[= product_name_connect =]] and provide a value of the `IBEXA_CONNECT_TEAM_ID` variable.
+
+```bash
+###> ibexa/connect ###
+IBEXA_CONNECT_HOST=https://connect.ibexa.co
+IBEXA_CONNECT_API_PATH=/api/v2/
+# Token can be created in the user's profile in Ibexa Connect, under the 'API ACCESS' section.
+IBEXA_CONNECT_TOKEN=0eeecdef-4499-4ce5-bac2-a0p8i5k7e8y3
+# Use the URL below to read more on Ibexa Connect teams.
+# https://doc.ibexa.co/projects/connect/en/latest/access_management/teams/
+IBEXA_CONNECT_TEAM_ID=2
+###< ibexa/connect ###
+```
+
+#### Initiate integration
+
+Initiate each of the models provided by the handler by issuing the `php bin/console ibexa:connect:init-connect-ai <team_id> <language> <model>` command.
+
+For example:
+
+`php bin/console ibexa:connect:init-connect-ai 2 en connect-image-to-text`
+
+or
+
+`php bin/console ibexa:connect:init-connect-ai 2 fr connect-text-to-text`
+
+!!! note "Support for multiple languages"
+
+    You repeat this step for each of the languages that you want to be supported.
+
+#### Customize templates 
+
+Return to the [[= product_name_connect =]] dashboard and modify the **Template for connect...handler** [templates](https://doc.ibexa.co/projects/connect/en/latest/scenarios/scenario_templates/) by defining the logic needed to process the data.
+
+Once the templates are ready, you can build scenarios from them, either directly in [[= product_name_connect =]] or in [[[= product_name =]]'s user interface]([[= user_doc =]]/ai_actions/work_with_ai_actions/#create-new-ai-actions).
+
 ### Modify the database schema
 
 Create the `add_ai_actions.sql` file that contains the following code.
