@@ -293,3 +293,24 @@ There are no additional update steps to execute.
 ## v4.6.18
 
 No additional steps needed.
+
+[[% include 'snippets/update/notify_support.md' %]]
+
+With the product updated to the latest version, you can now finish the update process or proceed with updating the LTS Updates packages.
+
+## LTS Updates
+
+[LTS Updates](editions.md#lts-updates) are standalone packages with their own update procedures. 
+To use the [latest features](ibexa_dxp_v4.6.md) added to them, update them separately with the following steps:
+
+=== "AI actions"
+
+    ```bash
+    composer require ibexa/connector-ai:[[= latest_tag_4_6 =]] ibexa/connector-openai:[[= latest_tag_4_6 =]]
+    ```
+
+=== "Date and time attribute"
+
+    ```bash
+    composer require ibexa/product-catalog-date-time-attribute[[= latest_tag_4_6 =]]
+    ```
