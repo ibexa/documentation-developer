@@ -1,5 +1,6 @@
 ---
 description: Events that are triggered when working with carts.
+edition: commerce
 page_type: reference
 ---
 
