@@ -300,7 +300,7 @@ With the product updated to the latest version, you can now finish the update pr
 
 ## LTS Updates
 
-[LTS Updates](editions.md#lts-updates) are standalone packages with their own update procedures. 
+[LTS Updates](editions.md#lts-updates) are standalone packages with their own update procedures.
 To use the [latest features](ibexa_dxp_v4.6.md) added to them, update them separately with the following steps:
 
 === "AI actions"
