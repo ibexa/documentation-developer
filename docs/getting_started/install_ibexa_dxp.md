@@ -60,7 +60,7 @@ composer -V
 The site is password-protected.
 You must set up authentication tokens to access the site.
 
-Log in to your service portal on [support.ibexa.co](https://support.ibexa.co/), go to your **Service Portal**, and look for the following on the **Maintenance and Support agreement details** screen:
+Log in to your Service portal on [support.ibexa.co](https://support.ibexa.co/), go to your **Service Portal**, and look for the following on the **Maintenance and Support agreement details** screen:
 
 ![Authentication token](using_composer_auth_token.png)
 
@@ -93,7 +93,7 @@ This allows you to revoke access later.
 After this, when running Composer to get updates, you're asked for a username and password.
 Use:
 
-- as username - your Installation key found on the **Maintenance and Support agreement details** page in the service portal
+- as username - your Installation key found on the **Maintenance and Support agreement details** page in the Service portal
 - as password - the token password you retrieved in step 3 above
 
 !!! note "Authentication token validation delay"
