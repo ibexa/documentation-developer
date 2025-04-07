@@ -198,6 +198,26 @@ This limit is enforced on publishing a new version and only covers archived vers
     In Legacy storage engine you can see performance degradation if you store too many versions.
     The default value of 5 is the recommended value, but the less content you have overall, the more you can increase this to, for instance, 25 or even 50.
 
+### Grace period for archived versions
+
+After a new version of a content is published, for a period of time the previous version (now archived) can still be loaded using the same permission set as the published version.
+
+This period is called the grace period and it prevents race conditions that can occur when a new version is published in parallel to someone accessing the content item.
+
+The duration can be configured using the `grace_period_in_seconds` setting.
+After a version has been archived for longer than specified in the configuration, the grace period ends and the version is treated as all archived versions, including the need of [`content/versionread` policy](policies.md#content) to access it.
+
+``` yaml
+ibexa:
+    repositories:
+        default:
+            options:
+                grace_period_in_seconds: 30
+```
+
+`grace_period_in_seconds` uses the [PHP's `max_execution_time`](https://www.php.net/manual/en/info.configuration.php#ini.max-execution-time) value by default.
+Set the value to 0 do disable grace period for archived versions.
+
 ### Removing versions on publication
 
 With `remove_archived_versions_on_publish` setting, you can control whether versions that exceed the limit are deleted when you publish a new version.
