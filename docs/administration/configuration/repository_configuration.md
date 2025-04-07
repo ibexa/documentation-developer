@@ -202,7 +202,7 @@ This limit is enforced on publishing a new version and only covers archived vers
 
 After a new version of a content is published, for a period of time the previous version (now archived) can still be loaded using the same permission set as the published version.
 
-This period is called the grace period and it prevents race conditions that can occur when a new version is published in parallel to someone accessing the content item.
+This period is called the grace period and it prevents race conditions that can occur when a new version is published at the same time as someone is accessing the content item.
 
 The duration can be configured using the `grace_period_in_seconds` setting.
 After a version has been archived for longer than specified in the configuration, the grace period ends and the version is treated as all archived versions, including the need of [`content/versionread` policy](policies.md#content) to access it.
