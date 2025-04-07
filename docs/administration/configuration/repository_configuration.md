@@ -216,7 +216,7 @@ ibexa:
 ```
 
 `grace_period_in_seconds` uses the [PHP's `max_execution_time`](https://www.php.net/manual/en/info.configuration.php#ini.max-execution-time) value by default.
-Set the value to 0 do disable grace period for archived versions.
+Set the value to 0 to disable grace period for archived versions.
 
 ### Removing versions on publication
 
