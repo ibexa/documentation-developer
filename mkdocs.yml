@@ -8,7 +8,7 @@ validation:
     omitted_files: warn
     absolute_links: relative_to_docs
     unrecognized_links: warn
-    anchors: warn # TODO: Fix IBX-9578
+    anchors: warn
 not_in_nav: |
     search_results.md
     personalization/legacy_recommendation_api.md
