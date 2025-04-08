@@ -30,6 +30,8 @@ Create an OpenAI account, [get an API key](https://help.openai.com/en/articles/4
 
 Then, in the root folder of your project, modify the `.env` file: find the `OPENAI_API_KEY` variable and replace a placeholder value with the API key that you got from the AI service.
 
+For example:
+
 ```bash
 ###> ibexa/connector-openai ###
 OPENAI_API_KEY=sk-svcacct-AFCrCt1h2s3i4s5i6s7t8h9e0a1p2i3c4o5d6e
@@ -40,7 +42,7 @@ OPENAI_API_KEY=sk-svcacct-AFCrCt1h2s3i4s5i6s7t8h9e0a1p2i3c4o5d6e
 
 First, get the credentials by contacting [Ibexa Support](https://support.ibexa.co).
 
-### Create team
+#### Create team
 
 In [[= product_name_connect =]], set up the account, and [create a team](https://doc.ibexa.co/projects/connect/en/latest/access_management/teams/#creating-teams).
 Navigate to the team details page and note down the numerical value of the **Team id** variable.
@@ -62,6 +64,8 @@ Copy the token code that appears next to the label.
 In the root folder of your project, modify the `.env` file.
 Replace a placeholder value of the `IBEXA_CONNECT_TOKEN` variable with the token that you got from [[= product_name_connect =]] and provide a value of the `IBEXA_CONNECT_TEAM_ID` variable.
 
+For example:
+
 ```bash
 ###> ibexa/connect ###
 IBEXA_CONNECT_HOST=https://connect.ibexa.co
@@ -76,11 +80,17 @@ IBEXA_CONNECT_TEAM_ID=2
 
 #### Initiate integration
 
-Initiate the models provided by the handler by issuing the `php bin/console ibexa:connect:init-connect-ai <team_id> <language> <model list>` command.
+Initiate the models provided by the handler by issuing the following command:
+
+```bash
+php bin/console ibexa:connect:init-connect-ai <team_id> <language> <model list>
+```
 
 For example:
 
-`php bin/console ibexa:connect:init-connect-ai 2 en connect-image-to-text connect-text-to-text`
+```bash
+php bin/console ibexa:connect:init-connect-ai 2 en connect-image-to-text connect-text-to-text
+```
 
 !!! note "Support for multiple [[= product_name_connect =]] languages"
 
