@@ -30,11 +30,9 @@ Create an OpenAI account, [get an API key](https://help.openai.com/en/articles/4
 
 Then, in the root folder of your project, modify the `.env` file: find the `OPENAI_API_KEY` variable and replace a placeholder value with the API key that you got from the AI service.
 
-For example:
-
 ```bash
 ###> ibexa/connector-openai ###
-OPENAI_API_KEY=sk-svcacct-AFCrCt1h2s3i4s5i6s7t8h9e0a1p2i3c4o5d6e
+OPENAI_API_KEY=<your_api_key>
 ###< ibexa/connector-openai ###
 ```
 
@@ -64,14 +62,12 @@ Copy the token code that appears next to the label.
 In the root folder of your project, modify the `.env` file.
 Replace a placeholder value of the `IBEXA_CONNECT_TOKEN` variable with the token that you got from [[= product_name_connect =]] and provide a value of the `IBEXA_CONNECT_TEAM_ID` variable.
 
-For example:
-
 ```bash
 ###> ibexa/connect ###
 IBEXA_CONNECT_HOST=https://connect.ibexa.co
 IBEXA_CONNECT_API_PATH=/api/v2/
 # Token can be created in the user's profile in Ibexa Connect, under the 'API ACCESS' section.
-IBEXA_CONNECT_TOKEN=0eeecdef-4499-4ce5-bac2-a0p8i5k7e8y3
+IBEXA_CONNECT_TOKEN=<your_api_token>
 # Use the URL below to read more on Ibexa Connect teams.
 # https://doc.ibexa.co/projects/connect/en/latest/access_management/teams/
 IBEXA_CONNECT_TEAM_ID=2
