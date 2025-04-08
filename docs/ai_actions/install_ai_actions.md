@@ -76,19 +76,15 @@ IBEXA_CONNECT_TEAM_ID=2
 
 #### Initiate integration
 
-Initiate each of the models provided by the handler by issuing the `php bin/console ibexa:connect:init-connect-ai <team_id> <language> <model>` command.
+Initiate the models provided by the handler by issuing the `php bin/console ibexa:connect:init-connect-ai <team_id> <language> <model list>` command.
 
 For example:
 
-`php bin/console ibexa:connect:init-connect-ai 2 en connect-image-to-text`
+`php bin/console ibexa:connect:init-connect-ai 2 en connect-image-to-text connect-text-to-text`
 
-or
+!!! note "Support for multiple [[= product_name_connect =]] languages"
 
-`php bin/console ibexa:connect:init-connect-ai 2 fr connect-text-to-text`
-
-!!! note "Support for multiple languages"
-
-    You repeat this step for each of the languages that you want to be supported.
+    The [`language` attribute](https://developers.make.com/api-documentation/api-reference/templates#templates-1) determines the language in which template details such as module names will be displayed in [[= product_name_connect =]]'s UI.
 
 #### Customize templates 
 
