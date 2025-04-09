@@ -110,14 +110,14 @@ Then, in `config\services.yaml`, register the handler as a service:
 [[= include_file('code_samples/back_office/images/config/services.yaml', 9, 12) =]]
 ```
 
-Notice the `source` parameter passed in the tag, this is the identifier of this new DAM connector and is used in other places to glue elements together.
+The `source` parameter passed in the tag is an identifier of this new DAM connector and is used in other places to glue elements together.
 
 ### Create transformation factory
 
 The transformation factory maps [[= product_name =]]'s image variations to corresponding variations from Wikimedia Commons.
 
-In `src\Connector\Dam\Transformation` folder, create the `WikimediaCommonsTransformationFactory.php` file that resembles the following example
-implementing the [`TransformationFactory` interface](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Connector-Dam-Variation-TransformationFactory.html):
+In `src\Connector\Dam\Transformation` folder, create the `WikimediaCommonsTransformationFactory.php` file that resembles the following example,
+which implements the [`TransformationFactory` interface](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Connector-Dam-Variation-TransformationFactory.html):
 
 ```php
 [[= include_file('code_samples/back_office/images/src/Connector/Dam/Transformation/WikimediaCommonsTransformationFactory.php') =]]
