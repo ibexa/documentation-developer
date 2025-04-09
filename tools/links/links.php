@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 /**
  * URL to be tested.
@@ -62,17 +62,17 @@ class TestableUrl
      * @param string $url The URL itself
      * @param string|null $text The text of the link to the URL
      * @param string|null $file The file in which the URL has been found
-     * @param string|null $line The file line the URL has been found at
+     * @param int|string|null $line The file line the URL has been found at
      * @param string[]|null $replacements Some replacements to execute on the URL before testing it, like variables to replace by their values
      * @param bool|string|null $find By default, URL is considered absolute or relative; If true, the URL will be considered partial and the target must be searched to solve the URL; If a string is given, this string will be used as a search prefix
      * @param bool $test Set to true to test the URL immediately at construction time
      */
-    public function __construct(string $url, ?string $text = null, ?string $file = null, ?string $line = null, ?array $replacements = null, mixed $find = false, bool $test = false)
+    public function __construct(string $url, ?string $text = null, ?string $file = null, null|int|string $line = null, ?array $replacements = null, mixed $find = false, bool $test = false)
     {
         $this->url = $url;
         $this->text = $text;
         $this->file = $file;
-        $this->line = $line;
+        $this->line = (int)$line;
         $this->replacements = $replacements;
         $this->find = $find;
         if ($test) {
@@ -256,12 +256,12 @@ class TestableUrl
 
     public function getLine(): ?int
     {
-        return $this->line;
+        return (int)$this->line;
     }
 
     public static function isExternalUrl(string $url): bool
     {
-        return preg_match(self::PATTERN_DELIMITER . self::EXTERNAL_PATTERN . self::PATTERN_DELIMITER, $url);
+        return (bool)preg_match(self::PATTERN_DELIMITER . self::EXTERNAL_PATTERN . self::PATTERN_DELIMITER, $url);
     }
 
     public function isExternal(): bool
@@ -318,6 +318,10 @@ class TestableUrl
         switch ($code) {
             case 200: // OK
                 $contents = $external || $testFragment && self::isUrlWithFragment($url) ? self::requestBody(self::getUrlWithoutFragment($url), $useCurl) : '';
+                if (false === $contents) {
+                    //TODO
+                    break;
+                }
                 $refreshTagPattern = '@<meta http-equiv="refresh" content="[^"]*; ?url=(?P<url>[^"]+)"@i';
                 if ($external && preg_match($refreshTagPattern, $contents, $matches)) { // Soft redirect
                     $location = preg_match('@^https?://@', $matches['url']) ? $matches['url'] : self::solveRelativePath(self::getUrlWithoutFragment($url), $matches['url']);
@@ -370,7 +374,7 @@ class TestableUrl
                 }
                 break;
             case 522: // Connection Timed Out
-                if ($tryNumber <= $retryCount+1) {
+                if ($tryNumber <= $retryCount + 1) {
                     sleep($retryDelay);
                     return self::testUrl($url, $external, $testFragment, $useCurl, $retryCount, $retryDelay, $tryNumber++);
                 }
@@ -419,7 +423,7 @@ class TestableUrl
             return '   ';
         }
 
-        return str_pad($this->code, 3, 0, STR_PAD_LEFT);
+        return str_pad((string)$this->code, 3, '0', STR_PAD_LEFT);
     }
 
     public function hasLocation(): bool
@@ -697,7 +701,7 @@ class UrlExtractor
         if (array_key_exists($extension, $this->patterns)) {
             return $this->patterns[$extension];
         } else {
-            throw new \InvalidArgumentException("File extension '$extension' not supported.");
+            throw new InvalidArgumentException("File extension '$extension' not supported.");
         }
     }
 
