@@ -35,10 +35,7 @@ class WikimediaCommonsHandler implements HandlerInterface
         $assets = [];
         foreach ($response['query']['search'] as $result) {
             $identifier = str_replace('File:', '', $result['title']);
-            $asset = $this->fetchAsset($identifier);
-            if ($asset) {
-                $assets[] = $asset;
-            }
+            $assets[] = $this->fetchAsset($identifier);
         }
 
         return new AssetSearchResult(
@@ -47,7 +44,7 @@ class WikimediaCommonsHandler implements HandlerInterface
         );
     }
 
-    public function fetchAsset(string $id): ?Asset
+    public function fetchAsset(string $id): Asset
     {
         $metadataUrl = 'https://commons.wikimedia.org/w/api.php?action=query&prop=imageinfo&iiprop=extmetadata&format=json'
             . '&titles=File%3a' . urlencode($id)
@@ -55,17 +52,17 @@ class WikimediaCommonsHandler implements HandlerInterface
 
         $jsonResponse = file_get_contents($metadataUrl);
         if ($jsonResponse === false) {
-            return null;
+            throw new \RuntimeException('Couldn\'t retrieve asset metadata');
         }
 
         $response = json_decode($jsonResponse, true);
         if (!isset($response['query']['pages'])) {
-            return null;
+            throw new \RuntimeException('Couldn\'t parse asset metadata');
         }
 
         $pageData = array_values($response['query']['pages'])[0] ?? null;
         if (!isset($pageData['imageinfo'][0]['extmetadata'])) {
-            return null;
+            throw new \RuntimeException('Couldn\'t parse image asset metadata');
         }
 
         $imageInfo = $pageData['imageinfo'][0]['extmetadata'];

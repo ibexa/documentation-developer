@@ -7,11 +7,20 @@ use Ibexa\Contracts\Connector\Dam\Variation\TransformationFactory as Transformat
 
 class WikimediaCommonsTransformationFactory implements TransformationFactoryInterface
 {
-    public function build(?string $transformationName = null, array $transformationParameters = []): ?Transformation
+    /** @param array<string, scalar> $transformationParameters */
+    public function build(?string $transformationName = null, array $transformationParameters = []): Transformation
     {
+        if (null === $transformationName) {
+            return new Transformation(null, array_map('strval', $transformationParameters));
+        }
+
         $transformations = $this->buildAll();
 
-        return $transformations[$transformationName] ?? null;
+        if (array_key_exists($transformationName, $transformations)) {
+            return $transformations[$transformationName];
+        }
+
+        throw new \InvalidArgumentException(sprintf('Unknown transformation "%s".', $transformationName));
     }
 
     public function buildAll(): array
