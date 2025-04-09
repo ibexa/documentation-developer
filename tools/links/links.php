@@ -1154,10 +1154,18 @@ class UrlTester
 
     public function isExcludedUrl(TestableUrl $testableUrl): bool
     {
-        $url = self::formatUrl($testableUrl->getSolvedUrl());
+        $url = $testableUrl->getUrl();
         foreach ($this->exclusionTests['url'] as $test) {
             if ($test($url, $testableUrl->getFile())) {
                 return true;
+            }
+        }
+        $solvedUrl = self::formatUrl($testableUrl->getSolvedUrl());
+        if ($url !== $solvedUrl) {
+            foreach ($this->exclusionTests['url'] as $test) {
+                if ($test($solvedUrl, $testableUrl->getFile())) {
+                    return true;
+                }
             }
         }
         return false;
