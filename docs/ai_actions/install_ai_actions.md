@@ -7,7 +7,9 @@ month_change: false
 
 AI Actions are available as an LTS update to [[= product_name =]] starting with version v4.6.12 or higher, regardless of its edition.
 To use this feature you must first install the package.
-You can then install and configure the service connectors or build your onw ones.
+You can then install and configure the service connectors or build your own ones.
+
+## Install the framework
 
 Run the following command to install the package:
 
@@ -50,7 +52,7 @@ Run the following command, where `<database_name>` is the same name that you def
 
 This command modifies the existing database schema by adding database configuration required for using AI Actions.
 
-!! note "Next steps"
+!!! note "Next steps"
 
     Once the framework is installed and configured, before you can start using AI Actions, you can configure access to [[ = product_name_base = ]]-made service connectors by following the instructions below, or [create your own](extend_ai_actions.md#create-custom-action-handler).
 
