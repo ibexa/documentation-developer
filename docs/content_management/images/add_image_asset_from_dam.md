@@ -148,19 +148,17 @@ For this to happen, register the variations generator as a service:
 [[= include_file('code_samples/back_office/images/config/services.yaml', 17, 21) =]]
 ```
 
-### Set tab for "Select from DAM" modal
+### Configure tab for "Select from DAM" modal
 
-To select an image from the DAM, a modal window pop in with tabs & panels for different search sub-interfaces.
+To enable selecting an image from the DAM system, a modal window pops up with tabs and panels that contain different search interfaces.
 
-In this example, the search only use the main text input.
-Its tab and its corresponding panel are a service created by combining existing components (as many [back office tabs](back_office_tabs.md)).
+In this example, the search only uses the main text input.
+The tab and its corresponding panel are a service created by combining existing components, like in the case of other [back office tabs](back_office_tabs.md).
 
-The tab service uses directly the dedicated base tab `GenericSearchTab`,
-passes it the dedicated base form `GenericSearchType`,
-links it to `commons` DAM source,
-is identified as `commons`,
-is tagged with `ibexa.admin_ui.tab` tag,
-and set in the `connector-dam-search` [tab group](back_office_tabs.md#tab-groups).
+The `commons_search_tab` service uses the `GenericSearchTab` class as a base, and the `GenericSearchType` form for search input.
+It is linked to the `commons` DAM source and uses the identifier `commons`. 
+The DAM search tab is registered in the `connector-dam-search` [tab group](back_office_tabs.md#tab-groups) using the `ibexa.admin_ui.tab` tag.
+
 
 ```yaml
 [[= include_file('code_samples/back_office/images/config/services.yaml', 22, 33) =]]
@@ -168,7 +166,7 @@ and set in the `connector-dam-search` [tab group](back_office_tabs.md#tab-groups
 
 ### Create Twig template
 
-The template defines how images that come from Wikimedia Commons appear.
+The template defines how images that come from Wikimedia Commons are displayed.
 
 In `templates/themes/standard/`, add the `commons_asset_view.html.twig` file that resembles the following example:
 
@@ -176,8 +174,8 @@ In `templates/themes/standard/`, add the `commons_asset_view.html.twig` file tha
 [[= include_file('code_samples/back_office/images/templates/themes/standard/commons_asset_view.html.twig') =]]
 ```
 
-Then, register the template and a fallback template in configuration files
-(replace `<scope>` with [appropriate value](siteaccess_aware_configuration.md) like `default` so it's used everywhere including the back office):
+Then, register the template and a fallback template in configuration files.
+Replace `<scope>` with an [appropriate value](siteaccess_aware_configuration.md) that designates the SiteAccess or SiteAccess group, for example, `default` to use the template everywhere, including the back office:
 
 ```yaml
 [[= include_file('code_samples/back_office/images/config/packages/views.yaml') =]]
@@ -185,9 +183,8 @@ Then, register the template and a fallback template in configuration files
 
 ### Provide back office translation
 
-In the back office, an image asset field is displayed followed by a table of metadata.
-
-As some new specific ones are used in this example, some new translations are needed.
+When the image asset field is displayed in the back office, a table of metadata follows.
+This example uses new fields, so you need to provide translations for their labels.
 
 ```yaml
 [[= include_file('code_samples/back_office/images/translations/ibexa_fieldtypes_preview.en.yaml') =]]
