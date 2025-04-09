@@ -20,7 +20,7 @@ Some client types require additional packages.
 Missing package is indicated in an error message.
 
 For example, the following configuration creates a `google` client for Google OAuth2 Authorization Server to log users in.
-Two environment variables, `OAUTH_GOOGLE_CLIENT_ID` and `OAUTH_GOOGLE_CLIENT_SECRET`, correspond to [the set-up on Google side](https://support.google.com/cloud/answer/6158849).
+Two environment variables, `OAUTH_GOOGLE_CLIENT_ID` and `OAUTH_GOOGLE_CLIENT_SECRET`, correspond to [the set-up on Google side](https://support.google.com/cloud/answer/15549257).
 
 ``` yaml
 [[= include_file('code_samples/user_management/oauth_google/config/packages/knpu_oauth2_client.yaml') =]]
@@ -58,7 +58,7 @@ By adding the `Ibexa\Bundle\OAuth2Client\Security\Authenticator\OAuth2Authentica
 
 Resource owner mappers map the data received from the OAuth2 authorization server to user information in the repository.
 
-Resource owner mappers must implement the [`Ibexa\Contracts\OAuth2Client\ResourceOwner\ResourceOwnerMapper`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-OAuth2Client-ResourceOwner-ResourceOwnerMapper.html) interface.
+Resource owner mappers must implement the [`Ibexa\Contracts\OAuth2Client\ResourceOwner\ResourceOwnerMapper`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-OAuth2Client-ResourceOwner-ResourceOwnerMapper.html) interface.
 
 Four implementations of `ResourceOwnerMapper` are proposed by default:
 

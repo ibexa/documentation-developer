@@ -34,6 +34,10 @@ Then execute the instructions below starting from the version you're upgrading f
 
 <!-- vale Ibexa.VariablesVersion = NO -->
 
+## v4.6.1
+
+No additional steps needed.
+
 ## v4.6.2
 
 #### Database update
@@ -104,6 +108,18 @@ Run the following scripts:
     ``` bash
     psql <database_name> < vendor/ibexa/installer/upgrade/db/postgresql/ibexa-4.6.3-to-4.6.4.sql
     ```
+
+## v4.6.5
+
+No additional steps needed.
+
+## v4.6.6
+
+No additional steps needed.
+
+## v4.6.7
+
+No additional steps needed.
 
 ## v4.6.8
 
@@ -247,5 +263,33 @@ composer require symfony/serializer-pack symfony/orm-pack
 Then, verify that Symfony Flex installed the versions you were using before.
 
 ## v4.6.16
+
+No additional steps needed.
+
+## v4.6.17
+
+### Security
+
+This release contains security fixes.
+For more information, see [the published security advisory](https://developers.ibexa.co/security-advisories/ibexa-sa-2025-001-vulnerabilities-in-shopping-cart-and-publish-unscheduling).
+For each of the following fixes, evaluate the vulnerability to determine whether you might have been affected.
+If so, take appropriate action.
+
+#### CartOwner permission limitation exposes carts
+
+This release fixes a critical vulnerability in the REST API regarding shopping carts.
+There are no additional update steps to execute.
+
+#### Unauthorized user can cancel scheduled publish events
+
+This release fixes vulnerability in publish scheduling, ensures that `edit/create` policies are correctly checked.
+There are no additional update steps to execute.
+
+#### Dependency upgrades
+
+This release upgrades the requirements for [Twig to v3.19](https://github.com/twigphp/Twig/security/advisories/GHSA-3xg3-cgvq-2xwr) and [PHPSpreadsheet to v1.29.9](https://github.com/PHPOffice/PhpSpreadsheet/security), resolving several vulnerabilities of varying severity in those dependencies.
+There are no additional update steps to execute.
+
+## v4.6.18
 
 No additional steps needed.

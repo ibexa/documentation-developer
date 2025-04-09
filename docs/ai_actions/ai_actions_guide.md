@@ -1,6 +1,6 @@
 ---
 description: AI Actions LTS update helps editors by automating repetitive tasks.
-month_change: false
+month_change: true
 ---
 
 # AI Actions product guide
@@ -8,7 +8,7 @@ month_change: false
 ## What are AI Actions
 
 Wherever you look, artificial intelligence becomes more and more important by enhancing user interaction and automating complex processes.
-[[= product_name =]] can be equipped with the AI Actions [LTS update](ibexa_dxp_v4.6.md#lts-updates), which harnesses AI's potential to automate time-consuming editorial tasks.
+[[= product_name =]] can be equipped with the AI Actions [LTS update](editions.md#lts-updates), which harnesses AI's potential to automate time-consuming editorial tasks.
 AI Actions is an extensible solution for integrating features provided by AI services into your workflows, all managed through a user-friendly interface.
 
 Out-of-the-box, AI Actions solution includes two essential components: a framework package and an OpenAI connector package.
@@ -25,7 +25,7 @@ The possibilities are endless and you're not limited to a specific AI service, a
 
 ## Availability
 
-AI Actions are an opt-in capability available as an [LTS update](ibexa_dxp_v4.6.md#lts-updates) to the v4.6.x version of [[= product_name =]], regardless of its edition.
+AI Actions are an opt-in capability available as an [LTS update](editions.md#lts-updates) starting with the v4.6.12 version of [[= product_name =]], regardless of its edition.
 To begin using AI Actions, you must first [install the required packages and perform initial configuration](install_ai_actions.md).
 
 !!! note "API Key"
@@ -133,11 +133,11 @@ Out of the box, after you configure access to the OpenAI service, the [[= produc
 
 Content editors can benefit from using AI capabilities to [enhance or modify text]([[= user_doc =]]/content_management/create_edit_content_items/#ai-assistant).
 With a few clicks, they can improve content quality or reduce the workload.
-While working on content, editors can select a specific passage and request that AI performs specific actions such as: adjusting the length of the text, changing the tone, or correcting linguistic errors.
+While working on content, editors can request that AI performs specific actions such as: adjusting the length of the text, changing the tone, or correcting linguistic errors.
 
 ![AI Assistant](img/ai_assistant.png)
 
-This functionality is available in content types that include a RichText field, and certain Page Builder blocks.
+This functionality is available in content types that include RichText, Text line, Text Block fields, and certain Page Builder blocks.
 
 ### Generating alternative text
 

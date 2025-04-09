@@ -165,10 +165,10 @@ To use Composer to instantly create a project in the current folder with all the
 
 !!! tip
 
-    You can set [different version constraints](https://getcomposer.org/doc/articles/versions.md), for example, specific tag (`3.3.2`), version range (`~3.3.2`), or stability (`^3.3@rc`):
+    You can set [different version constraints](https://getcomposer.org/doc/articles/versions.md), for example, specific tag (`[[= latest_tag_4_6 =]]`), version range (`~4.6.10`), or stability (`^4.6@rc`):
 
     ``` bash
-    composer create-project ibexa/experience-skeleton:3.3.2 .
+    composer create-project ibexa/experience-skeleton:[[= latest_tag_4_6 =]] .
     ```
 
 !!! note "Platform.sh"
@@ -210,7 +210,7 @@ or
 
 Choose a [secret]([[= symfony_doc =]]/reference/configuration/framework.html#secret) and provide it in the `APP_SECRET` parameter in `.env`.
 It should be a random string, made up of at least 32 characters, numbers, and symbols.
-It's used by Symfony when generating [CSRF tokens]([[= symfony_doc =]]/security/csrf.html), [encrypting cookies]([[= symfony_doc =]]/cookbook/security/remember_me.html), and for creating signed URIs when using [ESI (Edge Side Includes)]([[= symfony_doc =]]/http_cache/esi.html).
+It's used by Symfony when generating [CSRF tokens]([[= symfony_doc =]]/security/csrf.html), [encrypting cookies]([[= symfony_doc =]]/security/remember_me.html), and for creating signed URIs when using [ESI (Edge Side Includes)]([[= symfony_doc =]]/http_cache/esi.html).
 
 !!! caution
 

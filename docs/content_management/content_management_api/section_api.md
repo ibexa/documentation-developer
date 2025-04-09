@@ -14,7 +14,7 @@ You can manage sections by using the PHP API by using `SectionService`.
 
 ## Creating sections
 
-To create a new section, you need to make use of the [`SectionCreateStruct`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-SectionCreateStruct.html) and pass it to the [`SectionService::createSection`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-SectionService.html#method_createSection) method:
+To create a new section, you need to make use of the [`SectionCreateStruct`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-SectionCreateStruct.html) and pass it to the [`SectionService::createSection`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-SectionService.html#method_createSection) method:
 
 ``` php
 [[= include_file('code_samples/api/public_php_api/src/Command/SectionCommand.php', 58, 62) =]]
@@ -30,7 +30,7 @@ You can use `SectionService` to retrieve section information such as whether it'
 
 ## Listing content in a section
 
-To list content items assigned to a section you need to make a [query](search_api.md) for content belonging to this section, by applying the [`SearchService`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-SearchService.html).
+To list content items assigned to a section you need to make a [query](search_api.md) for content belonging to this section, by applying the [`SearchService`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-SearchService.html).
 You can also use the query to get the total number of assigned content items:
 
 ``` php
@@ -39,8 +39,8 @@ You can also use the query to get the total number of assigned content items:
 
 ## Assigning section to content
 
-To assign content to a section, use the [`SectionService::assignSection`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-SectionService.html#method_assignSection) method.
-You need to provide it with the `ContentInfo` object of the content item, and the [`Section`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Section.html) object:
+To assign content to a section, use the [`SectionService::assignSection`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-SectionService.html#method_assignSection) method.
+You need to provide it with the `ContentInfo` object of the content item, and the [`Section`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Section.html) object:
 
 ``` php
 [[= include_file('code_samples/api/public_php_api/src/Command/SectionCommand.php', 64, 67) =]]

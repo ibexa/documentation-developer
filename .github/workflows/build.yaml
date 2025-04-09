@@ -39,11 +39,13 @@ jobs:
               run: |
                     yarn install
                     yarn prettier-test --write
+                    rm -rf node_modules 
+                    rm yarn.lock
 
             - name: Commit changes
               uses: stefanzweifel/git-auto-commit-action@v4
               with:
-                  commit_message: PHP CS Fixes
+                  commit_message: PHP & JS CS Fixes
 
             - name: Install dependencies
               run: |

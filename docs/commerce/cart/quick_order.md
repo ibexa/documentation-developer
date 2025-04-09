@@ -6,7 +6,7 @@ edition: commerce
 # Quick order
 
 The quick order form allows users to efficiently process orders with multiple items in bulk through the storefront.
-Customers don't need to browse the countless store pages, they can fill in a provided form with products' SKU number and quantity, or upload their own list into the system directly.
+Customers don't need to browse the countless store pages, they can fill in a provided form with product code (SKU) and quantity, or upload their own list into the system directly.
 Quick order forms can be used by registered and guest users.
 
 ## Quick order flows
@@ -17,7 +17,7 @@ Customers can use one or both of the following methods to specify products and p
 
 1\. Customer clicks the **Quick order** link.
 
-2\. Provides products' SKU and quantity. At this point, no validation is provided.
+2\. Provides product code and quantity. At this point, no validation is provided.
 
 ![Customer enters individual products](img/quick_order_list.png)
 
@@ -31,11 +31,11 @@ Customers can use one or both of the following methods to specify products and p
 
 2\. Downloads a sample file from **Add your order** section.
 
-3\. Uses the template to fill in their order with products' SKU and quantity.
+3\. Uses the template to fill in their order with product code and quantity.
 
 4\. Uploads the filled in quick order file back to the system by drag and drop or file selection.
 
-5\. The file name appears in the **Add your order** section. At this point, only file validation is provided. The SKUs or product availability isn't validated.
+5\. The file name appears in the **Add your order** section. At this point, only file validation is provided. Product codes and availability aren't validated.
 
 ![Customer uploads list of products](img/quick_order_add_order.png)
 
@@ -48,7 +48,7 @@ Customers can use one or both of the following methods to specify products and p
 Orders from quick order are validated in the cart.
 There, the system checks if:
 
-- provided SKU is valid
+- provided product code is valid
 - provided products are available for purchase
 - requested quantities of products are available
 
@@ -85,4 +85,3 @@ ibexa:
                 batch_order:
                     processed_records_limit: 2000
 ```
-

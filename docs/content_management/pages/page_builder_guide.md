@@ -1,6 +1,7 @@
 ---
 description: Read about the Page Builder - a powerful tool for creating and modifying pages in Ibexa DXP.
 edition: experience
+month_change: true
 ---
 
 # Page Builder product guide
@@ -168,7 +169,7 @@ While configuring blocks that include Rich Text section, for example, Text block
 
 ![Distraction free mode](distraction_free_mode.png)
 
-For more information, see [Distraction free mode]([[= user_doc =]]/content_management/create_edit_content_items/#distraction-free-mode/).
+For more information, see [Distraction free mode]([[= user_doc =]]/content_management/create_edit_content_items/#distraction-free-mode).
 
 #### Schedule content
 
