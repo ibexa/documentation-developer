@@ -31,7 +31,7 @@ ibexa:
     system:
         default:
             user_registration:
-                group_id: <userGroupContentId>
+                group_remote_id: <userGroupContentRemoteId>
 ```
 
 ## Registration form field configuration
