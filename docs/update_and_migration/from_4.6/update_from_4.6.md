@@ -277,3 +277,17 @@ There are no additional update steps to execute.
 ## v4.6.18
 
 No additional steps needed.
+
+## v4.6.19
+
+### Security
+
+This release fixes a critical vulnerability in the [RichText field type](richtextfield.md).
+By entering a maliciously crafted input into the RichText field type's XML, the attacker could perform an attack using [XML external entity (XXE) injection](https://portswigger.net/web-security/xxe). 
+To exploit this vulnerability, an attacker would need to have edit permission to content with RichText fields.
+
+For more information, see the [published security advisory IBEXA-SA-2025-002](https://developers.ibexa.co/security-advisories/ibexa-sa-2025-002-xxe-vulnerability-in-richtext).
+
+Evaluate the vulnerability to determine whether you might have been affected.
+If so, take appropriate action.
+There are no additional update steps to execute.
