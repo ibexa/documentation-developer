@@ -13,7 +13,7 @@ AI Actions is an extensible solution for integrating features provided by AI ser
 
 Out-of-the-box, AI Actions solution includes two essential components: a framework package and an OpenAI connector package.
 
-As of version v4.6.19, AI Actions can integrate with [[[= product_name_connect =]]](https://doc.ibexa.co/projects/connect/en/latest/general/ibexa_connect/), to give you an opportunity to build complex data transformation workflows without having to rely on custom code.
+As of version v4.6.19, AI Actions can integrate with [[[= product_name_connect =]]]([[= connect_doc =]]/general/ibexa_connect/), to give you an opportunity to build complex data transformation workflows without having to rely on custom code.
 From the developer's perspective, the integration removes the burden of maintaining third-party AI handlers, and accelerates the deployment of AI-based solutions.
 
 AI Actions solution comes pre-configured with the following action types:
@@ -37,7 +37,7 @@ To begin using AI Actions, you must first [install the required packages and per
 
 The OpenAI connector requires that you first [get an API key](https://help.openai.com/en/articles/4936850-where-do-i-find-my-openai-api-key) and make sure that you [set up a billing method](https://help.openai.com/en/articles/9038407-how-can-i-set-up-billing-for-my-account).
 
-Integration with [[= product_name_connect =]] requires that you first [get the credentials](https://doc.ibexa.co/projects/connect/en/latest/general/ibexa_connect/#access-ibexa-connect) to your account, and the [API token](install_ai_actions.md#token).
+Integration with [[= product_name_connect =]] requires that you first [get the credentials]([[= connect_doc =]]/general/ibexa_connect/#access-ibexa-connect) to your account, and the [API token](install_ai_actions.md#token).
 
 !!! note "[[= product_name_connect =]] Availability"
 

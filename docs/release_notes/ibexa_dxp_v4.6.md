@@ -873,7 +873,7 @@ A new helper method `ibexa.helpers.contentType.getContentTypeDataByHref` has bee
 
 #### [[= product_name_connect =]]
 
-For a list of changes in [[= product_name_connect =]], see [Ibexa app release notes](https://doc.ibexa.co/projects/connect/en/latest/general/ibexa_app_release_notes/).
+For a list of changes in [[= product_name_connect =]], see [Ibexa app release notes]([[= connect_doc =]]/general/ibexa_app_release_notes/).
 
 ##### Scenario block
 
