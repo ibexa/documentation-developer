@@ -968,7 +968,7 @@ class UrlTester
                     return false;
                 },
                 function (string $url, ?string $file = null): bool {
-                    return preg_match('@\.eot\?#@', $url);
+                    return (bool)preg_match('@\.eot\?#@', $url);
                 },
             ],
         ];
