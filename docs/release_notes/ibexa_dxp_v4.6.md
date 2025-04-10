@@ -24,7 +24,7 @@ To learn more, see the [setup instructions for this integration](install_ai_acti
 #### Security
 
 - This release includes security fixes.
-To learn more, see the [published security advisory IBEXA-SA-2025-002.](https://developers.ibexa.co/security-advisories/ibexa-sa-2025-002-xxe-vulnerability-in-richtext)
+To learn more, see the [published security advisory IBEXA-SA-2025-002](https://developers.ibexa.co/security-advisories/ibexa-sa-2025-002-xxe-vulnerability-in-richtext)
 
 #### Features
 
