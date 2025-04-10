@@ -1605,7 +1605,7 @@ ul.breadcrumbs li.breadcrumb-item-current span {
 }
 
 .md-typeset h1 {
-    font-size: 28px;
+    font-size: 24px;
     line-height: 34px;
     margin-bottom: 0;
 }
@@ -1702,7 +1702,7 @@ ul.breadcrumbs li.breadcrumb-item-current span {
 }
 
 .md-typeset h2 {
-    font-size: 22px;
+    font-size: 20px;
     line-height: 27px;
     margin: 24px 0 0;
 }
@@ -1720,11 +1720,16 @@ ul.breadcrumbs li.breadcrumb-item-current span {
 }
 
 .md-typeset h5 {
-    font-size: 15px;
+    font-size: 14px;
     line-height: 18px;
     margin: 24px 0 0;
 }
 
+.md-typeset h6 {
+    font-size: 12px;
+    line-height: 18px;
+    margin: 24px 0 0;
+}
 
 .md-typeset .highlighttable,
 .md-typeset .highlight pre,
