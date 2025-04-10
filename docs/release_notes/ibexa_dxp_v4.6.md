@@ -13,7 +13,8 @@ description: Ibexa DXP v4.6 brings improvements to Commerce, PIM and Personaliza
 
 #### Features
 
-AI Actions can now integrate with [Ibexa Connect]([[= connect_doc =]]), giving you an opportunity to build complex data transformation workflows without having to rely on custom code. To learn more, see the [setup instructions for this integration](install_ai_actions.md#configure-access-to-ibexa-connect).
+AI Actions can now integrate with [Ibexa Connect]([[= connect_doc =]]), giving you an opportunity to build complex data transformation workflows without having to rely on custom code.
+To learn more, see the [setup instructions for this integration](install_ai_actions.md#configure-access-to-ibexa-connect).
 
 [[= release_note_entry_end() =]]
 
@@ -37,6 +38,7 @@ To learn more, see the [published security advisory IBEXA-SA-2025-002.](https://
 To learn how to use it, see the [update instructions](https://doc.ibexa.co/en/latest/update_and_migration/from_4.6/update_from_4.6/#ibexa-rector)
 
 #### PHP API
+
 The PHP API has been enhanced with the following new classes:
 
 - [`Ibexa\Contracts\Connect\Ai\ActionHandlerDataStructureAwareInterface`](https://doc.ibexa.co/en/latest/api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Ai-ActionHandlerDataStructureAwareInterface.html)

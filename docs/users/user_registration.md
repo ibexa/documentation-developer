@@ -92,4 +92,4 @@ ibexa.site_access.config.<siteaccess>.user_settings.templates.update
 
 **Changing registration form templates:**
 
-To change the registration form template, follow instructions in [Invitation and registration form templates](invitations.md#invitation-and-registration-form-templates).
+To change the registration form template, follow the instructions in [Invitation and registration form templates](invitations.md#invitation-and-registration-form-templates).
