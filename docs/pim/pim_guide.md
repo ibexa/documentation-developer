@@ -111,7 +111,7 @@ You can check how complete the configuration is in the product’s view.
 
 When you create or edit a product, under the product name, you can see visual indication of what part of product information (tasks) you have completed, and what part is still missing.
 
-Product completeness does not impact product availability or visibility on the storefront.
+Product completeness doesn't impact product availability or visibility on the storefront.
 It is intended to help you ensure that product data is properly populated.
 As long as your product meets [basic requirements](enable_purchasing_products.md), it can be published and made available for purchase regardless of its completeness score.
 
