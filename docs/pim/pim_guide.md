@@ -41,7 +41,7 @@ You can also configure selected product attributes to be used as a basis for var
 
 ![Product attributes](img/product_attributes.png)
 
-For more information, see [Product attributes](../pim/products.md#product-attributes) and [Work with product attributes](https://doc.ibexa.co/projects/userguide/en/latest/pim/work_with_product_attributes/)
+For more information, see [Product attributes](products.md#product-attributes) and [Work with product attributes]([[= user_doc =]]/pim/work_with_product_attributes/)
 
 ### Product variants
 
@@ -113,7 +113,7 @@ When you create or edit a product, under the product name, you can see visual in
 
 Product completeness does not impact product availability or visibility on the storefront.
 It is intended to help you ensure that product data is properly populated.
-As long as your product meets [basic requirements](../pim/enable_purchasing_products.md), it can be published and made available for purchase regardless of its completeness score.
+As long as your product meets [basic requirements](enable_purchasing_products.md), it can be published and made available for purchase regardless of its completeness score.
 
 ### Catalogs
 
