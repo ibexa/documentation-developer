@@ -25,7 +25,7 @@ The following table gives an overview of the supported field types that come wi
 
 | Field type | Description | Searchable in Legacy Storage engine | Searchable with Solr/Elasticsearch |
 |------------|-------------|-------------------------------------|----------------------|
-| [Address](address.md) | Stores an address. | No | No |
+| [Address](addressfield.md) | Stores an address. | No | No |
 | [Author](authorfield.md) | Stores a list of authors, each consisting of author name and author email. | No | Yes |
 | [BinaryFile](binaryfilefield.md) | Stores a file.| Yes | Yes |
 | [Checkbox](checkboxfield.md) | Stores a boolean value. | Yes | Yes |
