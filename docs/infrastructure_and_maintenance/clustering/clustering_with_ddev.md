@@ -41,7 +41,7 @@ The following sequence of commands:
 4. Injects the schema and reindexes the content.
 
 ```bash
-ddev get ddev/ddev-elasticsearch
+ddev add-on get ddev/ddev-elasticsearch
 ddev config --web-environment-add SEARCH_ENGINE=elasticsearch
 ddev config --web-environment-add ELASTICSEARCH_DSN=http://elasticsearch:9200
 ddev restart
@@ -64,14 +64,14 @@ See [Elasticsearch REST API reference](https://www.elastic.co/guide/en/elasticse
 
 !!! tip
 
-    You can use [`jq`](https://jqlang.github.io/jq/) to format and colorize Elasticsearch REST API outputs.
+    You can use [`jq`](https://jqlang.org/) to format and colorize Elasticsearch REST API outputs.
 
 ### Solr
 
 To simplify the installation of Solr, you can use the `ibexa/ddev-solr` add-on:
 
 ```bash
-ddev get ibexa/ddev-solr
+ddev add-on get ibexa/ddev-solr
 ddev restart
 ```
 
@@ -105,7 +105,7 @@ The following sequence of commands:
 1. Restarts the DDEV cluster and clears application cache.
 
 ```bash
-ddev get ddev/ddev-redis
+ddev add-on get ddev/ddev-redis
 ddev config --web-environment-add CACHE_POOL=cache.redis
 ddev config --web-environment-add CACHE_DSN=redis
 ddev config --web-environment-add SESSION_HANDLER_ID='Ibexa\\Bundle\\Core\\Session\\Handler\\NativeSessionHandler'
@@ -119,7 +119,7 @@ You can now check whether Redis works.
 
 For example, the `ddev redis-cli MONITOR` command returns outputs, for example, `"SETEX" "ezp:`, `"MGET" "ezp:`, `"SETEX" "PHPREDIS_SESSION:`, or `"GET" "PHPREDIS_SESSION:`, while navigating into the website, in particular the back office.
 
-See [Redis commands](https://redis.io/commands/) for more details such as information about the [`MONITOR`](https://redis.io/commands/monitor/) command used in the previous example.
+See [Redis commands](https://redis.io/docs/latest/commands/) for more details such as information about the [`MONITOR`](https://redis.io/docs/latest/commands/monitor/) command used in the previous example.
 
 ### Install Memcached
 
@@ -142,7 +142,7 @@ The following sequence of commands:
 1. Restarts the DDEV cluster and clears application cache.
 
 ```bash
-ddev get ddev/ddev-memcached
+ddev add-on get ddev/ddev-memcached
 ddev config --web-environment-add CACHE_POOL=cache.memcached
 ddev config --web-environment-add CACHE_DSN=memcached
 ddev config --web-environment-add SESSION_HANDLER_ID=app.session.handler.native_memcached

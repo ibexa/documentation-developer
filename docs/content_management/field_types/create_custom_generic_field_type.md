@@ -7,7 +7,9 @@ description: Create a new field type based on the Generic field type.
 The Generic field type is an abstract implementation of field types holding structured data for example, address.
 You can use it as a base for custom field types.
 The Generic field type comes with the implementation of basic methods,
-reduces the number of classes which must be created, and simplifies the tagging process. 
+reduces the number of classes which must be created, and simplifies the tagging process.
+
+A more in-depth, step-by-step tutorial can be viewed here: [Creating a Point 2D field type](creating_a_point2d_field_type.md).
 
 !!! tip
 
@@ -105,5 +107,3 @@ Next, define a **Hello World** field:
 After saving, your **Hello World** content type should be available under **Content** in the sidebar menu.
 
 ![Creating Hello World](extending_field_type_hello_world.png)
-
-For more detailed tutorial on Generic field type follow [Creating a Point 2D field type](creating_a_point2d_field_type.md).

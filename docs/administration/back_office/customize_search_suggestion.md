@@ -5,7 +5,7 @@ description: Customize search suggestion configuration and sources.
 # Customize search suggestion
 
 In the back office, when you start typing in the search field on the top bar, suggestions about what you could be looking for show up directly under the field.
-For more information about using this feature to search for content, see [User Documentation]([[= user_doc =]]/search/search_for_content).
+For more information about using this feature to search for content, see [User Documentation]([[= user_doc =]]/search/search_for_content/).
 
 ## Configuration
 
@@ -110,7 +110,7 @@ To allow template override and ease HTML writing, the example is also loading a 
 
 Here is a complete `assets/js/admin.search.autocomplete.product.js` from the product suggestion example:
 
-``` js hl_lines="8"
+``` js hl_lines="9"
 [[= include_file('code_samples/back_office/search/assets/js/admin.search.autocomplete.product.js') =]]
 ```
 

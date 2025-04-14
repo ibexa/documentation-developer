@@ -27,6 +27,8 @@ To start using it, create any content item with a RichText field (for example, b
 Online Editor covers all fundamental formatting options for rich text, such as headings, lists, tables, inline text formatting, anchors, and links. 
 It also allows embedding other content from the repository, but also from Facebook, Twitter, or YouTube.
 
+<!--ARCADE EMBED START--><div style="position: relative; padding-bottom: calc(51.27314814814815% + 41px); height: 0; width: 100%;"><iframe src="https://demo.arcade.software/wkdL1r9PRunTeF6hPtEs?embed&embed_mobile=tab&embed_desktop=inline&show_copy_link=true" title="Online Editor - work in Rich Text field" frameborder="0" loading="lazy" webkitallowfullscreen mozallowfullscreen allowfullscreen allow="clipboard-write" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; color-scheme: light;" ></iframe></div><!--ARCADE EMBED END-->
+
 #### Links
 
 All links added to a RichText field by using the link element are listed and can be managed in the [Link manager](url_management.md).
@@ -37,7 +39,7 @@ While editing Rich Text fields, you can switch to distraction free mode that exp
 
 ![Distraction free mode](distraction_free_mode.png)
 
-For more information, see [Distraction free mode]([[= user_doc =]]/content_management/create_edit_content_items/#distraction-free-mode/).
+For more information, see [Distraction free mode]([[= user_doc =]]/content_management/create_edit_content_items/#distraction-free-mode).
 
 ### Custom tags
 

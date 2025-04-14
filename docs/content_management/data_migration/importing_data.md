@@ -104,7 +104,7 @@ In the example above, the expression is enclosed in `###` and the repeated strin
 
 #### Generating fake data
 
-You can also generate fake data with the help of [`FakerPHP`](https://fakerphp.github.io/).
+You can also generate fake data with the help of [`FakerPHP`](https://fakerphp.org/).
 
 To use it, first install Faker on your system:
 
@@ -346,6 +346,14 @@ You can also update attributes, including changing which attribute group they be
 
 You can't change the attribute type of an existing attribute.
 
+##### Date and time attributes
+
+If you're using attributes of the [date and time type](date_and_time.md), you can manage it through the migrations as well, for example:
+
+``` yaml
+[[= include_file('code_samples/data_migration/examples/create_datetime_attribute.yaml') =]]
+```
+
 #### Product types
 
 The following example shows how to create a product type.
@@ -377,7 +385,7 @@ The following example shows how to create variants for a product identified by i
 
 #### Product assets
 
-The following example creates an image [content item](#content-items) from a local image file, and then uses it as a product asset for a variant ([created in previous example](#product-variant)):
+The following example creates an image [content item](#content-items) from a local image file, and then uses it as a product asset for a variant ([created in previous example](#product-variants)):
 
 ``` yaml
 [[= include_file('code_samples/data_migration/examples/create_product_asset.yaml') =]]

@@ -195,21 +195,31 @@ body {
         }
     }
 
+    .notifications {
+        margin-top: 30px;
+        margin-bottom: 40px;
+    }
+
     .notification {
-        background-color: $ibexa-color-light-300;
         border-radius: 12px;
         color: $ibexa-color-dark;
         font-size: 12px;
         padding: 32px;
-        margin: 30px 40px 40px 0;
         position: relative;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        flex: 1 1 0;
 
         &__content {
-            padding-right: 260px;
             padding-bottom: 32px;
+            position: relative;
+            z-index: 1;
+            height: 100%;
 
             h2 {
-                margin: 0 0 14px;
+                margin: 0 0 8px;
+                line-height: 1.5;
             }
 
             a {
@@ -223,25 +233,68 @@ body {
         }
 
         &__cta {
+            position: relative;
+            z-index: 1;
+            flex-shrink: 0;
+
             a {
                 display: inline-block;
-                background: linear-gradient(to right, $ibexa-color-danger 0%, $ibexa-color-primary 100%);
-                color: $ibexa-color-white;
                 text-decoration: none;
                 padding: 15px 16px;
                 border-radius: 12px;
                 font-size: 14px;
+                color: $ibexa-color-primary;
+
+                & + a {
+                    margin-left: 8px;
+                }
             }
         }
 
         &__image {
             position: absolute;
-            right: -40px;
-            top: -30px;
-            height: 272px;
+            right: 0;
+            top: 0;
+            height: 100%;
+            z-index: 0;
 
             img {
-                height: 275px;
+                height: 100%;
+            }
+        }
+
+        &--latest-release {
+            background-image: url('../images/background-gradient.svg');
+            background-size: cover;
+            height: calc(100% - 4px);
+
+            .notification {
+                &__content {
+                    padding-right: 240px;
+                }
+
+                &__cta {
+                    a {
+                        background: linear-gradient(to right, $ibexa-color-danger 0%, $ibexa-color-primary 100%);
+                        color: $ibexa-color-white;
+                    }
+                }
+            }
+        }
+
+        &--lts-update {
+            border: 2px solid $ibexa-color-light;
+            height: calc(100%);
+            padding-top: 30px;
+
+            .notification {
+                &__cta {
+                    a {
+                        &:first-child {
+                            border: 1px solid $ibexa-color-primary;
+                        }
+                    }
+                }
             }
         }
     }
