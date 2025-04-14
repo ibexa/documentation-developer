@@ -1157,6 +1157,9 @@ The following view matchers have been introduced in [[= product_name =]] v4.6.0:
 ### Full changelog
 
 [[% include 'snippets/release_46.md' %]]
+
+To update your application, see the [update instructions](update_from_4.6.md).
+
 [[= release_note_entry_end() =]]
 
 </div>
