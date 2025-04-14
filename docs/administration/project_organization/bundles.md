@@ -71,7 +71,7 @@ To remove a bundle (either one you created yourself, or an out-of-the-box one th
 |---------|-----------|
 |ibexa/oss|Core packages|
 |ibexa/content-tree|content tree functionality|
-|ibexa/connect|[[[= product_name_connect =]]](https://doc.ibexa.co/projects/connect/en/latest/)|
+|ibexa/connect|[[[= product_name_connect =]]]([[= connect_doc =]]/)|
 |ibexa/calendar|Calendar tab with a calendar widget|
 |ibexa/connector-dam|Connector for DAM (Digital Asset Management) systems|
 |ibexa/elasticsearch|Integration with Elasticsearch search engine|

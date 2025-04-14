@@ -22,7 +22,7 @@ The configuration for each connector depends on the requirements of the specific
 
 You can create your own connectors, or use the provided example DAM connector for [Unsplash](https://unsplash.com/).
 
-To add the Unsplash connector to your system add the `ibexa/connector-unsplash` bundle to your installation.
+To add the Unsplash connector to your system, add the `ibexa/connector-unsplash` bundle to your installation.
 
 ## Add Image Asset in Page Builder [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
 

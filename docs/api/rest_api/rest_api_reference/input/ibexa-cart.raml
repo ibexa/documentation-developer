@@ -154,18 +154,27 @@ post:
             description: Gets a summary of the given Cart.
             headers:
                 Accept:
-                    description: If set, the Cart Summary is returned in XML or JSON format.
+                    description: Use CartSummary only if you require additional product information (such as Product type or Content). Depending on the suffix set, the Cart Summary is returned in XML or JSON format.
                     example: |
-                        application/vnd.ibexa.api.CartSummary+xml
+                        application/vnd.ibexa.api.ShortCartSummary+json
+                        application/vnd.ibexa.api.ShortCartSummary+xml
                         application/vnd.ibexa.api.CartSummary+json
+                        application/vnd.ibexa.api.CartSummary+xml
             responses:
                 200:
                     body:
-                        application/vnd.ibexa.api.CartSummary+xml:
-                            type: CartSummary
+                        application/vnd.ibexa.api.ShortCartSummary+json:
+                            type: CartSummaryWrapper
+                            example: !include examples/cart/summary/ShortCartSummary.json.example
+                        application/vnd.ibexa.api.ShortCartSummary+xml:
+                            type: CartSummaryWrapper
+                            example: !include examples/cart/summary/ShortCartSummary.xml.example
                         application/vnd.ibexa.api.CartSummary+json:
                             type: CartSummaryWrapper
                             example: !include examples/cart/summary/CartSummary.json.example
+                        application/vnd.ibexa.api.CartSummary+xml:
+                            type: CartSummary
+                            example: !include examples/cart/summary/CartSummary.xml.example
                 401:
                     description: Error - The user is not authorized to read this Cart.
                 404:

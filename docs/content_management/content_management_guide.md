@@ -268,6 +268,6 @@ individual products can have multiple variants with differing related assets, pr
 
 ### B2B store
 
-Extensive content management capabilities would prove themselves in a setting, where multiple buyers from different partner companies connect to an industry leader’s trading website, and they expect to find well organized SKU catalogs that contain basic product information.
+Extensive content management capabilities would prove themselves in a setting, where multiple buyers from different partner companies connect to an industry leader’s trading website, and they expect to find well organized product code (SKU) catalogs that contain basic product information.
 From there they would like to access detailed specifications, white papers and application notes.
 The same products could come with different brands and at different price points, depending on the customer segment or origin.

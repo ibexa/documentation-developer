@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ActionConfiguration media-type="application/vnd.ibexa.api.ai.ActionConfiguration+xml">
+    <identifier>gen_alt_text</identifier>
+    <name>Generate alternative text</name>
+    <description></description>
+    <enabled>1</enabled>
+    <ActionType media-type="application/vnd.ibexa.api.ai.ActionType+xml">
+        <identifier>generate_alt_text</identifier>
+        <name>Generate alternative text</name>
+        <inputIdentifier>image</inputIdentifier>
+        <outputIdentifier>text</outputIdentifier>
+        <options>
+            <width>512</width>
+            <height>512</height>
+            <image_quality>85</image_quality>
+        </options>
+    </ActionType>
+    <actionTypeOptions>
+        <max_length>140</max_length>
+    </actionTypeOptions>
+    <actionHandlerIdentifier>openai-image-to-text</actionHandlerIdentifier>
+    <actionHandlerOptions>
+        <max_tokens>4000</max_tokens>
+        <temperature>1</temperature>
+        <prompt></prompt>
+        <model>gpt-4-turbo</model>
+    </actionHandlerOptions>
+    <createdAt>2025-02-06T13:20:24+00:00</createdAt>
+    <updatedAt>2025-02-06T13:20:24+00:00</updatedAt>
+</ActionConfiguration>
