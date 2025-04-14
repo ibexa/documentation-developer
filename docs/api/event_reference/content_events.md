@@ -45,6 +45,6 @@ page_type: reference
 | Event | Dispatched by | Properties |
 |---|---|---|
 |`BeforeHideContentEvent`|`ContentService::hideContent`|`ContentInfo $contentInfo`|
-|`HideContentEvent`|`ContentService::hideContent`|`ContentInfo $contentInfo|
+|`HideContentEvent`|`ContentService::hideContent`|`ContentInfo $contentInfo`|
 |`BeforeRevealContentEvent`|`ContentService::revealContent`|`ContentInfo $contentInfo`|
 |`RevealContentEvent`|`ContentService::revealContent`|`ContentInfo $contentInfo`|

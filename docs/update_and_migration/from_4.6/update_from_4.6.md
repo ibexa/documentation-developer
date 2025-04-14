@@ -293,3 +293,48 @@ There are no additional update steps to execute.
 ## v4.6.18
 
 No additional steps needed.
+
+## v4.6.19
+
+### Security
+
+This release fixes a critical vulnerability in the [RichText field type](richtextfield.md).
+By entering a maliciously crafted input into the RichText field type's XML, the attacker could perform an attack using [XML external entity (XXE) injection](https://portswigger.net/web-security/xxe). 
+To exploit this vulnerability, an attacker would need to have edit permission to content with RichText fields.
+
+For more information, see the [published security advisory IBEXA-SA-2025-002](https://developers.ibexa.co/security-advisories/ibexa-sa-2025-002-xxe-vulnerability-in-richtext).
+
+Evaluate the vulnerability to determine whether you might have been affected.
+If so, take appropriate action.
+There are no additional update steps to execute.
+
+### [[= product_name_base =]] Rector
+
+The new [Ibexa Rector](https://github.com/ibexa/rector/) package is now available.
+It's an optional package based on [Rector](https://getrector.com/) and comes with additional rules for working with Ibexa code.
+
+You can use it to get rid of PHP code deprecations and start preparing your project for the next major release.
+
+!!! note
+
+    [[= product_name_base =]] Rector requires PHP 8.3 and you must upgrade your codebase first.
+    To do it, you can use Rector and the [existing PHP upgrade sets](https://getrector.com/documentation/integration-to-new-project#content-2-upgrade-php-first).
+
+To get started with [[= product_name_base =]] Rector, execute the following steps:
+
+1. Add the Composer dependency:
+``` bash
+composer require --dev ibexa/rector:^4.6
+```
+
+2. Adjust the created `rector.php` configuration file to match your project structure
+
+3. Run Rector in the dry-run mode to preview the changes: 
+``` bash
+vendor/bin/rector --dry-run
+```
+
+4. Run Rector:
+``` bash
+vendor/bin/rector
+```
