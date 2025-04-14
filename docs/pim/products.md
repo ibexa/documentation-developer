@@ -49,9 +49,9 @@ You can assign both whole attribute groups or individual attributes to a product
 !!! note "Attribute translations"
 
     Product attributes are not translatable.
-    Unlike content fields, product attribute names and values cannot differ between languages.
+    Unlike content fields, product attribute values cannot differ between languages.
 
-    To help mitigate this limitation, for the information that is intended to be displayed, consider using TextLine fields for short text, RichText fields for longer text that may require formatting, and product attributes for precise product properties or specifications.
+    For the information that is intended to be displayed, consider using [TextLine](textlinefield.md) fields for short text, [RichText](richtextfield.md) fields for longer text that may require formatting, and product attributes for precise product properties or specifications.
 
 ## Product variants
 
@@ -93,4 +93,3 @@ The stock can also be set to infinite (for example, in case of digital products)
     A product can be available, but have zero stock.
 
     A product can only be ordered when it has either positive stock, or stock set to infinite.
-
