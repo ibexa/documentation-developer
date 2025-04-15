@@ -1,0 +1,540 @@
+{
+    "CartSummary": {
+        "_media-type": "application\/vnd.ibexa.api.CartSummary+json",
+        "_href": "\/api\/ibexa\/v2\/cart\/b0b51659-75f7-4c8d-9cea-5ce5865dd9ce\/summary",
+        "id": 1,
+        "identifier": "b0b51659-75f7-4c8d-9cea-5ce5865dd9ce",
+        "name": "default",
+        "createdAt": "2025-04-03T08:16:09+00:00",
+        "updatedAt": "2025-04-03T08:16:09+00:00",
+        "Owner": {
+            "_media-type": "application\/vnd.ibexa.api.User+json",
+            "_href": "\/api\/ibexa\/v2\/user\/users\/14"
+        },
+        "SummaryEntryCollection": {
+            "_media-type": "application\/vnd.ibexa.api.SummaryEntryCollection+json",
+            "count": "3",
+            "SummaryEntry": [
+                {
+                    "_media-type": "application\/vnd.ibexa.api.CartSummaryEntry+json",
+                    "identifier": "5ce5d7a7-fcc8-4d28-89ad-3f4a53b7ea9a",
+                    "id": 1,
+                    "names": {
+                        "value": [
+                            {
+                                "_languageCode": "eng-GB",
+                                "#text": "Control unit 1|germany|none|physical"
+                            }
+                        ]
+                    },
+                    "quantity": 1,
+                    "Price": {
+                        "_media-type": "application\/vnd.ibexa.api.Price+json",
+                        "RestPrice": {
+                            "_media-type": "application\/vnd.ibexa.api.RestPrice+json",
+                            "Price": {
+                                "_media-type": "application\/vnd.ibexa.api.Price+json",
+                                "amount": "10100",
+                                "Currency": {
+                                    "_media-type": "application\/vnd.ibexa.api.Currency+json",
+                                    "id": 2,
+                                    "code": "EUR",
+                                    "subunits": 2,
+                                    "enabled": true
+                                },
+                                "PriceStamps": []
+                            },
+                            "formatted": "\u20ac101.00"
+                        }
+                    },
+                    "PriceInclVat": {
+                        "_media-type": "application\/vnd.ibexa.api.PriceInclVat+json",
+                        "RestPrice": {
+                            "_media-type": "application\/vnd.ibexa.api.RestPrice+json",
+                            "Price": {
+                                "_media-type": "application\/vnd.ibexa.api.Price+json",
+                                "amount": "10100",
+                                "Currency": {
+                                    "_media-type": "application\/vnd.ibexa.api.Currency+json",
+                                    "id": 2,
+                                    "code": "EUR",
+                                    "subunits": 2,
+                                    "enabled": true
+                                },
+                                "PriceStamps": []
+                            },
+                            "formatted": "\u20ac101.00"
+                        }
+                    },
+                    "SubtotalPrice": {
+                        "_media-type": "application\/vnd.ibexa.api.SubtotalPrice+json",
+                        "RestPrice": {
+                            "_media-type": "application\/vnd.ibexa.api.RestPrice+json",
+                            "Price": {
+                                "_media-type": "application\/vnd.ibexa.api.Price+json",
+                                "amount": "10100",
+                                "Currency": {
+                                    "_media-type": "application\/vnd.ibexa.api.Currency+json",
+                                    "id": 2,
+                                    "code": "EUR",
+                                    "subunits": 2,
+                                    "enabled": true
+                                },
+                                "PriceStamps": []
+                            },
+                            "formatted": "\u20ac101.00"
+                        }
+                    },
+                    "SubtotalPriceInclVat": {
+                        "_media-type": "application\/vnd.ibexa.api.SubtotalPriceInclVat+json",
+                        "RestPrice": {
+                            "_media-type": "application\/vnd.ibexa.api.RestPrice+json",
+                            "Price": {
+                                "_media-type": "application\/vnd.ibexa.api.Price+json",
+                                "amount": "10100",
+                                "Currency": {
+                                    "_media-type": "application\/vnd.ibexa.api.Currency+json",
+                                    "id": 2,
+                                    "code": "EUR",
+                                    "subunits": 2,
+                                    "enabled": true
+                                },
+                                "PriceStamps": []
+                            },
+                            "formatted": "\u20ac101.00"
+                        }
+                    },
+                    "VatCategory": {
+                        "_media-type": "application\/vnd.ibexa.api.VatCategory+json",
+                        "identifier": "none",
+                        "region": "germany",
+                        "vatValue": 0
+                    },
+                    "OriginalSubtotalPrice": {
+                        "_media-type": "application\/vnd.ibexa.api.OriginalSubtotalPrice+json",
+                        "RestPrice": {
+                            "_media-type": "application\/vnd.ibexa.api.RestPrice+json",
+                            "Price": {
+                                "_media-type": "application\/vnd.ibexa.api.Price+json",
+                                "amount": "10100",
+                                "Currency": {
+                                    "_media-type": "application\/vnd.ibexa.api.Currency+json",
+                                    "id": 2,
+                                    "code": "EUR",
+                                    "subunits": 2,
+                                    "enabled": true
+                                },
+                                "PriceStamps": []
+                            },
+                            "formatted": "\u20ac101.00"
+                        }
+                    },
+                    "Product": {
+                        "_media-type": "application\/vnd.ibexa.api.Product+json",
+                        "code": "product_code_control_unit_1",
+                        "isBaseProduct": false,
+                        "isVariant": false,
+                        "name": "Control unit 1|germany|none|physical",
+                        "Thumbnail": {
+                            "_media-type": "application\/vnd.ibexa.api.Thumbnail+json",
+                            "resource": "http:\/\/localhost:8070\/var\/site\/storage\/images\/_aliases\/medium\/9\/5\/5\/0\/559-1-eng-GB\/f25743f8e7c0-controlunit.jpeg",
+                            "width": 200,
+                            "height": 150,
+                            "mimeType": "image\/jpeg"
+                        },
+                        "Availability": {
+                            "_media-type": "application\/vnd.ibexa.api.Availability+json",
+                            "is_available": true,
+                            "stock": 101,
+                            "is_infinite": false
+                        }
+                    }
+                },
+                {
+                    "_media-type": "application\/vnd.ibexa.api.CartSummaryEntry+json",
+                    "identifier": "7a62792c-a7a8-4661-9a01-51c2ba89e1f5",
+                    "id": 2,
+                    "names": {
+                        "value": [
+                            {
+                                "_languageCode": "eng-GB",
+                                "#text": "Control unit 3|germany|none|physical"
+                            }
+                        ]
+                    },
+                    "quantity": 2,
+                    "Price": {
+                        "_media-type": "application\/vnd.ibexa.api.Price+json",
+                        "RestPrice": {
+                            "_media-type": "application\/vnd.ibexa.api.RestPrice+json",
+                            "Price": {
+                                "_media-type": "application\/vnd.ibexa.api.Price+json",
+                                "amount": "10300",
+                                "Currency": {
+                                    "_media-type": "application\/vnd.ibexa.api.Currency+json",
+                                    "id": 2,
+                                    "code": "EUR",
+                                    "subunits": 2,
+                                    "enabled": true
+                                },
+                                "PriceStamps": []
+                            },
+                            "formatted": "\u20ac103.00"
+                        }
+                    },
+                    "PriceInclVat": {
+                        "_media-type": "application\/vnd.ibexa.api.PriceInclVat+json",
+                        "RestPrice": {
+                            "_media-type": "application\/vnd.ibexa.api.RestPrice+json",
+                            "Price": {
+                                "_media-type": "application\/vnd.ibexa.api.Price+json",
+                                "amount": "10300",
+                                "Currency": {
+                                    "_media-type": "application\/vnd.ibexa.api.Currency+json",
+                                    "id": 2,
+                                    "code": "EUR",
+                                    "subunits": 2,
+                                    "enabled": true
+                                },
+                                "PriceStamps": []
+                            },
+                            "formatted": "\u20ac103.00"
+                        }
+                    },
+                    "SubtotalPrice": {
+                        "_media-type": "application\/vnd.ibexa.api.SubtotalPrice+json",
+                        "RestPrice": {
+                            "_media-type": "application\/vnd.ibexa.api.RestPrice+json",
+                            "Price": {
+                                "_media-type": "application\/vnd.ibexa.api.Price+json",
+                                "amount": "20600",
+                                "Currency": {
+                                    "_media-type": "application\/vnd.ibexa.api.Currency+json",
+                                    "id": 2,
+                                    "code": "EUR",
+                                    "subunits": 2,
+                                    "enabled": true
+                                },
+                                "PriceStamps": []
+                            },
+                            "formatted": "\u20ac206.00"
+                        }
+                    },
+                    "SubtotalPriceInclVat": {
+                        "_media-type": "application\/vnd.ibexa.api.SubtotalPriceInclVat+json",
+                        "RestPrice": {
+                            "_media-type": "application\/vnd.ibexa.api.RestPrice+json",
+                            "Price": {
+                                "_media-type": "application\/vnd.ibexa.api.Price+json",
+                                "amount": "20600",
+                                "Currency": {
+                                    "_media-type": "application\/vnd.ibexa.api.Currency+json",
+                                    "id": 2,
+                                    "code": "EUR",
+                                    "subunits": 2,
+                                    "enabled": true
+                                },
+                                "PriceStamps": []
+                            },
+                            "formatted": "\u20ac206.00"
+                        }
+                    },
+                    "VatCategory": {
+                        "_media-type": "application\/vnd.ibexa.api.VatCategory+json",
+                        "identifier": "none",
+                        "region": "germany",
+                        "vatValue": 0
+                    },
+                    "OriginalSubtotalPrice": {
+                        "_media-type": "application\/vnd.ibexa.api.OriginalSubtotalPrice+json",
+                        "RestPrice": {
+                            "_media-type": "application\/vnd.ibexa.api.RestPrice+json",
+                            "Price": {
+                                "_media-type": "application\/vnd.ibexa.api.Price+json",
+                                "amount": "20600",
+                                "Currency": {
+                                    "_media-type": "application\/vnd.ibexa.api.Currency+json",
+                                    "id": 2,
+                                    "code": "EUR",
+                                    "subunits": 2,
+                                    "enabled": true
+                                },
+                                "PriceStamps": []
+                            },
+                            "formatted": "\u20ac206.00"
+                        }
+                    },
+                    "Product": {
+                        "_media-type": "application\/vnd.ibexa.api.Product+json",
+                        "code": "product_code_control_unit_3",
+                        "isBaseProduct": false,
+                        "isVariant": false,
+                        "name": "Control unit 3|germany|none|physical",
+                        "Thumbnail": {
+                            "_media-type": "application\/vnd.ibexa.api.Thumbnail+json",
+                            "resource": "http:\/\/localhost:8070\/var\/site\/storage\/images\/_aliases\/medium\/5\/7\/5\/0\/575-1-eng-GB\/274d5edc4d3c-controlunit.jpeg",
+                            "width": 200,
+                            "height": 150,
+                            "mimeType": "image\/jpeg"
+                        },
+                        "Availability": {
+                            "_media-type": "application\/vnd.ibexa.api.Availability+json",
+                            "is_available": true,
+                            "stock": 103,
+                            "is_infinite": false
+                        }
+                    }
+                },
+                {
+                    "_media-type": "application\/vnd.ibexa.api.CartSummaryEntry+json",
+                    "identifier": "37dfad84-8c5d-4d06-8939-29397b020ee6",
+                    "id": 3,
+                    "names": {
+                        "value": [
+                            {
+                                "_languageCode": "eng-GB",
+                                "#text": "Control unit 2|germany|none|physical"
+                            }
+                        ]
+                    },
+                    "quantity": 1,
+                    "Price": {
+                        "_media-type": "application\/vnd.ibexa.api.Price+json",
+                        "RestPrice": {
+                            "_media-type": "application\/vnd.ibexa.api.RestPrice+json",
+                            "Price": {
+                                "_media-type": "application\/vnd.ibexa.api.Price+json",
+                                "amount": "10200",
+                                "Currency": {
+                                    "_media-type": "application\/vnd.ibexa.api.Currency+json",
+                                    "id": 2,
+                                    "code": "EUR",
+                                    "subunits": 2,
+                                    "enabled": true
+                                },
+                                "PriceStamps": []
+                            },
+                            "formatted": "\u20ac102.00"
+                        }
+                    },
+                    "PriceInclVat": {
+                        "_media-type": "application\/vnd.ibexa.api.PriceInclVat+json",
+                        "RestPrice": {
+                            "_media-type": "application\/vnd.ibexa.api.RestPrice+json",
+                            "Price": {
+                                "_media-type": "application\/vnd.ibexa.api.Price+json",
+                                "amount": "10200",
+                                "Currency": {
+                                    "_media-type": "application\/vnd.ibexa.api.Currency+json",
+                                    "id": 2,
+                                    "code": "EUR",
+                                    "subunits": 2,
+                                    "enabled": true
+                                },
+                                "PriceStamps": []
+                            },
+                            "formatted": "\u20ac102.00"
+                        }
+                    },
+                    "SubtotalPrice": {
+                        "_media-type": "application\/vnd.ibexa.api.SubtotalPrice+json",
+                        "RestPrice": {
+                            "_media-type": "application\/vnd.ibexa.api.RestPrice+json",
+                            "Price": {
+                                "_media-type": "application\/vnd.ibexa.api.Price+json",
+                                "amount": "10200",
+                                "Currency": {
+                                    "_media-type": "application\/vnd.ibexa.api.Currency+json",
+                                    "id": 2,
+                                    "code": "EUR",
+                                    "subunits": 2,
+                                    "enabled": true
+                                },
+                                "PriceStamps": []
+                            },
+                            "formatted": "\u20ac102.00"
+                        }
+                    },
+                    "SubtotalPriceInclVat": {
+                        "_media-type": "application\/vnd.ibexa.api.SubtotalPriceInclVat+json",
+                        "RestPrice": {
+                            "_media-type": "application\/vnd.ibexa.api.RestPrice+json",
+                            "Price": {
+                                "_media-type": "application\/vnd.ibexa.api.Price+json",
+                                "amount": "10200",
+                                "Currency": {
+                                    "_media-type": "application\/vnd.ibexa.api.Currency+json",
+                                    "id": 2,
+                                    "code": "EUR",
+                                    "subunits": 2,
+                                    "enabled": true
+                                },
+                                "PriceStamps": []
+                            },
+                            "formatted": "\u20ac102.00"
+                        }
+                    },
+                    "VatCategory": {
+                        "_media-type": "application\/vnd.ibexa.api.VatCategory+json",
+                        "identifier": "none",
+                        "region": "germany",
+                        "vatValue": 0
+                    },
+                    "OriginalSubtotalPrice": {
+                        "_media-type": "application\/vnd.ibexa.api.OriginalSubtotalPrice+json",
+                        "RestPrice": {
+                            "_media-type": "application\/vnd.ibexa.api.RestPrice+json",
+                            "Price": {
+                                "_media-type": "application\/vnd.ibexa.api.Price+json",
+                                "amount": "10200",
+                                "Currency": {
+                                    "_media-type": "application\/vnd.ibexa.api.Currency+json",
+                                    "id": 2,
+                                    "code": "EUR",
+                                    "subunits": 2,
+                                    "enabled": true
+                                },
+                                "PriceStamps": []
+                            },
+                            "formatted": "\u20ac102.00"
+                        }
+                    },
+                    "Product": {
+                        "_media-type": "application\/vnd.ibexa.api.Product+json",
+                        "code": "product_code_control_unit_2",
+                        "isBaseProduct": false,
+                        "isVariant": false,
+                        "name": "Control unit 2|germany|none|physical",
+                        "Thumbnail": {
+                            "_media-type": "application\/vnd.ibexa.api.Thumbnail+json",
+                            "resource": "http:\/\/localhost:8070\/var\/site\/storage\/images\/_aliases\/medium\/7\/6\/5\/0\/567-1-eng-GB\/d396544dd46a-controlunit.jpeg",
+                            "width": 200,
+                            "height": 150,
+                            "mimeType": "image\/jpeg"
+                        },
+                        "Availability": {
+                            "_media-type": "application\/vnd.ibexa.api.Availability+json",
+                            "is_available": true,
+                            "stock": 102,
+                            "is_infinite": false
+                        }
+                    }
+                }
+            ]
+        },
+        "TotalPrice": {
+            "_media-type": "application\/vnd.ibexa.api.Price+json",
+            "RestPrice": {
+                "_media-type": "application\/vnd.ibexa.api.RestPrice+json",
+                "Price": {
+                    "_media-type": "application\/vnd.ibexa.api.Price+json",
+                    "amount": "40900",
+                    "Currency": {
+                        "_media-type": "application\/vnd.ibexa.api.Currency+json",
+                        "id": 2,
+                        "code": "EUR",
+                        "subunits": 2,
+                        "enabled": true
+                    },
+                    "PriceStamps": []
+                },
+                "formatted": "\u20ac409.00"
+            }
+        },
+        "OriginalTotalPrice": {
+            "_media-type": "application\/vnd.ibexa.api.Price+json",
+            "RestPrice": {
+                "_media-type": "application\/vnd.ibexa.api.RestPrice+json",
+                "Price": {
+                    "_media-type": "application\/vnd.ibexa.api.Price+json",
+                    "amount": "40900",
+                    "Currency": {
+                        "_media-type": "application\/vnd.ibexa.api.Currency+json",
+                        "id": 2,
+                        "code": "EUR",
+                        "subunits": 2,
+                        "enabled": true
+                    },
+                    "PriceStamps": []
+                },
+                "formatted": "\u20ac409.00"
+            }
+        },
+        "TotalDiscount": {
+            "_media-type": "application\/vnd.ibexa.api.Price+json",
+            "RestPrice": {
+                "_media-type": "application\/vnd.ibexa.api.RestPrice+json",
+                "Price": {
+                    "_media-type": "application\/vnd.ibexa.api.Price+json",
+                    "amount": "0",
+                    "Currency": {
+                        "_media-type": "application\/vnd.ibexa.api.Currency+json",
+                        "id": 2,
+                        "code": "EUR",
+                        "subunits": 2,
+                        "enabled": true
+                    },
+                    "PriceStamps": []
+                },
+                "formatted": "\u20ac0.00"
+            }
+        },
+        "TotalPriceInclVat": {
+            "_media-type": "application\/vnd.ibexa.api.Price+json",
+            "RestPrice": {
+                "_media-type": "application\/vnd.ibexa.api.RestPrice+json",
+                "Price": {
+                    "_media-type": "application\/vnd.ibexa.api.Price+json",
+                    "amount": "40900",
+                    "Currency": {
+                        "_media-type": "application\/vnd.ibexa.api.Currency+json",
+                        "id": 2,
+                        "code": "EUR",
+                        "subunits": 2,
+                        "enabled": true
+                    },
+                    "PriceStamps": []
+                },
+                "formatted": "\u20ac409.00"
+            }
+        },
+        "vatCategorySummary": [
+            {
+                "_media-type": "application\/vnd.ibexa.api.VatCategorySummary+json",
+                "VatCategory": {
+                    "_media-type": "application\/vnd.ibexa.api.VatCategory+json",
+                    "identifier": "none",
+                    "region": "germany",
+                    "vatValue": 0
+                },
+                "RestPrice": {
+                    "_media-type": "application\/vnd.ibexa.api.RestPrice+json",
+                    "Price": {
+                        "_media-type": "application\/vnd.ibexa.api.Price+json",
+                        "amount": "0",
+                        "Currency": {
+                            "_media-type": "application\/vnd.ibexa.api.Currency+json",
+                            "id": 2,
+                            "code": "EUR",
+                            "subunits": 2,
+                            "enabled": true
+                        },
+                        "PriceStamps": []
+                    },
+                    "formatted": "\u20ac0.00"
+                }
+            }
+        ],
+        "Currency": {
+            "_media-type": "application\/vnd.ibexa.api.Currency+json",
+            "id": 2,
+            "code": "EUR",
+            "subunits": 2,
+            "enabled": true
+        },
+        "CartConstraintViolationList": {
+            "_media-type": "application\/vnd.ibexa.api.CartConstraintViolationList+json",
+            "violations": []
+        }
+    }
+}
