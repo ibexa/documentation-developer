@@ -21,7 +21,7 @@ services:
             - { name: 'ibexa.platform.connector.dam.variation_generator', source: 'commons' }
 
     commons_search_tab:
-        class: Ibexa\Platform\Connector\Dam\View\Search\Tab\GenericSearchTab
+        class: Ibexa\Connector\Dam\View\Search\Tab\GenericSearchTab
         public: false
         arguments:
             $identifier: 'commons'
