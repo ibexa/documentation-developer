@@ -134,7 +134,7 @@ Then register the transformation factory as a service:
 The variation generator applies map parameters coming from the transformation factory to build a fetch request to the DAM.
 The solution uses the built-in `URLBasedVariationGenerator` class, which adds all the map elements as query parameters to the request.
 
-For example, for an asset with the ID `Ibexa_Logo.svg`, the handler generates the Asset with [`AssetUri's URL`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Connector-Dam-AssetUri.htm#method_getPatht) equal to:
+For example, for an asset with the ID `Ibexa_Logo.svg`, the handler generates the Asset with [`AssetUri's URL`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Connector-Dam-AssetUri.html#method_getPath) equal to:
 
 `https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Ibexa_Logo.svg`
 
