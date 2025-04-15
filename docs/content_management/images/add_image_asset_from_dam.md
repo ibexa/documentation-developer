@@ -96,7 +96,7 @@ To extend the DAM support built into [[= product_name =]], you must create a cus
 
 This class handles searching through Wikimedia Commons for images and fetching image assets.
 
-In `src\Connector\Dam\Handler` folder, create the `WikimediaCommonsHandler.php` file that resembles the following example,
+In `src/Connector/Dam/Handler` folder, create the `WikimediaCommonsHandler.php` file that resembles the following example,
 which implements [`search()`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Connector-Dam-Handler-Handler.html#method_search) to query the server
 and [`fetchAsset()`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Connector-Dam-Handler-Handler.html#method_fetchAsset) to return asset objects:
 
@@ -104,7 +104,7 @@ and [`fetchAsset()`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Conn
 [[= include_file('code_samples/back_office/images/src/Connector/Dam/Handler/WikimediaCommonsHandler.php') =]]
 ```
 
-Then, in `config\services.yaml`, register the handler as a service:
+Then, in `config/services.yaml`, register the handler as a service:
 
 ```yaml
 [[= include_file('code_samples/back_office/images/config/services.yaml', 9, 12) =]]
@@ -116,7 +116,7 @@ The `source` parameter passed in the tag is an identifier of this new DAM connec
 
 The transformation factory maps [[= product_name =]]'s image variations to corresponding variations from Wikimedia Commons.
 
-In `src\Connector\Dam\Transformation` folder, create the `WikimediaCommonsTransformationFactory.php` file that resembles the following example,
+In `src/Connector/Dam/Transformation` folder, create the `WikimediaCommonsTransformationFactory.php` file that resembles the following example,
 which implements the [`TransformationFactory` interface](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Connector-Dam-Variation-TransformationFactory.html):
 
 ```php
@@ -134,7 +134,7 @@ Then register the transformation factory as a service:
 The variation generator applies map parameters coming from the transformation factory to build a fetch request to the DAM.
 The solution uses the built-in `URLBasedVariationGenerator` class, which adds all the map elements as query parameters to the request.
 
-For example, the handler generates the following URL with [`new AssetUri()`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Connector-Dam-AssetUri.html#method___construct):
+For example, for an asset with the ID `Ibexa_Logo.svg`, the handler generates the Asset with [`AssetUri's URL`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Connector-Dam-AssetUri.htm#method_getPatht) equal to:
 
 `https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Ibexa_Logo.svg`
 
@@ -142,7 +142,7 @@ When the user requests a specific variation of the image, for example, "large", 
 
 `https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Ibexa_Logo.svg&width=300`
 
-For this to happen, register the variations generator as a service:
+For this to happen, register the variations generator as a service available for the custom `commons` connector:
 
 ```yaml
 [[= include_file('code_samples/back_office/images/config/services.yaml', 17, 21) =]]
@@ -184,7 +184,7 @@ Replace `<scope>` with an [appropriate value](siteaccess_aware_configuration.md)
 ### Provide back office translation
 
 When the image asset field is displayed in the back office, a table of metadata follows.
-This example uses new fields, so you need to provide translations for their labels.
+This example uses new fields, so you need to provide translations for their labels, for example, in `translations/ibexa_fieldtypes_preview.en.yaml`:
 
 ```yaml
 [[= include_file('code_samples/back_office/images/translations/ibexa_fieldtypes_preview.en.yaml') =]]
