@@ -33,7 +33,7 @@ $(document).ready(function() {
     });
 
     // Add version pill to top of navigation
-    $('#site-name').append('<span class="pill">' + branchName + '</span>');
+    $('#site-name').append('<span class="pill pill--inline">' + branchName + '</span>');
 
     $('.rst-current-version.switcher__label').html(branchName);
 

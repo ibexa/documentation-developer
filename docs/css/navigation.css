@@ -302,6 +302,8 @@
     padding: 1rem 0.8rem;
     border-bottom: 1px solid var(--mid-grey);
     background: white;
+    display: flex;
+    align-items: center;
 }
 
 .push {
