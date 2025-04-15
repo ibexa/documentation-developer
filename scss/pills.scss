@@ -6,6 +6,7 @@
     padding: 1px 8px;
     border: 1px solid;
     margin-right: 8px;
+    color: variables.$color-primary-main;
 
     $types: (
         "headless": (variables.$color-error-main, "Headless"),
