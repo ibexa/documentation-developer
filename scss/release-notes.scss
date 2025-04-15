@@ -234,7 +234,6 @@
             'lts-update' variables.$color-info-main,
             'new-feature' variables.$color-success-main;
 
-        
         @each $name, $color in $types {
             &--#{$name} {
                 color: $color;

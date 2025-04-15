@@ -1,0 +1,47 @@
+.pill {
+  font-size: 12px;
+  padding: 1px 8px;
+  border: 1px solid;
+  margin-right: 8px;
+}
+.pill--headless {
+  color: #C4234A;
+  border-color: #C4234A;
+}
+.pill--headless::after {
+  content: "Headless";
+}
+.pill--experience {
+  color: #D3822B;
+  border-color: #D3822B;
+}
+.pill--experience::after {
+  content: "Experience";
+}
+.pill--commerce {
+  color: #A32768;
+  border-color: #A32768;
+}
+.pill--commerce::after {
+  content: "Commerce";
+}
+.pill--lts-update {
+  color: #5DA7C0;
+  border-color: #5DA7C0;
+}
+.pill--lts-update::after {
+  content: "LTS Update";
+}
+.pill--new-feature {
+  color: #2C9445;
+  border-color: #2C9445;
+}
+.pill--new-feature::after {
+  content: "New feature";
+}
+.pill--inline {
+  margin-left: 10px;
+  height: 19 px;
+}
+
+/*# sourceMappingURL=pills.css.map */
