@@ -42,7 +42,18 @@
 }
 .pill--inline {
   margin-left: 10px;
-  height: 20px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+.pill--new {
+  margin-right: 15px;
+  color: #d9e8ff;
+  color: #3562a0;
+  text-transform: lowercase;
+}
+
+div.pills {
+  float: right;
 }
 
 /*# sourceMappingURL=pills.css.map */

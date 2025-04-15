@@ -548,11 +548,6 @@ a.external:not(.card):after {
     padding: 0;
 }
 
-div.pills {
-    float: right;
-}
-
-
 .md-clipboard:focus, .md-clipboard:hover {
   color: var(--ibexa-jazzberry);
 }

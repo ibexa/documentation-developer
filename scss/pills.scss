@@ -32,6 +32,33 @@
 
     &--inline {
         margin-left: 10px;
-        height: 20px;
+        padding-top: 4px;
+        padding-bottom: 4px;
+    }
+
+    &--new {
+      margin-right: 15px;
+      color: #d9e8ff;
+      color: #3562a0;
+      text-transform: lowercase;
     }
 }
+
+div.pills {
+  float: right;
+}
+
+// Used in reference only?
+// .md-typeset .content-header .pills {
+//   float: none;
+//   width: 100%;
+// }
+
+// .md-typeset .content-header .pill {
+//   display: inline-block;
+//   margin-bottom: 12px;
+//   font-size: 12px;
+//   line-height: 18px;
+//   padding: 0 8px;
+//   background-color: transparent;
+// }
