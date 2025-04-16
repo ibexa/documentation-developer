@@ -15,7 +15,8 @@
     --mid-grey: rgb(201,201,208);
     --dark-grey: rgb(151,151,151);
     
-    
+    --color-warning-dark-01: rgb(211,130,43);
+    --color-primary-main: rgb(163,39,104);
     --caution-border: var(--ibexa-orange);
     --note-border: var(--mid-grey);
     --enterprise-border: var(--ibexa-jazzberry);
@@ -513,6 +514,41 @@ a.external:not(.card):after {
 
 div.pills {
     float: right;
+}
+
+.pill {
+    border-radius: 2.18px;
+    padding: 3px 8px;
+    color: var(--white);
+    font-size: 10px;
+    font-weight: 500;
+}
+
+.experience-pill::after {
+    content: "Experience";
+}
+
+.experience-pill {
+    color: var(--color-warning-dark-01);
+    border: 1px solid var(--color-warning-dark-01);
+}
+
+.commerce-pill::after {
+    content: "Commerce";
+}
+
+.commerce-pill {
+    color: var(--color-primary-main);
+    border: 1px solid var(--color-primary-main);
+}
+
+.optional-pill::after {
+    content: "Optional";
+}
+
+.optional-pill {
+    color: var(--sherpa-blue);
+    border: 1px solid var(--sherpa-blue);
 }
 
 .md-clipboard:focus, .md-clipboard:hover {
