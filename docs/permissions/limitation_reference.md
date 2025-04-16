@@ -41,9 +41,9 @@ The `ActivityLogOwner` limitation specifies if a user can see only their own [re
 |-------|-----------------|--------------------------------------------------------------|
 | `1`   | "Only own logs" | Current user can only access their own activity log entries. |
 
-## CartOwner limitation
+## Cart Owner limitation
 
-The `CartOwner` limitation specifies whether the user can modify a cart.
+The Cart Owner `CartOwner` limitation specifies whether the user can modify a cart.
 
 ### Possible values
 
@@ -61,6 +61,16 @@ The Change Owner (`ChangeOwner`) limitation specifies whether the user can chang
 |Value|UI value|Description|
 |------|------|------|
 |`1`|"Forbid"|The user cannot change owner of a content item|
+
+## Discount Owner limitation
+
+The Discount Owner `DiscountOwner` limitation specifies whether the user can interact with a discount.
+
+### Possible values
+
+|Value|UI value|Description|
+|------|------|------|
+|"self"|"self"|Only the user who is the owner of the discount gets access.|
 
 ## Content type Group limitation
 
