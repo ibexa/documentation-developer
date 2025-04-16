@@ -77,7 +77,7 @@ Discounts can apply to specific items, shipping costs, total order amount and so
 
 ### Management
 
-Users with the appropriate permissions, governed by role-based [policies](policies.md#ai-actions), can control the lifecycle of Discounts by creating, editing, executing, and deleting them.
+Users with the appropriate permissions, governed by role-based [policies](policies.md#disc ounts), can control the lifecycle of Discounts by creating, editing, executing, and deleting them.
 Additionally, Discount configurations can be enabled or disabled depending on the organization's needs.
 
 ![Discount management screen](img/discount_list.png)

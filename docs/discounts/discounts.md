@@ -13,6 +13,5 @@ You can also extend the feature by creating custom pricing rules, application co
 
 [[= cards([
 "discounts/discounts_guide",
-"discounts/install_discounts",
-"discounts/extend_discounts",
+"discounts/install_discounts"
 ], columns=4) =]]

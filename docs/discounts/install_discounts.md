@@ -17,7 +17,7 @@ composer require ibexa/discounts
 composer require ibexa/discount-codes
 ```
 
-These commands add the framework code, service handlers, helper Twig templates, and configurations required for using Discounts.
+These commands add the feature code, service handlers, helper Twig templates, and configurations required for using Discounts.
 It also modifies the permission system to account for the new functionality.
 
 ## Configure Discounts
