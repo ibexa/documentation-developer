@@ -1958,6 +1958,6 @@ ul.breadcrumbs li.breadcrumb-item-current span {
 
 }
 
-.phpdocumentor-admonition article {
+.phpdocumentor-admonition article, .phpdocumentor-cases article {
     padding-bottom: 0;
 }
