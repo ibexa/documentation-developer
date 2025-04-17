@@ -154,6 +154,7 @@ body {
     line-height: 1;
     display: flex;
     align-items: center;
+    text-align: center;
 }
 
 .md-typeset h1 {
