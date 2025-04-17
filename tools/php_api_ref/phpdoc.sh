@@ -9,6 +9,7 @@ DXP_EDITION='commerce'; # Edition from and for which the Reference is built
 DXP_VERSION='5.0.x-dev'; # Version from and for which the Reference is built
 DXP_ADD_ONS=(connector-ai connector-openai automated-translation product-catalog-date-time-attribute); # Packages not included in $DXP_EDITION but added to the Reference, listed without their vendor "ibexa"
 DXP_EDITIONS=(oss headless experience commerce); # Available editions ordered by ascending capabilities
+SF_VERSION='6.4'; # Symfony version used by Ibexa DXP
 PHPDOC_VERSION='3.7.1'; # Version of phpDocumentor used to build the Reference
 PHPDOC_CONF="$(pwd)/tools/php_api_ref/phpdoc.dist.xml"; # Absolute path to phpDocumentor configuration file
 #PHPDOC_CONF="$(pwd)/tools/php_api_ref/phpdoc.dev.xml"; # Absolute path to phpDocumentor configuration file
@@ -153,6 +154,9 @@ mkdir -p php_api_reference/js;
 mv ./.phpdoc/template/fonts ./php_api_reference/;
 mv ./.phpdoc/template/images ./php_api_reference/;
 mv ./.phpdoc/template/js/*.js ./php_api_reference/js/;
+
+echo 'Set Symfony version…';
+sed "s/symfony_version = '.*'/symfony_version = '$SF_VERSION'/" $PHPDOC_DIR/template/base.html.twig > ./.phpdoc/template/base.html.twig;
 
 echo 'Run phpDocumentor…';
 curl -LO "https://github.com/phpDocumentor/phpDocumentor/releases/download/v$PHPDOC_VERSION/phpDocumentor.phar";
