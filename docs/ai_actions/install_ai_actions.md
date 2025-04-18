@@ -109,16 +109,16 @@ Select the following scopes to set permissions needed to enable the integration 
 
 - `custom-property-structures:read`
 - `custom-property-structures:write`
-- `scenarios:read`
-- `scenarios:write`
 - `hooks:read`
 - `hooks:write`
+- `scenarios:read`
+- `scenarios:write`
+- `team-variables:read`
+- `team-variables:write`
 - `templates:read`
 - `templates:write`
 - `udts:read`
 - `udts:write`
-- `team-variables:read`
-- `team-variables:write`
 
 ![Creating an API token](img/connect_api_token.png)
 
