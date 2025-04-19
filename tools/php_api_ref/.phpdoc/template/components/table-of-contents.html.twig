@@ -62,7 +62,7 @@
         {%- include 'components/anchor.html.twig' with { anchor_link: link(node) ~ '#interfaces' } -%}
     </h2>
     <ul class="namespace-list">
-        {% for entry in joined_data %}
+        {% for entry in joined_data|sort((entry1, entry2) => entry1.name <=> entry2.name) %}
             <li>
                 <span>
                     <img src="./images/arrow-right.svg" class="arrow" />
