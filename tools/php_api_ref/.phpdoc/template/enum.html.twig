@@ -10,8 +10,8 @@
     {% include 'components/breadcrumbs.html.twig' %}
     {% include 'components/enum-title.html.twig' %}
     {% include 'components/element-header.html.twig' %}
-    {{ include('components/enum-cases.html.twig') }}
-    {{ include('components/methods.html.twig') }}
+    {% include 'components/enum-cases.html.twig' %}
+    {% include 'components/methods.html.twig' %}
 {% endblock %}
 
 {% block on_this_page %}
@@ -27,7 +27,7 @@
     <ul class="md-nav__list">
         {% if cases is not empty %}
             <li class="md-nav__item level-1 with-children">
-                <a href="{{ node|route("url")|raw }}#constants" title="Cases" class="md-nav__link">
+                <a href="{{ node|route("url")|raw }}#cases" title="Cases" class="md-nav__link">
                     Cases
                 </a>
                 <nav class="md-nav">
