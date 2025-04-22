@@ -9,7 +9,7 @@ AI Actions are available as an LTS update to [[= product_name =]] starting with 
 To use this feature you must first install the package.
 You can then install and configure the service connectors or build your own ones.
 
-## Install the framework
+## Install framework
 
 Run the following command to install the package:
 
@@ -20,7 +20,7 @@ composer require ibexa/connector-ai
 This command adds the framework code, service handlers, Twig templates, and configurations required for using AI Actions.
 It also modifies the permission system to account for the new functionality.
 
-## Modify the database schema
+## Modify database schema
 
 Create the `add_ai_actions.sql` file that contains the following code.
 
@@ -105,9 +105,24 @@ If specific users from the team are supposed to modify scenario settings, you mu
 ### Create token
 
 Navigate to your [[= product_name_connect =]] user's profile, and on the **API ACCESS** tab, create a new token.
-Copy the token code that appears next to the label.
+Select the following scopes to set permissions needed to enable the integration of platforms:
+
+- `custom-property-structures:read`
+- `custom-property-structures:write`
+- `hooks:read`
+- `hooks:write`
+- `scenarios:read`
+- `scenarios:write`
+- `team-variables:read`
+- `team-variables:write`
+- `templates:read`
+- `templates:write`
+- `udts:read`
+- `udts:write`
 
 ![Creating an API token](img/connect_api_token.png)
+
+Copy the token code that appears on the tokens list, next to the label.
 
 ### Set up credentials
 
