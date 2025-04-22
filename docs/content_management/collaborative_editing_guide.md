@@ -82,5 +82,5 @@ Their input can be integrated directly into the editing process, leading to more
 
 ### Change tracking
 
-All changes made during a session are automatically tracked, so you can see what was edited, by whom, and when.
-This provides full transparency and makes it easy to review past edits or revert changes if needed.
+All changes made by the editors belonging to the session are automatically tracked, so you can see what was edited, by whom, and when.
+This provides full transparency and makes it easy to review.
