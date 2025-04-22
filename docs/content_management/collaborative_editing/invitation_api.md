@@ -8,7 +8,7 @@ description: You can use the PHP API to create new invitation, update existing o
 
 ## Create invitation
 
-You can create new invitation for the collaborative session using the [`InvitationkService::createInvitation`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-InvitationService.html#method_createInvitation) method:
+You can create new invitation for the collaborative session using the [`InvitationService::createInvitation`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-InvitationService.html#method_createInvitation) method:
 
 ``` php
 {
