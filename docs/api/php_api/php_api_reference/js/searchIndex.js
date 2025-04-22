@@ -39136,6 +39136,11 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/Ibexa-Contracts-ProductCatalog-Form-Data-ProductsSelectorData.html#method_removeProduct"
         },                {
+            "fqsen": "\\Ibexa\\Contracts\\ProductCatalog\\Form\\Data\\ProductsSelectorData\u003A\u003Acount\u0028\u0029",
+            "name": "count",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-ProductCatalog-Form-Data-ProductsSelectorData.html#method_count"
+        },                {
             "fqsen": "\\Ibexa\\Contracts\\ProductCatalog\\Form\\Type\\ProductSelectorType",
             "name": "ProductSelectorType",
             "summary": "",
