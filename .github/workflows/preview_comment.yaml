@@ -1,4 +1,4 @@
-name: 'Preview links'
+name: 'Preview comment'
 
 on:
     pull_request: ~
