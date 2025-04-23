@@ -1,4 +1,4 @@
-name: "Post preview links for changed files"
+name: 'Preview links'
 
 on:
     pull_request: ~
@@ -12,7 +12,7 @@ on:
 
 jobs:
     post-preview-links:
-        name: Post preview links for changed files
+        name: 'Post preview links for changed files'
         runs-on: ubuntu-latest
         permissions:
             # Needed to manage the comment
