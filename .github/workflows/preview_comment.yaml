@@ -37,7 +37,7 @@ jobs:
                       link=$(echo $par_file | sed -E "s|^docs/(.*\.html)$|- [\`${fqcn}\`](${build_url}\1)|")
                       par_change_list=$(echo -e "$par_change_list\n$link")
                     done
-                    par_change_list=$(echo "$par_change_list" | sed '1d' | xargs )
+                    par_change_list=$(echo "$par_change_list" | sed '1d' )
                     change_count=$(( $(echo "$md_change_list" | wc -l) + $(echo "$par_change_list" | wc -l) ))
 
                     if [[ -z "$md_change_list$par_change_list" ]] ; then
