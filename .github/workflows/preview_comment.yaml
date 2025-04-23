@@ -31,7 +31,7 @@ jobs:
                     build_url="https://ez-systems-developer-documentation--${{ github.event.pull_request.number }}.com.readthedocs.build/${{inputs.project}}en/${{ github.event.pull_request.number }}/"
 
                     md_change_list=$(git diff --name-only HEAD "origin/$GITHUB_BASE_REF" -- docs/ | grep -E "^docs\/.*\.md$" | sed -E "s|^docs/(.*)\.md$|- [docs/\1.md](${build_url}\1/)|")
-                    par_change_list=$(git diff --name-only HEAD "origin/$GITHUB_BASE_REF" -- docs/api/php_api/php_api_reference/ | grep -E "^docs\/.*\.html$" | sed -E "s|^docs/(.*\.html)$|- [docs/\1](${build_url}\1/)|")
+                    par_change_list=$(git diff --name-only HEAD "origin/$GITHUB_BASE_REF" -- docs/api/php_api/php_api_reference/ | grep -E "^docs\/.*\.html$" | sed -E "s|^docs/(.*\.html)$|- [docs/\1](${build_url}\1)|")
                     change_count=$(( $(echo "$md_change_list" | wc -l) + $(echo "$par_change_list" | wc -l) ))
 
                     if [[ "$md_change_list$par_change_list" -eq '' ]] ; then
