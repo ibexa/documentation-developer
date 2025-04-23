@@ -37,19 +37,19 @@ jobs:
                       link=$(echo $par_file | sed -E "s|^docs/(.*\.html)$|- [\`${fqcn}\`](${build_url}\1)|")
                       par_change_list=$(echo -e "$par_change_list\n$link")
                     done
-                    par_change_list=$(echo "$par_change_list" | sed '1d')
+                    par_change_list=$(echo "$par_change_list" | sed '1d' | xargs )
                     change_count=$(( $(echo "$md_change_list" | wc -l) + $(echo "$par_change_list" | wc -l) ))
 
-                    if [[ "$md_change_list$par_change_list" -eq '' ]] ; then
+                    if [[ -z "$md_change_list$par_change_list" ]] ; then
                       comment="Preview of modified files: no change to preview."
                     elif [[ $change_count -gt $file_limit ]] ; then
                       comment="Preview of modified files: Too many files modified in a single PR, preview link list is skipped. ($change_count files &gth; $file_limit)"
                     else
                       comment="# Preview of modified files"
-                      if [[ "$md_change_list" -ne '' ]]; then
+                      if [[ -n "$md_change_list" ]]; then
                         $comment="$comment\n\nPreview of modified Markdown:\n\n$md_change_list"
                       fi
-                      if [[ "$par_change_list" -ne '' ]]; then
+                      if [[ -n "$par_change_list" ]]; then
                         $comment="$comment\n\nPreview of addition to PHP API Reference:\n\n$par_change_list"
                       fi
                       comment="# Preview of modified files\n\nPreview of modified Markdown:\n\n$md_change_list\n\nPreview of addition to PHP API Reference:\n\n$par_change_list"                    
