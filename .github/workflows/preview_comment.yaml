@@ -47,10 +47,10 @@ jobs:
                     else
                       comment="# Preview of modified files"
                       if [[ -n "$md_change_list" ]]; then
-                        $comment="$comment\n\nPreview of modified Markdown:\n\n$md_change_list"
+                        comment="$comment\n\nPreview of modified Markdown:\n\n$md_change_list"
                       fi
                       if [[ -n "$par_change_list" ]]; then
-                        $comment="$comment\n\nPreview of addition to PHP API Reference:\n\n$par_change_list"
+                        comment="$comment\n\nPreview of addition to PHP API Reference:\n\n$par_change_list"
                       fi
                       comment="# Preview of modified files\n\nPreview of modified Markdown:\n\n$md_change_list\n\nPreview of addition to PHP API Reference:\n\n$par_change_list"                    
                     fi
