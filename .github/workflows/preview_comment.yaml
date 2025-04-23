@@ -51,8 +51,7 @@ jobs:
                       fi
                       if [[ -n "$par_change_list" ]]; then
                         comment="$comment\n\nPreview of addition to PHP API Reference:\n\n$par_change_list"
-                      fi
-                      comment="# Preview of modified files\n\nPreview of modified Markdown:\n\n$md_change_list\n\nPreview of addition to PHP API Reference:\n\n$par_change_list"                    
+                      fi                  
                     fi
 
                     echo -e "$comment" > comment.md
