@@ -1,4 +1,4 @@
-name: "Post preview links for changed files"
+name: 'Preview links'
 
 on:
     pull_request: ~
@@ -12,7 +12,7 @@ on:
 
 jobs:
     post-preview-links:
-        name: Post preview links for changed files
+        name: 'Post preview links for changed files'
         runs-on: ubuntu-latest
         permissions:
             # Needed to manage the comment
@@ -31,7 +31,7 @@ jobs:
                     build_url="https://ez-systems-developer-documentation--${{ github.event.pull_request.number }}.com.readthedocs.build/${{inputs.project}}en/${{ github.event.pull_request.number }}/"
 
                     md_change_list=$(git diff --name-only HEAD "origin/$GITHUB_BASE_REF" -- docs/ | grep -E "^docs\/.*\.md$" | sed -E "s|^docs/(.*)\.md$|- [docs/\1.md](${build_url}\1/)|")
-                    par_change_list=$(git diff --name-only HEAD "origin/$GITHUB_BASE_REF" -- docs/api/php_api/php_api_reference/ | grep -E "^docs\/.*\.html$" | sed -E "s|^docs/(.*\.html)$|- [docs/\1](${build_url}\1)|")
+                    par_change_list=$(git diff --diff-filter=A --name-only HEAD "origin/$GITHUB_BASE_REF" -- docs/api/php_api/php_api_reference/ | grep -E "^docs\/.*\.html$" | sed -E "s|^docs/(.*\.html)$|- [docs/\1](${build_url}\1)|")
                     change_count=$(( $(echo "$md_change_list" | wc -l) + $(echo "$par_change_list" | wc -l) ))
 
                     if [[ "$md_change_list$par_change_list" -eq '' ]] ; then
@@ -39,7 +39,7 @@ jobs:
                     elif [[ $change_count -gt $file_limit ]] ; then
                       comment="Preview of modified files: Too many files modified in a single PR, preview link list is skipped. ($change_count files &gth; $file_limit)"
                     else
-                      comment="# Preview of modified files\n\nPreview of modified Markdown:\n\n$md_change_list\n\nPreview of modified PHP API Reference:\n\n$par_change_list"                    
+                      comment="# Preview of modified files\n\nPreview of modified Markdown:\n\n$md_change_list\n\nPreview of addition to PHP API Reference:\n\n$par_change_list"                    
                     fi
 
                     echo -e "$comment" > comment.md
