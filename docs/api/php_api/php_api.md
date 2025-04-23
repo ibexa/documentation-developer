@@ -3,7 +3,7 @@ description: Public PHP API exposes the Repository in a number of services and a
 page_type: reference
 ---
 
-# PHP API
+# PHP API: TEST Preview Comment
 
 The [public PHP API](/api/php_api/php_api_reference/index.html) enables you to interact with [[= product_name =]]'s Repository and content model from your PHP code.
 
