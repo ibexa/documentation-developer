@@ -1,5 +1,7 @@
 .pill {
   font-size: 12px;
+  font-weight: initial;
+  line-height: 18px;
   padding: 1px 8px;
   border: 1px solid;
   margin-right: 8px;
@@ -40,11 +42,12 @@
 .pill--new-feature::after {
   content: "New feature";
 }
-.pill--inline {
-  margin-left: 10px;
+.pill--inline:first-of-type {
+  margin-left: 8px;
 }
 .pill--new {
   margin-right: 15px;
+  align-self: center;
   color: #d9e8ff;
   color: #3562a0;
   text-transform: lowercase;
