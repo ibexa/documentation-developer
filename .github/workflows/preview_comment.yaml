@@ -34,7 +34,7 @@ jobs:
                     par_change_list='';
                     for par_file in $(git diff --diff-filter=A --name-only "origin/$GITHUB_BASE_REF" HEAD -- docs/api/php_api/php_api_reference/ | grep -E '^docs\/.*\.html$'); do
                       fqcn=$(grep -o 'data-copy-value=".*">Copy FQCN' $par_file | sed -E 's|data-copy-value="(.*)">.*|\1|' | sed 's|\\|\\\\|g')
-                      link=$(echo $par_file | sed -E "s|^docs/(.*\.html)$|- [${fqcn}](${build_url}\1)|")
+                      link=$(echo $par_file | sed -E "s|^docs/(.*\.html)$|- [\`${fqcn}\`](${build_url}\1)|")
                       par_change_list=$(echo -e "$par_change_list\n$link")
                     done
                     par_change_list=$(echo "$par_change_list" | sed '1d')
