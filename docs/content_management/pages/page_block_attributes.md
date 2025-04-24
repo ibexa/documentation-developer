@@ -31,6 +31,7 @@ The following attribute types are available:
 |`text`|Text block|-|
 |`richtext`|Rich text block (see [creating RichText block](create_custom_richtext_block.md))|-|
 |`embed`|Embedded content item|`udw_config_name`: name of the [Universal Discovery Widget's configuration](browser.md#add-new-configuration) |
+|`embedvideo`|Embedded content item|`udw_config_name`: name of the [Universal Discovery Widget's configuration](browser.md#add-new-configuration) |
 |`select`|Drop-down with options to select|<ul><li>`choices` lists the available options in `label: value` form</li><li>`multiple`, when set to true, allows selecting more than one option</li></ul>|
 |`checkbox`|Checkbox|Selects available option if `value: true`.|
 |`multiple`|Checkbox(es)|`choices` lists the available options in `label: value` form.|
@@ -49,8 +50,9 @@ attributes:
     third_field: integer
 ```
 
-`embed` and `locationlist` use the Universal Discovery Widget (UDW).
-When creating a block with these two types you can use the `udw_config_name` option to configure the UDW behavior.
+The `embed`, `embedvideo`, and `locationlist` attribute types use the Universal Discovery Widget (UDW).
+When creating a block with these types you can use the `udw_config_name` option to configure the UDW behavior.
+See the [custom block example](create_custom_page_block.md#configure-block) to learn more.
 
 ## Custom attribute types
 
