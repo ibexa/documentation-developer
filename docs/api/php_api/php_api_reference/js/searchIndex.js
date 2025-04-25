@@ -4156,6 +4156,21 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/Ibexa-Contracts-Checkout-Workflow-WorkflowStrategyInterface.html#method_supports"
         },                {
+            "fqsen": "\\Ibexa\\Contracts\\Connect\\Ai\\ActionHandlerDataStructureAwareInterface",
+            "name": "ActionHandlerDataStructureAwareInterface",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Connect-Ai-ActionHandlerDataStructureAwareInterface.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Connect\\Ai\\ActionHandlerDataStructureAwareInterface\u003A\u003AgetDataStructureSpec\u0028\u0029",
+            "name": "getDataStructureSpec",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Connect-Ai-ActionHandlerDataStructureAwareInterface.html#method_getDataStructureSpec"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Connect\\Ai\\ActionHandlerDataStructureAwareInterface\u003A\u003ApreparePayload\u0028\u0029",
+            "name": "preparePayload",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Connect-Ai-ActionHandlerDataStructureAwareInterface.html#method_preparePayload"
+        },                {
             "fqsen": "\\Ibexa\\Contracts\\Connect\\ConnectClientInterface",
             "name": "ConnectClientInterface",
             "summary": "",
@@ -4230,6 +4245,106 @@ Search.appendIndex(
             "name": "getSortDir",
             "summary": "",
             "url": "classes/Ibexa-Contracts-Connect-PaginationInterface.html#method_getSortDir"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Connect\\Resource\\CustomPropertyStructure\\CustomPropertyStructureCreateStruct",
+            "name": "CustomPropertyStructureCreateStruct",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Connect-Resource-CustomPropertyStructure-CustomPropertyStructureCreateStruct.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Connect\\Resource\\CustomPropertyStructure\\CustomPropertyStructureCreateStruct\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Connect-Resource-CustomPropertyStructure-CustomPropertyStructureCreateStruct.html#method___construct"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Connect\\Resource\\CustomPropertyStructure\\CustomPropertyStructureCreateStruct\u003A\u003AgetAssociatedType\u0028\u0029",
+            "name": "getAssociatedType",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Connect-Resource-CustomPropertyStructure-CustomPropertyStructureCreateStruct.html#method_getAssociatedType"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Connect\\Resource\\CustomPropertyStructure\\CustomPropertyStructureCreateStruct\u003A\u003AgetBelongerType\u0028\u0029",
+            "name": "getBelongerType",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Connect-Resource-CustomPropertyStructure-CustomPropertyStructureCreateStruct.html#method_getBelongerType"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Connect\\Resource\\CustomPropertyStructure\\CustomPropertyStructureCreateStruct\u003A\u003AgetBelongerId\u0028\u0029",
+            "name": "getBelongerId",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Connect-Resource-CustomPropertyStructure-CustomPropertyStructureCreateStruct.html#method_getBelongerId"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Connect\\Resource\\CustomPropertyStructure\\CustomPropertyStructureFilter",
+            "name": "CustomPropertyStructureFilter",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Connect-Resource-CustomPropertyStructure-CustomPropertyStructureFilter.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Connect\\Resource\\CustomPropertyStructure\\CustomPropertyStructureFilter\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Connect-Resource-CustomPropertyStructure-CustomPropertyStructureFilter.html#method___construct"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Connect\\Resource\\CustomPropertyStructure\\CustomPropertyStructureFilter\u003A\u003AgetOrganizationId\u0028\u0029",
+            "name": "getOrganizationId",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Connect-Resource-CustomPropertyStructure-CustomPropertyStructureFilter.html#method_getOrganizationId"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Connect\\Resource\\CustomPropertyStructure\\CustomPropertyStructureItemCreateStruct",
+            "name": "CustomPropertyStructureItemCreateStruct",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Connect-Resource-CustomPropertyStructure-CustomPropertyStructureItemCreateStruct.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Connect\\Resource\\CustomPropertyStructure\\CustomPropertyStructureItemCreateStruct\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Connect-Resource-CustomPropertyStructure-CustomPropertyStructureItemCreateStruct.html#method___construct"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Connect\\Resource\\CustomPropertyStructure\\CustomPropertyStructureItemCreateStruct\u003A\u003AgetCustomPropertyStructureId\u0028\u0029",
+            "name": "getCustomPropertyStructureId",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Connect-Resource-CustomPropertyStructure-CustomPropertyStructureItemCreateStruct.html#method_getCustomPropertyStructureId"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Connect\\Resource\\CustomPropertyStructure\\CustomPropertyStructureItemCreateStruct\u003A\u003AgetName\u0028\u0029",
+            "name": "getName",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Connect-Resource-CustomPropertyStructure-CustomPropertyStructureItemCreateStruct.html#method_getName"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Connect\\Resource\\CustomPropertyStructure\\CustomPropertyStructureItemCreateStruct\u003A\u003AgetLabel\u0028\u0029",
+            "name": "getLabel",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Connect-Resource-CustomPropertyStructure-CustomPropertyStructureItemCreateStruct.html#method_getLabel"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Connect\\Resource\\CustomPropertyStructure\\CustomPropertyStructureItemCreateStruct\u003A\u003AgetDescription\u0028\u0029",
+            "name": "getDescription",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Connect-Resource-CustomPropertyStructure-CustomPropertyStructureItemCreateStruct.html#method_getDescription"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Connect\\Resource\\CustomPropertyStructure\\CustomPropertyStructureItemCreateStruct\u003A\u003AgetType\u0028\u0029",
+            "name": "getType",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Connect-Resource-CustomPropertyStructure-CustomPropertyStructureItemCreateStruct.html#method_getType"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Connect\\Resource\\CustomPropertyStructure\\CustomPropertyStructureItemCreateStruct\u003A\u003AgetOptions\u0028\u0029",
+            "name": "getOptions",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Connect-Resource-CustomPropertyStructure-CustomPropertyStructureItemCreateStruct.html#method_getOptions"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Connect\\Resource\\CustomPropertyStructure\\CustomPropertyStructureItemCreateStruct\u003A\u003AgetRequired\u0028\u0029",
+            "name": "getRequired",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Connect-Resource-CustomPropertyStructure-CustomPropertyStructureItemCreateStruct.html#method_getRequired"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Connect\\Resource\\CustomPropertyStructureInterface",
+            "name": "CustomPropertyStructureInterface",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Connect-Resource-CustomPropertyStructureInterface.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Connect\\Resource\\CustomPropertyStructureInterface\u003A\u003Acreate\u0028\u0029",
+            "name": "create",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Connect-Resource-CustomPropertyStructureInterface.html#method_create"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Connect\\Resource\\CustomPropertyStructureInterface\u003A\u003Alist\u0028\u0029",
+            "name": "list",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Connect-Resource-CustomPropertyStructureInterface.html#method_list"
         },                {
             "fqsen": "\\Ibexa\\Contracts\\Connect\\Resource\\DataStructure\\DataStructureBuilder",
             "name": "DataStructureBuilder",
@@ -4386,6 +4501,11 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/Ibexa-Contracts-Connect-Resource-DataStructureInterface.html#method_list"
         },                {
+            "fqsen": "\\Ibexa\\Contracts\\Connect\\Resource\\DataStructureInterface\u003A\u003Adetails\u0028\u0029",
+            "name": "details",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Connect-Resource-DataStructureInterface.html#method_details"
+        },                {
             "fqsen": "\\Ibexa\\Contracts\\Connect\\Resource\\Hook\\HookCreateStruct",
             "name": "HookCreateStruct",
             "summary": "",
@@ -4526,6 +4646,41 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/Ibexa-Contracts-Connect-Resource-HookInterface.html#method_setDetails"
         },                {
+            "fqsen": "\\Ibexa\\Contracts\\Connect\\Resource\\Scenario\\CustomPropertiesDataFillInStruct",
+            "name": "CustomPropertiesDataFillInStruct",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Connect-Resource-Scenario-CustomPropertiesDataFillInStruct.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Connect\\Resource\\Scenario\\CustomPropertiesDataFillInStruct\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Connect-Resource-Scenario-CustomPropertiesDataFillInStruct.html#method___construct"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Connect\\Resource\\Scenario\\CustomPropertiesDataFillInStruct\u003A\u003AgetTeamId\u0028\u0029",
+            "name": "getTeamId",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Connect-Resource-Scenario-CustomPropertiesDataFillInStruct.html#method_getTeamId"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Connect\\Resource\\Scenario\\CustomPropertiesDataFillInStruct\u003A\u003AgetBlueprint\u0028\u0029",
+            "name": "getBlueprint",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Connect-Resource-Scenario-CustomPropertiesDataFillInStruct.html#method_getBlueprint"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Connect\\Resource\\Scenario\\CustomPropertiesDataFillInStruct\u003A\u003AgetScheduling\u0028\u0029",
+            "name": "getScheduling",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Connect-Resource-Scenario-CustomPropertiesDataFillInStruct.html#method_getScheduling"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Connect\\Resource\\Scenario\\CustomPropertiesDataFillInStruct\u003A\u003AgetFolderId\u0028\u0029",
+            "name": "getFolderId",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Connect-Resource-Scenario-CustomPropertiesDataFillInStruct.html#method_getFolderId"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Connect\\Resource\\Scenario\\CustomPropertiesDataFillInStruct\u003A\u003AgetBasedon\u0028\u0029",
+            "name": "getBasedon",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Connect-Resource-Scenario-CustomPropertiesDataFillInStruct.html#method_getBasedon"
+        },                {
             "fqsen": "\\Ibexa\\Contracts\\Connect\\Resource\\Scenario\\ScenarioCreateStruct",
             "name": "ScenarioCreateStruct",
             "summary": "",
@@ -4586,6 +4741,11 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/Ibexa-Contracts-Connect-Resource-Scenario-ScenarioFilter.html#method_getFolderId"
         },                {
+            "fqsen": "\\Ibexa\\Contracts\\Connect\\Resource\\Scenario\\ScenarioFilter\u003A\u003AgetCustomProperties\u0028\u0029",
+            "name": "getCustomProperties",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Connect-Resource-Scenario-ScenarioFilter.html#method_getCustomProperties"
+        },                {
             "fqsen": "\\Ibexa\\Contracts\\Connect\\Resource\\ScenarioInterface",
             "name": "ScenarioInterface",
             "summary": "",
@@ -4605,6 +4765,16 @@ Search.appendIndex(
             "name": "details",
             "summary": "",
             "url": "classes/Ibexa-Contracts-Connect-Resource-ScenarioInterface.html#method_details"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Connect\\Resource\\ScenarioInterface\u003A\u003AcustomPropertiesData\u0028\u0029",
+            "name": "customPropertiesData",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Connect-Resource-ScenarioInterface.html#method_customPropertiesData"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Connect\\Resource\\ScenarioInterface\u003A\u003AfillInCustomPropertiesData\u0028\u0029",
+            "name": "fillInCustomPropertiesData",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Connect-Resource-ScenarioInterface.html#method_fillInCustomPropertiesData"
         },                {
             "fqsen": "\\Ibexa\\Contracts\\Connect\\Resource\\Team\\TeamVariableCreateStruct",
             "name": "TeamVariableCreateStruct",
@@ -4775,6 +4945,211 @@ Search.appendIndex(
             "name": "blueprint",
             "summary": "",
             "url": "classes/Ibexa-Contracts-Connect-Resource-TemplateInterface.html#method_blueprint"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Connect\\Response\\CustomPropertyStructure\\CreateItemResponse",
+            "name": "CreateItemResponse",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Connect-Response-CustomPropertyStructure-CreateItemResponse.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Connect\\Response\\CustomPropertyStructure\\CreateItemResponse\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Connect-Response-CustomPropertyStructure-CreateItemResponse.html#method___construct"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Connect\\Response\\CustomPropertyStructure\\CreateItemResponse\u003A\u003Afrom\u0028\u0029",
+            "name": "from",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Connect-Response-CustomPropertyStructure-CreateItemResponse.html#method_from"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Connect\\Response\\CustomPropertyStructure\\CreateItemResponse\u003A\u003AgetId\u0028\u0029",
+            "name": "getId",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Connect-Response-CustomPropertyStructure-CreateItemResponse.html#method_getId"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Connect\\Response\\CustomPropertyStructure\\CreateItemResponse\u003A\u003AgetStructureId\u0028\u0029",
+            "name": "getStructureId",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Connect-Response-CustomPropertyStructure-CreateItemResponse.html#method_getStructureId"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Connect\\Response\\CustomPropertyStructure\\CreateItemResponse\u003A\u003AgetName\u0028\u0029",
+            "name": "getName",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Connect-Response-CustomPropertyStructure-CreateItemResponse.html#method_getName"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Connect\\Response\\CustomPropertyStructure\\CreateItemResponse\u003A\u003AgetLabel\u0028\u0029",
+            "name": "getLabel",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Connect-Response-CustomPropertyStructure-CreateItemResponse.html#method_getLabel"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Connect\\Response\\CustomPropertyStructure\\CreateItemResponse\u003A\u003AgetType\u0028\u0029",
+            "name": "getType",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Connect-Response-CustomPropertyStructure-CreateItemResponse.html#method_getType"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Connect\\Response\\CustomPropertyStructure\\CreateItemResponse\u003A\u003AisRequired\u0028\u0029",
+            "name": "isRequired",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Connect-Response-CustomPropertyStructure-CreateItemResponse.html#method_isRequired"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Connect\\Response\\CustomPropertyStructure\\CreateItemResponse\u003A\u003AgetDescription\u0028\u0029",
+            "name": "getDescription",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Connect-Response-CustomPropertyStructure-CreateItemResponse.html#method_getDescription"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Connect\\Response\\CustomPropertyStructure\\CreateItemResponse\u003A\u003AgetOptions\u0028\u0029",
+            "name": "getOptions",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Connect-Response-CustomPropertyStructure-CreateItemResponse.html#method_getOptions"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Connect\\Response\\CustomPropertyStructure\\CreateResponse",
+            "name": "CreateResponse",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Connect-Response-CustomPropertyStructure-CreateResponse.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Connect\\Response\\CustomPropertyStructure\\CreateResponse\u003A\u003Afrom\u0028\u0029",
+            "name": "from",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Connect-Response-CustomPropertyStructure-CreateResponse.html#method_from"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Connect\\Response\\CustomPropertyStructure\\CreateResponse\u003A\u003AgetId\u0028\u0029",
+            "name": "getId",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Connect-Response-CustomPropertyStructure-CreateResponse.html#method_getId"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Connect\\Response\\CustomPropertyStructure\\CreateResponse\u003A\u003AgetCreated\u0028\u0029",
+            "name": "getCreated",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Connect-Response-CustomPropertyStructure-CreateResponse.html#method_getCreated"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Connect\\Response\\CustomPropertyStructure\\CreateResponse\u003A\u003AgetBelongers\u0028\u0029",
+            "name": "getBelongers",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Connect-Response-CustomPropertyStructure-CreateResponse.html#method_getBelongers"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Connect\\Response\\CustomPropertyStructure\\DeleteItemResponse",
+            "name": "DeleteItemResponse",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Connect-Response-CustomPropertyStructure-DeleteItemResponse.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Connect\\Response\\CustomPropertyStructure\\DeleteItemResponse\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Connect-Response-CustomPropertyStructure-DeleteItemResponse.html#method___construct"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Connect\\Response\\CustomPropertyStructure\\DeleteItemResponse\u003A\u003Afrom\u0028\u0029",
+            "name": "from",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Connect-Response-CustomPropertyStructure-DeleteItemResponse.html#method_from"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Connect\\Response\\CustomPropertyStructure\\DeleteItemResponse\u003A\u003AgetCustomPropertyStructureItemId\u0028\u0029",
+            "name": "getCustomPropertyStructureItemId",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Connect-Response-CustomPropertyStructure-DeleteItemResponse.html#method_getCustomPropertyStructureItemId"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Connect\\Response\\CustomPropertyStructure\\ListItemResponse",
+            "name": "ListItemResponse",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Connect-Response-CustomPropertyStructure-ListItemResponse.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Connect\\Response\\CustomPropertyStructure\\ListItemResponse\u003A\u003Afrom\u0028\u0029",
+            "name": "from",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Connect-Response-CustomPropertyStructure-ListItemResponse.html#method_from"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Connect\\Response\\CustomPropertyStructure\\ListItemResponse\u003A\u003AgetCustomPropertyStructureItems\u0028\u0029",
+            "name": "getCustomPropertyStructureItems",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Connect-Response-CustomPropertyStructure-ListItemResponse.html#method_getCustomPropertyStructureItems"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Connect\\Response\\CustomPropertyStructure\\ListItemResponse\u003A\u003AgetPagination\u0028\u0029",
+            "name": "getPagination",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Connect-Response-CustomPropertyStructure-ListItemResponse.html#method_getPagination"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Connect\\Response\\CustomPropertyStructure\\ListResponse",
+            "name": "ListResponse",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Connect-Response-CustomPropertyStructure-ListResponse.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Connect\\Response\\CustomPropertyStructure\\ListResponse\u003A\u003Afrom\u0028\u0029",
+            "name": "from",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Connect-Response-CustomPropertyStructure-ListResponse.html#method_from"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Connect\\Response\\CustomPropertyStructure\\ListResponse\u003A\u003AgetCustomPropertyStructures\u0028\u0029",
+            "name": "getCustomPropertyStructures",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Connect-Response-CustomPropertyStructure-ListResponse.html#method_getCustomPropertyStructures"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Connect\\Response\\CustomPropertyStructure\\RetrieveItemResponse",
+            "name": "RetrieveItemResponse",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Connect-Response-CustomPropertyStructure-RetrieveItemResponse.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Connect\\Response\\CustomPropertyStructure\\RetrieveItemResponse\u003A\u003Afrom\u0028\u0029",
+            "name": "from",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Connect-Response-CustomPropertyStructure-RetrieveItemResponse.html#method_from"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Connect\\Response\\CustomPropertyStructure\\RetrieveItemResponse\u003A\u003AgetId\u0028\u0029",
+            "name": "getId",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Connect-Response-CustomPropertyStructure-RetrieveItemResponse.html#method_getId"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Connect\\Response\\CustomPropertyStructure\\RetrieveItemResponse\u003A\u003AgetName\u0028\u0029",
+            "name": "getName",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Connect-Response-CustomPropertyStructure-RetrieveItemResponse.html#method_getName"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Connect\\Response\\CustomPropertyStructure\\RetrieveItemResponse\u003A\u003AgetLabel\u0028\u0029",
+            "name": "getLabel",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Connect-Response-CustomPropertyStructure-RetrieveItemResponse.html#method_getLabel"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Connect\\Response\\CustomPropertyStructure\\RetrieveItemResponse\u003A\u003AgetDescription\u0028\u0029",
+            "name": "getDescription",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Connect-Response-CustomPropertyStructure-RetrieveItemResponse.html#method_getDescription"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Connect\\Response\\CustomPropertyStructure\\RetrieveItemResponse\u003A\u003AgetType\u0028\u0029",
+            "name": "getType",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Connect-Response-CustomPropertyStructure-RetrieveItemResponse.html#method_getType"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Connect\\Response\\CustomPropertyStructure\\RetrieveItemResponse\u003A\u003AisRequired\u0028\u0029",
+            "name": "isRequired",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Connect-Response-CustomPropertyStructure-RetrieveItemResponse.html#method_isRequired"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Connect\\Response\\CustomPropertyStructure\\RetrieveItemResponse\u003A\u003AgetOptions\u0028\u0029",
+            "name": "getOptions",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Connect-Response-CustomPropertyStructure-RetrieveItemResponse.html#method_getOptions"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Connect\\Response\\CustomPropertyStructure\\RetrieveResponse",
+            "name": "RetrieveResponse",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Connect-Response-CustomPropertyStructure-RetrieveResponse.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Connect\\Response\\CustomPropertyStructure\\RetrieveResponse\u003A\u003Afrom\u0028\u0029",
+            "name": "from",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Connect-Response-CustomPropertyStructure-RetrieveResponse.html#method_from"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Connect\\Response\\CustomPropertyStructure\\RetrieveResponse\u003A\u003AgetId\u0028\u0029",
+            "name": "getId",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Connect-Response-CustomPropertyStructure-RetrieveResponse.html#method_getId"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Connect\\Response\\CustomPropertyStructure\\RetrieveResponse\u003A\u003AgetCreated\u0028\u0029",
+            "name": "getCreated",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Connect-Response-CustomPropertyStructure-RetrieveResponse.html#method_getCreated"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Connect\\Response\\CustomPropertyStructure\\RetrieveResponse\u003A\u003AgetBelongers\u0028\u0029",
+            "name": "getBelongers",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Connect-Response-CustomPropertyStructure-RetrieveResponse.html#method_getBelongers"
         },                {
             "fqsen": "\\Ibexa\\Contracts\\Connect\\Response\\DataStructure\\CreateResponse",
             "name": "CreateResponse",
@@ -5000,6 +5375,26 @@ Search.appendIndex(
             "name": "getPagination",
             "summary": "",
             "url": "classes/Ibexa-Contracts-Connect-Response-Scenario-ListResponse.html#method_getPagination"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Connect\\Response\\Scenario\\RetrieveCustomPropertiesDataResponse",
+            "name": "RetrieveCustomPropertiesDataResponse",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Connect-Response-Scenario-RetrieveCustomPropertiesDataResponse.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Connect\\Response\\Scenario\\RetrieveCustomPropertiesDataResponse\u003A\u003Afrom\u0028\u0029",
+            "name": "from",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Connect-Response-Scenario-RetrieveCustomPropertiesDataResponse.html#method_from"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Connect\\Response\\Scenario\\RetrieveCustomPropertiesDataResponse\u003A\u003AgetScenarioId\u0028\u0029",
+            "name": "getScenarioId",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Connect-Response-Scenario-RetrieveCustomPropertiesDataResponse.html#method_getScenarioId"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Connect\\Response\\Scenario\\RetrieveCustomPropertiesDataResponse\u003A\u003AgetCustomProperties\u0028\u0029",
+            "name": "getCustomProperties",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Connect-Response-Scenario-RetrieveCustomPropertiesDataResponse.html#method_getCustomProperties"
         },                {
             "fqsen": "\\Ibexa\\Contracts\\Connect\\Response\\Scenario\\RetrieveResponse",
             "name": "RetrieveResponse",
@@ -9501,6 +9896,11 @@ Search.appendIndex(
             "summary": "Returns\u0020the\u0020version\u0020object\u0020for\u0020a\u0020content\/version\u0020identified\u0020by\u0020\u0024contentId\u0020and\u0020\u0024versionNo.",
             "url": "classes/Ibexa-Contracts-Core-Persistence-Content-Handler.html#method_loadVersionInfo"
         },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Persistence\\Content\\Handler\u003A\u003AloadVersionNoArchivedWithin\u0028\u0029",
+            "name": "loadVersionNoArchivedWithin",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Persistence-Content-Handler.html#method_loadVersionNoArchivedWithin"
+        },                {
             "fqsen": "\\Ibexa\\Contracts\\Core\\Persistence\\Content\\Handler\u003A\u003AcountDraftsForUser\u0028\u0029",
             "name": "countDraftsForUser",
             "summary": "Returns\u0020the\u0020number\u0020of\u0020versions\u0020with\u0020draft\u0020status\u0020created\u0020by\u0020the\u0020given\u0020\u0024userId.",
@@ -13661,6 +14061,11 @@ Search.appendIndex(
             "summary": "Mark\u0020notification\u0020as\u0020read\u0020so\u0020it\u0020no\u0020longer\u0020bother\u0020the\u0020user.",
             "url": "classes/Ibexa-Contracts-Core-Repository-Decorator-NotificationServiceDecorator.html#method_markNotificationAsRead"
         },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Decorator\\NotificationServiceDecorator\u003A\u003AmarkNotificationAsUnread\u0028\u0029",
+            "name": "markNotificationAsUnread",
+            "summary": "Marks\u0020the\u0020given\u0020notification\u0020as\u0020unread\u0020so\u0020it\u0020is\u0020shown\u0020again\u0020as\u0020new\u0020to\u0020the\u0020user.",
+            "url": "classes/Ibexa-Contracts-Core-Repository-Decorator-NotificationServiceDecorator.html#method_markNotificationAsUnread"
+        },                {
             "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Decorator\\NotificationServiceDecorator\u003A\u003AgetPendingNotificationCount\u0028\u0029",
             "name": "getPendingNotificationCount",
             "summary": "Get\u0020count\u0020of\u0020unread\u0020users\u0020notifications.",
@@ -16731,6 +17136,21 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/Ibexa-Contracts-Core-Repository-Events-Notification-BeforeMarkNotificationAsReadEvent.html#method_getNotification"
         },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Events\\Notification\\BeforeMarkNotificationAsUnreadEvent",
+            "name": "BeforeMarkNotificationAsUnreadEvent",
+            "summary": "Event\u0020emitted\u0020before\u0020action\u0020execution.",
+            "url": "classes/Ibexa-Contracts-Core-Repository-Events-Notification-BeforeMarkNotificationAsUnreadEvent.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Events\\Notification\\BeforeMarkNotificationAsUnreadEvent\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Repository-Events-Notification-BeforeMarkNotificationAsUnreadEvent.html#method___construct"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Events\\Notification\\BeforeMarkNotificationAsUnreadEvent\u003A\u003AgetNotification\u0028\u0029",
+            "name": "getNotification",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Repository-Events-Notification-BeforeMarkNotificationAsUnreadEvent.html#method_getNotification"
+        },                {
             "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Events\\Notification\\CreateNotificationEvent",
             "name": "CreateNotificationEvent",
             "summary": "Event\u0020emitted\u0020after\u0020action\u0020execution.",
@@ -16780,6 +17200,21 @@ Search.appendIndex(
             "name": "getNotification",
             "summary": "",
             "url": "classes/Ibexa-Contracts-Core-Repository-Events-Notification-MarkNotificationAsReadEvent.html#method_getNotification"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Events\\Notification\\MarkNotificationAsUnreadEvent",
+            "name": "MarkNotificationAsUnreadEvent",
+            "summary": "Event\u0020emitted\u0020after\u0020action\u0020execution.",
+            "url": "classes/Ibexa-Contracts-Core-Repository-Events-Notification-MarkNotificationAsUnreadEvent.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Events\\Notification\\MarkNotificationAsUnreadEvent\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Repository-Events-Notification-MarkNotificationAsUnreadEvent.html#method___construct"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Events\\Notification\\MarkNotificationAsUnreadEvent\u003A\u003AgetNotification\u0028\u0029",
+            "name": "getNotification",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Repository-Events-Notification-MarkNotificationAsUnreadEvent.html#method_getNotification"
         },                {
             "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Events\\ObjectState\\BeforeCreateObjectStateEvent",
             "name": "BeforeCreateObjectStateEvent",
@@ -20500,6 +20935,11 @@ Search.appendIndex(
             "name": "markNotificationAsRead",
             "summary": "Mark\u0020notification\u0020as\u0020read\u0020so\u0020it\u0020no\u0020longer\u0020bother\u0020the\u0020user.",
             "url": "classes/Ibexa-Contracts-Core-Repository-NotificationService.html#method_markNotificationAsRead"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\NotificationService\u003A\u003AmarkNotificationAsUnread\u0028\u0029",
+            "name": "markNotificationAsUnread",
+            "summary": "Marks\u0020the\u0020given\u0020notification\u0020as\u0020unread\u0020so\u0020it\u0020is\u0020shown\u0020again\u0020as\u0020new\u0020to\u0020the\u0020user.",
+            "url": "classes/Ibexa-Contracts-Core-Repository-NotificationService.html#method_markNotificationAsUnread"
         },                {
             "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\NotificationService\u003A\u003AgetPendingNotificationCount\u0028\u0029",
             "name": "getPendingNotificationCount",
@@ -38601,6 +39041,36 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/Ibexa-Contracts-ProductCatalog-CurrencyServiceInterface.html#method_updateCurrency"
         },                {
+            "fqsen": "\\Ibexa\\Contracts\\ProductCatalog\\CustomerGroupAssignedItemsServiceDecorator",
+            "name": "CustomerGroupAssignedItemsServiceDecorator",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-ProductCatalog-CustomerGroupAssignedItemsServiceDecorator.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\ProductCatalog\\CustomerGroupAssignedItemsServiceDecorator\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-ProductCatalog-CustomerGroupAssignedItemsServiceDecorator.html#method___construct"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\ProductCatalog\\CustomerGroupAssignedItemsServiceDecorator\u003A\u003AgetAssignedItems\u0028\u0029",
+            "name": "getAssignedItems",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-ProductCatalog-CustomerGroupAssignedItemsServiceDecorator.html#method_getAssignedItems"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\ProductCatalog\\CustomerGroupAssignedItemsServiceDecorator\u003A\u003A\u0024innerService",
+            "name": "innerService",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-ProductCatalog-CustomerGroupAssignedItemsServiceDecorator.html#property_innerService"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\ProductCatalog\\CustomerGroupAssignedItemsServiceInterface",
+            "name": "CustomerGroupAssignedItemsServiceInterface",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-ProductCatalog-CustomerGroupAssignedItemsServiceInterface.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\ProductCatalog\\CustomerGroupAssignedItemsServiceInterface\u003A\u003AgetAssignedItems\u0028\u0029",
+            "name": "getAssignedItems",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-ProductCatalog-CustomerGroupAssignedItemsServiceInterface.html#method_getAssignedItems"
+        },                {
             "fqsen": "\\Ibexa\\Contracts\\ProductCatalog\\CustomerGroupResolverInterface",
             "name": "CustomerGroupResolverInterface",
             "summary": "",
@@ -38656,6 +39126,11 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/Ibexa-Contracts-ProductCatalog-CustomerGroupServiceDecorator.html#method_updateCustomerGroup"
         },                {
+            "fqsen": "\\Ibexa\\Contracts\\ProductCatalog\\CustomerGroupServiceDecorator\u003A\u003AcanBeDeleted\u0028\u0029",
+            "name": "canBeDeleted",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-ProductCatalog-CustomerGroupServiceDecorator.html#method_canBeDeleted"
+        },                {
             "fqsen": "\\Ibexa\\Contracts\\ProductCatalog\\CustomerGroupServiceDecorator\u003A\u003A\u0024innerService",
             "name": "innerService",
             "summary": "",
@@ -38700,6 +39175,11 @@ Search.appendIndex(
             "name": "updateCustomerGroup",
             "summary": "",
             "url": "classes/Ibexa-Contracts-ProductCatalog-CustomerGroupServiceInterface.html#method_updateCustomerGroup"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\ProductCatalog\\CustomerGroupServiceInterface\u003A\u003AcanBeDeleted\u0028\u0029",
+            "name": "canBeDeleted",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-ProductCatalog-CustomerGroupServiceInterface.html#method_canBeDeleted"
         },                {
             "fqsen": "\\Ibexa\\Contracts\\ProductCatalog\\Events\\BeforeCreateCurrencyEvent",
             "name": "BeforeCreateCurrencyEvent",
@@ -38930,6 +39410,36 @@ Search.appendIndex(
             "name": "setCurrency",
             "summary": "",
             "url": "classes/Ibexa-Contracts-ProductCatalog-Events-CurrencyResolveEvent.html#method_setCurrency"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\ProductCatalog\\Events\\CustomerGroupCanBeDeletedEvent",
+            "name": "CustomerGroupCanBeDeletedEvent",
+            "summary": "Event\u0020is\u0020the\u0020base\u0020class\u0020for\u0020classes\u0020containing\u0020event\u0020data.",
+            "url": "classes/Ibexa-Contracts-ProductCatalog-Events-CustomerGroupCanBeDeletedEvent.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\ProductCatalog\\Events\\CustomerGroupCanBeDeletedEvent\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-ProductCatalog-Events-CustomerGroupCanBeDeletedEvent.html#method___construct"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\ProductCatalog\\Events\\CustomerGroupCanBeDeletedEvent\u003A\u003AgetCustomerGroup\u0028\u0029",
+            "name": "getCustomerGroup",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-ProductCatalog-Events-CustomerGroupCanBeDeletedEvent.html#method_getCustomerGroup"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\ProductCatalog\\Events\\CustomerGroupCanBeDeletedEvent\u003A\u003AcanBeDeleted\u0028\u0029",
+            "name": "canBeDeleted",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-ProductCatalog-Events-CustomerGroupCanBeDeletedEvent.html#method_canBeDeleted"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\ProductCatalog\\Events\\CustomerGroupCanBeDeletedEvent\u003A\u003AgetReason\u0028\u0029",
+            "name": "getReason",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-ProductCatalog-Events-CustomerGroupCanBeDeletedEvent.html#method_getReason"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\ProductCatalog\\Events\\CustomerGroupCanBeDeletedEvent\u003A\u003ApreventDelete\u0028\u0029",
+            "name": "preventDelete",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-ProductCatalog-Events-CustomerGroupCanBeDeletedEvent.html#method_preventDelete"
         },                {
             "fqsen": "\\Ibexa\\Contracts\\ProductCatalog\\Events\\DeleteCurrencyEvent",
             "name": "DeleteCurrencyEvent",
@@ -43846,6 +44356,16 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/Ibexa-Contracts-ProductCatalog-Values-CurrencyInterface.html#method_isEnabled"
         },                {
+            "fqsen": "\\Ibexa\\Contracts\\ProductCatalog\\Values\\CustomerGroup\\AssignedItem",
+            "name": "AssignedItem",
+            "summary": "The\u0020base\u0020class\u0020for\u0020all\u0020value\u0020objects\u0020and\u0020structs.",
+            "url": "classes/Ibexa-Contracts-ProductCatalog-Values-CustomerGroup-AssignedItem.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\ProductCatalog\\Values\\CustomerGroup\\AssignedItemInterface",
+            "name": "AssignedItemInterface",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-ProductCatalog-Values-CustomerGroup-AssignedItemInterface.html"
+        },                {
             "fqsen": "\\Ibexa\\Contracts\\ProductCatalog\\Values\\CustomerGroup\\CustomerGroupCreateStruct",
             "name": "CustomerGroupCreateStruct",
             "summary": "The\u0020base\u0020class\u0020for\u0020all\u0020value\u0020objects\u0020and\u0020structs.",
@@ -44050,11 +44570,6 @@ Search.appendIndex(
             "name": "getDescription",
             "summary": "",
             "url": "classes/Ibexa-Contracts-ProductCatalog-Values-CustomerGroupInterface.html#method_getDescription"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\ProductCatalog\\Values\\CustomerGroupInterface\u003A\u003AgetUsers\u0028\u0029",
-            "name": "getUsers",
-            "summary": "A\u0020list\u0020of\u0020users\u0020attached\u0020to\u0020the\u0020Customer\u0020Group.",
-            "url": "classes/Ibexa-Contracts-ProductCatalog-Values-CustomerGroupInterface.html#method_getUsers"
         },                {
             "fqsen": "\\Ibexa\\Contracts\\ProductCatalog\\Values\\CustomerGroupInterface\u003A\u003AgetGlobalPriceRate\u0028\u0029",
             "name": "getGlobalPriceRate",
@@ -52981,6 +53496,11 @@ Search.appendIndex(
             "summary": "",
             "url": "namespaces/ibexa-contracts-checkout-workflow.html"
         },                {
+            "fqsen": "\\Ibexa\\Contracts\\Connect\\Ai",
+            "name": "Ai",
+            "summary": "",
+            "url": "namespaces/ibexa-contracts-connect-ai.html"
+        },                {
             "fqsen": "\\Ibexa\\Contracts\\Connect",
             "name": "Connect",
             "summary": "",
@@ -52991,15 +53511,20 @@ Search.appendIndex(
             "summary": "",
             "url": "namespaces/ibexa-contracts-connect-exception.html"
         },                {
-            "fqsen": "\\Ibexa\\Contracts\\Connect\\Resource\\DataStructure",
-            "name": "DataStructure",
+            "fqsen": "\\Ibexa\\Contracts\\Connect\\Resource\\CustomPropertyStructure",
+            "name": "CustomPropertyStructure",
             "summary": "",
-            "url": "namespaces/ibexa-contracts-connect-resource-datastructure.html"
+            "url": "namespaces/ibexa-contracts-connect-resource-custompropertystructure.html"
         },                {
             "fqsen": "\\Ibexa\\Contracts\\Connect\\Resource",
             "name": "Resource",
             "summary": "",
             "url": "namespaces/ibexa-contracts-connect-resource.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Connect\\Resource\\DataStructure",
+            "name": "DataStructure",
+            "summary": "",
+            "url": "namespaces/ibexa-contracts-connect-resource-datastructure.html"
         },                {
             "fqsen": "\\Ibexa\\Contracts\\Connect\\Resource\\Hook",
             "name": "Hook",
@@ -53021,15 +53546,20 @@ Search.appendIndex(
             "summary": "",
             "url": "namespaces/ibexa-contracts-connect-resource-template.html"
         },                {
-            "fqsen": "\\Ibexa\\Contracts\\Connect\\Response\\DataStructure",
-            "name": "DataStructure",
+            "fqsen": "\\Ibexa\\Contracts\\Connect\\Response\\CustomPropertyStructure",
+            "name": "CustomPropertyStructure",
             "summary": "",
-            "url": "namespaces/ibexa-contracts-connect-response-datastructure.html"
+            "url": "namespaces/ibexa-contracts-connect-response-custompropertystructure.html"
         },                {
             "fqsen": "\\Ibexa\\Contracts\\Connect\\Response",
             "name": "Response",
             "summary": "",
             "url": "namespaces/ibexa-contracts-connect-response.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Connect\\Response\\DataStructure",
+            "name": "DataStructure",
+            "summary": "",
+            "url": "namespaces/ibexa-contracts-connect-response-datastructure.html"
         },                {
             "fqsen": "\\Ibexa\\Contracts\\Connect\\Response\\Hook",
             "name": "Hook",

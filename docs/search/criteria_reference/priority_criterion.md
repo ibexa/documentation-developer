@@ -4,7 +4,7 @@ description: Priority Search Criterion
 
 # Priority Criterion
 
-The [`Location\Priority` Search Criterion](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Criterion-Location-Priority.html) searches for locations based on their priority.
+The [`Location\Priority` Search Criterion](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Criterion-Location-Priority.html) searches for locations based on their priority.
 
 This Criterion is available only for Location Search.
 

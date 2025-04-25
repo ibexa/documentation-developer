@@ -27,7 +27,7 @@ You can order the settings in the **User** menu by setting their `priority`.
 `group` indicates the group that the setting is placed in.
 It can be one of the built-in groups, or a custom one.
 
-To create a custom setting group, create an `App\Setting\Group\MyGroup.php` file:
+To create a custom setting group, create an `App/Setting/Group/MyGroup.php` file:
 
 ``` php
 [[= include_file('code_samples/back_office/settings/src/Setting/Group/MyGroup.php') =]]

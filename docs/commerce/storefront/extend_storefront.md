@@ -7,7 +7,7 @@ edition: commerce
 
 ## Built-in menus
 
-With the `ibexa\storefront` package come the following built-in menus:
+With the `ibexa/storefront` package come the following built-in menus:
 
 | Item   | Value     | Description |
 |------------|----------|---------|
