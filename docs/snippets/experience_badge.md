@@ -1,1 +1,1 @@
-<span class="pill experience-pill"></span>
+<span class="pill pill--inline pill--experience"></span>
