@@ -90,10 +90,6 @@ fi
 
 if [ 0 -eq $DXP_ALREADY_EXISTS ]; then
   echo -n 'Building package→edition map… ';
-  map=$PHPDOC_DIR/template/package-edition-map.twig;
-  if [[ -f $map ]]; then
-    rm $map;
-  fi;
   PACKAGE_MAP=''
   NAMESPACE_MAP=''
   for edition in ${DXP_EDITIONS[@]}; do
@@ -111,14 +107,22 @@ if [ 0 -eq $DXP_ALREADY_EXISTS ]; then
       break;
     fi;
   done;
+  echo 'OK';
 
+  echo -n 'Building namespace→edition map… ';
   for package in "${DXP_ADD_ONS[@]}"; do
     NAMESPACES=$(composer show "ibexa/$package" --available --format=json | \
       jq -r --arg PACKAGE "ibexa/$package" '"'\''\(.autoload | ."psr-4" | try to_entries[] catch empty | .key[:-1] | sub("\\\\";"\\\\\\";"g"))'\'': '\''\($PACKAGE)'\'',"')
     NAMESPACE_MAP="$NAMESPACE_MAP\n$NAMESPACES"
     PACKAGE_MAP="$PACKAGE_MAP\n'ibexa/$package': 'optional',"
   done;
+  echo 'OK';
 
+  echo -n "Store package→edition and namespace→edition maps into $map… ";
+  map=$PHPDOC_DIR/template/package-edition-map.twig;
+  if [[ -f $map ]]; then
+    rm $map;
+  fi;
   PACKAGE_MAP="{% set package_edition_map = {\n$PACKAGE_MAP\n} %}"
   NAMESPACE_MAP="{% set namespace_package_map = {\n$NAMESPACE_MAP\n} %}"
   {
