@@ -1,0 +1,8 @@
+{% set code %}{% apply spaceless %}
+    {% if node.parent.backedType %}
+        <span class="phpdocumentor-signature__type">{{ node.parent.backedType }} </span>
+    {% endif %}
+    <span class="phpdocumentor-signature__name">{{ node.name }}</span> = <span class="phpdocumentor-signature__default-value">{{ node.value | default('""') }}</span>
+{% endapply %}{% endset %}
+
+{% include 'components/signature.html.twig' with { code } %}
