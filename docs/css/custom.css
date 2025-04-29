@@ -152,32 +152,41 @@ body {
 .md-typeset h1, .md-typeset h2, .md-typeset h3, .md-typeset h4, .md-typeset h5, .md-typeset h6 {
     color: var(--ibexa-dusk-black);
     line-height: 1;
+    display: flex;
+    align-items: center;
+    text-align: center;
 }
 
 .md-typeset h1 {
     margin: 0 0 1rem;
-    font-size: 34px;
+    font-size: 24px;
+    line-height: 34px;
 }
 
 .md-typeset h2 {
-    font-size: 28px;
+    font-size: 20px;
+    line-height: 27px;
 }
 
 .md-typeset h3 {
-    font-size: 24px;
+    font-size: 18px;
+    line-height: 22px;
 }
 
 .md-typeset h4 {
-    font-size: 22px;
+    font-size: 16;
+    line-height: 19px;
 }
 
 .md-typeset h5 {
-    font-size: 18px;
+    font-size: 14px;
+    line-height: 18px;
     text-transform: none;
 }
 
 .md-typeset h6 {
-    font-size: 16px;
+    font-size: 12px;
+    line-height: 18px;
 }
 
 .md-typeset h1, .md-typeset h2, .md-typeset h3, .md-typeset h4, .md-typeset h5, .md-typeset h6 {
@@ -544,35 +553,6 @@ a.external:not(.card):after {
 
 .md-typeset .tabbed-labels--linked > label > a {
     padding: 0;
-}
-
-div.pills {
-    float: right;
-}
-
-.pill {
-    background-color: var(--ibexa-jazzberry);
-    border-radius: 2.18px;
-    padding: 3px 8px;
-    color: var(--white);
-    font-size: 10px;
-    font-weight: 500;
-}
-
-.experience-pill::after {
-    content: "Experience";
-}
-
-.experience-pill {
-    background-color: var(--ibexa-orange);
-}
-
-.commerce-pill::after {
-    content: "Commerce";
-}
-
-.commerce-pill {
-    background-color: var(--ibexa-jazzberry);
 }
 
 .md-clipboard:focus, .md-clipboard:hover {

@@ -957,6 +957,7 @@ extra_css:
   - css/codehilite.css
   - css/switcher.css
   - css/custom.css
+  - css/pills.css
   - css/page-not-found.css
   - css/navigation.css
   - css/search.css

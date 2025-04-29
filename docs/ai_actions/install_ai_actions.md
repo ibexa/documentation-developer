@@ -1,5 +1,6 @@
 ---
 description: Install the AI Actions LTS update.
+edition: lts-update
 month_change: true
 ---
 
