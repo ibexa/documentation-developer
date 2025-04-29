@@ -1,0 +1,52 @@
+@use 'variables';
+@use 'sass:list';
+
+.pill {
+    font-size: 12px;
+    font-weight: initial;
+    line-height: 18px;
+    padding: 1px 8px;
+    border: 1px solid;
+    margin-right: 8px;
+    color: variables.$color-primary-main;
+
+    $types: (
+        "headless": (variables.$color-error-main, "Headless"),
+        "experience": (variables.$color-warning-dark-01, "Experience"),
+        "commerce": (variables.$color-primary-main, "Commerce"),
+        "lts-update": (variables.$color-info-main, "LTS Update"),
+        "new-feature": (variables.$color-success-main, "New feature")
+      );
+      
+      @each $name, $values in $types {
+        $color: list.nth($values, 1);
+        $label: list.nth($values, 2);
+      
+        &--#{$name} {
+          color: $color;
+          border-color: $color;
+      
+          &::after {
+            content: "#{$label}";
+          }
+        }
+    }
+
+    &--inline {
+      &:first-of-type {
+        margin-left: 8px;
+      }
+    }
+
+    &--new {
+      margin-right: 15px;
+      align-self: center;
+      color: #d9e8ff;
+      color: #3562a0;
+      text-transform: lowercase;
+    }
+}
+
+div.pills {
+  float: right;
+}
