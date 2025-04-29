@@ -9,3 +9,4 @@ tools/php-cs-fixer/vendor
 node_modules/
 .yarn
 yarn.lock
+docs/css/*.map

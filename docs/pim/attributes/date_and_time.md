@@ -1,5 +1,6 @@
 ---
 description: Date and time attribute type allows you to store product information related to time, like an expiration date or date of manufacturing.
+edition: lts-update
 ---
 
 # Date and time attributes
