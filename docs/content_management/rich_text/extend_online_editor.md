@@ -205,6 +205,7 @@ The `note_box.html.twig` template wraps the content of the selected text
 <div class="note">{{ content }}</div>
 ```
 
+You can now define the custom CSS for this template, for example by using [Webpack Encore and assets](assets.md):
 ``` css
 .note {
     display: block;
@@ -246,6 +247,7 @@ The `highlight.html.twig` template wraps the content of the selected text
 <span class="highlight">{{ content }}</span>
 ```
 
+You can now define the custom CSS for this template, for example by using [Webpack Encore and assets](assets.md):
 ``` css
 .highlight {
     background-color: #fcc672;
