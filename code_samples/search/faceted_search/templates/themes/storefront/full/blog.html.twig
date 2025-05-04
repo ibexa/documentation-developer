@@ -1,0 +1,30 @@
+{% extends '@ibexadesign/layout.html.twig' %}
+
+{% block content %}
+<div class="ibexa-blog-posts-list">
+    <main class="ibexa-blog-posts-list__content">
+        <h1 class="ibexa-blog-posts-list__title">
+            {{ ibexa_content_name(content) }}
+        </h1>
+
+        <div class="ibexa-blog-posts-list__blog_posts">
+            {% for blog_post in blog_posts %}
+                {{ ibexa_render(blog_post, { viewType: 'line' }) }}
+            {% endfor %}
+        </div>
+
+        <div class="ibexa-store-pagination">
+            {{ pagerfanta(blog_posts, 'default', {
+                'routeName': 'ibexa.url.alias',
+                'routeParams': { location },
+                'prev_message': '<',
+                'next_message': '>',
+            }) }}
+        </div>
+    </main>
+
+    <aside class="ibexa-blog-posts-list__aside">
+
+    </aside>
+</div>
+{% endblock %}
