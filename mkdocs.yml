@@ -398,6 +398,11 @@ nav:
             - Transactional emails: commerce/transactional_emails/transactional_emails.md
             - Transactional email variables reference: commerce/transactional_emails/transactional_emails_parameters.md
             - Customize transactional emails: commerce/transactional_emails/extend_transactional_emails.md
+    - Discounts:
+        - Discounts: discounts/discounts.md
+        - Discounts guide: discounts/discounts_guide.md
+        - Install Discounts: discounts/install_discounts.md
+#        - Extend Discounts: discounts/extend_discounts.md
     - Customer management:
         - Customer Portal: customer_management/customer_portal.md
         - Customer Portal guide: customer_management/customer_portal_guide.md
@@ -582,6 +587,18 @@ nav:
             - RangeMeasurementAttributeMaximum: search/criteria_reference/rangemeasurementattributemaximum_criterion.md
             - SimpleMeasurementAttribute: search/criteria_reference/simplemeasurementattribute_criterion.md
             - SelectionAttribute: search/criteria_reference/selectionattribute_criterion.md
+        - Discount Search Criteria: 
+            - Discount Search Criteria: search/criteria_reference/discount_search_criteria.md
+            - CompanyName: search/criteria_reference/order_company_name_criterion.md
+            - CreatedAt: search/criteria_reference/order_created_criterion.md
+            - CurrencyCode: search/criteria_reference/order_currency_code_criterion.md
+            - CustomerName: search/criteria_reference/order_customer_name_criterion.md
+            - Identifier: search/criteria_reference/order_identifier_criterion.md
+            - IsCompanyAssociated: search/criteria_reference/order_company_associated_criterion.md
+            - Owner: search/criteria_reference/order_owner_criterion.md
+            - Price: search/criteria_reference/order_price_criterion.md
+            - Source: search/criteria_reference/order_source_criterion.md
+            - Status: search/criteria_reference/order_status_criterion.md
         - Order Search Criteria: 
             - Order Search Criteria: search/criteria_reference/order_search_criteria.md
             - CompanyName: search/criteria_reference/order_company_name_criterion.md
@@ -692,6 +709,15 @@ nav:
                 - ProductStockRange: search/criteria_reference/productstockrange_criterion.md
                 - ProductCode: search/sort_clause_reference/productcode_sort_clause.md
                 - ProductName: search/sort_clause_reference/productname_sort_clause.md
+            - Discount Sort Clauses:
+                - Discount Sort Clauses: search/sort_clause_reference/discount_sort_clauses.md
+                - CreatedAt: search/sort_clause_reference/discount_enddate_sort_clause.md
+                - EndDate: search/sort_clause_reference/discount_createdat_sort_clause.md
+                - Identifier: search/sort_clause_reference/discount_identifier_sort_clause.md
+                - Priority: search/sort_clause_reference/discount_priority_sort_clause.md
+                - StartDate: search/sort_clause_reference/discount_sstartdate_sort_clause.md
+                - Type: search/sort_clause_reference/discount_type_sort_clause.md
+                - UpdatedAt: search/sort_clause_reference/discount_updatedat_sort_clause.md
             - Order Sort Clauses:
                 - Order Sort Clauses: search/sort_clause_reference/order_sort_clauses.md
                 - Id: search/sort_clause_reference/order_id_sort_clause.md

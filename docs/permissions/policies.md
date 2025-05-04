@@ -124,6 +124,17 @@ Each role you assign to user or user group consists of policies which define, wh
 | <nobr>`commerce`</nobr> | <nobr>`currency`</nobr> | manage currencies |
 |                         | <nobr>`region`</nobr>   | manage regions    |
 
+#### Discounts [[% include 'snippets/commerce_badge.md' %]]
+
+| Module               | Function                 | Effect                      | Possible limitations                                         |
+|----------------------|--------------------------|-----------------------------|----------------------------------------------------|
+| <nobr>`discount`</nobr> | <nobr>`create`</nobr> | create a discount           | [DiscountOwner](limitation_reference.md#discount-owner-limitation) |
+|                      | <nobr>`delete`</nobr>    | delete a discount           | [DiscountOwner](limitation_reference.md#discount-owner-limitation) |
+|                      | <nobr>`enable`</nobr>    | enable a discount           | [DiscountOwner](limitation_reference.md#discount-owner-limitation) |
+|                      | <nobr>`disable`</nobr>   | disable a discount          | [DiscountOwner](limitation_reference.md#discount-owner-limitation) |
+|                      | <nobr>`update`</nobr>    | modify discount parameters  | [DiscountOwner](limitation_reference.md#discount-owner-limitation) |
+|                      | <nobr>`view`</nobr>      | view discounts              | [DiscountOwner](limitation_reference.md#discount-owner-limitation) |
+
 #### Orders [[% include 'snippets/commerce_badge.md' %]]
 
 | Module               | Function              | Effect                    | Possible limitations                                         |

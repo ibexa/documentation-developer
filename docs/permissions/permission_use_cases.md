@@ -269,6 +269,20 @@ Set the following permissions to decide what actions are available when users in
 - `checkout/update` - to allow users to modify existing information, for example item quantity
 - `checkout/delete` - to delete checkout
 
+### Discount management
+
+Set the following permissions to decide what actions are available when users interact with discounts:
+
+- `discount/create` - to allow the user to create a new discount
+- `discount/update` - to allow the user to change the parameters of an existing discount
+- `discount/view` - to allow the user to view discounts
+- `discount/delete` - to delete an existing discount
+- `discount/enable` - to allow the user to enable an existing discount
+- `discount/disable` - to allow the user to disable an existing discount
+
+To further control access to a discount, you can use the `DiscountOwner` limitation and set its value to `self`.
+This way users can only interact with their own discounts.
+
 ### Order management
 
 Set the following permissions to decide what actions are available when users interact with orders:
