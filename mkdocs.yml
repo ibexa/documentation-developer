@@ -57,6 +57,20 @@ nav:
             - 6. Implement settings: tutorials/generic_field_type/6_settings.md
             - 7. Add basic validation: tutorials/generic_field_type/7_add_a_validation.md
             - 8. Data migration: tutorials/generic_field_type/8_data_migration.md
+    - Trainings:
+        - Trainings: trainings/trainings.md
+        - A training topic:
+            - An early training:
+                - Syllabus: trainings/a_training_topic/an_early_training/000_syllabus.md
+                - 'First chapter: Introduction': trainings/a_training_topic/an_early_training/010_first_chapter.md
+                - 'First chapter: First section': trainings/a_training_topic/an_early_training/011_first_section.md
+                - 'First chapter: Second section': trainings/a_training_topic/an_early_training/012_second_section.md
+                - 'Second chapter: Introduction': trainings/a_training_topic/an_early_training/020_second_chapter.md
+                - 'Second chapter: First section': trainings/a_training_topic/an_early_training/021_first_section.md
+                - 'Second chapter: Second section': trainings/a_training_topic/an_early_training/022_second_section.md
+                - Conclusion: trainings/a_training_topic/an_early_training/999_conclusion.md
+            - A late training:
+                - Syllabus: trainings/a_training_topic/a_late_training/000_syllabus.md
     - API:
         - API: api/api.md
         - PHP API:
