@@ -280,6 +280,11 @@ nav:
                 - Time field type: content_management/field_types/field_type_reference/timefield.md
                 - URL field type: content_management/field_types/field_type_reference/urlfield.md
                 - User field type: content_management/field_types/field_type_reference/userfield.md
+        - Collaborative editing:
+            - Collaborative editing: content_management/collaborative_editing/collaborative_editing.md
+            - Collaborative editing API: content_management/collaborative_editing/collaborative_editing_api.md
+                - Invitation API: content_management/collaborative_editing/invitation_api.md
+                - Session API: content_management/collaborative_editing/session_api.md
     - Templating:
         - Templating: templating/templating.md
         - Render content:
