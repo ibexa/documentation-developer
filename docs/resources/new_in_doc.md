@@ -25,8 +25,9 @@ This page contains recent highlights and notable changes in [[= product_name =]]
 
 ### Infrastructure and maintenance
 
-- Added [v4.6.19 release notes](ibexa_dxp_v4.6.md#ibexa-dxp-v4619) and [upgrade instructions](update_from_4.6.md#v4618),
-  introducing [Ibexa Rector](update_from_4.6.md#ibexa-rector), an optional tool helping to maintain your code
+- Added [v4.6.19 release notes](ibexa_dxp_v4.6.md#ibexa-dxp-v4619) and [v4.6.19 upgrade instructions](update_from_4.6.md#v4619)
+  with an important security notice about RichText XML,
+  and introducing [Ibexa Rector](update_from_4.6.md#ibexa-rector) to help to maintain custom code
 
 ## March 2025
 
