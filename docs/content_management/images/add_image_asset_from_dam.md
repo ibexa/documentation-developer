@@ -1,5 +1,6 @@
 ---
 description: Configure a Digital Asset Management connector.
+month_change: true
 ---
 
 # Add Image Asset from Digital Asset Management
