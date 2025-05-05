@@ -1,6 +1,6 @@
 ---
 description: Add custom tags, styles and data attributes to enrich the functionality of the Online Editor. Change Online Editor configuration.
-month_change: true
+month_change: false
 ---
 
 # Extend Online Editor

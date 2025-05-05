@@ -1,7 +1,7 @@
 ---
 description: AI Actions LTS update helps editors by automating repetitive tasks.
 edition: lts-update
-month_change: true
+month_change: false
 ---
 
 # AI Actions product guide
