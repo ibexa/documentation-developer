@@ -66,19 +66,6 @@ get:
                 description: Error - the user is not authorized to move this Location.
             404:
                 description: Error - the Location with the given ID does not exist.
-    copy:
-        displayName: Copy subtree
-        description: Copies the subtree to a different parent. COPY or POST with header X-HTTP-Method-Override COPY.
-        headers:
-            Destination:
-                description: A parent Location resource to which the Location is moved e.g. '/api/ibexa/v2/content/locations/1/63'.
-        responses:
-            201:
-                description: Created. Copied the subtree to a different parent.
-            401:
-                description: Error - the user is not authorized to move this Location.
-            404:
-                description: Error - the Location with the given ID does not exist.
     delete:
         displayName: Delete subtree
         description: Deletes the complete subtree for the given path. Every content item which does not have any other Location is deleted. Otherwise the deleted Location is removed from the content item. The children are recursively deleted.
@@ -126,26 +113,36 @@ get:
             404:
                 description: Error - the Location with the given ID does not exist.
     post:
-        displayName: Swap Location
-        description: Swaps the Location of a content item with the given Location of another content item. Request method can be POST or SWAP.
+        displayName: Swap Location / Copy subtree
+        description: Swaps the Location of a content item with the given Location of another content item or copy subtree, depending on request method or Content-Type header. Request method can be POST, COPY, or SWAP.
         headers:
             Content-Type:
                 description: Required only when using POST request method. Indicates the format of the request body.
                 examples: |
                     application/vnd.ibexa.api.SwapLocationInput+json
                     application/vnd.ibexa.api.SwapLocationInput+xml
+                    application/vnd.ibexa.api.CopyLocationInput+json
+                    application/vnd.ibexa.api.CopyLocationInput+xml
             Destination:
-                description: Required only when using SWAP request method. A location resource to swap with, e.g. '/api/ibexa/v2/content/locations/1/63'.
+                description: Required only when using SWAP or COPY request methods. A location resource to swap with or copy the subtree to, e.g. '/api/ibexa/v2/content/locations/1/63'.
         body:
-            description: Required only when using POST request method. Indicates the location to swap with
+            description: Required only when using POST request method. Indicates the location to swap with or the subtree to copy
             example: |
-                application/vnd.ibexa.api.SwapLocationInputWrapper+json:
+                application/vnd.ibexa.api.SwapLocationInput+json:
                         type: SwapLocationInputWrapper
                         example: !include examples/content/locations/path/POST/SwapLocationInput.json.example
-                application/vnd.ibexa.api.SwapLocationInputWrapper+xml:
+                application/vnd.ibexa.api.SwapLocationInput+xml:
                         type: SwapLocationInput
                         example: !include examples/content/locations/path/POST/SwapLocationInput.xml.example
+                application/vnd.ibexa.api.SwapLocationInput+json:
+                        type: CopyLocationInputWrapper
+                        example: !include examples/content/locations/path/POST/SwapLocationInput.json.example
+                application/vnd.ibexa.api.SwapLocationInput+xml:
+                        type: CopyLocationInput
+                        example: !include examples/content/locations/path/POST/SwapLocationInput.json.example
         responses:
+            201:
+                description: Created. Copied the subtree to a different parent.
             204:
                 description: No Content. Swapped the Location of a content item with the given Location of another content item.
             401:
