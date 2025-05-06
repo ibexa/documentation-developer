@@ -128,6 +128,14 @@ get:
     post:
         displayName: Swap Location
         description: Swaps the Location of a content item with the given Location of another content item. Request method can be POST or SWAP.
+        headers:
+            Content-Type:
+                description: Required only when using POST request method. Indicates the format of the request body.
+                examples: |
+                    application/vnd.ibexa.api.SwapLocationInput+json
+                    application/vnd.ibexa.api.SwapLocationInput+xml
+            Destination:
+                description: Required only when using SWAP request method. A location resource to swap with, e.g. '/api/ibexa/v2/content/locations/1/63'.
         body:
             description: Required only when using POST request method. Indicates the location to swap with
             example: |
@@ -137,14 +145,6 @@ get:
                 application/vnd.ibexa.api.SwapLocationInputWrapper+xml:
                         type: SwapLocationInput
                         example: !include examples/content/locations/path/POST/SwapLocationInput.xml.example
-        headers:
-            Content-Type:
-                description: Required only when using POST request method. Indicates the format of the request body.
-                examples: |
-                    application/vnd.ibexa.api.SwapLocationInput+json
-                    application/vnd.ibexa.api.SwapLocationInput+xml
-            Destination:
-                description: Required only when using SWAP request method. A location resource to swap with, e.g. '/api/ibexa/v2/content/locations/1/63'.
         responses:
             204:
                 description: No Content. Swapped the Location of a content item with the given Location of another content item.
