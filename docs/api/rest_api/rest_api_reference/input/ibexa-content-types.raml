@@ -65,17 +65,10 @@ get:
                 description: Error - The user is not authorized to read this content type.
             404:
                 description: Error - The content type does not exist.
-    copy:
-        displayName: Copy content type
-        description: Copies a content type. A new remote ID is generated, and the identifier of the copy is set to 'copy_of_originalBaseIdentifier_newTypeId' (or another random string). COPY or POST with header X-HTTP-Method-Override COPY.
-        responses:
-            201:
-                description: Copy of the content type created.
-            401:
-                description: Error - The user is not authorized to copy this content type.
     post:
-        displayName: Create Draft
-        description: Creates a draft and updates it with the given data.
+        displayName: Create Draft / Copy
+        description: |
+            Depending on request details, either creates a content type draft with the given data or copies a content type. When copying a new ID is generated, and the identifier of the copy is set to 'copy_of_originalBaseIdentifier_newTypeId'. To create a copy request method can be POST or COPY.
         headers:
             Accept:
                 description: If set, the new content type draft is returned in XML or JSON format.
@@ -83,10 +76,12 @@ get:
                     application/vnd.ibexa.api.ContentTypeInfo+xml
                     application/vnd.ibexa.api.ContentTypeInfo+json
             Content-Type:
-                description: The content type Update schema encoded in XML or JSON format.
+                description: The content type update schema encoded in XML or JSON format or application/vnd.ibexa.api.CopyContentTypeInput to indicate copying.
                 example: |
                     application/vnd.ibexa.api.ContentTypeUpdate+xml
                     application/vnd.ibexa.api.ContentTypeUpdate+json
+                    application/vnd.ibexa.api.CopyContentTypeInput+json
+                    application/vnd.ibexa.api.CopyContentTypeInput+xml
         body:
             application/vnd.ibexa.api.ContentTypeUpdate+xml:
                 type: ContentTypeUpdate
@@ -96,7 +91,7 @@ get:
                 example: !include examples/content/types/content_type_id/POST/ContentTypeUpdate.json.example
         responses:
             201:
-                description: Draft created.
+                description: Draft or copy created. For copying the response is empty.
                 body:
                     application/vnd.ibexa.api.ContentTypeInfo+xml:
                         type: ContentTypeInfo
@@ -107,7 +102,7 @@ get:
             400:
                 description: Error - The input does not match the input schema definition.
             401:
-                description: Error - The user is not authorized to create the draft.
+                description: Error - The user is not authorized to create or copy the draft.
             403:
                 description: Error - A content type with the given new identifier already exists. A draft already exists.
     delete:
