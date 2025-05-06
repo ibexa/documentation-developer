@@ -98,8 +98,8 @@ get:
             404:
                 description: Error - the Location with the given ID does not exist.
     post:
-        displayName: Swap Location / Copy subtree / Move subtree
-        description: Swaps the Location of a content item with the given Location of another content item, or copies a subtree or moves a subtree, all depending on request method or Content-Type header. Request method can be POST, SWAP, COPY, or MOVE.
+        displayName: Swap Location / Copy subtree / Move subtree / Trash 
+        description: Swaps the Location of a content item with the given Location of another content item, or copies a subtree or moves a subtree, all depending on request method or Content-Type header. Request method can be POST, SWAP, COPY, MOVE, or TRASH.
         headers:
             Content-Type:
                 description: Required only when using POST request method. Indicates the format of the request body and the action.
@@ -110,10 +110,12 @@ get:
                     application/vnd.ibexa.api.CopyLocationInput+xml
                     application/vnd.ibexa.api.MoveLocationInput+json
                     application/vnd.ibexa.api.MoveLocationInput+xml
+                    application/vnd.ibexa.api.TrashLocationInput+json
+                    application/vnd.ibexa.api.TrashLocationInput+xml
             Destination:
                 description: Required only when using SWAP, COPY, or MOVE request methods. A location resource to swap with, copy the subtree to, or move the subtree to, e.g. '/api/ibexa/v2/content/locations/1/63'.
         body:
-            description: Required only when using POST request method. Indicates the location to swap with or the subtree to copy
+            description: Used together with POST request method. Indicates the location to swap with or the subtree to copy
             example: |
                 application/vnd.ibexa.api.SwapLocationInput+json:
                         type: SwapLocationInputWrapper
@@ -129,7 +131,7 @@ get:
                         example: !include examples/content/locations/path/POST/SwapLocationInput.json.example
         responses:
             201:
-                description: Created. Copied or moved the subtree to a different parent.
+                description: Created. Copied or moved the subtree to a different parent, or sent the location to Trash.
             204:
                 description: No Content. Swapped the Location of a content item with the given Location of another content item.
             401:
