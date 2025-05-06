@@ -13,6 +13,6 @@ ibexa_taxonomy:
             field_mappings:
                 identifier: category_identifier
                 parent: parent_category
-                name: name_field
+                name: name
             assigned_content_tab: false
             register_main_menu: false
