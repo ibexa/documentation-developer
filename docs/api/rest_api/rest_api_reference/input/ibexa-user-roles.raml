@@ -234,9 +234,15 @@ post:
                     description: Error - there is no draft or Role with the given ID.
                 412:
                     description: Error - the current ETag does not match with the one provided in the If-Match header.
-        publish:
+        post:
             displayName: Publish Role draft
-            description: Publishes a Role draft. PUBLISH or POST with header X-HTTP-Method-Override PUBLISH.
+            description: Publishes a Role draft. Request method can be POST or PUBLISH.
+            headers:
+                Content-Type:
+                    description: Optional when using the PUBLISH request method.
+                    example: |
+                        application/vnd.ibexa.api.PublishRoleInput+json
+                        application/vnd.ibexa.api.PublishRoleInput+xml
             responses:
                 204:
                     description: No Content.
