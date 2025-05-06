@@ -1388,7 +1388,7 @@ LocationList:
 
 LocationQuery:
     description: 'This class is used to perform a Location query.'
-    type: object
+    type: Query
 
 LocationUpdateWrapper:
     description: 'JSON object with only a LocationUpdate property.'
@@ -2304,6 +2304,45 @@ SegmentUpdateWrapper:
     type: object
     properties:
         SegmentCreate: SegmentUpdate
+
+UserSegmentList:
+    description: 'This class lists segment assignements.'
+    type: object
+    properties:
+        UserSegment:
+            type: UserSegment[]
+
+UserSegmentListWrapper:
+    description: 'JSON object with only a UserSegmentList property'
+    type: object
+    properties:
+        UserSegmentList: UserSegmentList
+
+UserSegment:
+    description: 'This class reprensents a segment assigned to a user'
+    type: object
+    properties:
+        id: integer
+        identifier: string
+        name: string
+        SegmentGroup:
+            type: Ref
+        User:
+            type: Ref
+
+UserSegmentAssignInput:
+    description: 'This class represents a segment assignment input.'
+    type: object
+    properties:
+        segments:
+            type: array
+            items: string
+
+UserSegmentAssignInputWrapper:
+    description: 'JSON object with only a UserSegmentAssignInput property.'
+    type: object
+    properties:
+        UserSegmentAssignInput: UserSegmentAssignInput
 
 SortClause:
     description: 'This class is the base for SortClause classes, used to set sorting of content queries.'
@@ -6274,4 +6313,3 @@ ActionConfiguration:
         updatedAt:
             type: datetime
             description: 'Timestamp indicating when the action configuration was last updated.'
-
