@@ -228,9 +228,15 @@ get:
                     description: Error - A content type with the given new identifier already exists.
                 404:
                     description: Error - There is no draft for this content type.
-        publish:
+        post:
             displayName: Publish content type draft
-            description: Publishes a content type draft. PUBLISH or POST with header X-HTTP-Method-Override PUBLISH.
+            description: Publishes a content type draft. Request method can be POST or PUBLISH.
+            headers:
+                Content-Type:
+                    description: Optional when using the PUBLISH request method.
+                    example: |
+                        application/vnd.ibexa.api.PublishContentTypeInput+json
+                        application/vnd.ibexa.api.PublishContentTypeInput+xml
             responses:
                 200:
                     body:
