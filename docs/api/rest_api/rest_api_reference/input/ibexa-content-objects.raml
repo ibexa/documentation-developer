@@ -351,9 +351,15 @@ get:
                         description: Error - the user is not authorized to delete this version.
                     403:
                         description: Error - the version is in published state.
-            publish:
+            post:
                 displayName: Publish a content version
-                description: Publishes the content version. PUBLISH or POST with header X-HTTP-Method-Override PUBLISH
+                description: Publishes the content version. Request method can be POST or PUBLISH.
+                headers:
+                    Content-Type:
+                        description: Optional when using the PUBLISH request method.
+                        example: |
+                            application/vnd.ibexa.api.PublishContentVersionInput+json
+                            application/vnd.ibexa.api.PublishContentVersionInput+xml
                 responses:
                     204:
                         description: No Content - the content version is published.
