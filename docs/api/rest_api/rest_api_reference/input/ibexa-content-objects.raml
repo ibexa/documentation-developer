@@ -183,10 +183,15 @@ get:
                     description: Temporary redirect.
                 404:
                     description: Error - the resource does not exist.
-        copy:
+        post:
             displayName: Create a draft from current version
-            description: The system creates a new draft as a copy of the current version. COPY or POST with header X-HTTP-Method-Override COPY.
+            description: The system creates a new draft as a copy of the current version. Request method can be POST or COPY.
             headers:
+                Content-Type:
+                    description: Optional when using the COPY request method.
+                    example: |
+                        application/vnd.ibexa.api.CreateDraftFromCurrentVersionInput+json
+                        application/vnd.ibexa.api.CreateDraftFromCurrentVersionInput+xml
                 Accept:
                     description: If set, the updated version is returned in XML or JSON format.
                     example:  |
