@@ -7,6 +7,25 @@ month_change: true
 
 This page contains recent highlights and notable changes in [[= product_name =]] documentation.
 
+## April 2025
+
+### Content management
+
+- Introduced a [custom DAM connector example](add_image_asset_from_dam.md#extend-dam-support-by-adding-custom-connector)
+- Added [grace period definition and configuration](repository_configuration.md#grace-period-for-archived-versions)
+
+### AI Actions
+
+- Documented [how to couple AI Actions and Ibexa Connect](install_ai_actions.md#configure-access-to-ibexa-connect) to build complex data transformation workflows without having to rely on custom code
+
+### REST API
+
+- Added [`/cart/{identifier}/summary` REST resource's `ShortCartSummary` response format](/api/rest_api/rest_api_reference/rest_api_reference.html#managing-commerce-carts-cart-summary)
+
+### Infrastructure and maintenance
+
+- Announced [v4.6.19 release notes](ibexa_dxp_v4.6.md#ibexa-dxp-v4619) and [v4.6.19 upgrade instructions](update_from_4.6.md#v4619) with an important security notice about RichText XML, and introducing [Ibexa Rector](update_from_4.6.md#ibexa-rector) to help to maintain custom code
+
 ## March 2025
 
 ### Release notes
