@@ -6283,7 +6283,7 @@ SwapLocationInputWrapper:
             properties:
                 destination:
                     type: string
-                    description: The location path to swap with
+                    description: The location path to swap with.
 
 MoveUserGroupInputWrapper:
     type: object
@@ -6293,7 +6293,7 @@ MoveUserGroupInputWrapper:
             properties:
                 destination:
                     type: string
-                    description: The path string of the new parent location
+                    description: The path string of the new parent location.
 
 CopyLocationInputWrapper:
     type: object
@@ -6303,4 +6303,14 @@ CopyLocationInputWrapper:
             properties:
                 destination:
                     type: string
-                    description: The location path the subtree will be copied to
+                    description: The location path the subtree will be copied to.
+
+RestoreTrashItemInputWrapper:
+    type: object
+    properties:
+        RestoreTrashItemInput:
+            type: object
+            properties:
+                destination:
+                    type: string
+                    description: The path string under which the item should be restored.
