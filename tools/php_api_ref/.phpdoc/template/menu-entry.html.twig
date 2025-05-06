@@ -1,0 +1,29 @@
+{% set is_nested = entry.children.count or entry.interfaces[0] is defined or entry.classes[0] is defined or entry.traits[0] is defined or entry.enums[0] is defined %}
+{% set url = entry|route("url")|raw %}
+{% set type = type|default('') %}
+
+{% if type != 'namespace' or is_nested %}
+    <li class="md-nav__item {{ is_nested ? 'md-nav__item--nested' : '' }}">
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-{{ nav_id }}" type="checkbox" id="nav-{{ nav_id }}" {{ expanded|default(false) ? 'checked' : ''}}>
+        <label class="md-nav__link level-{{ depth }}" for="nav-{{ nav_id }}">
+            {% if icon is defined and depth > 1 %}
+                <img src="./images/{{ icon }}" alt="{{ icon }}" />
+            {% endif %}
+            {% if url %}
+                <a href="{{ url }}" title="{{ title }}">
+            {% endif %}
+                {{ title }}
+            {% if url %}
+                </a>
+            {% endif %}
+        </label>
+        {% if is_nested %}
+            <nav class="md-nav" aria-label="{{ title }}" data-md-level="{{ depth }}">
+                <label class="md-nav__link-title md-nav__link level-{{ depth }}" title="{{ node.name }}">
+                    {{ title }}
+                </label>
+                {% include 'components/menu.html.twig' with { entry, nav_id, depth: depth + 1, type: '' } %}
+            </nav>
+        {% endif %}
+    </li>
+{% endif %}
