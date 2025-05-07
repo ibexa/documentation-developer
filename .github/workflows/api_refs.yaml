@@ -18,7 +18,7 @@ jobs:
               id: version_and_branches
               run: |
                   version="${{ inputs.version }}"
-                  base_branch="$(echo $version | sed -s /v(.*\..*)\..*/\1/)"
+                  base_branch="$(echo $version | sed 's/v\(.*\..*\)\..*/\1/')"
                   work_branch="api_refs_$version"
                   echo "version=$version" >> "$GITHUB_OUTPUT"
                   echo "base_branch=$base_branch" >> "$GITHUB_OUTPUT"
