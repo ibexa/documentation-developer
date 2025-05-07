@@ -30,9 +30,13 @@ jobs:
                   ref: ${{ steps.version_and_branches.outputs.base_branch }}
 
             - name: Build API Refs
-              # TODO: On 5.0, update tool to handle both PHP & REST APIs
-              # TODO: Composer auth?
-              run: tools/php_api_ref/phpdoc.sh
+              env:
+                  SATIS_NETWORK_KEY: ${{ secrets.SATIS_NETWORK_KEY }}
+                  SATIS_NETWORK_TOKEN: ${{ secrets.SATIS_NETWORK_TOKEN }}
+              run: |
+                  composer config http-basic.updates.ibexa.co $SATIS_NETWORK_KEY $SATIS_NETWORK_TOKEN
+                  #TODO: On 5.0, update tool to handle both PHP & REST APIs
+                  tools/php_api_ref/phpdoc.sh
 
             - name: Commit
               run: |
