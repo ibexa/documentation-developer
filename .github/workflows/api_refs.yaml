@@ -61,4 +61,7 @@ jobs:
                   body: "PHP API Reference update for ${{ steps.version_and_branches.outputs.version }}"
                   branch: "${{ steps.version_and_branches.outputs.work_branch }}"
                   base: "${{ steps.version_and_branches.outputs.base_branch }}"
-                  draft: false
+                  draft: true
+                  #TODO: draft: false
+                  labels: Invalid
+                  #TODO: labels: Needs DOC review
