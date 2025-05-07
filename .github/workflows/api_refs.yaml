@@ -39,12 +39,13 @@ jobs:
                   git config --global user.name "${GITHUB_ACTOR}"
                   git config --global user.email "${GITHUB_ACTOR}@users.noreply.github.com"
                   git checkout -b ${{ steps.version_and_branches.outputs.work_branch }}
+                  git push --set-upstream origin ${{ steps.version_and_branches.outputs.work_branch }}
                   git add docs/api/php_api/php_api_reference/ tools/php_api_ref/.phpdoc/template/package-edition-map.twig
                   git commit -m "PHP API Ref HTML"
                   #TODO: git add doc/api/rest_api/rest_api_reference/rest_api_reference.html
                   #TODO: git commit -m "REST API Ref HTML"
-                  #TODO: permission to push? Use an action? https://github.com/marketplace/actions/github-push 
-                  git push --set-upstream origin api_refs_v4.6.x
+                  #TODO: permission to push? Use an action? https://github.com/marketplace/actions/github-push
+                  git push
 
             - name: Create Pull Request
               uses: peter-evans/create-pull-request@v3
