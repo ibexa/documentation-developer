@@ -9,6 +9,12 @@
     {%- endif -%} 
   {% endblock %}
 
+
+    <!-- Analytics -->
+    {% block analytics %}
+      {% include "partials/integrations/analytics.html" %}
+    {% endblock %}
+
   {% block extrahead %}
     <meta name="google-site-verification" content="AN8DVQKzis4rL9Fr3J9g3dOzY7h2jFyhqfC6ySmcgSc" />
     <script>window.eol_versions = {{ config.extra.eol_versions|tojson }};</script>
@@ -75,6 +81,8 @@
           {% endif %}
           {% include "partials/eol_warning.html" %}
           {{ page.content }}
+          <!-- Was this page helpful? -->
+          {% include "partials/feedback.html" %}
           {% include "partials/tags.html" %}
         </div>
     {% endblock %}

@@ -921,6 +921,27 @@ extra:
       url: '/projects/userguide'
     - title: 'Connect Documentation'
       url: '/projects/connect'
+  analytics: 
+      provider: google
+      property: GTM-KKQR5LG
+      feedback:
+          title: Was this page helpful?
+          ratings:
+            - icon: material/emoticon-happy-outline
+              name: This page was helpful
+              data: 1
+              note: >-
+                  Thanks for your feedback!
+            - icon: material/emoticon-sad-outline
+              name: This page could be improved
+              data: 0
+              note: >- 
+                  Thanks for your feedback! Help us improve this page by
+                  using our <a href="url" target="_blank" rel="noopener">feedback form</a><br/>
+
+                  Create an issue on JIRA<br/>
+                  <a href="{edit_url}" class="source-github">Suggest an improvement on GitHub</a><br/>
+                  <a href="https://github.com/ibexa/docker/issues/new?title=[Feedback]+{title}+-+{url}" class="source-github">Create an issue on GitHub</a>
 
     # Global variables
   site_display_name: 'Ibexa Documentation'
