@@ -44,7 +44,7 @@ jobs:
                   #TODO: git add doc/api/rest_api/rest_api_reference/rest_api_reference.html
                   #TODO: git commit -m "REST API Ref HTML"
                   #TODO: permission to push? Use an action? https://github.com/marketplace/actions/github-push 
-                  git push
+                  git push --set-upstream origin api_refs_v4.6.x
 
             - name: Create Pull Request
               uses: peter-evans/create-pull-request@v3
