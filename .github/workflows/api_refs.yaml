@@ -29,6 +29,11 @@ jobs:
               with:
                   ref: ${{ steps.version_and_branches.outputs.base_branch }}
 
+            - name: Disable PHP coverage
+              uses: shivammathur/setup-php@v2
+              with:
+                  coverage: none
+
             - name: Build API Refs
               env:
                   SATIS_NETWORK_KEY: ${{ secrets.SATIS_NETWORK_KEY }}
