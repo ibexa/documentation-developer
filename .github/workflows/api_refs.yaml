@@ -36,7 +36,7 @@ jobs:
 
             - name: Commit and push
               run: |
-                  git checkout ${{ steps.version_and_branches.outputs.work_branch }}
+                  git checkout -b ${{ steps.version_and_branches.outputs.work_branch }}
                   git add docs/api/php_api/php_api_reference/ tools/php_api_ref/.phpdoc/template/package-edition-map.twig
                   #TODO: Set a user?
                   git commit -m "PHP API Ref HTML"
