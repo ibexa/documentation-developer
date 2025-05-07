@@ -99,11 +99,11 @@ get:
                 description: Error - the Location with the given ID does not exist.
     post:
         displayName: Swap Location / Copy subtree / Move subtree / Trash 
-        description: Swaps the Location of a content item with the given Location of another content item, or copies a subtree or moves a subtree, all depending on request method or Content-Type header. Request method can be POST, SWAP, COPY, MOVE, or TRASH.
+        description: "Depending on request method or Content-Type header, one of the following: swaps the Location of a content item with the given Location of another content item, copies a subtree, moves a subtree, sends location to trash. Request method can be POST, SWAP, COPY, MOVE, or TRASH."
         headers:
             Content-Type:
                 description: Required only when using POST request method. Indicates the format of the request body and the action.
-                examples: |
+                example: |
                     application/vnd.ibexa.api.SwapLocationInput+json
                     application/vnd.ibexa.api.SwapLocationInput+xml
                     application/vnd.ibexa.api.CopyLocationInput+json
@@ -114,21 +114,21 @@ get:
                     application/vnd.ibexa.api.TrashLocationInput+xml
             Destination:
                 description: Required only when using SWAP, COPY, or MOVE request methods. A location resource to swap with, copy the subtree to, or move the subtree to, e.g. '/api/ibexa/v2/content/locations/1/63'.
+                example: /api/ibexa/v2/content/locations/1/63
         body:
             description: Used together with POST request method. Indicates the location to swap with or the subtree to copy
-            example: |
-                application/vnd.ibexa.api.SwapLocationInput+json:
-                        type: SwapLocationInputWrapper
-                        example: !include examples/content/locations/path/POST/SwapLocationInput.json.example
-                application/vnd.ibexa.api.SwapLocationInput+xml:
-                        type: SwapLocationInput
-                        example: !include examples/content/locations/path/POST/SwapLocationInput.xml.example
-                application/vnd.ibexa.api.SwapLocationInput+json:
-                        type: CopyLocationInputWrapper
-                        example: !include examples/content/locations/path/POST/SwapLocationInput.json.example
-                application/vnd.ibexa.api.SwapLocationInput+xml:
-                        type: CopyLocationInput
-                        example: !include examples/content/locations/path/POST/SwapLocationInput.json.example
+            application/vnd.ibexa.api.SwapLocationInput+json:
+                    type: SwapLocationInputWrapper
+                    example: !include examples/content/locations/path/POST/SwapLocationInput.json.example
+            application/vnd.ibexa.api.SwapLocationInput+xml:
+                    type: SwapLocationInput
+                    example: !include examples/content/locations/path/POST/SwapLocationInput.xml.example
+            application/vnd.ibexa.api.CopyLocationInput+json:
+                    type: CopyLocationInputWrapper
+                    example: !include examples/content/locations/path/POST/CopyLocationInput.json.example
+            application/vnd.ibexa.api.CopyLocationInput+xml:
+                    type: CopyLocationInput
+                    example: !include examples/content/locations/path/POST/CopyLocationInput.xml.example
         responses:
             201:
                 description: Created. Copied or moved the subtree to a different parent, or sent the location to Trash.

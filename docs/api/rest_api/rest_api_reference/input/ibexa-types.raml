@@ -6279,38 +6279,50 @@ SwapLocationInputWrapper:
     type: object
     properties:
         SwapLocationInput:
-            type: object
-            properties:
-                destination:
-                    type: string
-                    description: The location path to swap with.
+            type: SwapLocationInput
+
+SwapLocationInput:
+    type: object
+    properties:
+        destination:
+            type: string
+            description: The location path to swap with.
 
 MoveUserGroupInputWrapper:
     type: object
     properties:
         MoveUserGroupInput:
-            type: object
-            properties:
-                destination:
-                    type: string
-                    description: The path string of the new parent location.
+            type: MoveUserGroupInput
+
+MoveUserGroupInput:
+    type: object
+    properties:
+        destination:
+            type: string
+            description: The path string of the new parent location.
 
 CopyLocationInputWrapper:
     type: object
     properties:
         CopyLocationInput:
-            type: object
-            properties:
-                destination:
-                    type: string
-                    description: The location path the subtree will be copied to.
+            type: CopyLocationInput
+
+CopyLocationInput:
+    type: object
+    properties:
+        destination:
+            type: string
+            description: The location path the subtree will be copied to.
 
 RestoreTrashItemInputWrapper:
     type: object
     properties:
         RestoreTrashItemInput:
-            type: object
-            properties:
-                destination:
-                    type: string
-                    description: The path string under which the item should be restored.
+            type: RestoreTrashItemInput
+
+RestoreTrashItemInput:
+    type: object
+    properties:
+        destination:
+            type: string
+            description: The path string under which the item should be restored.

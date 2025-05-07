@@ -68,19 +68,18 @@ delete:
                 description: Used together with MOVE request method. If the destination Location URI (e.g. /api/ibexa/v2/content/locations/1/2) is provided, the item from Trash is restored under this Location, otherwise it is restored under its original parent Location.
         body:
             description: Used together with POST request method. Omit the "destination" property to restore under original location.
-            example: |
-                application/vnd.ibexa.api.RestoreTrashItemInput+json:
-                    type: RestoreTrashItemInputWrapper
-                    example: !include examples/content/trash/trash_itemid/POST/RestoreTrashItemInput.json.example
-                application/vnd.ibexa.api.RestoreTrashItemInput+xml:
-                    type: RestoreTrashItemInput
-                    example: !include examples/content/trash/trash_itemid/POST/RestoreTrashItemInput.xml.example
-                application/vnd.ibexa.api.RestoreTrashItemInput+json:
-                    type: RestoreTrashItemInputWrapper
-                    example: !include examples/content/trash/trash_itemid/POST/RestoreTrashItemInputOriginal.json.example
-                application/vnd.ibexa.api.RestoreTrashItemInput+xml:
-                    type: RestoreTrashItemInput
-                    example: !include examples/content/trash/trash_itemid/POST/RestoreTrashItemInputOriginal.xml.example
+            application/vnd.ibexa.api.RestoreTrashItemInput+json:
+                type: RestoreTrashItemInputWrapper
+                example: !include examples/content/trash/trash_itemid/POST/RestoreTrashItemInput.json.example
+            application/vnd.ibexa.api.RestoreTrashItemInput+xml:
+                type: RestoreTrashItemInput
+                example: !include examples/content/trash/trash_itemid/POST/RestoreTrashItemInput.xml.example
+            application/vnd.ibexa.api.RestoreTrashItemInputOriginalLocation+json:
+                type: RestoreTrashItemInputWrapper
+                example: !include examples/content/trash/trash_itemid/POST/RestoreTrashItemInputOriginal.json.example
+            application/vnd.ibexa.api.RestoreTrashItemInputOriginalLocation+xml:
+                type: RestoreTrashItemInput
+                example: !include examples/content/trash/trash_itemid/POST/RestoreTrashItemInputOriginal.xml.example
         responses:
             201:
                 description: Item restored.

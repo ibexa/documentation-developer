@@ -157,20 +157,20 @@ get:
         headers:
             Content-Type:
                 description: Required only when using POST request method. Indicates the format of the request body.
-                examples: |
+                example: |
                     application/vnd.ibexa.api.MoveUserGroupInput+json
                     application/vnd.ibexa.api.MoveUserGroupInput+xml
             Destination:
                 description: Required only when using MOVE request method. A parent group resource to which the Location is moved.
+                example: /api/ibexa/v2/content/locations/1/63
         body:
             description: Required only when using POST request method. A parent group resource to which the Location is moved.
-            example: |
-                application/vnd.ibexa.api.MoveUserGroupInputWrapper+json:
-                        type: MoveUserGroupInputWrapper
-                        example: !include examples/user/groups/path/POST/MoveUserGroupInput.json.example
-                application/vnd.ibexa.api.MoveUserGroupInput+xml:
-                        type: MoveUserGroupInput
-                        example: !include examples/user/groups/path/POST/MoveUserGroupInput.xml.example
+            application/vnd.ibexa.api.MoveUserGroupInputWrapper+json:
+                    type: MoveUserGroupInputWrapper
+                    example: !include examples/user/groups/path/POST/MoveUserGroupInput.json.example
+            application/vnd.ibexa.api.MoveUserGroupInput+xml:
+                    type: MoveUserGroupInput
+                    example: !include examples/user/groups/path/POST/MoveUserGroupInput.xml.example
         responses:
             201:
                 description: Created - moves the User Group to another parent.
