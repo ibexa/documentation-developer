@@ -36,9 +36,10 @@ jobs:
 
             - name: Commit and push
               run: |
+                  git config --global user.name "${GITHUB_ACTOR}"
+                  git config --global user.email "${GITHUB_ACTOR}@users.noreply.github.com"
                   git checkout -b ${{ steps.version_and_branches.outputs.work_branch }}
                   git add docs/api/php_api/php_api_reference/ tools/php_api_ref/.phpdoc/template/package-edition-map.twig
-                  #TODO: Set a user?
                   git commit -m "PHP API Ref HTML"
                   #TODO: git add doc/api/rest_api/rest_api_reference/rest_api_reference.html
                   #TODO: git commit -m "REST API Ref HTML"
