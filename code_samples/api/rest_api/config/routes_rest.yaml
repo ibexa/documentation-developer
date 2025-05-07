@@ -1,6 +1,6 @@
 app.rest.greeting:
     path: '/greet'
-    controller: App\Rest\Controller\DefaultController::helloWorld
+    controller: App\Rest\Controller\DefaultController::greet
     methods: [GET,POST]
     defaults:
         csrf_protection: false

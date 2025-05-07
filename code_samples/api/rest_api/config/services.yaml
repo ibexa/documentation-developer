@@ -39,14 +39,9 @@ services:
         parent: Ibexa\Rest\Server\Controller
         autowire: true
         autoconfigure: true
-        tags: [ 'controller.service_arguments' ]
+        tags: [ 'controller.service_arguments', 'ibexa.api_platform.resource' ]
 
-    App\Rest\ValueObjectVisitor\Greeting:
-        parent: Ibexa\Contracts\Rest\Output\ValueObjectVisitor
-        tags:
-            - { name: ibexa.rest.output.value_object.visitor, type: App\Rest\Values\Greeting }
 
-    App\Rest\InputParser\GreetingInput:
-        parent: Ibexa\Rest\Server\Common\Parser
-        tags:
-            - { name: ibexa.rest.input.parser, mediaType: application/vnd.ibexa.api.GreetingInput }
+    App\Rest\Serializer\:
+        resource: '../src/Rest/Serializer/'
+        tags: ['ibexa.rest.serializer.normalizer']
