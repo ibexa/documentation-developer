@@ -7,8 +7,6 @@ on:
                 description: 'Released version'
                 required: true
                 type: string
-    push:
-    pull_request:
 
 jobs:
     open_php_api_ref_pr:
