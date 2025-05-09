@@ -116,6 +116,7 @@ Select the following scopes to set permissions needed to enable the integration 
 - `scenarios:write`
 - `team-variables:read`
 - `team-variables:write`
+- `teams:write`
 - `templates:read`
 - `templates:write`
 - `udts:read`
