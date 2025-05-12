@@ -7,10 +7,10 @@ description: Inject a sub-items list into your back office customizations or cus
 The Sub-items List module is meant to be used as a part of the editorial interface of [[= product_name =]].
 It provides an interface for listing the sub-items of any location.
 
-## Add custom sub-items list view
+## Create custom sub-items list view
 
-You can extend the Sub-items List module to add your own views to it.
-The example below uses a timeline view to highlight the modification date.
+You can extend the Sub-items List module to replace an existing view or add your own. 
+The example below adds a new timeline view to highlight the modification date.
 
 ![Sub-items List module using the new Timeline view](img/subitems/timeline_view.png "Sub-items List module using the new Timeline view")
 
@@ -36,6 +36,12 @@ Provide the necessary styling in `assets/scss/timeline.view.scss`. The example b
 ```
 
 The last step is adding the view module to the list of available views in the system, by using the provided `registerView` function.
+
+You can create a new view by providing an unique identifier, or replace an existing one by reusing its identifier.
+The existing view identifiers are defined as JavaScript constants in the `@ibexa-admin-ui-modules/sub-items/constants` module:
+
+- Grid view: `VIEW_MODE_GRID` constant
+- Table view: `VIEW_MODE_TABLE` constant
 
 Create a file called `assets/js/registerTimelineView.js`:
 
