@@ -57,15 +57,15 @@ jobs:
                   #TODO: git commit -m "REST API Ref HTML"
                   #TODO: permission to push? Use an action? https://github.com/marketplace/actions/github-push
 
-            - name: Create Pull Request
-              uses: peter-evans/create-pull-request@v7
-              with:
-                  #TODO: token: ${{ ? }}
-                  title: "PHP API Ref ${{ steps.version_and_branches.outputs.version }}"
-                  body: "PHP API Reference update for ${{ steps.version_and_branches.outputs.version }}"
-                  branch: "${{ steps.version_and_branches.outputs.work_branch }}"
-                  base: "${{ steps.version_and_branches.outputs.base_branch }}"
-                  draft: true
-                  #TODO: draft: false
-                  labels: Invalid
-                  #TODO: labels: Needs DOC review
+#            - name: Create Pull Request
+#              uses: peter-evans/create-pull-request@v7
+#              with:
+#                  #TODO: token: ${{ ? }}
+#                  title: "PHP API Ref ${{ steps.version_and_branches.outputs.version }}"
+#                  body: "PHP API Reference update for ${{ steps.version_and_branches.outputs.version }}"
+#                  branch: "${{ steps.version_and_branches.outputs.work_branch }}"
+#                  base: "${{ steps.version_and_branches.outputs.base_branch }}"
+#                  draft: true
+#                  #TODO: draft: false
+#                  labels: Invalid
+#                  #TODO: labels: Needs DOC review
