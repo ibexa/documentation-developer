@@ -29,7 +29,7 @@ You can create two files:
 [[= include_file('code_samples/back_office/subitems/timeline_view/timeline.view.item.component.js') =]]
 ```
 
-Provide the necessary styling in `assets/scss/timeline.view.scss`. The example below uses [[= product_name =]]'s SCSS variables for consistency with the rest of the Back Office interface.
+Provide the necessary styling in `assets/scss/timeline.view.scss`. The example below uses [[= product_name =]]'s SCSS variables for consistency with the rest of the back office interface.
 
 ``` scss
 [[= include_file('code_samples/back_office/subitems/timeline_view/timeline.view.scss') =]]
