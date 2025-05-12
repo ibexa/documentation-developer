@@ -43,7 +43,7 @@ jobs:
                   #TODO: On 5.0, update tool to handle both PHP & REST APIs
                   tools/php_api_ref/phpdoc.sh
                   cat tools/php_api_ref/.phpdoc/template/package-edition-map.twig
-                  sed -i 's//\\\E/' tools/php_api_ref/.phpdoc/template/package-edition-map.twig
+                  perl -pi -e 's/\e/\\E/g' tools/php_api_ref/.phpdoc/template/package-edition-map.twig
                   cat tools/php_api_ref/.phpdoc/template/package-edition-map.twig
 
             - name: Commit
