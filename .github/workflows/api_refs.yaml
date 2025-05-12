@@ -41,13 +41,13 @@ jobs:
               run: |
                   composer config --global http-basic.updates.ibexa.co $SATIS_NETWORK_KEY $SATIS_NETWORK_TOKEN
                   #TODO: On 5.0, update tool to handle both PHP & REST APIs
-                  tools/php_api_ref/phpdoc.sh
+                  bash tools/php_api_ref/phpdoc.sh
                   #DEBUG
                   echo '--'
-                  echo '\E'
-                  echo "\E"
-                  echo '\E' > tmp.txt
-                  echo "\E" >> tmp.txt
+                  echo '\\E'
+                  echo "\\E"
+                  echo '\\E' > tmp.txt
+                  echo "\\E" >> tmp.txt
                   cat tmp.txt
                   echo '=='
                   rm tmp.txt
