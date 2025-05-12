@@ -10,10 +10,9 @@ It provides an interface for listing the sub-items of any location.
 ## Add custom sub-items list view
 
 You can extend the Sub-items List module to add your own views to it.
+The example below uses a timeline view to highlight the modification date.
 
-The following example adds a timeline view to the sub-items list as in the screenshot below:
-
-![Sub-items List module using the new Timeline view](img/timeline_view.png "Sub-items List module using the new Timeline view")
+![Sub-items List module using the new Timeline view](img/subitems/timeline_view.png "Sub-items List module using the new Timeline view")
 
 To recreate it, start by creating the components responsible for rendering the new view.
 You can create two files:
