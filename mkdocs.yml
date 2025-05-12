@@ -99,6 +99,7 @@ nav:
             - Site events: api/event_reference/site_events.md
             - URL events: api/event_reference/url_events.md
             - Trash events: api/event_reference/trash_events.md
+            - Twig Components: api/event_reference/twig_component_events.md
             - AI Action events: api/event_reference/ai_action_events.md
             - Other events: api/event_reference/other_events.md
     - Administration:
@@ -299,6 +300,7 @@ nav:
             - Cart Twig functions: templating/twig_function_reference/cart_twig_functions.md
             - Catalog Twig functions: templating/twig_function_reference/catalog_twig_functions.md
             - Checkout Twig functions: templating/twig_function_reference/checkout_twig_functions.md
+            - Component Twig functions: templating/twig_function_reference/component_twig_functions.md
             - Content Twig functions: templating/twig_function_reference/content_twig_functions.md
             - Date Twig filters: templating/twig_function_reference/date_twig_filters.md
             - Field Twig functions: templating/twig_function_reference/field_twig_functions.md
@@ -310,6 +312,7 @@ nav:
             - URL Twig functions: templating/twig_function_reference/url_twig_functions.md
             - User Twig functions: templating/twig_function_reference/user_twig_functions.md
             - AI Twig functions: templating/twig_function_reference/ai_actions_twig_functions.md
+        - Twig Components: templating/components.md
         - URLs and routes:
             - URLs and routes: templating/urls_and_routes/urls_and_routes.md
             - Custom breadcrumbs: templating/urls_and_routes/custom_breadcrumbs.md

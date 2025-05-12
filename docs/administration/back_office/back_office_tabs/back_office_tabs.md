@@ -71,7 +71,7 @@ To create a tab group, register it as a service:
 [[= include_file('code_samples/back_office/dashboard/article_tab/config/custom_services.yaml', 0, 1) =]][[= include_file('code_samples/back_office/dashboard/article_tab/config/custom_services.yaml', 7, 13) =]]
 ```
 
-Tag the group with `ibexa.admin_ui.component`.
+Tag the group with `ibexa.twig.component`.
 `group` indicates where the group is rendered.
 
-For a list of possible rendering places, see [Injecting custom components](custom_components.md).
+To learn more about this mechanism and the available groups, see [Twig Components](components.md).
