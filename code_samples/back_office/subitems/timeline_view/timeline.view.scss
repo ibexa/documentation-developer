@@ -1,6 +1,6 @@
 @import './public/bundles/ibexaadminui/scss/custom';
 
-.ibexa-timeline-view {
+.app-timeline-view {
     padding: calculateRem(16px);
 
     &__group {
@@ -35,7 +35,7 @@
     }
 }
 
-.ibexa-timeline-view-item {
+.app-timeline-view-item {
     display: flex;
     align-items: flex-start;
     padding: calculateRem(16px);

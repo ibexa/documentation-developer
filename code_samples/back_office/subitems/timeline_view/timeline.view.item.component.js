@@ -11,14 +11,14 @@ const TimelineViewItemComponent = ({ item, generateLink }) => {
     const time = new Date(content._info.modificationDate.timestamp * 1000).toLocaleTimeString();
 
     return (
-        <a className="ibexa-timeline-view-item" href={generateLink(item.id, content._info.id)}>
-            <div className="ibexa-timeline-view-item__time">{time}</div>
-            <div className="ibexa-timeline-view-item__content">
-                <div className="ibexa-timeline-view-item__info">
-                    <div className="ibexa-timeline-view-item__name">{content._name}</div>
-                    <div className="ibexa-timeline-view-item__type">
+        <a className="app-timeline-view-item" href={generateLink(item.id, content._info.id)}>
+            <div className="app-timeline-view-item__time">{time}</div>
+            <div className="app-timeline-view-item__content">
+                <div className="app-timeline-view-item__info">
+                    <div className="app-timeline-view-item__name">{content._name}</div>
+                    <div className="app-timeline-view-item__type">
                         <Icon customPath={contentTypeIconUrl} extraClasses="ibexa-icon--small" />
-                        <span className="ibexa-timeline-view-item__type-name">{content._info.contentType.name}</span>
+                        <span className="app-timeline-view-item__type-name">{content._info.contentType.name}</span>
                     </div>
                 </div>
             </div>

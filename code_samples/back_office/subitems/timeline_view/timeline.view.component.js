@@ -20,14 +20,14 @@ const TimelineViewComponent = ({ items, generateLink }) => {
     const groupedItems = groupByDate(items);
 
     return (
-        <div className="ibexa-timeline-view">
+        <div className="app-timeline-view">
             {Object.entries(groupedItems).map(([date, dateItems]) => (
-                <div key={date} className="ibexa-timeline-view__group">
-                    <div className="ibexa-timeline-view__date">
-                        <div className="ibexa-timeline-view__date-marker" />
+                <div key={date} className="app-timeline-view__group">
+                    <div className="app-timeline-view__date">
+                        <div className="app-timeline-view__date-marker" />
                         <h3>{new Date(date).toLocaleDateString()}</h3>
                     </div>
-                    <div className="ibexa-timeline-view__items">
+                    <div className="app-timeline-view__items">
                         {dateItems.map((item) => (
                             <TimelineViewItemComponent key={item.id} item={item} generateLink={generateLink} />
                         ))}
