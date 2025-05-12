@@ -42,9 +42,8 @@ jobs:
                   composer config --global http-basic.updates.ibexa.co $SATIS_NETWORK_KEY $SATIS_NETWORK_TOKEN
                   #TODO: On 5.0, update tool to handle both PHP & REST APIs
                   tools/php_api_ref/phpdoc.sh
-                  cat tools/php_api_ref/.phpdoc/template/package-edition-map.twig
+                  # Fix escape character:
                   perl -pi -e 's/\e/\\E/g' tools/php_api_ref/.phpdoc/template/package-edition-map.twig
-                  cat tools/php_api_ref/.phpdoc/template/package-edition-map.twig
 
             - name: Commit
               run: |
@@ -56,15 +55,14 @@ jobs:
                   #TODO: git commit -m "REST API Ref HTML"
                   #TODO: permission to push? Use an action? https://github.com/marketplace/actions/github-push
 
-#            - name: Create Pull Request
-#              uses: peter-evans/create-pull-request@v7
-#              with:
-#                  #TODO: token: ${{ ? }}
-#                  title: "PHP API Ref ${{ steps.version_and_branches.outputs.version }}"
-#                  body: "PHP API Reference update for ${{ steps.version_and_branches.outputs.version }}"
-#                  branch: "${{ steps.version_and_branches.outputs.work_branch }}"
-#                  base: "${{ steps.version_and_branches.outputs.base_branch }}"
-#                  draft: true
-#                  #TODO: draft: false
-#                  labels: Invalid
-#                  #TODO: labels: Needs DOC review
+            - name: Create Pull Request
+              uses: peter-evans/create-pull-request@v7
+              with:
+                  title: "PHP API Ref ${{ steps.version_and_branches.outputs.version }}"
+                  body: "PHP API Reference update for ${{ steps.version_and_branches.outputs.version }}"
+                  branch: "${{ steps.version_and_branches.outputs.work_branch }}"
+                  base: "${{ steps.version_and_branches.outputs.base_branch }}"
+                  draft: true
+                  #TODO: draft: false
+                  labels: Invalid
+                  #TODO: labels: Needs DOC review
