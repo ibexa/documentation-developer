@@ -43,6 +43,14 @@ jobs:
                   #TODO: On 5.0, update tool to handle both PHP & REST APIs
                   tools/php_api_ref/phpdoc.sh
                   #DEBUG
+                  echo '--'
+                  echo '\E'
+                  echo "\E"
+                  echo '\E' > tmp.txt
+                  echo "\E" >> tmp.txt
+                  cat tmp.txt
+                  echo '=='
+                  rm tmp.txt
                   cat tools/php_api_ref/.phpdoc/template/package-edition-map.twig
 
             - name: Commit
@@ -51,8 +59,6 @@ jobs:
                   git config --global user.email "${GITHUB_ACTOR}@users.noreply.github.com"
                   git add docs/api/php_api/php_api_reference/ tools/php_api_ref/.phpdoc/template/package-edition-map.twig
                   git commit -m "PHP API Ref HTML"
-                  #DEBUG
-                  cat tools/php_api_ref/.phpdoc/template/package-edition-map.twig
                   #TODO: git add doc/api/rest_api/rest_api_reference/rest_api_reference.html
                   #TODO: git commit -m "REST API Ref HTML"
                   #TODO: permission to push? Use an action? https://github.com/marketplace/actions/github-push
