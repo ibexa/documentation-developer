@@ -53,6 +53,10 @@ And include it into the back office using Webpack Encore, together with your cus
 See [configuring assets from main project files](importing_assets_from_bundle.md#configuration-from-main-project-files) to learn more about this mechanism.
 
 ``` js
+const ibexaConfigManager = require('./ibexa.webpack.config.manager.js');
+
+//...
+
 ibexaConfigManager.add({
     ibexaConfig,
     entryName: 'ibexa-admin-ui-layout-js',
