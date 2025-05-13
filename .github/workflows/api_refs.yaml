@@ -57,9 +57,8 @@ jobs:
 
             - name: Create Pull Request
               uses: peter-evans/create-pull-request@v7
-              env:
-                  GITHUB_TOKEN: ${{ secrets.EZROBOT_PAT }}
               with:
+                  token: ${{ secrets.EZROBOT_PAT }}
                   title: "PHP API Ref ${{ steps.version_and_branches.outputs.version }}"
                   body: "PHP API Reference update for ${{ steps.version_and_branches.outputs.version }}"
                   branch: "${{ steps.version_and_branches.outputs.work_branch }}"
