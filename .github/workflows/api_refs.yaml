@@ -53,7 +53,6 @@ jobs:
                   git commit -m "PHP API Ref HTML"
                   #TODO: git add doc/api/rest_api/rest_api_reference/rest_api_reference.html
                   #TODO: git commit -m "REST API Ref HTML"
-                  #TODO: permission to push? Use an action? https://github.com/marketplace/actions/github-push
 
             - name: Create Pull Request
               uses: peter-evans/create-pull-request@v7
@@ -63,7 +62,5 @@ jobs:
                   body: "PHP API Reference update for ${{ steps.version_and_branches.outputs.version }}"
                   branch: "${{ steps.version_and_branches.outputs.work_branch }}"
                   base: "${{ steps.version_and_branches.outputs.base_branch }}"
-                  draft: true
-                  #TODO: draft: false
-                  labels: Invalid
-                  #TODO: labels: Needs DOC review
+                  draft: false
+                  labels: 'Needs DOC review'
