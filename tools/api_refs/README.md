@@ -6,21 +6,21 @@ Requires [`jq`](https://stedolan.github.io/jq/download/)
 
 ## Basic usage
 
-`tools/php_api_ref/phpdoc.sh` is a script generating PHP API Reference, by default, under `docs/api/php_api/php_api_reference/`.
+`tools/api_refs/api_refs.sh` is a script generating PHP API Reference, by default, under `docs/api/php_api/php_api_reference/`.
 
 - For Composer, if you do not use a global authentication to retrieve _Commerce_ edition, a path to an auth.json file can be given as first argument. For example:
   ```
-  tools/php_api_ref/phpdoc.sh ~/www/ibexa-dxp-commerce/auth.json
+  tools/api_refs/api_refs.sh ~/www/ibexa-dxp-commerce/auth.json
   ```
 - The second argument can be a path to an output directory to use instead of the default one. For example, using the Composer global authentication file as first argument and the path to directory (which is created if it doesn't exist yet):
   ```
-  tools/php_api_ref/phpdoc.sh ~/.composer/auth.json ./docs/api/php_api/php_api_reference-TMP
+  tools/api_refs/api_refs.sh ~/.composer/auth.json ./docs/api/php_api/php_api_reference-TMP
   ```
 
 ## Rebuild example
 
 ```bash
-tools/php_api_ref/phpdoc.sh
+tools/api_refs/api_refs.sh
 git add docs/api/php_api/php_api_reference/
 git commit -m "Rebuild PHP API Ref's HTML"
 git push
@@ -28,7 +28,7 @@ git push
 
 ## Maintenance
 
-In `tools/php_api_ref/phpdoc.sh`:
+In `tools/api_refs/api_refs.sh`:
 
 `PHPDOC_VERSION` should always target the last version of phpDocumentor.
 
@@ -36,7 +36,7 @@ In `tools/php_api_ref/phpdoc.sh`:
 
 ### Templates
 
-Custom templates are located in `tools/php_api_ref/.phpdoc/template/` directory.
+Custom templates are located in `tools/api_refs/.phpdoc/template/` directory.
 They are overriding the default templates from a phpDocumentor version.
 The default templates version is not always the same as the phpDocumentor binary version.
 To update the default templates version, the overriding custom templates must be updated as well to obtain a better or equal result without bug.
@@ -44,7 +44,7 @@ See `PHPDOC_VERSION` and `PHPDOC_TEMPLATE_VERSION`.
 
 ## Advanced usage
 
-`tools/php_api_ref/phpdoc.sh` has a set of internal variables that might be edited for particular usages.
+`tools/api_refs/api_refs.sh` has a set of internal variables that might be edited for particular usages.
 
 `PHPDOC_CONF` can be changed to use a different config file.
 For example, when working on the design, the set of parsed files can be reduced for a quicker PHP API Reference compilation.
@@ -58,16 +58,16 @@ Time is saved. The DXP's code could even be modified for test purpose.
 If you change some of those values, please do not commit those changes, and don't commit their output.
 To prevent that, you can make a local copy, and use this copy to generate in a temporary output directory:
 ```shell
-cp tools/php_api_ref/phpdoc.sh tools/php_api_ref/phpdoc.dev.sh
+cp tools/api_refs/api_refs.sh tools/api_refs/phpdoc.dev.sh
 nano phpdoc.dev.sh # Edit and make your changes. For example, change PHPDOC_CONF to use phpdoc.dev.xml.
 nano phpdoc.dev.xml # Edit and make your changes. For example, target only your package.
-tools/php_api_ref/phpdoc.sh ~/.composer/auth.json ./docs/api/php_api/php_api_reference-TMP
+tools/api_refs/api_refs.sh ~/.composer/auth.json ./docs/api/php_api/php_api_reference-TMP
 ```
 
 ### Test a branch
 
 To load a package on a development branch instead of a released version,
-uncommented in `phpdoc.sh` the piece of code about `MY_PACKAGE` and `MY_BRANCH`,
+uncommented in `api_refs.sh` the piece of code about `MY_PACKAGE` and `MY_BRANCH`,
 and set the value of those two variables.
 
 `MY_PACKAGE` is the name of the Ibexa package without the vendor.
