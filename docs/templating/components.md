@@ -41,7 +41,9 @@ You can create a Twig Component and add it to a group using YAML configuration, 
 
 ``` yaml
 ibexa_twig_components:
+    # Component group
     storefront-before-head:
+        # Component name
         google_tag_manager:
             type: script
             arguments:
@@ -50,15 +52,15 @@ ibexa_twig_components:
 
 The Component priority cannot be specified when using the YAML configuration, but it allows you to use the built-in components to quickly achieve common goals.
 
-## Built-in componenents
+## Built-in components
 
 | Name | Description | YAML type |
 |---|---|---|
-| Script | Renders a [`<script>` tag](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/script) | `script` |
-| Stylesheet | Renders a [`<link>` tag](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/link) | `stylesheet`
-| Template | Renders a Twig template|`template` |
-| Controller | Renders a Symfony controller |`controller` |
-| HTML | Renders static HTML |`html` |
+| [Script](https://github.com/ibexa/twig-components/blob/main/src/lib/Component/ScriptComponent.php) | Renders a [`<script>` tag](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/script) | `script` |
+| [Stylesheet](https://github.com/ibexa/twig-components/blob/main/src/lib/Component/LinkComponent.php) | Renders a [`<link>` tag](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/link) | `stylesheet`
+| [Template](https://github.com/ibexa/twig-components/blob/main/src/lib/Component/TemplateComponent.php) | Renders a Twig template|`template` |
+| [Controller](https://github.com/ibexa/twig-components/blob/main/src/lib/Component/ControllerComponent.php) | Renders a Symfony controller |`controller` |
+| [HTML](https://github.com/ibexa/twig-components/blob/main/src/lib/Component/HtmlComponent.php) | Renders static HTML |`html` |
 
 See the example below:
 ``` yaml
@@ -117,7 +119,7 @@ You can modify the Component rendering process by:
 
 Use the built-in integration with [Symfony Profiler]([[= symfony_doc =]]/profiler.html) to see which Twig Components have been rendered in a given view. In the [[= product_name =]] tab you can find:
 
-- the list of rendered Twig Component groups
-- the list of rendered Twig Components
+- the list of all rendered Twig Component groups by the given view, including empty groups
+- the list of rendered Twig Components with information about the group they belong to
 
 ![Symfony Profiler showing the list of rendered Twig Components in a back office view](img/twig_components_symfony_profiler.png "Symfony Profiler showing the list of rendered Twig Components in a back office view")
