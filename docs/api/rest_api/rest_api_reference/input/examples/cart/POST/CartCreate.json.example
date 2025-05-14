@@ -1,9 +1,0 @@
-{
-    "CartCreate": {
-        "name": "Default",
-        "currencyCode": "EUR",
-        "context": {
-            "foo": "bar"
-        }
-    }
-}
