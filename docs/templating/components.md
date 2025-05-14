@@ -119,7 +119,7 @@ You can modify the Component rendering process by:
 
 ## Symfony Profiler integration
 
-Use the built-in integration with [Symfony Profiler]([[= symfony_doc =]]/profiler.html) to see which Twig Components have been rendered in a given view. In the [[= product_name =]] tab you can find:
+Use the built-in integration with [Symfony Profiler]([[= symfony_doc =]]/profiler.html) to see which Twig Components have been rendered in a given view. In the **[[= product_name =]]** tab you can find:
 
 - the list of all rendered Twig Component groups by the given view, including empty groups
 - the list of rendered Twig Components with information about the group they belong to
