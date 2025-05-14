@@ -1,6 +1,0 @@
-{
-    "CartConstraintViolationList": {
-        "_media-type": "application\/vnd.ibexa.api.CartConstraintViolationList+json",
-        "violations": []
-    }
-}
