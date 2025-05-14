@@ -43,11 +43,20 @@ jobs:
               env:
                   SATIS_NETWORK_KEY: ${{ secrets.SATIS_NETWORK_KEY }}
                   SATIS_NETWORK_TOKEN: ${{ secrets.SATIS_NETWORK_TOKEN }}
+                  BASE_BRANCH: ${{ steps.version_and_branches.outputs.base_branch }}
               run: |
                   composer config --global http-basic.updates.ibexa.co $SATIS_NETWORK_KEY $SATIS_NETWORK_TOKEN
-                  tools/api_refs/api_refs.sh
-                  # Fix escape character:
-                  perl -pi -e 's/\e/\\E/g' tools/api_refs/.phpdoc/template/package-edition-map.twig
+                  if [[ '4.6' != $BASE_BRANCH ]]; then
+                    tools/api_refs/api_refs.sh
+                    # Fix escape character:
+                    perl -pi -e 's/\e/\\E/g' tools/api_refs/.phpdoc/template/package-edition-map.twig
+                  else
+                    tools/php_api_ref/phpdoc.sh
+                    # Fix escape character:
+                    perl -pi -e 's/\e/\\E/g' tools/api_refs/php_api_ref/template/package-edition-map.twig
+                    # cd tools/raml2html/; composer install; cd -;
+                    # php tools/raml2html/raml2html.php build --non-standard-http-methods=COPY,MOVE,PUBLISH,SWAP -t default -o docs/api/rest_api/rest_api_reference/ docs/api/rest_api/rest_api_reference/input/ibexa.raml
+                  fi
 
             - name: Commit
               env:
