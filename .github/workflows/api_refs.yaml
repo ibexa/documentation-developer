@@ -54,8 +54,8 @@ jobs:
                     tools/php_api_ref/phpdoc.sh
                     # Fix escape character:
                     perl -pi -e 's/\e/\\E/g' tools/api_refs/php_api_ref/template/package-edition-map.twig
-                    # cd tools/raml2html/; composer install; cd -;
-                    # php tools/raml2html/raml2html.php build --non-standard-http-methods=COPY,MOVE,PUBLISH,SWAP -t default -o docs/api/rest_api/rest_api_reference/ docs/api/rest_api/rest_api_reference/input/ibexa.raml
+                    cd tools/raml2html/; composer install; cd -;
+                    php tools/raml2html/raml2html.php build --non-standard-http-methods=COPY,MOVE,PUBLISH,SWAP -t default -o docs/api/rest_api/rest_api_reference/ docs/api/rest_api/rest_api_reference/input/ibexa.raml
                   fi
 
             - name: Commit
@@ -66,10 +66,8 @@ jobs:
                   git config --global user.email "${GITHUB_ACTOR}@users.noreply.github.com"
                   git add docs/api/php_api/php_api_reference/ tools/api_refs/.phpdoc/template/package-edition-map.twig
                   git commit -m "PHP API Ref HTML"
-                  if [[ '4.6' != $BASE_BRANCH ]]; then
-                    git add doc/api/rest_api/rest_api_reference/rest_api_reference.html
-                    git commit -m "REST API Ref HTML"
-                  fi
+                  git add doc/api/rest_api/rest_api_reference/rest_api_reference.html
+                  git commit -m "REST API Ref HTML"
 
             - name: Create Pull Request
               uses: peter-evans/create-pull-request@v7
