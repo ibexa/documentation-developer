@@ -20,6 +20,11 @@ jobs:
                   version="${{ inputs.version }}"
                   base_branch="$(echo $version | sed 's/v\(.*\..*\)\..*/\1/')"
                   work_branch="api_refs_$version"
+                  #TMP
+                  if [[ '5.0' == $base_branch ]]; then
+                    base_branch='5.0-api-refs'
+                  fi
+                  #/TMP
                   echo "version=$version" >> "$GITHUB_OUTPUT"
                   echo "base_branch=$base_branch" >> "$GITHUB_OUTPUT"
                   echo "work_branch=$work_branch" >> "$GITHUB_OUTPUT"
