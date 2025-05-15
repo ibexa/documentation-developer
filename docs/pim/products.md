@@ -1,5 +1,6 @@
 ---
 description: Products in the PIM are characterized by attributes describing their characteristics. You can create product variants and add assets to each product and variant.
+month_change: true
 ---
 
 # Products

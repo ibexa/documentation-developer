@@ -1,5 +1,6 @@
 ---
 description: DateTimeAttributeRange Criterion
+edition: lts-update
 ---
 
 # DateTimeAttributeRange criterion
