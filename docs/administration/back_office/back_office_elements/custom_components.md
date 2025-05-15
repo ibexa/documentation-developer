@@ -18,7 +18,7 @@ The available groups for the back office are:
 |`admin-ui-content-create-form-before`| <ul><li>`vendor/ibexa/admin-ui-ui/src/bundle/Resources/views/themes/admin/content/create/create.html.twig`</li><li> `vendor/ibexa/admin-ui-ui/src/bundle/Resources/views/themes/admin/ui/on_the_fly/create_on_the_fly.html.twig`</li><li>`vendor/ibexa/admin-ui-ui/src/bundle/Resources/views/themes/admin/user/create.html.twig` </li></ul>|
 |`admin-ui-content-create-form-after`|  <ul><li>`vendor/ibexa/admin-ui-ui/src/bundle/Resources/views/themes/admin/content/create/create.html.twig`</li><li>`vendor/ibexa/admin-ui-ui/src/bundle/Resources/views/themes/admin/ui/on_the_fly/create_on_the_fly.html.twig`</li><li> `vendor/ibexa/admin-ui-ui/src/bundle/Resources/views/themes/admin/user/create.html.twig`</li></ul> |
 |`admin-ui-content-edit-form-after`| <ul><li> `vendor/ibexa/admin-ui-ui/src/bundle/Resources/views/themes/admin/content/edit/edit.html.twig` </li><li>  `vendor/ibexa/admin-ui-ui/src/bundle/Resources/views/themes/admin/ui/on_the_fly/edit_on_the_fly.html.twig`</li><li> `vendor/ibexa/admin-ui-ui/src/bundle/Resources/views/themes/admin/user/edit.html.twig`</li></ul> |
-|`admin-ui-content-edit-form-before`| <ul><li>`vendor/ibexa/admin-ui-ui/src/bundle/Resources/views/themes/admin/content/edit/edit.html.twig` `</li><li>`vendor/ibexa/admin-ui-ui/src/bundle/Resources/views/themes/admin/ui/on_the_fly/edit_on_the_fly.html.twig``</li><li> `vendor/ibexa/admin-ui-ui/src/bundle/Resources/views/themes/admin/user/edit.html.twig`</li></ul>  |
+|`admin-ui-content-edit-form-before`| <ul><li>`vendor/ibexa/admin-ui-ui/src/bundle/Resources/views/themes/admin/content/edit/edit.html.twig`</li><li>`vendor/ibexa/admin-ui-ui/src/bundle/Resources/views/themes/admin/ui/on_the_fly/edit_on_the_fly.html.twig`</li><li> `vendor/ibexa/admin-ui-ui/src/bundle/Resources/views/themes/admin/user/edit.html.twig`</li></ul>  |
 |`admin-ui-content-edit-sections`| <ul><li>`vendor/ibexa/admin-ui-ui/src/bundle/Resources/views/themes/admin/content/edit/edit.html.twig`</li><li>`vendor/ibexa/admin-ui-ui/src/bundle/Resources/views/themes/admin/ui/on_the_fly/create_on_the_fly.html.twig`</li><li>`vendor/ibexa/admin-ui-ui/src/bundle/Resources/views/themes/admin/ui/on_the_fly/edit_on_the_fly.html.twig`</li></ul> |
 |`admin-ui-content-form-create-header-actions`| `vendor/ibexa/admin-ui-ui/src/bundle/Resources/views/themes/admin/content/create/create.html.twig` |
 |`admin-ui-content-form-edit-header-actions`| `vendor/ibexa/admin-ui-ui/src/bundle/Resources/views/themes/admin/content/edit/edit.html.twig` |
@@ -47,6 +47,8 @@ The available groups for the back office are:
 |`admin-ui-systeminfo-tab-groups`| `vendor/ibexa/system-info/src/bundle/Resources/views/themes/admin/system_info/info.html.twig` |
 |`admin-ui-user-menu`| `vendor/ibexa/admin-ui-ui/src/bundle/Resources/views/themes/admin/ui/layout.html.twig` |
 |`admin-ui-user-profile-blocks`| `vendor/ibexa/admin-ui/src/bundle/Resources/views/themes/admin/account/profile/view.html.twig` |
+
+For more information, see [this example using few of those components](components.ms#example).
 
 ## Calendar
 

@@ -64,7 +64,13 @@ You can use an unique group name when creating a Twig Component to create your o
 | [Controller](https://github.com/ibexa/twig-components/blob/main/src/lib/Component/ControllerComponent.php) | Renders a Symfony controller |`controller` |
 | [HTML](https://github.com/ibexa/twig-components/blob/main/src/lib/Component/HtmlComponent.php) | Renders static HTML |`html` |
 
-See the example below:
+## Example
+
+In the example below
+
+- A "Hello world!" is added to the user menu.
+- The current user thumbnail is a random cat.
+- …
 ``` yaml
 ibexa_twig_components:
     admin-ui-user-menu:
