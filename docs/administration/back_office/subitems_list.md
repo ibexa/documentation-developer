@@ -74,6 +74,7 @@ ibexaConfigManager.add({
 });
 ```
 
+Complete the task by running `composer run post-install-cmd`.
 
 ## Use sub-items list
 
