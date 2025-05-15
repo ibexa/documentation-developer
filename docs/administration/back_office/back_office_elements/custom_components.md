@@ -2,7 +2,7 @@
 description: Back office components allow you to inject any custom widgets into selected places of the user interface.
 ---
 
-# Customizing the back office
+# Customizing the back office with Twig Components
 
 You can customize many of the back office views by using [Twig components](components.md).
 This allows you to inject your own custom logic and extend the templates.
