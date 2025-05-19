@@ -169,11 +169,10 @@ ibexa_fieldtype_page:
             attributes:
                 attribute_name:
                     options:
-                        help:
-                            text: 'Some example text'
-                            html: true|false
-                            attr:
-                                class: 'class1 class2'
+                        help: 'Some example text'
+                        help_html: true|false
+                        help_attr: 
+                            class: 'class1 class2'
 ```
 
 - `help` - defines a help message which is rendered below the field.
