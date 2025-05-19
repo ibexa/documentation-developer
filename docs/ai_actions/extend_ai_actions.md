@@ -105,6 +105,8 @@ The `ActionServiceInterface` service extracts the configuration options from the
 
 The following example adds a new Action Handler connecting to a local AI run using [the llamafile project](https://github.com/Mozilla-Ocho/llamafile) which you can use to execute Text-To-Text Actions, such as the built-in "Refine Text" Action.
 
+When creating a Action Handler for [[= product_name_connect =]], add the new handler identifier to the [`Ibexa AI handler` custom property](install_ai_actions.md#initiate-integration) in [[= product_name_connect =]] user interface.
+
 ### Register a custom Action Handler in the system.
 
 Create a class implementing the [ActionHandlerInterface](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorAi-Action-ActionHandlerInterface.html) and register it as a service:
