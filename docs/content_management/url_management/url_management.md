@@ -153,6 +153,10 @@ URL aliases aren't SiteAccess-aware. When creating an alias, you can select a Si
 If the SiteAccess root path (configured in `content.tree_root.location_id`) is different than the default,
 the prefix path that results from the configured content root is prepended to the final alias path.
 
+!!! caution "Creating custom URL aliases on the same level with a virtual (NOP) entry"
+
+    From v5.0 of [[= product_name =]]: If there is already a custom URL alias with path `/a/b` where `a` is a virtual entry (NOP: not pointing to any content), renaming or creating another content on the same level using a colliding name, `a` in this case, would result in the creation of a `a2` entry, as `a` is already taken by path `/a/b`.
+
 ### URL alias pattern configuration
 
 You can configure how [[= product_name =]] generates URL aliases.
