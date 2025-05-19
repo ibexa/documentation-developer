@@ -173,11 +173,11 @@ Available Twig:
 
 with parameters:
 
-    - `is_disabled`
-    - `attr`
-    - `product_code`
-    - `quantity_input_attr`
-    - `add_to_cart_btn_attr`
+- `is_disabled`
+- `attr`
+- `product_code`
+- `quantity_input_attr`
+- `add_to_cart_btn_attr`
 
 JavaScript class:
 
@@ -194,9 +194,9 @@ Available Twig:
 
 with parameters:
 
-    - `count`
-    - `attr`
-    - `counter_attr`
+- `count`
+- `attr`
+- `counter_attr`
 
 ### Checkout
 

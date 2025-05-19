@@ -1,7 +1,7 @@
 ---
 description: Trash Search Criteria and Sort Clauses help define and fine-tune search queries for content in trash.
 page_type: reference
-month_change: true
+month_change: false
 ---
 
 # Search in trash reference

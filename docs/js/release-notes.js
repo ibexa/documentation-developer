@@ -14,7 +14,7 @@
     const visibleItems = visibleItemsContainer.querySelectorAll('.release-notes-filters__visible-item');
     const releaseNotesNodes = doc.querySelectorAll('.release-note');
     const releaseNotesItems = [...releaseNotesNodes].map((releaseNotesNode) => {
-        const tagsNodes = releaseNotesNode.querySelectorAll('.release-note__tag');
+        const tagsNodes = releaseNotesNode.querySelectorAll('.release-note__tags .pill');
         const tagsItems = [...tagsNodes].map((tagNode) => `filter-${tagNode.dataset.filter}`);
 
         return {

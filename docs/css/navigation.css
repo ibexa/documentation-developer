@@ -142,13 +142,6 @@
     padding-bottom: 0.5rem;
 }
 
-.md-nav__link .pill.new {
-    margin-right: 15px;
-    background-color: #d9e8ff;
-    color: #3562a0;
-    text-transform: lowercase;
-}
-
 .md-nav__link::after {
     font-weight: 700;
 }
@@ -302,6 +295,8 @@
     padding: 1rem 0.8rem;
     border-bottom: 1px solid var(--mid-grey);
     background: white;
+    display: flex;
+    align-items: center;
 }
 
 .push {

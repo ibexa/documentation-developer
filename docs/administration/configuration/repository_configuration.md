@@ -1,5 +1,6 @@
 ---
 description: Configure repository connections, archive limits, field groups and other settings.
+month_change: true
 ---
 
 # Repository configuration

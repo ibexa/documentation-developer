@@ -1,6 +1,6 @@
 ---
 description: Update your installation to the latest v4.6 version from an earlier v4.6 version.
-month_change: false
+month_change: true
 ---
 
 # Update from v4.6.x to v4.6.latest
@@ -338,3 +338,24 @@ vendor/bin/rector --dry-run
 ``` bash
 vendor/bin/rector
 ```
+
+[[% include 'snippets/update/notify_support.md' %]]
+
+With the product updated to the latest version, you can now finish the update process or proceed to updating the LTS Updates packages.
+
+## LTS Updates
+
+[LTS Updates](editions.md#lts-updates) are standalone packages with their own update procedures.
+To use the [latest features](ibexa_dxp_v4.6.md) added to them, update them separately with the following commands:
+
+=== "AI actions"
+
+    ```bash
+    composer require ibexa/connector-ai:[[= latest_tag_4_6 =]] ibexa/connector-openai:[[= latest_tag_4_6 =]]
+    ```
+
+=== "Date and time attribute"
+
+    ```bash
+    composer require ibexa/product-catalog-date-time-attribute:[[= latest_tag_4_6 =]]
+    ```

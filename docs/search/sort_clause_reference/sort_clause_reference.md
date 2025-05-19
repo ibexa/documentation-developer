@@ -1,7 +1,7 @@
 ---
 description: Sort Clauses help fine-tune sorting order when searching for content and locations.
 page_type: reference
-month_change: true
+month_change: false
 ---
 
 # Sort Clause reference

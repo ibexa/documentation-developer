@@ -84,6 +84,12 @@ You can use it to get a quick overview of missing parts in the product configura
 
 ![Product completeness tab](4.2_product_completeness.png)
 
+!!! note "No impact on availability"
+
+    Product completeness helps ensure that product data is complete.
+    It does not impact product availability or visibility on the storefront.
+    As long as a product meets availability and stock requirements, it can be published and made available for purchase regardless of its completeness score.
+
 ### Product categories
 
 With product categories, you can organize products that populate the Product Catalog.

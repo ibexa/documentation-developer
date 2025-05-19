@@ -346,7 +346,7 @@ You can also update attributes, including changing which attribute group they be
 
 You can't change the attribute type of an existing attribute.
 
-##### Date and time attributes
+##### Date and time attributes [[% include 'snippets/lts-update_badge.md' %]]
 
 If you're using attributes of the [date and time type](date_and_time.md), you can manage it through the migrations as well, for example:
 
@@ -487,7 +487,7 @@ When updating a content type, use:
 [[= include_file('code_samples/data_migration/examples/update_tag.yaml') =]]
 ```
 
-### AI action configurations
+### AI action configurations [[% include 'snippets/lts-update_badge.md' %]]
 
 - The following example shows how you can create a new action configuration in your system:
 

@@ -17,7 +17,7 @@ You can format date and time by using the following services:
 - `@ibexa.user.settings.full_date_format.formatter`
 - `@ibexa.user.settings.full_time_format.formatter`
 
-To use them, create an `src\Service\MyService.php` file containing:
+To use them, create an `src/Service/MyService.php` file containing:
 
 ``` php
 <?php

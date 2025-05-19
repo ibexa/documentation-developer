@@ -52,14 +52,17 @@
 {% if node.traits[0] is defined %}
     {% set joined_data = joined_data|merge(node.traits) %}
 {% endif %}
+{% if node.enums[0] is defined %}
+    {% set joined_data = joined_data|merge(node.enums) %}
+{% endif %}
 
 {% if joined_data is not empty %}
     <h2 id="interfaces">
-        Interfaces, classes, and traits
+        Interfaces, classes, traits, and enums
         {%- include 'components/anchor.html.twig' with { anchor_link: link(node) ~ '#interfaces' } -%}
     </h2>
     <ul class="namespace-list">
-        {% for entry in joined_data %}
+        {% for entry in joined_data|sort((entry1, entry2) => entry1.name <=> entry2.name) %}
             <li>
                 <span>
                     <img src="./images/arrow-right.svg" class="arrow" />

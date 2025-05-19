@@ -17,7 +17,7 @@ If you find any, update them with your comment or additional information instead
 
     If you discover a security issue, please don't report it through regular channels, but instead take a look at the [Security section](reporting_issues.md).
 
-If you have an [[= product_name =]] subscription, report your issues through the [support portal](https://support.ibexa.co) instead of JIRA.
+If you have an [[= product_name =]] subscription, report your issues through the [Service portal](https://support.ibexa.co) instead of JIRA.
 This ensures the issue can be quickly prioritized according to its impact.
 
 If you cannot find an existing ticket matching what your issue, you can create a new one.

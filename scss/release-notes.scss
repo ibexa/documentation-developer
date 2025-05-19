@@ -1,29 +1,5 @@
 @use 'variables';
 
-// TODO: remove after changing header font sizes globally
-.release-notes-header,
-.release-notes {
-    h1 {
-        font-size: variables.$h1-font-size;
-    }
-    h2 {
-        font-size: variables.$h2-font-size;
-    }
-    h3 {
-        font-size: variables.$h3-font-size;
-    }
-    h4 {
-        font-size: variables.$h4-font-size;
-    }
-    h5 {
-        font-size: variables.$h5-font-size;
-    }
-    h6 {
-        font-size: variables.$h6-font-size;
-    }
-}
-// END
-
 .release-notes-header {
     display: flex;
     justify-content: space-between;
@@ -243,28 +219,6 @@
     &__tags {
         display: flex;
         padding: 4px 0 8px;
-    }
-
-    &__tag {
-        font-size: 12px;
-        padding: 1px 8px;
-        border: 1px solid;
-        margin-right: 8px;
-
-        $types:
-            'headless' variables.$color-error-main,
-            'experience' variables.$color-warning-dark-01,
-            'commerce' variables.$color-primary-main,
-            'lts-update' variables.$color-info-main,
-            'new-feature' variables.$color-success-main;
-
-        
-        @each $name, $color in $types {
-            &--#{$name} {
-                color: $color;
-                border-color: $color;
-            }
-        }
     }
 
     &__date {

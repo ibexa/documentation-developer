@@ -1,0 +1,12 @@
+{% extends '@ibexadesign/ui/field_type/image_asset_view.html.twig' %}
+
+{% block asset_preview %}
+    {{ parent() }}
+    <div>
+        <a href="{{ asset.assetMetadata.page_url }}">Image</a>
+        {% if asset.assetMetadata.author %} by {{ asset.assetMetadata.author }}{% endif %}
+        {% if asset.assetMetadata.license and asset.assetMetadata.license_url %}
+            under <a href="{{ asset.assetMetadata.license_url }}">{{ asset.assetMetadata.license }}</a>
+        {% endif %}.
+    </div>
+{% endblock %}

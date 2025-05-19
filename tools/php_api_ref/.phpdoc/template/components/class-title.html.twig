@@ -8,6 +8,12 @@
     add_edition: true,
 } %}
     {% block subheader %}
+        {% if node.isReadOnly %}
+            <div class="content-header__subheader">Read-only</div>
+        {% endif %}
+        {% if node.isFinal %}
+            <div class="content-header__subheader">Final</div>
+        {% endif %}
         {% if node.isAbstract %}
             <div class="content-header__subheader">Abstract</div>
         {% endif %}

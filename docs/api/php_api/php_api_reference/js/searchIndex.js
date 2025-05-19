@@ -46516,6 +46516,16 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/Ibexa-Contracts-ProductCatalogDateTimeAttribute-Search-Criterion-DateTimeAttributeRange.html#method_getIdentifier"
         },                {
+            "fqsen": "\\Ibexa\\Contracts\\Rector\\Sets\\IbexaSetList",
+            "name": "IbexaSetList",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Rector-Sets-IbexaSetList.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Rector\\Sets\\IbexaSetList\u003A\u003AIBEXA_46",
+            "name": "IBEXA_46",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Rector-Sets-IbexaSetList.html#enumcase_IBEXA_46"
+        },                {
             "fqsen": "\\Ibexa\\Contracts\\Rest\\Event\\BeforeParseEvent",
             "name": "BeforeParseEvent",
             "summary": "Event\u0020emitted\u0020before\u0020action\u0020execution.",
@@ -55775,6 +55785,16 @@ Search.appendIndex(
             "name": "ProductCatalogDateTimeAttribute",
             "summary": "",
             "url": "namespaces/ibexa-contracts-productcatalogdatetimeattribute.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Rector\\Sets",
+            "name": "Sets",
+            "summary": "",
+            "url": "namespaces/ibexa-contracts-rector-sets.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Rector",
+            "name": "Rector",
+            "summary": "",
+            "url": "namespaces/ibexa-contracts-rector.html"
         },                {
             "fqsen": "\\Ibexa\\Contracts\\Rest\\Event",
             "name": "Event",

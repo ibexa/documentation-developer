@@ -5,8 +5,14 @@ repo_url: https://github.com/ibexa/documentation-developer
 site_url: https://doc.ibexa.co/en/latest/
 copyright: "Copyright 1999-2024 Ibexa AS and others"
 validation:
-    links:
-        absolute_links: relative_to_docs
+    omitted_files: warn
+    absolute_links: relative_to_docs
+    unrecognized_links: warn
+    anchors: warn
+not_in_nav: |
+    search_results.md
+    personalization/legacy_recommendation_api.md
+    /snippets/*
 nav:
     - Ibexa Developer Documentation: index.md
     - Ibexa DXP editions:
@@ -952,6 +958,7 @@ extra_css:
   - css/codehilite.css
   - css/switcher.css
   - css/custom.css
+  - css/pills.css
   - css/page-not-found.css
   - css/navigation.css
   - css/search.css

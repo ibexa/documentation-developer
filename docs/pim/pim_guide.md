@@ -1,5 +1,6 @@
 ---
 description: The PIM product guide provides a full description of the features and benefits that this module brings to the clients.
+month_change: true
 ---
 
 # PIM product guide
@@ -36,9 +37,12 @@ Product specifications rely on product attributes. Available attributes are defi
 Each product has its own, specific attributes. You can describe a product in technical terms, define its physical characteristics such as size, color, or shape, or functional characteristics (for example, for a laptop it could be the operating system, amount of memory, or available ports).
 
 Product attributes can belong to one of existing types (for example, numbers, selection, or checkout), but you can also [add custom attribute types](create_custom_attribute_type.md).
-You can configure selected product attributes to be used as a basis for variants.
+Attributes are used as criteria for filtering and searching for products.
+You can also configure selected product attributes to be used as a basis for variants.
 
 ![Product attributes](img/product_attributes.png)
+
+For more information, see [Product attributes](products.md#product-attributes) and [Work with product attributes]([[= user_doc =]]/pim/work_with_product_attributes/)
 
 ### Product variants
 
@@ -107,6 +111,10 @@ Created product has its own list of the tasks required for product configuration
 You can check how complete the configuration is in the product’s view.
 
 When you create or edit a product, under the product name, you can see visual indication of what part of product information (tasks) you have completed, and what part is still missing.
+
+Product completeness doesn't impact product availability or visibility on the storefront.
+It is intended to help you ensure that product data is properly populated.
+As long as your product meets [basic requirements](enable_purchasing_products.md), it can be published and made available for purchase regardless of its completeness score.
 
 ### Catalogs
 

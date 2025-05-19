@@ -148,7 +148,7 @@ CREATE INDEX idx_workflow_name ON ezeditorialworkflow_workflows(workflow_name);
 #### Enable Commerce features
 
 Commerce features in Experience and Content editions are disabled by default.
-If you use these features, after the update enable Commerce features by going to `config\packages\ecommerce.yaml`
+If you use these features, after the update enable Commerce features by going to `config/packages/ecommerce.yaml`
 and setting the following:
 
 ``` yaml

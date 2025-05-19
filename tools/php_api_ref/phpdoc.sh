@@ -7,8 +7,9 @@ OUTPUT_DIR=${2:-./docs/api/php_api/php_api_reference}; # Path to the directory w
 
 DXP_EDITION='commerce'; # Edition from and for which the Reference is built
 DXP_VERSION='4.6.*'; # Version from and for which the Reference is built
-DXP_ADD_ONS=(connector-ai connector-openai automated-translation product-catalog-date-time-attribute); # Packages not included in $DXP_EDITION but added to the Reference, listed without their vendor "ibexa"
+DXP_ADD_ONS=(connector-ai connector-openai automated-translation product-catalog-date-time-attribute rector); # Packages not included in $DXP_EDITION but added to the Reference, listed without their vendor "ibexa"
 DXP_EDITIONS=(oss headless experience commerce); # Available editions ordered by ascending capabilities
+SF_VERSION='5.4'; # Symfony version used by Ibexa DXP
 PHPDOC_VERSION='3.7.1'; # Version of phpDocumentor used to build the Reference
 PHPDOC_CONF="$(pwd)/tools/php_api_ref/phpdoc.dist.xml"; # Absolute path to phpDocumentor configuration file
 #PHPDOC_CONF="$(pwd)/tools/php_api_ref/phpdoc.dev.xml"; # Absolute path to phpDocumentor configuration file
@@ -89,10 +90,6 @@ fi
 
 if [ 0 -eq $DXP_ALREADY_EXISTS ]; then
   echo -n 'Building package→edition map… ';
-  map=$PHPDOC_DIR/template/package-edition-map.twig;
-  if [[ -f $map ]]; then
-    rm $map;
-  fi;
   PACKAGE_MAP=''
   NAMESPACE_MAP=''
   for edition in ${DXP_EDITIONS[@]}; do
@@ -110,14 +107,22 @@ if [ 0 -eq $DXP_ALREADY_EXISTS ]; then
       break;
     fi;
   done;
+  echo 'OK';
 
+  echo -n 'Building namespace→edition map… ';
   for package in "${DXP_ADD_ONS[@]}"; do
     NAMESPACES=$(composer show "ibexa/$package" --available --format=json | \
       jq -r --arg PACKAGE "ibexa/$package" '"'\''\(.autoload | ."psr-4" | try to_entries[] catch empty | .key[:-1] | sub("\\\\";"\\\\\\";"g"))'\'': '\''\($PACKAGE)'\'',"')
     NAMESPACE_MAP="$NAMESPACE_MAP\n$NAMESPACES"
     PACKAGE_MAP="$PACKAGE_MAP\n'ibexa/$package': 'optional',"
   done;
+  echo 'OK';
 
+  echo -n "Store package→edition and namespace→edition maps into $map… ";
+  map=$PHPDOC_DIR/template/package-edition-map.twig;
+  if [[ -f $map ]]; then
+    rm $map;
+  fi;
   PACKAGE_MAP="{% set package_edition_map = {\n$PACKAGE_MAP\n} %}"
   NAMESPACE_MAP="{% set namespace_package_map = {\n$NAMESPACE_MAP\n} %}"
   {
@@ -153,6 +158,9 @@ mkdir -p php_api_reference/js;
 mv ./.phpdoc/template/fonts ./php_api_reference/;
 mv ./.phpdoc/template/images ./php_api_reference/;
 mv ./.phpdoc/template/js/*.js ./php_api_reference/js/;
+
+echo 'Set Symfony version…';
+sed "s/symfony_version = '.*'/symfony_version = '$SF_VERSION'/" $PHPDOC_DIR/template/base.html.twig > ./.phpdoc/template/base.html.twig;
 
 echo 'Run phpDocumentor…';
 curl -LO "https://github.com/phpDocumentor/phpDocumentor/releases/download/v$PHPDOC_VERSION/phpDocumentor.phar";

@@ -7,7 +7,7 @@
     {% set checked = "checked" if nav_item.active %}
     <input class="md-nav__toggle md-toggle" data-md-toggle="{{ path }}" type="checkbox" id="{{ path }}" {{ checked }}>
     <label class="md-nav__link level-{{ level }}" for="{{ path }}">
-      {{ nav_item.title }} <span class="pill new" hidden>New</span>
+      {{ nav_item.title }} <span class="pill pill--new" hidden>New</span>
     </label>
     <nav class="md-nav" aria-label="{{ nav_item.title }}" data-md-level="{{ level }}">
       <label class="md-nav__link-title md-nav__link level-{{ level }}" for="{{ path }}">
@@ -37,7 +37,7 @@
     {% endif %}
     <a href="{{ nav_item.url | url }}" class="md-nav__link level-{{ level }} md-nav__link--active">
       {{ nav_item.title }}
-      {% if nav_item.meta.month_change %}<span class="pill new">New</span>{% endif %}
+      {% if nav_item.meta.month_change %}<span class="pill pill--new">New</span>{% endif %}
     </a>
     {% if toc | first is defined %}
       {% include "partials/toc.html" %}
@@ -47,7 +47,7 @@
   <li class="{{ class }}">
     <a href="{{ nav_item.url | url }}" class="md-nav__link level-{{ level }}">
       {{ nav_item.title }}
-      {% if nav_item.meta.month_change %}<span class="pill new">New</span>{% endif %}
+      {% if nav_item.meta.month_change %}<span class="pill pill--new">New</span>{% endif %}
     </a>
   </li>
 {% endif %}

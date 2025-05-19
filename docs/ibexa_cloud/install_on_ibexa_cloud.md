@@ -1,6 +1,6 @@
 ---
 description: Install and configure Ibexa DXP to run in cloud using Ibexa Cloud.
-month_change: true
+month_change: false
 ---
 
 # Install on Ibexa Cloud

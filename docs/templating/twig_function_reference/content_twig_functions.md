@@ -1,7 +1,7 @@
 ---
 description: Content Twig function enable rendering whole content items and their information.
 page_type: reference
-month_change: true
+month_change: false
 ---
 
 # Content Twig functions

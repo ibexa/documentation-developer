@@ -1,4 +1,4 @@
-name: "Post preview links for changed files"
+name: 'Preview comment'
 
 on:
     pull_request: ~
@@ -12,7 +12,7 @@ on:
 
 jobs:
     post-preview-links:
-        name: Post preview links for changed files
+        name: 'Post preview links for changed files'
         runs-on: ubuntu-latest
         permissions:
             # Needed to manage the comment
@@ -30,15 +30,28 @@ jobs:
                     file_limit=100
                     build_url="https://ez-systems-developer-documentation--${{ github.event.pull_request.number }}.com.readthedocs.build/${{inputs.project}}en/${{ github.event.pull_request.number }}/"
 
-                    change_list=$(git diff --name-only HEAD "origin/$GITHUB_BASE_REF" | grep -E "^docs\/.*\.md$" | sed -E "s|^docs/(.*)\.md$|- [docs/\1.md](${build_url}\1/)|")
-                    change_count=$(echo "$change_list" | wc -l)
+                    md_change_list=$(git diff --name-only HEAD "origin/$GITHUB_BASE_REF" -- docs/ | grep -E "^docs\/.*\.md$" | sed -E "s|^docs/(.*)\.md$|- [docs/\1.md](${build_url}\1/)|")
+                    par_change_list='';
+                    for par_file in $(git diff --diff-filter=A --name-only "origin/$GITHUB_BASE_REF" HEAD -- docs/api/php_api/php_api_reference/ | grep -E '^docs\/.*\.html$'); do
+                      fqcn=$(grep -o 'data-copy-value=".*">Copy FQCN' $par_file | sed 's|E|§E§|' | sed -E 's|data-copy-value="(.*)">.*|\1|' | sed 's|\\|\\\\|g')
+                      link=$(echo $par_file | sed -E "s|^docs/(.*\.html)$|- [\`${fqcn}\`](${build_url}\1)|")
+                      par_change_list=$(echo -e "$par_change_list\n$link")
+                    done
+                    par_change_list=$(echo "$par_change_list" | sed '1d' | sed 's|§E§|\\E|g')
+                    change_count=$(( $(echo "$md_change_list" | wc -l) + $(echo "$par_change_list" | wc -l) ))
 
-                    if [[ $change_list -eq '' ]] ; then
-                      comment="Preview of modified Markdown: no Markdown change to preview."
+                    if [[ -z "$md_change_list$par_change_list" ]] ; then
+                      comment="Preview of modified files: no change to preview."
                     elif [[ $change_count -gt $file_limit ]] ; then
-                      comment="Preview of modified Markdown: Too many files modified in a single PR, preview link list is skipped. ($change_count files &gth; $file_limit)"
+                      comment="Preview of modified files: Too many files modified in a single PR, preview link list is skipped. ($change_count files &gth; $file_limit)"
                     else
-                      comment="Preview of modified Markdown:\n\n$change_list"
+                      comment="# Preview of modified files"
+                      if [[ -n "$md_change_list" ]]; then
+                        comment="$comment\n\nPreview of modified Markdown:\n\n$md_change_list"
+                      fi
+                      if [[ -n "$par_change_list" ]]; then
+                        comment="$comment\n\nPreview of addition to PHP API Reference:\n\n$par_change_list"
+                      fi                  
                     fi
 
                     echo -e "$comment" > comment.md
@@ -49,7 +62,7 @@ jobs:
                 with:
                     issue-number: ${{ github.event.pull_request.number }}
                     comment-author: 'github-actions[bot]'
-                    body-includes: 'Preview of modified Markdown'
+                    body-includes: 'Preview of modified files'
 
             -   name: Create or update comment
                 uses: peter-evans/create-or-update-comment@v4

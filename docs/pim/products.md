@@ -1,5 +1,6 @@
 ---
 description: Products in the PIM are characterized by attributes describing their characteristics. You can create product variants and add assets to each product and variant.
+month_change: true
 ---
 
 # Products
@@ -47,6 +48,13 @@ An example of an attribute group can be dimensions (length, width, height).
 
 You can assign both whole attribute groups or individual attributes to a product type.
 
+!!! note "Attribute translations"
+
+    Product attributes are not translatable.
+    Unlike content fields, product attribute values cannot differ between languages.
+
+    For the information that is intended to be displayed, consider using [TextLine](textlinefield.md) fields for short text, [RichText](richtextfield.md) fields for longer text that may require formatting, and product attributes for precise product properties or specifications.
+
 ## Product variants
 
 Product variants represent different versions of a product, for example, clothes in different colors, or laptops with different amounts of RAM.
@@ -87,4 +95,3 @@ The stock can also be set to infinite (for example, in case of digital products)
     A product can be available, but have zero stock.
 
     A product can only be ordered when it has either positive stock, or stock set to infinite.
-

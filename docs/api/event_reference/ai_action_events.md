@@ -1,6 +1,7 @@
 ---
 description: Events that are triggered when working with AI actions.
 page_type: reference
+edition: lts-update
 month_change: false
 ---
 

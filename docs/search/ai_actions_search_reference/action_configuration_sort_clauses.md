@@ -1,5 +1,6 @@
 ---
 month_change: false
+edition: lts-update
 ---
 
 # Action Configuration Search Sort Clauses reference

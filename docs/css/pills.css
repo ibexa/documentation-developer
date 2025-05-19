@@ -1,0 +1,60 @@
+.pill {
+  font-size: 12px;
+  font-weight: initial;
+  line-height: 18px;
+  padding: 1px 8px;
+  border: 1px solid;
+  margin-right: 8px;
+  color: #A32768;
+}
+.pill--headless {
+  color: #C4234A;
+  border-color: #C4234A;
+}
+.pill--headless::after {
+  content: "Headless";
+}
+.pill--experience {
+  color: #D3822B;
+  border-color: #D3822B;
+}
+.pill--experience::after {
+  content: "Experience";
+}
+.pill--commerce {
+  color: #A32768;
+  border-color: #A32768;
+}
+.pill--commerce::after {
+  content: "Commerce";
+}
+.pill--lts-update {
+  color: #5DA7C0;
+  border-color: #5DA7C0;
+}
+.pill--lts-update::after {
+  content: "LTS Update";
+}
+.pill--new-feature {
+  color: #2C9445;
+  border-color: #2C9445;
+}
+.pill--new-feature::after {
+  content: "New feature";
+}
+.pill--inline:first-of-type {
+  margin-left: 8px;
+}
+.pill--new {
+  margin-right: 15px;
+  align-self: center;
+  color: #d9e8ff;
+  color: #3562a0;
+  text-transform: lowercase;
+}
+
+div.pills {
+  float: right;
+}
+
+/*# sourceMappingURL=pills.css.map */

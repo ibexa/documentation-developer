@@ -1,5 +1,6 @@
 ---
 description: AI Actions LTS update helps editors by automating repetitive tasks.
+edition: lts-update
 month_change: true
 ---
 
@@ -37,7 +38,7 @@ To begin using AI Actions, you must first [install the required packages and per
 
 The OpenAI connector requires that you first [get an API key](https://help.openai.com/en/articles/4936850-where-do-i-find-my-openai-api-key) and make sure that you [set up a billing method](https://help.openai.com/en/articles/9038407-how-can-i-set-up-billing-for-my-account).
 
-Integration with [[= product_name_connect =]] requires that you first [get the credentials]([[= connect_doc =]]/general/ibexa_connect/#access-ibexa-connect) to your account, and the [API token](install_ai_actions.md#token).
+Integration with [[= product_name_connect =]] requires that you first [get the credentials]([[= connect_doc =]]/general/ibexa_connect/#access-ibexa-connect) to your account, and the [API token](install_ai_actions.md#create-token).
 
 !!! note "[[= product_name_connect =]] Availability"
 

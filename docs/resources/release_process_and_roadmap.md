@@ -60,4 +60,4 @@ Distribution files of [[= product_name_base =]] three editions are as follows:
 [[= product_name_base =]]'s support and maintenance services specific to each release are only available from a given start date until an end date.
 The time in between the start and end dates is what [[= product_name_base =]] calls the product's **Service Life**.
 
-You can find the specific dates of service life for each release on [[= product_name_base =]] [support portal service life page](https://support.ibexa.co/Public/Service-Life).
+You can find the specific dates of service life for each release on [[= product_name_base =]] [service life page](https://support.ibexa.co/Public/Service-Life).
