@@ -34,6 +34,8 @@ ibexa_fieldtype_page:
                 event:
                     type: embed
                     name: Event
+                    options:
+                        udw_config_name: block_event_embed
                     validators:
                         not_blank:
                             message: Please select an event

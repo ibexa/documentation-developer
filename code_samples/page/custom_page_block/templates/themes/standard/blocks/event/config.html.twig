@@ -1,10 +1,5 @@
 {% extends '@IbexaPageBuilder/page_builder/block/config.html.twig' %}
 
-{% block content %}
-    {% set form_templates = [_self] %}
-    {{ parent() }}
-{% endblock %}
-
 {% block basic_tab_content %}
     <div class="ibexa-block-config__fields">
         {{ form_row(form.name) }}
@@ -19,17 +14,5 @@
                 {% endfor %}
             </ol>
         {% endif %}
-    </div>
-{% endblock %}
-
-{% block block_configuration_attribute_embed_widget %}
-    {% set attr = attr|merge({'hidden': true}) %}
-    {{ form_widget(form, {'attr': attr})}}
-    <div class="ibexa-pb-block-embed-field">
-        {% include '@IbexaPageBuilder/page_builder/block/config/embed_button.html.twig' with {
-            udw_config_name: 'block_event_embed',
-            data_open_udw: 'data-open-udw-embed'
-        } %}
-        {% include '@IbexaPageBuilder/page_builder/block/config/embed_preview.html.twig' %}
     </div>
 {% endblock %}
