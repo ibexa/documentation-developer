@@ -415,42 +415,6 @@ parameters:
 			path: code_samples/field_types/2dpoint_ft/src/Form/Type/Point2DType.php
 
 		-
-			message: '#^Method App\\Serializer\\Point2D\\ValueNormalizer\:\:normalize\(\) never returns ArrayObject\<\(int\|string\), mixed\> so it can be removed from the return type\.$#'
-			identifier: return.unusedType
-			count: 1
-			path: code_samples/field_types/2dpoint_ft/src/Serializer/Point2D/ValueNormalizer.php
-
-		-
-			message: '#^Method App\\Serializer\\Point2D\\ValueNormalizer\:\:normalize\(\) never returns bool so it can be removed from the return type\.$#'
-			identifier: return.unusedType
-			count: 1
-			path: code_samples/field_types/2dpoint_ft/src/Serializer/Point2D/ValueNormalizer.php
-
-		-
-			message: '#^Method App\\Serializer\\Point2D\\ValueNormalizer\:\:normalize\(\) never returns float so it can be removed from the return type\.$#'
-			identifier: return.unusedType
-			count: 1
-			path: code_samples/field_types/2dpoint_ft/src/Serializer/Point2D/ValueNormalizer.php
-
-		-
-			message: '#^Method App\\Serializer\\Point2D\\ValueNormalizer\:\:normalize\(\) never returns int so it can be removed from the return type\.$#'
-			identifier: return.unusedType
-			count: 1
-			path: code_samples/field_types/2dpoint_ft/src/Serializer/Point2D/ValueNormalizer.php
-
-		-
-			message: '#^Method App\\Serializer\\Point2D\\ValueNormalizer\:\:normalize\(\) never returns null so it can be removed from the return type\.$#'
-			identifier: return.unusedType
-			count: 1
-			path: code_samples/field_types/2dpoint_ft/src/Serializer/Point2D/ValueNormalizer.php
-
-		-
-			message: '#^Method App\\Serializer\\Point2D\\ValueNormalizer\:\:normalize\(\) never returns string so it can be removed from the return type\.$#'
-			identifier: return.unusedType
-			count: 1
-			path: code_samples/field_types/2dpoint_ft/src/Serializer/Point2D/ValueNormalizer.php
-
-		-
 			message: '#^Class App\\Form\\Type\\Point2DType extends generic class Symfony\\Component\\Form\\AbstractType but does not specify its types\: TData$#'
 			identifier: missingType.generics
 			count: 1
