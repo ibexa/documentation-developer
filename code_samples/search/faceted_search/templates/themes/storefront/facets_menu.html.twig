@@ -1,0 +1,12 @@
+{% set menu = knp_menu_get(menu, [], menu_params) %}
+
+{% if menu.hasChildren() %}
+<div class="ibexa-blog-sidebar-facet">
+    <h3 class="ibexa-blog-sidebar-facet__name">
+        {{ name }}
+    </h3>
+    <div class="ibexa-blog-sidebar-facet__body">
+        {{ knp_menu_render(menu) }}
+    </div>
+</div>
+{% endif %}

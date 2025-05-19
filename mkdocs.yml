@@ -770,6 +770,7 @@ nav:
             - Create custom Search Criterion: search/extensibility/create_custom_search_criterion.md
             - Create custom Sort Clause: search/extensibility/create_custom_sort_clause.md
             - Create custom Aggregation: search/extensibility/create_custom_aggregation.md
+            - Create faceted search: search/extensibility/create_faceted_search.md
             - Solr document field mappers: search/extensibility/solr_document_field_mappers.md
             - Index custom Elasticsearch data: search/extensibility/index_custom_elasticsearch_data.md
             - Customize Elasticsearch index structure: search/extensibility/customize_elasticsearch_index_structure.md

@@ -1,0 +1,37 @@
+{% if aggregations.has('content_by_publication_date') %}
+    {% include '@ibexadesign/facets_menu.html.twig' with {
+        name: 'Publication Date',
+        menu: 'app.menu.publication_date_facets',
+        menu_params: {
+            route: ibexa_route(null, app.request.query.all()),
+            aggregation_result: aggregations.get('content_by_publication_date'),
+        }
+    } %}
+{% endif %}
+
+{% if aggregations.has('content_by_tag') %}
+    {% include '@ibexadesign/facets_menu.html.twig' with {
+        name: 'Categories',
+        menu: 'app.menu.categories_facets',
+        menu_params: {
+            aggregation_result: aggregations.get('content_by_tag')
+        }
+    } %}
+{% endif %}
+
+{% if aggregations.has('rate') %}
+<div class="ibexa-blog-sidebar-facet">
+    <h3 class="ibexa-blog-sidebar-facet__name">Rate</h3>
+
+    <div class="ibexa-blog-sidebar-facet__content">
+        {% set min = aggregations.get('rate').getMin() %}
+        {% set max = aggregations.get('rate').getMax() %}
+
+        <form method="GET">
+            <span>{{ min|number_format(2) }}</span>
+            <input name="min_rate" type="range" value={{ min }} min="{{ min }}" max="{{ max }}" onchange="this.form.submit()" />
+            <span>{{ max|number_format(2) }}</span>
+        </form>
+    </div>
+</div>
+{% endif %}
