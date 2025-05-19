@@ -67,7 +67,8 @@
         "ibexa/version-comparison": "5.0.x-dev",
         "league/oauth2-google": "^4.0",
         "ibexa/core-search": "~5.0.x-dev",
-        "ibexa/connector-dam": "~5.0.x-dev"
+        "ibexa/connector-dam": "~5.0.x-dev",
+        "ibexa/twig-components": "~5.0.x-dev"
     },
     "scripts": {
         "fix-cs": "php-cs-fixer fix --config=.php-cs-fixer.php -v --show-progress=dots",
