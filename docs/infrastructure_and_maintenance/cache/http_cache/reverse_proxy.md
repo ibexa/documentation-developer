@@ -47,7 +47,7 @@ Using a different proxy is highly recommended as they provide better performance
 
 For reverse proxies to work properly with your installation, you need to add the corresponding VCL files for your HTTP Cache.
 
-- [Varnish VCL xkey example](https://github.com/ibexa/http-cache/blob/main/docs/varnish/vcl/varnish5.vcl)
+- [Varnish VCL xkey example](https://github.com/ibexa/http-cache/blob/4.6/docs/varnish/vcl/varnish5.vcl)
 - Fastly can be found in `vendor/ibexa/fastly/fastly`. You must install the following to use Fastly:
     - `ez_main.vcl` as the **main** custom VCL
     - `ez_user_hash.vcl` as another custom VCL
@@ -155,7 +155,7 @@ If you want to use Basic Auth with Fastly on [[= product_name_cloud =]], please 
 
 !!! note "Invalidating Varnish cache by using tokens"
 
-    In setups where the Varnish server IP can change (for example, on [[= product_name_cloud =]]), you can use token-based cache invalidation through [`ez_purge_acl`](https://github.com/ibexa/http-cache/blob/main/docs/varnish/vcl/varnish5.vcl#L174).
+    In setups where the Varnish server IP can change (for example, on [[= product_name_cloud =]]), you can use token-based cache invalidation through [`ez_purge_acl`](https://github.com/ibexa/http-cache/blob/4.6/docs/varnish/vcl/varnish5.vcl#L174).
 
     In such situation, use strong, secure hash and make sure to keep the token secret.
 
