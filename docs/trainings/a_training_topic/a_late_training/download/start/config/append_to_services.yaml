@@ -1,0 +1,3 @@
+services:
+
+    App\Command\TrainingCommand: ~
