@@ -131,6 +131,20 @@ ibexa:
                             Identifier\ContentType: [article]
 ```
 
+Be aware of the fact that configurations in the different scopes are merged, not overwritten. This is important to have
+in mind when dealing with arrays:
+
+``` yaml
+ibexa:
+    system:
+        default:
+          languages: ['eng-GB']
+        de:
+          languages: ['ger-DE']
+```
+
+The language setting for the `de` siteaccess will in this case be `['ger-DE','eng-GB']`, not `['ger-DE']`.
+
 ### SiteAccesses and Page Builder [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
 
 To define which SiteAccesses are available in the submenu in Page Builder, use the following configuration:
