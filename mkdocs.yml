@@ -480,6 +480,8 @@ nav:
             - CDP add client-side tracking: cdp/cdp_activation/cdp_add_clientside_tracking.md
         - CDP data export schedule: cdp/cdp_data_export_schedule.md
         - CDP data customization: cdp/cdp_data_customization.md
+    - DAM:
+        - Integration with DXP: dam/integration_with_dxp.md
     - Search:
         - Search: search/search.md
         - Search engines: 
