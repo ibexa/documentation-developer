@@ -1,0 +1,19 @@
+{
+  "recommendationItems": [
+    {
+      "relevance": 23,
+      "itemType": 1,
+      "itemId": 100175717,
+      "origin": {
+        "itemIds" : [10, 11],
+        "itemType" : 1,
+        "source" : "REQUEST"
+      },
+      "category" : "Men/Shirts",
+      "links" : {
+        "clickRecommended" : "//event.perso.ibexa.co/clickrecommended/johndoe/1/100175717?scenario=also_clicked&modelId=37",
+        "rendered" : "//event.perso.ibexa.co/rendered/johndoe/1/100175717"
+      }
+    }
+  ]
+}
