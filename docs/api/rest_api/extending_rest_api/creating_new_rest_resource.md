@@ -39,6 +39,14 @@ You can disable it by using the route parameter `csrf_protection`.
 [[= include_file('code_samples/api/rest_api/config/routes_rest.yaml') =]]
 ```
 
+### OPTIONS method support
+
+By importing a second time with the `rest_options` loader, the support for the [`OPTIONS` method](../rest_api_usage/rest_requests.md#options-method) will be automatically added to the routes.
+
+``` yaml
+[[= include_file('code_samples/api/rest_api/config/routes.yaml') =]]
+```
+
 ## Controller
 
 ### Controller service
