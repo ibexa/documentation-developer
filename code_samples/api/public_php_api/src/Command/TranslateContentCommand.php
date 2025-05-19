@@ -5,11 +5,15 @@ namespace App\Command;
 use Ibexa\Contracts\Core\Repository\ContentService;
 use Ibexa\Contracts\Core\Repository\PermissionResolver;
 use Ibexa\Contracts\Core\Repository\UserService;
+use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
+#[AsCommand(
+    name: 'doc:translate_content'
+)]
 class TranslateContentCommand extends Command
 {
     private ContentService $contentService;
@@ -23,7 +27,8 @@ class TranslateContentCommand extends Command
         $this->contentService = $contentService;
         $this->userService = $userService;
         $this->permissionResolver = $permissionResolver;
-        parent::__construct('doc:translate_content');
+
+        parent::__construct();
     }
 
     protected function configure(): void

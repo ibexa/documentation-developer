@@ -17,10 +17,14 @@ use Ibexa\Contracts\Shipping\Shipment\ShipmentUpdateStruct;
 use Ibexa\Contracts\Shipping\ShipmentServiceInterface;
 use Ibexa\Contracts\Shipping\ShippingMethodServiceInterface;
 use Money;
+use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
+#[AsCommand(
+    name: 'doc:shipment'
+)]
 final class ShipmentCommand extends Command
 {
     private PermissionResolver $permissionResolver;
@@ -46,7 +50,7 @@ final class ShipmentCommand extends Command
         $this->shippingMethodService = $shippingMethodService;
         $this->orderService = $orderService;
 
-        parent::__construct('doc:shipment');
+        parent::__construct();
     }
 
     protected function execute(InputInterface $input, OutputInterface $output): int

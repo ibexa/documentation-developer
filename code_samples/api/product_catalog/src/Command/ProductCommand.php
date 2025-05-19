@@ -13,11 +13,15 @@ use Ibexa\Contracts\ProductCatalog\Values\Availability\ProductAvailabilityUpdate
 use Ibexa\Contracts\ProductCatalog\Values\Product\ProductQuery;
 use Ibexa\Contracts\ProductCatalog\Values\Product\Query\Criterion;
 use Ibexa\Contracts\ProductCatalog\Values\Product\Query\SortClause;
+use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
+#[AsCommand(
+    name: 'doc:product'
+)]
 final class ProductCommand extends Command
 {
     private UserService $userService;
@@ -46,7 +50,8 @@ final class ProductCommand extends Command
         $this->productTypeService = $productTypeService;
         $this->localProductService = $localProductService;
         $this->productAvailabilityService = $productAvailabilityService;
-        parent::__construct('doc:product');
+
+        parent::__construct();
     }
 
     public function configure(): void

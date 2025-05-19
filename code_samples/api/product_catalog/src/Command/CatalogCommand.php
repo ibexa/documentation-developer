@@ -13,11 +13,15 @@ use Ibexa\Contracts\ProductCatalog\Values\Catalog\CatalogUpdateStruct;
 use Ibexa\Contracts\ProductCatalog\Values\Product\ProductQuery;
 use Ibexa\Contracts\ProductCatalog\Values\Product\Query\Criterion;
 use Ibexa\ProductCatalog\Local\Repository\Values\Catalog\Status;
+use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
+#[AsCommand(
+    name: 'doc:catalog'
+)]
 final class CatalogCommand extends Command
 {
     private UserService $userService;
@@ -38,7 +42,8 @@ final class CatalogCommand extends Command
         $this->permissionResolver = $permissionResolver;
         $this->productService = $productService;
         $this->catalogService = $catalogService;
-        parent::__construct('doc:catalog');
+
+        parent::__construct();
     }
 
     public function configure(): void

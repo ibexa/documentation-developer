@@ -8,15 +8,17 @@ use Ibexa\Contracts\Core\Repository\PermissionResolver;
 use Ibexa\Contracts\Core\Repository\Repository;
 use Ibexa\Contracts\Core\Repository\UserService;
 use Ibexa\Contracts\Dashboard\DashboardServiceInterface;
+use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
+#[AsCommand(
+    name: 'doc:dashboard'
+)]
 class DashboardCommand extends Command
 {
-    protected static $defaultName = 'doc:dashboard';
-
     private DashboardServiceInterface $dashboardService;
 
     private Locationservice $locationService;
@@ -37,7 +39,7 @@ class DashboardCommand extends Command
         $this->userService = $repository->getUserService();
         $this->permissionResolver = $repository->getPermissionResolver();
 
-        parent::__construct(self::$defaultName);
+        parent::__construct();
     }
 
     public function configure(): void

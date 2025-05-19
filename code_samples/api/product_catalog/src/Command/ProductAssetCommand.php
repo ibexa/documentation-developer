@@ -8,11 +8,15 @@ use Ibexa\Contracts\Core\Repository\PermissionResolver;
 use Ibexa\Contracts\Core\Repository\UserService;
 use Ibexa\Contracts\ProductCatalog\AssetServiceInterface;
 use Ibexa\Contracts\ProductCatalog\ProductServiceInterface;
+use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
+#[AsCommand(
+    name: 'doc:assets'
+)]
 final class ProductAssetCommand extends Command
 {
     private UserService $userService;
@@ -33,7 +37,8 @@ final class ProductAssetCommand extends Command
         $this->permissionResolver = $permissionResolver;
         $this->productService = $productService;
         $this->assetService = $assetService;
-        parent::__construct('doc:assets');
+
+        parent::__construct();
     }
 
     public function configure(): void

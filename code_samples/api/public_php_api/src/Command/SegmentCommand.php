@@ -7,10 +7,14 @@ use Ibexa\Contracts\Core\Repository\UserService;
 use Ibexa\Segmentation\Service\SegmentationService;
 use Ibexa\Segmentation\Value\SegmentCreateStruct;
 use Ibexa\Segmentation\Value\SegmentGroupCreateStruct;
+use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
+#[AsCommand(
+    name: 'doc:segment'
+)]
 class SegmentCommand extends Command
 {
     private SegmentationService $segmentationService;
@@ -24,7 +28,8 @@ class SegmentCommand extends Command
         $this->segmentationService = $segmentationService;
         $this->permissionResolver = $permissionResolver;
         $this->userService = $userService;
-        parent::__construct('doc:segment');
+
+        parent::__construct();
     }
 
     protected function configure(): void

@@ -16,10 +16,14 @@ use Ibexa\Contracts\Payment\Payment\Query\Criterion\LogicalOr;
 use Ibexa\Contracts\Payment\PaymentMethodServiceInterface;
 use Ibexa\Contracts\Payment\PaymentServiceInterface;
 use Money;
+use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
+#[AsCommand(
+    name: 'doc:payment'
+)]
 final class PaymentCommand extends Command
 {
     private PermissionResolver $permissionResolver;
@@ -45,14 +49,14 @@ final class PaymentCommand extends Command
         $this->orderService = $orderService;
         $this->paymentMethodService = $paymentMethodService;
 
-        parent::__construct('doc:payment');
+        parent::__construct();
     }
 
     public function configure(): void
     {
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $currentUser = $this->userService->loadUserByLogin('admin');
         $this->permissionResolver->setCurrentUserReference($currentUser);

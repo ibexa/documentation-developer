@@ -6,12 +6,16 @@ use Ibexa\Contracts\Core\Repository\LocationService;
 use Ibexa\Contracts\Core\Repository\PermissionResolver;
 use Ibexa\Contracts\Core\Repository\TrashService;
 use Ibexa\Contracts\Core\Repository\UserService;
+use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 
+#[AsCommand(
+    name: 'doc:trash_content'
+)]
 class TrashContentCommand extends Command
 {
     private LocationService $locationService;
@@ -28,7 +32,8 @@ class TrashContentCommand extends Command
         $this->userService = $userService;
         $this->trashService = $trashService;
         $this->permissionResolver = $permissionResolver;
-        parent::__construct('doc:trash_content');
+
+        parent::__construct();
     }
 
     protected function configure(): void

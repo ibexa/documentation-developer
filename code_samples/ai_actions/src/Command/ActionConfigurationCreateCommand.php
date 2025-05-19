@@ -13,15 +13,17 @@ use Ibexa\Contracts\ConnectorAi\ActionType\ActionTypeRegistryInterface;
 use Ibexa\Contracts\Core\Collection\ArrayMap;
 use Ibexa\Contracts\Core\Repository\PermissionResolver;
 use Ibexa\Contracts\Core\Repository\UserService;
+use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
+#[AsCommand(
+    name: 'app:action-configuration-create'
+)]
 final class ActionConfigurationCreateCommand extends Command
 {
-    protected static $defaultName = 'app:action-configuration-create';
-
     private ActionConfigurationServiceInterface $actionConfigurationService;
 
     private PermissionResolver $permissionResolver;
@@ -39,12 +41,13 @@ final class ActionConfigurationCreateCommand extends Command
         ActionServiceInterface $actionService,
         ActionTypeRegistryInterface $actionTypeRegistry
     ) {
-        parent::__construct();
         $this->actionConfigurationService = $actionConfigurationService;
         $this->permissionResolver = $permissionResolver;
         $this->userService = $userService;
         $this->actionService = $actionService;
         $this->actionTypeRegistry = $actionTypeRegistry;
+
+        parent::__construct();
     }
 
     protected function configure(): void
