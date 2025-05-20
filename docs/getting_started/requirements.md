@@ -248,7 +248,7 @@ Recommendation for production setups is to use Varnish/Fastly, Redis/Memcached, 
 
 === "[[= product_name =]] v4.6"
 
-    - `Node.js` 18+
+    - `Node.js` 18+, 20+, 22+
     - `yarn` 1.15.2+
 
     If you see a "+" next to the product version, it indicates a recommended version or higher within the same major release.
