@@ -26,7 +26,7 @@ From the developer's perspective, payment methods are referenced with identifier
 To access a single payment method by using its string identifier, use the `PaymentMethodService::getPaymentMethodByIdentifier` method:
 
 ``` php
-[[= include_file('code_samples/api/commerce/src/Command/PaymentMethodCommand.php', 52, 56) =]]
+[[= include_file('code_samples/api/commerce/src/Command/PaymentMethodCommand.php', 56, 60) =]]
 ```
 
 ### Get single payment method by ID
@@ -34,7 +34,7 @@ To access a single payment method by using its string identifier, use the `Payme
 To access a single payment method by using its numerical ID, use the `PaymentMethodService::getPaymentMethod` method:
 
 ``` php
-[[= include_file('code_samples/api/commerce/src/Command/PaymentMethodCommand.php', 46, 50) =]]
+[[= include_file('code_samples/api/commerce/src/Command/PaymentMethodCommand.php', 50, 54) =]]
 ```
 
 ## Get multiple payment methods
@@ -44,7 +44,7 @@ To fetch multiple payment methods, use the `PaymentMethodService::findPaymentMet
 It follows the same search query pattern as other APIs:
 
 ``` php
-[[= include_file('code_samples/api/commerce/src/Command/PaymentMethodCommand.php', 58, 75) =]]
+[[= include_file('code_samples/api/commerce/src/Command/PaymentMethodCommand.php', 62, 79) =]]
 ```
 
 ## Create payment method
@@ -59,7 +59,7 @@ To create a payment method, use the `PaymentMethodService::createPaymentMethod` 
 - `options` object.
 
 ``` php
-[[= include_file('code_samples/api/commerce/src/Command/PaymentMethodCommand.php', 58, 59) =]][[= include_file('code_samples/api/commerce/src/Command/PaymentMethodCommand.php', 77, 87) =]]
+[[= include_file('code_samples/api/commerce/src/Command/PaymentMethodCommand.php', 62, 63) =]][[= include_file('code_samples/api/commerce/src/Command/PaymentMethodCommand.php', 81, 91) =]]
 ```
 
 ## Update payment method
@@ -70,14 +70,14 @@ An `Ibexa\Contracts\Payment\PaymentMethod\PaymentMethodUpdateStruct` object can 
 To update payment method information, use the `PaymentMethodServiceInterface::updatePaymentMethod` method:
 
 ``` php
-[[= include_file('code_samples/api/commerce/src/Command/PaymentMethodCommand.php', 89, 99) =]]
+[[= include_file('code_samples/api/commerce/src/Command/PaymentMethodCommand.php', 93, 103) =]]
 ```
 
 ## Delete payment method
 
 To delete a payment method from the system, use the `PaymentMethodService::deletePayment` method:
 ``` php
-[[= include_file('code_samples/api/commerce/src/Command/PaymentMethodCommand.php', 101, 107) =]]
+[[= include_file('code_samples/api/commerce/src/Command/PaymentMethodCommand.php', 105, 111) =]]
 ```
 
 ## Check whether payment method is used
@@ -85,5 +85,5 @@ To delete a payment method from the system, use the `PaymentMethodService::delet
 To check whether a payment method is used, for example, before you delete it, use the `PaymentMethodService::isPaymentMethodUsed` method:
 
 ``` php
-[[= include_file('code_samples/api/commerce/src/Command/PaymentMethodCommand.php', 109, 122) =]]
+[[= include_file('code_samples/api/commerce/src/Command/PaymentMethodCommand.php', 113, 126) =]]
 ```
