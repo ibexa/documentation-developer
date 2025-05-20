@@ -6,10 +6,10 @@ AUTH_JSON=${1:-~/.composer/auth.json}; # Path to an auth.json file allowing to i
 OUTPUT_DIR=${2:-./docs/api/php_api/php_api_reference}; # Path to the directory where the built PHP API Reference is hosted
 
 DXP_EDITION='commerce'; # Edition from and for which the Reference is built
-DXP_VERSION='4.6.*'; # Version from and for which the Reference is built
-DXP_ADD_ONS=(connector-ai connector-openai automated-translation product-catalog-date-time-attribute rector); # Packages not included in $DXP_EDITION but added to the Reference, listed without their vendor "ibexa"
+DXP_VERSION='5.0.x-dev'; # Version from and for which the Reference is built
+DXP_ADD_ONS=(connector-ai connector-openai automated-translation product-catalog-date-time-attribute); # Packages not included in $DXP_EDITION but added to the Reference, listed without their vendor "ibexa"
 DXP_EDITIONS=(oss headless experience commerce); # Available editions ordered by ascending capabilities
-SF_VERSION='5.4'; # Symfony version used by Ibexa DXP
+SF_VERSION='6.4'; # Symfony version used by Ibexa DXP
 PHPDOC_VERSION='3.7.1'; # Version of phpDocumentor used to build the Reference
 PHPDOC_CONF="$(pwd)/tools/php_api_ref/phpdoc.dist.xml"; # Absolute path to phpDocumentor configuration file
 #PHPDOC_CONF="$(pwd)/tools/php_api_ref/phpdoc.dev.xml"; # Absolute path to phpDocumentor configuration file
@@ -19,8 +19,8 @@ PHPDOC_DIR="$(pwd)/tools/php_api_ref/.phpdoc"; # Absolute path to phpDocumentor 
 PHP_BINARY="php -d error_reporting=`php -r 'echo E_ALL & ~E_DEPRECATED;'`"; # Avoid depreciation messages from phpDocumentor/Reflection/issues/529 when using PHP 8.2 or higher
 TMP_DXP_DIR=/tmp/ibexa-dxp-phpdoc; # Absolute path of the temporary directory in which Ibexa DXP will be installed and the PHP API Reference built
 FORCE_DXP_INSTALL=1; # If 1, empty the temporary directory, install DXP from scratch, build, remove temporary directory; if 0, potentially reuse the DXP already installed in temporary directory, keep temporary directory for future uses.
-BASE_DXP_BRANCH=''; # Branch from and for which the Reference is built when using a dev branch as version
-VIRTUAL_DXP_VERSION=''; # Version for which the reference is supposedly built when using dev branch as version
+BASE_DXP_BRANCH='master'; # Branch from and for which the Reference is built when using a dev branch as version
+VIRTUAL_DXP_VERSION='5.0.0'; # Version for which the reference is supposedly built when using dev branch as version
 
 if [ ! -d $OUTPUT_DIR ]; then
   echo -n "Creating ${OUTPUT_DIR}… ";
