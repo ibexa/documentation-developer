@@ -55,7 +55,7 @@ This command modifies the existing database schema by adding database configurat
 
 !!! note "Next steps"
 
-    Once the framework is installed and configured, before you can start using AI Actions, you can configure access to [[ = product_name_base = ]]-made service connectors by following the instructions below, or [create your own](extend_ai_actions.md#create-custom-action-handler).
+    Once the framework is installed and configured, before you can start using AI Actions, you can configure access to [[= product_name_base =]]-made service connectors by following the instructions below, or [create your own](extend_ai_actions.md#create-custom-action-handler).
 
     Only then you can restart you application and start [working with the AI Actions feature]([[= user_doc =]]/ai_actions/work_with_ai_actions/).
 
@@ -116,6 +116,7 @@ Select the following scopes to set permissions needed to enable the integration 
 - `scenarios:write`
 - `team-variables:read`
 - `team-variables:write`
+- `teams:write`
 - `templates:read`
 - `templates:write`
 - `udts:read`

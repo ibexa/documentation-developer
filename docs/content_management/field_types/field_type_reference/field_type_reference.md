@@ -57,7 +57,7 @@ The following table gives an overview of the supported field types that come wi
 | [SesProfiledata](sesprofiledata.md) | Stores address data for a customer. | No | No |
 | [SesSelection](sesselection.md) | Stores a single selection choice based on options from a YAML file. | Yes | Yes |
 | [SpecificationsType](specificationstype.md) | Stores a structured list of specification data for products. | Yes | Yes |
-| [TaxonomyEntry](taxonomyentryfield.md) | Controls and configures taxonomy. | No | Yes |
+| [TaxonomyEntry](taxonomyentryfield.md) | Stores information about the Taxonomy tree. | No | Yes |
 | [TaxonomyEntryAssignment](taxonomyentryassignmentfield.md) | Makes content taggable by Taxonomy. | No | Yes |
 | [TextBlock](textblockfield.md) | Validates and stores a larger block of text. | Yes[^1^](#1-note-on-legacy-search-engine) | Yes |
 | [TextLine](textlinefield.md) | Validates and stores a single line of text. | Yes | Yes |
