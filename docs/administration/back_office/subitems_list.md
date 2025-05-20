@@ -94,7 +94,7 @@ Optionally, Sub-items module can take a following list of props:
 - **items** _{Array}_ - list of location's sub-items
 - **limit** _{Number}_ - items limit count
 - **offset** _{Number}_ - items limit offset
-- **labels** _{Object}_ - list of module labels, see [sub.items.module.js](https://github.com/ibexa/admin-ui/blob/main/src/bundle/ui-dev/src/modules/sub-items/sub.items.module.js) for details. Contains definitions for sub components:
+- **labels** _{Object}_ - list of module labels, see [sub.items.module.js](https://github.com/ibexa/admin-ui/blob/4.6/src/bundle/ui-dev/src/modules/sub-items/sub.items.module.js) for details. Contains definitions for sub components:
     - **subItems** _{Object}_ - list of sub-items module labels
     - **tableView** _{Object}_ - list of table view component labels
     - **tableViewItem** _{Object}_ - list of table item view component labels

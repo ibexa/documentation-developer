@@ -59,7 +59,7 @@ Native behavior of `DaoAuthenticationProvider` has been preserved, making it pos
 A `SecurityController` is used to manage all security-related actions and is thus used to display the login form.
 It follows all standards explained in [Symfony security documentation]([[= symfony_doc =]]/security.html#form-login).
 
-The base template used is [`Security/login.html.twig`](https://github.com/ibexa/core/blob/main/src/bundle/Core/Resources/views/Security/login.html.twig).
+The base template used is [`Security/login.html.twig`](https://github.com/ibexa/core/blob/4.6/src/bundle/Core/Resources/views/Security/login.html.twig).
 
 The layout used by default is `%ibexa.content_view.viewbase_layout%` (empty layout) but can be configured together with the login template:
 

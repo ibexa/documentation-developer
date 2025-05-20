@@ -18,22 +18,22 @@ App\Component\MyNewComponent:
 
 `group` indicates where the widget is displayed. The available groups are:
 
-- [`stylesheet-head`](https://github.com/ibexa/admin-ui/blob/main/src/bundle/Resources/views/themes/admin/ui/layout.html.twig#L101)
-- [`script-head`](https://github.com/ibexa/admin-ui/blob/main/src/bundle/Resources/views/themes/admin/ui/layout.html.twig#L102)
-- [`stylesheet-body`](https://github.com/ibexa/admin-ui/blob/main/src/bundle/Resources/views/themes/admin/ui/layout.html.twig#L210)
-- [`script-body`](https://github.com/ibexa/admin-ui/blob/main/src/bundle/Resources/views/themes/admin/ui/layout.html.twig#L211)
-- [`content-edit-form-before`](https://github.com/ibexa/admin-ui/blob/main/src/bundle/Resources/views/themes/admin/user/edit.html.twig#L37)
-- [`content-edit-form-after`](https://github.com/ibexa/admin-ui/blob/main/src/bundle/Resources/views/themes/admin/user/edit.html.twig#L47)
-- [`content-create-form-before`](https://github.com/ibexa/admin-ui/blob/main/src/bundle/Resources/views/themes/admin/user/create.html.twig#L37)
-- [`content-create-form-after`](https://github.com/ibexa/admin-ui/blob/main/src/bundle/Resources/views/themes/admin/user/create.html.twig#L45)
-- [`dashboard-blocks`](https://github.com/ibexa/admin-ui/blob/main/src/bundle/Resources/views/themes/admin/ui/dashboard/dashboard.html.twig#L30)
-- [`dashboard-all-tab-groups`](https://github.com/ibexa/admin-ui/blob/main/src/bundle/Resources/views/themes/admin/ui/dashboard/block/all.html.twig#L6)
-- [`dashboard-my-tab-groups`](https://github.com/ibexa/admin-ui/blob/main/src/bundle/Resources/views/themes/admin/ui/dashboard/block/me.html.twig#L6)
-- [`content-type-tab-groups`](https://github.com/ibexa/admin-ui/blob/main/src/bundle/Resources/views/themes/admin/content_type/index.html.twig#L37)
+- [`stylesheet-head`](https://github.com/ibexa/admin-ui/blob/4.6/src/bundle/Resources/views/themes/admin/ui/layout.html.twig#L101)
+- [`script-head`](https://github.com/ibexa/admin-ui/blob/4.6/src/bundle/Resources/views/themes/admin/ui/layout.html.twig#L102)
+- [`stylesheet-body`](https://github.com/ibexa/admin-ui/blob/4.6/src/bundle/Resources/views/themes/admin/ui/layout.html.twig#L210)
+- [`script-body`](https://github.com/ibexa/admin-ui/blob/4.6/src/bundle/Resources/views/themes/admin/ui/layout.html.twig#L211)
+- [`content-edit-form-before`](https://github.com/ibexa/admin-ui/blob/4.6/src/bundle/Resources/views/themes/admin/user/edit.html.twig#L37)
+- [`content-edit-form-after`](https://github.com/ibexa/admin-ui/blob/4.6/src/bundle/Resources/views/themes/admin/user/edit.html.twig#L47)
+- [`content-create-form-before`](https://github.com/ibexa/admin-ui/blob/4.6/src/bundle/Resources/views/themes/admin/user/create.html.twig#L37)
+- [`content-create-form-after`](https://github.com/ibexa/admin-ui/blob/4.6/src/bundle/Resources/views/themes/admin/user/create.html.twig#L45)
+- [`dashboard-blocks`](https://github.com/ibexa/admin-ui/blob/4.6/src/bundle/Resources/views/themes/admin/ui/dashboard/dashboard.html.twig#L30)
+- [`dashboard-all-tab-groups`](https://github.com/ibexa/admin-ui/blob/4.6/src/bundle/Resources/views/themes/admin/ui/dashboard/block/all.html.twig#L6)
+- [`dashboard-my-tab-groups`](https://github.com/ibexa/admin-ui/blob/4.6/src/bundle/Resources/views/themes/admin/ui/dashboard/block/me.html.twig#L6)
+- [`content-type-tab-groups`](https://github.com/ibexa/admin-ui/blob/4.6/src/bundle/Resources/views/themes/admin/content_type/index.html.twig#L37)
 - `calendar-widget-before`
-- [`login-form-before`](https://github.com/ibexa/admin-ui/blob/main/src/bundle/Resources/views/themes/admin/account/login/index.html.twig#L7)
-- [`login-form-after`](https://github.com/ibexa/admin-ui/blob/main/src/bundle/Resources/views/themes/admin/account/login/index.html.twig#L70)
-- [`global-search`](https://github.com/ibexa/admin-ui/blob/main/src/bundle/Resources/views/themes/admin/ui/layout.html.twig#L129)
+- [`login-form-before`](https://github.com/ibexa/admin-ui/blob/4.6/src/bundle/Resources/views/themes/admin/account/login/index.html.twig#L7)
+- [`login-form-after`](https://github.com/ibexa/admin-ui/blob/4.6/src/bundle/Resources/views/themes/admin/account/login/index.html.twig#L70)
+- [`global-search`](https://github.com/ibexa/admin-ui/blob/4.6/src/bundle/Resources/views/themes/admin/ui/layout.html.twig#L129)
 
 ## Base component classes
 

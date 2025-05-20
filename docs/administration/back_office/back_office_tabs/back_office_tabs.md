@@ -63,7 +63,7 @@ You can also influence tab display (for example, order tabs, remove, or modify t
 
 ## Tab groups
 
-You can create new tab groups by using the [`TabsComponent`](https://github.com/ibexa/admin-ui/blob/main/src/lib/Component/TabsComponent.php).
+You can create new tab groups by using the [`TabsComponent`](https://github.com/ibexa/admin-ui/blob/4.6/src/lib/Component/TabsComponent.php).
 
 To create a tab group, register it as a service:
 

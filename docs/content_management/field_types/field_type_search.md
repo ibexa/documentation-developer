@@ -46,7 +46,7 @@ Default field is typically used by the [`Field` Sort Clause](field_sort_clause.m
 ## Register `Indexable` implementations
 
 Implement `Ibexa\Contracts\Core\FieldType\Indexable` as an extra service and register this Service using the `ibexa.field_type.indexable` tag.
-Example from [`indexable_fieldtypes.yaml`](https://github.com/ibexa/core/blob/main/src/lib/Resources/settings/indexable_fieldtypes.yml):
+Example from [`indexable_fieldtypes.yaml`](https://github.com/ibexa/core/blob/4.6/src/lib/Resources/settings/indexable_fieldtypes.yml):
 
 ``` yaml
 Ibexa\Core\FieldType\Keyword\SearchField:

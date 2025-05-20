@@ -86,7 +86,7 @@ To do that, you need to replace `mapXXX` by the method it's in:
 
 It's required for every implemented method, so that other mappers are called for the other field types.
 
-The [`RelationFieldDefinitionMapper`](https://github.com/ibexa/graphql/blob/main/src/lib/Schema/Domain/Content/Mapper/FieldDefinition/RelationFieldDefinitionMapper.php) example:
+The [`RelationFieldDefinitionMapper`](https://github.com/ibexa/graphql/blob/4.6/src/lib/Schema/Domain/Content/Mapper/FieldDefinition/RelationFieldDefinitionMapper.php) example:
 
 ```php hl_lines="14"
 class RelationFieldDefinitionMapper extends DecoratingFieldDefinitionMapper implements FieldDefinitionMapper

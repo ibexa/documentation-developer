@@ -116,7 +116,7 @@ The RichText format enriches [DocBook](https://docbook.org/) with the following 
 !!! note "Unsupported DocBook elements"
 
     Some DocBook elements aren't supported by RichText.
-    Refer to [`ezpublish.rng`](https://github.com/ibexa/fieldtype-richtext/blob/main/src/bundle/Resources/richtext/schemas/docbook/ezpublish.rng#L137) for a full list.
+    Refer to [`ezpublish.rng`](https://github.com/ibexa/fieldtype-richtext/blob/4.6/src/bundle/Resources/richtext/schemas/docbook/ezpublish.rng#L137) for a full list.
 
 ### Online Editor elements
 

@@ -71,7 +71,7 @@ To create and modify repository values, use data structures, such as [`ContentSe
 
 ### Value info objects
 
-Some complex value objects have an `Info` counterpart, for example [`ContentInfo`](https://github.com/ibexa/core/blob/main/src/contracts/Repository/Values/Content/ContentInfo.php) for [`Content`](https://github.com/ibexa/core/blob/main/src/contracts/Repository/Values/Content/Content.php).
+Some complex value objects have an `Info` counterpart, for example [`ContentInfo`](https://github.com/ibexa/core/blob/4.6/src/contracts/Repository/Values/Content/ContentInfo.php) for [`Content`](https://github.com/ibexa/core/blob/4.6/src/contracts/Repository/Values/Content/Content.php).
 These objects provide you with lower-level information.
 For instance, `ContentInfo` contains `currentVersionNo` or `remoteId`, while `Content` enables you to retrieve fields, content type, or previous versions.
 

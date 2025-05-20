@@ -20,7 +20,7 @@ Field types are responsible for:
 To do so, you need to create a custom field type.
 
 A custom field type must implement the **FieldType Service Provider Interfaces**
-available in the [`Ibexa\Core\FieldType`](https://github.com/ibexa/core/tree/main/src/lib/FieldType) namespace.
+available in the [`Ibexa\Core\FieldType`](https://github.com/ibexa/core/tree/4.6/src/lib/FieldType) namespace.
 
 !!! note "Registration"
 

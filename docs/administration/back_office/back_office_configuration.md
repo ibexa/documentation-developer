@@ -8,7 +8,7 @@ description: Configure default upload locations, pagination limits, and more set
 ## Pagination limits
 
 Default pagination limits for different sections of the back office can be defined through respective settings in
-[`ezplatform_default_settings.yaml`](https://github.com/ibexa/admin-ui/blob/main/src/bundle/Resources/config/ezplatform_default_settings.yaml#L7)
+[`ezplatform_default_settings.yaml`](https://github.com/ibexa/admin-ui/blob/4.6/src/bundle/Resources/config/ezplatform_default_settings.yaml#L7)
 
 You can set the pagination limit for user settings under the `ibexa.system.<scope>.pagination_user` [configuration key](configuration.md#configuration-files):
 

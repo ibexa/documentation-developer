@@ -37,7 +37,7 @@ params:
 ### Sort order
 
 To provide a sort order to the `sort` parameter, use names of the Sort Clauses.
-To find them, refer to [Sort Clause](sort_clause_reference.md) and the [relevant Sort Clause class](https://github.com/ibexa/core/blob/main/src/bundle/Core/Resources/config/sort_spec.yml#L29)
+To find them, refer to [Sort Clause](sort_clause_reference.md) and the [relevant Sort Clause class](https://github.com/ibexa/core/blob/4.6/src/bundle/Core/Resources/config/sort_spec.yml#L29)
 
 ## Children
 
