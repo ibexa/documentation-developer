@@ -229,8 +229,8 @@ For more information and examples, see [PagerFanta documentation](https://www.ba
 | `Ibexa\ProductCatalog\Pagerfanta\Adapter\CustomPricesAdapter` | Makes a search for custom prices and returns a `Ibexa\Bundle\ProductCatalog\UI\CustomPrice` object. |
 | `Ibexa\ProductCatalog\Pagerfanta\Adapter\CustomerGroupListAdapter` | Makes a search for customer groups and returns a [`CustomerGroupListInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Values-CustomerGroup-CustomerGroupListInterface.html) object.                       |
 | `Ibexa\ProductCatalog\Pagerfanta\Adapter\ProductListAdapter` | Makes a search for products and returns a [`ProductListInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Values-Product-ProductListInterface.html) object.                                                |
-| `Ibexa\ProductCatalog\Pagerfanta\Adapter\ProductTypeListAdapter | Makes a search for product types and returns a [`ProductTypeListInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Values-ProductType-ProductTypeListInterface.html) object.                               |
-| `Ibexa\ProductCatalog\Pagerfanta\Adapter\RegionListAdapter | Makes a search for regions and returns a [`RegionListInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Values-Region-RegionListInterface.html) object.                                                    |
+| `Ibexa\ProductCatalog\Pagerfanta\Adapter\ProductTypeListAdapter` | Makes a search for product types and returns a [`ProductTypeListInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Values-ProductType-ProductTypeListInterface.html) object.                               |
+| `Ibexa\ProductCatalog\Pagerfanta\Adapter\RegionListAdapter` | Makes a search for regions and returns a [`RegionListInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Values-Region-RegionListInterface.html) object.                                                    |
 
 ## Complex search
 
