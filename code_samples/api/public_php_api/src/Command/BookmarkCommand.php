@@ -9,7 +9,11 @@ use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
+use Symfony\Component\Console\Attribute\AsCommand;
 
+#[AsCommand(
+    name: 'doc:bookmark'
+)]
 class BookmarkCommand extends Command
 {
     private BookmarkService $bookmarkService;
@@ -20,7 +24,8 @@ class BookmarkCommand extends Command
     {
         $this->bookmarkService = $bookmarkService;
         $this->locationService = $locationService;
-        parent::__construct('doc:bookmark');
+
+        parent::__construct();
     }
 
     protected function configure(): void

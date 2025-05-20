@@ -71,6 +71,8 @@ final class PaymentCommand extends Command
         $paymentIdentifier = '4ac4b8a0-eed8-496d-87d9-32a960a10629';
         $payment = $this->paymentService->getPaymentByIdentifier($paymentIdentifier);
 
+        $context = $payment->getContext();
+
         $output->writeln(sprintf('Your payment for transaction has status %s', $payment->getStatus()));
 
         // Query for payments

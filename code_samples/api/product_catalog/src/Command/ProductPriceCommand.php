@@ -16,11 +16,15 @@ use Ibexa\Contracts\ProductCatalog\Values\Price\Query\Criterion\CustomerGroup;
 use Ibexa\Contracts\ProductCatalog\Values\Price\Query\Criterion\LogicalOr;
 use Ibexa\Contracts\ProductCatalog\Values\Price\Query\Criterion\Product;
 use Money;
+use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
+#[AsCommand(
+    name: 'doc:price'
+)]
 final class ProductPriceCommand extends Command
 {
     private ProductPriceServiceInterface $productPriceService;
@@ -50,7 +54,7 @@ final class ProductPriceCommand extends Command
         $this->userService = $userService;
         $this->permissionResolver = $permissionResolver;
 
-        parent::__construct('doc:price');
+        parent::__construct();
     }
 
     public function configure(): void

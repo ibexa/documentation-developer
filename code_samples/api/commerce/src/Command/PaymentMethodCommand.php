@@ -35,10 +35,11 @@ final class PaymentMethodCommand extends Command
         UserService $userService,
         PaymentMethodServiceInterface $paymentMethodService
     ) {
-        parent::__construct();
         $this->paymentMethodService = $paymentMethodService;
         $this->permissionResolver = $permissionResolver;
         $this->userService = $userService;
+
+        parent::__construct();
     }
 
     protected function execute(InputInterface $input, OutputInterface $output): int

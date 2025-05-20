@@ -11,7 +11,11 @@ use Ibexa\Contracts\Core\Repository\Values\URL\URLQuery;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
+use Symfony\Component\Console\Attribute\AsCommand;
 
+#[AsCommand(
+    name: 'doc:find_url'
+)]
 class FindUrlCommand extends Command
 {
     private URLService $urlService;
@@ -25,7 +29,8 @@ class FindUrlCommand extends Command
         $this->urlService = $URLService;
         $this->userService = $userService;
         $this->permissionResolver = $permissionResolver;
-        parent::__construct('doc:find_url');
+
+        parent::__construct();
     }
 
     protected function configure(): void

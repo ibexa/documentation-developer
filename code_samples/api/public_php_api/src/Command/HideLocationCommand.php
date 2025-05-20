@@ -10,6 +10,11 @@ use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
+use Symfony\Component\Console\Attribute\AsCommand;
+
+#[AsCommand(
+    name: 'doc:hide'
+)]
 class HideLocationCommand extends Command
 {
     private LocationService $locationService;
@@ -23,7 +28,8 @@ class HideLocationCommand extends Command
         $this->locationService = $locationService;
         $this->userService = $userService;
         $this->permissionResolver = $permissionResolver;
-        parent::__construct('doc:hide');
+
+        parent::__construct();
     }
 
     protected function configure(): void

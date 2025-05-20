@@ -12,6 +12,11 @@ use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
+use Symfony\Component\Console\Attribute\AsCommand;
+
+#[AsCommand(
+    name: 'doc:filter_location'
+)]
 class FilterLocationCommand extends Command
 {
     private LocationService $locationService;
@@ -19,7 +24,8 @@ class FilterLocationCommand extends Command
     public function __construct(LocationService $locationService)
     {
         $this->locationService = $locationService;
-        parent::__construct('doc:filter_location');
+
+        parent::__construct();
     }
 
     public function configure(): void

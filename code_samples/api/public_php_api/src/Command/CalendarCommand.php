@@ -10,7 +10,11 @@ use Ibexa\Scheduler\Calendar\EventAction\RescheduleEventActionContext;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
+use Symfony\Component\Console\Attribute\AsCommand;
 
+#[AsCommand(
+    name: 'doc:calendar'
+)]
 class CalendarCommand extends Command
 {
     private PermissionResolver $permissionResolver;
@@ -24,7 +28,8 @@ class CalendarCommand extends Command
         $this->permissionResolver = $permissionResolver;
         $this->userService = $userService;
         $this->calendarService = $calendarService;
-        parent::__construct('doc:calendar');
+
+        parent::__construct();
     }
 
     public function configure(): void

@@ -6,11 +6,15 @@ use Ibexa\Contracts\Core\Repository\PermissionResolver;
 use Ibexa\Contracts\Core\Repository\UserService;
 use Ibexa\Contracts\ProductCatalog\RegionServiceInterface;
 use Ibexa\Contracts\ProductCatalog\VatServiceInterface;
+use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
+#[AsCommand(
+    name: 'doc:vat'
+)]
 final class VatCommand extends Command
 {
     private UserService $userService;
@@ -31,7 +35,8 @@ final class VatCommand extends Command
         $this->permissionResolver = $permissionResolver;
         $this->vatService = $vatService;
         $this->regionService = $regionService;
-        parent::__construct('doc:vat');
+
+        parent::__construct();
     }
 
     public function configure(): void
