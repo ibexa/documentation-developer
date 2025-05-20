@@ -1,0 +1,66 @@
+name: 'Build API Refs'
+
+on:
+    workflow_dispatch:
+        inputs:
+            version:
+                description: 'Released version'
+                required: true
+                type: string
+
+jobs:
+    open_php_api_ref_pr:
+        name: "PHP & REST API References' PR"
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: Set version and branches
+              id: version_and_branches
+              run: |
+                  version="${{ inputs.version }}"
+                  base_branch="$(echo $version | sed 's/v\(.*\..*\)\..*/\1/')"
+                  work_branch="api_refs_$version"
+                  echo "version=$version" >> "$GITHUB_OUTPUT"
+                  echo "base_branch=$base_branch" >> "$GITHUB_OUTPUT"
+                  echo "work_branch=$work_branch" >> "$GITHUB_OUTPUT"
+
+            - name: Checkout documentation
+              uses: actions/checkout@v4
+              with:
+                  ref: ${{ steps.version_and_branches.outputs.base_branch }}
+
+            - name: Disable PHP coverage
+              uses: shivammathur/setup-php@v2
+              with:
+                  coverage: none
+
+            - name: Build API Refs
+              env:
+                  SATIS_NETWORK_KEY: ${{ secrets.SATIS_NETWORK_KEY }}
+                  SATIS_NETWORK_TOKEN: ${{ secrets.SATIS_NETWORK_TOKEN }}
+              run: |
+                  composer config --global http-basic.updates.ibexa.co $SATIS_NETWORK_KEY $SATIS_NETWORK_TOKEN
+                  #TODO: On 5.0, update tool to handle both PHP & REST APIs
+                  tools/php_api_ref/phpdoc.sh
+                  # Fix escape character:
+                  perl -pi -e 's/\e/\\E/g' tools/php_api_ref/.phpdoc/template/package-edition-map.twig
+
+            - name: Commit
+              run: |
+                  git config --global user.name "${GITHUB_ACTOR}"
+                  git config --global user.email "${GITHUB_ACTOR}@users.noreply.github.com"
+                  git add docs/api/php_api/php_api_reference/ tools/php_api_ref/.phpdoc/template/package-edition-map.twig
+                  git commit -m "PHP API Ref HTML"
+                  #TODO: git add doc/api/rest_api/rest_api_reference/rest_api_reference.html
+                  #TODO: git commit -m "REST API Ref HTML"
+
+            - name: Create Pull Request
+              uses: peter-evans/create-pull-request@v7
+              with:
+                  token: ${{ secrets.EZROBOT_PAT }}
+                  title: "PHP API Ref ${{ steps.version_and_branches.outputs.version }}"
+                  body: "PHP API Reference update for ${{ steps.version_and_branches.outputs.version }}"
+                  branch: "${{ steps.version_and_branches.outputs.work_branch }}"
+                  base: "${{ steps.version_and_branches.outputs.base_branch }}"
+                  draft: false
+                  labels: 'Needs DOC review'
