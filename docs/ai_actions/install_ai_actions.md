@@ -174,8 +174,8 @@ For example:
 php bin/console ibexa:connect:init-custom-property-structures 4 connect-image-to-text connect-text-to-text
 ```
 
-The `Ibexa AI handler` property attaches to a Scenario to store information about the action handler associated with it.
-When creating a new [[= product_name_connect =]]-based AI action, the back office of [[= product_name =]] shows only the existing Scenarios that work with selected action handler.
+The `Ibexa AI handler` property attaches to a scenario to store information about the action handler associated with it.
+When creating a new [[= product_name_connect =]]-based AI action, the back office of [[= product_name =]] shows only the existing scenarios that work with selected action handler.
 
 ### Customize templates 
 
