@@ -100,5 +100,5 @@ You add custom data by using the `setContext` method:
 Then, you retrieve it with the `getContext` method:
 
 ``` php
-[[= include_file('code_samples/api/commerce/src/Command/PaymentCommand.php', 70, 75) =]]
+[[= include_file('code_samples/api/commerce/src/Command/PaymentCommand.php', 70, 74) =]]
 ```
