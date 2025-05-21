@@ -15,7 +15,7 @@ Get it by following the [Install Ibexa DXP](install_ibexa_dxp.md) guide.
 
 ## Add content types
 
-Log in to the back office – add `/admin` to your installation's address (`<yourdomain>/admin`) and log in using `admin` as the login and `publish` as the password.
+Log in to the back office – add `/admin` to your installation's address (`<yourdomain>/admin`) and log in as `admin` user using the password specified during installation.
 Disable the Focus mode, go to content types screen and (under the content category) add two content types with the following settings:
 
 ### Dog Breed

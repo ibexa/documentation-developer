@@ -319,3 +319,4 @@ to receive notifications when a security fix is released in a GitHub-hosted depe
 - Enable logging for [[= product_name =]], the web server, any frontend proxies, and the database.
 - Monitor the logs for unusual and suspicious activity. Consider using log monitoring software to make this easier.
 - Consider using different accounts for manual administrative tasks and for the day-to-day running of your installation. You could for instance configure [[= product_name =]] to use a different database user than the one you use during upgrades. This can make it easier to filter out noise in your log monitoring solution.
+
