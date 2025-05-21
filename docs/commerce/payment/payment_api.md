@@ -25,7 +25,7 @@ To access a single payment by using its numerical ID, use the `PaymentServiceInt
 To access a single payment by using its string identifier, use the `PaymentServiceInterface::getPaymentByIdentifier` method:
 
 ``` php
-[[= include_file('code_samples/api/commerce/src/Command/PaymentCommand.php', 70, 74) =]]
+[[= include_file('code_samples/api/commerce/src/Command/PaymentCommand.php', 70, 72) =]]
 ```
 
 ## Get multiple payments

@@ -146,8 +146,8 @@ To get information about product attribute groups, use the [`AttributeGroupServi
 `AttributeGroupServiceInterface::findAttributeGroups()` gets attribute groups, all of them or filtered with an optional [`AttributeGroupQuery`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Values-AttributeGroup-AttributeGroupQuery.html) object:
 
 ``` php
-[[= include_file('code_samples/api/product_catalog/src/Command/AttributeCommand.php', 72, 76) =]]
-[[= include_file('code_samples/api/product_catalog/src/Command/AttributeCommand.php', 98, 102) =]]
+[[= include_file('code_samples/api/product_catalog/src/Command/AttributeCommand.php', 75, 76) =]]
+[[= include_file('code_samples/api/product_catalog/src/Command/AttributeCommand.php', 96, 102) =]]
 ```
 
 To create an attribute group, use `LocalAttributeGroupServiceinterface::createAttributeGroup()` and provide it with an [`AttributeGroupCreateStruct`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Local-Values-AttributeGroup-AttributeGroupCreateStruct.html):
