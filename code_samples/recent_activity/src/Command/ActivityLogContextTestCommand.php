@@ -21,7 +21,6 @@ use Symfony\Component\EventDispatcher\EventDispatcherInterface;
     name: 'doc:test:activity-log-context',
     description: 'Test activity log context usage'
 )]
-
 class ActivityLogContextTestCommand extends Command
 {
     private ActivityLogServiceInterface $activityLogService;
