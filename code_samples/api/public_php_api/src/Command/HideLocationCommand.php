@@ -11,9 +11,7 @@ use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
-#[AsCommand(
-    name: 'doc:hide'
-)]
+#[AsCommand(name: 'doc:hide', description: 'Hides and reveals again selected Location.')]
 class HideLocationCommand extends Command
 {
     private LocationService $locationService;
@@ -34,7 +32,6 @@ class HideLocationCommand extends Command
     protected function configure(): void
     {
         $this
-            ->setDescription('Hides and reveals again selected Location.')
             ->setDefinition([
                 new InputArgument('location_id', InputArgument::REQUIRED, 'Location ID'),
             ]);

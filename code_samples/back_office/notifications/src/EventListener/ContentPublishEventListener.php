@@ -16,7 +16,7 @@ final class ContentPublishEventListener implements EventSubscriberInterface
         $this->notificationService = $notificationService;
     }
 
-    public static function getSubscribedEvents()
+    public static function getSubscribedEvents(): array
     {
         return [PublishVersionEvent::class => 'onPublishVersion'];
     }

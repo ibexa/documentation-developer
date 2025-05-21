@@ -15,9 +15,7 @@ use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
-#[AsCommand(
-    name: 'doc:section'
-)]
+#[AsCommand(name: 'doc:section', description: 'Creates new section and adds selected content item to it.')]
 class SectionCommand extends Command
 {
     private SectionService $sectionService;
@@ -44,7 +42,6 @@ class SectionCommand extends Command
     protected function configure(): void
     {
         $this
-            ->setDescription('Creates new section and adds selected content item to it.')
             ->setDefinition([
                 new InputArgument('sectionName', InputArgument::REQUIRED, 'Name of the new Section'),
                 new InputArgument('sectionIdentifier', InputArgument::REQUIRED, 'Identifier of the new Section'),
