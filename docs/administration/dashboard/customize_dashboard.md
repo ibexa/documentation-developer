@@ -11,7 +11,6 @@ edition: experience
      The Dashboard Builder is available only in the Experience and Commerce editions.
      The dashboard from the Headless edition can be customized using [Twig Components](components.md).
 
-
 You can customize the dashboard depending on your needs using Dashboard Builder.
 Customized dashboard displays a set of widgets selected by the user.
 
