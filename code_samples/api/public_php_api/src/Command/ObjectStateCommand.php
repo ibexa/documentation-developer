@@ -12,9 +12,7 @@ use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
-#[AsCommand(
-    name: 'doc:object_state'
-)]
+#[AsCommand(name: 'doc:object_state', description: 'Creates OS group with provided States and assigned the Lock OS to provided content item')]
 class ObjectStateCommand extends Command
 {
     private ContentService $contentService;
@@ -38,7 +36,6 @@ class ObjectStateCommand extends Command
     protected function configure(): void
     {
         $this
-            ->setDescription('Creates OS group with provided States and assigned the Lock OS to provided content item')
             ->setDefinition([
                 new InputArgument('objectStateGroupIdentifier', InputArgument::REQUIRED, 'Identifier of new OG group to create'),
                 new InputArgument('objectStateIdentifier', InputArgument::REQUIRED, 'Identifier(s) of a new Object State'),

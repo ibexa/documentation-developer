@@ -39,7 +39,7 @@ class AllContentListController extends Controller
         return $this->render('@ibexadesign/all_content_list.html.twig', [
             'totalCount' => $paginator->getNbResults(),
             'articles' => $paginator,
-            'form_edit' => $editForm->createView(),
+            'form_edit' => $editForm,
         ]);
     }
 }
