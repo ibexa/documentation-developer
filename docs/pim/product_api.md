@@ -146,24 +146,24 @@ To get information about product attribute groups, use the [`AttributeGroupServi
 `AttributeGroupServiceInterface::findAttributeGroups()` gets attribute groups, all of them or filtered with an optional [`AttributeGroupQuery`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Values-AttributeGroup-AttributeGroupQuery.html) object:
 
 ``` php
-[[= include_file('code_samples/api/product_catalog/src/Command/AttributeCommand.php', 76, 77) =]]
-[[= include_file('code_samples/api/product_catalog/src/Command/AttributeCommand.php', 97, 102) =]]
+[[= include_file('code_samples/api/product_catalog/src/Command/AttributeCommand.php', 72, 76) =]]
+[[= include_file('code_samples/api/product_catalog/src/Command/AttributeCommand.php', 98, 102) =]]
 ```
 
 To create an attribute group, use `LocalAttributeGroupServiceinterface::createAttributeGroup()` and provide it with an [`AttributeGroupCreateStruct`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Local-Values-AttributeGroup-AttributeGroupCreateStruct.html):
 
 ``` php
-[[= include_file('code_samples/api/product_catalog/src/Command/AttributeCommand.php', 71, 75) =]]
+[[= include_file('code_samples/api/product_catalog/src/Command/AttributeCommand.php', 69, 75) =]]
 ```
 
 To get information about product attributes, use the [`AttributeDefinitionServiceInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-AttributeDefinitionServiceInterface.html), or [`LocalAttributeDefinitionServiceInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Local-LocalAttributeDefinitionServiceInterface.html) to modify attributes.
 
 ``` php
-[[= include_file('code_samples/api/product_catalog/src/Command/AttributeCommand.php', 83, 85) =]]
+[[= include_file('code_samples/api/product_catalog/src/Command/AttributeCommand.php', 81, 85) =]]
 ```
 
 To create an attribute, use `LocalAttributeGroupServiceinterface::createAttributeDefinition()` and provide it with an [`AttributeDefinitionCreateStruct`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Local-Values-AttributeDefinition-AttributeDefinitionCreateStruct.html):
 
 ``` php
-[[= include_file('code_samples/api/product_catalog/src/Command/AttributeCommand.php', 88, 94) =]]
+[[= include_file('code_samples/api/product_catalog/src/Command/AttributeCommand.php', 86, 94) =]]
 ```

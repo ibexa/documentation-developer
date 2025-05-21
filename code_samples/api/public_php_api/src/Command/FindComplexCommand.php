@@ -24,9 +24,10 @@ class FindComplexCommand extends Command
 
     public function __construct(SearchService $searchService, LocationService $locationService)
     {
-        parent::__construct();
         $this->searchService = $searchService;
         $this->locationService = $locationService;
+
+        parent::__construct();
     }
 
     protected function configure(): void

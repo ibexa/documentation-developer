@@ -13,17 +13,17 @@ description: You can use the PHP API to view the bookmark list, and add or remov
 To view a list of all bookmarks, use [`BookmarkService::loadBookmarks`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-BookmarkService.html#method_loadBookmarks):
 
 ``` php
-[[= include_file('code_samples/api/public_php_api/src/Command/BookmarkCommand.php', 43, 50) =]]
+[[= include_file('code_samples/api/public_php_api/src/Command/BookmarkCommand.php', 48, 55) =]]
 ```
 
 You can add a bookmark to a content item by providing its Location object to the [`BookmarkService::createBookmark`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-BookmarkService.html#method_createBookmark) method:
 
 ``` php
-[[= include_file('code_samples/api/public_php_api/src/Command/BookmarkCommand.php', 37, 40) =]]
+[[= include_file('code_samples/api/public_php_api/src/Command/BookmarkCommand.php', 42, 45) =]]
 ```
 
 You can remove a bookmark from a location with [`BookmarkService::deleteBookmark`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-BookmarkService.html#method_deleteBookmark):
 
 ``` php
-[[= include_file('code_samples/api/public_php_api/src/Command/BookmarkCommand.php', 52, 53) =]]
+[[= include_file('code_samples/api/public_php_api/src/Command/BookmarkCommand.php', 57, 58) =]]
 ```

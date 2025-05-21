@@ -25,14 +25,14 @@ This value object provides primitive fields, such as `contentTypeId`, `published
 
 You can also use it to request other Content-related value objects from various services:
 
-``` php hl_lines="9"
+``` php hl_lines="10"
 // ...
 [[= include_file('code_samples/api/public_php_api/src/Command/ViewContentMetaDataCommand.php', 4, 5) =]]
-[[= include_file('code_samples/api/public_php_api/src/Command/ViewContentMetaDataCommand.php', 20, 21) =]]
+[[= include_file('code_samples/api/public_php_api/src/Command/ViewContentMetaDataCommand.php', 20, 22) =]]
 // ...
-[[= include_file('code_samples/api/public_php_api/src/Command/ViewContentMetaDataCommand.php', 55, 57) =]][[= include_file('code_samples/api/public_php_api/src/Command/ViewContentMetaDataCommand.php', 63, 64) =]]
-[[= include_file('code_samples/api/public_php_api/src/Command/ViewContentMetaDataCommand.php', 65, 71) =]]
+[[= include_file('code_samples/api/public_php_api/src/Command/ViewContentMetaDataCommand.php', 55, 57) =]][[= include_file('code_samples/api/public_php_api/src/Command/ViewContentMetaDataCommand.php', 63, 72) =]]
 ```
+
 
 `ContentInfo` is loaded from the [`ContentService`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-ContentService.html) (line 9).
 It provides you with basic content metadata such as modification and publication dates or main language code.
@@ -142,7 +142,7 @@ You need to provide it with the object state group.
 All object state groups can be retrieved through [`loadObjectStateGroups`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-ObjectStateService.html#method_loadObjectStateGroups).
 
 ``` php
-[[= include_file('code_samples/api/public_php_api/src/Command/ViewContentMetaDataCommand.php', 115, 120) =]]
+[[= include_file('code_samples/api/public_php_api/src/Command/ViewContentMetaDataCommand.php', 120, 125) =]]
 ```
 
 ## Viewing content with fields
@@ -151,7 +151,7 @@ To retrieve the fields of the selected content item, you can use the following c
 
 ```php hl_lines="13-14 16-22"
 [[= include_file('code_samples/api/public_php_api/src/Command/ViewContentCommand.php', 4, 7) =]]    // ...
-[[= include_file('code_samples/api/public_php_api/src/Command/ViewContentCommand.php', 37, 55) =]]
+[[= include_file('code_samples/api/public_php_api/src/Command/ViewContentCommand.php', 42, 60) =]]
 }
 ```
 
@@ -182,7 +182,7 @@ $contentService->loadContent($content->id, Language::ALL);
 To go through all the content items contained in a subtree, you need to use the [`LocationService`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-LocationService.html).
 
 ``` php hl_lines="5 15"
-[[= include_file('code_samples/api/public_php_api/src/Command/BrowseLocationsCommand.php', 30, 49) =]]
+[[= include_file('code_samples/api/public_php_api/src/Command/BrowseLocationsCommand.php', 35, 54) =]]
 ```
 
 `loadLocation` (line 15) returns a value object, here a `Location`.

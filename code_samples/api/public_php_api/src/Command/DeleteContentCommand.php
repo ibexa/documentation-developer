@@ -24,10 +24,11 @@ class DeleteContentCommand extends Command
 
     public function __construct(LocationService $locationService, UserService $userService, PermissionResolver $permissionResolver)
     {
-        parent::__construct();
         $this->locationService = $locationService;
         $this->userService = $userService;
         $this->permissionResolver = $permissionResolver;
+
+        parent::__construct();
     }
 
     protected function configure(): void

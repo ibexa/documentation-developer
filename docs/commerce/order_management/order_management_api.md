@@ -26,7 +26,7 @@ To access a single order by using its string identifier, use the `OrderService::
 To access a single order by using its numerical ID, use the `OrderService::getOrder` method:
 
 ``` php
-[[= include_file('code_samples/api/commerce/src/Command/OrderCommand.php', 68, 72) =]]
+[[= include_file('code_samples/api/commerce/src/Command/OrderCommand.php', 67, 72) =]]
 ```
 
 ## Get multiple orders

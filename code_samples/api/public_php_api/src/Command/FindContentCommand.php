@@ -20,8 +20,9 @@ class FindContentCommand extends Command
 
     public function __construct(SearchService $searchService)
     {
-        parent::__construct();
         $this->searchService = $searchService;
+
+        parent::__construct();
     }
 
     protected function configure(): void

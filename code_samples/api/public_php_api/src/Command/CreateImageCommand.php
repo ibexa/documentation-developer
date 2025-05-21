@@ -32,12 +32,13 @@ class CreateImageCommand extends Command
 
     public function __construct(ContentService $contentService, ContentTypeService $contentTypeService, LocationService $locationService, UserService $userService, PermissionResolver $permissionResolver)
     {
-        parent::__construct();
         $this->contentService = $contentService;
         $this->contentTypeService = $contentTypeService;
         $this->locationService = $locationService;
         $this->userService = $userService;
         $this->permissionResolver = $permissionResolver;
+
+        parent::__construct();
     }
 
     protected function configure(): void

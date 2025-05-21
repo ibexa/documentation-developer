@@ -26,10 +26,11 @@ class CreateContentTypeCommand extends Command
 
     public function __construct(ContentTypeService $contentTypeService, UserService $userService, PermissionResolver $permissionResolver)
     {
-        parent::__construct();
         $this->contentTypeService = $contentTypeService;
         $this->userService = $userService;
         $this->permissionResolver = $permissionResolver;
+
+        parent::__construct();
     }
 
     protected function configure(): void
