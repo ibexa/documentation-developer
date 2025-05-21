@@ -1,6 +1,5 @@
 ---
 description: Extend AI Actions by connecting to other services and adding new capabilities.
-edition: lts-update
 month_change: false
 ---
 

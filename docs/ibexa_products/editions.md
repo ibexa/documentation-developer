@@ -20,6 +20,7 @@ Compare all features available in [[= product_name_headless =]], [[= product_nam
 | Feature | [[= product_name_headless =]] | [[= product_name_exp =]] | [[= product_name_com =]] |
 |-----------------|-----------------|-----------------|-----------------|
 | [Content model](content_model.md) | &#10004; | &#10004; | &#10004; |
+| [AI Actions](ai_actions_guide.md) | &#10004; | &#10004; | &#10004; |
 | [User management](user_management_guide.md) | &#10004; | &#10004; | &#10004; |
 | [Focus Mode]([[= user_doc =]]/getting_started/discover_ui/#focus-mode) | &#10004; | &#10004; | &#10004; |
 | [Image editor]([[= user_doc =]]/image_management/edit_images/) | &#10004; | &#10004; | &#10004; |
@@ -30,6 +31,7 @@ Compare all features available in [[= product_name_headless =]], [[= product_nam
 | [Editorial workflow]([[= user_doc =]]/content_management/workflow_management/editorial_workflow/) | &#10004; | &#10004; | &#10004; |
 | [Digital Asset Management]([[= user_doc =]]/dam/ibexa_dam/) | &#10004; | &#10004; | &#10004; |
 | [Product Information Management]([[= user_doc =]]/pim/pim/) | &#10004; | &#10004; | &#10004; |
+| [Date and time attribute type](date_and_time.md) | &#10004; | &#10004; | &#10004; |
 | [Personalization](personalization_guide.md) | &#10004; | &#10004; | &#10004; |
 | [Migrations](managing_migrations.md) | &#10004; | &#10004; | &#10004; |
 | [[[= product_name_connect =]]]([[= connect_doc =]]) | &#10004; | &#10004; | &#10004; |
@@ -60,7 +62,8 @@ Compare all features available in [[= product_name_headless =]], [[= product_nam
 LTS Updates are opt-in packages that bring additional features to the [LTS releases](release_process_and_roadmap.md#long-term-support-releases) that they enhance.
 The features brought by LTS Updates become standard parts of the next LTS release.
 
-| Feature | [[= product_name_headless =]] | [[= product_name_exp =]] | [[= product_name_com =]] |
-|-----------------|-----------------|-----------------|-----------------|
-| [AI Actions](ai_actions_guide.md) | &#10004; | &#10004; | &#10004; |
-| [Date and time attribute type](date_and_time.md) | &#10004; | &#10004; | &#10004; |
+There aren't any LTS Updates available for the v5 release yet.
+
+
+<!-- | Feature | [[= product_name_headless =]] | [[= product_name_exp =]] | [[= product_name_com =]] |
+|-----------------|-----------------|-----------------|-----------------| -->

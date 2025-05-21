@@ -1,73 +1,22 @@
 ---
-description: Install the AI Actions LTS update.
-edition: lts-update
+description: Configure AI Actions.
 month_change: true
 ---
 
-# Install AI Actions
+# Configure AI Actions
 
-AI Actions are available as an LTS update to [[= product_name =]] starting with version v4.6.12 or higher, regardless of its edition.
-To use this feature you must first install the package.
-You can then install and configure the service connectors or build your own ones.
-
-## Install framework
-
-Run the following command to install the package:
-
-``` bash
-composer require ibexa/connector-ai
-```
-
-This command adds the framework code, service handlers, Twig templates, and configurations required for using AI Actions.
-It also modifies the permission system to account for the new functionality.
-
-## Modify database schema
-
-Create the `add_ai_actions.sql` file that contains the following code.
-
-=== "MySQL"
-
-    ``` sql
-    [[= include_file('code_samples/ai_actions/config/mysql/add_ai_actions.sql', 0, None, '    ') =]]
-    ```
-
-=== "PostgreSQL"
-
-    ``` sql
-    [[= include_file('code_samples/ai_actions/config/postgresql/add_ai_actions.sql', 0, None, '    ') =]]
-    ```
-
-Run the following command, where `<database_name>` is the same name that you defined when you [installed [[= product_name =]]](../getting_started/install_ibexa_dxp.md#change-installation-parameters).
-
-=== "MySQL"
-
-    ```bash
-    mysql -u <username> -p <password> <database_name> < add_ai_actions.sql
-    ```
-
-=== "PostgreSQL"
-
-    ```bash
-    psql <database_name> < add_ai_actions.sql
-    ```
-
-This command modifies the existing database schema by adding database configuration required for using AI Actions.
+AI Actions are available in [[= product_name =]] regardless of its edition.
+To use this feature you must first configure the built-in service connectors or build your own ones.
 
 !!! note "Next steps"
 
-    Once the framework is installed and configured, before you can start using AI Actions, you can configure access to [[= product_name_base =]]-made service connectors by following the instructions below, or [create your own](extend_ai_actions.md#create-custom-action-handler).
+    Once the framework is configured, before you can start using AI Actions, you can configure access to [[= product_name_base =]]-made service connectors by following the instructions below, or [create your own](extend_ai_actions.md#create-custom-action-handler).
 
     Only then you can restart you application and start [working with the AI Actions feature]([[= user_doc =]]/ai_actions/work_with_ai_actions/).
 
-## Configure access to OpenAI
+## Configure access to OpenAI (optional)
 
-Run the following command to install the service connector with the OpenAI service:
-
-``` bash
-composer require ibexa/connector-openai
-```
-
-Create an OpenAI account, [get an API key](https://help.openai.com/en/articles/4936850-where-do-i-find-my-openai-api-key), and make sure that you [set up a billing method](https://help.openai.com/en/articles/9038407-how-can-i-set-up-billing-for-my-account).
+To use the built-in connector with the OpenAI service, you need to create an OpenAI account, [get an API key](https://help.openai.com/en/articles/4936850-where-do-i-find-my-openai-api-key), and make sure that you [set up a billing method](https://help.openai.com/en/articles/9038407-how-can-i-set-up-billing-for-my-account).
 
 Then, in the root folder of your project, modify the `.env` file: find the `OPENAI_API_KEY` variable and replace a placeholder value with the API key that you got from the AI service.
 
@@ -77,15 +26,9 @@ OPENAI_API_KEY=<your_api_key>
 ###< ibexa/connector-openai ###
 ```
 
-### Install sample OpenAI action configurations (optional)
+### Sample OpenAI action configurations
 
-By installing a collection of sample AI action configurations you can quickly start using the feature.
-You do it by following a standard [data migration](importing_data.md) procedure:
-
-```bash
-php bin/console ibexa:migrations:import vendor/ibexa/connector-openai/src/bundle/Resources/migrations/action_configurations.yaml
-php bin/console ibexa:migrations:migrate
-```
+The AI actions come with sample AI action configurations to quickly get you started on using the feature.
 
 Based on these examples, which reflect the most common use cases, you can learn to configure your own AI actions with greater ease.
 
@@ -161,7 +104,7 @@ php bin/console ibexa:connect:init-connect-ai 2 en connect-image-to-text connect
 
     The [`language` attribute](https://developers.make.com/api-documentation/api-reference/templates#templates-1) determines the language in which template details such as module names will be displayed in [[= product_name_connect =]]'s UI.
 
-### Customize templates 
+### Customize templates
 
 Return to the [[= product_name_connect =]] dashboard and modify the **Template for connect...handler** [templates]([[= connect_doc =]]/scenarios/scenario_templates/) by defining the logic needed to process the data.
 

@@ -16,7 +16,7 @@ This page contains recent highlights and notable changes in [[= product_name =]]
 
 ### AI Actions
 
-- Documented [how to couple AI Actions and Ibexa Connect](install_ai_actions.md#configure-access-to-ibexa-connect) to build complex data transformation workflows without having to rely on custom code
+- Documented [how to couple AI Actions and Ibexa Connect](configure_ai_actions.md#configure-access-to-ibexa-connect) to build complex data transformation workflows without having to rely on custom code
 
 ### REST API
 
