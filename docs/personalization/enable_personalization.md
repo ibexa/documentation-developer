@@ -489,7 +489,7 @@ For example, the following GET request should deliver the response below if the 
 You can retrieve data returned from the Personalization server and modify it before it's shown to the user.
 
 To modify recommendation data, subscribe to `RecommendationResponseEvent`.
-See [`Event/Subscriber/RecommendationEventSubscriber.php`](https://github.com/ibexa/personalization-client/blob/main/src/lib/Event/Subscriber/RecommendationEventSubscriber.php) for an example:
+See [`Event/Subscriber/RecommendationEventSubscriber.php`](https://github.com/ibexa/personalization-client/blob/4.6/src/lib/Event/Subscriber/RecommendationEventSubscriber.php) for an example:
 
 ``` php
 public static function getSubscribedEvents(): array
@@ -506,7 +506,7 @@ The `-10` refers to priority, which must be negative so this action is performed
 
 Displaying image variations isn't supported out of the box.
 
-You can work around this limitation by creating a template (based on [recommendations.html.twig](https://github.com/ibexa/personalization-client/blob/main/src/bundle/Resources/views/recommendations.html.twig)).
+You can work around this limitation by creating a template (based on [recommendations.html.twig](https://github.com/ibexa/personalization-client/blob/4.6/src/bundle/Resources/views/recommendations.html.twig)).
 
 To access a specific image variation through API, add the `image` parameter to the request URL with the name of the variation as its value.
 For example, to retrieve the `rss` variation of the image, use:

@@ -113,7 +113,7 @@ oneup_flysystem:
                 service: ibexa.io.nfs.adapter.site_access_aware
 ```
 
-To learn how to configure other adapters, see the [bundle's online documentation](https://github.com/1up-lab/OneupFlysystemBundle/blob/main/doc/index.md#step3-configure-your-filesystems).
+To learn how to configure other adapters, see the [bundle's online documentation](https://github.com/1up-lab/OneupFlysystemBundle/blob/4.x/doc/index.md#step3-configure-your-filesystems).
 
 !!! note
 

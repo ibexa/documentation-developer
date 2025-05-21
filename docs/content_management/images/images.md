@@ -126,7 +126,7 @@ In [[= product_name =]], there are two implementations of the `PlaceholderProvid
 
 ### GenericProvider
 
-The [`GenericProvider`](https://github.com/ibexa/core/blob/main/src/bundle/Core/Imagine/PlaceholderProvider.php) package generates placeholders with basic information about the original image (see [example 1](#configuration-examples)).
+The [`GenericProvider`](https://github.com/ibexa/core/blob/4.6/src/bundle/Core/Imagine/PlaceholderProvider.php) package generates placeholders with basic information about the original image (see [example 1](#configuration-examples)).
 
 ![Placeholder image GenericProvider](placeholder_info.jpg "Example of a generic placeholder image")
 
@@ -143,7 +143,7 @@ The [`GenericProvider`](https://github.com/ibexa/core/blob/main/src/bundle/Core/
 
 ### RemoteProvider
 
-With the [`RemoteProvider`](https://github.com/ibexa/core/blob/main/src/bundle/Core/Imagine/PlaceholderProvider/RemoteProvider.php) you can download placeholders from:
+With the [`RemoteProvider`](https://github.com/ibexa/core/blob/4.6/src/bundle/Core/Imagine/PlaceholderProvider/RemoteProvider.php) you can download placeholders from:
 
  - remote sources, for example, <http://placekitten.com> (see [example 2](#configuration-examples))
  - live version of a site (see [example 3](#configuration-examples))

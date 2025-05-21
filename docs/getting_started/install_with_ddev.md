@@ -336,10 +336,10 @@ ddev restart
 
 #### Scripted procedure
 
-Generate the virtual host with [`vhost.sh`](https://github.com/ibexa/docker/blob/main/scripts/vhost.sh):
+Generate the virtual host with [`vhost.sh`](https://github.com/ibexa/docker/blob/4.6/scripts/vhost.sh):
 
 ```bash
-curl -O https://raw.githubusercontent.com/ibexa/docker/main/scripts/vhost.sh
+curl -O https://raw.githubusercontent.com/ibexa/docker/4.6/scripts/vhost.sh
 bash vhost.sh --template-file=vendor/ibexa/post-install/resources/templates/apache2/vhost.template \
   --ip='*' \
   --host-name='my-ddev-project.ddev.site' \

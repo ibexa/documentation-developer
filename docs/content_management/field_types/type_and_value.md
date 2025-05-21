@@ -151,7 +151,7 @@ This ensures that the initialization steps shared by all field types are execute
 
 !!! tip
 
-    The configuration of built-in field types is located in [`core/src/lib/Resources/settings/fieldtypes.yml`](https://github.com/ibexa/core/blob/main/src/lib/Resources/settings/fieldtypes.yml).
+    The configuration of built-in field types is located in [`core/src/lib/Resources/settings/fieldtypes.yml`](https://github.com/ibexa/core/blob/4.6/src/lib/Resources/settings/fieldtypes.yml).
 
 ### Indexing
 

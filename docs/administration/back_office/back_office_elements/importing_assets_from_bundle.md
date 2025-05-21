@@ -32,7 +32,7 @@ To import CSS files only, use:
 
     After you add new files, run `php bin/console cache:clear`.
 
-    For a full example of importing asset configuration, see [`ibexa.config.js`](https://github.com/ibexa/admin-ui/blob/main/src/bundle/Resources/encore/ibexa.config.js)
+    For a full example of importing asset configuration, see [`ibexa.config.js`](https://github.com/ibexa/admin-ui/blob/4.6/src/bundle/Resources/encore/ibexa.config.js)
 
 To edit existing configuration entries, either in the bundle's `Resources/encore/` folder, or in the `encore` folder in the root folder of your project, create an `ibexa.config.manager.js` file:
 
@@ -74,7 +74,7 @@ module.exports = (ibexaConfig, ibexaConfigManager) => {
 
     After you add new files, run `php bin/console cache:clear`.
 
-    For a full example of overriding configuration, see [`ibexa.config.manager.js`](https://github.com/ibexa/fieldtype-matrix/blob/main/src/bundle/Resources/encore/ibexa.config.manager.js).
+    For a full example of overriding configuration, see [`ibexa.config.manager.js`](https://github.com/ibexa/fieldtype-matrix/blob/4.6/src/bundle/Resources/encore/ibexa.config.manager.js).
 
 To add a new configuration under your own namespace and with its own dependencies, create an `ibexa.webpack.custom.config.js` file that you create either in the bundle's `Resources/encore/` folder, or in the `encore` folder in the root directory of your project, for example:
 

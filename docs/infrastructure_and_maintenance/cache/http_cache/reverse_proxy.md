@@ -192,7 +192,7 @@ If you created a custom Captcha block for your site by overriding the default fi
 data-field-id="{{ field.id }}"
 ```
 
-As a result, your file should be similar to [this example](https://github.com/ibexa/form-builder/blob/main/src/bundle/Resources/views/themes/standard/fields/captcha.html.twig).
+As a result, your file should be similar to the `vendor/ibexa/form-builder/src/bundle/Resources/views/themes/standard/fields/captcha.html.twig` file.
 
 For more information about configuring Captcha fields, see [Captcha field](work_with_forms.md#captcha-field).
 

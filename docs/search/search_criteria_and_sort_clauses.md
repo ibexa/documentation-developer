@@ -14,7 +14,7 @@ For an example of how to use and combine Criteria and Sort Clauses, refer to [Se
 As Search Criteria and Sort Clauses are value objects which are used to define the query from API perspective, they're common for all storage engines.
 Each storage engine needs to implement its own handlers for the corresponding Criterion and Sort Clause value object, which are used to translate the value object into a storage-specific search query.
 
-As an example take a look at the [`ContentId` Criterion handler](https://github.com/ibexa/core/blob/main/src/lib/Search/Legacy/Content/Common/Gateway/CriterionHandler/ContentId.php) in Legacy search engine or [`ContentId` Criterion handler](https://github.com/ibexa/solr/blob/main/src/lib/Query/Common/CriterionVisitor/ContentIdIn.php) in Solr search engine.
+As an example take a look at the [`ContentId` Criterion handler](https://github.com/ibexa/core/blob/4.6/src/lib/Search/Legacy/Content/Common/Gateway/CriterionHandler/ContentId.php) in Legacy search engine or [`ContentId` Criterion handler](https://github.com/ibexa/solr/blob/4.6/src/lib/Query/Common/CriterionVisitor/ContentIdIn.php) in Solr search engine.
 
 ## Custom Criteria and Sort Clauses
 
