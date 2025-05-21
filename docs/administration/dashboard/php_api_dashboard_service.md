@@ -1,6 +1,7 @@
 ---
 title: Dashboard service's PHP API
 description: Use DashboardService to manage dashboards.
+edition: experience
 ---
 
 # DashboardService's PHP API
