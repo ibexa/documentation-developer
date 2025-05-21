@@ -34,7 +34,7 @@ To fetch multiple payments, use the `PaymentServiceInterface::findPayments` meth
 It follows the same search query pattern as other APIs:
 
 ``` php
-[[= include_file('code_samples/api/commerce/src/Command/PaymentCommand.php', 78, 94) =]]
+[[= include_file('code_samples/api/commerce/src/Command/PaymentCommand.php', 79, 95) =]]
 ```
 
 ## Create payment
@@ -42,8 +42,8 @@ It follows the same search query pattern as other APIs:
 To create a payment, use the `PaymentServiceInterface::createPayment` method and provide it with the `Ibexa\Contracts\Payment\Payment\PaymentCreateStruct` object that takes the following arguments: `method`, `order` and `amount`.
 
 ``` php
-[[= include_file('code_samples/api/commerce/src/Command/PaymentCommand.php', 100, 104) =]]
-[[= include_file('code_samples/api/commerce/src/Command/PaymentCommand.php', 107, 111) =]]
+[[= include_file('code_samples/api/commerce/src/Command/PaymentCommand.php', 101, 105) =]]
+[[= include_file('code_samples/api/commerce/src/Command/PaymentCommand.php', 108, 112) =]]
 ```
 
 ## Update payment
@@ -54,7 +54,7 @@ The `Ibexa\Contracts\Payment\Payment\PaymentUpdateStruct` object takes the follo
 To update payment information, use the `PaymentServiceInterface::updatePayment` method:
 
 ``` php
-[[= include_file('code_samples/api/commerce/src/Command/PaymentCommand.php', 112, 118) =]]
+[[= include_file('code_samples/api/commerce/src/Command/PaymentCommand.php', 113, 119) =]]
 ```
 
 ## Delete payment
@@ -62,5 +62,5 @@ To update payment information, use the `PaymentServiceInterface::updatePayment` 
 To delete a payment from the system, use the `PaymentServiceInterface::deletePayment` method:
 
 ``` php
-[[= include_file('code_samples/api/commerce/src/Command/PaymentCommand.php', 120, 121) =]]
+[[= include_file('code_samples/api/commerce/src/Command/PaymentCommand.php', 121, 122) =]]
 ```

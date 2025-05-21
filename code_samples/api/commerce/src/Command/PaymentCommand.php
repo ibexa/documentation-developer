@@ -72,6 +72,7 @@ final class PaymentCommand extends Command
         $payment = $this->paymentService->getPaymentByIdentifier($paymentIdentifier);
 
         $context = $payment->getContext();
+        // Will be overridden later but used to illustrate `getContext()`
 
         $output->writeln(sprintf('Your payment for transaction has status %s', $payment->getStatus()));
 
