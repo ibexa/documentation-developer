@@ -948,8 +948,9 @@ extra:
   latest_tag_4_4: '4.4.4'
   latest_tag_4_5: '4.5.7'
   latest_tag_4_6: '4.6.19'
+  latest_tag_5_0: '5.0.0'
 
-  symfony_doc: 'https://symfony.com/doc/5.x'
+  symfony_doc: 'https://symfony.com/doc/7.2'
   user_doc: 'https://doc.ibexa.co/projects/userguide/en/5.0'
   connect_doc: 'https://doc.ibexa.co/projects/connect/en/latest'
 
