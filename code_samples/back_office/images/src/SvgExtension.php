@@ -26,10 +26,7 @@ class SvgExtension extends AbstractExtension
     public function getFunctions(): array
     {
         return [
-            new TwigFunction('ibexa_svg_link', [
-                $this,
-                'generateLink',
-            ]),
+            new TwigFunction('ibexa_svg_link', $this->generateLink(...)),
         ];
     }
 

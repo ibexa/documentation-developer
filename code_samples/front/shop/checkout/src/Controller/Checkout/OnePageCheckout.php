@@ -44,7 +44,7 @@ final class OnePageCheckout extends AbstractStepController
         return $this->render(
             '@storefront/checkout/checkout.html.twig',
             [
-                'form' => $form->createView(),
+                'form' => $form,
                 'checkout' => $checkout,
             ]
         );

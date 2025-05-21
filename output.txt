@@ -1,0 +1,895 @@
+
+35 files with changes
+=====================
+
+1) code_samples/page/page_listener/src/Block/Listener/MyBlockListener.php:8
+
+    ---------- begin diff ----------
+@@ @@
+
+ class MyBlockListener implements EventSubscriberInterface
+ {
+-    public static function getSubscribedEvents()
++    public static function getSubscribedEvents(): array
+     {
+         return [
+             BlockRenderEvents::getBlockPreRenderEventName('event') => 'onBlockPreRender',
+    ----------- end diff -----------
+
+Applied rules:
+ * AddReturnTypeDeclarationRector
+
+
+2) code_samples/tutorials/page_tutorial/src/Event/RandomBlockListener.php:32
+
+    ---------- begin diff ----------
+@@ @@
+         $this->searchService = $searchService;
+     }
+
+-    public static function getSubscribedEvents()
++    public static function getSubscribedEvents(): array
+     {
+         return [
+             BlockRenderEvents::getBlockPreRenderEventName('random') => 'onBlockPreRender',
+    ----------- end diff -----------
+
+Applied rules:
+ * AddReturnTypeDeclarationRector
+
+
+3) code_samples/user_management/oauth_google/src/OAuth/GoogleResourceOwnerMapper.php:55
+
+    ---------- begin diff ----------
+@@ @@
+         ResourceOwnerInterface $resourceOwner,
+         UserProviderInterface $userProvider
+     ): ?UserInterface {
+-        return $userProvider->loadUserByUsername($this->getUsername($resourceOwner));
++        return $userProvider->loadUserByIdentifier($this->getUsername($resourceOwner));
+     }
+
+     /**
+@@ @@
+
+         $this->userService->createUser($userCreateStruct, $parentGroups);
+
+-        return $userProvider->loadUserByUsername($this->getUsername($resourceOwner));
++        return $userProvider->loadUserByIdentifier($this->getUsername($resourceOwner));
+     }
+
+     private function getOAuth2UserContentType(Repository $repository): ?ContentType
+    ----------- end diff -----------
+
+Applied rules:
+ * RenameMethodRector
+
+
+4) code_samples/api/public_php_api/src/Command/UpdateContentCommand.php:11
+
+    ---------- begin diff ----------
+@@ @@
+ use Symfony\Component\Console\Input\InputInterface;
+ use Symfony\Component\Console\Output\OutputInterface;
+
+-#[AsCommand(
+-    name: 'doc:update_content'
+-)]
++#[AsCommand(name: 'doc:update_content', description: 'Update provided content item with a new name')]
+ class UpdateContentCommand extends Command
+ {
+     private ContentService $contentService;
+@@ @@
+     protected function configure(): void
+     {
+         $this
+-            ->setDescription('Update provided content item with a new name')
+             ->setDefinition([
+                 new InputArgument('contentId', InputArgument::REQUIRED, 'Content ID'),
+                 new InputArgument('newName', InputArgument::REQUIRED, 'New name for the updated content item'),
+    ----------- end diff -----------
+
+Applied rules:
+ * CommandConfigureToAttributeRector
+
+
+5) code_samples/api/public_php_api/src/Command/ViewContentCommand.php:11
+
+    ---------- begin diff ----------
+@@ @@
+ use Symfony\Component\Console\Input\InputInterface;
+ use Symfony\Component\Console\Output\OutputInterface;
+
+-#[AsCommand(
+-    name: 'doc:view_content'
+-)]
++#[AsCommand(name: 'doc:view_content', description: 'Output Field values on provided content item.')]
+ class ViewContentCommand extends Command
+ {
+     private ContentService $contentService;
+@@ @@
+     protected function configure(): void
+     {
+         $this
+-            ->setDescription('Output Field values on provided content item.')
+             ->setDefinition([
+                 new InputArgument('contentId', InputArgument::REQUIRED, 'Location ID'),
+             ]);
+    ----------- end diff -----------
+
+Applied rules:
+ * CommandConfigureToAttributeRector
+
+
+6) code_samples/api/public_php_api/src/Command/ViewContentMetaDataCommand.php:15
+
+    ---------- begin diff ----------
+@@ @@
+ use Symfony\Component\Console\Input\InputInterface;
+ use Symfony\Component\Console\Output\OutputInterface;
+
+-#[AsCommand(
+-    name: 'doc:view_metadata'
+-)]
++#[AsCommand(name: 'doc:view_metadata', description: 'Output various metadata about a content item.')]
+ class ViewContentMetaDataCommand extends Command
+ {
+     private ContentService $contentService;
+@@ @@
+     protected function configure(): void
+     {
+         $this
+-            ->setDescription('Output various metadata about a content item.')
+             ->setDefinition([
+                 new InputArgument('contentId', InputArgument::REQUIRED, 'An existing content ID'),
+             ]);
+    ----------- end diff -----------
+
+Applied rules:
+ * CommandConfigureToAttributeRector
+
+
+7) code_samples/api/public_php_api/src/Command/WorkflowCommand.php:11
+
+    ---------- begin diff ----------
+@@ @@
+ use Symfony\Component\Console\Input\InputInterface;
+ use Symfony\Component\Console\Output\OutputInterface;
+
+-#[AsCommand(
+-    name: 'doc:workflow'
+-)]
++#[AsCommand(name: 'doc:workflow', description: 'Starts content in the selected workflow and makes the provided transition.')]
+ class WorkflowCommand extends Command
+ {
+     private WorkflowServiceInterface $workflowService;
+@@ @@
+     protected function configure(): void
+     {
+         $this
+-            ->setDescription('Starts content in the selected workflow and makes the provided transition.')
+             ->setDefinition([
+                 new InputArgument('contentId', InputArgument::REQUIRED, 'Content ID'),
+                 new InputArgument('workflowName', InputArgument::REQUIRED, 'Workflow identifier'),
+    ----------- end diff -----------
+
+Applied rules:
+ * CommandConfigureToAttributeRector
+
+
+8) code_samples/back_office/dashboard/src/Command/DashboardCommand.php:14
+
+    ---------- begin diff ----------
+@@ @@
+ use Symfony\Component\Console\Input\InputInterface;
+ use Symfony\Component\Console\Output\OutputInterface;
+
+-#[AsCommand(
+-    name: 'doc:dashboard'
+-)]
++#[AsCommand(name: 'doc:dashboard', description: 'Set a custom dashboard to user group.')]
+ class DashboardCommand extends Command
+ {
+     private DashboardServiceInterface $dashboardService;
+@@ @@
+
+     public function configure(): void
+     {
+-        $this->setDescription('Set a custom dashboard to user group.')
++        $this
+             ->addArgument('dashboard', InputArgument::REQUIRED, 'Location ID of the dashboard model')
+             ->addArgument('group', InputArgument::REQUIRED | InputArgument::IS_ARRAY, 'User Group Content ID(s)');
+     }
+    ----------- end diff -----------
+
+Applied rules:
+ * CommandConfigureToAttributeRector
+
+
+9) code_samples/back_office/images/src/SvgExtension.php:26
+
+    ---------- begin diff ----------
+@@ @@
+     public function getFunctions(): array
+     {
+         return [
+-            new TwigFunction('ibexa_svg_link', [
+-                $this,
+-                'generateLink',
+-            ]),
++            new TwigFunction('ibexa_svg_link', $this->generateLink(...)),
+         ];
+     }
+    ----------- end diff -----------
+
+Applied rules:
+ * MagicClosureTwigExtensionToNativeMethodsRector
+
+
+10) code_samples/back_office/menu/menu_item/src/Controller/AllContentListController.php:39
+
+    ---------- begin diff ----------
+@@ @@
+         return $this->render('@ibexadesign/all_content_list.html.twig', [
+             'totalCount' => $paginator->getNbResults(),
+             'articles' => $paginator,
+-            'form_edit' => $editForm->createView(),
++            'form_edit' => $editForm,
+         ]);
+     }
+ }
+    ----------- end diff -----------
+
+Applied rules:
+ * SimplifyFormRenderingRector
+
+
+11) code_samples/back_office/menu/menu_item/src/EventSubscriber/MyMenuSubscriber.php:8
+
+    ---------- begin diff ----------
+@@ @@
+
+ class MyMenuSubscriber implements EventSubscriberInterface
+ {
+-    public static function getSubscribedEvents()
++    public static function getSubscribedEvents(): array
+     {
+         return [
+             ConfigureMenuEvent::MAIN_MENU => ['onMainMenuConfigure', 0],
+    ----------- end diff -----------
+
+Applied rules:
+ * AddReturnTypeDeclarationRector
+
+
+12) code_samples/back_office/notifications/src/EventListener/ContentPublishEventListener.php:16
+
+    ---------- begin diff ----------
+@@ @@
+         $this->notificationService = $notificationService;
+     }
+
+-    public static function getSubscribedEvents()
++    public static function getSubscribedEvents(): array
+     {
+         return [PublishVersionEvent::class => 'onPublishVersion'];
+     }
+    ----------- end diff -----------
+
+Applied rules:
+ * AddReturnTypeDeclarationRector
+
+
+13) code_samples/forms/custom_form_attribute/src/FormBuilder/Form/Type/CheckboxWithRichtextDescriptionType.php:13
+
+    ---------- begin diff ----------
+@@ @@
+     /**
+      * @return string|null
+      */
+-    public function getParent()
++    public function getParent(): ?string
+     {
+         return CheckboxType::class;
+     }
+@@ @@
+     /**
+      * @return string
+      */
+-    public function getBlockPrefix()
++    public function getBlockPrefix(): string
+     {
+         return 'checkbox_with_richtext_description';
+     }
+    ----------- end diff -----------
+
+Applied rules:
+ * AddReturnTypeDeclarationRector
+
+
+14) code_samples/forms/custom_form_attribute/src/FormBuilder/Form/Type/FieldAttribute/AttributeRichtextDescriptionType.php:10
+
+    ---------- begin diff ----------
+@@ @@
+     /**
+      * @return string|null
+      */
+-    public function getParent()
++    public function getParent(): ?string
+     {
+         return RichTextType::class;
+     }
+@@ @@
+     /**
+      * @return string
+      */
+-    public function getBlockPrefix()
++    public function getBlockPrefix(): string
+     {
+         return 'field_configuration_attribute_richtext';
+     }
+    ----------- end diff -----------
+
+Applied rules:
+ * AddReturnTypeDeclarationRector
+
+
+15) code_samples/front/render_content_in_php/src/Command/ViewCommand.php:10
+
+    ---------- begin diff ----------
+@@ @@
+ use Symfony\Component\Console\Input\InputOption;
+ use Symfony\Component\Console\Output\OutputInterface;
+
+-#[AsCommand(
+-    name: 'app:view'
+-)]
++#[AsCommand(name: 'app:view', description: 'Render the view of a content item')]
+ class ViewCommand extends Command
+ {
+     private ContentViewBuilder $contentViewBuilder;
+@@ @@
+
+     protected function configure(): void
+     {
+-        $this->setDescription('Render the view of a content item')
++        $this
+             ->addOption('content-id', 'c', InputOption::VALUE_OPTIONAL, 'Content ID')
+             ->addOption('location-id', 'l', InputOption::VALUE_OPTIONAL, 'Location ID')
+             ->addOption('view-type', 't', InputOption::VALUE_OPTIONAL, 'View Type', 'line');
+    ----------- end diff -----------
+
+Applied rules:
+ * CommandConfigureToAttributeRector
+
+
+16) code_samples/front/shop/checkout/src/Controller/Checkout/OnePageCheckout.php:44
+
+    ---------- begin diff ----------
+@@ @@
+         return $this->render(
+             '@storefront/checkout/checkout.html.twig',
+             [
+-                'form' => $form->createView(),
++                'form' => $form,
+                 'checkout' => $checkout,
+             ]
+         );
+    ----------- end diff -----------
+
+Applied rules:
+ * SimplifyFormRenderingRector
+
+
+17) code_samples/front/shop/checkout/src/Controller/Checkout/Step/SelectSeatStepController.php:30
+
+    ---------- begin diff ----------
+@@ @@
+                 'layout' => $this->getSeatsLayout(),
+                 'current_step' => $step,
+                 'checkout' => $checkout,
+-                'form' => $form->createView(),
++                'form' => $form,
+             ]
+         );
+     }
+    ----------- end diff -----------
+
+Applied rules:
+ * SimplifyFormRenderingRector
+
+
+18) code_samples/front/shop/storefront/src/EventSubscriber/BreadcrumbsMenuSubscriber.php:10
+
+    ---------- begin diff ----------
+@@ @@
+
+ class BreadcrumbsMenuSubscriber implements EventSubscriberInterface
+ {
+-    public static function getSubscribedEvents()
++    public static function getSubscribedEvents(): array
+     {
+         return [
+             BreadcrumbsMenuBuilder::PRODUCT_MENU => ['onBreadcrumbsMenuConfigure', 0],
+    ----------- end diff -----------
+
+Applied rules:
+ * AddReturnTypeDeclarationRector
+
+
+19) code_samples/page/custom_attribute/src/Block/Attribute/MyStringAttributeType.php:7
+
+    ---------- begin diff ----------
+@@ @@
+
+ class MyStringAttributeType extends AbstractType
+ {
+-    public function getParent()
++    public function getParent(): ?string
+     {
+         return TextType::class;
+     }
+
+-    public function getBlockPrefix()
++    public function getBlockPrefix(): string
+     {
+         return 'my_string_attribute';
+     }
+    ----------- end diff -----------
+
+Applied rules:
+ * AddReturnTypeDeclarationRector
+
+
+20) code_samples/api/public_php_api/src/Command/AddLanguageCommand.php:10
+
+    ---------- begin diff ----------
+@@ @@
+ use Symfony\Component\Console\Input\InputInterface;
+ use Symfony\Component\Console\Output\OutputInterface;
+
+-#[AsCommand(
+-    name: 'doc:add_language'
+-)]
++#[AsCommand(name: 'doc:add_language', description: 'Lists available languages and add Polish.')]
+ class AddLanguageCommand extends Command
+ {
+     private LanguageService $languageService;
+@@ @@
+
+     protected function configure(): void
+     {
+-        $this->setDescription('Lists available languages and add Polish.');
+     }
+
+     protected function execute(InputInterface $input, OutputInterface $output): int
+    ----------- end diff -----------
+
+Applied rules:
+ * CommandConfigureToAttributeRector
+
+
+21) code_samples/api/public_php_api/src/Command/AddLocationToContentCommand.php:12
+
+    ---------- begin diff ----------
+@@ @@
+ use Symfony\Component\Console\Input\InputInterface;
+ use Symfony\Component\Console\Output\OutputInterface;
+
+-#[AsCommand(
+-    name: 'doc:add_location'
+-)]
++#[AsCommand(name: 'doc:add_location', description: 'Add a Location to content item and hides it.')]
+ class AddLocationToContentCommand extends Command
+ {
+     private ContentService $contentService;
+@@ @@
+     protected function configure(): void
+     {
+         $this
+-            ->setDescription('Add a Location to content item and hides it.')
+             ->setDefinition([
+                 new InputArgument('contentId', InputArgument::REQUIRED, 'Content ID'),
+                 new InputArgument('parentLocationId', InputArgument::REQUIRED, 'Parent Location ID'),
+    ----------- end diff -----------
+
+Applied rules:
+ * CommandConfigureToAttributeRector
+
+
+22) code_samples/api/public_php_api/src/Command/BrowseLocationsCommand.php:10
+
+    ---------- begin diff ----------
+@@ @@
+ use Symfony\Component\Console\Input\InputInterface;
+ use Symfony\Component\Console\Output\OutputInterface;
+
+-#[AsCommand(
+-    name: 'doc:browse_locations'
+-)]
++#[AsCommand(name: 'doc:browse_locations', description: 'Lists all descendants of the Location')]
+ class BrowseLocationsCommand extends Command
+ {
+     private LocationService $locationService;
+@@ @@
+     protected function configure(): void
+     {
+         $this
+-            ->setDescription('Lists all descendants of the Location')
+             ->setDefinition([
+                 new InputArgument('locationId', InputArgument::REQUIRED, 'Location ID to browse from'),
+             ]);
+    ----------- end diff -----------
+
+Applied rules:
+ * CommandConfigureToAttributeRector
+
+
+23) code_samples/api/public_php_api/src/Command/CalendarCommand.php:12
+
+    ---------- begin diff ----------
+@@ @@
+ use Symfony\Component\Console\Input\InputInterface;
+ use Symfony\Component\Console\Output\OutputInterface;
+
+-#[AsCommand(
+-    name: 'doc:calendar'
+-)]
++#[AsCommand(name: 'doc:calendar', description: 'Lists Calendar event in the provided time range and reschedules them.')]
+ class CalendarCommand extends Command
+ {
+     private PermissionResolver $permissionResolver;
+@@ @@
+
+     public function configure(): void
+     {
+-        $this->setDescription('Lists Calendar event in the provided time range and reschedules them.');
+     }
+
+     protected function execute(InputInterface $input, OutputInterface $output): int
+    ----------- end diff -----------
+
+Applied rules:
+ * CommandConfigureToAttributeRector
+
+
+24) code_samples/api/public_php_api/src/Command/FilterCommand.php:13
+
+    ---------- begin diff ----------
+@@ @@
+ use Symfony\Component\Console\Input\InputInterface;
+ use Symfony\Component\Console\Output\OutputInterface;
+
+-#[AsCommand(
+-    name: 'doc:filter'
+-)]
++#[AsCommand(name: 'doc:filter', description: 'Returns children of the provided Location, sorted by name in descending order.')]
+ class FilterCommand extends Command
+ {
+     private ContentService $contentService;
+@@ @@
+
+     public function configure(): void
+     {
+-        $this->setDescription('Returns children of the provided Location, sorted by name in descending order.');
+         $this->setDefinition([
+             new InputArgument('parentLocationId', InputArgument::REQUIRED, 'ID of the parent Location'),
+         ]);
+    ----------- end diff -----------
+
+Applied rules:
+ * CommandConfigureToAttributeRector
+
+
+25) code_samples/api/public_php_api/src/Command/FilterLocationCommand.php:13
+
+    ---------- begin diff ----------
+@@ @@
+ use Symfony\Component\Console\Input\InputInterface;
+ use Symfony\Component\Console\Output\OutputInterface;
+
+-#[AsCommand(
+-    name: 'doc:filter_location'
+-)]
++#[AsCommand(name: 'doc:filter_location', description: 'Returns children of the provided Location, sorted by name in descending order.')]
+ class FilterLocationCommand extends Command
+ {
+     private LocationService $locationService;
+@@ @@
+
+     public function configure(): void
+     {
+-        $this->setDescription('Returns children of the provided Location, sorted by name in descending order.');
+         $this->setDefinition([
+             new InputArgument('parentLocationId', InputArgument::REQUIRED, 'ID of the parent Location'),
+         ]);
+    ----------- end diff -----------
+
+Applied rules:
+ * CommandConfigureToAttributeRector
+
+
+26) code_samples/api/public_php_api/src/Command/FindComplexCommand.php:13
+
+    ---------- begin diff ----------
+@@ @@
+ use Symfony\Component\Console\Input\InputInterface;
+ use Symfony\Component\Console\Output\OutputInterface;
+
+-#[AsCommand(
+-    name: 'doc:find_complex'
+-)]
++#[AsCommand(name: 'doc:find_complex', description: 'Lists content belonging to the provided content type.')]
+ class FindComplexCommand extends Command
+ {
+     private SearchService $searchService;
+@@ @@
+     protected function configure(): void
+     {
+         $this
+-            ->setDescription('Lists content belonging to the provided content type.')
+             ->setDefinition([
+                 new InputArgument('locationId', InputArgument::REQUIRED, ''),
+                 new InputArgument('contentTypeIdentifier', InputArgument::REQUIRED, 'Content type identifier'),
+    ----------- end diff -----------
+
+Applied rules:
+ * CommandConfigureToAttributeRector
+
+
+27) code_samples/api/public_php_api/src/Command/FindContentCommand.php:11
+
+    ---------- begin diff ----------
+@@ @@
+ use Symfony\Component\Console\Input\InputInterface;
+ use Symfony\Component\Console\Output\OutputInterface;
+
+-#[AsCommand(
+-    name: 'doc:find_content'
+-)]
++#[AsCommand(name: 'doc:find_content', description: 'Lists content belonging to the provided content type.')]
+ class FindContentCommand extends Command
+ {
+     private SearchService $searchService;
+@@ @@
+     protected function configure(): void
+     {
+         $this
+-            ->setDescription('Lists content belonging to the provided content type.')
+             ->setDefinition([
+                 new InputArgument('contentTypeIdentifier', InputArgument::REQUIRED, 'Content type identifier'),
+             ]);
+    ----------- end diff -----------
+
+Applied rules:
+ * CommandConfigureToAttributeRector
+
+
+28) code_samples/api/public_php_api/src/Command/FindInTrashCommand.php:10
+
+    ---------- begin diff ----------
+@@ @@
+ use Symfony\Component\Console\Input\InputInterface;
+ use Symfony\Component\Console\Output\OutputInterface;
+
+-#[AsCommand(
+-    name: 'doc:find_in_trash'
+-)]
++#[AsCommand(name: 'doc:find_in_trash', description: 'Lists content in Trash belonging to the provided content type.')]
+ class FindInTrashCommand extends Command
+ {
+     private TrashService $trashService;
+@@ @@
+     protected function configure(): void
+     {
+         $this
+-            ->setDescription('Lists content in Trash belonging to the provided content type.')
+             ->setDefinition([
+                 new InputArgument('contentTypeId', InputArgument::REQUIRED, 'Content type ID'),
+             ]);
+    ----------- end diff -----------
+
+Applied rules:
+ * CommandConfigureToAttributeRector
+
+
+29) code_samples/api/public_php_api/src/Command/FindUrlCommand.php:13
+
+    ---------- begin diff ----------
+@@ @@
+ use Symfony\Component\Console\Input\InputInterface;
+ use Symfony\Component\Console\Output\OutputInterface;
+
+-#[AsCommand(
+-    name: 'doc:find_url'
+-)]
++#[AsCommand(name: 'doc:find_url', description: 'Finds all valid URLs in the provided Section.')]
+ class FindUrlCommand extends Command
+ {
+     private URLService $urlService;
+@@ @@
+
+     protected function configure(): void
+     {
+-        $this
+-            ->setDescription('Finds all valid URLs in the provided Section.');
+     }
+
+     protected function execute(InputInterface $input, OutputInterface $output): int
+    ----------- end diff -----------
+
+Applied rules:
+ * CommandConfigureToAttributeRector
+
+
+30) code_samples/api/public_php_api/src/Command/FindWithAggregationCommand.php:12
+
+    ---------- begin diff ----------
+@@ @@
+ use Symfony\Component\Console\Input\InputInterface;
+ use Symfony\Component\Console\Output\OutputInterface;
+
+-#[AsCommand(
+-    name: 'doc:find_with_aggregation'
+-)]
++#[AsCommand(name: 'doc:find_with_aggregation', description: 'Counts content per content type and the value of Selection Field.')]
+ class FindWithAggregationCommand extends Command
+ {
+     private SearchService $searchService;
+@@ @@
+
+     protected function configure(): void
+     {
+-        $this
+-            ->setDescription('Counts content per content type and the value of Selection Field.');
+     }
+
+     protected function execute(InputInterface $input, OutputInterface $output): int
+    ----------- end diff -----------
+
+Applied rules:
+ * CommandConfigureToAttributeRector
+
+
+31) code_samples/api/public_php_api/src/Command/HideLocationCommand.php:11
+
+    ---------- begin diff ----------
+@@ @@
+ use Symfony\Component\Console\Input\InputInterface;
+ use Symfony\Component\Console\Output\OutputInterface;
+
+-#[AsCommand(
+-    name: 'doc:hide'
+-)]
++#[AsCommand(name: 'doc:hide', description: 'Hides and reveals again selected Location.')]
+ class HideLocationCommand extends Command
+ {
+     private LocationService $locationService;
+@@ @@
+     protected function configure(): void
+     {
+         $this
+-            ->setDescription('Hides and reveals again selected Location.')
+             ->setDefinition([
+                 new InputArgument('location_id', InputArgument::REQUIRED, 'Location ID'),
+             ]);
+    ----------- end diff -----------
+
+Applied rules:
+ * CommandConfigureToAttributeRector
+
+
+32) code_samples/api/public_php_api/src/Command/MoveContentCommand.php:11
+
+    ---------- begin diff ----------
+@@ @@
+ use Symfony\Component\Console\Input\InputInterface;
+ use Symfony\Component\Console\Output\OutputInterface;
+
+-#[AsCommand(
+-    name: 'doc:move_content'
+-)]
++#[AsCommand(name: 'doc:move_content', description: 'Moves the selected Location with its subtree.')]
+ class MoveContentCommand extends Command
+ {
+     private LocationService $locationService;
+@@ @@
+     protected function configure(): void
+     {
+         $this
+-            ->setDescription('Moves the selected Location with its subtree.')
+             ->setDefinition([
+             new InputArgument('locationId', InputArgument::REQUIRED, 'Location to copy'),
+             new InputArgument('targetLocationId', InputArgument::REQUIRED, 'Target to copy or move to'),
+    ----------- end diff -----------
+
+Applied rules:
+ * CommandConfigureToAttributeRector
+
+
+33) code_samples/api/public_php_api/src/Command/ObjectStateCommand.php:12
+
+    ---------- begin diff ----------
+@@ @@
+ use Symfony\Component\Console\Input\InputInterface;
+ use Symfony\Component\Console\Output\OutputInterface;
+
+-#[AsCommand(
+-    name: 'doc:object_state'
+-)]
++#[AsCommand(name: 'doc:object_state', description: 'Creates OS group with provided States and assigned the Lock OS to provided content item')]
+ class ObjectStateCommand extends Command
+ {
+     private ContentService $contentService;
+@@ @@
+     protected function configure(): void
+     {
+         $this
+-            ->setDescription('Creates OS group with provided States and assigned the Lock OS to provided content item')
+             ->setDefinition([
+                 new InputArgument('objectStateGroupIdentifier', InputArgument::REQUIRED, 'Identifier of new OG group to create'),
+                 new InputArgument('objectStateIdentifier', InputArgument::REQUIRED, 'Identifier(s) of a new Object State'),
+    ----------- end diff -----------
+
+Applied rules:
+ * CommandConfigureToAttributeRector
+
+
+34) code_samples/api/public_php_api/src/Command/SectionCommand.php:15
+
+    ---------- begin diff ----------
+@@ @@
+ use Symfony\Component\Console\Input\InputInterface;
+ use Symfony\Component\Console\Output\OutputInterface;
+
+-#[AsCommand(
+-    name: 'doc:section'
+-)]
++#[AsCommand(name: 'doc:section', description: 'Creates new section and adds selected content item to it.')]
+ class SectionCommand extends Command
+ {
+     private SectionService $sectionService;
+@@ @@
+     protected function configure(): void
+     {
+         $this
+-            ->setDescription('Creates new section and adds selected content item to it.')
+             ->setDefinition([
+                 new InputArgument('sectionName', InputArgument::REQUIRED, 'Name of the new Section'),
+                 new InputArgument('sectionIdentifier', InputArgument::REQUIRED, 'Identifier of the new Section'),
+    ----------- end diff -----------
+
+Applied rules:
+ * CommandConfigureToAttributeRector
+
+
+35) code_samples/api/public_php_api/src/Command/SetMainLocationCommand.php:11
+
+    ---------- begin diff ----------
+@@ @@
+ use Symfony\Component\Console\Input\InputInterface;
+ use Symfony\Component\Console\Output\OutputInterface;
+
+-#[AsCommand(
+-    name: 'doc:set_main_location'
+-)]
++#[AsCommand(name: 'doc:set_main_location', description: 'Set a Location as content item\'s main')]
+ class SetMainLocationCommand extends Command
+ {
+     private ContentService $contentService;
+@@ @@
+     protected function configure(): void
+     {
+         $this
+-            ->setDescription('Set a Location as content item\'s main')
+             ->setDefinition([
+                 new InputArgument('contentId', InputArgument::REQUIRED, 'The Content ID'),
+                 new InputArgument('locationId', InputArgument::REQUIRED, 'One of the Locations of the Content'),
+    ----------- end diff -----------
+
+Applied rules:
+ * CommandConfigureToAttributeRector
+
+
+ [OK] 35 files have been changed by Rector                                                                              
+

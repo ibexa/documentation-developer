@@ -12,9 +12,7 @@ use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
-#[AsCommand(
-    name: 'doc:find_with_aggregation'
-)]
+#[AsCommand(name: 'doc:find_with_aggregation', description: 'Counts content per content type and the value of Selection Field.')]
 class FindWithAggregationCommand extends Command
 {
     private SearchService $searchService;
@@ -28,8 +26,6 @@ class FindWithAggregationCommand extends Command
 
     protected function configure(): void
     {
-        $this
-            ->setDescription('Counts content per content type and the value of Selection Field.');
     }
 
     protected function execute(InputInterface $input, OutputInterface $output): int

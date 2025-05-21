@@ -12,9 +12,7 @@ use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
-#[AsCommand(
-    name: 'doc:add_location'
-)]
+#[AsCommand(name: 'doc:add_location', description: 'Add a Location to content item and hides it.')]
 class AddLocationToContentCommand extends Command
 {
     private ContentService $contentService;
@@ -38,7 +36,6 @@ class AddLocationToContentCommand extends Command
     protected function configure(): void
     {
         $this
-            ->setDescription('Add a Location to content item and hides it.')
             ->setDefinition([
                 new InputArgument('contentId', InputArgument::REQUIRED, 'Content ID'),
                 new InputArgument('parentLocationId', InputArgument::REQUIRED, 'Parent Location ID'),

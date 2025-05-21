@@ -32,7 +32,7 @@ class RandomBlockListener implements EventSubscriberInterface
         $this->searchService = $searchService;
     }
 
-    public static function getSubscribedEvents()
+    public static function getSubscribedEvents(): array
     {
         return [
             BlockRenderEvents::getBlockPreRenderEventName('random') => 'onBlockPreRender',

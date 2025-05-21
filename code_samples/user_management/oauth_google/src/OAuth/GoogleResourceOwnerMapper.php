@@ -55,7 +55,7 @@ final class GoogleResourceOwnerMapper extends ResourceOwnerToExistingOrNewUserMa
         ResourceOwnerInterface $resourceOwner,
         UserProviderInterface $userProvider
     ): ?UserInterface {
-        return $userProvider->loadUserByUsername($this->getUsername($resourceOwner));
+        return $userProvider->loadUserByIdentifier($this->getUsername($resourceOwner));
     }
 
     /**
@@ -82,7 +82,7 @@ final class GoogleResourceOwnerMapper extends ResourceOwnerToExistingOrNewUserMa
 
         $this->userService->createUser($userCreateStruct, $parentGroups);
 
-        return $userProvider->loadUserByUsername($this->getUsername($resourceOwner));
+        return $userProvider->loadUserByIdentifier($this->getUsername($resourceOwner));
     }
 
     private function getOAuth2UserContentType(Repository $repository): ?ContentType

@@ -13,9 +13,7 @@ use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
-#[AsCommand(
-    name: 'doc:find_complex'
-)]
+#[AsCommand(name: 'doc:find_complex', description: 'Lists content belonging to the provided content type.')]
 class FindComplexCommand extends Command
 {
     private SearchService $searchService;
@@ -33,7 +31,6 @@ class FindComplexCommand extends Command
     protected function configure(): void
     {
         $this
-            ->setDescription('Lists content belonging to the provided content type.')
             ->setDefinition([
                 new InputArgument('locationId', InputArgument::REQUIRED, ''),
                 new InputArgument('contentTypeIdentifier', InputArgument::REQUIRED, 'Content type identifier'),

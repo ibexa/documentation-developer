@@ -11,9 +11,7 @@ use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
-#[AsCommand(
-    name: 'doc:move_content'
-)]
+#[AsCommand(name: 'doc:move_content', description: 'Moves the selected Location with its subtree.')]
 class MoveContentCommand extends Command
 {
     private LocationService $locationService;
@@ -34,7 +32,6 @@ class MoveContentCommand extends Command
     protected function configure(): void
     {
         $this
-            ->setDescription('Moves the selected Location with its subtree.')
             ->setDefinition([
             new InputArgument('locationId', InputArgument::REQUIRED, 'Location to copy'),
             new InputArgument('targetLocationId', InputArgument::REQUIRED, 'Target to copy or move to'),

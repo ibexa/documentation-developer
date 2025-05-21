@@ -30,7 +30,7 @@ final class SelectSeatStepController extends AbstractStepController
                 'layout' => $this->getSeatsLayout(),
                 'current_step' => $step,
                 'checkout' => $checkout,
-                'form' => $form->createView(),
+                'form' => $form,
             ]
         );
     }
