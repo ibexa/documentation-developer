@@ -278,14 +278,14 @@ Make sure to use a [strong password](security_checklist.md#strong-passwords) mee
 
 !!! note
 
-	In scenarios where entering the new password is not possible, for example in automated deployments and Continuous Integration environments, use the `--no-interaction` option to skip changing the password and keep the default one, `publish`.
+	In scenarios where entering the new password is not possible, for example in automated deployments and Continuous Integration environments, use the `--no-interaction` option to skip changing the password and keep the default one, `publish`:
 
     ``` bash
     php bin/console ibexa:install --no-interaction
     php bin/console ibexa:graphql:generate-schema
     ```
 
-    If doing so, [modify the password for the `admin` user](update_basic_user_data.md#change-password) before going live.
+    If doing so, [modify the password for the `admin` user](update_basic_user_data.md#change-password) before [going live with your project](security_checklist.md).
 
 ### Run post-installation script
 
