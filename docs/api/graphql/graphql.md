@@ -10,9 +10,8 @@ The GraphQL implementation for [[= product_name =]] is located in [`ibexa/graphq
 ## Setup
 
 Using GraphQL requires a domain schema.
-The schema is generated automatically when installing [[= product_name =]].
 
-When you modify content types or product types in your installation, you need to regenerate the schema:
+Before using GraphQL for the first time, or anytime you modify content types or product types in your installation, you need to generate the schema:
 
 ``` bash
 php bin/console ibexa:graphql:generate-schema

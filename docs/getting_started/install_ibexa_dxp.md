@@ -242,7 +242,6 @@ Install [[= product_name =]] and create a database with:
 
 ``` bash
 php bin/console ibexa:install
-php bin/console ibexa:graphql:generate-schema
 ```
 
 Before executing the command make sure that the database user has sufficient permissions.
@@ -256,7 +255,6 @@ Make sure to use a [strong password](security_checklist.md#strong-passwords) mee
 
     ``` bash
     php bin/console ibexa:install --no-interaction
-    php bin/console ibexa:graphql:generate-schema
     ```
 
     If doing so, [modify the password for the `admin` user](update_basic_user_data.md#change-password) before [going live with your project](security_checklist.md).
