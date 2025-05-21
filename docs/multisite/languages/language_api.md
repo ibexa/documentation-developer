@@ -11,7 +11,7 @@ You can manage languages configured in the system with PHP API by using [`Langua
 To get a list of all languages in the system use [`LanguageService::loadLanguages`:](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-LanguageService.html#method_loadLanguage)
 
 ``` php
-[[= include_file('code_samples/api/public_php_api/src/Command/AddLanguageCommand.php', 37, 42) =]]
+[[= include_file('code_samples/api/public_php_api/src/Command/AddLanguageCommand.php', 42, 47) =]]
 ```
 
 ## Creating a language
@@ -20,5 +20,5 @@ To create a new language, you need to create a [`LanguageCreateStruct`](/api/php
 Then, use [`LanguageService::createLanguage`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-LanguageService.html#method_createLanguage) and pass the `LanguageCreateStruct` to it:
 
 ``` php
-[[= include_file('code_samples/api/public_php_api/src/Command/AddLanguageCommand.php', 43, 47) =]]
+[[= include_file('code_samples/api/public_php_api/src/Command/AddLanguageCommand.php', 48, 52) =]]
 ```

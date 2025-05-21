@@ -25,14 +25,14 @@ This value object provides primitive fields, such as `contentTypeId`, `published
 
 You can also use it to request other Content-related value objects from various services:
 
-``` php hl_lines="9"
+``` php hl_lines="10"
 // ...
 [[= include_file('code_samples/api/public_php_api/src/Command/ViewContentMetaDataCommand.php', 4, 5) =]]
-[[= include_file('code_samples/api/public_php_api/src/Command/ViewContentMetaDataCommand.php', 16, 17) =]]
+[[= include_file('code_samples/api/public_php_api/src/Command/ViewContentMetaDataCommand.php', 20, 22) =]]
 // ...
-[[= include_file('code_samples/api/public_php_api/src/Command/ViewContentMetaDataCommand.php', 50, 52) =]][[= include_file('code_samples/api/public_php_api/src/Command/ViewContentMetaDataCommand.php', 58, 59) =]]
-[[= include_file('code_samples/api/public_php_api/src/Command/ViewContentMetaDataCommand.php', 60, 66) =]]
+[[= include_file('code_samples/api/public_php_api/src/Command/ViewContentMetaDataCommand.php', 55, 57) =]][[= include_file('code_samples/api/public_php_api/src/Command/ViewContentMetaDataCommand.php', 63, 72) =]]
 ```
+
 
 `ContentInfo` is loaded from the [`ContentService`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-ContentService.html) (line 9).
 It provides you with basic content metadata such as modification and publication dates or main language code.
@@ -46,7 +46,7 @@ It provides you with basic content metadata such as modification and publication
 To get the locations of a content item you need to make use of the [`LocationService`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-LocationService.html):
 
 ``` php
-[[= include_file('code_samples/api/public_php_api/src/Command/ViewContentMetaDataCommand.php', 68, 72) =]]
+[[= include_file('code_samples/api/public_php_api/src/Command/ViewContentMetaDataCommand.php', 73, 77) =]]        }
 ```
 
 [`LocationService::loadLocations`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-LocationService.html#method_loadLocations) uses `ContentInfo` to get all the locations of a content item.
@@ -60,7 +60,7 @@ The [`URLAliasService`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-C
 [`URLAliasService::reverseLookup`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-URLAliasService.html#method_reverseLookup) gets the location's main [URL alias](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-URLAlias.html):
 
 ``` php
-[[= include_file('code_samples/api/public_php_api/src/Command/ViewContentMetaDataCommand.php', 68, 71) =]][[= include_file('code_samples/api/public_php_api/src/Command/ViewContentMetaDataCommand.php', 72, 75) =]]
+[[= include_file('code_samples/api/public_php_api/src/Command/ViewContentMetaDataCommand.php', 73, 76) =]][[= include_file('code_samples/api/public_php_api/src/Command/ViewContentMetaDataCommand.php', 77, 80) =]]
 ```
 
 ### Content type
@@ -68,7 +68,7 @@ The [`URLAliasService`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-C
 You can retrieve the content type of a content item through the [`getContentType`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-ContentInfo.html#method_getContentType) method of the ContentInfo object:
 
 ``` php
-[[= include_file('code_samples/api/public_php_api/src/Command/ViewContentMetaDataCommand.php', 77, 79) =]]
+[[= include_file('code_samples/api/public_php_api/src/Command/ViewContentMetaDataCommand.php', 82, 84) =]]
 ```
 
 ### Versions
@@ -76,13 +76,13 @@ You can retrieve the content type of a content item through the [`getContentType
 To iterate over the versions of a content item, use the [`ContentService::loadVersions`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-ContentService.html#method_loadVersions) method, which returns an array of `VersionInfo` value objects.
 
 ``` php
-[[= include_file('code_samples/api/public_php_api/src/Command/ViewContentMetaDataCommand.php', 81, 87) =]]
+[[= include_file('code_samples/api/public_php_api/src/Command/ViewContentMetaDataCommand.php', 86, 92) =]]
 ```
 
 You can additionally provide the `loadVersions` method with the version status to get only versions of a specific status, for example:
 
 ``` php
-[[= include_file('code_samples/api/public_php_api/src/Command/ViewContentMetaDataCommand.php', 88, 89) =]]
+[[= include_file('code_samples/api/public_php_api/src/Command/ViewContentMetaDataCommand.php', 93, 94) =]]
 ```
 
 !!! note
@@ -98,7 +98,7 @@ This method loads only the specified subset of relations to improve performance 
 You can get the current version's `VersionInfo` using [`ContentService::loadVersionInfo`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-ContentService.html#method_loadVersionInfo).
 
 ``` php
-[[= include_file('code_samples/api/public_php_api/src/Command/ViewContentMetaDataCommand.php', 100, 107) =]]
+[[= include_file('code_samples/api/public_php_api/src/Command/ViewContentMetaDataCommand.php', 105, 112) =]]
 ```
 
 You can also specify the version number as the second argument to get Relations for a specific version:
@@ -117,7 +117,7 @@ It also holds the [relation type](content_relations.md), and the optional field 
 You can use the `getOwner` method of the `ContentInfo` object to load the content item's owner as a `User` value object.
 
 ``` php
-[[= include_file('code_samples/api/public_php_api/src/Command/ViewContentMetaDataCommand.php', 109, 110) =]]
+[[= include_file('code_samples/api/public_php_api/src/Command/ViewContentMetaDataCommand.php', 114, 115) =]]
 ```
 
 To get the creator of the current version and not the content item's owner, you need to use the `creatorId` property from the current version's `VersionInfo` object.
@@ -127,7 +127,7 @@ To get the creator of the current version and not the content item's owner, you 
 You can find the section to which a content item belongs through the [`getSection`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-ContentInfo.html#method_getSection) method of the ContentInfo object:
 
 ``` php
-[[= include_file('code_samples/api/public_php_api/src/Command/ViewContentMetaDataCommand.php', 112, 113) =]]
+[[= include_file('code_samples/api/public_php_api/src/Command/ViewContentMetaDataCommand.php', 117, 118) =]]
 ```
 
 !!! note
@@ -142,7 +142,7 @@ You need to provide it with the object state group.
 All object state groups can be retrieved through [`loadObjectStateGroups`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-ObjectStateService.html#method_loadObjectStateGroups).
 
 ``` php
-[[= include_file('code_samples/api/public_php_api/src/Command/ViewContentMetaDataCommand.php', 115, 120) =]]
+[[= include_file('code_samples/api/public_php_api/src/Command/ViewContentMetaDataCommand.php', 120, 125) =]]
 ```
 
 ## Viewing content with fields
@@ -151,7 +151,7 @@ To retrieve the fields of the selected content item, you can use the following c
 
 ```php hl_lines="13-14 16-22"
 [[= include_file('code_samples/api/public_php_api/src/Command/ViewContentCommand.php', 4, 7) =]]    // ...
-[[= include_file('code_samples/api/public_php_api/src/Command/ViewContentCommand.php', 37, 55) =]]
+[[= include_file('code_samples/api/public_php_api/src/Command/ViewContentCommand.php', 42, 60) =]]
 }
 ```
 
@@ -182,7 +182,7 @@ $contentService->loadContent($content->id, Language::ALL);
 To go through all the content items contained in a subtree, you need to use the [`LocationService`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-LocationService.html).
 
 ``` php hl_lines="5 15"
-[[= include_file('code_samples/api/public_php_api/src/Command/BrowseLocationsCommand.php', 30, 49) =]]
+[[= include_file('code_samples/api/public_php_api/src/Command/BrowseLocationsCommand.php', 35, 54) =]]
 ```
 
 `loadLocation` (line 15) returns a value object, here a `Location`.

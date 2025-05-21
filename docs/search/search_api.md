@@ -29,8 +29,8 @@ The following command takes the content type identifier as an argument and lists
 ``` php hl_lines="14 16"
 // ...
 [[= include_file('code_samples/api/public_php_api/src/Command/FindContentCommand.php', 4, 7) =]]// ...
-[[= include_file('code_samples/api/public_php_api/src/Command/FindContentCommand.php', 12, 14) =]]    // ...
-[[= include_file('code_samples/api/public_php_api/src/Command/FindContentCommand.php', 31, 47) =]]
+[[= include_file('code_samples/api/public_php_api/src/Command/FindContentCommand.php', 16, 18) =]]    // ...
+[[= include_file('code_samples/api/public_php_api/src/Command/FindContentCommand.php', 36, 52) =]]}
 ```
 
 [`SearchService::findContentInfo`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-SearchService.html#method_findContentInfo) (line 16)
@@ -78,7 +78,7 @@ This enables iterating over results that are too large to handle due to memory c
 `BatchIterator` takes one of the available adapters ([`\Ibexa\Contracts\Core\Repository\Iterator\BatchIteratorAdapter`](/api/php_api/php_api_reference/namespaces/ibexa-contracts-core-repository-iterator-batchiteratoradapter.html)) and optional batch size. For example:
 
 ``` php
-$query = new LocationQuery;
+$query = new LocationQuery();
 
 $iterator = new BatchIterator(new BatchIteratorAdapter\LocationSearchAdapter($this->searchService, $query));
 
@@ -120,7 +120,7 @@ For example, the following command lists all content items under the specified p
 // ...
 [[= include_file('code_samples/api/public_php_api/src/Command/FilterCommand.php', 4, 9) =]]
 // ...
-[[= include_file('code_samples/api/public_php_api/src/Command/FilterCommand.php', 32, 52) =]]
+[[= include_file('code_samples/api/public_php_api/src/Command/FilterCommand.php', 37, 57) =]]
 ```
 
 The same Filter can be applied to find locations instead of content items, for example:
@@ -128,7 +128,7 @@ The same Filter can be applied to find locations instead of content items, for e
 ``` php hl_lines="17"
 // ...
 [[= include_file('code_samples/api/public_php_api/src/Command/FilterLocationCommand.php', 4, 9) =]]// ...
-[[= include_file('code_samples/api/public_php_api/src/Command/FilterLocationCommand.php', 32, 52) =]]
+[[= include_file('code_samples/api/public_php_api/src/Command/FilterLocationCommand.php', 37, 57) =]]
 ```
 
 !!! caution
@@ -238,8 +238,8 @@ For more complex searches, you need to combine multiple Criteria.
 You can do it using logical operators: `LogicalAnd`, `LogicalOr`, and `LogicalNot`.
 
 ``` php
-[[= include_file('code_samples/api/public_php_api/src/Command/FindComplexCommand.php', 43, 49) =]][[= include_file('code_samples/api/public_php_api/src/Command/FindComplexCommand.php', 53, 54) =]]
-[[= include_file('code_samples/api/public_php_api/src/Command/FindComplexCommand.php', 60, 65) =]]
+[[= include_file('code_samples/api/public_php_api/src/Command/FindComplexCommand.php', 48, 54) =]][[= include_file('code_samples/api/public_php_api/src/Command/FindComplexCommand.php', 58, 59) =]]
+[[= include_file('code_samples/api/public_php_api/src/Command/FindComplexCommand.php', 65, 70) =]]
 ```
 
 This example takes three parameters from a command — `$text`, `$contentTypeId`, and `$locationId`.
@@ -253,7 +253,7 @@ The example below uses the `LogicalNot` operator to search for all content conta
 that doesn't belong to the provided Section:
 
 ``` php
-[[= include_file('code_samples/api/public_php_api/src/Command/FindComplexCommand.php', 45, 46) =]][[= include_file('code_samples/api/public_php_api/src/Command/FindComplexCommand.php', 48, 53) =]]
+[[= include_file('code_samples/api/public_php_api/src/Command/FindComplexCommand.php', 50, 51) =]][[= include_file('code_samples/api/public_php_api/src/Command/FindComplexCommand.php', 53, 58) =]]
 ```
 
 ### Combining independent Criteria
@@ -286,7 +286,7 @@ To sort the results of a query, use one of more [Sort Clauses](sort_clause_refer
 For example, to order search results by their publicationg date, from oldest to newest, and then alphabetically by content name, add the following Sort Clauses to the query:
 
 ``` php
-[[= include_file('code_samples/api/public_php_api/src/Command/FindComplexCommand.php', 55, 59) =]]
+[[= include_file('code_samples/api/public_php_api/src/Command/FindComplexCommand.php', 60, 64) =]]
 ```
 
 !!! tip
@@ -305,7 +305,7 @@ For a list of supported Criteria and Sort Clauses, see [Search in trash referenc
     Searching through the trashed content items operates directly on the database, therefore you cannot use external search engines, such as Solr or Elasticsearch, and it's impossible to reindex the data.
 
 ``` php
-[[= include_file('code_samples/api/public_php_api/src/Command/FindInTrashCommand.php', 34, 41) =]]
+[[= include_file('code_samples/api/public_php_api/src/Command/FindInTrashCommand.php', 39, 46) =]]
 ```
 
 !!! caution
@@ -324,7 +324,7 @@ With aggregations you can find the count of search results or other result infor
 To do this, you use of the query's `$aggregations` property:
 
 ``` php
-[[= include_file('code_samples/api/public_php_api/src/Command/FindWithAggregationCommand.php', 34, 39) =]]
+[[= include_file('code_samples/api/public_php_api/src/Command/FindWithAggregationCommand.php', 39, 44) =]]
 ```
 
 The name of the aggregation must be unique in the given query.
@@ -332,13 +332,13 @@ The name of the aggregation must be unique in the given query.
 Access the results by using the `get()` method of the aggregation:
 
 ``` php
-[[= include_file('code_samples/api/public_php_api/src/Command/FindWithAggregationCommand.php', 43, 44) =]]
+[[= include_file('code_samples/api/public_php_api/src/Command/FindWithAggregationCommand.php', 48, 49) =]]
 ```
 
 Aggregation results contain the name of the result and the count of found items:
 
 ``` php
-[[= include_file('code_samples/api/public_php_api/src/Command/FindWithAggregationCommand.php', 46, 49) =]]
+[[= include_file('code_samples/api/public_php_api/src/Command/FindWithAggregationCommand.php', 51, 54) =]]
 ```
 
 With field aggregations you can group search results according to the value of a specific field.
@@ -347,14 +347,14 @@ In this case the aggregation takes the content type identifier and the field ide
 The following example creates an aggregation named `selection` that groups results according to the value of the `topic` field in the `article` content type:
 
 ``` php
-[[= include_file('code_samples/api/public_php_api/src/Command/FindWithAggregationCommand.php', 39, 40) =]]
+[[= include_file('code_samples/api/public_php_api/src/Command/FindWithAggregationCommand.php', 44, 45) =]]
 ```
 
 With term aggregation you can define additional limits to the results.
 The following example limits the number of terms returned to 5 and only considers terms that have 10 or more results:
 
 ``` php
-[[= include_file('code_samples/api/public_php_api/src/Command/FindWithAggregationCommand.php', 34, 37) =]]
+[[= include_file('code_samples/api/public_php_api/src/Command/FindWithAggregationCommand.php', 39, 42) =]]
 ```
 
 To use a range aggregation, you must provide a `ranges` array containing a set of `Range` objects that define the borders of the specific range sets.

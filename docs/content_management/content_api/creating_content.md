@@ -21,7 +21,7 @@ Value objects such as content items are read-only, so to create or modify them y
 returns a new [`ContentCreateStruct`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-ContentCreateStruct.html) object.
 
 ``` php hl_lines="2-3 5"
-[[= include_file('code_samples/api/public_php_api/src/Command/CreateContentCommand.php', 57, 66) =]]
+[[= include_file('code_samples/api/public_php_api/src/Command/CreateContentCommand.php', 62, 71) =]]
 ```
 
 This command creates a draft using [`ContentService::createContent`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-ContentService.html#method_createContent) (line 7).
@@ -42,7 +42,7 @@ Therefore, when creating a content item of the Image type (or any other content 
 the `ContentCreateStruct` is slightly more complex than in the previous example:
 
 ``` php
-[[= include_file('code_samples/api/public_php_api/src/Command/CreateImageCommand.php', 56, 69) =]]
+[[= include_file('code_samples/api/public_php_api/src/Command/CreateImageCommand.php', 61, 74) =]]
 ```
 
 Value of the Image field type contains the path to the image file and other basic information based on the input file.
@@ -66,7 +66,7 @@ To publish it, use [`ContentService::publishVersion`](/api/php_api/php_api_refer
 This method must get the [`VersionInfo`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-VersionInfo.html) object of a draft version.
 
 ``` php
-[[= include_file('code_samples/api/public_php_api/src/Command/CreateContentCommand.php', 68, 69) =]]
+[[= include_file('code_samples/api/public_php_api/src/Command/CreateContentCommand.php', 73, 74) =]]
 ```
 
 ## Updating content
@@ -76,7 +76,7 @@ and pass it to [`ContentService::updateContent`](/api/php_api/php_api_reference/
 This method works on a draft, so to publish your changes you need to use [`ContentService::publishVersion`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-ContentService.html#method_publishVersion) as well:
 
 ``` php
-[[= include_file('code_samples/api/public_php_api/src/Command/UpdateContentCommand.php', 47, 55) =]]
+[[= include_file('code_samples/api/public_php_api/src/Command/UpdateContentCommand.php', 52, 60) =]]
 ```
 
 ## Translating content
@@ -86,15 +86,15 @@ Content [translations](languages.md#language-versions) are created per version. 
 To translate a content item to a new language, you need to update it and provide a new `initialLanguageCode`:
 
 ``` php
-[[= include_file('code_samples/api/public_php_api/src/Command/TranslateContentCommand.php', 52, 57) =]]
-[[= include_file('code_samples/api/public_php_api/src/Command/TranslateContentCommand.php', 62, 64) =]]
+[[= include_file('code_samples/api/public_php_api/src/Command/TranslateContentCommand.php', 57, 62) =]]
+[[= include_file('code_samples/api/public_php_api/src/Command/TranslateContentCommand.php', 67, 69) =]]
 ```
 
 You can also update content in multiple languages at once using the `setField` method's third argument.
 Only one language can still be set as a version's initial language:
 
 ``` php
-[[= include_file('code_samples/api/public_php_api/src/Command/TranslateContentCommand.php', 59, 60) =]]
+[[= include_file('code_samples/api/public_php_api/src/Command/TranslateContentCommand.php', 64, 65) =]]
 ```
 
 ### Deleting a translation

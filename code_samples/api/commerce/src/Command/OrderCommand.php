@@ -21,10 +21,14 @@ use Ibexa\Contracts\OrderManagement\Value\OrderValue;
 use Ibexa\Contracts\OrderManagement\Value\Struct\OrderCreateStruct;
 use Ibexa\Contracts\OrderManagement\Value\Struct\OrderUpdateStruct;
 use Money;
+use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
+#[AsCommand(
+    name: 'doc:order'
+)]
 final class OrderCommand extends Command
 {
     private PermissionResolver $permissionResolver;
@@ -42,14 +46,14 @@ final class OrderCommand extends Command
         $this->permissionResolver = $permissionResolver;
         $this->userService = $userService;
 
-        parent::__construct('doc:order');
+        parent::__construct();
     }
 
     public function configure(): void
     {
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $currentUser = $this->userService->loadUserByLogin('admin');
         $this->permissionResolver->setCurrentUserReference($currentUser);

@@ -7,11 +7,15 @@ use Ibexa\Contracts\Core\Repository\Values\Content\Query;
 use Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion;
 use Ibexa\Contracts\Core\Repository\Values\Content\Query\SortClause;
 use Ibexa\Contracts\Core\Repository\Values\Filter\Filter;
+use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
+#[AsCommand(
+    name: 'doc:filter'
+)]
 class FilterCommand extends Command
 {
     private ContentService $contentService;
@@ -19,7 +23,8 @@ class FilterCommand extends Command
     public function __construct(ContentService $contentService)
     {
         $this->contentService = $contentService;
-        parent::__construct('doc:filter');
+
+        parent::__construct();
     }
 
     public function configure(): void

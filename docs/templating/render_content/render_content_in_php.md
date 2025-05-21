@@ -19,16 +19,6 @@ It's compatible with the default installation views such as `line` or `embed`.
 To go further with this example, you could add some dedicated views not outputting HTML but, for example, plain text, [Symfony command styled text]([[= symfony_doc =]]/console/coloring.html) or Markdown.
 It doesn't work with a `full` view when the [page layout](template_configuration.md#page-layout) uses `app.request`, such as the out-of-the-box template.
 
-Append to `config/services.yaml` the command as a service:
-
-```yaml
-services:
-    #…
-    App\Command\ViewCommand:
-        tags:
-            - { name: 'console.command', command: 'app:view' }
-```
-
 Create the command in `src/Command/ViewCommand.php`:
 
 ```php hl_lines="57-61"

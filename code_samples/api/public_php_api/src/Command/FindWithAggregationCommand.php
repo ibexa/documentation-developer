@@ -7,10 +7,14 @@ use Ibexa\Contracts\Core\Repository\Values\Content\LocationQuery;
 use Ibexa\Contracts\Core\Repository\Values\Content\Query\Aggregation\ContentTypeTermAggregation;
 use Ibexa\Contracts\Core\Repository\Values\Content\Query\Aggregation\Field\SelectionTermAggregation;
 use Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion;
+use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
+#[AsCommand(
+    name: 'doc:find_with_aggregation'
+)]
 class FindWithAggregationCommand extends Command
 {
     private SearchService $searchService;
@@ -18,7 +22,8 @@ class FindWithAggregationCommand extends Command
     public function __construct(SearchService $searchService)
     {
         $this->searchService = $searchService;
-        parent::__construct('doc:find_with_aggregation');
+
+        parent::__construct();
     }
 
     protected function configure(): void

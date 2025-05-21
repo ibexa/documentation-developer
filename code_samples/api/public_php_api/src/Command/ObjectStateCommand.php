@@ -6,11 +6,15 @@ use Ibexa\Contracts\Core\Repository\ContentService;
 use Ibexa\Contracts\Core\Repository\ObjectStateService;
 use Ibexa\Contracts\Core\Repository\PermissionResolver;
 use Ibexa\Contracts\Core\Repository\UserService;
+use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
+#[AsCommand(
+    name: 'doc:object_state'
+)]
 class ObjectStateCommand extends Command
 {
     private ContentService $contentService;
@@ -27,7 +31,8 @@ class ObjectStateCommand extends Command
         $this->userService = $userService;
         $this->objectStateService = $objectStateService;
         $this->permissionResolver = $permissionResolver;
-        parent::__construct('doc:object_state');
+
+        parent::__construct();
     }
 
     protected function configure(): void

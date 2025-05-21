@@ -21,7 +21,7 @@ month_change: false
 Get an individual product by using the `ProductServiceInterface::getProduct()` method:
 
 ``` php
-[[= include_file('code_samples/api/product_catalog/src/Command/ProductCommand.php', 68, 71) =]]
+[[= include_file('code_samples/api/product_catalog/src/Command/ProductCommand.php', 73, 76) =]]
 ```
 
 Find multiple products with `ProductServiceInterface::findProducts()`.
@@ -29,7 +29,7 @@ Find multiple products with `ProductServiceInterface::findProducts()`.
 Provide the method with optional filter, query or Sort Clauses.
 
 ``` php
-[[= include_file('code_samples/api/product_catalog/src/Command/ProductCommand.php', 72, 82) =]]
+[[= include_file('code_samples/api/product_catalog/src/Command/ProductCommand.php', 77, 87) =]]
 ```
 
 See [Product Search Criteria](product_search_criteria.md) and [Product Sort Clauses](product_sort_clauses.md) references for more information about how to use the [`ProductQuery`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Values-Product-ProductQuery.html) class.
@@ -39,7 +39,7 @@ See [Product Search Criteria](product_search_criteria.md) and [Product Sort Clau
 To create, update and delete products, use the `LocalProductServiceInterface`.
 
 ``` php
-[[= include_file('code_samples/api/product_catalog/src/Command/ProductCommand.php', 93, 97) =]]
+[[= include_file('code_samples/api/product_catalog/src/Command/ProductCommand.php', 98, 102) =]]
 ```
 
 To create a product, use `LocalProductServiceInterface::newProductCreateStruct()` to get a [`ProductCreateStruct`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Local-Values-Product-ProductCreateStruct.html).
@@ -47,13 +47,13 @@ Provide the method with the product type object and the main language code.
 You also need to set (at least) the code for the product and the required Field of the underlying content type, `name`:
 
 ``` php
-[[= include_file('code_samples/api/product_catalog/src/Command/ProductCommand.php', 83, 90) =]]
+[[= include_file('code_samples/api/product_catalog/src/Command/ProductCommand.php', 88, 95) =]]
 ```
 
 To delete a product, use `LocalProductServiceInterface::deleteProduct()`:
 
 ``` php
-[[= include_file('code_samples/api/product_catalog/src/Command/ProductCommand.php', 120, 121) =]]
+[[= include_file('code_samples/api/product_catalog/src/Command/ProductCommand.php', 125, 126) =]]
 ```
 
 ### Product variants
@@ -65,13 +65,13 @@ A `ProductVariantQuery` lets you define the offset and limit of the variant quer
 The default offset is 0, and limit is 25.
 
 ``` php
-[[= include_file('code_samples/api/product_catalog/src/Command/ProductVariantCommand.php', 57, 60) =]]
+[[= include_file('code_samples/api/product_catalog/src/Command/ProductVariantCommand.php', 62, 65) =]]
 ```
 
 From a variant ([`ProductVariantInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Values-ProductVariantInterface.html)), you can access the attributes that are used to generate the variant by using `ProductVariantInterface::getDiscriminatorAttributes()`.
 
 ``` php
-[[= include_file('code_samples/api/product_catalog/src/Command/ProductVariantCommand.php', 61, 68) =]]
+[[= include_file('code_samples/api/product_catalog/src/Command/ProductVariantCommand.php', 66, 73) =]]
 ```
 
 #### Creating variants
@@ -81,7 +81,7 @@ This method takes the product and an array of [`ProductVariantCreateStruct`](/ap
 `ProductVariantCreateStruct` specifies the attribute values and the code for the new variant.
 
 ``` php
-[[= include_file('code_samples/api/product_catalog/src/Command/ProductVariantCommand.php', 70, 76) =]]
+[[= include_file('code_samples/api/product_catalog/src/Command/ProductVariantCommand.php', 75, 81) =]]
 ```
 
 ### Product assets
@@ -91,14 +91,14 @@ You can get assets assigned to a product by using [`AssetServiceInterface`](/api
 Use `AssetServiceInterface` to get a single asset by providing the product object and the assets's ID as parameters:
 
 ``` php
-[[= include_file('code_samples/api/product_catalog/src/Command/ProductAssetCommand.php', 54, 56) =]]
+[[= include_file('code_samples/api/product_catalog/src/Command/ProductAssetCommand.php', 59, 61) =]]
 ```
 
 To get all assets assigned to a product, use `AssetServiceInterface::findAssets()`.
 You can retrieve the tags (corresponding to attribute values) of assets with the `AssetInterface::getTags()` method:
 
 ``` php
-[[= include_file('code_samples/api/product_catalog/src/Command/ProductAssetCommand.php', 57, 66) =]]
+[[= include_file('code_samples/api/product_catalog/src/Command/ProductAssetCommand.php', 62, 71) =]]
 ```
 
 ## Product types
@@ -108,13 +108,13 @@ To work with product types, use [`ProductTypeServiceInterface`](/api/php_api/php
 Get a product type object by using `ProductTypeServiceInterface::getProductType()`:
 
 ``` php
-[[= include_file('code_samples/api/product_catalog/src/Command/ProductTypeCommand.php', 43, 44) =]]
+[[= include_file('code_samples/api/product_catalog/src/Command/ProductTypeCommand.php', 48, 49) =]]
 ```
 
 You can also get a list of product types with `ProductTypeServiceInterface::findProductTypes()`:
 
 ``` php
-[[= include_file('code_samples/api/product_catalog/src/Command/ProductTypeCommand.php', 47, 52) =]]
+[[= include_file('code_samples/api/product_catalog/src/Command/ProductTypeCommand.php', 52, 57) =]]
 ```
 
 ## Product availability
@@ -128,14 +128,14 @@ Get the availability object with `ProductAvailabilityServiceInterface::getAvaila
 You can then use `ProductAvailabilityServiceInterface::getStock()` to get the stock number for the product:
 
 ```php
-[[= include_file('code_samples/api/product_catalog/src/Command/ProductCommand.php', 104, 109) =]]        }
+[[= include_file('code_samples/api/product_catalog/src/Command/ProductCommand.php', 109, 114) =]]        }
 ```
 
 To change availability for a product, use `ProductAvailabilityServiceInterface::updateProductAvailability()` with a [`ProductAvailabilityUpdateStruct`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Values-Availability-ProductAvailabilityUpdateStruct.html) and provide it with the product object.
 The second parameter defines whether product is available, and the third whether its stock is infinite. The fourth parameter is the stock number:
 
 ``` php
-[[= include_file('code_samples/api/product_catalog/src/Command/ProductCommand.php', 112, 115) =]]
+[[= include_file('code_samples/api/product_catalog/src/Command/ProductCommand.php', 117, 120) =]]
 ```
 
 ## Attributes
@@ -146,24 +146,24 @@ To get information about product attribute groups, use the [`AttributeGroupServi
 `AttributeGroupServiceInterface::findAttributeGroups()` gets attribute groups, all of them or filtered with an optional [`AttributeGroupQuery`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Values-AttributeGroup-AttributeGroupQuery.html) object:
 
 ``` php
-[[= include_file('code_samples/api/product_catalog/src/Command/AttributeCommand.php', 71, 72) =]]
-[[= include_file('code_samples/api/product_catalog/src/Command/AttributeCommand.php', 92, 97) =]]
+[[= include_file('code_samples/api/product_catalog/src/Command/AttributeCommand.php', 75, 76) =]]
+[[= include_file('code_samples/api/product_catalog/src/Command/AttributeCommand.php', 96, 102) =]]
 ```
 
 To create an attribute group, use `LocalAttributeGroupServiceinterface::createAttributeGroup()` and provide it with an [`AttributeGroupCreateStruct`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Local-Values-AttributeGroup-AttributeGroupCreateStruct.html):
 
 ``` php
-[[= include_file('code_samples/api/product_catalog/src/Command/AttributeCommand.php', 66, 70) =]]
+[[= include_file('code_samples/api/product_catalog/src/Command/AttributeCommand.php', 69, 75) =]]
 ```
 
 To get information about product attributes, use the [`AttributeDefinitionServiceInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-AttributeDefinitionServiceInterface.html), or [`LocalAttributeDefinitionServiceInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Local-LocalAttributeDefinitionServiceInterface.html) to modify attributes.
 
 ``` php
-[[= include_file('code_samples/api/product_catalog/src/Command/AttributeCommand.php', 78, 80) =]]
+[[= include_file('code_samples/api/product_catalog/src/Command/AttributeCommand.php', 81, 85) =]]
 ```
 
 To create an attribute, use `LocalAttributeGroupServiceinterface::createAttributeDefinition()` and provide it with an [`AttributeDefinitionCreateStruct`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Local-Values-AttributeDefinition-AttributeDefinitionCreateStruct.html):
 
 ``` php
-[[= include_file('code_samples/api/product_catalog/src/Command/AttributeCommand.php', 83, 89) =]]
+[[= include_file('code_samples/api/product_catalog/src/Command/AttributeCommand.php', 86, 94) =]]
 ```

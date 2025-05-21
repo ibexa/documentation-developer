@@ -4,15 +4,17 @@ namespace App\Command;
 
 use Ibexa\Core\MVC\Symfony\View\Builder\ContentViewBuilder;
 use Ibexa\Core\MVC\Symfony\View\Renderer\TemplateRenderer;
+use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 
+#[AsCommand(
+    name: 'app:view'
+)]
 class ViewCommand extends Command
 {
-    protected static $defaultName = 'app:view';
-
     private ContentViewBuilder $contentViewBuilder;
 
     private TemplateRenderer $templateRenderer;
@@ -21,9 +23,10 @@ class ViewCommand extends Command
         ContentViewBuilder $contentViewBuilder,
         TemplateRenderer $templateRenderer
     ) {
-        parent::__construct(self::$defaultName);
         $this->contentViewBuilder = $contentViewBuilder;
         $this->templateRenderer = $templateRenderer;
+
+        parent::__construct();
     }
 
     protected function configure(): void

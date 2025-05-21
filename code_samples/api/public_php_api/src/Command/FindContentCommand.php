@@ -5,11 +5,15 @@ namespace App\Command;
 use Ibexa\Contracts\Core\Repository\SearchService;
 use Ibexa\Contracts\Core\Repository\Values\Content\LocationQuery;
 use Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion;
+use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
+#[AsCommand(
+    name: 'doc:find_content'
+)]
 class FindContentCommand extends Command
 {
     private SearchService $searchService;
@@ -17,7 +21,8 @@ class FindContentCommand extends Command
     public function __construct(SearchService $searchService)
     {
         $this->searchService = $searchService;
-        parent::__construct('doc:find_content');
+
+        parent::__construct();
     }
 
     protected function configure(): void
@@ -29,7 +34,7 @@ class FindContentCommand extends Command
             ]);
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $contentTypeIdentifier = $input->getArgument('contentTypeIdentifier');
 

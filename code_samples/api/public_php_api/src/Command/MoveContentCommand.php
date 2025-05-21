@@ -5,11 +5,15 @@ namespace App\Command;
 use Ibexa\Contracts\Core\Repository\LocationService;
 use Ibexa\Contracts\Core\Repository\PermissionResolver;
 use Ibexa\Contracts\Core\Repository\UserService;
+use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
+#[AsCommand(
+    name: 'doc:move_content'
+)]
 class MoveContentCommand extends Command
 {
     private LocationService $locationService;
@@ -23,7 +27,8 @@ class MoveContentCommand extends Command
         $this->locationService = $locationService;
         $this->userService = $userService;
         $this->permissionResolver = $permissionResolver;
-        parent::__construct('doc:move_content');
+
+        parent::__construct();
     }
 
     protected function configure(): void

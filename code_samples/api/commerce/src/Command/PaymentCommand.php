@@ -16,10 +16,14 @@ use Ibexa\Contracts\Payment\Payment\Query\Criterion\LogicalOr;
 use Ibexa\Contracts\Payment\PaymentMethodServiceInterface;
 use Ibexa\Contracts\Payment\PaymentServiceInterface;
 use Money;
+use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
+#[AsCommand(
+    name: 'doc:payment'
+)]
 final class PaymentCommand extends Command
 {
     private PermissionResolver $permissionResolver;
@@ -45,14 +49,14 @@ final class PaymentCommand extends Command
         $this->orderService = $orderService;
         $this->paymentMethodService = $paymentMethodService;
 
-        parent::__construct('doc:payment');
+        parent::__construct();
     }
 
     public function configure(): void
     {
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $currentUser = $this->userService->loadUserByLogin('admin');
         $this->permissionResolver->setCurrentUserReference($currentUser);
@@ -66,6 +70,9 @@ final class PaymentCommand extends Command
         // Get a single payment by identifier
         $paymentIdentifier = '4ac4b8a0-eed8-496d-87d9-32a960a10629';
         $payment = $this->paymentService->getPaymentByIdentifier($paymentIdentifier);
+
+        $context = $payment->getContext();
+        // Will be overridden later but used to illustrate `getContext()`
 
         $output->writeln(sprintf('Your payment for transaction has status %s', $payment->getStatus()));
 
