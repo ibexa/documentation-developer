@@ -142,7 +142,7 @@ To use Composer to instantly create a project in the current folder with all the
     You can set [different version constraints](https://getcomposer.org/doc/articles/versions.md), for example, specific tag (`[[= latest_tag_5_0 =]]`), version range (`~5.0.1`), or stability (`^5.0@rc`):
 
     ``` bash
-    composer create-project ibexa/experience-skeleton:[[= latest_tag_4_6 =]] .
+    composer create-project ibexa/experience-skeleton:[[= latest_tag_5_0 =]] .
     ```
 
 !!! note "Platform.sh"
