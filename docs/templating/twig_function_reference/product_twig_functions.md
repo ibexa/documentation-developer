@@ -11,7 +11,7 @@ The `ibexa_get_product()` filter gets the selected product based on either a pro
 
 #### Examples
 
-``` hmml+twig
+``` html+twig
 {{ (product|ibexa_get_product).code }}
 {{ (content|ibexa_get_product).code }}
 ```

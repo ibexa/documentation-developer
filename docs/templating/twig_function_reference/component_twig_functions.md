@@ -12,7 +12,7 @@ You can pass optional parameters as the second argument. They are passed to the 
 
 ### Examples
 
-``` hmml+twig
+``` html+twig
 {{ ibexa_twig_component_group('storefront-before-maincart', {
     'cart' : cart|default(null)
 }) }}
@@ -25,7 +25,7 @@ You can pass optional parameters as the third argument. They are passed to the `
 
 ### Examples
 
-``` hmml+twig
+``` html+twig
 {{ ibexa_twig_component('storefront-before-maincart', 'my-component', {
     'cart' : cart|default(null)
 }) }}
