@@ -1,0 +1,41 @@
+ibexa_twig_components:
+    admin-ui-user-menu:
+        custom-html-component:
+            type: html
+            arguments:
+                content: '<b>Hello world!</b>'
+        custom-template-component:
+            type: template
+            arguments:
+                template: '@ibexadesign/ui/component/user_thumbnail/user_thumbnail.html.twig'
+                parameters:
+                    user_content:
+                        name: "Thumbnail"
+                        thumbnail:
+                            resource: https://placecats.com/100/100
+        custom-controller-component:
+            type: controller
+            arguments:
+                controller: '\App\Controller\MyController::requestAction'
+                parameters:
+                    parameter1: 'custom'
+                    parameter2: true
+    admin-ui-stylesheet-head:
+        custom-link-component:
+            type: stylesheet
+            arguments:
+                href: 'https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback'
+                rel: stylesheet
+                crossorigin: anonymous
+                integrity: sha384-LN/mLhO/GN6Ge8ZPvI7uRsZpiXmtSkep+aFlJcHa8by4TvA34o1am9sa88eUzKTD
+                type: text/css
+    admin-ui-script-head:
+        custom-script-component:
+            type: script
+            arguments:
+                src: 'https://doc.ibexa.co/en/latest/js/custom.js'
+                crossorigin: anonymous
+                defer: false
+                async: true
+                integrity: sha384-Ewi2bBDtPbbu4/+fs8sIbBJ3zVl0LDOSznfhFR/JBK+SzggdRdX8XQKauWmI9HH2
+                type: text/javascript

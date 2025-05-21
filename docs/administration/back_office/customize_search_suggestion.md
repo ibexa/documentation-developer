@@ -135,7 +135,7 @@ The example template for this wrapping node is stored in `templates/themes/admin
 - At Twig level, it includes the item template, replaces Twig variables with the strings used by the JS renderer,
   and passes it to the [`escape` filter](https://twig.symfony.com/doc/3.x/filters/escape.html) with the HTML attribute strategy.
 
-To be present, this wrapping node template must be added to the `global-search-autocomplete-templates` group of tabs components:
+To be present, this wrapping node template must be added to the `admin-ui-global-search-autocomplete-templates` group of tabs components:
 
 ``` yaml
 services:

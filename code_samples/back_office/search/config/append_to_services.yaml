@@ -25,7 +25,7 @@ services:
             $template: '@@ibexadesign/ui/global_search_autocomplete_product_template.html.twig'
             $groupIdentifier: 'global-search-autocomplete-product'
         tags:
-            - { name: ibexa.admin_ui.component, group: global-search-autocomplete-templates }
+            - { name: ibexa.twig.component, group: global-search-autocomplete-templates }
 
     App\Search\SortingDefinition\Provider\SectionNameSortingDefinitionProvider:
         tags:

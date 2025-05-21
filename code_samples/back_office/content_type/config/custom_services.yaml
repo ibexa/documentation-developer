@@ -4,4 +4,4 @@ services:
         arguments:
             $template: '@@ibexadesign/content_type/edit/custom_tab.html.twig'
         tags:
-            - { name: ibexa.admin_ui.component, group: 'content-edit-sections' }
+            - { name: ibexa.twig.component, group: 'admin-ui-content-edit-sections' }

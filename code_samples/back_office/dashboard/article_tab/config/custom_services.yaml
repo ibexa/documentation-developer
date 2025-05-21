@@ -10,4 +10,4 @@ services:
         arguments:
             $groupIdentifier: 'custom_group'
         tags:
-            - { name: ibexa.admin_ui.component, group: 'dashboard-blocks' }
+            - { name: ibexa.twig.component, group: 'admin-ui-dashboard-blocks' }
