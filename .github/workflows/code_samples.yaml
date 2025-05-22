@@ -148,9 +148,9 @@ jobs:
         name: Run rector
         runs-on: "ubuntu-22.04"
         strategy:
-        matrix:
-            php:
-            - '8.3'
+            matrix:
+                php:
+                - '8.3'
         steps:
             - uses: actions/checkout@v4
 
