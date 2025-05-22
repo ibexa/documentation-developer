@@ -62,7 +62,10 @@ Compare all features available in [[= product_name_headless =]], [[= product_nam
 LTS Updates are opt-in packages that bring additional features to the [LTS releases](release_process_and_roadmap.md#long-term-support-releases) that they enhance.
 The features brought by LTS Updates become standard parts of the next LTS release.
 
-There aren't any LTS Updates available for the v5 release yet.
+There aren't any LTS Updates available for the v5 release yet. The ones released for 4.6 LTS are included out of the box in [[= product_name =]] 5.0 LTS:
+
+- [AI Actions](ai_actions_guide.md)
+- [Date and time attribute type](date_and_time.md)
 
 
 <!-- | Feature | [[= product_name_headless =]] | [[= product_name_exp =]] | [[= product_name_com =]] |
