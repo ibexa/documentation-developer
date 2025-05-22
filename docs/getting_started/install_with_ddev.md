@@ -378,7 +378,7 @@ git clone <repository> my-ddev-project && cd my-ddev-project
 # Exclude the whole `.ddev/` directory from version control (some DDEV config could have been committed and shared, see notice below)
 .ddev/ >> .gitignore
 # Configure the DDEV project then start it
-ddev config --project-type=php --php-version 8.1 \
+ddev config --project-type=php --php-version 8.3 \
   --docroot=public \
   --web-environment-add DATABASE_URL=mysql://db:db@db:3306/db \
   --http-port=8080 --https-port=8443
