@@ -739,12 +739,6 @@ parameters:
 			path: code_samples/tutorials/page_tutorial_starting_point/src/QueryType/MenuQueryType.php
 
 		-
-			message: '#^Call to an undefined method Symfony\\Component\\Security\\Core\\User\\UserProviderInterface\<Symfony\\Component\\Security\\Core\\User\\UserInterface\>\:\:loadUserByUsername\(\)\.$#'
-			identifier: method.notFound
-			count: 2
-			path: code_samples/user_management/oauth_google/src/OAuth/GoogleResourceOwnerMapper.php
-
-		-
 			message: '#^Parameter \#2 \$email of method Ibexa\\Contracts\\OAuth2Client\\Repository\\OAuth2UserService\:\:newOAuth2UserCreateStruct\(\) expects string, string\|null given\.$#'
 			identifier: argument.type
 			count: 1
