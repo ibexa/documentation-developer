@@ -382,6 +382,11 @@ You should see the welcome page.
 
     See the [Security checklist](security_checklist.md) for a list of security-related issues you should take care of before going live with a project.
 
+### Configure recent activity log
+
+Actions in a repository are logged in its database,
+you may want to [limit this log length by enabling its automatic truncation](recent_activity.md#configuration-and-cronjob).
+
 ### Enable Date-based Publisher
 
 To enable delayed publishing of Content using the Date-based Publisher, you must set up cron to run the `bin/console ibexa:scheduled:run` command periodically.
