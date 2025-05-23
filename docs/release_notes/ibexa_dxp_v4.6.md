@@ -16,7 +16,7 @@ month_change: true
 #### Features
 
 AI Actions can now integrate with [Ibexa Connect]([[= connect_doc =]]), giving you an opportunity to build complex data transformation workflows without having to rely on custom code.
-To learn more, see the [setup instructions for this integration](install_ai_actions.md#configure-access-to-ibexa-connect).
+To learn more, see the [setup instructions for this integration](configure_ai_actions.md#configure-access-to-ibexa-connect).
 
 [[= release_note_entry_end() =]]
 

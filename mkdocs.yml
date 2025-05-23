@@ -335,7 +335,7 @@ nav:
     - AI Actions:
         - AI Actions: ai_actions/ai_actions.md
         - AI Actions guide: ai_actions/ai_actions_guide.md
-        - Install AI Actions: ai_actions/install_ai_actions.md
+        - Configure AI Actions: ai_actions/configure_ai_actions.md
         - Extend AI Actions: ai_actions/extend_ai_actions.md
     - PIM (Product management):
         - PIM (Product management): pim/pim.md

@@ -1,6 +1,5 @@
 ---
-description: AI Actions LTS update helps editors by automating repetitive tasks.
-edition: lts-update
+description: AI Actions help editors by automating repetitive tasks.
 month_change: true
 ---
 
@@ -9,12 +8,12 @@ month_change: true
 ## What are AI Actions
 
 Wherever you look, artificial intelligence becomes more and more important by enhancing user interaction and automating complex processes.
-[[= product_name =]] can be equipped with the AI Actions [LTS update](editions.md#lts-updates), which harnesses AI's potential to automate time-consuming editorial tasks.
+[[= product_name =]] is equipped with the AI Actions feature, which harnesses AI's potential to automate time-consuming editorial tasks.
 AI Actions is an extensible solution for integrating features provided by AI services into your workflows, all managed through a user-friendly interface.
 
 Out-of-the-box, AI Actions solution includes two essential components: a framework package and an OpenAI connector package.
 
-As of version v4.6.19, AI Actions can integrate with [[[= product_name_connect =]]]([[= connect_doc =]]/general/ibexa_connect/), to give you an opportunity to build complex data transformation workflows without having to rely on custom code.
+AI Actions can integrate with [[[= product_name_connect =]]]([[= connect_doc =]]/general/ibexa_connect/), to give you an opportunity to build complex data transformation workflows without having to rely on custom code.
 From the developer's perspective, the integration removes the burden of maintaining third-party AI handlers, and accelerates the deployment of AI-based solutions.
 
 AI Actions solution comes pre-configured with the following action types:
@@ -30,15 +29,14 @@ The possibilities are endless and you're not limited to a specific AI service, a
 
 ## Availability
 
-AI Actions are an opt-in capability available as an [LTS update](editions.md#lts-updates) starting with the v4.6.12 version of [[= product_name =]], regardless of its edition.
-[[= product_name_connect =]] integration is available starting with v4.6.19.
-To begin using AI Actions, you must first [install the required packages and perform initial configuration](install_ai_actions.md).
+[[= product_name_cloud =]] is available in all [[= product_name =]] editions.
+To begin using AI Actions, you must first [perform the initial configuration](configure_ai_actions.md).
 
 ### Prerequisites
 
 The OpenAI connector requires that you first [get an API key](https://help.openai.com/en/articles/4936850-where-do-i-find-my-openai-api-key) and make sure that you [set up a billing method](https://help.openai.com/en/articles/9038407-how-can-i-set-up-billing-for-my-account).
 
-Integration with [[= product_name_connect =]] requires that you first [get the credentials]([[= connect_doc =]]/general/ibexa_connect/#access-ibexa-connect) to your account, and the [API token](install_ai_actions.md#create-token).
+Integration with [[= product_name_connect =]] requires that you first [get the credentials]([[= connect_doc =]]/general/ibexa_connect/#access-ibexa-connect) to your account, and the [API token](configure_ai_actions.md#create-token).
 
 !!! note "[[= product_name_connect =]] Availability"
 
@@ -47,7 +45,7 @@ Integration with [[= product_name_connect =]] requires that you first [get the c
 
 ## How it works
 
-AI Actions LTS update relies on an extensible AI framework, which is responsible for gathering information from various sources, such as AI action types, AI action configurations, and contextual details like SiteAccess, user details, locale settings, and more.
+AI Actions rely on an extensible AI framework, which is responsible for gathering information from various sources, such as AI action types, AI action configurations, and contextual details like SiteAccess, user details, locale settings, and more.
 This data can then be combined with user input.
 It's then passed to a service connector, such as the default OpenAI connector or the [[= product_name_connect =]] connector, for final processing on [[= product_name =]] side.
 The service connector wraps all data into a prompt or another suitable format and sends it to an external service.
@@ -101,7 +99,7 @@ Handlers take parameters defined in the AI action type and configuration, combin
 
 ### Triggering actions from the UI
 
-Among other elements, AI Actions LTS update includes UI components that are used in:
+Among other elements, AI Actions include UI components that are used in:
 
 - AI action management in the **Admin** panel
 - text modification in online editor
@@ -113,7 +111,7 @@ Procedures are straightforward and intuitive, ensuring that users can quickly ac
 
 ### Triggering actions programmatically
 
-AI Actions LTS update exposes a REST API interface that allows for programmatic execution of AI actions.
+AI Actions feature exposes a REST API interface that allows for programmatic execution of AI actions.
 With the API, developers can automate tasks and execute actions on batches of content by integrating them into workflows.
 For more information, see the [AI actions section in the REST API Reference](../api/rest_api/rest_api_reference/rest_api_reference.html#ai-actions-execute-ai-action).
 
@@ -132,7 +130,7 @@ By accessing the detailed view of individual AI actions, you can quickly review 
 
 ### Extensibility
 
-Built-in AI action types offer a good starting point, but the real power of the AI Actions LTS update lies in extensibility.
+Built-in AI action types offer a good starting point, but the real power of AI Actions lies in extensibility.
 Extending AI Actions opens up new possibilities for content management and editing.
 Developers can define new models and AI action types that use the existing AI service or even integrate additional services.
 The latter involves developing a new service connector, writing a handler that communicates with the new service, defining a new AI action type, and creating a form for configuring options, which extends the default action configuration form shown in the **Admin** panel.
@@ -140,7 +138,7 @@ For example, if this is your organization's requirement, a developer could write
 
 ## Use cases
 
-Out of the box, after you configure access to the OpenAI service, the [[= product_name_base =]] AI Actions LTS update comes with two action types that can help your organization with the following tasks.
+Out of the box, after you configure access to the OpenAI service, the [[= product_name_base =]] AI Actions come with two action types that can help your organization with the following tasks.
 
 ### Refining text
 
