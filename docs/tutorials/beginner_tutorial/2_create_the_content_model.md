@@ -33,7 +33,7 @@ More than one Ride can visit the same Landmark, so it's similar to an N-N relati
 
 In this step you add the first content type, Ride.
 
-Go to the admin interface (`<yourdomain>/admin`) and log in with the default username: `admin` and the default password: `publish`. 
+Go to the admin interface (`<yourdomain>/admin`) and log in with the default username: `admin` using the password specified during installation.
 
 In the upper-right corner, click the avatar icon to unfold the drop-down menu and disable the [Focus mode]([[= user_doc =]]/getting_started/discover_ui/#focus-mode).
 

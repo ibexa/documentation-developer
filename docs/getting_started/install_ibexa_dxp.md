@@ -247,6 +247,20 @@ php bin/console ibexa:graphql:generate-schema
 
 Before executing the command make sure that the database user has sufficient permissions.
 
+The installer will prompt you for a new password for the `admin` user.
+Make sure to use a [strong password](security_checklist.md#strong-passwords) meeting all the [password rules](passwords.md#password-rules).
+
+!!! note
+
+	In scenarios where entering the new password isn't possible, for example, in automated deployments and Continuous Integration environments, use the `--no-interaction` option to skip changing the password and keep the default one, `publish`:
+
+    ``` bash
+    php bin/console ibexa:install --no-interaction
+    php bin/console ibexa:graphql:generate-schema
+    ```
+
+    If doing so, [modify the password for the `admin` user](update_basic_user_data.md#change-password) before [going live with your project](security_checklist.md).
+
 ### Run post-installation script
 
 Run the post-installation script with the following command:
