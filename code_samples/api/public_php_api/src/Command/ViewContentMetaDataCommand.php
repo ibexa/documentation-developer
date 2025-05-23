@@ -15,9 +15,7 @@ use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
-#[AsCommand(
-    name: 'doc:view_metadata'
-)]
+#[AsCommand(name: 'doc:view_metadata', description: 'Output various metadata about a content item.')]
 class ViewContentMetaDataCommand extends Command
 {
     private ContentService $contentService;
@@ -47,7 +45,6 @@ class ViewContentMetaDataCommand extends Command
     protected function configure(): void
     {
         $this
-            ->setDescription('Output various metadata about a content item.')
             ->setDefinition([
                 new InputArgument('contentId', InputArgument::REQUIRED, 'An existing content ID'),
             ]);

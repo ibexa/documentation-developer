@@ -38,6 +38,9 @@ jobs:
             - name: Run PHPStan analysis
               run: composer phpstan
 
+            - name: Run rector
+              run: vendor/bin/rector process --dry-run --ansi
+
     code-samples-inclusion-check:
         name: Check code samples inclusion
         runs-on: ubuntu-latest

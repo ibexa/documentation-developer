@@ -11,9 +11,7 @@ use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
-#[AsCommand(
-    name: 'doc:set_main_location'
-)]
+#[AsCommand(name: 'doc:set_main_location', description: 'Set a Location as content item\'s main')]
 class SetMainLocationCommand extends Command
 {
     private ContentService $contentService;
@@ -34,7 +32,6 @@ class SetMainLocationCommand extends Command
     protected function configure(): void
     {
         $this
-            ->setDescription('Set a Location as content item\'s main')
             ->setDefinition([
                 new InputArgument('contentId', InputArgument::REQUIRED, 'The Content ID'),
                 new InputArgument('locationId', InputArgument::REQUIRED, 'One of the Locations of the Content'),

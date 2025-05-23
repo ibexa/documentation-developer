@@ -13,9 +13,7 @@ use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
-#[AsCommand(
-    name: 'doc:find_url'
-)]
+#[AsCommand(name: 'doc:find_url', description: 'Finds all valid URLs in the provided Section.')]
 class FindUrlCommand extends Command
 {
     private URLService $urlService;
@@ -31,12 +29,6 @@ class FindUrlCommand extends Command
         $this->permissionResolver = $permissionResolver;
 
         parent::__construct();
-    }
-
-    protected function configure(): void
-    {
-        $this
-            ->setDescription('Finds all valid URLs in the provided Section.');
     }
 
     protected function execute(InputInterface $input, OutputInterface $output): int

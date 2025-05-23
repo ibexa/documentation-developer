@@ -11,9 +11,7 @@ use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
-#[AsCommand(
-    name: 'doc:update_content'
-)]
+#[AsCommand(name: 'doc:update_content', description: 'Update provided content item with a new name')]
 class UpdateContentCommand extends Command
 {
     private ContentService $contentService;
@@ -34,7 +32,6 @@ class UpdateContentCommand extends Command
     protected function configure(): void
     {
         $this
-            ->setDescription('Update provided content item with a new name')
             ->setDefinition([
                 new InputArgument('contentId', InputArgument::REQUIRED, 'Content ID'),
                 new InputArgument('newName', InputArgument::REQUIRED, 'New name for the updated content item'),
