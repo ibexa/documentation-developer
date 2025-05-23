@@ -78,7 +78,7 @@ export COMPOSER_ROOT_VERSION=$DXP_VERSION;
 
 if [ 0 -eq $DXP_ALREADY_EXISTS ]; then
   for additional_package in "${DXP_ADD_ONS[@]}"; do
-    composer require --no-interaction --ignore-platform-reqs --no-scripts ibexa/$additional_package:$DXP_VERSION
+    composer require --no-interaction --ignore-platform-reqs --no-scripts ibexa/$additional_package:$DXP_VERSION;
   done;
 fi;
 
