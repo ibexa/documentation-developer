@@ -43,7 +43,7 @@ It follows the same search query pattern as other APIs:
 
 ## Create order
 
-To create an order, use the `OrderService::createOrder` method and provide it with the `Ibexa\Contracts\OrderManagement\Value\OrderCreateStruct` object that contains a list of products, purchased quantities, product, total prices, and tax amounts.
+To create an order, use the `OrderService::createOrder` method and provide it with the [`Ibexa\Contracts\OrderManagement\Value\Struct\OrderCreateStruct`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-OrderManagement-Value-Struct-OrderCreateStruct.html) object that contains a list of products, purchased quantities, product, total prices, and tax amounts.
 
 ``` php
 [[= include_file('code_samples/api/commerce/src/Command/OrderCommand.php', 97, 108) =]]
