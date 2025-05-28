@@ -15,15 +15,15 @@ month_change: true
 
 #### Twig Components
 
-- The new [Twig Components]((https://doc.ibexa.co/en/latest/templating/components/) feature allow you to effortlessly build customizable and reusable Twig templates in [[= product_name =]]
+- The new [Twig Components](https://doc.ibexa.co/en/latest/templating/components/) feature allow you to effortlessly build customizable and reusable Twig templates in [[= product_name =]]
 
 #### Extending Sub-items view
 
-- Thanks to the new extension point, you can now [add new views or overwrite existing ones in the Sub-items list]((https://doc.ibexa.co/en/latest/administration/back_office/subitems_list/#create-custom-sub-items-list-view)
+- Thanks to the new extension point, you can now [add new views or overwrite existing ones in the Sub-items list](https://doc.ibexa.co/en/latest/administration/back_office/subitems_list/#create-custom-sub-items-list-view)
 
 #### Infrastructure
 
-- MySQL 8.4, Node 20 and Node 22 are now [officially supported]((https://doc.ibexa.co/en/latest/getting_started/requirements/)
+- MySQL 8.4, Node 20 and Node 22 are now [officially supported](https://doc.ibexa.co/en/latest/getting_started/requirements/)
 
 #### PHP API
 
