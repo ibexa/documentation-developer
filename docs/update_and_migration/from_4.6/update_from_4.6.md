@@ -339,6 +339,10 @@ vendor/bin/rector --dry-run
 vendor/bin/rector
 ```
 
+## v4.6.20
+
+No additional steps needed.
+
 [[% include 'snippets/update/notify_support.md' %]]
 
 With the product updated to the latest version, you can now finish the update process or proceed to updating the LTS Updates packages.
@@ -359,7 +363,3 @@ To use the [latest features](ibexa_dxp_v4.6.md) added to them, update them separ
     ```bash
     composer require ibexa/product-catalog-date-time-attribute:[[= latest_tag_4_6 =]]
     ```
-
-## v4.6.20
-
-No additional steps needed.
