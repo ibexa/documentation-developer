@@ -19,7 +19,7 @@ month_change: true
 
 #### Extending Sub-items view
 
-- With help of the new extension point, you can now [add new views or overwrite existing ones in the Sub-items list](subitems_list.md#create-custom-sub-items-list-view)
+- Thanks to the new extension point, you can now [add new views or overwrite existing ones in the Sub-items list](subitems_list.md#create-custom-sub-items-list-view)
 
 #### Infrastructure
 
