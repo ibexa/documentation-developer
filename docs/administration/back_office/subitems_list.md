@@ -1,5 +1,5 @@
 ---
-description: Inject a sub-items list into your back office customizations.
+description: Inject a sub-items list into your back office customizations or customize the view.
 ---
 
 # Sub-items list
@@ -7,41 +7,91 @@ description: Inject a sub-items list into your back office customizations.
 The Sub-items List module is meant to be used as a part of the editorial interface of [[= product_name =]].
 It provides an interface for listing the sub-items of any location.
 
-!!! caution
+## Create custom sub-items list view
 
-    If you want to load the Sub-items module, you need to load the JS code for it in your view, as it's not available by default.
+You can extend the Sub-items List module to replace an existing view or add your own. 
+The example below adds a new timeline view to highlight the modification date.
+
+![Sub-items List module using the new Timeline view](img/subitems/timeline_view.png "Sub-items List module using the new Timeline view")
+
+To recreate it, start by creating the components responsible for rendering the new view.
+You can create two files:
+
+- `assets/js/timeline.view.component.js` responsible for rendering the whole view
+
+``` js
+[[= include_file('code_samples/back_office/subitems/timeline_view/timeline.view.component.js') =]]
+```
+
+- `assets/js/timeline.view.item.component.js` responsible for rendering a single item
+
+``` js
+[[= include_file('code_samples/back_office/subitems/timeline_view/timeline.view.item.component.js') =]]
+```
+
+Provide the necessary styling in `assets/scss/timeline.view.scss`. The example below uses [[= product_name =]]'s SCSS variables for consistency with the rest of the back office interface.
+
+``` scss
+[[= include_file('code_samples/back_office/subitems/timeline_view/timeline.view.scss') =]]
+```
+
+The last step is adding the view module to the list of available views in the system, by using the provided `registerView` function.
+
+You can create a new view by providing an unique identifier, or replace an existing one by reusing its identifier.
+The existing view identifiers are defined as JavaScript constants in the `@ibexa-admin-ui-modules/sub-items/constants` module:
+
+- Grid view: `VIEW_MODE_GRID` constant
+- Table view: `VIEW_MODE_TABLE` constant
+
+Create a file called `assets/js/registerTimelineView.js`:
+
+``` js
+[[= include_file('code_samples/back_office/subitems/timeline_view/registerTimelineView.js') =]]
+```
+
+And include it into the back office using Webpack Encore, together with your custom styles.
+See [configuring assets from main project files](importing_assets_from_bundle.md#configuration-from-main-project-files) to learn more about this mechanism.
+
+``` js
+const ibexaConfigManager = require('./ibexa.webpack.config.manager.js');
+
+//...
+
+ibexaConfigManager.add({
+    ibexaConfig,
+    entryName: 'ibexa-admin-ui-layout-js',
+    newItems: [
+        path.resolve(__dirname, './assets/js/registerTimelineView.js')
+    ],
+});
+
+ibexaConfigManager.add({
+    ibexaConfig,
+    entryName: 'ibexa-admin-ui-layout-css',
+    newItems: [
+        path.resolve(__dirname, './assets/scss/timeline.view.scss'),
+    ],
+});
+```
+
+Complete the task by running `composer run post-install-cmd`.
 
 ## Use sub-items list
+
+!!! caution
+
+    If you want to load the Sub-items module from your custom code, you need to load the JS code for it in your view, as it's not available by default.
 
 With plain JS:
 
 ``` js
-const containerNode = document.querySelector('#sub-items-container');
-
-    ReactDOM.render(
-        React.createElement(ibexa.modules.SubItems, {
-            parentLocationId: { Number },
-            restInfo: {
-                token: { String },
-                siteaccess: { String }
-            }
-        }),
-        containerNode
-    );
+[[= include_file('code_samples/back_office/subitems/render_subitems.js') =]]
 ```
 
 With JSX:
 
 ``` jsx
-const attrs = {
-    parentLocationId: {Number},
-    restInfo: {
-        token: {String},
-        siteaccess: {String}
-    }
-};
-
-<SubItemsModule {...attrs}/>
+[[= include_file('code_samples/back_office/subitems/render_subitems.jsx') =]]
 ```
 
 ## Properties list
