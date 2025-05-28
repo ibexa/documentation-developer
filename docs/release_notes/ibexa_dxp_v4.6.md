@@ -23,7 +23,7 @@ month_change: true
 
 #### Infrastructure
 
-- MySQL 8.4, Node 20 and Node 22 are now officially supported
+- MySQL 8.4, Node 20 and Node 22 are now [officially supported](requirements.md)
 
 #### PHP API
 
