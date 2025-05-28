@@ -359,3 +359,7 @@ To use the [latest features](ibexa_dxp_v4.6.md) added to them, update them separ
     ```bash
     composer require ibexa/product-catalog-date-time-attribute:[[= latest_tag_4_6 =]]
     ```
+
+## v4.6.20
+
+No additional steps needed.
