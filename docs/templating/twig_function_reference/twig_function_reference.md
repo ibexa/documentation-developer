@@ -12,6 +12,7 @@ In addition to the [native functions provided by Twig](https://twig.symfony.com/
     "templating/twig_function_reference/catalog_twig_functions",
     "templating/twig_function_reference/checkout_twig_functions",
     "templating/twig_function_reference/content_twig_functions",
+    "templating/twig_function_reference/component_twig_functions",
     "templating/twig_function_reference/field_twig_functions",
     "templating/twig_function_reference/product_twig_functions",
     "templating/twig_function_reference/site_context_twig_functions",
