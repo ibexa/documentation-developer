@@ -1,4 +1,4 @@
-@use '@ibexa-admin-ui/src/bundle/Resources/public/scss/custom.scss' as *;
+@import './public/bundles/ibexaadminui/scss/custom';
 
 .app-timeline-view {
     padding: calculateRem(16px);
