@@ -796,11 +796,6 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/Ibexa-Contracts-AdminUi-Component-Renderable.html"
         },                {
-            "fqsen": "\\Ibexa\\Contracts\\AdminUi\\Component\\Renderable\u003A\u003Arender\u0028\u0029",
-            "name": "render",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-AdminUi-Component-Renderable.html#method_render"
-        },                {
             "fqsen": "\\Ibexa\\Contracts\\AdminUi\\Component\\Renderer\\RendererInterface",
             "name": "RendererInterface",
             "summary": "",
@@ -1105,6 +1100,51 @@ Search.appendIndex(
             "name": "reverseMap",
             "summary": "Maps\u0020Data\u0020object\u0020to\u0020Struct\u0020object.",
             "url": "classes/Ibexa-Contracts-AdminUi-Form-DataMapper-DataMapperInterface.html#method_reverseMap"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\AdminUi\\Menu\\AbstractActionBuilder",
+            "name": "AbstractActionBuilder",
+            "summary": "Base\u0020builder\u0020for\u0020extendable\u0020AdminUI\u0020menus.",
+            "url": "classes/Ibexa-Contracts-AdminUi-Menu-AbstractActionBuilder.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\AdminUi\\Menu\\AbstractActionBuilder\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-AdminUi-Menu-AbstractActionBuilder.html#method___construct"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\AdminUi\\Menu\\AbstractActionBuilder\u003A\u003AcreateActionItem\u0028\u0029",
+            "name": "createActionItem",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-AdminUi-Menu-AbstractActionBuilder.html#method_createActionItem"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\AdminUi\\Menu\\AbstractActionBuilder\u003A\u003AcreateEditDraftButtonAction\u0028\u0029",
+            "name": "createEditDraftButtonAction",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-AdminUi-Menu-AbstractActionBuilder.html#method_createEditDraftButtonAction"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\AdminUi\\Menu\\AbstractActionBuilder\u003A\u003AcreateDraftEditLinkAction\u0028\u0029",
+            "name": "createDraftEditLinkAction",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-AdminUi-Menu-AbstractActionBuilder.html#method_createDraftEditLinkAction"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\AdminUi\\Menu\\AbstractActionBuilder\u003A\u003ATRANSLATION_DOMAIN",
+            "name": "TRANSLATION_DOMAIN",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-AdminUi-Menu-AbstractActionBuilder.html#constant_TRANSLATION_DOMAIN"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\AdminUi\\Menu\\AbstractActionBuilder\u003A\u003AIBEXA_BTN_CONTENT_DRAFT_EDIT_CLASS",
+            "name": "IBEXA_BTN_CONTENT_DRAFT_EDIT_CLASS",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-AdminUi-Menu-AbstractActionBuilder.html#constant_IBEXA_BTN_CONTENT_DRAFT_EDIT_CLASS"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\AdminUi\\Menu\\AbstractActionBuilder\u003A\u003A\u0024translator",
+            "name": "translator",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-AdminUi-Menu-AbstractActionBuilder.html#property_translator"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\AdminUi\\Menu\\AbstractActionBuilder\u003A\u003A\u0024urlGenerator",
+            "name": "urlGenerator",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-AdminUi-Menu-AbstractActionBuilder.html#property_urlGenerator"
         },                {
             "fqsen": "\\Ibexa\\Contracts\\AdminUi\\Menu\\AbstractBuilder",
             "name": "AbstractBuilder",
@@ -39616,6 +39656,11 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/Ibexa-Contracts-ProductCatalog-Form-Data-ProductsSelectorData.html#method_removeProduct"
         },                {
+            "fqsen": "\\Ibexa\\Contracts\\ProductCatalog\\Form\\Data\\ProductsSelectorData\u003A\u003Acount\u0028\u0029",
+            "name": "count",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-ProductCatalog-Form-Data-ProductsSelectorData.html#method_count"
+        },                {
             "fqsen": "\\Ibexa\\Contracts\\ProductCatalog\\Form\\Type\\ProductSelectorType",
             "name": "ProductSelectorType",
             "summary": "",
@@ -51976,6 +52021,141 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/Ibexa-Contracts-Taxonomy-Value-TaxonomyEntryUpdateStruct.html#property_content"
         },                {
+            "fqsen": "\\Ibexa\\Contracts\\TwigComponents\\ComponentInterface",
+            "name": "ComponentInterface",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-TwigComponents-ComponentInterface.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\TwigComponents\\ComponentInterface\u003A\u003Arender\u0028\u0029",
+            "name": "render",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-TwigComponents-ComponentInterface.html#method_render"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\TwigComponents\\ComponentRegistryInterface",
+            "name": "ComponentRegistryInterface",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-TwigComponents-ComponentRegistryInterface.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\TwigComponents\\ComponentRegistryInterface\u003A\u003AaddComponent\u0028\u0029",
+            "name": "addComponent",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-TwigComponents-ComponentRegistryInterface.html#method_addComponent"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\TwigComponents\\ComponentRegistryInterface\u003A\u003AgetComponents\u0028\u0029",
+            "name": "getComponents",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-TwigComponents-ComponentRegistryInterface.html#method_getComponents"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\TwigComponents\\ComponentRegistryInterface\u003A\u003AsetComponents\u0028\u0029",
+            "name": "setComponents",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-TwigComponents-ComponentRegistryInterface.html#method_setComponents"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\TwigComponents\\Event\\RenderGroupEvent",
+            "name": "RenderGroupEvent",
+            "summary": "Event\u0020is\u0020the\u0020base\u0020class\u0020for\u0020classes\u0020containing\u0020event\u0020data.",
+            "url": "classes/Ibexa-Contracts-TwigComponents-Event-RenderGroupEvent.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\TwigComponents\\Event\\RenderGroupEvent\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-TwigComponents-Event-RenderGroupEvent.html#method___construct"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\TwigComponents\\Event\\RenderGroupEvent\u003A\u003AgetGroupName\u0028\u0029",
+            "name": "getGroupName",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-TwigComponents-Event-RenderGroupEvent.html#method_getGroupName"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\TwigComponents\\Event\\RenderGroupEvent\u003A\u003AgetComponents\u0028\u0029",
+            "name": "getComponents",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-TwigComponents-Event-RenderGroupEvent.html#method_getComponents"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\TwigComponents\\Event\\RenderGroupEvent\u003A\u003AsetComponents\u0028\u0029",
+            "name": "setComponents",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-TwigComponents-Event-RenderGroupEvent.html#method_setComponents"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\TwigComponents\\Event\\RenderGroupEvent\u003A\u003AgetParameters\u0028\u0029",
+            "name": "getParameters",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-TwigComponents-Event-RenderGroupEvent.html#method_getParameters"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\TwigComponents\\Event\\RenderGroupEvent\u003A\u003AaddParameter\u0028\u0029",
+            "name": "addParameter",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-TwigComponents-Event-RenderGroupEvent.html#method_addParameter"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\TwigComponents\\Event\\RenderGroupEvent\u003A\u003AaddParameters\u0028\u0029",
+            "name": "addParameters",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-TwigComponents-Event-RenderGroupEvent.html#method_addParameters"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\TwigComponents\\Event\\RenderSingleEvent",
+            "name": "RenderSingleEvent",
+            "summary": "Event\u0020is\u0020the\u0020base\u0020class\u0020for\u0020classes\u0020containing\u0020event\u0020data.",
+            "url": "classes/Ibexa-Contracts-TwigComponents-Event-RenderSingleEvent.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\TwigComponents\\Event\\RenderSingleEvent\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-TwigComponents-Event-RenderSingleEvent.html#method___construct"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\TwigComponents\\Event\\RenderSingleEvent\u003A\u003AgetGroupName\u0028\u0029",
+            "name": "getGroupName",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-TwigComponents-Event-RenderSingleEvent.html#method_getGroupName"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\TwigComponents\\Event\\RenderSingleEvent\u003A\u003AgetName\u0028\u0029",
+            "name": "getName",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-TwigComponents-Event-RenderSingleEvent.html#method_getName"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\TwigComponents\\Event\\RenderSingleEvent\u003A\u003AgetComponent\u0028\u0029",
+            "name": "getComponent",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-TwigComponents-Event-RenderSingleEvent.html#method_getComponent"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\TwigComponents\\Event\\RenderSingleEvent\u003A\u003AsetComponent\u0028\u0029",
+            "name": "setComponent",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-TwigComponents-Event-RenderSingleEvent.html#method_setComponent"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\TwigComponents\\Event\\RenderSingleEvent\u003A\u003AgetParameters\u0028\u0029",
+            "name": "getParameters",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-TwigComponents-Event-RenderSingleEvent.html#method_getParameters"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\TwigComponents\\Event\\RenderSingleEvent\u003A\u003AaddParameter\u0028\u0029",
+            "name": "addParameter",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-TwigComponents-Event-RenderSingleEvent.html#method_addParameter"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\TwigComponents\\Event\\RenderSingleEvent\u003A\u003AaddParameters\u0028\u0029",
+            "name": "addParameters",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-TwigComponents-Event-RenderSingleEvent.html#method_addParameters"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\TwigComponents\\Exception\\InvalidArgumentException",
+            "name": "InvalidArgumentException",
+            "summary": "Invalid\u0020Argument\u0020Type\u0020Exception\u0020implementation.",
+            "url": "classes/Ibexa-Contracts-TwigComponents-Exception-InvalidArgumentException.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\TwigComponents\\Renderer\\RendererInterface",
+            "name": "RendererInterface",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-TwigComponents-Renderer-RendererInterface.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\TwigComponents\\Renderer\\RendererInterface\u003A\u003ArenderGroup\u0028\u0029",
+            "name": "renderGroup",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-TwigComponents-Renderer-RendererInterface.html#method_renderGroup"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\TwigComponents\\Renderer\\RendererInterface\u003A\u003ArenderSingle\u0028\u0029",
+            "name": "renderSingle",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-TwigComponents-Renderer-RendererInterface.html#method_renderSingle"
+        },                {
             "fqsen": "\\Ibexa\\Contracts\\User\\Invitation\\DomainMapper",
             "name": "DomainMapper",
             "summary": "",
@@ -56220,6 +56400,26 @@ Search.appendIndex(
             "name": "Value",
             "summary": "",
             "url": "namespaces/ibexa-contracts-taxonomy-value.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\TwigComponents",
+            "name": "TwigComponents",
+            "summary": "",
+            "url": "namespaces/ibexa-contracts-twigcomponents.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\TwigComponents\\Event",
+            "name": "Event",
+            "summary": "",
+            "url": "namespaces/ibexa-contracts-twigcomponents-event.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\TwigComponents\\Exception",
+            "name": "Exception",
+            "summary": "",
+            "url": "namespaces/ibexa-contracts-twigcomponents-exception.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\TwigComponents\\Renderer",
+            "name": "Renderer",
+            "summary": "",
+            "url": "namespaces/ibexa-contracts-twigcomponents-renderer.html"
         },                {
             "fqsen": "\\Ibexa\\Contracts\\User\\Invitation",
             "name": "Invitation",
