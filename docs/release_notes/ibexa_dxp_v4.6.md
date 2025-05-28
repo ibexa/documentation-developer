@@ -30,15 +30,11 @@ month_change: true
 The PHP API has been enhanced with the following new classes:
 
 - [`Ibexa\Contracts\AdminUi\Menu\AbstractActionBuilder`](https://doc.ibexa.co/en/latest/api/php_api/php_api_reference/classes/Ibexa-Contracts-AdminUi-Menu-AbstractActionBuilder.html)
-- [`Ibexa\Contracts\TwigComponents`](https://doc.ibexa.co/en/latest/api/php_api/php_api_reference/namespaces/ibexa-contracts-twigcomponents.html)
 - [`Ibexa\Contracts\TwigComponents\ComponentInterface`](https://doc.ibexa.co/en/latest/api/php_api/php_api_reference/classes/Ibexa-Contracts-TwigComponents-ComponentInterface.html)
 - [`Ibexa\Contracts\TwigComponents\ComponentRegistryInterface`](https://doc.ibexa.co/en/latest/api/php_api/php_api_reference/classes/Ibexa-Contracts-TwigComponents-ComponentRegistryInterface.html)
-- [`Ibexa\Contracts\TwigComponents\Event`](https://doc.ibexa.co/en/latest/api/php_api/php_api_reference/namespaces/ibexa-contracts-twigcomponents-event.html)
 - [`Ibexa\Contracts\TwigComponents\Event\RenderGroupEvent`](https://doc.ibexa.co/en/latest/api/php_api/php_api_reference/classes/Ibexa-Contracts-TwigComponents-Event-RenderGroupEvent.html)
 - [`Ibexa\Contracts\TwigComponents\Event\RenderSingleEvent`](https://doc.ibexa.co/en/latest/api/php_api/php_api_reference/classes/Ibexa-Contracts-TwigComponents-Event-RenderSingleEvent.html)
-- [`Ibexa\Contracts\TwigComponents\Exception`](https://doc.ibexa.co/en/latest/api/php_api/php_api_reference/namespaces/ibexa-contracts-twigcomponents-exception.html)
 - [`Ibexa\Contracts\TwigComponents\Exception\InvalidArgumentException`](https://doc.ibexa.co/en/latest/api/php_api/php_api_reference/classes/Ibexa-Contracts-TwigComponents-Exception-InvalidArgumentException.html)
-- [`Ibexa\Contracts\TwigComponents\Renderer`](https://doc.ibexa.co/en/latest/api/php_api/php_api_reference/namespaces/ibexa-contracts-twigcomponents-renderer.html)
 - [`Ibexa\Contracts\TwigComponents\Renderer\RendererInterface`](https://doc.ibexa.co/en/latest/api/php_api/php_api_reference/classes/Ibexa-Contracts-TwigComponents-Renderer-RendererInterface.html)
 
 
