@@ -49,7 +49,29 @@ TODO: list of features deprecated in 4.6 removed in 5.0?
     composer recipes:install ibexa/commerce --force -v
     ```
 
-### composer.json clean-up
+### composer.json
+
+#### Sort commands
+
+Recipe appends a command to `composer.json`'s `auto-scripts`.
+You have to manually resort the commands so the `tsconfig.json` file
+is created by `yarn ibexa-generate-tsconfig`
+before being used by `ibexa:encore:compile`.
+Your `auto-scripts` entry should look like this:
+
+```json
+        "auto-scripts": {
+            "cache:clear": "symfony-cmd",
+            "assets:install %PUBLIC_DIR%": "symfony-cmd",
+            "yarn install": "script",
+            "ibexa:encore:compile --config-name app": "symfony-cmd",
+            "bazinga:js-translation:dump %PUBLIC_DIR%/assets --merge-domains": "symfony-cmd",
+            "yarn ibexa-generate-tsconfig": "script",
+            "ibexa:encore:compile": "symfony-cmd"
+        },
+```
+
+#### Clean-up
 
 If you have required 4.6 LTS Update packages,
 they're included by default in 5.0.
