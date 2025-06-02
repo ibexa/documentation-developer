@@ -7,6 +7,53 @@ month_change: true
 
 This page contains recent highlights and notable changes in [[= product_name =]] documentation.
 
+## May 2025
+
+### Twig Components
+
+- Documented new [Twig Components](https://doc.ibexa.co/en/latest/templating/components/) feature that allows you to effortlessly build customizable and reusable Twig templates in [[= product_name =]]
+
+### Extending Sub-items view
+
+- Added documentation about how to [add new views or overwrite existing ones in the Sub-items list](https://doc.ibexa.co/en/latest/administration/back_office/subitems_list/#create-custom-sub-items-list-view)
+
+### PHP API
+
+- Enhanced the PHP API with the following new classes:
+    - [`Ibexa\Contracts\AdminUi\Menu\AbstractActionBuilder`](https://doc.ibexa.co/en/latest/api/php_api/php_api_reference/classes/Ibexa-Contracts-AdminUi-Menu-AbstractActionBuilder.html)
+    - [`Ibexa\Contracts\TwigComponents\ComponentInterface`](https://doc.ibexa.co/en/latest/api/php_api/php_api_reference/classes/Ibexa-Contracts-TwigComponents-ComponentInterface.html)
+    - [`Ibexa\Contracts\TwigComponents\ComponentRegistryInterface`](https://doc.ibexa.co/en/latest/api/php_api/php_api_reference/classes/Ibexa-Contracts-TwigComponents-ComponentRegistryInterface.html)
+    - [`Ibexa\Contracts\TwigComponents\Event\RenderGroupEvent`](https://doc.ibexa.co/en/latest/api/php_api/php_api_reference/classes/Ibexa-Contracts-TwigComponents-Event-RenderGroupEvent.html)
+    - [`Ibexa\Contracts\TwigComponents\Event\RenderSingleEvent`](https://doc.ibexa.co/en/latest/api/php_api/php_api_reference/classes/Ibexa-Contracts-TwigComponents-Event-RenderSingleEvent.html)
+    - [`Ibexa\Contracts\TwigComponents\Exception\InvalidArgumentException`](https://doc.ibexa.co/en/latest/api/php_api/php_api_reference/classes/Ibexa-Contracts-TwigComponents-Exception-InvalidArgumentException.html)
+    - [`Ibexa\Contracts\TwigComponents\Renderer\RendererInterface`](https://doc.ibexa.co/en/latest/api/php_api/php_api_reference/classes/Ibexa-Contracts-TwigComponents-Renderer-RendererInterface.html)
+
+### Getting started
+
+- Updated product version [requirements](https://doc.ibexa.co/en/latest/getting_started/requirements/) and [installation instructions](https://doc.ibexa.co/en/latest/getting_started/install_ibexa_dxp)
+
+### Requirements update
+
+- Updated [requirements](https://doc.ibexa.co/en/latest/getting_started/requirements/) for [[= product_name =]]: MySQL 8.4, Node 20 and Node 22 are now officially supported
+
+### Ibexa AI handler
+
+- New `Ibexa AI handler` mentioned in AI Actions documentation:
+    - [Create custom Action Handler](https://doc.ibexa.co/en/latest/ai_actions/extend_ai_actions/#create-custom-action-handler)
+    - [Initiate integration](https://doc.ibexa.co/en/latest/ai_actions/install_ai_actions/#initiate-integration)
+
+### Contributions
+
+#### Order management
+
+- Updated [Order management API](https://doc.ibexa.co/en/latest/commerce/order_management/order_management_api) documentation
+
+#### Reverse proxy
+
+- Fixed [Reverse proxy](https://doc.ibexa.co/en/latest/infrastructure_and_maintenance/cache/http_cache/reverse_proxy) documentation:
+    - [link to []Varnish VCL xkey example](https://github.com/ibexa/http-cache/blob/4.6/docs/varnish/vcl/varnish5.vcl) link
+    - [`ez_purge_acl`](https://github.com/ibexa/http-cache/blob/4.6/docs/varnish/vcl/varnish5.vcl#L174) path
+
 ## April 2025
 
 ### Content management
