@@ -28,31 +28,21 @@ This page contains recent highlights and notable changes in [[= product_name =]]
     - [`Ibexa\Contracts\TwigComponents\Exception\InvalidArgumentException`](https://doc.ibexa.co/en/latest/api/php_api/php_api_reference/classes/Ibexa-Contracts-TwigComponents-Exception-InvalidArgumentException.html)
     - [`Ibexa\Contracts\TwigComponents\Renderer\RendererInterface`](https://doc.ibexa.co/en/latest/api/php_api/php_api_reference/classes/Ibexa-Contracts-TwigComponents-Renderer-RendererInterface.html)
 
-### Getting started
-
-- Updated product version [requirements](https://doc.ibexa.co/en/latest/getting_started/requirements/) and [installation instructions](https://doc.ibexa.co/en/latest/getting_started/install_ibexa_dxp)
-
 ### Requirements update
 
-- Updated [requirements](https://doc.ibexa.co/en/latest/getting_started/requirements/) for [[= product_name =]]: MySQL 8.4, Node 20 and Node 22 are now officially supported
+- Updated [requirements](https://doc.ibexa.co/en/latest/getting_started/requirements/) for [[= product_name =]] 4.6: MySQL 8.4, Node 20 and Node 22 are now officially supported
 
-### Ibexa AI handler
+### AI Actions Connect handler
 
-- New `Ibexa AI handler` mentioned in AI Actions documentation:
-    - [Create custom Action Handler](https://doc.ibexa.co/en/latest/ai_actions/extend_ai_actions/#create-custom-action-handler)
-    - [Initiate integration](https://doc.ibexa.co/en/latest/ai_actions/install_ai_actions/#initiate-integration)
+- Documented [how to use the `ibexa:connect:init-custom-property-structures` command](https://doc.ibexa.co/en/latest/ai_actions/install_ai_actions/#initiate-integration) to integrate [AI actions](https://doc.ibexa.co/en/latest/ai_actions/ai_actions_guide/) with [Ibexa Connect](https://doc.ibexa.co/projects/connect/en/latest/)
+
+### v4.6.20
+
+- [v4.6.20 release notes](https://doc.ibexa.co/en/latest/release_notes/ibexa_dxp_v4.6/#ibexa-dxp-v4620)
 
 ### Contributions
 
-#### Order management
-
-- Updated [Order management API](https://doc.ibexa.co/en/latest/commerce/order_management/order_management_api) documentation
-
-#### Reverse proxy
-
-- Fixed [Reverse proxy](https://doc.ibexa.co/en/latest/infrastructure_and_maintenance/cache/http_cache/reverse_proxy) documentation:
-    - [link to []Varnish VCL xkey example](https://github.com/ibexa/http-cache/blob/4.6/docs/varnish/vcl/varnish5.vcl) link
-    - [`ez_purge_acl`](https://github.com/ibexa/http-cache/blob/4.6/docs/varnish/vcl/varnish5.vcl#L174) path
+We want to thank [todomagichere](https://github.com/todomagichere) and [hgiesenow](https://github.com/hgiesenow) for their help in improving the [Order management API](https://doc.ibexa.co/en/latest/commerce/order_management/order_management_api) and [Reverse proxy](https://doc.ibexa.co/en/latest/infrastructure_and_maintenance/cache/http_cache/reverse_proxy) documentation pages
 
 ## April 2025
 
