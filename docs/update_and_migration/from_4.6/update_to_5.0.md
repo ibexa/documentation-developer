@@ -81,6 +81,25 @@ so you won't have to maintain which of their versions your composer.json is refe
 TODO: Do it earlier?
 TODO: A reminding list of removable LTS Update packages
 
+#### GraphQL
+
+Contrary to 4.6, [GraphQL](graphql.md) isn't included by default in 5.0.
+
+If you are using it, add it back:
+
+TODO: Too soon
+
+``` bash
+composer require ibexa/graphql
+php bin/console ibexa:graphql:generate-schema
+```
+
+If you aren't using it, remove its configuration:
+
+``` bash
+rm -r config/graphql
+```
+
 ### Update database
 
 Apply the following database update script:
@@ -100,6 +119,8 @@ TODO: Fix SQL file path
     ``` bash
     psql <database_name> < vendor/ibexa/installer/upgrade/db/postgresql/ibexa-4.6.latest-to-5.0.0.sql
     ```
+
+TODO: Inject "Now included 4.6 LTS Updates" schemas
 
 TODO: Migration files?
 
