@@ -1,6 +1,6 @@
 ---
 description: AI Actions help editors by automating repetitive tasks.
-month_change: true
+month_change: false
 ---
 
 # AI Actions product guide

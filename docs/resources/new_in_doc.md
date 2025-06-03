@@ -9,6 +9,10 @@ This page contains recent highlights and notable changes in [[= product_name =]]
 
 ## May 2025
 
+### v4.6.20
+
+- [v4.6.20 release notes](https://doc.ibexa.co/en/latest/release_notes/ibexa_dxp_v4.6/#ibexa-dxp-v4620)
+
 ### Twig Components
 
 - Documented new [Twig Components](https://doc.ibexa.co/en/latest/templating/components/) feature that allows you to effortlessly build customizable and reusable Twig templates in [[= product_name =]]
@@ -35,10 +39,6 @@ This page contains recent highlights and notable changes in [[= product_name =]]
 ### AI Actions Connect handler
 
 - Documented [how to use the `ibexa:connect:init-custom-property-structures` command](https://doc.ibexa.co/en/latest/ai_actions/install_ai_actions/#initiate-integration) to integrate [AI actions](https://doc.ibexa.co/en/latest/ai_actions/ai_actions_guide/) with [Ibexa Connect](https://doc.ibexa.co/projects/connect/en/latest/)
-
-### v4.6.20
-
-- [v4.6.20 release notes](https://doc.ibexa.co/en/latest/release_notes/ibexa_dxp_v4.6/#ibexa-dxp-v4620)
 
 ### Contributions
 
