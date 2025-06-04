@@ -87,7 +87,7 @@ The discount data is split into two parts:
 
 #### Target groups
 
-With discounts, you can target your entire customer base or only a subset of it belonging to specified [customer groups](customer_group.md).
+With discounts, you can target your entire customer base or only a subset of it belonging to specified [customer groups](customer_groups.md).
 
 #### Product selection
 
