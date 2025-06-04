@@ -17,7 +17,7 @@ Discounts allow online stores to temporarily or permanently reduce prices on spe
 They can be used to encourage first-time purchases, reward loyal customers, promote new or slow-moving items, or drive sales during seasonal events.
 By displaying discounted prices clearly in the catalog or cart, businesses can create a sense of urgency, increase customer satisfaction, and ultimately boost revenue.
 
-[[= product_name =]] can be equipped with the Discounts [LTS update](ibexa_dxp_v4.6.md#lts-updates), that introduces a highly extensible solution for building discounts.
+[[= product_name =]] can be equipped with the Discounts [LTS update](editions.md#lts-updates), that introduces a highly extensible solution for building discounts.
 
 Store managers can create general discounts that apply for products from the product catalog or specific discounts that apply for products in the customer's shopping cart.
 Once the target is selected, they can set the type of discount by choosing a discount calculation rule.
@@ -93,7 +93,7 @@ With discounts, you can target your entire customer base or only a subset of it 
 
 All products, including [product variants](pim_guide.md#product-variants), can be selected when creating a discount. You can also limit this choice to a subset of products:
 
-- belonging to selected [product categories](pim_guide.md#product-categoties)
+- belonging to selected [product categories](pim_guide.md#product-categories)
 - hand-picked manually for special cases
 
 #### Conditions
