@@ -56,16 +56,6 @@ rm config/routes/annotations.yaml
 rm config/routes.yaml
 ```
 
-### Remove GraphQL schema
-
-GraphQL package (`ibexa/graphql`) isn't part of the default package list anymore.
-If you use GraphQL, it can be reinstalled later in the upgrade process.
-Whatever your situation, its schema is out-dated and must be deleted before going further.
-
-```bash
-rm -r config/graphql
-```
-
 ### Remove Stimulus bootstrap
 
 Edit `assets/app.js` and remove the following lines:
@@ -79,6 +69,16 @@ Delete the bootstrap file:
 
 ```
 rm assets/bootstrap.js
+```
+
+### Remove GraphQL schema
+
+4.6 GraphQL isn't compatible with 5.0 so delete it.
+
+TODO: Is `@=resolver` to `@=query` change need to be detailed?
+
+```bash
+rm -r config/graphql
 ```
 
 ### Update [[= product_name =]] application
@@ -196,10 +196,10 @@ Your `auto-scripts` entry should look like this:
 #### Post update script
 
 ```bash
-# Manually clear cache to ensure script won't use a piece of it
+# Manually clear cache to ensure scripts won't use a piece of it
 rm -rf var/cache
 # A.k.a "auto-scripts"
-ddev composer run-script post-update-cmd
+composer run-script post-update-cmd
 ```
 
 ### Update database
@@ -333,13 +333,13 @@ TODO: Update JS, templates, CSS…
 TODO: Some old deprecated Webpack file names were supported in 4.6 for backward compatibility; They aren't in 5.0
 TODO: Conversion tables
 
-#### GraphQL
+#### Generate GraphQL schema
 
-As previously mentioned, GraphQL package (`ibexa/graphql`) isn't part of the default anymore.
+GraphQL is used by 4.6's Back Office
+but isn't used by 5.0's one.
 
-If you are using it, add it back:
+Optionaly, if you are using GraphQL, generate its schema:
 
 ```bash
-composer require ibexa/graphql
 php bin/console ibexa:graphql:generate-schema
 ```
