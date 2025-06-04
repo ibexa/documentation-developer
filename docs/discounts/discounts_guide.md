@@ -80,7 +80,7 @@ After choosing where the discount applies (catalog or cart), you can choose the 
 Discounts are translatable and are valid for specific [regions](pim_guide.md#regions)and currencies.
 They can be permanent or be active only in a specified time frame.
 
-The discount data is split into two parts: 
+The discount data is split into two parts:
 
 - name and description act internal information for the store managers
 - promotion information acts as additional information displayed to the customers
