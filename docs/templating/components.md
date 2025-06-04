@@ -1,5 +1,6 @@
 ---
 description: Twig components allow you to inject any custom widgets into selected places of the user interface.
+month_change: true
 ---
 
 # Twig Components

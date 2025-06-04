@@ -1,5 +1,6 @@
 ---
 description: Inject a sub-items list into your back office customizations or customize the view.
+month_change: true
 ---
 
 # Sub-items list
