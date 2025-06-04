@@ -515,7 +515,8 @@ When updating a content type, use:
 [[= include_file('code_samples/data_migration/examples/discounts/discount_create.yaml') =]]
 ```
 
-- Use the `update` mode to modify an existing discount:
+- Use the `update` mode to modify an existing discount as in the example below.
+The provided conditions overwrite any already existing ones.
 
 ``` yaml
 [[= include_file('code_samples/data_migration/examples/discounts/discount_update.yaml') =]]
