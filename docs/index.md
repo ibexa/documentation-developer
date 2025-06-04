@@ -89,7 +89,7 @@
         <div class="col-12 col-lg-6">
             <div class="notification notification--lts-update" id="tile3">
                 <div class="notification__content">
-                    <h2>The newest LTS Update are Discounts</h2>
+                    <h2>The newest LTS Update is Discounts</h2>
                     <div>Install it to reduce prices on specific products, making deals more attractive to potential buyers.</div>
                 </div>
                 <div class="notification__cta">
