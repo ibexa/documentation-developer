@@ -29,7 +29,7 @@ Each role you assign to user or user group consists of policies which define, wh
 |------------------------------|--------------------|----------------------|-------------------------------------------------------------------------|
 | <nobr>`activity_log`</nobr> | <nobr>`read`</nobr> | access activity list | [ActivityLogOwner](limitation_reference.md#activitylogowner-limitation) |
 
-#### AI actions
+#### AI actions [[% include 'snippets/lts-update_badge.md' %]]
 
 | Module                              | Function               | Effect                 | Possible Limitations |
 |-------------------------------------|------------------------|------------------------|----------------------|
@@ -123,6 +123,25 @@ Each role you assign to user or user group consists of policies which define, wh
 |-------------------------|-------------------------|-------------------|----------------------|
 | <nobr>`commerce`</nobr> | <nobr>`currency`</nobr> | manage currencies |
 |                         | <nobr>`region`</nobr>   | manage regions    |
+
+#### Discounts [[% include 'snippets/lts-update_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
+
+The discount policies decide which actions can be executed by given user or user group.
+
+!!! caution "Customers and discount policies"
+
+    Customers do not need any policies to use the discounts on the [storefront](storefront.md).
+    Even the `discount/view` policy would allow them to access all the discount details, including the coupon codes to activate them, which could lead to system abuse.
+
+
+| Module               | Function                 | Effect                      | Possible limitations                                         |
+|----------------------|--------------------------|-----------------------------|----------------------------------------------------|
+| <nobr>`discount`</nobr> | <nobr>`create`</nobr> | create a discount           | [DiscountOwner](limitation_reference.md#discount-owner-limitation) |
+|                      | <nobr>`update`</nobr>    | modify discount parameters           | [DiscountOwner](limitation_reference.md#discount-owner-limitation) |
+|                      | <nobr>`view`</nobr>      | view discounts (including its details)              | [DiscountOwner](limitation_reference.md#discount-owner-limitation) |
+|                      | <nobr>`delete`</nobr>    | delete a discount           | [DiscountOwner](limitation_reference.md#discount-owner-limitation) |
+|                      | <nobr>`enable`</nobr>    | enable a discount           | [DiscountOwner](limitation_reference.md#discount-owner-limitation) |
+|                      | <nobr>`disable`</nobr>   | disable a discount          | [DiscountOwner](limitation_reference.md#discount-owner-limitation) |
 
 #### Orders [[% include 'snippets/commerce_badge.md' %]]
 
