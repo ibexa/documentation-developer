@@ -64,12 +64,13 @@
           </ul>
           {% if page.meta.edition or page.meta.editions %}
             <div class="pills">
-            {% if page.meta.edition == 'commerce' or 'commerce' in page.meta.editions %}
-              <span class="pill pill--commerce"></span>
-            {% elif page.meta.edition == 'experience' or 'experience' in page.meta.editions %}
-              <span class="pill pill--experience"></span><span class="pill pill--commerce"></span>
-            {% elif page.meta.edition == 'lts-update' or 'lts-update' in page.meta.editions  %}
+            {% if page.meta.edition == 'lts-update' or 'lts-update' in page.meta.editions  %}
             <span class="pill pill--lts-update"></span>
+            {% endif %}
+            {% if page.meta.edition == 'experience' or 'experience' in page.meta.editions %}
+              <span class="pill pill--experience"></span><span class="pill pill--commerce"></span>
+            {% elif page.meta.edition == 'commerce' or 'commerce' in page.meta.editions %}
+              <span class="pill pill--commerce"></span>
             {% endif %}
             </div>
           {% endif %}
