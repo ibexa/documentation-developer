@@ -13,15 +13,20 @@ Before you update to v5.0, you need to [update to the latest maintenance release
 
 When you have the last version of 4.6, you can update to v5.0.
 
+### Requirements
+
 First, match v5.0's [requirements](requirements.md).
 It supports only PHP 8.3 and above.
 
-### Update custom code for PHP 8.3+
+### Update custom code for PHP 8.3+ and DXP 4.6
 
 If your DXP 4.6 is running on a PHP below 8.3, start migrating it to PHP 8.3.
 
 Use Ibexa Rector to help yourself to upgrade PHP code for 8.3,
 see [`ibexa/rector`'s README](https://github.com/ibexa/rector?tab=readme-ov-file#ibexa-dxp-rector) for more information about installation and usage.
+
+Rector might also find out code deprecated in 4.6 which are likely removed in 5.0.
+Update according to its report to reduce this debt and have less code not compatible with 5.0.
 
 TODO: Example with our own code samples?
 TODO: list of features deprecated in 4.6 removed in 5.0?
@@ -323,23 +328,28 @@ You can track the renamming in the `ibexa-4.6.latest-to-5.0.0.sql` files or in t
 
 TODO: Compatibility "views" layers? Even if there is this layer to save time, it is recommended to update your code to use the new tables.
 
+#### Generate GraphQL schema
+
+GraphQL is used by 4.6's Back Office
+but isn't used by 5.0's one.
+
+Optionally, if you are using GraphQL in your project, generate its schema:
+
+```bash
+php bin/console ibexa:graphql:generate-schema
+```
+
 ### Update custom code for [[= product_name =]] 5.0
 
-TODO: Rector again, this time with 5.0 rules.
+Update the `rector.php` file to use `IbexaSetList::IBEXA_50` rule set
+by running the recipe:
+
+```bash
+composer recipe:install ibexa/rector --force --reset --yes
+```
 
 ### Update Back Office extensions
 
 TODO: Update JS, templates, CSS…
 TODO: Some old deprecated Webpack file names were supported in 4.6 for backward compatibility; They aren't in 5.0
 TODO: Conversion tables
-
-#### Generate GraphQL schema
-
-GraphQL is used by 4.6's Back Office
-but isn't used by 5.0's one.
-
-Optionaly, if you are using GraphQL, generate its schema:
-
-```bash
-php bin/console ibexa:graphql:generate-schema
-```
