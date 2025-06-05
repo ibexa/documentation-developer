@@ -45,7 +45,7 @@ jobs:
                     if [[ -z "$md_change_list$par_change_list" ]] ; then
                       comment="Preview of modified files: no change to preview."
                     elif [[ $change_count -gt $file_limit ]] ; then
-                      comment="Preview of modified files: Too many files modified in a single PR, preview link list is skipped. ($change_count files &gth; $file_limit)"
+                      comment="Preview of modified files: Too many files modified in a single PR, preview link list is skipped. ($change_count files &gt; $file_limit)"
                     else
                       comment="# Preview of modified files"
                       if [[ -n "$md_change_list" ]]; then
