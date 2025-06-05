@@ -103,10 +103,10 @@ Each role you assign to user or user group consists of policies which define, wh
 
 | Module              | Function              | Effect                                                              | Possible limitations                                      |
 |---------------------|-----------------------|---------------------------------------------------------------------|-----------------------------------------------------------|
-| <nobr>`cart`</nobr> | <nobr>`create`</nobr> | create a cart                                                       | [CartOwner](limitation_reference.md#cartowner-limitation) |
-|                     | <nobr>`delete`</nobr> | delete cart, for example, after successful checkout                 | [CartOwner](limitation_reference.md#cartowner-limitation) |
-|                     | <nobr>`edit`</nobr>   | change cart metadata (name, currency, owner), add/remove cart items | [CartOwner](limitation_reference.md#cartowner-limitation) |
-|                     | <nobr>`view`</nobr>   | view a cart                                                         | [CartOwner](limitation_reference.md#cartowner-limitation) |
+| <nobr>`cart`</nobr> | <nobr>`create`</nobr> | create a cart                                                       | [CartOwner](limitation_reference.md#cart-owner-limitation) |
+|                     | <nobr>`delete`</nobr> | delete cart, for example, after successful checkout                 | [CartOwner](limitation_reference.md#cart-owner-limitation) |
+|                     | <nobr>`edit`</nobr>   | change cart metadata (name, currency, owner), add/remove cart items | [CartOwner](limitation_reference.md#cart-owner-limitation) |
+|                     | <nobr>`view`</nobr>   | view a cart                                                         | [CartOwner](limitation_reference.md#cart-owner-limitation) |
 
 #### Checkout [[% include 'snippets/commerce_badge.md' %]]
 

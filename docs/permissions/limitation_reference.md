@@ -33,7 +33,7 @@ Out of the box FunctionList uses it in the following way:
             - {name: ibexa.permissions.limitation_type, alias: FunctionList}
 ```
 
-## ActivityLogOwner limitation
+## ActivityLog Owner limitation
 
 The `ActivityLogOwner` limitation specifies if a user can see only their own [recent activity](recent_activity.md) log entries, and not entries from other users.
 
