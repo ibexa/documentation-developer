@@ -42,9 +42,14 @@ jobs:
 
                     echo -e "$md_change_list\n$par_change_list"
 
-                    if [[ -z "$md_change_list$par_change_list" ]] ; then
+                    if [[ $change_count -gt $file_limit ]]; then
+                        par_change_list=$(echo "$par_change_list" | grep -v namespaces)
+                        change_count=$(( $(echo "$md_change_list" | wc -l) + $(echo "$par_change_list" | wc -l) ))
+                    fi
+
+                    if [[ -z "$md_change_list$par_change_list" ]]; then
                       comment="Preview of modified files: no change to preview."
-                    elif [[ $change_count -gt $file_limit ]] ; then
+                    elif [[ $change_count -gt $file_limit ]]; then
                       comment="Preview of modified files: Too many files modified in a single PR, preview link list is skipped. ($change_count files &gt; $file_limit)"
                     else
                       comment="# Preview of modified files"
