@@ -79,7 +79,8 @@ match:
 
 ## Id\Location
 
-Matches the ID number of a Location. In the case of a content item, matched against the main Location.
+Matches the ID number of a location.
+In the case of a content item, matched against the main location.
 
 ``` yaml
 match:
@@ -88,7 +89,8 @@ match:
 
 ## Id\LocationRemote
 
-Matches the Remote ID number of a Location. In the case of a content item, matched against the main Location.
+Matches the Remote ID number of a location.
+In the case of a content item, matched against the main location.
 
 ``` yaml
 match:
@@ -97,7 +99,8 @@ match:
 
 ## Id\ParentContentType
 
-Matches the ID number of the parent content type. In the case of a content item, matched against the main Location.
+Matches the ID number of the parent content type.
+In the case of a content item, matched against the main location.
 
 ``` yaml
 match:
@@ -106,7 +109,8 @@ match:
 
 ## Identifier\ParentContentType
 
-Matches the identifier of the parent content type. In the case of a content item, matched against the main Location.
+Matches the identifier of the parent content type.
+In the case of a content item, matched against the main location.
 
 ``` yaml
 match:
@@ -115,7 +119,8 @@ match:
 
 ## Id\ParentLocation
 
-Matches the ID number of the parent Location. In the case of a content item, matched against the main Location.
+Matches the ID number of the parent location.
+In the case of a content item, matched against the main location.
 
 ``` yaml
 match:
@@ -133,7 +138,7 @@ match:
 
 ## Id\Section
 
-Matches the ID number of the Section that the content item belongs to.
+Matches the ID number of the section that the content item belongs to.
 
 ``` yaml
 match:
@@ -142,7 +147,7 @@ match:
 
 ## Identifier\Section
 
-Matches the identifier of the Section that the content item belongs to.
+Matches the identifier of the section that the content item belongs to.
 
 ``` yaml
 match:
@@ -151,7 +156,8 @@ match:
 
 ## Depth
 
-Matches the depth of the Location. The depth of a top level Location is 1.
+Matches the depth of the location.
+The depth of a top level location is 1.
 
 ``` yaml
 match:
@@ -160,8 +166,8 @@ match:
 
 ## UrlAlias
 
-Matches the virtual URL of the Location.
-Matches when the URL alias of the Location starts with the value passed.
+Matches the virtual URL of the location.
+Matches when the URL alias of the location starts with the value passed.
 
 ``` yaml
 match:
@@ -216,7 +222,7 @@ match:
 
 ## Product catalog root
 
-`Ibexa\Contracts\ProductCatalog\ViewMatcher\LocationBased\RootLocation` matches depending on whether the Location is the root of a product catalog.
+`Ibexa\Contracts\ProductCatalog\ViewMatcher\LocationBased\RootLocation` matches depending on whether the location is the root of a product catalog.
 
 ``` yaml
 match:

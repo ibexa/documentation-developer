@@ -11,10 +11,9 @@ First, make sure you [enabled user registration](permission_use_cases.md#registe
 
 ## Configure existing form
 
-In your configuration, under `allowed_field_definitions_identifiers` [configuration key](configuration.md#configuration-files),
-specify the fields that should be part of your registration form.
-You can also define what kind of user you want to create under `user_type_identifier` e.g. frontend user.
-To learn more about available users, see [user types documentation](user_registration.md#user-types). 
+In your configuration, under `allowed_field_definitions_identifiers` [configuration key](configuration.md#configuration-files), specify the fields that should be part of your registration form.
+You can also define what kind of user you want to create under `user_type_identifier`, for example, frontend user.
+To learn more about available users, see [user types documentation](user_registration.md#user-types).
 
 ``` yaml
 ibexa:
@@ -42,7 +41,7 @@ ibexa:
                     form: '@ibexadesign/user/registration_form.html.twig'
                     confirmation: '@ibexadesign/user/registration_confirmation.html.twig'
 ```
-This defines which templates will be used for rendering the registration form and confirmation page.
+This defines which templates are used for rendering the registration form and confirmation page.
 
 In the `templates/themes/<theme_name>/user/registration_form.html.twig` create the template for registration form.
 

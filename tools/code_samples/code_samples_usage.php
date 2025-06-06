@@ -35,7 +35,7 @@ function displayBlocks(array $docFileBlocks, string $docFilePath = null, $lineOf
         try {
             $blockContents = getBlockContents($block);
             foreach ($blockContents['contents'] as $contentLineNumber => $contentLine) {
-                $prefixedBlockContentLines[] = str_pad($contentLineNumber, 3, 0, STR_PAD_LEFT) . (in_array($contentLineNumber, $blockContents['highlights']) ? '⫸' : '⫶') . $contentLine;
+                $prefixedBlockContentLines[] = str_pad($contentLineNumber, 3, 0, STR_PAD_LEFT) . (in_array($contentLineNumber, $blockContents['highlights']) ? '❇️' : '⫶') . $contentLine;
             }
             echo implode(PHP_EOL, $prefixedBlockContentLines) . PHP_EOL . PHP_EOL;
         } catch (Exception $exception) {
@@ -133,7 +133,8 @@ function getBlockContents(array $block): array
     $rawBlockCodeLines = [];
     $oneBasedBlockCodeLines = [];
     $includedFilesLines = [];
-    foreach ($block as $blockSourceLine) {
+    $skip = false;
+    foreach ($block as $blockSourceLineIndex => $blockSourceLine) {
         if (preg_match('@```.* hl_lines="([^"]+)"@', $blockSourceLine, $matches)) {
             $rawHighlightedLines = explode(' ', $matches[1]);
             foreach ($rawHighlightedLines as $rawHighlightedLine) {
@@ -171,7 +172,17 @@ function getBlockContents(array $block): array
                 $solvedLine = str_replace($matchString, implode(PHP_EOL . $matches['glue'][$matchIndex], $sample) . PHP_EOL, $solvedLine);
             }
             $rawBlockCodeLines = array_merge($rawBlockCodeLines, explode(PHP_EOL, $solvedLine));
-        } elseif (!str_contains($blockSourceLine, '```')) {
+        } elseif (str_contains($blockSourceLine, '--8<--')) {
+            if (!$skip) {
+                $includedFilePath = trim($block[$blockSourceLineIndex+1]);
+                $includedFilesLines[$includedFilePath] = file($includedFilePath, FILE_IGNORE_NEW_LINES);
+                if (!is_array($includedFilesLines[$includedFilePath])) {
+                    throw new RuntimeException("The following included file can't be opened: $includedFilePath");
+                }
+                $rawBlockCodeLines = array_merge($rawBlockCodeLines, $includedFilesLines[$includedFilePath]);
+            }
+            $skip = !$skip;
+        } elseif (!str_contains($blockSourceLine, '```') && !$skip) {
             $rawBlockCodeLines[] = $blockSourceLine;
         }
     }

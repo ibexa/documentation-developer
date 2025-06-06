@@ -1,5 +1,5 @@
 ---
-description: Payment Method CreatedAt Criterion
+description: Payment Method CreatedAt Search Criterion
 edition: commerce
 ---
 

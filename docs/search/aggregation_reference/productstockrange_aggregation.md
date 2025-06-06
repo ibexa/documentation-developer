@@ -1,3 +1,7 @@
+---
+description: ProductStockRangeAggregation
+---
+
 # ProductStockRangeAggregation
 
 The ProductStockRangeAggregation aggregates search results by products' numerical stock.

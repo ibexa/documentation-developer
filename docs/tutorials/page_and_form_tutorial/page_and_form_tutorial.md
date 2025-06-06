@@ -15,28 +15,28 @@ Ideally, you should be familiar with the concepts covered in the [Beginner tutor
 
 ### Learning outcomes
 
-After finishing this tutorial, you will:
+After finishing this tutorial, you:
 
-- Have a working knowledge of the Page functionality and architecture
-- Be able to create a Page and customize its layout
-- Be able to prepare and customize Page blocks
-- Be able to create a custom block
-- Know how to use Form Builder and configure your form
-- Know how to apply custom styling to blocks
+- have a working knowledge of the Page functionality and architecture
+- are able to create a Page and customize its layout
+- are able to prepare and customize Page blocks
+- are able to create a custom block
+- know how to use Form Builder and configure your form
+- know how to apply custom styling to blocks
 
 ## Scenario
 
-In the course of this scenario you will build a website for a magazine for dog owners called 'It's a Dog's World'.
+In the course of this scenario you can build a website for a magazine for dog owners called 'It's a Dog's World'.
 
-You will create a welcome page that will showcase the magazine's three most important types of content: articles, dog breed information and tips.
+You can create a welcome page that showcases the magazine's three most important types of content: articles, dog breed information and tips.
 
-You will do this by means of a Page, making use of its specific blocks, and crafting your own as well.
+You do this by means of a Page, making use of its specific blocks, and crafting your own as well.
 
 ![It's a Dog's World - final result](enterprise_tut_main_screen.png "It's a Dog's World - final result")
 
 ## Steps
 
-In this tutorial you will go through the following steps:
+In this tutorial you go through the following steps:
 
 1. [Get a starter website](1_get_a_starter_website.md)
 1. [Prepare the Page](2_prepare_the_landing_page.md)

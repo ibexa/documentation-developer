@@ -1,0 +1,13 @@
+{
+    "Segment": {
+        "_media-type": "application/vnd.ibexa.api.Segment+json",
+        "_href": "/api/ibexa/v2/segments/segment_identifier",
+        "id": 3,
+        "identifier": "segment_identifier",
+        "name": "Segment Name",
+        "SegmentGroup": {
+            "_media-type": "application/vnd.ibexa.api.SegmentGroup+json",
+            "_href": "/api/ibexa/v2/segment_groups/corporate_accounts"
+        }
+    }
+}

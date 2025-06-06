@@ -1,7 +1,10 @@
+---
+description: ContentTranslatedName Sort Clause
+---
+
 # ContentTranslatedName Sort Clause
 
-The [`ContentTranslatedName` Sort Clause](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-SortClause-ContentTranslatedName.html)
-sorts search results by the content items' translated names.
+The [`ContentTranslatedName` Sort Clause](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-SortClause-ContentTranslatedName.html) sorts search results by the content items' translated names.
 
 ## Arguments
 
@@ -9,7 +12,7 @@ sorts search results by the content items' translated names.
 
 ## Limitations
 
-The `ContentTranslatedName` Sort Clause is not available in [Repository filtering](search_api.md#repository-filtering).
+The `ContentTranslatedName` Sort Clause isn't available in [Repository filtering](search_api.md#repository-filtering).
 
 ## Example
 

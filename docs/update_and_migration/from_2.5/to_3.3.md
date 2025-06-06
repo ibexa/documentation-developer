@@ -1,6 +1,6 @@
 ---
 target_version: '3.3'
-month_change: true
+month_change: false
 ---
 
 # Update the app to v3.3
@@ -19,7 +19,7 @@ When updating from v3.2 to v3.3, you need to follow a special update procedure.
 
 First, create an update branch `update-[[=target_version=]]` in git and commit your work.
 
-If you have not done it before, add the relevant meta-repository as an `upstream` remote:
+If you haven't done it before, add the relevant meta-repository as an `upstream` remote:
 
 === "ezplatform"
 
@@ -41,13 +41,13 @@ If you have not done it before, add the relevant meta-repository as an `upstream
 
 !!! tip
 
-    It is good practice to make git commits after every step of the update procedure.
+    It's good practice to make git commits after every step of the update procedure.
 
 ### A. Merge project skeleton
 
 Merge the current skeleton into your project:
 
-=== "Ibexa Content"
+=== "[[= product_name_content =]]t"
 
     ``` bash
     git remote add content-skeleton https://github.com/ibexa/content-skeleton.git
@@ -55,7 +55,7 @@ Merge the current skeleton into your project:
     git merge v[[= latest_tag_3_3 =]] --allow-unrelated-histories
     ```
 
-=== "Ibexa Experience"
+=== "[[= product_name_exp =]]"
 
     ``` bash
     git remote add experience-skeleton https://github.com/ibexa/experience-skeleton.git
@@ -63,7 +63,7 @@ Merge the current skeleton into your project:
     git merge v[[= latest_tag_3_3 =]] --allow-unrelated-histories
     ```
 
-=== "Ibexa Commerce"
+=== "[[= product_name_com =]]"
 
     ``` bash
     git remote add commerce-skeleton https://github.com/ibexa/commerce-skeleton.git
@@ -75,7 +75,7 @@ This introduces changes from the relevant website skeleton and results in confli
 
 Resolve the conflicts in the following way:
 
-- Make sure all automatically added `ezsystems/*` packages are removed. If you explicitly added any packages that are not part of the standard installation, retain them.
+- Make sure all automatically added `ezsystems/*` packages are removed. If you explicitly added any packages that aren't part of the standard installation, retain them.
 - Review the rest of the packages. If your project requires a package, keep it.
 - If a package is only used as a dependency of an `ezsystems` package, remove it. You can check how the package is used with `composer why <packageName>`.
 - Keep the dependencies listed in the website skeleton.
@@ -88,7 +88,7 @@ Resolve the conflicts in the following way:
 
 !!! caution
 
-    It is impossible to update an Enterprise edition (`ezsystems/ezplatform-ee`)
+    It's impossible to update an Enterprise edition (`ezsystems/ezplatform-ee`)
     to an [[= product_name_content =]] edition.
 
     Also, make sure that `composer.json` has the following `repositories` entry:

@@ -1,5 +1,5 @@
 ---
-description: Events that are triggered when working with Pages and Page blocks.
+description: Events that are triggered when working with pages and page blocks.
 edition: experience
 page_type: reference
 ---
@@ -17,7 +17,7 @@ page_type: reference
 
 ## Page Builder
 
-The following events are dispatched when editing a Page in the Page Builder.
+The following events are dispatched when editing a page in the Page Builder.
 
 | Event | Dispatched by | Properties |
 |---|---|---|
@@ -27,7 +27,7 @@ The following events are dispatched when editing a Page in the Page Builder.
 
 ## Page blocks
 
-The following events are dispatched when editing a Page block.
+The following events are dispatched when editing a page block.
 
 | Event | Dispatched by | Properties |
 |---|---|---|

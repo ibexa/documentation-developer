@@ -1,0 +1,11 @@
+{
+    "RefineText": {
+        "_media-type": "application/vnd.ibexa.api.ai.RefineText+json",
+        "Text": {
+            "_media-type": "application/vnd.ibexa.api.ai.Text+json",
+            "text": [
+                "Here are some of the fastest animals on earth:\n\n1. Peregrine Falcon: Known for its incredible diving speeds, the peregrine falcon can reach speeds of over 240 miles per hour while hunting its prey.\n\n2. Cheetah: With its sleek build and powerful legs, the cheetah is the fastest land animal, reaching speeds of up to 70 miles per hour in short bursts.\n\n3. Sailfish: Considered the fastest swimmer in the ocean, the sailfish can reach speeds of up to 68 miles per hour while hunting for fish.\n\n4. Pronghorn Antelope: Native to North America, the pronghorn antelope is the fastest land mammal in the Western Hemisphere, capable of running at speeds of up to 60 miles per hour.\n\n5. Black Marlin: One of the fastest fish in the sea, the black marlin can swim at speeds of up to 82 miles per hour while hunting for prey.\n\nThese animals showcase the incredible speed and agility found in the animal kingdom."
+            ]
+        }
+    }
+}

@@ -6,7 +6,7 @@ description: Use DDEV to run a cluster infrastructure locally.
 
 !!! caution
 
-    Do not use this procedure in production.
+    Don't use this procedure in production.
     A staging environment for validation before production should exactly replicate the production environment.
     This is meant for development environment only.
 
@@ -18,7 +18,7 @@ But the data sharing needed by a cluster of several servers can still be emulate
 The `ddev config --php-version` option should set the same PHP version as the production servers.
 
 !!! tip
- 
+
     - [`ddev describe`](https://ddev.readthedocs.io/en/latest/users/usage/commands/#describe) displays a cluster summary that include accesses from inside and outside DDEV services
     - [`ddev ssh`](https://ddev.readthedocs.io/en/latest/users/usage/commands/#ssh) opens a terminal inside a service
     - [`ddev exec`](https://ddev.readthedocs.io/en/latest/users/usage/commands/#exec) executes a command inside a service
@@ -41,7 +41,7 @@ The following sequence of commands:
 4. Injects the schema and reindexes the content.
 
 ```bash
-ddev get ddev/ddev-elasticsearch
+ddev add-on get ddev/ddev-elasticsearch
 ddev config --web-environment-add SEARCH_ENGINE=elasticsearch
 ddev config --web-environment-add ELASTICSEARCH_DSN=http://elasticsearch:9200
 ddev restart
@@ -54,7 +54,7 @@ You can now check whether Elasticsearch works.
 
 For example, the `ddev exec curl -s "http://elasticsearch:9200/_count"` command checks whether the `web` server can access the `elasticsearch` server and displays the number of indexed documents.
 
-See [ddev/ddev-elasticsearch README](https://github.com/ddev/ddev-elasticsearch) for more information on topics such as memory management.
+For more information on topics such as memory management, see [ddev/ddev-elasticsearch README](https://github.com/ddev/ddev-elasticsearch).
 
 See [Elasticsearch REST API reference](https://www.elastic.co/guide/en/elasticsearch/reference/current/rest-apis.html) for more request options, like, for example:
 
@@ -64,14 +64,14 @@ See [Elasticsearch REST API reference](https://www.elastic.co/guide/en/elasticse
 
 !!! tip
 
-    You can use [`jq`](https://jqlang.github.io/jq/) to format and colorize Elasticsearch REST API outputs.
+    You can use [`jq`](https://jqlang.org/) to format and colorize Elasticsearch REST API outputs.
 
 ### Solr
 
 To simplify the installation of Solr, you can use the `ibexa/ddev-solr` add-on:
 
 ```bash
-ddev get ibexa/ddev-solr
+ddev add-on get ibexa/ddev-solr
 ddev restart
 ```
 
@@ -79,7 +79,7 @@ You can now check whether Solr works.
 
 For example, the `ddev exec curl -s http://solr:8983/api/cores/` command:
 
- - checks whether the `web` server can access the `solr` server, 
+ - checks whether the `web` server can access the `solr` server
  - checks whether `collection1` exists and its status
  - displays `collection1`'s `numDocs` that shouldn't be zero if indexing worked correctly
 
@@ -105,7 +105,7 @@ The following sequence of commands:
 1. Restarts the DDEV cluster and clears application cache.
 
 ```bash
-ddev get ddev/ddev-redis
+ddev add-on get ddev/ddev-redis
 ddev config --web-environment-add CACHE_POOL=cache.redis
 ddev config --web-environment-add CACHE_DSN=redis
 ddev config --web-environment-add SESSION_HANDLER_ID='Ibexa\\Bundle\\Core\\Session\\Handler\\NativeSessionHandler'
@@ -117,9 +117,9 @@ ddev php bin/console cache:clear
 
 You can now check whether Redis works.
 
-For example, the `ddev redis-cli MONITOR` command returns outputs such as `"SETEX" "ezp:`, `"MGET" "ezp:`, `"SETEX" "PHPREDIS_SESSION:`, `"GET" "PHPREDIS_SESSION:`, etc. while navigating into the website, in particular the Back Office.
+For example, the `ddev redis-cli MONITOR` command returns outputs, for example, `"SETEX" "ezp:`, `"MGET" "ezp:`, `"SETEX" "PHPREDIS_SESSION:`, or `"GET" "PHPREDIS_SESSION:`, while navigating into the website, in particular the back office.
 
-See [Redis commands](https://redis.io/commands/) for more details such as information about the [`MONITOR`](https://redis.io/commands/monitor/) command used in the previous example.
+See [Redis commands](https://redis.io/docs/latest/commands/) for more details such as information about the [`MONITOR`](https://redis.io/docs/latest/commands/monitor/) command used in the previous example.
 
 ### Install Memcached
 
@@ -142,7 +142,7 @@ The following sequence of commands:
 1. Restarts the DDEV cluster and clears application cache.
 
 ```bash
-ddev get ddev/ddev-memcached
+ddev add-on get ddev/ddev-memcached
 ddev config --web-environment-add CACHE_POOL=cache.memcached
 ddev config --web-environment-add CACHE_DSN=memcached
 ddev config --web-environment-add SESSION_HANDLER_ID=app.session.handler.native_memcached

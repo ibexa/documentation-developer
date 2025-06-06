@@ -4,9 +4,17 @@
   "main": "index.js",
   "repository": "git@github.com:ibexa/documentation-developer.git",
   "scripts": {
-     "scss": "node-sass --watch scss -o docs/css"
+    "scss": "sass --watch scss:docs/css",
+    "test": "yarn prettier-test && yarn eslint-test",
+    "fix": "yarn prettier-test --write && yarn eslint-test --fix",
+    "eslint-test": "eslint \"./docs/js/**/*.js\"",
+    "prettier-test": "yarn prettier \"./code_samples/**/*.{js,scss}\" --check"
+  },
+  "prettier": "eslint-config-ibexa/prettier",
+  "devDependencies": {
+    "eslint-config-ibexa": "https://github.com/ibexa/eslint-config-ibexa.git#~v1.1.1"
   },
   "dependencies": {
-    "node-sass": "^9.0.0"
+    "sass": "^1.82.0"
   }
 }

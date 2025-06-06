@@ -1,5 +1,5 @@
 ---
-description: Payment Method Identifier Criterion
+description: Payment Method Identifier Search Criterion
 edition: commerce
 ---
 

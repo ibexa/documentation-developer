@@ -5,11 +5,15 @@ namespace App\Command;
 use Ibexa\Contracts\Core\Repository\ContentService;
 use Ibexa\Contracts\Workflow\Registry\WorkflowRegistryInterface;
 use Ibexa\Contracts\Workflow\Service\WorkflowServiceInterface;
+use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
+#[AsCommand(
+    name: 'doc:workflow'
+)]
 class WorkflowCommand extends Command
 {
     private WorkflowServiceInterface $workflowService;
@@ -23,7 +27,8 @@ class WorkflowCommand extends Command
         $this->contentService = $contentService;
         $this->workflowService = $workflowService;
         $this->workflowRegistry = $workflowRegistry;
-        parent::__construct('doc:workflow');
+
+        parent::__construct();
     }
 
     protected function configure(): void
@@ -39,7 +44,7 @@ class WorkflowCommand extends Command
 
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
-        $contentId = $input->getArgument('contentId');
+        $contentId = (int) $input->getArgument('contentId');
         $workflowName = $input->getArgument('workflowName');
         $transitionName = $input->getArgument('transitionName');
 

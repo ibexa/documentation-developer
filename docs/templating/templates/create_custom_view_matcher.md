@@ -4,8 +4,7 @@ description: You can create custom view matchers to configure template and contr
 
 # Create custom view matcher
 
-In addition to the [built-in view matchers](view_matcher_reference.md),
-you can also create custom matchers to use in [template configuration](template_configuration.md#view-rules-and-matching).
+In addition to the [built-in view matchers](view_matcher_reference.md), you can also create custom matchers to use in [template configuration](template_configuration.md#view-rules-and-matching).
 
 To do it, create a matcher class that implements `Ibexa\Core\MVC\Symfony\Matcher\ContentBased\MatcherInterface`.
 
@@ -13,7 +12,7 @@ To do it, create a matcher class that implements `Ibexa\Core\MVC\Symfony\Matcher
 
 The matcher class must implement the following methods:
 
-- `matchLocation` - checks if a Location object matches.
+- `matchLocation` - checks if a location object matches.
 - `matchContentInfo` - checks if a ContentInfo object matches.
 - `match` - checks if the View object matches.
 - `setMatchingConfig` - receives the matcher's config from the view rule.
@@ -25,8 +24,7 @@ This matcher identifies content items that have the provided owner or owners.
 [[= include_file('code_samples/front/view_matcher/src/View/Matcher/Owner.php') =]]
 ```
 
-The matcher checks whether the owner of the current content (by its ContentInfo or Location)
-matches any of the values passed in configuration.
+The matcher checks whether the owner of the current content (by its ContentInfo or location) matches any of the values passed in configuration.
 
 ## Matcher service
 
@@ -48,5 +46,4 @@ The following configuration uses a special template to render articles owned by 
 
 !!! note
 
-    If you use a matcher that is a service instead of a simple class,
-    tag the service with `ibexa.view.matcher`.
+    If you use a matcher that is a service instead of a simple class, tag the service with `ibexa.view.matcher`.

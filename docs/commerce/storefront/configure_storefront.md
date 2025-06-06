@@ -8,9 +8,9 @@ The Storefront is accessible under the `<yourdomain>/product-catalog`.
 
 ## Catalog configuration
 
-With the `ibexa/storefront` package, you can configure the product catalog and make it available to your shop users. 
+With the `ibexa/storefront` package, you can configure the product catalog and make it available to your shop users.
 
-Before you start configuring the Storefront, make sure you have created, configured and published [catalogs](https://doc.ibexa.co/projects/userguide/en/latest/pim/work_with_catalogs/#create-catalogs) in the Back Office.
+Before you start configuring the Storefront, make sure you have created, configured, and published [catalogs]([[= user_doc =]]/pim/work_with_catalogs/#create-catalogs) in the back office.
 
 The configuration is available under the `ibexa.system.<scope>.storefront.catalog` [configuration key](configuration.md#configuration-files).
 It accepts the following values:
@@ -96,7 +96,7 @@ ibexa:
         site_group:
             user_settings_groups:
                 - location
-                - custom_group       
+                - custom_group
 ```
 
 By default, only the `location` user settings is provided:
@@ -106,4 +106,3 @@ By default, only the `location` user settings is provided:
 - Short date and time format
 - Long date and time format
 - Language
-

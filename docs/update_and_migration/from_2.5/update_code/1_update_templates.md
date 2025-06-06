@@ -2,7 +2,7 @@
 
 ## Back-Office templates
 
-The naming and location of templates in the Back Office have been changed.
+The naming and location of templates in the back office have been changed.
 If you extend or modify these templates, you need to adapt your code.
 
 For the full list of template changes, see [the list of removals and deprecations](ez_platform_v3.0_deprecations.md#template-organization).

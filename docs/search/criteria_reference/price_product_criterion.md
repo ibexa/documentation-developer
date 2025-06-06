@@ -1,5 +1,5 @@
 ---
-description: Price Product Criterion
+description: Price Product Search Criterion
 ---
 
 # Price Product Criterion
@@ -15,7 +15,7 @@ The `Product` Search Criterion searches for prices based on product codes.
 ### PHP
 
 ``` php
-$query = new PriceQuery( 
+$query = new PriceQuery(
     new \Ibexa\Contracts\ProductCatalog\Values\Price\Query\Criterion\Product('ergo_desk')
 );
 ```

@@ -6,12 +6,16 @@ use Ibexa\Contracts\Core\Repository\ContentTypeService;
 use Ibexa\Contracts\Core\Repository\Exceptions\NotFoundException;
 use Ibexa\Contracts\Core\Repository\PermissionResolver;
 use Ibexa\Contracts\Core\Repository\UserService;
+use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 
+#[AsCommand(
+    name: 'doc:create_content_type'
+)]
 class CreateContentTypeCommand extends Command
 {
     private ContentTypeService $contentTypeService;
@@ -25,7 +29,8 @@ class CreateContentTypeCommand extends Command
         $this->contentTypeService = $contentTypeService;
         $this->userService = $userService;
         $this->permissionResolver = $permissionResolver;
-        parent::__construct('doc:create_content_type');
+
+        parent::__construct();
     }
 
     protected function configure(): void
@@ -38,7 +43,7 @@ class CreateContentTypeCommand extends Command
             ->addOption('copy', 'c', InputOption::VALUE_NONE, 'Do you want to make a copy of the content type?');
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $user = $this->userService->loadUserByLogin('admin');
         $this->permissionResolver->setCurrentUserReference($user);

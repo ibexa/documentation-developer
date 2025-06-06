@@ -1,5 +1,5 @@
 ---
-description: Events that are triggered when working with Sections.
+description: Events that are triggered when working with sections.
 page_type: reference
 ---
 
@@ -14,7 +14,7 @@ page_type: reference
 |`BeforeUpdateSectionEvent`|`SectionService::updateSection`|`Section $section`</br>`SectionUpdateStruct $sectionUpdateStruct`</br>`Section|null $updatedSection`|
 |`UpdateSectionEvent`|`SectionService::updateSection`|`Section $section`</br>`SectionUpdateStruct $sectionUpdateStruct`</br>`Section $updatedSection`|
 
-## Assigning Sections
+## Assigning sections
 
 | Event | Dispatched by | Properties |
 |---|---|---|

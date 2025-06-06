@@ -1,12 +1,13 @@
-# URL Field Type
+# URL field type
 
-This Field Type makes it possible to store and retrieve a URL. It is formed by the combination of a link and the respective text.
+This field type makes it possible to store and retrieve a URL.
+It's formed by the combination of a link and the respective text.
 
 | Name  | Internal name | Expected input |
 |-------|---------------|----------------|
 | `Url` | `ezurl`       | `string`       |
 
-## PHP API Field Type
+## PHP API field type
 
 ### Input expectations
 
@@ -19,12 +20,12 @@ This Field Type makes it possible to store and retrieve a URL. It is formed by t
 
 ##### Properties
 
-The Value class of this Field Type contains the following properties:
+The Value class of this field type contains the following properties:
 
 | Property | Type     | Description|
 |----------|----------|------------|
-| `$link`  | `string` | This property stores the link provided to the value of this Field Type.                              |
-| `$text`  | `string` | This property stores the text to represent the stored link provided to the value of this Field Type. |
+| `$link`  | `string` | This property stores the link provided to the value of this field type.                              |
+| `$text`  | `string` | This property stores the text to represent the stored link provided to the value of this field type. |
 
 ``` php
 // Value object content example
@@ -35,7 +36,8 @@ $url->text = "Ibexa";
 
 ##### Constructor
 
-The `Url\Value` constructor initializes a new Value object with the provided value. It expects two comma-separated strings, corresponding to the link and text.
+The `Url\Value` constructor initializes a new value object with the provided value.
+It expects two comma-separated strings, corresponding to the link and text.
 
 ``` php
 // Constructor example
@@ -61,8 +63,8 @@ $hash = [
 
 ### Validation
 
-This Field Type does not perform validation.
+This field type doesn't perform validation.
 
 ### Settings
 
-This Field Type does not have settings.
+This field type doesn't have settings.

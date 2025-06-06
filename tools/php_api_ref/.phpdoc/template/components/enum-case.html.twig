@@ -1,0 +1,11 @@
+<article class="phpdocumentor-element-enum-case">
+    {% embed 'components/content-header.html.twig' with { node: case, anchor: 'enumcase_' ~ case.name, anchor_link: link(case), header_tag: 'h3' } %}
+    {% endembed %}
+    {% include 'components/summary.html.twig' with { node: case } %}
+    {% if case.value %}{% include 'components/enum-case-signature.html.twig' with { node: case } %}{% endif %}
+    {% include 'components/deprecation.html.twig' with { node: case } %}
+    {% include 'components/description.html.twig' with { node: case } %}
+    {% include 'components/description.html.twig' with { node: case.var[0] } %}
+    {% include 'components/tags.html.twig' with { node: case } %}
+    {% include 'components/attributes.html.twig' with { node: case } %}
+</article>

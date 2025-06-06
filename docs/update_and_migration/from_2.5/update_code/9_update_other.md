@@ -20,7 +20,7 @@ security:
 
 ## Commands
 
-The `ContainerAwareCommand` class is not available in Symfony 5. Therefore, if your custom commands use `Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand`
+The `ContainerAwareCommand` class isn't available in Symfony 5. Therefore, if your custom commands use `Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand`
 as a base class, you must rewrite them to use `Symfony\Component\Console\Command\Command` instead. 
 
 ## Permissions

@@ -1,0 +1,394 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CartSummary media-type="application/vnd.ibexa.api.CartSummary+xml" href="/api/ibexa/v2/cart/b0b51659-75f7-4c8d-9cea-5ce5865dd9ce/summary">
+ <id>1</id>
+ <identifier>b0b51659-75f7-4c8d-9cea-5ce5865dd9ce</identifier>
+ <name>default</name>
+ <createdAt>2025-04-03T08:16:09+00:00</createdAt>
+ <updatedAt>2025-04-03T08:16:09+00:00</updatedAt>
+ <Owner media-type="application/vnd.ibexa.api.User+xml" href="/api/ibexa/v2/user/users/14"/>
+ <SummaryEntryCollection media-type="application/vnd.ibexa.api.SummaryEntryCollection+xml">
+  <count>3</count>
+  <CartSummaryEntry media-type="application/vnd.ibexa.api.CartSummaryEntry+xml">
+   <identifier>5ce5d7a7-fcc8-4d28-89ad-3f4a53b7ea9a</identifier>
+   <id>1</id>
+   <names>
+    <value languageCode="eng-GB">Control unit 1|germany|none|physical</value>
+   </names>
+   <quantity>1</quantity>
+   <Price media-type="application/vnd.ibexa.api.Price+xml">
+    <RestPrice media-type="application/vnd.ibexa.api.RestPrice+xml">
+     <Price media-type="application/vnd.ibexa.api.Price+xml">
+      <amount>10100</amount>
+      <Currency media-type="application/vnd.ibexa.api.Currency+xml">
+       <id>2</id>
+       <code>EUR</code>
+       <subunits>2</subunits>
+       <enabled>1</enabled>
+      </Currency>
+     </Price>
+     <formatted>€101.00</formatted>
+    </RestPrice>
+   </Price>
+   <PriceInclVat media-type="application/vnd.ibexa.api.PriceInclVat+xml">
+    <RestPrice media-type="application/vnd.ibexa.api.RestPrice+xml">
+     <Price media-type="application/vnd.ibexa.api.Price+xml">
+      <amount>10100</amount>
+      <Currency media-type="application/vnd.ibexa.api.Currency+xml">
+       <id>2</id>
+       <code>EUR</code>
+       <subunits>2</subunits>
+       <enabled>1</enabled>
+      </Currency>
+     </Price>
+     <formatted>€101.00</formatted>
+    </RestPrice>
+   </PriceInclVat>
+   <SubtotalPrice media-type="application/vnd.ibexa.api.SubtotalPrice+xml">
+    <RestPrice media-type="application/vnd.ibexa.api.RestPrice+xml">
+     <Price media-type="application/vnd.ibexa.api.Price+xml">
+      <amount>10100</amount>
+      <Currency media-type="application/vnd.ibexa.api.Currency+xml">
+       <id>2</id>
+       <code>EUR</code>
+       <subunits>2</subunits>
+       <enabled>1</enabled>
+      </Currency>
+     </Price>
+     <formatted>€101.00</formatted>
+    </RestPrice>
+   </SubtotalPrice>
+   <SubtotalPriceInclVat media-type="application/vnd.ibexa.api.SubtotalPriceInclVat+xml">
+    <RestPrice media-type="application/vnd.ibexa.api.RestPrice+xml">
+     <Price media-type="application/vnd.ibexa.api.Price+xml">
+      <amount>10100</amount>
+      <Currency media-type="application/vnd.ibexa.api.Currency+xml">
+       <id>2</id>
+       <code>EUR</code>
+       <subunits>2</subunits>
+       <enabled>1</enabled>
+      </Currency>
+     </Price>
+     <formatted>€101.00</formatted>
+    </RestPrice>
+   </SubtotalPriceInclVat>
+   <VatCategory media-type="application/vnd.ibexa.api.VatCategory+xml">
+    <identifier>none</identifier>
+    <region>germany</region>
+    <vatValue>0</vatValue>
+   </VatCategory>
+   <OriginalSubtotalPrice media-type="application/vnd.ibexa.api.OriginalSubtotalPrice+xml">
+    <RestPrice media-type="application/vnd.ibexa.api.RestPrice+xml">
+     <Price media-type="application/vnd.ibexa.api.Price+xml">
+      <amount>10100</amount>
+      <Currency media-type="application/vnd.ibexa.api.Currency+xml">
+       <id>2</id>
+       <code>EUR</code>
+       <subunits>2</subunits>
+       <enabled>1</enabled>
+      </Currency>
+     </Price>
+     <formatted>€101.00</formatted>
+    </RestPrice>
+   </OriginalSubtotalPrice>
+   <Product media-type="application/vnd.ibexa.api.Product+xml">
+    <code>product_code_control_unit_1</code>
+    <isBaseProduct></isBaseProduct>
+    <isVariant></isVariant>
+    <name>Control unit 1|germany|none|physical</name>
+    <Thumbnail media-type="application/vnd.ibexa.api.Thumbnail+xml">
+     <resource>http://localhost:8070/var/site/storage/images/_aliases/medium/9/5/5/0/559-1-eng-GB/f25743f8e7c0-controlunit.jpeg</resource>
+     <width>200</width>
+     <height>150</height>
+     <mimeType>image/jpeg</mimeType>
+    </Thumbnail>
+    <Availability media-type="application/vnd.ibexa.api.Availability+xml">
+     <is_available>1</is_available>
+     <stock>101</stock>
+     <is_infinite></is_infinite>
+    </Availability>
+   </Product>
+  </CartSummaryEntry>
+  <CartSummaryEntry media-type="application/vnd.ibexa.api.CartSummaryEntry+xml">
+   <identifier>7a62792c-a7a8-4661-9a01-51c2ba89e1f5</identifier>
+   <id>2</id>
+   <names>
+    <value languageCode="eng-GB">Control unit 3|germany|none|physical</value>
+   </names>
+   <quantity>2</quantity>
+   <Price media-type="application/vnd.ibexa.api.Price+xml">
+    <RestPrice media-type="application/vnd.ibexa.api.RestPrice+xml">
+     <Price media-type="application/vnd.ibexa.api.Price+xml">
+      <amount>10300</amount>
+      <Currency media-type="application/vnd.ibexa.api.Currency+xml">
+       <id>2</id>
+       <code>EUR</code>
+       <subunits>2</subunits>
+       <enabled>1</enabled>
+      </Currency>
+     </Price>
+     <formatted>€103.00</formatted>
+    </RestPrice>
+   </Price>
+   <PriceInclVat media-type="application/vnd.ibexa.api.PriceInclVat+xml">
+    <RestPrice media-type="application/vnd.ibexa.api.RestPrice+xml">
+     <Price media-type="application/vnd.ibexa.api.Price+xml">
+      <amount>10300</amount>
+      <Currency media-type="application/vnd.ibexa.api.Currency+xml">
+       <id>2</id>
+       <code>EUR</code>
+       <subunits>2</subunits>
+       <enabled>1</enabled>
+      </Currency>
+     </Price>
+     <formatted>€103.00</formatted>
+    </RestPrice>
+   </PriceInclVat>
+   <SubtotalPrice media-type="application/vnd.ibexa.api.SubtotalPrice+xml">
+    <RestPrice media-type="application/vnd.ibexa.api.RestPrice+xml">
+     <Price media-type="application/vnd.ibexa.api.Price+xml">
+      <amount>20600</amount>
+      <Currency media-type="application/vnd.ibexa.api.Currency+xml">
+       <id>2</id>
+       <code>EUR</code>
+       <subunits>2</subunits>
+       <enabled>1</enabled>
+      </Currency>
+     </Price>
+     <formatted>€206.00</formatted>
+    </RestPrice>
+   </SubtotalPrice>
+   <SubtotalPriceInclVat media-type="application/vnd.ibexa.api.SubtotalPriceInclVat+xml">
+    <RestPrice media-type="application/vnd.ibexa.api.RestPrice+xml">
+     <Price media-type="application/vnd.ibexa.api.Price+xml">
+      <amount>20600</amount>
+      <Currency media-type="application/vnd.ibexa.api.Currency+xml">
+       <id>2</id>
+       <code>EUR</code>
+       <subunits>2</subunits>
+       <enabled>1</enabled>
+      </Currency>
+     </Price>
+     <formatted>€206.00</formatted>
+    </RestPrice>
+   </SubtotalPriceInclVat>
+   <VatCategory media-type="application/vnd.ibexa.api.VatCategory+xml">
+    <identifier>none</identifier>
+    <region>germany</region>
+    <vatValue>0</vatValue>
+   </VatCategory>
+   <OriginalSubtotalPrice media-type="application/vnd.ibexa.api.OriginalSubtotalPrice+xml">
+    <RestPrice media-type="application/vnd.ibexa.api.RestPrice+xml">
+     <Price media-type="application/vnd.ibexa.api.Price+xml">
+      <amount>20600</amount>
+      <Currency media-type="application/vnd.ibexa.api.Currency+xml">
+       <id>2</id>
+       <code>EUR</code>
+       <subunits>2</subunits>
+       <enabled>1</enabled>
+      </Currency>
+     </Price>
+     <formatted>€206.00</formatted>
+    </RestPrice>
+   </OriginalSubtotalPrice>
+   <Product media-type="application/vnd.ibexa.api.Product+xml">
+    <code>product_code_control_unit_3</code>
+    <isBaseProduct></isBaseProduct>
+    <isVariant></isVariant>
+    <name>Control unit 3|germany|none|physical</name>
+    <Thumbnail media-type="application/vnd.ibexa.api.Thumbnail+xml">
+     <resource>http://localhost:8070/var/site/storage/images/_aliases/medium/5/7/5/0/575-1-eng-GB/274d5edc4d3c-controlunit.jpeg</resource>
+     <width>200</width>
+     <height>150</height>
+     <mimeType>image/jpeg</mimeType>
+    </Thumbnail>
+    <Availability media-type="application/vnd.ibexa.api.Availability+xml">
+     <is_available>1</is_available>
+     <stock>103</stock>
+     <is_infinite></is_infinite>
+    </Availability>
+   </Product>
+  </CartSummaryEntry>
+  <CartSummaryEntry media-type="application/vnd.ibexa.api.CartSummaryEntry+xml">
+   <identifier>37dfad84-8c5d-4d06-8939-29397b020ee6</identifier>
+   <id>3</id>
+   <names>
+    <value languageCode="eng-GB">Control unit 2|germany|none|physical</value>
+   </names>
+   <quantity>1</quantity>
+   <Price media-type="application/vnd.ibexa.api.Price+xml">
+    <RestPrice media-type="application/vnd.ibexa.api.RestPrice+xml">
+     <Price media-type="application/vnd.ibexa.api.Price+xml">
+      <amount>10200</amount>
+      <Currency media-type="application/vnd.ibexa.api.Currency+xml">
+       <id>2</id>
+       <code>EUR</code>
+       <subunits>2</subunits>
+       <enabled>1</enabled>
+      </Currency>
+     </Price>
+     <formatted>€102.00</formatted>
+    </RestPrice>
+   </Price>
+   <PriceInclVat media-type="application/vnd.ibexa.api.PriceInclVat+xml">
+    <RestPrice media-type="application/vnd.ibexa.api.RestPrice+xml">
+     <Price media-type="application/vnd.ibexa.api.Price+xml">
+      <amount>10200</amount>
+      <Currency media-type="application/vnd.ibexa.api.Currency+xml">
+       <id>2</id>
+       <code>EUR</code>
+       <subunits>2</subunits>
+       <enabled>1</enabled>
+      </Currency>
+     </Price>
+     <formatted>€102.00</formatted>
+    </RestPrice>
+   </PriceInclVat>
+   <SubtotalPrice media-type="application/vnd.ibexa.api.SubtotalPrice+xml">
+    <RestPrice media-type="application/vnd.ibexa.api.RestPrice+xml">
+     <Price media-type="application/vnd.ibexa.api.Price+xml">
+      <amount>10200</amount>
+      <Currency media-type="application/vnd.ibexa.api.Currency+xml">
+       <id>2</id>
+       <code>EUR</code>
+       <subunits>2</subunits>
+       <enabled>1</enabled>
+      </Currency>
+     </Price>
+     <formatted>€102.00</formatted>
+    </RestPrice>
+   </SubtotalPrice>
+   <SubtotalPriceInclVat media-type="application/vnd.ibexa.api.SubtotalPriceInclVat+xml">
+    <RestPrice media-type="application/vnd.ibexa.api.RestPrice+xml">
+     <Price media-type="application/vnd.ibexa.api.Price+xml">
+      <amount>10200</amount>
+      <Currency media-type="application/vnd.ibexa.api.Currency+xml">
+       <id>2</id>
+       <code>EUR</code>
+       <subunits>2</subunits>
+       <enabled>1</enabled>
+      </Currency>
+     </Price>
+     <formatted>€102.00</formatted>
+    </RestPrice>
+   </SubtotalPriceInclVat>
+   <VatCategory media-type="application/vnd.ibexa.api.VatCategory+xml">
+    <identifier>none</identifier>
+    <region>germany</region>
+    <vatValue>0</vatValue>
+   </VatCategory>
+   <OriginalSubtotalPrice media-type="application/vnd.ibexa.api.OriginalSubtotalPrice+xml">
+    <RestPrice media-type="application/vnd.ibexa.api.RestPrice+xml">
+     <Price media-type="application/vnd.ibexa.api.Price+xml">
+      <amount>10200</amount>
+      <Currency media-type="application/vnd.ibexa.api.Currency+xml">
+       <id>2</id>
+       <code>EUR</code>
+       <subunits>2</subunits>
+       <enabled>1</enabled>
+      </Currency>
+     </Price>
+     <formatted>€102.00</formatted>
+    </RestPrice>
+   </OriginalSubtotalPrice>
+   <Product media-type="application/vnd.ibexa.api.Product+xml">
+    <code>product_code_control_unit_2</code>
+    <isBaseProduct></isBaseProduct>
+    <isVariant></isVariant>
+    <name>Control unit 2|germany|none|physical</name>
+    <Thumbnail media-type="application/vnd.ibexa.api.Thumbnail+xml">
+     <resource>http://localhost:8070/var/site/storage/images/_aliases/medium/7/6/5/0/567-1-eng-GB/d396544dd46a-controlunit.jpeg</resource>
+     <width>200</width>
+     <height>150</height>
+     <mimeType>image/jpeg</mimeType>
+    </Thumbnail>
+    <Availability media-type="application/vnd.ibexa.api.Availability+xml">
+     <is_available>1</is_available>
+     <stock>102</stock>
+     <is_infinite></is_infinite>
+    </Availability>
+   </Product>
+  </CartSummaryEntry>
+ </SummaryEntryCollection>
+ <TotalPrice media-type="application/vnd.ibexa.api.Price+xml">
+  <RestPrice media-type="application/vnd.ibexa.api.RestPrice+xml">
+   <Price media-type="application/vnd.ibexa.api.Price+xml">
+    <amount>40900</amount>
+    <Currency media-type="application/vnd.ibexa.api.Currency+xml">
+     <id>2</id>
+     <code>EUR</code>
+     <subunits>2</subunits>
+     <enabled>1</enabled>
+    </Currency>
+   </Price>
+   <formatted>€409.00</formatted>
+  </RestPrice>
+ </TotalPrice>
+ <OriginalTotalPrice media-type="application/vnd.ibexa.api.Price+xml">
+  <RestPrice media-type="application/vnd.ibexa.api.RestPrice+xml">
+   <Price media-type="application/vnd.ibexa.api.Price+xml">
+    <amount>40900</amount>
+    <Currency media-type="application/vnd.ibexa.api.Currency+xml">
+     <id>2</id>
+     <code>EUR</code>
+     <subunits>2</subunits>
+     <enabled>1</enabled>
+    </Currency>
+   </Price>
+   <formatted>€409.00</formatted>
+  </RestPrice>
+ </OriginalTotalPrice>
+ <TotalDiscount media-type="application/vnd.ibexa.api.Price+xml">
+  <RestPrice media-type="application/vnd.ibexa.api.RestPrice+xml">
+   <Price media-type="application/vnd.ibexa.api.Price+xml">
+    <amount>0</amount>
+    <Currency media-type="application/vnd.ibexa.api.Currency+xml">
+     <id>2</id>
+     <code>EUR</code>
+     <subunits>2</subunits>
+     <enabled>1</enabled>
+    </Currency>
+   </Price>
+   <formatted>€0.00</formatted>
+  </RestPrice>
+ </TotalDiscount>
+ <TotalPriceInclVat media-type="application/vnd.ibexa.api.Price+xml">
+  <RestPrice media-type="application/vnd.ibexa.api.RestPrice+xml">
+   <Price media-type="application/vnd.ibexa.api.Price+xml">
+    <amount>40900</amount>
+    <Currency media-type="application/vnd.ibexa.api.Currency+xml">
+     <id>2</id>
+     <code>EUR</code>
+     <subunits>2</subunits>
+     <enabled>1</enabled>
+    </Currency>
+   </Price>
+   <formatted>€409.00</formatted>
+  </RestPrice>
+ </TotalPriceInclVat>
+ <VatCategorySummary media-type="application/vnd.ibexa.api.VatCategorySummary+xml">
+  <VatCategory media-type="application/vnd.ibexa.api.VatCategory+xml">
+   <identifier>none</identifier>
+   <region>germany</region>
+   <vatValue>0</vatValue>
+  </VatCategory>
+  <RestPrice media-type="application/vnd.ibexa.api.RestPrice+xml">
+   <Price media-type="application/vnd.ibexa.api.Price+xml">
+    <amount>0</amount>
+    <Currency media-type="application/vnd.ibexa.api.Currency+xml">
+     <id>2</id>
+     <code>EUR</code>
+     <subunits>2</subunits>
+     <enabled>1</enabled>
+    </Currency>
+   </Price>
+   <formatted>€0.00</formatted>
+  </RestPrice>
+ </VatCategorySummary>
+ <Currency media-type="application/vnd.ibexa.api.Currency+xml">
+  <id>2</id>
+  <code>EUR</code>
+  <subunits>2</subunits>
+  <enabled>1</enabled>
+ </Currency>
+ <CartConstraintViolationList media-type="application/vnd.ibexa.api.CartConstraintViolationList+xml"/>
+</CartSummary>

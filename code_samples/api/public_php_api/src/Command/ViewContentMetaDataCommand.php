@@ -11,11 +11,15 @@ use Ibexa\Contracts\Core\Repository\PermissionResolver;
 use Ibexa\Contracts\Core\Repository\URLAliasService;
 use Ibexa\Contracts\Core\Repository\UserService;
 use Ibexa\Contracts\Core\Repository\Values\Content\VersionInfo;
+use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
+#[AsCommand(
+    name: 'doc:view_metadata'
+)]
 class ViewContentMetaDataCommand extends Command
 {
     private ContentService $contentService;
@@ -38,7 +42,8 @@ class ViewContentMetaDataCommand extends Command
         $this->userService = $userService;
         $this->objectStateService = $objectStateService;
         $this->permissionResolver = $permissionResolver;
-        parent::__construct('doc:view_metadata');
+
+        parent::__construct();
     }
 
     protected function configure(): void

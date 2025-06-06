@@ -9,17 +9,18 @@ use Ibexa\Contracts\ActivityLog\Values\ActivityLog\SortClause\LoggedAtSortClause
 use Ibexa\Contracts\Core\Repository\PermissionResolver;
 use Ibexa\Contracts\Core\Repository\UserService;
 use Ibexa\Contracts\Core\Repository\Values\Content\Content;
+use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Style\SymfonyStyle;
 
+#[AsCommand(
+    name: 'app:monitor-content-creation',
+    description: 'List last 10 log entry groups with creations in the last hour'
+)]
 class MonitorRecentContentCreationCommand extends Command
 {
-    protected static $defaultName = 'app:monitor-content-creation';
-
-    protected static $defaultDescription = 'List last 10 log entry groups with creations in the last hour';
-
     private ActivityLogServiceInterface $activityLogService;
 
     private PermissionResolver $permissionResolver;
@@ -31,6 +32,7 @@ class MonitorRecentContentCreationCommand extends Command
         $this->permissionResolver = $permissionResolver;
         $this->userService = $userService;
         $this->activityLogService = $activityLogService;
+
         parent::__construct();
     }
 

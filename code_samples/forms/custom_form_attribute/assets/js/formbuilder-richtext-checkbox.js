@@ -3,19 +3,15 @@
         const richtext = new ibexa.BaseRichText();
 
         // Enable editor in all ibexa-data-source divs
-        doc.querySelectorAll('.ibexa-data-source').forEach(
-            (ibexaDataSource) => {
-                const richtextContainer = ibexaDataSource.querySelector(
-                    '.ibexa-data-source__richtext'
-                );
+        doc.querySelectorAll('.ibexa-data-source').forEach((ibexaDataSource) => {
+            const richtextContainer = ibexaDataSource.querySelector('.ibexa-data-source__richtext');
 
-                if (richtextContainer.classList.contains('ck')) {
-                    return;
-                }
-
-                richtext.init(richtextContainer);
+            if (richtextContainer.classList.contains('ck')) {
+                return;
             }
-        );
+
+            richtext.init(richtextContainer);
+        });
     });
 
     const openUdw = (config) => {

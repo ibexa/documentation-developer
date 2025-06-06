@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Cart media-type="application/vnd.ibexa.api.Cart+xml">
+ <id>1</id>
+ <identifier>e67d8f4c-95b5-423f-89d8-b2b81c37609b</identifier>
+ <name>Default</name>
+ <createdAt>2024-09-26T09:16:56+00:00</createdAt>
+ <updatedAt>2024-09-26T09:16:56+00:00</updatedAt>
+ <owner media-type="application/vnd.ibexa.api.User+xml" href="/api/ibexa/v2/user/users/10"/>
+ <Currency media-type="application/vnd.ibexa.api.Currency+xml">
+  <id>2</id>
+  <code>EUR</code>
+  <subunits>2</subunits>
+  <enabled>1</enabled>
+ </Currency>
+</Cart>

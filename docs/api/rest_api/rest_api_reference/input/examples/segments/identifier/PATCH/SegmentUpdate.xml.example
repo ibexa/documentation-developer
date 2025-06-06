@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SegmentUpdate>
+  <identifier>modified_segment_identifier</identifier>
+  <name>Modified Segment Name</name>
+  <group>small_companies</group>
+</SegmentUpdate>

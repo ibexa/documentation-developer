@@ -1,10 +1,10 @@
 ---
-description: Add custom drop down menus to Back Office interface.
+description: Add custom drop down menus to back office interface.
 ---
 
 # Add drop-downs
 
-In [[= product_name =]], you can create a reusable custom drop-down and implement it anywhere in the Back Office.
+In [[= product_name =]], you can create a reusable custom drop-down and implement it anywhere in the back office.
 Follow the steps below to learn how to integrate this component to fit it to your project needs.
 
 ## Create `<select>` input
@@ -17,7 +17,7 @@ Set elements which are available for the `<select>` input, for example:
     <option value="DE">DE</option>
     <option value="US">US</option>
     <option value="NO">NO</option>
-    <option value="PL">PL</option> 
+    <option value="PL">PL</option>
 </select>
 {% endset %}
 ```
@@ -88,7 +88,8 @@ For `value`, see the example:
 
 ## Prepare custom drop-down structure
 
-Next, prepare the component structure and place it in the template after setting the needed attributes. See the example:
+Next, prepare the component structure and place it in the template after setting the needed attributes.
+See the example:
 
 ```twig
 {% include '@ibexadesign/ui/component/dropdown/dropdown.html.twig' with {
@@ -131,7 +132,7 @@ The following attributes are available:
 ### Initialize
 
 All drop-downs are searched and initialized automatically in `admin.dropdown.js`.
-To extend or modify the search, you need to add a `custom_init` attribute to the drop-down Twig parameters. Otherwise it will be initialized two times.
+To extend or modify the search, you need to add a `custom_init` attribute to the drop-down Twig parameters. Otherwise it's initialized two times.
 Next, run the following JavaScript code:
 
 ```javascript

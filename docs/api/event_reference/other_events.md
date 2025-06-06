@@ -51,7 +51,7 @@ The following events are dispatched when changing the user settings available in
 |`BeforeSetUserPreferenceEvent`|`UserPreferenceService::setUserPreference`|`UserPreferenceSetStruct[] $userPreferenceSetStructs`|
 |`SetUserPreferenceEvent`|`UserPreferenceService::setUserPreference`|`UserPreferenceSetStruct[] $userPreferenceSetStructs`|
 
-## DAM assets 
+## DAM assets
 
 | Event | Dispatched by | Properties |
 |---|---|---|

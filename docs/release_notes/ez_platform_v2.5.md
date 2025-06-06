@@ -13,21 +13,21 @@ description: eZ Platform v2.5 is the last Long Term Support release in the v2 li
 
 ## Notable changes
 
-### Content Tree
+### Content tree
 
-You can now navigate through your website with a Content Tree.
-It will allow you to easily browse your content in the Back Office.
+You can now navigate through your website with a content tree.
+It allows you to easily browse your content in the back office.
 Each content item has a unique icon that helps you identify it without opening.
 
-![Content Tree in the menu](left_menu_tree.png "Content Tree in the menu")
+![Content tree in the menu](left_menu_tree.png "Content tree in the menu")
 
-For more information on custom configuration, see [Content Tree](https://doc.ibexa.co/en/2.5/guide/config_back_office/#content-tree) in the developer documentation.
+For more information on custom configuration, see [content tree](https://doc.ibexa.co/en/2.5/guide/config_back_office/#content-tree) in Developer Documentation.
 
-For full description of the interface, see [Content Tree](https://doc.ibexa.co/projects/userguide/en/2.5/content_model/#content-tree) in the user documentation.
+For full description of the interface, see [content tree](https://doc.ibexa.co/projects/userguide/en/2.5/content_model/#content-tree) in User Documentation.
 
 ### Webpack Encore
 
-This release introduces [Webpack Encore](https://symfony.com/doc/4.3/frontend.html#webpack-encore)
+This release introduces [Webpack Encore]([[= symfony_doc =]]/frontend.html#webpack-encore)
 as the preferred tool for asset management.
 This leads to [changes in requirements](#requirements-changes).
 
@@ -44,14 +44,14 @@ Database schema is now created based on [YAML configuration](https://github.com/
 You can now take advantage of [GraphQL](https://doc.ibexa.co/en/2.5/api/graphql) to query and operate on content.
 It uses a domain schema based on your content model.
 
-See [GraphQL documentation](https://graphql.org/) for more information about GraphQL in general.
+For more information, see [GraphQL documentation](https://graphql.org/).
 
-### Matrix Field Type
+### Matrix field type
 
-The new [Matrix Field Type](https://doc.ibexa.co/en/2.5/api/field_types_reference/matrixfield) enables you to store a table of data.
-Columns in the matrix are defined in the Field definition.
+The new [Matrix field type](https://doc.ibexa.co/en/2.5/api/field_types_reference/matrixfield) enables you to store a table of data.
+Columns in the matrix are defined in the field definition.
 
-![Configuring a Matrix Field Type](2.5_matrix_ft.png)
+![Configuring a Matrix field type](2.5_matrix_ft.png)
 
 #### Migration of legacy XML format
 
@@ -64,13 +64,13 @@ bin/console ezplatform:migrate:legacy_matrix
 ### User bundle
 
 The new [ezplatform-user](https://github.com/ezsystems/ezplatform-user) bundle now centralizes
-all features related to user management, such as user accounts, registering, changing passwords, etc.
+all features related to user management, such as user accounts, registering, or changing passwords.
 
 !!! dxp
 
     ### Workflow improvements
 
-    You can now preview a diagram of the configured workflows in the Admin Panel.
+    You can now preview a diagram of the configured workflows in the **Admin** panel.
 
     ![Diagram of a workflow configuration](2.5_workflow_diagram.png)
 
@@ -80,13 +80,13 @@ all features related to user management, such as user accounts, registering, cha
 
 ### Online editor improvements
 
-#### Anchors in Rich Text Field
+#### Anchors in Rich Text field
 
-You can now link fragments of text by adding Anchors in Rich Text Fields.
+You can now link fragments of text by adding Anchors in Rich Text fields.
 
 #### Inline custom tags
 
-You can now create [inline custom tags](https://doc.ibexa.co/en/2.5/guide/extending/extending_online_editor/#inline-custom-tags) in Rich Text Fields.
+You can now create [inline custom tags](https://doc.ibexa.co/en/2.5/guide/extending/extending_online_editor/#inline-custom-tags) in Rich Text fields.
 
 #### Custom CK Editor plugins
 
@@ -94,14 +94,14 @@ You can now easily use [custom CK Editor plugins](https://doc.ibexa.co/en/2.5/gu
 
 ### Hiding and revealing content
 
-You can now hide and reveal content items from the Back Office.
-Hidden content will be unavailable on the front page regardless of permissions or [Location visibility](https://doc.ibexa.co/en/2.5/guide/content_management/#location-visibility).
+You can now hide and reveal content items from the back office.
+Hidden content is unavailable on the front page regardless of permissions or [Location visibility](https://doc.ibexa.co/en/2.5/guide/content_management/#location-visibility).
 
 ![Icon for hiding content](2.5_hide_content_icon.png)
 
 ### Product version preview
 
-The Dashboard now shows the version of eZ Platform you are running.
+The Dashboard now shows the version of eZ Platform you're running.
 
 ![eZ Platform version](2.5_product_version.png)
 
@@ -109,30 +109,30 @@ The Dashboard now shows the version of eZ Platform you are running.
 
 The User Settings menu has been expanded with the following options:
 
-- Preferred language of the Back Office
+- Preferred language of the back office
 - Preferred date format
-- Option to enable or disable a character counter for Rich Text Fields
+- Option to enable or disable a character counter for Rich Text fields
 
 ![User settings screen with new settings](2.5_user_settings.png)
 
-### Various Back Office improvements
+### Various back office improvements
 
-This release introduced several Back Office improvements to facilitate editorial experience, including:
+This release introduced several back office improvements to facilitate editorial experience, including:
 
 - [Icons for content types and the ability to define them](https://doc.ibexa.co/en/2.5/guide/extending/extending_back_office/#custom-content-type-icons)
 - Ability to collapse and expand content preview to have easier access to the Sub-items list
 - Responsive Sub-items table with selectable column layout
-- Simpler assigning of Object States to content
+- Simpler assigning of object states to content
 
 
-![Back Office improvements](2.5_back_office_improvements.png)
+![Back office improvements](2.5_back_office_improvements.png)
 
 ### Permissions
 
-#### Content/Create policy for Users
+#### `Content/Create` policy for users
 
-You can now define a 'Content/Create' policy for a User or a User group.
-It will enable or disable (if not set) the **Create** button in your dashboard.
+You can now define a 'Content/Create' policy for a user or a user group.
+It enables or disables (if not set) the **Create** button in your dashboard.
 
 #### Universal Discovery Widget
 
@@ -149,7 +149,7 @@ New API improvements include:
 - new `loadLanguageListByCode()` and `loadLanguageListById()` endpoints for bulk loading of languages
 - new method `ContentService->loadContentInfoList()` for bulk loading Content information
     - it can be used with `ContentService->loadContentListByContentInfo()` to bulk load Content
-    - v2.5 also takes advantage of it in e.g. `RelationList` and `ParameterProvider`
+    - v2.5 also takes advantage of it in, for example, `RelationList` and `ParameterProvider`
 - now Persistence cache layer also caches selected metadata objects in-memory
 - indexation of related objects in the full text search
 
@@ -171,7 +171,7 @@ For full list of supported versions, see [Requirements](https://doc.ibexa.co/en/
 This version introduces stricter default password quality requirements.
 
 Passwords must be at least 10 characters long, and must include upper and lower case letters, and digits.
-Existing passwords are not changed.
+Existing passwords aren't changed.
 
 See [backwards compatibility changes](https://github.com/ezsystems/ezpublish-kernel/blob/7.5/doc/bc/changes-7.5.md)
 for detailed information.
@@ -202,7 +202,7 @@ It enables you to set up a cluster of Solr servers for highly available and faul
 
 #### Custom attributes
 
-It is now possible to add [custom data attributes and CSS classes](https://doc.ibexa.co/en/2.5/guide/extending/extending_online_editor/#custom-data-attributes-and-classes) to elements in the Online Editor.
+It's now possible to add [custom data attributes and CSS classes](https://doc.ibexa.co/en/2.5/guide/extending/extending_online_editor/#custom-data-attributes-and-classes) to elements in the Online Editor.
 
 #### Translatable custom tag choice attributes
 
@@ -216,27 +216,26 @@ You can now translate labels of choice attributes in Custom tags using the `ezri
 
 ### API improvements
 
-`SectionService::loadSection` has been improved to return a filtered list when user does not have access to a Section,
+`SectionService::loadSection` has been improved to return a filtered list when user doesn't have access to a Section,
 instead of throwing an exception.
 
 ## eZ Platform v2.5.4
 
 ### Permission improvements
 
-`RoleService` methods have been improved to return a filtered list when user does not have access to content,
+`RoleService` methods have been improved to return a filtered list when user doesn't have access to content,
 instead of throwing an exception. The following methods are affected:
 
 - `RoleService::loadRoles`
 - `RoleService::getRoleAssignmentsForUser`
 - `RoleService::getRoleAssignmentsForUserGroup`
 
-`content/cleantrash` Policy now allows the user to empty the trash
+`content/cleantrash` policy now allows the user to empty the trash
 even if they would not have access to the trashed content.
 
 ### Docker environment
 
-BCMath PHP extension has been added to the Docker environments
-in order to enable the Allure reporting tool.
+BCMath PHP extension has been added to the Docker environments to enable the Allure reporting tool.
 
 ### Deprecated features
 
@@ -246,14 +245,14 @@ This section provides a list of deprecated features to be removed in eZ Platform
 
 - The `\EzSystems\PlatformInstallerBundle\Installer\CleanInstaller` class and its [service container](https://doc.ibexa.co/en/2.5/api/service_container) definition (`ezplatform.installer.clean_installer`) have been deprecated in favor of `EzSystems\PlatformInstallerBundle\Installer\CoreInstaller` which requires the [Doctrine Schema Bundle](https://github.com/ezsystems/doctrine-dbal-schema) to be enabled.
 - The `ezplatform.installer.db_based_installer` service container definition has been deprecated in favor of its FQCN-named equivalent (`EzSystems\PlatformInstallerBundle\Installer\DbBasedInstaller`).
-- `vendor/ezsystems/ezpublish-kernel/data/mysql/schema.sql` has been deprecated and is not used by the installation process anymore.
+- `vendor/ezsystems/ezpublish-kernel/data/mysql/schema.sql` has been deprecated and isn't used by the installation process anymore.
 
 
 ## eZ Platform v2.5.6
 
 ### Configuration through `ezplatform`
 
-In YAML configuration, you can now use `ezplatform` as well as `ezpublish` as the main configuration key.
+In YAML configuration, you can now use `ezplatform` and `ezpublish` as the main configuration key.
 
 ### API improvements
 
@@ -277,8 +276,8 @@ With v2.5.6 you can optionally use Solr 7.7. To enable it:
 
 ### Search result improvements
 
-When searching in the Back Office you can now select languages to filter results through.
+When searching in the back office you can now select languages to filter results through.
 
-### Searchable Matrix Field
+### Searchable Matrix field
 
-The Matrix Field is not fully searchable.
+The Matrix field isn't fully searchable.

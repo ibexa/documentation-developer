@@ -1,5 +1,5 @@
 ---
-description: Payment Order Criterion
+description: Payment Order Search Criterion
 edition: commerce
 ---
 

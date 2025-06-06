@@ -7,7 +7,7 @@ page_type: reference
 
 Product Sort Clauses are only supported by [Product Search (`ProductServiceInterface::findProduct`)](product_api.md#products).
 
-By using Sort Clause you can filter product by specific attributes, for example: price, code, availability etc.
+By using Sort Clause you can filter product by specific attributes, for example: price, code, or availability.
 
 | Sort Clause | Sorting based on |
 |-----|-----|

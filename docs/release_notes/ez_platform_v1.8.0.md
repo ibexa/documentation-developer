@@ -4,7 +4,7 @@
 
 **The FAST TRACK v1.8.0 release of eZ Platform and eZ Platform Enterprise Edition is available as of February 16, 2017.**
 
-If you are looking for the Long Term Support (LTS) release, see[ https://ezplatform.com/Blog/Long-Term-Support-is-Here](https://ezplatform.com/Blog/Long-Term-Support-is-Here)
+If you're looking for the Long Term Support (LTS) release, see[ https://ezplatform.com/Blog/Long-Term-Support-is-Here](https://ezplatform.com/Blog/Long-Term-Support-is-Here)
 
 ## Notable Changes Since v1.7.0 LTS
 
@@ -29,8 +29,8 @@ If you are looking for the Long Term Support (LTS) release, see[ https://ezplat
 
 #### Under the Hood
 
--   New opt-in approach to HttpCache to improve usability as well as performance by means of:
-    -   Cache multi-tagging: allowing you to tag pages with a path, location, type, parent, etc. so the repository can clear cache in a more targeted, accurate, and flexible way, getting rid of any "clear all" situations on complex operations.
+-   New opt-in approach to HttpCache to improve usability and performance by means of:
+    -   Cache multi-tagging: allowing you to tag pages with, for example, path, location, type, or parent, so the repository can clear cache in a more targeted, accurate, and flexible way, getting rid of any "clear all" situations on complex operations.
     -   For Varnish this uses [xkey](https://github.com/varnish/varnish-modules/blob/master/docs/vmod_xkey.rst) instead of BAN, enabling greater performance by allowing you to control grace time.
     -   This also places HttpCache in a separate repo, allowing it to grow independently: see <https://github.com/ezsystems/ezplatform-http-cache>
 -   New `content/publish` policy to be able to configure `content/edit` rights independently from publish rights

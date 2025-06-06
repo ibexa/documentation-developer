@@ -1,5 +1,5 @@
 ---
-description: Image Orientation Criterion
+description: Image Orientation Search Criterion
 ---
 
 # Image Orientation Criterion
@@ -9,7 +9,7 @@ Supported orientation values: landscape, portrait and square.
 
 ## Arguments
 
-- `fielDefIdentifier` - string representing the identifier of the Field
+- `fielDefIdentifier` - string representing the identifier of the field
 - `orientation` - strings representing orientations
 
 ## Example
@@ -57,7 +57,7 @@ $query->query = new Criterion\Orientation('image', $orientations);
     }
 
     OR
-    
+
     "Query": {
         "Filter": {
             "ImageOrientationCriterion": {

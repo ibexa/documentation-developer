@@ -1,9 +1,15 @@
 {% extends 'base.html.twig' %}
 
+{% block title %}{{ node.name }} | {{ parent() }}{% endblock %}
+{% block meta %}
+    <meta name="description" content="{{ node.summary|escape }}" />
+    {{ parent() }}
+{% endblock %}
+
 {% block content %}
     {% include 'components/breadcrumbs.html.twig' %}
     {% include 'components/interface-title.html.twig' %}
-    {% include('components/element-header.html.twig') %}
+    {% include 'components/element-header.html.twig' %}
     {% include 'components/constants.html.twig' %}
     {% include 'components/methods.html.twig' %}
 {% endblock %}
@@ -14,7 +20,7 @@
 
     {% if constants is not empty or properties is not empty or methods is not empty %}
         <label class="md-nav__title" for="__toc" title="{{ node.name }}">
-            {{ node.name}}
+            {{ node.name }}
         </label>
     {% endif %}
 

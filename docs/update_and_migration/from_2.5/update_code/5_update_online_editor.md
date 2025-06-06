@@ -2,7 +2,7 @@
 
 ## RichText
 
-Deprecated code related to the RichText Field Type has been removed from `ezpublish-kernel`.
+Deprecated code related to the RichText field type has been removed from `ezpublish-kernel`.
 
 If your code still relies on the `eZ\Publish\Core\FieldType\RichText` namespace, you need to rewrite it
 to use `EzSystems\EzPlatformRichText\eZ\RichText` instead.

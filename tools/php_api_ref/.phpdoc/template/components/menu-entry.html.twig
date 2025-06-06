@@ -1,4 +1,4 @@
-{% set is_nested = entry.children.count or entry.interfaces[0] is defined or entry.classes[0] is defined or entry.traits[0] is defined %}
+{% set is_nested = entry.children.count or entry.interfaces[0] is defined or entry.classes[0] is defined or entry.traits[0] is defined or entry.enums[0] is defined %}
 {% set url = entry|route("url")|raw %}
 {% set type = type|default('') %}
 

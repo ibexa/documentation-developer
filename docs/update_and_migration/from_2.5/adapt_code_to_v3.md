@@ -23,28 +23,28 @@ When updating to eZ Platform v3 you need to move your files and modify file path
 #### Configuration
 
 Configuration files have been moved from `app/Resources/config` to `config`.
-Package-specific configuration is placed in `config/packages` (e.g. `config/packages/ezplatform_admin_ui.yaml`).
+Package-specific configuration is placed in `config/packages` (for example, `config/packages/ezplatform_admin_ui.yaml`).
 This folder also contains `config/packages/ezplatform.yaml`, which contains all settings coming in from Kernel.
 
 #### PHP code and bundle organization
 
 Since Symfony 4 `src/` code is no longer organized in bundles, `AppBundle` has been removed from the default eZ Platform install.
-In order to adapt, you'll need to move all your PHP code, such as controllers or event listeners, to the `src` folder and use the `App` namespace for your custom code instead.
+To adapt, you need to move all your PHP code, such as controllers or event listeners, to the `src` folder and use the `App` namespace for your custom code instead.
 
 !!! tip "How to make AppBundle continue to work, for now"
 
     Refactoring bundles for `src/` folder can involve extensive changes, if you want to make your `src/AppBundle` continue to work, follow [an Autoloading src/AppBundle guide on Symfony Casts](https://symfonycasts.com/screencast/symfony4-upgrade/flex-composer.json#autoloading-src-amp-src-appbundle).
-    
+
     You can also follow [Using a "path" Repository guide](https://symfonycasts.com/screencast/symfony-bundle/extracting-bundle#using-a-path-repository), to create a [composer path repository](https://getcomposer.org/doc/05-repositories.md#path).
     If you have several bundles you can move them into a `packages/` directory and load them all with:
-    
+
     ```
     "repositories": [
         { "type": "path", "url": "packages/*" },
     ],
     ```
-    
-    Once you are ready to refactor the code to `App` namespace, follow [Bye Bye AppBundle](https://symfonycasts.com/screencast/symfony4-upgrade/bye-appbundle) article.
+
+    Once you're ready to refactor the code to `App` namespace, follow [Bye Bye AppBundle](https://symfonycasts.com/screencast/symfony4-upgrade/bye-appbundle) article.
 
 #### View templates
 
@@ -79,7 +79,7 @@ that your project uses have been adapted to Symfony 5.
 ### Automatic code refactoring (optional)
 
 To simplify the process of adapting your code to Symfony 5, you can use [Rector, a reconstructor tool](https://github.com/rectorphp/rector)
-that will automatically refactor your Symfony and PHPunit code.
+that automatically refactors your Symfony and PHPunit code.
 
 To properly refactor your code, you might need to run the Rector `process` command for each Symfony version from 4.0 to 5.0 in turn:
 
@@ -94,7 +94,7 @@ Now, go through the following steps and ensure all your code is up to date with 
 
 - [1. Update templates](update_code/1_update_templates.md)
 - [2. Update configuration](update_code/2_update_configuration.md)
-- [3. Update Field Types](update_code/3_update_field_types.md)
+- [3. Update field types](update_code/3_update_field_types.md)
 - [4. Update Signal Slots](update_code/4_update_signal_slots.md)
 - [5. Update Online Editor](update_code/5_update_online_editor.md)
 - [6. Update workflow](update_code/6_update_workflow.md)

@@ -5,23 +5,23 @@ description: Ensure that your Ibexa DXP installation performs well by following 
 # Performance
 
 [[= product_name =]] can be set up to run efficiently on almost any modern configuration.
-What follows is a list of recommendation that will make your installation perform better.
+What follows is a list of recommendation that make your installation perform better.
 
 !!! note
 
     All the following recommendations are valid for both development and production setups, unless otherwise noted.
 
-If you are in a hurry, the most important recommendations on this page are:
+If you're in a hurry, the most important recommendations on this page are:
 
 - Dump optimized Composer autoload classmap
 - Use a full web (Nginx/Apache) server with vhost
-- Avoid shared filesystems for code (Docker for Mac/Win, VirtualBox/*, Vagrant, etc.), or find ways to optimize or work around the issues.
+- Avoid shared filesystems for code (Docker for Mac/Win, VirtualBox/*, Vagrant, and more), or find ways to optimize or work around the issues.
 - For clustering (mainly relevant for production/staging), reduce latency to Redis/Memcached, use Varnish and [Solr](solr_overview.md).
 
 ## Client
 
 - Always use an up-to-date browser and an up-to-date operating system so you have access to latest browser versions
-- If possible, use a fast, stable internet connection, because an unreliable connection will slow down UI
+- If possible, use a fast, stable internet connection, because an unreliable connection slows down UI
 
 ## Server
 
@@ -39,12 +39,12 @@ In production setups:
 
 ### VM
 
-- Avoid shared filesystems for code (Docker for Mac/Win, VirtualBox/*, Vagrant, etc.), because they typically slow down the application 10x or more, compared to native Linux filesystem.
-- VM in itself also adds 10-30% of overhead. However when it comes to production, e.g. AWS vs barebones, it also comes down to cost and convenience factors.
+- Avoid shared filesystems for code (for example, Docker for Mac/Win, VirtualBox/*, or Vagrant), because they typically slow down the application 10x or more, compared to native Linux filesystem.
+- VM in itself also adds 10-30% of overhead. However when it comes to production, for example, AWS vs barebones, it also comes down to cost and convenience factors.
 
 ### Web server
 
-- Use Nginx/Apache even for development, as PHP's built-in web server (as exposed via Symfony's `server:*` commands) is only able to handle one request at a time (including JS/CSS/* asset loading, etc.).
+- Use Nginx/Apache even for development, as PHP's built-in web server (as exposed via Symfony's `server:*` commands) is only able to handle one request at a time (including JS/CSS/* asset loading, and more).
 - Use a recent version of nginx, set up https, and enable http/2 to reduce connection latency on parallel requests.
 
 ### PHP
@@ -69,16 +69,17 @@ In production setups:
     [Symfony v3.4.15](https://github.com/symfony/symfony/pull/28249) may have resolved this.
 
 - Memcached/Redis can in some cases perform better than filesystem cache even with a single server, as it offers better general performance for operations invalidating cache.
-    - However, pure read performance is slower, especially if the next points are not optimized.
+    - However, pure read performance is slower, especially if the next points aren't optimized.
     - With cache being on different node(s) than web server, make sure to try to tune latency between the two.
 
 !!! tip
 
     Check if your cloud provider has native service for Memcached/Redis, as those might be better tuned.
 
-- If you use Redis, make sure to tune it for in-memory cache usage. Its persistence feature is not needed with cache and will severely slow down execution time.
+- If you use Redis, make sure to tune it for in-memory cache usage. Its persistence feature isn't needed with cache and severely slows down execution time.
     - [For use with sessions](sessions.md#cluster-setup) however, persistence can be a good fit if you want sessions to survive service interruptions.
-    - Further tips for Redis with cache can be found in doc regarding [Redis Clustering](persistence_cache.md#redis-clustering).
+
+For more information, see [Redis clustering](persistence_cache.md#redis-clustering).
 
 ### Search
 
@@ -110,14 +111,14 @@ To avoid quickly running out of memory while executing such commands you should 
                 buffer_size: 200
     ```
 
-1.  Run PHP without memory limits using: `php -d memory_limit=-1 bin/console <command>`
-1.  Disable `xdebug` *(PHP extension to debug/profile php use)* when running the command, this will cause php to use much more memory.
+1.  Run PHP without memory limits: `php -d memory_limit=-1 bin/console <command>`
+1.  Disable `xdebug` *(PHP extension to debug/profile php use)* when running the command, this causes php to use much more memory.
 
-!!! note "Memory will still grow"
+!!! note "Memory still grows"
 
-    Even when everything is configured like described above, memory will grow for each iteration
-    of indexing/inserting a content item with at least *1kb* per iteration after the initial first 100 rounds.
-    This is expected behavior; to be able to handle more iterations you will have to do one or several of the following:
+    Even when everything is configured like described above, memory grows for each iteration of indexing/inserting a content item with at least *1kb* per iteration after the initial first 100 rounds.
+    This is expected behavior.
+    To be able to handle more iterations you have to do one or several of the following:
 
     - Change the import/index script in question to [use process forking](#process-forking-with-symfony) to avoid the issue.
     - Upgrade PHP: *newer versions of PHP are typically more memory-efficient.*
@@ -126,14 +127,13 @@ To avoid quickly running out of memory while executing such commands you should 
 ### Process forking with Symfony
 
 The recommended way to completely avoid "memory leaks" in PHP in the first place is to use processes.
-For console scripts this is typically done using process forking which is quite easily achievable with Symfony.
+For console scripts this is typically done using process forking which is achievable with Symfony.
 
-The things you will need to do:
+The things you need to do:
 
 1. Change your command so it supports taking slice parameters, like for instance a batch size and a child-offset parameter.
-    1. *If defined, child-offset parameter denotes if a process is a child,
-    this can be accomplished using two commands as well.*
-    2. *If not defined, it is the master process which will execute the processes until nothing is left to process.*
+    1. *If defined, child-offset parameter denotes if a process is a child, this can be accomplished using two commands as well.*
+    2. *If not defined, it's the master process which executes the processes until nothing is left to process.*
 
 2. Change the command so that the master process takes care of forking child processes in slices.
     1. For execution in-order, [you may look to our platform installer code](https://github.com/ibexa/core/blob/main/src/bundle/RepositoryInstaller/Command/InstallPlatformCommand.php#L220)

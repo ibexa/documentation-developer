@@ -190,6 +190,10 @@ body.menu-resizing {
     background-image: url(../images/minus-white.svg);
 }
 
+.md-nav--primary .md-nav__item--nested:has(a[href="namespaces/symfony-contracts.html"]) {
+    display: none;
+}
+
 {# --------------------------------------------------------------------------- #}
 {# ------------------------------- Breadcrumbs ------------------------------- #}
 {# --------------------------------------------------------------------------- #}
@@ -240,16 +244,6 @@ ul.breadcrumbs li.breadcrumb-item-current span {
     line-height: 18px;
     padding: 0 8px;
     background-color: transparent;
-}
-
-.md-typeset .content-header .experience-pill {
-    color: var(--ibexa-orange);
-    border: 1px solid var(--ibexa-orange);
-}
-
-.md-typeset .content-header .commerce-pill {
-    color: var(--ibexa-jazzberry);
-    border: 1px solid var(--ibexa-jazzberry);
 }
 
 .md-typeset .content-header img {
@@ -576,6 +570,6 @@ ul.breadcrumbs li.breadcrumb-item-current span {
 
 }
 
-.phpdocumentor-admonition article {
+.phpdocumentor-admonition article, .phpdocumentor-cases article {
     padding-bottom: 0;
 }

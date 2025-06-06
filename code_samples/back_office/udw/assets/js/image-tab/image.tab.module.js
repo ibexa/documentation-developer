@@ -22,7 +22,7 @@ ibexa.addConfig(
             icon: '/bundles/ibexaadminui/img/ibexa-icons.svg#image',
         },
     ],
-    true
+    true,
 );
 
 export default ImageTabModule;

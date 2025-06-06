@@ -1,5 +1,5 @@
 ---
-description: Order CompanyName Criterion
+description: Order CompanyName Search Criterion
 edition: commerce
 ---
 

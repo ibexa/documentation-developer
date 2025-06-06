@@ -9,10 +9,14 @@ use Ibexa\Contracts\ProductCatalog\AttributeGroupServiceInterface;
 use Ibexa\Contracts\ProductCatalog\AttributeTypeServiceInterface;
 use Ibexa\Contracts\ProductCatalog\Local\LocalAttributeDefinitionServiceInterface;
 use Ibexa\Contracts\ProductCatalog\Local\LocalAttributeGroupServiceInterface;
+use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
+#[AsCommand(
+    name: 'doc:attributes'
+)]
 final class AttributeCommand extends Command
 {
     private AttributeGroupServiceInterface $attributeGroupService;
@@ -46,7 +50,7 @@ final class AttributeCommand extends Command
         $this->userService = $userService;
         $this->permissionResolver = $permissionResolver;
 
-        parent::__construct('doc:attributes');
+        parent::__construct();
     }
 
     public function configure(): void

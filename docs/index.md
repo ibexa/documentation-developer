@@ -71,22 +71,23 @@
             </a>
         </div>
     </div>
-    <div class="row">
-        <div class="col-12">
-            <div class="notification" id="tile2">
+    <div class="row notifications">
+        <div class="col-12 col-lg-12">
+            <div class="notification notification--latest-release" id="tile2">
                 <div class="notification__content">
-                    <h2>The latest release is v4.6</h2>
-                    <div>The <a href="release_notes/ibexa_dxp_v4.6/">latest version of Ibexa DXP is v4.6</a>. You can now update your application to the latest version.</div>
-                    <div>The newest LTS Update to Ibexa DXP v4.6 is <a href="release_notes/ibexa_dxp_v4.6/#ai-actions">AI Actions</a>. Install it to let AI help you with editorial tasks.</div>
+                    <h2>The latest release is [[= latest_tag_5_0 =]]</h2>
+                    <div>The latest version of Ibexa DXP is [[= latest_tag_5_0 =]]. You can now update your application to the latest version.</div>
                 </div>
                 <div class="notification__cta">
-                    <a href="update_and_migration/from_4.5/update_from_4.5/">Update your application</a>
+                    <a href="release_notes/ibexa_dxp_v4.6/">Release notes</a>
                 </div>
                 <div class="notification__image">
-                    <img src="images/notification-image.png" alt="The latest release" />
+                    <img src="images/notification-latest-release.svg" alt="The latest release" />
                 </div>
             </div>
         </div>
+    </div>
+    <div class="row">
         <div class="col-12">
             <div class="accordion">
                 <details>
@@ -128,7 +129,7 @@
                         <div class="col-12 col-lg-6 col-fhd-3">
                             <ul>
                                 <li><a href="api/php_api/php_api/">PHP API</a></li>
-                                <li><a href="search/solr_search_engine/">Solr search engine</a></li>
+                                <li><a href="content_management/rich_text/rich_text/">RichText and Online Editor</a></li>
                                 <li><a href="search/search_api/">Search API</a></li>
                             </ul>
                         </div>

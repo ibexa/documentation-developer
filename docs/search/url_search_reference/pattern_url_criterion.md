@@ -1,7 +1,10 @@
+---
+description: Pattern Criterion
+---
+
 # Pattern Criterion
 
-The [`Pattern` URL Criterion](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-URL-Query-Criterion-SectionId.html)
-matches URLs that contain the provided pattern.
+The [`Pattern` URL Criterion](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-URL-Query-Criterion-SectionId.html) matches URLs that contain the provided pattern.
 
 ## Arguments
 

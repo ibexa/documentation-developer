@@ -1,0 +1,7 @@
+{
+    "SegmentCreate": {
+        "identifier": "segment_identifier",
+        "name": "Segment Name",
+        "group": "corporate_accounts"
+    }
+}
