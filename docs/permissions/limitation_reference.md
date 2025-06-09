@@ -64,7 +64,7 @@ The Change Owner (`ChangeOwner`) limitation specifies whether the user can chang
 
 ## Discount Owner limitation [[% include 'snippets/lts-update_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
 
-The Discount Owner [`DiscountOwner`] limitation specifies whether the user can interact with a [discount](discounts.md).
+The Discount Owner limitation specifies whether the user can interact with a [discount](discounts.md).
 
 ### Possible values
 
