@@ -369,7 +369,7 @@ To use the [latest features](ibexa_dxp_v4.6.md) added to them, update them separ
     The `discount/view` policy is no longer required for the store customers to use a discount and must be removed from all users who are not managing discounts.
     The policy allows to access all the discount details, including the coupon codes to activate them, which could lead to system abuse.
 
-    To learn more, see the [discounts policies overview](permissions/policies.md#discounts).
+    To learn more, see the [discounts policies overview](policies.md#discounts).
 
     ### Database update
 
