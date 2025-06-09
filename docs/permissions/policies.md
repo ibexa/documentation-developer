@@ -27,7 +27,7 @@ Each role you assign to user or user group consists of policies which define, wh
 
 | Module                       | Function           | Effect               | Possible Limitations                                                    |
 |------------------------------|--------------------|----------------------|-------------------------------------------------------------------------|
-| <nobr>`activity_log`</nobr> | <nobr>`read`</nobr> | access activity list | [ActivityLogOwner](limitation_reference.md#activitylogowner-limitation) |
+| <nobr>`activity_log`</nobr> | <nobr>`read`</nobr> | access activity list | [ActivityLogOwner](limitation_reference.md#activity-log-owner-limitation) |
 
 #### AI actions [[% include 'snippets/lts-update_badge.md' %]]
 
