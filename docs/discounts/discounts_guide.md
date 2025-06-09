@@ -20,21 +20,14 @@ By displaying discounted prices clearly in the catalog or cart, businesses can c
 [[= product_name =]] can be equipped with the Discounts [LTS update](editions.md#lts-updates) that introduces a highly extensible solution for building discounts.
 
 Store managers can create general discounts that apply for products from the product catalog or specific discounts that apply for products in the customer's shopping cart.
-Once the target is selected, they can set the type of discount by choosing a discount calculation rule.
-Then they can use an extended set of conditions to decide when their discounts are applied.
+They can choose how the discount is calculated and set conditions to decide when their discounts are applied.
 
-Out of the box, the Discounts module delivers two types of discounts:
-
-- **Fixed amount** - where a specified amount of money, for example, 5 Euro, is deducted from the base price of the product
-- **Percentage** - where a specified percentage, for example, 10%, is used to calculate the deducted amount from the product
-
-A selection of conditions used to limit the applicability of a discount is broader, and includes, for example, rules that check whether:
+The conditions used to limit the applicability of a discount include, for example, rules that check whether:
 
 - the product belongs to a specific category
 - the customer belongs to a specific customer group
-- the purchase is made within a defined time frame
-- a minimum purchase amount is met (per cart)
-- a minimum quantity amount is met (per product)
+- minimum purchase amount (total cart value) is met
+- minimum purchase quantity (per product) is met
 
 !!! note "Difference between discounts and price rules"
 
@@ -42,7 +35,7 @@ A selection of conditions used to limit the applicability of a discount is broad
 
 ## Availability
 
-Discounts are an opt-in capability available as an [LTS update](editions.md#lts-updates) starting with the v4.6.18 version of [[= product_name_com =]].
+Discounts are an opt-in capability available as an [LTS update](editions.md#lts-updates) starting with the v4.6.19 version of [[= product_name_com =]].
 To begin using Discounts, you must first [install the required packages and perform initial configuration](install_discounts.md).
 
 ## How it works
@@ -57,8 +50,8 @@ Discounts are reductions in the price of a product, typically implemented as par
 
 Discounts are applied in two places:
 
-- **catalog** discounts are activated when browsing the product catalog and do not require any action from the customer to be activated
-- **cart discounts** are activated when browsing the [cart](cart.md) and may require entering a discount code to be activated
+- **Catalog discounts** are activated when browsing the product catalog and do not require any action from the customer to be activated
+- **Cart discounts** can activate when entering the [cart](cart.md), if the right conditions are met. They may also require entering a discount code to be activated
 
 A shopping cart can have multiple active discounts, but a specific product can only have a single discount applied to it at a time.
 
@@ -66,7 +59,7 @@ When two or more discounts could be applied to a single product, the system eval
 
 - discount activation place (cart discounts rank higher over catalog discounts)
 - discount priority (higher priority ranks higher)
-- creation date (newer discounts ranks higher)
+- discount creation date (newer discounts rank higher)
 
 The properties are evaluated in the order given above until a single discount is selected.
 
@@ -75,10 +68,11 @@ The properties are evaluated in the order given above until a single discount is
 After choosing where the discount applies (catalog or cart), you can choose the discount type:
 
 - **Fixed amount** - where a specified amount of money, for example, 5 Euro, is deducted from the base price of the product
-- **Percentage** - where a specified percentage, for example, 10%, is used to calculate the deducted amount from the product
+- **Percentage** - where a specified percentage, for example, 10%, is used to calculate the deducted amount from the product's base price
 
-Discounts are translatable and are valid for specific [regions](pim_guide.md#regions) and currencies.
+Discounts are translatable and can apply only to specific [regions](pim_guide.md#regions) or currencies.
 They can be permanent or be active only in a specified time frame.
+Regardless of the specified dates, you can disable a discount at any time to prevent customers from using it.
 
 The discount data is split into two parts:
 
@@ -108,7 +102,7 @@ These conditions can include:
 
 ##### Discount codes
 
-For **cart discounts**, you can specify an additional text value that needs to be entered during checkout for the discount to apply.
+For **cart discounts**, you can specify an additional text value that needs to be entered in the cart for the discount to apply.
 
 The discount code usage can be limited per customer:
 
@@ -120,22 +114,22 @@ The discount code usage can be limited per customer:
 
 ### Management
 
-Users with the appropriate permissions, governed by role-based policies, can control the lifecycle of Discounts by creating, editing, and deleting them.
-Additionally, Discount configurations can be enabled or disabled depending on the organization's needs.
+Users with the appropriate permissions, governed by role-based policies, can control the lifecycle of discounts by creating, editing, and deleting them.
+Additionally, discount configurations can be enabled or disabled depending on the organization's needs.
 
 ![Discount management screen](img/discount_list.png)
 
-An intuitive Discounts interface displays a list of all available Discounts.
-Here, you can search for specific discounts and filter them by type or status.
-By accessing the detailed view of individual Discounts, you can quickly review all their parameters.
+An intuitive discounts interface displays a list of all available discounts.
+Here, you can search for specific discounts and filter them by type, status, or more.
+By accessing the detailed view of individual discounts, you can quickly review all their parameters.
 
 ### Extensibility
 
-Built-in Discount types offer a good starting point, but the real power of the Discounts lies in extensibility.
-Extending Discounts opens up new possibilities for building promotional campaigns that help move stock and attach customers.
+Built-in discount types offer a good starting point, but the real power of the discounts lies in extensibility.
+Extending discounts opens up new possibilities for building promotional campaigns that help move stock and attach customers.
 
 For example, [[= product_name =]] could apply a special discount when a customer places their 1st, 3rd, or 100th order in the storefront.
-This encourages first-time purchases, repeat business, and long-term customer loyalty.
+This encourages first-time purchases and drives long-term customer loyalty.
 
 ## Use cases
 
