@@ -8,7 +8,7 @@ editions:
 
 # Discounts product guide
 
-## What are Discounts
+## What are discounts
 
 Just like brick-and-mortar shops, online stores use clever strategies to attract new customers, keep loyal ones, boost sales, highlight special products, and clear out inventory.
 
@@ -40,7 +40,7 @@ To begin using Discounts, you must first [install the required packages and perf
 
 ## How it works
 
-The discount feature hooks into the price resolving logic of products, allowing you to modify it before it's displayed to the customers.
+The Discounts feature hooks into the price resolving logic of products, allowing you to modify it before it's displayed to the customers.
 
 ### Core concepts
 
@@ -50,12 +50,12 @@ Discounts are reductions in the price of a product, typically implemented as par
 
 Discounts are applied in two places:
 
-- **Catalog discounts** are activated when browsing the product catalog and do not require any action from the customer to be activated
-- **Cart discounts** can activate when entering the [cart](cart.md), if the right conditions are met. They may also require entering a discount code to be activated
+- **Product catalog** - catalog discounts are activated when browsing the product catalog and do not require any action from the customer to be activated
+- **Cart** - cart discounts can activate when entering the [cart](cart.md), if the right conditions are met. They may also require entering a discount code to be activated
 
 A shopping cart can have multiple active discounts, but a specific product can only have a single discount applied to it at a time.
 
-When two or more discounts could be applied to a single product, the system evaluates the following properties to choose the right one:
+When two or more discounts can be applied to a single product, the system evaluates the following properties to choose the right one:
 
 - discount activation place (cart discounts rank higher over catalog discounts)
 - discount priority (higher priority ranks higher)
@@ -85,7 +85,8 @@ With discounts, you can target your entire customer base or only a subset of it 
 
 #### Product selection
 
-All products, including [product variants](pim_guide.md#product-variants), can be selected when creating a discount. You can also limit this choice to a subset of products:
+All products, including [product variants](pim_guide.md#product-variants), can be selected when creating a discount.
+You can also limit this choice to a subset of products:
 
 - belonging to selected [product categories](pim_guide.md#product-categories)
 - hand-picked manually for special cases
