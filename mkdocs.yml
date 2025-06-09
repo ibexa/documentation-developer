@@ -405,7 +405,6 @@ nav:
         - Discounts: discounts/discounts.md
         - Discounts guide: discounts/discounts_guide.md
         - Install Discounts: discounts/install_discounts.md
-#        - Extend Discounts: discounts/extend_discounts.md
     - Customer management:
         - Customer Portal: customer_management/customer_portal.md
         - Customer Portal guide: customer_management/customer_portal_guide.md
@@ -665,6 +664,7 @@ nav:
             - ObjectNameCriterion: search/activity_log_search_reference/object_name_criterion.md
             - UserCriterion: search/activity_log_search_reference/user_criterion.md
         - Action Configuration Search Criteria: search/ai_actions_search_reference/action_configuration_criteria.md
+        - Discounts Search Criteria: search/discounts_search_reference/discounts_criteria.md
         - Sort Clause reference:
             - General Sort Clauses:
                 - General Sort Clause reference: search/sort_clause_reference/sort_clause_reference.md
@@ -732,6 +732,7 @@ nav:
                 - Url Sort Clause: search/url_search_reference/url_url_sort_clause.md
             - Activity Log Sort Clauses: search/activity_log_search_reference/activity_log_sort_clauses.md
             - Action Configuration Sort Clauses: search/ai_actions_search_reference/action_configuration_sort_clauses.md
+            - Discounts Sort Clauses: search/discounts_search_reference/discounts_sort_clauses.md
         - Aggregation reference:
               # Content aggregations
             - Aggregation reference: search/aggregation_reference/aggregation_reference.md
