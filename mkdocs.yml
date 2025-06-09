@@ -401,6 +401,11 @@ nav:
             - Transactional emails: commerce/transactional_emails/transactional_emails.md
             - Transactional email variables reference: commerce/transactional_emails/transactional_emails_parameters.md
             - Customize transactional emails: commerce/transactional_emails/extend_transactional_emails.md
+    - Discounts:
+        - Discounts: discounts/discounts.md
+        - Discounts guide: discounts/discounts_guide.md
+        - Install Discounts: discounts/install_discounts.md
+#        - Extend Discounts: discounts/extend_discounts.md
     - Customer management:
         - Customer Portal: customer_management/customer_portal.md
         - Customer Portal guide: customer_management/customer_portal_guide.md
