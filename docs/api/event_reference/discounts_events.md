@@ -26,12 +26,14 @@ The events below are dispatched when managing [discounts](discounts_guide.md):
 
 ### Form
 
-| Event | Dispatched by | Description |
+The events below allow you to customize the discounts creation wizard:
+
+| Event | Dispatched by |
 |---|---|---|
-|[CreateDiscountCreateStructEvent](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Discounts-Event-CreateDiscountCreateStructEvent.html) | [DiscountFormMapperInterface](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Discounts-DiscountFormMapperInterface.html)| |
-|[CreateDiscountUpdateStructEvent](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Discounts-Event-CreateDiscountUpdateStructEvent.html) | [DiscountFormMapperInterface](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Discounts-DiscountFormMapperInterface.html)| |
-|[CreateFormDataEvent](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Discounts-Event-CreateFormDataEvent.html) | [DiscountFormMapperInterface](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Discounts-DiscountFormMapperInterface.html)| |
-|[MapDiscountToFormDataEvent](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Discounts-Event-MapDiscountToFormDataEvent.html) | [DiscountFormMapperInterface](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Discounts-DiscountFormMapperInterface.html) | |
+|[CreateDiscountCreateStructEvent](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Discounts-Event-CreateDiscountCreateStructEvent.html) | [DiscountFormMapperInterface](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Discounts-DiscountFormMapperInterface.html)|
+|[CreateDiscountUpdateStructEvent](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Discounts-Event-CreateDiscountUpdateStructEvent.html) | [DiscountFormMapperInterface](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Discounts-DiscountFormMapperInterface.html)|
+|[CreateFormDataEvent](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Discounts-Event-CreateFormDataEvent.html) | [DiscountFormMapperInterface](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Discounts-DiscountFormMapperInterface.html)|
+|[MapDiscountToFormDataEvent](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Discounts-Event-MapDiscountToFormDataEvent.html) | [DiscountFormMapperInterface](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Discounts-DiscountFormMapperInterface.html) |
 
 ### Form steps
 
@@ -45,7 +47,7 @@ The following events are dispatched when rendering each step of the discount wiz
 |[MapUpdateDataToStructEvent](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Discounts-Event-Step-MapUpdateDataToStructEvent.html)|`ibexa.discounts.form_mapper.<step_identifier>.map_update_data_to_struct `|
 
 The event classes are shared between steps, but they are dispatched with different names.
-They are dispatched by all step form mappers in the wizard.
+Each step form mapper dispatches its own set of events.
 
 | Form mapper | Step identifier |
 |---|---|
