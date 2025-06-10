@@ -6,7 +6,7 @@ displayName: Discount Codes
             description: Applies a discount associated with given discount code
             headers:
                 Accept:
-                    description: Specifies the expected response type. If set, the list is returned in XML or JSON format.
+                    description: Specifies the expected response type. Only JSON is supported.
                     example: |
                         application/vnd.ibexa.api.DiscountCode+json
                 Content-Type:
@@ -19,7 +19,7 @@ displayName: Discount Codes
                     example: !include examples/discount_codes/apply/POST/DiscountCode.json.example
             responses:
                 200:
-                    description: Action executed successfuly.
+                    description: Discount applied successfully
                     body:
                         application/vnd.ibexa.api.DiscountCode+json:
                             type: DiscountCode
