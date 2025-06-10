@@ -242,7 +242,7 @@ If you have custom code directly querying those, you will need to update them.
 
 You can track the renamming in the `ibexa-4.6.latest-to-5.0.0.sql` files or in the folded map below.
 
-??? note "Renaming map"
+??? note "Tables and columns renaming map"
 
     TODO: Keep up-to-date
     
@@ -341,6 +341,8 @@ php bin/console ibexa:graphql:generate-schema
 
 ### Update custom code for [[= product_name =]] 5.0
 
+#### Update PHP framework standards
+
 Update the `rector.php` file to use `IbexaSetList::IBEXA_50` rule set
 by running the recipe:
 
@@ -348,8 +350,89 @@ by running the recipe:
 composer recipe:install ibexa/rector --force --reset --yes
 ```
 
-### Update Back Office extensions
+TODO: Add other rule sets?
+
+You can add some other rule sets like the Symfony and SensioLabs ones to match newer standards:
+
+```php
+//use Rector\Doctrine\Set\DoctrineSetList;
+use Rector\Symfony\Set\SymfonySetList;
+use Rector\Symfony\Set\SensiolabsSetList;
+
+//…
+
+   ->withSets(
+       [
+           IbexaSetList::IBEXA_50->value, // rule set for upgrading to Ibexa DXP 5.0
+           SymfonySetList::SYMFONY_60,
+           SymfonySetList::SYMFONY_61,
+           SymfonySetList::SYMFONY_62,
+           SymfonySetList::SYMFONY_63,
+           SymfonySetList::SYMFONY_64,
+           SymfonySetList::SYMFONY_70,
+           SymfonySetList::SYMFONY_71,
+           SymfonySetList::SYMFONY_72,
+           SensiolabsSetList::ANNOTATIONS_TO_ATTRIBUTES,
+           //DoctrineSetList::DOCTRINE_DBAL_211, //TODO: Useful?
+           //TODO: Other usefull sets?
+       ]
+   )->withAttributesSets(symfony: true);
+```
+
+TODO: Set deprecation and withAttributesSets
+
+#### Update field type identifiers
+
+- Update in template
+    - TODO: `{% block ezstring_field %)` → `{% block ibexa_string_field %}` (content_fields.html.twig) and others (field edit, field def, field def edit,…)
+    - TODO: Configs, template paths, template rules, whatever needed…
+- Update in migration files
+
+??? note "Field type identifiers renaming map"
+
+| old name                        | new name                        |
+|:--------------------------------|:--------------------------------|
+| ibexa_address                   | ibexa_address                   |
+| ezauthor                        | ibexa_author                    |
+| ezbinaryfile                    | ibexa_binaryfile                |
+| ezboolean                       | ibexa_boolean                   |
+| ezcontentquery                  | ibexa_content_query             |
+| ezcountry                       | ibexa_country                   |
+| ibexa_customer_group            | ibexa_customer_group            |
+| ezdate                          | ibexa_date                      |
+| ezdatetime                      | ibexa_datetime                  |
+| ezemail                         | ibexa_email                     |
+| ezfloat                         | ibexa_float                     |
+| ezform                          | ibexa_form                      |
+| ezgmaplocation                  | ibexa_gmap_location             |
+| ezimage                         | ibexa_image                     |
+| ezimageasset                    | ibexa_image_asset               |
+| ezinteger                       | ibexa_integer                   |
+| ezisbn                          | ibexa_isbn                      |
+| ezkeyword                       | ibexa_keyword                   |
+| ezlandingpage                   | ibexa_landing_page              |
+| ezmatrix                        | ibexa_matrix                    |
+| ibexa_measurement               | ibexa_measurement               |
+| ezmedia                         | ibexa_media                     |
+| ezobjectrelation                | ibexa_object_relation           |
+| ezobjectrelationlist            | ibexa_object_relation_list      |
+| ibexa_product_specification     | ibexa_product_specification     |
+| ezpage                          | ezpage (?!)                     |
+| ezrichtext                      | ibexa_richtext                  |
+| ezselection                     | ibexa_selection                 |
+| ibexa_seo                       | ibexa_seo                       |
+| ezstring                        | ibexa_string                    |
+| ibexa_taxonomy_entry            | ibexa_taxonomy_entry            |
+| ibexa_taxonomy_entry_assignment | ibexa_taxonomy_entry_assignment |
+| eztext                          | ibexa_text                      |
+| eztime                          | ibexa_time                      |
+| ezurl                           | ibexa_url                       |
+| ezuser                          | ibexa_user                      |
+
+#### Update Back Office extensions
 
 TODO: Update JS, templates, CSS…
 TODO: Some old deprecated Webpack file names were supported in 4.6 for backward compatibility; They aren't in 5.0
 TODO: Conversion tables
+TODO: Icons
+TODO: Shared with front?
