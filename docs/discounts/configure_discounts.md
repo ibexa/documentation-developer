@@ -8,7 +8,7 @@ editions:
 
 # Discounts configuration
 
-You can customize the behavior of the Discounts feature using the following [configuration](configuration.md):
+You can customize the behavior of the Discounts feature by using the following [configuration](configuration.md):
 
 ## Back Office pagination
 
