@@ -15,7 +15,7 @@ Discounts Twig Functions allow you to operate on discounts in your templates.
 
 ### `ibexa_render_discount_rule_type`
 
-This function transforms the discount type (`fixed_amount` or `percentage`) into a human-friendly and translated label.
+This filter transforms the discount type (`fixed_amount` or `percentage`) into a human-friendly and translated label.
 
 ``` html+twig
 {% set rule_type = discount.getRule().getType() %}
@@ -32,7 +32,7 @@ This function transforms the discount type (`fixed_amount` or `percentage`) into
 
 ### `ibexa_discounts_render_discount_badge()`
 
-Use the `ibexa_discounts_render_discount_badge` to render a badge indicating the discount amount, for example on product cards.
+Use the `ibexa_discounts_render_discount_badge` to render a badge indicating the discounted amount, for example on product cards.
 
 ``` html+twig
 {% if ibexa_storefront_are_discounts_enabled() %}
@@ -71,7 +71,7 @@ content: ibexa_format_discount_value(discount),
 
 ### `ibexa_discounts_is_active()`
 
-Helper function returning whether the current user has permissions to edit discounts.
+Helper function returning whether the discount is currently active.
 ``` html+twig
 {% if ibexa_discounts_is_active(discount) %}
     <div>The discount is active</div>
