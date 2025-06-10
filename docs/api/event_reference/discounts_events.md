@@ -29,7 +29,7 @@ The events below are dispatched when managing [discounts](discounts_guide.md):
 The events below allow you to customize the discounts creation wizard:
 
 | Event | Dispatched by |
-|---|---|---|
+|---|---|
 |[CreateDiscountCreateStructEvent](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Discounts-Event-CreateDiscountCreateStructEvent.html) | [DiscountFormMapperInterface](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Discounts-DiscountFormMapperInterface.html)|
 |[CreateDiscountUpdateStructEvent](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Discounts-Event-CreateDiscountUpdateStructEvent.html) | [DiscountFormMapperInterface](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Discounts-DiscountFormMapperInterface.html)|
 |[CreateFormDataEvent](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Discounts-Event-CreateFormDataEvent.html) | [DiscountFormMapperInterface](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Discounts-DiscountFormMapperInterface.html)|
