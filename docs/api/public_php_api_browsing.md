@@ -164,8 +164,8 @@ To retrieve the Fields of the selected Content item, you can use the following c
 }
 ```
 
-Line 16 shows how [`ContentService::loadContent`](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/API/Repository/ContentService.php#L147) loads the Content item provided to the command.
-Line 17 makes use of the [`ContentTypeService`](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/API/Repository/ContentTypeService.php) to retrieve the Content Type of the requested item.
+Line 14 shows how [`ContentService::loadContent`](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/API/Repository/ContentService.php#L147) loads the Content item provided to the command.
+Line 21 makes use of the [`ContentTypeService`](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/API/Repository/ContentTypeService.php) to retrieve the Content Type of the requested item.
 
 Lines 19-24 iterate over Fields defined by the Content Type.
 For each Field they print out its identifier, and then using [`FieldTypeService`](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/API/Repository/FieldTypeService.php) retrieve the Field's value and print it out to the console.
