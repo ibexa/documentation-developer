@@ -149,7 +149,7 @@ All object state groups can be retrieved through [`loadObjectStateGroups`](/api/
 
 To retrieve the fields of the selected content item, you can use the following command:
 
-```php hl_lines="9-10 13-18"
+```php hl_lines="9-10 12-19"
 [[= include_file('code_samples/api/public_php_api/src/Command/ViewContentCommand.php', 4, 7) =]]    // ...
 [[= include_file('code_samples/api/public_php_api/src/Command/ViewContentCommand.php', 37, 55) =]]
 }
