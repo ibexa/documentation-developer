@@ -1,6 +1,6 @@
 ---
 description: Discounts LTS Update enables reducing prices on products or product categories based on a detailed logic resolution.
-month_change: false
+month_change: true
 editions:
     - lts-update
     - commerce
@@ -54,6 +54,8 @@ Discounts are applied in two places:
 - **Cart** - cart discounts can activate when entering the [cart](cart.md), if the right conditions are met. They may also require entering a discount code to be activated
 
 A shopping cart can have multiple active discounts, but a specific product can only have a single discount applied to it at a time.
+
+#### Discounts priority
 
 When two or more discounts can be applied to a single product, the system evaluates the following properties to choose the right one:
 
