@@ -12,7 +12,7 @@ month_change: true
 With the Discounts feature, store managers can reduce prices on specific products or categories for all or selected customers.
 After you install it, temporary or permanent discounts can be applied against items from the product catalog or cart.
 
-You can also extend the feature, for example by creating custom pricing rules, application conditions, or changing discount priorities.
+You can also extend the feature, for example, by creating custom pricing rules, application conditions, or changing discount priorities.
 
 [[= cards([
 "discounts/discounts_guide",
