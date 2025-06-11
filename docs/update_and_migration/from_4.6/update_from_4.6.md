@@ -343,6 +343,35 @@ vendor/bin/rector
 
 No additional steps needed.
 
+## 4.6.21
+
+### Security
+
+This security advisory resolves XSS vulnerabilities in several parts of the back office of the DXP.
+Back office access and varying levels of editing and management permissions are required to exploit these vulnerabilities.
+
+For more information, see the [security advisory IBEXA-SA-2025-003](https://developers.ibexa.co/security-advisories/ibexa-sa-2025-003-xss-vulnerabilities-in-back-office).
+
+Evaluate the vulnerability to determine whether you might have been affected.
+If so, take appropriate action.
+There are no additional update steps to execute.
+
+### Database update
+
+Run the following scripts:
+
+=== "MySQL"
+
+    ``` bash
+    mysql -u <username> -p <password> <database_name> < vendor/ibexa/installer/upgrade/db/mysql/ibexa-4.6.20-to-4.6.21.sql
+    ```
+
+=== "PostgreSQL"
+
+    ``` bash
+    psql <database_name> < vendor/ibexa/installer/upgrade/db/postgresql/ibexa-4.6.20-to-4.6.21.sql
+    ```
+
 [[% include 'snippets/update/notify_support.md' %]]
 
 With the product updated to the latest version, you can now finish the update process or proceed to updating the LTS Updates packages.
