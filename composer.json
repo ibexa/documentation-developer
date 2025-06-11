@@ -68,7 +68,9 @@
         "league/oauth2-google": "^4.0",
         "ibexa/connector-dam": "~4.6.x-dev",
         "ibexa/twig-components": "~4.6.x-dev",
-        "ibexa/tree-builder": "~4.6.x-dev"
+        "ibexa/tree-builder": "~4.6.x-dev",
+        "ibexa/discounts": "~4.6.x-dev",
+        "ibexa/discounts-codes": "~4.6.x-dev"
     },
     "scripts": {
         "fix-cs": "php-cs-fixer fix --config=.php-cs-fixer.php -v --show-progress=dots",
