@@ -24,6 +24,7 @@ If your DXP 4.6 is running on a PHP below 8.3, start migrating it to PHP 8.3.
 
 Use Ibexa Rector to help yourself to upgrade PHP code for 8.3,
 see [`ibexa/rector`'s README](https://github.com/ibexa/rector?tab=readme-ov-file#ibexa-dxp-rector) for more information about installation and usage.
+TODO: For example, you might have to remove the inclusion of `tests/ directory.
 
 Rector might also find out code deprecated in 4.6 which are likely removed in 5.0.
 Update according to its report to reduce this debt and have less code not compatible with 5.0.
@@ -355,12 +356,11 @@ TODO: Add other rule sets?
 You can add some other rule sets like the Symfony and SensioLabs ones to match newer standards:
 
 ```php
+//…
 //use Rector\Doctrine\Set\DoctrineSetList;
 use Rector\Symfony\Set\SymfonySetList;
 use Rector\Symfony\Set\SensiolabsSetList;
-
 //…
-
    ->withSets(
        [
            IbexaSetList::IBEXA_50->value, // rule set for upgrading to Ibexa DXP 5.0
