@@ -4,7 +4,7 @@ description: UserMetadataTermAggregation
 
 # UserMetadataTermAggregation
 
-The [UserMetadataTermAggregation](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Aggregation-UserMetadataTermAggregation.html) aggregates search results by the User content item's metadata.
+The [UserMetadataTermAggregation](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Aggregation-UserMetadataTermAggregation.html) aggregates search results by the User content item's metadata.
 
 ## Arguments
 

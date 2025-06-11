@@ -4,7 +4,7 @@ description: DateRangeAggregation
 
 # DateRangeAggregation
 
-The field-based [DateRangeAggregation](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Aggregation-Field-DateRangeAggregation.html) aggregates search results by the value of the Date, DateTime, or Time field.
+The field-based [DateRangeAggregation](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Aggregation-Field-DateRangeAggregation.html) aggregates search results by the value of the Date, DateTime, or Time field.
 
 ## Arguments
 

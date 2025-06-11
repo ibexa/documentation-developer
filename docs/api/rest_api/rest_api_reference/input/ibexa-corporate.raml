@@ -235,10 +235,10 @@ get:
                                 type: MemberListWrapper
                                 example: !include examples/corporate/companies/company_id/members/GET/MemberList.json.example
                     400:
+                        description: Returned when invalid Criterion or Sort clause is used.
                         body:
                             application/vnd.ibexa.api.ErrorMessage:
                                 type: ErrorMessage
-                                description: Returned when invalid Criterion or Sort clause is used.
             post:
                 displayName: Create a company member
                 description: Creates a company member.

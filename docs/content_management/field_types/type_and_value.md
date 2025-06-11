@@ -18,7 +18,7 @@ This class must contain as little logic as possible, because the logic is handle
 
 ## Type class
 
-The Type class of a field type provides an implementation of the [`Ibexa\Contracts\Core\FieldType\FieldType`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-FieldType-FieldType.html) interface.
+The Type class of a field type provides an implementation of the [`Ibexa\Contracts\Core\FieldType\FieldType`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-FieldType-FieldType.html) interface.
 
 ### Field Definition handling
 
@@ -135,8 +135,8 @@ services:
 
 #### `parent`
 
-As described in the [Symfony service container documentation]([[= symfony_doc =]]/components/dependency_injection/parentservices.html), the `parent` config key indicates that you want your service to inherit from the parent's dependencies, including constructor arguments and method calls.
-This helps avoiding repetition in your field type configuration and keeps consistency between all field types.
+As described in the [Symfony service container documentation]([[= symfony_doc =]]/service_container/parent_services.html), the `parent` config key indicates that you want your service to inherit from the parent's dependencies, including constructor arguments and method calls.
+This helps to avoid repetition in your field type configuration and keeps consistency between all field types.
 If you need to inject other services into your Type class, skip using the `parent` config key.
 
 #### `tags`

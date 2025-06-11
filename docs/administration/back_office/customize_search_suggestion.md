@@ -5,7 +5,7 @@ description: Customize search suggestion configuration and sources.
 # Customize search suggestion
 
 In the back office, when you start typing in the search field on the top bar, suggestions about what you could be looking for show up directly under the field.
-For more information about using this feature to search for content, see [User Documentation]([[= user_doc =]]/search/search_for_content).
+For more information about using this feature to search for content, see [User Documentation]([[= user_doc =]]/search/search_for_content/).
 
 ## Configuration
 
@@ -135,7 +135,7 @@ The example template for this wrapping node is stored in `templates/themes/admin
 - At Twig level, it includes the item template, replaces Twig variables with the strings used by the JS renderer,
   and passes it to the [`escape` filter](https://twig.symfony.com/doc/3.x/filters/escape.html) with the HTML attribute strategy.
 
-To be present, this wrapping node template must be added to the `global-search-autocomplete-templates` group of tabs components:
+To be present, this wrapping node template must be added to the `admin-ui-global-search-autocomplete-templates` group of tabs components:
 
 ``` yaml
 services:

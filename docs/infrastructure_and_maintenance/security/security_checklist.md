@@ -8,7 +8,7 @@ When getting ready to go live with your project for the first time, or when re-l
 
 !!! caution
 
-    Security is an ongoing process. After going live, you should pay attention to security advisories released via [your service portal](https://support.ibexa.co/), or via [Security advisories](https://developers.ibexa.co/security-advisories) if you're not a subscriber.
+    Security is an ongoing process. After going live, you should pay attention to security advisories released via [your Service portal](https://support.ibexa.co/), or via [Security advisories](https://developers.ibexa.co/security-advisories) if you're not a subscriber.
 
 ## [[= product_name =]]
 

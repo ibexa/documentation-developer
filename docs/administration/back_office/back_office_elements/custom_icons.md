@@ -42,13 +42,13 @@ It requires content type identifier as an argument. The function returns the pat
 
 Content types icons configuration is stored in a global object: `ibexa.adminUiConfig.contentTypes`.
 
-You can retrieve the icon URL with the `getContentTypeIcon` helper function that is set on the global `ibexa.helpers.contentType` object.
+You can retrieve the icon URL with the `getContentTypeIconUrl` helper function that is set on the global `ibexa.helpers.contentType` object.
 It takes content type identifier as an argument and returns one of the following items:
 
 - URL of a specified content type's icon
 - `null` if there is no content type with specified identifier
 
-Example with `getContentTypeIcon`:
+Example with `getContentTypeIconUrl`:
 
 ```jsx
 const contentTypeIconUrl = ibexa.helpers.contentType.getContentTypeIconUrl(contentTypeIdentifier);

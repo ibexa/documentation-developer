@@ -11,7 +11,7 @@ The following example shows how to add a Meta tab with automatically assigned Ta
 
 ## Add Meta tab
 
-Before you start adding the Meta tab, make sure the content type you want to edit has [Taxonomy Entry Assignment field type]([[= user_doc =]]/taxonomy/#assign-tag-to-content-from-taxonomy-tree).
+Before you start adding the Meta tab, make sure the content type you want to edit has [Taxonomy Entry Assignment field type]([[= user_doc =]]/content_management/taxonomy/work_with_tags/#assign-tag-to-content-from-taxonomy-tree).
 
 Next, provide the semantic configuration under the `ibexa.system.<scope>.admin_ui_forms` [configuration key](configuration.md#configuration-files):
 

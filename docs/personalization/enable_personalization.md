@@ -10,7 +10,7 @@ To enable it, you must set up authentication parameters that you receive from [[
 
 ## Get authentication parameters
 
-First, either you or another [[= product_name_base =]] user responsible for managing the [[= product_name =]] instance must [request access to the service]([[= user_doc =]]/personalization/enabling_personalization/#request-access-to-the-server).
+First, either you or another [[= product_name_base =]] user responsible for managing the [[= product_name =]] instance must [request access to the service]([[= user_doc =]]/personalization/enable_personalization/#request-access-to-the-server).
 
 ## Set up customer credentials
 
@@ -538,4 +538,4 @@ Depending on your requirements, you may need to set up `edit` and `view` [permis
 
 ## Configure recommendation logic
 
-When you enable the Personalization, you can go back to the back office, refresh the Personalization dashboard and proceed with [configuring the logic]([[= user_doc =]]/personalization/perso_configuration) used to calculate the recommendation results.
+When you enable the Personalization, you can go back to the back office, refresh the Personalization dashboard and proceed with [configuring the logic]([[= user_doc =]]/personalization/configure_personalization/) used to calculate the recommendation results.

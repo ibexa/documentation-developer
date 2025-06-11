@@ -1,0 +1,14 @@
+{
+    "ActionType": {
+        "_media-type": "application/vnd.ibexa.api.ai.ActionType+json",
+        "identifier": "generate_alt_text",
+        "name": "Generate alternative text",
+        "inputIdentifier": "image",
+        "outputIdentifier": "text",
+        "options": {
+            "width": 512,
+            "height": 512,
+            "image_quality": 85
+        }
+    }
+}

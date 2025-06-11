@@ -13,6 +13,6 @@ The idea behind the Personalization service is built upon four main steps.
 
 ![Overview of how recommendation works](recommendation_overview.png)
 
-For more information about available functionalities, see [User Documentation]([[= user_doc =]]/personalization/personalization).
+For more information about available functionalities, see [User Documentation]([[= user_doc =]]/personalization/personalization/).
 
 For more information about enabling the Personalization service, see [Enable Personalization](enable_personalization.md).

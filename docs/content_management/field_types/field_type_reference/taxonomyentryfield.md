@@ -1,7 +1,6 @@
 # TaxonomyEntry field type
 
-`TaxonomyEntry` is a general purpose field type that can store only one taxonomy entry (for example, tag or product category).
-It's used as a parent for a tag or category.
+TaxonomyEntry is a field type that stores information about the parent entry in the taxonomy tree, placing the taxonomy entry (tag or product category) in the taxonomy structure.
 
 | Name           | Internal name         | Expected input |
 |----------------|-----------------------|----------------|

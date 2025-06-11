@@ -6,7 +6,7 @@ description: Configure image editor to crop, flip, and modify images.
 
 When a content item contains fields of the [ezimage](imageassetfield.md) type, users can perform basic image editing functions with the Image Editor.
 
-For more information, see [User Documentation]([[= user_doc =]]/editing_images/).
+For more information, see [User Documentation]([[= user_doc =]]/image_management/edit_images/).
 
 !!! note
 
@@ -47,7 +47,7 @@ The default quality is 0.92:
 ### Additional information
 
 Each image can be accompanied by additional information that isn't visible to the user.
-By default, additional information stores the coordinates of the [focal point]([[= user_doc =]]/editing_images/#focal-point), but you can use this extension point to pass various parameters of custom features that you add by extending the Image Editor.
+By default, additional information stores the coordinates of the [focal point]([[= user_doc =]]/image_management/edit_images/#focal-point), but you can use this extension point to pass various parameters of custom features that you add by extending the Image Editor.
 
 To modify the value of additional information programmatically, you can set a value of the `Image` field by using the PHP API, for example:
 

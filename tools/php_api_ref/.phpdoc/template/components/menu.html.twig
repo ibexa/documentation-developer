@@ -35,10 +35,10 @@
         </ul>
     {% endif %}
 
-    {% if entry.interfaces[0] is defined or entry.classes[0] is defined or entry.traits[0] is defined %}
+    {% if entry.interfaces[0] is defined or entry.classes[0] is defined or entry.traits[0] is defined or entry.enums[0] is defined %}
         {% if depth > 1 %}
             <label class="md-nav__list-title">
-                Interfaces, classes, and traits
+                Interfaces, classes, traits, and enums
             </label>
         {% endif %}
         <ul class="md-nav__list">
@@ -70,6 +70,19 @@
             {% endif %}
             {% if entry.traits[0] is defined %}
                 {% for element in entry.traits|sort_asc %}
+                    {% include 'components/menu-entry.html.twig' with {
+                        title: element.name|shortFQSEN,
+                        nav_id: nav_id ~ '-' ~ index,
+                        entry: element,
+                        expanded: false,
+                        icon: 'file.svg',
+                    } %}
+
+                    {% set index = index + 1 %}
+                {% endfor %}
+            {% endif %}
+            {% if entry.enums[0] is defined %}
+                {% for element in entry.enums|sort_asc %}
                     {% include 'components/menu-entry.html.twig' with {
                         title: element.name|shortFQSEN,
                         nav_id: nav_id ~ '-' ~ index,

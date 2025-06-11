@@ -1,6 +1,7 @@
 {
     "OrderList": {
         "_media-type": "application/vnd.ibexa.api.OrderList+json",
+        "count": 10,
         "Order": [
             {
                 "_media-type": "application/vnd.ibexa.api.Order+json",

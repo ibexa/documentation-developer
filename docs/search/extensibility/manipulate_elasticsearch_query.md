@@ -5,7 +5,7 @@ description: Manipulate the search query when using the Elasticsearch search eng
 # Manipulate Elasticsearch query
 
 You can customize the search query before it's executed.
-To do it, subscribe to [`Ibexa\Contracts\Elasticsearch\Query\Event\QueryFilterEvent`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Elasticsearch-Query-Event-QueryFilterEvent.html).
+To do it, subscribe to [`Ibexa\Contracts\Elasticsearch\Query\Event\QueryFilterEvent`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Elasticsearch-Query-Event-QueryFilterEvent.html).
 
 The following example shows how to add a Search Criterion to all queries.
 

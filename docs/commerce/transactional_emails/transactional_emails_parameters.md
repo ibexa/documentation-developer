@@ -48,7 +48,7 @@ If this extensive list of variables isn't sufficient, you can [extend it to incl
 | |shippingMethodTypeName|Technical name of shipping method type| | |
 | |shipmentStatus|Technical identifier of shipment status| |Only available in ShipmentStatusChange notification|
 |Product information|products.id|Product numerical ID|123|
-| |products.code|Product code, SKU|123456|
+| |products.code|Product code (SKU)|123456|
 | |products.name|Product name|iPhone 15 Pro 256GB Space Gray|
 | |products.url|Product view URL|https://example.com/product/iphone-15-pro-256gb-space-gray/|
 | |products.thumbnail|Product thumbnail URL|https://example.com/assets/images/iphone-15-pro-256gb-space-gray.jpg|

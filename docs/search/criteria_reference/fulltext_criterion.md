@@ -5,7 +5,7 @@ description: FullText Search Criterion
 
 # FullText Criterion
 
-The [`FullText` Search Criterion](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Criterion-FullText.html) searches for content based on the full text content of its fields.
+The [`FullText` Search Criterion](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Criterion-FullText.html) searches for content based on the full text content of its fields.
 
 ## Arguments
 

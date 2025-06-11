@@ -39,7 +39,7 @@ While editing Rich Text fields, you can switch to distraction free mode that exp
 
 ![Distraction free mode](distraction_free_mode.png)
 
-For more information, see [Distraction free mode]([[= user_doc =]]/content_management/create_edit_content_items/#distraction-free-mode/).
+For more information, see [Distraction free mode]([[= user_doc =]]/content_management/create_edit_content_items/#distraction-free-mode).
 
 ### Custom tags
 

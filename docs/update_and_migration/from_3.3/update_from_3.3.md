@@ -148,7 +148,7 @@ CREATE INDEX idx_workflow_name ON ezeditorialworkflow_workflows(workflow_name);
 #### Enable Commerce features
 
 Commerce features in Experience and Content editions are disabled by default.
-If you use these features, after the update enable Commerce features by going to `config\packages\ecommerce.yaml`
+If you use these features, after the update enable Commerce features by going to `config/packages/ecommerce.yaml`
 and setting the following:
 
 ``` yaml
@@ -514,7 +514,7 @@ Adjust the web server configuration to prevent direct access to the `index.php` 
 
 See [the updated Apache and nginx template files](https://github.com/ibexa/post-install/pull/70/files) for more information.
 
-### Removed `symfony/serializer-pack` dependency
+#### Removed `symfony/serializer-pack` dependency
 
 This release no longer directly requires the `symfony/serializer-pack` Composer dependency, which can remove some dependencies from your project during the update process.
 
@@ -526,6 +526,19 @@ composer require symfony/serializer-pack
 
 Then, verify that Symfony Flex installed the versions you were using before.
 
+### v3.3.42
+
+#### Security
+
+This release fixes a critical vulnerability in the [RichText field type](richtextfield.md).
+By entering a maliciously crafted input into the RichText field type's XML, the attacker could perform an attack using [XML external entity (XXE) injection](https://portswigger.net/web-security/xxe).
+To exploit this vulnerability, an attacker would need to have edit permission to content with RichText fields.
+
+For more information, see the [published security advisory IBEXA-SA-2025-002](https://developers.ibexa.co/security-advisories/ibexa-sa-2025-002-xxe-vulnerability-in-richtext).
+
+Evaluate the vulnerability to determine whether you might have been affected.
+If so, take appropriate action.
+There are no additional update steps to execute.
 
 ## Finish the update
 

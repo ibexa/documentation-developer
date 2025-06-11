@@ -4,7 +4,7 @@ description: ContentTypeTermAggregation
 
 # ContentTypeTermAggregation
 
-The [ContentTypeTermAggregation](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Aggregation-ContentTypeTermAggregation.html) aggregates search results by the content item's content type.
+The [ContentTypeTermAggregation](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Aggregation-ContentTypeTermAggregation.html) aggregates search results by the content item's content type.
 
 ## Arguments
 

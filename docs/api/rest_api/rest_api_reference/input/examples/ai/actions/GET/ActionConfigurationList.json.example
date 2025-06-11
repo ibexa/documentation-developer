@@ -1,0 +1,214 @@
+{
+    "ActionConfigurationList": {
+        "_media-type": "application/vnd.ibexa.api.ai.ActionConfigurationList+json",
+        "_href": "/api/ibexa/v2/ai/actions",
+        "ActionConfiguration": [
+            {
+                "_media-type": "application/vnd.ibexa.api.ai.ActionConfiguration+json",
+                "identifier": "gen_alt_text",
+                "name": "Generate alternative text",
+                "description": "",
+                "enabled": true,
+                "ActionType": {
+                    "_media-type": "application/vnd.ibexa.api.ai.ActionType+json",
+                    "identifier": "generate_alt_text",
+                    "name": "Generate alternative text",
+                    "inputIdentifier": "image",
+                    "outputIdentifier": "text",
+                    "options": {
+                        "width": 512,
+                        "height": 512,
+                        "image_quality": 85
+                    }
+                },
+                "actionTypeOptions": {
+                    "max_length": 140
+                },
+                "actionHandlerIdentifier": "openai-image-to-text",
+                "actionHandlerOptions": {
+                    "max_tokens": 4000,
+                    "temperature": 1,
+                    "prompt": "",
+                    "model": "gpt-4-turbo"
+                },
+                "createdAt": "2025-02-06T13:20:24+00:00",
+                "updatedAt": "2025-02-06T13:20:24+00:00"
+            },
+            {
+                "_media-type": "application/vnd.ibexa.api.ai.ActionConfiguration+json",
+                "identifier": "improve_readability",
+                "name": "Improve readability",
+                "description": "",
+                "enabled": true,
+                "ActionType": {
+                    "_media-type": "application/vnd.ibexa.api.ai.ActionType+json",
+                    "identifier": "refine_text",
+                    "name": "Refine text",
+                    "inputIdentifier": "text",
+                    "outputIdentifier": "text",
+                    "options": {}
+                },
+                "actionTypeOptions": {},
+                "actionHandlerIdentifier": "openai-text-to-text",
+                "actionHandlerOptions": {
+                    "max_tokens": 4000,
+                    "temperature": 1,
+                    "prompt": "Rewrite this content to improve readability. Preserve meaning and crucial information.",
+                    "model": "gpt-4-turbo"
+                },
+                "createdAt": "2025-02-06T13:20:24+00:00",
+                "updatedAt": "2025-02-06T13:20:24+00:00"
+            },
+            {
+                "_media-type": "application/vnd.ibexa.api.ai.ActionConfiguration+json",
+                "identifier": "proofread",
+                "name": "Proofread",
+                "description": "",
+                "enabled": true,
+                "ActionType": {
+                    "_media-type": "application/vnd.ibexa.api.ai.ActionType+json",
+                    "identifier": "refine_text",
+                    "name": "Refine text",
+                    "inputIdentifier": "text",
+                    "outputIdentifier": "text",
+                    "options": {}
+                },
+                "actionTypeOptions": {},
+                "actionHandlerIdentifier": "openai-text-to-text",
+                "actionHandlerOptions": {
+                    "max_tokens": 4000,
+                    "temperature": 1,
+                    "prompt": "Rewrite given text to identify and fix grammatical and punctuation errors. Preserve meaning and crucial information.",
+                    "model": "gpt-4-turbo"
+                },
+                "createdAt": "2025-02-06T13:20:24+00:00",
+                "updatedAt": "2025-02-06T13:20:24+00:00"
+            },
+            {
+                "_media-type": "application/vnd.ibexa.api.ai.ActionConfiguration+json",
+                "identifier": "shorten_text",
+                "name": "Shorten text",
+                "description": "",
+                "enabled": true,
+                "ActionType": {
+                    "_media-type": "application/vnd.ibexa.api.ai.ActionType+json",
+                    "identifier": "refine_text",
+                    "name": "Refine text",
+                    "inputIdentifier": "text",
+                    "outputIdentifier": "text",
+                    "options": {}
+                },
+                "actionTypeOptions": {},
+                "actionHandlerIdentifier": "openai-text-to-text",
+                "actionHandlerOptions": {
+                    "max_tokens": 4000,
+                    "temperature": 1,
+                    "prompt": "Shorten the given text by 25%. Preserve meaning and crucial information.",
+                    "model": "gpt-4-turbo"
+                },
+                "createdAt": "2025-02-06T13:20:24+00:00",
+                "updatedAt": "2025-02-06T13:20:24+00:00"
+            },
+            {
+                "_media-type": "application/vnd.ibexa.api.ai.ActionConfiguration+json",
+                "identifier": "expand_text",
+                "name": "Expand text",
+                "description": "",
+                "enabled": true,
+                "ActionType": {
+                    "_media-type": "application/vnd.ibexa.api.ai.ActionType+json",
+                    "identifier": "refine_text",
+                    "name": "Refine text",
+                    "inputIdentifier": "text",
+                    "outputIdentifier": "text",
+                    "options": {}
+                },
+                "actionTypeOptions": {},
+                "actionHandlerIdentifier": "openai-text-to-text",
+                "actionHandlerOptions": {
+                    "max_tokens": 4000,
+                    "temperature": 1,
+                    "prompt": "Expand the given text by 25%. Preserve meaning and crucial information.",
+                    "model": "gpt-4-turbo"
+                },
+                "createdAt": "2025-02-06T13:20:24+00:00",
+                "updatedAt": "2025-02-06T13:20:24+00:00"
+            },
+            {
+                "_media-type": "application/vnd.ibexa.api.ai.ActionConfiguration+json",
+                "identifier": "summarize_text",
+                "name": "Summarize",
+                "description": "",
+                "enabled": true,
+                "ActionType": {
+                    "_media-type": "application/vnd.ibexa.api.ai.ActionType+json",
+                    "identifier": "refine_text",
+                    "name": "Refine text",
+                    "inputIdentifier": "text",
+                    "outputIdentifier": "text",
+                    "options": {}
+                },
+                "actionTypeOptions": {},
+                "actionHandlerIdentifier": "openai-text-to-text",
+                "actionHandlerOptions": {
+                    "max_tokens": 4000,
+                    "temperature": 1,
+                    "prompt": "Summarize text into one sentence. Preserve meaning and crucial information.",
+                    "model": "gpt-4-turbo"
+                },
+                "createdAt": "2025-02-06T13:20:24+00:00",
+                "updatedAt": "2025-02-06T13:20:24+00:00"
+            },
+            {
+                "_media-type": "application/vnd.ibexa.api.ai.ActionConfiguration+json",
+                "identifier": "rewrite_with_professional_tone",
+                "name": "Rewrite in professional tone",
+                "description": "",
+                "enabled": true,
+                "ActionType": {
+                    "_media-type": "application/vnd.ibexa.api.ai.ActionType+json",
+                    "identifier": "refine_text",
+                    "name": "Refine text",
+                    "inputIdentifier": "text",
+                    "outputIdentifier": "text",
+                    "options": {}
+                },
+                "actionTypeOptions": {},
+                "actionHandlerIdentifier": "openai-text-to-text",
+                "actionHandlerOptions": {
+                    "max_tokens": 4000,
+                    "temperature": 1,
+                    "prompt": "Rewrite text in professional tone. Preserve meaning and crucial information.",
+                    "model": "gpt-4-turbo"
+                },
+                "createdAt": "2025-02-06T13:20:24+00:00",
+                "updatedAt": "2025-02-06T13:20:24+00:00"
+            },
+            {
+                "_media-type": "application/vnd.ibexa.api.ai.ActionConfiguration+json",
+                "identifier": "rewrite_with_friendly_tone",
+                "name": "Rewrite in friendly tone",
+                "description": "",
+                "enabled": true,
+                "ActionType": {
+                    "_media-type": "application/vnd.ibexa.api.ai.ActionType+json",
+                    "identifier": "refine_text",
+                    "name": "Refine text",
+                    "inputIdentifier": "text",
+                    "outputIdentifier": "text",
+                    "options": {}
+                },
+                "actionTypeOptions": {},
+                "actionHandlerIdentifier": "openai-text-to-text",
+                "actionHandlerOptions": {
+                    "max_tokens": 4000,
+                    "temperature": 1,
+                    "prompt": "Rewrite text in friendly tone. Preserve meaning and crucial information.",
+                    "model": "gpt-4-turbo"
+                },
+                "createdAt": "2025-02-06T13:20:24+00:00",
+                "updatedAt": "2025-02-06T13:20:24+00:00"
+            }
+        ]
+    }
+}

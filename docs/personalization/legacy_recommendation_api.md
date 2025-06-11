@@ -157,7 +157,7 @@ Item's attribute, for example, color, price, and more.
 These are customer specific and can only be understood by the recommender system if the item attributes are imported by using the YOOCHOOSE content import APIs.
 There can be multiple attributename and attributevalue pairs.
 
-Legacy Recommendation API and [Submodel configuration]([[= user_doc =]]/personalization/recommendation_models.md#submodels) is required for taking an advantage from this parameter.
+Legacy Recommendation API and [Submodel configuration]([[= user_doc =]]/personalization/recommendation_models/#submodels) is required for taking an advantage from this parameter.
 
 **Values**: alphanumeric=alphanumeric [&alphanumeric=alphanumeric]
 

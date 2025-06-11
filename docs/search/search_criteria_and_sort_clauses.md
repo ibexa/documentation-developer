@@ -103,7 +103,7 @@ Ibexa\Core\Search\Legacy\Content\Location\Gateway\SortClauseHandler\Location\Dep
         - {name: ibexa.search.legacy.gateway.sort_clause_handler.location}
 ```
 
-For more information about passing parameters, see [Symfony Service Container documentation]([[= symfony_doc =]]/book/service_container.html#service-parameters).
+For more information about passing parameters, see [Symfony Service Container documentation]([[= symfony_doc =]]/service_container.html#service-parameters).
 
 ## Search using custom Field Criterion [REST]
 

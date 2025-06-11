@@ -1,6 +1,6 @@
 ---
 description: Update your installation to the latest v4.6 version from an earlier v4.6 version.
-month_change: false
+month_change: true
 ---
 
 # Update from v4.6.x to v4.6.latest
@@ -33,6 +33,10 @@ First, run:
 Then execute the instructions below starting from the version you're upgrading from.
 
 <!-- vale Ibexa.VariablesVersion = NO -->
+
+## v4.6.1
+
+No additional steps needed.
 
 ## v4.6.2
 
@@ -104,6 +108,18 @@ Run the following scripts:
     ``` bash
     psql <database_name> < vendor/ibexa/installer/upgrade/db/postgresql/ibexa-4.6.3-to-4.6.4.sql
     ```
+
+## v4.6.5
+
+No additional steps needed.
+
+## v4.6.6
+
+No additional steps needed.
+
+## v4.6.7
+
+No additional steps needed.
 
 ## v4.6.8
 
@@ -249,3 +265,101 @@ Then, verify that Symfony Flex installed the versions you were using before.
 ## v4.6.16
 
 No additional steps needed.
+
+## v4.6.17
+
+### Security
+
+This release contains security fixes.
+For more information, see [the published security advisory](https://developers.ibexa.co/security-advisories/ibexa-sa-2025-001-vulnerabilities-in-shopping-cart-and-publish-unscheduling).
+For each of the following fixes, evaluate the vulnerability to determine whether you might have been affected.
+If so, take appropriate action.
+
+#### CartOwner permission limitation exposes carts
+
+This release fixes a critical vulnerability in the REST API regarding shopping carts.
+There are no additional update steps to execute.
+
+#### Unauthorized user can cancel scheduled publish events
+
+This release fixes vulnerability in publish scheduling, ensures that `edit/create` policies are correctly checked.
+There are no additional update steps to execute.
+
+#### Dependency upgrades
+
+This release upgrades the requirements for [Twig to v3.19](https://github.com/twigphp/Twig/security/advisories/GHSA-3xg3-cgvq-2xwr) and [PHPSpreadsheet to v1.29.9](https://github.com/PHPOffice/PhpSpreadsheet/security), resolving several vulnerabilities of varying severity in those dependencies.
+There are no additional update steps to execute.
+
+## v4.6.18
+
+No additional steps needed.
+
+## v4.6.19
+
+### Security
+
+This release fixes a critical vulnerability in the [RichText field type](richtextfield.md).
+By entering a maliciously crafted input into the RichText field type's XML, the attacker could perform an attack using [XML external entity (XXE) injection](https://portswigger.net/web-security/xxe). 
+To exploit this vulnerability, an attacker would need to have edit permission to content with RichText fields.
+
+For more information, see the [published security advisory IBEXA-SA-2025-002](https://developers.ibexa.co/security-advisories/ibexa-sa-2025-002-xxe-vulnerability-in-richtext).
+
+Evaluate the vulnerability to determine whether you might have been affected.
+If so, take appropriate action.
+There are no additional update steps to execute.
+
+### [[= product_name_base =]] Rector
+
+The new [Ibexa Rector](https://github.com/ibexa/rector/) package is now available.
+It's an optional package based on [Rector](https://getrector.com/) and comes with additional rules for working with Ibexa code.
+
+You can use it to get rid of PHP code deprecations and start preparing your project for the next major release.
+
+!!! note
+
+    [[= product_name_base =]] Rector requires PHP 8.3 and you must upgrade your codebase first.
+    To do it, you can use Rector and the [existing PHP upgrade sets](https://getrector.com/documentation/integration-to-new-project#content-2-upgrade-php-first).
+
+To get started with [[= product_name_base =]] Rector, execute the following steps:
+
+1. Add the Composer dependency:
+``` bash
+composer require --dev ibexa/rector:^4.6
+```
+
+2. Adjust the created `rector.php` configuration file to match your project structure
+
+3. Run Rector in the dry-run mode to preview the changes: 
+``` bash
+vendor/bin/rector --dry-run
+```
+
+4. Run Rector:
+``` bash
+vendor/bin/rector
+```
+
+## v4.6.20
+
+No additional steps needed.
+
+[[% include 'snippets/update/notify_support.md' %]]
+
+With the product updated to the latest version, you can now finish the update process or proceed to updating the LTS Updates packages.
+
+## LTS Updates
+
+[LTS Updates](editions.md#lts-updates) are standalone packages with their own update procedures.
+To use the [latest features](ibexa_dxp_v4.6.md) added to them, update them separately with the following commands:
+
+=== "AI actions"
+
+    ```bash
+    composer require ibexa/connector-ai:[[= latest_tag_4_6 =]] ibexa/connector-openai:[[= latest_tag_4_6 =]]
+    ```
+
+=== "Date and time attribute"
+
+    ```bash
+    composer require ibexa/product-catalog-date-time-attribute:[[= latest_tag_4_6 =]]
+    ```

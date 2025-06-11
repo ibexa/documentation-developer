@@ -4,7 +4,7 @@ description: SectionId Criterion
 
 # SectionId Criterion
 
-The [`SectionId` URL Criterion](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-URL-Query-Criterion-SectionId.html) matches URLs based on the ID of the related content Section.
+The [`SectionId` URL Criterion](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-URL-Query-Criterion-SectionId.html) matches URLs based on the ID of the related content Section.
 
 ## Arguments
 

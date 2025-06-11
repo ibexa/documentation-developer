@@ -60,7 +60,7 @@ composer -V
 The site is password-protected.
 You must set up authentication tokens to access the site.
 
-Log in to your service portal on [support.ibexa.co](https://support.ibexa.co/), go to your **Service Portal**, and look for the following on the **Maintenance and Support agreement details** screen:
+Log in to your Service portal on [support.ibexa.co](https://support.ibexa.co/), go to your **Service Portal**, and look for the following on the **Maintenance and Support agreement details** screen:
 
 ![Authentication token](using_composer_auth_token.png)
 
@@ -93,7 +93,7 @@ This allows you to revoke access later.
 After this, when running Composer to get updates, you're asked for a username and password.
 Use:
 
-- as username - your Installation key found on the **Maintenance and Support agreement details** page in the service portal
+- as username - your Installation key found on the **Maintenance and Support agreement details** page in the Service portal
 - as password - the token password you retrieved in step 3 above
 
 !!! note "Authentication token validation delay"
@@ -114,50 +114,24 @@ This operation is performed only once, when you install [[= product_name =]] for
 
 To use Composer to instantly create a project in the current folder with all the dependencies, run the following command:
 
-!!! note "Using PHP 8.3 (recommended)"
+=== "[[= product_name_headless =]]"
 
-    === "[[= product_name_headless =]]"
+    ``` bash
+    composer create-project ibexa/headless-skeleton .
+    ```
 
-        ``` bash
-        composer create-project ibexa/headless-skeleton .
-        ```
+=== "[[= product_name_exp =]]"
 
-    === "[[= product_name_exp =]]"
+    ``` bash
+    composer create-project ibexa/experience-skeleton .
+    ```
 
-        ``` bash
-        composer create-project ibexa/experience-skeleton .
-        ```
+=== "[[= product_name_com =]]"
 
-    === "[[= product_name_com =]]"
+    ``` bash
+    composer create-project ibexa/commerce-skeleton .
+    ```
 
-        ``` bash
-        composer create-project ibexa/commerce-skeleton .
-        ```
-
-??? note "Using PHP 8.2 or older"
-
-    If you're using PHP 8.2 or any older version, use a different set of commands:
-
-    === "[[= product_name_headless =]]"
-
-        ``` bash
-        composer create-project ibexa/headless-skeleton --no-install .
-        composer update
-        ```
-
-    === "[[= product_name_exp =]]"
-
-        ``` bash
-        composer create-project ibexa/experience-skeleton --no-install .
-        composer update
-        ```
-
-    === "[[= product_name_com =]]"
-
-        ``` bash
-        composer create-project ibexa/commerce-skeleton --no-install .
-        composer update
-        ```
 
 !!! tip "Authentication token"
 
@@ -165,10 +139,10 @@ To use Composer to instantly create a project in the current folder with all the
 
 !!! tip
 
-    You can set [different version constraints](https://getcomposer.org/doc/articles/versions.md), for example, specific tag (`[[= latest_tag_4_6 =]]`), version range (`~4.6.10`), or stability (`^4.6@rc`):
+    You can set [different version constraints](https://getcomposer.org/doc/articles/versions.md), for example, specific tag (`[[= latest_tag_5_0 =]]`), version range (`~5.0.1`), or stability (`^5.0@rc`):
 
     ``` bash
-    composer create-project ibexa/experience-skeleton:[[= latest_tag_4_6 =]] .
+    composer create-project ibexa/experience-skeleton:[[= latest_tag_5_0 =]] .
     ```
 
 !!! note "Platform.sh"
@@ -210,7 +184,7 @@ or
 
 Choose a [secret]([[= symfony_doc =]]/reference/configuration/framework.html#secret) and provide it in the `APP_SECRET` parameter in `.env`.
 It should be a random string, made up of at least 32 characters, numbers, and symbols.
-It's used by Symfony when generating [CSRF tokens]([[= symfony_doc =]]/security/csrf.html), [encrypting cookies]([[= symfony_doc =]]/cookbook/security/remember_me.html), and for creating signed URIs when using [ESI (Edge Side Includes)]([[= symfony_doc =]]/http_cache/esi.html).
+It's used by Symfony when generating [CSRF tokens]([[= symfony_doc =]]/security/csrf.html), [encrypting cookies]([[= symfony_doc =]]/security/remember_me.html), and for creating signed URIs when using [ESI (Edge Side Includes)]([[= symfony_doc =]]/http_cache/esi.html).
 
 !!! caution
 
@@ -268,10 +242,22 @@ Install [[= product_name =]] and create a database with:
 
 ``` bash
 php bin/console ibexa:install
-php bin/console ibexa:graphql:generate-schema
 ```
 
 Before executing the command make sure that the database user has sufficient permissions.
+
+The installer will prompt you for a new password for the `admin` user.
+Make sure to use a [strong password](security_checklist.md#strong-passwords) meeting all the [password rules](passwords.md#password-rules).
+
+!!! note
+
+	In scenarios where entering the new password isn't possible, for example, in automated deployments and Continuous Integration environments, use the `--no-interaction` option to skip changing the password and keep the default one, `publish`:
+
+    ``` bash
+    php bin/console ibexa:install --no-interaction
+    ```
+
+    If doing so, [modify the password for the `admin` user](update_basic_user_data.md#change-password) before [going live with your project](security_checklist.md).
 
 ### Run post-installation script
 

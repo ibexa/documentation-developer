@@ -4,7 +4,7 @@ description: LocationId Search Criterion
 
 # LocationId Criterion
 
-The [`LocationId` Search Criterion](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Criterion-LocationId.html) searches for content based in the location ID.
+The [`LocationId` Search Criterion](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Criterion-LocationId.html) searches for content based in the location ID.
 
 ## Arguments
 

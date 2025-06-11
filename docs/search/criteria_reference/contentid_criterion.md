@@ -4,7 +4,7 @@ description: ContentId Search Criterion
 
 # ContentId Criterion
 
-The [`ContentId` Search Criterion](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Criterion-ContentId.html) searches for content by its ID.
+The [`ContentId` Search Criterion](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Criterion-ContentId.html) searches for content by its ID.
 
 ## Arguments
 

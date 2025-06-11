@@ -80,6 +80,8 @@ footer.md-footer {
     line-height: 20px;
     letter-spacing: 0.12px;
     margin: 4px 0;
+    display: block;
+    text-align: left;
 }
 
 .md-content .ais-InstantSearch .instantsearch__entry-header .ais-Highlight-highlighted {
@@ -126,7 +128,13 @@ footer.md-footer {
     margin: 0;
 }
 
-.md-content .ais-InstantSearch .ais-Pagination .ais-Pagination-link {
+.md-content .ais-InstantSearch .ais-Pagination .ais-Pagination-list .ais-Pagination-item--lastPage {
+    display: none;
+}
+
+.md-content .ais-InstantSearch .ais-Pagination .ais-Pagination-link,
+.md-content .ais-InstantSearch .ais-Pagination .ais-Pagination-link:focus {
+    background-color: transparent;
     border: none;
     font-size: 14px;
     line-height: 21px;
