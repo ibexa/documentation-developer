@@ -117,3 +117,12 @@ For more information, see [this example using few of those components](component
 |---|---|
 |`admin-ui-action-configuration-tabs`| `vendor/ibexa/connector-ai/src/bundle/Resources/views/themes/admin/connector_ai/action_configuration/view.html.twig` |
 
+## Discounts [[% include 'snippets/lts-update_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
+
+| Group name | Template file |
+|---|---|
+|`admin-ui-discount-block`| `vendor/ibexa/discounts/src/bundle/Resources/views/themes/admin/discounts/view.html.twig` |
+|`admin-ui-discount-condition-summary`| `vendor/ibexa/discounts/src/bundle/Resources/views/themes/admin/discounts/tab/details.html.twig` |
+|`admin-ui-discount-condition-code-usage-summary`| `vendor/ibexa/discounts/src/bundle/Resources/views/themes/admin/discounts/tab/details.html.twig` |
+|`admin-ui-discount-condition-code-summary`| `vendor/ibexa/discounts/src/bundle/Resources/views/themes/admin/discounts/tab/details.html.twig` |
+|`admin-ui-discount-condition-code-usage-limit-summary`| `vendor/ibexa/discounts/src/bundle/Resources/views/themes/admin/discounts/tab/details.html.twig` |
