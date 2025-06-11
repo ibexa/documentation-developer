@@ -20,7 +20,7 @@ Sort Clauses are found in the [`Ibexa\Contracts\Discounts\Value\Query\SortClause
 | [Type](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Discounts-Value-Query-SortClause-Type.html)| Sort by the place where the discount activates: catalog or cart. When sorting with ascending order, cart discounts are returned first. |
 | [UpdatedAt](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Discounts-Value-Query-SortClause-UpdatedAt.html)| Sort by discount modification date |
 
-The following example shows how to use them to sort the searched Discounts:
+The following example shows how to use them to sort the searched discounts:
 
 ```php hl_lines="22-24"
 [[= include_file('code_samples/discounts/src/Query/Search.php') =]]
