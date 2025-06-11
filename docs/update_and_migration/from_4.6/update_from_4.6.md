@@ -352,7 +352,150 @@ With the product updated to the latest version, you can now finish the update pr
 [LTS Updates](editions.md#lts-updates) are standalone packages with their own update procedures.
 To use the [latest features](ibexa_dxp_v4.6.md) added to them, update them separately with the following commands:
 
+=== "Discounts"
+
+    Run the following command to get the latest version:
+
+    ```bash
+    composer require ibexa/discounts:[[= latest_tag_4_6 =]] ibexa/discounts-codes:[[= latest_tag_4_6 =]]
+    ```
+
+    Then apply manually the changes described below.
+
+    ## 4.6.20
+
+    ### Policy changes
+
+    The `discount/view` policy is no longer required for the store customers to use a discount and must be removed from all users who are not managing discounts.
+    The policy allows to access all the discount details, including the coupon codes to activate them, which could lead to system abuse.
+
+    To learn more, see the [discounts policies overview](policies.md#discounts).
+
+    ### Database update
+
+    Run the following scripts:
+
+    === "MySQL"
+
+        ``` sql
+        CREATE TABLE ibexa_discount_code_usage (
+            id INT AUTO_INCREMENT NOT NULL,
+            discount_code_id INT NOT NULL,
+            order_id INT NOT NULL,
+            discriminator VARCHAR(10) NOT NULL,
+            used_at DATETIME NOT NULL COMMENT '(DC2Type:datetime_immutable)',
+            INDEX ibexa_discount_code_usage_discount_code_idx (discount_code_id),
+            INDEX ibexa_discount_code_usage_order_idx (order_id),
+            PRIMARY KEY(id)
+        ) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_520_ci` ENGINE = InnoDB;
+
+        CREATE TABLE ibexa_discount_code_usage_email (
+            id INT NOT NULL,
+            user_email VARCHAR(190) DEFAULT NULL,
+            INDEX ibexa_discount_code_usage_email_idx (user_email),
+            UNIQUE INDEX ibexa_discount_codes_usage_email_uidx (id, user_email),
+            PRIMARY KEY(id)
+        ) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_520_ci` ENGINE = InnoDB;
+
+        CREATE TABLE ibexa_discount_code_usage_user (
+            id INT NOT NULL,
+            user_id INT DEFAULT NULL,
+            INDEX ibexa_discount_code_usage_user_idx (user_id),
+            UNIQUE INDEX ibexa_discount_codes_usage_user_uidx (id, user_id),
+            PRIMARY KEY(id)
+        ) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_520_ci` ENGINE = InnoDB;
+
+        ALTER TABLE ibexa_discount_code_usage
+            ADD CONSTRAINT ibexa_discount_code_usage_code_fk FOREIGN KEY (discount_code_id)
+                REFERENCES ibexa_discount_code (id) ON UPDATE CASCADE ON DELETE CASCADE;
+
+        ALTER TABLE ibexa_discount_code_usage
+            ADD CONSTRAINT ibexa_discount_code_usage_order_fk FOREIGN KEY (order_id)
+                REFERENCES ibexa_order (id) ON UPDATE CASCADE ON DELETE CASCADE;
+
+        ALTER TABLE ibexa_discount_code_usage_email
+            ADD CONSTRAINT ibexa_discount_code_usage_email_fk FOREIGN KEY (id)
+                REFERENCES ibexa_discount_code_usage (id) ON UPDATE CASCADE ON DELETE CASCADE;
+
+        ALTER TABLE ibexa_discount_code_usage_user
+            ADD CONSTRAINT ibexa_discount_code_usage_user_fk FOREIGN KEY (id)
+                REFERENCES ibexa_discount_code_usage (id) ON UPDATE CASCADE ON DELETE CASCADE;
+
+        ALTER TABLE ibexa_discount_code_usage_user
+            ADD CONSTRAINT ibexa_discount_code_usage_user_content_fk FOREIGN KEY (user_id)
+                REFERENCES ezuser (contentobject_id) ON UPDATE CASCADE ON DELETE CASCADE;
+        ```
+
+    === "PostgreSQL"
+
+        ``` sql
+        CREATE TABLE ibexa_discount_code_usage
+        (
+            id SERIAL NOT NULL,
+            discount_code_id INT NOT NULL,
+            order_id INT NOT NULL,
+            discriminator VARCHAR(10) NOT NULL,
+            used_at TIMESTAMP(0) WITHOUT TIME ZONE NOT NULL,
+            PRIMARY KEY(id)
+        );
+
+        CREATE INDEX ibexa_discount_code_usage_discount_code_idx
+            ON ibexa_discount_code_usage (discount_code_id);
+
+        CREATE INDEX ibexa_discount_code_usage_order_idx
+            ON ibexa_discount_code_usage (order_id);
+
+        COMMENT ON COLUMN ibexa_discount_code_usage.used_at IS '(DC2Type:datetime_immutable)';
+
+        CREATE TABLE ibexa_discount_code_usage_email (
+            id INT NOT NULL,
+            user_email VARCHAR(190) DEFAULT NULL,
+            PRIMARY KEY(id)
+        );
+
+        CREATE INDEX ibexa_discount_code_usage_email_idx
+            ON ibexa_discount_code_usage_email (user_email);
+
+        CREATE UNIQUE INDEX ibexa_discount_codes_usage_email_uidx
+            ON ibexa_discount_code_usage_email (id, user_email);
+
+        CREATE TABLE ibexa_discount_code_usage_user
+        (
+            id INT NOT NULL,
+            user_id INT DEFAULT NULL,
+            PRIMARY KEY(id)
+        );
+
+        CREATE INDEX ibexa_discount_code_usage_user_idx
+            ON ibexa_discount_code_usage_user (user_id);
+
+        CREATE UNIQUE INDEX ibexa_discount_codes_usage_user_uidx
+            ON ibexa_discount_code_usage_user (id, user_id);
+
+        ALTER TABLE ibexa_discount_code_usage
+            ADD CONSTRAINT ibexa_discount_code_usage_code_fk FOREIGN KEY (discount_code_id)
+                REFERENCES ibexa_discount_code (id) ON UPDATE CASCADE ON DELETE CASCADE NOT DEFERRABLE INITIALLY IMMEDIATE;
+
+        ALTER TABLE ibexa_discount_code_usage
+            ADD CONSTRAINT ibexa_discount_code_usage_order_fk FOREIGN KEY (order_id)
+                REFERENCES ibexa_order (id) ON UPDATE CASCADE ON DELETE CASCADE NOT DEFERRABLE INITIALLY IMMEDIATE;
+
+        ALTER TABLE ibexa_discount_code_usage_email
+            ADD CONSTRAINT ibexa_discount_code_usage_email_fk FOREIGN KEY (id)
+                REFERENCES ibexa_discount_code_usage (id) ON UPDATE CASCADE ON DELETE CASCADE NOT DEFERRABLE INITIALLY IMMEDIATE;
+
+        ALTER TABLE ibexa_discount_code_usage_user
+            ADD CONSTRAINT ibexa_discount_code_usage_user_fk FOREIGN KEY (id)
+                REFERENCES ibexa_discount_code_usage (id) ON UPDATE CASCADE ON DELETE CASCADE NOT DEFERRABLE INITIALLY IMMEDIATE;
+
+        ALTER TABLE ibexa_discount_code_usage_user
+            ADD CONSTRAINT ibexa_discount_code_usage_user_content_fk FOREIGN KEY (user_id)
+                REFERENCES ezuser (contentobject_id) ON UPDATE CASCADE ON DELETE CASCADE NOT DEFERRABLE INITIALLY IMMEDIATE;
+        ```
+
 === "AI actions"
+
+    Run the following command to get the latest version:
 
     ```bash
     composer require ibexa/connector-ai:[[= latest_tag_4_6 =]] ibexa/connector-openai:[[= latest_tag_4_6 =]]
@@ -360,6 +503,9 @@ To use the [latest features](ibexa_dxp_v4.6.md) added to them, update them separ
 
 === "Date and time attribute"
 
+    Run the following command to get the latest version:
+
     ```bash
     composer require ibexa/product-catalog-date-time-attribute:[[= latest_tag_4_6 =]]
     ```
+
