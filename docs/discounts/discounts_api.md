@@ -45,8 +45,6 @@ The following discount rule types are available:
 
 Only a single discount can be applied to a given product, and a discount can only have a single rule.
 
-You can create your own rules by creating a class implementing the [DiscountRuleInterface](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Discounts-Value-DiscountRuleInterface.html) interface.
-
 ### Conditions
 
 With conditions you can narrow down the scenarios in which the discount applies. The following conditions are available:
@@ -64,18 +62,22 @@ With conditions you can narrow down the scenarios in which the discount applies.
 
 When multiple conditions are specified, all of them must be met.
 
-You can create your own conditions by creating a class implementing the [DiscountConditionInterface](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Discounts-Value-DiscountConditionInterface.html) interface.
-
 ### Priority
 
 You can set discount priority as a number between 1 and 10 to indicate which discount should have [higher priority](discounts_guide.md#discounts-priority) when choosing the one to apply.
 
 ### Start and end date
 
-Discounts can be permanent, or valid only in specified time frame.
+Discounts can be permanent, or valid only in a specified time frame.
 
 Every discount has a start date, which defaults to the date when the discount was created.
 The end date can be set to `null` to make the discount permanent.
+
+### Status
+
+You can disable a discount anytime to stop it from being active, even if the conditions enforced by start and end date are met.
+
+Only disabled discounts can be deleted.
 
 ### Discount translations
 
@@ -112,15 +114,15 @@ The example below contains a Command creating a cart discount. The discount:
 - applies to 2 products
 - requires a `summer10` discount code to be activated. The code can be used unlimited number of times
 
-``` php hl_lines="53-59 61-84"
+``` php hl_lines="60-66 68-92"
 [[= include_file('code_samples/discounts/src/Command/ManageDiscountsCommand.php') =]]
 ```
 
-Similarly, use the `deleteDiscount`, `deleteTranslation`, `disableDiscount`, `enableDiscount`, and `updateDiscount` methods from the [DiscountServiceInterface](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Discounts-DiscountServiceInterface.html) to manage the discounts. You can always attach additional logic to the Discounts API by listening to the available events.
+Similarly, use the `deleteDiscount`, `deleteTranslation`, `disableDiscount`, `enableDiscount`, and `updateDiscount` methods from the [DiscountServiceInterface](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Discounts-DiscountServiceInterface.html) to manage the discounts. You can always attach additional logic to the Discounts API by listening to the [available events](discounts_events.md).
 
 ## Search
 
-You can search for Discounts using the [`DiscountServiceInterface::findDiscounts()](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Discounts-DiscountServiceInterface.html#method_findDiscounts) method. 
-To learn more about the available search options, see Discounts' Search Criteria and Sort Clauses.
+You can search for Discounts using the [`DiscountServiceInterface::findDiscounts()](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Discounts-DiscountServiceInterface.html#method_findDiscounts) method.
+To learn more about the available search options, see Discounts' [Search Criteria](discounts_criteria.md) and [Sort Clauses](discounts_sort_clauses.md).
 
 For discount codes, you can query the database for discount code usage using [`DiscountCodeServiceInterface::findCodeUsages()`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-DiscountsCodes-DiscountCodeServiceInterface.html#method_findCodeUsages) and [`DiscountCodeUsageQuery`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-DiscountsCodes-Value-Query-DiscountCodeUsageQuery.html).

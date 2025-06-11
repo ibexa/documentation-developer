@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Command;
 
+use DateTimeImmutable;
 use Ibexa\Contracts\Core\Collection\ArrayMap;
 use Ibexa\Contracts\Core\Repository\PermissionResolver;
 use Ibexa\Contracts\Core\Repository\UserService;
@@ -34,8 +35,12 @@ final class ManageDiscountsCommand extends Command
 
     private UserService $userService;
 
-    public function __construct(UserService $userSerice, PermissionResolver $permissionResolver, DiscountServiceInterface $discountService, DiscountCodeServiceInterface $discountCodeService)
-    {
+    public function __construct(
+        UserService $userSerice,
+        PermissionResolver $permissionResolver,
+        DiscountServiceInterface $discountService,
+        DiscountCodeServiceInterface $discountCodeService
+    ) {
         $this->userService = $userSerice;
         $this->discountService = $discountService;
         $this->discountCodeService = $discountCodeService;
@@ -46,9 +51,11 @@ final class ManageDiscountsCommand extends Command
 
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
-        $this->permissionResolver->setCurrentUserReference($this->userService->loadUserByLogin('admin'));
+        $this->permissionResolver->setCurrentUserReference(
+            $this->userService->loadUserByLogin('admin')
+        );
 
-        $now = new \DateTimeImmutable();
+        $now = new DateTimeImmutable();
 
         $discountCodeCreateStruct = new DiscountCodeCreateStruct(
             'summer10',
@@ -59,7 +66,8 @@ final class ManageDiscountsCommand extends Command
         $discountCode = $this->discountCodeService->createDiscountCode($discountCodeCreateStruct);
 
         $discountCreateStruct = new DiscountCreateStruct();
-        $discountCreateStruct->setIdentifier('discount_identifier')
+        $discountCreateStruct
+            ->setIdentifier('discount_identifier')
             ->setType(DiscountType::CART)
             ->setPriority(10)
             ->setEnabled(true)
