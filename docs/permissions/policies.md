@@ -130,7 +130,7 @@ The discount policies decide which actions can be executed by given user or user
 
 !!! caution "Customers and discount policies"
 
-    Customers do not need any policies to use the discounts on the [storefront](storefront.md).
+    Customers don't need any policies to use the discounts on the [storefront](storefront.md).
     Even the `discount/view` policy would allow them to access all the discount details, including the coupon codes to activate them, which could lead to system abuse.
 
 

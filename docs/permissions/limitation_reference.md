@@ -35,7 +35,7 @@ Out of the box FunctionList uses it in the following way:
 
 ## Activity log Owner limitation
 
-The `ActivityLogOwner` limitation specifies if a user can see only their own [recent activity](recent_activity.md) log entries, and not entries from other users.
+The Activity log Owner (`ActivityLogOwner`) limitation specifies if a user can see only their own [recent activity](recent_activity.md) log entries, and not entries from other users.
 
 | Value | UI value        | Description                                                  |
 |-------|-----------------|--------------------------------------------------------------|
@@ -43,7 +43,7 @@ The `ActivityLogOwner` limitation specifies if a user can see only their own [re
 
 ## Cart Owner limitation
 
-The Cart Owner `CartOwner` limitation specifies whether the user can modify a cart.
+The Cart Owner (`CartOwner`) limitation specifies whether the user can modify a cart.
 
 ### Possible values
 
@@ -64,7 +64,7 @@ The Change Owner (`ChangeOwner`) limitation specifies whether the user can chang
 
 ## Discount Owner limitation [[% include 'snippets/lts-update_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
 
-The Discount Owner limitation specifies whether the user can interact with a [discount](discounts.md).
+The Discount Owner (`DiscountOwner`) limitation specifies whether the user can interact with a [discount](discounts.md).
 
 ### Possible values
 
