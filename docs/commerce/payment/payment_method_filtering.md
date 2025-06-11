@@ -32,7 +32,7 @@ Now new custom payment method type should be visible in **Commerce** -> **Paymen
 Next, create a `NewPaymentMethodTypeVoter.php` file with the voter definition for your new payment method type:
 
 ``` php
-[[= include_file('code_samples/front/shop/payment/src/src/lib/PaymentMethod/Voter/NewPaymentMethodTypeVoter.php') =]]
+[[= include_file('code_samples/front/shop/payment/src/lib/PaymentMethod/Voter/NewPaymentMethodTypeVoter.php') =]]
 ```
 
 Created voter decides, if selected payment method type can be used and displayed in checkout process.
