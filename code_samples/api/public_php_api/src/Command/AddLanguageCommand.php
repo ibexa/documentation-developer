@@ -10,7 +10,10 @@ use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
-#[AsCommand(name: 'doc:add_language', description: 'Lists available languages and add Polish.')]
+#[AsCommand(
+    name: 'doc:add_language',
+    description: 'Lists available languages and add Polish.'
+)]
 class AddLanguageCommand extends Command
 {
     private LanguageService $languageService;

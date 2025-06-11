@@ -13,7 +13,10 @@ use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
-#[AsCommand(name: 'doc:filter_location', description: 'Returns children of the provided Location, sorted by name in descending order.')]
+#[AsCommand(
+    name: 'doc:filter_location',
+    description: 'Returns children of the provided Location, sorted by name in descending order.'
+)]
 class FilterLocationCommand extends Command
 {
     private LocationService $locationService;

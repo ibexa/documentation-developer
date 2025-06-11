@@ -11,7 +11,10 @@ use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
-#[AsCommand(name: 'doc:workflow', description: 'Starts content in the selected workflow and makes the provided transition.')]
+#[AsCommand(
+    name: 'doc:workflow',
+    description: 'Starts content in the selected workflow and makes the provided transition.'
+)]
 class WorkflowCommand extends Command
 {
     private WorkflowServiceInterface $workflowService;

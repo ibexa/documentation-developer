@@ -15,7 +15,10 @@ use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
-#[AsCommand(name: 'doc:view_metadata', description: 'Output various metadata about a content item.')]
+#[AsCommand(
+    name: 'doc:view_metadata',
+    description: 'Output various metadata about a content item.'
+)]
 class ViewContentMetaDataCommand extends Command
 {
     private ContentService $contentService;

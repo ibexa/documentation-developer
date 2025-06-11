@@ -11,7 +11,10 @@ use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
-#[AsCommand(name: 'doc:hide', description: 'Hides and reveals again selected Location.')]
+#[AsCommand(
+    name: 'doc:hide',
+    description: 'Hides and reveals again selected Location.'
+)]
 class HideLocationCommand extends Command
 {
     private LocationService $locationService;

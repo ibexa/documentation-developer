@@ -15,7 +15,10 @@ use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
-#[AsCommand(name: 'doc:section', description: 'Creates new section and adds selected content item to it.')]
+#[AsCommand(
+    name: 'doc:section',
+    description: 'Creates new section and adds selected content item to it.'
+)]
 class SectionCommand extends Command
 {
     private SectionService $sectionService;
