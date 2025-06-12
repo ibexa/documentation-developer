@@ -13,7 +13,10 @@ use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
-#[AsCommand(name: 'doc:find_url', description: 'Finds all valid URLs in the provided Section.')]
+#[AsCommand(
+    name: 'doc:find_url',
+    description: 'Finds all valid URLs in the provided Section.'
+)]
 class FindUrlCommand extends Command
 {
     private URLService $urlService;

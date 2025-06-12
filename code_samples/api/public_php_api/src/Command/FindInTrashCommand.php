@@ -10,7 +10,10 @@ use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
-#[AsCommand(name: 'doc:find_in_trash', description: 'Lists content in Trash belonging to the provided content type.')]
+#[AsCommand(
+    name: 'doc:find_in_trash',
+    description: 'Lists content in Trash belonging to the provided content type.'
+)]
 class FindInTrashCommand extends Command
 {
     private TrashService $trashService;

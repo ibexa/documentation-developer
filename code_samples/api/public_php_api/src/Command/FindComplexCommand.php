@@ -13,7 +13,10 @@ use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
-#[AsCommand(name: 'doc:find_complex', description: 'Lists content belonging to the provided content type.')]
+#[AsCommand(
+    name: 'doc:find_complex',
+    description: 'Lists content belonging to the provided content type.'
+)]
 class FindComplexCommand extends Command
 {
     private SearchService $searchService;
