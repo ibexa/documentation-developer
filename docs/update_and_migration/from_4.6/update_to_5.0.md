@@ -353,7 +353,8 @@ composer recipe:install ibexa/rector --force --reset --yes
 
 TODO: Add other rule sets?
 
-You can add some other rule sets like the Symfony and SensioLabs ones to match newer standards:
+You can add some other rule sets like the Symfony and SensioLabs ones to match newer standards.
+It's recommended to activate one set at a time, check the output, and decide if kept now, or discarded for a later usage.
 
 ```php
 //…
@@ -373,13 +374,16 @@ use Rector\Symfony\Set\SensiolabsSetList;
            SymfonySetList::SYMFONY_71,
            SymfonySetList::SYMFONY_72,
            SensiolabsSetList::ANNOTATIONS_TO_ATTRIBUTES,
-           //DoctrineSetList::DOCTRINE_DBAL_211, //TODO: Useful?
-           //TODO: Other usefull sets?
+           //DoctrineSetList::DOCTRINE_DBAL_211, //TODO: Useful? No really. Deprecated. I'll remove it.
+           //TODO: Other useful sets?
        ]
-   )->withAttributesSets(symfony: true);
+   )
+   ->withAttributesSets(symfony: true) // Duplicate SymfonySetList in witch way? Which rule sets is it adding?
+   ->withPhpSets()
+   ;
 ```
 
-TODO: Set deprecation and withAttributesSets
+TODO: SymfonySetList deprecation and withAttributesSets
 
 #### Update field type identifiers
 
