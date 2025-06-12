@@ -507,6 +507,21 @@ When updating a content type, use:
 [[= include_file('code_samples/data_migration/examples/ai/action_configuration_delete.yaml') =]]
 ```
 
+### Discounts [[% include 'snippets/lts-update_badge.md' %]]
+
+- The following example shows how you can create a new [discount](discounts_guide.md) in your system:
+
+``` yaml
+[[= include_file('code_samples/data_migration/examples/discounts/discount_create.yaml') =]]
+```
+
+- Use the `update` mode to modify an existing discount as in the example below.
+The provided conditions overwrite any already existing ones.
+
+``` yaml
+[[= include_file('code_samples/data_migration/examples/discounts/discount_update.yaml') =]]
+```
+
 ## Criteria
 
 When using `update` or `delete` modes, you can use criteria to identify the objects to operate on.

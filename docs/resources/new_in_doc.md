@@ -7,6 +7,43 @@ month_change: true
 
 This page contains recent highlights and notable changes in [[= product_name =]] documentation.
 
+## May 2025
+
+### v4.6.20
+
+- [v4.6.20 release notes](https://doc.ibexa.co/en/latest/release_notes/ibexa_dxp_v4.6/#ibexa-dxp-v4620)
+
+### Twig Components
+
+- Documented new [Twig Components](https://doc.ibexa.co/en/latest/templating/components/) feature that allows you to effortlessly build customizable and reusable Twig templates in [[= product_name =]]
+
+### Extending Sub-items view
+
+- Added documentation about how to [add new views or overwrite existing ones in the Sub-items list](https://doc.ibexa.co/en/latest/administration/back_office/subitems_list/#create-custom-sub-items-list-view)
+
+### PHP API
+
+- Enhanced the PHP API with the following new classes:
+    - [`Ibexa\Contracts\AdminUi\Menu\AbstractActionBuilder`](https://doc.ibexa.co/en/latest/api/php_api/php_api_reference/classes/Ibexa-Contracts-AdminUi-Menu-AbstractActionBuilder.html)
+    - [`Ibexa\Contracts\TwigComponents\ComponentInterface`](https://doc.ibexa.co/en/latest/api/php_api/php_api_reference/classes/Ibexa-Contracts-TwigComponents-ComponentInterface.html)
+    - [`Ibexa\Contracts\TwigComponents\ComponentRegistryInterface`](https://doc.ibexa.co/en/latest/api/php_api/php_api_reference/classes/Ibexa-Contracts-TwigComponents-ComponentRegistryInterface.html)
+    - [`Ibexa\Contracts\TwigComponents\Event\RenderGroupEvent`](https://doc.ibexa.co/en/latest/api/php_api/php_api_reference/classes/Ibexa-Contracts-TwigComponents-Event-RenderGroupEvent.html)
+    - [`Ibexa\Contracts\TwigComponents\Event\RenderSingleEvent`](https://doc.ibexa.co/en/latest/api/php_api/php_api_reference/classes/Ibexa-Contracts-TwigComponents-Event-RenderSingleEvent.html)
+    - [`Ibexa\Contracts\TwigComponents\Exception\InvalidArgumentException`](https://doc.ibexa.co/en/latest/api/php_api/php_api_reference/classes/Ibexa-Contracts-TwigComponents-Exception-InvalidArgumentException.html)
+    - [`Ibexa\Contracts\TwigComponents\Renderer\RendererInterface`](https://doc.ibexa.co/en/latest/api/php_api/php_api_reference/classes/Ibexa-Contracts-TwigComponents-Renderer-RendererInterface.html)
+
+### Requirements update
+
+- Updated [requirements](https://doc.ibexa.co/en/latest/getting_started/requirements/) for [[= product_name =]] 4.6: MySQL 8.4, Node 20 and Node 22 are now officially supported
+
+### AI Actions Connect handler
+
+- Documented [how to use the `ibexa:connect:init-custom-property-structures` command](https://doc.ibexa.co/en/latest/ai_actions/install_ai_actions/#initiate-integration) to integrate [AI actions](https://doc.ibexa.co/en/latest/ai_actions/ai_actions_guide/) with [Ibexa Connect](https://doc.ibexa.co/projects/connect/en/latest/)
+
+### Contributions
+
+We want to thank [todomagichere](https://github.com/todomagichere) and [hgiesenow](https://github.com/hgiesenow) for their help in improving the [Order management API](https://doc.ibexa.co/en/latest/commerce/order_management/order_management_api) and [Reverse proxy](https://doc.ibexa.co/en/latest/infrastructure_and_maintenance/cache/http_cache/reverse_proxy) documentation pages
+
 ## April 2025
 
 ### Content management

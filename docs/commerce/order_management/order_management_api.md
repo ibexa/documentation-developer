@@ -1,6 +1,7 @@
 ---
 description: Use PHP API and REST API to manage orders in Commerce.
 edition: commerce
+month_change: true
 ---
 
 # Order management API
@@ -9,13 +10,13 @@ edition: commerce
 
     To learn how to manage orders with the REST API, see the [REST API reference](../../api/rest_api/rest_api_reference/rest_api_reference.html#orders).
 
-To get orders and manage them, use the `Ibexa\Contracts\OrderManagement\OrderServiceInterface` interface.
+To get orders and manage them, use the [`Ibexa\Contracts\OrderManagement\OrderServiceInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-OrderManagement-OrderServiceInterface.html) interface.
 
 ## Get single order
 
 ### Get single order by identifier
 
-To access a single order by using its string identifier, use the `OrderService::getOrderByIdentifier` method:
+To access a single order by using its string identifier, use the [`OrderServiceInterface::getOrderByIdentifier`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-OrderManagement-OrderServiceInterface.html#method_getOrderByIdentifier) method:
 
 ``` php
 [[= include_file('code_samples/api/commerce/src/Command/OrderCommand.php', 61, 65) =]]
@@ -23,7 +24,7 @@ To access a single order by using its string identifier, use the `OrderService::
 
 ### Get single order by ID
 
-To access a single order by using its numerical ID, use the `OrderService::getOrder` method:
+To access a single order by using its numerical ID, use the [`OrderServiceInterface::getOrder`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-OrderManagement-OrderServiceInterface.html#method_getOrder) method:
 
 ``` php
 [[= include_file('code_samples/api/commerce/src/Command/OrderCommand.php', 67, 72) =]]
@@ -31,7 +32,7 @@ To access a single order by using its numerical ID, use the `OrderService::getOr
 
 ## Get multiple orders
 
-To fetch multiple orders, use the `OrderService::findOrders` method.
+To fetch multiple orders, use the [`OrderServiceInterface::findOrders`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-OrderManagement-OrderServiceInterface.html#method_findOrders) method.
 It follows the same search query pattern as other APIs:
 
 ``` php
@@ -43,7 +44,7 @@ It follows the same search query pattern as other APIs:
 
 ## Create order
 
-To create an order, use the `OrderService::createOrder` method and provide it with the `Ibexa\Contracts\OrderManagement\Value\OrderCreateStruct` object that contains a list of products, purchased quantities, product, total prices, and tax amounts.
+To create an order, use the [`OrderServiceInterface::createOrder`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-OrderManagement-OrderServiceInterface.html#method_createOrder) method and provide it with the [`Ibexa\Contracts\OrderManagement\Value\Struct\OrderCreateStruct`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-OrderManagement-Value-Struct-OrderCreateStruct.html) object that contains a list of products, purchased quantities, product, total prices, and tax amounts.
 
 ``` php
 [[= include_file('code_samples/api/commerce/src/Command/OrderCommand.php', 101, 113) =]]
@@ -53,7 +54,7 @@ To create an order, use the `OrderService::createOrder` method and provide it wi
 
 You can update the order after it's created.
 You could do it to support a scenario when, for example, the order is processed manually and its status has to be changed in the system.
-To update order information, use the `OrderService::updateOrder` method:
+To update order information, use the [`OrderServiceInterface::updateOrder`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-OrderManagement-OrderServiceInterface.html#method_updateOrder) method:
 
 ``` php
 [[= include_file('code_samples/api/commerce/src/Command/OrderCommand.php', 114, 119) =]]

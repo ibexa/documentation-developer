@@ -76,7 +76,7 @@ class CustomLimitationType implements Type
         throw new NotImplementedException(__METHOD__);
     }
 
-    public function valueSchema()
+    public function valueSchema(): never
     {
         throw new NotImplementedException(__METHOD__);
     }
