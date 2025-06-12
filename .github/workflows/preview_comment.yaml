@@ -33,17 +33,24 @@ jobs:
                     md_change_list=$(git diff --name-only HEAD "origin/$GITHUB_BASE_REF" -- docs/ | grep -E "^docs\/.*\.md$" | sed -E "s|^docs/(.*)\.md$|- [docs/\1.md](${build_url}\1/)|")
                     par_change_list='';
                     for par_file in $(git diff --diff-filter=A --name-only "origin/$GITHUB_BASE_REF" HEAD -- docs/api/php_api/php_api_reference/ | grep -E '^docs\/.*\.html$'); do
-                      fqcn=$(grep -o 'data-copy-value=".*">Copy FQCN' $par_file | sed 's|E|§E§|' | sed -E 's|data-copy-value="(.*)">.*|\1|' | sed 's|\\|\\\\|g')
+                      fqcn=$(grep -o 'data-copy-value=".*">Copy FQCN' $par_file | sed -E 's|data-copy-value="(.*)">.*|\1|' | sed 's|\\|\\\\|g')
                       link=$(echo $par_file | sed -E "s|^docs/(.*\.html)$|- [\`${fqcn}\`](${build_url}\1)|")
                       par_change_list=$(echo -e "$par_change_list\n$link")
                     done
-                    par_change_list=$(echo "$par_change_list" | sed '1d' | sed 's|§E§|\\E|g')
+                    par_change_list=$(echo "$par_change_list" | sed '1d' | sort -t '`' -k 2,2)
                     change_count=$(( $(echo "$md_change_list" | wc -l) + $(echo "$par_change_list" | wc -l) ))
 
-                    if [[ -z "$md_change_list$par_change_list" ]] ; then
+                    echo -e "Markdown files:\n$md_change_list\n\nPHP API Ref.:\n$par_change_list" | perl -p -e 's/\e/\\E/g'
+
+                    if [[ $change_count -gt $file_limit ]]; then
+                        par_change_list=$(echo "$par_change_list" | grep -v namespaces)
+                        change_count=$(( $(echo "$md_change_list" | wc -l) + $(echo "$par_change_list" | wc -l) ))
+                    fi
+
+                    if [[ -z "$md_change_list$par_change_list" ]]; then
                       comment="Preview of modified files: no change to preview."
-                    elif [[ $change_count -gt $file_limit ]] ; then
-                      comment="Preview of modified files: Too many files modified in a single PR, preview link list is skipped. ($change_count files &gth; $file_limit)"
+                    elif [[ $change_count -gt $file_limit ]]; then
+                      comment="Preview of modified files: Too many files modified in a single PR, preview link list is skipped. ($change_count files &gt; $file_limit)"
                     else
                       comment="# Preview of modified files"
                       if [[ -n "$md_change_list" ]]; then
@@ -54,7 +61,7 @@ jobs:
                       fi                  
                     fi
 
-                    echo -e "$comment" > comment.md
+                    echo -e "$comment" | perl -p -e 's/\e/\\E/g' > comment.md
 
             -   name: Find comment
                 id: find-comment
