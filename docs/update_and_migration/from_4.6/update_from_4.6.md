@@ -343,7 +343,7 @@ vendor/bin/rector
 
 No additional steps needed.
 
-## 4.6.21
+## v4.6.21
 
 ### Security
 
