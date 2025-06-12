@@ -12,7 +12,10 @@ use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
-#[AsCommand(name: 'doc:object_state', description: 'Creates OS group with provided States and assigned the Lock OS to provided content item')]
+#[AsCommand(
+    name: 'doc:object_state',
+    description: 'Creates OS group with provided States and assigned the Lock OS to provided content item'
+)]
 class ObjectStateCommand extends Command
 {
     private ContentService $contentService;

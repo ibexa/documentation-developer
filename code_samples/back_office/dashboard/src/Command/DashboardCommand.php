@@ -14,7 +14,10 @@ use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
-#[AsCommand(name: 'doc:dashboard', description: 'Set a custom dashboard to user group.')]
+#[AsCommand(
+    name: 'doc:dashboard',
+    description: 'Set a custom dashboard to user group.'
+)]
 class DashboardCommand extends Command
 {
     private DashboardServiceInterface $dashboardService;

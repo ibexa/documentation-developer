@@ -11,7 +11,10 @@ use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
-#[AsCommand(name: 'doc:update_content', description: 'Update provided content item with a new name')]
+#[AsCommand(
+    name: 'doc:update_content',
+    description: 'Update provided content item with a new name'
+)]
 class UpdateContentCommand extends Command
 {
     private ContentService $contentService;

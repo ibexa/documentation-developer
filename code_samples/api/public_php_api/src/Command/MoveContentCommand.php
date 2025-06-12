@@ -11,7 +11,10 @@ use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
-#[AsCommand(name: 'doc:move_content', description: 'Moves the selected Location with its subtree.')]
+#[AsCommand(
+    name: 'doc:move_content',
+    description: 'Moves the selected Location with its subtree.'
+)]
 class MoveContentCommand extends Command
 {
     private LocationService $locationService;

@@ -11,7 +11,10 @@ use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
-#[AsCommand(name: 'doc:find_content', description: 'Lists content belonging to the provided content type.')]
+#[AsCommand(
+    name: 'doc:find_content',
+    description: 'Lists content belonging to the provided content type.'
+)]
 class FindContentCommand extends Command
 {
     private SearchService $searchService;

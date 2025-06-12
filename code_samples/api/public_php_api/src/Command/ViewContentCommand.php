@@ -11,7 +11,10 @@ use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
-#[AsCommand(name: 'doc:view_content', description: 'Output Field values on provided content item.')]
+#[AsCommand(
+    name: 'doc:view_content',
+    description: 'Output Field values on provided content item.'
+)]
 class ViewContentCommand extends Command
 {
     private ContentService $contentService;

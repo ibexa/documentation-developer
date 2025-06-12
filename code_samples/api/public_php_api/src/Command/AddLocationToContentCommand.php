@@ -12,7 +12,10 @@ use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
-#[AsCommand(name: 'doc:add_location', description: 'Add a Location to content item and hides it.')]
+#[AsCommand(
+    name: 'doc:add_location',
+    description: 'Add a Location to content item and hides it.'
+)]
 class AddLocationToContentCommand extends Command
 {
     private ContentService $contentService;

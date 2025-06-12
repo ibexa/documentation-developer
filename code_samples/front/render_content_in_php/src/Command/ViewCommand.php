@@ -10,7 +10,10 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 
-#[AsCommand(name: 'app:view', description: 'Render the view of a content item')]
+#[AsCommand(
+    name: 'app:view',
+    description: 'Render the view of a content item'
+)]
 class ViewCommand extends Command
 {
     private ContentViewBuilder $contentViewBuilder;

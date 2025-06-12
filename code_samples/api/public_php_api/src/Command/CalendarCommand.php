@@ -12,7 +12,10 @@ use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
-#[AsCommand(name: 'doc:calendar', description: 'Lists Calendar event in the provided time range and reschedules them.')]
+#[AsCommand(
+    name: 'doc:calendar',
+    description: 'Lists Calendar event in the provided time range and reschedules them.'
+)]
 class CalendarCommand extends Command
 {
     private PermissionResolver $permissionResolver;
