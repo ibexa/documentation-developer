@@ -540,6 +540,19 @@ Evaluate the vulnerability to determine whether you might have been affected.
 If so, take appropriate action.
 There are no additional update steps to execute.
 
+### v3.3.43
+
+#### Security
+
+This security advisory resolves XSS vulnerabilities in several parts of the back office of the DXP.
+Back office access and varying levels of editing and management permissions are required to exploit these vulnerabilities.
+
+For more information, see the [security advisory IBEXA-SA-2025-003](https://developers.ibexa.co/security-advisories/ibexa-sa-2025-003-xss-vulnerabilities-in-back-office).
+
+Evaluate the vulnerability to determine whether you might have been affected.
+If so, take appropriate action.
+There are no additional update steps to execute.
+
 ## Finish the update
 
 [[% include 'snippets/update/finish_the_update.md' %]]

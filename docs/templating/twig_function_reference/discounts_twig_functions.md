@@ -72,6 +72,7 @@ content: ibexa_format_discount_value(discount),
 ### `ibexa_discounts_is_active()`
 
 Helper function returning whether the discount is currently active.
+
 ``` html+twig
 {% if ibexa_discounts_is_active(discount) %}
     <div>The discount is active</div>
