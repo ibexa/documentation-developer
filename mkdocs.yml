@@ -313,6 +313,7 @@ nav:
             - URL Twig functions: templating/twig_function_reference/url_twig_functions.md
             - User Twig functions: templating/twig_function_reference/user_twig_functions.md
             - AI Twig functions: templating/twig_function_reference/ai_actions_twig_functions.md
+            - Discounts functions: templating/twig_function_reference/discounts_twig_functions.md
         - Twig Components: templating/components.md
         - URLs and routes:
             - URLs and routes: templating/urls_and_routes/urls_and_routes.md
