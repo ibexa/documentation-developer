@@ -54,4 +54,4 @@ This error handling is provided by two event subscribers:
 - `Ibexa\Bundle\Checkout\EventSubscriber\DiscountsHaveChangedExceptionSubscriber`
 - `Ibexa\Bundle\DiscountsCodes\EventSubscriber\DiscountCodeUnusableExceptionSubscriber`
 
-You can be disable this behavior by setting the `ibexa_checkout.error_handlers.enabled` container parameter to `false`, which allows you to provide your own solution for these cases.
+You can disable this behavior by setting the `ibexa_checkout.error_handlers.enabled` container parameter to `false`, which allows you to provide your own solution for these cases.
