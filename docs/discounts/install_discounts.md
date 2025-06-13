@@ -8,7 +8,7 @@ editions:
 
 # Install Discounts
 
-Discounts are available as an LTS update to [Ibexa Commerce](ibexa_commerce.md), starting with version v4.6.19 or higher.
+Discounts are available as an LTS update to [[[= product_name_com =]]](/ibexa_products/ibexa_commerce.md), starting with version v4.6.19 or higher.
 To use this feature you must first install the packages and configure them.
 
 ## Install packages
