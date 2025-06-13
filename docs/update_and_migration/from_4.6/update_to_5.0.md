@@ -351,10 +351,32 @@ by running the recipe:
 composer recipe:install ibexa/rector --force --reset --yes
 ```
 
-TODO: Add other rule sets?
+You can add some other rule sets (like, for example, the Symfony ones) to match newer standards.
 
-You can add some other rule sets like the Symfony and SensioLabs ones to match newer standards.
-It's recommended to activate one set at a time, check the output, and decide if kept now, or discarded for a later usage.
+It's recommended to activate one set at a time, check the output, and decide if kept now, or discarded for another time.
+
+```php
+//…
+use Rector\Symfony\Set\SymfonySetList;
+use Rector\Symfony\Set\SensiolabsSetList;
+//…
+   ->withSets(
+       [
+           IbexaSetList::IBEXA_50->value,
+           SymfonySetList::SYMFONY_60,
+           SymfonySetList::SYMFONY_61,
+           SymfonySetList::SYMFONY_62,
+           SymfonySetList::SYMFONY_63,
+           SymfonySetList::SYMFONY_64,
+           SymfonySetList::SYMFONY_70,
+           SymfonySetList::SYMFONY_71,
+           SymfonySetList::SYMFONY_72,
+           SensiolabsSetList::ANNOTATIONS_TO_ATTRIBUTES,
+       ]
+   );
+```
+
+But you can also go faster with bigger [rule sets in the modern way](https://getrector.com/documentation/set-lists) like in the following example:
 
 ```php
    ->withSets(
@@ -367,8 +389,6 @@ It's recommended to activate one set at a time, check the output, and decide if 
    ->withAttributesSets(symfony: true, sensiolabs: true)
    ;
 ```
-
-TODO: SymfonySetList deprecation and withAttributesSets
 
 #### Update field type identifiers
 
