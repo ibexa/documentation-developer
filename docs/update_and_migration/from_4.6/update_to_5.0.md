@@ -357,29 +357,14 @@ You can add some other rule sets like the Symfony and SensioLabs ones to match n
 It's recommended to activate one set at a time, check the output, and decide if kept now, or discarded for a later usage.
 
 ```php
-//…
-//use Rector\Doctrine\Set\DoctrineSetList;
-use Rector\Symfony\Set\SymfonySetList;
-use Rector\Symfony\Set\SensiolabsSetList;
-//…
    ->withSets(
        [
-           IbexaSetList::IBEXA_50->value, // rule set for upgrading to Ibexa DXP 5.0
-           SymfonySetList::SYMFONY_60,
-           SymfonySetList::SYMFONY_61,
-           SymfonySetList::SYMFONY_62,
-           SymfonySetList::SYMFONY_63,
-           SymfonySetList::SYMFONY_64,
-           SymfonySetList::SYMFONY_70,
-           SymfonySetList::SYMFONY_71,
-           SymfonySetList::SYMFONY_72,
-           SensiolabsSetList::ANNOTATIONS_TO_ATTRIBUTES,
-           //DoctrineSetList::DOCTRINE_DBAL_211, //TODO: Useful? No really. Deprecated. I'll remove it.
-           //TODO: Other useful sets?
+           IbexaSetList::IBEXA_50->value // rule set for upgrading to Ibexa DXP 5.0
        ]
    )
-   ->withAttributesSets(symfony: true) // Duplicate SymfonySetList in witch way? Which rule sets is it adding?
    ->withPhpSets()
+   ->withComposerBased(twig: true, symfony: true)
+   ->withAttributesSets(symfony: true, sensiolabs: true)
    ;
 ```
 
