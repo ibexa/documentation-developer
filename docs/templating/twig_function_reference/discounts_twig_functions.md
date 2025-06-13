@@ -63,7 +63,7 @@ Displays the product price before the discount was applied.
 
 ### `ibexa_format_discount_value()`
 
-Formats the discount value for each discount type, for example, by displaying `-10 EUR` or `-10%`.
+Formats the discount value for each discount type, for example by displaying `-10 EUR` or `-10%`.
 
 ``` html+twig
 content: ibexa_format_discount_value(discount),
