@@ -15,14 +15,14 @@ displayName: Discount Codes
                         application/vnd.ibexa.api.DiscountCode+json
             body:
                 application/vnd.ibexa.api.DiscountCode+json:
-                    type: DiscountCode
+                    type: DiscountCodeWrapper
                     example: !include examples/discount_codes/apply/POST/DiscountCode.json.example
             responses:
                 200:
                     description: Discount applied successfully
                     body:
                         application/vnd.ibexa.api.DiscountCode+json:
-                            type: DiscountCode
+                            type: DiscountCodeWrapper
                             example: !include examples/discount_codes/apply/POST/DiscountCodeResponse.json.example
                 400:
                     description: Error - the request is invalid.
@@ -46,7 +46,7 @@ displayName: Discount Codes
                         application/vnd.ibexa.api.DiscountCode+json
             body:
                 application/vnd.ibexa.api.DiscountCode+json:
-                    type: DiscountCode
+                    type: DiscountCodeWrapper
                     example: !include examples/discount_codes/apply/POST/DiscountCode.json.example
             responses:
                 204:
