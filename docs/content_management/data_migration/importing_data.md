@@ -522,7 +522,7 @@ The provided conditions overwrite any already existing ones.
 [[= include_file('code_samples/data_migration/examples/discounts/discount_update.yaml') =]]
 ```
 
-For a list of available conditions, see [Discounts API](discounts_api.md).
+For a list of available conditions, see [Discounts API](discounts_api.md#conditions).
 
 ## Criteria
 
