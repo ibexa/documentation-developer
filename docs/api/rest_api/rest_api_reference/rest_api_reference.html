@@ -140357,11 +140357,8 @@ A filter is a type and parameters depending on this type.</p>
 <li>type: <code>action</code>, parameter: <code>value</code> (the action)</li>
 <li>type: <code>logged_at</code>, parameters: <code>value</code> and <code>operator</code>
 <ul>
-<li>
-<code>logged_at</code> <code>value</code> value can be anything accepted by <code>DateTimeImmutable</code>
-</li>
-<li>
-<code>logged_at</code> <code>operator</code> value can be one of the following:</li>
+<li><code>logged_at</code> <code>value</code> value can be anything accepted by <code>DateTimeImmutable</code></li>
+<li><code>logged_at</code> <code>operator</code> value can be one of the following:</li>
 </ul>
 </li>
 </ul>
@@ -145774,6 +145771,22 @@ application/vnd.ibexa.api.ai.ActionType+xml
                             <p></p>
                         </td>
                     </tr>
+                                    <tr>
+                        <td>
+                                                            400
+                                                    </td>
+                        <td>
+                            <p>Error - the request is invalid.</p>
+                        </td>
+                    </tr>
+                                    <tr>
+                        <td>
+                                                            401
+                                                    </td>
+                        <td>
+                            <p>Error - the user is not authorized to execute an AI action.</p>
+                        </td>
+                    </tr>
                                 </tbody>
             </table>
         </div>
@@ -146156,7 +146169,7 @@ application/vnd.ibexa.api.ai.ActionType+xml
     </div>
 </div>
                                     </div>
-                        </div>
+                                                </div>
                                     </div>
     </div>
 </div>
@@ -146168,7 +146181,7 @@ application/vnd.ibexa.api.ai.ActionType+xml
             <h4 id="/discounts/{id}" class="heading text-gray">/discounts/{id}</h4>
             <ul class="list-unstyled d-inline-flex mb-0">
                                     <li class="pr-3 ">
-                                                <a href="#discounts-get-discount">
+                                                <a href="#discounts-get-discount-by-id">
                            <span class="pl-0 new badge badge--get" data-badge-caption="GET">
                                 GET
                            </span>
@@ -146177,15 +146190,15 @@ application/vnd.ibexa.api.ai.ActionType+xml
                             </ul>
         </div>
     </div>
-            <div id="discounts-get-discount-section" class="search-container px-3" data-parent="Discounts">
+            <div id="discounts-get-discount-by-id-section" class="search-container px-3" data-parent="Discounts">
     <div class="row px-1 pr-lg-0">
         <div class="col-12">
-            <h5 id="discounts-get-discount"
+            <h5 id="discounts-get-discount-by-id"
                 class="heading text-gray font-weight-medium"
                 data-field="name"
-                data-search="get-discount">
-                Get discount
-                <a href="#discounts-get-discount" class="heading__link">¶</a>
+                data-search="get-discount-by-id">
+                Get discount by ID
+                <a href="#discounts-get-discount-by-id" class="heading__link">¶</a>
             </h5>
         </div>
         <div class="col-lg-6">
@@ -146367,7 +146380,7 @@ application/vnd.ibexa.api.ai.ActionType+xml
             <div class="modal-header">
                 <p class="modal-title" id="discounts-id-get-response-200Title">
                     <span data-field="method" class="badge badge--sm badge--get">GET</span>
-                    Get discount
+                    Get discount by ID
                 </p>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
@@ -146482,7 +146495,7 @@ application/vnd.ibexa.api.ai.ActionType+xml
             <h4 id="/discounts/{identifier}" class="heading text-gray">/discounts/{identifier}</h4>
             <ul class="list-unstyled d-inline-flex mb-0">
                                     <li class="pr-3 ">
-                                                <a href="#discounts-get-discount">
+                                                <a href="#discounts-get-discount-by-identifier">
                            <span class="pl-0 new badge badge--get" data-badge-caption="GET">
                                 GET
                            </span>
@@ -146505,15 +146518,15 @@ application/vnd.ibexa.api.ai.ActionType+xml
                             </ul>
         </div>
     </div>
-            <div id="discounts-get-discount-section" class="search-container px-3" data-parent="Discounts">
+            <div id="discounts-get-discount-by-identifier-section" class="search-container px-3" data-parent="Discounts">
     <div class="row px-1 pr-lg-0">
         <div class="col-12">
-            <h5 id="discounts-get-discount"
+            <h5 id="discounts-get-discount-by-identifier"
                 class="heading text-gray font-weight-medium"
                 data-field="name"
-                data-search="get-discount">
-                Get discount
-                <a href="#discounts-get-discount" class="heading__link">¶</a>
+                data-search="get-discount-by-identifier">
+                Get discount by identifier
+                <a href="#discounts-get-discount-by-identifier" class="heading__link">¶</a>
             </h5>
         </div>
         <div class="col-lg-6">
@@ -146695,7 +146708,7 @@ application/vnd.ibexa.api.ai.ActionType+xml
             <div class="modal-header">
                 <p class="modal-title" id="discounts-identifier-get-response-200Title">
                     <span data-field="method" class="badge badge--sm badge--get">GET</span>
-                    Get discount
+                    Get discount by identifier
                 </p>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
@@ -146915,6 +146928,30 @@ application/vnd.ibexa.api.ai.ActionType+xml
                                                     </td>
                         <td>
                             <p></p>
+                        </td>
+                    </tr>
+                                    <tr>
+                        <td>
+                                                            400
+                                                    </td>
+                        <td>
+                            <p>Error - the request is invalid.</p>
+                        </td>
+                    </tr>
+                                    <tr>
+                        <td>
+                                                            401
+                                                    </td>
+                        <td>
+                            <p>Error - the user is not authorized to update the discount.</p>
+                        </td>
+                    </tr>
+                                    <tr>
+                        <td>
+                                                            404
+                                                    </td>
+                        <td>
+                            <p>Error - the specified discount was not found.</p>
                         </td>
                     </tr>
                                 </tbody>
@@ -147263,7 +147300,7 @@ application/vnd.ibexa.api.ai.ActionType+xml
     </div>
 </div>
                                     </div>
-                        </div>
+                                                            </div>
                                     </div>
     </div>
 </div>
@@ -147306,6 +147343,30 @@ application/vnd.ibexa.api.ai.ActionType+xml
                             <p>Discount deleted successfully.</p>
                         </td>
                     </tr>
+                                    <tr>
+                        <td>
+                                                            400
+                                                    </td>
+                        <td>
+                            <p>Error - the request is invalid.</p>
+                        </td>
+                    </tr>
+                                    <tr>
+                        <td>
+                                                            401
+                                                    </td>
+                        <td>
+                            <p>Error - the user is not authorized to update the discount.</p>
+                        </td>
+                    </tr>
+                                    <tr>
+                        <td>
+                                                            404
+                                                    </td>
+                        <td>
+                            <p>Error - the specified discount was not found.</p>
+                        </td>
+                    </tr>
                                 </tbody>
             </table>
         </div>
@@ -147316,7 +147377,7 @@ application/vnd.ibexa.api.ai.ActionType+xml
         <div class="col-lg-6 px-3 examples">
                                     
                                                                                 <div class="response">
-                </div>
+                                                    </div>
                                     </div>
     </div>
 </div>
@@ -147631,11 +147692,11 @@ application/vnd.ibexa.api.ai.ActionType+xml
                 <tbody>
                                     <tr>
                         <td>
-                            <a href="#" class="text-ocean-blue" data-toggle="modal" data-target="#DiscountCode">
-                                DiscountCode
+                            <a href="#" class="text-ocean-blue" data-toggle="modal" data-target="#DiscountCodeWrapper">
+                                DiscountCodeWrapper
                             </a>
                         </td>
-                        <td>Object containing data about the discount code.</td>
+                        <td>Wrapper object for DiscountCode.</td>
                     </tr>
                                 </tbody>
             </table>
@@ -147797,7 +147858,7 @@ application/vnd.ibexa.api.ai.ActionType+xml
     &quot;DiscountCode&quot;: {
         &quot;_media-type&quot;: &quot;application\/vnd.ibexa.api.DiscountCode+json&quot;,
         &quot;id&quot;: 1,
-        &quot;code&quot;: &quot;my_secret_code&quot;,
+        &quot;code&quot;: &quot;summer10&quot;,
         &quot;created_at&quot;: {
             &quot;date&quot;: &quot;2025-06-10 14:14:06.000000&quot;,
             &quot;timezone_type&quot;: 3,
@@ -147869,7 +147930,7 @@ application/vnd.ibexa.api.ai.ActionType+xml
     &quot;DiscountCode&quot;: {
         &quot;_media-type&quot;: &quot;application\/vnd.ibexa.api.DiscountCode+json&quot;,
         &quot;id&quot;: 1,
-        &quot;code&quot;: &quot;my_secret_code&quot;,
+        &quot;code&quot;: &quot;summer10&quot;,
         &quot;created_at&quot;: {
             &quot;date&quot;: &quot;2025-06-10 14:14:06.000000&quot;,
             &quot;timezone_type&quot;: 3,
@@ -148052,11 +148113,11 @@ application/vnd.ibexa.api.ai.ActionType+xml
                 <tbody>
                                     <tr>
                         <td>
-                            <a href="#" class="text-ocean-blue" data-toggle="modal" data-target="#DiscountCode">
-                                DiscountCode
+                            <a href="#" class="text-ocean-blue" data-toggle="modal" data-target="#DiscountCodeWrapper">
+                                DiscountCodeWrapper
                             </a>
                         </td>
-                        <td>Object containing data about the discount code.</td>
+                        <td>Wrapper object for DiscountCode.</td>
                     </tr>
                                 </tbody>
             </table>
@@ -183203,37 +183264,6 @@ application/vnd.ibexa.api.ai.ActionType+xml
 
     <span class="red-text">*</span>
 
-(<span class="font-italic">DiscountList</span>)
- - 
-<span>
-    Object containing a list of discounts.</span>
-
-
-    <div class="items">
-        <ul class="browser-default">
-                    </ul>
-    </div>
-                </li>
-                    </ul>
-    </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                                            <div class="modal fade" id="DiscountList" tabindex="-1" role="dialog" aria-labelledby="DiscountListTitle" aria-hidden="true">
-                            <div class="modal-dialog" role="document">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <p class="modal-title" id="DiscountListTitle">DiscountList</p>
-                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                            <span aria-hidden="true">&times;</span>
-                                        </button>
-                                    </div>
-                                    <div class="modal-body">
-                                        <span class="font-weight-medium">DiscountList</span>
-
-    <span class="red-text">*</span>
-
 (<span class="font-italic">object</span>)
  - 
 <span>
@@ -183254,6 +183284,9 @@ application/vnd.ibexa.api.ai.ActionType+xml
     </span>
 
 
+                </li>
+                    </ul>
+    </div>
                 </li>
                     </ul>
     </div>
@@ -183288,37 +183321,6 @@ application/vnd.ibexa.api.ai.ActionType+xml
 
     <span class="red-text">*</span>
 
-(<span class="font-italic">Discount</span>)
- - 
-<span>
-    Object containing discount details.</span>
-
-
-    <div class="items">
-        <ul class="browser-default">
-                    </ul>
-    </div>
-                </li>
-                    </ul>
-    </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                                            <div class="modal fade" id="Discount" tabindex="-1" role="dialog" aria-labelledby="DiscountTitle" aria-hidden="true">
-                            <div class="modal-dialog" role="document">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <p class="modal-title" id="DiscountTitle">Discount</p>
-                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                            <span aria-hidden="true">&times;</span>
-                                        </button>
-                                    </div>
-                                    <div class="modal-body">
-                                        <span class="font-weight-medium">Discount</span>
-
-    <span class="red-text">*</span>
-
 (<span class="font-italic">object</span>)
  - 
 <span>
@@ -183327,6 +183329,9 @@ application/vnd.ibexa.api.ai.ActionType+xml
 
     <div class="items">
         <ul class="browser-default">
+                    </ul>
+    </div>
+                </li>
                     </ul>
     </div>
                                     </div>
@@ -183357,37 +183362,6 @@ application/vnd.ibexa.api.ai.ActionType+xml
         <ul class="browser-default">
                             <li>
                     <span class="font-weight-medium">DiscountCreate</span>
-
-    <span class="red-text">*</span>
-
-(<span class="font-italic">DiscountCreate</span>)
- - 
-<span>
-    Object containing discount data</span>
-
-
-    <div class="items">
-        <ul class="browser-default">
-                    </ul>
-    </div>
-                </li>
-                    </ul>
-    </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                                            <div class="modal fade" id="DiscountCreate" tabindex="-1" role="dialog" aria-labelledby="DiscountCreateTitle" aria-hidden="true">
-                            <div class="modal-dialog" role="document">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <p class="modal-title" id="DiscountCreateTitle">DiscountCreate</p>
-                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                            <span aria-hidden="true">&times;</span>
-                                        </button>
-                                    </div>
-                                    <div class="modal-body">
-                                        <span class="font-weight-medium">DiscountCreate</span>
 
     <span class="red-text">*</span>
 
@@ -183551,6 +183525,9 @@ application/vnd.ibexa.api.ai.ActionType+xml
                 </li>
                     </ul>
     </div>
+                </li>
+                    </ul>
+    </div>
                                     </div>
                                 </div>
                             </div>
@@ -183579,37 +183556,6 @@ application/vnd.ibexa.api.ai.ActionType+xml
         <ul class="browser-default">
                             <li>
                     <span class="font-weight-medium">DiscountUpdate</span>
-
-    <span class="red-text">*</span>
-
-(<span class="font-italic">DiscountUpdate</span>)
- - 
-<span>
-    Object containing discount update data.</span>
-
-
-    <div class="items">
-        <ul class="browser-default">
-                    </ul>
-    </div>
-                </li>
-                    </ul>
-    </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                                            <div class="modal fade" id="DiscountUpdate" tabindex="-1" role="dialog" aria-labelledby="DiscountUpdateTitle" aria-hidden="true">
-                            <div class="modal-dialog" role="document">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <p class="modal-title" id="DiscountUpdateTitle">DiscountUpdate</p>
-                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                            <span aria-hidden="true">&times;</span>
-                                        </button>
-                                    </div>
-                                    <div class="modal-body">
-                                        <span class="font-weight-medium">DiscountUpdate</span>
 
     <span class="red-text">*</span>
 
@@ -183648,6 +183594,9 @@ application/vnd.ibexa.api.ai.ActionType+xml
                 </li>
                     </ul>
     </div>
+                </li>
+                    </ul>
+    </div>
                                     </div>
                                 </div>
                             </div>
@@ -183674,23 +183623,8 @@ application/vnd.ibexa.api.ai.ActionType+xml
 
     <div class="items">
         <ul class="browser-default">
-                    </ul>
-    </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                                            <div class="modal fade" id="DiscountCode" tabindex="-1" role="dialog" aria-labelledby="DiscountCodeTitle" aria-hidden="true">
-                            <div class="modal-dialog" role="document">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <p class="modal-title" id="DiscountCodeTitle">DiscountCode</p>
-                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                            <span aria-hidden="true">&times;</span>
-                                        </button>
-                                    </div>
-                                    <div class="modal-body">
-                                        <span class="font-weight-medium">DiscountCode</span>
+                            <li>
+                    <span class="font-weight-medium">DiscountCode</span>
 
     <span class="red-text">*</span>
 
@@ -183713,6 +183647,9 @@ application/vnd.ibexa.api.ai.ActionType+xml
     Discount code</span>
 
 
+                </li>
+                    </ul>
+    </div>
                 </li>
                     </ul>
     </div>

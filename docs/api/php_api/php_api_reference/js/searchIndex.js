@@ -3716,6 +3716,21 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/Ibexa-Contracts-Checkout-Discounts-DataMapper-DiscountsDataMapperInterface.html#method_mapToDiscountData"
         },                {
+            "fqsen": "\\Ibexa\\Contracts\\Checkout\\Discounts\\DiscountsValidationFailedException",
+            "name": "DiscountsValidationFailedException",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Checkout-Discounts-DiscountsValidationFailedException.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Checkout\\Discounts\\DiscountsValidationFailedException\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Checkout-Discounts-DiscountsValidationFailedException.html#method___construct"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Checkout\\Discounts\\DiscountsValidationFailedException\u003A\u003AgetCartIdentifier\u0028\u0029",
+            "name": "getCartIdentifier",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Checkout-Discounts-DiscountsValidationFailedException.html#method_getCartIdentifier"
+        },                {
             "fqsen": "\\Ibexa\\Contracts\\Checkout\\Event\\BeforeCreateCheckoutEvent",
             "name": "BeforeCreateCheckoutEvent",
             "summary": "Event\u0020emitted\u0020before\u0020action\u0020execution.",
@@ -3835,6 +3850,16 @@ Search.appendIndex(
             "name": "getUpdateStruct",
             "summary": "",
             "url": "classes/Ibexa-Contracts-Checkout-Event-UpdateCheckoutEvent.html#method_getUpdateStruct"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Checkout\\Exception\\CheckoutException",
+            "name": "CheckoutException",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Checkout-Exception-CheckoutException.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Checkout\\Exception\\CheckoutException\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Checkout-Exception-CheckoutException.html#method___construct"
         },                {
             "fqsen": "\\Ibexa\\Contracts\\Checkout\\Order\\Factory\\OrderFactoryInterface",
             "name": "OrderFactoryInterface",
@@ -34816,6 +34841,16 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/Ibexa-Contracts-Discounts-Exception-DiscountRuleNotFoundException.html#method___construct"
         },                {
+            "fqsen": "\\Ibexa\\Contracts\\Discounts\\Exception\\DiscountValueResolutionException",
+            "name": "DiscountValueResolutionException",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Discounts-Exception-DiscountValueResolutionException.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Discounts\\Exception\\DiscountValueResolutionException\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Discounts-Exception-DiscountValueResolutionException.html#method___construct"
+        },                {
             "fqsen": "\\Ibexa\\Contracts\\Discounts\\Policy\\AbstractDiscountPolicy",
             "name": "AbstractDiscountPolicy",
             "summary": "",
@@ -57075,6 +57110,11 @@ Search.appendIndex(
             "name": "Event",
             "summary": "",
             "url": "namespaces/ibexa-contracts-checkout-event.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Checkout\\Exception",
+            "name": "Exception",
+            "summary": "",
+            "url": "namespaces/ibexa-contracts-checkout-exception.html"
         },                {
             "fqsen": "\\Ibexa\\Contracts\\Checkout\\Order\\Factory",
             "name": "Factory",
