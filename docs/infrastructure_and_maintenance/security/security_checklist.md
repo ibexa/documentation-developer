@@ -144,6 +144,12 @@ Reduce your attack surface by exposing only what you must.
             - { path: ^/search, roles: ROLE_USER}
     ```
 
+### Limit access to code blocks
+
+The Code Block in Page Builder is designed to accept any HTML, which includes embedded JavaScript. This means that XSS is necessarily possible for editors that have access to Code Blocks. As site administrator you should be aware of this when giving editors access to the Page Builder features, and limit that access only to highly trusted editors. It is possible to
+[limit access to specific blocks per content type](https://doc.ibexa.co/projects/userguide/en/4.6/content_management/configure_ct_field_settings/#default-configuration-of-pages),
+where you can define which page blocks are available to an editor.
+
 ## Symfony
 
 ### `APP_SECRET` and other secrets
