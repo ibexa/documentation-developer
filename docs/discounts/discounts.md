@@ -16,5 +16,7 @@ You can also extend the feature, for example, by creating custom pricing rules, 
 
 [[= cards([
 "discounts/discounts_guide",
-"discounts/install_discounts"
-], columns=4) =]]
+"discounts/install_discounts",
+"discounts/configure_discounts",
+"discounts/discounts_api"
+], columns=2) =]]

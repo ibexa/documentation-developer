@@ -407,6 +407,8 @@ nav:
         - Discounts: discounts/discounts.md
         - Discounts guide: discounts/discounts_guide.md
         - Install Discounts: discounts/install_discounts.md
+        - Configure Discounts: discounts/configure_discounts.md
+        - Discounts API: discounts/discounts_api.md
     - Customer management:
         - Customer Portal: customer_management/customer_portal.md
         - Customer Portal guide: customer_management/customer_portal_guide.md

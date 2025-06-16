@@ -16,7 +16,7 @@ month_change: true
 
 #### REST API
 
-- Discounts can now be managed through the REST API
+- Discounts can now be [managed through the REST API](/api/rest_api/rest_api_reference/rest_api_reference.html#discounts)
 
 #### PHP API
 
