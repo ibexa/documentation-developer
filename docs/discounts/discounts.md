@@ -19,4 +19,4 @@ You can also extend the feature, for example, by creating custom pricing rules, 
 "discounts/install_discounts",
 "discounts/configure_discounts",
 "discounts/discounts_api"
-], columns=4) =]]
+], columns=2) =]]
