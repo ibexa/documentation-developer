@@ -23,11 +23,13 @@ It supports only PHP 8.3 and above.
 If your DXP 4.6 is running on a PHP below 8.3, start migrating it to PHP 8.3.
 
 Use Ibexa Rector to help yourself to upgrade PHP code for 8.3,
-see [`ibexa/rector`'s README](https://github.com/ibexa/rector?tab=readme-ov-file#ibexa-dxp-rector) for more information about installation and usage.
+see [`ibexa/rector`'s README](https://github.com/ibexa/rector?tab=readme-ov-file#ibexa-dxp-rector)
+and [Rector's documentation](https://getrector.com/documentation)
+for more information about installation and usage.
 TODO: For example, you might have to remove the inclusion of `tests/ directory.
 
 Rector might also find out code deprecated in 4.6 which are likely removed in 5.0.
-Update according to its report to reduce this debt and have less code not compatible with 5.0.
+Let Rector reduce this debt and have less code not compatible with 5.0.
 
 TODO: Example with our own code samples?
 TODO: list of features deprecated in 4.6 removed in 5.0?
@@ -212,9 +214,7 @@ composer run-script post-update-cmd
 
 Apply the following database update script:
 
-### [[= product_name =]]
-
-TODO: Rework 4.6 LTS Update schemas injection
+TODO: Rework injection of 4.6 LTS Updates' schemas
 
 === "MySQL"
 
@@ -335,10 +335,8 @@ TODO: Compatibility "views" layers? Even if there is this layer to save time, it
 
 #### Generate GraphQL schema
 
-GraphQL is used by 4.6's Back Office
-but isn't used by 5.0's one.
-
-Optionally, if you are using GraphQL in your project, generate its schema:
+4.6's Back Office uses GraphQL while 5.0's one doesn't.
+But, optionally, if you are using GraphQL in your project, generate its schema:
 
 ```bash
 php bin/console ibexa:graphql:generate-schema
@@ -349,7 +347,7 @@ php bin/console ibexa:graphql:generate-schema
 #### Update PHP framework standards
 
 Update the `rector.php` file to use `IbexaSetList::IBEXA_50` rule set
-by running the recipe:
+by running its recipe:
 
 ```bash
 composer recipe:install ibexa/rector --force --reset --yes
@@ -357,7 +355,7 @@ composer recipe:install ibexa/rector --force --reset --yes
 
 You can add some other rule sets (like, for example, the Symfony ones) to match newer standards.
 
-It's recommended to activate one set at a time, check the output, and decide if kept now, or discarded for another time.
+It's recommended to activate one set at a time, check the output, and decide if kept right now, or discarded for another time.
 
 ```php
 //…
