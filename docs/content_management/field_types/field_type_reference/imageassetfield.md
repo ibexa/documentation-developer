@@ -1,29 +1,33 @@
 # ImageAsset field type
 
-ImageAsset field type enables storing images in independent content items of a generic Image content type, in the media library.
+Image Asset field type enables storing images in independent content items of a generic Image content type, in the media library.
 It makes them reusable across system.
+
+| Name         | Internal name       |
+|--------------|---------------------|
+| `ImageAsset` | `ibexa_image_asset` |
 
 ### Input expectations
 
 Example array:
 
-|Type|Description|Example|
-|------|------|------|
-|`Ibexa\Core\FieldType\ImageAsset\Value`|ImageAsset field type value object.|See below.|
-|`Ibexa\Contracts\Core\Repository\Values\Content\ContentInfo`|ContentInfo instance of the Asset content item. |n/a|
-|`string`| ID of the Asset content item. |`"150"`|
-|`integer`| ID of the Asset content item. | `150`|
+| Type                                                         | Description                                     | Example    |
+|--------------------------------------------------------------|-------------------------------------------------|------------|
+| `Ibexa\Core\FieldType\ImageAsset\Value`                      | Image Asset field type value object.            | See below. |
+| `Ibexa\Contracts\Core\Repository\Values\Content\ContentInfo` | ContentInfo instance of the Asset content item. | n/a        |
+| `string`                                                     | ID of the Asset content item.                   | `"150"`    |
+| `integer`                                                    | ID of the Asset content item.                   | `150`      |
 
 ### Value object
 
 ##### Properties
 
-Value object of `ezimageasset` contains the following properties:
+Value object of `ibexa_image_asset` contains the following properties:
 
-| Property | Type  | Description|
-|----------|-------|------------|
-| `destinationContentId`  |  `int` | Related content ID. |
-| `alternativeText`  |  `string` |  The alternative image text (for example "Picture of an apple."). |
+| Property               | Type     | Description                                                      |
+|------------------------|----------|------------------------------------------------------------------|
+| `destinationContentId` | `int`    | Related content ID.                                              |
+| `alternativeText`      | `string` | The alternative image text (for example "Picture of an apple."). |
 
 ``` php
 // Value object content example
@@ -54,12 +58,12 @@ This field type validates if:
 
 ImageAsset field type allows configuring the following options:
 
-|Name|Description|Default value|
-|----|-----------|-------------|
-|`content_type_identifier`|Content type used to store assets.|`image`|
-|`content_field_identifier`|Field identifier used for asset data.|`image`|
-|`name_field_identifier`|Field identifier used for asset name.|`name`|
-|`parent_location_id`|Location where the assets are created.|`51`|
+| Name                       | Description                            | Default value |
+|----------------------------|----------------------------------------|---------------|
+| `content_type_identifier`  | Content type used to store assets.     | `image`       |
+| `content_field_identifier` | Field identifier used for asset data.  | `image`       |
+| `name_field_identifier`    | Field identifier used for asset name.  | `name`        |
+| `parent_location_id`       | Location where the assets are created. | `51`          |
 
 Example configuration:
 
@@ -68,7 +72,7 @@ ibexa:
     system:
        default:
             fieldtypes:
-                ezimageasset:
+                ibexa_image_asset:
                     content_type_identifier: photo
                     content_field_identifier: image
                     name_field_identifier: title
@@ -77,10 +81,10 @@ ibexa:
 
 ## Customizing ImageAsset field type rendering
 
-Internally the Image Asset Type is rendered via subrequest (similar to other relation types).
+Internally, the Image Asset Type is rendered via subrequest (similar to other relation types).
 Rendering customization is possible by configuring view type `asset_image`:
 
-```php
+```yaml
 ibexa:
     system:
        default:

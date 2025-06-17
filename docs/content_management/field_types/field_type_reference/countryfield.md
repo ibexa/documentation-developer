@@ -2,11 +2,11 @@
 
 This field type represents one or multiple countries.
 
-| Name      | Internal name | Expected input |
-|-----------|---------------|----------------|
-| `Country` | `ezcountry`   | `array`        |
+| Name      | Internal name   | Expected input |
+|-----------|-----------------|----------------|
+| `Country` | `ibexa_country` | `array`        |
 
-## PHP API field type 
+## PHP API field type
 
 ### Input expectations
 
@@ -33,8 +33,8 @@ This field type validates whether multiple countries are allowed by the field de
 
 The field definition of this field type can be configured with one option:
 
-| Name         | Type      | Default value | Description|
-|--------------|-----------|---------------|------------|
+| Name         | Type      | Default value | Description                                                                                |
+|--------------|-----------|---------------|--------------------------------------------------------------------------------------------|
 | `isMultiple` | `boolean` | `false`       | This setting allows (if true) or prohibits (if false) the selection of multiple countries. |
 
 ``` php
@@ -62,8 +62,8 @@ The format used by the toHash method is the Alpha2 value, however the input is c
 
 The Value class of this field type contains the following properties:
 
-| Property     | Type      | Description|
-|--------------|-----------|------------|
+| Property     | Type      | Description                                                                           |
+|--------------|-----------|---------------------------------------------------------------------------------------|
 | `$countries` | `array[]` | This property is used for the country selection provided as input, as its attributes. |
 
 ``` php
@@ -80,7 +80,7 @@ $value->countries = [
 
 ##### Constructor
 
-The `Country\Value` constructor initializes a new value object with the value provided.
+The `Country\Value` constructor initializes a new value object with the value provided.
 It expects an array as input.
 
 ``` php

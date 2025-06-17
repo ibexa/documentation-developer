@@ -2,9 +2,9 @@
 
 This field represents and handles a table of rows and columns of data.
 
-| Name     | Internal name | Expected input |
-|----------|---------------|----------------|
-| `Matrix` | `ezmatrix`    | `array`        |
+| Name     | Internal name  | Expected input |
+|----------|----------------|----------------|
+| `Matrix` | `ibexa_matrix` | `array`        |
 
 The Matrix field type is available via the Matrix Bundle provided by the [ibexa/fieldtype-matrix](https://github.com/ibexa/fieldtype-matrix) package.
 
@@ -12,9 +12,9 @@ The Matrix field type is available via the Matrix Bundle provided by the [ibexa/
 
 ### Input expectations
 
-|Type|Description|Example|
-|------|------|------|
-|`array`|array of `Ibexa\FieldTypeMatrix\FieldType\Value\Row` objects which contain column data|see below|
+| Type    | Description                                                                            | Example   |
+|---------|----------------------------------------------------------------------------------------|-----------|
+| `array` | array of `Ibexa\FieldTypeMatrix\FieldType\Value\Row` objects which contain column data | see below |
 
 Example of input:
 
@@ -28,7 +28,7 @@ new FieldType\Value([
 
 ### Value object
 
-`Ibexa\FieldTypeMatrix\FieldType\Value` offers the following properties:
+`Ibexa\FieldTypeMatrix\FieldType\Value` offers the following properties:
 
 |Property|Type|Description|
 |------|------|------|
@@ -67,7 +67,7 @@ The example below shows a GraphQL query for a Recipe content item (belonging to 
 - `name`: `ezstring`
 - `ingredients`: `ezmatrix` with two columns: `ingredient` and `quantity`
 
-```
+```graphql
 {
   content {
     recipe(id: 123) {
@@ -83,7 +83,7 @@ The example below shows a GraphQL query for a Recipe content item (belonging to 
 
 The Type returned for the Matrix field exposes columns defined in the field definition:
 
-```
+```json
 {
   "data": {
     "content": {
@@ -110,7 +110,7 @@ The Type returned for the Matrix field exposes columns defined in the field defi
 With this query you can inspect details of specific content type.
 In case of a Matrix field, you can ask for the list of columns, their names, and identifiers.
 
-```
+```graphql
 {
   content {
     _types {
@@ -139,7 +139,7 @@ The response lists the exposed field type settings:
 
 Example response:
 
-```
+```json
 {
   "data": {
     "content": {
@@ -179,7 +179,7 @@ The example below shows how to create a Recipe content item (belonging to a cont
 - `name`: `"Cake Ingredient List"`
 - `ingredients`: `ezmatrix` with two columns: `ingredient` and `quantity`
 
-```
+```graphql
  mutation AddRecipe {
   createRecipe(
     language: eng_GB
@@ -199,7 +199,7 @@ The example below shows how to create a Recipe content item (belonging to a cont
 
 The response confirms creation of the new Recipe field:
 
-```
+```json
 {
   "data": {
     "createRecipe": {
@@ -207,5 +207,4 @@ The response confirms creation of the new Recipe field:
     }
   }
 }
-
 ```

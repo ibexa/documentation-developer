@@ -6,7 +6,7 @@ TaxonomyEntry is a field type that stores information about the parent entry in 
 |----------------|-----------------------|----------------|
 | `TaxonomyEntry`| `ibexa_taxonomy_entry`| `array`|
 
-## PHP API field type 
+## PHP API field type
 
 ### Input expectations
 

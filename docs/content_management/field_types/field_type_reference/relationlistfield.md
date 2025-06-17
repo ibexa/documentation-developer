@@ -4,9 +4,9 @@ This field type makes it possible to store and retrieve values of a relation to 
 
 | Name           | Internal name          | Expected input |
 |----------------|------------------------|----------------|
-| `RelationList` | `ezobjectrelationlist` | `mixed`        |
+| `RelationList` | `ibexa_object_relation_list` | `mixed`        |
 
-## PHP API field type 
+## PHP API field type
 
 ### Input expectations
 
@@ -21,7 +21,7 @@ This field type makes it possible to store and retrieve values of a relation to 
 
 ##### Properties
 
-`Ibexa\Core\FieldType\RelationList\Value` contains the following properties:
+`Ibexa\Core\FieldType\RelationList\Value` contains the following properties:
 
 |Property|Type|Description|Example|
 |------|------|------|------|
@@ -38,7 +38,7 @@ $relationList->destinationContentId = [
 
 ##### Constructor
 
-The `RelationList\Value` constructor initializes a new value object with the value provided.
+The `RelationList\Value` constructor initializes a new value object with the value provided.
 It expects a mixed array as value.
 
 ``` php

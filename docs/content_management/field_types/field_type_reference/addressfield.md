@@ -121,7 +121,7 @@ class ExampleAddressSubscriber implements EventSubscriberInterface
             'ibexa.address.field.tax_number.billing_address' => 'onBillingAddressTaxNumber',
         ];
     }
-    
+
     public function onBillingAddressTaxNumber(MapFieldEvent $event): void
     {
         $event->setLabel('VAT');

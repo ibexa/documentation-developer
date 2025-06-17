@@ -2,7 +2,7 @@
 
 This field type represents and handles a media (audio/video) binary file.
 
-It's capable of handling the following types of files:
+It's capable of handling the following types of files:
 
 - Apple QuickTime
 - Adobe Flash
@@ -14,45 +14,45 @@ It's capable of handling the following types of files:
 
 | Name    | Internal name | Expected input |
 |---------|---------------|----------------|
-| `Media` | `ezmedia`     | mixed        |
+| `Media` | `ibexa_media` | mixed          |
 
-## PHP API field type 
+## PHP API field type
 
 ### Input expectations
 
-| Type | Description | Example|
-|------|-------------|--------|
-| `string` | Path to the media file.| `/Users/jane/butterflies.mp4`     |
-| `Ibexa\Core\FieldType\Media\Value` | Media field type value object with path to the media file as the value of `id` property. | See below. |
+| Type                               | Description                                                                              | Example                       |
+|------------------------------------|------------------------------------------------------------------------------------------|-------------------------------|
+| `string`                           | Path to the media file.                                                                  | `/Users/jane/butterflies.mp4` |
+| `Ibexa\Core\FieldType\Media\Value` | Media field type value object with path to the media file as the value of `id` property. | See below.                    |
 
 ### Value object
 
 ##### Properties
 
-`Ibexa\Core\FieldType\Media\Value` offers the following properties.
+`Ibexa\Core\FieldType\Media\Value` offers the following properties.
 
 Both `Media` and `BinaryFile` Value and Type inherit from the `BinaryBase` abstract field type and share common properties.
 
-|Property|Type|Description|Example|
-|------|------|------|------|
-|`id`|string|Media file identifier. This ID depends on the [IO Handler](clustering.md#dfs-io-handler) that is being used. With the native, default handlers (FileSystem and Legacy), the ID is the file path, relative to the binary file storage root dir (`var/<vardir>/storage/original` by default).|application/63cd472dd7819da7b75e8e2fee507c68.mp4|
-|`fileName`|string|	The human-readable file name, as exposed to the outside. Used to name the file when sending it for download.|butterflies.mp4|
-|`fileSize`|int|File size, in bytes.|1077923|
-|`mimeType`|string|The file's MIME type.|video/mp4|
-|`uri`|string|The binary file's HTTP URI. If the URI doesn't include a host or protocol, it applies to the request domain. **The URI is not publicly readable, and must NOT be used to link to the file for download.** Use `ibexa_render_field` to generate a valid link to the download controller.|/var/ezdemo_site/storage/original/application/63cd472dd7819da7b75e8e2fee507c68.mp4|
-|`hasController`|boolean|Whether the media has a controller when being displayed.|true|
-|`autoplay`|boolean|Whether the media should be automatically played.|true|
-|`loop`|boolean|Whether the media should be played in a loop.|false|
-|`height`|int|Height of the media.|300|
-|`width`|int|Width of the media.|400|
-|`path`|string|**deprecated**||
+| Property        | Type    | Description                                                                                                                                                                                                                                                                                 | Example                                                                            |
+|-----------------|---------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------|
+| `id`            | string  | Media file identifier. This ID depends on the [IO Handler](clustering.md#dfs-io-handler) that is being used. With the native, default handlers (FileSystem and Legacy), the ID is the file path, relative to the binary file storage root dir (`var/<vardir>/storage/original` by default). | application/63cd472dd7819da7b75e8e2fee507c68.mp4                                   |
+| `fileName`      | string  | 	The human-readable file name, as exposed to the outside. Used to name the file when sending it for download.                                                                                                                                                                               | butterflies.mp4                                                                    |
+| `fileSize`      | int     | File size, in bytes.                                                                                                                                                                                                                                                                        | 1077923                                                                            |
+| `mimeType`      | string  | The file's MIME type.                                                                                                                                                                                                                                                                       | video/mp4                                                                          |
+| `uri`           | string  | The binary file's HTTP URI. If the URI doesn't include a host or protocol, it applies to the request domain. **The URI is not publicly readable, and must NOT be used to link to the file for download.** Use `ibexa_render_field` to generate a valid link to the download controller.     | /var/ezdemo_site/storage/original/application/63cd472dd7819da7b75e8e2fee507c68.mp4 |
+| `hasController` | boolean | Whether the media has a controller when being displayed.                                                                                                                                                                                                                                    | true                                                                               |
+| `autoplay`      | boolean | Whether the media should be automatically played.                                                                                                                                                                                                                                           | true                                                                               |
+| `loop`          | boolean | Whether the media should be played in a loop.                                                                                                                                                                                                                                               | false                                                                              |
+| `height`        | int     | Height of the media.                                                                                                                                                                                                                                                                        | 300                                                                                |
+| `width`         | int     | Width of the media.                                                                                                                                                                                                                                                                         | 400                                                                                |
+| `path`          | string  | **deprecated**                                                                                                                                                                                                                                                                              |                                                                                    |
 
 ### Hash format
 
 The hash format mostly matches the value object. It has the following keys:
 
 - `id`
-- `path` (for backwards compatibility)
+- `path` (for backwards compatibility)
 - `fileName`
 - `fileSize`
 - `mimeType`
@@ -65,7 +65,7 @@ The hash format mostly matches the value object. It has the following keys:
 
 ### Validation
 
-The field type supports `FileSizeValidator`, defining maximum size of media file in bytes:
+The field type supports `FileSizeValidator`, defining maximum size of media file in bytes:
 
 |Name|Type|Default value|Description|
 |------|------|------|------|
@@ -91,27 +91,27 @@ $mediaFieldCreateStruct->validatorConfiguration = [
 
 The field type supports the `mediaType` setting, defining how the media file should be handled in output.
 
-|Name|Type|Default value|Description|
-|------|------|------|------|
-|`mediaType`|mixed|`Type::TYPE_HTML5_VIDEO`|Type of the media, accepts one of the predefined constants.|
+| Name        | Type  | Default value            | Description                                                 |
+|-------------|-------|--------------------------|-------------------------------------------------------------|
+| `mediaType` | mixed | `Type::TYPE_HTML5_VIDEO` | Type of the media, accepts one of the predefined constants. |
 
-List of all available `mediaType` constants is defined in the `Ibexa\Core\FieldType\Media\Type` class:
+List of all available `mediaType` constants is defined in the `Ibexa\Core\FieldType\Media\Type` class:
 
-|Name|Description|
-|------|------|
-|`TYPE_FLASH`|Adobe Flash|
-|`TYPE_QUICKTIME`|Apple QuickTime|
-|`TYPE_REALPLAYER`|Real Media|
-|`TYPE_SILVERLIGHT`|Silverlight|
-|`TYPE_WINDOWSMEDIA`|Microsoft Windows Media|
-|`TYPE_HTML5_VIDEO`|HTML5 Video|
-|`TYPE_HTML5_AUDIO`|HTML5 Audio|
+| Name                | Description             |
+|---------------------|-------------------------|
+| `TYPE_FLASH`        | Adobe Flash             |
+| `TYPE_QUICKTIME`    | Apple QuickTime         |
+| `TYPE_REALPLAYER`   | Real Media              |
+| `TYPE_SILVERLIGHT`  | Silverlight             |
+| `TYPE_WINDOWSMEDIA` | Microsoft Windows Media |
+| `TYPE_HTML5_VIDEO`  | HTML5 Video             |
+| `TYPE_HTML5_AUDIO`  | HTML5 Audio             |
 
 ``` php
 // Example of using Media field type settings in PHP
 
 use Ibexa\Core\FieldType\Media\Type;
- 
+
 $contentTypeService = $repository->getContentTypeService();
 $mediaFieldCreateStruct = $contentTypeService->newFieldDefinitionCreateStruct( "media", "ezmedia" );
 

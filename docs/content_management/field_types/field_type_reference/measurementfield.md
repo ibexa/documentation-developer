@@ -20,10 +20,10 @@ The service contains the following API endpoints:
 
 Assuming that the service exists as `$measurementService`, the expected input examples are as follows:
 
-| Type                                                    | Example                                                             |
-|---------------------------------------------------------|---------------------------------------------------------------------|
-|`\Ibexa\Contracts\Measurement\Value\SimpleValueInterface`| `$measurementService->buildSimpleValue('length', 2.5, 'centimeter')`|
-|`\Ibexa\Contracts\Measurement\Value\RangeValueInterface` | `$measurementService->buildRangeValue('length', 1.2, 4.5,  'inch')` |
+| Type                                                    | Example                                                              |
+|---------------------------------------------------------|----------------------------------------------------------------------|
+|`\Ibexa\Contracts\Measurement\Value\SimpleValueInterface`| `$measurementService->buildSimpleValue('length', 2.5, 'centimeter')` |
+|`\Ibexa\Contracts\Measurement\Value\RangeValueInterface` | `$measurementService->buildRangeValue('length', 1.2, 4.5,  'inch')`  |
 
 ### Value object
 
@@ -31,9 +31,9 @@ Assuming that the service exists as `$measurementService`, the expected input ex
 
 The Value class of this field type contains the following properties:
 
-| Property | Type                                             | Description                                                                                                          |
-|----------|--------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `$value` |`Ibexa\Contracts\Measurement\Value\ValueInterface`| Stores the Measurement API Value, which can be either an instance of `Ibexa\Contracts\Measurement\Value\SimpleValueInterface` or `Ibexa\Contracts\Measurement\Value\RangeValueInterface`. |
+| Property | Type                                               | Description                                                                                                                                                                               |
+|----------|----------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `$value` | `Ibexa\Contracts\Measurement\Value\ValueInterface` | Stores the Measurement API Value, which can be either an instance of `Ibexa\Contracts\Measurement\Value\SimpleValueInterface` or `Ibexa\Contracts\Measurement\Value\RangeValueInterface`. |
 
 ##### Constructor
 
