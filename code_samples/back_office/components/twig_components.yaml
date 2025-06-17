@@ -2,10 +2,12 @@ ibexa_twig_components:
     admin-ui-user-menu:
         custom-html-component:
             type: html
+            priority: 0
             arguments:
                 content: '<b>Hello world!</b>'
         custom-template-component:
             type: template
+            priority: 50
             arguments:
                 template: '@ibexadesign/ui/component/user_thumbnail/user_thumbnail.html.twig'
                 parameters:
