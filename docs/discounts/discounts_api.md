@@ -12,7 +12,7 @@ editions:
 
 By integrating with the [Discount feature](discounts_guide.md) you can automate the process of managing discounts, streamlining the whole process and automating business rules.
 
-For example, you can automatically create a discount when a customer places their 3rd order, encouraging them to make another purchase and increase their chances of becoming a local customer.
+For example, you can automatically create a discount when a customer places their 3rd order, encouraging them to make another purchase and increase their chances of becoming a loyal customer.
 
 You can manage discounts using [data migrations](importing_data.md#discounts), [REST API](/api/rest_api/rest_api_reference/rest_api_reference.html#discounts), or the PHP API by using the [`Ibexa\Contracts\Discounts\DiscountServiceInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Discounts-DiscountServiceInterface.html) service.
 

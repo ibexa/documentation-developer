@@ -16,7 +16,7 @@ To use this feature you must first install the packages and configure them.
 Run the following commands to install the packages:
 
 ``` bash
-composer require ibexa/discounts ibexa/discount-codes
+composer require ibexa/discounts ibexa/discounts-codes
 ```
 
 These commands add the feature code, service handlers, helper Twig templates, and configurations required for using Discounts.

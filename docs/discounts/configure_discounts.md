@@ -1,12 +1,12 @@
 ---
-description: Install the Discounts LTS update.
+description: Customize the behavior of the Discounts LTS update.
 month_change: true
 editions:
     - lts-update
     - commerce
 ---
 
-# Discounts configuration
+# Customize Discounts
 
 You can customize the behavior of the Discounts feature by using the following [configuration](configuration.md):
 
