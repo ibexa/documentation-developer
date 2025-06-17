@@ -9,7 +9,12 @@ month_change: true
 
 Before you update to v5.0, you need to [update to the latest maintenance release of v4.6 (v[[= latest_tag_4_6 =]])](update_from_4.6.md).
 
-## Update from v4.6.latest to v5.0.TODO
+### Move from old to new Commerce
+
+If circa v4.3 you kept [deprecated old Commerce packages](update_from_4.3_old_commerce.md),
+you have to move to [new Commerce ones](update_from_4.3_new_commerce.md).
+
+## Update from v4.6.latest to v5.0.0
 
 When you have the last version of 4.6, you can update to v5.0.
 
