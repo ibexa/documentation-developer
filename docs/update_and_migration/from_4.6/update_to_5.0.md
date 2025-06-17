@@ -236,7 +236,7 @@ TODO: Rework 4.6 LTS Update schemas injection
     php bin/console ibexa:doctrine:schema:dump-sql vendor/ibexa/connector-ai/src/bundle/Resources/config/schema.yaml | psql <database_name>
     ```
 
-TODO: Migration files? Content type updates?
+TODO: Migration files? Content type updates? Seems not.
 
 Many tables are renamed. Some columns are also renamed.
 If you have custom code directly querying those, you will need to update them.
@@ -247,84 +247,88 @@ You can track the renamming in the `ibexa-4.6.latest-to-5.0.0.sql` files or in t
 
     TODO: Keep up-to-date
     
-    | old name                                  | new name                                            |
-    |:------------------------------------------|:----------------------------------------------------|
-    | ezbinaryfile                              | ibexa_binary_file                                   |
-    | ezcobj_state                              | ibexa_object_state                                  |
-    | ezcobj_state_group                        | ibexa_object_state_group                            |
-    | ezcobj_state_group_language               | ibexa_object_state_group_language                   |
-    | ezcobj_state_language                     | ibexa_object_state_language                         |
-    | ezcobj_state_link                         | ibexa_object_state_link                             |
-    | ezcontent_language                        | ibexa_content_language                              |
-    | ezcontentbrowsebookmark                   | ibexa_content_bookmark                              |
-    | ezcontentclass                            | ibexa_content_type                                  |
-    | ezcontentclass_attribute                  | ibexa_content_type_field_definition                 |
-    | ezcontentclass_attribute.contentclass_id  | ibexa_content_type_field_definition.content_type_id |
-    | ezcontentclass_attribute_ml               | ibexa_content_type_field_definition_ml              |
-    | ezcontentclass_classgroup                 | ibexa_content_type_group_assignment                 |
-    | ezcontentclass_classgroup.contentclass_id | ibexa_content_type_group_assignment.content_type_id |
-    | ezcontentclass_name                       | ibexa_content_type_name                             |
-    | ezcontentclass_name.contentclass_id       | ibexa_content_type_name.content_type_id             |
-    | ezcontentclassgroup                       | ibexa_content_type_group                            |
-    | ezcontentobject                           | ibexa_content                                       |
-    | ezcontentobject.contentclass_id           | ibexa_content.content_type_id                       |
-    | ezcontentobject_attribute                 | ibexa_content_field                                 |
-    | ezcontentobject_link                      | ibexa_content_relation                              |
-    | ezcontentobject_name                      | ibexa_content_name                                  |
-    | ezcontentobject_trash                     | ibexa_content_trash                                 |
-    | ezcontentobject_tree                      | ibexa_content_tree                                  |
-    | ezcontentobject_version                   | ibexa_content_version                               |
-    | ezdatebasedpublisher_scheduled_entries    | ibexa_scheduler_scheduled_entries                   |
-    | ezdfsfile                                 | ibexa_dfs_file                                      |
-    | ezeditorialworkflow_markings              | ibexa_workflow_markings                             |
-    | ezeditorialworkflow_transitions           | ibexa_workflow_transitions                          |
-    | ezeditorialworkflow_workflows             | ibexa_workflow_workflows                            |
-    | ezform_field_attributes                   | ibexa_form_field_attributes                         |
-    | ezform_field_validators                   | ibexa_form_field_validators                         |
-    | ezform_fields                             | ibexa_form_fields                                   |
-    | ezform_form_submission_data               | ibexa_form_form_submission_data                     |
-    | ezform_form_submissions                   | ibexa_form_form_submissions                         |
-    | ezform_forms                              | ibexa_form_forms                                    |
-    | ezgmaplocation                            | ibexa_map_location                                  |
-    | ezimagefile                               | ibexa_image_file                                    |
-    | ezkeyword                                 | ibexa_keyword                                       |
-    | ezkeyword_attribute_link                  | ibexa_keyword_field_link                            |
-    | ezmedia                                   | ibexa_media                                         |
-    | eznode_assignment                         | ibexa_node_assignment                               |
-    | eznotification                            | ibexa_notification                                  |
-    | ezpackage                                 | ibexa_package                                       |
-    | ezpage_attributes                         | ibexa_page_attributes                               |
-    | ezpage_blocks                             | ibexa_page_blocks                                   |
-    | ezpage_blocks_design                      | ibexa_page_blocks_design                            |
-    | ezpage_blocks_visibility                  | ibexa_page_blocks_visibility                        |
-    | ezpage_map_attributes_blocks              | ibexa_page_map_attributes_blocks                    |
-    | ezpage_map_blocks_zones                   | ibexa_page_map_blocks_zones                         |
-    | ezpage_map_zones_pages                    | ibexa_page_map_zones_pages                          |
-    | ezpage_pages                              | ibexa_page_pages                                    |
-    | ezpage_zones                              | ibexa_page_zones                                    |
-    | ezpolicy                                  | ibexa_policy                                        |
-    | ezpolicy_limitation                       | ibexa_policy_limitation                             |
-    | ezpolicy_limitation_value                 | ibexa_policy_limitation_value                       |
-    | ezpreferences                             | ibexa_preferences                                   |
-    | ezrole                                    | ibexa_role                                          |
-    | ezsearch_object_word_link                 | ibexa_search_object_word_link                       |
-    | ezsearch_object_word_link.contentclass_id | ibexa_search_object_word_link.content_type_id       |
-    | ezsearch_word                             | ibexa_search_word                                   |
-    | ezsection                                 | ibexa_section                                       |
-    | ezsite                                    | ibexa_site                                          |
-    | ezsite_data                               | ibexa_site_data                                     |
-    | ezsite_public_access                      | ibexa_site_public_access                            |
-    | ezurl                                     | ibexa_url                                           |
-    | ezurl_object_link                         | ibexa_url_content_link                              |
-    | ezurlalias                                | ibexa_url_alias                                     |
-    | ezurlalias_ml                             | ibexa_url_alias_ml                                  |
-    | ezurlalias_ml_incr                        | ibexa_url_alias_ml_incr                             |
-    | ezurlwildcard                             | ibexa_url_wildcard                                  |
-    | ezuser                                    | ibexa_user                                          |
-    | ezuser_accountkey                         | ibexa_user_accountkey                               |
-    | ezuser_role                               | ibexa_user_role                                     |
-    | ezuser_setting                            | ibexa_user_setting                                  |
-    
+    | old name                                              | new name                                                                |
+    |:------------------------------------------------------|:------------------------------------------------------------------------|
+    | ezbinaryfile                                          | ibexa_binary_file                                                       |
+    | ezcobj_state                                          | ibexa_object_state                                                      |
+    | ezcobj_state_group                                    | ibexa_object_state_group                                                |
+    | ezcobj_state_group_language                           | ibexa_object_state_group_language                                       |
+    | ezcobj_state_language                                 | ibexa_object_state_language                                             |
+    | ezcobj_state_link                                     | ibexa_object_state_link                                                 |
+    | ezcontent_language                                    | ibexa_content_language                                                  |
+    | ezcontentbrowsebookmark                               | ibexa_content_bookmark                                                  |
+    | ezcontentclass                                        | ibexa_content_type                                                      |
+    | ezcontentclass_attribute                              | ibexa_content_type_field_definition                                     |
+    | ezcontentclass_attribute.contentclass_id              | ibexa_content_type_field_definition.content_type_id                     |
+    | ezcontentclass_attribute_ml                           | ibexa_content_type_field_definition_ml                                  |
+    | ezcontentclass_attribute_ml.contentclass_attribute_id | ibexa_content_type_field_definition_ml.content_type_field_definition_id |
+    | ezcontentclass_classgroup                             | ibexa_content_type_group_assignment                                     |
+    | ezcontentclass_classgroup.contentclass_id             | ibexa_content_type_group_assignment.content_type_id                     |
+    | ezcontentclass_name                                   | ibexa_content_type_name                                                 |
+    | ezcontentclass_name.contentclass_id                   | ibexa_content_type_name.content_type_id                                 |
+    | ezcontentclassgroup                                   | ibexa_content_type_group                                                |
+    | ezcontentobject                                       | ibexa_content                                                           |
+    | ezcontentobject.contentclass_id                       | ibexa_content.content_type_id                                           |
+    | ezcontentobject_attribute                             | ibexa_content_field                                                     |
+    | ezcontentobject_attribute.contentclassattribute_id    | ibexa_content_field.content_type_field_definition_id                    |
+    | ezcontentobject_link                                  | ibexa_content_relation                                                  |
+    | ezcontentobject_link.contentclassattribute_id         | ibexa_content_relation.content_type_field_definition_id                 |
+    | ezcontentobject_name                                  | ibexa_content_name                                                      |
+    | ezcontentobject_trash                                 | ibexa_content_trash                                                     |
+    | ezcontentobject_tree                                  | ibexa_content_tree                                                      |
+    | ezcontentobject_version                               | ibexa_content_version                                                   |
+    | ezdatebasedpublisher_scheduled_entries                | ibexa_scheduler_scheduled_entries                                       |
+    | ezdfsfile                                             | ibexa_dfs_file                                                          |
+    | ezeditorialworkflow_markings                          | ibexa_workflow_markings                                                 |
+    | ezeditorialworkflow_transitions                       | ibexa_workflow_transitions                                              |
+    | ezeditorialworkflow_workflows                         | ibexa_workflow_workflows                                                |
+    | ezform_field_attributes                               | ibexa_form_field_attributes                                             |
+    | ezform_field_validators                               | ibexa_form_field_validators                                             |
+    | ezform_fields                                         | ibexa_form_fields                                                       |
+    | ezform_form_submission_data                           | ibexa_form_form_submission_data                                         |
+    | ezform_form_submissions                               | ibexa_form_form_submissions                                             |
+    | ezform_forms                                          | ibexa_form_forms                                                        |
+    | ezgmaplocation                                        | ibexa_map_location                                                      |
+    | ezimagefile                                           | ibexa_image_file                                                        |
+    | ezkeyword                                             | ibexa_keyword                                                           |
+    | ezkeyword_attribute_link                              | ibexa_keyword_field_link                                                |
+    | ezmedia                                               | ibexa_media                                                             |
+    | eznode_assignment                                     | ibexa_node_assignment                                                   |
+    | eznotification                                        | ibexa_notification                                                      |
+    | ezpackage                                             | ibexa_package                                                           |
+    | ezpage_attributes                                     | ibexa_page_attributes                                                   |
+    | ezpage_blocks                                         | ibexa_page_blocks                                                       |
+    | ezpage_blocks_design                                  | ibexa_page_blocks_design                                                |
+    | ezpage_blocks_visibility                              | ibexa_page_blocks_visibility                                            |
+    | ezpage_map_attributes_blocks                          | ibexa_page_map_attributes_blocks                                        |
+    | ezpage_map_blocks_zones                               | ibexa_page_map_blocks_zones                                             |
+    | ezpage_map_zones_pages                                | ibexa_page_map_zones_pages                                              |
+    | ezpage_pages                                          | ibexa_page_pages                                                        |
+    | ezpage_zones                                          | ibexa_page_zones                                                        |
+    | ezpolicy                                              | ibexa_policy                                                            |
+    | ezpolicy_limitation                                   | ibexa_policy_limitation                                                 |
+    | ezpolicy_limitation_value                             | ibexa_policy_limitation_value                                           |
+    | ezpreferences                                         | ibexa_preferences                                                       |
+    | ezrole                                                | ibexa_role                                                              |
+    | ezsearch_object_word_link                             | ibexa_search_object_word_link                                           |
+    | ezsearch_object_word_link.contentclass_id             | ibexa_search_object_word_link.content_type_id                           |
+    | ezsearch_object_word_link.contentclass_attribute_id   | ibexa_search_object_word_link.content_type_field_definition_id          |
+    | ezsearch_word                                         | ibexa_search_word                                                       |
+    | ezsection                                             | ibexa_section                                                           |
+    | ezsite                                                | ibexa_site                                                              |
+    | ezsite_data                                           | ibexa_site_data                                                         |
+    | ezsite_public_access                                  | ibexa_site_public_access                                                |
+    | ezurl                                                 | ibexa_url                                                               |
+    | ezurl_object_link                                     | ibexa_url_content_link                                                  |
+    | ezurlalias                                            | ibexa_url_alias                                                         |
+    | ezurlalias_ml                                         | ibexa_url_alias_ml                                                      |
+    | ezurlalias_ml_incr                                    | ibexa_url_alias_ml_incr                                                 |
+    | ezurlwildcard                                         | ibexa_url_wildcard                                                      |
+    | ezuser                                                | ibexa_user                                                              |
+    | ezuser_accountkey                                     | ibexa_user_accountkey                                                   |
+    | ezuser_role                                           | ibexa_user_role                                                         |
+    | ezuser_setting                                        | ibexa_user_setting                                                      |
+
     TODO: Something about renamed indexes?
 
 TODO: Compatibility "views" layers? Even if there is this layer to save time, it is recommended to update your code to use the new tables.
@@ -399,44 +403,43 @@ But you can also go faster with bigger [rule sets in the modern way](https://get
 
 ??? note "Field type identifiers renaming map"
 
-| old name                        | new name                        |
-|:--------------------------------|:--------------------------------|
-| ibexa_address                   | ibexa_address                   |
-| ezauthor                        | ibexa_author                    |
-| ezbinaryfile                    | ibexa_binaryfile                |
-| ezboolean                       | ibexa_boolean                   |
-| ezcontentquery                  | ibexa_content_query             |
-| ezcountry                       | ibexa_country                   |
-| ibexa_customer_group            | ibexa_customer_group            |
-| ezdate                          | ibexa_date                      |
-| ezdatetime                      | ibexa_datetime                  |
-| ezemail                         | ibexa_email                     |
-| ezfloat                         | ibexa_float                     |
-| ezform                          | ibexa_form                      |
-| ezgmaplocation                  | ibexa_gmap_location             |
-| ezimage                         | ibexa_image                     |
-| ezimageasset                    | ibexa_image_asset               |
-| ezinteger                       | ibexa_integer                   |
-| ezisbn                          | ibexa_isbn                      |
-| ezkeyword                       | ibexa_keyword                   |
-| ezlandingpage                   | ibexa_landing_page              |
-| ezmatrix                        | ibexa_matrix                    |
-| ibexa_measurement               | ibexa_measurement               |
-| ezmedia                         | ibexa_media                     |
-| ezobjectrelation                | ibexa_object_relation           |
-| ezobjectrelationlist            | ibexa_object_relation_list      |
-| ibexa_product_specification     | ibexa_product_specification     |
-| ezpage                          | ezpage (?!)                     |
-| ezrichtext                      | ibexa_richtext                  |
-| ezselection                     | ibexa_selection                 |
-| ibexa_seo                       | ibexa_seo                       |
-| ezstring                        | ibexa_string                    |
-| ibexa_taxonomy_entry            | ibexa_taxonomy_entry            |
-| ibexa_taxonomy_entry_assignment | ibexa_taxonomy_entry_assignment |
-| eztext                          | ibexa_text                      |
-| eztime                          | ibexa_time                      |
-| ezurl                           | ibexa_url                       |
-| ezuser                          | ibexa_user                      |
+    | old name                        | new name                        |
+    |:--------------------------------|:--------------------------------|
+    | ibexa_address                   | ibexa_address                   |
+    | ezauthor                        | ibexa_author                    |
+    | ezbinaryfile                    | ibexa_binaryfile                |
+    | ezboolean                       | ibexa_boolean                   |
+    | ezcontentquery                  | ibexa_content_query             |
+    | ezcountry                       | ibexa_country                   |
+    | ibexa_customer_group            | ibexa_customer_group            |
+    | ezdate                          | ibexa_date                      |
+    | ezdatetime                      | ibexa_datetime                  |
+    | ezemail                         | ibexa_email                     |
+    | ezfloat                         | ibexa_float                     |
+    | ezform                          | ibexa_form                      |
+    | ezgmaplocation                  | ibexa_gmap_location             |
+    | ezimage                         | ibexa_image                     |
+    | ezimageasset                    | ibexa_image_asset               |
+    | ezinteger                       | ibexa_integer                   |
+    | ezisbn                          | ibexa_isbn                      |
+    | ezkeyword                       | ibexa_keyword                   |
+    | ezlandingpage                   | ibexa_landing_page              |
+    | ezmatrix                        | ibexa_matrix                    |
+    | ibexa_measurement               | ibexa_measurement               |
+    | ezmedia                         | ibexa_media                     |
+    | ezobjectrelation                | ibexa_object_relation           |
+    | ezobjectrelationlist            | ibexa_object_relation_list      |
+    | ibexa_product_specification     | ibexa_product_specification     |
+    | ezrichtext                      | ibexa_richtext                  |
+    | ezselection                     | ibexa_selection                 |
+    | ibexa_seo                       | ibexa_seo                       |
+    | ezstring                        | ibexa_string                    |
+    | ibexa_taxonomy_entry            | ibexa_taxonomy_entry            |
+    | ibexa_taxonomy_entry_assignment | ibexa_taxonomy_entry_assignment |
+    | eztext                          | ibexa_text                      |
+    | eztime                          | ibexa_time                      |
+    | ezurl                           | ibexa_url                       |
+    | ezuser                          | ibexa_user                      |
 
 #### Update Back Office extensions
 
