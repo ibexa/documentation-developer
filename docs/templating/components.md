@@ -23,7 +23,7 @@ Create a class implementing the `\Ibexa\Contracts\TwigComponents\ComponentInterf
 === "PHP Attribute2"
 
     ``` php
-        [[= include_file('code_samples/back_office/components/MyComponent.php') =]]
+    [[= include_file('code_samples/back_office/components/MyComponent.php', 0, None, '    ') =]]
     ```
 
 === "PHP Attribute"
