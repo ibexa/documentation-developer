@@ -267,14 +267,11 @@ nav:
                 - Media field type: content_management/field_types/field_type_reference/mediafield.md
                 - Null field type: content_management/field_types/field_type_reference/nullfield.md
                 - Page field type: content_management/field_types/field_type_reference/pagefield.md
+                - ProductSpecification field type: content_management/field_types/field_type_reference/productspecificationfield.md
                 - Relation field type: content_management/field_types/field_type_reference/relationfield.md
                 - RelationList field type: content_management/field_types/field_type_reference/relationlistfield.md
                 - RichText field type: content_management/field_types/field_type_reference/richtextfield.md
                 - Selection field type: content_management/field_types/field_type_reference/selectionfield.md
-                - SesExternalData: content_management/field_types/field_type_reference/sesexternaldata.md
-                - SesProfileData: content_management/field_types/field_type_reference/sesprofiledata.md
-                - SesSelection: content_management/field_types/field_type_reference/sesselection.md
-                - SpecificationsType: content_management/field_types/field_type_reference/specificationstype.md
                 - TaxonomyEntry field type: content_management/field_types/field_type_reference/taxonomyentryfield.md
                 - TaxonomyEntryAssignment field type: content_management/field_types/field_type_reference/taxonomyentryassignmentfield.md
                 - TextBlock field type: content_management/field_types/field_type_reference/textblockfield.md
