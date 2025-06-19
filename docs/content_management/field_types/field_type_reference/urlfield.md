@@ -64,6 +64,8 @@ $hash = [
 
 This field type doesn't perform validation.
 
+But some validation can be made afterward, see [External URL validation](url_management.md#external-url-validation) for more information.
+
 ### Settings
 
 This field type doesn't have settings.
