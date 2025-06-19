@@ -1,7 +1,7 @@
 # Measurement field type
 
 The Measurement field type represents measurement information. 
-It stores the unit of measure, and either a single measurement value, or a pair of values that defines a range.
+It stores the unit of measure, and either a single measurement value, or a pair of top and bottom values that defines a range.
 
 | Name          | Internal name       | Expected input type                                |
 |---------------|---------------------|----------------------------------------------------|

@@ -2,7 +2,7 @@
 
 The RichText field type is available via the RichText field type Bundle provided by the [ibexa/fieldtype-richtext](https://github.com/ibexa/fieldtype-richtext) package.
 
-This field type validates and stores structured rich text, and exposes it in several formats.
+This field type validates and stores structured rich text in [DocBook](https://docbook.org/) XML format, and exposes it in several formats.
 
 | Name       | Internal name    | Expected input |
 |------------|------------------|----------------|
