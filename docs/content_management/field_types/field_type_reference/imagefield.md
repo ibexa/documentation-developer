@@ -77,11 +77,11 @@ The template called by the [`ibexa_render_field()` Twig function](field_twig_fun
 | Parameter | Type     | Default      | Description                                                                                                                                        |
 |-----------|----------|--------------|----------------------------------------------------------------------------------------------------------------------------------------------------|
 | `alias`   | `string` | `"original"` | The image variation name, must be defined in your SiteAccess's `image_variations` settings. Defaults to "original", the originally uploaded image. |
-| `width`   | `int`    |   n/a        | Optionally to specify a different width set on the image HTML tag then then one from image alias.                                                  |
-| `height`  | `int`    |   n/a        | Optionally to specify a different height set on the image HTML tag then then one from image alias.                                                 |
+| `width`   | `int`    |   n/a        | Optionally to specify a different width set on the image HTML tag then one from image variation.                                                  |
+| `height`  | `int`    |   n/a        | Optionally to specify a different height set on the image HTML tag then one from image variation.                                                 |
 | `class`   | `string` |   n/a        | Optionally to specify a specific html class for use in custom JavaScript and/or CSS.                                                               |
 
-Example: 
+Example:
 
 ``` html+twig
 {{ ibexa_render_field( content, 'image', { 'parameters':{ 'alias': 'imagelarge', 'width': 400, 'height': 400 } } ) }}
