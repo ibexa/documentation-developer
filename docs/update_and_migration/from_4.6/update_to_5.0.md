@@ -27,6 +27,10 @@ It supports only PHP 8.3 and above.
 
 If your DXP 4.6 is running on a PHP below 8.3, start migrating it to PHP 8.3.
 
+//TODO: Update composer.json require.php to help Rector find out the right PHP version your project is using
+
+//IbexaSetList::IBEXA_46->value is only about Ibexa, add some PHP rule set
+
 Use Ibexa Rector to help yourself to upgrade PHP code for 8.3,
 see [`ibexa/rector`'s README](https://github.com/ibexa/rector?tab=readme-ov-file#ibexa-dxp-rector)
 and [Rector's documentation](https://getrector.com/documentation)
@@ -351,8 +355,8 @@ php bin/console ibexa:graphql:generate-schema
 
 #### Update PHP framework standards
 
-Update the `rector.php` file to use `IbexaSetList::IBEXA_50` rule set
-by running its recipe:
+Update the `rector.php` file to use `IbexaSetList::IBEXA_50` rule set.
+If you didn't edit it the first time, you can run its recipe:
 
 ```bash
 composer recipe:install ibexa/rector --force --reset --yes
@@ -360,7 +364,8 @@ composer recipe:install ibexa/rector --force --reset --yes
 
 You can add some other rule sets (like, for example, the Symfony ones) to match newer standards.
 
-It's recommended to activate one set at a time, check the output, and decide if kept right now, or discarded for another time.
+It's recommended to activate one set at a time, run a first time with the `--dry-run` option,
+check the output, and decide if kept right now, or discarded for another time.
 
 ```php
 //…
@@ -370,14 +375,15 @@ use Rector\Symfony\Set\SensiolabsSetList;
    ->withSets(
        [
            IbexaSetList::IBEXA_50->value,
-           SymfonySetList::SYMFONY_60,
-           SymfonySetList::SYMFONY_61,
-           SymfonySetList::SYMFONY_62,
-           SymfonySetList::SYMFONY_63,
-           SymfonySetList::SYMFONY_64,
-           SymfonySetList::SYMFONY_70,
-           SymfonySetList::SYMFONY_71,
-           SymfonySetList::SYMFONY_72,
+           SymfonySetList::SYMFONY_60, // https://getrector.com/find-rule?activeRectorSetGroup=symfony&rectorSet=symfony-symfonysymfony-60
+           SymfonySetList::SYMFONY_61, // https://getrector.com/find-rule?activeRectorSetGroup=symfony&rectorSet=symfony-symfonysymfony-61
+           SymfonySetList::SYMFONY_62, // https://getrector.com/find-rule?activeRectorSetGroup=symfony&rectorSet=symfony-symfonysymfony-62
+           SymfonySetList::SYMFONY_63, // https://getrector.com/find-rule?activeRectorSetGroup=symfony&rectorSet=symfony-symfonysymfony-63
+           SymfonySetList::SYMFONY_64, // https://getrector.com/find-rule?activeRectorSetGroup=symfony&rectorSet=symfony-symfonysymfony-64
+           SymfonySetList::SYMFONY_70, // https://getrector.com/find-rule?activeRectorSetGroup=symfony&rectorSet=symfony-symfonysymfony-70
+           SymfonySetList::SYMFONY_71, // https://getrector.com/find-rule?activeRectorSetGroup=symfony&rectorSet=symfony-symfonysymfony-71
+           SymfonySetList::SYMFONY_72, // https://getrector.com/find-rule?activeRectorSetGroup=symfony&rectorSet=symfony-symfonysymfony-72
+           SymfonySetList::ANNOTATIONS_TO_ATTRIBUTES,
            SensiolabsSetList::ANNOTATIONS_TO_ATTRIBUTES,
        ]
    );
@@ -394,7 +400,20 @@ But you can also go faster with bigger [rule sets in the modern way](https://get
    ->withPhpSets()
    ->withComposerBased(twig: true, symfony: true)
    ->withAttributesSets(symfony: true, sensiolabs: true)
-   ;
+   ->withPreparedSets(
+       deadCode: true, // https://getrector.com/find-rule?activeRectorSetGroup=core&rectorSet=core-dead-code
+       codeQuality: true, // https://getrector.com/find-rule?activeRectorSetGroup=core&rectorSet=core-code-quality
+       codingStyle: true, // https://getrector.com/find-rule?activeRectorSetGroup=core&rectorSet=core-coding-style
+       typeDeclarations: true, // https://getrector.com/find-rule?activeRectorSetGroup=core&rectorSet=core-type-declarations
+       // privatization: true, // https://getrector.com/find-rule?activeRectorSetGroup=core&rectorSet=core-privatization
+       naming: true, // https://getrector.com/find-rule?activeRectorSetGroup=core&rectorSet=core-naming
+       instanceOf: true, // https://getrector.com/find-rule?activeRectorSetGroup=core&rectorSet=core-instanceof
+       earlyReturn: true, // https://getrector.com/find-rule?activeRectorSetGroup=core&rectorSet=core-early-return
+       // strictBooleans: true, // https://getrector.com/find-rule?activeRectorSetGroup=core&rectorSet=core-strict-booleans
+       rectorPreset: true,
+       symfonyCodeQuality: true, // https://getrector.com/find-rule?activeRectorSetGroup=symfony&rectorSet=symfony-code-quality
+       symfonyConfigs: true, // https://getrector.com/find-rule?activeRectorSetGroup=symfony&rectorSet=symfony-configs 
+   );
 ```
 
 #### Update field type identifiers
