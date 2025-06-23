@@ -25,25 +25,43 @@ It supports only PHP 8.3 and above.
 
 ### Update custom code for PHP 8.3+ and DXP 4.6
 
-If your DXP 4.6 is running on a PHP below 8.3, start migrating it to PHP 8.3.
+Rector helps to upgrade your code.
 
-//TODO: Update composer.json require.php to help Rector find out the right PHP version your project is using
+Install [`ibexa/rector`](https://github.com/ibexa/rector) which contains rules to ensure custom code is up to date with DXP 4.6:
 
-//IbexaSetList::IBEXA_46->value is only about Ibexa, add some PHP rule set
+```bash
+composer require --dev ibexa/rector
+```
 
-Use Ibexa Rector to help yourself to upgrade PHP code for 8.3,
-see [`ibexa/rector`'s README](https://github.com/ibexa/rector?tab=readme-ov-file#ibexa-dxp-rector)
-and [Rector's documentation](https://getrector.com/documentation)
-for more information about installation and usage.
-TODO: For example, you might have to remove the inclusion of `tests/ directory.
+Customize the `rector.php` config file.
+Make is match your directory structure (for example, you may have to remove the `tests` directory).
+You can add rules [for PHP with `withPhpSets`](https://getrector.com/documentation/set-lists#content-php-sets)
+or [for Symfony with `withComposerBased`](https://getrector.com/blog/introducing-composer-version-based-sets).
+It's recommended to activate one rule set at a time, run a first time with the `--dry-run` option,
+check the output, and decide if kept right now, or discarded for another time.
+TODO: Can it be kept for another time or will it break?
+Your configuration could look like the following:
 
-Rector might also find out code deprecated in 4.6 which are likely removed in 5.0.
-Let Rector reduce this debt and have less code not compatible with 5.0.
+```php
+return RectorConfig::configure()
+    ->withPaths(
+       [
+           __DIR__ . '/src',
+       ]
+    )
+    ->withSets(
+       [
+           IbexaSetList::IBEXA_46->value,
+       ]
+    )
+    ->withPhpSets(php83: true)
+    ->withComposerBased(symfony: true)
+;
+```
 
-TODO: Example with our own code samples?
-TODO: list of features deprecated in 4.6 removed in 5.0?
-
-### TODO: Other updates like moving from any deprecated stuff?
+```bash
+php vendor/bin/rector --dry-run
+```
 
 ### TODO: Install all 4.6 LTS Updates? It could help with the DB schemas or configs…
 
@@ -355,6 +373,8 @@ php bin/console ibexa:graphql:generate-schema
 
 #### Update PHP framework standards
 
+TODO: Merge up / deduplicate with DXP 4.6 / Symfony 5.4 usage of Rector above…
+
 Update the `rector.php` file to use `IbexaSetList::IBEXA_50` rule set.
 If you didn't edit it the first time, you can run its recipe:
 
@@ -364,7 +384,7 @@ composer recipe:install ibexa/rector --force --reset --yes
 
 You can add some other rule sets (like, for example, the Symfony ones) to match newer standards.
 
-It's recommended to activate one set at a time, run a first time with the `--dry-run` option,
+Again, it's recommended to activate one set at a time, run a first time with the `--dry-run` option,
 check the output, and decide if kept right now, or discarded for another time.
 
 ```php
@@ -375,6 +395,7 @@ use Rector\Symfony\Set\SensiolabsSetList;
    ->withSets(
        [
            IbexaSetList::IBEXA_50->value,
+           SymfonySetList::SYMFONY_54, // https://getrector.com/find-rule?activeRectorSetGroup=symfony&rectorSet=symfony-symfonysymfony-54
            SymfonySetList::SYMFONY_60, // https://getrector.com/find-rule?activeRectorSetGroup=symfony&rectorSet=symfony-symfonysymfony-60
            SymfonySetList::SYMFONY_61, // https://getrector.com/find-rule?activeRectorSetGroup=symfony&rectorSet=symfony-symfonysymfony-61
            SymfonySetList::SYMFONY_62, // https://getrector.com/find-rule?activeRectorSetGroup=symfony&rectorSet=symfony-symfonysymfony-62
