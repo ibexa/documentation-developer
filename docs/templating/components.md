@@ -18,43 +18,21 @@ You can create Twig Components in one of two ways:
 
 ### PHP code
 
-Create a class implementing the `\Ibexa\Contracts\TwigComponents\ComponentInterface` interface and register it as a service by using the `ibexa.twig.component` service tag, for example:
-
-=== "PHP Attribute2"
-
-    ``` php
-    [[= include_file('code_samples/back_office/components/MyComponent.php', 0, None, '    ') =]]
-    ```
+Create a class implementing the `\Ibexa\Contracts\TwigComponents\ComponentInterface` interface. 
+Register it as a service by using the `AsTwigComponent` attribute or the `ibexa.twig.component` service tag:
 
 === "PHP Attribute"
 
     ``` php
-    <?php declare(strict_types=1);
-
-    namespace App\Twig\Component;
-
-    use Ibexa\Contracts\TwigComponents\Attribute\AsTwigComponent;
-    use Ibexa\Contracts\TwigComponents\ComponentInterface;
-
-    #[AsTwigComponent(
-        group: 'admin-ui-dashboard-all-tab-groups',
-        priority: 100
-    )]
-    final class MyComponent implements ComponentInterface
-    {
-        public function render(array $parameters = []): string
-        {
-            return 'Hello world!';
-        }
-    }
+    [[= include_file('code_samples/back_office/components/MyComponent.php', glue='    ') =]]
     ```
 
 === "YAML configuration"
 
     ``` yaml
-    App\Component\MyNewComponent:
+    App\Twig\Component\MyComponent:
         tags:
-            - { name: ibexa.twig.component, group: content-edit-form-before, priority: 0 }
+            - { name: ibexa.twig.component, group: admin-ui-dashboard-all-tab-groups, priority: 0 }
     ```
 
 The available attributes are:
