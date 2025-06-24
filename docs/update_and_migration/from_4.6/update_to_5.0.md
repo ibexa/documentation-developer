@@ -91,21 +91,6 @@ rm config/routes/annotations.yaml
 rm config/routes.yaml
 ```
 
-### Remove Stimulus bootstrap
-
-Edit `assets/app.js` and remove the following lines:
-
-```
-// start the Stimulus application
-import './bootstrap';
-```
-
-Delete the bootstrap file:
-
-```
-rm assets/bootstrap.js
-```
-
 ### Remove GraphQL schema
 
 4.6 GraphQL isn't compatible with 5.0 so delete it.
@@ -129,11 +114,13 @@ The process example below considers [`symfony/debug-pack`](https://symfony.com/p
     ```bash
     TODO
     ```
+
 === "[[= product_name_exp =]]"
 
     ```bash
     TODO
     ```
+
 === "[[= product_name_com =]]"
 
     ```bash
@@ -199,14 +186,36 @@ you can remove it:
 ddev composer config --unset extra.runtime.error_handler
 ```
 
-#### Recipes
+#### Remove Stimulus bootstrap
 
-```bash
-# Force recipes reset
-rm symfony.lock
-# Run recipes
-composer recipes:install ibexa/commerce --force --yes -v
+To help moving from Symfony's Webpack Encore bundle 1.x to 2.x,
+delete the Stimulus bootstrap file
+and reset Webpack Encore recipe:
+
 ```
+rm assets/bootstrap.js
+composer recipes:install symfony/webpack-encore-bundle --reset --force --yes
+```
+
+#### Apply [[= product_name =]] recipe
+
+=== "[[= product_name_headless =]]"
+
+    ```bash
+    composer recipes:install ibexa/headless --reset --force --yes
+    ```
+
+=== "[[= product_name_exp =]]"
+
+    ```bash
+    composer recipes:install ibexa/experience --reset --force --yes
+    ```
+
+=== "[[= product_name_com =]]"
+
+    ```bash
+    composer recipes:install ibexa/commerce --reset --force --yes
+    ```
 
 #### Sort commands
 
