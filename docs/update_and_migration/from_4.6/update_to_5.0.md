@@ -439,14 +439,16 @@ But you can also go faster with bigger [rule sets in the modern way](https://get
 
 #### Update field type identifiers
 
-- Update in template
-    - TODO: `{% block ezstring_field %)` → `{% block ibexa_string_field %}` (content_fields.html.twig) and others (field edit, field def, field def edit,…)
-    - TODO: Configs, template paths, template rules, whatever needed…
-- Update in migration files
+Several field type identifiers have changed.
+Old identifiers are still supported, but it's recommended to migrate as soon as possible
+and to include this action to the verion update task list.
+
+You can list existing field type services with the command `php bin/console debug:container --tag=ibexa.field_type`.
+The output as an `alias` column with new identifiers and a `legacy_alias` with the old ones.
 
 ??? note "Field type identifiers renaming map"
 
-    | old name                        | new name                        |
+    | old identifier (`legacy_alias`) | new identifier (`alias`)        |
     |:--------------------------------|:--------------------------------|
     | ibexa_address                   | ibexa_address                   |
     | ezauthor                        | ibexa_author                    |
@@ -483,6 +485,13 @@ But you can also go faster with bigger [rule sets in the modern way](https://get
     | eztime                          | ibexa_time                      |
     | ezurl                           | ibexa_url                       |
     | ezuser                          | ibexa_user                      |
+
+
+- Update in template
+  - TODO: `{% block ezstring_field %)` → `{% block ibexa_string_field %}` (content_fields.html.twig) and others (field edit, field def, field def edit,…)
+  - TODO: Configs, template paths, template rules, whatever needed…
+- Update in migration files
+- TODO: Update in DB?
 
 #### Update Back Office extensions
 
