@@ -126,7 +126,7 @@ While [using `sudo()`](#using-sudo) is the recommended option, you can also set 
 To identify as a different user, you need to use the `UserService` together with `PermissionResolver` (in the example `admin` is the login of the administrator user):
 
 ``` php
-[[= include_file('code_samples/api/public_php_api/src/Command/CreateContentCommand.php', 50, 52) =]]
+[[= include_file('code_samples/api/public_php_api/src/Command/CreateContentCommand.php', 55, 57) =]]
 ```
 
 !!! tip

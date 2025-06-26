@@ -5,11 +5,15 @@ namespace App\Command;
 use Ibexa\Contracts\Core\Repository\ContentService;
 use Ibexa\Contracts\Core\Repository\ContentTypeService;
 use Ibexa\Contracts\Core\Repository\FieldTypeService;
+use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
+#[AsCommand(
+    name: 'doc:view_content'
+)]
 class ViewContentCommand extends Command
 {
     private ContentService $contentService;
@@ -23,7 +27,8 @@ class ViewContentCommand extends Command
         $this->contentService = $contentService;
         $this->contentTypeService = $contentTypeService;
         $this->fieldTypeService = $fieldTypeService;
-        parent::__construct('doc:view_content');
+
+        parent::__construct();
     }
 
     protected function configure(): void

@@ -1,0 +1,11 @@
+{
+    "DiscountUpdate": {
+        "identifier": "my_discount",
+        "conditions": [
+            {
+                "class": "Ibexa\\Discounts\\Value\\DiscountCondition\\IsInCategory",
+                "parameters": [["1", "3"]]
+            }
+        ]
+    }
+}

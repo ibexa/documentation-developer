@@ -3,19 +3,20 @@
 namespace App\Search\Serializer\Normalizer\Suggestion;
 
 use App\Search\Model\Suggestion\ProductSuggestion;
-use Symfony\Component\Serializer\Normalizer\CacheableSupportsMethodInterface;
 use Symfony\Component\Serializer\Normalizer\NormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\NormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 
 class ProductSuggestionNormalizer implements
     NormalizerInterface,
-    NormalizerAwareInterface,
-    CacheableSupportsMethodInterface
+    NormalizerAwareInterface
 {
     use NormalizerAwareTrait;
 
-    public function normalize($object, string $format = null, array $context = [])
+    /**
+     * @return array<string, string|null>
+     */
+    public function normalize($object, string $format = null, array $context = []): array
     {
         /** @var \App\Search\Model\Suggestion\ProductSuggestion $object */
         return [
@@ -27,13 +28,15 @@ class ProductSuggestionNormalizer implements
         ];
     }
 
-    public function supportsNormalization($data, string $format = null)
+    public function supportsNormalization($data, ?string $format = null, array $context = []): bool
     {
         return $data instanceof ProductSuggestion;
     }
 
-    public function hasCacheableSupportsMethod(): bool
+    public function getSupportedTypes(?string $format): array
     {
-        return true;
+        return [
+            ProductSuggestion::class => true,
+        ];
     }
 }

@@ -99,7 +99,9 @@ nav:
             - Site events: api/event_reference/site_events.md
             - URL events: api/event_reference/url_events.md
             - Trash events: api/event_reference/trash_events.md
+            - Twig Components: api/event_reference/twig_component_events.md
             - AI Action events: api/event_reference/ai_action_events.md
+            - Discounts events: api/event_reference/discounts_events.md
             - Other events: api/event_reference/other_events.md
     - Administration:
         - Administration: administration/administration.md
@@ -299,6 +301,7 @@ nav:
             - Cart Twig functions: templating/twig_function_reference/cart_twig_functions.md
             - Catalog Twig functions: templating/twig_function_reference/catalog_twig_functions.md
             - Checkout Twig functions: templating/twig_function_reference/checkout_twig_functions.md
+            - Component Twig functions: templating/twig_function_reference/component_twig_functions.md
             - Content Twig functions: templating/twig_function_reference/content_twig_functions.md
             - Date Twig filters: templating/twig_function_reference/date_twig_filters.md
             - Field Twig functions: templating/twig_function_reference/field_twig_functions.md
@@ -310,6 +313,8 @@ nav:
             - URL Twig functions: templating/twig_function_reference/url_twig_functions.md
             - User Twig functions: templating/twig_function_reference/user_twig_functions.md
             - AI Twig functions: templating/twig_function_reference/ai_actions_twig_functions.md
+            - Discounts functions: templating/twig_function_reference/discounts_twig_functions.md
+        - Twig Components: templating/components.md
         - URLs and routes:
             - URLs and routes: templating/urls_and_routes/urls_and_routes.md
             - Custom breadcrumbs: templating/urls_and_routes/custom_breadcrumbs.md
@@ -335,7 +340,7 @@ nav:
     - AI Actions:
         - AI Actions: ai_actions/ai_actions.md
         - AI Actions guide: ai_actions/ai_actions_guide.md
-        - Install AI Actions: ai_actions/install_ai_actions.md
+        - Configure AI Actions: ai_actions/configure_ai_actions.md
         - Extend AI Actions: ai_actions/extend_ai_actions.md
     - PIM (Product management):
         - PIM (Product management): pim/pim.md
@@ -398,6 +403,12 @@ nav:
             - Transactional emails: commerce/transactional_emails/transactional_emails.md
             - Transactional email variables reference: commerce/transactional_emails/transactional_emails_parameters.md
             - Customize transactional emails: commerce/transactional_emails/extend_transactional_emails.md
+    - Discounts:
+        - Discounts: discounts/discounts.md
+        - Discounts guide: discounts/discounts_guide.md
+        - Install Discounts: discounts/install_discounts.md
+        - Customize Discounts: discounts/configure_discounts.md
+        - Discounts API: discounts/discounts_api.md
     - Customer management:
         - Customer Portal: customer_management/customer_portal.md
         - Customer Portal guide: customer_management/customer_portal_guide.md
@@ -658,6 +669,7 @@ nav:
             - ObjectNameCriterion: search/activity_log_search_reference/object_name_criterion.md
             - UserCriterion: search/activity_log_search_reference/user_criterion.md
         - Action Configuration Search Criteria: search/ai_actions_search_reference/action_configuration_criteria.md
+        - Discounts Search Criteria: search/discounts_search_reference/discounts_criteria.md
         - Sort Clause reference:
             - General Sort Clauses:
                 - General Sort Clause reference: search/sort_clause_reference/sort_clause_reference.md
@@ -725,6 +737,7 @@ nav:
                 - Url Sort Clause: search/url_search_reference/url_url_sort_clause.md
             - Activity Log Sort Clauses: search/activity_log_search_reference/activity_log_sort_clauses.md
             - Action Configuration Sort Clauses: search/ai_actions_search_reference/action_configuration_sort_clauses.md
+            - Discounts Sort Clauses: search/discounts_search_reference/discounts_sort_clauses.md
         - Aggregation reference:
               # Content aggregations
             - Aggregation reference: search/aggregation_reference/aggregation_reference.md
@@ -940,16 +953,17 @@ extra:
 
   # Global variables - latest tag versions
   latest_tag_2_5: '2.5.32'
-  latest_tag_3_3: '3.3.42'
+  latest_tag_3_3: '3.3.43'
   latest_tag_4_0: '4.0.8'
   latest_tag_4_1: '4.1.5'
   latest_tag_4_2: '4.2.4'
   latest_tag_4_3: '4.3.5'
   latest_tag_4_4: '4.4.4'
   latest_tag_4_5: '4.5.7'
-  latest_tag_4_6: '4.6.19'
+  latest_tag_4_6: '4.6.21'
+  latest_tag_5_0: '5.0.0'
 
-  symfony_doc: 'https://symfony.com/doc/5.x'
+  symfony_doc: 'https://symfony.com/doc/7.2'
   user_doc: 'https://doc.ibexa.co/projects/userguide/en/5.0'
   connect_doc: 'https://doc.ibexa.co/projects/connect/en/latest'
 
