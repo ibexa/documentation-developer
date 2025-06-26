@@ -1,7 +1,7 @@
 ---
 description: Icon Twig functions enable referencing SVG icons in templates.
 page_type: reference
-month_change: false
+month_change: true
 ---
 
 # Icon Twig functions
@@ -181,6 +181,7 @@ The following icons are available out-of-the-box:
 | ![error-icon](img/icons/error-icon.svg.png)                                     | `error-icon`                   |
 | ![error](img/icons/error.svg.png)                                               | `error`                        |
 | ![expand-left](img/icons/expand-left.svg.png)                                   | `expand-left`                  |
+| ![expand-right](img/icons/expand-right.png).                                    | `expand-right`                 |
 | ![explore](img/icons/explore.svg.png)                                           | `explore`                      |
 | ![events-collected](img/icons/events-collected.svg.png)                         | `events-collected`             |
 | ![facebook](img/icons/facebook.svg.png)                                         | `facebook`                     |
@@ -254,6 +255,7 @@ The following icons are available out-of-the-box:
 | ![logout](img/icons/logout.svg.png)                                             | `logout`                       |
 | ![maform](img/icons/maform.svg.png)                                             | `maform`                       |
 | ![mail](img/icons/mail.svg.png)                                                 | `mail`                         |
+| ![mail-open](img/icons/mail-open.png)                                           | `mail-open`                    |
 | ![markup](img/icons/markup.svg.png)                                             | `markup`                       |
 | ![media-type](img/icons/media-type.svg.png)                                     | `media-type`                   |
 | ![media](img/icons/media.svg.png)                                               | `media`                        |
