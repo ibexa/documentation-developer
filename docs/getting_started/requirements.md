@@ -287,7 +287,7 @@ Recommendation for production setups is to use Varnish/Fastly, Redis/Memcached, 
 === "[[= product_name =]] v5.0"
 
     - Linux NFS or S3/EFS (for IO, aka binary files stored in content repository, not supported with legacy)
-    - Redis 4.0+, 5.0 or higher (separate instances for session and cache, both using a `volatile-*` [eviction policy](https://redis.io/docs/latest/develop/reference/eviction/), session instance configured for persistence) or [Memcached](https://memcached.org/) 1.5 or higher
+    - Redis 4.0+ or 5.0+ (separate instances for session and cache, both using a `volatile-*` [eviction policy](https://redis.io/docs/latest/develop/reference/eviction/), session instance configured for persistence) or [Memcached](https://memcached.org/) 1.5 or higher
     - [Varnish](http://varnish-cache.org/) 6.0LTS or 7.1 with [varnish-modules](https://github.com/varnish/varnish-modules/blob/master/README.md) or [Fastly](https://www.fastly.com/) using [the provided bundle](http_cache.md) (for HTTP Cache)
 
     If you see a "+" next to the product version, it indicates a recommended version or higher within the same major release.
@@ -296,7 +296,7 @@ Recommendation for production setups is to use Varnish/Fastly, Redis/Memcached, 
 === "[[= product_name =]] v4.6"
 
     - Linux NFS or S3/EFS (for IO, aka binary files stored in content repository, not supported with legacy)
-    - Redis 4.0+, 5.0 or higher (separate instances for session and cache, both using a `volatile-*` [eviction policy](https://redis.io/docs/latest/develop/reference/eviction/), session instance configured for persistence) or [Memcached](https://memcached.org/) 1.5 or higher
+    - Redis 4.0+ or 5.0+ (separate instances for session and cache, both using a `volatile-*` [eviction policy](https://redis.io/docs/latest/develop/reference/eviction/), session instance configured for persistence) or [Memcached](https://memcached.org/) 1.5 or higher
     - [Varnish](http://varnish-cache.org/) 6.0LTS or 7.1 with [varnish-modules](https://github.com/varnish/varnish-modules/blob/master/README.md) or [Fastly](https://www.fastly.com/) using [the provided bundle](http_cache.md) (for HTTP Cache)
 
     If you see a "+" next to the product version, it indicates a recommended version or higher within the same major release.
@@ -305,7 +305,7 @@ Recommendation for production setups is to use Varnish/Fastly, Redis/Memcached, 
 === "[[= product_name =]] v3.3"
 
     - Linux NFS or S3/EFS (for IO, aka binary files stored in content repository, not supported with legacy)
-    - Redis 4.0+, 5.0 or higher (separate instances for session and cache, both using a `volatile-*` [eviction policy](https://redis.io/docs/latest/develop/reference/eviction/), session instance configured for persistence) or [Memcached](https://memcached.org/) 1.5 or higher
+    - Redis 4.0+ or 5.0+ (separate instances for session and cache, both using a `volatile-*` [eviction policy](https://redis.io/docs/latest/develop/reference/eviction/), session instance configured for persistence) or [Memcached](https://memcached.org/) 1.5 or higher
     - [Varnish](http://varnish-cache.org/) 6.0LTS with [varnish-modules](https://github.com/varnish/varnish-modules/blob/master/README.md) or [Fastly](https://www.fastly.com/) using [the provided bundle](https://doc.ibexa.co/en/3.3/guide/cache/http_cache/) (for HTTP Cache)
 
     If you see a "+" next to the product version, it indicates a recommended version or higher within the same major release.

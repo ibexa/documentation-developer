@@ -1,0 +1,29 @@
+-   type: discount
+    mode: update
+    match:
+        field: identifier
+        value: summer_sale_2025
+    identifier: summer_sale_2025_updated
+    translations:
+        eng-GB:
+            language_code: eng-GB
+            name: Updated name
+            description: Updated description
+            label: Updated promotion label
+            label_description: Updated promotion description
+    priority: 5
+    active: true
+    user: admin
+    startDate: '2024-01-01T00:00:00+00:00'
+    endDate: null
+    createdAt: null
+    updatedAt: null
+    rule:
+        type: percentage
+        expressionValues:
+            discount_percentage: '10'
+    conditions:
+        -
+            identifier: is_product_in_quantity_in_cart
+            expressionValues:
+                quantity: 2

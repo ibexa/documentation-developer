@@ -149,14 +149,14 @@ All object state groups can be retrieved through [`loadObjectStateGroups`](/api/
 
 To retrieve the fields of the selected content item, you can use the following command:
 
-```php hl_lines="13-14 16-22"
+```php hl_lines="9-10 12-19"
 [[= include_file('code_samples/api/public_php_api/src/Command/ViewContentCommand.php', 4, 7) =]]    // ...
 [[= include_file('code_samples/api/public_php_api/src/Command/ViewContentCommand.php', 42, 60) =]]
 }
 ```
 
 Line 9 shows how [`ContentService::loadContent`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-ContentService.html#method_loadContent) loads the content item provided to the command.
-Line 14 makes use of the [`ContentTypeService`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-ContentTypeService.html) to retrieve the content type of the requested item.
+Line 10 makes use of the [`ContentTypeService`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-ContentTypeService.html) to retrieve the content type of the requested item.
 
 Lines 12-19 iterate over fields defined by the content type.
 For each field they print out its identifier, and then using [`FieldTypeService`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-FieldTypeService.html) retrieve the field's value and print it out to the console.

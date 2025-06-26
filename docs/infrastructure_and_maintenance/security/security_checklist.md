@@ -144,6 +144,13 @@ Reduce your attack surface by exposing only what you must.
             - { path: ^/search, roles: ROLE_USER}
     ```
 
+### Limit access to Code blocks
+
+The [Code block]([[= user_doc =]]/content_management/block_reference/#code-block) in Page Builder is designed to accept any HTML, which includes embedded JavaScript.
+This means that editors who have access to Code blocks could add malicious JS including [cross site scripting (XSS)](https://en.wikipedia.org/wiki/Cross-site_scripting).
+As site administrator, be aware of this when giving editors access to the Page Builder features, and limit that access only to trusted editors.
+You can [limit access to specific blocks per content type]([[= user_doc =]]/content_management/configure_ct_field_settings/#default-configuration-of-pages) by defining which page blocks are available to editors.
+
 ## Symfony
 
 ### `APP_SECRET` and other secrets
