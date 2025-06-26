@@ -114,50 +114,24 @@ This operation is performed only once, when you install [[= product_name =]] for
 
 To use Composer to instantly create a project in the current folder with all the dependencies, run the following command:
 
-!!! note "Using PHP 8.3 (recommended)"
+=== "[[= product_name_headless =]]"
 
-    === "[[= product_name_headless =]]"
+    ``` bash
+    composer create-project ibexa/headless-skeleton .
+    ```
 
-        ``` bash
-        composer create-project ibexa/headless-skeleton .
-        ```
+=== "[[= product_name_exp =]]"
 
-    === "[[= product_name_exp =]]"
+    ``` bash
+    composer create-project ibexa/experience-skeleton .
+    ```
 
-        ``` bash
-        composer create-project ibexa/experience-skeleton .
-        ```
+=== "[[= product_name_com =]]"
 
-    === "[[= product_name_com =]]"
+    ``` bash
+    composer create-project ibexa/commerce-skeleton .
+    ```
 
-        ``` bash
-        composer create-project ibexa/commerce-skeleton .
-        ```
-
-??? note "Using PHP 8.2 or older"
-
-    If you're using PHP 8.2 or any older version, use a different set of commands:
-
-    === "[[= product_name_headless =]]"
-
-        ``` bash
-        composer create-project ibexa/headless-skeleton --no-install .
-        composer update
-        ```
-
-    === "[[= product_name_exp =]]"
-
-        ``` bash
-        composer create-project ibexa/experience-skeleton --no-install .
-        composer update
-        ```
-
-    === "[[= product_name_com =]]"
-
-        ``` bash
-        composer create-project ibexa/commerce-skeleton --no-install .
-        composer update
-        ```
 
 !!! tip "Authentication token"
 
@@ -165,10 +139,10 @@ To use Composer to instantly create a project in the current folder with all the
 
 !!! tip
 
-    You can set [different version constraints](https://getcomposer.org/doc/articles/versions.md), for example, specific tag (`[[= latest_tag_4_6 =]]`), version range (`~4.6.10`), or stability (`^4.6@rc`):
+    You can set [different version constraints](https://getcomposer.org/doc/articles/versions.md), for example, specific tag (`[[= latest_tag_5_0 =]]`), version range (`~5.0.1`), or stability (`^5.0@rc`):
 
     ``` bash
-    composer create-project ibexa/experience-skeleton:[[= latest_tag_4_6 =]] .
+    composer create-project ibexa/experience-skeleton:[[= latest_tag_5_0 =]] .
     ```
 
 !!! note "Platform.sh"
@@ -268,10 +242,22 @@ Install [[= product_name =]] and create a database with:
 
 ``` bash
 php bin/console ibexa:install
-php bin/console ibexa:graphql:generate-schema
 ```
 
 Before executing the command make sure that the database user has sufficient permissions.
+
+The installer will prompt you for a new password for the `admin` user.
+Make sure to use a [strong password](security_checklist.md#strong-passwords) meeting all the [password rules](passwords.md#password-rules).
+
+!!! note
+
+	In scenarios where entering the new password isn't possible, for example, in automated deployments and Continuous Integration environments, use the `--no-interaction` option to skip changing the password and keep the default one, `publish`:
+
+    ``` bash
+    php bin/console ibexa:install --no-interaction
+    ```
+
+    If doing so, [modify the password for the `admin` user](update_basic_user_data.md#change-password) before [going live with your project](security_checklist.md).
 
 ### Run post-installation script
 

@@ -159,7 +159,6 @@ Once you've made this change, you can proceed to install [[= product_name =]].
 
 ```bash
 ddev php bin/console ibexa:install
-ddev php bin/console ibexa:graphql:generate-schema
 ```
 
 ### 7. Open browser
@@ -378,7 +377,7 @@ git clone <repository> my-ddev-project && cd my-ddev-project
 # Exclude the whole `.ddev/` directory from version control (some DDEV config could have been committed and shared, see notice below)
 .ddev/ >> .gitignore
 # Configure the DDEV project then start it
-ddev config --project-type=php --php-version 8.1 \
+ddev config --project-type=php --php-version 8.3 \
   --docroot=public \
   --web-environment-add DATABASE_URL=mysql://db:db@db:3306/db \
   --http-port=8080 --https-port=8443
@@ -391,7 +390,6 @@ ddev composer install
 ddev php bin/console ibexa:install
 # Add some content types using a migration file (previously created on another installation) and update the GraphQL schema
 ddev php bin/console ibexa:migrations:migrate --file=project_content_types.yaml
-ddev php bin/console ibexa:graphql:generate-schema
 # Open the project in the default browser which should display the default SiteAccess frontpage
 ddev launch
 ```

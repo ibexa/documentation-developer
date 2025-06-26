@@ -346,9 +346,9 @@ You can also update attributes, including changing which attribute group they be
 
 You can't change the attribute type of an existing attribute.
 
-##### Date and time attributes [[% include 'snippets/lts-update_badge.md' %]]
+##### Date and time attributes
 
-If you're using attributes of the [date and time type](date_and_time.md), you can manage it through the migrations as well, for example:
+You can manage the [date and time attribute type](date_and_time.md) through the migrations, for example:
 
 ``` yaml
 [[= include_file('code_samples/data_migration/examples/create_datetime_attribute.yaml') =]]
@@ -487,7 +487,7 @@ When updating a content type, use:
 [[= include_file('code_samples/data_migration/examples/update_tag.yaml') =]]
 ```
 
-### AI action configurations [[% include 'snippets/lts-update_badge.md' %]]
+### AI action configurations
 
 - The following example shows how you can create a new action configuration in your system:
 
@@ -506,6 +506,23 @@ When updating a content type, use:
 ``` yaml
 [[= include_file('code_samples/data_migration/examples/ai/action_configuration_delete.yaml') =]]
 ```
+
+### Discounts [[% include 'snippets/lts-update_badge.md' %]]
+
+- The following example shows how you can create a new [discount](discounts_guide.md) in your system:
+
+``` yaml
+[[= include_file('code_samples/data_migration/examples/discounts/discount_create.yaml') =]]
+```
+
+- Use the `update` mode to modify an existing discount as in the example below.
+The provided conditions overwrite any already existing ones.
+
+``` yaml
+[[= include_file('code_samples/data_migration/examples/discounts/discount_update.yaml') =]]
+```
+
+For a list of available conditions, see [Discounts API](discounts_api.md#conditions).
 
 ## Criteria
 

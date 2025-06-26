@@ -1,6 +1,6 @@
 ---
 description: The PIM product guide provides a full description of the features and benefits that this module brings to the clients.
-month_change: true
+month_change: false
 ---
 
 # PIM product guide
@@ -104,6 +104,8 @@ You can set up different prices depending on customer group or currency.
 Each customer group can have a default price discount that applies to all products.
 For example, you can offer a 10% discount for all products in the catalog to users who belong to the Resellers customer group.
 You can also set different prices for specific products or product variants for different customer groups.
+
+You can extend these capabilities even further by installing the [Discounts LTS Update](discounts_guide.md), available for [[= product_name_com =]].
 
 ### Product completeness
 

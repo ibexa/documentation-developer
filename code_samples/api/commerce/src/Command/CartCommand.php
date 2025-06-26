@@ -17,10 +17,14 @@ use Ibexa\Contracts\OrderManagement\OrderServiceInterface;
 use Ibexa\Contracts\ProductCatalog\CurrencyServiceInterface;
 use Ibexa\Contracts\ProductCatalog\ProductServiceInterface;
 use Ibexa\Core\Repository\Permission\PermissionResolver;
+use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
+#[AsCommand(
+    name: 'doc:cart'
+)]
 final class CartCommand extends Command
 {
     private PermissionResolver $permissionResolver;
@@ -58,11 +62,7 @@ final class CartCommand extends Command
         $this->reorderService = $reorderService;
         $this->cartResolver = $cartResolver;
 
-        parent::__construct('doc:cart');
-    }
-
-    public function configure(): void
-    {
+        parent::__construct();
     }
 
     protected function execute(InputInterface $input, OutputInterface $output): int

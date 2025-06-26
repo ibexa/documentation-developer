@@ -6313,3 +6313,180 @@ ActionConfiguration:
         updatedAt:
             type: datetime
             description: 'Timestamp indicating when the action configuration was last updated.'
+
+DiscountListWrapper:
+    type: object
+    description: 'Wrapper object for DiscountList.'
+    properties:
+        DiscountList:
+            type: object
+            description: 'Object containing a list of discounts.'
+            properties:
+                Discount:
+                    type: array
+                    items:
+                        type: object
+                        properties:
+                            identifier:
+                                type: string
+                                description: "Discount identifier."
+                            type:
+                                type: string
+                                description: "Discount type: cart or catalog."
+                            priority:
+                                type: integer
+                                description: "Discount priority."
+                            isEnabled:
+                                type: boolean
+                                description: "Indicates whether the discount is enabled."
+                            userId:
+                                type: integer
+                                description: "User ID of discount creator."
+                            rule:
+                                type: object
+                                description: "Describes how the discount is calculated: percentage or fixed."
+                                properties:
+                                    type:
+                                        type: string
+                                        description: "Discount type."
+                                    amount:
+                                        type: integer
+                                        description: "Discount amount."
+                            startDate:
+                                type: datetime
+                                description: "Defines when the discount starts."
+                            endDate:
+                                type: datetime
+                                description: "Defines when the discount starts."
+                            translations:
+                                type: array
+                                description: "Translations of discount data."
+                                items:
+                                    type: object
+                                    properties:
+                                        languageCode:
+                                            type: string
+                                        name:
+                                            type: string
+                                        description:
+                                            type: string
+                                        label:
+                                            type: string
+                                        labelDescription:
+                                            type: string
+                            conditions:
+                                type: array
+                                description: "List of discount conditions."
+                                items:
+                                    type: DiscountCondition
+                
+DiscountWrapper:
+    type: object
+    description: 'Wrapper object for Discount.'
+    properties:
+        Discount:
+            type: object
+            description: 'Object containing a list of discounts.'
+
+DiscountCreateWrapper:
+    type: object
+    description: 'Wrapper object for DiscountCreate.'
+    properties:
+        DiscountCreate:
+            type: object
+            description: 'Object containing a list of discounts.'
+            properties:
+                identifier:
+                    type: string
+                    description: "Discount identifier."
+                type:
+                    type: string
+                    description: "Discount type: cart or catalog."
+                priority:
+                    type: integer
+                    description: "Discount priority."
+                isEnabled:
+                    type: boolean
+                    description: "Indicates whether the discount is enabled."
+                userId:
+                    type: integer
+                    description: "User ID of discount creator."
+                rule:
+                    type: object
+                    description: "Describes how the discount is calculated: percentage or fixed."
+                    properties:
+                        type:
+                            type: string
+                            description: "Discount type."
+                        amount:
+                            type: integer
+                            description: "Discount amount."
+                startDate:
+                    type: datetime
+                    description: "Defines when the discount starts."
+                endDate:
+                    type: datetime
+                    description: "Defines when the discount starts."
+                translations:
+                    type: array
+                    description: "Translations of discount data."
+                    items:
+                        type: object
+                        properties:
+                            languageCode:
+                                type: string
+                            name:
+                                type: string
+                            description:
+                                type: string
+                            label:
+                                type: string
+                            labelDescription:
+                                type: string
+                conditions:
+                    type: array
+                    description: "List of discount conditions."
+                    items:
+                        type: DiscountCondition
+
+DiscountUpdateWrapper:
+    type: object
+    description: 'Wrapper object for DiscountUpdate.'
+    properties:
+        DiscountUpdate:
+            type: object
+            description: 'Object containing a list of discounts.'
+            properties:
+                identifier:
+                    type: string
+                    description: Identifier of the discount. Required.
+                conditions:
+                    type: array
+                    description: 'List of conditions.'
+                    items:
+                        type: DiscountCondition
+
+DiscountCodeWrapper:
+    type: object
+    description: 'Wrapper object for DiscountCode.'
+    properties:
+        DiscountCode:
+            type: object
+            description: 'Object containing data about the discount code.'
+            properties:
+                code:
+                    type: string
+                    description: 'Discount code'
+
+DiscountCondition:
+    type: object
+    description: 'Object representing a discount condition.'
+    properties:
+        class:
+            type: string
+            description: 'FCQN of a discount condition class.'
+        parameters:
+            type: array
+            description: 'Condition parameters.'
+            items:
+                type: object

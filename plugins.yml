@@ -556,3 +556,5 @@ plugins:
             'getting_started/ibexa_cloud_guide.md': 'ibexa_cloud/ibexa_cloud_guide.md'
             'getting_started/install_on_ibexa_cloud.md': 'ibexa_cloud/install_on_ibexa_cloud.md'
             'infrastructure_and_maintenance/clustering/ddev_and_ibexa_cloud.md': 'ibexa_cloud/ddev_and_ibexa_cloud.md'
+
+            'ai_actions/install_ai_actions.md': 'ai_actions/configure_ai_actions.md'

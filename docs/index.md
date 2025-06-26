@@ -72,11 +72,11 @@
         </div>
     </div>
     <div class="row notifications">
-        <div class="col-12 col-lg-6">
+        <div class="col-12 col-lg-12">
             <div class="notification notification--latest-release" id="tile2">
                 <div class="notification__content">
-                    <h2>The latest release is [[= latest_tag_4_6 =]]</h2>
-                    <div>The latest version of Ibexa DXP is [[= latest_tag_4_6 =]]. You can now update your application to the latest version.</div>
+                    <h2>The latest release is [[= latest_tag_5_0 =]]</h2>
+                    <div>The latest version of Ibexa DXP is [[= latest_tag_5_0 =]]. You can now update your application to the latest version.</div>
                 </div>
                 <div class="notification__cta">
                     <a href="release_notes/ibexa_dxp_v4.6/">Release notes</a>
@@ -89,11 +89,11 @@
         <div class="col-12 col-lg-6">
             <div class="notification notification--lts-update" id="tile3">
                 <div class="notification__content">
-                    <h2>The newest LTS Update is the Date and time attribute type</h2>
-                    <div>Install it to add time-related values to product specifications.</div>
+                    <h2>The newest LTS Update is Discounts</h2>
+                    <div>Install it to reduce prices on specific products, making deals more attractive to potential buyers.</div>
                 </div>
                 <div class="notification__cta">
-                    <a href="pim/attributes/date_and_time">Learn more about this LTS Update</a>
+                    <a href="discounts/discounts">Learn more about this LTS Update</a>
                     <a href="ibexa_products/editions#lts-updates">Discover other LTS Updates</a>
                 </div>
                 <div class="notification__image">
