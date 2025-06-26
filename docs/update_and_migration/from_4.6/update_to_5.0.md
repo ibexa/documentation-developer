@@ -16,7 +16,7 @@ you have to move to [new Commerce ones](update_from_4.3_new_commerce.md).
 
 ## Update from v4.6.latest to v5.0.0
 
-When you have the last version of 4.6, you can update to v5.0.
+When you have the last version of 4.6, you can update to v5.0.0.
 
 ### Requirements
 
@@ -161,7 +161,18 @@ composer remove --no-update \
     ibexa/connector-ai \
     ibexa/collaboration \
     ibexa/share \
+    ibexa/discounts \
+    ibexa/discounts-codes \
 ;
+```
+
+#### Remove PHP 8.2 error handler
+
+If you were using the [`Php82HideDeprecationsErrorHandler`](update_from_4.6.md#v468) to avoid deprecation messages,
+you can remove it:
+
+```bash
+composer config --unset extra.runtime.error_handler
 ```
 
 #### Update required packages
@@ -172,18 +183,6 @@ TODO: 🤞
 
 ```bash
 composer update --with-all-dependencies --no-scripts
-```
-
-#### Remove PHP 8.2 error handler
-
-TODO: Do it earlier?
-
-If you were using the [`Php82HideDeprecationsErrorHandler`](update_from_4.6.md#v468) to avoid deprecation messages,
-you can remove it:
-
-```bash
-# Remove Php82HideDeprecationsErrorHandler
-ddev composer config --unset extra.runtime.error_handler
 ```
 
 #### Remove Stimulus bootstrap
@@ -240,17 +239,13 @@ Your `auto-scripts` entry should look like this:
 #### Post update script
 
 ```bash
-# Manually clear cache to ensure scripts won't use a piece of it
 rm -rf var/cache
-# A.k.a "auto-scripts"
 composer run-script post-update-cmd
 ```
 
 ### Update database
 
 Apply the following database update script:
-
-TODO: Rework injection of 4.6 LTS Updates' schemas
 
 === "MySQL"
 
@@ -260,6 +255,8 @@ TODO: Rework injection of 4.6 LTS Updates' schemas
     php bin/console ibexa:doctrine:schema:dump-sql vendor/ibexa/collaboration/src/bundle/Resources/config/schema.yaml | mysql -u <username> -p <password> <database_name>
     php bin/console ibexa:doctrine:schema:dump-sql vendor/ibexa/share/src/bundle/Resources/config/schema.yaml | mysql -u <username> -p <password> <database_name>
     php bin/console ibexa:doctrine:schema:dump-sql vendor/ibexa/connector-ai/src/bundle/Resources/config/schema.yaml | mysql -u <username> -p <password> <database_name>
+    php bin/console ibexa:doctrine:schema:dump-sql vendor/ibexa/discounts/src/bundle/Resources/config/schema.yaml | ddev mysql -u <username> -p <password> <database_name>
+    php bin/console ibexa:doctrine:schema:dump-sql vendor/ibexa/discounts-codes/src/bundle/Resources/config/schema.yaml | ddev mysql -u <username> -p <password> <database_name>
     ```
 
 === "PostgreSQL"
@@ -270,6 +267,8 @@ TODO: Rework injection of 4.6 LTS Updates' schemas
     php bin/console ibexa:doctrine:schema:dump-sql vendor/ibexa/collaboration/src/bundle/Resources/config/schema.yaml | psql <database_name>
     php bin/console ibexa:doctrine:schema:dump-sql vendor/ibexa/share/src/bundle/Resources/config/schema.yaml | psql <database_name>
     php bin/console ibexa:doctrine:schema:dump-sql vendor/ibexa/connector-ai/src/bundle/Resources/config/schema.yaml | psql <database_name>
+    php bin/console ibexa:doctrine:schema:dump-sql vendor/ibexa/discounts/src/bundle/Resources/config/schema.yaml | psql <database_name>
+    php bin/console ibexa:doctrine:schema:dump-sql vendor/ibexa/discounts-codes/src/bundle/Resources/config/schema.yaml | psql <database_name>
     ```
 
 TODO: Migration files? Content type updates? Seems not.
@@ -277,7 +276,7 @@ TODO: Migration files? Content type updates? Seems not.
 Many tables are renamed. Some columns are also renamed.
 If you have custom code directly querying those, you will need to update them.
 
-You can track the renamming in the `ibexa-4.6.latest-to-5.0.0.sql` files or in the folded map below.
+You can track the renaming in the `ibexa-4.6.latest-to-5.0.0.sql` files or below.
 
 ??? note "Tables and columns renaming map"
 
@@ -450,10 +449,10 @@ But you can also go faster with bigger [rule sets in the modern way](https://get
 
 Several field type identifiers have changed.
 Old identifiers are still supported, but it's recommended to migrate as soon as possible
-and to include this action to the verion update task list.
+and to include this action to the current version update task list.
 
 You can list existing field type services with the command `php bin/console debug:container --tag=ibexa.field_type`.
-The output as an `alias` column with new identifiers and a `legacy_alias` with the old ones.
+The output as an `alias` column with new identifiers and a `legacy_alias` column with the old identifiers.
 
 ??? note "Field type identifiers renaming map"
 
