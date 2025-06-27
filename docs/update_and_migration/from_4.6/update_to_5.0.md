@@ -368,7 +368,7 @@ You can track the renaming in the `ibexa-4.6.latest-to-5.0.0.sql` files or below
 
 TODO: Compatibility "views" layers? Even if there is this layer to save time, it is recommended to update your code to use the new tables.
 
-#### Generate GraphQL schema
+### Generate GraphQL schema
 
 4.6's Back Office uses GraphQL while 5.0's one doesn't.
 But, optionally, if you are using GraphQL in your project, generate its schema:
@@ -500,6 +500,16 @@ The output as an `alias` column with new identifiers and a `legacy_alias` column
   - TODO: Configs, template paths, template rules, whatever needed…
 - Update in migration files
 - TODO: Update in DB?
+
+### Update search indexes
+
+TODO: Earlier?
+
+TODO: For Solr and Elasticsearch, it seems that the schema/config/template haven't change. A re-index should be enough
+
+```
+php bin/console ibexa:reindex
+```
 
 #### Update Back Office extensions
 
