@@ -65,6 +65,7 @@ You can use an unique group name when creating a Twig Component to create your o
 | [Template](https://github.com/ibexa/twig-components/blob/main/src/lib/Component/TemplateComponent.php) | Renders a Twig template|`template` |
 | [Controller](https://github.com/ibexa/twig-components/blob/main/src/lib/Component/ControllerComponent.php) | Renders a Symfony controller |`controller` |
 | [HTML](https://github.com/ibexa/twig-components/blob/main/src/lib/Component/HtmlComponent.php) | Renders static HTML |`html` |
+| [Menu](https://github.com/ibexa/twig-components/blob/main/src/lib/Component/MenuComponent.php) | Renders a menu based on a menu item identifier |`menu` |
 
 ## Example
 
