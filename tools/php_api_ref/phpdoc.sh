@@ -7,7 +7,7 @@ OUTPUT_DIR=${2:-./docs/api/php_api/php_api_reference}; # Path to the directory w
 
 DXP_EDITION='commerce'; # Edition from and for which the Reference is built
 DXP_VERSION='5.0.x-dev'; # Version from and for which the Reference is built
-DXP_ADD_ONS=(connector-ai connector-openai automated-translation product-catalog-date-time-attribute); # Packages not included in $DXP_EDITION but added to the Reference, listed without their vendor "ibexa"
+DXP_ADD_ONS=(automated-translation rector); # Packages not included in $DXP_EDITION but added to the Reference, listed without their vendor "ibexa"
 DXP_EDITIONS=(oss headless experience commerce); # Available editions ordered by ascending capabilities
 SF_VERSION='7.2'; # Symfony version used by Ibexa DXP
 PHPDOC_VERSION='3.7.1'; # Version of phpDocumentor used to build the Reference
@@ -53,7 +53,7 @@ cd $TMP_DXP_DIR; # /!\ Change working directory (reason why all paths must be ab
 if [ 0 -eq $DXP_ALREADY_EXISTS ]; then
   echo "Creating ibexa/$DXP_EDITION-skeleton:$DXP_VERSION project in ${TMP_DXP_DIR}…";
   if [[ "$DXP_VERSION" == *".x-dev" ]]; then
-    composer create-project ibexa/website-skeleton:$DXP_VERSION . --no-interaction --no-install --ignore-platform-reqs --no-scripts --stability=dev;
+    composer create-project ibexa/website-skeleton:$DXP_VERSION . --no-interaction --ignore-platform-reqs --no-scripts --stability=dev;
     if [ -n "$AUTH_JSON" ]; then
       cp $AUTH_JSON ./;
     fi;
