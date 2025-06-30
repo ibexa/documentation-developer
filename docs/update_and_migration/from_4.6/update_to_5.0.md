@@ -505,7 +505,8 @@ The output as an `alias` column with new identifiers and a `legacy_alias` column
 
 TODO: Earlier?
 
-TODO: For Solr and Elasticsearch, it seems that the schema/config/template haven't change. A re-index should be enough
+TODO: For Solr and Elasticsearch, it seems that the schema/config/template haven't changed.
+TODO: Is a re-index needed? Maybe not either. 
 
 ```
 php bin/console ibexa:reindex
