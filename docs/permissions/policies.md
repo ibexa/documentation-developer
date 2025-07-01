@@ -1,6 +1,7 @@
 ---
 description: Policies are the main building block of the permissions system which lets you define the accesses for specific user roles.
 page_type: reference
+month_change: true
 ---
 
 # Policies
