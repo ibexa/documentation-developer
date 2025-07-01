@@ -415,16 +415,6 @@ use Rector\Symfony\Set\SensiolabsSetList;
            SymfonySetList::ANNOTATIONS_TO_ATTRIBUTES,
            SensiolabsSetList::ANNOTATIONS_TO_ATTRIBUTES,
        ]
-   );
-```
-
-But you can also go faster with bigger [rule sets in the modern way](https://getrector.com/documentation/set-lists) like in the following example:
-
-```php
-   ->withSets(
-       [
-           IbexaSetList::IBEXA_50->value // rule set for upgrading to Ibexa DXP 5.0
-       ]
    )
    ->withPhpSets()
    ->withComposerBased(twig: true, symfony: true)
@@ -443,6 +433,36 @@ But you can also go faster with bigger [rule sets in the modern way](https://get
        symfonyCodeQuality: true, // https://getrector.com/find-rule?activeRectorSetGroup=symfony&rectorSet=symfony-code-quality
        symfonyConfigs: true, // https://getrector.com/find-rule?activeRectorSetGroup=symfony&rectorSet=symfony-configs 
    );
+```
+
+TODO: Among other things, the type hinting strictness has been increased.
+
+TODO: `AsCommand` attribute; Rector doesn't move `parent::__construct('app:test');` into `AsCommand`?
+
+In the following example, you can see optimization thanks to the following features:
+
+- [Constructor parameter promoted as properties](https://www.php.net/manual/en/language.oop5.decon.php#language.oop5.decon.constructor.promotion) (available since PHP 8.0)
+- [`AsCommand` attribute to register a command](https://symfony.com/doc/7.2/console.html#console_registering-the-command) (available since Symfony 6.2)
+
+```diff
++#[AsCommand(name: 'app:test', description: 'Command to test something.')]
+ class TestCommand extends Command
+ {
+-    private Repository $repository;
+-
+-    public function __construct(Repository $repository)
++    public function __construct(private readonly Repository $repository)
+     {
+-        $this->repository = $repository;
+-        parent::__construct('app:test');
+     }
+-
+-     protected function configure()
+-     {
+-        $this->setDescription('Command to test something.');
+-     }
+
+      protected function execute(InputInterface $input, OutputInterface $output): int
 ```
 
 #### Update field type identifiers
