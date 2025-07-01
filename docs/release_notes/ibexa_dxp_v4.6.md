@@ -25,7 +25,7 @@ The PHP API has been enhanced with the following new classes:
 - [`Ibexa\Contracts\Discounts\Exception\DiscountValueResolutionException`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-Discounts-Exception-DiscountValueResolutionException.html)
 
 [[= release_note_entry_end() =]]
-[[= release_note_entry_begin("Ibexa DXP " + version, '2025-05-27', ['Headless', 'Experience', 'Commerce']) =]]
+[[= release_note_entry_begin("Ibexa DXP " + version, '2025-06-11', ['Headless', 'Experience', 'Commerce']) =]]
 
 #### Security
 
