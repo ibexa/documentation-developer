@@ -276,7 +276,7 @@ TODO: Migration files? Content type updates? Seems not.
 Many tables are renamed. Some columns are also renamed.
 If you have custom code directly querying those, you will need to update them.
 
-You can track the renaming in the `ibexa-4.6.latest-to-5.0.0.sql` files or below.
+You can track the renaming in the `ibexa-4.6.latest-to-5.0.0.sql` file or below.
 
 ??? note "Tables and columns renaming map"
 
@@ -365,6 +365,19 @@ You can track the renaming in the `ibexa-4.6.latest-to-5.0.0.sql` files or below
     | ezuser_setting                                        | ibexa_user_setting                                                      |
 
     TODO: Something about renamed indexes?
+
+??? note "DFS (Distributed File System)"
+
+    If [DFS IO handler](clustering.md#dfs-io-handler) is used and, as recommended, its table is on its own database, you'll have to rename table and columns there.
+    Here are the DFS renamming queries (extracted from `ibexa-4.6.latest-to-5.0.0.sql`):
+
+    ```sql
+    ALTER TABLE ezdfsfile RENAME TO ibexa_dfs_file;
+    ALTER TABLE ibexa_dfs_file RENAME INDEX ezdfsfile_name_trunk TO ibexa_dfs_file_name_trunk;
+    ALTER TABLE ibexa_dfs_file RENAME INDEX ezdfsfile_expired_name TO ibexa_dfs_file_expired_name;
+    ALTER TABLE ibexa_dfs_file RENAME INDEX ezdfsfile_name TO ibexa_dfs_file_name;
+    ALTER TABLE ibexa_dfs_file RENAME INDEX ezdfsfile_mtime TO ibexa_dfs_file_mtime;
+    ```
 
 TODO: Compatibility "views" layers? Even if there is this layer to save time, it is recommended to update your code to use the new tables.
 
