@@ -49,8 +49,6 @@ Compare all features available in [[= product_name_headless =]], [[= product_nam
 | [Recent activity](recent_activity.md) |  | &#10004; | &#10004; |
 | [[[= product_name_engage =]] add-on]([[= user_doc =]]/ibexa_engage/ibexa_engage/) |  | &#10004; | &#10004; |
 | [Customer Data Platform (CDP) add-on](cdp_guide.md) |  | &#10004; | &#10004; |
-| [AI Actions](ai_actions_guide.md) | &#10004; | &#10004; | &#10004; |
-| [Date and time attribute type](date_and_time.md) | &#10004; | &#10004; | &#10004; |
 | [Order management](order_management.md) |  |  | &#10004; |
 | [Payment management](payment.md) |  |  | &#10004; |
 | [Shipping management](shipping_management.md) |  |  | &#10004; |
