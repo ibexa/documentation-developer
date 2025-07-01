@@ -7,6 +7,38 @@ month_change: true
 
 This page contains recent highlights and notable changes in [[= product_name =]] documentation.
 
+## June 2025
+
+### Security
+
+- Added [warning about code block access](https://doc.ibexa.co/en/latest/infrastructure_and_maintenance/security/security_checklist/#limit-access-to-code-blocks)
+
+### v4.6.21
+
+- [v4.6.21 release notes](https://doc.ibexa.co/en/latest/release_notes/ibexa_dxp_v4.6/#ibexa-dxp-v4621)
+
+### Discounts
+
+- Introduced new [Discounts](https://doc.ibexa.co/en/latest/discounts/discounts/) feature that allows online stores to temporarily or permanently reduce prices on specific products or categories.
+Discounts documentation includes:
+    - [Product guide](https://doc.ibexa.co/en/latest/discounts/discounts_guide/)
+    - [Installation documentation](https://doc.ibexa.co/en/latest/discounts/install_discounts/)
+    - [Configuration documentation](https://doc.ibexa.co/en/latest/discounts/configure_discounts/)
+    - [API usage](https://doc.ibexa.co/en/latest/discounts/discounts_api/)
+    - New [Search Sort Clauses](https://doc.ibexa.co/en/latest/search/discounts_search_reference/discounts_sort_clauses/) and [Search Criteria](https://doc.ibexa.co/en/latest/search/discounts_search_reference/discounts_criteria/)
+    - New [events](https://doc.ibexa.co/en/latest/api/event_reference/discounts_events/)
+    - Rest API for [Discounts](https://doc.ibexa.co/en/latest/api/rest_api/rest_api_reference/rest_api_reference.html#discounts) and [Discount Codes](https://doc.ibexa.co/en/latest/api/rest_api/rest_api_reference/rest_api_reference.html#discount-codes)
+    - New [Twig functions](https://doc.ibexa.co/en/latest/templating/twig_function_reference/discounts_twig_functions/) and [Twig Components groups](https://doc.ibexa.co/en/latest/administration/back_office/back_office_elements/custom_components/#discounts)
+    - New [policies](https://doc.ibexa.co/en/latest/permissions/policies/#discounts) and [limitations](https://doc.ibexa.co/en/latest/permissions/limitation_reference/#discount-owner-limitation)
+
+### PHP API
+
+- Enhanced the PHP API reference with the following new classes:
+    - [`Ibexa\Contracts\Checkout\Exception`](https://doc.ibexa.co/en/latest/api/php_api/php_api_reference/namespaces/ibexa-contracts-checkout-exception.html)
+    - [`Ibexa\Contracts\Checkout\Exception\CheckoutException`](https://doc.ibexa.co/en/latest/api/php_api/php_api_reference/classes/Ibexa-Contracts-Checkout-Exception-CheckoutException.html)
+    - [`Ibexa\Contracts\Checkout\Discounts\DiscountsValidationFailedException`](https://doc.ibexa.co/en/latest/api/php_api/php_api_reference/classes/Ibexa-Contracts-Checkout-Discounts-DiscountsValidationFailedException.html)
+    - [`Ibexa\Contracts\Discounts\Exception\DiscountValueResolutionException`](https://doc.ibexa.co/en/latest/api/php_api/php_api_reference/classes/Ibexa-Contracts-Discounts-Exception-DiscountValueResolutionException.html)
+
 ## May 2025
 
 ### v4.6.20

@@ -1,5 +1,5 @@
 ---
-month_change: false
+month_change: true
 editions:
     - lts-update
     - commerce
