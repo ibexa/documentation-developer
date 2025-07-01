@@ -9,14 +9,22 @@ This page contains recent highlights and notable changes in [[= product_name =]]
 
 ## June 2025
 
+### Security
+
+- Added [warning about code block access](https://doc.ibexa.co/en/latest/infrastructure_and_maintenance/security/security_checklist/#limit-access-to-code-blocks)
+
+### v4.6.21
+
+- [v4.6.21 release notes](https://doc.ibexa.co/en/latest/release_notes/ibexa_dxp_v4.6/#ibexa-dxp-v4621)
+
 ### Discounts
 
 - Introduced new [Discounts](https://doc.ibexa.co/en/latest/discounts/discounts/) feature that allows online stores to temporarily or permanently reduce prices on specific products or categories.
 Discounts documentation includes:
     - [Product guide](https://doc.ibexa.co/en/latest/discounts/discounts_guide/)
-    - [Installation and configuration](https://doc.ibexa.co/en/latest/discounts/install_discounts/)
-    - [Customization documentation](https://doc.ibexa.co/en/latest/discounts/configure_discounts/)
-    - [API](https://doc.ibexa.co/en/latest/discounts/discounts_api/)
+    - [Installation documentation](https://doc.ibexa.co/en/latest/discounts/install_discounts/)
+    - [Configuration documentation](https://doc.ibexa.co/en/latest/discounts/configure_discounts/)
+    - [API usage](https://doc.ibexa.co/en/latest/discounts/discounts_api/)
     - New [Search Sort Clauses](https://doc.ibexa.co/en/latest/search/discounts_search_reference/discounts_sort_clauses/) and [Search Criteria](https://doc.ibexa.co/en/latest/search/discounts_search_reference/discounts_criteria/)
     - New [events](https://doc.ibexa.co/en/latest/api/event_reference/discounts_events/)
     - Rest API for [Discounts](https://doc.ibexa.co/en/latest/api/rest_api/rest_api_reference/rest_api_reference.html#discounts) and [Discount Codes](https://doc.ibexa.co/en/latest/api/rest_api/rest_api_reference/rest_api_reference.html#discount-codes)
@@ -25,15 +33,11 @@ Discounts documentation includes:
 
 ### PHP API
 
-- Enhanced the PHP API with the following new classes:
+- Enhanced the PHP API reference with the following new classes:
     - [`Ibexa\Contracts\Checkout\Exception`](https://doc.ibexa.co/en/latest/api/php_api/php_api_reference/namespaces/ibexa-contracts-checkout-exception.html)
     - [`Ibexa\Contracts\Checkout\Exception\CheckoutException`](https://doc.ibexa.co/en/latest/api/php_api/php_api_reference/classes/Ibexa-Contracts-Checkout-Exception-CheckoutException.html)
     - [`Ibexa\Contracts\Checkout\Discounts\DiscountsValidationFailedException`](https://doc.ibexa.co/en/latest/api/php_api/php_api_reference/classes/Ibexa-Contracts-Checkout-Discounts-DiscountsValidationFailedException.html)
     - [`Ibexa\Contracts\Discounts\Exception\DiscountValueResolutionException`](https://doc.ibexa.co/en/latest/api/php_api/php_api_reference/classes/Ibexa-Contracts-Discounts-Exception-DiscountValueResolutionException.html)
-
-### Infrastructure and maintenance
-
-- Added [warning about code block access](https://doc.ibexa.co/en/latest/infrastructure_and_maintenance/security/security_checklist/#limit-access-to-code-blocks)
 
 ## May 2025
 
