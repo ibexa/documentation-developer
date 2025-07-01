@@ -94,7 +94,7 @@ For production, it's recommended to create the DFS table in its own database, ma
 !!! note "dfs_schema.sql (MySQL)"
 
     ``` sql
-        CREATE TABLE ezdfsfile (
+        CREATE TABLE ibexa_dfs_file (
           name text NOT NULL,
           name_trunk text NOT NULL,
           name_hash varchar(34) NOT NULL DEFAULT '',
@@ -105,17 +105,17 @@ For production, it's recommended to create the DFS table in its own database, ma
           expired tinyint(1) NOT NULL DEFAULT '0',
           status tinyint(1) NOT NULL DEFAULT '0',
           PRIMARY KEY (name_hash),
-          KEY ezdfsfile_name (name (191)),
-          KEY ezdfsfile_name_trunk (name_trunk (191)),
-          KEY ezdfsfile_mtime (mtime),
-          KEY ezdfsfile_expired_name (expired,name (191))
+          KEY ibexa_dfs_file_name (name (191)),
+          KEY ibexa_dfs_file_name_trunk (name_trunk (191)),
+          KEY ibexa_dfs_file_mtime (mtime),
+          KEY ibexa_dfs_file_expired_name (expired,name (191))
         ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
     ```
 
 !!! note "dfs_schema.sql (PostgreSQL)"
 
     ``` sql
-    CREATE TABLE ezdfsfile (
+    CREATE TABLE ibexa_dfs_file (
       name_hash varchar(34) DEFAULT '' NOT NULL,
       name text NOT NULL,
       name_trunk text NOT NULL,
@@ -127,13 +127,13 @@ For production, it's recommended to create the DFS table in its own database, ma
       status boolean DEFAULT false NOT NULL
     );
 
-    ALTER TABLE ONLY ezdfsfile
-      ADD CONSTRAINT ezdfsfile_pkey PRIMARY KEY (name_hash);
+    ALTER TABLE ONLY ibexa_dfs_file
+      ADD CONSTRAINT ibexa_dfs_file_pkey PRIMARY KEY (name_hash);
 
-    CREATE INDEX ezdfsfile_expired_name ON ezdfsfile USING btree (expired, name);
-    CREATE INDEX ezdfsfile_mtime ON ezdfsfile USING btree (mtime);
-    CREATE INDEX ezdfsfile_name ON ezdfsfile USING btree (name);
-    CREATE INDEX ezdfsfile_name_trunk ON ezdfsfile USING btree (name_trunk);
+    CREATE INDEX ibexa_dfs_file_expired_name ON ibexa_dfs_file USING btree (expired, name);
+    CREATE INDEX ibexa_dfs_file_mtime ON ibexa_dfs_file USING btree (mtime);
+    CREATE INDEX ibexa_dfs_file_name ON ibexa_dfs_file USING btree (name);
+    CREATE INDEX ibexa_dfs_file_name_trunk ON ibexa_dfs_file USING btree (name_trunk);
     ```
 
 !!! note
