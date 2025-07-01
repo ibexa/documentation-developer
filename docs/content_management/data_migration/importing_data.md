@@ -507,7 +507,7 @@ When updating a content type, use:
 [[= include_file('code_samples/data_migration/examples/ai/action_configuration_delete.yaml') =]]
 ```
 
-### Discounts [[% include 'snippets/lts-update_badge.md' %]]
+### Discounts
 
 - The following example shows how you can create a new [discount](discounts_guide.md) in your system:
 

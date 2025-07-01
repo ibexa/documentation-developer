@@ -62,7 +62,7 @@ The Change Owner (`ChangeOwner`) limitation specifies whether the user can chang
 |------|------|------|
 |`1`|"Forbid"|The user cannot change owner of a content item|
 
-## Discount Owner limitation [[% include 'snippets/lts-update_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
+## Discount Owner limitation [[% include 'snippets/commerce_badge.md' %]]
 
 The Discount Owner (`DiscountOwner`) limitation specifies whether the user can interact with a [discount](discounts.md).
 

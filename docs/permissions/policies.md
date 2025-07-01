@@ -29,7 +29,7 @@ Each role you assign to user or user group consists of policies which define, wh
 |------------------------------|--------------------|----------------------|-------------------------------------------------------------------------|
 | <nobr>`activity_log`</nobr> | <nobr>`read`</nobr> | access activity list | [ActivityLogOwner](limitation_reference.md#activity-log-owner-limitation) |
 
-#### AI actions [[% include 'snippets/lts-update_badge.md' %]]
+#### AI actions
 
 | Module                              | Function               | Effect                 | Possible Limitations |
 |-------------------------------------|------------------------|------------------------|----------------------|
@@ -124,7 +124,7 @@ Each role you assign to user or user group consists of policies which define, wh
 | <nobr>`commerce`</nobr> | <nobr>`currency`</nobr> | manage currencies |
 |                         | <nobr>`region`</nobr>   | manage regions    |
 
-#### Discounts [[% include 'snippets/lts-update_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
+#### Discounts [[% include 'snippets/commerce_badge.md' %]]
 
 The discount policies decide which actions can be executed by given user or user group.
 

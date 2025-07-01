@@ -113,7 +113,7 @@ You can use this, for example, to [parametrize the display of products by using 
 
 ### `ibexa_storefront_are_discounts_enabled()`
 
-This function detects if the [Discounts LTS Update](discounts_guide.md) is installed.
+This function detects if the [Discounts](discounts_guide.md) feature is present.
 
 ``` html+twig
 {% if ibexa_storefront_are_discounts_enabled() %}

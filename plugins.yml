@@ -558,3 +558,4 @@ plugins:
             'infrastructure_and_maintenance/clustering/ddev_and_ibexa_cloud.md': 'ibexa_cloud/ddev_and_ibexa_cloud.md'
 
             'ai_actions/install_ai_actions.md': 'ai_actions/configure_ai_actions.md'
+            'discounts/install_discounts.md': 'discounts/configure_discounts.md'

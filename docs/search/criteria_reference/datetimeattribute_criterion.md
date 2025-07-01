@@ -1,6 +1,5 @@
 ---
 description: DateTimeAttribute Criterion
-edition: lts-update
 ---
 
 # DateTimeAttribute criterion

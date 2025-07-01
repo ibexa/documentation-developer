@@ -49,6 +49,8 @@ Compare all features available in [[= product_name_headless =]], [[= product_nam
 | [Recent activity](recent_activity.md) |  | &#10004; | &#10004; |
 | [[[= product_name_engage =]] add-on]([[= user_doc =]]/ibexa_engage/ibexa_engage/) |  | &#10004; | &#10004; |
 | [Customer Data Platform (CDP) add-on](cdp_guide.md) |  | &#10004; | &#10004; |
+| [AI Actions](ai_actions_guide.md) | &#10004; | &#10004; | &#10004; |
+| [Date and time attribute type](date_and_time.md) | &#10004; | &#10004; | &#10004; |
 | [Order management](order_management.md) |  |  | &#10004; |
 | [Payment management](payment.md) |  |  | &#10004; |
 | [Shipping management](shipping_management.md) |  |  | &#10004; |
@@ -56,14 +58,4 @@ Compare all features available in [[= product_name_headless =]], [[= product_nam
 | [Checkout](checkout.md) |  |  | &#10004; |
 | [Storefront](storefront.md) |  |  | &#10004; |
 | [Transactional emails](transactional_emails.md) |  |  | &#10004; |
-
-## LTS Updates
-
-LTS Updates are opt-in packages that bring additional features to the [LTS releases](release_process_and_roadmap.md#long-term-support-releases) that they enhance.
-The features brought by LTS Updates become standard parts of the next LTS release.
-
-| Feature | [[= product_name_headless =]] | [[= product_name_exp =]] | [[= product_name_com =]] |
-|-----------------|-----------------|-----------------|-----------------|
-| [AI Actions](ai_actions_guide.md) | &#10004; | &#10004; | &#10004; |
-| [Date and time attribute type](date_and_time.md) | &#10004; | &#10004; | &#10004; |
 | [Discounts](discounts.md) | | | &#10004; |

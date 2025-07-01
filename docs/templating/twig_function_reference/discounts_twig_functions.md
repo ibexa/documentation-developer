@@ -3,7 +3,6 @@ description: Discounts Twig Functions allow you to operate on discounts in your 
 page_type: reference
 month_change: true
 editions:
-    - lts-update
     - commerce
 ---
 

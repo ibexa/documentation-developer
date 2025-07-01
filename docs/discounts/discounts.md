@@ -2,7 +2,6 @@
 description: Discounts help store managers reduce prices on products or product categories.
 page_type: landing_page
 editions:
-    - lts-update
     - commerce
 month_change: true
 ---
@@ -16,7 +15,6 @@ You can also extend the feature, for example, by creating custom pricing rules, 
 
 [[= cards([
 "discounts/discounts_guide",
-"discounts/install_discounts",
 "discounts/configure_discounts",
 "discounts/discounts_api"
 ], columns=2) =]]

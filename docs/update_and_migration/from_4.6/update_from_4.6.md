@@ -378,7 +378,7 @@ With the product updated to the latest version, you can now finish the update pr
 
 ## LTS Updates
 
-[LTS Updates](editions.md#lts-updates) are standalone packages with their own update procedures.
+[LTS Updates](https://doc.ibexa.co/en/4.6/ibexa_products/editions/#lts-updates) are standalone packages with their own update procedures.
 To use the [latest features](ibexa_dxp_v4.6.md) added to them, update them separately with the following commands:
 
 === "Discounts"
@@ -398,7 +398,7 @@ To use the [latest features](ibexa_dxp_v4.6.md) added to them, update them separ
     The `discount/view` policy is no longer required for the store customers to use a discount and must be removed from all users who are not managing discounts.
     The policy allows to access all the discount details, including the coupon codes to activate them, which could lead to system abuse.
 
-    To learn more, see the [discounts policies overview](policies.md#discounts).
+    To learn more, see the [discounts policies overview](https://doc.ibexa.co/en/4.6/permissions/policies/).
 
     ### Database update
 
@@ -537,4 +537,3 @@ To use the [latest features](ibexa_dxp_v4.6.md) added to them, update them separ
     ```bash
     composer require ibexa/product-catalog-date-time-attribute:[[= latest_tag_4_6 =]]
     ```
-

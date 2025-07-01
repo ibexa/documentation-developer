@@ -67,7 +67,7 @@ We want to thank [todomagichere](https://github.com/todomagichere) and [hgieseno
 
 ### Release notes
 
-- Redesigned [Release notes page](https://doc.ibexa.co/en/latest/release_notes/ibexa_dxp_v4.6/) now includes filters to easily sort by product edition or LTS update type, while the updated documentation homepage provides quick access to essential details, showcasing changes introduced in the latest patch and LTS Updates releases
+- Redesigned [Release notes page](https://doc.ibexa.co/en/latest/release_notes/ibexa_dxp_v4.6/) now includes filters to easily sort by product edition or LTS Update type, while the updated documentation homepage provides quick access to essential details, showcasing changes introduced in the latest patch and LTS Update releases
 
 ### Requirements update
 
