@@ -16,7 +16,7 @@ If you're in a hurry, the most important recommendations on this page are:
 - Dump optimized Composer autoload classmap
 - Use a full web (Nginx/Apache) server with vhost
 - Avoid shared filesystems for code (Docker for Mac/Win, VirtualBox/*, Vagrant, and more), or find ways to optimize or work around the issues.
-- For clustering (mainly relevant for production/staging), reduce latency to Redis/Memcached, use Varnish and [Solr](solr_overview.md).
+- For clustering (mainly relevant for production/staging), reduce latency to Redis, use Varnish and [Solr](solr_overview.md).
 
 ## Client
 
@@ -31,7 +31,7 @@ In production setups:
     - Compared to the built-in Symfony Proxy in PHP Varnish is much faster and is able to queue up requests for the same fresh/invalidated resource.
     - With [ibexa/http-cache](https://github.com/ibexa/http-cache) support for xkey and grace Varnish provides more stable performance in read/write scenarios.
 - Set up [[= product_name =]] in [cluster mode](clustering.md) if you need to handle bigger spikes of traffic than a single server can manage.
-    - See [recommendation for Memcached/Redis](#memcachedredis) and [Search](#search) below.
+    - See [recommendation for Redis](#redis) and [Search](#search) below.
 
 !!! note
 
@@ -61,20 +61,15 @@ In production setups:
 - Keep Composer up to date.
 - Always dump optimized class map using `composer dump-autoload --optimize` or relevant flags on `composer install/update`.
 
-### Memcached/Redis
+### Redis
 
-!!! note
-
-    Redis is currently recommended over Memcached, as the latter has had big performance issues.
-    [Symfony v3.4.15](https://github.com/symfony/symfony/pull/28249) may have resolved this.
-
-- Memcached/Redis can in some cases perform better than filesystem cache even with a single server, as it offers better general performance for operations invalidating cache.
+- Redis can in some cases perform better than filesystem cache even with a single server, as it offers better general performance for operations invalidating cache.
     - However, pure read performance is slower, especially if the next points aren't optimized.
     - With cache being on different node(s) than web server, make sure to try to tune latency between the two.
 
 !!! tip
 
-    Check if your cloud provider has native service for Memcached/Redis, as those might be better tuned.
+    Check if your cloud provider has native service for Redis, as those might be better tuned.
 
 - If you use Redis, make sure to tune it for in-memory cache usage. Its persistence feature isn't needed with cache and severely slows down execution time.
     - [For use with sessions](sessions.md#cluster-setup) however, persistence can be a good fit if you want sessions to survive service interruptions.
