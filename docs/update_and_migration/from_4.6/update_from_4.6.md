@@ -522,6 +522,28 @@ To use the [latest features](ibexa_dxp_v4.6.md) added to them, update them separ
                 REFERENCES ezuser (contentobject_id) ON UPDATE CASCADE ON DELETE CASCADE NOT DEFERRABLE INITIALLY IMMEDIATE;
         ```
 
+    ## 4.6.22
+
+    ### Database update
+
+    Run the following scripts:
+
+    === "MySQL"
+
+        ``` sql
+        ALTER TABLE ibexa_discount ADD override_prioritization tinyint(1) NOT NULL DEFAULT 0;
+        CREATE INDEX ibexa_discount_prioritization_idx ON ibexa_discount (override_prioritization, type, priority);
+        ALTER TABLE ibexa_discount_code ADD global_limit INT DEFAULT NULL;
+        ```
+
+    === "PostgreSQL"
+
+        ``` sql
+        ALTER TABLE ibexa_discount ADD override_prioritization tinyint(1) NOT NULL DEFAULT 0;
+        CREATE INDEX ibexa_discount_prioritization_idx ON ibexa_discount (override_prioritization, type, priority);
+        ALTER TABLE ibexa_discount_code ADD global_limit INT DEFAULT NULL;
+        ```
+
 === "AI actions"
 
     Run the following command to get the latest version:
