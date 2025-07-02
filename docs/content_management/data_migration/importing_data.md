@@ -55,6 +55,7 @@ The following data migration step modes are available:
 | `content`              | &#10004; | &#10004; | &#10004; |          |
 | `currency`             | &#10004; | &#10004; | &#10004; |          |
 | `customer_group`       | &#10004; | &#10004; | &#10004; |          |
+| `discount`             | &#10004; | &#10004; |          |          |
 | `language`             | &#10004; |          |          |          |
 | `location`             |          | &#10004; |          | &#10004; |
 | `object_state`         | &#10004; |          |          |          |
