@@ -214,8 +214,6 @@ For production setups it's recommended that you use Varnish/Fastly, Redis, NFS/E
 
     - For content search, Solr 8.11.1 or higher.
     Alternatively, Elasticsearch 7.16.2 or higher 7.x version.
-    - The above solutions require Oracle Java/Open JDK. The minimum requirement is 8 LTS, recommended 11 LTS.
-    Newer versions aren't supported.
 
 === "[[= product_name =]] v4.6"
 

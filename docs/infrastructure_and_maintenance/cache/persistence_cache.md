@@ -212,7 +212,7 @@ Several cloud providers have managed services that are easier to set up, handle 
 
 ## Using cache service
 
-Using the internal cache service allows you to use an interface and without caring whether the system is configured to place the cache on File system.
+Using the internal cache service allows you to use an interface and without caring whether the system is configured to place the cache in Redis or on File system.
 And as [[= product_name =]] requires that instances use a cluster-aware cache in cluster setup, you can safely assume your cache is shared *(and invalidated)* across all web servers.
 
 !!! note
