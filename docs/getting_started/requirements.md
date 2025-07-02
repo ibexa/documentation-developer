@@ -402,8 +402,8 @@ For production setups it's recommended that you use Varnish/Fastly, Redis, NFS/E
 
     For example:
 
-    - Platform.sh provides Redis support for versions 3.2, 4.0 and 5.0. [[= product_name =]] supports Redis version 4.0 or higher, and recommends 5.0.
-    As a result, Redis is supported on [[= product_name_cloud =]] in versions 4.0 and 5.0, but 5.0 is recommended.
+    - Platform.sh provides Redis support for versions 7.2, 7.0, and 6.2. [[= product_name =]] supports Redis version 7.2.
+    As a result, Redis is supported on [[= product_name_cloud =]] in versions 7.2.
 
     Features or services supported by [[= product_name =]] but not covered by Platform.sh may be possible by means of a [custom integration](#custom-integrations).
 
