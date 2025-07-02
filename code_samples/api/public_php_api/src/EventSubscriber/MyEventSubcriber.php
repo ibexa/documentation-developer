@@ -1,11 +1,11 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace App\EventSubscriber;
 
 use Ibexa\Contracts\Core\Repository\Events\Content\CopyContentEvent;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
-class MyEventSubscriber implements EventSubscriberInterface
+class MyEventSubcriber implements EventSubscriberInterface
 {
     public static function getSubscribedEvents()
     {
