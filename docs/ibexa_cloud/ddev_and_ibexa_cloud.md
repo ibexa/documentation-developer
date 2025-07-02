@@ -53,7 +53,7 @@ See [`ibexa_cloud help get`](https://docs.platform.sh/administration/cli.html#3-
 
 ```bash
 ibexa_cloud project:get <project-ID> my-ddev-project && cd my-ddev-project
-ddev config --project-type=php --php-version 8.1 --web-environment-add COMPOSER_AUTH='',DATABASE_URL=mysql://db:db@db:3306/db
+ddev config --project-type=php --php-version 8.3 --web-environment-add COMPOSER_AUTH='',DATABASE_URL=mysql://db:db@db:3306/db
 ddev config --web-environment-add IBEXA_PROJECT=<project-ID>,IBEXA_ENVIRONMENT=production,IBEXA_APP=app
 ddev config --web-environment-add IBEXA_CLI_TOKEN=<api-token>
 echo '.ddev/' >> .gitignore
@@ -93,7 +93,7 @@ The following sequence of commands:
 
 ```bash
 ibexa_cloud project:get <project-ID> my-ddev-project && cd my-ddev-project
-ddev config --project-type=php --php-version 8.1 --docroot=public --web-environment-add DATABASE_URL=mysql://db:db@db:3306/db
+ddev config --project-type=php --php-version 8.3 --docroot=public --web-environment-add DATABASE_URL=mysql://db:db@db:3306/db
 echo '.ddev/' >> .gitignore
 ddev start
 ddev composer config --global http-basic.updates.ibexa.co <installation-key> <token-password>
