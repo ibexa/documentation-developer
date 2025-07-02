@@ -87,7 +87,7 @@ Depending on which database you're using:
 
 or
 
-`DATABASE_URL=postgresql://root:rootpassword@127.0.0.1:3306/ibexa_dfs?serverVersion=8.0`
+`DATABASE_URL=postgresql://root:rootpassword@127.0.0.1:5432/ibexa_dfs?serverVersion=14.18`
 
 For production, it's recommended to create the DFS table in its own database, manually importing its schema definition:
 
