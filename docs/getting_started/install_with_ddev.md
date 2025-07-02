@@ -49,7 +49,7 @@ ddev config --database=postgres:14
 To use MySQL instead, run the following command:
 
 ```bash
-ddev config --database=mysql:8.0
+ddev config --database=mysql:8.4
 ```
 
 You can also use other versions of MariaDB, Mysql or PostgreSQL.

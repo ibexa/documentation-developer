@@ -259,7 +259,7 @@ Enhanced the PHP API with the following new classes and interfaces:
 ### Infrastructure and maintenance
 
 - The upgrade instructions from v3.3 to v4.6 have been expanded with a section describing the [GraphQL changes in v4](https://doc.ibexa.co/en/latest/update_and_migration/from_3.3/to_4.0/#graphql)
-- Ubuntu 24.04 has been added to the [list of officialy supported operating systems](https://doc.ibexa.co/en/latest/getting_started/requirements/#operating-system)
+- Ubuntu 24.04 has been added to the [list of officially supported operating systems](https://doc.ibexa.co/en/latest/getting_started/requirements/#operating-system)
 
 ### PHP API
 
