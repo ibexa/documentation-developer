@@ -19,9 +19,9 @@ Each transition represents a separate order processing step.
 ### Default order processing configuration
 
 The default order processing workflow is called `ibexa_order`.
-To see the default workflow configuration, in your project directory, go to: `vendor/Ibexa/order-management/src/bundle/Resources/config/prepend.yaml`.
+To see the default workflow configuration, in your project directory, go to: `vendor/ibexa/order-management/src/bundle/Resources/config/prepend.yaml`.
 
-The default workflow uses keys defined in `src/lib/Value/Status.php` file as place and transition names, for example, `PENDING_PLACE` translates into `pending`.
+The default workflow uses keys defined in `Ibexa\OrderManagement\Value\Status` class as place and transition names, for example, `PENDING_PLACE` translates into `pending`.
 
 You can replace the default workflow configuration with a custom one if needed.
 

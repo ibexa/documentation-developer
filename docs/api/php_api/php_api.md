@@ -136,13 +136,6 @@ To identify as a different user, you need to use the `UserService` together with
 
 This isn't required in template functions or controller code, as the HTTP layer takes care of identifying the user, and automatically sets it in the repository.
 
-If you want to identify a user with their credentials instead, provide them in the following way:
-
-``` php
-$user = $userService->loadUserByCredentials($username, $password);
-$permissionResolver->setCurrentUserReference($user);
-```
-
 ## Exception handling
 
 PHP API uses [Exceptions](https://www.php.net/exceptions) to handle errors.
