@@ -8,13 +8,13 @@ REST_API_OUTPUT_FILE=${3:-./docs/api/rest_api/rest_api_reference/rest_api_refere
 
 DXP_EDITION='commerce'; # Edition from and for which the Reference is built
 DXP_VERSION='5.0.x-dev'; # Version from and for which the Reference is built
-DXP_ADD_ONS=(connector-ai connector-openai automated-translation product-catalog-date-time-attribute); # Packages not included in $DXP_EDITION but added to the Reference, listed without their vendor "ibexa"
+DXP_ADD_ONS=(automated-translation rector); # Packages not included in $DXP_EDITION but added to the Reference, listed without their vendor "ibexa"
 DXP_EDITIONS=(oss headless experience commerce); # Available editions ordered by ascending capabilities
-SF_VERSION='6.4'; # Symfony version used by Ibexa DXP
-PHPDOC_VERSION='3.7.1'; # Version of phpDocumentor used to build the Reference
+SF_VERSION='7.2'; # Symfony version used by Ibexa DXP
+PHPDOC_VERSION='3.8.0'; # Version of phpDocumentor used to build the Reference
 PHPDOC_CONF="$(pwd)/tools/api_refs/phpdoc.dist.xml"; # Absolute path to phpDocumentor configuration file
 #PHPDOC_CONF="$(pwd)/tools/api_refs/phpdoc.dev.xml"; # Absolute path to phpDocumentor configuration file
-PHPDOC_TEMPLATE_VERSION='3.7.1'; # Version of the phpDocumentor base template set
+PHPDOC_TEMPLATE_VERSION='3.8.0'; # Version of the phpDocumentor base template set
 PHPDOC_DIR="$(pwd)/tools/api_refs/.phpdoc"; # Absolute path to phpDocumentor resource directory (containing the override template set)
 
 PHP_BINARY="php -d error_reporting=`php -r 'echo E_ALL & ~E_DEPRECATED;'`"; # Avoid depreciation messages from phpDocumentor/Reflection/issues/529 when using PHP 8.2 or higher
@@ -55,7 +55,7 @@ cd $TMP_DXP_DIR; # /!\ Change working directory (reason why all paths must be ab
 if [ 0 -eq $DXP_ALREADY_EXISTS ]; then
   echo "Creating ibexa/$DXP_EDITION-skeleton:$DXP_VERSION project in ${TMP_DXP_DIR}…";
   if [[ "$DXP_VERSION" == *".x-dev" ]]; then
-    composer create-project ibexa/website-skeleton:$DXP_VERSION . --no-interaction --no-install --ignore-platform-reqs --no-scripts --stability=dev;
+    composer create-project ibexa/website-skeleton:$DXP_VERSION . --no-interaction --ignore-platform-reqs --no-scripts --stability=dev;
     if [ -n "$AUTH_JSON" ]; then
       cp $AUTH_JSON ./;
     fi;
@@ -80,7 +80,7 @@ export COMPOSER_ROOT_VERSION=$DXP_VERSION;
 
 if [ 0 -eq $DXP_ALREADY_EXISTS ]; then
   for additional_package in "${DXP_ADD_ONS[@]}"; do
-    composer require --no-interaction --ignore-platform-reqs --no-scripts ibexa/$additional_package:$DXP_VERSION
+    composer require --no-interaction --ignore-platform-reqs --no-scripts ibexa/$additional_package:$DXP_VERSION;
   done;
 fi;
 
@@ -120,7 +120,7 @@ if [ 0 -eq $DXP_ALREADY_EXISTS ]; then
   done;
   echo 'OK';
 
-  echo -n "Store package→edition and namespace→edition maps into $map… ";
+  echo -n "Store package→edition and namespace→edition maps into ${map}… ";
   map=$PHPDOC_DIR/template/package-edition-map.twig;
   if [[ -f $map ]]; then
     rm $map;
