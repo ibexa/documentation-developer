@@ -15,8 +15,6 @@ The `Status` Search Criterion searches for notifications based on notification s
 
 ### PHP
 
-``` php
-$criteria = new Ibexa\Contracts\Core\Repository\Values\Notification\Query\Criterion\(0);
-
-$query = new NotificationQuery($criteria);
+```php hl_lines="14"
+[[= include_file('code_samples/notifications/src/Query/Search.php') =]]
 ```

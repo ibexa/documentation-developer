@@ -15,8 +15,6 @@ The `Type` Search Criterion searches for notifications by their types.
 
 ### PHP
 
-``` php
-$criteria = new Ibexa\Contracts\Core\Repository\Values\Notification\Query\Criterion\Type('Workflow:Reject');
-
-$query = new NotificationQuery($criteria);
+```php hl_lines="13"
+[[= include_file('code_samples/notifications/src/Query/Search.php') =]]
 ```

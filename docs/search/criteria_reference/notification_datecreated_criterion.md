@@ -16,11 +16,6 @@ The `DateCreated` Search Criterion searches for notifications based on the date 
 
 ### PHP
 
-``` php
-$criteria = new Ibexa\Contracts\Core\Repository\Values\Notification\Query\Criterion\DateCreated(
-    new DateTime('2023-03-01 14:07:02'),
-    'GTE'
-);
-
-$query = new NotificationQuery($criteria);
+```php hl_lines="19"
+[[= include_file('code_samples/notifications/src/Query/Search.php') =]]
 ```
