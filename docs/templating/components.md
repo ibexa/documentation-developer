@@ -23,7 +23,7 @@ Register it as a service by using the `AsTwigComponent` attribute or the `ibexa.
 
 === "PHP Attribute"
 
-    ``` php
+    ``` php hl_lines="8-11"
     [[= include_file('code_samples/back_office/components/MyComponent.php', glue='    ') =]]
     ```
 
