@@ -79,7 +79,11 @@ final class ManageDiscountsCommand extends Command
                 new IsInRegions(['germany', 'france']),
                 new IsProductInArray(['product-1', 'product-2']),
                 new IsInCurrency('EUR'),
-                new IsValidDiscountCode($discountCode->getCode(), $discountCode->getGlobalLimit(), $discountCode->getUsedLimit()),
+                new IsValidDiscountCode(
+                    $discountCode->getCode(),
+                    $discountCode->getGlobalLimit(),
+                    $discountCode->getUsedLimit()
+                ),
             ])
             ->setTranslations([
                 new DiscountTranslationStruct('eng-GB', 'Discount name', 'This is a discount description', 'Promotion Label', 'Promotion Description'),
