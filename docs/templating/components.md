@@ -32,7 +32,7 @@ Register it as a service by using the `AsTwigComponent` attribute or the `ibexa.
     ``` yaml
     App\Twig\Component\MyComponent:
         tags:
-            - { name: ibexa.twig.component, group: admin-ui-dashboard-all-tab-groups, priority: 0 }
+            - { name: ibexa.twig.component, group: admin-ui-dashboard-all-tab-groups, priority: 100 }
     ```
 
 The available attributes are:
