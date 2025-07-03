@@ -115,7 +115,7 @@ The example below contains a Command creating a cart discount. The discount:
     - 2 products
     - a `summer10` [discount code](#discount-codes) which can be used only 10 times, but a single customer can use the code multiple times
 
-``` php hl_lines="60-66 68-92"
+``` php hl_lines="60-67 69-97"
 [[= include_file('code_samples/discounts/src/Command/ManageDiscountsCommand.php') =]]
 ```
 
