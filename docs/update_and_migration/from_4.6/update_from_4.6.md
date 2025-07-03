@@ -395,16 +395,16 @@ To use the [latest features](ibexa_dxp_v4.6.md) added to them, update them separ
 
     Then apply manually the changes described below.
 
-    ## 4.6.20
+    ### Discounts 4.6.20
 
-    ### Policy changes
+    #### Policy changes
 
     The `discount/view` policy is no longer required for the store customers to use a discount and must be removed from all users who are not managing discounts.
     The policy allows to access all the discount details, including the coupon codes to activate them, which could lead to system abuse.
 
     To learn more, see the [discounts policies overview](policies.md#discounts).
 
-    ### Database update
+    #### Database update
 
     Run the following scripts:
 
@@ -526,9 +526,9 @@ To use the [latest features](ibexa_dxp_v4.6.md) added to them, update them separ
                 REFERENCES ezuser (contentobject_id) ON UPDATE CASCADE ON DELETE CASCADE NOT DEFERRABLE INITIALLY IMMEDIATE;
         ```
 
-    ## 4.6.22
+    ### Discounts 4.6.22
 
-    ### Database update
+    #### Database update
 
     Run the following scripts:
 

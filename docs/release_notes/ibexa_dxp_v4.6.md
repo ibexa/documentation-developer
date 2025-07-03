@@ -13,9 +13,9 @@ month_change: true
 [[% set version = 'v4.6.22' %]]
 [[= release_note_entry_begin("Discounts " + version, 'TODO', ['LTS Update', 'Commerce']) =]]
 
-#### Global discount codes
+#### Global discount codes limits
 
-- You can now [limit the number of times](discounts_guide.md#discount-codes) a discount code can be used before it expires
+- You can now [limit the number of times](discounts_guide.md#discount-codes) a discount code can be used before it expires. The discounts created before this release are set to unlimited global usage
 
 #### Discount codes prioritization
 
@@ -43,10 +43,9 @@ The PHP API has been enhanced with the following new classes:
 - TODO
 
 #### Full changelog
+
 [[% include 'snippets/release_46.md' %]]
 [[= release_note_entry_end() =]]
-
-
 
 [[% set version = 'v4.6.21' %]]
 
