@@ -95,8 +95,6 @@ The example below presents a modified renderer that uses Twig to render a list v
 [[= include_file('code_samples/back_office/notifications/src/Notification/ListRenderer.php') =]]
 ```
 
-Then, add the templates that are defined above as a response to `render_all` request:
-
 ## Notification timeout
 
 To define the timeout for hiding Back-Office notification bars, per notification type, use the `ibexa.system.<scope>.notifications.<notification_type>.timeout` [configuration key](configuration.md#configuration-files):

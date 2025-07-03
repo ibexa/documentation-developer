@@ -23,7 +23,10 @@ class MyRenderer implements NotificationRenderer
 
     public function render(Notification $notification): string
     {
-        return $this->twig->render('@ibexadesign/notification.html.twig', ['notification' => $notification]);
+        return $this->twig->render('@ibexadesign/notification.html.twig', [
+            'notification' => $notification,
+            'template_to_extend' => $templateToExtend,
+        ]);
     }
 
     public function generateUrl(Notification $notification): ?string
