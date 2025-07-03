@@ -108,7 +108,7 @@ These conditions can include:
 
 For **cart discounts**, you can specify an additional text value that needs to be entered in the cart for the discount to apply.
 
-The discount code usage can be limited globally, for example by making the discount valid only for the first 10 customers using it before it expires.
+The discount code usage can be limited globally, for example by making the discount valid only for the first 10 customers before it expires.
 You can also limit the usage per customer:
 
 - single use: every customer can use this code only once
