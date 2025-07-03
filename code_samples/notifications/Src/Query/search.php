@@ -2,8 +2,6 @@
 
 declare(strict_types=1);
 
-use DateTimeImmutable;
-use Ibexa\Contracts\Core\Repository\Values\Notification\Query\Criterion;
 use Ibexa\Contracts\Core\Repository\Values\NotificationQuery;
 
 $repository = $this->getRepository();

@@ -32,12 +32,13 @@ class ListRenderer implements NotificationRenderer
         if ($currentRequest && $currentRequest->attributes->getBoolean('render_all')) {
             $templateToExtend = '@ibexadesign/account/notifications/list_item_all.html.twig';
         }
+
         return $this->twig->render('@ibexadesign/notification.html.twig', [
             'notification' => $notification,
             'template_to_extend' => $templateToExtend,
         ]);
     }
-    
+
     public function generateUrl(Notification $notification): ?string
     {
         if (array_key_exists('content_id', $notification->data)) {
@@ -45,6 +46,7 @@ class ListRenderer implements NotificationRenderer
                 'contentId' => $notification->data['content_id'],
             ]);
         }
+
         return null;
     }
 }
