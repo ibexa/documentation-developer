@@ -8,9 +8,12 @@ month_change: true
 Twig Components are widgets (for example, **My dashboard** blocks from Headless edition) and HTML code (for example, a tag for loading JS or CSS files) that you can inject into the existing templates to customize and extend the user interface.
 They are combined into groups that are rendered in designated templates.
 
-Built-in Twig Component groups are available for the [back office](custom_components.md), but you can create your own for use anywhere.
+Twig Component groups are available for:
 
-To learn which groups are available in a given view, use the [integration with Symfony Profiler](#symfony-profiler-integration).
+- [back office](custom_components.md)
+- [storefront](customize_storefront_layout.md)
+
+To learn which groups are available in a given view, use the [integration Symfony Profiler](#symfony-profiler-integration).
 
 ## Create Twig Component
 
