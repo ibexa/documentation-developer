@@ -7,6 +7,75 @@ month_change: true
 
 This page contains recent highlights and notable changes in [[= product_name =]] documentation.
 
+## June 2025
+
+### Security
+
+- Added [warning about code block access](https://doc.ibexa.co/en/latest/infrastructure_and_maintenance/security/security_checklist/#limit-access-to-code-blocks)
+
+### v4.6.21
+
+- [v4.6.21 release notes](https://doc.ibexa.co/en/latest/release_notes/ibexa_dxp_v4.6/#ibexa-dxp-v4621)
+
+### Discounts
+
+- Introduced new [Discounts](https://doc.ibexa.co/en/latest/discounts/discounts/) feature that allows online stores to temporarily or permanently reduce prices on specific products or categories.
+Discounts documentation includes:
+    - [Product guide](https://doc.ibexa.co/en/latest/discounts/discounts_guide/)
+    - [Installation documentation](https://doc.ibexa.co/en/latest/discounts/install_discounts/)
+    - [Configuration documentation](https://doc.ibexa.co/en/latest/discounts/configure_discounts/)
+    - [API usage](https://doc.ibexa.co/en/latest/discounts/discounts_api/)
+    - New [Search Sort Clauses](https://doc.ibexa.co/en/latest/search/discounts_search_reference/discounts_sort_clauses/) and [Search Criteria](https://doc.ibexa.co/en/latest/search/discounts_search_reference/discounts_criteria/)
+    - New [events](https://doc.ibexa.co/en/latest/api/event_reference/discounts_events/)
+    - Rest API for [Discounts](https://doc.ibexa.co/en/latest/api/rest_api/rest_api_reference/rest_api_reference.html#discounts) and [Discount Codes](https://doc.ibexa.co/en/latest/api/rest_api/rest_api_reference/rest_api_reference.html#discount-codes)
+    - New [Twig functions](https://doc.ibexa.co/en/latest/templating/twig_function_reference/discounts_twig_functions/) and [Twig Components groups](https://doc.ibexa.co/en/latest/administration/back_office/back_office_elements/custom_components/#discounts)
+    - New [policies](https://doc.ibexa.co/en/latest/permissions/policies/#discounts) and [limitations](https://doc.ibexa.co/en/latest/permissions/limitation_reference/#discount-owner-limitation)
+
+### PHP API
+
+- Enhanced the PHP API reference with the following new classes:
+    - [`Ibexa\Contracts\Checkout\Exception`](https://doc.ibexa.co/en/latest/api/php_api/php_api_reference/namespaces/ibexa-contracts-checkout-exception.html)
+    - [`Ibexa\Contracts\Checkout\Exception\CheckoutException`](https://doc.ibexa.co/en/latest/api/php_api/php_api_reference/classes/Ibexa-Contracts-Checkout-Exception-CheckoutException.html)
+    - [`Ibexa\Contracts\Checkout\Discounts\DiscountsValidationFailedException`](https://doc.ibexa.co/en/latest/api/php_api/php_api_reference/classes/Ibexa-Contracts-Checkout-Discounts-DiscountsValidationFailedException.html)
+    - [`Ibexa\Contracts\Discounts\Exception\DiscountValueResolutionException`](https://doc.ibexa.co/en/latest/api/php_api/php_api_reference/classes/Ibexa-Contracts-Discounts-Exception-DiscountValueResolutionException.html)
+
+## May 2025
+
+### v4.6.20
+
+- [v4.6.20 release notes](https://doc.ibexa.co/en/latest/release_notes/ibexa_dxp_v4.6/#ibexa-dxp-v4620)
+
+### Twig Components
+
+- Documented new [Twig Components](https://doc.ibexa.co/en/latest/templating/components/) feature that allows you to effortlessly build customizable and reusable Twig templates in [[= product_name =]]
+
+### Extending Sub-items view
+
+- Added documentation about how to [add new views or overwrite existing ones in the Sub-items list](https://doc.ibexa.co/en/latest/administration/back_office/subitems_list/#create-custom-sub-items-list-view)
+
+### PHP API
+
+- Enhanced the PHP API with the following new classes:
+    - [`Ibexa\Contracts\AdminUi\Menu\AbstractActionBuilder`](https://doc.ibexa.co/en/latest/api/php_api/php_api_reference/classes/Ibexa-Contracts-AdminUi-Menu-AbstractActionBuilder.html)
+    - [`Ibexa\Contracts\TwigComponents\ComponentInterface`](https://doc.ibexa.co/en/latest/api/php_api/php_api_reference/classes/Ibexa-Contracts-TwigComponents-ComponentInterface.html)
+    - [`Ibexa\Contracts\TwigComponents\ComponentRegistryInterface`](https://doc.ibexa.co/en/latest/api/php_api/php_api_reference/classes/Ibexa-Contracts-TwigComponents-ComponentRegistryInterface.html)
+    - [`Ibexa\Contracts\TwigComponents\Event\RenderGroupEvent`](https://doc.ibexa.co/en/latest/api/php_api/php_api_reference/classes/Ibexa-Contracts-TwigComponents-Event-RenderGroupEvent.html)
+    - [`Ibexa\Contracts\TwigComponents\Event\RenderSingleEvent`](https://doc.ibexa.co/en/latest/api/php_api/php_api_reference/classes/Ibexa-Contracts-TwigComponents-Event-RenderSingleEvent.html)
+    - [`Ibexa\Contracts\TwigComponents\Exception\InvalidArgumentException`](https://doc.ibexa.co/en/latest/api/php_api/php_api_reference/classes/Ibexa-Contracts-TwigComponents-Exception-InvalidArgumentException.html)
+    - [`Ibexa\Contracts\TwigComponents\Renderer\RendererInterface`](https://doc.ibexa.co/en/latest/api/php_api/php_api_reference/classes/Ibexa-Contracts-TwigComponents-Renderer-RendererInterface.html)
+
+### Requirements update
+
+- Updated [requirements](https://doc.ibexa.co/en/latest/getting_started/requirements/) for [[= product_name =]] 4.6: MySQL 8.4, Node 20 and Node 22 are now officially supported
+
+### AI Actions Connect handler
+
+- Documented [how to use the `ibexa:connect:init-custom-property-structures` command](https://doc.ibexa.co/en/latest/ai_actions/install_ai_actions/#initiate-integration) to integrate [AI actions](https://doc.ibexa.co/en/latest/ai_actions/ai_actions_guide/) with [Ibexa Connect](https://doc.ibexa.co/projects/connect/en/latest/)
+
+### Contributions
+
+We want to thank [todomagichere](https://github.com/todomagichere) and [hgiesenow](https://github.com/hgiesenow) for their help in improving the [Order management API](https://doc.ibexa.co/en/latest/commerce/order_management/order_management_api) and [Reverse proxy](https://doc.ibexa.co/en/latest/infrastructure_and_maintenance/cache/http_cache/reverse_proxy) documentation pages
+
 ## April 2025
 
 ### Content management
@@ -16,7 +85,7 @@ This page contains recent highlights and notable changes in [[= product_name =]]
 
 ### AI Actions
 
-- Documented [how to couple AI Actions and Ibexa Connect](install_ai_actions.md#configure-access-to-ibexa-connect) to build complex data transformation workflows without having to rely on custom code
+- Documented [how to couple AI Actions and Ibexa Connect](configure_ai_actions.md#configure-access-to-ibexa-connect) to build complex data transformation workflows without having to rely on custom code
 
 ### REST API
 
@@ -30,7 +99,7 @@ This page contains recent highlights and notable changes in [[= product_name =]]
 
 ### Release notes
 
-- Redesigned [Release notes page](https://doc.ibexa.co/en/latest/release_notes/ibexa_dxp_v4.6/) now includes filters to easily sort by product edition or LTS update type, while the updated documentation homepage provides quick access to essential details, showcasing changes introduced in the latest patch and LTS Updates releases
+- Redesigned [Release notes page](https://doc.ibexa.co/en/latest/release_notes/ibexa_dxp_v4.6/) now includes filters to easily sort by product edition or LTS Update type, while the updated documentation homepage provides quick access to essential details, showcasing changes introduced in the latest patch and LTS Update releases
 
 ### Requirements update
 
@@ -190,7 +259,7 @@ Enhanced the PHP API with the following new classes and interfaces:
 ### Infrastructure and maintenance
 
 - The upgrade instructions from v3.3 to v4.6 have been expanded with a section describing the [GraphQL changes in v4](https://doc.ibexa.co/en/latest/update_and_migration/from_3.3/to_4.0/#graphql)
-- Ubuntu 24.04 has been added to the [list of officialy supported operating systems](https://doc.ibexa.co/en/latest/getting_started/requirements/#operating-system)
+- Ubuntu 24.04 has been added to the [list of officially supported operating systems](https://doc.ibexa.co/en/latest/getting_started/requirements/#operating-system)
 
 ### PHP API
 

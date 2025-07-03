@@ -13,12 +13,12 @@ The parts illustrate the different roles needed for a successful cluster setup.
 
 ![Server setup for clustering](server_setup.png)
 
-The number of web servers, Memcached/Redis, Solr, Varnish, Database, and NFS servers, but also whether some servers play several of these roles (typically running Memcached/Redis across the web server), is up to you and your performance needs.
+The number of web servers, Redis, Solr, Varnish, Database, and NFS servers, but also whether some servers play several of these roles (typically running Redis across the web server), is up to you and your performance needs.
 
 The minimal requirements are:
 
 - [Shared HTTP cache (using Varnish)](reverse_proxy.md#using-varnish-or-fastly)
-- [Shared persistence cache](#shared-persistence-cache) and [sessions](#shared-sessions) (using Redis or Memcached)
+- [Shared persistence cache](#shared-persistence-cache) and [sessions](#shared-sessions) (using Redis)
 - Shared database (using MySQL/MariaDB)
 - [Shared binary files](#shared-binary-files) (using NFS, or S3)
 
@@ -35,21 +35,20 @@ It's also recommended to use:
 ### Shared persistence cache
 
 Redis is the recommended cache solution for clustering.
-An alternative solution is using Memcached.
 
 See [persistence cache documentation](persistence_cache.md#persistence-cache-configuration) on information on how to configure them.
 
 ### Shared sessions
 
 For a [cluster](clustering.md) setup you need to configure sessions to use a back end that is shared between web servers.
-The main options out of the box in Symfony are the native PHP Memcached or PHP Redis session handlers, alternatively there is Symfony session handler for PDO (database).
+The main option out of the box in Symfony is the PHP Redis session handler, alternatively there is Symfony session handler for PDO (database).
 
 To avoid concurrent access to session data from front-end nodes, if possible you should either:
 
 - Enable [Session locking](https://www.php.net/manual/en/features.session.security.management.php#features.session.security.management.session-locking)
 - Use "Sticky Session", aka [Load Balancer Persistence](https://en.wikipedia.org/wiki/Load_balancing_%28computing%29#Persistence)
 
-Session locking is available with `php-memcached`, and with `php-redis` (v4.2.0 and higher).
+Session locking is available with `php-redis` (v4.2.0 and higher).
 
 On [[= product_name_cloud =]] (and Platform.sh) Redis is preferred and supported.
 

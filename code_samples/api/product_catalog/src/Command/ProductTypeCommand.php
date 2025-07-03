@@ -5,11 +5,15 @@ namespace App\Command;
 use Ibexa\Contracts\Core\Repository\PermissionResolver;
 use Ibexa\Contracts\Core\Repository\UserService;
 use Ibexa\Contracts\ProductCatalog\ProductTypeServiceInterface;
+use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
+#[AsCommand(
+    name: 'doc:product_type'
+)]
 final class ProductTypeCommand extends Command
 {
     private UserService $userService;
@@ -23,7 +27,8 @@ final class ProductTypeCommand extends Command
         $this->userService = $userService;
         $this->permissionResolver = $permissionResolver;
         $this->productTypeService = $productTypeService;
-        parent::__construct('doc:product_type');
+
+        parent::__construct();
     }
 
     public function configure(): void

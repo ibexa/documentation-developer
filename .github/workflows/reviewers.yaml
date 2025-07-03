@@ -1,0 +1,15 @@
+name: On PR Review Requested
+
+on:
+  pull_request:
+    types: [review_requested]
+
+jobs:
+  call-expand-team-reviewers:
+    if: ${{ github.event.requested_team }}
+    uses: ibexa/gh-workflows/.github/workflows/expand-team-reviewers.yml@main
+    with:
+      requested_team: ${{ github.event.requested_team.slug }}
+      pull_request_number: ${{ github.event.pull_request.number }}
+      repository: ${{ github.repository }}
+    secrets: inherit

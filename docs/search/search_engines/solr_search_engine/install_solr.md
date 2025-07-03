@@ -13,11 +13,10 @@ For configuring Solr in other ways, including examples, see [Solr Cores and `sol
 
 !!! note "Solr versions"
 
-    Supported Solr versions are Solr 7 and 8. Using most recent version of Solr 7.7 or 8.11 is recommended.
+    Supported Solr version is Solr 8. Using the most recent version of Solr 8.11 is recommended.
 
 Download and extract Solr:
 
-- [solr-7.7.2.tgz](http://archive.apache.org/dist/lucene/solr/7.7.2/solr-7.7.2.tgz) or [solr-7.7.2.zip](http://archive.apache.org/dist/lucene/solr/7.7.2/solr-7.7.2.zip)
 - [solr-8.11.2.tgz](https://www.apache.org/dyn/closer.lua/lucene/solr/8.11.2/solr-8.11.2.tgz) or [solr-8.11.2.zip](https://www.apache.org/dyn/closer.lua/lucene/solr/8.11.2/solr-8.11.2.zip)
 
 Copy the necessary configuration files. In the example below from the root of your project to the place you extracted Solr:
