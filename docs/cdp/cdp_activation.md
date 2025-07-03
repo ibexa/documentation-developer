@@ -173,7 +173,7 @@ Finally, you can specify the audiences you wish to include.
 The final step is setting up a tracking script.
 It requires a head tracking script between the `<head></head>` tags on your website
 and a main script after the head script, and cookie consent.
-You can do it by following [tutorial in the documentation](https://support.raptorsmartadvisor.com/hc/en-us/articles/115000656909-Client-side-Tracking).
+For more information about setting up a tracking script, see [Raptor documentation](https://content.raptorservices.com/help-center/client-side-tracking).
 
 Now, you need to add a tracker to specific places in your website where you want to track users.
 For example, add this tracker to the Landing Page template if you want to track user entrances.
@@ -197,4 +197,4 @@ Add the user ID information by using below script:
 raptor.push("setRuid","USER_ID_HERE")
 ```
 
-For more information on tracking events, see [the documentation](https://support.raptorsmartadvisor.com/hc/en-us/articles/201912411-Tracking-Events).
+For more information on tracking events, see [the documentation](https://content.raptorservices.com/help-center/tracking-events-for-recommendation).
