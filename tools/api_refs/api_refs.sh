@@ -17,6 +17,7 @@ PHPDOC_CONF="$(pwd)/tools/api_refs/phpdoc.dist.xml"; # Absolute path to phpDocum
 PHPDOC_TEMPLATE_VERSION='3.8.0'; # Version of the phpDocumentor base template set
 PHPDOC_DIR="$(pwd)/tools/api_refs/.phpdoc"; # Absolute path to phpDocumentor resource directory (containing the override template set)
 REDOCLY_CONFIG="$(pwd)/tools/api_refs/redocly.yaml"; # Absolute path to Redocly configuration file
+REDOCLY_TEMPLATE="$(pwd)/tools/api_refs/redocly.hbs"; # Absolute path to Redocly wrapping template
 
 PHP_BINARY="php -d error_reporting=`php -r 'echo E_ALL & ~E_DEPRECATED;'`"; # Avoid depreciation messages from phpDocumentor/Reflection/issues/529 when using PHP 8.2 or higher
 TMP_DXP_DIR=/tmp/ibexa-dxp-phpdoc; # Absolute path of the temporary directory in which Ibexa DXP will be installed and the PHP API Reference built
@@ -206,7 +207,7 @@ $PHP_BINARY bin/console ibexa:openapi --yaml \
   | sed "s@info:@info:\n  x-logo:\n    url: 'https://doc.ibexa.co/en/latest/images/ibexa-dxp-logo.png'@" \
 > openapi.yaml;
 echo 'Build REST Reference… ';
-redocly build-docs openapi.yaml --output $REST_API_OUTPUT_FILE --config $REDOCLY_CONFIG;
+redocly build-docs openapi.yaml --output $REST_API_OUTPUT_FILE --config $REDOCLY_CONFIG --template $REDOCLY_TEMPLATE;
 
 if [ 1 -eq $FORCE_DXP_INSTALL ]; then
   echo 'Remove temporary directory…';
