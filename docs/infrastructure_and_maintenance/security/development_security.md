@@ -145,3 +145,18 @@ security:
                 entry_point: lexik_jwt_authentication.jwt_token_authenticator
             stateless: true
 ```
+
+In order for the application to be able to generate JWT tokens, a [PEM encoded keyset needs to be generated](https://symfony.com/bundles/LexikJWTAuthenticationBundle/current/index.html#generate-the-ssl-keys) using the command:
+
+```bash
+php bin/console lexik:jwt:generate-keypair
+```
+
+The generated key pair will be stored in `config/jwt`
+
+!!! note "[[= product_name_cloud =]]"
+
+    In order to be able to store generate and store the tokens on [[= product_name_cloud =]], you must define `config/jwt`
+    as a volume in `.platform.app.yaml`. If you have a 3-node-cluster setup, you must ensure the key pair is the same on all
+    3 servers. Either use a network share for this, or use local mount manually copy the same keu pair
+    to all servers
