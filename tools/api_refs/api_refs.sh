@@ -202,7 +202,9 @@ git init && git add . && git commit -m "Installed Ibexa Commerce" > /dev/null;
 composer recipes:install ibexa/$DXP_EDITION --no-interaction;
 
 echo 'Dump REST OpenAPI schema… ';
-$PHP_BINARY bin/console ibexa:openapi --yaml > openapi.yaml;
+$PHP_BINARY bin/console ibexa:openapi --yaml \
+  | sed "s@info:@info:\n  x-logo:\n    url: 'https://doc.ibexa.co/en/latest/images/ibexa-dxp-logo.png'@" \
+> openapi.yaml;
 echo 'Build REST Reference… ';
 redocly build-docs openapi.yaml --output $REST_API_OUTPUT_FILE --config $REDOCLY_CONFIG;
 
