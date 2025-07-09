@@ -77,7 +77,7 @@ As metadata handler, create a DFS one, configured with a Doctrine connection.
 
 First, define DFS folder path as a variable in `.env` file:
 
-`DFS_NFS_PATH=/tmp/ibx_1439_nfs`
+`DFS_NFS_PATH=<absolute_directory_path>`
 
 Next, if you're using a separate DFS database, configure it via the `DATABASE_URL` variable in the `.env` file.
 Depending on which database you're using:
