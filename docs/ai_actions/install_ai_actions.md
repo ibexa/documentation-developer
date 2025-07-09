@@ -23,18 +23,18 @@ It also modifies the permission system to account for the new functionality.
 
 ## Modify database schema
 
-Create the `add_ai_actions.sql` file that contains the following code.
+Create the `ibexa_ai_actions.sql` file that contains the following code.
 
 === "MySQL"
 
     ``` sql
-    [[= include_file('code_samples/ai_actions/config/mysql/add_ai_actions.sql', 0, None, '    ') =]]
+    [[= include_file('code_samples/ai_actions/config/mysql/ibexa_ai_actions.sql', 0, None, '    ') =]]
     ```
 
 === "PostgreSQL"
 
     ``` sql
-    [[= include_file('code_samples/ai_actions/config/postgresql/add_ai_actions.sql', 0, None, '    ') =]]
+    [[= include_file('code_samples/ai_actions/config/postgresql/ibexa_ai_actions.sql', 0, None, '    ') =]]
     ```
 
 Run the following command, where `<database_name>` is the same name that you defined when you [installed [[= product_name =]]](../getting_started/install_ibexa_dxp.md#change-installation-parameters).
@@ -42,13 +42,13 @@ Run the following command, where `<database_name>` is the same name that you def
 === "MySQL"
 
     ```bash
-    mysql -u <username> -p <password> <database_name> < add_ai_actions.sql
+    mysql -u <username> -p <password> <database_name> < ibexa_ai_actions.sql
     ```
 
 === "PostgreSQL"
 
     ```bash
-    psql <database_name> < add_ai_actions.sql
+    psql <database_name> < ibexa_ai_actions.sql
     ```
 
 This command modifies the existing database schema by adding database configuration required for using AI Actions.
