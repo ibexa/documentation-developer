@@ -12,7 +12,9 @@ Before you can proceed with integrating Stripe, [sign up for a Stripe account](h
 
 Install the Stripe package:
 
-`composer require payum/stripe php-http/guzzle7-adapter`
+```bash
+composer require payum/stripe php-http/guzzle7-adapter php-http/message php-http/message-factory
+```
 
 Then, add the following configuration to your YAML configuration file (`payum.yaml` or similar):
 

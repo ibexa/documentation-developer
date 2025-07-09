@@ -11,7 +11,9 @@ Before you can proceed with integrating PayPal, you must [create a PayPal busine
 
 Install the PayPal package:
 
-`composer require payum/paypal-express-checkout-nvp php-http/guzzle7-adapter`
+```bash
+composer require payum/paypal-express-checkout-nvp php-http/guzzle7-adapter php-http/message php-http/message-factory
+```
 
 Then, add the following configuration to your YAML configuration file (`payum.yaml` or similar):
 
