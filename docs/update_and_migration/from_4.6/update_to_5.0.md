@@ -381,6 +381,14 @@ You can track the renaming in the `ibexa-4.6.latest-to-5.0.0.sql` file or below.
 
 TODO: Compatibility "views" layers? Even if there is this layer to save time, it is recommended to update your code to use the new tables.
 
+### Clear cache pool
+
+The persistence cache pool needs to be cleared.
+
+```
+php bin/console cache:pool:clear --all
+```
+
 ### Generate GraphQL schema
 
 4.6's Back Office uses GraphQL while 5.0's one doesn't.
