@@ -271,8 +271,6 @@ Apply the following database update script:
     php bin/console ibexa:doctrine:schema:dump-sql vendor/ibexa/discounts-codes/src/bundle/Resources/config/schema.yaml | psql <database_name>
     ```
 
-TODO: Migration files? Content type updates? Seems not.
-
 Many tables are renamed. Some columns are also renamed.
 If you have custom code directly querying those, you will need to update them.
 
@@ -383,10 +381,23 @@ TODO: Compatibility "views" layers? Even if there is this layer to save time, it
 
 ### Clear cache pool
 
-The persistence cache pool needs to be cleared.
+The persistence cache pool needs to be cleared to be able to use the repository again.
 
 ```
 php bin/console cache:pool:clear --all
+```
+
+TODO: Only Redis/Memcached?
+
+### Migration file(s)
+
+TODO: Keep up to date
+
+On Experience or Commerce, the following migration file(s) must be applied.
+
+```
+php bin/console ibexa:migrations:import vendor/ibexa/corporate-account/src/bundle/Resources/migrations/2025_07_08_09_27_set_container_to_company.yaml
+php bin/console ibexa:migrations:migrate --file=2025_07_08_09_27_set_container_to_company.yaml --siteaccess=admin
 ```
 
 ### Generate GraphQL schema
