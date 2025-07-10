@@ -395,7 +395,7 @@ To use the [latest features](ibexa_dxp_v4.6.md) added to them, update them separ
 
     Then apply manually the changes described below.
 
-    ### Discounts 4.6.20
+    ### Discounts v4.6.20
 
     #### Policy changes
 
@@ -526,7 +526,7 @@ To use the [latest features](ibexa_dxp_v4.6.md) added to them, update them separ
                 REFERENCES ezuser (contentobject_id) ON UPDATE CASCADE ON DELETE CASCADE NOT DEFERRABLE INITIALLY IMMEDIATE;
         ```
 
-    ### Discounts 4.6.22
+    ### Discounts v4.6.22
 
     #### Database update
 
