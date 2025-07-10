@@ -8,6 +8,9 @@ use Ibexa\Contracts\Rest\Output\Visitor;
 
 class Greeting extends ValueObjectVisitor
 {
+    /**
+     * @param \App\Rest\Values\Greeting $data
+     */
     public function visit(Visitor $visitor, Generator $generator, $data)
     {
         $visitor->setHeader('Content-Type', $generator->getMediaType('Greeting'));
