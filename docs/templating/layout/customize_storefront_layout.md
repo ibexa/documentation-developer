@@ -24,10 +24,10 @@ The available groups for the storefront are:
 | `storefront-after-maincart` | `vendor/ibexa/storefront/src/bundle/Resources/views/themes/storefront/cart/component/maincart/maincart.html.twig` |
 | `storefront-before-minicart` | `vendor/ibexa/storefront/src/bundle/Resources/views/themes/storefront/cart/component/minicart/minicart.html.twig` |
 | `storefront-after-minicart` | `vendor/ibexa/storefront/src/bundle/Resources/views/themes/storefront/cart/component/minicart/minicart.html.twig` |
-| `storefront-before-add-to-cart` | `vendor/ibexa/cart/src/bundle/Resources/views/themes/standard/cart/component/add_to_cart/add_to_cart.html.twig` |
-| `storefront-after-add-to-cart` | `vendor/ibexa/cart/src/bundle/Resources/views/themes/standard/cart/component/add_to_cart/add_to_cart.html.twig` |
-| `storefront-before-summary` | `vendor/ibexa/cart/src/bundle/Resources/views/themes/standard/cart/component/summary/summary.html.twig` |
-| `storefront-after-summary` | `vendor/ibexa/cart/src/bundle/Resources/views/themes/standard/cart/component/summary/summary.html.twig` |
+| `storefront-before-add-to-cart` | `vendor/ibexa/storefront/src/bundle/Resources/views/themes/storefront/cart/component/add_to_cart/add_to_cart.html.twig` |
+| `storefront-after-add-to-cart` | `vendor/ibexa/storefront/src/bundle/Resources/views/themes/storefront/cart/component/add_to_cart/add_to_cart.html.twig` |
+| `storefront-before-summary` | `vendor/ibexa/storefront/src/bundle/Resources/views/themes/storefront/cart/component/summary/summary.html.twig` |
+| `storefront-after-summary` | `vendor/ibexa/storefront/src/bundle/Resources/views/themes/storefront/cart/component/summary/summary.html.twig` |
 
 ## Template customization example
 
