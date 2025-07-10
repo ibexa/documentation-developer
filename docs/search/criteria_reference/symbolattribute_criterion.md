@@ -1,5 +1,6 @@
 ---
 description: SymbolAttribute Criterion
+edition: lts-update
 ---
 
 # SymbolAttributeCriterion

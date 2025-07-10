@@ -593,6 +593,7 @@ nav:
             - RangeMeasurementAttributeMaximum: search/criteria_reference/rangemeasurementattributemaximum_criterion.md
             - SimpleMeasurementAttribute: search/criteria_reference/simplemeasurementattribute_criterion.md
             - SelectionAttribute: search/criteria_reference/selectionattribute_criterion.md
+            - SymbolAttribute: search/criteria_reference/symbolattribute_criterion.md
         - Order Search Criteria: 
             - Order Search Criteria: search/criteria_reference/order_search_criteria.md
             - CompanyName: search/criteria_reference/order_company_name_criterion.md
