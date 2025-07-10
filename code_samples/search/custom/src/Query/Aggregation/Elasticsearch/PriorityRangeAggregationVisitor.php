@@ -9,6 +9,9 @@ use Ibexa\Contracts\Core\Repository\Values\Content\Query\Aggregation;
 use Ibexa\Contracts\Elasticsearch\Query\AggregationVisitor;
 use Ibexa\Contracts\Elasticsearch\Query\LanguageFilter;
 
+/**
+ * @phpstan-template TRangeAggregation of \Ibexa\Contracts\Core\Repository\Values\Content\Query\Aggregation\AbstractRangeAggregation
+ */
 final class PriorityRangeAggregationVisitor implements AggregationVisitor
 {
     public function supports(Aggregation $aggregation, LanguageFilter $languageFilter): bool
@@ -17,7 +20,7 @@ final class PriorityRangeAggregationVisitor implements AggregationVisitor
     }
 
     /**
-     * @param \App\Query\Aggregation\PriorityRangeAggregation $aggregation
+     * @param \App\Query\Aggregation\PriorityRangeAggregation<TRangeAggregation> $aggregation
      *
      * @return array<string, array<string, mixed>>
      */

@@ -22,7 +22,7 @@ class LegalTransitionListener extends AbstractTransitionWorkflowActionListener
     public function onWorkflowEvent(TransitionEvent $event): void
     {
         $metadata = $this->getActionMetadata($event->getWorkflow(), $event->getTransition());
-        $message = $metadata['data']['message'];
+        $message = $metadata['data']['message'] ?? '';
 
         $this->notificationHandler->info(
             $message,

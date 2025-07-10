@@ -61,12 +61,6 @@ parameters:
 			path: code_samples/api/public_php_api/src/Command/CreateContentTypeCommand.php
 
 		-
-			message: '#^Parameter \#1 \$messages of method Symfony\\Component\\Console\\Output\\OutputInterface\:\:writeln\(\) expects iterable\<string\>\|string, string\|null given\.$#'
-			identifier: argument.type
-			count: 1
-			path: code_samples/api/public_php_api/src/Command/FilterLocationCommand.php
-
-		-
 			message: '#^Access to protected property Ibexa\\Contracts\\Core\\Repository\\Values\\URL\\URL\:\:\$url\.$#'
 			identifier: property.protected
 			count: 1
@@ -285,12 +279,6 @@ parameters:
 		-
 			message: '#^Cannot call method error\(\) on Psr\\Log\\LoggerInterface\|null\.$#'
 			identifier: method.nonObject
-			count: 1
-			path: code_samples/back_office/search/src/EventSubscriber/MySuggestionEventSubscriber.php
-
-		-
-			message: '#^Parameter \#2 \$string of function explode expects string, string\|null given\.$#'
-			identifier: argument.type
 			count: 1
 			path: code_samples/back_office/search/src/EventSubscriber/MySuggestionEventSubscriber.php
 
@@ -743,12 +731,6 @@ parameters:
 			identifier: argument.type
 			count: 1
 			path: code_samples/user_management/oauth_google/src/OAuth/GoogleResourceOwnerMapper.php
-
-		-
-			message: '#^Offset ''data'' might not exist on array\|null\.$#'
-			identifier: offsetAccess.notFound
-			count: 1
-			path: code_samples/workflow/custom_workflow/src/EventListener/LegalTransitionListener.php
 
 		-
 			message: '#^Parameter \#2 \$transition of method Ibexa\\Contracts\\Workflow\\Event\\Action\\AbstractTransitionWorkflowActionListener\:\:getActionMetadata\(\) expects Symfony\\Component\\Workflow\\Transition, Symfony\\Component\\Workflow\\Transition\|null given\.$#'

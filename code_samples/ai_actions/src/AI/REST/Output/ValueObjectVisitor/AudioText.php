@@ -12,6 +12,9 @@ final class AudioText extends ValueObjectVisitor
 {
     private const string OBJECT_IDENTIFIER = 'AudioText';
 
+    /**
+     * @param \App\AI\REST\Value\AudioText $data
+     */
     public function visit(Visitor $visitor, Generator $generator, $data): void
     {
         $mediaType = 'ai.' . self::OBJECT_IDENTIFIER;
