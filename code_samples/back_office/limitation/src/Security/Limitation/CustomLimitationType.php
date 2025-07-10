@@ -9,7 +9,6 @@ use Ibexa\Contracts\Core\Repository\Exceptions\NotImplementedException;
 use Ibexa\Contracts\Core\Repository\Values\Content\Query\CriterionInterface;
 use Ibexa\Contracts\Core\Repository\Values\User\Limitation;
 use Ibexa\Contracts\Core\Repository\Values\User\UserReference;
-use Ibexa\Contracts\Core\Repository\Values\ValueObject;
 use Ibexa\Core\Base\Exceptions\InvalidArgumentException;
 use Ibexa\Core\Base\Exceptions\InvalidArgumentType;
 use Ibexa\Core\FieldType\ValidationError;
@@ -57,7 +56,7 @@ class CustomLimitationType implements Type
      *
      * @return bool|null
      */
-    public function evaluate(Limitation $value, UserReference $currentUser, ValueObject $object, array $targets = null): ?bool
+    public function evaluate(Limitation $value, UserReference $currentUser, object $object, array $targets = null): ?bool
     {
         if (!$value instanceof CustomLimitationValue) {
             throw new InvalidArgumentException('$value', 'Must be of type: CustomLimitationValue');

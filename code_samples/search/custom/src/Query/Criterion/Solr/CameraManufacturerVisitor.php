@@ -21,9 +21,7 @@ final class CameraManufacturerVisitor extends CriterionVisitor
     public function visit(CriterionInterface $criterion, CriterionVisitor $subVisitor = null)
     {
         $expressions = array_map(
-            function ($value): string {
-                return 'exif_camera_manufacturer_id:"' . $this->escapeQuote((string) $value) . '"';
-            },
+            fn ($value): string => 'exif_camera_manufacturer_id:"' . $this->escapeQuote((string) $value) . '"',
             $criterion->value
         );
 

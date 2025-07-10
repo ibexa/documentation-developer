@@ -31,21 +31,11 @@ use Symfony\Component\Console\Output\OutputInterface;
 )]
 final class OrderCommand extends Command
 {
-    private PermissionResolver $permissionResolver;
-
-    private UserService $userService;
-
-    private OrderServiceInterface $orderService;
-
     public function __construct(
-        PermissionResolver $permissionResolver,
-        UserService $userService,
-        OrderServiceInterface $orderService
+        private readonly PermissionResolver $permissionResolver,
+        private readonly UserService $userService,
+        private readonly OrderServiceInterface $orderService
     ) {
-        $this->orderService = $orderService;
-        $this->permissionResolver = $permissionResolver;
-        $this->userService = $userService;
-
         parent::__construct();
     }
 

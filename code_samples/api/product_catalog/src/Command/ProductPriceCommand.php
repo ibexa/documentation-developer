@@ -27,33 +27,14 @@ use Symfony\Component\Console\Output\OutputInterface;
 )]
 final class ProductPriceCommand extends Command
 {
-    private ProductPriceServiceInterface $productPriceService;
-
-    private PriceResolverInterface $priceResolver;
-
-    private ProductServiceInterface $productService;
-
-    private CurrencyServiceInterface $currencyService;
-
-    private UserService $userService;
-
-    private PermissionResolver $permissionResolver;
-
     public function __construct(
-        CurrencyServiceInterface $currencyService,
-        ProductServiceInterface $productService,
-        ProductPriceServiceInterface $productPriceService,
-        PriceResolverInterface $priceResolver,
-        UserService $userService,
-        PermissionResolver $permissionResolver
+        private readonly CurrencyServiceInterface $currencyService,
+        private readonly ProductServiceInterface $productService,
+        private readonly ProductPriceServiceInterface $productPriceService,
+        private readonly PriceResolverInterface $priceResolver,
+        private readonly UserService $userService,
+        private readonly PermissionResolver $permissionResolver
     ) {
-        $this->currencyService = $currencyService;
-        $this->productPriceService = $productPriceService;
-        $this->priceResolver = $priceResolver;
-        $this->productService = $productService;
-        $this->userService = $userService;
-        $this->permissionResolver = $permissionResolver;
-
         parent::__construct();
     }
 

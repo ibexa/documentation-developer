@@ -18,12 +18,8 @@ use Symfony\Component\Console\Output\OutputInterface;
 )]
 class FindWithAggregationCommand extends Command
 {
-    private SearchService $searchService;
-
-    public function __construct(SearchService $searchService)
+    public function __construct(private readonly SearchService $searchService)
     {
-        $this->searchService = $searchService;
-
         parent::__construct();
     }
 

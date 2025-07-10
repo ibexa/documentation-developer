@@ -16,22 +16,10 @@ use Symfony\Component\HttpFoundation\ResponseHeaderBag;
 
 class SvgController extends Controller
 {
-    private const CONTENT_TYPE_HEADER = 'image/svg+xml';
+    private const string CONTENT_TYPE_HEADER = 'image/svg+xml';
 
-    private ContentService $contentService;
-
-    private IOServiceInterface $ioService;
-
-    private TranslationHelper $translationHelper;
-
-    public function __construct(
-        ContentService $contentService,
-        IOServiceInterface $ioService,
-        TranslationHelper $translationHelper
-    ) {
-        $this->contentService = $contentService;
-        $this->ioService = $ioService;
-        $this->translationHelper = $translationHelper;
+    public function __construct(private readonly ContentService $contentService, private readonly IOServiceInterface $ioService, private readonly TranslationHelper $translationHelper)
+    {
     }
 
     /**

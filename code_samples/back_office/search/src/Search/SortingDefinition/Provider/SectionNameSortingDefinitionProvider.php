@@ -10,13 +10,10 @@ use JMS\TranslationBundle\Model\Message;
 use JMS\TranslationBundle\Translation\TranslationContainerInterface;
 use Symfony\Contracts\Translation\TranslatorInterface;
 
-final class SectionNameSortingDefinitionProvider implements SortingDefinitionProviderInterface, TranslationContainerInterface
+final readonly class SectionNameSortingDefinitionProvider implements SortingDefinitionProviderInterface, TranslationContainerInterface
 {
-    private TranslatorInterface $translator;
-
-    public function __construct(TranslatorInterface $translator)
+    public function __construct(private TranslatorInterface $translator)
     {
-        $this->translator = $translator;
     }
 
     public function getSortingDefinitions(): array

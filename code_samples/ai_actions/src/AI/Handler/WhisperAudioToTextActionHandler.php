@@ -15,7 +15,7 @@ use Symfony\Component\Process\Process;
 
 final class WhisperAudioToTextActionHandler implements ActionHandlerInterface
 {
-    private const TIMESTAMP_FORMAT = '/^\[\d{2}:\d{2}\.\d{3} --> \d{2}:\d{2}\.\d{3}]\s*/';
+    private const string TIMESTAMP_FORMAT = '/^\[\d{2}:\d{2}\.\d{3} --> \d{2}:\d{2}\.\d{3}]\s*/';
 
     public function supports(ActionInterface $action): bool
     {
@@ -33,7 +33,7 @@ final class WhisperAudioToTextActionHandler implements ActionHandlerInterface
 
         $language = $action->getRuntimeContext()?->get('languageCode');
         if ($language !== null) {
-            $arguments[] = sprintf('--language=%s', substr($language, 0, 2));
+            $arguments[] = sprintf('--language=%s', substr((string) $language, 0, 2));
         }
 
         $arguments[] = '--output_format=txt';
@@ -72,9 +72,7 @@ final class WhisperAudioToTextActionHandler implements ActionHandlerInterface
     {
         $lines = explode(PHP_EOL, $text);
 
-        $processedLines = array_map(static function (string $line): string {
-            return preg_replace(self::TIMESTAMP_FORMAT, '', $line) ?? '';
-        }, $lines);
+        $processedLines = array_map(static fn (string $line): string => preg_replace(self::TIMESTAMP_FORMAT, '', $line) ?? '', $lines);
 
         return implode(PHP_EOL, $processedLines);
     }

@@ -7,14 +7,10 @@ namespace App\FieldType\HelloWorld\Comparison;
 use Ibexa\Contracts\VersionComparison\Result\ComparisonResult;
 use Ibexa\VersionComparison\Result\Value\StringComparisonResult;
 
-final class HelloWorldComparisonResult implements ComparisonResult
+final readonly class HelloWorldComparisonResult implements ComparisonResult
 {
-    /** @var \Ibexa\VersionComparison\Result\Value\StringComparisonResult */
-    private \Ibexa\VersionComparison\Result\Value\StringComparisonResult $stringDiff;
-
-    public function __construct(StringComparisonResult $stringDiff)
+    public function __construct(private \Ibexa\VersionComparison\Result\Value\StringComparisonResult $stringDiff)
     {
-        $this->stringDiff = $stringDiff;
     }
 
     public function getHelloWorldDiff(): StringComparisonResult

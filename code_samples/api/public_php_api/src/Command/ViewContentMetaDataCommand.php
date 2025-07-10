@@ -21,27 +21,8 @@ use Symfony\Component\Console\Output\OutputInterface;
 )]
 class ViewContentMetaDataCommand extends Command
 {
-    private ContentService $contentService;
-
-    private LocationService $locationService;
-
-    private URLAliasService $urlAliasService;
-
-    private UserService $userService;
-
-    private ObjectStateService $objectStateService;
-
-    private PermissionResolver $permissionResolver;
-
-    public function __construct(ContentService $contentService, LocationService $locationService, URLAliasService $urlAliasService, UserService $userService, ObjectStateService $objectStateService, PermissionResolver $permissionResolver)
+    public function __construct(private readonly ContentService $contentService, private readonly LocationService $locationService, private readonly URLAliasService $urlAliasService, private readonly UserService $userService, private readonly ObjectStateService $objectStateService, private readonly PermissionResolver $permissionResolver)
     {
-        $this->contentService = $contentService;
-        $this->locationService = $locationService;
-        $this->urlAliasService = $urlAliasService;
-        $this->userService = $userService;
-        $this->objectStateService = $objectStateService;
-        $this->permissionResolver = $permissionResolver;
-
         parent::__construct();
     }
 

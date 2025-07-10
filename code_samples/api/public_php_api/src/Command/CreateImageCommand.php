@@ -20,24 +20,8 @@ use Symfony\Component\Console\Output\OutputInterface;
 )]
 class CreateImageCommand extends Command
 {
-    private ContentService $contentService;
-
-    private ContentTypeService $contentTypeService;
-
-    private LocationService $locationService;
-
-    private UserService $userService;
-
-    private PermissionResolver $permissionResolver;
-
-    public function __construct(ContentService $contentService, ContentTypeService $contentTypeService, LocationService $locationService, UserService $userService, PermissionResolver $permissionResolver)
+    public function __construct(private readonly ContentService $contentService, private readonly ContentTypeService $contentTypeService, private readonly LocationService $locationService, private readonly UserService $userService, private readonly PermissionResolver $permissionResolver)
     {
-        $this->contentService = $contentService;
-        $this->contentTypeService = $contentTypeService;
-        $this->locationService = $locationService;
-        $this->userService = $userService;
-        $this->permissionResolver = $permissionResolver;
-
         parent::__construct();
     }
 
@@ -67,7 +51,7 @@ class CreateImageCommand extends Command
             [
                 'path' => $file,
                 'fileSize' => filesize($file),
-                'fileName' => basename($file),
+                'fileName' => basename((string) $file),
                 'alternativeText' => $name,
             ]
         );

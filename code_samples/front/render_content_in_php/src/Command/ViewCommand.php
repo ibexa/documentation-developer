@@ -16,17 +16,10 @@ use Symfony\Component\Console\Output\OutputInterface;
 )]
 class ViewCommand extends Command
 {
-    private ContentViewBuilder $contentViewBuilder;
-
-    private TemplateRenderer $templateRenderer;
-
     public function __construct(
-        ContentViewBuilder $contentViewBuilder,
-        TemplateRenderer $templateRenderer
+        private readonly ContentViewBuilder $contentViewBuilder,
+        private readonly TemplateRenderer $templateRenderer
     ) {
-        $this->contentViewBuilder = $contentViewBuilder;
-        $this->templateRenderer = $templateRenderer;
-
         parent::__construct();
     }
 

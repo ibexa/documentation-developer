@@ -27,41 +27,16 @@ use Symfony\Component\Console\Output\OutputInterface;
 )]
 final class CartCommand extends Command
 {
-    private PermissionResolver $permissionResolver;
-
-    private UserService $userService;
-
-    private CartServiceInterface $cartService;
-
-    private CurrencyServiceInterface $currencyService;
-
-    private ProductServiceInterface $productService;
-
-    private OrderServiceInterface $orderService;
-
-    private ReorderService $reorderService;
-
-    private CartResolverInterface $cartResolver;
-
     public function __construct(
-        PermissionResolver $permissionResolver,
-        UserService $userService,
-        CartServiceInterface $cartService,
-        CurrencyServiceInterface $currencyService,
-        ProductServiceInterface $productService,
-        OrderServiceInterface $orderService,
-        ReorderService $reorderService,
-        CartResolverInterface $cartResolver
+        private readonly PermissionResolver $permissionResolver,
+        private readonly UserService $userService,
+        private readonly CartServiceInterface $cartService,
+        private readonly CurrencyServiceInterface $currencyService,
+        private readonly ProductServiceInterface $productService,
+        private readonly OrderServiceInterface $orderService,
+        private readonly ReorderService $reorderService,
+        private readonly CartResolverInterface $cartResolver
     ) {
-        $this->cartService = $cartService;
-        $this->permissionResolver = $permissionResolver;
-        $this->userService = $userService;
-        $this->currencyService = $currencyService;
-        $this->productService = $productService;
-        $this->orderService = $orderService;
-        $this->reorderService = $reorderService;
-        $this->cartResolver = $cartResolver;
-
         parent::__construct();
     }
 

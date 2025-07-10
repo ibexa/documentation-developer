@@ -15,6 +15,7 @@ final class Type extends GenericType
         return 'point2d';
     }
 
+    #[\Override]
     public function getSettingsSchema(): array
     {
         return [

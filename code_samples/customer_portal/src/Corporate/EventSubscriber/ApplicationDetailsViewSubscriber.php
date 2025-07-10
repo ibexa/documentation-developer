@@ -13,15 +13,11 @@ use Symfony\Component\Form\FormFactoryInterface;
 
 final class ApplicationDetailsViewSubscriber extends AbstractViewSubscriber
 {
-    private FormFactoryInterface $formFactory;
-
     public function __construct(
         SiteAccessServiceInterface $siteAccessService,
-        FormFactoryInterface $formFactory
+        private readonly FormFactoryInterface $formFactory
     ) {
         parent::__construct($siteAccessService);
-
-        $this->formFactory = $formFactory;
     }
 
     /**

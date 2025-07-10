@@ -26,29 +26,13 @@ use Symfony\Component\Console\Output\OutputInterface;
 )]
 final class PaymentCommand extends Command
 {
-    private PermissionResolver $permissionResolver;
-
-    private UserService $userService;
-
-    private PaymentServiceInterface $paymentService;
-
-    private OrderServiceInterface $orderService;
-
-    private PaymentMethodServiceInterface $paymentMethodService;
-
     public function __construct(
-        PermissionResolver $permissionResolver,
-        UserService $userService,
-        PaymentServiceInterface $paymentService,
-        OrderServiceInterface $orderService,
-        PaymentMethodServiceInterface $paymentMethodService,
+        private readonly PermissionResolver $permissionResolver,
+        private readonly UserService $userService,
+        private readonly PaymentServiceInterface $paymentService,
+        private readonly OrderServiceInterface $orderService,
+        private readonly PaymentMethodServiceInterface $paymentMethodService,
     ) {
-        $this->paymentService = $paymentService;
-        $this->permissionResolver = $permissionResolver;
-        $this->userService = $userService;
-        $this->orderService = $orderService;
-        $this->paymentMethodService = $paymentMethodService;
-
         parent::__construct();
     }
 

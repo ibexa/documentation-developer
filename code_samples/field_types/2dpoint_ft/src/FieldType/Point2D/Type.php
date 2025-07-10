@@ -19,6 +19,7 @@ final class Type extends GenericType implements FieldValueFormMapperInterface, F
         return 'point2d';
     }
 
+    #[\Override]
     public function getSettingsSchema(): array
     {
         return [

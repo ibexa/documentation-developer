@@ -12,7 +12,7 @@ use JMS\TranslationBundle\Translation\TranslationContainerInterface;
 
 final class CustomerNotNullValidator implements OptionsValidatorInterface, TranslationContainerInterface
 {
-    public const MESSAGE = 'Customer identifier value cannot be null';
+    public const string MESSAGE = 'Customer identifier value cannot be null';
 
     public function validateOptions(OptionsBag $options): array
     {

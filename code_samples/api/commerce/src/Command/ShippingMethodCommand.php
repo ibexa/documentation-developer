@@ -23,25 +23,12 @@ use Symfony\Component\Console\Output\OutputInterface;
 )]
 final class ShippingMethodCommand extends Command
 {
-    private PermissionResolver $permissionResolver;
-
-    private UserService $userService;
-
-    private ShippingMethodServiceInterface $shippingMethodService;
-
-    private RegionServiceInterface $regionService;
-
     public function __construct(
-        PermissionResolver $permissionResolver,
-        UserService $userService,
-        ShippingMethodServiceInterface $shippingMethodService,
-        RegionServiceInterface $regionService
+        private readonly PermissionResolver $permissionResolver,
+        private readonly UserService $userService,
+        private readonly ShippingMethodServiceInterface $shippingMethodService,
+        private readonly RegionServiceInterface $regionService
     ) {
-        $this->shippingMethodService = $shippingMethodService;
-        $this->permissionResolver = $permissionResolver;
-        $this->userService = $userService;
-        $this->regionService = $regionService;
-
         parent::__construct();
     }
 

@@ -17,18 +17,8 @@ use Symfony\Component\Console\Output\OutputInterface;
 )]
 class SegmentCommand extends Command
 {
-    private SegmentationService $segmentationService;
-
-    private UserService $userService;
-
-    private PermissionResolver $permissionResolver;
-
-    public function __construct(SegmentationService $segmentationService, UserService $userService, PermissionResolver $permissionResolver)
+    public function __construct(private readonly SegmentationService $segmentationService, private readonly UserService $userService, private readonly PermissionResolver $permissionResolver)
     {
-        $this->segmentationService = $segmentationService;
-        $this->permissionResolver = $permissionResolver;
-        $this->userService = $userService;
-
         parent::__construct();
     }
 
