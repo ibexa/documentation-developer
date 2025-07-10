@@ -10,19 +10,17 @@ use Twig\TwigFunction;
 
 class SvgExtension extends AbstractExtension
 {
-    protected RouterInterface $router;
-
     /**
      * SvgExtension constructor.
      */
-    public function __construct(RouterInterface $router)
+    public function __construct(protected RouterInterface $router)
     {
-        $this->router = $router;
     }
 
     /**
      * @return \Twig\TwigFunction[]
      */
+    #[\Override]
     public function getFunctions(): array
     {
         return [

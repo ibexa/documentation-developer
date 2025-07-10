@@ -16,18 +16,8 @@ use Symfony\Component\Console\Output\OutputInterface;
 )]
 final class ProductTypeCommand extends Command
 {
-    private UserService $userService;
-
-    private PermissionResolver $permissionResolver;
-
-    private ProductTypeServiceInterface $productTypeService;
-
-    public function __construct(UserService $userService, PermissionResolver $permissionResolver, ProductTypeServiceInterface $productTypeService)
+    public function __construct(private readonly UserService $userService, private readonly PermissionResolver $permissionResolver, private readonly ProductTypeServiceInterface $productTypeService)
     {
-        $this->userService = $userService;
-        $this->permissionResolver = $permissionResolver;
-        $this->productTypeService = $productTypeService;
-
         parent::__construct();
     }
 

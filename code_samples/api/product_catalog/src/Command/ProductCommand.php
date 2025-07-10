@@ -24,33 +24,14 @@ use Symfony\Component\Console\Output\OutputInterface;
 )]
 final class ProductCommand extends Command
 {
-    private UserService $userService;
-
-    private PermissionResolver $permissionResolver;
-
-    private ProductTypeServiceInterface $productTypeService;
-
-    private ProductServiceInterface $productService;
-
-    private LocalProductServiceInterface $localProductService;
-
-    private ProductAvailabilityServiceInterface $productAvailabilityService;
-
     public function __construct(
-        UserService $userService,
-        PermissionResolver $permissionResolver,
-        ProductTypeServiceInterface $productTypeService,
-        ProductServiceInterface $productService,
-        LocalProductServiceInterface $localProductService,
-        ProductAvailabilityServiceInterface $productAvailabilityService
+        private readonly UserService $userService,
+        private readonly PermissionResolver $permissionResolver,
+        private readonly ProductTypeServiceInterface $productTypeService,
+        private readonly ProductServiceInterface $productService,
+        private readonly LocalProductServiceInterface $localProductService,
+        private readonly ProductAvailabilityServiceInterface $productAvailabilityService
     ) {
-        $this->userService = $userService;
-        $this->permissionResolver = $permissionResolver;
-        $this->productService = $productService;
-        $this->productTypeService = $productTypeService;
-        $this->localProductService = $localProductService;
-        $this->productAvailabilityService = $productAvailabilityService;
-
         parent::__construct();
     }
 

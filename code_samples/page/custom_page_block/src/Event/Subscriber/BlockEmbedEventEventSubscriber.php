@@ -9,11 +9,8 @@ use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
 class BlockEmbedEventEventSubscriber implements EventSubscriberInterface
 {
-    private ContentService $contentService;
-
-    public function __construct(ContentService $contentService)
+    public function __construct(private readonly ContentService $contentService)
     {
-        $this->contentService = $contentService;
     }
 
     public static function getSubscribedEvents(): array

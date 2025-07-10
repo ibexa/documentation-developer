@@ -16,12 +16,8 @@ use Symfony\Component\Console\Output\OutputInterface;
 )]
 class FindInTrashCommand extends Command
 {
-    private TrashService $trashService;
-
-    public function __construct(TrashService $trashService)
+    public function __construct(private readonly TrashService $trashService)
     {
-        $this->trashService = $trashService;
-
         parent::__construct();
     }
 

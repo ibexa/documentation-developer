@@ -13,9 +13,9 @@ use Symfony\Component\Form\FormBuilderInterface;
 
 final class VerifyType extends AbstractType
 {
-    private const FIELD_APPLICATION = 'application';
-    private const FIELD_NOTES = 'notes';
-    private const FIELD_VERIFY = 'verify';
+    private const string FIELD_APPLICATION = 'application';
+    private const string FIELD_NOTES = 'notes';
+    private const string FIELD_VERIFY = 'verify';
 
     public function buildForm(
         FormBuilderInterface $builder,

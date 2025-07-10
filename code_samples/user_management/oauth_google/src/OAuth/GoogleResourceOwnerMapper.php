@@ -17,35 +17,17 @@ use Symfony\Component\Security\Core\User\UserProviderInterface;
 
 final class GoogleResourceOwnerMapper extends ResourceOwnerToExistingOrNewUserMapper
 {
-    private const PROVIDER_PREFIX = 'google:';
-
-    private OAuth2UserService $oauthUserService;
-
-    private LanguageResolver $languageResolver;
-
-    private UserService $userService;
-
-    /** @var string|null */
-    private ?string $contentTypeIdentifier;
-
-    /** @var string|null */
-    private ?string $parentGroupRemoteId;
+    private const string PROVIDER_PREFIX = 'google:';
 
     public function __construct(
         Repository $repository,
-        OAuth2UserService $oauthUserService,
-        LanguageResolver $languageResolver,
-        UserService $userService,
-        ?string $contentTypeIdentifier = null,
-        ?string $parentGroupRemoteId = null
+        private readonly OAuth2UserService $oauthUserService,
+        private readonly LanguageResolver $languageResolver,
+        private readonly UserService $userService,
+        private readonly ?string $contentTypeIdentifier = null,
+        private readonly ?string $parentGroupRemoteId = null
     ) {
         parent::__construct($repository);
-
-        $this->oauthUserService = $oauthUserService;
-        $this->languageResolver = $languageResolver;
-        $this->userService = $userService;
-        $this->contentTypeIdentifier = $contentTypeIdentifier;
-        $this->parentGroupRemoteId = $parentGroupRemoteId;
     }
 
     /**

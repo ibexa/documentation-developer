@@ -9,14 +9,10 @@ use Ibexa\Contracts\Core\Repository\Values\Content\Thumbnail;
 use Ibexa\Contracts\Core\Repository\Values\Content\VersionInfo;
 use Ibexa\Contracts\Core\Repository\Values\ContentType\ContentType;
 
-final class StaticThumbnailStrategy implements ThumbnailStrategy
+final readonly class StaticThumbnailStrategy implements ThumbnailStrategy
 {
-    /** @var string */
-    private $staticThumbnail;
-
-    public function __construct(string $staticThumbnail)
+    public function __construct(private string $staticThumbnail)
     {
-        $this->staticThumbnail = $staticThumbnail;
     }
 
     public function getThumbnail(ContentType $contentType, array $fields, ?VersionInfo $versionInfo = null): ?Thumbnail

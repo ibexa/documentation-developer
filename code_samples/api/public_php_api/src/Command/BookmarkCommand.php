@@ -16,15 +16,8 @@ use Symfony\Component\Console\Output\OutputInterface;
 )]
 class BookmarkCommand extends Command
 {
-    private BookmarkService $bookmarkService;
-
-    private LocationService $locationService;
-
-    public function __construct(BookmarkService $bookmarkService, LocationService $locationService)
+    public function __construct(private readonly BookmarkService $bookmarkService, private readonly LocationService $locationService)
     {
-        $this->bookmarkService = $bookmarkService;
-        $this->locationService = $locationService;
-
         parent::__construct();
     }
 

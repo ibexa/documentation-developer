@@ -21,25 +21,12 @@ use Symfony\Component\Console\Output\OutputInterface;
 )]
 final class ProductVariantCommand extends Command
 {
-    private UserService $userService;
-
-    private PermissionResolver $permissionResolver;
-
-    private ProductServiceInterface $productService;
-
-    private LocalProductServiceInterface $localProductService;
-
     public function __construct(
-        UserService $userService,
-        PermissionResolver $permissionResolver,
-        ProductServiceInterface $productService,
-        LocalProductServiceInterface $localProductService
+        private readonly UserService $userService,
+        private readonly PermissionResolver $permissionResolver,
+        private readonly ProductServiceInterface $productService,
+        private readonly LocalProductServiceInterface $localProductService
     ) {
-        $this->userService = $userService;
-        $this->permissionResolver = $permissionResolver;
-        $this->productService = $productService;
-        $this->localProductService = $localProductService;
-
         parent::__construct();
     }
 

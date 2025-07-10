@@ -18,21 +18,8 @@ use Symfony\Component\Console\Output\OutputInterface;
 )]
 class ObjectStateCommand extends Command
 {
-    private ContentService $contentService;
-
-    private UserService $userService;
-
-    private ObjectStateService $objectStateService;
-
-    private PermissionResolver $permissionResolver;
-
-    public function __construct(ContentService $contentService, UserService $userService, ObjectStateService $objectStateService, PermissionResolver $permissionResolver)
+    public function __construct(private readonly ContentService $contentService, private readonly UserService $userService, private readonly ObjectStateService $objectStateService, private readonly PermissionResolver $permissionResolver)
     {
-        $this->contentService = $contentService;
-        $this->userService = $userService;
-        $this->objectStateService = $objectStateService;
-        $this->permissionResolver = $permissionResolver;
-
         parent::__construct();
     }
 
@@ -58,7 +45,7 @@ class ObjectStateCommand extends Command
         $output->writeln($objectState->getName());
 
         $objectStateGroupIdentifier = $input->getArgument('objectStateGroupIdentifier');
-        $objectStateIdentifierList = explode(',', $input->getArgument('objectStateIdentifier'));
+        $objectStateIdentifierList = explode(',', (string) $input->getArgument('objectStateIdentifier'));
 
         $objectStateGroupStruct = $this->objectStateService->newObjectStateGroupCreateStruct($objectStateGroupIdentifier);
         $objectStateGroupStruct->defaultLanguageCode = 'eng-GB';

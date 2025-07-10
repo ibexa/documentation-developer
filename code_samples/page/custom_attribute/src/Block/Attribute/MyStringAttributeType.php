@@ -7,11 +7,13 @@ use Symfony\Component\Form\Extension\Core\Type\TextType;
 
 class MyStringAttributeType extends AbstractType
 {
+    #[\Override]
     public function getParent(): ?string
     {
         return TextType::class;
     }
 
+    #[\Override]
     public function getBlockPrefix(): string
     {
         return 'my_string_attribute';

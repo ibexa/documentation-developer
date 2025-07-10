@@ -14,6 +14,7 @@ return RectorConfig::configure()
     ->withPaths([
         __DIR__ . '/code_samples',
     ])
+    ->withPhpSets()
     ->withSets([
         IbexaSetList::IBEXA_50->value,
         SymfonySetList::SYMFONY_60,

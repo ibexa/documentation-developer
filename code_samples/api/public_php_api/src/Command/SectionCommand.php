@@ -21,24 +21,8 @@ use Symfony\Component\Console\Output\OutputInterface;
 )]
 class SectionCommand extends Command
 {
-    private SectionService $sectionService;
-
-    private UserService $userService;
-
-    private SearchService $searchService;
-
-    private ContentService $contentService;
-
-    private PermissionResolver $permissionResolver;
-
-    public function __construct(SectionService $sectionService, UserService $userService, ContentService $contentService, SearchService $searchService, PermissionResolver $permissionResolver)
+    public function __construct(private readonly SectionService $sectionService, private readonly UserService $userService, private readonly ContentService $contentService, private readonly SearchService $searchService, private readonly PermissionResolver $permissionResolver)
     {
-        $this->sectionService = $sectionService;
-        $this->userService = $userService;
-        $this->permissionResolver = $permissionResolver;
-        $this->searchService = $searchService;
-        $this->contentService = $contentService;
-
         parent::__construct();
     }
 

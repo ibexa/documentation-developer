@@ -11,12 +11,8 @@ use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
 class MyFeaturePostActivityListLoadEventSubscriber implements EventSubscriberInterface
 {
-    private MyFeatureService $myFeatureService;
-
-    public function __construct(
-        MyFeatureService $myFeatureService
-    ) {
-        $this->myFeatureService = $myFeatureService;
+    public function __construct(private readonly MyFeatureService $myFeatureService)
+    {
     }
 
     public static function getSubscribedEvents(): array
@@ -47,7 +43,7 @@ class MyFeaturePostActivityListLoadEventSubscriber implements EventSubscriberInt
                     }
 
                     $log->setRelatedObject($visitedIds[$id]);
-                } catch (NotFoundException|UnauthorizedException $e) {
+                } catch (NotFoundException|UnauthorizedException) {
                     $visitedIds[$id] = null;
                 }
             }

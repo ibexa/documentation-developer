@@ -10,7 +10,7 @@ use Ibexa\Contracts\Rest\Output\Visitor;
 
 final class AudioText extends ValueObjectVisitor
 {
-    private const OBJECT_IDENTIFIER = 'AudioText';
+    private const string OBJECT_IDENTIFIER = 'AudioText';
 
     public function visit(Visitor $visitor, Generator $generator, $data): void
     {

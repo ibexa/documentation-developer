@@ -14,12 +14,8 @@ use Symfony\Component\Console\Output\OutputInterface;
 )]
 final class MigrationCommand extends Command
 {
-    private MigrationService $migrationService;
-
-    public function __construct(MigrationService $migrationService)
+    public function __construct(private readonly MigrationService $migrationService)
     {
-        $this->migrationService = $migrationService;
-
         parent::__construct();
     }
 

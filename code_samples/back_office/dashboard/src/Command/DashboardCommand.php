@@ -20,21 +20,18 @@ use Symfony\Component\Console\Output\OutputInterface;
 )]
 class DashboardCommand extends Command
 {
-    private DashboardServiceInterface $dashboardService;
+    private readonly Locationservice $locationService;
 
-    private Locationservice $locationService;
+    private readonly ContentService $contentService;
 
-    private ContentService $contentService;
+    private readonly UserService $userService;
 
-    private UserService $userService;
-
-    private PermissionResolver $permissionResolver;
+    private readonly PermissionResolver $permissionResolver;
 
     public function __construct(
-        DashboardServiceInterface $dashboardService,
+        private readonly DashboardServiceInterface $dashboardService,
         Repository $repository
     ) {
-        $this->dashboardService = $dashboardService;
         $this->locationService = $repository->getLocationService();
         $this->contentService = $repository->getContentService();
         $this->userService = $repository->getUserService();

@@ -19,25 +19,12 @@ use Symfony\Component\Console\Output\OutputInterface;
 )]
 final class ProductAssetCommand extends Command
 {
-    private UserService $userService;
-
-    private PermissionResolver $permissionResolver;
-
-    private ProductServiceInterface $productService;
-
-    private AssetServiceInterface $assetService;
-
     public function __construct(
-        UserService $userService,
-        PermissionResolver $permissionResolver,
-        ProductServiceInterface $productService,
-        AssetServiceInterface $assetService
+        private readonly UserService $userService,
+        private readonly PermissionResolver $permissionResolver,
+        private readonly ProductServiceInterface $productService,
+        private readonly AssetServiceInterface $assetService
     ) {
-        $this->userService = $userService;
-        $this->permissionResolver = $permissionResolver;
-        $this->productService = $productService;
-        $this->assetService = $assetService;
-
         parent::__construct();
     }
 

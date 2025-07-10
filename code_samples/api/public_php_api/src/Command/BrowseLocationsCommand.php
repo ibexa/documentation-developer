@@ -16,12 +16,8 @@ use Symfony\Component\Console\Output\OutputInterface;
 )]
 class BrowseLocationsCommand extends Command
 {
-    private LocationService $locationService;
-
-    public function __construct(LocationService $locationService)
+    public function __construct(private readonly LocationService $locationService)
     {
-        $this->locationService = $locationService;
-
         parent::__construct();
     }
 

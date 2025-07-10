@@ -24,7 +24,7 @@ final class PriorityRangeAggregationResultExtractor implements AggregationResult
     {
         $entries = [];
         foreach ($data as $key => $bucket) {
-            if ($key === 'count' || strpos($key, '_') === false) {
+            if ($key === 'count' || !str_contains($key, '_')) {
                 continue;
             }
             [$from, $to] = explode('_', $key, 2);

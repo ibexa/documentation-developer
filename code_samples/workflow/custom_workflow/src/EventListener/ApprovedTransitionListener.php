@@ -10,11 +10,8 @@ use Symfony\Component\Workflow\Event\TransitionEvent;
 
 class ApprovedTransitionListener extends AbstractTransitionWorkflowActionListener
 {
-    private NotificationInterface $notificationHandler;
-
-    public function __construct(NotificationInterface $notificationHandler)
+    public function __construct(private readonly NotificationInterface $notificationHandler)
     {
-        $this->notificationHandler = $notificationHandler;
     }
 
     public function getIdentifier(): string

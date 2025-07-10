@@ -13,8 +13,8 @@ use Ibexa\Rest\Input\BaseParser;
 
 final class TranscribeAudio extends BaseParser
 {
-    public const AUDIO_KEY = 'Audio';
-    public const BASE64_KEY = 'base64';
+    public const string AUDIO_KEY = 'Audio';
+    public const string BASE64_KEY = 'base64';
 
     /** @param array<mixed> $data */
     public function parse(array $data, ParsingDispatcher $parsingDispatcher): TranscribeAudioAction

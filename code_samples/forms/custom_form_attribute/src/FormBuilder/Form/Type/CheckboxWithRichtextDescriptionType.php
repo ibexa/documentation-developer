@@ -13,6 +13,7 @@ class CheckboxWithRichtextDescriptionType extends AbstractType
     /**
      * @return string|null
      */
+    #[\Override]
     public function getParent(): ?string
     {
         return CheckboxType::class;
@@ -21,6 +22,7 @@ class CheckboxWithRichtextDescriptionType extends AbstractType
     /**
      * @return string
      */
+    #[\Override]
     public function getBlockPrefix(): string
     {
         return 'checkbox_with_richtext_description';

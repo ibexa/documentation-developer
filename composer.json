@@ -11,6 +11,9 @@
             "url": "https://updates.ibexa.co"
         }
     ],
+    "require": {
+        "php": "^8.3"
+    },
     "require-dev": {
         "ibexa/automated-translation": "5.0.x-dev",
         "ibexa/code-style": "~2.0.0",

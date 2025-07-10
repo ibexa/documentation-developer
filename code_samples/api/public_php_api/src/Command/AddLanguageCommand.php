@@ -16,18 +16,8 @@ use Symfony\Component\Console\Output\OutputInterface;
 )]
 class AddLanguageCommand extends Command
 {
-    private LanguageService $languageService;
-
-    private UserService $userService;
-
-    private PermissionResolver $permissionResolver;
-
-    public function __construct(LanguageService $languageService, UserService $userService, PermissionResolver $permissionResolver)
+    public function __construct(private readonly LanguageService $languageService, private readonly UserService $userService, private readonly PermissionResolver $permissionResolver)
     {
-        $this->languageService = $languageService;
-        $this->userService = $userService;
-        $this->permissionResolver = $permissionResolver;
-
         parent::__construct();
     }
 

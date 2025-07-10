@@ -14,14 +14,8 @@ final class AiClient implements ClientInterface
     /** @var array<string> */
     private array $supportedLanguages;
 
-    private ActionServiceInterface $actionService;
-
-    private ActionConfigurationServiceInterface $actionConfigurationService;
-
-    public function __construct(ActionServiceInterface $actionService, ActionConfigurationServiceInterface $actionConfigurationService)
+    public function __construct(private readonly ActionServiceInterface $actionService, private readonly ActionConfigurationServiceInterface $actionConfigurationService)
     {
-        $this->actionService = $actionService;
-        $this->actionConfigurationService = $actionConfigurationService;
     }
 
     public function setConfiguration(array $configuration): void

@@ -18,21 +18,8 @@ use Symfony\Component\Console\Output\OutputInterface;
 )]
 class AddLocationToContentCommand extends Command
 {
-    private ContentService $contentService;
-
-    private LocationService $locationService;
-
-    private UserService $userService;
-
-    private PermissionResolver $permissionResolver;
-
-    public function __construct(ContentService $contentService, LocationService $locationService, UserService $userService, PermissionResolver $permissionResolver)
+    public function __construct(private readonly ContentService $contentService, private readonly LocationService $locationService, private readonly UserService $userService, private readonly PermissionResolver $permissionResolver)
     {
-        $this->contentService = $contentService;
-        $this->locationService = $locationService;
-        $this->userService = $userService;
-        $this->permissionResolver = $permissionResolver;
-
         parent::__construct();
     }
 

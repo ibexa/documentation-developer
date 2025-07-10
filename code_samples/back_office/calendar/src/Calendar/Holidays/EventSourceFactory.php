@@ -10,11 +10,8 @@ use Ibexa\Contracts\Calendar\EventSource\EventSourceInterface;
 
 class EventSourceFactory
 {
-    private EventType $eventType;
-
-    public function __construct(EventType $eventType)
+    public function __construct(private readonly EventType $eventType)
     {
-        $this->eventType = $eventType;
     }
 
     public function createEventSource(): EventSourceInterface

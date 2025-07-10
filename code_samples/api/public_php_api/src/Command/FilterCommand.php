@@ -19,12 +19,8 @@ use Symfony\Component\Console\Output\OutputInterface;
 )]
 class FilterCommand extends Command
 {
-    private ContentService $contentService;
-
-    public function __construct(ContentService $contentService)
+    public function __construct(private readonly ContentService $contentService)
     {
-        $this->contentService = $contentService;
-
         parent::__construct();
     }
 

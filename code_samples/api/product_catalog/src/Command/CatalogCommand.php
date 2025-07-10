@@ -24,25 +24,12 @@ use Symfony\Component\Console\Output\OutputInterface;
 )]
 final class CatalogCommand extends Command
 {
-    private UserService $userService;
-
-    private PermissionResolver $permissionResolver;
-
-    private ProductServiceInterface $productService;
-
-    private CatalogServiceInterface $catalogService;
-
     public function __construct(
-        UserService $userService,
-        PermissionResolver $permissionResolver,
-        ProductServiceInterface $productService,
-        CatalogServiceInterface $catalogService
+        private readonly UserService $userService,
+        private readonly PermissionResolver $permissionResolver,
+        private readonly ProductServiceInterface $productService,
+        private readonly CatalogServiceInterface $catalogService
     ) {
-        $this->userService = $userService;
-        $this->permissionResolver = $permissionResolver;
-        $this->productService = $productService;
-        $this->catalogService = $catalogService;
-
         parent::__construct();
     }
 

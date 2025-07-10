@@ -27,7 +27,7 @@ final class PriorityRangeAggregationVisitor implements AggregationVisitor
         foreach ($aggregation->getRanges() as $range) {
             $from = $this->formatRangeValue($range->getFrom());
             $to = $this->formatRangeValue($range->getTo());
-            $rangeFacets["${from}_${to}"] = [
+            $rangeFacets["{$from}_{$to}"] = [
                 'type' => 'query',
                 'q' => sprintf('priority_i:[%s TO %s}', $from, $to),
             ];

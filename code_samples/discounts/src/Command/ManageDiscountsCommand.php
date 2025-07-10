@@ -23,29 +23,15 @@ use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
+#[\Symfony\Component\Console\Attribute\AsCommand(name: 'discounts:manage')]
 final class ManageDiscountsCommand extends Command
 {
-    protected static $defaultName = 'discounts:manage';
-
-    private DiscountServiceInterface $discountService;
-
-    private DiscountCodeServiceInterface $discountCodeService;
-
-    private PermissionResolver $permissionResolver;
-
-    private UserService $userService;
-
     public function __construct(
-        UserService $userSerice,
-        PermissionResolver $permissionResolver,
-        DiscountServiceInterface $discountService,
-        DiscountCodeServiceInterface $discountCodeService
+        private readonly UserService $userService,
+        private readonly PermissionResolver $permissionResolver,
+        private readonly DiscountServiceInterface $discountService,
+        private readonly DiscountCodeServiceInterface $discountCodeService
     ) {
-        $this->userService = $userSerice;
-        $this->discountService = $discountService;
-        $this->discountCodeService = $discountCodeService;
-        $this->permissionResolver = $permissionResolver;
-
         parent::__construct();
     }
 

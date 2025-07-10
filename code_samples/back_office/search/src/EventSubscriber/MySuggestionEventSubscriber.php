@@ -15,12 +15,8 @@ class MySuggestionEventSubscriber implements EventSubscriberInterface, LoggerAwa
 {
     use LoggerAwareTrait;
 
-    private ProductServiceInterface $productService;
-
-    public function __construct(
-        ProductServiceInterface $productService,
-    ) {
-        $this->productService = $productService;
+    public function __construct(private ProductServiceInterface $productService)
+    {
     }
 
     public static function getSubscribedEvents(): array
@@ -36,14 +32,12 @@ class MySuggestionEventSubscriber implements EventSubscriberInterface, LoggerAwa
         $suggestionCollection = $event->getSuggestionCollection();
 
         $text = $suggestionQuery->getQuery();
-        $words = explode(' ', preg_replace('/\s+/', ' ', $text));
+        $words = explode(' ', (string) preg_replace('/\s+/', ' ', $text));
         $limit = $suggestionQuery->getLimit();
 
         try {
             $productQuery = new ProductQuery(null, new Criterion\LogicalOr([
-                new Criterion\ProductName(implode(' ', array_map(static function (string $word) {
-                    return "$word*";
-                }, $words))),
+                new Criterion\ProductName(implode(' ', array_map(static fn (string $word) => "$word*", $words))),
                 new Criterion\ProductCode($words),
                 new Criterion\ProductType($words),
             ]), [], 0, $limit);

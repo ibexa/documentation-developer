@@ -19,15 +19,8 @@ use Symfony\Component\Console\Output\OutputInterface;
 )]
 class FindComplexCommand extends Command
 {
-    private SearchService $searchService;
-
-    private LocationService $locationService;
-
-    public function __construct(SearchService $searchService, LocationService $locationService)
+    public function __construct(private readonly SearchService $searchService, private readonly LocationService $locationService)
     {
-        $this->searchService = $searchService;
-        $this->locationService = $locationService;
-
         parent::__construct();
     }
 

@@ -12,17 +12,13 @@ use Ibexa\Contracts\ConnectorAi\ActionType\ActionTypeInterface;
 use Ibexa\Contracts\ConnectorAi\DataType;
 use Ibexa\Contracts\Core\Exception\InvalidArgumentException;
 
-final class TranscribeAudioActionType implements ActionTypeInterface
+final readonly class TranscribeAudioActionType implements ActionTypeInterface
 {
-    public const IDENTIFIER = 'transcribe_audio';
-
-    /** @var iterable<\Ibexa\Contracts\ConnectorAi\Action\ActionHandlerInterface> */
-    private iterable $actionHandlers;
+    public const string IDENTIFIER = 'transcribe_audio';
 
     /** @param iterable<\Ibexa\Contracts\ConnectorAi\Action\ActionHandlerInterface> $actionHandlers*/
-    public function __construct(iterable $actionHandlers)
+    public function __construct(private iterable $actionHandlers)
     {
-        $this->actionHandlers = $actionHandlers;
     }
 
     public function getIdentifier(): string
