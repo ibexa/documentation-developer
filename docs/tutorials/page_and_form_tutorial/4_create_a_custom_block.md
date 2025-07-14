@@ -48,7 +48,7 @@ At this point the new custom block is ready to be used.
 You're left with the last cosmetic changes.
 First, the new Block has a broken icon in the **Page blocks** toolbox in page mode.
 This is because you haven't provided this icon yet.
-If you look back to the YAML configuration, you can see the icon file defined as `random_block.svg` (line 4). Download [the provided file](https://github.com/ibexa/documentation-developer/blob/master/code_samples/tutorials/page_tutorial_starting_point/public/assets/images/blocks/random_block.svg) and place it in `public/assets/images/blocks`.
+If you look back to the YAML configuration, you can see the icon file defined as `random_block.svg` (line 4). Download [the provided file](https://github.com/ibexa/documentation-developer/blob/4.6/code_samples/tutorials/page_tutorial_starting_point/public/assets/images/blocks/random_block.svg) and place it in `public/assets/images/blocks`.
 
 Finally, add some styling for the new block. Add the following to the end of the `assets/css/style.css` file:
 
