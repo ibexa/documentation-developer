@@ -40,16 +40,9 @@ To store symbol attribute values, the `IbexaProductCatalogSymbolAttributeBundle`
 The following SQL query can be used to build the required database structure:
 
 ``` sql
-create table ibexa_product_specification_attribute_symbol (
-    id int not null primary key,
-    value varchar(255) null,
-    constraint ibexa_product_specification_attribute_symbol_fk
-        foreign key (id) references ibexa_product_specification_attribute (id)
-            on update cascade on delete cascade
-) collate = utf8mb4_unicode_520_ci;
-
-create index ibexa_product_specification_attribute_symbol_value_idx
-    on ibexa_product_specification_attribute_symbol (value);
+CREATE TABLE ibexa_product_specification_attribute_symbol (id INT NOT NULL, value VARCHAR(160) DEFAULT NULL, PRIMARY KEY(id));
+CREATE INDEX ibexa_product_specification_attribute_symbol_value_idx ON ibexa_product_specification_attribute_symbol (value);
+ALTER TABLE ibexa_product_specification_attribute_symbol ADD CONSTRAINT ibexa_product_specification_attribute_symbol_fk FOREIGN KEY (id) REFERENCES ibexa_product_specification_attribute (id) ON UPDATE CASCADE ON DELETE CASCADE NOT DEFERRABLE INITIALLY IMMEDIATE;
 ```
 
 ### Create symbol attribute definition (optional)
