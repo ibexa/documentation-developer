@@ -76,7 +76,7 @@ For more information, see [creating your own Actions](create_data_migration_acti
 mode: Create
 ``` yaml
     actions:
-        - { action: assign_object_state, identifier: locked, groupIdentifier: ez_lock }
+        - { action: assign_object_state, identifier: locked, groupIdentifier: ibexa_lock }
         - { action: assign_parent_location, value: 2 }
         - { action: hide }
 ```
