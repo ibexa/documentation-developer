@@ -172,14 +172,7 @@ Built-in expression language functions that are tagged with `ibexa.migrations.te
 - `env` - retrieves the value of an environmental variable.
 
 ```yaml
-                -
-                    type: user
-                    mode: update
-                    match:
-                        field: login
-                        value: admin
-                    metadata:
-                        password: '###XXX env("ADMIN_PASSWORD") XXX###'
+[[= include_file('code_samples/data_migration/examples/update_user.yaml') =]]
 ```
 
 #### Custom functions
@@ -317,6 +310,12 @@ You can use an [action](data_migration_actions.md) to assign a role to the user.
 
 ``` yaml hl_lines="22-23"
 [[= include_file('code_samples/data_migration/examples/create_user.yaml') =]]
+```
+
+You can also update users, including changing the user password:
+
+``` yaml
+[[= include_file('code_samples/data_migration/examples/update_user.yaml') =]]
 ```
 
 ### Languages
