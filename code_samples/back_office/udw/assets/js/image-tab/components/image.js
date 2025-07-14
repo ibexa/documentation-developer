@@ -40,7 +40,9 @@ const Image = ({ restInfo, location }) => {
     }, []);
 
     if (content) {
-        const imageField = content.CurrentVersion.Version.Fields.field.find((field) => field.fieldTypeIdentifier === 'ibexa_image').fieldValue;
+        const imageField = content.CurrentVersion.Version.Fields.field.find(
+            (field) => field.fieldTypeIdentifier === 'ibexa_image',
+        ).fieldValue;
 
         src = imageField.uri;
         alt = imageField.fileName;
