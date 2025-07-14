@@ -22,7 +22,7 @@ From the developer's perspective, checkouts are referenced with an UUID identifi
 To access a single checkout, use the `CheckoutServiceInterface::getCheckout` method:
 
 ``` php
-[[= include_file('code_samples/api/commerce/src/Controller/CustomCheckoutController.php', 32, 33) =]]
+[[= include_file('code_samples/api/commerce/src/Controller/CustomCheckoutController.php', 26, 27) =]]
 ```
 
 ## Get single checkout for specific cart
@@ -31,7 +31,7 @@ To fetch checkout for a cart that already exists, use the `CheckoutServiceInterf
 You can use it when you want to initiate the checkout process right after products are successfully added to a cart.
 
 ``` php
-[[= include_file('code_samples/api/commerce/src/Controller/CustomCheckoutController.php', 26, 30) =]]
+[[= include_file('code_samples/api/commerce/src/Controller/CustomCheckoutController.php', 20, 24) =]]
 ```
 
 ## Create checkout
@@ -39,7 +39,7 @@ You can use it when you want to initiate the checkout process right after produc
 To create a checkout, use the `CheckoutServiceInterface::createCheckout` method and provide it with a `CheckoutCreateStruct` struct that contains a `CartInterface` object.
 
 ``` php
-[[= include_file('code_samples/api/commerce/src/Controller/CustomCheckoutController.php', 35, 41) =]]
+[[= include_file('code_samples/api/commerce/src/Controller/CustomCheckoutController.php', 29, 35) =]]
 ```
 
 ## Update checkout
@@ -53,7 +53,7 @@ To update the checkout, use the `CheckoutServiceInterface::updateCheckout` metho
 All data is placed in session storage.
 
 ``` php
-[[= include_file('code_samples/api/commerce/src/Controller/CustomCheckoutController.php', 43, 45) =]]
+[[= include_file('code_samples/api/commerce/src/Controller/CustomCheckoutController.php', 37, 39) =]]
 ```
 
 ## Delete checkout
@@ -61,5 +61,5 @@ All data is placed in session storage.
 To delete a checkout from the session, use the `CheckoutServiceInterface::deleteCheckout` method:
 
 ``` php
-[[= include_file('code_samples/api/commerce/src/Controller/CustomCheckoutController.php', 47, 48) =]]
+[[= include_file('code_samples/api/commerce/src/Controller/CustomCheckoutController.php', 41, 42) =]]
 ```
