@@ -154,7 +154,7 @@ public function addPreferenceHash(FilterResponseEvent $event)
 2\. Adapt VCL logic to pass the header to requests:
 
 ```diff
-@@ -174,6 +174,7 @@ sub ez_user_context_hash {
+@@ -174,6 +174,7 @@ sub ibexa_user_context_hash {
      if (req.restarts == 0
          && (req.http.accept ~ "application/vnd.fos.user-context-hash"
              || req.http.X-Context-User-Hash

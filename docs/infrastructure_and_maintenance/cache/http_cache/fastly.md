@@ -47,8 +47,8 @@ You also need to set up domains, HTTPS and origin configuration (not covered her
 All commands are explained in detail [below](#view-and-modify-vcl-configuration):
 
 ``` bash
-fastly vcl custom create --name=ez_main.vcl --version=active --autoclone --content=vendor/ibexa/fastly/fastly/ez_main.vcl --main
-fastly vcl custom create --name=ez_user_hash.vcl --content=vendor/ibexa/fastly/fastly/ez_user_hash.vcl --version=latest
+fastly vcl custom create --name=ibexa_main.vcl --version=active --autoclone --content=vendor/ibexa/fastly/fastly/ibexa_main.vcl --main
+fastly vcl custom create --name=ibexa_user_hash.vcl --content=vendor/ibexa/fastly/fastly/ibexa_user_hash.vcl --version=latest
 fastly vcl snippet create --name="Re-Enable shielding on restart" --version=latest --priority 100 --type recv --content=vendor/ibexa/fastly/fastly/snippet_re_enable_shielding.vcl
 fastly service-version activate --version=latest
 ```
@@ -117,30 +117,30 @@ fastly service-version activate --version=latest
 
 Fastly configuration is stored in Varnish Configuration Language (VCL) files.
 You can change the behaviour of Fastly by [uploading custom VCL files](https://docs.fastly.com/en/guides/uploading-custom-vcl).
-[[= product_name =]] ships with two VCL files that need to be enabled for Fastly to work correctly with the platform; `ez_main.vcl` and `ez_user_hash.vcl` (located in `vendor/ibexa/fastly/fastly/`)
+[[= product_name =]] ships with two VCL files that need to be enabled for Fastly to work correctly with the platform; `ibexa_main.vcl` and `ibexa_user_hash.vcl` (located in `vendor/ibexa/fastly/fastly/`)
 
 ### List custom `.vcl` files for specific version
 
 ``` bash
 fastly vcl custom list --version 77
 SERVICE ID              VERSION  NAME              MAIN
-4SEKDky8P3wdrctwZCi1C1  77       ez_main.vcl       true
-4SEKDky8P3wdrctwZCi1C1  77       ez_user_hash.vcl  false
+4SEKDky8P3wdrctwZCi1C1  77       ibexa_main.vcl       true
+4SEKDky8P3wdrctwZCi1C1  77       ibexa_user_hash.vcl  false
 ```
 
-### Get `ez_main.vcl` for specific version
+### Get ibexa_main.vcl for specific version
 
 ``` bash
-fastly vcl custom describe --name=ez_main.vcl --version=77
+fastly vcl custom describe --name=ibexa_main.vcl --version=77
 
 Service ID: 4SEKDky8P3wdrctwZCi1C1
 Service Version: 77
 
-Name: ez_main.vcl
+Name: ibexa_main.vcl
 Main: true
 Content:
 
-include "ez_user_hash.vcl"
+include "ibexa_user_hash.vcl"
 
 sub vcl_recv {
 (....)
@@ -198,7 +198,7 @@ You can modify the existing Fastly configuration, for example, by uploading a mo
 Create a new version based on the one that is currently active, and upload the file:
 
 ``` bash
-fastly vcl custom update --name=ez_main.vcl --version=active --autoclone --content=vendor/ibexa/fastly/fastly/ez_main.vcl
+fastly vcl custom update --name=ibexa_main.vcl --version=active --autoclone --content=vendor/ibexa/fastly/fastly/ibexa_main.vcl
 ```
 
 Provide a description of the change in Fastly's version system:
@@ -220,7 +220,7 @@ You do it by creating [snippets](https://docs.fastly.com/en/guides/about-vcl-sni
 it's recommended that you use snippets instead of changing the VCL files provided by [[= product_name =]] as much as possible, which makes it easier to upgrade the [[= product_name =]] VCL configuration later.
 
 When you use snippets, the snippet code is injected into the VCL where the `#FASTLY ...` macros are placed.
-For example, if you create a snippet for the `recv` subroutine, it's injected into the `ez_main.vcl` file, the
+For example, if you create a snippet for the `recv` subroutine, it's injected into the `ibexa_main.vcl` file, the
 line where `#FASTLY recv` is found.
 
 ### List available snippets for specific version
@@ -232,7 +232,7 @@ KlUh0J1fnw1JY1aEQ0up    8        Re-Enable shielding on restart  false    1iJWIf
 ```
 
 !!! note
-    As of version 3.3.24, 4.1.6 and 4.2.0, [[= product_name =]] also requires one snippet to be installed, in addition to the custom VCLs `ez_main.vcl` and `ez_user_hash.vcl`. That snippet is by default named `Re-Enable shielding on restart`.
+    As of version 3.3.24, 4.1.6 and 4.2.0, [[= product_name =]] also requires one snippet to be installed, in addition to the custom VCLs `ibexa_main.vcl` and `ibexa_user_hash.vcl`. That snippet is by default named `Re-Enable shielding on restart`.
 
 ### Get details of installed snippets
 
