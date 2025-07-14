@@ -67,7 +67,7 @@ This field type supports `FloatValueValidator`, defining maximum and minimum flo
 use Ibexa\Core\FieldType\Float\Type;
 
 $contentTypeService = $repository->getContentTypeService();
-$floatFieldCreateStruct = $contentTypeService->newFieldDefinitionCreateStruct( "float", "ezfloat" );
+$floatFieldCreateStruct = $contentTypeService->newFieldDefinitionCreateStruct( "float", "ibexa_float" );
 
 // Accept only numbers between 0.1 and 203.99
 $floatFieldCreateStruct->validatorConfiguration = [

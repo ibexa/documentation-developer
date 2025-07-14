@@ -42,7 +42,7 @@ Below that, the field type must support the **public PHP API** implementation re
 - Communication with the Persistence SPI
 
 On the bottom level, a field type can additionally hook into the **Persistence SPI** to store data from a `FieldValue` in an external service.
-All non-standard [[= product_name =]] database tables (for example, `ezurl`) are treated as [external storage](field_type_storage.md#storing-data-externally).
+All non-standard [[= product_name =]] database tables (for example, `ibexa_url`) are treated as [external storage](field_type_storage.md#storing-data-externally).
 
 The following sequence diagrams visualize the process of creating and publishing new content across all layers, especially focused on the interaction with a field type.
 

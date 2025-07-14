@@ -46,7 +46,7 @@ Disable the Focus mode, go to content types screen and (under the content catego
 
 You also need to modify the built-in Article content type.
 It makes inserting photos into articles easier.
-Edit it to remove the Image field that has a Content Relation (ezobjectrelation) type, and create a new field in its place:
+Edit it to remove the Image field that has a Content Relation (ibexa_object_relation) type, and create a new field in its place:
 
 | Field type | Name  | Identifier | Required | Searchable | Translatable |
 |------------|-------|------------|----------|------------|--------------|

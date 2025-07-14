@@ -11,13 +11,13 @@
                 name: Blog Post
     fields:
         -   identifier: title
-            type: ezstring
+            type: ibexa_string
             required: true
             translations:
                 eng-GB:
                     name: 'Title'
         -   identifier: body
-            type: ezrichtext
+            type: ibexa_richtext
             required: false
             translations:
                 eng-GB:

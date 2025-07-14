@@ -10,7 +10,7 @@
                 name: Hat
     fields:
         -   identifier: name
-            type: ezstring
+            type: ibexa_string
             required: true
             translations:
                 eng-GB:

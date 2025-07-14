@@ -73,7 +73,7 @@ Those converters also need to be correctly exposed as services and tagged with `
 services:
     Ibexa\Core\Persistence\Legacy\Content\FieldValue\Converter\TextLine:
         tags:
-            - {name: ibexa.field_type.storage.legacy.converter, alias: ezstring}
+            - {name: ibexa.field_type.storage.legacy.converter, alias: ibexa_string}
 ```
 
 The tag has the following attribute:
