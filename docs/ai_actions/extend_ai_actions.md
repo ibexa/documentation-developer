@@ -14,7 +14,7 @@ For example, you can create a handler that connects to a translation model and u
 You can execute AI Actions by using the [ActionServiceInterface](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorAi-ActionServiceInterface.html) service, as in the following example:
 
 ``` php
-[[= include_file('code_samples/ai_actions/src/Command/AddMissingAltTextCommand.php', 105, 124) =]]
+[[= include_file('code_samples/ai_actions/src/Command/AddMissingAltTextCommand.php', 104, 131) =]]
 ```
 
 The `GenerateAltTextAction` is a built-in action that implements the [ActionInterface](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorAi-ActionInterface.html), takes an [Image](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorAi-Action-DataType-Image.html) as an input, and generates the alternative text in the response.

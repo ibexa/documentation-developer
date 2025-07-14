@@ -25,16 +25,16 @@ This value object provides primitive fields, such as `contentTypeId`, `published
 
 You can also use it to request other Content-related value objects from various services:
 
-``` php hl_lines="10"
+``` php hl_lines="8"
 // ...
 [[= include_file('code_samples/api/public_php_api/src/Command/ViewContentMetaDataCommand.php', 4, 5) =]]
-[[= include_file('code_samples/api/public_php_api/src/Command/ViewContentMetaDataCommand.php', 20, 22) =]]
+[[= include_file('code_samples/api/public_php_api/src/Command/ViewContentMetaDataCommand.php', 18, 22) =]]
 // ...
-[[= include_file('code_samples/api/public_php_api/src/Command/ViewContentMetaDataCommand.php', 55, 57) =]][[= include_file('code_samples/api/public_php_api/src/Command/ViewContentMetaDataCommand.php', 63, 72) =]]
+[[= include_file('code_samples/api/public_php_api/src/Command/ViewContentMetaDataCommand.php', 44, 46) =]][[= include_file('code_samples/api/public_php_api/src/Command/ViewContentMetaDataCommand.php', 54, 65) =]]
 ```
 
 
-`ContentInfo` is loaded from the [`ContentService`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-ContentService.html) (line 9).
+`ContentInfo` is loaded from the [`ContentService`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-ContentService.html) (line 8).
 It provides you with basic content metadata such as modification and publication dates or main language code.
 
 !!! note "Retrieving content information in a controller"
@@ -46,7 +46,7 @@ It provides you with basic content metadata such as modification and publication
 To get the locations of a content item you need to make use of the [`LocationService`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-LocationService.html):
 
 ``` php
-[[= include_file('code_samples/api/public_php_api/src/Command/ViewContentMetaDataCommand.php', 73, 77) =]]        }
+[[= include_file('code_samples/api/public_php_api/src/Command/ViewContentMetaDataCommand.php', 55, 61) =]]
 ```
 
 [`LocationService::loadLocations`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-LocationService.html#method_loadLocations) uses `ContentInfo` to get all the locations of a content item.

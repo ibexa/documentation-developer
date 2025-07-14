@@ -84,11 +84,11 @@ The following example shows how to create a Resource Owner mapper for the `googl
 Create a resource owner mapper for Google login in `src/OAuth/GoogleResourceOwnerMapper.php`.
 The mapper extends `ResourceOwnerToExistingOrNewUserMapper`, which enables it to create a new user in the repository if the user doesn't exist yet.
 
-The mapper loads a user (line 51) or creates a new one (line 61), based on the information from `resourceOwner`, that's the OAuth2 authorization server.
+The mapper loads a user (line 40) or creates a new one (line 49), based on the information from `resourceOwner`, that's the OAuth2 authorization server.
 
-The new username is set with a `google:` prefix (lines 19, 109), to avoid conflicts with users registered in a regular way.
+The new username is set with a `google:` prefix (lines 20, 91), to avoid conflicts with users registered in a regular way.
 
-``` php hl_lines="20 54 64 109"
+``` php hl_lines="20 40 67 91"
 [[= include_file('code_samples/user_management/oauth_google/src/OAuth/GoogleResourceOwnerMapper.php') =]]
 ```
 

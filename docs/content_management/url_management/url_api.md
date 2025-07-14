@@ -19,9 +19,9 @@ in which you need to specify:
 
 ```php
 // ...
-[[= include_file('code_samples/api/public_php_api/src/Command/FindUrlCommand.php', 7, 10) =]]
+[[= include_file('code_samples/api/public_php_api/src/Command/FindUrlCommand.php', 6, 10) =]]
 // ...
-[[= include_file('code_samples/api/public_php_api/src/Command/FindUrlCommand.php', 41, 56) =]]
+[[= include_file('code_samples/api/public_php_api/src/Command/FindUrlCommand.php', 32, 51) =]]
 ```
 
 ## URL search reference

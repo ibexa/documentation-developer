@@ -15,13 +15,13 @@ To load a segment group, use `SegmentationService::loadSegmentGroupByIdentifier(
 Get all segments assigned to the group with `SegmentationService::loadSegmentsAssignedToGroup()`:
 
 ``` php
-[[= include_file('code_samples/api/public_php_api/src/Command/SegmentCommand.php', 54, 62) =]]
+[[= include_file('code_samples/api/public_php_api/src/Command/SegmentCommand.php', 46, 52) =]]
 ```
 
 Similarly, you can load a segment by using `SegmentationService::loadSegmentByIdentifier()`:
 
 ``` php
-[[= include_file('code_samples/api/public_php_api/src/Command/SegmentCommand.php', 62, 63) =]]
+[[= include_file('code_samples/api/public_php_api/src/Command/SegmentCommand.php', 54, 54) =]]
 ```
 
 ## Checking assignment
@@ -29,7 +29,7 @@ Similarly, you can load a segment by using `SegmentationService::loadSegmentById
 You can check whether a user is assigned to a segment with `SegmentationService::isUserAssignedToSegment()`:
 
 ``` php
-[[= include_file('code_samples/api/public_php_api/src/Command/SegmentCommand.php', 66, 71) =]]
+[[= include_file('code_samples/api/public_php_api/src/Command/SegmentCommand.php', 58, 62) =]]
 ```
 
 ## Assigning users
@@ -37,7 +37,7 @@ You can check whether a user is assigned to a segment with `SegmentationService:
 To assign a user to a segment, use `SegmentationService::assignUserToSegment()`:
 
 ``` php
-[[= include_file('code_samples/api/public_php_api/src/Command/SegmentCommand.php', 64, 65) =]]
+[[= include_file('code_samples/api/public_php_api/src/Command/SegmentCommand.php', 56, 56) =]]
 ```
 
 ## Creating segments
@@ -47,13 +47,13 @@ Each segment must be assigned to a segment group.
 To create a segment group, use `SegmentationService::createSegmentGroup()` and provide it with a `SegmentGroupCreateStruct`:
 
 ``` php
-[[= include_file('code_samples/api/public_php_api/src/Command/SegmentCommand.php', 38, 45) =]]
+[[= include_file('code_samples/api/public_php_api/src/Command/SegmentCommand.php', 30, 36) =]]
 ```
 
 To add a segment, use `SegmentationService::createSegment()` and provide it with a `SegmentCreateStruct`, which takes an existing group as one of the parameters:
 
 ``` php
-[[= include_file('code_samples/api/public_php_api/src/Command/SegmentCommand.php', 46, 53) =]]
+[[= include_file('code_samples/api/public_php_api/src/Command/SegmentCommand.php', 38, 44) =]]
 ```
 
 ## Updating segments
