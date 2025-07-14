@@ -183,4 +183,4 @@ mode: Update
 
 !!! note
 
-    In the `unassign_role_user_group` action, the ID is role assignment ID from the `ezuser_role` table.
+    In the `unassign_role_user_group` action, the ID is role assignment ID from the `ibexa_user_role` table.
