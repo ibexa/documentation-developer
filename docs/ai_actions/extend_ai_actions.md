@@ -233,7 +233,7 @@ An example Action Handler combines the input data and the Action Type options an
 The language of the transcribed data is extracted from the Runtime Context for better results.
 The Action Type options provided in the Action Context dictate whether the timestamps will be removed before returning the result.
 
-``` php hl_lines="66-68 52-55"
+``` php hl_lines="34-37 52-55"
 [[= include_file('code_samples/ai_actions/src/AI/Handler/WhisperAudioToTextActionHandler.php') =]]
 ```
 

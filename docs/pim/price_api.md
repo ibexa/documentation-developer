@@ -12,13 +12,13 @@ To access a currency object by its code, use `CurrencyServiceInterface::getCurre
 To access a whole list of currencies, use `CurrencyServiceInterface::findCurrencies`.
 
 ``` php
-[[= include_file('code_samples/api/product_catalog/src/Command/CurrencyCommand.php', 52, 61) =]]
+[[= include_file('code_samples/api/product_catalog/src/Command/CurrencyCommand.php', 42, 50) =]]
 ```
 
 To create a new currency, use `CurrencyServiceInterface::createCurrency()` and provide it with a `CurrencyCreateStruct` with code, number of fractional digits and a flag indicating if the currency is enabled:
 
 ``` php
-[[= include_file('code_samples/api/product_catalog/src/Command/CurrencyCommand.php', 67, 71) =]]
+[[= include_file('code_samples/api/product_catalog/src/Command/CurrencyCommand.php', 57, 60) =]]
 ```
 
 ## Prices
@@ -28,19 +28,19 @@ To manage prices, use `ProductPriceService`.
 To retrieve the price of a product in the currency for the current context, use `Product::getPrice()`:
 
 ``` php
-[[= include_file('code_samples/api/product_catalog/src/Command/ProductPriceCommand.php', 79, 82) =]]
+[[= include_file('code_samples/api/product_catalog/src/Command/ProductPriceCommand.php', 60, 63) =]]
 ```
 
 To retrieve the price of a product in a specific currency, use `ProductPriceService::getPriceByProductAndCurrency`:
 
 ``` php
-[[= include_file('code_samples/api/product_catalog/src/Command/ProductPriceCommand.php', 83, 86) =]]
+[[= include_file('code_samples/api/product_catalog/src/Command/ProductPriceCommand.php', 64, 67) =]]
 ```
 
 To get all prices (in different currencies) for a given product, use `ProductPriceService::findPricesByProductCode`:
 
 ``` php
-[[= include_file('code_samples/api/product_catalog/src/Command/ProductPriceCommand.php', 97, 103) =]]
+[[= include_file('code_samples/api/product_catalog/src/Command/ProductPriceCommand.php', 78, 84) =]]
 ```
 
 To load price definitions that match given criteria, use `ProductPriceServiceInterface::findPrices`:
@@ -48,14 +48,14 @@ To load price definitions that match given criteria, use `ProductPriceServiceInt
 ``` php
 [[= include_file('code_samples/api/product_catalog/src/Command/ProductPriceCommand.php', 12, 16) =]]
 // ...
-[[= include_file('code_samples/api/product_catalog/src/Command/ProductPriceCommand.php', 104, 114) =]]
+[[= include_file('code_samples/api/product_catalog/src/Command/ProductPriceCommand.php', 85, 95) =]]
 ```
 
 You can also use `ProductPriceService` to create or modify existing prices.
 For example, to create a new price for a given currency, use `ProductPriceService::createProductPrice` and provide it with a `ProductPriceCreateStruct` object:
 
 ``` php
-[[= include_file('code_samples/api/product_catalog/src/Command/ProductPriceCommand.php', 79, 85) =]]
+[[= include_file('code_samples/api/product_catalog/src/Command/ProductPriceCommand.php', 69, 75) =]]
 ```
 
 !!! note
@@ -80,7 +80,7 @@ To resolve a price of a product in the currency for the current context, use eit
 ``` php
 [[= include_file('code_samples/api/product_catalog/src/Command/ProductPriceCommand.php', 7, 8) =]][[= include_file('code_samples/api/product_catalog/src/Command/ProductPriceCommand.php', 11, 12) =]]
 // ...
-[[= include_file('code_samples/api/product_catalog/src/Command/ProductPriceCommand.php', 115, 119) =]]
+[[= include_file('code_samples/api/product_catalog/src/Command/ProductPriceCommand.php', 96, 100) =]]
 ```
 
 ## VAT
@@ -89,17 +89,17 @@ To get information about the VAT categories and rates configured in the system, 
 VAT is configured per region, so you also need to use `RegionServiceInterface` to get the relevant region object.
 
 ``` php
-[[= include_file('code_samples/api/product_catalog/src/Command/VatCommand.php', 54, 55) =]]
+[[= include_file('code_samples/api/product_catalog/src/Command/VatCommand.php', 41, 42) =]]
 ```
 
 To get information about all VAT categories configured for the selected region, use `VatServiceInterface::getVatCategories()`:
 
 ``` php
-[[= include_file('code_samples/api/product_catalog/src/Command/VatCommand.php', 56, 61) =]]
+[[= include_file('code_samples/api/product_catalog/src/Command/VatCommand.php', 43, 48) =]]
 ```
 
 To get a single VAT category, use `VatServiceInterface::getVatCategoryByIdentifier()` and provide it with the region object and the identifier of the VAT category:
 
 ``` php
-[[= include_file('code_samples/api/product_catalog/src/Command/VatCommand.php', 62, 64) =]]
+[[= include_file('code_samples/api/product_catalog/src/Command/VatCommand.php', 49, 50) =]]
 ```
