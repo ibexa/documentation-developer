@@ -248,7 +248,7 @@ Place this before the standard image rewrite rule in your vhost config (or uncom
 rewrite "^/var/([^/]+/)?storage/images(-versioned)?/(.*)" "/index.php" break;
 ```
 
-Place this before the include of `ez_params.d`/`ez_rewrite_params` in your vhost config (or uncomment if already there).
+Place this before the include of `ibexa_params.d`/`ibexa_rewrite_params` in your vhost config (or uncomment if already there).
 
 ## Migrating to a cluster setup
 
