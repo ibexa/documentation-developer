@@ -18,7 +18,7 @@ You can manage Object states by using the PHP API by using `ObjectStateService`.
 You can use the [`ObjectStateService`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-ObjectStateService.html) to get information about object state groups or object states.
 
 ``` php
-[[= include_file('code_samples/api/public_php_api/src/Command/ObjectStateCommand.php', 48, 53) =]]
+[[= include_file('code_samples/api/public_php_api/src/Command/ObjectStateCommand.php', 41, 46) =]]
 ```
 
 ## Creating object states
@@ -26,7 +26,7 @@ You can use the [`ObjectStateService`](/api/php_api/php_api_reference/classes/Ib
 To create an object state group and add object states to it, you need to make use of the [`ObjectStateService`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-ObjectStateService.html):
 
 ``` php
-[[= include_file('code_samples/api/public_php_api/src/Command/ObjectStateCommand.php', 57, 61) =]]
+[[= include_file('code_samples/api/public_php_api/src/Command/ObjectStateCommand.php', 50, 54) =]]
 ```
 
 [`ObjectStateService::createObjectStateGroup`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-ObjectStateService.html#method_createObjectStateGroup) takes as argument an [`ObjectStateGroupCreateStruct`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-ObjectState-ObjectStateGroupCreateStruct.html), in which you need to specify the identifier, default language and at least one name for the group.
@@ -34,7 +34,7 @@ To create an object state group and add object states to it, you need to make us
 To create an object state inside a group, use [`ObjectStateService::newObjectStateCreateStruct`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-ObjectStateService.html#method_newObjectStateCreateStruct) and provide it with an `ObjectStateCreateStruct`:
 
 ``` php
-[[= include_file('code_samples/api/public_php_api/src/Command/ObjectStateCommand.php', 63, 67) =]]
+[[= include_file('code_samples/api/public_php_api/src/Command/ObjectStateCommand.php', 56, 60) =]]
 ```
 
 ## Assigning object state
@@ -43,5 +43,5 @@ To assign an object state to a content item, use [`ObjectStateService::setConten
 Provide it with a `ContentInfo` object of the content item, the object state group and the object state:
 
 ``` php
-[[= include_file('code_samples/api/public_php_api/src/Command/ObjectStateCommand.php', 77, 82) =]]
+[[= include_file('code_samples/api/public_php_api/src/Command/ObjectStateCommand.php', 71, 75) =]]
 ```
