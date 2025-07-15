@@ -11,6 +11,7 @@ use Ibexa\Contracts\Solr\FieldMapper\ContentFieldMapper;
 class WebinarEventParentNameFieldMapper extends ContentFieldMapper
 {
     protected ContentHandler $contentHandler;
+
     protected LocationHandler $locationHandler;
 
     public function __construct(
