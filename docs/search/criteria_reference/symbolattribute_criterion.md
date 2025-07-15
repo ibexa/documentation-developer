@@ -17,5 +17,5 @@ The `SymbolAttribute` Search Criterion searches for products by [symbol attribut
 ### PHP
 
 ``` php
-[[= include_file(‘code_samples/back_office/search/src/Query/SymbolAttributeTypeQuery.php’) =]]
+[[= include_file('code_samples/back_office/search/src/Query/SymbolAttributeTypeQuery.php') =]]
 ```
