@@ -5,7 +5,7 @@ page_type: landing_page
 
 # Release notes
 
-The latest stable and LTS (Long Term Support) version of [[= product_name =]] is [[[= product_name =]] v5.0](ibexa_dxp_v4.6.md).
+The latest stable and LTS (Long Term Support) version of [[= product_name =]] is [[[= product_name =]] v5.0](ibexa_dxp_v5.0.md).
 
 
 [[= cards([

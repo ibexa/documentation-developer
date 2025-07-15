@@ -332,7 +332,7 @@ Support for facet search has been dropped, use the `Aggregation` API instead.
 
 ### ibexa/elasticsearch
 
-Support for the elasticsearch has been dropped, use the `Aggregation` API instead.
+Support for facets in elasticsearch has been dropped, use the `Aggregation` API instead.
 
 | Old FQN                                              | New FQN / Comment                                                                |
 |:------------------------------------------------------|:------------------------------------------------------------------------|

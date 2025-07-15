@@ -72,9 +72,9 @@ For a full list of updated system requirements, see [Requirements](../getting_st
 
 #### Symfony 7.3
 
-With this release, [[= product_name =]] moves to Symfony 7.2 from the previously used versions of Symfony.
+With this release, [[= product_name =]] moves to Symfony 7.3 from the previously used versions of Symfony.
 
-For details, see [Symfony 7.2](https://symfony.com/doc/current/setup/upgrade_major.html).
+For details, see [Symfony 7.3](https://symfony.com/doc/current/setup/upgrade_major.html).
 
 #### Doctrine 3.9
 
