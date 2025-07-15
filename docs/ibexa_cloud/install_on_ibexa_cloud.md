@@ -100,7 +100,7 @@ ibexa_cloud push master
 ```
 
 The [database installer](install_ibexa_dxp.md#create-a-database) runs in non-interactive mode and keeps the default password for the `admin` user.
-Modify this password after the installation, for example by using [data migrations](importing_data.md#users) or the [user management command](update_basic_user_data.md#change-password).
+Modify this password after the installation, for example, by using [data migrations](importing_data.md#users) or the [user management command](update_basic_user_data.md#change-password).
 
 !!! note
 
