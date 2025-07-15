@@ -238,7 +238,7 @@ When creating a content item, three metadata keys are required: `contentType`, `
 To use the location ID of the folder, which is created automatically by the system, you can use a [reference](managing_migrations.md#references).
 In this case you assign the `parent_folder_location_id` reference name to the location ID, and then use it when creating the article.
 
-``` yaml hl_lines="15 24"
+``` yaml hl_lines="15 25"
 [[= include_file('code_samples/data_migration/examples/create_parent_and_child_content.yaml') =]]
 ```
 
