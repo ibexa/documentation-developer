@@ -90,18 +90,18 @@ ibexa_cloud variable:create --level project --name env:COMPOSER_AUTH \
 When you're done with configuration, push your project to the Platform.sh remote:
 
 ``` bash
-git push -u <platform.sh-remote> master
+git push -u <platform.sh-remote> main
 ```
 
 You can also use the [[[= product_name_cloud =]] CLI](https://cli.ibexa.cloud/) to push your code.
 
 ``` bash
-ibexa_cloud push master
+ibexa_cloud push main
 ```
 
 !!! note
 
-    `master` is the Platform.sh name for the production branch.
+    `main` is the Platform.sh name for the production branch.
 
 !!! caution
 
