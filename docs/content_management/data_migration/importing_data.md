@@ -312,7 +312,7 @@ You can use an [action](data_migration_actions.md) to assign a role to the user.
 [[= include_file('code_samples/data_migration/examples/create_user.yaml') =]]
 ```
 
-You can also update users, including changing the user password:
+You can also update user information, including passwords:
 
 ``` yaml
 [[= include_file('code_samples/data_migration/examples/update_user.yaml') =]]
