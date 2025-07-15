@@ -314,7 +314,7 @@ Support for facet search has been dropped, use the `Aggregation` API instead.
 
 !!! note "Dropped single colon notation"
 
-    [[== product_name_base ==]]-named controllers can no longer be referenced using a single-colon notation.
+    [[= product_name_base =]]-named controllers can no longer be referenced using a single-colon notation.
     For example, `ibexa_content:viewAction` must be changed to `ibexa_content::viewAction`.
 
     The change affects the following controllers:
