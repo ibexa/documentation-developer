@@ -103,7 +103,7 @@ rm -r config/graphql
 
 #### Update package requirements
 
-[[= product_name =]] 5.0 is based on Symfony 7.2 and both must be updated.
+[[= product_name =]] 5.0 is based on Symfony 7.3 and both must be updated.
 Your development package must be updated as well.
 The process example below considers [`symfony/debug-pack`](https://symfony.com/packages/Debug%20Pack) and `ibexa/rector` as installed.
 
@@ -125,22 +125,22 @@ The process example below considers [`symfony/debug-pack`](https://symfony.com/p
     # Update required PHP version
     composer require --no-update 'php:>=8.3';
     # Update required Symfony version
-    composer config extra.symfony.require '7.2.*'
+    composer config extra.symfony.require '7.3.*'
     # Upgrade Ibexa and Symfony packages: application
     composer require --no-update \
         ibexa/commerce:[[= latest_tag_5_0 =]] \
-        symfony/console:^7.2 \
-        symfony/dotenv:^7.2 \
-        symfony/framework-bundle:^7.2 \
-        symfony/runtime:^7.2 \
-        symfony/yaml:^7.2 \
+        symfony/console:^7.3 \
+        symfony/dotenv:^7.3 \
+        symfony/framework-bundle:^7.3 \
+        symfony/runtime:^7.3 \
+        symfony/yaml:^7.3 \
     ;
     # Upgrade Ibexa and Symfony packages: development tools
     ddev composer require --dev --no-update \
         ibexa/rector:[[= latest_tag_5_0 =]] \
-        symfony/debug-bundle:^7.2 \
-        symfony/stopwatch:^7.2 \
-        symfony/web-profiler-bundle:^7.2 \
+        symfony/debug-bundle:^7.3 \
+        symfony/stopwatch:^7.3 \
+        symfony/web-profiler-bundle:^7.3 \
     ;
     # Update packages / Install new dependencies
     ddev composer update --with-all-dependencies --no-scripts --verbose
@@ -530,7 +530,7 @@ TODO: `AsCommand` attribute; Rector doesn't move `parent::__construct('app:test'
 In the following example, you can see optimization thanks to the following features:
 
 - [Constructor parameter promoted as properties](https://www.php.net/manual/en/language.oop5.decon.php#language.oop5.decon.constructor.promotion) (available since PHP 8.0)
-- [`AsCommand` attribute to register a command](https://symfony.com/doc/7.2/console.html#console_registering-the-command) (available since Symfony 6.2)
+- [`AsCommand` attribute to register a command](https://symfony.com/doc/7.3/console.html#console_registering-the-command) (available since Symfony 6.2)
 
 ```diff
 +#[AsCommand(name: 'app:test', description: 'Command to test something.')]
