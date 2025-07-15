@@ -63,14 +63,12 @@ return RectorConfig::configure()
 php vendor/bin/rector --dry-run
 ```
 
-### TODO: Install all 4.6 LTS Updates? It could help with the DB schemas or configs…
-
 ### Move from annotation to attribute
 
 Delete [`config/routes/annotations.yaml`](https://github.com/symfony/recipes/blob/main/doctrine/annotations/1.0/config/routes/annotations.yaml) if you haven't customised it.
 
 If you have customized it, you have to move from `type: annotation` to `type: attribute`.
-TODO: Any help or recommendation to provide to the reader?
+TODO: Any help or recommendation to provide to the reader? Rector?
 
 The `config/routes.yaml` file should start with the following declaration from [its recipe](https://github.com/symfony/recipes/blob/main/symfony/routing/7.0/config/routes.yaml):
 
@@ -218,6 +216,8 @@ composer recipes:install symfony/webpack-encore-bundle --reset --force --yes
 
 #### Sort commands
 
+TODO: Is ibexa/ts-config-ibexa removal change this?
+
 Recipe appends a command to `composer.json`'s `auto-scripts`.
 You have to manually resort the commands so the `tsconfig.json` file
 is created by `yarn ibexa-generate-tsconfig`
@@ -236,6 +236,10 @@ Your `auto-scripts` entry should look like this:
         },
 ```
 
+#### Remove Ibexa Icons
+
+Remove from your `config/bundles.php` the line about `IbexaIconsBundle`.
+
 #### Post update script
 
 ```bash
@@ -245,33 +249,21 @@ composer run-script post-update-cmd
 
 ### Update database
 
-Apply the following database update script:
+The main schema has changed and the provided SQL file `ibexa-4.6.latest-to-5.0.0.sql` updates it:
 
 === "MySQL"
 
     ```bash
     mysql -u <username> -p <password> <database_name> < vendor/ibexa/installer/upgrade/db/mysql/ibexa-4.6.latest-to-5.0.0.sql
-    # LTS Update related schemas to inject only if the add-on was never installed
-    php bin/console ibexa:doctrine:schema:dump-sql vendor/ibexa/collaboration/src/bundle/Resources/config/schema.yaml | mysql -u <username> -p <password> <database_name>
-    php bin/console ibexa:doctrine:schema:dump-sql vendor/ibexa/share/src/bundle/Resources/config/schema.yaml | mysql -u <username> -p <password> <database_name>
-    php bin/console ibexa:doctrine:schema:dump-sql vendor/ibexa/connector-ai/src/bundle/Resources/config/schema.yaml | mysql -u <username> -p <password> <database_name>
-    php bin/console ibexa:doctrine:schema:dump-sql vendor/ibexa/discounts/src/bundle/Resources/config/schema.yaml | ddev mysql -u <username> -p <password> <database_name>
-    php bin/console ibexa:doctrine:schema:dump-sql vendor/ibexa/discounts-codes/src/bundle/Resources/config/schema.yaml | ddev mysql -u <username> -p <password> <database_name>
     ```
 
 === "PostgreSQL"
 
     ```bash
     psql <database_name> < vendor/ibexa/installer/upgrade/db/postgresql/ibexa-4.6.latest-to-5.0.0.sql
-    # LTS Update related schemas to inject only if the add-on was never installed
-    php bin/console ibexa:doctrine:schema:dump-sql vendor/ibexa/collaboration/src/bundle/Resources/config/schema.yaml | psql <database_name>
-    php bin/console ibexa:doctrine:schema:dump-sql vendor/ibexa/share/src/bundle/Resources/config/schema.yaml | psql <database_name>
-    php bin/console ibexa:doctrine:schema:dump-sql vendor/ibexa/connector-ai/src/bundle/Resources/config/schema.yaml | psql <database_name>
-    php bin/console ibexa:doctrine:schema:dump-sql vendor/ibexa/discounts/src/bundle/Resources/config/schema.yaml | psql <database_name>
-    php bin/console ibexa:doctrine:schema:dump-sql vendor/ibexa/discounts-codes/src/bundle/Resources/config/schema.yaml | psql <database_name>
     ```
 
-Many tables are renamed. Some columns are also renamed.
+Many tables and columns are renamed.
 If you have custom code directly querying those, you will need to update them.
 
 You can track the renaming in the `ibexa-4.6.latest-to-5.0.0.sql` file or below.
@@ -379,23 +371,89 @@ You can track the renaming in the `ibexa-4.6.latest-to-5.0.0.sql` file or below.
 
 TODO: Compatibility "views" layers? Even if there is this layer to save time, it is recommended to update your code to use the new tables.
 
+### Install new features' schemas
+
+Features which were optional 4.6 LTS Updates are now part of 5.0.0.
+
+* If you have already installed the feature, its schema has been updated by the previous step.
+* If you haven't installed the feature, you need to add its schema to your database.
+* If you mistakenly reinstall a schema, no worries, you will encounter a "Table already exists" error which can be ignored.
+
+#### Install AI actions schema
+
+=== "MySQL"
+
+    ```bash
+    php bin/console ibexa:doctrine:schema:dump-sql vendor/ibexa/connector-ai/src/bundle/Resources/config/schema.yaml | mysql -u <username> -p <password> <database_name>
+    ```
+
+=== "PostgreSQL"
+
+    ```bash
+    php bin/console ibexa:doctrine:schema:dump-sql vendor/ibexa/connector-ai/src/bundle/Resources/config/schema.yaml | psql <database_name>
+    ```
+
+#### Install collaboration
+
+TODO: collaboration will be out as a regular part of 5.0 before being released as a 4.6 LTS Update
+
+=== "MySQL"
+
+    ```bash
+    php bin/console ibexa:doctrine:schema:dump-sql vendor/ibexa/collaboration/src/bundle/Resources/config/schema.yaml | mysql -u <username> -p <password> <database_name>
+    php bin/console ibexa:doctrine:schema:dump-sql vendor/ibexa/share/src/bundle/Resources/config/schema.yaml | mysql -u <username> -p <password> <database_name>
+    ```
+
+=== "PostgreSQL"
+
+    ```bash
+    php bin/console ibexa:doctrine:schema:dump-sql vendor/ibexa/collaboration/src/bundle/Resources/config/schema.yaml | psql <database_name>
+    php bin/console ibexa:doctrine:schema:dump-sql vendor/ibexa/share/src/bundle/Resources/config/schema.yaml | psql <database_name>
+    ```
+
+#### Install discounts [[% include 'snippets/commerce_badge.md' %]]
+
+=== "MySQL"
+
+    ```bash
+    php bin/console ibexa:doctrine:schema:dump-sql vendor/ibexa/discounts/src/bundle/Resources/config/schema.yaml | mysql -u <username> -p <password> <database_name>
+    php bin/console ibexa:doctrine:schema:dump-sql vendor/ibexa/discounts-codes/src/bundle/Resources/config/schema.yaml | mysql -u <username> -p <password> <database_name>
+    ```
+
+=== "PostgreSQL"
+
+    ```bash
+    php bin/console ibexa:doctrine:schema:dump-sql vendor/ibexa/discounts/src/bundle/Resources/config/schema.yaml | psql <database_name>
+    php bin/console ibexa:doctrine:schema:dump-sql vendor/ibexa/discounts-codes/src/bundle/Resources/config/schema.yaml | psql <database_name>
+    ```
+
 ### Clear cache pool
 
 The persistence cache pool needs to be cleared to be able to use the repository again.
 
-```
+```bash
 php bin/console cache:pool:clear --all
 ```
 
-TODO: Only Redis/Memcached?
+### Migrations
 
-### Migration file(s)
+#### Taxonomy
 
-TODO: Keep up to date
-
-On Experience or Commerce, the following migration file(s) must be applied.
-
+```bash
+php bin/console ibexa:migrations:import vendor/ibexa/taxonomy/src/bundle/Resources/install/migrations/2025_08_09_14_47_mark_tag_as_container.yaml
+php bin/console ibexa:migrations:migrate --file=2025_08_09_14_47_mark_tag_as_container.yaml --siteaccess=admin
 ```
+
+#### Product catalog
+
+```bash
+php bin/console ibexa:migrations:import vendor/ibexa/product-catalog/src/bundle/Resources/migrations/2025_07_09_13_52_mark_product_category_container.yaml
+php bin/console ibexa:migrations:migrate --file=2025_07_09_13_52_mark_product_category_container.yaml --siteaccess=admin
+```
+
+#### Corporate accounts [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
+
+```bash
 php bin/console ibexa:migrations:import vendor/ibexa/corporate-account/src/bundle/Resources/migrations/2025_07_08_09_27_set_container_to_company.yaml
 php bin/console ibexa:migrations:migrate --file=2025_07_08_09_27_set_container_to_company.yaml --siteaccess=admin
 ```
