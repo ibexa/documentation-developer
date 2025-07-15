@@ -18,7 +18,7 @@ You can create Twig Components in one of two ways:
 
 ### PHP code
 
-Create a class implementing the `\Ibexa\Contracts\TwigComponents\ComponentInterface` interface.
+Create a class that implements the `\Ibexa\Contracts\TwigComponents\ComponentInterface` interface.
 Register it as a service by using the `AsTwigComponent` attribute or the `ibexa.twig.component` service tag:
 
 === "PHP Attribute"
