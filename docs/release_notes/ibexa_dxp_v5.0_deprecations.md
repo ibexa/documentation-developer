@@ -15,8 +15,10 @@ These changes include dropped packages, changing database table and column names
 
 ## Dropped packages
 
-[[= product_name =]] v5.0 no longer includes Personalization.
-It's been replaced with Raptor Customer Data Platform that is included as standard. 
+[[= product_name =]] v5.0 no longer includes legacy Commerce packages.
+The solution has been replaced with [Commerce](commerce.md) that is included as standard and enhanced since v4.4.
+
+Also, packages `compatibility-layer` and `icons` have been dropped.
 
 ## Database table and column names
 
@@ -129,11 +131,9 @@ Several field type identifiers have changed.
 | `ezkeyword`                       | `ibexa_keyword`                   |
 | `ezlandingpage`                   | `ibexa_landing_page`              |
 | `ezmatrix`                        | `ibexa_matrix`                    |
-| `ibexa_measurement`               | `ibexa_measurement`               |
 | `ezmedia`                         | `ibexa_media`                     |
 | `ezobjectrelation`                | `ibexa_object_relation`           |
 | `ezobjectrelationlist`            | `ibexa_object_relation_list`      |
-| `ibexa_product_specification`     | `ibexa_product_specification`     |
 | `ezrichtext`                      | `ibexa_richtext`                  |
 | `ezselection`                     | `ibexa_selection`                 |
 | `ezstring`                        | `ibexa_string`                    |
@@ -193,7 +193,7 @@ Support for facet search has been dropped, use the `Aggregation` API instead.
 | `\Ibexa\Bundle\Core\Imagine\VariationPathGenerator`| `\Ibexa\Contracts\Core\Variation\VariationPathGenerator`|
 | `\Ibexa\ContentForms\User\View\UserRegisterFormView`| `\Ibexa\User\View\UserRegisterFormView`|
 | `Ibexa\Bundle\Debug\Collector\PersistenceCacheCollector::getCount` |  `\Ibexa\Bundle\Debug\Collector\PersistenceCacheCollector::getStats` |
-| `Ibexa\Bundle\RepositoryInstaller\Installer\Installer::createConfiguration` |  ?|  `
+| `Ibexa\Bundle\RepositoryInstaller\Installer\Installer::createConfiguration` | Deprecated |
 | `Ibexa\Contracts\Core\FieldType\FieldStorage::getIndexData` | `Ibexa\Contracts\Core\FieldType\Indexable` |
 | `Ibexa\Contracts\Core\FieldType\BinaryBase\PathGenerator` |  `\Ibexa\Contracts\Core\FieldType\BinaryBase\PathGeneratorInterface` |
 | `Ibexa\Contracts\Core\IO\BinaryFile::$mimeType` | `\Ibexa\Core\IO\IOMetadataHandler::getMimeType` |
@@ -212,47 +212,47 @@ Support for facet search has been dropped, use the `Aggregation` API instead.
 | `Ibexa\Contracts\Core\Persistence\User\Handler::loadPoliciesByUserId` | Removed | 
 | `Ibexa\Contracts\Core\Repository\ContentService::loadContentDrafts` |  `\Ibexa\Contracts\Core\Repository\ContentService::loadContentDraftList` |
 | `\Ibexa\Contracts\Core\Repository\Values\Content\Location::SORT_FIELD_MODIFIED_SUBNODE` | Removed |
-| `\Ibexa\Contracts\Core\Repository\Values\Content\Query\FacetBuilder` | Use the `Aggregation` API. |
+| `\Ibexa\Contracts\Core\Repository\Values\Content\Query\FacetBuilder` | Removed. Use the `Aggregation` API. |
 | `\Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion\LogicalOperator::getSpecifications` | Removed |
-| `\Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion\Location\IsMainLocation::createFromQueryBuilder` | `Use the constructor directly` |
-| `\Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion\Location\Priority::createFromQueryBuilder` | `Use the constructor directly` |
-| `\Ibexa\Contracts\Core\Repository\Values\Content\Query\FacetBuilder\ContentTypeFacetBuilder` | Use the `Aggregation` API. |
-| `\Ibexa\Contracts\Core\Repository\Values\Content\Query\FacetBuilder\CriterionFacetBuilder` | Use the `Aggregation` API. |
-| `\Ibexa\Contracts\Core\Repository\Values\Content\Query\FacetBuilder\DateRangeFacetBuilder` | Use the `Aggregation` API. |
-| `\Ibexa\Contracts\Core\Repository\Values\Content\Query\FacetBuilder\FieldFacetBuilder` | Use the `Aggregation` API. |
-| `\Ibexa\Contracts\Core\Repository\Values\Content\Query\FacetBuilder\FieldRangeFacetBuilder` | Use the `Aggregation` API. |
-| `\Ibexa\Contracts\Core\Repository\Values\Content\Query\FacetBuilder\Location` | Use the `Aggregation` API. |
-| `\Ibexa\Contracts\Core\Repository\Values\Content\Query\FacetBuilder\LocationFacetBuilder` | Use the `Aggregation` API. |
-| `\Ibexa\Contracts\Core\Repository\Values\Content\Query\FacetBuilder\SectionFacetBuilder` | Use the `Aggregation` API. |
-| `\Ibexa\Contracts\Core\Repository\Values\Content\Query\FacetBuilder\TermFacetBuilder` | Use the `Aggregation` API. |
-| `\Ibexa\Contracts\Core\Repository\Values\Content\Query\FacetBuilder\UserFacetBuilder` | Use the `Aggregation` API. |
-| `\Ibexa\Contracts\Core\Repository\Values\Content\Query\FacetBuilder\Location\LocationFacetBuilder` | Use the `Aggregation` API. |
-| `\Ibexa\Contracts\Core\Repository\Values\Content\Search\Facet` | Use the `Aggregation` API. |
-| `\Ibexa\Contracts\Core\Repository\Values\Content\Search\SearchResult::$facets` | Use the `Aggregation` API. |
+| `\Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion\Location\IsMainLocation::createFromQueryBuilder` | Removed. Use the constructor directly. |
+| `\Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion\Location\Priority::createFromQueryBuilder` | Removed. Use the constructor directly. |
+| `\Ibexa\Contracts\Core\Repository\Values\Content\Query\FacetBuilder\ContentTypeFacetBuilder` | Removed. Use the `Aggregation` API. |
+| `\Ibexa\Contracts\Core\Repository\Values\Content\Query\FacetBuilder\CriterionFacetBuilder` | Removed. Use the `Aggregation` API. |
+| `\Ibexa\Contracts\Core\Repository\Values\Content\Query\FacetBuilder\DateRangeFacetBuilder` | Removed. Use the `Aggregation` API. |
+| `\Ibexa\Contracts\Core\Repository\Values\Content\Query\FacetBuilder\FieldFacetBuilder` | Removed. Use the `Aggregation` API. |
+| `\Ibexa\Contracts\Core\Repository\Values\Content\Query\FacetBuilder\FieldRangeFacetBuilder` | Removed. Use the `Aggregation` API. |
+| `\Ibexa\Contracts\Core\Repository\Values\Content\Query\FacetBuilder\Location` | Removed. Use the `Aggregation` API. |
+| `\Ibexa\Contracts\Core\Repository\Values\Content\Query\FacetBuilder\LocationFacetBuilder` | Removed. Use the `Aggregation` API. |
+| `\Ibexa\Contracts\Core\Repository\Values\Content\Query\FacetBuilder\SectionFacetBuilder` | Removed. Use the `Aggregation` API. |
+| `\Ibexa\Contracts\Core\Repository\Values\Content\Query\FacetBuilder\TermFacetBuilder` | Removed. Use the `Aggregation` API. |
+| `\Ibexa\Contracts\Core\Repository\Values\Content\Query\FacetBuilder\UserFacetBuilder` | Removed. Use the `Aggregation` API. |
+| `\Ibexa\Contracts\Core\Repository\Values\Content\Query\FacetBuilder\Location\LocationFacetBuilder` | Removed. Use the `Aggregation` API. |
+| `\Ibexa\Contracts\Core\Repository\Values\Content\Search\Facet` | Removed. Use the `Aggregation` API. |
+| `\Ibexa\Contracts\Core\Repository\Values\Content\Search\SearchResult::$facets` | Removed. Use the `Aggregation` API. |
 | `\Ibexa\Contracts\Core\Repository\Values\Content\Search\SearchResult::$spellSuggestion` | `\Ibexa\Contracts\Core\Repository\Values\Content\Search\SearchResult::$spellcheck` |
-| `\Ibexa\Contracts\Core\Repository\Values\Content\Search\Facet\ContentTypeFacet` | Use the `Aggregation` API. |
-| `\Ibexa\Contracts\Core\Repository\Values\Content\Search\Facet\CriterionFacet` | Use the `Aggregation` API. |
-| `\Ibexa\Contracts\Core\Repository\Values\Content\Search\Facet\DateRangeFacet` | Use the `Aggregation` API. |
-| `\Ibexa\Contracts\Core\Repository\Values\Content\Search\Facet\FieldFacet` | Use the `Aggregation` API. |
-| `\Ibexa\Contracts\Core\Repository\Values\Content\Search\Facet\FieldRangeFacet` | Use the `Aggregation` API. |
-| `\Ibexa\Contracts\Core\Repository\Values\Content\Search\Facet\LocationFacet` | Use the `Aggregation` API. |
-| `\Ibexa\Contracts\Core\Repository\Values\Content\Search\Facet\RangeFacetEntry` | Use the `Aggregation` API. |
-| `\Ibexa\Contracts\Core\Repository\Values\Content\Search\Facet\SectionFacet` | Use the `Aggregation` API. |
-| `\Ibexa\Contracts\Core\Repository\Values\Content\Search\Facet\TermFacet` | Use the `Aggregation` API. |
-| `\Ibexa\Contracts\Core\Repository\Values\Content\Search\Facet\UserFacet` | Use the `Aggregation` API. |
+| `\Ibexa\Contracts\Core\Repository\Values\Content\Search\Facet\ContentTypeFacet` | Removed. Use the `Aggregation` API. |
+| `\Ibexa\Contracts\Core\Repository\Values\Content\Search\Facet\CriterionFacet` | Removed. Use the `Aggregation` API. |
+| `\Ibexa\Contracts\Core\Repository\Values\Content\Search\Facet\DateRangeFacet` | Removed. Use the `Aggregation` API. |
+| `\Ibexa\Contracts\Core\Repository\Values\Content\Search\Facet\FieldFacet` | Removed. Use the `Aggregation` API. |
+| `\Ibexa\Contracts\Core\Repository\Values\Content\Search\Facet\FieldRangeFacet` | Removed. Use the `Aggregation` API. |
+| `\Ibexa\Contracts\Core\Repository\Values\Content\Search\Facet\LocationFacet` | Removed. Use the `Aggregation` API. |
+| `\Ibexa\Contracts\Core\Repository\Values\Content\Search\Facet\RangeFacetEntry` | Removed. Use the `Aggregation` API. |
+| `\Ibexa\Contracts\Core\Repository\Values\Content\Search\Facet\SectionFacet` | Removed. Use the `Aggregation` API. |
+| `\Ibexa\Contracts\Core\Repository\Values\Content\Search\Facet\TermFacet` | Removed. Use the `Aggregation` API. |
+| `\Ibexa\Contracts\Core\Repository\Values\Content\Search\Facet\UserFacet` | Removed. Use the `Aggregation` API. |
 | `\Ibexa\Contracts\Core\Repository\Values\Content\Trash\SearchResult::$count` | `\Ibexa\Contracts\Core\Repository\Values\Content\Trash\SearchResult::$totalCount` |
 | `\Ibexa\Contracts\Core\Repository\Values\ContentType\ContentType::@$isContainer` | `\Ibexa\Contracts\Core\Repository\Values\ContentType\ContentType::isContainer` |
-| `\Ibexa\Contracts\Core\User\Identity` | Use the `FOSHttpCacheBundle` user context feature. |
+| `\Ibexa\Contracts\Core\User\Identity` | Removed. Use the `FOSHttpCacheBundle` user context feature. |
 | `src/lib/Event/UserService.php:247` | Listen to `BeforeUpdateUserPasswordEvent` instead of `BeforeUpdateUserEvent`. |
 | `src/lib/Event/UserService.php:272` | Listen to `UpdateUserPasswordEvent` instead of `UpdateUserEvent`. |
 | `\Ibexa\Core\FieldType\GatewayBasedStorage` | `\Ibexa\Contracts\Core\FieldType\GatewayBasedStorage` |
 | `\Ibexa\Core\FieldType\StorageGateway` | `\Ibexa\Contracts\Core\FieldType\StorageGatewayInterface` |
 | `\Ibexa\Core\FieldType\Image\Value::@$path` | Equivalent to `$id` or `$inputUri`, depending on which one is set. |
 | `\Ibexa\Core\FieldType\Image\Value::fromString` | `\Ibexa\Core\FieldType\FieldType::acceptValue` |
-| `\Ibexa\Core\Helper\FieldHelper::getFieldDefinition` | If you have Content, you can use `$content->getContentType()->getFieldDefinition($identifier)`. |
+| `\Ibexa\Core\Helper\FieldHelper::getFieldDefinition` | If Content exists, you can use `$content->getContentType()->getFieldDefinition($identifier)`. |
 | `\Ibexa\Core\Helper\PreviewLocationProvider::loadMainLocation` | `\Ibexa\Core\Helper\PreviewLocationProvider::loadMainLocationByContent` |
 | `\Ibexa\Core\IO\IOServiceInterface::getExternalPath` | `\Ibexa\Core\IO\IOServiceInterface::loadBinaryFileByUri` |
-| `\Ibexa\Core\IO\IOServiceInterface::getInternalPath` | Use the `uri` property. |
+| `\Ibexa\Core\IO\IOServiceInterface::getInternalPath` | Removed. Use the `uri` property. |
 | `\Ibexa\Core\IO\MetadataHandler` | Removed |
 | `\Ibexa\Core\IO\MetadataHandler\ImageSize` | Removed |
 | `\Ibexa\Core\IO\Values\BinaryFile::$mimeType` | `\Ibexa\Core\IO\IOServiceInterface::getMimeType` |
@@ -261,43 +261,37 @@ Support for facet search has been dropped, use the `Aggregation` API instead.
 | `\Ibexa\Core\MVC\Symfony\Locale\LocaleConverterInterface::convertToEz` | `\Ibexa\Core\MVC\Symfony\Locale\LocaleConverterInterface::convertToRepository` |
 | `\Ibexa\Core\MVC\Symfony\SiteAccess\Matcher\Regex\Host` | Removed |
 | `\Ibexa\Core\MVC\Symfony\SiteAccess\Matcher\Regex\URI` | Removed |
-| `ezplatform (src/lib/MVC/Symfony/Templating/Twig/Extension/CoreExtension.php)` | Use the `ibexa` global variable. |
-| `pagelayout (src/lib/MVC/Symfony/View/ParametersInjector/ViewbaseLayout.php)` | Use `page_layout` variable. |
 | `\Ibexa\Core\MVC\Symfony\View\Provider\Content` | Removed |
 | `\Ibexa\Core\MVC\Symfony\View\Provider\Location` | Removed |
 | `\Ibexa\Core\Persistence\Cache\PersistenceLogger::getCount` | `\Ibexa\Core\Persistence\Cache\PersistenceLogger::getStats` |
-| `\Ibexa\Core\Persistence\Legacy\Handler::beginTransaction` | `TransactionService::beginTransaction` |
-| `\Ibexa\Core\Persistence\Legacy\Handler::commit` | `TransactionService::commit` |
-| `\Ibexa\Core\Persistence\Legacy\Handler::rollback` | `TransactionService::rollback` |
-| `\Ibexa\Core\Persistence\Legacy\Content\FieldValue\Converter\AuthorConverter::create` | Use the default constructor. |
-| `\Ibexa\Core\Persistence\Legacy\Content\FieldValue\Converter\BinaryFileConverter::create` | Use the default constructor. |
-| `\Ibexa\Core\Persistence\Legacy\Content\FieldValue\Converter\CheckboxConverter::create` | Use the default constructor. |
-| `\Ibexa\Core\Persistence\Legacy\Content\FieldValue\Converter\CountryConverter::create` | Use the default constructor. |
-| `\Ibexa\Core\Persistence\Legacy\Content\FieldValue\Converter\DateAndTimeConverter::create` | Use the default constructor. |
-| `timestamp` | Removed |
-| `(src/lib/Persistence/Legacy/Content/FieldValue/Converter/DateAndTimeConverter.php:115)` | `` |
-| `timestamp` | Removed |
-| `(src/lib/Persistence/Legacy/Content/FieldValue/Converter/DateAndTimeConverter.php:128)` | `` |
-| `\Ibexa\Core\Persistence\Legacy\Content\FieldValue\Converter\DateConverter::create` | Use the default constructor. |
-| `timestamp` | Removed |
-| `(src/lib/Persistence/Legacy/Content/FieldValue/Converter/DateConverter.php:96)` | `` |
-| `\Ibexa\Core\Persistence\Legacy\Content\FieldValue\Converter\EmailAddressConverter::create` | Use the default constructor. |
-| `\Ibexa\Core\Persistence\Legacy\Content\FieldValue\Converter\FloatConverter::create` | Use the default constructor. |
-| `\Ibexa\Core\Persistence\Legacy\Content\FieldValue\Converter\IntegerConverter::create` | Use the default constructor. |
-| `\Ibexa\Core\Persistence\Legacy\Content\FieldValue\Converter\ISBNConverter::create` | Use the default constructor. |
-| `\Ibexa\Core\Persistence\Legacy\Content\FieldValue\Converter\KeywordConverter::create` | Use the default constructor. |
-| `\Ibexa\Core\Persistence\Legacy\Content\FieldValue\Converter\MapLocationConverter::create` | Use the default constructor. |
-| `\Ibexa\Core\Persistence\Legacy\Content\FieldValue\Converter\MediaConverter::create` | Use the default constructor. |
-| `\Ibexa\Core\Persistence\Legacy\Content\FieldValue\Converter\NullConverter::create` | Use the default constructor. |
-| `\Ibexa\Core\Persistence\Legacy\Content\FieldValue\Converter\RelationConverter::create` | Use the default constructor. |
-| `\Ibexa\Core\Persistence\Legacy\Content\FieldValue\Converter\SelectionConverter::create` | Use the default constructor. |
-| `\Ibexa\Core\Persistence\Legacy\Content\FieldValue\Converter\TextBlockConverter::create` | Use the default constructor. |
-| `\Ibexa\Core\Persistence\Legacy\Content\FieldValue\Converter\TextLineConverter::create` | Use the default constructor. |
-| `\Ibexa\Core\Persistence\Legacy\Content\FieldValue\Converter\TimeConverter::create` | Use the default constructor. |
-| `\Ibexa\Core\Persistence\Legacy\Content\FieldValue\Converter\UrlConverter::create` | Use the default constructor. |
+| `\Ibexa\Core\Persistence\Legacy\Handler::beginTransaction` | Removed. Use `\Ibexa\Contracts\Core\Persistence\TransactionHandler\TransactionHandler::beginTransaction`. |
+| `\Ibexa\Core\Persistence\Legacy\Handler::commit` | Removed. Use `\Ibexa\Contracts\Core\Persistence\TransactionHandler\TransactionHandler::commit`. |
+| `\Ibexa\Core\Persistence\Legacy\Handler::rollback` | Removed. Use `\Ibexa\Contracts\Core\Persistence\TransactionHandler\TransactionHandler::rollback`. |
+| `\Ibexa\Core\Persistence\Legacy\Content\FieldValue\Converter\AuthorConverter::create` | Removed. Use the default constructor. |
+| `\Ibexa\Core\Persistence\Legacy\Content\FieldValue\Converter\BinaryFileConverter::create` | Removed. Use the default constructor. |
+| `\Ibexa\Core\Persistence\Legacy\Content\FieldValue\Converter\CheckboxConverter::create` | Removed. Use the default constructor. |
+| `\Ibexa\Core\Persistence\Legacy\Content\FieldValue\Converter\CountryConverter::create` | Removed. Use the default constructor. |
+| `\Ibexa\Core\Persistence\Legacy\Content\FieldValue\Converter\DateAndTimeConverter::create` | Removed. Use the default constructor. |
+| `timestamp` property in `DateAndTimeConverter.php` | Removed |
+| `timestamp` property in `DateConverter.php` | Removed |
+| `\Ibexa\Core\Persistence\Legacy\Content\FieldValue\Converter\DateConverter::create` | Removed. Use the default constructor. |
+| `\Ibexa\Core\Persistence\Legacy\Content\FieldValue\Converter\EmailAddressConverter::create` | Removed. Use the default constructor. |
+| `\Ibexa\Core\Persistence\Legacy\Content\FieldValue\Converter\FloatConverter::create` | Removed. Use the default constructor. |
+| `\Ibexa\Core\Persistence\Legacy\Content\FieldValue\Converter\IntegerConverter::create` | Removed. Use the default constructor. |
+| `\Ibexa\Core\Persistence\Legacy\Content\FieldValue\Converter\ISBNConverter::create` | Removed. Use the default constructor. |
+| `\Ibexa\Core\Persistence\Legacy\Content\FieldValue\Converter\KeywordConverter::create` | Removed. Use the default constructor. |
+| `\Ibexa\Core\Persistence\Legacy\Content\FieldValue\Converter\MapLocationConverter::create` | Removed. Use the default constructor. |
+| `\Ibexa\Core\Persistence\Legacy\Content\FieldValue\Converter\MediaConverter::create` | Removed. Use the default constructor. |
+| `\Ibexa\Core\Persistence\Legacy\Content\FieldValue\Converter\NullConverter::create` | Removed. Use the default constructor. |
+| `\Ibexa\Core\Persistence\Legacy\Content\FieldValue\Converter\RelationConverter::create` | Removed. Use the default constructor. |
+| `\Ibexa\Core\Persistence\Legacy\Content\FieldValue\Converter\SelectionConverter::create` | Removed. Use the default constructor. |
+| `\Ibexa\Core\Persistence\Legacy\Content\FieldValue\Converter\TextBlockConverter::create` | Removed. Use the default constructor. |
+| `\Ibexa\Core\Persistence\Legacy\Content\FieldValue\Converter\TextLineConverter::create` | Removed. Use the default constructor. |
+| `\Ibexa\Core\Persistence\Legacy\Content\FieldValue\Converter\TimeConverter::create` | Removed. Use the default constructor. |
+| `\Ibexa\Core\Persistence\Legacy\Content\FieldValue\Converter\UrlConverter::create` | Removed. Use the default constructor. |
 | `\Ibexa\Core\Persistence\Legacy\Content\Language\MaskGenerator::generateLanguageMask` | `\Ibexa\Core\Persistence\Legacy\Content\Language\MaskGenerator::generateLanguageMaskFromLanguageCodes` |
 | `\Ibexa\Core\Repository\PermissionsCriterionHandler` | Removed |
-| `\Ibexa\Core\Repository\SectionService::countAssignedContents` | Use `SearchService` with `Section` criterion. |
+| `\Ibexa\Core\Repository\SectionService::countAssignedContents` | Deprecated. Use `SearchService` with `Section` criterion. |
 | `\Ibexa\Core\Repository\Helper\NameSchemaService` | `\Ibexa\Contracts\Core\Repository\NameSchema\NameSchemaServiceInterface` |
 | `\Ibexa\Core\Repository\Helper\RoleDomainMapper` | Removed |
 | `\Ibexa\Core\Repository\Mapper\ContentTypeDomainMapper::buildSPIFieldDefinitionUpdate` | `Ibexa\Core\Repository\Mapper\ContentTypeDomainMapper::buildSPIFieldDefinitionFromUpdateStruct` |
@@ -342,22 +336,22 @@ Support for the elasticsearch has been dropped, use the `Aggregation` API instea
 
 | Old FQN                                              | New FQN / Comment                                                                |
 |:------------------------------------------------------|:------------------------------------------------------------------------|
-| `\Ibexa\Contracts\Elasticsearch\Query\FacetBuilderVisitor` | Use the `Aggregation` API. |
-| `\Ibexa\Contracts\Elasticsearch\Query\FacetResultExtractor` | Use the `Aggregation` API. |
-| `\Ibexa\Elasticsearch\Query\FacetBuilderVisitor\AbstractTermsVisitor` | Use the `Aggregation` API. |
-| `\Ibexa\Elasticsearch\Query\FacetBuilderVisitor\ContentTypeVisitor` | Use the `Aggregation` API. |
-| `\Ibexa\Elasticsearch\Query\FacetBuilderVisitor\DispatcherVisitor` | Use the `Aggregation` API. |
-| `\Ibexa\Elasticsearch\Query\FacetBuilderVisitor\FilteredFacetVisitorDecorator` | Use the `Aggregation` API. |
-| `\Ibexa\Elasticsearch\Query\FacetBuilderVisitor\GlobalFacetVisitorDecorator` | Use the `Aggregation` API. |
-| `\Ibexa\Elasticsearch\Query\FacetBuilderVisitor\SectionVisitor` | Use the `Aggregation` API. |
-| `\Ibexa\Elasticsearch\Query\FacetBuilderVisitor\UserVisitor` | Use the `Aggregation` API. |
-| `\Ibexa\Elasticsearch\Query\ResultExtractor\FacetResultExtractor\AbstractTermsResultExtractor` | Use the `Aggregation` API. |
-| `\Ibexa\Elasticsearch\Query\ResultExtractor\FacetResultExtractor\ContentTypeResultExtractor` | Use the `Aggregation` API. |
-| `\Ibexa\Elasticsearch\Query\ResultExtractor\FacetResultExtractor\DispatcherResultExtractor` | Use the `Aggregation` API. |
-| `\Ibexa\Elasticsearch\Query\ResultExtractor\FacetResultExtractor\FilteredFacetResultExtractorDecorator` | Use the `Aggregation` API. |
-| `\Ibexa\Elasticsearch\Query\ResultExtractor\FacetResultExtractor\GlobalFacetResultExtractorDecorator` | Use the `Aggregation` API. |
-| `\Ibexa\Elasticsearch\Query\ResultExtractor\FacetResultExtractor\SectionResultExtractor` | Use the `Aggregation` API. |
-| `\Ibexa\Elasticsearch\Query\ResultExtractor\FacetResultExtractor\UserResultExtractor` | Use the `Aggregation` API. |
+| `\Ibexa\Contracts\Elasticsearch\Query\FacetBuilderVisitor` | Removed. Use the `Aggregation` API. |
+| `\Ibexa\Contracts\Elasticsearch\Query\FacetResultExtractor` | Removed. Use the `Aggregation` API. |
+| `\Ibexa\Elasticsearch\Query\FacetBuilderVisitor\AbstractTermsVisitor` | Removed. Use the `Aggregation` API. |
+| `\Ibexa\Elasticsearch\Query\FacetBuilderVisitor\ContentTypeVisitor` | Removed. Use the `Aggregation` API. |
+| `\Ibexa\Elasticsearch\Query\FacetBuilderVisitor\DispatcherVisitor` | Removed. Use the `Aggregation` API. |
+| `\Ibexa\Elasticsearch\Query\FacetBuilderVisitor\FilteredFacetVisitorDecorator` | Removed. Use the `Aggregation` API. |
+| `\Ibexa\Elasticsearch\Query\FacetBuilderVisitor\GlobalFacetVisitorDecorator` | Removed. Use the `Aggregation` API. |
+| `\Ibexa\Elasticsearch\Query\FacetBuilderVisitor\SectionVisitor` | Removed. Use the `Aggregation` API. |
+| `\Ibexa\Elasticsearch\Query\FacetBuilderVisitor\UserVisitor` | Removed. Use the `Aggregation` API. |
+| `\Ibexa\Elasticsearch\Query\ResultExtractor\FacetResultExtractor\AbstractTermsResultExtractor` | Removed. Use the `Aggregation` API. |
+| `\Ibexa\Elasticsearch\Query\ResultExtractor\FacetResultExtractor\ContentTypeResultExtractor` | Removed. Use the `Aggregation` API. |
+| `\Ibexa\Elasticsearch\Query\ResultExtractor\FacetResultExtractor\DispatcherResultExtractor` | Removed. Use the `Aggregation` API. |
+| `\Ibexa\Elasticsearch\Query\ResultExtractor\FacetResultExtractor\FilteredFacetResultExtractorDecorator` | Removed. Use the `Aggregation` API. |
+| `\Ibexa\Elasticsearch\Query\ResultExtractor\FacetResultExtractor\GlobalFacetResultExtractorDecorator` | Removed. Use the `Aggregation` API. |
+| `\Ibexa\Elasticsearch\Query\ResultExtractor\FacetResultExtractor\SectionResultExtractor` | Removed. Use the `Aggregation` API. |
+| `\Ibexa\Elasticsearch\Query\ResultExtractor\FacetResultExtractor\UserResultExtractor` | Removed. Use the `Aggregation` API. |
 
 ### ibexa/fieldtype-page
 
@@ -373,14 +367,14 @@ Support for the elasticsearch has been dropped, use the `Aggregation` API instea
 | Old FQN                                              | New FQN / Comment                                                                |
 |:------------------------------------------------------|:------------------------------------------------------------------------|
 | `\Ibexa\FieldTypeQuery\QueryFieldPaginationService` | Removed |
-| `\Ibexa\FieldTypeQuery\Persistence\Legacy\Content\FieldValue\Converter\QueryConverter::create` | Use the default constructor. |
+| `\Ibexa\FieldTypeQuery\Persistence\Legacy\Content\FieldValue\Converter\QueryConverter::create` | Removed. Use the default constructor. |
 
 ### ibexa/fieldtype-richtext
 
 | Old FQN                                              | New FQN / Comment                                                                |
 |:------------------------------------------------------|:------------------------------------------------------------------------|
 | `Ibexa\FieldTypeRichText\Translation\Extractor\OnlineEditorCustomAttributesExtractor` | Removed |
-| `\Ibexa\FieldTypeQuery\Persistence\Legacy\Content\FieldValue\Converter\QueryConverter::create` | Use the default constructor. |
+| `\Ibexa\FieldTypeQuery\Persistence\Legacy\Content\FieldValue\Converter\QueryConverter::create` | Removed. Use the default constructor. |
 
 !!! note "Missing custom tag configuration error"
 
@@ -561,6 +555,8 @@ The following service definitions have been removed:
 
 The global Twig variable `ez_richtext_config` has been renamed to `ibexa_richtext_config`.
 
+| `ezplatform` variable in `CoreExtension.php` | Removed. Use the `ibexa` global variable. |
+| `pagelayout` variable in `ViewbaseLayout.php` | Use `page_layout` variable. |
 | `/src/bundle/Resources/views/themes/admin/account/form_fields.html.twig` | Deprecated, extend `@ibexadesign/ui/form_fields.html.twig` directly. |
 | `/src/bundle/Resources/views/themes/admin/content/edit/content_header.html.twig` | Removed |
 | `/src/bundle/Resources/views/themes/admin/ui/footer.html.twig` | Deprecated |
