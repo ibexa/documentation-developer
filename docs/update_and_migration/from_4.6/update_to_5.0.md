@@ -214,28 +214,6 @@ composer recipes:install symfony/webpack-encore-bundle --reset --force --yes
     composer recipes:install ibexa/commerce --reset --force --yes
     ```
 
-#### Sort commands
-
-TODO: Is ibexa/ts-config-ibexa removal change this?
-
-Recipe appends a command to `composer.json`'s `auto-scripts`.
-You have to manually resort the commands so the `tsconfig.json` file
-is created by `yarn ibexa-generate-tsconfig`
-before being used by `ibexa:encore:compile`.
-Your `auto-scripts` entry should look like this:
-
-```json
-        "auto-scripts": {
-            "cache:clear": "symfony-cmd",
-            "assets:install %PUBLIC_DIR%": "symfony-cmd",
-            "yarn install": "script",
-            "ibexa:encore:compile --config-name app": "symfony-cmd",
-            "bazinga:js-translation:dump %PUBLIC_DIR%/assets --merge-domains": "symfony-cmd",
-            "yarn ibexa-generate-tsconfig": "script",
-            "ibexa:encore:compile": "symfony-cmd"
-        },
-```
-
 #### Remove Ibexa Icons
 
 Remove from your `config/bundles.php` the line about `IbexaIconsBundle`.
