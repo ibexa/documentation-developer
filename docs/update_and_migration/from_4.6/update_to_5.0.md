@@ -227,12 +227,14 @@ Your `auto-scripts` entry should look like this:
             "cache:clear": "symfony-cmd",
             "assets:install %PUBLIC_DIR%": "symfony-cmd",
             "yarn install": "script",
+            "yarn ibexa-generate-tsconfig --relative-paths": "script",
             "ibexa:encore:compile --config-name app": "symfony-cmd",
             "bazinga:js-translation:dump %PUBLIC_DIR%/assets --merge-domains": "symfony-cmd",
-            "yarn ibexa-generate-tsconfig": "script",
             "ibexa:encore:compile": "symfony-cmd"
         },
 ```
+
+TODO: https://github.com/ibexa/recipes-dev/blob/master/ibexa/commerce/5.0/manifest.json#L168 VS https://github.com/ibexa/recipes/blob/master/ibexa/commerce/5.0/manifest.json#L168
 
 #### Remove Ibexa Icons
 
