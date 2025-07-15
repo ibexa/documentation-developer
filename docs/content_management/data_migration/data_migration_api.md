@@ -17,7 +17,7 @@ To list all migration files available in the directory defined in configuration 
 To get a single migration file by its name, use the `MigrationService:findOneByName()` method:
 
 ``` php
-[[= include_file('code_samples/api/migration/src/Command/MigrationCommand.php', 35, 36) =]]
+[[= include_file('code_samples/api/migration/src/Command/MigrationCommand.php', 36, 37) =]]
 ```
 
 ## Running migration files

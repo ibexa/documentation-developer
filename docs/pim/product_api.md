@@ -47,7 +47,7 @@ Provide the method with the product type object and the main language code.
 You also need to set (at least) the code for the product and the required Field of the underlying content type, `name`:
 
 ``` php
-[[= include_file('code_samples/api/product_catalog/src/Command/ProductCommand.php', 79, 83) =]]
+[[= include_file('code_samples/api/product_catalog/src/Command/ProductCommand.php', 71, 76) =]]
 ```
 
 To delete a product, use `LocalProductServiceInterface::deleteProduct()`:
