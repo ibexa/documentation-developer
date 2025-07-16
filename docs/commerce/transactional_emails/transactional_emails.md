@@ -36,7 +36,7 @@ Transactional email support comes as an additional package that needs to be down
 composer require ibexa/connector-actito
 ```
 
-Flex installs and activates the package.
+Symfony Flex installs and activates the package.
 
 ### Configure Actito integration
 

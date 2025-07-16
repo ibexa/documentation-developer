@@ -34,7 +34,7 @@ The available groups for the back office are:
 |`admin-ui-global-search-autocomplete-templates`| `vendor/ibexa/admin-ui-ui/src/bundle/Resources/views/themes/admin/ui/global_search.html.twig` |
 |`admin-ui-global-search`| `vendor/ibexa/admin-ui-ui/src/bundle/Resources/views/themes/admin/ui/layout.html.twig` |
 |`admin-ui-header-user-menu-middle`| `vendor/ibexa/admin-ui-ui/src/bundle/Resources/views/themes/admin/ui/menu/user.html.twig` |
-|`admin-ui-image-edit-actions-after`| <ul><li>`vendor/ibexa/admin-ui-ui/src/bundle/Resources/views/themes/admin/ui/field_type/edit/ezimage.html.twig` </li><li>`vendor/ibexa/admin-ui-ui/src/bundle/Resources/views/themes/admin/ui/field_type/edit/ezimageasset.html.twig` </li></ul>|
+|`admin-ui-image-edit-actions-after`| <ul><li>`vendor/ibexa/admin-ui-ui/src/bundle/Resources/views/themes/admin/ui/field_type/edit/ibexa_image.html.twig` </li><li>`vendor/ibexa/admin-ui-ui/src/bundle/Resources/views/themes/admin/ui/field_type/edit/ibexa_image_asset.html.twig` </li></ul>|
 |`admin-ui-layout-content-after`| `vendor/ibexa/admin-ui-ui/src/bundle/Resources/views/themes/admin/ui/layout.html.twig` |
 |`admin-ui-link-manager-block`| `vendor/ibexa/admin-ui-ui/src/bundle/Resources/views/themes/admin/url_management/url_management.html.twig` |
 |`admin-ui-location-view-content-alerts`| `vendor/ibexa/admin-ui/src/bundle/Resources/views/themes/admin/content/location_view.html.twig` |
@@ -111,9 +111,18 @@ For more information, see [this example using few of those components](component
 |`admin-ui-shipment-summary-grid`| `vendor/ibexa/shipping/src/bundle/Resources/views/themes/admin/shipment/tab/summary.html.twig` |
 |`admin-ui-shipping-method-block`| `vendor/ibexa/shipping/src/bundle/Resources/views/themes/admin/shipping/shipping_method/view.html.twig` |
 
-## AI Actions [[% include 'snippets/lts-update_badge.md' %]]
+## AI Actions
 
 | Group name | Template file |
 |---|---|
 |`admin-ui-action-configuration-tabs`| `vendor/ibexa/connector-ai/src/bundle/Resources/views/themes/admin/connector_ai/action_configuration/view.html.twig` |
 
+## Discounts [[% include 'snippets/commerce_badge.md' %]]
+
+| Group name | Template file |
+|---|---|
+|`admin-ui-discount-block`| `vendor/ibexa/discounts/src/bundle/Resources/views/themes/admin/discounts/view.html.twig` |
+|`admin-ui-discount-condition-summary`| `vendor/ibexa/discounts/src/bundle/Resources/views/themes/admin/discounts/tab/details.html.twig` |
+|`admin-ui-discount-condition-code-usage-summary`| `vendor/ibexa/discounts/src/bundle/Resources/views/themes/admin/discounts/tab/details.html.twig` |
+|`admin-ui-discount-condition-code-summary`| `vendor/ibexa/discounts/src/bundle/Resources/views/themes/admin/discounts/tab/details.html.twig` |
+|`admin-ui-discount-condition-code-usage-limit-summary`| `vendor/ibexa/discounts/src/bundle/Resources/views/themes/admin/discounts/tab/details.html.twig` |

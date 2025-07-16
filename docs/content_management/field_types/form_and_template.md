@@ -21,7 +21,7 @@ The `FieldValueFormMapperInterface::mapFieldValueForm` method accepts two argume
 - `FormInterface` — form for the current field
 - `FieldData` — underlying data for current field form
 
-You have to add your form type to the content editing form. The example shows how `ezboolean` injects the form:
+You have to add your form type to the content editing form. The example shows how `ibexa_boolean` injects the form:
 
 ``` php
 use Ibexa\Contracts\ContentForms\Data\Content\FieldData;
@@ -77,7 +77,7 @@ public function mapFieldDefinitionForm(FormInterface $fieldDefinitionForm, Field
             CheckboxType::class, [
                 'required' => false,
                 'property_path' => 'fieldSettings[isMultiple]',
-                'label' => 'field_definition.ezcountry.is_multiple',
+                'label' => 'field_definition.ibexa_country.is_multiple',
             ]
         )
         ->add(
@@ -89,7 +89,7 @@ public function mapFieldDefinitionForm(FormInterface $fieldDefinitionForm, Field
                         'multiple' => true,
                         'expanded' => false,
                         'required' => false,
-                        'label' => 'field_definition.ezcountry.default_value',
+                        'label' => 'field_definition.ibexa_country.default_value',
                     ]
                 )
                 // Deactivate auto-initialize as you're not on the root form.

@@ -9,7 +9,7 @@ This enables you to give specific prices or price discounts (global or per produ
 
 For example, you can offer a 10% discount for all products in the catalog to users who belong to the Resellers customer group.
 
-By using the [Discounts LTS Update](discounts_guide.md), you can create even more complex rules that apply to only selected customer groups or to all customers.
+By using [Discounts](discounts_guide.md), you can create even more complex rules that apply to only selected customer groups or to all customers.
 
 !!! tip
 

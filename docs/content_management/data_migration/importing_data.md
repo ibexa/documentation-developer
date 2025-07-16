@@ -55,6 +55,7 @@ The following data migration step modes are available:
 | `content`              | &#10004; | &#10004; | &#10004; |          |
 | `currency`             | &#10004; | &#10004; | &#10004; |          |
 | `customer_group`       | &#10004; | &#10004; | &#10004; |          |
+| `discount`             | &#10004; | &#10004; |          |          |
 | `language`             | &#10004; |          |          |          |
 | `location`             |          | &#10004; |          | &#10004; |
 | `object_state`         | &#10004; |          |          |          |
@@ -171,14 +172,7 @@ Built-in expression language functions that are tagged with `ibexa.migrations.te
 - `env` - retrieves the value of an environmental variable.
 
 ```yaml
-                -
-                    type: user
-                    mode: update
-                    match:
-                        field: login
-                        value: admin
-                    metadata:
-                        password: '###XXX env("ADMIN_PASSWORD") XXX###'
+[[= include_file('code_samples/data_migration/examples/update_user.yaml') =]]
 ```
 
 #### Custom functions
@@ -316,6 +310,12 @@ You can use an [action](data_migration_actions.md) to assign a role to the user.
 
 ``` yaml hl_lines="22-23"
 [[= include_file('code_samples/data_migration/examples/create_user.yaml') =]]
+```
+
+You can also update user information, including passwords:
+
+``` yaml
+[[= include_file('code_samples/data_migration/examples/update_user.yaml') =]]
 ```
 
 ### Languages
@@ -507,7 +507,7 @@ When updating a content type, use:
 [[= include_file('code_samples/data_migration/examples/ai/action_configuration_delete.yaml') =]]
 ```
 
-### Discounts [[% include 'snippets/lts-update_badge.md' %]]
+### Discounts
 
 - The following example shows how you can create a new [discount](discounts_guide.md) in your system:
 
@@ -521,6 +521,8 @@ The provided conditions overwrite any already existing ones.
 ``` yaml
 [[= include_file('code_samples/data_migration/examples/discounts/discount_update.yaml') =]]
 ```
+
+For a list of available conditions, see [Discounts API](discounts_api.md#conditions).
 
 ## Criteria
 

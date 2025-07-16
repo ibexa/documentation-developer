@@ -2,7 +2,7 @@ ibexa:
     system:
         admin_group:
             fieldtypes:
-                ezrichtext:
+                ibexa_richtext:
                     custom_tags: [ezyoutube, eztwitter, ezfacebook]
                     toolbar:
                         group1:

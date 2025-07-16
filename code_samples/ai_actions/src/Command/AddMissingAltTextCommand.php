@@ -150,7 +150,7 @@ final class AddMissingAltTextCommand extends Command
     /** @phpstan-assert-if-true string $value->uri */
     private function shouldGenerateAltText(Value $value): bool
     {
-        return $this->fieldTypeService->getFieldType('ezimage')->isEmptyValue($value) === false &&
+        return $this->fieldTypeService->getFieldType('ibexa_image')->isEmptyValue($value) === false &&
             $value->isAlternativeTextEmpty() &&
             $value->uri !== null;
     }

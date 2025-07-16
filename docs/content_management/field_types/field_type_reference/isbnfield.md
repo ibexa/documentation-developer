@@ -4,9 +4,9 @@ This field type represents an ISBN string either an ISBN-10 or ISBN-13 format.
 
 | Name   | Internal name | Expected input type |
 |--------|---------------|---------------------|
-| `ISBN` | `ezisbn`      | `string`            |
+| `ISBN` | `ibexa_isbn`  | `string`            |
 
-## PHP API field type 
+## PHP API field type
 
 ### Value object
 
@@ -14,8 +14,8 @@ This field type represents an ISBN string either an ISBN-10 or ISBN-13 format.
 
 The Value class of this field type contains the following properties:
 
-| Property | Type     | Description|
-|----------|----------|------------|
+| Property | Type     | Description                                |
+|----------|----------|--------------------------------------------|
 | `$isbn`  | `string` | This property is used for the ISBN string. |
 
 ##### String representation
@@ -25,7 +25,7 @@ An ISBN's string representation is the `$isbn` property's value, as a string.
 ##### Constructor
 
 The constructor for this value object initializes a new value object with the value provided.
-It accepts a string as argument and sets it to the `isbn` attribute.
+It accepts a string as argument and sets it to the `isbn` attribute.
 
 ### Validation
 

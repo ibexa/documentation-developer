@@ -267,14 +267,11 @@ nav:
                 - Media field type: content_management/field_types/field_type_reference/mediafield.md
                 - Null field type: content_management/field_types/field_type_reference/nullfield.md
                 - Page field type: content_management/field_types/field_type_reference/pagefield.md
+                - ProductSpecification field type: content_management/field_types/field_type_reference/productspecificationfield.md
                 - Relation field type: content_management/field_types/field_type_reference/relationfield.md
                 - RelationList field type: content_management/field_types/field_type_reference/relationlistfield.md
                 - RichText field type: content_management/field_types/field_type_reference/richtextfield.md
                 - Selection field type: content_management/field_types/field_type_reference/selectionfield.md
-                - SesExternalData: content_management/field_types/field_type_reference/sesexternaldata.md
-                - SesProfileData: content_management/field_types/field_type_reference/sesprofiledata.md
-                - SesSelection: content_management/field_types/field_type_reference/sesselection.md
-                - SpecificationsType: content_management/field_types/field_type_reference/specificationstype.md
                 - TaxonomyEntry field type: content_management/field_types/field_type_reference/taxonomyentryfield.md
                 - TaxonomyEntryAssignment field type: content_management/field_types/field_type_reference/taxonomyentryassignmentfield.md
                 - TextBlock field type: content_management/field_types/field_type_reference/textblockfield.md
@@ -313,6 +310,7 @@ nav:
             - URL Twig functions: templating/twig_function_reference/url_twig_functions.md
             - User Twig functions: templating/twig_function_reference/user_twig_functions.md
             - AI Twig functions: templating/twig_function_reference/ai_actions_twig_functions.md
+            - Discounts functions: templating/twig_function_reference/discounts_twig_functions.md
         - Twig Components: templating/components.md
         - URLs and routes:
             - URLs and routes: templating/urls_and_routes/urls_and_routes.md
@@ -405,7 +403,8 @@ nav:
     - Discounts:
         - Discounts: discounts/discounts.md
         - Discounts guide: discounts/discounts_guide.md
-        - Install Discounts: discounts/install_discounts.md
+        - Customize Discounts: discounts/configure_discounts.md
+        - Discounts API: discounts/discounts_api.md
     - Customer management:
         - Customer Portal: customer_management/customer_portal.md
         - Customer Portal guide: customer_management/customer_portal_guide.md
@@ -953,14 +952,14 @@ extra:
 
   # Global variables - latest tag versions
   latest_tag_2_5: '2.5.32'
-  latest_tag_3_3: '3.3.42'
+  latest_tag_3_3: '3.3.43'
   latest_tag_4_0: '4.0.8'
   latest_tag_4_1: '4.1.5'
   latest_tag_4_2: '4.2.4'
   latest_tag_4_3: '4.3.5'
   latest_tag_4_4: '4.4.4'
   latest_tag_4_5: '4.5.7'
-  latest_tag_4_6: '4.6.20'
+  latest_tag_4_6: '4.6.21'
   latest_tag_5_0: '5.0.0'
 
   symfony_doc: 'https://symfony.com/doc/7.2'

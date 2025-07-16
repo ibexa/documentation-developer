@@ -452,7 +452,7 @@ The output for this command should look similar to this:
 
 ```
     HTTP/1.1 200 OK
-    Server: nginx/1.20.0
+    Server: nginx/1.27.0
     Content-Type: application/vnd.fos.user-context-hash
     Transfer-Encoding: chunked
     Connection: keep-alive
@@ -480,7 +480,7 @@ The output :
 
 ```
 HTTP/1.1 200 OK
-Server: nginx/1.20.0
+Server: nginx/1.27.0
 Content-Type: text/html; charset=UTF-8
 Transfer-Encoding: chunked
 Connection: keep-alive
@@ -533,7 +533,7 @@ The output is:
 
 ```
 HTTP/1.1 200 OK
-Server: nginx/1.20.0
+Server: nginx/1.27.0
 Content-Type: text/html; charset=UTF-8
 Transfer-Encoding: chunked
 Connection: keep-alive
@@ -561,11 +561,11 @@ Output:
 
 ```
 HTTP/1.1 200 OK
-Server: nginx/1.20.0
+Server: nginx/1.27.0
 Content-Type: text/html; charset=UTF-8
 Transfer-Encoding: chunked
 Connection: keep-alive
-Set-Cookie: eZSESSID21232f297a57a5a743894a0e4a801fc3=asrpqgmh5ll5ssseca3cov8er7; path=/; HttpOnly; SameSite=lax
+Set-Cookie: IBX_SESSION_ID21232f297a57a5a743894a0e4a801fc3=asrpqgmh5ll5ssseca3cov8er7; path=/; HttpOnly; SameSite=lax
 Cache-Control: public, s-maxage=86400
 Date: Wed, 01 Sep 2021 07:51:40 GMT
 Vary: Origin

@@ -2,7 +2,6 @@
 description: Events that are triggered when working with discounts.
 page_type: reference
 editions:
-    - lts-update
     - commerce
 month_change: true
 ---

@@ -6,21 +6,21 @@ AUTH_JSON=${1:-~/.composer/auth.json}; # Path to an auth.json file allowing to i
 OUTPUT_DIR=${2:-./docs/api/php_api/php_api_reference}; # Path to the directory where the built PHP API Reference is hosted
 
 DXP_EDITION='commerce'; # Edition from and for which the Reference is built
-DXP_VERSION='4.6.*'; # Version from and for which the Reference is built
-DXP_ADD_ONS=(connector-ai connector-openai automated-translation product-catalog-date-time-attribute rector discounts discounts-codes); # Packages not included in $DXP_EDITION but added to the Reference, listed without their vendor "ibexa"
+DXP_VERSION='5.0.x-dev'; # Version from and for which the Reference is built
+DXP_ADD_ONS=(automated-translation rector); # Packages not included in $DXP_EDITION but added to the Reference, listed without their vendor "ibexa"
 DXP_EDITIONS=(oss headless experience commerce); # Available editions ordered by ascending capabilities
-SF_VERSION='5.4'; # Symfony version used by Ibexa DXP
-PHPDOC_VERSION='3.7.1'; # Version of phpDocumentor used to build the Reference
+SF_VERSION='7.2'; # Symfony version used by Ibexa DXP
+PHPDOC_VERSION='3.8.0'; # Version of phpDocumentor used to build the Reference
 PHPDOC_CONF="$(pwd)/tools/php_api_ref/phpdoc.dist.xml"; # Absolute path to phpDocumentor configuration file
 #PHPDOC_CONF="$(pwd)/tools/php_api_ref/phpdoc.dev.xml"; # Absolute path to phpDocumentor configuration file
-PHPDOC_TEMPLATE_VERSION='3.7.1'; # Version of the phpDocumentor base template set
+PHPDOC_TEMPLATE_VERSION='3.8.0'; # Version of the phpDocumentor base template set
 PHPDOC_DIR="$(pwd)/tools/php_api_ref/.phpdoc"; # Absolute path to phpDocumentor resource directory (containing the override template set)
 
 PHP_BINARY="php -d error_reporting=`php -r 'echo E_ALL & ~E_DEPRECATED;'`"; # Avoid depreciation messages from phpDocumentor/Reflection/issues/529 when using PHP 8.2 or higher
 TMP_DXP_DIR=/tmp/ibexa-dxp-phpdoc; # Absolute path of the temporary directory in which Ibexa DXP will be installed and the PHP API Reference built
 FORCE_DXP_INSTALL=1; # If 1, empty the temporary directory, install DXP from scratch, build, remove temporary directory; if 0, potentially reuse the DXP already installed in temporary directory, keep temporary directory for future uses.
-BASE_DXP_BRANCH=''; # Branch from and for which the Reference is built when using a dev branch as version
-VIRTUAL_DXP_VERSION=''; # Version for which the reference is supposedly built when using dev branch as version
+BASE_DXP_BRANCH='master'; # Branch from and for which the Reference is built when using a dev branch as version
+VIRTUAL_DXP_VERSION='5.0.0'; # Version for which the reference is supposedly built when using dev branch as version
 
 if [ ! -d $OUTPUT_DIR ]; then
   echo -n "Creating ${OUTPUT_DIR}… ";
@@ -53,7 +53,7 @@ cd $TMP_DXP_DIR; # /!\ Change working directory (reason why all paths must be ab
 if [ 0 -eq $DXP_ALREADY_EXISTS ]; then
   echo "Creating ibexa/$DXP_EDITION-skeleton:$DXP_VERSION project in ${TMP_DXP_DIR}…";
   if [[ "$DXP_VERSION" == *".x-dev" ]]; then
-    composer create-project ibexa/website-skeleton:$DXP_VERSION . --no-interaction --no-install --ignore-platform-reqs --no-scripts --stability=dev;
+    composer create-project ibexa/website-skeleton:$DXP_VERSION . --no-interaction --ignore-platform-reqs --no-scripts --stability=dev;
     if [ -n "$AUTH_JSON" ]; then
       cp $AUTH_JSON ./;
     fi;
@@ -78,7 +78,7 @@ export COMPOSER_ROOT_VERSION=$DXP_VERSION;
 
 if [ 0 -eq $DXP_ALREADY_EXISTS ]; then
   for additional_package in "${DXP_ADD_ONS[@]}"; do
-    composer require --no-interaction --ignore-platform-reqs --no-scripts ibexa/$additional_package:$DXP_VERSION
+    composer require --no-interaction --ignore-platform-reqs --no-scripts ibexa/$additional_package:$DXP_VERSION;
   done;
 fi;
 
@@ -118,7 +118,7 @@ if [ 0 -eq $DXP_ALREADY_EXISTS ]; then
   done;
   echo 'OK';
 
-  echo -n "Store package→edition and namespace→edition maps into $map… ";
+  echo -n "Store package→edition and namespace→edition maps into ${map}… ";
   map=$PHPDOC_DIR/template/package-edition-map.twig;
   if [[ -f $map ]]; then
     rm $map;

@@ -145273,6 +145273,2978 @@ application/vnd.ibexa.api.ai.ActionType+xml
     </div>
 </div>
                         </section>
+                                    <section class="section">
+                                                                        <h2 id="discounts" class="heading pt-5 px-3 pb-1 text-orange" data-field="name">
+                            Discounts
+                            <a href="#discounts" class="heading__link">¶</a>
+                        </h2>
+                                <div class="sticky px-3">
+        <div class="sticky__body border-bottom border-top py-1 ">
+            <h4 id="discounts" class="heading text-gray">/discounts</h4>
+            <ul class="list-unstyled d-inline-flex mb-0">
+                                    <li class="pr-3 ">
+                                                <a href="#discounts-list-discounts">
+                           <span class="pl-0 new badge badge--get" data-badge-caption="GET">
+                                GET
+                           </span>
+                        </a>
+                    </li>
+                                    <li class="px-3 ">
+                                                <a href="#discounts-create-discount">
+                           <span class="pl-0 new badge badge--post" data-badge-caption="POST">
+                                POST
+                           </span>
+                        </a>
+                    </li>
+                            </ul>
+        </div>
+    </div>
+            <div id="discounts-list-discounts-section" class="search-container px-3" data-parent="Discounts">
+    <div class="row px-1 pr-lg-0">
+        <div class="col-12">
+            <h5 id="discounts-list-discounts"
+                class="heading text-gray font-weight-medium"
+                data-field="name"
+                data-search="list-discounts">
+                List discounts
+                <a href="#discounts-list-discounts" class="heading__link">¶</a>
+            </h5>
+        </div>
+        <div class="col-lg-6">
+            <p class="text-break">
+                <span data-field="method" class="badge badge--sm badge--get">GET</span>
+                <span data-field="url">/discounts</span>
+            </p>
+            <p data-field="body"><p>Returns a list of discounts.</p>
+</p>
+                <div class="py-3">
+        <h6 class="heading text-gray border-bottom pb-2">Header parameters</h6>
+                    <div class="mb-2">
+                <p class="mt-3 mb-0 font-weight-medium">Accept</p>
+                <p>Specifies the expected response type. Only JSON is supported.</p>
+                <div class="table-responsive mb-2">
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th scope="col">Property</th>
+                            <th scope="col">Value</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+    <td>Type</td>
+    <td>
+        
+                    <span>
+                                    string
+                            </span>
+            
+            
+                                                        
+                        </td>
+</tr>
+<tr>
+    <td>Examples</td>
+    <td>
+                    <code>application/vnd.ibexa.api.DiscountList+json
+</code>
+            </td>
+</tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            </div>
+
+            
+                <div class="py-3">
+        <h6 class="heading text-gray border-bottom pb-2">Possible responses</h6>
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th scope="col">Code</th>
+                    <th scope="col">Description</th>
+                </tr>
+                </thead>
+                <tbody>
+                                    <tr>
+                        <td>
+                                                        <a href="#discounts-get-response-200"
+                               class="text-ocean-blue ">
+                                200
+                            </a>
+                                                    </td>
+                        <td>
+                            <p>Discount list returned successfully.</p>
+                        </td>
+                    </tr>
+                                    <tr>
+                        <td>
+                                                            400
+                                                    </td>
+                        <td>
+                            <p>Error - the request is invalid.</p>
+                        </td>
+                    </tr>
+                                </tbody>
+            </table>
+        </div>
+    </div>
+
+                <div class="py-3">
+        <h6 class="heading text-gray border-bottom pb-2">Types</h6>
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th scope="col">Type</th>
+                    <th scope="col">Description</th>
+                </tr>
+                </thead>
+                <tbody>
+                                    <tr>
+                        <td>
+                            <a href="#" class="text-ocean-blue" data-toggle="modal" data-target="#DiscountListWrapper">
+                                DiscountListWrapper
+                            </a>
+                        </td>
+                        <td>Wrapper object for DiscountList.</td>
+                    </tr>
+                                </tbody>
+            </table>
+        </div>
+    </div>
+
+        </div>
+        <div class="col-lg-6 px-3 examples">
+                                    
+                                                <div class="request">
+    </div>
+                                                                    <div class="response">
+                                                        <div class="pb-3 response__code" id="discounts-get-response-200">
+                    <div class="d-flex justify-content-between align-items-baseline">
+                        <ul class="nav nav-tabs border-bottom-0" id="discounts-get-response-200Tab" role="tablist">
+                                                                                        <li class="nav-item">
+                                    <a href="#" class="nav-link disabled">Responses</a>
+                                </li>
+                                                                                                        <li class="nav-item">
+                                        <a class="nav-link active text-gray" id="discounts-get-response-200-json-tab"
+                                           data-toggle="tab"
+                                           href="#discounts-get-response-200-json"
+                                           role="tab"
+                                           aria-controls="discounts-get-response-200-json"
+                                           aria-selected="true">
+                                            json
+                                        </a>
+                                    </li>
+                                                                                    </ul>
+                                                    <div>
+                                <code>Code: 200</code>
+                            </div>
+                                            </div>
+                                                                <div class="example position-relative border p-3 mb-3">
+    <div class="tab-content" id="discounts-get-response-200Content">
+                                                    <div class="tab-pane fade show active" id="discounts-get-response-200-json" role="tabpanel"
+                     aria-labelledby="discounts-get-response-200-json-tab">
+                                                                                            <div class="position-relative  ">
+                                                        <p class="mb-0 icon icon--copy-clipboard">
+                                <i class="material-icons-outlined clipboard"
+                                   data-toggle="tooltip"
+                                   data-placement="top"
+                                   data-clipboard-target="#S3123f893c2493a5d57dfcd24d729f145461b2a7411fd0a063dd3ba4cde9fc78a"
+                                   title="Copy to clipboard">file_copy
+                                </i>
+                            </p>
+                            <pre id="S3123f893c2493a5d57dfcd24d729f145461b2a7411fd0a063dd3ba4cde9fc78a" class="example__code-wrapper">
+                                <code class="json">{
+    &quot;DiscountList&quot;: {
+        &quot;_media-type&quot;: &quot;application/vnd.ibexa.api.DiscountList+json&quot;,
+        &quot;Discount&quot;: [
+            {
+                &quot;_media-type&quot;: &quot;application/vnd.ibexa.api.Discount+json&quot;,
+                &quot;id&quot;: 1,
+                &quot;identifier&quot;: &quot;summersale2025&quot;,
+                &quot;name&quot;: &quot;SummerSale2025&quot;,
+                &quot;type&quot;: &quot;catalog&quot;,
+                &quot;label&quot;: &quot;Summer Sale 2025&quot;,
+                &quot;labelDescription&quot;: &quot;Summer Sale 2025&quot;,
+                &quot;priority&quot;: 1,
+                &quot;isEnabled&quot;: true,
+                &quot;createdAt&quot;: &quot;2025-06-10T09:43:42+00:00&quot;,
+                &quot;updatedAt&quot;: &quot;2025-06-10T09:48:23+00:00&quot;,
+                &quot;startDate&quot;: &quot;2025-07-01T09:34:19+00:00&quot;,
+                &quot;endDate&quot;: &quot;2025-07-31T12:00:00+00:00&quot;,
+                &quot;DiscountExpressionAware&quot;: {
+                    &quot;_media-type&quot;: &quot;application/vnd.ibexa.api.DiscountExpressionAware+json&quot;,
+                    &quot;expressionValues&quot;: {
+                        &quot;discount_amount&quot;: &quot;10&quot;
+                    }</code>
+                            </pre>
+                        </div>
+                        <a href="" data-toggle="modal" data-target="#discounts-get-response-200Modal" class="btn btn--example-view-more text-center">View more</a>
+                                    </div>
+                        </div>
+</div>
+                        <div class="modal fade" id="discounts-get-response-200Modal" tabindex="-1" role="dialog" aria-labelledby="discounts-get-response-200Title" aria-hidden="true">
+    <div class="modal-dialog modal-xl" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <p class="modal-title" id="discounts-get-response-200Title">
+                    <span data-field="method" class="badge badge--sm badge--get">GET</span>
+                    List discounts
+                </p>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="d-flex justify-content-between align-items-baseline">
+                    <ul class="nav nav-tabs border-bottom-0" id="discounts-get-response-200ModalTab" role="tablist">
+                                                    <li class="nav-item">
+                                <a href="#" class="nav-link disabled">
+                                    Responses
+                                </a>
+                            </li>
+                                                                                            <li class="nav-item">
+                                    <a class="nav-link active text-gray" id="discounts-get-response-200-json-modal-tab"
+                                       data-toggle="tab"
+                                       href="#discounts-get-response-200-json-modal"
+                                       role="tab"
+                                       aria-controls="discounts-get-response-200-json-modal"
+                                       aria-selected="true">
+                                        json
+                                    </a>
+                                </li>
+                                <li>
+
+                                </li>
+                                                                        </ul>
+                                            <div>
+                            <code>Code: 200</code>
+                        </div>
+                                    </div>
+                <div class="example position-relative border p-3 mb-3">
+                    <div class="tab-content" id="discounts-get-response-200ModalContent">
+                                                    <div class="tab-pane fade show active"
+                                 id="discounts-get-response-200-json-modal" role="tabpanel"
+                                 aria-labelledby="discounts-get-response-200-json-modal-tab">
+                                                                                                                                            <div class="position-relative  ">
+                                                                                <p class="mb-0 icon icon--copy-clipboard">
+                                            <i class="material-icons-outlined clipboard"
+                                               data-toggle="tooltip"
+                                               data-placement="top"
+                                               data-clipboard-target="#Mb45ed40c512f956fe25711fc457d835995a2d719abad2881e8cb1015b4fe407d"
+                                               title="Copy to clipboard">file_copy
+                                            </i>
+                                        </p>
+                                        <pre id="Mb45ed40c512f956fe25711fc457d835995a2d719abad2881e8cb1015b4fe407d">
+                                            <code class="json">{
+    &quot;DiscountList&quot;: {
+        &quot;_media-type&quot;: &quot;application/vnd.ibexa.api.DiscountList+json&quot;,
+        &quot;Discount&quot;: [
+            {
+                &quot;_media-type&quot;: &quot;application/vnd.ibexa.api.Discount+json&quot;,
+                &quot;id&quot;: 1,
+                &quot;identifier&quot;: &quot;summersale2025&quot;,
+                &quot;name&quot;: &quot;SummerSale2025&quot;,
+                &quot;type&quot;: &quot;catalog&quot;,
+                &quot;label&quot;: &quot;Summer Sale 2025&quot;,
+                &quot;labelDescription&quot;: &quot;Summer Sale 2025&quot;,
+                &quot;priority&quot;: 1,
+                &quot;isEnabled&quot;: true,
+                &quot;createdAt&quot;: &quot;2025-06-10T09:43:42+00:00&quot;,
+                &quot;updatedAt&quot;: &quot;2025-06-10T09:48:23+00:00&quot;,
+                &quot;startDate&quot;: &quot;2025-07-01T09:34:19+00:00&quot;,
+                &quot;endDate&quot;: &quot;2025-07-31T12:00:00+00:00&quot;,
+                &quot;DiscountExpressionAware&quot;: {
+                    &quot;_media-type&quot;: &quot;application/vnd.ibexa.api.DiscountExpressionAware+json&quot;,
+                    &quot;expressionValues&quot;: {
+                        &quot;discount_amount&quot;: &quot;10&quot;
+                    }
+                },
+                &quot;DiscountConditions&quot;: [
+                    {
+                        &quot;_media-type&quot;: &quot;application/vnd.ibexa.api.DiscountExpressionAware+json&quot;,
+                        &quot;expressionValues&quot;: {
+                            &quot;currency_code&quot;: &quot;USD&quot;
+                        }
+                    }
+                ],
+                &quot;DiscountTranslations&quot;: [
+                    {
+                        &quot;_media-type&quot;: &quot;application/vnd.ibexa.api.DiscountTranslation+json&quot;,
+                        &quot;languageCode&quot;: {},
+                        &quot;name&quot;: &quot;SummerSale2025&quot;,
+                        &quot;description&quot;: null,
+                        &quot;label&quot;: &quot;Summer Sale 2025&quot;,
+                        &quot;labelDescription&quot;: &quot;Summer Sale 2025&quot;
+                    }
+                ]
+            },
+            {
+                &quot;_media-type&quot;: &quot;application/vnd.ibexa.api.isDiscountCodeAware+json&quot;,
+                &quot;isDiscountCodeAware&quot;: false
+            },
+            {
+                &quot;_media-type&quot;: &quot;application/vnd.ibexa.api.Discount+json&quot;,
+                &quot;id&quot;: 2,
+                &quot;identifier&quot;: &quot;my_discount&quot;,
+                &quot;name&quot;: &quot;Another discount&quot;,
+                &quot;type&quot;: &quot;cart&quot;,
+                &quot;label&quot;: &quot;another&quot;,
+                &quot;labelDescription&quot;: &quot;another label description&quot;,
+                &quot;priority&quot;: 10,
+                &quot;isEnabled&quot;: false,
+                &quot;createdAt&quot;: &quot;2025-06-10T11:03:37+00:00&quot;,
+                &quot;updatedAt&quot;: &quot;2025-06-10T14:14:06+00:00&quot;,
+                &quot;startDate&quot;: &quot;2025-04-01T12:12:12+00:00&quot;,
+                &quot;DiscountExpressionAware&quot;: {
+                    &quot;_media-type&quot;: &quot;application/vnd.ibexa.api.DiscountExpressionAware+json&quot;,
+                    &quot;expressionValues&quot;: {
+                        &quot;discount_percentage&quot;: &quot;10&quot;
+                    }
+                },
+                &quot;DiscountConditions&quot;: [
+                    {
+                        &quot;_media-type&quot;: &quot;application/vnd.ibexa.api.DiscountExpressionAware+json&quot;,
+                        &quot;expressionValues&quot;: {
+                            &quot;discount_code&quot;: &quot;my_secret_code&quot;,
+                            &quot;usage_count&quot;: 1
+                        }
+                    },
+                    {
+                        &quot;_media-type&quot;: &quot;application/vnd.ibexa.api.DiscountExpressionAware+json&quot;,
+                        &quot;expressionValues&quot;: {
+                            &quot;categories&quot;: [
+                                1,
+                                3
+                            ]
+                        }
+                    }
+                ],
+                &quot;DiscountTranslations&quot;: [
+                    {
+                        &quot;_media-type&quot;: &quot;application/vnd.ibexa.api.DiscountTranslation+json&quot;,
+                        &quot;languageCode&quot;: {},
+                        &quot;name&quot;: &quot;Another discount&quot;,
+                        &quot;description&quot;: &quot;another great discount&quot;,
+                        &quot;label&quot;: &quot;another&quot;,
+                        &quot;labelDescription&quot;: &quot;another label description&quot;
+                    }
+                ]
+            },
+            {
+                &quot;_media-type&quot;: &quot;application/vnd.ibexa.api.isDiscountCodeAware+json&quot;,
+                &quot;isDiscountCodeAware&quot;: true
+            }
+        ]
+    }
+}
+</code>
+                                        </pre>
+                                    </div>
+                                                            </div>
+                                            </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+                                    </div>
+                                    </div>
+                                    </div>
+    </div>
+</div>
+            <div id="discounts-create-discount-section" class="search-container px-3" data-parent="Discounts">
+    <div class="row px-1 pr-lg-0">
+        <div class="col-12">
+            <h5 id="discounts-create-discount"
+                class="heading text-gray font-weight-medium"
+                data-field="name"
+                data-search="create-discount">
+                Create discount
+                <a href="#discounts-create-discount" class="heading__link">¶</a>
+            </h5>
+        </div>
+        <div class="col-lg-6">
+            <p class="text-break">
+                <span data-field="method" class="badge badge--sm badge--post">POST</span>
+                <span data-field="url">/discounts</span>
+            </p>
+            <p data-field="body"><p>Create a discount using the provided input.</p>
+</p>
+                <div class="py-3">
+        <h6 class="heading text-gray border-bottom pb-2">Header parameters</h6>
+                    <div class="mb-2">
+                <p class="mt-3 mb-0 font-weight-medium">Accept</p>
+                <p>Specifies the expected response type. Only JSON is supported.</p>
+                <div class="table-responsive mb-2">
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th scope="col">Property</th>
+                            <th scope="col">Value</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+    <td>Type</td>
+    <td>
+        
+                    <span>
+                                    string
+                            </span>
+            
+            
+                                                        
+                        </td>
+</tr>
+<tr>
+    <td>Examples</td>
+    <td>
+                    <code>application/vnd.ibexa.api.Discount+json
+</code>
+            </td>
+</tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+                    <div class="mb-2">
+                <p class="mt-3 mb-0 font-weight-medium">Content-Type</p>
+                <p>Specifies the input type. Only JSON is supported.</p>
+                <div class="table-responsive mb-2">
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th scope="col">Property</th>
+                            <th scope="col">Value</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+    <td>Type</td>
+    <td>
+        
+                    <span>
+                                    string
+                            </span>
+            
+            
+                                                        
+                        </td>
+</tr>
+<tr>
+    <td>Examples</td>
+    <td>
+                    <code>application/vnd.ibexa.api.DiscountCreate+json
+</code>
+            </td>
+</tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            </div>
+
+            
+                <div class="py-3">
+        <h6 class="heading text-gray border-bottom pb-2">Possible responses</h6>
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th scope="col">Code</th>
+                    <th scope="col">Description</th>
+                </tr>
+                </thead>
+                <tbody>
+                                    <tr>
+                        <td>
+                                                        <a href="#discounts-post-response-200"
+                               class="text-ocean-blue ">
+                                200
+                            </a>
+                                                    </td>
+                        <td>
+                            <p></p>
+                        </td>
+                    </tr>
+                                    <tr>
+                        <td>
+                                                            400
+                                                    </td>
+                        <td>
+                            <p>Error - the request is invalid.</p>
+                        </td>
+                    </tr>
+                                    <tr>
+                        <td>
+                                                            401
+                                                    </td>
+                        <td>
+                            <p>Error - the user is not authorized to execute an AI action.</p>
+                        </td>
+                    </tr>
+                                </tbody>
+            </table>
+        </div>
+    </div>
+
+                <div class="py-3">
+        <h6 class="heading text-gray border-bottom pb-2">Types</h6>
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th scope="col">Type</th>
+                    <th scope="col">Description</th>
+                </tr>
+                </thead>
+                <tbody>
+                                    <tr>
+                        <td>
+                            <a href="#" class="text-ocean-blue" data-toggle="modal" data-target="#DiscountCreateWrapper">
+                                DiscountCreateWrapper
+                            </a>
+                        </td>
+                        <td>Wrapper object for DiscountCreate.</td>
+                    </tr>
+                                    <tr>
+                        <td>
+                            <a href="#" class="text-ocean-blue" data-toggle="modal" data-target="#DiscountWrapper">
+                                DiscountWrapper
+                            </a>
+                        </td>
+                        <td>Wrapper object for Discount.</td>
+                    </tr>
+                                </tbody>
+            </table>
+        </div>
+    </div>
+
+        </div>
+        <div class="col-lg-6 px-3 examples">
+                                    
+                                                <div class="request">
+                    <div class="pb-3" id="discounts-post-request">
+            <div class="d-flex justify-content-between align-items-baseline">
+                <ul class="nav nav-tabs border-bottom-0" id="discounts-post-requestTab" role="tablist">
+                                                                <li class="nav-item">
+                            <a href="#" class="nav-link disabled">Request</a>
+                        </li>
+                                                                                <li class="nav-item">
+                                <a class="nav-link active text-gray" id="discounts-post-request-json-tab"
+                                   data-toggle="tab"
+                                   href="#discounts-post-request-json"
+                                   role="tab"
+                                   aria-controls="discounts-post-request-json"
+                                   aria-selected="true">
+                                    json
+                                </a>
+                            </li>
+                                                            </ul>
+            </div>
+                                        <div class="example position-relative border p-3 mb-3">
+    <div class="tab-content" id="discounts-post-requestContent">
+                                                    <div class="tab-pane fade show active" id="discounts-post-request-json" role="tabpanel"
+                     aria-labelledby="discounts-post-request-json-tab">
+                                                                                            <div class="position-relative  ">
+                                                        <p class="mb-0 icon icon--copy-clipboard">
+                                <i class="material-icons-outlined clipboard"
+                                   data-toggle="tooltip"
+                                   data-placement="top"
+                                   data-clipboard-target="#Se8db4a3e54d4c29e1525ad72f7a2bcd4dbc9ff027315aa9d400bdf25d17d1023"
+                                   title="Copy to clipboard">file_copy
+                                </i>
+                            </p>
+                            <pre id="Se8db4a3e54d4c29e1525ad72f7a2bcd4dbc9ff027315aa9d400bdf25d17d1023" class="example__code-wrapper">
+                                <code class="json">{
+    &quot;DiscountCreate&quot;: {
+        &quot;identifier&quot;: &quot;my_discount&quot;,
+        &quot;type&quot;: &quot;cart&quot;,
+        &quot;priority&quot;: 10,
+        &quot;isEnabled&quot;: true,
+        &quot;userId&quot;: 14,
+        &quot;rule&quot;: {
+            &quot;type&quot;: &quot;percentage&quot;,
+            &quot;amount&quot;: 10
+        },
+        &quot;startDate&quot;: &quot;2025-04-01 12:12:12&quot;,
+        &quot;translations&quot;: [
+            {
+                &quot;languageCode&quot;: &quot;eng-GB&quot;,
+                &quot;name&quot;: &quot;Another discount&quot;,
+                &quot;description&quot;: &quot;another great discount&quot;,
+                &quot;label&quot;: &quot;another&quot;,
+                &quot;labelDescription&quot;: &quot;another label description&quot;
+            }
+        ],
+        &quot;conditions&quot;: [
+            {
+                &quot;class&quot;: &quot;Ibexa\\Discounts\\Value\\DiscountCondition\\IsInCategory&quot;,
+                &quot;parameters&quot;: [[&quot;1&quot;, &quot;2&quot;]]
+            }
+        ]
+    }
+}
+</code>
+                            </pre>
+                        </div>
+                        <a href="" data-toggle="modal" data-target="#discounts-post-requestModal" class="btn btn--example-view-more text-center">View more</a>
+                                    </div>
+                        </div>
+</div>
+                <div class="modal fade" id="discounts-post-requestModal" tabindex="-1" role="dialog" aria-labelledby="discounts-post-requestTitle" aria-hidden="true">
+    <div class="modal-dialog modal-xl" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <p class="modal-title" id="discounts-post-requestTitle">
+                    <span data-field="method" class="badge badge--sm badge--post">POST</span>
+                    Create discount
+                </p>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="d-flex justify-content-between align-items-baseline">
+                    <ul class="nav nav-tabs border-bottom-0" id="discounts-post-requestModalTab" role="tablist">
+                                                    <li class="nav-item">
+                                <a href="#" class="nav-link disabled">
+                                    Request
+                                </a>
+                            </li>
+                                                                                            <li class="nav-item">
+                                    <a class="nav-link active text-gray" id="discounts-post-request-json-modal-tab"
+                                       data-toggle="tab"
+                                       href="#discounts-post-request-json-modal"
+                                       role="tab"
+                                       aria-controls="discounts-post-request-json-modal"
+                                       aria-selected="true">
+                                        json
+                                    </a>
+                                </li>
+                                <li>
+
+                                </li>
+                                                                        </ul>
+                                    </div>
+                <div class="example position-relative border p-3 mb-3">
+                    <div class="tab-content" id="discounts-post-requestModalContent">
+                                                    <div class="tab-pane fade show active"
+                                 id="discounts-post-request-json-modal" role="tabpanel"
+                                 aria-labelledby="discounts-post-request-json-modal-tab">
+                                                                                                                                            <div class="position-relative  ">
+                                                                                <p class="mb-0 icon icon--copy-clipboard">
+                                            <i class="material-icons-outlined clipboard"
+                                               data-toggle="tooltip"
+                                               data-placement="top"
+                                               data-clipboard-target="#Ma29e83df54cec794cec8a3f329a26faba7079741eded10411b8112b634319e12"
+                                               title="Copy to clipboard">file_copy
+                                            </i>
+                                        </p>
+                                        <pre id="Ma29e83df54cec794cec8a3f329a26faba7079741eded10411b8112b634319e12">
+                                            <code class="json">{
+    &quot;DiscountCreate&quot;: {
+        &quot;identifier&quot;: &quot;my_discount&quot;,
+        &quot;type&quot;: &quot;cart&quot;,
+        &quot;priority&quot;: 10,
+        &quot;isEnabled&quot;: true,
+        &quot;userId&quot;: 14,
+        &quot;rule&quot;: {
+            &quot;type&quot;: &quot;percentage&quot;,
+            &quot;amount&quot;: 10
+        },
+        &quot;startDate&quot;: &quot;2025-04-01 12:12:12&quot;,
+        &quot;translations&quot;: [
+            {
+                &quot;languageCode&quot;: &quot;eng-GB&quot;,
+                &quot;name&quot;: &quot;Another discount&quot;,
+                &quot;description&quot;: &quot;another great discount&quot;,
+                &quot;label&quot;: &quot;another&quot;,
+                &quot;labelDescription&quot;: &quot;another label description&quot;
+            }
+        ],
+        &quot;conditions&quot;: [
+            {
+                &quot;class&quot;: &quot;Ibexa\\Discounts\\Value\\DiscountCondition\\IsInCategory&quot;,
+                &quot;parameters&quot;: [[&quot;1&quot;, &quot;2&quot;]]
+            }
+        ]
+    }
+}
+</code>
+                                        </pre>
+                                    </div>
+                                                            </div>
+                                            </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+                    </div>
+    </div>
+                                                                    <div class="response">
+                                                        <div class="pb-3 response__code" id="discounts-post-response-200">
+                    <div class="d-flex justify-content-between align-items-baseline">
+                        <ul class="nav nav-tabs border-bottom-0" id="discounts-post-response-200Tab" role="tablist">
+                                                                                        <li class="nav-item">
+                                    <a href="#" class="nav-link disabled">Responses</a>
+                                </li>
+                                                                                                        <li class="nav-item">
+                                        <a class="nav-link active text-gray" id="discounts-post-response-200-json-tab"
+                                           data-toggle="tab"
+                                           href="#discounts-post-response-200-json"
+                                           role="tab"
+                                           aria-controls="discounts-post-response-200-json"
+                                           aria-selected="true">
+                                            json
+                                        </a>
+                                    </li>
+                                                                                    </ul>
+                                                    <div>
+                                <code>Code: 200</code>
+                            </div>
+                                            </div>
+                                                                <div class="example position-relative border p-3 mb-3">
+    <div class="tab-content" id="discounts-post-response-200Content">
+                                                    <div class="tab-pane fade show active" id="discounts-post-response-200-json" role="tabpanel"
+                     aria-labelledby="discounts-post-response-200-json-tab">
+                                                                                            <div class="position-relative  ">
+                                                        <p class="mb-0 icon icon--copy-clipboard">
+                                <i class="material-icons-outlined clipboard"
+                                   data-toggle="tooltip"
+                                   data-placement="top"
+                                   data-clipboard-target="#S639b493d57348fd341784140b7fbc636c126ea5822f52ec2abe2a4524b003bd9"
+                                   title="Copy to clipboard">file_copy
+                                </i>
+                            </p>
+                            <pre id="S639b493d57348fd341784140b7fbc636c126ea5822f52ec2abe2a4524b003bd9" class="example__code-wrapper">
+                                <code class="json">{
+    &quot;Discount&quot;: {
+        &quot;_media-type&quot;: &quot;application/vnd.ibexa.api.Discount+json&quot;,
+        &quot;id&quot;: 2,
+        &quot;identifier&quot;: &quot;my_discount&quot;,
+        &quot;name&quot;: &quot;Another discount&quot;,
+        &quot;type&quot;: &quot;cart&quot;,
+        &quot;label&quot;: &quot;another&quot;,
+        &quot;labelDescription&quot;: &quot;another label description&quot;,
+        &quot;priority&quot;: 10,
+        &quot;isEnabled&quot;: true,
+        &quot;createdAt&quot;: &quot;2025-06-10T11:03:37+00:00&quot;,
+        &quot;updatedAt&quot;: &quot;2025-06-10T11:03:37+00:00&quot;,
+        &quot;startDate&quot;: &quot;2025-04-01T12:12:12+00:00&quot;,
+        &quot;DiscountExpressionAware&quot;: {
+            &quot;_media-type&quot;: &quot;application/vnd.ibexa.api.DiscountExpressionAware+json&quot;,
+            &quot;expressionValues&quot;: {
+                &quot;discount_percentage&quot;: &quot;10&quot;
+            }
+        },
+        &quot;DiscountConditions&quot;: [
+            {
+                &quot;_media-type&quot;: &quot;application/vnd.ibexa.api.DiscountExpressionAware+json&quot;,
+                &quot;expressionValues&quot;: {
+                    &quot;categories&quot;: [
+                        &quot;1&quot;,
+                        &quot;2&quot;
+                    ]
+ </code>
+                            </pre>
+                        </div>
+                        <a href="" data-toggle="modal" data-target="#discounts-post-response-200Modal" class="btn btn--example-view-more text-center">View more</a>
+                                    </div>
+                        </div>
+</div>
+                        <div class="modal fade" id="discounts-post-response-200Modal" tabindex="-1" role="dialog" aria-labelledby="discounts-post-response-200Title" aria-hidden="true">
+    <div class="modal-dialog modal-xl" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <p class="modal-title" id="discounts-post-response-200Title">
+                    <span data-field="method" class="badge badge--sm badge--post">POST</span>
+                    Create discount
+                </p>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="d-flex justify-content-between align-items-baseline">
+                    <ul class="nav nav-tabs border-bottom-0" id="discounts-post-response-200ModalTab" role="tablist">
+                                                    <li class="nav-item">
+                                <a href="#" class="nav-link disabled">
+                                    Responses
+                                </a>
+                            </li>
+                                                                                            <li class="nav-item">
+                                    <a class="nav-link active text-gray" id="discounts-post-response-200-json-modal-tab"
+                                       data-toggle="tab"
+                                       href="#discounts-post-response-200-json-modal"
+                                       role="tab"
+                                       aria-controls="discounts-post-response-200-json-modal"
+                                       aria-selected="true">
+                                        json
+                                    </a>
+                                </li>
+                                <li>
+
+                                </li>
+                                                                        </ul>
+                                            <div>
+                            <code>Code: 200</code>
+                        </div>
+                                    </div>
+                <div class="example position-relative border p-3 mb-3">
+                    <div class="tab-content" id="discounts-post-response-200ModalContent">
+                                                    <div class="tab-pane fade show active"
+                                 id="discounts-post-response-200-json-modal" role="tabpanel"
+                                 aria-labelledby="discounts-post-response-200-json-modal-tab">
+                                                                                                                                            <div class="position-relative  ">
+                                                                                <p class="mb-0 icon icon--copy-clipboard">
+                                            <i class="material-icons-outlined clipboard"
+                                               data-toggle="tooltip"
+                                               data-placement="top"
+                                               data-clipboard-target="#M721cf65ff04b6b1b9983e735d465380d6af4dbc40d1be647e69baed3d93561b8"
+                                               title="Copy to clipboard">file_copy
+                                            </i>
+                                        </p>
+                                        <pre id="M721cf65ff04b6b1b9983e735d465380d6af4dbc40d1be647e69baed3d93561b8">
+                                            <code class="json">{
+    &quot;Discount&quot;: {
+        &quot;_media-type&quot;: &quot;application/vnd.ibexa.api.Discount+json&quot;,
+        &quot;id&quot;: 2,
+        &quot;identifier&quot;: &quot;my_discount&quot;,
+        &quot;name&quot;: &quot;Another discount&quot;,
+        &quot;type&quot;: &quot;cart&quot;,
+        &quot;label&quot;: &quot;another&quot;,
+        &quot;labelDescription&quot;: &quot;another label description&quot;,
+        &quot;priority&quot;: 10,
+        &quot;isEnabled&quot;: true,
+        &quot;createdAt&quot;: &quot;2025-06-10T11:03:37+00:00&quot;,
+        &quot;updatedAt&quot;: &quot;2025-06-10T11:03:37+00:00&quot;,
+        &quot;startDate&quot;: &quot;2025-04-01T12:12:12+00:00&quot;,
+        &quot;DiscountExpressionAware&quot;: {
+            &quot;_media-type&quot;: &quot;application/vnd.ibexa.api.DiscountExpressionAware+json&quot;,
+            &quot;expressionValues&quot;: {
+                &quot;discount_percentage&quot;: &quot;10&quot;
+            }
+        },
+        &quot;DiscountConditions&quot;: [
+            {
+                &quot;_media-type&quot;: &quot;application/vnd.ibexa.api.DiscountExpressionAware+json&quot;,
+                &quot;expressionValues&quot;: {
+                    &quot;categories&quot;: [
+                        &quot;1&quot;,
+                        &quot;2&quot;
+                    ]
+                }
+            }
+        ],
+        &quot;DiscountTranslations&quot;: [
+            {
+                &quot;_media-type&quot;: &quot;application/vnd.ibexa.api.DiscountTranslation+json&quot;,
+                &quot;languageCode&quot;: {},
+                &quot;name&quot;: &quot;Another discount&quot;,
+                &quot;description&quot;: &quot;another great discount&quot;,
+                &quot;label&quot;: &quot;another&quot;,
+                &quot;labelDescription&quot;: &quot;another label description&quot;
+            }
+        ]
+    },
+    &quot;isDiscountCodeAware&quot;: {
+        &quot;_media-type&quot;: &quot;application/vnd.ibexa.api.isDiscountCodeAware+json&quot;,
+        &quot;isDiscountCodeAware&quot;: false
+    }
+}
+</code>
+                                        </pre>
+                                    </div>
+                                                            </div>
+                                            </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+                                    </div>
+                                                </div>
+                                    </div>
+    </div>
+</div>
+                <div class="px-3">
+            <h3 class="heading text-gray py-5 border-top">/discounts/{id}</h3>
+        </div>
+                <div class="sticky px-3">
+        <div class="sticky__body border-bottom border-top py-1 ">
+            <h4 id="/discounts/{id}" class="heading text-gray">/discounts/{id}</h4>
+            <ul class="list-unstyled d-inline-flex mb-0">
+                                    <li class="pr-3 ">
+                                                <a href="#discounts-get-discount-by-id">
+                           <span class="pl-0 new badge badge--get" data-badge-caption="GET">
+                                GET
+                           </span>
+                        </a>
+                    </li>
+                            </ul>
+        </div>
+    </div>
+            <div id="discounts-get-discount-by-id-section" class="search-container px-3" data-parent="Discounts">
+    <div class="row px-1 pr-lg-0">
+        <div class="col-12">
+            <h5 id="discounts-get-discount-by-id"
+                class="heading text-gray font-weight-medium"
+                data-field="name"
+                data-search="get-discount-by-id">
+                Get discount by ID
+                <a href="#discounts-get-discount-by-id" class="heading__link">¶</a>
+            </h5>
+        </div>
+        <div class="col-lg-6">
+            <p class="text-break">
+                <span data-field="method" class="badge badge--sm badge--get">GET</span>
+                <span data-field="url">/discounts/{id}</span>
+            </p>
+            <p data-field="body"><p>Returns a discount with the specified numerical ID</p>
+</p>
+                <div class="py-3">
+        <h6 class="heading text-gray border-bottom pb-2">Header parameters</h6>
+                    <div class="mb-2">
+                <p class="mt-3 mb-0 font-weight-medium">Accept</p>
+                <p>Only JSON is supported.</p>
+                <div class="table-responsive mb-2">
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th scope="col">Property</th>
+                            <th scope="col">Value</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+    <td>Type</td>
+    <td>
+        
+                    <span>
+                                    string
+                            </span>
+            
+            
+                                                        
+                        </td>
+</tr>
+<tr>
+    <td>Examples</td>
+    <td>
+                    <code>application/vnd.ibexa.api.Discount+json
+</code>
+            </td>
+</tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            </div>
+
+            
+                <div class="py-3">
+        <h6 class="heading text-gray border-bottom pb-2">Possible responses</h6>
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th scope="col">Code</th>
+                    <th scope="col">Description</th>
+                </tr>
+                </thead>
+                <tbody>
+                                    <tr>
+                        <td>
+                                                        <a href="#discounts-id-get-response-200"
+                               class="text-ocean-blue ">
+                                200
+                            </a>
+                                                    </td>
+                        <td>
+                            <p></p>
+                        </td>
+                    </tr>
+                                </tbody>
+            </table>
+        </div>
+    </div>
+
+                <div class="py-3">
+        <h6 class="heading text-gray border-bottom pb-2">Types</h6>
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th scope="col">Type</th>
+                    <th scope="col">Description</th>
+                </tr>
+                </thead>
+                <tbody>
+                                    <tr>
+                        <td>
+                            <a href="#" class="text-ocean-blue" data-toggle="modal" data-target="#DiscountWrapper">
+                                DiscountWrapper
+                            </a>
+                        </td>
+                        <td>Wrapper object for Discount.</td>
+                    </tr>
+                                </tbody>
+            </table>
+        </div>
+    </div>
+
+        </div>
+        <div class="col-lg-6 px-3 examples">
+                                    
+                                                <div class="request">
+    </div>
+                                                                    <div class="response">
+                                                        <div class="pb-3 response__code" id="discounts-id-get-response-200">
+                    <div class="d-flex justify-content-between align-items-baseline">
+                        <ul class="nav nav-tabs border-bottom-0" id="discounts-id-get-response-200Tab" role="tablist">
+                                                                                        <li class="nav-item">
+                                    <a href="#" class="nav-link disabled">Responses</a>
+                                </li>
+                                                                                                        <li class="nav-item">
+                                        <a class="nav-link active text-gray" id="discounts-id-get-response-200-json-tab"
+                                           data-toggle="tab"
+                                           href="#discounts-id-get-response-200-json"
+                                           role="tab"
+                                           aria-controls="discounts-id-get-response-200-json"
+                                           aria-selected="true">
+                                            json
+                                        </a>
+                                    </li>
+                                                                                    </ul>
+                                                    <div>
+                                <code>Code: 200</code>
+                            </div>
+                                            </div>
+                                                                <div class="example position-relative border p-3 mb-3">
+    <div class="tab-content" id="discounts-id-get-response-200Content">
+                                                    <div class="tab-pane fade show active" id="discounts-id-get-response-200-json" role="tabpanel"
+                     aria-labelledby="discounts-id-get-response-200-json-tab">
+                                                                                            <div class="position-relative  ">
+                                                        <p class="mb-0 icon icon--copy-clipboard">
+                                <i class="material-icons-outlined clipboard"
+                                   data-toggle="tooltip"
+                                   data-placement="top"
+                                   data-clipboard-target="#Sfaef0766d20d5218e623c9252425aad6199efb357f2be5b432a00d55f319b815"
+                                   title="Copy to clipboard">file_copy
+                                </i>
+                            </p>
+                            <pre id="Sfaef0766d20d5218e623c9252425aad6199efb357f2be5b432a00d55f319b815" class="example__code-wrapper">
+                                <code class="json">{
+    &quot;Discount&quot;: {
+        &quot;_media-type&quot;: &quot;application/vnd.ibexa.api.Discount+json&quot;,
+        &quot;id&quot;: 1,
+        &quot;identifier&quot;: &quot;summersale2025&quot;,
+        &quot;name&quot;: &quot;SummerSale2025&quot;,
+        &quot;type&quot;: &quot;catalog&quot;,
+        &quot;label&quot;: &quot;Summer Sale 2025&quot;,
+        &quot;labelDescription&quot;: &quot;Summer Sale 2025&quot;,
+        &quot;priority&quot;: 1,
+        &quot;isEnabled&quot;: true,
+        &quot;createdAt&quot;: &quot;2025-06-10T09:43:42+00:00&quot;,
+        &quot;updatedAt&quot;: &quot;2025-06-10T09:48:23+00:00&quot;,
+        &quot;startDate&quot;: &quot;2025-07-01T09:34:19+00:00&quot;,
+        &quot;endDate&quot;: &quot;2025-07-31T12:00:00+00:00&quot;,
+        &quot;DiscountExpressionAware&quot;: {
+            &quot;_media-type&quot;: &quot;application/vnd.ibexa.api.DiscountExpressionAware+json&quot;,
+            &quot;expressionValues&quot;: {
+                &quot;discount_amount&quot;: &quot;10&quot;
+            }
+        },
+        &quot;DiscountConditions&quot;: [
+            {
+                &quot;_media-type&quot;: &quot;application/vnd.ibexa.api.DiscountExpressionAware+json&quot;,
+                &quot;expressionValues&quot;: {
+                    &quot;currency_code&quot;: &quot;USD&quot;
+                }
+        </code>
+                            </pre>
+                        </div>
+                        <a href="" data-toggle="modal" data-target="#discounts-id-get-response-200Modal" class="btn btn--example-view-more text-center">View more</a>
+                                    </div>
+                        </div>
+</div>
+                        <div class="modal fade" id="discounts-id-get-response-200Modal" tabindex="-1" role="dialog" aria-labelledby="discounts-id-get-response-200Title" aria-hidden="true">
+    <div class="modal-dialog modal-xl" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <p class="modal-title" id="discounts-id-get-response-200Title">
+                    <span data-field="method" class="badge badge--sm badge--get">GET</span>
+                    Get discount by ID
+                </p>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="d-flex justify-content-between align-items-baseline">
+                    <ul class="nav nav-tabs border-bottom-0" id="discounts-id-get-response-200ModalTab" role="tablist">
+                                                    <li class="nav-item">
+                                <a href="#" class="nav-link disabled">
+                                    Responses
+                                </a>
+                            </li>
+                                                                                            <li class="nav-item">
+                                    <a class="nav-link active text-gray" id="discounts-id-get-response-200-json-modal-tab"
+                                       data-toggle="tab"
+                                       href="#discounts-id-get-response-200-json-modal"
+                                       role="tab"
+                                       aria-controls="discounts-id-get-response-200-json-modal"
+                                       aria-selected="true">
+                                        json
+                                    </a>
+                                </li>
+                                <li>
+
+                                </li>
+                                                                        </ul>
+                                            <div>
+                            <code>Code: 200</code>
+                        </div>
+                                    </div>
+                <div class="example position-relative border p-3 mb-3">
+                    <div class="tab-content" id="discounts-id-get-response-200ModalContent">
+                                                    <div class="tab-pane fade show active"
+                                 id="discounts-id-get-response-200-json-modal" role="tabpanel"
+                                 aria-labelledby="discounts-id-get-response-200-json-modal-tab">
+                                                                                                                                            <div class="position-relative  ">
+                                                                                <p class="mb-0 icon icon--copy-clipboard">
+                                            <i class="material-icons-outlined clipboard"
+                                               data-toggle="tooltip"
+                                               data-placement="top"
+                                               data-clipboard-target="#M2322d9542157394434af2c635bebef4ed2a23739ac03351c2b4ce3fea3dd76a1"
+                                               title="Copy to clipboard">file_copy
+                                            </i>
+                                        </p>
+                                        <pre id="M2322d9542157394434af2c635bebef4ed2a23739ac03351c2b4ce3fea3dd76a1">
+                                            <code class="json">{
+    &quot;Discount&quot;: {
+        &quot;_media-type&quot;: &quot;application/vnd.ibexa.api.Discount+json&quot;,
+        &quot;id&quot;: 1,
+        &quot;identifier&quot;: &quot;summersale2025&quot;,
+        &quot;name&quot;: &quot;SummerSale2025&quot;,
+        &quot;type&quot;: &quot;catalog&quot;,
+        &quot;label&quot;: &quot;Summer Sale 2025&quot;,
+        &quot;labelDescription&quot;: &quot;Summer Sale 2025&quot;,
+        &quot;priority&quot;: 1,
+        &quot;isEnabled&quot;: true,
+        &quot;createdAt&quot;: &quot;2025-06-10T09:43:42+00:00&quot;,
+        &quot;updatedAt&quot;: &quot;2025-06-10T09:48:23+00:00&quot;,
+        &quot;startDate&quot;: &quot;2025-07-01T09:34:19+00:00&quot;,
+        &quot;endDate&quot;: &quot;2025-07-31T12:00:00+00:00&quot;,
+        &quot;DiscountExpressionAware&quot;: {
+            &quot;_media-type&quot;: &quot;application/vnd.ibexa.api.DiscountExpressionAware+json&quot;,
+            &quot;expressionValues&quot;: {
+                &quot;discount_amount&quot;: &quot;10&quot;
+            }
+        },
+        &quot;DiscountConditions&quot;: [
+            {
+                &quot;_media-type&quot;: &quot;application/vnd.ibexa.api.DiscountExpressionAware+json&quot;,
+                &quot;expressionValues&quot;: {
+                    &quot;currency_code&quot;: &quot;USD&quot;
+                }
+            }
+        ],
+        &quot;DiscountTranslations&quot;: [
+            {
+                &quot;_media-type&quot;: &quot;application/vnd.ibexa.api.DiscountTranslation+json&quot;,
+                &quot;languageCode&quot;: {},
+                &quot;name&quot;: &quot;SummerSale2025&quot;,
+                &quot;description&quot;: null,
+                &quot;label&quot;: &quot;Summer Sale 2025&quot;,
+                &quot;labelDescription&quot;: &quot;Summer Sale 2025&quot;
+            }
+        ]
+    },
+    &quot;isDiscountCodeAware&quot;: {
+        &quot;_media-type&quot;: &quot;application/vnd.ibexa.api.isDiscountCodeAware+json&quot;,
+        &quot;isDiscountCodeAware&quot;: false
+    }
+}
+</code>
+                                        </pre>
+                                    </div>
+                                                            </div>
+                                            </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+                                    </div>
+                        </div>
+                                    </div>
+    </div>
+</div>
+                <div class="px-3">
+            <h3 class="heading text-gray py-5 border-top">/discounts/{identifier}</h3>
+        </div>
+                <div class="sticky px-3">
+        <div class="sticky__body border-bottom border-top py-1 ">
+            <h4 id="/discounts/{identifier}" class="heading text-gray">/discounts/{identifier}</h4>
+            <ul class="list-unstyled d-inline-flex mb-0">
+                                    <li class="pr-3 ">
+                                                <a href="#discounts-get-discount-by-identifier">
+                           <span class="pl-0 new badge badge--get" data-badge-caption="GET">
+                                GET
+                           </span>
+                        </a>
+                    </li>
+                                    <li class="px-3 ">
+                                                <a href="#discounts-update-discount">
+                           <span class="pl-0 new badge badge--patch" data-badge-caption="PATCH">
+                                PATCH
+                           </span>
+                        </a>
+                    </li>
+                                    <li class="px-3 ">
+                                                <a href="#discounts-delete-discount">
+                           <span class="pl-0 new badge badge--delete" data-badge-caption="DELETE">
+                                DELETE
+                           </span>
+                        </a>
+                    </li>
+                            </ul>
+        </div>
+    </div>
+            <div id="discounts-get-discount-by-identifier-section" class="search-container px-3" data-parent="Discounts">
+    <div class="row px-1 pr-lg-0">
+        <div class="col-12">
+            <h5 id="discounts-get-discount-by-identifier"
+                class="heading text-gray font-weight-medium"
+                data-field="name"
+                data-search="get-discount-by-identifier">
+                Get discount by identifier
+                <a href="#discounts-get-discount-by-identifier" class="heading__link">¶</a>
+            </h5>
+        </div>
+        <div class="col-lg-6">
+            <p class="text-break">
+                <span data-field="method" class="badge badge--sm badge--get">GET</span>
+                <span data-field="url">/discounts/{identifier}</span>
+            </p>
+            <p data-field="body"><p>Returns a discount with the specified identifier</p>
+</p>
+                <div class="py-3">
+        <h6 class="heading text-gray border-bottom pb-2">Header parameters</h6>
+                    <div class="mb-2">
+                <p class="mt-3 mb-0 font-weight-medium">Accept</p>
+                <p>Only JSON is supported.</p>
+                <div class="table-responsive mb-2">
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th scope="col">Property</th>
+                            <th scope="col">Value</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+    <td>Type</td>
+    <td>
+        
+                    <span>
+                                    string
+                            </span>
+            
+            
+                                                        
+                        </td>
+</tr>
+<tr>
+    <td>Examples</td>
+    <td>
+                    <code>application/vnd.ibexa.api.Discount+json
+</code>
+            </td>
+</tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            </div>
+
+            
+                <div class="py-3">
+        <h6 class="heading text-gray border-bottom pb-2">Possible responses</h6>
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th scope="col">Code</th>
+                    <th scope="col">Description</th>
+                </tr>
+                </thead>
+                <tbody>
+                                    <tr>
+                        <td>
+                                                        <a href="#discounts-identifier-get-response-200"
+                               class="text-ocean-blue ">
+                                200
+                            </a>
+                                                    </td>
+                        <td>
+                            <p></p>
+                        </td>
+                    </tr>
+                                </tbody>
+            </table>
+        </div>
+    </div>
+
+                <div class="py-3">
+        <h6 class="heading text-gray border-bottom pb-2">Types</h6>
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th scope="col">Type</th>
+                    <th scope="col">Description</th>
+                </tr>
+                </thead>
+                <tbody>
+                                    <tr>
+                        <td>
+                            <a href="#" class="text-ocean-blue" data-toggle="modal" data-target="#DiscountWrapper">
+                                DiscountWrapper
+                            </a>
+                        </td>
+                        <td>Wrapper object for Discount.</td>
+                    </tr>
+                                </tbody>
+            </table>
+        </div>
+    </div>
+
+        </div>
+        <div class="col-lg-6 px-3 examples">
+                                    
+                                                <div class="request">
+    </div>
+                                                                    <div class="response">
+                                                        <div class="pb-3 response__code" id="discounts-identifier-get-response-200">
+                    <div class="d-flex justify-content-between align-items-baseline">
+                        <ul class="nav nav-tabs border-bottom-0" id="discounts-identifier-get-response-200Tab" role="tablist">
+                                                                                        <li class="nav-item">
+                                    <a href="#" class="nav-link disabled">Responses</a>
+                                </li>
+                                                                                                        <li class="nav-item">
+                                        <a class="nav-link active text-gray" id="discounts-identifier-get-response-200-json-tab"
+                                           data-toggle="tab"
+                                           href="#discounts-identifier-get-response-200-json"
+                                           role="tab"
+                                           aria-controls="discounts-identifier-get-response-200-json"
+                                           aria-selected="true">
+                                            json
+                                        </a>
+                                    </li>
+                                                                                    </ul>
+                                                    <div>
+                                <code>Code: 200</code>
+                            </div>
+                                            </div>
+                                                                <div class="example position-relative border p-3 mb-3">
+    <div class="tab-content" id="discounts-identifier-get-response-200Content">
+                                                    <div class="tab-pane fade show active" id="discounts-identifier-get-response-200-json" role="tabpanel"
+                     aria-labelledby="discounts-identifier-get-response-200-json-tab">
+                                                                                            <div class="position-relative  ">
+                                                        <p class="mb-0 icon icon--copy-clipboard">
+                                <i class="material-icons-outlined clipboard"
+                                   data-toggle="tooltip"
+                                   data-placement="top"
+                                   data-clipboard-target="#Sf91ad2eb39d38b5cd0c365a92d166910f42b2ca3d8e4627851f1457152a4a99a"
+                                   title="Copy to clipboard">file_copy
+                                </i>
+                            </p>
+                            <pre id="Sf91ad2eb39d38b5cd0c365a92d166910f42b2ca3d8e4627851f1457152a4a99a" class="example__code-wrapper">
+                                <code class="json">{
+    &quot;Discount&quot;: {
+        &quot;_media-type&quot;: &quot;application/vnd.ibexa.api.Discount+json&quot;,
+        &quot;id&quot;: 1,
+        &quot;identifier&quot;: &quot;summersale2025&quot;,
+        &quot;name&quot;: &quot;SummerSale2025&quot;,
+        &quot;type&quot;: &quot;catalog&quot;,
+        &quot;label&quot;: &quot;Summer Sale 2025&quot;,
+        &quot;labelDescription&quot;: &quot;Summer Sale 2025&quot;,
+        &quot;priority&quot;: 1,
+        &quot;isEnabled&quot;: true,
+        &quot;createdAt&quot;: &quot;2025-06-10T09:43:42+00:00&quot;,
+        &quot;updatedAt&quot;: &quot;2025-06-10T09:48:23+00:00&quot;,
+        &quot;startDate&quot;: &quot;2025-07-01T09:34:19+00:00&quot;,
+        &quot;endDate&quot;: &quot;2025-07-31T12:00:00+00:00&quot;,
+        &quot;DiscountExpressionAware&quot;: {
+            &quot;_media-type&quot;: &quot;application/vnd.ibexa.api.DiscountExpressionAware+json&quot;,
+            &quot;expressionValues&quot;: {
+                &quot;discount_amount&quot;: &quot;10&quot;
+            }
+        },
+        &quot;DiscountConditions&quot;: [
+            {
+                &quot;_media-type&quot;: &quot;application/vnd.ibexa.api.DiscountExpressionAware+json&quot;,
+                &quot;expressionValues&quot;: {
+                    &quot;currency_code&quot;: &quot;USD&quot;
+                }
+        </code>
+                            </pre>
+                        </div>
+                        <a href="" data-toggle="modal" data-target="#discounts-identifier-get-response-200Modal" class="btn btn--example-view-more text-center">View more</a>
+                                    </div>
+                        </div>
+</div>
+                        <div class="modal fade" id="discounts-identifier-get-response-200Modal" tabindex="-1" role="dialog" aria-labelledby="discounts-identifier-get-response-200Title" aria-hidden="true">
+    <div class="modal-dialog modal-xl" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <p class="modal-title" id="discounts-identifier-get-response-200Title">
+                    <span data-field="method" class="badge badge--sm badge--get">GET</span>
+                    Get discount by identifier
+                </p>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="d-flex justify-content-between align-items-baseline">
+                    <ul class="nav nav-tabs border-bottom-0" id="discounts-identifier-get-response-200ModalTab" role="tablist">
+                                                    <li class="nav-item">
+                                <a href="#" class="nav-link disabled">
+                                    Responses
+                                </a>
+                            </li>
+                                                                                            <li class="nav-item">
+                                    <a class="nav-link active text-gray" id="discounts-identifier-get-response-200-json-modal-tab"
+                                       data-toggle="tab"
+                                       href="#discounts-identifier-get-response-200-json-modal"
+                                       role="tab"
+                                       aria-controls="discounts-identifier-get-response-200-json-modal"
+                                       aria-selected="true">
+                                        json
+                                    </a>
+                                </li>
+                                <li>
+
+                                </li>
+                                                                        </ul>
+                                            <div>
+                            <code>Code: 200</code>
+                        </div>
+                                    </div>
+                <div class="example position-relative border p-3 mb-3">
+                    <div class="tab-content" id="discounts-identifier-get-response-200ModalContent">
+                                                    <div class="tab-pane fade show active"
+                                 id="discounts-identifier-get-response-200-json-modal" role="tabpanel"
+                                 aria-labelledby="discounts-identifier-get-response-200-json-modal-tab">
+                                                                                                                                            <div class="position-relative  ">
+                                                                                <p class="mb-0 icon icon--copy-clipboard">
+                                            <i class="material-icons-outlined clipboard"
+                                               data-toggle="tooltip"
+                                               data-placement="top"
+                                               data-clipboard-target="#M85608f948634bce5c1081ffcf744cb877b3a76e9789134c26062263ece0e9ece"
+                                               title="Copy to clipboard">file_copy
+                                            </i>
+                                        </p>
+                                        <pre id="M85608f948634bce5c1081ffcf744cb877b3a76e9789134c26062263ece0e9ece">
+                                            <code class="json">{
+    &quot;Discount&quot;: {
+        &quot;_media-type&quot;: &quot;application/vnd.ibexa.api.Discount+json&quot;,
+        &quot;id&quot;: 1,
+        &quot;identifier&quot;: &quot;summersale2025&quot;,
+        &quot;name&quot;: &quot;SummerSale2025&quot;,
+        &quot;type&quot;: &quot;catalog&quot;,
+        &quot;label&quot;: &quot;Summer Sale 2025&quot;,
+        &quot;labelDescription&quot;: &quot;Summer Sale 2025&quot;,
+        &quot;priority&quot;: 1,
+        &quot;isEnabled&quot;: true,
+        &quot;createdAt&quot;: &quot;2025-06-10T09:43:42+00:00&quot;,
+        &quot;updatedAt&quot;: &quot;2025-06-10T09:48:23+00:00&quot;,
+        &quot;startDate&quot;: &quot;2025-07-01T09:34:19+00:00&quot;,
+        &quot;endDate&quot;: &quot;2025-07-31T12:00:00+00:00&quot;,
+        &quot;DiscountExpressionAware&quot;: {
+            &quot;_media-type&quot;: &quot;application/vnd.ibexa.api.DiscountExpressionAware+json&quot;,
+            &quot;expressionValues&quot;: {
+                &quot;discount_amount&quot;: &quot;10&quot;
+            }
+        },
+        &quot;DiscountConditions&quot;: [
+            {
+                &quot;_media-type&quot;: &quot;application/vnd.ibexa.api.DiscountExpressionAware+json&quot;,
+                &quot;expressionValues&quot;: {
+                    &quot;currency_code&quot;: &quot;USD&quot;
+                }
+            }
+        ],
+        &quot;DiscountTranslations&quot;: [
+            {
+                &quot;_media-type&quot;: &quot;application/vnd.ibexa.api.DiscountTranslation+json&quot;,
+                &quot;languageCode&quot;: {},
+                &quot;name&quot;: &quot;SummerSale2025&quot;,
+                &quot;description&quot;: null,
+                &quot;label&quot;: &quot;Summer Sale 2025&quot;,
+                &quot;labelDescription&quot;: &quot;Summer Sale 2025&quot;
+            }
+        ]
+    },
+    &quot;isDiscountCodeAware&quot;: {
+        &quot;_media-type&quot;: &quot;application/vnd.ibexa.api.isDiscountCodeAware+json&quot;,
+        &quot;isDiscountCodeAware&quot;: false
+    }
+}
+</code>
+                                        </pre>
+                                    </div>
+                                                            </div>
+                                            </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+                                    </div>
+                        </div>
+                                    </div>
+    </div>
+</div>
+            <div id="discounts-update-discount-section" class="search-container px-3" data-parent="Discounts">
+    <div class="row px-1 pr-lg-0">
+        <div class="col-12">
+            <h5 id="discounts-update-discount"
+                class="heading text-gray font-weight-medium"
+                data-field="name"
+                data-search="update-discount">
+                Update discount
+                <a href="#discounts-update-discount" class="heading__link">¶</a>
+            </h5>
+        </div>
+        <div class="col-lg-6">
+            <p class="text-break">
+                <span data-field="method" class="badge badge--sm badge--patch">PATCH</span>
+                <span data-field="url">/discounts/{identifier}</span>
+            </p>
+            <p data-field="body"><p>Updates a discount using the provided input.</p>
+</p>
+                <div class="py-3">
+        <h6 class="heading text-gray border-bottom pb-2">Header parameters</h6>
+                    <div class="mb-2">
+                <p class="mt-3 mb-0 font-weight-medium">Accept</p>
+                <p>Specifies the expected response type. Only JSON is supported.</p>
+                <div class="table-responsive mb-2">
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th scope="col">Property</th>
+                            <th scope="col">Value</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+    <td>Type</td>
+    <td>
+        
+                    <span>
+                                    string
+                            </span>
+            
+            
+                                                        
+                        </td>
+</tr>
+<tr>
+    <td>Examples</td>
+    <td>
+                    <code>application/vnd.ibexa.api.Discount+json
+</code>
+            </td>
+</tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+                    <div class="mb-2">
+                <p class="mt-3 mb-0 font-weight-medium">Content-Type</p>
+                <p>Specifies the input type. Only JSON is supported.</p>
+                <div class="table-responsive mb-2">
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th scope="col">Property</th>
+                            <th scope="col">Value</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+    <td>Type</td>
+    <td>
+        
+                    <span>
+                                    string
+                            </span>
+            
+            
+                                                        
+                        </td>
+</tr>
+<tr>
+    <td>Examples</td>
+    <td>
+                    <code>application/vnd.ibexa.api.DiscountUpdate+json
+</code>
+            </td>
+</tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            </div>
+
+            
+                <div class="py-3">
+        <h6 class="heading text-gray border-bottom pb-2">Possible responses</h6>
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th scope="col">Code</th>
+                    <th scope="col">Description</th>
+                </tr>
+                </thead>
+                <tbody>
+                                    <tr>
+                        <td>
+                                                        <a href="#discounts-identifier-patch-response-200"
+                               class="text-ocean-blue ">
+                                200
+                            </a>
+                                                    </td>
+                        <td>
+                            <p></p>
+                        </td>
+                    </tr>
+                                    <tr>
+                        <td>
+                                                            400
+                                                    </td>
+                        <td>
+                            <p>Error - the request is invalid.</p>
+                        </td>
+                    </tr>
+                                    <tr>
+                        <td>
+                                                            401
+                                                    </td>
+                        <td>
+                            <p>Error - the user is not authorized to update the discount.</p>
+                        </td>
+                    </tr>
+                                    <tr>
+                        <td>
+                                                            404
+                                                    </td>
+                        <td>
+                            <p>Error - the specified discount was not found.</p>
+                        </td>
+                    </tr>
+                                </tbody>
+            </table>
+        </div>
+    </div>
+
+                <div class="py-3">
+        <h6 class="heading text-gray border-bottom pb-2">Types</h6>
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th scope="col">Type</th>
+                    <th scope="col">Description</th>
+                </tr>
+                </thead>
+                <tbody>
+                                    <tr>
+                        <td>
+                            <a href="#" class="text-ocean-blue" data-toggle="modal" data-target="#DiscountUpdateWrapper">
+                                DiscountUpdateWrapper
+                            </a>
+                        </td>
+                        <td>Wrapper object for DiscountUpdate.</td>
+                    </tr>
+                                    <tr>
+                        <td>
+                            <a href="#" class="text-ocean-blue" data-toggle="modal" data-target="#DiscountWrapper">
+                                DiscountWrapper
+                            </a>
+                        </td>
+                        <td>Wrapper object for Discount.</td>
+                    </tr>
+                                </tbody>
+            </table>
+        </div>
+    </div>
+
+        </div>
+        <div class="col-lg-6 px-3 examples">
+                                    
+                                                <div class="request">
+                    <div class="pb-3" id="discounts-identifier-patch-request">
+            <div class="d-flex justify-content-between align-items-baseline">
+                <ul class="nav nav-tabs border-bottom-0" id="discounts-identifier-patch-requestTab" role="tablist">
+                                                                <li class="nav-item">
+                            <a href="#" class="nav-link disabled">Request</a>
+                        </li>
+                                                                                <li class="nav-item">
+                                <a class="nav-link active text-gray" id="discounts-identifier-patch-request-json-tab"
+                                   data-toggle="tab"
+                                   href="#discounts-identifier-patch-request-json"
+                                   role="tab"
+                                   aria-controls="discounts-identifier-patch-request-json"
+                                   aria-selected="true">
+                                    json
+                                </a>
+                            </li>
+                                                            </ul>
+            </div>
+                                        <div class="example position-relative border p-3 mb-3">
+    <div class="tab-content" id="discounts-identifier-patch-requestContent">
+                                                    <div class="tab-pane fade show active" id="discounts-identifier-patch-request-json" role="tabpanel"
+                     aria-labelledby="discounts-identifier-patch-request-json-tab">
+                                                                                            <div class="position-relative  ">
+                                                        <p class="mb-0 icon icon--copy-clipboard">
+                                <i class="material-icons-outlined clipboard"
+                                   data-toggle="tooltip"
+                                   data-placement="top"
+                                   data-clipboard-target="#Sb1d445fb43844f37ee1e2a44e27149be07840c809e3e79b57d7ae88202256574"
+                                   title="Copy to clipboard">file_copy
+                                </i>
+                            </p>
+                            <pre id="Sb1d445fb43844f37ee1e2a44e27149be07840c809e3e79b57d7ae88202256574" class="example__code-wrapper">
+                                <code class="json">{
+    &quot;DiscountUpdate&quot;: {
+        &quot;identifier&quot;: &quot;my_discount&quot;,
+        &quot;conditions&quot;: [
+            {
+                &quot;class&quot;: &quot;Ibexa\\Discounts\\Value\\DiscountCondition\\IsInCategory&quot;,
+                &quot;parameters&quot;: [[&quot;1&quot;, &quot;3&quot;]]
+            }
+        ]
+    }
+}
+</code>
+                            </pre>
+                        </div>
+                        <a href="" data-toggle="modal" data-target="#discounts-identifier-patch-requestModal" class="btn btn--example-view-more text-center">View more</a>
+                                    </div>
+                        </div>
+</div>
+                <div class="modal fade" id="discounts-identifier-patch-requestModal" tabindex="-1" role="dialog" aria-labelledby="discounts-identifier-patch-requestTitle" aria-hidden="true">
+    <div class="modal-dialog modal-xl" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <p class="modal-title" id="discounts-identifier-patch-requestTitle">
+                    <span data-field="method" class="badge badge--sm badge--patch">PATCH</span>
+                    Update discount
+                </p>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="d-flex justify-content-between align-items-baseline">
+                    <ul class="nav nav-tabs border-bottom-0" id="discounts-identifier-patch-requestModalTab" role="tablist">
+                                                    <li class="nav-item">
+                                <a href="#" class="nav-link disabled">
+                                    Request
+                                </a>
+                            </li>
+                                                                                            <li class="nav-item">
+                                    <a class="nav-link active text-gray" id="discounts-identifier-patch-request-json-modal-tab"
+                                       data-toggle="tab"
+                                       href="#discounts-identifier-patch-request-json-modal"
+                                       role="tab"
+                                       aria-controls="discounts-identifier-patch-request-json-modal"
+                                       aria-selected="true">
+                                        json
+                                    </a>
+                                </li>
+                                <li>
+
+                                </li>
+                                                                        </ul>
+                                    </div>
+                <div class="example position-relative border p-3 mb-3">
+                    <div class="tab-content" id="discounts-identifier-patch-requestModalContent">
+                                                    <div class="tab-pane fade show active"
+                                 id="discounts-identifier-patch-request-json-modal" role="tabpanel"
+                                 aria-labelledby="discounts-identifier-patch-request-json-modal-tab">
+                                                                                                                                            <div class="position-relative  ">
+                                                                                <p class="mb-0 icon icon--copy-clipboard">
+                                            <i class="material-icons-outlined clipboard"
+                                               data-toggle="tooltip"
+                                               data-placement="top"
+                                               data-clipboard-target="#M4d495371985190d0cf3edbae1ac6306655c584912fde44107e14bd804a054b94"
+                                               title="Copy to clipboard">file_copy
+                                            </i>
+                                        </p>
+                                        <pre id="M4d495371985190d0cf3edbae1ac6306655c584912fde44107e14bd804a054b94">
+                                            <code class="json">{
+    &quot;DiscountUpdate&quot;: {
+        &quot;identifier&quot;: &quot;my_discount&quot;,
+        &quot;conditions&quot;: [
+            {
+                &quot;class&quot;: &quot;Ibexa\\Discounts\\Value\\DiscountCondition\\IsInCategory&quot;,
+                &quot;parameters&quot;: [[&quot;1&quot;, &quot;3&quot;]]
+            }
+        ]
+    }
+}
+</code>
+                                        </pre>
+                                    </div>
+                                                            </div>
+                                            </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+                    </div>
+    </div>
+                                                                    <div class="response">
+                                                        <div class="pb-3 response__code" id="discounts-identifier-patch-response-200">
+                    <div class="d-flex justify-content-between align-items-baseline">
+                        <ul class="nav nav-tabs border-bottom-0" id="discounts-identifier-patch-response-200Tab" role="tablist">
+                                                                                        <li class="nav-item">
+                                    <a href="#" class="nav-link disabled">Responses</a>
+                                </li>
+                                                                                                        <li class="nav-item">
+                                        <a class="nav-link active text-gray" id="discounts-identifier-patch-response-200-json-tab"
+                                           data-toggle="tab"
+                                           href="#discounts-identifier-patch-response-200-json"
+                                           role="tab"
+                                           aria-controls="discounts-identifier-patch-response-200-json"
+                                           aria-selected="true">
+                                            json
+                                        </a>
+                                    </li>
+                                                                                    </ul>
+                                                    <div>
+                                <code>Code: 200</code>
+                            </div>
+                                            </div>
+                                                                <div class="example position-relative border p-3 mb-3">
+    <div class="tab-content" id="discounts-identifier-patch-response-200Content">
+                                                    <div class="tab-pane fade show active" id="discounts-identifier-patch-response-200-json" role="tabpanel"
+                     aria-labelledby="discounts-identifier-patch-response-200-json-tab">
+                                                                                            <div class="position-relative  ">
+                                                        <p class="mb-0 icon icon--copy-clipboard">
+                                <i class="material-icons-outlined clipboard"
+                                   data-toggle="tooltip"
+                                   data-placement="top"
+                                   data-clipboard-target="#Sa732d3ab048531ce810d4a1a31511ef4b7c59d482c4bbd4a79991d58942001f5"
+                                   title="Copy to clipboard">file_copy
+                                </i>
+                            </p>
+                            <pre id="Sa732d3ab048531ce810d4a1a31511ef4b7c59d482c4bbd4a79991d58942001f5" class="example__code-wrapper">
+                                <code class="json">{
+    &quot;Discount&quot;: {
+        &quot;_media-type&quot;: &quot;application/vnd.ibexa.api.Discount+json&quot;,
+        &quot;id&quot;: 2,
+        &quot;identifier&quot;: &quot;my_discount&quot;,
+        &quot;name&quot;: &quot;Another discount&quot;,
+        &quot;type&quot;: &quot;cart&quot;,
+        &quot;label&quot;: &quot;another&quot;,
+        &quot;labelDescription&quot;: &quot;another label description&quot;,
+        &quot;priority&quot;: 10,
+        &quot;isEnabled&quot;: false,
+        &quot;createdAt&quot;: &quot;2025-06-10T11:03:37+00:00&quot;,
+        &quot;updatedAt&quot;: &quot;2025-06-10T13:05:56+00:00&quot;,
+        &quot;startDate&quot;: &quot;2025-04-01T12:12:12+00:00&quot;,
+        &quot;DiscountExpressionAware&quot;: {
+            &quot;_media-type&quot;: &quot;application/vnd.ibexa.api.DiscountExpressionAware+json&quot;,
+            &quot;expressionValues&quot;: {
+                &quot;discount_percentage&quot;: &quot;10&quot;
+            }
+        },
+        &quot;DiscountConditions&quot;: [
+            {
+                &quot;_media-type&quot;: &quot;application/vnd.ibexa.api.DiscountExpressionAware+json&quot;,
+                &quot;expressionValues&quot;: {
+                    &quot;categories&quot;: [
+                        &quot;1&quot;,
+                        &quot;3&quot;
+                    ]
+</code>
+                            </pre>
+                        </div>
+                        <a href="" data-toggle="modal" data-target="#discounts-identifier-patch-response-200Modal" class="btn btn--example-view-more text-center">View more</a>
+                                    </div>
+                        </div>
+</div>
+                        <div class="modal fade" id="discounts-identifier-patch-response-200Modal" tabindex="-1" role="dialog" aria-labelledby="discounts-identifier-patch-response-200Title" aria-hidden="true">
+    <div class="modal-dialog modal-xl" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <p class="modal-title" id="discounts-identifier-patch-response-200Title">
+                    <span data-field="method" class="badge badge--sm badge--patch">PATCH</span>
+                    Update discount
+                </p>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="d-flex justify-content-between align-items-baseline">
+                    <ul class="nav nav-tabs border-bottom-0" id="discounts-identifier-patch-response-200ModalTab" role="tablist">
+                                                    <li class="nav-item">
+                                <a href="#" class="nav-link disabled">
+                                    Responses
+                                </a>
+                            </li>
+                                                                                            <li class="nav-item">
+                                    <a class="nav-link active text-gray" id="discounts-identifier-patch-response-200-json-modal-tab"
+                                       data-toggle="tab"
+                                       href="#discounts-identifier-patch-response-200-json-modal"
+                                       role="tab"
+                                       aria-controls="discounts-identifier-patch-response-200-json-modal"
+                                       aria-selected="true">
+                                        json
+                                    </a>
+                                </li>
+                                <li>
+
+                                </li>
+                                                                        </ul>
+                                            <div>
+                            <code>Code: 200</code>
+                        </div>
+                                    </div>
+                <div class="example position-relative border p-3 mb-3">
+                    <div class="tab-content" id="discounts-identifier-patch-response-200ModalContent">
+                                                    <div class="tab-pane fade show active"
+                                 id="discounts-identifier-patch-response-200-json-modal" role="tabpanel"
+                                 aria-labelledby="discounts-identifier-patch-response-200-json-modal-tab">
+                                                                                                                                            <div class="position-relative  ">
+                                                                                <p class="mb-0 icon icon--copy-clipboard">
+                                            <i class="material-icons-outlined clipboard"
+                                               data-toggle="tooltip"
+                                               data-placement="top"
+                                               data-clipboard-target="#M03573d4a089c122b6e745a2b07d4d10c27fcea4a75502101fd72f1cfcb819b52"
+                                               title="Copy to clipboard">file_copy
+                                            </i>
+                                        </p>
+                                        <pre id="M03573d4a089c122b6e745a2b07d4d10c27fcea4a75502101fd72f1cfcb819b52">
+                                            <code class="json">{
+    &quot;Discount&quot;: {
+        &quot;_media-type&quot;: &quot;application/vnd.ibexa.api.Discount+json&quot;,
+        &quot;id&quot;: 2,
+        &quot;identifier&quot;: &quot;my_discount&quot;,
+        &quot;name&quot;: &quot;Another discount&quot;,
+        &quot;type&quot;: &quot;cart&quot;,
+        &quot;label&quot;: &quot;another&quot;,
+        &quot;labelDescription&quot;: &quot;another label description&quot;,
+        &quot;priority&quot;: 10,
+        &quot;isEnabled&quot;: false,
+        &quot;createdAt&quot;: &quot;2025-06-10T11:03:37+00:00&quot;,
+        &quot;updatedAt&quot;: &quot;2025-06-10T13:05:56+00:00&quot;,
+        &quot;startDate&quot;: &quot;2025-04-01T12:12:12+00:00&quot;,
+        &quot;DiscountExpressionAware&quot;: {
+            &quot;_media-type&quot;: &quot;application/vnd.ibexa.api.DiscountExpressionAware+json&quot;,
+            &quot;expressionValues&quot;: {
+                &quot;discount_percentage&quot;: &quot;10&quot;
+            }
+        },
+        &quot;DiscountConditions&quot;: [
+            {
+                &quot;_media-type&quot;: &quot;application/vnd.ibexa.api.DiscountExpressionAware+json&quot;,
+                &quot;expressionValues&quot;: {
+                    &quot;categories&quot;: [
+                        &quot;1&quot;,
+                        &quot;3&quot;
+                    ]
+                }
+            }
+        ],
+        &quot;DiscountTranslations&quot;: [
+            {
+                &quot;_media-type&quot;: &quot;application/vnd.ibexa.api.DiscountTranslation+json&quot;,
+                &quot;languageCode&quot;: {},
+                &quot;name&quot;: &quot;Another discount&quot;,
+                &quot;description&quot;: &quot;another great discount&quot;,
+                &quot;label&quot;: &quot;another&quot;,
+                &quot;labelDescription&quot;: &quot;another label description&quot;
+            }
+        ]
+    },
+    &quot;isDiscountCodeAware&quot;: {
+        &quot;_media-type&quot;: &quot;application/vnd.ibexa.api.isDiscountCodeAware+json&quot;,
+        &quot;isDiscountCodeAware&quot;: false
+    }
+}
+</code>
+                                        </pre>
+                                    </div>
+                                                            </div>
+                                            </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+                                    </div>
+                                                            </div>
+                                    </div>
+    </div>
+</div>
+            <div id="discounts-delete-discount-section" class="search-container px-3" data-parent="Discounts">
+    <div class="row px-1 pr-lg-0">
+        <div class="col-12">
+            <h5 id="discounts-delete-discount"
+                class="heading text-gray font-weight-medium"
+                data-field="name"
+                data-search="delete-discount">
+                Delete discount
+                <a href="#discounts-delete-discount" class="heading__link">¶</a>
+            </h5>
+        </div>
+        <div class="col-lg-6">
+            <p class="text-break">
+                <span data-field="method" class="badge badge--sm badge--delete">DELETE</span>
+                <span data-field="url">/discounts/{identifier}</span>
+            </p>
+            <p data-field="body"><p>Deletes a discount</p>
+</p>
+            
+            
+                <div class="py-3">
+        <h6 class="heading text-gray border-bottom pb-2">Possible responses</h6>
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th scope="col">Code</th>
+                    <th scope="col">Description</th>
+                </tr>
+                </thead>
+                <tbody>
+                                    <tr>
+                        <td>
+                                                            204
+                                                    </td>
+                        <td>
+                            <p>Discount deleted successfully.</p>
+                        </td>
+                    </tr>
+                                    <tr>
+                        <td>
+                                                            400
+                                                    </td>
+                        <td>
+                            <p>Error - the request is invalid.</p>
+                        </td>
+                    </tr>
+                                    <tr>
+                        <td>
+                                                            401
+                                                    </td>
+                        <td>
+                            <p>Error - the user is not authorized to update the discount.</p>
+                        </td>
+                    </tr>
+                                    <tr>
+                        <td>
+                                                            404
+                                                    </td>
+                        <td>
+                            <p>Error - the specified discount was not found.</p>
+                        </td>
+                    </tr>
+                                </tbody>
+            </table>
+        </div>
+    </div>
+
+            
+        </div>
+        <div class="col-lg-6 px-3 examples">
+                                    
+                                                                                <div class="response">
+                                                    </div>
+                                    </div>
+    </div>
+</div>
+                    <div class="sticky px-3">
+        <div class="sticky__body border-bottom border-top py-1 ">
+            <h4 id="/discounts/{identifier}/enable" class="heading text-gray">/discounts/{identifier}/enable</h4>
+            <ul class="list-unstyled d-inline-flex mb-0">
+                                    <li class="pr-3 ">
+                                                <a href="#discounts-enable-discount">
+                           <span class="pl-0 new badge badge--post" data-badge-caption="POST">
+                                POST
+                           </span>
+                        </a>
+                    </li>
+                            </ul>
+        </div>
+    </div>
+            <div id="discounts-enable-discount-section" class="search-container px-3" data-parent="Discounts">
+    <div class="row px-1 pr-lg-0">
+        <div class="col-12">
+            <h5 id="discounts-enable-discount"
+                class="heading text-gray font-weight-medium"
+                data-field="name"
+                data-search="enable-discount">
+                Enable discount
+                <a href="#discounts-enable-discount" class="heading__link">¶</a>
+            </h5>
+        </div>
+        <div class="col-lg-6">
+            <p class="text-break">
+                <span data-field="method" class="badge badge--sm badge--post">POST</span>
+                <span data-field="url">/discounts/{identifier}/enable</span>
+            </p>
+            <p data-field="body"><p>Enables a discount with the specified identifier.</p>
+</p>
+            
+            
+                <div class="py-3">
+        <h6 class="heading text-gray border-bottom pb-2">Possible responses</h6>
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th scope="col">Code</th>
+                    <th scope="col">Description</th>
+                </tr>
+                </thead>
+                <tbody>
+                                    <tr>
+                        <td>
+                                                            204
+                                                    </td>
+                        <td>
+                            <p>Discount enabled successfully.</p>
+                        </td>
+                    </tr>
+                                </tbody>
+            </table>
+        </div>
+    </div>
+
+            
+        </div>
+        <div class="col-lg-6 px-3 examples">
+                                    
+                                                                                <div class="response">
+                </div>
+                                    </div>
+    </div>
+</div>
+                    <div class="sticky px-3">
+        <div class="sticky__body border-bottom border-top py-1 ">
+            <h4 id="/discounts/{identifier}/disable" class="heading text-gray">/discounts/{identifier}/disable</h4>
+            <ul class="list-unstyled d-inline-flex mb-0">
+                                    <li class="pr-3 ">
+                                                <a href="#discounts-disable-discount">
+                           <span class="pl-0 new badge badge--post" data-badge-caption="POST">
+                                POST
+                           </span>
+                        </a>
+                    </li>
+                            </ul>
+        </div>
+    </div>
+            <div id="discounts-disable-discount-section" class="search-container px-3" data-parent="Discounts">
+    <div class="row px-1 pr-lg-0">
+        <div class="col-12">
+            <h5 id="discounts-disable-discount"
+                class="heading text-gray font-weight-medium"
+                data-field="name"
+                data-search="disable-discount">
+                Disable discount
+                <a href="#discounts-disable-discount" class="heading__link">¶</a>
+            </h5>
+        </div>
+        <div class="col-lg-6">
+            <p class="text-break">
+                <span data-field="method" class="badge badge--sm badge--post">POST</span>
+                <span data-field="url">/discounts/{identifier}/disable</span>
+            </p>
+            <p data-field="body"><p>Disables a discount with the specified identifier.</p>
+</p>
+            
+            
+                <div class="py-3">
+        <h6 class="heading text-gray border-bottom pb-2">Possible responses</h6>
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th scope="col">Code</th>
+                    <th scope="col">Description</th>
+                </tr>
+                </thead>
+                <tbody>
+                                    <tr>
+                        <td>
+                                                            204
+                                                    </td>
+                        <td>
+                            <p>Discount disabled successfully.</p>
+                        </td>
+                    </tr>
+                                </tbody>
+            </table>
+        </div>
+    </div>
+
+            
+        </div>
+        <div class="col-lg-6 px-3 examples">
+                                    
+                                                                                <div class="response">
+                </div>
+                                    </div>
+    </div>
+</div>
+                        </section>
+                                    <section class="section">
+                                                                        <h2 id="discount-codes" class="heading pt-5 px-3 pb-1 text-orange" data-field="name">
+                            Discount Codes
+                            <a href="#discount-codes" class="heading__link">¶</a>
+                        </h2>
+                                                <div class="sticky px-3">
+        <div class="sticky__body border-bottom border-top py-1 ">
+            <h4 id="/discounts_codes/{cartidentifier}/apply" class="heading text-gray">/discounts_codes/{cartIdentifier}/apply</h4>
+            <ul class="list-unstyled d-inline-flex mb-0">
+                                    <li class="pr-3 ">
+                                                <a href="#discount-codes-apply-discount-to-cart">
+                           <span class="pl-0 new badge badge--post" data-badge-caption="POST">
+                                POST
+                           </span>
+                        </a>
+                    </li>
+                            </ul>
+        </div>
+    </div>
+            <div id="discount-codes-apply-discount-to-cart-section" class="search-container px-3" data-parent="Discount Codes">
+    <div class="row px-1 pr-lg-0">
+        <div class="col-12">
+            <h5 id="discount-codes-apply-discount-to-cart"
+                class="heading text-gray font-weight-medium"
+                data-field="name"
+                data-search="apply-discount-to-cart">
+                Apply discount to cart
+                <a href="#discount-codes-apply-discount-to-cart" class="heading__link">¶</a>
+            </h5>
+        </div>
+        <div class="col-lg-6">
+            <p class="text-break">
+                <span data-field="method" class="badge badge--sm badge--post">POST</span>
+                <span data-field="url">/discounts_codes/{cartIdentifier}/apply</span>
+            </p>
+            <p data-field="body"><p>Applies a discount associated with given discount code</p>
+</p>
+                <div class="py-3">
+        <h6 class="heading text-gray border-bottom pb-2">Header parameters</h6>
+                    <div class="mb-2">
+                <p class="mt-3 mb-0 font-weight-medium">Accept</p>
+                <p>Specifies the expected response type. Only JSON is supported.</p>
+                <div class="table-responsive mb-2">
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th scope="col">Property</th>
+                            <th scope="col">Value</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+    <td>Type</td>
+    <td>
+        
+                    <span>
+                                    string
+                            </span>
+            
+            
+                                                        
+                        </td>
+</tr>
+<tr>
+    <td>Examples</td>
+    <td>
+                    <code>application/vnd.ibexa.api.DiscountCode+json
+</code>
+            </td>
+</tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+                    <div class="mb-2">
+                <p class="mt-3 mb-0 font-weight-medium">Content-Type</p>
+                <p>Specifies the input type.</p>
+                <div class="table-responsive mb-2">
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th scope="col">Property</th>
+                            <th scope="col">Value</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+    <td>Type</td>
+    <td>
+        
+                    <span>
+                                    string
+                            </span>
+            
+            
+                                                        
+                        </td>
+</tr>
+<tr>
+    <td>Examples</td>
+    <td>
+                    <code>application/vnd.ibexa.api.DiscountCode+json
+</code>
+            </td>
+</tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            </div>
+
+            
+                <div class="py-3">
+        <h6 class="heading text-gray border-bottom pb-2">Possible responses</h6>
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th scope="col">Code</th>
+                    <th scope="col">Description</th>
+                </tr>
+                </thead>
+                <tbody>
+                                    <tr>
+                        <td>
+                                                        <a href="#discounts_codes-cartidentifier-apply-post-response-200"
+                               class="text-ocean-blue ">
+                                200
+                            </a>
+                                                    </td>
+                        <td>
+                            <p>Discount applied successfully</p>
+                        </td>
+                    </tr>
+                                    <tr>
+                        <td>
+                                                            400
+                                                    </td>
+                        <td>
+                            <p>Error - the request is invalid.</p>
+                        </td>
+                    </tr>
+                                    <tr>
+                        <td>
+                                                            404
+                                                    </td>
+                        <td>
+                            <p>Error - the given cart identifier was not found, or the discount code does not exist.</p>
+                        </td>
+                    </tr>
+                                    <tr>
+                        <td>
+                                                            429
+                                                    </td>
+                        <td>
+                            <p>Error - the request was throttled due to too many requests in a short time.</p>
+                        </td>
+                    </tr>
+                                </tbody>
+            </table>
+        </div>
+    </div>
+
+                <div class="py-3">
+        <h6 class="heading text-gray border-bottom pb-2">Types</h6>
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th scope="col">Type</th>
+                    <th scope="col">Description</th>
+                </tr>
+                </thead>
+                <tbody>
+                                    <tr>
+                        <td>
+                            <a href="#" class="text-ocean-blue" data-toggle="modal" data-target="#DiscountCodeWrapper">
+                                DiscountCodeWrapper
+                            </a>
+                        </td>
+                        <td>Wrapper object for DiscountCode.</td>
+                    </tr>
+                                </tbody>
+            </table>
+        </div>
+    </div>
+
+        </div>
+        <div class="col-lg-6 px-3 examples">
+                                    
+                                                <div class="request">
+                    <div class="pb-3" id="discounts_codes-cartidentifier-apply-post-request">
+            <div class="d-flex justify-content-between align-items-baseline">
+                <ul class="nav nav-tabs border-bottom-0" id="discounts_codes-cartidentifier-apply-post-requestTab" role="tablist">
+                                                                <li class="nav-item">
+                            <a href="#" class="nav-link disabled">Request</a>
+                        </li>
+                                                                                <li class="nav-item">
+                                <a class="nav-link active text-gray" id="discounts_codes-cartidentifier-apply-post-request-json-tab"
+                                   data-toggle="tab"
+                                   href="#discounts_codes-cartidentifier-apply-post-request-json"
+                                   role="tab"
+                                   aria-controls="discounts_codes-cartidentifier-apply-post-request-json"
+                                   aria-selected="true">
+                                    json
+                                </a>
+                            </li>
+                                                            </ul>
+            </div>
+                                        <div class="example position-relative border p-3 mb-3">
+    <div class="tab-content" id="discounts_codes-cartidentifier-apply-post-requestContent">
+                                                    <div class="tab-pane fade show active" id="discounts_codes-cartidentifier-apply-post-request-json" role="tabpanel"
+                     aria-labelledby="discounts_codes-cartidentifier-apply-post-request-json-tab">
+                                                                                            <div class="position-relative  ">
+                                                        <p class="mb-0 icon icon--copy-clipboard">
+                                <i class="material-icons-outlined clipboard"
+                                   data-toggle="tooltip"
+                                   data-placement="top"
+                                   data-clipboard-target="#S50b319d944118572980daa19b7f2e04bfd344b83e3299ffdbba102b04d4b38eb"
+                                   title="Copy to clipboard">file_copy
+                                </i>
+                            </p>
+                            <pre id="S50b319d944118572980daa19b7f2e04bfd344b83e3299ffdbba102b04d4b38eb" class="example__code-wrapper">
+                                <code class="json">{
+    &quot;DiscountCode&quot;: {
+        &quot;code&quot;: &quot;summer10&quot;
+    }
+}
+</code>
+                            </pre>
+                        </div>
+                        <a href="" data-toggle="modal" data-target="#discounts_codes-cartidentifier-apply-post-requestModal" class="btn btn--example-view-more text-center">View more</a>
+                                    </div>
+                        </div>
+</div>
+                <div class="modal fade" id="discounts_codes-cartidentifier-apply-post-requestModal" tabindex="-1" role="dialog" aria-labelledby="discounts_codes-cartidentifier-apply-post-requestTitle" aria-hidden="true">
+    <div class="modal-dialog modal-xl" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <p class="modal-title" id="discounts_codes-cartidentifier-apply-post-requestTitle">
+                    <span data-field="method" class="badge badge--sm badge--post">POST</span>
+                    Apply discount to cart
+                </p>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="d-flex justify-content-between align-items-baseline">
+                    <ul class="nav nav-tabs border-bottom-0" id="discounts_codes-cartidentifier-apply-post-requestModalTab" role="tablist">
+                                                    <li class="nav-item">
+                                <a href="#" class="nav-link disabled">
+                                    Request
+                                </a>
+                            </li>
+                                                                                            <li class="nav-item">
+                                    <a class="nav-link active text-gray" id="discounts_codes-cartidentifier-apply-post-request-json-modal-tab"
+                                       data-toggle="tab"
+                                       href="#discounts_codes-cartidentifier-apply-post-request-json-modal"
+                                       role="tab"
+                                       aria-controls="discounts_codes-cartidentifier-apply-post-request-json-modal"
+                                       aria-selected="true">
+                                        json
+                                    </a>
+                                </li>
+                                <li>
+
+                                </li>
+                                                                        </ul>
+                                    </div>
+                <div class="example position-relative border p-3 mb-3">
+                    <div class="tab-content" id="discounts_codes-cartidentifier-apply-post-requestModalContent">
+                                                    <div class="tab-pane fade show active"
+                                 id="discounts_codes-cartidentifier-apply-post-request-json-modal" role="tabpanel"
+                                 aria-labelledby="discounts_codes-cartidentifier-apply-post-request-json-modal-tab">
+                                                                                                                                            <div class="position-relative  ">
+                                                                                <p class="mb-0 icon icon--copy-clipboard">
+                                            <i class="material-icons-outlined clipboard"
+                                               data-toggle="tooltip"
+                                               data-placement="top"
+                                               data-clipboard-target="#M81d3157668ec20e4a945165c4e1d3296ff9ed9f68c4f1884e13b92336922dd33"
+                                               title="Copy to clipboard">file_copy
+                                            </i>
+                                        </p>
+                                        <pre id="M81d3157668ec20e4a945165c4e1d3296ff9ed9f68c4f1884e13b92336922dd33">
+                                            <code class="json">{
+    &quot;DiscountCode&quot;: {
+        &quot;code&quot;: &quot;summer10&quot;
+    }
+}
+</code>
+                                        </pre>
+                                    </div>
+                                                            </div>
+                                            </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+                    </div>
+    </div>
+                                                                    <div class="response">
+                                                        <div class="pb-3 response__code" id="discounts_codes-cartidentifier-apply-post-response-200">
+                    <div class="d-flex justify-content-between align-items-baseline">
+                        <ul class="nav nav-tabs border-bottom-0" id="discounts_codes-cartidentifier-apply-post-response-200Tab" role="tablist">
+                                                                                        <li class="nav-item">
+                                    <a href="#" class="nav-link disabled">Responses</a>
+                                </li>
+                                                                                                        <li class="nav-item">
+                                        <a class="nav-link active text-gray" id="discounts_codes-cartidentifier-apply-post-response-200-json-tab"
+                                           data-toggle="tab"
+                                           href="#discounts_codes-cartidentifier-apply-post-response-200-json"
+                                           role="tab"
+                                           aria-controls="discounts_codes-cartidentifier-apply-post-response-200-json"
+                                           aria-selected="true">
+                                            json
+                                        </a>
+                                    </li>
+                                                                                    </ul>
+                                                    <div>
+                                <code>Code: 200</code>
+                            </div>
+                                            </div>
+                                                                <div class="example position-relative border p-3 mb-3">
+    <div class="tab-content" id="discounts_codes-cartidentifier-apply-post-response-200Content">
+                                                    <div class="tab-pane fade show active" id="discounts_codes-cartidentifier-apply-post-response-200-json" role="tabpanel"
+                     aria-labelledby="discounts_codes-cartidentifier-apply-post-response-200-json-tab">
+                                                                                            <div class="position-relative  ">
+                                                        <p class="mb-0 icon icon--copy-clipboard">
+                                <i class="material-icons-outlined clipboard"
+                                   data-toggle="tooltip"
+                                   data-placement="top"
+                                   data-clipboard-target="#S72ab4558702c59e3b3b0639bd1bae311e40b6d6d418722840a9efe4699a01605"
+                                   title="Copy to clipboard">file_copy
+                                </i>
+                            </p>
+                            <pre id="S72ab4558702c59e3b3b0639bd1bae311e40b6d6d418722840a9efe4699a01605" class="example__code-wrapper">
+                                <code class="json">{
+    &quot;DiscountCode&quot;: {
+        &quot;_media-type&quot;: &quot;application\/vnd.ibexa.api.DiscountCode+json&quot;,
+        &quot;id&quot;: 1,
+        &quot;code&quot;: &quot;summer10&quot;,
+        &quot;created_at&quot;: {
+            &quot;date&quot;: &quot;2025-06-10 14:14:06.000000&quot;,
+            &quot;timezone_type&quot;: 3,
+            &quot;timezone&quot;: &quot;UTC&quot;
+        }
+    }
+}
+</code>
+                            </pre>
+                        </div>
+                        <a href="" data-toggle="modal" data-target="#discounts_codes-cartidentifier-apply-post-response-200Modal" class="btn btn--example-view-more text-center">View more</a>
+                                    </div>
+                        </div>
+</div>
+                        <div class="modal fade" id="discounts_codes-cartidentifier-apply-post-response-200Modal" tabindex="-1" role="dialog" aria-labelledby="discounts_codes-cartidentifier-apply-post-response-200Title" aria-hidden="true">
+    <div class="modal-dialog modal-xl" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <p class="modal-title" id="discounts_codes-cartidentifier-apply-post-response-200Title">
+                    <span data-field="method" class="badge badge--sm badge--post">POST</span>
+                    Apply discount to cart
+                </p>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="d-flex justify-content-between align-items-baseline">
+                    <ul class="nav nav-tabs border-bottom-0" id="discounts_codes-cartidentifier-apply-post-response-200ModalTab" role="tablist">
+                                                    <li class="nav-item">
+                                <a href="#" class="nav-link disabled">
+                                    Responses
+                                </a>
+                            </li>
+                                                                                            <li class="nav-item">
+                                    <a class="nav-link active text-gray" id="discounts_codes-cartidentifier-apply-post-response-200-json-modal-tab"
+                                       data-toggle="tab"
+                                       href="#discounts_codes-cartidentifier-apply-post-response-200-json-modal"
+                                       role="tab"
+                                       aria-controls="discounts_codes-cartidentifier-apply-post-response-200-json-modal"
+                                       aria-selected="true">
+                                        json
+                                    </a>
+                                </li>
+                                <li>
+
+                                </li>
+                                                                        </ul>
+                                            <div>
+                            <code>Code: 200</code>
+                        </div>
+                                    </div>
+                <div class="example position-relative border p-3 mb-3">
+                    <div class="tab-content" id="discounts_codes-cartidentifier-apply-post-response-200ModalContent">
+                                                    <div class="tab-pane fade show active"
+                                 id="discounts_codes-cartidentifier-apply-post-response-200-json-modal" role="tabpanel"
+                                 aria-labelledby="discounts_codes-cartidentifier-apply-post-response-200-json-modal-tab">
+                                                                                                                                            <div class="position-relative  ">
+                                                                                <p class="mb-0 icon icon--copy-clipboard">
+                                            <i class="material-icons-outlined clipboard"
+                                               data-toggle="tooltip"
+                                               data-placement="top"
+                                               data-clipboard-target="#M3debc54a9bf2432b2bd356959b401c7daca32a1f595294ac51ebdcb0095ded17"
+                                               title="Copy to clipboard">file_copy
+                                            </i>
+                                        </p>
+                                        <pre id="M3debc54a9bf2432b2bd356959b401c7daca32a1f595294ac51ebdcb0095ded17">
+                                            <code class="json">{
+    &quot;DiscountCode&quot;: {
+        &quot;_media-type&quot;: &quot;application\/vnd.ibexa.api.DiscountCode+json&quot;,
+        &quot;id&quot;: 1,
+        &quot;code&quot;: &quot;summer10&quot;,
+        &quot;created_at&quot;: {
+            &quot;date&quot;: &quot;2025-06-10 14:14:06.000000&quot;,
+            &quot;timezone_type&quot;: 3,
+            &quot;timezone&quot;: &quot;UTC&quot;
+        }
+    }
+}
+</code>
+                                        </pre>
+                                    </div>
+                                                            </div>
+                                            </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+                                    </div>
+                                                            </div>
+                                    </div>
+    </div>
+</div>
+                    <div class="sticky px-3">
+        <div class="sticky__body border-bottom border-top py-1 ">
+            <h4 id="/discounts_codes/{cartidentifier}/drop" class="heading text-gray">/discounts_codes/{cartIdentifier}/drop</h4>
+            <ul class="list-unstyled d-inline-flex mb-0">
+                                    <li class="pr-3 ">
+                                                <a href="#discount-codes-remove-discount-from-cart">
+                           <span class="pl-0 new badge badge--post" data-badge-caption="POST">
+                                POST
+                           </span>
+                        </a>
+                    </li>
+                            </ul>
+        </div>
+    </div>
+            <div id="discount-codes-remove-discount-from-cart-section" class="search-container px-3" data-parent="Discount Codes">
+    <div class="row px-1 pr-lg-0">
+        <div class="col-12">
+            <h5 id="discount-codes-remove-discount-from-cart"
+                class="heading text-gray font-weight-medium"
+                data-field="name"
+                data-search="remove-discount-from-cart">
+                Remove discount from cart
+                <a href="#discount-codes-remove-discount-from-cart" class="heading__link">¶</a>
+            </h5>
+        </div>
+        <div class="col-lg-6">
+            <p class="text-break">
+                <span data-field="method" class="badge badge--sm badge--post">POST</span>
+                <span data-field="url">/discounts_codes/{cartIdentifier}/drop</span>
+            </p>
+            <p data-field="body"><p>Removes the discount associated with given discount code from the cart</p>
+</p>
+                <div class="py-3">
+        <h6 class="heading text-gray border-bottom pb-2">Header parameters</h6>
+                    <div class="mb-2">
+                <p class="mt-3 mb-0 font-weight-medium">Accept</p>
+                <p>Specifies the expected response type. Only JSON is supported.</p>
+                <div class="table-responsive mb-2">
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th scope="col">Property</th>
+                            <th scope="col">Value</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+    <td>Type</td>
+    <td>
+        
+                    <span>
+                                    string
+                            </span>
+            
+            
+                                                        
+                        </td>
+</tr>
+<tr>
+    <td>Examples</td>
+    <td>
+                    <code>application/vnd.ibexa.api.DiscountCode+json
+</code>
+            </td>
+</tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+                    <div class="mb-2">
+                <p class="mt-3 mb-0 font-weight-medium">Content-Type</p>
+                <p>Specifies the input type. Only JSON is supported.</p>
+                <div class="table-responsive mb-2">
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th scope="col">Property</th>
+                            <th scope="col">Value</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+    <td>Type</td>
+    <td>
+        
+                    <span>
+                                    string
+                            </span>
+            
+            
+                                                        
+                        </td>
+</tr>
+<tr>
+    <td>Examples</td>
+    <td>
+                    <code>application/vnd.ibexa.api.DiscountCode+json
+</code>
+            </td>
+</tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            </div>
+
+            
+                <div class="py-3">
+        <h6 class="heading text-gray border-bottom pb-2">Possible responses</h6>
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th scope="col">Code</th>
+                    <th scope="col">Description</th>
+                </tr>
+                </thead>
+                <tbody>
+                                    <tr>
+                        <td>
+                                                            204
+                                                    </td>
+                        <td>
+                            <p>Discount code with given discount code was removed from the cart.</p>
+                        </td>
+                    </tr>
+                                    <tr>
+                        <td>
+                                                            400
+                                                    </td>
+                        <td>
+                            <p>Error - the request is invalid.</p>
+                        </td>
+                    </tr>
+                                    <tr>
+                        <td>
+                                                            404
+                                                    </td>
+                        <td>
+                            <p>Error - the given cart identifier was not found</p>
+                        </td>
+                    </tr>
+                                </tbody>
+            </table>
+        </div>
+    </div>
+
+                <div class="py-3">
+        <h6 class="heading text-gray border-bottom pb-2">Types</h6>
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th scope="col">Type</th>
+                    <th scope="col">Description</th>
+                </tr>
+                </thead>
+                <tbody>
+                                    <tr>
+                        <td>
+                            <a href="#" class="text-ocean-blue" data-toggle="modal" data-target="#DiscountCodeWrapper">
+                                DiscountCodeWrapper
+                            </a>
+                        </td>
+                        <td>Wrapper object for DiscountCode.</td>
+                    </tr>
+                                </tbody>
+            </table>
+        </div>
+    </div>
+
+        </div>
+        <div class="col-lg-6 px-3 examples">
+                                    
+                                                <div class="request">
+                    <div class="pb-3" id="discounts_codes-cartidentifier-drop-post-request">
+            <div class="d-flex justify-content-between align-items-baseline">
+                <ul class="nav nav-tabs border-bottom-0" id="discounts_codes-cartidentifier-drop-post-requestTab" role="tablist">
+                                                                <li class="nav-item">
+                            <a href="#" class="nav-link disabled">Request</a>
+                        </li>
+                                                                                <li class="nav-item">
+                                <a class="nav-link active text-gray" id="discounts_codes-cartidentifier-drop-post-request-json-tab"
+                                   data-toggle="tab"
+                                   href="#discounts_codes-cartidentifier-drop-post-request-json"
+                                   role="tab"
+                                   aria-controls="discounts_codes-cartidentifier-drop-post-request-json"
+                                   aria-selected="true">
+                                    json
+                                </a>
+                            </li>
+                                                            </ul>
+            </div>
+                                        <div class="example position-relative border p-3 mb-3">
+    <div class="tab-content" id="discounts_codes-cartidentifier-drop-post-requestContent">
+                                                    <div class="tab-pane fade show active" id="discounts_codes-cartidentifier-drop-post-request-json" role="tabpanel"
+                     aria-labelledby="discounts_codes-cartidentifier-drop-post-request-json-tab">
+                                                                                            <div class="position-relative  ">
+                                                        <p class="mb-0 icon icon--copy-clipboard">
+                                <i class="material-icons-outlined clipboard"
+                                   data-toggle="tooltip"
+                                   data-placement="top"
+                                   data-clipboard-target="#Sefd46775faaf5ac11901b21cb1c0173e81acb25895fb35a07bc4dc1b134318b2"
+                                   title="Copy to clipboard">file_copy
+                                </i>
+                            </p>
+                            <pre id="Sefd46775faaf5ac11901b21cb1c0173e81acb25895fb35a07bc4dc1b134318b2" class="example__code-wrapper">
+                                <code class="json">{
+    &quot;DiscountCode&quot;: {
+        &quot;code&quot;: &quot;summer10&quot;
+    }
+}
+</code>
+                            </pre>
+                        </div>
+                        <a href="" data-toggle="modal" data-target="#discounts_codes-cartidentifier-drop-post-requestModal" class="btn btn--example-view-more text-center">View more</a>
+                                    </div>
+                        </div>
+</div>
+                <div class="modal fade" id="discounts_codes-cartidentifier-drop-post-requestModal" tabindex="-1" role="dialog" aria-labelledby="discounts_codes-cartidentifier-drop-post-requestTitle" aria-hidden="true">
+    <div class="modal-dialog modal-xl" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <p class="modal-title" id="discounts_codes-cartidentifier-drop-post-requestTitle">
+                    <span data-field="method" class="badge badge--sm badge--post">POST</span>
+                    Remove discount from cart
+                </p>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="d-flex justify-content-between align-items-baseline">
+                    <ul class="nav nav-tabs border-bottom-0" id="discounts_codes-cartidentifier-drop-post-requestModalTab" role="tablist">
+                                                    <li class="nav-item">
+                                <a href="#" class="nav-link disabled">
+                                    Request
+                                </a>
+                            </li>
+                                                                                            <li class="nav-item">
+                                    <a class="nav-link active text-gray" id="discounts_codes-cartidentifier-drop-post-request-json-modal-tab"
+                                       data-toggle="tab"
+                                       href="#discounts_codes-cartidentifier-drop-post-request-json-modal"
+                                       role="tab"
+                                       aria-controls="discounts_codes-cartidentifier-drop-post-request-json-modal"
+                                       aria-selected="true">
+                                        json
+                                    </a>
+                                </li>
+                                <li>
+
+                                </li>
+                                                                        </ul>
+                                    </div>
+                <div class="example position-relative border p-3 mb-3">
+                    <div class="tab-content" id="discounts_codes-cartidentifier-drop-post-requestModalContent">
+                                                    <div class="tab-pane fade show active"
+                                 id="discounts_codes-cartidentifier-drop-post-request-json-modal" role="tabpanel"
+                                 aria-labelledby="discounts_codes-cartidentifier-drop-post-request-json-modal-tab">
+                                                                                                                                            <div class="position-relative  ">
+                                                                                <p class="mb-0 icon icon--copy-clipboard">
+                                            <i class="material-icons-outlined clipboard"
+                                               data-toggle="tooltip"
+                                               data-placement="top"
+                                               data-clipboard-target="#Mfcbe6e3f6a07153131d0f2eab1e0c2b9cf9465296f98c13267b50efe368103d1"
+                                               title="Copy to clipboard">file_copy
+                                            </i>
+                                        </p>
+                                        <pre id="Mfcbe6e3f6a07153131d0f2eab1e0c2b9cf9465296f98c13267b50efe368103d1">
+                                            <code class="json">{
+    &quot;DiscountCode&quot;: {
+        &quot;code&quot;: &quot;summer10&quot;
+    }
+}
+</code>
+                                        </pre>
+                                    </div>
+                                                            </div>
+                                            </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+                    </div>
+    </div>
+                                                                    <div class="response">
+                                        </div>
+                                    </div>
+    </div>
+</div>
+                        </section>
                                                                             <div class="modal fade" id="UnixTimestamp" tabindex="-1" role="dialog" aria-labelledby="UnixTimestampTitle" aria-hidden="true">
                             <div class="modal-dialog" role="document">
                                 <div class="modal-content">
@@ -180256,6 +183228,479 @@ application/vnd.ibexa.api.ai.ActionType+xml
  - 
 <span>
     Timestamp indicating when the action configuration was last updated.</span>
+
+
+                </li>
+                    </ul>
+    </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                                            <div class="modal fade" id="DiscountListWrapper" tabindex="-1" role="dialog" aria-labelledby="DiscountListWrapperTitle" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <p class="modal-title" id="DiscountListWrapperTitle">DiscountListWrapper</p>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <span class="font-weight-medium">DiscountListWrapper</span>
+
+    <span class="red-text">*</span>
+
+(<span class="font-italic">object</span>)
+ - 
+<span>
+    Wrapper object for DiscountList.</span>
+
+
+    <div class="items">
+        <ul class="browser-default">
+                            <li>
+                    <span class="font-weight-medium">DiscountList</span>
+
+    <span class="red-text">*</span>
+
+(<span class="font-italic">object</span>)
+ - 
+<span>
+    Object containing a list of discounts.</span>
+
+
+    <div class="items">
+        <ul class="browser-default">
+                            <li>
+                    <span class="font-weight-medium">Discount</span>
+
+    <span class="red-text">*</span>
+
+(<span class="font-italic">object[]
+    </span>)
+ - 
+<span>
+    </span>
+
+
+                </li>
+                    </ul>
+    </div>
+                </li>
+                    </ul>
+    </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                                            <div class="modal fade" id="DiscountWrapper" tabindex="-1" role="dialog" aria-labelledby="DiscountWrapperTitle" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <p class="modal-title" id="DiscountWrapperTitle">DiscountWrapper</p>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <span class="font-weight-medium">DiscountWrapper</span>
+
+    <span class="red-text">*</span>
+
+(<span class="font-italic">object</span>)
+ - 
+<span>
+    Wrapper object for Discount.</span>
+
+
+    <div class="items">
+        <ul class="browser-default">
+                            <li>
+                    <span class="font-weight-medium">Discount</span>
+
+    <span class="red-text">*</span>
+
+(<span class="font-italic">object</span>)
+ - 
+<span>
+    Object containing a list of discounts.</span>
+
+
+    <div class="items">
+        <ul class="browser-default">
+                    </ul>
+    </div>
+                </li>
+                    </ul>
+    </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                                            <div class="modal fade" id="DiscountCreateWrapper" tabindex="-1" role="dialog" aria-labelledby="DiscountCreateWrapperTitle" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <p class="modal-title" id="DiscountCreateWrapperTitle">DiscountCreateWrapper</p>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <span class="font-weight-medium">DiscountCreateWrapper</span>
+
+    <span class="red-text">*</span>
+
+(<span class="font-italic">object</span>)
+ - 
+<span>
+    Wrapper object for DiscountCreate.</span>
+
+
+    <div class="items">
+        <ul class="browser-default">
+                            <li>
+                    <span class="font-weight-medium">DiscountCreate</span>
+
+    <span class="red-text">*</span>
+
+(<span class="font-italic">object</span>)
+ - 
+<span>
+    Object containing a list of discounts.</span>
+
+
+    <div class="items">
+        <ul class="browser-default">
+                            <li>
+                    <span class="font-weight-medium">identifier</span>
+
+    <span class="red-text">*</span>
+
+(<span class="font-italic">string</span>)
+ - 
+<span>
+    Discount identifier.</span>
+
+
+                </li>
+                            <li>
+                    <span class="font-weight-medium">type</span>
+
+    <span class="red-text">*</span>
+
+(<span class="font-italic">string</span>)
+ - 
+<span>
+    Discount type: cart or catalog.</span>
+
+
+                </li>
+                            <li>
+                    <span class="font-weight-medium">priority</span>
+
+    <span class="red-text">*</span>
+
+(<span class="font-italic">integer</span>)
+ - 
+<span>
+    Discount priority.</span>
+
+
+                </li>
+                            <li>
+                    <span class="font-weight-medium">isEnabled</span>
+
+    <span class="red-text">*</span>
+
+(<span class="font-italic">boolean</span>)
+ - 
+<span>
+    Indicates whether the discount is enabled.</span>
+
+
+                </li>
+                            <li>
+                    <span class="font-weight-medium">userId</span>
+
+    <span class="red-text">*</span>
+
+(<span class="font-italic">integer</span>)
+ - 
+<span>
+    User ID of discount creator.</span>
+
+
+                </li>
+                            <li>
+                    <span class="font-weight-medium">rule</span>
+
+    <span class="red-text">*</span>
+
+(<span class="font-italic">object</span>)
+ - 
+<span>
+    Describes how the discount is calculated: percentage or fixed.</span>
+
+
+    <div class="items">
+        <ul class="browser-default">
+                            <li>
+                    <span class="font-weight-medium">type</span>
+
+    <span class="red-text">*</span>
+
+(<span class="font-italic">string</span>)
+ - 
+<span>
+    Discount type.</span>
+
+
+                </li>
+                            <li>
+                    <span class="font-weight-medium">amount</span>
+
+    <span class="red-text">*</span>
+
+(<span class="font-italic">integer</span>)
+ - 
+<span>
+    Discount amount.</span>
+
+
+                </li>
+                    </ul>
+    </div>
+                </li>
+                            <li>
+                    <span class="font-weight-medium">startDate</span>
+
+    <span class="red-text">*</span>
+
+(<span class="font-italic">datetime</span>)
+ - 
+<span>
+    Defines when the discount starts.</span>
+
+
+                </li>
+                            <li>
+                    <span class="font-weight-medium">endDate</span>
+
+    <span class="red-text">*</span>
+
+(<span class="font-italic">datetime</span>)
+ - 
+<span>
+    Defines when the discount starts.</span>
+
+
+                </li>
+                            <li>
+                    <span class="font-weight-medium">translations</span>
+
+    <span class="red-text">*</span>
+
+(<span class="font-italic">object[]
+    </span>)
+ - 
+<span>
+    Translations of discount data.</span>
+
+
+                </li>
+                            <li>
+                    <span class="font-weight-medium">conditions</span>
+
+    <span class="red-text">*</span>
+
+(<span class="font-italic">DiscountCondition[]
+    </span>)
+ - 
+<span>
+    List of discount conditions.</span>
+
+
+                </li>
+                    </ul>
+    </div>
+                </li>
+                    </ul>
+    </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                                            <div class="modal fade" id="DiscountUpdateWrapper" tabindex="-1" role="dialog" aria-labelledby="DiscountUpdateWrapperTitle" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <p class="modal-title" id="DiscountUpdateWrapperTitle">DiscountUpdateWrapper</p>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <span class="font-weight-medium">DiscountUpdateWrapper</span>
+
+    <span class="red-text">*</span>
+
+(<span class="font-italic">object</span>)
+ - 
+<span>
+    Wrapper object for DiscountUpdate.</span>
+
+
+    <div class="items">
+        <ul class="browser-default">
+                            <li>
+                    <span class="font-weight-medium">DiscountUpdate</span>
+
+    <span class="red-text">*</span>
+
+(<span class="font-italic">object</span>)
+ - 
+<span>
+    Object containing a list of discounts.</span>
+
+
+    <div class="items">
+        <ul class="browser-default">
+                            <li>
+                    <span class="font-weight-medium">identifier</span>
+
+    <span class="red-text">*</span>
+
+(<span class="font-italic">string</span>)
+ - 
+<span>
+    Identifier of the discount. Required.</span>
+
+
+                </li>
+                            <li>
+                    <span class="font-weight-medium">conditions</span>
+
+    <span class="red-text">*</span>
+
+(<span class="font-italic">DiscountCondition[]
+    </span>)
+ - 
+<span>
+    List of conditions.</span>
+
+
+                </li>
+                    </ul>
+    </div>
+                </li>
+                    </ul>
+    </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                                            <div class="modal fade" id="DiscountCodeWrapper" tabindex="-1" role="dialog" aria-labelledby="DiscountCodeWrapperTitle" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <p class="modal-title" id="DiscountCodeWrapperTitle">DiscountCodeWrapper</p>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <span class="font-weight-medium">DiscountCodeWrapper</span>
+
+    <span class="red-text">*</span>
+
+(<span class="font-italic">object</span>)
+ - 
+<span>
+    Wrapper object for DiscountCode.</span>
+
+
+    <div class="items">
+        <ul class="browser-default">
+                            <li>
+                    <span class="font-weight-medium">DiscountCode</span>
+
+    <span class="red-text">*</span>
+
+(<span class="font-italic">object</span>)
+ - 
+<span>
+    Object containing data about the discount code.</span>
+
+
+    <div class="items">
+        <ul class="browser-default">
+                            <li>
+                    <span class="font-weight-medium">code</span>
+
+    <span class="red-text">*</span>
+
+(<span class="font-italic">string</span>)
+ - 
+<span>
+    Discount code</span>
+
+
+                </li>
+                    </ul>
+    </div>
+                </li>
+                    </ul>
+    </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                                            <div class="modal fade" id="DiscountCondition" tabindex="-1" role="dialog" aria-labelledby="DiscountConditionTitle" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <p class="modal-title" id="DiscountConditionTitle">DiscountCondition</p>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <span class="font-weight-medium">DiscountCondition</span>
+
+    <span class="red-text">*</span>
+
+(<span class="font-italic">object</span>)
+ - 
+<span>
+    Object representing a discount condition.</span>
+
+
+    <div class="items">
+        <ul class="browser-default">
+                            <li>
+                    <span class="font-weight-medium">class</span>
+
+    <span class="red-text">*</span>
+
+(<span class="font-italic">string</span>)
+ - 
+<span>
+    FCQN of a discount condition class.</span>
+
+
+                </li>
+                            <li>
+                    <span class="font-weight-medium">parameters</span>
+
+    <span class="red-text">*</span>
+
+(<span class="font-italic">object[]
+    </span>)
+ - 
+<span>
+    Condition parameters.</span>
 
 
                 </li>
