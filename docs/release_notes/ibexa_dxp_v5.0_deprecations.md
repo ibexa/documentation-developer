@@ -148,7 +148,7 @@ Several field type identifiers have changed.
 
 | Old FQN                                              | New FQN / Comment                                                                |
 |:------------------------------------------------------|:------------------------------------------------------------------------|
-| `\Ibexa\Contracts\AdminUi\Permission\PermissionCheckerInterface::getContentCreateLimitations`| `Ibexa\AdminUi\Permission\LimitationResolverInterface::getContentCreateLimitations` | 
+| `\Ibexa\Contracts\AdminUi\Permission\PermissionCheckerInterface::getContentCreateLimitations`| `\Ibexa\AdminUi\Permission\LimitationResolverInterface::getContentCreateLimitations` | 
 | `\Ibexa\Contracts\AdminUi\Permission\PermissionCheckerInterface::getContentUpdateLimitations` | `\Ibexa\AdminUi\Permission\LimitationResolverInterface::getContentUpdateLimitations` |
 | `\Ibexa\Contracts\AdminUi\UniversalDiscovery\Provider::getRestFormat` | Removed |
 | `\Ibexa\AdminUi\Form\Type\Search\DateIntervalType` | `\Ibexa\AdminUi\Form\Type\Date\DateIntervalType`|
@@ -159,7 +159,7 @@ Several field type identifiers have changed.
 | `\Ibexa\AdminUi\Specification\NotSpecification` | `\Ibexa\Contracts\Core\Specification\NotSpecification` |
 | `\Ibexa\AdminUi\Specification\OrSpecification` | `\Ibexa\Contracts\Core\Specification\OrSpecification` |
 | `\Ibexa\AdminUi\Specification\SpecificationInterface` | `\Ibexa\Contracts\Core\Specification\SpecificationInterface` |
-| `\Ibexa\AdminUi\Tab\Dashboard\PagerContentToDataMapper` | `Ibexa\AdminUi\Tab\Dashboard\PagerLocationToDataMapper` |
+| `\Ibexa\AdminUi\Tab\Dashboard\PagerContentToDataMapper` | `\Ibexa\AdminUi\Tab\Dashboard\PagerLocationToDataMapper` |
 | `\Ibexa\AdminUi\Translation\Extractor\LimitationTranslationExtractor` | Removed |
 | `\Ibexa\AdminUi\Translation\Extractor\PolicyTranslationExtractor` | Removed |
 | `\Ibexa\AdminUi\UI\Dataset\ContentDraftsDataset` | `\Ibexa\AdminUi\UI\Dataset\ContentDraftListDataset` |
@@ -192,25 +192,25 @@ Support for facet search has been dropped, use the `Aggregation` API instead.
 | `\Ibexa\Bundle\Core\DependencyInjection\Security\PolicyProvider\RepositoryPolicyProvider`| Removed |
 | `\Ibexa\Bundle\Core\Imagine\VariationPathGenerator`| `\Ibexa\Contracts\Core\Variation\VariationPathGenerator`|
 | `\Ibexa\ContentForms\User\View\UserRegisterFormView`| `\Ibexa\User\View\UserRegisterFormView`|
-| `Ibexa\Bundle\Debug\Collector\PersistenceCacheCollector::getCount` |  `\Ibexa\Bundle\Debug\Collector\PersistenceCacheCollector::getStats` |
-| `Ibexa\Bundle\RepositoryInstaller\Installer\Installer::createConfiguration` | Deprecated |
-| `Ibexa\Contracts\Core\FieldType\FieldStorage::getIndexData` | `Ibexa\Contracts\Core\FieldType\Indexable` |
-| `Ibexa\Contracts\Core\FieldType\BinaryBase\PathGenerator` |  `\Ibexa\Contracts\Core\FieldType\BinaryBase\PathGeneratorInterface` |
-| `Ibexa\Contracts\Core\IO\BinaryFile::$mimeType` | `\Ibexa\Core\IO\IOMetadataHandler::getMimeType` |
-| `Ibexa\Contracts\Core\Persistence\Handler::beginTransaction` | `\Ibexa\Contracts\Core\Persistence\TransactionHandler::beginTransaction` |
-| `Ibexa\Contracts\Core\Persistence\Handler::commit` | `\Ibexa\Contracts\Core\Persistence\TransactionHandler::commit` |
-| `Ibexa\Contracts\Core\Persistence\Handler::rollback` |  `\Ibexa\Contracts\Core\Persistence\TransactionHandler::rollback` |
-| `Ibexa\Contracts\Core\Persistence\Bookmark\Bookmark::$name` | Removed |
-| `Ibexa\Contracts\Core\Persistence\Bookmark\CreateStruct::$name` | Removed |
-| `Ibexa\Contracts\Core\Persistence\Content\ContentInfo::STATUS_ARCHIVED` |  `\Ibexa\Contracts\Core\Persistence\Content\ContentInfo::STATUS_TRASHED` |
-| `Ibexa\Contracts\Core\Persistence\Content\ContentInfo::$isPublished` | Removed. Use `ContentInfo::$status}` with value `STATUS_PUBLISHED`. |
-| `Ibexa\Contracts\Core\Persistence\Content\LoadStruct` | Removed |
-| `Ibexa\Contracts\Core\Persistence\Content\Location::$pathIdentificationString` | Removed |
-| `Ibexa\Contracts\Core\Persistence\Content\Location\CreateStruct::$pathIdentificationString` | Removed |
-| `Ibexa\Contracts\Core\Persistence\Content\Location\Handler::markSubtreeModified` | Removed |
-| `Ibexa\Contracts\Core\Persistence\FieldType\IsEmptyValue` | Removed |
-| `Ibexa\Contracts\Core\Persistence\User\Handler::loadPoliciesByUserId` | Removed |
-| `Ibexa\Contracts\Core\Repository\ContentService::loadContentDrafts` |  `\Ibexa\Contracts\Core\Repository\ContentService::loadContentDraftList` |
+| `/Ibexa\Bundle\Debug\Collector\PersistenceCacheCollector::getCount` |  `\Ibexa\Bundle\Debug\Collector\PersistenceCacheCollector::getStats` |
+| `\Ibexa\Bundle\RepositoryInstaller\Installer\Installer::createConfiguration` | Deprecated |
+| `\Ibexa\Contracts\Core\FieldType\FieldStorage::getIndexData` | `\Ibexa\Contracts\Core\FieldType\Indexable` |
+| `\Ibexa\Contracts\Core\FieldType\BinaryBase\PathGenerator` |  `\Ibexa\Contracts\Core\FieldType\BinaryBase\PathGeneratorInterface` |
+| `\Ibexa\Contracts\Core\IO\BinaryFile::$mimeType` | `\Ibexa\Core\IO\IOMetadataHandler::getMimeType` |
+| `\Ibexa\Contracts\Core\Persistence\Handler::beginTransaction` | `\Ibexa\Contracts\Core\Persistence\TransactionHandler::beginTransaction` |
+| `\Ibexa\Contracts\Core\Persistence\Handler::commit` | `\Ibexa\Contracts\Core\Persistence\TransactionHandler::commit` |
+| `\Ibexa\Contracts\Core\Persistence\Handler::rollback` |  `\Ibexa\Contracts\Core\Persistence\TransactionHandler::rollback` |
+| `\Ibexa\Contracts\Core\Persistence\Bookmark\Bookmark::$name` | Removed |
+| `\Ibexa\Contracts\Core\Persistence\Bookmark\CreateStruct::$name` | Removed |
+| `\Ibexa\Contracts\Core\Persistence\Content\ContentInfo::STATUS_ARCHIVED` |  `\Ibexa\Contracts\Core\Persistence\Content\ContentInfo::STATUS_TRASHED` |
+| `\Ibexa\Contracts\Core\Persistence\Content\ContentInfo::$isPublished` | Removed. Use `ContentInfo::$status}` with value `STATUS_PUBLISHED`. |
+| `\Ibexa\Contracts\Core\Persistence\Content\LoadStruct` | Removed |
+| `\Ibexa\Contracts\Core\Persistence\Content\Location::$pathIdentificationString` | Removed |
+| `\Ibexa\Contracts\Core\Persistence\Content\Location\CreateStruct::$pathIdentificationString` | Removed |
+| `\Ibexa\Contracts\Core\Persistence\Content\Location\Handler::markSubtreeModified` | Removed |
+| `\Ibexa\Contracts\Core\Persistence\FieldType\IsEmptyValue` | Removed |
+| `\Ibexa\Contracts\Core\Persistence\User\Handler::loadPoliciesByUserId` | Removed |
+| `\Ibexa\Contracts\Core\Repository\ContentService::loadContentDrafts` |  `\Ibexa\Contracts\Core\Repository\ContentService::loadContentDraftList` |
 | `\Ibexa\Contracts\Core\Repository\Values\Content\Location::SORT_FIELD_MODIFIED_SUBNODE` | Removed |
 | `\Ibexa\Contracts\Core\Repository\Values\Content\Query\FacetBuilder` | Removed. Use the `Aggregation` API. |
 | `\Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion\LogicalOperator::getSpecifications` | Removed |
@@ -294,7 +294,7 @@ Support for facet search has been dropped, use the `Aggregation` API instead.
 | `\Ibexa\Core\Repository\SectionService::countAssignedContents` | Deprecated. Use `SearchService` with `Section` criterion. |
 | `\Ibexa\Core\Repository\Helper\NameSchemaService` | `\Ibexa\Contracts\Core\Repository\NameSchema\NameSchemaServiceInterface` |
 | `\Ibexa\Core\Repository\Helper\RoleDomainMapper` | Removed |
-| `\Ibexa\Core\Repository\Mapper\ContentTypeDomainMapper::buildSPIFieldDefinitionUpdate` | `Ibexa\Core\Repository\Mapper\ContentTypeDomainMapper::buildSPIFieldDefinitionFromUpdateStruct` |
+| `\Ibexa\Core\Repository\Mapper\ContentTypeDomainMapper::buildSPIFieldDefinitionUpdate` | `\Ibexa\Core\Repository\Mapper\ContentTypeDomainMapper::buildSPIFieldDefinitionFromUpdateStruct` |
 | `\Ibexa\Core\Repository\Mapper\ContentTypeDomainMapper::buildSPIFieldDefinitionCreate` | `\Ibexa\Core\Repository\Mapper\ContentTypeDomainMapper::buildSPIFieldDefinitionFromCreateStruct` |
 | `\Ibexa\Core\Repository\User\PasswordHashServiceInterface` | `\Ibexa\Contracts\Core\Repository\PasswordHashService` |
 | `\Ibexa\Core\Search\Common\FieldNameResolver::getFieldNamesget` | `\Ibexa\Core\Search\Common\FieldNameResolver::getFieldTypes` |
@@ -373,7 +373,7 @@ Support for facets in `ibexa/elasticsearch` has been dropped, use the `Aggregati
 
 | Old FQN                                              | New FQN / Comment                                                                |
 |:------------------------------------------------------|:------------------------------------------------------------------------|
-| `Ibexa\FieldTypeRichText\Translation\Extractor\OnlineEditorCustomAttributesExtractor` | Removed |
+| `\Ibexa\FieldTypeRichText\Translation\Extractor\OnlineEditorCustomAttributesExtractor` | Removed |
 | `\Ibexa\FieldTypeQuery\Persistence\Legacy\Content\FieldValue\Converter\QueryConverter::create` | Removed. Use the default constructor. |
 
 !!! note "Missing custom tag configuration error"
@@ -403,8 +403,8 @@ Support for facets in `ibexa/elasticsearch` has been dropped, use the `Aggregati
 | `\Ibexa\GraphQL\Schema\Domain\Content\NameHelper::domainMutationUpdateContentField` | `\Ibexa\GraphQL\Schema\Domain\Content\NameHelper::itemMutationUpdateItemField` |
 | `\Ibexa\GraphQL\Schema\Domain\Content\NameHelper::domainGroupName` | `\Ibexa\GraphQL\Schema\Domain\Content\NameHelper::itemGroupName` |
 | `\Ibexa\GraphQL\Schema\Domain\Content\NameHelper::domainGroupTypesName` | `\Ibexa\GraphQL\Schema\Domain\Content\NameHelper::itemGroupTypesName` |
-| `\Ibexa\GraphQL\Schema\Domain\Content\Mapper\FieldDefinition\FieldDefinitionArgsBuilderMapper` | `Ibexa\Contracts\GraphQL\Schema\Domain\Content\Mapper\FieldDefinition\FieldDefinitionMapper` |
-| `\Ibexa\GraphQL\Schema\Domain\Content\Mapper\FieldDefinition\FieldDefinitionInputMapper` | `Ibexa\Contracts\GraphQL\Schema\Domain\Content\Mapper\FieldDefinition\FieldDefinitionMapper` |
+| `\Ibexa\GraphQL\Schema\Domain\Content\Mapper\FieldDefinition\FieldDefinitionArgsBuilderMapper` | `\Ibexa\Contracts\GraphQL\Schema\Domain\Content\Mapper\FieldDefinition\FieldDefinitionMapper` |
+| `\Ibexa\GraphQL\Schema\Domain\Content\Mapper\FieldDefinition\FieldDefinitionInputMapper` | `\Ibexa\Contracts\GraphQL\Schema\Domain\Content\Mapper\FieldDefinition\FieldDefinitionMapper` |
 
 ### ibexa/measurement
 
@@ -423,7 +423,7 @@ Support for facets in `ibexa/elasticsearch` has been dropped, use the `Aggregati
 
 | Old FQN                                              | New FQN / Comment                                                                |
 |:------------------------------------------------------|:------------------------------------------------------------------------|
-| `Ibexa\ProductCatalog\Bridge` | Migrate data to a local product catalog. |
+| `\Ibexa\ProductCatalog\Bridge` | Migrate data to a local product catalog. |
 
 ### ibexa/page-builder
 
@@ -485,13 +485,13 @@ Support for facets in `ibexa/elasticsearch` has been dropped, use the `Aggregati
 | `\Ibexa\Solr\Query\Common\FacetBuilderVisitor\ContentType` | `Use Aggregation API` |
 | `\Ibexa\Solr\Query\Common\FacetBuilderVisitor\Section` | `Use Aggregation API` |
 | `\Ibexa\Solr\Query\Common\FacetBuilderVisitor\User` | `Use Aggregation API` |
-| `\Ibexa\Solr\Query\Content\CriterionVisitor\Field` | `Ibexa\Solr\Query\Common\CriterionVisitor\Field` |
+| `\Ibexa\Solr\Query\Content\CriterionVisitor\Field` | `\Ibexa\Solr\Query\Common\CriterionVisitor\Field` |
 
 ### ibexa/storefront
 
 | Old FQN                                              | New FQN / Comment                                                                |
 |:------------------------------------------------------|:------------------------------------------------------------------------|
-| `\Ibexa\Contracts\Storefront\Repository\TaxonomyTreeServiceInterface::getPath` |  `Ibexa\Contracts\Taxonomy\Service\TaxonomyServiceInterface::getPath` |
+| `\Ibexa\Contracts\Storefront\Repository\TaxonomyTreeServiceInterface::getPath` | `\Ibexa\Contracts\Taxonomy\Service\TaxonomyServiceInterface::getPath` |
 
 ### ibexa/system-info
 
@@ -522,7 +522,7 @@ The following service definitions have been removed:
 |:----|:----|
 | `formatLine` | Removed |
 | `parseAll` | Removed |
-| `fileSizeToString` | Use `fileSizeToString` function from `src/bundle/ui-dev/src/modules/common/helpers/text.helper.js`. |
+| `fileSizeToString` | Use `fileSizeToString` function from `/src/bundle/ui-dev/src/modules/common/helpers/text.helper.js`. |
 | `backdrop.js` | Use the `ibexa.core.Backdrop` component. |
 | `sidebar.block.js` | `block.js` |
 | `sidebar.blocks.group.js` | `block.group.js` |
@@ -548,8 +548,8 @@ The following service definitions have been removed:
 | `sidebar-drag-items` | `toolbox-drag-items |
 | `sidebar-drag-items-group` | `toolbox-drag-items-group` |
 | `sidebar-drag-item` | `tooblox-drag-item` |
-| `src/bundle/Resources/public/scss/mixins/_font.scss` | Removed |
-| `src/bundle/Resources/public/scss/_iframe-backdrop.scss` | Removed |
+| `/src/bundle/Resources/public/scss/mixins/_font.scss` | Removed |
+| `/src/bundle/Resources/public/scss/_iframe-backdrop.scss` | Removed |
 
 ## Twig templates, functions and filters
 
@@ -562,8 +562,8 @@ The global Twig variable `ez_richtext_config` has been renamed to `ibexa_richtex
 | `/src/bundle/Resources/views/themes/admin/account/form_fields.html.twig` | Deprecated, extend `@ibexadesign/ui/form_fields.html.twig` directly. |
 | `/src/bundle/Resources/views/themes/admin/content/edit/content_header.html.twig` | Removed |
 | `/src/bundle/Resources/views/themes/admin/ui/footer.html.twig` | Deprecated |
-| `src/bundle/Resources/views/themes/corporate/customer_portal/registration/registration_already_exists.html.twig` | Removed |
-| `src/bundle/Resources/views/block_preview.html.twig` | Removed |
+| `/src/bundle/Resources/views/themes/corporate/customer_portal/registration/registration_already_exists.html.twig` | Removed |
+| `/src/bundle/Resources/views/block_preview.html.twig` | Removed |
 | `\Ibexa\Scheduler\Dashboard\AllScheduledTab` | Removed `type` variable. Use `content_type.name`. |
 | `\Ibexa\Scheduler\Dashboard\MyScheduledTab` | Removed `type` variable. Use `content_type.name`. |
 | `\Ibexa\Bundle\User\Controller\DefaultProfileImageController` | Removed `type` variable. Use `text_color`. Remove `default(text)` from `initials.svg.twig`. |
