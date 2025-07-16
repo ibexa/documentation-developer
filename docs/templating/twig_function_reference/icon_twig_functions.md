@@ -49,7 +49,7 @@ To change the default size, in the template add the modifier to the class name.
 
 ``` html+twig
 <svg class="ibexa-icon ibexa-icon--medium">
-  <use xlink:href="{{ ibexa_icon_path('create') }}"></use>
+  <use xlink:href="{{ ibexa_icon_path('add') }}"></use>
 </svg>
 ```
 

@@ -13,7 +13,7 @@ ibexa_fieldtype_richtext:
     custom_tags:
         linktag:
             template: '@ibexadesign/field_type/ibexa_richtext/custom_tags/linktag.html.twig'
-            icon: '/bundles/ibexaicons/img/all-icons.svg#link'
+            icon: '/bundles/ibexaadminuiassets/vendors/ids-assets/dist/img/all-icons.svg#link'
             is_inline: true
             attributes:
                 title:
