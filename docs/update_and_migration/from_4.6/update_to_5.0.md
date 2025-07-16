@@ -25,7 +25,9 @@ It supports only PHP 8.3 and above.
 
 ### Update custom code for PHP 8.3+ and DXP 4.6
 
-Rector helps to upgrade your code.
+It's important to stop using deprecated PHP classes as they're removed in 5.0.
+
+[Rector](https://getrector.com/) and the Ibexa rule sets help to upgrade your code.
 
 Install [`ibexa/rector`](https://github.com/ibexa/rector) which contains rules to ensure custom code is up to date with DXP 4.6:
 
@@ -34,13 +36,13 @@ composer require --dev ibexa/rector
 ```
 
 Customize the `rector.php` config file.
-Make is match your directory structure (for example, you may have to remove the `tests` directory).
+Make it match your directory structure (for example, you may have to remove the `tests` directory).
 You can add rules [for PHP with `withPhpSets`](https://getrector.com/documentation/set-lists#content-php-sets)
 or [for Symfony with `withComposerBased`](https://getrector.com/blog/introducing-composer-version-based-sets).
 It's recommended to activate one rule set at a time, run a first time with the `--dry-run` option,
 check the output, and decide if kept right now, or discarded for another time.
-TODO: Can it be kept for another time or will it break?
-Your configuration could look like the following:
+
+Your configuration could look like the following example:
 
 ```php
 return RectorConfig::configure()
@@ -93,8 +95,6 @@ rm config/routes.yaml
 
 4.6 GraphQL isn't compatible with 5.0 so delete it.
 
-TODO: Is `@=resolver` to `@=query` change need to be detailed?
-
 ```bash
 rm -r config/graphql
 ```
@@ -110,13 +110,51 @@ The process example below considers [`symfony/debug-pack`](https://symfony.com/p
 === "[[= product_name_headless =]]"
 
     ```bash
-    TODO
+    # Update required PHP version
+    composer require --no-update 'php:>=8.3';
+    # Update required Symfony version
+    composer config extra.symfony.require '7.3.*'
+    # Upgrade Ibexa and Symfony packages: application
+    composer require --no-update \
+        ibexa/headless:[[= latest_tag_5_0 =]] \
+        symfony/console:^7.3 \
+        symfony/dotenv:^7.3 \
+        symfony/framework-bundle:^7.3 \
+        symfony/runtime:^7.3 \
+        symfony/yaml:^7.3 \
+    ;
+    # Upgrade Ibexa and Symfony packages: development tools
+    composer require --dev --no-update \
+        ibexa/rector:[[= latest_tag_5_0 =]] \
+        symfony/debug-bundle:^7.3 \
+        symfony/stopwatch:^7.3 \
+        symfony/web-profiler-bundle:^7.3 \
+    ;
     ```
 
 === "[[= product_name_exp =]]"
 
     ```bash
-    TODO
+    # Update required PHP version
+    composer require --no-update 'php:>=8.3';
+    # Update required Symfony version
+    composer config extra.symfony.require '7.3.*'
+    # Upgrade Ibexa and Symfony packages: application
+    composer require --no-update \
+        ibexa/experience:[[= latest_tag_5_0 =]] \
+        symfony/console:^7.3 \
+        symfony/dotenv:^7.3 \
+        symfony/framework-bundle:^7.3 \
+        symfony/runtime:^7.3 \
+        symfony/yaml:^7.3 \
+    ;
+    # Upgrade Ibexa and Symfony packages: development tools
+    composer require --dev --no-update \
+        ibexa/rector:[[= latest_tag_5_0 =]] \
+        symfony/debug-bundle:^7.3 \
+        symfony/stopwatch:^7.3 \
+        symfony/web-profiler-bundle:^7.3 \
+    ;
     ```
 
 === "[[= product_name_com =]]"
@@ -136,14 +174,12 @@ The process example below considers [`symfony/debug-pack`](https://symfony.com/p
         symfony/yaml:^7.3 \
     ;
     # Upgrade Ibexa and Symfony packages: development tools
-    ddev composer require --dev --no-update \
+    composer require --dev --no-update \
         ibexa/rector:[[= latest_tag_5_0 =]] \
         symfony/debug-bundle:^7.3 \
         symfony/stopwatch:^7.3 \
         symfony/web-profiler-bundle:^7.3 \
     ;
-    # Update packages / Install new dependencies
-    ddev composer update --with-all-dependencies --no-scripts --verbose
     ```
 
 #### Remove 4.6 LTS Updates constraints
@@ -155,7 +191,7 @@ so you don't have to maintain which of their versions your composer.json is refe
 TODO: Test the following command 
 
 ```bash
-composer remove --no-update \
+composer remove --no-update --no-scripts \
     ibexa/connector-ai \
     ibexa/collaboration \
     ibexa/share \
@@ -176,8 +212,6 @@ composer config --unset extra.runtime.error_handler
 #### Update required packages
 
 It's time to apply the new composer.json and update the dependencies:
-
-TODO: 🤞
 
 ```bash
 composer update --with-all-dependencies --no-scripts
@@ -263,6 +297,8 @@ The main schema has changed and the provided SQL file `ibexa-4.6.latest-to-5.0.0
     psql <database_name> < vendor/ibexa/installer/upgrade/db/postgresql/ibexa-4.6.latest-to-5.0.0.sql
     ```
 
+As this is made for the Commerce edition, you may encounter unimportant errors on other editions which can be ignored.
+
 Many tables and columns are renamed.
 If you have custom code directly querying those, you will need to update them.
 
@@ -272,7 +308,7 @@ You can track the renaming in the `ibexa-4.6.latest-to-5.0.0.sql` file or below.
 
     TODO: Keep up-to-date
     
-    | old name                                              | new name                                                                |
+    | Old name                                              | New name                                                                |
     |:------------------------------------------------------|:------------------------------------------------------------------------|
     | ezbinaryfile                                          | ibexa_binary_file                                                       |
     | ezcobj_state                                          | ibexa_object_state                                                      |
@@ -395,8 +431,6 @@ Features which were optional 4.6 LTS Updates are now part of 5.0.0.
 
 #### Install collaboration
 
-TODO: collaboration will be out as a regular part of 5.0 before being released as a 4.6 LTS Update
-
 === "MySQL"
 
     ```bash
@@ -467,11 +501,19 @@ But, optionally, if you are using GraphQL in your project, generate its schema:
 php bin/console ibexa:graphql:generate-schema
 ```
 
+### Update search indexes
+
+```
+php bin/console ibexa:reindex
+```
+
 ### Update custom code for [[= product_name =]] 5.0
 
 #### Update PHP framework standards
 
-TODO: Merge up / deduplicate with DXP 4.6 / Symfony 5.4 usage of Rector above…
+Among other things,
+previously deprecated classes have been removed,
+and the type hinting strictness has been increased.
 
 Update the `rector.php` file to use `IbexaSetList::IBEXA_50` rule set.
 If you didn't edit it the first time, you can run its recipe:
@@ -484,6 +526,7 @@ You can add some other rule sets (like, for example, the Symfony ones) to match 
 
 Again, it's recommended to activate one set at a time, run a first time with the `--dry-run` option,
 check the output, and decide if kept right now, or discarded for another time.
+As the gap is larger, many rules can be considered, see a selection in the example below.
 
 ```php
 //…
@@ -525,10 +568,6 @@ use Rector\Symfony\Set\SensiolabsSetList;
    );
 ```
 
-TODO: Among other things, the type hinting strictness has been increased.
-
-TODO: `AsCommand` attribute; Rector doesn't move `parent::__construct('app:test');` into `AsCommand`?
-
 In the following example, you can see optimization thanks to the following features:
 
 - [Constructor parameter promoted as properties](https://www.php.net/manual/en/language.oop5.decon.php#language.oop5.decon.constructor.promotion) (available since PHP 8.0)
@@ -553,6 +592,63 @@ In the following example, you can see optimization thanks to the following featu
 -     }
 
       protected function execute(InputInterface $input, OutputInterface $output): int
+```
+
+#### Update JavaScript
+
+If you haven't renamed your Webpack file since 3.3,
+you have to do it as 5.0 doesn't support the old names like 4.6 does.
+
+| Old name                    | New name                       |
+|:----------------------------|:-------------------------------|
+| ez.config.js                | ibexa.config.js                |
+| ez.config.manager.js        | ibexa.config.manager.js        |
+| ez.webpack.custom.config.js | ibexa.webpack.custom.config.js |
+
+`ibexa/rector` 5.0 also come with the [JavaScript Transform module](https://github.com/ibexa/rector/blob/v5.0.0/js/README.md) to help you maintain your JS.
+
+Customize the `rector.config.js` config file.
+Make it match your directory structure. Eventually modify the enabled plugin list.
+
+The example below is made to fix in place the JS files from `asset/js/` directory,
+and is ready to enable plugin rule sets one at a time (plugin path is relative to `vendor/ibexa/rector/` directory).
+
+```js
+module.exports = {
+    config: {
+        paths: [
+            {
+                input: 'assets/js',
+                output: 'assets/js',
+            },
+        ],
+    },
+    plugins: (plugins) => {
+        return [
+            './js/ibexa-rename-ez-global.js',
+            //'./js/ibexa-rename-variables.js',
+            //'./js/ibexa-rename-string-values.js',
+            //'./js/ibexa-rename-trans-id.js',
+            //'./js/ibexa-rename-in-translations.js',
+            //'./js/ibexa-rename-icons.js',
+        ];
+    },
+    pluginsConfig: (config) => {
+        return config;
+    },
+};
+```
+
+Install the tool dependencies once with the following command:
+
+```
+yarn --cwd ./vendor/ibexa/rector/js install
+```
+
+Run it:
+
+```
+yarn --cwd ./vendor/ibexa/rector/js transform
 ```
 
 #### Update field type identifiers
@@ -604,28 +700,271 @@ The output as an `alias` column with new identifiers and a `legacy_alias` column
     | ezurl                           | ibexa_url                       |
     | ezuser                          | ibexa_user                      |
 
+You may have to update them in several places.
 
-- Update in template
-  - TODO: `{% block ezstring_field %)` → `{% block ibexa_string_field %}` (content_fields.html.twig) and others (field edit, field def, field def edit,…)
-  - TODO: Configs, template paths, template rules, whatever needed…
+- Update in templates to display or edit fields or their definition. For example, in a `@IbexaCore/content_fields.html.twig` extension, `{% block ezstring_field %)` must be changed for `{% block ibexa_string_field %}`.
 - Update in migration files
-- TODO: Update in DB?
 
-### Update search indexes
+#### Update icons
 
-TODO: Earlier?
+The names of the provided icons have changed.
+`ibexa/rector` JavaScript Transform module's plugin `ibexa-rename-icons.js` deals with those changes in JavaScript.
+You may have to update them in other contexts like config files associating icons to content types or page builder blocks.
 
-TODO: For Solr and Elasticsearch, it seems that the schema/config/template haven't changed.
-TODO: Is a re-index needed? Maybe not either. 
+You can find an [`ibexa-rename-icons` map in `vendor/ibexa/rector/js/rules.config.json` (`"old-name": "new-name"`)](https://github.com/ibexa/rector/blob/v5.0.0/js/rules.config.json#L63).
 
+??? note "Icons renaming map"
+    
+    | Old name                | New name                     |
+    |:------------------------|:-----------------------------|
+    | about-info              | help                         |
+    | about                   | info-square                  |
+    | airtime                 | signal-radio                 |
+    | align-center            | align-text-center            |
+    | align-justify           | align-text-justified         |
+    | align-left              | align-text-left              |
+    | align-right             | align-text-right             |
+    | approved                | check-circle                 |
+    | article                 | file-text                    |
+    | assign-section          | assign                       |
+    | author                  | user-editor                  |
+    | autosave-error          | cloud-error                  |
+    | autosave-off            | cloud-discard                |
+    | autosave-on             | cloud                        |
+    | autosave-saved          | cloud-check                  |
+    | autosave-saving         | cloud-synch                  |
+    | b2b                     | handshake                    |
+    | back                    | arrow-left                   |
+    | back-current-date       | calendar-back                |
+    | bestseller              | badge-star                   |
+    | block-invisible         | block-hidden                 |
+    | block-visible-recurring | block-lock                   |
+    | blog                    | app-blog                     |
+    | blog_post               | note-blog                    |
+    | bold                    | text-bold                    |
+    | bookmark                | favourite-outline            |
+    | bookmark-active         | favourite-filled             |
+    | bookmark-manager        | book                         |
+    | box-collapse            | arrow-move-right             |
+    | browse                  | folder-browse                |
+    | bubbles                 | message-bubble               |
+    | business-deal-cash      | user-money                   |
+    | button                  | cursor-clicked               |
+    | campaign                | speaker                      |
+    | captcha                 | form-captcha                 |
+    | caret-back              | arrow-chevron-left           |
+    | caret-double-back       | arrow-double-left            |
+    | caret-double-next       | arrow-double-right           |
+    | caret-down              | arrow-chevron-down           |
+    | caret-expanded          | arrow-double-left            |
+    | caret-next              | arrow-chevron-right          |
+    | caret-up                | arrow-chevron-up             |
+    | cart                    | shopping-cart                |
+    | cart-full               | shopping-cart                |
+    | cart-upload             | shopping-cart-arrow-up       |
+    | cart-wishlist           | shopping-cart-heart          |
+    | category                | tag                          |
+    | checkbox                | form-checkbox                |
+    | checkbox-multiple       | form-check-list              |
+    | checkmark               | form-check                   |
+    | circle-caret-down       | chevron-down-circle          |
+    | circle-caret-left       | chevron-left-circle          |
+    | circle-caret-right      | chevron-right-circle         |
+    | circle-caret-up         | chevron-up-circle            |
+    | circle-close            | discard-circle               |
+    | circle-create           | add-circle                   |
+    | circle-minus            | minus-circle                 |
+    | circle-pause            | minus-circle                 |
+    | clicked-recommendations | cursor-clicked-hand          |
+    | clipboard               | clipboard-check              |
+    | collapse                | arrow-collapse-right         |
+    | content-write           | file-text-write              |
+    | column-settings         | table-settings-column        |
+    | comment                 | message                      |
+    | components              | box-component                |
+    | connect                 | connection                   |
+    | content-draft           | draft                        |
+    | contentlist             | list-content                 |
+    | content-list            | list-content                 |
+    | content-type            | tools                        |
+    | content-type-content    | file-type                    |
+    | content-type-group      | tool-group                   |
+    | copy-subtree            | content-tree-copy            |
+    | create                  | add                          |
+    | create-content          | file-add                     |
+    | create-location         | content-tree-create-location |
+    | customer                | user-customer                |
+    | customer-portal         | device-monitor-user          |
+    | customer-portal-page    | app-user                     |
+    | customer-type           | device-monitor-type          |
+    | custom_tags             | prompt                       |
+    | date                    | calendar                     |
+    | date-updated            | calendar-reload              |
+    | discount-coupon         | discount-ticket              |
+    | drafts                  | edit-draft                   |
+    | dropdown                | form-dropdown                |
+    | earth-access            | world-cursor                 |
+    | embed                   | text-embedded                |
+    | embed-inline            | text-embedded-inline         |
+    | erp                     | connection-erp               |
+    | error                   | exclamation-mark             |
+    | error-icon              | file-warning                 |
+    | expand-left             | arrow-expand-left            |
+    | expand-right            | arrow-expand-right           |
+    | explore                 | ai                           |
+    | fields                  | form-input                   |
+    | file-video              | video                        |
+    | flash                   | lightning                    |
+    | focus                   | arrows-outside               |
+    | focus-image             | focus-target                 |
+    | folder-empty            | folder-open                  |
+    | form                    | form-check-square            |
+    | full-view               | arrows-full-view             |
+    | future-publication      | calendar-clock               |
+    | gallery                 | image-gallery                |
+    | go-right                | arrow-to-right               |
+    | go-to-root              | content-tree-arrow-up        |
+    | go-up                   | arrow-to-up                  |
+    | h1                      | header-1                     |
+    | h2                      | header-2                     |
+    | h3                      | header-3                     |
+    | h4                      | header-4                     |
+    | h5                      | header-5                     |
+    | h6                      | header-6                     |
+    | hide                    | visibility-hidden            |
+    | hierarchy               | hierarchy-site-map           |
+    | history-file            | file-history                 |
+    | 'home-page'             | home                         |
+    | image-center            | align-block-center           |
+    | image-editor            | image-edit                   |
+    | image-left              | align-block-left             |
+    | image-right             | align-block-right            |
+    | image-variations        | image-focus                  |
+    | imported-items          | database-synch               |
+    | information             | info-square                  |
+    | input-hidden            | form-input-hidden            |
+    | input-line              | form-input-single-line       |
+    | input-line-multiple     | form-input-multi-line        |
+    | input-number            | form-input-number            |
+    | interface-block         | forbidden                    |
+    | italic                  | text-italic                  |
+    | keyword                 | hash                         |
+    | landing_page            | layout-navbar                |
+    | landingpage-add         | layout-navbar-add            |
+    | landingpage-preview     | layout-navbar-visible        |
+    | languages               | world                        |
+    | languages-add           | world-add                    |
+    | last-purchased          | cursor-clicked-hand          |
+    | last-viewed             | app-recent                   |
+    | layout-manager          | layout                       |
+    | link-content            | file-link                    |
+    | link-remove             | unlink                       |
+    | list                    | list-bullet                  |
+    | list-numbered           | list-number                  |
+    | localize                | target-location              |
+    | location-add-new        | content-tree-create-location |
+    | lock-unlock             | unlock                       |
+    | logout                  | log-out                      |
+    | maform                  | chart-histogram              |
+    | mail                    | message-email                |
+    | mail-open               | message-email-read           |
+    | markup                  | file-code                    |
+    | menu                    | menu-hamburger               |
+    | move                    | folder-open-move             |
+    | newsletter              | news                         |
+    | notice                  | alert-error                  |
+    | open-newtab             | open-new-window              |
+    | open-sametab            | open-same-window             |
+    | options                 | more                         |
+    | order-history           | file-history                 |
+    | order-management        | receipt-settings             |
+    | order-status            | product-search               |
+    | panels                  | view-panels                  |
+    | paragraph               | text-paragraph               |
+    | paragraph-add           | text-paragraph-add           |
+    | pdf-file                | file-pdf                     |
+    | personalize             | user-target                  |
+    | personalize-block       | file-settings                |
+    | personalize-content     | tag-settings                 |
+    | pin-unpin               | unpin                        |
+    | place                   | pin-location                 |
+    | places                  | pins-locations               |
+    | portfolio               | suitcase                     |
+    | previewed               | overdue                      |
+    | product-category        | product-tag                  |
+    | product-list            | clipboard-list               |
+    | product_list            | clipboard-list               |
+    | product-low             | product-arrow-down           |
+    | product type            | product-collection           |
+    | product-type            | product-collection           |
+    | profile                 | user-profile                 |
+    | publish                 | rocket                       |
+    | publish-later           | calendar-number              |
+    | publish-later-cancel    | calendar-discard             |
+    | publish-later-create    | calendar-add                 |
+    | qa-content              | qa-file                      |
+    | qa-form                 | qa-form-check                |
+    | radio-button            | form-radio                   |
+    | radio-button-multiple   | form-radio-list              |
+    | rate                    | stars                        |
+    | rate-review             | star-circle                  |
+    | recent-activity         | activity-clock               |
+    | recently-added          | history                      |
+    | recommendation-calls    | arrows-circle                |
+    | redo                    | action-redo                  |
+    | refresh                 | arrows-reload                |
+    | rejected                | arrow-to-down-circle         |
+    | relations               | hierarchy-square             |
+    | restore                 | arrow-restore                |
+    | restore-parent          | content-tree-restore-parent  |
+    | review                  | message-edit                 |
+    | roles                   | user-id                      |
+    | rss                     | signal-rss                   |
+    | schedule                | calendar-schedule            |
+    | sections                | database                     |
+    | send-email              | send                         |
+    | settings-block          | settings                     |
+    | settings-config         | settings-configure           |
+    | sites-all               | sites                        |
+    | spinner                 | arrow-rotate                 |
+    | stats                   | chart-dots                   |
+    | strikethrough           | text-strikethrough           |
+    | subscriber              | user-mail                    |
+    | subscript               | text-subscript               |
+    | superscript             | text-superscript             |
+    | swap                    | arrows-synchronize           |
+    | system-information      | info-circle                  |
+    | trash-empty             | trash-discard                |
+    | trash-notrashed         | trash-open                   |
+    | underscore              | text-underline               |
+    | undo                    | action-undo                  |
+    | un-focus                | arrows-inside                |
+    | un-full-view            | arrows-full-view-out         |
+    | upload-image            | image-upload                 |
+    | user-blocked            | user-block                   |
+    | user_group              | user-group                   |
+    | users-personalization   | user-focus                   |
+    | user-recycle            | arrows-reload-user           |
+    | users-select            | users-add                    |
+    | user-tick               | user-check                   |
+    | version-compare         | action-compare-versions      |
+    | version-compare-action  | action-compare               |
+    | versions                | archived-version             |
+    | vertical-left-right     | arrow-collapse-expand        |
+    | view                    | visibility                   |
+    | view-desktop            | device-monitor               |
+    | view-hide               | visibility-hidden            |
+    | view-mobile             | device-mobile                |
+    | view-tablet             | device-tablet                |
+    | warning                 | alert-warning                |
+    | warning-triangle        | alert-warning                |
+
+```diff+yaml
+  ibexa_fieldtype_page:
+      blocks:
+          event:
+              name: About Block
+              category: Custom
+-             thumbnail: /bundles/ibexaicons/img/all-icons.svg#about
++             thumbnail: /bundles/ibexaicons/img/all-icons.svg#info-square
 ```
-php bin/console ibexa:reindex
-```
-
-#### Update Back Office extensions
-
-TODO: Update JS, templates, CSS…
-TODO: Some old deprecated Webpack file names were supported in 4.6 for backward compatibility; They aren't in 5.0
-TODO: Conversion tables
-TODO: Icons
-TODO: Shared with front?
