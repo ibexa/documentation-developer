@@ -148,13 +148,13 @@ Several field type identifiers have changed.
 
 | Old FQN                                              | New FQN / Comment                                                                |
 |:------------------------------------------------------|:------------------------------------------------------------------------|
-| `\Ibexa\Contracts\AdminUi\Permission\PermissionCheckerInterface::getContentCreateLimitations`| `Ibexa\AdminUi\Permission\LimitationResolverInterface::getContentCreateLimitations`|
-| `\Ibexa\Contracts\AdminUi\Permission\PermissionCheckerInterface::getContentUpdateLimitations`|`\Ibexa\AdminUi\Permission\LimitationResolverInterface::getContentUpdateLimitations`|
+| `\Ibexa\Contracts\AdminUi\Permission\PermissionCheckerInterface::getContentCreateLimitations`| `Ibexa\AdminUi\Permission\LimitationResolverInterface::getContentCreateLimitations` | 
+| `\Ibexa\Contracts\AdminUi\Permission\PermissionCheckerInterface::getContentUpdateLimitations` | `\Ibexa\AdminUi\Permission\LimitationResolverInterface::getContentUpdateLimitations` |
 | `\Ibexa\Contracts\AdminUi\UniversalDiscovery\Provider::getRestFormat` | Removed |
 | `\Ibexa\AdminUi\Form\Type\Search\DateIntervalType` | `\Ibexa\AdminUi\Form\Type\Date\DateIntervalType`|
 | `\Ibexa\AdminUi\Siteaccess\SiteaccessResolverInterface::getSiteaccessesForLocation`| `\Ibexa\AdminUi\Siteaccess\SiteaccessResolverInterface::getSiteAccessesList`|
 | `\Ibexa\AdminUi\Siteaccess\SiteaccessResolverInterface::getSiteaccesses`| `\Ibexa\AdminUi\Siteaccess\SiteaccessResolverInterface::getSiteAccessesList`|
-| `\Ibexa\AdminUi\Specification\AbstractSpecification`| `\Ibexa\Contracts\Core\Specification\AbstractSpecification instead`|
+| `\Ibexa\AdminUi\Specification\AbstractSpecification`| `\Ibexa\Contracts\Core\Specification\AbstractSpecification`|
 | `\Ibexa\AdminUi\Specification\AndSpecification` | `\Ibexa\Contracts\Core\Specification\AndSpecification` |
 | `\Ibexa\AdminUi\Specification\NotSpecification` | `\Ibexa\Contracts\Core\Specification\NotSpecification` |
 | `\Ibexa\AdminUi\Specification\OrSpecification` | `\Ibexa\Contracts\Core\Specification\OrSpecification` |
@@ -203,13 +203,13 @@ Support for facet search has been dropped, use the `Aggregation` API instead.
 | `Ibexa\Contracts\Core\Persistence\Bookmark\Bookmark::$name` | Removed |
 | `Ibexa\Contracts\Core\Persistence\Bookmark\CreateStruct::$name` | Removed |
 | `Ibexa\Contracts\Core\Persistence\Content\ContentInfo::STATUS_ARCHIVED` |  `\Ibexa\Contracts\Core\Persistence\Content\ContentInfo::STATUS_TRASHED` |
-| `Ibexa\Contracts\Core\Persistence\Content\ContentInfo::$isPublished` |  `\Ibexa\Contracts\Core\Persistence\Content\ContentInfo::$status` === `\Ibexa\Contracts\Core\Persistence\Content\ContentInfo::STATUS_PUBLISHED` |
+| `Ibexa\Contracts\Core\Persistence\Content\ContentInfo::$isPublished` | Removed. Use `ContentInfo::$status}` with value `STATUS_PUBLISHED`. |
 | `Ibexa\Contracts\Core\Persistence\Content\LoadStruct` | Removed |
 | `Ibexa\Contracts\Core\Persistence\Content\Location::$pathIdentificationString` | Removed |
-| `Ibexa\Contracts\Core\Persistence\Content\Location\CreateStruct::$pathIdentificationString` | Removed | 
-| `Ibexa\Contracts\Core\Persistence\Content\Location\Handler::markSubtreeModified` | Removed | 
-| `Ibexa\Contracts\Core\Persistence\FieldType\IsEmptyValue` | Removed | 
-| `Ibexa\Contracts\Core\Persistence\User\Handler::loadPoliciesByUserId` | Removed | 
+| `Ibexa\Contracts\Core\Persistence\Content\Location\CreateStruct::$pathIdentificationString` | Removed |
+| `Ibexa\Contracts\Core\Persistence\Content\Location\Handler::markSubtreeModified` | Removed |
+| `Ibexa\Contracts\Core\Persistence\FieldType\IsEmptyValue` | Removed |
+| `Ibexa\Contracts\Core\Persistence\User\Handler::loadPoliciesByUserId` | Removed |
 | `Ibexa\Contracts\Core\Repository\ContentService::loadContentDrafts` |  `\Ibexa\Contracts\Core\Repository\ContentService::loadContentDraftList` |
 | `\Ibexa\Contracts\Core\Repository\Values\Content\Location::SORT_FIELD_MODIFIED_SUBNODE` | Removed |
 | `\Ibexa\Contracts\Core\Repository\Values\Content\Query\FacetBuilder` | Removed. Use the `Aggregation` API. |
@@ -243,13 +243,13 @@ Support for facet search has been dropped, use the `Aggregation` API instead.
 | `\Ibexa\Contracts\Core\Repository\Values\Content\Trash\SearchResult::$count` | `\Ibexa\Contracts\Core\Repository\Values\Content\Trash\SearchResult::$totalCount` |
 | `\Ibexa\Contracts\Core\Repository\Values\ContentType\ContentType::@$isContainer` | `\Ibexa\Contracts\Core\Repository\Values\ContentType\ContentType::isContainer` |
 | `\Ibexa\Contracts\Core\User\Identity` | Removed. Use the `FOSHttpCacheBundle` user context feature. |
-| `src/lib/Event/UserService.php:247` | Listen to `BeforeUpdateUserPasswordEvent` instead of `BeforeUpdateUserEvent`. |
-| `src/lib/Event/UserService.php:272` | Listen to `UpdateUserPasswordEvent` instead of `UpdateUserEvent`. |
+| `\Ibexa\Core\Event\UserService` | Listen to `BeforeUpdateUserPasswordEvent` instead of `BeforeUpdateUserEvent`. |
+| `\Ibexa\Core\Event\UserService` | Listen to `UpdateUserPasswordEvent` instead of `UpdateUserEvent`. |
 | `\Ibexa\Core\FieldType\GatewayBasedStorage` | `\Ibexa\Contracts\Core\FieldType\GatewayBasedStorage` |
 | `\Ibexa\Core\FieldType\StorageGateway` | `\Ibexa\Contracts\Core\FieldType\StorageGatewayInterface` |
 | `\Ibexa\Core\FieldType\Image\Value::@$path` | Equivalent to `$id` or `$inputUri`, depending on which one is set. |
 | `\Ibexa\Core\FieldType\Image\Value::fromString` | `\Ibexa\Core\FieldType\FieldType::acceptValue` |
-| `\Ibexa\Core\Helper\FieldHelper::getFieldDefinition` | If Content exists, you can use `$content->getContentType()->getFieldDefinition($identifier)`. |
+| `\Ibexa\Core\Helper\FieldHelper::getFieldDefinition` | If content exists, use `$content->getContentType()->getFieldDefinition($identifier)`. |
 | `\Ibexa\Core\Helper\PreviewLocationProvider::loadMainLocation` | `\Ibexa\Core\Helper\PreviewLocationProvider::loadMainLocationByContent` |
 | `\Ibexa\Core\IO\IOServiceInterface::getExternalPath` | `\Ibexa\Core\IO\IOServiceInterface::loadBinaryFileByUri` |
 | `\Ibexa\Core\IO\IOServiceInterface::getInternalPath` | Removed. Use the `uri` property. |
@@ -272,8 +272,8 @@ Support for facet search has been dropped, use the `Aggregation` API instead.
 | `\Ibexa\Core\Persistence\Legacy\Content\FieldValue\Converter\CheckboxConverter::create` | Removed. Use the default constructor. |
 | `\Ibexa\Core\Persistence\Legacy\Content\FieldValue\Converter\CountryConverter::create` | Removed. Use the default constructor. |
 | `\Ibexa\Core\Persistence\Legacy\Content\FieldValue\Converter\DateAndTimeConverter::create` | Removed. Use the default constructor. |
-| `timestamp` property in `DateAndTimeConverter.php` | Removed |
-| `timestamp` property in `DateConverter.php` | Removed |
+| `\Ibexa\Core\Persistence\Legacy\Content\FieldValue\Converter` | Removed the `timestamp` property. |
+| `\Ibexa\Core\Persistence\Legacy\Content\FieldValue\DateConverter` | Removed the `timestamp` property. |
 | `\Ibexa\Core\Persistence\Legacy\Content\FieldValue\Converter\DateConverter::create` | Removed. Use the default constructor. |
 | `\Ibexa\Core\Persistence\Legacy\Content\FieldValue\Converter\EmailAddressConverter::create` | Removed. Use the default constructor. |
 | `\Ibexa\Core\Persistence\Legacy\Content\FieldValue\Converter\FloatConverter::create` | Removed. Use the default constructor. |
@@ -303,8 +303,8 @@ Support for facet search has been dropped, use the `Aggregation` API instead.
 | `\Ibexa\Tests\Integration\Core\Repository\SearchServiceTest::testDeprecatedCriteriaProperty` | Removed |
 | `\Ibexa\Tests\Core\Repository\Service\Mock\PermissionsCriterionHandlerTest` | Removed |
 | `\Ibexa\Contracts\Core\Repository\Values\Translation` | Implementations must implement `\Stringable` interface. |
-| `\Ibexa\Bundle\Core\ApiLoader\RepositoryConfigurationProvider` | Deprecated. Use `\Ibexa\Contracts\Core\Container\ApiLoader\RepositoryConfigurationProviderInterface`. Core ApiLoader exceptions now follow Repository exceptions contract. |
-| `\Ibexa\Bundle\Core\ApiLoader\RepositoryFactory` | Deprecated. Use `\Ibexa\Core\Base\Container\ApiLoader\RepositoryFactory`. Dropped support for dynamic Core Repository class FQCN RepositoryFactory argument.|
+| `\Ibexa\Bundle\Core\ApiLoader\RepositoryConfigurationProvider` | Deprecated. Use `\Ibexa\Contracts\Core\Container\ApiLoader\RepositoryConfigurationProviderInterface`. |
+| `\Ibexa\Bundle\Core\ApiLoader\RepositoryFactory` | Deprecated. Use `\Ibexa\Core\Base\Container\ApiLoader\RepositoryFactory`.|
 
 !!! note "Dropped single colon notation"
 
@@ -328,11 +328,11 @@ Support for facet search has been dropped, use the `Aggregation` API instead.
 
 | Old FQN                                              | New FQN / Comment                                                                |
 |:------------------------------------------------------|:------------------------------------------------------------------------|
-| `\Ibexa\DesignEngine\Templating\TemplateNameResolverInterface::EZ_DESIGN_NAMESPACE`| `\Ibexa\Contracts\DesignEngine\DesignAwareInterface::DESIGN_NAMESPACE` |
+| `\Ibexa\DesignEngine\Templating\TemplateNameResolverInterface::EZ_DESIGN_NAMESPACE`| Removed. Use the `\Ibexa\Contracts\DesignEngine\DesignAwareInterface::DESIGN_NAMESPACE` constant. |
 
 ### ibexa/elasticsearch
 
-Support for facets in elasticsearch has been dropped, use the `Aggregation` API instead.
+Support for facets in `ibexa/elasticsearch` has been dropped, use the `Aggregation` API instead.
 
 | Old FQN                                              | New FQN / Comment                                                                |
 |:------------------------------------------------------|:------------------------------------------------------------------------|
@@ -357,8 +357,8 @@ Support for facets in elasticsearch has been dropped, use the `Aggregation` API 
 
 | Old FQN                                              | New FQN / Comment                                                                |
 |:------------------------------------------------------|:------------------------------------------------------------------------|
-| `\Ibexa\Bundle\FieldTypePage\DependencyInjection\Compiler\AbstractConfigurationAwareCompilerPass::EXTENSION_CONFIG_KEY` | `\Ibexa\Bundle\FieldTypePage\DependencyInjection\IbexaFieldTypePageExtension::EXTENSION_NAME` |
-| `\Ibexa\Bundle\FieldTypePage\DependencyInjection\Compiler\BlockDefinitionConfigurationCompilerPass::EXTENSION_CONFIG_KEY` | `\Ibexa\Bundle\FieldTypePage\DependencyInjection\IbexaFieldTypePageExtension::EXTENSION_NAME` |
+| `\Ibexa\Bundle\FieldTypePage\DependencyInjection\Compiler\AbstractConfigurationAwareCompilerPass::EXTENSION_CONFIG_KEY` | Removed. Use the `\Ibexa\Bundle\FieldTypePage\DependencyInjection\IbexaFieldTypePageExtension::EXTENSION_NAME` constant. |
+| `\Ibexa\Bundle\FieldTypePage\DependencyInjection\Compiler\BlockDefinitionConfigurationCompilerPass::EXTENSION_CONFIG_KEY` | Removed. Use the `\Ibexa\Bundle\FieldTypePage\DependencyInjection\IbexaFieldTypePageExtension::EXTENSION_NAME` constant. |
 | `\Ibexa\FieldTypePage\FieldType\Page\Block\Renderer\Event\Listener\PreviewTemplateEventSubscriber` | Removed |
 | `\Ibexa\FieldTypePage\ScheduleBlock\ScheduleService::distributeItems` | Removed |
 
@@ -384,7 +384,7 @@ Support for facets in elasticsearch has been dropped, use the `Aggregation` API 
 
 | Old FQN                                              | New FQN / Comment                                                                |
 |:------------------------------------------------------|:------------------------------------------------------------------------|
-| `\Ibexa\Bundle\FormBuilder\DependencyInjection\Configuration::TREE_ROOT` | `\Ibexa\Bundle\FormBuilder\DependencyInjection\IbexaFormBuilderExtension::EXTENSION_NAME` |
+| `\Ibexa\Bundle\FormBuilder\DependencyInjection\Configuration::TREE_ROOT` | Removed. Use the `\Ibexa\Bundle\FormBuilder\DependencyInjection\IbexaFormBuilderExtension::EXTENSION_NAME` constant. |
 | `\Ibexa\FormBuilder\FieldType\Storage\FormStorage::getIndexData` | Removed |
 
 ### ibexa/graphql
@@ -403,8 +403,8 @@ Support for facets in elasticsearch has been dropped, use the `Aggregation` API 
 | `\Ibexa\GraphQL\Schema\Domain\Content\NameHelper::domainMutationUpdateContentField` | `\Ibexa\GraphQL\Schema\Domain\Content\NameHelper::itemMutationUpdateItemField` |
 | `\Ibexa\GraphQL\Schema\Domain\Content\NameHelper::domainGroupName` | `\Ibexa\GraphQL\Schema\Domain\Content\NameHelper::itemGroupName` |
 | `\Ibexa\GraphQL\Schema\Domain\Content\NameHelper::domainGroupTypesName` | `\Ibexa\GraphQL\Schema\Domain\Content\NameHelper::itemGroupTypesName` |
-| `\Ibexa\GraphQL\Schema\Domain\Content\Mapper\FieldDefinition\FieldDefinitionArgsBuilderMapper` | ??? |
-| `\Ibexa\GraphQL\Schema\Domain\Content\Mapper\FieldDefinition\FieldDefinitionInputMapper` |  |
+| `\Ibexa\GraphQL\Schema\Domain\Content\Mapper\FieldDefinition\FieldDefinitionArgsBuilderMapper` | `Ibexa\Contracts\GraphQL\Schema\Domain\Content\Mapper\FieldDefinition\FieldDefinitionMapper` |
+| `\Ibexa\GraphQL\Schema\Domain\Content\Mapper\FieldDefinition\FieldDefinitionInputMapper` | `Ibexa\Contracts\GraphQL\Schema\Domain\Content\Mapper\FieldDefinition\FieldDefinitionMapper` |
 
 ### ibexa/measurement
 
@@ -417,7 +417,7 @@ Support for facets in elasticsearch has been dropped, use the `Aggregation` API 
 
 | Old FQN                                              | New FQN / Comment                                                                |
 |:------------------------------------------------------|:------------------------------------------------------------------------|
-| `\Ibexa\Migration\ValueObject\ContentType\Matcher::CONTENT_TYPE_IDENTIFIER` | `\Ibexa\Migration\StepExecutor\ContentType\IdentifierFinder::CONTENT_TYPE_IDENTIFIER` |
+| `\Ibexa\Migration\ValueObject\ContentType\Matcher::CONTENT_TYPE_IDENTIFIER` | Removed. Use the `\Ibexa\Migration\StepExecutor\ContentType\IdentifierFinder::CONTENT_TYPE_IDENTIFIER` constant. |
 
 ### ibexa/product-catalog
 
@@ -463,7 +463,7 @@ Support for facets in elasticsearch has been dropped, use the `Aggregation` API 
 
 | Old FQN                                              | New FQN / Comment                                                                |
 |:------------------------------------------------------|:------------------------------------------------------------------------|
-| `\Ibexa\Bundle\SiteFactory\DependencyInjection\Configuration::TREE_ROOT` | `\Ibexa\Bundle\SiteFactory\DependencyInjection\IbexaSiteFactoryExtension::EXTENSION_NAME` |
+| `\Ibexa\Bundle\SiteFactory\DependencyInjection\Configuration::TREE_ROOT` | Removed. Use the `\Ibexa\Bundle\SiteFactory\DependencyInjection\IbexaSiteFactoryExtension::EXTENSION_NAME` constant. |
 | `\Ibexa\SiteFactory\Event\EventDispatcher` |  `Removed` |
 | `\Ibexa\SiteFactory\ServiceDecorator\SiteServiceDecorator` |  `Removed` |
 | `\Ibexa\SiteFactory\ServiceEvent\Events\BeforeCreateSiteEvent` |  `Removed` |
@@ -497,8 +497,8 @@ Support for facets in elasticsearch has been dropped, use the `Aggregation` API 
 
 | Old FQN                                              | New FQN / Comment                                                                |
 |:------------------------------------------------------|:------------------------------------------------------------------------|
-| `\Ibexa\Bundle\SystemInfo\SystemInfo\Collector\IbexaSystemInfoCollector::CONTENT_PACKAGES` | `\Ibexa\Bundle\SystemInfo\SystemInfo\Collector\IbexaSystemInfoCollector::HEADLESS_PACKAGES` |
-| `\Ibexa\Bundle\SystemInfo\SystemInfo\Collector\IbexaSystemInfoCollector::ENTERPRISE_PACKAGES` | Rely on `IbexaSystemInfoCollector::EXPERIENCE_PACKAGES` or `IbexaSystemInfoCollector::CONTENT_PACKAGES`. |
+| `\Ibexa\Bundle\SystemInfo\SystemInfo\Collector\IbexaSystemInfoCollector::CONTENT_PACKAGES` | Removed. Use the `\Ibexa\Bundle\SystemInfo\SystemInfo\Collector\IbexaSystemInfoCollector::HEADLESS_PACKAGES` constant. |
+| `\Ibexa\Bundle\SystemInfo\SystemInfo\Collector\IbexaSystemInfoCollector::ENTERPRISE_PACKAGES` | Removed. Use `IbexaSystemInfoCollector::EXPERIENCE_PACKAGES` or `IbexaSystemInfoCollector::CONTENT_PACKAGES` constants. |
 | `\Ibexa\Bundle\SystemInfo\SystemInfo\Value\IbexaSystemInfo::$stability` | `\Ibexa\Bundle\SystemInfo\SystemInfo\Value\IbexaSystemInfo` is considered internal. |
 
 ### ibexa/workflow
@@ -555,17 +555,16 @@ The following service definitions have been removed:
 
 The global Twig variable `ez_richtext_config` has been renamed to `ibexa_richtext_config`.
 
-| `ezplatform` variable in `CoreExtension.php` | Removed. Use the `ibexa` global variable. |
-| `pagelayout` variable in `ViewbaseLayout.php` | Use `page_layout` variable. |
+| Old name| New name / Comment |
+|:----|:----|
+| `\Ibexa\Core\MVC\Symfony\Templating\Twig\Extension\` | Removed `ezplatform` variable, use the `ibexa` global variable. |
+| `\Ibexa\Core\MVC\Symfony\View\ParametersInjector\ViewbaseLayout\` | Removed `pagelayout` variable, use `page_layout`. |
 | `/src/bundle/Resources/views/themes/admin/account/form_fields.html.twig` | Deprecated, extend `@ibexadesign/ui/form_fields.html.twig` directly. |
 | `/src/bundle/Resources/views/themes/admin/content/edit/content_header.html.twig` | Removed |
 | `/src/bundle/Resources/views/themes/admin/ui/footer.html.twig` | Deprecated |
 | `src/bundle/Resources/views/themes/corporate/customer_portal/registration/registration_already_exists.html.twig` | Removed |
 | `src/bundle/Resources/views/block_preview.html.twig` | Removed |
-| `type` variable in `AllScheduledTab.php` | Use `content_type.name`. |
-| `type` variable in `MyScheduledTab.php` | Use `content_type.name`. |
-| `text` variable in `DefaultProfileImageController.php` | Use `text_color` variable. Remove `default(text)` from `initials.svg.twig`. |
-| `background` variable in `DefaultProfileImageController.php` | Use `background_color` variable. Remove `default(background)` from `initials.svg.twig`. |
-
-
-Symfony\Component\HttpFoundation\Session\SessionInterface
+| `\Ibexa\Scheduler\Dashboard\AllScheduledTab` | Removed `type` variable. Use `content_type.name`. |
+| `\Ibexa\Scheduler\Dashboard\MyScheduledTab` | Removed `type` variable. Use `content_type.name`. |
+| `\Ibexa\Bundle\User\Controller\DefaultProfileImageController` | Removed `type` variable. Use `text_color`. Remove `default(text)` from `initials.svg.twig`. |
+| `\Ibexa\Bundle\User\Controller\DefaultProfileImageController` | Removed `background` variable, use `background_color`. Remove `default(background)` from `initials.svg.twig`. |
