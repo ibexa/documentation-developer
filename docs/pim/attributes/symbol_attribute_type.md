@@ -42,7 +42,7 @@ The following SQL query can be used to build the required database structure:
 === "MySQL"
 
     ``` sql
-    [[= include_file('code_samples/symbol_attribute/config/mysql/symbol_attribute.sql') =]]
+    [[= include_file('code_samples/symbol_attribute/config/mysql/symbol_attribute.sql', glue='    ') =]]
     ```
 
 === "PostgreSQL"
