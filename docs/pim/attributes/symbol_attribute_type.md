@@ -48,7 +48,7 @@ The following SQL query can be used to build the required database structure:
 === "PostgreSQL"
 
     ``` sql
-    [[= include_file('code_samples/symbol_attribute/config/postgresql/symbol_attribute.sql') =]]
+    [[= include_file('code_samples/symbol_attribute/config/postgresql/symbol_attribute.sql', glue='    ') =]]
     ```
 
 ### Create symbol attribute definition (optional)
