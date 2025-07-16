@@ -27,7 +27,7 @@ It supports only PHP 8.3 and above.
 
 It's important to stop using deprecated PHP classes as they're removed in 5.0.
 
-[Rector](https://getrector.com/) and the Ibexa rule sets help to upgrade your code.
+[Rector](https://getrector.com/) and the [[= product_name_base =]] rule sets help to upgrade your code.
 
 Install [`ibexa/rector`](https://github.com/ibexa/rector) which contains rules to ensure custom code is up to date with DXP 4.6:
 
@@ -183,7 +183,7 @@ Notice that it uses the `--no-update` option to only edit the composer.json, to 
 
 4.6 LTS Update packages are included by default in 5.0.
 You can now remove them from your composer.json
-so you don't have to maintain which of their versions your composer.json is referring to. 
+so you don't have to maintain which of their versions your composer.json is referring to.
 
 For example, the following command removes several formerly LTS Update packages from `composer.json:
 
@@ -300,7 +300,6 @@ If you have custom code directly querying those, you will need to update them.
 You can track the renaming in the `ibexa-4.6.latest-to-5.0.0.sql` file or below.
 
 ??? note "Tables and columns renaming map"
-    
     | Old name                                              | New name                                                                |
     |:------------------------------------------------------|:------------------------------------------------------------------------|
     | ezbinaryfile                                          | ibexa_binary_file                                                       |
@@ -402,7 +401,7 @@ Features which were optional 4.6 LTS Updates are now part of 5.0.0.
 
 * If you have already installed the feature, its schema has been updated by the previous step.
 * If you haven't installed the feature, you need to add its schema to your database.
-* If you mistakenly reinstall a schema, no worries, you will encounter a "Table already exists" error which can be ignored.
+* If you mistakenly reinstall a schema, no worries, you encounter "Table already exists" errors which can be ignored.
 
 #### Install AI actions schema
 
@@ -483,7 +482,7 @@ php bin/console ibexa:migrations:migrate --file=2025_07_08_09_27_set_container_t
 
 ### Generate GraphQL schema
 
-4.6's Back Office uses GraphQL while 5.0's one doesn't.
+4.6's back office uses GraphQL while 5.0's one doesn't.
 But, optionally, if you are using GraphQL in your project, generate its schema:
 
 ```bash
@@ -555,7 +554,7 @@ use Rector\Symfony\Set\SensiolabsSetList;
        // strictBooleans: true, // https://getrector.com/find-rule?activeRectorSetGroup=core&rectorSet=core-strict-booleans
        rectorPreset: true,
        symfonyCodeQuality: true, // https://getrector.com/find-rule?activeRectorSetGroup=symfony&rectorSet=symfony-code-quality
-       symfonyConfigs: true, // https://getrector.com/find-rule?activeRectorSetGroup=symfony&rectorSet=symfony-configs 
+       symfonyConfigs: true, // https://getrector.com/find-rule?activeRectorSetGroup=symfony&rectorSet=symfony-configs
    );
 ```
 
@@ -693,19 +692,18 @@ The output as an `alias` column with new identifiers and a `legacy_alias` column
 
 You may have to update them in several places.
 
-- Update in templates to display or edit fields or their definition. For example, in a `@IbexaCore/content_fields.html.twig` extension, `{% block ezstring_field %)` must be changed for `{% block ibexa_string_field %}`.
+- Update in templates to display or edit fields or their definition. For example, in a `@IbexaCore/content_fields.html.twig` extension, `{% block ezstring_field %)` must be changed for `{% block ibexa_string_field %}`
 - Update in migration files
 
 #### Update icons
 
 The names of the icons provided in `all-icons.svg` have changed.
 `ibexa/rector` JavaScript Transform module's plugin `ibexa-rename-icons.js` deals with those changes in JavaScript.
-You may have to update them in other contexts like, for example, config files associating icons to content types or page builder blocks.
+You may have to update them in other contexts like, for example, config files associating icons to content types or Page Builder blocks.
 
 You can find an [`ibexa-rename-icons` map in `vendor/ibexa/rector/js/rules.config.json` (`"old-name": "new-name"`)](https://github.com/ibexa/rector/blob/v5.0.0/js/rules.config.json#L63).
 
 ??? note "Icons renaming map"
-    
     | Old name                | New name                     |
     |:------------------------|:-----------------------------|
     | about-info              | help                         |
