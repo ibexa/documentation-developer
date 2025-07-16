@@ -35,8 +35,8 @@ ibexa:
                     customer_group_users_limit: 10
                     products_limit: 10
                     product_types_limit: 10
-                    regions_limit: 10
                     product_view_custom_prices_limit: 10
+                    regions_limit: 10
                     catalogs_limit: 10
 ```
 
