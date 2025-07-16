@@ -69,7 +69,12 @@ jobs:
               run: |
                   git config --global user.name "${GITHUB_ACTOR}"
                   git config --global user.email "${GITHUB_ACTOR}@users.noreply.github.com"
-                  git add docs/api/php_api/php_api_reference/ tools/api_refs/.phpdoc/template/package-edition-map.twig
+                  git add docs/api/php_api/php_api_reference/
+                  if [[ '4.6' != $BASE_BRANCH ]]; then
+                    git add tools/api_refs/.phpdoc/template/package-edition-map.twig
+                  else
+                    git add tools/php_api_ref/.phpdoc/template/package-edition-map.twig
+                  fi
                   git commit -m "PHP API Ref HTML"
                   git add doc/api/rest_api/rest_api_reference/rest_api_reference.html
                   git commit -m "REST API Ref HTML"
