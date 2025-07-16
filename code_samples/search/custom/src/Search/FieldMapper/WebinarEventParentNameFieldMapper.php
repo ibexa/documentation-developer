@@ -29,7 +29,7 @@ class WebinarEventParentNameFieldMapper extends ContentFieldMapper
     }
 
     /**
-     * @return Search\Field[]
+     * @return \Ibexa\Contracts\Core\Search\Field[]
      */
     public function mapFields(Content $content): array
     {
