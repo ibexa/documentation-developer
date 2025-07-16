@@ -14,7 +14,7 @@ To override any of them, copy its directory structure in your template directory
 ## Customize with Twig Components
 
 You can customize parts of the storefront by using [Twig components](components.md).
-This allows you to inject your own widgets, extending the storefront behavior.
+It allows you to inject your own widgets, extending the storefront behavior.
 
 The available groups for the storefront are:
 
