@@ -67,10 +67,11 @@ php vendor/bin/rector --dry-run
 
 ### Move from annotation to attribute
 
-Delete [`config/routes/annotations.yaml`](https://github.com/symfony/recipes/blob/main/doctrine/annotations/1.0/config/routes/annotations.yaml) if you haven't customised it.
+Delete [`config/routes/annotations.yaml`](https://github.com/symfony/recipes/blob/main/doctrine/annotations/1.0/config/routes/annotations.yaml)
+if you haven't customized it.
 
-If you have customized it, you have to move from `type: annotation` to `type: attribute`.
-TODO: Any help or recommendation to provide to the reader? Rector?
+If you have customized it,
+you have to move from `type: annotation` to `type: attribute`.
 
 The `config/routes.yaml` file should start with the following declaration from [its recipe](https://github.com/symfony/recipes/blob/main/symfony/routing/7.0/config/routes.yaml):
 
@@ -82,18 +83,13 @@ controllers:
     type: attribute
 ```
 
-- You can delete the file and let the recipe recreate it. Then, if you have customized it, merge with your previous version from your version system.
-- Or edit the file and copy-paste the new declaration at top of it.
-
-
-```bash
-rm config/routes/annotations.yaml
-rm config/routes.yaml
-```
+- You can delete the file and let the recipe recreate it.
+  Then, if you have eventually customized it, merge with your previous version from your version system.
+- Or edit the file and copy-paste the new declaration on top of it.
 
 ### Remove GraphQL schema
 
-4.6 GraphQL isn't compatible with 5.0 so delete it.
+4.6 GraphQL schema isn't compatible with 5.0 so delete it, for example, with the following command:
 
 ```bash
 rm -r config/graphql
@@ -106,6 +102,7 @@ rm -r config/graphql
 [[= product_name =]] 5.0 is based on Symfony 7.3 and both must be updated.
 Your development package must be updated as well.
 The process example below considers [`symfony/debug-pack`](https://symfony.com/packages/Debug%20Pack) and `ibexa/rector` as installed.
+Notice that it uses the `--no-update` option to only edit the composer.json, to not run package installation, and to not run scripts until all necessary changes are made.
 
 === "[[= product_name_headless =]]"
 
@@ -188,10 +185,10 @@ The process example below considers [`symfony/debug-pack`](https://symfony.com/p
 You can now remove them from your composer.json
 so you don't have to maintain which of their versions your composer.json is referring to. 
 
-TODO: Test the following command 
+For example, the following command removes several formerly LTS Update packages from `composer.json:
 
 ```bash
-composer remove --no-update --no-scripts \
+composer remove --no-update \
     ibexa/connector-ai \
     ibexa/collaboration \
     ibexa/share \
@@ -223,7 +220,7 @@ To help moving from Symfony's Webpack Encore bundle 1.x to 2.x,
 delete the Stimulus bootstrap file
 and reset Webpack Encore recipe:
 
-```
+```bash
 rm assets/bootstrap.js
 composer recipes:install symfony/webpack-encore-bundle --reset --force --yes
 ```
@@ -268,8 +265,6 @@ Your `auto-scripts` entry should look like this:
         },
 ```
 
-TODO: https://github.com/ibexa/recipes-dev/blob/master/ibexa/commerce/5.0/manifest.json#L168 VS https://github.com/ibexa/recipes/blob/master/ibexa/commerce/5.0/manifest.json#L168
-
 #### Remove Ibexa Icons
 
 Remove from your `config/bundles.php` the line about `IbexaIconsBundle`.
@@ -297,7 +292,7 @@ The main schema has changed and the provided SQL file `ibexa-4.6.latest-to-5.0.0
     psql <database_name> < vendor/ibexa/installer/upgrade/db/postgresql/ibexa-4.6.latest-to-5.0.0.sql
     ```
 
-As this is made for the Commerce edition, you may encounter unimportant errors on other editions which can be ignored.
+As this is made for all the editions at once, you may encounter unimportant errors on other editions which can be ignored.
 
 Many tables and columns are renamed.
 If you have custom code directly querying those, you will need to update them.
@@ -305,8 +300,6 @@ If you have custom code directly querying those, you will need to update them.
 You can track the renaming in the `ibexa-4.6.latest-to-5.0.0.sql` file or below.
 
 ??? note "Tables and columns renaming map"
-
-    TODO: Keep up-to-date
     
     | Old name                                              | New name                                                                |
     |:------------------------------------------------------|:------------------------------------------------------------------------|
@@ -390,8 +383,6 @@ You can track the renaming in the `ibexa-4.6.latest-to-5.0.0.sql` file or below.
     | ezuser_role                                           | ibexa_user_role                                                         |
     | ezuser_setting                                        | ibexa_user_setting                                                      |
 
-    TODO: Something about renamed indexes?
-
 ??? note "DFS (Distributed File System)"
 
     If [DFS IO handler](clustering.md#dfs-io-handler) is used and, as recommended, its table is on its own database, you'll have to rename table and columns there.
@@ -404,8 +395,6 @@ You can track the renaming in the `ibexa-4.6.latest-to-5.0.0.sql` file or below.
     ALTER TABLE ibexa_dfs_file RENAME INDEX ezdfsfile_name TO ibexa_dfs_file_name;
     ALTER TABLE ibexa_dfs_file RENAME INDEX ezdfsfile_mtime TO ibexa_dfs_file_mtime;
     ```
-
-TODO: Compatibility "views" layers? Even if there is this layer to save time, it is recommended to update your code to use the new tables.
 
 ### Install new features' schemas
 
@@ -503,7 +492,9 @@ php bin/console ibexa:graphql:generate-schema
 
 ### Update search indexes
 
-```
+Ensure your index are up to date with the following command:
+
+```bash
 php bin/console ibexa:reindex
 ```
 
@@ -641,13 +632,13 @@ module.exports = {
 
 Install the tool dependencies once with the following command:
 
-```
+```bash
 yarn --cwd ./vendor/ibexa/rector/js install
 ```
 
-Run it:
+Run it using the following command:
 
-```
+```bash
 yarn --cwd ./vendor/ibexa/rector/js transform
 ```
 
@@ -707,9 +698,9 @@ You may have to update them in several places.
 
 #### Update icons
 
-The names of the provided icons have changed.
+The names of the icons provided in `all-icons.svg` have changed.
 `ibexa/rector` JavaScript Transform module's plugin `ibexa-rename-icons.js` deals with those changes in JavaScript.
-You may have to update them in other contexts like config files associating icons to content types or page builder blocks.
+You may have to update them in other contexts like, for example, config files associating icons to content types or page builder blocks.
 
 You can find an [`ibexa-rename-icons` map in `vendor/ibexa/rector/js/rules.config.json` (`"old-name": "new-name"`)](https://github.com/ibexa/rector/blob/v5.0.0/js/rules.config.json#L63).
 
@@ -958,6 +949,8 @@ You can find an [`ibexa-rename-icons` map in `vendor/ibexa/rector/js/rules.confi
     | view-tablet             | device-tablet                |
     | warning                 | alert-warning                |
     | warning-triangle        | alert-warning                |
+
+The following example illustrates the update of a custom page block's icon:
 
 ```diff+yaml
   ibexa_fieldtype_page:
