@@ -7,7 +7,7 @@ PHP_API_OUTPUT_DIR=${2:-./docs/api/php_api/php_api_reference}; # Path to the dir
 REST_API_OUTPUT_FILE=${3:-./docs/api/rest_api/rest_api_reference/rest_api_reference.html}; # Path to the REST API Reference file
 
 DXP_EDITION='commerce'; # Edition from and for which the Reference is built
-DXP_VERSION='v5.0.0-rc1'; # Version from and for which the Reference is built
+DXP_VERSION='5.0.0-rc1'; # Version from and for which the Reference is built
 DXP_ADD_ONS=(automated-translation rector); # Packages not included in $DXP_EDITION but added to the Reference, listed without their vendor "ibexa"
 DXP_EDITIONS=(oss headless experience commerce); # Available editions ordered by ascending capabilities
 SF_VERSION='7.2'; # Symfony version used by Ibexa DXP
@@ -23,8 +23,8 @@ OPENAPI_FIX="$(pwd)/tools/api_refs/openapi.php"; # A script editing and fixing f
 PHP_BINARY="php -d error_reporting=`php -r 'echo E_ALL & ~E_DEPRECATED;'`"; # Avoid depreciation messages from phpDocumentor/Reflection/issues/529 when using PHP 8.2 or higher
 TMP_DXP_DIR=/tmp/ibexa-dxp-phpdoc; # Absolute path of the temporary directory in which Ibexa DXP will be installed and the PHP API Reference built
 FORCE_DXP_INSTALL=1; # If 1, empty the temporary directory, install DXP from scratch, build, remove temporary directory; if 0, potentially reuse the DXP already installed in temporary directory, keep temporary directory for future uses.
-BASE_DXP_BRANCH='master'; # Branch from and for which the Reference is built when using a dev branch as version
-VIRTUAL_DXP_VERSION='5.0.0'; # Version for which the reference is supposedly built when using dev branch as version
+BASE_DXP_BRANCH=''; # Branch from and for which the Reference is built when using a dev branch as version
+VIRTUAL_DXP_VERSION=''; # Version for which the reference is supposedly built when using dev branch as version
 
 if [ ! -d $PHP_API_OUTPUT_DIR ]; then
   echo -n "Creating ${PHP_API_OUTPUT_DIR}… ";
