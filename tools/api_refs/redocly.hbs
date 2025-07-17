@@ -19,6 +19,18 @@
 
 <body>
   {{{redocHTML}}}
+  <script>
+    window.addEventListener('load', () => {
+      window.setTimeout(() => {
+        let logo = document.querySelector('img[src$="ibexa-dxp-logo.png"]');
+        logo.onclick = () => {
+          let pathParts = document.location.pathname.split('/').slice(0, 3);
+          document.location = pathParts.join('/') + '/api/rest_api/rest_api_usage/rest_api_usage/';
+        };
+        logo.setAttribute('style', 'cursor: pointer');
+      }, 500);
+    });
+  </script>
 </body>
 
 </html>
