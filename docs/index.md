@@ -102,7 +102,7 @@
                             <ul>
                                 <li><a href="release_notes/ibexa_dxp_v5.0/#ai-actions">AI Actions</a></li>
                                 <li><a href="release_notes/ibexa_dxp_v5.0/#discounts">Discounts</a></li>
-                                <li><a href="release_notes/ibexa_dxp_v5.0/#tech-stack-upgrades">Tech stack upgrades</a></li>
+                                <li><a href="release_notes/ibexa_dxp_v5.0/#software-architecture-upgrades">Tech stack upgrades</a></li>
                             </ul>
                         </div>
                         <div class="col-12 col-lg-6 col-fhd-3">

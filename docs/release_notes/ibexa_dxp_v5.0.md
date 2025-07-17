@@ -86,9 +86,9 @@ With performance, coding safety and security in mind, with this version, [[= pro
 
 #### OpenAPI support
 
-Adding support for generating the OpenAPI specification for our REST API makes future changes more manageable, and helps our partners automatically generate REST API clients.
+Adding support for generating the [OpenAPI](https://www.openapis.org/) specification for our REST API makes future changes more manageable, and helps our partners automatically generate REST API clients.
 
-Support for serialization and deserialization of REST payloads with the Symfony Serializer component improves data reliability and simplifies debugging.
+Support for serialization and deserialization of REST payloads with the [Symfony Serializer](https://symfony.com/doc/current/serializer.html) component improves data reliability and simplifies debugging.
 
 ### Developer experience
 
@@ -321,9 +321,10 @@ The following Twig functions have been added in the v5.0 release:
 
 This release brings other minor upgrades intended to improve the developer's experience:
 
-- [New icons](../templating/twig_function_reference/icon_twig_functions.md#icons-reference) that serve as a highlight of a future system design
+- To improve code clarity, reliability, and error detection, type hint declarations that specify the expected data type have been added in multiple places throughout the product
 - Improved DX with capabilities offered by PHP in version 8.3. For example, the `AsTwigComponent` attribute [facilitates autoconfiguration](components.md#php-code) of Twig components
 - The introduction of [[[= product_name_base =]] Rector package](https://github.com/ibexa/rector) that is based on [Rector](https://github.com/rectorphp) and comes with additional rules for working with Ibexa code. You can use it to get rid of PHP code deprecations
+- [New icons](../templating/twig_function_reference/icon_twig_functions.md#icons-reference) that serve as a highlight of a future system design
 
 ### Deprecations
 

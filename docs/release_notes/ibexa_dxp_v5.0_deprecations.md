@@ -16,7 +16,7 @@ These changes include dropped packages, changing database table and column names
 ## Dropped packages
 
 [[= product_name =]] v5.0 no longer includes legacy Commerce packages.
-The solution has been replaced with [Commerce](commerce.md) that is included as standard and enhanced since v4.4.
+The solution has been replaced with [Commerce](commerce.md) that is included as standard and has been continuously developed since v4.4.
 
 Also, packages `compatibility-layer` and `icons` have been dropped.
 
