@@ -76,7 +76,7 @@ jobs:
                     git add tools/php_api_ref/.phpdoc/template/package-edition-map.twig
                   fi
                   git commit -m "PHP API Ref HTML"
-                  git add doc/api/rest_api/rest_api_reference/rest_api_reference.html
+                  git add docs/api/rest_api/rest_api_reference/rest_api_reference.html
                   git commit -m "REST API Ref HTML"
 
             - name: Create Pull Request
