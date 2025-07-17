@@ -378,7 +378,7 @@ Support for facets in `ibexa/elasticsearch` has been dropped, use the `Aggregati
 
 !!! note "Missing custom tag configuration error"
 
-    If the stored RichText includes any custom tags that aren’t configured or recognized, saving the content will cause a validation error.
+    If the stored RichText record includes any custom tags that aren’t configured or recognized, saving the content will cause a validation error.
 
 ### ibexa/form-builder
 
@@ -441,8 +441,8 @@ Support for facets in `ibexa/elasticsearch` has been dropped, use the `Aggregati
 |:------------------------------------------------------|:------------------------------------------------------------------------|
 | `\Ibexa\Bundle\Rest\EventListener\CsrfListener::isLoginRequest` | Add `csrf_protection: false` attribute to route definition. |
 | `\Ibexa\Bundle\Rest\EventListener\CsrfListener::isSessionRoute` | Add `csrf_protection: false` attribute to route definition. |
-| `\Ibexa\Bundle\Rest\EventListener\RequestListener::REST_PREFIX_PATTERN` | `\Ibexa\Contracts\Rest\UriParser\UriParserInterface::isRestRequest` |
-| `\Ibexa\Bundle\Rest\EventListener\RequestListener::hasRestPrefix` | `\Ibexa\Contracts\Rest\UriParser\UriParserInterface::isRestRequest` |
+| `\Ibexa\Bundle\Rest\EventListener\RequestListener::REST_PREFIX_PATTERN` | Use `\Ibexa\Contracts\Rest\UriParser\UriParserInterface::isRestRequest` function. |
+| `\Ibexa\Bundle\Rest\EventListener\RequestListener::hasRestPrefix` | Use `\Ibexa\Contracts\Rest\UriParser\UriParserInterface::isRestRequest` function. |
 | `\Ibexa\Bundle\Rest\RequestParser\Router` | `\Ibexa\Contracts\Rest\UriParser\UriParserInterface` |
 | `\Ibexa\Contracts\Rest\Output\Generator::generateMediaType` | `\Ibexa\Contracts\Rest\Output\Generator::generateMediaTypeWithVendor` |
 | `\Ibexa\Rest\Output\FieldTypeSerializer::serializeFieldValue` | `\Ibexa\Rest\Output\FieldTypeSerializer::serializeContentFieldValue` |
@@ -464,27 +464,29 @@ Support for facets in `ibexa/elasticsearch` has been dropped, use the `Aggregati
 | Old FQN                                              | New FQN / Comment                                                                |
 |:------------------------------------------------------|:------------------------------------------------------------------------|
 | `\Ibexa\Bundle\SiteFactory\DependencyInjection\Configuration::TREE_ROOT` | Removed. Use the `\Ibexa\Bundle\SiteFactory\DependencyInjection\IbexaSiteFactoryExtension::EXTENSION_NAME` constant. |
-| `\Ibexa\SiteFactory\Event\EventDispatcher` |  `Removed` |
-| `\Ibexa\SiteFactory\ServiceDecorator\SiteServiceDecorator` |  `Removed` |
-| `\Ibexa\SiteFactory\ServiceEvent\Events\BeforeCreateSiteEvent` |  `Removed` |
-| `\Ibexa\SiteFactory\ServiceEvent\Events\BeforeDeleteSiteEvent` |  `Removed` |
-| `\Ibexa\SiteFactory\ServiceEvent\Events\BeforeUpdateSiteEvent` |  `Removed` |
-| `\Ibexa\SiteFactory\ServiceEvent\Events\CreateSiteEvent` |  `Removed` |
-| `\Ibexa\SiteFactory\ServiceEvent\Events\DeleteSiteEvent` |  `Removed` |
-| `\Ibexa\SiteFactory\ServiceEvent\Events\UpdateSiteEvent` |  `Removed` |
+| `\Ibexa\SiteFactory\Event\EventDispatcher` |  Removed |
+| `\Ibexa\SiteFactory\ServiceDecorator\SiteServiceDecorator` |  Removed |
+| `\Ibexa\SiteFactory\ServiceEvent\Events\BeforeCreateSiteEvent` |  Removed |
+| `\Ibexa\SiteFactory\ServiceEvent\Events\BeforeDeleteSiteEvent` |  Removed |
+| `\Ibexa\SiteFactory\ServiceEvent\Events\BeforeUpdateSiteEvent` |  Removed |
+| `\Ibexa\SiteFactory\ServiceEvent\Events\CreateSiteEvent` |  Removed |
+| `\Ibexa\SiteFactory\ServiceEvent\Events\DeleteSiteEvent` |  Removed |
+| `\Ibexa\SiteFactory\ServiceEvent\Events\UpdateSiteEvent` |  Removed |
 
 ### ibexa/solr
 
+Support for facet search has been dropped, use the `Aggregation` API instead.
+
 | Old FQN                                              | New FQN / Comment                                                                |
 |:------------------------------------------------------|:------------------------------------------------------------------------|
-| `\Ibexa\Solr\Handler::$resultExtractor` | `Use $contentResultExtractor or $locationResultExtractor instead of $resultExtractor` |
+| `\Ibexa\Solr\Handler::$resultExtractor` | Use `$contentResultExtractor` or `$locationResultExtractor`. |
 | `\Ibexa\Solr\Gateway\UpdateSerializer` | `\Ibexa\Solr\Gateway\UpdateSerializer\XmlUpdateSerializer` |
-| `\Ibexa\Solr\Query\FacetBuilderVisitor` | `Use Aggregation API` |
-| `\Ibexa\Solr\Query\FacetFieldVisitor` | `Use Aggregation API` |
-| `\Ibexa\Solr\Query\Common\FacetBuilderVisitor\Aggregate` | `Use Aggregation API` |
-| `\Ibexa\Solr\Query\Common\FacetBuilderVisitor\ContentType` | `Use Aggregation API` |
-| `\Ibexa\Solr\Query\Common\FacetBuilderVisitor\Section` | `Use Aggregation API` |
-| `\Ibexa\Solr\Query\Common\FacetBuilderVisitor\User` | `Use Aggregation API` |
+| `\Ibexa\Solr\Query\FacetBuilderVisitor` | Use `Aggregation API`. |
+| `\Ibexa\Solr\Query\FacetFieldVisitor` | Use `Aggregation API`. |
+| `\Ibexa\Solr\Query\Common\FacetBuilderVisitor\Aggregate` | Use `Aggregation API`. |
+| `\Ibexa\Solr\Query\Common\FacetBuilderVisitor\ContentType` | Use `Aggregation API`. |
+| `\Ibexa\Solr\Query\Common\FacetBuilderVisitor\Section` | Use `Aggregation API`. |
+| `\Ibexa\Solr\Query\Common\FacetBuilderVisitor\User` | Use `Aggregation API`. |
 | `\Ibexa\Solr\Query\Content\CriterionVisitor\Field` | `\Ibexa\Solr\Query\Common\CriterionVisitor\Field` |
 
 ### ibexa/storefront
@@ -498,7 +500,7 @@ Support for facets in `ibexa/elasticsearch` has been dropped, use the `Aggregati
 | Old FQN                                              | New FQN / Comment                                                                |
 |:------------------------------------------------------|:------------------------------------------------------------------------|
 | `\Ibexa\Bundle\SystemInfo\SystemInfo\Collector\IbexaSystemInfoCollector::CONTENT_PACKAGES` | Removed. Use the `\Ibexa\Bundle\SystemInfo\SystemInfo\Collector\IbexaSystemInfoCollector::HEADLESS_PACKAGES` constant. |
-| `\Ibexa\Bundle\SystemInfo\SystemInfo\Collector\IbexaSystemInfoCollector::ENTERPRISE_PACKAGES` | Removed. Use `IbexaSystemInfoCollector::EXPERIENCE_PACKAGES` or `IbexaSystemInfoCollector::CONTENT_PACKAGES` constants. |
+| `\Ibexa\Bundle\SystemInfo\SystemInfo\Collector\IbexaSystemInfoCollector::ENTERPRISE_PACKAGES` | Removed. Use `IbexaSystemInfoCollector::EXPERIENCE_PACKAGES` or `IbexaSystemInfoCollector::CONTENT_PACKAGES` constant. |
 | `\Ibexa\Bundle\SystemInfo\SystemInfo\Value\IbexaSystemInfo::$stability` | `\Ibexa\Bundle\SystemInfo\SystemInfo\Value\IbexaSystemInfo` is considered internal. |
 
 ### ibexa/workflow
@@ -520,16 +522,16 @@ The following service definitions have been removed:
 
 |Old class or function|New class or function|
 |:----|:----|
-| `formatLine` | Removed |
-| `parseAll` | Removed |
-| `fileSizeToString` | Use `fileSizeToString` function from `/src/bundle/ui-dev/src/modules/common/helpers/text.helper.js`. |
-| `backdrop.js` | Use the `ibexa.core.Backdrop` component. |
-| `sidebar.block.js` | `block.js` |
-| `sidebar.blocks.group.js` | `block.group.js` |
-| `sidebar.js` | `toolbox.js` |
-| `indentation.vertical.js`| Use `IndentationHorizontal`. |
-| `portal.provider.js:21` | Use `Portal`. |
-| `usePortal.js` | Use `Portal`. |
+| `formatLine` const in `/src/bundle/Resources/public/js/scripts/helpers/form.error.helper.js` | Removed |
+| `parseAll` const in `/src/bundle/Resources/public/js/scripts/helpers/middle.ellipsis.js` | Removed |
+| `fileSizeToString` const in `src/bundle/ui-dev/src/modules/multi-file-upload/helpers/text.helper.js` | Use `fileSizeToString` function from `/src/bundle/ui-dev/src/modules/common/helpers/text.helper.js`. |
+| `src/bundle/ui-dev/src/modules/common/components/backdrop/backdrop.js` | Use the `ibexa.core.Backdrop` component. |
+| `src/bundle/ui-dev/src/modules/page-builder/components/block/sidebar.block.js` | `src/bundle/ui-dev/src/modules/page-builder/components/block/block.js` |
+| `src/bundle/ui-dev/src/modules/page-builder/components/block/sidebar.blocks.group.js` | `src/bundle/ui-dev/src/modules/page-builder/components/block/blocks.group.js` |
+| `src/bundle/ui-dev/src/modules/page-builder/components/sidebar/sidebar.js` | `src/bundle/ui-dev/src/modules/page-builder/components/toolbox.js` |
+| `src/bundle/ui-dev/src/modules/tree-builder/components/indentation-vertical/indentation.vertical.js)`| `src/bundle/ui-dev/src/modules/tree-builder/components/indentation-horizontal/indentation.horizontal.js` |
+| `src/bundle/ui-dev/src/modules/tree-builder/components/portal-provider/portal.provider.js` | `tree-builder/src/bundle/ui-dev/src/modules/tree-builder/components/portal/portal.js` |
+| `src/bundle/ui-dev/src/modules/tree-builder/hooks/usePortal.js` | `tree-builder/src/bundle/ui-dev/src/modules/tree-builder/components/portal/portal.js` |
 
 ## Configuration keys
 
@@ -544,8 +546,8 @@ The following service definitions have been removed:
 
 |Old setting|New setting|
 |:----|:----|
-| `ibexa-alert--complementary` | Use `ibexa-alert--info` instead. |
-| `sidebar-drag-items` | `toolbox-drag-items |
+| `ibexa-alert--complementary` | `ibexa-alert--info` |
+| `sidebar-drag-items` | `toolbox-drag-items` |
 | `sidebar-drag-items-group` | `toolbox-drag-items-group` |
 | `sidebar-drag-item` | `tooblox-drag-item` |
 | `/src/bundle/Resources/public/scss/mixins/_font.scss` | Removed |
