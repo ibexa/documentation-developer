@@ -7,7 +7,7 @@ PHP_API_OUTPUT_DIR=${2:-./docs/api/php_api/php_api_reference}; # Path to the dir
 REST_API_OUTPUT_FILE=${3:-./docs/api/rest_api/rest_api_reference/rest_api_reference.html}; # Path to the REST API Reference file
 
 DXP_EDITION='commerce'; # Edition from and for which the Reference is built
-DXP_VERSION='5.0.x-dev'; # Version from and for which the Reference is built
+DXP_VERSION='5.0.0-rc1'; # Version from and for which the Reference is built
 DXP_ADD_ONS=(automated-translation rector); # Packages not included in $DXP_EDITION but added to the Reference, listed without their vendor "ibexa"
 DXP_EDITIONS=(oss headless experience commerce); # Available editions ordered by ascending capabilities
 SF_VERSION='7.2'; # Symfony version used by Ibexa DXP
@@ -64,6 +64,11 @@ if [ 0 -eq $DXP_ALREADY_EXISTS ]; then
     fi;
     composer config repositories.ibexa composer https://updates.ibexa.co;
     composer require ibexa/$DXP_EDITION:$DXP_VERSION --no-interaction --update-with-all-dependencies --no-install --ignore-platform-reqs --no-scripts;
+  elif [[ "$DXP_VERSION" == *"-rc"* ]]; then
+    composer create-project ibexa/$DXP_EDITION-skeleton:$DXP_VERSION . --no-interaction --no-install --ignore-platform-reqs --no-scripts --stability=rc;
+    if [ -n "$AUTH_JSON" ]; then
+      cp $AUTH_JSON ./;
+    fi;
   else
     composer create-project ibexa/$DXP_EDITION-skeleton:$DXP_VERSION . --no-interaction --no-install --ignore-platform-reqs --no-scripts;
     if [ -n "$AUTH_JSON" ]; then
