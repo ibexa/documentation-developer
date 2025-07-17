@@ -83,8 +83,8 @@ jobs:
               uses: peter-evans/create-pull-request@v7
               with:
                   token: ${{ secrets.EZROBOT_PAT }}
-                  title: "PHP API Ref ${{ steps.version_and_branches.outputs.version }}"
-                  body: "PHP API Reference update for ${{ steps.version_and_branches.outputs.version }}"
+                  title: "API Refs ${{ steps.version_and_branches.outputs.version }}"
+                  body: "PHP API & REST API References update for ${{ steps.version_and_branches.outputs.version }}"
                   branch: "${{ steps.version_and_branches.outputs.work_branch }}"
                   base: "${{ steps.version_and_branches.outputs.base_branch }}"
                   draft: false
