@@ -18,7 +18,7 @@ For more information about extending the back office, see [Extend back office](b
 ## Configure custom tags
 
 With custom tags, you can enhance the Online Editor with features that go beyond the built-in ones.
-You configure custom tags under the `ezrichtext` key.
+You configure custom tags under the `ibexa_richtext` key.
 
 Start preparing the tag by adding a configuration file: 
 
@@ -33,10 +33,10 @@ Supported attribute types are:
 
 You must provide your own files for the Twig template and the icon.
 Place the `factbox.html.twig` template in the 
-`templates/themes/<your-theme>/field_type/ezrichtext/custom_tags` directory:
+`templates/themes/<your-theme>/field_type/ibexa_richtext/custom_tags` directory:
 
 ```html+twig
-[[= include_file('code_samples/back_office/online_editor/custom_tags/factbox/templates/themes/standard/field_type/ezrichtext/custom_tags/factbox.html.twig') =]]
+[[= include_file('code_samples/back_office/online_editor/custom_tags/factbox/templates/themes/standard/field_type/ibexa_richtext/custom_tags/factbox.html.twig') =]]
 ```
 
 !!! tip
@@ -91,10 +91,10 @@ Provide your own files for the Twig template and the icon.
 
 The tag has the `url` attribute with the `type` parameter set as `link` (lines 30-31).
 
-Then create the `templates/themes/<your-theme>/field_type/ezrichtext/custom_tags/linktag.html.twig` template:
+Then create the `templates/themes/<your-theme>/field_type/ibexa_richtext/custom_tags/linktag.html.twig` template:
 
 ``` html+twig
-[[= include_file('code_samples/back_office/online_editor/custom_tags/linktag/templates/themes/standard/field_type/ezrichtext/custom_tags/linktag.html.twig') =]]
+[[= include_file('code_samples/back_office/online_editor/custom_tags/linktag/templates/themes/standard/field_type/ibexa_richtext/custom_tags/linktag.html.twig') =]]
 ```
 
 Add labels for the tag by providing translations in `translations/custom_tags.en.yaml`:
@@ -146,8 +146,8 @@ Inline styles apply to the selected portion of text only, while block styles app
 
 Start creating a custom style by providing configuration:
 
-- a global list of custom styles, defined under the node `ezrichtext.custom_styles`,
-- a list of enabled custom styles for a given `admin` SiteAccess or `admin_group` SiteAccess group, located under the node `ibexa.system.<scope>.fieldtypes.ezrichtext.custom_styles`
+- a global list of custom styles, defined under the node `ibexa_richtext.custom_styles`,
+- a list of enabled custom styles for a given `admin` SiteAccess or `admin_group` SiteAccess group, located under the node `ibexa.system.<scope>.fieldtypes.ibexa_richtext.custom_styles`
 
 A sample configuration could look as follows:
 
@@ -172,19 +172,19 @@ It's recommended that you use the [design engine](design_engine.md).
 
 The template files for the front end could look as follows:
 
-- `templates/themes/standard/field_type/ezrichtext/custom_styles/highlighted_word.html.twig`:
+- `templates/themes/standard/field_type/ibexa_richtext/custom_styles/highlighted_word.html.twig`:
 
 ``` html+twig
 <span {% if id is defined %}id="{{ id }}"{% endif %} class="ezstyle-{{ name }}">{% apply spaceless %}{{ content|raw }}{% endapply %}</span>
 ```
 
-- `templates/themes/standard/field_type/ezrichtext/custom_styles/highlighted_block.html.twig`:
+- `templates/themes/standard/field_type/ibexa_richtext/custom_styles/highlighted_block.html.twig`:
 
 ``` html+twig
 <div {% if id is defined %}id="{{ id }}"{% endif %} class="{% if align is defined %}align-{{ align }}{% endif %} ezstyle-{{ name }}">{% apply spaceless %}{{ content|raw }}{% endapply %}</div>
 ```
 
-Templates for Content View in the back office would be `templates/themes/admin/field_type/ezrichtext/custom_styles/highlighted_word.html.twig` and `templates/themes/admin/field_type/ezrichtext/custom_styles/highlighted_block.html.twig` (assuming that the back office SiteAccess uses the default `admin` theme).
+Templates for Content View in the back office would be `templates/themes/admin/field_type/ibexa_richtext/custom_styles/highlighted_word.html.twig` and `templates/themes/admin/field_type/ibexa_richtext/custom_styles/highlighted_block.html.twig` (assuming that the back office SiteAccess uses the default `admin` theme).
 
 ### Use cases
 
@@ -221,7 +221,7 @@ You can now define the custom CSS for this template, for example by using [Webpa
 Add label for the new style by providing a translation in `translations/custom_styles.en.yaml`:
 
 ``` yaml
-ezrichtext.custom_styles.note_box.label: 'Note box'
+ibexa_richtext.custom_styles.note_box.label: 'Note box'
 ```
 
 ![Adding a Note box custom style](oe_custom_style_note_box_select.png)
@@ -258,7 +258,7 @@ You can now define the custom CSS for this template, for example by using [Webpa
 Add label for the new style by providing a translation in `translations/custom_styles.en.yaml`:
 
 ``` yaml
-ezrichtext.custom_styles.highlight.label: 'Highlight'
+ibexa_richtext.custom_styles.highlight.label: 'Highlight'
 ```
 
 ![Adding a Highlight custom style](oe_custom_style_highlight_select.png)
@@ -323,7 +323,7 @@ Here, the resulting values are `data-ezattribute-custom-attribute="false"` and `
 
 ### Custom CSS classes
 
-You configure custom CSS classes under the `fieldtypes.ezrichtext.classes` key.
+You configure custom CSS classes under the `fieldtypes.ibexa_richtext.classes` key.
 The configuration is SiteAccess-aware.
 
 You must provide the available `choices`.
@@ -426,7 +426,7 @@ module.exports = (ibexaConfig, ibexaConfigManager) => {
 
 See [Importing assets from a bundle](importing_assets_from_bundle.md) for alternative ways to add files to Webpack Encore entries.
 
-Add the plugin button to the RichText toolbar config (under `ibexa.system.<scope>.fieldtypes.ezrichtext.toolbar`).
+Add the plugin button to the RichText toolbar config (under `ibexa.system.<scope>.fieldtypes.ibexa_richtext.toolbar`).
 
 A new button group is defined in `config/packages/ibexa_admin_ui.yaml` with [the `specialcharacters` button exposed by the plugin API](https://ckeditor.com/docs/ckeditor5/latest/features/special-characters.html#common-api):
 
@@ -437,7 +437,7 @@ ibexa:
         admin_group:
             # …
             fieldtypes:
-                ezrichtext:
+                ibexa_richtext:
                     toolbar:
                         my_group:
                             priority: 25

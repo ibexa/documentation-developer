@@ -106,7 +106,7 @@ php bin/console ibexa:migrations:generate --type=content_type --mode=update --ma
     fields:
         -
             identifier: title
-            type: ezstring
+            type: ibexa_string
             position: 1
             translations:
                 eng-GB:

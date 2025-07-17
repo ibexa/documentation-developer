@@ -64,8 +64,8 @@ The types that are returned are named after the Type and the field:
 
 The example below shows a GraphQL query for a Recipe content item (belonging to a content type with a Matrix field added), that has two fields:
 
-- `name`: `ezstring`
-- `ingredients`: `ezmatrix` with two columns: `ingredient` and `quantity`
+- `name`: `ibexa_string`
+- `ingredients`: `ibexa_matrix` with two columns: `ingredient` and `quantity`
 
 ```graphql
 {
@@ -177,7 +177,7 @@ The types that are used for input are named after the Type and the field:
 The example below shows how to create a Recipe content item (belonging to a content type with a Matrix field type added) that has two fields:
 
 - `name`: `"Cake Ingredient List"`
-- `ingredients`: `ezmatrix` with two columns: `ingredient` and `quantity`
+- `ingredients`: `ibexa_matrix` with two columns: `ingredient` and `quantity`
 
 ```graphql
  mutation AddRecipe {

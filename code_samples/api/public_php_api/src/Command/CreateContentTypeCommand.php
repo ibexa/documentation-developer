@@ -70,7 +70,7 @@ class CreateContentTypeCommand extends Command
             'eng-GB' => $contentTypeIdentifier,
         ];
 
-        $titleFieldCreateStruct = $this->contentTypeService->newFieldDefinitionCreateStruct('name', 'ezstring');
+        $titleFieldCreateStruct = $this->contentTypeService->newFieldDefinitionCreateStruct('name', 'ibexa_string');
         $titleFieldCreateStruct->names = ['eng-GB' => 'Name'];
         $titleFieldCreateStruct->descriptions = ['eng-GB' => 'The name'];
         $titleFieldCreateStruct->fieldGroup = 'content';

@@ -34,7 +34,7 @@ The available groups for the back office are:
 |`admin-ui-global-search-autocomplete-templates`| `vendor/ibexa/admin-ui-ui/src/bundle/Resources/views/themes/admin/ui/global_search.html.twig` |
 |`admin-ui-global-search`| `vendor/ibexa/admin-ui-ui/src/bundle/Resources/views/themes/admin/ui/layout.html.twig` |
 |`admin-ui-header-user-menu-middle`| `vendor/ibexa/admin-ui-ui/src/bundle/Resources/views/themes/admin/ui/menu/user.html.twig` |
-|`admin-ui-image-edit-actions-after`| <ul><li>`vendor/ibexa/admin-ui-ui/src/bundle/Resources/views/themes/admin/ui/field_type/edit/ezimage.html.twig` </li><li>`vendor/ibexa/admin-ui-ui/src/bundle/Resources/views/themes/admin/ui/field_type/edit/ezimageasset.html.twig` </li></ul>|
+|`admin-ui-image-edit-actions-after`| <ul><li>`vendor/ibexa/admin-ui-ui/src/bundle/Resources/views/themes/admin/ui/field_type/edit/ibexa_image.html.twig` </li><li>`vendor/ibexa/admin-ui-ui/src/bundle/Resources/views/themes/admin/ui/field_type/edit/ibexa_image_asset.html.twig` </li></ul>|
 |`admin-ui-layout-content-after`| `vendor/ibexa/admin-ui-ui/src/bundle/Resources/views/themes/admin/ui/layout.html.twig` |
 |`admin-ui-link-manager-block`| `vendor/ibexa/admin-ui-ui/src/bundle/Resources/views/themes/admin/url_management/url_management.html.twig` |
 |`admin-ui-location-view-content-alerts`| `vendor/ibexa/admin-ui/src/bundle/Resources/views/themes/admin/content/location_view.html.twig` |
