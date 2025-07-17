@@ -206,9 +206,11 @@ else
   exit 3;
 fi;
 
-echo 'Set up DXP recipes…';
-git init && git add . && git commit -m "Installed Ibexa Commerce" > /dev/null;
-composer recipes:install ibexa/$DXP_EDITION --no-interaction;
+if [ 0 -eq $DXP_ALREADY_EXISTS ]; then
+  echo 'Set up DXP recipes…';
+  git init && git add . && git commit -m "Installed Ibexa Commerce" > /dev/null;
+  composer recipes:install ibexa/$DXP_EDITION --force --reset --no-interaction;
+fi;
 
 echo 'Dump REST OpenAPI schema… ';
 $PHP_BINARY bin/console ibexa:openapi --yaml \
