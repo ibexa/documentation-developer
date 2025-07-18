@@ -16,7 +16,7 @@ month_change: true
 
 #### REST API
 
-- Discounts can now be [managed through the REST API](/api/rest_api/rest_api_reference/rest_api_reference.html#discounts)
+- Discounts can now be [managed through the REST API](https://doc.ibexa.co/en/4.6/api/rest_api/rest_api_reference/rest_api_reference.html#discounts)
 
 #### PHP API
 
@@ -135,7 +135,7 @@ To learn more, see the [published security advisory IBEXA-SA-2025-002](https://d
 
 #### Features
 
-- The [CartSummary endpoint](https://doc.ibexa.co/en/latest/api/rest_api/rest_api_reference/rest_api_reference.html#managing-commerce-carts-cart-summary) now supports a new `Accept` header: `application/vnd.ibexa.api.ShortCartSummary`, returning only the essential data about products in the cart
+- The [CartSummary endpoint](https://doc.ibexa.co/en/4.6/api/rest_api/rest_api_reference/rest_api_reference.html#managing-commerce-carts-cart-summary) now supports a new `Accept` header: `application/vnd.ibexa.api.ShortCartSummary`, returning only the essential data about products in the cart
 - Added a new repository setting: [grace period for archived versions](https://doc.ibexa.co/en/latest/administration/configuration/repository_configuration/#grace-period-for-archived-versions)
 - Added a new `group_remote_id` setting for [controlling the user group in which registering users are created](https://doc.ibexa.co/en/latest/users/user_registration/#user-groups)
 
@@ -223,7 +223,7 @@ To learn more, see the [corresponding security advisory](https://developers.ibex
 
 #### Features
 
-- New REST API endpoints for [Segments](../api/rest_api/rest_api_reference/rest_api_reference.html#segments) and [Segment Groups](../api/rest_api/rest_api_reference/rest_api_reference.html#segment-groups)
+- New REST API endpoints for [Segments](https://doc.ibexa.co/en/4.6/api/rest_api/rest_api_reference/rest_api_reference.html#segments) and [Segment Groups](https://doc.ibexa.co/en/4.6/api/rest_api/rest_api_reference/rest_api_reference.html#segment-groups)
 - PHP API Client ([`Ibexa\Contracts\Connect\ConnectClientInterface`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-ConnectClientInterface.html)) for [Ibexa Connect]([[= connect_doc =]])
 - The following Twig functions now additionally support objects implementing the [`ContentAwareInterface`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-ContentAwareInterface.html) as arguments:
     - [`ibexa_content_field_identifier_first_filled_image`](image_twig_functions.md#ibexa_content_field_identifier_first_filled_image)
@@ -344,8 +344,8 @@ The PHP API has been enhanced with the following new classes:
 
 The REST API has been extended to include endpoints for:
 
-- [Action Configurations](../api/rest_api/rest_api_reference/rest_api_reference.html#ai-actions-list-action-configurations)
-- [Action Types](../api/rest_api/rest_api_reference/rest_api_reference.html#ai-actions-list-action-types)
+- [Action Configurations](https://doc.ibexa.co/en/4.6/api/rest_api/rest_api_reference/rest_api_reference.html#ai-actions-list-action-configurations)
+- [Action Types](https://doc.ibexa.co/en/4.6/api/rest_api/rest_api_reference/rest_api_reference.html#ai-actions-list-action-types)
 [[= release_note_entry_end() =]]
 
 
@@ -540,7 +540,7 @@ The PHP API has been enhanced with the following new class:
 
 The PHP API has been enhanced with the following new classes:
 
--  [`Ibexa\Contracts\Calendar\EventAction\EventActionCollection`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-Calendar-EventAction-EventActionCollection.html)
+- [`Ibexa\Contracts\Calendar\EventAction\EventActionCollection`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-Calendar-EventAction-EventActionCollection.html)
 - [`Ibexa\Contracts\Calendar\EventSource\InMemoryEventSource`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-Calendar-EventSource-InMemoryEventSource.html)
 - [`Ibexa\Contracts\Core\Event\Mapper\ResolveMissingFieldEvent`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Event-Mapper-ResolveMissingFieldEvent.html)
 - [`Ibexa\Contracts\Core\FieldType\DefaultDataFieldStorage`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-FieldType-DefaultDataFieldStorage.html)
