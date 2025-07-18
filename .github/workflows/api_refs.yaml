@@ -75,9 +75,9 @@ jobs:
                   else
                     git add tools/php_api_ref/.phpdoc/template/package-edition-map.twig
                   fi
-                  git commit -m "PHP API Ref HTML"
+                  git diff-index --quiet --cached HEAD || git commit -m "PHP API Ref HTML"
                   git add docs/api/rest_api/rest_api_reference/rest_api_reference.html
-                  git commit -m "REST API Ref HTML"
+                  git diff-index --quiet --cached HEAD || git commit -m "REST API Ref HTML"
 
             - name: Create Pull Request
               uses: peter-evans/create-pull-request@v7
