@@ -263,7 +263,8 @@ Your `auto-scripts` entry should look like this:
             "yarn ibexa-generate-tsconfig --relative-paths": "script",
             "ibexa:encore:compile --config-name app": "symfony-cmd",
             "bazinga:js-translation:dump %PUBLIC_DIR%/assets --merge-domains": "symfony-cmd",
-            "ibexa:encore:compile": "symfony-cmd"
+            "ibexa:encore:compile": "symfony-cmd",
+            "ibexa:encore:compile --frontend-configs-name ibexa,internals,libs,richtext": "symfony-cmd"
         },
 ```
 
@@ -507,7 +508,7 @@ Among other things,
 previously deprecated classes have been removed,
 and the type hinting strictness has been increased.
 
-Update the `rector.php` file to use `IbexaSetList::IBEXA_50` rule set.
+Update the `rector.php` file to use [`IbexaSetList::IBEXA_50`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Rector-Sets-IbexaSetList.html#enumcase_IBEXA_50) rule set.
 If you didn't edit it the first time, you can run its recipe:
 
 ```bash
