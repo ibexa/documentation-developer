@@ -21,5 +21,4 @@ foreach ($openApi['paths'] as $path => &$pathMethods) {
     }
 }
 
-yaml_emit_file('openapi.fixed.yaml', $openApi);
 yaml_emit_file('openapi.yaml', $openApi);
