@@ -10,7 +10,7 @@ The service should be [injected into the constructor of your command or controll
 
 !!! tip "Content REST API"
 
-    To learn how to load content items using the REST API, see [REST API reference](../../api/rest_api/rest_api_reference/rest_api_reference.html#managing-content-load-content).
+    To learn how to load content items using the REST API, see [REST API reference](/api/rest_api/rest_api_reference/rest_api_reference.html#tag/Objects/operation/api_contentobjects_contentId_get).
 
 !!! tip "Console commands"
 

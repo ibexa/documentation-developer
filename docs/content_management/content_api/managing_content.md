@@ -10,7 +10,7 @@ You can manage [locations](locations.md) that hold content using [`LocationServi
 
 !!! tip "Location REST API"
 
-    To learn how to manage locations using the REST API, see [REST API reference](../../api/rest_api/rest_api_reference/rest_api_reference.html#managing-content-create-new-location-for-content-item).
+    To learn how to manage locations using the REST API, see [REST API reference](/api/rest_api/rest_api_reference/rest_api_reference.html#tag/Objects/operation/api_contentobjects_contentIdlocations_post).
 
 ### Adding a new location to a content item
 
@@ -99,7 +99,7 @@ You can move a location with its whole subtree using [`LocationService::moveSubt
 
 !!! tip "Trash REST API"
 
-    To learn how to manage Trash using the REST API, see [REST API reference](../../api/rest_api/rest_api_reference/rest_api_reference.html#managing-content-list-trash-items).
+    To learn how to manage Trash using the REST API, see [REST API reference](/api/rest_api/rest_api_reference/rest_api_reference.html#tag/Trash).
 
 To empty the Trash (remove all locations in Trash), use [`TrashService::emptyTrash`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-TrashService.html#method_emptyTrash), which takes no arguments.
 
@@ -126,7 +126,7 @@ For more information, see [Searching in trash](search_api.md#searching-in-trash)
 
 !!! tip "Content type REST API"
 
-    To learn how to manage content types using the REST API, see [REST API reference](../../api/rest_api/rest_api_reference/rest_api_reference.html#managing-content-get-content-type-groups).
+    To learn how to manage content types using the REST API, see REST API reference for [content types](/api/rest_api/rest_api_reference/rest_api_reference.html#tag/Type) and [content type groups](/api/rest_api/rest_api_reference/rest_api_reference.html#tag/Type-Groups).
 
 ### Adding content types
 
@@ -169,7 +169,7 @@ You can handle the calendar using `CalendarServiceInterface` (`Ibexa\Contracts\C
 
 !!! tip "Calendar REST API"
 
-    To learn how to manage the Calendar using the REST API, see [REST API reference](../../api/rest_api/rest_api_reference/rest_api_reference.html#calendar).
+    To learn how to manage the Calendar using the REST API, see [REST API reference](/api/rest_api/rest_api_reference/rest_api_reference.html#tag/Calendar).
 
 ### Getting events
 

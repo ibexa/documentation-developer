@@ -8,7 +8,7 @@ description: You can use the PHP API to view the bookmark list, and add or remov
 
 !!! tip "Bookmark REST API"
 
-    To learn how to manage bookmarks using the REST API, see [REST API reference](../../api/rest_api/rest_api_reference/rest_api_reference.html#managing-bookmarks).
+    To learn how to manage bookmarks using the REST API, see [REST API reference](/api/rest_api/rest_api_reference/rest_api_reference.html#tag/Bookmark).
 
 To view a list of all bookmarks, use [`BookmarkService::loadBookmarks`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-BookmarkService.html#method_loadBookmarks):
 
