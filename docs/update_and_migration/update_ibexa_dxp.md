@@ -38,5 +38,4 @@ To update [[= product_name =]] to a newer version, select the version you're cur
 
 === "I am using v5.0"
 
-    If you're using [[= latest_tag_5_0 =]], You're update-to-date.
-    Monitor [this v5.0 update page](from_5.0/update_from_5.0.md) for futur patches.
+    Refer to the [v5.0 update page](from_5.0/update_from_5.0.md) to make sure you're staying up to date.

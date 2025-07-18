@@ -11,7 +11,7 @@ Before you update to v5.0, you need to [update to the latest maintenance release
 
 ### Move from old to new Commerce
 
-If circa v4.3 you kept [deprecated old Commerce packages](update_from_4.3_old_commerce.md),
+If you've chosen to use the [deprecated Commerce packages](update_from_4.3_old_commerce.md) during the update to 4.4,
 you have to move to [new Commerce ones](update_from_4.3_new_commerce.md).
 
 ## Update from v4.6.latest to v5.0.0
@@ -35,12 +35,14 @@ Install [`ibexa/rector`](https://github.com/ibexa/rector) which contains rules t
 composer require --dev ibexa/rector
 ```
 
-Customize the `rector.php` config file.
-Make it match your directory structure (for example, you may have to remove the `tests` directory).
-You can add rules [for PHP with `withPhpSets`](https://getrector.com/documentation/set-lists#content-php-sets)
-or [for Symfony with `withComposerBased`](https://getrector.com/blog/introducing-composer-version-based-sets).
-It's recommended to activate one rule set at a time, run a first time with the `--dry-run` option,
-check the output, and decide if kept right now, or discarded for another time.
+Customize the `rector.php` config file by:
+
+- making it match your directory structure (for example, you may not have the `tests` directory)
+- adding project-specific rules:
+  - specify [PHP rules by using `withPhpSets`](https://getrector.com/documentation/set-lists#content-php-sets)
+  - specify [Symfony, Twig, or Doctrine rules by using `withComposerBased`](https://getrector.com/documentation/composer-based-sets).
+
+It's recommended to activate one rule set at a time and preview the output by running Rector with the `--dry-run` option to decide which rulesets should be used and in which order.
 
 Your configuration could look like the following example:
 
@@ -60,7 +62,7 @@ return RectorConfig::configure()
     ->withComposerBased(symfony: true)
 ;
 ```
-
+Run the following command to preview the changes done by Rector:
 ```bash
 php vendor/bin/rector --dry-run
 ```
@@ -71,9 +73,9 @@ Delete [`config/routes/annotations.yaml`](https://github.com/symfony/recipes/blo
 if you haven't customized it.
 
 If you have customized it,
-you have to move from `type: annotation` to `type: attribute`.
+change all occurrences of `type: annotation` to `type: attribute`.
 
-The `config/routes.yaml` file should start with the following declaration from [its recipe](https://github.com/symfony/recipes/blob/main/symfony/routing/7.0/config/routes.yaml):
+The `config/routes.yaml` file should start with the following declaration from the [Symfony recipe](https://github.com/symfony/recipes/blob/main/symfony/routing/7.0/config/routes.yaml):
 
 ```yaml
 controllers:
@@ -83,13 +85,12 @@ controllers:
     type: attribute
 ```
 
-- You can delete the file and let the recipe recreate it.
-  Then, if you have eventually customized it, merge with your previous version from your version system.
-- Or edit the file and copy-paste the new declaration on top of it.
+You can add the new declaration to the top of the file manually, or recreate the file by running `composer sync-recipes symfony/routing --force --reset` 
 
 ### Remove GraphQL schema
 
-4.6 GraphQL schema isn't compatible with 5.0 so delete it, for example, with the following command:
+The GraphQL schema used in 4.6 isn't compatible with version 5.0 and must be deleted.
+You can do it, for example, with the following command:
 
 ```bash
 rm -r config/graphql
@@ -101,8 +102,9 @@ rm -r config/graphql
 
 [[= product_name =]] 5.0 is based on Symfony 7.3 and both must be updated.
 Your development package must be updated as well.
-The process example below considers [`symfony/debug-pack`](https://symfony.com/packages/Debug%20Pack) and `ibexa/rector` as installed.
-Notice that it uses the `--no-update` option to only edit the composer.json, to not run package installation, and to not run scripts until all necessary changes are made.
+The example below assumes that [`symfony/debug-pack`](https://symfony.com/packages/Debug%20Pack) and `ibexa/rector` are installed.
+Adjust the list based on your project requirements.
+Notice the use of the `--no-update` option to only edit the `composer.json` entries and avoid triggering the package update and Composer scripts.
 
 === "[[= product_name_headless =]]"
 
@@ -182,16 +184,16 @@ Notice that it uses the `--no-update` option to only edit the composer.json, to 
 #### Remove 4.6 LTS Updates constraints
 
 4.6 LTS Update packages are included by default in 5.0.
-You can now remove them from your composer.json
-so you don't have to maintain which of their versions your composer.json is referring to.
+Remove them from your composer.json to avoid updating their version manually with each update.
 
-For example, the following command removes several formerly LTS Update packages from `composer.json:
+For example, the following command removes all of the released LTS Updates for 4.6 from `composer.json`:
 
 ```bash
 composer remove --no-update \
     ibexa/connector-ai \
-    ibexa/collaboration \
-    ibexa/share \
+    ibexa/connector-openai \
+    ibexa/product-catalog-date-time-attribute \
+    ibexa/product-catalog-symbol-attribute/
     ibexa/discounts \
     ibexa/discounts-codes \
 ;
@@ -200,7 +202,7 @@ composer remove --no-update \
 #### Remove PHP 8.2 error handler
 
 If you were using the [`Php82HideDeprecationsErrorHandler`](update_from_4.6.md#v468) to avoid deprecation messages,
-you can remove it:
+you must remove it:
 
 ```bash
 composer config --unset extra.runtime.error_handler
@@ -247,8 +249,8 @@ composer recipes:install symfony/webpack-encore-bundle --reset --force --yes
 
 #### Sort commands
 
-Recipe appends a command to `composer.json`'s `auto-scripts`.
-You have to manually resort the commands so the `tsconfig.json` file
+Executing the recipes appends a new command at the end`composer.json`'s `auto-scripts` section, resulting in incorrect script order.
+You have to manually sort the commands so the `tsconfig.json` file
 is created by `yarn ibexa-generate-tsconfig`
 before being used by `ibexa:encore:compile`.
 Your `auto-scripts` entry should look like this:
@@ -292,7 +294,7 @@ The main schema has changed and the provided SQL file `ibexa-4.6.latest-to-5.0.0
     psql <database_name> < vendor/ibexa/installer/upgrade/db/postgresql/ibexa-4.6.latest-to-5.0.0.sql
     ```
 
-As this is made for all the editions at once, you may encounter unimportant errors on other editions which can be ignored.
+As this script targets all editions, on editions lower than Commerce you may encounter errors about missing tables which can safely be ignored.
 
 Many tables and columns are renamed.
 If you have custom code directly querying those, you will need to update them.
@@ -385,7 +387,7 @@ You can track the renaming in the `ibexa-4.6.latest-to-5.0.0.sql` file or below.
 ??? note "DFS (Distributed File System)"
 
     If [DFS IO handler](clustering.md#dfs-io-handler) is used and, as recommended, its table is on its own database, you'll have to rename table and columns there.
-    Here are the DFS renamming queries (extracted from `ibexa-4.6.latest-to-5.0.0.sql`):
+    Here are the DFS renaming queries (extracted from `ibexa-4.6.latest-to-5.0.0.sql`):
 
     ```sql
     ALTER TABLE ezdfsfile RENAME TO ibexa_dfs_file;
@@ -401,7 +403,7 @@ Features which were optional 4.6 LTS Updates are now part of 5.0.0.
 
 * If you have already installed the feature, its schema has been updated by the previous step.
 * If you haven't installed the feature, you need to add its schema to your database.
-* If you mistakenly reinstall a schema, no worries, you encounter "Table already exists" errors which can be ignored.
+* If you mistakenly reinstall a schema, you might encounter "Table already exists" errors which can be ignored.
 
 #### Install AI actions schema
 
@@ -482,8 +484,8 @@ php bin/console ibexa:migrations:migrate --file=2025_07_08_09_27_set_container_t
 
 ### Generate GraphQL schema
 
-4.6's back office uses GraphQL while 5.0's one doesn't.
-But, optionally, if you are using GraphQL in your project, generate its schema:
+GraphQL usage is no longer required for the Ibexa DXP back office.
+If you are using GraphQL in your project, you can generate its schema by running:
 
 ```bash
 php bin/console ibexa:graphql:generate-schema
@@ -491,7 +493,7 @@ php bin/console ibexa:graphql:generate-schema
 
 ### Update search indexes
 
-Ensure your index are up to date with the following command:
+Ensure your search index is up to date with the following command:
 
 ```bash
 php bin/console ibexa:reindex
@@ -512,11 +514,11 @@ If you didn't edit it the first time, you can run its recipe:
 composer recipe:install ibexa/rector --force --reset --yes
 ```
 
-You can add some other rule sets (like, for example, the Symfony ones) to match newer standards.
+You can adjust the other rule sets (for example, the Symfony ones) to match higher versions.
 
-Again, it's recommended to activate one set at a time, run a first time with the `--dry-run` option,
-check the output, and decide if kept right now, or discarded for another time.
-As the gap is larger, many rules can be considered, see a selection in the example below.
+Again, it's recommended to activate one rule set at a time and preview the output by running Rector with the `--dry-run` option to decide which rulesets should be used and in which order.
+
+As this update spans across a broad range of versions, multiple rules can be considered as in the example below.
 
 ```php
 //…
@@ -586,8 +588,7 @@ In the following example, you can see optimization thanks to the following featu
 
 #### Update JavaScript
 
-If you haven't renamed your Webpack file since 3.3,
-you have to do it as 5.0 doesn't support the old names like 4.6 does.
+If you haven't renamed your Webpack file since 3.3, do it now as v5.0 no longer supports the old names.
 
 | Old name                    | New name                       |
 |:----------------------------|:-------------------------------|
@@ -595,10 +596,12 @@ you have to do it as 5.0 doesn't support the old names like 4.6 does.
 | ez.config.manager.js        | ibexa.config.manager.js        |
 | ez.webpack.custom.config.js | ibexa.webpack.custom.config.js |
 
-`ibexa/rector` 5.0 also come with the [JavaScript Transform module](https://github.com/ibexa/rector/blob/v5.0.0/js/README.md) to help you maintain your JS.
+`ibexa/rector` 5.0 also comes with the [JavaScript Transform module](https://github.com/ibexa/rector/blob/v5.0.0/js/README.md) to help you maintain your JavaScript code.
 
-Customize the `rector.config.js` config file.
-Make it match your directory structure. Eventually modify the enabled plugin list.
+Customize the `rector.config.js` config file by:
+
+- making it match your directory structure
+- modifying the list of enabled plugins and their configuration
 
 The example below is made to fix in place the JS files from `asset/js/` directory,
 and is ready to enable plugin rule sets one at a time (plugin path is relative to `vendor/ibexa/rector/` directory).
@@ -644,8 +647,7 @@ yarn --cwd ./vendor/ibexa/rector/js transform
 #### Update field type identifiers
 
 Several field type identifiers have changed.
-Old identifiers are still supported, but it's recommended to migrate as soon as possible
-and to include this action to the current version update task list.
+The old identifiers are still supported, but it's recommended to migrate as soon as possible.
 
 You can list existing field type services with the command `php bin/console debug:container --tag=ibexa.field_type`.
 The output as an `alias` column with new identifiers and a `legacy_alias` column with the old identifiers.
@@ -690,16 +692,17 @@ The output as an `alias` column with new identifiers and a `legacy_alias` column
     | ezurl                           | ibexa_url                       |
     | ezuser                          | ibexa_user                      |
 
-You may have to update them in several places.
+```suggestion
+You may have to update them in several places, for example:
 
-- Update in templates to display or edit fields or their definition. For example, in a `@IbexaCore/content_fields.html.twig` extension, `{% block ezstring_field %)` must be changed for `{% block ibexa_string_field %}`
-- Update in migration files
+- Update the field identifiers in templates to display or edit fields or their definition. For example, in a `@IbexaCore/content_fields.html.twig` extension, `{% block ezstring_field %)` must be changed for `{% block ibexa_string_field %}`
+- Update the field identifiers in migration files
 
 #### Update icons
 
-The names of the icons provided in `all-icons.svg` have changed.
-`ibexa/rector` JavaScript Transform module's plugin `ibexa-rename-icons.js` deals with those changes in JavaScript.
-You may have to update them in other contexts like, for example, config files associating icons to content types or Page Builder blocks.
+The provided built-it icon set has been changed.
+The `ibexa/rector` JavaScript Transform module's plugin `ibexa-rename-icons.js` refactors the icon usage in JavaScript files.
+You may have to update them in other contexts, for example, in configuration files associating icons to content types or Page Builder blocks.
 
 You can find an [`ibexa-rename-icons` map in `vendor/ibexa/rector/js/rules.config.json` (`"old-name": "new-name"`)](https://github.com/ibexa/rector/blob/v5.0.0/js/rules.config.json#L63).
 
@@ -957,5 +960,5 @@ The following example illustrates the update of a custom page block's icon:
               name: About Block
               category: Custom
 -             thumbnail: /bundles/ibexaicons/img/all-icons.svg#about
-+             thumbnail: /bundles/ibexaicons/img/all-icons.svg#info-square
++             thumbnail: /bundles/ibexaadminuiassets/vendors/ids-assets/dist/img/all-icons.svg#info-square
 ```
