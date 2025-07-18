@@ -11,6 +11,19 @@ Every interaction with the repository than you can do from back office or by usi
 
 The REST API uses HTTP methods (such as `GET` and `PUBLISH`), and HTTP headers to specify the type of request.
 
+## OpenAPI support
+
+The REST API is built on top of [API Platform](https://api-platform.com/docs/symfony/) and meets the [OpenAPI](https://www.openapis.org/) standard.
+
+You can downlaod the OpenAPI specification from the [REST API Reference](/api/rest_api/rest_api_reference/rest_api_reference.html), or generate it for your project by running one of the command below:
+
+``` bash
+php bin/console ibexa:openapi --output=spec.json # JSON output
+php bin/console ibexa:openapi --yaml --output=spec.yaml # YAML output
+```
+
+With the specification file you can use the [available OpenAPI tools](https://tools.openapis.org/) to work faster with the API, for example, by generating libraries and clients for the API.
+
 ## URIs
 
 The REST API is designed in such a way that the client can explore the Repository without constructing any URIs to resources.
