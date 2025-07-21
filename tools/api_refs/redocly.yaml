@@ -1,0 +1,7 @@
+theme:
+  openapi:
+    hideHostname: true
+    theme:
+      logo:
+        maxWidth: '76px!important'
+        maxHeight: '26px'
