@@ -27,7 +27,7 @@ Discounts documentation includes:
     - [API usage](https://doc.ibexa.co/en/latest/discounts/discounts_api/)
     - New [Search Sort Clauses](https://doc.ibexa.co/en/latest/search/discounts_search_reference/discounts_sort_clauses/) and [Search Criteria](https://doc.ibexa.co/en/latest/search/discounts_search_reference/discounts_criteria/)
     - New [events](https://doc.ibexa.co/en/latest/api/event_reference/discounts_events/)
-    - Rest API for [Discounts](https://doc.ibexa.co/en/latest/api/rest_api/rest_api_reference/rest_api_reference.html#discounts) and [Discount Codes](https://doc.ibexa.co/en/latest/api/rest_api/rest_api_reference/rest_api_reference.html#discount-codes)
+    - Rest API for [Discounts](https://doc.ibexa.co/en/4.6/api/rest_api/rest_api_reference/rest_api_reference.html#discounts) and [Discount Codes](https://doc.ibexa.co/en/4.6/api/rest_api/rest_api_reference/rest_api_reference.html#discount-codes)
     - New [Twig functions](https://doc.ibexa.co/en/latest/templating/twig_function_reference/discounts_twig_functions/) and [Twig Components groups](https://doc.ibexa.co/en/latest/administration/back_office/back_office_elements/custom_components/#discounts)
     - New [policies](https://doc.ibexa.co/en/latest/permissions/policies/#discounts) and [limitations](https://doc.ibexa.co/en/latest/permissions/limitation_reference/#discount-owner-limitation)
 
@@ -143,9 +143,9 @@ We want to thank [todomagichere](https://github.com/todomagichere) and [hgieseno
 
 ### REST API
 
-- Described endpoints for [Segment](https://doc.ibexa.co/en/latest/api/rest_api/rest_api_reference/rest_api_reference.html#segments) and [Segment Group](https://doc.ibexa.co/en/latest/api/rest_api/rest_api_reference/rest_api_reference.html#segment-groups) management
-- Described endpoints for [AI Action Configurations](https://doc.ibexa.co/en/latest/api/rest_api/rest_api_reference/rest_api_reference.html#ai-actions-list-action-configurations) and [AI Action Types](https://doc.ibexa.co/en/latest/api/rest_api/rest_api_reference/rest_api_reference.html#ai-actions-list-action-types)
-- Improved the example for [creating Orders](https://doc.ibexa.co/en/latest/api/rest_api/rest_api_reference/rest_api_reference.html#orders-create-order), to show how to pass shipping cost data
+- Described endpoints for [Segment](https://doc.ibexa.co/en/4.6/api/rest_api/rest_api_reference/rest_api_reference.html#segments) and [Segment Group](https://doc.ibexa.co/en/4.6/api/rest_api/rest_api_reference/rest_api_reference.html#segment-groups) management
+- Described endpoints for [AI Action Configurations](https://doc.ibexa.co/en/4.6/api/rest_api/rest_api_reference/rest_api_reference.html#ai-actions-list-action-configurations) and [AI Action Types](https://doc.ibexa.co/en/4.6/api/rest_api/rest_api_reference/rest_api_reference.html#ai-actions-list-action-types)
+- Improved the example for [creating Orders](https://doc.ibexa.co/en/4.6/api/rest_api/rest_api_reference/rest_api_reference.html#orders-create-order), to show how to pass shipping cost data
 
 ### HTTP Cache
 
@@ -386,7 +386,7 @@ Enhanced the PHP API with the following new classes and interfaces:
 - Added edition information to [PHP API reference](https://doc.ibexa.co/en/latest/api/php_api/php_api_reference/) to aid navigation
 
 ### REST API
-- Removed multiple obsolete RAML types from the [REST API reference](https://doc.ibexa.co/en/latest/api/rest_api/rest_api_reference/rest_api_reference.html)
+- Removed multiple obsolete RAML types from the [REST API reference](https://doc.ibexa.co/en/4.6/api/rest_api/rest_api_reference/rest_api_reference.html)
 
 ### User management
 
@@ -543,11 +543,11 @@ Enhanced the PHP API with the following new classes and interfaces:
 
 ### PIM
 
-- [Price engine REST API](https://doc.ibexa.co/en/latest/api/rest_api/rest_api_reference/rest_api_reference.html#product-catalog-load-the-list-of-product-prices)
+- [Price engine REST API](https://doc.ibexa.co/en/4.6/api/rest_api/rest_api_reference/rest_api_reference.html#product-catalog-load-the-list-of-product-prices)
 
 ### REST API
 
-- [Shipment REST API](https://doc.ibexa.co/en/latest/api/rest_api/rest_api_reference/rest_api_reference.html#shipments)
+- [Shipment REST API](https://doc.ibexa.co/en/4.6/api/rest_api/rest_api_reference/rest_api_reference.html#shipments)
 
 ### Others
 
@@ -696,7 +696,7 @@ Enhanced the PHP API with the following new classes and interfaces:
 
 ### REST API
 
-- Added GET endpoint for all available [Sales Representatives Users](https://doc.ibexa.co/en/latest/api/rest_api/rest_api_reference/rest_api_reference.html#corporate-account-read-list-of-sales-representatives)
+- Added GET endpoint for all available [Sales Representatives Users](https://doc.ibexa.co/en/4.6/api/rest_api/rest_api_reference/rest_api_reference.html#corporate-account-read-list-of-sales-representatives)
 
 ### Storefront
 
@@ -793,7 +793,7 @@ Enhanced the PHP API with the following new classes and interfaces:
 - [Work with product attributes](https://doc.ibexa.co/projects/userguide/en/latest/pim/work_with_product_attributes/) in User Documentation
 
 ### REST API
-- Added example of input payload in JSON format for [ContentTypeCreate in REST API reference](https://doc.ibexa.co/en/latest/api/rest_api/rest_api_reference/rest_api_reference.html#managing-content-create-content-type)
+- Added example of input payload in JSON format for [ContentTypeCreate in REST API reference](https://doc.ibexa.co/en/4.6/api/rest_api/rest_api_reference/rest_api_reference.html#managing-content-create-content-type)
 - [Expected user](https://doc.ibexa.co/en/latest/api/rest_api/rest_api_usage/rest_requests/#expected-user) header support
 
 ### Commerce
@@ -856,7 +856,7 @@ Enhanced the PHP API with the following new classes and interfaces:
 
 ### Customer Portal
 
-- [Corporate account company and member REST API reference](https://doc.ibexa.co/en/latest/api/rest_api/rest_api_reference/rest_api_reference.html#corporate-account)
+- [Corporate account company and member REST API reference](https://doc.ibexa.co/en/4.6/api/rest_api/rest_api_reference/rest_api_reference.html#corporate-account)
 - [Creating a Customer Portal](https://doc.ibexa.co/en/latest/customer_management/cp_page_builder/)
 
 ### Commerce
@@ -875,7 +875,7 @@ Enhanced the PHP API with the following new classes and interfaces:
 
 ### Orders
 
-- [Order management](https://doc.ibexa.co/en/latest/commerce/order_management/order_management/), including [configuring order workflow](https://doc.ibexa.co/en/latest/commerce/order_management/configure_order_management/) and [Orders REST API reference](https://doc.ibexa.co/en/latest/api/rest_api/rest_api_reference/rest_api_reference.html#orders)
+- [Order management](https://doc.ibexa.co/en/latest/commerce/order_management/order_management/), including [configuring order workflow](https://doc.ibexa.co/en/latest/commerce/order_management/configure_order_management/) and [Orders REST API reference](https://doc.ibexa.co/en/4.6/api/rest_api/rest_api_reference/rest_api_reference.html#orders)
 
 ### Shipping
 
