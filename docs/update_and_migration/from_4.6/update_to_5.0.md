@@ -406,143 +406,6 @@ You can track the renaming in the `ibexa-4.6.latest-to-5.0.0.sql` file or below.
     ALTER TABLE ibexa_dfs_file RENAME INDEX ezdfsfile_mtime TO ibexa_dfs_file_mtime;
     ```
 
-### Install new features' schemas
-
-Features which were optional 4.6 LTS Updates are now part of 5.0.0.
-
-* If you have already installed the feature, its schema has been updated by the previous step.
-* If you haven't installed the feature, you need to add its schema to your database.
-* If you mistakenly reinstall a schema, you might encounter "Table already exists" errors which can be ignored.
-
-!!! note
-
-    Instead of piping the command to the DB client,
-    you can redirect the SQL output into a file
-    to study it or help its sharing and deployment.
-
-#### Install AI actions schema
-
-=== "MySQL"
-
-    ```bash
-    php bin/console ibexa:doctrine:schema:dump-sql vendor/ibexa/connector-ai/src/bundle/Resources/config/schema.yaml | mysql -u <username> -p <password> <database_name>
-    ```
-
-=== "PostgreSQL"
-
-    ```bash
-    php bin/console ibexa:doctrine:schema:dump-sql vendor/ibexa/connector-ai/src/bundle/Resources/config/schema.yaml | psql <database_name>
-    ```
-
-#### Install date and time attribute type
-
-=== "MySQL"
-
-    ```bash
-    php bin/console ibexa:doctrine:schema:dump-sql vendor/ibexa/product-catalog-date-time-attribute/src/bundle/Resources/config/schema.yaml | mysql -u <username> -p <password> <database_name>
-    ```
-
-=== "PostgreSQL"
-
-    ```bash
-    php bin/console ibexa:doctrine:schema:dump-sql vendor/ibexa/product-catalog-date-time-attribute/src/bundle/Resources/config/schema.yaml | psql <database_name>
-    ```
-
-#### Install symbol attribute type
-
-=== "MySQL"
-
-    ```bash
-    php bin/console ibexa:doctrine:schema:dump-sql vendor/ibexa/product-catalog-symbol-attribute/src/bundle/Resources/config/schema.yaml | mysql -u <username> -p <password> <database_name>
-    ```
-
-=== "PostgreSQL"
-
-    ```bash
-    php bin/console ibexa:doctrine:schema:dump-sql vendor/ibexa/product-catalog-symbol-attribute/src/bundle/Resources/config/schema.yaml | psql <database_name>
-    ```
-
-
-#### Install collaboration
-
-=== "MySQL"
-
-    ```bash
-    php bin/console ibexa:doctrine:schema:dump-sql vendor/ibexa/collaboration/src/bundle/Resources/config/schema.yaml | mysql -u <username> -p <password> <database_name>
-    php bin/console ibexa:doctrine:schema:dump-sql vendor/ibexa/share/src/bundle/Resources/config/schema.yaml | mysql -u <username> -p <password> <database_name>
-    ```
-
-=== "PostgreSQL"
-
-    ```bash
-    php bin/console ibexa:doctrine:schema:dump-sql vendor/ibexa/collaboration/src/bundle/Resources/config/schema.yaml | psql <database_name>
-    php bin/console ibexa:doctrine:schema:dump-sql vendor/ibexa/share/src/bundle/Resources/config/schema.yaml | psql <database_name>
-    ```
-
-#### Install discounts [[% include 'snippets/commerce_badge.md' %]]
-
-=== "MySQL"
-
-    ```bash
-    php bin/console ibexa:doctrine:schema:dump-sql vendor/ibexa/discounts/src/bundle/Resources/config/schema.yaml | mysql -u <username> -p <password> <database_name>
-    php bin/console ibexa:doctrine:schema:dump-sql vendor/ibexa/discounts-codes/src/bundle/Resources/config/schema.yaml | mysql -u <username> -p <password> <database_name>
-    ```
-
-=== "PostgreSQL"
-
-    ```bash
-    php bin/console ibexa:doctrine:schema:dump-sql vendor/ibexa/discounts/src/bundle/Resources/config/schema.yaml | psql <database_name>
-    php bin/console ibexa:doctrine:schema:dump-sql vendor/ibexa/discounts-codes/src/bundle/Resources/config/schema.yaml | psql <database_name>
-    ```
-
-### Clear cache pool
-
-The persistence cache pool needs to be cleared to be able to use the repository again.
-
-```bash
-php bin/console cache:pool:clear --all
-```
-
-### Migrations
-
-#### Taxonomy
-
-```bash
-php bin/console ibexa:migrations:import vendor/ibexa/taxonomy/src/bundle/Resources/install/migrations/2025_08_09_14_47_mark_tag_as_container.yaml
-php bin/console ibexa:migrations:migrate --file=2025_08_09_14_47_mark_tag_as_container.yaml --siteaccess=admin
-```
-
-#### Product catalog
-
-```bash
-php bin/console ibexa:migrations:import vendor/ibexa/product-catalog/src/bundle/Resources/migrations/2025_07_09_13_52_mark_product_category_container.yaml
-php bin/console ibexa:migrations:migrate --file=2025_07_09_13_52_mark_product_category_container.yaml --siteaccess=admin
-```
-
-#### Corporate accounts [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
-
-```bash
-php bin/console ibexa:migrations:import vendor/ibexa/corporate-account/src/bundle/Resources/migrations/2025_07_08_09_27_set_container_to_company.yaml
-php bin/console ibexa:migrations:migrate --file=2025_07_08_09_27_set_container_to_company.yaml --siteaccess=admin
-```
-
-### Generate GraphQL schema
-
-GraphQL usage is no longer required for the Ibexa DXP back office.
-If you are using GraphQL in your project, you can generate its schema by running:
-
-```bash
-php bin/console ibexa:graphql:generate-schema
-```
-
-### Update search indexes
-
-Ensure your search index is up to date with the following command:
-
-```bash
-php bin/console ibexa:reindex
-```
-
 ### Update custom code for [[= product_name =]] 5.0
 
 #### Update PHP framework standards
@@ -1008,6 +871,143 @@ The following example illustrates the update of a custom page block's icon:
               category: Custom
 -             thumbnail: /bundles/ibexaicons/img/all-icons.svg#about
 +             thumbnail: /bundles/ibexaadminuiassets/vendors/ids-assets/dist/img/all-icons.svg#info-square
+```
+
+### Install new features' schemas
+
+Features which were optional 4.6 LTS Updates are now part of 5.0.0.
+
+* If you have already installed the feature, its schema has been updated by the previous step.
+* If you haven't installed the feature, you need to add its schema to your database.
+* If you mistakenly reinstall a schema, you might encounter "Table already exists" errors which can be ignored.
+
+!!! note
+
+    Instead of piping the command to the DB client,
+    you can redirect the SQL output into a file
+    to study it or help its sharing and deployment.
+
+#### Install AI actions schema
+
+=== "MySQL"
+
+    ```bash
+    php bin/console ibexa:doctrine:schema:dump-sql vendor/ibexa/connector-ai/src/bundle/Resources/config/schema.yaml | mysql -u <username> -p <password> <database_name>
+    ```
+
+=== "PostgreSQL"
+
+    ```bash
+    php bin/console ibexa:doctrine:schema:dump-sql vendor/ibexa/connector-ai/src/bundle/Resources/config/schema.yaml | psql <database_name>
+    ```
+
+#### Install date and time attribute type
+
+=== "MySQL"
+
+    ```bash
+    php bin/console ibexa:doctrine:schema:dump-sql vendor/ibexa/product-catalog-date-time-attribute/src/bundle/Resources/config/schema.yaml | mysql -u <username> -p <password> <database_name>
+    ```
+
+=== "PostgreSQL"
+
+    ```bash
+    php bin/console ibexa:doctrine:schema:dump-sql vendor/ibexa/product-catalog-date-time-attribute/src/bundle/Resources/config/schema.yaml | psql <database_name>
+    ```
+
+#### Install symbol attribute type
+
+=== "MySQL"
+
+    ```bash
+    php bin/console ibexa:doctrine:schema:dump-sql vendor/ibexa/product-catalog-symbol-attribute/src/bundle/Resources/config/schema.yaml | mysql -u <username> -p <password> <database_name>
+    ```
+
+=== "PostgreSQL"
+
+    ```bash
+    php bin/console ibexa:doctrine:schema:dump-sql vendor/ibexa/product-catalog-symbol-attribute/src/bundle/Resources/config/schema.yaml | psql <database_name>
+    ```
+
+
+#### Install collaboration
+
+=== "MySQL"
+
+    ```bash
+    php bin/console ibexa:doctrine:schema:dump-sql vendor/ibexa/collaboration/src/bundle/Resources/config/schema.yaml | mysql -u <username> -p <password> <database_name>
+    php bin/console ibexa:doctrine:schema:dump-sql vendor/ibexa/share/src/bundle/Resources/config/schema.yaml | mysql -u <username> -p <password> <database_name>
+    ```
+
+=== "PostgreSQL"
+
+    ```bash
+    php bin/console ibexa:doctrine:schema:dump-sql vendor/ibexa/collaboration/src/bundle/Resources/config/schema.yaml | psql <database_name>
+    php bin/console ibexa:doctrine:schema:dump-sql vendor/ibexa/share/src/bundle/Resources/config/schema.yaml | psql <database_name>
+    ```
+
+#### Install discounts [[% include 'snippets/commerce_badge.md' %]]
+
+=== "MySQL"
+
+    ```bash
+    php bin/console ibexa:doctrine:schema:dump-sql vendor/ibexa/discounts/src/bundle/Resources/config/schema.yaml | mysql -u <username> -p <password> <database_name>
+    php bin/console ibexa:doctrine:schema:dump-sql vendor/ibexa/discounts-codes/src/bundle/Resources/config/schema.yaml | mysql -u <username> -p <password> <database_name>
+    ```
+
+=== "PostgreSQL"
+
+    ```bash
+    php bin/console ibexa:doctrine:schema:dump-sql vendor/ibexa/discounts/src/bundle/Resources/config/schema.yaml | psql <database_name>
+    php bin/console ibexa:doctrine:schema:dump-sql vendor/ibexa/discounts-codes/src/bundle/Resources/config/schema.yaml | psql <database_name>
+    ```
+
+### Clear cache pool
+
+The persistence cache pool needs to be cleared to be able to use the repository again.
+
+```bash
+php bin/console cache:pool:clear --all
+```
+
+### Migrations
+
+#### Taxonomy
+
+```bash
+php bin/console ibexa:migrations:import vendor/ibexa/taxonomy/src/bundle/Resources/install/migrations/2025_08_09_14_47_mark_tag_as_container.yaml
+php bin/console ibexa:migrations:migrate --file=2025_08_09_14_47_mark_tag_as_container.yaml --siteaccess=admin
+```
+
+#### Product catalog
+
+```bash
+php bin/console ibexa:migrations:import vendor/ibexa/product-catalog/src/bundle/Resources/migrations/2025_07_09_13_52_mark_product_category_container.yaml
+php bin/console ibexa:migrations:migrate --file=2025_07_09_13_52_mark_product_category_container.yaml --siteaccess=admin
+```
+
+#### Corporate accounts [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
+
+```bash
+php bin/console ibexa:migrations:import vendor/ibexa/corporate-account/src/bundle/Resources/migrations/2025_07_08_09_27_set_container_to_company.yaml
+php bin/console ibexa:migrations:migrate --file=2025_07_08_09_27_set_container_to_company.yaml --siteaccess=admin
+```
+
+### Generate GraphQL schema
+
+GraphQL usage is no longer required for the Ibexa DXP back office.
+If you are using GraphQL in your project, you can generate its schema by running:
+
+```bash
+php bin/console ibexa:graphql:generate-schema
+```
+
+### Update search indexes
+
+Ensure your search index is up to date with the following command:
+
+```bash
+php bin/console ibexa:reindex
 ```
 
 ### Finalising
