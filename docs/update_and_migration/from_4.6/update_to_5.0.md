@@ -971,6 +971,14 @@ The following example illustrates the update of a custom page block's icon:
 
 ### Finalising
 
+#### Clear cache and rebuild
+
+Finish the update process:
+
+```
+composer run-script post-update-cmd
+```
+
 #### HTTP Cache
 
 Use the newer VCL files.
