@@ -707,7 +707,7 @@ The provided built-it icon set has been changed.
 The `ibexa/rector` JavaScript Transform module's plugin `ibexa-rename-icons.js` refactors the icon usage in JavaScript files.
 You may have to update them in other contexts, for example, in configuration files associating icons to content types or Page Builder blocks.
 
-The icon library file's path changed from `/bundles/ibexaicons/img/all-icons.svg` to `/bundles/ibexaadminuiassets/vendors/ids-assets/dist/img/all-icons.svg`
+The icon library file's path changed from `/bundles/ibexaicons/img/all-icons.svg` to `/bundles/ibexaadminuiassets/vendors/ids-assets/dist/img/all-icons.svg`.
 
 Some icons have been renamed.
 You can find an [`ibexa-rename-icons` map in `vendor/ibexa/rector/js/rules.config.json` (`"old-name": "new-name"`)](https://github.com/ibexa/rector/blob/v5.0.0/js/rules.config.json#L63).
