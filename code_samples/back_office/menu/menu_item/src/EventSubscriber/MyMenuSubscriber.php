@@ -45,6 +45,6 @@ class MyMenuSubscriber implements EventSubscriberInterface
         $menu->removeChild('main__bookmarks');
 
         $menu->getChild('main__admin')
-            ->setExtra('icon_path', '/bundles/ibexaicons/img/all-icons.svg#notice');
+            ->setExtra('icon_path', '/bundles/ibexaadminuiassets/vendors/ids-assets/dist/img/all-icons.svg#alert-error');
     }
 }

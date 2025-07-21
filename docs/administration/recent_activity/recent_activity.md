@@ -262,4 +262,4 @@ Thanks to the previous subscriber, the related object is available at display ti
 ## REST API
 
 You can browse activity logs with REST API.
-For more information, see the [REST API reference](../../api/rest_api/rest_api_reference/rest_api_reference.html#monitoring-activity).
+For more information, see the [REST API reference](/api/rest_api/rest_api_reference/rest_api_reference.html#tag/Activity-Log).

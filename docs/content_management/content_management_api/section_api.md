@@ -10,7 +10,7 @@ You can manage sections by using the PHP API by using `SectionService`.
 
 !!! tip "Section REST API"
 
-    To learn how to manage sections using the REST API, see [REST API reference](../../api/rest_api/rest_api_reference/rest_api_reference.html#managing-content-get-sections).
+    To learn how to manage sections using the REST API, see [REST API reference](/api/rest_api/rest_api_reference/rest_api_reference.html#tag/Section).
 
 ## Creating sections
 
