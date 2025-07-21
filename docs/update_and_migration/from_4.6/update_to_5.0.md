@@ -881,26 +881,25 @@ Features which were optional 4.6 LTS Updates are now part of 5.0.0.
 
 * If you have already installed the feature, its schema has been updated by the previous step.
 * If you haven't installed the feature, you need to add its schema to your database.
+  Store the SQL of the schema into a file, review it, then run it.
 * If you mistakenly reinstall a schema, you might encounter "Table already exists" errors which can be ignored.
-
-!!! tip
-
-    Instead of piping the command to the DB client,
-    you can redirect the SQL output into a file
-    to study it or help its sharing and deployment.
 
 #### Install AI actions schema
 
 === "MySQL"
 
     ```bash
-    php bin/console ibexa:doctrine:schema:dump-sql vendor/ibexa/connector-ai/src/bundle/Resources/config/schema.yaml | mysql -u <username> -p <password> <database_name>
+    php bin/console ibexa:doctrine:schema:dump-sql vendor/ibexa/connector-ai/src/bundle/Resources/config/schema.yaml > schema_connector-ai.sql
+    # schema_connector-ai.sql review
+    mysql -u <username> -p <password> <database_name> < schema_connector-ai.sql
     ```
 
 === "PostgreSQL"
 
     ```bash
-    php bin/console ibexa:doctrine:schema:dump-sql vendor/ibexa/connector-ai/src/bundle/Resources/config/schema.yaml | psql <database_name>
+    php bin/console ibexa:doctrine:schema:dump-sql vendor/ibexa/connector-ai/src/bundle/Resources/config/schema.yaml > schema_connector-ai.sql
+    # Pause to review schema_connector-ai.sql
+    psql <database_name> < schema_connector-ai.sql
     ```
 
 #### Install date and time attribute type
@@ -908,13 +907,17 @@ Features which were optional 4.6 LTS Updates are now part of 5.0.0.
 === "MySQL"
 
     ```bash
-    php bin/console ibexa:doctrine:schema:dump-sql vendor/ibexa/product-catalog-date-time-attribute/src/bundle/Resources/config/schema.yaml | mysql -u <username> -p <password> <database_name>
+    php bin/console ibexa:doctrine:schema:dump-sql vendor/ibexa/product-catalog-date-time-attribute/src/bundle/Resources/config/schema.yaml > schema_date-time-attribute.sql
+    # Pause to review schema_date-time-attribute.sql
+    mysql -u <username> -p <password> <database_name> < schema_date-time-attribute.sql
     ```
 
 === "PostgreSQL"
 
     ```bash
-    php bin/console ibexa:doctrine:schema:dump-sql vendor/ibexa/product-catalog-date-time-attribute/src/bundle/Resources/config/schema.yaml | psql <database_name>
+    php bin/console ibexa:doctrine:schema:dump-sql vendor/ibexa/product-catalog-date-time-attribute/src/bundle/Resources/config/schema.yaml > schema_date-time-attribute.sql
+    # Pause to review schema_date-time-attribute.sql
+    psql <database_name> < schema_date-time-attribute.sql
     ```
 
 #### Install symbol attribute type
@@ -922,13 +925,17 @@ Features which were optional 4.6 LTS Updates are now part of 5.0.0.
 === "MySQL"
 
     ```bash
-    php bin/console ibexa:doctrine:schema:dump-sql vendor/ibexa/product-catalog-symbol-attribute/src/bundle/Resources/config/schema.yaml | mysql -u <username> -p <password> <database_name>
+    php bin/console ibexa:doctrine:schema:dump-sql vendor/ibexa/product-catalog-symbol-attribute/src/bundle/Resources/config/schema.yaml > schema_symbol-attribute.sql
+    # Pause to review schema_symbol-attribute.sql
+    mysql -u <username> -p <password> <database_name> < schema_symbol-attribute.sql
     ```
 
 === "PostgreSQL"
 
     ```bash
-    php bin/console ibexa:doctrine:schema:dump-sql vendor/ibexa/product-catalog-symbol-attribute/src/bundle/Resources/config/schema.yaml | psql <database_name>
+    php bin/console ibexa:doctrine:schema:dump-sql vendor/ibexa/product-catalog-symbol-attribute/src/bundle/Resources/config/schema.yaml > schema_symbol-attribute.sql
+    # Pause to review schema_symbol-attribute.sql
+    psql <database_name> < schema_symbol-attribute.sql
     ```
 
 
@@ -937,15 +944,21 @@ Features which were optional 4.6 LTS Updates are now part of 5.0.0.
 === "MySQL"
 
     ```bash
-    php bin/console ibexa:doctrine:schema:dump-sql vendor/ibexa/collaboration/src/bundle/Resources/config/schema.yaml | mysql -u <username> -p <password> <database_name>
-    php bin/console ibexa:doctrine:schema:dump-sql vendor/ibexa/share/src/bundle/Resources/config/schema.yaml | mysql -u <username> -p <password> <database_name>
+    php bin/console ibexa:doctrine:schema:dump-sql vendor/ibexa/collaboration/src/bundle/Resources/config/schema.yaml > schema_collaboration.sql
+    php bin/console ibexa:doctrine:schema:dump-sql vendor/ibexa/share/src/bundle/Resources/config/schema.yaml > schema_share.sql
+    # Pause to review schema_collaboration.sql and schema_share.sql
+    mysql -u <username> -p <password> <database_name> < schema_collaboration.sql
+    mysql -u <username> -p <password> <database_name> < schema_share.sql
     ```
 
 === "PostgreSQL"
 
     ```bash
-    php bin/console ibexa:doctrine:schema:dump-sql vendor/ibexa/collaboration/src/bundle/Resources/config/schema.yaml | psql <database_name>
-    php bin/console ibexa:doctrine:schema:dump-sql vendor/ibexa/share/src/bundle/Resources/config/schema.yaml | psql <database_name>
+    php bin/console ibexa:doctrine:schema:dump-sql vendor/ibexa/collaboration/src/bundle/Resources/config/schema.yaml > schema_collaboration.sql
+    php bin/console ibexa:doctrine:schema:dump-sql vendor/ibexa/share/src/bundle/Resources/config/schema.yaml > schema_share.sql
+    # Pause to review schema_collaboration.sql and schema_share.sql
+    psql <database_name> < schema_collaboration.sql
+    psql <database_name> < schema_share.sql
     ```
 
 #### Install discounts [[% include 'snippets/commerce_badge.md' %]]
@@ -953,15 +966,21 @@ Features which were optional 4.6 LTS Updates are now part of 5.0.0.
 === "MySQL"
 
     ```bash
-    php bin/console ibexa:doctrine:schema:dump-sql vendor/ibexa/discounts/src/bundle/Resources/config/schema.yaml | mysql -u <username> -p <password> <database_name>
-    php bin/console ibexa:doctrine:schema:dump-sql vendor/ibexa/discounts-codes/src/bundle/Resources/config/schema.yaml | mysql -u <username> -p <password> <database_name>
+    php bin/console ibexa:doctrine:schema:dump-sql vendor/ibexa/discounts/src/bundle/Resources/config/schema.yaml > schema_discounts.sql
+    php bin/console ibexa:doctrine:schema:dump-sql vendor/ibexa/discounts-codes/src/bundle/Resources/config/schema.yaml > schema_discounts-codes.sql
+    # Pause to review schema_discounts.sql and schema_discounts-codes.sql
+    mysql -u <username> -p <password> <database_name> < schema_discounts.sql
+    mysql -u <username> -p <password> <database_name> < schema_discounts-codes.sql
     ```
 
 === "PostgreSQL"
 
     ```bash
-    php bin/console ibexa:doctrine:schema:dump-sql vendor/ibexa/discounts/src/bundle/Resources/config/schema.yaml | psql <database_name>
-    php bin/console ibexa:doctrine:schema:dump-sql vendor/ibexa/discounts-codes/src/bundle/Resources/config/schema.yaml | psql <database_name>
+    php bin/console ibexa:doctrine:schema:dump-sql vendor/ibexa/discounts/src/bundle/Resources/config/schema.yaml > schema_discounts.sql
+    php bin/console ibexa:doctrine:schema:dump-sql vendor/ibexa/discounts-codes/src/bundle/Resources/config/schema.yaml > schema_discounts-codes.sql
+    # Pause to review schema_discounts.sql and schema_discounts-codes.sql
+    psql <database_name> < schema_discounts.sql
+    psql <database_name> < schema_discounts-codes.sql
     ```
 
 ### Clear cache pool
