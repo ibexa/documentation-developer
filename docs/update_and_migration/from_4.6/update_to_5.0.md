@@ -554,11 +554,11 @@ use Rector\Symfony\Set\SensiolabsSetList;
        codeQuality: true, // https://getrector.com/find-rule?activeRectorSetGroup=core&rectorSet=core-code-quality
        codingStyle: true, // https://getrector.com/find-rule?activeRectorSetGroup=core&rectorSet=core-coding-style
        typeDeclarations: true, // https://getrector.com/find-rule?activeRectorSetGroup=core&rectorSet=core-type-declarations
-       // privatization: true, // https://getrector.com/find-rule?activeRectorSetGroup=core&rectorSet=core-privatization
+       privatization: true, // https://getrector.com/find-rule?activeRectorSetGroup=core&rectorSet=core-privatization
        naming: true, // https://getrector.com/find-rule?activeRectorSetGroup=core&rectorSet=core-naming
        instanceOf: true, // https://getrector.com/find-rule?activeRectorSetGroup=core&rectorSet=core-instanceof
        earlyReturn: true, // https://getrector.com/find-rule?activeRectorSetGroup=core&rectorSet=core-early-return
-       // strictBooleans: true, // https://getrector.com/find-rule?activeRectorSetGroup=core&rectorSet=core-strict-booleans
+       strictBooleans: true, // https://getrector.com/find-rule?activeRectorSetGroup=core&rectorSet=core-strict-booleans
        rectorPreset: true,
        symfonyCodeQuality: true, // https://getrector.com/find-rule?activeRectorSetGroup=symfony&rectorSet=symfony-code-quality
        symfonyConfigs: true, // https://getrector.com/find-rule?activeRectorSetGroup=symfony&rectorSet=symfony-configs
