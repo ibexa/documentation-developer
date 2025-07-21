@@ -281,6 +281,8 @@ composer run-script post-update-cmd
 
 ### Update database
 
+[[% include 'snippets/update/db/db_backup_warning.md' %]]
+
 The main schema has changed and the provided SQL file `ibexa-4.6.latest-to-5.0.0.sql` updates it:
 
 === "MySQL"
@@ -693,7 +695,6 @@ The output as an `alias` column with new identifiers and a `legacy_alias` column
     | ezurl                           | ibexa_url                       |
     | ezuser                          | ibexa_user                      |
 
-```suggestion
 You may have to update them in several places, for example:
 
 - Update the field identifiers in templates to display or edit fields or their definition. For example, in a `@IbexaCore/content_fields.html.twig` extension, `{% block ezstring_field %)` must be changed for `{% block ibexa_string_field %}`
@@ -702,9 +703,13 @@ You may have to update them in several places, for example:
 #### Update icons
 
 The provided built-it icon set has been changed.
+
 The `ibexa/rector` JavaScript Transform module's plugin `ibexa-rename-icons.js` refactors the icon usage in JavaScript files.
 You may have to update them in other contexts, for example, in configuration files associating icons to content types or Page Builder blocks.
 
+The icon library file's path changed from `/bundles/ibexaicons/img/all-icons.svg` to `/bundles/ibexaadminuiassets/vendors/ids-assets/dist/img/all-icons.svg`
+
+Some icons have been renamed.
 You can find an [`ibexa-rename-icons` map in `vendor/ibexa/rector/js/rules.config.json` (`"old-name": "new-name"`)](https://github.com/ibexa/rector/blob/v5.0.0/js/rules.config.json#L63).
 
 ??? note "Icons renaming map"
@@ -963,3 +968,25 @@ The following example illustrates the update of a custom page block's icon:
 -             thumbnail: /bundles/ibexaicons/img/all-icons.svg#about
 +             thumbnail: /bundles/ibexaadminuiassets/vendors/ids-assets/dist/img/all-icons.svg#info-square
 ```
+
+### Finalising
+
+#### HTTP Cache
+
+Use the newer VCL files.
+Depending on your reverse proxy, you'll find them in the following directories:
+
+- Varnish: `vendor/ibexa/http-cache/docs/varnish/vcl/`
+- Fastly: `vendor/ibexa/fastly/fastly/`
+
+#### Ibexa Cloud
+
+Generate the Ibexa Cloud Platform.sh configuration files, review the changes with your own version, and merge your customizations.
+
+```bash
+composer ibexa:setup --platformsh
+```
+
+#### Conclusion
+
+Your project is now running the latest major version of Ibexa DXP.
