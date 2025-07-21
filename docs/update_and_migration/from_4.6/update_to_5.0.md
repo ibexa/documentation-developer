@@ -197,7 +197,7 @@ composer remove --no-update \
     ibexa/connector-ai \
     ibexa/connector-openai \
     ibexa/product-catalog-date-time-attribute \
-    ibexa/product-catalog-symbol-attribute/
+    ibexa/product-catalog-symbol-attribute \
     ibexa/discounts \
     ibexa/discounts-codes \
 ;
@@ -427,6 +427,35 @@ Features which were optional 4.6 LTS Updates are now part of 5.0.0.
     ```bash
     php bin/console ibexa:doctrine:schema:dump-sql vendor/ibexa/connector-ai/src/bundle/Resources/config/schema.yaml | psql <database_name>
     ```
+
+#### Install date and time attribute type
+
+=== "MySQL"
+
+    ```bash
+    php bin/console ibexa:doctrine:schema:dump-sql vendor/ibexa/product-catalog-date-time-attribute/src/bundle/Resources/config/schema.yaml | mysql -u <username> -p <password> <database_name>
+    ```
+
+=== "PostgreSQL"
+
+    ```bash
+    php bin/console ibexa:doctrine:schema:dump-sql vendor/ibexa/product-catalog-date-time-attribute/src/bundle/Resources/config/schema.yaml | psql <database_name>
+    ```
+
+#### Install symbol attribute type
+
+=== "MySQL"
+
+    ```bash
+    php bin/console ibexa:doctrine:schema:dump-sql vendor/ibexa/product-catalog-symbol-attribute/src/bundle/Resources/config/schema.yaml | mysql -u <username> -p <password> <database_name>
+    ```
+
+=== "PostgreSQL"
+
+    ```bash
+    php bin/console ibexa:doctrine:schema:dump-sql vendor/ibexa/product-catalog-symbol-attribute/src/bundle/Resources/config/schema.yaml | psql <database_name>
+    ```
+
 
 #### Install collaboration
 
