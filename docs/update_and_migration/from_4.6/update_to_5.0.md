@@ -311,6 +311,7 @@ If you have custom code directly querying those, you will need to update them.
 You can track the renaming in the `ibexa-4.6.latest-to-5.0.0.sql` file or below.
 
 ??? note "Tables and columns renaming map"
+
     | Old name                                              | New name                                                                |
     |:------------------------------------------------------|:------------------------------------------------------------------------|
     | ezbinaryfile                                          | ibexa_binary_file                                                       |
@@ -617,6 +618,7 @@ Some icons have been renamed.
 You can find an [`ibexa-rename-icons` map in `vendor/ibexa/rector/js/rules.config.json` (`"old-name": "new-name"`)](https://github.com/ibexa/rector/blob/v5.0.0/js/rules.config.json#L63).
 
 ??? note "Icons renaming map"
+
     | Old name                | New name                     |
     |:------------------------|:-----------------------------|
     | about-info              | help                         |
@@ -881,7 +883,7 @@ Features which were optional 4.6 LTS Updates are now part of 5.0.0.
 * If you haven't installed the feature, you need to add its schema to your database.
 * If you mistakenly reinstall a schema, you might encounter "Table already exists" errors which can be ignored.
 
-!!! note
+!!! tip
 
     Instead of piping the command to the DB client,
     you can redirect the SQL output into a file
