@@ -21,7 +21,7 @@ This filter transforms the discount type (`fixed_amount` or `percentage`) into a
 
 <span class="ibexa-icon-tag">
     <svg class="ibexa-icon ibexa-icon--small">
-        <use xlink:href="{{ ibexa_icon_path('discount-coupon') }}"></use>
+        <use xlink:href="{{ ibexa_icon_path('discount-ticket') }}"></use>
     </svg>
     {{ rule_type|ibexa_render_discount_rule_type }}
 </span>
