@@ -227,6 +227,8 @@ rm assets/bootstrap.js
 composer recipes:install symfony/webpack-encore-bundle --reset --force --yes
 ```
 
+Compare with your previous version, and merge and test customization if needed.
+
 #### Apply [[= product_name =]] recipe
 
 === "[[= product_name_headless =]]"
