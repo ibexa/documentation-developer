@@ -414,6 +414,12 @@ Features which were optional 4.6 LTS Updates are now part of 5.0.0.
 * If you haven't installed the feature, you need to add its schema to your database.
 * If you mistakenly reinstall a schema, you might encounter "Table already exists" errors which can be ignored.
 
+!!! note
+
+    Instead of piping the command to the DB client,
+    you can redirect the SQL output into a file
+    to study it or help its sharing and deployment.
+
 #### Install AI actions schema
 
 === "MySQL"
