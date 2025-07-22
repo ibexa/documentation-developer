@@ -11,7 +11,7 @@ class GreetingInputDenormalizer implements DenormalizerInterface, DenormalizerAw
 {
     use DenormalizerAwareTrait;
 
-    public function denormalize(mixed $data, string $type, ?string $format = null, array $context = [])
+    public function denormalize(mixed $data, string $type, ?string $format = null, array $context = []): mixed
     {
         if ('json' === $format) {
             $data = $data[array_key_first($data)];
