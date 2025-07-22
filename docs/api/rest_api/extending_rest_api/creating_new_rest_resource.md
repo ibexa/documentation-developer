@@ -51,17 +51,17 @@ services:
 [[= include_file('code_samples/api/rest_api/config/services.yaml', 36, 42) =]]
 ```
 
-Having the REST controllers set as services enables using features such as
+The [`controller.service_arguments` tag]([[= symfony_doc =]]/controller/service.html#using-the-controller-service-arguments-service-tag) declares the controller as a service receiving injections.
+It helps the autowiring of the serializer in the constructor.
 
-- TODO: `controller.service_arguments`??
-- TODO: `ibexa.api_platform.resource` tag is needed to have the route available in live doc (/api/ibexa/v2/doc#/App/api_greet_get)
+The `ibexa.api_platform.resource` tag declares the service as an API Platform resource.
 
 ### Controller action
 
 A REST controller should:
 
-- return an object (passed automatically to a normaliser) or a `Response` (to customize it further)
-- TODO: extend `Ibexa\Rest\Server\Controller` to inherit utils methods and properties like `InputDispatcher` or `RequestParser`
+- return an object (passed automatically to a normalizer) or a `Response` (to customize it further)
+- extend `Ibexa\Rest\Server\Controller` to inherit useful methods and properties like `InputDispatcher` or `RequestParser`
 
 ``` php
 [[= include_file('code_samples/api/rest_api/src/Rest/Controller/DefaultController.php', 0, 14) =]]
@@ -69,19 +69,19 @@ A REST controller should:
 ```
 
 <details>
-<summary>TODO</summary>
-
-If the returned value was depending on a location, it could have been wrapped in a `CachedValue` to be cached by the reverse proxy (like Varnish) for future calls.
-
-`CachedValue` is used in the following way:
-
-```php
-return new CachedValue(
-    new MyValue($args…),
-    ['locationId'=> $locationId]
-);
-```
-
+    <summary>HTTP Cache</summary>
+    
+    If the returned value was depending on a location, it could have been wrapped in a <code>CachedValue</code>
+    to be cached by the reverse proxy (like Varnish or Fastly) for future calls.
+    
+    <code>CachedValue</code> is used as following:
+    
+    ``` php
+    return new CachedValue(
+        new MyValue($args…),
+        ['locationId'=> $locationId]
+    );
+    ```
 </details>
 
 ## Value and Normalizer
@@ -162,18 +162,16 @@ Content-Type: application/vnd.ibexa.api.greeting+json
 
 ## Describe resource in OpenAPI schema
 
-TODO
+Thanks to API Platform, you can document the OpenAPI resource directly from its controller through annotations.
+The resource is added to the OpenAPI Description dumped with `ibexa:openapi` command.
+In `dev` mode, the resource appears in the live documentation at `<dev-domain>/api/ibexa/v2/doc#/App/api_greet_get`.
 
-```php
-[[= include_file('code_samples/api/rest_api/src/Rest/Controller/DefaultController.php', 0, 246) =]]
+``` php hl_lines="5 6 16 100"
+[[= include_file('code_samples/api/rest_api/src/Rest/Controller/DefaultController.php', 0, 247) =]]
+//…
 ```
 
-<details>
-<summary>
-
 ## Registering resources in REST root
-
-</summary>
 
 You can add the new resource to the [root resource](rest_api_usage.md#rest-root) through a configuration with the following pattern:
 
@@ -192,7 +190,7 @@ The parameter values can be a real value or a placeholder.
 For example, `'router.generate("ibexa.rest.load_location", {locationPath: "1/2"})'` results in `/api/ibexa/v2/content/locations/1/2` while `'router.generate("ibexa.rest.load_location", {locationPath: "{locationPath}"})'` gives `/api/ibexa/v2/content/locations/{locationPath}`.
 This syntax is based on Symfony's [expression language]([[= symfony_doc =]]/components/expression_language/index.html), an extensible component that allows limited/readable scripting to be used outside the code context.
 
-In this example, `app.rest.greeting` is available in every SiteAccess (`default`):
+In the following example, `app.rest.greeting` is available in every SiteAccess (`default`):
 
 ```yaml
 ibexa_rest:
@@ -204,12 +202,12 @@ ibexa_rest:
                     href: 'router.generate("app.rest.greeting")'
 ```
 
-You can place this configuration in any regular config file, like the existing `config/packages/ibexa.yaml`, or a new `config/packages/ibexa_rest.yaml` file.
+You can place this configuration in any regular config file,
+like the existing `config/packages/ibexa.yaml`,
+or a new `config/packages/ibexa_rest.yaml` file.
 
-The above example adds the following entry to the root XML output:
+This example adds the following entry to the root XML output:
 
 ```xml
 <greeting media-type="application/vnd.ibexa.api.Greeting+xml" href="/api/ibexa/v2/greet"/>
 ```
-
-</details>
