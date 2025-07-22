@@ -144,6 +144,11 @@ Several field type identifiers have changed.
 
 ## PHP API classes and methods
 
+!!! note "[[= product_name_base =]] Rector"
+
+    [[[= product_name_base =]] Rector package](https://github.com/ibexa/rector) has been introduced that is based on [Rector](https://github.com/rectorphp) and comes with additional rules for working with Ibexa code.
+    You can use it to get rid of PHP code deprecations.
+
 ### `ibexa/admin-ui`
 
 | Old FQN                                              | New FQN / Comment                                                                |
