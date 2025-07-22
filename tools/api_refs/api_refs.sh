@@ -63,6 +63,7 @@ if [ 0 -eq $DXP_ALREADY_EXISTS ]; then
       cp $AUTH_JSON ./;
     fi;
     composer config repositories.ibexa composer https://updates.ibexa.co;
+    composer config extra.symfony.endpoint "https://api.github.com/repos/ibexa/recipes-dev/contents/index.json?ref=flex/main";
     composer require ibexa/$DXP_EDITION:$DXP_VERSION --no-interaction --update-with-all-dependencies --no-install --ignore-platform-reqs --no-scripts;
   elif [[ "$DXP_VERSION" == *"-rc"* ]]; then
     composer create-project ibexa/website-skeleton:$DXP_VERSION . --no-interaction --ignore-platform-reqs --no-scripts --stability=rc;
