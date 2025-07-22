@@ -35,7 +35,14 @@ class GreetingInputDenormalizer implements DenormalizerInterface, DenormalizerAw
         }
         $data = array_change_key_case($data);
 
-        return Greeting::class === $type &&
+        return in_array($type, $this->getSupportedTypes($format), true) &&
             (array_key_exists('salutation', $data) || array_key_exists('recipient', $data));
+    }
+
+    public function getSupportedTypes(?string $format): array
+    {
+        return [
+            Greeting::class => true,
+        ];
     }
 }
