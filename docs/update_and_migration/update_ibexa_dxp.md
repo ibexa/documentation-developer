@@ -32,7 +32,7 @@ To update [[= product_name =]] to a newer version, select the version you're cur
 === "I am using v4.x"
 
     - If you have a v4.x installation prior to v4.6, [update to the v4.6 LTS](from_4.5/update_from_4.5.md).
-    - If you have a v4.6 installation, (update to the latest patch v[[= latest_tag_4_6 =]])(from_4.6/update_from_4.6.md).
+    - If you have a v4.6 installation, [update to the latest patch v[[= latest_tag_4_6 =]]](from_4.6/update_from_4.6.md).
 
     Afterwards, it's strongly recommended to also [update to the lastest v5.0 LTS](from_4.6/update_to_5.0.md).
 

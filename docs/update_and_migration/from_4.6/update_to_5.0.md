@@ -29,7 +29,7 @@ It's important to stop using deprecated PHP classes as they're removed in 5.0.
 
 The [`ibexa/compatibility-layer`](to_4.0.md#add-compatibility-layer-package) isn't supported in 5.0.
 If you use it, remove it (`composer remove ibexa/compatibility-layer`) and make the necessary changes.
-See [Ibexa DXP v4.0 deprecations and backwards compatibility breaks](ibexa_dxp_v4.0_deprecations.md) for some of the changes it was avoiding.
+See [Ibexa DXP v4.0 deprecations and backwards compatibility breaks](ibexa_dxp_v4.0_deprecations.md) for the list of changes.
 
 [Rector](https://getrector.com/) and the [[= product_name_base =]] rule sets help to upgrade your code.
 
@@ -105,7 +105,7 @@ rm -r config/graphql
 #### Update package requirements
 
 [[= product_name =]] 5.0 is based on Symfony 7.3 and both must be updated.
-Your development package must be updated as well.
+Your development packages must be updated as well.
 The example below assumes that [`symfony/debug-pack`](https://symfony.com/packages/Debug%20Pack) and `ibexa/rector` are installed.
 Adjust the list based on your project requirements.
 Notice the use of the `--no-update` option to only edit the `composer.json` entries and avoid triggering the package update and Composer scripts.
@@ -231,7 +231,7 @@ rm assets/bootstrap.js
 composer recipes:install symfony/webpack-encore-bundle --reset --force --yes
 ```
 
-Compare with your previous version, and merge and test customization if needed.
+Compare with your previous version, merge them together and test your customizations if needed.
 
 #### Apply [[= product_name =]] recipe
 
@@ -865,7 +865,7 @@ You can find an [`ibexa-rename-icons` map in `vendor/ibexa/rector/js/rules.confi
 
 The following example illustrates the update of a custom page block's icon:
 
-```diff+yaml
+```diff
   ibexa_fieldtype_page:
       blocks:
           event:
@@ -881,7 +881,7 @@ Features which were optional 4.6 LTS Updates are now part of 5.0.0.
 
 * If you have already installed the feature, its schema has been updated by the previous step.
 * If you haven't installed the feature, you need to add its schema to your database.
-  Store the SQL of the schema into a file, review it, then run it.
+  Store the SQL of the schema into a file, **review it carefully**, then run it.
 * If you mistakenly reinstall a schema, you might encounter "Table already exists" errors which can be ignored.
 
 #### Install AI actions schema
@@ -890,7 +890,7 @@ Features which were optional 4.6 LTS Updates are now part of 5.0.0.
 
     ```bash
     php bin/console ibexa:doctrine:schema:dump-sql vendor/ibexa/connector-ai/src/bundle/Resources/config/schema.yaml > schema_connector-ai.sql
-    # schema_connector-ai.sql review
+    # Pause to review schema_connector-ai.sql
     mysql -u <username> -p <password> <database_name> < schema_connector-ai.sql
     ```
 
@@ -1031,7 +1031,7 @@ Ensure your search index is up to date with the following command:
 php bin/console ibexa:reindex
 ```
 
-### Finalising
+### Finalizing
 
 #### Clear cache and rebuild
 
