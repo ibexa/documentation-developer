@@ -15,7 +15,7 @@ month_change: true
 
 ### Notable changes
 
-This version incorporates into the product numerous features brought by [LTS Updates] from previous versions, brings upgrades to the tech stack and improvements to developer experience.
+This version incorporates into the product numerous features brought by LTS Updates from previous versions, brings upgrades to the tech stack and improvements to developer experience.
 
 #### AI Actions
 
