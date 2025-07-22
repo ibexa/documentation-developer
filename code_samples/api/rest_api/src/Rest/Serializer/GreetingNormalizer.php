@@ -11,7 +11,7 @@ class GreetingNormalizer implements NormalizerInterface, NormalizerAwareInterfac
 {
     use NormalizerAwareTrait;
 
-    public function supportsNormalization(mixed $data, ?string $format = null)
+    public function supportsNormalization(mixed $data, ?string $format = null, array $context = []): bool
     {
         return $data instanceof Greeting;
     }
