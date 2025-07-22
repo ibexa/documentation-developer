@@ -11,7 +11,7 @@ month_change: true
 <div class="release-notes" markdown="1">
 
 [[% set version = 'v5.0.0' %]]
-[[= release_note_entry_begin("Ibexa DXP " + version, '2024-07-21', ['Headless', 'Experience', 'Commerce', 'New feature']) =]]
+[[= release_note_entry_begin("Ibexa DXP " + version, '2025-07-22', ['Headless', 'Experience', 'Commerce', 'New feature']) =]]
 
 ### Notable changes
 
@@ -117,10 +117,10 @@ The following packages have been introduced in [[= product_name =]] v5.0.0:
 [[= product_name =]] v5.0.0 adds REST API coverage for the following features:
 
 - AI Actions:
-    - [Action Configurations](../api/rest_api/rest_api_reference/rest_api_reference.html#ai-actions-list-action-configurations)
-    - [Action Types](../api/rest_api/rest_api_reference/rest_api_reference.html#ai-actions-list-action-types)
-- [Discounts](/api/rest_api/rest_api_reference/rest_api_reference.html#discounts)
-- [Collaboration](/api/rest_api/rest_api_reference/rest_api_reference.html#collaboration)
+    - Action Configurations
+    - Action Types
+- Discounts
+- Collaboration
 
 #### PHP API
 
@@ -257,9 +257,9 @@ The following search criteria have been added in the v5.0 release:
 
 ??? note "PIM Attributes"
 
-[Ibexa\Contracts\ProductCatalogDateTimeAttribute\Search\Criterion\DateTimeAttribute](../api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalogDateTimeAttribute-Search-Criterion-DateTimeAttribute.html)
-[Ibexa\Contracts\ProductCatalogDateTimeAttribute\Search\Criterion\DateTimeAttributeRange](../api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalogDateTimeAttribute-Search-Criterion-DateTimeAttributeRange.html)
-[Ibexa\Contracts\ProductCatalogSymbolAttribute\Search\Criterion\SymbolAttribute](../api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalogSymbolAttribute-Search-Criterion-SymbolAttribute.html)
+    - [`Ibexa\Contracts\ProductCatalogDateTimeAttribute\Search\Criterion\DateTimeAttribute`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalogDateTimeAttribute-Search-Criterion-DateTimeAttribute.html)
+    - [`Ibexa\Contracts\ProductCatalogDateTimeAttribute\Search\Criterion\DateTimeAttributeRange`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalogDateTimeAttribute-Search-Criterion-DateTimeAttributeRange.html)
+    - [`Ibexa\Contracts\ProductCatalogSymbolAttribute\Search\Criterion\SymbolAttribute`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalogSymbolAttribute-Search-Criterion-SymbolAttribute.html)
 
 #### Sort Clauses
 
