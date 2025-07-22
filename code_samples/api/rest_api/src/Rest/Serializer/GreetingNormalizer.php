@@ -17,7 +17,7 @@ class GreetingNormalizer implements NormalizerInterface, NormalizerAwareInterfac
     }
 
     /** @param \App\Rest\Values\Greeting $object */
-    public function normalize(mixed $object, ?string $format = null, array $context = []): mixed
+    public function normalize(mixed $object, ?string $format = null, array $context = []): array|\ArrayObject|bool|float|int|null|string
     {
         $data = [
             'Salutation' => $object->salutation,
