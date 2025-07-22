@@ -2,7 +2,7 @@ ibexa:
     system:
         admin_group:
             fieldtypes:
-                ezrichtext:
+                ibexa_richtext:
                     custom_tags: [acronym]
                     toolbar:
                         custom_tags_group:
@@ -12,7 +12,7 @@ ibexa:
 ibexa_fieldtype_richtext:
     custom_tags:
         acronym:
-            template: '@ibexadesign/field_type/ezrichtext/custom_tags/acronym.html.twig'
+            template: '@ibexadesign/field_type/ibexa_richtext/custom_tags/acronym.html.twig'
             icon: '/bundles/ibexaicons/img/all-icons.svg#edit'
             is_inline: true
             attributes:

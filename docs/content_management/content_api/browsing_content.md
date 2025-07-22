@@ -228,6 +228,6 @@ $nameComparison = $this->comparisonService->compare($versionFrom, $versionTo)->g
 ```
 
 `getComparisonResult` returns a `ComparisonResult` object, which depends on the field type being compared.
-In the example of a Text Line (ezstring) field, it's an array of `StringDiff` objects.
+In the example of a Text Line (ibexa_string) field, it's an array of `StringDiff` objects.
 
 Each diff contains a section of the field to compare (for example, a part of a text line) and its status, which can be "unchanged", "added" or "removed".

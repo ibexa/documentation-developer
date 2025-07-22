@@ -15,7 +15,7 @@ The [ObjectStateTermAggregation](/api/php_api/php_api_reference/classes/Ibexa-Co
 
 ``` php
 $query = new Query();
-$query->aggregations[] = new Aggregation\Location\ObjectStateTermAggregation('object_state', 'ez_lock');
+$query->aggregations[] = new Aggregation\Location\ObjectStateTermAggregation('object_state', 'ibexa_lock');
 ```
 
 [[= include_file('docs/snippets/search_term_aggregation_settings.md') =]]

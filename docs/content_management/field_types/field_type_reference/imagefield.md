@@ -146,7 +146,7 @@ Requested through REST, this resource generates the variation if it doesn't exis
 
 #### Getting an image variation
 
-The variation service, `ibexa.field_type.ezimage.variation_service`, can be used to generate/get variations for a field.
+The variation service, `ibexa.field_type.ibexa_image.variation_service`, can be used to generate/get variations for a field.
 It expects a VersionInfo, the Image field, and the variation name as a string (`large`, `medium`, and more.):
 
 ``` php

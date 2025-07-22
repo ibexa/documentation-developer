@@ -51,7 +51,7 @@ class ObjectStateCommand extends Command
         $user = $this->userService->loadUserByLogin('admin');
         $this->permissionResolver->setCurrentUserReference($user);
 
-        $objectStateGroup = $this->objectStateService->loadObjectStateGroupByIdentifier('ez_lock');
+        $objectStateGroup = $this->objectStateService->loadObjectStateGroupByIdentifier('ibexa_lock');
         $objectState = $this->objectStateService->loadObjectStateByIdentifier($objectStateGroup, 'locked');
 
         $output->writeln($objectStateGroup->getName());

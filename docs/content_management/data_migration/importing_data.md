@@ -172,14 +172,7 @@ Built-in expression language functions that are tagged with `ibexa.migrations.te
 - `env` - retrieves the value of an environmental variable.
 
 ```yaml
-                -
-                    type: user
-                    mode: update
-                    match:
-                        field: login
-                        value: admin
-                    metadata:
-                        password: '###XXX env("ADMIN_PASSWORD") XXX###'
+[[= include_file('code_samples/data_migration/examples/update_user.yaml') =]]
 ```
 
 #### Custom functions
@@ -238,7 +231,7 @@ When creating a content item, three metadata keys are required: `contentType`, `
 To use the location ID of the folder, which is created automatically by the system, you can use a [reference](managing_migrations.md#references).
 In this case you assign the `parent_folder_location_id` reference name to the location ID, and then use it when creating the article.
 
-``` yaml hl_lines="15 24"
+``` yaml hl_lines="15 25"
 [[= include_file('code_samples/data_migration/examples/create_parent_and_child_content.yaml') =]]
 ```
 
@@ -317,6 +310,12 @@ You can use an [action](data_migration_actions.md) to assign a role to the user.
 
 ``` yaml hl_lines="22-23"
 [[= include_file('code_samples/data_migration/examples/create_user.yaml') =]]
+```
+
+You can also update user information, including passwords:
+
+``` yaml
+[[= include_file('code_samples/data_migration/examples/update_user.yaml') =]]
 ```
 
 ### Languages

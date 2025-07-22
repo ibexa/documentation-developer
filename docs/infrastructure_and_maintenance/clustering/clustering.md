@@ -77,7 +77,7 @@ As metadata handler, create a DFS one, configured with a Doctrine connection.
 
 First, define DFS folder path as a variable in `.env` file:
 
-`DFS_NFS_PATH=/tmp/ibx_1439_nfs`
+`DFS_NFS_PATH=<absolute_directory_path>`
 
 Next, if you're using a separate DFS database, configure it via the `DATABASE_URL` variable in the `.env` file.
 Depending on which database you're using:
@@ -86,14 +86,14 @@ Depending on which database you're using:
 
 or
 
-`DATABASE_URL=postgresql://root:rootpassword@127.0.0.1:3306/ibexa_dfs?serverVersion=8.0`
+`DATABASE_URL=postgresql://root:rootpassword@127.0.0.1:5432/ibexa_dfs?serverVersion=14.18`
 
 For production, it's recommended to create the DFS table in its own database, manually importing its schema definition:
 
 !!! note "dfs_schema.sql (MySQL)"
 
     ``` sql
-        CREATE TABLE ezdfsfile (
+        CREATE TABLE ibexa_dfs_file (
           name text NOT NULL,
           name_trunk text NOT NULL,
           name_hash varchar(34) NOT NULL DEFAULT '',
@@ -104,17 +104,17 @@ For production, it's recommended to create the DFS table in its own database, ma
           expired tinyint(1) NOT NULL DEFAULT '0',
           status tinyint(1) NOT NULL DEFAULT '0',
           PRIMARY KEY (name_hash),
-          KEY ezdfsfile_name (name (191)),
-          KEY ezdfsfile_name_trunk (name_trunk (191)),
-          KEY ezdfsfile_mtime (mtime),
-          KEY ezdfsfile_expired_name (expired,name (191))
+          KEY ibexa_dfs_file_name (name (191)),
+          KEY ibexa_dfs_file_name_trunk (name_trunk (191)),
+          KEY ibexa_dfs_file_mtime (mtime),
+          KEY ibexa_dfs_file_expired_name (expired,name (191))
         ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
     ```
 
 !!! note "dfs_schema.sql (PostgreSQL)"
 
     ``` sql
-    CREATE TABLE ezdfsfile (
+    CREATE TABLE ibexa_dfs_file (
       name_hash varchar(34) DEFAULT '' NOT NULL,
       name text NOT NULL,
       name_trunk text NOT NULL,
@@ -126,13 +126,13 @@ For production, it's recommended to create the DFS table in its own database, ma
       status boolean DEFAULT false NOT NULL
     );
 
-    ALTER TABLE ONLY ezdfsfile
-      ADD CONSTRAINT ezdfsfile_pkey PRIMARY KEY (name_hash);
+    ALTER TABLE ONLY ibexa_dfs_file
+      ADD CONSTRAINT ibexa_dfs_file_pkey PRIMARY KEY (name_hash);
 
-    CREATE INDEX ezdfsfile_expired_name ON ezdfsfile USING btree (expired, name);
-    CREATE INDEX ezdfsfile_mtime ON ezdfsfile USING btree (mtime);
-    CREATE INDEX ezdfsfile_name ON ezdfsfile USING btree (name);
-    CREATE INDEX ezdfsfile_name_trunk ON ezdfsfile USING btree (name_trunk);
+    CREATE INDEX ibexa_dfs_file_expired_name ON ibexa_dfs_file USING btree (expired, name);
+    CREATE INDEX ibexa_dfs_file_mtime ON ibexa_dfs_file USING btree (mtime);
+    CREATE INDEX ibexa_dfs_file_name ON ibexa_dfs_file USING btree (name);
+    CREATE INDEX ibexa_dfs_file_name_trunk ON ibexa_dfs_file USING btree (name_trunk);
     ```
 
 !!! note
@@ -248,7 +248,7 @@ Place this before the standard image rewrite rule in your vhost config (or uncom
 rewrite "^/var/([^/]+/)?storage/images(-versioned)?/(.*)" "/index.php" break;
 ```
 
-Place this before the include of `ez_params.d`/`ez_rewrite_params` in your vhost config (or uncomment if already there).
+Place this before the include of `ibexa_params.d`/`ibexa_rewrite_params` in your vhost config (or uncomment if already there).
 
 ## Migrating to a cluster setup
 

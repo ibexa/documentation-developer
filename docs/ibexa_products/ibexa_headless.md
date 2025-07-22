@@ -142,6 +142,7 @@ Several features help end users collaborate on the content, such as:
 - [[= product_name_headless =]]'s content tree has several actions available directly on its items. For example, no need to open a content to hide it, you can do it directly from the content tree.
 - An Image Editor offers to crop and flip images. When serving the image in various context, you can even set a focal point to indicate to automated cropping which part of the image should be kept.
 - A Digital Asset Management (DAM) helps you crawl through your image resources to use and reuse them in your content. And a DAM connector allows you to search for images hosted on third party DAM servers.
+- [AI Actions](ai_actions_guide.md) help you automate time-consuming editorial tasks.
 
 #### Network integration
 

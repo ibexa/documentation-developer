@@ -77,7 +77,7 @@ To use `ResourceOwnerToExistingOrNewUserMapper`, you need to extend it in your c
 
     To avoid issues with password restrictions in the built-in user content type, create a special content type (for example, "OAuth user"), without restrictions on the password.
 
-    This new content type must also contain the user (`ezuser`) field.
+    This new content type must also contain the user (`ibexa_user`) field.
 
 The following example shows how to create a Resource Owner mapper for the `google` client from previous examples.
 
