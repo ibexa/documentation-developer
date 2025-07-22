@@ -10,7 +10,7 @@ The service should be [injected into the constructor of your command or controll
 
 !!! tip "Content REST API"
 
-    To learn how to load content items using the REST API, see [REST API reference](../../api/rest_api/rest_api_reference/rest_api_reference.html#managing-content-load-content).
+    To learn how to load content items using the REST API, see [REST API reference](/api/rest_api/rest_api_reference/rest_api_reference.html#tag/Objects/operation/api_contentobjects_contentId_get).
 
 !!! tip "Console commands"
 
@@ -229,6 +229,6 @@ $nameComparison = $this->comparisonService->compare($versionFrom, $versionTo)->g
 ```
 
 `getComparisonResult` returns a `ComparisonResult` object, which depends on the field type being compared.
-In the example of a Text Line (ezstring) field, it's an array of `StringDiff` objects.
+In the example of a Text Line (ibexa_string) field, it's an array of `StringDiff` objects.
 
 Each diff contains a section of the field to compare (for example, a part of a text line) and its status, which can be "unchanged", "added" or "removed".

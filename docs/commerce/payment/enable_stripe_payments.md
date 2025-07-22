@@ -10,9 +10,11 @@ By using Payum to integrate Stripe into your application, you can securely proce
 
 Before you can proceed with integrating Stripe, [sign up for a Stripe account](https://dashboard.stripe.com/register) and obtain the API keys required for integration.
 
-Install the Stripe package:
+Install the Stripe package and the required dependencies:
 
-`composer require payum/stripe php-http/guzzle7-adapter`
+```bash
+composer require payum/stripe php-http/guzzle7-adapter php-http/message php-http/message-factory
+```
 
 Then, add the following configuration to your YAML configuration file (`payum.yaml` or similar):
 

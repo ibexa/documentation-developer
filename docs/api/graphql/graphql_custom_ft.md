@@ -30,7 +30,7 @@ If your field definition doesn't require additional clarifications, you can map 
 
 To map a custom field type with configuration use a compiler pass to modify a container parameter, `ibexa.graphql.schema.content.mapping.field_definition_type`.
 
-It's a hash that maps a field type identifier (`ezstring`) to the following entries:
+It's a hash that maps a field type identifier (`ibexa_string`) to the following entries:
 
 - `value_type` - the GraphQL type values of the custom field. It can be a native type (string, int), or a custom type. If none is specified, string is used.
 - `value_resolver` - how values of this field are resolved and passed to the defined value type.
@@ -145,7 +145,7 @@ The cardinality (single or collection) depends on the selection limit setting:
 #### Field input mapping
 
 The `mapToFieldValueInputType` method is used to document what input type is expected by field types that require a more complex input value.
-For example, `ezmatrix` generates its own input types depending on the configured columns.
+For example, `ibexa_matrix` generates its own input types depending on the configured columns.
 
 Example of a `MyCustomFieldDefinitionMapper` mapper for a complex field type:
 

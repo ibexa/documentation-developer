@@ -23,7 +23,7 @@ Most often this is the case if you have a custom field type using external stora
 
 !!! note
 
-    Legacy (SQL-based) search can also be used in `ezkeyword` external storage.
+    Legacy (SQL-based) search can also be used in `ibexa_keyword` external storage.
 
 In such cases you can implement a custom Criterion or Sort Clause, together with the corresponding handlers for the storage engine you're using.
 

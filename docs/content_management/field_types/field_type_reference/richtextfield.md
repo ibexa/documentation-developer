@@ -2,11 +2,11 @@
 
 The RichText field type is available via the RichText field type Bundle provided by the [ibexa/fieldtype-richtext](https://github.com/ibexa/fieldtype-richtext) package.
 
-This field type validates and stores structured rich text, and exposes it in several formats.
+This field type validates and stores structured rich text in [DocBook](https://docbook.org/) XML format, and exposes it in several formats.
 
-|Name|Internal name|Expected input|
-|------|------|------|
-|`RichText`|`ezrichtext`|mixed|
+| Name       | Internal name    | Expected input |
+|------------|------------------|----------------|
+| `RichText` | `ibexa_richtext` | mixed          |
 
 ## PHP API field type
 
@@ -14,17 +14,17 @@ This field type validates and stores structured rich text, and exposes it in sev
 
 `Ibexa\FieldTypeRichText\FieldType\RichText\Value` offers the following properties:
 
-|Property|Type|Description|
-|------|------|------|
-|`xml`|`DOMDocument`|Internal format value as an instance of `DOMDocument`.|
+| Property | Type          | Description                                            |
+|----------|---------------|--------------------------------------------------------|
+| `xml`    | `DOMDocument` | Internal format value as an instance of `DOMDocument`. |
 
 ### Input expectations
 
-|Type|Description|
-|------|------|
-|`string`|XML document in one of the field type's input formats as a string.|
-|`DOMDocument`|XML document in one of the field type's input formats as a `DOMDocument` object.|
-|`Ibexa\FieldTypeRichText\FieldType\RichText\Value`|An instance of the field type's `Value` object.|
+| Type                                               | Description                                                                      |
+|----------------------------------------------------|----------------------------------------------------------------------------------|
+| `string`                                           | XML document in one of the field type's input formats as a string.               |
+| `DOMDocument`                                      | XML document in one of the field type's input formats as a `DOMDocument` object. |
+| `Ibexa\FieldTypeRichText\FieldType\RichText\Value` | An instance of the field type's `Value` object.                                  |
 
 ##### Input formats
 
@@ -39,12 +39,12 @@ As its internal format, the RichText field type uses a [custom flavor of the Doc
 ``` xml
 <?xml version="1.0" encoding="UTF-8"?>
 <section
-	xmlns="http://docbook.org/ns/docbook"
-	xmlns:xlink="http://www.w3.org/1999/xlink"
-	xmlns:ezxhtml="http://ibexa.co/xmlns/dxp/docbook/xhtml"
-	xmlns:ezcustom="http://ibexa.co/xmlns/dxp/docbook/custom" version="5.0-variant ezpublish-1.0">
-	<title ezxhtml:level="2">This is a title.</title>
-	<para>This is a paragraph.</para>
+    xmlns="http://docbook.org/ns/docbook"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    xmlns:ezxhtml="http://ibexa.co/xmlns/dxp/docbook/xhtml"
+    xmlns:ezcustom="http://ibexa.co/xmlns/dxp/docbook/custom" version="5.0-variant ezpublish-1.0">
+    <title ezxhtml:level="2">This is a title.</title>
+    <para>This is a paragraph.</para>
 </section>
 ```
 
@@ -285,4 +285,3 @@ Elements of the Online Editor correspond to the following sample DocBook code bl
     </ezconfig>
 </eztemplate>
 ```
-

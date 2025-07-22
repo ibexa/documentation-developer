@@ -1,6 +1,7 @@
 ---
 description: Policies are the main building block of the permissions system which lets you define the accesses for specific user roles.
 page_type: reference
+month_change: true
 ---
 
 # Policies
@@ -27,7 +28,7 @@ Each role you assign to user or user group consists of policies which define, wh
 
 | Module                       | Function           | Effect               | Possible Limitations                                                    |
 |------------------------------|--------------------|----------------------|-------------------------------------------------------------------------|
-| <nobr>`activity_log`</nobr> | <nobr>`read`</nobr> | access activity list | [ActivityLogOwner](limitation_reference.md#activitylogowner-limitation) |
+| <nobr>`activity_log`</nobr> | <nobr>`read`</nobr> | access activity list | [ActivityLogOwner](limitation_reference.md#activity-log-owner-limitation) |
 
 #### AI actions
 
@@ -103,10 +104,10 @@ Each role you assign to user or user group consists of policies which define, wh
 
 | Module              | Function              | Effect                                                              | Possible limitations                                      |
 |---------------------|-----------------------|---------------------------------------------------------------------|-----------------------------------------------------------|
-| <nobr>`cart`</nobr> | <nobr>`create`</nobr> | create a cart                                                       | [CartOwner](limitation_reference.md#cartowner-limitation) |
-|                     | <nobr>`delete`</nobr> | delete cart, for example, after successful checkout                 | [CartOwner](limitation_reference.md#cartowner-limitation) |
-|                     | <nobr>`edit`</nobr>   | change cart metadata (name, currency, owner), add/remove cart items | [CartOwner](limitation_reference.md#cartowner-limitation) |
-|                     | <nobr>`view`</nobr>   | view a cart                                                         | [CartOwner](limitation_reference.md#cartowner-limitation) |
+| <nobr>`cart`</nobr> | <nobr>`create`</nobr> | create a cart                                                       | [CartOwner](limitation_reference.md#cart-owner-limitation) |
+|                     | <nobr>`delete`</nobr> | delete cart, for example, after successful checkout                 | [CartOwner](limitation_reference.md#cart-owner-limitation) |
+|                     | <nobr>`edit`</nobr>   | change cart metadata (name, currency, owner), add/remove cart items | [CartOwner](limitation_reference.md#cart-owner-limitation) |
+|                     | <nobr>`view`</nobr>   | view a cart                                                         | [CartOwner](limitation_reference.md#cart-owner-limitation) |
 
 #### Checkout [[% include 'snippets/commerce_badge.md' %]]
 
@@ -123,6 +124,25 @@ Each role you assign to user or user group consists of policies which define, wh
 |-------------------------|-------------------------|-------------------|----------------------|
 | <nobr>`commerce`</nobr> | <nobr>`currency`</nobr> | manage currencies |
 |                         | <nobr>`region`</nobr>   | manage regions    |
+
+#### Discounts [[% include 'snippets/commerce_badge.md' %]]
+
+The discount policies decide which actions can be executed by given user or user group.
+
+!!! caution "Customers and discount policies"
+
+    Customers don't need any policies to use the discounts on the [storefront](storefront.md).
+    Even the `discount/view` policy would allow them to access all the discount details, including the coupon codes to activate them, which could lead to system abuse.
+
+
+| Module               | Function                 | Effect                      | Possible limitations                                         |
+|----------------------|--------------------------|-----------------------------|----------------------------------------------------|
+| <nobr>`discount`</nobr> | <nobr>`create`</nobr> | create a discount           | [DiscountOwner](limitation_reference.md#discount-owner-limitation) |
+|                      | <nobr>`update`</nobr>    | modify discount parameters           | [DiscountOwner](limitation_reference.md#discount-owner-limitation) |
+|                      | <nobr>`view`</nobr>      | view discounts (including its details)              | [DiscountOwner](limitation_reference.md#discount-owner-limitation) |
+|                      | <nobr>`delete`</nobr>    | delete a discount           | [DiscountOwner](limitation_reference.md#discount-owner-limitation) |
+|                      | <nobr>`enable`</nobr>    | enable a discount           | [DiscountOwner](limitation_reference.md#discount-owner-limitation) |
+|                      | <nobr>`disable`</nobr>   | disable a discount          | [DiscountOwner](limitation_reference.md#discount-owner-limitation) |
 
 #### Orders [[% include 'snippets/commerce_badge.md' %]]
 

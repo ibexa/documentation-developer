@@ -119,7 +119,7 @@ To add a new domain, add it in `command:` and under frontend and backend aliases
 ```yaml hl_lines="3 6 11"
 services:
   web:
-    command: /bin/bash -c "cd /var/www && cp -a doc/nginx/ez_params.d /etc/nginx && bin/vhost.sh --host-name=site.example.com --host-alias='admin.example.com test.example.com' --template-file=doc/nginx/vhost.template > /etc/nginx/conf.d/default.conf && nginx -g 'daemon off;'"
+    command: /bin/bash -c "cd /var/www && cp -a doc/nginx/ibexa_params.d /etc/nginx && bin/vhost.sh --host-name=site.example.com --host-alias='admin.example.com test.example.com' --template-file=doc/nginx/vhost.template > /etc/nginx/conf.d/default.conf && nginx -g 'daemon off;'"
     networks:
       frontend:
         aliases:

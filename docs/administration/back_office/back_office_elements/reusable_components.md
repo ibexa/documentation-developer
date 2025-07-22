@@ -37,7 +37,7 @@ The alert component has the following properties:
     title: 'Some title',
     subtitle: 'Some subtitle',
     show_subtitle_below: true,
-    icon_path: ibexa_icon_path('hide'),
+    icon_path: ibexa_icon_path('visibility-hidden'),
     class: 'mb-4',
 } only %}
 ```

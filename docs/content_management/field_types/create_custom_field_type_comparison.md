@@ -12,7 +12,7 @@ You can add the possibility to compare custom and other unsupported field types.
 !!! note
 
     The following task uses the [custom "Hello World" field type](create_custom_generic_field_type.md).
-    The configuration is based on the comparison mechanism created for the `ezstring` field type.
+    The configuration is based on the comparison mechanism created for the `ibexa_string` field type.
 
 ## Create Comparable class
 
