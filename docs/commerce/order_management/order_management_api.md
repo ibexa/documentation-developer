@@ -8,7 +8,7 @@ month_change: false
 
 !!! tip "Order management REST API"
 
-    To learn how to manage orders with the REST API, see the [REST API reference](../../api/rest_api/rest_api_reference/rest_api_reference.html#orders).
+    To learn how to manage orders with the REST API, see the [REST API reference](/api/rest_api/rest_api_reference/rest_api_reference.html#tag/Orders).
 
 To get orders and manage them, use the [`Ibexa\Contracts\OrderManagement\OrderServiceInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-OrderManagement-OrderServiceInterface.html) interface.
 

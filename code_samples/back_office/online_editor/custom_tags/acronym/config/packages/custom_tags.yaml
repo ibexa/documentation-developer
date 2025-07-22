@@ -13,7 +13,7 @@ ibexa_fieldtype_richtext:
     custom_tags:
         acronym:
             template: '@ibexadesign/field_type/ibexa_richtext/custom_tags/acronym.html.twig'
-            icon: '/bundles/ibexaicons/img/all-icons.svg#edit'
+            icon: '/bundles/ibexaadminuiassets/vendors/ids-assets/dist/img/all-icons.svg#edit'
             is_inline: true
             attributes:
                 explanation:

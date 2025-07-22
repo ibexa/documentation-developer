@@ -14,7 +14,7 @@ month_change: false
 
 !!! tip "Product REST API"
 
-    To learn how to load products using the REST API, see [REST API reference](../api/rest_api/rest_api_reference/rest_api_reference.html#product-catalog-create-product-type).
+    To learn how to load products using the REST API, see [REST API reference](/api/rest_api/rest_api_reference/rest_api_reference.html#tag/Product/operation/api_productcatalogproductsview_post).
 
 ### Getting product information
 

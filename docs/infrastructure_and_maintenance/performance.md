@@ -56,6 +56,12 @@ In production setups:
 
 - Review the [Symfony performance documentation]([[= symfony_doc =]]/performance.html) and apply matching suggestions, including OPCache configuration if enabled.
 
+### Frontend assets
+
+Deploy a [production build](https://webpack.js.org/guides/production/) of your assets to reduce their size and improve loading time.
+
+You can build them by running `yarn encore prod`, or by setting the environmental variable `NODE_ENV` to `production` in your production environment.
+
 ### Composer
 
 - Keep Composer up to date.
