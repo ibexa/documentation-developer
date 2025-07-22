@@ -92,6 +92,11 @@ For more information, see [REST API usage](https://doc.ibexa.co/en/latest/api/re
 
 Support for serialization and deserialization of REST payloads with the [Symfony Serializer](https://symfony.com/doc/current/serializer.html) component improves data reliability and simplifies debugging.
 
+#### React 19
+
+[[= product_name =]]'s Back Office now uses [React 19](https://react.dev/blog/2024/12/05/react-19).
+This upgrade enhances maintainability, unlocks new UI capabilities, and simplifies future feature development.
+
 ### Developer experience
 
 #### New packages 
@@ -218,6 +223,11 @@ The PHP API has been expanded with the following classes and interfaces:
     - [`Ibexa\Contracts\DiscountsCodes\Value\Struct\DiscountCodeCreateStruct `](../api/php_api/php_api_reference/classes/Ibexa-Contracts-DiscountsCodes-Value-Struct-DiscountCodeCreateStruct.html)
     - [`Ibexa\Contracts\DiscountsCodes\Value\StructDiscountCodeUpdateStruct `](../api/php_api/php_api_reference/classes/Ibexa-Contracts-DiscountsCodes-Value-Struct-DiscountCodeUpdateStruct.html)
 
+??? note "PIM Attributes"
+
+    - [`Ibexa\Contracts\ProductCatalogDateTimeAttribute`](../api/php_api/php_api_reference/namespaces/ibexa-contracts-productcatalogdatetimeattribute.html)
+    - [Ibexa\Contracts\ProductCatalogSymbolAttribute](../api/php_api/php_api_reference/namespaces/ibexa-contracts-productcatalogsymbolattribute.html)
+
 #### Search Criteria
 
 The following search criteria have been added in the v5.0 release:
@@ -244,6 +254,12 @@ The following search criteria have been added in the v5.0 release:
     - [`Ibexa\Contracts\Discounts\Value\Query\Criterion\PriorityCriterion`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Discounts-Value-Query-Criterion-PriorityCriterion.html)
     - [`Ibexa\Contracts\Discounts\Value\Query\Criterion\StartDateCriterion`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Discounts-Value-Query-Criterion-StartDateCriterion.html)
     - [`Ibexa\Contracts\Discounts\Value\Query\Criterion\TypeCriterion`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Discounts-Value-Query-Criterion-TypeCriterion.html)
+
+??? note "PIM Attributes"
+
+[Ibexa\Contracts\ProductCatalogDateTimeAttribute\Search\Criterion\DateTimeAttribute](../api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalogDateTimeAttribute-Search-Criterion-DateTimeAttribute.html)
+[Ibexa\Contracts\ProductCatalogDateTimeAttribute\Search\Criterion\DateTimeAttributeRange](../api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalogDateTimeAttribute-Search-Criterion-DateTimeAttributeRange.html)
+[Ibexa\Contracts\ProductCatalogSymbolAttribute\Search\Criterion\SymbolAttribute](../api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalogSymbolAttribute-Search-Criterion-SymbolAttribute.html)
 
 #### Sort Clauses
 
@@ -324,9 +340,10 @@ The following Twig functions have been added in the v5.0 release:
 This release brings other minor upgrades intended to improve the developer's experience:
 
 - To improve code clarity, reliability, and error detection, type hint declarations that specify the expected data type have been added in multiple places throughout the product
-- Improved DX with capabilities offered by PHP in version 8.3. For example, the `AsTwigComponent` attribute [facilitates autoconfiguration](components.md#php-code) of Twig components
-- The introduction of [[[= product_name_base =]] Rector package](https://github.com/ibexa/rector) that is based on [Rector](https://github.com/rectorphp) and comes with additional rules for working with Ibexa code. You can use it to get rid of PHP code deprecations
-- [New icons](../templating/twig_function_reference/icon_twig_functions.md#icons-reference) that serve as a highlight of a future system design
+- Developer experience has improved with capabilities offered by PHP in version 8.3. For example, the `AsTwigComponent` attribute [facilitates autoconfiguration](components.md#php-code) of Twig components
+- With protection against breaking changes and easier refactoring in mind, [TypeScript](https://www.typescriptlang.org/) can now be used to extend the Back Office
+- [[[= product_name_base =]] Rector package](https://github.com/ibexa/rector) has been introduced that is based on [Rector](https://github.com/rectorphp) and comes with additional rules for working with Ibexa code. You can use it to get rid of PHP code deprecations
+- [New icons](../templating/twig_function_reference/icon_twig_functions.md#icons-reference) replace the ones found in previous versions and serve as a highlight of a future system design
 
 ### Deprecations
 

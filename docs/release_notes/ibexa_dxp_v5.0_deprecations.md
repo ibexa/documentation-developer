@@ -539,6 +539,7 @@ The following service definitions have been removed:
 |:----|:----|
 | `ibexa.system.*.database.*` | `ibexa.repositories` |
 | `ibexa.system.*.session_name` | `ibexa.system.*.session.name` |
+| `ibexa.site_access.config.default.user_registration.group_id` | `ibexa.site_access.config.default.user_registration.group_remote_id` |
 | `ezpublish_http_basic` | Use `http_basic` in `security.yml` directly. |
 
 
