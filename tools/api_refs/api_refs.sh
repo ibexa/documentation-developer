@@ -7,10 +7,10 @@ PHP_API_OUTPUT_DIR=${2:-./docs/api/php_api/php_api_reference}; # Path to the dir
 REST_API_OUTPUT_FILE=${3:-./docs/api/rest_api/rest_api_reference/rest_api_reference.html}; # Path to the REST API Reference file
 
 DXP_EDITION='commerce'; # Edition from and for which the Reference is built
-DXP_VERSION='5.0.0-rc1'; # Version from and for which the Reference is built
+DXP_VERSION='5.0.*'; # Version from and for which the Reference is built
 DXP_ADD_ONS=(automated-translation rector); # Packages not included in $DXP_EDITION but added to the Reference, listed without their vendor "ibexa"
 DXP_EDITIONS=(oss headless experience commerce); # Available editions ordered by ascending capabilities
-SF_VERSION='7.2'; # Symfony version used by Ibexa DXP
+SF_VERSION='7.3'; # Symfony version used by Ibexa DXP
 PHPDOC_VERSION='3.8.0'; # Version of phpDocumentor used to build the Reference
 PHPDOC_CONF="$(pwd)/tools/api_refs/phpdoc.dist.xml"; # Absolute path to phpDocumentor configuration file
 #PHPDOC_CONF="$(pwd)/tools/api_refs/phpdoc.dev.xml"; # Absolute path to phpDocumentor configuration file
