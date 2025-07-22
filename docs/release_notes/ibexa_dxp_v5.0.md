@@ -74,7 +74,7 @@ For a full list of updated system requirements, see [Requirements](../getting_st
 
 With this release, [[= product_name =]] moves to Symfony 7.3 from the previously used versions of Symfony.
 
-For details, see [Symfony 7.3](https://symfony.com/doc/current/setup/upgrade_major.html).
+For details, see [Symfony 7.3](https://symfony.com/blog/symfony-7-3-curated-new-features).
 
 #### Doctrine 3.9
 
@@ -87,6 +87,8 @@ With performance, coding safety and security in mind, with this version, [[= pro
 #### OpenAPI support
 
 Adding support for generating the [OpenAPI](https://www.openapis.org/) specification for our REST API makes future changes more manageable, and helps our partners automatically generate REST API clients.
+
+For more information, see [REST API usage](https://doc.ibexa.co/en/latest/api/rest_api/rest_api_usage/rest_api_usage/#openapi-support).
 
 Support for serialization and deserialization of REST payloads with the [Symfony Serializer](https://symfony.com/doc/current/serializer.html) component improves data reliability and simplifies debugging.
 
@@ -253,7 +255,7 @@ The following sort clauses have been added in the v5.0 release:
     - [`Ibexa\Contracts\ConnectorAi\ActionConfiguration\Query\SortClause\Id`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorAi-ActionConfiguration-Query-SortClause-Id.html)
     - [`Ibexa\Contracts\ConnectorAi\ActionConfiguration\Query\SortClause\Identifier`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorAi-ActionConfiguration-Query-SortClause-Identifier.html)
 
-??? note "AI Actions"
+??? note "Discounts"
 
     - [`Ibexa\Contracts\Discounts\Value\Query\SortClause\CreatedAt`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Discounts-Value-Query-SortClause-CreatedAt.html)
     - [`Ibexa\Contracts\Discounts\Value\Query\SortClause\EndDate`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Discounts-Value-Query-SortClause-EndDate.html)

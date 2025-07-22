@@ -203,7 +203,7 @@ Support for facet search has been dropped, use the `Aggregation` API instead.
 | `\Ibexa\Contracts\Core\Persistence\Bookmark\Bookmark::$name` | Removed |
 | `\Ibexa\Contracts\Core\Persistence\Bookmark\CreateStruct::$name` | Removed |
 | `\Ibexa\Contracts\Core\Persistence\Content\ContentInfo::STATUS_ARCHIVED` |  `\Ibexa\Contracts\Core\Persistence\Content\ContentInfo::STATUS_TRASHED` |
-| `\Ibexa\Contracts\Core\Persistence\Content\ContentInfo::$isPublished` | Removed. Use `ContentInfo::$status}` with value `STATUS_PUBLISHED`. |
+| `\Ibexa\Contracts\Core\Persistence\Content\ContentInfo::$isPublished` | Removed. Use `ContentInfo::$status` with value `STATUS_PUBLISHED`. |
 | `\Ibexa\Contracts\Core\Persistence\Content\LoadStruct` | Removed |
 | `\Ibexa\Contracts\Core\Persistence\Content\Location::$pathIdentificationString` | Removed |
 | `\Ibexa\Contracts\Core\Persistence\Content\Location\CreateStruct::$pathIdentificationString` | Removed |
@@ -500,7 +500,7 @@ Support for facet search has been dropped, use the `Aggregation` API instead.
 | Old FQN                                              | New FQN / Comment                                                                |
 |:------------------------------------------------------|:------------------------------------------------------------------------|
 | `\Ibexa\Bundle\SystemInfo\SystemInfo\Collector\IbexaSystemInfoCollector::CONTENT_PACKAGES` | Removed. Use the `\Ibexa\Bundle\SystemInfo\SystemInfo\Collector\IbexaSystemInfoCollector::HEADLESS_PACKAGES` constant. |
-| `\Ibexa\Bundle\SystemInfo\SystemInfo\Collector\IbexaSystemInfoCollector::ENTERPRISE_PACKAGES` | Removed. Use `IbexaSystemInfoCollector::EXPERIENCE_PACKAGES` or `IbexaSystemInfoCollector::CONTENT_PACKAGES` constant. |
+| `\Ibexa\Bundle\SystemInfo\SystemInfo\Collector\IbexaSystemInfoCollector::ENTERPRISE_PACKAGES` | Removed. Use `IbexaSystemInfoCollector::EXPERIENCE_PACKAGES` or `IbexaSystemInfoCollector::HEADLESS_PACKAGES` constant. |
 | `\Ibexa\Bundle\SystemInfo\SystemInfo\Value\IbexaSystemInfo::$stability` | `\Ibexa\Bundle\SystemInfo\SystemInfo\Value\IbexaSystemInfo` is considered internal. |
 
 ### ibexa/workflow
