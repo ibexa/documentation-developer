@@ -93,9 +93,12 @@ You can additionally provide the `loadVersions` method with the version status t
 ### Relations
 
 Content Relations are versioned.
-To list Relations to and from your content, you can to pass a `VersionInfo` object to the [`ContentService::loadRelationList`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-ContentService.html#method_loadRelationList) method which is paginated.
-Or you can use the [`RelationListIteratorAdapter`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Iterator-BatchIteratorAdapter-RelationListIteratorAdapter.html) within a [`BatchIterator`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Iterator-BatchIterator.html).
-This method loads only the specified subset of relations to improve performance and was created with pagination in mind.
+To list Relations to and from your content, you can:
+
+- pass a `VersionInfo` object to the [`ContentService::loadRelationList` method](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-ContentService.html#method_loadRelationList) which returns a slice of the relation list thanks to pagination arguments
+- use the [`RelationListIteratorAdapter`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Iterator-BatchIteratorAdapter-RelationListIteratorAdapter.html)
+  within a [`BatchIterator`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Iterator-BatchIterator.html) which allow traversing the relation list using one same object
+
 You can get the current version's `VersionInfo` using [`ContentService::loadVersionInfo`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-ContentService.html#method_loadVersionInfo).
 
 ``` php
