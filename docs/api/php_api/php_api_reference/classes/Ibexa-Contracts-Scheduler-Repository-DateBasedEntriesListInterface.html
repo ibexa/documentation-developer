@@ -17,7 +17,7 @@
     
 
     <script>
-        window.symfonyVersion = '7.2';
+        window.symfonyVersion = '7.3';
         window.addEventListener('keyup', (event) => {
             if (event.key === '/') {
                 event.stopImmediatePropagation();
@@ -44131,7 +44131,7 @@
         <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/scheduler/src/contracts/Repository/DateBasedEntriesListInterface.php">
         <abbr title="vendor/ibexa/scheduler/src/contracts/Repository/DateBasedEntriesListInterface.php">DateBasedEntriesListInterface.php</abbr>
                 :
-        <span title="at line 48">48</span>
+        <span title="at line 40">40</span>
                 <img src="./images/copy.svg" title="Copy path" />
     </div>
         </div>
@@ -44168,11 +44168,10 @@
         <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/scheduler/src/contracts/Repository/DateBasedEntriesListInterface.php">
         <abbr title="vendor/ibexa/scheduler/src/contracts/Repository/DateBasedEntriesListInterface.php">DateBasedEntriesListInterface.php</abbr>
                 :
-        <span title="at line 62">62</span>
+        <span title="at line 47">47</span>
                 <img src="./images/copy.svg" title="Copy path" />
     </div>
         </div>
-    <p>Return number of scheduled entries for given date range with optional skipping entries to the given $sinceId.</p>
 
 <div class="highlight">
     <table class="highlighttable">
@@ -44275,7 +44274,7 @@
         <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/scheduler/src/contracts/Repository/DateBasedEntriesListInterface.php">
         <abbr title="vendor/ibexa/scheduler/src/contracts/Repository/DateBasedEntriesListInterface.php">DateBasedEntriesListInterface.php</abbr>
                 :
-        <span title="at line 50">50</span>
+        <span title="at line 42">42</span>
                 <img src="./images/copy.svg" title="Copy path" />
     </div>
         </div>
@@ -44328,7 +44327,7 @@
                 </td>
                 <td class="code">
                     <div>
-                        <pre><code><span class="phpdocumentor-signature__visibility">public </span><span class="phpdocumentor-signature__name">getScheduledEntriesByIds</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, int&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$scheduledEntriesIds</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Ibexa-Contracts-Scheduler-ValueObject-ScheduledEntry.html"><abbr title="\Ibexa\Contracts\Scheduler\ValueObject\ScheduledEntry">ScheduledEntry</abbr></a>&gt;</span></code></pre>
+                        <pre><code><span class="phpdocumentor-signature__visibility">public </span><span class="phpdocumentor-signature__name">getScheduledEntriesByIds</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, int&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$scheduledEntriesIds</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">iterable&lt;string|int, <a href="classes/Ibexa-Contracts-Scheduler-ValueObject-ScheduledEntry.html"><abbr title="\Ibexa\Contracts\Scheduler\ValueObject\ScheduledEntry">ScheduledEntry</abbr></a>&gt;</span></code></pre>
                     </div>
                 </td>
             </tr>
@@ -44365,7 +44364,7 @@
                     </tbody>
     </table>
     <h4>Return values</h4>
-    <p class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Ibexa-Contracts-Scheduler-ValueObject-ScheduledEntry.html"><abbr title="\Ibexa\Contracts\Scheduler\ValueObject\ScheduledEntry">ScheduledEntry</abbr></a>&gt;</p>
+    <p class="phpdocumentor-signature__response_type">iterable&lt;string|int, <a href="classes/Ibexa-Contracts-Scheduler-ValueObject-ScheduledEntry.html"><abbr title="\Ibexa\Contracts\Scheduler\ValueObject\ScheduledEntry">ScheduledEntry</abbr></a>&gt;</p>
                         
 
             <div class="content-header">
@@ -44376,11 +44375,10 @@
         <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/scheduler/src/contracts/Repository/DateBasedEntriesListInterface.php">
         <abbr title="vendor/ibexa/scheduler/src/contracts/Repository/DateBasedEntriesListInterface.php">DateBasedEntriesListInterface.php</abbr>
                 :
-        <span title="at line 40">40</span>
+        <span title="at line 32">32</span>
                 <img src="./images/copy.svg" title="Copy path" />
     </div>
         </div>
-    <p>Return scheduled entries for given date range with optional skipping entries to the given $sinceId.</p>
 
 <div class="highlight">
     <table class="highlighttable">
@@ -44497,7 +44495,7 @@
         <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/scheduler/src/contracts/Repository/DateBasedEntriesListInterface.php">
         <abbr title="vendor/ibexa/scheduler/src/contracts/Repository/DateBasedEntriesListInterface.php">DateBasedEntriesListInterface.php</abbr>
                 :
-        <span title="at line 27">27</span>
+        <span title="at line 25">25</span>
                 <img src="./images/copy.svg" title="Copy path" />
     </div>
         </div>
@@ -44513,7 +44511,7 @@
                 </td>
                 <td class="code">
                     <div>
-                        <pre><code><span class="phpdocumentor-signature__visibility">public </span><span class="phpdocumentor-signature__name">getScheduledEntriesToProcess</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$limit</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">25</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Ibexa-Contracts-Scheduler-ValueObject-ScheduledEntry.html"><abbr title="\Ibexa\Contracts\Scheduler\ValueObject\ScheduledEntry">ScheduledEntry</abbr></a>&gt;</span></code></pre>
+                        <pre><code><span class="phpdocumentor-signature__visibility">public </span><span class="phpdocumentor-signature__name">getScheduledEntriesToProcess</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$limit</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">25</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">iterable&lt;string|int, <a href="classes/Ibexa-Contracts-Scheduler-ValueObject-ScheduledEntry.html"><abbr title="\Ibexa\Contracts\Scheduler\ValueObject\ScheduledEntry">ScheduledEntry</abbr></a>&gt;</span></code></pre>
                     </div>
                 </td>
             </tr>
@@ -44550,7 +44548,7 @@
                     </tbody>
     </table>
     <h4>Return values</h4>
-    <p class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Ibexa-Contracts-Scheduler-ValueObject-ScheduledEntry.html"><abbr title="\Ibexa\Contracts\Scheduler\ValueObject\ScheduledEntry">ScheduledEntry</abbr></a>&gt;</p>
+    <p class="phpdocumentor-signature__response_type">iterable&lt;string|int, <a href="classes/Ibexa-Contracts-Scheduler-ValueObject-ScheduledEntry.html"><abbr title="\Ibexa\Contracts\Scheduler\ValueObject\ScheduledEntry">ScheduledEntry</abbr></a>&gt;</p>
                         
 
                             </div>
