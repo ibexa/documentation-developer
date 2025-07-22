@@ -24,7 +24,7 @@ class GreetingInputDenormalizer implements DenormalizerInterface, DenormalizerAw
         return new Greeting($salutation, $recipient);
     }
 
-    public function supportsDenormalization(mixed $data, string $type, ?string $format = null): bool
+    public function supportsDenormalization(mixed $data, string $type, ?string $format = null, array $context = []): bool
     {
         if (!is_array($data)) {
             return false;
