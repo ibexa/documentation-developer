@@ -30,4 +30,11 @@ class GreetingNormalizer implements NormalizerInterface, NormalizerAwareInterfac
 
         return $this->normalizer->normalize($data, $format, $context);
     }
+
+    public function getSupportedTypes(?string $format): array
+    {
+        return [
+            Greeting::class => true,
+        ];
+    }
 }
