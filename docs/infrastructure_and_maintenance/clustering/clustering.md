@@ -77,7 +77,7 @@ As metadata handler, create a DFS one, configured with a Doctrine connection.
 
 First, define DFS folder path as a variable in `.env` file:
 
-`DFS_NFS_PATH=/tmp/ibx_1439_nfs`
+`DFS_NFS_PATH=<absolute_directory_path>`
 
 Next, if you're using a separate DFS database, configure it via the `DATABASE_URL` variable in the `.env` file.
 Depending on which database you're using:
@@ -248,7 +248,7 @@ Place this before the standard image rewrite rule in your vhost config (or uncom
 rewrite "^/var/([^/]+/)?storage/images(-versioned)?/(.*)" "/index.php" break;
 ```
 
-Place this before the include of `ez_params.d`/`ez_rewrite_params` in your vhost config (or uncomment if already there).
+Place this before the include of `ibexa_params.d`/`ibexa_rewrite_params` in your vhost config (or uncomment if already there).
 
 ## Migrating to a cluster setup
 

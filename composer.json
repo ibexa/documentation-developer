@@ -32,7 +32,6 @@
         "ibexa/connector-ai": "5.0.x-dev",
         "ibexa/connector-openai": "5.0.x-dev",
         "ibexa/migrations": "5.0.x-dev",
-        "ibexa/icons": "5.0.x-dev",
         "ibexa/cart": "5.0.x-dev",
         "ibexa/installer": "5.0.x-dev",
         "ibexa/product-catalog": "5.0.x-dev",

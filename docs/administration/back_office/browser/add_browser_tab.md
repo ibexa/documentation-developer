@@ -27,7 +27,7 @@ Each tab definition is an object containing the following properties:
 |id|string|Tab ID, for example, `image`.|
 |component|element|React component that represents the contents of a tab.|
 |label|string|Label text, for example, `Images`.|
-|icon|string|Path to the icon, for example, `/bundles/ibexaadminui/img/ibexa-icons.svg#image`.|
+|icon|string|Path to the icon, for example, `/bundles/ibexaadminuiassets/vendors/ids-assets/dist/img/all-icons.svg#info-square`.|
 
 ```js
 [[= include_file('code_samples/back_office/udw/assets/js/image-tab/image.tab.module.js', 14, 29) =]]

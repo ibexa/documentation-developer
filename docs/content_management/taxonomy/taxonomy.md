@@ -47,8 +47,8 @@ taxonomy.content_categories: 'Content categories'
 
 Then, create a content type with `content_category` identifier and include the following field definitions:
 
-* `name` of `ezstring` type and required. Use this field, as `<name>`, for content name pattern.
-* `category_identifier` of `ezstring` type and required.
+* `name` of `ibexa_string` type and required. Use this field, as `<name>`, for content name pattern.
+* `category_identifier` of `ibexa_string` type and required.
 * `parent_category` of `ibexa_taxonomy_entry` type and not required. In its Taxonomy drop-down menu, select Content categories (or `taxonomy.content_categories` if no translation has been provided).
 
 Finish taxonomy setup by creating a new Content category named Root with identifier `content_categories_root` under the previously created container folder named Content categories.

@@ -565,7 +565,7 @@ Server: nginx/1.27.0
 Content-Type: text/html; charset=UTF-8
 Transfer-Encoding: chunked
 Connection: keep-alive
-Set-Cookie: eZSESSID21232f297a57a5a743894a0e4a801fc3=asrpqgmh5ll5ssseca3cov8er7; path=/; HttpOnly; SameSite=lax
+Set-Cookie: IBX_SESSION_ID21232f297a57a5a743894a0e4a801fc3=asrpqgmh5ll5ssseca3cov8er7; path=/; HttpOnly; SameSite=lax
 Cache-Control: public, s-maxage=86400
 Date: Wed, 01 Sep 2021 07:51:40 GMT
 Vary: Origin

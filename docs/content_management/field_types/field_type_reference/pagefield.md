@@ -15,8 +15,8 @@ Page field type is only used in the page content type that is included in [[= pr
 
 !!! caution "Page Builder"
 
-    If you create content type with both `ezlandingpage` and `ezuser` field types, you aren't redirected to Page Builder after selecting `Edit` or `Create`.
-    This is caused by `ezuser` field type which requires separate handling.
+    If you create content type with both `ibexa_landing_page` and `ibexa_user` field types, you aren't redirected to Page Builder after selecting `Edit` or `Create`.
+    This is caused by `ibexa_user` field type which requires separate handling.
     You're redirected to the standard back office edit or create mode.
 
 ## Layout and zones

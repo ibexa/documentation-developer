@@ -2,10 +2,10 @@ ibexa:
     system:
         admin_group:
             fieldtypes:
-                ezrichtext:
+                ibexa_richtext:
                     custom_styles: [highlight]
 ibexa_fieldtype_richtext:
     custom_styles:
         highlight:
-            template: field_type/ezrichtext/custom_styles/highlight.html.twig
+            template: field_type/ibexa_richtext/custom_styles/highlight.html.twig
             inline: true

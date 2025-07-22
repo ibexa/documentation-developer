@@ -192,7 +192,7 @@ Besides configuration structure, for the following YAML keys addition suggestion
 - List of available search engines, for:
     - `ibexa.repositories.<repository>.search.engine`
 - List of available custom tags, for:
-    - `ibexa.system.<scope>.fieldtypes.ezrichtext.custom_tags`
+    - `ibexa.system.<scope>.fieldtypes.ibexa_richtext.custom_tags`
 - List of available view types, for:
     - `ibexa.<scope>.content_view`
     - `ibexa.<scope>.content_create_view`

@@ -62,7 +62,7 @@ class SegmentCommand extends Command
         $segments = $this->segmentationService->loadSegmentsAssignedToGroup($segmentGroup);
 
         foreach ($segments as $segment) {
-            $output->writeln('Segment ID: ' . $segment->id . ', name: ' . $segment->name);
+            $output->writeln('Segment identifier: ' . $segment->getIdentifier() . ', name: ' . $segment->getName());
         }
 
         $segment = $this->segmentationService->loadSegmentByIdentifier('segment_1');

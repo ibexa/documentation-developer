@@ -30,7 +30,7 @@ final class ReplaceNameStepExecutor extends AbstractStepExecutor
             $struct = $this->contentService->newContentUpdateStruct();
 
             foreach ($contentItem->getFields() as $field) {
-                if ($field->fieldTypeIdentifier !== 'ezstring') {
+                if ($field->fieldTypeIdentifier !== 'ibexa_string') {
                     continue;
                 }
 
