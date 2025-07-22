@@ -105,30 +105,7 @@ security:
 
 ## Resource Server configuration
 
-To allow resource routes to be accessible through OAuth authorization, you must define a firewall by using `Ibexa\OAuth2Server\Security\Guard\OAuth2Authenticator`.
-
-The following firewall example allows the REST API to be accessed as an OAuth resource.
-It must be placed before the firewall with a less restrictive pattern like `ibexa_front`.
-
-```yaml
-    #…
-    firewall:
-        #…
-
-        ibexa_rest_oauth:
-            pattern: ^/api/ibexa/v2
-            user_checker: Ibexa\Core\MVC\Symfony\Security\UserChecker
-            anonymous: ~
-            guard:
-                authenticators:
-                    - Ibexa\OAuth2Server\Security\Guard\OAuth2Authenticator
-                entry_point: Ibexa\OAuth2Server\Security\Guard\OAuth2Authenticator
-            stateless: true
-
-        ibexa_front:
-            pattern: ^/
-            #…
-```
+To allow resource routes to be accessible through OAuth authorization, enable OAuth2 integration for the `ibexa_rest` firewall by setting the `oauth2` property to true.
 
 ## Client
 

@@ -28,17 +28,17 @@ The SPI `FieldValue` struct has properties which the field type can use:
 
 ### Legacy storage engine
 
-The Legacy storage engine uses the `ezcontentobject_attribute` table to store field values,
-and `ezcontentclass_attribute` to store field definition values.
+The Legacy storage engine uses the `ibexa_content_field` table to store field values,
+and `ibexa_content_type_field_definition` to store field definition values.
 They're both based on the same principle.
 
 Each row represents a field or a field definition, and offers several free fields of different types, where the type can store its data.
 
-- `ezcontentobject_attribute` offers:
+- `ibexa_content_field` offers:
     - `data_int`
     - `data_text`
     - `data_float`
-- `ezcontentclass_attribute` offers:
+- `ibexa_content_type_field_definition` offers:
     - four `data_int` (`data_int1` to `data_int4`) fields
     - four `data_float` (`data_float1` to `data_float4`) ones
     - five `data_text` (`data_text1` to `data_text5`)
@@ -73,7 +73,7 @@ Those converters also need to be correctly exposed as services and tagged with `
 services:
     Ibexa\Core\Persistence\Legacy\Content\FieldValue\Converter\TextLine:
         tags:
-            - {name: ibexa.field_type.storage.legacy.converter, alias: ezstring}
+            - {name: ibexa.field_type.storage.legacy.converter, alias: ibexa_string}
 ```
 
 The tag has the following attribute:

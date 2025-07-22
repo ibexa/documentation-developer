@@ -16,14 +16,14 @@ services:
     ibexa.field_type_identifier.form.type_extension.modify_field_definitions_for_field_type_identifier_field_type:
         class: 'Ibexa\AdminUi\Form\Type\Extension\ModifyFieldDefinitionsCollectionTypeExtension'
         arguments:
-            $fieldTypeIdentifier: 'ezimage'
+            $fieldTypeIdentifier: 'ibexa_image'
             $modifiedOptions:
                 disable_required_field: true
         tags:
             - form.type_extension
 ```
 
-`fieldTypeIdentifier` refers to the identifier of the field type, in this case `ezimage`.
+`fieldTypeIdentifier` refers to the identifier of the field type, in this case `ibexa_image`.
 
 `modifiedOptions` lists the changes you want to make. The following options are available:
 

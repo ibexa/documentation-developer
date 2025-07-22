@@ -6,10 +6,14 @@ use Ibexa\Contracts\Core\Repository\ContentService;
 use Ibexa\Contracts\Core\Repository\PermissionResolver;
 use Ibexa\Contracts\Core\Repository\UserService;
 use Ibexa\Contracts\FormBuilder\FormSubmission\FormSubmissionServiceInterface;
+use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
+#[AsCommand(
+    name: 'doc:form-submission'
+)]
 final class FormSubmissionCommand extends Command
 {
     private UserService $userService;
@@ -27,7 +31,7 @@ final class FormSubmissionCommand extends Command
         $this->formSubmissionService = $formSubmissionService;
         $this->contentService = $contentService;
 
-        parent::__construct('doc:form-submission');
+        parent::__construct();
     }
 
     protected function execute(InputInterface $input, OutputInterface $output): int

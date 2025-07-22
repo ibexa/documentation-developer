@@ -77,7 +77,7 @@ To use `ResourceOwnerToExistingOrNewUserMapper`, you need to extend it in your c
 
     To avoid issues with password restrictions in the built-in user content type, create a special content type (for example, "OAuth user"), without restrictions on the password.
 
-    This new content type must also contain the user (`ezuser`) field.
+    This new content type must also contain the user (`ibexa_user`) field.
 
 The following example shows how to create a Resource Owner mapper for the `google` client from previous examples.
 
@@ -110,7 +110,7 @@ Create the following template file in `templates/themes/admin/account/login/oaut
 
 For more information about the OAuth connection URL Twig functions, see [`ibexa_oauth2_connect_path`](url_twig_functions.md#ibexa_oauth2_connect_path) and [`ibexa_oauth2_connect_url`](url_twig_functions.md#ibexa_oauth2_connect_url).
 
-Finally, add the template to the login form by using the `login-form-after` [component](custom_components.md):
+Finally, add the template to the login form by using the `admin-ui-login-form-after` [Twig component group](components.md):
 
 ``` yaml
 services:

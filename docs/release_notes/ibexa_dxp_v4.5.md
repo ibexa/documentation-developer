@@ -211,7 +211,7 @@ For more information, see [Breached passwords](https://doc.ibexa.co/en/4.5/users
 
 ### [[= product_name_connect =]]
 
-For list of changes in [[= product_name_connect =]], see [Ibexa app release notes](https://doc.ibexa.co/projects/connect/en/latest/general/ibexa_app_release_notes/).
+For list of changes in [[= product_name_connect =]], see [Ibexa app release notes]([[= connect_doc =]]/general/ibexa_app_release_notes/).
 
 ### Deprecations
 

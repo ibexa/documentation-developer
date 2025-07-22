@@ -33,7 +33,7 @@ $(document).ready(function() {
     });
 
     // Add version pill to top of navigation
-    $('#site-name').append('<span class="pill">' + branchName + '</span>');
+    $('#site-name').append('<span class="pill pill--inline">' + branchName + '</span>');
 
     $('.rst-current-version.switcher__label').html(branchName);
 
@@ -236,5 +236,5 @@ $(document).ready(function() {
     });
 
     // Mark higher-level nodes with "New" pill, not only the actual item
-    $('.pill.new:not([hidden])').parents('.md-nav__item').children('label').children('.pill.new[hidden]').removeAttr('hidden');
+    $('.pill--new:not([hidden])').parents('.md-nav__item').children('label').children('.pill--new[hidden]').removeAttr('hidden');
 });

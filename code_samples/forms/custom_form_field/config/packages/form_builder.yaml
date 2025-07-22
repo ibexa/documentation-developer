@@ -3,7 +3,7 @@ ibexa_form_builder:
         country:
             name: Country
             category: Custom form fields
-            thumbnail: '/bundles/ibexaplatformicons/img/all-icons.svg#places'
+            thumbnail: '/bundles/ibexaadminuiassets/vendors/ids-assets/dist/img/all-icons.svg#pins-locations'
             attributes:
                 label:
                     name: Display label

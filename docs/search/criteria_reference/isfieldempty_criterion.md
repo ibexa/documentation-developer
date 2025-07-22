@@ -16,7 +16,7 @@ or non-empty fields (`false`)
 
 The `IsFieldEmpty` Criterion isn't available in [Repository filtering](search_api.md#repository-filtering).
 
-The Richtext field type (`ezrichtext`) isn't searchable in the Legacy search engine.
+The Richtext field type (`ibexa_richtext`) isn't searchable in the Legacy search engine.
 
 ## Example
 

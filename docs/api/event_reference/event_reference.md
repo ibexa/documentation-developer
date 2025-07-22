@@ -13,25 +13,5 @@ In most cases, two events are dispatched for every action, one before the action
 For example, copying a content item is connected with two events: `BeforeCopyContentEvent` and `CopyContentEvent`.
 
 ``` php
-<?php
-
-namespace App\EventSubscriber;
-
-use Ibexa\Contracts\Core\Repository\Events\Content\CopyContentEvent;
-use Symfony\Component\EventDispatcher\EventSubscriberInterface;
-
-class MyEventSubscriber implements EventSubscriberInterface
-{
-    public static function getSubscribedEvents()
-    {
-        return [
-            CopyContentEvent::class => ['onCopyContent', 0],
-        ];
-    }
-
-    public function onCopyContent(CopyContentEvent $event): void
-    {
-        // your implementation
-    }
-}
+[[= include_file('code_samples/api/public_php_api/src/EventSubscriber/MyEventSubcriber.php') =]]
 ```

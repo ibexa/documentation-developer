@@ -1,18 +1,18 @@
 # TextBlock field type
 
-The field type handles a block of multiple lines of unformatted text. It's capable of handling up to 16,777,216 characters.
+The field type handles a block of multiple lines of unformatted text. It's capable of handling up to 16,777,216 characters.
 
 | Name        | Internal name | Expected input type |
 |-------------|---------------|---------------------|
-| `TextBlock` | `eztext`      | `string`            |
+| `TextBlock` | `ibexa_text`  | `string`            |
 
 ## PHP API field type
 
 ### Input expectations
 
-|Type|Example|
-|----|-------|
-|`string`|`"This is a block of unformatted text"`|
+| Type     | Example                                 |
+|----------|-----------------------------------------|
+| `string` | `"This is a block of unformatted text"` |
 
 ### Value object
 
@@ -20,9 +20,9 @@ The field type handles a block of multiple lines of unformatted text. It's capa
 
 The Value class of this field type contains the following properties:
 
-|Property|Type|Description|
-|--------|----|-----------|
-|`$text`|`string`|This property is used for the text content.|
+| Property | Type     | Description                                 |
+|----------|----------|---------------------------------------------|
+| `$text`  | `string` | This property is used for the text content. |
 
 ##### String representation
 
@@ -31,7 +31,7 @@ A TextBlock's string representation is the `$text` property's value, as a string
 ##### Constructor
 
 The constructor for this value object initializes a new value object with the value provided.
-It accepts a string as argument and imports it to the `$text` attribute.
+It accepts a string as argument and imports it to the `$text` attribute.
 
 ### Validation
 
@@ -41,6 +41,6 @@ This field type doesn't perform any special validation of the input value.
 
 Settings contain only one option:
 
-| Name       | Type      | Default value | Description|
-|------------|-----------|---------------|------------|
+| Name       | Type      | Default value | Description                                                   |
+|------------|-----------|---------------|---------------------------------------------------------------|
 | `textRows` | `integer` | `10`          | Number of rows for the editing box in the back-end interface. |

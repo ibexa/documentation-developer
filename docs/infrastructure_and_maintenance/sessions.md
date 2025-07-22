@@ -9,7 +9,7 @@ It's further enhanced in [[= product_name =]] with support for SiteAccess-aware
 
 !!! note
 
-    Use of Memcached, Redis (or experimentally PDO) as session handler is a requirement in a cluster setup, for details [see below](#cluster-setup). For an overview of the clustering feature see [Clustering](clustering.md).
+    Use of Redis (or experimentally PDO) as session handler is a requirement in a cluster setup, for details [see below](#cluster-setup). For an overview of the clustering feature see [Clustering](clustering.md).
 
 ## Configuration
 
@@ -75,30 +75,6 @@ For a single server, the default file handler is preferred.
 #### Cluster setup
 
 See [shared sessions in the clustering guide](clustering.md#shared-sessions).
-
-##### Handling sessions with Memcached
-
-To set up [[= product_name =]] using [Memcached](https://pecl.php.net/package/memcached) you need to:
-
-- [Configure the session save handler settings in `php.ini`](https://www.php.net/manual/en/memcached.sessions.php)
-- Set `%ibexa.session.handler_id%` to `~` (null) in `config/packages/ibexa.yaml`
-
-Alternatively if you need to configure Memcached servers dynamically:
-
-- Create a Symfony service like this:
-
-```yaml
-    app.session.handler.native_memcached:
-        class: Ibexa\Bundle\Core\Session\Handler\NativeSessionHandler
-        arguments:
-         - '%session.save_path%'
-         - memcached
-```
-
-- Set `%ibexa.session.handler_id%` (or `SESSION_HANDLER_ID` env var) to `app.session.handler.native_memcached`
-- Set `%ibexa.session.save_path%` (or `SESSION_SAVE_PATH` env var) to [`save_path` config for Memcached](https://www.php.net/manual/en/memcached.sessions.php)
-
-Optionally tweak [`php-memcached` session settings](https://www.php.net/manual/en/memcached.configuration.php) for things like session locking.
 
 ##### Handling sessions with Redis
 

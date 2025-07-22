@@ -32,7 +32,6 @@
         "ibexa/connector-ai": "5.0.x-dev",
         "ibexa/connector-openai": "5.0.x-dev",
         "ibexa/migrations": "5.0.x-dev",
-        "ibexa/icons": "5.0.x-dev",
         "ibexa/cart": "5.0.x-dev",
         "ibexa/installer": "5.0.x-dev",
         "ibexa/product-catalog": "5.0.x-dev",
@@ -66,6 +65,11 @@
         "ibexa/solr": "5.0.x-dev",
         "ibexa/version-comparison": "5.0.x-dev",
         "league/oauth2-google": "^4.0",
+        "ibexa/connector-dam": "~5.0.x-dev",
+        "ibexa/twig-components": "~5.0.x-dev",
+        "ibexa/tree-builder": "~5.0.x-dev",
+        "ibexa/discounts": "~5.0.x-dev",
+        "ibexa/discounts-codes": "~5.0.x-dev",
         "ibexa/core-search": "~5.0.x-dev"
     },
     "scripts": {

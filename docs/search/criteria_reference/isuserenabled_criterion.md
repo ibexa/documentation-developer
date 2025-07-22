@@ -1,6 +1,6 @@
 ---
 description: IsUserEnabled Search Criterion
-month_change: true
+month_change: false
 ---
 
 # IsUserEnabled Criterion
