@@ -7,7 +7,7 @@ This page lists backwards compatibility breaks and deprecations introduced in [[
 !!! tip "Upgrade to v5"
 
     For a guide on moving your project to v5.0,
-    see [Update and migration instructions](update_to_5.0.md).
+    see [Update and migration instructions](../update_and_migration/from_4.6/update_to_5.0.md).
 
 [[= product_name =]] v5.0 introduces further modifications to significant parts of the code to align with the ones introduced in previous versions.
 

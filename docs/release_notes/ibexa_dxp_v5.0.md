@@ -353,7 +353,7 @@ Refer to [Ibexa DXP v5.0 renames, deprecations and removals](ibexa_dxp_v5.0_depr
 
 [[% include 'snippets/release_50.md' %]]
 
-To update your application, see the [update instructions](update_to_5.0.md).
+To update your application, see the [update instructions](../update_and_migration/from_4.6/update_to_5.0.md).
 
 [[= release_note_entry_end() =]]
 
