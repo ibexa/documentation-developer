@@ -416,7 +416,7 @@ Among other things,
 previously deprecated classes have been removed,
 and the type hinting strictness has been increased.
 
-Update the `rector.php` file to use [`IbexaSetList::IBEXA_50`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Rector-Sets-IbexaSetList.html#enumcase_IBEXA_50) rule set.
+Update the `rector.php` file to use [`IbexaSetList::IBEXA_50`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-Rector-Sets-IbexaSetList.html#enumcase_IBEXA_50) rule set.
 If you didn't edit it the first time, you can run its recipe:
 
 ```bash
