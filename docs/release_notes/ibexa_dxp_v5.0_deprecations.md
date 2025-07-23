@@ -142,6 +142,7 @@ Several field type identifiers have changed.
 | `ezurl`                           | `ibexa_url`                       |
 | `ezuser`                          | `ibexa_user`                      |
 
+
 ## PHP API classes and methods
 
 !!! note "[[= product_name_base =]] Rector"
@@ -514,6 +515,104 @@ Support for facet search has been dropped, use the `Aggregation` API instead.
 |:------------------------------------------------------|:------------------------------------------------------------------------|
 | `\Ibexa\Contracts\Workflow\Service\WorkflowServiceInterface::loadWorkflowMetadataOriginatedByUser` | Removed |
 | `\Ibexa\Contracts\Workflow\Service\WorkflowServiceInterface::loadAllWorkflowMetadata` | Removed |
+
+## PHP method parameters
+
+The `ValueObject` argument was replaced by `object` in a number of interfaces in `core` and `migrations` package.
+In `core`, this change improves extensibility by enabling the use of custom object types to be interpreted by `PermissionResolver`.
+In `migrations`, it makes it easier to integrate custom data types, especially when using `AbstractStepFactory`.
+
+### ibexa/core
+
+| PHP Interface                                              | Methods                                                                |
+|:------------------------------------------------------|:------------------------------------------------------------------------|
+| `src/contracts/Repository/PermissionResolver.php` | `canUser`, `lookupLimitations` |
+| `src/contracts/Limitation/TargetAwareType.php` | `evaluate` |
+| `src/contracts/Limitation/Type.php` | `evaluate` |
+| `src/lib/Limitation/BlockingLimitationType.php` | `evaluate` |
+| `src/lib/Limitation/ChangeOwnerLimitationType.php` | `evaluate` |
+| `src/lib/Limitation/ContentTypeLimitationType.php` | `evaluate` |
+| `src/lib/Limitation/LanguageLimitationType.php` | `evaluate` |
+| `src/lib/Limitation/LocationLimitationType.php` | `evaluate` |
+| `src/lib/Limitation/MemberOfLimitationType.php` | `evaluate` |
+| `src/lib/Limitation/NewObjectStateLimitationType.php` | `evaluate` |
+| `src/lib/Limitation/NewSectionLimitationType.php` | `evaluate` |
+| `src/lib/Limitation/ObjectStateLimitationType.php` | `evaluate` |
+| `src/lib/Limitation/OwnerLimitationType.php` | `evaluate` |
+| `src/lib/Limitation/ParentContentTypeLimitationType.php` | `evaluate` |
+| `src/lib/Limitation/ParentDepthLimitationType.php` | `evaluate` |
+| `src/lib/Limitation/ParentOwnerLimitationType.php` | `evaluate` |
+| `src/lib/Limitation/ParentUserGroupLimitationType.php` | `evaluate` |
+| `src/lib/Limitation/RoleLimitationType.php` | `evaluate` |
+| `src/lib/Limitation/SectionLimitationType.php` | `evaluate` |
+| `src/lib/Limitation/SiteAccessLimitationType.php` | `evaluate` |
+| `src/lib/Limitation/StatusLimitationType.php` | `evaluate` |
+| `src/lib/Limitation/SubtreeLimitationType.php` | `evaluate` |
+| `src/lib/Limitation/UserGroupLimitationType.php` | `evaluate` |
+| `src/lib/Repository/Permission/CachedPermissionService.php` | `canUser`, `lookupLimitations` |
+| `src/lib/Repository/Permission/PermissionResolver.php` | `canUser`, `lookupLimitations` |
+
+??? note "Changes in `src/contracts/Repository/PermissionResolver.php`"
+
+    ![`PermissionResolver.php`](5.0_Repository.PermissionResolver.png)
+
+### ibexa/migrations
+
+| PHP Interface                                              | Methods                                                                |
+|:------------------------------------------------------|:------------------------------------------------------------------------|
+| `src/lib/Generator/Content/StepBuilder/Create.php` | `build` |
+| `src/lib/Generator/Content/StepBuilder/Delete.php` | `build` |
+| `src/lib/Generator/Content/StepBuilder/Factory.php` | `prepareLogMessage` |
+| `src/lib/Generator/Content/StepBuilder/Update.php` | `build` |
+| `src/lib/Generator/ContentTypeGroup/StepBuilder/Create.php` | `build` |
+| `src/lib/Generator/ContentTypeGroup/StepBuilder/Delete.php` | `build` |
+| `src/lib/Generator/ContentTypeGroup/StepBuilder/Factory.php` | `prepareLogMessage` |
+| `src/lib/Generator/ContentTypeGroup/StepBuilder/Update.php` | `build` |
+| `src/lib/Generator/Language/StepBuilder/Create.php` | `build` |
+| `src/lib/Generator/Language/StepBuilder/Factory.php` | `prepareLogMessage` |
+| `src/lib/Generator/Location/StepBuilder/Factory.php` | `prepareLogMessage` |
+| `src/lib/Generator/Location/StepBuilder/Update.php` | `build` |
+| `src/lib/Generator/ObjectState/StepBuilder/Create.php` | `build` |
+| `src/lib/Generator/ObjectState/StepBuilder/Factory.php` | `prepareLogMessage` |
+| `src/lib/Generator/ObjectStateGroup/StepBuilder/Create.php` | `build` |
+| `src/lib/Generator/ObjectStateGroup/StepBuilder/Factory.php` | `prepareLogMessage` |
+| `src/lib/Generator/Role/StepBuilder/RoleCreateStepBuilder.php` | `build` |
+| `src/lib/Generator/Role/StepBuilder/RoleDeleteStepBuilder.php` | `build` |
+| `src/lib/Generator/Role/StepBuilder/RoleStepFactory.php` | `prepareLogMessage` |
+| `src/lib/Generator/Role/StepBuilder/RoleUpdateStepBuilder.php` | `build` |
+| `src/lib/Generator/Section/StepBuilder/Create.php` | `build` |
+| `src/lib/Generator/Section/StepBuilder/Factory.php` | `prepareLogMessage` |
+| `src/lib/Generator/Section/StepBuilder/Update.php` | `build` |
+| `src/lib/Generator/StepBuilder/AbstractStepFactory.php` | `create`, `log`, `prepareLogMessage` |
+| `src/lib/Generator/StepBuilder/ContentTypeCreateStepBuilder.php` | `build` |
+| `src/lib/Generator/StepBuilder/ContentTypeDeleteStepBuilder.php` | `build` |
+| `src/lib/Generator/StepBuilder/ContentTypeStepFactory.php` | `prepareLogMessage` |
+| `src/lib/Generator/StepBuilder/ContentTypeUpdateStepBuilder.php` | `build` |
+| `src/lib/Generator/StepBuilder/LoggerContentTypeCreateStepBuilder.php` | `build` |
+| `src/lib/Generator/StepBuilder/StepBuilderInterface.php` | `build` |
+| `src/lib/Generator/StepBuilder/StepFactoryInterface.php` | `build` |
+| `src/lib/Generator/User/StepBuilder/Create.php` | `build` |
+| `src/lib/Generator/User/StepBuilder/Factory.php` | `prepareLogMessage` |
+| `src/lib/Generator/User/StepBuilder/Update.php` | `build` |
+| `src/lib/Generator/UserGroup/StepBuilder/Create.php` | `build` |
+| `src/lib/Generator/UserGroup/StepBuilder/Delete.php` | `build` |
+| `src/lib/Generator/UserGroup/StepBuilder/Factory.php` | `prepareLogMessage` |
+| `src/lib/Generator/UserGroup/StepBuilder/Update.php` | `build` |
+| `src/lib/StepExecutor/ReferenceDefinition/Resolver.php` | `resolve` |
+| `src/lib/StepExecutor/ReferenceDefinition/ResolverInterface.php` | `resolve` |
+
+
+??? note "Changes in `src/lib/Generator/StepBuilder/StepFactoryInterface.php`"
+
+    ![`StepFactoryInterface.php`](5.0_StepBuilder.StepFactoryInterface.png)
+
+??? note "Changes in `src/lib/StepExecutor/ReferenceDefinition/ResolverInterface.php`"
+
+    ![`ResolverInterface.php`](5.0_StepExecutor.ReferenceDefinition.ResolverInterface.png)
+
+??? note "Changes in `src/lib/Generator/StepBuilder/AbstractStepFactory.php`"
+
+    ![`AbstractStepFactory.php`](5.0_StepBuilder.AbstractStepFactory.png)
 
 ## Services
 
