@@ -89,7 +89,8 @@ controllers:
     type: attribute
 ```
 
-You can add the new declaration to the top of the file manually, or recreate the file by running `composer sync-recipes symfony/routing --force --reset` 
+You can add the new declaration to the top of the file manually,
+or recreate the file by running `composer sync-recipes symfony/routing --force --reset`.
 
 ### Remove GraphQL schema
 
