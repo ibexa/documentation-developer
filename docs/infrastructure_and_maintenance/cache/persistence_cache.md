@@ -12,7 +12,7 @@ Persistence cache can best be described as an implementation of `SPI\Persistence
 
 As shown in the illustration, this is done in the exact same way as the event layer is a custom implementation of `API\Repository` decorating the main repository.
 In the case of persistence cache, instead of sending events on calls passed on to the decorated implementation, most of the load calls are cached, and calls that perform changes purge the affected caches.
-Cache handlers *(for example, Memcached, Redis, or Filesystem)* can be configured using Symfony configuration.
+Cache handlers *(for example, Redis, or Filesystem)* can be configured using Symfony configuration.
 For details on how to reuse this Cache service in your own custom code, see below.
 
 ## Transparent cache
@@ -47,10 +47,10 @@ To see where and how to contribute additional caches, refer to the [source code]
 !!! note
 
     Current implementation uses Symfony cache.
-    It technically supports the following cache backends: [APCu, Array, Chain, Doctrine, Filesystem, Memcached, PDO & Doctrine DBAL, Php Array, Proxy, Redis]([[= symfony_doc =]]/components/cache/cache_pools.html#creating-cache-pools).
-    [[= product_name =]] officially supports only using Filesystem for single server and Redis or Memcached for clustered setups.
+    It technically supports the following cache backends: [APCu, Array, Chain, Doctrine, Filesystem, PDO & Doctrine DBAL, Php Array, Proxy, Redis]([[= symfony_doc =]]/components/cache/cache_pools.html#creating-cache-pools).
+    [[= product_name =]] officially supports only using Filesystem for single server and Redis for clustered setups.
 
-Use of Memcached or Redis as shared cache back end is a requirement for use in clustering setup.
+Use of Redis as shared cache back end is a requirement for use in clustering setup.
 For an overview of this feature, see [Clustering](clustering.md).
 Filesystem adapters, for example, are **not** intended to be used over a shared filesystem.
 
@@ -210,79 +210,9 @@ Several cloud providers have managed services that are easier to set up, handle 
     If you use Platform.sh Enterprise you can benefit from the Redis Sentinel across three nodes for great fault tolerance.
     Platform.sh Professional and lower versions offer Redis in single instance mode only.
 
-### Memcached
-
-[Memcached, a distributed caching solution](http://memcached.org/) is a cache solution that is supported for clustering use, as an alternative to Redis.
-
-See [Memcached Cache Adapter in Symfony documentation]([[= symfony_doc =]]/components/cache/adapters/memcached_adapter.html#configure-the-connection) for information on how to configure Memcached.
-
-
-#### Supported Adapters
-
-There is one Memcached adapter available out of the box.
-
-##### `Symfony\Component\Cache\Adapter\MemcachedAdapter`
-
-**Pros**: Memcached is able to handle much more concurrent load by design (multi threaded), and typically uses far less memory than Redis in general due to a simpler data structure.
-
-**Cons**: 1.5-2x more lookups to the back-end cache server then `RedisTagAwareAdapter`.
-Depending on the number of lookups and latency to cache server this might affect page load time.
-
-#### Adjusting configuration
-
-Out of the box in `config/packages/cache_pool/cache.memcached.yaml` you can find a default example that can be used.
-
-!!! note "[[= product_name_cloud =]]"
-
-    For [[= product_name_cloud =]]/Platform.sh: This is automatically configured in `vendor/ibexa/core/src/bundle/Core/DependencyInjection/IbexaCoreExtension.php` if you have enabled Memcached as `cache` Platform.sh service.
-
-For anything else, you can enable it with environment variables detected automatically by `vendor/ibexa/core/src/bundle/Core/DependencyInjection/IbexaCoreExtension.php`.
-For instance, if you set the following environment variables `export CACHE_POOL="cache.memcached" CACHE_DSN="user:pass@localhost?weight=33"`, it results in config like this:
-
-``` yaml
-services:
-    cache.memcached:
-        parent: cache.adapter.memcached
-        tags:
-            - name: cache.pool
-              clearer: cache.app_clearer
-              provider: 'memcached://user:pass@localhost?weight=33'
-              # Default CACHE_NAMESPACE value, see bin/config/cache_pool/cache.redis.yaml for usage with e.g. multi repo.
-              namespace: 'ez'
-```
-
-See `config/default_parameters.yaml` and `config/cache_pool/cache.memcached.yaml` for further details on `CACHE_POOL`, `CACHE_DSN` and `CACHE_NAMESPACE`.
-
-!!! caution "Clearing Memcached cache"
-
-    The regular `php bin/console cache:clear` command doesn't clear Memcached persistence cache.
-    Use a dedicated Symfony command to clear the pool you have configured: `php bin/console cache:pool:clear cache.memcached`.
-
-
-!!! caution "Connection errors issue"
-
-    If Memcached does display connection errors when using the default (ascii) protocol, then switching to binary protocol *(in the configuration and Memcached daemon)* should resolve the issue.
-
-!!! note
-
-    Memcached must not be bound to the local address if clusters are in use, or user logins fail.
-    To avoid this, in `/etc/memcached.conf` take a look under `# Specify which IP address to listen on. The default is to listen on all IP addresses`
-
-    For development environments, change the address below this comment in `/etc/memcached.conf` to `-l 0.0.0.0`
-
-    For production environments, follow this more secure instruction from the Memcached man:
-
-    > -l &lt;addr&gt;
-
-    > Listen on &lt;addr&gt;; default to INADDR\_ANY. &lt;addr&gt; may be specified as host:port.
-    If you don't specify a port number, the value you specified with -p or -U is used.
-    You may specify multiple addresses separated by comma or by using -l multiple times.
-    This is an important option to consider as there is no other way to secure the installation.
-    Binding to an internal or firewalled network interface is suggested.
-
 ## Using cache service
 
-Using the internal cache service allows you to use an interface and without caring whether the system is configured to place the cache in Memcached or on File system.
+Using the internal cache service allows you to use an interface and without caring whether the system is configured to place the cache in Redis or on File system.
 And as [[= product_name =]] requires that instances use a cluster-aware cache in cluster setup, you can safely assume your cache is shared *(and invalidated)* across all web servers.
 
 !!! note

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf8" />
+  <title>{{title}}</title>
+  <!-- needed for adaptive design -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" href="https://doc.ibexa.co/en/latest/images/favicon.png" />
+  <style>
+    body {
+      padding: 0;
+      margin: 0;
+    }
+  </style>
+  {{{redocHead}}}
+  {{#unless disableGoogleFont}}<link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,700|Roboto:300,400,700" rel="stylesheet">{{/unless}}
+</head>
+
+<body>
+  {{{redocHTML}}}
+  <script>
+    window.addEventListener('load', () => {
+      window.setTimeout(() => {
+        let logo = document.querySelector('img[src$="ibexa-dxp-logo.png"]');
+        logo.onclick = () => {
+          let pathParts = document.location.pathname.split('/').slice(0, 3);
+          document.location = pathParts.join('/') + '/api/rest_api/rest_api_usage/rest_api_usage/';
+        };
+        logo.setAttribute('style', 'cursor: pointer; margin: 13px;');
+      }, 500);
+    });
+  </script>
+</body>
+
+</html>

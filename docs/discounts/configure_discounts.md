@@ -1,8 +1,7 @@
 ---
-description: Customize the behavior of the Discounts LTS update.
+description: Customize the behavior of the Discounts feature.
 month_change: true
 editions:
-    - lts-update
     - commerce
 ---
 

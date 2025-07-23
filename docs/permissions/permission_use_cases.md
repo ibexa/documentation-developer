@@ -269,7 +269,7 @@ Set the following permissions to decide what actions are available when users in
 - `checkout/update` - to allow users to modify existing information, for example item quantity
 - `checkout/delete` - to delete checkout
 
-### Discount management [[% include 'snippets/lts-update_badge.md' %]]
+### Discount management
 
 Set the following permissions to decide what actions are available when users interact with [discounts](discounts.md) in the back office:
 

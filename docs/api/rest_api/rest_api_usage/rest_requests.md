@@ -163,7 +163,7 @@ This script:
 
 - receives an image path and optionally a name as command-line arguments,
 - uses the [HTTP basic authentication](rest_api_authentication.md#http-basic-authentication), if it's enabled,
-- creates a draft in the /Media/Images folder by posting (`POST`) data to [`/content/objects`](../rest_api_reference/rest_api_reference.html#managing-content-create-content-item),
+- creates a draft in the /Media/Images folder by posting (`POST`) data to [`/content/objects`](/api/rest_api/rest_api_reference/rest_api_reference.html#tag/Objects/operation/api_contentobjects_post),
 - and, publishes (`PUBLISH`) the draft through [`/content/objects/{contentId}/versions/{versionNo}`](../rest_api_reference/rest_api_reference.html#managing-content-publish-a-content-version).
 
 === "XML"

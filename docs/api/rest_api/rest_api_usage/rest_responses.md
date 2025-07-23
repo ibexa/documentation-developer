@@ -92,7 +92,7 @@ Those example `Accept-Path` headers above indicate that the content could be mod
 
 ### Location header
 
-For example, [creating content](../rest_api_reference/rest_api_reference.html#managing-content-create-content-type) and [getting a content item's current version](../rest_api_reference/rest_api_reference.html#managing-content-get-current-version)
+For example, [creating content](../rest_api_reference/rest_api_reference.html#managing-content-create-content-type) and [getting a content item's current version](/api/rest_api/rest_api_reference/rest_api_reference.html#tag/Objects/operation/api_contentobjects_contentIdcurrentversion_get)
 both send a `Location` header to provide you with the requested resource's ID.
 
 Those particular headers generally match a specific list of HTTP response codes.

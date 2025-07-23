@@ -8,7 +8,7 @@ The price engine is responsible for calculating prices for products in the [cata
 
 ## Custom pricing
 
-You can set up basic price rules depending on [customer groups](customer_groups.md), or use the [Discounts LTS Update](discounts.md) for more control over the price reduction.
+You can set up basic price rules depending on [customer groups](customer_groups.md), or use [Discounts](discounts.md) for more control over the price reduction.
 
 Use the first option for basic use cases, for example to globally manage custom prices for your resellers.
 Each customer group can have a default price discount that applies to all products.

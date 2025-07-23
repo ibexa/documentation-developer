@@ -1,8 +1,7 @@
 ---
-description: Discounts LTS Update enables reducing prices on products or product categories based on a detailed logic resolution.
+description: Discount enable reducing prices on products or product categories based on a detailed logic resolution.
 month_change: true
 editions:
-    - lts-update
     - commerce
 ---
 
@@ -17,7 +16,7 @@ Discounts allow online stores to temporarily or permanently reduce prices on spe
 They can be used to encourage first-time purchases, reward loyal customers, promote new or slow-moving items, or drive sales during seasonal events.
 By displaying discounted prices clearly in the catalog or cart, businesses can create a sense of urgency, increase customer satisfaction, and ultimately boost revenue.
 
-[[= product_name =]] can be equipped with the Discounts [LTS update](editions.md#lts-updates) that introduces a highly extensible solution for building discounts.
+[[= product_name =]] comes equipped with the Discounts feature that introduces a highly extensible solution for building price reductions.
 
 Store managers can create general discounts that apply for products from the product catalog or specific discounts that apply for products in the customer's shopping cart.
 They can choose how the discount is calculated and set conditions to decide when their discounts are applied.
@@ -35,8 +34,7 @@ The conditions used to limit the applicability of a discount include, for exampl
 
 ## Availability
 
-Discounts are an opt-in capability available as an [LTS update](editions.md#lts-updates) starting with the v4.6.19 version of [[= product_name_com =]].
-To begin using Discounts, you must first [install the required packages and perform initial configuration](install_discounts.md).
+Discounts are available as part of the [[[= product_name_com =]]](../ibexa_products/ibexa_commerce.md) edition.
 
 ## How it works
 
@@ -136,7 +134,7 @@ This encourages first-time purchases and drives long-term customer loyalty.
 
 ## Use cases
 
-Out of the box, the [[= product_name_base =]] Discounts LTS update comes with multiple discount types that can be applied in the following use cases.
+Out of the box, the [[= product_name_base =]] Discounts feature comes with multiple discount types that can be applied in the following use cases.
 
 ### End of Season Sale
 

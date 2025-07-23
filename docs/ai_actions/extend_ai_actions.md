@@ -322,8 +322,8 @@ Content-Type: application/vnd.ibexa.api.ai.TranscribeAudio+json
 
 The last step in fully integrating the Transcribe Audio Action Type embeds it directly into the back office, allowing Editors to invoke it while doing their daily work.
 
-Extend the default editing template of the `ezbinaryfile` fieldtype by creating a new file called `templates/themes/admin/admin/ui/fieldtype/edit/form_fields_binary_ai.html.twig`.
-This template embeds the AI component, but only if a dedicated `transcript` field (of `eztext` type) is available in the same content type to store the content of the transcription.
+Extend the default editing template of the `ibexa_binaryfile` fieldtype by creating a new file called `templates/themes/admin/admin/ui/fieldtype/edit/form_fields_binary_ai.html.twig`.
+This template embeds the AI component, but only if a dedicated `transcript` field (of `ibexa_text` type) is available in the same content type to store the content of the transcription.
 
 
 ``` twig

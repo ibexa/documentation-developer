@@ -5,7 +5,7 @@ It's capable of handling up to 255 characters.
 
 | Name       | Internal name | Expected input type |
 |------------|---------------|---------------------|
-| `TextLine` | `ezstring`    | `string`            |
+| `TextLine` | `ibexa_string`    | `string`            |
 
 ## PHP API field type
 
@@ -15,8 +15,8 @@ It's capable of handling up to 255 characters.
 
 The Value class of this field type contains the following properties:
 
-| Property | Type     | Description|
-|----------|----------|------------|
+| Property | Type     | Description                                 |
+|----------|----------|---------------------------------------------|
 | `$text`  | `string` | This property is used for the text content. |
 
 ##### String representation
@@ -26,7 +26,7 @@ A TextLine's string representation is the `$text` property's value, as a string.
 ##### Constructor
 
 The constructor for this value object initializes a new value object with the value provided.
-It accepts a string as argument and imports it to the `$text` attribute.
+It accepts a string as argument and imports it to the `$text` attribute.
 
 ### Validation
 
@@ -35,10 +35,11 @@ The length of the string provided must be between the minimum length defined in 
 The default value for both properties is 0, which means that the validation is disabled by default.
 To set the validation properties, the `validateValidatorConfiguration()` method needs to be inspected, which receives an array with `minStringLength` and `maxStringLength` like in the following representation:
 
-```
-Array
-(
-    [minStringLength] => 1
-    [maxStringLength] => 60
-)
+```php
+[
+  'StringLengthValidator' => [
+    'maxStringLength' => 60
+    'minStringLength' => 1
+  ]
+]
 ```

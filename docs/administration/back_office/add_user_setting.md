@@ -39,7 +39,7 @@ Register the setting group as a service:
 [[= include_file('code_samples/back_office/settings/config/custom_services.yaml', 6, 9) =]]
 ```
 
-The value of the setting is accessible with `ez_user_settings['unit']`.
+The value of the setting is accessible with `ibexa_user_settings['unit']`.
 
 ## Create template for editing settings
 

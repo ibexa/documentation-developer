@@ -18,7 +18,7 @@ From the development perspective, the component enables [customization of the pa
 The component exposes the following APIs:
 
 - [Payment method PHP API](payment_method_api.md) that allows for managing payment methods
-- [Payment method REST API](../../api/rest_api/rest_api_reference/rest_api_reference.html#payment-methods) that helps manage payment methods over HTTP
+- [Payment method REST API](/api/rest_api/rest_api_reference/rest_api_reference.html#tag/Payments) that helps manage payment methods over HTTP
 - [Payment PHP API](payment_api.md) that allows for managing payments
 
 ### Services

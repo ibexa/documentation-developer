@@ -1,6 +1,6 @@
 ---
 description: System, component and package requirements for running Ibexa DXP.
-month_change: true
+month_change: false
 ---
 
 <!-- vale off -->
@@ -17,7 +17,7 @@ The following server requirements cover both running the software on-premise and
     For running on [[[= product_name_cloud =]]](https://www.ibexa.co/products/ibexa-cloud), where recommended configuration and support is provided out of the box, see separate [[[= product_name_cloud =]] section](#ibexa-cloud-requirements-and-setup) for further reading on its requirements.
 
 The minimal setup requires PHP, MySQL/MariaDB, Apache/Nginx, Node.js and `yarn`.
-Recommendation for production setups is to use Varnish/Fastly, Redis/Memcached, NFS/EFS/S3 and Solr/Elasticsearch in a [clustered setup](clustering.md).
+For production setups it's recommended that you use Varnish/Fastly, Redis, NFS/EFS/S3 and Solr/Elasticsearch in a [clustered setup](clustering.md).
 
 !!! caution "Recommended versions"
 
@@ -34,10 +34,7 @@ Recommendation for production setups is to use Varnish/Fastly, Redis/Memcached, 
 
     |Name|Version|
     |---|---|
-    |Debian 10 "Buster" |10.0-10.13+|
     |Debian 11 "Bullseye"|11.0-11.7+|
-    |Ubuntu  "Focal Fossa" | 20.04 |
-    |Ubuntu "Jammy Jellyfish"| 22.04 |
     |Ubuntu "Noble Numbat"| 24.04 |
     |RHEL / CentOS / CentOS Stream | 8.1-9.5+ |
 
@@ -75,7 +72,7 @@ Recommendation for production setups is to use Varnish/Fastly, Redis/Memcached, 
 
 === "[[= product_name =]] v5.0"
 
-    - Nginx 1.18-1.25+
+    - Nginx 1.27+
     - Apache 2.4 (with required modules `mod_rewrite`, `mod_env` and recommended: `mod_setenvif`, `mod_expires`;
     event MPM is recommended, if you need to use prefork you also need the `mod_php` module)
 
@@ -101,8 +98,8 @@ Recommendation for production setups is to use Varnish/Fastly, Redis/Memcached, 
 
 === "[[= product_name =]] v5.0"
 
-    - MariaDB 10.3-10.11+
-    - MySQL 8.0
+    - MariaDB 10.11+
+    - MySQL 8.4
     - PostgreSQL 14
 
     If you see a "+" next to the product version, it indicates a recommended version or higher within the same major release.
@@ -158,7 +155,6 @@ Recommendation for production setups is to use Varnish/Fastly, Redis/Memcached, 
     - `php-mysql` (`php-mysqlnd`) or `php-pgsql`
     - `php-xml`
     - `php-mbstring`
-    - `php-json`
     - `php-process` (on RHEL/CentOS)
     - `php-intl`
     - `php-curl`
@@ -202,7 +198,7 @@ Recommendation for production setups is to use Varnish/Fastly, Redis/Memcached, 
 
 === "[[= product_name =]] v5.0"
 
-    - `php-redis` or `php-memcached`
+    - `php-redis`
 
 === "[[= product_name =]] v4.6"
 
@@ -216,10 +212,8 @@ Recommendation for production setups is to use Varnish/Fastly, Redis/Memcached, 
 
 === "[[= product_name =]] v5.0"
 
-    - For content search, Solr 7.7 LTS or Solr 8, recommended 8.11.1 or higher.
+    - For content search, Solr 8.11.1 or higher.
     Alternatively, Elasticsearch 7.16.2 or higher 7.x version.
-    - The above solutions require Oracle Java/Open JDK. The minimum requirement is 8 LTS, recommended 11 LTS.
-    Newer versions aren't supported.
 
 === "[[= product_name =]] v4.6"
 
@@ -287,7 +281,7 @@ Recommendation for production setups is to use Varnish/Fastly, Redis/Memcached, 
 === "[[= product_name =]] v5.0"
 
     - Linux NFS or S3/EFS (for IO, aka binary files stored in content repository, not supported with legacy)
-    - Redis 4.0+ or 5.0+ (separate instances for session and cache, both using a `volatile-*` [eviction policy](https://redis.io/docs/latest/develop/reference/eviction/), session instance configured for persistence) or [Memcached](https://memcached.org/) 1.5 or higher
+    - Redis 7.2+ (separate instances for session and cache, both using a `volatile-*` [eviction policy](https://redis.io/docs/latest/develop/reference/eviction/), session instance configured for persistence)
     - [Varnish](http://varnish-cache.org/) 6.0LTS or 7.1 with [varnish-modules](https://github.com/varnish/varnish-modules/blob/master/README.md) or [Fastly](https://www.fastly.com/) using [the provided bundle](http_cache.md) (for HTTP Cache)
 
     If you see a "+" next to the product version, it indicates a recommended version or higher within the same major release.
@@ -329,7 +323,7 @@ Recommendation for production setups is to use Varnish/Fastly, Redis/Memcached, 
 
 === "[[= product_name =]] v5.0"
 
-    - Composer: recent 2.7 version
+    - Composer: recent 2.8 version
 
 === "[[= product_name =]] v4.6"
 
@@ -343,7 +337,7 @@ Recommendation for production setups is to use Varnish/Fastly, Redis/Memcached, 
 
 === "[[= product_name =]] v5.0"
 
-    - `Node.js` 18+
+    - `Node.js` 22+
     - `yarn` 1.15.2+
 
     If you see a "+" next to the product version, it indicates a recommended version or higher within the same major release.
@@ -408,8 +402,8 @@ Recommendation for production setups is to use Varnish/Fastly, Redis/Memcached, 
 
     For example:
 
-    - Platform.sh provides Redis support for versions 3.2, 4.0 and 5.0. [[= product_name =]] supports Redis version 4.0 or higher, and recommends 5.0.
-    As a result, Redis is supported on [[= product_name_cloud =]] in versions 4.0 and 5.0, but 5.0 is recommended.
+    - Platform.sh provides Redis support for versions 7.2, 7.0, and 6.2. [[= product_name =]] supports Redis version 7.2.
+    As a result, Redis is supported on [[= product_name_cloud =]] in versions 7.2.
 
     Features or services supported by [[= product_name =]] but not covered by Platform.sh may be possible by means of a [custom integration](#custom-integrations).
 

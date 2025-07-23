@@ -10,12 +10,12 @@ final class ImageFieldEncoder implements FieldEncoderInterface
 {
     public function canEncode(Field $field): bool
     {
-        return $field->fieldTypeIdentifier === 'ezimage';
+        return $field->fieldTypeIdentifier === 'ibexa_image';
     }
 
     public function canDecode(string $type): bool
     {
-        return $type === 'ezimage';
+        return $type === 'ibexa_image';
     }
 
     public function encode(Field $field): string
