@@ -410,6 +410,9 @@ You can track the renaming in the `ibexa-4.6.latest-to-5.0.0.sql` file or below.
 
 ### Update custom code for [[= product_name =]] 5.0
 
+See [[[= product_name =]] v5.0 deprecations and backwards compatibility breaks](/release_notes/ibexa_dxp_v5.0_deprecations.md) for the list of changes.
+The following sections presents some of those changes and how to apply them.
+
 #### Update PHP framework standards
 
 Among other things,
