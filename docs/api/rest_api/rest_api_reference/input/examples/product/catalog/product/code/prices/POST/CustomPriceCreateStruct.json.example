@@ -1,8 +1,0 @@
-{
-  "CustomPriceCreateStruct": {
-    "customerGroup": "test",
-    "amount": 2500,
-    "customAmount": 1500,
-    "currency": "EUR"
-  }
-}

@@ -22,15 +22,17 @@ use Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion\Operator;
 use Ibexa\Contracts\Core\Repository\Values\Filter\Filter;
 use Ibexa\Core\FieldType\Image\Value;
 use Ibexa\Core\IO\IOBinarydataHandler;
+use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
+#[AsCommand(
+    name: 'app:add-alt-text',
+)]
 final class AddMissingAltTextCommand extends Command
 {
-    protected static $defaultName = 'app:add-alt-text';
-
     private const IMAGE_FIELD_IDENTIFIER = 'image';
 
     private ContentService $contentService;
@@ -53,13 +55,14 @@ final class AddMissingAltTextCommand extends Command
         ActionServiceInterface $actionService,
         IOBinarydataHandler $binaryDataHandler
     ) {
-        parent::__construct();
         $this->contentService = $contentService;
         $this->permissionResolver = $permissionResolver;
         $this->userService = $userService;
         $this->fieldTypeService = $fieldTypeService;
         $this->actionService = $actionService;
         $this->binaryDataHandler = $binaryDataHandler;
+
+        parent::__construct();
     }
 
     protected function configure(): void
@@ -147,7 +150,7 @@ final class AddMissingAltTextCommand extends Command
     /** @phpstan-assert-if-true string $value->uri */
     private function shouldGenerateAltText(Value $value): bool
     {
-        return $this->fieldTypeService->getFieldType('ezimage')->isEmptyValue($value) === false &&
+        return $this->fieldTypeService->getFieldType('ibexa_image')->isEmptyValue($value) === false &&
             $value->isAlternativeTextEmpty() &&
             $value->uri !== null;
     }

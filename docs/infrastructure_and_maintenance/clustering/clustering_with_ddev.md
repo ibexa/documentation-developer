@@ -120,37 +120,3 @@ You can now check whether Redis works.
 For example, the `ddev redis-cli MONITOR` command returns outputs, for example, `"SETEX" "ezp:`, `"MGET" "ezp:`, `"SETEX" "PHPREDIS_SESSION:`, or `"GET" "PHPREDIS_SESSION:`, while navigating into the website, in particular the back office.
 
 See [Redis commands](https://redis.io/docs/latest/commands/) for more details such as information about the [`MONITOR`](https://redis.io/docs/latest/commands/monitor/) command used in the previous example.
-
-### Install Memcached
-
-First, if not already there, append the following [new service](https://doc.ibexa.co/en/latest/infrastructure_and_maintenance/sessions/#handling-sessions-with-memcached) to `config/services.yaml`:
-
-```yaml
-    app.session.handler.native_memcached:
-        class: Ibexa\Bundle\Core\Session\Handler\NativeSessionHandler
-        arguments:
-            - '%session.save_path%'
-            - memcached
-```
-
-Second, install and set up the add-on.
-The following sequence of commands:
-
-1. Adds the Memcached container.
-1. Sets Memcached as the cache pool.
-1. Sets Memcached as the session handler.
-1. Restarts the DDEV cluster and clears application cache.
-
-```bash
-ddev add-on get ddev/ddev-memcached
-ddev config --web-environment-add CACHE_POOL=cache.memcached
-ddev config --web-environment-add CACHE_DSN=memcached
-ddev config --web-environment-add SESSION_HANDLER_ID=app.session.handler.native_memcached
-ddev config --web-environment-add SESSION_SAVE_PATH=memcached:11211
-ddev restart
-ddev php bin/console cache:clear
-```
-
-You can now check whether everything went right.
-
-For example, the `watch 'ddev exec netcat -w1 memcached 11211 <<< "stats" | grep "cmd_.et "'` command checks whether the `web` service can access the `memcached` service, and displays the increase of `cmd_get` and `cmd_set` while navigating into the website.

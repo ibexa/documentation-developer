@@ -9,14 +9,14 @@ Each zone can in turn contain blocks.
 
 Page field type is only used in the page content type that is included in [[= product_name_exp =]].
 
-| Name           | Internal name   | Expected input  |
-|----------------|-----------------|-----------------|
-| `Landing page` | `ezlandingpage` | `string (JSON)` |
+| Name          | Internal name        | Expected input  |
+|---------------|----------------------|-----------------|
+| `LandingPage` | `ibexa_landing_page` | `string` (JSON) |
 
 !!! caution "Page Builder"
 
-    If you create content type with both `ezlandingpage` and `ezuser` field types, you aren't redirected to Page Builder after selecting `Edit` or `Create`.
-    This is caused by `ezuser` field type which requires separate handling.
+    If you create content type with both `ibexa_landing_page` and `ibexa_user` field types, you aren't redirected to Page Builder after selecting `Edit` or `Create`.
+    This is caused by `ibexa_user` field type which requires separate handling.
     You're redirected to the standard back office edit or create mode.
 
 ## Layout and zones
@@ -45,12 +45,12 @@ To render a block inside the layout, use the Twig `render_esi()` function to cal
 
 The `renderAction` has the following parameters:
 
-|Parameter|Description|
-|---------|-----------|
-|`locationId`|ID of the location of the content item which can be accessed by `contentInfo.id`|
-|`blockId`|ID of the block which you want to render.|
-|`versionNo`|Version number of the content item to render.|
-|`languageCode`|Language code of the content item to render.|
+| Parameter      | Description                                                                      |
+|----------------|----------------------------------------------------------------------------------|
+| `locationId`   | ID of the location of the content item which can be accessed by `contentInfo.id` |
+| `blockId`      | ID of the block which you want to render.                                        |
+| `versionNo`    | Version number of the content item to render.                                    |
+| `languageCode` | Language code of the content item to render.                                     |
 
 Example usage:
 

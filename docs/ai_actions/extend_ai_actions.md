@@ -14,7 +14,7 @@ For example, you can create a handler that connects to a translation model and u
 You can execute AI Actions by using the [ActionServiceInterface](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorAi-ActionServiceInterface.html) service, as in the following example:
 
 ``` php
-[[= include_file('code_samples/ai_actions/src/Command/AddMissingAltTextCommand.php', 102, 121) =]]
+[[= include_file('code_samples/ai_actions/src/Command/AddMissingAltTextCommand.php', 105, 124) =]]
 ```
 
 The `GenerateAltTextAction` is a built-in action that implements the [ActionInterface](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorAi-ActionInterface.html), takes an [Image](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorAi-Action-DataType-Image.html) as an input, and generates the alternative text in the response.
@@ -43,7 +43,7 @@ You can influence the execution of an Action with two events:
 Below you can find the full example of a Symfony Command, together with a matching service definition.
 The command finds the images modified in the last 24 hours, and adds the alternative text to them if it's missing.
 
-``` php hl_lines="88 101-126"
+``` php hl_lines="91 104-129"
 [[= include_file('code_samples/ai_actions/src/Command/AddMissingAltTextCommand.php') =]]
 ```
 
@@ -77,7 +77,7 @@ See [Action Configuration Search Criteria reference](action_configuration_criter
 The following example creates a new Action Configuration:
 
 ``` php hl_lines="3 17"
-[[= include_file('code_samples/ai_actions/src/Command/ActionConfigurationCreateCommand.php', 59, 76) =]]
+[[= include_file('code_samples/ai_actions/src/Command/ActionConfigurationCreateCommand.php', 62, 79) =]]
 ```
 
 Actions Configurations are tied to a specific Action Type and are translatable.
@@ -88,7 +88,7 @@ Reuse existing Action Configurations to simplify the execution of AI Actions.
 You can pass one directly to the `ActionServiceInterface::execute()` method:
 
 ``` php hl_lines="7-8"
-[[= include_file('code_samples/ai_actions/src/Command/ActionConfigurationCreateCommand.php', 77, 85) =]]
+[[= include_file('code_samples/ai_actions/src/Command/ActionConfigurationCreateCommand.php', 80, 88) =]]
 ```
 
 The passed Action Configuration is only taken into account if the Action Context was not passed to the Action directly using the [ActionInterface::setActionContext()](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorAi-ActionInterface.html#method_hasActionContext) method.
@@ -103,6 +103,8 @@ The `ActionServiceInterface` service extracts the configuration options from the
 [[= product_name =]] comes with a built-in connector to OpenAI services, but you're not limited to it and can add support for additional AI services in your application.
 
 The following example adds a new Action Handler connecting to a local AI run using [the llamafile project](https://github.com/Mozilla-Ocho/llamafile) which you can use to execute Text-To-Text Actions, such as the built-in "Refine Text" Action.
+
+When creating an Action Handler for [[= product_name_connect =]], add the new handler identifier to the [`Ibexa AI handler` custom property](configure_ai_actions.md#initiate-integration) in [[= product_name_connect =]] user interface.
 
 ### Register a custom Action Handler in the system.
 
@@ -320,8 +322,8 @@ Content-Type: application/vnd.ibexa.api.ai.TranscribeAudio+json
 
 The last step in fully integrating the Transcribe Audio Action Type embeds it directly into the back office, allowing Editors to invoke it while doing their daily work.
 
-Extend the default editing template of the `ezbinaryfile` fieldtype by creating a new file called `templates/themes/admin/admin/ui/fieldtype/edit/form_fields_binary_ai.html.twig`.
-This template embeds the AI component, but only if a dedicated `transcript` field (of `eztext` type) is available in the same content type to store the content of the transcription.
+Extend the default editing template of the `ibexa_binaryfile` fieldtype by creating a new file called `templates/themes/admin/admin/ui/fieldtype/edit/form_fields_binary_ai.html.twig`.
+This template embeds the AI component, but only if a dedicated `transcript` field (of `ibexa_text` type) is available in the same content type to store the content of the transcription.
 
 
 ``` twig

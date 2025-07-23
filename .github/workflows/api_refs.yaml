@@ -1,0 +1,86 @@
+name: 'Build API Refs'
+
+on:
+    workflow_dispatch:
+        inputs:
+            version:
+                description: 'Released version tag (for example: v4.6.21 or v5.0.0)'
+                required: true
+                type: string
+
+jobs:
+    open_php_api_ref_pr:
+        name: "PHP & REST API References' PR"
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: Set version and branches
+              id: version_and_branches
+              run: |
+                  version="${{ inputs.version }}"
+                  base_branch="$(echo $version | sed 's/v\(.*\..*\)\..*/\1/')"
+                  work_branch="api_refs_$version"
+                  echo "version=$version" >> "$GITHUB_OUTPUT"
+                  echo "base_branch=$base_branch" >> "$GITHUB_OUTPUT"
+                  echo "work_branch=$work_branch" >> "$GITHUB_OUTPUT"
+
+            - name: Checkout documentation
+              uses: actions/checkout@v4
+              with:
+                  ref: ${{ steps.version_and_branches.outputs.base_branch }}
+
+            - name: Disable PHP coverage
+              uses: shivammathur/setup-php@v2
+              with:
+                  coverage: none
+
+            - name: Set up node
+              uses: actions/setup-node@v4
+            - name: Install Redocly CLI
+              run: npm install -g @redocly/cli@latest
+
+            - name: Build API Refs
+              env:
+                  SATIS_NETWORK_KEY: ${{ secrets.SATIS_NETWORK_KEY }}
+                  SATIS_NETWORK_TOKEN: ${{ secrets.SATIS_NETWORK_TOKEN }}
+                  BASE_BRANCH: ${{ steps.version_and_branches.outputs.base_branch }}
+              run: |
+                  composer config --global http-basic.updates.ibexa.co $SATIS_NETWORK_KEY $SATIS_NETWORK_TOKEN
+                  if [[ '4.6' != $BASE_BRANCH ]]; then
+                    tools/api_refs/api_refs.sh
+                    # Fix escape character:
+                    perl -pi -e 's/\e/\\E/g' tools/api_refs/.phpdoc/template/package-edition-map.twig
+                  else
+                    tools/php_api_ref/phpdoc.sh
+                    # Fix escape character:
+                    perl -pi -e 's/\e/\\E/g' tools/api_refs/php_api_ref/template/package-edition-map.twig
+                    cd tools/raml2html/; composer install; cd -;
+                    php tools/raml2html/raml2html.php build --non-standard-http-methods=COPY,MOVE,PUBLISH,SWAP -t default -o docs/api/rest_api/rest_api_reference/ docs/api/rest_api/rest_api_reference/input/ibexa.raml
+                  fi
+
+            - name: Commit
+              env:
+                  BASE_BRANCH: ${{ steps.version_and_branches.outputs.base_branch }}
+              run: |
+                  git config --global user.name "${GITHUB_ACTOR}"
+                  git config --global user.email "${GITHUB_ACTOR}@users.noreply.github.com"
+                  git add docs/api/php_api/php_api_reference/
+                  if [[ '4.6' != $BASE_BRANCH ]]; then
+                    git add tools/api_refs/.phpdoc/template/package-edition-map.twig
+                  else
+                    git add tools/php_api_ref/.phpdoc/template/package-edition-map.twig
+                  fi
+                  git diff-index --quiet --cached HEAD || git commit -m "PHP API Ref HTML"
+                  git add docs/api/rest_api/rest_api_reference/rest_api_reference.html
+                  git diff-index --quiet --cached HEAD || git commit -m "REST API Ref HTML"
+
+            - name: Create Pull Request
+              uses: peter-evans/create-pull-request@v7
+              with:
+                  token: ${{ secrets.EZROBOT_PAT }}
+                  title: "API Refs ${{ steps.version_and_branches.outputs.version }}"
+                  body: "PHP API & REST API References update for ${{ steps.version_and_branches.outputs.version }}"
+                  branch: "${{ steps.version_and_branches.outputs.work_branch }}"
+                  base: "${{ steps.version_and_branches.outputs.base_branch }}"
+                  draft: false
+                  labels: 'Needs DOC review'

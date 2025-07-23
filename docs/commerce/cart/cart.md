@@ -11,7 +11,7 @@ It covers actions related to the creation and handling of a list of products tha
 The component exposes the following:
 
 - [PHP API](cart_api.md) that allows for managing carts and cart entries, or checking cart validity
-- [REST API](../../api/rest_api/rest_api_reference/rest_api_reference.html#managing-commerce-carts) that helps get cart and products information over HTTP
+- [REST API](/api/rest_api/rest_api_reference/rest_api_reference.html#tag/Cart) that helps get cart and products information over HTTP
 - [Twig functions](cart_twig_functions.md) that enable checking whether product can be added to cart and formatting the price
 
 There is no specific configuration related to the cart component.

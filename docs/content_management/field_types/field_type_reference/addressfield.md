@@ -1,3 +1,8 @@
+---
+edition: experience
+---
+
+
 # Address field type
 
 This field represents and handles address fields.
@@ -121,7 +126,7 @@ class ExampleAddressSubscriber implements EventSubscriberInterface
             'ibexa.address.field.tax_number.billing_address' => 'onBillingAddressTaxNumber',
         ];
     }
-    
+
     public function onBillingAddressTaxNumber(MapFieldEvent $event): void
     {
         $event->setLabel('VAT');

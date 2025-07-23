@@ -172,7 +172,7 @@ def define_env(env):
         category_badges = "".join(
             [
                 """
-<div class="release-note__tag release-note__tag--{category_slug}" data-filter="{category_slug}">{category}</div>
+<div class="pill pill--{category_slug}" data-filter="{category_slug}"></div>
                 """.format(category_slug=slugify(category), category=category) 
                 for category in categories
             ]

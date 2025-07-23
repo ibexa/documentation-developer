@@ -9,11 +9,15 @@ use Ibexa\Contracts\Core\Repository\SectionService;
 use Ibexa\Contracts\Core\Repository\UserService;
 use Ibexa\Contracts\Core\Repository\Values\Content\LocationQuery;
 use Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion;
+use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
+#[AsCommand(
+    name: 'doc:section'
+)]
 class SectionCommand extends Command
 {
     private SectionService $sectionService;
@@ -33,7 +37,8 @@ class SectionCommand extends Command
         $this->permissionResolver = $permissionResolver;
         $this->searchService = $searchService;
         $this->contentService = $contentService;
-        parent::__construct('doc:section');
+
+        parent::__construct();
     }
 
     protected function configure(): void

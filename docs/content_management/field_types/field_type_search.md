@@ -52,7 +52,7 @@ Example from [`indexable_fieldtypes.yaml`](https://github.com/ibexa/core/blob/ma
 Ibexa\Core\FieldType\Keyword\SearchField:
     class: Ibexa\Core\FieldType\Keyword\SearchField
     tags:
-        - {name: ibexa.field_type.indexable, alias: ezkeyword}
+        - {name: ibexa.field_type.indexable, alias: ibexa_keyword}
 ```
 
 The `alias` should be the same as field type ID.

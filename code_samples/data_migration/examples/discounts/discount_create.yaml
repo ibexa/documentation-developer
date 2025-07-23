@@ -1,0 +1,37 @@
+-   type: discount
+    mode: create
+    identifier: summer_sale_2025
+    translations:
+        -
+            language_code: eng-GB
+            name: "Summer Sale 2025"
+            description: "-10% on laptops"
+            label: "HOT DEAL: Summer Sale!"
+            label_description: "Get 10% off on selected items!"
+    discount_type: cart
+    priority: 8
+    enabled: true
+    user: admin
+    startDate: '2024-01-01T00:01:00+00:00'
+    endDate: null
+    createdAt: null
+    updatedAt: null
+    rule:
+        type: percentage
+        expressionValues:
+            discount_percentage: 10
+    conditions:
+        -   
+            identifier: is_in_currency
+            expressionValues: 
+                currency_code: EUR
+        -
+            identifier: is_product_in_array
+            expressionValues:
+                product_codes: 
+                    - product_code_book_0
+                    - product_code_book_1
+        -
+            identifier: is_product_in_quantity_in_cart
+            expressionValues:
+                quantity: 2

@@ -61,7 +61,7 @@ To access the password settings:
 1. In the back office, go to **Content** -> **Content types**.
 1. In the **Content type groups** table, click **Users**.
 1. Edit the **User** content type.
-1. In the **Field definitions** list, view the settings for **User account (ezuser)**.
+1. In the **Field definitions** list, view the settings for **User account (ibexa_user)**.
 
 !!! tip
 
@@ -70,7 +70,7 @@ To access the password settings:
 
 ## Password attributes
 
-In the **User account (ezuser)** Field definition, you can determine if the password must contain at least:
+In the **User account (ibexa_user)** Field definition, you can determine if the password must contain at least:
 
 - One uppercase letter
 - One lowercase letter
@@ -81,7 +81,7 @@ You can also set the minimum password length.
 
 ## Password expiration
 
-In the **User account (ezuser)** field definition, you can set password expiration rules, which forces users to change their passwords periodically.
+In the **User account (ibexa_user)** field definition, you can set password expiration rules, which forces users to change their passwords periodically.
 
 ![Password expiry settings](password_expiry.png)
 
@@ -91,7 +91,7 @@ The notification is displayed in the back office after login and in the user con
 ## Repeating passwords
 
 You can set a rule that the password cannot be reused.
-You set it for the user content type in the **User account (ezuser)** field type's settings.
+You set it for the user content type in the **User account (ibexa_user)** field type's settings.
 When this is set, the user cannot type in the same password when it expires.
 It has to be changed to a new one.
 
@@ -103,7 +103,7 @@ This rule is valid by default when password expiration is set.
 ## Breached passwords
 
 You can set a rule that prevents using passwords which have been exposed in a public breach.
-To do this, in the **User account (ezuser)** field definition, select "Password must not be contained in a public breach".
+To do this, in the **User account (ibexa_user)** field definition, select "Password must not be contained in a public breach".
 
 ![Protection against using breached passwords](password_breached.png)
 

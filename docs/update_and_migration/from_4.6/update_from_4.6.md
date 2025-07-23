@@ -1,6 +1,6 @@
 ---
 description: Update your installation to the latest v4.6 version from an earlier v4.6 version.
-month_change: false
+month_change: true
 ---
 
 # Update from v4.6.x to v4.6.latest
@@ -293,3 +293,247 @@ There are no additional update steps to execute.
 ## v4.6.18
 
 No additional steps needed.
+
+## v4.6.19
+
+### Security
+
+This release fixes a critical vulnerability in the [RichText field type](richtextfield.md).
+By entering a maliciously crafted input into the RichText field type's XML, the attacker could perform an attack using [XML external entity (XXE) injection](https://portswigger.net/web-security/xxe). 
+To exploit this vulnerability, an attacker would need to have edit permission to content with RichText fields.
+
+For more information, see the [published security advisory IBEXA-SA-2025-002](https://developers.ibexa.co/security-advisories/ibexa-sa-2025-002-xxe-vulnerability-in-richtext).
+
+Evaluate the vulnerability to determine whether you might have been affected.
+If so, take appropriate action.
+There are no additional update steps to execute.
+
+### [[= product_name_base =]] Rector
+
+The new [Ibexa Rector](https://github.com/ibexa/rector/) package is now available.
+It's an optional package based on [Rector](https://getrector.com/) and comes with additional rules for working with Ibexa code.
+
+You can use it to get rid of PHP code deprecations and start preparing your project for the next major release.
+
+!!! note
+
+    [[= product_name_base =]] Rector requires PHP 8.3 and you must upgrade your codebase first.
+    To do it, you can use Rector and the [existing PHP upgrade sets](https://getrector.com/documentation/integration-to-new-project#content-2-upgrade-php-first).
+
+To get started with [[= product_name_base =]] Rector, execute the following steps:
+
+1. Add the Composer dependency:
+``` bash
+composer require --dev ibexa/rector:^4.6
+```
+
+2. Adjust the created `rector.php` configuration file to match your project structure
+
+3. Run Rector in the dry-run mode to preview the changes: 
+``` bash
+vendor/bin/rector --dry-run
+```
+
+4. Run Rector:
+``` bash
+vendor/bin/rector
+```
+
+## v4.6.20
+
+No additional steps needed.
+
+## v4.6.21
+
+### Security
+
+This security advisory resolves XSS vulnerabilities in several parts of the back office of the DXP.
+Back office access and varying levels of editing and management permissions are required to exploit these vulnerabilities.
+
+For more information, see the [security advisory IBEXA-SA-2025-003](https://developers.ibexa.co/security-advisories/ibexa-sa-2025-003-xss-vulnerabilities-in-back-office).
+
+Evaluate the vulnerability to determine whether you might have been affected.
+If so, take appropriate action.
+There are no additional update steps to execute.
+
+### Database update
+
+Run the following scripts:
+
+=== "MySQL"
+
+    ``` bash
+    mysql -u <username> -p <password> <database_name> < vendor/ibexa/installer/upgrade/db/mysql/ibexa-4.6.20-to-4.6.21.sql
+    ```
+
+=== "PostgreSQL"
+
+    ``` bash
+    psql <database_name> < vendor/ibexa/installer/upgrade/db/postgresql/ibexa-4.6.20-to-4.6.21.sql
+    ```
+
+[[% include 'snippets/update/notify_support.md' %]]
+
+With the product updated to the latest version, you can now finish the update process or proceed to updating the LTS Updates packages.
+
+## LTS Updates
+
+[LTS Updates](https://doc.ibexa.co/en/4.6/ibexa_products/editions/#lts-updates) are standalone packages with their own update procedures.
+To use the [latest features](ibexa_dxp_v4.6.md) added to them, update them separately with the following commands:
+
+=== "Discounts"
+
+    Run the following command to get the latest version:
+
+    ```bash
+    composer require ibexa/discounts:[[= latest_tag_4_6 =]] ibexa/discounts-codes:[[= latest_tag_4_6 =]]
+    ```
+
+    Then apply manually the changes described below.
+
+    ## 4.6.20
+
+    ### Policy changes
+
+    The `discount/view` policy is no longer required for the store customers to use a discount and must be removed from all users who are not managing discounts.
+    The policy allows to access all the discount details, including the coupon codes to activate them, which could lead to system abuse.
+
+    To learn more, see the [discounts policies overview](https://doc.ibexa.co/en/4.6/permissions/policies/).
+
+    ### Database update
+
+    Run the following scripts:
+
+    === "MySQL"
+
+        ``` sql
+        CREATE TABLE ibexa_discount_code_usage (
+            id INT AUTO_INCREMENT NOT NULL,
+            discount_code_id INT NOT NULL,
+            order_id INT NOT NULL,
+            discriminator VARCHAR(10) NOT NULL,
+            used_at DATETIME NOT NULL COMMENT '(DC2Type:datetime_immutable)',
+            INDEX ibexa_discount_code_usage_discount_code_idx (discount_code_id),
+            INDEX ibexa_discount_code_usage_order_idx (order_id),
+            PRIMARY KEY(id)
+        ) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_520_ci` ENGINE = InnoDB;
+
+        CREATE TABLE ibexa_discount_code_usage_email (
+            id INT NOT NULL,
+            user_email VARCHAR(190) DEFAULT NULL,
+            INDEX ibexa_discount_code_usage_email_idx (user_email),
+            UNIQUE INDEX ibexa_discount_codes_usage_email_uidx (id, user_email),
+            PRIMARY KEY(id)
+        ) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_520_ci` ENGINE = InnoDB;
+
+        CREATE TABLE ibexa_discount_code_usage_user (
+            id INT NOT NULL,
+            user_id INT DEFAULT NULL,
+            INDEX ibexa_discount_code_usage_user_idx (user_id),
+            UNIQUE INDEX ibexa_discount_codes_usage_user_uidx (id, user_id),
+            PRIMARY KEY(id)
+        ) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_520_ci` ENGINE = InnoDB;
+
+        ALTER TABLE ibexa_discount_code_usage
+            ADD CONSTRAINT ibexa_discount_code_usage_code_fk FOREIGN KEY (discount_code_id)
+                REFERENCES ibexa_discount_code (id) ON UPDATE CASCADE ON DELETE CASCADE;
+
+        ALTER TABLE ibexa_discount_code_usage
+            ADD CONSTRAINT ibexa_discount_code_usage_order_fk FOREIGN KEY (order_id)
+                REFERENCES ibexa_order (id) ON UPDATE CASCADE ON DELETE CASCADE;
+
+        ALTER TABLE ibexa_discount_code_usage_email
+            ADD CONSTRAINT ibexa_discount_code_usage_email_fk FOREIGN KEY (id)
+                REFERENCES ibexa_discount_code_usage (id) ON UPDATE CASCADE ON DELETE CASCADE;
+
+        ALTER TABLE ibexa_discount_code_usage_user
+            ADD CONSTRAINT ibexa_discount_code_usage_user_fk FOREIGN KEY (id)
+                REFERENCES ibexa_discount_code_usage (id) ON UPDATE CASCADE ON DELETE CASCADE;
+
+        ALTER TABLE ibexa_discount_code_usage_user
+            ADD CONSTRAINT ibexa_discount_code_usage_user_content_fk FOREIGN KEY (user_id)
+                REFERENCES ezuser (contentobject_id) ON UPDATE CASCADE ON DELETE CASCADE;
+        ```
+
+    === "PostgreSQL"
+
+        ``` sql
+        CREATE TABLE ibexa_discount_code_usage
+        (
+            id SERIAL NOT NULL,
+            discount_code_id INT NOT NULL,
+            order_id INT NOT NULL,
+            discriminator VARCHAR(10) NOT NULL,
+            used_at TIMESTAMP(0) WITHOUT TIME ZONE NOT NULL,
+            PRIMARY KEY(id)
+        );
+
+        CREATE INDEX ibexa_discount_code_usage_discount_code_idx
+            ON ibexa_discount_code_usage (discount_code_id);
+
+        CREATE INDEX ibexa_discount_code_usage_order_idx
+            ON ibexa_discount_code_usage (order_id);
+
+        COMMENT ON COLUMN ibexa_discount_code_usage.used_at IS '(DC2Type:datetime_immutable)';
+
+        CREATE TABLE ibexa_discount_code_usage_email (
+            id INT NOT NULL,
+            user_email VARCHAR(190) DEFAULT NULL,
+            PRIMARY KEY(id)
+        );
+
+        CREATE INDEX ibexa_discount_code_usage_email_idx
+            ON ibexa_discount_code_usage_email (user_email);
+
+        CREATE UNIQUE INDEX ibexa_discount_codes_usage_email_uidx
+            ON ibexa_discount_code_usage_email (id, user_email);
+
+        CREATE TABLE ibexa_discount_code_usage_user
+        (
+            id INT NOT NULL,
+            user_id INT DEFAULT NULL,
+            PRIMARY KEY(id)
+        );
+
+        CREATE INDEX ibexa_discount_code_usage_user_idx
+            ON ibexa_discount_code_usage_user (user_id);
+
+        CREATE UNIQUE INDEX ibexa_discount_codes_usage_user_uidx
+            ON ibexa_discount_code_usage_user (id, user_id);
+
+        ALTER TABLE ibexa_discount_code_usage
+            ADD CONSTRAINT ibexa_discount_code_usage_code_fk FOREIGN KEY (discount_code_id)
+                REFERENCES ibexa_discount_code (id) ON UPDATE CASCADE ON DELETE CASCADE NOT DEFERRABLE INITIALLY IMMEDIATE;
+
+        ALTER TABLE ibexa_discount_code_usage
+            ADD CONSTRAINT ibexa_discount_code_usage_order_fk FOREIGN KEY (order_id)
+                REFERENCES ibexa_order (id) ON UPDATE CASCADE ON DELETE CASCADE NOT DEFERRABLE INITIALLY IMMEDIATE;
+
+        ALTER TABLE ibexa_discount_code_usage_email
+            ADD CONSTRAINT ibexa_discount_code_usage_email_fk FOREIGN KEY (id)
+                REFERENCES ibexa_discount_code_usage (id) ON UPDATE CASCADE ON DELETE CASCADE NOT DEFERRABLE INITIALLY IMMEDIATE;
+
+        ALTER TABLE ibexa_discount_code_usage_user
+            ADD CONSTRAINT ibexa_discount_code_usage_user_fk FOREIGN KEY (id)
+                REFERENCES ibexa_discount_code_usage (id) ON UPDATE CASCADE ON DELETE CASCADE NOT DEFERRABLE INITIALLY IMMEDIATE;
+
+        ALTER TABLE ibexa_discount_code_usage_user
+            ADD CONSTRAINT ibexa_discount_code_usage_user_content_fk FOREIGN KEY (user_id)
+                REFERENCES ezuser (contentobject_id) ON UPDATE CASCADE ON DELETE CASCADE NOT DEFERRABLE INITIALLY IMMEDIATE;
+        ```
+
+=== "AI actions"
+
+    Run the following command to get the latest version:
+
+    ```bash
+    composer require ibexa/connector-ai:[[= latest_tag_4_6 =]] ibexa/connector-openai:[[= latest_tag_4_6 =]]
+    ```
+
+=== "Date and time attribute"
+
+    Run the following command to get the latest version:
+
+    ```bash
+    composer require ibexa/product-catalog-date-time-attribute:[[= latest_tag_4_6 =]]
+    ```

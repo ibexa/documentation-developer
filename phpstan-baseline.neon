@@ -211,12 +211,6 @@ parameters:
 			path: code_samples/api/rest_api/src/Rest/ValueObjectVisitor/Greeting.php
 
 		-
-			message: '#^Method App\\Rest\\ValueObjectVisitor\\RestLocation\:\:visit\(\) has no return type specified\.$#'
-			identifier: missingType.return
-			count: 1
-			path: code_samples/api/rest_api/src/Rest/ValueObjectVisitor/RestLocation.php
-
-		-
 			message: '#^Parameter \#1 \.\.\.\$arrays of function array_merge expects array, iterable\<Ibexa\\Contracts\\Core\\Repository\\Values\\Content\\URLAlias\> given\.$#'
 			identifier: argument.type
 			count: 1
@@ -419,42 +413,6 @@ parameters:
 			identifier: missingType.generics
 			count: 1
 			path: code_samples/field_types/2dpoint_ft/src/Form/Type/Point2DType.php
-
-		-
-			message: '#^Method App\\Serializer\\Point2D\\ValueNormalizer\:\:normalize\(\) never returns ArrayObject\<\(int\|string\), mixed\> so it can be removed from the return type\.$#'
-			identifier: return.unusedType
-			count: 1
-			path: code_samples/field_types/2dpoint_ft/src/Serializer/Point2D/ValueNormalizer.php
-
-		-
-			message: '#^Method App\\Serializer\\Point2D\\ValueNormalizer\:\:normalize\(\) never returns bool so it can be removed from the return type\.$#'
-			identifier: return.unusedType
-			count: 1
-			path: code_samples/field_types/2dpoint_ft/src/Serializer/Point2D/ValueNormalizer.php
-
-		-
-			message: '#^Method App\\Serializer\\Point2D\\ValueNormalizer\:\:normalize\(\) never returns float so it can be removed from the return type\.$#'
-			identifier: return.unusedType
-			count: 1
-			path: code_samples/field_types/2dpoint_ft/src/Serializer/Point2D/ValueNormalizer.php
-
-		-
-			message: '#^Method App\\Serializer\\Point2D\\ValueNormalizer\:\:normalize\(\) never returns int so it can be removed from the return type\.$#'
-			identifier: return.unusedType
-			count: 1
-			path: code_samples/field_types/2dpoint_ft/src/Serializer/Point2D/ValueNormalizer.php
-
-		-
-			message: '#^Method App\\Serializer\\Point2D\\ValueNormalizer\:\:normalize\(\) never returns null so it can be removed from the return type\.$#'
-			identifier: return.unusedType
-			count: 1
-			path: code_samples/field_types/2dpoint_ft/src/Serializer/Point2D/ValueNormalizer.php
-
-		-
-			message: '#^Method App\\Serializer\\Point2D\\ValueNormalizer\:\:normalize\(\) never returns string so it can be removed from the return type\.$#'
-			identifier: return.unusedType
-			count: 1
-			path: code_samples/field_types/2dpoint_ft/src/Serializer/Point2D/ValueNormalizer.php
 
 		-
 			message: '#^Class App\\Form\\Type\\Point2DType extends generic class Symfony\\Component\\Form\\AbstractType but does not specify its types\: TData$#'

@@ -1,6 +1,7 @@
 ---
 title: Dashboard service's PHP API
 description: Use DashboardService to manage dashboards.
+edition: experience
 ---
 
 # DashboardService's PHP API
@@ -24,7 +25,7 @@ Using the `admin` account, it loads the group members, logs each one in, creates
 First argument is the `Content ID` of the dashboard to copy.
 Following arguments are the Content IDs of the user groups.
 
-``` php hl_lines="61"
+``` php hl_lines="63"
 [[= include_file('code_samples/back_office/dashboard/src/Command/DashboardCommand.php') =]]
 ```
 
