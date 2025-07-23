@@ -69,7 +69,7 @@ If you delete the [main location](#changing-the-main-location) of a content item
 [[= include_file('code_samples/api/public_php_api/src/Command/DeleteContentCommand.php', 49, 50) =]]
 ```
 
-To send the location and its subtree to Trash, use [`TrashService::trash`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-TrashService.html#).
+To send the location and its subtree to Trash, use [`TrashService::trash`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-TrashService.html#method_trash).
 Items in Trash can be later [restored, or deleted permanently](#trash).
 
 ``` php
