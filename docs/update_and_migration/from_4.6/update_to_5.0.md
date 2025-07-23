@@ -29,7 +29,7 @@ It's important to stop using deprecated PHP classes as they're removed in 5.0.
 
 The [`ibexa/compatibility-layer`](to_4.0.md#add-compatibility-layer-package) isn't supported in 5.0.
 If you use it, remove it (`composer remove ibexa/compatibility-layer`) and make the necessary changes.
-See [Ibexa DXP v4.0 deprecations and backwards compatibility breaks](ibexa_dxp_v4.0_deprecations.md) for the list of changes.
+See [[[= product_name =]] v4.0 deprecations and backwards compatibility breaks](ibexa_dxp_v4.0_deprecations.md) for the list of changes.
 
 [Rector](https://getrector.com/) and the [[= product_name_base =]] rule sets help to upgrade your code.
 
@@ -89,7 +89,8 @@ controllers:
     type: attribute
 ```
 
-You can add the new declaration to the top of the file manually, or recreate the file by running `composer sync-recipes symfony/routing --force --reset` 
+You can add the new declaration to the top of the file manually,
+or recreate the file by running `composer sync-recipes symfony/routing --force --reset`.
 
 ### Remove GraphQL schema
 
@@ -445,6 +446,7 @@ use Rector\Symfony\Set\SensiolabsSetList;
            SymfonySetList::SYMFONY_70, // https://getrector.com/find-rule?activeRectorSetGroup=symfony&rectorSet=symfony-symfonysymfony-70
            SymfonySetList::SYMFONY_71, // https://getrector.com/find-rule?activeRectorSetGroup=symfony&rectorSet=symfony-symfonysymfony-71
            SymfonySetList::SYMFONY_72, // https://getrector.com/find-rule?activeRectorSetGroup=symfony&rectorSet=symfony-symfonysymfony-72
+           SymfonySetList::SYMFONY_73, // https://getrector.com/find-rule?activeRectorSetGroup=symfony&rectorSet=symfony-symfonysymfony-73
            SymfonySetList::ANNOTATIONS_TO_ATTRIBUTES,
            SensiolabsSetList::ANNOTATIONS_TO_ATTRIBUTES,
        ]
@@ -1016,7 +1018,7 @@ php bin/console ibexa:migrations:migrate --file=2025_07_08_09_27_set_container_t
 
 ### Generate GraphQL schema
 
-GraphQL usage is no longer required for the Ibexa DXP back office.
+GraphQL usage is no longer required for the [[= product_name =]] back office.
 If you are using GraphQL in your project, you can generate its schema by running:
 
 ```bash
@@ -1059,4 +1061,4 @@ composer ibexa:setup --platformsh
 
 #### Conclusion
 
-Your project is now running the latest major version of Ibexa DXP.
+Your project is now running the latest major version of [[= product_name =]].
