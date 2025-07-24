@@ -154,7 +154,7 @@ The `HttpKernel` then dispatches a `kernel.controller_arguments` (`KernelEvents:
 ## Controller execution
 
 The `HttpKernel` extracts from the request the controller and the arguments to pass to the controller.
-[Argument resolvers]([[= symfony_doc =]]/controller/argument_value_resolver.html) work in a way similar to autowiring.
+[Argument resolvers]([[= symfony_doc =]]/controller/value_resolver.html) work in a way similar to autowiring.
 The `HttpKernel` executes the controller with those arguments.
 
 As a reminder, the controller and its argument can be:

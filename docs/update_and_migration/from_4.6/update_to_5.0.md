@@ -29,7 +29,7 @@ It's important to stop using deprecated PHP classes as they're removed in 5.0.
 
 The [`ibexa/compatibility-layer`](to_4.0.md#add-compatibility-layer-package) isn't supported in 5.0.
 If you use it, remove it (`composer remove ibexa/compatibility-layer`) and make the necessary changes.
-See [[[= product_name =]] v4.0 deprecations and backwards compatibility breaks](ibexa_dxp_v4.0_deprecations.md) for the list of changes.
+See [[[= product_name =]] v4.0 deprecations and backwards compatibility breaks](/release_notes/ibexa_dxp_v4.0_deprecations.md) for the list of changes.
 
 [Rector](https://getrector.com/) and the [[= product_name_base =]] rule sets help to upgrade your code.
 
@@ -304,6 +304,22 @@ The main schema has changed and the provided SQL file `ibexa-4.6.latest-to-5.0.0
     psql <database_name> < vendor/ibexa/installer/upgrade/db/postgresql/ibexa-4.6.latest-to-5.0.0.sql
     ```
 
+??? note "Ibexa Open Source"
+
+    If you don't have access to [[= product_name =]]'s `ibexa/installer` package, apply the following database update:
+
+    === "MySQL"
+
+        ``` sql
+        [[= include_file('docs/update_and_migration/from_4.6/sql/ibexa_oss_4.6.latest-to-5.0.0_mysql.sql', glue="        ") =]]
+        ```
+
+    === "PostgreSQL"
+
+        ``` sql
+        [[= include_file('docs/update_and_migration/from_4.6/sql/ibexa_oss_4.6.latest-to-5.0.0_postgresql.sql', glue="        ") =]]
+        ```
+
 As this script targets all editions, on editions lower than Commerce you may encounter errors about missing tables which can safely be ignored.
 
 Many tables and columns are renamed.
@@ -409,6 +425,9 @@ You can track the renaming in the `ibexa-4.6.latest-to-5.0.0.sql` file or below.
     ```
 
 ### Update custom code for [[= product_name =]] 5.0
+
+See [[[= product_name =]] v5.0 deprecations and backwards compatibility breaks](/release_notes/ibexa_dxp_v5.0_deprecations.md) for the list of changes.
+The following sections presents some of those changes and how to apply them.
 
 #### Update PHP framework standards
 

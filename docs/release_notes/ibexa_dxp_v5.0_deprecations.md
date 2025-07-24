@@ -142,6 +142,7 @@ Several field type identifiers have changed.
 | `ezurl`                           | `ibexa_url`                       |
 | `ezuser`                          | `ibexa_user`                      |
 
+
 ## PHP API classes and methods
 
 !!! note "[[= product_name_base =]] Rector"
@@ -514,6 +515,109 @@ Support for facet search has been dropped, use the `Aggregation` API instead.
 |:------------------------------------------------------|:------------------------------------------------------------------------|
 | `\Ibexa\Contracts\Workflow\Service\WorkflowServiceInterface::loadWorkflowMetadataOriginatedByUser` | Removed |
 | `\Ibexa\Contracts\Workflow\Service\WorkflowServiceInterface::loadAllWorkflowMetadata` | Removed |
+
+## PHP method parameters
+
+The `ValueObject` argument was replaced by `object` in a number of interfaces in `core` and `migrations` package.
+In `core`, this change improves extensibility by enabling the use of custom object types to be interpreted by `PermissionResolver`.
+In `migrations`, it makes it easier to integrate custom data types, especially when using `AbstractStepFactory`.
+
+!!! note "Change examples"
+
+    Below the lists you may find examples of changes in those interfaces or classes that you are most likely to use in your work.
+    
+### ibexa/core
+
+| PHP Interface or class                                     | Methods                                                                |
+|:------------------------------------------------------|:------------------------------------------------------------------------|
+| `Ibexa\Contracts\Core\Repository\PermissionResolver` | `canUser`, `lookupLimitations` |
+| `Ibexa\Contracts\Core\Limitation/TargetAwareType` | `evaluate` |
+| `Ibexa\Contracts\Core\Limitation/Type` | `evaluate` |
+| `Ibexa\Core\Limitation\BlockingLimitationType` | `evaluate` |
+| `Ibexa\Core\Limitation\ChangeOwnerLimitationType` | `evaluate` |
+| `Ibexa\Core\Limitation\ContentTypeLimitationType` | `evaluate` |
+| `Ibexa\Core\Limitation\LanguageLimitationType` | `evaluate` |
+| `Ibexa\Core\Limitation\LocationLimitationType` | `evaluate` |
+| `Ibexa\Core\Limitation\MemberOfLimitationType` | `evaluate` |
+| `Ibexa\Core\Limitation\NewObjectStateLimitationType` | `evaluate` |
+| `Ibexa\Core\Limitation\NewSectionLimitationType` | `evaluate` |
+| `Ibexa\Core\Limitation\ObjectStateLimitationType` | `evaluate` |
+| `Ibexa\Core\Limitation\OwnerLimitationType` | `evaluate` |
+| `Ibexa\Core\Limitation\ParentContentTypeLimitationType` | `evaluate` |
+| `Ibexa\Core\Limitation\ParentDepthLimitationType` | `evaluate` |
+| `Ibexa\Core\Limitation\ParentOwnerLimitationType` | `evaluate` |
+| `Ibexa\Core\Limitation\ParentUserGroupLimitationType` | `evaluate` |
+| `Ibexa\Core\Limitation\RoleLimitationType` | `evaluate` |
+| `Ibexa\Core\Limitation\SectionLimitationType` | `evaluate` |
+| `Ibexa\Core\Limitation\SiteAccessLimitationType` | `evaluate` |
+| `Ibexa\Core\Limitation\StatusLimitationType` | `evaluate` |
+| `Ibexa\Core\Limitation\SubtreeLimitationType` | `evaluate` |
+| `Ibexa\Core\Limitation\UserGroupLimitationType` | `evaluate` |
+| `Ibexa\Core\Repository\Permission\CachedPermissionService` | `canUser`, `lookupLimitations` |
+| `Ibexa\Core\Repository\Permission\PermissionResolver` | `canUser`, `lookupLimitations` |
+
+??? note "Changes in `src/contracts/Repository/PermissionResolver.php`"
+
+    ![`PermissionResolver.php`](5.0_Repository.PermissionResolver.png)
+
+### ibexa/migrations
+
+| PHP Interface or class                                     | Methods                                                                |
+|:------------------------------------------------------|:------------------------------------------------------------------------|
+| `Ibexa\Contracts\Migration\StepExecutor\AbstractStepExecutor` | `doCollectReferences`, `handleActions` |
+| `Ibexa\Migration\Generator\Content\StepBuilder\Create` | `build` |
+| `Ibexa\Migration\Generator\Content\StepBuilder\Delete` | `build` |
+| `Ibexa\Migration\Generator\Content\StepBuilder\Factory` | `prepareLogMessage` |
+| `Ibexa\Migration\Generator\Content\StepBuilder\Update` | `build` |
+| `Ibexa\Migration\Generator\ContentTypeGroup\StepBuilder\Create` | `build` |
+| `Ibexa\Migration\Generator\ContentTypeGroup\StepBuilder\Delete` | `build` |
+| `Ibexa\Migration\Generator\ContentTypeGroup\StepBuilder\Factory` | `prepareLogMessage` |
+| `Ibexa\Migration\Generator\ContentTypeGroup\StepBuilder\Update` | `build` |
+| `Ibexa\Migration\Generator\Language\StepBuilder\Create` | `build` |
+| `Ibexa\Migration\Generator\Language\StepBuilder\Factory` | `prepareLogMessage` |
+| `Ibexa\Migration\Generator\Location\StepBuilder\Factory` | `prepareLogMessage` |
+| `Ibexa\Migration\Generator\Location\StepBuilder\Update` | `build` |
+| `Ibexa\Migration\Generator\ObjectState\StepBuilder\Create` | `build` |
+| `Ibexa\Migration\Generator\ObjectState\StepBuilder\Factory` | `prepareLogMessage` |
+| `Ibexa\Migration\Generator\ObjectStateGroup\StepBuilder\Create` | `build` |
+| `Ibexa\Migration\Generator\ObjectStateGroup\StepBuilder\Factory` | `prepareLogMessage` |
+| `Ibexa\Migration\Generator\Role\StepBuilder\RoleCreateStepBuilder` | `build` |
+| `Ibexa\Migration\Generator\Role\StepBuilder\RoleDeleteStepBuilder` | `build` |
+| `Ibexa\Migration\Generator\Role\StepBuilder\RoleStepFactory` | `prepareLogMessage` |
+| `Ibexa\Migration\Generator\Role\StepBuilder\RoleUpdateStepBuilder` | `build` |
+| `Ibexa\Migration\Generator\Section\StepBuilder\Create` | `build` |
+| `Ibexa\Migration\Generator\Section\StepBuilder\Factory` | `prepareLogMessage` |
+| `Ibexa\Migration\Generator\Section\StepBuilder\Update` | `build` |
+| `Ibexa\Migration\Generator\StepBuilder\AbstractStepFactory` | `create`, `log`, `prepareLogMessage` |
+| `Ibexa\Migration\Generator\StepBuilder\ContentTypeCreateStepBuilder` | `build` |
+| `Ibexa\Migration\Generator\StepBuilder\ContentTypeDeleteStepBuilder` | `build` |
+| `Ibexa\Migration\Generator\StepBuilder\ContentTypeStepFactory` | `prepareLogMessage` |
+| `Ibexa\Migration\Generator\StepBuilder\ContentTypeUpdateStepBuilder` | `build` |
+| `Ibexa\Migration\Generator\StepBuilder\LoggerContentTypeCreateStepBuilder` | `build` |
+| `Ibexa\Migration\Generator\StepBuilder\StepBuilderInterface` | `build` |
+| `Ibexa\Migration\Generator\StepBuilder\StepFactoryInterface` | `build` |
+| `Ibexa\Migration\Generator\User\StepBuilder\Create` | `build` |
+| `Ibexa\Migration\Generator\User\StepBuilder\Factory` | `prepareLogMessage` |
+| `Ibexa\Migration\Generator\User\StepBuilder\Update` | `build` |
+| `Ibexa\Migration\Generator\UserGroup\StepBuilder\Create` | `build` |
+| `Ibexa\Migration\Generator\UserGroup\StepBuilder\Delete` | `build` |
+| `Ibexa\Migration\Generator\UserGroup\StepBuilder\Factory` | `prepareLogMessage` |
+| `Ibexa\Migration\Generator\UserGroup\StepBuilder\Update` | `build` |
+| `Ibexa\Migration\StepExecutor\ReferenceDefinition\Resolver` | `resolve` |
+| `Ibexa\Migration\StepExecutor\ReferenceDefinition\ResolverInterface` | `resolve` |
+
+
+??? note "Changes in `Ibexa\Migration\Generator\StepBuilder\StepFactoryInterface`"
+
+    ![`StepFactoryInterface.php`](5.0_StepBuilder.StepFactoryInterface.png)
+
+??? note "Changes in `Ibexa\Migration\StepExecutor\ReferenceDefinition\ResolverInterface`"
+
+    ![`ResolverInterface.php`](5.0_StepExecutor.ReferenceDefinition.ResolverInterface.png)
+
+??? note "Changes in `Ibexa\Migration\Generator\StepBuilder\AbstractStepFactory`"
+
+    ![`AbstractStepFactory.php`](5.0_StepBuilder.AbstractStepFactory.png)
 
 ## Services
 

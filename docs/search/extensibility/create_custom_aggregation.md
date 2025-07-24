@@ -211,7 +211,7 @@ Finally, register the aggregation visitor as a service.
 
     The `supports()` method checks whether the provided aggregation is of the supported type (in this case, your custom `PriorityRangeAggregation`).
 
-    The `extract()` method converts the [raw data provided by the search engine](https://www.elastic.co/guide/en/elasticsearch/reference/current/search-aggregations.html) to a `RangeAggregationResult` object.
+    The `extract()` method converts the [raw data provided by the search engine](https://www.elastic.co/docs/explore-analyze/query-filter/aggregations) to a `RangeAggregationResult` object.
 
 
 Finally, register the result extractor as a service.

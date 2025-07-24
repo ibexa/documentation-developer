@@ -102,7 +102,7 @@ php bin/console ibexa:connect:init-connect-ai 2 en connect-image-to-text connect
 
 !!! note "Support for multiple [[= product_name_connect =]] languages"
 
-    The [`language` attribute](https://developers.make.com/api-documentation/api-reference/templates#templates-1) determines the language in which template details such as module names will be displayed in [[= product_name_connect =]]'s UI.
+    The [`language` attribute](https://developers.make.com/api-documentation/api-reference/templates#post-templates) determines the language in which template details such as module names will be displayed in [[= product_name_connect =]]'s UI.
 
 Then, create the `Ibexa AI handler` custom property in [[= product_name_connect =]] to store the list of available action handlers for this integration.
 You can do it by running the following command:

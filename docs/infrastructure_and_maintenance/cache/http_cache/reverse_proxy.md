@@ -53,7 +53,7 @@ For reverse proxies to work properly with your installation, you need to add the
     - `ibexa_user_hash.vcl` as another custom VCL
     - `snippet_re_enable_shielding.vcl` as snippet
 
-The provided `.vcl` files work both with [Fastly Shielding](https://docs.fastly.com/en/guides/shielding) enabled and without it.
+The provided `.vcl` files work both with [Fastly Shielding](https://www.fastly.com/documentation/guides/getting-started/hosts/shielding) enabled and without it.
 If you decide to use Fastly VCL, consider using [Fastly CLI](https://www.fastly.com/documentation/reference/tools/cli/#installing) with it to manage VCL files from the command line.
 To learn more, see [Prepare to use Fastly locally](fastly.md#prepare-for-using-fastly-locally) and [Introduction to Fastly CLI](fastly.md#quick-introduction-to-fastly-cli).
 
@@ -199,7 +199,7 @@ For more information about configuring Captcha fields, see [Captcha field](work_
 ### Use Fastly as HttpCache proxy
 
 [Fastly](https://www.fastly.com/) delivers Varnish as a CDN service and is supported with [[= product_name =]].
-To learn how it works, see [Fastly documentation](https://docs.fastly.com/en/guides/using-fastlys-global-pop-network).
+To learn how it works, see [Fastly documentation](https://www.fastly.com/documentation/guides/getting-started/concepts/using-fastlys-global-pop-network).
 
 #### Configure Fastly in YML
 
@@ -244,7 +244,7 @@ To get the service ID, log in to https://www.fastly.com/.
 In the upper menu, click the **CONFIGURE** tab.
 The service ID is displayed next to the name of your service on any page.
 
-For instructions on how to generate a Fastly API token, see [the Fastly guide](https://docs.fastly.com/en/guides/using-api-tokens).
+For instructions on how to generate a Fastly API token, see [the Fastly guide](https://www.fastly.com/documentation/guides/account-info/account-management/using-api-tokens).
 The API token needs the `purge_all` an `purge_select` scopes.
 
 ### Configuration examples

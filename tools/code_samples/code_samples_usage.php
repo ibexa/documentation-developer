@@ -18,7 +18,7 @@ if (1 < $argc) {
     }
 }
 
-function displayBlocks(array $docFileBlocks, string $docFilePath = null, $lineOffset = 0): void
+function displayBlocks(array $docFileBlocks, ?string $docFilePath = null, $lineOffset = 0): void
 {
     if (!$docFilePath) {
         $docFilePath = '';
@@ -53,7 +53,7 @@ function displayBlocks(array $docFileBlocks, string $docFilePath = null, $lineOf
  *                                  If null, all files including a file are returned.
  * @return array<int, string> List of file paths from docs/ directory.
  */
-function getIncludingFileList(string $codeSampleFilePath = null): array
+function getIncludingFileList(?string $codeSampleFilePath = null): array
 {
     $pattern = null === $codeSampleFilePath ? '= include_file' : $codeSampleFilePath;
     $pattern = escapeshellarg($pattern);
@@ -71,7 +71,7 @@ function getIncludingFileList(string $codeSampleFilePath = null): array
  * @return array<int, array<int, string>> List of blocks. A block is an array of consecutive lines where the key is the one-based line number.
  * @todo Create a Block class
  */
-function getInclusionBlocks(string $docFilePath, string $codeSampleFilePath = null): array
+function getInclusionBlocks(string $docFilePath, ?string $codeSampleFilePath = null): array
 {
     $pattern = null === $codeSampleFilePath ? '= include_file' : $codeSampleFilePath;
 
