@@ -346,6 +346,7 @@ nav:
         - Products: pim/products.md
         - Attributes:
             - Date and Time attribute: pim/attributes/date_and_time.md
+            - Symbol attribute type: pim/attributes/symbol_attribute_type.md
         - Product API: pim/product_api.md
         - Catalogs: pim/catalogs.md
         - Catalog API: pim/catalog_api.md
@@ -589,6 +590,7 @@ nav:
             - RangeMeasurementAttributeMaximum: search/criteria_reference/rangemeasurementattributemaximum_criterion.md
             - SimpleMeasurementAttribute: search/criteria_reference/simplemeasurementattribute_criterion.md
             - SelectionAttribute: search/criteria_reference/selectionattribute_criterion.md
+            - SymbolAttribute: search/criteria_reference/symbolattribute_criterion.md
         - Order Search Criteria: 
             - Order Search Criteria: search/criteria_reference/order_search_criteria.md
             - CompanyName: search/criteria_reference/order_company_name_criterion.md
@@ -858,6 +860,9 @@ nav:
               - Update to v4.6: update_and_migration/from_4.5/update_from_4.5.md
         - Update from v4.6:
               - Update to v4.6: update_and_migration/from_4.6/update_from_4.6.md
+              - Update to v5.0: update_and_migration/from_4.6/update_to_5.0.md
+        - Update from v5.0:
+              - Update to v5.0: update_and_migration/from_5.0/update_from_5.0.md
         - Migrate to Ibexa DXP:
             - Migrate from eZ Publish Platform: update_and_migration/migrate_to_ibexa_dxp/migrating_from_ez_publish_platform.md
             - Migrate from eZ Publish: update_and_migration/migrate_to_ibexa_dxp/migrating_from_ez_publish.md
@@ -875,6 +880,8 @@ nav:
         - Product guides: product_guides/product_guides.md
     - Release notes:
         - Release notes: release_notes/release_notes.md
+        - Ibexa DXP v5.0 LTS: release_notes/ibexa_dxp_v5.0.md
+        - Ibexa DXP v5.0 deprecations and BC breaks: release_notes/ibexa_dxp_v5.0_deprecations.md
         - Ibexa DXP v4.6 LTS: release_notes/ibexa_dxp_v4.6.md
         - Ibexa DXP v4.5: release_notes/ibexa_dxp_v4.5.md
         - Ibexa DXP v4.4: release_notes/ibexa_dxp_v4.4.md
@@ -959,7 +966,7 @@ extra:
   latest_tag_4_6: '4.6.21'
   latest_tag_5_0: '5.0.0'
 
-  symfony_doc: 'https://symfony.com/doc/7.2'
+  symfony_doc: 'https://symfony.com/doc/7.3'
   user_doc: 'https://doc.ibexa.co/projects/userguide/en/5.0'
   connect_doc: 'https://doc.ibexa.co/projects/connect/en/latest'
 

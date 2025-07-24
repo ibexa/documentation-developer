@@ -50,7 +50,7 @@ With conditions you can narrow down the scenarios in which the discount applies.
 
 | Condition | Applies to | Identifier | Description | Expression values |
 |---|---|---|---|---|
-| `Ibexa\Discounts\Value\DiscountCondition\IsInCategory` | Cart, Catalog | `is_in_category` | Checks if the product belongs to specified [product categories]([[= user_doc =]]/pim/work_with_product_categories) | `categories` |
+| `Ibexa\Discounts\Value\DiscountCondition\IsInCategory` | Cart, Catalog | `is_in_category` | Checks if the product belongs to specified [product categories]([[= user_doc =]]/pim/work_with_product_categories/) | `categories` |
 | `Ibexa\Discounts\Value\DiscountCondition\IsInCurrency` | Cart, Catalog |`is_in_currency` | Checks if the product has price in the specified currency | `currency_code` |
 | `Ibexa\Discounts\Value\DiscountCondition\IsInRegions` | Cart, Catalog | `is_in_regions` | Checks if the customer is making the purchase in one of the specified regions | `regions` |
 | `Ibexa\Discounts\Value\DiscountCondition\IsProductInArray` | Cart, Catalog| `is_product_in_array` | Checks if the product belongs to the group of selected products | `product_codes` |

@@ -56,11 +56,11 @@ For example, the `ddev exec curl -s "http://elasticsearch:9200/_count"` command 
 
 For more information on topics such as memory management, see [ddev/ddev-elasticsearch README](https://github.com/ddev/ddev-elasticsearch).
 
-See [Elasticsearch REST API reference](https://www.elastic.co/guide/en/elasticsearch/reference/current/rest-apis.html) for more request options, like, for example:
+See [Elasticsearch REST API reference](https://www.elastic.co/docs/reference/elasticsearch/rest-apis) for more request options, like, for example:
 
-- [`_count`](https://www.elastic.co/guide/en/elasticsearch/reference/current/search-count.html), as seen above
-- [`_cluster/health`](https://www.elastic.co/guide/en/elasticsearch/reference/current/cluster-health.html) (don't mind the "yellow" status which is normal in the absence of replicas in the DDEV container)
-- [`_search?size=0"`](https://www.elastic.co/guide/en/elasticsearch/reference/current/search-search.html), which is another way to get document count
+- [`_count`](https://www.elastic.co/docs/api/doc/elasticsearch/operation/operation-count), as seen above
+- [`_cluster/health`](https://www.elastic.co/docs/api/doc/elasticsearch/operation/operation-cluster-health) (don't mind the "yellow" status which is normal in the absence of replicas in the DDEV container)
+- [`_search?size=0"`](https://www.elastic.co/docs/api/doc/elasticsearch/operation/operation-search), which is another way to get document count
 
 !!! tip
 

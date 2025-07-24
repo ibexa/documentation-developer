@@ -116,7 +116,7 @@ fastly service-version activate --version=latest
 ## View and modify VCL configuration
 
 Fastly configuration is stored in Varnish Configuration Language (VCL) files.
-You can change the behaviour of Fastly by [uploading custom VCL files](https://docs.fastly.com/en/guides/uploading-custom-vcl).
+You can change the behaviour of Fastly by [uploading custom VCL files](https://www.fastly.com/documentation/guides/full-site-delivery/custom-vcl/uploading-custom-vcl).
 [[= product_name =]] ships with two VCL files that need to be enabled for Fastly to work correctly with the platform; `ibexa_main.vcl` and `ibexa_user_hash.vcl` (located in `vendor/ibexa/fastly/fastly/`)
 
 ### List custom `.vcl` files for specific version
@@ -216,7 +216,7 @@ fastly service-version activate --version=latest
 ## Snippets
 
 You can also add VCL code to the Fastly configuration without modifying the custom `.vcl` files directly.
-You do it by creating [snippets](https://docs.fastly.com/en/guides/about-vcl-snippets).
+You do it by creating [snippets](https://www.fastly.com/documentation/guides/full-site-delivery/custom-vcl/about-vcl-snippets).
 it's recommended that you use snippets instead of changing the VCL files provided by [[= product_name =]] as much as possible, which makes it easier to upgrade the [[= product_name =]] VCL configuration later.
 
 When you use snippets, the snippet code is injected into the VCL where the `#FASTLY ...` macros are placed.
@@ -339,7 +339,7 @@ To enable basic-auth, use [Fastly documentation](https://www.fastly.com/document
 
 Follow the steps below.
 
-Usernames and passwords can be stored inside the VCL file, but in this case credentials are stored in a [dictionary](https://docs.fastly.com/en/guides/working-with-dictionaries#working-with-dictionaries-using-vcl-snippets).
+Usernames and passwords can be stored inside the VCL file, but in this case credentials are stored in a [dictionary](https://www.fastly.com/documentation/guides/full-site-delivery/dictionaries/working-with-dictionaries#working-with-dictionaries-using-vcl-snippets).
 
 !!! note
     To make this example work, you must run [[= product_name =]] in version 3.3.16 or later, or 4.5.
@@ -391,7 +391,7 @@ fastly dictionary-entry list --dictionary-id=ltC6Rg4pqw4qaNKF5tEW33
 
 Now your dictionary stores new username and password. The next thing to do is to alter the Fastly VCL configuration
 and add the basic-auth support.
-This example uses [snippets](https://docs.fastly.com/en/guides/about-vcl-snippets), so that no changes are needed in the `.vcl` files that are shipped with [[= product_name =]].
+This example uses [snippets](https://www.fastly.com/documentation/guides/full-site-delivery/custom-vcl/about-vcl-snippets), so that no changes are needed in the `.vcl` files that are shipped with [[= product_name =]].
 You need two snippets, store these as files in your system:
 
 In `snippet_basic_auth_error.vcl`:

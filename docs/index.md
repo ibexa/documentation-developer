@@ -79,7 +79,7 @@
                     <div>The latest version of Ibexa DXP is [[= latest_tag_5_0 =]]. You can now update your application to the latest version.</div>
                 </div>
                 <div class="notification__cta">
-                    <a href="release_notes/ibexa_dxp_v4.6/">Release notes</a>
+                    <a href="release_notes/ibexa_dxp_v5.0/">Release notes</a>
                 </div>
                 <div class="notification__image">
                     <img src="images/notification-latest-release.svg" alt="The latest release" />
@@ -92,7 +92,7 @@
             <div class="accordion">
                 <details>
                     <summary>
-                        <h2>Notable changes in v4.6</h2>
+                        <h2>Notable changes in v5.0</h2>
                         <div class="accordion__toggler">
                             <svg><use xlink:href="images/icons.svg#toggler" /></svg>
                         </div>
@@ -100,16 +100,16 @@
                     <div class="row">
                         <div class="col-12 col-lg-6 col-fhd-3">
                             <ul>
-                                <li><a href="release_notes/ibexa_dxp_v4.6/#customizable-dashboard">Customizable dashboard</a></li>
-                                <li><a href="release_notes/ibexa_dxp_v4.6/#page-builder-improvements">Page Builder improvements</a></li>
-                                <li><a href="release_notes/ibexa_dxp_v4.6/#focus-mode">Focus mode</a></li>
+                                <li><a href="release_notes/ibexa_dxp_v5.0/#ai-actions">AI Actions</a></li>
+                                <li><a href="release_notes/ibexa_dxp_v5.0/#discounts">Discounts</a></li>
+                                <li><a href="release_notes/ibexa_dxp_v5.0/#software-architecture-upgrades">Tech stack upgrades</a></li>
                             </ul>
                         </div>
                         <div class="col-12 col-lg-6 col-fhd-3">
                             <ul>
-                                <li><a href="release_notes/ibexa_dxp_v4.6/#remote-pim-support">Remote PIM</a></li>
-                                <li><a href="release_notes/ibexa_dxp_v4.6/#reorder">Changes in Order management</a></li>
-                                <li><a href="release_notes/ibexa_dxp_v4.6/#triggers">Personalization triggers</a></li>
+                                <li><a href="release_notes/ibexa_dxp_v5.0/#date-and-time-attribute">Date and time attibute for PIM</a></li>
+                                <li><a href="release_notes/ibexa_dxp_v5.0/#symbol-attribute">Symbol attribute for PIM</a></li>
+                                <li><a href="release_notes/ibexa_dxp_v5.0/#developer-experience">Developer experience improvements</a></li>
                             </ul>
                         </div>
                     </div>
