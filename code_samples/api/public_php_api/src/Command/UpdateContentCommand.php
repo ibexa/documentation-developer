@@ -5,9 +5,9 @@ namespace App\Command;
 use Ibexa\Contracts\Core\Repository\ContentService;
 use Ibexa\Contracts\Core\Repository\PermissionResolver;
 use Ibexa\Contracts\Core\Repository\UserService;
+use Symfony\Component\Console\Attribute\Argument;
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
-use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Output\OutputInterface;
 
 #[AsCommand(
@@ -23,22 +23,13 @@ class UpdateContentCommand
     ) {
     }
 
-    protected function configure(): void
-    {
-        $this
-            ->setDefinition([
-                new InputArgument('contentId', InputArgument::REQUIRED, 'Content ID'),
-                new InputArgument('newName', InputArgument::REQUIRED, 'New name for the updated content item'),
-            ]);
-    }
-
-    public function __invoke(OutputInterface $output): int
-    {
+    public function __invoke(
+        #[Argument(description: 'Content ID')] int $contentId,
+        #[Argument(description: 'New name for the updated content item')] string $newName,
+        OutputInterface $output
+    ): int {
         $user = $this->userService->loadUserByLogin('admin');
         $this->permissionResolver->setCurrentUserReference($user);
-
-        $contentId = (int) $contentId;
-        $newName = $newName;
 
         $contentInfo = $this->contentService->loadContentInfo($contentId);
         $contentDraft = $this->contentService->createContentDraft($contentInfo);

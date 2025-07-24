@@ -10,6 +10,7 @@ use Ibexa\Contracts\Core\Repository\ContentTypeService;
 use Ibexa\Contracts\Core\Repository\PermissionResolver;
 use Ibexa\Contracts\Core\Repository\UserService;
 use Ibexa\Contracts\Core\Repository\Values\Content\LocationCreateStruct;
+use Symfony\Component\Console\Attribute\Argument;
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Output\OutputInterface;
@@ -31,7 +32,7 @@ class ActivityLogContextTestCommand
     ) {
     }
 
-    public function __invoke(#[\Symfony\Component\Console\Attribute\Argument(name: 'id', description: 'A test number')]
+    public function __invoke(#[Argument(name: 'id', description: 'A test number')]
     string $id, OutputInterface $output): int
     {
         $id = $id;

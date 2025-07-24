@@ -8,10 +8,10 @@ use Ibexa\Contracts\Core\Repository\LocationService;
 use Ibexa\Contracts\Core\Repository\PermissionResolver;
 use Ibexa\Contracts\Core\Repository\UserService;
 use Ibexa\Core\FieldType\Image\Value;
+use Symfony\Component\Console\Attribute\Argument;
 use Symfony\Component\Console\Attribute\AsCommand;
+use Symfony\Component\Console\Attribute\Option;
 use Symfony\Component\Console\Command\Command;
-use Symfony\Component\Console\Input\InputArgument;
-use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 
 #[AsCommand(
@@ -28,25 +28,14 @@ class CreateImageCommand
     ) {
     }
 
-    protected function configure(): void
-    {
-        $this
-            ->setDefinition([
-                new InputArgument('name', InputArgument::REQUIRED, 'Content for the Name field'),
-                new InputArgument('file', InputArgument::REQUIRED, 'Content for the Image field'),
-            ])
-            ->addOption('publish', 'p', InputOption::VALUE_NONE, 'Do you want to publish the content item?');
-    }
-
-    public function __invoke(#[\Symfony\Component\Console\Attribute\Option]
-    $publish, OutputInterface $output): int
-    {
+    public function __invoke(
+        #[Argument(description: 'Content for the Name field')] string $name,
+        #[Argument(description: 'Content for the Image field')] string $file,
+        #[Option(shortcut: 'p', description: 'Do you want to publish the content item?')] bool $publish,
+        OutputInterface $output
+    ): int {
         $user = $this->userService->loadUserByLogin('admin');
         $this->permissionResolver->setCurrentUserReference($user);
-
-        $name = $name;
-        $file = $file;
-        $publish = $publish;
 
         $contentType = $this->contentTypeService->loadContentTypeByIdentifier('image');
         $contentCreateStruct = $this->contentService->newContentCreateStruct($contentType, 'eng-GB');
@@ -67,7 +56,7 @@ class CreateImageCommand
 
         $output->writeln('Created a draft of ' . $contentType->getName() . ' with name ' . $draft->getName());
 
-        if ($publish == true) {
+        if ($publish) {
             $content = $this->contentService->publishVersion($draft->versionInfo);
             $output->writeln('Published content item ' . $content->getName());
         }

@@ -6,9 +6,9 @@ use Ibexa\Contracts\Core\Repository\ContentService;
 use Ibexa\Contracts\Core\Repository\ObjectStateService;
 use Ibexa\Contracts\Core\Repository\PermissionResolver;
 use Ibexa\Contracts\Core\Repository\UserService;
+use Symfony\Component\Console\Attribute\Argument;
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
-use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Output\OutputInterface;
 
 #[AsCommand(
@@ -25,18 +25,12 @@ class ObjectStateCommand
     ) {
     }
 
-    protected function configure(): void
-    {
-        $this
-            ->setDefinition([
-                new InputArgument('objectStateGroupIdentifier', InputArgument::REQUIRED, 'Identifier of new OG group to create'),
-                new InputArgument('objectStateIdentifier', InputArgument::REQUIRED, 'Identifier(s) of a new Object State'),
-                new InputArgument('contentID', InputArgument::OPTIONAL, 'Content ID'),
-            ]);
-    }
-
-    public function __invoke(OutputInterface $output): int
-    {
+    public function __invoke(
+        #[Argument(description: 'Identifier of new OG group to create')] string $objectStateGroupIdentifier,
+        #[Argument(description: 'Identifier(s) of a new Object State')] string $objectStateIdentifier,
+        #[Argument(description: 'Content ID')] ?int $contentID,
+        OutputInterface $output
+    ): int {
         $user = $this->userService->loadUserByLogin('admin');
         $this->permissionResolver->setCurrentUserReference($user);
 
@@ -46,7 +40,6 @@ class ObjectStateCommand
         $output->writeln($objectStateGroup->getName());
         $output->writeln($objectState->getName());
 
-        $objectStateGroupIdentifier = $objectStateGroupIdentifier;
         $objectStateIdentifierList = explode(',', (string) $objectStateIdentifier);
 
         $objectStateGroupStruct = $this->objectStateService->newObjectStateGroupCreateStruct($objectStateGroupIdentifier);
@@ -67,7 +60,7 @@ class ObjectStateCommand
         }
 
         if ($contentID) {
-            $contentId = (int) $contentID;
+            $contentId = $contentID;
             $objectStateToAssign = $objectStateIdentifierList[0];
             $contentInfo = $this->contentService->loadContentInfo($contentId);
             $objectStateGroup = $this->objectStateService->loadObjectStateGroupByIdentifier($objectStateGroupIdentifier);

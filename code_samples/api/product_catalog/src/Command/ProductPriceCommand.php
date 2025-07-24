@@ -16,9 +16,9 @@ use Ibexa\Contracts\ProductCatalog\Values\Price\Query\Criterion\CustomerGroup;
 use Ibexa\Contracts\ProductCatalog\Values\Price\Query\Criterion\LogicalOr;
 use Ibexa\Contracts\ProductCatalog\Values\Price\Query\Criterion\Product;
 use Money;
+use Symfony\Component\Console\Attribute\Argument;
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
-use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Output\OutputInterface;
 
 #[AsCommand(
@@ -36,24 +36,16 @@ final readonly class ProductPriceCommand
     ) {
     }
 
-    public function configure(): void
-    {
-        $this
-            ->setDefinition([
-                new InputArgument('productCode', InputArgument::REQUIRED, 'Product code'),
-                new InputArgument('currencyCode', InputArgument::REQUIRED, 'Currency code'),
-                new InputArgument('newCurrencyCode', InputArgument::REQUIRED, 'New currency code'),
-            ]);
-    }
-
-    public function __invoke(OutputInterface $output): int
-    {
+    public function __invoke(
+        OutputInterface $output,
+        #[Argument(description: 'Product code')] string $productCode,
+        #[Argument(description: 'Currency code')] string $currencyCode,
+        #[Argument(description: 'New currency code')] string $newCurrencyCode
+    ): int {
         $user = $this->userService->loadUserByLogin('admin');
         $this->permissionResolver->setCurrentUserReference($user);
 
-        $productCode = $productCode;
         $product = $this->productService->getProduct($productCode);
-        $currencyCode = $currencyCode;
         $currency = $this->currencyService->getCurrencyByCode($currencyCode);
 
         $productPrice = $product->getPrice();
@@ -64,9 +56,9 @@ final readonly class ProductPriceCommand
 
         $output->writeln('Price for ' . $product->getName() . ' in ' . $currencyCode . ' is ' . $productPrice);
 
-        $newCurrencyCode = $newCurrencyCode;
         $newCurrency = $this->currencyService->getCurrencyByCode($newCurrencyCode);
 
+        assert($newCurrencyCode !== '', 'Currency code cannot be empty');
         $money = new Money\Money(50000, new Money\Currency($newCurrencyCode));
         $priceCreateStruct = new ProductPriceCreateStruct($product, $newCurrency, $money, null, null);
 

@@ -7,9 +7,9 @@ use Ibexa\Contracts\Core\Repository\UserService;
 use Ibexa\Contracts\ProductCatalog\CurrencyServiceInterface;
 use Ibexa\Contracts\ProductCatalog\Values\Currency\CurrencyCreateStruct;
 use Ibexa\Contracts\ProductCatalog\Values\Currency\CurrencyUpdateStruct;
+use Symfony\Component\Console\Attribute\Argument;
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
-use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Output\OutputInterface;
 
 #[AsCommand(
@@ -24,22 +24,13 @@ final readonly class CurrencyCommand
     ) {
     }
 
-    public function configure(): void
-    {
-        $this
-            ->setDefinition([
-                new InputArgument('currencyCode', InputArgument::REQUIRED, 'Currency code'),
-                new InputArgument('newCurrencyCode', InputArgument::REQUIRED, 'New currency code'),
-            ]);
-    }
-
-    public function __invoke(OutputInterface $output): int
-    {
+    public function __invoke(
+        OutputInterface $output,
+        #[Argument(description: 'Currency code')] string $currencyCode,
+        #[Argument(description: 'New currency code')] string $newCurrencyCode
+    ): int {
         $user = $this->userService->loadUserByLogin('admin');
         $this->permissionResolver->setCurrentUserReference($user);
-
-        $currencyCode = $currencyCode;
-        $newCurrencyCode = $newCurrencyCode;
 
         $currency = $this->currencyService->getCurrencyByCode($currencyCode);
         $output->writeln('Currency ID: ' . $currency->getId());
@@ -56,6 +47,7 @@ final readonly class CurrencyCommand
 
         $this->currencyService->updateCurrency($currency, $currencyUpdateStruct);
 
+        assert($newCurrencyCode !== '', 'Currency code cannot be empty');
         $currencyCreateStruct = new CurrencyCreateStruct($newCurrencyCode, 2, true);
 
         $this->currencyService->createCurrency($currencyCreateStruct);

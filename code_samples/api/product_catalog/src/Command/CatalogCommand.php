@@ -13,9 +13,9 @@ use Ibexa\Contracts\ProductCatalog\Values\Catalog\CatalogUpdateStruct;
 use Ibexa\Contracts\ProductCatalog\Values\Product\ProductQuery;
 use Ibexa\Contracts\ProductCatalog\Values\Product\Query\Criterion;
 use Ibexa\ProductCatalog\Local\Repository\Values\Catalog\Status;
+use Symfony\Component\Console\Attribute\Argument;
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
-use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Output\OutputInterface;
 
 #[AsCommand(
@@ -31,20 +31,12 @@ final readonly class CatalogCommand
     ) {
     }
 
-    public function configure(): void
-    {
-        $this
-            ->setDefinition([
-                new InputArgument('catalogIdentifier', InputArgument::REQUIRED, 'Catalog identifier'),
-            ]);
-    }
-
-    public function __invoke(OutputInterface $output): int
-    {
+    public function __invoke(
+        OutputInterface $output,
+        #[Argument(description: 'Catalog identifier')] string $catalogIdentifier
+    ): int {
         $user = $this->userService->loadUserByLogin('admin');
         $this->permissionResolver->setCurrentUserReference($user);
-
-        $catalogIdentifier = $catalogIdentifier;
 
         // Create catalog
         $catalogCriterion = new Criterion\LogicalAnd(

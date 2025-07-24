@@ -7,9 +7,9 @@ use Ibexa\Contracts\Core\Repository\Values\Content\Query;
 use Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion;
 use Ibexa\Contracts\Core\Repository\Values\Content\Query\SortClause;
 use Ibexa\Contracts\Core\Repository\Values\Filter\Filter;
+use Symfony\Component\Console\Attribute\Argument;
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
-use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Output\OutputInterface;
 
 #[AsCommand(
@@ -22,17 +22,10 @@ class FilterCommand
     {
     }
 
-    public function configure(): void
-    {
-        $this->setDefinition([
-            new InputArgument('parentLocationId', InputArgument::REQUIRED, 'ID of the parent Location'),
-        ]);
-    }
-
-    public function __invoke(OutputInterface $output): int
-    {
-        $parentLocationId = (int)$parentLocationId;
-
+    public function __invoke(
+        #[Argument(description: 'ID of the parent Location')] int $parentLocationId,
+        OutputInterface $output
+    ): int {
         $filter = new Filter();
         $filter
             ->withCriterion(new Criterion\ParentLocationId($parentLocationId))

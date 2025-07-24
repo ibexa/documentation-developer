@@ -9,9 +9,9 @@ use Ibexa\Contracts\Core\Repository\SectionService;
 use Ibexa\Contracts\Core\Repository\UserService;
 use Ibexa\Contracts\Core\Repository\Values\Content\LocationQuery;
 use Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion;
+use Symfony\Component\Console\Attribute\Argument;
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
-use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Output\OutputInterface;
 
 #[AsCommand(
@@ -29,24 +29,14 @@ class SectionCommand
     ) {
     }
 
-    protected function configure(): void
-    {
-        $this
-            ->setDefinition([
-                new InputArgument('sectionName', InputArgument::REQUIRED, 'Name of the new Section'),
-                new InputArgument('sectionIdentifier', InputArgument::REQUIRED, 'Identifier of the new Section'),
-                new InputArgument('contentId', InputArgument::REQUIRED, 'Content id'),
-            ]);
-    }
-
-    public function __invoke(OutputInterface $output): int
-    {
+    public function __invoke(
+        #[Argument(description: 'Name of the new Section')] string $sectionName,
+        #[Argument(description: 'Identifier of the new Section')] string $sectionIdentifier,
+        #[Argument(description: 'Content id')] int $contentId,
+        OutputInterface $output
+    ): int {
         $user = $this->userService->loadUserByLogin('admin');
         $this->permissionResolver->setCurrentUserReference($user);
-
-        $sectionName = $sectionName;
-        $sectionIdentifier = $sectionIdentifier;
-        $contentId = (int) $contentId;
 
         $sectionCreateStruct = $this->sectionService->newSectionCreateStruct();
         $sectionCreateStruct->name = $sectionName;

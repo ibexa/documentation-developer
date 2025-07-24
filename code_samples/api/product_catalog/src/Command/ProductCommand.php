@@ -13,9 +13,9 @@ use Ibexa\Contracts\ProductCatalog\Values\Availability\ProductAvailabilityUpdate
 use Ibexa\Contracts\ProductCatalog\Values\Product\ProductQuery;
 use Ibexa\Contracts\ProductCatalog\Values\Product\Query\Criterion;
 use Ibexa\Contracts\ProductCatalog\Values\Product\Query\SortClause;
+use Symfony\Component\Console\Attribute\Argument;
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
-use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Output\OutputInterface;
 
 #[AsCommand(
@@ -33,22 +33,13 @@ final readonly class ProductCommand
     ) {
     }
 
-    public function configure(): void
-    {
-        $this
-            ->setDefinition([
-                new InputArgument('productCode', InputArgument::REQUIRED, 'Product code'),
-                new InputArgument('productType', InputArgument::REQUIRED, 'Product type'),
-            ]);
-    }
-
-    public function __invoke(OutputInterface $output): int
-    {
+    public function __invoke(
+        OutputInterface $output,
+        #[Argument(description: 'Product code')] string $productCode,
+        #[Argument(description: 'Product type')] string $productType
+    ): int {
         $user = $this->userService->loadUserByLogin('admin');
         $this->permissionResolver->setCurrentUserReference($user);
-
-        $productCode = $productCode;
-        $productType = $productType;
 
         $product = $this->productService->getProduct($productCode);
 

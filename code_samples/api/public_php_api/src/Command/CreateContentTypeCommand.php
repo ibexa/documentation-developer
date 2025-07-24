@@ -6,10 +6,10 @@ use Ibexa\Contracts\Core\Repository\ContentTypeService;
 use Ibexa\Contracts\Core\Repository\Exceptions\NotFoundException;
 use Ibexa\Contracts\Core\Repository\PermissionResolver;
 use Ibexa\Contracts\Core\Repository\UserService;
+use Symfony\Component\Console\Attribute\Argument;
 use Symfony\Component\Console\Attribute\AsCommand;
+use Symfony\Component\Console\Attribute\Option;
 use Symfony\Component\Console\Command\Command;
-use Symfony\Component\Console\Input\InputArgument;
-use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 
 #[AsCommand(
@@ -24,34 +24,26 @@ class CreateContentTypeCommand
     ) {
     }
 
-    protected function configure(): void
-    {
-        $this->setDefinition([
-            new InputArgument('identifier', InputArgument::REQUIRED, 'Content type identifier'),
-            new InputArgument('group_identifier', InputArgument::REQUIRED, 'Content type group identifier'),
-            new InputArgument('copy_identifier', InputArgument::OPTIONAL, 'Identifier of the CT copy'),
-        ])
-            ->addOption('copy', 'c', InputOption::VALUE_NONE, 'Do you want to make a copy of the content type?');
-    }
-
-    public function __invoke(#[\Symfony\Component\Console\Attribute\Option]
-    $copy, OutputInterface $output): int
-    {
+    public function __invoke(
+        #[Argument(description: 'Content type identifier')] string $identifier,
+        #[Argument(description: 'Content type group identifier')] string $group_identifier,
+        #[Argument(description: 'Identifier of the CT copy')] ?string $copy_identifier,
+        #[Option(shortcut: 'c', description: 'Do you want to make a copy of the content type?')] bool $copy,
+        OutputInterface $output
+    ): int {
         $user = $this->userService->loadUserByLogin('admin');
         $this->permissionResolver->setCurrentUserReference($user);
 
         $groupIdentifier = $group_identifier;
         $contentTypeIdentifier = $identifier;
-        if ($copy_identifier) {
-            $copyIdentifier = $copy_identifier;
-        }
+        $copyIdentifier = $copy_identifier;
 
         try {
             $contentTypeGroup = $this->contentTypeService->loadContentTypeGroupByIdentifier($groupIdentifier);
         } catch (NotFoundException) {
             $output->writeln("Content type group with identifier $groupIdentifier not found");
 
-            return self::FAILURE;
+            return Command::FAILURE;
         }
 
         $contentTypeCreateStruct = $this->contentTypeService->newContentTypeCreateStruct($contentTypeIdentifier);
@@ -88,7 +80,7 @@ class CreateContentTypeCommand
             $copyDraft = $this->contentTypeService->createContentTypeDraft($copy);
             $copyUpdateStruct = $this->contentTypeService->newContentTypeUpdateStruct();
             $copyUpdateStruct->identifier = $copyIdentifier;
-            $copyUpdateStruct->names = ['eng-GB' => $copyIdentifier];
+            $copyUpdateStruct->names = ['eng-GB' => $copyIdentifier ?? $contentTypeIdentifier . '_copy'];
             $this->contentTypeService->updateContentTypeDraft($copyDraft, $copyUpdateStruct);
             $this->contentTypeService->publishContentTypeDraft($copyDraft);
             $output->writeln('Copy of the new CT created with identifier ' . $copyIdentifier);

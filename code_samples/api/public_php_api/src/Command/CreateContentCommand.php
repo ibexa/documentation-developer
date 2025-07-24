@@ -7,10 +7,10 @@ use Ibexa\Contracts\Core\Repository\ContentTypeService;
 use Ibexa\Contracts\Core\Repository\LocationService;
 use Ibexa\Contracts\Core\Repository\PermissionResolver;
 use Ibexa\Contracts\Core\Repository\UserService;
+use Symfony\Component\Console\Attribute\Argument;
 use Symfony\Component\Console\Attribute\AsCommand;
+use Symfony\Component\Console\Attribute\Option;
 use Symfony\Component\Console\Command\Command;
-use Symfony\Component\Console\Input\InputArgument;
-use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 
 #[AsCommand(
@@ -27,26 +27,17 @@ class CreateContentCommand
     ) {
     }
 
-    protected function configure(): void
-    {
-        $this
-            ->setDefinition([
-                new InputArgument('parentLocationId', InputArgument::REQUIRED, 'Parent Location ID'),
-                new InputArgument('contentType', InputArgument::REQUIRED, 'Identifier of a content type with a Name and Description Field'),
-                new InputArgument('name', InputArgument::REQUIRED, 'Content for the Name field'),
-            ])
-            ->addOption('publish', 'p', InputOption::VALUE_NONE, 'Do you want to publish the content item?');
-    }
-
-    public function __invoke(#[\Symfony\Component\Console\Attribute\Option]
-    $publish, OutputInterface $output): int
-    {
+    public function __invoke(
+        #[Argument(description: 'Parent Location ID')] int $parentLocationId,
+        #[Argument(description: 'Identifier of a content type with a Name and Description Field')] string $contentType,
+        #[Argument(description: 'Content for the Name field')] string $name,
+        #[Option(shortcut: 'p', description: 'Do you want to publish the content item?')] bool $publish,
+        OutputInterface $output
+    ): int {
         $user = $this->userService->loadUserByLogin('admin');
         $this->permissionResolver->setCurrentUserReference($user);
 
-        $parentLocationId = (int) $parentLocationId;
         $contentTypeIdentifier = $contentType;
-        $name = $name;
 
         $contentType = $this->contentTypeService->loadContentTypeByIdentifier($contentTypeIdentifier);
         $contentCreateStruct = $this->contentService->newContentCreateStruct($contentType, 'eng-GB');

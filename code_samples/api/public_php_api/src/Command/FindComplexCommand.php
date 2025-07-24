@@ -7,9 +7,9 @@ use Ibexa\Contracts\Core\Repository\SearchService;
 use Ibexa\Contracts\Core\Repository\Values\Content\LocationQuery;
 use Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion;
 use Ibexa\Contracts\Core\Repository\Values\Content\Query\SortClause;
+use Symfony\Component\Console\Attribute\Argument;
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
-use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Output\OutputInterface;
 
 #[AsCommand(
@@ -22,22 +22,12 @@ class FindComplexCommand
     {
     }
 
-    protected function configure(): void
-    {
-        $this
-            ->setDefinition([
-                new InputArgument('locationId', InputArgument::REQUIRED, ''),
-                new InputArgument('contentTypeIdentifier', InputArgument::REQUIRED, 'Content type identifier'),
-                new InputArgument('text', InputArgument::REQUIRED, ''),
-            ]);
-    }
-
-    public function __invoke(OutputInterface $output): int
-    {
-        $locationId = (int) $locationId;
-        $contentTypeIdentifier = $contentTypeIdentifier;
-        $text = $text;
-
+    public function __invoke(
+        #[Argument(description: 'Location ID')] int $locationId,
+        #[Argument(description: 'Content type identifier')] string $contentTypeIdentifier,
+        #[Argument(description: 'Search text')] string $text,
+        OutputInterface $output
+    ): int {
         $query = new LocationQuery();
 
         $query->query = new Criterion\LogicalAnd([
