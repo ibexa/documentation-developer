@@ -306,7 +306,7 @@ The main schema has changed and the provided SQL file `ibexa-4.6.latest-to-5.0.0
 
 ??? note "Ibexa Open Source"
 
-    If you have no access to [[= product_name =]]'s `ibexa/installer` package, apply the following database update:
+    If you don't have access to [[= product_name =]]'s `ibexa/installer` package, apply the following database update:
 
     === "MySQL"
 
