@@ -15,33 +15,26 @@ use Ibexa\Contracts\Core\Repository\PermissionResolver;
 use Ibexa\Contracts\Core\Repository\UserService;
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
-use Symfony\Component\Console\Input\InputArgument;
-use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
 #[AsCommand(
     name: 'app:action-configuration-create'
 )]
-final class ActionConfigurationCreateCommand extends Command
+final readonly class ActionConfigurationCreateCommand
 {
     public function __construct(
-        private readonly ActionConfigurationServiceInterface $actionConfigurationService,
-        private readonly PermissionResolver $permissionResolver,
-        private readonly UserService $userService,
-        private readonly ActionServiceInterface $actionService,
-        private readonly ActionTypeRegistryInterface $actionTypeRegistry
+        private ActionConfigurationServiceInterface $actionConfigurationService,
+        private PermissionResolver $permissionResolver,
+        private UserService $userService,
+        private ActionServiceInterface $actionService,
+        private ActionTypeRegistryInterface $actionTypeRegistry
     ) {
-        parent::__construct();
     }
 
-    protected function configure(): void
+    public function __invoke(#[\Symfony\Component\Console\Attribute\Argument(name: 'user', description: 'Login of the user executing the actions')]
+    ?string $user, OutputInterface $output): int
     {
-        $this->addArgument('user', InputArgument::OPTIONAL, 'Login of the user executing the actions', 'admin');
-    }
-
-    protected function execute(InputInterface $input, OutputInterface $output): int
-    {
-        $user = $input->getArgument('user');
+        $user = $user;
         $this->permissionResolver->setCurrentUserReference($this->userService->loadUserByLogin($user));
 
         $refineTextActionType = $this->actionTypeRegistry->getActionType('refine_text');

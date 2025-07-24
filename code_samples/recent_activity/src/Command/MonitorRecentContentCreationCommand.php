@@ -11,7 +11,6 @@ use Ibexa\Contracts\Core\Repository\UserService;
 use Ibexa\Contracts\Core\Repository\Values\Content\Content;
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
-use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Style\SymfonyStyle;
 
@@ -19,14 +18,16 @@ use Symfony\Component\Console\Style\SymfonyStyle;
     name: 'app:monitor-content-creation',
     description: 'List last 10 log entry groups with creations in the last hour'
 )]
-class MonitorRecentContentCreationCommand extends Command
+class MonitorRecentContentCreationCommand
 {
-    public function __construct(private readonly ActivityLogServiceInterface $activityLogService, private readonly PermissionResolver $permissionResolver, private readonly UserService $userService)
-    {
-        parent::__construct();
+    public function __construct(
+        private readonly ActivityLogServiceInterface $activityLogService,
+        private readonly PermissionResolver $permissionResolver,
+        private readonly UserService $userService
+    ) {
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output): int
+    public function __invoke(OutputInterface $output): int
     {
         $query = new Query([
             new Criterion\ObjectCriterion(Content::class),

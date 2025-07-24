@@ -9,23 +9,21 @@ use Ibexa\Contracts\Core\Repository\UserService;
 use Ibexa\Contracts\Taxonomy\Service\TaxonomyServiceInterface;
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
-use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
 #[AsCommand(
     name: 'doc:taxonomy'
 )]
-class TaxonomyCommand extends Command
+class TaxonomyCommand
 {
     public function __construct(
         private readonly TaxonomyServiceInterface $taxonomyService,
         private readonly PermissionResolver $permissionResolver,
         private readonly UserService $userService
     ) {
-        parent::__construct();
     }
 
-    public function execute(InputInterface $input, OutputInterface $output): int
+    public function __invoke(OutputInterface $output): int
     {
         $user = $this->userService->loadUserByLogin('admin');
         $this->permissionResolver->setCurrentUserReference($user);
@@ -51,6 +49,6 @@ class TaxonomyCommand extends Command
         $sibling = $this->taxonomyService->loadEntryByIdentifier('school_desks');
         $this->taxonomyService->moveEntryRelativeToSibling($entryToMove, $sibling, TaxonomyServiceInterface::MOVE_POSITION_PREV);
 
-        return self::SUCCESS;
+        return Command::SUCCESS;
     }
 }

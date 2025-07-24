@@ -6,20 +6,18 @@ use Ibexa\Migration\MigrationService;
 use Ibexa\Migration\Repository\Migration;
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
-use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
 #[AsCommand(
     name: 'doc:migration'
 )]
-final class MigrationCommand extends Command
+final readonly class MigrationCommand
 {
-    public function __construct(private readonly MigrationService $migrationService)
+    public function __construct(private MigrationService $migrationService)
     {
-        parent::__construct();
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output): int
+    public function __invoke(OutputInterface $output): int
     {
         $string_with_migration_content = '';
         $this->migrationService->add(
@@ -39,6 +37,6 @@ final class MigrationCommand extends Command
         $this->migrationService->executeOne($my_migration);
         $this->migrationService->executeAll('admin');
 
-        return self::SUCCESS;
+        return Command::SUCCESS;
     }
 }

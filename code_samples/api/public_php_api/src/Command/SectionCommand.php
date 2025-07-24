@@ -12,18 +12,21 @@ use Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion;
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
-use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
 #[AsCommand(
     name: 'doc:section',
     description: 'Creates new section and adds selected content item to it.'
 )]
-class SectionCommand extends Command
+class SectionCommand
 {
-    public function __construct(private readonly SectionService $sectionService, private readonly UserService $userService, private readonly ContentService $contentService, private readonly SearchService $searchService, private readonly PermissionResolver $permissionResolver)
-    {
-        parent::__construct();
+    public function __construct(
+        private readonly SectionService $sectionService,
+        private readonly UserService $userService,
+        private readonly ContentService $contentService,
+        private readonly SearchService $searchService,
+        private readonly PermissionResolver $permissionResolver
+    ) {
     }
 
     protected function configure(): void
@@ -36,14 +39,14 @@ class SectionCommand extends Command
             ]);
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output): int
+    public function __invoke(OutputInterface $output): int
     {
         $user = $this->userService->loadUserByLogin('admin');
         $this->permissionResolver->setCurrentUserReference($user);
 
-        $sectionName = $input->getArgument('sectionName');
-        $sectionIdentifier = $input->getArgument('sectionIdentifier');
-        $contentId = (int) $input->getArgument('contentId');
+        $sectionName = $sectionName;
+        $sectionIdentifier = $sectionIdentifier;
+        $contentId = (int) $contentId;
 
         $sectionCreateStruct = $this->sectionService->newSectionCreateStruct();
         $sectionCreateStruct->name = $sectionName;
@@ -74,6 +77,6 @@ class SectionCommand extends Command
             $output->writeln('* ' . $searchResult->valueObject->name);
         }
 
-        return self::SUCCESS;
+        return Command::SUCCESS;
     }
 }

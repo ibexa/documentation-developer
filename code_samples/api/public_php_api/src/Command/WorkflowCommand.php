@@ -8,18 +8,19 @@ use Ibexa\Contracts\Workflow\Service\WorkflowServiceInterface;
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
-use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
 #[AsCommand(
     name: 'doc:workflow',
     description: 'Starts content in the selected workflow and makes the provided transition.'
 )]
-class WorkflowCommand extends Command
+class WorkflowCommand
 {
-    public function __construct(private readonly WorkflowServiceInterface $workflowService, private readonly WorkflowRegistryInterface $workflowRegistry, private readonly ContentService $contentService)
-    {
-        parent::__construct();
+    public function __construct(
+        private readonly WorkflowServiceInterface $workflowService,
+        private readonly WorkflowRegistryInterface $workflowRegistry,
+        private readonly ContentService $contentService
+    ) {
     }
 
     protected function configure(): void
@@ -32,11 +33,11 @@ class WorkflowCommand extends Command
             ]);
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output): int
+    public function __invoke(OutputInterface $output): int
     {
-        $contentId = (int) $input->getArgument('contentId');
-        $workflowName = $input->getArgument('workflowName');
-        $transitionName = $input->getArgument('transitionName');
+        $contentId = (int) $contentId;
+        $workflowName = $workflowName;
+        $transitionName = $transitionName;
 
         $content = $this->contentService->loadContent($contentId);
 
@@ -58,6 +59,6 @@ class WorkflowCommand extends Command
             $output->writeln('Moved ' . $content->getName() . ' through transition ' . $transitionName);
         }
 
-        return self::SUCCESS;
+        return Command::SUCCESS;
     }
 }

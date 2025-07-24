@@ -15,24 +15,22 @@ use Ibexa\ProductCatalog\Local\Repository\Values\Region;
 use Ibexa\Shipping\Value\ShippingMethodType;
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
-use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
 #[AsCommand(
     name: 'doc:shippingMethod'
 )]
-final class ShippingMethodCommand extends Command
+final readonly class ShippingMethodCommand
 {
     public function __construct(
-        private readonly PermissionResolver $permissionResolver,
-        private readonly UserService $userService,
-        private readonly ShippingMethodServiceInterface $shippingMethodService,
-        private readonly RegionServiceInterface $regionService
+        private PermissionResolver $permissionResolver,
+        private UserService $userService,
+        private ShippingMethodServiceInterface $shippingMethodService,
+        private RegionServiceInterface $regionService
     ) {
-        parent::__construct();
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output): int
+    public function __invoke(OutputInterface $output): int
     {
         $currentUser = $this->userService->loadUserByLogin('admin');
         $this->permissionResolver->setCurrentUserReference($currentUser);
@@ -141,6 +139,6 @@ final class ShippingMethodCommand extends Command
             $languageCode
         ));
 
-        return self::SUCCESS;
+        return Command::SUCCESS;
     }
 }

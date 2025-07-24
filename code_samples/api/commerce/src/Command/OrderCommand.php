@@ -23,27 +23,21 @@ use Ibexa\Contracts\OrderManagement\Value\Struct\OrderUpdateStruct;
 use Money;
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
-use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
 #[AsCommand(
     name: 'doc:order'
 )]
-final class OrderCommand extends Command
+final readonly class OrderCommand
 {
     public function __construct(
-        private readonly PermissionResolver $permissionResolver,
-        private readonly UserService $userService,
-        private readonly OrderServiceInterface $orderService
+        private PermissionResolver $permissionResolver,
+        private UserService $userService,
+        private OrderServiceInterface $orderService
     ) {
-        parent::__construct();
     }
 
-    public function configure(): void
-    {
-    }
-
-    protected function execute(InputInterface $input, OutputInterface $output): int
+    public function __invoke(OutputInterface $output): int
     {
         $currentUser = $this->userService->loadUserByLogin('admin');
         $this->permissionResolver->setCurrentUserReference($currentUser);
@@ -118,6 +112,6 @@ final class OrderCommand extends Command
 
         $output->writeln(sprintf('Found %d orders with provided criteria', count($orders)));
 
-        return self::SUCCESS;
+        return Command::SUCCESS;
     }
 }

@@ -13,21 +13,19 @@ use Ibexa\Contracts\ProductCatalog\Values\Product\ProductVariantQuery;
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
-use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
 #[AsCommand(
     name: 'doc:product_variant'
 )]
-final class ProductVariantCommand extends Command
+final readonly class ProductVariantCommand
 {
     public function __construct(
-        private readonly UserService $userService,
-        private readonly PermissionResolver $permissionResolver,
-        private readonly ProductServiceInterface $productService,
-        private readonly LocalProductServiceInterface $localProductService
+        private UserService $userService,
+        private PermissionResolver $permissionResolver,
+        private ProductServiceInterface $productService,
+        private LocalProductServiceInterface $localProductService
     ) {
-        parent::__construct();
     }
 
     public function configure(): void
@@ -38,12 +36,12 @@ final class ProductVariantCommand extends Command
             ]);
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output): int
+    public function __invoke(OutputInterface $output): int
     {
         $user = $this->userService->loadUserByLogin('admin');
         $this->permissionResolver->setCurrentUserReference($user);
 
-        $productCode = $input->getArgument('productCode');
+        $productCode = $productCode;
         $product = $this->productService->getProduct($productCode);
 
         // Get variants
@@ -67,6 +65,6 @@ final class ProductVariantCommand extends Command
 
         $this->localProductService->createProductVariants($product, $variantCreateStructs);
 
-        return self::SUCCESS;
+        return Command::SUCCESS;
     }
 }

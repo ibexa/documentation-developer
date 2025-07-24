@@ -10,18 +10,16 @@ use Ibexa\Contracts\Core\Repository\Values\Content\Query\SortClause;
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
-use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
 #[AsCommand(
     name: 'doc:find_complex',
     description: 'Lists content belonging to the provided content type.'
 )]
-class FindComplexCommand extends Command
+class FindComplexCommand
 {
     public function __construct(private readonly SearchService $searchService, private readonly LocationService $locationService)
     {
-        parent::__construct();
     }
 
     protected function configure(): void
@@ -34,11 +32,11 @@ class FindComplexCommand extends Command
             ]);
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output): int
+    public function __invoke(OutputInterface $output): int
     {
-        $locationId = (int) $input->getArgument('locationId');
-        $contentTypeIdentifier = $input->getArgument('contentTypeIdentifier');
-        $text = $input->getArgument('text');
+        $locationId = (int) $locationId;
+        $contentTypeIdentifier = $contentTypeIdentifier;
+        $text = $text;
 
         $query = new LocationQuery();
 
@@ -62,6 +60,6 @@ class FindComplexCommand extends Command
             $output->writeln($searchHit->valueObject->name);
         }
 
-        return self::SUCCESS;
+        return Command::SUCCESS;
     }
 }

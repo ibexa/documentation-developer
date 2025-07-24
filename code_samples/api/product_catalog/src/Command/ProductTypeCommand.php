@@ -8,17 +8,18 @@ use Ibexa\Contracts\ProductCatalog\ProductTypeServiceInterface;
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
-use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
 #[AsCommand(
     name: 'doc:product_type'
 )]
-final class ProductTypeCommand extends Command
+final readonly class ProductTypeCommand
 {
-    public function __construct(private readonly UserService $userService, private readonly PermissionResolver $permissionResolver, private readonly ProductTypeServiceInterface $productTypeService)
-    {
-        parent::__construct();
+    public function __construct(
+        private UserService $userService,
+        private PermissionResolver $permissionResolver,
+        private ProductTypeServiceInterface $productTypeService
+    ) {
     }
 
     public function configure(): void
@@ -29,12 +30,12 @@ final class ProductTypeCommand extends Command
             ]);
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output): int
+    public function __invoke(OutputInterface $output): int
     {
         $user = $this->userService->loadUserByLogin('admin');
         $this->permissionResolver->setCurrentUserReference($user);
 
-        $productTypeIdentifier = $input->getArgument('productTypeIdentifier');
+        $productTypeIdentifier = $productTypeIdentifier;
 
         $productType = $this->productTypeService->getProductType($productTypeIdentifier);
 
@@ -46,6 +47,6 @@ final class ProductTypeCommand extends Command
             $output->writeln($productType->getName() . ' with identifier ' . $productType->getIdentifier());
         }
 
-        return self::SUCCESS;
+        return Command::SUCCESS;
     }
 }

@@ -9,20 +9,21 @@ use Ibexa\Segmentation\Value\SegmentCreateStruct;
 use Ibexa\Segmentation\Value\SegmentGroupCreateStruct;
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
-use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
 #[AsCommand(
     name: 'doc:segment'
 )]
-class SegmentCommand extends Command
+class SegmentCommand
 {
-    public function __construct(private readonly SegmentationService $segmentationService, private readonly UserService $userService, private readonly PermissionResolver $permissionResolver)
-    {
-        parent::__construct();
+    public function __construct(
+        private readonly SegmentationService $segmentationService,
+        private readonly UserService $userService,
+        private readonly PermissionResolver $permissionResolver
+    ) {
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output): int
+    public function __invoke(OutputInterface $output): int
     {
         $user = $this->userService->loadUserByLogin('admin');
         $this->permissionResolver->setCurrentUserReference($user);
@@ -61,6 +62,6 @@ class SegmentCommand extends Command
             : 'The user is not assigned to the segment.'
         ));
 
-        return self::SUCCESS;
+        return Command::SUCCESS;
     }
 }

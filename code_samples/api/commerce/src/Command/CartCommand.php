@@ -19,28 +19,26 @@ use Ibexa\Contracts\ProductCatalog\ProductServiceInterface;
 use Ibexa\Core\Repository\Permission\PermissionResolver;
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
-use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
 #[AsCommand(
     name: 'doc:cart'
 )]
-final class CartCommand extends Command
+final readonly class CartCommand
 {
     public function __construct(
-        private readonly PermissionResolver $permissionResolver,
-        private readonly UserService $userService,
-        private readonly CartServiceInterface $cartService,
-        private readonly CurrencyServiceInterface $currencyService,
-        private readonly ProductServiceInterface $productService,
-        private readonly OrderServiceInterface $orderService,
-        private readonly ReorderService $reorderService,
-        private readonly CartResolverInterface $cartResolver
+        private PermissionResolver $permissionResolver,
+        private UserService $userService,
+        private CartServiceInterface $cartService,
+        private CurrencyServiceInterface $currencyService,
+        private ProductServiceInterface $productService,
+        private OrderServiceInterface $orderService,
+        private ReorderService $reorderService,
+        private CartResolverInterface $cartResolver
     ) {
-        parent::__construct();
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output): int
+    public function __invoke(OutputInterface $output): int
     {
         $this->permissionResolver->setCurrentUserReference(
             $this->userService->loadUserByLogin('admin')
@@ -138,6 +136,6 @@ final class CartCommand extends Command
         // Merge the carts into the target cart and delete the merged carts
         $reorderCart = $this->cartService->mergeCarts($reorderCart, true, $existingCart);
 
-        return self::SUCCESS;
+        return Command::SUCCESS;
     }
 }

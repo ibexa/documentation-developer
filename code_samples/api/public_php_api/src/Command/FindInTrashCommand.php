@@ -7,18 +7,16 @@ use Ibexa\Contracts\Core\Repository\Values\Content\Query;
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
-use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
 #[AsCommand(
     name: 'doc:find_in_trash',
     description: 'Lists content in Trash belonging to the provided content type.'
 )]
-class FindInTrashCommand extends Command
+class FindInTrashCommand
 {
     public function __construct(private readonly TrashService $trashService)
     {
-        parent::__construct();
     }
 
     protected function configure(): void
@@ -29,9 +27,9 @@ class FindInTrashCommand extends Command
             ]);
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output): int
+    public function __invoke(OutputInterface $output): int
     {
-        $contentTypeId = (int) $input->getArgument('contentTypeId');
+        $contentTypeId = (int) $contentTypeId;
 
         $query = new Query();
 
@@ -41,6 +39,6 @@ class FindInTrashCommand extends Command
             $output->writeln($trashedLocation->getContentInfo()->name);
         }
 
-        return self::SUCCESS;
+        return Command::SUCCESS;
     }
 }

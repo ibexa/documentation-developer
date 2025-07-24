@@ -8,18 +8,16 @@ use Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion;
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
-use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
 #[AsCommand(
     name: 'doc:find_content',
     description: 'Lists content belonging to the provided content type.'
 )]
-class FindContentCommand extends Command
+class FindContentCommand
 {
     public function __construct(private readonly SearchService $searchService)
     {
-        parent::__construct();
     }
 
     protected function configure(): void
@@ -30,9 +28,9 @@ class FindContentCommand extends Command
             ]);
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output): int
+    public function __invoke(OutputInterface $output): int
     {
-        $contentTypeIdentifier = $input->getArgument('contentTypeIdentifier');
+        $contentTypeIdentifier = $contentTypeIdentifier;
 
         $query = new LocationQuery();
         $query->filter = new Criterion\ContentTypeIdentifier($contentTypeIdentifier);
@@ -44,6 +42,6 @@ class FindContentCommand extends Command
             $output->writeln($searchHit->valueObject->name);
         }
 
-        return self::SUCCESS;
+        return Command::SUCCESS;
     }
 }

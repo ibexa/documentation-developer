@@ -9,18 +9,20 @@ use Ibexa\Contracts\Core\Repository\UserService;
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
-use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
 #[AsCommand(
     name: 'doc:object_state',
     description: 'Creates OS group with provided States and assigned the Lock OS to provided content item'
 )]
-class ObjectStateCommand extends Command
+class ObjectStateCommand
 {
-    public function __construct(private readonly ContentService $contentService, private readonly UserService $userService, private readonly ObjectStateService $objectStateService, private readonly PermissionResolver $permissionResolver)
-    {
-        parent::__construct();
+    public function __construct(
+        private readonly ContentService $contentService,
+        private readonly UserService $userService,
+        private readonly ObjectStateService $objectStateService,
+        private readonly PermissionResolver $permissionResolver
+    ) {
     }
 
     protected function configure(): void
@@ -33,7 +35,7 @@ class ObjectStateCommand extends Command
             ]);
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output): int
+    public function __invoke(OutputInterface $output): int
     {
         $user = $this->userService->loadUserByLogin('admin');
         $this->permissionResolver->setCurrentUserReference($user);
@@ -44,8 +46,8 @@ class ObjectStateCommand extends Command
         $output->writeln($objectStateGroup->getName());
         $output->writeln($objectState->getName());
 
-        $objectStateGroupIdentifier = $input->getArgument('objectStateGroupIdentifier');
-        $objectStateIdentifierList = explode(',', (string) $input->getArgument('objectStateIdentifier'));
+        $objectStateGroupIdentifier = $objectStateGroupIdentifier;
+        $objectStateIdentifierList = explode(',', (string) $objectStateIdentifier);
 
         $objectStateGroupStruct = $this->objectStateService->newObjectStateGroupCreateStruct($objectStateGroupIdentifier);
         $objectStateGroupStruct->defaultLanguageCode = 'eng-GB';
@@ -64,8 +66,8 @@ class ObjectStateCommand extends Command
             $output->writeln('* ' . $objectState->getName());
         }
 
-        if ($input->getArgument('contentID')) {
-            $contentId = (int) $input->getArgument('contentID');
+        if ($contentID) {
+            $contentId = (int) $contentID;
             $objectStateToAssign = $objectStateIdentifierList[0];
             $contentInfo = $this->contentService->loadContentInfo($contentId);
             $objectStateGroup = $this->objectStateService->loadObjectStateGroupByIdentifier($objectStateGroupIdentifier);
@@ -75,6 +77,6 @@ class ObjectStateCommand extends Command
             $output->writeln('Content ' . $contentInfo->name . ' assigned state ' . $objectState->getName());
         }
 
-        return self::SUCCESS;
+        return Command::SUCCESS;
     }
 }

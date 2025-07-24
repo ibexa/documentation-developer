@@ -24,36 +24,29 @@ use Ibexa\Core\FieldType\Image\Value;
 use Ibexa\Core\IO\IOBinarydataHandler;
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
-use Symfony\Component\Console\Input\InputArgument;
-use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
 #[AsCommand(
     name: 'app:add-alt-text',
 )]
-final class AddMissingAltTextCommand extends Command
+final readonly class AddMissingAltTextCommand
 {
     private const string IMAGE_FIELD_IDENTIFIER = 'image';
 
     public function __construct(
-        private readonly ContentService $contentService,
-        private readonly PermissionResolver $permissionResolver,
-        private readonly UserService $userService,
-        private readonly FieldTypeService $fieldTypeService,
-        private readonly ActionServiceInterface $actionService,
-        private readonly IOBinarydataHandler $binaryDataHandler
+        private ContentService $contentService,
+        private PermissionResolver $permissionResolver,
+        private UserService $userService,
+        private FieldTypeService $fieldTypeService,
+        private ActionServiceInterface $actionService,
+        private IOBinarydataHandler $binaryDataHandler
     ) {
-        parent::__construct();
     }
 
-    protected function configure(): void
+    public function __invoke(#[\Symfony\Component\Console\Attribute\Argument(name: 'user', description: 'Login of the user executing the actions')]
+    ?string $user, OutputInterface $output): int
     {
-        $this->addArgument('user', InputArgument::OPTIONAL, 'Login of the user executing the actions', 'admin');
-    }
-
-    protected function execute(InputInterface $input, OutputInterface $output): int
-    {
-        $this->setUser($input->getArgument('user'));
+        $this->setUser($user);
 
         $modifiedImages = $this->getModifiedImages();
         $output->writeln(sprintf('Found %d modified image in the last 24h', $modifiedImages->getTotalCount()));

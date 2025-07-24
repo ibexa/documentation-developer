@@ -10,18 +10,16 @@ use Ibexa\Contracts\Core\Repository\Values\Filter\Filter;
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
-use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
 #[AsCommand(
     name: 'doc:filter_location',
     description: 'Returns children of the provided Location, sorted by name in descending order.'
 )]
-class FilterLocationCommand extends Command
+class FilterLocationCommand
 {
     public function __construct(private readonly LocationService $locationService)
     {
-        parent::__construct();
     }
 
     public function configure(): void
@@ -31,9 +29,9 @@ class FilterLocationCommand extends Command
         ]);
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output): int
+    public function __invoke(OutputInterface $output): int
     {
-        $parentLocationId = (int)$input->getArgument('parentLocationId');
+        $parentLocationId = (int)$parentLocationId;
 
         $filter = new Filter();
         $filter
@@ -48,6 +46,6 @@ class FilterLocationCommand extends Command
             $output->writeln($content->getContent()->getName());
         }
 
-        return self::SUCCESS;
+        return Command::SUCCESS;
     }
 }

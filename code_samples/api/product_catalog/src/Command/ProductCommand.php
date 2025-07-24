@@ -16,23 +16,21 @@ use Ibexa\Contracts\ProductCatalog\Values\Product\Query\SortClause;
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
-use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
 #[AsCommand(
     name: 'doc:product'
 )]
-final class ProductCommand extends Command
+final readonly class ProductCommand
 {
     public function __construct(
-        private readonly UserService $userService,
-        private readonly PermissionResolver $permissionResolver,
-        private readonly ProductTypeServiceInterface $productTypeService,
-        private readonly ProductServiceInterface $productService,
-        private readonly LocalProductServiceInterface $localProductService,
-        private readonly ProductAvailabilityServiceInterface $productAvailabilityService
+        private UserService $userService,
+        private PermissionResolver $permissionResolver,
+        private ProductTypeServiceInterface $productTypeService,
+        private ProductServiceInterface $productService,
+        private LocalProductServiceInterface $localProductService,
+        private ProductAvailabilityServiceInterface $productAvailabilityService
     ) {
-        parent::__construct();
     }
 
     public function configure(): void
@@ -44,13 +42,13 @@ final class ProductCommand extends Command
             ]);
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output): int
+    public function __invoke(OutputInterface $output): int
     {
         $user = $this->userService->loadUserByLogin('admin');
         $this->permissionResolver->setCurrentUserReference($user);
 
-        $productCode = $input->getArgument('productCode');
-        $productType = $input->getArgument('productType');
+        $productCode = $productCode;
+        $productType = $productType;
 
         $product = $this->productService->getProduct($productCode);
 
@@ -106,6 +104,6 @@ final class ProductCommand extends Command
 
         $this->localProductService->deleteProduct($product);
 
-        return self::SUCCESS;
+        return Command::SUCCESS;
     }
 }

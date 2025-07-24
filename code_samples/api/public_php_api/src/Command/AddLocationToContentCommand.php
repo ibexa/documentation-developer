@@ -9,18 +9,20 @@ use Ibexa\Contracts\Core\Repository\UserService;
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
-use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
 #[AsCommand(
     name: 'doc:add_location',
     description: 'Add a Location to content item and hides it.'
 )]
-class AddLocationToContentCommand extends Command
+class AddLocationToContentCommand
 {
-    public function __construct(private readonly ContentService $contentService, private readonly LocationService $locationService, private readonly UserService $userService, private readonly PermissionResolver $permissionResolver)
-    {
-        parent::__construct();
+    public function __construct(
+        private readonly ContentService $contentService,
+        private readonly LocationService $locationService,
+        private readonly UserService $userService,
+        private readonly PermissionResolver $permissionResolver
+    ) {
     }
 
     protected function configure(): void
@@ -32,13 +34,13 @@ class AddLocationToContentCommand extends Command
             ]);
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output): int
+    public function __invoke(OutputInterface $output): int
     {
         $user = $this->userService->loadUserByLogin('admin');
         $this->permissionResolver->setCurrentUserReference($user);
 
-        $parentLocationId = (int) $input->getArgument('parentLocationId');
-        $contentId = (int) $input->getArgument('contentId');
+        $parentLocationId = (int) $parentLocationId;
+        $contentId = (int) $contentId;
 
         $locationCreateStruct = $this->locationService->newLocationCreateStruct($parentLocationId);
 
@@ -50,6 +52,6 @@ class AddLocationToContentCommand extends Command
 
         $output->writeln('Added hidden location ' . $newLocation->id . ' to content item: ' . $contentInfo->name);
 
-        return self::SUCCESS;
+        return Command::SUCCESS;
     }
 }

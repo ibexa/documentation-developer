@@ -10,21 +10,22 @@ use Ibexa\Contracts\Core\Repository\Values\URL\Query\SortClause;
 use Ibexa\Contracts\Core\Repository\Values\URL\URLQuery;
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
-use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
 #[AsCommand(
     name: 'doc:find_url',
     description: 'Finds all valid URLs in the provided Section.'
 )]
-class FindUrlCommand extends Command
+class FindUrlCommand
 {
-    public function __construct(private readonly URLService $urlService, private readonly UserService $userService, private readonly PermissionResolver $permissionResolver)
-    {
-        parent::__construct();
+    public function __construct(
+        private readonly URLService $urlService,
+        private readonly UserService $userService,
+        private readonly PermissionResolver $permissionResolver
+    ) {
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output): int
+    public function __invoke(OutputInterface $output): int
     {
         $user = $this->userService->loadUserByLogin('admin');
         $this->permissionResolver->setCurrentUserReference($user);
@@ -49,6 +50,6 @@ class FindUrlCommand extends Command
             $output->writeln($result->url);
         }
 
-        return self::SUCCESS;
+        return Command::SUCCESS;
     }
 }
