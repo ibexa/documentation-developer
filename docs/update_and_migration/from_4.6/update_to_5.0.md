@@ -304,6 +304,22 @@ The main schema has changed and the provided SQL file `ibexa-4.6.latest-to-5.0.0
     psql <database_name> < vendor/ibexa/installer/upgrade/db/postgresql/ibexa-4.6.latest-to-5.0.0.sql
     ```
 
+??? note "Ibexa Open Source"
+
+    If you don't have access to [[= product_name =]]'s `ibexa/installer` package, apply the following database update:
+
+    === "MySQL"
+
+        ``` sql
+        [[= include_file('docs/update_and_migration/from_4.6/sql/ibexa_oss_4.6.latest-to-5.0.0_mysql.sql', glue="        ") =]]
+        ```
+
+    === "PostgreSQL"
+
+        ``` sql
+        [[= include_file('docs/update_and_migration/from_4.6/sql/ibexa_oss_4.6.latest-to-5.0.0_postgresql.sql', glue="        ") =]]
+        ```
+
 As this script targets all editions, on editions lower than Commerce you may encounter errors about missing tables which can safely be ignored.
 
 Many tables and columns are renamed.
