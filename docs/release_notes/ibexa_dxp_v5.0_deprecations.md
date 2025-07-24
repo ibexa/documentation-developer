@@ -522,6 +522,10 @@ The `ValueObject` argument was replaced by `object` in a number of interfaces in
 In `core`, this change improves extensibility by enabling the use of custom object types to be interpreted by `PermissionResolver`.
 In `migrations`, it makes it easier to integrate custom data types, especially when using `AbstractStepFactory`.
 
+!!! note "Change examples"
+
+    Below the lists you may find examples of changes in those interfaces or classes that you are the most likely to use in your work.
+    
 ### ibexa/core
 
 | PHP Interface or class                                     | Methods                                                                |
