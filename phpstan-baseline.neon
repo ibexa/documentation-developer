@@ -283,12 +283,6 @@ parameters:
 			path: code_samples/back_office/search/src/EventSubscriber/MySuggestionEventSubscriber.php
 
 		-
-			message: '#^Method App\\Setting\\Group\\MyGroup\:\:__construct\(\) has parameter \$values with no value type specified in iterable type array\.$#'
-			identifier: missingType.iterableValue
-			count: 1
-			path: code_samples/back_office/settings/src/Setting/Group/MyGroup.php
-
-		-
 			message: '#^Method App\\Setting\\Unit\:\:mapFieldForm\(\) has parameter \$formBuilder with generic interface Symfony\\Component\\Form\\FormBuilderInterface but does not specify its types\: TData$#'
 			identifier: missingType.generics
 			count: 1
@@ -445,12 +439,6 @@ parameters:
 			path: code_samples/field_types/generic_ft/src/Form/Type/HelloWorldType.php
 
 		-
-			message: '#^Method App\\FormBuilder\\FieldType\\Field\\Mapper\\CheckboxWithRichtextDescriptionFieldMapper\:\:mapFormOptions\(\) return type has no value type specified in iterable type array\.$#'
-			identifier: missingType.iterableValue
-			count: 1
-			path: code_samples/forms/custom_form_attribute/src/FormBuilder/FieldType/Field/Mapper/CheckboxWithRichtextDescriptionFieldMapper.php
-
-		-
 			message: '#^Class App\\FormBuilder\\Form\\Type\\CheckboxWithRichtextDescriptionType extends generic class Symfony\\Component\\Form\\AbstractType but does not specify its types\: TData$#'
 			identifier: missingType.generics
 			count: 1
@@ -461,12 +449,6 @@ parameters:
 			identifier: missingType.generics
 			count: 1
 			path: code_samples/forms/custom_form_attribute/src/FormBuilder/Form/Type/FieldAttribute/AttributeRichtextDescriptionType.php
-
-		-
-			message: '#^Method App\\FormBuilder\\Field\\Mapper\\CountryFieldMapper\:\:mapFormOptions\(\) return type has no value type specified in iterable type array\.$#'
-			identifier: missingType.iterableValue
-			count: 1
-			path: code_samples/forms/custom_form_field/src/FormBuilder/Field/Mapper/CountryFieldMapper.php
 
 		-
 			message: '#^Method App\\QueryType\\LatestContentQueryType\:\:getQuery\(\) has parameter \$parameters with no value type specified in iterable type array\.$#'
