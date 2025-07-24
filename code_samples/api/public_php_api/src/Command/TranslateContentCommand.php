@@ -8,17 +8,18 @@ use Ibexa\Contracts\Core\Repository\UserService;
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
-use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
 #[AsCommand(
     name: 'doc:translate_content'
 )]
-class TranslateContentCommand extends Command
+class TranslateContentCommand
 {
-    public function __construct(private readonly ContentService $contentService, private readonly UserService $userService, private readonly PermissionResolver $permissionResolver)
-    {
-        parent::__construct();
+    public function __construct(
+        private readonly ContentService $contentService,
+        private readonly UserService $userService,
+        private readonly PermissionResolver $permissionResolver
+    ) {
     }
 
     protected function configure(): void
@@ -33,16 +34,16 @@ class TranslateContentCommand extends Command
             ]);
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output): int
+    public function __invoke(OutputInterface $output): int
     {
         $user = $this->userService->loadUserByLogin('admin');
         $this->permissionResolver->setCurrentUserReference($user);
 
-        $contentId = (int) $input->getArgument('contentId');
-        $language = $input->getArgument('language');
-        $newName = $input->getArgument('nameInNewLanguage');
-        $secondaryLanguage = $input->getArgument('secondaryLanguage');
-        $nameInSecondaryLanguage = $input->getArgument('nameInSecondaryLanguage');
+        $contentId = (int) $contentId;
+        $language = $language;
+        $newName = $nameInNewLanguage;
+        $secondaryLanguage = $secondaryLanguage;
+        $nameInSecondaryLanguage = $nameInSecondaryLanguage;
 
         $contentInfo = $this->contentService->loadContentInfo($contentId);
         $contentDraft = $this->contentService->createContentDraft($contentInfo);
@@ -59,6 +60,6 @@ class TranslateContentCommand extends Command
         $this->contentService->publishVersion($contentDraft->versionInfo);
         $output->writeln('Translated ' . $contentInfo->name . ' to ' . $language . ' as ' . $newName);
 
-        return self::SUCCESS;
+        return Command::SUCCESS;
     }
 }

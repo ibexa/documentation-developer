@@ -16,23 +16,21 @@ use Ibexa\Contracts\Payment\PaymentMethodServiceInterface;
 use Ibexa\Payment\Values\PaymentMethodType;
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
-use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
 #[AsCommand(
     name: 'doc:paymentMethod'
 )]
-final class PaymentMethodCommand extends Command
+final readonly class PaymentMethodCommand
 {
     public function __construct(
-        private readonly PermissionResolver $permissionResolver,
-        private readonly UserService $userService,
-        private readonly PaymentMethodServiceInterface $paymentMethodService
+        private PermissionResolver $permissionResolver,
+        private UserService $userService,
+        private PaymentMethodServiceInterface $paymentMethodService
     ) {
-        parent::__construct();
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output): int
+    public function __invoke(OutputInterface $output): int
     {
         $currentUser = $this->userService->loadUserByLogin('admin');
         $this->permissionResolver->setCurrentUserReference($currentUser);
@@ -115,6 +113,6 @@ final class PaymentMethodCommand extends Command
             ));
         }
 
-        return self::SUCCESS;
+        return Command::SUCCESS;
     }
 }

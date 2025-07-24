@@ -10,18 +10,21 @@ use Ibexa\Contracts\Core\Repository\UserService;
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
-use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 
 #[AsCommand(
     name: 'doc:create_content'
 )]
-class CreateContentCommand extends Command
+class CreateContentCommand
 {
-    public function __construct(private readonly ContentService $contentService, private readonly ContentTypeService $contentTypeService, private readonly LocationService $locationService, private readonly UserService $userService, private readonly PermissionResolver $permissionResolver)
-    {
-        parent::__construct();
+    public function __construct(
+        private readonly ContentService $contentService,
+        private readonly ContentTypeService $contentTypeService,
+        private readonly LocationService $locationService,
+        private readonly UserService $userService,
+        private readonly PermissionResolver $permissionResolver
+    ) {
     }
 
     protected function configure(): void
@@ -35,14 +38,15 @@ class CreateContentCommand extends Command
             ->addOption('publish', 'p', InputOption::VALUE_NONE, 'Do you want to publish the content item?');
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output): int
+    public function __invoke(#[\Symfony\Component\Console\Attribute\Option]
+    $publish, OutputInterface $output): int
     {
         $user = $this->userService->loadUserByLogin('admin');
         $this->permissionResolver->setCurrentUserReference($user);
 
-        $parentLocationId = (int) $input->getArgument('parentLocationId');
-        $contentTypeIdentifier = $input->getArgument('contentType');
-        $name = $input->getArgument('name');
+        $parentLocationId = (int) $parentLocationId;
+        $contentTypeIdentifier = $contentType;
+        $name = $name;
 
         $contentType = $this->contentTypeService->loadContentTypeByIdentifier($contentTypeIdentifier);
         $contentCreateStruct = $this->contentService->newContentCreateStruct($contentType, 'eng-GB');
@@ -54,11 +58,11 @@ class CreateContentCommand extends Command
 
         $output->writeln('Created a draft of ' . $contentType->getName() . ' with name ' . $draft->getName());
 
-        if ($input->getOption('publish')) {
+        if ($publish) {
             $content = $this->contentService->publishVersion($draft->versionInfo);
             $output->writeln('Published content item ' . $content->getName());
         }
 
-        return self::SUCCESS;
+        return Command::SUCCESS;
     }
 }

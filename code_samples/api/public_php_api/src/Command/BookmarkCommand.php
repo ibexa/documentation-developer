@@ -7,18 +7,16 @@ use Ibexa\Contracts\Core\Repository\LocationService;
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
-use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 
 #[AsCommand(
     name: 'doc:bookmark'
 )]
-class BookmarkCommand extends Command
+class BookmarkCommand
 {
     public function __construct(private readonly BookmarkService $bookmarkService, private readonly LocationService $locationService)
     {
-        parent::__construct();
     }
 
     protected function configure(): void
@@ -30,9 +28,10 @@ class BookmarkCommand extends Command
             ->addOption('delete', 'd', InputOption::VALUE_NONE, 'Delete the created bookmark?', null);
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output): int
+    public function __invoke(#[\Symfony\Component\Console\Attribute\Option]
+    $delete, OutputInterface $output): int
     {
-        $locationId = (int) $input->getArgument('locationId');
+        $locationId = (int) $locationId;
         $location = $this->locationService->loadLocation($locationId);
 
         $this->bookmarkService->createBookmark($location);
@@ -47,11 +46,11 @@ class BookmarkCommand extends Command
             $output->writeln($bookmark->getContentInfo()->name);
         }
 
-        if ($input->getOption('delete')) {
+        if ($delete) {
             $this->bookmarkService->deleteBookmark($location);
             $output->writeln('Deleted bookmark from ' . $location->getContentInfo()->name);
         }
 
-        return self::SUCCESS;
+        return Command::SUCCESS;
     }
 }

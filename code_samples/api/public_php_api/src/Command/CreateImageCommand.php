@@ -11,18 +11,21 @@ use Ibexa\Core\FieldType\Image\Value;
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
-use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 
 #[AsCommand(
     name: 'doc:create_image'
 )]
-class CreateImageCommand extends Command
+class CreateImageCommand
 {
-    public function __construct(private readonly ContentService $contentService, private readonly ContentTypeService $contentTypeService, private readonly LocationService $locationService, private readonly UserService $userService, private readonly PermissionResolver $permissionResolver)
-    {
-        parent::__construct();
+    public function __construct(
+        private readonly ContentService $contentService,
+        private readonly ContentTypeService $contentTypeService,
+        private readonly LocationService $locationService,
+        private readonly UserService $userService,
+        private readonly PermissionResolver $permissionResolver
+    ) {
     }
 
     protected function configure(): void
@@ -35,14 +38,15 @@ class CreateImageCommand extends Command
             ->addOption('publish', 'p', InputOption::VALUE_NONE, 'Do you want to publish the content item?');
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output): int
+    public function __invoke(#[\Symfony\Component\Console\Attribute\Option]
+    $publish, OutputInterface $output): int
     {
         $user = $this->userService->loadUserByLogin('admin');
         $this->permissionResolver->setCurrentUserReference($user);
 
-        $name = $input->getArgument('name');
-        $file = $input->getArgument('file');
-        $publish = $input->getOption('publish');
+        $name = $name;
+        $file = $file;
+        $publish = $publish;
 
         $contentType = $this->contentTypeService->loadContentTypeByIdentifier('image');
         $contentCreateStruct = $this->contentService->newContentCreateStruct($contentType, 'eng-GB');
@@ -68,6 +72,6 @@ class CreateImageCommand extends Command
             $output->writeln('Published content item ' . $content->getName());
         }
 
-        return self::SUCCESS;
+        return Command::SUCCESS;
     }
 }

@@ -16,21 +16,19 @@ use Ibexa\ProductCatalog\Local\Repository\Values\Catalog\Status;
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
-use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
 #[AsCommand(
     name: 'doc:catalog'
 )]
-final class CatalogCommand extends Command
+final readonly class CatalogCommand
 {
     public function __construct(
-        private readonly UserService $userService,
-        private readonly PermissionResolver $permissionResolver,
-        private readonly ProductServiceInterface $productService,
-        private readonly CatalogServiceInterface $catalogService
+        private UserService $userService,
+        private PermissionResolver $permissionResolver,
+        private ProductServiceInterface $productService,
+        private CatalogServiceInterface $catalogService
     ) {
-        parent::__construct();
     }
 
     public function configure(): void
@@ -41,12 +39,12 @@ final class CatalogCommand extends Command
             ]);
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output): int
+    public function __invoke(OutputInterface $output): int
     {
         $user = $this->userService->loadUserByLogin('admin');
         $this->permissionResolver->setCurrentUserReference($user);
 
-        $catalogIdentifier = $input->getArgument('catalogIdentifier');
+        $catalogIdentifier = $catalogIdentifier;
 
         // Create catalog
         $catalogCriterion = new Criterion\LogicalAnd(
@@ -83,6 +81,6 @@ final class CatalogCommand extends Command
 
         $this->catalogService->updateCatalog($catalog, $catalogUpdateStruct);
 
-        return self::SUCCESS;
+        return Command::SUCCESS;
     }
 }

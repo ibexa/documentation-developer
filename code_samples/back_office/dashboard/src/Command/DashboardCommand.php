@@ -10,15 +10,13 @@ use Ibexa\Contracts\Core\Repository\UserService;
 use Ibexa\Contracts\Dashboard\DashboardServiceInterface;
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
-use Symfony\Component\Console\Input\InputArgument;
-use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
 #[AsCommand(
     name: 'doc:dashboard',
     description: 'Set a custom dashboard to user group.'
 )]
-class DashboardCommand extends Command
+class DashboardCommand
 {
     private readonly Locationservice $locationService;
 
@@ -36,21 +34,14 @@ class DashboardCommand extends Command
         $this->contentService = $repository->getContentService();
         $this->userService = $repository->getUserService();
         $this->permissionResolver = $repository->getPermissionResolver();
-
-        parent::__construct();
     }
 
-    public function configure(): void
+    public function __invoke(#[\Symfony\Component\Console\Attribute\Argument(name: 'dashboard', description: 'Location ID of the dashboard model')]
+    string $dashboard, #[\Symfony\Component\Console\Attribute\Argument(name: 'group', description: 'User Group Content ID(s)')]
+    string $group, OutputInterface $output): int
     {
-        $this
-            ->addArgument('dashboard', InputArgument::REQUIRED, 'Location ID of the dashboard model')
-            ->addArgument('group', InputArgument::REQUIRED | InputArgument::IS_ARRAY, 'User Group Content ID(s)');
-    }
-
-    protected function execute(InputInterface $input, OutputInterface $output): int
-    {
-        $dashboardModelLocationId = (int)$input->getArgument('dashboard');
-        $userGroupLocationIdList = array_map('intval', $input->getArgument('group'));
+        $dashboardModelLocationId = (int)$dashboard;
+        $userGroupLocationIdList = array_map('intval', $group);
 
         foreach ($userGroupLocationIdList as $userGroupLocationId) {
             try {
@@ -66,6 +57,6 @@ class DashboardCommand extends Command
             }
         }
 
-        return self::SUCCESS;
+        return Command::SUCCESS;
     }
 }

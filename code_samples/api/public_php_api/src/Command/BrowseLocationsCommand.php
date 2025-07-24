@@ -7,18 +7,16 @@ use Ibexa\Contracts\Core\Repository\Values\Content\Location;
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
-use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
 #[AsCommand(
     name: 'doc:browse_locations',
     description: 'Lists all descendants of the Location'
 )]
-class BrowseLocationsCommand extends Command
+class BrowseLocationsCommand
 {
     public function __construct(private readonly LocationService $locationService)
     {
-        parent::__construct();
     }
 
     protected function configure(): void
@@ -39,13 +37,13 @@ class BrowseLocationsCommand extends Command
         }
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output): int
+    public function __invoke(OutputInterface $output): int
     {
-        $locationId = (int) $input->getArgument('locationId');
+        $locationId = (int) $locationId;
 
         $location = $this->locationService->loadLocation($locationId);
         $this->browseLocation($location, $output);
 
-        return self::SUCCESS;
+        return Command::SUCCESS;
     }
 }

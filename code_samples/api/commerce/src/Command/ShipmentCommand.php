@@ -19,25 +19,23 @@ use Ibexa\Contracts\Shipping\ShippingMethodServiceInterface;
 use Money;
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
-use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
 #[AsCommand(
     name: 'doc:shipment'
 )]
-final class ShipmentCommand extends Command
+final readonly class ShipmentCommand
 {
     public function __construct(
-        private readonly PermissionResolver $permissionResolver,
-        private readonly UserService $userService,
-        private readonly ShipmentServiceInterface $shipmentService,
-        private readonly ShippingMethodServiceInterface $shippingMethodService,
-        private readonly OrderServiceInterface $orderService
+        private PermissionResolver $permissionResolver,
+        private UserService $userService,
+        private ShipmentServiceInterface $shipmentService,
+        private ShippingMethodServiceInterface $shippingMethodService,
+        private OrderServiceInterface $orderService
     ) {
-        parent::__construct();
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output): int
+    public function __invoke(OutputInterface $output): int
     {
         $currentUser = $this->userService->loadUserByLogin('admin');
         $this->permissionResolver->setCurrentUserReference($currentUser);
@@ -118,6 +116,6 @@ final class ShipmentCommand extends Command
         // Delete existing shipment permanently
         $this->shipmentService->deleteShipment($shipment);
 
-        return self::SUCCESS;
+        return Command::SUCCESS;
     }
 }

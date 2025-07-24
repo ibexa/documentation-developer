@@ -9,25 +9,22 @@ use Ibexa\Contracts\Core\Repository\UserService;
 use Ibexa\Scheduler\Calendar\EventAction\RescheduleEventActionContext;
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
-use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
 #[AsCommand(
     name: 'doc:calendar',
     description: 'Lists Calendar event in the provided time range and reschedules them.'
 )]
-class CalendarCommand extends Command
+class CalendarCommand
 {
-    public function __construct(private readonly PermissionResolver $permissionResolver, private readonly UserService $userService, private readonly CalendarServiceInterface $calendarService)
-    {
-        parent::__construct();
+    public function __construct(
+        private readonly PermissionResolver $permissionResolver,
+        private readonly UserService $userService,
+        private readonly CalendarServiceInterface $calendarService
+    ) {
     }
 
-    public function configure(): void
-    {
-    }
-
-    protected function execute(InputInterface $input, OutputInterface $output): int
+    public function __invoke(OutputInterface $output): int
     {
         $user = $this->userService->loadUserByLogin('admin');
         $this->permissionResolver->setCurrentUserReference($user);
@@ -57,6 +54,6 @@ class CalendarCommand extends Command
 
         $this->calendarService->executeAction($context);
 
-        return self::SUCCESS;
+        return Command::SUCCESS;
     }
 }

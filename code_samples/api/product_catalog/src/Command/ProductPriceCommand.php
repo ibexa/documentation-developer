@@ -19,23 +19,21 @@ use Money;
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
-use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
 #[AsCommand(
     name: 'doc:price'
 )]
-final class ProductPriceCommand extends Command
+final readonly class ProductPriceCommand
 {
     public function __construct(
-        private readonly CurrencyServiceInterface $currencyService,
-        private readonly ProductServiceInterface $productService,
-        private readonly ProductPriceServiceInterface $productPriceService,
-        private readonly PriceResolverInterface $priceResolver,
-        private readonly UserService $userService,
-        private readonly PermissionResolver $permissionResolver
+        private CurrencyServiceInterface $currencyService,
+        private ProductServiceInterface $productService,
+        private ProductPriceServiceInterface $productPriceService,
+        private PriceResolverInterface $priceResolver,
+        private UserService $userService,
+        private PermissionResolver $permissionResolver
     ) {
-        parent::__construct();
     }
 
     public function configure(): void
@@ -48,14 +46,14 @@ final class ProductPriceCommand extends Command
             ]);
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output): int
+    public function __invoke(OutputInterface $output): int
     {
         $user = $this->userService->loadUserByLogin('admin');
         $this->permissionResolver->setCurrentUserReference($user);
 
-        $productCode = $input->getArgument('productCode');
+        $productCode = $productCode;
         $product = $this->productService->getProduct($productCode);
-        $currencyCode = $input->getArgument('currencyCode');
+        $currencyCode = $currencyCode;
         $currency = $this->currencyService->getCurrencyByCode($currencyCode);
 
         $productPrice = $product->getPrice();
@@ -66,7 +64,7 @@ final class ProductPriceCommand extends Command
 
         $output->writeln('Price for ' . $product->getName() . ' in ' . $currencyCode . ' is ' . $productPrice);
 
-        $newCurrencyCode = $input->getArgument('newCurrencyCode');
+        $newCurrencyCode = $newCurrencyCode;
         $newCurrency = $this->currencyService->getCurrencyByCode($newCurrencyCode);
 
         $money = new Money\Money(50000, new Money\Currency($newCurrencyCode));
@@ -99,6 +97,6 @@ final class ProductPriceCommand extends Command
 
         $output->writeln('Price in ' . $currency->getCode() . ' for ' . $product->getName() . ' is ' . $price);
 
-        return self::SUCCESS;
+        return Command::SUCCESS;
     }
 }

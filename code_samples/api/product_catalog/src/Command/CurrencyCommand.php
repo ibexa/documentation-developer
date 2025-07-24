@@ -10,17 +10,18 @@ use Ibexa\Contracts\ProductCatalog\Values\Currency\CurrencyUpdateStruct;
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
-use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
 #[AsCommand(
     name: 'doc:currency'
 )]
-final class CurrencyCommand extends Command
+final readonly class CurrencyCommand
 {
-    public function __construct(private readonly CurrencyServiceInterface $currencyService, private readonly UserService $userService, private readonly PermissionResolver $permissionResolver)
-    {
-        parent::__construct();
+    public function __construct(
+        private CurrencyServiceInterface $currencyService,
+        private UserService $userService,
+        private PermissionResolver $permissionResolver
+    ) {
     }
 
     public function configure(): void
@@ -32,13 +33,13 @@ final class CurrencyCommand extends Command
             ]);
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output): int
+    public function __invoke(OutputInterface $output): int
     {
         $user = $this->userService->loadUserByLogin('admin');
         $this->permissionResolver->setCurrentUserReference($user);
 
-        $currencyCode = $input->getArgument('currencyCode');
-        $newCurrencyCode = $input->getArgument('newCurrencyCode');
+        $currencyCode = $currencyCode;
+        $newCurrencyCode = $newCurrencyCode;
 
         $currency = $this->currencyService->getCurrencyByCode($currencyCode);
         $output->writeln('Currency ID: ' . $currency->getId());
@@ -59,6 +60,6 @@ final class CurrencyCommand extends Command
 
         $this->currencyService->createCurrency($currencyCreateStruct);
 
-        return self::SUCCESS;
+        return Command::SUCCESS;
     }
 }

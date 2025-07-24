@@ -12,18 +12,22 @@ use Ibexa\Contracts\Core\Repository\Values\Content\VersionInfo;
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
-use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
 #[AsCommand(
     name: 'doc:view_metadata',
     description: 'Output various metadata about a content item.'
 )]
-class ViewContentMetaDataCommand extends Command
+class ViewContentMetaDataCommand
 {
-    public function __construct(private readonly ContentService $contentService, private readonly LocationService $locationService, private readonly URLAliasService $urlAliasService, private readonly UserService $userService, private readonly ObjectStateService $objectStateService, private readonly PermissionResolver $permissionResolver)
-    {
-        parent::__construct();
+    public function __construct(
+        private readonly ContentService $contentService,
+        private readonly LocationService $locationService,
+        private readonly URLAliasService $urlAliasService,
+        private readonly UserService $userService,
+        private readonly ObjectStateService $objectStateService,
+        private readonly PermissionResolver $permissionResolver
+    ) {
     }
 
     protected function configure(): void
@@ -34,12 +38,12 @@ class ViewContentMetaDataCommand extends Command
             ]);
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output): int
+    public function __invoke(OutputInterface $output): int
     {
         $user = $this->userService->loadUserByLogin('admin');
         $this->permissionResolver->setCurrentUserReference($user);
 
-        $contentId = (int) $input->getArgument('contentId');
+        $contentId = (int) $contentId;
 
         // Metadata
         $contentInfo = $this->contentService->loadContentInfo($contentId);
@@ -105,6 +109,6 @@ class ViewContentMetaDataCommand extends Command
             $output->writeln("Object state: $state->identifier");
         }
 
-        return self::SUCCESS;
+        return Command::SUCCESS;
     }
 }

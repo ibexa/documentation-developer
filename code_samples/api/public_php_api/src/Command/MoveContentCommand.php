@@ -8,18 +8,19 @@ use Ibexa\Contracts\Core\Repository\UserService;
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
-use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
 #[AsCommand(
     name: 'doc:move_content',
     description: 'Moves the selected Location with its subtree.'
 )]
-class MoveContentCommand extends Command
+class MoveContentCommand
 {
-    public function __construct(private readonly LocationService $locationService, private readonly UserService $userService, private readonly PermissionResolver $permissionResolver)
-    {
-        parent::__construct();
+    public function __construct(
+        private readonly LocationService $locationService,
+        private readonly UserService $userService,
+        private readonly PermissionResolver $permissionResolver
+    ) {
     }
 
     protected function configure(): void
@@ -31,19 +32,19 @@ class MoveContentCommand extends Command
             ]);
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output): int
+    public function __invoke(OutputInterface $output): int
     {
         $user = $this->userService->loadUserByLogin('admin');
         $this->permissionResolver->setCurrentUserReference($user);
 
-        $locationId = (int) $input->getArgument('locationId');
-        $targetLocationId = (int) $input->getArgument('targetLocationId');
+        $locationId = (int) $locationId;
+        $targetLocationId = (int) $targetLocationId;
 
         $sourceLocation = $this->locationService->loadLocation($locationId);
         $targetLocation = $this->locationService->loadLocation($targetLocationId);
         $this->locationService->moveSubtree($sourceLocation, $targetLocation);
         $output->writeln('Location ' . $locationId . ' moved to ' . $targetLocationId . ' with its subtree.');
 
-        return self::SUCCESS;
+        return Command::SUCCESS;
     }
 }

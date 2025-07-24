@@ -9,18 +9,20 @@ use Ibexa\Contracts\Core\Repository\UserService;
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
-use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 
 #[AsCommand(
     name: 'doc:trash_content'
 )]
-class TrashContentCommand extends Command
+class TrashContentCommand
 {
-    public function __construct(private readonly LocationService $locationService, private readonly UserService $userService, private readonly TrashService $trashService, private readonly PermissionResolver $permissionResolver)
-    {
-        parent::__construct();
+    public function __construct(
+        private readonly LocationService $locationService,
+        private readonly UserService $userService,
+        private readonly TrashService $trashService,
+        private readonly PermissionResolver $permissionResolver
+    ) {
     }
 
     protected function configure(): void
@@ -32,14 +34,15 @@ class TrashContentCommand extends Command
             ->addOption('restore', 'r', InputOption::VALUE_NONE, 'Do you want to restore the content item?');
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output): int
+    public function __invoke(#[\Symfony\Component\Console\Attribute\Option]
+    $restore, OutputInterface $output): int
     {
         $user = $this->userService->loadUserByLogin('admin');
         $this->permissionResolver->setCurrentUserReference($user);
 
-        $locationId = (int) $input->getArgument('locationId');
-        if ($input->getArgument('newParentId')) {
-            $newParentId = (int) $input->getArgument('newParentId');
+        $locationId = (int) $locationId;
+        if ($newParentId) {
+            $newParentId = (int) $newParentId;
         }
 
         $location = $this->locationService->loadLocation($locationId);
@@ -47,8 +50,8 @@ class TrashContentCommand extends Command
         $this->trashService->trash($location);
         $output->writeln('Location ' . $locationId . ' moved to trash.');
 
-        if ($input->getOption('restore')) {
-            if ($input->getArgument('newParentId')) {
+        if ($restore) {
+            if ($newParentId) {
                 $newParent = $this->locationService->loadLocation($newParentId);
             } else {
                 $newParent = null;
@@ -58,6 +61,6 @@ class TrashContentCommand extends Command
             $output->writeln('Restored from trash.');
         }
 
-        return self::SUCCESS;
+        return Command::SUCCESS;
     }
 }

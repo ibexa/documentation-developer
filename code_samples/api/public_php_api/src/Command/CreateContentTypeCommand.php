@@ -9,18 +9,19 @@ use Ibexa\Contracts\Core\Repository\UserService;
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
-use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 
 #[AsCommand(
     name: 'doc:create_content_type'
 )]
-class CreateContentTypeCommand extends Command
+class CreateContentTypeCommand
 {
-    public function __construct(private readonly ContentTypeService $contentTypeService, private readonly UserService $userService, private readonly PermissionResolver $permissionResolver)
-    {
-        parent::__construct();
+    public function __construct(
+        private readonly ContentTypeService $contentTypeService,
+        private readonly UserService $userService,
+        private readonly PermissionResolver $permissionResolver
+    ) {
     }
 
     protected function configure(): void
@@ -33,15 +34,16 @@ class CreateContentTypeCommand extends Command
             ->addOption('copy', 'c', InputOption::VALUE_NONE, 'Do you want to make a copy of the content type?');
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output): int
+    public function __invoke(#[\Symfony\Component\Console\Attribute\Option]
+    $copy, OutputInterface $output): int
     {
         $user = $this->userService->loadUserByLogin('admin');
         $this->permissionResolver->setCurrentUserReference($user);
 
-        $groupIdentifier = $input->getArgument('group_identifier');
-        $contentTypeIdentifier = $input->getArgument('identifier');
-        if ($input->getArgument('copy_identifier')) {
-            $copyIdentifier = $input->getArgument('copy_identifier');
+        $groupIdentifier = $group_identifier;
+        $contentTypeIdentifier = $identifier;
+        if ($copy_identifier) {
+            $copyIdentifier = $copy_identifier;
         }
 
         try {
@@ -79,7 +81,7 @@ class CreateContentTypeCommand extends Command
         $this->contentTypeService->publishContentTypeDraft($contentTypeDraft);
         $output->writeln("Content type '$contentTypeIdentifier' with ID $contentTypeDraft->id created");
 
-        if ($input->getOption('copy')) {
+        if ($copy) {
             $contentTypeToCopy = $this->contentTypeService->loadContentTypeByIdentifier($contentTypeIdentifier);
 
             $copy = $this->contentTypeService->copyContentType($contentTypeToCopy);
@@ -92,6 +94,6 @@ class CreateContentTypeCommand extends Command
             $output->writeln('Copy of the new CT created with identifier ' . $copyIdentifier);
         }
 
-        return self::SUCCESS;
+        return Command::SUCCESS;
     }
 }

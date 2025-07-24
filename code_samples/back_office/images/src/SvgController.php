@@ -18,8 +18,11 @@ class SvgController extends Controller
 {
     private const string CONTENT_TYPE_HEADER = 'image/svg+xml';
 
-    public function __construct(private readonly ContentService $contentService, private readonly IOServiceInterface $ioService, private readonly TranslationHelper $translationHelper)
-    {
+    public function __construct(
+        private readonly ContentService $contentService,
+        private readonly IOServiceInterface $ioService,
+        private readonly TranslationHelper $translationHelper
+    ) {
     }
 
     /**

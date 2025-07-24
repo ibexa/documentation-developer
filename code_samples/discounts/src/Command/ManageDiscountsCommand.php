@@ -20,22 +20,20 @@ use Ibexa\Discounts\Value\DiscountCondition\IsProductInArray;
 use Ibexa\Discounts\Value\DiscountRule\FixedAmount;
 use Ibexa\DiscountsCodes\Value\DiscountCondition\IsValidDiscountCode;
 use Symfony\Component\Console\Command\Command;
-use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
 #[\Symfony\Component\Console\Attribute\AsCommand(name: 'discounts:manage')]
-final class ManageDiscountsCommand extends Command
+final readonly class ManageDiscountsCommand
 {
     public function __construct(
-        private readonly UserService $userService,
-        private readonly PermissionResolver $permissionResolver,
-        private readonly DiscountServiceInterface $discountService,
-        private readonly DiscountCodeServiceInterface $discountCodeService
+        private UserService $userService,
+        private PermissionResolver $permissionResolver,
+        private DiscountServiceInterface $discountService,
+        private DiscountCodeServiceInterface $discountCodeService
     ) {
-        parent::__construct();
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output): int
+    public function __invoke(OutputInterface $output): int
     {
         $this->permissionResolver->setCurrentUserReference(
             $this->userService->loadUserByLogin('admin')

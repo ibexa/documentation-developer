@@ -8,18 +8,19 @@ use Ibexa\Contracts\Core\Repository\FieldTypeService;
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
-use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
 #[AsCommand(
     name: 'doc:view_content',
     description: 'Output Field values on provided content item.'
 )]
-class ViewContentCommand extends Command
+class ViewContentCommand
 {
-    public function __construct(private readonly ContentService $contentService, private readonly ContentTypeService $contentTypeService, private readonly FieldTypeService $fieldTypeService)
-    {
-        parent::__construct();
+    public function __construct(
+        private readonly ContentService $contentService,
+        private readonly ContentTypeService $contentTypeService,
+        private readonly FieldTypeService $fieldTypeService
+    ) {
     }
 
     protected function configure(): void
@@ -30,9 +31,9 @@ class ViewContentCommand extends Command
             ]);
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output): int
+    public function __invoke(OutputInterface $output): int
     {
-        $contentId = (int) $input->getArgument('contentId');
+        $contentId = (int) $contentId;
 
         $content = $this->contentService->loadContent($contentId);
         $contentType = $this->contentTypeService->loadContentType($content->contentInfo->contentTypeId);
@@ -46,6 +47,6 @@ class ViewContentCommand extends Command
             $output->writeln($valueHash);
         }
 
-        return self::SUCCESS;
+        return Command::SUCCESS;
     }
 }

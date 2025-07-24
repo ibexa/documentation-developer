@@ -8,20 +8,22 @@ use Ibexa\Contracts\Core\Repository\UserService;
 use Ibexa\Contracts\FormBuilder\FormSubmission\FormSubmissionServiceInterface;
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
-use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
 #[AsCommand(
     name: 'doc:form-submission'
 )]
-final class FormSubmissionCommand extends Command
+final readonly class FormSubmissionCommand
 {
-    public function __construct(private readonly UserService $userService, private readonly PermissionResolver $permissionResolver, private readonly FormSubmissionServiceInterface $formSubmissionService, private readonly ContentService $contentService)
-    {
-        parent::__construct();
+    public function __construct(
+        private UserService $userService,
+        private PermissionResolver $permissionResolver,
+        private FormSubmissionServiceInterface $formSubmissionService,
+        private ContentService $contentService
+    ) {
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output): int
+    public function __invoke(OutputInterface $output): int
     {
         $user = $this->userService->loadUserByLogin('admin');
         $this->permissionResolver->setCurrentUserReference($user);
@@ -58,6 +60,6 @@ final class FormSubmissionCommand extends Command
         $submission = $this->formSubmissionService->loadById(29);
         $this->formSubmissionService->delete($submission);
 
-        return self::SUCCESS;
+        return Command::SUCCESS;
     }
 }

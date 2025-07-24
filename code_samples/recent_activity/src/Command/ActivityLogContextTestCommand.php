@@ -12,8 +12,6 @@ use Ibexa\Contracts\Core\Repository\UserService;
 use Ibexa\Contracts\Core\Repository\Values\Content\LocationCreateStruct;
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
-use Symfony\Component\Console\Input\InputArgument;
-use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 
@@ -21,7 +19,7 @@ use Symfony\Component\EventDispatcher\EventDispatcherInterface;
     name: 'doc:test:activity-log-context',
     description: 'Test activity log context usage'
 )]
-class ActivityLogContextTestCommand extends Command
+class ActivityLogContextTestCommand
 {
     public function __construct(
         private readonly ActivityLogServiceInterface $activityLogService,
@@ -31,17 +29,12 @@ class ActivityLogContextTestCommand extends Command
         private readonly PermissionResolver $permissionResolver,
         private readonly UserService $userService
     ) {
-        parent::__construct();
     }
 
-    protected function configure(): void
+    public function __invoke(#[\Symfony\Component\Console\Attribute\Argument(name: 'id', description: 'A test number')]
+    string $id, OutputInterface $output): int
     {
-        $this->addArgument('id', InputArgument::REQUIRED, 'A test number');
-    }
-
-    protected function execute(InputInterface $input, OutputInterface $output): int
-    {
-        $id = $input->getArgument('id');
+        $id = $id;
         $this->permissionResolver->setCurrentUserReference($this->userService->loadUserByLogin('admin'));
 
         $this->activityLogService->prepareContext('my_feature', 'Operation description');

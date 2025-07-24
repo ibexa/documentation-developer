@@ -18,29 +18,23 @@ use Ibexa\Contracts\Payment\PaymentServiceInterface;
 use Money;
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
-use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
 #[AsCommand(
     name: 'doc:payment'
 )]
-final class PaymentCommand extends Command
+final readonly class PaymentCommand
 {
     public function __construct(
-        private readonly PermissionResolver $permissionResolver,
-        private readonly UserService $userService,
-        private readonly PaymentServiceInterface $paymentService,
-        private readonly OrderServiceInterface $orderService,
-        private readonly PaymentMethodServiceInterface $paymentMethodService,
+        private PermissionResolver $permissionResolver,
+        private UserService $userService,
+        private PaymentServiceInterface $paymentService,
+        private OrderServiceInterface $orderService,
+        private PaymentMethodServiceInterface $paymentMethodService
     ) {
-        parent::__construct();
     }
 
-    public function configure(): void
-    {
-    }
-
-    protected function execute(InputInterface $input, OutputInterface $output): int
+    public function __invoke(OutputInterface $output): int
     {
         $currentUser = $this->userService->loadUserByLogin('admin');
         $this->permissionResolver->setCurrentUserReference($currentUser);
@@ -105,6 +99,6 @@ final class PaymentCommand extends Command
         // Delete existing payment permanently
         $this->paymentService->deletePayment($payment);
 
-        return self::SUCCESS;
+        return Command::SUCCESS;
     }
 }

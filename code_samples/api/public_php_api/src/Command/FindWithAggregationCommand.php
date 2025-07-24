@@ -9,21 +9,19 @@ use Ibexa\Contracts\Core\Repository\Values\Content\Query\Aggregation\Field\Selec
 use Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion;
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
-use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
 #[AsCommand(
     name: 'doc:find_with_aggregation',
     description: 'Counts content per content type and the value of Selection Field.'
 )]
-class FindWithAggregationCommand extends Command
+class FindWithAggregationCommand
 {
     public function __construct(private readonly SearchService $searchService)
     {
-        parent::__construct();
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output): int
+    public function __invoke(OutputInterface $output): int
     {
         $query = new LocationQuery();
         $query->query = new Criterion\ParentLocationId(2);
@@ -48,6 +46,6 @@ class FindWithAggregationCommand extends Command
             $output->writeln($selection . ': ' . $count);
         }
 
-        return self::SUCCESS;
+        return Command::SUCCESS;
     }
 }

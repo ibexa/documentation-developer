@@ -11,31 +11,25 @@ use Ibexa\Contracts\ProductCatalog\Local\LocalAttributeDefinitionServiceInterfac
 use Ibexa\Contracts\ProductCatalog\Local\LocalAttributeGroupServiceInterface;
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
-use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
 #[AsCommand(
     name: 'doc:attributes'
 )]
-final class AttributeCommand extends Command
+final readonly class AttributeCommand
 {
     public function __construct(
-        private readonly LocalAttributeDefinitionServiceInterface $localAttributeDefinitionService,
-        private readonly AttributeDefinitionServiceInterface $attributeDefinitionService,
-        private readonly AttributeGroupServiceInterface $attributeGroupService,
-        private readonly LocalAttributeGroupServiceInterface $localAttributeGroupService,
-        private readonly AttributeTypeServiceInterface $attributeTypeService,
-        private readonly UserService $userService,
-        private readonly PermissionResolver $permissionResolver
+        private LocalAttributeDefinitionServiceInterface $localAttributeDefinitionService,
+        private AttributeDefinitionServiceInterface $attributeDefinitionService,
+        private AttributeGroupServiceInterface $attributeGroupService,
+        private LocalAttributeGroupServiceInterface $localAttributeGroupService,
+        private AttributeTypeServiceInterface $attributeTypeService,
+        private UserService $userService,
+        private PermissionResolver $permissionResolver
     ) {
-        parent::__construct();
     }
 
-    public function configure(): void
-    {
-    }
-
-    protected function execute(InputInterface $input, OutputInterface $output): int
+    public function __invoke(OutputInterface $output): int
     {
         $user = $this->userService->loadUserByLogin('admin');
         $this->permissionResolver->setCurrentUserReference($user);
@@ -78,6 +72,6 @@ final class AttributeCommand extends Command
             $output->writeln('Attribute group ' . $attributeGroup->getIdentifier() . ' with name ' . $attributeGroup->getName());
         }
 
-        return self::SUCCESS;
+        return Command::SUCCESS;
     }
 }

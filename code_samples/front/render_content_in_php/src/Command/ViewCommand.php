@@ -5,42 +5,31 @@ namespace App\Command;
 use Ibexa\Core\MVC\Symfony\View\Builder\ContentViewBuilder;
 use Ibexa\Core\MVC\Symfony\View\Renderer\TemplateRenderer;
 use Symfony\Component\Console\Attribute\AsCommand;
-use Symfony\Component\Console\Command\Command;
-use Symfony\Component\Console\Input\InputInterface;
-use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 
 #[AsCommand(
     name: 'app:view',
     description: 'Render the view of a content item'
 )]
-class ViewCommand extends Command
+class ViewCommand
 {
-    public function __construct(
-        private readonly ContentViewBuilder $contentViewBuilder,
-        private readonly TemplateRenderer $templateRenderer
-    ) {
-        parent::__construct();
+    public function __construct(private readonly ContentViewBuilder $contentViewBuilder, private readonly TemplateRenderer $templateRenderer)
+    {
     }
 
-    protected function configure(): void
+    public function __invoke(#[\Symfony\Component\Console\Attribute\Option]
+    $content_id, #[\Symfony\Component\Console\Attribute\Option]
+    $location_id, #[\Symfony\Component\Console\Attribute\Option]
+    $view_type, OutputInterface $output): int
     {
-        $this
-            ->addOption('content-id', 'c', InputOption::VALUE_OPTIONAL, 'Content ID')
-            ->addOption('location-id', 'l', InputOption::VALUE_OPTIONAL, 'Location ID')
-            ->addOption('view-type', 't', InputOption::VALUE_OPTIONAL, 'View Type', 'line');
-    }
-
-    protected function execute(InputInterface $input, OutputInterface $output): int
-    {
-        $contentId = $input->getOption('content-id');
-        $locationId = $input->getOption('location-id');
+        $contentId = $content_id;
+        $locationId = $location_id;
         if (empty($contentId) && empty($locationId)) {
             throw new \InvalidArgumentException('No Content ID nor Location ID given');
         }
 
         $viewParameters = [
-            'viewType' => $input->getOption('view-type'),
+            'viewType' => $view_type,
             '_controller' => 'ibexa_content:viewAction',
         ];
 
