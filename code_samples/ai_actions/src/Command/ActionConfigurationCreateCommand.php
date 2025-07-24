@@ -13,6 +13,7 @@ use Ibexa\Contracts\ConnectorAi\ActionType\ActionTypeRegistryInterface;
 use Ibexa\Contracts\Core\Collection\ArrayMap;
 use Ibexa\Contracts\Core\Repository\PermissionResolver;
 use Ibexa\Contracts\Core\Repository\UserService;
+use Symfony\Component\Console\Attribute\Argument;
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Output\OutputInterface;
@@ -31,9 +32,10 @@ final readonly class ActionConfigurationCreateCommand
     ) {
     }
 
-    public function __invoke(#[\Symfony\Component\Console\Attribute\Argument(name: 'user', description: 'Login of the user executing the actions')]
-    ?string $user, OutputInterface $output): int
-    {
+    public function __invoke(
+        #[Argument(name: 'user', description: 'Login of the user executing the actions')] string $user,
+        OutputInterface $output
+    ): int {
         $user = $user;
         $this->permissionResolver->setCurrentUserReference($this->userService->loadUserByLogin($user));
 

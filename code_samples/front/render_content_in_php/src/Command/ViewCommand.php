@@ -5,6 +5,7 @@ namespace App\Command;
 use Ibexa\Core\MVC\Symfony\View\Builder\ContentViewBuilder;
 use Ibexa\Core\MVC\Symfony\View\Renderer\TemplateRenderer;
 use Symfony\Component\Console\Attribute\AsCommand;
+use Symfony\Component\Console\Attribute\Option;
 use Symfony\Component\Console\Output\OutputInterface;
 
 #[AsCommand(
@@ -17,11 +18,12 @@ class ViewCommand
     {
     }
 
-    public function __invoke(#[\Symfony\Component\Console\Attribute\Option]
-    $content_id, #[\Symfony\Component\Console\Attribute\Option]
-    $location_id, #[\Symfony\Component\Console\Attribute\Option]
-    $view_type, OutputInterface $output): int
-    {
+    public function __invoke(
+        #[Option] int $content_id,
+        #[Option] int $location_id,
+        #[Option] string $view_type,
+        OutputInterface $output
+    ): int {
         $contentId = $content_id;
         $locationId = $location_id;
         if (empty($contentId) && empty($locationId)) {

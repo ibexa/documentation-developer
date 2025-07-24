@@ -5,9 +5,9 @@ namespace App\Command;
 use Ibexa\Contracts\Core\Repository\ContentService;
 use Ibexa\Contracts\Workflow\Registry\WorkflowRegistryInterface;
 use Ibexa\Contracts\Workflow\Service\WorkflowServiceInterface;
+use Symfony\Component\Console\Attribute\Argument;
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
-use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Output\OutputInterface;
 
 #[AsCommand(
@@ -23,18 +23,12 @@ class WorkflowCommand
     ) {
     }
 
-    protected function configure(): void
-    {
-        $this
-            ->setDefinition([
-                new InputArgument('contentId', InputArgument::REQUIRED, 'Content ID'),
-                new InputArgument('workflowName', InputArgument::REQUIRED, 'Workflow identifier'),
-                new InputArgument('transitionName', InputArgument::REQUIRED, 'Transition name'),
-            ]);
-    }
-
-    public function __invoke(OutputInterface $output): int
-    {
+    public function __invoke(
+        OutputInterface $output,
+        #[Argument(description: 'Content ID')] int $contentId,
+        #[Argument(description: 'Workflow identifier')] string $workflowName,
+        #[Argument(description: 'Transition name')] string $transitionName
+    ): int {
         $contentId = (int) $contentId;
         $workflowName = $workflowName;
         $transitionName = $transitionName;

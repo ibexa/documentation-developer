@@ -5,9 +5,9 @@ namespace App\Command;
 use Ibexa\Contracts\Core\Repository\ContentService;
 use Ibexa\Contracts\Core\Repository\PermissionResolver;
 use Ibexa\Contracts\Core\Repository\UserService;
+use Symfony\Component\Console\Attribute\Argument;
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
-use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Output\OutputInterface;
 
 #[AsCommand(
@@ -23,22 +23,13 @@ class SetMainLocationCommand
     ) {
     }
 
-    protected function configure(): void
-    {
-        $this
-            ->setDefinition([
-                new InputArgument('contentId', InputArgument::REQUIRED, 'The Content ID'),
-                new InputArgument('locationId', InputArgument::REQUIRED, 'One of the Locations of the Content'),
-            ]);
-    }
-
-    public function __invoke(OutputInterface $output): int
-    {
+    public function __invoke(
+        #[Argument(description: 'The Content ID')] int $contentId,
+        #[Argument(description: 'One of the Locations of the Content')] int $locationId,
+        OutputInterface $output
+    ): int {
         $user = $this->userService->loadUserByLogin('admin');
         $this->permissionResolver->setCurrentUserReference($user);
-
-        $contentId = (int) $contentId;
-        $locationId = (int) $locationId;
 
         $contentInfo = $this->contentService->loadContentInfo($contentId);
 

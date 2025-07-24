@@ -8,6 +8,7 @@ use Ibexa\Contracts\Core\Repository\PermissionResolver;
 use Ibexa\Contracts\Core\Repository\Repository;
 use Ibexa\Contracts\Core\Repository\UserService;
 use Ibexa\Contracts\Dashboard\DashboardServiceInterface;
+use Symfony\Component\Console\Attribute\Argument;
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Output\OutputInterface;
@@ -36,12 +37,13 @@ class DashboardCommand
         $this->permissionResolver = $repository->getPermissionResolver();
     }
 
-    public function __invoke(#[\Symfony\Component\Console\Attribute\Argument(name: 'dashboard', description: 'Location ID of the dashboard model')]
-    string $dashboard, #[\Symfony\Component\Console\Attribute\Argument(name: 'group', description: 'User Group Content ID(s)')]
-    string $group, OutputInterface $output): int
-    {
+    public function __invoke(
+        #[Argument(name: 'dashboard', description: 'Location ID of the dashboard model')] string $dashboard,
+        #[Argument(name: 'group', description: 'User Group Content ID(s)')] string $group,
+        OutputInterface $output
+    ): int {
         $dashboardModelLocationId = (int)$dashboard;
-        $userGroupLocationIdList = array_map('intval', $group);
+        $userGroupLocationIdList = array_map('intval', explode(',', $group));
 
         foreach ($userGroupLocationIdList as $userGroupLocationId) {
             try {

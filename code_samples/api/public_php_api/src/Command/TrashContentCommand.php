@@ -6,10 +6,10 @@ use Ibexa\Contracts\Core\Repository\LocationService;
 use Ibexa\Contracts\Core\Repository\PermissionResolver;
 use Ibexa\Contracts\Core\Repository\TrashService;
 use Ibexa\Contracts\Core\Repository\UserService;
+use Symfony\Component\Console\Attribute\Argument;
 use Symfony\Component\Console\Attribute\AsCommand;
+use Symfony\Component\Console\Attribute\Option;
 use Symfony\Component\Console\Command\Command;
-use Symfony\Component\Console\Input\InputArgument;
-use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 
 #[AsCommand(
@@ -25,25 +25,14 @@ class TrashContentCommand
     ) {
     }
 
-    protected function configure(): void
-    {
-        $this->setDefinition([
-            new InputArgument('locationId', InputArgument::REQUIRED, 'Location to trash'),
-            new InputArgument('newParentId', InputArgument::OPTIONAL, 'New Location to restore under'),
-        ])
-            ->addOption('restore', 'r', InputOption::VALUE_NONE, 'Do you want to restore the content item?');
-    }
-
-    public function __invoke(#[\Symfony\Component\Console\Attribute\Option]
-    $restore, OutputInterface $output): int
-    {
+    public function __invoke(
+        #[Argument(description: 'Location to trash')] int $locationId,
+        #[Argument(description: 'New Location to restore under')] ?int $newParentId,
+        #[Option(shortcut: 'r', description: 'Do you want to restore the content item?')] bool $restore,
+        OutputInterface $output
+    ): int {
         $user = $this->userService->loadUserByLogin('admin');
         $this->permissionResolver->setCurrentUserReference($user);
-
-        $locationId = (int) $locationId;
-        if ($newParentId) {
-            $newParentId = (int) $newParentId;
-        }
 
         $location = $this->locationService->loadLocation($locationId);
 

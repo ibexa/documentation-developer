@@ -5,9 +5,9 @@ namespace App\Command;
 use Ibexa\Contracts\Core\Repository\LocationService;
 use Ibexa\Contracts\Core\Repository\PermissionResolver;
 use Ibexa\Contracts\Core\Repository\UserService;
+use Symfony\Component\Console\Attribute\Argument;
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
-use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Output\OutputInterface;
 
 #[AsCommand(
@@ -23,20 +23,14 @@ class HideLocationCommand
     ) {
     }
 
-    protected function configure(): void
-    {
-        $this
-            ->setDefinition([
-                new InputArgument('location_id', InputArgument::REQUIRED, 'Location ID'),
-            ]);
-    }
-
-    public function __invoke(OutputInterface $output): int
-    {
+    public function __invoke(
+        #[Argument(description: 'Location ID')] int $location_id,
+        OutputInterface $output
+    ): int {
         $user = $this->userService->loadUserByLogin('admin');
         $this->permissionResolver->setCurrentUserReference($user);
 
-        $locationId = (int) $location_id;
+        $locationId = $location_id;
 
         $location = $this->locationService->loadLocation($locationId);
 

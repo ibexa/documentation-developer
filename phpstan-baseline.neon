@@ -55,12 +55,6 @@ parameters:
 			path: code_samples/api/public_php_api/src/Command/CalendarCommand.php
 
 		-
-			message: '#^Variable \$copyIdentifier might not be defined\.$#'
-			identifier: variable.undefined
-			count: 3
-			path: code_samples/api/public_php_api/src/Command/CreateContentTypeCommand.php
-
-		-
 			message: '#^Access to protected property Ibexa\\Contracts\\Core\\Repository\\Values\\URL\\URL\:\:\$url\.$#'
 			identifier: property.protected
 			count: 1

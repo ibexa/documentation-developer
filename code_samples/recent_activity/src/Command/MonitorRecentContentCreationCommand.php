@@ -11,7 +11,6 @@ use Ibexa\Contracts\Core\Repository\UserService;
 use Ibexa\Contracts\Core\Repository\Values\Content\Content;
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
-use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Style\SymfonyStyle;
 
 #[AsCommand(
@@ -27,15 +26,13 @@ class MonitorRecentContentCreationCommand
     ) {
     }
 
-    public function __invoke(OutputInterface $output): int
+    public function __invoke(SymfonyStyle $io): int
     {
         $query = new Query([
             new Criterion\ObjectCriterion(Content::class),
             new Criterion\ActionCriterion([ActivityLogServiceInterface::ACTION_CREATE]),
             new Criterion\LoggedAtCriterion(new \DateTime('- 1 hour'), Criterion\LoggedAtCriterion::GTE),
         ], [new LoggedAtSortClause(LoggedAtSortClause::DESC)], 0, 10);
-
-        $io = new SymfonyStyle($input, $output);
 
         $this->permissionResolver->setCurrentUserReference($this->userService->loadUserByLogin('admin'));
 

@@ -4,9 +4,9 @@ namespace App\Command;
 
 use Ibexa\Contracts\Core\Repository\TrashService;
 use Ibexa\Contracts\Core\Repository\Values\Content\Query;
+use Symfony\Component\Console\Attribute\Argument;
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
-use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Output\OutputInterface;
 
 #[AsCommand(
@@ -19,18 +19,10 @@ class FindInTrashCommand
     {
     }
 
-    protected function configure(): void
-    {
-        $this
-            ->setDefinition([
-                new InputArgument('contentTypeId', InputArgument::REQUIRED, 'Content type ID'),
-            ]);
-    }
-
-    public function __invoke(OutputInterface $output): int
-    {
-        $contentTypeId = (int) $contentTypeId;
-
+    public function __invoke(
+        #[Argument(description: 'Content type ID')] int $contentTypeId,
+        OutputInterface $output
+    ): int {
         $query = new Query();
 
         $query->filter = new Query\Criterion\ContentTypeId($contentTypeId);

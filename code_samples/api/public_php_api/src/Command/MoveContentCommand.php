@@ -5,9 +5,9 @@ namespace App\Command;
 use Ibexa\Contracts\Core\Repository\LocationService;
 use Ibexa\Contracts\Core\Repository\PermissionResolver;
 use Ibexa\Contracts\Core\Repository\UserService;
+use Symfony\Component\Console\Attribute\Argument;
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
-use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Output\OutputInterface;
 
 #[AsCommand(
@@ -23,22 +23,13 @@ class MoveContentCommand
     ) {
     }
 
-    protected function configure(): void
-    {
-        $this
-            ->setDefinition([
-            new InputArgument('locationId', InputArgument::REQUIRED, 'Location to copy'),
-            new InputArgument('targetLocationId', InputArgument::REQUIRED, 'Target to copy or move to'),
-            ]);
-    }
-
-    public function __invoke(OutputInterface $output): int
-    {
+    public function __invoke(
+        #[Argument(description: 'Location to copy')] int $locationId,
+        #[Argument(description: 'Target to copy or move to')] int $targetLocationId,
+        OutputInterface $output
+    ): int {
         $user = $this->userService->loadUserByLogin('admin');
         $this->permissionResolver->setCurrentUserReference($user);
-
-        $locationId = (int) $locationId;
-        $targetLocationId = (int) $targetLocationId;
 
         $sourceLocation = $this->locationService->loadLocation($locationId);
         $targetLocation = $this->locationService->loadLocation($targetLocationId);

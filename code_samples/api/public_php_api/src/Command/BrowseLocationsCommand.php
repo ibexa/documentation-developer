@@ -4,9 +4,9 @@ namespace App\Command;
 
 use Ibexa\Contracts\Core\Repository\LocationService;
 use Ibexa\Contracts\Core\Repository\Values\Content\Location;
+use Symfony\Component\Console\Attribute\Argument;
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
-use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Output\OutputInterface;
 
 #[AsCommand(
@@ -19,14 +19,6 @@ class BrowseLocationsCommand
     {
     }
 
-    protected function configure(): void
-    {
-        $this
-            ->setDefinition([
-                new InputArgument('locationId', InputArgument::REQUIRED, 'Location ID to browse from'),
-            ]);
-    }
-
     private function browseLocation(Location $location, OutputInterface $output, int $depth = 0): void
     {
         $output->writeln($location->contentInfo->name);
@@ -37,10 +29,10 @@ class BrowseLocationsCommand
         }
     }
 
-    public function __invoke(OutputInterface $output): int
-    {
-        $locationId = (int) $locationId;
-
+    public function __invoke(
+        #[Argument(description: 'Location ID to browse from')] int $locationId,
+        OutputInterface $output
+    ): int {
         $location = $this->locationService->loadLocation($locationId);
         $this->browseLocation($location, $output);
 

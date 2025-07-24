@@ -4,10 +4,10 @@ namespace App\Command;
 
 use Ibexa\Contracts\Core\Repository\BookmarkService;
 use Ibexa\Contracts\Core\Repository\LocationService;
+use Symfony\Component\Console\Attribute\Argument;
 use Symfony\Component\Console\Attribute\AsCommand;
+use Symfony\Component\Console\Attribute\Option;
 use Symfony\Component\Console\Command\Command;
-use Symfony\Component\Console\Input\InputArgument;
-use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 
 #[AsCommand(
@@ -19,19 +19,11 @@ class BookmarkCommand
     {
     }
 
-    protected function configure(): void
-    {
-        $this
-            ->setDefinition([
-                new InputArgument('locationId', InputArgument::REQUIRED, 'Location id'),
-            ])
-            ->addOption('delete', 'd', InputOption::VALUE_NONE, 'Delete the created bookmark?', null);
-    }
-
-    public function __invoke(#[\Symfony\Component\Console\Attribute\Option]
-    $delete, OutputInterface $output): int
-    {
-        $locationId = (int) $locationId;
+    public function __invoke(
+        #[Argument(description: 'Location id')] int $locationId,
+        #[Option(shortcut: 'd', description: 'Delete the created bookmark?')] bool $delete,
+        OutputInterface $output
+    ): int {
         $location = $this->locationService->loadLocation($locationId);
 
         $this->bookmarkService->createBookmark($location);

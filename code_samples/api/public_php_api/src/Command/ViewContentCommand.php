@@ -5,9 +5,9 @@ namespace App\Command;
 use Ibexa\Contracts\Core\Repository\ContentService;
 use Ibexa\Contracts\Core\Repository\ContentTypeService;
 use Ibexa\Contracts\Core\Repository\FieldTypeService;
+use Symfony\Component\Console\Attribute\Argument;
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
-use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Output\OutputInterface;
 
 #[AsCommand(
@@ -23,18 +23,10 @@ class ViewContentCommand
     ) {
     }
 
-    protected function configure(): void
-    {
-        $this
-            ->setDefinition([
-                new InputArgument('contentId', InputArgument::REQUIRED, 'Location ID'),
-            ]);
-    }
-
-    public function __invoke(OutputInterface $output): int
-    {
-        $contentId = (int) $contentId;
-
+    public function __invoke(
+        #[Argument(description: 'Content ID')] int $contentId,
+        OutputInterface $output
+    ): int {
         $content = $this->contentService->loadContent($contentId);
         $contentType = $this->contentTypeService->loadContentType($content->contentInfo->contentTypeId);
 

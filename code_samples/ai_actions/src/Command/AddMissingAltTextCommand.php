@@ -22,6 +22,7 @@ use Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion\Operator;
 use Ibexa\Contracts\Core\Repository\Values\Filter\Filter;
 use Ibexa\Core\FieldType\Image\Value;
 use Ibexa\Core\IO\IOBinarydataHandler;
+use Symfony\Component\Console\Attribute\Argument;
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Output\OutputInterface;
@@ -43,9 +44,10 @@ final readonly class AddMissingAltTextCommand
     ) {
     }
 
-    public function __invoke(#[\Symfony\Component\Console\Attribute\Argument(name: 'user', description: 'Login of the user executing the actions')]
-    ?string $user, OutputInterface $output): int
-    {
+    public function __invoke(
+        #[Argument(name: 'user', description: 'Login of the user executing the actions')] string $user,
+        OutputInterface $output
+    ): int {
         $this->setUser($user);
 
         $modifiedImages = $this->getModifiedImages();

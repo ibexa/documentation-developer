@@ -5,9 +5,9 @@ namespace App\Command;
 use Ibexa\Contracts\Core\Repository\PermissionResolver;
 use Ibexa\Contracts\Core\Repository\UserService;
 use Ibexa\Contracts\ProductCatalog\ProductTypeServiceInterface;
+use Symfony\Component\Console\Attribute\Argument;
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
-use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Output\OutputInterface;
 
 #[AsCommand(
@@ -22,20 +22,12 @@ final readonly class ProductTypeCommand
     ) {
     }
 
-    public function configure(): void
-    {
-        $this
-            ->setDefinition([
-                new InputArgument('productTypeIdentifier', InputArgument::REQUIRED, 'Product type identifier'),
-            ]);
-    }
-
-    public function __invoke(OutputInterface $output): int
-    {
+    public function __invoke(
+        OutputInterface $output,
+        #[Argument(description: 'Product type identifier')] string $productTypeIdentifier
+    ): int {
         $user = $this->userService->loadUserByLogin('admin');
         $this->permissionResolver->setCurrentUserReference($user);
-
-        $productTypeIdentifier = $productTypeIdentifier;
 
         $productType = $this->productTypeService->getProductType($productTypeIdentifier);
 

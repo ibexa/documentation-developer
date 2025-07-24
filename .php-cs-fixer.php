@@ -11,6 +11,9 @@ use Ibexa\CodeStyle\PhpCsFixer\InternalConfigFactory;
 $configFactory = new InternalConfigFactory();
 $configFactory->withRules([
     'header_comment' => false,
+    'method_argument_space' => [
+        'attribute_placement' => 'same_line'
+    ]
 ]);
 
 return $configFactory

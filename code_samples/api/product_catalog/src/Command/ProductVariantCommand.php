@@ -10,9 +10,9 @@ use Ibexa\Contracts\ProductCatalog\Local\LocalProductServiceInterface;
 use Ibexa\Contracts\ProductCatalog\Local\Values\Product\ProductVariantCreateStruct;
 use Ibexa\Contracts\ProductCatalog\ProductServiceInterface;
 use Ibexa\Contracts\ProductCatalog\Values\Product\ProductVariantQuery;
+use Symfony\Component\Console\Attribute\Argument;
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
-use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Output\OutputInterface;
 
 #[AsCommand(
@@ -28,20 +28,13 @@ final readonly class ProductVariantCommand
     ) {
     }
 
-    public function configure(): void
-    {
-        $this
-            ->setDefinition([
-                new InputArgument('productCode', InputArgument::REQUIRED, 'Product code'),
-            ]);
-    }
-
-    public function __invoke(OutputInterface $output): int
-    {
+    public function __invoke(
+        OutputInterface $output,
+        #[Argument(description: 'Product code')] string $productCode
+    ): int {
         $user = $this->userService->loadUserByLogin('admin');
         $this->permissionResolver->setCurrentUserReference($user);
 
-        $productCode = $productCode;
         $product = $this->productService->getProduct($productCode);
 
         // Get variants
