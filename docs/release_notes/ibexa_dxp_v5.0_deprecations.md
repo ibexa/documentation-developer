@@ -524,33 +524,33 @@ In `migrations`, it makes it easier to integrate custom data types, especially w
 
 ### ibexa/core
 
-| PHP Interface                                              | Methods                                                                |
+| PHP Interface or class                                     | Methods                                                                |
 |:------------------------------------------------------|:------------------------------------------------------------------------|
-| `src/contracts/Repository/PermissionResolver.php` | `canUser`, `lookupLimitations` |
-| `src/contracts/Limitation/TargetAwareType.php` | `evaluate` |
-| `src/contracts/Limitation/Type.php` | `evaluate` |
-| `src/lib/Limitation/BlockingLimitationType.php` | `evaluate` |
-| `src/lib/Limitation/ChangeOwnerLimitationType.php` | `evaluate` |
-| `src/lib/Limitation/ContentTypeLimitationType.php` | `evaluate` |
-| `src/lib/Limitation/LanguageLimitationType.php` | `evaluate` |
-| `src/lib/Limitation/LocationLimitationType.php` | `evaluate` |
-| `src/lib/Limitation/MemberOfLimitationType.php` | `evaluate` |
-| `src/lib/Limitation/NewObjectStateLimitationType.php` | `evaluate` |
-| `src/lib/Limitation/NewSectionLimitationType.php` | `evaluate` |
-| `src/lib/Limitation/ObjectStateLimitationType.php` | `evaluate` |
-| `src/lib/Limitation/OwnerLimitationType.php` | `evaluate` |
-| `src/lib/Limitation/ParentContentTypeLimitationType.php` | `evaluate` |
-| `src/lib/Limitation/ParentDepthLimitationType.php` | `evaluate` |
-| `src/lib/Limitation/ParentOwnerLimitationType.php` | `evaluate` |
-| `src/lib/Limitation/ParentUserGroupLimitationType.php` | `evaluate` |
-| `src/lib/Limitation/RoleLimitationType.php` | `evaluate` |
-| `src/lib/Limitation/SectionLimitationType.php` | `evaluate` |
-| `src/lib/Limitation/SiteAccessLimitationType.php` | `evaluate` |
-| `src/lib/Limitation/StatusLimitationType.php` | `evaluate` |
-| `src/lib/Limitation/SubtreeLimitationType.php` | `evaluate` |
-| `src/lib/Limitation/UserGroupLimitationType.php` | `evaluate` |
-| `src/lib/Repository/Permission/CachedPermissionService.php` | `canUser`, `lookupLimitations` |
-| `src/lib/Repository/Permission/PermissionResolver.php` | `canUser`, `lookupLimitations` |
+| `Ibexa\Contracts\Core\Repository\PermissionResolver` | `canUser`, `lookupLimitations` |
+| `Ibexa\Contracts\Core\Limitation/TargetAwareType` | `evaluate` |
+| `Ibexa\Contracts\Core\Limitation/Type` | `evaluate` |
+| `Ibexa\Core\Limitation\BlockingLimitationType` | `evaluate` |
+| `Ibexa\Core\Limitation\ChangeOwnerLimitationType` | `evaluate` |
+| `Ibexa\Core\Limitation\ContentTypeLimitationType` | `evaluate` |
+| `Ibexa\Core\Limitation\LanguageLimitationType` | `evaluate` |
+| `Ibexa\Core\Limitation\LocationLimitationType` | `evaluate` |
+| `Ibexa\Core\Limitation\MemberOfLimitationType` | `evaluate` |
+| `Ibexa\Core\Limitation\NewObjectStateLimitationType` | `evaluate` |
+| `Ibexa\Core\Limitation\NewSectionLimitationType` | `evaluate` |
+| `Ibexa\Core\Limitation\ObjectStateLimitationType` | `evaluate` |
+| `Ibexa\Core\Limitation\OwnerLimitationType` | `evaluate` |
+| `Ibexa\Core\Limitation\ParentContentTypeLimitationType` | `evaluate` |
+| `Ibexa\Core\Limitation\ParentDepthLimitationType` | `evaluate` |
+| `Ibexa\Core\Limitation\ParentOwnerLimitationType` | `evaluate` |
+| `Ibexa\Core\Limitation\ParentUserGroupLimitationType` | `evaluate` |
+| `Ibexa\Core\Limitation\RoleLimitationType` | `evaluate` |
+| `Ibexa\Core\Limitation\SectionLimitationType` | `evaluate` |
+| `Ibexa\Core\Limitation\SiteAccessLimitationType` | `evaluate` |
+| `Ibexa\Core\Limitation\StatusLimitationType` | `evaluate` |
+| `Ibexa\Core\Limitation\SubtreeLimitationType` | `evaluate` |
+| `Ibexa\Core\Limitation\UserGroupLimitationType` | `evaluate` |
+| `Ibexa\Core\Repository\Permission\CachedPermissionService` | `canUser`, `lookupLimitations` |
+| `Ibexa\Core\Repository\Permission\PermissionResolver` | `canUser`, `lookupLimitations` |
 
 ??? note "Changes in `src/contracts/Repository/PermissionResolver.php`"
 
@@ -558,59 +558,60 @@ In `migrations`, it makes it easier to integrate custom data types, especially w
 
 ### ibexa/migrations
 
-| PHP Interface                                              | Methods                                                                |
+| PHP Interface or class                                     | Methods                                                                |
 |:------------------------------------------------------|:------------------------------------------------------------------------|
-| `src/lib/Generator/Content/StepBuilder/Create.php` | `build` |
-| `src/lib/Generator/Content/StepBuilder/Delete.php` | `build` |
-| `src/lib/Generator/Content/StepBuilder/Factory.php` | `prepareLogMessage` |
-| `src/lib/Generator/Content/StepBuilder/Update.php` | `build` |
-| `src/lib/Generator/ContentTypeGroup/StepBuilder/Create.php` | `build` |
-| `src/lib/Generator/ContentTypeGroup/StepBuilder/Delete.php` | `build` |
-| `src/lib/Generator/ContentTypeGroup/StepBuilder/Factory.php` | `prepareLogMessage` |
-| `src/lib/Generator/ContentTypeGroup/StepBuilder/Update.php` | `build` |
-| `src/lib/Generator/Language/StepBuilder/Create.php` | `build` |
-| `src/lib/Generator/Language/StepBuilder/Factory.php` | `prepareLogMessage` |
-| `src/lib/Generator/Location/StepBuilder/Factory.php` | `prepareLogMessage` |
-| `src/lib/Generator/Location/StepBuilder/Update.php` | `build` |
-| `src/lib/Generator/ObjectState/StepBuilder/Create.php` | `build` |
-| `src/lib/Generator/ObjectState/StepBuilder/Factory.php` | `prepareLogMessage` |
-| `src/lib/Generator/ObjectStateGroup/StepBuilder/Create.php` | `build` |
-| `src/lib/Generator/ObjectStateGroup/StepBuilder/Factory.php` | `prepareLogMessage` |
-| `src/lib/Generator/Role/StepBuilder/RoleCreateStepBuilder.php` | `build` |
-| `src/lib/Generator/Role/StepBuilder/RoleDeleteStepBuilder.php` | `build` |
-| `src/lib/Generator/Role/StepBuilder/RoleStepFactory.php` | `prepareLogMessage` |
-| `src/lib/Generator/Role/StepBuilder/RoleUpdateStepBuilder.php` | `build` |
-| `src/lib/Generator/Section/StepBuilder/Create.php` | `build` |
-| `src/lib/Generator/Section/StepBuilder/Factory.php` | `prepareLogMessage` |
-| `src/lib/Generator/Section/StepBuilder/Update.php` | `build` |
-| `src/lib/Generator/StepBuilder/AbstractStepFactory.php` | `create`, `log`, `prepareLogMessage` |
-| `src/lib/Generator/StepBuilder/ContentTypeCreateStepBuilder.php` | `build` |
-| `src/lib/Generator/StepBuilder/ContentTypeDeleteStepBuilder.php` | `build` |
-| `src/lib/Generator/StepBuilder/ContentTypeStepFactory.php` | `prepareLogMessage` |
-| `src/lib/Generator/StepBuilder/ContentTypeUpdateStepBuilder.php` | `build` |
-| `src/lib/Generator/StepBuilder/LoggerContentTypeCreateStepBuilder.php` | `build` |
-| `src/lib/Generator/StepBuilder/StepBuilderInterface.php` | `build` |
-| `src/lib/Generator/StepBuilder/StepFactoryInterface.php` | `build` |
-| `src/lib/Generator/User/StepBuilder/Create.php` | `build` |
-| `src/lib/Generator/User/StepBuilder/Factory.php` | `prepareLogMessage` |
-| `src/lib/Generator/User/StepBuilder/Update.php` | `build` |
-| `src/lib/Generator/UserGroup/StepBuilder/Create.php` | `build` |
-| `src/lib/Generator/UserGroup/StepBuilder/Delete.php` | `build` |
-| `src/lib/Generator/UserGroup/StepBuilder/Factory.php` | `prepareLogMessage` |
-| `src/lib/Generator/UserGroup/StepBuilder/Update.php` | `build` |
-| `src/lib/StepExecutor/ReferenceDefinition/Resolver.php` | `resolve` |
-| `src/lib/StepExecutor/ReferenceDefinition/ResolverInterface.php` | `resolve` |
+| `Ibexa\Contracts\Migration\StepExecutor\AbstractStepExecutor` | `doCollectReferences`, `handleActions` |
+| `Ibexa\Migration\Generator\Content\StepBuilder\Create` | `build` |
+| `Ibexa\Migration\Generator\Content\StepBuilder\Delete` | `build` |
+| `Ibexa\Migration\Generator\Content\StepBuilder\Factory` | `prepareLogMessage` |
+| `Ibexa\Migration\Generator\Content\StepBuilder\Update` | `build` |
+| `Ibexa\Migration\Generator\ContentTypeGroup\StepBuilder\Create` | `build` |
+| `Ibexa\Migration\Generator\ContentTypeGroup\StepBuilder\Delete` | `build` |
+| `Ibexa\Migration\Generator\ContentTypeGroup\StepBuilder\Factory` | `prepareLogMessage` |
+| `Ibexa\Migration\Generator\ContentTypeGroup\StepBuilder\Update` | `build` |
+| `Ibexa\Migration\Generator\Language\StepBuilder\Create` | `build` |
+| `Ibexa\Migration\Generator\Language\StepBuilder\Factory` | `prepareLogMessage` |
+| `Ibexa\Migration\Generator\Location\StepBuilder\Factory` | `prepareLogMessage` |
+| `Ibexa\Migration\Generator\Location\StepBuilder\Update` | `build` |
+| `Ibexa\Migration\Generator\ObjectState\StepBuilder\Create` | `build` |
+| `Ibexa\Migration\Generator\ObjectState\StepBuilder\Factory` | `prepareLogMessage` |
+| `Ibexa\Migration\Generator\ObjectStateGroup\StepBuilder\Create` | `build` |
+| `Ibexa\Migration\Generator\ObjectStateGroup\StepBuilder\Factory` | `prepareLogMessage` |
+| `Ibexa\Migration\Generator\Role\StepBuilder\RoleCreateStepBuilder` | `build` |
+| `Ibexa\Migration\Generator\Role\StepBuilder\RoleDeleteStepBuilder` | `build` |
+| `Ibexa\Migration\Generator\Role\StepBuilder\RoleStepFactory` | `prepareLogMessage` |
+| `Ibexa\Migration\Generator\Role\StepBuilder\RoleUpdateStepBuilder` | `build` |
+| `Ibexa\Migration\Generator\Section\StepBuilder\Create` | `build` |
+| `Ibexa\Migration\Generator\Section\StepBuilder\Factory` | `prepareLogMessage` |
+| `Ibexa\Migration\Generator\Section\StepBuilder\Update` | `build` |
+| `Ibexa\Migration\Generator\StepBuilder\AbstractStepFactory` | `create`, `log`, `prepareLogMessage` |
+| `Ibexa\Migration\Generator\StepBuilder\ContentTypeCreateStepBuilder` | `build` |
+| `Ibexa\Migration\Generator\StepBuilder\ContentTypeDeleteStepBuilder` | `build` |
+| `Ibexa\Migration\Generator\StepBuilder\ContentTypeStepFactory` | `prepareLogMessage` |
+| `Ibexa\Migration\Generator\StepBuilder\ContentTypeUpdateStepBuilder` | `build` |
+| `Ibexa\Migration\Generator\StepBuilder\LoggerContentTypeCreateStepBuilder` | `build` |
+| `Ibexa\Migration\Generator\StepBuilder\StepBuilderInterface` | `build` |
+| `Ibexa\Migration\Generator\StepBuilder\StepFactoryInterface` | `build` |
+| `Ibexa\Migration\Generator\User\StepBuilder\Create` | `build` |
+| `Ibexa\Migration\Generator\User\StepBuilder\Factory` | `prepareLogMessage` |
+| `Ibexa\Migration\Generator\User\StepBuilder\Update` | `build` |
+| `Ibexa\Migration\Generator\UserGroup\StepBuilder\Create` | `build` |
+| `Ibexa\Migration\Generator\UserGroup\StepBuilder\Delete` | `build` |
+| `Ibexa\Migration\Generator\UserGroup\StepBuilder\Factory` | `prepareLogMessage` |
+| `Ibexa\Migration\Generator\UserGroup\StepBuilder\Update` | `build` |
+| `Ibexa\Migration\StepExecutor\ReferenceDefinition\Resolver` | `resolve` |
+| `Ibexa\Migration\StepExecutor\ReferenceDefinition\ResolverInterface` | `resolve` |
 
 
-??? note "Changes in `src/lib/Generator/StepBuilder/StepFactoryInterface.php`"
+??? note "Changes in `Ibexa\Migration\Generator\StepBuilder\StepFactoryInterface`"
 
     ![`StepFactoryInterface.php`](5.0_StepBuilder.StepFactoryInterface.png)
 
-??? note "Changes in `src/lib/StepExecutor/ReferenceDefinition/ResolverInterface.php`"
+??? note "Changes in `Ibexa\Migration\StepExecutor\ReferenceDefinition\ResolverInterface`"
 
     ![`ResolverInterface.php`](5.0_StepExecutor.ReferenceDefinition.ResolverInterface.png)
 
-??? note "Changes in `src/lib/Generator/StepBuilder/AbstractStepFactory.php`"
+??? note "Changes in `Ibexa\Migration\Generator\StepBuilder\AbstractStepFactory`"
 
     ![`AbstractStepFactory.php`](5.0_StepBuilder.AbstractStepFactory.png)
 
