@@ -73,6 +73,16 @@ The following icons are available out-of-the-box:
 | Icon                                                                            | Identifier                     |
 |---------------------------------------------------------------------------------|--------------------------------|
 | ![about-info](img/icons/about-info.svg.png)                                     | `about-info`                   |
+| ![activate](img/icons/activate.svg.png)                                         | 'activate'                     |
+| ![arrow-down](img/icons/arrow-down.svg.png)                                     | 'arrow-down'                   |
+| ![collaboration](img/icons/collaboration.svg.png)                               | 'collaboration'                |
+| ![column-settings](img/icons/column-settings.svg.png)                           | 'column-settings'              |
+| ![deactivate](img/icons/deactivate.svg.png)                                     | 'deactivate'                   |
+| ![discount-coupon](img/icons/discount-coupon.svg.png)                           | 'discount-coupon'              |
+| ![expand-right](img/icons/expand-right.svg.png)                                 | 'expand-right'                 |
+| ![mail-open](img/icons/mail-open.svg.png)                                       | 'mail-open'                    |
+| ![share](img/icons/share.svg.png)                                               | 'share'                        |
+| ![about-info](img/icons/about-info.svg.png)                                     | `about-info`                   |
 | ![about](img/icons/about.svg.png)                                               | `about`                        |
 | ![airtime](img/icons/airtime.svg.png)                                           | `airtime`                      |
 | ![align-center](img/icons/align-center.svg.png)                                 | `align-center`                 |
