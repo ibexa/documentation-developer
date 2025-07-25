@@ -13,6 +13,9 @@ class TestableUrl
     /** @var string */
     private $url;
 
+    /** @var string */
+    private $base;
+
     /** @var null|string */
     private $text;
 
@@ -30,6 +33,9 @@ class TestableUrl
 
     /** @var null|bool */
     private $external;
+
+    /** @var null|bool */
+    private $plainText;//TODO
 
     /** @var null|string */
     private $transformedUrl;
@@ -56,6 +62,31 @@ class TestableUrl
     private const PATTERN_DELIMITER = '@';
     public const DEFAULT_SCHEME = 'https';
 
+    public const PLAIN_TEXT_MIME_TYPES = [
+        'application/javascript',
+        'application/json',
+        'application/ld+json',
+        'application/xhtml+xml',
+        'application/xml',
+        'application/yaml',
+        'image/svg+xml',
+        'message/',
+        'text/',
+    ];
+
+    public const PLAIN_TEXT_EXTENSIONS = [
+        'css',
+        'html',
+        'js',
+        'json',
+        'md',
+        'txt',
+        'xml',
+        'xsd',
+        'yml',
+        'yaml',
+    ];
+
     /**
      * Represent a URL, potentially extracted from a file, which can be tested.
      *
@@ -67,7 +98,7 @@ class TestableUrl
      * @param bool|string|null $find By default, URL is considered absolute or relative; If true, the URL will be considered partial and the target must be searched to solve the URL; If a string is given, this string will be used as a search prefix
      * @param bool $test Set to true to test the URL immediately at construction time
      */
-    public function __construct(string $url, ?string $text = null, ?string $file = null, null|int|string $line = null, ?array $replacements = null, mixed $find = false, bool $test = false)
+    public function __construct(string $url, ?string $text = null, ?string $file = null, null|int|string $line = null, ?array $replacements = null, mixed $find = false, ?string $base = null, bool $test = false)
     {
         $this->url = $url;
         $this->text = $text;
@@ -75,6 +106,7 @@ class TestableUrl
         $this->line = (int)$line;
         $this->replacements = $replacements;
         $this->find = $find;
+        $this->base = $base;
         if ($test) {
             $this->test();
         }
@@ -94,7 +126,7 @@ class TestableUrl
             $test = self::testUrl($this->getSolvedUrl(), $this->isExternal(), $testFragment, $useCurl);
             $this->headers = $test['headers'];
             $this->code = $test['code'];
-            $this->location = null === $test['location'] ? null : new TestableUrl($test['location'], null, $this->getFile(), $this->getLine(), null, false, $testLocations);
+            $this->location = null === $test['location'] ? null : new TestableUrl($test['location'], null, $this->getFile(), $this->getLine(), null, false, null, $testLocations);
             $this->fragmentFound = $test['fragment_found'];
             $this->tested = true;
         }
@@ -128,11 +160,11 @@ class TestableUrl
     public function getTransformedUrl(): string
     {
         if (null === $this->transformedUrl) {
+            $url = $this->getUrl();
             if (is_array($this->replacements)) {
-                $this->transformedUrl = str_replace(array_keys($this->replacements), array_values($this->replacements), $this->getUrl());
-            } else {
-                $this->transformedUrl = $this->getUrl();
+                $url = str_replace(array_keys($this->replacements), array_values($this->replacements), $url);
             }
+            $this->transformedUrl = $url;
         }
 
         return $this->transformedUrl;
@@ -160,7 +192,7 @@ class TestableUrl
 
     public static function solveRelativePath(string $sourcePath, string $targetPath): string
     {
-        if ('/' === $targetPath[0]) {
+        if ('/' === $targetPath[0]) { // Relative to root
             if (preg_match('@^(?P<scheme>[^:]+:)?//(?P<host>[^/]+)@', $sourcePath, $matches)) {
                 $targetPath = "{$matches['scheme']}//{$matches['host']}$targetPath";
             }
@@ -196,8 +228,8 @@ class TestableUrl
      * Get testable URI.
      *
      * If the file where the URL has been found is known,
-     * solve relative path of internal URL
-     * or add file URL to fragment.
+     * solve the relative path of internal URL
+     * or append file URL to fragment.
      *
      * @return string
      */
@@ -205,24 +237,35 @@ class TestableUrl
     {
         if (null === $this->solvedUrl) {
             $url = $this->getTransformedUrl();
+            if ($this->isInternal() && !empty($this->base)) {
+                $url = $this->base . (str_ends_with($this->base, '/') ? '' : '/') . $url;
+            }
+            if ($this->isInternal() && !$this->isFragment() && is_dir(parse_url($url, PHP_URL_PATH))) {
+                $url .= (str_ends_with($url, '/') ? '' : '/') . 'index.html';
+            }
             if ($this->isFragment()) {
                 return $this->solvedUrl = $this->getFile() . $url;
-            } else if (!$this->isExternal() && $this->hasFile() && !$this->find) {
+            } else if ($this->isInternal() && $this->hasFile() && !$this->find) {
                 return self::solveRelativePath($this->getFile(), $url);
-            } else if (!$this->isExternal() && $this->find) {
-                $findPrefix = is_string($this->find) ? $this->find : '*/';
+            } else if ($this->isInternal() && $this->find) {
+                if (str_starts_with($url, '/')) {
+                    $findPrefix = is_string($this->find) ? $this->find : '*';
+                } else {
+                    $findPrefix = is_string($this->find) ? $this->find.'/*/' : '*/';
+                }
                 $urlWithoutFragment = self::getUrlWithoutFragment($url);
                 $candidates = (new Finder('.'))->includeWholeName("{$findPrefix}{$urlWithoutFragment}")->find();
                 if (1 === count($candidates)) {
-                    return $this->solvedUrl = $candidates[0] . ($this->hasFragment() ? '#' . $this->getFragment() : '');
+                    $url = $candidates[0] . ($this->hasFragment() ? '#' . $this->getFragment() : '');
                 } else if ($this->hasFile()) {
-                    return $this->solvedUrl = self::solveRelativePath($this->getFile(), $url);
-                } else {
-                    return $this->solvedUrl = $url;
+                    $url = self::solveRelativePath($this->getFile(), $url);
                 }
-            } else {
-                return $this->solvedUrl = $url;
             }
+            if (!str_starts_with($url, 'https://') && str_contains($url, 'https://')
+                || !str_starts_with($url, 'http://') && str_contains($url, 'http://')) {
+                throw new \RuntimeException("Malformed URL: {$url}");
+            }
+            $this->solvedUrl = $url;
         }
 
         return $this->solvedUrl;
@@ -299,6 +342,7 @@ class TestableUrl
         $code = self::NOT_TESTABLE_CODE;
         $location = null;
         $fragmentFound = null;
+        $isPlainText = false;
 
         if (null === $external) {
             $external = self::isExternalUrl($url);
@@ -307,37 +351,55 @@ class TestableUrl
         if ($external) {
             $defaultScheme = self::DEFAULT_SCHEME;
             $headers = self::requestHeaders('//' === substr($url, 0, 2) ? "$defaultScheme:$url" : $url, $useCurl);
-            if ($headers && count($headers) && strlen($headers[0])) {
-                $firstLinePart = explode(' ', $headers[0]);
-                $code = (int)$firstLinePart[1];
+            if ($headers && count($headers)) {
+                if (strlen($headers[0])) {
+                    $firstLinePart = explode(' ', $headers[0]);
+                    $code = (int)$firstLinePart[1];
+                }
+                foreach($headers as $header) {
+                    if (str_starts_with(strtolower($header), 'content-type: ')) {
+                        $value = trim(explode(': ', $header, 2)[1]);
+                        $isPlainText = self::isPlainTextMimeType($value);
+                    }
+                }
             }
         } else {
+            if (str_starts_with($url, '/')) {
+                return self::testUrl(".$url", $external, $testFragment, $useCurl, $retryCount, $retryDelay, $tryNumber);
+                //TODO: || return self::testUrl("$docRoot$url", $external, $testFragment, $useCurl, $retryCount, $retryDelay, $tryNumber);
+            }
             $code = file_exists(parse_url($url, PHP_URL_PATH)/* No query (?) nor fragment (#) */) ? 200 : 404;
+            $extension = pathinfo(TestableUrl::getUrlWithoutFragment($url), PATHINFO_EXTENSION);
+            if (!empty($extension)) {
+                $isPlainText = self::isPlainTextExtension($extension);
+            }
         }
 
         switch ($code) {
             case 200: // OK
-                $contents = $external || $testFragment && self::isUrlWithFragment($url) ? self::requestBody(self::getUrlWithoutFragment($url), $useCurl) : '';
-                if (false === $contents) {
-                    //TODO
-                    break;
-                }
-                $refreshTagPattern = '@<meta http-equiv="refresh" content="[^"]*; ?url=(?P<url>[^"]+)"@i';
-                if ($external && preg_match($refreshTagPattern, $contents, $matches)) { // Soft redirect
-                    $location = preg_match('@^https?://@', $matches['url']) ? $matches['url'] : self::solveRelativePath(self::getUrlWithoutFragment($url), $matches['url']);
-                    if (self::isUrlWithFragment($url)) {
-                        $location .= '#' . self::getUrlFragment($url);
+                if ($isPlainText) {
+                    $contents = $external || $testFragment && self::isUrlWithFragment($url) ? self::requestBody(self::getUrlWithoutFragment($url), $useCurl) : '';
+                    if (false === $contents) {
+                        //TODO
+                        break;
                     }
-                } elseif ($testFragment && self::isUrlWithFragment($url)) {
-                    $fragment = self::getUrlFragment($url);
-                    $fragmentFound = $contents && 1 === preg_match("@(id|name)=\"$fragment\"@", $contents);
-                    if (!$fragmentFound && !self::isExternalUrl($url)) {
-                        if ('md' === pathinfo(TestableUrl::getUrlWithoutFragment($url), PATHINFO_EXTENSION)) {
-                            //TODO: MarkDown fragment search pattern should be a config.
-                            //$pattern = '@^#+\W*' . str_replace('-', '\W+', $fragment) . '\W*$@mi';
-                            $pattern = '@^#+\W*' . str_replace('-', '\W+', $fragment) . '\W*( \[\[% include \'.+_badge.md\' %\]\])*$@mi';
-                            $fragmentFound = (bool)preg_match($pattern, $contents);
-                            //TODO: Alternatively, Markdown headers could extracted, converted to anchors, and then compared
+                    $refreshTagPattern = '@<meta http-equiv="refresh" content="[^"]*; ?url=(?P<url>[^"]+)"@i';
+                    if ($external && preg_match($refreshTagPattern, $contents, $matches)) { // Soft redirect
+                        $location = preg_match('@^https?://@', $matches['url']) ? $matches['url'] : self::solveRelativePath(self::getUrlWithoutFragment($url), $matches['url']);
+                        if (self::isUrlWithFragment($url)) {
+                            $location .= '#' . self::getUrlFragment($url);
+                        }
+                    } elseif ($testFragment && self::isUrlWithFragment($url)) {
+                        $fragment = self::getUrlFragment($url);
+                        $fragmentFound = $contents && 1 === preg_match("@(id|name)=\"$fragment\"@", $contents);
+                        if (!$fragmentFound && !self::isExternalUrl($url)) {
+                            if ('md' === pathinfo(TestableUrl::getUrlWithoutFragment($url), PATHINFO_EXTENSION)) {
+                                //TODO: MarkDown fragment search pattern should be a config.
+                                //$pattern = '@^#+\W*' . str_replace('-', '\W+', $fragment) . '\W*$@mi';
+                                $pattern = '@^ *#+\W*' . str_replace('-', '\W+', $fragment) . '\W*( \[\[% include \'.+_badge.md\' %\]\])*$@mi';
+                                $fragmentFound = (bool)preg_match($pattern, $contents);
+                                //TODO: Alternatively, Markdown headers could extracted, converted to anchors, and then compared
+                            }
                         }
                     }
                 }
@@ -373,8 +435,21 @@ class TestableUrl
                     }
                 }
                 break;
+            case 429: // Too Many Requests
+            case 503: // Service Unavailable
+                foreach ($headers as $header) {
+                    if (str_starts_with(strtolower($header), 'retry-after: ')) {
+                        $value = trim(explode(': ', $header, 2)[1]);
+                        if (is_numeric($value)) {
+                            $delay = intval($value);
+                            if ($delay && $delay <= $retryDelay * ($retryCount-1)) {
+                                sleep($delay);
+                            }
+                        }
+                    }
+                }
             case 522: // Connection Timed Out
-                if ($tryNumber <= $retryCount + 1) {
+                if ($tryNumber <= $retryCount) {
                     sleep($retryDelay);
                     return self::testUrl($url, $external, $testFragment, $useCurl, $retryCount, $retryDelay, $tryNumber++);
                 }
@@ -384,6 +459,7 @@ class TestableUrl
             case 404: // Not Found
             case 405: // Method Not Allowed
             case 500: // Internal Server Error
+            case 521: // Web Server Is Down
             default:
         }
 
@@ -395,7 +471,7 @@ class TestableUrl
         ];
     }
 
-    public static function requestHeaders($url, $useCurl = false): array
+    public static function requestHeaders(string $url, bool $useCurl = false): array
     {
         if ($useCurl) {
             return preg_split('/\R/', trim(shell_exec("curl -s -I $url") ?? ''));
@@ -403,7 +479,7 @@ class TestableUrl
         return @get_headers($url) ?: [];
     }
 
-    public static function requestBody($url, $useCurl = false): string
+    public static function requestBody(string $url, bool $useCurl = false): string
     {
         if ($useCurl) {
             return shell_exec("curl -s $url") ?? '';
@@ -456,6 +532,32 @@ class TestableUrl
             $urls[] = $location->getUrl();
         }
         return $urls;
+    }
+
+    public static function isPlainTextMimeType(string $mimeType): bool
+    {
+        foreach (self::PLAIN_TEXT_MIME_TYPES as $plainTextMimeType) {
+            if (str_starts_with($mimeType, $plainTextMimeType)) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    public static function isPlainTextExtension(string $extension): bool
+    {
+        if (str_starts_with($extension, '.')) {
+            $extension = substr($extension, 1);
+        }
+
+        foreach (self::PLAIN_TEXT_EXTENSIONS as $plainTextExtension) {
+            if ($extension === $plainTextExtension) {
+                return true;
+            }
+        }
+
+        return false;
     }
 
     public static function isUrlWithFragment($url): bool
@@ -523,15 +625,19 @@ class UrlExtractor
         $this->patterns = null === $patterns ? self::getDefaultPatterns() : $patterns;
         $this->flattenPatterns();
         $this->replacements = $replacements;
-        $this->find = $find;
+        $this->find = $find;//TODO remove trailing slash
     }
 
     /** @return TestableUrl[] */
     public function extract(string $file): array
     {
+        $base = null;
+
         $extension = pathinfo($file, PATHINFO_EXTENSION);
         if ('zip' === $extension) {
             return $this->extractFromArchive($file);
+        } elseif ('html' === $extension) {
+            $base = $this->extractBase($file);
         }
 
         //var_dump($this->getGrepCommand($file));
@@ -563,7 +669,7 @@ class UrlExtractor
             if (empty($matches['url'])) {
                 continue;
             }
-            $urls[] = new TestableUrl($matches['url'], array_key_exists('text', $matches) ? $matches['text'] : null, $file, $line, $this->replacements, $this->find);
+            $urls[] = new TestableUrl($matches['url'], array_key_exists('text', $matches) ? $matches['text'] : null, $file, $line, $this->replacements, $this->find, $base);
         }
 
         return $urls;
@@ -650,6 +756,20 @@ class UrlExtractor
         return $this;
     }
 
+    private function extractBase(string $file): ?string
+    {
+        if ('html' !== pathinfo($file, PATHINFO_EXTENSION)) {
+            return null;
+        }
+
+        $base = trim(shell_exec("sed -E -n 's/.*<base href=\"([^\"]+)\".*/\\1/p' $file") ?? '');
+        if (!empty($base) && '' !== $base) {
+            return TestableUrl::isExternalUrl($base) ? $base : '/'.TestableUrl::solveRelativePath($file, $base);
+        }
+
+        return null;
+    }
+
     /**
      * Built-in pattern map used as default when one given in UrlExtractor::__construct
      * A pattern map is an associative array associating file extensions with pattern lists.
@@ -681,8 +801,10 @@ class UrlExtractor
                 self::getXmlTagPattern('img', 'src'),
             ],
             'md' => [
-                '\[(?P<text>[^[]*)\]\((?P<url>[^ )]+)\)',
-                '!\[[^[]*\]\((?P<url>[^ )]+) "(?P<text>[^"]+)"\)',
+                //'\[(?P<text>[^[]*)\]\((?P<url>[^ )]+)\)', // Markdown link [text](url) & image ![alt](url)
+                '\[(?P<text>([^[]|\[\[= [^=]+ =\]\])*)\]\((?P<url>(\[\[= [^=]+ =\]\])?[^ )]+)\)', // MkDocs Markdown link [text [[= var =]] text]([[= base =]]/path) & image ![text [[= var =]] text](url)
+                //'!\[[^[]*\]\((?P<url>[^ )]+) "(?P<text>[^"]+)"\)', // Markdown image ![alt](url "caption")
+                '!\[([^[]|\[\[= [^=]+ =\]\])*\]\((?P<url>[^ )]+) "(?P<text>([^"]|\[\[= [^=]+ =\]\])+)"\)', // MkDocs Markdown image ![alt](url "text [[= var =]] text")
                 self::getXmlTagPattern('img', 'src'),
                 self::getXmlTagPattern('a', 'href', true),//TODO: shouldn't be there
                 'txt',
@@ -701,7 +823,7 @@ class UrlExtractor
         if (array_key_exists($extension, $this->patterns)) {
             return $this->patterns[$extension];
         } else {
-            throw new InvalidArgumentException("File extension '$extension' not supported.");
+            throw new \InvalidArgumentException("File extension '$extension' not supported.");
         }
     }
 
@@ -803,7 +925,7 @@ class UrlExtractor
 
 /**
  * Class to test/check a collection of internal and/or external URLs extract from files,
- * and to check the usage of internal ressource files by those URLs
+ * and to check the usage of internal resource files by those URLs
  */
 class UrlTester
 {
@@ -846,16 +968,23 @@ class UrlTester
     public const VERBOSITY_DEFAULT = 300;
 
     /**
+     * Test a collection of URLs extracted from files
+     *
+     * Handle redirection chains,
+     * Check that some resources are used,
+     * …,
+     * Output test results.
+     *
      * @param array<int, string> $usageFiles The list of files to extract URLs from
      * @param array<int, string> $resourceFiles The list of files that should be used by those URLs
      * @param array<string, array<int, callable>>|null $exclusionTests An associative array of arrays of functions testing if a URL should be excluded from test
-     * @param array<int, callable>|null $curlUsageTests An array of functions testing if URL should be requested using `curl` instead of PHP
+     * @param array<int, callable>|null $curlUsageTests A function array testing if URL should be requested using `curl` instead of PHP
      * @param array<string, string>|null $replacements A replacement map to apply on each URL
      * @param bool|string $find If the URL target must be searched for instead of just being considered as a relative path; If a string is given, it will be used as search prefix
-     * @param callable|null $output A callable to pass standard output message to
-     * @param callable|null $error A callable to pass error message to
+     * @param resource|callable|null $output A callable or stream to pass the standard messages to
+     * @param resource|callable|null $error A callable or stream to pass the error messages to
      */
-    public function __construct(array $usageFiles = [], array $resourceFiles = [], ?array $exclusionTests = null, ?array $curlUsageTests = null, ?array $replacements = null, mixed $find = false, ?callable $output = null, ?callable $error = null)
+    public function __construct(array $usageFiles = [], array $resourceFiles = [], ?array $exclusionTests = null, ?array $curlUsageTests = null, ?array $replacements = null, mixed $find = false, mixed $output = STDOUT, mixed $error = STDERR)
     {
         $this->setUsageFiles($usageFiles);
         $this->setResourceFiles($resourceFiles);
@@ -870,8 +999,8 @@ class UrlTester
             if (null === $$argumentVariable && defined($defaultConstant)) {
                 $$argumentVariable = constant($defaultConstant);
             }
-            if (!is_resource($$argumentVariable) || 'stream' !== get_resource_type($$argumentVariable)) {
-                throw new InvalidArgumentException("$argumentVariable must be a stream resource");
+            if (!(is_resource($$argumentVariable) && 'stream' === get_resource_type($$argumentVariable)) && !is_callable($$argumentVariable) && !is_a($$argumentVariable, Closure::class)) {
+                throw new InvalidArgumentException("$argumentVariable must be a callable or a stream resource");
             }
             //$this->$argumentVariable = $$argumentVariable;
         }
@@ -1195,6 +1324,11 @@ class UrlTester
         return false;
     }
 
+    public function isExcludedRedirection(TestableUrl $testableUrl, null|int|array $code = null): bool
+    {
+        return false;//Not yet implemented
+    }
+
     public function isExcludedFragment(TestableUrl $testableUrl): bool
     {
         foreach ($this->exclusionTests['fragment'] as $test) {
@@ -1243,13 +1377,21 @@ class UrlTester
 
     private function output(string $line): self
     {
-        fwrite($this->output, $line . PHP_EOL);
+        if (is_resource($this->output) && 'stream' === get_resource_type($this->output)) {
+            fwrite($this->output, $line . PHP_EOL);
+        } else {
+            call_user_func($this->output, $line);
+        }
         return $this;
     }
 
     private function error(string $line): self
     {
-        fwrite($this->error, $line . PHP_EOL);
+        if (is_resource($this->error) && 'stream' === get_resource_type($this->error)) {
+            fwrite($this->error, $line . PHP_EOL);
+        } else {
+            call_user_func($this->error, $line);
+        }
         return $this;
     }
 }
@@ -1373,37 +1515,71 @@ class Finder
             }
         }
 
+        $grouping = [
+            'in' => [
+                [
+                    'name' => $this->includedNames,
+                    'wholename' => $this->includedWholeNames,
+                ],
+                [
+                    'type' => $this->includedTypes,
+                ],
+            ],
+            'ex' => [
+                [
+                    'name' => $this->excludedNames,
+                ],
+                [
+                    'wholename' => $this->excludedWholeNames,
+                ],
+                [
+                    'type' => $this->excludedTypes,
+                ],
+            ]
+        ];
         $groups = [];
-        foreach ([
-                     'name' => [
-                         'in' => $this->includedNames,
-                         'ex' => $this->excludedNames,
-                     ],
-                     'wholename' => [
-                         'in' => $this->includedWholeNames,
-                         'ex' => $this->excludedWholeNames,
-                     ],
-                     'type' => [
-                         'in' => $this->includedTypes,
-                         'ex' => $this->excludedTypes,
-                     ],
-                 ] as $type => $patterns) {
-            if (!empty($patterns['in'])) {
-                $groups[] = implode(' -o ', array_map(function ($pattern) use ($type) {
-                    return "-{$type} '{$pattern}'";
-                }, $patterns['in']));
+
+        $inGroups = [];
+        foreach ($grouping['in'] as $argGroups) {
+            $argGroup = [];
+            foreach ($argGroups as $argument => $patterns) {
+                if (!empty($patterns)) {
+                    $argGroup[] = implode(' -o ', array_map(function ($pattern) use ($argument) {
+                        return "-{$argument} '{$pattern}'";
+                    }, $patterns));
+                }
             }
-            if (!empty($patterns['ex'])) {
-                $groups[] = implode(' -a ', array_map(function ($pattern) use ($type) {
-                    return "! -{$type} '{$pattern}'";
-                }, $patterns['ex']));
+            if (!empty($argGroup)) {
+                $inGroups[] = implode(' -o ', $argGroup);
             }
         }
+        if (!empty($inGroups)) {
+            $groups[] = '\( ' . implode(' \) -a \( ', $inGroups) . ' \)';
+        }
+
+        $exGroups = [];
+        foreach ($grouping['ex'] as $argGroups) {
+            $argGroup = [];
+            foreach ($argGroups as $argument => $patterns) {
+                if (!empty($patterns)) {
+                    $argGroup[] = implode(' -a ', array_map(function ($pattern) use ($argument) {
+                        return "! -{$argument} '{$pattern}'";
+                    }, $patterns));
+                }
+            }
+            if (!empty($argGroup)) {
+                $exGroups[] = implode(' -a ', $argGroup);
+            }
+        }
+        if (!empty($exGroups)) {
+            $groups[] = '\( ' . implode(' \) -a \( ', $exGroups) . ' \)';
+        }
+
         if (!empty($groups)) {
             $criteria[] = '\( ' . implode(' \) -a \( ', $groups) . ' \)';
         }
-
         $criteria = empty($criteria) ? '' : ' ' . implode(' ', $criteria);
+
         return "find {$this->where}{$criteria};";
     }
 }

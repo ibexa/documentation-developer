@@ -4,10 +4,18 @@ $usageFiles = call_user_func(function (array $a): array {
     asort($a);
     return $a;
 }, (new Finder('./docs'))
+
     ->includeName('*.md')
+    ->excludeName('new_in_doc.md')//TMP
     ->excludeWholeName('./docs/release_notes/*')//TMP
     ->excludeWholeName('./docs/snippets/*')//TMP
-    ->find());
+    ->excludeWholeName('./docs/update_and_migration/*')//TMP
+
+    //->includeName('*.html') // Memory issues
+    ->includeWholeName('./**/php_api_reference/index.html') // Should be enough
+
+    ->find(),
+);
 
 $resourceFiles = call_user_func(function (array $a): array {
     asort($a);
@@ -18,6 +26,8 @@ $resourceFiles = call_user_func(function (array $a): array {
         ->includeName('*.png')
         ->includeName('*.jpg')
         ->excludeWholeName('./docs/release_notes/img/*')//TMP
+        ->excludeWholeName('./docs/update_and_migration/img/*')//TMP
+        ->excludeWholeName('./docs/api/php_api/php_api_reference/images/*')//TMP
         ->find(),
 );
 
@@ -36,6 +46,7 @@ $exclusionTests = array_merge_recursive(UrlTester::getDefaultExclusionTests(), [
                 || str_starts_with($url, 'http://ibexa.co/namespaces/') // 301
                 || str_starts_with($url, 'http://ibexa.co/xmlns/') // 301
                 || str_starts_with($url, 'http://ez.no/namespaces/') //301
+                //|| str_starts_with($url, 'http://ez.no/xmlns/') //301
                 || str_starts_with($url, 'https://api.cloud.ibexa.co') // 301, PLATFORMSH_CLI_API_URL
                 //|| str_starts_with($url, 'https://admin.perso.ibexa.co/api/') // 400
                 || str_starts_with($url, 'https://admin.perso.ibexa.co/') // 404
@@ -43,6 +54,12 @@ $exclusionTests = array_merge_recursive(UrlTester::getDefaultExclusionTests(), [
                 || str_starts_with($url, 'https://event.perso.ibexa.co/ebl/') // 404
                 || str_starts_with($url, 'https://import.perso.ibexa.co/api/') // 400
                 || str_starts_with($url, 'https://reco.perso.ibexa.co') // 403
+                || str_starts_with($url, 'https://admin.yoochoose.net') // 400
+                || str_starts_with($url, 'https://event.yoochoose.net/api/') // 400
+                || str_starts_with($url, 'https://event.yoochoose.net/ebl/') // 404
+                || str_starts_with($url, 'https://event.yoochoose.net/') // 404
+                || str_starts_with($url, 'https://reco.yoochoose.net') // 403
+                || str_starts_with($url, 'https://tracker.ibexa.co/') // 999 Could not resolve host
                 ;
         },
         function (string $url, ?string $file = null): bool {
@@ -50,7 +67,9 @@ $exclusionTests = array_merge_recursive(UrlTester::getDefaultExclusionTests(), [
             return str_starts_with($url, 'https://api.fastly.com') // 301 or 403
                 || str_starts_with($url, 'https://unsplash.com') // 405
                 || str_starts_with($url, 'http://docbook.org/ns/') // 301
+                || str_starts_with($url, 'http://schema.org/ListItem') // 301 → https
                 || str_starts_with($url, 'http://www.w3.org/1999/xlink') // 301 → https
+                || str_starts_with($url, 'https://www.google.com/recaptcha/admin') // 302 → https://accounts.google.com/ServiceLogin
                 ;
         },
         function (string $url, ?string $file = null): bool {
@@ -70,8 +89,11 @@ $exclusionTests = array_merge_recursive(UrlTester::getDefaultExclusionTests(), [
                 || str_contains($url, '//user:password@host')
                 || str_contains($url, '//user:pass@localhost')
                 || str_contains($url, '//elasticsearch:9200')
+                || str_contains($url, '//solr:8983')
                 || str_contains($url, '//varnish:80')
                 || str_contains($url, '//my.varnish.server')
+                || str_contains($url, '//myuser:mypasswd@my.varnish.server')
+                || str_contains($url, 'platformsh.site')
                 ;
         },
         function (string $url, ?string $file = null): bool {
@@ -100,13 +122,20 @@ $exclusionTests = array_merge_recursive(UrlTester::getDefaultExclusionTests(), [
             return str_ends_with($file, '/file_url_handling.md')
                 && (str_contains($url, 'http://`') || str_contains($url, 'ftp://`'));
         },
+        function (string $url, ?string $file = null): bool {
+            if (str_ends_with($file, '/php_api_reference/index.html')) {
+                return str_contains($url, '/namespaces/symfony-contracts') || str_contains($url, '/classes/Symfony-Contracts');
+            }
+            return false;
+        },
+
     ],
     'location' => [
         function (string $url, string $location, ?string $file = null): bool {
             return str_starts_with($url, 'https://issues.ibexa.co/') && str_starts_with($location, 'https://issues.ibexa.co/login.jsp');
         },
         function (string $url, string $location, ?string $file = null): bool {
-            return $url === $location && str_starts_with($url, 'https://twitter.com/');
+            return str_starts_with($url, 'https://symfony.com/doc/7.3/') && str_starts_with($location, 'https://symfony.com/doc/current/');
         },
         function (string $url, string $location, ?string $file = null): bool {
             return str_starts_with($url, 'https://youtu.be/') && explode('/', $url)[3] . '&feature=youtu.be' === explode('?v=', $location)[1];
@@ -121,7 +150,9 @@ $exclusionTests = array_merge_recursive(UrlTester::getDefaultExclusionTests(), [
             return $url === 'https://console.aws.amazon.com/iam/home#/users'
                 && preg_match('@https://[a-z0-9-]+\.console\.aws\.amazon\.com/iam/home#/users@', $location);
         },
-
+        function (string $url, string $location, ?string $file = null): bool {
+            return 'https://www.paypal.com/bizsignup/#/singlePageSignup' === $url && str_starts_with($location, 'https://www.paypal.com/unifiedonboarding/entry');
+        },
     ],
     'fragment' => [
         /*function (string $url, ?string $file = null): bool {
@@ -146,11 +177,26 @@ $curlUsageTests = [
     function (string $url, ?string $file = null): bool {
         return str_starts_with($url, 'https://docs.aws.amazon.com/');
     },
+    function (string $url, ?string $file = null): bool {
+        return str_starts_with($url, 'https://semver.org/');
+    },
+    function (string $url, ?string $file = null): bool {
+        return str_starts_with($url, 'https://cdn.jsdelivr.net/npm/');
+    },
 ];
 
-$replacements = [//TODO Get from mkdocs.yml
-    '[[= symfony_doc =]]' => 'https://symfony.com/doc/5.4',
-    '[[= user_doc =]]' => 'https://doc.ibexa.co/projects/userguide/en/master',
-];
+$mkdocs = yaml_parse_file('mkdocs.yml');
 
-$find = './docs/*/';
+$replacements = [];
+foreach ($mkdocs['extra'] as $key => $value) {
+    if (is_string($value)) {
+        $replacements['[[= ' . $key . ' =]]'] = $value;
+    }
+}
+
+$absoluteLinks = $mkdocs['validation']['links']['absolute_links'] ?? $mkdocs['validation']['absolute_links'] ?? 'info';
+if ('relative_to_docs' === $absoluteLinks) {
+    //TODO
+}
+
+$find = './docs';
