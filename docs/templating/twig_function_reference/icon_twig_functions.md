@@ -17,7 +17,7 @@ month_change: false
 
 ```html+twig
 <svg class="ibexa-icon ibexa-icon--medium ibexa-icon--light">
-    <use xlink:href="{{ ibexa_icon_path(`edit`, 'my_icons') }}"></use>
+    <use xlink:href="{{ ibexa_icon_path('edit', 'my_icons') }}"></use>
 </svg>
 ```
 
