@@ -17,7 +17,7 @@ month_change: false
 
 ```html+twig
 <svg class="ibexa-icon ibexa-icon--medium ibexa-icon--light">
-    <use xlink:href="{{ ibexa_icon_path('edit', 'my_icons') }}"></use>
+    <use xlink:href="{{ ibexa_icon_path(`edit`, 'my_icons') }}"></use>
 </svg>
 ```
 
@@ -74,14 +74,14 @@ The following icons are available out-of-the-box:
 |---------------------------------------------------------------------------------|--------------------------------|
 | ![about-info](img/icons/about-info.svg.png)                                     | `about-info`                   |
 | ![about](img/icons/about.svg.png)                                               | `about`                        |
-| ![activate](img/icons/activate.svg.png)                                         | 'activate'                     |
+| ![activate](img/icons/activate.svg.png)                                         | `activate`                     |
 | ![airtime](img/icons/airtime.svg.png)                                           | `airtime`                      |
 | ![align-center](img/icons/align-center.svg.png)                                 | `align-center`                 |
 | ![align-justify](img/icons/align-justify.svg.png)                               | `align-justify`                |
 | ![align-left](img/icons/align-left.svg.png)                                     | `align-left`                   |
 | ![align-right](img/icons/align-right.svg.png)                                   | `align-right`                  |
 | ![approved](img/icons/approved.svg.png)                                         | `approved`                     |
-| ![arrow-down](img/icons/arrow-down.svg.png)                                     | 'arrow-down'                   |
+| ![arrow-down](img/icons/arrow-down.svg.png)                                     | `arrow-down`                   |
 | ![arrow-right](img/icons/arrow-right.svg.png)                                   | `arrow-right`                  |
 | ![article](img/icons/article.svg.png)                                           | `article`                      |
 | ![assign-section](img/icons/assign-section.svg.png)                             | `assign-section`               |
@@ -139,7 +139,7 @@ The following icons are available out-of-the-box:
 | ![circle-create](img/icons/circle-create.svg.png)                               | `circle-create`                |
 | ![clicked-recommendations](img/icons/clicked-recommendations.svg.png)           | `clicked-recommendations`      |
 | ![clipboard](img/icons/clipboard.svg.png)                                       | `clipboard`                    |
-| ![collaboration](img/icons/collaboration.svg.png)                               | 'collaboration'                |
+| ![collaboration](img/icons/collaboration.svg.png)                               | `collaboration`                |
 | ![collapse](img/icons/collapse.svg.png)                                         | `collapse`                     |
 | ![collection](img/icons/collection.svg.png)                                     | `collection`                   |
 | ![column-one](img/icons/column-one.svg.png)                                     | `column-one`                   |
@@ -172,9 +172,9 @@ The following icons are available out-of-the-box:
 | ![database](img/icons/database.svg.png)                                         | `database`                     |
 | ![date-updated](img/icons/date-updated.svg.png)                                 | `date-updated`                 |
 | ![date](img/icons/date.svg.png)                                                 | `date`                         |
-| ![deactivate](img/icons/deactivate.svg.png)                                     | 'deactivate'                   |
+| ![deactivate](img/icons/deactivate.svg.png)                                     | `deactivate`                   |
 | ![discard](img/icons/discard.svg.png)                                           | `discard`                      |
-| ![discount-coupon](img/icons/discount-coupon.svg.png)                           | 'discount-coupon'              |
+| ![discount-coupon](img/icons/discount-coupon.svg.png)                           | `discount-coupon`              |
 | ![download](img/icons/download.svg.png)                                         | `download`                     |
 | ![drafts](img/icons/drafts.svg.png)                                             | `drafts`                       |
 | ![drag](img/icons/drag.svg.png)                                                 | `drag`                         |
@@ -188,7 +188,7 @@ The following icons are available out-of-the-box:
 | ![error](img/icons/error.svg.png)                                               | `error`                        |
 | ![events-collected](img/icons/events-collected.svg.png)                         | `events-collected`             |
 | ![expand-left](img/icons/expand-left.svg.png)                                   | `expand-left`                  |
-| ![expand-right](img/icons/expand-right.svg.png)                                 | 'expand-right'                 |
+| ![expand-right](img/icons/expand-right.svg.png)                                 | `expand-right`                 |
 | ![explore](img/icons/explore.svg.png)                                           | `explore`                      |
 | ![facebook](img/icons/facebook.svg.png)                                         | `facebook`                     |
 | ![factbox](img/icons/factbox.svg.png)                                           | `factbox`                      |
@@ -262,7 +262,7 @@ The following icons are available out-of-the-box:
 | ![lock](img/icons/lock.svg.png)                                                 | `lock`                         |
 | ![logout](img/icons/logout.svg.png)                                             | `logout`                       |
 | ![maform](img/icons/maform.svg.png)                                             | `maform`                       |
-| ![mail-open](img/icons/mail-open.svg.png)                                       | 'mail-open'                    |
+| ![mail-open](img/icons/mail-open.svg.png)                                       | `mail-open`                    |
 | ![mail](img/icons/mail.svg.png)                                                 | `mail`                         |
 | ![markup](img/icons/markup.svg.png)                                             | `markup`                       |
 | ![media-type](img/icons/media-type.svg.png)                                     | `media-type`                   |
@@ -339,7 +339,7 @@ The following icons are available out-of-the-box:
 | ![server](img/icons/server.svg.png)                                             | `server`                       |
 | ![settings-block](img/icons/settings-block.svg.png)                             | `settings-block`               |
 | ![settings-config](img/icons/settings-config.svg.png)                           | `settings-config`              |
-| ![share](img/icons/share.svg.png)                                               | 'share'                        |
+| ![share](img/icons/share.svg.png)                                               | `share`                        |
 | ![sites-all](img/icons/sites-all.svg.png)                                       | `sites-all`                    |
 | ![sites](img/icons/sites.svg.png)                                               | `sites`                        |
 | ![slider](img/icons/slider.svg.png)                                             | `slider`                       |
