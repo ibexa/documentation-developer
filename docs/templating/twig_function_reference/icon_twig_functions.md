@@ -143,7 +143,6 @@ The following icons are available out-of-the-box:
 | ![collapse](img/icons/collapse.svg.png)                                         | `collapse`                     |
 | ![collection](img/icons/collection.svg.png)                                     | `collection`                   |
 | ![column-one](img/icons/column-one.svg.png)                                     | `column-one`                   |
-| ![column-settings](img/icons/column-settings.svg.png)                           | 'column-settings'              |
 | ![column-two](img/icons/column-two.svg.png)                                     | `column-two`                   |
 | ![comment](img/icons/comment.svg.png)                                           | `comment`                      |
 | ![components](img/icons/components.svg.png)                                     | `components`                   |
