@@ -26,11 +26,8 @@ For example, to search for all content of a selected content type, use one Crite
 
 The following command takes the content type identifier as an argument and lists all results:
 
-``` php hl_lines="12 14"
-// ...
-[[= include_file('code_samples/api/public_php_api/src/Command/FindContentCommand.php', 4, 7) =]]// ...
-[[= include_file('code_samples/api/public_php_api/src/Command/FindContentCommand.php', 14, 18) =]]    // ...
-[[= include_file('code_samples/api/public_php_api/src/Command/FindContentCommand.php', 37, 45) =]]}
+``` php hl_lines="25 28-31"
+[[= include_file('code_samples/api/public_php_api/src/Command/FindContentCommand.php') =]]
 ```
 
 [`SearchService::findContentInfo`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-SearchService.html#method_findContentInfo) (line 14)
@@ -116,19 +113,14 @@ It doesn't use the `SearchService` and isn't based on indexed data.
 
 For example, the following command lists all content items under the specified parent location and sorts them by name in descending order:
 
-``` php hl_lines="11-14"
-// ...
-[[= include_file('code_samples/api/public_php_api/src/Command/FilterCommand.php', 4, 9) =]]
-// ...
-[[= include_file('code_samples/api/public_php_api/src/Command/FilterCommand.php', 38, 49) =]]
+``` php hl_lines="26 29-34"
+[[= include_file('code_samples/api/public_php_api/src/Command/FilterCommand.php') =]]
 ```
 
 The same Filter can be applied to find locations instead of content items, for example:
 
-``` php hl_lines="15"
-// ...
-[[= include_file('code_samples/api/public_php_api/src/Command/FilterLocationCommand.php', 4, 9) =]]// ...
-[[= include_file('code_samples/api/public_php_api/src/Command/FilterLocationCommand.php', 38, 49) =]]
+``` php hl_lines="26 29-34"
+[[= include_file('code_samples/api/public_php_api/src/Command/FilterLocationCommand.php') =]]
 ```
 
 !!! caution
@@ -178,20 +170,16 @@ $filter
 You can use the `SearchService` or repository filtering in a controller, as long as you provide the required parameters.
 For example, in the code below, `locationId` is provided to list all children of a location by using the `SearchService`.
 
-``` php hl_lines="22-24"
-// ...
-[[= include_file('code_samples/api/public_php_api/src/Controller/CustomController.php', 4, 12) =]]    // ...
-[[= include_file('code_samples/api/public_php_api/src/Controller/CustomController.php', 19, 35) =]]
+``` php hl_lines="19-20 22 28-30"
+[[= include_file('code_samples/api/public_php_api/src/Controller/CustomController.php') =]]
 ```
 
-The rendering of results is then relegated to [templates](templates.md) (lines 22-24).
+The rendering of results is then relegated to [templates](templates.md).
 
 When using Repository filtering, provide the results of `ContentService::find()` as parameters to the view:
 
-``` php hl_lines="19"
-// ...
-[[= include_file('code_samples/api/public_php_api/src/Controller/CustomFilterController.php', 4, 12) =]]    // ...
-[[= include_file('code_samples/api/public_php_api/src/Controller/CustomFilterController.php', 19, 34) =]]
+``` php hl_lines="23-27"
+[[= include_file('code_samples/api/public_php_api/src/Controller/CustomFilterController.php') =]]
 ```
 
 ### Paginating search results
@@ -199,10 +187,7 @@ When using Repository filtering, provide the results of `ContentService::find()`
 To paginate search or filtering results, it's recommended to use the [Pagerfanta library](https://github.com/BabDev/Pagerfanta) and [[[= product_name =]]'s adapters for it.](https://github.com/ibexa/core/blob/main/src/lib/Pagination/Pagerfanta/Pagerfanta.php)
 
 ``` php
-// ...
 [[= include_file('code_samples/api/public_php_api/src/Controller/PaginationController.php', 8, 15) =]]    // ...
-[[= include_file('code_samples/api/public_php_api/src/Controller/PaginationController.php', 22, 32) =]]
-[[= include_file('code_samples/api/public_php_api/src/Controller/PaginationController.php', 33, 43) =]]
 ```
 
 Pagination can then be rendered for example using the following template:
@@ -237,23 +222,25 @@ For more information and examples, see [PagerFanta documentation](https://www.ba
 For more complex searches, you need to combine multiple Criteria.
 You can do it using logical operators: `LogicalAnd`, `LogicalOr`, and `LogicalNot`.
 
-``` php
-[[= include_file('code_samples/api/public_php_api/src/Command/FindComplexCommand.php', 45, 48) =]][[= include_file('code_samples/api/public_php_api/src/Command/FindComplexCommand.php', 59, 60) =]]
-[[= include_file('code_samples/api/public_php_api/src/Command/FindComplexCommand.php', 60, 63) =]]
+``` php hl_lines="3-7 10"
+[[= include_file('code_samples/api/public_php_api/src/Command/FindComplexCommand.php', 30, 31) =]]
+[[= include_file('code_samples/api/public_php_api/src/Command/FindComplexCommand.php', 32, 36) =]][[= include_file('code_samples/api/public_php_api/src/Command/FindComplexCommand.php', 39, 40) =]]
+[[= include_file('code_samples/api/public_php_api/src/Command/FindComplexCommand.php', 46, 51) =]]
 ```
 
 This example takes three parameters from a command — `$text`, `$contentTypeId`, and `$locationId`.
 It then combines them using `Criterion\LogicalAnd` to search for content items
-that belong to a specific subtree, have the chosen content type and contain the provided text (lines 3-6).
+that belong to a specific subtree, have the chosen content type and contain the provided text.
 
-This also shows that you can get the total number of search results using the `totalCount` property of search results (line 9).
+This also shows that you can get the total number of search results using the `totalCount` property of search results.
 
 You can also nest different operators to construct more complex queries.
 The example below uses the `LogicalNot` operator to search for all content containing a given phrase
 that doesn't belong to the provided Section:
 
 ``` php
-[[= include_file('code_samples/api/public_php_api/src/Command/FindComplexCommand.php', 47, 47) =]][[= include_file('code_samples/api/public_php_api/src/Command/FindComplexCommand.php', 49, 52) =]]
+[[= include_file('code_samples/api/public_php_api/src/Command/FindComplexCommand.php', 36, 39) =]]
+
 ```
 
 ### Combining independent Criteria
@@ -286,7 +273,7 @@ To sort the results of a query, use one of more [Sort Clauses](sort_clause_refer
 For example, to order search results by their publicationg date, from oldest to newest, and then alphabetically by content name, add the following Sort Clauses to the query:
 
 ``` php
-[[= include_file('code_samples/api/public_php_api/src/Command/FindComplexCommand.php', 54, 57) =]]
+[[= include_file('code_samples/api/public_php_api/src/Command/FindComplexCommand.php', 41, 45) =]]
 ```
 
 !!! tip
@@ -305,7 +292,7 @@ For a list of supported Criteria and Sort Clauses, see [Search in trash referenc
     Searching through the trashed content items operates directly on the database, therefore you cannot use external search engines, such as Solr or Elasticsearch, and it's impossible to reindex the data.
 
 ``` php
-[[= include_file('code_samples/api/public_php_api/src/Command/FindInTrashCommand.php', 38, 42) =]]
+[[= include_file('code_samples/api/public_php_api/src/Command/FindInTrashCommand.php', 25, 32) =]]
 ```
 
 !!! caution
@@ -324,7 +311,7 @@ With aggregations you can find the count of search results or other result infor
 To do this, you use of the query's `$aggregations` property:
 
 ``` php
-[[= include_file('code_samples/api/public_php_api/src/Command/FindWithAggregationCommand.php', 31, 35) =]]
+[[= include_file('code_samples/api/public_php_api/src/Command/FindWithAggregationCommand.php', 28, 33) =]]
 ```
 
 The name of the aggregation must be unique in the given query.
@@ -332,13 +319,13 @@ The name of the aggregation must be unique in the given query.
 Access the results by using the `get()` method of the aggregation:
 
 ``` php
-[[= include_file('code_samples/api/public_php_api/src/Command/FindWithAggregationCommand.php', 40, 41) =]]
+[[= include_file('code_samples/api/public_php_api/src/Command/FindWithAggregationCommand.php', 37, 38) =]]
 ```
 
 Aggregation results contain the name of the result and the count of found items:
 
 ``` php
-[[= include_file('code_samples/api/public_php_api/src/Command/FindWithAggregationCommand.php', 43, 45) =]]
+[[= include_file('code_samples/api/public_php_api/src/Command/FindWithAggregationCommand.php', 40, 43) =]]
 ```
 
 With field aggregations you can group search results according to the value of a specific field.
@@ -347,14 +334,14 @@ In this case the aggregation takes the content type identifier and the field ide
 The following example creates an aggregation named `selection` that groups results according to the value of the `topic` field in the `article` content type:
 
 ``` php
-[[= include_file('code_samples/api/public_php_api/src/Command/FindWithAggregationCommand.php', 36, 36) =]]
+[[= include_file('code_samples/api/public_php_api/src/Command/FindWithAggregationCommand.php', 33, 34) =]]
 ```
 
 With term aggregation you can define additional limits to the results.
 The following example limits the number of terms returned to 5 and only considers terms that have 10 or more results:
 
 ``` php
-[[= include_file('code_samples/api/public_php_api/src/Command/FindWithAggregationCommand.php', 31, 33) =]]
+[[= include_file('code_samples/api/public_php_api/src/Command/FindWithAggregationCommand.php', 28, 31) =]]
 ```
 
 To use a range aggregation, you must provide a `ranges` array containing a set of `Range` objects that define the borders of the specific range sets.

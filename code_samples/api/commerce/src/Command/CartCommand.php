@@ -90,7 +90,7 @@ final readonly class CartCommand
         $this->cartService->emptyCart($cart);
 
         // Validate a cart
-        $violationList = $this->cartService->validateCart($cart); // Symfony\Component\Validator\ConstraintViolationListInterface
+        $violationList = $this->cartService->validateCart($cart);
 
         // Add product to a cart
         $product = $this->productService->getProduct('desk1');
