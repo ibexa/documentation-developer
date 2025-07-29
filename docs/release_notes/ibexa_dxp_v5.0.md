@@ -76,9 +76,9 @@ With this release, [[= product_name =]] moves to Symfony 7.3 from the previously
 
 For details, see [Symfony 7.3](https://symfony.com/blog/symfony-7-3-curated-new-features).
 
-#### Doctrine 3.9
+#### Doctrine DBAL 3.9
 
-By moving to Doctrine 3.9, [[= product_name =]] brings developers better performance, cleaner code, and stronger foundation for a more modern and maintainable application.
+By moving to Doctrine DBAL 3.9, [[= product_name =]] brings developers better performance, cleaner code, and stronger foundation for a more modern and maintainable application.
 
 #### PHP 8.3
 
