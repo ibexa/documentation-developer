@@ -80,7 +80,7 @@ To resolve a price of a product in the currency for the current context, use eit
 ``` php
 [[= include_file('code_samples/api/product_catalog/src/Command/ProductPriceCommand.php', 7, 8) =]][[= include_file('code_samples/api/product_catalog/src/Command/ProductPriceCommand.php', 11, 12) =]]
 // ...
-[[= include_file('code_samples/api/product_catalog/src/Command/ProductPriceCommand.php', 96, 100) =]]
+[[= include_file('code_samples/api/product_catalog/src/Command/ProductPriceCommand.php', 87, 90) =]]
 ```
 
 ## VAT
@@ -89,17 +89,17 @@ To get information about the VAT categories and rates configured in the system, 
 VAT is configured per region, so you also need to use `RegionServiceInterface` to get the relevant region object.
 
 ``` php
-[[= include_file('code_samples/api/product_catalog/src/Command/VatCommand.php', 41, 42) =]]
+[[= include_file('code_samples/api/product_catalog/src/Command/VatCommand.php', 33, 34) =]]
 ```
 
 To get information about all VAT categories configured for the selected region, use `VatServiceInterface::getVatCategories()`:
 
 ``` php
-[[= include_file('code_samples/api/product_catalog/src/Command/VatCommand.php', 43, 48) =]]
+[[= include_file('code_samples/api/product_catalog/src/Command/VatCommand.php', 34, 40) =]]
 ```
 
 To get a single VAT category, use `VatServiceInterface::getVatCategoryByIdentifier()` and provide it with the region object and the identifier of the VAT category:
 
 ``` php
-[[= include_file('code_samples/api/product_catalog/src/Command/VatCommand.php', 49, 50) =]]
+[[= include_file('code_samples/api/product_catalog/src/Command/VatCommand.php', 41, 42) =]]
 ```

@@ -23,7 +23,7 @@ From the developer's perspective, carts and entries are referenced with a UUID i
 To access a single cart, use the `CartServiceInterface::getCart` method:
 
 ``` php
-[[= include_file('code_samples/api/commerce/src/Command/CartCommand.php', 63, 66) =]]
+[[= include_file('code_samples/api/commerce/src/Command/CartCommand.php', 61, 64) =]]
 ```
 
 ## Get multiple carts
@@ -35,7 +35,7 @@ It follows the same search Query pattern as other APIs:
 [[= include_file('code_samples/api/commerce/src/Command/CartCommand.php', 10, 11) =]]
 // ...
 
-[[= include_file('code_samples/api/commerce/src/Command/CartCommand.php', 49, 57) =]]
+[[= include_file('code_samples/api/commerce/src/Command/CartCommand.php', 47, 56) =]]
 ```
 
 ## Create cart
@@ -46,7 +46,7 @@ To create a cart, use the `CartServiceInterface::createCart` method and provide 
 [[= include_file('code_samples/api/commerce/src/Command/CartCommand.php', 8, 9) =]]
 // ...
 
-[[= include_file('code_samples/api/commerce/src/Command/CartCommand.php', 70, 78) =]]
+[[= include_file('code_samples/api/commerce/src/Command/CartCommand.php', 68, 76) =]]
 ```
 
 ## Update cart metadata
@@ -59,7 +59,7 @@ To update cart metadata, use the `CartServiceInterface::updateCartMetadata` meth
 [[= include_file('code_samples/api/commerce/src/Command/CartCommand.php', 9, 10) =]]
 // ...
 
-[[= include_file('code_samples/api/commerce/src/Command/CartCommand.php', 82, 89) =]]
+[[= include_file('code_samples/api/commerce/src/Command/CartCommand.php', 80, 87) =]]
 ```
 
 You can also use this method to change cart ownership:
@@ -80,8 +80,8 @@ $cart = $cartService->updateCartMetadata($cart, $updateMetadataStruct);
 To delete a cart permanently, use the `CartServiceInterface::deleteCart` method and pass the `CartInterface` object:
 
 ``` php
-[[= include_file('code_samples/api/commerce/src/Command/CartCommand.php', 63, 64) =]]
-[[= include_file('code_samples/api/commerce/src/Command/CartCommand.php', 124, 125) =]]
+[[= include_file('code_samples/api/commerce/src/Command/CartCommand.php', 61, 63) =]]
+[[= include_file('code_samples/api/commerce/src/Command/CartCommand.php', 122, 124) =]]
 ```
 
 ## Empty cart
@@ -89,8 +89,8 @@ To delete a cart permanently, use the `CartServiceInterface::deleteCart` method 
 To remove all products from the cart in a single operation, use the `CartServiceInterface::emptyCart` method:
 
 ``` php
-[[= include_file('code_samples/api/commerce/src/Command/CartCommand.php', 63, 64) =]]
-[[= include_file('code_samples/api/commerce/src/Command/CartCommand.php', 91, 92) =]]
+[[= include_file('code_samples/api/commerce/src/Command/CartCommand.php', 61, 62) =]]
+[[= include_file('code_samples/api/commerce/src/Command/CartCommand.php', 89, 91) =]]
 ```
 
 ## Check cart validity
@@ -101,8 +101,8 @@ To validate the cart, use the `CartServiceInterface::validateCart` method.
 Validation is done with help from the `symfony/validator` component, and the method returns a `Symfony\Component\Validator\ConstraintViolationListInterface` object.
 
 ``` php
-[[= include_file('code_samples/api/commerce/src/Command/CartCommand.php', 63, 64) =]]
-[[= include_file('code_samples/api/commerce/src/Command/CartCommand.php', 94, 95) =]]
+[[= include_file('code_samples/api/commerce/src/Command/CartCommand.php', 61, 62) =]]
+[[= include_file('code_samples/api/commerce/src/Command/CartCommand.php', 92, 93) =]]
 ```
 
 ## Add entry to cart
@@ -114,8 +114,8 @@ Then pass it to the `CartServiceInterface::addEntry` method:
 [[= include_file('code_samples/api/commerce/src/Command/CartCommand.php', 11, 12) =]]
 // ...
 
-[[= include_file('code_samples/api/commerce/src/Command/CartCommand.php', 63, 64) =]]
-[[= include_file('code_samples/api/commerce/src/Command/CartCommand.php', 99, 106) =]]
+[[= include_file('code_samples/api/commerce/src/Command/CartCommand.php', 61, 62) =]]
+[[= include_file('code_samples/api/commerce/src/Command/CartCommand.php', 97, 104) =]]
 ```
 
 ## Remove entry from cart
@@ -123,8 +123,8 @@ Then pass it to the `CartServiceInterface::addEntry` method:
 To remove an entry from the cart, use the `CartServiceInterface::removeEntry` method.
 
 ``` php
-[[= include_file('code_samples/api/commerce/src/Command/CartCommand.php', 63, 64) =]]
-[[= include_file('code_samples/api/commerce/src/Command/CartCommand.php', 109, 112) =]]
+[[= include_file('code_samples/api/commerce/src/Command/CartCommand.php', 61, 62) =]]
+[[= include_file('code_samples/api/commerce/src/Command/CartCommand.php', 107, 110) =]]
 ```
 
 ## Update entry metadata
@@ -136,9 +136,9 @@ To change entry metadata, use the `CartServiceInterface::updateEntry` method and
 [[= include_file('code_samples/api/commerce/src/Command/CartCommand.php', 12, 13) =]]
 // ...
 
-[[= include_file('code_samples/api/commerce/src/Command/CartCommand.php', 63, 64) =]]
-[[= include_file('code_samples/api/commerce/src/Command/CartCommand.php', 109, 110) =]]
-[[= include_file('code_samples/api/commerce/src/Command/CartCommand.php', 114, 122) =]]
+[[= include_file('code_samples/api/commerce/src/Command/CartCommand.php', 61, 62) =]]
+[[= include_file('code_samples/api/commerce/src/Command/CartCommand.php', 107, 109) =]]
+[[= include_file('code_samples/api/commerce/src/Command/CartCommand.php', 112, 120) =]]
 ```
 
 ## Adding context data
@@ -185,5 +185,5 @@ To combine the contents of multiple shopping carts into a target cart, use the `
 This operation is helpful when you want to consolidate items from a reorder cart and a current cart into a single order.
 
 ```php
-[[= include_file('code_samples/api/commerce/src/Command/CartCommand.php', 126, 139) =]]
+[[= include_file('code_samples/api/commerce/src/Command/CartCommand.php', 125, 137) =]]
 ```
