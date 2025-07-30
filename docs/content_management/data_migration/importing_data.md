@@ -242,6 +242,12 @@ In this case you assign the `parent_folder_location_id` reference name to the lo
 [[= include_file('code_samples/data_migration/examples/create_parent_and_child_content.yaml') =]]
 ```
 
+Use the `delete` mode to delete content items:
+
+``` yaml
+[[= include_file('code_samples/data_migration/examples/delete_content.yaml') =]]
+```
+
 ### Images
 
 The following example shows how to migrate an `example-image.png` located in `public/var/site/storage/images/3/8/3/0/383-1-eng-GB` without manually placing it in the appropriate path.
