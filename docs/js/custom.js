@@ -76,6 +76,14 @@ $(document).ready(function() {
             const allVersions = [...document.querySelectorAll('.switcher__list .versions dd')];
             const olderVersions = document.querySelector('#older-versions');
 
+            // Merge "5.0" and "latest" entries into "5.0 (latest)"
+            const latestVersion = allVersions.find(v => v.textContent.trim() === 'latest');
+            const version50 = allVersions.find(v => v.textContent.trim() === '5.0');
+            
+            const version50Link = version50.querySelector('a');
+            version50Link.textContent = '5.0 (latest)';
+            latestVersion.hidden = true;
+
             if (eolVersions.length > 0) {
                 olderVersions.hidden = false;
             }
