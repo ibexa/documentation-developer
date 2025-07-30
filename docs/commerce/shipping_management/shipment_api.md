@@ -16,7 +16,7 @@ From the developer's perspective, shipments are referenced with a UUID identifie
 To access a single shipment by using its string identifier, use the `ShipmentService::getShipmentByIdentifier` method:
 
 ``` php
-[[= include_file('code_samples/api/commerce/src/Command/ShipmentCommand.php', 56, 64) =]]
+[[= include_file('code_samples/api/commerce/src/Command/ShipmentCommand.php', 55, 64) =]]
 ```
 
 ### Get single shipment by id
@@ -24,7 +24,7 @@ To access a single shipment by using its string identifier, use the `ShipmentSer
 To access a single shipment by using its numerical id, use the `ShipmentService::getShipment` method:
 
 ``` php
-[[= include_file('code_samples/api/commerce/src/Command/ShipmentCommand.php', 44, 53) =]]
+[[= include_file('code_samples/api/commerce/src/Command/ShipmentCommand.php', 43, 53) =]]
 ```
 
 ## Get multiple shipments

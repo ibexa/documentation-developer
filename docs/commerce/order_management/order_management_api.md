@@ -36,7 +36,7 @@ To fetch multiple orders, use the [`OrderServiceInterface::findOrders`](/api/php
 It follows the same search query pattern as other APIs:
 
 ``` php
-[[= include_file('code_samples/api/commerce/src/Command/OrderCommand.php', 9, 14) =]]
+[[= include_file('code_samples/api/commerce/src/Command/OrderCommand.php', 8, 14) =]]
 
 // ...
 [[= include_file('code_samples/api/commerce/src/Command/OrderCommand.php', 104, 113) =]]

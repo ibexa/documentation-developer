@@ -59,7 +59,7 @@ To create a payment method, use the `PaymentMethodService::createPaymentMethod` 
 - `options` object.
 
 ``` php
-[[= include_file('code_samples/api/commerce/src/Command/PaymentMethodCommand.php', 50, 51) =]][[= include_file('code_samples/api/commerce/src/Command/PaymentMethodCommand.php', 70, 79) =]]
+[[= include_file('code_samples/api/commerce/src/Command/PaymentMethodCommand.php', 50, 51) =]][[= include_file('code_samples/api/commerce/src/Command/PaymentMethodCommand.php', 69, 79) =]]
 ```
 
 ## Update payment method
