@@ -83,7 +83,7 @@ $(document).ready(function() {
             const versionXY = allVersions.find(v => v.textContent.trim() === latestVersionNumber);
             
             const versionXYLink = versionXY.querySelector('a');
-            versionXYLink.textContent = `${latestVersion} (latest)`;
+            versionXYLink.textContent = `${latestVersionNumber} (latest)`;
             latestVersion.remove();
 
             if (eolVersions.length > 0) {
