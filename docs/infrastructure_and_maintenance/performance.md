@@ -52,6 +52,17 @@ In production setups:
 - Always enable opcache for php-fpm/`mod_php`.
 - Prefer php-fpm and web server using it over fast-cgi for lower overall memory usage.
 
+!!! caution
+
+    To avoid deprecations when using PHP 8.2 or 8.3, [[= product_name =]] v4.6 needs an additional error handler.
+    The error handler is present by default for projects that started with 4.6.8 or later.
+    For projects that started with earlier versions, you need to add the error handler manually by running the following commands:
+
+    ``` bash
+    composer config extra.runtime.error_handler "\\Ibexa\\Contracts\\Core\\MVC\\Symfony\\ErrorHandler\\Php82HideDeprecationsErrorHandler"
+    composer dump-autoload
+    ```
+
 ### Symfony
 
 - Review the [Symfony performance documentation]([[= symfony_doc =]]/performance.html) and apply matching suggestions, including OPCache configuration if enabled.
