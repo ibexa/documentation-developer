@@ -32,6 +32,15 @@ First, run:
 
 Then execute the instructions below starting from the version you're upgrading from.
 
+!!! caution
+
+    To avoid deprecations when using PHP 8.2 or 8.3, run the following commands:
+
+    ``` bash
+    composer config extra.runtime.error_handler "\\Ibexa\\Contracts\\Core\\MVC\\Symfony\\ErrorHandler\\Php82HideDeprecationsErrorHandler"
+    composer dump-autoload
+    ```
+
 <!-- vale Ibexa.VariablesVersion = NO -->
 
 ## v4.6.1
@@ -123,12 +132,7 @@ No additional steps needed.
 
 ## v4.6.8
 
-To avoid deprecations when updating from an older PHP version to PHP 8.2 or 8.3, run the following commands:
-
-``` bash
-composer config extra.runtime.error_handler "\\Ibexa\\Contracts\\Core\\MVC\\Symfony\\ErrorHandler\\Php82HideDeprecationsErrorHandler"
-composer dump-autoload
-```
+No additional steps needed.
 
 ## v4.6.9
 
