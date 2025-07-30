@@ -2,7 +2,7 @@
 let jquery = jQuery;
 
 $(document).ready(function() {
-    const latestVersion = '5.0';
+    const latestVersionNumber = '5.0';
 
     // replace edit url
     let branchName = 'master';
@@ -80,7 +80,7 @@ $(document).ready(function() {
 
             // Merge "X.Y" and "latest" entries into "X.Y (latest)"
             const latestVersion = allVersions.find(v => v.textContent.trim() === 'latest');
-            const versionXY = allVersions.find(v => v.textContent.trim() === latestVersion);
+            const versionXY = allVersions.find(v => v.textContent.trim() === latestVersionNumber);
             
             const versionXYLink = versionXY.querySelector('a');
             versionXYLink.textContent = `${latestVersion} (latest)`;
