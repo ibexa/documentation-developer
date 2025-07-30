@@ -12,13 +12,13 @@ To access a currency object by its code, use `CurrencyServiceInterface::getCurre
 To access a whole list of currencies, use `CurrencyServiceInterface::findCurrencies`.
 
 ``` php
-[[= include_file('code_samples/api/product_catalog/src/Command/CurrencyCommand.php', 42, 50) =]]
+[[= include_file('code_samples/api/product_catalog/src/Command/CurrencyCommand.php', 34, 42) =]]
 ```
 
 To create a new currency, use `CurrencyServiceInterface::createCurrency()` and provide it with a `CurrencyCreateStruct` with code, number of fractional digits and a flag indicating if the currency is enabled:
 
 ``` php
-[[= include_file('code_samples/api/product_catalog/src/Command/CurrencyCommand.php', 57, 60) =]]
+[[= include_file('code_samples/api/product_catalog/src/Command/CurrencyCommand.php', 50, 53) =]]
 ```
 
 ## Prices
@@ -28,19 +28,19 @@ To manage prices, use `ProductPriceService`.
 To retrieve the price of a product in the currency for the current context, use `Product::getPrice()`:
 
 ``` php
-[[= include_file('code_samples/api/product_catalog/src/Command/ProductPriceCommand.php', 60, 63) =]]
+[[= include_file('code_samples/api/product_catalog/src/Command/ProductPriceCommand.php', 50, 53) =]]
 ```
 
 To retrieve the price of a product in a specific currency, use `ProductPriceService::getPriceByProductAndCurrency`:
 
 ``` php
-[[= include_file('code_samples/api/product_catalog/src/Command/ProductPriceCommand.php', 64, 67) =]]
+[[= include_file('code_samples/api/product_catalog/src/Command/ProductPriceCommand.php', 54, 57) =]]
 ```
 
 To get all prices (in different currencies) for a given product, use `ProductPriceService::findPricesByProductCode`:
 
 ``` php
-[[= include_file('code_samples/api/product_catalog/src/Command/ProductPriceCommand.php', 78, 84) =]]
+[[= include_file('code_samples/api/product_catalog/src/Command/ProductPriceCommand.php', 68, 74) =]]
 ```
 
 To load price definitions that match given criteria, use `ProductPriceServiceInterface::findPrices`:
@@ -48,14 +48,14 @@ To load price definitions that match given criteria, use `ProductPriceServiceInt
 ``` php
 [[= include_file('code_samples/api/product_catalog/src/Command/ProductPriceCommand.php', 12, 16) =]]
 // ...
-[[= include_file('code_samples/api/product_catalog/src/Command/ProductPriceCommand.php', 85, 95) =]]
+[[= include_file('code_samples/api/product_catalog/src/Command/ProductPriceCommand.php', 75, 85) =]]
 ```
 
 You can also use `ProductPriceService` to create or modify existing prices.
 For example, to create a new price for a given currency, use `ProductPriceService::createProductPrice` and provide it with a `ProductPriceCreateStruct` object:
 
 ``` php
-[[= include_file('code_samples/api/product_catalog/src/Command/ProductPriceCommand.php', 69, 75) =]]
+[[= include_file('code_samples/api/product_catalog/src/Command/ProductPriceCommand.php', 61, 65) =]]
 ```
 
 !!! note
@@ -80,7 +80,7 @@ To resolve a price of a product in the currency for the current context, use eit
 ``` php
 [[= include_file('code_samples/api/product_catalog/src/Command/ProductPriceCommand.php', 7, 8) =]][[= include_file('code_samples/api/product_catalog/src/Command/ProductPriceCommand.php', 11, 12) =]]
 // ...
-[[= include_file('code_samples/api/product_catalog/src/Command/ProductPriceCommand.php', 87, 90) =]]
+[[= include_file('code_samples/api/product_catalog/src/Command/ProductPriceCommand.php', 86, 90) =]]
 ```
 
 ## VAT

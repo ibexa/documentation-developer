@@ -80,8 +80,8 @@ $cart = $cartService->updateCartMetadata($cart, $updateMetadataStruct);
 To delete a cart permanently, use the `CartServiceInterface::deleteCart` method and pass the `CartInterface` object:
 
 ``` php
-[[= include_file('code_samples/api/commerce/src/Command/CartCommand.php', 61, 63) =]]
-[[= include_file('code_samples/api/commerce/src/Command/CartCommand.php', 122, 124) =]]
+[[= include_file('code_samples/api/commerce/src/Command/CartCommand.php', 61, 62) =]]
+[[= include_file('code_samples/api/commerce/src/Command/CartCommand.php', 122, 123) =]]
 ```
 
 ## Empty cart
@@ -135,9 +135,8 @@ To change entry metadata, use the `CartServiceInterface::updateEntry` method and
 ``` php
 [[= include_file('code_samples/api/commerce/src/Command/CartCommand.php', 12, 13) =]]
 // ...
-
 [[= include_file('code_samples/api/commerce/src/Command/CartCommand.php', 61, 62) =]]
-[[= include_file('code_samples/api/commerce/src/Command/CartCommand.php', 107, 109) =]]
+[[= include_file('code_samples/api/commerce/src/Command/CartCommand.php', 107, 108) =]]
 [[= include_file('code_samples/api/commerce/src/Command/CartCommand.php', 112, 120) =]]
 ```
 
@@ -185,5 +184,5 @@ To combine the contents of multiple shopping carts into a target cart, use the `
 This operation is helpful when you want to consolidate items from a reorder cart and a current cart into a single order.
 
 ```php
-[[= include_file('code_samples/api/commerce/src/Command/CartCommand.php', 125, 137) =]]
+[[= include_file('code_samples/api/commerce/src/Command/CartCommand.php', 124, 137) =]]
 ```

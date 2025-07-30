@@ -17,7 +17,7 @@ To access a shipping method by using its identifier, use the `ShippingMethodServ
 The method takes a string as `$identifier` parameter and uses a prioritized language from SiteAccess settings unless you pass another language as `forcedLanguage`.
 
 ``` php
-[[= include_file('code_samples/api/commerce/src/Command/ShippingMethodCommand.php', 51, 60) =]]
+[[= include_file('code_samples/api/commerce/src/Command/ShippingMethodCommand.php', 50, 60) =]]
 ```
 
 ### Get shipping method by ID
@@ -26,7 +26,7 @@ To access a shipping method by using its ID, use the `ShippingMethodServiceInter
 The method takes a string as `$id` parameter and uses a prioritized language from SiteAccess settings unless you pass another language as `forcedLanguage`.
 
 ``` php
-[[= include_file('code_samples/api/commerce/src/Command/ShippingMethodCommand.php', 39, 48) =]]
+[[= include_file('code_samples/api/commerce/src/Command/ShippingMethodCommand.php', 38, 48) =]]
 ```
 
 ## Get multiple shipping methods
