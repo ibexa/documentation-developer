@@ -657,7 +657,7 @@ The default prefix used for [SiteAccess sessions](sessions.md) has been renamed.
 
 | Old prefix | New prefix |
 |:----|:----|
-| `IBX_SESSION_ID` | `IBX_SESSION_ID` |
+| `eZSESSID` | `IBX_SESSION_ID` |
 
 ## CSS settings
 
