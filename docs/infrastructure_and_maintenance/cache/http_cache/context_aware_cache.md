@@ -75,7 +75,7 @@ It also varies on `Authorization` to cover any possible basic authorization head
             enabled: true
             hash_cache_ttl: 600
             # NOTE: These are also defined/used in AppCache, in Varnish VCL, and Fastly VCL
-            session_name_prefix: eZSESSID
+            session_name_prefix: IBX_SESSION_ID
     ```
 
 ## Personalize responses

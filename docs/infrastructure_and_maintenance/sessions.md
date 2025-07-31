@@ -33,7 +33,7 @@ ibexa:
     system:
         my_siteaccess:
             session:
-                # Default session name is eZSESSID{siteaccess_hash}
+                # Default session name is IBX_SESSION_ID{siteaccess_hash}
                 # (unique session name per SiteAccess)
                 name: my_session_name
                 # These are optional. 

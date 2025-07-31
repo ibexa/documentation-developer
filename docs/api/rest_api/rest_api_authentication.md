@@ -70,14 +70,14 @@ To create a session, execute the following REST request:
     ```
     HTTP/1.1 201 Created
     Location: /user/sessions/go327ij2cirpo59pb6rrv2a4el2
-    Set-Cookie: eZSESSID98defd6ee70dfb1dea416=go327ij2cirpo59pb6rrv2a4el2; domain=.example.net; path=/; expires=Wed, 13-Jan-2021 22:23:01 GMT; HttpOnly
+    Set-Cookie: IBX_SESSION_ID98defd6ee70dfb1dea416=go327ij2cirpo59pb6rrv2a4el2; domain=.example.net; path=/; expires=Wed, 13-Jan-2021 22:23:01 GMT; HttpOnly
     Content-Type: application/vnd.ibexa.api.Session+xml
     ```
 
     ```xml
     <?xml version="1.0" encoding="UTF-8"?>
     <Session href="/user/sessions/sessionID" media-type="application/vnd.ibexa.api.Session+xml">
-      <name>eZSESSID98defd6ee70dfb1dea416</name>
+      <name>IBX_SESSION_ID98defd6ee70dfb1dea416</name>
       <identifier>go327ij2cirpo59pb6rrv2a4el2</identifier>
       <csrfToken>23lk.neri34ijajedfw39orj-3j93</csrfToken>
       <User href="/user/users/14" media-type="vnd.ibexa.api.User+xml"/>
@@ -105,7 +105,7 @@ To create a session, execute the following REST request:
     ```
     HTTP/1.1 201 Created
     Location: /user/sessions/go327ij2cirpo59pb6rrv2a4el2
-    Set-Cookie: eZSESSID98defd6ee70dfb1dea416=go327ij2cirpo59pb6rrv2a4el2; domain=.example.net; path=/; expires=Wed, 13-Jan-2021 22:23:01 GMT; HttpOnly
+    Set-Cookie: IBX_SESSION_ID98defd6ee70dfb1dea416=go327ij2cirpo59pb6rrv2a4el2; domain=.example.net; path=/; expires=Wed, 13-Jan-2021 22:23:01 GMT; HttpOnly
     Content-Type: application/vnd.ibexa.api.Session+xml
     ```
 
@@ -114,7 +114,7 @@ To create a session, execute the following REST request:
       "Session": {
         "_media-type": "application\/vnd.ibexa.api.Session+json",
         "_href": "\/api\/ibexa\/v2\/user\/sessions\/jg1nhinvepsb9ivd10hbjbdp4l",
-        "name": "eZSESSID98defd6ee70dfb1dea416",
+        "name": "IBX_SESSION_ID98defd6ee70dfb1dea416",
         "identifier": "go327ij2cirpo59pb6rrv2a4el2",
         "csrfToken": "23lk.neri34ijajedfw39orj-3j93",
         "User": {
@@ -136,7 +136,7 @@ Logging in is similar to session creation, with one important detail: the CSRF t
     Host: www.example.net
     Accept: application/vnd.ibexa.api.Session+xml
     Content-Type: application/vnd.ibexa.api.SessionInput+xml
-    Cookie: eZSESSID98defd6ee70dfb1dea416=go327ij2cirpo59pb6rrv2a4el2
+    Cookie: IBX_SESSION_ID98defd6ee70dfb1dea416=go327ij2cirpo59pb6rrv2a4el2
     X-CSRF-Token: 23lk.neri34ijajedfw39orj-3j93
     ```
 
@@ -156,7 +156,7 @@ Logging in is similar to session creation, with one important detail: the CSRF t
     ```xml
     <?xml version="1.0" encoding="UTF-8"?>
     <Session href="user/sessions/go327ij2cirpo59pb6rrv2a4el2/refresh" media-type="application/vnd.ibexa.api.Session+xml">
-      <name>eZSESSID98defd6ee70dfb1dea416</name>
+      <name>IBX_SESSION_ID98defd6ee70dfb1dea416</name>
       <identifier>go327ij2cirpo59pb6rrv2a4el2</identifier>
       <csrfToken>23lk.neri34ijajedfw39orj-3j93</csrfToken>
       <User href="/user/users/14" media-type="vnd.ibexa.api.User+xml"/>
@@ -170,7 +170,7 @@ Logging in is similar to session creation, with one important detail: the CSRF t
     Host: www.example.net
     Accept: application/vnd.ibexa.api.Session+json
     Content-Type: application/vnd.ibexa.api.SessionInput+json
-    Cookie: eZSESSID98defd6ee70dfb1dea416=go327ij2cirpo59pb6rrv2a4el2
+    Cookie: IBX_SESSION_ID98defd6ee70dfb1dea416=go327ij2cirpo59pb6rrv2a4el2
     X-CSRF-Token: 23lk.neri34ijajedfw39orj-3j93
     ```
 
@@ -193,7 +193,7 @@ Logging in is similar to session creation, with one important detail: the CSRF t
       "Session": {
         "_media-type": "application\/vnd.ibexa.api.Session+json",
         "_href": "\/api\/ibexa\/v2\/user\/sessions\/jg1nhinvepsb9ivd10hbjbdp4l",
-        "name": "eZSESSID98defd6ee70dfb1dea416",
+        "name": "IBX_SESSION_ID98defd6ee70dfb1dea416",
         "identifier": "go327ij2cirpo59pb6rrv2a4el2",
         "csrfToken": "23lk.neri34ijajedfw39orj-3j93",
         "User": {
@@ -214,7 +214,7 @@ You can now add the previously set cookie to requests to be executed with the lo
 GET /content/locations/1/5 HTTP/1.1
 Host: www.example.net
 Accept: Accept: application/vnd.ibexa.api.Location+xml
-Cookie: eZSESSID98defd6ee70dfb1dea416=go327ij2cirpo59pb6rrv2a4el2
+Cookie: IBX_SESSION_ID98defd6ee70dfb1dea416=go327ij2cirpo59pb6rrv2a4el2
 ```
 
 ##### CSRF token
@@ -227,7 +227,7 @@ Only three built-in routes can accept unsafe methods without CSRF, the sessions 
 ```
 DELETE /content/types/32 HTTP/1.1
 Host: www.example.net
-Cookie: eZSESSID98defd6ee70dfb1dea416=go327ij2cirpo59pb6rrv2a4el2
+Cookie: IBX_SESSION_ID98defd6ee70dfb1dea416=go327ij2cirpo59pb6rrv2a4el2
 X-CSRF-Token: 23lk.neri34ijajedfw39orj-3j93
 ```
 
@@ -262,7 +262,7 @@ To log out is to `DELETE` the session using its ID (like in the cookie). As this
 ```
 DELETE /user/sessions/go327ij2cirpo59pb6rrv2a4el2 HTTP/1.1
 Host: www.example.net
-Cookie: eZSESSID98defd6ee70dfb1dea416=go327ij2cirpo59pb6rrv2a4el2
+Cookie: IBX_SESSION_ID98defd6ee70dfb1dea416=go327ij2cirpo59pb6rrv2a4el2
 X-CSRF-Token: 23lk.neri34ijajedfw39orj-3j93
 ```
 
