@@ -1,6 +1,7 @@
 ---
 month_change: false
 edition: lts-update
+description: Sort Clauses available for Action Configuration search
 ---
 
 # Action Configuration Search Sort Clauses reference

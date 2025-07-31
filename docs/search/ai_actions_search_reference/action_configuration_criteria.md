@@ -1,6 +1,7 @@
 ---
 month_change: false
 edition: lts-update
+description: Search Criterions available for Action Configuration search
 ---
 
 # Action Configuration Search Criterion reference
