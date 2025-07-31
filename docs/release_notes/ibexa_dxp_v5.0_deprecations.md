@@ -651,6 +651,13 @@ The following service definitions have been removed:
 | `ibexa.site_access.config.default.user_registration.group_id` | `ibexa.site_access.config.default.user_registration.group_remote_id` |
 | `ezpublish_http_basic` | Use `http_basic` in `security.yml` directly. |
 
+## Session prefix
+
+The default prefix used for [SiteAccess sessions](sessions.md) has been renamed.
+
+| Old prefix | New prefix |
+|:----|:----|
+| `eZSESSID` | `IBX_SESSION_ID` |
 
 ## CSS settings
 
