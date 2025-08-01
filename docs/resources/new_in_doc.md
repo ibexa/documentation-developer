@@ -12,7 +12,7 @@ This page contains recent highlights and notable changes in [[= product_name =]]
 ### v5.0.0
 
 [Ibexa DXP v5.0.0](https://doc.ibexa.co/en/latest/release_notes/ibexa_dxp_v5.0/#ibexa-dxp-v500) is available,
-accompagned by [5.0 documentation](https://doc.ibexa.co/en/5.0/).
+accompanied by [5.0 documentation](https://doc.ibexa.co/en/5.0/).
 Ibexa DXP 5.0 LTS benefits of the [Long-Term Support](https://www.ibexa.co/blog/continuous-innovation-how-ibexa-dxp-s-lifecycle-enhances-feature-delivery).
 
 See how to [update from 4.6 to 5.0](https://doc.ibexa.co/en/latest/update_and_migration/from_4.6/update_to_5.0/).
@@ -20,14 +20,14 @@ See how to [update from 4.6 to 5.0](https://doc.ibexa.co/en/latest/update_and_mi
 #### LTS Updates
 
 4.6's LTS Updates are features included out of the box in 5.0.
-The previous 4.6 installation instructions are, in 5.0, unneeded or configuration instructions.
+The previous 4.6 installation instructions are, in 5.0, unneeded or replaced by configuration instructions.
 
-| 5.0                                                                                                | 4.6                                                                                                              |
-|:---------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------------------------------------------------------|
-| [Configure AI Actions](https://doc.ibexa.co/en/5.0/ai_actions/configure_ai_actions/)               | [Install AI Actions](https://doc.ibexa.co/en/4.6/ai_actions/install_ai_actions/)                                 |
-| [Customize Discounts](https://doc.ibexa.co/en/5.0/discounts/configure_discounts/) directly         | [Install Discounts](https://doc.ibexa.co/en/4.6/discounts/install_discounts/)                                    |
-| [Date and time attributes: usage](https://doc.ibexa.co/en/5.0/pim/attributes/date_and_time/#usage) | [Date and time attributes: installation](https://doc.ibexa.co/en/4.6/pim/attributes/date_and_time/#installation) |
-| [Symbol attribute](https://doc.ibexa.co/en/5.0/pim/attributes/symbol_attribute_type/)              | Not released yet                                                                                                 |
+| 4.6                                                                                                              | 5.0                                                                                                |
+|:-----------------------------------------------------------------------------------------------------------------|:---------------------------------------------------------------------------------------------------|
+| [Install AI Actions](https://doc.ibexa.co/en/4.6/ai_actions/install_ai_actions/)                                 | [Configure AI Actions](https://doc.ibexa.co/en/5.0/ai_actions/configure_ai_actions/)               |
+| [Install Discounts](https://doc.ibexa.co/en/4.6/discounts/install_discounts/)                                    | [Customize Discounts](https://doc.ibexa.co/en/5.0/discounts/configure_discounts/) directly         |
+| [Date and time attributes: installation](https://doc.ibexa.co/en/4.6/pim/attributes/date_and_time/#installation) | [Date and time attributes: usage](https://doc.ibexa.co/en/5.0/pim/attributes/date_and_time/#usage) |
+| Not released yet                                                                                                 | [Symbol attribute](https://doc.ibexa.co/en/5.0/pim/attributes/symbol_attribute_type/)              |
 
 5.0 will have its own LTS Update to add more features in its future.
 
