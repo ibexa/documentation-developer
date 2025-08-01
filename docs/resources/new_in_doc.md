@@ -29,8 +29,6 @@ The previous 4.6 installation instructions are, in 5.0, unneeded or replaced by 
 | [Date and time attributes: installation](https://doc.ibexa.co/en/4.6/pim/attributes/date_and_time/#installation) | [Date and time attributes: usage](https://doc.ibexa.co/en/5.0/pim/attributes/date_and_time/#usage) |
 | Not released yet                                                                                                 | [Symbol attribute](https://doc.ibexa.co/en/5.0/pim/attributes/symbol_attribute_type/)              |
 
-5.0 will have its own LTS Update to add more features in its future.
-
 #### PHP API
 
 Documentation examples and [PHP API Reference](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/) have been updated for 5.0.
