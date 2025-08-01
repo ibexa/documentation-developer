@@ -27,6 +27,7 @@ The previous 4.6 installation instructions are, in 5.0, unneeded or configuratio
 | [Configure AI Actions](https://doc.ibexa.co/en/5.0/ai_actions/configure_ai_actions/)               | [Install AI Actions](https://doc.ibexa.co/en/4.6/ai_actions/install_ai_actions/)                                 |
 | [Customize Discounts](https://doc.ibexa.co/en/5.0/discounts/configure_discounts/) directly         | [Install Discounts](https://doc.ibexa.co/en/4.6/discounts/install_discounts/)                                    |
 | [Date and time attributes: usage](https://doc.ibexa.co/en/5.0/pim/attributes/date_and_time/#usage) | [Date and time attributes: installation](https://doc.ibexa.co/en/4.6/pim/attributes/date_and_time/#installation) |
+| [Symbol attribute](https://doc.ibexa.co/en/5.0/pim/attributes/symbol_attribute_type/)              | Not released yet                                                                                                 |
 
 5.0 will have its own LTS Update to add more features in its future.
 
