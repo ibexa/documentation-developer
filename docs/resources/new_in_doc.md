@@ -7,6 +7,26 @@ month_change: true
 
 This page contains recent highlights and notable changes in [[= product_name =]] documentation.
 
+## July 2025
+
+### v5.0.0
+
+[Ibexa DXP v5.0.0](ibexa_dxp_v5.0.md#ibexa-dxp-v500) is out!
+So, the [Ibexa DXP 5.0 LTS documentation](https://doc.ibexa.co/en/5.0/) is available as well.
+Yes, [5.0 is an LTS](https://www.ibexa.co/blog/continuous-innovation-how-ibexa-dxp-s-lifecycle-enhances-feature-delivery)!
+
+See how to [update from 4.6 to 5.0](update_to_5.0.md).
+Documentation examples have been updated for 5.0.
+You can use `ibexa/rector` package to help yourself update your custom PHP and JS code.
+And consult the [Ibexa DXP v5.0 renames, deprecations and removals](ibexa_dxp_v5.0_deprecations.md).
+
+#### REST API Reference
+
+The [5.0's REST API Reference](/api/rest_api/rest_api_reference/rest_api_reference.html) layout changed.
+As [Ibexa DXP 5.0 is OpenAPI compliant](rest_api_usage.md#openapi-support),
+the specification outputed by the platform is passed to [Redocly CLI](https://redocly.com/docs/cli) to generate the online reference.
+You can also consult the documentation directly on your development installations at `/api/ibexa/v2/doc`.
+
 ## June 2025
 
 ### Security
