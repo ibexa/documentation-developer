@@ -11,11 +11,11 @@ This page contains recent highlights and notable changes in [[= product_name =]]
 
 ### v5.0.0
 
-[Ibexa DXP v5.0.0](https://doc.ibexa.co/en/latest/release_notes/ibexa_dxp_v5.0/#ibexa-dxp-v500) is available,
+[Ibexa DXP v5.0.0](https://doc.ibexa.co/en/5.0/release_notes/ibexa_dxp_v5.0/#ibexa-dxp-v500) is available,
 accompanied by [5.0 documentation](https://doc.ibexa.co/en/5.0/).
 Ibexa DXP 5.0 LTS benefits of the [Long-Term Support](https://www.ibexa.co/blog/continuous-innovation-how-ibexa-dxp-s-lifecycle-enhances-feature-delivery).
 
-See how to [update from 4.6 to 5.0](https://doc.ibexa.co/en/latest/update_and_migration/from_4.6/update_to_5.0/).
+See how to [update from 4.6 to 5.0](https://doc.ibexa.co/en/5.0/update_and_migration/from_4.6/update_to_5.0/).
 
 #### LTS Updates
 
