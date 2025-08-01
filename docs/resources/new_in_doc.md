@@ -35,6 +35,10 @@ Documentation examples and [PHP API Reference](https://doc.ibexa.co/en/5.0/api/p
 You can use [`ibexa/rector`](https://github.com/ibexa/rector#readme) package to help yourself maintain your custom PHP code quality.
 And consult the [Ibexa DXP v5.0 renames, deprecations and removals](https://doc.ibexa.co/en/5.0/release_notes/ibexa_dxp_v5.0_deprecations/).
 
+Major addition to the PHP API Reference is the [collaboration framework](https://doc.ibexa.co/en/5.0/release_notes/ibexa_dxp_v5.0/#collaboration)'s
+[`Ibexa\Contracts\Collaboration`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/namespaces/ibexa-contracts-collaboration.html)
+and [`Ibexa\Contracts\Share`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/namespaces/ibexa-contracts-share.html) namespaces.
+
 #### REST API
 
 The [5.0's REST API Reference](https://doc.ibexa.co/en/5.0/api/rest_api/rest_api_reference/rest_api_reference.html) layout changed.
