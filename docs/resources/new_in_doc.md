@@ -19,15 +19,21 @@ See how to [update from 4.6 to 5.0](https://doc.ibexa.co/en/latest/update_and_mi
 
 #### LTS Updates
 
-4.6's LTS Updates are included out of the box in 5.0.
-The previous 4.6 installation pages for […TODO: list features…] are configuration pages in 5.0.
+4.6's LTS Updates are features included out of the box in 5.0.
+The previous 4.6 installation instructions are, in 5.0, unneeded or configuration instructions.
+
+| 5.0                                                                                                | 4.6                                                                                                              |
+|:---------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------------------------------------------------------|
+| [Configure AI Actions](https://doc.ibexa.co/en/5.0/ai_actions/configure_ai_actions/)               | [Install AI Actions](https://doc.ibexa.co/en/4.6/ai_actions/install_ai_actions/)                                 |
+| [Customize Discounts](https://doc.ibexa.co/en/5.0/discounts/configure_discounts/) directly         | [Install Discounts](https://doc.ibexa.co/en/4.6/discounts/install_discounts/)                                    |
+| [Date and time attributes: usage](https://doc.ibexa.co/en/5.0/pim/attributes/date_and_time/#usage) | [Date and time attributes: installation](https://doc.ibexa.co/en/4.6/pim/attributes/date_and_time/#installation) |
 
 5.0 will have its own LTS Update to add more features in its future.
 
 #### PHP API
 
 Documentation examples and [PHP API Reference](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/) have been updated for 5.0.
-You can use [`ibexa/rector`](https://github.com/ibexa/rector?tab=readme-ov-file) package to help yourself update your custom PHP and JS code.
+You can use [`ibexa/rector`](https://github.com/ibexa/rector#readme) package to help yourself update your custom PHP and JS code.
 And consult the [Ibexa DXP v5.0 renames, deprecations and removals](https://doc.ibexa.co/en/5.0/release_notes/ibexa_dxp_v5.0_deprecations/).
 
 #### REST API
@@ -36,7 +42,6 @@ The [5.0's REST API Reference](https://doc.ibexa.co/en/5.0/api/rest_api/rest_api
 As [Ibexa DXP 5.0 is OpenAPI compliant](https://doc.ibexa.co/en/5.0/api/rest_api/rest_api_usage/#openapi-support),
 the specification output from the platform is passed to [Redocly CLI](https://redocly.com/docs/cli) to generate the online reference.
 You can also consult the documentation directly on your development installations at `/api/ibexa/v2/doc`.
-
 
 ## June 2025
 
