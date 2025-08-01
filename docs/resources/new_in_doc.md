@@ -32,7 +32,7 @@ The previous 4.6 installation instructions are, in 5.0, unneeded or replaced by 
 #### PHP API
 
 Documentation examples and [PHP API Reference](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/) have been updated for 5.0.
-You can use [`ibexa/rector`](https://github.com/ibexa/rector#readme) package to help yourself update your custom PHP and JS code.
+You can use [`ibexa/rector`](https://github.com/ibexa/rector#readme) package to help yourself maintain your custom PHP code quality.
 And consult the [Ibexa DXP v5.0 renames, deprecations and removals](https://doc.ibexa.co/en/5.0/release_notes/ibexa_dxp_v5.0_deprecations/).
 
 #### REST API
