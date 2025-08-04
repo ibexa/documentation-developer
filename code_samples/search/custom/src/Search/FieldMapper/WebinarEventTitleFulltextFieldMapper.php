@@ -14,13 +14,13 @@ class WebinarEventTitleFulltextFieldMapper extends ContentFieldMapper
     {
     }
 
-    public function accept(Content $content)
+    public function accept(Content $content): bool
     {
         // ContentType with ID 42 is webinar event
         return $content->versionInfo->contentInfo->contentTypeId == 42;
     }
 
-    public function mapFields(Content $content)
+    public function mapFields(Content $content): array
     {
         $mainLocationId = $content->versionInfo->contentInfo->mainLocationId;
         $location = $this->locationHandler->load($mainLocationId);
