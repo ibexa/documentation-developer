@@ -374,7 +374,22 @@ Run the following scripts:
 
 ## v4.6.22
 
-No additional steps needed.
+### Added support for Solr 9
+
+This release adds support for [Solr 9](https://solr.apache.org/guide/solr/latest/upgrade-notes/major-changes-in-solr-9.html).
+
+To update Solr within an existing [[= product_name =]] project, first refer to the [Solr 9 upgrade planning](https://solr.apache.org/guide/solr/latest/upgrade-notes/major-changes-in-solr-9.html) instruction.
+
+Then, perform the following additional actions:
+
+1. Adjust the configuration files:
+
+    - rename the `schema.xml` configuration file to [`managed-schema.xml`](https://solr.apache.org/guide/solr/latest/upgrade-notes/major-changes-in-solr-6.html#managed-schema-is-now-the-default)
+    - replace the contents of `custom-field-types.xml` [with the new content](https://github.com/ibexa/solr/blob/v4.6.22/src/lib/Resources/config/solr/custom-fields-types-solr9.xml), replacing the [removed `LatLonType` with the `LatLonPointSpatialField` field](https://solr.apache.org/guide/solr/latest/upgrade-notes/major-changes-in-solr-7.html#deprecations-and-removed-features)
+
+1. Configure the [Solr version in the project](install_solr.md#configure-solr-version).
+
+1. Finish the update by [refreshing the search index](reindex_search.md).
 
 [[% include 'snippets/update/notify_support.md' %]]
 
