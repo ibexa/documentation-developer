@@ -459,7 +459,7 @@ Support for facets in `ibexa/elasticsearch` has been dropped, use the `Aggregati
 | `\Ibexa\Rest\Server\Controller\User::refreshSession` | `\Ibexa\Rest\Server\Controller\SessionController::refreshSessionAction` |
 | `\Ibexa\Rest\Server\Controller\User::deleteSession` | `\Ibexa\Rest\Server\Controller\SessionController::refreshSessionAction` |
 
-### ibexa/ibexa/scheduler
+### ibexa/scheduler
 
 | Old FQN                                              | New FQN / Comment                                                                |
 |:------------------------------------------------------|:------------------------------------------------------------------------|
