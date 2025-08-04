@@ -25,11 +25,11 @@ class CreateContentTypeCommand
     }
 
     public function __invoke(
+        OutputInterface $output,
         #[Argument(description: 'Content type identifier')] string $identifier,
         #[Argument(description: 'Content type group identifier')] string $group_identifier,
         #[Argument(description: 'Identifier of the CT copy')] ?string $copy_identifier,
-        #[Option(shortcut: 'c', description: 'Do you want to make a copy of the content type?')] bool $copy,
-        OutputInterface $output
+        #[Option(shortcut: 'c', description: 'Do you want to make a copy of the content type?')] bool $copy = false
     ): int {
         $user = $this->userService->loadUserByLogin('admin');
         $this->permissionResolver->setCurrentUserReference($user);

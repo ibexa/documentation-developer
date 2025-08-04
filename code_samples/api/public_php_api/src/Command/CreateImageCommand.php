@@ -29,10 +29,10 @@ class CreateImageCommand
     }
 
     public function __invoke(
+        OutputInterface $output,
         #[Argument(description: 'Content for the Name field')] string $name,
         #[Argument(description: 'Content for the Image field')] string $file,
-        #[Option(shortcut: 'p', description: 'Do you want to publish the content item?')] bool $publish,
-        OutputInterface $output
+        #[Option(shortcut: 'p', description: 'Do you want to publish the content item?')] bool $publish = true
     ): int {
         $user = $this->userService->loadUserByLogin('admin');
         $this->permissionResolver->setCurrentUserReference($user);

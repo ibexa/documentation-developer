@@ -20,9 +20,9 @@ class BookmarkCommand
     }
 
     public function __invoke(
+        OutputInterface $output,
         #[Argument(description: 'Location id')] int $locationId,
-        #[Option(shortcut: 'd', description: 'Delete the created bookmark?')] bool $delete,
-        OutputInterface $output
+        #[Option(shortcut: 'd', description: 'Delete the created bookmark?')] bool $delete = false
     ): int {
         $location = $this->locationService->loadLocation($locationId);
 

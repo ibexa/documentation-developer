@@ -28,11 +28,11 @@ class CreateContentCommand
     }
 
     public function __invoke(
+        OutputInterface $output,
         #[Argument(description: 'Parent Location ID')] int $parentLocationId,
         #[Argument(description: 'Identifier of a content type with a Name and Description Field')] string $contentType,
         #[Argument(description: 'Content for the Name field')] string $name,
-        #[Option(shortcut: 'p', description: 'Do you want to publish the content item?')] bool $publish,
-        OutputInterface $output
+        #[Option(shortcut: 'p', description: 'Do you want to publish the content item?')] bool $publish = true
     ): int {
         $user = $this->userService->loadUserByLogin('admin');
         $this->permissionResolver->setCurrentUserReference($user);

@@ -26,10 +26,10 @@ class TrashContentCommand
     }
 
     public function __invoke(
+        OutputInterface $output,
         #[Argument(description: 'Location to trash')] int $locationId,
         #[Argument(description: 'New Location to restore under')] ?int $newParentId,
-        #[Option(shortcut: 'r', description: 'Do you want to restore the content item?')] bool $restore,
-        OutputInterface $output
+        #[Option(shortcut: 'r', description: 'Do you want to restore the content item?')] bool $restore = false
     ): int {
         $user = $this->userService->loadUserByLogin('admin');
         $this->permissionResolver->setCurrentUserReference($user);

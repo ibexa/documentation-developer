@@ -19,19 +19,17 @@ class ViewCommand
     }
 
     public function __invoke(
-        #[Option] int $content_id,
-        #[Option] int $location_id,
-        #[Option] string $view_type,
-        OutputInterface $output
+        OutputInterface $output,
+        #[Option(name: 'content_id')] int $contentId = 52,
+        #[Option(name: 'location_id')] int $locationId = 2,
+        #[Option(name: 'view_type')] string $viewType = 'embed'
     ): int {
-        $contentId = $content_id;
-        $locationId = $location_id;
         if (empty($contentId) && empty($locationId)) {
             throw new \InvalidArgumentException('No Content ID nor Location ID given');
         }
 
         $viewParameters = [
-            'viewType' => $view_type,
+            'viewType' => $viewType,
             '_controller' => 'ibexa_content:viewAction',
         ];
 
