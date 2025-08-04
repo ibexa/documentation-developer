@@ -19,8 +19,8 @@ See how to [update from 4.6 to 5.0](https://doc.ibexa.co/en/5.0/update_and_migra
 
 #### LTS Updates
 
-4.6's LTS Updates are features included out of the box in 5.0.
-The previous 4.6 installation instructions are, in 5.0, unneeded or replaced by configuration instructions.
+LTS Updates from v4.6 are included out of the box in v5.0 as features.
+Installation instructions for v4.6 are not needed in v5.0, or replaced by configuration instructions.
 
 | 4.6                                                                                                              | 5.0                                                                                                |
 |:-----------------------------------------------------------------------------------------------------------------|:---------------------------------------------------------------------------------------------------|
@@ -31,20 +31,17 @@ The previous 4.6 installation instructions are, in 5.0, unneeded or replaced by 
 
 #### PHP API
 
-Documentation examples and [PHP API Reference](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/) have been updated for 5.0.
-You can use [`ibexa/rector`](https://github.com/ibexa/rector#readme) package to help yourself maintain your custom PHP code quality.
+Documentation examples and [PHP API Reference](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/) have been updated for v5.0.
+You can use [`ibexa/rector`](https://github.com/ibexa/rector#readme) package that allows to maintain your custom PHP code quality.
 And consult the [Ibexa DXP v5.0 renames, deprecations and removals](https://doc.ibexa.co/en/5.0/release_notes/ibexa_dxp_v5.0_deprecations/).
 
-Major addition to the PHP API Reference is the [collaboration framework](https://doc.ibexa.co/en/5.0/release_notes/ibexa_dxp_v5.0/#collaboration)'s
-[`Ibexa\Contracts\Collaboration`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/namespaces/ibexa-contracts-collaboration.html)
-and [`Ibexa\Contracts\Share`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/namespaces/ibexa-contracts-share.html) namespaces.
+Major addition to the PHP API Reference  are [`Ibexa\Contracts\Collaboration`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/namespaces/ibexa-contracts-collaboration.html [collaboration framework](https://doc.ibexa.co/en/5.0/release_notes/ibexa_dxp_v5.0/#collaboration) and [`Ibexa\Contracts\Share`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/namespaces/ibexa-contracts-share.html) namespaces.
 
 #### REST API
 
-The [5.0's REST API Reference](https://doc.ibexa.co/en/5.0/api/rest_api/rest_api_reference/rest_api_reference.html) layout changed.
-As [Ibexa DXP 5.0 is OpenAPI compliant](https://doc.ibexa.co/en/5.0/api/rest_api/rest_api_usage/#openapi-support),
-the specification output from the platform is passed to [Redocly CLI](https://redocly.com/docs/cli) to generate the online reference.
-You can also consult the documentation directly on your development installations at `/api/ibexa/v2/doc`.
+Layout for [v5.0 REST API Reference](https://doc.ibexa.co/en/5.0/api/rest_api/rest_api_reference/rest_api_reference.html) is now changed.
+As [Ibexa DXP 5.0 is OpenAPI compliant](https://doc.ibexa.co/en/5.0/api/rest_api/rest_api_usage/#openapi-support), the specification output from the platform is passed to [Redocly CLI](https://redocly.com/docs/cli) to generate the online reference.
+You can also check the documentation directly on your development installations at `/api/ibexa/v2/doc`.
 
 ## June 2025
 
