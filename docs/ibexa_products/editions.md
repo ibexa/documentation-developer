@@ -65,3 +65,4 @@ The features brought by LTS Updates become standard parts of the next LTS releas
 | [AI Actions](ai_actions_guide.md) | &#10004; | &#10004; | &#10004; |
 | [Date and time attribute type](date_and_time.md) | &#10004; | &#10004; | &#10004; |
 | [Discounts](discounts.md) | | | &#10004; |
+| [Symbol attribute type](symbol_attribute_type.md) | &#10004; | &#10004; | &#10004; |
