@@ -251,7 +251,7 @@ For production setups it's recommended that you use Varnish/Fastly, Redis, NFS/E
     - ImageMagick
     - GD
 
-    Optionally if you intend to edit [PNG, SVG, GIF or WEBP files in the Image Editor](images.md#image-optimization), or use it with image variations:
+    Optionally, if you intend to edit [PNG, SVG, GIF or WEBP files in the Image Editor](images.md#image-optimization), or use it with image variations:
 
     - JpegOptim
     - Optipng
@@ -379,7 +379,7 @@ For production setups it's recommended that you use Varnish/Fastly, Redis, NFS/E
 === "[[= product_name =]] v5.0"
 
     [[= product_name =]] is developed to work with *any* web browser that supports modern standards, on *any* screen resolution suitable for web, running on *any* device.
-    However for the Editorial and Administration User Interfaces you need: a minimum of 1366-by-768 screen resolution, a desktop or tablet device, and a recommended/supported browser among the ones found below.
+    However, for the Editorial and Administration User Interfaces, you need: a minimum of 1366-by-768 screen resolution, a desktop or tablet device, and a recommended/supported browser among the ones found below.
 
     - Mozilla® Firefox® most recent stable version (recommended)
     - Google Chrome™ most recent stable version (recommended)

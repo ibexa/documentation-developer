@@ -13,7 +13,8 @@ For configuring Solr in other ways, including examples, see [Solr Cores and `sol
 
 !!! note "Solr versions"
 
-    Supported Solr versions are Solr 7, 8 and 9. Using the most recent version of Solr is recommended.
+    Supported Solr versions are Solr 7, 8 and 9.
+    Using the most recent version of Solr is recommended.
 
 Download and extract Solr:
 

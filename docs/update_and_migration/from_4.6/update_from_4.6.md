@@ -388,12 +388,12 @@ Then, follow the [instructions for setting up Solr 9 with [[= product_name =]]](
 
 Changes include:
 
-1. Configuration files changes
+1. Configuration files
 
     - the `schema.xml` configuration file became [`managed-schema.xml`](https://solr.apache.org/guide/solr/latest/upgrade-notes/major-changes-in-solr-6.html#managed-schema-is-now-the-default)
     - the [removed `LatLonType` field is replaced by the `LatLonPointSpatialField` field](https://solr.apache.org/guide/solr/latest/upgrade-notes/major-changes-in-solr-7.html#deprecations-and-removed-features)
 
-1. New [Solr version parameter](install_solr.md#configure-solr-version)
+2. New [Solr version parameter](install_solr.md#configure-solr-version)
 
 Once Solr 9 is fully configured, [refresh the search index](reindex_search.md).
 
