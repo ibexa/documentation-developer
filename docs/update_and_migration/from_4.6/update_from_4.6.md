@@ -376,9 +376,10 @@ Run the following scripts:
     psql <database_name> < vendor/ibexa/installer/upgrade/db/postgresql/ibexa-4.6.20-to-4.6.21.sql
     ```
 
-## v4.6.22 [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
+## v4.6.22
 
-### Set character set for activity log tables
+### Set character set for activity log tables [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
+
 When using MySQL or MariaDB, run the following script to ensure correct character set for activity log tables:
 
 === "MySQL"
