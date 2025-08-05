@@ -10,6 +10,43 @@ month_change: true
 
 <div class="release-notes" markdown="1">
 
+[[% set version = 'v4.6.22' %]]
+[[= release_note_entry_begin("Discounts " + version, 'TODO', ['LTS Update', 'Commerce']) =]]
+
+#### Global discount codes limits
+
+- You can now [limit the number of times](discounts_guide.md#discount-codes) a discount code can be used before it expires. The discounts created before this release are set to unlimited global usage
+
+#### Discount codes prioritization
+
+- Discounts with discount codes now have priority over the other discounts
+
+#### Discount codes migrations
+
+- You can now create discount codes using [data migrations](importing_data.md#discount-codes).
+
+#### PHP API
+
+The PHP API has been enhanced with the following new classes:
+
+- TODO
+
+[[= release_note_entry_end() =]]
+[[= release_note_entry_begin("Ibexa DXP " + version, 'TODO', ['Headless', 'Experience', 'Commerce']) =]]
+
+#### TODO
+
+#### PHP API
+
+The PHP API has been enhanced with the following new classes:
+
+- TODO
+
+#### Full changelog
+
+[[% include 'snippets/release_46.md' %]]
+[[= release_note_entry_end() =]]
+
 [[% set version = 'v4.6.21' %]]
 
 [[= release_note_entry_begin("Discounts " + version, '2025-06-11', ['LTS Update', 'Commerce']) =]]
