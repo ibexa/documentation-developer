@@ -376,7 +376,7 @@ Run the following scripts:
 
 ### Added support for Solr 9
 
-This release adds support for [Solr 9](https://solr.apache.org/guide/solr/latest/upgrade-notes/major-changes-in-solr-9.html).
+This release adds support for [Solr 9](requirements.md#search).
 
 To update Solr within an existing [[= product_name =]] project, first refer to the [Solr 9 upgrade planning](https://solr.apache.org/guide/solr/latest/upgrade-notes/major-changes-in-solr-9.html) instruction.
 
