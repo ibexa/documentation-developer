@@ -838,3 +838,7 @@ children(first: 3, after: "YXJyYXljb25uZWN0aW9uOjM=")
 ### Get Matrix field type
 
 To get a Matrix field type with GraphQL, see [Matrix field type reference](matrixfield.md).
+
+### Enable pagination for RelationList field type
+
+To learn how to enable pagination for RelationList field type, see the [RelationList field type reference](relationlistfield.md).

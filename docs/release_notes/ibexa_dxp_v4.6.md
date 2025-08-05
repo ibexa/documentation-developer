@@ -11,7 +11,7 @@ month_change: true
 <div class="release-notes" markdown="1">
 
 [[% set version = 'v4.6.22' %]]
-[[= release_note_entry_begin("Discounts " + version, 'TODO', ['LTS Update', 'Commerce']) =]]
+[[= release_note_entry_begin("Discounts " + version, '2025-08-05', ['LTS Update', 'Commerce']) =]]
 
 #### Global discount codes limits
 
@@ -32,9 +32,40 @@ The PHP API has been enhanced with the following new classes:
 - TODO
 
 [[= release_note_entry_end() =]]
-[[= release_note_entry_begin("Ibexa DXP " + version, 'TODO', ['Headless', 'Experience', 'Commerce']) =]]
+[[= release_note_entry_begin("Ibexa DXP " + version, '2025-08-05', ['Headless', 'Experience', 'Commerce', 'New feature']) =]]
 
-#### TODO
+#### Special characters in online editor
+
+The [online editor](online_editor_guide.md) now allows to easily enter special characters like currency symbols.
+It uses the [special characters plugin](https://ckeditor.com/docs/ckeditor5/latest/features/special-characters.html),
+
+![Special characters in online editor](4.6_special_characters.png "Special characters in online editor")
+
+#### Pagination for ezobjectrelationlist in GraphQL
+
+To improve performance and gain greater control over the returned responses from the [GraphQL API](graphql.md), you can now [enable pagination](relationlistfield.md#enable-pagination-in-graphql) of relations specified using the Relationlist field type.
+
+#### Taxonomy Subtree limitation
+
+You can now more effectively manage access to [taxonomy items](taxonomy.md) by using the new [Taxonomy Subtree limitation](limitation_reference.md#taxonomy-subtree-limitation).
+
+#### Twig Components
+
+With the latest changes to [Twig Components](components.md), you can:
+
+- set component priority when using YAML configuration
+- render a menu with help of the new Menu component
+
+The list of built-in Twig Component groups has been expanded and includes:
+
+- one new group for the [back office](custom_components.md) (`admin-ui-versions-table-before`)
+- four new groups for [storefront](custommize_storefront_layout.md#customize-with-twig-components)
+
+#### Improved content creation interface
+
+The editing interface of the back office has been improved to better highlight the language, creator, and the publication date when working with content items.
+
+![Improved interface for content creation](4.6_improved_editing.png "Improved interface for content creation")
 
 #### Breaking changes
 
