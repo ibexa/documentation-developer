@@ -378,18 +378,20 @@ Run the following scripts:
 
 This release adds support for [Solr 9](requirements.md#search).
 
-To update Solr within an existing [[= product_name =]] project, first refer to the [Solr 9 upgrade planning](https://solr.apache.org/guide/solr/latest/upgrade-notes/major-changes-in-solr-9.html) instruction.
+To update Solr within an existing [[= product_name =]] project, first refer to the [Solr 9 upgrade planning](https://solr.apache.org/guide/solr/latest/upgrade-notes/major-changes-in-solr-9.html) instructions.
 
-Then, perform the following additional actions:
+Then, follow the [instructions for setting up Solr 9 with [[= product_name =]]](/search/search_engines/solr_search_engine/install_solr.md#configure-and-start-solr) and merge them with your custom configuration.
 
-1. Adjust the configuration files:
+Changes include:
 
-    - rename the `schema.xml` configuration file to [`managed-schema.xml`](https://solr.apache.org/guide/solr/latest/upgrade-notes/major-changes-in-solr-6.html#managed-schema-is-now-the-default)
-    - replace the contents of `custom-field-types.xml` [with the new content](https://github.com/ibexa/solr/blob/v4.6.22/src/lib/Resources/config/solr/custom-fields-types-solr9.xml), replacing the [removed `LatLonType` with the `LatLonPointSpatialField` field](https://solr.apache.org/guide/solr/latest/upgrade-notes/major-changes-in-solr-7.html#deprecations-and-removed-features)
+1. Configuration files changes
 
-1. Configure the [Solr version in the project](install_solr.md#configure-solr-version).
+    - the `schema.xml` configuration file became [`managed-schema.xml`](https://solr.apache.org/guide/solr/latest/upgrade-notes/major-changes-in-solr-6.html#managed-schema-is-now-the-default)
+    - the [removed `LatLonType` field is replaced by the `LatLonPointSpatialField` field](https://solr.apache.org/guide/solr/latest/upgrade-notes/major-changes-in-solr-7.html#deprecations-and-removed-features)
 
-1. Finish the update by [refreshing the search index](reindex_search.md).
+1. New [Solr version parameter](install_solr.md#configure-solr-version)
+
+Once Solr 9 is fully configured, [refresh the search index](reindex_search.md).
 
 [[% include 'snippets/update/notify_support.md' %]]
 
