@@ -1,0 +1,7 @@
+type: discount_code
+mode: create
+code: summer10
+global_usage_limit: 100 # Optional
+user_usage_limit: 5 # Optional
+created_at: '2023-01-01T12:00:00+00:00' # Optional
+creator_id: 42 # Optional

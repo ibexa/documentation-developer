@@ -376,6 +376,10 @@ Run the following scripts:
     psql <database_name> < vendor/ibexa/installer/upgrade/db/postgresql/ibexa-4.6.20-to-4.6.21.sql
     ```
 
+## v4.6.22
+
+No additional steps needed.
+
 [[% include 'snippets/update/notify_support.md' %]]
 
 With the product updated to the latest version, you can now finish the update process or proceed to updating the LTS Updates packages.
@@ -395,16 +399,16 @@ To use the [latest features](ibexa_dxp_v4.6.md) added to them, update them separ
 
     Then apply manually the changes described below.
 
-    ## 4.6.20
+    ### Discounts v4.6.20
 
-    ### Policy changes
+    #### Policy changes
 
     The `discount/view` policy is no longer required for the store customers to use a discount and must be removed from all users who are not managing discounts.
     The policy allows to access all the discount details, including the coupon codes to activate them, which could lead to system abuse.
 
     To learn more, see the [discounts policies overview](policies.md#discounts).
 
-    ### Database update
+    #### Database update
 
     Run the following scripts:
 
@@ -524,6 +528,28 @@ To use the [latest features](ibexa_dxp_v4.6.md) added to them, update them separ
         ALTER TABLE ibexa_discount_code_usage_user
             ADD CONSTRAINT ibexa_discount_code_usage_user_content_fk FOREIGN KEY (user_id)
                 REFERENCES ezuser (contentobject_id) ON UPDATE CASCADE ON DELETE CASCADE NOT DEFERRABLE INITIALLY IMMEDIATE;
+        ```
+
+    ### Discounts v4.6.22
+
+    #### Database update
+
+    Run the following scripts:
+
+    === "MySQL"
+
+        ``` sql
+        ALTER TABLE ibexa_discount ADD override_prioritization tinyint(1) NOT NULL DEFAULT 0;
+        CREATE INDEX ibexa_discount_prioritization_idx ON ibexa_discount (override_prioritization, type, priority);
+        ALTER TABLE ibexa_discount_code ADD global_limit INT DEFAULT NULL;
+        ```
+
+    === "PostgreSQL"
+
+        ``` sql
+        ALTER TABLE ibexa_discount ADD override_prioritization tinyint(1) NOT NULL DEFAULT 0;
+        CREATE INDEX ibexa_discount_prioritization_idx ON ibexa_discount (override_prioritization, type, priority);
+        ALTER TABLE ibexa_discount_code ADD global_limit INT DEFAULT NULL;
         ```
 
 === "AI actions"
