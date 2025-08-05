@@ -34,12 +34,12 @@ Documentation examples and [PHP API Reference](https://doc.ibexa.co/en/5.0/api/p
 You can use [`ibexa/rector`](https://github.com/ibexa/rector#readme) package that allows to maintain your custom PHP code quality.
 Consult the [Ibexa DXP v5.0 renames, deprecations and removals](https://doc.ibexa.co/en/5.0/release_notes/ibexa_dxp_v5.0_deprecations/) to learn more about the changes.
 
-Major addition to the PHP API Reference  are [`Ibexa\Contracts\Collaboration`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/namespaces/ibexa-contracts-collaboration.html [collaboration framework](https://doc.ibexa.co/en/5.0/release_notes/ibexa_dxp_v5.0/#collaboration) and [`Ibexa\Contracts\Share`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/namespaces/ibexa-contracts-share.html) namespaces.
+Major additions to the PHP API Reference are [`Ibexa\Contracts\Collaboration`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/namespaces/ibexa-contracts-collaboration.html) and [`Ibexa\Contracts\Share`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/namespaces/ibexa-contracts-share.html) namespaces, the bulding blocks for the [collaboration framework](https://doc.ibexa.co/en/5.0/release_notes/ibexa_dxp_v5.0/#collaboration).
 
 #### REST API
 
 Layout for [v5.0 REST API Reference](https://doc.ibexa.co/en/5.0/api/rest_api/rest_api_reference/rest_api_reference.html) is now changed.
-As [Ibexa DXP 5.0 is OpenAPI compliant](https://doc.ibexa.co/en/5.0/api/rest_api/rest_api_usage/#openapi-support), the specification output from the platform is passed to [Redocly CLI](https://redocly.com/docs/cli) to generate the online reference.
+As [Ibexa DXP 5.0 is OpenAPI compliant](https://doc.ibexa.co/en/5.0/api/rest_api/rest_api_usage/#openapi-support), the specification output is used to generate the online reference.
 You can also check the documentation directly on your development installations at `/api/ibexa/v2/doc`.
 
 ## June 2025
