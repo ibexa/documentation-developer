@@ -267,7 +267,7 @@ Your `auto-scripts` entry should look like this:
             "cache:clear": "symfony-cmd",
             "assets:install %PUBLIC_DIR%": "symfony-cmd",
             "yarn install": "script",
-            "yarn ibexa-generate-tsconfig --relative-paths": "script",
+            "yarn ibexa-generate-tsconfig --use-relative-paths": "script",
             "ibexa:encore:compile --config-name app": "symfony-cmd",
             "bazinga:js-translation:dump %PUBLIC_DIR%/assets --merge-domains": "symfony-cmd",
             "ibexa:encore:compile": "symfony-cmd",
@@ -303,6 +303,22 @@ The main schema has changed and the provided SQL file `ibexa-4.6.latest-to-5.0.0
     ```bash
     psql <database_name> < vendor/ibexa/installer/upgrade/db/postgresql/ibexa-4.6.latest-to-5.0.0.sql
     ```
+
+??? note "Ibexa Open Source"
+
+    If you don't have access to [[= product_name =]]'s `ibexa/installer` package, apply the following database update:
+
+    === "MySQL"
+
+        ``` sql
+        [[= include_file('docs/update_and_migration/from_4.6/sql/ibexa_oss_4.6.latest-to-5.0.0_mysql.sql', glue="        ") =]]
+        ```
+
+    === "PostgreSQL"
+
+        ``` sql
+        [[= include_file('docs/update_and_migration/from_4.6/sql/ibexa_oss_4.6.latest-to-5.0.0_postgresql.sql', glue="        ") =]]
+        ```
 
 As this script targets all editions, on editions lower than Commerce you may encounter errors about missing tables which can safely be ignored.
 
