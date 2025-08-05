@@ -36,6 +36,10 @@ The PHP API has been enhanced with the following new classes:
 
 #### TODO
 
+#### Breaking changes
+
+- The `Ibexa\FieldTypeRichText\RichText\Validator\CustomTagsValidator` class has been renamed to `Ibexa\FieldTypeRichText\RichText\Validator\CustomTemplateValidator`, expanding its responsibility to validate both [custom tags](extend_online_editor.md# configure-custom-tags) and [custom styles](extend_online_editor.md#configure-custom-styles)
+
 #### PHP API
 
 The PHP API has been enhanced with the following new classes:
