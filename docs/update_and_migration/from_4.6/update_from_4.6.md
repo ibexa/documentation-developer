@@ -32,6 +32,15 @@ First, run:
 
 Then execute the instructions below starting from the version you're upgrading from.
 
+!!! caution
+
+    To avoid deprecations when using PHP 8.2 or 8.3, run the following commands:
+
+    ``` bash
+    composer config extra.runtime.error_handler "\\Ibexa\\Contracts\\Core\\MVC\\Symfony\\ErrorHandler\\Php82HideDeprecationsErrorHandler"
+    composer dump-autoload
+    ```
+
 <!-- vale Ibexa.VariablesVersion = NO -->
 
 ## v4.6.1
@@ -123,12 +132,7 @@ No additional steps needed.
 
 ## v4.6.8
 
-To avoid deprecations when updating from an older PHP version to PHP 8.2 or 8.3, run the following commands:
-
-``` bash
-composer config extra.runtime.error_handler "\\Ibexa\\Contracts\\Core\\MVC\\Symfony\\ErrorHandler\\Php82HideDeprecationsErrorHandler"
-composer dump-autoload
-```
+No additional steps needed.
 
 ## v4.6.9
 
@@ -392,6 +396,16 @@ Changes include:
 1. New [Solr version parameter](install_solr.md#configure-solr-version)
 
 Once Solr 9 is fully configured, [refresh the search index](reindex_search.md).
+
+### Set character set for activity log tables [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
+
+When using MySQL or MariaDB, run the following script to ensure correct character set for activity log tables:
+
+=== "MySQL"
+
+    ``` bash
+    mysql -u <username> -p <password> <database_name> < vendor/ibexa/installer/upgrade/db/mysql/ibexa-4.6.21-to-4.6.22.sql
+    ```
 
 [[% include 'snippets/update/notify_support.md' %]]
 

@@ -459,7 +459,7 @@ Support for facets in `ibexa/elasticsearch` has been dropped, use the `Aggregati
 | `\Ibexa\Rest\Server\Controller\User::refreshSession` | `\Ibexa\Rest\Server\Controller\SessionController::refreshSessionAction` |
 | `\Ibexa\Rest\Server\Controller\User::deleteSession` | `\Ibexa\Rest\Server\Controller\SessionController::refreshSessionAction` |
 
-### ibexa/ibexa/scheduler
+### ibexa/scheduler
 
 | Old FQN                                              | New FQN / Comment                                                                |
 |:------------------------------------------------------|:------------------------------------------------------------------------|
@@ -651,6 +651,13 @@ The following service definitions have been removed:
 | `ibexa.site_access.config.default.user_registration.group_id` | `ibexa.site_access.config.default.user_registration.group_remote_id` |
 | `ezpublish_http_basic` | Use `http_basic` in `security.yml` directly. |
 
+## Session prefix
+
+The default prefix used for [SiteAccess sessions](sessions.md) has been renamed.
+
+| Old prefix | New prefix |
+|:----|:----|
+| `eZSESSID` | `IBX_SESSION_ID` |
 
 ## CSS settings
 
