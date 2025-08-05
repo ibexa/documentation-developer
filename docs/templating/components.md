@@ -60,11 +60,25 @@ You can use an unique group name when creating a Twig Component to create your o
 
 | Name | Description | YAML type |
 |---|---|---|
+| [Controller](https://github.com/ibexa/twig-components/blob/main/src/lib/Component/ControllerComponent.php) | Renders a Symfony controller |`controller` |
+| [HTML](https://github.com/ibexa/twig-components/blob/main/src/lib/Component/HtmlComponent.php) | Renders static HTML |`html` |
+| [Menu](https://github.com/ibexa/twig-components/blob/main/src/lib/Component/MenuComponent.php) | Renders a [menu](https://symfony.com/bundles/KnpMenuBundle/current/index.html) |`menu` |
 | [Script](https://github.com/ibexa/twig-components/blob/main/src/lib/Component/ScriptComponent.php) | Renders a [`<script>` tag](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/script) | `script` |
 | [Stylesheet](https://github.com/ibexa/twig-components/blob/main/src/lib/Component/LinkComponent.php) | Renders a [`<link>` tag](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/link) | `stylesheet`
 | [Template](https://github.com/ibexa/twig-components/blob/main/src/lib/Component/TemplateComponent.php) | Renders a Twig template|`template` |
-| [Controller](https://github.com/ibexa/twig-components/blob/main/src/lib/Component/ControllerComponent.php) | Renders a Symfony controller |`controller` |
-| [HTML](https://github.com/ibexa/twig-components/blob/main/src/lib/Component/HtmlComponent.php) | Renders static HTML |`html` |
+
+For the menu component, the following properties are available:
+
+| parameter | type                 | required | description                    |
+|-----------|----------------------|----------|--------------------------------|
+| name      | string               | yes      | Menu name                      |
+| options   | array<string, mixed> | no       | Options passed to menu builder |
+| path      | string[]             | no       | Path to starting node          |
+| template  | string               | no       | Template used to render menu   |
+| depth     | int                  | no       | Menu depth limit               |
+
+The menu component, same as [back office menus](back_office_menus.md), relies on the [KnpMenuBundle](https://symfony.com/bundles/KnpMenuBundle/current/index.html).
+For more information about the available properties, refer to the [official documentation of the bundle](https://symfony.com/bundles/KnpMenuBundle/current/index.html#create-your-first-menu).
 
 ## Example
 
