@@ -17,6 +17,13 @@ The Symbol attribute allows you to store standarized identifiers of your product
 
 For more information, see [Symbol attribute type](symbol_attribute_type.md).
 
+#### PHP API
+
+The PHP API has been enhanced with the following new classes:
+
+- [`Ibexa\Contracts\ProductCatalogSymbolAttribute\Search\Criterion\SymbolAttribute`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalogSymbolAttribute-Search-Criterion-SymbolAttribute.html)
+- [`Ibexa\Contracts\ProductCatalogSymbolAttribute\Value\ChecksumInterface`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalogSymbolAttribute-Value-ChecksumInterface.html)
+
 [[= release_note_entry_end() =]]
 
 [[= release_note_entry_begin("Discounts " + version, '2025-08-05', ['LTS Update', 'Commerce']) =]]
@@ -99,8 +106,6 @@ The PHP API has been enhanced with the following new classes:
 - [`Ibexa\Contracts\Core\Repository\Values\Notification\Query\CriterionInterface`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Notification-Query-CriterionInterface.html)
 - [`Ibexa\Contracts\Core\Repository\Values\Notification\Query\Criterion\DateCreated`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Notification-Query-Criterion-DateCreated.html)
 - [`Ibexa\Contracts\Core\Repository\Values\Notification\Query\NotificationQuery`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Notification-Query-NotificationQuery.html)
-- [`Ibexa\Contracts\ProductCatalogSymbolAttribute\Search\Criterion\SymbolAttribute`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalogSymbolAttribute-Search-Criterion-SymbolAttribute.html)
-- [`Ibexa\Contracts\ProductCatalogSymbolAttribute\Value\ChecksumInterface`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalogSymbolAttribute-Value-ChecksumInterface.html)
 - [`Ibexa\Contracts\ProductCatalog\Values\Product\Query\Criterion\AbstractPriceRange`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Values-Product-Query-Criterion-AbstractPriceRange.html)
 - [`Ibexa\Contracts\ProductCatalog\Values\Product\Query\Criterion\CustomPriceRange`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Values-Product-Query-Criterion-CustomPriceRange.html)
 
