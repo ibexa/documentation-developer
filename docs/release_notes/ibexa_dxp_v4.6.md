@@ -75,6 +75,12 @@ The editing interface of the back office has been improved to better highlight t
 - The `Ibexa\Contracts\AdminUi\Permission\PermissionCheckContextProviderInterface` interface has been removed
 - The `Ibexa\Contracts\AdminUi\Values\PermissionCheckContext` class has been removed
 
+#### Support for Solr 9
+
+With this release, [[= product_name =]] starts supporting [Solr 9](requirements.md#search).
+
+Solr 9 comes with support for [Dense Vector Search](https://solr.apache.org/guide/solr/latest/query-guide/dense-vector-search.html), paving the way for incoming improvements to the [AI Actions](ai_actions.md) feature.
+
 #### PHP API
 
 The PHP API has been enhanced with the following new classes:
