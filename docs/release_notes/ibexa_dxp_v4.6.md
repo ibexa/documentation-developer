@@ -34,7 +34,11 @@ The PHP API has been enhanced with the following new classes:
 [[= release_note_entry_end() =]]
 [[= release_note_entry_begin("Ibexa DXP " + version, 'TODO', ['Headless', 'Experience', 'Commerce']) =]]
 
-#### TODO
+#### Support for Solr 9
+
+This release comes with support for [Solr 9](https://nightlies.apache.org/solr/draft-guides/solr-reference-guide-antora/solr/10_0/upgrade-notes/major-changes-in-solr-9.html).
+
+Solr 9 comes with support for [Dense Vector Search](https://solr.apache.org/guide/solr/latest/query-guide/dense-vector-search.html), paving the way for incoming improvements to [AI Actions](ai_actions.md) in [[= product_name =]].
 
 #### PHP API
 

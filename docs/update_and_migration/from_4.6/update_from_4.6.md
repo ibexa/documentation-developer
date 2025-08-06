@@ -378,6 +378,25 @@ Run the following scripts:
 
 ## v4.6.22
 
+### Added support for Solr 9
+
+This release adds support for [Solr 9](requirements.md#search).
+
+To update Solr within an existing [[= product_name =]] project, first refer to the [Solr 9 upgrade planning](https://solr.apache.org/guide/solr/latest/upgrade-notes/major-changes-in-solr-9.html) instructions.
+
+Then, follow the [instructions for setting up Solr 9 with [[= product_name =]]](/search/search_engines/solr_search_engine/install_solr.md#configure-and-start-solr) and merge them with your custom configuration.
+
+Changes include:
+
+1. Configuration files
+
+    - the `schema.xml` configuration file became [`managed-schema.xml`](https://solr.apache.org/guide/solr/latest/upgrade-notes/major-changes-in-solr-6.html#managed-schema-is-now-the-default)
+    - the [removed `LatLonType` field is replaced by the `LatLonPointSpatialField` field](https://solr.apache.org/guide/solr/latest/upgrade-notes/major-changes-in-solr-7.html#deprecations-and-removed-features)
+
+2. New [Solr version parameter](install_solr.md#configure-solr-version)
+
+Once Solr 9 is fully configured, [refresh the search index](reindex_search.md).
+
 ### Set character set for activity log tables [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
 
 When using MySQL or MariaDB, run the following script to ensure correct character set for activity log tables:
