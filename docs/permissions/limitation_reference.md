@@ -322,7 +322,7 @@ For more information on how to restrict user's access to part of the subtree, se
 
 ## Taxonomy limitation
 
-The taxonomy (`Taxonomy`) limitation specifies on which taxonomies (tags, product categorieres, or custom ones) user can interact with.
+The taxonomy (`Taxonomy`) limitation specifies on which taxonomies (tags, product categories, or custom ones) user can interact with.
 
 The supported policies are:
 

@@ -118,7 +118,7 @@ To enable pagination for Relation List field type, set the `ibexa.graphql.schema
 
 This allows you to query for only a subset of relations, as in the following example:
 
-``` json
+``` graphql
 query {
   content {
    relations(contentId: 71) {

@@ -49,6 +49,8 @@ To improve performance and gain greater control over the returned responses from
 
 You can now manage access to [taxonomy items](taxonomy.md) more effectively by using the new [Taxonomy Subtree limitation](limitation_reference.md#taxonomy-subtree-limitation).
 
+In addition, you can now use the [Taxonomy limitation](limitation_reference.md#taxonomy-limitation) together with the `taxonomy/assign` policy.
+
 #### Twig Components
 
 With the latest changes to [Twig Components](components.md), you can:
@@ -69,7 +71,9 @@ The editing interface of the back office has been improved to better highlight t
 
 #### Breaking changes
 
-- The `Ibexa\FieldTypeRichText\RichText\Validator\CustomTagsValidator` class has been renamed to `Ibexa\FieldTypeRichText\RichText\Validator\CustomTemplateValidator`, expanding its responsibility to validate both [custom tags](extend_online_editor.md# configure-custom-tags) and [custom styles](extend_online_editor.md#configure-custom-styles)
+- The `Ibexa\FieldTypeRichText\RichText\Validator\CustomTagsValidator` class has been renamed to `Ibexa\FieldTypeRichText\RichText\Validator\CustomTemplateValidator`, expanding its responsibility to validate both [custom tags](extend_online_editor.md#configure-custom-tags) and [custom styles](extend_online_editor.md#configure-custom-styles)
+- The `Ibexa\Contracts\AdminUi\Permission\PermissionCheckContextProviderInterface` interface has been removed
+- The `Ibexa\Contracts\AdminUi\Values\PermissionCheckContext` class has been removed
 
 #### PHP API
 
