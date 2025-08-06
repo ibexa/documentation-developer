@@ -7,6 +7,41 @@ month_change: true
 
 This page contains recent highlights and notable changes in [[= product_name =]] documentation.
 
+## July 2025
+
+### v5.0.0
+
+[Ibexa DXP v5.0.0](https://doc.ibexa.co/en/5.0/release_notes/ibexa_dxp_v5.0/#ibexa-dxp-v500) is now available, accompanied by [v5.0 documentation](https://doc.ibexa.co/en/5.0/).
+Ibexa DXP 5.0 LTS benefits of the [Long-Term Support](https://www.ibexa.co/blog/continuous-innovation-how-ibexa-dxp-s-lifecycle-enhances-feature-delivery).
+
+See how to [update from 4.6 to 5.0](https://doc.ibexa.co/en/5.0/update_and_migration/from_4.6/update_to_5.0/).
+
+#### LTS Updates
+
+LTS Updates from v4.6 are included out of the box in v5.0 as features.
+Installation instructions for v4.6 are not needed in v5.0, or replaced by configuration instructions.
+
+| 4.6                                                                                                              | 5.0                                                                                               |
+|:-----------------------------------------------------------------------------------------------------------------|:--------------------------------------------------------------------------------------------------|
+| [Install AI Actions](https://doc.ibexa.co/en/4.6/ai_actions/install_ai_actions/)                                 | [Configure AI Actions](https://doc.ibexa.co/en/5.0/ai_actions/configure_ai_actions/)              |
+| [Install Discounts](https://doc.ibexa.co/en/4.6/discounts/install_discounts/)                                    | [Customize Discounts](https://doc.ibexa.co/en/5.0/discounts/configure_discounts/) directly        |
+| [Date and time attribute: Installation](https://doc.ibexa.co/en/4.6/pim/attributes/date_and_time/#installation)  | [Date and time attribute: Usage](https://doc.ibexa.co/en/5.0/pim/attributes/date_and_time/#usage) |
+| [Symbol attribute: Installation](https://doc.ibexa.co/en/4.6/pim/attributes/symbol_attribute_type/#installation) | [Symbol attribute](https://doc.ibexa.co/en/5.0/pim/attributes/symbol_attribute_type/)             |
+
+#### PHP API
+
+Documentation examples and [PHP API Reference](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/) have been updated for v5.0.
+You can use [`ibexa/rector`](https://github.com/ibexa/rector#readme) package that allows to maintain your custom PHP code quality.
+Consult the [Ibexa DXP v5.0 renames, deprecations and removals](https://doc.ibexa.co/en/5.0/release_notes/ibexa_dxp_v5.0_deprecations/) to learn more about the changes.
+
+Major additions to the PHP API Reference are [`Ibexa\Contracts\Collaboration`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/namespaces/ibexa-contracts-collaboration.html) and [`Ibexa\Contracts\Share`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/namespaces/ibexa-contracts-share.html) namespaces, the bulding blocks for the [collaboration framework](https://doc.ibexa.co/en/5.0/release_notes/ibexa_dxp_v5.0/#collaboration).
+
+#### REST API
+
+Layout for [v5.0 REST API Reference](https://doc.ibexa.co/en/5.0/api/rest_api/rest_api_reference/rest_api_reference.html) is now changed.
+As [Ibexa DXP 5.0 is OpenAPI compliant](https://doc.ibexa.co/en/5.0/api/rest_api/rest_api_usage/#openapi-support), the specification output is used to generate the online reference.
+You can also check the documentation directly on your development installations at `/api/ibexa/v2/doc`.
+
 ## June 2025
 
 ### Security
