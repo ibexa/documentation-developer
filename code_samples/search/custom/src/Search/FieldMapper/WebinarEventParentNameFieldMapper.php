@@ -8,7 +8,7 @@ use Ibexa\Contracts\Core\Persistence\Content\Location\Handler as LocationHandler
 use Ibexa\Contracts\Core\Search;
 use Ibexa\Contracts\Solr\FieldMapper\ContentFieldMapper;
 
-class WebinarEventTitleFulltextFieldMapper extends ContentFieldMapper
+class WebinarEventParentNameFieldMapper extends ContentFieldMapper
 {
     protected ContentHandler $contentHandler;
 
@@ -22,13 +22,16 @@ class WebinarEventTitleFulltextFieldMapper extends ContentFieldMapper
         $this->locationHandler = $locationHandler;
     }
 
-    public function accept(Content $content)
+    public function accept(Content $content): bool
     {
         // ContentType with ID 42 is webinar event
-        return $content->versionInfo->contentInfo->contentTypeId == 42;
+        return $content->versionInfo->contentInfo->contentTypeId === 42;
     }
 
-    public function mapFields(Content $content)
+    /**
+     * @return \Ibexa\Contracts\Core\Search\Field[]
+     */
+    public function mapFields(Content $content): array
     {
         $mainLocationId = $content->versionInfo->contentInfo->mainLocationId;
         $location = $this->locationHandler->load($mainLocationId);
@@ -37,9 +40,9 @@ class WebinarEventTitleFulltextFieldMapper extends ContentFieldMapper
 
         return [
             new Search\Field(
-                'fulltext',
+                'parent_name',
                 $parentContentInfo->name,
-                new Search\FieldType\FullTextField()
+                new Search\FieldType\StringField()
             ),
         ];
     }

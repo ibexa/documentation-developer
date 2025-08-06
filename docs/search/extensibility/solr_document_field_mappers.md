@@ -52,15 +52,15 @@ Mappers can be used on the extension points by registering them with the [servic
 - Location documents
     - `ibexa.search.solr.field.mapper.location`
 
-The following example shows how you can index data from the parent location content, to make it available for full-text search on the child content.
+The following example shows how you can index data from the parent location content, to make it available for search on the child content.
 The example relies on a use case of indexing webinar data on the webinar events, which are children of the webinar.
 The field mapper could then look like this:
 
 ```php
-[[= include_file('code_samples/search/custom/src/Search/FieldMapper/WebinarEventTitleFulltextFieldMapper.php') =]]
+[[= include_file('code_samples/search/custom/src/Search/FieldMapper/WebinarEventParentNameFieldMapper.php') =]]
 ```
 
-You index full text data only on the content document, therefore, you would register the service like this:
+You index text data only on the content document, therefore, you would register the service like this:
 
 ``` yaml
 [[= include_file('code_samples/search/custom/config/field_mapper_services.yaml') =]]
