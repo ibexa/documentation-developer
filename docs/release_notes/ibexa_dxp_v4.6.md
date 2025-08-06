@@ -61,7 +61,7 @@ With the latest changes to [Twig Components](components.md), you can:
 The list of built-in Twig Component groups has been expanded and includes:
 
 - one new group for the [back office](custom_components.md) (`admin-ui-versions-table-before`)
-- four new groups for [storefront](custommize_storefront_layout.md#customize-with-twig-components)
+- four new groups for [storefront](customize_storefront_layout.md#customize-with-twig-components)
 
 #### Improved content creation interface
 
