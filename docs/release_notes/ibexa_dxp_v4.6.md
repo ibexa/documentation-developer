@@ -41,15 +41,17 @@ It uses the [special characters plugin](https://ckeditor.com/docs/ckeditor5/late
 
 ![Special characters in online editor](4.6_special_characters.png "Special characters in online editor")
 
-#### Pagination for ezobjectrelationlist in GraphQL
+#### Support for Solr 9
 
-To improve performance and gain greater control over the returned responses from the [GraphQL API](graphql.md), you can now [enable pagination](relationlistfield.md#enable-pagination-in-graphql) of relations specified using the Relationlist field type.
+With this release, [[= product_name =]] starts supporting [Solr 9](requirements.md#search).
 
-#### Taxonomy Subtree limitation
+Solr 9 comes with support for [Dense Vector Search](https://solr.apache.org/guide/solr/latest/query-guide/dense-vector-search.html), paving the way for incoming improvements to the [AI Actions](ai_actions.md) feature.
 
-You can now manage access to [taxonomy items](taxonomy.md) more effectively by using the new [Taxonomy Subtree limitation](limitation_reference.md#taxonomy-subtree-limitation).
+#### Improved content creation interface
 
-In addition, you can now use the [Taxonomy limitation](limitation_reference.md#taxonomy-limitation) together with the `taxonomy/assign` policy.
+The editing interface of the back office has been improved to better highlight the language, creator, and the publication date when working with content items.
+
+![Improved interface for content creation](4.6_improved_editing.png "Improved interface for content creation")
 
 #### Twig Components
 
@@ -61,25 +63,23 @@ With the latest changes to [Twig Components](components.md), you can:
 The list of built-in Twig Component groups has been expanded and includes:
 
 - one new group for the [back office](custom_components.md) (`admin-ui-versions-table-before`)
-- four new groups for [storefront](customize_storefront_layout.md#customize-with-twig-components)
+- eight new groups for [storefront](customize_storefront_layout.md#customize-with-twig-components)
 
-#### Improved content creation interface
+#### Taxonomy Subtree limitation
 
-The editing interface of the back office has been improved to better highlight the language, creator, and the publication date when working with content items.
+You can now manage access to [taxonomy items](taxonomy.md) more effectively by using the new [Taxonomy Subtree limitation](limitation_reference.md#taxonomy-subtree-limitation).
 
-![Improved interface for content creation](4.6_improved_editing.png "Improved interface for content creation")
+In addition, you can now use the [Taxonomy limitation](limitation_reference.md#taxonomy-limitation) together with the `taxonomy/assign` policy.
+
+#### Pagination for ezobjectrelationlist in GraphQL
+
+To improve performance and gain greater control over the returned responses from the [GraphQL API](graphql.md), you can now [enable pagination](relationlistfield.md#enable-pagination-in-graphql) of relations specified using the RelationList field type.
 
 #### Breaking changes
 
 - The `Ibexa\FieldTypeRichText\RichText\Validator\CustomTagsValidator` class has been renamed to `Ibexa\FieldTypeRichText\RichText\Validator\CustomTemplateValidator`, expanding its responsibility to validate both [custom tags](extend_online_editor.md#configure-custom-tags) and [custom styles](extend_online_editor.md#configure-custom-styles)
 - The `Ibexa\Contracts\AdminUi\Permission\PermissionCheckContextProviderInterface` interface has been removed
 - The `Ibexa\Contracts\AdminUi\Values\PermissionCheckContext` class has been removed
-
-#### Support for Solr 9
-
-With this release, [[= product_name =]] starts supporting [Solr 9](requirements.md#search).
-
-Solr 9 comes with support for [Dense Vector Search](https://solr.apache.org/guide/solr/latest/query-guide/dense-vector-search.html), paving the way for incoming improvements to the [AI Actions](ai_actions.md) feature.
 
 #### PHP API
 
