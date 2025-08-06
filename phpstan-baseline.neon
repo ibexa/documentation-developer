@@ -361,24 +361,6 @@ parameters:
 			path: code_samples/customer_portal/src/Form/VerifyType.php
 
 		-
-			message: '#^Class Ibexa\\Contracts\\DiscountsCodes\\Value\\Struct\\DiscountCodeCreateStruct constructor invoked with 4 parameters, 5 required\.$#'
-			identifier: arguments.count
-			count: 1
-			path: code_samples/discounts/src/Command/ManageDiscountsCommand.php
-
-		-
-			message: '#^Class Ibexa\\DiscountsCodes\\Value\\DiscountCondition\\IsValidDiscountCode constructor invoked with 2 parameters, 3 required\.$#'
-			identifier: arguments.count
-			count: 1
-			path: code_samples/discounts/src/Command/ManageDiscountsCommand.php
-
-		-
-			message: '#^Parameter \#4 \$creatorId of class Ibexa\\Contracts\\DiscountsCodes\\Value\\Struct\\DiscountCodeCreateStruct constructor expects int\|null, DateTimeImmutable given\.$#'
-			identifier: argument.type
-			count: 1
-			path: code_samples/discounts/src/Command/ManageDiscountsCommand.php
-
-		-
 			message: '#^Method App\\FieldType\\Point2D\\Type\:\:getSettingsSchema\(\) return type has no value type specified in iterable type array\.$#'
 			identifier: missingType.iterableValue
 			count: 1
