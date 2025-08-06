@@ -47,7 +47,7 @@ To improve performance and gain greater control over the returned responses from
 
 #### Taxonomy Subtree limitation
 
-You can now more effectively manage access to [taxonomy items](taxonomy.md) by using the new [Taxonomy Subtree limitation](limitation_reference.md#taxonomy-subtree-limitation).
+You can now manage access to [taxonomy items](taxonomy.md) more effectively by using the new [Taxonomy Subtree limitation](limitation_reference.md#taxonomy-subtree-limitation).
 
 #### Twig Components
 
