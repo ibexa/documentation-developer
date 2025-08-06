@@ -328,8 +328,8 @@ The new AI Assistant allows you to use the AI capabilities in additional places,
 
 The PHP API has been enhanced with the following new classes:
 
-- [`Ibexa\Contracts\AdminUi\Permission\PermissionCheckContextProviderInterface`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-AdminUi-Permission-PermissionCheckContextProviderInterface.html)
-- [`Ibexa\Contracts\AdminUi\Values\PermissionCheckContext`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-AdminUi-Values-PermissionCheckContext.html)
+- `Ibexa\Contracts\AdminUi\Permission\PermissionCheckContextProviderInterface`
+- `Ibexa\Contracts\AdminUi\Values\PermissionCheckContext`
 - [`Ibexa\Contracts\Checkout\Discounts\DataMapper\DiscountsDataMapperInterface`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Checkout-Discounts-DataMapper-DiscountsDataMapperInterface.html)
 - [`Ibexa\Contracts\Seo\Resolver\FieldValueResolverInterface`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Seo-Resolver-FieldValueResolverInterface.html)
 
