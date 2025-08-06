@@ -23,7 +23,7 @@ month_change: true
 
 #### Discount codes migrations
 
-- You can now create discount codes using [data migrations](importing_data.md#discount-codes).
+- You can now create discount codes using [data migrations](importing_data.md#discount-codes)
 
 #### PHP API
 
