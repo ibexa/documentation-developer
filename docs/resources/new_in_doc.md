@@ -21,12 +21,12 @@ See how to [update from 4.6 to 5.0](https://doc.ibexa.co/en/5.0/update_and_migra
 LTS Updates from v4.6 are included out of the box in v5.0 as features.
 Installation instructions for v4.6 are not needed in v5.0, or replaced by configuration instructions.
 
-| 4.6                                                                                                              | 5.0                                                                                                |
-|:-----------------------------------------------------------------------------------------------------------------|:---------------------------------------------------------------------------------------------------|
-| [Install AI Actions](https://doc.ibexa.co/en/4.6/ai_actions/install_ai_actions/)                                 | [Configure AI Actions](https://doc.ibexa.co/en/5.0/ai_actions/configure_ai_actions/)               |
-| [Install Discounts](https://doc.ibexa.co/en/4.6/discounts/install_discounts/)                                    | [Customize Discounts](https://doc.ibexa.co/en/5.0/discounts/configure_discounts/) directly         |
-| [Date and time attributes: installation](https://doc.ibexa.co/en/4.6/pim/attributes/date_and_time/#installation) | [Date and time attributes: usage](https://doc.ibexa.co/en/5.0/pim/attributes/date_and_time/#usage) |
-| Not released yet                                                                                                 | [Symbol attribute](https://doc.ibexa.co/en/5.0/pim/attributes/symbol_attribute_type/)              |
+| 4.6                                                                                                              | 5.0                                                                                               |
+|:-----------------------------------------------------------------------------------------------------------------|:--------------------------------------------------------------------------------------------------|
+| [Install AI Actions](https://doc.ibexa.co/en/4.6/ai_actions/install_ai_actions/)                                 | [Configure AI Actions](https://doc.ibexa.co/en/5.0/ai_actions/configure_ai_actions/)              |
+| [Install Discounts](https://doc.ibexa.co/en/4.6/discounts/install_discounts/)                                    | [Customize Discounts](https://doc.ibexa.co/en/5.0/discounts/configure_discounts/) directly        |
+| [Date and time attribute: Installation](https://doc.ibexa.co/en/4.6/pim/attributes/date_and_time/#installation)  | [Date and time attribute: Usage](https://doc.ibexa.co/en/5.0/pim/attributes/date_and_time/#usage) |
+| [Symbol attribute: Installation](https://doc.ibexa.co/en/4.6/pim/attributes/symbol_attribute_type/#installation) | [Symbol attribute](https://doc.ibexa.co/en/5.0/pim/attributes/symbol_attribute_type/)             |
 
 #### PHP API
 
