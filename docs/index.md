@@ -93,7 +93,7 @@
                     <div>Use it to store standarized identifiers of your products.</div>
                 </div>
                 <div class="notification__cta">
-                    <a href="pim/attributes/symbol-attribute-type">Learn more about this LTS Update</a>
+                    <a href="pim/attributes/symbol_attribute_type">Learn more about this LTS Update</a>
                     <a href="ibexa_products/editions#lts-updates">Discover other LTS Updates</a>
                 </div>
                 <div class="notification__image">
