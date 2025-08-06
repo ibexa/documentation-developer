@@ -11,7 +11,7 @@ month_change: true
 <div class="release-notes" markdown="1">
 
 [[% set version = 'v4.6.22' %]]
-[[= release_note_entry_begin("Discounts " + version, 'TODO', ['LTS Update', 'Commerce']) =]]
+[[= release_note_entry_begin("Discounts " + version, '2025-08-05', ['LTS Update', 'Commerce']) =]]
 
 #### Global discount codes limits
 
@@ -32,13 +32,54 @@ The PHP API has been enhanced with the following new classes:
 - TODO
 
 [[= release_note_entry_end() =]]
-[[= release_note_entry_begin("Ibexa DXP " + version, 'TODO', ['Headless', 'Experience', 'Commerce']) =]]
+[[= release_note_entry_begin("Ibexa DXP " + version, '2025-08-05', ['Headless', 'Experience', 'Commerce', 'New feature']) =]]
+
+#### Special characters in online editor
+
+The [online editor](online_editor_guide.md) now allows to easily enter special characters like currency symbols.
+It uses the [special characters plugin](https://ckeditor.com/docs/ckeditor5/latest/features/special-characters.html),
+
+![Special characters in online editor](4.6_special_characters.png "Special characters in online editor")
 
 #### Support for Solr 9
 
-This release comes with support for [Solr 9](https://nightlies.apache.org/solr/draft-guides/solr-reference-guide-antora/solr/10_0/upgrade-notes/major-changes-in-solr-9.html).
+With this release, [[= product_name =]] starts supporting [Solr 9](requirements.md#search).
 
-Solr 9 comes with support for [Dense Vector Search](https://solr.apache.org/guide/solr/latest/query-guide/dense-vector-search.html), paving the way for incoming improvements to [AI Actions](ai_actions.md) in [[= product_name =]].
+Solr 9 comes with support for [Dense Vector Search](https://solr.apache.org/guide/solr/latest/query-guide/dense-vector-search.html), paving the way for incoming improvements to the [AI Actions](ai_actions.md) feature.
+
+#### Improved content creation interface
+
+The editing interface of the back office has been improved to better highlight the language, creator, and the publication date when working with content items.
+
+![Improved interface for content creation](4.6_improved_editing.png "Improved interface for content creation")
+
+#### Twig Components
+
+With the latest changes to [Twig Components](components.md), you can:
+
+- set component priority when using YAML configuration
+- render a menu with help of the new Menu component
+
+The list of built-in Twig Component groups has been expanded and includes:
+
+- one new group for the [back office](custom_components.md) (`admin-ui-versions-table-before`)
+- eight new groups for [storefront](customize_storefront_layout.md#customize-with-twig-components)
+
+#### Taxonomy Subtree limitation
+
+You can now manage access to [taxonomy items](taxonomy.md) more effectively by using the new [Taxonomy Subtree limitation](limitation_reference.md#taxonomy-subtree-limitation).
+
+In addition, you can now use the [Taxonomy limitation](limitation_reference.md#taxonomy-limitation) together with the `taxonomy/assign` policy.
+
+#### Pagination for ezobjectrelationlist in GraphQL
+
+To improve performance and gain greater control over the returned responses from the [GraphQL API](graphql.md), you can now [enable pagination](relationlistfield.md#enable-pagination-in-graphql) of relations specified using the RelationList field type.
+
+#### Breaking changes
+
+- The `Ibexa\FieldTypeRichText\RichText\Validator\CustomTagsValidator` class has been renamed to `Ibexa\FieldTypeRichText\RichText\Validator\CustomTemplateValidator`, expanding its responsibility to validate both [custom tags](extend_online_editor.md#configure-custom-tags) and [custom styles](extend_online_editor.md#configure-custom-styles)
+- The `Ibexa\Contracts\AdminUi\Permission\PermissionCheckContextProviderInterface` interface has been removed
+- The `Ibexa\Contracts\AdminUi\Values\PermissionCheckContext` class has been removed
 
 #### PHP API
 
