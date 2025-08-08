@@ -8,8 +8,8 @@ To create a new REST resource, you need to prepare:
 
 - the REST route leading to a controller action
 - the controller and its action
-- one or several `InputParser` objects if the controller needs to receive a payload to treat, one or several value classes to represent this payload and potentially one or several new media types to type this payload in the `Content-Type` header (optional)
-- one or several new value classes to represent the controller action result, their `ValueObjectVisitor` to help the generator to turn this into XML or JSON and potentially one or several new media types to claim in the `Accept` header the desired value (optional)
+- one or several input denormalizers if the controller needs to receive a payload to treat, one or several value classes to represent this payload, and potentially one or several new media types to type this payload in the `Content-Type` header (optional)
+- one or several new value classes to represent the controller action result, their normalizers to help the generator to turn this into XML or JSON, and potentially one or several new media types to claim in the `Accept` header the desired value (optional)
 - the addition of this resource route to the REST root (optional)
 
 In the following example, you add a greeting resource to the REST API.
@@ -51,49 +51,46 @@ services:
 [[= include_file('code_samples/api/rest_api/config/services.yaml', 36, 42) =]]
 ```
 
-Having the REST controllers set as services enables using features such as the `InputDispatcher` service in the [Controller action](#controller-action).
+The [`controller.service_arguments` tag]([[= symfony_doc =]]/controller/service.html#using-the-controller-service-arguments-service-tag) declares the controller as a service receiving injections.
+It helps the autowiring of the serializer in the constructor.
+
+The `ibexa.api_platform.resource` tag declares the service as an API Platform resource.
 
 ### Controller action
 
 A REST controller should:
 
-- return a value object and have a `Generator` and `ValueObjectVisitor`s producing the XML or JSON output
-- extend `Ibexa\Rest\Server\Controller` to inherit utils methods and properties like `InputDispatcher` or `RequestParser`
+- return an object (passed automatically to a normalizer) or a `Response` (to customize it further)
+- extend `Ibexa\Rest\Server\Controller`
+    - to inherit useful methods and properties like `repository` or `router`
+    - to be part of the [OpenAPI Description](#describe-resource-in-openapi-schema)
 
 ``` php
-[[= include_file('code_samples/api/rest_api/src/Rest/Controller/DefaultController.php') =]]
+[[= include_file('code_samples/api/rest_api/src/Rest/Controller/DefaultController.php', 0, 14) =]]
+[[= include_file('code_samples/api/rest_api/src/Rest/Controller/DefaultController.php', 214) =]]
 ```
 
-If the returned value was depending on a location, it could have been wrapped in a `CachedValue` to be cached by the reverse proxy (like Varnish) for future calls.
+<details>
+    <summary>HTTP Cache</summary>
+    
+    If the returned value was depending on a location, it could have been wrapped in a <code>CachedValue</code>
+    to be cached by the reverse proxy (like Varnish or Fastly) for future calls.
+    
+    <code>CachedValue</code> is used as following:
+    
+    ``` php
+    return new CachedValue(
+        new MyValue($args…),
+        ['locationId'=> $locationId]
+    );
+    ```
+</details>
 
-`CachedValue` is used in the following way:
-
-```php
-return new CachedValue(
-    new MyValue($args…),
-    ['locationId'=> $locationId]
-);
-```
-
-## Value and ValueObjectVisitor
+## Value and Normalizer
 
 ``` php
 [[= include_file('code_samples/api/rest_api/src/Rest/Values/Greeting.php') =]]
 ```
-
-A `ValueObjectVisitor` must implement the `visit` method.
-
-| Argument     | Description                                                                                                                                            |
-|--------------|--------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `$visitor`   | The output visitor.<br/>Can be used to set custom response headers (`setHeader`), HTTP status code ( `setStatus`)                                      |
-| `$generator` | The actual response generator. It provides you with a DOM-like API.                                                                                    |
-| `$data`      | The visited data. The exact object that you returned from the controller.<br/>It can't have a type declaration because the method signature is shared. |
-
-``` php
-[[= include_file('code_samples/api/rest_api/src/Rest/ValueObjectVisitor/Greeting.php') =]]
-```
-
-The `Values/Greeting` class is linked to its `ValueObjectVisitor` through the service tag.
 
 ``` yaml
 services:
@@ -101,26 +98,20 @@ services:
 [[= include_file('code_samples/api/rest_api/config/services.yaml', 43, 48) =]]
 ```
 
-Here, the media type is `application/vnd.ibexa.api.Greeting` plus a format.
-To have a different vendor than the default, you could create a new `Output\Generator` or hard-code it in the `ValueObjectVisitor` like in the [`RestLocation` example](adding_custom_media_type.md#new-restlocation-valueobjectvisitor).
-
-## InputParser
-
-A REST resource could use route parameters to handle input, but this example illustrates the usage of an input parser.
-
-For this example, the structure is a `GreetingInput` root node with two leaf nodes, `Salutation` and `Recipient`.
+A normalizer must implement the `supportsNormalization` and `normalize` methods.
 
 ``` php
-[[= include_file('code_samples/api/rest_api/src/Rest/InputParser/GreetingInput.php') =]]
+[[= include_file('code_samples/api/rest_api/src/Rest/Serializer/GreetingNormalizer.php') =]]
 ```
 
-Here, this `InputParser` directly returns the right value object.
-In other cases, it could return whatever object is needed to represent the input for the controller to perform its action, like arguments to use with a Repository service.
+## Input denormalizer
 
-``` yaml
-services:
-    #…
-[[= include_file('code_samples/api/rest_api/config/services.yaml', 48, 53) =]]
+A REST resource could use route parameters to handle input, but this example illustrates the usage of denormalized payload.
+
+For this example, the structure is a `GreetingInput` root node with two leaf nodes, `salutation` and `recipient`.
+
+``` php
+[[= include_file('code_samples/api/rest_api/src/Rest/Serializer/GreetingInputDenormalizer.php') =]]
 ```
 
 ## Testing the new resource
@@ -138,25 +129,25 @@ curl https://api.example.com/api/ibexa/v2/greet --include --request POST \
     --header 'Accept: application/vnd.ibexa.api.Greeting+json';
 ```
 
-```
+```http
 HTTP/1.1 200 OK
-Content-Type: application/vnd.ibexa.api.greeting+xml
+Content-Type: application/vnd.ibexa.api.Greeting+xml
 
 <?xml version="1.0" encoding="UTF-8"?>
-<Greeting media-type="application/vnd.ibexa.api.Greeting+xml" href="/api/ibexa/v2/greet">
+<Greeting>
  <Salutation>Hello</Salutation>
  <Recipient>World</Recipient>
  <Sentence>Hello World</Sentence>
 </Greeting>
 
 HTTP/1.1 200 OK
-Content-Type: application/vnd.ibexa.api.greeting+xml
+Content-Type: application/vnd.ibexa.api.Greeting+xml
 
-<?xml version="1.0" encoding="UTF-8"?>
-<Greeting media-type="application/vnd.ibexa.api.Greeting+xml" href="/api/ibexa/v2/greet">
- <Salutation>Good morning</Salutation>
- <Recipient>World</Recipient>
- <Sentence>Good morning World</Sentence>
+<?xml version="1.0"?>
+<Greeting>
+  <Salutation>Good morning</Salutation>
+  <Recipient>World</Recipient>
+  <Sentence>Good morning World</Sentence>
 </Greeting>
 
 HTTP/1.1 200 OK
@@ -164,14 +155,36 @@ Content-Type: application/vnd.ibexa.api.greeting+json
 
 {
     "Greeting": {
-        "_media-type": "application\/vnd.ibexa.api.Greeting+json",
-        "_href": "\/api\/ibexa\/v2\/greet",
         "Salutation": "Good day",
         "Recipient": "Earth",
         "Sentence": "Good day Earth"
     }
 }
 ```
+
+## Describe resource in OpenAPI schema
+
+Thanks to API Platform, you can document the OpenAPI resource directly from its controller through annotations.
+The resource is added to the OpenAPI Description dumped with `ibexa:openapi` command.
+In `dev` mode, the resource appears in the live documentation at `<dev-domain>/api/ibexa/v2/doc#/App/api_greet_get`.
+
+``` php hl_lines="5 6 16 89"
+[[= include_file('code_samples/api/rest_api/src/Rest/Controller/DefaultController.php', 0, 215) =]]//…
+```
+
+The resource can be tested from the live documentation.
+
+For example, the `POST /greet` at `<dev-domain>/api/ibexa/v2/doc#/App/api_greet_post` can be tested this way:
+
+- Click the **Try it out** button
+- In **Request body** section, choose the Content-Type from the drop-down menu. For example, the JSON format `application/vnd.ibexa.api.GreetingInput+json`
+- In the text area, edit the JSON to make your own test
+- In the **Responses** section, choose the desired response format for successful `200`
+- Click the **Execute** button
+
+![Example of test from live doc](../img/rest-api-greeting-form.png)
+
+Eventually, remove properties to see if default values work, inject parse errors, or empty the whole text area to see error handling.
 
 ## Registering resources in REST root
 
@@ -192,7 +205,7 @@ The parameter values can be a real value or a placeholder.
 For example, `'router.generate("ibexa.rest.load_location", {locationPath: "1/2"})'` results in `/api/ibexa/v2/content/locations/1/2` while `'router.generate("ibexa.rest.load_location", {locationPath: "{locationPath}"})'` gives `/api/ibexa/v2/content/locations/{locationPath}`.
 This syntax is based on Symfony's [expression language]([[= symfony_doc =]]/components/expression_language/index.html), an extensible component that allows limited/readable scripting to be used outside the code context.
 
-In this example, `app.rest.greeting` is available in every SiteAccess (`default`):
+In the following example, `app.rest.greeting` is available in every SiteAccess (`default`):
 
 ```yaml
 ibexa_rest:
@@ -204,9 +217,11 @@ ibexa_rest:
                     href: 'router.generate("app.rest.greeting")'
 ```
 
-You can place this configuration in any regular config file, like the existing `config/packages/ibexa.yaml`, or a new `config/packages/ibexa_rest.yaml` file.
+You can place this configuration in any regular config file,
+like the existing `config/packages/ibexa.yaml`,
+or a new `config/packages/ibexa_rest.yaml` file.
 
-The above example adds the following entry to the root XML output:
+This example adds the following entry to the root XML output:
 
 ```xml
 <greeting media-type="application/vnd.ibexa.api.Greeting+xml" href="/api/ibexa/v2/greet"/>

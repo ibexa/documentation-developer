@@ -1,0 +1,40 @@
+<?php declare(strict_types=1);
+
+namespace App\Rest\Serializer;
+
+use App\Rest\Values\Greeting;
+use Symfony\Component\Serializer\Normalizer\NormalizerAwareInterface;
+use Symfony\Component\Serializer\Normalizer\NormalizerAwareTrait;
+use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
+
+class GreetingNormalizer implements NormalizerInterface, NormalizerAwareInterface
+{
+    use NormalizerAwareTrait;
+
+    public function supportsNormalization(mixed $data, ?string $format = null, array $context = []): bool
+    {
+        return $data instanceof Greeting;
+    }
+
+    /** @param \App\Rest\Values\Greeting $object */
+    public function normalize(mixed $object, ?string $format = null, array $context = []): array|\ArrayObject|bool|float|int|null|string
+    {
+        $data = [
+            'Salutation' => $object->salutation,
+            'Recipient' => $object->recipient,
+            'Sentence' => "{$object->salutation} {$object->recipient}",
+        ];
+        if ('json' === $format) {
+            $data = ['Greeting' => $data];
+        }
+
+        return $this->normalizer->normalize($data, $format, $context);
+    }
+
+    public function getSupportedTypes(?string $format): array
+    {
+        return [
+            Greeting::class => true,
+        ];
+    }
+}
