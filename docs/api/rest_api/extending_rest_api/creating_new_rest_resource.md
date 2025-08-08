@@ -65,7 +65,7 @@ A REST controller should:
 
 ``` php
 [[= include_file('code_samples/api/rest_api/src/Rest/Controller/DefaultController.php', 0, 14) =]]
-[[= include_file('code_samples/api/rest_api/src/Rest/Controller/DefaultController.php', 246) =]]
+[[= include_file('code_samples/api/rest_api/src/Rest/Controller/DefaultController.php', 212) =]]
 ```
 
 <details>
@@ -166,8 +166,8 @@ Thanks to API Platform, you can document the OpenAPI resource directly from its 
 The resource is added to the OpenAPI Description dumped with `ibexa:openapi` command.
 In `dev` mode, the resource appears in the live documentation at `<dev-domain>/api/ibexa/v2/doc#/App/api_greet_get`.
 
-``` php hl_lines="5 6 16 100"
-[[= include_file('code_samples/api/rest_api/src/Rest/Controller/DefaultController.php', 0, 247) =]]
+``` php hl_lines="5 6 16 89"
+[[= include_file('code_samples/api/rest_api/src/Rest/Controller/DefaultController.php', 0, 212) =]]
 //…
 ```
 
