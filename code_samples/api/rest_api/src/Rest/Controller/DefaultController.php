@@ -97,6 +97,7 @@ use Symfony\Component\Serializer\SerializerInterface;
         ],
         parameters: [],
         requestBody: new Model\RequestBody(
+            description: 'Set salutation or recipient.',
             required: false,
             content: new \ArrayObject([
                 'application/vnd.ibexa.api.GreetingInput+xml' => [
@@ -118,6 +119,7 @@ use Symfony\Component\Serializer\SerializerInterface;
                     ],
                     'example' => [
                         'salutation' => 'Good morning',
+                        'recipient' => 'Planet',
                     ],
                 ],
                 'application/vnd.ibexa.api.GreetingInput+json' => [
@@ -231,8 +233,6 @@ class DefaultController extends Controller
         } else {
             $greeting = new Greeting();
         }
-
-        //return $greeting;
 
         $accept = $request->headers->get('Accept', 'application/' . self::DEFAULT_FORMAT);
         preg_match('@.*[/+](?P<format>[^/+]+)@', $accept, $matches);

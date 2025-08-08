@@ -65,7 +65,7 @@ A REST controller should:
 
 ``` php
 [[= include_file('code_samples/api/rest_api/src/Rest/Controller/DefaultController.php', 0, 14) =]]
-[[= include_file('code_samples/api/rest_api/src/Rest/Controller/DefaultController.php', 212) =]]
+[[= include_file('code_samples/api/rest_api/src/Rest/Controller/DefaultController.php', 214) =]]
 ```
 
 <details>
@@ -167,9 +167,22 @@ The resource is added to the OpenAPI Description dumped with `ibexa:openapi` com
 In `dev` mode, the resource appears in the live documentation at `<dev-domain>/api/ibexa/v2/doc#/App/api_greet_get`.
 
 ``` php hl_lines="5 6 16 89"
-[[= include_file('code_samples/api/rest_api/src/Rest/Controller/DefaultController.php', 0, 212) =]]
-//…
+[[= include_file('code_samples/api/rest_api/src/Rest/Controller/DefaultController.php', 0, 215) =]]//…
 ```
+
+The resource can be tested from this live documentation.
+
+For example, the `POST /greet` at `<dev-domain>/api/ibexa/v2/doc#/App/api_greet_post` can be tested this way:
+
+- Click the **Try it out** button
+- In **Request body** section, choose the Content-Type from the drop-down menu. For example, the JSON format `application/vnd.ibexa.api.GreetingInput+json`
+- In the text area, edit the JSON to make your own test
+- In the **Responses** section, choose the desired response format for successful `200`
+- Click the **Execute** button
+
+![Example of test from live doc](../img/rest-api-greeting-form.png)
+
+Eventually, remove properties to see if default values work, inject parse errors, or empty the whole text area to see error handling.
 
 ## Registering resources in REST root
 
