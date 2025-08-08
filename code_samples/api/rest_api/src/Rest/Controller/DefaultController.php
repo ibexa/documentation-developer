@@ -22,18 +22,7 @@ use Symfony\Component\Serializer\SerializerInterface;
         tags: [
             'App',
         ],
-        parameters: [
-            new Model\Parameter(
-                name: 'Accept',
-                in: 'header',
-                required: false,
-                description: 'If set, the greeting is returned in XML or JSON format.',
-                schema: [
-                    'type' => 'string',
-                ],
-                example: 'application/vnd.ibexa.api.Greeting+json',
-            ),
-        ],
+        parameters: [],
         responses: [
             Response::HTTP_OK => [
                 'description' => 'OK - Return a greeting',
@@ -106,28 +95,7 @@ use Symfony\Component\Serializer\SerializerInterface;
         tags: [
             'App',
         ],
-        parameters: [
-            new Model\Parameter(
-                name: 'Content-Type',
-                in: 'header',
-                required: false,
-                description: 'The greeting input schema encoded in XML or JSON.',
-                schema: [
-                    'type' => 'string',
-                ],
-                example: 'application/vnd.ibexa.api.GreetingInput+json',
-            ),
-            new Model\Parameter(
-                name: 'Accept',
-                in: 'header',
-                required: false,
-                description: 'If set, the greeting is returned in XML or JSON format.',
-                schema: [
-                    'type' => 'string',
-                ],
-                example: 'application/vnd.ibexa.api.Greeting+json',
-            ),
-        ],
+        parameters: [],
         requestBody: new Model\RequestBody(
             required: false,
             content: new \ArrayObject([
@@ -138,14 +106,13 @@ use Symfony\Component\Serializer\SerializerInterface;
                             'name' => 'GreetingInput',
                             'wrapped' => false,
                         ],
+                        'required' => [],
                         'properties' => [
                             'salutation' => [
                                 'type' => 'string',
-                                'required' => false,
                             ],
                             'recipient' => [
                                 'type' => 'string',
-                                'required' => false,
                             ],
                         ],
                     ],
@@ -159,14 +126,13 @@ use Symfony\Component\Serializer\SerializerInterface;
                         'properties' => [
                             'GreetingInput' => [
                                 'type' => 'object',
+                                'required' => [],
                                 'properties' => [
                                     'salutation' => [
                                         'type' => 'string',
-                                        'required' => false,
                                     ],
                                     'recipient' => [
                                         'type' => 'string',
-                                        'required' => false,
                                     ],
                                 ],
                             ],
