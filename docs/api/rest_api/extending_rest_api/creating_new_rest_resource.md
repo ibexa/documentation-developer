@@ -61,7 +61,9 @@ The `ibexa.api_platform.resource` tag declares the service as an API Platform re
 A REST controller should:
 
 - return an object (passed automatically to a normalizer) or a `Response` (to customize it further)
-- extend `Ibexa\Rest\Server\Controller` to inherit useful methods and properties like `InputDispatcher` or `RequestParser`
+- extend `Ibexa\Rest\Server\Controller`
+    - to inherit useful methods and properties like `repository` or `router`
+    - to be part of the [OpenAPI Description](#describe-resource-in-openapi-schema)
 
 ``` php
 [[= include_file('code_samples/api/rest_api/src/Rest/Controller/DefaultController.php', 0, 14) =]]
@@ -170,7 +172,7 @@ In `dev` mode, the resource appears in the live documentation at `<dev-domain>/a
 [[= include_file('code_samples/api/rest_api/src/Rest/Controller/DefaultController.php', 0, 215) =]]//…
 ```
 
-The resource can be tested from this live documentation.
+The resource can be tested from the live documentation.
 
 For example, the `POST /greet` at `<dev-domain>/api/ibexa/v2/doc#/App/api_greet_post` can be tested this way:
 
