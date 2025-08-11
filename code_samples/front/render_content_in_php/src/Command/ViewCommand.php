@@ -47,7 +47,7 @@ class ViewCommand extends Command
 
         $viewParameters = [
             'viewType' => $input->getOption('view-type'),
-            '_controller' => 'ibexa_content:viewAction',
+            '_controller' => 'ibexa_content::viewAction',
         ];
 
         if (!empty($locationId)) {
