@@ -23,8 +23,7 @@ class ObjectStateCommand extends Command
         private readonly UserService $userService,
         private readonly ObjectStateService $objectStateService,
         private readonly PermissionResolver $permissionResolver
-    )
-    {
+    ) {
         parent::__construct();
     }
 

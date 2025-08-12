@@ -19,8 +19,7 @@ class BookmarkCommand extends Command
     public function __construct(
         private readonly BookmarkService $bookmarkService,
         private readonly LocationService $locationService
-    )
-    {
+    ) {
         parent::__construct();
     }
 

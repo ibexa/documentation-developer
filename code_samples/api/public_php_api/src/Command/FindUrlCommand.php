@@ -23,8 +23,7 @@ class FindUrlCommand extends Command
         private readonly URLService $urlService,
         private readonly UserService $userService,
         private readonly PermissionResolver $permissionResolver
-    )
-    {
+    ) {
         parent::__construct();
     }
 

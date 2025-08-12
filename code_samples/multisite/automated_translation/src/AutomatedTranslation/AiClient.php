@@ -17,8 +17,7 @@ final class AiClient implements ClientInterface
     public function __construct(
         private readonly ActionServiceInterface $actionService,
         private readonly ActionConfigurationServiceInterface $actionConfigurationService
-    )
-    {
+    ) {
     }
 
     public function setConfiguration(array $configuration): void

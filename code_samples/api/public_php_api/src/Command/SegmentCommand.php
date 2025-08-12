@@ -21,8 +21,7 @@ class SegmentCommand extends Command
         private readonly SegmentationService $segmentationService,
         private readonly UserService $userService,
         private readonly PermissionResolver $permissionResolver
-    )
-    {
+    ) {
         parent::__construct();
     }
 

@@ -22,8 +22,7 @@ class FindComplexCommand extends Command
     public function __construct(
         private readonly SearchService $searchService,
         private readonly LocationService $locationService
-    )
-    {
+    ) {
         parent::__construct();
     }
 

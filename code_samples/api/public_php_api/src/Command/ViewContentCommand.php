@@ -21,8 +21,7 @@ class ViewContentCommand extends Command
         private readonly ContentService $contentService,
         private readonly ContentTypeService $contentTypeService,
         private readonly FieldTypeService $fieldTypeService
-    )
-    {
+    ) {
         parent::__construct();
     }
 

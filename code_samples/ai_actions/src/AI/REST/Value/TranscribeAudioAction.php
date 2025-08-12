@@ -12,8 +12,7 @@ final readonly class TranscribeAudioAction
     public function __construct(
         private Audio $input,
         private RuntimeContext $runtimeContext
-    )
-    {
+    ) {
     }
 
     public function getInput(): Audio

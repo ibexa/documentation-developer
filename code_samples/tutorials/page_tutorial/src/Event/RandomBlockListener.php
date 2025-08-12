@@ -20,8 +20,7 @@ class RandomBlockListener implements EventSubscriberInterface
         private readonly ContentService $contentService,
         private readonly LocationService $locationService,
         private readonly SearchService $searchService
-    )
-    {
+    ) {
     }
 
     public static function getSubscribedEvents(): array

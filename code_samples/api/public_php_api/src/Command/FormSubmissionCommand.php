@@ -21,8 +21,7 @@ final class FormSubmissionCommand extends Command
         private readonly PermissionResolver $permissionResolver,
         private readonly FormSubmissionServiceInterface $formSubmissionService,
         private readonly ContentService $contentService
-    )
-    {
+    ) {
         parent::__construct();
     }
 

@@ -22,8 +22,7 @@ class CalendarCommand extends Command
         private readonly PermissionResolver $permissionResolver,
         private readonly UserService $userService,
         private readonly CalendarServiceInterface $calendarService
-    )
-    {
+    ) {
         parent::__construct();
     }
 

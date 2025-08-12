@@ -22,8 +22,7 @@ final class CurrencyCommand extends Command
         private readonly CurrencyServiceInterface $currencyService,
         private readonly UserService $userService,
         private readonly PermissionResolver $permissionResolver
-    )
-    {
+    ) {
         parent::__construct();
     }
 

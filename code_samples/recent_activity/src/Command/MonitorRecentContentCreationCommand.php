@@ -25,8 +25,7 @@ class MonitorRecentContentCreationCommand extends Command
         private readonly ActivityLogServiceInterface $activityLogService,
         private readonly PermissionResolver $permissionResolver,
         private readonly UserService $userService
-    )
-    {
+    ) {
         parent::__construct();
     }
 

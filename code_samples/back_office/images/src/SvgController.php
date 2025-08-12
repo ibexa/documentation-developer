@@ -22,8 +22,7 @@ class SvgController extends Controller
         private readonly ContentService $contentService,
         private readonly IOServiceInterface $ioService,
         private readonly TranslationHelper $translationHelper
-    )
-    {
+    ) {
     }
 
     /**

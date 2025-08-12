@@ -21,8 +21,7 @@ class WorkflowCommand extends Command
         private readonly WorkflowServiceInterface $workflowService,
         private readonly WorkflowRegistryInterface $workflowRegistry,
         private readonly ContentService $contentService
-    )
-    {
+    ) {
         parent::__construct();
     }
 

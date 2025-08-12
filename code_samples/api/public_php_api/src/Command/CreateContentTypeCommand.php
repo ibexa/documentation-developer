@@ -22,8 +22,7 @@ class CreateContentTypeCommand extends Command
         private readonly ContentTypeService $contentTypeService,
         private readonly UserService $userService,
         private readonly PermissionResolver $permissionResolver
-    )
-    {
+    ) {
         parent::__construct();
     }
 

@@ -21,8 +21,7 @@ class SetMainLocationCommand extends Command
         private readonly ContentService $contentService,
         private readonly UserService $userService,
         private readonly PermissionResolver $permissionResolver
-    )
-    {
+    ) {
         parent::__construct();
     }
 

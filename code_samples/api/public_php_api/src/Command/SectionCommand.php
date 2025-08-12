@@ -27,8 +27,7 @@ class SectionCommand extends Command
         private readonly ContentService $contentService,
         private readonly SearchService $searchService,
         private readonly PermissionResolver $permissionResolver
-    )
-    {
+    ) {
         parent::__construct();
     }
 

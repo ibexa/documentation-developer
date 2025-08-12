@@ -19,8 +19,7 @@ final readonly class LLaVaTextToTextActionHandler implements ActionHandlerInterf
     public function __construct(
         private HttpClientInterface $client,
         private string $host = 'http://localhost:8080'
-    )
-    {
+    ) {
     }
 
     public function supports(ActionInterface $action): bool

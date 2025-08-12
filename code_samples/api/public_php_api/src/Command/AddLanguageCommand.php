@@ -20,8 +20,7 @@ class AddLanguageCommand extends Command
         private readonly LanguageService $languageService,
         private readonly UserService $userService,
         private readonly PermissionResolver $permissionResolver
-    )
-    {
+    ) {
         parent::__construct();
     }
 

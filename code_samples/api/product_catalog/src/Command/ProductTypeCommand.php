@@ -20,8 +20,7 @@ final class ProductTypeCommand extends Command
         private readonly UserService $userService,
         private readonly PermissionResolver $permissionResolver,
         private readonly ProductTypeServiceInterface $productTypeService
-    )
-    {
+    ) {
         parent::__construct();
     }
 

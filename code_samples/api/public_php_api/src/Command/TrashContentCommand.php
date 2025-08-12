@@ -23,8 +23,7 @@ class TrashContentCommand extends Command
         private readonly UserService $userService,
         private readonly TrashService $trashService,
         private readonly PermissionResolver $permissionResolver
-    )
-    {
+    ) {
         parent::__construct();
     }
 

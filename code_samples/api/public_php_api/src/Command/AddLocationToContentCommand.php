@@ -23,8 +23,7 @@ class AddLocationToContentCommand extends Command
         private readonly LocationService $locationService,
         private readonly UserService $userService,
         private readonly PermissionResolver $permissionResolver
-    )
-    {
+    ) {
         parent::__construct();
     }
 

@@ -9,8 +9,7 @@ class MyFeatureEvent extends Event
     public function __construct(
         private readonly object $object,
         private readonly string $action
-    )
-    {
+    ) {
     }
 
     public function getObject(): object
