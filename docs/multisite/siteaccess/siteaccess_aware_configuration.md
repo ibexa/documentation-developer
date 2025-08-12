@@ -68,7 +68,7 @@ Semantic configuration must always be mapped to internal key/value settings with
 You usually do it in the [service container](php_api.md#service-container) extension.
 
 ``` php
-[[= include_file('code_samples/multisite/siteaccess/AcmeExampleExtension.php', 0, 42) =]][[= include_file('code_samples/multisite/siteaccess/AcmeExampleExtension.php', 53, 61) =]]
+[[= include_file('code_samples/multisite/siteaccess/AcmeExampleExtension.php', 0, 42) =]][[= include_file('code_samples/multisite/siteaccess/AcmeExampleExtension.php', 53, 62) =]]
 ```
 
 You can also map simple settings by calling `$processor->mapSetting()`, without having to call `$processor->mapConfig()` with a callable.

@@ -11,7 +11,7 @@ use Symfony\Component\DependencyInjection\Loader;
 
 final class AcmeExampleExtension extends Extension
 {
-    public const ACME_CONFIG_DIR = __DIR__ . '/../../../config/acme';
+    public const string ACME_CONFIG_DIR = __DIR__ . '/../../../config/acme';
 
     /**
      * @throws \Exception
@@ -54,6 +54,7 @@ final class AcmeExampleExtension extends Extension
     }
 
     /** @param array<mixed> $config */
+    #[\Override]
     public function getConfiguration(array $config, ContainerBuilder $container): Configuration
     {
         return new Configuration();
