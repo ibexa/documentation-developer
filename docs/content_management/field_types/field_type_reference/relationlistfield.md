@@ -108,32 +108,7 @@ $validators = [
 ];
 ```
 
-### Enable pagination in GraphQL
+### GraphQL integration
 
-To enable pagination for Relation List field type, set the `ibexa.graphql.schema.ibexa_object_relation_list.enable_pagination` parameter to `true`.
-
-!!! note
-
-    The pagination is enabled by default in [[= product_name =]] v5 and the parameter is removed.
-
-This allows you to query for only a subset of relations, as in the following example:
-
-``` graphql
-query {
-  content {
-   relations(contentId: 71) {
-    rel(first: 5) {
-      totalCount,
-      edges {
-        node {
-          _contentInfo {
-            id
-          }
-        }
-      }
-    }
-    }
-  }
-}
-```
-
+This field type supports paginating the results when queried using [GraphQL](graphql.md).
+To learn more, see [Pagination in GraphQL](graphql_queries.md#pagination).
