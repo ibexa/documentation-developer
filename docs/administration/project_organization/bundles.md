@@ -75,7 +75,7 @@ To remove a bundle (either one you created yourself, or an out-of-the-box one th
 |ibexa/connector-ai|Foundation for the [AI Actions](ai_actions.md) framework|
 |ibexa/connector-dam|Connector for DAM (Digital Asset Management) systems|
 |ibexa/connector-openai|Integrates the AI framework with [OpenAI](https://openai.com) |
-|ibexa/content-tree|content tree functionality|
+|ibexa/content-tree|Content tree functionality|
 |ibexa/elasticsearch|Integration with Elasticsearch search engine|
 |ibexa/fastly|Fastly support for `http-cache`, for use on Platform.sh or standalone|
 |ibexa/headless-assets|Assets for the back office|
