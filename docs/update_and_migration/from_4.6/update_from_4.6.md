@@ -376,6 +376,37 @@ Run the following scripts:
     psql <database_name> < vendor/ibexa/installer/upgrade/db/postgresql/ibexa-4.6.20-to-4.6.21.sql
     ```
 
+## v4.6.22
+
+### Added support for Solr 9
+
+This release adds support for [Solr 9](requirements.md#search).
+
+To update Solr within an existing [[= product_name =]] project, first refer to the [Solr 9 upgrade planning](https://solr.apache.org/guide/solr/latest/upgrade-notes/major-changes-in-solr-9.html) instructions.
+
+Then, follow the [instructions for setting up Solr 9 with [[= product_name =]]](/search/search_engines/solr_search_engine/install_solr.md#configure-and-start-solr) and merge them with your custom configuration.
+
+Changes include:
+
+1. Configuration files
+
+    - the `schema.xml` configuration file became [`managed-schema.xml`](https://solr.apache.org/guide/solr/latest/upgrade-notes/major-changes-in-solr-6.html#managed-schema-is-now-the-default)
+    - the [removed `LatLonType` field is replaced by the `LatLonPointSpatialField` field](https://solr.apache.org/guide/solr/latest/upgrade-notes/major-changes-in-solr-7.html#deprecations-and-removed-features)
+
+2. New [Solr version parameter](install_solr.md#configure-solr-version)
+
+Once Solr 9 is fully configured, [refresh the search index](reindex_search.md).
+
+### Set character set for activity log tables [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
+
+When using MySQL or MariaDB, run the following script to ensure correct character set for activity log tables:
+
+=== "MySQL"
+
+    ``` bash
+    mysql -u <username> -p <password> <database_name> < vendor/ibexa/installer/upgrade/db/mysql/ibexa-4.6.21-to-4.6.22.sql
+    ```
+
 [[% include 'snippets/update/notify_support.md' %]]
 
 With the product updated to the latest version, you can now finish the update process or proceed to updating the LTS Updates packages.
@@ -395,16 +426,16 @@ To use the [latest features](ibexa_dxp_v4.6.md) added to them, update them separ
 
     Then apply manually the changes described below.
 
-    ## 4.6.20
+    ### Discounts v4.6.20
 
-    ### Policy changes
+    #### Policy changes
 
     The `discount/view` policy is no longer required for the store customers to use a discount and must be removed from all users who are not managing discounts.
     The policy allows to access all the discount details, including the coupon codes to activate them, which could lead to system abuse.
 
     To learn more, see the [discounts policies overview](https://doc.ibexa.co/en/4.6/permissions/policies/).
 
-    ### Database update
+    #### Database update
 
     Run the following scripts:
 
@@ -524,6 +555,28 @@ To use the [latest features](ibexa_dxp_v4.6.md) added to them, update them separ
         ALTER TABLE ibexa_discount_code_usage_user
             ADD CONSTRAINT ibexa_discount_code_usage_user_content_fk FOREIGN KEY (user_id)
                 REFERENCES ezuser (contentobject_id) ON UPDATE CASCADE ON DELETE CASCADE NOT DEFERRABLE INITIALLY IMMEDIATE;
+        ```
+
+    ### Discounts v4.6.22
+
+    #### Database update
+
+    Run the following scripts:
+
+    === "MySQL"
+
+        ``` sql
+        ALTER TABLE ibexa_discount ADD override_prioritization tinyint(1) NOT NULL DEFAULT 0;
+        CREATE INDEX ibexa_discount_prioritization_idx ON ibexa_discount (override_prioritization, type, priority);
+        ALTER TABLE ibexa_discount_code ADD global_limit INT DEFAULT NULL;
+        ```
+
+    === "PostgreSQL"
+
+        ``` sql
+        ALTER TABLE ibexa_discount ADD override_prioritization tinyint(1) NOT NULL DEFAULT 0;
+        CREATE INDEX ibexa_discount_prioritization_idx ON ibexa_discount (override_prioritization, type, priority);
+        ALTER TABLE ibexa_discount_code ADD global_limit INT DEFAULT NULL;
         ```
 
 === "AI actions"

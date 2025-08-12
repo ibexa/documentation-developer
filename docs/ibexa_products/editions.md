@@ -57,3 +57,4 @@ Compare all features available in [[= product_name_headless =]], [[= product_nam
 | [Storefront](storefront.md) |  |  | &#10004; |
 | [Transactional emails](transactional_emails.md) |  |  | &#10004; |
 | [Discounts](discounts.md) | | | &#10004; |
+| [Symbol attribute type](symbol_attribute_type.md) | &#10004; | &#10004; | &#10004; |

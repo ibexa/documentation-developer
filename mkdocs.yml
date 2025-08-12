@@ -963,7 +963,7 @@ extra:
   latest_tag_4_3: '4.3.5'
   latest_tag_4_4: '4.4.4'
   latest_tag_4_5: '4.5.7'
-  latest_tag_4_6: '4.6.21'
+  latest_tag_4_6: '4.6.22'
   latest_tag_5_0: '5.0.0'
 
   symfony_doc: 'https://symfony.com/doc/7.3'

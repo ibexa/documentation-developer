@@ -132,6 +132,10 @@ For production setups it's recommended that you use Varnish/Fastly, Redis, NFS/E
 === "[[= product_name =]] v4.6"
 
     - 8.3
+
+=== "[[= product_name =]] v4.6"
+
+    - 8.3
     - 8.2
     - 8.1
     - 8.0 (PHP 8.0 has reached its End of Life. Unless you have extended support from vendors like Debian or Zend, you should use PHP 8.1)
@@ -212,20 +216,34 @@ For production setups it's recommended that you use Varnish/Fastly, Redis, NFS/E
 
 === "[[= product_name =]] v5.0"
 
-    - For content search, Solr 8.11.1 or higher.
-    Alternatively, Elasticsearch 7.16.2 or higher 7.x version.
+    |Name|Version|
+    |---|---|
+    |Solr|8.11.1+ or 9.8.1+|
+    |Elasticsearch| 7.16.2+ |
+
+    If you see a "+" next to the product version, it indicates a recommended version or higher within the same major release.
+    For example, "1.18+" means any 1.x version equal to or higher than 1.18, but not 2.x.
 
 === "[[= product_name =]] v4.6"
 
-    - For content search, Solr 7.7 LTS or Solr 8, recommended 8.11.1 or higher.
-    Alternatively, Elasticsearch 7.16.2 or higher 7.x version.
-    - The above solutions require Oracle Java/Open JDK. The minimum requirement is 8 LTS, recommended 11 LTS.
-    Newer versions aren't supported.
+    |Name|Version|
+    |---|---|
+    |Solr|8.11.1+ or 9.8.1+|
+    |Elasticsearch| 7.16.2+ |
+
+    If you see a "+" next to the product version, it indicates a recommended version or higher within the same major release.
+    For example, "1.18+" means any 1.x version equal to or higher than 1.18, but not 2.x.
 
 === "[[= product_name =]] v3.3"
 
-    - For content search, Solr 7.7 LTS or Solr 8, recommended 8.11.1 or higher.
-    Alternatively, Elasticsearch 7.16.2 or higher 7.x version.
+    |Name|Version|
+    |---|---|
+    |Solr|7.7 LTS or 8.11.1+|
+    |Elasticsearch| 7.16.2+ |
+
+    If you see a "+" next to the product version, it indicates a recommended version or higher within the same major release.
+    For example, "1.18+" means any 1.x version equal to or higher than 1.18, but not 2.x.
+
     - For BinaryFile field indexing, Apache Tika 1.20 or higher 1.x version, recommended 1.28.1 or higher.
     - The above solutions require Oracle Java/Open JDK. The minimum requirement is 8 LTS, recommended 11 LTS. Newer versions aren't supported.
 
@@ -237,7 +255,7 @@ For production setups it's recommended that you use Varnish/Fastly, Redis, NFS/E
     - ImageMagick
     - GD
 
-    Optionally if you intend to edit [PNG, SVG, GIF or WEBP files in the Image Editor](images.md#image-optimization), or use it with image variations:
+    Optionally, if you intend to edit [PNG, SVG, GIF or WEBP files in the Image Editor](images.md#image-optimization), or use it with image variations:
 
     - JpegOptim
     - Optipng
@@ -365,7 +383,7 @@ For production setups it's recommended that you use Varnish/Fastly, Redis, NFS/E
 === "[[= product_name =]] v5.0"
 
     [[= product_name =]] is developed to work with *any* web browser that supports modern standards, on *any* screen resolution suitable for web, running on *any* device.
-    However for the Editorial and Administration User Interfaces you need: a minimum of 1366-by-768 screen resolution, a desktop or tablet device, and a recommended/supported browser among the ones found below.
+    However, for the Editorial and Administration User Interfaces, you need: a minimum of 1366-by-768 screen resolution, a desktop or tablet device, and a recommended/supported browser among the ones found below.
 
     - Mozilla® Firefox® most recent stable version (recommended)
     - Google Chrome™ most recent stable version (recommended)

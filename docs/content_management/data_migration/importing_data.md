@@ -56,6 +56,7 @@ The following data migration step modes are available:
 | `currency`             | &#10004; | &#10004; | &#10004; |          |
 | `customer_group`       | &#10004; | &#10004; | &#10004; |          |
 | `discount`             | &#10004; | &#10004; |          |          |
+| `discount_code`        | &#10004; |          |          |          |
 | `language`             | &#10004; |          |          |          |
 | `location`             |          | &#10004; |          | &#10004; |
 | `object_state`         | &#10004; |          |          |          |
@@ -529,6 +530,14 @@ The provided conditions overwrite any already existing ones.
 ```
 
 For a list of available conditions, see [Discounts API](discounts_api.md#conditions).
+
+### Discount codes [[% include 'snippets/lts-update_badge.md' %]]
+
+You can create a discount code as in the following example:
+
+``` yaml
+[[= include_file('code_samples/data_migration/examples/discounts/discount_code_create.yaml') =]]
+```
 
 ## Criteria
 

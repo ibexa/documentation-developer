@@ -47,6 +47,7 @@ The available groups for the back office are:
 |`admin-ui-systeminfo-tab-groups`| `vendor/ibexa/system-info/src/bundle/Resources/views/themes/admin/system_info/info.html.twig` |
 |`admin-ui-user-menu`| `vendor/ibexa/admin-ui-ui/src/bundle/Resources/views/themes/admin/ui/layout.html.twig` |
 |`admin-ui-user-profile-blocks`| `vendor/ibexa/admin-ui/src/bundle/Resources/views/themes/admin/account/profile/view.html.twig` |
+|`admin-ui-versions-table-before`|`vendor/ibexa/admin-ui/src/bundle/Resources/views/themes/admin/content/tab/versions/table.html.twig`|
 
 For more information, see [this example using few of those components](components.md#example).
 

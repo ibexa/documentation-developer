@@ -46,7 +46,7 @@ final class ManageDiscountsCommand extends Command
         $discountCodeCreateStruct = new DiscountCodeCreateStruct(
             'summer10',
             10, // Global usage limit
-            null, // Unlimited usage
+            null, // Unlimited usage per customer
             $this->permissionResolver->getCurrentUserReference()->getUserId(),
             $now
         );
@@ -69,7 +69,8 @@ final class ManageDiscountsCommand extends Command
                     $discountCode->getCode(),
                     $discountCode->getGlobalLimit(),
                     $discountCode->getUsedLimit()
-                ),            ])
+                ),
+            ])
             ->setTranslations([
                 new DiscountTranslationStruct('eng-GB', 'Discount name', 'This is a discount description', 'Promotion Label', 'Promotion Description'),
                 new DiscountTranslationStruct('ger-DE', 'Discount name (German)', 'Description (German)', 'Promotion Label (German)', 'Promotion Description (German)'),

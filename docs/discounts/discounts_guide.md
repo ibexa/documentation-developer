@@ -57,6 +57,7 @@ A shopping cart can have multiple active discounts, but a specific product can o
 
 When two or more discounts can be applied to a single product, the system evaluates the following properties to choose the right one:
 
+- discount code existence (discounts with discount codes have priority over the others)
 - discount activation place (cart discounts rank higher over catalog discounts)
 - discount priority (higher priority ranks higher)
 - discount creation date (newer discounts rank higher)
@@ -105,7 +106,8 @@ These conditions can include:
 
 For **cart discounts**, you can specify an additional text value that needs to be entered in the cart for the discount to apply.
 
-The discount code usage can be limited per customer:
+The discount code usage can be limited globally, for example by making the discount valid only for the first 10 customers before it expires.
+You can also limit the usage per customer:
 
 - single use: every customer can use this code only once
 - limited use: every customer can use the code a specified number of times

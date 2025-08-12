@@ -320,6 +320,41 @@ This limitation can be used as a role limitation.
 
 For more information on how to restrict user's access to part of the subtree, see [the example in the Admin management section](permission_use_cases.md#restrict-editing-to-part-of-the-tree).
 
+## Taxonomy limitation
+
+The taxonomy (`Taxonomy`) limitation specifies with which [taxonomies](taxonomy.md) (tags, product categories, or custom ones) user can interact.
+
+The supported policies are:
+
+- `taxonomy/read`
+- `taxonomy/manage`
+- `taxonomy/assign`
+
+### Possible values
+
+|Value|UI value|Description|
+|------|------|------|
+|Taxonomy identifiers|Taxonomy names|List of allowed taxonomies|
+
+
+## Taxonomy Subtree limitation
+
+The taxonomy subtree (`TaxonomySubtree`) limitation specifies whether the user has access to a specific subtree within the [taxonomy](taxonomy.md) tree.
+Once a tag is selected, user can interact with it and all the child tags below it in the taxonomy tree.
+In addition, it grants read-only access to all the parent tags (up to the taxonomy root) so that the user can see the context.
+
+The supported policies are:
+
+- `taxonomy/read`
+- `taxonomy/manage`
+- `taxonomy/assign`
+
+### Possible values
+
+|Value|UI value|Description|
+|------|------|------|
+|Tag IDs|Selected tags| All valid Tag IDs are allowed|
+
 ## Version Lock limitation
 
 The Version Lock (`VersionLock`) limitation specifies whether the user can perform actions, for example, edit or unlock, on content items that are in a workflow.

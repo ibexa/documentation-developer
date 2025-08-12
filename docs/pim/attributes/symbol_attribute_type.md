@@ -59,7 +59,7 @@ Certain formats, such as the International Standard Book Number (ISBN-10) and th
 
 To validate checksum of symbol:
 
-1\. Create a class implementing the `\Ibexa\Contracts\ProductCatalogSymbolAttribute\Value\ChecksumInterface` interface.
+1\. Create a class implementing the [`\Ibexa\Contracts\ProductCatalogSymbolAttribute\Value\ChecksumInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalogSymbolAttribute-Value-ChecksumInterface.html) interface.
 
 2\. Register the class as a service using the `ibexa.product_catalog.attribute.symbol.checksum` tag and specify the format identifier using the `format` attribute.
 

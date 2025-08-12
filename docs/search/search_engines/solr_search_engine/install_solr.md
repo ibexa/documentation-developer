@@ -13,29 +13,70 @@ For configuring Solr in other ways, including examples, see [Solr Cores and `sol
 
 !!! note "Solr versions"
 
-    Supported Solr version is Solr 8. Using the most recent version of Solr 8.11 is recommended.
+    Supported Solr versions are Solr 8 and 9.
+    Using the most recent version of Solr is recommended.
 
 Download and extract Solr:
 
 - [solr-8.11.2.tgz](https://www.apache.org/dyn/closer.lua/lucene/solr/8.11.2/solr-8.11.2.tgz) or [solr-8.11.2.zip](https://www.apache.org/dyn/closer.lua/lucene/solr/8.11.2/solr-8.11.2.zip)
+- [solr-9.8.1.tgz](https://archive.apache.org/dist/solr/solr/9.8.1/solr-9.8.1.tgz)
 
-Copy the necessary configuration files. In the example below from the root of your project to the place you extracted Solr:
+Copy the necessary configuration files.
+The examples below copy from the root of your DXP project to the place you've extracted Solr:
 
-``` bash
-# Make sure to replace the /opt/solr/ path with where you have placed Solr
-cd /opt/solr
-mkdir -p server/ibexa/template
-cp -R <project_root>/vendor/ibexa/solr/src/lib/Resources/config/solr/* server/ibexa/template
-cp server/solr/configsets/_default/conf/{solrconfig.xml,stopwords.txt,synonyms.txt} server/ibexa/template
-cp server/solr/solr.xml server/ibexa
+=== "Solr 9"
 
-# Modify solrconfig.xml to remove the section that doesn't agree with your schema
-sed -i.bak '/<updateRequestProcessorChain name="add-unknown-fields-to-the-schema".*/,/<\/updateRequestProcessorChain>/d' server/ibexa/template/solrconfig.xml
+    [[= product_name =]] provides the following required configuration files:
 
-# Start Solr (but apply autocommit settings below first if you need to)
-bin/solr -s ibexa
-bin/solr create_core -c collection1 -d server/ibexa/template
-```
+    - `vendor/ibexa/solr/src/lib/Resources/config/solr/solr.languages` directory
+    - `vendor/ibexa/solr/src/lib/Resources/config/solr/managed-schema.xml`
+    - `vendor/ibexa/solr/src/lib/Resources/config/solr/custom-fields-types-solr9.xml`
+    - `vendor/ibexa/solr/src/lib/Resources/config/solr/language-fieldtypes.xml`
+
+
+    ``` bash
+    # Make sure to replace the /opt/solr/ path with where you have placed Solr
+    cd /opt/solr
+    mkdir -p server/ibexa/template/conf
+    cp -R <project_root>/vendor/ibexa/solr/src/lib/Resources/config/solr/solr.languages server/ibexa/template/conf
+    cp -R <project_root>/vendor/ibexa/solr/src/lib/Resources/config/solr/{managed-schema.xml,custom-fields-types-solr9.xml,language-fieldtypes.xml} server/ibexa/template/conf
+    cp server/solr/configsets/_default/conf/{solrconfig.xml,stopwords.txt,synonyms.txt} server/ibexa/template/conf
+    cp server/solr/solr.xml server/ibexa
+
+    # Modify solrconfig.xml to remove the section that doesn't agree with your schema
+    sed -i.bak '/<updateRequestProcessorChain name="add-unknown-fields-to-the-schema".*/,/<\/updateRequestProcessorChain>/d' server/ibexa/template/conf/solrconfig.xml
+
+    # Start Solr (but apply autocommit settings below first if you need to)
+    # The configuration path is an absolute path
+    bin/solr -s ibexa
+    bin/solr create_core -c collection1 -d /opt/solr/server/ibexa/template
+    ```
+
+=== "Solr 8"
+
+    [[= product_name =]] provides the following required configuration files:
+
+    - `vendor/ibexa/solr/src/lib/Resources/config/solr/solr.languages` directory
+    - `vendor/ibexa/solr/src/lib/Resources/config/solr/schema.xml`
+    - `vendor/ibexa/solr/src/lib/Resources/config/solr/custom-fields-types.xml`
+    - `vendor/ibexa/solr/src/lib/Resources/config/solr/language-fieldtypes.xml`
+
+    ``` bash
+    # Make sure to replace the /opt/solr/ path with where you have placed Solr
+    cd /opt/solr
+    mkdir -p server/ibexa/template
+    cp -R <project_root>/vendor/ibexa/solr/src/lib/Resources/config/solr/solr.languages server/ibexa/template
+    cp -R <project_root>/vendor/ibexa/solr/src/lib/Resources/config/solr/{schema.xml,custom-fields-types.xml,language-fieldtypes.xml} server/ibexa/template
+    cp server/solr/configsets/_default/conf/{solrconfig.xml,stopwords.txt,synonyms.txt} server/ibexa/template
+    cp server/solr/solr.xml server/ibexa
+
+    # Modify solrconfig.xml to remove the section that doesn't agree with your schema
+    sed -i.bak '/<updateRequestProcessorChain name="add-unknown-fields-to-the-schema".*/,/<\/updateRequestProcessorChain>/d' server/ibexa/template/solrconfig.xml
+
+    # Start Solr (but apply autocommit settings below first if you need to)
+    bin/solr -s ibexa
+    bin/solr create_core -c collection1 -d server/ibexa/template
+    ```
 
 #### Set up SolrCloud
 
@@ -48,6 +89,8 @@ SolrCloud is a cluster of Solr servers. It enables you to:
 To set SolrCloud up follow [SolrCloud reference guide](https://solr.apache.org/guide/7_7/solrcloud.html).
 
 ### Continue Solr configuration
+
+#### Configure commit frequency
 
 The bundle doesn't commit Solr index changes directly on repository updates, leaving it up to you to tune this using `solrconfig.xml` as best practice suggests.
 
@@ -68,9 +111,41 @@ It's strongly recommended to set-up `solrconfig.xml` like this:
 </autoSoftCommit>
 ```
 
+#### Configure spellcheck
+
+Configure the spellcheck component in `solrconfig.xml`:
+
+```xml
+  <searchComponent name="spellcheck" class="solr.SpellCheckComponent">
+    <lst name="spellchecker">
+      <str name="name">default</str>
+      <str name="field">meta_content__text_t</str>
+      <str name="classname">solr.DirectSolrSpellChecker</str>
+      <str name="distanceMeasure">internal</str>
+      <float name="accuracy">0.5</float>
+      <int name="maxEdits">2</int>
+      <int name="minPrefix">1</int>
+      <int name="maxInspections">5</int>
+      <int name="minQueryLength">4</int>
+      <float name="maxQueryFrequency">0.01</float>
+    </lst>
+  </searchComponent>
+```
+
+Add this `spellcheck` component to the `/select` request handler: 
+
+```xml
+  <requestHandler name="/select" class="solr.SearchHandler">
+    <arr name="last-components">
+      <str>spellcheck</str>
+    </arr>
+    <!-- […] -->
+  </requestHandler>
+```
+
 ### Generate Solr configuration automatically
 
-The command line tool `bin/generate-solr-config.sh` generates Solr 7 configuration automatically.
+The command line tool `bin/generate-solr-config.sh` generates Solr configuration automatically.
 It can be used for deploying to [[= product_name_cloud =]] (Platform.sh) and on-premise installs.
 
 Execute the script from the [[= product_name =]] root directory for further information:
@@ -88,6 +163,16 @@ The config further below assumes you have parameters set up for Solr DSN and sea
     env(SEARCH_ENGINE): solr
     env(SOLR_DSN): 'http://localhost:8983/solr'
     env(SOLR_CORE): collection1
+```
+
+### Configure Solr version
+
+When using Solr 9, it's required to set the `version` parameter with the Solr version.
+The parameter is optional when using lower Solr versions.
+
+``` yaml
+ibexa_solr:
+    version: '9.8.1'
 ```
 
 ### Single-core example (default)
@@ -144,6 +229,7 @@ If full language analysis features are preferred, then each language can be conf
 
 ``` yaml
 ibexa_solr:
+    version: '9.8.1' # Required only if using Solr 9
     endpoints:
         endpoint0:
             dsn: '%solr_dsn%'
