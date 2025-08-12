@@ -20,5 +20,5 @@ To create a new language, you need to create a [`LanguageCreateStruct`](/api/php
 Then, use [`LanguageService::createLanguage`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-LanguageService.html#method_createLanguage) and pass the `LanguageCreateStruct` to it:
 
 ``` php
-[[= include_file('code_samples/api/public_php_api/src/Command/AddLanguageCommand.php', 38, 42) =]]
+[[= include_file('code_samples/api/public_php_api/src/Command/AddLanguageCommand.php', 37, 42) =]]
 ```
