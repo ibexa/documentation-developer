@@ -16,7 +16,12 @@ use Symfony\Component\Console\Output\OutputInterface;
 )]
 final class FormSubmissionCommand extends Command
 {
-    public function __construct(private readonly UserService $userService, private readonly PermissionResolver $permissionResolver, private readonly FormSubmissionServiceInterface $formSubmissionService, private readonly ContentService $contentService)
+    public function __construct(
+        private readonly UserService $userService,
+        private readonly PermissionResolver $permissionResolver,
+        private readonly FormSubmissionServiceInterface $formSubmissionService,
+        private readonly ContentService $contentService
+    )
     {
         parent::__construct();
     }

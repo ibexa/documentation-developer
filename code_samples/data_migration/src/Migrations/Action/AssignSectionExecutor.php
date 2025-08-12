@@ -10,7 +10,10 @@ use Ibexa\Migration\ValueObject;
 
 final readonly class AssignSectionExecutor implements ExecutorInterface
 {
-    public function __construct(private ContentService $contentService, private SectionService $sectionService)
+    public function __construct(
+        private ContentService $contentService,
+        private SectionService $sectionService
+    )
     {
     }
 

@@ -18,7 +18,11 @@ use Symfony\Component\Console\Output\OutputInterface;
 )]
 class CalendarCommand extends Command
 {
-    public function __construct(private readonly PermissionResolver $permissionResolver, private readonly UserService $userService, private readonly CalendarServiceInterface $calendarService)
+    public function __construct(
+        private readonly PermissionResolver $permissionResolver,
+        private readonly UserService $userService,
+        private readonly CalendarServiceInterface $calendarService
+    )
     {
         parent::__construct();
     }

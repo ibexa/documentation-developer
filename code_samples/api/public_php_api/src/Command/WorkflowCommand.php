@@ -17,7 +17,11 @@ use Symfony\Component\Console\Output\OutputInterface;
 )]
 class WorkflowCommand extends Command
 {
-    public function __construct(private readonly WorkflowServiceInterface $workflowService, private readonly WorkflowRegistryInterface $workflowRegistry, private readonly ContentService $contentService)
+    public function __construct(
+        private readonly WorkflowServiceInterface $workflowService,
+        private readonly WorkflowRegistryInterface $workflowRegistry,
+        private readonly ContentService $contentService
+    )
     {
         parent::__construct();
     }

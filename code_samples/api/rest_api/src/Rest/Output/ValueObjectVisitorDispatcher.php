@@ -14,7 +14,10 @@ class ValueObjectVisitorDispatcher // extends BaseValueObjectVisitorDispatcher T
 
     private Generator $outputGenerator;
 
-    public function __construct(iterable $visitors, private readonly BaseValueObjectVisitorDispatcher $valueObjectVisitorDispatcher)
+    public function __construct(
+        iterable $visitors,
+        private readonly BaseValueObjectVisitorDispatcher $valueObjectVisitorDispatcher
+    )
     {
         $this->visitors = [];
         foreach ($visitors as $type => $visitor) {

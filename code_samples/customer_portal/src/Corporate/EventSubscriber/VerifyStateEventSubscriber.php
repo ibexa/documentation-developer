@@ -19,7 +19,11 @@ final readonly class VerifyStateEventSubscriber implements EventSubscriberInterf
 {
     private const string VERIFY_STATE = 'verify';
 
-    public function __construct(private FormFactoryInterface $formFactory, private HandlerInterface $applicationStateHandler, private TranslatableNotificationHandlerInterface $notificationHandler)
+    public function __construct(
+        private FormFactoryInterface $formFactory,
+        private HandlerInterface $applicationStateHandler,
+        private TranslatableNotificationHandlerInterface $notificationHandler
+    )
     {
     }
 

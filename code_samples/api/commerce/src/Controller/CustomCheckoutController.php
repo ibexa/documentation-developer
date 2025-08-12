@@ -11,7 +11,10 @@ use Symfony\Component\HttpFoundation\Response;
 
 class CustomCheckoutController extends Controller
 {
-    public function __construct(private readonly CartServiceInterface $cartService, private readonly CheckoutServiceInterface $checkoutService)
+    public function __construct(
+        private readonly CartServiceInterface $cartService,
+        private readonly CheckoutServiceInterface $checkoutService
+    )
     {
     }
 

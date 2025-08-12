@@ -17,7 +17,11 @@ use Symfony\Component\Console\Output\OutputInterface;
 )]
 class SetMainLocationCommand extends Command
 {
-    public function __construct(private readonly ContentService $contentService, private readonly UserService $userService, private readonly PermissionResolver $permissionResolver)
+    public function __construct(
+        private readonly ContentService $contentService,
+        private readonly UserService $userService,
+        private readonly PermissionResolver $permissionResolver
+    )
     {
         parent::__construct();
     }

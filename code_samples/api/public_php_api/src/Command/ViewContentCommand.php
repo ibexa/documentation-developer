@@ -17,7 +17,11 @@ use Symfony\Component\Console\Output\OutputInterface;
 )]
 class ViewContentCommand extends Command
 {
-    public function __construct(private readonly ContentService $contentService, private readonly ContentTypeService $contentTypeService, private readonly FieldTypeService $fieldTypeService)
+    public function __construct(
+        private readonly ContentService $contentService,
+        private readonly ContentTypeService $contentTypeService,
+        private readonly FieldTypeService $fieldTypeService
+    )
     {
         parent::__construct();
     }

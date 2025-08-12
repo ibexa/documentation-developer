@@ -21,7 +21,11 @@ use Symfony\Component\Console\Style\SymfonyStyle;
 )]
 class MonitorRecentContentCreationCommand extends Command
 {
-    public function __construct(private readonly ActivityLogServiceInterface $activityLogService, private readonly PermissionResolver $permissionResolver, private readonly UserService $userService)
+    public function __construct(
+        private readonly ActivityLogServiceInterface $activityLogService,
+        private readonly PermissionResolver $permissionResolver,
+        private readonly UserService $userService
+    )
     {
         parent::__construct();
     }

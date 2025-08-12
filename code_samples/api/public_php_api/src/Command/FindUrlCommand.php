@@ -19,7 +19,11 @@ use Symfony\Component\Console\Output\OutputInterface;
 )]
 class FindUrlCommand extends Command
 {
-    public function __construct(private readonly URLService $urlService, private readonly UserService $userService, private readonly PermissionResolver $permissionResolver)
+    public function __construct(
+        private readonly URLService $urlService,
+        private readonly UserService $userService,
+        private readonly PermissionResolver $permissionResolver
+    )
     {
         parent::__construct();
     }

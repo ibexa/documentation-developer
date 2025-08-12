@@ -18,7 +18,11 @@ use Symfony\Component\Console\Output\OutputInterface;
 )]
 class CreateContentTypeCommand extends Command
 {
-    public function __construct(private readonly ContentTypeService $contentTypeService, private readonly UserService $userService, private readonly PermissionResolver $permissionResolver)
+    public function __construct(
+        private readonly ContentTypeService $contentTypeService,
+        private readonly UserService $userService,
+        private readonly PermissionResolver $permissionResolver
+    )
     {
         parent::__construct();
     }

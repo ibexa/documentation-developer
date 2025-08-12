@@ -13,7 +13,10 @@ use Symfony\Component\HttpFoundation\Response;
 
 class AllContentListController extends Controller
 {
-    public function __construct(private readonly SearchService $searchService, private readonly FormFactory $formFactory)
+    public function __construct(
+        private readonly SearchService $searchService,
+        private readonly FormFactory $formFactory
+    )
     {
     }
 

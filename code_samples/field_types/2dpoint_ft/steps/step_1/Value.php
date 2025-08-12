@@ -7,7 +7,10 @@ use Ibexa\Contracts\Core\FieldType\Value as ValueInterface;
 
 final class Value implements ValueInterface
 {
-    public function __construct(private ?float $x = null, private ?float $y = null)
+    public function __construct(
+        private ?float $x = null,
+        private ?float $y = null
+    )
     {
     }
 

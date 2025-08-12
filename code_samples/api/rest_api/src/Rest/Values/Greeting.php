@@ -4,7 +4,10 @@ namespace App\Rest\Values;
 
 class Greeting
 {
-    public function __construct(public string $salutation = 'Hello', public string $recipient = 'World')
+    public function __construct(
+        public string $salutation = 'Hello',
+        public string $recipient = 'World'
+    )
     {
     }
 }

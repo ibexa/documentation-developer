@@ -17,7 +17,11 @@ use Symfony\Component\Console\Output\OutputInterface;
 )]
 class MoveContentCommand extends Command
 {
-    public function __construct(private readonly LocationService $locationService, private readonly UserService $userService, private readonly PermissionResolver $permissionResolver)
+    public function __construct(
+        private readonly LocationService $locationService,
+        private readonly UserService $userService,
+        private readonly PermissionResolver $permissionResolver
+    )
     {
         parent::__construct();
     }

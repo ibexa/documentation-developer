@@ -18,7 +18,12 @@ use Symfony\Component\Console\Output\OutputInterface;
 )]
 class ObjectStateCommand extends Command
 {
-    public function __construct(private readonly ContentService $contentService, private readonly UserService $userService, private readonly ObjectStateService $objectStateService, private readonly PermissionResolver $permissionResolver)
+    public function __construct(
+        private readonly ContentService $contentService,
+        private readonly UserService $userService,
+        private readonly ObjectStateService $objectStateService,
+        private readonly PermissionResolver $permissionResolver
+    )
     {
         parent::__construct();
     }
