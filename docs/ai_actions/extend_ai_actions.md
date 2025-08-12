@@ -116,7 +116,7 @@ Create a class implementing the [ActionHandlerInterface](/api/php_api/php_api_re
 
 See the code sample below, together with a matching service definition:
 
-``` php hl_lines="17 23-26 28-63 65-68"
+``` php hl_lines="17 25-27 30-65 67-70"
 [[= include_file('code_samples/ai_actions/src/AI/Handler/LLaVaTextToTextActionHandler.php') =]]
 ```
 

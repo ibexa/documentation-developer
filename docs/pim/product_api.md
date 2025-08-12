@@ -47,7 +47,7 @@ Provide the method with the product type object and the main language code.
 You also need to set (at least) the code for the product and the required Field of the underlying content type, `name`:
 
 ``` php
-[[= include_file('code_samples/api/product_catalog/src/Command/ProductCommand.php', 71, 76) =]]
+[[= include_file('code_samples/api/product_catalog/src/Command/ProductCommand.php', 69, 76) =]]
 ```
 
 To delete a product, use `LocalProductServiceInterface::deleteProduct()`:
@@ -108,13 +108,13 @@ To work with product types, use [`ProductTypeServiceInterface`](/api/php_api/php
 Get a product type object by using `ProductTypeServiceInterface::getProductType()`:
 
 ``` php
-[[= include_file('code_samples/api/product_catalog/src/Command/ProductTypeCommand.php', 38, 39) =]]
+[[= include_file('code_samples/api/product_catalog/src/Command/ProductTypeCommand.php', 41, 42) =]]
 ```
 
 You can also get a list of product types with `ProductTypeServiceInterface::findProductTypes()`:
 
 ``` php
-[[= include_file('code_samples/api/product_catalog/src/Command/ProductTypeCommand.php', 42, 47) =]]
+[[= include_file('code_samples/api/product_catalog/src/Command/ProductTypeCommand.php', 45, 50) =]]
 ```
 
 ## Product availability

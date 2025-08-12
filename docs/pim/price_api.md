@@ -12,13 +12,13 @@ To access a currency object by its code, use `CurrencyServiceInterface::getCurre
 To access a whole list of currencies, use `CurrencyServiceInterface::findCurrencies`.
 
 ``` php
-[[= include_file('code_samples/api/product_catalog/src/Command/CurrencyCommand.php', 42, 50) =]]
+[[= include_file('code_samples/api/product_catalog/src/Command/CurrencyCommand.php', 45, 53) =]]
 ```
 
 To create a new currency, use `CurrencyServiceInterface::createCurrency()` and provide it with a `CurrencyCreateStruct` with code, number of fractional digits and a flag indicating if the currency is enabled:
 
 ``` php
-[[= include_file('code_samples/api/product_catalog/src/Command/CurrencyCommand.php', 57, 60) =]]
+[[= include_file('code_samples/api/product_catalog/src/Command/CurrencyCommand.php', 60, 63) =]]
 ```
 
 ## Prices
