@@ -4,14 +4,13 @@ title: Ibexa DXP v5.0 LTS
 month_change: true
 ---
 
-<!-- vale VariablesVersion = NO -->
+# Ibexa DXP v5.0 LTS
 
-[[= release_notes_filters('Ibexa DXP v5.0 LTS', ['Headless', 'Experience', 'Commerce', 'LTS Update', 'New feature']) =]]
+## Ibexa DXP v5.0.0
 
-<div class="release-notes" markdown="1">
+## Latest changes
 
-[[% set version = 'v5.0.0' %]]
-[[= release_note_entry_begin("Ibexa DXP " + version, '2025-07-22', ['Headless', 'Experience', 'Commerce', 'New feature']) =]]
+To learn more about the latest changes in v5, visit the [full release notes for v5.0](https://doc.ibexa.co/en/latest/release_notes/ibexa_dxp_v4.6/).
 
 ### Notable changes
 
@@ -351,10 +350,11 @@ Refer to [Ibexa DXP v5.0 renames, deprecations and removals](ibexa_dxp_v5.0_depr
 
 ### Full changelog
 
-[[% include 'snippets/release_50.md' %]]
+
+To learn more about all the included changes, see the full release change logs:
+
+- [Ibexa Headless v5.0.0](https://github.com/ibexa/headless/releases/tag/v5.0.0)
+- [Ibexa Experience v5.0.0](https://github.com/ibexa/experience/releases/tag/v5.0.0)
+- [Ibexa Commerce v5.0.0](https://github.com/ibexa/commerce/releases/tag/v5.0.0)
 
 To update your application, see the [update instructions](../update_and_migration/from_4.6/update_to_5.0.md).
-
-[[= release_note_entry_end() =]]
-
-</div>

@@ -8,11 +8,15 @@ description: Ibexa DXP v4.6 brings improvements to Commerce, PIM and Personaliza
 
 **Version number**: v4.6
 
-**Release date**: February 13, 2024
+**Initial release date**: February 13, 2024
 
 **Release type**: [LTS](https://support.ibexa.co/Public/service-life)
 
 **Update**: [v4.5.x to v4.6](https://doc.ibexa.co/en/latest/update_and_migration/from_4.5/update_from_4.5/)
+
+## Latest changes
+
+To learn more about the latest changes in v4.6, visit the [full release notes for 4.6](https://doc.ibexa.co/en/latest/release_notes/ibexa_dxp_v4.6/).
 
 ## Notable changes
 

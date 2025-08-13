@@ -73,11 +73,11 @@
         <div class="col-12">
             <div class="notification" id="tile2">
                 <div class="notification__content">
-                    <h2>The latest release is v4.6</h2>
-                    <div>The <a href="release_notes/ibexa_dxp_v4.6/">latest version of Ibexa DXP is v4.6</a>. You can now update your application to the latest version.</div>
+                    <h2>The latest release is v5.0 LTS</h2>
+                    <div>The latest version of Ibexa DXP is 5.0.0. You can now update your application to the latest version.</div>
                 </div>
                 <div class="notification__cta">
-                    <a href="update_and_migration/from_4.5/update_from_4.5/">Update your application</a>
+                    <a href="https://doc.ibexa.co/en/5.0/release_notes/ibexa_dxp_v5.0/">Release notes</a>
                 </div>
                 <div class="notification__image">
                     <img src="images/notification-image.png" alt="The latest release" />
