@@ -16,7 +16,7 @@ These changes include dropped packages, changing database table and column names
 ## Dropped packages
 
 [[= product_name =]] v5.0 no longer includes legacy Commerce packages.
-The solution has been replaced with [Commerce](commerce.md) that is included as standard and has been continuously developed since v4.4.
+The solution has been replaced with [Commerce](https://doc.ibexa.co/en/5.0/commerce/commerce/) that is included as standard and has been continuously developed since v4.4.
 
 Also, packages `compatibility-layer` and `icons` have been dropped.
 
@@ -416,7 +416,7 @@ Support for facets in `ibexa/elasticsearch` has been dropped, use the `Aggregati
 !!! note "Dropped `measurement` product attribute"
 
     The deprecated product attribute `measurement` has been removed.
-    The change does not affect the [measurement field type](measurementfield.md).
+    The change does not affect the [measurement field type](https://doc.ibexa.co/en/5.0/content_management/field_types/field_type_reference/measurementfield/).
 
 ### ibexa/migrations
 

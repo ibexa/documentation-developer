@@ -24,11 +24,11 @@ By default, the AI Actions feature can help users with their work in following s
 - Refining text: when editing a content item, users can request that a passage selected in online editor is modified, for example, by adjusting the length of the text, changing its tone, or correcting linguistic errors
 - Generating alternative text: when working with images, users can ask AI to generate alternative text for them, which helps improve accessibility and SEO
 
-![AI Assistant](ai_assistant.png)
+![AI Assistant](https://doc.ibexa.co/en/5.0/ai_actions/img/ai_assistant.png)
 
 AI Actions integrate with [Ibexa Connect]([[= connect_doc =]]), giving you an opportunity to build complex data transformation workflows without having to rely on custom code.
 
-For more information, see [AI Actions product guide](ai_actions_guide.md).
+For more information, see [AI Actions product guide](https://doc.ibexa.co/en/5.0/ai_actions/ai_actions_guide).
 
 #### Discounts [[% include 'snippets/commerce_badge.md' %]]
 
@@ -38,19 +38,19 @@ Use them to encourage first-time purchases, reward loyal customers, promote new 
 
 By displaying discounted prices clearly in the catalog or cart, businesses can create a sense of urgency, increase customer satisfaction, and ultimately boost revenue.
 
-![Discounts for products in the cart](4.6_discounts.png)
+![Discounts for products in the cart](https://doc.ibexa.co/en/5.0/release_notes/img/4.6_discounts.png)
 
-For more information, see [Discounts product guide](discounts_guide.md).
+For more information, see [Discounts product guide](https://doc.ibexa.co/en/5.0/discounts/discounts_guide).
 
 #### Date and time attribute
 
-The Date and time attributes allow you to represent date and time values as part of the product specification in the [Product Information Management](pim_guide.md) system.
+The Date and time attributes allow you to represent date and time values as part of the product specification in the [Product Information Management](https://doc.ibexa.co/en/5.0/pim/pim_guide/) system.
 
-For more information, see [Date and time attributes](date_and_time.md).
+For more information, see [Date and time attributes](https://doc.ibexa.co/en/5.0/pim/attributes/date_and_time/).
 
 #### Symbol attribute
 
-The Symbol attributes allow you to efficiently represent the string-based data as part of the product specification in the [Product Information Management](pim_guide.md) system.
+The Symbol attributes allow you to efficiently represent the string-based data as part of the product specification in the [Product Information Management](https://doc.ibexa.co/en/5.0/pim/pim_guide/) system.
 
 For more information, see [Symbol attributes](https://doc.ibexa.co/en/5.0/pim/attributes/symbol_attribute_type/).
 
@@ -67,7 +67,7 @@ For more information, see [Collaboration PHP API](https://doc.ibexa.co/en/5.0/ap
 
 With improved compatibility, performance and increased security, as well as better developer experience in mind, [[= product_name_base =]] decided to introduce several significant tech stack upgrades.
 
-For a full list of updated system requirements, see [Requirements](../getting_started/requirements.md).
+For a full list of updated system requirements, see [Requirements](https://doc.ibexa.co/en/5.0/getting_started/requirements).
 
 #### Symfony 7.3
 
