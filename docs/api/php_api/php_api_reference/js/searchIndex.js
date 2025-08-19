@@ -12226,6 +12226,11 @@ Search.appendIndex(
             "summary": "Update\u0020Notification\u0020ValueObject\u0020in\u0020persistent\u0020storage.",
             "url": "classes/Ibexa-Contracts-Core-Persistence-Notification-Handler.html#method_updateNotification"
         },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Persistence\\Notification\\Handler\u003A\u003AbulkUpdateUserNotifications\u0028\u0029",
+            "name": "bulkUpdateUserNotifications",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Persistence-Notification-Handler.html#method_bulkUpdateUserNotifications"
+        },                {
             "fqsen": "\\Ibexa\\Contracts\\Core\\Persistence\\Notification\\Handler\u003A\u003AcountPendingNotifications\u0028\u0029",
             "name": "countPendingNotifications",
             "summary": "Count\u0020users\u0020unread\u0020Notifications.",
@@ -14095,6 +14100,11 @@ Search.appendIndex(
             "name": "getNotification",
             "summary": "Load\u0020single\u0020notification\u0020\u0028by\u0020ID\u0029.",
             "url": "classes/Ibexa-Contracts-Core-Repository-Decorator-NotificationServiceDecorator.html#method_getNotification"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Decorator\\NotificationServiceDecorator\u003A\u003AmarkUserNotificationsAsRead\u0028\u0029",
+            "name": "markUserNotificationsAsRead",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Repository-Decorator-NotificationServiceDecorator.html#method_markUserNotificationsAsRead"
         },                {
             "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Decorator\\NotificationServiceDecorator\u003A\u003AmarkNotificationAsRead\u0028\u0029",
             "name": "markNotificationAsRead",
@@ -20975,6 +20985,11 @@ Search.appendIndex(
             "name": "getNotification",
             "summary": "Load\u0020single\u0020notification\u0020\u0028by\u0020ID\u0029.",
             "url": "classes/Ibexa-Contracts-Core-Repository-NotificationService.html#method_getNotification"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\NotificationService\u003A\u003AmarkUserNotificationsAsRead\u0028\u0029",
+            "name": "markUserNotificationsAsRead",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Repository-NotificationService.html#method_markUserNotificationsAsRead"
         },                {
             "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\NotificationService\u003A\u003AmarkNotificationAsRead\u0028\u0029",
             "name": "markNotificationAsRead",
