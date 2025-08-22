@@ -10,6 +10,53 @@ month_change: true
 
 <div class="release-notes" markdown="1">
 
+[[% set version = 'v5.0.1' %]]
+
+[[= release_note_entry_begin("Ibexa DXP " + version, '2025-08-19', ['Headless', 'Experience', 'Commerce', 'New feature']) =]]
+
+#### Special characters in online editor
+
+The [online editor](online_editor_guide.md) now allows to easily enter special characters like currency symbols.
+It uses the [special characters plugin](https://ckeditor.com/docs/ckeditor5/latest/features/special-characters.html),
+
+![Special characters in online editor](4.6_special_characters.png "Special characters in online editor")
+
+#### Support for Solr 9
+
+With this release, [[= product_name =]] starts supporting [Solr 9](requirements.md#search).
+
+Solr 9 comes with support for [Dense Vector Search](https://solr.apache.org/guide/solr/latest/query-guide/dense-vector-search.html), paving the way for incoming improvements to the [AI Actions](ai_actions.md) feature.
+
+#### Improved content creation interface
+
+The editing interface of the back office has been improved to better highlight the language, creator, and the publication date when working with content items.
+
+![Improved interface for content creation](4.6_improved_editing.png "Improved interface for content creation")
+
+#### Taxonomy Subtree limitation
+
+You can now manage access to [taxonomy items](taxonomy.md) more effectively by using the new [Taxonomy Subtree limitation](limitation_reference.md#taxonomy-subtree-limitation).
+
+In addition, you can now use the [Taxonomy limitation](limitation_reference.md#taxonomy-limitation) together with the `taxonomy/assign` policy.
+
+#### Base price column added to a Product Picker view
+
+The Product Picker tool that, for example, lets you [select products eligible for discounts]([[= user_doc =]]/commerce/discounts/work_with_discounts/#create-new-discount), now displays a **Base price** column for products and product variants.
+
+#### Pagination for ezobjectrelationlist in GraphQL
+
+To improve performance and gain greater control over the returned responses from the [GraphQL API](graphql.md), you can now [enable pagination](relationlistfield.md#enable-pagination-in-graphql) of relations specified using the RelationList field type.
+
+#### Other upgrades
+
+This release brings additional minor improvements to the developer's experience that result from capabilities offered by PHP in version 8.3.
+
+#### Full changelog
+
+[[% include 'snippets/release_50.md' %]]
+
+[[= release_note_entry_end() =]]
+
 [[% set version = 'v5.0.0' %]]
 [[= release_note_entry_begin("Ibexa DXP " + version, '2025-07-22', ['Headless', 'Experience', 'Commerce', 'New feature']) =]]
 

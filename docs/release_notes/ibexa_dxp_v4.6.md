@@ -12,7 +12,7 @@ month_change: true
 
 [[% set version = 'v4.6.23' %]]
 
-[[= release_note_entry_begin("Ibexa DXP " + version, '2025-08-05', ['Headless', 'Experience', 'Commerce', 'New feature']) =]]
+[[= release_note_entry_begin("Ibexa DXP " + version, '2025-08-19', ['Headless', 'Experience', 'Commerce', 'New feature']) =]]
 
 #### Base price column added to a Product Picker view
 
