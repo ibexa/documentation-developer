@@ -40,4 +40,4 @@ Then execute the instructions below starting from the version you're upgrading f
 ## v5.0.1
 
 Some packages increase their type hinting strictness.
-You can run [Ibexa DXP Rector](https://github.com/ibexa/rector/blob/v5.0.1/README.md) to help yourself.
+You can run [Ibexa DXP Rector](https://github.com/ibexa/rector/blob/v5.0.1/README.md) to update your code.
