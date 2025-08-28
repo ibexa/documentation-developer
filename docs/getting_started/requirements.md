@@ -125,7 +125,7 @@ For production setups it's recommended that you use Varnish/Fastly, Redis, NFS/E
 
 ## PHP
 
-=== "[[= product_name =]] v4.6"
+=== "[[= product_name =]] v5.0"
 
     - 8.3
 
