@@ -43,7 +43,7 @@ In addition, you can now use the [Taxonomy limitation](limitation_reference.md#t
 
 The Product Picker tool that, for example, lets you [select products eligible for discounts]([[= user_doc =]]/commerce/discounts/work_with_discounts/#create-new-discount), now displays a **Base price** column for products and product variants.
 
-#### Pagination for ezobjectrelationlist in GraphQL
+#### Pagination for ibexa_object_relation_list in GraphQL
 
 To improve performance and gain greater control over the returned responses from the [GraphQL API](graphql.md), you can now [enable pagination](relationlistfield.md#enable-pagination-in-graphql) of relations specified using the RelationList field type.
 
