@@ -130,7 +130,7 @@ class MyPolicyProvider implements PolicyProviderInterface, TranslationContainerI
 Then, extract this translation to generate the English translation file `translations/forms.en.xlf`:
 
 ``` bash
-php bin/console translation:extract en --domain=forms --dir=src --output-dir=translations
+php bin/console jms:translation:extract en --domain=forms --dir=src --output-dir=translations
 ```
 
 ## `PolicyProvider` integration into `IbexaCoreBundle`
