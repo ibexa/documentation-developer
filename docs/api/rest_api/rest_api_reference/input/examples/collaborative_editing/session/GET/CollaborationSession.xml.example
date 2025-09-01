@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CollaborationSession media-type="application/vnd.ibexa.api.CollaborationSession+xml">
+    <id>6</id>
+    <token>c7463355-746b-4913-86b3-26259c815b56</token>
+    <createdAt>2024-11-13T11:01:24+00:00</createdAt>
+    <updatedAt>2024-11-13T11:01:24+00:00</updatedAt>
+    <ParticipantList media-type="application/vnd.ibexa.api.ParticipantList+xml">
+        <Participant media-type="application/vnd.ibexa.api.InternalParticipant+xml">
+            <id>11</id>
+            <name>Administrator User</name>
+            <scope>edit</scope>
+            <User media-type="application/vnd.ibexa.api.User+xml" href="/api/ibexa/v2/user/users/14"/>
+            <createdAt>2024-11-13T11:01:24+00:00</createdAt>
+            <updatedAt>2024-11-13T11:01:24+00:00</updatedAt>
+        </Participant>
+        <Participant media-type="application/vnd.ibexa.api.InternalParticipant+xml">
+            <id>13</id>
+            <name>Administrator User</name>
+            <scope>view</scope>
+            <User media-type="application/vnd.ibexa.api.User+xml" href="/api/ibexa/v2/user/users/14"/>
+            <createdAt>2024-11-13T11:02:22+00:00</createdAt>
+            <updatedAt>2024-11-13T11:02:22+00:00</updatedAt>
+        </Participant>
+        <Participant media-type="application/vnd.ibexa.api.ExternalParticipant+xml">
+            <id>14</id>
+            <name>user@link.invalid</name>
+            <scope>view</scope>
+            <email>user@link.invalid</email>
+            <createdAt>2024-11-13T11:02:22+00:00</createdAt>
+            <updatedAt>2024-11-13T11:02:22+00:00</updatedAt>
+        </Participant>
+        <Participant media-type="application/vnd.ibexa.api.InternalParticipant+xml">
+            <id>15</id>
+            <name>Administrator User</name>
+            <scope>view</scope>
+            <User media-type="application/vnd.ibexa.api.User+xml" href="/api/ibexa/v2/user/users/14"/>
+            <createdAt>2024-11-13T11:10:29+00:00</createdAt>
+            <updatedAt>2024-11-13T11:10:29+00:00</updatedAt>
+        </Participant>
+        <Participant media-type="application/vnd.ibexa.api.ExternalParticipant+xml">
+            <id>16</id>
+            <name>user@link.invalid</name>
+            <scope>view</scope>
+            <email>user@link.invalid</email>
+            <createdAt>2024-11-13T11:10:29+00:00</createdAt>
+            <updatedAt>2024-11-13T11:10:29+00:00</updatedAt>
+        </Participant>
+        <Participant media-type="application/vnd.ibexa.api.InternalParticipant+xml">
+            <id>17</id>
+            <name>Administrator User</name>
+            <scope>view</scope>
+            <User media-type="application/vnd.ibexa.api.User+xml" href="/api/ibexa/v2/user/users/14"/>
+            <createdAt>2024-11-13T11:43:20+00:00</createdAt>
+            <updatedAt>2024-11-13T11:43:20+00:00</updatedAt>
+        </Participant>
+        <Participant media-type="application/vnd.ibexa.api.ExternalParticipant+xml">
+            <id>18</id>
+            <name>user@link.invalid</name>
+            <scope>view</scope>
+            <email>user@link.invalid</email>
+            <createdAt>2024-11-13T11:43:20+00:00</createdAt>
+            <updatedAt>2024-11-13T11:43:20+00:00</updatedAt>
+        </Participant>
+        <Participant media-type="application/vnd.ibexa.api.InternalParticipant+xml">
+            <id>45</id>
+            <name>Administrator User</name>
+            <scope>view</scope>
+            <User media-type="application/vnd.ibexa.api.User+xml" href="/api/ibexa/v2/user/users/14"/>
+            <createdAt>2024-11-14T14:09:47+00:00</createdAt>
+            <updatedAt>2024-11-14T14:09:47+00:00</updatedAt>
+        </Participant>
+        <Participant media-type="application/vnd.ibexa.api.ExternalParticipant+xml">
+            <id>46</id>
+            <name>user@link.invalid</name>
+            <scope>view</scope>
+            <email>user@link.invalid</email>
+            <createdAt>2024-11-14T14:09:47+00:00</createdAt>
+            <updatedAt>2024-11-14T14:09:47+00:00</updatedAt>
+        </Participant>
+    </ParticipantList>
+    <Owner media-type="application/vnd.ibexa.api.User+xml" href="/api/ibexa/v2/user/users/14"/>
+</CollaborationSession>

@@ -1,0 +1,20 @@
+{
+    "Invitation": {
+        "_media-type": "application/vnd.ibexa.api.Invitation+json",
+        "id": 1,
+        "status": "pending",
+        "createdAt": "2024-11-15T14:28:44+00:00",
+        "updatedAt": "2024-11-15T14:28:44+00:00",
+        "context": {
+            "name": {
+                "bar": "bar_value",
+                "baz": "baz_value",
+                "foo": "foo_value"
+            }
+        },
+        "Sender": {
+            "_media-type": "application/vnd.ibexa.api.User+json",
+            "_href": "/api/ibexa/v2/user/users/14"
+        }
+    }
+}
