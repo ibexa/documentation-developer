@@ -1044,6 +1044,11 @@ If you are using GraphQL in your project, you can generate its schema by running
 php bin/console ibexa:graphql:generate-schema
 ```
 
+### Upgrade GraphQL usage
+
+4.6's `ibexa.graphql.schema.ibexa_object_relation_list.enable_pagination` parameter doesn't exist anymore in 5.0: pagination is always activated and can't be disabled.
+If you have code based on `relations` request returning the entire list, you have to update it, see [Pagination in GraphQL](graphql_queries.md#pagination).
+
 ### Update search indexes
 
 Ensure your search index is up to date with the following command:
