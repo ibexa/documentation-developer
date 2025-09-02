@@ -43,11 +43,19 @@ In addition, you can now use the [Taxonomy limitation](limitation_reference.md#t
 
 The Product Picker tool that, for example, lets you [select products eligible for discounts]([[= user_doc =]]/commerce/discounts/work_with_discounts/#create-new-discount), now displays a **Base price** column for products and product variants.
 
-#### Pagination for ibexa_object_relation_list in GraphQL
+#### Discounts
 
-To improve performance and gain greater control over the returned responses from the [GraphQL API](graphql.md), you can now [enable pagination](relationlistfield.md#enable-pagination-in-graphql) of relations specified using the RelationList field type.
+- You can now [limit the number of times](discounts_guide.md#discount-codes) a discount code can be used before it expires. The discounts created before this release are set to unlimited global usage
+- Discounts with discount codes now have priority over the other discounts
+- You can now create discount codes using [data migrations](importing_data.md#discount-codes)
 
-#### Other upgrades
+#### PHP API
+
+The PHP API has been enhanced with the following new classes:
+
+[`Ibexa\Contracts\Cart\Exception\VatCalculationExceptionInterface`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-Cart-Exception-VatCalculationExceptionInterface.html)
+[`Ibexa\Contracts\ProductCatalog\Values\Product\Query\Criterion\AbstractPriceRange`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Values-Product-Query-Criterion-AbstractPriceRange.html)
+[`Ibexa\Contracts\ProductCatalog\Values\Product\Query\Criterion\CustomPriceRange`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Values-Product-Query-Criterion-CustomPriceRange.html)
 
 This release brings additional minor improvements to the developer's experience that result from capabilities offered by PHP in version 8.3.
 
