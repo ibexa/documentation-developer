@@ -657,6 +657,33 @@ nav:
             - ObjectNameCriterion: search/activity_log_search_reference/object_name_criterion.md
             - UserCriterion: search/activity_log_search_reference/user_criterion.md
         - Action Configuration Search Criteria: search/ai_actions_search_reference/action_configuration_criteria.md
+        - Collaborative editing Search Criteria:
+            - Session:
+                - ContentId: search/collaborative_editing_search_reference/session/content_id_session_criterion.md
+                - Content: search/collaborative_editing_search_reference/session/content_session_criterion.md
+                - CreatedAt: search/collaborative_editing_search_reference/session/created_at_session_criterion.md
+                - Email: search/collaborative_editing_search_reference/session/email_session_criterion.md
+                - Id: search/collaborative_editing_search_reference/session/id_session_criterion.md
+                - IsActive: search/collaborative_editing_search_reference/session/is_active_session_criterion.md
+                - LanguageId: search/collaborative_editing_search_reference/session/language_id_session_criterion.md
+                - LogicalAnd: search/collaborative_editing_search_reference/session/logical_and_session_criterion.md
+                - LogicalOr: search/collaborative_editing_search_reference/session/logical_or_session_criterion.md
+                - Owner: search/collaborative_editing_search_reference/session/owner_session_criterion.md
+                - Token: search/collaborative_editing_search_reference/session/token_session_criterion.md
+                - Type: search/collaborative_editing_search_reference/session/type_session_criterion.md
+                - UpdatedAt: search/collaborative_editing_search_reference/session/updated_at_session_criterion.md
+                - UserId: search/collaborative_editing_search_reference/session/user_id_session_criterion.md
+                - VersionNo: search/collaborative_editing_search_reference/session/version_no_session_criterion.md
+            - Invitation:
+                - CreatedAt: search/collaborative_editing_search_reference/invitation/created_at_invitation_criterion.md
+                - Id: search/collaborative_editing_search_reference/invitation/id_invitation_criterion.md
+                - Invitation Id: search/collaborative_editing_search_reference/invitation/invitation_id_invitation_criterion.md
+                - LogicalAnd: search/collaborative_editing_search_reference/invitation/logical_and_invitation_criterion.md
+                - LogicalOr: search/collaborative_editing_search_reference/invitation/logical_or_invitation_criterion.md
+                - Sender: search/collaborative_editing_search_reference/invitation/sender_invitation_criterion.md
+                - Session: search/collaborative_editing_search_reference/invitation/session_invitation_criterion.md
+                - Status: search/collaborative_editing_search_reference/invitation/status_invitation_criterion.md
+                - UpdatedAt: search/collaborative_editing_search_reference/invitation/updated_at_invitation_criterion.md
         - Sort Clause reference:
             - General Sort Clauses:
                 - General Sort Clause reference: search/sort_clause_reference/sort_clause_reference.md
@@ -723,6 +750,16 @@ nav:
                 - Id Sort Clause: search/url_search_reference/id_url_sort_clause.md
                 - Url Sort Clause: search/url_search_reference/url_url_sort_clause.md
             - Activity Log Sort Clauses: search/activity_log_search_reference/activity_log_sort_clauses.md
+            - Collaborative editing Sort Clauses:
+                - Session:
+                    - CreatedAt: search/collaborative_editing_search_reference/session/created_at_session_sort_clause.md
+                    - SessionId: search/collaborative_editing_search_reference/session/session_id_session_sort_clause.md
+                    - UpdatedAt: search/collaborative_editing_search_reference/session/updated_at_session_sort_clause.md
+                - Invitation:
+                    - CreatedAt: search/collaborative_editing_search_reference/invitation/created_at_invitation_sort_clause.md
+                    - InvitationId: search/collaborative_editing_search_reference/invitation/invitation_id_invitation_sort_clause.md
+                    - InvitationStatus: search/collaborative_editing_search_reference/invitation/invitation_status_invitation_sort_clause.md
+                    - UpdatedAt: search/collaborative_editing_search_reference/invitation/updated_at_invitation_sort_clause.md
             - Action Configuration Sort Clauses: search/ai_actions_search_reference/action_configuration_sort_clauses.md
         - Aggregation reference:
               # Content aggregations
