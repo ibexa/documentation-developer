@@ -1,6 +1,10 @@
+---
+description: UpdatedAt Search Criterion
+---
+
 # UpdatedAt Criterion
 
-The `UpdatedAt` Search Criterion searches for sessions based on the date when they were updated.
+The `UpdatedAt` Search Criterion searches for sessions based on the date they were updated.
 
 ## Arguments
 

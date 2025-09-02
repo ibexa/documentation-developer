@@ -1,3 +1,7 @@
+---
+description: IsActive Search Criterion
+---
+
 # IsActive Criterion
 
 The `IsActive` Search Criterion searches for sessions based on active status.

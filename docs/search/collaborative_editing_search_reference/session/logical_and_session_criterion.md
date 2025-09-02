@@ -1,6 +1,10 @@
+---
+description: LogicalAnd Search Criterion
+---
+
 # LogicalAnd Criterion
 
-The `LogicalAnd` Search Criterion matches combined by the logical operator.
+The `LogicalAnd` Search Criterion matches combined sessions by the logical operator.
 
 ## Example
 

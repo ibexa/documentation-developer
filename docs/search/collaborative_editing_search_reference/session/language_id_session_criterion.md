@@ -1,3 +1,7 @@
+---
+description: LanguageID Search Criterion
+---
+
 # LanguageID Criterion
 
 The `LanguageID` Search Criterion searches for content sessions based on language ID of content item.

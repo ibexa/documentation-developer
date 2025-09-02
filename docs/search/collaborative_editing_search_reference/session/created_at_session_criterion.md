@@ -1,6 +1,10 @@
+---
+description: CreatedAt Search Criterion
+---
+
 # CreatedAt Criterion
 
-The `CreatedAtCriterion` Search Criterion searches for sessions based on the date when they were created.
+The `CreatedAt` Search Criterion searches for sessions based on the date when they were created.
 
 ## Arguments
 

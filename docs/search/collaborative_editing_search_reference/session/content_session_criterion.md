@@ -1,3 +1,7 @@
+---
+description: ContentSession Search Criterion
+---
+
 # ContentSession Criterion
 
 The `ContentSession` Search Criterion searches for contentId, versionNo, languageId.

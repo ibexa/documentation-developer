@@ -1,3 +1,7 @@
+---
+description: VersionNo Search Criterion
+---
+
 # VersionNo Criterion
 
 The `VersionNo` Search Criterion searches for content sessions based on version number of content item.

@@ -1,3 +1,7 @@
+---
+description: Owner Search Criterion
+---
+
 # Owner Criterion
 
 The `Owner` Search Criterion searches for sessions based on session Owner.

@@ -1,10 +1,14 @@
-# ID Criterion
+---
+description: Id Search Criterion
+---
 
-The `ID` Search Criterion searches for sessions based on session ID.
+# Id Criterion
+
+The `Id` Search Criterion searches for sessions based on session ID.
 
 ## Arguments
 
-- `value` - integer(s) representing the Session id(s)
+- `value` - integer(s) representing the Session ID(s)
 
 ## Example
 

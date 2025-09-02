@@ -1,3 +1,7 @@
+---
+description: ContentID Search Criterion
+---
+
 # ContentID Criterion
 
 The `ContentID` Search Criterion searches for content sessions based on content item ID.

@@ -1,3 +1,7 @@
+---
+description: Type Search Criterion
+---
+
 # Type Criterion
 
 The `Type` Search Criterion searches for sessions based on session type.

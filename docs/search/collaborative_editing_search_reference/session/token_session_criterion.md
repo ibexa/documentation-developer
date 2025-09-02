@@ -1,3 +1,7 @@
+---
+description: Token Search Criterion
+---
+
 # Token Criterion
 
 The `Token` Search Criterion searches for sessions based on session token.

@@ -1,3 +1,7 @@
+---
+description: UserID Search Criterion
+---
+
 # UserID Criterion
 
 The `UserID` Search Criterion searches for sessions	based on internal participants.
@@ -12,11 +16,11 @@ The `UserID` Search Criterion searches for sessions	based on internal participan
 $user = $this->userService->loadUserByLogin('foo');
 $currentUser = $this->permissionResolver->getCurrentUserReference();
 
-$criteria = new Ibexa\Contracts\Collaboration\Session\Query\Criterion\UserId($user);
+$criteria = new \Ibexa\Contracts\Collaboration\Session\Query\Criterion\UserId($user);
 
 OR
 
-$criteria = new Ibexa\Contracts\Collaboration\Session\Query\Criterion\UserId([$user, $currentUser]);
+$criteria = new \Ibexa\Contracts\Collaboration\Session\Query\Criterion\UserId(…[$user, $currentUser]);
 
 $query = new SessionQuery($criteria);
 ```
