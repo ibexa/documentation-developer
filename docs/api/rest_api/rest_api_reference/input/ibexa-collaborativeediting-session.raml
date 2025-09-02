@@ -21,6 +21,7 @@ post:
             example: !include examples/collaborative_editing/session/create/POST/CollaborationSessionCreate.json.example
     responses:
         201:
+            description: Created.
             body:
                 application/vnd.ibexa.api.CollaborationSession+xml:
                     type: Session
@@ -56,6 +57,7 @@ post:
                     application/vnd.ibexa.api.CollaborationSession+json
         responses:
             200:
+                description: Details loaded.
                 body:
                     application/vnd.ibexa.api.CollaborationSession+xml:
                         type: CollaborationSession
@@ -71,10 +73,11 @@ post:
         description: Loads participant list.
         queryParameters:
             sessionId:
-                description: Retrieves the participant list for a given collaboration session ID (e.g. GET /collaboration/session/1234).
+                description: Retrieves the participant list for a given collaboration session ID.
         headers:
             Accept:
                 description: ParticipantList - If set, the participant list is returned in XML or JSON format.
+                example: |
                     application/vnd.ibexa.api.ParticipantList+xml
                     application/vnd.ibexa.api.ParticipantList+json
         responses:
