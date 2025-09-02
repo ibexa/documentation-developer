@@ -29,7 +29,7 @@ Solr 9 comes with support for [Dense Vector Search](https://solr.apache.org/guid
 
 #### Improved content creation interface
 
-The editing interface of the back office has been improved to better highlight the language, creator, and the publication date when working with content items.
+The editing interface of the back office is now improved to better highlight the language, creator, and the publication date when working with content items.
 
 ![Improved interface for content creation](4.6_improved_editing.png "Improved interface for content creation")
 
