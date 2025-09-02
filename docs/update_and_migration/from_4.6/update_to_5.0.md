@@ -1046,8 +1046,6 @@ php bin/console ibexa:graphql:generate-schema
 
 ### Upgrade GraphQL usage
 
-4.6's `ibexa.graphql.schema.ibexa_object_relation_list.enable_pagination` parameter doesn't exist anymore in 5.0:
-
 - In 4.6, `relations` pagination is disabled by default, and can be enabled thanks to `ibexa.graphql.schema.ibexa_object_relation_list.enable_pagination` parameter
 - In 5.0, pagination is always activated and can't be disabled (the previous parameter doesn't exist anymore and is ignored from config)
 
