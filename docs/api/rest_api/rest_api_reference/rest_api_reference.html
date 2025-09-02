@@ -41701,7 +41701,7 @@ application/vnd.ibexa.api.ContentTypeGroupRefList+json
                             </a>
                                                     </td>
                         <td>
-                            <p></p>
+                            <p>Created.</p>
                         </td>
                     </tr>
                                     <tr>
@@ -42525,7 +42525,7 @@ application/vnd.ibexa.api.CollaborationSession+json
                             </a>
                                                     </td>
                         <td>
-                            <p></p>
+                            <p>Details loaded.</p>
                         </td>
                     </tr>
                                     <tr>
@@ -42941,7 +42941,7 @@ application/vnd.ibexa.api.CollaborationSession+json
         <h6 class="heading text-gray border-bottom pb-2">Header parameters</h6>
                     <div class="mb-2">
                 <p class="mt-3 mb-0 font-weight-medium">Accept</p>
-                <p>ParticipantList - If set, the participant list is returned in XML or JSON format. application/vnd.ibexa.api.ParticipantList+xml application/vnd.ibexa.api.ParticipantList+json</p>
+                <p>ParticipantList - If set, the participant list is returned in XML or JSON format.</p>
                 <div class="table-responsive mb-2">
                     <table class="table">
                         <thead>
@@ -42962,6 +42962,14 @@ application/vnd.ibexa.api.CollaborationSession+json
             
                                                         
                         </td>
+</tr>
+<tr>
+    <td>Examples</td>
+    <td>
+                    <code>application/vnd.ibexa.api.ParticipantList+xml
+application/vnd.ibexa.api.ParticipantList+json
+</code>
+            </td>
 </tr>
                         </tbody>
                     </table>
@@ -42995,7 +43003,7 @@ application/vnd.ibexa.api.CollaborationSession+json
                                         
                 </td>
     <td>
-            <p>Retrieves the participant list for a given collaboration session ID (e.g. GET /collaboration/session/1234).</p>
+            <p>Retrieves the participant list for a given collaboration session ID.</p>
 
         </td>
 </tr>
@@ -144504,8 +144512,11 @@ A filter is a type and parameters depending on this type.</p>
 <li>type: <code>action</code>, parameter: <code>value</code> (the action)</li>
 <li>type: <code>logged_at</code>, parameters: <code>value</code> and <code>operator</code>
 <ul>
-<li><code>logged_at</code> <code>value</code> value can be anything accepted by <code>DateTimeImmutable</code></li>
-<li><code>logged_at</code> <code>operator</code> value can be one of the following:</li>
+<li>
+<code>logged_at</code> <code>value</code> value can be anything accepted by <code>DateTimeImmutable</code>
+</li>
+<li>
+<code>logged_at</code> <code>operator</code> value can be one of the following:</li>
 </ul>
 </li>
 </ul>
@@ -186536,202 +186547,6 @@ application/vnd.ibexa.api.ai.ActionType+xml
                                 </div>
                             </div>
                         </div>
-                                            <div class="modal fade" id="CollaborationSession" tabindex="-1" role="dialog" aria-labelledby="CollaborationSessionTitle" aria-hidden="true">
-                            <div class="modal-dialog" role="document">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <p class="modal-title" id="CollaborationSessionTitle">CollaborationSession</p>
-                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                            <span aria-hidden="true">&times;</span>
-                                        </button>
-                                    </div>
-                                    <div class="modal-body">
-                                        <span class="font-weight-medium">CollaborationSession</span>
-
-    <span class="red-text">*</span>
-
-(<span class="font-italic">object</span>)
- - 
-<span>
-    </span>
-
-
-    <div class="items">
-        <ul class="browser-default">
-                    </ul>
-    </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                                            <div class="modal fade" id="CollaborationSessionCreate" tabindex="-1" role="dialog" aria-labelledby="CollaborationSessionCreateTitle" aria-hidden="true">
-                            <div class="modal-dialog" role="document">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <p class="modal-title" id="CollaborationSessionCreateTitle">CollaborationSessionCreate</p>
-                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                            <span aria-hidden="true">&times;</span>
-                                        </button>
-                                    </div>
-                                    <div class="modal-body">
-                                        <span class="font-weight-medium">CollaborationSessionCreate</span>
-
-    <span class="red-text">*</span>
-
-(<span class="font-italic">object</span>)
- - 
-<span>
-    </span>
-
-
-    <div class="items">
-        <ul class="browser-default">
-                    </ul>
-    </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                                            <div class="modal fade" id="Participant" tabindex="-1" role="dialog" aria-labelledby="ParticipantTitle" aria-hidden="true">
-                            <div class="modal-dialog" role="document">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <p class="modal-title" id="ParticipantTitle">Participant</p>
-                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                            <span aria-hidden="true">&times;</span>
-                                        </button>
-                                    </div>
-                                    <div class="modal-body">
-                                        <span class="font-weight-medium">Participant</span>
-
-    <span class="red-text">*</span>
-
-(<span class="font-italic">object</span>)
- - 
-<span>
-    </span>
-
-
-    <div class="items">
-        <ul class="browser-default">
-                    </ul>
-    </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                                            <div class="modal fade" id="ParticipantList" tabindex="-1" role="dialog" aria-labelledby="ParticipantListTitle" aria-hidden="true">
-                            <div class="modal-dialog" role="document">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <p class="modal-title" id="ParticipantListTitle">ParticipantList</p>
-                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                            <span aria-hidden="true">&times;</span>
-                                        </button>
-                                    </div>
-                                    <div class="modal-body">
-                                        <span class="font-weight-medium">ParticipantList</span>
-
-    <span class="red-text">*</span>
-
-(<span class="font-italic">object</span>)
- - 
-<span>
-    </span>
-
-
-    <div class="items">
-        <ul class="browser-default">
-                    </ul>
-    </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                                            <div class="modal fade" id="ParticipantUpdate" tabindex="-1" role="dialog" aria-labelledby="ParticipantUpdateTitle" aria-hidden="true">
-                            <div class="modal-dialog" role="document">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <p class="modal-title" id="ParticipantUpdateTitle">ParticipantUpdate</p>
-                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                            <span aria-hidden="true">&times;</span>
-                                        </button>
-                                    </div>
-                                    <div class="modal-body">
-                                        <span class="font-weight-medium">ParticipantUpdate</span>
-
-    <span class="red-text">*</span>
-
-(<span class="font-italic">object</span>)
- - 
-<span>
-    </span>
-
-
-    <div class="items">
-        <ul class="browser-default">
-                    </ul>
-    </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                                            <div class="modal fade" id="InvitationCreate" tabindex="-1" role="dialog" aria-labelledby="InvitationCreateTitle" aria-hidden="true">
-                            <div class="modal-dialog" role="document">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <p class="modal-title" id="InvitationCreateTitle">InvitationCreate</p>
-                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                            <span aria-hidden="true">&times;</span>
-                                        </button>
-                                    </div>
-                                    <div class="modal-body">
-                                        <span class="font-weight-medium">InvitationCreate</span>
-
-    <span class="red-text">*</span>
-
-(<span class="font-italic">object</span>)
- - 
-<span>
-    </span>
-
-
-    <div class="items">
-        <ul class="browser-default">
-                    </ul>
-    </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                                            <div class="modal fade" id="Invitation" tabindex="-1" role="dialog" aria-labelledby="InvitationTitle" aria-hidden="true">
-                            <div class="modal-dialog" role="document">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <p class="modal-title" id="InvitationTitle">Invitation</p>
-                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                            <span aria-hidden="true">&times;</span>
-                                        </button>
-                                    </div>
-                                    <div class="modal-body">
-                                        <span class="font-weight-medium">Invitation</span>
-
-    <span class="red-text">*</span>
-
-(<span class="font-italic">object</span>)
- - 
-<span>
-    </span>
-
-
-    <div class="items">
-        <ul class="browser-default">
-                    </ul>
-    </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
                                             <div class="modal fade" id="GenerateAltTextWrapper" tabindex="-1" role="dialog" aria-labelledby="GenerateAltTextWrapperTitle" aria-hidden="true">
                             <div class="modal-dialog" role="document">
                                 <div class="modal-content">
@@ -188047,6 +187862,202 @@ application/vnd.ibexa.api.ai.ActionType+xml
 
 
                 </li>
+                    </ul>
+    </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                                            <div class="modal fade" id="CollaborationSession" tabindex="-1" role="dialog" aria-labelledby="CollaborationSessionTitle" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <p class="modal-title" id="CollaborationSessionTitle">CollaborationSession</p>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <span class="font-weight-medium">CollaborationSession</span>
+
+    <span class="red-text">*</span>
+
+(<span class="font-italic">object</span>)
+ - 
+<span>
+    </span>
+
+
+    <div class="items">
+        <ul class="browser-default">
+                    </ul>
+    </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                                            <div class="modal fade" id="CollaborationSessionCreate" tabindex="-1" role="dialog" aria-labelledby="CollaborationSessionCreateTitle" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <p class="modal-title" id="CollaborationSessionCreateTitle">CollaborationSessionCreate</p>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <span class="font-weight-medium">CollaborationSessionCreate</span>
+
+    <span class="red-text">*</span>
+
+(<span class="font-italic">object</span>)
+ - 
+<span>
+    </span>
+
+
+    <div class="items">
+        <ul class="browser-default">
+                    </ul>
+    </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                                            <div class="modal fade" id="Participant" tabindex="-1" role="dialog" aria-labelledby="ParticipantTitle" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <p class="modal-title" id="ParticipantTitle">Participant</p>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <span class="font-weight-medium">Participant</span>
+
+    <span class="red-text">*</span>
+
+(<span class="font-italic">object</span>)
+ - 
+<span>
+    </span>
+
+
+    <div class="items">
+        <ul class="browser-default">
+                    </ul>
+    </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                                            <div class="modal fade" id="ParticipantList" tabindex="-1" role="dialog" aria-labelledby="ParticipantListTitle" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <p class="modal-title" id="ParticipantListTitle">ParticipantList</p>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <span class="font-weight-medium">ParticipantList</span>
+
+    <span class="red-text">*</span>
+
+(<span class="font-italic">object</span>)
+ - 
+<span>
+    </span>
+
+
+    <div class="items">
+        <ul class="browser-default">
+                    </ul>
+    </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                                            <div class="modal fade" id="ParticipantUpdate" tabindex="-1" role="dialog" aria-labelledby="ParticipantUpdateTitle" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <p class="modal-title" id="ParticipantUpdateTitle">ParticipantUpdate</p>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <span class="font-weight-medium">ParticipantUpdate</span>
+
+    <span class="red-text">*</span>
+
+(<span class="font-italic">object</span>)
+ - 
+<span>
+    </span>
+
+
+    <div class="items">
+        <ul class="browser-default">
+                    </ul>
+    </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                                            <div class="modal fade" id="InvitationCreate" tabindex="-1" role="dialog" aria-labelledby="InvitationCreateTitle" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <p class="modal-title" id="InvitationCreateTitle">InvitationCreate</p>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <span class="font-weight-medium">InvitationCreate</span>
+
+    <span class="red-text">*</span>
+
+(<span class="font-italic">object</span>)
+ - 
+<span>
+    </span>
+
+
+    <div class="items">
+        <ul class="browser-default">
+                    </ul>
+    </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                                            <div class="modal fade" id="Invitation" tabindex="-1" role="dialog" aria-labelledby="InvitationTitle" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <p class="modal-title" id="InvitationTitle">Invitation</p>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <span class="font-weight-medium">Invitation</span>
+
+    <span class="red-text">*</span>
+
+(<span class="font-italic">object</span>)
+ - 
+<span>
+    </span>
+
+
+    <div class="items">
+        <ul class="browser-default">
                     </ul>
     </div>
                                     </div>
