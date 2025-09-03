@@ -43,12 +43,6 @@ In addition, you can now use the [Taxonomy limitation](limitation_reference.md#t
 
 The Product Picker tool that, for example, lets you [select products eligible for discounts]([[= user_doc =]]/commerce/discounts/work_with_discounts/#create-new-discount), now displays a **Base price** column for products and product variants.
 
-#### Discounts
-
-- You can now [limit the number of times](discounts_guide.md#discount-codes) a discount code can be used before it expires. The discounts created before this release are set to unlimited global usage
-- Discounts with discount codes now have priority over the other discounts
-- You can now create discount codes using [data migrations](importing_data.md#discount-codes)
-
 #### PHP API
 
 The PHP API has been enhanced with the following new classes:
