@@ -10,10 +10,23 @@ month_change: true
 
 <div class="release-notes" markdown="1">
 
+[[% set version = 'v4.6.23' %]]
+
+[[= release_note_entry_begin("Ibexa DXP " + version, '2025-08-19', ['Headless', 'Experience', 'Commerce', 'New feature']) =]]
+
+#### Base price column added to a Product Picker view
+
+The Product Picker tool that, for example, lets you [select products eligible for discounts]([[= user_doc =]]/commerce/discounts/work_with_discounts/#create-new-discount), now displays a **Base price** column for products and product variants.
+
+#### Full changelog
+[[% include 'snippets/release_46.md' %]]
+
+[[= release_note_entry_end() =]]
+
 [[% set version = 'v4.6.22' %]]
 [[= release_note_entry_begin("Symbol attribute", '2025-08-05', ['Headless', 'Experience', 'Commerce', 'LTS Update', 'New feature']) =]]
 
-The Symbol attribute allows you to store standarized identifiers of your products in the [Product Information Management](pim_guide.md) system.
+The Symbol attribute allows you to store standardized identifiers of your products in the [Product Information Management](pim_guide.md) system.
 
 For more information, see [Symbol attribute type](symbol_attribute_type.md).
 
