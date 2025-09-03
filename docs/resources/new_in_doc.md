@@ -15,12 +15,11 @@ This page contains recent highlights and notable changes in [[= product_name =]]
 
 ### Administration
 
-- Updated a list of [bundles available in the productb](https://doc.ibexa.co/en/5.0/administration/project_organization/bundles/#core-packages)
-
+- Updated a list of [bundles available in the product](https://doc.ibexa.co/en/5.0/administration/project_organization/bundles/#core-packages)
 
 ### Training
 
-- A new Ibexa DXP 5.0 Developer Training has been released. Visit the Learning Portal for details
+- A new version of Ibexa DXP Developer Training has been released, this time focusing on the v5.0.x.
 
 ### v5.0.1
 
