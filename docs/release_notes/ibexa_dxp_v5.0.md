@@ -17,7 +17,7 @@ month_change: true
 #### Special characters in online editor
 
 The [online editor](online_editor_guide.md) now allows to easily enter special characters like currency symbols.
-It uses the [special characters plugin](https://ckeditor.com/docs/ckeditor5/latest/features/special-characters.html),
+It uses the [special characters plugin](https://ckeditor.com/docs/ckeditor5/latest/features/special-characters.html).
 
 ![Special characters in online editor](4.6_special_characters.png "Special characters in online editor")
 
