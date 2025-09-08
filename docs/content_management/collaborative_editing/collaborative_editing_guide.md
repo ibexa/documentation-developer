@@ -1,5 +1,5 @@
 ---
-description: The collaborative editing product guide provides a full description of the features and benefits that this module brings to the clients.
+description: The Collaborative editing product guide provides a full description of the features and benefits that this module brings to the clients.
 ---
 
 # Collaborative editing product guide
