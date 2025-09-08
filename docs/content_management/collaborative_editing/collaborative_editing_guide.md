@@ -31,16 +31,16 @@ Once they accept the invitation, they are able to join you in editing content it
 
 ![Collaborative editing - invitation](img/collaboration_invitation.png)
 
-You can change the access for the users anytime - change the access or remove it.
+You can change the users access or remove it at any time.
 
-Additionally, you can share a direct link to the collaborative session using a **Copy link** button.
+Additionally, you can share a direct link to the collaborative session using the **Copy link** button.
 Link is copied to the clipboard and you can share it with the users through communication channels.
 
-After inviting users to a collaboration session, users receive a notification visible on the main dashboard or by email.
+After inviting users to a collaboration session, they receive a notification visible on the main dashboard or by email.
 
 ### Real-time editing
 
-Real-time collaboration is a premium feature thtat works by syncing changes in real time, so everyone can see updates instantly.
+Real-time collaboration is a premium feature that works by syncing changes in real time, so everyone can see updates instantly.
 Avatars of the users invited to collaboration session are visible at the top of the editing screen, also in distraction free mode.
 While editing Rich Text fields, you can see colored tracking tags with user avatar thumbnails that indicate who is currently working on it.
 
@@ -52,7 +52,7 @@ This makes content creation and review faster, more interactive, and much easier
 ### Editing content item
 
 Collaborative editing is enabled in Rich Text fields.
-Other fields are disabled and can be only edited by the owner of the content item.
+Other fields are disabled and can be only edited by the Owner of the content item.
 
 Collaboration is available for the following content types containing Rich Text fields:
 
@@ -67,7 +67,7 @@ Collaboration is available for the following content types containing Rich Text 
 
 To start collaborative editing, you need to invite collaborators using the **Share** button.
 
-Collaboration session begins when first invited user accepts the invitation and joins the session
+Collaboration session begins when first invited user accepts the invitation and joins the session.
 
 ## Benefits
 
