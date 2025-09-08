@@ -14,6 +14,11 @@ Users can edit and review content in real time, making teamwork faster, more eff
 
 Collaborative editing is available in all [[= product_name =]] editions.
 
+## Prerequisites
+
+To use the **Copy link** option, which allows you to copy a link to the clipboard and share it through communication channels with other users, the Clipboard API is required.
+As a result, this option may not work in some browsers, such as Safari.
+
 ## How does collaborative editing work
 
 Collaborative editing allows to work together on the same content item.
