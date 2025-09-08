@@ -6,7 +6,7 @@ description: The collaborative editing product guide provides a full description
 
 ## What is collaborative editing
 
-Collaborative editing enables multiple users to work on the same content simultaneously.
+Collaborative editing is a feature that enables multiple users to work on the same content simultaneously - edit specific parts of the content or review them.
 The system automatically tracks changes, allowing seamless collaboration within a single content item.
 Users can edit and review content in real time, making teamwork faster, more efficient, and streamlining the content review process.
 
@@ -16,25 +16,45 @@ Collaborative editing is available in all [[= product_name =]] editions.
 
 ## How does collaborative editing work
 
-Collaborative editing allows to work together on the same content item in real time.
+Collaborative editing allows to work together on the same content item.
 This is done through a collaboration session.
 
-When you create a new draft of a content item, you can start a collaboration session by clicking the **Share** button.
+When you create a new draft of content item you can invite other users to join a collaboration session, thanks to [CKEditor collaboration features](https://ckeditor.com/ckeditor-5/capabilities/collaboration-features/).
 This action generates a unique session for that draft.
-You can invite other users to join the session, both internal and external.
-Once they accept the invitation, they are able to join you in the editor and make changes in real time.
 
-Everyone in the session can see each other's updates as they happen—no more switching between tools or waiting for feedback.
+You can invite other users to join the session, both internal and external:
+
+- **Internal** - by searching their name or email address. These users can either edit the content item or preview it, depending on your choice.
+- **External** - by providing their email address in the field. They can only preview the content item.
+
+Once they accept the invitation, they are able to join you in editing content item or reviewing it.
+
+![Collaborative editing - invitation](img/collaboration_invitation.png)
+
+You can change the access for the users anytime - change the access or remove it.
+
+Additionally, you can share a direct link to the collaborative session using a **Copy link** button.
+Link is copied to the clipboard and you can share it with the users through communication channels.
+
+After inviting users to a collaboration session, users receive a notification visible on the main dashboard or by email.
+
+### Real-time editing
+
+Real-time collaboration is a premium feature thtat works by syncing changes in real time, so everyone can see updates instantly.
+Avatars of the users invited to collaboration session are visible at the top of the editing screen, also in distraction free mode.
+While editing Rich Text fields, you can see colored tracking tags with user avatar thumbnails that indicate who is currently working on it.
+
+Everyone in the session can see each other's updates as they happen — no more switching between tools or waiting for feedback.
 This makes content creation and review faster, more interactive, and much easier to manage as a team.
 
 ## Capabilities
 
 ### Editing content item
 
-Real-time collaboration is enabled in rich text fields.
+Collaborative editing is enabled in Rich Text fields.
 Other fields are disabled and can be only edited by the owner of the content item.
 
-Real-time collaboration is available for the following content types containing rich text fields:
+Collaboration is available for the following content types containing Rich Text fields:
 
 - Article
 - Folder
@@ -45,9 +65,9 @@ Real-time collaboration is available for the following content types containing 
 
 ## How to get started
 
-To start collaborative editing, you need to invite collaborators.
-To do it, click the **Share** button, which creates a new collaboration session.
-Then, in a pop-up window, you can invite users to newly created session.
+To start collaborative editing, you need to invite collaborators using the **Share** button.
+
+Collaboration session begins when first invited user accepts the invitation and joins the session
 
 ## Benefits
 
@@ -63,7 +83,7 @@ Team members can work together and finalize content in a fraction of the time it
 
 ### Enhanced teamwork
 
-All the users invitated to the collaboration session can share ideas, make suggestions, and refine each other’s work in a shared environment, fostering a stronger sense of team ownership and collaboration.
+All the users invitated to the collaboration session can share ideas, make suggestions, and refine each other’s work in a shared environment, creating a stronger sense of team ownership and collaboration.
 
 ### Seamless feedback loop
 
