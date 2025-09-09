@@ -32,10 +32,10 @@ Configure the new Image Editor action under the `ibexa.system.<scope>.image_edit
 ## Add entry to the Webpack configuration
 
 Once you create and configure the React component, you must add an entry to [the Webpack configuration](3_customize_the_front_page.md#configuring-webpack).
-In the root directory of your project, modify the `webpack.config.js` file by adding the following code in replacement of the default `module.exports = [...customConfigs, projectConfig];`:
+In the root directory of your project, modify the `webpack.config.js` file by appending the following code:
 
-``` js hl_lines="10 14"
-[[= include_file('code_samples/back_office/image_editor/config/webpack.config.js', 49, 63) =]]
+``` js hl_lines="10"
+[[= include_file('code_samples/back_office/image_editor/config/webpack.config.js', 51, 62) =]]
 ```
 At this point you should be able to see a new button in the Image Editor's UI.
 

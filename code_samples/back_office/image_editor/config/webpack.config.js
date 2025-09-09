@@ -47,6 +47,8 @@ const projectConfig = Encore.getWebpackConfig();
 
 projectConfig.name = 'app';
 
+module.exports = [...customConfigs, projectConfig];
+
 /* Get ibexaConfig and ibexaConfigManager */
 const ibexaConfigManager = require('@ibexa/frontend-config/webpack-config/manager');
 const getIbexaConfig = require('@ibexa/frontend-config/webpack-config/ibexa');
@@ -58,6 +60,3 @@ ibexaConfigManager.add({
     entryName: 'ibexa-admin-ui-layout-js',
     newItems: [ path.resolve(__dirname, './assets/random_dot/random-dot.js'), ],
 });
-
-/* Add ibexaConfig to module.exports */
-module.exports = [ibexaConfig, ...customConfigs, projectConfig];
