@@ -11,7 +11,7 @@ use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\Routing\RouterInterface;
 use Twig\Environment;
 
-class ListRenderer implements NotificationRenderer
+class ListRenderer implements NotificationRenderer, TypedNotificationRendererInterface
 {
     protected Environment $twig;
 
