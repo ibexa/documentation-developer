@@ -10,6 +10,57 @@ month_change: true
 
 <div class="release-notes" markdown="1">
 
+[[% set version = 'v5.0.2' %]]
+
+[[= release_note_entry_begin("Ibexa DXP " + version, '2025-09-09', ['Headless', 'Experience', 'Commerce', 'New feature']) =]]
+
+#### Collaboration
+
+With real-time collaboration, your teams can work on the same project at the same time without overwriting each other’s work, and focus mode hides all the distractions.  
+
+#### Discount indexing
+
+Discounts now allow scheduling a mass re-indexing of discounted product catalog prices at the most convenient time by using the Ibexa Messenger package.
+Ibexa Messenger is a customization of the Symfony Messenger package, created to adjust it to [[= product_name =]]'s needs.
+Once [properly configured](configure_ai_actions.md#configure-ibexa-messenger) it monitors your system resources to trigger price re-indexing without causing performance-based disruptions.
+
+#### Improvements to notifications
+
+An improved notifications system is now more intuitive.
+Developers can now create and configure their own notification types, while users can now browse through a list of notifications, where they can either act on them or dismiss them.
+
+![A searchable notifications list](502_notifications_screen.png "A searchable notifications list")
+
+#### Chat GPT 5.0 support
+
+With improved reasoning and greater accuracy in mind, the AI Connector package has been enhanced by adding ChatGPT 5.0 to its list of supported LLMs.
+
+![ChatGPT 5.0 on a list of supported LLMs](502_ai_connector_gpt_50.png "ChatGPT 5.0 on a list of supported LLMs")
+
+#### Developer experience
+
+##### New version of PHP Storm Plugin
+
+To further improve your experience with Ibexa DXP, a 1.14.0 version of PHP Storm Plugin has been released, which brings the following changes:
+
+    - Added support for Ibexa DXP v5.0
+    - Added compatibility with PhpStorm 2024.3.6+
+    - Added file template for Twig Component class
+    - Added code completion for Twig Component Groups in YAML config files and AsTwigComponent attribute
+    - Added code completion for Twig Component Types in YAML config files
+
+##### PHP API
+
+The PHP API has been enhanced with the following new classes:
+
+
+
+#### Full changelog
+
+[[% include 'snippets/release_50.md' %]]
+
+[[= release_note_entry_end() =]]
+
 [[% set version = 'v5.0.1' %]]
 
 [[= release_note_entry_begin("Ibexa DXP " + version, '2025-08-19', ['Headless', 'Experience', 'Commerce', 'New feature']) =]]

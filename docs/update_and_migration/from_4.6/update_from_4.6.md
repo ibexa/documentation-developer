@@ -598,3 +598,5 @@ To use the [latest features](ibexa_dxp_v4.6.md) added to them, update them separ
 ## v4.6.23
 
 No additional steps needed.
+
+## v4.6.24
