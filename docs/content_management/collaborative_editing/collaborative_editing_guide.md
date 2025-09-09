@@ -9,6 +9,9 @@ description: The Collaborative editing product guide provides a full description
 Collaborative editing is a feature that enables multiple users to work on the same content simultaneously - edit specific parts of the content or review them.
 The system automatically tracks changes, allowing seamless collaboration within a single content item.
 Users can edit and review content in real time, making teamwork faster, more efficient, and streamlining the content review process.
+By giving users access to preview the content before it's published, review and collaboration becomes much easier.
+An additional helpful feature here is the ability to copy a link to the content item, which allows to share it through communication channels.
+It improves collaboration with external users, such as third-party agencies.
 
 ## Availability
 
@@ -21,10 +24,10 @@ As a result, this option may not work in some browsers, such as Safari.
 
 ## How does collaborative editing work
 
-Collaborative editing allows to work together on the same content item.
+Collaborative editing allows to work together on the same content items or products.
 This is done through a collaboration session.
 
-When you create a new draft of content item you can invite other users to join a collaboration session, thanks to [CKEditor collaboration features](https://ckeditor.com/ckeditor-5/capabilities/collaboration-features/).
+When you create a new draft of a content item you can invite other users to join a collaboration session, thanks to [CKEditor collaboration features](https://ckeditor.com/ckeditor-5/capabilities/collaboration-features/).
 This action generates a unique session for that draft.
 
 You can invite other users to join the session, both internal and external:
@@ -54,19 +57,19 @@ This makes content creation and review faster, more interactive, and much easier
 
 ## Capabilities
 
-### Editing content item
+### Editing content items or products
 
-Collaborative editing is enabled in Rich Text fields.
+Collaborative editing is enabled in [Rich Text](rich_text.md) fields.
 Other fields are disabled and can be only edited by the Owner of the content item.
 
-Collaboration is available for the following content types containing Rich Text fields:
+Collaboration is available for the following content or product types with Rich Text fields:
 
 - Article
 - Folder
 - Form
 - Product category
 - Custom content types
-- Product (without variants)
+- Custom product types (without variants)
 
 ## How to get started
 
@@ -79,7 +82,7 @@ Collaboration session begins when first invited user accepts the invitation and 
 ### Real-time collaboration
 
 Collaborative editing enables multiple users to work on the same content item at the same time.
-Everyone in the session can see changes as they happen, which eliminates the delays in feedback and updates or waiting for someone to finish editing before others can contribute.
+Everyone in the session can see changes as they happen, which shortens the feedback loop and allows multiple people to work in parallel.
 
 ### Improved efficiency
 
@@ -88,7 +91,7 @@ Team members can work together and finalize content in a fraction of the time it
 
 ### Enhanced teamwork
 
-All the users invitated to the collaboration session can share ideas, make suggestions, and refine each other’s work in a shared environment, creating a stronger sense of team ownership and collaboration.
+All the users invited to the collaboration session can share ideas, make suggestions, and refine each other’s work in a shared environment, creating a stronger sense of team ownership and collaboration.
 
 ### Seamless feedback loop
 
@@ -108,4 +111,4 @@ Their input can be integrated directly into the editing process, leading to more
 ### Change tracking
 
 All changes made by the editors belonging to the session are automatically tracked, so you can see what was edited, by whom, and when.
-This provides full transparency and makes it easy to review.
+This provides full transparency and makes the review process easier.
