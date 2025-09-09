@@ -54,7 +54,7 @@ const ibexaConfigManager = require('@ibexa/frontend-config/webpack-config/manage
 const getIbexaConfig = require('@ibexa/frontend-config/webpack-config/ibexa');
 const ibexaConfig = getIbexaConfig();
 
-/* Add entries to Admin UI layout JS */
+/* Add dot action to Admin UI layout JS */
 ibexaConfigManager.add({
     ibexaConfig,
     entryName: 'ibexa-admin-ui-layout-js',
