@@ -1,10 +1,10 @@
 const Encore = require('@symfony/webpack-encore');
 const path = require('path');
-const getIbexaConfig = require('./ibexa.webpack.config.js');
+const getIbexaConfig = require('@ibexa/frontend-config/webpack-config/ibexa');
 const ibexaConfig = getIbexaConfig(Encore);
 const customConfigs = require('./ibexa.webpack.custom.configs.js');
 const { isReactBlockPathCreated } = require('./ibexa.webpack.config.react.blocks.js');
-const ibexaConfigManager = require('./ibexa.webpack.config.manager.js');
+const ibexaConfigManager = require('@ibexa/frontend-config/webpack-config/manager');
 
 Encore.reset();
 Encore
