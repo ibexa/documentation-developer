@@ -6,6 +6,7 @@ namespace App\Notification;
 
 use Ibexa\Contracts\Core\Repository\Values\Notification\Notification;
 use Ibexa\Core\Notification\Renderer\NotificationRenderer;
+use Ibexa\Core\Notification\Renderer\TypedNotificationRendererInterface;
 use Symfony\Component\Routing\RouterInterface;
 use Twig\Environment;
 
@@ -36,5 +37,17 @@ class MyRenderer implements NotificationRenderer
         }
 
         return null;
+    }
+
+    }
+    
+    public function getTypeLabel(): string
+    {
+        return /** @Desc("Workflow stage changed") */
+            $this->translator->trans(
+                'workflow.notification.stage_change.label',
+                [],
+                'ibexa_workflow'
+            );
     }
 }
