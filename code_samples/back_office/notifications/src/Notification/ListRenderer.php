@@ -50,7 +50,7 @@ class ListRenderer implements NotificationRenderer, TypedNotificationRendererInt
 
         return null;
     }
-    
+
     public function getTypeLabel(): string
     {
         return /** @Desc("Workflow stage changed") */
