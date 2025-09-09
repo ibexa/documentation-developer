@@ -10,7 +10,7 @@ use Ibexa\Core\Notification\Renderer\TypedNotificationRendererInterface;
 use Symfony\Component\Routing\RouterInterface;
 use Twig\Environment;
 
-class MyRenderer implements NotificationRenderer
+class MyRenderer implements NotificationRenderer, TypedNotificationRendererInterface
 {
     protected Environment $twig;
 
