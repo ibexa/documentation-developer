@@ -10,7 +10,7 @@ month_change: true
 
 ## What is collaborative editing
 
-Collaborative editing is an LTS update that allows multiple users to work on the same content or product - whether to preview, review, or edit it.
+Collaborative editing is an [LTS update](editions.md#lts-updates) that allows multiple users to work on the same content or product - whether to preview, review, or edit it.
 By giving users access to preview the content before it's published, review and collaboration become much easier.
 An additional option here is the ability to copy a link to the content item, which allows to share it through communication channels.
 It improves collaboration with external users, such as third-party agencies.
