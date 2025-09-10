@@ -16,7 +16,12 @@ month_change: true
 
 #### Collaboration
 
-With real-time collaboration, your teams can work on the same project at the same time without overwriting each other’s work, and focus mode hides all the distractions.  
+The new [Collaborative editing feature](collaborative_editing_guide.md) allows multiple users to preview, review, and edit the same content or product, improving teamwork and streamlining the review process.
+Internal and external users can be invited to a collaboration session, through different sharing options.
+
+With Real-time editing, more advanced part of the feature, users can see each other’s changes in the real time, or work on the content asynchronously.
+
+Additionally, shared drafts can be accessed and managed through new dashboard tabs: **My shared drafts** and **Drafts shared with me**, helping users stay organized. 
 
 #### Discount indexing
 
@@ -27,7 +32,7 @@ Once [properly configured](configure_ai_actions.md#configure-ibexa-messenger) it
 #### Improvements to notifications
 
 An improved notifications system is now more intuitive.
-Developers can now create and configure their own notification types, while users can now browse through a list of notifications, where they can either act on them or dismiss them.
+Developers can now create and configure their own notification types, while users can now [browse through a list of notifications](https://doc.ibexa.co/projects/userguide/en/latest/getting_started/notifications/), where they can either act on them or dismiss them.
 
 ![A searchable notifications list](502_notifications_screen.png "A searchable notifications list")
 
