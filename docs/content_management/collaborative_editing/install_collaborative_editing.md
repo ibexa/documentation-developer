@@ -27,7 +27,7 @@ Once the packages are installed, before you can start Collaborative editing feat
 
 ### Add tables to the database
 
-To add the tables to the database, run the following command:
+To add the tables to the database, run the following commands:
 
 ``` bash
 php bin/console ibexa:doctrine:schema:dump-sql vendor/ibexa/collaboration/src/bundle/Resources/config/schema.yaml | mysql -u <username> -p <password> <database_name>
@@ -47,6 +47,15 @@ return [
     Ibexa\Bundle\Share\IbexaShareBundle::class => ['all' => true],
     Ibexa\Bundle\FieldTypeRichTextRTE\IbexaFieldTypeRichTextRTEBundle::class => ['all' => true],
 ];
+```
+
+### Add migration file and execute migration
+
+Last step is to add migration file and execute migration with the following commands:
+
+``` bash
+php bin/console ibexa:migrations:import vendor/ibexa/collaboration/src/bundle/Resources/migrations/2025_08_26_10_14_shareable_user.yaml 
+php bin/console ibexa:migrations:migrate --file=2025_08_26_10_14_shareable_user.yaml
 ```
 
 You can now restart you application and start [working with the Collaborative editing feature]([[= user_doc =]]/content_management/collaborative_editing/work_with_collaborative_editing/).

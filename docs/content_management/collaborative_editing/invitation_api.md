@@ -12,79 +12,73 @@ You can create new invitation for the collaborative session using the [`Invitati
 
 ``` php
 {
-    $session = self::getSessionService()->getSession(self::EXAMPLE_SESSION_ID);
-    $participant = $session->getParticipants()->getById(self::EXAMPLE_PARTICIPANT_ID);
-
+    $session = $this->sessionService->getSession(1);
+    $participant = $session->getParticipants()->getByEmail('foo@link.invalid');
     $createStruct = new InvitationCreateStruct($session, $participant);
     $createStruct->setContext([
         'message' => 'Hello, would you like to join my session?',
     ]);
-
-    $invitation = $this->getInvitationService()->createInvitation($createStruct);
-
-    self::assertEquals(InvitationStatus::STATUS_PENDING, $invitation->getStatus());
-    self::assertEquals([
-        'message' => 'Hello, would you like to join my session?',
-    ], $invitation->getContext());
+    $invitation = $this->invitationService->createInvitation($createStruct);
 }
 ```
 
-## Read invitation
+## Get invitation by ID
 
-You can read an invitation with [`InvitationService::getInvitation`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-InvitationService.html#method_deleteInvitation):
+You can get an invitation by ID with [`InvitationService::getInvitation`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-InvitationService.html#method_deleteInvitation):
 
 ``` php
-    $this->getInvitationService()->getInvitation(self::EXAMPLE_INVITATION_ID);
+    $this->invitationService->getInvitation(1);
 ```
 
-You can select the parameter that you can read from an invitaion:
+You can select the parameter that you can read from an invitation:
 
 - Invitation ID:
 
 ``` php
-    self::assertEquals(self::EXAMPLE_INVITATION_ID, $invitation->getId());
+    $invitation->getId();
 ```
 
 - Session ID:
 
 ``` php
-    self::assertEquals(self::EXAMPLE_SESSION_ID, $invitation->getSession()->getId());
+    $invitation->getSession()->getId();
 ```
 
 - Participant ID:
 
 ``` php
-    self::assertEquals(self::EXAMPLE_PARTICIPANT_ID, $invitation->getParticipant()->getId());
+    $invitation->getParticipant()->getId();
 ```
     
 - Invitation status:
 
 ``` php
-    self::assertEquals(InvitationStatus::STATUS_PENDING, $invitation->getStatus());
+    $invitation->getStatus();
 ```
 
-## Find invitation
+## Get invitation by participant
 
-You can find an invitation with [`InvitationService::findInvitation`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-InvitationService.html#method_deleteInvitation) by:
-
-- Invitation ID:
+You can get an invitation by participant with [`InvitationService::getInvitationByParticipant`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-InvitationService.html#method_getInvitationByParticipant):
 
 ``` php
-[[= include_file('code_samples/api/public_php_api/src/Command/(?).php', , ) =]]
+    $this->innerService->getInvitationByParticipant($participant);
 ```
 
-- Session ID:
+## Find invitations
 
-- Participant ID:
+You can find an invitation with [`InvitationService::findInvitation`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-InvitationService.html#method_deleteInvitation).
 
-- Invitation status:
+To learn more about the available search options, see Search Criteria and Sort Clauses for Collaborative editing.
 
 ## Update invitation
 
-You can update existing invitation with [`InvitationService::deleteInvitation`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-InvitationService.html#method_deleteInvitation):
+You can update existing invitation with [`InvitationService::updateInvitation`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-InvitationService.html#method_deleteInvitation):
 
 ``` php
-$invitation = $this->getInvitationService()->getInvitation(self::EXAMPLE_INVITATION_ID);
+    $invitation = $this->invitationService->getInvitation(1);
+    $updateStruct = new InvitationUpdateStruct();
+    $updateStruct->setStatus(InvitationStatus::STATUS_ACCEPTED);
+    $invitation = $this->invitationService->updateInvitation($invitation, $updateStruct);
 ```
 
 ## Delete invitation
@@ -92,5 +86,6 @@ $invitation = $this->getInvitationService()->getInvitation(self::EXAMPLE_INVITAT
 You can delete an invitation with [`InvitationService::deleteInvitation`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-InvitationService.html#method_deleteInvitation):
 
 ``` php
-    $this->getInvitationService()->deleteInvitation($invitation);
+    $invitation = $this->invitationService->getInvitation(1);
+    $this->invitationService->deleteInvitation($invitation);
 ```
