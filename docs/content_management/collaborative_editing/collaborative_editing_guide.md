@@ -7,7 +7,7 @@ description: The Collaborative editing product guide provides a full description
 ## What is collaborative editing
 
 Collaborative editing is a feature that allows multiple users to work on the same content or product - whether to preview, review, or edit it.
-By giving users access to preview the content before it's published, review and collaboration becomes much easier.
+By giving users access to preview the content before it's published, review and collaboration become much easier.
 An additional option here is the ability to copy a link to the content item, which allows to share it through communication channels.
 It improves collaboration with external users, such as third-party agencies.
 
