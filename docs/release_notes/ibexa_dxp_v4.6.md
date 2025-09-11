@@ -16,7 +16,7 @@ month_change: true
 
 #### Collaboration
 
-The new [Collaborative editing feature](collaborative_editing_guide.md) allows multiple users to preview, review, and edit the same content or product, improving teamwork and streamlining the review process.
+The new Collaborative editing feature allows multiple users to preview, review, and edit the same content or product, improving teamwork and streamlining the review process.
 Internal and external users can be invited to a collaboration session, through different sharing options.
 
 With Real-time editing, more advanced part of the feature, users can see each other’s changes in the real time, or work on the content asynchronously.
