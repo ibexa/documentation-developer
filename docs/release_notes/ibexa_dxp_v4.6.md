@@ -12,6 +12,19 @@ month_change: true
 
 [[% set version = 'v4.6.24' %]]
 
+[[= release_note_entry_begin("Collaboration ", '2025-08-05', ['LTS Update', 'Commerce']) =]]
+
+#### Collaboration
+
+The new [Collaborative editing feature](collaborative_editing_guide.md) allows multiple users to preview, review, and edit the same content or product, improving teamwork and streamlining the review process.
+Internal and external users can be invited to a collaboration session, through different sharing options.
+
+With Real-time editing, more advanced part of the feature, users can see each other’s changes in the real time, or work on the content asynchronously.
+
+Additionally, shared drafts can be accessed and managed through new dashboard tabs: **My shared drafts** and **Drafts shared with me**, helping users stay organized. 
+
+[[= release_note_entry_end() =]]
+
 [[= release_note_entry_begin("AI Actions " + version, '2025-04-09', ['LTS Update']) =]]
 
 #### Chat GPT 5.0 support
@@ -28,7 +41,7 @@ With improved reasoning and greater accuracy in mind, the AI Connector package h
 
 Discounts now allow scheduling a mass re-indexing of discounted product catalog prices at the most convenient time by using the Ibexa Messenger package.
 Ibexa Messenger is a customization of the Symfony Messenger package, created to adjust it to [[= product_name =]]'s needs.
-Once [properly configured](configure_ai_actions.md#configure-ibexa-messenger) it monitors your system resources to trigger price re-indexing without causing performance-based disruptions.
+Once properly configured, it monitors your system resources to trigger price re-indexing without causing performance-based disruptions.
 
 [[= release_note_entry_end() =]]
 
@@ -47,6 +60,16 @@ Developers can now create and configure their own notification types, while user
 
 #### Developer experience
 
+##### New packages
+
+The following packages have been introduced in Ibexa DXP v4.6.24:
+
+- ibexa/messenger
+
+##### PHP API
+
+The PHP API has been enhanced with the following new classes:
+
 ##### New version of PHP Storm Plugin
 
 To further improve your experience with Ibexa DXP, a 1.14.0 version of PHP Storm Plugin has been released, which brings the following changes:
@@ -56,12 +79,6 @@ To further improve your experience with Ibexa DXP, a 1.14.0 version of PHP Storm
     - Added file template for Twig Component class
     - Added code completion for Twig Component Groups in YAML config files and AsTwigComponent attribute
     - Added code completion for Twig Component Types in YAML config files
-
-##### PHP API
-
-The PHP API has been enhanced with the following new classes:
-
-
 
 #### Full changelog
 

@@ -27,7 +27,7 @@ Additionally, shared drafts can be accessed and managed through new dashboard ta
 
 Discounts now allow scheduling a mass re-indexing of discounted product catalog prices at the most convenient time by using the Ibexa Messenger package.
 Ibexa Messenger is a customization of the Symfony Messenger package, created to adjust it to [[= product_name =]]'s needs.
-Once [properly configured](configure_ai_actions.md#configure-ibexa-messenger) it monitors your system resources to trigger price re-indexing without causing performance-based disruptions.
+Once properly configured, it monitors your system resources to trigger price re-indexing without causing performance-based disruptions.
 
 #### Improvements to notifications
 
@@ -44,21 +44,133 @@ With improved reasoning and greater accuracy in mind, the AI Connector package h
 
 #### Developer experience
 
+##### New packages
+
+The following packages have been introduced in Ibexa DXP v5.0.2:
+
+- ibexa/messenger
+
+##### REST APIs
+
+Ibexa DXP v5.0.2 adds REST API coverage for the following features:
+
+- Collaboration:
+    - Invitation
+    - CollaborationSession
+    - Participant
+    - ParticipantList
+
+##### PHP API
+
+The PHP API has been expanded with the following:
+
+??? note "PHP API classes and interfaces"
+    - [`Ibexa\Contracts\Collaboration\InvitationServiceInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Collaboration-InvitationServiceInterface.html)
+    - [`Ibexa\Contracts\Collaboration\SessionServiceInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Collaboration-SessionServiceInterface.html)
+    - [`Ibexa\Contracts\Collaboration\InvitationServiceDecorator`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Collaboration-InvitationServiceDecorator.html)
+    - [`Ibexa\Contracts\Collaboration\SessionServiceDecorator`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Collaboration-SessionServiceDecorator.html)
+    - [`Ibexa\Contracts\Collaboration\Configuration\ParticipantConfigurationInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Collaboration-Configuration-ParticipantConfigurationInterface.html)
+    - [`Ibexa\Contracts\Collaboration\Configuration\SessionConfigurationInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Collaboration-Configuration-SessionConfigurationInterface.html)
+    - [`Ibexa\Contracts\Collaboration\Invitation\InvitationCreateStruct`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Collaboration-Invitation-InvitationCreateStruct.html)
+    - [`Ibexa\Contracts\Collaboration\Invitation\InvitationInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Collaboration-Invitation-InvitationInterface.html)
+    - [`Ibexa\Contracts\Collaboration\Invitation\InvitationListInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Collaboration-Invitation-InvitationListInterface.html)
+    - [`Ibexa\Contracts\Collaboration\Invitation\InvitationQuery`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Collaboration-Invitation-InvitationQuery.html#constants)
+    - [`Ibexa\Contracts\Collaboration\Invitation\InvitationStatus`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Collaboration-Invitation-InvitationStatus.html)
+    - [`Ibexa\Contracts\Collaboration\Invitation\InvitationUpdateStruct`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Collaboration-Invitation-InvitationUpdateStruct.html)
+    - [`Ibexa\Contracts\Collaboration\Notification\NotificationFactoryInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Collaboration-Notification-NotificationFactoryInterface.html)
+    - [`Ibexa\Contracts\Collaboration\Notification\Recipient\RecipientFactoryInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Collaboration-Notification-Recipient-RecipientFactoryInterface.html)
+    - [`Ibexa\Contracts\Collaboration\Participant\AbstractParticipant`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Collaboration-Participant-AbstractParticipant.html)
+    - [`Ibexa\Contracts\Collaboration\Participant\AbstractParticipantCreateStruct`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Collaboration-Participant-AbstractParticipantCreateStruct.html)
+    - [`Ibexa\Contracts\Collaboration\Participant\AbstractParticipantUpdateStruct`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Collaboration-Participant-AbstractParticipantUpdateStruct.html)
+    - [`Ibexa\Contracts\Collaboration\Participant\ExternalParticipant`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Collaboration-Participant-ExternalParticipant.html)
+    - [`Ibexa\Contracts\Collaboration\Participant\ExternalParticipantCreateStruct`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Collaboration-Participant-ExternalParticipantCreateStruct.html)
+    - [`Ibexa\Contracts\Collaboration\Participant\ExternalParticipantUpdateStruct`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Collaboration-Participant-ExternalParticipantUpdateStruct.html)
+    - [`Ibexa\Contracts\Collaboration\Participant\InternalParticipant`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Collaboration-Participant-InternalParticipant.html)
+    - [`Ibexa\Contracts\Collaboration\Participant\InternalParticipantCreateStruct`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Collaboration-Participant-InternalParticipantCreateStruct.html)
+    - [`Ibexa\Contracts\Collaboration\Participant\InternalParticipantUpdateStruct`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Collaboration-Participant-InternalParticipantUpdateStruct.html)
+    - [`Ibexa\Contracts\Collaboration\Participant\ParticipantCollectionInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Collaboration-Participant-ParticipantCollectionInterface.html)
+    - [`Ibexa\Contracts\Collaboration\Participant\ParticipantInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Collaboration-Participant-ParticipantInterface.html)
+    - [`Ibexa\Contracts\Collaboration\Participant\ParticipantReferenceInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Collaboration-Participant-ParticipantReferenceInterface.html)
+    - [`Ibexa\Contracts\Collaboration\Participant\ParticipantTypeAwareInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Collaboration-Participant-ParticipantTypeAwareInterface.html)
+    - [`Ibexa\Contracts\Collaboration\RealTimeEditing\HandlerInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Collaboration-RealTimeEditing-HandlerInterface.html)
+    - [`Ibexa\Contracts\Collaboration\REST\Values\ParticipantCreateStructList`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Collaboration-REST-Values-ParticipantCreateStructList.html)
+    - [`Ibexa\Contracts\Collaboration\REST\Values\SessionCreateStruct`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Collaboration-REST-Values-SessionCreateStruct.html)
+    - [`Ibexa\Contracts\Collaboration\REST\Values\SessionUpdateStruct`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Collaboration-REST-Values-SessionUpdateStruct.html)
+    - [`Ibexa\Contracts\Collaboration\Session\AbstractSession`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Collaboration-Session-AbstractSession.html)
+    - [`Ibexa\Contracts\Collaboration\Session\AbstractSessionCreateStruct`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Collaboration-Session-AbstractSessionCreateStruct.html)
+    - [`Ibexa\Contracts\Collaboration\Session\AbstractSessionUpdateStruct`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Collaboration-Session-AbstractSessionUpdateStruct.html)
+    - [`Ibexa\Contracts\Collaboration\Session\LeaveSessionRedirectProviderInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Collaboration-Session-LeaveSessionRedirectProviderInterface.html)
+    - [`Ibexa\Contracts\Collaboration\Session\SessionInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Collaboration-Session-SessionInterface.html)
+    - [`Ibexa\Contracts\Collaboration\Session\SessionListInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Collaboration-Session-SessionListInterface.html)
+    - [`Ibexa\Contracts\Collaboration\Session\SessionQuery`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Collaboration-Session-SessionQuery.html)
+    - [`Ibexa\Contracts\Collaboration\Session\SessionRedirectProviderInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Collaboration-Session-SessionRedirectProviderInterface.html)
+    - [`Ibexa\Contracts\Collaboration\Session\SessionScopeInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Collaboration-Session-SessionScopeInterface.html)
+
+??? note "Events"
+    - [`Ibexa\Contracts\Core\Repository\Events\Notification\BeforeMarkNotificationAsUnreadEvent`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Events-Notification-BeforeMarkNotificationAsUnreadEvent.html)
+    - [`Ibexa\Contracts\Core\Repository\Events\Notification\MarkNotificationAsUnreadEvent`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Events-Notification-MarkNotificationAsUnreadEvent.html)
+    - [`Ibexa\Contracts\Collaboration\Invitation\Event\BeforeCreateInvitationEvent`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Collaboration-Invitation-Event-BeforeCreateInvitationEvent.html)
+    - [`Ibexa\Contracts\Collaboration\Invitation\Event\BeforeDeleteInvitationEvent`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Collaboration-Invitation-Event-BeforeDeleteInvitationEvent.html)
+    - [`Ibexa\Contracts\Collaboration\Invitation\Event\BeforeUpdateInvitationEvent`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Collaboration-Invitation-Event-BeforeUpdateInvitationEvent.html)
+    - [`Ibexa\Contracts\Collaboration\Invitation\Event\CreateInvitationEvent`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Collaboration-Invitation-Event-CreateInvitationEvent.html)
+    - [`Ibexa\Contracts\Collaboration\Invitation\Event\DeleteInvitationEvent`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Collaboration-Invitation-Event-DeleteInvitationEvent.html)
+    - [`Ibexa\Contracts\Collaboration\Invitation\Event\UpdateInvitationEvent`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Collaboration-Invitation-Event-UpdateInvitationEvent.html)
+    - [`Ibexa\Contracts\Collaboration\Participant\Event\AddParticipantEvent`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Collaboration-Participant-Event-AddParticipantEvent.html)
+    - [`Ibexa\Contracts\Collaboration\Participant\Event\BeforeAddParticipantEvent`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Collaboration-Participant-Event-BeforeAddParticipantEvent.html)
+    - [`Ibexa\Contracts\Collaboration\Participant\Event\BeforeRemoveParticipantEvent`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Collaboration-Participant-Event-BeforeRemoveParticipantEvent.html)
+    - [`Ibexa\Contracts\Collaboration\Participant\Event\BeforeUpdateParticipantEvent`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Collaboration-Participant-Event-BeforeUpdateParticipantEvent.html)
+    - [`Ibexa\Contracts\Collaboration\Participant\Event\RemoveParticipantEvent`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Collaboration-Participant-Event-RemoveParticipantEvent.html)
+    - [`Ibexa\Contracts\Collaboration\Participant\Event\UpdateParticipantEvent`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Collaboration-Participant-Event-UpdateParticipantEvent.html)
+    - [`Ibexa\Contracts\Collaboration\Session\Event\BeforeCreateSessionEvent`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Collaboration-Session-Event-BeforeCreateSessionEvent.html)
+    - [`Ibexa\Contracts\Collaboration\Session\Event\BeforeDeleteSessionEvent`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Collaboration-Session-Event-BeforeDeleteSessionEvent.html)
+    - [`Ibexa\Contracts\Collaboration\Session\Event\BeforeUpdateSessionEvent`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Collaboration-Session-Event-BeforeUpdateSessionEvent.html)
+    - [`Ibexa\Contracts\Collaboration\Session\Event\CreateSessionEvent`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Collaboration-Session-Event-CreateSessionEvent.html)
+    - [`Ibexa\Contracts\Collaboration\Session\Event\DeleteSessionEvent`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Collaboration-Session-Event-DeleteSessionEvent.html)
+    - [`Ibexa\Contracts\Collaboration\Session\Event\LeaveSessionEvent`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Collaboration-Session-Event-LeaveSessionEvent.html)
+    - [`Ibexa\Contracts\Collaboration\Session\Event\UpdateSessionEvent`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Collaboration-Session-Event-UpdateSessionEvent.html)
+
+??? note "Search criteria"
+    - [`Ibexa\Contracts\Core\Repository\Values\Notification\Query\Criterion\DateCreated`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Notification-Query-Criterion-DateCreated.html)
+    - [`Ibexa\Contracts\Core\Repository\Values\Notification\Query\Criterion\Status`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Notification-Query-Criterion-Status.html)
+    - [`Ibexa\Contracts\Core\Repository\Values\Notification\Query\Criterion\Type`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Notification-Query-Criterion-Type.html)
+    - [`Ibexa\Contracts\Collaboration\Invitation\Query\Criterion\CreatedAt`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Collaboration-Invitation-Query-Criterion-CreatedAt.html)
+    - [`Ibexa\Contracts\Collaboration\Invitation\Query\Criterion\Id`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Collaboration-Invitation-Query-Criterion-Id.html)
+    - [`Ibexa\Contracts\Collaboration\Invitation\Query\Criterion\LogicalAnd`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Collaboration-Invitation-Query-Criterion-LogicalAnd.html)
+    - [`Ibexa\Contracts\Collaboration\Invitation\Query\Criterion\LogicalOr`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Collaboration-Invitation-Query-Criterion-LogicalOr.html)
+    - [`Ibexa\Contracts\Collaboration\Invitation\Query\Criterion\Sender`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Collaboration-Invitation-Query-Criterion-Sender.html)
+    - [`Ibexa\Contracts\Collaboration\Invitation\Query\Criterion\Session`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Collaboration-Invitation-Query-Criterion-Session.html)
+    - [`Ibexa\Contracts\Collaboration\Invitation\Query\Criterion\Status`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Collaboration-Invitation-Query-Criterion-Status.html)
+    - [`Ibexa\Contracts\Collaboration\Invitation\Query\Criterion\UpdatedAt`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Collaboration-Invitation-Query-Criterion-UpdatedAt.html)
+    - [`Ibexa\Contracts\Collaboration\Session\Query\Criterion\CreatedAt`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Collaboration-Session-Query-Criterion-CreatedAt.html)
+    - [`Ibexa\Contracts\Collaboration\Session\Query\Criterion\Email`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Collaboration-Session-Query-Criterion-Email.html)
+    - [`Ibexa\Contracts\Collaboration\Session\Query\Criterion\Id`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Collaboration-Session-Query-Criterion-Id.html)
+    - [`Ibexa\Contracts\Collaboration\Session\Query\Criterion\IsActive`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Collaboration-Session-Query-Criterion-IsActive.html)
+    - [`Ibexa\Contracts\Collaboration\Session\Query\Criterion\LogicalAnd`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Collaboration-Session-Query-Criterion-LogicalAnd.html)
+    - [`Ibexa\Contracts\Collaboration\Session\Query\Criterion\LogicalOr`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Collaboration-Session-Query-Criterion-LogicalOr.html)
+    - [`Ibexa\Contracts\Collaboration\Session\Query\Criterion\Owner`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Collaboration-Session-Query-Criterion-Owner.html)
+    - [`Ibexa\Contracts\Collaboration\Session\Query\Criterion\Token`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Collaboration-Session-Query-Criterion-Token.html)
+    - [`Ibexa\Contracts\Collaboration\Session\Query\Criterion\Type`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Collaboration-Session-Query-Criterion-Type.html)
+    - [`Ibexa\Contracts\Collaboration\Session\Query\Criterion\UpdatedAt`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Collaboration-Session-Query-Criterion-UpdatedAt.html)
+    - [`Ibexa\Contracts\Collaboration\Session\Query\Criterion\UserId`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Collaboration-Session-Query-Criterion-UserId.html)
+
+??? note "Sort clauses"
+    - [`Ibexa\Contracts\Collaboration\Invitation\Query\SortClause\CreatedAt`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Collaboration-Invitation-Query-SortClause-CreatedAt.html)
+    - [`Ibexa\Contracts\Collaboration\Invitation\Query\SortClause\Id`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Collaboration-Invitation-Query-SortClause-Id.html)
+    - [`Ibexa\Contracts\Collaboration\Invitation\Query\SortClause\Status`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Collaboration-Invitation-Query-SortClause-Status.html)
+    - [`Ibexa\Contracts\Collaboration\Invitation\Query\SortClause\UpdatedAt`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Collaboration-Invitation-Query-SortClause-UpdatedAt.html)
+    - [`Ibexa\Contracts\Collaboration\Session\Query\SortClause\CreatedAt`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Collaboration-Session-Query-SortClause-CreatedAt.html)
+    - [`Ibexa\Contracts\Collaboration\Session\Query\SortClause\Id`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Collaboration-Session-Query-SortClause-Id.html)
+    - [`Ibexa\Contracts\Collaboration\Session\Query\SortClause\UpdatedAt`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Collaboration-Session-Query-SortClause-UpdatedAt.html)
+
 ##### New version of PHP Storm Plugin
 
 To further improve your experience with Ibexa DXP, a 1.14.0 version of PHP Storm Plugin has been released, which brings the following changes:
 
-    - Added support for Ibexa DXP v5.0
-    - Added compatibility with PhpStorm 2024.3.6+
-    - Added file template for Twig Component class
-    - Added code completion for Twig Component Groups in YAML config files and AsTwigComponent attribute
-    - Added code completion for Twig Component Types in YAML config files
-
-##### PHP API
-
-The PHP API has been enhanced with the following new classes:
-
-
+- Added support for Ibexa DXP v5.0
+- Added compatibility with PhpStorm 2024.3.6+
+- Added file template for Twig Component class
+- Added code completion for Twig Component Groups in YAML config files and AsTwigComponent attribute
+- Added code completion for Twig Component Types in YAML config files
 
 #### Full changelog
 
@@ -103,9 +215,9 @@ The Product Picker tool that, for example, lets you [select products eligible fo
 
 The PHP API has been enhanced with the following new classes:
 
-[`Ibexa\Contracts\Cart\Exception\VatCalculationExceptionInterface`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-Cart-Exception-VatCalculationExceptionInterface.html)
-[`Ibexa\Contracts\ProductCatalog\Values\Product\Query\Criterion\AbstractPriceRange`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Values-Product-Query-Criterion-AbstractPriceRange.html)
-[`Ibexa\Contracts\ProductCatalog\Values\Product\Query\Criterion\CustomPriceRange`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Values-Product-Query-Criterion-CustomPriceRange.html)
+[`Ibexa\Contracts\Cart\Exception\VatCalculationExceptionInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Cart-Exception-VatCalculationExceptionInterface.html)
+[`Ibexa\Contracts\ProductCatalog\Values\Product\Query\Criterion\AbstractPriceRange`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Values-Product-Query-Criterion-AbstractPriceRange.html)
+[`Ibexa\Contracts\ProductCatalog\Values\Product\Query\Criterion\CustomPriceRange`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Values-Product-Query-Criterion-CustomPriceRange.html)
 
 This release brings additional minor improvements to the developer's experience that result from capabilities offered by PHP in version 8.3.
 
@@ -331,7 +443,7 @@ The PHP API has been expanded with the following classes and interfaces:
 ??? note "PIM Attributes"
 
     - [`Ibexa\Contracts\ProductCatalogDateTimeAttribute`](../api/php_api/php_api_reference/namespaces/ibexa-contracts-productcatalogdatetimeattribute.html)
-    - [Ibexa\Contracts\ProductCatalogSymbolAttribute](../api/php_api/php_api_reference/namespaces/ibexa-contracts-productcatalogsymbolattribute.html)
+    - [`Ibexa\Contracts\ProductCatalogSymbolAttribute`](../api/php_api/php_api_reference/namespaces/ibexa-contracts-productcatalogsymbolattribute.html)
 
 #### Search Criteria
 
