@@ -66,7 +66,7 @@ After inviting users to a collaboration session, they receive a notification vis
 
 ### Real-time editing
 
-Real-time editing is an advanced part of the Collaboration feature, allowing *up to five users* to work together in a single session.
+Real-time editing is an advanced part of the Collaboration feature, allowing, by default, *up to five users* to work together in a single session.
 It works by syncing changes in real time, so everyone can see updates instantly.
 Avatars of the users invited to collaboration session are visible at the top of the editing screen, also in distraction free mode.
 While editing Rich Text fields, you can see colored tracking tags with user avatar thumbnails that indicate who is currently working on it.
