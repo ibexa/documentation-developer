@@ -600,3 +600,41 @@ To use the [latest features](ibexa_dxp_v4.6.md) added to them, update them separ
 No additional steps needed.
 
 ## v4.6.24
+
+### Database update
+
+=== "MySQL"
+
+    ``` bash
+    mysql -u <username> -p <password> <database_name> < vendor/ibexa/installer/upgrade/db/mysql/ibexa-4.6.23-to-4.6.24.sql
+    ```
+
+=== "PostgreSQL"
+
+    ``` bash
+    psql <database_name> < vendor/ibexa/installer/upgrade/db/postgresql/ibexa-4.6.23-to-4.6.24.sql
+    ```
+
+For Commerce having the [Discounts LTS Update](discounts_guide.md) already installed, run this additional update queries:
+
+=== "MySQL"
+
+    ``` sql
+    ALTER TABLE ibexa_discount
+        ADD indexed_at DATETIME DEFAULT NULL COMMENT '(DC2Type:datetime_immutable)';
+
+    CREATE INDEX ibexa_discount_indexed_at_idx
+        ON ibexa_discount (indexed_at);
+    ```
+
+=== "PostgreSQL"
+
+    ``` sql
+    ALTER TABLE ibexa_discount
+        ADD indexed_at TIMESTAMP(0) WITHOUT TIME ZONE DEFAULT NULL;
+
+    COMMENT ON COLUMN ibexa_discount.indexed_at IS '(DC2Type:datetime_immutable)';
+
+    CREATE INDEX ibexa_discount_indexed_at_idx
+        ON ibexa_discount (indexed_at);
+    ```
