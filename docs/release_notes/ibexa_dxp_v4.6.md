@@ -41,7 +41,8 @@ With improved reasoning and greater accuracy in mind, the AI Connector package h
 
 Discounts now allow scheduling a mass re-indexing of discounted product catalog prices at the most convenient time by using the Ibexa Messenger package.
 Ibexa Messenger is a customization of the Symfony Messenger package, created to adjust it to [[= product_name =]]'s needs.
-Once properly configured, it monitors your system resources to trigger price re-indexing without causing performance-based disruptions.
+
+Once properly configured, it uses a background queue to trigger price re-indexing, ensuring efficient use of system resources without causing performance disruptions.
 
 [[= release_note_entry_end() =]]
 

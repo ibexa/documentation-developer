@@ -27,7 +27,8 @@ Additionally, shared drafts can be accessed and managed through new dashboard ta
 
 Discounts now allow scheduling a mass re-indexing of discounted product catalog prices at the most convenient time by using the Ibexa Messenger package.
 Ibexa Messenger is a customization of the Symfony Messenger package, created to adjust it to [[= product_name =]]'s needs.
-Once properly configured, it monitors your system resources to trigger price re-indexing without causing performance-based disruptions.
+
+Once properly configured, it uses a background queue to trigger price re-indexing, ensuring efficient use of system resources without causing performance disruptions.
 
 #### Improvements to notifications
 
@@ -105,6 +106,7 @@ The PHP API has been expanded with the following:
     - [`Ibexa\Contracts\Collaboration\Session\SessionQuery`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Collaboration-Session-SessionQuery.html)
     - [`Ibexa\Contracts\Collaboration\Session\SessionRedirectProviderInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Collaboration-Session-SessionRedirectProviderInterface.html)
     - [`Ibexa\Contracts\Collaboration\Session\SessionScopeInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Collaboration-Session-SessionScopeInterface.html)
+    - [`Ibexa\Contracts\Messenger\Transport`](/api/php_api/php_api_reference/namespaces/ibexa-contracts-messenger-transport.html)
 
 ??? note "Events"
     - [`Ibexa\Contracts\Core\Repository\Events\Notification\BeforeMarkNotificationAsUnreadEvent`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Events-Notification-BeforeMarkNotificationAsUnreadEvent.html)
@@ -128,6 +130,10 @@ The PHP API has been expanded with the following:
     - [`Ibexa\Contracts\Collaboration\Session\Event\DeleteSessionEvent`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Collaboration-Session-Event-DeleteSessionEvent.html)
     - [`Ibexa\Contracts\Collaboration\Session\Event\LeaveSessionEvent`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Collaboration-Session-Event-LeaveSessionEvent.html)
     - [`Ibexa\Contracts\Collaboration\Session\Event\UpdateSessionEvent`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Collaboration-Session-Event-UpdateSessionEvent.html)
+    - [`Ibexa\Contracts\Discounts\Event\EnableDiscountEvent`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Discounts-Event-EnableDiscountEvent.html)
+    - [`Ibexa\Contracts\Discounts\Event\BeforeDisableDiscountEvent`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Discounts-Event-BeforeDisableDiscountEvent.html)
+    - [`Ibexa\Contracts\Discounts\Event\BeforeEnableDiscountEvent`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Discounts-Event-BeforeEnableDiscountEvent.html)
+    - [`Ibexa\Contracts\Discounts\Event\DisableDiscountEvent`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Discounts-Event-DisableDiscountEvent.html)
 
 ??? note "Search criteria"
     - [`Ibexa\Contracts\Core\Repository\Values\Notification\Query\Criterion\DateCreated`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Notification-Query-Criterion-DateCreated.html)
@@ -152,6 +158,8 @@ The PHP API has been expanded with the following:
     - [`Ibexa\Contracts\Collaboration\Session\Query\Criterion\Type`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Collaboration-Session-Query-Criterion-Type.html)
     - [`Ibexa\Contracts\Collaboration\Session\Query\Criterion\UpdatedAt`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Collaboration-Session-Query-Criterion-UpdatedAt.html)
     - [`Ibexa\Contracts\Collaboration\Session\Query\Criterion\UserId`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Collaboration-Session-Query-Criterion-UserId.html)
+    - [`Ibexa\Contracts\Discounts\Value\Query\Criterion\IndexedAtCriterion`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Discounts-Value-Query-Criterion-IndexedAtCriterion.html)
+    - [`Ibexa\Contracts\Discounts\Value\Query\Criterion\UpdatedAtCriterion`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Discounts-Value-Query-Criterion-UpdatedAtCriterion.html)
 
 ??? note "Sort clauses"
     - [`Ibexa\Contracts\Collaboration\Invitation\Query\SortClause\CreatedAt`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Collaboration-Invitation-Query-SortClause-CreatedAt.html)
