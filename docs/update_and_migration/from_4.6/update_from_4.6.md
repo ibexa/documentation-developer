@@ -427,30 +427,6 @@ No additional steps needed.
     psql <database_name> < vendor/ibexa/installer/upgrade/db/postgresql/ibexa-4.6.23-to-4.6.24.sql
     ```
 
-For Commerce having the [Discounts LTS Update](discounts_guide.md) already installed, run this additional update queries:
-
-=== "MySQL"
-
-    ``` sql
-    ALTER TABLE ibexa_discount
-        ADD indexed_at DATETIME DEFAULT NULL COMMENT '(DC2Type:datetime_immutable)';
-
-    CREATE INDEX ibexa_discount_indexed_at_idx
-        ON ibexa_discount (indexed_at);
-    ```
-
-=== "PostgreSQL"
-
-    ``` sql
-    ALTER TABLE ibexa_discount
-        ADD indexed_at TIMESTAMP(0) WITHOUT TIME ZONE DEFAULT NULL;
-
-    COMMENT ON COLUMN ibexa_discount.indexed_at IS '(DC2Type:datetime_immutable)';
-
-    CREATE INDEX ibexa_discount_indexed_at_idx
-        ON ibexa_discount (indexed_at);
-    ```
-
 [[% include 'snippets/update/notify_support.md' %]]
 
 With the product updated to the latest version, you can now finish the update process or proceed to updating the LTS Updates packages.
@@ -621,6 +597,33 @@ To use the [latest features](ibexa_dxp_v4.6.md) added to them, update them separ
         ALTER TABLE ibexa_discount ADD override_prioritization tinyint(1) NOT NULL DEFAULT 0;
         CREATE INDEX ibexa_discount_prioritization_idx ON ibexa_discount (override_prioritization, type, priority);
         ALTER TABLE ibexa_discount_code ADD global_limit INT DEFAULT NULL;
+        ```
+    ### Discounts v4.6.24
+
+    #### Database update
+
+    Run the following scripts:
+
+    === "MySQL"
+
+        ``` sql
+        ALTER TABLE ibexa_discount
+            ADD indexed_at DATETIME DEFAULT NULL COMMENT '(DC2Type:datetime_immutable)';
+
+        CREATE INDEX ibexa_discount_indexed_at_idx
+            ON ibexa_discount (indexed_at);
+        ```
+
+    === "PostgreSQL"
+
+        ``` sql
+        ALTER TABLE ibexa_discount
+            ADD indexed_at TIMESTAMP(0) WITHOUT TIME ZONE DEFAULT NULL;
+
+        COMMENT ON COLUMN ibexa_discount.indexed_at IS '(DC2Type:datetime_immutable)';
+
+        CREATE INDEX ibexa_discount_indexed_at_idx
+            ON ibexa_discount (indexed_at);
         ```
 
 === "AI actions"
