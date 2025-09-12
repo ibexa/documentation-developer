@@ -279,6 +279,8 @@ nav:
                 - Time field type: content_management/field_types/field_type_reference/timefield.md
                 - URL field type: content_management/field_types/field_type_reference/urlfield.md
                 - User field type: content_management/field_types/field_type_reference/userfield.md
+        - Collaborative editing:
+            - Collaborative editing product guide: content_management/collaborative_editing/collaborative_editing_guide.md
     - Templating:
         - Templating: templating/templating.md
         - Render content:
