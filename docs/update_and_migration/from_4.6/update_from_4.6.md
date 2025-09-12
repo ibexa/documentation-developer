@@ -1,6 +1,6 @@
 ---
 description: Update your installation to the latest v4.6 version from an earlier v4.6 version.
-month_change: false
+month_change: true
 ---
 
 # Update from v4.6.x to v4.6.latest
@@ -31,6 +31,15 @@ First, run:
     ```
 
 Then execute the instructions below starting from the version you're upgrading from.
+
+!!! caution
+
+    To avoid deprecations when using PHP 8.2 or 8.3, run the following commands:
+
+    ``` bash
+    composer config extra.runtime.error_handler "\\Ibexa\\Contracts\\Core\\MVC\\Symfony\\ErrorHandler\\Php82HideDeprecationsErrorHandler"
+    composer dump-autoload
+    ```
 
 <!-- vale Ibexa.VariablesVersion = NO -->
 
@@ -123,12 +132,7 @@ No additional steps needed.
 
 ## v4.6.8
 
-To avoid deprecations when updating from an older PHP version to PHP 8.2 or 8.3, run the following commands:
-
-``` bash
-composer config extra.runtime.error_handler "\\Ibexa\\Contracts\\Core\\MVC\\Symfony\\ErrorHandler\\Php82HideDeprecationsErrorHandler"
-composer dump-autoload
-```
+No additional steps needed.
 
 ## v4.6.9
 
@@ -338,3 +342,259 @@ vendor/bin/rector --dry-run
 ``` bash
 vendor/bin/rector
 ```
+
+## v4.6.20
+
+No additional steps needed.
+
+## v4.6.21
+
+### Security
+
+This security advisory resolves XSS vulnerabilities in several parts of the back office of the DXP.
+Back office access and varying levels of editing and management permissions are required to exploit these vulnerabilities.
+
+For more information, see the [security advisory IBEXA-SA-2025-003](https://developers.ibexa.co/security-advisories/ibexa-sa-2025-003-xss-vulnerabilities-in-back-office).
+
+Evaluate the vulnerability to determine whether you might have been affected.
+If so, take appropriate action.
+There are no additional update steps to execute.
+
+### Database update
+
+Run the following scripts:
+
+=== "MySQL"
+
+    ``` bash
+    mysql -u <username> -p <password> <database_name> < vendor/ibexa/installer/upgrade/db/mysql/ibexa-4.6.20-to-4.6.21.sql
+    ```
+
+=== "PostgreSQL"
+
+    ``` bash
+    psql <database_name> < vendor/ibexa/installer/upgrade/db/postgresql/ibexa-4.6.20-to-4.6.21.sql
+    ```
+
+## v4.6.22
+
+### Added support for Solr 9
+
+This release adds support for [Solr 9](requirements.md#search).
+
+To update Solr within an existing [[= product_name =]] project, first refer to the [Solr 9 upgrade planning](https://solr.apache.org/guide/solr/latest/upgrade-notes/major-changes-in-solr-9.html) instructions.
+
+Then, follow the [instructions for setting up Solr 9 with [[= product_name =]]](/search/search_engines/solr_search_engine/install_solr.md#configure-and-start-solr) and merge them with your custom configuration.
+
+Changes include:
+
+1. Configuration files
+
+    - the `schema.xml` configuration file became [`managed-schema.xml`](https://solr.apache.org/guide/solr/latest/upgrade-notes/major-changes-in-solr-6.html#managed-schema-is-now-the-default)
+    - the [removed `LatLonType` field is replaced by the `LatLonPointSpatialField` field](https://solr.apache.org/guide/solr/latest/upgrade-notes/major-changes-in-solr-7.html#deprecations-and-removed-features)
+
+2. New [Solr version parameter](install_solr.md#configure-solr-version)
+
+Once Solr 9 is fully configured, [refresh the search index](reindex_search.md).
+
+### Set character set for activity log tables [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
+
+When using MySQL or MariaDB, run the following script to ensure correct character set for activity log tables:
+
+=== "MySQL"
+
+    ``` bash
+    mysql -u <username> -p <password> <database_name> < vendor/ibexa/installer/upgrade/db/mysql/ibexa-4.6.21-to-4.6.22.sql
+    ```
+
+[[% include 'snippets/update/notify_support.md' %]]
+
+With the product updated to the latest version, you can now finish the update process or proceed to updating the LTS Updates packages.
+
+## LTS Updates
+
+[LTS Updates](https://doc.ibexa.co/en/4.6/ibexa_products/editions/#lts-updates) are standalone packages with their own update procedures.
+To use the [latest features](ibexa_dxp_v4.6.md) added to them, update them separately with the following commands:
+
+=== "Discounts"
+
+    Run the following command to get the latest version:
+
+    ```bash
+    composer require ibexa/discounts:[[= latest_tag_4_6 =]] ibexa/discounts-codes:[[= latest_tag_4_6 =]]
+    ```
+
+    Then apply manually the changes described below.
+
+    ### Discounts v4.6.20
+
+    #### Policy changes
+
+    The `discount/view` policy is no longer required for the store customers to use a discount and must be removed from all users who are not managing discounts.
+    The policy allows to access all the discount details, including the coupon codes to activate them, which could lead to system abuse.
+
+    To learn more, see the [discounts policies overview](https://doc.ibexa.co/en/4.6/permissions/policies/).
+
+    #### Database update
+
+    Run the following scripts:
+
+    === "MySQL"
+
+        ``` sql
+        CREATE TABLE ibexa_discount_code_usage (
+            id INT AUTO_INCREMENT NOT NULL,
+            discount_code_id INT NOT NULL,
+            order_id INT NOT NULL,
+            discriminator VARCHAR(10) NOT NULL,
+            used_at DATETIME NOT NULL COMMENT '(DC2Type:datetime_immutable)',
+            INDEX ibexa_discount_code_usage_discount_code_idx (discount_code_id),
+            INDEX ibexa_discount_code_usage_order_idx (order_id),
+            PRIMARY KEY(id)
+        ) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_520_ci` ENGINE = InnoDB;
+
+        CREATE TABLE ibexa_discount_code_usage_email (
+            id INT NOT NULL,
+            user_email VARCHAR(190) DEFAULT NULL,
+            INDEX ibexa_discount_code_usage_email_idx (user_email),
+            UNIQUE INDEX ibexa_discount_codes_usage_email_uidx (id, user_email),
+            PRIMARY KEY(id)
+        ) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_520_ci` ENGINE = InnoDB;
+
+        CREATE TABLE ibexa_discount_code_usage_user (
+            id INT NOT NULL,
+            user_id INT DEFAULT NULL,
+            INDEX ibexa_discount_code_usage_user_idx (user_id),
+            UNIQUE INDEX ibexa_discount_codes_usage_user_uidx (id, user_id),
+            PRIMARY KEY(id)
+        ) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_520_ci` ENGINE = InnoDB;
+
+        ALTER TABLE ibexa_discount_code_usage
+            ADD CONSTRAINT ibexa_discount_code_usage_code_fk FOREIGN KEY (discount_code_id)
+                REFERENCES ibexa_discount_code (id) ON UPDATE CASCADE ON DELETE CASCADE;
+
+        ALTER TABLE ibexa_discount_code_usage
+            ADD CONSTRAINT ibexa_discount_code_usage_order_fk FOREIGN KEY (order_id)
+                REFERENCES ibexa_order (id) ON UPDATE CASCADE ON DELETE CASCADE;
+
+        ALTER TABLE ibexa_discount_code_usage_email
+            ADD CONSTRAINT ibexa_discount_code_usage_email_fk FOREIGN KEY (id)
+                REFERENCES ibexa_discount_code_usage (id) ON UPDATE CASCADE ON DELETE CASCADE;
+
+        ALTER TABLE ibexa_discount_code_usage_user
+            ADD CONSTRAINT ibexa_discount_code_usage_user_fk FOREIGN KEY (id)
+                REFERENCES ibexa_discount_code_usage (id) ON UPDATE CASCADE ON DELETE CASCADE;
+
+        ALTER TABLE ibexa_discount_code_usage_user
+            ADD CONSTRAINT ibexa_discount_code_usage_user_content_fk FOREIGN KEY (user_id)
+                REFERENCES ezuser (contentobject_id) ON UPDATE CASCADE ON DELETE CASCADE;
+        ```
+
+    === "PostgreSQL"
+
+        ``` sql
+        CREATE TABLE ibexa_discount_code_usage
+        (
+            id SERIAL NOT NULL,
+            discount_code_id INT NOT NULL,
+            order_id INT NOT NULL,
+            discriminator VARCHAR(10) NOT NULL,
+            used_at TIMESTAMP(0) WITHOUT TIME ZONE NOT NULL,
+            PRIMARY KEY(id)
+        );
+
+        CREATE INDEX ibexa_discount_code_usage_discount_code_idx
+            ON ibexa_discount_code_usage (discount_code_id);
+
+        CREATE INDEX ibexa_discount_code_usage_order_idx
+            ON ibexa_discount_code_usage (order_id);
+
+        COMMENT ON COLUMN ibexa_discount_code_usage.used_at IS '(DC2Type:datetime_immutable)';
+
+        CREATE TABLE ibexa_discount_code_usage_email (
+            id INT NOT NULL,
+            user_email VARCHAR(190) DEFAULT NULL,
+            PRIMARY KEY(id)
+        );
+
+        CREATE INDEX ibexa_discount_code_usage_email_idx
+            ON ibexa_discount_code_usage_email (user_email);
+
+        CREATE UNIQUE INDEX ibexa_discount_codes_usage_email_uidx
+            ON ibexa_discount_code_usage_email (id, user_email);
+
+        CREATE TABLE ibexa_discount_code_usage_user
+        (
+            id INT NOT NULL,
+            user_id INT DEFAULT NULL,
+            PRIMARY KEY(id)
+        );
+
+        CREATE INDEX ibexa_discount_code_usage_user_idx
+            ON ibexa_discount_code_usage_user (user_id);
+
+        CREATE UNIQUE INDEX ibexa_discount_codes_usage_user_uidx
+            ON ibexa_discount_code_usage_user (id, user_id);
+
+        ALTER TABLE ibexa_discount_code_usage
+            ADD CONSTRAINT ibexa_discount_code_usage_code_fk FOREIGN KEY (discount_code_id)
+                REFERENCES ibexa_discount_code (id) ON UPDATE CASCADE ON DELETE CASCADE NOT DEFERRABLE INITIALLY IMMEDIATE;
+
+        ALTER TABLE ibexa_discount_code_usage
+            ADD CONSTRAINT ibexa_discount_code_usage_order_fk FOREIGN KEY (order_id)
+                REFERENCES ibexa_order (id) ON UPDATE CASCADE ON DELETE CASCADE NOT DEFERRABLE INITIALLY IMMEDIATE;
+
+        ALTER TABLE ibexa_discount_code_usage_email
+            ADD CONSTRAINT ibexa_discount_code_usage_email_fk FOREIGN KEY (id)
+                REFERENCES ibexa_discount_code_usage (id) ON UPDATE CASCADE ON DELETE CASCADE NOT DEFERRABLE INITIALLY IMMEDIATE;
+
+        ALTER TABLE ibexa_discount_code_usage_user
+            ADD CONSTRAINT ibexa_discount_code_usage_user_fk FOREIGN KEY (id)
+                REFERENCES ibexa_discount_code_usage (id) ON UPDATE CASCADE ON DELETE CASCADE NOT DEFERRABLE INITIALLY IMMEDIATE;
+
+        ALTER TABLE ibexa_discount_code_usage_user
+            ADD CONSTRAINT ibexa_discount_code_usage_user_content_fk FOREIGN KEY (user_id)
+                REFERENCES ezuser (contentobject_id) ON UPDATE CASCADE ON DELETE CASCADE NOT DEFERRABLE INITIALLY IMMEDIATE;
+        ```
+
+    ### Discounts v4.6.22
+
+    #### Database update
+
+    Run the following scripts:
+
+    === "MySQL"
+
+        ``` sql
+        ALTER TABLE ibexa_discount ADD override_prioritization tinyint(1) NOT NULL DEFAULT 0;
+        CREATE INDEX ibexa_discount_prioritization_idx ON ibexa_discount (override_prioritization, type, priority);
+        ALTER TABLE ibexa_discount_code ADD global_limit INT DEFAULT NULL;
+        ```
+
+    === "PostgreSQL"
+
+        ``` sql
+        ALTER TABLE ibexa_discount ADD override_prioritization tinyint(1) NOT NULL DEFAULT 0;
+        CREATE INDEX ibexa_discount_prioritization_idx ON ibexa_discount (override_prioritization, type, priority);
+        ALTER TABLE ibexa_discount_code ADD global_limit INT DEFAULT NULL;
+        ```
+
+=== "AI actions"
+
+    Run the following command to get the latest version:
+
+    ```bash
+    composer require ibexa/connector-ai:[[= latest_tag_4_6 =]] ibexa/connector-openai:[[= latest_tag_4_6 =]]
+    ```
+
+=== "Date and time attribute"
+
+    Run the following command to get the latest version:
+
+    ```bash
+    composer require ibexa/product-catalog-date-time-attribute:[[= latest_tag_4_6 =]]
+    ```
+
+## v4.6.23
+
+No additional steps needed.

@@ -10,7 +10,8 @@ class AttributeRichtextDescriptionType extends AbstractType
     /**
      * @return string|null
      */
-    public function getParent()
+    #[\Override]
+    public function getParent(): ?string
     {
         return RichTextType::class;
     }
@@ -18,7 +19,8 @@ class AttributeRichtextDescriptionType extends AbstractType
     /**
      * @return string
      */
-    public function getBlockPrefix()
+    #[\Override]
+    public function getBlockPrefix(): string
     {
         return 'field_configuration_attribute_richtext';
     }

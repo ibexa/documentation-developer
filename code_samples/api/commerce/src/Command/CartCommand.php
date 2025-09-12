@@ -17,52 +17,27 @@ use Ibexa\Contracts\OrderManagement\OrderServiceInterface;
 use Ibexa\Contracts\ProductCatalog\CurrencyServiceInterface;
 use Ibexa\Contracts\ProductCatalog\ProductServiceInterface;
 use Ibexa\Core\Repository\Permission\PermissionResolver;
+use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
+#[AsCommand(
+    name: 'doc:cart'
+)]
 final class CartCommand extends Command
 {
-    private PermissionResolver $permissionResolver;
-
-    private UserService $userService;
-
-    private CartServiceInterface $cartService;
-
-    private CurrencyServiceInterface $currencyService;
-
-    private ProductServiceInterface $productService;
-
-    private OrderServiceInterface $orderService;
-
-    private ReorderService $reorderService;
-
-    private CartResolverInterface $cartResolver;
-
     public function __construct(
-        PermissionResolver $permissionResolver,
-        UserService $userService,
-        CartServiceInterface $cartService,
-        CurrencyServiceInterface $currencyService,
-        ProductServiceInterface $productService,
-        OrderServiceInterface $orderService,
-        ReorderService $reorderService,
-        CartResolverInterface $cartResolver
+        private readonly PermissionResolver $permissionResolver,
+        private readonly UserService $userService,
+        private readonly CartServiceInterface $cartService,
+        private readonly CurrencyServiceInterface $currencyService,
+        private readonly ProductServiceInterface $productService,
+        private readonly OrderServiceInterface $orderService,
+        private readonly ReorderService $reorderService,
+        private readonly CartResolverInterface $cartResolver
     ) {
-        $this->cartService = $cartService;
-        $this->permissionResolver = $permissionResolver;
-        $this->userService = $userService;
-        $this->currencyService = $currencyService;
-        $this->productService = $productService;
-        $this->orderService = $orderService;
-        $this->reorderService = $reorderService;
-        $this->cartResolver = $cartResolver;
-
-        parent::__construct('doc:cart');
-    }
-
-    public function configure(): void
-    {
+        parent::__construct();
     }
 
     protected function execute(InputInterface $input, OutputInterface $output): int

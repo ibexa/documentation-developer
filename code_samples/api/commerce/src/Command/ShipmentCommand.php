@@ -17,36 +17,24 @@ use Ibexa\Contracts\Shipping\Shipment\ShipmentUpdateStruct;
 use Ibexa\Contracts\Shipping\ShipmentServiceInterface;
 use Ibexa\Contracts\Shipping\ShippingMethodServiceInterface;
 use Money;
+use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
+#[AsCommand(
+    name: 'doc:shipment'
+)]
 final class ShipmentCommand extends Command
 {
-    private PermissionResolver $permissionResolver;
-
-    private UserService $userService;
-
-    private ShipmentServiceInterface $shipmentService;
-
-    private ShippingMethodServiceInterface $shippingMethodService;
-
-    private OrderServiceInterface $orderService;
-
     public function __construct(
-        PermissionResolver $permissionResolver,
-        UserService $userService,
-        ShipmentServiceInterface $shipmentService,
-        ShippingMethodServiceInterface $shippingMethodService,
-        OrderServiceInterface $orderService
+        private readonly PermissionResolver $permissionResolver,
+        private readonly UserService $userService,
+        private readonly ShipmentServiceInterface $shipmentService,
+        private readonly ShippingMethodServiceInterface $shippingMethodService,
+        private readonly OrderServiceInterface $orderService
     ) {
-        $this->shipmentService = $shipmentService;
-        $this->permissionResolver = $permissionResolver;
-        $this->userService = $userService;
-        $this->shippingMethodService = $shippingMethodService;
-        $this->orderService = $orderService;
-
-        parent::__construct('doc:shipment');
+        parent::__construct();
     }
 
     protected function execute(InputInterface $input, OutputInterface $output): int

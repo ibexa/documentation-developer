@@ -7,7 +7,7 @@ use Ibexa\ProductCatalog\Local\Repository\Values\Product;
 
 class ProductSuggestion extends Suggestion
 {
-    private Product $product;
+    private readonly Product $product;
 
     public function __construct(
         float $score,

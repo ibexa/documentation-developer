@@ -5,29 +5,23 @@ namespace App\Command;
 use Ibexa\Contracts\Core\Repository\LanguageService;
 use Ibexa\Contracts\Core\Repository\PermissionResolver;
 use Ibexa\Contracts\Core\Repository\UserService;
+use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
+#[AsCommand(
+    name: 'doc:add_language',
+    description: 'Lists available languages and add Polish.'
+)]
 class AddLanguageCommand extends Command
 {
-    private LanguageService $languageService;
-
-    private UserService $userService;
-
-    private PermissionResolver $permissionResolver;
-
-    public function __construct(LanguageService $languageService, UserService $userService, PermissionResolver $permissionResolver)
-    {
-        $this->languageService = $languageService;
-        $this->userService = $userService;
-        $this->permissionResolver = $permissionResolver;
-        parent::__construct('doc:add_language');
-    }
-
-    protected function configure(): void
-    {
-        $this->setDescription('Lists available languages and add Polish.');
+    public function __construct(
+        private readonly LanguageService $languageService,
+        private readonly UserService $userService,
+        private readonly PermissionResolver $permissionResolver
+    ) {
+        parent::__construct();
     }
 
     protected function execute(InputInterface $input, OutputInterface $output): int

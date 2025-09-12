@@ -72,12 +72,6 @@ php bin/console cache:clear --env prod
 php bin/console cache:pool:clear cache.redis
 ```
 
-- clearing Memcached cache
-
-```bash
-php bin/console cache:pool:clear cache.memcached
-```
-
 - clearing the Symfony cache manually
 
 ```bash

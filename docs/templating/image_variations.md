@@ -41,6 +41,8 @@ If set to `null` or `~`, the variation takes the original image for reference.
 
 ## Available variation filters
 
+In addition to [filters exposed by LiipImagineBundle](https://symfony.com/bundles/LiipImagineBundle/2.x/filters.html), the following ones are available:
+
 | Filter name | Parameters | Description |
 |--------|------|----------|
 | `geometry/scaledownonly` | `[width, height]` | Scales image down to fit the provided width/height. Preserves aspect ratio. |

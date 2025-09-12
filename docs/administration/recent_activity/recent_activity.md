@@ -43,7 +43,7 @@ For every exact hour, the cronjob line is:
 ## Permission and security
 
 The [`activity_log/read`](policies.md#activity-log) policy gives a role the access to the **Admin** -> **Activity list**, the dashboard's **Recent activity** block, and the user profile's **Recent activity**.
-It can be limited to "Only own logs" ([`ActivityLogOwner`](limitation_reference.md#activitylogowner-limitation)).
+It can be limited to "Only own logs" ([`ActivityLogOwner`](limitation_reference.md#activity-log-owner-limitation)).
 
 The policy should be given to every roles having access to the back office, at least with the `ActivityLogOwner` owner limitation, to allow them to use the "Recent activity" block in the [default dashboard](configure_default_dashboard.md) or their [custom dashboard](customize_dashboard.md).
 This policy is required to view [activity log in user profile]([[= user_doc =]]/getting_started/get_started/#view-and-edit-user-profile), if [profile is enabled](update_from_4.5.md#user-profile).
@@ -190,7 +190,7 @@ In the following example, several actions are logged into one context group, eve
     - `complete`
 
 ``` php
-[[= include_file('code_samples/recent_activity/src/Command/ActivityLogContextTestCommand.php', 63, 83) =]]
+[[= include_file('code_samples/recent_activity/src/Command/ActivityLogContextTestCommand.php', 62, 82) =]]
 ```
 
 Context groups can't be nested.
@@ -262,4 +262,4 @@ Thanks to the previous subscriber, the related object is available at display ti
 ## REST API
 
 You can browse activity logs with REST API.
-For more information, see the [REST API reference](../../api/rest_api/rest_api_reference/rest_api_reference.html#monitoring-activity).
+For more information, see the [REST API reference](/api/rest_api/rest_api_reference/rest_api_reference.html#tag/Activity-Log).

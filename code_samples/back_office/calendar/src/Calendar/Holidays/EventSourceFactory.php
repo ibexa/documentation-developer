@@ -4,17 +4,14 @@ namespace App\Calendar\Holidays;
 
 use DateTime;
 use DateTimeInterface;
-use Ibexa\Calendar\EventSource\InMemoryEventSource;
 use Ibexa\Contracts\Calendar\EventCollection;
 use Ibexa\Contracts\Calendar\EventSource\EventSourceInterface;
+use Ibexa\Contracts\Calendar\EventSource\InMemoryEventSource;
 
 class EventSourceFactory
 {
-    private EventType $eventType;
-
-    public function __construct(EventType $eventType)
+    public function __construct(private readonly EventType $eventType)
     {
-        $this->eventType = $eventType;
     }
 
     public function createEventSource(): EventSourceInterface

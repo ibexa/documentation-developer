@@ -7,16 +7,10 @@ use Ibexa\Contracts\Core\FieldType\Value as ValueInterface;
 
 final class Value implements ValueInterface
 {
-    /** @var float|null */
-    private $x;
-
-    /** @var float|null */
-    private $y;
-
-    public function __construct(?float $x = null, ?float $y = null)
-    {
-        $this->x = $x;
-        $this->y = $y;
+    public function __construct(
+        private ?float $x = null,
+        private ?float $y = null
+    ) {
     }
 
     public function getX(): ?float
@@ -39,7 +33,7 @@ final class Value implements ValueInterface
         $this->y = $y;
     }
 
-    public function __toString()
+    public function __toString(): string
     {
         return "({$this->x}, {$this->y})";
     }

@@ -13,14 +13,11 @@ use Symfony\Component\DependencyInjection\Exception\InvalidArgumentException;
 
 class Owner implements MatcherInterface
 {
-    private UserService $userService;
-
     /** @var string[] */
     private array $matchingUserLogins;
 
-    public function __construct(UserService $userService)
+    public function __construct(private readonly UserService $userService)
     {
-        $this->userService = $userService;
     }
 
     /**

@@ -12,15 +12,11 @@ use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
 class RichTextBlockSubscriber implements EventSubscriberInterface
 {
-    /** @var \Ibexa\FieldTypeRichText\RichText\DOMDocumentFactory */
-    private $domDocumentFactory;
-
     /**
      * @param \Ibexa\FieldTypeRichText\RichText\DOMDocumentFactory $domDocumentFactory
      */
-    public function __construct(DOMDocumentFactory $domDocumentFactory)
+    public function __construct(private readonly DOMDocumentFactory $domDocumentFactory)
     {
-        $this->domDocumentFactory = $domDocumentFactory;
     }
 
     /**

@@ -56,11 +56,11 @@ For example, the `ddev exec curl -s "http://elasticsearch:9200/_count"` command 
 
 For more information on topics such as memory management, see [ddev/ddev-elasticsearch README](https://github.com/ddev/ddev-elasticsearch).
 
-See [Elasticsearch REST API reference](https://www.elastic.co/guide/en/elasticsearch/reference/current/rest-apis.html) for more request options, like, for example:
+See [Elasticsearch REST API reference](https://www.elastic.co/docs/reference/elasticsearch/rest-apis) for more request options, like, for example:
 
-- [`_count`](https://www.elastic.co/guide/en/elasticsearch/reference/current/search-count.html), as seen above
-- [`_cluster/health`](https://www.elastic.co/guide/en/elasticsearch/reference/current/cluster-health.html) (don't mind the "yellow" status which is normal in the absence of replicas in the DDEV container)
-- [`_search?size=0"`](https://www.elastic.co/guide/en/elasticsearch/reference/current/search-search.html), which is another way to get document count
+- [`_count`](https://www.elastic.co/docs/api/doc/elasticsearch/operation/operation-count), as seen above
+- [`_cluster/health`](https://www.elastic.co/docs/api/doc/elasticsearch/operation/operation-cluster-health) (don't mind the "yellow" status which is normal in the absence of replicas in the DDEV container)
+- [`_search?size=0"`](https://www.elastic.co/docs/api/doc/elasticsearch/operation/operation-search), which is another way to get document count
 
 !!! tip
 
@@ -120,37 +120,3 @@ You can now check whether Redis works.
 For example, the `ddev redis-cli MONITOR` command returns outputs, for example, `"SETEX" "ezp:`, `"MGET" "ezp:`, `"SETEX" "PHPREDIS_SESSION:`, or `"GET" "PHPREDIS_SESSION:`, while navigating into the website, in particular the back office.
 
 See [Redis commands](https://redis.io/docs/latest/commands/) for more details such as information about the [`MONITOR`](https://redis.io/docs/latest/commands/monitor/) command used in the previous example.
-
-### Install Memcached
-
-First, if not already there, append the following [new service](https://doc.ibexa.co/en/latest/infrastructure_and_maintenance/sessions/#handling-sessions-with-memcached) to `config/services.yaml`:
-
-```yaml
-    app.session.handler.native_memcached:
-        class: Ibexa\Bundle\Core\Session\Handler\NativeSessionHandler
-        arguments:
-            - '%session.save_path%'
-            - memcached
-```
-
-Second, install and set up the add-on.
-The following sequence of commands:
-
-1. Adds the Memcached container.
-1. Sets Memcached as the cache pool.
-1. Sets Memcached as the session handler.
-1. Restarts the DDEV cluster and clears application cache.
-
-```bash
-ddev add-on get ddev/ddev-memcached
-ddev config --web-environment-add CACHE_POOL=cache.memcached
-ddev config --web-environment-add CACHE_DSN=memcached
-ddev config --web-environment-add SESSION_HANDLER_ID=app.session.handler.native_memcached
-ddev config --web-environment-add SESSION_SAVE_PATH=memcached:11211
-ddev restart
-ddev php bin/console cache:clear
-```
-
-You can now check whether everything went right.
-
-For example, the `watch 'ddev exec netcat -w1 memcached 11211 <<< "stats" | grep "cmd_.et "'` command checks whether the `web` service can access the `memcached` service, and displays the increase of `cmd_get` and `cmd_set` while navigating into the website.

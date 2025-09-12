@@ -102,7 +102,7 @@ See [Authenticating a user with multiple user provider](user_authentication.md#a
 
 ## JWT authentication
 
-To use [JWT authentication](https://jwt.io/) with [[= product_name =]], in the provided `config/packages/lexik_jwt_authentication.yaml` file, modify the existing configuration by setting `authorization_header` to `enabled`:
+To use [JWT authentication](https://www.jwt.io/) with [[= product_name =]], in the provided `config/packages/lexik_jwt_authentication.yaml` file, modify the existing configuration by setting `authorization_header` to `enabled`:
 
 ``` yaml hl_lines="8"
 lexik_jwt_authentication:
@@ -145,3 +145,17 @@ security:
                 entry_point: lexik_jwt_authentication.jwt_token_authenticator
             stateless: true
 ```
+
+Finish the setup by generating a [PEM encoded key pair](https://symfony.com/bundles/LexikJWTAuthenticationBundle/2.x/index.html#generate-the-ssl-keys) by using the command:
+
+```bash
+php bin/console lexik:jwt:generate-keypair
+```
+
+The generated key pair will be stored in the `config/jwt`directory.
+
+!!! note "[[= product_name_cloud =]]"
+
+    To generate and store the tokens on [[= product_name_cloud =]], define the `config/jwt` directory as a volume in the `.platform.app.yaml` file. 
+    In 3-node cluster setups, ensure that the key pair is the same on all 3 servers. 
+    You can use a network share, or use a local mount and manually copy the key pair between the servers.

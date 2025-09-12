@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<ContentTypeUpdate>
-    <names>
-        <value languageCode="eng-GB">Updated content type name</value>
-    </names>
-    <descriptions>
-        <value languageCode="eng-GB">This is an updated content type description</value>
-    </descriptions>
-</ContentTypeUpdate>

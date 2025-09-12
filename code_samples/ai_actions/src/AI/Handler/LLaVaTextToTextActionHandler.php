@@ -12,18 +12,14 @@ use Ibexa\Contracts\ConnectorAi\ActionInterface;
 use Ibexa\Contracts\ConnectorAi\ActionResponseInterface;
 use Symfony\Contracts\HttpClient\HttpClientInterface;
 
-final class LLaVaTextToTextActionHandler implements ActionHandlerInterface
+final readonly class LLaVaTextToTextActionHandler implements ActionHandlerInterface
 {
-    private HttpClientInterface $client;
+    public const string IDENTIFIER = 'LLaVATextToText';
 
-    private string $host;
-
-    public const IDENTIFIER = 'LLaVATextToText';
-
-    public function __construct(HttpClientInterface $client, string $host = 'http://localhost:8080')
-    {
-        $this->client = $client;
-        $this->host = $host;
+    public function __construct(
+        private HttpClientInterface $client,
+        private string $host = 'http://localhost:8080'
+    ) {
     }
 
     public function supports(ActionInterface $action): bool
@@ -63,7 +59,7 @@ final class LLaVaTextToTextActionHandler implements ActionHandlerInterface
             ]
         );
 
-        $output = strip_tags(json_decode($response->getContent(), true)['choices'][0]['message']['content']);
+        $output = strip_tags((string) json_decode($response->getContent(), true)['choices'][0]['message']['content']);
 
         return new TextResponse(new Text([$output]));
     }

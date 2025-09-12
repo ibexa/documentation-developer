@@ -16,23 +16,14 @@ use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
 class RandomBlockListener implements EventSubscriberInterface
 {
-    private ContentService $contentService;
-
-    private LocationService $locationService;
-
-    private SearchService $searchService;
-
     public function __construct(
-        ContentService $contentService,
-        LocationService $locationService,
-        SearchService $searchService
+        private readonly ContentService $contentService,
+        private readonly LocationService $locationService,
+        private readonly SearchService $searchService
     ) {
-        $this->contentService = $contentService;
-        $this->locationService = $locationService;
-        $this->searchService = $searchService;
     }
 
-    public static function getSubscribedEvents()
+    public static function getSubscribedEvents(): array
     {
         return [
             BlockRenderEvents::getBlockPreRenderEventName('random') => 'onBlockPreRender',

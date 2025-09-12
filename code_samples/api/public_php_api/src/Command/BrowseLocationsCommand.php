@@ -4,25 +4,26 @@ namespace App\Command;
 
 use Ibexa\Contracts\Core\Repository\LocationService;
 use Ibexa\Contracts\Core\Repository\Values\Content\Location;
+use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
+#[AsCommand(
+    name: 'doc:browse_locations',
+    description: 'Lists all descendants of the Location'
+)]
 class BrowseLocationsCommand extends Command
 {
-    private LocationService $locationService;
-
-    public function __construct(LocationService $locationService)
+    public function __construct(private readonly LocationService $locationService)
     {
-        $this->locationService = $locationService;
-        parent::__construct('doc:browse_locations');
+        parent::__construct();
     }
 
     protected function configure(): void
     {
         $this
-            ->setDescription('Lists all descendants of the Location')
             ->setDefinition([
                 new InputArgument('locationId', InputArgument::REQUIRED, 'Location ID to browse from'),
             ]);

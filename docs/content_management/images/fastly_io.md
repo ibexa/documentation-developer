@@ -7,14 +7,14 @@ description: Configure Fastly Image Optimizer.
 The Fastly Image Optimizer (Fastly IO) is an external service that provides real-time image optimization for multiple input and output formats.
 It serves and caches image requests from your origin server, making your website faster and more efficient.
 
-To be able to configure this feature, you need [Fastly IO subscription](https://docs.fastly.com/en/guides/about-fastly-image-optimizer).
+To be able to configure this feature, you need [Fastly IO subscription](https://www.fastly.com/documentation/guides/full-site-delivery/about-fastly-image-optimizer/).
 
 ## Enable shielding
 
 To use Fastly Image Optimizer, you first need a [working setup of Ibexa DXP and Fastly](reverse_proxy.md#using-varnish-or-fastly)
 with shielding enabled.
 To enable shielding, follow the steps in [Fastly Developer Documentation](https://www.fastly.com/documentation/guides/concepts/shielding/#enabling-and-disabling-shielding).
-Remember to choose a shield location from the **Shielding** menu, as described in [Fastly User Documentation](https://docs.fastly.com/en/guides/shielding#enabling-shielding).
+Remember to choose a shield location from the **Shielding** menu, as described in [Fastly User Documentation](https://www.fastly.com/documentation/guides/getting-started/hosts/shielding#enabling-shielding).
 
 ## VCL configuration
 

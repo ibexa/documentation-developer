@@ -6,26 +6,24 @@ use Ibexa\Contracts\Core\Repository\ContentTypeService;
 use Ibexa\Contracts\Core\Repository\Exceptions\NotFoundException;
 use Ibexa\Contracts\Core\Repository\PermissionResolver;
 use Ibexa\Contracts\Core\Repository\UserService;
+use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 
+#[AsCommand(
+    name: 'doc:create_content_type'
+)]
 class CreateContentTypeCommand extends Command
 {
-    private ContentTypeService $contentTypeService;
-
-    private UserService $userService;
-
-    private PermissionResolver $permissionResolver;
-
-    public function __construct(ContentTypeService $contentTypeService, UserService $userService, PermissionResolver $permissionResolver)
-    {
-        $this->contentTypeService = $contentTypeService;
-        $this->userService = $userService;
-        $this->permissionResolver = $permissionResolver;
-        parent::__construct('doc:create_content_type');
+    public function __construct(
+        private readonly ContentTypeService $contentTypeService,
+        private readonly UserService $userService,
+        private readonly PermissionResolver $permissionResolver
+    ) {
+        parent::__construct();
     }
 
     protected function configure(): void
@@ -38,7 +36,7 @@ class CreateContentTypeCommand extends Command
             ->addOption('copy', 'c', InputOption::VALUE_NONE, 'Do you want to make a copy of the content type?');
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $user = $this->userService->loadUserByLogin('admin');
         $this->permissionResolver->setCurrentUserReference($user);
@@ -51,7 +49,7 @@ class CreateContentTypeCommand extends Command
 
         try {
             $contentTypeGroup = $this->contentTypeService->loadContentTypeGroupByIdentifier($groupIdentifier);
-        } catch (NotFoundException $e) {
+        } catch (NotFoundException) {
             $output->writeln("Content type group with identifier $groupIdentifier not found");
 
             return self::FAILURE;
@@ -65,7 +63,7 @@ class CreateContentTypeCommand extends Command
             'eng-GB' => $contentTypeIdentifier,
         ];
 
-        $titleFieldCreateStruct = $this->contentTypeService->newFieldDefinitionCreateStruct('name', 'ezstring');
+        $titleFieldCreateStruct = $this->contentTypeService->newFieldDefinitionCreateStruct('name', 'ibexa_string');
         $titleFieldCreateStruct->names = ['eng-GB' => 'Name'];
         $titleFieldCreateStruct->descriptions = ['eng-GB' => 'The name'];
         $titleFieldCreateStruct->fieldGroup = 'content';

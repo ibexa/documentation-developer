@@ -42,7 +42,7 @@ Since it's not possible to define a generic format for such a schema, the field 
 
 In addition to normal settings, the field type should provide schema settings for its validation process.
 The schema describes what kind of validation can be performed by the field type and which settings the user can specify to these validation methods.
-For example, the `ezstring` type can validate minimum and maximum length of the string.
+For example, the `ibexa_string` type can validate minimum and maximum length of the string.
 It therefore provides a schema to indicate to the user that they might specify the corresponding restrictions, when creating a `FieldDefinition` with this type.
 The schema doesn't underlie any regulations, except for that it must be serializable.
 
@@ -130,7 +130,7 @@ services:
     Ibexa\FieldTypeMatrix\FieldType\Type:
         parent: Ibexa\Core\FieldType\FieldType
         tags:
-            - {name: ibexa.field_type, alias: ezmatrix}
+            - {name: ibexa.field_type, alias: ibexa_matrix}
 ```
 
 #### `parent`
@@ -145,7 +145,7 @@ Like most API components, field types use the [Symfony service tag mechanism]([[
 
 A service can be assigned one or several tags, with specific parameters.
 When the [service container](php_api.md#service-container) is compiled into a PHP file, tags are read by `CompilerPass` implementations that add extra handling for tagged services.
-Each service tagged as `ibexa.field_type` is added to a [registry](https://martinfowler.com/eaaCatalog/registry.html) using the `alias` key as its unique `fieldTypeIdentifier`, for example, `ezstring`.
+Each service tagged as `ibexa.field_type` is added to a [registry](https://martinfowler.com/eaaCatalog/registry.html) using the `alias` key as its unique `fieldTypeIdentifier`, for example, `ibexa_string`.
 Each field type must also inherit from the abstract `ibexa.field_type` service.
 This ensures that the initialization steps shared by all field types are executed.
 

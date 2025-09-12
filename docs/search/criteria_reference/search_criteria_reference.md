@@ -1,6 +1,6 @@
 ---
 description: Search Criteria help define and fine-tune search queries for content and locations.
-month_change: true
+month_change: false
 ---
 
 # Search Criteria reference

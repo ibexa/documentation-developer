@@ -55,6 +55,8 @@ The following data migration step modes are available:
 | `content`              | &#10004; | &#10004; | &#10004; |          |
 | `currency`             | &#10004; | &#10004; | &#10004; |          |
 | `customer_group`       | &#10004; | &#10004; | &#10004; |          |
+| `discount`             | &#10004; | &#10004; |          |          |
+| `discount_code`        | &#10004; |          |          |          |
 | `language`             | &#10004; |          |          |          |
 | `location`             |          | &#10004; |          | &#10004; |
 | `object_state`         | &#10004; |          |          |          |
@@ -171,14 +173,7 @@ Built-in expression language functions that are tagged with `ibexa.migrations.te
 - `env` - retrieves the value of an environmental variable.
 
 ```yaml
-                -
-                    type: user
-                    mode: update
-                    match:
-                        field: login
-                        value: admin
-                    metadata:
-                        password: '###XXX env("ADMIN_PASSWORD") XXX###'
+[[= include_file('code_samples/data_migration/examples/update_user.yaml') =]]
 ```
 
 #### Custom functions
@@ -237,8 +232,14 @@ When creating a content item, three metadata keys are required: `contentType`, `
 To use the location ID of the folder, which is created automatically by the system, you can use a [reference](managing_migrations.md#references).
 In this case you assign the `parent_folder_location_id` reference name to the location ID, and then use it when creating the article.
 
-``` yaml hl_lines="15 24"
+``` yaml hl_lines="15 25"
 [[= include_file('code_samples/data_migration/examples/create_parent_and_child_content.yaml') =]]
+```
+
+Use the `delete` mode to delete content items:
+
+``` yaml
+[[= include_file('code_samples/data_migration/examples/delete_content.yaml') =]]
 ```
 
 ### Images
@@ -318,6 +319,12 @@ You can use an [action](data_migration_actions.md) to assign a role to the user.
 [[= include_file('code_samples/data_migration/examples/create_user.yaml') =]]
 ```
 
+You can also update user information, including passwords:
+
+``` yaml
+[[= include_file('code_samples/data_migration/examples/update_user.yaml') =]]
+```
+
 ### Languages
 
 The following example shows how to create a language.
@@ -348,7 +355,7 @@ You can't change the attribute type of an existing attribute.
 
 ##### Date and time attributes
 
-If you're using attributes of the [date and time type](date_and_time.md), you can manage it through the migrations as well, for example:
+You can manage the [date and time attribute type](date_and_time.md) through the migrations, for example:
 
 ``` yaml
 [[= include_file('code_samples/data_migration/examples/create_datetime_attribute.yaml') =]]
@@ -505,6 +512,31 @@ When updating a content type, use:
 
 ``` yaml
 [[= include_file('code_samples/data_migration/examples/ai/action_configuration_delete.yaml') =]]
+```
+
+### Discounts
+
+- The following example shows how you can create a new [discount](discounts_guide.md) in your system:
+
+``` yaml
+[[= include_file('code_samples/data_migration/examples/discounts/discount_create.yaml') =]]
+```
+
+- Use the `update` mode to modify an existing discount as in the example below.
+The provided conditions overwrite any already existing ones.
+
+``` yaml
+[[= include_file('code_samples/data_migration/examples/discounts/discount_update.yaml') =]]
+```
+
+For a list of available conditions, see [Discounts API](discounts_api.md#conditions).
+
+### Discount codes [[% include 'snippets/lts-update_badge.md' %]]
+
+You can create a discount code as in the following example:
+
+``` yaml
+[[= include_file('code_samples/data_migration/examples/discounts/discount_code_create.yaml') =]]
 ```
 
 ## Criteria

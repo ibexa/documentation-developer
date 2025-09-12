@@ -30,6 +30,7 @@ ibexa:
                 pagination:
                     attribute_definitions_limit: 10
                     attribute_groups_limit: 10
+                    currencies_limit: 10
                     customer_groups_limit: 10
                     customer_group_users_limit: 10
                     products_limit: 10

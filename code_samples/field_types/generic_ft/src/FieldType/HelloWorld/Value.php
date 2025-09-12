@@ -10,7 +10,7 @@ final class Value implements ValueInterface
     /**
      * @Assert\NotBlank()
      */
-    private ?string $name;
+    private ?string $name = null;
 
     public function getName(): ?string
     {
@@ -22,7 +22,7 @@ final class Value implements ValueInterface
         $this->name = $name;
     }
 
-    public function __toString()
+    public function __toString(): string
     {
         return "Hello {$this->name}!";
     }

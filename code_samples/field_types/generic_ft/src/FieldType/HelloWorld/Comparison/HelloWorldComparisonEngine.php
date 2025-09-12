@@ -7,16 +7,11 @@ namespace App\FieldType\HelloWorld\Comparison;
 use Ibexa\Contracts\VersionComparison\Engine\FieldTypeComparisonEngine;
 use Ibexa\Contracts\VersionComparison\FieldType\FieldTypeComparisonValue;
 use Ibexa\Contracts\VersionComparison\Result\ComparisonResult;
-use Ibexa\VersionComparison\Engine\Value\StringComparisonEngine;
 
-final class HelloWorldComparisonEngine implements FieldTypeComparisonEngine
+final readonly class HelloWorldComparisonEngine implements FieldTypeComparisonEngine
 {
-    /** @var \Ibexa\VersionComparison\Engine\Value\StringComparisonEngine */
-    private \Ibexa\VersionComparison\Engine\Value\StringComparisonEngine $stringValueComparisonEngine;
-
-    public function __construct(StringComparisonEngine $stringValueComparisonEngine)
+    public function __construct(private \Ibexa\VersionComparison\Engine\Value\StringComparisonEngine $stringValueComparisonEngine)
     {
-        $this->stringValueComparisonEngine = $stringValueComparisonEngine;
     }
 
     /**

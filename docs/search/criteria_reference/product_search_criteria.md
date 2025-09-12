@@ -42,4 +42,4 @@ Search Criterion let you filter product by specific attributes, for example, col
 |[RangeMeasurementAttributeMinimum](rangemeasurementattributeminimum_criterion.md)|Minimum value of product's measurement attribute|
 |[SelectionAttribute](selectionattribute_criterion.md)|Value of product's selection attribute|
 |[SimpleMeasurementAttribute](simplemeasurementattribute_criterion.md)|Value of product's measurement attribute|
-
+|[SymbolAttribute](symbolattribute_criterion.md)|Value of product's symbol attribute|

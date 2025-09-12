@@ -8,32 +8,24 @@ use Ibexa\Contracts\Core\Repository\PermissionResolver;
 use Ibexa\Contracts\Core\Repository\UserService;
 use Ibexa\Contracts\ProductCatalog\AssetServiceInterface;
 use Ibexa\Contracts\ProductCatalog\ProductServiceInterface;
+use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
+#[AsCommand(
+    name: 'doc:assets'
+)]
 final class ProductAssetCommand extends Command
 {
-    private UserService $userService;
-
-    private PermissionResolver $permissionResolver;
-
-    private ProductServiceInterface $productService;
-
-    private AssetServiceInterface $assetService;
-
     public function __construct(
-        UserService $userService,
-        PermissionResolver $permissionResolver,
-        ProductServiceInterface $productService,
-        AssetServiceInterface $assetService
+        private readonly UserService $userService,
+        private readonly PermissionResolver $permissionResolver,
+        private readonly ProductServiceInterface $productService,
+        private readonly AssetServiceInterface $assetService
     ) {
-        $this->userService = $userService;
-        $this->permissionResolver = $permissionResolver;
-        $this->productService = $productService;
-        $this->assetService = $assetService;
-        parent::__construct('doc:assets');
+        parent::__construct();
     }
 
     public function configure(): void

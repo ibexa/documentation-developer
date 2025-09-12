@@ -77,18 +77,18 @@ To use `ResourceOwnerToExistingOrNewUserMapper`, you need to extend it in your c
 
     To avoid issues with password restrictions in the built-in user content type, create a special content type (for example, "OAuth user"), without restrictions on the password.
 
-    This new content type must also contain the user (`ezuser`) field.
+    This new content type must also contain the user (`ibexa_user`) field.
 
 The following example shows how to create a Resource Owner mapper for the `google` client from previous examples.
 
 Create a resource owner mapper for Google login in `src/OAuth/GoogleResourceOwnerMapper.php`.
 The mapper extends `ResourceOwnerToExistingOrNewUserMapper`, which enables it to create a new user in the repository if the user doesn't exist yet.
 
-The mapper loads a user (line 51) or creates a new one (line 61), based on the information from `resourceOwner`, that's the OAuth2 authorization server.
+The mapper loads a user (line 40) or creates a new one (line 49), based on the information from `resourceOwner`, that's the OAuth2 authorization server.
 
-The new username is set with a `google:` prefix (lines 19, 109), to avoid conflicts with users registered in a regular way.
+The new username is set with a `google:` prefix (lines 20, 91), to avoid conflicts with users registered in a regular way.
 
-``` php hl_lines="20 54 64 109"
+``` php hl_lines="20 40 67 91"
 [[= include_file('code_samples/user_management/oauth_google/src/OAuth/GoogleResourceOwnerMapper.php') =]]
 ```
 
@@ -110,7 +110,7 @@ Create the following template file in `templates/themes/admin/account/login/oaut
 
 For more information about the OAuth connection URL Twig functions, see [`ibexa_oauth2_connect_path`](url_twig_functions.md#ibexa_oauth2_connect_path) and [`ibexa_oauth2_connect_url`](url_twig_functions.md#ibexa_oauth2_connect_url).
 
-Finally, add the template to the login form by using the `login-form-after` [component](custom_components.md):
+Finally, add the template to the login form by using the `admin-ui-login-form-after` [Twig component group](components.md):
 
 ``` yaml
 services:

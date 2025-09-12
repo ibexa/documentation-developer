@@ -10,32 +10,24 @@ use Ibexa\Contracts\ProductCatalog\Local\LocalProductServiceInterface;
 use Ibexa\Contracts\ProductCatalog\Local\Values\Product\ProductVariantCreateStruct;
 use Ibexa\Contracts\ProductCatalog\ProductServiceInterface;
 use Ibexa\Contracts\ProductCatalog\Values\Product\ProductVariantQuery;
+use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
+#[AsCommand(
+    name: 'doc:product_variant'
+)]
 final class ProductVariantCommand extends Command
 {
-    private UserService $userService;
-
-    private PermissionResolver $permissionResolver;
-
-    private ProductServiceInterface $productService;
-
-    private LocalProductServiceInterface $localProductService;
-
     public function __construct(
-        UserService $userService,
-        PermissionResolver $permissionResolver,
-        ProductServiceInterface $productService,
-        LocalProductServiceInterface $localProductService
+        private readonly UserService $userService,
+        private readonly PermissionResolver $permissionResolver,
+        private readonly ProductServiceInterface $productService,
+        private readonly LocalProductServiceInterface $localProductService
     ) {
-        $this->userService = $userService;
-        $this->permissionResolver = $permissionResolver;
-        $this->productService = $productService;
-        $this->localProductService = $localProductService;
-        parent::__construct('doc:product_variant');
+        parent::__construct();
     }
 
     public function configure(): void

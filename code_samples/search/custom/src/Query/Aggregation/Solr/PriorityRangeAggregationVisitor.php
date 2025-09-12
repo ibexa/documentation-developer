@@ -8,6 +8,9 @@ use App\Query\Aggregation\PriorityRangeAggregation;
 use Ibexa\Contracts\Core\Repository\Values\Content\Query\Aggregation;
 use Ibexa\Contracts\Solr\Query\AggregationVisitor;
 
+/**
+ * @phpstan-template TRangeAggregation of \Ibexa\Contracts\Core\Repository\Values\Content\Query\Aggregation\AbstractRangeAggregation
+ */
 final class PriorityRangeAggregationVisitor implements AggregationVisitor
 {
     public function canVisit(Aggregation $aggregation, array $languageFilter): bool
@@ -16,7 +19,7 @@ final class PriorityRangeAggregationVisitor implements AggregationVisitor
     }
 
     /**
-     * @param \Ibexa\Contracts\Core\Repository\Values\Content\Query\Aggregation\AbstractRangeAggregation $aggregation
+     * @param \App\Query\Aggregation\PriorityRangeAggregation<TRangeAggregation> $aggregation
      */
     public function visit(
         AggregationVisitor $dispatcherVisitor,
@@ -27,7 +30,7 @@ final class PriorityRangeAggregationVisitor implements AggregationVisitor
         foreach ($aggregation->getRanges() as $range) {
             $from = $this->formatRangeValue($range->getFrom());
             $to = $this->formatRangeValue($range->getTo());
-            $rangeFacets["${from}_${to}"] = [
+            $rangeFacets["{$from}_{$to}"] = [
                 'type' => 'query',
                 'q' => sprintf('priority_i:[%s TO %s}', $from, $to),
             ];

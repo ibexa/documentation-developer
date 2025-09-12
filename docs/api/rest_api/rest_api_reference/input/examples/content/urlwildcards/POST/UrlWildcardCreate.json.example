@@ -1,7 +1,0 @@
-{
-    "URLWildcardCreate": {
-        "sourceUrl": "/api/ibexa/v2/content/location/2",
-        "destinationUrl": "/api/ibexa/v2/content/location/59",
-        "forward": true
-    }
-}

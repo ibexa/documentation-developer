@@ -126,7 +126,7 @@ While [using `sudo()`](#using-sudo) is the recommended option, you can also set 
 To identify as a different user, you need to use the `UserService` together with `PermissionResolver` (in the example `admin` is the login of the administrator user):
 
 ``` php
-[[= include_file('code_samples/api/public_php_api/src/Command/CreateContentCommand.php', 50, 52) =]]
+[[= include_file('code_samples/api/public_php_api/src/Command/CreateContentCommand.php', 40, 41) =]]
 ```
 
 !!! tip
@@ -135,13 +135,6 @@ To identify as a different user, you need to use the `UserService` together with
     It supports auto-wiring.
 
 This isn't required in template functions or controller code, as the HTTP layer takes care of identifying the user, and automatically sets it in the repository.
-
-If you want to identify a user with their credentials instead, provide them in the following way:
-
-``` php
-$user = $userService->loadUserByCredentials($username, $password);
-$permissionResolver->setCurrentUserReference($user);
-```
 
 ## Exception handling
 

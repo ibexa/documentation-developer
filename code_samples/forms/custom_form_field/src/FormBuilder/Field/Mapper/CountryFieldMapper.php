@@ -7,6 +7,7 @@ use Ibexa\FormBuilder\FieldType\Field\Mapper\GenericFieldMapper;
 
 class CountryFieldMapper extends GenericFieldMapper
 {
+    #[\Override]
     protected function mapFormOptions(Field $field, array $constraints): array
     {
         $options = parent::mapFormOptions($field, $constraints);

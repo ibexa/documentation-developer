@@ -16,7 +16,7 @@ Matchers are instances of `FilteringCriterion`, so a custom normalizer needs to 
 
 !!! tip "Normalizers"
 
-    To learn more about normalizers, refer to [Symfony documentation]([[= symfony_doc =]]/components/serializer.html).
+    To learn more about normalizers, refer to [Symfony documentation]([[= symfony_doc =]]/serializer.html).
 
 Create the normalizer in `src/Migrations/Matcher/SectionIdentifierNormalizer.php`:
 

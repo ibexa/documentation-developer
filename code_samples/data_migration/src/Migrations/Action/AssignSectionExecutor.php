@@ -8,20 +8,12 @@ use Ibexa\Contracts\Core\Repository\Values\ValueObject as APIValueObject;
 use Ibexa\Migration\StepExecutor\ActionExecutor\ExecutorInterface;
 use Ibexa\Migration\ValueObject;
 
-final class AssignSectionExecutor implements ExecutorInterface
+final readonly class AssignSectionExecutor implements ExecutorInterface
 {
-    /** @var \Ibexa\Contracts\Core\Repository\SectionService */
-    private $sectionService;
-
-    /** @var \Ibexa\Contracts\Core\Repository\ContentService */
-    private $contentService;
-
     public function __construct(
-        ContentService $contentService,
-        SectionService $sectionService
+        private ContentService $contentService,
+        private SectionService $sectionService
     ) {
-        $this->sectionService = $sectionService;
-        $this->contentService = $contentService;
     }
 
     /**

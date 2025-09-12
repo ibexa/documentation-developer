@@ -2,6 +2,8 @@
 let jquery = jQuery;
 
 $(document).ready(function() {
+    const latestVersionNumber = '5.0';
+
     // replace edit url
     let branchName = 'master';
     const branchNameRegexp = /\/en\/([a-z0-9-_.]*)\//g.exec(document.location.href);
@@ -33,7 +35,7 @@ $(document).ready(function() {
     });
 
     // Add version pill to top of navigation
-    $('#site-name').append('<span class="pill">' + branchName + '</span>');
+    $('#site-name').append('<span class="pill pill--inline">' + branchName + '</span>');
 
     $('.rst-current-version.switcher__label').html(branchName);
 
@@ -75,6 +77,14 @@ $(document).ready(function() {
 
             const allVersions = [...document.querySelectorAll('.switcher__list .versions dd')];
             const olderVersions = document.querySelector('#older-versions');
+
+            // Merge "X.Y" and "latest" entries into "X.Y (latest)"
+            const latestVersion = allVersions.find(v => v.textContent.trim() === 'latest');
+            const versionXY = allVersions.find(v => v.textContent.trim() === latestVersionNumber);
+            
+            const versionXYLink = versionXY.querySelector('a');
+            versionXYLink.textContent = `${latestVersionNumber} (latest)`;
+            latestVersion.remove();
 
             if (eolVersions.length > 0) {
                 olderVersions.hidden = false;
@@ -236,5 +246,5 @@ $(document).ready(function() {
     });
 
     // Mark higher-level nodes with "New" pill, not only the actual item
-    $('.pill.new:not([hidden])').parents('.md-nav__item').children('label').children('.pill.new[hidden]').removeAttr('hidden');
+    $('.pill--new:not([hidden])').parents('.md-nav__item').children('label').children('.pill--new[hidden]').removeAttr('hidden');
 });

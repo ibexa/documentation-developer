@@ -148,7 +148,7 @@ CREATE INDEX idx_workflow_name ON ezeditorialworkflow_workflows(workflow_name);
 #### Enable Commerce features
 
 Commerce features in Experience and Content editions are disabled by default.
-If you use these features, after the update enable Commerce features by going to `config\packages\ecommerce.yaml`
+If you use these features, after the update enable Commerce features by going to `config/packages/ecommerce.yaml`
 and setting the following:
 
 ``` yaml
@@ -535,6 +535,19 @@ By entering a maliciously crafted input into the RichText field type's XML, the 
 To exploit this vulnerability, an attacker would need to have edit permission to content with RichText fields.
 
 For more information, see the [published security advisory IBEXA-SA-2025-002](https://developers.ibexa.co/security-advisories/ibexa-sa-2025-002-xxe-vulnerability-in-richtext).
+
+Evaluate the vulnerability to determine whether you might have been affected.
+If so, take appropriate action.
+There are no additional update steps to execute.
+
+### v3.3.43
+
+#### Security
+
+This security advisory resolves XSS vulnerabilities in several parts of the back office of the DXP.
+Back office access and varying levels of editing and management permissions are required to exploit these vulnerabilities.
+
+For more information, see the [security advisory IBEXA-SA-2025-003](https://developers.ibexa.co/security-advisories/ibexa-sa-2025-003-xss-vulnerabilities-in-back-office).
 
 Evaluate the vulnerability to determine whether you might have been affected.
 If so, take appropriate action.

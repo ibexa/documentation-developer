@@ -23,7 +23,7 @@ To download it run:
 composer require ibexa/cdp
 ```
 
-Flex installs and activates the package.
+Symfony Flex installs and activates the package.
 After an installation process is finished, go to `config/packages/security.yaml` and uncomment `ibexa_cdp` rule.
 
 ```yaml

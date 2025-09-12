@@ -1,6 +1,6 @@
 ---
 description: With the automated translation add-on, users can translate content items into multiple languages with Google Translate or DeepL.
-month_change: true
+month_change: false
 ---
 
 # Automated content translation

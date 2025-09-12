@@ -1,5 +1,7 @@
 ---
 description: Ibexa DXP v4.6 brings improvements to Commerce, PIM and Personalization offerings, and a number of changes in CDP and Ibexa Connect.
+title: Ibexa DXP v4.6 LTS
+month_change: true
 ---
 
 <!-- vale VariablesVersion = NO -->
@@ -8,15 +10,297 @@ description: Ibexa DXP v4.6 brings improvements to Commerce, PIM and Personaliza
 
 <div class="release-notes" markdown="1">
 
+[[% set version = 'v4.6.23' %]]
+
+[[= release_note_entry_begin("Ibexa DXP " + version, '2025-08-19', ['Headless', 'Experience', 'Commerce', 'New feature']) =]]
+
+#### Base price column added to a Product Picker view
+
+The Product Picker tool that, for example, lets you [select products eligible for discounts]([[= user_doc =]]/commerce/discounts/work_with_discounts/#create-new-discount), now displays a **Base price** column for products and product variants.
+
+#### Full changelog
+[[% include 'snippets/release_46.md' %]]
+
+[[= release_note_entry_end() =]]
+
+[[% set version = 'v4.6.22' %]]
+[[= release_note_entry_begin("Symbol attribute", '2025-08-05', ['Headless', 'Experience', 'Commerce', 'LTS Update', 'New feature']) =]]
+
+The Symbol attribute allows you to store standardized identifiers of your products in the [Product Information Management](pim_guide.md) system.
+
+For more information, see [Symbol attribute type](symbol_attribute_type.md).
+
+#### PHP API
+
+The PHP API has been enhanced with the following new classes:
+
+- [`Ibexa\Contracts\ProductCatalogSymbolAttribute\Search\Criterion\SymbolAttribute`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalogSymbolAttribute-Search-Criterion-SymbolAttribute.html)
+- [`Ibexa\Contracts\ProductCatalogSymbolAttribute\Value\ChecksumInterface`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalogSymbolAttribute-Value-ChecksumInterface.html)
+
+[[= release_note_entry_end() =]]
+
+[[= release_note_entry_begin("Discounts " + version, '2025-08-05', ['LTS Update', 'Commerce']) =]]
+
+#### Global discount codes limits
+
+- You can now [limit the number of times](discounts_guide.md#discount-codes) a discount code can be used before it expires. The discounts created before this release are set to unlimited global usage
+
+#### Discount codes prioritization
+
+- Discounts with discount codes now have priority over the other discounts
+
+#### Discount codes migrations
+
+- You can now create discount codes using [data migrations](importing_data.md#discount-codes)
+
+#### PHP API
+
+The PHP API has been enhanced with the following new classes:
+
+- [`Ibexa\Contracts\Discounts\Value\DiscountConditionsInterface`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-Discounts-Value-DiscountConditionsInterface.html)
+- [`Ibexa\Contracts\Discounts\Value\Query\SortClause\OverridePrioritization`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-Discounts-Value-Query-SortClause-OverridePrioritization.html)
+
+[[= release_note_entry_end() =]]
+[[= release_note_entry_begin("Ibexa DXP " + version, '2025-08-05', ['Headless', 'Experience', 'Commerce', 'New feature']) =]]
+
+#### Special characters in online editor
+
+The [online editor](online_editor_guide.md) now allows to easily enter special characters like currency symbols.
+It uses the [special characters plugin](https://ckeditor.com/docs/ckeditor5/latest/features/special-characters.html).
+
+![Special characters in online editor](4.6_special_characters.png "Special characters in online editor")
+
+#### Support for Solr 9
+
+With this release, [[= product_name =]] starts supporting [Solr 9](requirements.md#search).
+
+Solr 9 comes with support for [Dense Vector Search](https://solr.apache.org/guide/solr/latest/query-guide/dense-vector-search.html), paving the way for incoming improvements to the [AI Actions](ai_actions.md) feature.
+
+#### Improved content creation interface
+
+The editing interface of the back office has been improved to better highlight the language, creator, and the publication date when working with content items.
+
+![Improved interface for content creation](4.6_improved_editing.png "Improved interface for content creation")
+
+#### Twig Components
+
+With the latest changes to [Twig Components](components.md), you can:
+
+- set component priority when using YAML configuration
+- render a menu with help of the new Menu component
+
+The list of built-in Twig Component groups has been expanded and includes:
+
+- one new group for the [back office](custom_components.md) (`admin-ui-versions-table-before`)
+- eight new groups for [storefront](customize_storefront_layout.md#customize-with-twig-components)
+
+#### Taxonomy Subtree limitation
+
+You can now manage access to [taxonomy items](taxonomy.md) more effectively by using the new [Taxonomy Subtree limitation](limitation_reference.md#taxonomy-subtree-limitation).
+
+In addition, you can now use the [Taxonomy limitation](limitation_reference.md#taxonomy-limitation) together with the `taxonomy/assign` policy.
+
+#### Pagination for ezobjectrelationlist in GraphQL
+
+To improve performance and gain greater control over the returned responses from the [GraphQL API](graphql.md), you can now [enable pagination](relationlistfield.md#enable-pagination-in-graphql) of relations specified using the RelationList field type.
+
+#### Breaking changes
+
+- The `Ibexa\FieldTypeRichText\RichText\Validator\CustomTagsValidator` class has been renamed to `Ibexa\FieldTypeRichText\RichText\Validator\CustomTemplateValidator`, expanding its responsibility to validate both [custom tags](extend_online_editor.md#configure-custom-tags) and [custom styles](extend_online_editor.md#configure-custom-styles)
+- The `Ibexa\Contracts\AdminUi\Permission\PermissionCheckContextProviderInterface` interface has been removed
+- The `Ibexa\Contracts\AdminUi\Values\PermissionCheckContext` class has been removed
+
+#### PHP API
+
+The PHP API has been enhanced with the following new classes:
+
+- [`Ibexa\Contracts\Cart\Exception\VatCalculationExceptionInterface`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-Cart-Exception-VatCalculationExceptionInterface.html)
+- [`Ibexa\Contracts\Core\Repository\Values\Notification\CriterionHandlerInterface`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Notification-CriterionHandlerInterface.html)
+- [`Ibexa\Contracts\Core\Repository\Values\Notification\Query\CriterionInterface`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Notification-Query-CriterionInterface.html)
+- [`Ibexa\Contracts\Core\Repository\Values\Notification\Query\Criterion\DateCreated`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Notification-Query-Criterion-DateCreated.html)
+- [`Ibexa\Contracts\Core\Repository\Values\Notification\Query\NotificationQuery`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Notification-Query-NotificationQuery.html)
+- [`Ibexa\Contracts\ProductCatalog\Values\Product\Query\Criterion\AbstractPriceRange`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Values-Product-Query-Criterion-AbstractPriceRange.html)
+- [`Ibexa\Contracts\ProductCatalog\Values\Product\Query\Criterion\CustomPriceRange`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Values-Product-Query-Criterion-CustomPriceRange.html)
+
+#### Full changelog
+
+[[% include 'snippets/release_46.md' %]]
+[[= release_note_entry_end() =]]
+
+[[% set version = 'v4.6.21' %]]
+
+[[= release_note_entry_begin("Discounts " + version, '2025-06-11', ['LTS Update', 'Commerce']) =]]
+
+#### REST API
+
+- Discounts can now be [managed through the REST API](https://doc.ibexa.co/en/4.6/api/rest_api/rest_api_reference/rest_api_reference.html#discounts)
+
+#### PHP API
+
+The PHP API has been enhanced with the following new classes:
+
+- [`Ibexa\Contracts\Discounts\Exception\DiscountValueResolutionException`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-Discounts-Exception-DiscountValueResolutionException.html)
+
+[[= release_note_entry_end() =]]
+[[= release_note_entry_begin("Ibexa DXP " + version, '2025-06-11', ['Headless', 'Experience', 'Commerce']) =]]
+
+#### Security
+
+- This release includes security fixes.
+To learn more, see the [security advisory IBEXA-SA-2025-003](https://developers.ibexa.co/security-advisories/ibexa-sa-2025-003-xss-vulnerabilities-in-back-office)
+
+#### PHP API
+
+The PHP API has been enhanced with the following new classes:
+
+- [`Ibexa\Contracts\Checkout\Exception\CheckoutException`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-Checkout-Exception-CheckoutException.html)
+- [`Ibexa\Contracts\Checkout\Discounts\DiscountsValidationFailedException`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-Checkout-Discounts-DiscountsValidationFailedException.html)
+
+#### Full changelog
+[[% include 'snippets/release_46.md' %]]
+
+[[= release_note_entry_end() =]]
+
+[[% set version = 'v4.6.20' %]]
+[[= release_note_entry_begin("Discounts " + version, '2025-05-28', ['Commerce', 'LTS Update']) =]]
+
+#### Features
+
+- With the introduction of discount code usage limits, you can now limit the number of times a customer can use a discount code before it becomes invalid
+- You can now provide your own form themes for the discounts form by using the extension point in [`ibexa_discounts_form_themes` Twig function](discounts_twig_functions.md#ibexa_discounts_form_themes)
+
+#### PHP API
+
+The PHP API has been enhanced with the following new classes:
+
+- [`Ibexa\Contracts\Discounts\Admin\Form\DiscountValueFormTypeMapperInterface`](https://doc.ibexa.co/en/latest/api/php_api/php_api_reference/classes/Ibexa-Contracts-Discounts-Admin-Form-DiscountValueFormTypeMapperInterface.html)
+- [`Ibexa\Contracts\Discounts\Admin\Form\FormThemeProviderInterface`](https://doc.ibexa.co/en/latest/api/php_api/php_api_reference/classes/Ibexa-Contracts-Discounts-Admin-Form-FormThemeProviderInterface.html)
+- [`Ibexa\Contracts\DiscountsCodes\Exception\DiscountCodeUnusableException`](https://doc.ibexa.co/en/latest/api/php_api/php_api_reference/classes/Ibexa-Contracts-DiscountsCodes-Exception-DiscountCodeUnusableException.html)
+- [`Ibexa\Contracts\DiscountsCodes\Exception\DiscountCodeUserInvalidArgumentException`](https://doc.ibexa.co/en/latest/api/php_api/php_api_reference/classes/Ibexa-Contracts-DiscountsCodes-Exception-DiscountCodeUserInvalidArgumentException.html)
+- [`Ibexa\Contracts\DiscountsCodes\Value\DiscountCodeUsageInterface`](https://doc.ibexa.co/en/latest/api/php_api/php_api_reference/classes/Ibexa-Contracts-DiscountsCodes-Value-DiscountCodeUsageInterface.html)
+- [`Ibexa\Contracts\DiscountsCodes\Value\DiscountCodeUser`](https://doc.ibexa.co/en/latest/api/php_api/php_api_reference/classes/Ibexa-Contracts-DiscountsCodes-Value-DiscountCodeUser.html)
+- [`Ibexa\Contracts\DiscountsCodes\Value\Query\DiscountCodeUsageQuery`](https://doc.ibexa.co/en/latest/api/php_api/php_api_reference/classes/Ibexa-Contracts-DiscountsCodes-Value-Query-DiscountCodeUsageQuery.html )
+
+To update to the latest version, see the [update instructions](update_from_4.6.md#lts-updates).
+
+[[= release_note_entry_end() =]]
+
+[[= release_note_entry_begin("Ibexa DXP " + version, '2025-05-27', ['Headless', 'Experience', 'Commerce']) =]]
+
+#### Twig Components
+
+- The new [Twig Components](https://doc.ibexa.co/en/latest/templating/components/) feature allow you to effortlessly build customizable and reusable Twig templates in [[= product_name =]]
+
+#### Extending Sub-items view
+
+- Thanks to the new extension point, you can now [add new views or overwrite existing ones in the Sub-items list](https://doc.ibexa.co/en/latest/administration/back_office/subitems_list/#create-custom-sub-items-list-view)
+
+#### Infrastructure
+
+- MySQL 8.4, Node 20 and Node 22 are now [officially supported](https://doc.ibexa.co/en/latest/getting_started/requirements/)
+
+#### PHP API
+
+The PHP API has been enhanced with the following new classes:
+
+- [`Ibexa\Contracts\AdminUi\Menu\AbstractActionBuilder`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-AdminUi-Menu-AbstractActionBuilder.html)
+- [`Ibexa\Contracts\TwigComponents\ComponentInterface`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-TwigComponents-ComponentInterface.html)
+- [`Ibexa\Contracts\TwigComponents\ComponentRegistryInterface`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-TwigComponents-ComponentRegistryInterface.html)
+- [`Ibexa\Contracts\TwigComponents\Event\RenderGroupEvent`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-TwigComponents-Event-RenderGroupEvent.html)
+- [`Ibexa\Contracts\TwigComponents\Event\RenderSingleEvent`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-TwigComponents-Event-RenderSingleEvent.html)
+- [`Ibexa\Contracts\TwigComponents\Exception\InvalidArgumentException`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-TwigComponents-Exception-InvalidArgumentException.html)
+- [`Ibexa\Contracts\TwigComponents\Renderer\RendererInterface`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-TwigComponents-Renderer-RendererInterface.html)
+
+
+#### Full changelog
+[[% include 'snippets/release_46.md' %]]
+
+[[= release_note_entry_end() =]]
+
+[[% set version = 'v4.6.19' %]]
+
+[[= release_note_entry_begin("Discounts", '2025-04-09', ['Commerce', 'LTS Update', 'New feature']) =]]
+
+With the Discounts LTS Update, you can temporarily or permanently reduce prices on specific products or categories, making deals more attractive to potential buyers.
+
+Use them to encourage first-time purchases, reward loyal customers, promote new or slow-moving items, or drive sales during seasonal events.
+
+By displaying discounted prices clearly in the catalog or cart, businesses can create a sense of urgency, increase customer satisfaction, and ultimately boost revenue.
+
+![Discounts for products in the cart](4.6_discounts.png)
+
+For more information, see [Discounts product guide](discounts_guide.md).
+
+[[= release_note_entry_end() =]]
+
+[[= release_note_entry_begin("AI Actions " + version, '2025-04-09', ['LTS Update', 'New feature']) =]]
+
+#### Features
+
+AI Actions can now integrate with [Ibexa Connect]([[= connect_doc =]]), giving you an opportunity to build complex data transformation workflows without having to rely on custom code.
+To learn more, see the [setup instructions for this integration](configure_ai_actions.md#configure-access-to-ibexa-connect).
+
+[[= release_note_entry_end() =]]
+
+[[% set version = 'v4.6.19' %]]
+[[= release_note_entry_begin("Ibexa DXP " + version, '2025-04-09', ['Headless', 'Experience', 'Commerce']) =]]
+
+#### Security
+
+- This release includes security fixes.
+To learn more, see the [published security advisory IBEXA-SA-2025-002](https://developers.ibexa.co/security-advisories/ibexa-sa-2025-002-xxe-vulnerability-in-richtext)
+
+#### Features
+
+- The [CartSummary endpoint](https://doc.ibexa.co/en/4.6/api/rest_api/rest_api_reference/rest_api_reference.html#managing-commerce-carts-cart-summary) now supports a new `Accept` header: `application/vnd.ibexa.api.ShortCartSummary`, returning only the essential data about products in the cart
+- Added a new repository setting: [grace period for archived versions](https://doc.ibexa.co/en/latest/administration/configuration/repository_configuration/#grace-period-for-archived-versions)
+- Added a new `group_remote_id` setting for [controlling the user group in which registering users are created](https://doc.ibexa.co/en/latest/users/user_registration/#user-groups)
+
+#### Ibexa Rector
+
+- The [Ibexa Rector package](https://github.com/ibexa/rector/tree/4.6?tab=readme-ov-file#ibexa-dxp-rector) has been released, allowing you to automatically refactor your code and remove deprecations.
+To learn how to use it, see the [update instructions](https://doc.ibexa.co/en/latest/update_and_migration/from_4.6/update_from_4.6/#ibexa-rector)
+
+#### PHP API
+
+The PHP API has been enhanced with the following new classes:
+
+- [`Ibexa\Contracts\Connect\Ai\ActionHandlerDataStructureAwareInterface`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Ai-ActionHandlerDataStructureAwareInterface.html)
+- [`Ibexa\Contracts\Connect\Resource\CustomPropertyStructure\CustomPropertyStructureCreateStruct`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Resource-CustomPropertyStructure-CustomPropertyStructureCreateStruct.html)
+- [`Ibexa\Contracts\Connect\Resource\CustomPropertyStructure\CustomPropertyStructureFilter`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Resource-CustomPropertyStructure-CustomPropertyStructureFilter.html)
+- [`Ibexa\Contracts\Connect\Resource\CustomPropertyStructure\CustomPropertyStructureItemCreateStruct`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Resource-CustomPropertyStructure-CustomPropertyStructureItemCreateStruct.html)
+- [`Ibexa\Contracts\Connect\Resource\CustomPropertyStructureInterface`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Resource-CustomPropertyStructureInterface.html)
+- [`Ibexa\Contracts\Connect\Resource\Scenario\CustomPropertiesDataFillInStruct`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Resource-Scenario-CustomPropertiesDataFillInStruct.html)
+- [`Ibexa\Contracts\Connect\Response\CustomPropertyStructure\CreateItemResponse`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Response-CustomPropertyStructure-CreateItemResponse.html)
+- [`Ibexa\Contracts\Connect\Response\CustomPropertyStructure\CreateResponse`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Response-CustomPropertyStructure-CreateResponse.html)
+- [`Ibexa\Contracts\Connect\Response\CustomPropertyStructure\DeleteItemResponse`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Response-CustomPropertyStructure-DeleteItemResponse.html)
+- [`Ibexa\Contracts\Connect\Response\CustomPropertyStructure\ListItemResponse`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Response-CustomPropertyStructure-ListItemResponse.html)
+- [`Ibexa\Contracts\Connect\Response\CustomPropertyStructure\ListResponse`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Response-CustomPropertyStructure-ListResponse.html)
+- [`Ibexa\Contracts\Connect\Response\CustomPropertyStructure\RetrieveItemResponse`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Response-CustomPropertyStructure-RetrieveItemResponse.html)
+- [`Ibexa\Contracts\Connect\Response\CustomPropertyStructure\RetrieveResponse`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Response-CustomPropertyStructure-RetrieveResponse.html)
+- [`Ibexa\Contracts\Connect\Response\Scenario\RetrieveCustomPropertiesDataResponse`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Response-Scenario-RetrieveCustomPropertiesDataResponse.html)
+- [`Ibexa\Contracts\Core\Repository\Events\Notification\BeforeMarkNotificationAsUnreadEvent`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Events-Notification-BeforeMarkNotificationAsUnreadEvent.html)
+- [`Ibexa\Contracts\Core\Repository\Events\Notification\MarkNotificationAsUnreadEvent`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Events-Notification-MarkNotificationAsUnreadEvent.html)
+- [`Ibexa\Contracts\ProductCatalog\CustomerGroupAssignedItemsServiceDecorator`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-CustomerGroupAssignedItemsServiceDecorator.html)
+- [`Ibexa\Contracts\ProductCatalog\CustomerGroupAssignedItemsServiceInterface`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-CustomerGroupAssignedItemsServiceInterface.html)
+- [`Ibexa\Contracts\ProductCatalog\Events\CustomerGroupCanBeDeletedEvent`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Events-CustomerGroupCanBeDeletedEvent.html)
+- [`Ibexa\Contracts\ProductCatalog\Values\CustomerGroup\AssignedItem`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Values-CustomerGroup-AssignedItem.html)
+- [`Ibexa\Contracts\ProductCatalog\Values\CustomerGroup\AssignedItemInterface`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Values-CustomerGroup-AssignedItemInterface.html)
+
+#### Full changelog
+[[% include 'snippets/release_46.md' %]]
+
+[[= release_note_entry_end() =]]
+
 [[% set version = 'v4.6.18' %]]
 [[= release_note_entry_begin("Ibexa DXP " + version, '2025-03-06', ['Headless', 'Experience', 'Commerce']) =]]
 
 #### PHP API
 The PHP API has been enhanced with the following new classes:
 
-- [`Ibexa\Contracts\ProductCatalog\Form\Data\ProductSelectorData`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Form-Data-ProductSelectorData.html)
-- [`Ibexa\Contracts\ProductCatalog\Form\Data\ProductsSelectorData`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Form-Data-ProductsSelectorData.html)
-- [`Ibexa\Contracts\ProductCatalog\Form\Type\ProductSelectorType`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Form-Type-ProductSelectorType.html)
+- [`Ibexa\Contracts\ProductCatalog\Form\Data\ProductSelectorData`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Form-Data-ProductSelectorData.html)
+- [`Ibexa\Contracts\ProductCatalog\Form\Data\ProductsSelectorData`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Form-Data-ProductsSelectorData.html)
+- [`Ibexa\Contracts\ProductCatalog\Form\Type\ProductSelectorType`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Form-Type-ProductSelectorType.html)
 
 #### Full changelog
 [[% include 'snippets/release_46.md' %]]
@@ -41,11 +325,11 @@ You can now [duplicate AI actions]([[= user_doc =]]/ai_actions/work_with_ai_acti
 
 The PHP API has been expanded with the following classes and interfaces:
 
-- [`Ibexa\Contracts\ConnectorAi\ActionConfiguration\ActionConfigurationCopyStruct`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorAi-ActionConfiguration-ActionConfigurationCopyStruct.html)
-- [`Ibexa\Contracts\ConnectorAi\ActionHandlerRegistryInterface`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorAi-ActionHandlerRegistryInterface.html)
-- [`Ibexa\Contracts\ConnectorAi\Prompt\PromptFactory`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorAi-Prompt-PromptFactory.html)
-- [`Ibexa\Contracts\ConnectorAi\Prompt\PromptInterface`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorAi-Prompt-PromptInterface.html)
-- [`Ibexa\Contracts\ConnectorAi\PromptResolverInterface`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorAi-PromptResolverInterface.html)
+- [`Ibexa\Contracts\ConnectorAi\ActionConfiguration\ActionConfigurationCopyStruct`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorAi-ActionConfiguration-ActionConfigurationCopyStruct.html)
+- [`Ibexa\Contracts\ConnectorAi\ActionHandlerRegistryInterface`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorAi-ActionHandlerRegistryInterface.html)
+- [`Ibexa\Contracts\ConnectorAi\Prompt\PromptFactory`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorAi-Prompt-PromptFactory.html)
+- [`Ibexa\Contracts\ConnectorAi\Prompt\PromptInterface`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorAi-Prompt-PromptInterface.html)
+- [`Ibexa\Contracts\ConnectorAi\PromptResolverInterface`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorAi-PromptResolverInterface.html)
 
 [[= release_note_entry_end() =]]
 [[= release_note_entry_begin("Ibexa DXP " + version, '2025-03-04', ['Headless', 'Experience', 'Commerce', 'New feature']) =]]
@@ -56,9 +340,9 @@ To learn more, see the [corresponding security advisory](https://developers.ibex
 
 #### Features
 
-- New REST API endpoints for [Segments](../api/rest_api/rest_api_reference/rest_api_reference.html#segments) and [Segment Groups](../api/rest_api/rest_api_reference/rest_api_reference.html#segment-groups)
-- PHP API Client ([`Ibexa\Contracts\Connect\ConnectClientInterface`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-ConnectClientInterface.html)) for [Ibexa Connect]([[= connect_doc =]])
-- The following Twig functions now additionally support objects implementing the [`ContentAwareInterface`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-ContentAwareInterface.html) as arguments:
+- New REST API endpoints for [Segments](https://doc.ibexa.co/en/4.6/api/rest_api/rest_api_reference/rest_api_reference.html#segments) and [Segment Groups](https://doc.ibexa.co/en/4.6/api/rest_api/rest_api_reference/rest_api_reference.html#segment-groups)
+- PHP API Client ([`Ibexa\Contracts\Connect\ConnectClientInterface`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-ConnectClientInterface.html)) for [Ibexa Connect]([[= connect_doc =]])
+- The following Twig functions now additionally support objects implementing the [`ContentAwareInterface`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-ContentAwareInterface.html) as arguments:
     - [`ibexa_content_field_identifier_first_filled_image`](image_twig_functions.md#ibexa_content_field_identifier_first_filled_image)
     - [`ibexa_content_name`](content_twig_functions.md#ibexa_content_name)
     - [`ibexa_field_is_empty`](field_twig_functions.md#ibexa_field_is_empty)
@@ -78,69 +362,69 @@ To learn more, see the [corresponding security advisory](https://developers.ibex
 The PHP API has been enhanced with the following new classes and interfaces:
 
 - `Ibexa\Contracts\Cart`:
-    - [`Value\Query\Criterion\LogicalAnd`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Cart-Value-Query-Criterion-LogicalAnd.html)
-    - [`Value\Query\Criterion\OwnerCriterion`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Cart-Value-Query-Criterion-OwnerCriterion.html)
-    - [`Value\Query\CriterionInterface`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Cart-Value-Query-CriterionInterface.html)
+    - [`Value\Query\Criterion\LogicalAnd`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-Cart-Value-Query-Criterion-LogicalAnd.html)
+    - [`Value\Query\Criterion\OwnerCriterion`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-Cart-Value-Query-Criterion-OwnerCriterion.html)
+    - [`Value\Query\CriterionInterface`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-Cart-Value-Query-CriterionInterface.html)
 - `Ibexa\Contracts\Segmentation`:
-    - [`Exception\ValidationFailedExceptionInterface`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Segmentation-Exception-ValidationFailedExceptionInterface.html)
+    - [`Exception\ValidationFailedExceptionInterface`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-Segmentation-Exception-ValidationFailedExceptionInterface.html)
 - `Ibexa\Contracts\ProductCatalog`:
-    - [`Iterator\BatchIteratorAdapter\RegionFetchAdapter`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Iterator-BatchIteratorAdapter-RegionFetchAdapter.html)
+    - [`Iterator\BatchIteratorAdapter\RegionFetchAdapter`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Iterator-BatchIteratorAdapter-RegionFetchAdapter.html)
 - `Ibexa\Contracts\Connect`:
-    - [`ConnectClientInterface`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-ConnectClientInterface.html)
-    - [`Exception\BadResponseException`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Exception-BadResponseException.html)
-    - [`Exception\UnserializablePayload`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Exception-UnserializablePayload.html)
-    - [`Exception\UnserializableResponse`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Exception-UnserializableResponse.html)
-    - [`PaginationInterface`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-PaginationInterface.html)
-    - [`Resource\DataStructure\DataStructureBuilder`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Resource-DataStructure-DataStructureBuilder.html)
-    - [`Resource\DataStructure\DataStructureCreateStruct`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Resource-DataStructure-DataStructureCreateStruct.html)
-    - [`Resource\DataStructure\DataStructureFilter`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Resource-DataStructure-DataStructureFilter.html)
-    - [`Resource\DataStructure\DataStructureProperty`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Resource-DataStructure-DataStructureProperty.html)
-    - [`Resource\DataStructure\DataStructurePropertyType`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Resource-DataStructure-DataStructurePropertyType.html)
-    - [`Resource\DataStructureInterface`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Resource-DataStructureInterface.html)
-    - [`Resource\Hook\HookCreateStruct`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Resource-Hook-HookCreateStruct.html)
-    - [`Resource\Hook\HookFilter`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Resource-Hook-HookFilter.html)
-    - [`Resource\Hook\HookSetDetailsStruct`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Resource-Hook-HookSetDetailsStruct.html)
-    - [`Resource\HookInterface`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Resource-HookInterface.html)
-    - [`Resource\Scenario\ScenarioCreateStruct`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Resource-Scenario-ScenarioCreateStruct.html)
-    - [`Resource\Scenario\ScenarioFilter`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Resource-Scenario-ScenarioFilter.html)
-    - [`Resource\ScenarioInterface`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Resource-ScenarioInterface.html)
-    - [`Resource\Team\TeamVariableCreateStruct`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Resource-Team-TeamVariableCreateStruct.html)
-    - [`Resource\Team\TeamVariableFilter`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Resource-Team-TeamVariableFilter.html)
-    - [`Resource\Team\TeamVariableUpdateStruct`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Resource-Team-TeamVariableUpdateStruct.html)
-    - [`Resource\TeamInterface`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Resource-TeamInterface.html)
-    - [`Resource\Template\TemplateCreateStruct`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Resource-Template-TemplateCreateStruct.html)
-    - [`Resource\Template\TemplateFilter`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Resource-Template-TemplateFilter.html)
-    - [`Resource\TemplateInterface`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Resource-TemplateInterface.html)
-    - [`Response\DataStructure\CreateResponse`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Response-DataStructure-CreateResponse.html)
-    - [`Response\DataStructure\ListResponse`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Response-DataStructure-ListResponse.html)
-    - [`Response\DataStructure\RetrieveResponse`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Response-DataStructure-RetrieveResponse.html)
-    - [`Response\Hook\CreateResponse`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Response-Hook-CreateResponse.html)
-    - [`Response\Hook\ListResponse`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Response-Hook-ListResponse.html)
-    - [`Response\Hook\RetrieveResponse`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Response-Hook-RetrieveResponse.html)
-    - [`Response\Hook\SetDetailsResponse`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Response-Hook-SetDetailsResponse.html)
-    - [`Response\Scenario\CreateResponse`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Response-Scenario-CreateResponse.html)
-    - [`Response\Scenario\ListResponse`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Response-Scenario-ListResponse.html)
-    - [`Response\Scenario\RetrieveResponse`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Response-Scenario-RetrieveResponse.html)
-    - [`Response\Team\TeamVariableCreateResponse`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Response-Team-TeamVariableCreateResponse.html)
-    - [`Response\Team\TeamVariableListResponse`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Response-Team-TeamVariableListResponse.html)
-    - [`Response\Team\TeamVariableRetrieveResponse`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Response-Team-TeamVariableRetrieveResponse.html)
-    - [`Response\Team\TeamVariableUpdateResponse`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Response-Team-TeamVariableUpdateResponse.html)
-    - [`Response\Template\BlueprintResponse`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Response-Template-BlueprintResponse.html)
-    - [`Response\Template\CreateResponse`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Response-Template-CreateResponse.html)
-    - [`Response\Template\ListResponse`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Response-Template-ListResponse.html)
-    - [`Response\Template\RetrieveResponse`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Response-Template-RetrieveResponse.html)
-    - [`ResponseInterface`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-ResponseInterface.html)
-    - [`TransportInterface`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-TransportInterface.html)
-    - [`Value\Blueprint\Flow`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Value-Blueprint-Flow.html)
-    - [`Value\Blueprint\Metadata\Scenario`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Value-Blueprint-Metadata-Scenario.html)
-    - [`Value\Blueprint\Metadata`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Value-Blueprint-Metadata.html)
-    - [`Value\Blueprint\Module\CustomWebhook`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Value-Blueprint-Module-CustomWebhook.html)
-    - [`Value\Blueprint\Module\JsonCreate`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Value-Blueprint-Module-JsonCreate.html)
-    - [`Value\Blueprint\Module\ModuleDesigner`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Value-Blueprint-Module-ModuleDesigner.html)
-    - [`Value\Blueprint\Module\WebhookRespond`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Value-Blueprint-Module-WebhookRespond.html)
-    - [`Value\Blueprint`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Value-Blueprint.html)
-    - [`Value\Controller`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Value-Controller.html)
-    - [`Value\Scheduling`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Value-Scheduling.html)
+    - [`ConnectClientInterface`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-ConnectClientInterface.html)
+    - [`Exception\BadResponseException`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Exception-BadResponseException.html)
+    - [`Exception\UnserializablePayload`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Exception-UnserializablePayload.html)
+    - [`Exception\UnserializableResponse`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Exception-UnserializableResponse.html)
+    - [`PaginationInterface`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-PaginationInterface.html)
+    - [`Resource\DataStructure\DataStructureBuilder`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Resource-DataStructure-DataStructureBuilder.html)
+    - [`Resource\DataStructure\DataStructureCreateStruct`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Resource-DataStructure-DataStructureCreateStruct.html)
+    - [`Resource\DataStructure\DataStructureFilter`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Resource-DataStructure-DataStructureFilter.html)
+    - [`Resource\DataStructure\DataStructureProperty`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Resource-DataStructure-DataStructureProperty.html)
+    - [`Resource\DataStructure\DataStructurePropertyType`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Resource-DataStructure-DataStructurePropertyType.html)
+    - [`Resource\DataStructureInterface`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Resource-DataStructureInterface.html)
+    - [`Resource\Hook\HookCreateStruct`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Resource-Hook-HookCreateStruct.html)
+    - [`Resource\Hook\HookFilter`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Resource-Hook-HookFilter.html)
+    - [`Resource\Hook\HookSetDetailsStruct`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Resource-Hook-HookSetDetailsStruct.html)
+    - [`Resource\HookInterface`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Resource-HookInterface.html)
+    - [`Resource\Scenario\ScenarioCreateStruct`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Resource-Scenario-ScenarioCreateStruct.html)
+    - [`Resource\Scenario\ScenarioFilter`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Resource-Scenario-ScenarioFilter.html)
+    - [`Resource\ScenarioInterface`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Resource-ScenarioInterface.html)
+    - [`Resource\Team\TeamVariableCreateStruct`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Resource-Team-TeamVariableCreateStruct.html)
+    - [`Resource\Team\TeamVariableFilter`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Resource-Team-TeamVariableFilter.html)
+    - [`Resource\Team\TeamVariableUpdateStruct`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Resource-Team-TeamVariableUpdateStruct.html)
+    - [`Resource\TeamInterface`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Resource-TeamInterface.html)
+    - [`Resource\Template\TemplateCreateStruct`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Resource-Template-TemplateCreateStruct.html)
+    - [`Resource\Template\TemplateFilter`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Resource-Template-TemplateFilter.html)
+    - [`Resource\TemplateInterface`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Resource-TemplateInterface.html)
+    - [`Response\DataStructure\CreateResponse`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Response-DataStructure-CreateResponse.html)
+    - [`Response\DataStructure\ListResponse`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Response-DataStructure-ListResponse.html)
+    - [`Response\DataStructure\RetrieveResponse`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Response-DataStructure-RetrieveResponse.html)
+    - [`Response\Hook\CreateResponse`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Response-Hook-CreateResponse.html)
+    - [`Response\Hook\ListResponse`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Response-Hook-ListResponse.html)
+    - [`Response\Hook\RetrieveResponse`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Response-Hook-RetrieveResponse.html)
+    - [`Response\Hook\SetDetailsResponse`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Response-Hook-SetDetailsResponse.html)
+    - [`Response\Scenario\CreateResponse`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Response-Scenario-CreateResponse.html)
+    - [`Response\Scenario\ListResponse`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Response-Scenario-ListResponse.html)
+    - [`Response\Scenario\RetrieveResponse`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Response-Scenario-RetrieveResponse.html)
+    - [`Response\Team\TeamVariableCreateResponse`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Response-Team-TeamVariableCreateResponse.html)
+    - [`Response\Team\TeamVariableListResponse`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Response-Team-TeamVariableListResponse.html)
+    - [`Response\Team\TeamVariableRetrieveResponse`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Response-Team-TeamVariableRetrieveResponse.html)
+    - [`Response\Team\TeamVariableUpdateResponse`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Response-Team-TeamVariableUpdateResponse.html)
+    - [`Response\Template\BlueprintResponse`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Response-Template-BlueprintResponse.html)
+    - [`Response\Template\CreateResponse`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Response-Template-CreateResponse.html)
+    - [`Response\Template\ListResponse`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Response-Template-ListResponse.html)
+    - [`Response\Template\RetrieveResponse`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Response-Template-RetrieveResponse.html)
+    - [`ResponseInterface`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-ResponseInterface.html)
+    - [`TransportInterface`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-TransportInterface.html)
+    - [`Value\Blueprint\Flow`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Value-Blueprint-Flow.html)
+    - [`Value\Blueprint\Metadata\Scenario`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Value-Blueprint-Metadata-Scenario.html)
+    - [`Value\Blueprint\Metadata`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Value-Blueprint-Metadata.html)
+    - [`Value\Blueprint\Module\CustomWebhook`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Value-Blueprint-Module-CustomWebhook.html)
+    - [`Value\Blueprint\Module\JsonCreate`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Value-Blueprint-Module-JsonCreate.html)
+    - [`Value\Blueprint\Module\ModuleDesigner`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Value-Blueprint-Module-ModuleDesigner.html)
+    - [`Value\Blueprint\Module\WebhookRespond`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Value-Blueprint-Module-WebhookRespond.html)
+    - [`Value\Blueprint`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Value-Blueprint.html)
+    - [`Value\Controller`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Value-Controller.html)
+    - [`Value\Scheduling`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Value-Scheduling.html)
 
 #### Full changelog
 [[% include 'snippets/release_46.md' %]]
@@ -161,10 +445,10 @@ The new AI Assistant allows you to use the AI capabilities in additional places,
 
 The PHP API has been enhanced with the following new classes:
 
-- [`Ibexa\Contracts\AdminUi\Permission\PermissionCheckContextProviderInterface`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-AdminUi-Permission-PermissionCheckContextProviderInterface.html)
-- [`Ibexa\Contracts\AdminUi\Values\PermissionCheckContext`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-AdminUi-Values-PermissionCheckContext.html)
-- [`Ibexa\Contracts\Checkout\Discounts\DataMapper\DiscountsDataMapperInterface`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Checkout-Discounts-DataMapper-DiscountsDataMapperInterface.html)
-- [`Ibexa\Contracts\Seo\Resolver\FieldValueResolverInterface`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Seo-Resolver-FieldValueResolverInterface.html)
+- [`Ibexa\Contracts\AdminUi\Permission\PermissionCheckContextProviderInterface`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-AdminUi-Permission-PermissionCheckContextProviderInterface.html)
+- [`Ibexa\Contracts\AdminUi\Values\PermissionCheckContext`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-AdminUi-Values-PermissionCheckContext.html)
+- [`Ibexa\Contracts\Checkout\Discounts\DataMapper\DiscountsDataMapperInterface`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-Checkout-Discounts-DataMapper-DiscountsDataMapperInterface.html)
+- [`Ibexa\Contracts\Seo\Resolver\FieldValueResolverInterface`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-Seo-Resolver-FieldValueResolverInterface.html)
 
 #### Full changelog
 [[% include 'snippets/release_46.md' %]]
@@ -177,8 +461,8 @@ The PHP API has been enhanced with the following new classes:
 
 The REST API has been extended to include endpoints for:
 
-- [Action Configurations](../api/rest_api/rest_api_reference/rest_api_reference.html#ai-actions-list-action-configurations)
-- [Action Types](../api/rest_api/rest_api_reference/rest_api_reference.html#ai-actions-list-action-types)
+- [Action Configurations](https://doc.ibexa.co/en/4.6/api/rest_api/rest_api_reference/rest_api_reference.html#ai-actions-list-action-configurations)
+- [Action Types](https://doc.ibexa.co/en/4.6/api/rest_api/rest_api_reference/rest_api_reference.html#ai-actions-list-action-types)
 [[= release_note_entry_end() =]]
 
 
@@ -191,9 +475,9 @@ You can now reuse Page Builder blocks between landing pages using the ["Copy blo
 #### PHP API
 The PHP API has been enhanced with the following new classes and interfaces:
 
-- [`Ibexa\Contracts\ProductCatalog\Values\Price\PriceEnvelopeInterface`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Values-Price-PriceEnvelopeInterface.html)
-- [`Ibexa\Contracts\ProductCatalog\Values\Price\PriceStampInterface`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Values-Price-PriceStampInterface.html)
-- [`Ibexa\Contracts\ProductCatalog\Values\StampInterface`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Values-StampInterface.html)
+- [`Ibexa\Contracts\ProductCatalog\Values\Price\PriceEnvelopeInterface`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Values-Price-PriceEnvelopeInterface.html)
+- [`Ibexa\Contracts\ProductCatalog\Values\Price\PriceStampInterface`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Values-Price-PriceStampInterface.html)
+- [`Ibexa\Contracts\ProductCatalog\Values\StampInterface`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Values-StampInterface.html)
 
 #### Full changelog
 [[% include 'snippets/release_46.md' %]]
@@ -219,18 +503,18 @@ To learn more, see the [corresponding security advisory](https://developers.ibex
 
 The PHP API has been enhanced with the following new classes and interfaces:
 
-- [`Ibexa\Contracts\Core\Validation\AbstractValidationStructWrapper`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Validation-AbstractValidationStructWrapper.html)
-- [`Ibexa\Contracts\Core\Validation\StructValidator`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Validation-StructValidator.html)
-- [`Ibexa\Contracts\Core\Validation\StructWrapperValidator`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Validation-StructWrapperValidator.html)
-- [`Ibexa\Contracts\Core\Validation\ValidationFailedException`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Validation-ValidationFailedException.html)
-- [`Ibexa\Contracts\Core\Validation\ValidationStructWrapperInterface`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Validation-ValidationStructWrapperInterface.html)
-- [`Ibexa\Contracts\Notifications\SystemNotification\SystemMessage`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Notifications-SystemNotification-SystemMessage.html)
-- [`Ibexa\Contracts\Notifications\SystemNotification\SystemNotification`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Notifications-SystemNotification-SystemNotification.html)
-- [`Ibexa\Contracts\Notifications\SystemNotification\SystemNotificationInterface`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Notifications-SystemNotification-SystemNotificationInterface.html)
-- [`Ibexa\Contracts\Notifications\Value\Recipent\UserRecipientInterface`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Notifications-Value-Recipent-UserRecipientInterface.html)
-- [`Ibexa\Contracts\ProductCatalog\ProductReferencesResolverStrategy`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-ProductReferencesResolverStrategy.html)
-- [`Ibexa\Contracts\ProductCatalog\Values\Product\Query\Criterion\UpdatedAt`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Values-Product-Query-Criterion-UpdatedAt.html)
-- [`Ibexa\Contracts\ProductCatalog\Values\Product\Query\Criterion\UpdatedAtRange`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Values-Product-Query-Criterion-UpdatedAtRange.html)
+- [`Ibexa\Contracts\Core\Validation\AbstractValidationStructWrapper`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Validation-AbstractValidationStructWrapper.html)
+- [`Ibexa\Contracts\Core\Validation\StructValidator`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Validation-StructValidator.html)
+- [`Ibexa\Contracts\Core\Validation\StructWrapperValidator`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Validation-StructWrapperValidator.html)
+- [`Ibexa\Contracts\Core\Validation\ValidationFailedException`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Validation-ValidationFailedException.html)
+- [`Ibexa\Contracts\Core\Validation\ValidationStructWrapperInterface`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Validation-ValidationStructWrapperInterface.html)
+- [`Ibexa\Contracts\Notifications\SystemNotification\SystemMessage`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-Notifications-SystemNotification-SystemMessage.html)
+- [`Ibexa\Contracts\Notifications\SystemNotification\SystemNotification`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-Notifications-SystemNotification-SystemNotification.html)
+- [`Ibexa\Contracts\Notifications\SystemNotification\SystemNotificationInterface`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-Notifications-SystemNotification-SystemNotificationInterface.html)
+- [`Ibexa\Contracts\Notifications\Value\Recipent\UserRecipientInterface`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-Notifications-Value-Recipent-UserRecipientInterface.html)
+- [`Ibexa\Contracts\ProductCatalog\ProductReferencesResolverStrategy`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-ProductReferencesResolverStrategy.html)
+- [`Ibexa\Contracts\ProductCatalog\Values\Product\Query\Criterion\UpdatedAt`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Values-Product-Query-Criterion-UpdatedAt.html)
+- [`Ibexa\Contracts\ProductCatalog\Values\Product\Query\Criterion\UpdatedAtRange`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Values-Product-Query-Criterion-UpdatedAtRange.html)
 
 #### Full changelog
 [[% include 'snippets/release_46.md' %]]
@@ -243,10 +527,10 @@ The PHP API has been enhanced with the following new classes and interfaces:
 
 The PHP API has been enhanced with the following new classes and interfaces:
 
-- [Ibexa\Contracts\CoreSearch\Persistence\CriterionMapper\AbstractCompositeCriterionMapper](../api/php_api/php_api_reference/classes/Ibexa-Contracts-CoreSearch-Persistence-CriterionMapper-AbstractCompositeCriterionMapper.html)
-- [Ibexa\Contracts\CoreSearch\Persistence\CriterionMapper\AbstractFieldCriterionMapper](../api/php_api/php_api_reference/classes/Ibexa-Contracts-CoreSearch-Persistence-CriterionMapper-AbstractFieldCriterionMapper.html)
-- [Ibexa\Contracts\Rest\Output\Exceptions\AbstractExceptionVisitor](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Rest-Output-Exceptions-AbstractExceptionVisitor.html)
-- [Ibexa\Contracts\CoreSearch\Values\Query\CriterionMapper](../api/php_api/php_api_reference/classes/Ibexa-Contracts-CoreSearch-Values-Query-CriterionMapper.html)
+- [Ibexa\Contracts\CoreSearch\Persistence\CriterionMapper\AbstractCompositeCriterionMapper](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-CoreSearch-Persistence-CriterionMapper-AbstractCompositeCriterionMapper.html)
+- [Ibexa\Contracts\CoreSearch\Persistence\CriterionMapper\AbstractFieldCriterionMapper](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-CoreSearch-Persistence-CriterionMapper-AbstractFieldCriterionMapper.html)
+- [Ibexa\Contracts\Rest\Output\Exceptions\AbstractExceptionVisitor](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-Rest-Output-Exceptions-AbstractExceptionVisitor.html)
+- [Ibexa\Contracts\CoreSearch\Values\Query\CriterionMapper](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-CoreSearch-Values-Query-CriterionMapper.html)
 
 #### Full changelog
 
@@ -276,25 +560,25 @@ For more information, see [AI Actions product guide](ai_actions_guide.md).
 
 The PHP API has been enhanced with the following new classes and interfaces:
 
-- [Ibexa\Contracts\AdminUi\Menu\AbstractFormContextMenuBuilder](../api/php_api/php_api_reference/classes/Ibexa-Contracts-AdminUi-Menu-AbstractFormContextMenuBuilder.html)
-- [Ibexa\Contracts\AdminUi\Menu\CopyFormContextMenuBuilder](../api/php_api/php_api_reference/classes/Ibexa-Contracts-AdminUi-Menu-CopyFormContextMenuBuilder.html)
-- [Ibexa\Contracts\AdminUi\Menu\CreateFormContextMenuBuilder](../api/php_api/php_api_reference/classes/Ibexa-Contracts-AdminUi-Menu-CreateFormContextMenuBuilder.html)
-- [Ibexa\Contracts\AdminUi\Menu\MenuItemFactoryInterface](../api/php_api/php_api_reference/classes/Ibexa-Contracts-AdminUi-Menu-MenuItemFactoryInterface.html)
-- [Ibexa\Contracts\AdminUi\Menu\UpdateFormContextMenuBuilder](../api/php_api/php_api_reference/classes/Ibexa-Contracts-AdminUi-Menu-UpdateFormContextMenuBuilder.html)
-- [Ibexa\Contracts\Core\Pool\Pool](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Pool-Pool.html)
-- [Ibexa\Contracts\Core\Pool\PoolInterface](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Pool-PoolInterface.html)
-- [Ibexa\Contracts\CoreSearch\Values\Query\AbstractCriterionQuery](../api/php_api/php_api_reference/classes/Ibexa-Contracts-CoreSearch-Values-Query-AbstractCriterionQuery.html)
-- [Ibexa\Contracts\CoreSearch\Values\Query\AbstractSortClause](../api/php_api/php_api_reference/classes/Ibexa-Contracts-CoreSearch-Values-Query-AbstractSortClause.html)
-- [Ibexa\Contracts\CoreSearch\Values\Query\Criterion\AbstractCompositeCriterion](../api/php_api/php_api_reference/classes/Ibexa-Contracts-CoreSearch-Values-Query-Criterion-AbstractCompositeCriterion.html)
-- [Ibexa\Contracts\CoreSearch\Values\Query\Criterion\CriterionInterface](../api/php_api/php_api_reference/classes/Ibexa-Contracts-CoreSearch-Values-Query-Criterion-CriterionInterface.html)
-- [Ibexa\Contracts\CoreSearch\Values\Query\Criterion\FieldValueCriterion](../api/php_api/php_api_reference/classes/Ibexa-Contracts-CoreSearch-Values-Query-Criterion-FieldValueCriterion.html)
-- [Ibexa\Contracts\CoreSearch\Values\Query\Criterion\LogicalAnd](../api/php_api/php_api_reference/classes/Ibexa-Contracts-CoreSearch-Values-Query-Criterion-LogicalAnd.html)
-- [Ibexa\Contracts\CoreSearch\Values\Query\Criterion\LogicalOr](../api/php_api/php_api_reference/classes/Ibexa-Contracts-CoreSearch-Values-Query-Criterion-LogicalOr.html)
-- [Ibexa\Contracts\CoreSearch\Values\Query\CriterionMapper](../api/php_api/php_api_reference/classes/Ibexa-Contracts-CoreSearch-Values-Query-CriterionMapper.html)
-- [Ibexa\Contracts\CoreSearch\Values\Query\CriterionMapperInterface](../api/php_api/php_api_reference/classes/Ibexa-Contracts-CoreSearch-Values-Query-CriterionMapperInterface.html)
-- [Ibexa\Contracts\CoreSearch\Values\Query\SortClause\FieldValueSortClause](../api/php_api/php_api_reference/classes/Ibexa-Contracts-CoreSearch-Values-Query-SortClause-FieldValueSortClause.html)
-- [Ibexa\Contracts\CoreSearch\Values\Query\SortDirection](../api/php_api/php_api_reference/classes/Ibexa-Contracts-CoreSearch-Values-Query-SortDirection.html)
-- [Ibexa\Contracts\ProductCatalog\Local\Attribute\ContextAwareValueValidatorInterface](../api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Local-Attribute-ContextAwareValueValidatorInterface.html)
+- [Ibexa\Contracts\AdminUi\Menu\AbstractFormContextMenuBuilder](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-AdminUi-Menu-AbstractFormContextMenuBuilder.html)
+- [Ibexa\Contracts\AdminUi\Menu\CopyFormContextMenuBuilder](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-AdminUi-Menu-CopyFormContextMenuBuilder.html)
+- [Ibexa\Contracts\AdminUi\Menu\CreateFormContextMenuBuilder](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-AdminUi-Menu-CreateFormContextMenuBuilder.html)
+- [Ibexa\Contracts\AdminUi\Menu\MenuItemFactoryInterface](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-AdminUi-Menu-MenuItemFactoryInterface.html)
+- [Ibexa\Contracts\AdminUi\Menu\UpdateFormContextMenuBuilder](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-AdminUi-Menu-UpdateFormContextMenuBuilder.html)
+- [Ibexa\Contracts\Core\Pool\Pool](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Pool-Pool.html)
+- [Ibexa\Contracts\Core\Pool\PoolInterface](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Pool-PoolInterface.html)
+- [Ibexa\Contracts\CoreSearch\Values\Query\AbstractCriterionQuery](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-CoreSearch-Values-Query-AbstractCriterionQuery.html)
+- [Ibexa\Contracts\CoreSearch\Values\Query\AbstractSortClause](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-CoreSearch-Values-Query-AbstractSortClause.html)
+- [Ibexa\Contracts\CoreSearch\Values\Query\Criterion\AbstractCompositeCriterion](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-CoreSearch-Values-Query-Criterion-AbstractCompositeCriterion.html)
+- [Ibexa\Contracts\CoreSearch\Values\Query\Criterion\CriterionInterface](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-CoreSearch-Values-Query-Criterion-CriterionInterface.html)
+- [Ibexa\Contracts\CoreSearch\Values\Query\Criterion\FieldValueCriterion](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-CoreSearch-Values-Query-Criterion-FieldValueCriterion.html)
+- [Ibexa\Contracts\CoreSearch\Values\Query\Criterion\LogicalAnd](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-CoreSearch-Values-Query-Criterion-LogicalAnd.html)
+- [Ibexa\Contracts\CoreSearch\Values\Query\Criterion\LogicalOr](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-CoreSearch-Values-Query-Criterion-LogicalOr.html)
+- [Ibexa\Contracts\CoreSearch\Values\Query\CriterionMapper](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-CoreSearch-Values-Query-CriterionMapper.html)
+- [Ibexa\Contracts\CoreSearch\Values\Query\CriterionMapperInterface](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-CoreSearch-Values-Query-CriterionMapperInterface.html)
+- [Ibexa\Contracts\CoreSearch\Values\Query\SortClause\FieldValueSortClause](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-CoreSearch-Values-Query-SortClause-FieldValueSortClause.html)
+- [Ibexa\Contracts\CoreSearch\Values\Query\SortDirection](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-CoreSearch-Values-Query-SortDirection.html)
+- [Ibexa\Contracts\ProductCatalog\Local\Attribute\ContextAwareValueValidatorInterface](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Local-Attribute-ContextAwareValueValidatorInterface.html)
 
 #### Full changelog
 
@@ -310,15 +594,15 @@ The PHP API has been enhanced with the following new classes and interfaces:
 #### PHP API
 The PHP API has been enhanced with the following new classes and interfaces:
 
-- [`Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion\Location\IsBookmarked`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Criterion-Location-IsBookmarked.html)
+- [`Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion\Location\IsBookmarked`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Criterion-Location-IsBookmarked.html)
 
 And the new methods are:
 
-- [`Ibexa\Contracts\Core\Persistence\Bookmark\Handler::loadUserIdsByLocation()`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Persistence-Bookmark-Handler.html#method_loadUserIdsByLocation)
-- [`Ibexa\Contracts\ProductCatalog\Local\LocalProductTypeServiceDecorator::addContentTypeFieldDefinition()`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Local-LocalProductTypeServiceDecorator.html#method_addContentTypeFieldDefinition)
-- [`Ibexa\Contracts\ProductCatalog\Local\LocalProductTypeServiceDecorator::removeContentTypeFieldDefinition()`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Local-LocalProductTypeServiceDecorator.html#method_removeContentTypeFieldDefinition)
-- [`Ibexa\Contracts\ProductCatalog\Local\LocalProductTypeServiceInterface::addContentTypeFieldDefinition()`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Local-LocalProductTypeServiceInterface.html#methods)
-- [`Ibexa\Contracts\ProductCatalog\Local\LocalProductTypeServiceInterface::removeContentTypeFieldDefinition()`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Local-LocalProductTypeServiceInterface.html#method_removeContentTypeFieldDefinition)
+- [`Ibexa\Contracts\Core\Persistence\Bookmark\Handler::loadUserIdsByLocation()`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Persistence-Bookmark-Handler.html#method_loadUserIdsByLocation)
+- [`Ibexa\Contracts\ProductCatalog\Local\LocalProductTypeServiceDecorator::addContentTypeFieldDefinition()`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Local-LocalProductTypeServiceDecorator.html#method_addContentTypeFieldDefinition)
+- [`Ibexa\Contracts\ProductCatalog\Local\LocalProductTypeServiceDecorator::removeContentTypeFieldDefinition()`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Local-LocalProductTypeServiceDecorator.html#method_removeContentTypeFieldDefinition)
+- [`Ibexa\Contracts\ProductCatalog\Local\LocalProductTypeServiceInterface::addContentTypeFieldDefinition()`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Local-LocalProductTypeServiceInterface.html#methods)
+- [`Ibexa\Contracts\ProductCatalog\Local\LocalProductTypeServiceInterface::removeContentTypeFieldDefinition()`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Local-LocalProductTypeServiceInterface.html#method_removeContentTypeFieldDefinition)
 
 [[% include 'snippets/release_46.md' %]]
 [[= release_note_entry_end() =]]
@@ -344,10 +628,10 @@ To learn more, see the [corresponding security advisory](https://developers.ibex
 
 The PHP API has been enhanced with the following new classes and interfaces:
 
-- [`Ibexa\Contracts\ConnectorQualifio\Exception\QualifioException`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorQualifio-Exception-QualifioException.html)
-- [`Ibexa\Contracts\ConnectorQualifio\Exception\CampaignFeedNotFoundException`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorQualifio-Exception-CampaignFeedNotFoundException.html)
-- [`Ibexa\Contracts\ConnectorQualifio\Exception\CommunicationException`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorQualifio-Exception-CommunicationException.html)
-- [`Ibexa\Contracts\ConnectorQualifio\Exception\NotConfiguredException`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorQualifio-Exception-NotConfiguredException.html)
+- [`Ibexa\Contracts\ConnectorQualifio\Exception\QualifioException`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorQualifio-Exception-QualifioException.html)
+- [`Ibexa\Contracts\ConnectorQualifio\Exception\CampaignFeedNotFoundException`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorQualifio-Exception-CampaignFeedNotFoundException.html)
+- [`Ibexa\Contracts\ConnectorQualifio\Exception\CommunicationException`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorQualifio-Exception-CommunicationException.html)
+- [`Ibexa\Contracts\ConnectorQualifio\Exception\NotConfiguredException`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorQualifio-Exception-NotConfiguredException.html)
 
 [[% include 'snippets/release_46.md' %]]
 [[= release_note_entry_end() =]]
@@ -359,7 +643,7 @@ The PHP API has been enhanced with the following new classes and interfaces:
 
 The PHP API has been enhanced with the following new class:
 
-- [`Ibexa\Contracts\FieldTypeRichText\Configuration\ProviderConfiguratorInterface`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-FieldTypeRichText-Configuration-ProviderConfiguratorInterface.html)
+- [`Ibexa\Contracts\FieldTypeRichText\Configuration\ProviderConfiguratorInterface`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-FieldTypeRichText-Configuration-ProviderConfiguratorInterface.html)
 
 #### Full changelog
 
@@ -373,10 +657,10 @@ The PHP API has been enhanced with the following new class:
 
 The PHP API has been enhanced with the following new classes:
 
--  [`Ibexa\Contracts\Calendar\EventAction\EventActionCollection`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Calendar-EventAction-EventActionCollection.html)
-- [`Ibexa\Contracts\Calendar\EventSource\InMemoryEventSource`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Calendar-EventSource-InMemoryEventSource.html)
-- [`Ibexa\Contracts\Core\Event\Mapper\ResolveMissingFieldEvent`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Event-Mapper-ResolveMissingFieldEvent.html)
-- [`Ibexa\Contracts\Core\FieldType\DefaultDataFieldStorage`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-FieldType-DefaultDataFieldStorage.html)
+- [`Ibexa\Contracts\Calendar\EventAction\EventActionCollection`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-Calendar-EventAction-EventActionCollection.html)
+- [`Ibexa\Contracts\Calendar\EventSource\InMemoryEventSource`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-Calendar-EventSource-InMemoryEventSource.html)
+- [`Ibexa\Contracts\Core\Event\Mapper\ResolveMissingFieldEvent`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Event-Mapper-ResolveMissingFieldEvent.html)
+- [`Ibexa\Contracts\Core\FieldType\DefaultDataFieldStorage`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-FieldType-DefaultDataFieldStorage.html)
 
 #### Full changelog
 
@@ -1097,6 +1381,9 @@ The following view matchers have been introduced in [[= product_name =]] v4.6.0:
 ### Full changelog
 
 [[% include 'snippets/release_46.md' %]]
+
+To update your application, see the [update instructions](update_from_4.6.md).
+
 [[= release_note_entry_end() =]]
 
 </div>

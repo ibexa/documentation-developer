@@ -7,11 +7,8 @@ use Knp\Menu\ItemInterface;
 
 class MenuBuilder
 {
-    private FactoryInterface $factory;
-
-    public function __construct(FactoryInterface $factory)
+    public function __construct(private readonly FactoryInterface $factory)
     {
-        $this->factory = $factory;
     }
 
     public function buildMenu(): ItemInterface

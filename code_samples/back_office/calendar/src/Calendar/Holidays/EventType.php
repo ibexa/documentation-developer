@@ -2,15 +2,15 @@
 
 namespace App\Calendar\Holidays;
 
-use Ibexa\Calendar\EventAction\EventActionCollection;
 use Ibexa\Contracts\Calendar\Event;
+use Ibexa\Contracts\Calendar\EventAction\EventActionCollection;
 use Ibexa\Contracts\Calendar\EventType\EventTypeInterface;
 
 class EventType implements EventTypeInterface
 {
-    private const EVENT_TYPE_IDENTIFIER = 'holiday';
+    private const string EVENT_TYPE_IDENTIFIER = 'holiday';
 
-    private EventActionCollection $actions;
+    private readonly EventActionCollection $actions;
 
     public function __construct(iterable $actions)
     {

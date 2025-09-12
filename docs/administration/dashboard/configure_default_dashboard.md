@@ -1,6 +1,7 @@
 ---
 title: Default dashboard configuration
 description: Configure default dashboard.
+edition: experience
 ---
 
 # Configure default dashboard

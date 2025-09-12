@@ -13,32 +13,23 @@ use Ibexa\Contracts\Shipping\Value\ShippingMethod\ShippingMethodDeleteTranslatio
 use Ibexa\Contracts\Shipping\Value\ShippingMethod\ShippingMethodQuery;
 use Ibexa\ProductCatalog\Local\Repository\Values\Region;
 use Ibexa\Shipping\Value\ShippingMethodType;
+use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
+#[AsCommand(
+    name: 'doc:shippingMethod'
+)]
 final class ShippingMethodCommand extends Command
 {
-    private PermissionResolver $permissionResolver;
-
-    private UserService $userService;
-
-    private ShippingMethodServiceInterface $shippingMethodService;
-
-    private RegionServiceInterface $regionService;
-
     public function __construct(
-        PermissionResolver $permissionResolver,
-        UserService $userService,
-        ShippingMethodServiceInterface $shippingMethodService,
-        RegionServiceInterface $regionService
+        private readonly PermissionResolver $permissionResolver,
+        private readonly UserService $userService,
+        private readonly ShippingMethodServiceInterface $shippingMethodService,
+        private readonly RegionServiceInterface $regionService
     ) {
-        $this->shippingMethodService = $shippingMethodService;
-        $this->permissionResolver = $permissionResolver;
-        $this->userService = $userService;
-        $this->regionService = $regionService;
-
-        parent::__construct('doc:shippingMethod');
+        parent::__construct();
     }
 
     protected function execute(InputInterface $input, OutputInterface $output): int

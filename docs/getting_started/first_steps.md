@@ -33,7 +33,7 @@ module.exports = [ eZConfig, ibexaConfig, ...customConfigs ];
 
 ## Add a content type
 
-1\. In your browser, go to the back office: `<your_domain>/admin`, and use the default credentials to log in: `admin/publish`.
+1\. In your browser, go to the back office: `<your_domain>/admin`, and log in with the default username: `admin` using the password specified during installation.
 
 !!! caution "Password change"
 

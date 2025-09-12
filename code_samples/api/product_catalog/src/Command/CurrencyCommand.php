@@ -7,27 +7,23 @@ use Ibexa\Contracts\Core\Repository\UserService;
 use Ibexa\Contracts\ProductCatalog\CurrencyServiceInterface;
 use Ibexa\Contracts\ProductCatalog\Values\Currency\CurrencyCreateStruct;
 use Ibexa\Contracts\ProductCatalog\Values\Currency\CurrencyUpdateStruct;
+use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
+#[AsCommand(
+    name: 'doc:currency'
+)]
 final class CurrencyCommand extends Command
 {
-    private CurrencyServiceInterface $currencyService;
-
-    private UserService $userService;
-
-    private PermissionResolver $permissionResolver;
-
-    public function __construct(CurrencyServiceInterface $currencyService, UserService $userService, PermissionResolver $permissionResolver)
-    {
-        $this->currencyService = $currencyService;
-
-        $this->userService = $userService;
-        $this->permissionResolver = $permissionResolver;
-
-        parent::__construct('doc:currency');
+    public function __construct(
+        private readonly CurrencyServiceInterface $currencyService,
+        private readonly UserService $userService,
+        private readonly PermissionResolver $permissionResolver
+    ) {
+        parent::__construct();
     }
 
     public function configure(): void

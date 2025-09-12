@@ -15,24 +15,15 @@ use JMS\TranslationBundle\Annotation\Desc;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\Form\FormFactoryInterface;
 
-final class VerifyStateEventSubscriber implements EventSubscriberInterface
+final readonly class VerifyStateEventSubscriber implements EventSubscriberInterface
 {
-    private const VERIFY_STATE = 'verify';
-
-    private FormFactoryInterface $formFactory;
-
-    private HandlerInterface $applicationStateHandler;
-
-    private TranslatableNotificationHandlerInterface $notificationHandler;
+    private const string VERIFY_STATE = 'verify';
 
     public function __construct(
-        FormFactoryInterface $formFactory,
-        HandlerInterface $applicationStateHandler,
-        TranslatableNotificationHandlerInterface $notificationHandler
+        private FormFactoryInterface $formFactory,
+        private HandlerInterface $applicationStateHandler,
+        private TranslatableNotificationHandlerInterface $notificationHandler
     ) {
-        $this->formFactory = $formFactory;
-        $this->applicationStateHandler = $applicationStateHandler;
-        $this->notificationHandler = $notificationHandler;
     }
 
     public static function getSubscribedEvents(): array

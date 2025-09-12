@@ -10,7 +10,7 @@ use Ibexa\Contracts\Solr\Query\CriterionVisitor;
 
 final class CameraManufacturerVisitor extends CriterionVisitor
 {
-    public function canVisit(CriterionInterface $criterion)
+    public function canVisit(CriterionInterface $criterion): bool
     {
         return $criterion instanceof CameraManufacturerCriterion;
     }
@@ -18,12 +18,10 @@ final class CameraManufacturerVisitor extends CriterionVisitor
     /**
      * @param \App\Query\Criterion\CameraManufacturerCriterion $criterion
      */
-    public function visit(CriterionInterface $criterion, CriterionVisitor $subVisitor = null)
+    public function visit(CriterionInterface $criterion, ?CriterionVisitor $subVisitor = null): string
     {
         $expressions = array_map(
-            function ($value): string {
-                return 'exif_camera_manufacturer_id:"' . $this->escapeQuote((string) $value) . '"';
-            },
+            fn ($value): string => 'exif_camera_manufacturer_id:"' . $this->escapeQuote((string) $value) . '"',
             $criterion->value
         );
 
