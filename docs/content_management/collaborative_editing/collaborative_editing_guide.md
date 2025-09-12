@@ -61,7 +61,7 @@ After inviting users to a collaboration session, they receive a notification vis
 
 Users can also join a collaboration session using the **Join** button:
 
-- available in new tabs of the **My content** block on the Dashboard - *My shared drafts* and *Drafts shared with me*
+- available in new tabs of the **My content** block on the dashboard - *My shared drafts* and *Drafts shared with me*
 - by accessing a content draft in the **Drafts** menu
 
 ### Real-time editing
