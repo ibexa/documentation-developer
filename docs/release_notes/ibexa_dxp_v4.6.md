@@ -12,7 +12,7 @@ month_change: true
 
 [[% set version = 'v4.6.24' %]]
 
-[[= release_note_entry_begin("Collaboration ", '2025-09-09', ['Headless', 'Experience', 'Commerce', 'LTS Update']) =]]
+[[= release_note_entry_begin("Collaboration ", '2025-09-09', ['Headless', 'Experience', 'Commerce', 'LTS Update', 'New feature']) =]]
 
 #### Collaboration
 
