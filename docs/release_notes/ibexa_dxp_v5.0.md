@@ -25,7 +25,7 @@ Additionally, shared drafts can be accessed and managed through new dashboard ta
 
 #### Discount indexing
 
-Discounts now allow scheduling a mass re-indexing of discounted product catalog prices at the most convenient time by using the Ibexa Messenger package.
+Discounts now allow scheduling a re-indexing of discounted product catalog prices at the most convenient time by using the Ibexa Messenger package.
 Ibexa Messenger is a customization of the Symfony Messenger package, created to adjust it to [[= product_name =]]'s needs.
 
 Once properly configured, it uses a background queue to trigger price re-indexing, ensuring efficient use of system resources without causing performance disruptions.
