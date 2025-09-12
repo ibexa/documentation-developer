@@ -12,11 +12,11 @@ month_change: true
 
 [[% set version = 'v4.6.24' %]]
 
-[[= release_note_entry_begin("Collaboration ", '2025-08-05', ['LTS Update', 'Commerce']) =]]
+[[= release_note_entry_begin("Collaboration ", '2025-09-09', ['Headless', 'Experience', 'Commerce', 'LTS Update']) =]]
 
 #### Collaboration
 
-The new Collaborative editing feature allows multiple users to preview, review, and edit the same content or product, improving teamwork and streamlining the review process.
+The new Collaborative editing LTS Update allows multiple users to preview, review, and edit the same content, improving teamwork and streamlining the review process.
 Internal and external users can be invited to a collaboration session, through different sharing options.
 
 With Real-time editing, more advanced part of the feature, users can see each other’s changes in the real time, or work on the content asynchronously.
@@ -25,7 +25,7 @@ Additionally, shared drafts can be accessed and managed through new dashboard ta
 
 [[= release_note_entry_end() =]]
 
-[[= release_note_entry_begin("AI Actions " + version, '2025-04-09', ['LTS Update']) =]]
+[[= release_note_entry_begin("AI Actions " + version, '2025-09-09', ['LTS Update']) =]]
 
 #### Chat GPT 5.0 support
 
@@ -39,18 +39,31 @@ With improved reasoning and greater accuracy in mind, the AI Connector package h
 
 #### Discount indexing
 
-Discounts now allow scheduling a mass re-indexing of discounted product catalog prices at the most convenient time by using the Ibexa Messenger package.
+Discounts now allow scheduling a re-indexing of discounted product catalog prices at the most convenient time by using the Ibexa Messenger package.
 Ibexa Messenger is a customization of the Symfony Messenger package, created to adjust it to [[= product_name =]]'s needs.
 
 Once properly configured, it uses a background queue to trigger price re-indexing, ensuring efficient use of system resources without causing performance disruptions.
 
+##### PHP API
+
+The following additions were made to the Discounts PHP API:
+
+###### Events
+
+- [`Ibexa\Contracts\AdminUi\Event\ResolveVersionPreviewUrlEvent`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-AdminUi-Event-ResolveVersionPreviewUrlEvent.html)
+- [`Ibexa\Contracts\Discounts\Event\EnableDiscountEvent`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Discounts-Event-EnableDiscountEvent.html)
+- [`Ibexa\Contracts\Discounts\Event\BeforeDisableDiscountEvent`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Discounts-Event-BeforeDisableDiscountEvent.html)
+- [`Ibexa\Contracts\Discounts\Event\BeforeEnableDiscountEvent`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Discounts-Event-BeforeEnableDiscountEvent.html)
+- [`Ibexa\Contracts\Discounts\Event\DisableDiscountEvent`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Discounts-Event-DisableDiscountEvent.html)
+
+###### Search criteria
+
+- [`Ibexa\Contracts\Discounts\Value\Query\Criterion\IndexedAtCriterion`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Discounts-Value-Query-Criterion-IndexedAtCriterion.html)
+- [`Ibexa\Contracts\Discounts\Value\Query\Criterion\UpdatedAtCriterion`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Discounts-Value-Query-Criterion-UpdatedAtCriterion.html)
+
 [[= release_note_entry_end() =]]
 
 [[= release_note_entry_begin("Ibexa DXP " + version, '2025-09-09', ['Headless', 'Experience', 'Commerce', 'New feature']) =]]
-
-#### Collaboration
-
-With real-time collaboration, your teams can work on the same project at the same time without overwriting each other’s work, and focus mode hides all the distractions.  
 
 #### Improvements to notifications
 
@@ -63,23 +76,47 @@ Developers can now create and configure their own notification types, while user
 
 ##### New packages
 
-The following packages have been introduced in Ibexa DXP v4.6.24:
-
-- ibexa/messenger
-
-##### PHP API
-
-The PHP API has been enhanced with the following new classes:
+The only package that has been introduced in [[= product_name =]] v4.6.24 is ibexa/messenger.
 
 ##### New version of PHP Storm Plugin
 
 To further improve your experience with Ibexa DXP, a 1.14.0 version of PHP Storm Plugin has been released, which brings the following changes:
 
-    - Added support for Ibexa DXP v5.0
-    - Added compatibility with PhpStorm 2024.3.6+
-    - Added file template for Twig Component class
-    - Added code completion for Twig Component Groups in YAML config files and AsTwigComponent attribute
-    - Added code completion for Twig Component Types in YAML config files
+- Added support for Ibexa DXP v5.0
+- Added compatibility with PhpStorm 2024.3.6+
+- Added file template for Twig Component class
+- Added code completion for Twig Component Groups in YAML config files and AsTwigComponent attribute
+- Added code completion for Twig Component Types in YAML config files
+
+#### Infrastructure
+
+- Redis 7.2+ are now [officially supported](https://doc.ibexa.co/en/4.6/getting_started/requirements/)
+
+
+##### PHP API
+
+The PHP API has been enhanced with the following:
+
+??? note "PHP API classes and interfaces"
+    - [`Ibexa\Contracts\AdminUi\Exception`](/api/php_api/php_api_reference/namespaces/ibexa-contracts-adminui-exception.html)
+    - [`Ibexa\Contracts\AdminUi\Exception\UnresolvedPreviewUrlException`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-AdminUi-Exception-UnresolvedPreviewUrlException.html)
+    - [`Ibexa\Contracts\AdminUi\PreviewUrlResolver`](/api/php_api/php_api_reference/namespaces/ibexa-contracts-adminui-previewurlresolver.html)
+    - [`Ibexa\Contracts\AdminUi\PreviewUrlResolver\VersionPreviewUrlResolverInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-AdminUi-PreviewUrlResolver-VersionPreviewUrlResolverInterface.html)
+    - [`Ibexa\Contracts\Core\Validation\Constraint`](/api/php_api/php_api_reference/namespaces/ibexa-contracts-core-validation-constraint.html)
+    - [`Ibexa\Contracts\Core\Validation\Constraint\UniqueIdentifier`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Validation-Constraint-UniqueIdentifier.html)
+    - [`Ibexa\Contracts\Core\Validation\Constraint\UniqueIdentifierValidator`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Validation-Constraint-UniqueIdentifierValidator.html)
+    - [`Ibexa\Contracts\Messenger`](/api/php_api/php_api_reference/namespaces/ibexa-contracts-messenger.html)
+    - [`Ibexa\Contracts\Messenger\Transport`](/api/php_api/php_api_reference/namespaces/ibexa-contracts-messenger-transport.html)
+    - [`Ibexa\Contracts\Messenger\Transport\MessageProviderInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Messenger-Transport-MessageProviderInterface.html)
+    - [`Ibexa\Contracts\ProductCatalog\Values\Product\Query\AttributeCriterionBuilder`](/api/php_api/php_api_reference/namespaces/ibexa-contracts-productcatalog-values-product-query-attributecriterionbuilder.html)
+    - [`Ibexa\Contracts\ProductCatalog\Values\Product\Query\AttributeCriterionBuilderRegistry`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Values-Product-Query-AttributeCriterionBuilderRegistry.html)
+    - [`Ibexa\Contracts\ProductCatalog\Values\Product\Query\AttributeCriterionBuilderRegistryInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Values-Product-Query-AttributeCriterionBuilderRegistryInterface.html)
+    - [`Ibexa\Contracts\ProductCatalog\Values\Product\Query\AttributeCriterionBuilder\AttributeCriterionBuilderInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Values-Product-Query-AttributeCriterionBuilder-AttributeCriterionBuilderInterface.html)
+    - [`Ibexa\Contracts\ProductCatalog\Values\Product\Query\AttributeCriterionBuilder\CheckboxBuilder`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Values-Product-Query-AttributeCriterionBuilder-CheckboxBuilder.html)
+    - [`Ibexa\Contracts\ProductCatalog\Values\Product\Query\AttributeCriterionBuilder\ColorBuilder`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Values-Product-Query-AttributeCriterionBuilder-ColorBuilder.html)
+    - [`Ibexa\Contracts\ProductCatalog\Values\Product\Query\AttributeCriterionBuilder\FloatBuilder`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Values-Product-Query-AttributeCriterionBuilder-FloatBuilder.html)
+    - [`Ibexa\Contracts\ProductCatalog\Values\Product\Query\AttributeCriterionBuilder\IntegerBuilder`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Values-Product-Query-AttributeCriterionBuilder-IntegerBuilder.html)
+    - [`Ibexa\Contracts\ProductCatalog\Values\Product\Query\AttributeCriterionBuilder\SelectionBuilder`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Values-Product-Query-AttributeCriterionBuilder-SelectionBuilder.html)
 
 #### Full changelog
 
