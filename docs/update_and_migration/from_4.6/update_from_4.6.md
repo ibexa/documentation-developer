@@ -407,6 +407,26 @@ When using MySQL or MariaDB, run the following script to ensure correct characte
     mysql -u <username> -p <password> <database_name> < vendor/ibexa/installer/upgrade/db/mysql/ibexa-4.6.21-to-4.6.22.sql
     ```
 
+## v4.6.23
+
+No additional steps needed.
+
+## v4.6.24
+
+### Database update
+
+=== "MySQL"
+
+    ``` bash
+    mysql -u <username> -p <password> <database_name> < vendor/ibexa/installer/upgrade/db/mysql/ibexa-4.6.23-to-4.6.24.sql
+    ```
+
+=== "PostgreSQL"
+
+    ``` bash
+    psql <database_name> < vendor/ibexa/installer/upgrade/db/postgresql/ibexa-4.6.23-to-4.6.24.sql
+    ```
+
 [[% include 'snippets/update/notify_support.md' %]]
 
 With the product updated to the latest version, you can now finish the update process or proceed to updating the LTS Updates packages.
@@ -578,6 +598,33 @@ To use the [latest features](ibexa_dxp_v4.6.md) added to them, update them separ
         CREATE INDEX ibexa_discount_prioritization_idx ON ibexa_discount (override_prioritization, type, priority);
         ALTER TABLE ibexa_discount_code ADD global_limit INT DEFAULT NULL;
         ```
+    ### Discounts v4.6.24
+
+    #### Database update
+
+    Run the following scripts:
+
+    === "MySQL"
+
+        ``` sql
+        ALTER TABLE ibexa_discount
+            ADD indexed_at DATETIME DEFAULT NULL COMMENT '(DC2Type:datetime_immutable)';
+
+        CREATE INDEX ibexa_discount_indexed_at_idx
+            ON ibexa_discount (indexed_at);
+        ```
+
+    === "PostgreSQL"
+
+        ``` sql
+        ALTER TABLE ibexa_discount
+            ADD indexed_at TIMESTAMP(0) WITHOUT TIME ZONE DEFAULT NULL;
+
+        COMMENT ON COLUMN ibexa_discount.indexed_at IS '(DC2Type:datetime_immutable)';
+
+        CREATE INDEX ibexa_discount_indexed_at_idx
+            ON ibexa_discount (indexed_at);
+        ```
 
 === "AI actions"
 
@@ -594,7 +641,3 @@ To use the [latest features](ibexa_dxp_v4.6.md) added to them, update them separ
     ```bash
     composer require ibexa/product-catalog-date-time-attribute:[[= latest_tag_4_6 =]]
     ```
-
-## v4.6.23
-
-No additional steps needed.

@@ -75,8 +75,8 @@
         <div class="col-12 col-lg-6">
             <div class="notification notification--latest-release" id="tile2">
                 <div class="notification__content">
-                    <h2>The latest release is [[= latest_tag_4_6 =]]</h2>
-                    <div>The latest version of Ibexa DXP is [[= latest_tag_4_6 =]]. You can now update your application to the latest version.</div>
+                    <h2>The latest Ibexa DXP is v5.0 LTS</h2>
+                    <div>The latest release in v4.6 LTS branch is [[= latest_tag_4_6 =]]. You can now update your application.</div>
                 </div>
                 <div class="notification__cta">
                     <a href="release_notes/ibexa_dxp_v4.6/">Release notes</a>
