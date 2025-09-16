@@ -89,7 +89,7 @@
         <div class="col-12 col-lg-6">
             <div class="notification notification--lts-update" id="tile3">
                 <div class="notification__content">
-                    <h2>The newest LTS Update is Collaboration</h2>
+                    <h2>The newest LTS Update is Collaborative editing</h2>
                     <div>Use it to let multiple users work on the same content simultaneously.</div>
                 </div>
                 <div class="notification__cta">
