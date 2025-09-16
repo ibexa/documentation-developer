@@ -89,11 +89,11 @@
         <div class="col-12 col-lg-6">
             <div class="notification notification--lts-update" id="tile3">
                 <div class="notification__content">
-                    <h2>The newest LTS Update is the Symbol attribute</h2>
-                    <div>Use it to store standarized identifiers of your products.</div>
+                    <h2>The newest LTS Update is Collaborative editing</h2>
+                    <div>Use it to let multiple users work on the same content simultaneously.</div>
                 </div>
                 <div class="notification__cta">
-                    <a href="pim/attributes/symbol_attribute_type">Learn more about this LTS Update</a>
+                    <a href="content_management/collaborative_editing/collaborative_editing_guide">Learn more about this LTS Update</a>
                     <a href="ibexa_products/editions#lts-updates">Discover other LTS Updates</a>
                 </div>
                 <div class="notification__image">
