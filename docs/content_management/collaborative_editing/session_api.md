@@ -1,43 +1,32 @@
 ---
-description: You can use the PHP API to create new session, update existing one, find or delete it, and add or remove participants.
+description: You can use the PHP API to create a new session, update an existing one, find or delete it, and add or remove participants.
+editions:
+    - lts-update
+month_change: true
 ---
 
 # Session API
 
-[`SessionService`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-SessionService.html) enables you work with the collaborative session, for example, create a new one, update or delete existing one, and add or remove new participants to join collaborative session.
+[`SessionService`](https://doc.ibexa.co/en/latest/api/php_api/php_api_reference/classes/Ibexa-Contracts-Collaboration-SessionServiceInterface.html) enables you work with the collaborative session. You can, for example, create a new one, update or delete an existing one, and add or remove participants taking part in the session.
 
 ## Create session
 
-You can create new collaboration session with given id with [`SessionService::createSession`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-SessionService.html#method_createSession):
+You can create new collaboration session with [`SessionService::createSession`](https://doc.ibexa.co/en/latest/api/php_api/php_api_reference/classes/Ibexa-Contracts-Collaboration-SessionServiceInterface.html#method_createSession):
 
 ``` php
     $this->innerService->createSession($createStruct);
 ```
 ## Get session
 
-You can return existing collaboration session with [`SessionService::getSession`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-SessionService.html#method_getSession):
+You can get an existing collaboration session with [`SessionService::getSession`](https://doc.ibexa.co/en/latest/api/php_api/php_api_reference/classes/Ibexa-Contracts-Collaboration-SessionServiceInterface.html#method_getSession):
 
-- using given id:
+- using given id - with [`SessionService::getSession`](https://doc.ibexa.co/en/latest/api/php_api/php_api_reference/classes/Ibexa-Contracts-Collaboration-SessionServiceInterface.html#method_getSession)
 
-``` php
-    $this->innerService->getSession($id);
-```
+- using given token - with [`SessionService::getSessionByToken`](https://doc.ibexa.co/en/latest/api/php_api/php_api_reference/classes/Ibexa-Contracts-Collaboration-SessionServiceInterface.html#method_getSessionByToken)
 
-- using given token:
+## Find sessions
 
-``` php
-    $this->innerService->getSessionByToken($token);
-```
-
-- matching the given query:
-
-``` php
-    $this->innerService->findSessions($query);
-```
-
-## Find session
-
-You can find an existing session with [`SessionService::findSession`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-SessionService.html#method_findSession) by:
+You can find an existing session with [`SessionService::findSessions`](https://doc.ibexa.co/en/latest/api/php_api/php_api_reference/classes/Ibexa-Contracts-Collaboration-SessionServiceInterface.html#method_findSessions) by:
 
 ``` php
     $this->innerService->findSessions($query);
@@ -45,7 +34,7 @@ You can find an existing session with [`SessionService::findSession`](../../api/
 
 ## Update session
 
-You can update existing invitation with [`SessionService::updateSession`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-SessionService.html#method_updateSession):
+You can update existing invitation with [`SessionService::updateSession`](https://doc.ibexa.co/en/latest/api/php_api/php_api_reference/classes/Ibexa-Contracts-Collaboration-SessionServiceInterface.html#method_updateSession):
 
 ``` php
     $this->innerService->updateSession($session, $updateStruct);
@@ -53,7 +42,7 @@ You can update existing invitation with [`SessionService::updateSession`](../../
 
 ## Delete session
 
-You can delete session with [`SessionService::deleteSession`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-SessionService.html#method_deleteSession):
+You can delete session with [`SessionService::deleteSession`](https://doc.ibexa.co/en/latest/api/php_api/php_api_reference/classes/Ibexa-Contracts-Collaboration-SessionServiceInterface.html#method_deleteSession):
 
 ``` php
     $this->innerService->deleteSession($session);
@@ -63,30 +52,42 @@ You can delete session with [`SessionService::deleteSession`](../../api/php_api/
 
 ## Add participant
 
-You can add participant to the collaboration session with [`SessionService::addParticipant`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-SessionService.html#method_addParticipant):
+You can add participant to the collaboration session with [`SessionService::addParticipant`](https://doc.ibexa.co/en/latest/api/php_api/php_api_reference/classes/Ibexa-Contracts-Collaboration-SessionServiceInterface.html#method_addParticipant):
 
 ``` php
-    $this->innerService->addParticipant($session, $createStruct);
+{
+    $session = $this->sessionService->getSession(1);
+    $participant = $sessionService->addParticipant($session, $createStruct);
+    $createStruct = new ParticipantCreateStruct($user);
+}
 ```
 
 ## Update participant
 
-You can update participant added to the collaboration session with [`SessionService::updateParticipant`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-SessionService.html#method_updateParticipant):
+You can update participant added to the collaboration session with [`SessionService::updateParticipant`](https://doc.ibexa.co/en/latest/api/php_api/php_api_reference/classes/Ibexa-Contracts-Collaboration-SessionServiceInterface.html#method_updateParticipant):
 
 ``` php
     $this->innerService->updateParticipant($session, $participant, $updateStruct);
 ```
 ## Remove participant
 
-You can remove participant from the collaboration session with [`SessionService::removeParticipant`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-SessionService.html#method_removeParticipant):
+You can remove participant from the collaboration session with [`SessionService::removeParticipant`](https://doc.ibexa.co/en/latest/api/php_api/php_api_reference/classes/Ibexa-Contracts-Collaboration-SessionServiceInterface.html#method_removeParticipant):
 
 ``` php
     $this->innerService->removeParticipant($session, $participant);
 ```
 
-## Check session Owner
+## Check session owner
 
-You can check the Owner of the collaboration session with [`SessionService::removeParticipant`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-SessionService.html#method_removeParticipant):
+You can check the owner of the collaboration session with [`SessionService::isSessionOwner`](https://doc.ibexa.co/en/latest/api/php_api/php_api_reference/classes/Ibexa-Contracts-Collaboration-SessionServiceDecorator.html#method_isSessionOwner):
+
+``` php
+    $this->innerService->isSessionOwner($session, $user);
+```
+
+## Check session participant
+
+You can check the participant of the collaboration session with [`SessionService::isSessionParticipant`](https://doc.ibexa.co/en/latest/api/php_api/php_api_reference/classes/Ibexa-Contracts-Collaboration-SessionServiceInterface.html#method_isSessionParticipant):
 
 ``` php
     $this->innerService->isSessionOwner($session, $user);

@@ -1,6 +1,8 @@
 ---
 description: Install the Collaborative editing LTS update.
-month_change: false
+editions:
+    - lts-update
+month_change: true
 ---
 
 # Install Collaborative editing
@@ -36,7 +38,7 @@ php bin/console ibexa:doctrine:schema:dump-sql vendor/ibexa/share/src/bundle/Res
 
 ### Modify the bundles file
 
-Then, in the `config/bundles.php` file, add the following code:
+Then, if not using Symfony Flex, add the following code to the `config/bundles.php` file:
 
 ``` php
     <?php

@@ -1,14 +1,16 @@
 ---
 description: Use PHP API to manage invitations and sessions while using collaborative editing feature.
-month_change: false
+editions:
+    - lts-update
+month_change: true
 ---
 
 # Collaborative editing API
 
 [[= product_name =]]'s Collaborative editing API provides two services for managing sessions and invitations, which differ in function:
 
-- [`InvitationServiceInterface`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-(?)-InvitationServiceInterface.html) is used to request product data
-- [`SessionServiceInterface`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-(?)-SessionServiceInterface.html) is used to modify products
+- [`InvitationServiceInterface`](https://doc.ibexa.co/en/latest/api/php_api/php_api_reference/classes/Ibexa-Contracts-Collaboration-InvitationServiceInterface.html) is used to manage collaboration sessions invitations
+- [`SessionServiceInterface`](https://doc.ibexa.co/en/latest/api/php_api/php_api_reference/classes/Ibexa-Contracts-Collaboration-SessionServiceInterface.html) is used to manage collaboration sessions
 
 ``` php
 
