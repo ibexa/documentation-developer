@@ -13,11 +13,11 @@ The `IsActive` Search Criterion searches for sessions based on active status.
 ## Example
 
 ```php
-$criteria = new Ibexa\Contracts\Collaboration\Session\Query\Criterion\IsActive();
+$criteria = new \Ibexa\Contracts\Collaboration\Session\Query\Criterion\IsActive();
 
 OR
 
-$criteria = new Ibexa\Contracts\Collaboration\Session\Query\Criterion\IsActive(false);
+$criteria = new \Ibexa\Contracts\Collaboration\Session\Query\Criterion\IsActive(false);
 
 $query = new SessionQuery($criteria);
 ```

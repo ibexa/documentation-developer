@@ -9,14 +9,14 @@ The `UpdatedAt` Search Criterion searches for sessions based on the date they we
 ## Arguments
 
 - `value` - date to be matched, provided as a DateTimeInterface object
-- `operator` - optional operator string (EQ, GT, GTE, LT, LTE)
+- `operator` - optional operator string (check the list of the allowed values: https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-CoreSearch-Values-Query-Criterion-FieldValueCriterion.html#constants)
 
 ## Example
 
 ```php
 $criteria = new Ibexa\Contracts\Collaboration\Session\Query\Criterion\UpdatedAt(
     new DateTime('2025-05-01 14:07:02'),
-    'GTE'
+    FieldValueCriterion:: COMPARISON_GTE
 );
 
 $query = new SessionQuery($criteria);

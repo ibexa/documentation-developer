@@ -13,11 +13,11 @@ The `LanguageID` Search Criterion searches for content sessions based on languag
 ## Example
 
 ```php
-$criteria = new Ibexa\Share\Session\Query\Criterion\LanguageId(1);
+$criteria = new \Ibexa\Share\Session\Query\Criterion\LanguageId(1);
 
 OR
 
-$criteria = new Ibexa\Share\Session\Query\Criterion\LanguageId([1, 2]);
+$criteria = new \Ibexa\Share\Session\Query\Criterion\LanguageId([1, 2]);
 
 $query = new SessionQuery($criteria);
 ```

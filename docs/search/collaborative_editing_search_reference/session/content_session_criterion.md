@@ -15,12 +15,12 @@ The `ContentSession` Search Criterion searches for contentId, versionNo, languag
 ## Example
 
 ```php
-$criteria = new Ibexa\Share\Session\Query\Criterion\ContentSession(1, 2, 3);
+$criteria = new \Ibexa\Share\Session\Query\Criterion\ContentSession(1, 2, 3);
 
 OR
 
 $versionInfo = $this->contentService->loadVersionInfoById(1);
-$criteria = new Ibexa\Share\Session\Query\Criterion\ContentSession::fromVersionInfo($versionInfo);
+$criteria = new \Ibexa\Share\Session\Query\Criterion\ContentSession::fromVersionInfo($versionInfo);
 
 $query = new SessionQuery($criteria);
 ```

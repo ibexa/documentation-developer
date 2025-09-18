@@ -16,11 +16,11 @@ The `Owner` Search Criterion searches for sessions based on session Owner.
 $user = $this->userService->loadUserByLogin('foo');
 $currentUser = $this->permissionResolver->getCurrentUserReference();
 
-$criteria = new Ibexa\Contracts\Collaboration\Session\Query\Criterion\Owner($user);
+$criteria = new \Ibexa\Contracts\Collaboration\Session\Query\Criterion\Owner($user);
 
 OR
 
-$criteria = new Ibexa\Contracts\Collaboration\Session\Query\Criterion\Owner([$user, $currentUser]);
+$criteria = new \Ibexa\Contracts\Collaboration\Session\Query\Criterion\Owner([$user, $currentUser]);
 
 $query = new SessionQuery($criteria);
 ```

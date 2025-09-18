@@ -13,11 +13,11 @@ The `Id` Search Criterion searches for sessions based on session ID.
 ## Example
 
 ```php
-$criteria = new Ibexa\Contracts\Collaboration\Session\Query\Criterion\Id(1);
+$criteria = new \Ibexa\Contracts\Collaboration\Session\Query\Criterion\Id(1);
 
 OR
 
-$criteria = new Ibexa\Contracts\Collaboration\Session\Query\Criterion\Id([1, 2]);
+$criteria = new \Ibexa\Contracts\Collaboration\Session\Query\Criterion\Id([1, 2]);
 
 $query = new SessionQuery($criteria);
 ```

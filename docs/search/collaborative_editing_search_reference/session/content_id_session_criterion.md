@@ -13,11 +13,11 @@ The `ContentID` Search Criterion searches for content sessions based on content 
 ## Example
 
 ```php
-$criteria = new Ibexa\Share\Session\Query\Criterion\ContentId(1);
+$criteria = new \Ibexa\Share\Session\Query\Criterion\ContentId(1);
 
 OR
 
-$criteria = new Ibexa\Share\Session\Query\Criterion\ContentId([1, 2]);
+$criteria = new \Ibexa\Share\Session\Query\Criterion\ContentId([1, 2]);
 
 $query = new SessionQuery($criteria);
 ```

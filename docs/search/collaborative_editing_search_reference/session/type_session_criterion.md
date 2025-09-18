@@ -13,11 +13,11 @@ The `Type` Search Criterion searches for sessions based on session type.
 ## Example
 
 ```php
-$criteria = new Ibexa\Contracts\Collaboration\Session\Query\Criterion\Type('content');
+$criteria = new \Ibexa\Contracts\Collaboration\Session\Query\Criterion\Type('content');
 
 OR
 
-$criteria = new Ibexa\Contracts\Collaboration\Session\Query\Criterion\Type(['content', 'product']);
+$criteria = new \Ibexa\Contracts\Collaboration\Session\Query\Criterion\Type(['content', 'product']);
 
 $query = new SessionQuery($criteria);
 ```

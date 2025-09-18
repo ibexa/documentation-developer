@@ -13,7 +13,7 @@ The `Email` Search Criterion searches for sessions based on external participant
 ## Example
 
 ```php
-$criteria = new Ibexa\Contracts\Collaboration\Session\Query\Criterion\Email('participant@link.invalid');
+$criteria = new \Ibexa\Contracts\Collaboration\Session\Query\Criterion\Email('participant@link.invalid');
 
 OR
 
