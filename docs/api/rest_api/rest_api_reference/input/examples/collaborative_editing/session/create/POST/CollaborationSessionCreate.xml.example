@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<CollaborationSessionCreate>
+<ContentSessionCreate>
     <Owner media-type="application/vnd.ibexa.api.User+xml"
            href="/api/ibexa/v2/user/users/14"
     >
     </Owner>
     <ParticipantListCreate media-type="application/vnd.ibexa.api.ParticipantListCreate+xml">
         <ParticipantCreate media-type="application/vnd.ibexa.api.InternalParticipantCreate+xml">
-            <scope>view</scope>
+            <scope>edit</scope>
             <User media-type="application/vnd.ibexa.api.User+xml"
-                  href="/api/ibexa/v2/user/users/14"
+                  href="/api/ibexa/v2/user/users/1470
             >
             </User>
         </ParticipantCreate>
@@ -17,8 +17,6 @@
             <scope>view</scope>
         </ParticipantCreate>
     </ParticipantListCreate>
-    <SessionTypeCreate media-type="application/vnd.ibexa.api.ContentSessionCreate+xml">
-        <contentId>51</contentId>
-        <versionNo>1</versionNo>
-    </SessionTypeCreate>
-</CollaborationSessionCreate>
+    <contentId>57</contentId>
+    <versionNo>1</versionNo>
+</ContentSessionCreate>

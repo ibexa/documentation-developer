@@ -3,6 +3,8 @@
         "_media-type": "application/vnd.ibexa.api.ContentSession+json",
         "id": 34,
         "token": "3dbddb0e-e8ac-44bf-9042-57ca0c027f51",
+        "isActive": true,
+        "hasPublicLink": false,
         "createdAt": "2025-04-02T10:32:43+00:00",
         "updatedAt": "2025-04-02T10:32:43+00:00",
         "ParticipantList": {
@@ -11,11 +13,11 @@
                 {
                     "_media-type": "application/vnd.ibexa.api.InternalParticipant+json",
                     "id": 50,
-                    "name": "Administrator User",
-                    "scope": "view",
+                    "name": "Editor",
+                    "scope": "edit",
                     "User": {
                         "_media-type": "application/vnd.ibexa.api.User+json",
-                        "_href": "/api/ibexa/v2/user/users/14"
+                        "_href": "/api/ibexa/v2/user/users/70"
                     },
                     "createdAt": "2025-04-02T10:32:43+00:00",
                     "updatedAt": "2025-04-02T10:32:43+00:00"
@@ -35,7 +37,6 @@
             "_media-type": "application/vnd.ibexa.api.User+json",
             "_href": "/api/ibexa/v2/user/users/14"
         },
-        "hasPublicLink": false,
         "VersionInfo": {
             "id": 517,
             "versionNo": 1,
