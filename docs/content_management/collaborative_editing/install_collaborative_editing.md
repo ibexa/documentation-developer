@@ -25,7 +25,7 @@ If you have an arrangements with [[= product_name_base =]] to use Real-time edit
 composer require ibexa/fieldtype-richtext-rte
 ```
 
-This command adds the new real-time editing functionality to the Rich Text field type.
+This command instals also `ibexa/ckeditor-premium` package and adds the new real-time editing functionality to the Rich Text field type.
 It also modifies the permission system to account for the new functionality.
 
 ## Configure Collaborative editing
@@ -75,8 +75,6 @@ After an installation process is finished, go to `config/packages/security.yaml`
 
 ```yaml
 providers:
-        ibexa:
-            id: ibexa.security.user_provider
         shared:
             id: Ibexa\Collaboration\Security\User\ShareableLinkUserProvider
 ```
