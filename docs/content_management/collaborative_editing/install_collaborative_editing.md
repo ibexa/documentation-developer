@@ -17,6 +17,11 @@ Run the following commands to install the packages:
 ``` bash
 composer require ibexa/collaboration
 composer require ibexa/share
+```
+
+If you have an arrangements with [[= product_name_base =]] to use Real-time editing feature, you also need to install following package:
+
+``` bash
 composer require ibexa/fieldtype-richtext-rte
 ```
 
@@ -61,3 +66,30 @@ php bin/console ibexa:migrations:migrate --file=2025_08_26_10_14_shareable_user.
 ```
 
 You can now restart you application and start [working with the Collaborative editing feature]([[= user_doc =]]/content_management/collaborative_editing/work_with_collaborative_editing/).
+
+### Security configurations
+
+After an installation process is finished, go to `config/packages/security.yaml` and make following changes:
+
+- uncomment following lines with `shared` user provider under the `providers` key:
+
+```yaml
+providers:
+        ibexa:
+            id: ibexa.security.user_provider
+        shared:
+            id: Ibexa\Collaboration\Security\User\ShareableLinkUserProvider
+```
+
+- uncomment following lines under the `ibexa_shareable_link` key:
+
+```yaml
+ibexa_shareable_link:
+        request_matcher: Ibexa\Collaboration\Security\RequestMatcher\ShareableLinkRequestMatcher
+        pattern: ^/
+        provider: shared
+        stateless: true
+        user_checker: Ibexa\Core\MVC\Symfony\Security\UserChecker
+        guard:
+            authenticator: Ibexa\Collaboration\Security\Authenticator\ShareableLinkAuthenticator
+```
