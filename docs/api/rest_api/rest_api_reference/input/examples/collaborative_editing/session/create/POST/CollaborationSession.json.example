@@ -1,52 +1,52 @@
 {
     "CollaborationSession": {
         "_media-type": "application/vnd.ibexa.api.ContentSession+json",
-        "id": 34,
-        "token": "3dbddb0e-e8ac-44bf-9042-57ca0c027f51",
-        "isActive": true,
-        "hasPublicLink": false,
-        "createdAt": "2025-04-02T10:32:43+00:00",
-        "updatedAt": "2025-04-02T10:32:43+00:00",
+        "id": 2,
+        "token": "3c49fd65-4750-49f4-9592-1f66f500fcf6",
+        "createdAt": "2025-09-19T06:50:52+00:00",
+        "updatedAt": "2025-09-19T06:50:52+00:00",
         "ParticipantList": {
             "_media-type": "application/vnd.ibexa.api.ParticipantList+json",
             "Participants": [
                 {
                     "_media-type": "application/vnd.ibexa.api.InternalParticipant+json",
-                    "id": 50,
-                    "name": "Editor",
+                    "id": 2,
+                    "name": "Editor0 User0",
                     "scope": "edit",
                     "User": {
                         "_media-type": "application/vnd.ibexa.api.User+json",
-                        "_href": "/api/ibexa/v2/user/users/70"
+                        "_href": "/api/ibexa/v2/user/users/310"
                     },
-                    "createdAt": "2025-04-02T10:32:43+00:00",
-                    "updatedAt": "2025-04-02T10:32:43+00:00"
+                    "createdAt": "2025-09-19T06:50:52+00:00",
+                    "updatedAt": "2025-09-19T06:50:52+00:00"
                 },
                 {
                     "_media-type": "application/vnd.ibexa.api.ExternalParticipant+json",
-                    "id": 51,
+                    "id": 3,
                     "name": "user@link.invalid",
                     "scope": "view",
                     "email": "user@link.invalid",
-                    "createdAt": "2025-04-02T10:32:43+00:00",
-                    "updatedAt": "2025-04-02T10:32:43+00:00"
+                    "createdAt": "2025-09-19T06:50:52+00:00",
+                    "updatedAt": "2025-09-19T06:50:52+00:00"
                 }
             ]
         },
         "Owner": {
             "_media-type": "application/vnd.ibexa.api.User+json",
-            "_href": "/api/ibexa/v2/user/users/14"
+            "_href": "/api/ibexa/v2/user/users/310"
         },
+        "isActive": true,
+        "hasPublicLink": false,
         "VersionInfo": {
-            "id": 517,
+            "id": 1099,
             "versionNo": 1,
             "status": "PUBLISHED",
-            "modificationDate": "2025-03-03T14:09:56+00:00",
+            "modificationDate": "2025-09-19T06:41:23+00:00",
             "Creator": {
                 "_media-type": "application/vnd.ibexa.api.User+json",
                 "_href": "/api/ibexa/v2/user/users/14"
             },
-            "creationDate": "2025-03-03T14:09:56+00:00",
+            "creationDate": "2025-09-19T06:41:05+00:00",
             "initialLanguageCode": "eng-GB",
             "languageCodes": "eng-GB",
             "VersionTranslationInfo": {
@@ -61,13 +61,13 @@
                 "value": [
                     {
                         "_languageCode": "eng-GB",
-                        "#text": "Tags"
+                        "#text": "REST API session"
                     }
                 ]
             },
             "Content": {
                 "_media-type": "application/vnd.ibexa.api.ContentInfo+json",
-                "_href": "/api/ibexa/v2/content/objects/57"
+                "_href": "/api/ibexa/v2/content/objects/590"
             }
         },
         "Language": {
