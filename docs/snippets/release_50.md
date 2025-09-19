@@ -9,5 +9,5 @@ To learn more about all the included changes, see the full release change logs:
 - [[[= product_name_com =]] [[= version =]]](https://github.com/ibexa/commerce/releases/tag/[[= version =]])
 
 [[% if version != 'v5.0.0' %]]
-To update your application, see the [update instructions](../update_and_migration/from_4.6/update_to_5.0.md#[[= version_to_anchor(version) =]]).
+To update your application, see the [update instructions](../update_and_migration/from_5.0/update_from_5.0.md#[[= version_to_anchor(version) =]]).
 [[% endif %]]

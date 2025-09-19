@@ -75,8 +75,8 @@
         <div class="col-12 col-lg-6">
             <div class="notification notification--latest-release" id="tile2">
                 <div class="notification__content">
-                    <h2>The latest release is [[= latest_tag_4_6 =]]</h2>
-                    <div>The latest version of Ibexa DXP is [[= latest_tag_4_6 =]]. You can now update your application to the latest version.</div>
+                    <h2>The latest Ibexa DXP is v5.0 LTS</h2>
+                    <div>The latest release in v4.6 LTS branch is [[= latest_tag_4_6 =]]. You can now update your application.</div>
                 </div>
                 <div class="notification__cta">
                     <a href="release_notes/ibexa_dxp_v4.6/">Release notes</a>
@@ -89,11 +89,11 @@
         <div class="col-12 col-lg-6">
             <div class="notification notification--lts-update" id="tile3">
                 <div class="notification__content">
-                    <h2>The newest LTS Update is the Symbol attribute</h2>
-                    <div>Use it to store standarized identifiers of your products.</div>
+                    <h2>The newest LTS Update is Collaborative editing</h2>
+                    <div>Use it to let multiple users work on the same content simultaneously.</div>
                 </div>
                 <div class="notification__cta">
-                    <a href="pim/attributes/symbol_attribute_type">Learn more about this LTS Update</a>
+                    <a href="content_management/collaborative_editing/collaborative_editing_guide">Learn more about this LTS Update</a>
                     <a href="ibexa_products/editions#lts-updates">Discover other LTS Updates</a>
                 </div>
                 <div class="notification__image">

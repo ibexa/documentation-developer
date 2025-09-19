@@ -1081,3 +1081,4 @@ composer ibexa:setup --platformsh
 #### Conclusion
 
 Your project is now running the latest major version of [[= product_name =]].
+To reach the last patch version, see [Update from v5.0.x to v5.0.latest](update_from_5.0.md)
