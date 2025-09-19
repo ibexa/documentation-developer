@@ -128,3 +128,28 @@ On Commerce, run this additional update queries:
     CREATE INDEX ibexa_discount_indexed_at_idx
         ON ibexa_discount (indexed_at);
     ```
+
+## v5.0.3
+
+### Form Builder performance fix: missing indexes on form submission data
+
+In large production databases, the `ezform_form_submission_data` table may contain a lot of rows.
+Missing indexes can cause high CPU load and slow queries.
+
+Run the provided SQL upgrade script to add the missing indexes to your database:
+
+=== "MySQL"
+
+        ``` sql
+        ALTER TABLE `ezform_form_submissions` ADD INDEX `ibexa_form_fs_cid_lc` (`content_id`, `language_code`);
+        ALTER TABLE `ezform_form_submissions` ADD INDEX `ibexa_form_fs_cid_lc_cr_id_uid` (`content_id`, `language_code`, `created`, `user_id`);
+        ALTER TABLE `ezform_form_submission_data` ADD INDEX `ibexa_form_fsd_si` (`form_submission_id`);
+        ```
+
+=== "PostgreSQL"
+
+        ``` sql
+        CREATE INDEX "ibexa_form_fs_cid_lc" ON "ezform_form_submissions" ("content_id", "language_code");
+        CREATE INDEX "ibexa_form_fs_cid_lc_cr_id_uid" ON "ezform_form_submissions" ("content_id", "language_code", "created", "user_id");
+        CREATE INDEX "ibexa_form_fsd_si" ON "ezform_form_submission_data" ("form_submission_id");
+        ```
