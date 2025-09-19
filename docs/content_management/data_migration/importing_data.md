@@ -46,7 +46,7 @@ Then, the step is described by additional properties depending on its type and m
 The following data migration step modes are available:
 
 | `type`                 | `create` | `update` | `delete` | `swap`   | `trash`  |
-|------------------------|:--------:|:--------:|:--------:|:--------:|----------|
+|------------------------|:--------:|:--------:|:--------:|:--------:|:--------:|
 | `action_configuration` | &#10004; | &#10004; | &#10004; |          |          |
 | `attribute`            | &#10004; | &#10004; | &#10004; |          |          |
 | `attribute_group`      | &#10004; | &#10004; | &#10004; |          |          |
