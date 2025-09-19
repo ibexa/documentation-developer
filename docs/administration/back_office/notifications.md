@@ -63,7 +63,9 @@ Example:
 [[= include_file('code_samples/back_office/notifications/src/EventListener/ContentPublishEventListener.php') =]]
 ```
 
-To display the notification, write a renderer and tag it as a service.
+### Display single notification
+
+To display a single notification, write a renderer and tag it as a service.
 
 The example below presents a renderer that uses Twig to render a view:
 
@@ -81,6 +83,16 @@ Finally, you need to add an entry to `config/services.yaml`:
 
 ``` yaml
 [[= include_file('code_samples/back_office/notifications/config/custom_services.yaml') =]]
+```
+
+### Display notification list
+
+To display a list of notifications, expand the above renderer.
+
+The example below presents a modified renderer that uses Twig to render a list view:
+
+```php
+[[= include_file('code_samples/back_office/notifications/src/Notification/ListRenderer.php') =]]
 ```
 
 ## Notification timeout
