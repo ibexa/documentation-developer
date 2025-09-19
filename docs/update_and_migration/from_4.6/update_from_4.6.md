@@ -441,7 +441,7 @@ To use the [latest features](ibexa_dxp_v4.6.md) added to them, update them separ
     ### Discounts [[% include 'snippets/lts-update_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
 
     To install the [Discounts feature](discounts_guide.md), see the [installation instructions](install_discounts.md).
-    
+
     If you're already using it, run the following command to get the latest version of this feature:
 
 
@@ -636,7 +636,7 @@ To use the [latest features](ibexa_dxp_v4.6.md) added to them, update them separ
     ### AI Actions [[% include 'snippets/lts-update_badge.md' %]]
 
     To install the [AI actions feature](ai_actions_guide.md), see the [installation instructions](install_ai_actions.md).
-    
+
     If you're already using it, run the following command to get the latest version of this feature:
 
     ```bash
@@ -648,7 +648,7 @@ To use the [latest features](ibexa_dxp_v4.6.md) added to them, update them separ
     ### Date and time attribute [[% include 'snippets/lts-update_badge.md' %]]
 
     To install the [Date and time attribute](date_and_time.md), see the [installation instructions](date_and_time.md#installation).
-    
+
     If you're already using it, run the following command to get the latest version of this feature:
 
     ```bash
@@ -660,7 +660,7 @@ To use the [latest features](ibexa_dxp_v4.6.md) added to them, update them separ
     ### Symbol attribute [[% include 'snippets/lts-update_badge.md' %]]
 
     To install the [Symbol attribute](symbol_attribute_type.md), see the [installation instructions](symbol_attribute_type.md#installation).
-    
+
     If you're already using it, run the following command to get the latest version of this feature:
 
     ```bash
