@@ -435,7 +435,7 @@ With the product updated to the latest version, you can now finish the update pr
 
 ### Form Builder performance fix: missing indexes on form submission data
 
-In large production databases, the `ezform_form_submission_data` table may contain a lot of rows.
+In large production databases, the `ezform_form_submissions` and `ezform_form_submission_data` tables may contain a lot of rows.
 Missing indexes can cause high CPU load and slow queries.
 
 Run the provided SQL upgrade script to add the missing indexes to your database:
