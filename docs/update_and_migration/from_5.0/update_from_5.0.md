@@ -140,16 +140,12 @@ Run the provided SQL upgrade script to add the missing indexes to your database:
 
 === "MySQL"
 
-        ``` sql
-        ALTER TABLE `ezform_form_submissions` ADD INDEX `ibexa_form_fs_cid_lc` (`content_id`, `language_code`);
-        ALTER TABLE `ezform_form_submissions` ADD INDEX `ibexa_form_fs_cid_lc_cr_id_uid` (`content_id`, `language_code`, `created`, `user_id`);
-        ALTER TABLE `ezform_form_submission_data` ADD INDEX `ibexa_form_fsd_si` (`form_submission_id`);
-        ```
+    ``` sql
+    mysql -u <username> -p <password> <database_name> < vendor/ibexa/installer/upgrade/db/mysql/ibexa-5.0.2-to-5.0.3.sql
+    ```
 
 === "PostgreSQL"
 
-        ``` sql
-        CREATE INDEX "ibexa_form_fs_cid_lc" ON "ezform_form_submissions" ("content_id", "language_code");
-        CREATE INDEX "ibexa_form_fs_cid_lc_cr_id_uid" ON "ezform_form_submissions" ("content_id", "language_code", "created", "user_id");
-        CREATE INDEX "ibexa_form_fsd_si" ON "ezform_form_submission_data" ("form_submission_id");
-        ```
+    ``` sql
+    psql <database_name> < vendor/ibexa/installer/upgrade/db/postgresql/ibexa-5.0.2-to-5.0.3.sql
+    ```
