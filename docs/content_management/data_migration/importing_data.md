@@ -313,6 +313,12 @@ The following example shows how to swap content items assigned to given location
 
 The metadata keys for Location are optional.
 
+The following example shows how to trash locations.
+
+``` yaml
+[[= include_file('code_samples/data_migration/examples/trash_location.yaml') =]]
+```
+
 ### Users
 
 The following example shows how to create a user.
