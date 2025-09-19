@@ -67,6 +67,46 @@ post:
                         example: !include examples/collaborative_editing/session/GET/CollaborationSession.json.example
             404:
                 description: Error - the session does not exist.
+    patch:
+        displayName: Update session
+        description: Updates session parameters.
+        headers:
+            Accept:
+                description: If set, the updated session is returned in XML or JSON format.
+                example:  |
+                    application/vnd.ibexa.api.ContentSessionUpdate+json
+                    application/vnd.ibexa.api.CollaborationSession+xml
+            Content-Type:
+                description: The ParticipantUpdate schema encoded in XML or JSON format.
+                example:  |
+                    application/vnd.ibexa.api.CollaborationSession+json
+                    application/vnd.ibexa.api.CollaborationSession+xmlg
+        body:
+            application/vnd.ibexa.api.ParticipantUpdate+xml:
+                type: ContentSessionUpdate
+                example: !include examples/collaborative_editing/session/create/PATCH/ContentSessionUpdate.xml.example
+            application/vnd.ibexa.api.ParticipantUpdate+json:
+                type: ContentSessionUpdate
+                example: !include examples/collaborative_editing/session/create/PATCH/ContentSessionUpdate.json.example
+
+        responses:
+            200:
+                description: OK - session updated.
+                body:
+                    application/vnd.ibexa.api.SessionUpdate+xml:
+                        type: Session
+                        example: !include examples/collaborative_editing/session/create/PATCH/SessionUpdate.xml.example
+                    application/vnd.ibexa.api.SessionUpdate+json:
+                        type: Session
+                        example: !include examples/collaborative_editing/session/create/PATCH/SessionUpdate.json.example
+            400:
+                description: Error - the input does not match the input schema definition.
+            401:
+                description: Error - the user is not authorized to update the session.
+            404:
+                description: Error - the session does not exist.
+            412:
+                description: Error - the current ETag does not match with the provided one in the If-Match header.
 /{sessionId}/participants:
     get:
         displayName: Load participant list
@@ -130,6 +170,7 @@ post:
                 description: Error - a participant with the same name already exists.
             404:
                 description: Error - no participant with the given ID exists.
+    
 
 /{sessionId}/participants/{participantId}:
     patch:
