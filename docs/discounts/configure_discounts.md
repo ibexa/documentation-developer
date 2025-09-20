@@ -30,6 +30,31 @@ ibexa:
                     products_list_per_page_limit: 15
 ```
 
+## Discount re-indexing
+
+Discounts feature uses [[= product_name_base =]] Messenger to reindex discounts and product prices in the background.
+This way changes are processed efficiently without slowing down the system and disrupting the user experience.
+
+When triggered periodically, the `ibexa:discounts:reindex` command identifies discounts that require re-indexing, ensuring catalog prices always remain up-to-date.
+If there are edits to discounts that should result in changed product catalog prices, messages are dispatched to an [[= product_name_base =]] Messenger queue and consumed by a background worker.
+The worker passes the messages to the handler, which then starts the re-indexing process at the most convenient moment.
+
+To use discount re-indexing in the background:
+
+1\. Make sure that the transport layer is [defined properly](background_tasks.md#configure-package) in Messenger configuration.
+
+2\. Make sure that the worker starts together with the application to watch the transport bus:
+
+``` bash
+php bin/console messenger:consume ibexa.messenger.transport --bus=ibexa.messenger.bus
+```
+
+3\. Use a scheduler of your choice, to periodically run the following command:
+
+``` bash
+php bin/console ibexa:discounts:reindex
+```
+
 ## Rate limiting
 
 To prevent malicious actors from trying all the possible discount code combinations using brute-force attacks, the [`/discounts_codes/{cartIdentifier}/apply` endpoint](/api/rest_api/rest_api_reference/rest_api_reference.html#discount-codes-apply-discount-to-cart) is rate limited using the [Rate Limiter Symfony component]([[= symfony_doc =]]/rate_limiter.html).
