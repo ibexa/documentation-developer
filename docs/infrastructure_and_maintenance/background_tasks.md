@@ -25,7 +25,7 @@ The process works as follows:
 3. The message is placed in the transport queue.
 It can be a Doctrine table, a Redis queue, and so on.
 4. A worker process continuously reads messages from the queue, pulls them into the default bus `ibexa.messenger.bus` and assigns them to the right handler.
-5. Handler service processes the message (executes the command).
+5. A handler service processes the message (executes the command).
 You can register multiple handlers for different jobs.
 
 Here is an example of how you can extend your code and use [[= product_name_base =]] Messenger to process your tasks:
@@ -54,7 +54,7 @@ ibexa_messenger:
 
 !!! note "Supported transports"
 
-    You can define different transports, such as Redis or PostgreSQL.
+    You can define different transports: [[= product_name_base =]] Messenger has been tested to work with Redis, MySQL, PostgreSQL.
     For more information, see [Symfony Messenger documentation](https://symfony.com/doc/current/messenger.html#transports-async-queued-messages) or [Symfony Messenger tutorial](https://symfonycasts.com/screencast/messenger/install#installing-messenger).
 
 ### Start worker

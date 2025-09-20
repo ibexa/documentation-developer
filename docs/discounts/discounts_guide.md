@@ -118,9 +118,9 @@ You can also limit the usage per customer:
 Discounts affect the prices shown in the product catalog.
 When a discount is created, updated, or expires, the product catalog must be re-indexed to ensure that the search results and product listings display correct prices.
 
-To prevent performance disruptions which could occur if re-indexing occurred immediately, [[= product_name =]] uses the [Ibexa Messenger](background_tasks.md)'s background queue to process re-indexing tasks in the background.
+To prevent performance disruptions which could occur if re-indexing occurred immediately, [[= product_name =]] uses the [[= product_name_base =]] Messenger's [background queue](background_tasks.md) to process re-indexing tasks in the background.
 
-By [configuring the process](configure_discounts.md#discount-re-indexing), you can decide when is the most convenient time to perform re-indexing and improve your application's overall stability.
+By [configuring the process](configure_discounts.md#discount-re-indexing), you ensure that re-indexing is performed at the most convenient time to maintain your application's overall stability.
 
 ## Capabilities
 

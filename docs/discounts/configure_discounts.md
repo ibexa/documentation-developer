@@ -41,7 +41,7 @@ The worker passes the messages to the handler, which then starts the re-indexing
 
 To use discount re-indexing in the background:
 
-1\. Make sure that the transport layer is [defined properly](background_tasks.md#configure-package) in Messenger configuration.
+1\. Make sure that the transport layer is [defined properly](background_tasks.md#configure-package) in [[= product_name_base =]] Messenger configuration.
 
 2\. Make sure that the worker starts together with the application to watch the transport bus:
 
