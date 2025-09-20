@@ -24,7 +24,7 @@ The process works as follows:
 2. The message is wrapped in an envelope, which may contain additional metadata, called stamps, for example, `DeduplicateStamp`.
 3. The message is placed in the transport queue.
 It can be a Doctrine table, a Redis queue, and so on.
-4. A worker process ontinuously reads messages from the queue, pulls them into the default bus `ibexa.messenger.bus` and assigns them to the right haandler.
+4. A worker process continuously reads messages from the queue, pulls them into the default bus `ibexa.messenger.bus` and assigns them to the right handler.
 5. Handler service processes the message (executes the command).
 You can register multiple handlers for different jobs.
 
@@ -54,7 +54,7 @@ ibexa_messenger:
 
 !!! note "Supported transports"
 
-    You can define different transports, such as Redis or PostgeSQL.
+    You can define different transports, such as Redis or PostgreSQL.
     For more information, see [Symfony Messenger documentation](https://symfony.com/doc/current/messenger.html#transports-async-queued-messages) or [Symfony Messenger tutorial](https://symfonycasts.com/screencast/messenger/install#installing-messenger).
 
 ### Start worker

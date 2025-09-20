@@ -36,7 +36,7 @@ Discounts feature uses [[= product_name_base =]] Messenger to reindex discounts 
 This way changes are processed efficiently without slowing down the system and disrupting the user experience.
 
 When triggered periodically, the `ibexa:discounts:reindex` command identifies discounts that require re-indexing, ensuring catalog prices always remain up-to-date.
-If there are edits to discounts that should result in changed product catalog prices, messages are dispatched to an [[= product_name_base =]] Messenger queue and consumed by a background worker.
+If there are edits to discounts that should result in changed product catalog prices, messages are dispatched to the [[= product_name_base =]] Messenger's queue and consumed by a background worker.
 The worker passes the messages to the handler, which then starts the re-indexing process at the most convenient moment.
 
 To use discount re-indexing in the background:
@@ -49,7 +49,7 @@ To use discount re-indexing in the background:
 php bin/console messenger:consume ibexa.messenger.transport --bus=ibexa.messenger.bus
 ```
 
-3\. Use a scheduler of your choice, to periodically run the following command:
+3\. Use a scheduler of your choice to periodically run the following command:
 
 ``` bash
 php bin/console ibexa:discounts:reindex

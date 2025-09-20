@@ -116,7 +116,7 @@ You can also limit the usage per customer:
 ### Discount re-indexing
 
 Discounts affect the prices shown in the product catalog.
-When a discount is created, updated, or expires, the product catalog must be re-indexed to ensure that search results and product listings display the correct price.
+When a discount is created, updated, or expires, the product catalog must be re-indexed to ensure that the search results and product listings display correct prices.
 
 To prevent performance disruptions which could occur if re-indexing occurred immediately, [[= product_name =]] uses the [Ibexa Messenger](background_tasks.md)'s background queue to process re-indexing tasks in the background.
 
