@@ -438,7 +438,12 @@ To use the [latest features](ibexa_dxp_v4.6.md) added to them, update them separ
 
 === "Discounts"
 
-    Run the following command to get the latest version:
+    ### Discounts [[% include 'snippets/lts-update_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
+
+    To install the [Discounts feature](discounts_guide.md), see the [installation instructions](install_discounts.md).
+
+    If you're already using it, run the following command to get the latest version of this feature:
+
 
     ```bash
     composer require ibexa/discounts:[[= latest_tag_4_6 =]] ibexa/discounts-codes:[[= latest_tag_4_6 =]]
@@ -626,9 +631,13 @@ To use the [latest features](ibexa_dxp_v4.6.md) added to them, update them separ
             ON ibexa_discount (indexed_at);
         ```
 
-=== "AI actions"
+=== "AI Actions"
 
-    Run the following command to get the latest version:
+    ### AI Actions [[% include 'snippets/lts-update_badge.md' %]]
+
+    To install the [AI actions feature](ai_actions_guide.md), see the [installation instructions](install_ai_actions.md).
+
+    If you're already using it, run the following command to get the latest version of this feature:
 
     ```bash
     composer require ibexa/connector-ai:[[= latest_tag_4_6 =]] ibexa/connector-openai:[[= latest_tag_4_6 =]]
@@ -636,8 +645,24 @@ To use the [latest features](ibexa_dxp_v4.6.md) added to them, update them separ
 
 === "Date and time attribute"
 
-    Run the following command to get the latest version:
+    ### Date and time attribute [[% include 'snippets/lts-update_badge.md' %]]
+
+    To install the [Date and time attribute](date_and_time.md), see the [installation instructions](date_and_time.md#installation).
+
+    If you're already using it, run the following command to get the latest version of this feature:
 
     ```bash
     composer require ibexa/product-catalog-date-time-attribute:[[= latest_tag_4_6 =]]
+    ```
+
+=== "Symbol attribute"
+
+    ### Symbol attribute [[% include 'snippets/lts-update_badge.md' %]]
+
+    To install the [Symbol attribute](symbol_attribute_type.md), see the [installation instructions](symbol_attribute_type.md#installation).
+
+    If you're already using it, run the following command to get the latest version of this feature:
+
+    ```bash
+    composer require ibexa/product-catalog-symbol-attribute:[[= latest_tag_4_6 =]]
     ```
