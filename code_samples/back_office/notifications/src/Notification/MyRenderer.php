@@ -8,13 +8,15 @@ use Ibexa\Contracts\Core\Repository\Values\Notification\Notification;
 use Ibexa\Core\Notification\Renderer\NotificationRenderer;
 use Ibexa\Core\Notification\Renderer\TypedNotificationRendererInterface;
 use Symfony\Component\Routing\RouterInterface;
+use Symfony\Contracts\Translation\TranslatorInterface;
 use Twig\Environment;
 
 class MyRenderer implements NotificationRenderer, TypedNotificationRendererInterface
 {
     public function __construct(
         protected Environment $twig,
-        protected RouterInterface $router
+        protected RouterInterface $router,
+        protected TranslatorInterface $translator
     ) {
     }
 
@@ -22,7 +24,7 @@ class MyRenderer implements NotificationRenderer, TypedNotificationRendererInter
     {
         return $this->twig->render('@ibexadesign/notification.html.twig', [
             'notification' => $notification,
-            'template_to_extend' => $templateToExtend,
+            'template_to_extend' => '@ibexadesign/account/notifications/list_item.html.twig',
         ]);
     }
 
@@ -35,8 +37,6 @@ class MyRenderer implements NotificationRenderer, TypedNotificationRendererInter
         return null;
     }
 
-    }
-    
     public function getTypeLabel(): string
     {
         return /** @Desc("Workflow stage changed") */
