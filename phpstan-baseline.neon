@@ -241,16 +241,10 @@ parameters:
 			path: code_samples/back_office/images/src/PlaceholderProvider.php
 
 		-
-			message: '#^Method App\\Security\\Limitation\\Mapper\\CustomLimitationFormMapper\:\:mapLimitationForm\(\) has parameter \$form with generic interface Symfony\\Component\\Form\\FormInterface but does not specify its types\: TData$#'
-			identifier: missingType.generics
+			message: '#^Parameter \#1 \$hasAccess of method Ibexa\\Contracts\\AdminUi\\Permission\\PermissionCheckerInterface\:\:getRestrictions\(\) expects array\<mixed\>, array\<array\<string, array\<Ibexa\\Contracts\\Core\\Repository\\Values\\User\\Policy\>\|Ibexa\\Contracts\\Core\\Repository\\Values\\User\\Limitation\|null\>\>\|bool given\.$#'
+			identifier: argument.type
 			count: 1
-			path: code_samples/back_office/limitation/src/Security/Limitation/Mapper/CustomLimitationFormMapper.php
-
-		-
-			message: '#^Return type \(bool\) of method App\\Security\\Limitation\\Mapper\\CustomLimitationValueMapper\:\:mapLimitationValue\(\) should be compatible with return type \(array\<mixed\>\) of method Ibexa\\AdminUi\\Limitation\\LimitationValueMapperInterface\:\:mapLimitationValue\(\)$#'
-			identifier: method.childReturnType
-			count: 1
-			path: code_samples/back_office/limitation/src/Security/Limitation/Mapper/CustomLimitationValueMapper.php
+			path: code_samples/back_office/limitation/src/Controller/CustomController.php
 
 		-
 			message: '#^Method App\\Security\\MyPolicyProvider\:\:getFiles\(\) return type has no value type specified in iterable type array\.$#'
