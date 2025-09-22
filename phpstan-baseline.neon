@@ -265,6 +265,24 @@ parameters:
 			path: code_samples/back_office/menu/menu_item/src/EventSubscriber/MyMenuSubscriber.php
 
 		-
+			message: '#^Access to an undefined property App\\Notification\\ListRenderer\:\:\$translator\.$#'
+			identifier: property.notFound
+			count: 1
+			path: code_samples/back_office/notifications/src/Notification/ListRenderer.php
+
+		-
+			message: '#^Access to an undefined property App\\Notification\\MyRenderer\:\:\$translator\.$#'
+			identifier: property.notFound
+			count: 1
+			path: code_samples/back_office/notifications/src/Notification/MyRenderer.php
+
+		-
+			message: '#^Undefined variable\: \$templateToExtend$#'
+			identifier: variable.undefined
+			count: 1
+			path: code_samples/back_office/notifications/src/Notification/MyRenderer.php
+
+		-
 			message: '#^Cannot call method getValue\(\) on Ibexa\\Contracts\\FieldTypePage\\FieldType\\LandingPage\\Model\\Attribute\|null\.$#'
 			identifier: method.nonObject
 			count: 1
@@ -533,6 +551,42 @@ parameters:
 			identifier: method.nonObject
 			count: 1
 			path: code_samples/front/shop/storefront/src/EventSubscriber/BreadcrumbsMenuSubscriber.php
+
+		-
+			message: '#^Call to method addCriterion\(\) on an unknown class Ibexa\\Contracts\\Core\\Repository\\Values\\NotificationQuery\.$#'
+			identifier: class.notFound
+			count: 3
+			path: code_samples/notifications/Src/Query/search.php
+
+		-
+			message: '#^Instantiated class DateCreated not found\.$#'
+			identifier: class.notFound
+			count: 1
+			path: code_samples/notifications/Src/Query/search.php
+
+		-
+			message: '#^Instantiated class Ibexa\\Contracts\\Core\\Repository\\Values\\NotificationQuery not found\.$#'
+			identifier: class.notFound
+			count: 1
+			path: code_samples/notifications/Src/Query/search.php
+
+		-
+			message: '#^Instantiated class Status not found\.$#'
+			identifier: class.notFound
+			count: 1
+			path: code_samples/notifications/Src/Query/search.php
+
+		-
+			message: '#^Instantiated class Type not found\.$#'
+			identifier: class.notFound
+			count: 1
+			path: code_samples/notifications/Src/Query/search.php
+
+		-
+			message: '#^Variable \$this might not be defined\.$#'
+			identifier: variable.undefined
+			count: 1
+			path: code_samples/notifications/Src/Query/search.php
 
 		-
 			message: '#^Method App\\Block\\Attribute\\MyStringAttributeMapper\:\:map\(\) has parameter \$constraints with no value type specified in iterable type array\.$#'

@@ -34,8 +34,6 @@ class MyRenderer implements NotificationRenderer, TypedNotificationRendererInter
 
         return null;
     }
-
-    }
     
     public function getTypeLabel(): string
     {
