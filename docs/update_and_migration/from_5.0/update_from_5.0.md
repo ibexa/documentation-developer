@@ -131,7 +131,7 @@ On Commerce, run this additional update queries:
 
 ## v5.0.3
 
-### Form Builder performance fix: missing indexes on form submission data
+### Form Builder performance fix: missing indexes on form submission data [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
 
 In large production databases, the `ibexa_form_submission` and `ibexa_form_submission_data` tables may contain a lot of rows.
 Missing indexes can cause high CPU load and slow queries.
