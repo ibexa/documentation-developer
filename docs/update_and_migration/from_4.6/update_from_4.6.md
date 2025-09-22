@@ -664,5 +664,5 @@ To use the [latest features](ibexa_dxp_v4.6.md) added to them, update them separ
     If you're already using it, run the following command to get the latest version of this feature:
 
     ```bash
-    composer require ibexa/product-catalog-date-time-attribute:[[= latest_tag_4_6 =]]
+    composer require ibexa/product-catalog-symbol-attribute:[[= latest_tag_4_6 =]]
     ```
