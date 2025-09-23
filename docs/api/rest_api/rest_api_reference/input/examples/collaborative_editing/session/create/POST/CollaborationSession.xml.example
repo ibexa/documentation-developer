@@ -42,7 +42,7 @@
         <names>
             <value languageCode="eng-GB">Multimedia</value>
         </names>
-        <Content media-type="application/vnd.ibexa.api.ContentInfo+xml" href="/api/ibexa/v2/content/objects/51"/>
+        <Content media-type="application/vnd.ibexa.api.ContentInfo+xml" href="/api/ibexa/v2/content/objects/57"/>
     </VersionInfo>
     <Language media-type="application/vnd.ibexa.api.Language+xml" href="/api/ibexa/v2/languages/eng-GB">
         <languageId>2</languageId>

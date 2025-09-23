@@ -11,7 +11,7 @@
                     "_media-type": "application\/vnd.ibexa.api.InternalParticipantCreate+json",
                     "User": {
                         "_media-type": "application/vnd.ibexa.api.User+json",
-                        "_href": "/api/ibexa/v2/user/users/14"
+                        "_href": "/api/ibexa/v2/user/users/70"
                     },
                     "scope": "view"
                 },

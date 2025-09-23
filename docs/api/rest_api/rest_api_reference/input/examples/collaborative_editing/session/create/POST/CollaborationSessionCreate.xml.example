@@ -8,7 +8,7 @@
         <ParticipantCreate media-type="application/vnd.ibexa.api.InternalParticipantCreate+xml">
             <scope>edit</scope>
             <User media-type="application/vnd.ibexa.api.User+xml"
-                  href="/api/ibexa/v2/user/users/1470
+                  href="/api/ibexa/v2/user/users/70
             >
             </User>
         </ParticipantCreate>
