@@ -177,8 +177,8 @@ ibexa_fieldtype_page:
 ```
 
 - `help` - defines a help message which is rendered below the field.
-- `help_attr` - sets the HTML attributes for the element which displays the help message.
-- `help_html` - set this option to `true` to disable escaping the contents of the `help` option when rendering in the template.
+- `help.attr` - sets the HTML attributes for the element which displays the help message.
+- `help.html` - set this option to `true` to disable escaping the contents of the `help` option when rendering in the template.
 
 ### Help message in nested attributes
 
