@@ -27,9 +27,7 @@
 
         // Apply badge styling
         document.querySelectorAll('.api-content [data-section-id] h2 [type="primary"]').forEach(el => {
-          console.log(el);
           const color = el.getAttribute('color');
-          console.log(color);
           el.style.backgroundColor = "#FFF";
           el.style.border = "1px solid " + color;
           el.style.padding = "1px 8px";
