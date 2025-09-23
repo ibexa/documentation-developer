@@ -19,9 +19,7 @@ Real-time collaboration syncs changes instantly and shows user avatars and color
 This feature also introduces new dashboard tabs for managing shared drafts and joining collaboration sessions easily.
 
 [[= cards([
-"content_management/collaborative_editing/collaborative_editing",
-"content_management/collaborative_editing/collaborative_editing_api",
-"content_management/collaborative_editing/invitation_api",
-"content_management/collaborative_editing/session_api",
-"content_management/collaborative_editing/collaborative_editing_guide"
+"content_management/collaborative_editing/collaborative_editing_guide",
+"content_management/collaborative_editing/install_collaborative_editing",
+"content_management/collaborative_editing/collaborative_editing_api"
 ], columns=3) =]]

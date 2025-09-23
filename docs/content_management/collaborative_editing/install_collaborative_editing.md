@@ -32,6 +32,34 @@ It also modifies the permission system to account for the new functionality.
 
 Once the packages are installed, before you can start Collaborative editing feature, you must enable it by following these instructions.
 
+### Configuration
+
+You can configure Collaborative editing per [Repository](repository_configuration.md).
+
+Under `ibexa.repositories.<repository_name>.collaboration` [configuration key](configuration.md#configuration-files), indicate the settings for collaboration:
+
+``` yaml
+ibexa:
+    repositories:
+        <repository_name>:
+            collaboration:
+                participants:
+                    allowed_types:
+                        - internal
+                        - external
+                    auto_invite: <value>
+                session:
+                    public_link_enabled: <value>
+```
+
+The following setiings are available:
+
+- participants:
+    - `allowed_types` - defines allowed user types, values: `internal`, `external`, you can set one, both, or none of the values
+    - `auto_invite` - determines whether invitations should be sent automatically when inviting someone to a session, default value: `true`, available values: `true`, `false`
+- session:
+    - `public_link_enabled` - determines whether the public link is available, default value: `false`, available values: `true`, `false`
+
 ### Add tables to the database
 
 To add the tables to the database, run the following commands:
