@@ -107,11 +107,7 @@ post:
                 description: Error - the session does not exist.
             412:
                 description: Error - the current ETag does not match with the provided one in the If-Match header.
-<<<<<<< HEAD
 /{sessionToken}/participants:
-=======
-/{sessionId}/participants:
->>>>>>> 4b9d881fa945112fde19d619e21bd8be8c3884ba
     get:
         displayName: Load participant list
         description: Loads participant list.
@@ -176,11 +172,7 @@ post:
                 description: Error - no participant with the given ID exists.
     
 
-<<<<<<< HEAD
 /{sessionToken}/participants/{participantId}:
-=======
-/{sessionId}/participants/{participantId}:
->>>>>>> 4b9d881fa945112fde19d619e21bd8be8c3884ba
     patch:
         displayName: Update participant
         description: Updates a participant.
@@ -236,11 +228,7 @@ post:
                 description: Error - the user is the same as the authenticated participant.
             404:
                 description: Error - the participant does not exist.
-<<<<<<< HEAD
 /{sessionToken}/invitations:
-=======
-/{sessionId}/invitations:
->>>>>>> 4b9d881fa945112fde19d619e21bd8be8c3884ba
     post:
         displayName: Create invitation
         description: Creates an invitation to a session.
@@ -278,28 +266,4 @@ post:
             403:
                 description: Error - an invitation with the same ID already exists.
             404:
-<<<<<<< HEAD
                 description: Error - no session with the given ID exists.
-=======
-                description: Error - no session with the given ID exists.
-/{sessionId}/link:
-    get:
-        displayName: Retrieve collaboration session link.
-        description: Get the collaboration session link.
-        headers:
-            Accept:
-                example: |
-                    application/vnd.ibexa.api.CollaborationSession+xml
-                    application/vnd.ibexa.api.CollaborationSession+json
-        responses:
-            200:
-                body:
-                    application/vnd.ibexa.api.Session+xml:
-                        type: Session
-                        example: !include examples/collaborative_editing/session/GET/Session.xml.example
-                    application/vnd.ibexa.api.Session+json:
-                        type: Session
-                        example: !include examples/collaborative_editing/session/GET/Session.json.example
-            404:
-                description: Error - the session does not exist.
->>>>>>> 4b9d881fa945112fde19d619e21bd8be8c3884ba
