@@ -155,6 +155,7 @@ post:
                 example: !include examples/collaborative_editing/participant/add/POST/ParticipantListCreate.json.example
         responses:
             201:
+                description: Participant added.
                 body:
                     application/vnd.ibexa.api.ParticipantList+xml:
                         type: ParticipantList
@@ -252,6 +253,7 @@ post:
                 example: !include examples/collaborative_editing/session/create/POST/InvitationCreate.json.example
         responses:
             201:
+                description: Invitation created.
                 body:
                     application/vnd.ibexa.api.Invitation+xml:
                         type: Invitation
