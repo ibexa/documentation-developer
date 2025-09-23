@@ -43650,7 +43650,7 @@ application/vnd.ibexa.api.CollaborationSession+xmlg
 </div>
                     <div class="sticky px-3">
         <div class="sticky__body border-bottom border-top py-1 ">
-            <h4 id="/collaboration/sessions/{sessionid}/participants" class="heading text-gray">/collaboration/sessions/{sessionId}/participants</h4>
+            <h4 id="/collaboration/sessions/{sessiontoken}/participants" class="heading text-gray">/collaboration/sessions/{sessionToken}/participants</h4>
             <ul class="list-unstyled d-inline-flex mb-0">
                                     <li class="pr-3 ">
                                                 <a href="#collaborative-editing-load-participant-list">
@@ -43683,7 +43683,7 @@ application/vnd.ibexa.api.CollaborationSession+xmlg
         <div class="col-lg-6">
             <p class="text-break">
                 <span data-field="method" class="badge badge--sm badge--get">GET</span>
-                <span data-field="url">/collaboration/sessions/{sessionId}/participants</span>
+                <span data-field="url">/collaboration/sessions/{sessionToken}/participants</span>
             </p>
             <p data-field="body"><p>Loads participant list.</p>
 </p>
@@ -43775,7 +43775,7 @@ application/vnd.ibexa.api.ParticipantList+json
                 <tbody>
                                     <tr>
                         <td>
-                                                        <a href="#collaboration-sessions-sessionid-participants-get-response-200"
+                                                        <a href="#collaboration-sessions-sessiontoken-participants-get-response-200"
                                class="text-ocean-blue ">
                                 200
                             </a>
@@ -43827,28 +43827,28 @@ application/vnd.ibexa.api.ParticipantList+json
                                                 <div class="request">
     </div>
                                                                     <div class="response">
-                                                        <div class="pb-3 response__code" id="collaboration-sessions-sessionid-participants-get-response-200">
+                                                        <div class="pb-3 response__code" id="collaboration-sessions-sessiontoken-participants-get-response-200">
                     <div class="d-flex justify-content-between align-items-baseline">
-                        <ul class="nav nav-tabs border-bottom-0" id="collaboration-sessions-sessionid-participants-get-response-200Tab" role="tablist">
+                        <ul class="nav nav-tabs border-bottom-0" id="collaboration-sessions-sessiontoken-participants-get-response-200Tab" role="tablist">
                                                                                         <li class="nav-item">
                                     <a href="#" class="nav-link disabled">Responses</a>
                                 </li>
                                                                                                         <li class="nav-item">
-                                        <a class="nav-link active text-gray" id="collaboration-sessions-sessionid-participants-get-response-200-xml-tab"
+                                        <a class="nav-link active text-gray" id="collaboration-sessions-sessiontoken-participants-get-response-200-xml-tab"
                                            data-toggle="tab"
-                                           href="#collaboration-sessions-sessionid-participants-get-response-200-xml"
+                                           href="#collaboration-sessions-sessiontoken-participants-get-response-200-xml"
                                            role="tab"
-                                           aria-controls="collaboration-sessions-sessionid-participants-get-response-200-xml"
+                                           aria-controls="collaboration-sessions-sessiontoken-participants-get-response-200-xml"
                                            aria-selected="true">
                                             xml
                                         </a>
                                     </li>
                                                                                                         <li class="nav-item">
-                                        <a class="nav-link  text-gray" id="collaboration-sessions-sessionid-participants-get-response-200-json-tab"
+                                        <a class="nav-link  text-gray" id="collaboration-sessions-sessiontoken-participants-get-response-200-json-tab"
                                            data-toggle="tab"
-                                           href="#collaboration-sessions-sessionid-participants-get-response-200-json"
+                                           href="#collaboration-sessions-sessiontoken-participants-get-response-200-json"
                                            role="tab"
-                                           aria-controls="collaboration-sessions-sessionid-participants-get-response-200-json"
+                                           aria-controls="collaboration-sessions-sessiontoken-participants-get-response-200-json"
                                            aria-selected="false">
                                             json
                                         </a>
@@ -43859,19 +43859,19 @@ application/vnd.ibexa.api.ParticipantList+json
                             </div>
                                             </div>
                                                                 <div class="example position-relative border p-3 mb-3">
-    <div class="tab-content" id="collaboration-sessions-sessionid-participants-get-response-200Content">
-                                                    <div class="tab-pane fade show active" id="collaboration-sessions-sessionid-participants-get-response-200-xml" role="tabpanel"
-                     aria-labelledby="collaboration-sessions-sessionid-participants-get-response-200-xml-tab">
+    <div class="tab-content" id="collaboration-sessions-sessiontoken-participants-get-response-200Content">
+                                                    <div class="tab-pane fade show active" id="collaboration-sessions-sessiontoken-participants-get-response-200-xml" role="tabpanel"
+                     aria-labelledby="collaboration-sessions-sessiontoken-participants-get-response-200-xml-tab">
                                                                                             <div class="position-relative  ">
                                                         <p class="mb-0 icon icon--copy-clipboard">
                                 <i class="material-icons-outlined clipboard"
                                    data-toggle="tooltip"
                                    data-placement="top"
-                                   data-clipboard-target="#Sa6f27fc6a7ce007f38d909a283bb1386024cdd9cbff60808b59894da63ce6115"
+                                   data-clipboard-target="#S185b39a0f8fac1a5a7d615e8418095a27584ca4cec98322e86e7bc534487520f"
                                    title="Copy to clipboard">file_copy
                                 </i>
                             </p>
-                            <pre id="Sa6f27fc6a7ce007f38d909a283bb1386024cdd9cbff60808b59894da63ce6115" class="example__code-wrapper">
+                            <pre id="S185b39a0f8fac1a5a7d615e8418095a27584ca4cec98322e86e7bc534487520f" class="example__code-wrapper">
                                 <code class="xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
 &lt;ParticipantList media-type=&quot;application/vnd.ibexa.api.ParticipantList+xml&quot;&gt;
     &lt;Participant media-type=&quot;application/vnd.ibexa.api.InternalParticipant+xml&quot;&gt;
@@ -43894,20 +43894,20 @@ application/vnd.ibexa.api.ParticipantList+json
      </code>
                             </pre>
                         </div>
-                        <a href="" data-toggle="modal" data-target="#collaboration-sessions-sessionid-participants-get-response-200Modal" class="btn btn--example-view-more text-center">View more</a>
+                        <a href="" data-toggle="modal" data-target="#collaboration-sessions-sessiontoken-participants-get-response-200Modal" class="btn btn--example-view-more text-center">View more</a>
                                     </div>
-                                            <div class="tab-pane fade " id="collaboration-sessions-sessionid-participants-get-response-200-json" role="tabpanel"
-                     aria-labelledby="collaboration-sessions-sessionid-participants-get-response-200-json-tab">
+                                            <div class="tab-pane fade " id="collaboration-sessions-sessiontoken-participants-get-response-200-json" role="tabpanel"
+                     aria-labelledby="collaboration-sessions-sessiontoken-participants-get-response-200-json-tab">
                                                                                             <div class="position-relative  ">
                                                         <p class="mb-0 icon icon--copy-clipboard">
                                 <i class="material-icons-outlined clipboard"
                                    data-toggle="tooltip"
                                    data-placement="top"
-                                   data-clipboard-target="#S0e181317cc5e0fe448de26577489ca3bdbac62f5127732659e63514dc5376c57"
+                                   data-clipboard-target="#Sc139b8649fa3ab475264a7f7753c27cd7d66890b90ce4168732143235403da0f"
                                    title="Copy to clipboard">file_copy
                                 </i>
                             </p>
-                            <pre id="S0e181317cc5e0fe448de26577489ca3bdbac62f5127732659e63514dc5376c57" class="example__code-wrapper">
+                            <pre id="Sc139b8649fa3ab475264a7f7753c27cd7d66890b90ce4168732143235403da0f" class="example__code-wrapper">
                                 <code class="json">{
     &quot;ParticipantList&quot;: {
         &quot;_media-type&quot;: &quot;application/vnd.ibexa.api.ParticipantList+json&quot;,
@@ -43935,15 +43935,15 @@ application/vnd.ibexa.api.ParticipantList+json
    </code>
                             </pre>
                         </div>
-                        <a href="" data-toggle="modal" data-target="#collaboration-sessions-sessionid-participants-get-response-200Modal" class="btn btn--example-view-more text-center">View more</a>
+                        <a href="" data-toggle="modal" data-target="#collaboration-sessions-sessiontoken-participants-get-response-200Modal" class="btn btn--example-view-more text-center">View more</a>
                                     </div>
                         </div>
 </div>
-                        <div class="modal fade" id="collaboration-sessions-sessionid-participants-get-response-200Modal" tabindex="-1" role="dialog" aria-labelledby="collaboration-sessions-sessionid-participants-get-response-200Title" aria-hidden="true">
+                        <div class="modal fade" id="collaboration-sessions-sessiontoken-participants-get-response-200Modal" tabindex="-1" role="dialog" aria-labelledby="collaboration-sessions-sessiontoken-participants-get-response-200Title" aria-hidden="true">
     <div class="modal-dialog modal-xl" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <p class="modal-title" id="collaboration-sessions-sessionid-participants-get-response-200Title">
+                <p class="modal-title" id="collaboration-sessions-sessiontoken-participants-get-response-200Title">
                     <span data-field="method" class="badge badge--sm badge--get">GET</span>
                     Load participant list
                 </p>
@@ -43953,18 +43953,18 @@ application/vnd.ibexa.api.ParticipantList+json
             </div>
             <div class="modal-body">
                 <div class="d-flex justify-content-between align-items-baseline">
-                    <ul class="nav nav-tabs border-bottom-0" id="collaboration-sessions-sessionid-participants-get-response-200ModalTab" role="tablist">
+                    <ul class="nav nav-tabs border-bottom-0" id="collaboration-sessions-sessiontoken-participants-get-response-200ModalTab" role="tablist">
                                                     <li class="nav-item">
                                 <a href="#" class="nav-link disabled">
                                     Responses
                                 </a>
                             </li>
                                                                                             <li class="nav-item">
-                                    <a class="nav-link active text-gray" id="collaboration-sessions-sessionid-participants-get-response-200-xml-modal-tab"
+                                    <a class="nav-link active text-gray" id="collaboration-sessions-sessiontoken-participants-get-response-200-xml-modal-tab"
                                        data-toggle="tab"
-                                       href="#collaboration-sessions-sessionid-participants-get-response-200-xml-modal"
+                                       href="#collaboration-sessions-sessiontoken-participants-get-response-200-xml-modal"
                                        role="tab"
-                                       aria-controls="collaboration-sessions-sessionid-participants-get-response-200-xml-modal"
+                                       aria-controls="collaboration-sessions-sessiontoken-participants-get-response-200-xml-modal"
                                        aria-selected="true">
                                         xml
                                     </a>
@@ -43973,11 +43973,11 @@ application/vnd.ibexa.api.ParticipantList+json
 
                                 </li>
                                                                                             <li class="nav-item">
-                                    <a class="nav-link  text-gray" id="collaboration-sessions-sessionid-participants-get-response-200-json-modal-tab"
+                                    <a class="nav-link  text-gray" id="collaboration-sessions-sessiontoken-participants-get-response-200-json-modal-tab"
                                        data-toggle="tab"
-                                       href="#collaboration-sessions-sessionid-participants-get-response-200-json-modal"
+                                       href="#collaboration-sessions-sessiontoken-participants-get-response-200-json-modal"
                                        role="tab"
-                                       aria-controls="collaboration-sessions-sessionid-participants-get-response-200-json-modal"
+                                       aria-controls="collaboration-sessions-sessiontoken-participants-get-response-200-json-modal"
                                        aria-selected="false">
                                         json
                                     </a>
@@ -43991,20 +43991,20 @@ application/vnd.ibexa.api.ParticipantList+json
                         </div>
                                     </div>
                 <div class="example position-relative border p-3 mb-3">
-                    <div class="tab-content" id="collaboration-sessions-sessionid-participants-get-response-200ModalContent">
+                    <div class="tab-content" id="collaboration-sessions-sessiontoken-participants-get-response-200ModalContent">
                                                     <div class="tab-pane fade show active"
-                                 id="collaboration-sessions-sessionid-participants-get-response-200-xml-modal" role="tabpanel"
-                                 aria-labelledby="collaboration-sessions-sessionid-participants-get-response-200-xml-modal-tab">
+                                 id="collaboration-sessions-sessiontoken-participants-get-response-200-xml-modal" role="tabpanel"
+                                 aria-labelledby="collaboration-sessions-sessiontoken-participants-get-response-200-xml-modal-tab">
                                                                                                                                             <div class="position-relative  ">
                                                                                 <p class="mb-0 icon icon--copy-clipboard">
                                             <i class="material-icons-outlined clipboard"
                                                data-toggle="tooltip"
                                                data-placement="top"
-                                               data-clipboard-target="#M51a18fd7fd27a402e738129507fdeb94773910d9c9e0f75b775e4473672708fd"
+                                               data-clipboard-target="#M15ca5d826fe8563ff5bfe8599a57f803c69b701d970c5f9c129b5fcb905ca15b"
                                                title="Copy to clipboard">file_copy
                                             </i>
                                         </p>
-                                        <pre id="M51a18fd7fd27a402e738129507fdeb94773910d9c9e0f75b775e4473672708fd">
+                                        <pre id="M15ca5d826fe8563ff5bfe8599a57f803c69b701d970c5f9c129b5fcb905ca15b">
                                             <code class="xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
 &lt;ParticipantList media-type=&quot;application/vnd.ibexa.api.ParticipantList+xml&quot;&gt;
     &lt;Participant media-type=&quot;application/vnd.ibexa.api.InternalParticipant+xml&quot;&gt;
@@ -44052,18 +44052,18 @@ application/vnd.ibexa.api.ParticipantList+json
                                     </div>
                                                             </div>
                                                     <div class="tab-pane fade "
-                                 id="collaboration-sessions-sessionid-participants-get-response-200-json-modal" role="tabpanel"
-                                 aria-labelledby="collaboration-sessions-sessionid-participants-get-response-200-json-modal-tab">
+                                 id="collaboration-sessions-sessiontoken-participants-get-response-200-json-modal" role="tabpanel"
+                                 aria-labelledby="collaboration-sessions-sessiontoken-participants-get-response-200-json-modal-tab">
                                                                                                                                             <div class="position-relative  ">
                                                                                 <p class="mb-0 icon icon--copy-clipboard">
                                             <i class="material-icons-outlined clipboard"
                                                data-toggle="tooltip"
                                                data-placement="top"
-                                               data-clipboard-target="#Md964e5021438332fc36cc625ea651980259652722f264c5bd97af6a9fc121d2e"
+                                               data-clipboard-target="#M6e6b6e1718768a946c0be0b8d6e088014a126ebebc31de2b468fedae1bfed7d5"
                                                title="Copy to clipboard">file_copy
                                             </i>
                                         </p>
-                                        <pre id="Md964e5021438332fc36cc625ea651980259652722f264c5bd97af6a9fc121d2e">
+                                        <pre id="M6e6b6e1718768a946c0be0b8d6e088014a126ebebc31de2b468fedae1bfed7d5">
                                             <code class="json">{
     &quot;ParticipantList&quot;: {
         &quot;_media-type&quot;: &quot;application/vnd.ibexa.api.ParticipantList+json&quot;,
@@ -44153,7 +44153,7 @@ application/vnd.ibexa.api.ParticipantList+json
         <div class="col-lg-6">
             <p class="text-break">
                 <span data-field="method" class="badge badge--sm badge--post">POST</span>
-                <span data-field="url">/collaboration/sessions/{sessionId}/participants</span>
+                <span data-field="url">/collaboration/sessions/{sessionToken}/participants</span>
             </p>
             <p data-field="body"><p>Adds new participant.</p>
 </p>
@@ -44243,7 +44243,7 @@ application/vnd.ibexa.api.ParticipantList+json
                 <tbody>
                                     <tr>
                         <td>
-                                                        <a href="#collaboration-sessions-sessionid-participants-post-response-201"
+                                                        <a href="#collaboration-sessions-sessiontoken-participants-post-response-201"
                                class="text-ocean-blue ">
                                 201
                             </a>
@@ -44317,28 +44317,28 @@ application/vnd.ibexa.api.ParticipantList+json
         <div class="col-lg-6 px-3 examples">
                                     
                                                 <div class="request">
-                    <div class="pb-3" id="collaboration-sessions-sessionid-participants-post-request">
+                    <div class="pb-3" id="collaboration-sessions-sessiontoken-participants-post-request">
             <div class="d-flex justify-content-between align-items-baseline">
-                <ul class="nav nav-tabs border-bottom-0" id="collaboration-sessions-sessionid-participants-post-requestTab" role="tablist">
+                <ul class="nav nav-tabs border-bottom-0" id="collaboration-sessions-sessiontoken-participants-post-requestTab" role="tablist">
                                                                 <li class="nav-item">
                             <a href="#" class="nav-link disabled">Request</a>
                         </li>
                                                                                 <li class="nav-item">
-                                <a class="nav-link active text-gray" id="collaboration-sessions-sessionid-participants-post-request-xml-tab"
+                                <a class="nav-link active text-gray" id="collaboration-sessions-sessiontoken-participants-post-request-xml-tab"
                                    data-toggle="tab"
-                                   href="#collaboration-sessions-sessionid-participants-post-request-xml"
+                                   href="#collaboration-sessions-sessiontoken-participants-post-request-xml"
                                    role="tab"
-                                   aria-controls="collaboration-sessions-sessionid-participants-post-request-xml"
+                                   aria-controls="collaboration-sessions-sessiontoken-participants-post-request-xml"
                                    aria-selected="true">
                                     xml
                                 </a>
                             </li>
                                                                                 <li class="nav-item">
-                                <a class="nav-link  text-gray" id="collaboration-sessions-sessionid-participants-post-request-json-tab"
+                                <a class="nav-link  text-gray" id="collaboration-sessions-sessiontoken-participants-post-request-json-tab"
                                    data-toggle="tab"
-                                   href="#collaboration-sessions-sessionid-participants-post-request-json"
+                                   href="#collaboration-sessions-sessiontoken-participants-post-request-json"
                                    role="tab"
-                                   aria-controls="collaboration-sessions-sessionid-participants-post-request-json"
+                                   aria-controls="collaboration-sessions-sessiontoken-participants-post-request-json"
                                    aria-selected="false">
                                     json
                                 </a>
@@ -44346,19 +44346,19 @@ application/vnd.ibexa.api.ParticipantList+json
                                                             </ul>
             </div>
                                         <div class="example position-relative border p-3 mb-3">
-    <div class="tab-content" id="collaboration-sessions-sessionid-participants-post-requestContent">
-                                                    <div class="tab-pane fade show active" id="collaboration-sessions-sessionid-participants-post-request-xml" role="tabpanel"
-                     aria-labelledby="collaboration-sessions-sessionid-participants-post-request-xml-tab">
+    <div class="tab-content" id="collaboration-sessions-sessiontoken-participants-post-requestContent">
+                                                    <div class="tab-pane fade show active" id="collaboration-sessions-sessiontoken-participants-post-request-xml" role="tabpanel"
+                     aria-labelledby="collaboration-sessions-sessiontoken-participants-post-request-xml-tab">
                                                                                             <div class="position-relative  ">
                                                         <p class="mb-0 icon icon--copy-clipboard">
                                 <i class="material-icons-outlined clipboard"
                                    data-toggle="tooltip"
                                    data-placement="top"
-                                   data-clipboard-target="#Sb87fc5a053b23fa5f392bd9f45ab9184a44fa238ff08159584b3cbc5e89ba92f"
+                                   data-clipboard-target="#S1fe05ad988a3cd59a8139a25b5e390512f0acbf1437aaf3fa880a2b11382e82f"
                                    title="Copy to clipboard">file_copy
                                 </i>
                             </p>
-                            <pre id="Sb87fc5a053b23fa5f392bd9f45ab9184a44fa238ff08159584b3cbc5e89ba92f" class="example__code-wrapper">
+                            <pre id="S1fe05ad988a3cd59a8139a25b5e390512f0acbf1437aaf3fa880a2b11382e82f" class="example__code-wrapper">
                                 <code class="xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
 &lt;ParticipantListCreate&gt;
     &lt;ParticipantCreate media-type=&quot;application/vnd.ibexa.api.InternalParticipantCreate+xml&quot;&gt;
@@ -44375,20 +44375,20 @@ application/vnd.ibexa.api.ParticipantList+json
 &lt;/ParticipantListCreate&gt;</code>
                             </pre>
                         </div>
-                        <a href="" data-toggle="modal" data-target="#collaboration-sessions-sessionid-participants-post-requestModal" class="btn btn--example-view-more text-center">View more</a>
+                        <a href="" data-toggle="modal" data-target="#collaboration-sessions-sessiontoken-participants-post-requestModal" class="btn btn--example-view-more text-center">View more</a>
                                     </div>
-                                            <div class="tab-pane fade " id="collaboration-sessions-sessionid-participants-post-request-json" role="tabpanel"
-                     aria-labelledby="collaboration-sessions-sessionid-participants-post-request-json-tab">
+                                            <div class="tab-pane fade " id="collaboration-sessions-sessiontoken-participants-post-request-json" role="tabpanel"
+                     aria-labelledby="collaboration-sessions-sessiontoken-participants-post-request-json-tab">
                                                                                             <div class="position-relative  ">
                                                         <p class="mb-0 icon icon--copy-clipboard">
                                 <i class="material-icons-outlined clipboard"
                                    data-toggle="tooltip"
                                    data-placement="top"
-                                   data-clipboard-target="#S074bc3e4b28268241eb81c44bccea5d8a2f879dcb53be0ec94fc43afd5587a44"
+                                   data-clipboard-target="#S326e9c3cccb37d9c5db61b0191d526ebfebb212d9e7c6c4ef183381a18d66b81"
                                    title="Copy to clipboard">file_copy
                                 </i>
                             </p>
-                            <pre id="S074bc3e4b28268241eb81c44bccea5d8a2f879dcb53be0ec94fc43afd5587a44" class="example__code-wrapper">
+                            <pre id="S326e9c3cccb37d9c5db61b0191d526ebfebb212d9e7c6c4ef183381a18d66b81" class="example__code-wrapper">
                                 <code class="json">{
     &quot;ParticipantListCreate&quot;: {
         &quot;ParticipantCreate&quot;: [
@@ -44410,15 +44410,15 @@ application/vnd.ibexa.api.ParticipantList+json
 }</code>
                             </pre>
                         </div>
-                        <a href="" data-toggle="modal" data-target="#collaboration-sessions-sessionid-participants-post-requestModal" class="btn btn--example-view-more text-center">View more</a>
+                        <a href="" data-toggle="modal" data-target="#collaboration-sessions-sessiontoken-participants-post-requestModal" class="btn btn--example-view-more text-center">View more</a>
                                     </div>
                         </div>
 </div>
-                <div class="modal fade" id="collaboration-sessions-sessionid-participants-post-requestModal" tabindex="-1" role="dialog" aria-labelledby="collaboration-sessions-sessionid-participants-post-requestTitle" aria-hidden="true">
+                <div class="modal fade" id="collaboration-sessions-sessiontoken-participants-post-requestModal" tabindex="-1" role="dialog" aria-labelledby="collaboration-sessions-sessiontoken-participants-post-requestTitle" aria-hidden="true">
     <div class="modal-dialog modal-xl" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <p class="modal-title" id="collaboration-sessions-sessionid-participants-post-requestTitle">
+                <p class="modal-title" id="collaboration-sessions-sessiontoken-participants-post-requestTitle">
                     <span data-field="method" class="badge badge--sm badge--post">POST</span>
                     Add participant
                 </p>
@@ -44428,18 +44428,18 @@ application/vnd.ibexa.api.ParticipantList+json
             </div>
             <div class="modal-body">
                 <div class="d-flex justify-content-between align-items-baseline">
-                    <ul class="nav nav-tabs border-bottom-0" id="collaboration-sessions-sessionid-participants-post-requestModalTab" role="tablist">
+                    <ul class="nav nav-tabs border-bottom-0" id="collaboration-sessions-sessiontoken-participants-post-requestModalTab" role="tablist">
                                                     <li class="nav-item">
                                 <a href="#" class="nav-link disabled">
                                     Request
                                 </a>
                             </li>
                                                                                             <li class="nav-item">
-                                    <a class="nav-link active text-gray" id="collaboration-sessions-sessionid-participants-post-request-xml-modal-tab"
+                                    <a class="nav-link active text-gray" id="collaboration-sessions-sessiontoken-participants-post-request-xml-modal-tab"
                                        data-toggle="tab"
-                                       href="#collaboration-sessions-sessionid-participants-post-request-xml-modal"
+                                       href="#collaboration-sessions-sessiontoken-participants-post-request-xml-modal"
                                        role="tab"
-                                       aria-controls="collaboration-sessions-sessionid-participants-post-request-xml-modal"
+                                       aria-controls="collaboration-sessions-sessiontoken-participants-post-request-xml-modal"
                                        aria-selected="true">
                                         xml
                                     </a>
@@ -44448,11 +44448,11 @@ application/vnd.ibexa.api.ParticipantList+json
 
                                 </li>
                                                                                             <li class="nav-item">
-                                    <a class="nav-link  text-gray" id="collaboration-sessions-sessionid-participants-post-request-json-modal-tab"
+                                    <a class="nav-link  text-gray" id="collaboration-sessions-sessiontoken-participants-post-request-json-modal-tab"
                                        data-toggle="tab"
-                                       href="#collaboration-sessions-sessionid-participants-post-request-json-modal"
+                                       href="#collaboration-sessions-sessiontoken-participants-post-request-json-modal"
                                        role="tab"
-                                       aria-controls="collaboration-sessions-sessionid-participants-post-request-json-modal"
+                                       aria-controls="collaboration-sessions-sessiontoken-participants-post-request-json-modal"
                                        aria-selected="false">
                                         json
                                     </a>
@@ -44463,20 +44463,20 @@ application/vnd.ibexa.api.ParticipantList+json
                                                                         </ul>
                                     </div>
                 <div class="example position-relative border p-3 mb-3">
-                    <div class="tab-content" id="collaboration-sessions-sessionid-participants-post-requestModalContent">
+                    <div class="tab-content" id="collaboration-sessions-sessiontoken-participants-post-requestModalContent">
                                                     <div class="tab-pane fade show active"
-                                 id="collaboration-sessions-sessionid-participants-post-request-xml-modal" role="tabpanel"
-                                 aria-labelledby="collaboration-sessions-sessionid-participants-post-request-xml-modal-tab">
+                                 id="collaboration-sessions-sessiontoken-participants-post-request-xml-modal" role="tabpanel"
+                                 aria-labelledby="collaboration-sessions-sessiontoken-participants-post-request-xml-modal-tab">
                                                                                                                                             <div class="position-relative  ">
                                                                                 <p class="mb-0 icon icon--copy-clipboard">
                                             <i class="material-icons-outlined clipboard"
                                                data-toggle="tooltip"
                                                data-placement="top"
-                                               data-clipboard-target="#M6da9d1e86e2cf85643a2fe1c0f1f793683535c1bc3dca14470dd7794a2ad8b3e"
+                                               data-clipboard-target="#Mea27441a3c71cc955ba0663d0766a433974871fd8dae98f7eff089b525c550d8"
                                                title="Copy to clipboard">file_copy
                                             </i>
                                         </p>
-                                        <pre id="M6da9d1e86e2cf85643a2fe1c0f1f793683535c1bc3dca14470dd7794a2ad8b3e">
+                                        <pre id="Mea27441a3c71cc955ba0663d0766a433974871fd8dae98f7eff089b525c550d8">
                                             <code class="xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
 &lt;ParticipantListCreate&gt;
     &lt;ParticipantCreate media-type=&quot;application/vnd.ibexa.api.InternalParticipantCreate+xml&quot;&gt;
@@ -44495,18 +44495,18 @@ application/vnd.ibexa.api.ParticipantList+json
                                     </div>
                                                             </div>
                                                     <div class="tab-pane fade "
-                                 id="collaboration-sessions-sessionid-participants-post-request-json-modal" role="tabpanel"
-                                 aria-labelledby="collaboration-sessions-sessionid-participants-post-request-json-modal-tab">
+                                 id="collaboration-sessions-sessiontoken-participants-post-request-json-modal" role="tabpanel"
+                                 aria-labelledby="collaboration-sessions-sessiontoken-participants-post-request-json-modal-tab">
                                                                                                                                             <div class="position-relative  ">
                                                                                 <p class="mb-0 icon icon--copy-clipboard">
                                             <i class="material-icons-outlined clipboard"
                                                data-toggle="tooltip"
                                                data-placement="top"
-                                               data-clipboard-target="#Mdecb3b6edb1aa0115217d98ee0766812504ca1fae427222b63096cd8cb78fb14"
+                                               data-clipboard-target="#M36a09f07bdfe4a6a37f8f246b56ba76410c4dc28cc460313da60f7a513786da0"
                                                title="Copy to clipboard">file_copy
                                             </i>
                                         </p>
-                                        <pre id="Mdecb3b6edb1aa0115217d98ee0766812504ca1fae427222b63096cd8cb78fb14">
+                                        <pre id="M36a09f07bdfe4a6a37f8f246b56ba76410c4dc28cc460313da60f7a513786da0">
                                             <code class="json">{
     &quot;ParticipantListCreate&quot;: {
         &quot;ParticipantCreate&quot;: [
@@ -44538,28 +44538,28 @@ application/vnd.ibexa.api.ParticipantList+json
                     </div>
     </div>
                                                                     <div class="response">
-                                                        <div class="pb-3 response__code" id="collaboration-sessions-sessionid-participants-post-response-201">
+                                                        <div class="pb-3 response__code" id="collaboration-sessions-sessiontoken-participants-post-response-201">
                     <div class="d-flex justify-content-between align-items-baseline">
-                        <ul class="nav nav-tabs border-bottom-0" id="collaboration-sessions-sessionid-participants-post-response-201Tab" role="tablist">
+                        <ul class="nav nav-tabs border-bottom-0" id="collaboration-sessions-sessiontoken-participants-post-response-201Tab" role="tablist">
                                                                                         <li class="nav-item">
                                     <a href="#" class="nav-link disabled">Responses</a>
                                 </li>
                                                                                                         <li class="nav-item">
-                                        <a class="nav-link active text-gray" id="collaboration-sessions-sessionid-participants-post-response-201-xml-tab"
+                                        <a class="nav-link active text-gray" id="collaboration-sessions-sessiontoken-participants-post-response-201-xml-tab"
                                            data-toggle="tab"
-                                           href="#collaboration-sessions-sessionid-participants-post-response-201-xml"
+                                           href="#collaboration-sessions-sessiontoken-participants-post-response-201-xml"
                                            role="tab"
-                                           aria-controls="collaboration-sessions-sessionid-participants-post-response-201-xml"
+                                           aria-controls="collaboration-sessions-sessiontoken-participants-post-response-201-xml"
                                            aria-selected="true">
                                             xml
                                         </a>
                                     </li>
                                                                                                         <li class="nav-item">
-                                        <a class="nav-link  text-gray" id="collaboration-sessions-sessionid-participants-post-response-201-json-tab"
+                                        <a class="nav-link  text-gray" id="collaboration-sessions-sessiontoken-participants-post-response-201-json-tab"
                                            data-toggle="tab"
-                                           href="#collaboration-sessions-sessionid-participants-post-response-201-json"
+                                           href="#collaboration-sessions-sessiontoken-participants-post-response-201-json"
                                            role="tab"
-                                           aria-controls="collaboration-sessions-sessionid-participants-post-response-201-json"
+                                           aria-controls="collaboration-sessions-sessiontoken-participants-post-response-201-json"
                                            aria-selected="false">
                                             json
                                         </a>
@@ -44570,19 +44570,19 @@ application/vnd.ibexa.api.ParticipantList+json
                             </div>
                                             </div>
                                                                 <div class="example position-relative border p-3 mb-3">
-    <div class="tab-content" id="collaboration-sessions-sessionid-participants-post-response-201Content">
-                                                    <div class="tab-pane fade show active" id="collaboration-sessions-sessionid-participants-post-response-201-xml" role="tabpanel"
-                     aria-labelledby="collaboration-sessions-sessionid-participants-post-response-201-xml-tab">
+    <div class="tab-content" id="collaboration-sessions-sessiontoken-participants-post-response-201Content">
+                                                    <div class="tab-pane fade show active" id="collaboration-sessions-sessiontoken-participants-post-response-201-xml" role="tabpanel"
+                     aria-labelledby="collaboration-sessions-sessiontoken-participants-post-response-201-xml-tab">
                                                                                             <div class="position-relative  ">
                                                         <p class="mb-0 icon icon--copy-clipboard">
                                 <i class="material-icons-outlined clipboard"
                                    data-toggle="tooltip"
                                    data-placement="top"
-                                   data-clipboard-target="#Sd14e00bfd5dc79853069b8904853de505fa1400315768f6fe142b937510de40d"
+                                   data-clipboard-target="#Se16382f25bd18d277d2a551bc5e0d6e6e546483fe91be8dedd61a7d0398259a2"
                                    title="Copy to clipboard">file_copy
                                 </i>
                             </p>
-                            <pre id="Sd14e00bfd5dc79853069b8904853de505fa1400315768f6fe142b937510de40d" class="example__code-wrapper">
+                            <pre id="Se16382f25bd18d277d2a551bc5e0d6e6e546483fe91be8dedd61a7d0398259a2" class="example__code-wrapper">
                                 <code class="xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
 &lt;ParticipantList media-type=&quot;application/vnd.ibexa.api.ParticipantList+xml&quot;&gt;
     &lt;Participant media-type=&quot;application/vnd.ibexa.api.InternalParticipant+xml&quot;&gt;
@@ -44605,20 +44605,20 @@ application/vnd.ibexa.api.ParticipantList+json
  </code>
                             </pre>
                         </div>
-                        <a href="" data-toggle="modal" data-target="#collaboration-sessions-sessionid-participants-post-response-201Modal" class="btn btn--example-view-more text-center">View more</a>
+                        <a href="" data-toggle="modal" data-target="#collaboration-sessions-sessiontoken-participants-post-response-201Modal" class="btn btn--example-view-more text-center">View more</a>
                                     </div>
-                                            <div class="tab-pane fade " id="collaboration-sessions-sessionid-participants-post-response-201-json" role="tabpanel"
-                     aria-labelledby="collaboration-sessions-sessionid-participants-post-response-201-json-tab">
+                                            <div class="tab-pane fade " id="collaboration-sessions-sessiontoken-participants-post-response-201-json" role="tabpanel"
+                     aria-labelledby="collaboration-sessions-sessiontoken-participants-post-response-201-json-tab">
                                                                                             <div class="position-relative  ">
                                                         <p class="mb-0 icon icon--copy-clipboard">
                                 <i class="material-icons-outlined clipboard"
                                    data-toggle="tooltip"
                                    data-placement="top"
-                                   data-clipboard-target="#S18a5b3a0d51fe61c0d9ff56345bccae1beb79c1c190ffc92fc2135131f0bbff0"
+                                   data-clipboard-target="#S416e82172d0e62ce9c8ca061361c6cf270b66c19aa47b4f2e91afa00f8d90758"
                                    title="Copy to clipboard">file_copy
                                 </i>
                             </p>
-                            <pre id="S18a5b3a0d51fe61c0d9ff56345bccae1beb79c1c190ffc92fc2135131f0bbff0" class="example__code-wrapper">
+                            <pre id="S416e82172d0e62ce9c8ca061361c6cf270b66c19aa47b4f2e91afa00f8d90758" class="example__code-wrapper">
                                 <code class="json">{
     &quot;ParticipantList&quot;: {
         &quot;_media-type&quot;: &quot;application/vnd.ibexa.api.ParticipantList+json&quot;,
@@ -44645,15 +44645,15 @@ application/vnd.ibexa.api.ParticipantList+json
                 &quot;updatedAt&quot;: &quot;2024-11-13T11:01:24+00:00</code>
                             </pre>
                         </div>
-                        <a href="" data-toggle="modal" data-target="#collaboration-sessions-sessionid-participants-post-response-201Modal" class="btn btn--example-view-more text-center">View more</a>
+                        <a href="" data-toggle="modal" data-target="#collaboration-sessions-sessiontoken-participants-post-response-201Modal" class="btn btn--example-view-more text-center">View more</a>
                                     </div>
                         </div>
 </div>
-                        <div class="modal fade" id="collaboration-sessions-sessionid-participants-post-response-201Modal" tabindex="-1" role="dialog" aria-labelledby="collaboration-sessions-sessionid-participants-post-response-201Title" aria-hidden="true">
+                        <div class="modal fade" id="collaboration-sessions-sessiontoken-participants-post-response-201Modal" tabindex="-1" role="dialog" aria-labelledby="collaboration-sessions-sessiontoken-participants-post-response-201Title" aria-hidden="true">
     <div class="modal-dialog modal-xl" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <p class="modal-title" id="collaboration-sessions-sessionid-participants-post-response-201Title">
+                <p class="modal-title" id="collaboration-sessions-sessiontoken-participants-post-response-201Title">
                     <span data-field="method" class="badge badge--sm badge--post">POST</span>
                     Add participant
                 </p>
@@ -44663,18 +44663,18 @@ application/vnd.ibexa.api.ParticipantList+json
             </div>
             <div class="modal-body">
                 <div class="d-flex justify-content-between align-items-baseline">
-                    <ul class="nav nav-tabs border-bottom-0" id="collaboration-sessions-sessionid-participants-post-response-201ModalTab" role="tablist">
+                    <ul class="nav nav-tabs border-bottom-0" id="collaboration-sessions-sessiontoken-participants-post-response-201ModalTab" role="tablist">
                                                     <li class="nav-item">
                                 <a href="#" class="nav-link disabled">
                                     Responses
                                 </a>
                             </li>
                                                                                             <li class="nav-item">
-                                    <a class="nav-link active text-gray" id="collaboration-sessions-sessionid-participants-post-response-201-xml-modal-tab"
+                                    <a class="nav-link active text-gray" id="collaboration-sessions-sessiontoken-participants-post-response-201-xml-modal-tab"
                                        data-toggle="tab"
-                                       href="#collaboration-sessions-sessionid-participants-post-response-201-xml-modal"
+                                       href="#collaboration-sessions-sessiontoken-participants-post-response-201-xml-modal"
                                        role="tab"
-                                       aria-controls="collaboration-sessions-sessionid-participants-post-response-201-xml-modal"
+                                       aria-controls="collaboration-sessions-sessiontoken-participants-post-response-201-xml-modal"
                                        aria-selected="true">
                                         xml
                                     </a>
@@ -44683,11 +44683,11 @@ application/vnd.ibexa.api.ParticipantList+json
 
                                 </li>
                                                                                             <li class="nav-item">
-                                    <a class="nav-link  text-gray" id="collaboration-sessions-sessionid-participants-post-response-201-json-modal-tab"
+                                    <a class="nav-link  text-gray" id="collaboration-sessions-sessiontoken-participants-post-response-201-json-modal-tab"
                                        data-toggle="tab"
-                                       href="#collaboration-sessions-sessionid-participants-post-response-201-json-modal"
+                                       href="#collaboration-sessions-sessiontoken-participants-post-response-201-json-modal"
                                        role="tab"
-                                       aria-controls="collaboration-sessions-sessionid-participants-post-response-201-json-modal"
+                                       aria-controls="collaboration-sessions-sessiontoken-participants-post-response-201-json-modal"
                                        aria-selected="false">
                                         json
                                     </a>
@@ -44701,20 +44701,20 @@ application/vnd.ibexa.api.ParticipantList+json
                         </div>
                                     </div>
                 <div class="example position-relative border p-3 mb-3">
-                    <div class="tab-content" id="collaboration-sessions-sessionid-participants-post-response-201ModalContent">
+                    <div class="tab-content" id="collaboration-sessions-sessiontoken-participants-post-response-201ModalContent">
                                                     <div class="tab-pane fade show active"
-                                 id="collaboration-sessions-sessionid-participants-post-response-201-xml-modal" role="tabpanel"
-                                 aria-labelledby="collaboration-sessions-sessionid-participants-post-response-201-xml-modal-tab">
+                                 id="collaboration-sessions-sessiontoken-participants-post-response-201-xml-modal" role="tabpanel"
+                                 aria-labelledby="collaboration-sessions-sessiontoken-participants-post-response-201-xml-modal-tab">
                                                                                                                                             <div class="position-relative  ">
                                                                                 <p class="mb-0 icon icon--copy-clipboard">
                                             <i class="material-icons-outlined clipboard"
                                                data-toggle="tooltip"
                                                data-placement="top"
-                                               data-clipboard-target="#M892800adf19c4117b60ccc31c06303282c5e3ddd63a558a600cc198416fd6f8d"
+                                               data-clipboard-target="#M03be89218dee35a6035e455da65021babd473ffaf9995b7f1a457fe67e593fe7"
                                                title="Copy to clipboard">file_copy
                                             </i>
                                         </p>
-                                        <pre id="M892800adf19c4117b60ccc31c06303282c5e3ddd63a558a600cc198416fd6f8d">
+                                        <pre id="M03be89218dee35a6035e455da65021babd473ffaf9995b7f1a457fe67e593fe7">
                                             <code class="xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
 &lt;ParticipantList media-type=&quot;application/vnd.ibexa.api.ParticipantList+xml&quot;&gt;
     &lt;Participant media-type=&quot;application/vnd.ibexa.api.InternalParticipant+xml&quot;&gt;
@@ -44810,18 +44810,18 @@ application/vnd.ibexa.api.ParticipantList+json
                                     </div>
                                                             </div>
                                                     <div class="tab-pane fade "
-                                 id="collaboration-sessions-sessionid-participants-post-response-201-json-modal" role="tabpanel"
-                                 aria-labelledby="collaboration-sessions-sessionid-participants-post-response-201-json-modal-tab">
+                                 id="collaboration-sessions-sessiontoken-participants-post-response-201-json-modal" role="tabpanel"
+                                 aria-labelledby="collaboration-sessions-sessiontoken-participants-post-response-201-json-modal-tab">
                                                                                                                                             <div class="position-relative  ">
                                                                                 <p class="mb-0 icon icon--copy-clipboard">
                                             <i class="material-icons-outlined clipboard"
                                                data-toggle="tooltip"
                                                data-placement="top"
-                                               data-clipboard-target="#M52d3a36088c4f2ac71c30fe9b89904002dadda7a9f11f5e67ab53353deb14de6"
+                                               data-clipboard-target="#Mcf6309db963cdae6a6f21e0ae756ebe382ee826c7126252019114efaad3d3d83"
                                                title="Copy to clipboard">file_copy
                                             </i>
                                         </p>
-                                        <pre id="M52d3a36088c4f2ac71c30fe9b89904002dadda7a9f11f5e67ab53353deb14de6">
+                                        <pre id="Mcf6309db963cdae6a6f21e0ae756ebe382ee826c7126252019114efaad3d3d83">
                                             <code class="json">{
     &quot;ParticipantList&quot;: {
         &quot;_media-type&quot;: &quot;application/vnd.ibexa.api.ParticipantList+json&quot;,
@@ -44950,7 +44950,7 @@ application/vnd.ibexa.api.ParticipantList+json
 </div>
                     <div class="sticky px-3">
         <div class="sticky__body border-bottom border-top py-1 ">
-            <h4 id="/collaboration/sessions/{sessionid}/participants/{participantid}" class="heading text-gray">/collaboration/sessions/{sessionId}/participants/{participantId}</h4>
+            <h4 id="/collaboration/sessions/{sessiontoken}/participants/{participantid}" class="heading text-gray">/collaboration/sessions/{sessionToken}/participants/{participantId}</h4>
             <ul class="list-unstyled d-inline-flex mb-0">
                                     <li class="pr-3 ">
                                                 <a href="#collaborative-editing-update-participant">
@@ -44983,7 +44983,7 @@ application/vnd.ibexa.api.ParticipantList+json
         <div class="col-lg-6">
             <p class="text-break">
                 <span data-field="method" class="badge badge--sm badge--patch">PATCH</span>
-                <span data-field="url">/collaboration/sessions/{sessionId}/participants/{participantId}</span>
+                <span data-field="url">/collaboration/sessions/{sessionToken}/participants/{participantId}</span>
             </p>
             <p data-field="body"><p>Updates a participant.</p>
 </p>
@@ -45105,7 +45105,7 @@ application/vnd.ibexa.api.&lt;Discriminator&gt;ParticipantUpdate+xml
                 <tbody>
                                     <tr>
                         <td>
-                                                        <a href="#collaboration-sessions-sessionid-participants-participantid-patch-response-200"
+                                                        <a href="#collaboration-sessions-sessiontoken-participants-participantid-patch-response-200"
                                class="text-ocean-blue ">
                                 200
                             </a>
@@ -45187,28 +45187,28 @@ application/vnd.ibexa.api.&lt;Discriminator&gt;ParticipantUpdate+xml
         <div class="col-lg-6 px-3 examples">
                                     
                                                 <div class="request">
-                    <div class="pb-3" id="collaboration-sessions-sessionid-participants-participantid-patch-request">
+                    <div class="pb-3" id="collaboration-sessions-sessiontoken-participants-participantid-patch-request">
             <div class="d-flex justify-content-between align-items-baseline">
-                <ul class="nav nav-tabs border-bottom-0" id="collaboration-sessions-sessionid-participants-participantid-patch-requestTab" role="tablist">
+                <ul class="nav nav-tabs border-bottom-0" id="collaboration-sessions-sessiontoken-participants-participantid-patch-requestTab" role="tablist">
                                                                 <li class="nav-item">
                             <a href="#" class="nav-link disabled">Request</a>
                         </li>
                                                                                 <li class="nav-item">
-                                <a class="nav-link active text-gray" id="collaboration-sessions-sessionid-participants-participantid-patch-request-xml-tab"
+                                <a class="nav-link active text-gray" id="collaboration-sessions-sessiontoken-participants-participantid-patch-request-xml-tab"
                                    data-toggle="tab"
-                                   href="#collaboration-sessions-sessionid-participants-participantid-patch-request-xml"
+                                   href="#collaboration-sessions-sessiontoken-participants-participantid-patch-request-xml"
                                    role="tab"
-                                   aria-controls="collaboration-sessions-sessionid-participants-participantid-patch-request-xml"
+                                   aria-controls="collaboration-sessions-sessiontoken-participants-participantid-patch-request-xml"
                                    aria-selected="true">
                                     xml
                                 </a>
                             </li>
                                                                                 <li class="nav-item">
-                                <a class="nav-link  text-gray" id="collaboration-sessions-sessionid-participants-participantid-patch-request-json-tab"
+                                <a class="nav-link  text-gray" id="collaboration-sessions-sessiontoken-participants-participantid-patch-request-json-tab"
                                    data-toggle="tab"
-                                   href="#collaboration-sessions-sessionid-participants-participantid-patch-request-json"
+                                   href="#collaboration-sessions-sessiontoken-participants-participantid-patch-request-json"
                                    role="tab"
-                                   aria-controls="collaboration-sessions-sessionid-participants-participantid-patch-request-json"
+                                   aria-controls="collaboration-sessions-sessiontoken-participants-participantid-patch-request-json"
                                    aria-selected="false">
                                     json
                                 </a>
@@ -45216,39 +45216,39 @@ application/vnd.ibexa.api.&lt;Discriminator&gt;ParticipantUpdate+xml
                                                             </ul>
             </div>
                                         <div class="example position-relative border p-3 mb-3">
-    <div class="tab-content" id="collaboration-sessions-sessionid-participants-participantid-patch-requestContent">
-                                                    <div class="tab-pane fade show active" id="collaboration-sessions-sessionid-participants-participantid-patch-request-xml" role="tabpanel"
-                     aria-labelledby="collaboration-sessions-sessionid-participants-participantid-patch-request-xml-tab">
+    <div class="tab-content" id="collaboration-sessions-sessiontoken-participants-participantid-patch-requestContent">
+                                                    <div class="tab-pane fade show active" id="collaboration-sessions-sessiontoken-participants-participantid-patch-request-xml" role="tabpanel"
+                     aria-labelledby="collaboration-sessions-sessiontoken-participants-participantid-patch-request-xml-tab">
                                                                                             <div class="position-relative  ">
                                                         <p class="mb-0 icon icon--copy-clipboard">
                                 <i class="material-icons-outlined clipboard"
                                    data-toggle="tooltip"
                                    data-placement="top"
-                                   data-clipboard-target="#S49be13ca121ee0185827a53f8c4937a23417ebe6de772c673e911ee0f6154e61"
+                                   data-clipboard-target="#Sb91a286b8456804881efa10c9389dda31ad57a8a1396234e7f8b601332a5c5c8"
                                    title="Copy to clipboard">file_copy
                                 </i>
                             </p>
-                            <pre id="S49be13ca121ee0185827a53f8c4937a23417ebe6de772c673e911ee0f6154e61" class="example__code-wrapper">
+                            <pre id="Sb91a286b8456804881efa10c9389dda31ad57a8a1396234e7f8b601332a5c5c8" class="example__code-wrapper">
                                 <code class="xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
 &lt;InternalParticipantUpdate&gt;
     &lt;scope&gt;edit&lt;/scope&gt;
 &lt;/InternalParticipantUpdate&gt;</code>
                             </pre>
                         </div>
-                        <a href="" data-toggle="modal" data-target="#collaboration-sessions-sessionid-participants-participantid-patch-requestModal" class="btn btn--example-view-more text-center">View more</a>
+                        <a href="" data-toggle="modal" data-target="#collaboration-sessions-sessiontoken-participants-participantid-patch-requestModal" class="btn btn--example-view-more text-center">View more</a>
                                     </div>
-                                            <div class="tab-pane fade " id="collaboration-sessions-sessionid-participants-participantid-patch-request-json" role="tabpanel"
-                     aria-labelledby="collaboration-sessions-sessionid-participants-participantid-patch-request-json-tab">
+                                            <div class="tab-pane fade " id="collaboration-sessions-sessiontoken-participants-participantid-patch-request-json" role="tabpanel"
+                     aria-labelledby="collaboration-sessions-sessiontoken-participants-participantid-patch-request-json-tab">
                                                                                             <div class="position-relative  ">
                                                         <p class="mb-0 icon icon--copy-clipboard">
                                 <i class="material-icons-outlined clipboard"
                                    data-toggle="tooltip"
                                    data-placement="top"
-                                   data-clipboard-target="#S434bce9f55f18e10011bcc21f5f968c1b2d777bb85cc6e873e23a140d70e56a9"
+                                   data-clipboard-target="#S90470c63a895aac9a69a48ab08e06ccbf4711ee6d7f9966f3f6b35853289c5ea"
                                    title="Copy to clipboard">file_copy
                                 </i>
                             </p>
-                            <pre id="S434bce9f55f18e10011bcc21f5f968c1b2d777bb85cc6e873e23a140d70e56a9" class="example__code-wrapper">
+                            <pre id="S90470c63a895aac9a69a48ab08e06ccbf4711ee6d7f9966f3f6b35853289c5ea" class="example__code-wrapper">
                                 <code class="json">{
     &quot;InternalParticipantUpdate&quot;: {
         &quot;scope&quot;: &quot;view&quot;
@@ -45256,15 +45256,15 @@ application/vnd.ibexa.api.&lt;Discriminator&gt;ParticipantUpdate+xml
 }</code>
                             </pre>
                         </div>
-                        <a href="" data-toggle="modal" data-target="#collaboration-sessions-sessionid-participants-participantid-patch-requestModal" class="btn btn--example-view-more text-center">View more</a>
+                        <a href="" data-toggle="modal" data-target="#collaboration-sessions-sessiontoken-participants-participantid-patch-requestModal" class="btn btn--example-view-more text-center">View more</a>
                                     </div>
                         </div>
 </div>
-                <div class="modal fade" id="collaboration-sessions-sessionid-participants-participantid-patch-requestModal" tabindex="-1" role="dialog" aria-labelledby="collaboration-sessions-sessionid-participants-participantid-patch-requestTitle" aria-hidden="true">
+                <div class="modal fade" id="collaboration-sessions-sessiontoken-participants-participantid-patch-requestModal" tabindex="-1" role="dialog" aria-labelledby="collaboration-sessions-sessiontoken-participants-participantid-patch-requestTitle" aria-hidden="true">
     <div class="modal-dialog modal-xl" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <p class="modal-title" id="collaboration-sessions-sessionid-participants-participantid-patch-requestTitle">
+                <p class="modal-title" id="collaboration-sessions-sessiontoken-participants-participantid-patch-requestTitle">
                     <span data-field="method" class="badge badge--sm badge--patch">PATCH</span>
                     Update participant
                 </p>
@@ -45274,18 +45274,18 @@ application/vnd.ibexa.api.&lt;Discriminator&gt;ParticipantUpdate+xml
             </div>
             <div class="modal-body">
                 <div class="d-flex justify-content-between align-items-baseline">
-                    <ul class="nav nav-tabs border-bottom-0" id="collaboration-sessions-sessionid-participants-participantid-patch-requestModalTab" role="tablist">
+                    <ul class="nav nav-tabs border-bottom-0" id="collaboration-sessions-sessiontoken-participants-participantid-patch-requestModalTab" role="tablist">
                                                     <li class="nav-item">
                                 <a href="#" class="nav-link disabled">
                                     Request
                                 </a>
                             </li>
                                                                                             <li class="nav-item">
-                                    <a class="nav-link active text-gray" id="collaboration-sessions-sessionid-participants-participantid-patch-request-xml-modal-tab"
+                                    <a class="nav-link active text-gray" id="collaboration-sessions-sessiontoken-participants-participantid-patch-request-xml-modal-tab"
                                        data-toggle="tab"
-                                       href="#collaboration-sessions-sessionid-participants-participantid-patch-request-xml-modal"
+                                       href="#collaboration-sessions-sessiontoken-participants-participantid-patch-request-xml-modal"
                                        role="tab"
-                                       aria-controls="collaboration-sessions-sessionid-participants-participantid-patch-request-xml-modal"
+                                       aria-controls="collaboration-sessions-sessiontoken-participants-participantid-patch-request-xml-modal"
                                        aria-selected="true">
                                         xml
                                     </a>
@@ -45294,11 +45294,11 @@ application/vnd.ibexa.api.&lt;Discriminator&gt;ParticipantUpdate+xml
 
                                 </li>
                                                                                             <li class="nav-item">
-                                    <a class="nav-link  text-gray" id="collaboration-sessions-sessionid-participants-participantid-patch-request-json-modal-tab"
+                                    <a class="nav-link  text-gray" id="collaboration-sessions-sessiontoken-participants-participantid-patch-request-json-modal-tab"
                                        data-toggle="tab"
-                                       href="#collaboration-sessions-sessionid-participants-participantid-patch-request-json-modal"
+                                       href="#collaboration-sessions-sessiontoken-participants-participantid-patch-request-json-modal"
                                        role="tab"
-                                       aria-controls="collaboration-sessions-sessionid-participants-participantid-patch-request-json-modal"
+                                       aria-controls="collaboration-sessions-sessiontoken-participants-participantid-patch-request-json-modal"
                                        aria-selected="false">
                                         json
                                     </a>
@@ -45309,20 +45309,20 @@ application/vnd.ibexa.api.&lt;Discriminator&gt;ParticipantUpdate+xml
                                                                         </ul>
                                     </div>
                 <div class="example position-relative border p-3 mb-3">
-                    <div class="tab-content" id="collaboration-sessions-sessionid-participants-participantid-patch-requestModalContent">
+                    <div class="tab-content" id="collaboration-sessions-sessiontoken-participants-participantid-patch-requestModalContent">
                                                     <div class="tab-pane fade show active"
-                                 id="collaboration-sessions-sessionid-participants-participantid-patch-request-xml-modal" role="tabpanel"
-                                 aria-labelledby="collaboration-sessions-sessionid-participants-participantid-patch-request-xml-modal-tab">
+                                 id="collaboration-sessions-sessiontoken-participants-participantid-patch-request-xml-modal" role="tabpanel"
+                                 aria-labelledby="collaboration-sessions-sessiontoken-participants-participantid-patch-request-xml-modal-tab">
                                                                                                                                             <div class="position-relative  ">
                                                                                 <p class="mb-0 icon icon--copy-clipboard">
                                             <i class="material-icons-outlined clipboard"
                                                data-toggle="tooltip"
                                                data-placement="top"
-                                               data-clipboard-target="#Meb772cedd24929326bc80ccc5fdacc767294b508aec4825c932ecc318217578e"
+                                               data-clipboard-target="#M727701c040fcd15effcf3569b1be123e295947e21ef80cc7e6e7c3af34b491f6"
                                                title="Copy to clipboard">file_copy
                                             </i>
                                         </p>
-                                        <pre id="Meb772cedd24929326bc80ccc5fdacc767294b508aec4825c932ecc318217578e">
+                                        <pre id="M727701c040fcd15effcf3569b1be123e295947e21ef80cc7e6e7c3af34b491f6">
                                             <code class="xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
 &lt;InternalParticipantUpdate&gt;
     &lt;scope&gt;edit&lt;/scope&gt;
@@ -45331,18 +45331,18 @@ application/vnd.ibexa.api.&lt;Discriminator&gt;ParticipantUpdate+xml
                                     </div>
                                                             </div>
                                                     <div class="tab-pane fade "
-                                 id="collaboration-sessions-sessionid-participants-participantid-patch-request-json-modal" role="tabpanel"
-                                 aria-labelledby="collaboration-sessions-sessionid-participants-participantid-patch-request-json-modal-tab">
+                                 id="collaboration-sessions-sessiontoken-participants-participantid-patch-request-json-modal" role="tabpanel"
+                                 aria-labelledby="collaboration-sessions-sessiontoken-participants-participantid-patch-request-json-modal-tab">
                                                                                                                                             <div class="position-relative  ">
                                                                                 <p class="mb-0 icon icon--copy-clipboard">
                                             <i class="material-icons-outlined clipboard"
                                                data-toggle="tooltip"
                                                data-placement="top"
-                                               data-clipboard-target="#M6f58e318c3dd9c93a8520df665e633120b2cdd5b37b052e0267a37cff4d137ca"
+                                               data-clipboard-target="#Mac2a1f3561ab0c52f50a0a89c097818bcd6faa616d07f89a5ad7bb42d65576ef"
                                                title="Copy to clipboard">file_copy
                                             </i>
                                         </p>
-                                        <pre id="M6f58e318c3dd9c93a8520df665e633120b2cdd5b37b052e0267a37cff4d137ca">
+                                        <pre id="Mac2a1f3561ab0c52f50a0a89c097818bcd6faa616d07f89a5ad7bb42d65576ef">
                                             <code class="json">{
     &quot;InternalParticipantUpdate&quot;: {
         &quot;scope&quot;: &quot;view&quot;
@@ -45360,28 +45360,28 @@ application/vnd.ibexa.api.&lt;Discriminator&gt;ParticipantUpdate+xml
                     </div>
     </div>
                                                                     <div class="response">
-                                                        <div class="pb-3 response__code" id="collaboration-sessions-sessionid-participants-participantid-patch-response-200">
+                                                        <div class="pb-3 response__code" id="collaboration-sessions-sessiontoken-participants-participantid-patch-response-200">
                     <div class="d-flex justify-content-between align-items-baseline">
-                        <ul class="nav nav-tabs border-bottom-0" id="collaboration-sessions-sessionid-participants-participantid-patch-response-200Tab" role="tablist">
+                        <ul class="nav nav-tabs border-bottom-0" id="collaboration-sessions-sessiontoken-participants-participantid-patch-response-200Tab" role="tablist">
                                                                                         <li class="nav-item">
                                     <a href="#" class="nav-link disabled">Responses</a>
                                 </li>
                                                                                                         <li class="nav-item">
-                                        <a class="nav-link active text-gray" id="collaboration-sessions-sessionid-participants-participantid-patch-response-200-xml-tab"
+                                        <a class="nav-link active text-gray" id="collaboration-sessions-sessiontoken-participants-participantid-patch-response-200-xml-tab"
                                            data-toggle="tab"
-                                           href="#collaboration-sessions-sessionid-participants-participantid-patch-response-200-xml"
+                                           href="#collaboration-sessions-sessiontoken-participants-participantid-patch-response-200-xml"
                                            role="tab"
-                                           aria-controls="collaboration-sessions-sessionid-participants-participantid-patch-response-200-xml"
+                                           aria-controls="collaboration-sessions-sessiontoken-participants-participantid-patch-response-200-xml"
                                            aria-selected="true">
                                             xml
                                         </a>
                                     </li>
                                                                                                         <li class="nav-item">
-                                        <a class="nav-link  text-gray" id="collaboration-sessions-sessionid-participants-participantid-patch-response-200-json-tab"
+                                        <a class="nav-link  text-gray" id="collaboration-sessions-sessiontoken-participants-participantid-patch-response-200-json-tab"
                                            data-toggle="tab"
-                                           href="#collaboration-sessions-sessionid-participants-participantid-patch-response-200-json"
+                                           href="#collaboration-sessions-sessiontoken-participants-participantid-patch-response-200-json"
                                            role="tab"
-                                           aria-controls="collaboration-sessions-sessionid-participants-participantid-patch-response-200-json"
+                                           aria-controls="collaboration-sessions-sessiontoken-participants-participantid-patch-response-200-json"
                                            aria-selected="false">
                                             json
                                         </a>
@@ -45392,19 +45392,19 @@ application/vnd.ibexa.api.&lt;Discriminator&gt;ParticipantUpdate+xml
                             </div>
                                             </div>
                                                                 <div class="example position-relative border p-3 mb-3">
-    <div class="tab-content" id="collaboration-sessions-sessionid-participants-participantid-patch-response-200Content">
-                                                    <div class="tab-pane fade show active" id="collaboration-sessions-sessionid-participants-participantid-patch-response-200-xml" role="tabpanel"
-                     aria-labelledby="collaboration-sessions-sessionid-participants-participantid-patch-response-200-xml-tab">
+    <div class="tab-content" id="collaboration-sessions-sessiontoken-participants-participantid-patch-response-200Content">
+                                                    <div class="tab-pane fade show active" id="collaboration-sessions-sessiontoken-participants-participantid-patch-response-200-xml" role="tabpanel"
+                     aria-labelledby="collaboration-sessions-sessiontoken-participants-participantid-patch-response-200-xml-tab">
                                                                                             <div class="position-relative  ">
                                                         <p class="mb-0 icon icon--copy-clipboard">
                                 <i class="material-icons-outlined clipboard"
                                    data-toggle="tooltip"
                                    data-placement="top"
-                                   data-clipboard-target="#Scbe4baf2fb0d2dc5d3d815220b2f1310e48a85a4c091d2ee70b586bf468cb896"
+                                   data-clipboard-target="#S735e331ecaf50d48892fa31fa809173897a7c50b90122d1227ea3ee8bcfd132c"
                                    title="Copy to clipboard">file_copy
                                 </i>
                             </p>
-                            <pre id="Scbe4baf2fb0d2dc5d3d815220b2f1310e48a85a4c091d2ee70b586bf468cb896" class="example__code-wrapper">
+                            <pre id="S735e331ecaf50d48892fa31fa809173897a7c50b90122d1227ea3ee8bcfd132c" class="example__code-wrapper">
                                 <code class="xml">&lt;?xml version=&quot;1.0&quot;?&gt;
 &lt;Participant media-type=&quot;application/vnd.ibexa.api.InternalParticipant+xml&quot;&gt;
     &lt;id&gt;46&lt;/id&gt;
@@ -45416,20 +45416,20 @@ application/vnd.ibexa.api.&lt;Discriminator&gt;ParticipantUpdate+xml
 &lt;/Participant&gt;</code>
                             </pre>
                         </div>
-                        <a href="" data-toggle="modal" data-target="#collaboration-sessions-sessionid-participants-participantid-patch-response-200Modal" class="btn btn--example-view-more text-center">View more</a>
+                        <a href="" data-toggle="modal" data-target="#collaboration-sessions-sessiontoken-participants-participantid-patch-response-200Modal" class="btn btn--example-view-more text-center">View more</a>
                                     </div>
-                                            <div class="tab-pane fade " id="collaboration-sessions-sessionid-participants-participantid-patch-response-200-json" role="tabpanel"
-                     aria-labelledby="collaboration-sessions-sessionid-participants-participantid-patch-response-200-json-tab">
+                                            <div class="tab-pane fade " id="collaboration-sessions-sessiontoken-participants-participantid-patch-response-200-json" role="tabpanel"
+                     aria-labelledby="collaboration-sessions-sessiontoken-participants-participantid-patch-response-200-json-tab">
                                                                                             <div class="position-relative  ">
                                                         <p class="mb-0 icon icon--copy-clipboard">
                                 <i class="material-icons-outlined clipboard"
                                    data-toggle="tooltip"
                                    data-placement="top"
-                                   data-clipboard-target="#S4bdc070ffc4f2c9f7e48bcb4eea57d8ccbecd23d37c8c69c3489789330605c00"
+                                   data-clipboard-target="#S3a36ed1a3713b59bc5b2423cf9e6ca1e415327fbd37e54cbbde6be1a40ff2e32"
                                    title="Copy to clipboard">file_copy
                                 </i>
                             </p>
-                            <pre id="S4bdc070ffc4f2c9f7e48bcb4eea57d8ccbecd23d37c8c69c3489789330605c00" class="example__code-wrapper">
+                            <pre id="S3a36ed1a3713b59bc5b2423cf9e6ca1e415327fbd37e54cbbde6be1a40ff2e32" class="example__code-wrapper">
                                 <code class="json">{
     &quot;Participant&quot;: {
         &quot;_media-type&quot;: &quot;application/vnd.ibexa.api.InternalParticipant+json&quot;,
@@ -45446,15 +45446,15 @@ application/vnd.ibexa.api.&lt;Discriminator&gt;ParticipantUpdate+xml
 }</code>
                             </pre>
                         </div>
-                        <a href="" data-toggle="modal" data-target="#collaboration-sessions-sessionid-participants-participantid-patch-response-200Modal" class="btn btn--example-view-more text-center">View more</a>
+                        <a href="" data-toggle="modal" data-target="#collaboration-sessions-sessiontoken-participants-participantid-patch-response-200Modal" class="btn btn--example-view-more text-center">View more</a>
                                     </div>
                         </div>
 </div>
-                        <div class="modal fade" id="collaboration-sessions-sessionid-participants-participantid-patch-response-200Modal" tabindex="-1" role="dialog" aria-labelledby="collaboration-sessions-sessionid-participants-participantid-patch-response-200Title" aria-hidden="true">
+                        <div class="modal fade" id="collaboration-sessions-sessiontoken-participants-participantid-patch-response-200Modal" tabindex="-1" role="dialog" aria-labelledby="collaboration-sessions-sessiontoken-participants-participantid-patch-response-200Title" aria-hidden="true">
     <div class="modal-dialog modal-xl" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <p class="modal-title" id="collaboration-sessions-sessionid-participants-participantid-patch-response-200Title">
+                <p class="modal-title" id="collaboration-sessions-sessiontoken-participants-participantid-patch-response-200Title">
                     <span data-field="method" class="badge badge--sm badge--patch">PATCH</span>
                     Update participant
                 </p>
@@ -45464,18 +45464,18 @@ application/vnd.ibexa.api.&lt;Discriminator&gt;ParticipantUpdate+xml
             </div>
             <div class="modal-body">
                 <div class="d-flex justify-content-between align-items-baseline">
-                    <ul class="nav nav-tabs border-bottom-0" id="collaboration-sessions-sessionid-participants-participantid-patch-response-200ModalTab" role="tablist">
+                    <ul class="nav nav-tabs border-bottom-0" id="collaboration-sessions-sessiontoken-participants-participantid-patch-response-200ModalTab" role="tablist">
                                                     <li class="nav-item">
                                 <a href="#" class="nav-link disabled">
                                     Responses
                                 </a>
                             </li>
                                                                                             <li class="nav-item">
-                                    <a class="nav-link active text-gray" id="collaboration-sessions-sessionid-participants-participantid-patch-response-200-xml-modal-tab"
+                                    <a class="nav-link active text-gray" id="collaboration-sessions-sessiontoken-participants-participantid-patch-response-200-xml-modal-tab"
                                        data-toggle="tab"
-                                       href="#collaboration-sessions-sessionid-participants-participantid-patch-response-200-xml-modal"
+                                       href="#collaboration-sessions-sessiontoken-participants-participantid-patch-response-200-xml-modal"
                                        role="tab"
-                                       aria-controls="collaboration-sessions-sessionid-participants-participantid-patch-response-200-xml-modal"
+                                       aria-controls="collaboration-sessions-sessiontoken-participants-participantid-patch-response-200-xml-modal"
                                        aria-selected="true">
                                         xml
                                     </a>
@@ -45484,11 +45484,11 @@ application/vnd.ibexa.api.&lt;Discriminator&gt;ParticipantUpdate+xml
 
                                 </li>
                                                                                             <li class="nav-item">
-                                    <a class="nav-link  text-gray" id="collaboration-sessions-sessionid-participants-participantid-patch-response-200-json-modal-tab"
+                                    <a class="nav-link  text-gray" id="collaboration-sessions-sessiontoken-participants-participantid-patch-response-200-json-modal-tab"
                                        data-toggle="tab"
-                                       href="#collaboration-sessions-sessionid-participants-participantid-patch-response-200-json-modal"
+                                       href="#collaboration-sessions-sessiontoken-participants-participantid-patch-response-200-json-modal"
                                        role="tab"
-                                       aria-controls="collaboration-sessions-sessionid-participants-participantid-patch-response-200-json-modal"
+                                       aria-controls="collaboration-sessions-sessiontoken-participants-participantid-patch-response-200-json-modal"
                                        aria-selected="false">
                                         json
                                     </a>
@@ -45502,20 +45502,20 @@ application/vnd.ibexa.api.&lt;Discriminator&gt;ParticipantUpdate+xml
                         </div>
                                     </div>
                 <div class="example position-relative border p-3 mb-3">
-                    <div class="tab-content" id="collaboration-sessions-sessionid-participants-participantid-patch-response-200ModalContent">
+                    <div class="tab-content" id="collaboration-sessions-sessiontoken-participants-participantid-patch-response-200ModalContent">
                                                     <div class="tab-pane fade show active"
-                                 id="collaboration-sessions-sessionid-participants-participantid-patch-response-200-xml-modal" role="tabpanel"
-                                 aria-labelledby="collaboration-sessions-sessionid-participants-participantid-patch-response-200-xml-modal-tab">
+                                 id="collaboration-sessions-sessiontoken-participants-participantid-patch-response-200-xml-modal" role="tabpanel"
+                                 aria-labelledby="collaboration-sessions-sessiontoken-participants-participantid-patch-response-200-xml-modal-tab">
                                                                                                                                             <div class="position-relative  ">
                                                                                 <p class="mb-0 icon icon--copy-clipboard">
                                             <i class="material-icons-outlined clipboard"
                                                data-toggle="tooltip"
                                                data-placement="top"
-                                               data-clipboard-target="#M89c77edae77509ff688c46a995e202c7fc10c04091fe91b1353da923f4a78d7f"
+                                               data-clipboard-target="#Mcec19895cfa05988214751f05d902235d2519393763b1a2cc3216dd05747fcde"
                                                title="Copy to clipboard">file_copy
                                             </i>
                                         </p>
-                                        <pre id="M89c77edae77509ff688c46a995e202c7fc10c04091fe91b1353da923f4a78d7f">
+                                        <pre id="Mcec19895cfa05988214751f05d902235d2519393763b1a2cc3216dd05747fcde">
                                             <code class="xml">&lt;?xml version=&quot;1.0&quot;?&gt;
 &lt;Participant media-type=&quot;application/vnd.ibexa.api.InternalParticipant+xml&quot;&gt;
     &lt;id&gt;46&lt;/id&gt;
@@ -45529,18 +45529,18 @@ application/vnd.ibexa.api.&lt;Discriminator&gt;ParticipantUpdate+xml
                                     </div>
                                                             </div>
                                                     <div class="tab-pane fade "
-                                 id="collaboration-sessions-sessionid-participants-participantid-patch-response-200-json-modal" role="tabpanel"
-                                 aria-labelledby="collaboration-sessions-sessionid-participants-participantid-patch-response-200-json-modal-tab">
+                                 id="collaboration-sessions-sessiontoken-participants-participantid-patch-response-200-json-modal" role="tabpanel"
+                                 aria-labelledby="collaboration-sessions-sessiontoken-participants-participantid-patch-response-200-json-modal-tab">
                                                                                                                                             <div class="position-relative  ">
                                                                                 <p class="mb-0 icon icon--copy-clipboard">
                                             <i class="material-icons-outlined clipboard"
                                                data-toggle="tooltip"
                                                data-placement="top"
-                                               data-clipboard-target="#M5958fe1a15e6feb69420ee75d066a83724f03bd1f4be6f0a48c46dbfddb4f7fd"
+                                               data-clipboard-target="#M0a8bae5e65472d40160bd65722e4a5962f155949fda2b098d8309761a7581c7a"
                                                title="Copy to clipboard">file_copy
                                             </i>
                                         </p>
-                                        <pre id="M5958fe1a15e6feb69420ee75d066a83724f03bd1f4be6f0a48c46dbfddb4f7fd">
+                                        <pre id="M0a8bae5e65472d40160bd65722e4a5962f155949fda2b098d8309761a7581c7a">
                                             <code class="json">{
     &quot;Participant&quot;: {
         &quot;_media-type&quot;: &quot;application/vnd.ibexa.api.InternalParticipant+json&quot;,
@@ -45583,7 +45583,7 @@ application/vnd.ibexa.api.&lt;Discriminator&gt;ParticipantUpdate+xml
         <div class="col-lg-6">
             <p class="text-break">
                 <span data-field="method" class="badge badge--sm badge--delete">DELETE</span>
-                <span data-field="url">/collaboration/sessions/{sessionId}/participants/{participantId}</span>
+                <span data-field="url">/collaboration/sessions/{sessionToken}/participants/{participantId}</span>
             </p>
             <p data-field="body"><p>Deletes the given participant.</p>
 </p>
@@ -45648,7 +45648,7 @@ application/vnd.ibexa.api.&lt;Discriminator&gt;ParticipantUpdate+xml
 </div>
                     <div class="sticky px-3">
         <div class="sticky__body border-bottom border-top py-1 ">
-            <h4 id="/collaboration/sessions/{sessionid}/invitations" class="heading text-gray">/collaboration/sessions/{sessionId}/invitations</h4>
+            <h4 id="/collaboration/sessions/{sessiontoken}/invitations" class="heading text-gray">/collaboration/sessions/{sessionToken}/invitations</h4>
             <ul class="list-unstyled d-inline-flex mb-0">
                                     <li class="pr-3 ">
                                                 <a href="#collaborative-editing-create-invitation">
@@ -45674,7 +45674,7 @@ application/vnd.ibexa.api.&lt;Discriminator&gt;ParticipantUpdate+xml
         <div class="col-lg-6">
             <p class="text-break">
                 <span data-field="method" class="badge badge--sm badge--post">POST</span>
-                <span data-field="url">/collaboration/sessions/{sessionId}/invitations</span>
+                <span data-field="url">/collaboration/sessions/{sessionToken}/invitations</span>
             </p>
             <p data-field="body"><p>Creates an invitation to a session.</p>
 </p>
@@ -45764,7 +45764,7 @@ application/vnd.ibexa.api.&lt;Discriminator&gt;ParticipantUpdate+xml
                 <tbody>
                                     <tr>
                         <td>
-                                                        <a href="#collaboration-sessions-sessionid-invitations-post-response-201"
+                                                        <a href="#collaboration-sessions-sessiontoken-invitations-post-response-201"
                                class="text-ocean-blue ">
                                 201
                             </a>
@@ -45838,28 +45838,28 @@ application/vnd.ibexa.api.&lt;Discriminator&gt;ParticipantUpdate+xml
         <div class="col-lg-6 px-3 examples">
                                     
                                                 <div class="request">
-                    <div class="pb-3" id="collaboration-sessions-sessionid-invitations-post-request">
+                    <div class="pb-3" id="collaboration-sessions-sessiontoken-invitations-post-request">
             <div class="d-flex justify-content-between align-items-baseline">
-                <ul class="nav nav-tabs border-bottom-0" id="collaboration-sessions-sessionid-invitations-post-requestTab" role="tablist">
+                <ul class="nav nav-tabs border-bottom-0" id="collaboration-sessions-sessiontoken-invitations-post-requestTab" role="tablist">
                                                                 <li class="nav-item">
                             <a href="#" class="nav-link disabled">Request</a>
                         </li>
                                                                                 <li class="nav-item">
-                                <a class="nav-link active text-gray" id="collaboration-sessions-sessionid-invitations-post-request-xml-tab"
+                                <a class="nav-link active text-gray" id="collaboration-sessions-sessiontoken-invitations-post-request-xml-tab"
                                    data-toggle="tab"
-                                   href="#collaboration-sessions-sessionid-invitations-post-request-xml"
+                                   href="#collaboration-sessions-sessiontoken-invitations-post-request-xml"
                                    role="tab"
-                                   aria-controls="collaboration-sessions-sessionid-invitations-post-request-xml"
+                                   aria-controls="collaboration-sessions-sessiontoken-invitations-post-request-xml"
                                    aria-selected="true">
                                     xml
                                 </a>
                             </li>
                                                                                 <li class="nav-item">
-                                <a class="nav-link  text-gray" id="collaboration-sessions-sessionid-invitations-post-request-json-tab"
+                                <a class="nav-link  text-gray" id="collaboration-sessions-sessiontoken-invitations-post-request-json-tab"
                                    data-toggle="tab"
-                                   href="#collaboration-sessions-sessionid-invitations-post-request-json"
+                                   href="#collaboration-sessions-sessiontoken-invitations-post-request-json"
                                    role="tab"
-                                   aria-controls="collaboration-sessions-sessionid-invitations-post-request-json"
+                                   aria-controls="collaboration-sessions-sessiontoken-invitations-post-request-json"
                                    aria-selected="false">
                                     json
                                 </a>
@@ -45867,19 +45867,19 @@ application/vnd.ibexa.api.&lt;Discriminator&gt;ParticipantUpdate+xml
                                                             </ul>
             </div>
                                         <div class="example position-relative border p-3 mb-3">
-    <div class="tab-content" id="collaboration-sessions-sessionid-invitations-post-requestContent">
-                                                    <div class="tab-pane fade show active" id="collaboration-sessions-sessionid-invitations-post-request-xml" role="tabpanel"
-                     aria-labelledby="collaboration-sessions-sessionid-invitations-post-request-xml-tab">
+    <div class="tab-content" id="collaboration-sessions-sessiontoken-invitations-post-requestContent">
+                                                    <div class="tab-pane fade show active" id="collaboration-sessions-sessiontoken-invitations-post-request-xml" role="tabpanel"
+                     aria-labelledby="collaboration-sessions-sessiontoken-invitations-post-request-xml-tab">
                                                                                             <div class="position-relative  ">
                                                         <p class="mb-0 icon icon--copy-clipboard">
                                 <i class="material-icons-outlined clipboard"
                                    data-toggle="tooltip"
                                    data-placement="top"
-                                   data-clipboard-target="#S2963b825a6b2e044d001bda8fb1bacf6419d0a7c689ad1352779aa3e071bf175"
+                                   data-clipboard-target="#Se0e7956e555db5094c9afc1de0bd939d384c6cb7ae4f4df802b64c13fc1020c6"
                                    title="Copy to clipboard">file_copy
                                 </i>
                             </p>
-                            <pre id="S2963b825a6b2e044d001bda8fb1bacf6419d0a7c689ad1352779aa3e071bf175" class="example__code-wrapper">
+                            <pre id="Se0e7956e555db5094c9afc1de0bd939d384c6cb7ae4f4df802b64c13fc1020c6" class="example__code-wrapper">
                                 <code class="xml">
 &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
 &lt;InvitationCreate&gt;
@@ -45907,20 +45907,20 @@ application/vnd.ibexa.api.&lt;Discriminator&gt;ParticipantUpdate+xml
 &lt;/InvitationCreate&gt;</code>
                             </pre>
                         </div>
-                        <a href="" data-toggle="modal" data-target="#collaboration-sessions-sessionid-invitations-post-requestModal" class="btn btn--example-view-more text-center">View more</a>
+                        <a href="" data-toggle="modal" data-target="#collaboration-sessions-sessiontoken-invitations-post-requestModal" class="btn btn--example-view-more text-center">View more</a>
                                     </div>
-                                            <div class="tab-pane fade " id="collaboration-sessions-sessionid-invitations-post-request-json" role="tabpanel"
-                     aria-labelledby="collaboration-sessions-sessionid-invitations-post-request-json-tab">
+                                            <div class="tab-pane fade " id="collaboration-sessions-sessiontoken-invitations-post-request-json" role="tabpanel"
+                     aria-labelledby="collaboration-sessions-sessiontoken-invitations-post-request-json-tab">
                                                                                             <div class="position-relative  ">
                                                         <p class="mb-0 icon icon--copy-clipboard">
                                 <i class="material-icons-outlined clipboard"
                                    data-toggle="tooltip"
                                    data-placement="top"
-                                   data-clipboard-target="#S3d2c13ccb6169fbcaa694f325a9641ad1db5c114749b5693b8a26467d507ffee"
+                                   data-clipboard-target="#S2addddaa413aa50714abafb9f4667e766865b0a3527c5cc786bc3ffdff03636a"
                                    title="Copy to clipboard">file_copy
                                 </i>
                             </p>
-                            <pre id="S3d2c13ccb6169fbcaa694f325a9641ad1db5c114749b5693b8a26467d507ffee" class="example__code-wrapper">
+                            <pre id="S2addddaa413aa50714abafb9f4667e766865b0a3527c5cc786bc3ffdff03636a" class="example__code-wrapper">
                                 <code class="json">{
     &quot;InvitationCreate&quot;: {
         &quot;email&quot;: &quot;anonymous@link.invalid&quot;,
@@ -45941,15 +45941,15 @@ application/vnd.ibexa.api.&lt;Discriminator&gt;ParticipantUpdate+xml
 }</code>
                             </pre>
                         </div>
-                        <a href="" data-toggle="modal" data-target="#collaboration-sessions-sessionid-invitations-post-requestModal" class="btn btn--example-view-more text-center">View more</a>
+                        <a href="" data-toggle="modal" data-target="#collaboration-sessions-sessiontoken-invitations-post-requestModal" class="btn btn--example-view-more text-center">View more</a>
                                     </div>
                         </div>
 </div>
-                <div class="modal fade" id="collaboration-sessions-sessionid-invitations-post-requestModal" tabindex="-1" role="dialog" aria-labelledby="collaboration-sessions-sessionid-invitations-post-requestTitle" aria-hidden="true">
+                <div class="modal fade" id="collaboration-sessions-sessiontoken-invitations-post-requestModal" tabindex="-1" role="dialog" aria-labelledby="collaboration-sessions-sessiontoken-invitations-post-requestTitle" aria-hidden="true">
     <div class="modal-dialog modal-xl" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <p class="modal-title" id="collaboration-sessions-sessionid-invitations-post-requestTitle">
+                <p class="modal-title" id="collaboration-sessions-sessiontoken-invitations-post-requestTitle">
                     <span data-field="method" class="badge badge--sm badge--post">POST</span>
                     Create invitation
                 </p>
@@ -45959,18 +45959,18 @@ application/vnd.ibexa.api.&lt;Discriminator&gt;ParticipantUpdate+xml
             </div>
             <div class="modal-body">
                 <div class="d-flex justify-content-between align-items-baseline">
-                    <ul class="nav nav-tabs border-bottom-0" id="collaboration-sessions-sessionid-invitations-post-requestModalTab" role="tablist">
+                    <ul class="nav nav-tabs border-bottom-0" id="collaboration-sessions-sessiontoken-invitations-post-requestModalTab" role="tablist">
                                                     <li class="nav-item">
                                 <a href="#" class="nav-link disabled">
                                     Request
                                 </a>
                             </li>
                                                                                             <li class="nav-item">
-                                    <a class="nav-link active text-gray" id="collaboration-sessions-sessionid-invitations-post-request-xml-modal-tab"
+                                    <a class="nav-link active text-gray" id="collaboration-sessions-sessiontoken-invitations-post-request-xml-modal-tab"
                                        data-toggle="tab"
-                                       href="#collaboration-sessions-sessionid-invitations-post-request-xml-modal"
+                                       href="#collaboration-sessions-sessiontoken-invitations-post-request-xml-modal"
                                        role="tab"
-                                       aria-controls="collaboration-sessions-sessionid-invitations-post-request-xml-modal"
+                                       aria-controls="collaboration-sessions-sessiontoken-invitations-post-request-xml-modal"
                                        aria-selected="true">
                                         xml
                                     </a>
@@ -45979,11 +45979,11 @@ application/vnd.ibexa.api.&lt;Discriminator&gt;ParticipantUpdate+xml
 
                                 </li>
                                                                                             <li class="nav-item">
-                                    <a class="nav-link  text-gray" id="collaboration-sessions-sessionid-invitations-post-request-json-modal-tab"
+                                    <a class="nav-link  text-gray" id="collaboration-sessions-sessiontoken-invitations-post-request-json-modal-tab"
                                        data-toggle="tab"
-                                       href="#collaboration-sessions-sessionid-invitations-post-request-json-modal"
+                                       href="#collaboration-sessions-sessiontoken-invitations-post-request-json-modal"
                                        role="tab"
-                                       aria-controls="collaboration-sessions-sessionid-invitations-post-request-json-modal"
+                                       aria-controls="collaboration-sessions-sessiontoken-invitations-post-request-json-modal"
                                        aria-selected="false">
                                         json
                                     </a>
@@ -45994,20 +45994,20 @@ application/vnd.ibexa.api.&lt;Discriminator&gt;ParticipantUpdate+xml
                                                                         </ul>
                                     </div>
                 <div class="example position-relative border p-3 mb-3">
-                    <div class="tab-content" id="collaboration-sessions-sessionid-invitations-post-requestModalContent">
+                    <div class="tab-content" id="collaboration-sessions-sessiontoken-invitations-post-requestModalContent">
                                                     <div class="tab-pane fade show active"
-                                 id="collaboration-sessions-sessionid-invitations-post-request-xml-modal" role="tabpanel"
-                                 aria-labelledby="collaboration-sessions-sessionid-invitations-post-request-xml-modal-tab">
+                                 id="collaboration-sessions-sessiontoken-invitations-post-request-xml-modal" role="tabpanel"
+                                 aria-labelledby="collaboration-sessions-sessiontoken-invitations-post-request-xml-modal-tab">
                                                                                                                                             <div class="position-relative  ">
                                                                                 <p class="mb-0 icon icon--copy-clipboard">
                                             <i class="material-icons-outlined clipboard"
                                                data-toggle="tooltip"
                                                data-placement="top"
-                                               data-clipboard-target="#M685d8a7c28e852fa9ccc12a3c32bc892a13eef56a9c5e95785d6da252d552a1b"
+                                               data-clipboard-target="#Mc2d791bc6f504d85284fddf669c26de3a126d4ea142bdf4fc6a637635e7d4132"
                                                title="Copy to clipboard">file_copy
                                             </i>
                                         </p>
-                                        <pre id="M685d8a7c28e852fa9ccc12a3c32bc892a13eef56a9c5e95785d6da252d552a1b">
+                                        <pre id="Mc2d791bc6f504d85284fddf669c26de3a126d4ea142bdf4fc6a637635e7d4132">
                                             <code class="xml">
 &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
 &lt;InvitationCreate&gt;
@@ -46037,18 +46037,18 @@ application/vnd.ibexa.api.&lt;Discriminator&gt;ParticipantUpdate+xml
                                     </div>
                                                             </div>
                                                     <div class="tab-pane fade "
-                                 id="collaboration-sessions-sessionid-invitations-post-request-json-modal" role="tabpanel"
-                                 aria-labelledby="collaboration-sessions-sessionid-invitations-post-request-json-modal-tab">
+                                 id="collaboration-sessions-sessiontoken-invitations-post-request-json-modal" role="tabpanel"
+                                 aria-labelledby="collaboration-sessions-sessiontoken-invitations-post-request-json-modal-tab">
                                                                                                                                             <div class="position-relative  ">
                                                                                 <p class="mb-0 icon icon--copy-clipboard">
                                             <i class="material-icons-outlined clipboard"
                                                data-toggle="tooltip"
                                                data-placement="top"
-                                               data-clipboard-target="#M0bd57ca77cb99d32d10ec98f5086df13f22e0c1f71206243d48c12c086728b4f"
+                                               data-clipboard-target="#M77ecdbb1bd04b112710e12c637670e74f3e4fa2e5c9a62eab368fa1343db6c0c"
                                                title="Copy to clipboard">file_copy
                                             </i>
                                         </p>
-                                        <pre id="M0bd57ca77cb99d32d10ec98f5086df13f22e0c1f71206243d48c12c086728b4f">
+                                        <pre id="M77ecdbb1bd04b112710e12c637670e74f3e4fa2e5c9a62eab368fa1343db6c0c">
                                             <code class="json">{
     &quot;InvitationCreate&quot;: {
         &quot;email&quot;: &quot;anonymous@link.invalid&quot;,
@@ -46079,28 +46079,28 @@ application/vnd.ibexa.api.&lt;Discriminator&gt;ParticipantUpdate+xml
                     </div>
     </div>
                                                                     <div class="response">
-                                                        <div class="pb-3 response__code" id="collaboration-sessions-sessionid-invitations-post-response-201">
+                                                        <div class="pb-3 response__code" id="collaboration-sessions-sessiontoken-invitations-post-response-201">
                     <div class="d-flex justify-content-between align-items-baseline">
-                        <ul class="nav nav-tabs border-bottom-0" id="collaboration-sessions-sessionid-invitations-post-response-201Tab" role="tablist">
+                        <ul class="nav nav-tabs border-bottom-0" id="collaboration-sessions-sessiontoken-invitations-post-response-201Tab" role="tablist">
                                                                                         <li class="nav-item">
                                     <a href="#" class="nav-link disabled">Responses</a>
                                 </li>
                                                                                                         <li class="nav-item">
-                                        <a class="nav-link active text-gray" id="collaboration-sessions-sessionid-invitations-post-response-201-xml-tab"
+                                        <a class="nav-link active text-gray" id="collaboration-sessions-sessiontoken-invitations-post-response-201-xml-tab"
                                            data-toggle="tab"
-                                           href="#collaboration-sessions-sessionid-invitations-post-response-201-xml"
+                                           href="#collaboration-sessions-sessiontoken-invitations-post-response-201-xml"
                                            role="tab"
-                                           aria-controls="collaboration-sessions-sessionid-invitations-post-response-201-xml"
+                                           aria-controls="collaboration-sessions-sessiontoken-invitations-post-response-201-xml"
                                            aria-selected="true">
                                             xml
                                         </a>
                                     </li>
                                                                                                         <li class="nav-item">
-                                        <a class="nav-link  text-gray" id="collaboration-sessions-sessionid-invitations-post-response-201-json-tab"
+                                        <a class="nav-link  text-gray" id="collaboration-sessions-sessiontoken-invitations-post-response-201-json-tab"
                                            data-toggle="tab"
-                                           href="#collaboration-sessions-sessionid-invitations-post-response-201-json"
+                                           href="#collaboration-sessions-sessiontoken-invitations-post-response-201-json"
                                            role="tab"
-                                           aria-controls="collaboration-sessions-sessionid-invitations-post-response-201-json"
+                                           aria-controls="collaboration-sessions-sessiontoken-invitations-post-response-201-json"
                                            aria-selected="false">
                                             json
                                         </a>
@@ -46111,19 +46111,19 @@ application/vnd.ibexa.api.&lt;Discriminator&gt;ParticipantUpdate+xml
                             </div>
                                             </div>
                                                                 <div class="example position-relative border p-3 mb-3">
-    <div class="tab-content" id="collaboration-sessions-sessionid-invitations-post-response-201Content">
-                                                    <div class="tab-pane fade show active" id="collaboration-sessions-sessionid-invitations-post-response-201-xml" role="tabpanel"
-                     aria-labelledby="collaboration-sessions-sessionid-invitations-post-response-201-xml-tab">
+    <div class="tab-content" id="collaboration-sessions-sessiontoken-invitations-post-response-201Content">
+                                                    <div class="tab-pane fade show active" id="collaboration-sessions-sessiontoken-invitations-post-response-201-xml" role="tabpanel"
+                     aria-labelledby="collaboration-sessions-sessiontoken-invitations-post-response-201-xml-tab">
                                                                                             <div class="position-relative  ">
                                                         <p class="mb-0 icon icon--copy-clipboard">
                                 <i class="material-icons-outlined clipboard"
                                    data-toggle="tooltip"
                                    data-placement="top"
-                                   data-clipboard-target="#S9f365cb71ea970b0056e1c8bd0c50b42d3e211db22b5c690e0cd65e82371ea95"
+                                   data-clipboard-target="#S2f86ea8b4470a9421bdd1b6a8acac82441426e25344971071780b01111e24642"
                                    title="Copy to clipboard">file_copy
                                 </i>
                             </p>
-                            <pre id="S9f365cb71ea970b0056e1c8bd0c50b42d3e211db22b5c690e0cd65e82371ea95" class="example__code-wrapper">
+                            <pre id="S2f86ea8b4470a9421bdd1b6a8acac82441426e25344971071780b01111e24642" class="example__code-wrapper">
                                 <code class="xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
 &lt;Invitation media-type=&quot;application/vnd.ibexa.api.Invitation+xml&quot;&gt;
     &lt;id&gt;3&lt;/id&gt;
@@ -46152,20 +46152,20 @@ application/vnd.ibexa.api.&lt;Discriminator&gt;ParticipantUpdate+xml
 &lt;/Invitation&gt;</code>
                             </pre>
                         </div>
-                        <a href="" data-toggle="modal" data-target="#collaboration-sessions-sessionid-invitations-post-response-201Modal" class="btn btn--example-view-more text-center">View more</a>
+                        <a href="" data-toggle="modal" data-target="#collaboration-sessions-sessiontoken-invitations-post-response-201Modal" class="btn btn--example-view-more text-center">View more</a>
                                     </div>
-                                            <div class="tab-pane fade " id="collaboration-sessions-sessionid-invitations-post-response-201-json" role="tabpanel"
-                     aria-labelledby="collaboration-sessions-sessionid-invitations-post-response-201-json-tab">
+                                            <div class="tab-pane fade " id="collaboration-sessions-sessiontoken-invitations-post-response-201-json" role="tabpanel"
+                     aria-labelledby="collaboration-sessions-sessiontoken-invitations-post-response-201-json-tab">
                                                                                             <div class="position-relative  ">
                                                         <p class="mb-0 icon icon--copy-clipboard">
                                 <i class="material-icons-outlined clipboard"
                                    data-toggle="tooltip"
                                    data-placement="top"
-                                   data-clipboard-target="#Sdd9dea1df380ee1238586c5e6a88e725778c9f1a7d5cb712836595e0203d387c"
+                                   data-clipboard-target="#Se537e6b68153430a977c0681a2872d077aa6b545bde705a7fd3fa6caf4e1055a"
                                    title="Copy to clipboard">file_copy
                                 </i>
                             </p>
-                            <pre id="Sdd9dea1df380ee1238586c5e6a88e725778c9f1a7d5cb712836595e0203d387c" class="example__code-wrapper">
+                            <pre id="Se537e6b68153430a977c0681a2872d077aa6b545bde705a7fd3fa6caf4e1055a" class="example__code-wrapper">
                                 <code class="json">{
     &quot;Invitation&quot;: {
         &quot;_media-type&quot;: &quot;application/vnd.ibexa.api.Invitation+json&quot;,
@@ -46188,15 +46188,15 @@ application/vnd.ibexa.api.&lt;Discriminator&gt;ParticipantUpdate+xml
 }</code>
                             </pre>
                         </div>
-                        <a href="" data-toggle="modal" data-target="#collaboration-sessions-sessionid-invitations-post-response-201Modal" class="btn btn--example-view-more text-center">View more</a>
+                        <a href="" data-toggle="modal" data-target="#collaboration-sessions-sessiontoken-invitations-post-response-201Modal" class="btn btn--example-view-more text-center">View more</a>
                                     </div>
                         </div>
 </div>
-                        <div class="modal fade" id="collaboration-sessions-sessionid-invitations-post-response-201Modal" tabindex="-1" role="dialog" aria-labelledby="collaboration-sessions-sessionid-invitations-post-response-201Title" aria-hidden="true">
+                        <div class="modal fade" id="collaboration-sessions-sessiontoken-invitations-post-response-201Modal" tabindex="-1" role="dialog" aria-labelledby="collaboration-sessions-sessiontoken-invitations-post-response-201Title" aria-hidden="true">
     <div class="modal-dialog modal-xl" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <p class="modal-title" id="collaboration-sessions-sessionid-invitations-post-response-201Title">
+                <p class="modal-title" id="collaboration-sessions-sessiontoken-invitations-post-response-201Title">
                     <span data-field="method" class="badge badge--sm badge--post">POST</span>
                     Create invitation
                 </p>
@@ -46206,18 +46206,18 @@ application/vnd.ibexa.api.&lt;Discriminator&gt;ParticipantUpdate+xml
             </div>
             <div class="modal-body">
                 <div class="d-flex justify-content-between align-items-baseline">
-                    <ul class="nav nav-tabs border-bottom-0" id="collaboration-sessions-sessionid-invitations-post-response-201ModalTab" role="tablist">
+                    <ul class="nav nav-tabs border-bottom-0" id="collaboration-sessions-sessiontoken-invitations-post-response-201ModalTab" role="tablist">
                                                     <li class="nav-item">
                                 <a href="#" class="nav-link disabled">
                                     Responses
                                 </a>
                             </li>
                                                                                             <li class="nav-item">
-                                    <a class="nav-link active text-gray" id="collaboration-sessions-sessionid-invitations-post-response-201-xml-modal-tab"
+                                    <a class="nav-link active text-gray" id="collaboration-sessions-sessiontoken-invitations-post-response-201-xml-modal-tab"
                                        data-toggle="tab"
-                                       href="#collaboration-sessions-sessionid-invitations-post-response-201-xml-modal"
+                                       href="#collaboration-sessions-sessiontoken-invitations-post-response-201-xml-modal"
                                        role="tab"
-                                       aria-controls="collaboration-sessions-sessionid-invitations-post-response-201-xml-modal"
+                                       aria-controls="collaboration-sessions-sessiontoken-invitations-post-response-201-xml-modal"
                                        aria-selected="true">
                                         xml
                                     </a>
@@ -46226,11 +46226,11 @@ application/vnd.ibexa.api.&lt;Discriminator&gt;ParticipantUpdate+xml
 
                                 </li>
                                                                                             <li class="nav-item">
-                                    <a class="nav-link  text-gray" id="collaboration-sessions-sessionid-invitations-post-response-201-json-modal-tab"
+                                    <a class="nav-link  text-gray" id="collaboration-sessions-sessiontoken-invitations-post-response-201-json-modal-tab"
                                        data-toggle="tab"
-                                       href="#collaboration-sessions-sessionid-invitations-post-response-201-json-modal"
+                                       href="#collaboration-sessions-sessiontoken-invitations-post-response-201-json-modal"
                                        role="tab"
-                                       aria-controls="collaboration-sessions-sessionid-invitations-post-response-201-json-modal"
+                                       aria-controls="collaboration-sessions-sessiontoken-invitations-post-response-201-json-modal"
                                        aria-selected="false">
                                         json
                                     </a>
@@ -46244,20 +46244,20 @@ application/vnd.ibexa.api.&lt;Discriminator&gt;ParticipantUpdate+xml
                         </div>
                                     </div>
                 <div class="example position-relative border p-3 mb-3">
-                    <div class="tab-content" id="collaboration-sessions-sessionid-invitations-post-response-201ModalContent">
+                    <div class="tab-content" id="collaboration-sessions-sessiontoken-invitations-post-response-201ModalContent">
                                                     <div class="tab-pane fade show active"
-                                 id="collaboration-sessions-sessionid-invitations-post-response-201-xml-modal" role="tabpanel"
-                                 aria-labelledby="collaboration-sessions-sessionid-invitations-post-response-201-xml-modal-tab">
+                                 id="collaboration-sessions-sessiontoken-invitations-post-response-201-xml-modal" role="tabpanel"
+                                 aria-labelledby="collaboration-sessions-sessiontoken-invitations-post-response-201-xml-modal-tab">
                                                                                                                                             <div class="position-relative  ">
                                                                                 <p class="mb-0 icon icon--copy-clipboard">
                                             <i class="material-icons-outlined clipboard"
                                                data-toggle="tooltip"
                                                data-placement="top"
-                                               data-clipboard-target="#M6d959ff063cbd3b00fc706208da999401013374297e6ed5f6aaa37a31597d515"
+                                               data-clipboard-target="#M3bba89a906fab73c4beafd671652470e740a35788c12443c2b431b206dfa6c78"
                                                title="Copy to clipboard">file_copy
                                             </i>
                                         </p>
-                                        <pre id="M6d959ff063cbd3b00fc706208da999401013374297e6ed5f6aaa37a31597d515">
+                                        <pre id="M3bba89a906fab73c4beafd671652470e740a35788c12443c2b431b206dfa6c78">
                                             <code class="xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
 &lt;Invitation media-type=&quot;application/vnd.ibexa.api.Invitation+xml&quot;&gt;
     &lt;id&gt;3&lt;/id&gt;
@@ -46288,18 +46288,18 @@ application/vnd.ibexa.api.&lt;Discriminator&gt;ParticipantUpdate+xml
                                     </div>
                                                             </div>
                                                     <div class="tab-pane fade "
-                                 id="collaboration-sessions-sessionid-invitations-post-response-201-json-modal" role="tabpanel"
-                                 aria-labelledby="collaboration-sessions-sessionid-invitations-post-response-201-json-modal-tab">
+                                 id="collaboration-sessions-sessiontoken-invitations-post-response-201-json-modal" role="tabpanel"
+                                 aria-labelledby="collaboration-sessions-sessiontoken-invitations-post-response-201-json-modal-tab">
                                                                                                                                             <div class="position-relative  ">
                                                                                 <p class="mb-0 icon icon--copy-clipboard">
                                             <i class="material-icons-outlined clipboard"
                                                data-toggle="tooltip"
                                                data-placement="top"
-                                               data-clipboard-target="#Mc64b54aa550a2a8bd768af65e10b6712e60f758b17e94243bc2ff33d64029ce2"
+                                               data-clipboard-target="#Ma1c9f84d5b4bc91bde31cf406ccd7c775965f945407893b0cb15e4c6947bdfb5"
                                                title="Copy to clipboard">file_copy
                                             </i>
                                         </p>
-                                        <pre id="Mc64b54aa550a2a8bd768af65e10b6712e60f758b17e94243bc2ff33d64029ce2">
+                                        <pre id="Ma1c9f84d5b4bc91bde31cf406ccd7c775965f945407893b0cb15e4c6947bdfb5">
                                             <code class="json">{
     &quot;Invitation&quot;: {
         &quot;_media-type&quot;: &quot;application/vnd.ibexa.api.Invitation+json&quot;,
@@ -46331,154 +46331,6 @@ application/vnd.ibexa.api.&lt;Discriminator&gt;ParticipantUpdate+xml
 </div>
                                     </div>
                                                                         </div>
-                                    </div>
-    </div>
-</div>
-                    <div class="sticky px-3">
-        <div class="sticky__body border-bottom border-top py-1 ">
-            <h4 id="/collaboration/sessions/{sessionid}/link" class="heading text-gray">/collaboration/sessions/{sessionId}/link</h4>
-            <ul class="list-unstyled d-inline-flex mb-0">
-                                    <li class="pr-3 ">
-                                                <a href="#collaborative-editing-retrieve-collaboration-session-link.">
-                           <span class="pl-0 new badge badge--get" data-badge-caption="GET">
-                                GET
-                           </span>
-                        </a>
-                    </li>
-                            </ul>
-        </div>
-    </div>
-            <div id="collaborative-editing-retrieve-collaboration-session-link.-section" class="search-container px-3" data-parent="Collaborative editing">
-    <div class="row px-1 pr-lg-0">
-        <div class="col-12">
-            <h5 id="collaborative-editing-retrieve-collaboration-session-link."
-                class="heading text-gray font-weight-medium"
-                data-field="name"
-                data-search="retrieve-collaboration-session-link.">
-                Retrieve collaboration session link.
-                <a href="#collaborative-editing-retrieve-collaboration-session-link." class="heading__link">¶</a>
-            </h5>
-        </div>
-        <div class="col-lg-6">
-            <p class="text-break">
-                <span data-field="method" class="badge badge--sm badge--get">GET</span>
-                <span data-field="url">/collaboration/sessions/{sessionId}/link</span>
-            </p>
-            <p data-field="body"><p>Get the collaboration session link.</p>
-</p>
-                <div class="py-3">
-        <h6 class="heading text-gray border-bottom pb-2">Header parameters</h6>
-                    <div class="mb-2">
-                <p class="mt-3 mb-0 font-weight-medium">Accept</p>
-                <p></p>
-                <div class="table-responsive mb-2">
-                    <table class="table">
-                        <thead>
-                        <tr>
-                            <th scope="col">Property</th>
-                            <th scope="col">Value</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <tr>
-    <td>Type</td>
-    <td>
-        
-                    <span>
-                                    string
-                            </span>
-            
-            
-                                                        
-                        </td>
-</tr>
-<tr>
-    <td>Examples</td>
-    <td>
-                    <code>application/vnd.ibexa.api.CollaborationSession+xml
-application/vnd.ibexa.api.CollaborationSession+json
-</code>
-            </td>
-</tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-            </div>
-
-            
-                <div class="py-3">
-        <h6 class="heading text-gray border-bottom pb-2">Possible responses</h6>
-        <div class="table-responsive">
-            <table class="table">
-                <thead>
-                <tr>
-                    <th scope="col">Code</th>
-                    <th scope="col">Description</th>
-                </tr>
-                </thead>
-                <tbody>
-                                    <tr>
-                        <td>
-                                                        <a href="#collaboration-sessions-sessionid-link-get-response-200"
-                               class="text-ocean-blue ">
-                                200
-                            </a>
-                                                    </td>
-                        <td>
-                            <p></p>
-                        </td>
-                    </tr>
-                                    <tr>
-                        <td>
-                                                            404
-                                                    </td>
-                        <td>
-                            <p>Error - the session does not exist.</p>
-                        </td>
-                    </tr>
-                                </tbody>
-            </table>
-        </div>
-    </div>
-
-                <div class="py-3">
-        <h6 class="heading text-gray border-bottom pb-2">Types</h6>
-        <div class="table-responsive">
-            <table class="table">
-                <thead>
-                <tr>
-                    <th scope="col">Type</th>
-                    <th scope="col">Description</th>
-                </tr>
-                </thead>
-                <tbody>
-                                    <tr>
-                        <td>
-                            <a href="#" class="text-ocean-blue" data-toggle="modal" data-target="#Session">
-                                Session
-                            </a>
-                        </td>
-                        <td>Value for session.</td>
-                    </tr>
-                                </tbody>
-            </table>
-        </div>
-    </div>
-
-        </div>
-        <div class="col-lg-6 px-3 examples">
-                                    
-                                                <div class="request">
-    </div>
-                                                                    <div class="response">
-                                                        <div class="pb-3 response__code" id="collaboration-sessions-sessionid-link-get-response-200">
-                    <div class="d-flex justify-content-between align-items-baseline">
-                        <ul class="nav nav-tabs border-bottom-0" id="collaboration-sessions-sessionid-link-get-response-200Tab" role="tablist">
-                                                                                </ul>
-                                            </div>
-                                                        </div>
-                                    </div>
                                     </div>
     </div>
 </div>
