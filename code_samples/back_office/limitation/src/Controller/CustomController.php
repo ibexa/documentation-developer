@@ -6,6 +6,7 @@ use App\Security\Limitation\CustomLimitationValue;
 use Ibexa\Contracts\AdminUi\Controller\Controller;
 use Ibexa\Contracts\AdminUi\Permission\PermissionCheckerInterface;
 use Ibexa\Contracts\Core\Repository\PermissionResolver;
+use Ibexa\Contracts\User\Controller\AuthenticatedRememberedCheckTrait;
 use Ibexa\Contracts\User\Controller\RestrictedControllerInterface;
 use Ibexa\Core\MVC\Symfony\Security\Authorization\Attribute;
 use Symfony\Component\HttpFoundation\Request;
@@ -13,6 +14,10 @@ use Symfony\Component\HttpFoundation\Response;
 
 class CustomController extends Controller implements RestrictedControllerInterface
 {
+    use AuthenticatedRememberedCheckTrait {
+        AuthenticatedRememberedCheckTrait::performAccessCheck as public traitPerformAccessCheck;
+    }
+
     public function __construct(
         // ...,
         private readonly PermissionResolver $permissionResolver,
@@ -40,6 +45,7 @@ class CustomController extends Controller implements RestrictedControllerInterfa
 
     public function performAccessCheck(): void
     {
+        $this->traitPerformAccessCheck();
         $this->denyAccessUnlessGranted(new Attribute('custom_module', 'custom_function_2'));
     }
 }
