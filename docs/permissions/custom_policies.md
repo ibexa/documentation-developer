@@ -205,7 +205,7 @@ Some abstract limitation type form mapper classes are provided to help implement
 
 #### Value mapper
 
-By default, without a value mapper, the limitation value is rendered by using the block `ibexa_limitation_value_fallback` of the template [`vendor/ibexa/admin-ui/src/bundle/Resources/views/themes/admin/limitation/limitation_values.html.twig`](https://github.com/ibexa/admin-ui/blob/[[= latest_tag_5_0 =]]/src/bundle/Resources/views/themes/admin/limitation/limitation_values.html.twig).
+By default, without a value mapper, the limitation value is rendered by using the block `ibexa_limitation_value_fallback` of the template [`vendor/ibexa/admin-ui/src/bundle/Resources/views/themes/admin/limitation/limitation_values.html.twig`](https://github.com/ibexa/admin-ui/blob/v[[= latest_tag_5_0 =]]/src/bundle/Resources/views/themes/admin/limitation/limitation_values.html.twig).
 
 To customize the rendering, a value mapper eventually transforms the limitation value and sends it to a custom template.
 
