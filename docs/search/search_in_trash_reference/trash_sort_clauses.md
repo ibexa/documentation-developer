@@ -6,18 +6,16 @@ month_change: false
 
 # Trash Search Sort Clauses reference
 
-Sort Clauses for trash are found in the [`Ibexa\Contracts\Core\Repository\Values\Content\Query\SortClause`](/api/php_api/php_api_reference/namespaces/ibexa-contracts-core-repository-values-content-query-sortclause.html) namespace, implementing the [SortClauseInterface](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-SortClauseInterface.html) interface:
-
 | Name | Description |
 | --- | --- |
-| [ContentName](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-SortClause-ContentName.html) | Sort by content item name |
-| [ContentTypeName](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-SortClause-ContentTypeName.html) | Sort by Content Type name |
-| [DateTrashed](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-SortClause-DateTrashed.html) | Sort by the date when content was moved to trash (exclusive to trash search) |
-| [Depth](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-SortClause-Depth.html) | Sort by the original depth in the content tree |
-| [Path](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-SortClause-Path.html) | Sort by the original path in the content tree |
-| [Priority](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-SortClause-Priority.html) | Sort by content item priority |
-| [SectionName](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-SortClause-SectionName.html) | Sort by Section name |
-| [UserLogin](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-SortClause-UserLogin.html) | Sort by the login of the user who created the content |
+| [ContentName](../contentname_sort_clause.md) | Sort by content item name |
+| [ContentTypeName](../contenttypename_sort_clause.md) | Sort by Content Type name |
+| [DateTrashed](../datetrashed_sort_clause.md) | Sort by the date when content was moved to trash (exclusive to trash search) |
+| [Depth](../depth_sort_clause.md) | Sort by the original depth in the content tree |
+| [Path](../path_sort_clause.md) | Sort by the original path in the content tree |
+| [Priority](../priority_sort_clause.md) | Sort by content item priority |
+| [SectionName](../sectionname_sort_clause.md) | Sort by Section name |
+| [UserLogin](../userlogin_sort_clause.md) | Sort by the login of the user who created the content |
 
 The following example shows how to use sort clauses to order the searched trash items:
 
@@ -45,4 +43,4 @@ The returned trash items are sorted by:
 - content name (ascending - alphabetically)
 - Content Type name (ascending - alphabetically)
 
-You can change the default sorting order by using the `Query::SORT_ASC` and `Query::SORT_DESC` constants from [`Query`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Query.html#constants).
+You can change the default sorting order by using the `Query::SORT_ASC` and `Query::SORT_DESC` constants.
