@@ -1,0 +1,10 @@
+services:
+    mkdocs:
+      build: .
+      environment:
+        - MKDOCS_PORT=8000
+      ports:
+        - "${MKDOCS_PORT}:${MKDOCS_PORT}"
+      volumes:
+        - .:/docs
+      command: mkdocs serve --dev-addr=0.0.0.0:${MKDOCS_PORT}
