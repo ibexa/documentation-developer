@@ -10,11 +10,15 @@ The [`ContentTypeIdentifier` Search Criterion](/api/php_api/php_api_reference/cl
 
 - `value` - string(s) representing the content type identifier(s)
 
+## Limitations
+
+`ContentTypeIdentifier` can be used on all search engines.
+
 ## Example
 
 ### PHP
 
-``` php
+```php
 $query->query = new Criterion\ContentTypeIdentifier(['article', 'blog_post']);
 ```
 

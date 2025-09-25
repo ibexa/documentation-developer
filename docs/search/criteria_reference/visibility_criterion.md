@@ -8,19 +8,21 @@ The [`Visibility` Search Criterion](/api/php_api/php_api_reference/classes/Ibexa
 
 This Criterion takes into account both hiding content and hiding locations.
 
-When used with Content Search, the Criterion takes into account all assigned locations.
-This means that hidden content is returned if it has at least one visible location.
-Use Location Search to avoid this.
+When used with Content Search, the Criterion takes into account all assigned locations. This means that hidden content is returned if it has at least one visible location. Use Location Search to avoid this.
 
 ## Arguments
 
 - `value` - Visibility constant (VISIBLE, HIDDEN)
 
+## Limitations
+
+`Visibility` can be used on all search engines.
+
 ## Example
 
 ### PHP
 
-``` php
+```php
 $query->query = new Criterion\Visibility(Criterion\Visibility::HIDDEN);
 ```
 
@@ -41,7 +43,7 @@ $query->query = new Criterion\Visibility(Criterion\Visibility::HIDDEN);
     ```json
     "Query": {
         "Filter": {
-            "ContentIdCriterion": "HIDDEN"
+            "VisibilityCriterion": "HIDDEN"
         }
     }
     ```

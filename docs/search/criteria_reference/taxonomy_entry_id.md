@@ -10,16 +10,16 @@ The [`TaxonomyEntryId` Search Criterion](/api/php_api/php_api_reference/classes/
 
 - `value` - int(s) representing the IDs of the Tag(s)
 
+## Limitations
+
+`TaxonomyEntryId` can be used on all search engines.
+
 ## Example
 
 ### PHP
 
-``` php
-$query->query = new Criterion\TaxonomyEntryId(1);
-```
-
-Add an array of ID's to find Content tagged with at least one of the tags (OR).
-
 ```php
+$query->query = new Criterion\TaxonomyEntryId(1);
+// Or with multiple IDs
 $query->query = new Criterion\TaxonomyEntryId([1, 2, 3]);
 ```

@@ -22,7 +22,7 @@ The Richtext field type (`ibexa_richtext`) isn't searchable in the Legacy search
 
 ### PHP
 
-``` php
+```php
 $query->query = new Criterion\IsFieldEmpty('title');
 ```
 

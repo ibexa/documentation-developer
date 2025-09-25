@@ -10,11 +10,15 @@ The [`ContentTypeId` Search Criterion](/api/php_api/php_api_reference/classes/Ib
 
 - `value` - int(s) representing the content type ID(s)
 
+## Limitations
+
+`ContentTypeId` can be used on all search engines.
+
 ## Example
 
 ### PHP
 
-``` php
+```php
 $query->query = new Criterion\ContentTypeId([44]);
 ```
 

@@ -10,11 +10,15 @@ The [`ContentId` Search Criterion](/api/php_api/php_api_reference/classes/Ibexa-
 
 - `value` - int(s) representing the Content ID(s)
 
+## Limitations
+
+`ContentId` can be used on all search engines.
+
 ## Example
 
 ### PHP
 
-``` php
+```php
 $query->query = new Criterion\ContentId([62, 64]);
 ```
 

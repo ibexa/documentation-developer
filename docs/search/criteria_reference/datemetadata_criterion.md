@@ -12,11 +12,15 @@ The [`DateMetadata` Search Criterion](/api/php_api/php_api_reference/classes/Ibe
 - `operator` - Operator constant (IN, EQ, GT, GTE, LT, LTE, BETWEEN)
 - `value` - indicating the date(s) that should be matched, provided as a UNIX timestamp (or array of timestamps)
 
+## Limitations
+
+`DateMetadata` can be used on all search engines.
+
 ## Example
 
 ### PHP
 
-``` php
+```php
 $query->query = new Criterion\DateMetadata(
     Criterion\DateMetadata::CREATED,
     Criterion\Operator::BETWEEN,

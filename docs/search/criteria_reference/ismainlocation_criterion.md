@@ -13,10 +13,14 @@ This Criterion is available only for Location Search.
 - `value` - `IsMainLocation::MAIN` (0) or `IsMainLocation::NOT_MAIN` (1),
 representing whether to search for a main or not main location
 
+## Limitations
+
+`IsMainLocation` can be used on all search engines.
+
 ## Example
 
 ### PHP
 
-``` php
+```php
 $query->query = new Criterion\Location\IsMainLocation(IsMainLocation::MAIN);
 ```

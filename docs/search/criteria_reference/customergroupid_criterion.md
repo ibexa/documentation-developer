@@ -10,10 +10,14 @@ The `CustomerGroupId` Search Criterion searches for content based on the ID of i
 
 - `value` - int(s) representing the customer group ID(s)
 
+## Limitations
+
+`CustomerGroupId` can be used on all search engines.
+
 ## Example
 
 ### PHP
 
-``` php
+```php
 $query->query = new Criterion\CustomerGroupId(1);
 ```

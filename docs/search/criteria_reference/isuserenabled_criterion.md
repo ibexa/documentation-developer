@@ -11,11 +11,15 @@ The [`IsUserEnabled` Search Criterion](/api/php_api/php_api_reference/classes/Ib
 
 - (optional) `value` - bool representing whether to search for enabled (default `true`) or disabled user accounts
 
+## Limitations
+
+`IsUserEnabled` can be used on all search engines.
+
 ## Example
 
 ### PHP
 
-``` php
+```php
 $query->query = new Criterion\IsUserEnabled();
 ```
 

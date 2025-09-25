@@ -11,11 +11,15 @@ The [`LanguageCode` Search Criterion](/api/php_api/php_api_reference/classes/Ibe
 - `value` - string(s) representing the language codes to search for
 - (optional) `matchAlwaysAvailable` - bool representing whether content with the `alwaysAvailable` flag should be returned even if it doesn't contain the selected language (default `true`)
 
+## Limitations
+
+`LanguageCode` can be used on all search engines.
+
 ## Example
 
 ### PHP
 
-``` php
+```php
 $query->query = new Criterion\LanguageCode('ger-DE', false);
 ```
 

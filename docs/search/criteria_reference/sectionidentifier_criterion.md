@@ -10,11 +10,15 @@ The [`SectionIdentifier` Search Criterion](/api/php_api/php_api_reference/classe
 
 - `value` - string(s) representing the identifiers of the Section(s)
 
+## Limitations
+
+`SectionIdentifier` can be used on all search engines.
+
 ## Example
 
 ### PHP
 
-``` php
+```php
 $query->query = new Criterion\SectionIdentifier(['sports', 'news']);
 ```
 

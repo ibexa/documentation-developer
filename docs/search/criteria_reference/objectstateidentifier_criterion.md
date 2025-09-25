@@ -11,15 +11,19 @@ The [`ObjectStateIdentifier` Search Criterion](/api/php_api/php_api_reference/cl
 - `value` - string(s) representing the object state identifier(s)
 - `target` (optional for PHP)  - string representing the object state group
 
+## Limitations
+
+`ObjectStateIdentifier` can be used on all search engines.
+
 ## Example
 
 ### PHP
 
-``` php
+```php
 $query->query = new Criterion\ObjectStateIdentifier(['ready']);
 ```
 
-``` php
+```php
 $query->query = new Criterion\ObjectStateIdentifier(['not_locked'], 'ibexa_lock');
 ```
 

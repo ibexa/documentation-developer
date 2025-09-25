@@ -19,11 +19,8 @@ Solr search engine and Elasticsearch support IN and EQ operators only.
 
 ### PHP
 
-``` php
+```php
 $query->query = new Criterion\UserLogin(['johndoe']);
-```
-
-``` php
 $query->query = new Criterion\UserLogin('adm*', Criterion\Operator::LIKE);
 ```
 

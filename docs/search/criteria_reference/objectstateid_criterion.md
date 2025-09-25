@@ -10,11 +10,15 @@ The [`ObjectStateId` Search Criterion](/api/php_api/php_api_reference/classes/Ib
 
 - `value` - int(s) representing the object state ID(s)
 
+## Limitations
+
+`ObjectStateId` can be used on all search engines.
+
 ## Example
 
 ### PHP
 
-``` php
+```php
 $query->query = new Criterion\ObjectStateId([4, 5]);
 ```
 

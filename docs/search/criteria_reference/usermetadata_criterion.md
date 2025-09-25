@@ -12,11 +12,15 @@ The [`UserMetadata` Search Criterion](/api/php_api/php_api_reference/classes/Ibe
 - `operator` - Operator constant (EQ, IN)
 - `value` - int(s) representing the User IDs or user group IDs (in case of the UserMetadata::GROUP target)
 
+## Limitations
+
+`UserMetadata` can be used on all search engines.
+
 ## Example
 
 ### PHP
 
-``` php
+```php
 $query->query = new Criterion\UserMetadata(Criterion\UserMetadata::GROUP, Criterion\Operator::EQ, 12);
 ```
 

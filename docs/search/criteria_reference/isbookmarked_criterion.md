@@ -15,11 +15,15 @@ This Criterion is available only for location Search.
 
 - `value` - bool representing whether to search for bookmarked location (default `true`) or not bookmarked location (`false`)
 
+## Limitations
+
+`IsBookmarked` can be used on all search engines.
+
 ## Example
 
 ### PHP
 
-``` php
+```php
 [[= include_file('code_samples/search/location/isbookmarked_criterion.php', 2) =]]
 ```
 

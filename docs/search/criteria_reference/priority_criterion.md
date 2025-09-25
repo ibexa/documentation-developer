@@ -18,10 +18,14 @@ The `value` argument requires:
 - a list of ints for `Operator::BETWEEN`
 - a single int for other Operators
 
+## Limitations
+
+`Priority` can be used on all search engines.
+
 ## Example
 
 ### PHP
 
-``` php
+```php
 $query->query = new Criterion\Location\Priority(Criterion\Operator::GTE, 50);
 ```

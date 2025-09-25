@@ -11,11 +11,15 @@ The `Image` Search Criterion searches for image by specified image attributes.
 - `fieldDefIdentifier` - string representing the identifier of the field
 - `imageCriteriaData` - array representing image attributes. All attributes are optional.
 
+## Limitations
+
+`Image` can be used on all search engines.
+
 ## Example
 
 ### PHP
 
-``` php
+```php
 $imageCriteriaData = [
     'mimeTypes' => [
        'image/png',

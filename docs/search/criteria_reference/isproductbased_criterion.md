@@ -6,10 +6,18 @@ description: IsProductBased Search Criterion
 
 The `IsProductBased` Search Criterion searches for content that plays the role of a Product.
 
+## Arguments
+
+This criterion does not require any arguments.
+
+## Limitations
+
+`IsProductBased` can be used on all search engines.
+
 ## Example
 
 ### PHP
 
-``` php
+```php
 $query->query = new Ibexa\Contracts\ProductCatalog\Values\Content\Query\Criterion\IsProductBased();
 ```

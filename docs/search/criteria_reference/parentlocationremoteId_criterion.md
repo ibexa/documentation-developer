@@ -10,6 +10,17 @@ The `ParentLocationRemoteId` Search Criterion searches for content based on the 
 
 - `value` - int(s) representing the parent location remote IDs
 
+## Limitations
+
+`ParentLocationRemoteId` can be used on all search engines.
+
+## Example
+
+### PHP
+
+```php
+$query->query = new Criterion\ParentLocationRemoteId(['abab615dcf26699a4291657152da4337']);
+```
 
 ### REST API
 

@@ -10,11 +10,15 @@ The [`SectionId` Search Criterion](/api/php_api/php_api_reference/classes/Ibexa-
 
 - `value` - int(s) representing the IDs of the Section(s)
 
+## Limitations
+
+`SectionId` can be used on all search engines.
+
 ## Example
 
 ### PHP
 
-``` php
+```php
 $query->query = new Criterion\SectionId(3);
 ```
 

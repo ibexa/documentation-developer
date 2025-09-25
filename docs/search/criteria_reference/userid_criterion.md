@@ -10,11 +10,15 @@ The [`UserId` Search Criterion](/api/php_api/php_api_reference/classes/Ibexa-Con
 
 - `value` - int(s) representing the User ID(s)
 
+## Limitations
+
+`UserId` can be used on all search engines.
+
 ## Example
 
 ### PHP
 
-``` php
+```php
 $query->query = new Criterion\UserId([14]);
 ```
 

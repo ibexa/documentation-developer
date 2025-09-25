@@ -11,11 +11,15 @@ The `Dimensions` Search Criterion searches for image with specified dimensions.
 - `fieldDefIdentifier` - string representing the identifier of the field
 - `imageCriteriaData` - an array representing minimum and maximum values for width and height, expressed in pixels
 
+## Limitations
+
+`ImageDimensions` can be used on all search engines.
+
 ## Example
 
 ### PHP
 
-``` php
+```php
 $imageCriteriaData = [
     'width' => [
         'min' => 100, // (default: 0, optional)

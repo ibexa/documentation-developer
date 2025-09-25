@@ -12,10 +12,14 @@ The `Width` Search Criterion searches for image with specified width.
 - (optional) `minValue` - int representing minimum file width expressed in pixels, default: 0
 - (optional) `maxValue` - int representing maximum file width expressed in pixels, default: `null`
 
+## Limitations
+
+`ImageWidth` can be used on all search engines.
+
 ## Example
 
 ### PHP
 
-``` php
+```php
 $query->query = new Criterion\Width('image', 150, 1000);
 ```

@@ -10,12 +10,18 @@ The [`Ancestor` Search Criterion](/api/php_api/php_api_reference/classes/Ibexa-C
 
 - `value` - array of location pathStrings
 
+## Limitations
+
+`Ancestor` can be used on all search engines.
+
 ## Example
 
 ### PHP
 
-``` php
-$query->query = new Criterion\Ancestor([$this->locationService->loadLocation(62)->pathString]);
+```php
+$query->query = new Criterion\Ancestor([
+    $this->locationService->loadLocation(62)->pathString
+]);
 ```
 
 ### REST API
@@ -44,9 +50,11 @@ $query->query = new Criterion\Ancestor([$this->locationService->loadLocation(62)
 
 You can use the Ancestor Search Criterion to create a list of breadcrumbs leading to the Location:
 
-``` php hl_lines="2"
+```php hl_lines="2-4"
 $query = new LocationQuery();
-$query->query = new Criterion\Ancestor([$this->locationService->loadLocation($locationId)->pathString]);
+$query->query = new Criterion\Ancestor([
+    $this->locationService->loadLocation($locationId)->pathString
+]);
 
 $results = $this->searchService->findLocations($query);
 $breadcrumbs = [];
@@ -59,7 +67,7 @@ return $this->render('parts/breadcrumbs.html.twig', [
 ]);
 ```
 
-``` html+twig
+```html+twig
 {% for breadcrumb in breadcrumbs %}
     {% if not loop.first %} -> {% endif %}
     {% if not loop.last %}

@@ -11,11 +11,15 @@ searches for content based on the Location ID of its parent.
 
 - `value` - int(s) representing the parent location IDs
 
+## Limitations
+
+`ParentLocationId` can be used on all search engines.
+
 ## Example
 
 ### PHP
 
-``` php
+```php
 $query->query = new Criterion\ParentLocationId([54, 58]);
 ```
 

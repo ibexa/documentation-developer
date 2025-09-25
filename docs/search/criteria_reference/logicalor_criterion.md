@@ -10,16 +10,19 @@ The [`LogicalOr` Search Criterion](/api/php_api/php_api_reference/classes/Ibexa-
 
 - `criterion` - a set of Criteria combined by the logical operator
 
+## Limitations
+
+`LogicalOr` can be used on all search engines.
+
 ## Example
 
 ### PHP
 
-``` php
+```php
 $query->filter = new Criterion\LogicalOr([
-        new Criterion\ContentTypeIdentifier('article'),
-        new Criterion\SectionIdentifier(['sports', 'news']);
-    ]
-);
+    new Criterion\ContentTypeIdentifier('article'),
+    new Criterion\SectionIdentifier(['sports', 'news'])
+]);
 ```
 
 ### REST API

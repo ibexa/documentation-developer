@@ -19,10 +19,14 @@ The `value` argument requires:
 - exactly two ints for `Operator::BETWEEN`
 - a single int for other Operators
 
+## Limitations
+
+`Depth` can be used on all search engines.
+
 ## Example
 
 ### PHP
 
-``` php
+```php
 $query->query = new Criterion\Location\Depth(Criterion\Operator::LT, 3);
 ```

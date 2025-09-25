@@ -11,22 +11,21 @@ The [`Sibling` Search Criterion](/api/php_api/php_api_reference/classes/Ibexa-Co
 - `locationId` - int representing the location ID
 - `parentLocationId` - int representing the parent location ID
 
+## Limitations
+
+`Sibling` can be used on all search engines.
+
 ## Example
 
 ### PHP
 
-``` php
+```php
 $query->query = new Criterion\Sibling(59, 2);
-```
 
-You can also use the named constructor `Criterion\Sibling::fromLocation` and provide it with the location object:
-
-``` php
+// Or using the named constructor
 $location = $locationService->loadLocation(59);
 $query->query = Criterion\Sibling::fromLocation($location);
 ```
-
-### REST API
 
 ### REST API
 

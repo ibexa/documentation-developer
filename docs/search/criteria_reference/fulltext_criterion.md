@@ -27,7 +27,6 @@ The [`FullText` Search Criterion](/api/php_api/php_api_reference/classes/Ibexa-C
 
 \*\*\* Asteriks may only be located at the beginning or end of a query.
 
-
 ## Limitations
 
 When using the Legacy search engine, a full text query performs an OR query by default, and
@@ -41,19 +40,19 @@ The `FullText` Criterion isn't available in [Repository filtering](search_api.md
 
 ### PHP
 
-``` php
+```php
 $query->query = new Criterion\FullText('victory');
 ```
 
 Using double quotes to indicate a phrase:
 
-``` php
+```php
 $query->query = new Criterion\FullText('"world cup"');
 ```
 
 Using the AND operator and parenthesis to search for both words at the same time:
 
-``` php
+```php
 $query->query = new Criterion\FullText('baseball AND cup');
 ```
 

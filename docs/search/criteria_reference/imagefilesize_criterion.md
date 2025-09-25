@@ -12,11 +12,15 @@ The `FileSize` Search Criterion searches for image with specified size.
 - (optional) `minValue` - numeric representing minimum file size expressed in MB, default: 0
 - (optional) `maxValue` - numeric representing maximum file size expressed in MB, default: `null`
 
+## Limitations
+
+`ImageFileSize` can be used on all search engines.
+
 ## Example
 
 ### PHP
 
-``` php
+```php
 $query->query = new Criterion\FileSize('image', 0, 1.5);
 ```
 

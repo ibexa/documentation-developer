@@ -22,6 +22,6 @@ The `FieldRelation` Criterion isn't available in [Repository filtering](search_a
 
 ### PHP
 
-``` php
+```php
 $query->query = new Criterion\FieldRelation('relations', Criterion\Operator::CONTAINS, [55, 63]);
 ```

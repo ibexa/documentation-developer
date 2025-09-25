@@ -10,11 +10,15 @@ The [`ContentTypeGroupId` Search Criterion](/api/php_api/php_api_reference/class
 
 - `value` - int(s) representing the content type group ID(s)
 
+## Limitations
+
+`ContentTypeGroupId` can be used on all search engines.
+
 ## Example
 
 ### PHP
 
-``` php
+```php
 $query->query = new Criterion\ContentTypeGroupId([1, 2]);
 ```
 

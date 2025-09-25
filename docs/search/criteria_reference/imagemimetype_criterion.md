@@ -11,11 +11,15 @@ The `MimeType` Search Criterion searches for image with specified mime type(s).
 - `fielDefIdentifier` - string representing the identifier of the field
 - `type` - string(s) representing mime type(s)
 
+## Limitations
+
+`ImageMimeType` can be used on all search engines.
+
 ## Example
 
 ### PHP
 
-``` php
+```php
 $query->query = new Criterion\MimeType('image', 'image/jpeg');
 ```
 

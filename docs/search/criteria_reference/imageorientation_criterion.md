@@ -12,14 +12,18 @@ Supported orientation values: landscape, portrait and square.
 - `fielDefIdentifier` - string representing the identifier of the field
 - `orientation` - strings representing orientations
 
+## Limitations
+
+`ImageOrientation` can be used on all search engines.
+
 ## Example
 
 ### PHP
 
-``` php
+```php
 $query->query = new Criterion\Orientation('image', 'landscape');
 
-OR
+// OR
 
 $orientations = [
     'landscape',

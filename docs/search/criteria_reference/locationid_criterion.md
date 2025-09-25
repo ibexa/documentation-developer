@@ -10,11 +10,15 @@ The [`LocationId` Search Criterion](/api/php_api/php_api_reference/classes/Ibexa
 
 - `value` - int(s) representing the location ID(s)
 
+## Limitations
+
+`LocationId` can be used on all search engines.
+
 ## Example
 
 ### PHP
 
-``` php
+```php
 $query->query = new Criterion\LocationId(62);
 ```
 

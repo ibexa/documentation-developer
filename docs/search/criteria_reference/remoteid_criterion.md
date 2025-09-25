@@ -11,11 +11,15 @@ searches for content based on its remote content ID.
 
 - `value` - string(s) representing the remote IDs
 
+## Limitations
+
+`RemoteId` can be used on all search engines.
+
 ## Example
 
 ### PHP
 
-``` php
+```php
 $query->query = new Criterion\RemoteId('abab615dcf26699a4291657152da4337');
 ```
 

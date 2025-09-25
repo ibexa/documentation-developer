@@ -10,11 +10,15 @@ The [`ContentName` Search Criterion](https://github.com/ibexa/core/blob/main/src
 
 - `value` - string representing the content name, the wildcard character `*` can be used for partial search
 
+## Limitations
+
+`ContentName` can be used on all search engines.
+
 ## Example
 
 ### PHP
 
-``` php
+```php
 $query->query = new Criterion\ContentName('*phone');
 ```
 
