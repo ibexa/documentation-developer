@@ -10,16 +10,64 @@ When you [search for content items that are held in trash](search_api.md#searchi
 which can be used by [`Ibexa\Contracts\Core\Repository\TrashService::findTrashItems`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-TrashService.html#method_findTrashItems).
 Some sort clauses are exclusive to trash search.
 
-!!! note
+## Search Criteria
 
-    Searching through the trashed content items operates directly on the database, therefore you cannot use external search engines, such as Solr or Elasticsearch, and it's impossible to reindex the data.
+| Criterion | Description |
+|---|---|
+| [ContentName](contentname_criterion.md) | Find content items by their name |
+| [ContentTypeId](contenttypeid_criterion.md) | Find content items by their Content Type ID |
+| [DateMetadata](datemetadata_criterion.md) | Find content items by metadata dates. Can use the additional exclusive target `DateMetadata::TRASHED` for trash-specific searches |
+| [MatchAll](matchall_criterion.md) | Match all content items (no filtering) |
+| [MatchNone](matchnone_criterion.md) | Match no content items (filter out all) |
+| [SectionId](sectionid_criterion.md) | Find content items by their Section ID |
+| [UserMetadata](usermetadata_criterion.md) | Find content items by user metadata (creator or modifier) |
 
-!!! caution
+## Logical operators
 
-    Make sure that you set the Criterion on the `filter` property.
-    It's impossible to use the `query` property, because the search in trash operation filters the database instead of querying.
+| Operator | Description |
+|---|---|
+| [LogicalAnd](logicaland_criterion.md) | Composite criterion to group multiple criteria using the AND condition |
+| [LogicalNot](logicalor_criterion.md) | Negate the result of the wrapped criterion |
+| [LogicalOr](logicalor_criterion.md) | Composite criterion to group multiple criteria using the OR condition |
 
-For detailed information about available search options, see:
+## Sort Clauses
 
-- [Trash Search Criteria](search_in_trash_reference/trash_criteria.md)
-- [Trash Search Sort Clauses](search_in_trash_reference/trash_sort_clauses.md)
+| Name | Description |
+| --- | --- |
+| [ContentName](contentname_sort_clause.md) | Sort by content item name |
+| [ContentTypeName](contenttypename_sort_clause.md) | Sort by Content Type name |
+| [DateTrashed](datetrashed_sort_clause.md) | Sort by the date when content was moved to trash (exclusive to trash search) |
+| [Depth](depth_sort_clause.md) | Sort by the original depth in the content tree |
+| [Path](path_sort_clause.md) | Sort by the original path in the content tree |
+| [Priority](priority_sort_clause.md) | Sort by content item priority |
+| [SectionName](sectionname_sort_clause.md) | Sort by Section name |
+| [UserLogin](userlogin_sort_clause.md) | Sort by the login of the user who created the content |
+
+The following example shows how you can use the criteria and sort clauses to find trashed content items:
+
+```php
+use Ibexa\Contracts\Core\Repository\Values\Content\Query;
+use Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion;
+use Ibexa\Contracts\Core\Repository\Values\Content\Query\SortClause;
+
+$query = new Query();
+$query->filter = new Criterion\LogicalAnd([
+    new Criterion\ContentTypeId([2]), // Articles
+    new Criterion\DateMetadata(
+        Criterion\DateMetadata::TRASHED,
+        Criterion\Operator::GTE,
+        strtotime('-30 days')
+    )
+]);
+
+$query->sortClauses = [
+    new SortClause\DateTrashed(Query::SORT_DESC),
+    new SortClause\ContentName(Query::SORT_ASC),
+    new SortClause\ContentTypeName(Query::SORT_ASC)
+];
+
+// Search for articles trashed in the last 30 days
+// Results will be sorted by date trashed (most recent first),
+// then by content name and Content Type name (alphabetically)
+$results = $trashService->findTrashItems($query);
+```
