@@ -51,15 +51,23 @@ use Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion;
 use Ibexa\Contracts\Core\Repository\Values\Content\Query\SortClause;
 
 $query = new Query();
+$query->filter = new Criterion\LogicalAnd([
+    new Criterion\ContentTypeId([2]), // Articles
+    new Criterion\DateMetadata(
+        Criterion\DateMetadata::TRASHED,
+        Criterion\Operator::GTE,
+        strtotime('-30 days')
+    )
+]);
 
-// Find trashed articles
-$query->filter = new Criterion\ContentTypeId([2]);
-
-// Sort by date trashed (most recent first), then by content name
 $query->sortClauses = [
-    new SortClause\DateTrashed(Query::SORT_DESC),
-    new SortClause\ContentName(Query::SORT_ASC)
+    new SortClause\Trash\DateTrashed(Query::SORT_DESC),
+    new SortClause\ContentName(Query::SORT_ASC),
+    new SortClause\ContentTypeName(Query::SORT_ASC)
 ];
 
+// Search for articles trashed in the last 30 days
+// Results will be sorted by date trashed (most recent first),
+// then by content name and Content Type name (alphabetically)
 $results = $trashService->findTrashItems($query);
 ```
