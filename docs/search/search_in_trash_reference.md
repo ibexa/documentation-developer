@@ -10,29 +10,16 @@ When you [search for content items that are held in trash](search_api.md#searchi
 which can be used by [`Ibexa\Contracts\Core\Repository\TrashService::findTrashItems`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-TrashService.html#method_findTrashItems).
 Some sort clauses are exclusive to trash search.
 
-## Search Criteria
+!!! note
 
-- [ContentName](contentname_criterion.md)
-- [ContentTypeId](contenttypeid_criterion.md)
-- [DateMetadata](datemetadata_criterion.md) (which can use the additional exclusive target `DateMetadata::TRASHED`)
-- [MatchAll](matchall_criterion.md)
-- [MatchNone](matchnone_criterion.md)
-- [SectionId](sectionid_criterion.md)
-- [UserMetadata](usermetadata_criterion.md)
+    Searching through the trashed content items operates directly on the database, therefore you cannot use external search engines, such as Solr or Elasticsearch, and it's impossible to reindex the data.
 
-## Logical operators
+!!! caution
 
-- [LogicalAnd](logicaland_criterion.md)
-- [LogicalNot](logicalor_criterion.md)
-- [LogicalOr](logicalor_criterion.md)
+    Make sure that you set the Criterion on the `filter` property.
+    It's impossible to use the `query` property, because the search in trash operation filters the database instead of querying.
 
-## Sort Clauses
+For detailed information about available search options, see:
 
-- [ContentName](contentname_sort_clause.md)
-- [ContentTypeName](contenttypename_sort_clause.md)
-- [DateTrashed](datetrashed_sort_clause.md)
-- [Depth](depth_sort_clause.md)
-- [Path](path_sort_clause.md)
-- [Priority](priority_sort_clause.md)
-- [SectionName](sectionname_sort_clause.md)
-- [UserLogin](userlogin_sort_clause.md)
+- [Trash Search Criteria](search_in_trash_reference/trash_criteria.md)
+- [Trash Search Sort Clauses](search_in_trash_reference/trash_sort_clauses.md)
