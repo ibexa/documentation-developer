@@ -47,6 +47,7 @@ $query->query = new Criterion\DateMetadata(
 === "JSON"
 
     ```json
+    {
         "Query": {
             "Filter": {
                 "DateMetadataCriterion": {
@@ -56,6 +57,7 @@ $query->query = new Criterion\DateMetadata(
                 }
             }
         }
+    }
     ```
 
 

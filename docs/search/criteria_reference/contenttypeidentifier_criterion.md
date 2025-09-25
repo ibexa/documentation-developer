@@ -37,9 +37,11 @@ $query->query = new Criterion\ContentTypeIdentifier(['article', 'blog_post']);
 === "JSON"
 
     ```json
-    "Query": {
-        "Filter": {
-            "ContentTypeIdentifierCriterion": "article"
+    {
+        "Query": {
+            "Filter": {
+                "ContentTypeIdentifierCriterion": "article"
+            }
         }
     }
     ```

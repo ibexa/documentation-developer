@@ -43,9 +43,11 @@ $query->query = new Criterion\IsUserBased();
 === "JSON"
 
     ```json
-    "Query": {
-        "Filter": {
-            "IsUserBasedCriterion": "false"
+    {
+        "Query": {
+            "Filter": {
+                "IsUserBasedCriterion": false
+            }
         }
     }
     ```

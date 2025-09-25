@@ -37,9 +37,11 @@ $query->query = new Criterion\ContentTypeId([44]);
 === "JSON"
 
     ```json
-    "Query": {
-        "Filter": {
-            "ContentTypeIdCriterion": 44
+    {
+        "Query": {
+            "Filter": {
+                "ContentTypeIdCriterion": 44
+            }
         }
     }
     ```

@@ -39,9 +39,11 @@ $query->query = new Criterion\Ancestor([
 === "JSON"
 
     ```json
-    "Query": {
-        "Filter": {
-            "AncestorCriterion": "/81/82/"
+    {
+        "Query": {
+            "Filter": {
+                "AncestorCriterion": "/81/82/"
+            }
         }
     }
     ```

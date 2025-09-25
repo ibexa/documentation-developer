@@ -37,9 +37,11 @@ $query->query = new Criterion\ContentName('*phone');
 === "JSON"
 
     ```json
-    "Query": {
-        "Filter": {
-            "ContentNameCriterion": "*phone"
+    {
+        "Query": {
+            "Filter": {
+                "ContentNameCriterion": "*phone"
+            }
         }
     }
     ```

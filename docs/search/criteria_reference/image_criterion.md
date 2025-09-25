@@ -74,51 +74,55 @@ $query->query = new Criterion\Image('image', $imageCriteriaData);
 === "JSON"
 
     ```json
-    "Query": {
-       "Filter": {
-          "ImageCriterion": {
-             "fieldDefIdentifier": "image",
-             "mimeTypes": "image/png",
-             "size": {
-                "max": 1.5
-             },
-             "width": {
-                "max": 1000
-             },
-             "height": {
-                "max": 1500
-             },
-             "orientation": "portrait"
+    {
+       "Query": {
+          "Filter": {
+             "ImageCriterion": {
+                "fieldDefIdentifier": "image",
+                "mimeTypes": "image/png",
+                "size": {
+                   "max": 1.5
+                },
+                "width": {
+                   "max": 1000
+                },
+                "height": {
+                   "max": 1500
+                },
+                "orientation": "portrait"
+             }
           }
        }
     }
 
     OR
 
-    "Query": {
-       "Filter": {
-          "ImageCriterion": {
-             "fieldDefIdentifier": "image",
-             "mimeTypes": [
-                "image/png",
-                "image/jpeg"
-             ],
-             "size": {
-                "min": 0,
-                "max": 2
-             },
-             "width": {
-                "min": 100,
-                "max": 1000
-             },
-             "height": {
-                "min": 500,
-                "max": 1500
-             },
-             "orientation": [
-                "portrait",
-                "landscape"
-             ]
+    {
+       "Query": {
+          "Filter": {
+             "ImageCriterion": {
+                "fieldDefIdentifier": "image",
+                "mimeTypes": [
+                   "image/png",
+                   "image/jpeg"
+                ],
+                "size": {
+                   "min": 0,
+                   "max": 2
+                },
+                "width": {
+                   "min": 100,
+                   "max": 1000
+                },
+                "height": {
+                   "min": 500,
+                   "max": 1500
+                },
+                "orientation": [
+                   "portrait",
+                   "landscape"
+                ]
+             }
           }
        }
     }
