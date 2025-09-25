@@ -27,3 +27,25 @@ The `IsUserBased` Criterion isn't available in Solr or Elasticsearch engines.
 ```php
 $query->query = new Criterion\IsUserBased();
 ```
+
+### REST API
+
+=== "XML"
+
+    ```xml
+    <Query>
+        <Filter>
+            <IsUserBasedCriterion>false</IsUserBasedCriterion>
+        </Filter>
+    </Query>
+    ```
+
+=== "JSON"
+
+    ```json
+    "Query": {
+        "Filter": {
+            "IsUserBasedCriterion": "false"
+        }
+    }
+    ```
