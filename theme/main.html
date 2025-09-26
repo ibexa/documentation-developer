@@ -13,6 +13,77 @@
     <meta name="google-site-verification" content="AN8DVQKzis4rL9Fr3J9g3dOzY7h2jFyhqfC6ySmcgSc" />
     <script>window.eol_versions = {{ config.extra.eol_versions|tojson }};</script>
     <!-- Google Tag Manager --> <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0], j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src= 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f); })(window,document,'script','dataLayer','GTM-KKQR5LG');</script> <!-- End Google Tag Manager -->
+
+    <!-- Page action buttons styles -->
+    <style>
+      .page-actions {
+        display: none; /* Initially hidden, shown after JS moves it */
+        gap: 12px;
+        margin: 8px 0 4px 0;
+        flex-wrap: wrap;
+      }
+
+      .page-action-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 2px;
+        padding: 2px 6px;
+        background: #f8f9fa;
+        border: 1px solid #e5e5e5;
+        border-radius: 3px;
+        text-decoration: none;
+        color: #6c757d;
+        font-size: 11px;
+        cursor: pointer;
+        transition: all 0.15s ease;
+        opacity: 0.8;
+      }
+
+      .page-action-btn:hover {
+        background: #f1f3f4;
+        border-color: #d6d8db;
+        text-decoration: none;
+        color: #495057;
+        opacity: 1;
+      }
+
+      .page-action-btn:active {
+        background: #e9ecef;
+        transform: translateY(0.5px);
+      }
+
+      .page-action-icon {
+        display: flex;
+        align-items: center;
+        font-size: 12px;
+      }
+
+      /* Override external link styling */
+      .page-action-btn.external::after,
+      .page-action-btn[rel="nofollow"]::after {
+        display: none !important;
+      }
+
+      @media (max-width: 768px) {
+        .page-actions {
+          flex-direction: column;
+          gap: 6px;
+        }
+
+        .page-action-btn {
+          width: 100%;
+          justify-content: center;
+        }
+      }
+    </style>
+
+    <!-- Page actions metadata -->
+    {% if config.repo_url and page.edit_url %}
+    <meta name="edit-url" content="{{ page.edit_url|replace('/edit/', '/raw/') }}">
+    {% endif %}
+
+    <!-- Page actions script -->
+    <script src="{{ 'assets/page-actions.js' | url }}"></script>
   {% endblock %}
     {% block site_nav %}
     {% if nav %}
@@ -75,7 +146,28 @@
             </div>
           {% endif %}
           {% include "partials/eol_warning.html" %}
-          {{ page.content }}
+
+          <div class="content-with-actions">
+            {{ page.content }}
+
+            <!-- Page action buttons - show only on subpages, positioned after first h1 -->
+            {% if config.repo_url and page.edit_url and not page.is_homepage and 'index.md' not in page.file.src_path %}
+            <div class="page-actions" id="page-actions">
+              <!-- <button class="page-action-btn" title="Ask about this page">
+                <div class="page-action-icon">✨</div>
+                Ask about this page
+              </button> -->
+              <button onclick="copyPageForLLM()" title="Copy as Markdown" class="page-action-btn">
+                <div class="page-action-icon">📋</div>
+                Copy for LLM
+              </button>
+              <a href="{{ page.edit_url|replace('/edit/', '/blob/') }}" title="View as Markdown" class="page-action-btn" rel="nofollow">
+                <div class="page-action-icon">📄</div>
+                View as Markdown
+              </a>
+            </div>
+            {% endif %}
+          </div>
           {% include "partials/tags.html" %}
         </div>
     {% endblock %}
