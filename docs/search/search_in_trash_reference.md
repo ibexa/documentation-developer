@@ -63,7 +63,7 @@ $query->filter = new Criterion\LogicalAnd([
 $query->sortClauses = [
     new SortClause\Trash\DateTrashed(Query::SORT_DESC),
     new SortClause\ContentName(Query::SORT_ASC),
-    new SortClause\ContentTypeName(Query::SORT_ASC)
+    new SortClause\Trash\ContentTypeName(Query::SORT_ASC)
 ];
 
 // Search for articles trashed in the last 30 days
