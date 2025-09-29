@@ -1,9 +1,9 @@
 services:
     mkdocs:
-      build: .
-      environment:
-        - MKDOCS_PORT=8000
-      ports:
-        - "${MKDOCS_PORT}:8000"
-      volumes:
-        - .:/docs
+        build: .
+        environment:
+            - MKDOCS_PORT=8000
+        ports:
+            - "${MKDOCS_PORT}:8000"
+        volumes:
+            - .:/docs
