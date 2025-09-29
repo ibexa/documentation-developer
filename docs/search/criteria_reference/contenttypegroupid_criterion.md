@@ -55,25 +55,3 @@ You can use the `ContentTypeGroupId` Criterion to query all Media content items
         }
     }
 ```
-
-### REST API
-
-=== "XML"
-
-    ```xml
-      <Query>
-        <Filter>
-            <ContentIdCriterion>[69, 72]</ContentIdCriterion>
-        </Filter>
-      </Query>
-    ```
-
-=== "JSON"
-
-    ```json
-    "Query": {
-        "Filter": {
-            "ContentIdCriterion": [69, 72]
-            }
-        }
-    ```
