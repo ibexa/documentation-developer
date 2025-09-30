@@ -37,9 +37,14 @@ $query->query = new Criterion\LocationId(62);
 === "JSON"
 
     ```json
-    "Query": {
-        "Filter": {
-            "LocationIdCriterion": "62"
+    {
+        "ViewInput": {
+            "identifier": "LocationIdCriterionTest",
+            "Query": {
+                "Filter": {
+                    "LocationIdCriterion": "62"
+                }
+            }
         }
     }
     ```

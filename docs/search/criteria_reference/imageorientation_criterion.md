@@ -51,22 +51,32 @@ $query->query = new Criterion\Orientation('image', $orientations);
 === "JSON"
 
     ```json
-    "Query": {
-        "Filter": {
-            "ImageOrientationCriterion": {
-                "fieldDefIdentifier": "image",
-                "orientation": "landscape"
+    {
+        "ViewInput": {
+            "identifier": "ImageOrientationCriterionTest",
+            "Query": {
+                "Filter": {
+                    "ImageOrientationCriterion": {
+                        "fieldDefIdentifier": "image",
+                        "orientation": "landscape"
+                    }
+                }
             }
         }
     }
 
     OR
 
-    "Query": {
-        "Filter": {
-            "ImageOrientationCriterion": {
-                "fieldDefIdentifier": "image",
-                "orientation": ["portrait", "landscape"]
+    {
+        "ViewInput": {
+            "identifier": "ImageOrientationCriterionTest",
+            "Query": {
+                "Filter": {
+                    "ImageOrientationCriterion": {
+                        "fieldDefIdentifier": "image",
+                        "orientation": ["portrait", "landscape"]
+                    }
+                }
             }
         }
     }

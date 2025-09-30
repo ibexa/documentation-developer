@@ -72,9 +72,12 @@ $query->query = new Criterion\FullText('baseball AND cup');
 
     ```json
     {
-        "Query": {
-            "Filter": {
-                "FullTextCriterion": "victory"
+        "ViewInput": {
+            "identifier": "FullTextCriterionTest",
+            "Query": {
+                "Filter": {
+                    "FullTextCriterion": "victory"
+                }
             }
         }
     }

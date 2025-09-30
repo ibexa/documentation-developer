@@ -38,9 +38,14 @@ $query->query = new Criterion\RemoteId('abab615dcf26699a4291657152da4337');
 === "JSON"
 
     ```json
-    "Query": {
-        "Filter": {
-            "ContentRemoteIdCriterion": "abab615dcf26699a4291657152da4337"
+    {
+        "ViewInput": {
+            "identifier": "ContentRemoteIdCriterionTest",
+            "Query": {
+                "Filter": {
+                    "ContentRemoteIdCriterion": "abab615dcf26699a4291657152da4337"
+                }
+            }
         }
     }
     ```

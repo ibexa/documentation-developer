@@ -38,9 +38,14 @@ $query->query = new Criterion\ParentLocationId([54, 58]);
 === "JSON"
 
     ```json
-    "Query": {
-        "Filter": {
-            "ParentLocationIdCriterion": [69, 72]
+    {
+        "ViewInput": {
+            "identifier": "ParentLocationIdCriterionTest",
+            "Query": {
+                "Filter": {
+                    "ParentLocationIdCriterion": [69, 72]
+                }
+            }
         }
     }
     ```

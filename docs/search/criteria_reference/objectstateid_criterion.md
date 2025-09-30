@@ -37,9 +37,14 @@ $query->query = new Criterion\ObjectStateId([4, 5]);
 === "JSON"
 
     ```json
-    "Query": {
-        "Filter": {
-            "ObjectStateIdCriterion": "1"
+    {
+        "ViewInput": {
+            "identifier": "ObjectStateIdCriterionTest",
+            "Query": {
+                "Filter": {
+                    "ObjectStateIdCriterion": "1"
+                }
+            }
         }
     }
     ```

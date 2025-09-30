@@ -38,9 +38,12 @@ $query->query = new Criterion\ContentId([62, 64]);
 
     ```json
     {
-        "Query": {
-            "Filter": {
-                "ContentIdCriterion": [69, 72]
+        "ViewInput": {
+            "identifier": "ContentIdCriterionTest",
+            "Query": {
+                "Filter": {
+                    "ContentIdCriterion": [69, 72]
+                }
             }
         }
     }

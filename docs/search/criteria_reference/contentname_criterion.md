@@ -38,9 +38,12 @@ $query->query = new Criterion\ContentName('*phone');
 
     ```json
     {
-        "Query": {
-            "Filter": {
-                "ContentNameCriterion": "*phone"
+        "ViewInput": {
+            "identifier": "ContentNameCriterionTest",
+            "Query": {
+                "Filter": {
+                    "ContentNameCriterion": "*phone"
+                }
             }
         }
     }

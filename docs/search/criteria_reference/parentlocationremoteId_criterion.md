@@ -37,9 +37,14 @@ $query->query = new Criterion\ParentLocationRemoteId(['abab615dcf26699a429165715
 === "JSON"
 
     ```json
-    "Query": {
-        "Filter": {
-            "ParentLocationRemoteIdCriterion": "abab615dcf26699a4291657152da4337"
+    {
+        "ViewInput": {
+            "identifier": "ParentLocationRemoteIdCriterionTest",
+            "Query": {
+                "Filter": {
+                    "ParentLocationRemoteIdCriterion": "abab615dcf26699a4291657152da4337"
+                }
+            }
         }
     }
     ```

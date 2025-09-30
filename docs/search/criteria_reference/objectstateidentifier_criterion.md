@@ -46,11 +46,14 @@ $query->query = new Criterion\ObjectStateIdentifier(['not_locked'], 'ibexa_lock'
 
     ```json
     {
-      "Query": {
-        "Filter": {
-          "ObjectStateIdentifierCriterion": {
-            "value": "not_locked",
-            "target": "ibexa_lock"
+      "ViewInput": {
+        "identifier": "ObjectStateIdentifierCriterionTest",
+        "Query": {
+          "Filter": {
+            "ObjectStateIdentifierCriterion": {
+              "value": "not_locked",
+              "target": "ibexa_lock"
+            }
           }
         }
       }

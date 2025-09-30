@@ -42,9 +42,14 @@ This Criterion is available only for location Search.
 === "JSON"
 
     ```json
-    "Query": {
-        "Filter": {
-            "IsBookmarkedCriterion": true
+    {
+        "ViewInput": {
+            "identifier": "IsBookmarkedCriterionTest",
+            "Query": {
+                "Filter": {
+                    "IsBookmarkedCriterion": true
+                }
+            }
         }
     }
     ```

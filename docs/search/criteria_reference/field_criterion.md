@@ -49,12 +49,15 @@ $query->query = new Criterion\Field('name', Criterion\Operator::CONTAINS, 'Platf
 
     ```json
     {
-        "Query": {
-            "Filter": {
-                "Field": {
-                    "name": "name",
-                    "operator": "CONTAINS",
-                    "value": "Platform"
+        "ViewInput": {
+            "identifier": "FieldTest",
+            "Query": {
+                "Filter": {
+                    "Field": {
+                        "name": "name",
+                        "operator": "CONTAINS",
+                        "value": "Platform"
+                    }
                 }
             }
         }

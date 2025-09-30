@@ -21,5 +21,3 @@ $productQuery = new ProductQuery(
     new Criterion\ProductStockRange(10, 120)
 );
 ```
-
-

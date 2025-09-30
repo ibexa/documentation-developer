@@ -48,12 +48,15 @@ $query->query = new Criterion\DateMetadata(
 
     ```json
     {
-        "Query": {
-            "Filter": {
-                "DateMetadataCriterion": {
-                    "Target": "modified",
-                    "Value": 1675681020,
-                    "Operator": "gte"
+        "ViewInput": {
+            "identifier": "DateMetadataCriterionTest",
+            "Query": {
+                "Filter": {
+                    "DateMetadataCriterion": {
+                        "Target": "modified",
+                        "Value": 1675681020,
+                        "Operator": "gte"
+                    }
                 }
             }
         }

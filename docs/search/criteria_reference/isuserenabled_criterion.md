@@ -38,9 +38,14 @@ $query->query = new Criterion\IsUserEnabled();
 === "JSON"
 
     ```json
-    "Query": {
-        "Filter": {
-            "IsUserEnabledCriterion": "true"
+    {
+        "ViewInput": {
+            "identifier": "IsUserEnabledCriterionTest",
+            "Query": {
+                "Filter": {
+                    "IsUserEnabledCriterion": "true"
+                }
+            }
         }
     }
     ```

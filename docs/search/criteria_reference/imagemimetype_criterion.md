@@ -52,22 +52,32 @@ $query->query = new Criterion\MimeType('image', $mimeTypes);
 === "JSON"
 
     ```json
-    "Query": {
-        "Filter": {
-            "ImageMimeTypeCriterion": {
-                "fieldDefIdentifier": "image",
-                "type": "image/png"
+    {
+        "ViewInput": {
+            "identifier": "ImageMimeTypeCriterionTest",
+            "Query": {
+                "Filter": {
+                    "ImageMimeTypeCriterion": {
+                        "fieldDefIdentifier": "image",
+                        "type": "image/png"
+                    }
+                }
             }
         }
     }
 
     OR
 
-    "Query": {
-        "Filter": {
-            "ImageMimeTypeCriterion": {
-                "fieldDefIdentifier": "image",
-                "type": ["image/png", "image/jpeg"]
+    {
+        "ViewInput": {
+            "identifier": "ImageMimeTypeCriterionTest",
+            "Query": {
+                "Filter": {
+                    "ImageMimeTypeCriterion": {
+                        "fieldDefIdentifier": "image",
+                        "type": ["image/png", "image/jpeg"]
+                    }
+                }
             }
         }
     }

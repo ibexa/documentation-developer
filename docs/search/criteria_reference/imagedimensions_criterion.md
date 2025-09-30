@@ -59,17 +59,22 @@ $query->query = new Criterion\Dimensions('image', $imageCriteriaData);
 === "JSON"
 
     ```json
-    "Query": {
-        "Filter": {
-            "ImageDimensionsCriterion": {
-                "fieldDefIdentifier": "image",
-                "width": {
-                    "min": 100,
-                    "max": 1000
-                },
-                "height": {
-                    "min": 500,
-                    "max": 1500
+    {
+        "ViewInput": {
+            "identifier": "ImageDimensionsCriterionTest",
+            "Query": {
+                "Filter": {
+                    "ImageDimensionsCriterion": {
+                        "fieldDefIdentifier": "image",
+                        "width": {
+                            "min": 100,
+                            "max": 1000
+                        },
+                        "height": {
+                            "min": 500,
+                            "max": 1500
+                        }
+                    }
                 }
             }
         }

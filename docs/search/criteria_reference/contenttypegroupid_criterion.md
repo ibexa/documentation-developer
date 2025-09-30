@@ -38,9 +38,12 @@ $query->query = new Criterion\ContentTypeGroupId([1, 2]);
 
     ```json
     {
-        "Query": {
-            "Filter": {
-                "ContentTypeGroupIdCriterion": [1, 2]
+        "ViewInput": {
+            "identifier": "ContentTypeGroupIdCriterionTest",
+            "Query": {
+                "Filter": {
+                    "ContentTypeGroupIdCriterion": [1, 2]
+                }
             }
         }
     }
@@ -78,9 +81,12 @@ You can use the `ContentTypeGroupId` Criterion to query all Media content items
 
     ```json
     {
-        "Query": {
-            "Filter": {
-                "ContentIdCriterion": [69, 72]
+        "ViewInput": {
+            "identifier": "ContentIdCriterionTest",
+            "Query": {
+                "Filter": {
+                    "ContentIdCriterion": [69, 72]
+                }
             }
         }
     }

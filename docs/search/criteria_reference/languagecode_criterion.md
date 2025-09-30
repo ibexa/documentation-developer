@@ -38,9 +38,14 @@ $query->query = new Criterion\LanguageCode('ger-DE', false);
 === "JSON"
 
     ```json
-    "Query": {
-        "Filter": {
-            "LanguageCodeCriterion": "eng-GB"
+    {
+        "ViewInput": {
+            "identifier": "LanguageCodeCriterionTest",
+            "Query": {
+                "Filter": {
+                    "LanguageCodeCriterion": "eng-GB"
+                }
+            }
         }
     }
     ```

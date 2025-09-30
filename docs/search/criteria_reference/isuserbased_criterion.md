@@ -44,9 +44,12 @@ $query->query = new Criterion\IsUserBased();
 
     ```json
     {
-        "Query": {
-            "Filter": {
-                "IsUserBasedCriterion": false
+        "ViewInput": {
+            "identifier": "IsUserBasedCriterionTest",
+            "Query": {
+                "Filter": {
+                    "IsUserBasedCriterion": false
+                }
             }
         }
     }
