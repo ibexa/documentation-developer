@@ -25,7 +25,7 @@ $query->query = new Criterion\ContentTypeGroupId([1, 2]);
     ```xml
     <Query>
         <Filter>
-            <ContentTypeGroupIdCriterion>[1, 2]</ContentTypeGroupIdCriterion>
+            <ContentTypeGroupIdCriterion>1</ContentTypeGroupIdCriterion>
         </Filter>
     </Query>
     ```
