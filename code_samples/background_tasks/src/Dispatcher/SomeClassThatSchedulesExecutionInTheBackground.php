@@ -1,10 +1,10 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace App\Dispatcher;
 
-use Symfony\Component\Messenger\MessageBusInterface;
-use Symfony\Component\Messenger\Envelope;
 use Ibexa\Messenger\Stamp\DeduplicateStamp;
+use Symfony\Component\Messenger\Envelope;
+use Symfony\Component\Messenger\MessageBusInterface;
 
 final class SomeClassThatSchedulesExecutionInTheBackground
 {
@@ -20,11 +20,11 @@ final class SomeClassThatSchedulesExecutionInTheBackground
         // Dispatch directly. Message is wrapped with envelope without any stamps.
         $this->bus->dispatch($message);
 
-        // Alternatively, wrap with stamps. In this case, DeduplicateStamp ensures 
+        // Alternatively, wrap with stamps. In this case, DeduplicateStamp ensures
         // that if similar command exists in the queue (or is being processed)
         // it will not be queued again.
         $envelope = Envelope::wrap(
-            $message, 
+            $message,
             [new DeduplicateStamp('command-name-1')]
         );
 
