@@ -9,14 +9,15 @@ month_change: true
 
 [[= product_name =]]'s Collaborative editing API provides two services for managing sessions and invitations, which differ in function:
 
-- [`InvitationServiceInterface`](https://doc.ibexa.co/en/latest/api/php_api/php_api_reference/classes/Ibexa-Contracts-Collaboration-InvitationServiceInterface.html) is used to manage collaboration sessions invitations
-- [`SessionServiceInterface`](https://doc.ibexa.co/en/latest/api/php_api/php_api_reference/classes/Ibexa-Contracts-Collaboration-SessionServiceInterface.html) is used to manage collaboration sessions
+- [`InvitationServiceInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Collaboration-InvitationServiceInterface.html) is used to manage collaboration sessions invitations
+
+- [`SessionServiceInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Collaboration-SessionServiceInterface.html) is used to manage collaboration sessions
 
 ## Managing sessions
 
 ### Create session
 
-You can create new collaboration session with [`SessionService::createSession`](https://doc.ibexa.co/en/latest/api/php_api/php_api_reference/classes/Ibexa-Contracts-Collaboration-SessionServiceInterface.html#method_createSession):
+You can create new collaboration session with [`SessionService::createSession`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Collaboration-SessionServiceInterface.html#method_createSession):
 
 ``` php
 [[= include_file('code_samples/collaboration/src/Command/ManageSessionsCommand.php', 69, 81) =]]
@@ -40,7 +41,7 @@ You can get an existing collaboration session with [`SessionService::getSession`
 
 ### Find sessions
 
-You can find an existing session with [`SessionService::findSessions`](https://doc.ibexa.co/en/latest/api/php_api/php_api_reference/classes/Ibexa-Contracts-Collaboration-SessionServiceInterface.html#method_findSessions) by:
+You can find an existing session with [`SessionService::findSessions`](https://doc.ibexa.co/en/latest/api/php_api/php_api_reference/classes/Ibexa-Contracts-Collaboration-SessionServiceInterface.html#method_findSessions) by passing a SessionQeury (link to PHP API REF) object::
 
 ``` php
 [[= include_file('code_samples/collaboration/src/Command/ManageSessionsCommand.php', 86, 89) =]]
@@ -82,7 +83,8 @@ You can add participant to the collaboration session with [`SessionService::addP
 
 ### Get and update participant
 
-You can update participant added to the collaboration session with [`SessionService::updateParticipant`](https://doc.ibexa.co/en/latest/api/php_api/php_api_reference/classes/Ibexa-Contracts-Collaboration-SessionServiceInterface.html#method_updateParticipant):
+You can update participant added to the collaboration session with [`SessionService::updateParticipant`](https://doc.ibexa.co/en/latest/api/php_api/php_api_reference/classes/Ibexa-Contracts-Collaboration-SessionServiceInterface.html#method_updateParticipant).
+The example below updates participant's permissions to allow for editing of shared content, not only previewing.
 
 ``` php
 [[= include_file('code_samples/collaboration/src/Command/ManageSessionsCommand.php', 117, 125) =]]
@@ -107,7 +109,7 @@ If no user is provided, current user is used.
 
 ### Check session participant
 
-You can check the participant of the collaboration session with [`SessionService::isSessionParticipant`](https://doc.ibexa.co/en/latest/api/php_api/php_api_reference/classes/Ibexa-Contracts-Collaboration-SessionServiceInterface.html#method_isSessionParticipant):
+You can check whether a user belongs to a collaboration session with [`SessionService::isSessionParticipant`](https://doc.ibexa.co/en/latest/api/php_api/php_api_reference/classes/Ibexa-Contracts-Collaboration-SessionServiceInterface.html#method_isSessionParticipant):
 
 ``` php
 [[= include_file('code_samples/collaboration/src/Command/ManageSessionsCommand.php', 135, 140) =]]
@@ -124,7 +126,7 @@ You can get an invitation with [`InvitationService::getInvitation`](https://doc.
 [[= include_file('code_samples/collaboration/src/Command/ManageSessionsCommand.php', 141, 150) =]]
 ```
 
-You can select the parameter that you can read from an invitation:
+You can select the property that you can read from an invitation:
 
 - Invitation ID:
 

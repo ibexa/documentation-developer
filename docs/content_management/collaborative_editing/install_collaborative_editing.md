@@ -74,7 +74,7 @@ php bin/console ibexa:doctrine:schema:dump-sql vendor/ibexa/share/src/bundle/Res
 Then, if not using Symfony Flex, add the following code to the `config/bundles.php` file:
 
 ``` php
-    <?php
+<?php
 
 return [
     // A lot of bundles…
@@ -93,16 +93,17 @@ php bin/console ibexa:migrations:import vendor/ibexa/collaboration/src/bundle/Re
 php bin/console ibexa:migrations:migrate --file=2025_08_26_10_14_shareable_user.yaml
 ```
 
-You can now restart you application and start [working with the Collaborative editing feature]([[= user_doc =]]/content_management/collaborative_editing/work_with_collaborative_editing/).
-
-### Security configurations
+### Security configuration
 
 After an installation process is finished, go to `config/packages/security.yaml` and make following changes:
 
 - uncomment following lines with `shared` user provider under the `providers` key:
 
 ```yaml
-providers:
+```suggestion
+security:
+    providers:
+        # ...
         shared:
             id: Ibexa\Collaboration\Security\User\ShareableLinkUserProvider
 ```
@@ -110,7 +111,9 @@ providers:
 - uncomment following lines under the `ibexa_shareable_link` key:
 
 ```yaml
-ibexa_shareable_link:
+security:
+    # ...
+    ibexa_shareable_link:
         request_matcher: Ibexa\Collaboration\Security\RequestMatcher\ShareableLinkRequestMatcher
         pattern: ^/
         provider: shared
@@ -119,3 +122,5 @@ ibexa_shareable_link:
         guard:
             authenticator: Ibexa\Collaboration\Security\Authenticator\ShareableLinkAuthenticator
 ```
+
+You can now restart you application and start [working with the Collaborative editing feature]([[= user_doc =]]/content_management/collaborative_editing/work_with_collaborative_editing/).
