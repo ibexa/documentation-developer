@@ -3,9 +3,7 @@
 namespace App\MessageHandler;
 
 use App\Message\SomeMessage;
-use Symfony\Component\Messenger\Handler\MessageHandlerInterface;
-
-final class SomeHandler implements MessageHandlerInterface
+final class SomeHandler
 {
     public function __invoke(SomeMessage $message): void
     {
