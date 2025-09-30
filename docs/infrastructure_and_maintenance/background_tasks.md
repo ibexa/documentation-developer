@@ -71,34 +71,16 @@ In multi-repository setups, the worker process always works for a repository tha
 
     Doctrine transport works across multiple repositories without issues, but other transports may need to be adjusted, so that queues across different repositories are not accidentally shared.
 
+!!! note "Deploying [[= product_name_base =]] Messenger"
+
+    Additional considerations regarding the deployment of Symfony Messenger to production, which you can find in [Symfony documentation](https://symfony.com/doc/current/messenger.html#deploying-to-production) apply to [[= product_name_base =]] Messenger as well.
+
 ### Dispatch message
 
+Dispatch a message from your code like in the following example:
+
 ``` php
-use Symfony\Component\Messenger\MessageBusInterface;
-
-final SomeClassThatSchedulesExecutionInTheBackground 
-{
-    public function __construct(
-        // Service: "ibexa.messenger.bus"
-        MessageBusInterface $bus
-    )
-
-    public function schedule(object $message): void
-    {
-        // Dispatch directly. Message is wrapped with envelope without any stamps.
-        $this->bus->dispatch($message);
-
-        // Alternatively, wrap with stamps. In this case, DeduplicateStamp ensures 
-        // that if similar command exists in the queue (or is being processed)
-        // it will not be queued again.
-        $envelope = Envelope::wrap(
-            $message, 
-            [new DeduplicateStamp('command-name-1'),
-        ]);
-
-        $this->bus->dispatch($envelope);
-    }
-}
+[[= include_file("code_samples/background_tasks/src/Dispatcher/SomeClassThatSchedulesExecutionInTheBackground.php") =]]
 ```
 
 ### Register handler
@@ -106,16 +88,7 @@ final SomeClassThatSchedulesExecutionInTheBackground
 Create the handler class:
 
 ``` php
-use Symfony\Component\Messenger\Handler\MessageHandlerInterface;
-
-final class SomeHandler implements MessageHandlerInterface
-{
-    public function __invoke(SomeMessage $message): void
-    {
-        // Handle message.
-        return;
-    }
-}
+[[= include_file("code_samples/background_tasks/src/MessageHandler/SomeHandler.php") =]]
 ```
 
 Add a service definition to `config/services.yaml`:

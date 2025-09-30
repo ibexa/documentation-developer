@@ -39,7 +39,7 @@ When triggered periodically, the `ibexa:discounts:reindex` command identifies di
 If there are edits to discounts that should result in changed product catalog prices, messages are dispatched to the [[= product_name_base =]] Messenger's queue and consumed by a background worker.
 The worker passes the messages to the handler, which then starts the re-indexing process at the most convenient moment.
 
-To use discount re-indexing in the background:
+To run discount re-indexing in the background:
 
 1\. Make sure that the transport layer is [defined properly](background_tasks.md#configure-package) in [[= product_name_base =]] Messenger configuration.
 
@@ -49,11 +49,15 @@ To use discount re-indexing in the background:
 php bin/console messenger:consume ibexa.messenger.transport --bus=ibexa.messenger.bus
 ```
 
-3\. Use a scheduler of your choice to periodically run the following command:
+3\. Use a scheduler of your choice, for example, [cron](https://en.wikipedia.org/wiki/Cron), to periodically run the following command:
 
 ``` bash
 php bin/console ibexa:discounts:reindex
 ```
+
+!!! note "Deploying Symfony Messenger"
+
+    For more information about deploying the Messenger to production, see [Symfony documentation](https://symfony.com/doc/current/messenger.html#deploying-to-production).
 
 ## Rate limiting
 
