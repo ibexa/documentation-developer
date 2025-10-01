@@ -35,7 +35,7 @@ ibexa:
 Discounts feature uses [[= product_name_base =]] Messenger to reindex discounts and product prices in the background.
 This way changes are processed efficiently without slowing down the system and disrupting the user experience.
 
-When triggered periodically, the `ibexa:discounts:reindex` command identifies discounts that require re-indexing, ensuring catalog prices always remain up-to-date.
+When triggered periodically, the `ibexa:discounts:reindex` command identifies discounts that require re-indexing, ensuring prices always remain up-to-date.
 If there are edits to discounts that should result in changed product catalog prices, messages are dispatched to the [[= product_name_base =]] Messenger's queue and consumed by a background worker.
 The worker passes the messages to the handler, which then starts the re-indexing process at the most convenient moment.
 

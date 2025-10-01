@@ -9,7 +9,7 @@ Some operations in [[= product_name =]] don’t have to run immediately when a u
 Running such operations in real time could slow down the system and disrupt the user experience.
 
 To solve this, [[= product_name =]] provides a package called [[= product_name_base =]] Messenger, which is an overlay to [Symfony Messenger](https://symfony.com/doc/current/messenger.html), and it's job is to queue tasks and run them in the background.
-[[= product_name =]] sends messages (or commands) that represent the work tto be done later.
+[[= product_name =]] sends messages (or commands) that represent the work to be done later.
 These messages are stored in a queue and picked up by a background worker, which ensures that resource-heavy tasks are executed at a convenient time, without putting excessive load on the system.
 
 [[= product_name_base =]] Messenger supports multiple storage backends, such as Doctrine, Redis, and PostgreSQL, and gives developers the flexibility to create their own message handlers for custom use cases.
@@ -65,7 +65,7 @@ Use a process manager of your choice to run the following command, or make it st
 php bin/console messenger:consume ibexa.messenger.transport --bus=ibexa.messenger.bus --siteaccess=<OPTIONAL>`
 ```
 
-In multi-repository setups, the worker process always works for a repository that you indicate by using the `--siteaccess` option, therefore you may need to run multiple workers, one for each SiteAccess.
+In multi-repository setups, the worker process always works for a SiteAccess that you indicate by using the `--siteaccess` option, therefore you may need to run multiple workers, one for each SiteAccess.
 
 !!! warning "Multi-repository setups"
 
