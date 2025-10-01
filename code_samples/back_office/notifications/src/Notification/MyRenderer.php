@@ -35,8 +35,6 @@ class MyRenderer implements NotificationRenderer, TypedNotificationRendererInter
         return null;
     }
 
-    }
-    
     public function getTypeLabel(): string
     {
         return /** @Desc("Workflow stage changed") */
