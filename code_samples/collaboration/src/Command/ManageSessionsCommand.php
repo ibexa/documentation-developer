@@ -26,28 +26,22 @@ use Ibexa\Contracts\Core\Repository\UserService;
 use Ibexa\Contracts\Share\Collaboration\ContentSessionCreateStruct;
 use Ibexa\Contracts\Share\Collaboration\ContentSessionScope;
 use Ibexa\Contracts\Share\Collaboration\ContentSessionUpdateStruct;
+use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
-#[\Symfony\Component\Console\Attribute\AsCommand(name: 'app:manage-sessions')]
-final class ManageSessionsCommand extends Command
+#[AsCommand(name: 'app:manage-sessions')]
+final class ManageSessionCommand extends Command
 {
-    private readonly InvitationServiceInterface $invitationService;
-
-    private readonly SessionServiceInterface $sessionService;
-
     public function __construct(
-        InvitationServiceInterface $invitationService,
-        SessionServiceInterface $sessionService,
+        private readonly InvitationServiceInterface $invitationService,
+        private readonly SessionServiceInterface $sessionService,
         private readonly ContentService $contentService,
         private readonly UserService $userService,
         private readonly PermissionResolver $permissionResolver
     ) {
-        parent::__construct(self::$defaultName);
-
-        $this->invitationService = $invitationService;
-        $this->sessionService = $sessionService;
+        parent::__construct();
     }
 
     public function execute(InputInterface $input, OutputInterface $output): int

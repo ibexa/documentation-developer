@@ -17,7 +17,7 @@ month_change: true
 You can create new collaboration session with [`SessionService::createSession`](https://doc.ibexa.co/en/latest/api/php_api/php_api_reference/classes/Ibexa-Contracts-Collaboration-SessionServiceInterface.html#method_createSession):
 
 ``` php
-[[= include_file('code_samples/collaboration/src/Command/ManageSessionsCommand.php', 69, 81) =]]
+[[= include_file('code_samples/collaboration/src/Command/ManageSessionsCommand.php', 53, 65) =]]
 ```
 
 ### Get session
@@ -27,13 +27,13 @@ You can get an existing collaboration session with [`SessionService::getSession`
 - using given id - with [`SessionService::getSession`](https://doc.ibexa.co/en/latest/api/php_api/php_api_reference/classes/Ibexa-Contracts-Collaboration-SessionServiceInterface.html#method_getSession)
 
 ``` php
-[[= include_file('code_samples/collaboration/src/Command/ManageSessionsCommand.php', 82, 83) =]]
+[[= include_file('code_samples/collaboration/src/Command/ManageSessionsCommand.php', 66, 67) =]]
 ```
 
 - using given token - with [`SessionService::getSessionByToken`](https://doc.ibexa.co/en/latest/api/php_api/php_api_reference/classes/Ibexa-Contracts-Collaboration-SessionServiceInterface.html#method_getSessionByToken)
 
 ``` php
-[[= include_file('code_samples/collaboration/src/Command/ManageSessionsCommand.php', 83, 84) =]]
+[[= include_file('code_samples/collaboration/src/Command/ManageSessionsCommand.php', 67, 68) =]]
 ```
 
 ### Find sessions
@@ -41,7 +41,7 @@ You can get an existing collaboration session with [`SessionService::getSession`
 You can find an existing session with [`SessionService::findSessions`](https://doc.ibexa.co/en/latest/api/php_api/php_api_reference/classes/Ibexa-Contracts-Collaboration-SessionServiceInterface.html#method_findSessions) by:
 
 ``` php
-[[= include_file('code_samples/collaboration/src/Command/ManageSessionsCommand.php', 86, 89) =]]
+[[= include_file('code_samples/collaboration/src/Command/ManageSessionsCommand.php', 70, 73) =]]
 ```
 
 ### Update session
@@ -49,15 +49,7 @@ You can find an existing session with [`SessionService::findSessions`](https://d
 You can update existing invitation with [`SessionService::updateSession`](https://doc.ibexa.co/en/latest/api/php_api/php_api_reference/classes/Ibexa-Contracts-Collaboration-SessionServiceInterface.html#method_updateSession):
 
 ``` php
-[[= include_file('code_samples/collaboration/src/Command/ManageSessionsCommand.php', 90, 95) =]]
-```
-
-### Deactivate session
-
-You can deactivate session with [`SessionService::deleteSession`](https://doc.ibexa.co/en/latest/api/php_api/php_api_reference/classes/Ibexa-Contracts-Collaboration-SessionServiceInterface.html#method_deactivateSession):
-
-``` php
-[[= include_file('code_samples/collaboration/src/Command/ManageSessionsCommand.php', 96, 101) =]]
+[[= include_file('code_samples/collaboration/src/Command/ManageSessionsCommand.php', 74, 79) =]]
 ```
 
 ### Delete session
@@ -65,7 +57,7 @@ You can deactivate session with [`SessionService::deleteSession`](https://doc.ib
 You can delete session with [`SessionService::deleteSession`](https://doc.ibexa.co/en/latest/api/php_api/php_api_reference/classes/Ibexa-Contracts-Collaboration-SessionServiceInterface.html#method_deleteSession):
 
 ``` php
-[[= include_file('code_samples/collaboration/src/Command/ManageSessionsCommand.php', 169, 170) =]]
+[[= include_file('code_samples/collaboration/src/Command/ManageSessionsCommand.php', 153, 154) =]]
 ```
 
 ## Managing participants
@@ -75,7 +67,7 @@ You can delete session with [`SessionService::deleteSession`](https://doc.ibexa.
 You can add participant to the collaboration session with [`SessionService::addParticipant`](https://doc.ibexa.co/en/latest/api/php_api/php_api_reference/classes/Ibexa-Contracts-Collaboration-SessionServiceInterface.html#method_addParticipant):
 
 ``` php
-[[= include_file('code_samples/collaboration/src/Command/ManageSessionsCommand.php', 102, 116) =]]
+[[= include_file('code_samples/collaboration/src/Command/ManageSessionsCommand.php', 86, 100) =]]
 ```
 
 ### Get and update participant
@@ -83,14 +75,14 @@ You can add participant to the collaboration session with [`SessionService::addP
 You can update participant added to the collaboration session with [`SessionService::updateParticipant`](https://doc.ibexa.co/en/latest/api/php_api/php_api_reference/classes/Ibexa-Contracts-Collaboration-SessionServiceInterface.html#method_updateParticipant):
 
 ``` php
-[[= include_file('code_samples/collaboration/src/Command/ManageSessionsCommand.php', 117, 125) =]]
+[[= include_file('code_samples/collaboration/src/Command/ManageSessionsCommand.php', 101, 109) =]]
 ```
 ### Remove participant
 
 You can remove participant from the collaboration session with [`SessionService::removeParticipant`](https://doc.ibexa.co/en/latest/api/php_api/php_api_reference/classes/Ibexa-Contracts-Collaboration-SessionServiceInterface.html#method_removeParticipant):
 
 ``` php
-[[= include_file('code_samples/collaboration/src/Command/ManageSessionsCommand.php', 126, 127) =]]
+[[= include_file('code_samples/collaboration/src/Command/ManageSessionsCommand.php', 110, 111) =]]
 ```
 
 ### Check session owner
@@ -98,7 +90,7 @@ You can remove participant from the collaboration session with [`SessionService:
 You can check the owner of the collaboration session with [`SessionService::isSessionOwner`](https://doc.ibexa.co/en/latest/api/php_api/php_api_reference/classes/Ibexa-Contracts-Collaboration-SessionServiceDecorator.html#method_isSessionOwner):
 
 ``` php
-[[= include_file('code_samples/collaboration/src/Command/ManageSessionsCommand.php', 129, 134) =]]
+[[= include_file('code_samples/collaboration/src/Command/ManageSessionsCommand.php', 113, 118) =]]
 ```
 
 If no user is provided, current user is used.
@@ -108,7 +100,7 @@ If no user is provided, current user is used.
 You can check the participant of the collaboration session with [`SessionService::isSessionParticipant`](https://doc.ibexa.co/en/latest/api/php_api/php_api_reference/classes/Ibexa-Contracts-Collaboration-SessionServiceInterface.html#method_isSessionParticipant):
 
 ``` php
-[[= include_file('code_samples/collaboration/src/Command/ManageSessionsCommand.php', 135, 140) =]]
+[[= include_file('code_samples/collaboration/src/Command/ManageSessionsCommand.php', 119, 124) =]]
 ```
 
 ## Managing invitations
@@ -119,7 +111,7 @@ You can get an invitation with [`InvitationService::getInvitation`](https://doc.
 
 
 ``` php
-[[= include_file('code_samples/collaboration/src/Command/ManageSessionsCommand.php', 141, 150) =]]
+[[= include_file('code_samples/collaboration/src/Command/ManageSessionsCommand.php', 125, 134) =]]
 ```
 
 You can select the parameter that you can read from an invitation:
@@ -153,7 +145,7 @@ You can select the parameter that you can read from an invitation:
 You can create new invitation for the collaborative session using the [`InvitationService::createInvitation`](https://doc.ibexa.co/en/latest/api/php_api/php_api_reference/classes/Ibexa-Contracts-Collaboration-InvitationServiceInterface.html#method_createInvitation) method:
 
 ``` php
-[[= include_file('code_samples/collaboration/src/Command/ManageSessionsCommand.php', 151, 158) =]]
+[[= include_file('code_samples/collaboration/src/Command/ManageSessionsCommand.php', 135, 142) =]]
 ```
 
 You can use it when auto-inviting participants is not enabled.
@@ -163,7 +155,7 @@ You can use it when auto-inviting participants is not enabled.
 You can update existing invitation with [`InvitationService::updateInvitation`](https://doc.ibexa.co/en/latest/api/php_api/php_api_reference/classes/Ibexa-Contracts-Collaboration-InvitationServiceInterface.html#method_updateInvitation):
 
 ``` php
-[[= include_file('code_samples/collaboration/src/Command/ManageSessionsCommand.php', 159, 164) =]]
+[[= include_file('code_samples/collaboration/src/Command/ManageSessionsCommand.php', 143, 148) =]]
 ```
 
 ### Delete invitation
@@ -171,7 +163,7 @@ You can update existing invitation with [`InvitationService::updateInvitation`](
 You can delete an invitation with [`InvitationService::deleteInvitation`](https://doc.ibexa.co/en/latest/api/php_api/php_api_reference/classes/Ibexa-Contracts-Collaboration-InvitationServiceInterface.html#method_deleteInvitation):
 
 ``` php
-[[= include_file('code_samples/collaboration/src/Command/ManageSessionsCommand.php', 165, 168) =]]
+[[= include_file('code_samples/collaboration/src/Command/ManageSessionsCommand.php', 149, 152) =]]
 ```
 
 ### Find invitations
