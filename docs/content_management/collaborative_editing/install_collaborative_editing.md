@@ -7,7 +7,7 @@ month_change: true
 
 # Install Collaborative editing
 
-Collaborative editing feature is available as an LTS update to [[= product_name =]] starting with version v5.0 or higher, regardless of its edition.
+Collaborative editing feature is available as an LTS update to [[= product_name =]] starting with version v4.6.24 or higher, regardless of its edition.
 To use this feature you must first install the packages and configure them.
 
 ## Install packages
@@ -60,14 +60,61 @@ The following setiings are available:
 - session:
     - `public_link_enabled` - determines whether the public link is available, default value: `false`, available values: `true`, `false`
 
+#### `ibexa\share` configuration
+
+To share content model, you need to configure the `ibexa\share` package.
+Under `ibexa.system` [configuration key](configuration.md#configuration-files), indicate the settings:
+
+``` yaml
+ibexa:
+    system:
+        admin_group:
+            share:
+                content_type_groups:
+                    - 'Content'
+                excluded_content_types:
+                    - 'tag'
+                    - 'product_category_tag'
+```
+
+The following setting is available:
+
+- `content_type_groups` – defines groups of content types for which the **Share** button is displayed (it can still be disabled for specific content types within these groups)
+
+In the example confugiration above, the **Share** button is displayed for any content that belongs to the `Content` group, except for `tag` and `product_category_tag` content types.
+
 ### Add tables to the database
 
-To add the tables to the database, run the following commands:
+First, add the tables to the database:
+Create the `ibexa_share.sql` file that contains the following code:
 
-``` bash
-php bin/console ibexa:doctrine:schema:dump-sql vendor/ibexa/collaboration/src/bundle/Resources/config/schema.yaml | mysql -u <username> -p <password> <database_name>
-php bin/console ibexa:doctrine:schema:dump-sql vendor/ibexa/share/src/bundle/Resources/config/schema.yaml | mysql -u <username> -p <password> <database_name>
-```
+=== "MySQL"
+
+    ``` sql
+    [[= include_file('code_samples/collaboration/config/mysql/ibexa_share.sql', 0, None, '    ') =]]
+    ```
+
+=== "PostgreSQL"
+
+    ``` sql
+    [[= include_file('code_samples/collaboration/config/postgresql/ibexa_share.sql', 0, None, '    ') =]]
+    ```
+
+Then, run the following command, where `<database_name>` is the same name that you defined when you [installed [[= product_name =]]](../getting_started/install_ibexa_dxp.md#change-installation-parameters):
+
+=== "MySQL"
+
+    ``` sql
+    php bin/console ibexa:doctrine:schema:dump-sql vendor/ibexa/collaboration/src/bundle/Resources/config/schema.yaml | mysql -u <username> -p <password> <database_name>
+    php bin/console ibexa:doctrine:schema:dump-sql vendor/ibexa/share/src/bundle/Resources/config/schema.yaml | mysql -u <username> -p <password> <database_name>
+    ```
+
+=== "PostgreSQL"
+
+    ``` sql
+    php bin/console ibexa:doctrine:schema:dump-sql vendor/ibexa/collaboration/src/bundle/Resources/config/schema.yaml | postgresql -u <username> -p <password> <database_name>
+    php bin/console ibexa:doctrine:schema:dump-sql vendor/ibexa/share/src/bundle/Resources/config/schema.yaml | postgresql -u <username> -p <password> <database_name>
+    ```
 
 ### Modify the bundles file
 
@@ -81,6 +128,7 @@ return [
     Ibexa\Bundle\Collaboration\IbexaCollaborationBundle::class => ['all' => true],
     Ibexa\Bundle\Share\IbexaShareBundle::class => ['all' => true],
     Ibexa\Bundle\FieldTypeRichTextRTE\IbexaFieldTypeRichTextRTEBundle::class => ['all' => true],
+    Ibexa\Bundle\CkeditorPremium\IbexaCkeditorPremiumBundle::class => [‘all’ => true],
 ];
 ```
 
