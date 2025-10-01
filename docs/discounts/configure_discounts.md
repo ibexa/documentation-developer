@@ -32,7 +32,7 @@ ibexa:
 
 ## Discount re-indexing
 
-Discounts feature uses [[= product_name_base =]] Messenger to reindex discounts and product prices in the background.
+Discounts feature uses [[= product_name_base =]] Messenger to reindex discounts and product prices as [background tasks](background_tasks.md).
 This way changes are processed efficiently without slowing down the system and disrupting the user experience.
 
 When triggered periodically, the `ibexa:discounts:reindex` command identifies discounts that require re-indexing, ensuring prices always remain up-to-date.
@@ -43,7 +43,7 @@ To run discount re-indexing in the background:
 
 1\. Make sure that the transport layer is [defined properly](background_tasks.md#configure-package) in [[= product_name_base =]] Messenger configuration.
 
-2\. Make sure that the worker starts together with the application to watch the transport bus:
+2\. Make sure that the [worker starts](background_tasks.md#start-worker) together with the application to watch the transport bus:
 
 ``` bash
 php bin/console messenger:consume ibexa.messenger.transport --bus=ibexa.messenger.bus
@@ -57,7 +57,7 @@ php bin/console ibexa:discounts:reindex
 
 !!! note "Deploying Symfony Messenger"
 
-    For more information about deploying the Messenger to production, see [Symfony documentation](https://symfony.com/doc/current/messenger.html#deploying-to-production).
+    For more information about deploying the Messenger to production, see [Symfony documentation]([[= symfony_doc =]]/messenger.html#deploying-to-production).
 
 ## Rate limiting
 
