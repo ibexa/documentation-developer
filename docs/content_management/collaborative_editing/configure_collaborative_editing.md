@@ -52,25 +52,50 @@ The following setiings are available:
 
 ### Add tables to the database
 
-To add the tables to the database, run the following commands:
+First, add the tables to the database:
+Create the `ibexa_share.sql` file that contains the following code:
 
-``` bash
-php bin/console ibexa:doctrine:schema:dump-sql vendor/ibexa/collaboration/src/bundle/Resources/config/schema.yaml | mysql -u <username> -p <password> <database_name>
-php bin/console ibexa:doctrine:schema:dump-sql vendor/ibexa/share/src/bundle/Resources/config/schema.yaml | mysql -u <username> -p <password> <database_name>
-```
+=== "MySQL"
+
+    ``` sql
+    [[= include_file('code_samples/collaboration/config/mysql/ibexa_share.sql', 0, None, '    ') =]]
+    ```
+
+=== "PostgreSQL"
+
+    ``` sql
+    [[= include_file('code_samples/collaboration/config/postgresql/ibexa_share.sql', 0, None, '    ') =]]
+    ```
+
+Then, run the following command, where `<database_name>` is the same name that you defined when you [installed [[= product_name =]]](../getting_started/install_ibexa_dxp.md#change-installation-parameters):
+
+=== "MySQL"
+
+    ``` sql
+    php bin/console ibexa:doctrine:schema:dump-sql vendor/ibexa/collaboration/src/bundle/Resources/config/schema.yaml | mysql -u <username> -p <password> <database_name>
+    php bin/console ibexa:doctrine:schema:dump-sql vendor/ibexa/share/src/bundle/Resources/config/schema.yaml | mysql -u <username> -p <password> <database_name>
+    ```
+
+=== "PostgreSQL"
+
+    ``` sql
+    php bin/console ibexa:doctrine:schema:dump-sql vendor/ibexa/collaboration/src/bundle/Resources/config/schema.yaml | postgresql -u <username> -p <password> <database_name>
+    php bin/console ibexa:doctrine:schema:dump-sql vendor/ibexa/share/src/bundle/Resources/config/schema.yaml | postgresql -u <username> -p <password> <database_name>
+    ```
 
 ### Modify the bundles file
 
 Then, if not using Symfony Flex, add the following code to the `config/bundles.php` file:
 
 ``` php
-    <?php
+<?php
 
 return [
     // A lot of bundles…
     Ibexa\Bundle\Collaboration\IbexaCollaborationBundle::class => ['all' => true],
     Ibexa\Bundle\Share\IbexaShareBundle::class => ['all' => true],
     Ibexa\Bundle\FieldTypeRichTextRTE\IbexaFieldTypeRichTextRTEBundle::class => ['all' => true],
+    Ibexa\Bundle\CkeditorPremium\IbexaCkeditorPremiumBundle::class => [‘all’ => true],
 ];
 ```
 
@@ -83,8 +108,6 @@ php bin/console ibexa:migrations:import vendor/ibexa/collaboration/src/bundle/Re
 php bin/console ibexa:migrations:migrate --file=2025_08_26_10_14_shareable_user.yaml
 ```
 
-You can now restart you application and start [working with the Collaborative editing feature]([[= user_doc =]]/content_management/collaborative_editing/work_with_collaborative_editing/).
-
 ### Security configurations
 
 After an installation process is finished, go to `config/packages/security.yaml` and make following changes:
@@ -92,7 +115,9 @@ After an installation process is finished, go to `config/packages/security.yaml`
 - uncomment following lines with `shared` user provider under the `providers` key:
 
 ```yaml
-providers:
+security:
+    providers:
+        # ...
         shared:
             id: Ibexa\Collaboration\Security\User\ShareableLinkUserProvider
 ```
@@ -100,7 +125,9 @@ providers:
 - uncomment following lines under the `ibexa_shareable_link` key:
 
 ```yaml
-ibexa_shareable_link:
+security:
+    # ...
+    ibexa_shareable_link:
         request_matcher: Ibexa\Collaboration\Security\RequestMatcher\ShareableLinkRequestMatcher
         pattern: ^/
         provider: shared
@@ -109,3 +136,5 @@ ibexa_shareable_link:
         guard:
             authenticator: Ibexa\Collaboration\Security\Authenticator\ShareableLinkAuthenticator
 ```
+
+You can now restart you application and start working with the Collaborative editing feature.
