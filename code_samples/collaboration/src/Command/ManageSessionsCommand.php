@@ -32,7 +32,7 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
 #[AsCommand(name: 'app:manage-sessions')]
-final class ManageSessionCommand extends Command
+final class ManageSessionsCommand extends Command
 {
     public function __construct(
         private readonly InvitationServiceInterface $invitationService,
