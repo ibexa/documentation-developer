@@ -41,7 +41,7 @@ You can get an existing collaboration session by using:
 
 ### Find sessions
 
-You can find an existing session with [`SessionService::findSessions()`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Collaboration-SessionServiceInterface.html#method_findSessions) by passing a SessionQeury (link to PHP API REF) object::
+You can find an existing session with [`SessionService::findSessions()`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Collaboration-SessionServiceInterface.html#method_findSessions) by passing a SessionQuery object:
 
 ``` php
 [[= include_file('code_samples/collaboration/src/Command/ManageSessionsCommand.php', 86, 89) =]]
