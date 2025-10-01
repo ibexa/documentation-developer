@@ -8,7 +8,7 @@ month_change: true
 Some operations in [[= product_name =]] don’t have to run immediately when a user clicks a button, for example, re-indexing product prices or processing bulk data.
 Running such operations in real time could slow down the system and disrupt the user experience.
 
-To solve this, [[= product_name =]] provides a package called [[= product_name_base =]] Messenger, which is an overlay to [Symfony Messenger]([[= symfony_doc ==]]/messenger.html), and it's job is to queue tasks and run them in the background.
+To solve this, [[= product_name =]] provides a package called [[= product_name_base =]] Messenger, which is an overlay to [Symfony Messenger]([[= symfony_doc =]]/messenger.html), and it's job is to queue tasks and run them in the background.
 [[= product_name =]] sends messages (or commands) that represent the work to be done later.
 These messages are stored in a queue and picked up by a background worker, which ensures that resource-heavy tasks are executed at a convenient time, without putting excessive load on the system.
 
