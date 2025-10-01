@@ -7,7 +7,7 @@ month_change: true
 
 # Install Collaborative editing
 
-Collaborative editing feature is available as an LTS update to [[= product_name =]] starting with version v4.6.24 or higher, regardless of its edition.
+Collaborative editing feature is available as an [LTS update](editions.md#lts-updates) to [[= product_name =]] starting with version v4.6.24 or higher, regardless of its edition.
 To use this feature you must first install the packages and configure them.
 
 ## Install packages

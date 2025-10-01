@@ -8,7 +8,7 @@ month_change: true
 
 # Collaborative editing
 
-With Collaborative editing feature multiple users can work on the same content created in [[= product_name =]] simultaneously, streamlining the content creation and review process.
+With Collaborative editing [LTS update](editions.md#lts-updates) multiple users can work on the same content created in [[= product_name =]] simultaneously, streamlining the content creation and review process.
 
 Users can invite both internal and external collaborators to a session, giving them access for editing or previewing.
 
