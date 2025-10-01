@@ -42,13 +42,16 @@ class CustomController extends Controller
 
     private function getCustomLimitationValue(): bool
     {
-         $hasAccess = $this->permissionResolver->hasAccess('custom_module', 'custom_function_2');
+        $hasAccess = $this->permissionResolver->hasAccess('custom_module', 'custom_function_2');
 
         if (is_bool($hasAccess)) {
             return $hasAccess;
         }
 
-        $customLimitationValues = $this->permissionChecker->getRestrictions($hasAccess, CustomLimitationValue::class);
+        $customLimitationValues = $this->permissionChecker->getRestrictions(
+            $hasAccess,
+            CustomLimitationValue::class
+        );
 
         return $customLimitationValues['value'] ?? false;
     }
