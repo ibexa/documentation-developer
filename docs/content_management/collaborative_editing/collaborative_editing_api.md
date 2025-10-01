@@ -92,7 +92,7 @@ The example below updates participant's permissions to allow for editing of shar
 ```
 ### Remove participant
 
-You can remove participant from the collaboration session with [`SessionService::removeParticipant()`](h/api/php_api/php_api_reference/classes/Ibexa-Contracts-Collaboration-SessionServiceInterface.html#method_removeParticipant):
+You can remove participant from the collaboration session with [`SessionService::removeParticipant()`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Collaboration-SessionServiceInterface.html#method_removeParticipant):
 
 ``` php
 [[= include_file('code_samples/collaboration/src/Command/ManageSessionsCommand.php', 126, 127) =]]
