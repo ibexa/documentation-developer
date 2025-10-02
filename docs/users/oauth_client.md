@@ -44,15 +44,15 @@ In the following example, the OAuth2 client `google` is enabled for the `admin` 
 
 ## Configure firewall
 
-In `config/packages/security.yaml`, enable the `oauth2_connect` firewall and replace the `ibexa_front` firewall with the `ibexa_oauth2_front` one.
+In `config/packages/security.yaml`, enable the `ibexa_oauth2_connect` firewall and replace the `ibexa_front` firewall with the `ibexa_oauth2_front` one.
 
 ``` yaml
 [[= include_file('code_samples/user_management/oauth_google/config/packages/security.yaml') =]]
 ```
 
-The `guard.authenticators` setting specifies the [Guard authenticators]([[= symfony_doc =]]/security/guard_authentication.html) to be used.
+The `custom_authenticators` setting specifies the [custom authenticators]([[= symfony_doc =]]/current/security/custom_authenticator.html) to be used.
 
-By adding the `Ibexa\Bundle\OAuth2Client\Security\Authenticator\OAuth2Authenticator` guard authenticator you add a possibility to use OAuth2 on those routes.
+By adding the `Ibexa\Bundle\OAuth2Client\Security\Authenticator\OAuth2Authenticator` authenticator you add a possibility to use OAuth2 on those routes.
 
 ## Resource owner mappers
 

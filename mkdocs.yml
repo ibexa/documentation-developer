@@ -671,6 +671,11 @@ nav:
         - Action Configuration Search Criteria: search/ai_actions_search_reference/action_configuration_criteria.md
         - Discounts Search Criteria: search/discounts_search_reference/discounts_criteria.md
         - Collaboration Search Criteria: search/collaboration_search_reference
+        - Notification Search Criteria:
+            - Notification Search Criteria: search/criteria_reference/notification_search_criteria.md
+            - DateCreated: search/criteria_reference/notification_datecreated_criterion.md
+            - Status: search/criteria_reference/notification_status_criterion.md
+            - Type: search/criteria_reference/notification_type_criterion.md
         - Sort Clause reference:
             - General Sort Clauses:
                 - General Sort Clause reference: search/sort_clause_reference/sort_clause_reference.md

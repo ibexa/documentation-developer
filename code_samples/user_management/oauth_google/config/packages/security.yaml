@@ -13,27 +13,28 @@ security:
 
         ibexa_oauth2_front:
             pattern: ^/
+            provider: ibexa
             user_checker: Ibexa\Core\MVC\Symfony\Security\UserChecker
-            anonymous: ~
-            ibexa_rest_session: ~
-            guard:
-                authenticators:
-                    - Ibexa\Bundle\OAuth2Client\Security\Authenticator\OAuth2Authenticator
-                    - Ibexa\PageBuilder\Security\EditorialMode\TokenAuthenticator
-                entry_point: Ibexa\Bundle\OAuth2Client\Security\Authenticator\OAuth2Authenticator
+            custom_authenticators:
+              - Ibexa\Bundle\OAuth2Client\Security\Authenticator\OAuth2Authenticator
+              - Ibexa\PageBuilder\Security\EditorialMode\FragmentAuthenticator
+            entry_point: Ibexa\Bundle\OAuth2Client\Security\Authenticator\OAuth2Authenticator
+            context: ibexa
             form_login:
-                require_previous_session: false
-                csrf_token_generator: security.csrf.token_manager
+                enable_csrf: true
             logout: ~
 
-        #ibexa_front:
-        #    pattern: ^/
-        #    user_checker: Ibexa\Core\MVC\Symfony\Security\UserChecker
-        #    anonymous: ~
-        #    ibexa_rest_session: ~
-        #    form_login:
-        #        require_previous_session: false
-        #        csrf_token_generator: security.csrf.token_manager
-        #    guard:
-        #        authenticator: 'Ibexa\PageBuilder\Security\EditorialMode\TokenAuthenticator'
-        #    logout: ~
+        # ibexa_front:
+        #     pattern: ^/
+        #     provider: ibexa
+        #     user_checker: Ibexa\Core\MVC\Symfony\Security\UserChecker
+        #     context: ibexa
+        #     form_login:
+        #         enable_csrf: true
+        #         login_path: login
+        #         check_path: login_check
+        #     custom_authenticators:
+        #         - Ibexa\PageBuilder\Security\EditorialMode\FragmentAuthenticator
+        #     entry_point: form_login
+        #     logout:
+        #         path: logout
