@@ -2,7 +2,7 @@
 
 namespace App\Dispatcher;
 
-use Ibexa\Messenger\Stamp\DeduplicateStamp;
+use Ibexa\Bundle\Messenger\Stamp\DeduplicateStamp;
 use Symfony\Component\Messenger\Envelope;
 use Symfony\Component\Messenger\MessageBusInterface;
 
