@@ -45,7 +45,7 @@ Session Search Criteria are implementing the [CriterionInterface](/api/php_api/p
 The following example shows how you can use the criteria to find all the currently active sessions:
 
 ```php hl_lines="13-20"
-[[= include_file('code_samples/discounts/src/Query/Search.php') =]]
+[[= include_file('code_samples/collaboration/src/Query/Search.php') =]]
 ```
 
 The criteria limit the result set to sessions matching all of the conditions listed below:
