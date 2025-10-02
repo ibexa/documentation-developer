@@ -1,0 +1,81 @@
+{
+    "CollaborationSession": {
+        "_media-type": "application/vnd.ibexa.api.ContentSession+json",
+        "id": 2,
+        "token": "3c49fd65-4750-49f4-9592-1f66f500fcf6",
+        "createdAt": "2025-09-19T06:50:52+00:00",
+        "updatedAt": "2025-09-19T06:50:52+00:00",
+        "ParticipantList": {
+            "_media-type": "application/vnd.ibexa.api.ParticipantList+json",
+            "Participants": [
+                {
+                    "_media-type": "application/vnd.ibexa.api.InternalParticipant+json",
+                    "id": 2,
+                    "name": "Editor0 User0",
+                    "scope": "edit",
+                    "User": {
+                        "_media-type": "application/vnd.ibexa.api.User+json",
+                        "_href": "/api/ibexa/v2/user/users/310"
+                    },
+                    "createdAt": "2025-09-19T06:50:52+00:00",
+                    "updatedAt": "2025-09-19T06:50:52+00:00"
+                },
+                {
+                    "_media-type": "application/vnd.ibexa.api.ExternalParticipant+json",
+                    "id": 3,
+                    "name": "user@link.invalid",
+                    "scope": "view",
+                    "email": "user@link.invalid",
+                    "createdAt": "2025-09-19T06:50:52+00:00",
+                    "updatedAt": "2025-09-19T06:50:52+00:00"
+                }
+            ]
+        },
+        "Owner": {
+            "_media-type": "application/vnd.ibexa.api.User+json",
+            "_href": "/api/ibexa/v2/user/users/310"
+        },
+        "isActive": true,
+        "hasPublicLink": false,
+        "VersionInfo": {
+            "id": 1099,
+            "versionNo": 1,
+            "status": "PUBLISHED",
+            "modificationDate": "2025-09-19T06:41:23+00:00",
+            "Creator": {
+                "_media-type": "application/vnd.ibexa.api.User+json",
+                "_href": "/api/ibexa/v2/user/users/14"
+            },
+            "creationDate": "2025-09-19T06:41:05+00:00",
+            "initialLanguageCode": "eng-GB",
+            "languageCodes": "eng-GB",
+            "VersionTranslationInfo": {
+                "_media-type": "application/vnd.ibexa.api.VersionTranslationInfo+json",
+                "Language": [
+                    {
+                        "languageCode": "eng-GB"
+                    }
+                ]
+            },
+            "names": {
+                "value": [
+                    {
+                        "_languageCode": "eng-GB",
+                        "#text": "REST API session"
+                    }
+                ]
+            },
+            "Content": {
+                "_media-type": "application/vnd.ibexa.api.ContentInfo+json",
+                "_href": "/api/ibexa/v2/content/objects/57"
+            }
+        },
+        "Language": {
+            "_media-type": "application/vnd.ibexa.api.Language+json",
+            "_href": "/api/ibexa/v2/languages/eng-GB",
+            "languageId": 2,
+            "languageCode": "eng-GB",
+            "name": "English (United Kingdom)"
+        }
+    }
+}

@@ -1,0 +1,14 @@
+{
+    "Participant": {
+        "_media-type": "application/vnd.ibexa.api.InternalParticipant+json",
+        "id": "46",
+        "scope": "view",
+        "name": "Editor",
+        "User": {
+            "_media-type": "application/vnd.ibexa.api.User+json",
+            "_href": "/api/ibexa/v2/user/users/70"
+        },
+        "createdAt": "2024-11-14T14:09:47+00:00",
+        "updatedAt": "2024-11-15T13:13:22+00:00"
+    }
+}
