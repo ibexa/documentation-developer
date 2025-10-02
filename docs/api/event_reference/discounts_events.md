@@ -31,10 +31,10 @@ The events below allow you to customize the discounts creation wizard:
 
 | Event | Dispatched by |
 |---|---|
-|[`CreateDiscountCreateStructEvent`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Discounts-Event-CreateDiscountCreateStructEvent.html) | [`DiscountFormMapperInterface::mapCreateDataToStruct`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Discounts-DiscountFormMapperInterface.html#method_mapCreateDataToStruct)|
-|[`CreateDiscountUpdateStructEvent`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Discounts-Event-CreateDiscountUpdateStructEvent.html) | [`DiscountFormMapperInterface::mapUpdateDataToStruct`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Discounts-DiscountFormMapperInterface.html#method_mapUpdateDataToStruct)|
-|[`CreateFormDataEvent`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Discounts-Event-CreateFormDataEvent.html) | [`DiscountFormMapperInterface::createFormData`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Discounts-DiscountFormMapperInterface.html#method_createFormData)|
-|[`MapDiscountToFormDataEvent`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Discounts-Event-MapDiscountToFormDataEvent.html) | [`DiscountFormMapperInterface::mapDiscountToFormData`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Discounts-DiscountFormMapperInterface.html#method_mapDiscountToFormData) |
+|[`CreateDiscountCreateStructEvent`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Discounts-Event-CreateDiscountCreateStructEvent.html) | [`DiscountFormMapperInterface::mapCreateDataToStruct()`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Discounts-DiscountFormMapperInterface.html#method_mapCreateDataToStruct)|
+|[`CreateDiscountUpdateStructEvent`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Discounts-Event-CreateDiscountUpdateStructEvent.html) | [`DiscountFormMapperInterface::mapUpdateDataToStruct()`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Discounts-DiscountFormMapperInterface.html#method_mapUpdateDataToStruct)|
+|[`CreateFormDataEvent`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Discounts-Event-CreateFormDataEvent.html) | [`DiscountFormMapperInterface::createFormData()`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Discounts-DiscountFormMapperInterface.html#method_createFormData)|
+|[`MapDiscountToFormDataEvent`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Discounts-Event-MapDiscountToFormDataEvent.html) | [`DiscountFormMapperInterface::mapDiscountToFormData()`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Discounts-DiscountFormMapperInterface.html#method_mapDiscountToFormData) |
 
 ### Form steps
 

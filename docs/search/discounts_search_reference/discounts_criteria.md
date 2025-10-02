@@ -22,7 +22,7 @@ Search Criteria are found in the `Ibexa\Contracts\Discounts\Value\Query\Criterio
 | [PriorityCriterion](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Discounts-Value-Query-Criterion-PriorityCriterion.html) | Find discounts by their priority |
 | [StartDateCriterion](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Discounts-Value-Query-Criterion-StartDateCriterion.html) | Find discounts with given start date |
 | [TypeCriterion](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Discounts-Value-Query-Criterion-TypeCriterion.html) | Find cart or catalog discounts by using constants from the [DiscountType](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Discounts-Value-DiscountType.html) class |
-| [UpdatedAtCriterion](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Discounts-Value-Query-Criterion-UpdatedAtCriterion.html) | Find discounts based on the date and time when they were indexed |
+| [UpdatedAtCriterion](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Discounts-Value-Query-Criterion-UpdatedAtCriterion.html) | Find discounts based on the date and time when they were updated |
 
 You can use the [FieldValueCriterion's constants](/api/php_api/php_api_reference/classes/Ibexa-Contracts-CoreSearch-Values-Query-Criterion-FieldValueCriterion.html#constants) like `FieldValueCriterion::COMPARISON_CONTAINS` or `FieldValueCriterion::COMPARISON_STARTS_WITH` to specify the operator for the condition.
 

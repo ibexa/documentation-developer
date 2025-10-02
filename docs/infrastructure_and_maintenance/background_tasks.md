@@ -95,7 +95,7 @@ Add a service definition to `config/services.yaml`:
 
 ``` yaml
 services:
-    Ibexa\Bundle\Foo\Message\SomeHandler:
+    App\MessageHandler\SomeHandler:
         tags:
             - name: messenger.message_handler
               bus: ibexa.messenger.bus
