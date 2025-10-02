@@ -42,10 +42,10 @@ ibexa:
                     public_link_enabled: <value>
 ```
 
-The following setiings are available:
+The following settings are available:
 
 - participants:
-    - `allowed_types` - defines allowed user types, values: `internal`, `external`, you can set one, both, or none of the values
+    - `allowed_types` - defines allowed user types, values: `internal`, `external`, you can set one or both of the values
     - `auto_invite` - determines whether invitations should be sent automatically when inviting someone to a session, default value: `true`, available values: `true`, `false`
 - session:
     - `public_link_enabled` - determines whether the public link is available, default value: `false`, available values: `true`, `false`
@@ -69,19 +69,19 @@ Create the `ibexa_share.sql` file that contains the following code:
 
 Then, run the following command, where `<database_name>` is the same name that you defined when you [installed](install_ibexa_dxp.md#change-installation-parameters) [[= product_name =]]:
 
-=== "MySQL"
+=== “MySQL”
 
-    ``` sql
-    php bin/console ibexa:doctrine:schema:dump-sql vendor/ibexa/collaboration/src/bundle/Resources/config/schema.yaml | mysql -u <username> -p <password> <database_name>
-    php bin/console ibexa:doctrine:schema:dump-sql vendor/ibexa/share/src/bundle/Resources/config/schema.yaml | mysql -u <username> -p <password> <database_name>
-    ```
+```bash
+mysql -u <username> -p <password> <database_name> < ibexa_share.sql
+```
 
-=== "PostgreSQL"
+=== “PostgreSQL”
 
-    ``` sql
-    php bin/console ibexa:doctrine:schema:dump-sql vendor/ibexa/collaboration/src/bundle/Resources/config/schema.yaml | postgresql -u <username> -p <password> <database_name>
-    php bin/console ibexa:doctrine:schema:dump-sql vendor/ibexa/share/src/bundle/Resources/config/schema.yaml | postgresql -u <username> -p <password> <database_name>
-    ```
+```bash
+psql <database_name> < ibexa_share.sql
+```
+
+This command modifies the existing database schema by adding database configuration required for using Collaborative editing.
 
 ### Modify the bundles file
 
