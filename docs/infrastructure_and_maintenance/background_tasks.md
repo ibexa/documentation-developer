@@ -65,7 +65,7 @@ Use a process manager of your choice to run the following command, or make it st
 php bin/console messenger:consume ibexa.messenger.transport --bus=ibexa.messenger.bus --siteaccess=<OPTIONAL>`
 ```
 
-In multi-repository setups, the worker process always works for a SiteAccess that you indicate by using the `--siteaccess` option, therefore you may need to run multiple workers, one for each SiteAccess.
+In [multi-repository setups](repository_configuration.md), the worker process always works for a [SiteAccess](multisite_configuration.md#siteaccess-configuration) that you indicate by using the `--siteaccess` option, therefore you may need to run multiple workers, one for each SiteAccess.
 
 !!! warning "Multi-repository setups"
 
