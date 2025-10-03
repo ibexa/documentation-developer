@@ -21,7 +21,6 @@ Querying for a collection with the `EQ` operator returns result only when the wh
 
 The `Field` Criterion isn't available in [Repository filtering](search_api.md#repository-filtering).
 
-
 ## Example
 
 ### PHP

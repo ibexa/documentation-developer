@@ -41,7 +41,7 @@ $query->query = new Criterion\Visibility(Criterion\Visibility::HIDDEN);
     ```json
     "Query": {
         "Filter": {
-            "ContentIdCriterion": "HIDDEN"
+            "VisibilityCriterion": "HIDDEN"
         }
     }
     ```
