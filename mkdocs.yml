@@ -824,6 +824,7 @@ nav:
         - DevOps: infrastructure_and_maintenance/devops.md
         - Backup: infrastructure_and_maintenance/backup.md
         - Performance: infrastructure_and_maintenance/performance.md
+        - Background tasks: infrastructure_and_maintenance/background_tasks.md
         - Environments: infrastructure_and_maintenance/environments.md
         - Sessions: infrastructure_and_maintenance/sessions.md
         - Logging: infrastructure_and_maintenance/logging.md
