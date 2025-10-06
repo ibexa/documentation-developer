@@ -54,7 +54,6 @@ $query->query = new Criterion\DateMetadata(
         }
     ```
 
-
 ## Use case
 
 You can use the `DateMetadata` Criterion to search for blog posts that have been created within the last week:

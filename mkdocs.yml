@@ -279,6 +279,8 @@ nav:
                 - Time field type: content_management/field_types/field_type_reference/timefield.md
                 - URL field type: content_management/field_types/field_type_reference/urlfield.md
                 - User field type: content_management/field_types/field_type_reference/userfield.md
+        - Collaborative editing:
+            - Collaborative editing product guide: content_management/collaborative_editing/collaborative_editing_guide.md
     - Templating:
         - Templating: templating/templating.md
         - Render content:
@@ -528,6 +530,7 @@ nav:
             - ImageOrientation: search/criteria_reference/imageorientation_criterion.md
             - ImageWidth: search/criteria_reference/imagewidth_criterion.md
             - IsBookmarked: search/criteria_reference/isbookmarked_criterion.md
+            - IsContainer: search/criteria_reference/iscontainer_criterion.md
             - IsCurrencyEnabled: search/criteria_reference/iscurrencyenabled_criterion.md
             - IsFieldEmpty: search/criteria_reference/isfieldempty_criterion.md
             - IsMainLocation: search/criteria_reference/ismainlocation_criterion.md
@@ -668,6 +671,12 @@ nav:
             - UserCriterion: search/activity_log_search_reference/user_criterion.md
         - Action Configuration Search Criteria: search/ai_actions_search_reference/action_configuration_criteria.md
         - Discounts Search Criteria: search/discounts_search_reference/discounts_criteria.md
+        - Notification Search Criteria:
+            - Notification Search Criteria: search/criteria_reference/notification_search_criteria.md
+            - DateCreated: search/criteria_reference/notification_datecreated_criterion.md
+            - Status: search/criteria_reference/notification_status_criterion.md
+            - Type: search/criteria_reference/notification_type_criterion.md
+
         - Sort Clause reference:
             - General Sort Clauses:
                 - General Sort Clause reference: search/sort_clause_reference/sort_clause_reference.md
@@ -812,6 +821,7 @@ nav:
         - DevOps: infrastructure_and_maintenance/devops.md
         - Backup: infrastructure_and_maintenance/backup.md
         - Performance: infrastructure_and_maintenance/performance.md
+        - Background tasks: infrastructure_and_maintenance/background_tasks.md
         - Environments: infrastructure_and_maintenance/environments.md
         - Sessions: infrastructure_and_maintenance/sessions.md
         - Logging: infrastructure_and_maintenance/logging.md
@@ -963,8 +973,8 @@ extra:
   latest_tag_4_3: '4.3.5'
   latest_tag_4_4: '4.4.4'
   latest_tag_4_5: '4.5.7'
-  latest_tag_4_6: '4.6.22'
-  latest_tag_5_0: '5.0.0'
+  latest_tag_4_6: '4.6.24'
+  latest_tag_5_0: '5.0.2'
 
   symfony_doc: 'https://symfony.com/doc/7.3'
   user_doc: 'https://doc.ibexa.co/projects/userguide/en/5.0'

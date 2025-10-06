@@ -6,7 +6,7 @@ services:
             - { name: ibexa.oauth2_client.resource_owner_mapper, identifier: google }
 
     app.components.oauth2_login:
-        parent: Ibexa\AdminUi\Component\TwigComponent
+        parent: Ibexa\TwigComponents\Component\TemplateComponent
         arguments:
             $template: '@@ibexadesign/account/login/oauth2_login.html.twig'
         tags:

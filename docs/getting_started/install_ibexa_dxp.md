@@ -407,6 +407,10 @@ Finally, remove the temporary file:
 
 To make use of the [Link Manager](url_management.md#enabling-automatic-url-validation).
 
+### Enable discount re-indexing [[% include 'snippets/commerce_badge.md' %]]
+
+Enable [discount re-indexing in the background](configure_discounts.md#discount-re-indexing).
+
 ## [[= product_name_cloud =]]
 
 If you want to host your application on [[= product_name_cloud =]], follow the [Ibexa Cloud](install_on_ibexa_cloud.md) procedure.

@@ -30,15 +30,16 @@ The following attribute types are available:
 |`url`|URL|-|
 |`text`|Text block|-|
 |`richtext`|Rich text block (see [creating RichText block](create_custom_richtext_block.md))|-|
-|`embed`|Embedded content item|-|
-|`select`|Drop-down with options to select|`choices` lists the available options in `label: value` form</br>`multiple`, when set to true, allows selecting more than one option.
+|`embed`|Embedded content item|`udw_config_name`: name of the [Universal Discovery Widget's configuration](browser.md#add-new-configuration) |
+|`embedvideo`|Embedded content item|`udw_config_name`: name of the [Universal Discovery Widget's configuration](browser.md#add-new-configuration) |
+|`select`|Drop-down with options to select|<ul><li>`choices` lists the available options in `label: value` form</li><li>`multiple`, when set to true, allows selecting more than one option</li></ul>|
 |`checkbox`|Checkbox|Selects available option if `value: true`.|
 |`multiple`|Checkbox(es)|`choices` lists the available options in `label: value` form.|
 |`radio`|Radio buttons|`choices` lists the available options in `label: value` form.|
-|`locationlist`|Location selection|-|
+|`locationlist`|Location selection| `udw_config_name`: name of the [Universal Discovery Widget's configuration](browser.md#add-new-configuration) |
 |`contenttypelist`|List of content types|-|
 |`schedule_events`,</br>`schedule_snapshots`,</br>`schedule_initial_items`,</br>`schedule_slots`,</br>`schedule_loaded_snapshot`|Used in the Content Scheduler block|-|
-|`nested_attribute`|Defines a group of attributes in a block.|`attributes` - a list of attributes in the group. The attributes in the group are [configured](#page-block-attributes) as regular attributes. </br>`multiple`, when set to true. New groups are added dynamically with the **+ Add** button.|
+|`nested_attribute`|Defines a group of attributes in a block.|<ul><li>`attributes` - a list of attributes in the group. The attributes in the group are [configured](#page-block-attributes) as regular attributes</li><li>`multiple`, when set to true. New groups are added dynamically with the **+ Add** button</li></ul>|
 
 When you define attributes, you can omit most keys as long as you use simple types that don't require additional options:
 
@@ -49,10 +50,9 @@ attributes:
     third_field: integer
 ```
 
-`embed` and `locationlist` use the Universal Discovery Widget (UDW).
-When creating a block with these two types you can configure the UDW behavior.
-
-For more information, see [Create custom page block / Add edit template](create_custom_page_block.md#add-edit-template)
+The `embed`, `embedvideo`, and `locationlist` attribute types use the Universal Discovery Widget (UDW).
+When creating a block with these types you can use the `udw_config_name` option to configure the UDW behavior.
+See the [custom block example](create_custom_page_block.md#configure-block) to learn more.
 
 ## Custom attribute types
 
