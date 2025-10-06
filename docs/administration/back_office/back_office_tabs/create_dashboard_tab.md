@@ -13,7 +13,7 @@ This adds a tab to the **Common content** dashboard block that displays all arti
 
 This tab searches for content with content type "Article" (lines 50-53) and uses the built-in `all_content.html.twig` template to render the results, which ensures that the tab looks the same as the existing tabs (lines 64-66).
 
-The tab also implements OrderedTabInterface (line 17), which enables you to define the order in which the tab is displayed on the dashboard page.
+The tab also implements [`OrderedTabInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-AdminUi-Tab-OrderedTabInterface.html) (line 17), which enables you to define the order in which the tab is displayed on the dashboard page.
 It's done with the `getOrder()` method (line 38).
 
 Register this tab as a service:
