@@ -9,6 +9,11 @@ This page contains recent highlights and notable changes in [[= product_name =]]
 
 ## September 2025
 
+### Releases
+
+- [v5.0.2 release notes](https://doc.ibexa.co/en/5.0/release_notes/ibexa_dxp_v5.0/#ibexa-dxp-v502)
+- [v4.6.24 release notes](https://doc.ibexa.co/en/4.6/release_notes/ibexa_dxp_v4.6/#ibexa-dxp-v4624)
+
 ### Background operations
 
 - Added documentation for handling [background tasks](background_tasks.md) using the new integration with Symfony Messenger
