@@ -22,7 +22,7 @@
         "conditions": [
             {
                 "class": "Ibexa\\Discounts\\Value\\DiscountCondition\\IsInCategory",
-                "parameters": [["1", "2"]]
+                "parameters": [[1, 2]]
             }
         ]
     }
