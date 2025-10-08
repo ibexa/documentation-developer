@@ -187,9 +187,9 @@ ezplatform_page_fieldtype:
                                 class: 'class1 class2'
 ```
 
-- `help` - defines a help message which is rendered below the field.
-- `help_attr` - sets the HTML attributes for the element which displays the help message.
-- `help_html` - set this option to `true` to disable escaping the contents of the `help` option when rendering in the template.
+- `help.text` - defines a help message which is rendered below the field (maps to [`help`]([[= symfony_doc =]]/reference/forms/types/form.html#help))
+- `help.attr` - sets the HTML attributes for the element which displays the help message (maps to [`help_attr`]([[= symfony_doc =]]/reference/forms/types/form.html#help-attr))
+- `help.html` - enable (default) / disable (set to `true`) escaping the contents of the `help.text` option when rendering in the template (maps to [`help_html`]([[= symfony_doc =]]/reference/forms/types/form.html#help-html))
 
 ### Help message in nested attributes
 
