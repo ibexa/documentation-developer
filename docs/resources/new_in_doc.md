@@ -17,7 +17,7 @@ This page contains recent highlights and notable changes in [[= product_name =]]
 ### Background operations
 
 - Added documentation for handling [background tasks](background_tasks.md) using the new integration with Symfony Messenger
-- Described the configuration required to [asynchronously reindex discounted product prices](configure_discounts.md#discount-re-indexing) and the [new Discount events](discounts_events.md)
+- Described the configuration required to [asynchronously reindex discounted product prices](configure_discounts.md#discount-re-indexing) and the new discount [events](discounts_events.md) and [search criteria](discounts_criteria.md)
 
 ### Revamped notifications
 
