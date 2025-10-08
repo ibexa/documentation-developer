@@ -70,7 +70,7 @@ for example `AbstractType` for any custom type or `IntegerType` for numeric type
 
 To define the type, create a `src/Block/Attribute/MyStringAttributeType.php` file:
 
-``` php hl_lines="5 6 15"
+``` php hl_lines="5 6 17"
 [[= include_file('code_samples/page/custom_attribute/src/Block/Attribute/MyStringAttributeType.php') =]]
 ```
 
