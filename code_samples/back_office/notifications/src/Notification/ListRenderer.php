@@ -9,6 +9,7 @@ use Ibexa\Core\Notification\Renderer\NotificationRenderer;
 use Ibexa\Core\Notification\Renderer\TypedNotificationRendererInterface;
 use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\Routing\RouterInterface;
+use Symfony\Contracts\Translation\TranslatorInterface;
 use Twig\Environment;
 
 class ListRenderer implements NotificationRenderer, TypedNotificationRendererInterface
@@ -19,11 +20,14 @@ class ListRenderer implements NotificationRenderer, TypedNotificationRendererInt
 
     protected RequestStack $requestStack;
 
-    public function __construct(Environment $twig, RouterInterface $router, RequestStack $requestStack)
+    protected TranslatorInterface $translator;
+
+    public function __construct(Environment $twig, RouterInterface $router, RequestStack $requestStack, TranslatorInterface $translator)
     {
         $this->twig = $twig;
         $this->router = $router;
         $this->requestStack = $requestStack;
+        $this->translator = $translator;
     }
 
     public function render(Notification $notification): string

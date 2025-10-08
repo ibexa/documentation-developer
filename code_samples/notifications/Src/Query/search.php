@@ -2,10 +2,12 @@
 
 declare(strict_types=1);
 
-use Ibexa\Contracts\Core\Repository\Values\NotificationQuery;
+use Ibexa\Contracts\Core\Repository\Values\Notification\Query\Criterion\DateCreated;
+use Ibexa\Contracts\Core\Repository\Values\Notification\Query\Criterion\Status;
+use Ibexa\Contracts\Core\Repository\Values\Notification\Query\Criterion\Type;
+use Ibexa\Contracts\Core\Repository\Values\Notification\Query\NotificationQuery;
 
-$repository = $this->getRepository();
-$notificationService = $repository->getNotificationService();
+/** @var \Ibexa\Contracts\Core\Repository\NotificationService $notificationService */
 $query = new NotificationQuery([], 0, 25);
 
 $query->addCriterion(new Type('Workflow:Review'));

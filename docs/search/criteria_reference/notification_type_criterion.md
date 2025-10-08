@@ -15,6 +15,6 @@ The `Type` Search Criterion searches for notifications by their types.
 
 ### PHP
 
-```php hl_lines="11"
+```php hl_lines="13"
 [[= include_file('code_samples/notifications/Src/Query/search.php') =]]
 ```
