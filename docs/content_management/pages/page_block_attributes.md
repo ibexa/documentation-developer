@@ -1,5 +1,6 @@
 ---
 description: Page blocks can contain multiple attributes, of both built-in and custom types.
+month_change: true
 ---
 
 # Page block attributes
