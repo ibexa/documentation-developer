@@ -1,6 +1,6 @@
 ---
 description: Discounts enable reducing prices on products or product categories based on a detailed logic resolution.
-month_change: true
+month_change: false
 editions:
     - commerce
 ---
