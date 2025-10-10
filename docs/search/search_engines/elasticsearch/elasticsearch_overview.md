@@ -24,17 +24,4 @@ To proceed you need to be familiar with how indexing, filtering and queries work
 
 Whenever you make any changes in case of variables (for example, environmental ones) or configuration files, you need to erase Elasticsearch index, update the schema, and rebuild the index.
 
-To delete the index, use the [delete index REST API](https://www.elastic.co/guide/en/elasticsearch/reference/7.17/indices-delete-index.html).
-Use the commands as in the following example:
-
-```bash
-curl --request DELETE 'https://elasticsearch:9200/default_location*'
-curl --request DELETE 'https://elasticsearch:9200/default_content*'
-```
-
-To update the schema and then reindex the search, use the following commands:
-
-```bash
-php bin/console ibexa:elasticsearch:put-index-template --overwrite
-php bin/console ibexa:reindex
-```
+[[% include 'snippets/elasticsearch_clear_index.md' %]]
