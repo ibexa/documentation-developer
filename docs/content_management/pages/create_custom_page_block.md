@@ -21,9 +21,38 @@ First, add the following [YAML configuration](configuration.md#configuration-fil
 [[= include_file('code_samples/page/custom_page_block/config/packages/page_blocks.yaml', 0, 6) =]][[= include_file('code_samples/page/custom_page_block/config/packages/page_blocks.yaml', 16, 49) =]]
 ```
 
+And provide the translations for the labels:
+
+- in `translations/ibexa_page_builder_block_config.en.yaml`:
+
+``` yaml
+event_block.view.default: Default
+event_block.view.featured: Featured
+
+event_block.name.name: Name
+event_block.category.name: Category
+event_block.event.name: Event
+```
+
+- in `translations/ibexa_page_fieldtype.en.yaml`:
+
+``` yaml
+event_block.name: Event
+custom_category.name: Custom category
+```
+
+- in `translations/validators.en.yaml`:
+
+``` yaml
+validators.message.event_block.name.validator.not_blank: Event name should not be blank.
+validators.message.event_block.embed.validator.not_blank: Event content should not be blank.
+validators.message.event_block.embed.validator.content_type: Event content should be of type "event".
+validators.message.event_block.embed.validator.content_item: Event content should have a numerical ID.
+```
+
 `event` is the internal name for the block, and `name` indicates the name under which the block is available in the interface.
 You also set up the category in the **Page blocks** toolbox that the block appears in.
-In this case, it doesn't show up with the rest of the built-in blocks, but in a separate "Custom" category.
+In this case, it doesn't show up with the rest of the built-in blocks, but in a separate "Custom category" category.
 The thumbnail for the block can be one of the pre-existing icons, like in the example above, or you can use a custom SVG file.
 
 A block can have multiple attributes that you edit when adding it to a page.

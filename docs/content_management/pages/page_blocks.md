@@ -20,8 +20,8 @@ Each configured block has an identifier and the following settings:
 
 | Setting                  | Description                                                                                                                                                   |
 |--------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `name`                   | Name of the block used in the Page Builder interface.                                                                                                         |
-| `category`               | Category in the Page Builder **Page blocks** toolbox that the block is shown in.                                                                                        |
+| `name`                   | Name of the block used in the Page Builder interface. Translatable using the `ibexa_page_fieldtype` translation domain.                                                                                                         |
+| `category`               | Category in the Page Builder **Page blocks** toolbox that the block is shown in. Translatable using the `ibexa_page_fieldtype` translation domain.                                                                                        |
 | `thumbnail`              | Thumbnail used in the Page Builder **Page blocks** toolbox.                                                                                                             |
 | `views`                  | Available [templates for the block](#block-templates).                                                                                                        |
 | `visible`                | (Optional) Toggles the block's visibility in the Page Builder **Page blocks** toolbox. Remove the block from the layout before you publish another version of the page. |
@@ -51,6 +51,7 @@ You can overwrite the following properties in the existing blocks:
 
 Page blocks can have multiple templates.
 This allows you to create different styles for each block and let the editor choose them when adding the block from the UI.
+They names are translatable using the `ibexa_page_builder_block_config` translation domain.
 
 ``` yaml
 [[= include_file('code_samples/page/custom_page_block/config/packages/page_blocks.yaml', 0, 3) =]][[= include_file('code_samples/page/custom_page_block/config/packages/page_blocks.yaml', 7, 16) =]]
