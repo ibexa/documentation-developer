@@ -7,7 +7,9 @@ month_change: true
 
 Collaborative editing feature is available in [[= product_name =]] starting with version v5.0.2 or higher, regardless of its edition.
 
-## Install Real-time editing feature package
+## Installation
+
+### Install Real-time editing feature package
 
 If you have an arrangements with [[= product_name_base =]] to use Real-time editing feature, you need to install following package:
 
@@ -17,38 +19,6 @@ composer require ibexa/fieldtype-richtext-rte
 
 This command instals also `ibexa/ckeditor-premium` package and adds the new real-time editing functionality to the Rich Text field type.
 It also modifies the permission system to account for the new functionality.
-
-## Configure Collaborative editing
-
-Before you can start Collaborative editing feature, you must enable it by following these instructions.
-
-### Configuration
-
-You can configure Collaborative editing per [Repository](repository_configuration.md).
-
-Under `ibexa.repositories.<repository_name>.collaboration` [configuration key](configuration.md#configuration-files), indicate the settings for collaboration:
-
-``` yaml
-ibexa:
-    repositories:
-        <repository_name>:
-            collaboration:
-                participants:
-                    allowed_types:
-                        - internal
-                        - external
-                    auto_invite: <value>
-                session:
-                    public_link_enabled: <value>
-```
-
-The following settings are available:
-
-- participants:
-    - `allowed_types` - defines allowed user types, values: `internal`, `external`, you can set one or both of the values
-    - `auto_invite` - determines whether invitations should be sent automatically when inviting someone to a session, default value: `true`, available values: `true`, `false`
-- session:
-    - `public_link_enabled` - determines whether the public link is available, default value: `false`, available values: `true`, `false`
 
 ### Add tables to the database
 
@@ -108,7 +78,11 @@ php bin/console ibexa:migrations:import vendor/ibexa/collaboration/src/bundle/Re
 php bin/console ibexa:migrations:migrate --file=2025_08_26_10_14_shareable_user.yaml
 ```
 
-### Security configurations
+## Configure Collaborative editing
+
+Before you can start Collaborative editing feature, you must enable it by following these instructions.
+
+### Security configuration
 
 After an installation process is finished, go to `config/packages/security.yaml` and make following changes:
 
@@ -136,5 +110,33 @@ security:
         guard:
             authenticator: Ibexa\Collaboration\Security\Authenticator\ShareableLinkAuthenticator
 ```
+
+### Configuration
+
+You can configure Collaborative editing per [Repository](repository_configuration.md).
+
+Under `ibexa.repositories.<repository_name>.collaboration` [configuration key](configuration.md#configuration-files), indicate the settings for collaboration:
+
+``` yaml
+ibexa:
+    repositories:
+        <repository_name>:
+            collaboration:
+                participants:
+                    allowed_types:
+                        - internal
+                        - external
+                    auto_invite: <value>
+                session:
+                    public_link_enabled: <value>
+```
+
+The following settings are available:
+
+- participants:
+    - `allowed_types` - defines allowed user types, values: `internal`, `external`, you can set one or both of the values
+    - `auto_invite` - determines whether invitations should be sent automatically when inviting someone to a session, default value: `true`, available values: `true`, `false`
+- session:
+    - `public_link_enabled` - determines whether the public link is available, default value: `false`, available values: `true`, `false`
 
 You can now restart you application and start working with the Collaborative editing feature.
