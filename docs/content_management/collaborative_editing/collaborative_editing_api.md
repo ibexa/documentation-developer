@@ -127,32 +127,6 @@ You can get an invitation with [`InvitationService::getInvitation()`](/api/php_a
 [[= include_file('code_samples/collaboration/src/Command/ManageSessionsCommand.php', 141, 150) =]]
 ```
 
-You can select the property that you can read from an invitation:
-
-- Invitation ID:
-
-``` php
-    $invitation->getId();
-```
-
-- Session ID:
-
-``` php
-    $invitation->getSession()->getId();
-```
-
-- Participant ID:
-
-``` php
-    $invitation->getParticipant()->getId();
-```
-    
-- Invitation status:
-
-``` php
-    $invitation->getStatus();
-```
-
 ### Create invitation
 
 You can create new invitation for the collaborative session using the [`InvitationService::createInvitation()`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Collaboration-InvitationServiceInterface.html#method_createInvitation) method:
