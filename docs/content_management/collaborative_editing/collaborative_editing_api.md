@@ -54,7 +54,7 @@ You can update existing invitation with [`SessionService::updateSession()`](/api
 
 ### Delete session
 
-You can delete session with [`SessionService::deleteSession()`](h/api/php_api/php_api_reference/classes/Ibexa-Contracts-Collaboration-SessionServiceInterface.html#method_deleteSession):
+You can delete session with [`SessionService::deleteSession()`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Collaboration-SessionServiceInterface.html#method_deleteSession):
 
 ``` php
 [[= include_file('code_samples/collaboration/src/Command/ManageSessionsCommand.php', 153, 154) =]]
@@ -110,7 +110,7 @@ You can check the participant of the collaboration session with [`SessionService
 
 ### Manage invitation
 
-You can get an invitation with [`InvitationService::getInvitation()`](h/api/php_api/php_api_reference/classes/Ibexa-Contracts-Collaboration-InvitationServiceInterface.html#method_getInvitation):
+You can get an invitation with [`InvitationService::getInvitation()`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Collaboration-InvitationServiceInterface.html#method_getInvitation):
 
 
 ``` php
