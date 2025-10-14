@@ -26,3 +26,13 @@ Session Search Sort Clauses are implementing the [SortClauseInterface](/api/php_
 | [CreatedAt](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Collaboration-Session-Query-SortClause-CreatedAt.html) | Sort by session's creation date |
 | [Id](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Collaboration-Session-Query-SortClause-Id.html) | Sort by session's ID |
 | [UpdatedAt](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Collaboration-Session-Query-SortClause-UpdatedAt.html) | Sort by the date and time when session was updated |
+
+### Example
+
+The following example shows how to use them to sort the searched sessions:
+
+```php hl_lines="16-18"
+[[= include_file('code_samples/collaboration/src/Query/Search.php') =]]
+```
+
+The returned active sessions are sorted by creation date (descending).
