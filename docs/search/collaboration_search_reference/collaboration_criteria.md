@@ -12,7 +12,7 @@ Invitation Search Criteria are implementing the [CriterionInterface](/api/php_ap
 
 | Criterion | Description |
 |---|---|
-| [CreatedAtCriterion](api/php_api/php_api_reference/classes/Ibexa-Contracts-Collaboration-Invitation-Query-Criterion-CreatedAt.html) | Find invitations based on the date they were created |
+| [CreatedAtCriterion](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Collaboration-Invitation-Query-Criterion-CreatedAt.html) | Find invitations based on the date they were created |
 | [IdCriterion](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Collaboration-Invitation-Query-Criterion-Id.html) | Find invitations with given invitation ID |
 | [LogicalAndCriterion](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Collaboration-Invitation-Query-Criterion-LogicalAnd.html) | Composite criterion to group multiple invitations using the AND condition |
 | [LogicalOrCriterion](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Collaboration-Invitation-Query-Criterion-LogicalOr.html) | Composite criterion to group multiple invitations using the OR condition |
@@ -27,7 +27,7 @@ Session Search Criteria are implementing the [CriterionInterface](/api/php_api/p
 
 | Criterion | Description |
 |---|---|
-| [CreatedAtCriterion](api/php_api/php_api_reference/classes/Ibexa-Contracts-Collaboration-Session-Query-Criterion-CreatedAt.html) | Find sessions based on the date they were created |
+| [CreatedAtCriterion](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Collaboration-Session-Query-Criterion-CreatedAt.html) | Find sessions based on the date they were created |
 | [EmailCriterion](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Collaboration-Session-Query-Criterion-Email.html) | Find sessions based on external participant email |
 | [IdCriterion](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Collaboration-Session-Query-Criterion-Id.html) | Find sessions with the session ID |
 | [IsActiveCriterion](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Collaboration-Session-Query-Criterion-IsActive.html) | Find sessions based on active status |

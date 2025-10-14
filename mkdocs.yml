@@ -670,7 +670,7 @@ nav:
             - UserCriterion: search/activity_log_search_reference/user_criterion.md
         - Action Configuration Search Criteria: search/ai_actions_search_reference/action_configuration_criteria.md
         - Discounts Search Criteria: search/discounts_search_reference/discounts_criteria.md
-        - Collaboration Search Criteria: search/collaboration_search_reference
+        - Collaboration Search Criteria: search/collaboration_search_reference/collaboration_criteria.md
         - Notification Search Criteria:
             - Notification Search Criteria: search/criteria_reference/notification_search_criteria.md
             - DateCreated: search/criteria_reference/notification_datecreated_criterion.md
