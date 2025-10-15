@@ -37,8 +37,8 @@ event_block.event.name: Event
 - in `translations/ibexa_page_fieldtype.en.yaml`:
 
 ``` yaml
-event_block.name: Event
 custom_category.name: Custom category
+event_block.name: Event
 ```
 
 - in `translations/validators.en.yaml`:
