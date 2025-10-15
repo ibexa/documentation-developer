@@ -20,39 +20,6 @@ composer require ibexa/fieldtype-richtext-rte
 This command installs also `ibexa/ckeditor-premium` package and adds the new real-time editing functionality to the Rich Text field type.
 It also modifies the permission system to account for the new functionality.
 
-### Add tables to the database
-
-First, add the tables to the database:
-Create the `ibexa_share.sql` file that contains the following code:
-
-=== "MySQL"
-
-    ``` sql
-    [[= include_file('code_samples/collaboration/config/mysql/ibexa_share.sql', 0, None, '    ') =]]
-    ```
-
-=== "PostgreSQL"
-
-    ``` sql
-    [[= include_file('code_samples/collaboration/config/postgresql/ibexa_share.sql', 0, None, '    ') =]]
-    ```
-
-Then, run the following command, where `<database_name>` is the same name that you defined when you [installed](install_ibexa_dxp.md#change-installation-parameters) [[= product_name =]]:
-
-=== “MySQL”
-
-```bash
-mysql -u <username> -p <password> <database_name> < ibexa_share.sql
-```
-
-=== “PostgreSQL”
-
-```bash
-psql <database_name> < ibexa_share.sql
-```
-
-This command modifies the existing database schema by adding database configuration required for using Collaborative editing.
-
 ### Modify the bundles file
 
 Then, if not using Symfony Flex, add the following code to the `config/bundles.php` file:
