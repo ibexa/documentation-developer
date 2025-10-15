@@ -14,7 +14,7 @@ Each block can have the following properties:
 | Attribute    | Description                                                                                                  |
 |--------------|--------------------------------------------------------------------------------------------------------------|
 | `type`       | Attribute type.                                                                                              |
-| `name`       | (Optional) The displayed name for the attribute. You can omit it, block identifier is then used as the name. |
+| `name`       | (Optional) The displayed name for the attribute. You can omit it, block identifier is then used as the name. Translatable using the `ibexa_page_builder_block_config` translation domain. |
 | `value`      | (Optional) The default value for the attribute.                                                              |
 | `category`   | (Optional) The tab where the attribute is displayed in the block edit modal.                                 |
 | `validators` | (Optional) [Validators](page_block_validators.md) checking the attribute value.                              |
