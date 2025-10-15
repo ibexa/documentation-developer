@@ -67,3 +67,5 @@ The Tip of the Day block displays a random Tip from the "Tips" folder.
 Refresh the page a few more times and you can see the tip change randomly.
 
 ![Random Block with a Tip](enterprise_tut_random_block.png "Random Block with a Tip")
+
+To learn more about custom Page Builder blocks, see [Create custom page block](create_custom_page_block.md).
