@@ -82,3 +82,16 @@ ALTER TABLE ibexa_collaboration_invitation
     ADD CONSTRAINT ibexa_collaboration_invitation_participant_id_fk FOREIGN KEY (participant_id) REFERENCES ibexa_collaboration_participant (id) ON UPDATE CASCADE ON DELETE CASCADE NOT DEFERRABLE INITIALLY IMMEDIATE;
 ALTER TABLE ibexa_collaboration_invitation
     ADD CONSTRAINT ibexa_collaboration_invitation_sender_id_fk FOREIGN KEY (sender_id) REFERENCES ezuser (contentobject_id) ON DELETE RESTRICT NOT DEFERRABLE INITIALLY IMMEDIATE;
+CREATE TABLE ibexa_collaboration_content 
+(
+	id INT NOT NULL, 
+	content_id INT NOT NULL, 
+	version_no INT NOT NULL, 
+	language_id BIGINT NOT NULL, 
+	PRIMARY KEY (id)
+);
+
+CREATE INDEX ibexa_collaboration_session_content_version_language_idx ON ibexa_collaboration_content (content_id, version_no, language_id);
+
+ALTER TABLE ibexa_collaboration_content
+	ADD CONSTRAINT ibexa_collaboration_content_pk FOREIGN KEY (id) REFERENCES ibexa_collaboration (id) ON UPDATE CASCADE ON DELETE CASCADE NOT DEFERRABLE INITIALLY IMMEDIATE;
