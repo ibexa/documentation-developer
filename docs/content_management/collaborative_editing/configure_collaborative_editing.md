@@ -17,7 +17,7 @@ If you have an arrangements with [[= product_name_base =]] to use Real-time edit
 composer require ibexa/fieldtype-richtext-rte
 ```
 
-This command instals also `ibexa/ckeditor-premium` package and adds the new real-time editing functionality to the Rich Text field type.
+This command installs also `ibexa/ckeditor-premium` package and adds the new real-time editing functionality to the Rich Text field type.
 It also modifies the permission system to account for the new functionality.
 
 ### Add tables to the database
@@ -62,20 +62,9 @@ Then, if not using Symfony Flex, add the following code to the `config/bundles.p
 
 return [
     // A lot of bundles…
-    Ibexa\Bundle\Collaboration\IbexaCollaborationBundle::class => ['all' => true],
-    Ibexa\Bundle\Share\IbexaShareBundle::class => ['all' => true],
     Ibexa\Bundle\FieldTypeRichTextRTE\IbexaFieldTypeRichTextRTEBundle::class => ['all' => true],
     Ibexa\Bundle\CkeditorPremium\IbexaCkeditorPremiumBundle::class => [‘all’ => true],
 ];
-```
-
-### Add migration file and execute migration
-
-Last step is to add migration file and execute migration with the following commands:
-
-``` bash
-php bin/console ibexa:migrations:import vendor/ibexa/collaboration/src/bundle/Resources/migrations/2025_08_26_10_14_shareable_user.yaml 
-php bin/console ibexa:migrations:migrate --file=2025_08_26_10_14_shareable_user.yaml
 ```
 
 ## Configure Collaborative editing
@@ -107,8 +96,8 @@ security:
         provider: shared
         stateless: true
         user_checker: Ibexa\Core\MVC\Symfony\Security\UserChecker
-        guard:
-            authenticator: Ibexa\Collaboration\Security\Authenticator\ShareableLinkAuthenticator
+        custom_authenticators:
+            - Ibexa\Collaboration\Security\Authenticator\ShareableLinkAuthenticator
 ```
 
 ### Configuration

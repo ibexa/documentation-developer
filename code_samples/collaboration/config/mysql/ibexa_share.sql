@@ -65,13 +65,13 @@ CREATE TABLE ibexa_collaboration_invitation
   COLLATE `utf8mb4_unicode_520_ci`
   ENGINE = InnoDB;
 ALTER TABLE ibexa_collaboration
-    ADD CONSTRAINT ibexa_collaboration_owner_id_fk FOREIGN KEY (owner_id) REFERENCES ezuser (contentobject_id) ON DELETE RESTRICT;
+    ADD CONSTRAINT ibexa_collaboration_owner_id_fk FOREIGN KEY (owner_id) REFERENCES ibexa_user (contentobject_id) ON DELETE RESTRICT;
 ALTER TABLE ibexa_collaboration_participant
     ADD CONSTRAINT ibexa_collaboration_participant_session_id_fk FOREIGN KEY (session_id) REFERENCES ibexa_collaboration (id) ON UPDATE CASCADE ON DELETE CASCADE;
 ALTER TABLE ibexa_collaboration_participant_internal
     ADD CONSTRAINT ibexa_collaboration_participant_internal_pk FOREIGN KEY (id) REFERENCES ibexa_collaboration_participant (id) ON UPDATE CASCADE ON DELETE CASCADE;
 ALTER TABLE ibexa_collaboration_participant_internal
-    ADD CONSTRAINT ibexa_collaboration_participant_internal_user_id_fk FOREIGN KEY (user_id) REFERENCES ezuser (contentobject_id) ON DELETE RESTRICT;
+    ADD CONSTRAINT ibexa_collaboration_participant_internal_user_id_fk FOREIGN KEY (user_id) REFERENCES ibexa_user (contentobject_id) ON DELETE RESTRICT;
 ALTER TABLE ibexa_collaboration_participant_external
     ADD CONSTRAINT ibexa_collaboration_participant_external_pk FOREIGN KEY (id) REFERENCES ibexa_collaboration_participant (id) ON UPDATE CASCADE ON DELETE CASCADE;
 ALTER TABLE ibexa_collaboration_invitation
@@ -79,4 +79,4 @@ ALTER TABLE ibexa_collaboration_invitation
 ALTER TABLE ibexa_collaboration_invitation
     ADD CONSTRAINT ibexa_collaboration_invitation_participant_id_fk FOREIGN KEY (participant_id) REFERENCES ibexa_collaboration_participant (id) ON UPDATE CASCADE ON DELETE CASCADE;
 ALTER TABLE ibexa_collaboration_invitation
-    ADD CONSTRAINT ibexa_collaboration_invitation_sender_id_fk FOREIGN KEY (sender_id) REFERENCES ezuser (contentobject_id) ON DELETE RESTRICT;
+    ADD CONSTRAINT ibexa_collaboration_invitation_sender_id_fk FOREIGN KEY (sender_id) REFERENCES ibexa_user (contentobject_id) ON DELETE RESTRICT;
