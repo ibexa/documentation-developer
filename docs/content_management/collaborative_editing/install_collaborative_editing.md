@@ -47,17 +47,17 @@ Create the `ibexa_share.sql` file that contains the following code:
 
 Then, run the following command, where `<database_name>` is the same name that you defined when you [installed](install_ibexa_dxp.md#change-installation-parameters) [[= product_name =]]:
 
-=== “MySQL”
+=== "MySQL"
 
-```bash
-mysql -u <username> -p <password> <database_name> < ibexa_share.sql
-```
+    ``` bash
+    mysql -u <username> -p <password> <database_name> < ibexa_share.sql
+    ```
 
-=== “PostgreSQL”
+=== "PostgreSQL"
 
-```bash
-psql <database_name> < ibexa_share.sql
-```
+    ``` bash
+    psql <database_name> < ibexa_share.sql
+    ```
 
 This command modifies the existing database schema by adding database configuration required for using Collaborative editing.
 
@@ -73,7 +73,7 @@ return [
     Ibexa\Bundle\Collaboration\IbexaCollaborationBundle::class => ['all' => true],
     Ibexa\Bundle\Share\IbexaShareBundle::class => ['all' => true],
     Ibexa\Bundle\FieldTypeRichTextRTE\IbexaFieldTypeRichTextRTEBundle::class => ['all' => true],
-    Ibexa\Bundle\CkeditorPremium\IbexaCkeditorPremiumBundle::class => [‘all’ => true],
+    Ibexa\Bundle\CkeditorPremium\IbexaCkeditorPremiumBundle::class => ['all' => true],
 ];
 ```
 
@@ -97,7 +97,6 @@ After an installation process is finished, go to `config/packages/security.yaml`
 - uncomment following lines with `shared` user provider under the `providers` key:
 
 ```yaml
-```suggestion
 security:
     providers:
         # ...
@@ -148,9 +147,9 @@ The following settings are available:
 - session:
     - `public_link_enabled` - determines whether the public link is available, default value: `false`, available values: `true`, `false`
 
-#### `ibexa\share` configuration
+#### `ibexa/share` configuration
 
-To share content model, you need to configure the `ibexa\share` package.
+To share content model, you need to configure the `ibexa/share` package.
 Under `ibexa.system` [configuration key](configuration.md#configuration-files), indicate the settings:
 
 ``` yaml
