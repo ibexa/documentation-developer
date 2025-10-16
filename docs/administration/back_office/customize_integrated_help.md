@@ -1,5 +1,5 @@
 ---
-description: Integrated help provides quick access to documentation, training, and support resources.
+description: Customize the integrated help menu.
 edition: lts-update
 month_change: true
 ---
