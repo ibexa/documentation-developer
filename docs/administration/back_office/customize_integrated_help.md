@@ -10,6 +10,7 @@ The integrated help menu is part of the Integrated help introduced as an LTS Upd
 By default, it provides editors and developers with convenient access to documentation, training and other resources directly from the back office.
 
 You can extend or modify the integrated menu in two ways:
+
 - by modifying a link to user documentation in a yaml file
 - by subscribing to the `ibexa_integrated_help.menu_configure.help_menu` event
 
@@ -32,12 +33,12 @@ When it builds the integrated help menu, it dispatches the `ibexa_integrated_hel
 
 You can intercept this event, and change its contents by creating a subscriber.
 With that subscriber, you can access the `menu` object, which is an instance of the `Knp\Menu\MenuItem`, and all the options passed by this object, and modify them.
-This way you can adjust menu sections, add new items, or integrate custom links into the help system.
+This way you can adjust menu sections that are reproduced by the front end as tabs, add new items, or integrate custom links into the help system.
 
 ### Menu object structure
 
 The default `menu` object is structured as follows.
-Recreate this pattern when sending a customized event to the front end.
+Recreate this pattern when modifying an existing event with an intention to send it to the front end.
 
 ```
 root (MenuItem)
@@ -53,8 +54,8 @@ root (MenuItem)
     └── help__support_portal
 ```
 
-`help_general` and `help_developers` are menu sections that are reproduced by the front end as tabs.
-Tabs consist of entries, and each entry carries the following information:
+`help_general` and `help_developers` are menu sections, or tabs.
+Sections consist of entries, and each entry carries the following information:
 
 - `label` - a name of the help menu item
 - `uri` - an external link to the resource
@@ -75,8 +76,8 @@ declare(strict_types=1);
 
 namespace App\EventSubscriber;
 
-use Ibexa\Contracts\AdminUi\Menu\Event\ConfigureMenuEvent;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
+use Symfony\Contracts\EventDispatcher\Event;
 
 final class HelpMenuSubscriber implements EventSubscriberInterface
 {
@@ -91,7 +92,7 @@ final class HelpMenuSubscriber implements EventSubscriberInterface
         ];
     }
 
-    public function onHelpMenuConfigure(ConfigureMenuEvent $event): void
+    public function onHelpMenuConfigure(Event $event): void
     {
         $menu = $event->getMenu();
 
