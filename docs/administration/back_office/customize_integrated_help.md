@@ -70,58 +70,7 @@ In this example, it removes a product roadmap entry from the menu and adds a hel
 The tab is displayed in a production environment only.
 
 ``` php
-<?php
-
-declare(strict_types=1);
-
-namespace App\EventSubscriber;
-
-use Symfony\Component\EventDispatcher\EventSubscriberInterface;
-use Symfony\Contracts\EventDispatcher\Event;
-
-final class HelpMenuSubscriber implements EventSubscriberInterface
-{
-    public function __construct(
-        private readonly bool $kernelDebug
-    ) {}
-
-    public static function getSubscribedEvents(): array
-    {
-        return [
-            'ibexa_integrated_help.menu_configure.help_menu' => 'onHelpMenuConfigure',
-        ];
-    }
-
-    public function onHelpMenuConfigure(Event $event): void
-    {
-        $menu = $event->getMenu();
-
-        // Remove roadmap menu item
-        if ($menu->getChild('help__general')) {
-            $generalSection = $menu->getChild('help__general');
-            if ($generalSection->getChild('help__product_roadmap')) {
-                $generalSection->removeChild('help__product_roadmap');
-            }
-        }
-
-        // Add videos tab, shown only in production
-        if ($this->kernelDebug === false) {
-            $resourcesSection = $menu->addChild('help__videos', [
-                'label' => 'Product videos',
-            ]);
-
-            $resourcesSection->addChild('help__webinar_v5', [
-                'label' => 'Webinar: Introducing Ibexa DXP v5',
-                'uri' => 'https://www.youtube.com/watch?v=qWaBHG2LRm8',
-                'extras' => [
-                    'isHighlighted' => false,
-                    'icon' => 'https://doc.ibexa.co/en/5.0/templating/twig_function_reference/img/icons/video.svg.png',
-                    'description' => 'Discover new features and improvements brought by Ibexa DXP v5.',
-                ],
-            ]);
-        }
-    }
-}
+[[= include_file('code_samples/back_office/menu/menu_item/src/EventSubscriber/HelpMenuSubscriber.php') =]]
 ```
 
 !!! tip
