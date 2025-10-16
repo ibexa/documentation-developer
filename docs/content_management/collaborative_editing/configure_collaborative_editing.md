@@ -30,7 +30,7 @@ Then, if not using Symfony Flex, add the following code to the `config/bundles.p
 return [
     // A lot of bundles…
     Ibexa\Bundle\FieldTypeRichTextRTE\IbexaFieldTypeRichTextRTEBundle::class => ['all' => true],
-    Ibexa\Bundle\CkeditorPremium\IbexaCkeditorPremiumBundle::class => [‘all’ => true],
+    Ibexa\Bundle\CkeditorPremium\IbexaCkeditorPremiumBundle::class => ['all' => true],
 ];
 ```
 
