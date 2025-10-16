@@ -14,8 +14,8 @@ Invitation Search Criteria are implementing the [CriterionInterface](/api/php_ap
 |---|---|
 | [CreatedAt](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Collaboration-Invitation-Query-Criterion-CreatedAt.html) | Find invitations based on the date they were created |
 | [Id](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Collaboration-Invitation-Query-Criterion-Id.html) | Find invitations with given invitation ID |
-| [LogicalAnd](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Collaboration-Invitation-Query-Criterion-LogicalAnd.html) | Composite criterion to group multiple invitations using the AND condition |
-| [LogicalOr](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Collaboration-Invitation-Query-Criterion-LogicalOr.html) | Composite criterion to group multiple invitations using the OR condition |
+| [LogicalAnd](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Collaboration-Invitation-Query-Criterion-LogicalAnd.html) | Composite criterion to group multiple criteria using the AND condition |
+| [LogicalOr](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Collaboration-Invitation-Query-Criterion-LogicalOr.html) | Composite criterion to group multiple criteria using the OR condition |
 | [Sender](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Collaboration-Invitation-Query-Criterion-Sender.html) | Find invitations by invitation sender |
 | [Session](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Collaboration-Invitation-Query-Criterion-Session.html) | Find invitations by collaboration session |
 | [Status](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Collaboration-Invitation-Query-Criterion-Status.html) | Find invitations with given status|
@@ -31,8 +31,8 @@ Session Search Criteria are implementing the [CriterionInterface](/api/php_api/p
 | [Email](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Collaboration-Session-Query-Criterion-Email.html) | Find sessions based on external participant email |
 | [Id](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Collaboration-Session-Query-Criterion-Id.html) | Find sessions with the session ID |
 | [IsActive](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Collaboration-Session-Query-Criterion-IsActive.html) | Find sessions based on active status |
-| [LogicalAnd](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Collaboration-Session-Query-Criterion-LogicalAnd.html) | Composite criterion to group multiple sessions using the AND condition |
-| [LogicalOr](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Collaboration-Session-Query-Criterion-LogicalOr.html) | Composite criterion to group multiple sessions using the OR condition |
+| [LogicalAnd](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Collaboration-Session-Query-Criterion-LogicalAnd.html) | Composite criterion to group multiple criteria using the AND condition |
+| [LogicalOr](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Collaboration-Session-Query-Criterion-LogicalOr.html) | Composite criterion to group multiple criteria using the OR condition |
 | [Owner](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Collaboration-Session-Query-Criterion-Owner.html) | Find sessions by their owner |
 | [ParticipantToken](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Collaboration-Session-Query-Criterion-ParticipantToken.html) | Find sessions by participant token |
 | [Token](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Collaboration-Session-Query-Criterion-Token.html) | Find sessions with given token|
@@ -44,7 +44,7 @@ Session Search Criteria are implementing the [CriterionInterface](/api/php_api/p
 
 The following example shows how you can use the criteria to find all the currently active sessions:
 
-```php hl_lines="11-16"
+```php hl_lines="12-16"
 [[= include_file('code_samples/collaboration/src/Query/Search.php') =]]
 ```
 
@@ -52,4 +52,4 @@ The criteria limit the result set to sessions matching all of the conditions lis
 
 - session has an active status
 - session has a `content` type
-- session creation date is not after the current date
+- session creation date is within the last week
