@@ -678,12 +678,12 @@ nav:
             - UserCriterion: search/activity_log_search_reference/user_criterion.md
         - Action Configuration Search Criteria: search/ai_actions_search_reference/action_configuration_criteria.md
         - Discounts Search Criteria: search/discounts_search_reference/discounts_criteria.md
+        - Collaboration Search Criteria: search/collaboration_search_reference/collaboration_criteria.md
         - Notification Search Criteria:
             - Notification Search Criteria: search/criteria_reference/notification_search_criteria.md
             - DateCreated: search/criteria_reference/notification_datecreated_criterion.md
             - Status: search/criteria_reference/notification_status_criterion.md
             - Type: search/criteria_reference/notification_type_criterion.md
-
         - Sort Clause reference:
             - General Sort Clauses:
                 - General Sort Clause reference: search/sort_clause_reference/sort_clause_reference.md
@@ -750,6 +750,7 @@ nav:
                 - Id Sort Clause: search/url_search_reference/id_url_sort_clause.md
                 - Url Sort Clause: search/url_search_reference/url_url_sort_clause.md
             - Activity Log Sort Clauses: search/activity_log_search_reference/activity_log_sort_clauses.md
+            - Collaboration Sort Clauses: search/collaboration_search_reference/collaboration_sort_clauses.md
             - Action Configuration Sort Clauses: search/ai_actions_search_reference/action_configuration_sort_clauses.md
             - Discounts Sort Clauses: search/discounts_search_reference/discounts_sort_clauses.md
         - Aggregation reference:
