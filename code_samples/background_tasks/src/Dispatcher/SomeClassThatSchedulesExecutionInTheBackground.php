@@ -6,13 +6,10 @@ use Ibexa\Bundle\Messenger\Stamp\DeduplicateStamp;
 use Symfony\Component\Messenger\Envelope;
 use Symfony\Component\Messenger\MessageBusInterface;
 
-final class SomeClassThatSchedulesExecutionInTheBackground
+final readonly class SomeClassThatSchedulesExecutionInTheBackground
 {
-    private MessageBusInterface $bus;
-
-    public function __construct(MessageBusInterface $bus)
+    public function __construct(private MessageBusInterface $bus)
     {
-        $this->bus = $bus;
     }
 
     public function schedule(object $message): void
