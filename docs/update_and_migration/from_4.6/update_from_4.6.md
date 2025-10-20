@@ -427,20 +427,43 @@ No additional steps needed.
     psql <database_name> < vendor/ibexa/installer/upgrade/db/postgresql/ibexa-4.6.23-to-4.6.24.sql
     ```
 
+## v4.6.25
+
+### Form Builder performance fix: missing indexes on form submission data [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
+
+In large production databases, the `ezform_form_submissions` and `ezform_form_submission_data` tables may contain a lot of rows.
+Missing indexes can cause high CPU load and slow queries.
+
+Run the provided SQL upgrade script to add the missing indexes to your database:
+
+=== "MySQL"
+
+    ``` bash
+    mysql -u <username> -p <password> <database_name> < vendor/ibexa/installer/upgrade/db/mysql/ibexa-4.6.24-to-4.6.25.sql
+    ```
+
+=== "PostgreSQL"
+
+    ``` bash
+    psql <database_name> < vendor/ibexa/installer/upgrade/db/postgresql/ibexa-4.6.24-to-4.6.25.sql
+    ```
+
+<!-- End of update instructions -->
+
 [[% include 'snippets/update/notify_support.md' %]]
 
 With the product updated to the latest version, you can now finish the update process or proceed to updating the LTS Updates packages.
 
 ## LTS Updates
 
-[LTS Updates](editions.md#lts-updates) are standalone packages with their own update procedures.
+[LTS Updates](https://doc.ibexa.co/en/4.6/ibexa_products/editions/#lts-updates) are standalone packages with their own update procedures.
 To use the [latest features](ibexa_dxp_v4.6.md) added to them, update them separately with the following commands:
 
 === "Discounts"
 
     ### Discounts [[% include 'snippets/lts-update_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
 
-    To install the [Discounts feature](discounts_guide.md), see the [installation instructions](install_discounts.md).
+    To install the [Discounts feature](discounts_guide.md), see the [installation instructions](https://doc.ibexa.co/en/4.6/discounts/install_discounts/).
 
     If you're already using it, run the following command to get the latest version of this feature:
 
@@ -458,7 +481,7 @@ To use the [latest features](ibexa_dxp_v4.6.md) added to them, update them separ
     The `discount/view` policy is no longer required for the store customers to use a discount and must be removed from all users who are not managing discounts.
     The policy allows to access all the discount details, including the coupon codes to activate them, which could lead to system abuse.
 
-    To learn more, see the [discounts policies overview](policies.md#discounts).
+    To learn more, see the [discounts policies overview](https://doc.ibexa.co/en/4.6/permissions/policies/).
 
     #### Database update
 
@@ -635,7 +658,7 @@ To use the [latest features](ibexa_dxp_v4.6.md) added to them, update them separ
 
     ### AI Actions [[% include 'snippets/lts-update_badge.md' %]]
 
-    To install the [AI actions feature](ai_actions_guide.md), see the [installation instructions](install_ai_actions.md).
+    To install the [AI actions feature](ai_actions_guide.md), see the [installation instructions](https://doc.ibexa.co/en/4.6/ai_actions/install_ai_actions/).
 
     If you're already using it, run the following command to get the latest version of this feature:
 
@@ -647,7 +670,7 @@ To use the [latest features](ibexa_dxp_v4.6.md) added to them, update them separ
 
     ### Date and time attribute [[% include 'snippets/lts-update_badge.md' %]]
 
-    To install the [Date and time attribute](date_and_time.md), see the [installation instructions](date_and_time.md#installation).
+    To install the [Date and time attribute](date_and_time.md), see the [installation instructions](https://doc.ibexa.co/en/4.6/pim/attributes/date_and_time/#installation).
 
     If you're already using it, run the following command to get the latest version of this feature:
 
@@ -659,7 +682,7 @@ To use the [latest features](ibexa_dxp_v4.6.md) added to them, update them separ
 
     ### Symbol attribute [[% include 'snippets/lts-update_badge.md' %]]
 
-    To install the [Symbol attribute](symbol_attribute_type.md), see the [installation instructions](symbol_attribute_type.md#installation).
+    To install the [Symbol attribute](symbol_attribute_type.md), see the [installation instructions](https://doc.ibexa.co/en/4.6/pim/attributes/symbol_attribute_type/#installation).
 
     If you're already using it, run the following command to get the latest version of this feature:
 
