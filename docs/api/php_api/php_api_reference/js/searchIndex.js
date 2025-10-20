@@ -10131,6 +10131,36 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/Ibexa-Contracts-ContentForms-Data-Content-FieldData.html#property_value"
         },                {
+            "fqsen": "\\Ibexa\\Contracts\\ContentForms\\Event\\AutosaveEnabled",
+            "name": "AutosaveEnabled",
+            "summary": "Event\u0020is\u0020the\u0020base\u0020class\u0020for\u0020classes\u0020containing\u0020event\u0020data.",
+            "url": "classes/Ibexa-Contracts-ContentForms-Event-AutosaveEnabled.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\ContentForms\\Event\\AutosaveEnabled\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-ContentForms-Event-AutosaveEnabled.html#method___construct"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\ContentForms\\Event\\AutosaveEnabled\u003A\u003AgetVersionInfo\u0028\u0029",
+            "name": "getVersionInfo",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-ContentForms-Event-AutosaveEnabled.html#method_getVersionInfo"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\ContentForms\\Event\\AutosaveEnabled\u003A\u003AisAutosaveEnabled\u0028\u0029",
+            "name": "isAutosaveEnabled",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-ContentForms-Event-AutosaveEnabled.html#method_isAutosaveEnabled"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\ContentForms\\Event\\AutosaveEnabled\u003A\u003AenableAutosave\u0028\u0029",
+            "name": "enableAutosave",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-ContentForms-Event-AutosaveEnabled.html#method_enableAutosave"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\ContentForms\\Event\\AutosaveEnabled\u003A\u003AdisableAutosave\u0028\u0029",
+            "name": "disableAutosave",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-ContentForms-Event-AutosaveEnabled.html#method_disableAutosave"
+        },                {
             "fqsen": "\\Ibexa\\Contracts\\ContentForms\\FieldType\\FieldValueFormMapperInterface",
             "name": "FieldValueFormMapperInterface",
             "summary": "",
@@ -13096,6 +13126,21 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/Ibexa-Contracts-Core-Persistence-Content-Type-CreateStruct.html#property_defaultAlwaysAvailable"
         },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Persistence\\Content\\Type\\CriterionHandlerInterface",
+            "name": "CriterionHandlerInterface",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Persistence-Content-Type-CriterionHandlerInterface.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Persistence\\Content\\Type\\CriterionHandlerInterface\u003A\u003Asupports\u0028\u0029",
+            "name": "supports",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Persistence-Content-Type-CriterionHandlerInterface.html#method_supports"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Persistence\\Content\\Type\\CriterionHandlerInterface\u003A\u003Aapply\u0028\u0029",
+            "name": "apply",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Persistence-Content-Type-CriterionHandlerInterface.html#method_apply"
+        },                {
             "fqsen": "\\Ibexa\\Contracts\\Core\\Persistence\\Content\\Type\\DeleteByParamsStruct",
             "name": "DeleteByParamsStruct",
             "summary": "Base\u0020SPI\u0020Value\u0020object.",
@@ -13380,6 +13425,11 @@ Search.appendIndex(
             "name": "loadContentTypeList",
             "summary": "Return\u0020list\u0020of\u0020unique\u0020content\u0020types,\u0020with\u0020type\u0020id\u0020as\u0020key.",
             "url": "classes/Ibexa-Contracts-Core-Persistence-Content-Type-Handler.html#method_loadContentTypeList"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Persistence\\Content\\Type\\Handler\u003A\u003AfindContentTypes\u0028\u0029",
+            "name": "findContentTypes",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Persistence-Content-Type-Handler.html#method_findContentTypes"
         },                {
             "fqsen": "\\Ibexa\\Contracts\\Core\\Persistence\\Content\\Type\\Handler\u003A\u003AloadContentTypesByFieldDefinitionIdentifier\u0028\u0029",
             "name": "loadContentTypesByFieldDefinitionIdentifier",
@@ -15301,6 +15351,11 @@ Search.appendIndex(
             "summary": "Bulk\u002Dload\u0020content\u0020type\u0020objects\u0020by\u0020ids.",
             "url": "classes/Ibexa-Contracts-Core-Repository-ContentTypeService.html#method_loadContentTypeList"
         },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\ContentTypeService\u003A\u003AfindContentTypes\u0028\u0029",
+            "name": "findContentTypes",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Repository-ContentTypeService.html#method_findContentTypes"
+        },                {
             "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\ContentTypeService\u003A\u003AloadContentTypes\u0028\u0029",
             "name": "loadContentTypes",
             "summary": "Get\u0020content\u0020type\u0020objects\u0020which\u0020belong\u0020to\u0020the\u0020given\u0020content\u0020type\u0020group.",
@@ -15715,6 +15770,11 @@ Search.appendIndex(
             "name": "loadContentTypeList",
             "summary": "Bulk\u002Dload\u0020content\u0020type\u0020objects\u0020by\u0020ids.",
             "url": "classes/Ibexa-Contracts-Core-Repository-Decorator-ContentTypeServiceDecorator.html#method_loadContentTypeList"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Decorator\\ContentTypeServiceDecorator\u003A\u003AfindContentTypes\u0028\u0029",
+            "name": "findContentTypes",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Repository-Decorator-ContentTypeServiceDecorator.html#method_findContentTypes"
         },                {
             "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Decorator\\ContentTypeServiceDecorator\u003A\u003AloadContentTypes\u0028\u0029",
             "name": "loadContentTypes",
@@ -29140,6 +29200,286 @@ Search.appendIndex(
             "name": "isSearchable",
             "summary": "If\u0020set\u0020the\u0020searchable\u0020flag\u0020is\u0020set\u0020to\u0020this\u0020value.",
             "url": "classes/Ibexa-Contracts-Core-Repository-Values-ContentType-FieldDefinitionUpdateStruct.html#property_isSearchable"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\ContentType\\Query\\ContentTypeQuery",
+            "name": "ContentTypeQuery",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Repository-Values-ContentType-Query-ContentTypeQuery.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\ContentType\\Query\\ContentTypeQuery\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Repository-Values-ContentType-Query-ContentTypeQuery.html#method___construct"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\ContentType\\Query\\ContentTypeQuery\u003A\u003AgetCriterion\u0028\u0029",
+            "name": "getCriterion",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Repository-Values-ContentType-Query-ContentTypeQuery.html#method_getCriterion"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\ContentType\\Query\\ContentTypeQuery\u003A\u003AsetCriterion\u0028\u0029",
+            "name": "setCriterion",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Repository-Values-ContentType-Query-ContentTypeQuery.html#method_setCriterion"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\ContentType\\Query\\ContentTypeQuery\u003A\u003AaddSortClause\u0028\u0029",
+            "name": "addSortClause",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Repository-Values-ContentType-Query-ContentTypeQuery.html#method_addSortClause"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\ContentType\\Query\\ContentTypeQuery\u003A\u003AgetSortClauses\u0028\u0029",
+            "name": "getSortClauses",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Repository-Values-ContentType-Query-ContentTypeQuery.html#method_getSortClauses"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\ContentType\\Query\\ContentTypeQuery\u003A\u003AgetOffset\u0028\u0029",
+            "name": "getOffset",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Repository-Values-ContentType-Query-ContentTypeQuery.html#method_getOffset"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\ContentType\\Query\\ContentTypeQuery\u003A\u003AsetOffset\u0028\u0029",
+            "name": "setOffset",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Repository-Values-ContentType-Query-ContentTypeQuery.html#method_setOffset"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\ContentType\\Query\\ContentTypeQuery\u003A\u003AgetLimit\u0028\u0029",
+            "name": "getLimit",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Repository-Values-ContentType-Query-ContentTypeQuery.html#method_getLimit"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\ContentType\\Query\\ContentTypeQuery\u003A\u003AsetLimit\u0028\u0029",
+            "name": "setLimit",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Repository-Values-ContentType-Query-ContentTypeQuery.html#method_setLimit"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\ContentType\\Query\\ContentTypeQuery\u003A\u003ADEFAULT_LIMIT",
+            "name": "DEFAULT_LIMIT",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Repository-Values-ContentType-Query-ContentTypeQuery.html#constant_DEFAULT_LIMIT"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\ContentType\\Query\\Criterion\\ContainsFieldDefinitionId",
+            "name": "ContainsFieldDefinitionId",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Repository-Values-ContentType-Query-Criterion-ContainsFieldDefinitionId.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\ContentType\\Query\\Criterion\\ContainsFieldDefinitionId\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Repository-Values-ContentType-Query-Criterion-ContainsFieldDefinitionId.html#method___construct"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\ContentType\\Query\\Criterion\\ContainsFieldDefinitionId\u003A\u003AgetValue\u0028\u0029",
+            "name": "getValue",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Repository-Values-ContentType-Query-Criterion-ContainsFieldDefinitionId.html#method_getValue"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\ContentType\\Query\\Criterion\\ContainsFieldDefinitionId\u003A\u003AsetValue\u0028\u0029",
+            "name": "setValue",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Repository-Values-ContentType-Query-Criterion-ContainsFieldDefinitionId.html#method_setValue"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\ContentType\\Query\\Criterion\\ContentTypeGroupId",
+            "name": "ContentTypeGroupId",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Repository-Values-ContentType-Query-Criterion-ContentTypeGroupId.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\ContentType\\Query\\Criterion\\ContentTypeGroupId\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Repository-Values-ContentType-Query-Criterion-ContentTypeGroupId.html#method___construct"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\ContentType\\Query\\Criterion\\ContentTypeGroupId\u003A\u003AgetValue\u0028\u0029",
+            "name": "getValue",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Repository-Values-ContentType-Query-Criterion-ContentTypeGroupId.html#method_getValue"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\ContentType\\Query\\Criterion\\ContentTypeGroupId\u003A\u003AsetValue\u0028\u0029",
+            "name": "setValue",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Repository-Values-ContentType-Query-Criterion-ContentTypeGroupId.html#method_setValue"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\ContentType\\Query\\Criterion\\ContentTypeId",
+            "name": "ContentTypeId",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Repository-Values-ContentType-Query-Criterion-ContentTypeId.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\ContentType\\Query\\Criterion\\ContentTypeId\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Repository-Values-ContentType-Query-Criterion-ContentTypeId.html#method___construct"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\ContentType\\Query\\Criterion\\ContentTypeId\u003A\u003AgetValue\u0028\u0029",
+            "name": "getValue",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Repository-Values-ContentType-Query-Criterion-ContentTypeId.html#method_getValue"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\ContentType\\Query\\Criterion\\ContentTypeId\u003A\u003AsetValue\u0028\u0029",
+            "name": "setValue",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Repository-Values-ContentType-Query-Criterion-ContentTypeId.html#method_setValue"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\ContentType\\Query\\Criterion\\ContentTypeIdentifier",
+            "name": "ContentTypeIdentifier",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Repository-Values-ContentType-Query-Criterion-ContentTypeIdentifier.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\ContentType\\Query\\Criterion\\ContentTypeIdentifier\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Repository-Values-ContentType-Query-Criterion-ContentTypeIdentifier.html#method___construct"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\ContentType\\Query\\Criterion\\ContentTypeIdentifier\u003A\u003AgetValue\u0028\u0029",
+            "name": "getValue",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Repository-Values-ContentType-Query-Criterion-ContentTypeIdentifier.html#method_getValue"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\ContentType\\Query\\Criterion\\ContentTypeIdentifier\u003A\u003AsetValue\u0028\u0029",
+            "name": "setValue",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Repository-Values-ContentType-Query-Criterion-ContentTypeIdentifier.html#method_setValue"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\ContentType\\Query\\Criterion\\IsSystem",
+            "name": "IsSystem",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Repository-Values-ContentType-Query-Criterion-IsSystem.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\ContentType\\Query\\Criterion\\IsSystem\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Repository-Values-ContentType-Query-Criterion-IsSystem.html#method___construct"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\ContentType\\Query\\Criterion\\IsSystem\u003A\u003AgetValue\u0028\u0029",
+            "name": "getValue",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Repository-Values-ContentType-Query-Criterion-IsSystem.html#method_getValue"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\ContentType\\Query\\Criterion\\IsSystem\u003A\u003AsetValue\u0028\u0029",
+            "name": "setValue",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Repository-Values-ContentType-Query-Criterion-IsSystem.html#method_setValue"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\ContentType\\Query\\Criterion\\LogicalAnd",
+            "name": "LogicalAnd",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Repository-Values-ContentType-Query-Criterion-LogicalAnd.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\ContentType\\Query\\Criterion\\LogicalNot",
+            "name": "LogicalNot",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Repository-Values-ContentType-Query-Criterion-LogicalNot.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\ContentType\\Query\\Criterion\\LogicalOperator",
+            "name": "LogicalOperator",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Repository-Values-ContentType-Query-Criterion-LogicalOperator.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\ContentType\\Query\\Criterion\\LogicalOperator\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Repository-Values-ContentType-Query-Criterion-LogicalOperator.html#method___construct"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\ContentType\\Query\\Criterion\\LogicalOperator\u003A\u003AgetCriteria\u0028\u0029",
+            "name": "getCriteria",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Repository-Values-ContentType-Query-Criterion-LogicalOperator.html#method_getCriteria"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\ContentType\\Query\\Criterion\\LogicalOr",
+            "name": "LogicalOr",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Repository-Values-ContentType-Query-Criterion-LogicalOr.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\ContentType\\Query\\CriterionInterface",
+            "name": "CriterionInterface",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Repository-Values-ContentType-Query-CriterionInterface.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\ContentType\\Query\\SortClause\\Id",
+            "name": "Id",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Repository-Values-ContentType-Query-SortClause-Id.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\ContentType\\Query\\SortClause\\Id\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Repository-Values-ContentType-Query-SortClause-Id.html#method___construct"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\ContentType\\Query\\SortClause\\Identifier",
+            "name": "Identifier",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Repository-Values-ContentType-Query-SortClause-Identifier.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\ContentType\\Query\\SortClause\\Identifier\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Repository-Values-ContentType-Query-SortClause-Identifier.html#method___construct"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\ContentType\\Query\\SortClause\\Name",
+            "name": "Name",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Repository-Values-ContentType-Query-SortClause-Name.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\ContentType\\Query\\SortClause\\Name\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Repository-Values-ContentType-Query-SortClause-Name.html#method___construct"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\ContentType\\Query\\SortClause",
+            "name": "SortClause",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Repository-Values-ContentType-Query-SortClause.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\ContentType\\Query\\SortClause\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Repository-Values-ContentType-Query-SortClause.html#method___construct"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\ContentType\\Query\\SortClause\u003A\u003ASORT_ASC",
+            "name": "SORT_ASC",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Repository-Values-ContentType-Query-SortClause.html#constant_SORT_ASC"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\ContentType\\Query\\SortClause\u003A\u003ASORT_DESC",
+            "name": "SORT_DESC",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Repository-Values-ContentType-Query-SortClause.html#constant_SORT_DESC"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\ContentType\\Query\\SortClause\u003A\u003A\u0024direction",
+            "name": "direction",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Repository-Values-ContentType-Query-SortClause.html#property_direction"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\ContentType\\Query\\SortClause\u003A\u003A\u0024target",
+            "name": "target",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Repository-Values-ContentType-Query-SortClause.html#property_target"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\ContentType\\SearchResult",
+            "name": "SearchResult",
+            "summary": "The\u0020base\u0020class\u0020for\u0020all\u0020value\u0020objects\u0020and\u0020structs.",
+            "url": "classes/Ibexa-Contracts-Core-Repository-Values-ContentType-SearchResult.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\ContentType\\SearchResult\u003A\u003AgetTotalCount\u0028\u0029",
+            "name": "getTotalCount",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Repository-Values-ContentType-SearchResult.html#method_getTotalCount"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\ContentType\\SearchResult\u003A\u003AgetContentTypes\u0028\u0029",
+            "name": "getContentTypes",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Repository-Values-ContentType-SearchResult.html#method_getContentTypes"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\ContentType\\SearchResult\u003A\u003AgetIterator\u0028\u0029",
+            "name": "getIterator",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Repository-Values-ContentType-SearchResult.html#method_getIterator"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\ContentType\\SearchResult\u003A\u003A\u0024totalCount",
+            "name": "totalCount",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Repository-Values-ContentType-SearchResult.html#property_totalCount"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\ContentType\\SearchResult\u003A\u003A\u0024items",
+            "name": "items",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Repository-Values-ContentType-SearchResult.html#property_items"
         },                {
             "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\Filter\\CriterionQueryBuilder",
             "name": "CriterionQueryBuilder",
@@ -60041,6 +60381,11 @@ Search.appendIndex(
             "summary": "",
             "url": "namespaces/ibexa-contracts-contentforms-data.html"
         },                {
+            "fqsen": "\\Ibexa\\Contracts\\ContentForms\\Event",
+            "name": "Event",
+            "summary": "",
+            "url": "namespaces/ibexa-contracts-contentforms-event.html"
+        },                {
             "fqsen": "\\Ibexa\\Contracts\\ContentForms\\FieldType",
             "name": "FieldType",
             "summary": "",
@@ -60560,6 +60905,21 @@ Search.appendIndex(
             "name": "ContentType",
             "summary": "",
             "url": "namespaces/ibexa-contracts-core-repository-values-contenttype.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\ContentType\\Query",
+            "name": "Query",
+            "summary": "",
+            "url": "namespaces/ibexa-contracts-core-repository-values-contenttype-query.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\ContentType\\Query\\Criterion",
+            "name": "Criterion",
+            "summary": "",
+            "url": "namespaces/ibexa-contracts-core-repository-values-contenttype-query-criterion.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\ContentType\\Query\\SortClause",
+            "name": "SortClause",
+            "summary": "",
+            "url": "namespaces/ibexa-contracts-core-repository-values-contenttype-query-sortclause.html"
         },                {
             "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\Filter",
             "name": "Filter",
