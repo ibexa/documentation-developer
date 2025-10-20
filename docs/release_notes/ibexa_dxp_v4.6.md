@@ -17,7 +17,7 @@ month_change: false
 This release includes security fixes.
 To learn more, see the [corresponding security advisory](https://developers.ibexa.co/security-advisories/ibexa-sa-2025-004-xss-and-enumeration-vulnerabilities-in-back-office).
 
-[[% include 'snippets/release_50.md' %]]
+[[% include 'snippets/release_46.md' %]]
 [[= release_note_entry_end() =]]
 
 [[% set version = 'v4.6.24' %]]
