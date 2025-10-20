@@ -10,6 +10,16 @@ month_change: false
 
 <div class="release-notes" markdown="1">
 
+[[% set version = 'v4.6.25' %]]
+[[= release_note_entry_begin("Ibexa DXP " + version, '2024-10-17', ['Headless', 'Experience', 'Commerce']) =]]
+#### Security
+
+This release includes security fixes.
+To learn more, see the [corresponding security advisory](https://developers.ibexa.co/security-advisories/ibexa-sa-2025-004-xss-and-enumeration-vulnerabilities-in-back-office).
+
+[[% include 'snippets/release_50.md' %]]
+[[= release_note_entry_end() =]]
+
 [[% set version = 'v4.6.24' %]]
 
 [[= release_note_entry_begin("Collaboration ", '2025-09-09', ['Headless', 'Experience', 'Commerce', 'LTS Update', 'New feature']) =]]

@@ -427,6 +427,29 @@ No additional steps needed.
     psql <database_name> < vendor/ibexa/installer/upgrade/db/postgresql/ibexa-4.6.23-to-4.6.24.sql
     ```
 
+## v4.6.25
+
+### Form Builder performance fix: missing indexes on form submission data [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
+
+In large production databases, the `ezform_form_submissions` and `ezform_form_submission_data` tables may contain a lot of rows.
+Missing indexes can cause high CPU load and slow queries.
+
+Run the provided SQL upgrade script to add the missing indexes to your database:
+
+=== "MySQL"
+
+    ``` bash
+    mysql -u <username> -p <password> <database_name> < vendor/ibexa/installer/upgrade/db/mysql/ibexa-4.6.24-to-4.6.25.sql
+    ```
+
+=== "PostgreSQL"
+
+    ``` bash
+    psql <database_name> < vendor/ibexa/installer/upgrade/db/postgresql/ibexa-4.6.24-to-4.6.25.sql
+    ```
+
+<!-- End of update instructions -->
+
 [[% include 'snippets/update/notify_support.md' %]]
 
 With the product updated to the latest version, you can now finish the update process or proceed to updating the LTS Updates packages.

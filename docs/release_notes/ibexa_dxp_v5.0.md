@@ -10,6 +10,53 @@ month_change: false
 
 <div class="release-notes" markdown="1">
 
+[[% set version = 'v5.0.3' %]]
+[[= release_note_entry_begin("Ibexa DXP " + version, '2024-10-17', ['Headless', 'Experience', 'Commerce']) =]]
+#### Security
+
+This release includes security fixes.
+To learn more, see the [corresponding security advisory](https://developers.ibexa.co/security-advisories/ibexa-sa-2025-004-xss-and-enumeration-vulnerabilities-in-back-office).
+
+#### Developer experience
+
+##### PHP API
+
+The PHP API has been expanded with the following:
+
+??? note "PHP API classes and interfaces"
+    - [`Ibexa\Contracts\ContentForms\Event`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/namespaces/ibexa-contracts-contentforms-event.html)
+    - [`Ibexa\Contracts\Core\Persistence\Content\Type\CriterionHandlerInterface`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Persistence-Content-Type-CriterionHandlerInterface.html)
+    - [`Ibexa\Contracts\Core\Repository\Values\ContentType\Query`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/namespaces/ibexa-contracts-core-repository-values-contenttype-query.html)
+    - [`Ibexa\Contracts\Core\Repository\Values\ContentType\Query\ContentTypeQuery`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-ContentType-Query-ContentTypeQuery.html)
+    - [`Ibexa\Contracts\Core\Repository\Values\ContentType\Query\Criterion`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/namespaces/ibexa-contracts-core-repository-values-contenttype-query-criterion.html)
+    - [`Ibexa\Contracts\Core\Repository\Values\ContentType\Query\CriterionInterface`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-ContentType-Query-CriterionInterface.html)
+    - [`Ibexa\Contracts\Core\Repository\Values\ContentType\Query\SortClause`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-ContentType-Query-SortClause.html)
+    - [`Ibexa\Contracts\Core\Repository\Values\ContentType\Query\SortClause`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/namespaces/ibexa-contracts-core-repository-values-contenttype-query-sortclause.html)
+    - [`Ibexa\Contracts\Core\Repository\Values\ContentType\SearchResult`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-ContentType-SearchResult.html)
+
+??? note "Events"
+    - [`Ibexa\Contracts\ContentForms\Event\AutosaveEnabled`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-ContentForms-Event-AutosaveEnabled.html)
+
+??? note "Search criteria"
+    - [`Ibexa\Contracts\Core\Repository\Values\ContentType\Query\Criterion\ContainsFieldDefinitionId`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-ContentType-Query-Criterion-ContainsFieldDefinitionId.html)
+    - [`Ibexa\Contracts\Core\Repository\Values\ContentType\Query\Criterion\ContentTypeGroupId`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-ContentType-Query-Criterion-ContentTypeGroupId.html)
+    - [`Ibexa\Contracts\Core\Repository\Values\ContentType\Query\Criterion\ContentTypeId`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-ContentType-Query-Criterion-ContentTypeId.html)
+    - [`Ibexa\Contracts\Core\Repository\Values\ContentType\Query\Criterion\ContentTypeIdentifier`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-ContentType-Query-Criterion-ContentTypeIdentifier.html)
+    - [`Ibexa\Contracts\Core\Repository\Values\ContentType\Query\Criterion\IsSystem`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-ContentType-Query-Criterion-IsSystem.html)
+    - [`Ibexa\Contracts\Core\Repository\Values\ContentType\Query\Criterion\LogicalAnd`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-ContentType-Query-Criterion-LogicalAnd.html)
+    - [`Ibexa\Contracts\Core\Repository\Values\ContentType\Query\Criterion\LogicalNot`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-ContentType-Query-Criterion-LogicalNot.html)
+    - [`Ibexa\Contracts\Core\Repository\Values\ContentType\Query\Criterion\LogicalOperator`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-ContentType-Query-Criterion-LogicalOperator.html)
+    - [`Ibexa\Contracts\Core\Repository\Values\ContentType\Query\Criterion\LogicalOr`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-ContentType-Query-Criterion-LogicalOr.html)
+
+??? note "Sort clauses"
+    - [`Ibexa\Contracts\Core\Repository\Values\ContentType\Query\SortClause\Id`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-ContentType-Query-SortClause-Id.html)
+    - [`Ibexa\Contracts\Core\Repository\Values\ContentType\Query\SortClause\Identifier`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-ContentType-Query-SortClause-Identifier.html)
+    - [`Ibexa\Contracts\Core\Repository\Values\ContentType\Query\SortClause\Name`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-ContentType-Query-SortClause-Name.html)
+    
+
+[[% include 'snippets/release_50.md' %]]
+[[= release_note_entry_end() =]]
+
 [[% set version = 'v5.0.2' %]]
 
 [[= release_note_entry_begin("Ibexa DXP " + version, '2025-09-09', ['Headless', 'Experience', 'Commerce', 'New feature']) =]]
@@ -138,16 +185,6 @@ The PHP API has been expanded with the following:
     - [`Ibexa\Contracts\Collaboration\Session\Query\SortClause\CreatedAt`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-Collaboration-Session-Query-SortClause-CreatedAt.html)
     - [`Ibexa\Contracts\Collaboration\Session\Query\SortClause\Id`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-Collaboration-Session-Query-SortClause-Id.html)
     - [`Ibexa\Contracts\Collaboration\Session\Query\SortClause\UpdatedAt`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-Collaboration-Session-Query-SortClause-UpdatedAt.html)
-
-##### New version of PHP Storm Plugin
-
-To further improve your experience with Ibexa DXP, a 1.14.0 version of PHP Storm Plugin has been released, which brings the following changes:
-
-- Added support for Ibexa DXP v5.0
-- Added compatibility with PhpStorm 2024.3.6+
-- Added file template for Twig Component class
-- Added code completion for Twig Component Groups in YAML config files and AsTwigComponent attribute
-- Added code completion for Twig Component Types in YAML config files
 
 #### Full changelog
 
