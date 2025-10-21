@@ -1,7 +1,7 @@
 ---
 description: Events that are triggered when working with collaborative editing feature.
 page_type: reference
-month_change: false
+month_change: true
 ---
 
 # Collaboration events
