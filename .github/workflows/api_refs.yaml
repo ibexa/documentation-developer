@@ -53,7 +53,7 @@ jobs:
                   else
                     tools/php_api_ref/phpdoc.sh
                     # Fix escape character:
-                    perl -pi -e 's/\e/\\E/g' tools/api_refs/php_api_ref/template/package-edition-map.twig
+                    perl -pi -e 's/\e/\\E/g' tools/php_api_ref/.phpdoc/template/package-edition-map.twig
                     cd tools/raml2html/; composer install; cd -;
                     php tools/raml2html/raml2html.php build --non-standard-http-methods=COPY,MOVE,PUBLISH,SWAP -t default -o docs/api/rest_api/rest_api_reference/ docs/api/rest_api/rest_api_reference/input/ibexa.raml
                   fi

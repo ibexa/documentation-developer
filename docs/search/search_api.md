@@ -22,18 +22,18 @@ The service should be [injected into the constructor of your command or controll
 
 To search through content you need to create a [`LocationQuery`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-LocationQuery.html) and provide your Search Criteria as a series of Criterion objects.
 
-For example, to search for all content of a selected content type, use one Criterion, [`Criterion\ContentTypeIdentifier`](contenttypeidentifier_criterion.md) (line 12).
+For example, to search for all content of a selected content type, use one Criterion, [`Criterion\ContentTypeIdentifier`](contenttypeidentifier_criterion.md) (line 14).
 
 The following command takes the content type identifier as an argument and lists all results:
 
-``` php hl_lines="12 14"
+``` php hl_lines="14 16"
 // ...
 [[= include_file('code_samples/api/public_php_api/src/Command/FindContentCommand.php', 4, 7) =]]// ...
-[[= include_file('code_samples/api/public_php_api/src/Command/FindContentCommand.php', 14, 18) =]]    // ...
-[[= include_file('code_samples/api/public_php_api/src/Command/FindContentCommand.php', 37, 45) =]]}
+[[= include_file('code_samples/api/public_php_api/src/Command/FindContentCommand.php', 17, 19) =]]    // ...
+[[= include_file('code_samples/api/public_php_api/src/Command/FindContentCommand.php', 32, 48) =]]}
 ```
 
-[`SearchService::findContentInfo`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-SearchService.html#method_findContentInfo) (line 14)
+[`SearchService::findContentInfo`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-SearchService.html#method_findContentInfo) (line 16)
 retrieves [`ContentInfo`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Persistence-Content-ContentInfo.html) objects of the found content items.
 You can also use [`SearchService::findContent`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-SearchService.html#method_findContent) to get full Content objects, together with their field information.
 

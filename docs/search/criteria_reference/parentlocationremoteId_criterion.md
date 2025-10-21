@@ -10,7 +10,6 @@ The `ParentLocationRemoteId` Search Criterion searches for content based on the 
 
 - `value` - int(s) representing the parent location remote IDs
 
-
 ### REST API
 
 === "XML"

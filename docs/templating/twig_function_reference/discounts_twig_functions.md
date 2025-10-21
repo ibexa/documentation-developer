@@ -1,7 +1,7 @@
 ---
 description: Discounts Twig Functions allow you to operate on discounts in your templates.
 page_type: reference
-month_change: true
+month_change: false
 editions:
     - commerce
 ---

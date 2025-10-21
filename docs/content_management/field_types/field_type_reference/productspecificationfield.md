@@ -1,6 +1,6 @@
 ---
 edition: headless
-month_change: true
+month_change: false
 ---
 
 # Product specification field type

@@ -16,6 +16,7 @@ Discover the primary ones with the help of product guides. Condensed content all
     "content_management/rich_text/online_editor_guide",
     "content_management/pages/page_builder_guide",
     "content_management/forms/form_builder_guide",
+    "content_management/collaborative_editing/collaborative_editing_guide",
     "customer_management/customer_portal",
     "personalization/personalization_guide",
     "pim/pim_guide",

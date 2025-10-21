@@ -1,6 +1,6 @@
 ---
 description: Configure AI Actions.
-month_change: true
+month_change: false
 ---
 
 # Configure AI Actions

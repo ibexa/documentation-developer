@@ -3,7 +3,7 @@ description: Discounts help store managers reduce prices on products or product 
 page_type: landing_page
 editions:
     - commerce
-month_change: true
+month_change: false
 ---
 
 # Discounts

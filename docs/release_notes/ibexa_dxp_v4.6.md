@@ -1,7 +1,7 @@
 ---
 description: Ibexa DXP v4.6 brings improvements to Commerce, PIM and Personalization offerings, and a number of changes in CDP and Ibexa Connect.
 title: Ibexa DXP v4.6 LTS
-month_change: true
+month_change: false
 ---
 
 <!-- vale VariablesVersion = NO -->
@@ -9,6 +9,130 @@ month_change: true
 [[= release_notes_filters('Ibexa DXP v4.6 LTS', ['Headless', 'Experience', 'Commerce', 'LTS Update', 'New feature']) =]]
 
 <div class="release-notes" markdown="1">
+
+[[% set version = 'v4.6.25' %]]
+[[= release_note_entry_begin("Ibexa DXP " + version, '2024-10-17', ['Headless', 'Experience', 'Commerce']) =]]
+#### Security
+
+This release includes security fixes.
+To learn more, see the [corresponding security advisory](https://developers.ibexa.co/security-advisories/ibexa-sa-2025-004-xss-and-enumeration-vulnerabilities-in-back-office).
+
+[[% include 'snippets/release_46.md' %]]
+[[= release_note_entry_end() =]]
+
+[[% set version = 'v4.6.24' %]]
+
+[[= release_note_entry_begin("Collaboration ", '2025-09-09', ['Headless', 'Experience', 'Commerce', 'LTS Update', 'New feature']) =]]
+
+#### Collaboration
+
+The new [Collaborative editing](https://doc.ibexa.co/en/4.6/content_management/collaborative_editing/collaborative_editing_guide/) LTS Update allows multiple users to preview, review, and edit the same content, improving teamwork and streamlining the review process.
+Internal and external users can be invited to a collaboration session, through different sharing options.
+
+With Real-time editing, more advanced part of the feature, users can see each other’s changes in the real time, or work on the content asynchronously.
+
+Additionally, shared drafts can be accessed and managed through new dashboard tabs: **My shared drafts** and **Drafts shared with me**, helping users stay organized. 
+
+[[= release_note_entry_end() =]]
+
+[[= release_note_entry_begin("AI Actions " + version, '2025-09-09', ['LTS Update']) =]]
+
+#### Chat GPT 5.0 support
+
+With improved reasoning and greater accuracy in mind, the AI Connector package has been enhanced by adding ChatGPT 5.0 to its list of supported LLMs.
+
+![ChatGPT 5.0 on a list of supported LLMs](502_ai_connector_gpt_50.png "ChatGPT 5.0 on a list of supported LLMs")
+
+[[= release_note_entry_end() =]]
+
+[[= release_note_entry_begin("Discounts " + version, '2025-09-09', ['LTS Update', 'Commerce']) =]]
+
+#### Discount indexing
+
+Discounts now allow scheduling a re-indexing of discounted product catalog prices at the most convenient time by using the Ibexa Messenger package.
+Ibexa Messenger is a customization of the Symfony Messenger package, created to adjust it to [[= product_name =]]'s needs.
+
+Once properly configured, it uses a background queue to trigger price re-indexing, ensuring efficient use of system resources without causing performance disruptions.
+
+##### PHP API
+
+The following additions were made to the Discounts PHP API:
+
+??? note "Events"
+    - [`Ibexa\Contracts\Discounts\Event\EnableDiscountEvent`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-Discounts-Event-EnableDiscountEvent.html)
+    - [`Ibexa\Contracts\Discounts\Event\BeforeDisableDiscountEvent`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-Discounts-Event-BeforeDisableDiscountEvent.html)
+    - [`Ibexa\Contracts\Discounts\Event\BeforeEnableDiscountEvent`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-Discounts-Event-BeforeEnableDiscountEvent.html)
+    - [`Ibexa\Contracts\Discounts\Event\DisableDiscountEvent`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-Discounts-Event-DisableDiscountEvent.html)
+
+??? note "Search criteria"
+    - [`Ibexa\Contracts\Discounts\Value\Query\Criterion\IndexedAtCriterion`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-Discounts-Value-Query-Criterion-IndexedAtCriterion.html)
+    - [`Ibexa\Contracts\Discounts\Value\Query\Criterion\UpdatedAtCriterion`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-Discounts-Value-Query-Criterion-UpdatedAtCriterion.html)
+
+[[= release_note_entry_end() =]]
+
+[[= release_note_entry_begin("Ibexa DXP " + version, '2025-09-09', ['Headless', 'Experience', 'Commerce', 'New feature']) =]]
+
+#### Improvements to notifications
+
+An improved notifications system is now more intuitive.
+Developers can now create and configure their own notification types, while users can now browse through a list of notifications, where they can either act on them or dismiss them.
+
+![A searchable notifications list](502_notifications_screen.png "A searchable notifications list")
+
+#### Developer experience
+
+##### New packages
+
+The only package that has been introduced in [[= product_name =]] v4.6.24 is ibexa/messenger.
+
+##### New version of PHP Storm Plugin
+
+To further improve your experience with Ibexa DXP, a 1.14.0 version of [PHP Storm Plugin](phpstorm_plugin.md) has been released, which brings the following changes:
+
+- Added support for Ibexa DXP v5.0
+- Added compatibility with PhpStorm 2024.3.6+
+- Added file template for Twig Component class
+- Added code completion for Twig Component Groups in YAML config files and AsTwigComponent attribute
+- Added code completion for Twig Component Types in YAML config files
+
+##### Infrastructure
+
+- Redis 7.2+ is now [officially supported](https://doc.ibexa.co/en/4.6/getting_started/requirements/)
+
+
+##### PHP API
+
+The PHP API has been enhanced with the following:
+
+??? note "PHP API classes and interfaces"
+    - [`Ibexa\Contracts\AdminUi\Exception`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/namespaces/ibexa-contracts-adminui-exception.html)
+    - [`Ibexa\Contracts\AdminUi\Exception\UnresolvedPreviewUrlException`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-AdminUi-Exception-UnresolvedPreviewUrlException.html)
+    - [`Ibexa\Contracts\AdminUi\PreviewUrlResolver`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/namespaces/ibexa-contracts-adminui-previewurlresolver.html)
+    - [`Ibexa\Contracts\AdminUi\PreviewUrlResolver\VersionPreviewUrlResolverInterface`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-AdminUi-PreviewUrlResolver-VersionPreviewUrlResolverInterface.html)
+    - [`Ibexa\Contracts\Core\Validation\Constraint`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/namespaces/ibexa-contracts-core-validation-constraint.html)
+    - [`Ibexa\Contracts\Core\Validation\Constraint\UniqueIdentifier`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Validation-Constraint-UniqueIdentifier.html)
+    - [`Ibexa\Contracts\Core\Validation\Constraint\UniqueIdentifierValidator`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Validation-Constraint-UniqueIdentifierValidator.html)
+    - [`Ibexa\Contracts\Messenger`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/namespaces/ibexa-contracts-messenger.html)
+    - [`Ibexa\Contracts\Messenger\Transport`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/namespaces/ibexa-contracts-messenger-transport.html)
+    - [`Ibexa\Contracts\Messenger\Transport\MessageProviderInterface`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-Messenger-Transport-MessageProviderInterface.html)
+    - [`Ibexa\Contracts\ProductCatalog\Values\Product\Query\AttributeCriterionBuilder`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/namespaces/ibexa-contracts-productcatalog-values-product-query-attributecriterionbuilder.html)
+    - [`Ibexa\Contracts\ProductCatalog\Values\Product\Query\AttributeCriterionBuilderRegistry`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Values-Product-Query-AttributeCriterionBuilderRegistry.html)
+    - [`Ibexa\Contracts\ProductCatalog\Values\Product\Query\AttributeCriterionBuilderRegistryInterface`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Values-Product-Query-AttributeCriterionBuilderRegistryInterface.html)
+    - [`Ibexa\Contracts\ProductCatalog\Values\Product\Query\AttributeCriterionBuilder\AttributeCriterionBuilderInterface`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Values-Product-Query-AttributeCriterionBuilder-AttributeCriterionBuilderInterface.html)
+    - [`Ibexa\Contracts\ProductCatalog\Values\Product\Query\AttributeCriterionBuilder\CheckboxBuilder`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Values-Product-Query-AttributeCriterionBuilder-CheckboxBuilder.html)
+    - [`Ibexa\Contracts\ProductCatalog\Values\Product\Query\AttributeCriterionBuilder\ColorBuilder`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Values-Product-Query-AttributeCriterionBuilder-ColorBuilder.html)
+    - [`Ibexa\Contracts\ProductCatalog\Values\Product\Query\AttributeCriterionBuilder\FloatBuilder`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Values-Product-Query-AttributeCriterionBuilder-FloatBuilder.html)
+    - [`Ibexa\Contracts\ProductCatalog\Values\Product\Query\AttributeCriterionBuilder\IntegerBuilder`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Values-Product-Query-AttributeCriterionBuilder-IntegerBuilder.html)
+    - [`Ibexa\Contracts\ProductCatalog\Values\Product\Query\AttributeCriterionBuilder\SelectionBuilder`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Values-Product-Query-AttributeCriterionBuilder-SelectionBuilder.html)
+
+??? note "Events"
+    - [`Ibexa\Contracts\AdminUi\Event\ResolveVersionPreviewUrlEvent`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-AdminUi-Event-ResolveVersionPreviewUrlEvent.html)
+
+#### Full changelog
+
+[[% include 'snippets/release_46.md' %]]
+
+[[= release_note_entry_end() =]]
 
 [[% set version = 'v4.6.23' %]]
 
@@ -66,7 +190,7 @@ The PHP API has been enhanced with the following new classes:
 #### Special characters in online editor
 
 The [online editor](online_editor_guide.md) now allows to easily enter special characters like currency symbols.
-It uses the [special characters plugin](https://ckeditor.com/docs/ckeditor5/latest/features/special-characters.html),
+It uses the [special characters plugin](https://ckeditor.com/docs/ckeditor5/latest/features/special-characters.html).
 
 ![Special characters in online editor](4.6_special_characters.png "Special characters in online editor")
 
@@ -102,7 +226,7 @@ In addition, you can now use the [Taxonomy limitation](limitation_reference.md#t
 
 #### Pagination for ezobjectrelationlist in GraphQL
 
-To improve performance and gain greater control over the returned responses from the [GraphQL API](graphql.md), you can now [enable pagination](relationlistfield.md#enable-pagination-in-graphql) of relations specified using the RelationList field type.
+To improve performance and gain greater control over the returned responses from the [GraphQL API](graphql.md), you can now [enable pagination]((https://doc.ibexa.co/en/4.6/content_management/field_types/field_type_reference/relationlistfield#enable-pagination-in-graphql) of relations specified using the RelationList field type.
 
 #### Breaking changes
 
