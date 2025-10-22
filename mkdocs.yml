@@ -102,6 +102,7 @@ nav:
             - Twig Components: api/event_reference/twig_component_events.md
             - AI Action events: api/event_reference/ai_action_events.md
             - Discounts events: api/event_reference/discounts_events.md
+            - Collaboration events: api/event_reference/collaboration_events.md
             - Other events: api/event_reference/other_events.md
     - Administration:
         - Administration: administration/administration.md
