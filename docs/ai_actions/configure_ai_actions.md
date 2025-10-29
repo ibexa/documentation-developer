@@ -34,22 +34,30 @@ Based on these examples, which reflect the most common use cases, you can learn 
 
 ## Install Anthropic Claude connector [[% include 'snippets/lts-update_badge.md' %]]
 
-Run the following commands to install the packages:
+Run the following command to install the package:
 
 `composer require ibexa/connector-anthropic`
 
 This command adds the feature code, including basic models that let you refine text or generate alternative text for images.
 
-Once the packages are installed, before you can start using Discounts, you must enable them by following these instructions.
+To use the connector with the Anthropic Claude service, you need to create an account, make sure that you [set up a billing method](https://support.claude.com/en/articles/8325618-paid-plan-billing-faqs), and get an API key.
 
-To use the connector with the Anthropic Claude service, you need to create an OpenAI account, [get an API key](https://help.openai.com/en/articles/4936850-where-do-i-find-my-openai-api-key) from the Anthropic Claude console, and make sure that you [set up a billing method](https://support.claude.com/en/articles/8325618-paid-plan-billing-faqs).
+1. Log in to your [Anthropic Claude console](https://console.anthropic.com/login).
 
-Then, in the root folder of your project, modify the `.env` file: find the `ANTHROPIC_API_KEY` variable and replace a placeholder value with the API key that you got from the AI service.
+2. In the bottom-left corner, click the key icon to access API keys.
+
+3. Click **+ Create Key**.
+
+4. Enter a **Key Name** and click **Add**.
+
+5. Take a note of the API key, because it is displayed only once.
+
+Then, in the root folder of your project, modify the `.env` file: add an `ANTHROPIC_API_KEY` variable and populate its value with the API key that you got from the AI service.
 
 ```bash
-###> ibexa/connector-openai ###
+###> ibexa/connector-anthropic ###
 ANTHROPIC_API_KEY=<your_api_key>
-###< ibexa/connector-openai ###
+###< ibexa/connector-anthropic ###
 ```
 
 ## Configure access to [[= product_name_connect =]]
