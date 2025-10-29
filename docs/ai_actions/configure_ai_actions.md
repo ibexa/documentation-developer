@@ -32,6 +32,26 @@ The AI actions come with sample AI action configurations to quickly get you star
 
 Based on these examples, which reflect the most common use cases, you can learn to configure your own AI actions with greater ease.
 
+## Install Anthropic Claude connector [[% include 'snippets/lts-update_badge.md' %]]
+
+Run the following commands to install the packages:
+
+`composer require ibexa/connector-anthropic`
+
+This command adds the feature code, including basic models that let you refine text or generate alternative text for images.
+
+Once the packages are installed, before you can start using Discounts, you must enable them by following these instructions.
+
+To use the connector with the Anthropic Claude service, you need to create an OpenAI account, [get an API key](https://help.openai.com/en/articles/4936850-where-do-i-find-my-openai-api-key) from the Anthropic Claude console, and make sure that you [set up a billing method](https://support.claude.com/en/articles/8325618-paid-plan-billing-faqs).
+
+Then, in the root folder of your project, modify the `.env` file: find the `ANTHROPIC_API_KEY` variable and replace a placeholder value with the API key that you got from the AI service.
+
+```bash
+###> ibexa/connector-openai ###
+ANTHROPIC_API_KEY=<your_api_key>
+###< ibexa/connector-openai ###
+```
+
 ## Configure access to [[= product_name_connect =]]
 
 First, get the credentials by contacting [Ibexa Support](https://support.ibexa.co).
