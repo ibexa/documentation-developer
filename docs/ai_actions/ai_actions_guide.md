@@ -35,7 +35,7 @@ To begin using AI Actions, you must first [perform the initial configuration](co
 
 ### Prerequisites
 
-Connectors with external AI services delivered by [[= ibexa_product_base =]] require that you first install them, and [configure other settings, such as an API key and billing method](configure_ai_actions.md).
+Connectors with external AI services delivered by [[= product_name_base =]] require that you first install them, and [configure other settings, such as an API key and billing method](configure_ai_actions.md).
 
 Integration with [[= product_name_connect =]] requires that you first [get the credentials]([[= connect_doc =]]/general/ibexa_connect/#access-ibexa-connect) to your account, and the [API token](configure_ai_actions.md#create-token).
 
