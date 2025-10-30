@@ -12,14 +12,14 @@ After you configure it, it can generate alt text for images or transform text pa
 
 You can also extend it to perform other tasks or support additional AI services.
 
-## Getting Started
+##  Getting Started
 
 [[= cards([
 "ai_actions/ai_actions_guide",
 "ai_actions/install_ai_actions",
 ("permissions/policies#ai-actions", "Policies", "Learn about the available AI Actions policies"),
-("https://doc.ibexa.co/projects/userguide/en/latest/ai_actions/work_with_ai_actions/", "Work with AI Actions", "Learn how to use AI Actions"),
-], columns=4) =]]
+("https://doc.ibexa.co/projects/userguide/en/latest/ai_actions/work_with_ai_actions/"),
+], columns=2) =]]
 
 ## Development
 

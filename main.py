@@ -87,6 +87,9 @@ def define_env(env):
                         else:
                             description = ""
                     href = page
+                title = custom_title if custom_title else title
+                title = title.replace("(Ibexa Documentation)", "").strip()
+                description = custom_description if custom_description else description
             else:
                 file, _ = page.split("#") if "#" in page else (page, "")
                 with open("docs/%s.md" % file, "r") as doc_file:
@@ -112,8 +115,9 @@ def define_env(env):
                         version,
                         page
                     ))
-            title = custom_title if custom_title else doc_meta['short'] or doc_meta['title']
-            description = custom_description if custom_description else doc_meta['description'] or "&nbsp;"
+                title = custom_title if custom_title else doc_meta['short'] or doc_meta['title']
+                description = custom_description if custom_description else doc_meta['description'] or "&nbsp;"
+
             cards.append(
                 CARDS_TEMPLATE % (
                     href,
