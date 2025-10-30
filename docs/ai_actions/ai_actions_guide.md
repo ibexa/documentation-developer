@@ -1,6 +1,7 @@
 ---
 description: AI Actions help editors by automating repetitive tasks.
 month_change: false
+edition: lts-update
 ---
 
 # AI Actions product guide
