@@ -8,13 +8,4 @@
     <p>This link might be out-of-date. Go to the <a href="{{ site_url }}">main documentation page</a> or <a id="search-link"href="{{ site_url }}search_results/?sq=&p=1">use the search</a> to find what you are looking for.</p>
 </div>
 
-<script>
-    // Get the actual 404 URL path and use it in initial search query
-    const searchLink = document.querySelector('#search-link');
-    const basePath = '{{ site_url }}';
-    const suffix = window.location.href.substring(basePath.length);
-    const searchQuery = suffix.replaceAll('/', ' ').replaceAll('_', ' ');
-    searchLink.href = searchLink.href.replace('?sq=', '?sq=' + encodeURIComponent(searchQuery));
-</script>
-
 {% endblock %}
