@@ -1005,6 +1005,7 @@ extra_javascript:
   - js/jquery.min.js
   - js/jquery-ui.min.js
   - js/custom.js
+  - js/error-page.js
   - js/release-notes.js
   - js/docs.switcher.js
   - '//cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js'
