@@ -50,7 +50,9 @@ def define_env(env):
         canonical = current_page.canonical_url
         url_parts = re.search("//([^/]+)/([^/]+)/([^/]+)/", canonical)
         (site, language, version) = url_parts.groups()
+
         version = force_version or version
+        version = os.getenv("READTHEDOCS_VERSION_NAME", version)
 
         if isinstance(pages, str):
             pages = [pages]
