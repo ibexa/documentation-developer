@@ -18,7 +18,7 @@ You can also extend it to perform other tasks or support additional AI services.
 "ai_actions/ai_actions_guide",
 "ai_actions/install_ai_actions",
 ("permissions/policies#ai-actions", "Policies", "Learn about the available AI Actions policies"),
-("https://doc.ibexa.co/projects/userguide/en/latest/ai_actions/work_with_ai_actions/"),
+("https://doc.ibexa.co/projects/userguide/en/4.6/ai_actions/work_with_ai_actions/"),
 ], columns=2) =]]
 
 ## Development
