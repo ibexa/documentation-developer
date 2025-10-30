@@ -6,20 +6,31 @@ month_change: true
 
 # Customize integrated help
 
-The integrated help menu is part of the Integrated help introduced as an LTS Update.
+The integrated help menu is part of the Integrated help introduced as an [LTS Update](editions.md#lts-updates).
 By default, it provides editors and developers with convenient access to documentation, training and other resources directly from the back office.
 
 You can extend or modify the integrated menu in two ways:
 
-- by modifying a link to user documentation in a yaml file
+- by disabling it for all users
+- by modifying a link to user documentation
 - by subscribing to the `ibexa_integrated_help.menu_configure.help_menu` event
+
+## Disable integrated help for all users
+
+After you have installed the integrated help package, you may still want to disable it globally, for example, to run UI tests in a `dev` [environment](environments.md).
+To do it, in `config/packages` create the `ibexa_integrated_help.yaml` file, with the following configuration:
+
+``` yaml
+ibexa_integrated_help:
+    is_enabled: false
+```
 
 ## Modify user documentation link
 
 [[= product_name =]] provides a comfortable method for replacing a link to user documentation, when you do not want to modify the rest of the integrated help menu.
 This way you can direct application users such as editors or store managers to specific guidelines in force at your organization, without having to resort to development.
 
-To do in, in `config/packages` create the `ibexa_integrated_help.yaml` file, with the following configuration:
+To do it, in `config/packages` create the `ibexa_integrated_help.yaml` file, with the following configuration:
 
 ``` yaml
 ibexa_integrated_help:

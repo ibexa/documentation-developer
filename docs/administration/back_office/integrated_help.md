@@ -1,12 +1,13 @@
 ---
 description: Integrated help provides quick access to documentation, training, and support resources.
+edition: lts-update
 month_change: true
 edition: lts-update
 ---
 
 # Integrated help
 
-Integrated help is an LTS Update that brings documentation, training resources and product roadmap-related information into the back office.
+Integrated help is an [LTS Update](editions.md#lts-updates) that brings documentation, training resources and product roadmap-related information into the back office.
 With this feature installed, users can click the ![Help icon](about-info.png){.inline-image} icon to access relevant content straight from the UI.
 
 ![Integrated help menu](5_0_integrated_help_menu.png)
