@@ -11,6 +11,13 @@ month_change: true
 By extending [Discounts](discounts_guide.md), you can increase flexibility and control over how promotions are applied to suit your unique business rules.
 Together with the existing [events](event_reference.md) and the [Discounts PHP API](discounts_api.md), extending discounts gives you the ability to cover additional use cases related to selling products.
 
+!!! tip
+
+    If you prefer learning from videos, two presentations from Ibexa Summit 2025 cover the Discounts feature:
+
+    - Konrad Oboza: [Introduction to the Discounts system in Ibexa DXP](https://www.youtube.com/watch?v=kTgtxY38srw)
+    - Paweł Niedzielski: [Extending new Discounts to suit your needs](https://www.youtube.com/watch?v=pDJxEKJLwPs)
+
 ## Create custom conditions
 
 With custom [conditions](discounts_api.md#conditions) you can create more advanced discounts that apply only in specific scenarios.
@@ -28,7 +35,7 @@ The following expressions are available for conditions and rules:
 | --- | --- | --- | --- |
 | Function | `get_current_region()` | [Region object](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Values-RegionInterface.html) of the current siteaccess.| Conditions, rules |
 | Function | `is_in_category()` | `true/false`, depending if a product belongs to given [product categories](pim_guide.md#product-categories).| Conditions, rules |
-| Function | `is_user_in_customer_group()` | `true/false`, depending if a user belongs to given [customer groups](customer_groups.md). | Conditions, rules |
+| Function | `is_user_in_customer_group()` | `true/false`, depending if an user belongs to given [customer groups](customer_groups.md). | Conditions, rules |
 | Function | `calculate_purchase_amount()` | Purchase amount, calculated for all products in the cart before the discounts are applied.| Conditions, rules |
 | Function | <nobr>`is_product_in_product_codes()`</nobr> | `true/false`, depending if the product is part of the given list.| Conditions, rules |
 | Variable | `cart` | [Cart object](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Cart-Value-CartInterface.html) associated with current context.| Conditions, rules |
@@ -40,7 +47,7 @@ The following expressions are available for conditions and rules:
 ### Custom expressions
 
 You can create your own variables and functions to make creating the conditions easier.
-To create the condition checking the registration date, the following example will use an additinal variable and a function:
+To create the condition checking the registration date, the following example uses an additional variable and a function:
 
 - `current_user`, a variable with the current [User object](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-User-User.html)
 
@@ -79,7 +86,7 @@ todo: verify
 ```
 
 The expression can evaluate to `true` or `false` depending on the custom expressions values.
-An additional variable, `today`, is defined to store the current date for comparison.
+An additional variable, `date`, is defined to store the current date for comparison.
 
 For each condition class you must create a dedicated condition factory, a class implementing the `\Ibexa\Discounts\Repository\DiscountCondition\DiscountConditionFactoryInterface` inteface.
 
@@ -95,11 +102,13 @@ Mark it as a service using the `ibexa.discounts.condition.factory` service tag a
 todo
 ```
 
+To learn how to integrate the custom conditions into the back office, see [Extend Discounts wizard](extend_discounts_wizard.md).
+
 ## Create custom rules
 
 To implement a custom rule, create a class implementing the [`DiscountRuleInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Discounts-Value-DiscountRuleInterface.html).
 
-The following example implements a [purchasing power parity discount](https://en.wikipedia.org/wiki/Purchasing_power_parity), adjusting product's price in the cart based on buyer's region.
+The following example implements a [purchasing power parity](https://en.wikipedia.org/wiki/Purchasing_power_parity) discount, adjusting product's price in the cart based on buyer's region.
 
 ``` php
 todo
@@ -116,6 +125,8 @@ Mark it as a service using the `ibexa.discounts.condition.factory` service tag a
 ``` yaml
 todo
 ```
+
+To learn how to integrate the custom rules into the back office, see [Extend Discounts wizard](extend_discounts_wizard.md).
 
 ### Custom discount formatting
 
@@ -145,8 +156,3 @@ todo
 todo
 ```
 
-## Form integration
-
-### Condition
-
-### Rules
