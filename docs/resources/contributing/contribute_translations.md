@@ -9,6 +9,10 @@ If you'd like to see [[= product_name =]] in your language, you can contribute t
 [`ibexa-i18n`](https://github.com/ibexa/i18n) contains the XLIFF files providing translations under a `/translations` directory.
 You can use an XLIFF editor of your choice to contribute strings in your language.
 
+!!! note "Professional localization"
+
+    Translations into French, German and Spanish are managed through [[= product_name_base =]]’s internal localization process and are therefore not open for community contributions.
+
 ## Translating interface using Crowdin
 
 If you wish to contribute to an existing translation of back office or start a new one you can use the Crowdin website.
