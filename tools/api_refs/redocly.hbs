@@ -22,6 +22,22 @@
   <script>
     window.addEventListener('load', () => {
       window.setTimeout(() => {
+        // Remove badges from TOC
+        document.querySelectorAll('.menu-content [role="menuitem"] [type="badge"]').forEach(el => el.remove());
+
+        // Apply badge styling
+        document.querySelectorAll('.api-content [data-section-id] h2 [type="primary"]').forEach(el => {
+          const color = el.getAttribute('color');
+          el.style.backgroundColor = "#FFF";
+          el.style.border = "1px solid " + color;
+          el.style.padding = "1px 8px";
+          el.style.marginRight = "8px";
+          el.style.color = color;
+          el.style.fontWeight = "initial";
+          el.style.borderRadius = "0px";
+        });
+
+        // Style logo
         let logo = document.querySelector('img[src$="ibexa-dxp-logo.png"]');
         logo.onclick = () => {
           let pathParts = document.location.pathname.split('/').slice(0, 3);

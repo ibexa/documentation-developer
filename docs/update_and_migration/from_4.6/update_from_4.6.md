@@ -407,6 +407,49 @@ When using MySQL or MariaDB, run the following script to ensure correct characte
     mysql -u <username> -p <password> <database_name> < vendor/ibexa/installer/upgrade/db/mysql/ibexa-4.6.21-to-4.6.22.sql
     ```
 
+## v4.6.23
+
+No additional steps needed.
+
+## v4.6.24
+
+### Database update
+
+=== "MySQL"
+
+    ``` bash
+    mysql -u <username> -p <password> <database_name> < vendor/ibexa/installer/upgrade/db/mysql/ibexa-4.6.23-to-4.6.24.sql
+    ```
+
+=== "PostgreSQL"
+
+    ``` bash
+    psql <database_name> < vendor/ibexa/installer/upgrade/db/postgresql/ibexa-4.6.23-to-4.6.24.sql
+    ```
+
+## v4.6.25
+
+### Form Builder performance fix: missing indexes on form submission data [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
+
+In large production databases, the `ezform_form_submissions` and `ezform_form_submission_data` tables may contain a lot of rows.
+Missing indexes can cause high CPU load and slow queries.
+
+Run the provided SQL upgrade script to add the missing indexes to your database:
+
+=== "MySQL"
+
+    ``` bash
+    mysql -u <username> -p <password> <database_name> < vendor/ibexa/installer/upgrade/db/mysql/ibexa-4.6.24-to-4.6.25.sql
+    ```
+
+=== "PostgreSQL"
+
+    ``` bash
+    psql <database_name> < vendor/ibexa/installer/upgrade/db/postgresql/ibexa-4.6.24-to-4.6.25.sql
+    ```
+
+<!-- End of update instructions -->
+
 [[% include 'snippets/update/notify_support.md' %]]
 
 With the product updated to the latest version, you can now finish the update process or proceed to updating the LTS Updates packages.
@@ -418,7 +461,12 @@ To use the [latest features](ibexa_dxp_v4.6.md) added to them, update them separ
 
 === "Discounts"
 
-    Run the following command to get the latest version:
+    ### Discounts [[% include 'snippets/lts-update_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
+
+    To install the [Discounts feature](discounts_guide.md), see the [installation instructions](https://doc.ibexa.co/en/4.6/discounts/install_discounts/).
+
+    If you're already using it, run the following command to get the latest version of this feature:
+
 
     ```bash
     composer require ibexa/discounts:[[= latest_tag_4_6 =]] ibexa/discounts-codes:[[= latest_tag_4_6 =]]
@@ -578,10 +626,41 @@ To use the [latest features](ibexa_dxp_v4.6.md) added to them, update them separ
         CREATE INDEX ibexa_discount_prioritization_idx ON ibexa_discount (override_prioritization, type, priority);
         ALTER TABLE ibexa_discount_code ADD global_limit INT DEFAULT NULL;
         ```
+    ### Discounts v4.6.24
 
-=== "AI actions"
+    #### Database update
 
-    Run the following command to get the latest version:
+    Run the following scripts:
+
+    === "MySQL"
+
+        ``` sql
+        ALTER TABLE ibexa_discount
+            ADD indexed_at DATETIME DEFAULT NULL COMMENT '(DC2Type:datetime_immutable)';
+
+        CREATE INDEX ibexa_discount_indexed_at_idx
+            ON ibexa_discount (indexed_at);
+        ```
+
+    === "PostgreSQL"
+
+        ``` sql
+        ALTER TABLE ibexa_discount
+            ADD indexed_at TIMESTAMP(0) WITHOUT TIME ZONE DEFAULT NULL;
+
+        COMMENT ON COLUMN ibexa_discount.indexed_at IS '(DC2Type:datetime_immutable)';
+
+        CREATE INDEX ibexa_discount_indexed_at_idx
+            ON ibexa_discount (indexed_at);
+        ```
+
+=== "AI Actions"
+
+    ### AI Actions [[% include 'snippets/lts-update_badge.md' %]]
+
+    To install the [AI actions feature](ai_actions_guide.md), see the [installation instructions](https://doc.ibexa.co/en/4.6/ai_actions/install_ai_actions/).
+
+    If you're already using it, run the following command to get the latest version of this feature:
 
     ```bash
     composer require ibexa/connector-ai:[[= latest_tag_4_6 =]] ibexa/connector-openai:[[= latest_tag_4_6 =]]
@@ -589,8 +668,24 @@ To use the [latest features](ibexa_dxp_v4.6.md) added to them, update them separ
 
 === "Date and time attribute"
 
-    Run the following command to get the latest version:
+    ### Date and time attribute [[% include 'snippets/lts-update_badge.md' %]]
+
+    To install the [Date and time attribute](date_and_time.md), see the [installation instructions](https://doc.ibexa.co/en/4.6/pim/attributes/date_and_time/#installation).
+
+    If you're already using it, run the following command to get the latest version of this feature:
 
     ```bash
     composer require ibexa/product-catalog-date-time-attribute:[[= latest_tag_4_6 =]]
+    ```
+
+=== "Symbol attribute"
+
+    ### Symbol attribute [[% include 'snippets/lts-update_badge.md' %]]
+
+    To install the [Symbol attribute](symbol_attribute_type.md), see the [installation instructions](https://doc.ibexa.co/en/4.6/pim/attributes/symbol_attribute_type/#installation).
+
+    If you're already using it, run the following command to get the latest version of this feature:
+
+    ```bash
+    composer require ibexa/product-catalog-symbol-attribute:[[= latest_tag_4_6 =]]
     ```

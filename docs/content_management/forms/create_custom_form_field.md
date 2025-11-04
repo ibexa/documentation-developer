@@ -16,6 +16,16 @@ For example, to create a Country Form field in the "Custom form fields" category
 [[= include_file('code_samples/forms/custom_form_field/config/packages/form_builder.yaml') =]]
 ```
 
+and provide the translations for the labels in `translations/ibexa_form_builder.en.yaml`:
+
+``` yaml
+country_field.name: Country
+custom_category.name: Custom form fields
+
+country_field.label.name: Display label
+country_field.help.name: Help text
+```
+
 Available attribute types are:
 
 |Type|Description|

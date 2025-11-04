@@ -1,0 +1,98 @@
+---
+description: Configure the Collaborative editing feature.
+month_change: true
+---
+
+# Collaborative editing
+
+Collaborative editing feature is available in [[= product_name =]] starting with version v5.0.2 or higher, regardless of its edition.
+
+## Installation
+
+### Install Real-time editing feature package
+
+If you have an arrangements with [[= product_name_base =]] to use Real-time editing feature, you need to install following package:
+
+``` bash
+composer require ibexa/fieldtype-richtext-rte
+```
+
+This command installs also `ibexa/ckeditor-premium` package and adds the new real-time editing functionality to the Rich Text field type.
+It also modifies the permission system to account for the new functionality.
+
+### Modify the bundles file
+
+Then, if not using Symfony Flex, add the following code to the `config/bundles.php` file:
+
+``` php
+<?php
+
+return [
+    // A lot of bundles…
+    Ibexa\Bundle\FieldTypeRichTextRTE\IbexaFieldTypeRichTextRTEBundle::class => ['all' => true],
+    Ibexa\Bundle\CkeditorPremium\IbexaCkeditorPremiumBundle::class => ['all' => true],
+];
+```
+
+## Configure Collaborative editing
+
+Before you can start Collaborative editing feature, you must enable it by following these instructions.
+
+### Security configuration
+
+After an installation process is finished, go to `config/packages/security.yaml` and make following changes:
+
+- uncomment following lines with `shared` user provider under the `providers` key:
+
+```yaml
+security:
+    providers:
+        # ...
+        shared:
+            id: Ibexa\Collaboration\Security\User\ShareableLinkUserProvider
+```
+
+- uncomment following lines under the `ibexa_shareable_link` key:
+
+```yaml
+security:
+    # ...
+    ibexa_shareable_link:
+        request_matcher: Ibexa\Collaboration\Security\RequestMatcher\ShareableLinkRequestMatcher
+        pattern: ^/
+        provider: shared
+        stateless: true
+        user_checker: Ibexa\Core\MVC\Symfony\Security\UserChecker
+        custom_authenticators:
+            - Ibexa\Collaboration\Security\Authenticator\ShareableLinkAuthenticator
+```
+
+### Configuration
+
+You can configure Collaborative editing per [Repository](repository_configuration.md).
+
+Under `ibexa.repositories.<repository_name>.collaboration` [configuration key](configuration.md#configuration-files), indicate the settings for collaboration:
+
+``` yaml
+ibexa:
+    repositories:
+        <repository_name>:
+            collaboration:
+                participants:
+                    allowed_types:
+                        - internal
+                        - external
+                    auto_invite: <value>
+                session:
+                    public_link_enabled: <value>
+```
+
+The following settings are available:
+
+- participants:
+    - `allowed_types` - defines allowed user types, values: `internal`, `external`, you can set one or both of the values
+    - `auto_invite` - determines whether invitations should be sent automatically when inviting someone to a session, default value: `true`, available values: `true`, `false`
+- session:
+    - `public_link_enabled` - determines whether the public link is available, default value: `false`, available values: `true`, `false`
+
+You can now restart you application and start working with the Collaborative editing feature.
