@@ -57,7 +57,13 @@ def define_env(env):
         if isinstance(pages, str):
             pages = [pages]
         cards = []
-        for page in pages:
+        for page_data in pages:
+            if isinstance(page_data, tuple):
+                page, custom_title, custom_description = page_data
+            else:
+                page = page_data
+                custom_title = None
+                custom_description = None
             match = re.search("https://[^@/]+.ibexa.co", page)
             if match:
                 with urllib.request.urlopen(page) as file:
@@ -81,8 +87,12 @@ def define_env(env):
                         else:
                             description = ""
                     href = page
+                title = custom_title if custom_title else title
+                title = title.replace("(Ibexa Documentation)", "").strip()
+                description = custom_description if custom_description else description
             else:
-                with open("docs/%s.md" % page, "r") as doc_file:
+                file, _ = page.split("#") if "#" in page else (page, "")
+                with open("docs/%s.md" % file, "r") as doc_file:
                     doc = doc_file.read()
                     match = re.search("^# (.*)", doc, re.MULTILINE)
                     if match:
@@ -105,8 +115,9 @@ def define_env(env):
                         version,
                         page
                     ))
-                    title = doc_meta['short'] or doc_meta['title']
-                    description = doc_meta['description'] or "&nbsp;"
+                title = custom_title if custom_title else doc_meta['short'] or doc_meta['title']
+                description = custom_description if custom_description else doc_meta['description'] or "&nbsp;"
+
             cards.append(
                 CARDS_TEMPLATE % (
                     href,

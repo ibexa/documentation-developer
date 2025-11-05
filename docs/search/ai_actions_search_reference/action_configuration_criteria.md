@@ -1,10 +1,11 @@
 ---
 month_change: false
+description: Search Criteria available for Action Configuration search
 ---
 
 # Action Configuration Search Criterion reference
 
-Search criterions are found in the `Ibexa\Contracts\ConnectorAi\ActionConfiguration\Query\Criterion` namespace, implementing the [CriterionInterface](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorAi-ActionConfiguration-Query-CriterionInterface.html) interface:
+Search criteria are found in the `Ibexa\Contracts\ConnectorAi\ActionConfiguration\Query\Criterion` namespace, implementing the [CriterionInterface](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorAi-ActionConfiguration-Query-CriterionInterface.html) interface:
 
 | Criterion | Description |
 |---|---|
