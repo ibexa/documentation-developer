@@ -523,6 +523,7 @@ nav:
             - ContentTypeId: search/criteria_reference/contenttypeid_criterion.md
             - ContentTypeIdentifier: search/criteria_reference/contenttypeidentifier_criterion.md
             - CurrencyCode: search/criteria_reference/currencycode_criterion.md
+            - CustomField: search/criteria_reference/customfield_criterion.md
             - CustomerGroupId: search/criteria_reference/customergroupid_criterion.md
             - DateMetadata: search/criteria_reference/datemetadata_criterion.md
             - Depth: search/criteria_reference/depth_criterion.md
