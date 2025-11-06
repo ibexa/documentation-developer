@@ -165,6 +165,58 @@ To change the identifier of the copy, use a [`ContentTypeUpdateStruct`](/api/php
 [[= include_file('code_samples/api/public_php_api/src/Command/CreateContentTypeCommand.php', 87, 93) =]]
 ```
 
+### Finding and filtering content types
+
+You can find content types that match specific criteria by using the `ContentTypeService::findContentTypes()` method.
+This method accepts a `ContentTypeQuery` object that supports filtering and sorting by IDs, identifiers, group membership, and other criteria.
+
+!!! note "Criterions and sort clauses"
+
+    For a full list of available criterions and sort clauses that you can use when finding and filtering content types, see [Content Type Search Criteria](content_type_criteria.md) and [Content Type Search Sort Clauses](content_type_sort_clauses.md) references.
+
+
+The following example shows how you can use the criteria to find content types:
+
+```php hl_lines="9-15"
+<?php
+
+declare(strict_types=1);
+
+use Ibexa\Contracts\Core\Repository\Values\ContentType\Query\Criterion;
+use Ibexa\Contracts\Core\Repository\Values\ContentType\Query\ContentTypeQuery;
+
+// Example: find content types whose identifier is "folder" or "article" *and* are in group 1, or identifier is "user":
+$query = new ContentTypeQuery(
+    new Criterion\LogicalOr([
+        new Criterion\LogicalAnd([
+            new Criterion\ContentTypeIdentifier(['folder','article']),
+            new Criterion\ContentTypeGroupIds([1]),
+        ]),
+        new Criterion\ContentTypeIdentifier(['user']),
+    ]),
+    [
+        new SortClause\Id(),
+        new SortClause\Identifier(),
+        new SortClause\Name(),
+    ]
+);
+
+$results = $contentTypeService->findContentTypes($query);
+```
+
+#### Query parameters
+
+When constructing a `ContentTypeQuery`, you can pass the following parameters:
+
+- `?CriterionInterface $criterion = null` — a filter to apply (use one or a combination of the criterions above)
+
+- `array $sortClauses = []` — list of sort clauses to order the results
+
+- `int $offset = 0` — starting offset (for pagination)
+
+- `int $limit = 25` — maximum number of results to return
+
+
 ## Calendar events
 
 You can handle the calendar using `CalendarServiceInterface` (`Ibexa\Contracts\Calendar\CalendarServiceInterface`).
