@@ -177,31 +177,8 @@ This method accepts a `ContentTypeQuery` object that supports filtering and sort
 
 The following example shows how you can use the criteria to find content types:
 
-```php hl_lines="9-15"
-<?php
-
-declare(strict_types=1);
-
-use Ibexa\Contracts\Core\Repository\Values\ContentType\Query\Criterion;
-use Ibexa\Contracts\Core\Repository\Values\ContentType\Query\ContentTypeQuery;
-
-// Example: find content types whose identifier is "folder" or "article" *and* are in group 1, or identifier is "user":
-$query = new ContentTypeQuery(
-    new Criterion\LogicalOr([
-        new Criterion\LogicalAnd([
-            new Criterion\ContentTypeIdentifier(['folder','article']),
-            new Criterion\ContentTypeGroupIds([1]),
-        ]),
-        new Criterion\ContentTypeIdentifier(['user']),
-    ]),
-    [
-        new SortClause\Id(),
-        new SortClause\Identifier(),
-        new SortClause\Name(),
-    ]
-);
-
-$results = $contentTypeService->findContentTypes($query);
+```php hl_lines="12-17"
+[[= include_file('code_samples/api/public_php_api/src/Command/FindContentTypeCommand.php', 17, 43) =]]
 ```
 
 #### Query parameters

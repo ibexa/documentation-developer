@@ -19,31 +19,8 @@ Sort Clauses are found in the [`Ibexa\Contracts\Core\Repository\Values\ContentTy
 
 The following example shows how to use them to sort the searched content items:
 
-```php hl_lines="18-20"
-<?php
-
-declare(strict_types=1);
-
-use Ibexa\Contracts\Core\Repository\Values\ContentType\Query\Criterion;
-use Ibexa\Contracts\Core\Repository\Values\ContentType\Query\ContentTypeQuery;
-
-// Example: find content types whose identifier is "folder" or "article" *and* are in group 1, or identifier is "user":
-$query = new ContentTypeQuery(
-    new Criterion\LogicalOr([
-        new Criterion\LogicalAnd([
-            new Criterion\ContentTypeIdentifier(['folder','article']),
-            new Criterion\ContentTypeGroupIds([1]),
-        ]),
-        new Criterion\ContentTypeIdentifier(['user']),
-    ]),
-    [
-        new SortClause\Id(),
-        new SortClause\Identifier(),
-        new SortClause\Name(),
-    ]
-);
-
-$results = $contentTypeService->findContentTypes($query);
+```php hl_lines="37-39"
+[[= include_file('code_samples/api/public_php_api/src/Command/FindContentTypeCommand.php') =]]
 ```
 
 You can change the default sorting order by using the `SORT_ASC` and `SORT_DESC` constants from [`AbstractSortClause`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-CoreSearch-Values-Query-AbstractSortClause.html#constants).
