@@ -1,7 +1,7 @@
 ---
 description: Collaborative editing enables multiple users to work on the same content simultaneously.
 page_type: landing_page
-month_change: true
+month_change: false
 ---
 
 # Collaborative editing

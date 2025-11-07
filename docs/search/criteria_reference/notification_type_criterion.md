@@ -1,6 +1,6 @@
 ---
 description: Type Search Criterion
-month_change: true
+month_change: false
 ---
 
 # Type Criterion
