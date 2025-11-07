@@ -31,7 +31,7 @@ This page contains recent highlights and notable changes in [[= product_name =]]
 
 ### Localization
 
-- Added a note about disabling [community contributions] for French, German and Spanish translations, in preparation for the upcoming release
+- Added a note about disabling [community contributions](contribute_translations.md) for French, German and Spanish translations, in preparation for the upcoming release
 
 ### Trainings
 
