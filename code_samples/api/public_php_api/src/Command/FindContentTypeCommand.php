@@ -15,7 +15,7 @@ use Symfony\Component\Console\Output\OutputInterface;
     name: 'doc:find_content_types',
     description: 'Lists content types that match specific criteria.'
 )]
-class FindContentTypesCommand extends Command
+class FindContentTypeCommand extends Command
 {
     public function __construct(private readonly ContentTypeService $contentTypeService)
     {
