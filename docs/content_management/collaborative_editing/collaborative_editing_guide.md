@@ -3,7 +3,7 @@ description: The Collaborative editing product guide provides a full description
 page_type: landing_page
 editions:
     - lts-update
-month_change: true
+month_change: false
 ---
 
 # Collaborative editing product guide
