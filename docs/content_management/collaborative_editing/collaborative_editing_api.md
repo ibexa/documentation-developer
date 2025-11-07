@@ -1,6 +1,6 @@
 ---
 description: Use PHP API to manage invitations, sessions, and participants while using collaborative editing feature.
-month_change: true
+month_change: false
 ---
 
 # Collaborative editing API

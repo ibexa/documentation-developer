@@ -1,6 +1,6 @@
 ---
 description: Customize the behavior of the Discounts feature.
-month_change: true
+month_change: false
 editions:
     - commerce
 ---

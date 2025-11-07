@@ -1,11 +1,46 @@
 ---
 description: Overview of major recent additions to Ibexa DXP documentation.
-month_change: true
+month_change: false
 ---
 
 # New in documentation
 
 This page contains recent highlights and notable changes in [[= product_name =]] documentation.
+
+## October 2025
+
+### Releases
+
+- [v5.0.3 release notes](https://doc.ibexa.co/en/5.0/release_notes/ibexa_dxp_v5.0/#ibexa-dxp-v503)
+- [v4.6.25 release notes](https://doc.ibexa.co/en/4.6/release_notes/ibexa_dxp_v4.6/#ibexa-dxp-v4625)
+
+### Collaborative editing:
+
+- Described:
+    - [installation and configuration](configure_collaborative_editing.md) in more detail
+    - [search criteria](collaboration_criteria.md) and [sort clauses](collaboration_sort_clauses.md) for [Collaborative editing](collaborative_editing.md)
+    - [events](collaboration_events.md)
+
+### Extending Page Builder and Form builder
+
+- Expanded the [custom block for Page Builder](create_custom_page_block.md) and [custom field for Form Builder](create_custom_form_field.md) examples to showcase providing translations
+
+### Search
+
+- Added documentation for [CustomField](customfield_criterion.md) criterion
+
+### Localization
+
+- Added a note about disabling [community contributions] for French, German and Spanish translations, in preparation for the upcoming release
+
+### Trainings
+
+- The [Advanced Developer training](https://learn.ibexa.co) for [[= product_name =]] v5 is now available
+
+### Documentation improvements
+
+- Improved the landing page for [AI Actions](ai_actions.md) for easier navigation
+- Improved the experience when switching between different versions of the documentation site
 
 ## September 2025
 

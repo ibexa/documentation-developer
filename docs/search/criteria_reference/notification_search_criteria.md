@@ -1,6 +1,6 @@
 ---
 description: Notification Search Criteria
-month_change: true
+month_change: false
 ---
 
 # Notification Search Criteria reference

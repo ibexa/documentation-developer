@@ -1,6 +1,6 @@
 ---
 description: You can send notifications to users who work with the back office by using notification bars or notifications in the user menu.
-month_change: true
+month_change: false
 ---
 
 # Notifications

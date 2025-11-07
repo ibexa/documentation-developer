@@ -1,6 +1,6 @@
 ---
 description: The Collaborative editing product guide provides a full description of the features and benefits that this module brings to the clients.
-month_change: true
+month_change: false
 ---
 
 # Collaborative editing product guide
