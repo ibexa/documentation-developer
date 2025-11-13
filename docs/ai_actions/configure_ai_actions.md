@@ -36,7 +36,9 @@ Based on these examples, which reflect the most common use cases, you can learn 
 
 Run the following command to install the package:
 
-`composer require ibexa/connector-anthropic`
+```
+composer require ibexa/connector-anthropic
+```
 
 This command adds the feature code, including basic handlers that let you refine text or generate alternative text for images.
 
@@ -58,7 +60,7 @@ ANTHROPIC_API_KEY=<your_api_key>
 ###< ibexa/connector-anthropic ###
 ```
 
-By default, when reaching out for responses, the Anthropic connector requests that [Claude Sonnet 4](https://docs.claude.com/en/docs/about-claude/models/overview) model is used.
+By default, when reaching out for responses, the Anthropic connector uses the [Claude Sonnet 4](https://docs.claude.com/en/docs/about-claude/models/overview) model.
 Users can override this setting at runtime when they [edit or create an AI action]([[= user_doc =]]/ai_actions/work_with_ai_actions/#edit-existing-ai-actions).
 You can also change the default values globally.
 To do it, in `config/packages` folder, create a YAML file similar to this example:
@@ -73,7 +75,7 @@ ibexa_connector_anthropic:
             claude-sonnet-4-20250514: 'Claude 4 Sonnet (2025-05-14)'
             claude-opus-4-20250514: 'Claude Opus 4 (2025-05-14)'
 ```
-
+You can now use the Anthropic connector in your project.
 ## Configure access to [[= product_name_connect =]]
 
 First, get the credentials by contacting [Ibexa Support](https://support.ibexa.co).
