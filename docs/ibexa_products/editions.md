@@ -32,6 +32,7 @@ Compare all features available in [[= product_name_headless =]], [[= product_nam
 | [Digital Asset Management]([[= user_doc =]]/dam/ibexa_dam/) | &#10004; | &#10004; | &#10004; |
 | [Product Information Management]([[= user_doc =]]/pim/pim/) | &#10004; | &#10004; | &#10004; |
 | [Date and time attribute type](date_and_time.md) | &#10004; | &#10004; | &#10004; |
+| [Symbol attribute type](symbol_attribute_type.md) | &#10004; | &#10004; | &#10004; |
 | [Personalization](personalization_guide.md) | &#10004; | &#10004; | &#10004; |
 | [Migrations](managing_migrations.md) | &#10004; | &#10004; | &#10004; |
 | [[[= product_name_connect =]]]([[= connect_doc =]]) | &#10004; | &#10004; | &#10004; |
@@ -57,7 +58,6 @@ Compare all features available in [[= product_name_headless =]], [[= product_nam
 | [Storefront](storefront.md) |  |  | &#10004; |
 | [Transactional emails](transactional_emails.md) |  |  | &#10004; |
 | [Discounts](discounts.md) | | | &#10004; |
-| [Symbol attribute type](symbol_attribute_type.md) | &#10004; | &#10004; | &#10004; |
 
 ## LTS Updates
 
