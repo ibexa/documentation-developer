@@ -19,8 +19,8 @@ Sort Clauses are found in the [`Ibexa\Contracts\Core\Repository\Values\ContentTy
 
 The following example shows how to use them to sort the searched content items:
 
-```php hl_lines="37-39"
-[[= include_file('code_samples/api/public_php_api/src/Command/FindContentTypeCommand.php') =]]
+```php hl_lines="17-19"
+[[= include_file('code_samples/api/public_php_api/src/Command/FindContentTypeCommand.php', 17, 41) =]]
 ```
 
 You can change the default sorting order by using the `SORT_ASC` and `SORT_DESC` constants from [`AbstractSortClause`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-CoreSearch-Values-Query-AbstractSortClause.html#constants).

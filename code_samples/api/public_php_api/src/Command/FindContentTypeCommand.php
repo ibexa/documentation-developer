@@ -24,28 +24,24 @@ class FindContentTypeCommand extends Command
 
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
-        // Find content types whose identifier is "folder" or "article",
-        // or content type "user"
+        // Find content types from the "Content" group that contains a specific field definition (in this case, a "Body" field).
         $query = new ContentTypeQuery(
-            new Criterion\LogicalOr([
-                new Criterion\LogicalAnd([
-                    new Criterion\ContentTypeIdentifier(['folder', 'article']),
-                ]),
-                new Criterion\ContentTypeIdentifier(['user']),
+            new Criterion\LogicalAnd([
+                new Criterion\ContentTypeGroupId(['1']),
+                new Criterion\ContainsFieldDefinitionId(['121']),
             ]),
             [
                 new SortClause\Id(),
-                new SortClause\Identifiers(),
+                new SortClause\Identifier(),
                 new SortClause\Name(),
             ]
         );
 
         $searchResult = $this->contentTypeService->findContentTypes($query);
 
-        $output->writeln('Found ' . $searchResult->totalCount . ' content types:');
+        $output->writeln('Found ' . $searchResult->totalCount . ' content type(s):');
 
-        foreach ($searchResult->searchHits as $searchHit) {
-            $contentType = $searchHit->valueObject;
+        foreach ($searchResult->items as $contentType) {
             $output->writeln(sprintf(
                 '- [%d] %s (identifier: %s)',
                 $contentType->id,
