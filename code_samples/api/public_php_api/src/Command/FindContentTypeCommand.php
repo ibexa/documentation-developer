@@ -27,8 +27,8 @@ class FindContentTypeCommand extends Command
         // Find content types from the "Content" group that contains a specific field definition (in this case, a "Body" field).
         $query = new ContentTypeQuery(
             new Criterion\LogicalAnd([
-                new Criterion\ContentTypeGroupId(['1']),
-                new Criterion\ContainsFieldDefinitionId(['121']),
+                new Criterion\ContentTypeGroupId([1]),
+                new Criterion\ContainsFieldDefinitionId([121]),
             ]),
             [
                 new SortClause\Id(),
