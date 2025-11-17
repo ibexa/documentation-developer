@@ -8,7 +8,7 @@ month_change: true
 Content Type Search Sort Clauses are the sorting options for content types.
 They're only supported by [Content Type Search (`ContentTypeService::findContentTypes`)](managing_content.md#finding-and-filtering-content-types).
 
-Sort Clauses are found in the [`Ibexa\Contracts\Core\Repository\Values\ContentType\Query\SortClause`](api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-ContentType-Query-SortClause.html) namespace:
+Sort Clauses are found in the [`Ibexa\Contracts\Core\Repository\Values\ContentType\Query\SortClause`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-ContentType-Query-SortClause.html) namespace:
 
 | Name | Description |
 | --- | --- |
