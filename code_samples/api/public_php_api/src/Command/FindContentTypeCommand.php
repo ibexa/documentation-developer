@@ -39,9 +39,9 @@ class FindContentTypeCommand extends Command
 
         $searchResult = $this->contentTypeService->findContentTypes($query);
 
-        $output->writeln('Found ' . $searchResult->totalCount . ' content type(s):');
+        $output->writeln('Found ' . $searchResult->getTotalCount() . ' content type(s):');
 
-        foreach ($searchResult->items as $contentType) {
+        foreach ($searchResult->getContentTypes() as $contentType) {
             $output->writeln(sprintf(
                 '- [%d] %s (identifier: %s)',
                 $contentType->id,
