@@ -177,7 +177,7 @@ This method accepts a `ContentTypeQuery` object that supports filtering and sort
 
 The following example shows how you can use the criteria to find content types:
 
-```php hl_lines="28-39"
+```php hl_lines="28-38"
 [[= include_file('code_samples/api/public_php_api/src/Command/FindContentTypeCommand.php') =]]
 ```
 
