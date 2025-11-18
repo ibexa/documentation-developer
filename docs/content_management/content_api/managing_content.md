@@ -167,7 +167,7 @@ To change the identifier of the copy, use a [`ContentTypeUpdateStruct`](/api/php
 
 ### Finding and filtering content types
 
-You can find content types that match specific criteria by using the `ContentTypeService::findContentTypes()` method.
+You can find content types that match specific criteria by using the [`ContentTypeService::findContentTypes()`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-ContentTypeService.html#method_findContentTypes) method.
 This method accepts a `ContentTypeQuery` object that supports filtering and sorting by IDs, identifiers, group membership, and other criteria.
 
 !!! note "Criterions and sort clauses"
@@ -177,8 +177,8 @@ This method accepts a `ContentTypeQuery` object that supports filtering and sort
 
 The following example shows how you can use the criteria to find content types:
 
-```php hl_lines="11-14"
-[[= include_file('code_samples/api/public_php_api/src/Command/FindContentTypeCommand.php', 17, 41) =]]
+```php hl_lines="28-39"
+[[= include_file('code_samples/api/public_php_api/src/Command/FindContentTypeCommand.php') =]]
 ```
 
 #### Query parameters

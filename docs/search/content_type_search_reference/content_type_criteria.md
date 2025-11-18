@@ -6,7 +6,7 @@ month_change: true
 
 # Content Type Search Criteria reference
 
-Content Type Search Criteria are only supported by Content Type Search (`ContentTypeService::findContentTypes`).
+Content Type Search Criteria are only supported by [Content Type Search (`ContentTypeService::findContentTypes`)](managing_content.md#finding-and-filtering-content-types).
 
 | Criterion | Description |
 |-------|-------------|
@@ -19,4 +19,8 @@ Content Type Search Criteria are only supported by Content Type Search (`Content
 | [LogicalOr](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-ContentType-Query-Criterion-LogicalOr.html) | Implements a logical OR Criterion. It matches if at least one of the provided Criteria matches. |
 | [LogicalNot](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-ContentType-Query-Criterion-LogicalNot.html) | Implements a logical NOT Criterion. It matches if the provided Criterion doesn't match. |
 
-For an example that shows how you can use the criteria to find content types, see [Finding and filtering content types](managing_content.md#finding-and-filtering-content-types).
+The following example shows how to use them to search for content types:
+
+```php hl_lines="29-31"
+[[= include_file('code_samples/api/public_php_api/src/Command/FindContentTypeCommand.php') =]]
+```
