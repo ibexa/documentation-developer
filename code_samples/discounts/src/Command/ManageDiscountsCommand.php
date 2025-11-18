@@ -36,12 +36,12 @@ final class ManageDiscountsCommand extends Command
     private UserService $userService;
 
     public function __construct(
-        UserService $userSerice,
+        UserService $userService,
         PermissionResolver $permissionResolver,
         DiscountServiceInterface $discountService,
         DiscountCodeServiceInterface $discountCodeService
     ) {
-        $this->userService = $userSerice;
+        $this->userService = $userService;
         $this->discountService = $discountService;
         $this->discountCodeService = $discountCodeService;
         $this->permissionResolver = $permissionResolver;
