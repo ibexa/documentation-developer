@@ -35333,6 +35333,831 @@ application/vnd.ibexa.api.ContentTypeList+json
 </div>
                     <div class="sticky px-3">
         <div class="sticky__body border-bottom border-top py-1 ">
+            <h4 id="/content/types/view" class="heading text-gray">/content/types/view</h4>
+            <ul class="list-unstyled d-inline-flex mb-0">
+                                    <li class="pr-3 ">
+                                                <a href="#managing-content-find-content-types">
+                           <span class="pl-0 new badge badge--post" data-badge-caption="POST">
+                                POST
+                           </span>
+                        </a>
+                    </li>
+                            </ul>
+        </div>
+    </div>
+            <div id="managing-content-find-content-types-section" class="search-container px-3" data-parent="Managing content">
+    <div class="row px-1 pr-lg-0">
+        <div class="col-12">
+            <h5 id="managing-content-find-content-types"
+                class="heading text-gray font-weight-medium"
+                data-field="name"
+                data-search="find-content-types">
+                Find content types
+                <a href="#managing-content-find-content-types" class="heading__link">¶</a>
+            </h5>
+        </div>
+        <div class="col-lg-6">
+            <p class="text-break">
+                <span data-field="method" class="badge badge--sm badge--post">POST</span>
+                <span data-field="url">/content/types/view</span>
+            </p>
+            <p data-field="body"><p>Executes a query and returns a View that includes the results. Refer to <a href="/en/latest/search/content_type_search_reference/content_type_criteria/">Search Criteria Reference</a>.</p>
+</p>
+                <div class="py-3">
+        <h6 class="heading text-gray border-bottom pb-2">Header parameters</h6>
+                    <div class="mb-2">
+                <p class="mt-3 mb-0 font-weight-medium">Accept</p>
+                <p>The ContentTypeView schema is returned in XML or JSON format.</p>
+                <div class="table-responsive mb-2">
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th scope="col">Property</th>
+                            <th scope="col">Value</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+    <td>Type</td>
+    <td>
+        
+                    <span>
+                                    string
+                            </span>
+            
+            
+                                                        
+                        </td>
+</tr>
+<tr>
+    <td>Examples</td>
+    <td>
+                    <code>application/vnd.ibexa.api.ContentTypeView+xml
+application/vnd.ibexa.api.ContentTypeView+json
+</code>
+            </td>
+</tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+                    <div class="mb-2">
+                <p class="mt-3 mb-0 font-weight-medium">Content-Type</p>
+                <p>The ContentTypeViewInput schema is posted in XML or JSON format.</p>
+                <div class="table-responsive mb-2">
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th scope="col">Property</th>
+                            <th scope="col">Value</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+    <td>Type</td>
+    <td>
+        
+                    <span>
+                                    string
+                            </span>
+            
+            
+                                                        
+                        </td>
+</tr>
+<tr>
+    <td>Examples</td>
+    <td>
+                    <code>application/vnd.ibexa.api.ContentTypeViewInput+json
+</code>
+            </td>
+</tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            </div>
+
+            
+                <div class="py-3">
+        <h6 class="heading text-gray border-bottom pb-2">Possible responses</h6>
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th scope="col">Code</th>
+                    <th scope="col">Description</th>
+                </tr>
+                </thead>
+                <tbody>
+                                    <tr>
+                        <td>
+                                                        <a href="#content-types-view-post-response-200"
+                               class="text-ocean-blue ">
+                                200
+                            </a>
+                                                    </td>
+                        <td>
+                            <p>OK - returns a view and its results</p>
+                        </td>
+                    </tr>
+                                    <tr>
+                        <td>
+                                                            400
+                                                    </td>
+                        <td>
+                            <p>Error - the input doesn&#039;t match the input schema definition</p>
+                        </td>
+                    </tr>
+                                </tbody>
+            </table>
+        </div>
+    </div>
+
+                <div class="py-3">
+        <h6 class="heading text-gray border-bottom pb-2">Types</h6>
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th scope="col">Type</th>
+                    <th scope="col">Description</th>
+                </tr>
+                </thead>
+                <tbody>
+                                    <tr>
+                        <td>
+                            <a href="#" class="text-ocean-blue" data-toggle="modal" data-target="#ContentTypeViewInputWrapper">
+                                ContentTypeViewInputWrapper
+                            </a>
+                        </td>
+                        <td>JSON object with only a ViewInput property.</td>
+                    </tr>
+                                    <tr>
+                        <td>
+                            <a href="#" class="text-ocean-blue" data-toggle="modal" data-target="#ContentTypeView">
+                                ContentTypeView
+                            </a>
+                        </td>
+                        <td>This class represents a content type view.</td>
+                    </tr>
+                                    <tr>
+                        <td>
+                            <a href="#" class="text-ocean-blue" data-toggle="modal" data-target="#ContentTypeViewWrapper">
+                                ContentTypeViewWrapper
+                            </a>
+                        </td>
+                        <td>JSON object with only a ContentTypeView property.</td>
+                    </tr>
+                                </tbody>
+            </table>
+        </div>
+    </div>
+
+        </div>
+        <div class="col-lg-6 px-3 examples">
+                                    
+                                                <div class="request">
+                    <div class="pb-3" id="content-types-view-post-request">
+            <div class="d-flex justify-content-between align-items-baseline">
+                <ul class="nav nav-tabs border-bottom-0" id="content-types-view-post-requestTab" role="tablist">
+                                                                <li class="nav-item">
+                            <a href="#" class="nav-link disabled">Request</a>
+                        </li>
+                                                                                <li class="nav-item">
+                                <a class="nav-link active text-gray" id="content-types-view-post-request-json-tab"
+                                   data-toggle="tab"
+                                   href="#content-types-view-post-request-json"
+                                   role="tab"
+                                   aria-controls="content-types-view-post-request-json"
+                                   aria-selected="true">
+                                    json
+                                </a>
+                            </li>
+                                                            </ul>
+            </div>
+                                        <div class="example position-relative border p-3 mb-3">
+    <div class="tab-content" id="content-types-view-post-requestContent">
+                                                    <div class="tab-pane fade show active" id="content-types-view-post-request-json" role="tabpanel"
+                     aria-labelledby="content-types-view-post-request-json-tab">
+                                                                                            <div class="position-relative  ">
+                                                        <p class="mb-0 icon icon--copy-clipboard">
+                                <i class="material-icons-outlined clipboard"
+                                   data-toggle="tooltip"
+                                   data-placement="top"
+                                   data-clipboard-target="#S1ffdef2077c2658382790995974e941352b49428cede6f5aed5530ea76816dce"
+                                   title="Copy to clipboard">file_copy
+                                </i>
+                            </p>
+                            <pre id="S1ffdef2077c2658382790995974e941352b49428cede6f5aed5530ea76816dce" class="example__code-wrapper">
+                                <code class="json">{
+    &quot;ViewInput&quot;: {
+        &quot;identifier&quot;: &quot;ContentTypeView&quot;,
+        &quot;ContentTypeQuery&quot;: {
+            &quot;limit&quot;: 1,
+            &quot;offset&quot;: 0,
+            &quot;Query&quot;: {
+                &quot;ContentTypeIdentifierCriterion&quot;: &quot;folder&quot;
+            }
+        }
+    }
+}
+</code>
+                            </pre>
+                        </div>
+                        <a href="" data-toggle="modal" data-target="#content-types-view-post-requestModal" class="btn btn--example-view-more text-center">View more</a>
+                                    </div>
+                        </div>
+</div>
+                <div class="modal fade" id="content-types-view-post-requestModal" tabindex="-1" role="dialog" aria-labelledby="content-types-view-post-requestTitle" aria-hidden="true">
+    <div class="modal-dialog modal-xl" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <p class="modal-title" id="content-types-view-post-requestTitle">
+                    <span data-field="method" class="badge badge--sm badge--post">POST</span>
+                    Find content types
+                </p>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="d-flex justify-content-between align-items-baseline">
+                    <ul class="nav nav-tabs border-bottom-0" id="content-types-view-post-requestModalTab" role="tablist">
+                                                    <li class="nav-item">
+                                <a href="#" class="nav-link disabled">
+                                    Request
+                                </a>
+                            </li>
+                                                                                            <li class="nav-item">
+                                    <a class="nav-link active text-gray" id="content-types-view-post-request-json-modal-tab"
+                                       data-toggle="tab"
+                                       href="#content-types-view-post-request-json-modal"
+                                       role="tab"
+                                       aria-controls="content-types-view-post-request-json-modal"
+                                       aria-selected="true">
+                                        json
+                                    </a>
+                                </li>
+                                <li>
+
+                                </li>
+                                                                        </ul>
+                                    </div>
+                <div class="example position-relative border p-3 mb-3">
+                    <div class="tab-content" id="content-types-view-post-requestModalContent">
+                                                    <div class="tab-pane fade show active"
+                                 id="content-types-view-post-request-json-modal" role="tabpanel"
+                                 aria-labelledby="content-types-view-post-request-json-modal-tab">
+                                                                                                                                            <div class="position-relative  ">
+                                                                                <p class="mb-0 icon icon--copy-clipboard">
+                                            <i class="material-icons-outlined clipboard"
+                                               data-toggle="tooltip"
+                                               data-placement="top"
+                                               data-clipboard-target="#Me9cdf8f4a638b957e00255df9f623edb9893d4229a3e1f3108dc492779875b39"
+                                               title="Copy to clipboard">file_copy
+                                            </i>
+                                        </p>
+                                        <pre id="Me9cdf8f4a638b957e00255df9f623edb9893d4229a3e1f3108dc492779875b39">
+                                            <code class="json">{
+    &quot;ViewInput&quot;: {
+        &quot;identifier&quot;: &quot;ContentTypeView&quot;,
+        &quot;ContentTypeQuery&quot;: {
+            &quot;limit&quot;: 1,
+            &quot;offset&quot;: 0,
+            &quot;Query&quot;: {
+                &quot;ContentTypeIdentifierCriterion&quot;: &quot;folder&quot;
+            }
+        }
+    }
+}
+</code>
+                                        </pre>
+                                    </div>
+                                                            </div>
+                                            </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+                    </div>
+    </div>
+                                                                    <div class="response">
+                                                        <div class="pb-3 response__code" id="content-types-view-post-response-200">
+                    <div class="d-flex justify-content-between align-items-baseline">
+                        <ul class="nav nav-tabs border-bottom-0" id="content-types-view-post-response-200Tab" role="tablist">
+                                                                                        <li class="nav-item">
+                                    <a href="#" class="nav-link disabled">Responses</a>
+                                </li>
+                                                                                                        <li class="nav-item">
+                                        <a class="nav-link active text-gray" id="content-types-view-post-response-200-xml-tab"
+                                           data-toggle="tab"
+                                           href="#content-types-view-post-response-200-xml"
+                                           role="tab"
+                                           aria-controls="content-types-view-post-response-200-xml"
+                                           aria-selected="true">
+                                            xml
+                                        </a>
+                                    </li>
+                                                                                                        <li class="nav-item">
+                                        <a class="nav-link  text-gray" id="content-types-view-post-response-200-json-tab"
+                                           data-toggle="tab"
+                                           href="#content-types-view-post-response-200-json"
+                                           role="tab"
+                                           aria-controls="content-types-view-post-response-200-json"
+                                           aria-selected="false">
+                                            json
+                                        </a>
+                                    </li>
+                                                                                    </ul>
+                                                    <div>
+                                <code>Code: 200</code>
+                            </div>
+                                            </div>
+                                                                <div class="example position-relative border p-3 mb-3">
+    <div class="tab-content" id="content-types-view-post-response-200Content">
+                                                    <div class="tab-pane fade show active" id="content-types-view-post-response-200-xml" role="tabpanel"
+                     aria-labelledby="content-types-view-post-response-200-xml-tab">
+                                                                                            <div class="position-relative  ">
+                                                        <p class="mb-0 icon icon--copy-clipboard">
+                                <i class="material-icons-outlined clipboard"
+                                   data-toggle="tooltip"
+                                   data-placement="top"
+                                   data-clipboard-target="#Sd1a8e7694750d5df88235427de44c4654d83bcbdb9e84e0ac4c0573e80f9c748"
+                                   title="Copy to clipboard">file_copy
+                                </i>
+                            </p>
+                            <pre id="Sd1a8e7694750d5df88235427de44c4654d83bcbdb9e84e0ac4c0573e80f9c748" class="example__code-wrapper">
+                                <code class="xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;ContentTypeList media-type=&quot;application/vnd.ibexa.api.ContentTypeList+xml&quot; href=&quot;&quot;&gt;
+    &lt;ContentType media-type=&quot;application/vnd.ibexa.api.ContentType+xml&quot; href=&quot;/api/ibexa/v2/content/types/1&quot;&gt;
+        &lt;id&gt;1&lt;/id&gt;
+        &lt;status&gt;DEFINED&lt;/status&gt;
+        &lt;identifier&gt;folder&lt;/identifier&gt;
+        &lt;names&gt;
+            &lt;value languageCode=&quot;eng-GB&quot;&gt;Folder&lt;/value&gt;
+        &lt;/names&gt;
+        &lt;descriptions/&gt;
+        &lt;creationDate&gt;2002-06-18T09:21:38+00:00&lt;/creationDate&gt;
+        &lt;modificationDate&gt;2015-11-29T21:14:32+00:00&lt;/modificationDate&gt;
+        &lt;Creator media-type=&quot;application/vnd.ibexa.api.User+xml&quot; href=&quot;/api/ibexa/v2/user/users/14&quot;/&gt;
+        &lt;Modifier media-type=&quot;application/vnd.ibexa.api.User+xml&quot; href=&quot;/api/ibexa/v2/user/users/14&quot;/&gt;
+        &lt;Groups media-type=&quot;application/vnd.ibexa.api.ContentTypeGroupRefList+xml&quot; href=&quot;/api/ibexa/v2/content/types/1/groups&quot;/&gt;
+        &lt;Draft media-type=&quot;application/vnd.ibexa.api.ContentType+xml&quot; href=&quot;/api/ibexa/v2/con</code>
+                            </pre>
+                        </div>
+                        <a href="" data-toggle="modal" data-target="#content-types-view-post-response-200Modal" class="btn btn--example-view-more text-center">View more</a>
+                                    </div>
+                                            <div class="tab-pane fade " id="content-types-view-post-response-200-json" role="tabpanel"
+                     aria-labelledby="content-types-view-post-response-200-json-tab">
+                                                                                            <div class="position-relative  ">
+                                                        <p class="mb-0 icon icon--copy-clipboard">
+                                <i class="material-icons-outlined clipboard"
+                                   data-toggle="tooltip"
+                                   data-placement="top"
+                                   data-clipboard-target="#Sf5ef8713beb58cd7e4aa5fdee7730dcdc8b746deb2759b9e054417020bdad221"
+                                   title="Copy to clipboard">file_copy
+                                </i>
+                            </p>
+                            <pre id="Sf5ef8713beb58cd7e4aa5fdee7730dcdc8b746deb2759b9e054417020bdad221" class="example__code-wrapper">
+                                <code class="json">{
+    &quot;ContentTypeList&quot;: {
+        &quot;_media-type&quot;: &quot;application/vnd.ibexa.api.ContentTypeList+json&quot;,
+        &quot;_href&quot;: &quot;&quot;,
+        &quot;ContentType&quot;: [
+            {
+                &quot;_media-type&quot;: &quot;application/vnd.ibexa.api.ContentType+json&quot;,
+                &quot;_href&quot;: &quot;/api/ibexa/v2/content/types/1&quot;,
+                &quot;id&quot;: 1,
+                &quot;status&quot;: &quot;DEFINED&quot;,
+                &quot;identifier&quot;: &quot;folder&quot;,
+                &quot;names&quot;: {
+                    &quot;value&quot;: [
+                        {
+                            &quot;_languageCode&quot;: &quot;eng-GB&quot;,
+                            &quot;#text&quot;: &quot;Folder&quot;
+                        }
+                    ]
+                },
+                &quot;descriptions&quot;: {
+                    &quot;value&quot;: []
+                },
+                &quot;creationDate&quot;: &quot;2002-06-18T09:21:38+00:00&quot;,
+                &quot;modificationDate&quot;: &quot;2015-11-29T21:14:32+00:00&quot;,
+                &quot;Creator&quot;: {
+                    &quot;_media-type&quot;: &quot;application/vnd.ibexa.api.User+json&quot;,
+                    &quot;_href&quot;: &quot;/api/ib</code>
+                            </pre>
+                        </div>
+                        <a href="" data-toggle="modal" data-target="#content-types-view-post-response-200Modal" class="btn btn--example-view-more text-center">View more</a>
+                                    </div>
+                        </div>
+</div>
+                        <div class="modal fade" id="content-types-view-post-response-200Modal" tabindex="-1" role="dialog" aria-labelledby="content-types-view-post-response-200Title" aria-hidden="true">
+    <div class="modal-dialog modal-xl" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <p class="modal-title" id="content-types-view-post-response-200Title">
+                    <span data-field="method" class="badge badge--sm badge--post">POST</span>
+                    Find content types
+                </p>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="d-flex justify-content-between align-items-baseline">
+                    <ul class="nav nav-tabs border-bottom-0" id="content-types-view-post-response-200ModalTab" role="tablist">
+                                                    <li class="nav-item">
+                                <a href="#" class="nav-link disabled">
+                                    Responses
+                                </a>
+                            </li>
+                                                                                            <li class="nav-item">
+                                    <a class="nav-link active text-gray" id="content-types-view-post-response-200-xml-modal-tab"
+                                       data-toggle="tab"
+                                       href="#content-types-view-post-response-200-xml-modal"
+                                       role="tab"
+                                       aria-controls="content-types-view-post-response-200-xml-modal"
+                                       aria-selected="true">
+                                        xml
+                                    </a>
+                                </li>
+                                <li>
+
+                                </li>
+                                                                                            <li class="nav-item">
+                                    <a class="nav-link  text-gray" id="content-types-view-post-response-200-json-modal-tab"
+                                       data-toggle="tab"
+                                       href="#content-types-view-post-response-200-json-modal"
+                                       role="tab"
+                                       aria-controls="content-types-view-post-response-200-json-modal"
+                                       aria-selected="false">
+                                        json
+                                    </a>
+                                </li>
+                                <li>
+
+                                </li>
+                                                                        </ul>
+                                            <div>
+                            <code>Code: 200</code>
+                        </div>
+                                    </div>
+                <div class="example position-relative border p-3 mb-3">
+                    <div class="tab-content" id="content-types-view-post-response-200ModalContent">
+                                                    <div class="tab-pane fade show active"
+                                 id="content-types-view-post-response-200-xml-modal" role="tabpanel"
+                                 aria-labelledby="content-types-view-post-response-200-xml-modal-tab">
+                                                                                                                                            <div class="position-relative  ">
+                                                                                <p class="mb-0 icon icon--copy-clipboard">
+                                            <i class="material-icons-outlined clipboard"
+                                               data-toggle="tooltip"
+                                               data-placement="top"
+                                               data-clipboard-target="#M410ad88feee3ded07dc4580ceaf0df0e28258bcd8bacd6caa4488d74074c70ad"
+                                               title="Copy to clipboard">file_copy
+                                            </i>
+                                        </p>
+                                        <pre id="M410ad88feee3ded07dc4580ceaf0df0e28258bcd8bacd6caa4488d74074c70ad">
+                                            <code class="xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;ContentTypeList media-type=&quot;application/vnd.ibexa.api.ContentTypeList+xml&quot; href=&quot;&quot;&gt;
+    &lt;ContentType media-type=&quot;application/vnd.ibexa.api.ContentType+xml&quot; href=&quot;/api/ibexa/v2/content/types/1&quot;&gt;
+        &lt;id&gt;1&lt;/id&gt;
+        &lt;status&gt;DEFINED&lt;/status&gt;
+        &lt;identifier&gt;folder&lt;/identifier&gt;
+        &lt;names&gt;
+            &lt;value languageCode=&quot;eng-GB&quot;&gt;Folder&lt;/value&gt;
+        &lt;/names&gt;
+        &lt;descriptions/&gt;
+        &lt;creationDate&gt;2002-06-18T09:21:38+00:00&lt;/creationDate&gt;
+        &lt;modificationDate&gt;2015-11-29T21:14:32+00:00&lt;/modificationDate&gt;
+        &lt;Creator media-type=&quot;application/vnd.ibexa.api.User+xml&quot; href=&quot;/api/ibexa/v2/user/users/14&quot;/&gt;
+        &lt;Modifier media-type=&quot;application/vnd.ibexa.api.User+xml&quot; href=&quot;/api/ibexa/v2/user/users/14&quot;/&gt;
+        &lt;Groups media-type=&quot;application/vnd.ibexa.api.ContentTypeGroupRefList+xml&quot; href=&quot;/api/ibexa/v2/content/types/1/groups&quot;/&gt;
+        &lt;Draft media-type=&quot;application/vnd.ibexa.api.ContentType+xml&quot; href=&quot;/api/ibexa/v2/content/types/1/draft&quot;/&gt;
+        &lt;remoteId&gt;a3d405b81be900468eb153d774f4f0d2&lt;/remoteId&gt;
+        &lt;urlAliasSchema&gt;&lt;/urlAliasSchema&gt;
+        &lt;nameSchema&gt;&amp;lt;short_name|name&amp;gt;&lt;/nameSchema&gt;
+        &lt;isContainer&gt;true&lt;/isContainer&gt;
+        &lt;mainLanguageCode&gt;eng-GB&lt;/mainLanguageCode&gt;
+        &lt;defaultAlwaysAvailable&gt;true&lt;/defaultAlwaysAvailable&gt;
+        &lt;defaultSortField&gt;PATH&lt;/defaultSortField&gt;
+        &lt;defaultSortOrder&gt;ASC&lt;/defaultSortOrder&gt;
+        &lt;FieldDefinitions media-type=&quot;application/vnd.ibexa.api.FieldDefinitionList+xml&quot; href=&quot;/api/ibexa/v2/content/types/1/fieldDefinitions&quot;&gt;
+            &lt;FieldDefinition media-type=&quot;application/vnd.ibexa.api.FieldDefinition+xml&quot; href=&quot;/api/ibexa/v2/content/types/1/fieldDefinitions/4&quot;&gt;
+                &lt;id&gt;4&lt;/id&gt;
+                &lt;identifier&gt;name&lt;/identifier&gt;
+                &lt;fieldType&gt;ezstring&lt;/fieldType&gt;
+                &lt;fieldGroup&gt;&lt;/fieldGroup&gt;
+                &lt;position&gt;1&lt;/position&gt;
+                &lt;isTranslatable&gt;true&lt;/isTranslatable&gt;
+                &lt;isRequired&gt;true&lt;/isRequired&gt;
+                &lt;isInfoCollector&gt;false&lt;/isInfoCollector&gt;
+                &lt;defaultValue&gt;Folder&lt;/defaultValue&gt;
+                &lt;isSearchable&gt;true&lt;/isSearchable&gt;
+                &lt;names&gt;
+                    &lt;value languageCode=&quot;eng-GB&quot;&gt;Name&lt;/value&gt;
+                &lt;/names&gt;
+                &lt;descriptions/&gt;
+                &lt;fieldSettings/&gt;
+                &lt;validatorConfiguration&gt;
+                    &lt;value key=&quot;StringLengthValidator&quot;&gt;
+                        &lt;value key=&quot;maxStringLength&quot;&gt;255&lt;/value&gt;
+                        &lt;value key=&quot;minStringLength&quot;/&gt;&lt;/value&gt;
+                &lt;/validatorConfiguration&gt;
+            &lt;/FieldDefinition&gt;
+            &lt;FieldDefinition media-type=&quot;application/vnd.ibexa.api.FieldDefinition+xml&quot; href=&quot;/api/ibexa/v2/content/types/1/fieldDefinitions/119&quot;&gt;
+                &lt;id&gt;119&lt;/id&gt;
+                &lt;identifier&gt;short_description&lt;/identifier&gt;
+                &lt;fieldType&gt;ezrichtext&lt;/fieldType&gt;
+                &lt;fieldGroup&gt;&lt;/fieldGroup&gt;
+                &lt;position&gt;3&lt;/position&gt;
+                &lt;isTranslatable&gt;true&lt;/isTranslatable&gt;
+                &lt;isRequired&gt;false&lt;/isRequired&gt;
+                &lt;isInfoCollector&gt;false&lt;/isInfoCollector&gt;
+                &lt;defaultValue&gt;
+                    &lt;value key=&quot;xml&quot;&gt;&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;UTF-8&amp;quot;?&amp;gt;
+&amp;lt;section xmlns=&amp;quot;http://docbook.org/ns/docbook&amp;quot; xmlns:xlink=&amp;quot;http://www.w3.org/1999/xlink&amp;quot; version=&amp;quot;5.0-variant ezpublish-1.0&amp;quot;/&amp;gt;
+&lt;/value&gt;
+                    &lt;value key=&quot;xhtml5edit&quot;&gt;&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;UTF-8&amp;quot;?&amp;gt;
+&amp;lt;section xmlns=&amp;quot;http://ibexa.co/namespaces/ezpublish5/xhtml5/edit&amp;quot;/&amp;gt;
+&lt;/value&gt;
+                &lt;/defaultValue&gt;
+                &lt;isSearchable&gt;true&lt;/isSearchable&gt;
+                &lt;names&gt;
+                    &lt;value languageCode=&quot;eng-GB&quot;&gt;Short description&lt;/value&gt;
+                &lt;/names&gt;
+                &lt;descriptions/&gt;
+                &lt;fieldSettings/&gt;
+                &lt;validatorConfiguration/&gt;
+            &lt;/FieldDefinition&gt;
+            &lt;FieldDefinition media-type=&quot;application/vnd.ibexa.api.FieldDefinition+xml&quot; href=&quot;/api/ibexa/v2/content/types/1/fieldDefinitions/155&quot;&gt;
+                &lt;id&gt;155&lt;/id&gt;
+                &lt;identifier&gt;short_name&lt;/identifier&gt;
+                &lt;fieldType&gt;ezstring&lt;/fieldType&gt;
+                &lt;fieldGroup&gt;&lt;/fieldGroup&gt;
+                &lt;position&gt;2&lt;/position&gt;
+                &lt;isTranslatable&gt;true&lt;/isTranslatable&gt;
+                &lt;isRequired&gt;false&lt;/isRequired&gt;
+                &lt;isInfoCollector&gt;false&lt;/isInfoCollector&gt;
+                &lt;defaultValue/&gt;
+                &lt;isSearchable&gt;true&lt;/isSearchable&gt;
+                &lt;names&gt;
+                    &lt;value languageCode=&quot;eng-GB&quot;&gt;Short name&lt;/value&gt;
+                &lt;/names&gt;
+                &lt;descriptions/&gt;
+                &lt;fieldSettings/&gt;
+                &lt;validatorConfiguration&gt;
+                    &lt;value key=&quot;StringLengthValidator&quot;&gt;
+                        &lt;value key=&quot;maxStringLength&quot;&gt;100&lt;/value&gt;
+                        &lt;value key=&quot;minStringLength&quot;/&gt;&lt;/value&gt;
+                &lt;/validatorConfiguration&gt;
+            &lt;/FieldDefinition&gt;
+            &lt;FieldDefinition media-type=&quot;application/vnd.ibexa.api.FieldDefinition+xml&quot; href=&quot;/api/ibexa/v2/content/types/1/fieldDefinitions/156&quot;&gt;
+                &lt;id&gt;156&lt;/id&gt;
+                &lt;identifier&gt;description&lt;/identifier&gt;
+                &lt;fieldType&gt;ezrichtext&lt;/fieldType&gt;
+                &lt;fieldGroup&gt;&lt;/fieldGroup&gt;
+                &lt;position&gt;4&lt;/position&gt;
+                &lt;isTranslatable&gt;true&lt;/isTranslatable&gt;
+                &lt;isRequired&gt;false&lt;/isRequired&gt;
+                &lt;isInfoCollector&gt;false&lt;/isInfoCollector&gt;
+                &lt;defaultValue&gt;
+                    &lt;value key=&quot;xml&quot;&gt;&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;UTF-8&amp;quot;?&amp;gt;
+&amp;lt;section xmlns=&amp;quot;http://docbook.org/ns/docbook&amp;quot; xmlns:xlink=&amp;quot;http://www.w3.org/1999/xlink&amp;quot; version=&amp;quot;5.0-variant ezpublish-1.0&amp;quot;/&amp;gt;
+&lt;/value&gt;
+                    &lt;value key=&quot;xhtml5edit&quot;&gt;&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;UTF-8&amp;quot;?&amp;gt;
+&amp;lt;section xmlns=&amp;quot;http://ibexa.co/namespaces/ezpublish5/xhtml5/edit&amp;quot;/&amp;gt;
+&lt;/value&gt;
+                &lt;/defaultValue&gt;
+                &lt;isSearchable&gt;true&lt;/isSearchable&gt;
+                &lt;names&gt;
+                    &lt;value languageCode=&quot;eng-GB&quot;&gt;Description&lt;/value&gt;
+                &lt;/names&gt;
+                &lt;descriptions/&gt;
+                &lt;fieldSettings/&gt;
+                &lt;validatorConfiguration/&gt;
+            &lt;/FieldDefinition&gt;
+        &lt;/FieldDefinitions&gt;
+    &lt;/ContentType&gt;
+&lt;/ContentTypeList&gt;
+</code>
+                                        </pre>
+                                    </div>
+                                                            </div>
+                                                    <div class="tab-pane fade "
+                                 id="content-types-view-post-response-200-json-modal" role="tabpanel"
+                                 aria-labelledby="content-types-view-post-response-200-json-modal-tab">
+                                                                                                                                            <div class="position-relative  ">
+                                                                                <p class="mb-0 icon icon--copy-clipboard">
+                                            <i class="material-icons-outlined clipboard"
+                                               data-toggle="tooltip"
+                                               data-placement="top"
+                                               data-clipboard-target="#M18ce38f28ffc32dbc39f86a0d4494f0c82c61acd077116207c1098f99ccf334c"
+                                               title="Copy to clipboard">file_copy
+                                            </i>
+                                        </p>
+                                        <pre id="M18ce38f28ffc32dbc39f86a0d4494f0c82c61acd077116207c1098f99ccf334c">
+                                            <code class="json">{
+    &quot;ContentTypeList&quot;: {
+        &quot;_media-type&quot;: &quot;application/vnd.ibexa.api.ContentTypeList+json&quot;,
+        &quot;_href&quot;: &quot;&quot;,
+        &quot;ContentType&quot;: [
+            {
+                &quot;_media-type&quot;: &quot;application/vnd.ibexa.api.ContentType+json&quot;,
+                &quot;_href&quot;: &quot;/api/ibexa/v2/content/types/1&quot;,
+                &quot;id&quot;: 1,
+                &quot;status&quot;: &quot;DEFINED&quot;,
+                &quot;identifier&quot;: &quot;folder&quot;,
+                &quot;names&quot;: {
+                    &quot;value&quot;: [
+                        {
+                            &quot;_languageCode&quot;: &quot;eng-GB&quot;,
+                            &quot;#text&quot;: &quot;Folder&quot;
+                        }
+                    ]
+                },
+                &quot;descriptions&quot;: {
+                    &quot;value&quot;: []
+                },
+                &quot;creationDate&quot;: &quot;2002-06-18T09:21:38+00:00&quot;,
+                &quot;modificationDate&quot;: &quot;2015-11-29T21:14:32+00:00&quot;,
+                &quot;Creator&quot;: {
+                    &quot;_media-type&quot;: &quot;application/vnd.ibexa.api.User+json&quot;,
+                    &quot;_href&quot;: &quot;/api/ibexa/v2/user/users/14&quot;
+                },
+                &quot;Modifier&quot;: {
+                    &quot;_media-type&quot;: &quot;application/vnd.ibexa.api.User+json&quot;,
+                    &quot;_href&quot;: &quot;/api/ibexa/v2/user/users/14&quot;
+                },
+                &quot;Groups&quot;: {
+                    &quot;_media-type&quot;: &quot;application/vnd.ibexa.api.ContentTypeGroupRefList+json&quot;,
+                    &quot;_href&quot;: &quot;/api/ibexa/v2/content/types/1/groups&quot;
+                },
+                &quot;Draft&quot;: {
+                    &quot;_media-type&quot;: &quot;application/vnd.ibexa.api.ContentType+json&quot;,
+                    &quot;_href&quot;: &quot;/api/ibexa/v2/content/types/1/draft&quot;
+                },
+                &quot;remoteId&quot;: &quot;a3d405b81be900468eb153d774f4f0d2&quot;,
+                &quot;urlAliasSchema&quot;: null,
+                &quot;nameSchema&quot;: &quot;&lt;short_name|name&gt;&quot;,
+                &quot;isContainer&quot;: true,
+                &quot;mainLanguageCode&quot;: &quot;eng-GB&quot;,
+                &quot;defaultAlwaysAvailable&quot;: true,
+                &quot;defaultSortField&quot;: &quot;PATH&quot;,
+                &quot;defaultSortOrder&quot;: &quot;ASC&quot;,
+                &quot;FieldDefinitions&quot;: {
+                    &quot;_media-type&quot;: &quot;application/vnd.ibexa.api.FieldDefinitionList+json&quot;,
+                    &quot;_href&quot;: &quot;/api/ibexa/v2/content/types/1/fieldDefinitions&quot;,
+                    &quot;FieldDefinition&quot;: [
+                        {
+                            &quot;_media-type&quot;: &quot;application/vnd.ibexa.api.FieldDefinition+json&quot;,
+                            &quot;_href&quot;: &quot;/api/ibexa/v2/content/types/1/fieldDefinitions/4&quot;,
+                            &quot;id&quot;: 4,
+                            &quot;identifier&quot;: &quot;name&quot;,
+                            &quot;fieldType&quot;: &quot;ezstring&quot;,
+                            &quot;fieldGroup&quot;: &quot;&quot;,
+                            &quot;position&quot;: 1,
+                            &quot;isTranslatable&quot;: true,
+                            &quot;isRequired&quot;: true,
+                            &quot;isInfoCollector&quot;: false,
+                            &quot;defaultValue&quot;: &quot;Folder&quot;,
+                            &quot;isSearchable&quot;: true,
+                            &quot;names&quot;: {
+                                &quot;value&quot;: [
+                                    {
+                                        &quot;_languageCode&quot;: &quot;eng-GB&quot;,
+                                        &quot;#text&quot;: &quot;Name&quot;
+                                    }
+                                ]
+                            },
+                            &quot;descriptions&quot;: {
+                                &quot;value&quot;: []
+                            },
+                            &quot;fieldSettings&quot;: [],
+                            &quot;validatorConfiguration&quot;: {
+                                &quot;StringLengthValidator&quot;: {
+                                    &quot;maxStringLength&quot;: 255,
+                                    &quot;minStringLength&quot;: null
+                                }
+                            }
+                        },
+                        {
+                            &quot;_media-type&quot;: &quot;application/vnd.ibexa.api.FieldDefinition+json&quot;,
+                            &quot;_href&quot;: &quot;/api/ibexa/v2/content/types/1/fieldDefinitions/119&quot;,
+                            &quot;id&quot;: 119,
+                            &quot;identifier&quot;: &quot;short_description&quot;,
+                            &quot;fieldType&quot;: &quot;ezrichtext&quot;,
+                            &quot;fieldGroup&quot;: &quot;&quot;,
+                            &quot;position&quot;: 3,
+                            &quot;isTranslatable&quot;: true,
+                            &quot;isRequired&quot;: false,
+                            &quot;isInfoCollector&quot;: false,
+                            &quot;defaultValue&quot;: {
+                                &quot;xml&quot;: &quot;&lt;?xml version=\&quot;1.0\&quot; encoding=\&quot;UTF-8\&quot;?&gt;\n&lt;section xmlns=\&quot;http://docbook.org/ns/docbook\&quot; xmlns:xlink=\&quot;http://www.w3.org/1999/xlink\&quot; version=\&quot;5.0-variant ezpublish-1.0\&quot;/&gt;\n&quot;,
+                                &quot;xhtml5edit&quot;: &quot;&lt;?xml version=\&quot;1.0\&quot; encoding=\&quot;UTF-8\&quot;?&gt;\n&lt;section xmlns=\&quot;http://ibexa.co/namespaces/ezpublish5/xhtml5/edit\&quot;/&gt;\n&quot;
+                            },
+                            &quot;isSearchable&quot;: true,
+                            &quot;names&quot;: {
+                                &quot;value&quot;: [
+                                    {
+                                        &quot;_languageCode&quot;: &quot;eng-GB&quot;,
+                                        &quot;#text&quot;: &quot;Short description&quot;
+                                    }
+                                ]
+                            },
+                            &quot;descriptions&quot;: {
+                                &quot;value&quot;: []
+                            },
+                            &quot;fieldSettings&quot;: [],
+                            &quot;validatorConfiguration&quot;: []
+                        },
+                        {
+                            &quot;_media-type&quot;: &quot;application/vnd.ibexa.api.FieldDefinition+json&quot;,
+                            &quot;_href&quot;: &quot;/api/ibexa/v2/content/types/1/fieldDefinitions/155&quot;,
+                            &quot;id&quot;: 155,
+                            &quot;identifier&quot;: &quot;short_name&quot;,
+                            &quot;fieldType&quot;: &quot;ezstring&quot;,
+                            &quot;fieldGroup&quot;: &quot;&quot;,
+                            &quot;position&quot;: 2,
+                            &quot;isTranslatable&quot;: true,
+                            &quot;isRequired&quot;: false,
+                            &quot;isInfoCollector&quot;: false,
+                            &quot;defaultValue&quot;: null,
+                            &quot;isSearchable&quot;: true,
+                            &quot;names&quot;: {
+                                &quot;value&quot;: [
+                                    {
+                                        &quot;_languageCode&quot;: &quot;eng-GB&quot;,
+                                        &quot;#text&quot;: &quot;Short name&quot;
+                                    }
+                                ]
+                            },
+                            &quot;descriptions&quot;: {
+                                &quot;value&quot;: []
+                            },
+                            &quot;fieldSettings&quot;: [],
+                            &quot;validatorConfiguration&quot;: {
+                                &quot;StringLengthValidator&quot;: {
+                                    &quot;maxStringLength&quot;: 100,
+                                    &quot;minStringLength&quot;: null
+                                }
+                            }
+                        },
+                        {
+                            &quot;_media-type&quot;: &quot;application/vnd.ibexa.api.FieldDefinition+json&quot;,
+                            &quot;_href&quot;: &quot;/api/ibexa/v2/content/types/1/fieldDefinitions/156&quot;,
+                            &quot;id&quot;: 156,
+                            &quot;identifier&quot;: &quot;description&quot;,
+                            &quot;fieldType&quot;: &quot;ezrichtext&quot;,
+                            &quot;fieldGroup&quot;: &quot;&quot;,
+                            &quot;position&quot;: 4,
+                            &quot;isTranslatable&quot;: true,
+                            &quot;isRequired&quot;: false,
+                            &quot;isInfoCollector&quot;: false,
+                            &quot;defaultValue&quot;: {
+                                &quot;xml&quot;: &quot;&lt;?xml version=\&quot;1.0\&quot; encoding=\&quot;UTF-8\&quot;?&gt;\n&lt;section xmlns=\&quot;http://docbook.org/ns/docbook\&quot; xmlns:xlink=\&quot;http://www.w3.org/1999/xlink\&quot; version=\&quot;5.0-variant ezpublish-1.0\&quot;/&gt;\n&quot;,
+                                &quot;xhtml5edit&quot;: &quot;&lt;?xml version=\&quot;1.0\&quot; encoding=\&quot;UTF-8\&quot;?&gt;\n&lt;section xmlns=\&quot;http://ibexa.co/namespaces/ezpublish5/xhtml5/edit\&quot;/&gt;\n&quot;
+                            },
+                            &quot;isSearchable&quot;: true,
+                            &quot;names&quot;: {
+                                &quot;value&quot;: [
+                                    {
+                                        &quot;_languageCode&quot;: &quot;eng-GB&quot;,
+                                        &quot;#text&quot;: &quot;Description&quot;
+                                    }
+                                ]
+                            },
+                            &quot;descriptions&quot;: {
+                                &quot;value&quot;: []
+                            },
+                            &quot;fieldSettings&quot;: [],
+                            &quot;validatorConfiguration&quot;: []
+                        }
+                    ]
+                }
+            }
+        ]
+    }
+}
+</code>
+                                        </pre>
+                                    </div>
+                                                            </div>
+                                            </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+                                    </div>
+                                    </div>
+                                    </div>
+    </div>
+</div>
+                    <div class="sticky px-3">
+        <div class="sticky__body border-bottom border-top py-1 ">
             <h4 id="/content/types/{contenttypeid}" class="heading text-gray">/content/types/{contentTypeId}</h4>
             <ul class="list-unstyled d-inline-flex mb-0">
                                     <li class="pr-3 ">
@@ -145120,11 +145945,8 @@ A filter is a type and parameters depending on this type.</p>
 <li>type: <code>action</code>, parameter: <code>value</code> (the action)</li>
 <li>type: <code>logged_at</code>, parameters: <code>value</code> and <code>operator</code>
 <ul>
-<li>
-<code>logged_at</code> <code>value</code> value can be anything accepted by <code>DateTimeImmutable</code>
-</li>
-<li>
-<code>logged_at</code> <code>operator</code> value can be one of the following:</li>
+<li><code>logged_at</code> <code>value</code> value can be anything accepted by <code>DateTimeImmutable</code></li>
+<li><code>logged_at</code> <code>operator</code> value can be one of the following:</li>
 </ul>
 </li>
 </ul>
@@ -156111,7 +156933,7 @@ application/vnd.ibexa.api.ai.ActionType+xml
     </span>)
  - 
 <span>
-    </span>
+    Array of ContentType objects.</span>
 
 
                 </li>
@@ -169020,6 +169842,178 @@ application/vnd.ibexa.api.ai.ActionType+xml
 
 
 (<span class="font-italic">datetime</span>)
+ - 
+<span>
+    </span>
+
+
+                </li>
+                    </ul>
+    </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                                            <div class="modal fade" id="ContentTypeViewInputWrapper" tabindex="-1" role="dialog" aria-labelledby="ContentTypeViewInputWrapperTitle" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <p class="modal-title" id="ContentTypeViewInputWrapperTitle">ContentTypeViewInputWrapper</p>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <span class="font-weight-medium">ContentTypeViewInputWrapper</span>
+
+    <span class="red-text">*</span>
+
+(<span class="font-italic">object</span>)
+ - 
+<span>
+    JSON object with only a ViewInput property.</span>
+
+
+    <div class="items">
+        <ul class="browser-default">
+                            <li>
+                    <span class="font-weight-medium">ViewInput</span>
+
+    <span class="red-text">*</span>
+
+(<span class="font-italic">ContentTypeViewInput</span>)
+ - 
+<span>
+    </span>
+
+
+    <div class="items">
+        <ul class="browser-default">
+                    </ul>
+    </div>
+                </li>
+                    </ul>
+    </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                                            <div class="modal fade" id="ContentTypeViewInput" tabindex="-1" role="dialog" aria-labelledby="ContentTypeViewInputTitle" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <p class="modal-title" id="ContentTypeViewInputTitle">ContentTypeViewInput</p>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <span class="font-weight-medium">ContentTypeViewInput</span>
+
+    <span class="red-text">*</span>
+
+(<span class="font-italic">object</span>)
+ - 
+<span>
+    This class represents a content type view input.</span>
+
+
+    <div class="items">
+        <ul class="browser-default">
+                            <li>
+                    <span class="font-weight-medium">ContentTypeQuery</span>
+
+    <span class="red-text">*</span>
+
+(<span class="font-italic">object</span>)
+ - 
+<span>
+    </span>
+
+
+    <div class="items">
+        <ul class="browser-default">
+                    </ul>
+    </div>
+                </li>
+                    </ul>
+    </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                                            <div class="modal fade" id="ContentTypeViewWrapper" tabindex="-1" role="dialog" aria-labelledby="ContentTypeViewWrapperTitle" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <p class="modal-title" id="ContentTypeViewWrapperTitle">ContentTypeViewWrapper</p>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <span class="font-weight-medium">ContentTypeViewWrapper</span>
+
+    <span class="red-text">*</span>
+
+(<span class="font-italic">object</span>)
+ - 
+<span>
+    JSON object with only a ContentTypeView property.</span>
+
+
+    <div class="items">
+        <ul class="browser-default">
+                            <li>
+                    <span class="font-weight-medium">ContentTypeView</span>
+
+    <span class="red-text">*</span>
+
+(<span class="font-italic">ContentTypeView</span>)
+ - 
+<span>
+    </span>
+
+
+    <div class="items">
+        <ul class="browser-default">
+                    </ul>
+    </div>
+                </li>
+                    </ul>
+    </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                                            <div class="modal fade" id="ContentTypeView" tabindex="-1" role="dialog" aria-labelledby="ContentTypeViewTitle" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <p class="modal-title" id="ContentTypeViewTitle">ContentTypeView</p>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <span class="font-weight-medium">ContentTypeView</span>
+
+    <span class="red-text">*</span>
+
+(<span class="font-italic">object</span>)
+ - 
+<span>
+    This class represents a content type view.</span>
+
+
+    <div class="items">
+        <ul class="browser-default">
+                            <li>
+                    <span class="font-weight-medium">ContentTypeList</span>
+
+    <span class="red-text">*</span>
+
+(<span class="font-italic">ContentTypeList</span>)
  - 
 <span>
     </span>

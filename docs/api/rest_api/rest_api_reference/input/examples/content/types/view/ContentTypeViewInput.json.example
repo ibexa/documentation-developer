@@ -1,0 +1,12 @@
+{
+    "ViewInput": {
+        "identifier": "ContentTypeView",
+        "ContentTypeQuery": {
+            "limit": 1,
+            "offset": 0,
+            "Query": {
+                "ContentTypeIdentifierCriterion": "folder"
+            }
+        }
+    }
+}

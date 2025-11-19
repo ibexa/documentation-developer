@@ -1,0 +1,10 @@
+<ViewInput>
+    <identifier>ContentTypeView</identifier>
+    <ContentTypeQuery>
+        <limit>1</limit>
+        <offset>0</offset>
+        <Query>
+            <ContentTypeIdentifierCriterion>folder</ContentTypeIdentifierCriterion>
+        </Query>
+    </ContentTypeQuery>
+</ViewInput>
