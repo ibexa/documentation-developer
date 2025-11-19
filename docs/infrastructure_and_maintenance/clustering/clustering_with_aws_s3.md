@@ -33,7 +33,7 @@ The secret key cannot be retrieved again after the key has been created, so don'
 
 ## Set up [[= product_name =]] for AWS S3
 
-In your [[= product_name =]] root directory, run `php composer require league/flysystem-aws-s3-v3:^2.0`.
+In your [[= product_name =]] root directory, run `composer require league/flysystem-aws-s3-v3:^2.0`.
 Then, register the AWS S3 client as a service:
 
 ``` yaml
