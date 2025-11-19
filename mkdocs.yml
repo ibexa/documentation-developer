@@ -567,6 +567,7 @@ nav:
             - LogicalAnd Criterion: search/criteria_reference/logicaland_criterion.md
             - LogicalNot Criterion: search/criteria_reference/logicalnot_criterion.md
             - LogicalOr Criterion: search/criteria_reference/logicalor_criterion.md
+        - Content Type Search Criteria: search/content_type_search_reference/content_type_criteria.md
         - Product Search Criteria:
             - Product Search Criteria: search/criteria_reference/product_search_criteria.md
             - AttributeName: search/criteria_reference/attributename_criterion.md
@@ -706,6 +707,7 @@ nav:
                 - SectionName: search/sort_clause_reference/sectionname_sort_clause.md
                 - UserLogin: search/sort_clause_reference/userlogin_sort_clause.md
                 - Visibility: search/sort_clause_reference/visibility_sort_clause.md
+            - Content Type Sort Clauses: search/content_type_search_reference/content_type_sort_clauses.md
             - Product Sort Clauses:
                 - Product Sort Clauses: search/sort_clause_reference/product_sort_clauses.md
                 - BasePrice: search/sort_clause_reference/baseprice_sort_clause.md
