@@ -35367,7 +35367,7 @@ application/vnd.ibexa.api.ContentTypeList+json
         <h6 class="heading text-gray border-bottom pb-2">Header parameters</h6>
                     <div class="mb-2">
                 <p class="mt-3 mb-0 font-weight-medium">Accept</p>
-                <p>The ContentTypeView schema is returned in XML or JSON format.</p>
+                <p>The ContentTypeList schema is returned in XML or JSON format.</p>
                 <div class="table-responsive mb-2">
                     <table class="table">
                         <thead>
@@ -35392,8 +35392,8 @@ application/vnd.ibexa.api.ContentTypeList+json
 <tr>
     <td>Examples</td>
     <td>
-                    <code>application/vnd.ibexa.api.ContentTypeView+xml
-application/vnd.ibexa.api.ContentTypeView+json
+                    <code>application/vnd.ibexa.api.ContentTypeList+xml
+application/vnd.ibexa.api.ContentTypeList+json
 </code>
             </td>
 </tr>
@@ -35428,7 +35428,8 @@ application/vnd.ibexa.api.ContentTypeView+json
 <tr>
     <td>Examples</td>
     <td>
-                    <code>application/vnd.ibexa.api.ContentTypeViewInput+json
+                    <code>application/vnd.ibexa.api.ContentTypeViewInput+xml
+application/vnd.ibexa.api.ContentTypeViewInput+json
 </code>
             </td>
 </tr>
@@ -35487,27 +35488,35 @@ application/vnd.ibexa.api.ContentTypeView+json
                 <tbody>
                                     <tr>
                         <td>
+                            <a href="#" class="text-ocean-blue" data-toggle="modal" data-target="#ContentTypeViewInput">
+                                ContentTypeViewInput
+                            </a>
+                        </td>
+                        <td>This class represents a content type view input.</td>
+                    </tr>
+                                    <tr>
+                        <td>
                             <a href="#" class="text-ocean-blue" data-toggle="modal" data-target="#ContentTypeViewInputWrapper">
                                 ContentTypeViewInputWrapper
                             </a>
                         </td>
-                        <td>JSON object with only a ViewInput property.</td>
+                        <td>JSON object with only a ContentTypeViewInput property.</td>
                     </tr>
                                     <tr>
                         <td>
-                            <a href="#" class="text-ocean-blue" data-toggle="modal" data-target="#ContentTypeView">
-                                ContentTypeView
+                            <a href="#" class="text-ocean-blue" data-toggle="modal" data-target="#ContentTypeList">
+                                ContentTypeList
                             </a>
                         </td>
-                        <td>This class represents a content type view.</td>
+                        <td>List of content types.</td>
                     </tr>
                                     <tr>
                         <td>
-                            <a href="#" class="text-ocean-blue" data-toggle="modal" data-target="#ContentTypeViewWrapper">
-                                ContentTypeViewWrapper
+                            <a href="#" class="text-ocean-blue" data-toggle="modal" data-target="#ContentTypeListWrapper">
+                                ContentTypeListWrapper
                             </a>
                         </td>
-                        <td>JSON object with only a ContentTypeView property.</td>
+                        <td>JSON object with only a ContentTypeList property.</td>
                     </tr>
                                 </tbody>
             </table>
@@ -35525,12 +35534,22 @@ application/vnd.ibexa.api.ContentTypeView+json
                             <a href="#" class="nav-link disabled">Request</a>
                         </li>
                                                                                 <li class="nav-item">
-                                <a class="nav-link active text-gray" id="content-types-view-post-request-json-tab"
+                                <a class="nav-link active text-gray" id="content-types-view-post-request-xml-tab"
+                                   data-toggle="tab"
+                                   href="#content-types-view-post-request-xml"
+                                   role="tab"
+                                   aria-controls="content-types-view-post-request-xml"
+                                   aria-selected="true">
+                                    xml
+                                </a>
+                            </li>
+                                                                                <li class="nav-item">
+                                <a class="nav-link  text-gray" id="content-types-view-post-request-json-tab"
                                    data-toggle="tab"
                                    href="#content-types-view-post-request-json"
                                    role="tab"
                                    aria-controls="content-types-view-post-request-json"
-                                   aria-selected="true">
+                                   aria-selected="false">
                                     json
                                 </a>
                             </li>
@@ -35538,7 +35557,34 @@ application/vnd.ibexa.api.ContentTypeView+json
             </div>
                                         <div class="example position-relative border p-3 mb-3">
     <div class="tab-content" id="content-types-view-post-requestContent">
-                                                    <div class="tab-pane fade show active" id="content-types-view-post-request-json" role="tabpanel"
+                                                    <div class="tab-pane fade show active" id="content-types-view-post-request-xml" role="tabpanel"
+                     aria-labelledby="content-types-view-post-request-xml-tab">
+                                                                                            <div class="position-relative  ">
+                                                        <p class="mb-0 icon icon--copy-clipboard">
+                                <i class="material-icons-outlined clipboard"
+                                   data-toggle="tooltip"
+                                   data-placement="top"
+                                   data-clipboard-target="#Sddeafb31c1a4db07b4ded32038edc0280dd6f0eb3b5c9a5d23ba392d9d5cf674"
+                                   title="Copy to clipboard">file_copy
+                                </i>
+                            </p>
+                            <pre id="Sddeafb31c1a4db07b4ded32038edc0280dd6f0eb3b5c9a5d23ba392d9d5cf674" class="example__code-wrapper">
+                                <code class="xml">&lt;ContentTypeViewInput&gt;
+    &lt;identifier&gt;ContentTypeViewInput&lt;/identifier&gt;
+    &lt;ContentTypeQuery&gt;
+        &lt;limit&gt;1&lt;/limit&gt;
+        &lt;offset&gt;0&lt;/offset&gt;
+        &lt;Query&gt;
+            &lt;ContentTypeIdentifierCriterion&gt;folder&lt;/ContentTypeIdentifierCriterion&gt;
+        &lt;/Query&gt;
+    &lt;/ContentTypeQuery&gt;
+&lt;/ContentTypeViewInput&gt;
+</code>
+                            </pre>
+                        </div>
+                        <a href="" data-toggle="modal" data-target="#content-types-view-post-requestModal" class="btn btn--example-view-more text-center">View more</a>
+                                    </div>
+                                            <div class="tab-pane fade " id="content-types-view-post-request-json" role="tabpanel"
                      aria-labelledby="content-types-view-post-request-json-tab">
                                                                                             <div class="position-relative  ">
                                                         <p class="mb-0 icon icon--copy-clipboard">
@@ -35551,8 +35597,8 @@ application/vnd.ibexa.api.ContentTypeView+json
                             </p>
                             <pre id="S1ffdef2077c2658382790995974e941352b49428cede6f5aed5530ea76816dce" class="example__code-wrapper">
                                 <code class="json">{
-    &quot;ViewInput&quot;: {
-        &quot;identifier&quot;: &quot;ContentTypeView&quot;,
+    &quot;ContentTypeViewInput&quot;: {
+        &quot;identifier&quot;: &quot;ContentTypeViewInput&quot;,
         &quot;ContentTypeQuery&quot;: {
             &quot;limit&quot;: 1,
             &quot;offset&quot;: 0,
@@ -35590,12 +35636,25 @@ application/vnd.ibexa.api.ContentTypeView+json
                                 </a>
                             </li>
                                                                                             <li class="nav-item">
-                                    <a class="nav-link active text-gray" id="content-types-view-post-request-json-modal-tab"
+                                    <a class="nav-link active text-gray" id="content-types-view-post-request-xml-modal-tab"
+                                       data-toggle="tab"
+                                       href="#content-types-view-post-request-xml-modal"
+                                       role="tab"
+                                       aria-controls="content-types-view-post-request-xml-modal"
+                                       aria-selected="true">
+                                        xml
+                                    </a>
+                                </li>
+                                <li>
+
+                                </li>
+                                                                                            <li class="nav-item">
+                                    <a class="nav-link  text-gray" id="content-types-view-post-request-json-modal-tab"
                                        data-toggle="tab"
                                        href="#content-types-view-post-request-json-modal"
                                        role="tab"
                                        aria-controls="content-types-view-post-request-json-modal"
-                                       aria-selected="true">
+                                       aria-selected="false">
                                         json
                                     </a>
                                 </li>
@@ -35607,6 +35666,33 @@ application/vnd.ibexa.api.ContentTypeView+json
                 <div class="example position-relative border p-3 mb-3">
                     <div class="tab-content" id="content-types-view-post-requestModalContent">
                                                     <div class="tab-pane fade show active"
+                                 id="content-types-view-post-request-xml-modal" role="tabpanel"
+                                 aria-labelledby="content-types-view-post-request-xml-modal-tab">
+                                                                                                                                            <div class="position-relative  ">
+                                                                                <p class="mb-0 icon icon--copy-clipboard">
+                                            <i class="material-icons-outlined clipboard"
+                                               data-toggle="tooltip"
+                                               data-placement="top"
+                                               data-clipboard-target="#M1e32e424fcc75516a2ac6c209d34017a2804426333426d515f3028060e747a9e"
+                                               title="Copy to clipboard">file_copy
+                                            </i>
+                                        </p>
+                                        <pre id="M1e32e424fcc75516a2ac6c209d34017a2804426333426d515f3028060e747a9e">
+                                            <code class="xml">&lt;ContentTypeViewInput&gt;
+    &lt;identifier&gt;ContentTypeViewInput&lt;/identifier&gt;
+    &lt;ContentTypeQuery&gt;
+        &lt;limit&gt;1&lt;/limit&gt;
+        &lt;offset&gt;0&lt;/offset&gt;
+        &lt;Query&gt;
+            &lt;ContentTypeIdentifierCriterion&gt;folder&lt;/ContentTypeIdentifierCriterion&gt;
+        &lt;/Query&gt;
+    &lt;/ContentTypeQuery&gt;
+&lt;/ContentTypeViewInput&gt;
+</code>
+                                        </pre>
+                                    </div>
+                                                            </div>
+                                                    <div class="tab-pane fade "
                                  id="content-types-view-post-request-json-modal" role="tabpanel"
                                  aria-labelledby="content-types-view-post-request-json-modal-tab">
                                                                                                                                             <div class="position-relative  ">
@@ -35620,8 +35706,8 @@ application/vnd.ibexa.api.ContentTypeView+json
                                         </p>
                                         <pre id="Me9cdf8f4a638b957e00255df9f623edb9893d4229a3e1f3108dc492779875b39">
                                             <code class="json">{
-    &quot;ViewInput&quot;: {
-        &quot;identifier&quot;: &quot;ContentTypeView&quot;,
+    &quot;ContentTypeViewInput&quot;: {
+        &quot;identifier&quot;: &quot;ContentTypeViewInput&quot;,
         &quot;ContentTypeQuery&quot;: {
             &quot;limit&quot;: 1,
             &quot;offset&quot;: 0,
@@ -156804,7 +156890,7 @@ application/vnd.ibexa.api.ai.ActionType+xml
     <div class="items">
         <ul class="browser-default">
                             <li>
-                    <span class="font-weight-medium">ContentTypeList</span>
+                    <span class="font-weight-medium">ContentTypeInfoList</span>
 
     <span class="red-text">*</span>
 
@@ -169871,13 +169957,13 @@ application/vnd.ibexa.api.ai.ActionType+xml
 (<span class="font-italic">object</span>)
  - 
 <span>
-    JSON object with only a ViewInput property.</span>
+    JSON object with only a ContentTypeViewInput property.</span>
 
 
     <div class="items">
         <ul class="browser-default">
                             <li>
-                    <span class="font-weight-medium">ViewInput</span>
+                    <span class="font-weight-medium">ContentTypeViewInput</span>
 
     <span class="red-text">*</span>
 
@@ -169935,90 +170021,6 @@ application/vnd.ibexa.api.ai.ActionType+xml
         <ul class="browser-default">
                     </ul>
     </div>
-                </li>
-                    </ul>
-    </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                                            <div class="modal fade" id="ContentTypeViewWrapper" tabindex="-1" role="dialog" aria-labelledby="ContentTypeViewWrapperTitle" aria-hidden="true">
-                            <div class="modal-dialog" role="document">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <p class="modal-title" id="ContentTypeViewWrapperTitle">ContentTypeViewWrapper</p>
-                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                            <span aria-hidden="true">&times;</span>
-                                        </button>
-                                    </div>
-                                    <div class="modal-body">
-                                        <span class="font-weight-medium">ContentTypeViewWrapper</span>
-
-    <span class="red-text">*</span>
-
-(<span class="font-italic">object</span>)
- - 
-<span>
-    JSON object with only a ContentTypeView property.</span>
-
-
-    <div class="items">
-        <ul class="browser-default">
-                            <li>
-                    <span class="font-weight-medium">ContentTypeView</span>
-
-    <span class="red-text">*</span>
-
-(<span class="font-italic">ContentTypeView</span>)
- - 
-<span>
-    </span>
-
-
-    <div class="items">
-        <ul class="browser-default">
-                    </ul>
-    </div>
-                </li>
-                    </ul>
-    </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                                            <div class="modal fade" id="ContentTypeView" tabindex="-1" role="dialog" aria-labelledby="ContentTypeViewTitle" aria-hidden="true">
-                            <div class="modal-dialog" role="document">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <p class="modal-title" id="ContentTypeViewTitle">ContentTypeView</p>
-                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                            <span aria-hidden="true">&times;</span>
-                                        </button>
-                                    </div>
-                                    <div class="modal-body">
-                                        <span class="font-weight-medium">ContentTypeView</span>
-
-    <span class="red-text">*</span>
-
-(<span class="font-italic">object</span>)
- - 
-<span>
-    This class represents a content type view.</span>
-
-
-    <div class="items">
-        <ul class="browser-default">
-                            <li>
-                    <span class="font-weight-medium">ContentTypeList</span>
-
-    <span class="red-text">*</span>
-
-(<span class="font-italic">ContentTypeList</span>)
- - 
-<span>
-    </span>
-
-
                 </li>
                     </ul>
     </div>

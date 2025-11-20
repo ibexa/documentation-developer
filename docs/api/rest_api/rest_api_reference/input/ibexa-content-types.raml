@@ -55,9 +55,10 @@ get:
                     application/vnd.ibexa.api.ContentTypeViewInput+xml
                     application/vnd.ibexa.api.ContentTypeViewInput+json
         body:
-            application/vnd.ibexa.api.ContentTypeViewInput+json:
+            application/vnd.ibexa.api.ContentTypeViewInput+xml:
                 type: ContentTypeViewInput
                 example: !include examples/content/types/view/ContentTypeViewInput.xml.example
+            application/vnd.ibexa.api.ContentTypeViewInput+json:
                 type: ContentTypeViewInputWrapper
                 example: !include examples/content/types/view/ContentTypeViewInput.json.example
         responses:
