@@ -80,7 +80,7 @@ class PHPIncludeReviewer:
         return f"{self.mkdocs_url}/en/latest/{url_path}/"
 
     def extract_php_includes(self, md_file: Path) -> List[Dict]:
-        """Extract all PHP include_file calls from a markdown file"""
+        """Extract all PHP include_file calls from a markdown file and group by code block"""
         try:
             with open(md_file, 'r', encoding='utf-8') as f:
                 content = f.read()
@@ -88,37 +88,126 @@ class PHPIncludeReviewer:
             print(f"Error reading {md_file}: {e}")
             return []
 
-        matches = self.php_include_pattern.finditer(content)
-        includes = []
+        # Find all code blocks and their line ranges
+        code_blocks = []
+        in_code_block = False
+        code_block_start = 0
+
+        for i, line in enumerate(content.split('\n'), 1):
+            if line.strip().startswith('```'):
+                if not in_code_block:
+                    code_block_start = i
+                    in_code_block = True
+                else:
+                    code_blocks.append((code_block_start, i))
+                    in_code_block = False
+
+        # Find all include_file matches
+        matches = list(self.php_include_pattern.finditer(content))
+        if not matches:
+            return []
+
+        # Group matches by code block
+        grouped_includes = []
+        current_group = []
+        current_block = None
 
         for match in matches:
             php_file = match.group(1)
             start_line = int(match.group(2)) if match.group(2) else 0
             end_line = int(match.group(3)) if match.group(3) else None
-
-            # Calculate line number in markdown file
             line_number = content[:match.start()].count('\n') + 1
 
-            includes.append({
+            # Find which code block this match belongs to
+            match_block = None
+            for block_start, block_end in code_blocks:
+                if block_start <= line_number <= block_end:
+                    match_block = (block_start, block_end)
+                    break
+
+            include_data = {
                 'md_file': md_file,
                 'md_line': line_number,
                 'php_file': php_file,
                 'start_line': start_line,
                 'end_line': end_line,
-                'full_match': match.group(0)
-            })
+                'full_match': match.group(0),
+                'code_block': match_block
+            }
 
-        return includes
+            # Group consecutive includes in the same code block
+            if match_block and match_block == current_block:
+                current_group.append(include_data)
+            else:
+                # Save previous group if exists
+                if current_group:
+                    grouped_includes.append(current_group)
+                # Start new group
+                current_group = [include_data]
+                current_block = match_block
+
+        # Don't forget the last group
+        if current_group:
+            grouped_includes.append(current_group)
+
+        # Flatten groups of 1 item, keep groups with multiple items grouped
+        result = []
+        for group in grouped_includes:
+            if len(group) == 1:
+                result.append(group[0])
+            else:
+                # Mark as grouped - use first item's line number for the group
+                result.append({
+                    'md_file': md_file,
+                    'md_line': group[0]['md_line'],
+                    'grouped': True,
+                    'includes': group
+                })
+
+        return result
 
     def process_include(self, include_data: Dict, snippet_index: int) -> Dict:
-        """Process a single include_file call and extract the code"""
+        """Process a single include_file call or grouped includes and extract the code"""
         md_file = include_data['md_file']
-        php_file = include_data['php_file']
-        start_line = include_data['start_line']
-        end_line = include_data['end_line']
 
-        # Execute include_file to get rendered code
-        rendered_code = include_file(self.context, php_file, start_line, end_line)
+        # Handle grouped includes
+        if include_data.get('grouped'):
+            includes = include_data['includes']
+
+            # Combine all rendered code
+            combined_code = []
+            combined_matches = []
+            php_files = []
+
+            for inc in includes:
+                php_file = inc['php_file']
+                start_line = inc['start_line']
+                end_line = inc['end_line']
+
+                # Execute include_file to get rendered code
+                rendered = include_file(self.context, php_file, start_line, end_line)
+                combined_code.append(rendered)
+                combined_matches.append(inc['full_match'])
+
+                # Track unique php files
+                file_ref = f"{php_file}:{start_line}-{end_line if end_line else 'EOF'}"
+                php_files.append(file_ref)
+
+            rendered_code = ''.join(combined_code)
+            full_match = ''.join(combined_matches)
+            php_file_display = f"{len(includes)} combined includes"
+
+        else:
+            # Single include
+            php_file = include_data['php_file']
+            start_line = include_data['start_line']
+            end_line = include_data['end_line']
+
+            # Execute include_file to get rendered code
+            rendered_code = include_file(self.context, php_file, start_line, end_line)
+            full_match = include_data['full_match']
+            php_file_display = php_file
+            php_files = [f"{php_file}:{start_line}-{end_line if end_line else 'EOF'}"]
 
         # Create snippet filename
         snippet_filename = self.sanitize_filename(md_file, snippet_index)
@@ -145,10 +234,12 @@ class PHPIncludeReviewer:
         return {
             'md_file': str(md_file.relative_to(self.docs_dir)),
             'md_line': include_data['md_line'],
-            'php_file': php_file,
-            'start_line': start_line,
-            'end_line': end_line if end_line else 'EOF',
-            'full_match': include_data['full_match'],
+            'php_file': php_file_display,
+            'php_files': php_files,  # List of all included files
+            'grouped': include_data.get('grouped', False),
+            'start_line': include_data.get('start_line', 0) if not include_data.get('grouped') else None,
+            'end_line': include_data.get('end_line', 'EOF') if not include_data.get('grouped') else None,
+            'full_match': full_match,
             'snippet_file': snippet_filename,
             'snippet_path': str(snippet_path.relative_to(self.output_dir)),
             'rendered_code': rendered_code,
@@ -398,6 +489,16 @@ class PHPIncludeReviewer:
             # Escape HTML in code
             code_html = result['rendered_code'].replace('&', '&amp;').replace('<', '&lt;').replace('>', '&gt;')
 
+            # Build source info for grouped vs single includes
+            if result.get('grouped'):
+                source_info = f"<strong>Combined snippet from {len(result['php_files'])} includes:</strong><br>"
+                for php_file_ref in result['php_files']:
+                    source_info += f"<code style='display: block; margin: 2px 0;'>{php_file_ref}</code>"
+                lines_info = ""
+            else:
+                source_info = f"Source: <code>{result['php_file']}</code>"
+                lines_info = f"| Lines: {result['start_line']}-{result['end_line']}"
+
             html += f"""
         <div class="snippet {warning_class}" {data_attrs}>
             <div class="snippet-header">
@@ -406,8 +507,8 @@ class PHPIncludeReviewer:
                     <a href="{mkdocs_url}" target="_blank" style="margin-left: 10px; color: #3498db; text-decoration: none;">📄 View rendered page</a>
                 </div>
                 <div class="snippet-meta">
-                    Source: <code>{result['php_file']}</code>
-                    | Lines: {result['start_line']}-{result['end_line']}
+                    {source_info}
+                    {lines_info}
                 </div>
                 <div class="snippet-call">{result['full_match']}</div>
                 {warnings_html}
