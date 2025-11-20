@@ -1,6 +1,6 @@
 {
-    "ViewInput": {
-        "identifier": "ContentTypeView",
+    "ContentTypeViewInput": {
+        "identifier": "ContentTypeViewInput",
         "ContentTypeQuery": {
             "limit": 1,
             "offset": 0,

@@ -1,5 +1,5 @@
-<ViewInput>
-    <identifier>ContentTypeView</identifier>
+<ContentTypeViewInput>
+    <identifier>ContentTypeViewInput</identifier>
     <ContentTypeQuery>
         <limit>1</limit>
         <offset>0</offset>
@@ -7,4 +7,4 @@
             <ContentTypeIdentifierCriterion>folder</ContentTypeIdentifierCriterion>
         </Query>
     </ContentTypeQuery>
-</ViewInput>
+</ContentTypeViewInput>

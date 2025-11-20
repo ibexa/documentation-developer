@@ -664,7 +664,7 @@ ContentTypeInfoListWrapper:
     description: 'JSON object with only a ContentTypeInfoList property.'
     type: object
     properties:
-        ContentTypeList: ContentTypeInfoList
+        ContentTypeInfoList: ContentTypeInfoList
 
 ContentTypeInfoList:
     description: 'List of content type information.'
@@ -3234,10 +3234,10 @@ ContentTypeUpdate:
             required: false
 
 ContentTypeViewInputWrapper:
-    description: 'JSON object with only a ViewInput property.'
+    description: 'JSON object with only a ContentTypeViewInput property.'
     type: object
     properties:
-        ViewInput: ContentTypeViewInput
+        ContentTypeViewInput: ContentTypeViewInput
 
 ContentTypeViewInput:
     description: 'This class represents a content type view input.'
@@ -3247,18 +3247,6 @@ ContentTypeViewInput:
             type: object
     xml:
         name: ViewInput
-
-ContentTypeViewWrapper:
-    description: 'JSON object with only a ContentTypeView property.'
-    type: object
-    properties:
-        ContentTypeView: ContentTypeView
-
-ContentTypeView:
-    description: 'This class represents a content type view.'
-    type: object
-    properties:
-        ContentTypeList: ContentTypeList
 
 ViewInputWrapper:
     description: 'JSON object with only a ViewInput property.'

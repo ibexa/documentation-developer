@@ -45,16 +45,19 @@ get:
         description: Executes a query and returns a View that includes the results. Refer to [Search Criteria Reference](/en/latest/search/content_type_search_reference/content_type_criteria/).
         headers:
             Accept:
-                description: The ContentTypeView schema is returned in XML or JSON format.
+                description: The ContentTypeList schema is returned in XML or JSON format.
                 example: |
-                    application/vnd.ibexa.api.ContentTypeView+xml
-                    application/vnd.ibexa.api.ContentTypeView+json
+                    application/vnd.ibexa.api.ContentTypeList+xml
+                    application/vnd.ibexa.api.ContentTypeList+json
             Content-Type:
                 description: The ContentTypeViewInput schema is posted in XML or JSON format.
                 example: |
+                    application/vnd.ibexa.api.ContentTypeViewInput+xml
                     application/vnd.ibexa.api.ContentTypeViewInput+json
         body:
             application/vnd.ibexa.api.ContentTypeViewInput+json:
+                type: ContentTypeViewInput
+                example: !include examples/content/types/view/ContentTypeViewInput.xml.example
                 type: ContentTypeViewInputWrapper
                 example: !include examples/content/types/view/ContentTypeViewInput.json.example
         responses:
@@ -62,11 +65,11 @@ get:
                 description: OK - returns a view and its results
                 body:
                     application/vnd.ibexa.api.ContentTypeView+xml:
-                        type: ContentTypeView
-                        example: !include examples/content/types/view/ContentTypeView.xml.example
+                        type: ContentTypeList
+                        example: !include examples/content/types/view/ContentTypeList.xml.example
                     application/vnd.ibexa.api.ContentTypeView+json:
-                        type: ContentTypeViewWrapper
-                        example: !include examples/content/types/view/ContentTypeView.json.example
+                        type: ContentTypeListWrapper
+                        example: !include examples/content/types/view/ContentTypeList.json.example
             400:
                 description: Error - the input doesn't match the input schema definition
 
