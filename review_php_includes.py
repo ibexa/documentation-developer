@@ -231,14 +231,26 @@ class PHPIncludeReviewer:
         if is_short:
             warnings.append(f"WARNING: Very short snippet ({line_count} lines)")
 
+        # Determine if this is a partial include (has line ranges)
+        if include_data.get('grouped'):
+            # For grouped includes, check if ANY of them are partial
+            is_partial = any(
+                inc.get('end_line') is not None
+                for inc in include_data['includes']
+            )
+        else:
+            # For single includes, check if end_line is specified
+            is_partial = include_data.get('end_line') is not None
+
         return {
             'md_file': str(md_file.relative_to(self.docs_dir)),
             'md_line': include_data['md_line'],
             'php_file': php_file_display,
             'php_files': php_files,  # List of all included files
             'grouped': include_data.get('grouped', False),
+            'is_partial': is_partial,
             'start_line': include_data.get('start_line', 0) if not include_data.get('grouped') else None,
-            'end_line': include_data.get('end_line', 'EOF') if not include_data.get('grouped') else None,
+            'end_line': include_data.get('end_line', 'EOF') if not include_data.get('grouped') else 'EOF',
             'full_match': full_match,
             'snippet_file': snippet_filename,
             'snippet_path': str(snippet_path.relative_to(self.output_dir)),
@@ -291,7 +303,7 @@ class PHPIncludeReviewer:
         # Calculate statistics
         total = len(self.results)
         with_warnings = sum(1 for r in self.results if r['warnings'])
-        partial_includes = sum(1 for r in self.results if r['end_line'] != 'EOF')
+        partial_includes = sum(1 for r in self.results if r.get('is_partial', False))
 
         # Generate report HTML
         html = f"""<!DOCTYPE html>
@@ -473,7 +485,7 @@ class PHPIncludeReviewer:
         # Add each snippet
         for i, result in enumerate(self.results, 1):
             has_warning = len(result['warnings']) > 0
-            is_partial = result['end_line'] != 'EOF'
+            is_partial = result.get('is_partial', False)
             warning_class = 'has-warning' if has_warning else ''
             data_attrs = f"data-has-warning='{str(has_warning).lower()}' data-is-partial='{str(is_partial).lower()}'"
 
