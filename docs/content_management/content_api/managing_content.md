@@ -174,7 +174,7 @@ This method accepts a `ContentTypeQuery` object that supports filtering and sort
 
     For a full list of available criterions and sort clauses that you can use when finding and filtering content types, see [Content Type Search Criteria](content_type_criteria.md) and [Content Type Search Sort Clauses](content_type_sort_clauses.md) references.
 
-    For the REST API, see [Find content types](/api/rest_api/rest_api_reference/rest_api_reference.html#managing-content-find-content-types).
+    For the REST API, see [Filter content types](/api/rest_api/rest_api_reference/rest_api_reference.html#tag/Type/operation/api_contenttypesview_post).
 
 The following example shows how you can use the criteria to find content types:
 
