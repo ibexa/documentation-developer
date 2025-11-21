@@ -39,6 +39,41 @@ get:
             description: OK - returns a list of content types.
         401:
             description: Error - The user has no permission to read the content types.
+/view:
+    post:
+        displayName: Find content types
+        description: Executes a query and returns a View that includes the results. Refer to [Search Criteria Reference](/en/4.6/search/content_type_search_reference/content_type_criteria/).
+        headers:
+            Accept:
+                description: The ContentTypeList schema is returned in XML or JSON format.
+                example: |
+                    application/vnd.ibexa.api.ContentTypeList+xml
+                    application/vnd.ibexa.api.ContentTypeList+json
+            Content-Type:
+                description: The ContentTypeViewInput schema is posted in XML or JSON format.
+                example: |
+                    application/vnd.ibexa.api.ContentTypeViewInput+xml
+                    application/vnd.ibexa.api.ContentTypeViewInput+json
+        body:
+            application/vnd.ibexa.api.ContentTypeViewInput+xml:
+                type: ContentTypeViewInput
+                example: !include examples/content/types/view/ContentTypeViewInput.xml.example
+            application/vnd.ibexa.api.ContentTypeViewInput+json:
+                type: ContentTypeViewInputWrapper
+                example: !include examples/content/types/view/ContentTypeViewInput.json.example
+        responses:
+            200:
+                description: OK - returns a view and its results
+                body:
+                    application/vnd.ibexa.api.ContentTypeView+xml:
+                        type: ContentTypeList
+                        example: !include examples/content/types/view/ContentTypeList.xml.example
+                    application/vnd.ibexa.api.ContentTypeView+json:
+                        type: ContentTypeListWrapper
+                        example: !include examples/content/types/view/ContentTypeList.json.example
+            400:
+                description: Error - the input doesn't match the input schema definition
+
 /{contentTypeId}:
     get:
         displayName: Get content type

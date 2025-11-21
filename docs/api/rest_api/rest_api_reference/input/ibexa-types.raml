@@ -664,7 +664,7 @@ ContentTypeInfoListWrapper:
     description: 'JSON object with only a ContentTypeInfoList property.'
     type: object
     properties:
-        ContentTypeList: ContentTypeInfoList
+        ContentTypeInfoList: ContentTypeInfoList
 
 ContentTypeInfoList:
     description: 'List of content type information.'
@@ -686,6 +686,7 @@ ContentTypeList:
     properties:
         ContentType:
             type: ContentType[]
+            description: 'Array of ContentType objects.'
 
 ContentTypeUpdateStruct:
     description: 'This class is used for updating a content type.'
@@ -3231,6 +3232,21 @@ ContentTypeUpdate:
         modificationDate:
             type: datetime
             required: false
+
+ContentTypeViewInputWrapper:
+    description: 'JSON object with only a ContentTypeViewInput property.'
+    type: object
+    properties:
+        ContentTypeViewInput: ContentTypeViewInput
+
+ContentTypeViewInput:
+    description: 'This class represents a content type view input.'
+    type: object
+    properties:
+        ContentTypeQuery:
+            type: object
+    xml:
+        name: ViewInput
 
 ViewInputWrapper:
     description: 'JSON object with only a ViewInput property.'
