@@ -68,12 +68,13 @@ For example, to create a new price for a given currency, use `ProductPriceServic
 
 To display a product price on a product page or in the cart, you must calculate its value based on a base price and the context.
 Context contains information about any price modifiers that may apply to a specific customer group.
-To determine the final price, or resolve the price, use the `PriceResolverInterface` service, which uses the following logic:
+To determine the final price, or resolve the price, use the `PriceResolverInterface` service, which takes the following conditions into account:
 
-1. Checks whether a price exists for the product and currency, returns `null` if no such price exists.
-2. Verifies whether a customer group-related modifier exists:
-    1. If yes, it returns a custom price that is valid for the selected customer group.
-    2. If not, it returns a base product price in the selected currency.
+1. Existance of base price for the product in the specified currency
+2. Existance of customer group-related modifiers
+3. Existance of applicable [discounts](discounts.md)
+
+If the base price in the specified currency is missing, the return value is `null`.
 
 To resolve a price of a product in the currency for the current context, use either `PriceResolverInterface::resolvePrice()` or `PriceResolverInterface::resolvePrices()`:
 

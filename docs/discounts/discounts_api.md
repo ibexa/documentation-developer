@@ -127,3 +127,14 @@ You can search for Discounts using the [`DiscountServiceInterface::findDiscounts
 To learn more about the available search options, see Discounts' [Search Criteria](discounts_criteria.md) and [Sort Clauses](discounts_sort_clauses.md).
 
 For discount codes, you can query the database for discount code usage using [`DiscountCodeServiceInterface::findCodeUsages()`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-DiscountsCodes-DiscountCodeServiceInterface.html#method_findCodeUsages) and [`DiscountCodeUsageQuery`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-DiscountsCodes-Value-Query-DiscountCodeUsageQuery.html).
+
+## Resolving prices
+
+The applied discounts change final product pricing.
+To learn more about working with prices, see [Price API](price_api.md#prices).
+
+The example below shows how you can use:
+- [`ProductPriceServiceInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-ProductPriceServiceInterface.html) and [`PriceResolverInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-PriceResolverInterface.html) to query for product prices
+- [`OrderServiceInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-OrderManagement-OrderServiceInterface.html) to display discount detail for orders
+
+[[= include_file('code_samples/discounts/src/Command/OrderPriceCommand.php') =]]

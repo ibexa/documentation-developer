@@ -14,10 +14,11 @@ After you install it, temporary or permanent discounts can be applied against it
 
 You can also extend the feature, for example, by creating custom pricing rules, application conditions, or changing discount priorities.
 
+##  Getting Started
+
 [[= cards([
 "discounts/discounts_guide",
 "discounts/install_discounts",
 "discounts/configure_discounts",
-"discounts/discounts_api",
-"discounts/extend_discounts"
 ], columns=2) =]]
+

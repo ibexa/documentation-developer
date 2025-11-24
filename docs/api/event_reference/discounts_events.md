@@ -28,7 +28,7 @@ The events below are dispatched when managing [`discounts`](discounts_guide.md):
 
 ### Form
 
-The events below allow you to customize the discounts creation wizard:
+The events below allow you to [customize the discounts creation wizard](extend_discounts_wizard.md).
 
 | Event | Dispatched by |
 |---|---|

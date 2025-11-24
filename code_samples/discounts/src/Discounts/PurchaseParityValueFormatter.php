@@ -12,5 +12,7 @@ final class PurchaseParityValueFormatter implements DiscountValueFormatterInterf
 {
     public function format(DiscountInterface $discount, ?Money $money = null): string
     {
+        // TODO
+        return;
     }
 }
