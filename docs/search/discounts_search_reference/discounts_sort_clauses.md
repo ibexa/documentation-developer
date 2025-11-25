@@ -3,6 +3,7 @@ month_change: false
 editions:
     - lts-update
     - commerce
+description: Sort Clauses available for Discounts search
 ---
 
 # Discounts Search Sort Clauses reference

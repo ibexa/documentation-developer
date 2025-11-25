@@ -3,6 +3,7 @@ month_change: false
 editions:
     - lts-update
     - commerce
+description: Search Criteria available for Discounts search
 ---
 
 # Discounts Search Criterion reference

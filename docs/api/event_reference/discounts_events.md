@@ -51,6 +51,8 @@ The following events are dispatched when rendering each step of the discount wiz
 The event classes are shared between steps, but they are dispatched with different names.
 Each step form mapper dispatches its own set of events.
 
+You can use the names specified above or generate them using the `createEventName` method, for example `CreateFormDataEvent::createEventName(GeneralPropertiesInterface::IDENTIFIER)`
+
 | Form mapper | Step identifier |
 |---|---|
 | [`ConditionsMapperInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Discounts-Admin-FormMapper-ConditionsMapperInterface.html)| [`conditions`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Discounts-Admin-Form-Data-ConditionsInterface.html#constant_IDENTIFIER) |

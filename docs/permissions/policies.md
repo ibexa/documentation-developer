@@ -127,7 +127,7 @@ Each role you assign to user or user group consists of policies which define, wh
 
 #### Discounts [[% include 'snippets/lts-update_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
 
-The discount policies decide which actions can be executed by given user or user group.
+The [discount](discounts.md) policies decide which actions can be executed by given user or user group.
 
 !!! caution "Customers and discount policies"
 
