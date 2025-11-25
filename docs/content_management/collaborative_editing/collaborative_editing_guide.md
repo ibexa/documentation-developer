@@ -25,11 +25,6 @@ Collaborative editing is an opt-in available as an LTS update starting with the 
 To start using Collaborative editing, you must first install the required packages and perform initial configuration.
 To use Real-time editing feature, you must make arrangements with [[= product_name_base =]], and accept Terms & Conditions and Service Level Agreement in the Support Portal.
 
-## Prerequisites
-
-To use the **Copy link** option, which allows you to copy a link to the clipboard and share it through communication channels with other users, the Clipboard API is required.
-As a result, this option may not work in some browsers, such as Safari.
-
 ## How does collaboration work
 
 ### Content preview
