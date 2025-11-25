@@ -68,9 +68,11 @@ See [Elasticsearch REST API reference](https://www.elastic.co/docs/reference/ela
 
 ### Solr
 
+The following sequence of commands:
+
 1. Adds the Solr container
 3. Sets Solr as the search engine
-2. Create the config set
+2. Creates the config set
 4. Restarts the DDEV cluster, finish the config set, clears application cache
 5. Reindexes the content
 
