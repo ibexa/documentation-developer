@@ -35,10 +35,10 @@ A [search engine](search_engines.md) can be added to the cluster.
 
 The following sequence of commands:
 
-1. Adds the Elasticsearch container.
-2. Sets Elasticsearch as the search engine.
-3. Restarts the DDEV cluster and clears application cache.
-4. Injects the schema and reindexes the content.
+1. Adds the Elasticsearch container
+2. Sets Elasticsearch as the search engine
+3. Restarts the DDEV cluster and clears application cache
+4. Injects the schema and reindexes the content
 
 ```bash
 ddev add-on get ddev/ddev-elasticsearch
@@ -68,22 +68,35 @@ See [Elasticsearch REST API reference](https://www.elastic.co/docs/reference/ela
 
 ### Solr
 
-To simplify the installation of Solr, you can use the `ibexa/ddev-solr` add-on:
+1. Adds the Solr container
+3. Sets Solr as the search engine
+2. Create the config set
+4. Restarts the DDEV cluster, finish the config set, clears application cache
+5. Reindexes the content
 
 ```bash
-ddev add-on get ibexa/ddev-solr
+ddev add-on get ddev/ddev-solr
+ddev config --web-environment-add SEARCH_ENGINE=solr
+ddev config --web-environment-add SOLR_DSN=http://solr:8983/solr
+ddev config --web-environment-add SOLR_CORE=collection1
+ddev start
+mkdir .ddev/solr/configsets/collection1
+ddev exec -s solr cp -R /opt/solr/server/solr/configsets/_default/conf/* /mnt/ddev_config/solr/configsets/collection1/
+cp -R vendor/ibexa/solr/src/lib/Resources/config/solr/* .ddev/solr/configsets/collection1/
 ddev restart
+ddev php bin/console cache:clear
+ddev php bin/console ibexa:reindex
 ```
 
 You can now check whether Solr works.
 
-For example, the `ddev exec curl -s http://solr:8983/api/cores/` command:
+For example, the `ddev exec curl -s http://solr:SolrRocks@solr:8983/api/cores/` command:
 
  - checks whether the `web` server can access the `solr` server
  - checks whether `collection1` exists and its status
  - displays `collection1`'s `numDocs` that shouldn't be zero if indexing worked correctly
 
-You can access the Solr admin UI from the host by using port 8983 on the same `.ddev.site` subdomain as the front. Use `ddev describe` to get that URL.
+You can access the Solr admin UI from the host by running `ddev solr-admin` command, and use the credentials username `solr`and password `SolrRocks` (as in the Solr V2 API call example above).
 
 ## Share cache and sessions
 
