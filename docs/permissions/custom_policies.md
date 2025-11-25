@@ -257,8 +257,8 @@ For example, `translations/ibexa_content_forms_policies.en.yaml`:
 
 Check if current user has this custom limitation set to true from a custom controller:
 
-``` php
-[[= include_code('code_samples/back_office/limitation/src/Controller/CustomController.php') =]]
+```php
+[[= include_code('code_samples/back_office/limitation/src/Controller/CustomLimitationController.php') =]]
 ```
 
 ## Restrict access to form submissions
