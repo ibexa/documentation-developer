@@ -18,7 +18,7 @@ final class IsAnniversaryResolver
     {
         $d1 = $this->unifyYear(new DateTimeImmutable());
         $d2 = $this->unifyYear($date);
-        
+
         $diff = $d1->diff($d2, true)->days;
 
         // Check if the difference between dates is within the tolerance

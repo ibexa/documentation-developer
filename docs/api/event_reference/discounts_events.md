@@ -75,4 +75,4 @@ The event below allows you to inject your custom logic before the discount code 
 
 | Event | Dispatched by | Description |
 |---|---|---|
-|[`BeforeDiscountCodeApplyEvent`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-DiscountsCodes-Event-BeforeDiscountCodeApplyEvent.html)|`Ibexa\Bundle\DiscountsCodes\Controller\REST\DiscountCodeController`| Dispatched before a discount code is applied in the cart |
+|<nobr>[`BeforeDiscountCodeApplyEvent`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-DiscountsCodes-Event-BeforeDiscountCodeApplyEvent.html)</nobr>|`Ibexa\Bundle\DiscountsCodes\Controller\REST\DiscountCodeController`| Dispatched before a discount code is applied in the cart |

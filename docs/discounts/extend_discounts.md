@@ -86,9 +86,9 @@ Two new expressions are now available for use in custom conditions and rules.
 
 ### Implement custom condition
 
-The following example creates a new discount condition. It allows you to offer a special discount for customers on the date when their account was created.
+The following example creates a new discount condition. It allows you to offer a special discount for customers on the date when their account was created, making use of the expressions added above.
 
-The `tolerance` option allows you to make the discount usable for a slighlty longer period of time (for example, a day before or after the registration date) to allow more time for the customers to use it.
+The `tolerance` option allows you to make the discount usable for a longer period of time (for example, a day before or after the registration date) to allow more time for the customers to use it.
 
 Create the condition by creating a class implementing the [`DiscountConditionInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Discounts-Value-DiscountConditionInterface.html):
 

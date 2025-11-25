@@ -8,12 +8,13 @@ month_change: true
 
 # Extend Discounts wizard
 
-To allow the store managers to use your [custom conditions and rules](extend_discounts.md#create-custom-conditions), you need to integrate them into the back office discounts creation form.
+## Introduction
 
-The form is built using [Symfony Forms]([[= symfony_doc=]]/forms.html) and the [`DiscountFormMapperInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Discounts-DiscountFormMapperInterface.html) is the core of the implementation.
+For the store managers to use your [custom conditions and rules](extend_discounts.md#create-custom-conditions), you need to integrate them into the back office discounts creation form.
 
-It also provides a two-way mapping between the form structures (used to render the form) and the PHP API values used to create the discounts. 
-It offers methods related to:
+This form is built using [Symfony Forms]([[= symfony_doc=]]/forms.html) and the [`DiscountFormMapperInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Discounts-DiscountFormMapperInterface.html) is the core of the implementation.
+
+It provides a two-way mapping between the form structures (used to render the form) and the PHP API values used to create the discounts by offering methods related to:
 
 - form rendering 
 - data structure mapping
@@ -21,30 +22,46 @@ It offers methods related to:
 Form rendering methods return objects implementing the [`DiscountDataInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Discounts-Admin-Form-Data-DiscountDataInterface.html), allowing you to access and modify the form data.
 They include:
 
-- [`createFormData()`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Discounts-DiscountFormMapperInterface.html#method_createFormData) renders the form before the discount exists
-- [`mapDiscountToFormData()`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Discounts-DiscountFormMapperInterface.html#method_mapDiscountToFormData) renders the form when the discount already exists. It fills the discount edit form with the saved discount details.
+- [`createFormData()`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Discounts-DiscountFormMapperInterface.html#method_createFormData) renders the form before the discount is created
+- [`mapDiscountToFormData()`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Discounts-DiscountFormMapperInterface.html#method_mapDiscountToFormData) renders the form when the discount already exists. It fills the discount edit form with the saved discount details
 
-The data mapping methods are responsible for transforming the form data into structures compatible to use with the [Discount's PHP API](discounts_api.md). They include:
+The data mapping methods are responsible for transforming the form data into structures compatible with the [Discount's PHP API](discounts_api.md) services like [`DiscountServiceInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Discounts-DiscountServiceInterface.html) and [`DiscountCodeServiceInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-DiscountsCodes-DiscountCodeServiceInterface.html). 
+They include:
 
-- [`mapCreateDataToStruct()`]
-- [`mapEditTranslateDataToStruct()`]
-- [`mapUpdateDataToStruct()`]
+- [`mapCreateDataToStruct()`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Discounts-DiscountFormMapperInterface.html#method_mapCreateDataToStruct) creates the [`DiscountCreateStruct`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Discounts-Value-Struct-DiscountCreateStruct.html) object to create the discount
+- [`mapUpdateDataToStruct()`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Discounts-DiscountFormMapperInterface.html#method_mapUpdateDataToStruct) creates the [`DiscountUpdateStruct`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Discounts-Value-Struct-DiscountUpdateStruct.html) object to update the discount
+- [`mapEditTranslateDataToStruct()`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Discounts-DiscountFormMapperInterface.html#method_mapEditTranslateDataToStruct) creates the [`TranslationStruct`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Discounts-Value-Struct-DiscountTranslationStruct.html) objects for [translating the discounts](discounts_api.md#discount-translations)
 
+In addition to these methods, the main form mapper and the form mappers responsible for each step in the wizard dispatch events that you can use to add your custom logic. 
+See [discount's form events](discounts_events.md#form-events) for a list of the available events.
 
-The `mapCreateDataToStruct()`, `DiscountFormMapperInterface::mapEditTranslateDataToStruct()`, and `mapUpdateDataToStruct()`
+## Integrate custom conditions
 
-Form mappers attached both to the whole wizard and to each step in it emit [events](discounts_events.md#forms), allowing you to customize their behavior.
+This example continues the [anniversary discount condition example](extend_discounts.md#implement-custom-condition), integrating the condition with the wizard by adding a dedicated step with condition options.
+The condition will be limited to cart discounts only.
 
-### Custom form steps
-
-To add a custom step, create a new event listener listening to the [`CreateFormDataEvent` event](discounts_events.md#form).
-The example below adds a new step to the cart discount wizard.
+To add a custom step, create a value object representing the step.
+It contains the step identifier, properties for storing form data, and extends the [`AbstractDiscountStep`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Discounts-Admin-Form-Data-AbstractDiscountStep.html):
 
 ``` php
-
+[[= include_file('code_samples/discounts/src/Discounts/Step/AnniversaryConditionStep.php') =]]
 ```
 
-Each of the existing form steps has a constant priority, allowing you to add your custom step between them.
+Then, create a new event listener listening to the [`CreateFormDataEvent` and `MapDiscountToFormDataEvent` events](discounts_events.md#form):
+
+``` php hl_lines="21-22 31-55"
+[[= include_file('code_samples/discounts/src/Discounts/Step/AnniversaryConditionStepEventSubscriber.php') =]]
+```
+
+Attaching the `addAnniversaryConditionStep()` method to both these events adds the custom step both in discount creation and edit forms.
+
+The method first verifies if the form renders the cart discount wizard, according to assumptions of this example.
+
+Then, it creates the `AnniversaryConditionStep` object.
+If the discount existed already and is being edited, the saved values are used to populate the form.
+
+Finally, the new step is added to the wizard using the `withStep()` method, using `45` as step priority. 
+Each of the existing form steps has its own priority, allowing you to add your custom steps between them.
 
 | Step name | Priority |
 |---| ---|
@@ -55,21 +72,30 @@ Each of the existing form steps has a constant priority, allowing you to add you
 | Discount value | -50 |
 | Summary | -1000 |
 
-The priority of `-45` causes the custom step to be rendered between the "Conditions" and "Discount value"  steps.
+The custom step is added between the "Conditions" and "Discount value"  steps.
 
-Add the required data class:
+To add form fields to it, create an event listener adding your fields and a custom form type:
 
 ``` php
-
+[[= include_file('code_samples/discounts/src/Discounts/Step/AnniversaryConditionStepFormListener.php') =]]
 ```
 
-Then, add a form mapper 
+``` php
+[[= include_file('code_samples/discounts/src/Form/Type/AnniversaryConditionStepType.php') =]]
+```
 
-And a form type dedicated for the created data class:
+The new form step, including its form fields, are now part of the discounts wizard.
 
+The last task is making sure that the form data is correctly saved by attaching it to the discounts API structs.
 
-The following priorities are used in the system by default:
+The previously created `addStepDataToStruct()` method in `AnniversaryConditionStepEventSubscriber` is responsible for it:
 
-### Custom condition
+``` php hl_lines="23-24 57-70"
+[[= include_file('code_samples/discounts/src/Discounts/Step/AnniversaryConditionStepEventSubscriber.php') =]]
+```
 
-### Custom rules
+When the form is submitted, this method extracts information whether the store manager enabled the anniversary discount in the form and adds the condition to make sure this data is properly saved.
+
+The custom condition is now integrated with the discounts wizard and can be used by store managers to attract new customers.
+
+## Integrate custom rules
