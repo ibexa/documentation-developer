@@ -11,7 +11,7 @@ month_change: true
 
 ## Discount management
 
-The events below are dispatched when managing [`discounts`](discounts_guide.md):
+The events below are dispatched when managing [discounts](discounts.md):
 
 | Event | Dispatched by |
 |---|---|
@@ -51,7 +51,7 @@ The following events are dispatched when rendering each step of the discount wiz
 The event classes are shared between steps, but they are dispatched with different names.
 Each step form mapper dispatches its own set of events.
 
-You can use the names specified above or generate them using the `createEventName` method, for example `CreateFormDataEvent::createEventName(GeneralPropertiesInterface::IDENTIFIER)`
+You can use the names specified above or generate them using the `createEventName` method, for example `CreateFormDataEvent::createEventName(GeneralPropertiesInterface::IDENTIFIER)` returns `ibexa.discounts.form_mapper.general_properties.create_form_data`.
 
 | Form mapper | Step identifier |
 |---|---|

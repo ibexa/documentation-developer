@@ -22,9 +22,6 @@ Together with the existing [events](event_reference.md) and the [Discounts PHP A
 
 With custom [conditions](discounts_api.md#conditions) you can create more advanced discounts that apply only in specific scenarios.
 
-The following example create discounts valid for your customers only on the anniversary of their account creation.
-Having a custom condition allows you to model this scenario using a single discount, hiding all the complexity within the condition.
-
 The logic for both the conditions and rules is specified using [Symfony's expression language](https://symfony.com/doc/current/components/expression_language.html).
 
 ### Available expressions
@@ -47,112 +44,150 @@ The following expressions are available for conditions and rules:
 ### Custom expressions
 
 You can create your own variables and functions to make creating the conditions easier.
-To create the condition checking the registration date, the following example uses an additional variable and a function:
+The examples below show how to add an additional variable and a function to the available ones:
 
-- `current_user`, a variable with the current [User object](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-User-User.html)
+- New variable: `current_user_registration_date`
+
+It's a [`DateTime`](https://www.php.net/manual/en/class.datetime.php) object with the registration date of the currently logged-in user.
 
 To add it, create a class implementing the [`DiscountVariablesResolverInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Discounts-DiscountVariablesResolverInterface.html):
 
 ``` php
-todo: verify
+[[= include_file('code_samples/discounts/src/Discounts/ExpressionProvider/CurrentUserRegistrationDateResolver.php') =]]
 ```
 
 And mark it as a service using the `ibexa.discounts.expression_language.variable_resolver` service tag:
 
 ``` yaml
-todo: verify
+    App\Discounts\ExpressionProvider\CurrentUserRegistrationDateResolver:
+        tags:
+            - ibexa.discounts.expression_language.variable_resolver
 ```
 
-- `is_anniversary()`, a function returning a boolean value indicating if the two dates passed as arguments fall on the same day.
+- New function: `is_anniversary()`
+
+It's a function returning a boolean value indicating if today is the anniversary of the date passed as an argument.
+The function accepts an optional argument, `tolerance`, allowing you to extend the range of dates that are acccepted as anniversaries.
 
 ``` php
-todo: verify
+[[= include_file('code_samples/discounts/src/Discounts/ExpressionProvider/IsAnniversaryResolver.php') =]]
 ```
 
 Mark it as a service using the `ibexa.discounts.expression_language.function` service tag and specify the function name in the service definition.
 
 ``` yaml
-todo: verify
+    App\Discounts\ExpressionProvider\IsAnniversaryResolver:
+        tags:
+            - name: ibexa.discounts.expression_language.function
+              function: is_anniversary
 ```
 
 Two new expressions are now available for use in custom conditions and rules.
 
 ### Implement custom condition
 
-Now, create the condition by creating a class implementing the [`DiscountConditionInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Discounts-Value-DiscountConditionInterface.html).
+The following example creates a new discount condition. It allows you to offer a special discount for customers on the date when their account was created.
+
+The `tolerance` option allows you to make the discount usable for a slighlty longer period of time (for example, a day before or after the registration date) to allow more time for the customers to use it.
+
+Create the condition by creating a class implementing the [`DiscountConditionInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Discounts-Value-DiscountConditionInterface.html):
 
 ``` php
-todo: verify
+[[= include_file('code_samples/discounts/src/Discounts/Condition/IsAccountAnniversary.php') =]]
 ```
 
+The `tolerance` option is made available for usage in the expression by passing it in the constructor.
 The expression can evaluate to `true` or `false` depending on the custom expressions values.
-An additional variable, `date`, is defined to store the current date for comparison.
 
-For each condition class you must create a dedicated condition factory, a class implementing the `\Ibexa\Discounts\Repository\DiscountCondition\DiscountConditionFactoryInterface` inteface.
+
+
+For each custom condition class, you must create a dedicated condition factory, a class implementing the `\Ibexa\Discounts\Repository\DiscountCondition\DiscountConditionFactoryInterface` inteface.
 
 This allows you to create conditions when working in the context of the Symfony service container.
 
 ``` php
-todo
+[[= include_file('code_samples/discounts/src/Discounts/Condition/IsAccountAnniversaryConditionFactory.php') =]]
 ```
 
 Mark it as a service using the `ibexa.discounts.condition.factory` service tag and specify the condition's identifier.
 
 ``` yaml
-todo
+    App\Discounts\Condition\IsAccountAnniversaryConditionFactory:
+        tags:
+            -   name: ibexa.discounts.condition.factory
+                discriminator: !php/const App\Discounts\Condition\IsAccountAnniversary::IDENTIFIER
 ```
 
-To learn how to integrate the custom conditions into the back office, see [Extend Discounts wizard](extend_discounts_wizard.md).
+You can now use the condition using the PHP API.
+
+To learn how to integrate it into the back office, see [Extend Discounts wizard](extend_discounts_wizard.md).
 
 ## Create custom rules
 
+The following example implements a [purchasing power parity](https://en.wikipedia.org/wiki/Purchasing_power_parity) discount, adjusting product's price in the cart based on buyer's region. 
+You could use it, for example, in regions sharing the same currency and apply the rule only to them by using the [`IsInRegions` condition](discounts_api.md#conditions).
+
 To implement a custom rule, create a class implementing the [`DiscountRuleInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Discounts-Value-DiscountRuleInterface.html).
 
-The following example implements a [purchasing power parity](https://en.wikipedia.org/wiki/Purchasing_power_parity) discount, adjusting product's price in the cart based on buyer's region.
 
 ``` php
-todo
+[[= include_file('code_samples/discounts/src/Discounts/Rule/PurchasingPowerParityRule.php', 0, 42) =]]
 ```
 
-As with conditions, create a dedicated rule factory.
+As with conditions, create a dedicated rule factory:
 
 ``` php
-todo
+[[= include_file('code_samples/discounts/src/Discounts/Rule/PurchasingPowerParityRuleFactory.php', 0, 14) =]]
 ```
 
-Mark it as a service using the `ibexa.discounts.condition.factory` service tag and specify the rule's type.
+Then, mark it as a service using the `ibexa.discounts.rule.factory` service tag and specify the rule's type.
 
 ``` yaml
-todo
+    App\Discounts\Rule\PurchasingPowerParityRuleFactory:
+        tags:
+            - name: ibexa.discounts.rule.factory
+              discriminator: !php/const App\Discounts\Rule\PurchasingPowerParityRule::TYPE
 ```
 
-To learn how to integrate the custom rules into the back office, see [Extend Discounts wizard](extend_discounts_wizard.md).
+You can now use the rule with the PHP API, but to use it within the back office and storefront you need to:
 
-### Custom discount formatting
+- [integrate it into the Discounts wizard](extend_discounts_wizard.md)
+- implement a new value formatter
+
+### Custom discount value formatting
 
 You can adjust how each discount type is displayed when using the [`ibexa_discounts_render_discount_badge` Twig function](discounts_twig_functions.md#ibexa_discounts_render_discount_badge) by implementing a custom formatter.
+
+You must implement a custom formatter for each custom rule.
 
 To do it, create a class implementing the [`DiscountValueFormatterInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Discounts-DiscountValueFormatterInterface.html) and use the `ibexa.discounts.value.formatter` service tag:
 
 ``` php
-todo
+[[= include_file('code_samples/discounts/src/Discounts/Rule/PurchaseParityValueFormatter.php') =]]
 ```
 
 ``` yaml
-todo
+    App\Discounts\Rule\PurchaseParityValueFormatter:
+        tags:
+            - name: ibexa.discounts.value.formatter
+              rule_type: !php/const App\Discounts\Rule\PurchasingPowerParityRule::TYPE
 ```
 
 ## Change discount priority
 
 You can change the [the defualt discount priority](discounts_guide.md#discounts-priority) by creating a class implementing the [`DiscountPrioritizationStrategyInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Discounts-DiscountPrioritizationStrategyInterface.html) and aliasing to it the default implementation.
 
-The example below decorates the default implementation to prioritize recently created discounts above all the others.
+The example below decorates the default implementation to prioritize recently updated discounts above all the others.
+It uses one of the existing [discount search criterions](discounts_criteria.md).
 
 ``` php
-todo
+[[= include_file('code_samples/discounts/src/Discounts/RecentDiscountPrioritizationStrategy.php') =]]
 ```
 
 ``` yaml
-todo
+    App\Discounts\RecentDiscountPrioritizationStrategy:
+        decorates: Ibexa\Contracts\Discounts\DiscountPrioritizationStrategyInterface
+        arguments:
+            $inner: '@.inner'
 ```
 

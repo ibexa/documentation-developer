@@ -8,17 +8,30 @@ month_change: true
 
 # Extend Discounts wizard
 
-To allow using your [custom conditions and rules](extend_discounts.md#create-custom-conditions) by the store managers, you need to integrate them into the back office discounts creation form.
+To allow the store managers to use your [custom conditions and rules](extend_discounts.md#create-custom-conditions), you need to integrate them into the back office discounts creation form.
 
-The [`DiscountFormMapperInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Discounts-DiscountFormMapperInterface.html) is the service responsible for translating the form data into structures used by the PHP API.
+The form is built using [Symfony Forms]([[= symfony_doc=]]/forms.html) and the [`DiscountFormMapperInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Discounts-DiscountFormMapperInterface.html) is the core of the implementation.
 
-The form uses a data driven approach, where the mapper provides all the data to the form and the form creates the fields.
+It also provides a two-way mapping between the form structures (used to render the form) and the PHP API values used to create the discounts. 
+It offers methods related to:
 
-It also provides a two-way mapping between the form structures (used to render the form) and the PHP API values used to create the discounts.
+- form rendering 
+- data structure mapping
 
-The `DiscountFormMapperInterface::createFormData()` and `DiscountFormMapperInterface::publicmapDiscountToFormData()` methods return objects implementing the [`DiscountDataInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Discounts-Admin-Form-Data-DiscountDataInterface.html), allowing you to access the form data.
+Form rendering methods return objects implementing the [`DiscountDataInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Discounts-Admin-Form-Data-DiscountDataInterface.html), allowing you to access and modify the form data.
+They include:
 
-The `DiscountFormMapperInterface::mapCreateDataToStruct()`, `DiscountFormMapperInterface::mapEditTranslateDataToStruct()`, and `mapUpdateDataToStruct()`
+- [`createFormData()`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Discounts-DiscountFormMapperInterface.html#method_createFormData) renders the form before the discount exists
+- [`mapDiscountToFormData()`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Discounts-DiscountFormMapperInterface.html#method_mapDiscountToFormData) renders the form when the discount already exists. It fills the discount edit form with the saved discount details.
+
+The data mapping methods are responsible for transforming the form data into structures compatible to use with the [Discount's PHP API](discounts_api.md). They include:
+
+- [`mapCreateDataToStruct()`]
+- [`mapEditTranslateDataToStruct()`]
+- [`mapUpdateDataToStruct()`]
+
+
+The `mapCreateDataToStruct()`, `DiscountFormMapperInterface::mapEditTranslateDataToStruct()`, and `mapUpdateDataToStruct()`
 
 Form mappers attached both to the whole wizard and to each step in it emit [events](discounts_events.md#forms), allowing you to customize their behavior.
 
@@ -57,8 +70,6 @@ And a form type dedicated for the created data class:
 
 The following priorities are used in the system by default:
 
+### Custom condition
 
-
-### Condition
-
-### Rules
+### Custom rules

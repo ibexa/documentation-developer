@@ -47,7 +47,7 @@ Only a single discount can be applied to a given product, and a discount can onl
 
 ### Conditions
 
-With conditions you can narrow down the scenarios in which the discount applies. The following conditions are available:
+With conditions you can narrow down the scenarios in which the discount applies. The following conditions are available in the `\Ibexa\Discounts\Value\DiscountCondition` and `\Ibexa\DiscountsCodes\Value\DiscountCondition` namespaces:
 
 | Condition | Applies to | Identifier | Description | Expression values |
 |---|---|---|---|---|
