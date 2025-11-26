@@ -12,7 +12,7 @@ month_change: true
 
 For the store managers to use your [custom conditions and rules](extend_discounts.md#create-custom-conditions), you need to integrate them into the back office discounts creation form.
 
-This form is built using [Symfony Forms]([[= symfony_doc=]]/forms.html) and the [`DiscountFormMapperInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Discounts-DiscountFormMapperInterface.html) is the core of the implementation.
+This form is built using [Symfony Forms]([[= symfony_doc=]]/forms.html) and the [`DiscountFormMapperInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Discounts-DiscountFormMapperInterface.html) interface is at the core of the implementation.
 
 It provides a two-way mapping between the form structures (used to render the form) and the PHP API values used to create the discounts by offering methods related to:
 
@@ -38,7 +38,7 @@ See [discount's form events](discounts_events.md#form-events) for a list of the 
 ## Integrate custom conditions
 
 This example continues the [anniversary discount condition example](extend_discounts.md#implement-custom-condition), integrating the condition with the wizard by adding a dedicated step with condition options.
-The condition will be limited to cart discounts only.
+The new step will be limited to cart discounts only.
 
 To add a custom step, create a value object representing the step.
 It contains the step identifier, properties for storing form data, and extends the [`AbstractDiscountStep`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Discounts-Admin-Form-Data-AbstractDiscountStep.html):
@@ -107,18 +107,16 @@ The custom condition is now integrated with the discounts wizard and can be used
 
 This example continues the [purchasing power parity rule example](extend_discounts.md#implement-custom-rules), integrating the rule with the wizard.
 
-First, we need to create a new service implementing the `DiscountValueMapperInterface` interface, responsible for handling the new rule type:
+First, create a new service implementing the `DiscountValueMapperInterface` interface, responsible for handling the new rule type:
 
 ``` php hl_lines="59-60"
 [[= include_file('code_samples/discounts/src/Form/FormMapper/PurchasingPowerParityValueMapper.php') =]]
 ```
 
-It uses an `PurchasingPowerParityValue` object to store the form data.
-In the example, the data about discount value is stored directly in rule's code and the object does not require any additional properties.
-
+It uses an `PurchasingPowerParityValue` object to store the form data:
 
 ``` php
-[[= include_file('code_samples/discounts/src/Form/Data/PurchasingPowerParityValue.php', 0, 9) =]]
+[[= include_file('code_samples/discounts/src/Form/Data/PurchasingPowerParityValue.php') =]]
 ```
 
 This value mapper is used by a new form mapper, dedicated to the new rule type:
@@ -155,3 +153,13 @@ and add a dedicated value type class:
 
 In the example above, the discount value step is used to to display a read-only field with regions the discount is limited to.
 The `$availableRegionHandler` callback function extracts the selected regions and modifies the form as needed, using the `FormEvents::PRE_SET_DATA` and `FormEvents::POST_SUBMIT` events.
+
+The last step consists of providing all the required translations.
+Specify them in `translations/ibexa_discount.en.yaml`:
+
+``` yaml
+ibexa.discount.type.purchasing_power_parity: Purchasing Power Parity
+discount.rule_type.purchasing_power_parity: Purchasing Power Parity
+```
+
+The custom rule is now integrated with the discounts wizard and can be used by store managers to offer new discounts.
