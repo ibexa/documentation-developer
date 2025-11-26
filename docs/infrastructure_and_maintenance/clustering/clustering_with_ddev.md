@@ -102,6 +102,8 @@ You can access the Solr admin UI from the host by running `ddev solr-admin` comm
 or by using port 8983 on the same `.ddev.site` subdomain than the front (use `ddev describe` to get that URL),
 and use the credentials username `solr` and password `SolrRocks` (as in the Solr V2 API call example above).
 
+For more information on topics such as version of Solr, see [ddev/ddev-solr README](https://github.com/ddev/ddev-solr).
+
 ## Share cache and sessions
 
 You can add a [persistence cache pool](persistence_cache.md#persistence-cache-configuration) and a [session handler](sessions.md#session-handlers) to the cluster.
