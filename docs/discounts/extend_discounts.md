@@ -190,4 +190,3 @@ It uses one of the existing [discount search criterions](discounts_criteria.md).
         arguments:
             $inner: '@.inner'
 ```
-

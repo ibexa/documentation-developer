@@ -10,7 +10,7 @@ month_change: true
 
 ## Introduction
 
-For the store managers to use your [custom conditions and rules](extend_discounts.md#create-custom-conditions), you need to integrate them into the back office discounts creation form.
+For the store managers to use your [custom conditions and rules](extend_discounts.md#implement-custom-condition), you need to integrate them into the back office discounts creation form.
 
 This form is built using [Symfony Forms]([[= symfony_doc=]]/forms.html) and the [`DiscountFormMapperInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Discounts-DiscountFormMapperInterface.html) interface is at the core of the implementation.
 
@@ -25,20 +25,20 @@ They include:
 - [`createFormData()`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Discounts-DiscountFormMapperInterface.html#method_createFormData) renders the form before the discount is created
 - [`mapDiscountToFormData()`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Discounts-DiscountFormMapperInterface.html#method_mapDiscountToFormData) renders the form when the discount already exists. It fills the discount edit form with the saved discount details
 
-The data mapping methods are responsible for transforming the form data into structures compatible with the [Discount's PHP API](discounts_api.md) services like [`DiscountServiceInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Discounts-DiscountServiceInterface.html) and [`DiscountCodeServiceInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-DiscountsCodes-DiscountCodeServiceInterface.html). 
+The data mapping methods are responsible for transforming the form data into structures compatible with the [Discount's PHP API](discounts_api.md) services like [`DiscountServiceInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Discounts-DiscountServiceInterface.html) and [`DiscountCodeServiceInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-DiscountsCodes-DiscountCodeServiceInterface.html).
 They include:
 
 - [`mapCreateDataToStruct()`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Discounts-DiscountFormMapperInterface.html#method_mapCreateDataToStruct) creates the [`DiscountCreateStruct`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Discounts-Value-Struct-DiscountCreateStruct.html) object to create the discount
 - [`mapUpdateDataToStruct()`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Discounts-DiscountFormMapperInterface.html#method_mapUpdateDataToStruct) creates the [`DiscountUpdateStruct`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Discounts-Value-Struct-DiscountUpdateStruct.html) object to update the discount
 - [`mapEditTranslateDataToStruct()`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Discounts-DiscountFormMapperInterface.html#method_mapEditTranslateDataToStruct) creates the [`TranslationStruct`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Discounts-Value-Struct-DiscountTranslationStruct.html) objects for [translating the discounts](discounts_api.md#discount-translations)
 
-In addition to these methods, the main form mapper and the form mappers responsible for each step in the wizard dispatch events that you can use to add your custom logic. 
+In addition to these methods, the main form mapper and the form mappers responsible for each step in the wizard dispatch events that you can use to add your custom logic.
 See [discount's form events](discounts_events.md#form-events) for a list of the available events.
 
 ## Integrate custom conditions
 
 This example continues the [anniversary discount condition example](extend_discounts.md#implement-custom-condition), integrating the condition with the wizard by adding a dedicated step with condition options.
-The new step will be limited to cart discounts only.
+The example limits the new step to cart discounts only.
 
 To add a custom step, create a value object representing the step.
 It contains the step identifier, properties for storing form data, and extends the [`AbstractDiscountStep`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Discounts-Admin-Form-Data-AbstractDiscountStep.html):
@@ -60,12 +60,12 @@ The method first verifies if the form renders the cart discount wizard, accordin
 Then, it creates the `AnniversaryConditionStep` object.
 If the discount existed already and is being edited, the saved values are used to populate the form.
 
-Finally, the new step is added to the wizard using the `withStep()` method, using `45` as step priority. 
+Finally, the new step is added to the wizard using the `withStep()` method, using `45` as step priority.
 Each of the existing form steps has its own priority, allowing you to add your custom steps between them.
 
 | Step name | Priority |
 |---| ---|
-| General properties | 50| 
+| General properties | 50|
 | Target group | -20 |
 | Products | -30 |
 | Conditions | -40 |
@@ -135,7 +135,7 @@ Link them together when defining the services:
         $discountValueMapper: '@App\Form\FormMapper\PurchasingPowerParityValueMapper'
 ```
 
-The [`DiscountFormMapperInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Discounts-DiscountFormMapperInterface.html) acts as a registry, finding a form mapper dedicated for given rule type and delegating to the the responsibility of building the form.
+The [`DiscountFormMapperInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Discounts-DiscountFormMapperInterface.html) acts as a registry, finding a form mapper dedicated for given rule type and delegating to the responsibility of building the form.
 
 As each rule type might have a different rule calculation logic, each rule must have a different "Discount value" step in the form.
 
@@ -151,7 +151,7 @@ and add a dedicated value type class:
 [[= include_file('code_samples/discounts/src/Form/Type/DiscountValue/PurchasingPowerParityValueType.php') =]]
 ```
 
-In the example above, the discount value step is used to to display a read-only field with regions the discount is limited to.
+In the example above, the discount value step is used to display a read-only field with regions the discount is limited to.
 The `$availableRegionHandler` callback function extracts the selected regions and modifies the form as needed, using the `FormEvents::PRE_SET_DATA` and `FormEvents::POST_SUBMIT` events.
 
 The last step consists of providing all the required translations.
