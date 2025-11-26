@@ -19,7 +19,7 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 /**
  * @extends \Symfony\Component\Form\AbstractType<\App\Form\Data\PurchasingPowerParityValue>
  */
-final class PurchasingPowerParityValueType  extends AbstractType
+final class PurchasingPowerParityValueType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
