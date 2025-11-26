@@ -98,7 +98,9 @@ For example, the `ddev exec curl -s http://solr:SolrRocks@solr:8983/api/cores/` 
  - checks whether `collection1` exists and its status
  - displays `collection1`'s `numDocs` that shouldn't be zero if indexing worked correctly
 
-You can access the Solr admin UI from the host by running `ddev solr-admin` command, and use the credentials username `solr`and password `SolrRocks` (as in the Solr V2 API call example above).
+You can access the Solr admin UI from the host by running `ddev solr-admin` command
+or by using port 8983 on the same `.ddev.site` subdomain than the front (use `ddev describe` to get that URL),
+and use the credentials username `solr` and password `SolrRocks` (as in the Solr V2 API call example above).
 
 ## Share cache and sessions
 
