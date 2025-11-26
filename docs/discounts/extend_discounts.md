@@ -18,7 +18,7 @@ Together with the existing [events](event_reference.md) and the [Discounts PHP A
     - Konrad Oboza: [Introduction to the Discounts system in Ibexa DXP](https://www.youtube.com/watch?v=kTgtxY38srw)
     - Paweł Niedzielski: [Extending new Discounts to suit your needs](https://www.youtube.com/watch?v=pDJxEKJLwPs)
 
-## Create custom conditions
+## Create custom conditions and rules
 
 With custom [conditions](discounts_api.md#conditions) you can create more advanced discounts that apply only in specific scenarios.
 
@@ -122,7 +122,7 @@ You can now use the condition using the PHP API.
 
 To learn how to integrate it into the back office, see [Extend Discounts wizard](extend_discounts_wizard.md).
 
-## Create custom rules
+### Implement custom rules
 
 The following example implements a [purchasing power parity](https://en.wikipedia.org/wiki/Purchasing_power_parity) discount, adjusting product's price in the cart based on buyer's region. 
 You could use it, for example, in regions sharing the same currency and apply the rule only to them by using the [`IsInRegions` condition](discounts_api.md#conditions).

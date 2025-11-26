@@ -49,8 +49,8 @@ It contains the step identifier, properties for storing form data, and extends t
 
 Then, create a new event listener listening to the [`CreateFormDataEvent` and `MapDiscountToFormDataEvent` events](discounts_events.md#form):
 
-``` php hl_lines="21-22 31-55"
-[[= include_file('code_samples/discounts/src/Discounts/Step/AnniversaryConditionStepEventSubscriber.php') =]]
+``` php hl_lines="18-19 26-50"
+[[= include_file('code_samples/discounts/src/Discounts/Step/Step1/AnniversaryConditionStepEventSubscriber.php') =]]
 ```
 
 Attaching the `addAnniversaryConditionStep()` method to both these events adds the custom step both in discount creation and edit forms.
@@ -88,10 +88,15 @@ The new form step, including its form fields, are now part of the discounts wiza
 
 The last task is making sure that the form data is correctly saved by attaching it to the discounts API structs.
 
-The previously created `addStepDataToStruct()` method in `AnniversaryConditionStepEventSubscriber` is responsible for it:
+Expand the previously created `AnniversaryConditionStepEventSubscriber` to listen to two additional events:
+
+- [`CreateDiscountCreateStructEvent`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Discounts-Event-CreateDiscountCreateStructEvent.html)
+- [`CreateDiscountUpdateStructEvent`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Discounts-Event-CreateDiscountUpdateStructEvent.html)
+
+and add the `addStepDataToStruct()` method:
 
 ``` php hl_lines="23-24 57-70"
-[[= include_file('code_samples/discounts/src/Discounts/Step/AnniversaryConditionStepEventSubscriber.php') =]]
+[[= include_file('code_samples/discounts/src/Discounts/Step/Step2/AnniversaryConditionStepEventSubscriber.php') =]]
 ```
 
 When the form is submitted, this method extracts information whether the store manager enabled the anniversary discount in the form and adds the condition to make sure this data is properly saved.
@@ -99,3 +104,7 @@ When the form is submitted, this method extracts information whether the store m
 The custom condition is now integrated with the discounts wizard and can be used by store managers to attract new customers.
 
 ## Integrate custom rules
+
+This example continues the [purchasing power parity rule example](extend_discounts.md#implement-custom-rules), integrating the rule with the wizard.
+
+
