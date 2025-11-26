@@ -107,4 +107,51 @@ The custom condition is now integrated with the discounts wizard and can be used
 
 This example continues the [purchasing power parity rule example](extend_discounts.md#implement-custom-rules), integrating the rule with the wizard.
 
+First, we need to create a new service implementing the `DiscountValueMapperInterface` interface, responsible for handling the new rule type:
 
+``` php hl_lines="59-60"
+[[= include_file('code_samples/discounts/src/Form/FormMapper/PurchasingPowerParityValueMapper.php') =]]
+```
+
+It uses an `PurchasingPowerParityValue` object to store the form data.
+In the example, the data about discount value is stored directly in rule's code and the object does not require any additional properties.
+
+
+``` php
+[[= include_file('code_samples/discounts/src/Form/Data/PurchasingPowerParityValue.php', 0, 9) =]]
+```
+
+This value mapper is used by a new form mapper, dedicated to the new rule type:
+
+``` php
+[[= include_file('code_samples/discounts/src/Form/FormMapper/PurchasingPowerParityFormMapper.php') =]]
+```
+
+Link them together when defining the services:
+
+``` yaml
+    App\Form\FormMapper\PurchasingPowerParityValueMapper: ~
+
+    App\Form\FormMapper\PurchasingPowerParityFormMapper:
+      arguments:
+        $discountValueMapper: '@App\Form\FormMapper\PurchasingPowerParityValueMapper'
+```
+
+The [`DiscountFormMapperInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Discounts-DiscountFormMapperInterface.html) acts as a registry, finding a form mapper dedicated for given rule type and delegating to the the responsibility of building the form.
+
+As each rule type might have a different rule calculation logic, each rule must have a different "Discount value" step in the form.
+
+To create it, create a dedicated class implementing the [`DiscountValueFormTypeMapperInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Discounts-Admin-Form-DiscountValueFormTypeMapperInterface.html)
+
+``` php
+[[= include_file('code_samples/discounts/src/Form/FormMapper/PurchasingPowerParityDiscountValueFormTypeMapper.php') =]]
+```
+
+and add a dedicated value type class:
+
+``` php hl_lines="26-40 47-61 72"
+[[= include_file('code_samples/discounts/src/Form/Type/DiscountValue/PurchasingPowerParityValueType.php') =]]
+```
+
+In the example above, the discount value step is used to to display a read-only field with regions the discount is limited to.
+The `$availableRegionHandler` callback function extracts the selected regions and modifies the form as needed, using the `FormEvents::PRE_SET_DATA` and `FormEvents::POST_SUBMIT` events.
