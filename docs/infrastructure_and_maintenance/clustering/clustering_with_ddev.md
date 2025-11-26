@@ -72,7 +72,7 @@ The following sequence of commands:
 
 1. Adds the Solr container
 2. Sets Solr as the search engine
-3. Start the DDEV cluster to creates core config by combining default files and those provided by Ibexa 
+3. Start the DDEV cluster to creates core config by combining default files and those provided by [[= product_name =]]
 4. Restarts the DDEV cluster and clears application cache
 5. Reindexes the content
 
