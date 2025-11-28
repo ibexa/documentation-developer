@@ -237,7 +237,7 @@ Here is an example of a `ClassNameMapperInterface` associating the class `App\My
 ```
 
 This mapper also provides a translation for the class name in the **Filters** menu.
-This translation can be extracted with `php bin/console translation:extract en --domain=ibexa_activity_log --dir=src --output-dir=translations`.
+This translation can be extracted with `php bin/console jms:translation:extract en --domain=ibexa_activity_log --dir=src --output-dir=translations`.
 
 To be taken into account, this mapper must be registered as a service:
 
