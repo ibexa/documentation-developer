@@ -203,7 +203,6 @@ composer remove --no-update \
     ibexa/discounts-codes \
     ibexa/collaboration \
     ibexa/share \
-    ibexa/fieldtype-richtext-rte \
 ;
 ```
 
