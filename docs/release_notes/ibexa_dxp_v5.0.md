@@ -1,7 +1,7 @@
 ---
 description: Ibexa DXP v5.0 incorporates features brought by LTS Updates from previous versions, brings upgrades to the tech stack and improvements to developer experience.
 title: Ibexa DXP v5.0 LTS
-month_change: false
+month_change: true
 ---
 
 <!-- vale VariablesVersion = NO -->
@@ -9,6 +9,60 @@ month_change: false
 [[= release_notes_filters('Ibexa DXP v5.0 LTS', ['Headless', 'Experience', 'Commerce', 'LTS Update', 'New feature']) =]]
 
 <div class="release-notes" markdown="1">
+
+[[% set version = 'v5.0.4' %]]
+[[= release_note_entry_begin("Ibexa DXP " + version, '2024-10-17', ['Headless', 'Experience', 'Commerce', 'LTS Update', 'New feature']) =]]
+
+#### Taxonomy suggestions for faster content classification
+
+You can now speed up taxonomy assignment with AI-powered taxonomy suggestions.
+Instead of manually browsing through large taxonomy trees and selecting categories or tags one by one, editors can pick from suggestions generated based on the product's or content item's name and description. 
+Such approach helps reduce manual effort, minimize errors, and significantly improve the speed and consistency of content and product classification.
+
+For more information, see [Taxonomy](taxonomy.md#taxonomy-suggestions).
+
+#### Integrated help
+
+Integrated help brings contextual documentation, guidance, and partner-specific resources right into the [[= product_name =]]'s user interface.
+It helps editors, store managers and developers alike quickly access relevant content, training and resources without leaving the UI, which bridges the gap between product and documentation.
+
+The default help menu can be modified th include links to internal editorial guidelines, custom tutorials, or support pages.
+
+![Integrated help menu](../administration/back_office/img/5_0_integrated_help_menu.png)
+
+For more information, see [Integrated help](integrated_help.md).
+
+#### Developer experience
+
+##### PHP API
+
+The following additions were made to the Discounts PHP API:
+
+??? note "Events"
+    - 
+    - 
+    - 
+
+??? note "Search criteria"
+    - 
+    - 
+    - 
+
+??? note "Sort clauses"
+    - 
+    - 
+    - 
+
+##### REST API
+
+The following changes were made to the REST API:
+
+    - Endpoint was added 
+    - Endpoint was enhanced
+
+
+[[% include 'snippets/release_50.md' %]]
+[[= release_note_entry_end() =]]
 
 [[% set version = 'v5.0.3' %]]
 [[= release_note_entry_begin("Ibexa DXP " + version, '2024-10-17', ['Headless', 'Experience', 'Commerce']) =]]
