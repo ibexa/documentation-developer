@@ -201,6 +201,9 @@ composer remove --no-update \
     ibexa/product-catalog-symbol-attribute \
     ibexa/discounts \
     ibexa/discounts-codes \
+    ibexa/collaboration \
+    ibexa/share \
+    ibexa/fieldtype-richtext-rte \
 ;
 ```
 
