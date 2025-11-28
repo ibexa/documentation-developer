@@ -191,7 +191,7 @@ Notice the use of the `--no-update` option to only edit the `composer.json` entr
 4.6 LTS Update packages are included by default in 5.0.
 Remove them from your composer.json to avoid updating their version manually with each update.
 
-For example, the following command removes all of the released LTS Updates for 4.6 from `composer.json`:
+For example, the following command removes several released LTS Updates for 4.6 from `composer.json`:
 
 ```bash
 composer remove --no-update \
