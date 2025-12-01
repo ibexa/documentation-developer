@@ -19,7 +19,7 @@ final class CurrentUserRegistrationDateResolver implements DiscountVariablesReso
         $this->userService = $userService;
     }
 
-    /** 
+    /**
      * @return array{current_user_registration_date: \DateTimeInterface}
      */
     public function getVariables(PriceContextInterface $priceContext): array
