@@ -101,7 +101,7 @@ For example, the `ddev exec curl -s http://solr:SolrRocks@solr:8983/api/cores/` 
 You can access the Solr admin UI from the host by:
 
 - running `ddev solr-admin` command
-- accessing port 8983 on the same `.ddev.site` subdomain than the web server (or use `ddev describe` to get this URL).
+- accessing port 8983 on the same `.ddev.site` subdomain than the web server (you can use `ddev describe` to get this URL)
 
 Use the credentials username `solr` and password `SolrRocks`.
 
