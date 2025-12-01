@@ -131,13 +131,13 @@ To implement a custom rule, create a class implementing the [`DiscountRuleInterf
 
 
 ``` php
-[[= include_file('code_samples/discounts/src/Discounts/Rule/PurchasingPowerParityRule.php', 0, 42) =]]
+[[= include_file('code_samples/discounts/src/Discounts/Rule/PurchasingPowerParityRule.php') =]]
 ```
 
 As with conditions, create a dedicated rule factory:
 
 ``` php
-[[= include_file('code_samples/discounts/src/Discounts/Rule/PurchasingPowerParityRuleFactory.php', 0, 14) =]]
+[[= include_file('code_samples/discounts/src/Discounts/Rule/PurchasingPowerParityRuleFactory.php') =]]
 ```
 
 Then, mark it as a service using the `ibexa.discounts.rule.factory` service tag and specify the rule's type.
