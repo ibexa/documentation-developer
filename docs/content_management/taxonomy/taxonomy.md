@@ -182,7 +182,40 @@ After ce you do it, your users are be able to assign tags and/or product categor
 
 You can modify the default behavior of the Taxonomy suggestions model by changing various settings.
 
-#### Change the embedding generation model
+#### Change default number of suggestions
+
+By default, the system returns three suggestions.
+You can change the default number if needed by altering the following setting:
+
+```yaml hl_lines="4"
+ibexa:
+  taxonomy:
+    text_to_taxonomy:
+      default_suggested_taxonomies_limit: 5
+```
+
+You can also override this setting per AI action by editing its configuration.
+
+#### Change default fields parsed when generating suggestions
+
+The following setting decides which fields are used to generate suggestions by default.
+You can change the default setting, if needed.
+
+```yaml hl_lines="6,7,8"
+ibexa:
+  system:
+    default:
+      content_type_field_type_groups:
+        configurations:
+          vectorizable_fields:
+            - ezstring
+            - eztext
+```
+
+This way you can limit field selection to meaningful text fields and avoid unsupported field types.
+Like in the case of the number of suggestions, you can override this setting per AI action by editing its configuration.
+
+### Change the embedding generation model
 
 By default, the system comes with a set of OpenAI models listed in its configuration, and a setting that allows you to choose the default model that should be used with the Taxonomy suggestions feature.
 
@@ -211,21 +244,9 @@ ibexa:
 
 Also, here is where you can change the name of the model used by the provider, the embedding's dimensions, and other settings.
 
-#### Change the number of suggestions
-
-By default, the system returns three suggestions.
-You can change the default number if needed by altering the following setting:
-
-```yaml hl_lines="4"
-ibexa:
-  taxonomy:
-    text_to_taxonomy:
-      default_suggested_taxonomies_limit: 5
-```
-
-You can also override this setting per AI action by editing its configuration.
-
 ### Extending Taxonomy suggestions
+
+You can extend the feature by replacing the default code by exploring one of the following ideas.
 
 #### Replace the embedding provider
 
