@@ -215,7 +215,7 @@ Finish the configuration by running:
 composer run post-install-cmd
 ```
 
-## Accept new Terms of Service
+## Accepting new Terms of Service
 
 Real-Time Collaboration service is only available after accepting its Terms and Conditions.
 When Ibexa releases a new version of this document, the new version must be accepted before the appointed deadline.

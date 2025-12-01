@@ -69,17 +69,21 @@ The collaborative editing limitations specify how the user can use the [collabor
 
 ### Collaborative editing Owner limitation
 
-The Owner limitation specifies whether the user can share drafts 
+The Owner limitation specifies whose drafts the user can share.
+If not specified, user can share:
+
+- his drafts
+- drafts they have been invited to collaborate on
 
 #### Possible values
 
 |Value|UI value|Description|
 |------|------|------|
-|"self"|"self"|??? |
+|"self"|"self"| User can only share drafts that they own |
 
 ### Collaborative editing Scope limitation
 
-The Scope limitation specifies whether the user can share the preview and/or editing view with other users.
+The Scope limitation specifies whether the user can share the preview and editing view with other users.
 
 #### Possible values
 
