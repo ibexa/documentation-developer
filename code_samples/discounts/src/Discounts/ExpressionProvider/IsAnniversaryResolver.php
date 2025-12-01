@@ -4,7 +4,6 @@ namespace App\Discounts\ExpressionProvider;
 
 use DateTimeImmutable;
 use DateTimeInterface;
-use EzSystems\EzPlatformGraphQL\GraphQL\Mutation\InputHandler\FieldType\Date;
 
 final class IsAnniversaryResolver
 {
@@ -28,15 +27,15 @@ final class IsAnniversaryResolver
     private function unifyYear(DateTimeInterface $date): DateTimeImmutable
     {
         // Create a new date using the reference year but with the same month and day
-        $date = DateTimeImmutable::createFromFormat(
+        $newDate = DateTimeImmutable::createFromFormat(
             self::YEAR_MONTH_DAY_FORMAT,
             self::REFERENCE_YEAR . '-' . $date->format(self::MONTH_DAY_FORMAT)
         );
 
-        if ($date === false) {
+        if ($newDate === false) {
             throw new \RuntimeException('Failed to unify year for date.');
         }
 
-        return $date;
+        return $newDate;
     }
 }

@@ -175,7 +175,7 @@ To do it, create a class implementing the [`DiscountValueFormatterInterface`](/a
 
 ## Change discount priority
 
-You can change the [the defualt discount priority](discounts_guide.md#discounts-priority) by creating a class implementing the [`DiscountPrioritizationStrategyInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Discounts-DiscountPrioritizationStrategyInterface.html) and aliasing to it the default implementation.
+You can change the [the default discount priority](discounts_guide.md#discounts-priority) by creating a class implementing the [`DiscountPrioritizationStrategyInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Discounts-DiscountPrioritizationStrategyInterface.html) and aliasing to it the default implementation.
 
 The example below decorates the default implementation to prioritize recently updated discounts above all the others.
 It uses one of the existing [discount search criterions](discounts_criteria.md).
