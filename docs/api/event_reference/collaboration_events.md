@@ -1,10 +1,14 @@
 ---
 description: Events that are triggered when working with collaborative editing feature.
 page_type: reference
+editions:
+    - lts-update
 month_change: true
 ---
 
 # Collaboration events
+
+You can use the following events to extend the [collaborative editing](collaborative_editing.md) feature:
 
 ## Invitation events
 
@@ -41,3 +45,10 @@ month_change: true
 |[LeaveSessionEvent](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Collaboration-Session-Event-LeaveSessionEvent.html)|`SessionLeaveController::leaveAction()`|
 |[UpdateSessionEvent](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Collaboration-Session-Event-UpdateSessionEvent.html)|[SessionService::updateSession()](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Collaboration-SessionServiceInterface.html#method_updateSession)|
 |[SessionPublicPreviewEvent](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Collaboration-Session-Event-SessionPublicPreviewEvent.html)|`SessionPublicPreviewController::previewAction()`|
+
+## User filtering events
+
+| Event | Dispatched by | Description |
+|---|---|---|
+|<nobr>[`UsersWithPermissionInfoMappedEvent`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Share-Event-UsersWithPermissionInfoMappedEvent.html)</nobr>|`Ibexa\Share\Permission\Mapper\`<br>`UsersWithPermissionInfoMapper` | Allows further filtering of users with permissions for collaborative editing |
+

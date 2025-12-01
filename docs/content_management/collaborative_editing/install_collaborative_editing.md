@@ -166,8 +166,60 @@ ibexa:
 
 The following setting is available:
 
-- `content_type_groups` – defines groups of content types for which the **Share** button is displayed (it can still be disabled for specific content types within these groups)
+- `content_type_groups` – defines groups of content types for which the **Share** button is displayed (it can still be disabled for specific content types within these groups by using the `excluded_content_types` setting)
 
-In the example confugiration above, the **Share** button is displayed for any content that belongs to the `Content` group, except for `tag` and `product_category_tag` content types.
+In the example configuration above, the **Share** button is displayed for any content that belongs to the `Content` group, except for `tag` and `product_category_tag` content types.
+
+You can also control which user content types can use the feature by using the `ibexa.share.permission_check_context.content.user_content_type_identifiers` container parameter.
+It accepts an array of content type identifiers and the default value is `['editor']`.
 
 You can now restart you application and start [working with the Collaborative editing feature]([[= user_doc =]]/content_management/collaborative_editing/work_with_collaborative_editing/).
+To add the real-time editing capabilities, continue with the instruction below.
+
+## Configure real-time editing
+
+You must have an arrangment with Ibexa before configuring the real-time editing.
+If you haven't already, you must also accept the Terms of Service in the [Service portal](https://support.ibexa.co/).
+
+Only then you can create a new collaborative editing environment.
+To do it, go to your Service Portal and select **Create environment** (this requires the **Portal administrator** access level).
+
+With the environment created, you can continue the configuration in [[= product_name =]].
+
+Use the generated values to set the `environment_id`, `environment_secret`, and `web_socket_url` for your [repositories](repository_configuration.md) as in the example below:
+
+``` yaml
+ibexa:
+    repositories:
+        default:
+            fieldtype_richtext_rte:
+                environment_id: '%env(CKEDITOR_ENVIRONMENT_ID)%'
+                environment_secret: '%env(CKEDITOR_ENVIRONMENT_SECRET)%'
+                web_socket_url: '%env(CKEDITOR_WEB_SOCKET_URL)%'
+```
+
+Then, enable real-time editing for specific [SiteAccesses](siteaccess.md).
+The following example enables it for the back office:
+
+``` yaml
+ibexa:
+    system:
+        admin_group:
+            fieldtype_richtext_rte:
+                enabled: true
+```
+
+Finish the configuration by running:
+
+``` bash
+composer run post-install-cmd
+```
+
+## Accept new Terms of Service
+
+Real-Time Collaboration service is only available after accepting its Terms and Conditions.
+When Ibexa releases a new version of this document, the new version must be accepted before the appointed deadline.
+
+The **Portal administrator** for your [Service portal](https://support.ibexa.co) can accept it in Service portal's service details.
+
+If not done in time, the Real-Time Collaboration service will be disabled until the latest Terms and Conditions are accepted.

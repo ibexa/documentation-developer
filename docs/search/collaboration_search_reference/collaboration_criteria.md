@@ -1,10 +1,14 @@
 ---
 month_change: true
+description: Search Criteria available for Collaboration search
+editions:
+    - lts-update
 ---
 
 # Collaboration Search Criterion reference
 
 Search Criteria are found in the `Ibexa\Contracts\Collaboration\Invitation\Query\Criterion` namespace.
+Use them to work with objects related to [collaborative editing API](collaborative_editing_api.md).
 
 ## Invitation Search Criteria
 
