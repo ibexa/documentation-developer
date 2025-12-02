@@ -172,7 +172,7 @@ php bin/console cache:clear
 
 #### Configure AI action
 
-Once you enable the Taxonomy suggestions feature, you must [configure an AI action]([[= user_doc =]]/ai_actions/work_with_ai_actions/#create-new-ai-actions) that handles the generation of embeddings for newly created or edited content items or products.
+Once you enable the Taxonomy suggestions feature, you must [configure an AI action]([[= user_doc =]]/ai_actions/work_with_ai_actions/#create-ai-actions-that-control-taxonomy-suggestions) that handles the generation of embeddings for newly created or edited content items or products.
 
 That's where you decide which exact fields from which content type should be used as input for embedding generation, how many suggestions are being presenter to the editor, and so on. 
 
