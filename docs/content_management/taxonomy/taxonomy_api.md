@@ -4,7 +4,7 @@ description: Using the PHP API you can browse taxonomy entries, get their inform
 
 # Taxonomy API
 
-To manage taxonomies, use `Ibexa\Contracts\Taxonomy\Service\TaxonomyServiceInterface`.
+To manage taxonomies, use [`TaxonomyServiceInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Taxonomy-Service-TaxonomyServiceInterface.html).
 
 ## Getting taxonomy entries
 
@@ -14,7 +14,7 @@ Or pass entry identifier (with optionally a taxonomy identifier),
 and use `TaxonomyServiceInterface::loadEntryByIdentifier()`:
 
 ``` php
-[[= include_file('code_samples/api/public_php_api/src/Command/TaxonomyCommand.php', 35, 37) =]]
+[[= include_file('code_samples/api/public_php_api/src/Command/TaxonomyCommand.php', 34, 37) =]]
 ```
 
 !!! note
@@ -37,7 +37,7 @@ The default taxonomy identifier is given by `TaxonomyConfiguration::getDefaultTa
 The default limit is 30.
 
 ``` php
-[[= include_file('code_samples/api/public_php_api/src/Command/TaxonomyCommand.php', 33, 33) =]]
+[[= include_file('code_samples/api/public_php_api/src/Command/TaxonomyCommand.php', 32, 33) =]]
 ```
 
 To see how many entries is there, use `TaxonomyServiceInterface::countAllEntries()` with optionally a taxonomy identifier.
@@ -47,7 +47,7 @@ provide it with the entry object, and optionally specify the limit of results an
 The default limit is 30:
 
 ``` php
-[[= include_file('code_samples/api/public_php_api/src/Command/TaxonomyCommand.php', 40, 44) =]]
+[[= include_file('code_samples/api/public_php_api/src/Command/TaxonomyCommand.php', 39, 44) =]]
 ```
 
 ## Managing taxonomy entries
@@ -56,7 +56,7 @@ You can move a taxonomy entry to a different parent by using `TaxonomyServiceInt
 Provide the method with two objects: the entry that you want to move and the new parent entry:
 
 ``` php
-[[= include_file('code_samples/api/public_php_api/src/Command/TaxonomyCommand.php', 46, 49) =]]
+[[= include_file('code_samples/api/public_php_api/src/Command/TaxonomyCommand.php', 45, 49) =]]
 ```
 
 You can also move a taxonomy entry by passing its target sibling entry to `TaxonomyServiceInterface::moveEntry()`.
@@ -64,7 +64,7 @@ The method takes as parameters the entry you want to move, the future sibling,
 and a `position` parameter, which is either `TaxonomyServiceInterface::MOVE_POSITION_NEXT` or `TaxonomyServiceInterface::MOVE_POSITION_PREV`:
 
 ``` php
-[[= include_file('code_samples/api/public_php_api/src/Command/TaxonomyCommand.php', 51, 52) =]]
+[[= include_file('code_samples/api/public_php_api/src/Command/TaxonomyCommand.php', 50, 52) =]]
 ```
 
 !!! note
