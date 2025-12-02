@@ -69,7 +69,9 @@ One such built-in implementation is `InMemoryEventSource`.
 To add an in-memory collection as an event source, create `src/Calendar/Holidays/EventSourceFactory.php`:
 
 ```php
-[[= include_file('code_samples/back_office/calendar/src/Calendar/Holidays/EventSourceFactory.php', 0, 23) =]][[= include_file('code_samples/back_office/calendar/src/Calendar/Holidays/EventSourceFactory.php', 29, 40) =]]
+[[= include_file('code_samples/back_office/calendar/src/Calendar/Holidays/EventSourceFactory.php', 0, 20) =]]
+[[= include_file('code_samples/back_office/calendar/src/Calendar/Holidays/EventSourceFactory.php', 26, 36) =]]
+
 ```
 
 !!! note

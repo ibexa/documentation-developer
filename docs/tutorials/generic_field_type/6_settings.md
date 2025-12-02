@@ -15,7 +15,7 @@ You also specify coordinates as placeholder values `%x%` and `%y%`.
 
 Open `src/FieldType/Point2D/Type.php` and add a `getSettingsSchema` method according to the following code block:
 
-```php hl_lines="18-26"
+```php hl_lines="18-27"
 [[= include_file('code_samples/field_types/2dpoint_ft/steps/step_6/Type.php') =]]
 ```
 
@@ -39,15 +39,11 @@ In `src/FieldType/Point2D/Type.php` you:
 
 ```php
 [[= include_file('code_samples/field_types/2dpoint_ft/src/FieldType/Point2D/Type.php', 0, 4) =]]
-[[= include_file('code_samples/field_types/2dpoint_ft/src/FieldType/Point2D/Type.php', 7, 8) =]]
-
 // ...
+[[= include_file('code_samples/field_types/2dpoint_ft/src/FieldType/Point2D/Type.php', 7, 9) =]][[= include_file('code_samples/field_types/2dpoint_ft/src/FieldType/Point2D/Type.php', 10, 16) =]]
 
-[[= include_file('code_samples/field_types/2dpoint_ft/src/FieldType/Point2D/Type.php', 14, 15) =]]
-
-// ...
-
-[[= include_file('code_samples/field_types/2dpoint_ft/src/FieldType/Point2D/Type.php', 40, 46) =]]
+// ...  
+[[= include_file('code_samples/field_types/2dpoint_ft/src/FieldType/Point2D/Type.php', 41, 48) =]]
 ```
 
 <details class="tip">
