@@ -142,7 +142,7 @@ Taxonomy suggestions are built into the product and do not require additional in
 However, before you can enable it, make sure the following prerequisites have been fulfilled:
 
 - [Search engine](search_engines.md): Taxonomy suggestions require a search engine that supports vector search.
-The feature has been tested to work with Elasticsearch or Solr 9.8.1+ with KNN enabled.
+The feature has been tested to work with Elasticsearch or Solr 9.8.1+.
 - [AI Actions](ai_actions.md): To be able to process embeddings, Taxonomy suggestions require that you have the [AI Actions configured](configure_ai_actions.md#configure-access-to-openai-optional) to support the OpenAI service.
 
 #### Enable taxonomy embedding indexing
