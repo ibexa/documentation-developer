@@ -109,7 +109,7 @@ To do this, place the following `holidays.json` file in `src/Calendar/Holidays`:
 Next, import this file in `src/Calendar/Holidays/EventSourceFactory.php`:
 
 ``` php hl_lines="6-9"
-[[= include_file('code_samples/back_office/calendar/src/Calendar/Holidays/EventSourceFactory.php', 19, 33) =]]
+[[= include_file('code_samples/back_office/calendar/src/Calendar/Holidays/EventSourceFactory.php', 16, 30) =]]
 ```
 
 The calendar now displays the events listed in the JSON file.

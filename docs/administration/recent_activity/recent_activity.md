@@ -82,7 +82,7 @@ See [Activity Log Search Criteria reference](activity_log_criteria.md) and [Acti
 In the following example, log groups that contain at least one creation of a Content item are displayed in terminal, with a maximum of 10 groups within the last hour.
 It uses the default `admin` user that has a [permission](#permission-and-security) to list everyone's entries.
 
-```php hl_lines="39-43"
+```php hl_lines="34-38"
 [[= include_file('code_samples/recent_activity/src/Command/MonitorRecentContentCreationCommand.php') =]]
 ```
 
@@ -190,7 +190,7 @@ In the following example, several actions are logged into one context group, eve
     - `complete`
 
 ``` php
-[[= include_file('code_samples/recent_activity/src/Command/ActivityLogContextTestCommand.php', 62, 82) =]]
+[[= include_file('code_samples/recent_activity/src/Command/ActivityLogContextTestCommand.php', 46, 66) =]]
 ```
 
 Context groups can't be nested.
