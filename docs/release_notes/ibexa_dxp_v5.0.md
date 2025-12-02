@@ -26,11 +26,17 @@ For more information, see [Taxonomy](taxonomy.md#taxonomy-suggestions).
 Integrated help brings contextual documentation, guidance, and partner-specific resources right into the [[= product_name =]]'s user interface.
 It helps editors, store managers and developers alike quickly access relevant content, training and resources without leaving the UI, which bridges the gap between product and documentation.
 
-The default help menu can be modified th include links to internal editorial guidelines, custom tutorials, or support pages.
+The default help menu can be modified to include links to internal editorial guidelines, custom tutorials, or support pages.
 
 ![Integrated help menu](../administration/back_office/img/5_0_integrated_help_menu.png)
 
 For more information, see [Integrated help](integrated_help.md).
+
+#### Anthropic Claude connector
+
+This release introduce a new connector that you can install and enable to integrate [[= product_name =]] with Anthropic Claude.
+
+For more information, see [Install Anthropic Claude connector](configure_ai_actions.md#install-anthropic-claude-connector).
 
 #### Developer experience
 
