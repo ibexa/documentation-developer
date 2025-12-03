@@ -372,6 +372,10 @@ nav:
             - Cart: commerce/cart/cart.md
             - Cart API: commerce/cart/cart_api.md
             - Quick order: commerce/cart/quick_order.md
+        - Shopping list:
+            - Shopping list: commerce/shopping_list/shopping_list.md
+            - Shopping list guide: commerce/shopping_list/shopping_list_guide.md
+            - Install shopping list: commerce/shopping_list/install_shopping_list.md
         - Checkout:
             - Checkout: commerce/checkout/checkout.md
             - Configure checkout: commerce/checkout/configure_checkout.md
