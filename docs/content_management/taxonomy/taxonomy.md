@@ -133,7 +133,7 @@ When it happens, the `Ibexa\Taxonomy\ActionHandler\TextToTaxonomyActionHandler` 
     You select the actual text fields, whose values are used as source for the embedding generation, when you create an [AI action](https://doc.ibexa.co/projects/userguide/en/latest/ai_actions/work_with_ai_actions/#create-ai-actions-that-use-ibexa-connect) that uses the `openai-text-to-taxonomy-entries` handler.
 
 The search engine then compares the generated embedding with the taxonomy path embeddings stored in its index.
-It selects the three best-matching taxonomy paths and presents them to the editor as suggestions.
+By default, it selects the three best-matching taxonomy paths and presents them to the editor as suggestions.
 The user can accept the suggestions, reject them, or request a new set of suggestions directly from the user interface.
 
 ### Enable Taxonomy suggestions
@@ -158,7 +158,7 @@ ibexa:
           index_embeddings: true
 ```
 
-Toggle this setting at any time to enable or disable taxonomy suggestions.
+Toggle this setting at any time to enable or disable indexing of taxonomy embeddings.
 
 If you are happy with the default settings, clear the cache and reindex the database.
 
@@ -176,7 +176,7 @@ Once you enable the Taxonomy suggestions feature, you must [configure an AI acti
 
 That's where you decide which exact fields from which content type should be used as input for embedding generation, how many suggestions are being presenter to the editor, and so on. 
 
-After ce you do it, your users are be able to assign tags and/or product categories by using suggestions provided by an AI engine.
+After you do it, your users are be able to assign tags and/or product categories by using suggestions provided by an AI engine.
 
 ### Customize Taxonomy suggestions
 
