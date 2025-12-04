@@ -122,7 +122,7 @@ The `Ibexa\Contracts\Taxonomy\Embedding\TaxonomyEmbeddingFieldProviderInterface`
 
 For performance reasons, embeddings for the taxonomy tree entries are generated only in two cases:
 
-- when the database is reindexed, for example, after you enable the feature
+- when the search engine is reindexed, for example, right after you enable the feature and run the `ibexa:reindex` command
 - when an individual taxonomy entry is created or modified, it's embedding is updated
 
 When the editor creates or edits a content item or a product, they can request that the application suggests tags or product categories to be associated with the item.
