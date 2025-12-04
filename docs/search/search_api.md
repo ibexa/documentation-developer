@@ -268,7 +268,7 @@ You perform the following query:
 
 ``` php
 $query->filter = new Criterion\LogicalAnd([
-    new LocationId($idB),
+    new LocationId($bLocationId),
     new Visibility(Visibility::VISIBLE),
 ]);
 ```
