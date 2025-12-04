@@ -128,7 +128,7 @@ Get the availability object with `ProductAvailabilityServiceInterface::getAvaila
 You can then use `ProductAvailabilityServiceInterface::getStock()` to get the stock number for the product:
 
 ```php
-[[= include_file('code_samples/api/product_catalog/src/Command/ProductCommand.php', 90, 95) =]]        }
+[[= include_file('code_samples/api/product_catalog/src/Command/ProductCommand.php', 90, 95) =]][[= include_file('code_samples/api/product_catalog/src/Command/ProductCommand.php', 104, 105) =]]
 ```
 
 To change availability for a product, use `ProductAvailabilityServiceInterface::updateProductAvailability()` with a [`ProductAvailabilityUpdateStruct`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Values-Availability-ProductAvailabilityUpdateStruct.html) and provide it with the product object.

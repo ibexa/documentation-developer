@@ -126,7 +126,7 @@ While [using `sudo()`](#using-sudo) is the recommended option, you can also set 
 To identify as a different user, you need to use the `UserService` together with `PermissionResolver` (in the example `admin` is the login of the administrator user):
 
 ``` php
-[[= include_file('code_samples/api/public_php_api/src/Command/CreateContentCommand.php', 40, 41) =]]
+[[= include_file('code_samples/api/public_php_api/src/Command/CreateContentCommand.php', 44, 46) =]]
 ```
 
 !!! tip
@@ -150,11 +150,11 @@ Both cases should be covered with error messages:
 ``` php
 try {
     // ...
-    } catch (\Ibexa\Contracts\Core\Repository\Exceptions\NotFoundException $e) {
-        $output->writeln("<error>No content with id $contentId found</error>");
-    } catch (\Ibexa\Contracts\Core\Repository\Exceptions\UnauthorizedException $e) {
-        $output->writeln("<error>Permission denied on content with id $contentId</error>");
-    }
+} catch (\Ibexa\Contracts\Core\Repository\Exceptions\NotFoundException $e) {
+    $output->writeln("<error>No content with id $contentId found</error>");
+} catch (\Ibexa\Contracts\Core\Repository\Exceptions\UnauthorizedException $e) {
+    $output->writeln("<error>Permission denied on content with id $contentId</error>");
+}
 ```
 
 ## Service container

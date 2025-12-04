@@ -14,17 +14,18 @@ You can extend existing tab groups with new tabs, or create your own tab groups.
 
 A custom tab can extend one of the following classes:
 
-- `Ibexa\Contracts\AdminUi\Tab\AbstractTab` - base tab.
-- `Ibexa\Contracts\AdminUi\Tab\AbstractControllerBasedTab` - embeds the results of a controller action in the tab.
-- `Ibexa\Contracts\AdminUi\Tab\AbstractRouteBasedTab` - embeds the results of the selected route, passing applicable parameters.
+- [`AbstractTab`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-AdminUi-Tab-AbstractTab.html) - base tab
+- [`AbstractControllerBasedTab`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-AdminUi-Tab-AbstractControllerBasedTab.html) - embeds the results of a controller action in the tab
+- [`AbstractRouteBasedTab`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-AdminUi-Tab-AbstractRouteBasedTab.html) - embeds the results of the selected route, passing applicable parameters
 
 ``` php
 //...
-[[= include_file('code_samples/back_office/dashboard/article_tab/src/Tab/Dashboard/Everyone/EveryoneArticleTab.php', 16, 17) =]]
+[[= include_file('code_samples/back_office/dashboard/article_tab/src/Tab/Dashboard/Everyone/EveryoneArticleTab.php', 16, 18) =]]
     //...
-[[= include_file('code_samples/back_office/dashboard/article_tab/src/Tab/Dashboard/Everyone/EveryoneArticleTab.php', 34, 43) =]][[= include_file('code_samples/back_office/dashboard/article_tab/src/Tab/Dashboard/Everyone/EveryoneArticleTab.php', 49, 51) =]]
+[[= include_file('code_samples/back_office/dashboard/article_tab/src/Tab/Dashboard/Everyone/EveryoneArticleTab.php', 27, 31) =]]
+[[= include_file('code_samples/back_office/dashboard/article_tab/src/Tab/Dashboard/Everyone/EveryoneArticleTab.php', 42, 44) =]]
         //...
-[[= include_file('code_samples/back_office/dashboard/article_tab/src/Tab/Dashboard/Everyone/EveryoneArticleTab.php', 70, 73) =]]
+[[= include_file('code_samples/back_office/dashboard/article_tab/src/Tab/Dashboard/Everyone/EveryoneArticleTab.php', 63, 68) =]]
 ```
 
 !!! tip
@@ -46,7 +47,7 @@ You can order the tabs by making the tab implement `OrderedTabInterface`.
 The order depends on the numerical value returned by the `getOrder` method:
 
 ``` php
-[[= include_file('code_samples/back_office/dashboard/article_tab/src/Tab/Dashboard/Everyone/EveryoneArticleTab.php', 44, 48) =]]
+[[= include_file('code_samples/back_office/dashboard/article_tab/src/Tab/Dashboard/Everyone/EveryoneArticleTab.php', 37, 41) =]]
 ```
 
 Tabs are displayed according to this value in ascending order.

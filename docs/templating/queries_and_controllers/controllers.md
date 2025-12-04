@@ -13,7 +13,7 @@ You indicate which controller to use in the [content view configuration](templat
 ```
 
 ``` php
-[[= include_file('code_samples/front/embed_content/src/Controller/RelationController.php', 2, 9) =]]
+[[= include_file('code_samples/front/embed_content/src/Controller/RelationController.php', 0, 10) =]][[= include_file('code_samples/front/embed_content/src/Controller/RelationController.php', 16, 18) =]][[= include_file('code_samples/front/embed_content/src/Controller/RelationController.php', 37, 40) =]]
 ```
 
 For a full example of using a custom controller, see [Embed content](embed_content.md#embed-relations-with-a-custom-controller).
