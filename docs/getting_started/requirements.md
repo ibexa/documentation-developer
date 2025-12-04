@@ -98,7 +98,7 @@ For production setups it's recommended that you use Varnish/Fastly, Redis, NFS/E
 
 === "[[= product_name =]] v5.0"
 
-    - MariaDB 10.11+
+    - MariaDB 10.11+, 11.4
     - MySQL 8.4
     - PostgreSQL 14
 
@@ -107,7 +107,7 @@ For production setups it's recommended that you use Varnish/Fastly, Redis, NFS/E
 
 === "[[= product_name =]] v4.6"
 
-    - MariaDB 10.3-10.11+
+    - MariaDB 10.3-10.11+, 11.4
     - MySQL 8.0, 8.4
     - PostgreSQL 14
 
