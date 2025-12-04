@@ -35,7 +35,7 @@ You can also use the query to get the total number of assigned content items:
 
 ``` php
 [[= include_file('code_samples/api/public_php_api/src/Command/SectionCommand.php', 63, 69) =]]
-[[= include_file('code_samples/api/public_php_api/src/Command/SectionCommand.php', 75, 80) =]]
+[[= include_file('code_samples/api/public_php_api/src/Command/SectionCommand.php', 77, 80) =]]
 
 ```
 

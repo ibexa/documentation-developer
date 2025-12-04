@@ -40,8 +40,7 @@ It provides settings for the field type and an implementation of the `Ibexa\Cont
 ```php
 [[= include_file('code_samples/field_types/generic_ft/src/FieldType/HelloWorld/Type.php', 0, 3) =]]
 [[= include_file('code_samples/field_types/generic_ft/src/FieldType/HelloWorld/Type.php', 6, 8) =]]
-[[= include_file('code_samples/field_types/generic_ft/src/FieldType/HelloWorld/Type.php', 10, 16) =]]
-[[= include_file('code_samples/field_types/generic_ft/src/FieldType/HelloWorld/Type.php', 26, 27) =]]
+[[= include_file('code_samples/field_types/generic_ft/src/FieldType/HelloWorld/Type.php', 10, 16) =]][[= include_file('code_samples/field_types/generic_ft/src/FieldType/HelloWorld/Type.php', 26, 27) =]]
 ```
 
 For more information about the Type class of a field type, see [Type class](type_and_value.md#type-class).

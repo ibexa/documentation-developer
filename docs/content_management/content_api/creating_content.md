@@ -88,7 +88,7 @@ To translate a content item to a new language, you need to update it and provide
 ``` php
 [[= include_file('code_samples/api/public_php_api/src/Command/TranslateContentCommand.php', 49, 55) =]]
 
-[[= include_file('code_samples/api/public_php_api/src/Command/TranslateContentCommand.php', 60, 63) =]]
+[[= include_file('code_samples/api/public_php_api/src/Command/TranslateContentCommand.php', 60, 62) =]]
 ```
 
 You can also update content in multiple languages at once using the `setField` method's third argument.

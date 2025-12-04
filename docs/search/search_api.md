@@ -117,7 +117,7 @@ It doesn't use the `SearchService` and isn't based on indexed data.
 
 For example, the following command lists all content items under the specified parent location and sorts them by name in descending order:
 
-``` php hl_lines="13-16"
+``` php hl_lines="15-18"
 // ...
 [[= include_file('code_samples/api/public_php_api/src/Command/FilterCommand.php', 4, 9) =]]
 // ...
@@ -307,7 +307,7 @@ For a list of supported Criteria and Sort Clauses, see [Search in trash referenc
     Searching through the trashed content items operates directly on the database, therefore you cannot use external search engines, such as Solr or Elasticsearch, and it's impossible to reindex the data.
 
 ``` php
-[[= include_file('code_samples/api/public_php_api/src/Command/FindInTrashCommand.php', 4, 6) =]]
+[[= include_file('code_samples/api/public_php_api/src/Command/FindInTrashCommand.php', 4, 6) =]]//…
 [[= include_file('code_samples/api/public_php_api/src/Command/FindInTrashCommand.php', 35, 42) =]]
 ```
 
