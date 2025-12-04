@@ -150,11 +150,11 @@ Both cases should be covered with error messages:
 ``` php
 try {
     // ...
-    } catch (\Ibexa\Contracts\Core\Repository\Exceptions\NotFoundException $e) {
-        $output->writeln("<error>No content with id $contentId found</error>");
-    } catch (\Ibexa\Contracts\Core\Repository\Exceptions\UnauthorizedException $e) {
-        $output->writeln("<error>Permission denied on content with id $contentId</error>");
-    }
+} catch (\Ibexa\Contracts\Core\Repository\Exceptions\NotFoundException $e) {
+    $output->writeln("<error>No content with id $contentId found</error>");
+} catch (\Ibexa\Contracts\Core\Repository\Exceptions\UnauthorizedException $e) {
+    $output->writeln("<error>Permission denied on content with id $contentId</error>");
+}
 ```
 
 ## Service container

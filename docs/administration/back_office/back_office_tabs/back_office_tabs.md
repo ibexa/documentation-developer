@@ -47,7 +47,7 @@ You can order the tabs by making the tab implement `OrderedTabInterface`.
 The order depends on the numerical value returned by the `getOrder` method:
 
 ``` php
-[[= include_file('code_samples/back_office/dashboard/article_tab/src/Tab/Dashboard/Everyone/EveryoneArticleTab.php', 44, 48) =]]
+[[= include_file('code_samples/back_office/dashboard/article_tab/src/Tab/Dashboard/Everyone/EveryoneArticleTab.php', 37, 41) =]]
 ```
 
 Tabs are displayed according to this value in ascending order.

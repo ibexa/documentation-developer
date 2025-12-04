@@ -38,11 +38,8 @@ In `src/FieldType/Point2D/Type.php` you:
 - add a `mapFieldDefinitionForm` method at the end that defines the field settings
 
 ```php
-[[= include_file('code_samples/field_types/2dpoint_ft/src/FieldType/Point2D/Type.php', 0, 4) =]]
-// ...
-[[= include_file('code_samples/field_types/2dpoint_ft/src/FieldType/Point2D/Type.php', 7, 9) =]][[= include_file('code_samples/field_types/2dpoint_ft/src/FieldType/Point2D/Type.php', 10, 16) =]]
-
-// ...  
+[[= include_file('code_samples/field_types/2dpoint_ft/src/FieldType/Point2D/Type.php', 0, 4) =]]// ...
+[[= include_file('code_samples/field_types/2dpoint_ft/src/FieldType/Point2D/Type.php', 7, 9) =]][[= include_file('code_samples/field_types/2dpoint_ft/src/FieldType/Point2D/Type.php', 10, 16) =]]// ...  
 [[= include_file('code_samples/field_types/2dpoint_ft/src/FieldType/Point2D/Type.php', 41, 48) =]]
 ```
 

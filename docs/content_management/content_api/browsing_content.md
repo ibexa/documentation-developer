@@ -23,19 +23,16 @@ The service should be [injected into the constructor of your command or controll
 Basic content metadata is available through [`ContentInfo`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-ContentInfo.html) objects and their properties.
 This value object provides primitive fields, such as `contentTypeId`, `publishedDate`, or `mainLocationId`, and methods for retrieving selected properties.
 
-You can also use it to request other Content-related value objects from various services:
+You can also use it to request other content-related value objects from various services:
 
-``` php hl_lines="8"
+``` php hl_lines="14"
 [[= include_file('code_samples/api/public_php_api/src/Command/ViewContentMetaDataCommand.php', 0, 5) =]]
 [[= include_file('code_samples/api/public_php_api/src/Command/ViewContentMetaDataCommand.php', 21, 23) =]]
-
 // ...
 
 [[= include_file('code_samples/api/public_php_api/src/Command/ViewContentMetaDataCommand.php', 42, 44) =]][[= include_file('code_samples/api/public_php_api/src/Command/ViewContentMetaDataCommand.php', 50, 58) =]]
 [[= include_file('code_samples/api/public_php_api/src/Command/ViewContentMetaDataCommand.php', 113, 116) =]]
-
 ```
-
 
 `ContentInfo` is loaded from the [`ContentService`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-ContentService.html) (line 8).
 It provides you with basic content metadata such as modification and publication dates or main language code.
