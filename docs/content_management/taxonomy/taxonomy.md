@@ -212,6 +212,11 @@ ibexa:
 This way you can limit field selection to meaningful text fields and avoid unsupported field types.
 Like in the case of the number of suggestions, you can override this setting per AI action by editing its configuration.
 
+!!! tip
+
+    When selecting the input data for embedding creation, it's recommended to include only the essential information and limit the number of tokens sent.
+    Otherwise, the embedding models can generate values that don't correspond closely to the actual meaning of the input.
+
 ### Change the embedding generation model
 
 By default, the system comes with a set of OpenAI models listed in its configuration, and a setting that allows you to choose the default model that should be used with the Taxonomy suggestions feature.
