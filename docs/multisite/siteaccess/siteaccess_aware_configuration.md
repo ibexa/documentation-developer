@@ -35,7 +35,7 @@ Acme\ExampleBundle\AcmeExampleBundle::class => ['all' => true],
 
 To parse semantic configuration, create a `Configuration` class which extends `Ibexa\Bundle\Core\DependencyInjection\Configuration\SiteAccessAware\Configuration` and then extend its `generateScopeBaseNode()` method:
 
-``` php hl_lines="16"
+``` php hl_lines="19"
 [[= include_file('code_samples/multisite/siteaccess/Configuration.php') =]]
 ```
 
