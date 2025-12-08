@@ -8,7 +8,7 @@ month_change: true
 
 # Collaboration events
 
-You can use the following events to extend the [collaborative editing](collaborative_editing.md) feature:
+You can use the following events to extend the [Collaborative editing LTS Update](collaborative_editing.md):
 
 ## Invitation events
 
@@ -50,5 +50,5 @@ You can use the following events to extend the [collaborative editing](collabora
 
 | Event | Dispatched by | Description |
 |---|---|---|
-|<nobr>[`UsersWithPermissionInfoMappedEvent`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Share-Event-UsersWithPermissionInfoMappedEvent.html)</nobr>|`Ibexa\Share\Permission\Mapper\`<br>`UsersWithPermissionInfoMapper` | Allows further filtering of users with permissions for collaborative editing |
+|<nobr>[`UsersWithPermissionInfoMappedEvent`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Share-Event-UsersWithPermissionInfoMappedEvent.html)</nobr>|`Ibexa\Share\Permission\Mapper\`<br>`UsersWithPermissionInfoMapper` | Allows further filtering of users with permissions for Collaborative editing |
 

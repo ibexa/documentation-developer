@@ -8,7 +8,7 @@ editions:
 # Collaboration Search Criterion reference
 
 Search Criteria are found in the `Ibexa\Contracts\Collaboration\Invitation\Query\Criterion` namespace.
-Use them to work with objects related to [collaborative editing API](collaborative_editing_api.md).
+Use them to work with objects related to [Collaborative editing API](collaborative_editing_api.md).
 
 ## Invitation Search Criteria
 

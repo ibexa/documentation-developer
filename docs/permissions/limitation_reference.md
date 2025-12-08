@@ -65,7 +65,7 @@ The Change Owner (`ChangeOwner`) limitation specifies whether the user can chang
 
 ## Collaborative editing limitations [[% include 'snippets/lts-update_badge.md' %]]
 
-The collaborative editing limitations specify how the user can use the [collaborative editing](collaborative_editing.md) feature.
+The Collaborative editing limitations specify how the user can use the [Collaborative editing](collaborative_editing.md) LTS Update.
 
 ### Collaborative editing Owner limitation
 

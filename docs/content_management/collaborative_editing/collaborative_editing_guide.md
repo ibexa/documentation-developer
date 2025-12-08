@@ -23,7 +23,7 @@ The system automatically tracks changes, allowing seamless collaboration within 
 
 Collaborative editing is an opt-in available as an LTS update starting with the v4.6.24 in all [[= product_name =]] editions.
 To start using Collaborative editing, you must first install the required packages and perform initial configuration.
-To use Real-time editing feature, you must make arrangements with [[= product_name_base =]], and accept Terms & Conditions and Service Level Agreement in the Service Portal.
+To use Real-time editing feature, you must make arrangements with [[= product_name_base =]], and accept Terms and Conditions and Service Level Agreement in the Service Portal.
 
 ## Prerequisites
 
@@ -60,7 +60,7 @@ Once they accept the invitation, they are able to join you in editing content it
 
 Once the invitation is accepted, internal users can invite further users if their permissions allow for it.
 To do so, they must be a part of an active collaboration session.
-Gaining access to the draft through other means, for example by [workflow](workflow.md), doesn't allow inviting other users.
+Gaining access to the draft through other methods, for example by [workflow](workflow.md), doesn't allow you to invite other users.
 
 ![Collaborative editing - invitation](img/collaboration_invitation.png)
 
