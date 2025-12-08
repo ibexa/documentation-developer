@@ -72,7 +72,7 @@ The Collaborative editing limitations specify how the user can use the [Collabor
 The Owner limitation specifies whose drafts the user can share.
 If not specified, user can share:
 
-- his drafts
+- their drafts
 - drafts they have been invited to collaborate on
 
 #### Possible values
