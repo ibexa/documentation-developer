@@ -84,6 +84,20 @@ Mark it as a service using the `ibexa.discounts.expression_language.function` se
 
 Two new expressions are now available for use in custom conditions and rules.
 
+When deciding whether to register a new custom variable or function, consider the following:
+
+- variables are always evaluated by the expression engine and the result is available for all the rules and conditions specified in the discount
+- functions are invoked only when the rule or condition using them is evaluated. If there are multiple conditions using them, they will be invoked multiple times
+
+For performance reasons, it's recommended to:
+
+- use variables only for lightweight calculations
+- use functions for resource-intensive calculations (for example, checking customer's order history)
+- implement caching (for example, in-memory) for function results to avoid redundant calculations within a single discount, if the function is used multiple times
+- specify the most resource-intensive conditions as the last to evaluate. As all conditions must be met for the discount to apply, it's possible to skip evaluating them if the previous ones won't be met
+
+In a production implementation, you should consider refactoring the `current_user_registration_date` variable into a `get_current_user_registration_date` function to avoid always loading the current user object and improve performance.
+
 ### Implement custom condition
 
 The following example creates a new discount condition. It allows you to offer a special discount for customers on the date when their account was created, making use of the expressions added above.
