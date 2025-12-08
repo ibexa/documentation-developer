@@ -207,6 +207,7 @@ ibexa:
           vectorizable_fields:
             - ibexa_string
             - ibexa_text
+            - ibexa_richtext
 ```
 
 This way you can limit field selection to meaningful text fields and avoid unsupported field types.
