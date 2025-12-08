@@ -7,8 +7,8 @@ editions: lts-update commerce
 
 # Shopping list
 
-A shopping list allows to store potential purchases, recurrent product set, and other whishes for later use into cart.
-A user can have multiple shopping lists, share them with other users, including collaborative management of those lists.
+A shopping list allows to store potential purchases, recurrent product set, and other wishes for later use into cart.
+A user can have several shopping lists.
 
 TODO: more precise introduction
 
@@ -21,8 +21,11 @@ TODO: more precise introduction
 
 ## Development
 
+[[= cards([
+("api/php_api/php_api_reference/namespaces/ibexa-contracts-shoppinglist.html", "PHP API Reference", "<code>Ibexa\Contracts\ShoppingList</code>"),
+("api/rest_api/rest_api_reference/rest_api_reference.html#tag/Shopping-Lists", "REST API Reference", "<code>commerce/shopping-list</code> resources"),
+], columns=2) =]]
+
 TODO:
 
-- PHP API
-- REST API
 - Custom storefront: JS API, design, templates,…
