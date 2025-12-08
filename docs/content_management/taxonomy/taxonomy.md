@@ -198,7 +198,7 @@ You can also override this setting per AI action by editing its configuration.
 The following setting decides which fields are used to generate suggestions by default.
 You can change the default setting, if needed.
 
-``` yaml hl_lines="6-8"
+``` yaml hl_lines="6-9"
 ibexa:
   system:
     default:
