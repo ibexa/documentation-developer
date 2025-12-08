@@ -22,7 +22,7 @@ To do it, in `config/packages` create the `ibexa_integrated_help.yaml` file, wit
 
 ``` yaml
 ibexa_integrated_help:
-    is_enabled: false
+    enabled: false
 ```
 
 ## Modify user documentation link

@@ -23,6 +23,8 @@ To enable it, run the following command:
 composer require ibexa/integrated-help
 ```
 
+After installation, you must [enable the help center in user settings]([[= user_doc =]]/getting_started/discover_ui#enable-help-center) to use the feature.
+
 ## Customize help menu
 
 You can extend or alter the integrated help menu by quickly changing the link to user documentation, or adding or removing menu items or even entire menu sections.
