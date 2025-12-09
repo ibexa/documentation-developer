@@ -6,10 +6,26 @@ editions: lts-update commerce
 
 # Shopping list feature guide
 
-Shopping Lists aim to give B2B and B2C buyers a simple yet powerful way to save, organize, and manage products for future purchase. This new capability reduces friction in the buying journey — enabling customers to plan ahead, compare options, and streamline repeat orders.
+Shopping lists give customers a simple yet powerful way to manage future purchases.
+It can cover many purchase planning cases.
+For example, users can save in shopping lists frequently rebought supplies, products which still need some customisation reflexion, acquisition project still needing discussion, or budget validation.
 
-From a business perspective, Shopping Lists unlock a new layer of customer engagement and conversion opportunities, as they capture intent even before checkout. For E-commerce Managers, they provide actionable insights into customer needs and preferences, supporting smarter merchandising and personalized campaigns.
+TODO: Limitation: Shopping list doesn't store quantity
 
-From a technical perspective, Shopping Lists are delivered as a modular, scalable component, designed to support multi-storefront scenarios, ensure compatibility with Commerce edition, and remain analytics-ready for future extensions.
+Knowing products added to shopping lists, sellers can organise campaign about most added products, encourage conversion.
 
-A Shopping list is a convenient way for customers to recall products that they are interested in, but are not ready to buy. Items from a shopping list can be added to the cart. 
+TODO: develop a bit more.
+TODO: Other personas? 
+
+## Shopping list management overview
+
+Each user have a default shopping list and can create new ones.
+TODO: Policy: Is there a policy to add to customer role to enable shopping list features?
+TODO: Limit: How many shopping lists can be created per user?
+
+A customer can create a shopping list
+- from catalog when adding a product to a shopping list and choosing to create a new one instead of targeting an existing one
+- in shopping lists management interface
+- TODO: when saving for later from cart to shopping list?
+
+A shopping list is named 
