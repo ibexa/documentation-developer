@@ -16,7 +16,7 @@ This form is built using [Symfony Forms]([[= symfony_doc=]]/forms.html) and the 
 
 It provides a two-way mapping between the form structures (used to render the form) and the PHP API values used to create the discounts by offering methods related to:
 
-- form rendering 
+- form rendering
 - data structure mapping
 
 Form rendering methods return objects implementing the [`DiscountDataInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Discounts-Admin-Form-Data-DiscountDataInterface.html), allowing you to access and modify the form data.
