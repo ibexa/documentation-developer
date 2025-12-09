@@ -38,10 +38,10 @@ Use the expression values provided below when using data migrations or when pars
 Discount rules define how the calculate the price reduction.
 The following discount rule types are available in the `\Ibexa\Discounts\Value\DiscountRule` namespace:
 
-| Rule type | Identifier | Description | Expression value |
-|---|---|---|---|
-| `FixedAmount` | <nobr>`fixed_amount`</nobr> | Deducts the specified amount, for example <nobr>10 EUR</nobr>, from the base price | <nobr>`discount_amount`</nobr> |
-| `Percentage` | <nobr>`percentage`</nobr> | Deducts the specified percentage, for example -10%, from the base price | <nobr>`discount_percentage`</nobr> |
+| Rule type<br>(identifier) | Description | Expression value |
+|---|---|---|
+| `FixedAmount`<br><nobr>(`fixed_amount`)</nobr> | Deducts the specified amount, for example <nobr>10 EUR</nobr>, from the base price | <nobr>`discount_amount`</nobr> |
+| `Percentage`<br><nobr>(`percentage`)</nobr> | Deducts the specified percentage, for example -10%, from the base price | <nobr>`discount_percentage`</nobr> |
 
 Only a single discount can be applied to a given product, and a discount can only have a single rule.
 
@@ -49,16 +49,16 @@ Only a single discount can be applied to a given product, and a discount can onl
 
 With conditions you can narrow down the scenarios in which the discount applies. The following conditions are available in the `\Ibexa\Discounts\Value\DiscountCondition` and `\Ibexa\DiscountsCodes\Value\DiscountCondition` namespaces:
 
-| Condition | Applies to | Identifier | Description | Expression values |
-|---|---|---|---|---|
-| <nobr>`IsInCategory`</nobr> | Cart, Catalog | <nobr>`is_in_category`</nobr> | Checks if the product belongs to specified [product categories]([[= user_doc =]]/pim/work_with_product_categories) | `categories` |
-| <nobr>`IsInCurrency`</nobr> | Cart, Catalog |<nobr>`is_in_currency`</nobr> | Checks if the product has price in the specified currency | <nobr>`currency_code`</nobr> |
-| <nobr>`IsInRegions`</nobr> | Cart, Catalog | <nobr>`is_in_regions`</nobr> | Checks if the customer is making the purchase in one of the specified regions | `regions` |
-| <nobr>`IsProductInArray`</nobr> | Cart, Catalog | <nobr>`is_product_in_array`</nobr> | Checks if the product belongs to the group of selected products | `product_codes` |
-| <nobr>`IsUserInCustomerGroup`</nobr> | Cart, Catalog| <nobr>`is_user_in_customer_group`</nobr> | Check if the customer belongs to specified [customer groups](customer_groups.md) | `customer_groups` |
-| <nobr>`IsProductInQuantityInCart`</nobr> | Cart | <nobr>`is_product_in_quantity_in_cart`</nobr> | Checks if the required minimum quantity of a given product is present in the cart | `quantity` |
-| <nobr>`MinimumPurchaseAmount`</nobr> | Cart | <nobr>`minimum_purchase_amount`</nobr> | Checks if purchase amount in the cart exceeds the specified minimum | `minimum_purchase_amount` |
-| <nobr>`IsValidDiscountCode`</nobr> | Cart | <nobr>`is_valid_discount_code`</nobr> | Checks if the correct discount code has been provided and how many times it was used by the customer | `discount_code`, `usage_count` |
+| Condition<br>(identifier) | Applies to | Description | Expression values |
+|---|---|---|---|
+| <nobr>`IsInCategory`</nobr><br><nobr>(`is_in_category`)</nobr> | Cart, Catalog | Checks if the product belongs to specified [product categories]([[= user_doc =]]/pim/work_with_product_categories) | `categories` |
+| <nobr>`IsInCurrency`</nobr><br><nobr>(`is_in_currency`)</nobr> | Cart, Catalog | Checks if the product has price in the specified currency | <nobr>`currency_code`</nobr> |
+| <nobr>`IsInRegions`</nobr><br><nobr>(`is_in_regions`)</nobr> | Cart, Catalog | Checks if the customer is making the purchase in one of the specified regions | `regions` |
+| <nobr>`IsProductInArray`</nobr><br><nobr>(`is_product_in_array`)</nobr> | Cart, Catalog | Checks if the product belongs to the group of selected products | `product_codes` |
+| <nobr>`IsUserInCustomerGroup`</nobr><br><nobr>(`is_user_in_customer_group`)</nobr> | Cart, Catalog | Check if the customer belongs to specified [customer groups](customer_groups.md) | <nobr>`customer_groups`</nobr> |
+| <nobr>`IsProductInQuantityInCart`</nobr><br><nobr>(`is_product_in_quantity_in_cart`)</nobr> | Cart | Checks if the required minimum quantity of a given product is present in the cart | `quantity` |
+| <nobr>`MinimumPurchaseAmount`</nobr><br><nobr>(`minimum_purchase_amount`)</nobr> | Cart | Checks if purchase amount in the cart exceeds the specified minimum | <nobr>`minimum_purchase_amount`</nobr> |
+| <nobr>`IsValidDiscountCode`</nobr><br><nobr>(`is_valid_discount_code`)</nobr> | Cart | Checks if the correct discount code has been provided and how many times it was used by the customer | `discount_code`, <br>`usage_count` |
 
 When multiple conditions are specified, all of them must be met.
 
