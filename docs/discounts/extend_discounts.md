@@ -68,6 +68,7 @@ And mark it as a service using the `ibexa.discounts.expression_language.variable
 
 It's a function returning a boolean value indicating if today is the anniversary of the date passed as an argument.
 The function accepts an optional argument, `tolerance`, allowing you to extend the range of dates that are acccepted as anniversaries.
+This implementation is simplified and does not cover the approach for accounts created on February 29 during leap years.
 
 ``` php
 [[= include_file('code_samples/discounts/src/Discounts/ExpressionProvider/IsAnniversaryResolver.php') =]]
