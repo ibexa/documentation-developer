@@ -149,3 +149,48 @@ Run the provided SQL upgrade script to add the missing indexes to your database:
     ``` sql
     psql <database_name> < vendor/ibexa/installer/upgrade/db/postgresql/ibexa-5.0.2-to-5.0.3.sql
     ```
+
+## v5.0.4
+
+No additional steps needed.
+
+## LTS Updates and additional packages
+
+[LTS Updates](editions.md#lts-updates) are standalone packages with their own update procedures.
+To use the [latest features](ibexa_dxp_v5.0.md) added to them, update them separately with the following commands:
+
+=== "Integrated help"
+
+    ### Integrated help [[% include 'snippets/lts-update_badge.md' %]]
+
+    See [integrated help](integrated_help.md) for more information.
+
+    If you're already using it, run the following command to get the latest version of this feature:
+
+    ```bash
+    composer require ibexa/integrated-help:[[= latest_tag_5_0 =]]
+    ```
+
+=== "Anthropic connector"
+
+    ### Anthropic connector [[% include 'snippets/lts-update_badge.md' %]]
+
+    See [how to configure Anthropic connector](configure_ai_actions.md#install-anthropic-connector) for more information.
+
+    If you're already using it, run the following command to get the latest version of this feature:
+
+    ```bash
+    composer require ibexa/connector-anthropic:[[= latest_tag_5_0 =]]
+    ```
+
+=== "Real-time collaborative editing"
+
+    ### Real-time collaborative editing
+
+    To learn more about the [real-time editing](collaborative_editing_guide.md), see the [installation and configuration instructions](configure_collaborative_editing.md).
+
+    If you're already using it, run the following command to get the latest version of this feature:
+
+    ```bash
+    composer require ibexa/fieldtype-richtext-rte:[[= latest_tag_5_0 =]] ibexa/ckeditor-premium:[[= latest_tag_5_0 =]]
+    ```

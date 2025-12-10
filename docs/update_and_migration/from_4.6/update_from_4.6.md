@@ -448,6 +448,10 @@ Run the provided SQL upgrade script to add the missing indexes to your database:
     psql <database_name> < vendor/ibexa/installer/upgrade/db/postgresql/ibexa-4.6.24-to-4.6.25.sql
     ```
 
+## v4.6.26
+
+No additional steps needed.
+
 <!-- End of update instructions -->
 
 [[% include 'snippets/update/notify_support.md' %]]
@@ -689,3 +693,34 @@ To use the [latest features](ibexa_dxp_v4.6.md) added to them, update them separ
     ```bash
     composer require ibexa/product-catalog-symbol-attribute:[[= latest_tag_4_6 =]]
     ```
+
+=== "Integrated help"
+
+    ### Integrated help [[% include 'snippets/lts-update_badge.md' %]]
+
+    See [integrated help](integrated_help.md) for more information.
+
+    If you're already using it, run the following command to get the latest version of this feature:
+
+    ```bash
+    composer require ibexa/integrated-help:[[= latest_tag_4_6 =]]
+    ```
+
+=== "Collaborative editing"
+
+    ### Collaborative editing [[% include 'snippets/lts-update_badge.md' %]]
+
+    To learn more about the [collaborative editing](https://doc.ibexa.co/en/latest/content_management/collaborative_editing/collaborative_editing_guide/), see the [installation instructions](https://doc.ibexa.co/en/4.6/content_management/collaborative_editing/install_collaborative_editing).
+
+    If you're already using it, run the following command to get the latest version of this feature:
+
+    ```bash
+    composer require ibexa/share:[[= latest_tag_4_6 =]] ibexa/collaboration:[[= latest_tag_4_6 =]]
+    ```
+
+    If you're using the real-time collaborative editing, in addition run:
+
+    ```bash
+    composer require ibexa/fieldtype-richtext-rte:[[= latest_tag_4_6 =]] ibexa/ckeditor-premium:[[= latest_tag_4_6 =]]
+    ```
+
