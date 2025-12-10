@@ -45,6 +45,28 @@ jobs:
                   SATIS_NETWORK_TOKEN: ${{ secrets.SATIS_NETWORK_TOKEN }}
                   BASE_BRANCH: ${{ steps.version_and_branches.outputs.base_branch }}
               run: |
+                  echo "Space usage before installing dependencies:"
+                  df -h
+                  echo "Home realpath: $(realpath ~)"
+                  echo "Listing space usage of home directory:"
+                  time du -h -d1 ~
+                  time du -h -d1 ~/.local
+                  time du -h -d1 ~/actions-runner
+                  time du -h -d1 ~/actions-runner/cached
+                  time du -h -d1 ~/work
+                  
+                  echo "Removing large packages"
+                  sudo apt-get remove -y azure-cli google-cloud-sdk hhvm microsoft-edge-stable google-chrome-stable firefox powershell mono-devel
+                  sudo apt-get autoremove -y
+                  sudo apt-get clean
+
+                  echo "Removing large directories"
+                  rm -rf /usr/share/dotnet/
+                  rm -rf /opt/hostedtoolcache
+
+                  echo "Space usage after cleanup:"
+                  df -h
+
                   composer config --global http-basic.updates.ibexa.co $SATIS_NETWORK_KEY $SATIS_NETWORK_TOKEN
                   if [[ '4.6' != $BASE_BRANCH ]]; then
                     tools/api_refs/api_refs.sh
