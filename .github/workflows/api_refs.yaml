@@ -54,7 +54,7 @@ jobs:
                   time du -h -d1 ~/actions-runner/cached
                   
                   echo "Removing large packages"
-                  sudo apt-get remove -y azure-cli google-cloud-sdk hhvm microsoft-edge-stable google-chrome-stable firefox powershell mono-devel
+                  sudo apt-get remove -y azure-cli microsoft-edge-stable google-chrome-stable firefox powershell mono-devel
                   sudo apt-get autoremove -y
                   sudo apt-get clean
 
