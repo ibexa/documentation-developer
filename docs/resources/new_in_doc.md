@@ -23,6 +23,7 @@ This page contains recent highlights and notable changes in [[= product_name =]]
 ### Collaborative editing
 
 - Improved Collaborative editing:
+    - Added [real-time editing configuration](configure_collaborative_editing.md#configure-real-time-editing)
     - Added Collaborative editing policies for [content items](policies.md#content-collaborative-editing) and [products](policies.md#product-collaborative-editing)
     - Added [Collaborative editing limitations](limitation_reference.md#collaborative-editing-limitations)
 
