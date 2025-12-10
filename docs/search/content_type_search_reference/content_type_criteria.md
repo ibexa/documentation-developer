@@ -12,6 +12,7 @@ Content Type Search Criteria are only supported by [Content Type Search (`Conten
 |-------|-------------|
 | [ContainsFieldDefinitionId](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-ContentType-Query-Criterion-ContainsFieldDefinitionId.html) | Matches content types that contain a field definition with the specified ID. |
 | [ContentTypeGroupId](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-ContentType-Query-Criterion-ContentTypeGroupId.html) | Matches content types by their assigned group ID. |
+| [ContentTypeGroupName](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-ContentType-Query-Criterion-ContentTypeGroupName.html) | Matches content types by the name of their assigned group. |
 | [ContentTypeId](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-ContentType-Query-Criterion-ContentTypeId.html) | Matches content types by their ID. |
 | [ContentTypeIdentifier](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-ContentType-Query-Criterion-ContentTypeIdentifier.html) | Matches content types by their identifier. |
 | [IsSystem](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-ContentType-Query-Criterion-IsSystem.html) | Matches content types based on whether the group they belong to is system or not. |
