@@ -161,6 +161,7 @@ ibexa:
                     - 'Content'
                 excluded_content_types:
                     - 'tag'
+                    - 'landing_page'
                     - 'product_category_tag'
 ```
 
