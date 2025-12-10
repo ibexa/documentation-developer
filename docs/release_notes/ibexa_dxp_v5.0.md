@@ -57,6 +57,7 @@ The PHP API has been expanded with the following:
 [[% include 'snippets/release_50.md' %]]
 [[= release_note_entry_end() =]]
 
+[[% set version = 'v5.0.2' %]]
 [[= release_note_entry_begin("Ibexa DXP " + version, '2025-09-09', ['Headless', 'Experience', 'Commerce', 'New feature']) =]]
 
 #### Collaboration
