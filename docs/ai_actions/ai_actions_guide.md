@@ -12,7 +12,7 @@ Wherever you look, artificial intelligence becomes more and more important by en
 AI Actions is an extensible solution for integrating features provided by AI services into your workflows, all managed through a user-friendly interface.
 
 Out-of-the-box, AI Actions solution includes two essential components: a framework package and an OpenAI connector package.
-The Anthropic Claude connector is also available - as an [LTS update](editions.md#lts-updates).
+The Anthropic connector is also available - as an [LTS update](editions.md#lts-updates).
 
 AI Actions can integrate with [[[= product_name_connect =]]]([[= connect_doc =]]/general/ibexa_connect/), to give you an opportunity to build complex data transformation workflows without having to rely on custom code.
 From the developer's perspective, the integration removes the burden of maintaining third-party AI handlers, and accelerates the deployment of AI-based solutions.

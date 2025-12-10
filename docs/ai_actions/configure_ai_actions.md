@@ -32,17 +32,17 @@ The AI actions come with sample AI action configurations to quickly get you star
 
 Based on these examples, which reflect the most common use cases, you can learn to configure your own AI actions with greater ease.
 
-## Install Anthropic Claude connector [[% include 'snippets/lts-update_badge.md' %]]
+## Install Anthropic connector [[% include 'snippets/lts-update_badge.md' %]]
 
 Run the following command to install the package:
 
-```
+``` bash
 composer require ibexa/connector-anthropic
 ```
 
 This command adds the feature code, including basic handlers that let you refine text or generate alternative text for images.
 
-To use the connector with the Anthropic Claude service, you need to create an account, make sure that you [set up a billing method](https://support.claude.com/en/articles/8325618-paid-plan-billing-faqs), and get an API key.
+To use the connector with the Anthropic services, you need to create an account, make sure that you [set up a billing method](https://support.claude.com/en/articles/8325618-paid-plan-billing-faqs), and get an API key.
 
 1. Log in to your [Anthropic Claude console](https://console.anthropic.com/login).
 
