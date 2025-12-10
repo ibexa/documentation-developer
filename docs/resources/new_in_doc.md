@@ -38,6 +38,10 @@ This page contains recent highlights and notable changes in [[= product_name =]]
     - Added [Collaborative editing policies](policies.md#content-collaborative-editing)
     - Added [Collaborative editing limitations](limitation_reference.md#collaborative-editing-limitations)
 
+### DDEV
+
+- Updated [Solr installation in DDEV cluster](clustering_with_ddev.md#solr)
+
 ## October 2025
 
 ### Releases
