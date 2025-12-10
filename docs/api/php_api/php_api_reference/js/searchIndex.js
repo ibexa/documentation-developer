@@ -811,6 +811,21 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/Ibexa-Contracts-AdminUi-Component-Renderer-RendererInterface.html#method_renderSingle"
         },                {
+            "fqsen": "\\Ibexa\\Contracts\\AdminUi\\ContentType\\ContentTypeFieldsByExpressionServiceInterface",
+            "name": "ContentTypeFieldsByExpressionServiceInterface",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-AdminUi-ContentType-ContentTypeFieldsByExpressionServiceInterface.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\AdminUi\\ContentType\\ContentTypeFieldsByExpressionServiceInterface\u003A\u003AgetFieldsFromExpression\u0028\u0029",
+            "name": "getFieldsFromExpression",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-AdminUi-ContentType-ContentTypeFieldsByExpressionServiceInterface.html#method_getFieldsFromExpression"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\AdminUi\\ContentType\\ContentTypeFieldsByExpressionServiceInterface\u003A\u003AisFieldIncludedInExpression\u0028\u0029",
+            "name": "isFieldIncludedInExpression",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-AdminUi-ContentType-ContentTypeFieldsByExpressionServiceInterface.html#method_isFieldIncludedInExpression"
+        },                {
             "fqsen": "\\Ibexa\\Contracts\\AdminUi\\Controller\\Controller",
             "name": "Controller",
             "summary": "",
@@ -4616,6 +4631,26 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/Ibexa-Contracts-Collaboration-Invitation-Query-Criterion-LogicalOr.html"
         },                {
+            "fqsen": "\\Ibexa\\Contracts\\Collaboration\\Invitation\\Query\\Criterion\\ParticipantScope",
+            "name": "ParticipantScope",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Collaboration-Invitation-Query-Criterion-ParticipantScope.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Collaboration\\Invitation\\Query\\Criterion\\ParticipantScope\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Collaboration-Invitation-Query-Criterion-ParticipantScope.html#method___construct"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Collaboration\\Invitation\\Query\\Criterion\\ParticipantType",
+            "name": "ParticipantType",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Collaboration-Invitation-Query-Criterion-ParticipantType.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Collaboration\\Invitation\\Query\\Criterion\\ParticipantType\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Collaboration-Invitation-Query-Criterion-ParticipantType.html#method___construct"
+        },                {
             "fqsen": "\\Ibexa\\Contracts\\Collaboration\\Invitation\\Query\\Criterion\\Sender",
             "name": "Sender",
             "summary": "",
@@ -5240,6 +5275,21 @@ Search.appendIndex(
             "name": "getByToken",
             "summary": "",
             "url": "classes/Ibexa-Contracts-Collaboration-Participant-ParticipantCollectionInterface.html#method_getByToken"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Collaboration\\Participant\\ParticipantDiscriminator",
+            "name": "ParticipantDiscriminator",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Collaboration-Participant-ParticipantDiscriminator.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Collaboration\\Participant\\ParticipantDiscriminator\u003A\u003AINTERNAL",
+            "name": "INTERNAL",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Collaboration-Participant-ParticipantDiscriminator.html#constant_INTERNAL"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Collaboration\\Participant\\ParticipantDiscriminator\u003A\u003AEXTERNAL",
+            "name": "EXTERNAL",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Collaboration-Participant-ParticipantDiscriminator.html#constant_EXTERNAL"
         },                {
             "fqsen": "\\Ibexa\\Contracts\\Collaboration\\Participant\\ParticipantInterface",
             "name": "ParticipantInterface",
@@ -8106,6 +8156,91 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/Ibexa-Contracts-ConnectorAi-Action-DataType-Image.html#constant_IDENTIFIER"
         },                {
+            "fqsen": "\\Ibexa\\Contracts\\ConnectorAi\\Action\\DataType\\Taxonomy",
+            "name": "Taxonomy",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-ConnectorAi-Action-DataType-Taxonomy.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\ConnectorAi\\Action\\DataType\\Taxonomy\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-ConnectorAi-Action-DataType-Taxonomy.html#method___construct"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\ConnectorAi\\Action\\DataType\\Taxonomy\u003A\u003AgetList\u0028\u0029",
+            "name": "getList",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-ConnectorAi-Action-DataType-Taxonomy.html#method_getList"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\ConnectorAi\\Action\\DataType\\Taxonomy\u003A\u003AgetIdentifier\u0028\u0029",
+            "name": "getIdentifier",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-ConnectorAi-Action-DataType-Taxonomy.html#method_getIdentifier"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\ConnectorAi\\Action\\DataType\\Taxonomy\u003A\u003AIDENTIFIER",
+            "name": "IDENTIFIER",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-ConnectorAi-Action-DataType-Taxonomy.html#constant_IDENTIFIER"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\ConnectorAi\\Action\\DataType\\TaxonomyEntry",
+            "name": "TaxonomyEntry",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-ConnectorAi-Action-DataType-TaxonomyEntry.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\ConnectorAi\\Action\\DataType\\TaxonomyEntry\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-ConnectorAi-Action-DataType-TaxonomyEntry.html#method___construct"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\ConnectorAi\\Action\\DataType\\TaxonomyEntry\u003A\u003AgetId\u0028\u0029",
+            "name": "getId",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-ConnectorAi-Action-DataType-TaxonomyEntry.html#method_getId"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\ConnectorAi\\Action\\DataType\\TaxonomyEntry\u003A\u003AgetParentId\u0028\u0029",
+            "name": "getParentId",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-ConnectorAi-Action-DataType-TaxonomyEntry.html#method_getParentId"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\ConnectorAi\\Action\\DataType\\TaxonomyEntry\u003A\u003AgetName\u0028\u0029",
+            "name": "getName",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-ConnectorAi-Action-DataType-TaxonomyEntry.html#method_getName"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\ConnectorAi\\Action\\DataType\\TaxonomySuggestion",
+            "name": "TaxonomySuggestion",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-ConnectorAi-Action-DataType-TaxonomySuggestion.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\ConnectorAi\\Action\\DataType\\TaxonomySuggestion\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-ConnectorAi-Action-DataType-TaxonomySuggestion.html#method___construct"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\ConnectorAi\\Action\\DataType\\TaxonomySuggestion\u003A\u003AgetParentId\u0028\u0029",
+            "name": "getParentId",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-ConnectorAi-Action-DataType-TaxonomySuggestion.html#method_getParentId"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\ConnectorAi\\Action\\DataType\\TaxonomySuggestion\u003A\u003AgetName\u0028\u0029",
+            "name": "getName",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-ConnectorAi-Action-DataType-TaxonomySuggestion.html#method_getName"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\ConnectorAi\\Action\\DataType\\TaxonomySuggestionInterface",
+            "name": "TaxonomySuggestionInterface",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-ConnectorAi-Action-DataType-TaxonomySuggestionInterface.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\ConnectorAi\\Action\\DataType\\TaxonomySuggestionInterface\u003A\u003AgetParentId\u0028\u0029",
+            "name": "getParentId",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-ConnectorAi-Action-DataType-TaxonomySuggestionInterface.html#method_getParentId"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\ConnectorAi\\Action\\DataType\\TaxonomySuggestionInterface\u003A\u003AgetName\u0028\u0029",
+            "name": "getName",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-ConnectorAi-Action-DataType-TaxonomySuggestionInterface.html#method_getName"
+        },                {
             "fqsen": "\\Ibexa\\Contracts\\ConnectorAi\\Action\\DataType\\Text",
             "name": "Text",
             "summary": "",
@@ -8135,6 +8270,41 @@ Search.appendIndex(
             "name": "IDENTIFIER",
             "summary": "",
             "url": "classes/Ibexa-Contracts-ConnectorAi-Action-DataType-Text.html#constant_IDENTIFIER"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\ConnectorAi\\Action\\DataType\\TextToTaxonomyInput",
+            "name": "TextToTaxonomyInput",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-ConnectorAi-Action-DataType-TextToTaxonomyInput.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\ConnectorAi\\Action\\DataType\\TextToTaxonomyInput\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-ConnectorAi-Action-DataType-TextToTaxonomyInput.html#method___construct"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\ConnectorAi\\Action\\DataType\\TextToTaxonomyInput\u003A\u003AgetText\u0028\u0029",
+            "name": "getText",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-ConnectorAi-Action-DataType-TextToTaxonomyInput.html#method_getText"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\ConnectorAi\\Action\\DataType\\TextToTaxonomyInput\u003A\u003AgetTaxonomyIdentifier\u0028\u0029",
+            "name": "getTaxonomyIdentifier",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-ConnectorAi-Action-DataType-TextToTaxonomyInput.html#method_getTaxonomyIdentifier"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\ConnectorAi\\Action\\DataType\\TextToTaxonomyInput\u003A\u003AgetList\u0028\u0029",
+            "name": "getList",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-ConnectorAi-Action-DataType-TextToTaxonomyInput.html#method_getList"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\ConnectorAi\\Action\\DataType\\TextToTaxonomyInput\u003A\u003AgetIdentifier\u0028\u0029",
+            "name": "getIdentifier",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-ConnectorAi-Action-DataType-TextToTaxonomyInput.html#method_getIdentifier"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\ConnectorAi\\Action\\DataType\\TextToTaxonomyInput\u003A\u003AIDENTIFIER",
+            "name": "IDENTIFIER",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-ConnectorAi-Action-DataType-TextToTaxonomyInput.html#constant_IDENTIFIER"
         },                {
             "fqsen": "\\Ibexa\\Contracts\\ConnectorAi\\Action\\Event\\BeforeExecuteEvent",
             "name": "BeforeExecuteEvent",
@@ -8316,6 +8486,21 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/Ibexa-Contracts-ConnectorAi-Action-Response-ImageResponse.html#method_getOutput"
         },                {
+            "fqsen": "\\Ibexa\\Contracts\\ConnectorAi\\Action\\Response\\TaxonomyResponse",
+            "name": "TaxonomyResponse",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-ConnectorAi-Action-Response-TaxonomyResponse.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\ConnectorAi\\Action\\Response\\TaxonomyResponse\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-ConnectorAi-Action-Response-TaxonomyResponse.html#method___construct"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\ConnectorAi\\Action\\Response\\TaxonomyResponse\u003A\u003AgetOutput\u0028\u0029",
+            "name": "getOutput",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-ConnectorAi-Action-Response-TaxonomyResponse.html#method_getOutput"
+        },                {
             "fqsen": "\\Ibexa\\Contracts\\ConnectorAi\\Action\\Response\\TextResponse",
             "name": "TextResponse",
             "summary": "",
@@ -8380,6 +8565,16 @@ Search.appendIndex(
             "name": "offsetUnset",
             "summary": "",
             "url": "classes/Ibexa-Contracts-ConnectorAi-Action-RuntimeContext.html#method_offsetUnset"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\ConnectorAi\\Action\\SuggestTaxonomyAction",
+            "name": "SuggestTaxonomyAction",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-ConnectorAi-Action-SuggestTaxonomyAction.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\ConnectorAi\\Action\\SuggestTaxonomyAction\u003A\u003AgetActionTypeIdentifier\u0028\u0029",
+            "name": "getActionTypeIdentifier",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-ConnectorAi-Action-SuggestTaxonomyAction.html#method_getActionTypeIdentifier"
         },                {
             "fqsen": "\\Ibexa\\Contracts\\ConnectorAi\\Action\\TextToImage\\Action",
             "name": "Action",
@@ -8455,6 +8650,51 @@ Search.appendIndex(
             "name": "ActionResponse",
             "summary": "",
             "url": "classes/Ibexa-Contracts-ConnectorAi-Action-TextToImage-ActionResponse.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\ConnectorAi\\Action\\TextToTaxonomy\\Action",
+            "name": "Action",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-ConnectorAi-Action-TextToTaxonomy-Action.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\ConnectorAi\\Action\\TextToTaxonomy\\Action\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-ConnectorAi-Action-TextToTaxonomy-Action.html#method___construct"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\ConnectorAi\\Action\\TextToTaxonomy\\Action\u003A\u003AgetInput\u0028\u0029",
+            "name": "getInput",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-ConnectorAi-Action-TextToTaxonomy-Action.html#method_getInput"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\ConnectorAi\\Action\\TextToTaxonomy\\Action\u003A\u003AgetParameters\u0028\u0029",
+            "name": "getParameters",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-ConnectorAi-Action-TextToTaxonomy-Action.html#method_getParameters"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\ConnectorAi\\Action\\TextToTaxonomy\\ActionResponse",
+            "name": "ActionResponse",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-ConnectorAi-Action-TextToTaxonomy-ActionResponse.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\ConnectorAi\\Action\\TextToTaxonomy\\ActionType",
+            "name": "ActionType",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-ConnectorAi-Action-TextToTaxonomy-ActionType.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\ConnectorAi\\Action\\TextToTaxonomy\\ActionType\u003A\u003AgetInputIdentifier\u0028\u0029",
+            "name": "getInputIdentifier",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-ConnectorAi-Action-TextToTaxonomy-ActionType.html#method_getInputIdentifier"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\ConnectorAi\\Action\\TextToTaxonomy\\ActionType\u003A\u003AgetOutputIdentifier\u0028\u0029",
+            "name": "getOutputIdentifier",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-ConnectorAi-Action-TextToTaxonomy-ActionType.html#method_getOutputIdentifier"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\ConnectorAi\\Action\\TextToTaxonomy\\ActionType\u003A\u003AgetOptions\u0028\u0029",
+            "name": "getOptions",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-ConnectorAi-Action-TextToTaxonomy-ActionType.html#method_getOptions"
         },                {
             "fqsen": "\\Ibexa\\Contracts\\ConnectorAi\\Action\\TextToText\\Action",
             "name": "Action",
@@ -24736,6 +24976,121 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/Ibexa-Contracts-Core-Repository-Values-Content-DraftList-Item-UnauthorizedContentDraftListItem.html#method_hasVersionInfo"
         },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\Content\\EmbeddingQuery",
+            "name": "EmbeddingQuery",
+            "summary": "This\u0020class\u0020is\u0020used\u0020to\u0020perform\u0020a\u0020Content\u0020query.",
+            "url": "classes/Ibexa-Contracts-Core-Repository-Values-Content-EmbeddingQuery.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\Content\\EmbeddingQuery\u003A\u003AgetEmbedding\u0028\u0029",
+            "name": "getEmbedding",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Repository-Values-Content-EmbeddingQuery.html#method_getEmbedding"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\Content\\EmbeddingQuery\u003A\u003AsetEmbedding\u0028\u0029",
+            "name": "setEmbedding",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Repository-Values-Content-EmbeddingQuery.html#method_setEmbedding"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\Content\\EmbeddingQuery\u003A\u003AgetFilter\u0028\u0029",
+            "name": "getFilter",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Repository-Values-Content-EmbeddingQuery.html#method_getFilter"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\Content\\EmbeddingQuery\u003A\u003AsetFilter\u0028\u0029",
+            "name": "setFilter",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Repository-Values-Content-EmbeddingQuery.html#method_setFilter"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\Content\\EmbeddingQuery\u003A\u003AgetAggregations\u0028\u0029",
+            "name": "getAggregations",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Repository-Values-Content-EmbeddingQuery.html#method_getAggregations"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\Content\\EmbeddingQuery\u003A\u003AsetAggregations\u0028\u0029",
+            "name": "setAggregations",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Repository-Values-Content-EmbeddingQuery.html#method_setAggregations"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\Content\\EmbeddingQuery\u003A\u003AgetOffset\u0028\u0029",
+            "name": "getOffset",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Repository-Values-Content-EmbeddingQuery.html#method_getOffset"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\Content\\EmbeddingQuery\u003A\u003AsetOffset\u0028\u0029",
+            "name": "setOffset",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Repository-Values-Content-EmbeddingQuery.html#method_setOffset"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\Content\\EmbeddingQuery\u003A\u003AgetLimit\u0028\u0029",
+            "name": "getLimit",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Repository-Values-Content-EmbeddingQuery.html#method_getLimit"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\Content\\EmbeddingQuery\u003A\u003AsetLimit\u0028\u0029",
+            "name": "setLimit",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Repository-Values-Content-EmbeddingQuery.html#method_setLimit"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\Content\\EmbeddingQuery\u003A\u003AsetPerformCount\u0028\u0029",
+            "name": "setPerformCount",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Repository-Values-Content-EmbeddingQuery.html#method_setPerformCount"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\Content\\EmbeddingQuery\u003A\u003AgetPerformCount\u0028\u0029",
+            "name": "getPerformCount",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Repository-Values-Content-EmbeddingQuery.html#method_getPerformCount"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\Content\\EmbeddingQuery\u003A\u003AisValid\u0028\u0029",
+            "name": "isValid",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Repository-Values-Content-EmbeddingQuery.html#method_isValid"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\Content\\EmbeddingQueryBuilder",
+            "name": "EmbeddingQueryBuilder",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Repository-Values-Content-EmbeddingQueryBuilder.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\Content\\EmbeddingQueryBuilder\u003A\u003Acreate\u0028\u0029",
+            "name": "create",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Repository-Values-Content-EmbeddingQueryBuilder.html#method_create"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\Content\\EmbeddingQueryBuilder\u003A\u003AwithEmbedding\u0028\u0029",
+            "name": "withEmbedding",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Repository-Values-Content-EmbeddingQueryBuilder.html#method_withEmbedding"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\Content\\EmbeddingQueryBuilder\u003A\u003AsetLimit\u0028\u0029",
+            "name": "setLimit",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Repository-Values-Content-EmbeddingQueryBuilder.html#method_setLimit"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\Content\\EmbeddingQueryBuilder\u003A\u003AsetOffset\u0028\u0029",
+            "name": "setOffset",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Repository-Values-Content-EmbeddingQueryBuilder.html#method_setOffset"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\Content\\EmbeddingQueryBuilder\u003A\u003AsetFilter\u0028\u0029",
+            "name": "setFilter",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Repository-Values-Content-EmbeddingQueryBuilder.html#method_setFilter"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\Content\\EmbeddingQueryBuilder\u003A\u003AsetAggregations\u0028\u0029",
+            "name": "setAggregations",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Repository-Values-Content-EmbeddingQueryBuilder.html#method_setAggregations"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\Content\\EmbeddingQueryBuilder\u003A\u003AsetPerformCount\u0028\u0029",
+            "name": "setPerformCount",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Repository-Values-Content-EmbeddingQueryBuilder.html#method_setPerformCount"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\Content\\EmbeddingQueryBuilder\u003A\u003Abuild\u0028\u0029",
+            "name": "build",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Repository-Values-Content-EmbeddingQueryBuilder.html#method_build"
+        },                {
             "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\Content\\Field",
             "name": "Field",
             "summary": "This\u0020class\u0020represents\u0020a\u0020field\u0020of\u0020a\u0020content\u0020object.",
@@ -27091,6 +27446,26 @@ Search.appendIndex(
             "summary": "Return\u0020the\u0020custom\u0020field\u0020to\u0020query\u0020or\u0020sort\u0020on\u0020if\u0020set.",
             "url": "classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-CustomFieldInterface.html#method_getCustomField"
         },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\Content\\Query\\Embedding",
+            "name": "Embedding",
+            "summary": "The\u0020base\u0020class\u0020for\u0020all\u0020value\u0020objects\u0020and\u0020structs.",
+            "url": "classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Embedding.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\Content\\Query\\Embedding\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "Construct\u0020object\u0020optionally\u0020with\u0020a\u0020set\u0020of\u0020properties.",
+            "url": "classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Embedding.html#method___construct"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\Content\\Query\\Embedding\u003A\u003AgetValue\u0028\u0029",
+            "name": "getValue",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Embedding.html#method_getValue"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\Content\\Query\\Embedding\u003A\u003A\u0024value",
+            "name": "value",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Embedding.html#property_value"
+        },                {
             "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\Content\\Query\\FacetBuilder\\ContentTypeFacetBuilder",
             "name": "ContentTypeFacetBuilder",
             "summary": "Building\u0020a\u0020content\u0020type\u0020facet.",
@@ -27671,6 +28046,11 @@ Search.appendIndex(
             "summary": "This\u0020class\u0020is\u0020used\u0020to\u0020perform\u0020a\u0020Content\u0020query.",
             "url": "classes/Ibexa-Contracts-Core-Repository-Values-Content-Query.html"
         },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\Content\\Query\u003A\u003AisValid\u0028\u0029",
+            "name": "isValid",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Repository-Values-Content-Query.html#method_isValid"
+        },                {
             "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\Content\\Query\u003A\u003ASORT_ASC",
             "name": "SORT_ASC",
             "summary": "",
@@ -27725,6 +28105,16 @@ Search.appendIndex(
             "name": "performCount",
             "summary": "If\u0020true,\u0020search\u0020engine\u0020should\u0020perform\u0020count\u0020even\u0020if\u0020that\u0020means\u0020extra\u0020lookup.",
             "url": "classes/Ibexa-Contracts-Core-Repository-Values-Content-Query.html#property_performCount"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\Content\\QueryValidatorInterface",
+            "name": "QueryValidatorInterface",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Repository-Values-Content-QueryValidatorInterface.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\Content\\QueryValidatorInterface\u003A\u003AisValid\u0028\u0029",
+            "name": "isValid",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Repository-Values-Content-QueryValidatorInterface.html#method_isValid"
         },                {
             "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\Content\\Relation",
             "name": "Relation",
@@ -29770,6 +30160,26 @@ Search.appendIndex(
             "name": "setValue",
             "summary": "",
             "url": "classes/Ibexa-Contracts-Core-Repository-Values-ContentType-Query-Criterion-ContentTypeGroupId.html#method_setValue"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\ContentType\\Query\\Criterion\\ContentTypeGroupName",
+            "name": "ContentTypeGroupName",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Repository-Values-ContentType-Query-Criterion-ContentTypeGroupName.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\ContentType\\Query\\Criterion\\ContentTypeGroupName\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Repository-Values-ContentType-Query-Criterion-ContentTypeGroupName.html#method___construct"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\ContentType\\Query\\Criterion\\ContentTypeGroupName\u003A\u003AgetValue\u0028\u0029",
+            "name": "getValue",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Repository-Values-ContentType-Query-Criterion-ContentTypeGroupName.html#method_getValue"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\ContentType\\Query\\Criterion\\ContentTypeGroupName\u003A\u003AsetValue\u0028\u0029",
+            "name": "setValue",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Repository-Values-ContentType-Query-Criterion-ContentTypeGroupName.html#method_setValue"
         },                {
             "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\ContentType\\Query\\Criterion\\ContentTypeId",
             "name": "ContentTypeId",
@@ -31896,6 +32306,96 @@ Search.appendIndex(
             "summary": "An\u0020array\u0020of\u0020sub\u002Ddocuments.",
             "url": "classes/Ibexa-Contracts-Core-Search-Document.html#property_documents"
         },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Search\\Embedding\\EmbeddingConfigurationInterface",
+            "name": "EmbeddingConfigurationInterface",
+            "summary": "Provides\u0020easy\u0020access\u0020to\u0020embedding\u002Drelated\u0020configuration.",
+            "url": "classes/Ibexa-Contracts-Core-Search-Embedding-EmbeddingConfigurationInterface.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Search\\Embedding\\EmbeddingConfigurationInterface\u003A\u003AgetModels\u0028\u0029",
+            "name": "getModels",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Search-Embedding-EmbeddingConfigurationInterface.html#method_getModels"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Search\\Embedding\\EmbeddingConfigurationInterface\u003A\u003AgetModelIdentifiers\u0028\u0029",
+            "name": "getModelIdentifiers",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Search-Embedding-EmbeddingConfigurationInterface.html#method_getModelIdentifiers"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Search\\Embedding\\EmbeddingConfigurationInterface\u003A\u003AgetModel\u0028\u0029",
+            "name": "getModel",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Search-Embedding-EmbeddingConfigurationInterface.html#method_getModel"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Search\\Embedding\\EmbeddingConfigurationInterface\u003A\u003AgetDefaultModelIdentifier\u0028\u0029",
+            "name": "getDefaultModelIdentifier",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Search-Embedding-EmbeddingConfigurationInterface.html#method_getDefaultModelIdentifier"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Search\\Embedding\\EmbeddingConfigurationInterface\u003A\u003AgetDefaultModel\u0028\u0029",
+            "name": "getDefaultModel",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Search-Embedding-EmbeddingConfigurationInterface.html#method_getDefaultModel"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Search\\Embedding\\EmbeddingConfigurationInterface\u003A\u003AgetDefaultProvider\u0028\u0029",
+            "name": "getDefaultProvider",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Search-Embedding-EmbeddingConfigurationInterface.html#method_getDefaultProvider"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Search\\Embedding\\EmbeddingConfigurationInterface\u003A\u003AgetDefaultModelFieldSuffix\u0028\u0029",
+            "name": "getDefaultModelFieldSuffix",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Search-Embedding-EmbeddingConfigurationInterface.html#method_getDefaultModelFieldSuffix"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Search\\Embedding\\EmbeddingProviderInterface",
+            "name": "EmbeddingProviderInterface",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Search-Embedding-EmbeddingProviderInterface.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Search\\Embedding\\EmbeddingProviderInterface\u003A\u003AgetEmbedding\u0028\u0029",
+            "name": "getEmbedding",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Search-Embedding-EmbeddingProviderInterface.html#method_getEmbedding"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Search\\Embedding\\EmbeddingProviderRegistryInterface",
+            "name": "EmbeddingProviderRegistryInterface",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Search-Embedding-EmbeddingProviderRegistryInterface.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Search\\Embedding\\EmbeddingProviderRegistryInterface\u003A\u003AgetEmbeddingProviders\u0028\u0029",
+            "name": "getEmbeddingProviders",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Search-Embedding-EmbeddingProviderRegistryInterface.html#method_getEmbeddingProviders"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Search\\Embedding\\EmbeddingProviderRegistryInterface\u003A\u003AhasEmbeddingProvider\u0028\u0029",
+            "name": "hasEmbeddingProvider",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Search-Embedding-EmbeddingProviderRegistryInterface.html#method_hasEmbeddingProvider"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Search\\Embedding\\EmbeddingProviderRegistryInterface\u003A\u003AgetEmbeddingProvider\u0028\u0029",
+            "name": "getEmbeddingProvider",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Search-Embedding-EmbeddingProviderRegistryInterface.html#method_getEmbeddingProvider"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Search\\Embedding\\EmbeddingProviderResolverInterface",
+            "name": "EmbeddingProviderResolverInterface",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Search-Embedding-EmbeddingProviderResolverInterface.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Search\\Embedding\\EmbeddingProviderResolverInterface\u003A\u003Aresolve\u0028\u0029",
+            "name": "resolve",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Search-Embedding-EmbeddingProviderResolverInterface.html#method_resolve"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Search\\Embedding\\EmbeddingResolverNotFoundException",
+            "name": "EmbeddingResolverNotFoundException",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Search-Embedding-EmbeddingResolverNotFoundException.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Search\\Embedding\\EmbeddingResolverNotFoundException\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Search-Embedding-EmbeddingResolverNotFoundException.html#method___construct"
+        },                {
             "fqsen": "\\Ibexa\\Contracts\\Core\\Search\\Field",
             "name": "Field",
             "summary": "Base\u0020class\u0020for\u0020document\u0020fields.",
@@ -31975,6 +32475,31 @@ Search.appendIndex(
             "name": "type",
             "summary": "The\u0020type\u0020name\u0020of\u0020the\u0020facet.\u0020Has\u0020to\u0020be\u0020handled\u0020by\u0020the\u0020solr\u0020schema.",
             "url": "classes/Ibexa-Contracts-Core-Search-FieldType-DocumentField.html#property_type"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Search\\FieldType\\EmbeddingField",
+            "name": "EmbeddingField",
+            "summary": "Base\u0020class\u0020for\u0020document\u0020field\u0020definitions.",
+            "url": "classes/Ibexa-Contracts-Core-Search-FieldType-EmbeddingField.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Search\\FieldType\\EmbeddingField\u003A\u003Acreate\u0028\u0029",
+            "name": "create",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Search-FieldType-EmbeddingField.html#method_create"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Search\\FieldType\\EmbeddingFieldFactory",
+            "name": "EmbeddingFieldFactory",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Search-FieldType-EmbeddingFieldFactory.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Search\\FieldType\\EmbeddingFieldFactory\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Search-FieldType-EmbeddingFieldFactory.html#method___construct"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Search\\FieldType\\EmbeddingFieldFactory\u003A\u003Acreate\u0028\u0029",
+            "name": "create",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Search-FieldType-EmbeddingFieldFactory.html#method_create"
         },                {
             "fqsen": "\\Ibexa\\Contracts\\Core\\Search\\FieldType\\FloatField",
             "name": "FloatField",
@@ -39211,6 +39736,21 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/Ibexa-Contracts-Elasticsearch-Query-CriterionVisitor.html#method_visit"
         },                {
+            "fqsen": "\\Ibexa\\Contracts\\Elasticsearch\\Query\\EmbeddingVisitor",
+            "name": "EmbeddingVisitor",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Elasticsearch-Query-EmbeddingVisitor.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Elasticsearch\\Query\\EmbeddingVisitor\u003A\u003Asupports\u0028\u0029",
+            "name": "supports",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Elasticsearch-Query-EmbeddingVisitor.html#method_supports"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Elasticsearch\\Query\\EmbeddingVisitor\u003A\u003Avisit\u0028\u0029",
+            "name": "visit",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Elasticsearch-Query-EmbeddingVisitor.html#method_visit"
+        },                {
             "fqsen": "\\Ibexa\\Contracts\\Elasticsearch\\Query\\Event\\QueryFilterEvent",
             "name": "QueryFilterEvent",
             "summary": "Event\u0020is\u0020the\u0020base\u0020class\u0020for\u0020classes\u0020containing\u0020event\u0020data.",
@@ -40220,6 +40760,106 @@ Search.appendIndex(
             "name": "validateDocument",
             "summary": "Validate\u0020the\u0020given\u0020\u0024xmlDocument\u0020and\u0020returns\u0020list\u0020of\u0020errors.",
             "url": "classes/Ibexa-Contracts-FieldTypeRichText-RichText-ValidatorInterface.html#method_validateDocument"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\FieldTypeRichTextRTE\\ChannelIdGeneratorInterface",
+            "name": "ChannelIdGeneratorInterface",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-FieldTypeRichTextRTE-ChannelIdGeneratorInterface.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\FieldTypeRichTextRTE\\ChannelIdGeneratorInterface\u003A\u003Agenerate\u0028\u0029",
+            "name": "generate",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-FieldTypeRichTextRTE-ChannelIdGeneratorInterface.html#method_generate"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\FieldTypeRichTextRTE\\Config\\LicenseKeyProviderInterface",
+            "name": "LicenseKeyProviderInterface",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-FieldTypeRichTextRTE-Config-LicenseKeyProviderInterface.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\FieldTypeRichTextRTE\\Config\\LicenseKeyProviderInterface\u003A\u003AgetLicenseKey\u0028\u0029",
+            "name": "getLicenseKey",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-FieldTypeRichTextRTE-Config-LicenseKeyProviderInterface.html#method_getLicenseKey"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\FieldTypeRichTextRTE\\Config\\LocalStorageInterface",
+            "name": "LocalStorageInterface",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-FieldTypeRichTextRTE-Config-LocalStorageInterface.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\FieldTypeRichTextRTE\\Config\\LocalStorageInterface\u003A\u003Asave\u0028\u0029",
+            "name": "save",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-FieldTypeRichTextRTE-Config-LocalStorageInterface.html#method_save"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\FieldTypeRichTextRTE\\Config\\LocalStorageInterface\u003A\u003Aload\u0028\u0029",
+            "name": "load",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-FieldTypeRichTextRTE-Config-LocalStorageInterface.html#method_load"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\FieldTypeRichTextRTE\\TokenServiceInterface",
+            "name": "TokenServiceInterface",
+            "summary": "Service\u0020responsible\u0020for\u0020creating\u0020a\u0020token\u0020for\u0020the\u0020collaborative\u0020editing\u0020feature.",
+            "url": "classes/Ibexa-Contracts-FieldTypeRichTextRTE-TokenServiceInterface.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\FieldTypeRichTextRTE\\TokenServiceInterface\u003A\u003AcreateToken\u0028\u0029",
+            "name": "createToken",
+            "summary": "Creates\u0020a\u0020token\u0020for\u0020the\u0020given\u0020user.",
+            "url": "classes/Ibexa-Contracts-FieldTypeRichTextRTE-TokenServiceInterface.html#method_createToken"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\FieldTypeRichTextRTE\\ToS\\LicenseTermsStatusServiceInterface",
+            "name": "LicenseTermsStatusServiceInterface",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-FieldTypeRichTextRTE-ToS-LicenseTermsStatusServiceInterface.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\FieldTypeRichTextRTE\\ToS\\LicenseTermsStatusServiceInterface\u003A\u003AsendLicenseRequest\u0028\u0029",
+            "name": "sendLicenseRequest",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-FieldTypeRichTextRTE-ToS-LicenseTermsStatusServiceInterface.html#method_sendLicenseRequest"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\FieldTypeRichTextRTE\\ToS\\NoResponseException",
+            "name": "NoResponseException",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-FieldTypeRichTextRTE-ToS-NoResponseException.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\FieldTypeRichTextRTE\\ToS\\Status",
+            "name": "Status",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-FieldTypeRichTextRTE-ToS-Status.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\FieldTypeRichTextRTE\\ToS\\Status\u003A\u003AisAccepted\u0028\u0029",
+            "name": "isAccepted",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-FieldTypeRichTextRTE-ToS-Status.html#method_isAccepted"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\FieldTypeRichTextRTE\\ToS\\Status\u003A\u003AisInGracePeriod\u0028\u0029",
+            "name": "isInGracePeriod",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-FieldTypeRichTextRTE-ToS-Status.html#method_isInGracePeriod"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\FieldTypeRichTextRTE\\ToS\\Status\u003A\u003AgetDaysLeftInGracePeriod\u0028\u0029",
+            "name": "getDaysLeftInGracePeriod",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-FieldTypeRichTextRTE-ToS-Status.html#method_getDaysLeftInGracePeriod"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\FieldTypeRichTextRTE\\ToS\\Status\u003A\u003AgetTos\u0028\u0029",
+            "name": "getTos",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-FieldTypeRichTextRTE-ToS-Status.html#method_getTos"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\FieldTypeRichTextRTE\\ToS\\Status\u003A\u003AsetTos\u0028\u0029",
+            "name": "setTos",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-FieldTypeRichTextRTE-ToS-Status.html#method_setTos"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\FieldTypeRichTextRTE\\ToS\\ToSServiceInterface",
+            "name": "ToSServiceInterface",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-FieldTypeRichTextRTE-ToS-ToSServiceInterface.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\FieldTypeRichTextRTE\\ToS\\ToSServiceInterface\u003A\u003AgetStatus\u0028\u0029",
+            "name": "getStatus",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-FieldTypeRichTextRTE-ToS-ToSServiceInterface.html#method_getStatus"
         },                {
             "fqsen": "\\Ibexa\\Contracts\\FormBuilder\\FieldType\\Field\\FieldMapperInterface",
             "name": "FieldMapperInterface",
@@ -54871,6 +55511,16 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/Ibexa-Contracts-Share-Event-UsersWithPermissionInfoMappedEvent.html#method_setResult"
         },                {
+            "fqsen": "\\Ibexa\\Contracts\\Share\\Mapper\\Action\\ShareActionItemsMapperInterface",
+            "name": "ShareActionItemsMapperInterface",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Share-Mapper-Action-ShareActionItemsMapperInterface.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Share\\Mapper\\Action\\ShareActionItemsMapperInterface\u003A\u003Amap\u0028\u0029",
+            "name": "map",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Share-Mapper-Action-ShareActionItemsMapperInterface.html#method_map"
+        },                {
             "fqsen": "\\Ibexa\\Contracts\\Share\\Permission\\Mapper\\Result",
             "name": "Result",
             "summary": "",
@@ -54921,10 +55571,35 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/Ibexa-Contracts-Share-UI-Component-AbstractShareComponent.html#method_getActiveSession"
         },                {
+            "fqsen": "\\Ibexa\\Contracts\\Share\\UI\\Component\\AbstractShareComponent\u003A\u003AisContextOwner\u0028\u0029",
+            "name": "isContextOwner",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Share-UI-Component-AbstractShareComponent.html#method_isContextOwner"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Share\\UI\\Component\\AbstractShareComponent\u003A\u003AcanShareWithOthers\u0028\u0029",
+            "name": "canShareWithOthers",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Share-UI-Component-AbstractShareComponent.html#method_canShareWithOthers"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Share\\UI\\Component\\AbstractShareComponent\u003A\u003AgetAllowedShareScopes\u0028\u0029",
+            "name": "getAllowedShareScopes",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Share-UI-Component-AbstractShareComponent.html#method_getAllowedShareScopes"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Share\\UI\\Component\\AbstractShareComponent\u003A\u003AcanManagePublicLink\u0028\u0029",
+            "name": "canManagePublicLink",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Share-UI-Component-AbstractShareComponent.html#method_canManagePublicLink"
+        },                {
             "fqsen": "\\Ibexa\\Contracts\\Share\\UI\\Component\\AbstractShareComponent\u003A\u003Arender\u0028\u0029",
             "name": "render",
             "summary": "",
             "url": "classes/Ibexa-Contracts-Share-UI-Component-AbstractShareComponent.html#method_render"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Share\\UI\\Component\\AbstractShareComponent\u003A\u003A\u0024permissionResolver",
+            "name": "permissionResolver",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Share-UI-Component-AbstractShareComponent.html#property_permissionResolver"
         },                {
             "fqsen": "\\Ibexa\\Contracts\\Share\\Values\\PermissionCheckContext",
             "name": "PermissionCheckContext",
@@ -57621,6 +58296,21 @@ Search.appendIndex(
             "summary": "Escapes\u0020value\u0020for\u0020use\u0020in\u0020expressions.",
             "url": "classes/Ibexa-Contracts-Solr-Query-CriterionVisitor.html#method_escapeExpressions"
         },                {
+            "fqsen": "\\Ibexa\\Contracts\\Solr\\Query\\EmbeddingVisitor",
+            "name": "EmbeddingVisitor",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Solr-Query-EmbeddingVisitor.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Solr\\Query\\EmbeddingVisitor\u003A\u003AcanVisit\u0028\u0029",
+            "name": "canVisit",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Solr-Query-EmbeddingVisitor.html#method_canVisit"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Solr\\Query\\EmbeddingVisitor\u003A\u003Avisit\u0028\u0029",
+            "name": "visit",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Solr-Query-EmbeddingVisitor.html#method_visit"
+        },                {
             "fqsen": "\\Ibexa\\Contracts\\Solr\\Query\\SortClauseVisitor",
             "name": "SortClauseVisitor",
             "summary": "Visits\u0020the\u0020sort\u0020clause\u0020into\u0020a\u0020Solr\u0020query.",
@@ -57860,6 +58550,61 @@ Search.appendIndex(
             "name": "contains",
             "summary": "Returns\u0020true\u0020if\u0020\u0024needle\u0020is\u0020a\u0020descendant\u0020of\u0020a\u0020given\u0020\u0024haystack.",
             "url": "classes/Ibexa-Contracts-Storefront-Repository-TaxonomyTreeServiceInterface.html#method_contains"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Taxonomy\\Embedding\\TaxonomyEmbeddingConfigurationInterface",
+            "name": "TaxonomyEmbeddingConfigurationInterface",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Taxonomy-Embedding-TaxonomyEmbeddingConfigurationInterface.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Taxonomy\\Embedding\\TaxonomyEmbeddingConfigurationInterface\u003A\u003AisIndexEmbeddingsEnabled\u0028\u0029",
+            "name": "isIndexEmbeddingsEnabled",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Taxonomy-Embedding-TaxonomyEmbeddingConfigurationInterface.html#method_isIndexEmbeddingsEnabled"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Taxonomy\\Embedding\\TaxonomyEmbeddingConfigurationInterface\u003A\u003AgetDefaultEmbeddingModelIdentifier\u0028\u0029",
+            "name": "getDefaultEmbeddingModelIdentifier",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Taxonomy-Embedding-TaxonomyEmbeddingConfigurationInterface.html#method_getDefaultEmbeddingModelIdentifier"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Taxonomy\\Embedding\\TaxonomyEmbeddingConfigurationInterface\u003A\u003AgetDefaultEmbeddingModel\u0028\u0029",
+            "name": "getDefaultEmbeddingModel",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Taxonomy-Embedding-TaxonomyEmbeddingConfigurationInterface.html#method_getDefaultEmbeddingModel"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Taxonomy\\Embedding\\TaxonomyEmbeddingConfigurationInterface\u003A\u003AgetDefaultEmbeddingModelName\u0028\u0029",
+            "name": "getDefaultEmbeddingModelName",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Taxonomy-Embedding-TaxonomyEmbeddingConfigurationInterface.html#method_getDefaultEmbeddingModelName"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Taxonomy\\Embedding\\TaxonomyEmbeddingConfigurationInterface\u003A\u003AgetDefaultEmbeddingModelDimensions\u0028\u0029",
+            "name": "getDefaultEmbeddingModelDimensions",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Taxonomy-Embedding-TaxonomyEmbeddingConfigurationInterface.html#method_getDefaultEmbeddingModelDimensions"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Taxonomy\\Embedding\\TaxonomyEmbeddingConfigurationInterface\u003A\u003AgetDefaultEmbeddingModelFieldSuffix\u0028\u0029",
+            "name": "getDefaultEmbeddingModelFieldSuffix",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Taxonomy-Embedding-TaxonomyEmbeddingConfigurationInterface.html#method_getDefaultEmbeddingModelFieldSuffix"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Taxonomy\\Embedding\\TaxonomyEmbeddingConfigurationInterface\u003A\u003AgetDefaultEmbeddingProvider\u0028\u0029",
+            "name": "getDefaultEmbeddingProvider",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Taxonomy-Embedding-TaxonomyEmbeddingConfigurationInterface.html#method_getDefaultEmbeddingProvider"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Taxonomy\\Embedding\\TaxonomyEmbeddingFieldProviderInterface",
+            "name": "TaxonomyEmbeddingFieldProviderInterface",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Taxonomy-Embedding-TaxonomyEmbeddingFieldProviderInterface.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Taxonomy\\Embedding\\TaxonomyEmbeddingFieldProviderInterface\u003A\u003Aaccept\u0028\u0029",
+            "name": "accept",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Taxonomy-Embedding-TaxonomyEmbeddingFieldProviderInterface.html#method_accept"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Taxonomy\\Embedding\\TaxonomyEmbeddingFieldProviderInterface\u003A\u003AgenerateField\u0028\u0029",
+            "name": "generateField",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Taxonomy-Embedding-TaxonomyEmbeddingFieldProviderInterface.html#method_generateField"
         },                {
             "fqsen": "\\Ibexa\\Contracts\\Taxonomy\\Event\\BeforeCreateTaxonomyEntryEvent",
             "name": "BeforeCreateTaxonomyEntryEvent",
@@ -58150,6 +58895,11 @@ Search.appendIndex(
             "name": "getSpecifications",
             "summary": "Criterion\u0020description\u0020function.",
             "url": "classes/Ibexa-Contracts-Taxonomy-Search-Query-Criterion-TaxonomySubtree.html#method_getSpecifications"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Taxonomy\\Search\\Query\\Value\\TaxonomyEmbedding",
+            "name": "TaxonomyEmbedding",
+            "summary": "The\u0020base\u0020class\u0020for\u0020all\u0020value\u0020objects\u0020and\u0020structs.",
+            "url": "classes/Ibexa-Contracts-Taxonomy-Search-Query-Value-TaxonomyEmbedding.html"
         },                {
             "fqsen": "\\Ibexa\\Contracts\\Taxonomy\\Service\\Decorator\\TaxonomyEntryAssignmentServiceDecorator",
             "name": "TaxonomyEntryAssignmentServiceDecorator",
@@ -59221,6 +59971,16 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/Ibexa-Contracts-User-Notification-UserRegister.html#method_getUser"
         },                {
+            "fqsen": "\\Ibexa\\Contracts\\User\\PasswordReset\\NotifierInterface",
+            "name": "NotifierInterface",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-User-PasswordReset-NotifierInterface.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\User\\PasswordReset\\NotifierInterface\u003A\u003AsendMessage\u0028\u0029",
+            "name": "sendMessage",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-User-PasswordReset-NotifierInterface.html#method_sendMessage"
+        },                {
             "fqsen": "\\Ibexa\\Contracts\\User\\UserSetting\\FormMapperInterface",
             "name": "FormMapperInterface",
             "summary": "",
@@ -60041,6 +60801,11 @@ Search.appendIndex(
             "summary": "",
             "url": "namespaces/ibexa-contracts-adminui-component-renderer.html"
         },                {
+            "fqsen": "\\Ibexa\\Contracts\\AdminUi\\ContentType",
+            "name": "ContentType",
+            "summary": "",
+            "url": "namespaces/ibexa-contracts-adminui-contenttype.html"
+        },                {
             "fqsen": "\\Ibexa\\Contracts\\AdminUi\\Controller",
             "name": "Controller",
             "summary": "",
@@ -60560,6 +61325,11 @@ Search.appendIndex(
             "name": "TextToImage",
             "summary": "",
             "url": "namespaces/ibexa-contracts-connectorai-action-texttoimage.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\ConnectorAi\\Action\\TextToTaxonomy",
+            "name": "TextToTaxonomy",
+            "summary": "",
+            "url": "namespaces/ibexa-contracts-connectorai-action-texttotaxonomy.html"
         },                {
             "fqsen": "\\Ibexa\\Contracts\\ConnectorAi\\Action\\TextToText",
             "name": "TextToText",
@@ -61376,6 +62146,11 @@ Search.appendIndex(
             "summary": "",
             "url": "namespaces/ibexa-contracts-core-search.html"
         },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Search\\Embedding",
+            "name": "Embedding",
+            "summary": "",
+            "url": "namespaces/ibexa-contracts-core-search-embedding.html"
+        },                {
             "fqsen": "\\Ibexa\\Contracts\\Core\\Search\\FieldType",
             "name": "FieldType",
             "summary": "",
@@ -61910,6 +62685,21 @@ Search.appendIndex(
             "name": "RichText",
             "summary": "",
             "url": "namespaces/ibexa-contracts-fieldtyperichtext-richtext.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\FieldTypeRichTextRTE",
+            "name": "FieldTypeRichTextRTE",
+            "summary": "",
+            "url": "namespaces/ibexa-contracts-fieldtyperichtextrte.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\FieldTypeRichTextRTE\\Config",
+            "name": "Config",
+            "summary": "",
+            "url": "namespaces/ibexa-contracts-fieldtyperichtextrte-config.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\FieldTypeRichTextRTE\\ToS",
+            "name": "ToS",
+            "summary": "",
+            "url": "namespaces/ibexa-contracts-fieldtyperichtextrte-tos.html"
         },                {
             "fqsen": "\\Ibexa\\Contracts\\FormBuilder\\FieldType\\Field",
             "name": "Field",
@@ -63056,6 +63846,16 @@ Search.appendIndex(
             "summary": "",
             "url": "namespaces/ibexa-contracts-share-event.html"
         },                {
+            "fqsen": "\\Ibexa\\Contracts\\Share\\Mapper\\Action",
+            "name": "Action",
+            "summary": "",
+            "url": "namespaces/ibexa-contracts-share-mapper-action.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Share\\Mapper",
+            "name": "Mapper",
+            "summary": "",
+            "url": "namespaces/ibexa-contracts-share-mapper.html"
+        },                {
             "fqsen": "\\Ibexa\\Contracts\\Share\\Permission\\Mapper",
             "name": "Mapper",
             "summary": "",
@@ -63316,15 +64116,20 @@ Search.appendIndex(
             "summary": "",
             "url": "namespaces/ibexa-contracts-storefront-repository-event.html"
         },                {
-            "fqsen": "\\Ibexa\\Contracts\\Taxonomy\\Event",
-            "name": "Event",
+            "fqsen": "\\Ibexa\\Contracts\\Taxonomy\\Embedding",
+            "name": "Embedding",
             "summary": "",
-            "url": "namespaces/ibexa-contracts-taxonomy-event.html"
+            "url": "namespaces/ibexa-contracts-taxonomy-embedding.html"
         },                {
             "fqsen": "\\Ibexa\\Contracts\\Taxonomy",
             "name": "Taxonomy",
             "summary": "",
             "url": "namespaces/ibexa-contracts-taxonomy.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Taxonomy\\Event",
+            "name": "Event",
+            "summary": "",
+            "url": "namespaces/ibexa-contracts-taxonomy-event.html"
         },                {
             "fqsen": "\\Ibexa\\Contracts\\Taxonomy\\Search\\Query\\Aggregation",
             "name": "Aggregation",
@@ -63345,6 +64150,11 @@ Search.appendIndex(
             "name": "Criterion",
             "summary": "",
             "url": "namespaces/ibexa-contracts-taxonomy-search-query-criterion.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Taxonomy\\Search\\Query\\Value",
+            "name": "Value",
+            "summary": "",
+            "url": "namespaces/ibexa-contracts-taxonomy-search-query-value.html"
         },                {
             "fqsen": "\\Ibexa\\Contracts\\Taxonomy\\Service\\Decorator",
             "name": "Decorator",
@@ -63410,6 +64220,11 @@ Search.appendIndex(
             "name": "Notification",
             "summary": "",
             "url": "namespaces/ibexa-contracts-user-notification.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\User\\PasswordReset",
+            "name": "PasswordReset",
+            "summary": "",
+            "url": "namespaces/ibexa-contracts-user-passwordreset.html"
         },                {
             "fqsen": "\\Ibexa\\Contracts\\User\\UserSetting",
             "name": "UserSetting",
