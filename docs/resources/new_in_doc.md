@@ -35,7 +35,7 @@ This page contains recent highlights and notable changes in [[= product_name =]]
     - [how to customize](customize_integrated_help.md)
 - Added [Anthropic connector installation](configure_ai_actions.md#install-anthropic-connector) (v5 only)
 - Improved Collaborative editing (v5 and v4.6):
-    - Added [Collaborative editing policies](policies.md#content-collaborative-editing)
+    - Added Collaborative editing policies for [content items](policies.md#content-collaborative-editing) and [products](policies.md#product-collaborative-editing)
     - Added [Collaborative editing limitations](limitation_reference.md#collaborative-editing-limitations)
 
 ### DDEV
