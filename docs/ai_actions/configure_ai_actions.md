@@ -32,6 +32,50 @@ The AI actions come with sample AI action configurations to quickly get you star
 
 Based on these examples, which reflect the most common use cases, you can learn to configure your own AI actions with greater ease.
 
+## Install Anthropic connector [[% include 'snippets/lts-update_badge.md' %]]
+
+Run the following command to install the package:
+
+``` bash
+composer require ibexa/connector-anthropic
+```
+
+This command adds the feature code, including basic handlers that let you refine text or generate alternative text for images.
+
+To use the connector with the Anthropic services, you need to create an account, make sure that you [set up a billing method](https://support.claude.com/en/articles/8325618-paid-plan-billing-faqs), and get an API key.
+
+1. Log in to your [Anthropic Claude console](https://console.anthropic.com/login).
+
+2. Go to **API keys** and click **Create Key**.
+
+4. Select the workspace, enter a **Key Name** and click **Add**.
+
+5. Take a note of the API key, because it is displayed only once.
+
+Then, in the root folder of your project, modify the `.env` file: add an `ANTHROPIC_API_KEY` variable and populate its value with the API key that you got from the AI service.
+
+```bash
+###> ibexa/connector-anthropic ###
+ANTHROPIC_API_KEY=<your_api_key>
+###< ibexa/connector-anthropic ###
+```
+
+By default, when reaching out for responses, the Anthropic connector uses the [Claude Sonnet 4](https://docs.claude.com/en/docs/about-claude/models/overview) model.
+Users can override this setting at runtime when they [edit or create an AI action]([[= user_doc =]]/ai_actions/work_with_ai_actions/#edit-existing-ai-actions).
+You can also change the default values globally.
+To do it, in `config/packages` folder, create a YAML file similar to this example:
+
+```yaml
+ibexa_connector_anthropic:
+    text_to_text:
+        default_model: claude-opus-4-20250514
+        default_temperature: 0.8
+        default_max_tokens: 2045
+        models:
+            claude-sonnet-4-20250514: 'Claude 4 Sonnet (2025-05-14)'
+            claude-opus-4-20250514: 'Claude Opus 4 (2025-05-14)'
+```
+You can now use the Anthropic connector in your project.
 ## Configure access to [[= product_name_connect =]]
 
 First, get the credentials by contacting [Ibexa Support](https://support.ibexa.co).

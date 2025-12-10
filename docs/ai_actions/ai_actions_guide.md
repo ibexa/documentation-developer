@@ -12,6 +12,7 @@ Wherever you look, artificial intelligence becomes more and more important by en
 AI Actions is an extensible solution for integrating features provided by AI services into your workflows, all managed through a user-friendly interface.
 
 Out-of-the-box, AI Actions solution includes two essential components: a framework package and an OpenAI connector package.
+The Anthropic connector is also available - as an [LTS update](editions.md#lts-updates).
 
 AI Actions can integrate with [[[= product_name_connect =]]]([[= connect_doc =]]/general/ibexa_connect/), to give you an opportunity to build complex data transformation workflows without having to rely on custom code.
 From the developer's perspective, the integration removes the burden of maintaining third-party AI handlers, and accelerates the deployment of AI-based solutions.
@@ -34,7 +35,7 @@ To begin using AI Actions, you must first [perform the initial configuration](co
 
 ### Prerequisites
 
-The OpenAI connector requires that you first [get an API key](https://help.openai.com/en/articles/4936850-where-do-i-find-my-openai-api-key) and make sure that you [set up a billing method](https://help.openai.com/en/articles/9038407-how-can-i-set-up-billing-for-my-account).
+Connectors with external AI services delivered by [[= product_name_base =]] require that you first install them, and [configure other settings, such as an API key and billing method](configure_ai_actions.md).
 
 Integration with [[= product_name_connect =]] requires that you first [get the credentials]([[= connect_doc =]]/general/ibexa_connect/#access-ibexa-connect) to your account, and the [API token](configure_ai_actions.md#create-token).
 
