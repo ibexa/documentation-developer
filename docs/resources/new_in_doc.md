@@ -37,10 +37,10 @@ This page contains recent highlights and notable changes in [[= product_name =]]
 
 ### LTS Updates
 
-- Added documentation for Integrated help:
+- Added documentation for Integrated help (v5 and v4.6):
     - [how to install](integrated_help.md)
     - [how to customize](customize_integrated_help.md)
-- Added [Anthropic connector installation](configure_ai_actions.md#install-anthropic-connector)
+- Added [Anthropic connector installation](configure_ai_actions.md#install-anthropic-connector) (v5 only)
 
 ### DDEV
 
