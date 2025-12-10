@@ -59,7 +59,6 @@ jobs:
                   sudo apt-get clean
 
                   echo "Removing large directories"
-                  rm -rf /usr/share/dotnet/
                   rm -rf /opt/hostedtoolcache
 
                   echo "Space usage after cleanup:"
