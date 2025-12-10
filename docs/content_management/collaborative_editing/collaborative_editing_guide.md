@@ -19,7 +19,7 @@ The system automatically tracks changes, allowing seamless collaboration within 
 ## Availability
 
 Collaborative editing is available in all [[= product_name =]] editions.
-To use Real-time editing feature, you must make arrangements with [[= product_name_base =]], and accept Terms & Conditions and Service Level Agreement in the Support Portal.
+To use Real-time editing feature, you must make arrangements with [[= product_name_base =]], and accept Terms and Conditions and Service Level Agreement in the Support Portal.
 
 ## Prerequisites
 
@@ -47,12 +47,16 @@ Collaboration session begins when first invited user accepts the invitation and 
 
 To start collaborative editing, you need to invite collaborators using the **Share** button.
 
-You can invite other users to join the session, both internal and external:
+The owner of the draft can invite other users to join the session, both internal and external:
 
 - **Internal** - by searching their name or email address. These users can either edit the content item or preview it, depending on your choice.
 - **External** - by providing their email address in the field. They can only preview the content item.
 
 Once they accept the invitation, they are able to join you in editing content item or reviewing it.
+
+Once the invitation is accepted, internal users can invite further users if their permissions allow for it.
+To do so, they must be a part of an active collaboration session.
+Gaining access to the draft through other methods, for example by [workflow](workflow.md), doesn't allow you to invite other users.
 
 ![Collaborative editing - invitation](img/collaboration_invitation.png)
 
@@ -88,7 +92,6 @@ Collaboration is available for the following content types with Rich Text fields
 - Article
 - Folder
 - Form
-- Product category
 - Custom content types
 
 All changes made by collaborators are automatically saved when owner publishes or saves content.

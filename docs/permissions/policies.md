@@ -234,6 +234,14 @@ The discount policies decide which actions can be executed by given user or user
 |                        | <nobr>`versionremove`</nobr>      | remove archived content versions                                                                                                        | [Content type](limitation_reference.md#content-type-limitation)</br>[Section](limitation_reference.md#section-limitation)</br>[Owner](limitation_reference.md#owner-limitation)</br>Status</br>[Location](limitation_reference.md#location-limitation)</br>[Subtree](limitation_reference.md#subtree-limitation)</br>[Object State](limitation_reference.md#object-state-limitation)                                                                                                                                                                                                                                                                                                                                                                                                                    |
 |                        | <nobr>`view_embed`</nobr>         | view content embedded in another content item (even when the User isn't allowed to view it as an individual content item)              | [Content type](limitation_reference.md#content-type-limitation)</br>[Section](limitation_reference.md#section-limitation)</br>[Owner](limitation_reference.md#owner-limitation)</br>[Location](limitation_reference.md#location-limitation)</br>[Subtree](limitation_reference.md#subtree-limitation)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
 
+#### Content collaborative editing [[% include 'snippets/lts-update_badge.md' %]]
+
+| Module               | Function              | Effect                                                                   | Possible limitations |
+|----------------------|-----------------------|--------------------------------------------------------------------------|----------------------|
+| <nobr>`content`</nobr> | <nobr>`share`</nobr> | share content drafts with internal and external users through [collaborative editing](collaborative_editing.md)    |[Owner](limitation_reference.md#collaborative-editing-owner-limitation)</br>[PublicLink](limitation_reference.md#collaborative-editing-publiclink-limitation)</br>[Scope](limitation_reference.md#collaborative-editing-scope-limitation)
+| <nobr>`rte`</nobr> | <nobr>`edit`</nobr> | use [Real-time editing](collaborative_editing_guide.md#real-time-editing)    |
+
+
 #### Content types
 
 | Module               | Function              | Effect                                                                   | Possible limitations |
@@ -291,6 +299,12 @@ The discount policies decide which actions can be executed by given user or user
 |                        | <nobr>`delete`</nobr> | delete a product                            | [Product Type](limitation_reference.md#product-type-limitation)                                                             |
 |                        | <nobr>`edit`</nobr>   | edit a product                              | [Product Type](limitation_reference.md#product-type-limitation)</br>[Language](limitation_reference.md#language-limitation) |
 |                        | <nobr>`view`</nobr>   | view products listed in the product catalog | [Product Type](limitation_reference.md#product-type-limitation)                                                             |
+
+#### Product collaborative editing [[% include 'snippets/lts-update_badge.md' %]]
+
+| Module               | Function              | Effect                                                                   | Possible limitations |
+|----------------------|-----------------------|--------------------------------------------------------------------------|----------------------|
+| <nobr>`product`</nobr> | <nobr>`share`</nobr> | share products with internal and external users through [collaborative editing](collaborative_editing.md)    |[Owner](limitation_reference.md#collaborative-editing-owner-limitation)</br>[PublicLink](limitation_reference.md#collaborative-editing-publiclink-limitation)</br>[Scope](limitation_reference.md#collaborative-editing-scope-limitation) |
 
 #### Product types
 
