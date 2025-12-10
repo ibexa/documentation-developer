@@ -26,6 +26,7 @@ This page contains recent highlights and notable changes in [[= product_name =]]
     - [Finding and filtering content types](managing_content.md#finding-and-filtering-content-types)
     - [Content Type Search Criteria reference](content_type_criteria.md)
     - [Content Type Search Sort Clauses](content_type_sort_clauses.md)
+    - [Filter content types REST resource](/api/rest_api/rest_api_reference/rest_api_reference.html#tag/Type/operation/api_contenttypesview_post)
 
 ### LTS Updates
 
