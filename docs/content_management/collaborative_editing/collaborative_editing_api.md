@@ -47,6 +47,8 @@ You can find an existing session with [`SessionService::findSessions()`](/api/ph
 [[= include_file('code_samples/collaboration/src/Command/ManageSessionsCommand.php', 86, 89) =]]
 ```
 
+To learn more about the available search options, see [Search Criteria](collaboration_criteria.md) and [Sort Clauses](collaboration_sort_clauses.md) for Collaborative editing.
+
 ### Update session
 
 You can update existing invitation with [`SessionService::updateSession()`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Collaboration-SessionServiceInterface.html#method_updateSession):
@@ -157,7 +159,7 @@ You can delete an invitation with [`InvitationService::deleteInvitation()`](/api
 
 You can find an invitation with [`InvitationService::findInvitations()`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Collaboration-InvitationServiceInterface.html#method_findInvitations).
 
-To learn more about the available search options, see Search Criteria and Sort Clauses for Collaborative editing.
+To learn more about the available search options, see [Search Criteria](collaboration_criteria.md) and [Sort Clauses](collaboration_sort_clauses.md) for Collaborative editing.
 
 ## Example API usage
 

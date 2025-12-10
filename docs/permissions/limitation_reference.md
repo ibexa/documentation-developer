@@ -63,6 +63,46 @@ The Change Owner (`ChangeOwner`) limitation specifies whether the user can chang
 |------|------|------|
 |`1`|"Forbid"|The user cannot change owner of a content item|
 
+## Collaborative editing limitations [[% include 'snippets/lts-update_badge.md' %]]
+
+The Collaborative editing limitations specify how the user can use the [Collaborative editing](collaborative_editing.md) LTS Update.
+
+### Collaborative editing Owner limitation
+
+The Owner limitation specifies whose drafts the user can share.
+If not specified, user can share:
+
+- their drafts
+- drafts they have been invited to collaborate on
+
+#### Possible values
+
+|Value|UI value|Description|
+|------|------|------|
+|"self"|"self"| User can only share drafts that they own |
+
+### Collaborative editing Scope limitation
+
+The Scope limitation specifies whether the user can share the preview and editing view with other users.
+
+#### Possible values
+
+|Value|UI value|Description|
+|------|------|------|
+|"edit"|"Edit"| User can invite other users to edit|
+|"view"|"View"| User can share the preview with other users|
+
+### Collaborative editing PublicLink limitation
+
+The Public Link (`PublicLink`) limitation specifies whether the user can manage the settings of the shareable preview link.
+
+#### Possible values
+
+|Value|UI value|Description|
+|------|------|------|
+|"Off"|"off"| User can't manage the settings|
+|"On"|"on"| User can manage the settings|
+
 ## Discount Owner limitation [[% include 'snippets/lts-update_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
 
 The Discount Owner (`DiscountOwner`) limitation specifies whether the user can interact with a [discount](discounts.md).
