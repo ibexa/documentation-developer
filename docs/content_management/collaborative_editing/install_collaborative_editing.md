@@ -169,7 +169,7 @@ The following setting is available:
 
 - `content_type_groups` – defines groups of content types for which the **Share** button is displayed (it can still be disabled for specific content types within these groups by using the `excluded_content_types` setting)
 
-In the example configuration above, the **Share** button is displayed for any content that belongs to the `Content` group, except for `tag` and `product_category_tag` content types.
+In the example configuration above, the **Share** button is displayed for any content that belongs to the `Content` group, except for `tag`, `landing_page`, and `product_category_tag` content types.
 
 You can also control which user content types can use the feature through the `ibexa.share.permission_check_context.content.user_content_type_identifiers` container parameter.
 It accepts an array of content type identifiers and the default value is `['editor']`.
