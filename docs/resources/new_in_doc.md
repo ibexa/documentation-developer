@@ -20,7 +20,13 @@ This page contains recent highlights and notable changes in [[= product_name =]]
 
 - Described [Taxonomy suggestions](taxonomy.md#taxonomy-suggestions)
 
-### API
+### Collaborative editing
+
+- Improved Collaborative editing:
+    - Added Collaborative editing policies for [content items](policies.md#content-collaborative-editing) and [products](policies.md#product-collaborative-editing)
+    - Added [Collaborative editing limitations](limitation_reference.md#collaborative-editing-limitations)
+
+### Search
 
 - Expended search API to content types:
     - [Finding and filtering content types](managing_content.md#finding-and-filtering-content-types)
@@ -30,13 +36,10 @@ This page contains recent highlights and notable changes in [[= product_name =]]
 
 ### LTS Updates
 
-- Added documentation for Integrated help (v5 only):
+- Added documentation for Integrated help:
     - [how to install](integrated_help.md)
     - [how to customize](customize_integrated_help.md)
-- Added [Anthropic connector installation](configure_ai_actions.md#install-anthropic-connector) (v5 only)
-- Improved Collaborative editing (v5 and v4.6):
-    - Added Collaborative editing policies for [content items](policies.md#content-collaborative-editing) and [products](policies.md#product-collaborative-editing)
-    - Added [Collaborative editing limitations](limitation_reference.md#collaborative-editing-limitations)
+- Added [Anthropic connector installation](configure_ai_actions.md#install-anthropic-connector)
 
 ### DDEV
 
