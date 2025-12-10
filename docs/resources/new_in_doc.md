@@ -7,6 +7,29 @@ month_change: true
 
 This page contains recent highlights and notable changes in [[= product_name =]] documentation.
 
+## November 2025
+
+### Releases
+
+- [v5.0.4 release notes](https://doc.ibexa.co/en/5.0/release_notes/ibexa_dxp_v5.0/#ibexa-dxp-v504)
+- [v4.6.26 release notes](https://doc.ibexa.co/en/4.6/release_notes/ibexa_dxp_v4.6/#ibexa-dxp-v4626)
+
+[MariaDB 11.4 is officially supported on v5 and v4.6](requirements.md#dbms).
+
+### Taxonomy
+
+- Described [Taxonomy suggestions](taxonomy.md#taxonomy-suggestions)
+
+### LTS Updates
+
+- Added documentation for Integrated help (v5 only):
+    - [how to install](integrated_help.md)
+    - [how to customize](customize_integrated_help.md)
+- Added [Anthropic connector installation](configure_ai_actions.md#install-anthropic-connector) (v5 only)
+- Expended Collaborative editing (v5 and v4.6):
+    - Added [Collaborative editing policies](policies.md#content-collaborative-editing)
+    - Added [Collaborative editing limitations](limitation_reference.md#collaborative-editing-limitations)
+
 ## October 2025
 
 ### Releases
@@ -14,7 +37,7 @@ This page contains recent highlights and notable changes in [[= product_name =]]
 - [v5.0.3 release notes](https://doc.ibexa.co/en/5.0/release_notes/ibexa_dxp_v5.0/#ibexa-dxp-v503)
 - [v4.6.25 release notes](https://doc.ibexa.co/en/4.6/release_notes/ibexa_dxp_v4.6/#ibexa-dxp-v4625)
 
-### Collaborative editing:
+### Collaborative editing
 
 - Described:
     - [installation and configuration](configure_collaborative_editing.md) in more detail
