@@ -1,5 +1,6 @@
 ---
 description: PHP API enables managing content Locations, content types, content in Trash, and Calendar events.
+month_change: true
 ---
 
 # Managing content
