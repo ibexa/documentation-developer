@@ -1,8 +1,6 @@
 ---
 month_change: true
 description: Sort Clauses available for Collaboration search
-editions:
-    - lts-update
 ---
 
 # Collaboration Search Sort Clauses reference

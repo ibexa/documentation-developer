@@ -1,14 +1,12 @@
 ---
 description: Events that are triggered when working with collaborative editing feature.
 page_type: reference
-editions:
-    - lts-update
 month_change: true
 ---
 
 # Collaboration events
 
-You can use the following events to extend the [Collaborative editing LTS Update](collaborative_editing.md):
+You can use the following events to extend the [Collaborative editing feature](collaborative_editing.md):
 
 ## Invitation events
 
