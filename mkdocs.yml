@@ -161,6 +161,9 @@ nav:
             - Multi-file upload: administration/back_office/multifile_upload.md
             - Sub-items list: administration/back_office/subitems_list.md
             - Notifications: administration/back_office/notifications.md
+            - Integrated help:
+                - Integrated help: administration/back_office/integrated_help.md
+                - Customize integrated help: administration/back_office/customize_integrated_help.md
             - Customize search:
                 - Customize search suggestion: administration/back_office/customize_search_suggestion.md
                 - Customize search sorting: administration/back_office/customize_search_sorting.md
