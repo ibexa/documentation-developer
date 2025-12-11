@@ -4,7 +4,7 @@ page_type: reference
 editions:
     - lts-update
     - commerce
-month_change: true
+month_change: false
 ---
 
 # Discounts events

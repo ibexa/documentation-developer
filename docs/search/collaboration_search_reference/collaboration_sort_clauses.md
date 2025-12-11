@@ -1,5 +1,5 @@
 ---
-month_change: true
+month_change: false
 description: Sort Clauses available for Collaboration search
 editions:
     - lts-update
