@@ -175,7 +175,7 @@ To use the [latest features](ibexa_dxp_v5.0.md) added to them, update them separ
 
     ### Anthropic connector [[% include 'snippets/lts-update_badge.md' %]]
 
-    See [how to configure Anthropic connector](configure_ai_actions.md#install-anthropic-connector) for more information.
+    See [how to configure Anthropic connector](https://doc.ibexa.co/en/5.0/ai_actions/configure_ai_actions#install-anthropic-connector) for more information.
 
     If you're already using it, run the following command to get the latest version of this feature:
 
@@ -187,7 +187,7 @@ To use the [latest features](ibexa_dxp_v5.0.md) added to them, update them separ
 
     ### Real-time collaborative editing
 
-    To learn more about the [Real-time editing](collaborative_editing_guide.md), see the [installation and configuration instructions](configure_collaborative_editing.md).
+    To learn more about the [Real-time editing](collaborative_editing_guide.md), see the [installation and configuration instructions](https://doc.ibexa.co/en/5.0/content_management/collaborative_editing/configure_collaborative_editing/).
 
     If you're already using it, run the following command to get the latest version of this feature:
 

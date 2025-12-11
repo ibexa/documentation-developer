@@ -29,7 +29,7 @@ For more information, see [Integrated help](integrated_help.md).
 
 This release introduces a new AI connector that allows you to integrate [AI Actions](ai_actions.md) with [Anthropic Claude](https://claude.com/product/overview).
 
-For more information, see how to [install Anthropic connector](configure_ai_actions.md#install-anthropic-connector).
+For more information, see how to [install Anthropic connector](https://doc.ibexa.co/en/5.0/ai_actions/configure_ai_actions#install-anthropic-connector).
 
 [[= release_note_entry_end() =]]
 
@@ -51,7 +51,7 @@ This extends the already existing capabilities allowing editors to work on the s
 
 ![Participants list](img/participants_list.png)
 
-For more information, see how to [configure Collaborative editing](configure_collaborative_editing.md).
+For more information, see how to [configure Collaborative editing](https://doc.ibexa.co/en/5.0/content_management/collaborative_editing/configure_collaborative_editing/).
 
 #### Taxonomy suggestions for faster content classification
 
