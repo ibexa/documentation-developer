@@ -3,7 +3,7 @@ description: Events that are triggered when working with discounts.
 page_type: reference
 editions:
     - commerce
-month_change: true
+month_change: false
 ---
 
 # Discounts events

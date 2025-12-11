@@ -1,7 +1,7 @@
 ---
 description: Events that are triggered when working with collaborative editing feature.
 page_type: reference
-month_change: true
+month_change: false
 ---
 
 # Collaboration events
@@ -49,4 +49,3 @@ You can use the following events to extend the [Collaborative editing feature](c
 | Event | Dispatched by | Description |
 |---|---|---|
 |<nobr>[`UsersWithPermissionInfoMappedEvent`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Share-Event-UsersWithPermissionInfoMappedEvent.html)</nobr>|`Ibexa\Share\Permission\Mapper\`<br>`UsersWithPermissionInfoMapper` | Allows further filtering of users with permissions for Collaborative editing |
-

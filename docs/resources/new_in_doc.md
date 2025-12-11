@@ -7,6 +7,93 @@ month_change: true
 
 This page contains recent highlights and notable changes in [[= product_name =]] documentation.
 
+## November 2025
+
+### Releases
+
+- [v5.0.4 release notes](https://doc.ibexa.co/en/5.0/release_notes/ibexa_dxp_v5.0/#ibexa-dxp-v504)
+- [v4.6.26 release notes](https://doc.ibexa.co/en/4.6/release_notes/ibexa_dxp_v4.6/#ibexa-dxp-v4626)
+
+### Infrastructure:
+
+ - [MariaDB 11.4 is officially supported on v5 and v4.6](requirements.md#dbms)
+
+### Taxonomy
+
+- Described [Taxonomy suggestions](taxonomy.md#taxonomy-suggestions)
+
+### Collaborative editing
+
+- Improved Collaborative editing:
+    - Added [real-time editing configuration](configure_collaborative_editing.md#configure-real-time-editing)
+    - Added Collaborative editing policies for [content items](policies.md#content-collaborative-editing) and [products](policies.md#product-collaborative-editing)
+    - Added [Collaborative editing limitations](limitation_reference.md#collaborative-editing-limitations)
+
+### Search
+
+- Expended search API to content types:
+    - [Finding and filtering content types](managing_content.md#finding-and-filtering-content-types)
+    - [Content Type Search Criteria reference](content_type_criteria.md)
+    - [Content Type Search Sort Clauses](content_type_sort_clauses.md)
+    - [Filter content types REST resource](/api/rest_api/rest_api_reference/rest_api_reference.html#tag/Type/operation/api_contenttypesview_post)
+
+### LTS Updates
+
+- Added documentation for Integrated help (v5 and v4.6):
+    - [how to install](integrated_help.md)
+    - [how to customize](customize_integrated_help.md)
+- Added [Anthropic connector installation](configure_ai_actions.md#install-anthropic-connector) (v5 only)
+
+### DDEV
+
+- Updated [Solr installation in DDEV cluster](clustering_with_ddev.md#solr)
+
+### PHP API
+
+- Enhanced the PHP API reference with the following new classes for [[= product_name =]] 4.6 and 5.0:
+
+    - [`Ibexa\Contracts\Elasticsearch\Query\EmbeddingVisitor`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Elasticsearch-Query-EmbeddingVisitor.html)
+    - [`Ibexa\Contracts\AdminUi\ContentType\ContentTypeFieldsByExpressionServiceInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-AdminUi-ContentType-ContentTypeFieldsByExpressionServiceInterface.html)
+    - [`Ibexa\Contracts\Collaboration\Invitation\Query\Criterion\ParticipantScope`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Collaboration-Invitation-Query-Criterion-ParticipantScope.html)
+    - [`Ibexa\Contracts\Collaboration\Invitation\Query\Criterion\ParticipantType`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Collaboration-Invitation-Query-Criterion-ParticipantType.html)
+    - [`Ibexa\Contracts\Collaboration\Participant\ParticipantDiscriminator`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Collaboration-Participant-ParticipantDiscriminator.html)
+    - [`Ibexa\Contracts\ConnectorAi\Action\DataType\Taxonomy`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorAi-Action-DataType-Taxonomy.html)
+    - [`Ibexa\Contracts\ConnectorAi\Action\DataType\TaxonomyEntry`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorAi-Action-DataType-TaxonomyEntry.html)
+    - [`Ibexa\Contracts\ConnectorAi\Action\DataType\TaxonomySuggestion`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorAi-Action-DataType-TaxonomySuggestion.html)
+    - [`Ibexa\Contracts\ConnectorAi\Action\DataType\TaxonomySuggestionInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorAi-Action-DataType-TaxonomySuggestionInterface.html)
+    - [`Ibexa\Contracts\ConnectorAi\Action\DataType\TextToTaxonomyInput`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorAi-Action-DataType-TextToTaxonomyInput.html)
+    - [`Ibexa\Contracts\ConnectorAi\Action\Response\TaxonomyResponse`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorAi-Action-Response-TaxonomyResponse.html)
+    - [`Ibexa\Contracts\ConnectorAi\Action\SuggestTaxonomyAction`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorAi-Action-SuggestTaxonomyAction.html)
+    - [`Ibexa\Contracts\ConnectorAi\Action\TextToTaxonomy`](/api/php_api/php_api_reference/namespaces/ibexa-contracts-connectorai-action-texttotaxonomy.html)
+    - [`Ibexa\Contracts\Core\Repository\Values\Content\EmbeddingQuery`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-EmbeddingQuery.html)
+    - [`Ibexa\Contracts\Core\Repository\Values\Content\EmbeddingQueryBuilder`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-EmbeddingQueryBuilder.html)
+    - [`Ibexa\Contracts\Core\Repository\Values\ContentType\Query\Criterion\ContentTypeGroupName`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-ContentType-Query-Criterion-ContentTypeGroupName.html)
+    - [`Ibexa\Contracts\Core\Repository\Values\Content\Query\Embedding`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Embedding.html)
+    - [`Ibexa\Contracts\Core\Repository\Values\Content\QueryValidatorInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-QueryValidatorInterface.html)
+    - [`Ibexa\Contracts\Core\Search\Embedding`](/api/php_api/php_api_reference/namespaces/ibexa-contracts-core-search-embedding.html)
+    - [`Ibexa\Contracts\Core\Search\FieldType\EmbeddingField`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Search-FieldType-EmbeddingField.html)
+    - [`Ibexa\Contracts\Core\Search\FieldType\EmbeddingFieldFactory`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Search-FieldType-EmbeddingFieldFactory.html)
+    - [`Ibexa\Contracts\FieldTypeRichTextRTE`](/api/php_api/php_api_reference/namespaces/ibexa-contracts-fieldtyperichtextrte.html)
+    - [`Ibexa\Contracts\Share\Mapper`](/api/php_api/php_api_reference/namespaces/ibexa-contracts-share-mapper.html)
+    - [`Ibexa\Contracts\Solr\Query\EmbeddingVisitor`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Solr-Query-EmbeddingVisitor.html)
+    - [`Ibexa\Contracts\Taxonomy\Embedding`](/api/php_api/php_api_reference/namespaces/ibexa-contracts-taxonomy-embedding.html)
+    - [`Ibexa\Contracts\Taxonomy\Search\Query\Value\TaxonomyEmbedding`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Taxonomy-Search-Query-Value-TaxonomyEmbedding.html)
+    - [`Ibexa\Contracts\User\PasswordReset\NotifierInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-User-PasswordReset-NotifierInterface.html)
+
+    In addition, few only for 5.0 version:
+
+    - [`Ibexa\Contracts\CoreSearch\Values\Query\PaginationAwareInterface`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-CoreSearch-Values-Query-PaginationAwareInterface.html)
+    - [`Ibexa\Contracts\ProductCatalog\CapabilitiesEnum`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-CapabilitiesEnum.html)
+    - [`Ibexa\Contracts\ProductCatalog\CapabilitiesServiceInterface`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-CapabilitiesServiceInterface.html)
+    - [`Ibexa\Contracts\SiteFactory\Values\Query\Criterion\MatchTreeRootLocationIds`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-SiteFactory-Values-Query-Criterion-MatchTreeRootLocationIds.html)
+
+### Contributions
+
+We want to thank
+
+- [romank](https://github.com/romank) for fixing a parse error in [Customize registration forms](8_enable_account_registration.md#customize-registration-forms) example
+- [todomagichere](https://github.com/todomagichere) for correcting `ibexa_path()` description in [URL Twig functions](url_twig_functions.md)
+
 ## October 2025
 
 ### Releases
@@ -14,7 +101,7 @@ This page contains recent highlights and notable changes in [[= product_name =]]
 - [v5.0.3 release notes](https://doc.ibexa.co/en/5.0/release_notes/ibexa_dxp_v5.0/#ibexa-dxp-v503)
 - [v4.6.25 release notes](https://doc.ibexa.co/en/4.6/release_notes/ibexa_dxp_v4.6/#ibexa-dxp-v4625)
 
-### Collaborative editing:
+### Collaborative editing
 
 - Described:
     - [installation and configuration](configure_collaborative_editing.md) in more detail
