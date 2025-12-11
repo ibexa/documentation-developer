@@ -148,7 +148,7 @@ ibexa:
             repository: second_repository
 ```
 
-```
+```bash
 # .env.local
 
 SECOND_DATABASE_URL=otherdb://otheruser:otherpasswd@otherhost:otherport/otherdbname?otherdbserversion

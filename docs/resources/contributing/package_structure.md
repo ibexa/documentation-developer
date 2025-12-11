@@ -35,7 +35,7 @@ namespace Ibexa\Personalization;
 
 The general package directory structure and corresponding PHP namespace mapping are:
 
-```
+```text
 .
 +-- src
 |   +-- bundle (`Ibexa\Bundle\<PackageName>`)

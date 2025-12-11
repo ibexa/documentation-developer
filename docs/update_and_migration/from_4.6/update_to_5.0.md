@@ -1068,7 +1068,7 @@ php bin/console ibexa:reindex
 
 Finish the update process:
 
-```
+```bash
 composer run-script post-update-cmd
 ```
 

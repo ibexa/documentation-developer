@@ -138,7 +138,7 @@ curl https://api.example.com/api/ibexa/v2/greet --include --request POST \
     --header 'Accept: application/vnd.ibexa.api.Greeting+json';
 ```
 
-```
+```http
 HTTP/1.1 200 OK
 Content-Type: application/vnd.ibexa.api.greeting+xml
 

@@ -48,7 +48,7 @@ First, create a Blog content type that contains a Content query field with the i
 In the Field definition, select "Children" as the Query type.
 Provide the `content` parameter that the Query type requires:
 
-```
+```yaml
 content: '@=content'
 ```
 

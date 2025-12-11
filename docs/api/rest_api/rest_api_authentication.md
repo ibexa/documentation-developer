@@ -210,7 +210,7 @@ Logging in is similar to session creation, with one important detail: the CSRF t
 
 You can now add the previously set cookie to requests to be executed with the logged-in user.
 
-```
+```http
 GET /content/locations/1/5 HTTP/1.1
 Host: www.example.net
 Accept: Accept: application/vnd.ibexa.api.Location+xml
@@ -224,7 +224,7 @@ It should be sent with an `X-CSRF-Token` header.
 
 Only three built-in routes can accept unsafe methods without CSRF, the sessions routes starting with `/user/sessions` to create, refresh or delete a session.
 
-```
+```http
 DELETE /content/types/32 HTTP/1.1
 Host: www.example.net
 Cookie: IBX_SESSION_ID98defd6ee70dfb1dea416=go327ij2cirpo59pb6rrv2a4el2
@@ -259,7 +259,7 @@ A person with minimal insight into this application and the company can easily s
 
 To log out is to `DELETE` the session using its ID (like in the cookie). As this is an unsafe method, the CSRF token must be presented.
 
-```
+```text
 DELETE /user/sessions/go327ij2cirpo59pb6rrv2a4el2 HTTP/1.1
 Host: www.example.net
 Cookie: IBX_SESSION_ID98defd6ee70dfb1dea416=go327ij2cirpo59pb6rrv2a4el2
@@ -388,7 +388,7 @@ Most HTTP client libraries and REST libraries support this method.
 
 **Raw HTTP request with basic authentication**
 
-```
+```http
 GET / HTTP/1.1
 Host: api.example.com
 Accept: application/vnd.ibexa.api.Root+json

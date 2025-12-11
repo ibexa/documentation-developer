@@ -58,7 +58,7 @@ For more information, see [Generating encryption keys](https://oauth2.thephpleag
 
 Set the following environment variables:
 
-```
+```bash
 OAUTH2_PUBLIC_KEY_PATH=/somewhere/safe/key.public
 OAUTH2_PRIVATE_KEY_PATH=/somewhere/safe/key.private
 OAUTH2_PRIVATE_KEY_PASSPHRASE=some_passphrase_or_empty
