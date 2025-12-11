@@ -14,8 +14,8 @@ month_change: true
 
 [[= release_note_entry_begin("Integrated help " + version, '2025-12-10', ['Headless', 'Experience', 'Commerce', 'LTS Update', 'New feature']) =]]
 
-Integrated help brings contextual documentation, guidance, and partner-specific resources right into the [[= product_name =]]'s user interface.
-It helps editors, store managers and developers alike quickly access relevant content, training and resources without leaving the UI, which bridges the gap between product and documentation.
+Integrated help brings contextual documentation, guidance, and partner-specific resources right into the user interface of [[= product_name =]].
+t helps editors, store managers, and developers to quickly access relevant content, training and resources without leaving the UI, narrowing the gap between product and documentation.
 
 The default help menu can be modified to include links to internal editorial guidelines, custom tutorials, or support pages.
 
@@ -27,9 +27,9 @@ For more information, see [Integrated help](integrated_help.md).
 
 [[= release_note_entry_begin("Anthropic connector " + version, '2025-12-10', ['Headless', 'Experience', 'Commerce', 'LTS Update', 'New feature']) =]]
 
-This release introduces a new AI connector that you can install and enable to integrate [AI Actions](ai_actions.md) with [Anthropic Claude](https://claude.com/product/overview).
+This release introduces a new AI connector that allows you to integrate [AI Actions](ai_actions.md) with [Anthropic Claude](https://claude.com/product/overview).
 
-For more information, see [install Anthropic connector](configure_ai_actions.md#install-anthropic-connector).
+For more information, see how to [install Anthropic connector](configure_ai_actions.md#install-anthropic-connector).
 
 [[= release_note_entry_end() =]]
 
@@ -51,15 +51,15 @@ This extends the already existing capabilities allowing editors to work on the s
 
 ![Participants list](img/participants_list.png)
 
-For more information, see [configure Collaborative editing](configure_collaborative_editing.md).
+For more information, see how to [configure Collaborative editing](configure_collaborative_editing.md).
 
 #### Taxonomy suggestions for faster content classification
 
 You can now speed up taxonomy assignment with AI-powered taxonomy suggestions.
 
-Instead of manually browsing through large taxonomy trees and selecting categories or tags one by one, editors can pick from suggestions generated based on the product's or content item's information, for example name and description. 
+Instead of manually browsing through large taxonomy trees and selecting categories or tags one by one, editors can choose from automatically generated suggestions based on the product or content information, for example name and description.
 
-Such approach helps reduce manual effort, minimize errors, and significantly improve the speed and consistency of content and product classification.
+This approach reduces manual effort, minimizes errors, and significantly improves the speed and consistency of content and product classification.
 
 ![Taxonomy entries suggested by the AI Assistant](img/taxonomy_suggestions_content.png "Taxonomy entries suggested by the AI Assistant")
 
@@ -75,7 +75,7 @@ For more information, see [Taxonomy suggestions](taxonomy.md#taxonomy-suggestion
 
 The following additions were made to the PHP API:
 
-##### Real-time collaborative editing:
+###### Real-time collaborative editing:
 
 - [`Ibexa\Contracts\Collaboration\Invitation\Query\Criterion\ParticipantScope`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-Collaboration-Invitation-Query-Criterion-ParticipantScope.html)
 - [`Ibexa\Contracts\Collaboration\Invitation\Query\Criterion\ParticipantType`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-Collaboration-Invitation-Query-Criterion-ParticipantType.html)
@@ -91,7 +91,7 @@ The following additions were made to the PHP API:
 - [`Ibexa\Contracts\Share\Mapper\Action\ShareActionItemsMapperInterface`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-Share-Mapper-Action-ShareActionItemsMapperInterface.html)
 
 
-##### AI Taxonomy Sggestions:
+###### AI Taxonomy Sggestions:
 
 - [`Ibexa\Contracts\ConnectorAi\Action\DataType\Taxonomy`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorAi-Action-DataType-Taxonomy.html)
 - [`Ibexa\Contracts\ConnectorAi\Action\DataType\TaxonomyEntry`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorAi-Action-DataType-TaxonomyEntry.html)
@@ -121,13 +121,13 @@ The following additions were made to the PHP API:
 - [`Ibexa\Contracts\Taxonomy\Embedding\TaxonomyEmbeddingFieldProviderInterface`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-Taxonomy-Embedding-TaxonomyEmbeddingFieldProviderInterface.html)
 - [`Ibexa\Contracts\Taxonomy\Search\Query\Value\TaxonomyEmbedding`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-Taxonomy-Search-Query-Value-TaxonomyEmbedding.html)
 
-##### Search:
+###### Search:
 
 - [`Ibexa\Contracts\AdminUi\ContentType\ContentTypeFieldsByExpressionServiceInterface`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-AdminUi-ContentType-ContentTypeFieldsByExpressionServiceInterface.html)
 - [`Ibexa\Contracts\CoreSearch\Values\Query\PaginationAwareInterface`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-CoreSearch-Values-Query-PaginationAwareInterface.html)
 - [`Ibexa\Contracts\SiteFactory\Values\Query\Criterion\MatchTreeRootLocationIds`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-SiteFactory-Values-Query-Criterion-MatchTreeRootLocationIds.html)
 
-##### Other:
+###### Other:
 
 - [`Ibexa\Contracts\ProductCatalog\CapabilitiesEnum`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-CapabilitiesEnum.html)
 - [`Ibexa\Contracts\ProductCatalog\CapabilitiesServiceInterface`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-CapabilitiesServiceInterface.html)

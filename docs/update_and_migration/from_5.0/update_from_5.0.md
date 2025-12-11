@@ -163,7 +163,7 @@ To use the [latest features](ibexa_dxp_v5.0.md) added to them, update them separ
 
     ### Integrated help [[% include 'snippets/lts-update_badge.md' %]]
 
-    See [integrated help](integrated_help.md) for more information.
+    See [Integrated help](integrated_help.md) for more information.
 
     If you're already using it, run the following command to get the latest version of this feature:
 
@@ -187,7 +187,7 @@ To use the [latest features](ibexa_dxp_v5.0.md) added to them, update them separ
 
     ### Real-time collaborative editing
 
-    To learn more about the [real-time editing](collaborative_editing_guide.md), see the [installation and configuration instructions](configure_collaborative_editing.md).
+    To learn more about the [Real-time editing](collaborative_editing_guide.md), see the [installation and configuration instructions](configure_collaborative_editing.md).
 
     If you're already using it, run the following command to get the latest version of this feature:
 

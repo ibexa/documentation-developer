@@ -14,8 +14,8 @@ month_change: true
 
 [[= release_note_entry_begin("Integrated help " + version, '2025-12-10', ['Headless', 'Experience', 'Commerce', 'LTS Update', 'New feature']) =]]
 
-Integrated, a new [LTS Update](editions.md#lts-updates), help brings contextual documentation, guidance, and partner-specific resources right into the [[= product_name =]]'s user interface.
-It helps editors, store managers and developers alike quickly access relevant content, training and resources without leaving the UI, which bridges the gap between product and documentation.
+Integrated help, a new [LTS Update](editions.md#lts-updates), brings contextual documentation, guidance, and partner-specific resources right into the user interface of [[= product_name =]].
+It helps editors, store managers, and developers to quickly access relevant content, training and resources without leaving the UI, narrowing the gap between product and documentation.
 
 The default help menu can be modified to include links to internal editorial guidelines, custom tutorials, or support pages.
 
@@ -38,7 +38,7 @@ This extends the already existing capabilities allowing editors to work on the s
 
 ![Participants list](img/participants_list.png)
 
-For more information, see [install Collaborative editing](https://doc.ibexa.co/en/4.6/content_management/collaborative_editing/install_collaborative_editing).
+For more information, see how to [install Collaborative editing](https://doc.ibexa.co/en/4.6/content_management/collaborative_editing/install_collaborative_editing).
 
 #### PHP API
 
@@ -65,9 +65,9 @@ The PHP API has been enhanced with the following classes and interfaces:
 
 You can now speed up taxonomy assignment with AI-powered taxonomy suggestions.
 
-Instead of manually browsing through large taxonomy trees and selecting categories or tags one by one, editors can pick from suggestions generated based on the product's or content item's information, for example name and description.
+Instead of manually browsing through large taxonomy trees and selecting categories or tags one by one, editors can choose from automatically generated suggestions based on the product or content information, for example name and description.
 
-Such approach helps reduce manual effort, minimize errors, and significantly improve the speed and consistency of content and product classification.
+This approach reduces manual effort, minimizes errors, and significantly improves the speed and consistency of content and product classification.
 
 ![Taxonomy entries suggested by the AI Assistant](img/taxonomy_suggestions_content.png "Taxonomy entries suggested by the AI Assistant")
 

@@ -698,7 +698,7 @@ To use the [latest features](ibexa_dxp_v4.6.md) added to them, update them separ
 
     ### Integrated help [[% include 'snippets/lts-update_badge.md' %]]
 
-    See [integrated help](integrated_help.md) for more information.
+    See [Integrated help](integrated_help.md) for more information.
 
     If you're already using it, run the following command to get the latest version of this feature:
 
@@ -710,7 +710,7 @@ To use the [latest features](ibexa_dxp_v4.6.md) added to them, update them separ
 
     ### Collaborative editing [[% include 'snippets/lts-update_badge.md' %]]
 
-    To learn more about the [collaborative editing](https://doc.ibexa.co/en/latest/content_management/collaborative_editing/collaborative_editing_guide/), see the [installation instructions](https://doc.ibexa.co/en/4.6/content_management/collaborative_editing/install_collaborative_editing).
+    To learn more about the [Collaborative editing](https://doc.ibexa.co/en/latest/content_management/collaborative_editing/collaborative_editing_guide/), see the [installation instructions](https://doc.ibexa.co/en/4.6/content_management/collaborative_editing/install_collaborative_editing).
 
     If you're already using it, run the following command to get the latest version of this feature:
 
@@ -718,7 +718,7 @@ To use the [latest features](ibexa_dxp_v4.6.md) added to them, update them separ
     composer require ibexa/share:[[= latest_tag_4_6 =]] ibexa/collaboration:[[= latest_tag_4_6 =]]
     ```
 
-    If you're using the real-time collaborative editing, in addition run:
+    If you're using the Real-time collaborative editing, in addition run:
 
     ```bash
     composer require ibexa/fieldtype-richtext-rte:[[= latest_tag_4_6 =]] ibexa/ckeditor-premium:[[= latest_tag_4_6 =]]
