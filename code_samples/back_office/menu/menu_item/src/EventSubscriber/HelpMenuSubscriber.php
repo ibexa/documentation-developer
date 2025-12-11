@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace App\EventSubscriber;
 
+use Ibexa\AdminUi\Menu\Event\ConfigureMenuEvent;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
-use Symfony\Contracts\EventDispatcher\Event;
 
 final class HelpMenuSubscriber implements EventSubscriberInterface
 {
@@ -21,7 +21,7 @@ final class HelpMenuSubscriber implements EventSubscriberInterface
         ];
     }
 
-    public function onHelpMenuConfigure(Event $event): void
+    public function onHelpMenuConfigure(ConfigureMenuEvent $event): void
     {
         $menu = $event->getMenu();
 
