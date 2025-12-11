@@ -87,6 +87,12 @@ This page contains recent highlights and notable changes in [[= product_name =]]
     - [`Ibexa\Contracts\ProductCatalog\CapabilitiesServiceInterface`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-CapabilitiesServiceInterface.html)
     - [`Ibexa\Contracts\SiteFactory\Values\Query\Criterion\MatchTreeRootLocationIds`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-SiteFactory-Values-Query-Criterion-MatchTreeRootLocationIds.html)
 
+### Contributions
+
+We want to thank
+- [romank](https://github.com/romank) for fixing a parse error in [Customize registration forms](8_enable_account_registration.md#customize-registration-forms) example.
+- [todomagichere](https://github.com/todomagichere) for correcting `ibexa_path()` description [URL Twig functions](url_twig_functions.md) 
+
 ## October 2025
 
 ### Releases
