@@ -76,6 +76,7 @@ ibexa_connector_anthropic:
             claude-opus-4-20250514: 'Claude Opus 4 (2025-05-14)'
 ```
 You can now use the Anthropic connector in your project.
+
 ## Configure access to [[= product_name_connect =]]
 
 First, get the credentials by contacting [Ibexa Support](https://support.ibexa.co).
