@@ -15,8 +15,8 @@ Together with the existing [events](event_reference.md) and the [Discounts PHP A
 
     If you prefer learning from videos, two presentations from Ibexa Summit 2025 cover the Discounts feature:
 
-    - Konrad Oboza: [Introduction to the Discounts system in Ibexa DXP](https://www.youtube.com/watch?v=kTgtxY38srw)
-    - Paweł Niedzielski: [Extending new Discounts to suit your needs](https://www.youtube.com/watch?v=pDJxEKJLwPs)
+    - [_Introduction to the Discounts system in Ibexa DXP_](https://www.youtube.com/watch?v=kTgtxY38srw) by Konrad Oboza
+    - [_Extending new Discounts to suit your needs_](https://www.youtube.com/watch?v=pDJxEKJLwPs) by Paweł Niedzielski
 
 ## Create custom conditions and rules
 
@@ -113,8 +113,6 @@ Create the condition by creating a class implementing the [`DiscountConditionInt
 
 The `tolerance` option is made available for usage in the expression by passing it in the constructor.
 The expression can evaluate to `true` or `false` depending on the custom expressions values.
-
-
 
 For each custom condition class, you must create a dedicated condition factory, a class implementing the `\Ibexa\Discounts\Repository\DiscountCondition\DiscountConditionFactoryInterface` inteface.
 
