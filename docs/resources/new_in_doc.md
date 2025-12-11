@@ -14,7 +14,9 @@ This page contains recent highlights and notable changes in [[= product_name =]]
 - [v5.0.4 release notes](https://doc.ibexa.co/en/5.0/release_notes/ibexa_dxp_v5.0/#ibexa-dxp-v504)
 - [v4.6.26 release notes](https://doc.ibexa.co/en/4.6/release_notes/ibexa_dxp_v4.6/#ibexa-dxp-v4626)
 
-[MariaDB 11.4 is officially supported on v5 and v4.6](requirements.md#dbms).
+### Infrastructure:
+
+ - [MariaDB 11.4 is officially supported on v5 and v4.6](requirements.md#dbms)
 
 ### Taxonomy
 
