@@ -32,7 +32,18 @@ They include:
 - [`mapUpdateDataToStruct()`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Discounts-DiscountFormMapperInterface.html#method_mapUpdateDataToStruct) creates the [`DiscountUpdateStruct`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Discounts-Value-Struct-DiscountUpdateStruct.html) object to update the discount
 - [`mapEditTranslateDataToStruct()`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Discounts-DiscountFormMapperInterface.html#method_mapEditTranslateDataToStruct) creates the [`TranslationStruct`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Discounts-Value-Struct-DiscountTranslationStruct.html) objects for [translating the discounts](discounts_api.md#discount-translations)
 
-In addition to these methods, the main form mapper and the form mappers responsible for each step in the wizard dispatch events that you can use to add your custom logic.
+In the UI, the discounts wizard consists of several steps:
+
+- General properties
+- Target group
+- Products
+- Conditions (only for Cart discounts)
+- Discount value
+- Summary
+
+Each of these steps is represented by its own form mappers, data classes, and form types in the code.
+
+In addition, the main form mapper and the form mappers responsible for each step in the wizard dispatch events that you can use to add your custom logic.
 See [discount's form events](discounts_events.md#form-events) for a list of the available events.
 
 ## Integrate custom conditions

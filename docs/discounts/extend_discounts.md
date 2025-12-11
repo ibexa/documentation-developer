@@ -20,13 +20,14 @@ Together with the existing [events](event_reference.md) and the [Discounts PHP A
 
 ## Create custom conditions and rules
 
-With custom [conditions](discounts_api.md#conditions) you can create more advanced discounts that apply only in specific scenarios.
+With custom [conditions](discounts_api.md#conditions) and [rules](discounts_api.md#rules) you can create more advanced discounts that apply only in specific scenarios.
 
-The logic for both the conditions and rules is specified using [Symfony's expression language](https://symfony.com/doc/current/components/expression_language.html).
+For both of them, you need to specify their logic with [Symfony's expression language](https://symfony.com/doc/current/components/expression_language.html).
 
 ### Available expressions
 
-The following expressions are available for conditions and rules:
+You can use the following built-in expressions (variables and functions) in your own custom conditions and rules.
+You can also [create your own](#custom-expressions).
 
 | Type | Name | Value | Available for | 
 | --- | --- | --- | --- |
@@ -34,12 +35,13 @@ The following expressions are available for conditions and rules:
 | Function | `is_in_category()` | `true/false`, depending if a product belongs to given [product categories](pim_guide.md#product-categories).| Conditions, rules |
 | Function | `is_user_in_customer_group()` | `true/false`, depending if an user belongs to given [customer groups](customer_groups.md). | Conditions, rules |
 | Function | `calculate_purchase_amount()` | Purchase amount, calculated for all products in the cart before the discounts are applied.| Conditions, rules |
-| Function | <nobr>`is_product_in_product_codes()`</nobr> | `true/false`, depending if the product is part of the given list.| Conditions, rules |
+| Function | <nobr>`is_product_in_product_codes()`</nobr> | Parameters: <br> - [Product object](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Values-ProductInterface.html)<br>- array of product codes<br> Returns `true` if the product is part of the given list.| Conditions, rules |
+| Function | <nobr>`is_valid_discount_code()`</nobr> | Parameter: discount code (string). <br> Returns `true` if the discount code is valid for current user.| Conditions, rules |
 | Variable | `cart` | [Cart object](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Cart-Value-CartInterface.html) associated with current context.| Conditions, rules |
 | Variable | `currency` | [Currency object](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Values-CurrencyInterface.html) of the current siteaccess. | Conditions, rules |
 | Variable | `customer_group` | [Customer group object](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Values-CustomerGroupInterface.html) associated with given price context or the current user.| Conditions, rules |
+| Variable | `product` | [Product object](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Values-ProductInterface.html)| Conditions, rules |
 | Variable | `amount` | Original price of the product | Rules |
-| Variable | `product` | [Product object](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Values-ProductInterface.html)| Rules |
 
 ### Custom expressions
 
@@ -101,18 +103,27 @@ In a production implementation, you should consider refactoring the `current_use
 
 ### Implement custom condition
 
-The following example creates a new discount condition. It allows you to offer a special discount for customers on the date when their account was created, making use of the expressions added above.
-
-The `tolerance` option allows you to make the discount usable for a longer period of time (for example, a day before or after the registration date) to allow more time for the customers to use it.
+The following example creates a new discount condition.
+It allows you to offer a special discount for customers on the date when their account was created, making use of the expressions added above.
 
 Create the condition by creating a class implementing the [`DiscountConditionInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Discounts-Value-DiscountConditionInterface.html):
 
-``` php
+``` php hl_lines="29-32"
 [[= include_file('code_samples/discounts/src/Discounts/Condition/IsAccountAnniversary.php') =]]
 ```
 
+This condition can be used in both catalog and cart discounts.
+To implement a cart-only discount, additionally implement the marker [`CartDiscountConditionInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Discounts-Value-CartDiscountConditionInterface.html) interface.
+
 The `tolerance` option is made available for usage in the expression by passing it in the constructor.
-The expression can evaluate to `true` or `false` depending on the custom expressions values.
+The `getExpression` method contains the logic of the condition, expressed using the variables and functions available in the expression engine.
+The expression must evaluate to `true` or `false`, indicating whether the condition is met.
+
+The example uses three expressions:
+
+- the custom `is_anniversary` function, returning a value indicating whether today is user's registration anniversary
+- the custom `current_user_registration_date` variable, holding the value of current user's registration date
+- the custom `tolerance` variable, holding the acceptable tolerance (in days) for the calculation
 
 For each custom condition class, you must create a dedicated condition factory, a class implementing the `\Ibexa\Discounts\Repository\DiscountCondition\DiscountConditionFactoryInterface` inteface.
 
@@ -131,7 +142,16 @@ Mark it as a service using the `ibexa.discounts.condition.factory` service tag a
                 discriminator: !php/const App\Discounts\Condition\IsAccountAnniversary::IDENTIFIER
 ```
 
-You can now use the condition using the PHP API.
+You can now use the condition, for example by using the PHP API or data migrations:
+
+``` yaml hl_lines="16-19"
+[[= include_file('code_samples/data_migration/examples/discounts/discount_create.yaml', 0, 2) =]]# ...
+[[= include_file('code_samples/data_migration/examples/discounts/discount_create.yaml', 22, 33) =]]
+        -
+            identifier: is_account_anniversary
+            expressionValues:
+                tolerance: 5
+```
 
 To learn how to integrate it into the back office, see [Extend Discounts wizard](extend_discounts_wizard.md).
 
@@ -142,10 +162,18 @@ You could use it, for example, in regions sharing the same currency and apply th
 
 To implement a custom rule, create a class implementing the [`DiscountRuleInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Discounts-Value-DiscountRuleInterface.html).
 
-
-``` php
+``` php hl_lines="35-38"
 [[= include_file('code_samples/discounts/src/Discounts/Rule/PurchasingPowerParityRule.php') =]]
 ```
+
+The `getExpression` method contains the logic of the rule, expressed using the variables and functions available in the expression engine.
+The expression must return the new price of the product.
+
+It uses three expressions:
+
+- the built-in `amount` variable, holding the purchase amount
+- the built-in `get_current_region()` function, returning the current region
+- a custom `power_parity_map` variable, holding the purchasing power partity map. It's defined in the constuctor.
 
 As with conditions, create a dedicated rule factory:
 
