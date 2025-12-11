@@ -90,7 +90,8 @@ This page contains recent highlights and notable changes in [[= product_name =]]
 ### Contributions
 
 We want to thank
-- [romank](https://github.com/romank) for fixing a parse error in [Customize registration forms](8_enable_account_registration.md#customize-registration-forms) example.
+
+- [romank](https://github.com/romank) for fixing a parse error in [Customize registration forms](8_enable_account_registration.md#customize-registration-forms) example
 - [todomagichere](https://github.com/todomagichere) for correcting `ibexa_path()` description [URL Twig functions](url_twig_functions.md) 
 
 ## October 2025
