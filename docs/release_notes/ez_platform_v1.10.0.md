@@ -64,7 +64,7 @@ $name = $content->getName();
 $value = $content->getFieldValue('body');
 ```
 
-*Further improvements such as getting the system to inject languages on api calls as shown in the first call above [are planned as part of the API epic](https://issues.ibexa.co/browse/EZP-26519)**, suggestions for further improvements are always welcome.*
+*Further improvements such as getting the system to inject languages on API calls as shown in the first call above [are planned as part of the API epic](https://issues.ibexa.co/browse/EZP-26519)**, suggestions for further improvements are always welcome.*
 
 #### SOLR: Index time boosting & Improved Facets support
 
@@ -100,9 +100,9 @@ Starting with 1.10, a new command `ezplatform:io:migrate-files` has been added
 
 | eZ Platform | eZ Studio |
 |-------------|-----------|
-| [List of changes for final of eZ Platform v1.10.0 on Github](https://github.com/ezsystems/ezplatform/releases/tag/v1.10.0) | [List of changes for final for eZ Platform Enterprise Edition v1.10.0 on Github](https://github.com/ezsystems/ezplatform-ee/releases/tag/v1.10.0) |
-| [List of changes for rc2 of eZ Platform v1.10.0 on Github](https://github.com/ezsystems/ezplatform/releases/tag/v1.10.0-rc2) | [List of changes for rc1 for eZ Platform Enterprise Edition v1.10.0 on Github](https://github.com/ezsystems/ezplatform-ee/releases/tag/v1.10.0-rc1) |
-| [List of changes for beta3 of eZ Platform v1.10.0 on Github](https://github.com/ezsystems/ezplatform/releases/tag/v1.10.0-beta3) | [List of changes for beta1 of eZ Platform Enterprise Edition v1.10.0 on Github](https://github.com/ezsystems/ezplatform-ee/releases/tag/v1.10.0-beta1) |
+| [List of changes for final of eZ Platform v1.10.0 on GitHub](https://github.com/ezsystems/ezplatform/releases/tag/v1.10.0) | [List of changes for final for eZ Platform Enterprise Edition v1.10.0 on GitHub](https://github.com/ezsystems/ezplatform-ee/releases/tag/v1.10.0) |
+| [List of changes for rc2 of eZ Platform v1.10.0 on GitHub](https://github.com/ezsystems/ezplatform/releases/tag/v1.10.0-rc2) | [List of changes for rc1 for eZ Platform Enterprise Edition v1.10.0 on GitHub](https://github.com/ezsystems/ezplatform-ee/releases/tag/v1.10.0-rc1) |
+| [List of changes for beta3 of eZ Platform v1.10.0 on GitHub](https://github.com/ezsystems/ezplatform/releases/tag/v1.10.0-beta3) | [List of changes for beta1 of eZ Platform Enterprise Edition v1.10.0 on GitHub](https://github.com/ezsystems/ezplatform-ee/releases/tag/v1.10.0-beta1) |
 
 ### Acknowledgements
 

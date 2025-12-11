@@ -15,8 +15,8 @@ The built-in symbol attribute formats in `ibexa/product-catalog-symbol-attribute
 | Name | Description | Example |
 |-----------------|-----------------|-----------------|
 | Generic | Accepts any string value  | #FR1.2 |
-| Generic (alphabetic characters only) | Accepts any string value that contais only letters  | ABCD |
-| Generic (digits only) | Accepts any string value that contais only digits  | 123456 |
+| Generic (alphabetic characters only) | Accepts any string value that contains only letters  | ABCD |
+| Generic (digits only) | Accepts any string value that contains only digits  | 123456 |
 | Generic (alphanumeric characters only) | Accepts any string value that contains only letters or digits | 2N6405G |
 | Generic (hexadecimal digits only) | Accepts any string value that contains only hexadecimal digits (digits or A-F characters) | DEADBEEF |
 | EAN-8 | European Article Number (8 characters)  | 96385074 |

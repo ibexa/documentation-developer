@@ -78,9 +78,9 @@ full support, maintenance, and priority security patch handling as they're used 
 
 | eZ Platform   | eZ Enterprise  |
 |--------------|------------|
-| [List of changes for final of eZ Platform v1.11.0 on Github](https://github.com/ezsystems/ezplatform/releases/tag/v1.11.0) | [List of changes for final for eZ Platform Enterprise Edition v1.11.0 on Github](https://github.com/ezsystems/ezplatform-ee/releases/tag/v1.11.0) |
-| [List of changes for rc1 of eZ Platform v1.11.0 on Github](https://github.com/ezsystems/ezplatform/releases/tag/v1.11.0-rc1) | [List of changes for rc1 for eZ Platform Enterprise Edition v1.11.0 on Github](https://github.com/ezsystems/ezplatform-ee/releases/tag/v1.11.0-rc1) |
-| [List of changes for beta1 of eZ Platform v1.11.0 on Github](https://github.com/ezsystems/ezplatform/releases/tag/v1.11.0-beta1) | [List of changes for beta1 of eZ Platform Enterprise Edition v1.11.0 on Github](https://github.com/ezsystems/ezplatform-ee/releases/tag/v1.11.0-beta1) |
+| [List of changes for final of eZ Platform v1.11.0 on GitHub](https://github.com/ezsystems/ezplatform/releases/tag/v1.11.0) | [List of changes for final for eZ Platform Enterprise Edition v1.11.0 on GitHub](https://github.com/ezsystems/ezplatform-ee/releases/tag/v1.11.0) |
+| [List of changes for rc1 of eZ Platform v1.11.0 on GitHub](https://github.com/ezsystems/ezplatform/releases/tag/v1.11.0-rc1) | [List of changes for rc1 for eZ Platform Enterprise Edition v1.11.0 on GitHub](https://github.com/ezsystems/ezplatform-ee/releases/tag/v1.11.0-rc1) |
+| [List of changes for beta1 of eZ Platform v1.11.0 on GitHub](https://github.com/ezsystems/ezplatform/releases/tag/v1.11.0-beta1) | [List of changes for beta1 of eZ Platform Enterprise Edition v1.11.0 on GitHub](https://github.com/ezsystems/ezplatform-ee/releases/tag/v1.11.0-beta1) |
 
 ### Installation
 

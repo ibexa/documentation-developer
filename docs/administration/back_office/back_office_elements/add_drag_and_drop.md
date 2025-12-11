@@ -48,4 +48,4 @@ Full list of options:
 |`afterDragOver`|Callback function invoked after moving onto a droppable element.|optional|
 |`afterDrop`|Callback function invoked after dropping an element.|optional|
 |`attachCustomEventHandlersToItem`|Function to be invoked while attaching event handlers to every item in the item's container. Item of `HTMLElement` type is passed to the function as the first param.|optional|
-|`timeoutRemovePlaceholders`|The amount of time after which the not dropped item disappears.The default vaule is set to 500ms.|optional|
+|`timeoutRemovePlaceholders`|The amount of time after which the not dropped item disappears.The default value is set to 500ms.|optional|

@@ -159,7 +159,7 @@ You can [limit access to specific blocks per content type]([[= user_doc =]]/cont
 This applies also to other secrets that may be in use, like the Varnish invalidate token, the JWT passphrase, and any other application-specific secrets.
 
 - Don't use a default value like `ff6dc61a329dc96652bb092ec58981f7` or `ThisTokenIsNotSoSecretChangeIt`.
-- The secret must be secured against unwanted access. Don't commit the value to a version control system. There are several ways of handling it, like with enviroment variables or files like `.env.local`. Files are considered more secure. If you store the secrets in files, make sure to add those files to `.gitignore` or similar, so they will never be committed to version control systems.
+- The secret must be secured against unwanted access. Don't commit the value to a version control system. There are several ways of handling it, like with environment variables or files like `.env.local`. Files are considered more secure. If you store the secrets in files, make sure to add those files to `.gitignore` or similar, so they will never be committed to version control systems.
 - The secret must be long enough. 32 characters is minimum, longer is better.
 
 !!! tip
@@ -272,7 +272,7 @@ When using [[= product_name_cloud =]], this is handled automatically.
 ### Enable Domain Name System Security Extensions (DNSSEC)
 
 DNSSEC is a DNS feature that authenticates responses to DNS requests.
-It protects against DNS poisoning attacks, which is when an attacker manipulates the reponses to DNS requests with the goal of directing users to an IP address the attacker controls.
+It protects against DNS poisoning attacks, which is when an attacker manipulates the responses to DNS requests with the goal of directing users to an IP address the attacker controls.
 Enabling DNSSEC involves creating the DNSSEC records in your domain, activating DNSSEC with your domain registrar, and enabling DNSSEC signature validation on all DNS servers.
 [Read more on DNSSEC on ICANN's website](https://www.icann.org/resources/pages/dnssec-what-is-it-why-important-2019-03-05-en).
 
