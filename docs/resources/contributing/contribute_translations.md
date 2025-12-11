@@ -1,6 +1,6 @@
 ---
 description: You can contribute back office translations to Ibexa DXP by using Crowdin.
-month_change: true
+month_change: false
 ---
 
 # Contribute translations

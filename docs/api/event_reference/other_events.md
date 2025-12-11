@@ -1,7 +1,7 @@
 ---
 description: Events that are triggered when working with bookmarks, notifications, settings, forms and others.
 page_type: reference
-month_change: true
+month_change: false
 ---
 
 # Other events

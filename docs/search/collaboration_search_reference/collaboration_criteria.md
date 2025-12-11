@@ -1,5 +1,5 @@
 ---
-month_change: true
+month_change: false
 description: Search Criteria available for Collaboration search
 ---
 
