@@ -775,7 +775,7 @@ If the current `Connection` (list of results) isn't finished yet and there are m
 
 For the `children` node, you can use the following pagination method:
 
-```text
+```graphql
 {
   _repository {
     location(locationId: 2) {
