@@ -116,7 +116,7 @@ When you don't specify a language, the response contains the most prioritized tr
 
 To get a list of all content items of a selected type, use the plural field, for example, `articles`:
 
-```text
+```graphql
 {
   content {
     articles {
