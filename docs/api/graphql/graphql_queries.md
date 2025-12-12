@@ -476,7 +476,7 @@ Response:
 
 To get all products, using specific criteria (in this case, unavailable products):
 
-```text
+```graphql
 {
   products {
     all(
