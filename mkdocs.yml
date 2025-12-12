@@ -419,6 +419,8 @@ nav:
         - Install Discounts: discounts/install_discounts.md
         - Customize Discounts: discounts/configure_discounts.md
         - Discounts API: discounts/discounts_api.md
+        - Extend Discounts: discounts/extend_discounts.md
+        - Extend Discounts wizard: discounts/extend_discounts_wizard.md
     - Customer management:
         - Customer Portal: customer_management/customer_portal.md
         - Customer Portal guide: customer_management/customer_portal_guide.md
