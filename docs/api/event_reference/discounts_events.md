@@ -10,7 +10,7 @@ month_change: false
 
 ## Discount management
 
-The events below are dispatched when managing [`discounts`](discounts_guide.md):
+The events below are dispatched when managing [discounts](discounts.md):
 
 | Event | Dispatched by |
 |---|---|
@@ -27,7 +27,7 @@ The events below are dispatched when managing [`discounts`](discounts_guide.md):
 
 ### Form
 
-The events below allow you to customize the discounts creation wizard:
+The events below allow you to [customize the discounts creation wizard](extend_discounts_wizard.md).
 
 | Event | Dispatched by |
 |---|---|
@@ -49,6 +49,8 @@ The following events are dispatched when rendering each step of the discount wiz
 
 The event classes are shared between steps, but they are dispatched with different names.
 Each step form mapper dispatches its own set of events.
+
+You can use the names specified above or generate them using the `createEventName` method, for example `CreateFormDataEvent::createEventName(GeneralPropertiesInterface::IDENTIFIER)` returns `ibexa.discounts.form_mapper.general_properties.create_form_data`.
 
 | Form mapper | Step identifier |
 |---|---|
@@ -72,4 +74,4 @@ The event below allows you to inject your custom logic before the discount code 
 
 | Event | Dispatched by | Description |
 |---|---|---|
-|[`BeforeDiscountCodeApplyEvent`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-DiscountsCodes-Event-BeforeDiscountCodeApplyEvent.html)|`Ibexa\Bundle\DiscountsCodes\Controller\REST\DiscountCodeController`| Dispatched before a discount code is applied in the cart |
+|<nobr>[`BeforeDiscountCodeApplyEvent`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-DiscountsCodes-Event-BeforeDiscountCodeApplyEvent.html)</nobr>|`Ibexa\Bundle\DiscountsCodes\Controller\REST\DiscountCodeController`| Dispatched before a discount code is applied in the cart |

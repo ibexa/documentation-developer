@@ -2,11 +2,12 @@
 month_change: false
 editions:
     - commerce
+description: Search Criteria available for Discounts search
 ---
 
 # Discounts Search Criterion reference
 
-Search Criteria are found in the `Ibexa\Contracts\Discounts\Value\Query\Criterion` namespace, implementing the [CriterionInterface](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Discounts-Value-Query-CriterionInterface.html) interface:
+Search Criteria are found in the [`Ibexa\Contracts\Discounts\Value\Query\Criterion`](/api/php_api/php_api_reference/namespaces/ibexa-contracts-discounts-value-query-criterion.html) namespace, implementing the [CriterionInterface](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Discounts-Value-Query-CriterionInterface.html) interface:
 
 | Criterion | Description |
 |---|---|
