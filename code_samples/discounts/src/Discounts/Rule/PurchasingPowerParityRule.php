@@ -7,9 +7,9 @@ use Ibexa\Discounts\Value\AbstractDiscountExpressionAware;
 
 final class PurchasingPowerParityRule extends AbstractDiscountExpressionAware implements DiscountRuleInterface
 {
-    public const TYPE = 'purchasing_power_parity';
+    public const string TYPE = 'purchasing_power_parity';
 
-    private const DEFAULT_PARITY_MAP = [
+    private const array DEFAULT_PARITY_MAP = [
         'default' => 100,
         'germany' => 81.6,
         'france' => 80,

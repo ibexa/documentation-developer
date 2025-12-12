@@ -7,11 +7,11 @@ use DateTimeInterface;
 
 final class IsAnniversaryResolver
 {
-    private const YEAR_MONTH_DAY_FORMAT = 'Y-m-d';
+    private const string YEAR_MONTH_DAY_FORMAT = 'Y-m-d';
 
-    private const MONTH_DAY_FORMAT = 'm-d';
+    private const string MONTH_DAY_FORMAT = 'm-d';
 
-    private const REFERENCE_YEAR = 2000;
+    private const int REFERENCE_YEAR = 2000;
 
     public function __invoke(DateTimeInterface $date, int $tolerance = 0): bool
     {

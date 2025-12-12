@@ -20,46 +20,20 @@ use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
+#[\Symfony\Component\Console\Attribute\AsCommand(name: 'app:discounts:prices')]
 final class OrderPriceCommand extends Command
 {
-    protected static $defaultName = 'app:discounts:prices';
-
-    private PermissionResolver $permissionResolver;
-
-    private UserService $userService;
-
-    private ProductServiceInterface $productService;
-
-    private OrderServiceInterface $orderService;
-
-    private ProductPriceServiceInterface $productPriceService;
-
-    private CurrencyServiceInterface $currencyService;
-
-    private PriceResolverInterface $priceResolver;
-
-    private IntlMoneyFactory $moneyFactory;
-
     public function __construct(
-        PermissionResolver $permissionResolver,
-        UserService $userService,
-        ProductServiceInterface $productService,
-        OrderServiceInterface $orderService,
-        ProductPriceServiceInterface $productPriceService,
-        CurrencyServiceInterface $currencyService,
-        PriceResolverInterface $priceResolver,
-        IntlMoneyFactory $moneyFactory
+        private readonly PermissionResolver $permissionResolver,
+        private readonly UserService $userService,
+        private readonly ProductServiceInterface $productService,
+        private readonly OrderServiceInterface $orderService,
+        private readonly ProductPriceServiceInterface $productPriceService,
+        private readonly CurrencyServiceInterface $currencyService,
+        private readonly PriceResolverInterface $priceResolver,
+        private readonly IntlMoneyFactory $moneyFactory
     ) {
         parent::__construct();
-
-        $this->permissionResolver = $permissionResolver;
-        $this->userService = $userService;
-        $this->productService = $productService;
-        $this->orderService = $orderService;
-        $this->productPriceService = $productPriceService;
-        $this->currencyService = $currencyService;
-        $this->priceResolver = $priceResolver;
-        $this->moneyFactory = $moneyFactory;
     }
 
     public function execute(InputInterface $input, OutputInterface $output): int

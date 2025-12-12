@@ -7,10 +7,10 @@ namespace App\EventSubscriber;
 use Ibexa\AdminUi\Menu\Event\ConfigureMenuEvent;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
-final class HelpMenuSubscriber implements EventSubscriberInterface
+final readonly class HelpMenuSubscriber implements EventSubscriberInterface
 {
     public function __construct(
-        private readonly bool $kernelDebug
+        private bool $kernelDebug
     ) {
     }
 

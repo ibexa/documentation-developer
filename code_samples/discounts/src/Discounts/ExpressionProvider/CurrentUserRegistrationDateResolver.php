@@ -7,16 +7,10 @@ use Ibexa\Contracts\Core\Repository\UserService;
 use Ibexa\Contracts\Discounts\DiscountVariablesResolverInterface;
 use Ibexa\Contracts\ProductCatalog\Values\Price\PriceContextInterface;
 
-final class CurrentUserRegistrationDateResolver implements DiscountVariablesResolverInterface
+final readonly class CurrentUserRegistrationDateResolver implements DiscountVariablesResolverInterface
 {
-    private PermissionResolver $permissionResolver;
-
-    private UserService $userService;
-
-    public function __construct(PermissionResolver $permissionResolver, UserService $userService)
+    public function __construct(private PermissionResolver $permissionResolver, private UserService $userService)
     {
-        $this->permissionResolver = $permissionResolver;
-        $this->userService = $userService;
     }
 
     /**

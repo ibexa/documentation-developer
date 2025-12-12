@@ -25,9 +25,7 @@ final class PurchasingPowerParityValueType extends AbstractType
     {
         $availableRegionHandler = static function (FormInterface $form, PurchasingPowerParityValue $data): void {
             $regions = $data->getDiscountData()->getGeneralProperties()->getRegions();
-            $regionNames = implode(', ', array_map(static function (RegionInterface $region): string {
-                return $region->getIdentifier();
-            }, $regions));
+            $regionNames = implode(', ', array_map(static fn (RegionInterface $region): string => $region->getIdentifier(), $regions));
 
             $options = [
                 'required' => false,
@@ -61,6 +59,7 @@ final class PurchasingPowerParityValueType extends AbstractType
         );
     }
 
+    #[\Override]
     public function getParent(): string
     {
         return DiscountValueType::class;

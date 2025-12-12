@@ -7,7 +7,7 @@ use Ibexa\Discounts\Value\AbstractDiscountExpressionAware;
 
 final class IsAccountAnniversary extends AbstractDiscountExpressionAware implements DiscountConditionInterface
 {
-    public const IDENTIFIER = 'is_account_anniversary';
+    public const string IDENTIFIER = 'is_account_anniversary';
 
     public function __construct(?int $tolerance = null)
     {
