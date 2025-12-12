@@ -14,6 +14,7 @@ use Ibexa\Contracts\ProductCatalog\Values\Price\PriceContext;
 use Ibexa\Contracts\ProductCatalog\Values\Price\PriceEnvelopeInterface;
 use Ibexa\Discounts\Value\Price\Stamp\DiscountStamp;
 use Ibexa\OrderManagement\Discounts\Value\DiscountsData;
+use Ibexa\ProductCatalog\Money\IntlMoneyFactory;
 use Money\Money;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
@@ -37,6 +38,8 @@ final class OrderPriceCommand extends Command
 
     private PriceResolverInterface $priceResolver;
 
+    private IntlMoneyFactory $moneyFactory;
+
     public function __construct(
         PermissionResolver $permissionResolver,
         UserService $userService,
@@ -44,7 +47,8 @@ final class OrderPriceCommand extends Command
         OrderServiceInterface $orderService,
         ProductPriceServiceInterface $productPriceService,
         CurrencyServiceInterface $currencyService,
-        PriceResolverInterface $priceResolver
+        PriceResolverInterface $priceResolver,
+        IntlMoneyFactory $moneyFactory
     ) {
         parent::__construct();
 
@@ -55,12 +59,14 @@ final class OrderPriceCommand extends Command
         $this->productPriceService = $productPriceService;
         $this->currencyService = $currencyService;
         $this->priceResolver = $priceResolver;
+        $this->moneyFactory = $moneyFactory;
     }
 
     public function execute(InputInterface $input, OutputInterface $output): int
     {
         $this->permissionResolver->setCurrentUserReference($this->userService->loadUserByLogin('admin'));
 
+        $output->writeln('Product data:');
         $productCode = 'product_code_control_unit_0';
         $orderIdentifier = '4315bc58-1e96-4f21-82a0-15f736cbc4bc';
         $currencyCode = 'EUR';
@@ -129,6 +135,6 @@ final class OrderPriceCommand extends Command
 
     private function formatPrice(Money $money): string
     {
-        return $money->getAmount() / 100.0 . ' ' . $money->getCurrency()->getCode();
+        return $this->moneyFactory->getMoneyFormatter()->format($money);
     }
 }
