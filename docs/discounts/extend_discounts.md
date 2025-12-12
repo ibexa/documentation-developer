@@ -29,7 +29,7 @@ For both of them, you need to specify their logic with [Symfony's expression lan
 You can use the following built-in expressions (variables and functions) in your own custom conditions and rules.
 You can also [create your own](#custom-expressions).
 
-| Type | Name | Value | Available for | 
+| Type | Name | Value | Available for |
 | --- | --- | --- | --- |
 | Function | `get_current_region()` | [Region object](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Values-RegionInterface.html) of the current siteaccess.| Conditions, rules |
 | Function | `is_in_category()` | `true/false`, depending if a product belongs to given [product categories](pim_guide.md#product-categories).| Conditions, rules |
@@ -116,12 +116,12 @@ This condition can be used in both catalog and cart discounts.
 To implement a cart-only discount, additionally implement the marker [`CartDiscountConditionInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Discounts-Value-CartDiscountConditionInterface.html) interface.
 
 The `tolerance` option is made available for usage in the expression by passing it in the constructor.
-The `getExpression` method contains the logic of the condition, expressed using the variables and functions available in the expression engine.
+The `getExpression()` method contains the logic of the condition, expressed using the variables and functions available in the expression engine.
 The expression must evaluate to `true` or `false`, indicating whether the condition is met.
 
 The example uses three expressions:
 
-- the custom `is_anniversary` function, returning a value indicating whether today is user's registration anniversary
+- the custom `is_anniversary()` function, returning a value indicating whether today is user's registration anniversary
 - the custom `current_user_registration_date` variable, holding the value of current user's registration date
 - the custom `tolerance` variable, holding the acceptable tolerance (in days) for the calculation
 
@@ -157,7 +157,7 @@ To learn how to integrate it into the back office, see [Extend Discounts wizard]
 
 ### Implement custom rules
 
-The following example implements a [purchasing power parity](https://en.wikipedia.org/wiki/Purchasing_power_parity) discount, adjusting product's price in the cart based on buyer's region. 
+The following example implements a [purchasing power parity](https://en.wikipedia.org/wiki/Purchasing_power_parity) discount, adjusting product's price in the cart based on buyer's region.
 You could use it, for example, in regions sharing the same currency and apply the rule only to them by using the [`IsInRegions` condition](discounts_api.md#conditions).
 
 To implement a custom rule, create a class implementing the [`DiscountRuleInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Discounts-Value-DiscountRuleInterface.html).
@@ -166,7 +166,7 @@ To implement a custom rule, create a class implementing the [`DiscountRuleInterf
 [[= include_file('code_samples/discounts/src/Discounts/Rule/PurchasingPowerParityRule.php') =]]
 ```
 
-The `getExpression` method contains the logic of the rule, expressed using the variables and functions available in the expression engine.
+The `getExpression()` method contains the logic of the rule, expressed using the variables and functions available in the expression engine.
 The expression must return the new price of the product.
 
 It uses three expressions:

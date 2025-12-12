@@ -1,6 +1,6 @@
 ---
 description: Integrate custom rules and conditions into the back office forms.
-editions: 
+editions:
     - lts-update
     - commerce
 month_change: true

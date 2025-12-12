@@ -44,7 +44,7 @@ The following discount rule types are available in the `\Ibexa\Discounts\Value\D
 
 Only a single discount can be applied to a given product, and a discount can only have a single rule.
 
-When creating a rule through other means than the user interface, you must pass the required expression values for the rule to be valid:
+When creating a rule, not with the user interface but an API, you must pass the required expression values for the rule to be valid:
 
 - using PHP, the values are passed through the constuctor which converts them into an expression variable
 - using data migrations and the REST API, the values are specified using the `expressionValues` key
