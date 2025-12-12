@@ -259,7 +259,7 @@ A person with minimal insight into this application and the company can easily s
 
 To log out is to `DELETE` the session using its ID (like in the cookie). As this is an unsafe method, the CSRF token must be presented.
 
-```text
+```http
 DELETE /user/sessions/go327ij2cirpo59pb6rrv2a4el2 HTTP/1.1
 Host: www.example.net
 Cookie: IBX_SESSION_ID98defd6ee70dfb1dea416=go327ij2cirpo59pb6rrv2a4el2
