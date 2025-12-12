@@ -66,7 +66,6 @@ final class OrderPriceCommand extends Command
     {
         $this->permissionResolver->setCurrentUserReference($this->userService->loadUserByLogin('admin'));
 
-        $output->writeln('Product data:');
         $productCode = 'product_code_control_unit_0';
         $orderIdentifier = '4315bc58-1e96-4f21-82a0-15f736cbc4bc';
         $currencyCode = 'EUR';

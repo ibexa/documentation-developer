@@ -181,6 +181,6 @@ The example below shows how you can use:
 - [`PriceEnvelopeInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Values-Price-PriceEnvelopeInterface.html) to retrieve applied discounts
 - [`OrderServiceInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-OrderManagement-OrderServiceInterface.html) to display discount details for [orders](order_management.md)
 
-``` php hl_lines="78-79 85-86 88-101 105-131"
+``` php hl_lines="77-78 84-85 87-100 104-130"
 [[= include_file('code_samples/discounts/src/Command/OrderPriceCommand.php') =]]
 ```
