@@ -158,7 +158,7 @@ To create it, create a dedicated class implementing the [`DiscountValueFormTypeM
 
 and add a dedicated value type class:
 
-``` php hl_lines="26-40 47-61 72"
+``` php hl_lines="26-38 45-59 71"
 [[= include_file('code_samples/discounts/src/Form/Type/DiscountValue/PurchasingPowerParityValueType.php') =]]
 ```
 

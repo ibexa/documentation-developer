@@ -60,8 +60,8 @@ See the following examples for data migrations and the REST API usage:
 - parsing responses from the [REST API](https://doc.ibexa.co/en/4.6/api/rest_api/rest_api_reference/rest_api_reference.html#discounts):
 
 ``` json hl_lines="16-21"
-[[= include_file('docs/api/rest_api/rest_api_reference/input/examples/discounts/Discount.json.example', 0, 21) =]]
-[[= include_file('docs/api/rest_api/rest_api_reference/input/examples/discounts/Discount.json.example', 44, 45) =]]
+[[= include_file('code_samples/discounts/REST/Discount.json', 0, 21) =]]
+[[= include_file('code_samples/discounts/REST/Discount.json', 44, 45) =]]
 ```
 
 ### Conditions
@@ -98,8 +98,8 @@ See the following examples for data migrations and the REST API usage:
 - parsing responses from the [REST API](https://doc.ibexa.co/en/4.6/api/rest_api/rest_api_reference/rest_api_reference.html#discounts):
 
 ``` json hl_lines="16-23"
-[[= include_file('docs/api/rest_api/rest_api_reference/input/examples/discounts/Discount.json.example', 0, 15) =]][[= include_file('docs/api/rest_api/rest_api_reference/input/examples/discounts/Discount.json.example', 21, 29) =]]
-[[= include_file('docs/api/rest_api/rest_api_reference/input/examples/discounts/Discount.json.example', 44, 45) =]]
+[[= include_file('code_samples/discounts/REST/Discount.json', 0, 15) =]][[= include_file('code_samples/discounts/REST/Discount.json', 21, 29) =]]
+[[= include_file('code_samples/discounts/REST/Discount.json', 44, 45) =]]
 ```
 
 ### Priority
@@ -180,6 +180,6 @@ The example below shows how you can use:
 - [`PriceEnvelopeInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Values-Price-PriceEnvelopeInterface.html) to retrieve applied discounts
 - [`OrderServiceInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-OrderManagement-OrderServiceInterface.html) to display discount details for [orders](order_management.md)
 
-``` php hl_lines="77-78 84-85 87-100 104-130"
+``` php hl_lines="51-52 58-59 61-74 78-104"
 [[= include_file('code_samples/discounts/src/Command/OrderPriceCommand.php') =]]
 ```

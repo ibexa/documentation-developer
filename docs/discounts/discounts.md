@@ -19,7 +19,7 @@ You can also extend the feature, for example, by creating custom pricing rules, 
 "discounts/discounts_guide",
 "discounts/configure_discounts",
 ("permissions/policies#discounts", "Policies", "Learn about the available Discounts policies"),
-("https://doc.ibexa.co/projects/userguide/en/4.6/commerce/discounts/work_with_discounts/"),
+("https://doc.ibexa.co/projects/userguide/en/5.0/commerce/discounts/work_with_discounts/"),
 ], columns=2) =]]
 
 ## Development
@@ -29,7 +29,7 @@ You can also extend the feature, for example, by creating custom pricing rules, 
 "discounts/extend_discounts",
 "discounts/extend_discounts_wizard",
 "api/event_reference/discounts_events",
-("https://doc.ibexa.co/en/4.6/api/rest_api/rest_api_reference/rest_api_reference.html#discounts", "REST API Reference", "See the available endpoints for Discounts"),
+("https://doc.ibexa.co/en/5.0/api/rest_api/rest_api_reference/rest_api_reference.html#tag/Discounts", "REST API Reference", "See the available endpoints for Discounts"),
 "templating/twig_function_reference/discounts_twig_functions",
 "search/discounts_search_reference/discounts_criteria",
 "search/discounts_search_reference/discounts_sort_clauses",
