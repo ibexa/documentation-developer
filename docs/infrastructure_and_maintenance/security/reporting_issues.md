@@ -26,7 +26,7 @@ Please be verbose when reporting issues. The issue will be solved faster if you 
 ## Dialogue
 
 The engineering team may need your help to clarify certain specifics, so please respond to such inquiries.
-We keep you updated about the progress on our end.
+We keep you updated about the progress on our end and may invite you as collaborators on GitHub to make communication easier.
 
 ## Responsible disclosure
 
