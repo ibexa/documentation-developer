@@ -52,7 +52,7 @@ To create a session, execute the following REST request:
 
 === "XML"
 
-    ```
+    ``` http
     POST /user/sessions HTTP/1.1
     Host: www.example.net
     Accept: application/vnd.ibexa.api.Session+xml
@@ -67,7 +67,7 @@ To create a session, execute the following REST request:
     </SessionInput>
     ```
 
-    ```
+    ``` http
     HTTP/1.1 201 Created
     Location: /user/sessions/go327ij2cirpo59pb6rrv2a4el2
     Set-Cookie: IBX_SESSION_ID98defd6ee70dfb1dea416=go327ij2cirpo59pb6rrv2a4el2; domain=.example.net; path=/; expires=Wed, 13-Jan-2021 22:23:01 GMT; HttpOnly
@@ -86,7 +86,7 @@ To create a session, execute the following REST request:
 
 === "JSON"
 
-    ```
+    ``` http
     POST /user/sessions HTTP/1.1
     Host: www.example.net
     Accept: application/vnd.ibexa.api.Session+json
@@ -102,7 +102,7 @@ To create a session, execute the following REST request:
     }
     ```
 
-    ```
+    ``` http
     HTTP/1.1 201 Created
     Location: /user/sessions/go327ij2cirpo59pb6rrv2a4el2
     Set-Cookie: IBX_SESSION_ID98defd6ee70dfb1dea416=go327ij2cirpo59pb6rrv2a4el2; domain=.example.net; path=/; expires=Wed, 13-Jan-2021 22:23:01 GMT; HttpOnly
@@ -131,7 +131,7 @@ Logging in is similar to session creation, with one important detail: the CSRF t
 
 === "XML"
 
-    ```
+    ``` http
     POST /user/sessions HTTP/1.1
     Host: www.example.net
     Accept: application/vnd.ibexa.api.Session+xml
@@ -148,7 +148,7 @@ Logging in is similar to session creation, with one important detail: the CSRF t
     </SessionInput>
     ```
 
-    ```
+    ``` http
     HTTP/1.1 200 OK
     Content-Type: application/vnd.ibexa.api.Session+xml
     ```
@@ -165,7 +165,7 @@ Logging in is similar to session creation, with one important detail: the CSRF t
 
 === "JSON"
 
-    ```
+    ``` http
     POST /user/sessions HTTP/1.1
     Host: www.example.net
     Accept: application/vnd.ibexa.api.Session+json
@@ -183,7 +183,7 @@ Logging in is similar to session creation, with one important detail: the CSRF t
     }
     ```
 
-    ```
+    ``` http
     HTTP/1.1 200 OK
     Content-Type: application/vnd.ibexa.api.Session+json
     ```
