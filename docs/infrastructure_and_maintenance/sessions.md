@@ -114,7 +114,7 @@ Alternatively if you have needs to configure Redis servers dynamically:
 
 !!! note "[[= product_name_cloud =]]"
 
-    For [[= product_name_cloud =]] (and Platform.sh), this is already configured in `config/env/platformsh.php` based on `.platform.yaml` config.
+    For [[= product_name_cloud =]] (and Upsun), this is already configured based on `.platform.app.yaml` config.
 
 If you're on `php-redis` v4.2.0 and higher, you can optionally tweak [`php-redis` settings](https://github.com/phpredis/phpredis#session-locking) for session locking.
 

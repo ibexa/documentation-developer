@@ -410,16 +410,16 @@ For production setups it's recommended that you use Varnish/Fastly, Redis, NFS/E
 
 === "[[= product_name =]] v5.0"
 
-    ### Cloud hosting with [[= product_name_cloud =]] and Platform.sh
+    ### Cloud hosting with [[= product_name_cloud =]] and Upsun
 
-    In general, [[= product_name_cloud =]] supports all features and services of [Platform.sh](https://platform.sh/marketplace/ibexa/) that are compatible and supported by the [[= product_name =]] version you use.
+    In general, [[= product_name_cloud =]] supports all features and services of [Upsun](https://fixed.docs.upsun.com/add-services.html#available-services) that are compatible and supported by the [[= product_name =]] version you use.
 
     For example:
 
-    - Platform.sh provides Redis support for versions 7.2, 7.0, and 6.2. [[= product_name =]] supports Redis version 7.2.
+    - Upsun provides Redis support for versions 7.2, 7.0, and 6.2. [[= product_name =]] supports Redis version 7.2.
     As a result, Redis is supported on [[= product_name_cloud =]] in versions 7.2.
 
-    Features or services supported by [[= product_name =]] but not covered by Platform.sh may be possible by means of a [custom integration](#custom-integrations).
+    Features or services supported by [[= product_name =]] but not covered by Upsun may be possible by means of a [custom integration](#custom-integrations).
 
     ### [[= product_name_cloud =]] Setup support matrix
 
@@ -427,7 +427,7 @@ For production setups it's recommended that you use Varnish/Fastly, Redis, NFS/E
 
     !!! note
 
-        As Platform.sh doesn't support a configuration with multiple PostgreSQL databases, for [[= product_name_cloud =]] / Platform.sh it's impossible to have a DFS table in a separate database.
+        As Upsun doesn't support a configuration with multiple PostgreSQL databases, for [[= product_name_cloud =]] / Upsun it's impossible to have a DFS table in a separate database.
 
     ### Recommended [[= product_name_cloud =]] setup
 
@@ -441,31 +441,31 @@ For production setups it's recommended that you use Varnish/Fastly, Redis, NFS/E
 
     Make sure to set aside time and budget for:
 
-    - Verifying your requirements and ensuring they're supported by Platform.sh
+    - Verifying your requirements and ensuring they're supported by Upsun
     - Additional time for adaptation and configuration work, and testing by your development team
-    - Additional consulting/onboarding time with Platform.sh, Ibexa technical services, and/or one of the many partners with prior experience in using Platform.sh with [[= product_name =]]
+    - Additional consulting/onboarding time with Upsun, Ibexa technical services, and/or one of the many partners with prior experience in using Upsun with [[= product_name =]]
 
     The cost and effort of this isn't included in [[= product_name_cloud =]] subscription and is vary depending on the project.
 
     ### Custom integrations
 
-    Features supported by [[= product_name =]], but not natively by Platform.sh, can in many cases be used by means of custom integrations with external services.
+    Features supported by [[= product_name =]], but not natively by Upsun, can in many cases be used by means of custom integrations with external services.
 
     For example, you can create an integration with S3 by means of setting up your own S3 bucket and configuring the relevant parts of [[= product_name =]].
     We recommend giving the development team working on the project access to the bucket to ensure work is done in a DevOps way without depending on external teams when changes are needed.
 
 === "[[= product_name =]] v4.6"
 
-    ### Cloud hosting with [[= product_name_cloud =]] and Platform.sh
+    ### Cloud hosting with [[= product_name_cloud =]] and Upsun
 
-    In general, [[= product_name_cloud =]] supports all features and services of [Platform.sh](https://platform.sh/marketplace/ibexa/) that are compatible and supported by the [[= product_name =]] version you use.
+    In general, [[= product_name_cloud =]] supports all features and services of [Upsun](https://fixed.docs.upsun.com/add-services.html#available-services) that are compatible and supported by the [[= product_name =]] version you use.
 
     For example:
 
-    - Platform.sh provides Redis support for versions 7.2, 7.0, and 6.2. [[= product_name =]] supports Redis in versions 4.0, 5.0, and 7.2.
+    - Upsun provides Redis support for versions 7.2, 7.0, and 6.2. [[= product_name =]] supports Redis in versions 4.0, 5.0, and 7.2.
     As a result, Redis is supported on [[= product_name_cloud =]] in version 7.2.
 
-    Features or services supported by [[= product_name =]] but not covered by Platform.sh may be possible by means of a [custom integration](#custom-integrations).
+    Features or services supported by [[= product_name =]] but not covered by Upsun may be possible by means of a [custom integration](#custom-integrations).
 
     ### [[= product_name_cloud =]] Setup support matrix
 
@@ -474,7 +474,7 @@ For production setups it's recommended that you use Varnish/Fastly, Redis, NFS/E
 
     !!! note
 
-        As Platform.sh doesn't support a configuration with multiple PostgreSQL databases, for [[= product_name_cloud =]] / Platform.sh it's impossible to have a DFS table in a separate database.
+        As Upsun doesn't support a configuration with multiple PostgreSQL databases, for [[= product_name_cloud =]] / Upsun it's impossible to have a DFS table in a separate database.
 
     ### Recommended [[= product_name_cloud =]] setup
 
@@ -488,31 +488,31 @@ For production setups it's recommended that you use Varnish/Fastly, Redis, NFS/E
 
     Make sure to set aside time and budget for:
 
-    - Verifying your requirements and ensuring they're supported by Platform.sh
+    - Verifying your requirements and ensuring they're supported by Upsun
     - Additional time for adaptation and configuration work, and testing by your development team
-    - Additional consulting/onboarding time with Platform.sh, Ibexa technical services, and/or one of the many partners with prior experience in using Platform.sh with [[= product_name =]]
+    - Additional consulting/onboarding time with Upsun, Ibexa technical services, and/or one of the many partners with prior experience in using Upsun with [[= product_name =]]
 
     The cost and effort of this isn't included in [[= product_name_cloud =]] subscription and is vary depending on the project.
 
     ### Custom integrations
 
-    Features supported by [[= product_name =]], but not natively by Platform.sh, can in many cases be used by means of custom integrations with external services.
+    Features supported by [[= product_name =]], but not natively by Upsun, can in many cases be used by means of custom integrations with external services.
 
     For example, you can create an integration with S3 by means of setting up your own S3 bucket and configuring the relevant parts of [[= product_name =]].
     We recommend giving the development team working on the project access to the bucket to ensure work is done in a DevOps way without depending on external teams when changes are needed.
 
 === "[[= product_name =]] v3.3"
 
-    ### Cloud hosting with [[= product_name_cloud =]] and Platform.sh
+    ### Cloud hosting with [[= product_name_cloud =]] and Upsun
 
-    In general, [[= product_name_cloud =]] supports all features and services of [Platform.sh](https://platform.sh/marketplace/ibexa/) that are compatible and supported by the [[= product_name =]] version you use.
+    In general, [[= product_name_cloud =]] supports all features and services of [Upsun](https://fixed.docs.upsun.com/add-services.html#available-services) that are compatible and supported by the [[= product_name =]] version you use.
 
     For example:
 
-    - Platform.sh provides Redis support for versions 3.2, 4.0 and 5.0. [[= product_name =]] supports Redis version 4.0 or higher, and recommends 5.0.
+    - Upsun provides Redis support for versions 3.2, 4.0 and 5.0. [[= product_name =]] supports Redis version 4.0 or higher, and recommends 5.0.
     As a result, Redis is supported on [[= product_name_cloud =]] in versions 4.0 and 5.0, but 5.0 is recommended.
 
-    Features or services supported by [[= product_name =]] but not covered by Platform.sh may be possible by means of a [custom integration](#custom-integrations_1).
+    Features or services supported by [[= product_name =]] but not covered by Upsun may be possible by means of a [custom integration](#custom-integrations_1).
 
     ### [[= product_name_cloud =]] Setup support matrix
 
@@ -521,7 +521,7 @@ For production setups it's recommended that you use Varnish/Fastly, Redis, NFS/E
 
     !!! note
 
-        As Platform.sh doesn't support a configuration with multiple PostgreSQL databases, for [[= product_name_cloud =]] / Platform.sh it's impossible to have a DFS table in a separate database.
+        As Upsun doesn't support a configuration with multiple PostgreSQL databases, for [[= product_name_cloud =]] / Upsun it's impossible to have a DFS table in a separate database.
 
     ### Recommended [[= product_name_cloud =]] setup
 
@@ -535,15 +535,15 @@ For production setups it's recommended that you use Varnish/Fastly, Redis, NFS/E
 
     Make sure to set aside time and budget for:
 
-    - Verifying your requirements and ensuring they're supported by Platform.sh
+    - Verifying your requirements and ensuring they're supported by Upsun
     - Additional time for adaptation and configuration work, and testing by your development team
-    - Additional consulting/onboarding time with Platform.sh, Ibexa technical services, and/or one of the many partners with prior experience in using Platform.sh with [[= product_name =]]
+    - Additional consulting/onboarding time with Upsun, Ibexa technical services, and/or one of the many partners with prior experience in using Upsun with [[= product_name =]]
 
     The cost and effort of this isn't included in [[= product_name_cloud =]] subscription and is vary depending on the project.
 
     ### Custom integrations
 
-    Features supported by [[= product_name =]], but not natively by Platform.sh, can in many cases be used by means of custom integrations with external services.
+    Features supported by [[= product_name =]], but not natively by Upsun, can in many cases be used by means of custom integrations with external services.
 
     For example, you can create an integration with S3 by means of setting up your own S3 bucket and configuring the relevant parts of [[= product_name =]].
     We recommend giving the development team working on the project access to the bucket to ensure work is done in a DevOps way without depending on external teams when changes are needed.

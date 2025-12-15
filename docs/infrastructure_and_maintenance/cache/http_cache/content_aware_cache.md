@@ -364,7 +364,7 @@ This section describes to how to debug problems related to HTTP cache.
 	the HTTP cache sends to the client (web browser).
 	It means you must be able to send requests to your origin (web server) that don't go through Varnish or Fastly.
 	If you run Nginx and Varnish on premise, you should know what host and port number both Varnish and Nginx runs on.
-  If you perform tests on Fastly enabled environment on [[= product_name_cloud =]] provided by Platform.sh, you need to use the Platform.sh
+  If you perform tests on Fastly enabled environment on [[= product_name_cloud =]] provided by Upsun, you need to use the Upsun
 	dashboard to obtain the endpoint for Nginx.
 
 The following example shows how to debug and check why Fastly doesn't cache the front page properly.
@@ -380,17 +380,17 @@ HTTP/2 200
 x-cache: MISS
 ```
 
-### Nginx endpoint on Platform.sh
+### Nginx endpoint on Upsun
 
 #### Finding Nginx endpoint for environments located on the grid
 
 To find the Nginx point, first, you need to know in which region your project is located.
-To do that, go to the Platform.sh dashboard.
+To do that, go to the Upsun dashboard.
 To find a valid route, click an element in the **URLs** drop-down for the specified environment and select the route.
 A route may look like this:
 `https://www.staging.foobar.com.us-2.platformsh.site/`
 
-In this case the region is `us-2` and you can find the public IP list on [Platform.sh documentation page](https://docs.platform.sh/development/regions.html#public-ip-addresses).
+In this case the region is `us-2` and you can find the public IP list on [Upsun documentation page](https://fixed.docs.upsun.com/development/regions.html#public-ip-addresses).
 Typically, you can add a `gw` to the hostname and use nslookup to find it.
 
 ```bash
@@ -400,7 +400,7 @@ Typically, you can add a `gw` to the hostname and use nslookup to find it.
    Address:  1.2.3.4
 ```
 
-You can also use the [[[= product_name_cloud =]] CLI](https://cli.ibexa.co/) (which has the same command as the Platform.sh CLI) to find [the endpoint](https://docs.platform.sh/domains/steps/dns.html):
+You can also use the [[[= product_name_cloud =]] CLI](https://cli.ibexa.co/) (which has the same command as the Upsun CLI) to find [the endpoint](https://fixed.docs.upsun.com/domains/steps/dns.html):
 
 ```bash
     ibexa_cloud environment:info edge_hostname
@@ -408,8 +408,8 @@ You can also use the [[[= product_name_cloud =]] CLI](https://cli.ibexa.co/) (wh
 
 #### Finding Nginx endpoint on dedicated cloud
 
-If you have a dedicated 3-node cluster on Platform.sh, the procedure for getting the endpoint to environments that are located on that cluster (`production` and sometimes also `staging`) is slightly different.
-In the **URLs** drop-down in the Platform.sh dashboard, find the route that has the format `somecontent.[clusterid].ent.platform.sh/`, for example, `myenvironment.abcdfg2323.ent.platform.sh/`
+If you have a dedicated 3-node cluster on Upsun, the procedure for getting the endpoint to environments that are located on that cluster (`production` and sometimes also `staging`) is slightly different.
+In the **URLs** drop-down in the Upsun dashboard, find the route that has the format `somecontent.[clusterid].ent.platform.sh/`, for example, `myenvironment.abcdfg2323.ent.platform.sh/`
 
 The endpoint in case has the format `c.[clusterid].ent.platform.sh`, for example, `c.asddfs2323.ent.platform.sh/`.
 Next, use nslookup to find the IP:
@@ -440,7 +440,7 @@ Some notes about each of these parameters:
     - We tell curl not to do a DNS lookup for `www.staging.foobar.com.us-2.platformsh.site`.
     We do that because in our case that resolves to the Fastly endpoint, not our origin (nginx)
     - We specify `443` because we are using `https`
-    - We provide the IP of the nginx endpoint at platform.sh (`1.2.3.4` in this example)
+    - We provide the IP of the nginx endpoint at Upsun (`1.2.3.4` in this example)
 - `--header "Surrogate-Capability: abc=ESI/1.0"`, strictly speaking not needed when fetching the user-context-hash, but this tells [[= product_name =]] that client understands ESI tags.
   It's good practice to always include this header when imitating the HTTP Cache.
 - `--header "accept: application/vnd.fos.user-context-hash"` tells [[= product_name =]] that the client wants to receive the user-context-hash
