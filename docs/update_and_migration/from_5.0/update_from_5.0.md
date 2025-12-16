@@ -281,6 +281,32 @@ Run the provided SQL upgrade script to ensure the Messenger tables for [backgrou
     psql <database_name> < vendor/ibexa/installer/upgrade/db/postgresql/ibexa-5.0.4-to-5.0.5.sql
     ```
 
+## v5.0.5
+
+### [[= product_name_cloud =]] configuration update
+
+If you're using [[= product_name_cloud =]], you must install a new package and update your cloud configuration.
+
+First, install the `ibexa/cloud` package:
+
+```bash
+composer require ibexa/cloud
+```
+
+Then, update your cloud configuration. The old command `composer ibexa:setup --platformsh` has been replaced with:
+
+```bash
+php bin/console ibexa:cloud:setup --upsun
+```
+
+This command generates or updates the cloud configuration files.
+
+Additionally, you must remove the following line from your `.platform.app.yaml` file if it exists:
+
+```yaml
+curl -fs https://get.symfony.com/cloud/configurator | bash
+```
+
 ## LTS Updates and additional packages
 
 [LTS Updates](editions.md#lts-updates) are standalone packages with their own update procedures.

@@ -144,10 +144,9 @@ This example uses Doctrine connection named `dfs`:
 ``` yaml
 parameters:
     env(DFS_DATABASE_URL): '%env(resolve:DATABASE_URL)%'
-    dfs_nfs_path: '%env(resolve:DFS_NFS_PATH)%'
     dfs_database_url: '%env(resolve:DFS_DATABASE_URL)%'
     ibexa.io.nfs.adapter.config:
-        root: '%dfs_nfs_path%'
+        root: '%kernel.project_dir%/%env(string:DFS_NFS_PATH)%'
         path: '$var_dir$/$storage_dir$/'
         writeFlags: ~
         linkHandling: ~
@@ -159,12 +158,12 @@ doctrine:
         connections:
             dfs:
                 # configure these for your database server
-                driver: '%dfs_database_driver%'
-                charset: '%dfs_database_charset%'
+                driver: '%env(string:DFS_DATABASE_DRIVER)%'
+                charset: '%env(string:DFS_DATABASE_CHARSET)%'
                 default_table_options:
-                    charset: '%dfs_database_charset%'
-                    collate: '%dfs_database_collation%'
-                url: '%dfs_database_url%'
+                    charset: '%env(string:DFS_DATABASE_CHARSET)%'
+                    collate: '%env(string:DFS_DATABASE_COLLATION)%'
+                url: '%env(string:DFS_DATABASE_URL)%'
 
 # define the Flysystem handler
 oneup_flysystem:

@@ -54,7 +54,8 @@ To remove a bundle (either one you created yourself, or an out-of-the-box one th
 |[ibexa/http-cache](https://github.com/ibexa/http-cache)|[HTTP cache handling](http_cache.md), using multi tagging|
 |[ibexa/i18n](https://github.com/ibexa/i18n)|Centralized translations to ease synchronization with Crowdin|
 |[ibexa/notifications](https://github.com/ibexa/notifications)| Sending [notifications](notifications.md)|
-|[ibexa/post-install](https://github.com/ibexa/post-install)|Post installation tool|
+|[ibexa/cloud](https://github.com/ibexa/cloud)|(Optional) Cloud integration package|
+|[ibexa/post-install](https://github.com/ibexa/post-install)|Bundle containing Apache and nginx templates|
 |[ibexa/rest](https://github.com/ibexa/rest)|REST API|
 |[ibexa/search](https://github.com/ibexa/search)|Common search functionalities|
 |[ibexa/solr](https://github.com/ibexa/solr)|[Solr-powered](https://solr.apache.org/) search handler|
