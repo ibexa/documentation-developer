@@ -25,3 +25,33 @@ The filters also accept an optional `timezone` parameter for displaying date and
 ``` html+twig
 {{ content.contentInfo.publishedDate|ibexa_short_datetime('PST')  }}
 ```
+
+## Considerations for usage outside back office
+
+The filters rely on user preferences.
+When the preferences are not set, for example for logged out users, the filters fallback to a default date format.
+In case of some filters, the fallback date format contains locale-aware fragments, for example: full name of the month or day.
+When combined with [reverse proxies like Varnish or Fastly](http_cache.md), it's possible to cache a localized version of a date and display it to other users, even if they're not using the same locale.
+
+Consider these alternatives:
+
+- Use Twig's built-in `date` filter with a fixed, locale-indenepdent format
+
+    ``` html+twig
+    {{ content.contentInfo.publishedDate|date('Y-m-d H:i:s') }}
+    ```
+
+- Use ESI for dynamic rendering of the date
+
+    ``` html+twig
+    {{ render_esi(controller('App\\Controller\\CustomDateController::format', {
+        'date': content.contentInfo.publishedDate
+    })) }}
+    ```
+
+    Don't cache the ESI response.
+    By implementing this solution, you can keep the date format locale-aware.
+
+- Client-side JavaScript formatting
+
+For more information, see [HTTP Cache](http_cache.md) and [Delivering personalized responses](context_aware_cache.md#personalize-responses).
