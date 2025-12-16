@@ -1427,7 +1427,7 @@ For more information, see [CDP Activation](https://doc.ibexa.co/en/master/cdp/cd
 
 #### New packages 
 
-The following packages has been introduced in [[= product_name =]] v4.6.0:
+The following packages have been introduced in [[= product_name =]] v4.6.0:
 
 - [ibexa/oauth2-server](oauth_server.md) (optional)
 - ibexa/site-context
