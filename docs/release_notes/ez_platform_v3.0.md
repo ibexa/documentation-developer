@@ -135,7 +135,7 @@ The `keyword` field type can now recognize versions of a content item.
 
 #### Login by User name or email
 
-You can now give your users thee ability to [log in with User name or with email](https://doc.ibexa.co/en/latest/users/login_methods).
+You can now give your users the ability to [log in with User name or with email](https://doc.ibexa.co/en/latest/users/login_methods).
 
 #### Password rules
 
