@@ -380,7 +380,7 @@ HTTP/2 200
 x-cache: MISS
 ```
 
-### Nginx endpoint on [[= product_name_cloud =]] 
+### Nginx endpoint on [[= product_name_cloud =]]
 
 #### Finding Nginx endpoint for environments located on the grid
 

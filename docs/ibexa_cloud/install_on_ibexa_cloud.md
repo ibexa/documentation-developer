@@ -57,7 +57,7 @@ Create a project and select its region.
 
 !!! caution
 
-    Don't use https://console.platform.sh/ or https://console.upsun.com/ which don't list [[= product_name_cloud =]] projects.
+    Don't use https://console.upsun.com/ (or former https://console.platform.sh/) which don't list [[= product_name_cloud =]] projects.
     Use https://console.ibexa.cloud to manage your [[= product_name_cloud =]] projects.
 
 ## 3. Prepare for hosting
