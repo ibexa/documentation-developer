@@ -51,7 +51,7 @@ Now, you can go to the **File mapping** section.
 
 ## File mapping
 
-Mapping is completed automatically, the system fills all required information and shows available columns with datapoints on the right.
+Mapping is completed automatically, the system fills all required information and shows available columns with data points on the right.
 You can change their names if needed or disallow empty fields by checking **Mandatory**.
 If the provided file contains empty values, this option isn't available.
 

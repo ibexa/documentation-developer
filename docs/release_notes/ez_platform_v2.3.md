@@ -106,10 +106,10 @@ For more information, see [How to translate the interface using Crowdin](https:/
 
 | eZ Platform   | eZ Enterprise  |
 |--------------|------------|
-| [List of changes for final of eZ Platform v2.3.0 on Github](https://github.com/ezsystems/ezplatform/releases/tag/v2.3.0) | [List of changes for final for eZ Platform Enterprise Edition v2.3.0 on Github](https://github.com/ezsystems/ezplatform-ee/releases/tag/v2.3.0) |
-| [List of changes for rc2 of eZ Platform v2.3.0 on Github](https://github.com/ezsystems/ezplatform/releases/tag/v2.3.0-rc2) | [List of changes for rc2 for eZ Platform Enterprise Edition v2.3.0 on Github](https://github.com/ezsystems/ezplatform-ee/releases/tag/v2.3.0-rc2) |
-| [List of changes for rc1 of eZ Platform v2.3.0 on Github](https://github.com/ezsystems/ezplatform/releases/tag/v2.3.0-rc1) | [List of changes for rc1 for eZ Platform Enterprise Edition v2.3.0 on Github](https://github.com/ezsystems/ezplatform-ee/releases/tag/v2.3.0-rc1) |
-| [List of changes for beta1 of eZ Platform v2.3.0 on Github](https://github.com/ezsystems/ezplatform/releases/tag/v2.3.0-beta1) | [List of changes for beta1 of eZ Platform Enterprise Edition v2.3.0 on Github](https://github.com/ezsystems/ezplatform-ee/releases/tag/v2.3.0-beta1) |
+| [List of changes for final of eZ Platform v2.3.0 on GitHub](https://github.com/ezsystems/ezplatform/releases/tag/v2.3.0) | [List of changes for final for eZ Platform Enterprise Edition v2.3.0 on GitHub](https://github.com/ezsystems/ezplatform-ee/releases/tag/v2.3.0) |
+| [List of changes for rc2 of eZ Platform v2.3.0 on GitHub](https://github.com/ezsystems/ezplatform/releases/tag/v2.3.0-rc2) | [List of changes for rc2 for eZ Platform Enterprise Edition v2.3.0 on GitHub](https://github.com/ezsystems/ezplatform-ee/releases/tag/v2.3.0-rc2) |
+| [List of changes for rc1 of eZ Platform v2.3.0 on GitHub](https://github.com/ezsystems/ezplatform/releases/tag/v2.3.0-rc1) | [List of changes for rc1 for eZ Platform Enterprise Edition v2.3.0 on GitHub](https://github.com/ezsystems/ezplatform-ee/releases/tag/v2.3.0-rc1) |
+| [List of changes for beta1 of eZ Platform v2.3.0 on GitHub](https://github.com/ezsystems/ezplatform/releases/tag/v2.3.0-beta1) | [List of changes for beta1 of eZ Platform Enterprise Edition v2.3.0 on GitHub](https://github.com/ezsystems/ezplatform-ee/releases/tag/v2.3.0-beta1) |
 
 ## Installation
 

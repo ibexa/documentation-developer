@@ -13,7 +13,7 @@ Every published content item has a location and, as a consequence, also a place 
 
 A content item receives a location only once it has been published.
 This means that a new unpublished draft doesn't have a location yet.
-You can find drats in the **Drafts** tab in the **Content** menu.
+You can find drafts in the **Drafts** tab in the **Content** menu.
 
 ![Drafts](content_management_drafts.png "Drafts")
 

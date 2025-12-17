@@ -397,7 +397,7 @@ We want to thank [todomagichere](https://github.com/todomagichere) and [hgieseno
 
 ### Interactive demos
 
-- Updated [Form Builder](https://doc.ibexa.co/en/4.6/content_management/forms/form_builder_guide/#how-does-form-builder-work), [Page Builder](https://doc.ibexa.co/en/4.6/content_management/pages/page_builder_guide/#create-page), and [Online Editor](https://doc.ibexa.co/en/4.6/content_management/rich_text/online_editor_guide/) product guides by addng interactive demos that present these features
+- Updated [Form Builder](https://doc.ibexa.co/en/4.6/content_management/forms/form_builder_guide/#how-does-form-builder-work), [Page Builder](https://doc.ibexa.co/en/4.6/content_management/pages/page_builder_guide/#create-page), and [Online Editor](https://doc.ibexa.co/en/4.6/content_management/rich_text/online_editor_guide/) product guides by adding interactive demos that present these features
 
 ### Page Builder clipboard
 

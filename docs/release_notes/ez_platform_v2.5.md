@@ -66,7 +66,7 @@ bin/console ezplatform:migrate:legacy_matrix
 The new [ezplatform-user](https://github.com/ezsystems/ezplatform-user) bundle now centralizes
 all features related to user management, such as user accounts, registering, or changing passwords.
 
-!!! dxp
+!!! DXP
 
     ### Workflow improvements
 

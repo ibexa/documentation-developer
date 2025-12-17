@@ -44,9 +44,9 @@ Following [EZEE-1781](https://issues.ibexa.co/browse/EZEE-1781) you can [serve V
 
 | eZ Platform   | eZ Enterprise  |
 |--------------|------------|
-| [List of changes for final of eZ Platform v1.13.0 on Github](https://github.com/ezsystems/ezplatform/releases/tag/v1.13.0) | [List of changes for final for eZ Platform Enterprise Edition v1.13.0 on Github](https://github.com/ezsystems/ezplatform-ee/releases/tag/v1.13.0) |
-| [List of changes for rc1 of eZ Platform v1.13.0 on Github](https://github.com/ezsystems/ezplatform/releases/tag/v1.13.0-rc1) | [List of changes for rc1 for eZ Platform Enterprise Edition v1.13.0 on Github](https://github.com/ezsystems/ezplatform-ee/releases/tag/v1.13.0-rc1) |
-| [List of changes for beta2 of eZ Platform v1.13.0 on Github](https://github.com/ezsystems/ezplatform/releases/tag/v1.13.0-beta2) | [List of changes for beta2 of eZ Platform Enterprise Edition v1.13.0 on Github](https://github.com/ezsystems/ezplatform-ee/releases/tag/v1.13.0-beta2) |
+| [List of changes for final of eZ Platform v1.13.0 on GitHub](https://github.com/ezsystems/ezplatform/releases/tag/v1.13.0) | [List of changes for final for eZ Platform Enterprise Edition v1.13.0 on GitHub](https://github.com/ezsystems/ezplatform-ee/releases/tag/v1.13.0) |
+| [List of changes for rc1 of eZ Platform v1.13.0 on GitHub](https://github.com/ezsystems/ezplatform/releases/tag/v1.13.0-rc1) | [List of changes for rc1 for eZ Platform Enterprise Edition v1.13.0 on GitHub](https://github.com/ezsystems/ezplatform-ee/releases/tag/v1.13.0-rc1) |
+| [List of changes for beta2 of eZ Platform v1.13.0 on GitHub](https://github.com/ezsystems/ezplatform/releases/tag/v1.13.0-beta2) | [List of changes for beta2 of eZ Platform Enterprise Edition v1.13.0 on GitHub](https://github.com/ezsystems/ezplatform-ee/releases/tag/v1.13.0-beta2) |
 
 ### Installation
 
