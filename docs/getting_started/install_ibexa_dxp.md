@@ -281,7 +281,7 @@ Run the post-installation script with the following command:
 composer run post-install-cmd
 ```
 
-## Use PHPs built-in server
+## Use PHP's built-in server
 
 For development you can use the built-in PHP server.
 

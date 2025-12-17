@@ -14,7 +14,7 @@ All supported reverse proxies are content-aware.
 
 ## Cache tags
 
-Understanding tags is the key to making the most ofIbexa's HTTP cache.
+Understanding tags is the key to making the most of [[= product_name =]]'s HTTP cache.
 
 Tags form a secondary set of keys assigned to every cache item, on top of the "primary key" which is the URI.
 Like an index in a database, a tag is typically used for anything relevant that represents the given cache item.
@@ -150,7 +150,7 @@ For tagging needs in controllers, there are several options, here presented in r
 
 1\. Reusing `DispatcherTagger` to pick correct tags.
 
-Examples for tagging everything needed for content using the autowirable `ResponseTagger` interface:
+Examples for tagging everything needed for content using the autowireable `ResponseTagger` interface:
 
 ``` php
 /** @var \Ibexa\Contracts\HttpCache\ResponseTagger\ResponseTagger $responseTagger */
@@ -352,7 +352,7 @@ bin/console fos:httpcache:invalidate:tag ez-all
 
 It's important to test your code in an environment which is as similar as your production environment as possible.
 That means that if only are testing locally using the default Symfony Reverse proxy when your are going to use Varnish or Fastly in production, you're likely ending up some (bad) surprises.
-Due to the symfony reverse proxy's lack of support for ESIs, it behaves quite different from Varnish and Fastly in some aspects.
+Due to the Symfony reverse proxy's lack of support for ESIs, it behaves quite different from Varnish and Fastly in some aspects.
 If you're going to use Varnish in production, make sure you also test your code with Varnish.
 If you're going to use Fastly in production, testing with Fastly in your developer install is likely not feasible (you're local development environment must then be accessible for Fastly).
 Testing with Varnish instead in most cases does the job.
@@ -501,7 +501,7 @@ So back to the original problem here.
 This resource is for some reason not cached by Fastly (remember the `x-cache: MISS` we started with).
 But origin says this page can be cached for 1 day.
 How can that be?
-The likely reason is that this page also contains some ESI fragments and that one or more of these aren't cachable.
+The likely reason is that this page also contains some ESI fragments and that one or more of these aren't cacheable.
 
 So, first let's see if there are any ESIs here.
 We remove the `-IXGET` options (to see content of the response, not only headers) to curl and search for esi:
@@ -592,7 +592,7 @@ ESI headers are only seen by the HTTP cache.
 - Symfony reverse proxy doesn't support ESIs at all, and any ESI calls (`render_esi()`) are implicitly replaced by sub-requests (`render()`).
 So any `Set-Cookie` **is** sent to the client when using Symfony reverse proxy.
 
-- Fastly flags it resource as "not cachable" because it set a cookie at least once.
+- Fastly flags it resource as "not cacheable" because it set a cookie at least once.
 Even though that endpoint stops setting cookies, Fastly still doesn't cache that fragment.
 Any document referring to that ESI is a `MISS`.
 Fastly cache needs to be purged (`Purge-all` request) to remove this flag.

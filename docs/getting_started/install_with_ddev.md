@@ -52,7 +52,7 @@ To use MySQL instead, run the following command:
 ddev config --database=mysql:8.0
 ```
 
-You can also use other versions of MariaDB, Mysql or PostgreSQL.
+You can also use other versions of MariaDB, MySQL or PostgreSQL.
 See [DDEV database types documentation](https://ddev.readthedocs.io/en/latest/users/extend/database-types/) for available version ranges.
 
 #### Configure database connection
@@ -367,7 +367,7 @@ To run an existing project, you need to:
 1. Add Composer authentication.
 1. Install dependencies packages with Composer.
 1. Populate the contents, which could mean:
-    - getting a clean database with ddev `php bin/console ibexa:install` and adding some data with [Ibexa data migration](importing_data.md), or
+    - getting a clean database with `ddev php bin/console ibexa:install` and adding some data with [Ibexa data migration](importing_data.md), or
     - injecting a dump with [`ddev import-db`](https://ddev.readthedocs.io/en/latest/users/usage/commands/#import-db) and copying related binary files into `public/var`.
 
 The following examples run an already [version-controlled project](install_ibexa_dxp.md#add-project-to-version-control) and have the right content structure (but no content):

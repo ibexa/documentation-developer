@@ -63,7 +63,7 @@ You can now start working with the date and time attribute type.
 The date and time attribute type's support in the system is on par with the other, built-in attribute types.
 
 You can manage it through the back office, [data migrations](importing_data.md#date-and-time-attributes), REST, or through the PHP API.
-It also supports [searching](product_search_criteria.md) by using [DateTimeAttribute](datetimeattribute_criterion.md) and [DateTimeAttributeRange](datetimeattributerange_criterion.md) criterions.
+It also supports [searching](product_search_criteria.md) by using [DateTimeAttribute](datetimeattribute_criterion.md) and [DateTimeAttributeRange](datetimeattributerange_criterion.md) criteria.
 
 ![Creating a product using a date and time attribute with "trimester" accuracy level](img/datetime.png "Creating a product using a date and time attribute with "trimester" accuracy level")
 

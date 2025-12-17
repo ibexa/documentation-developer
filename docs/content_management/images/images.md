@@ -243,7 +243,7 @@ If you use other formats, such a PNG, SVG, GIF, or WEBP, and you use the Image E
 |Image format|Library|
 |---|---|
 |JPEG|JpegOptim|
-|PNG|Either Optipng or Pngquant 2|
+|PNG|Either OptiPNG or Pngquant 2|
 |SVG|SVGO 1|
 |GIF|Gifsicle|
 |WEBP|cwebp|

@@ -2,7 +2,7 @@
 description: See various tools that can help you debug your Ibexa DXP installation.
 ---
 
-# Devops
+# DevOps
 
 ## Cache clearing
 

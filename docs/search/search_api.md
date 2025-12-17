@@ -283,7 +283,7 @@ Even though the location B is hidden, the query finds the content because both c
 
 To sort the results of a query, use one of more [Sort Clauses](sort_clause_reference.md).
 
-For example, to order search results by their publicationg date, from oldest to newest, and then alphabetically by content name, add the following Sort Clauses to the query:
+For example, to order search results by their publication date, from oldest to newest, and then alphabetically by content name, add the following Sort Clauses to the query:
 
 ``` php
 [[= include_file('code_samples/api/public_php_api/src/Command/FindComplexCommand.php', 55, 59) =]]

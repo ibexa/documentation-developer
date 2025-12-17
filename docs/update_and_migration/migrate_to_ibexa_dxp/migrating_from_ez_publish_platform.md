@@ -415,9 +415,9 @@ Once you have fixed all the dump files in `ezxmltext-export/`, you may skip the 
 
 Typical problems that needs manual fixing:
 
-**Duplicate xhtml IDs**
+**Duplicate XHTML IDs**
 
-Xhtml IDs needs to be unique. The following `ezxmltext` results in a warning:
+XHTML IDs needs to be unique. The following `ezxmltext` results in a warning:
 
 ```
     <paragraph>

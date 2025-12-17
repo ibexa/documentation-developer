@@ -20,7 +20,7 @@ See [Searching in the Activity Log groups](recent_activity.md#searching-in-the-a
 |---------------------------------------------------|-------------------------------------------------------------|
 | [`ActionCriterion`](action_criterion.md)          | Performed action name(s)                                    |
 | [`LoggedAtCriterion`](logged_at_criterion.md)     | Before, after or at a given date and time                   |
-| [`ObjectCriterion`](object_criterion.md)          | Manipulated object's classname, and optionally objects' IDs |
+| [`ObjectCriterion`](object_criterion.md)          | Manipulated object's class name, and optionally objects' IDs |
 | [`ObjectNameCriterion`](object_name_criterion.md) | Manipulated object's name, in whole or in part              |
 | [`UserCriterion`](user_criterion.md)              | User performing the action                                  |
 

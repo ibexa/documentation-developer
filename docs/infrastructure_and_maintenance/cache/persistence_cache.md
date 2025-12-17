@@ -194,7 +194,7 @@ With that in mind, the following configurations of Redis are possible:
 - [Redis Sentinel](https://redis.io/docs/latest/operate/oss_and_stack/management/sentinel/)
     - Provides high availability by providing one or several slaves (ideally 2 slaves or more, for example, minimum 3 servers), and handle failover
     - [Slaves are asynchronously replicated](https://redis.io/docs/latest/operate/oss_and_stack/management/sentinel/#fundamental-things-to-know-about-sentinel-before-deploying), so they can't be used for reads
-    - Typically used with a load balancer (for example, HAproxy with occasional calls to Redis Sentinel API) in the front to only speak to elected master
+    - Typically used with a load balancer (for example, HAProxy with occasional calls to Redis Sentinel API) in the front to only speak to elected master
     - As of v3 you can also configure this [directly on the connection string]([[= symfony_doc =]]/components/cache/adapters/redis_adapter.html#configure-the-connection), **if** you use `Predis` instead of `php-redis`
 
 Several cloud providers have managed services that are easier to set up, handle replication and scalability for you, and might perform better. Notable services include:

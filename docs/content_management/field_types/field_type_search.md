@@ -84,7 +84,7 @@ The default available search field types that can be found in the `Ibexa\Contrac
 |`FloatField`|Field for floating point numbers.|
 |`FullTextField`|Represents full text searchable value of the field which can be indexed by the legacy search engine. Some full text fields are stored as an array of strings.|
 |`GeoLocationField`|Field used for Geo location.|
-|`IdentifierField`|Field used for IDs. Basically acts like the string field, but it's not queried by fulltext searches|
+|`IdentifierField`|Field used for IDs. Basically acts like the string field, but it's not queried by full-text searches|
 |`IntegerField`|Field for integer numbers.|
 |`MultipleBooleanField`|Multiple boolean values.|
 |`MultipleIdentifierField`|Multiple IDs values.|

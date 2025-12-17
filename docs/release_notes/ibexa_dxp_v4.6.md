@@ -1102,7 +1102,9 @@ While typing text in the bar, autocompletion suggestions is made under the bar i
 If a relevant suggestion occurs, it can be clicked, or navigated too with up/down keys then selected with Enter, and the content is be directly opened.
 
 In the search result page, a spellcheck suggestion can be made.
+<!-- vale Ibexa.Spellcheck = NO -->
 For example, if the searched text is "Comany", the result page may ask "Did you mean company?", which is clickable to relaunch the search with this word.
+<!-- vale Ibexa.Spellcheck = YES -->
 
 For more information, see [User Documentation](https://doc.ibexa.co/projects/userguide/en/master/search/search_for_content/), and how to [customize autocompletion suggestions](https://doc.ibexa.co/en/master/administration/back_office/customize_search_suggestion/).
 
