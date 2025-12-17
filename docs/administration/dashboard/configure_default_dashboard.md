@@ -31,7 +31,7 @@ All the settings in the configuration are reflected in the back office.
 
 ## Container remote ID
 
-Defines starting location container for all the dashboards, including customized and predifined ones.
+Defines starting location container for all the dashboards, including customized and predefined ones.
 You can see it in the **Admin** panel, **Dashboards** section, **Dashboards** folder in the content tree.
 In the **Technical details** tab, it is defined as **Location remote ID**.
 
@@ -63,7 +63,7 @@ Specifies the name of the [Section](sections.md).
 ## Content type identifier
 
 It is an identifier that represents dashboard content type.
-You can find it in the **Admin** panel, **Dashboard content Ttpe** section, **View/Global properties** tab.
+You can find it in the **Admin** panel, **Dashboard content Type** section, **View/Global properties** tab.
 
 ![Content type identifier](dashboard_content_type_identifier.png)
 

@@ -10,7 +10,7 @@
 
 ## Notable changes
 
-!!! dxp
+!!! DXP
 
     ### Editorial workflow
 
@@ -90,7 +90,7 @@ New multi-file content management functionalities enable you to move and delete 
 
 For more information, see[Multi-file content management](https://doc.ibexa.co/projects/userguide/en/2.5/multi_file_content_management/#multi-file-content-management).
 
-!!! dxp
+!!! DXP
 
     ### Forms
 
@@ -165,13 +165,13 @@ The biggest benefit of this feature is saving load time on complex landing pages
 
 | eZ Platform   | eZ Enterprise  |
 |--------------|------------|
-| [List of changes for final of eZ Platform v2.4.0 on Github](https://github.com/ezsystems/ezplatform/releases/tag/v2.4.0) | [List of changes for final for eZ Platform Enterprise Edition v2.4.0 on Github](https://github.com/ezsystems/ezplatform-ee/releases/tag/v2.4.0) |
-| [List of changes for rc1 of eZ Platform v2.4.0 on Github](https://github.com/ezsystems/ezplatform/releases/tag/v2.4.0-rc1) | [List of changes for rc1 for eZ Platform Enterprise Edition v2.4.0 on Github](https://github.com/ezsystems/ezplatform-ee/releases/tag/v2.4.0-rc1) |
-| [List of changes for beta1 of eZ Platform v2.4.0 on Github](https://github.com/ezsystems/ezplatform/releases/tag/v2.4.0-beta1) | [List of changes for beta1 of eZ Platform Enterprise Edition v2.4.0 on Github](https://github.com/ezsystems/ezplatform-ee/releases/tag/v2.4.0-beta1) |
+| [List of changes for final of eZ Platform v2.4.0 on GitHub](https://github.com/ezsystems/ezplatform/releases/tag/v2.4.0) | [List of changes for final for eZ Platform Enterprise Edition v2.4.0 on GitHub](https://github.com/ezsystems/ezplatform-ee/releases/tag/v2.4.0) |
+| [List of changes for rc1 of eZ Platform v2.4.0 on GitHub](https://github.com/ezsystems/ezplatform/releases/tag/v2.4.0-rc1) | [List of changes for rc1 for eZ Platform Enterprise Edition v2.4.0 on GitHub](https://github.com/ezsystems/ezplatform-ee/releases/tag/v2.4.0-rc1) |
+| [List of changes for beta1 of eZ Platform v2.4.0 on GitHub](https://github.com/ezsystems/ezplatform/releases/tag/v2.4.0-beta1) | [List of changes for beta1 of eZ Platform Enterprise Edition v2.4.0 on GitHub](https://github.com/ezsystems/ezplatform-ee/releases/tag/v2.4.0-beta1) |
 
 ## eZ Platform v2.4.2
 
-!!! dxp
+!!! DXP
 
     ### Update eZ Enterprise v2.4 to v2.4.2
 

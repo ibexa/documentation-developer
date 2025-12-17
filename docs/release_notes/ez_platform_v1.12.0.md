@@ -42,15 +42,15 @@ This feature is added both in eZ Platform and the accompanying eZ Publish legacy
 
 This release switches default HTTPCache usage to use ezplatform-http-cache package, which uses Varnish xkey allowing: soft purge, better cache clearing logic and longer ttl.
 
-For Varnish users be aware thus change implies new VCL and requriment for varnish-moduels package, see [below](#updating).
+For Varnish users be aware thus change implies new VCL and requirement for varnish-moduels package, see [below](#updating).
 
 ## Full list of new features, improvements and bug fixes since v1.11.0
 
 | eZ Platform   | eZ Enterprise  |
 |--------------|------------|
-| [List of changes for final of eZ Platform v1.12.0 on Github](https://github.com/ezsystems/ezplatform/releases/tag/v1.12.0) | [List of changes for final for eZ Platform Enterprise Edition v1.12.0 on Github](https://github.com/ezsystems/ezplatform-ee/releases/tag/v1.12.0) |
-| [List of changes for rc1 of eZ Platform v1.12.0 on Github](https://github.com/ezsystems/ezplatform/releases/tag/v1.12.0-rc1) | [List of changes for rc1 for eZ Platform Enterprise Edition v1.12.0 on Github](https://github.com/ezsystems/ezplatform-ee/releases/tag/v1.12.0-rc1) |
-| [List of changes for beta2 of eZ Platform v1.12.0 on Github](https://github.com/ezsystems/ezplatform/releases/tag/v1.12.0-beta2) | [List of changes for beta2 of eZ Platform Enterprise Edition v1.12.0 on Github](https://github.com/ezsystems/ezplatform-ee/releases/tag/v1.12.0-beta2) |
+| [List of changes for final of eZ Platform v1.12.0 on GitHub](https://github.com/ezsystems/ezplatform/releases/tag/v1.12.0) | [List of changes for final for eZ Platform Enterprise Edition v1.12.0 on GitHub](https://github.com/ezsystems/ezplatform-ee/releases/tag/v1.12.0) |
+| [List of changes for rc1 of eZ Platform v1.12.0 on GitHub](https://github.com/ezsystems/ezplatform/releases/tag/v1.12.0-rc1) | [List of changes for rc1 for eZ Platform Enterprise Edition v1.12.0 on GitHub](https://github.com/ezsystems/ezplatform-ee/releases/tag/v1.12.0-rc1) |
+| [List of changes for beta2 of eZ Platform v1.12.0 on GitHub](https://github.com/ezsystems/ezplatform/releases/tag/v1.12.0-beta2) | [List of changes for beta2 of eZ Platform Enterprise Edition v1.12.0 on GitHub](https://github.com/ezsystems/ezplatform-ee/releases/tag/v1.12.0-beta2) |
 
 ### Installation
 

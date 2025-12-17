@@ -1,5 +1,5 @@
 ---
-description: Learn how to host your application and improve your business processess by using Ibexa Cloud hosting platform.
+description: Learn how to host your application and improve your business processes by using Ibexa Cloud hosting platform.
 title: Ibexa Cloud product guide
 month_change: false
 ---
@@ -87,10 +87,10 @@ As the infrastructure is exactly the same as what's currently in production, you
 [[= product_name_cloud =]] is compatible with your choice of public cloud server and supports a variety of hosting platforms.
 It's a Git-native development - compatible with Git Flow.
 [[= product_name_cloud =]] deployment integrates naturally at the end of your existing production chain, including staging, and work in progress branch preview.
-You can also integrate with, for example, Bitbucket, GitHub, Gitlab.
+You can also integrate with, for example, Bitbucket, GitHub, GitLab.
 You can instantly clone every branch of both your code and infrastructure configuration.
-Platform.sh (and [[= product_name_cloud =]], by extension) uses the [Infrastracture as Code approach](https://docs.platform.sh/learn/overview.html#infrastructure-as-code).
-It means that the infrastracture is described in the code and that is what allows you to clone both code and infrastracture configuration at the same time.
+Platform.sh (and [[= product_name_cloud =]], by extension) uses the [Infrastructure as Code approach](https://docs.platform.sh/learn/overview.html#infrastructure-as-code).
+It means that the infrastructure is described in the code and that is what allows you to clone both code and infrastructure configuration at the same time.
 If you want to work with services such as [MySQL](https://docs.platform.sh/add-services/mysql.html) or [Elasticsearch](https://docs.platform.sh/add-services/elasticsearch.html), you can add them with a line of code.
 What's more, you can run in your chosen cloud, like Microsoft Azure, Orange, or Google Cloud Platform.
 

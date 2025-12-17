@@ -1,8 +1,8 @@
 ---
-description: FullText Search Criterion
+description: Full-Text Search Criterion
 ---
 
-# FullText Criterion
+# Full-Text Criterion
 
 The [`FullText` Search Criterion](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Criterion-FullText.html) searches for content based on the full text content of its fields.
 
@@ -24,7 +24,7 @@ The [`FullText` Search Criterion](/api/php_api/php_api_reference/classes/Ibexa-C
 
 \*\* When using the Legacy search engine, a full text query performs an OR query.
 
-\*\*\* Asteriks may only be located at the beginning or end of a query.
+\*\*\* Asterisk may only be located at the beginning or end of a query.
 
 ## Limitations
 
