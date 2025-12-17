@@ -15,7 +15,8 @@ This page contains recent highlights and notable changes in [[= product_name =]]
 
 ### Configuration
 
-- Updated [DFS](clustering.md#configuring-the-dfs-io-handler) and [Solr](install_solr.md#configure-the-bundle) configuration examples to use environment variables directly with [Environment Variable Processors]([[= symfony_doc =]]/configuration/env_var_processors.html) syntax instead of intermediate parameters to promote skipping rebuilding the Symfony container when environment variable values change.
+- Updated [DFS](clustering.md#configuring-the-dfs-io-handler) and [Solr](install_solr.md#configure-the-bundle) configuration examples to use environment variables directly with [Environment Variable Processors]([[= symfony_doc =]]/configuration/env_var_processors.html) syntax instead of intermediate parameters.
+This promotes skipping rebuilding the Symfony container when environment variable values change.
 
 ## December 2025
 
