@@ -9,7 +9,6 @@ a digital experience platform that is based on the Symfony Full Stack Framework 
 
 1. Ibexa DXP Developer Hub: https://developers.ibexa.co
 1. Ibexa DXP Repository: https://github.com/ibexa/oss
-1. Open JIRA board: https://issues.ibexa.co
 1. Ibexa Website: https://ibexa.co
 1. User documentation: https://doc.ibexa.co/projects/userguide
 
