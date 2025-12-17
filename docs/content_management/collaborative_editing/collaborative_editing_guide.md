@@ -21,11 +21,6 @@ The system automatically tracks changes, allowing seamless collaboration within 
 Collaborative editing is available in all [[= product_name =]] editions.
 To use Real-time editing feature, you must make arrangements with [[= product_name_base =]], and accept Terms and Conditions and Service Level Agreement in the Support Portal.
 
-## Prerequisites
-
-To use the **Copy link** option, which allows you to copy a link to the clipboard and share it through communication channels with other users, the Clipboard API is required.
-As a result, this option may not work in some browsers, such as Safari.
-
 ## How does collaboration work
 
 ### Content preview
@@ -35,6 +30,11 @@ This allows the user to grant preview access to logged-in users, as well as shar
 
 You can share a direct link to the collaborative session using the **Copy link** button.
 Link is copied to the clipboard and you can share it with the users through communication channels.
+
+!!! caution "Browser Compatibility"
+
+    To use the **Copy link** option, which allows you to copy a link to the clipboard and share it through communication channels with other users, the Clipboard API is required.
+    As a result, this option may not work in some browsers, such as Safari.
 
 ### Collaboration session
 
