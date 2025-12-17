@@ -33,6 +33,7 @@ class RandomBlockListener implements EventSubscriberInterface
     public function onBlockPreRender(PreRenderEvent $event): void
     {
         $blockValue = $event->getBlockValue();
+        /** @var \Ibexa\FieldTypePage\FieldType\Page\Block\Renderer\Twig\TwigRenderRequest $renderRequest */
         $renderRequest = $event->getRenderRequest();
 
         $parameters = $renderRequest->getParameters();
