@@ -452,6 +452,31 @@ Run the provided SQL upgrade script to add the missing indexes to your database:
 
 No additional steps needed.
 
+## v4.6.27
+
+### Removed Composer dependencies
+
+The following unused Composer dependencies have been removed from `ibexa/core`:
+
+- `guzzlehttp/guzzle`
+- `php-http/guzzle6-adapter`
+
+If your project uses Guzzle directly, you should add these dependencies to your project's `composer.json` file.
+
+To check if you need to add these dependencies, run:
+
+```bash
+composer why guzzlehttp/guzzle
+composer why php-http/guzzle6-adapter
+```
+
+If only the `ibexa/core` entry appears in the output, check your codebase to determine if you use Guzzle directly. 
+If you do, add the required dependencies to your project:
+
+```bash
+composer require guzzlehttp/guzzle:^6.5 php-http/guzzle6-adapter:^2.0
+```
+
 <!-- End of update instructions -->
 
 [[% include 'snippets/update/notify_support.md' %]]
