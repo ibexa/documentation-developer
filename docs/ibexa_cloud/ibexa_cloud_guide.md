@@ -51,7 +51,7 @@ All you have to do is access it and you can start deploying resources and develo
 
 ### Performance management
 
-Make your applications more effective, scalable, and effective by using the [Observability Suite](https://upsun.com/product/).
+Make your applications more effective, scalable, and effective by using the [Observability Suite](https://docs.upsun.com/increase-observability.html).
 This package gives you the ability to test, profile, and monitor your application before putting it into production.
 Observability Suite comes with each [[= product_name_cloud =]] subscription.
 
