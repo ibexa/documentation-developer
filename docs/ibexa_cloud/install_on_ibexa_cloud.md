@@ -57,7 +57,7 @@ Create a project and select its region.
 
 !!! caution
 
-    Don't use https://console.platform.sh/ or https://auth.upsun.com/ which don't list [[= product_name_cloud =]] projects.
+    Don't use https://console.platform.sh/ or https://console.upsun.com/ which don't list [[= product_name_cloud =]] projects.
     Use https://console.ibexa.cloud to manage your [[= product_name_cloud =]] projects.
 
 ## 3. Prepare for hosting
@@ -68,7 +68,7 @@ This includes adding an SSH key, and adding Upsun as a git remote.
 Add your Composer authentication token to the project before pushing it to Upsun.
 You can set this token as an environment variable.
 
-When you do, make sure the **Visible during runtime** box in Upsun configuration is unchecked.
+When you do, make sure the **Visible during runtime** box in [[= product_name_cloud =]] configuration is unchecked.
 This ensures that the token isn't exposed.
 
 ### Composer authentication using the web console

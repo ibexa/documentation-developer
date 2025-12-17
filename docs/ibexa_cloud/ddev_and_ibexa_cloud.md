@@ -105,6 +105,6 @@ ddev describe
 ddev launch
 ```
 
-From there, services can be added to get closer to [[= product_name_cloud =]] Upsun architecture.
+From there, services can be added to get closer to [[= product_name_cloud =]] architecture.
 `.platform/services.yaml` indicates the services used.
 For more information, see [Clustering with DDEV](clustering_with_ddev.md).

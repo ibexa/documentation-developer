@@ -85,9 +85,9 @@ In the rare case when there is no fixed version, you can revert your requirement
 If you have to use the version with the bug (not recommended) you can use `composer remove roave/security-advisories`.
 In such case, require it again when the bug is fixed and the package is updated: `composer require roave/security-advisories:dev-master` 
 
-## Upsun HTTP access credentials with Varnish
+## [[= product_name_cloud =]] HTTP access credentials with Varnish
 
-If you're using Upsun with Varnish for HTTP cache and you have [HTTP access control by login/password](https://fixed.docs.upsun.com/administration/web/configure-environment.html#http-access-control) enabled, configure the following variables in your Upsun environment:
+If you're using [[= product_name_cloud =]] with Varnish for HTTP cache and you have [HTTP access control by login/password](https://fixed.docs.upsun.com/administration/web/configure-environment.html#http-access-control) enabled, configure the following variables in your Upsun environment:
 
 - `HTTPCACHE_USERNAME`
 - `HTTPCACHE_PASSWORD`

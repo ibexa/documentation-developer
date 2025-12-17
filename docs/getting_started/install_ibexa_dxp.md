@@ -171,7 +171,7 @@ To use Composer to instantly create a project in the current folder with all the
     composer create-project ibexa/experience-skeleton:[[= latest_tag_4_6 =]] .
     ```
 
-!!! note "Upsun"
+!!! note "[[= product_name_cloud =]]"
 
     If you're deploying your installation on [Upsun](https://fixed.docs.upsun.com/guides/ibexa/deploy.html), run the following command:
 
@@ -179,7 +179,7 @@ To use Composer to instantly create a project in the current folder with all the
     composer ibexa:setup --platformsh
     ```
 
-    This command provides the necessary configuration for using Upsun.
+    This command provides the necessary configuration for using [[= product_name_cloud =]].
 
 #### Add project to version control
 

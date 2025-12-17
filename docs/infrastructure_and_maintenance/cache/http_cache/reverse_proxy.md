@@ -233,7 +233,7 @@ FASTLY_SERVICE_ID="ID"
 FASTLY_KEY="token"
 ```
 
-#### Configure Fastly on Upsun
+#### Configure Fastly on [[= product_name_cloud =]]
 
 If you use Upsun, it's recommended to configure all environment variables through [Upsun variables](https://fixed.docs.upsun.com/guides/ibexa/fastly.html).
 In [[= product_name =]], Varnish is enabled by default. To use Fastly, first you must [disable Varnish](https://fixed.docs.upsun.com/guides/ibexa/fastly.html#remove-varnish-configuration).

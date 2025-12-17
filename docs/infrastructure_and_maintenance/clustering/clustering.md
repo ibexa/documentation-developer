@@ -137,7 +137,7 @@ For production, it's recommended to create the DFS table in its own database, ma
     ```
 
 !!! note
-    On [[= product_name_cloud =]] (and Upsun) a separate DFS database is supported for MySQL only.
+    On [[= product_name_cloud =]] a separate DFS database is supported for MySQL only.
 
 This example uses Doctrine connection named `dfs`:
 

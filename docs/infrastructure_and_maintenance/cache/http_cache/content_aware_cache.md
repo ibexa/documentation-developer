@@ -380,12 +380,12 @@ HTTP/2 200
 x-cache: MISS
 ```
 
-### Nginx endpoint on Upsun
+### Nginx endpoint on [[= product_name_cloud =]] 
 
 #### Finding Nginx endpoint for environments located on the grid
 
 To find the Nginx point, first, you need to know in which region your project is located.
-To do that, go to the Upsun dashboard.
+To do that, go to the [[= product_name_cloud =]] dashboard.
 To find a valid route, click an element in the **URLs** drop-down for the specified environment and select the route.
 A route may look like this:
 `https://www.staging.foobar.com.us-2.platformsh.site/`
@@ -409,7 +409,7 @@ You can also use the [[[= product_name_cloud =]] CLI](https://cli.ibexa.co/) (wh
 #### Finding Nginx endpoint on dedicated cloud
 
 If you have a dedicated 3-node cluster on Upsun, the procedure for getting the endpoint to environments that are located on that cluster (`production` and sometimes also `staging`) is slightly different.
-In the **URLs** drop-down in the Upsun dashboard, find the route that has the format `somecontent.[clusterid].ent.platform.sh/`, for example, `myenvironment.abcdfg2323.ent.platform.sh/`
+In the **URLs** drop-down in the [[= product_name_cloud =]] dashboard, find the route that has the format `somecontent.[clusterid].ent.platform.sh/`, for example, `myenvironment.abcdfg2323.ent.platform.sh/`
 
 The endpoint in case has the format `c.[clusterid].ent.platform.sh`, for example, `c.asddfs2323.ent.platform.sh/`.
 Next, use nslookup to find the IP:

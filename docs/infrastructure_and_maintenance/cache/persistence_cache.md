@@ -156,7 +156,7 @@ Out of the box in `config/packages/cache_pool/cache.redis.yaml` you can find a d
 
 !!! note "[[= product_name_cloud =]]"
 
-    For [[= product_name_cloud =]]/Upsun: This is automatically configured in `vendor/ibexa/core/src/bundle/Core/DependencyInjection/IbexaCoreExtension.php` if you have enabled Redis as `rediscache` Upsun service.
+    For [[= product_name_cloud =]]: This is automatically configured in `vendor/ibexa/core/src/bundle/Core/DependencyInjection/IbexaCoreExtension.php` if you have enabled Redis as `rediscache` Upsun service.
 
 For anything else, you can enable it with environment variables.
 For instance, if you set the following environment variables `export CACHE_POOL="cache.redis" CACHE_DSN="secret@example.com:1234/13"`, it results in config like this:
@@ -203,7 +203,7 @@ Several cloud providers have managed services that are easier to set up, handle 
 - [Azure Redis Cache](https://azure.microsoft.com/en-us/products/cache/)
 - [Google Cloud Memorystore](https://cloud.google.com/memorystore)
 
-###### [[= product_name_cloud =]] / Upsun usage
+###### [[= product_name_cloud =]] usage
 
 !!! note "[[= product_name_cloud =]]"
 
@@ -234,7 +234,7 @@ Out of the box in `config/packages/cache_pool/cache.memcached.yaml` you can find
 
 !!! note "[[= product_name_cloud =]]"
 
-    For [[= product_name_cloud =]]/Upsun: This is automatically configured in `vendor/ibexa/core/src/bundle/Core/DependencyInjection/IbexaCoreExtension.php` if you have enabled Memcached as `cache` Upsun service.
+    For [[= product_name_cloud =]]: This is automatically configured in `vendor/ibexa/core/src/bundle/Core/DependencyInjection/IbexaCoreExtension.php` if you have enabled Memcached as `cache` Upsun service.
 
 For anything else, you can enable it with environment variables detected automatically by `vendor/ibexa/core/src/bundle/Core/DependencyInjection/IbexaCoreExtension.php`.
 For instance, if you set the following environment variables `export CACHE_POOL="cache.memcached" CACHE_DSN="user:pass@localhost?weight=33"`, it results in config like this:

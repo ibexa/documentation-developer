@@ -75,7 +75,7 @@ To remove a bundle (either one you created yourself, or an out-of-the-box one th
 |ibexa/calendar|Calendar tab with a calendar widget|
 |ibexa/connector-dam|Connector for DAM (Digital Asset Management) systems|
 |ibexa/elasticsearch|Integration with Elasticsearch search engine|
-|ibexa/fastly|Fastly support for `http-cache`, for use on Upsun or standalone|
+|ibexa/fastly|Fastly support for `http-cache`, for use on [[= product_name_cloud =]] or standalone|
 |ibexa/icons|Icon set for the back office|
 |ibexa/image-editor|[Image Editor](configure_image_editor.md)|
 |ibexa/installer|Provides the `ibexa:install` command|
