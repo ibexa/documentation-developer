@@ -100,7 +100,7 @@ For production setups it's recommended that you use Varnish/Fastly, Redis, NFS/E
 
     - MariaDB 10.11+ or 11.4
     - MySQL 8.4
-    - PostgreSQL 14, 18
+    - PostgreSQL 14 or 18
 
     If you see a "+" next to the product version, it indicates a recommended version or higher within the same major release.
     For example, "1.18+" means any 1.x version equal to or higher than 1.18, but not 2.x.
@@ -108,8 +108,8 @@ For production setups it's recommended that you use Varnish/Fastly, Redis, NFS/E
 === "[[= product_name =]] v4.6"
 
     - MariaDB 10.3-10.11+ or 11.4
-    - MySQL 8.0, 8.4
-    - PostgreSQL 14, 18
+    - MySQL 8.0 or 8.4
+    - PostgreSQL 14 or 18
 
     If you see a "+" next to the product version, it indicates a recommended version or higher within the same major release.
     For example, "1.18+" means any 1.x version equal to or higher than 1.18, but not 2.x.
