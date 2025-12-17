@@ -35,7 +35,7 @@ When combined with [reverse proxies like Varnish or Fastly](http_cache.md), it's
 
 Consider these alternatives:
 
-- Use Twig's built-in `date` filter with a fixed, locale-indenepdent format
+- Use Twig's built-in `date` filter with a fixed, locale-independent format
 
     ``` html+twig
     {{ content.contentInfo.publishedDate|date('Y-m-d H:i:s') }}
