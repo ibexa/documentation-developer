@@ -145,15 +145,15 @@ To use Composer to instantly create a project in the current folder with all the
     composer create-project ibexa/experience-skeleton:[[= latest_tag_5_0 =]] .
     ```
 
-!!! note "Platform.sh"
+!!! note "[[= product_name_cloud =]]"
 
-    If you're deploying your installation on [Platform.sh](https://docs.platform.sh/guides/ibexa/deploy.html), run the following command:
+    If you're deploying your installation on [Upsun](https://fixed.docs.upsun.com/guides/ibexa/deploy.html), run the following command:
 
     ``` bash
     composer ibexa:setup --platformsh
     ```
 
-    This command provides the necessary configuration for using Platform.sh.
+    This command provides the necessary configuration for using [[= product_name_cloud =]].
 
 #### Add project to version control
 

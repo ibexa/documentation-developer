@@ -146,7 +146,7 @@ Add this `spellcheck` component to the `/select` request handler:
 ### Generate Solr configuration automatically
 
 The command line tool `bin/generate-solr-config.sh` generates Solr configuration automatically.
-It can be used for deploying to [[= product_name_cloud =]] (Platform.sh) and on-premise installs.
+It can be used for deploying to [[= product_name_cloud =]] (Upsun) and on-premise installs.
 
 Execute the script from the [[= product_name =]] root directory for further information:
 
