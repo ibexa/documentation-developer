@@ -280,6 +280,21 @@ This limitation can be used as a role limitation.
 |------|------|------|
 |`<Segment_group_id>`|`<Segment_group_name>`|All valid segment group IDs can be set as value(s).|
 
+## Shopping list limitation [[% include 'snippets/lts-update_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
+
+TODO: To be confirmed
+
+TODO: Something like [CartOwner:self](#cart-owner-limitation)
+
+The Shopping List Owner (`TODO`) limitation specifies whether the user can modify a shopping list.
+
+### Possible values
+
+| Value  | UI value | Description                                                      |
+|--------|----------|------------------------------------------------------------------|
+| "self" | "self"   | Only the user who is the owner of the shopping list gets access. |
+| `null` | none     | User can access all shopping lists.                              |
+
 ## SiteAccess limitation
 
 The SiteAccess (`SiteAccess`) limitation specifies to which SiteAccesses a certain permission applies, used by `user/login`.

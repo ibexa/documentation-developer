@@ -4,7 +4,7 @@ editions: lts-update commerce
 month_change: true
 ---
 
-# Install Shopping List
+# Install Shopping list
 
 ## Install framework
 
@@ -39,7 +39,7 @@ Add the tables needed by the bundle:
 
 TODO: possible charset issue, see https://github.com/ibexa/doctrine-schema/pull/38
 
-TODO: Default shopping list creation for existing customers?
+TODO: ~~Default shopping list creation for existing customers?~~ The default shopping lists are created when used.
 
 ## Configure
 
@@ -47,15 +47,21 @@ TODO
 
 TODO: `ibexa.site_access.config.default.shopping_list.pagination.list_per_page_limit`
 
+TODO: Max shopping list count per user
+
+TODO: Max product type count per shopping list
+
 TODO: Probably a file that will be created by recipe:
 
 ```yaml
 # config/routes/ibexa_shopping_list.yaml
 
 ibexa.shopping_list:
-    resource: '@IbexaShoppingListBundle/Resources/config/routing.yaml'
+    resource: '@IbexaShoppingListBundle/Resources/config/routing.php'
 
 ibexa.rest.shopping_list:
-    resource: '@IbexaShoppingListBundle/Resources/config/routing_rest.yaml'
+    resource: '@IbexaShoppingListBundle/Resources/config/routing_rest.php'
     prefix: '%ibexa.rest.path_prefix%'
 ```
+
+TODO: Add `shopping_list/*` permissions to the right roles. Don't give the rights to Anonymous. Role migration file example?

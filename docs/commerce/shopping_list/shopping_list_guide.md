@@ -15,7 +15,7 @@ TODO: Limitation: Shopping list doesn't store quantity
 Knowing products added to shopping lists, sellers can organise campaign about most added products, encourage conversion.
 
 TODO: develop a bit more.
-TODO: Other personas? 
+TODO: Other personas?
 
 ## Shopping list management overview
 
@@ -29,3 +29,16 @@ A customer can create a shopping list
 - TODO: when saving for later from cart to shopping list?
 
 A shopping list is named 
+
+## Use case examples
+
+### Recurrent purchases
+
+Every quarter, almost the same consumables must be bought.
+Thanks to a dedicated shopping list, the cart can be quickly drafted, filled with all the necessary products.
+Only quantities need to be input, it's time adjust the amount of each product, depending on what's left from previous quarter.
+
+### Project wishlist
+
+Every purchase needed by an incoming project can be stored,
+even several products fulfilling the same purpose to decide latter wish one to keep in the final cart.
