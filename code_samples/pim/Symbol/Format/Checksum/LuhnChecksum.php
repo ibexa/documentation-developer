@@ -41,6 +41,6 @@ final class LuhnChecksum implements ChecksumInterface
             static fn (string $char): bool => $char !== '-'
         );
 
-        return array_map('intval', array_values($chars));
+        return array_map(intval(...), array_values($chars));
     }
 }

@@ -14,7 +14,7 @@ All supported reverse proxies are content-aware.
 
 ## Cache tags
 
-Understanding tags is the key to making the most ofIbexa's HTTP cache.
+Understanding tags is the key to making the most of [[= product_name =]]'s HTTP cache.
 
 Tags form a secondary set of keys assigned to every cache item, on top of the "primary key" which is the URI.
 Like an index in a database, a tag is typically used for anything relevant that represents the given cache item.
@@ -150,7 +150,7 @@ For tagging needs in controllers, there are several options, here presented in r
 
 1\. Reusing `DispatcherTagger` to pick correct tags.
 
-Examples for tagging everything needed for content using the autowirable `ResponseTagger` interface:
+Examples for tagging everything needed for content using the autowireable `ResponseTagger` interface:
 
 ``` php
 /** @var \Ibexa\Contracts\HttpCache\ResponseTagger\ResponseTagger $responseTagger */
@@ -352,7 +352,7 @@ bin/console fos:httpcache:invalidate:tag ez-all
 
 It's important to test your code in an environment which is as similar as your production environment as possible.
 That means that if only are testing locally using the default Symfony Reverse proxy when your are going to use Varnish or Fastly in production, you're likely ending up some (bad) surprises.
-Due to the symfony reverse proxy's lack of support for ESIs, it behaves quite different from Varnish and Fastly in some aspects.
+Due to the Symfony reverse proxy's lack of support for ESIs, it behaves quite different from Varnish and Fastly in some aspects.
 If you're going to use Varnish in production, make sure you also test your code with Varnish.
 If you're going to use Fastly in production, testing with Fastly in your developer install is likely not feasible (you're local development environment must then be accessible for Fastly).
 Testing with Varnish instead in most cases does the job.
@@ -364,7 +364,7 @@ This section describes to how to debug problems related to HTTP cache.
 	the HTTP cache sends to the client (web browser).
 	It means you must be able to send requests to your origin (web server) that don't go through Varnish or Fastly.
 	If you run Nginx and Varnish on premise, you should know what host and port number both Varnish and Nginx runs on.
-  If you perform tests on Fastly enabled environment on [[= product_name_cloud =]] provided by Platform.sh, you need to use the Platform.sh
+  If you perform tests on Fastly enabled environment on [[= product_name_cloud =]] provided by Upsun, you need to use the Upsun
 	dashboard to obtain the endpoint for Nginx.
 
 The following example shows how to debug and check why Fastly doesn't cache the front page properly.
@@ -380,17 +380,17 @@ HTTP/2 200
 x-cache: MISS
 ```
 
-### Nginx endpoint on Platform.sh
+### Nginx endpoint on [[= product_name_cloud =]]
 
 #### Finding Nginx endpoint for environments located on the grid
 
 To find the Nginx point, first, you need to know in which region your project is located.
-To do that, go to the Platform.sh dashboard.
+To do that, go to the [[= product_name_cloud =]] dashboard.
 To find a valid route, click an element in the **URLs** drop-down for the specified environment and select the route.
 A route may look like this:
 `https://www.staging.foobar.com.us-2.platformsh.site/`
 
-In this case the region is `us-2` and you can find the public IP list on [Platform.sh documentation page](https://docs.platform.sh/development/regions.html#public-ip-addresses).
+In this case the region is `us-2` and you can find the public IP list on [Upsun documentation page](https://fixed.docs.upsun.com/development/regions.html#public-ip-addresses).
 Typically, you can add a `gw` to the hostname and use nslookup to find it.
 
 ```bash
@@ -400,7 +400,7 @@ Typically, you can add a `gw` to the hostname and use nslookup to find it.
    Address:  1.2.3.4
 ```
 
-You can also use the [[[= product_name_cloud =]] CLI](https://cli.ibexa.co/) (which has the same command as the Platform.sh CLI) to find [the endpoint](https://docs.platform.sh/domains/steps/dns.html):
+You can also use the [[[= product_name_cloud =]] CLI](https://cli.ibexa.co/) (which has the same command as the Upsun CLI) to find [the endpoint](https://fixed.docs.upsun.com/domains/steps/dns.html):
 
 ```bash
     ibexa_cloud environment:info edge_hostname
@@ -408,8 +408,8 @@ You can also use the [[[= product_name_cloud =]] CLI](https://cli.ibexa.co/) (wh
 
 #### Finding Nginx endpoint on dedicated cloud
 
-If you have a dedicated 3-node cluster on Platform.sh, the procedure for getting the endpoint to environments that are located on that cluster (`production` and sometimes also `staging`) is slightly different.
-In the **URLs** drop-down in the Platform.sh dashboard, find the route that has the format `somecontent.[clusterid].ent.platform.sh/`, for example, `myenvironment.abcdfg2323.ent.platform.sh/`
+If you have a dedicated 3-node cluster on Upsun, the procedure for getting the endpoint to environments that are located on that cluster (`production` and sometimes also `staging`) is slightly different.
+In the **URLs** drop-down in the [[= product_name_cloud =]] dashboard, find the route that has the format `somecontent.[clusterid].ent.platform.sh/`, for example, `myenvironment.abcdfg2323.ent.platform.sh/`
 
 The endpoint in case has the format `c.[clusterid].ent.platform.sh`, for example, `c.asddfs2323.ent.platform.sh/`.
 Next, use nslookup to find the IP:
@@ -440,7 +440,7 @@ Some notes about each of these parameters:
     - We tell curl not to do a DNS lookup for `www.staging.foobar.com.us-2.platformsh.site`.
     We do that because in our case that resolves to the Fastly endpoint, not our origin (nginx)
     - We specify `443` because we are using `https`
-    - We provide the IP of the nginx endpoint at platform.sh (`1.2.3.4` in this example)
+    - We provide the IP of the nginx endpoint at Upsun (`1.2.3.4` in this example)
 - `--header "Surrogate-Capability: abc=ESI/1.0"`, strictly speaking not needed when fetching the user-context-hash, but this tells [[= product_name =]] that client understands ESI tags.
   It's good practice to always include this header when imitating the HTTP Cache.
 - `--header "accept: application/vnd.fos.user-context-hash"` tells [[= product_name =]] that the client wants to receive the user-context-hash
@@ -501,7 +501,7 @@ So back to the original problem here.
 This resource is for some reason not cached by Fastly (remember the `x-cache: MISS` we started with).
 But origin says this page can be cached for 1 day.
 How can that be?
-The likely reason is that this page also contains some ESI fragments and that one or more of these aren't cachable.
+The likely reason is that this page also contains some ESI fragments and that one or more of these aren't cacheable.
 
 So, first let's see if there are any ESIs here.
 We remove the `-IXGET` options (to see content of the response, not only headers) to curl and search for esi:
@@ -592,7 +592,7 @@ ESI headers are only seen by the HTTP cache.
 - Symfony reverse proxy doesn't support ESIs at all, and any ESI calls (`render_esi()`) are implicitly replaced by sub-requests (`render()`).
 So any `Set-Cookie` **is** sent to the client when using Symfony reverse proxy.
 
-- Fastly flags it resource as "not cachable" because it set a cookie at least once.
+- Fastly flags it resource as "not cacheable" because it set a cookie at least once.
 Even though that endpoint stops setting cookies, Fastly still doesn't cache that fragment.
 Any document referring to that ESI is a `MISS`.
 Fastly cache needs to be purged (`Purge-all` request) to remove this flag.

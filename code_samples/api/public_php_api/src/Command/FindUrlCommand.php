@@ -49,7 +49,7 @@ class FindUrlCommand extends Command
         $results = $this->urlService->findUrls($query);
 
         foreach ($results->items as $result) {
-            $output->writeln($result->url);
+            $output->writeln($result->getUrl());
         }
 
         return self::SUCCESS;

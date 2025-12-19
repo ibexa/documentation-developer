@@ -50,7 +50,7 @@ class DashboardCommand extends Command
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $dashboardModelLocationId = (int)$input->getArgument('dashboard');
-        $userGroupLocationIdList = array_map('intval', $input->getArgument('group'));
+        $userGroupLocationIdList = array_map(intval(...), $input->getArgument('group'));
 
         foreach ($userGroupLocationIdList as $userGroupLocationId) {
             try {

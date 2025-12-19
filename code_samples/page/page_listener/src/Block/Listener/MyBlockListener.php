@@ -17,6 +17,7 @@ class MyBlockListener implements EventSubscriberInterface
 
     public function onBlockPreRender(PreRenderEvent $event): void
     {
+        /** @var \Ibexa\FieldTypePage\FieldType\Page\Block\Renderer\Twig\TwigRenderRequest $renderRequest */
         $renderRequest = $event->getRenderRequest();
 
         $parameters = $event->getRenderRequest()->getParameters();

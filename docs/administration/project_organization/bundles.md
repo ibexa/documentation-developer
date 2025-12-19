@@ -77,7 +77,7 @@ To remove a bundle (either one you created yourself, or an out-of-the-box one th
 |ibexa/connector-openai|Integrates the AI framework with [OpenAI](https://openai.com) |
 |ibexa/content-tree|Content tree functionality|
 |ibexa/elasticsearch|Integration with Elasticsearch search engine|
-|ibexa/fastly|Fastly support for `http-cache`, for use on Platform.sh or standalone|
+|ibexa/fastly|Fastly support for `http-cache`, for use on [[= product_name_cloud =]] or standalone|
 |ibexa/headless-assets|Assets for the back office|
 |ibexa/icons|Icon set for the back office|
 |ibexa/image-editor|[Image Editor](configure_image_editor.md)|

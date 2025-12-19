@@ -162,6 +162,9 @@ nav:
             - Multi-file upload: administration/back_office/multifile_upload.md
             - Sub-items list: administration/back_office/subitems_list.md
             - Notifications: administration/back_office/notifications.md
+            - Integrated help:
+                - Integrated help: administration/back_office/integrated_help.md
+                - Customize integrated help: administration/back_office/customize_integrated_help.md
             - Customize search:
                 - Customize search suggestion: administration/back_office/customize_search_suggestion.md
                 - Customize search sorting: administration/back_office/customize_search_sorting.md
@@ -418,6 +421,8 @@ nav:
         - Discounts guide: discounts/discounts_guide.md
         - Customize Discounts: discounts/configure_discounts.md
         - Discounts API: discounts/discounts_api.md
+        - Extend Discounts: discounts/extend_discounts.md
+        - Extend Discounts wizard: discounts/extend_discounts_wizard.md
     - Customer management:
         - Customer Portal: customer_management/customer_portal.md
         - Customer Portal guide: customer_management/customer_portal_guide.md
@@ -987,8 +992,8 @@ extra:
   latest_tag_4_3: '4.3.5'
   latest_tag_4_4: '4.4.4'
   latest_tag_4_5: '4.5.7'
-  latest_tag_4_6: '4.6.25'
-  latest_tag_5_0: '5.0.3'
+  latest_tag_4_6: '4.6.26'
+  latest_tag_5_0: '5.0.4'
 
   symfony_doc: 'https://symfony.com/doc/7.3'
   user_doc: 'https://doc.ibexa.co/projects/userguide/en/5.0'

@@ -6,7 +6,7 @@ description: Elasticsearch search engine overview.
 
 Elasticsearch is an open-source, distributed, Java-based search engine that responds to queries in real-time and is scalable in reaction to changing processing needs.
 
-Elasticsearch enables you to use filtering, query, query-time boosting, fulltext search, and aggregations.
+Elasticsearch enables you to use filtering, query, query-time boosting, full-text search, and aggregations.
 It organizes data into documents, that then are grouped into indices.
 
 As a result of having distributed architecture, Elasticsearch can analyze massive amounts of data with almost real-time performance.

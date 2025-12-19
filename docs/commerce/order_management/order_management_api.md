@@ -22,6 +22,10 @@ To access a single order by using its string identifier, use the [`OrderServiceI
 [[= include_file('code_samples/api/commerce/src/Command/OrderCommand.php', 51, 55) =]]
 ```
 
+Use the returned [`OrderInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-OrderManagement-Value-Order-OrderInterface.html) value object to access details about the order.
+
+See the [Discounts API](discounts_api.md#retrieve-applied-discounts) to learn how to retrieve applied discount details from the order's context.
+
 ### Get single order by ID
 
 To access a single order by using its numerical ID, use the [`OrderServiceInterface::getOrder`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-OrderManagement-OrderServiceInterface.html#method_getOrder) method:

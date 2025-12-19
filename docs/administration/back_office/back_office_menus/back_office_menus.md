@@ -15,6 +15,7 @@ Menus are extensible using event subscribers, for example:
 
 ``` php
 [[= include_file('code_samples/back_office/menu/menu_item/src/EventSubscriber/MyMenuSubscriber.php', 0, 29) =]]
+[[= include_file('code_samples/back_office/menu/menu_item/src/EventSubscriber/MyMenuSubscriber.php', 48, 50) =]]
 ```
 
 !!! tip

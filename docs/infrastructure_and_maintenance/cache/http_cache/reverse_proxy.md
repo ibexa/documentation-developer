@@ -84,7 +84,7 @@ framework:
 
 !!! caution "Careful when trusting dynamic IP that uses `REMOTE_ADDR` value or similar"
 
-    On Platform.sh, Varnish doesn't have a static IP, like with [AWS LB]([[= symfony_doc =]]/deployment/proxies.html#but-what-if-the-ip-of-my-reverse-proxy-changes-constantly).
+    On Upsun, Varnish doesn't have a static IP, like with [AWS LB]([[= symfony_doc =]]/deployment/proxies.html#but-what-if-the-ip-of-my-reverse-proxy-changes-constantly).
     For this reason, the `TRUSTED_PROXIES` env variable supports being set to value `REMOTE_ADDR`, which is equal to:
 
     ```php
@@ -100,8 +100,8 @@ When using Fastly, you need to set `trusted_proxies` according to the [IP ranges
 
 !!! tip
 
-    You don't have to set `trusted_proxies` when using Fastly on Platform.sh.
-    The Platform.sh router automatically changes the source IP of requests coming from Fastly, replacing the source IP with the actual client IP and removing any `X-FORWARD-...` header in the request before it reaches [[= product_name =]].
+    You don't have to set `trusted_proxies` when using Fastly on Upsun.
+    The Upsun router automatically changes the source IP of requests coming from Fastly, replacing the source IP with the actual client IP and removing any `X-FORWARD-...` header in the request before it reaches [[= product_name =]].
 
 For more information about setting these variables, see [Configuration examples](#configuration-examples).
 
@@ -233,10 +233,10 @@ FASTLY_SERVICE_ID="ID"
 FASTLY_KEY="token"
 ```
 
-#### Configure Fastly on Platform.sh
+#### Configure Fastly on [[= product_name_cloud =]]
 
-If you use Platform.sh, it's recommended to configure all environment variables through [Platform.sh variables](https://docs.platform.sh/guides/ibexa/fastly.html).
-In [[= product_name =]], Varnish is enabled by default. To use Fastly, first you must [disable Varnish](https://docs.platform.sh/guides/ibexa/fastly.html#remove-varnish-configuration).
+If you use Upsun, it's recommended to configure all environment variables through [Upsun variables](https://fixed.docs.upsun.com/guides/ibexa/fastly.html).
+In [[= product_name =]], Varnish is enabled by default. To use Fastly, first you must [disable Varnish](https://fixed.docs.upsun.com/guides/ibexa/fastly.html#remove-varnish-configuration).
 
 #### Get Fastly service ID and API token
 
@@ -272,9 +272,9 @@ fastcgi_param HTTPCACHE_PURGE_TYPE varnish;
 fastcgi_param HTTPCACHE_PURGE_SERVER "http://varnish:80";
 ```
 
-Example for Platform.sh:
+Example for Upsun:
 
-You can configure environment variables through [Platform.sh variables](https://docs.platform.sh/guides/ibexa/fastly.html).
+You can configure environment variables through [Upsun variables](https://fixed.docs.upsun.com/guides/ibexa/fastly.html).
 
 !!! tip
 

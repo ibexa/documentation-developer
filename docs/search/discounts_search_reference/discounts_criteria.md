@@ -2,11 +2,12 @@
 month_change: false
 editions:
     - commerce
+description: Search Criteria available for Discounts search
 ---
 
 # Discounts Search Criterion reference
 
-Search Criteria are found in the `Ibexa\Contracts\Discounts\Value\Query\Criterion` namespace, implementing the [CriterionInterface](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Discounts-Value-Query-CriterionInterface.html) interface:
+Search Criteria are found in the [`Ibexa\Contracts\Discounts\Value\Query\Criterion`](/api/php_api/php_api_reference/namespaces/ibexa-contracts-discounts-value-query-criterion.html) namespace, implementing the [CriterionInterface](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Discounts-Value-Query-CriterionInterface.html) interface:
 
 | Criterion | Description |
 |---|---|
@@ -16,8 +17,8 @@ Search Criteria are found in the `Ibexa\Contracts\Discounts\Value\Query\Criterio
 | [IndexedAtCriterion](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Discounts-Value-Query-Criterion-IndexedAtCriterion.html) | Find discounts based on the date and time when they were indexed |
 | [IdentifierCriterion](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Discounts-Value-Query-Criterion-IdentifierCriterion.html) | Find discounts by their identifier |
 | [IsEnabledCriterion](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Discounts-Value-Query-Criterion-IsEnabledCriterion.html) | Find discounts by their status |
-| [LogicalAnd](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Discounts-Value-Query-Criterion-LogicalAnd.html) | Composite criterion to group multiple criterions using the AND condition |
-| [LogicalOr](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Discounts-Value-Query-Criterion-LogicalOr.html) | Composite criterion to group multiple criterions using the OR condition |
+| [LogicalAnd](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Discounts-Value-Query-Criterion-LogicalAnd.html) | Composite criterion to group multiple criteria using the AND condition |
+| [LogicalOr](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Discounts-Value-Query-Criterion-LogicalOr.html) | Composite criterion to group multiple criteria using the OR condition |
 | [NameCriterion](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Discounts-Value-Query-Criterion-NameCriterion.html) | Find discounts by their name |
 | [PriorityCriterion](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Discounts-Value-Query-Criterion-PriorityCriterion.html) | Find discounts by their priority |
 | [StartDateCriterion](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Discounts-Value-Query-Criterion-StartDateCriterion.html) | Find discounts with given start date |

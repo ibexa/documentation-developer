@@ -1,6 +1,6 @@
 ---
 description: Custom Field Search Criterion
-month_change: true
+month_change: false
 ---
 
 # Custom Field Criterion

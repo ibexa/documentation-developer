@@ -11,7 +11,7 @@ You can use it to store, for example, manufacturing dates, expiration dates, or 
 ## Usage
 
 You can manage the date and time attribute type through the back office, [data migrations](importing_data.md#date-and-time-attributes), REST, or through the PHP API.
-It also supports [searching](product_search_criteria.md) by using [DateTimeAttribute](datetimeattribute_criterion.md) and [DateTimeAttributeRange](datetimeattributerange_criterion.md) criterions.
+It also supports [searching](product_search_criteria.md) by using [DateTimeAttribute](datetimeattribute_criterion.md) and [DateTimeAttributeRange](datetimeattributerange_criterion.md) criteria.
 
 ![Creating a product using a date and time attribute with "trimester" accuracy level](img/datetime.png "Creating a product using a date and time attribute with "trimester" accuracy level")
 

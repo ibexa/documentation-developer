@@ -72,7 +72,7 @@
         </div>
     </div>
     <div class="row notifications">
-        <div class="col-12 col-lg-12">
+        <div class="col-12 col-lg-6">
             <div class="notification notification--latest-release" id="tile2">
                 <div class="notification__content">
                     <h2>The latest Ibexa DXP is v5.0 LTS</h2>
@@ -83,6 +83,21 @@
                 </div>
                 <div class="notification__image">
                     <img src="images/notification-latest-release.svg" alt="The latest release" />
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-lg-6">
+            <div class="notification notification--lts-update" id="tile3">
+                <div class="notification__content">
+                    <h2>The newest LTS Update is Integrated help</h2>
+                    <div>Access contextual documentation, guidance, and resources right from the user interface.</div>
+                </div>
+                <div class="notification__cta">
+                    <a href="administration/back_office/integrated_help">Learn more about this LTS Update</a>
+                    <a href="ibexa_products/editions#lts-updates">Discover other LTS Updates</a>
+                </div>
+                <div class="notification__image">
+                    <img src="images/notification-lts-update.svg" alt="LTS Update" />
                 </div>
             </div>
         </div>
