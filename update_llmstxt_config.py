@@ -34,6 +34,7 @@ def convert_to_glob_patterns(files):
     Strategy:
     - If multiple files from same directory: use glob pattern for that directory
     - If single file or files from different dirs: list individually
+    - Exception: Don't glob release_notes directory (we filter by version)
     """
     if not files:
         return []
@@ -47,6 +48,12 @@ def convert_to_glob_patterns(files):
     # For each directory, decide whether to use glob or list files
     for directory, dir_files in sorted(files_by_dir.items()):
         if directory in processed_dirs:
+            continue
+        
+        # Don't use glob for release_notes - we want to filter by version
+        if 'release_notes' in directory:
+            result.extend(dir_files)
+            processed_dirs.add(directory)
             continue
         
         # Use glob if we have 2+ markdown files in the same directory
@@ -75,6 +82,9 @@ def process_nav_section(nav_item):
     if isinstance(nav_item, dict):
         result = {}
         for key, value in nav_item.items():
+            # Skip excluded sections
+            if should_exclude_section(key):
+                continue
             if isinstance(value, str):
                 # Single file under this section
                 result[key] = [value]
@@ -175,15 +185,57 @@ def process_nav_section(nav_item):
     return None
 
 
+def should_exclude_section(section_name):
+    """
+    Check if a section should be excluded based on exclusion rules.
+    
+    Exclusions:
+    - Personalization
+    - Update and release notes for versions older than v4 (3.3 and lower)
+    - v4.0 deprecations
+    """
+    # Exclude Personalization
+    if 'Personalization' in section_name or 'personalization' in section_name.lower():
+        return True
+    
+    # Exclude v4.0 deprecations
+    if 'v4.0 deprecations' in section_name or 'v4.0_deprecations' in section_name:
+        return True
+    
+    # Exclude old version updates and releases (v3.3 and lower, v2.x, v1.x)
+    old_version_patterns = [
+        # Release notes for old versions
+        'v3.3 LTS', 'v3.2', 'v3.1', 'v3.0',
+        'v2.5', 'v2.4', 'v2.3', 'v2.2', 'v2.1', 'v2.0',
+        'v1.13', 'v1.12', 'v1.11', 'v1.10', 'v1.9', 'v1.8', 'v1.7',
+        # Update sections
+        'from v1.13', 'from v2.', 'from 1.x', 'from 2.x',
+        'Update from v1.13', 'Update from v2.5', 'Update from v3.3',
+        # eZ Platform versions (all are pre-v4)
+        'eZ Platform', 'ez Platform'
+    ]
+    
+    for pattern in old_version_patterns:
+        if pattern in section_name:
+            return True
+    
+    return False
+
+
 def convert_nav_to_llmstxt_sections(nav_list):
     """
     Convert mkdocs nav list to llmstxt sections format.
+    Applies exclusion filters for certain sections.
     """
     sections = {}
     
     for item in nav_list:
         if isinstance(item, dict):
             for section_name, section_content in item.items():
+                # Skip excluded sections
+                if should_exclude_section(section_name):
+                    continue
+                
                 if isinstance(section_content, str):
                     sections[section_name] = [section_content]
                 elif isinstance(section_content, list):

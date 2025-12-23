@@ -805,29 +805,6 @@ plugins:
         - users/*.md
         User grouping:
         - users/*.md
-      Personalization:
-        Personalization:
-        - personalization/personalization.md
-        Personalization guide:
-        - personalization/personalization_guide.md
-        How Personalization works:
-        - personalization/how_it_works.md
-        Enable Personalization:
-        - personalization/enable_personalization.md
-        Integrate recommendation service:
-        - personalization/integrate_recommendation_service.md
-        Tracking integration:
-        - personalization/tracking_integration.md
-        Recommendation integration:
-        - personalization/recommendation_integration.md
-        Personalization API:
-        - personalization/api_reference/*.md
-        Importing historical user tracking data:
-        - personalization/importing_historical_user_tracking_data.md
-        Track with ibexa-tracker.js:
-        - personalization/tracking_with_ibexa-tracker.md
-        Attribute search in Elasticsearch:
-        - personalization/attribute_search_in_elasticsearch.md
       CDP (Customer Data Platform):
         Customer Data Platform:
         - cdp/cdp.md
@@ -974,38 +951,6 @@ plugins:
       Update and migration:
         Update Ibexa DXP:
         - update_and_migration/update_ibexa_dxp.md
-        Update from v1.13 and v2.x:
-        - update_and_migration/from_1.x_2.x/*.md
-        Update from v2.5:
-          Update from v2.5:
-          - update_and_migration/from_2.5/update_from_2.5.md
-          Update to v3.2:
-          - update_and_migration/from_2.5/to_3.2.md
-          Adapt code to v3:
-            Adapt code to v3:
-            - update_and_migration/from_2.5/adapt_code_to_v3.md
-            1. Update templates:
-            - update_and_migration/from_2.5/update_code/1_update_templates.md
-            2. Update configuration:
-            - update_and_migration/from_2.5/update_code/2_update_configuration.md
-            3. Update field types:
-            - update_and_migration/from_2.5/update_code/3_update_field_types.md
-            4. Update Signal Slots:
-            - update_and_migration/from_2.5/update_code/4_update_signal_slots.md
-            5. Update Online Editor:
-            - update_and_migration/from_2.5/update_code/5_update_online_editor.md
-            6. Update workflow:
-            - update_and_migration/from_2.5/update_code/6_update_workflow.md
-            7. Update extended code:
-            - update_and_migration/from_2.5/update_code/7_update_extensions.md
-            8. Update REST:
-            - update_and_migration/from_2.5/update_code/8_update_rest.md
-            9. Other code updates:
-            - update_and_migration/from_2.5/update_code/9_update_other.md
-          Update to v3.3:
-          - update_and_migration/from_2.5/to_3.3.md
-        Update from v3.3:
-        - update_and_migration/from_3.3/*.md
         Update from v4.0:
           Update to v4.1:
           - update_and_migration/from_4.0/to_4.1.md
@@ -1045,4 +990,23 @@ plugins:
         Product guides:
         - product_guides/product_guides.md
       Release notes:
-      - release_notes/*.md
+        Release notes:
+        - release_notes/release_notes.md
+        Ibexa DXP v5.0 LTS:
+        - release_notes/ibexa_dxp_v5.0.md
+        Ibexa DXP v5.0 deprecations and BC breaks:
+        - release_notes/ibexa_dxp_v5.0_deprecations.md
+        Ibexa DXP v4.6 LTS:
+        - release_notes/ibexa_dxp_v4.6.md
+        Ibexa DXP v4.5:
+        - release_notes/ibexa_dxp_v4.5.md
+        Ibexa DXP v4.4:
+        - release_notes/ibexa_dxp_v4.4.md
+        Ibexa DXP v4.3:
+        - release_notes/ibexa_dxp_v4.3.md
+        Ibexa DXP v4.2:
+        - release_notes/ibexa_dxp_v4.2.md
+        Ibexa DXP v4.1:
+        - release_notes/ibexa_dxp_v4.1.md
+        Ibexa DXP v4.0:
+        - release_notes/ibexa_dxp_v4.0.md
