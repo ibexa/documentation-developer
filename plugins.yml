@@ -564,3 +564,10 @@ plugins:
             'ai_actions/install_ai_actions.md': 'ai_actions/configure_ai_actions.md'
             'discounts/install_discounts.md': 'discounts/configure_discounts.md'
             'content_management/collaborative_editing/install_collaborative_editing.md': 'content_management/collaborative_editing/configure_collaborative_editing.md'
+
+    - llmstxt:
+        markdown_description: Ibexa Developer Documentation
+        full_output: llms-full.txt
+        sections:
+            Usage documentation:
+            - index.md
