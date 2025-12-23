@@ -540,7 +540,11 @@ plugins:
       discounts/install_discounts.md: discounts/configure_discounts.md
       content_management/collaborative_editing/install_collaborative_editing.md: content_management/collaborative_editing/configure_collaborative_editing.md
 - llmstxt:
-    markdown_description: Ibexa Developer Documentation
+    markdown_description: |
+      Ibexa DXP developer documentation - comprehensive technical guide for building digital experiences with Ibexa, a modern PHP-based Digital Experience Platform built on Symfony Full Stack Framework. 
+      Ibexa is an enterprise-grade content management and digital commerce platform that comes in three editions: Headless (API-first content management), Experience (full DXP with Page Builder and forms), and Commerce (complete e-commerce solution). 
+      Key technical capabilities include: flexible content modeling with custom field types, powerful REST and GraphQL APIs, headless and traditional architecture support, Product Information Management (PIM), integrated commerce features (cart, checkout, payment, shipping), multi-site and multi-language support, advanced search with Elasticsearch/Solr, customizable Twig templating, Symfony-based extensibility, workflow management, AI Actions for content generation, Form Builder, and comprehensive user/permission management.
+      The platform is designed for developers to build scalable content-driven applications, e-commerce sites, and headless solutions with enterprise features like Customer Data Platform (CDP), personalization, editorial workflows, and extensive APIs. Built with modern PHP practices on Symfony 7.x, supporting MySQL/MariaDB and PostgreSQL databases.
     full_output: llms-full.txt
     sections:
       Ibexa Developer Documentation:
@@ -550,227 +554,71 @@ plugins:
       Getting started:
       - getting_started/*.md
       Tutorials:
-        Tutorials:
-        - tutorials/tutorials.md
-        Beginner tutorial:
-        - tutorials/beginner_tutorial/*.md
-        Page and Form tutorial:
-        - tutorials/page_and_form_tutorial/*.md
-        Generic field type:
-        - tutorials/generic_field_type/*.md
+      - tutorials/tutorials.md
+      - tutorials/beginner_tutorial/*.md
+      - tutorials/generic_field_type/*.md
+      - tutorials/page_and_form_tutorial/*.md
       API:
-        API:
-        - api/api.md
-        PHP API:
-          PHP API usage:
-          - api/php_api/php_api.md
-          PHP API reference:
-          - api/php_api/php_api_reference/index.html
-        REST API:
-          REST API usage:
-          - api/rest_api/rest_api_usage/*.md
-          REST API reference:
-          - api/rest_api/rest_api_reference/rest_api_reference.html
-          Extending REST API:
-          - api/rest_api/extending_rest_api/*.md
-          REST API authentication:
-          - api/rest_api/rest_api_authentication.md
-        GraphQL:
-        - api/graphql/*.md
-        Event reference:
-        - api/event_reference/*.md
+      - api/api.md
+      - api/event_reference/*.md
+      - api/graphql/*.md
+      - api/php_api/php_api.md
+      - api/rest_api/rest_api_authentication.md
+      - api/rest_api/extending_rest_api/*.md
+      - api/rest_api/rest_api_usage/*.md
       Administration:
-        Administration:
-        - administration/administration.md
-        Project organization:
-        - administration/project_organization/*.md
-        Dashboard:
-        - administration/dashboard/*.md
-        Admin panel:
-        - administration/admin_panel/*.md
-        Content organization:
-        - administration/content_organization/*.md
-        Configuration:
-        - administration/configuration/*.md
-        Back office:
-          Back office:
-          - administration/back_office/back_office.md
-          Configuration:
-          - administration/back_office/back_office_configuration.md
-          Content tree:
-          - administration/back_office/content_tree.md
-          Back office elements:
-          - administration/back_office/back_office_elements/*.md
-          Back office tabs:
-          - administration/back_office/back_office_tabs/*.md
-          Tab switcher in Content edit page:
-          - administration/back_office/content_tab_switcher.md
-          Add anchor menu to content type edit screen:
-          - administration/back_office/content_type_anchor_menu.md
-          Back office menus:
-          - administration/back_office/back_office_menus/*.md
-          Add user setting:
-          - administration/back_office/add_user_setting.md
-          Customize calendar:
-          - administration/back_office/customize_calendar.md
-          Browser:
-          - administration/back_office/browser/*.md
-          Multi-file upload:
-          - administration/back_office/multifile_upload.md
-          Sub-items list:
-          - administration/back_office/subitems_list.md
-          Notifications:
-          - administration/back_office/notifications.md
-          Integrated help:
-          - administration/back_office/*.md
-          Customize search:
-          - administration/back_office/*.md
-          Recent activity:
-          - administration/recent_activity/recent_activity.md
+      - administration/administration.md
+      - administration/admin_panel/*.md
+      - administration/back_office/*.md
+      - administration/back_office/back_office_elements/*.md
+      - administration/back_office/back_office_menus/*.md
+      - administration/back_office/back_office_tabs/*.md
+      - administration/back_office/browser/*.md
+      - administration/configuration/*.md
+      - administration/content_organization/*.md
+      - administration/dashboard/*.md
+      - administration/project_organization/*.md
+      - administration/recent_activity/recent_activity.md
       Content management:
-        Content management:
-        - content_management/content_management.md
-        Content management guide:
-        - content_management/content_management_guide.md
-        Content model:
-        - content_management/content_model.md
-        Locations:
-        - content_management/locations.md
-        Content Relations:
-        - content_management/content_relations.md
-        Content availability:
-        - content_management/content_availability.md
-        Taxonomy:
-        - content_management/taxonomy/*.md
-        Images:
-        - content_management/images/*.md
-        RichText:
-        - content_management/rich_text/*.md
-        File management:
-        - content_management/file_management/*.md
-        Pages:
-        - content_management/pages/*.md
-        Forms:
-        - content_management/forms/*.md
-        Workflow:
-        - content_management/workflow/*.md
-        URL management:
-        - content_management/url_management/*.md
-        User-generated content:
-        - content_management/user_generated_content.md
-        Content API:
-        - content_management/content_api/*.md
-        Content management API:
-        - content_management/content_management_api/*.md
-        Data migration:
-        - content_management/data_migration/*.md
-        Field types:
-          Field types:
-          - content_management/field_types/field_types.md
-          Type and Value:
-          - content_management/field_types/type_and_value.md
-          Form and template:
-          - content_management/field_types/form_and_template.md
-          Storage:
-          - content_management/field_types/field_type_storage.md
-          Validation:
-          - content_management/field_types/field_type_validation.md
-          Searching:
-          - content_management/field_types/field_type_search.md
-          Create custom generic field type:
-          - content_management/field_types/create_custom_generic_field_type.md
-          Create custom field type comparison:
-          - content_management/field_types/create_custom_field_type_comparison.md
-          Customize field type metadata:
-          - content_management/field_types/customize_field_type_metadata.md
-          Field type reference:
-          - content_management/field_types/field_type_reference/*.md
-        Collaborative editing:
-        - content_management/collaborative_editing/*.md
+      - content_management/*.md
+      - content_management/collaborative_editing/*.md
+      - content_management/content_api/*.md
+      - content_management/content_management_api/*.md
+      - content_management/data_migration/*.md
+      - content_management/field_types/*.md
+      - content_management/field_types/field_type_reference/*.md
+      - content_management/file_management/*.md
+      - content_management/forms/*.md
+      - content_management/images/*.md
+      - content_management/pages/*.md
+      - content_management/rich_text/*.md
+      - content_management/taxonomy/*.md
+      - content_management/url_management/*.md
+      - content_management/workflow/*.md
       Templating:
-        Templating:
-        - templating/templating.md
-        Render content:
-        - templating/render_content/*.md
-        Templates:
-        - templating/templates/*.md
-        Assets:
-        - templating/assets.md
-        Image variations:
-        - templating/image_variations.md
-        Twig function reference:
-        - templating/twig_function_reference/*.md
-        Twig Components:
-        - templating/components.md
-        URLs and routes:
-        - templating/urls_and_routes/*.md
-        Design engine:
-        - templating/design_engine/*.md
-        Queries and controllers:
-        - templating/queries_and_controllers/*.md
-        Embed and list content:
-        - templating/embed_and_list_content/*.md
-        Layout:
-        - templating/layout/*.md
+      - templating/*.md
+      - templating/design_engine/*.md
+      - templating/embed_and_list_content/*.md
+      - templating/layout/*.md
+      - templating/queries_and_controllers/*.md
+      - templating/render_content/*.md
+      - templating/templates/*.md
+      - templating/twig_function_reference/*.md
+      - templating/urls_and_routes/*.md
       AI Actions:
       - ai_actions/*.md
       PIM (Product management):
-        PIM (Product management):
-        - pim/pim.md
-        PIM guide:
-        - pim/pim_guide.md
-        PIM configuration:
-        - pim/pim_configuration.md
-        Products:
-        - pim/products.md
-        Attributes:
-        - pim/attributes/*.md
-        Product API:
-        - pim/product_api.md
-        Catalogs:
-        - pim/catalogs.md
-        Catalog API:
-        - pim/catalog_api.md
-        Enable purchasing products:
-        - pim/enable_purchasing_products.md
-        Prices:
-        - pim/prices.md
-        Price API:
-        - pim/price_api.md
-        Customize PIM:
-        - pim/*.md
-        Add remote PIM support:
-        - pim/add_remote_pim_support.md
+      - pim/*.md
+      - pim/attributes/*.md
       Commerce:
-        Commerce:
-        - commerce/commerce.md
-        Cart:
-        - commerce/cart/*.md
-        Checkout:
-        - commerce/checkout/*.md
-        Order management:
-        - commerce/order_management/*.md
-        Payment management:
-          Payment:
-          - commerce/payment/payment.md
-          Configure Payment:
-          - commerce/payment/configure_payment.md
-          Extend Payment:
-          - commerce/payment/extend_payment.md
-          Payment method API:
-          - commerce/payment/payment_method_api.md
-          Payment method filtering:
-          - commerce/payment/payment_method_filtering.md
-          Payment API:
-          - commerce/payment/payment_api.md
-          Online payment methods:
-          - commerce/payment/*.md
-        Shipping management:
-        - commerce/shipping_management/*.md
-        Storefront:
-        - commerce/storefront/*.md
-        Transactional emails:
-        - commerce/transactional_emails/*.md
+      - commerce/commerce.md
+      - commerce/cart/*.md
+      - commerce/checkout/*.md
+      - commerce/order_management/*.md
+      - commerce/payment/*.md
+      - commerce/shipping_management/*.md
+      - commerce/storefront/*.md
+      - commerce/transactional_emails/*.md
       Discounts:
       - discounts/*.md
       Customer management:
@@ -778,235 +626,65 @@ plugins:
       Ibexa Engage:
       - ibexa_engage/*.md
       Multisite:
-        Multisite:
-        - multisite/multisite.md
-        Multisite configuration:
-        - multisite/multisite_configuration.md
-        SiteAccess:
-        - multisite/siteaccess/*.md
-        Set up campaign SiteAccess:
-        - multisite/set_up_campaign_siteaccess.md
-        Set up translation SiteAccess:
-        - multisite/set_up_translation_siteaccess.md
-        Site Factory:
-        - multisite/site_factory/*.md
-        Languages:
-        - multisite/languages/*.md
+      - multisite/*.md
+      - multisite/languages/*.md
+      - multisite/site_factory/*.md
+      - multisite/siteaccess/*.md
       Permissions:
       - permissions/*.md
       Users:
-        Users:
-        - users/users.md
-        User management guide:
-        - users/user_management_guide.md
-        User setup:
-        - users/*.md
-        User authentication:
-        - users/*.md
-        User grouping:
-        - users/*.md
+      - users/*.md
       CDP (Customer Data Platform):
-        Customer Data Platform:
-        - cdp/cdp.md
-        CDP guide:
-        - cdp/cdp_guide.md
-        CDP installation:
-        - cdp/cdp_installation.md
-        CDP activation:
-        - cdp/cdp_activation/*.md
-        CDP data export schedule:
-        - cdp/cdp_data_export_schedule.md
-        CDP data customization:
-        - cdp/cdp_data_customization.md
+      - cdp/*.md
+      - cdp/cdp_activation/*.md
       Search:
-        Search:
-        - search/search.md
-        Search engines:
-          Search engines:
-          - search/search_engines/search_engines.md
-          Elasticsearch search engine:
-          - search/search_engines/elasticsearch/*.md
-          Solr search engine:
-          - search/search_engines/solr_search_engine/*.md
-          Legacy search engine:
-          - search/search_engines/legacy_search_engine/*.md
-        Search API:
-        - search/search_api.md
-        Search Criteria and Sort Clauses:
-        - search/search_criteria_and_sort_clauses.md
-        Search Criteria reference:
-        - search/criteria_reference/*.md
-        Content Type Search Criteria:
-        - search/content_type_search_reference/content_type_criteria.md
-        Product Search Criteria:
-        - search/criteria_reference/*.md
-        Order Search Criteria:
-        - search/criteria_reference/*.md
-        Payment Search Criteria:
-        - search/criteria_reference/*.md
-        Payment Method Search Criteria:
-        - search/criteria_reference/*.md
-        Price Search Criteria:
-        - search/criteria_reference/*.md
-        Shipment Search Criteria:
-        - search/criteria_reference/*.md
-        URL Search Criteria:
-        - search/url_search_reference/*.md
-        Activity Log Search Criteria:
-        - search/activity_log_search_reference/*.md
-        Action Configuration Search Criteria:
-        - search/ai_actions_search_reference/action_configuration_criteria.md
-        Discounts Search Criteria:
-        - search/discounts_search_reference/discounts_criteria.md
-        Collaboration Search Criteria:
-        - search/collaboration_search_reference/collaboration_criteria.md
-        Notification Search Criteria:
-        - search/criteria_reference/*.md
-        Sort Clause reference:
-          General Sort Clauses:
-          - search/sort_clause_reference/*.md
-          Content Type Sort Clauses:
-          - search/content_type_search_reference/content_type_sort_clauses.md
-          Product Sort Clauses:
-            Product Sort Clauses:
-            - search/sort_clause_reference/product_sort_clauses.md
-            BasePrice:
-            - search/sort_clause_reference/baseprice_sort_clause.md
-            CreatedAt:
-            - search/sort_clause_reference/createdat_sort_clause.md
-            CustomPrice:
-            - search/sort_clause_reference/customprice_sort_clause.md
-            ProductAvailability:
-            - search/sort_clause_reference/productavailability_sort_clause.md
-            ProductStock:
-            - search/criteria_reference/productstock_criterion.md
-            ProductStockRange:
-            - search/criteria_reference/productstockrange_criterion.md
-            ProductCode:
-            - search/sort_clause_reference/productcode_sort_clause.md
-            ProductName:
-            - search/sort_clause_reference/productname_sort_clause.md
-          Order Sort Clauses:
-          - search/sort_clause_reference/*.md
-          Payment Sort Clauses:
-          - search/sort_clause_reference/*.md
-          Payment Method Sort Clauses:
-          - search/sort_clause_reference/*.md
-          Shipment Sort Clauses:
-          - search/sort_clause_reference/*.md
-          URL Sort Clauses:
-          - search/url_search_reference/*.md
-          Activity Log Sort Clauses:
-          - search/activity_log_search_reference/activity_log_sort_clauses.md
-          Collaboration Sort Clauses:
-          - search/collaboration_search_reference/collaboration_sort_clauses.md
-          Action Configuration Sort Clauses:
-          - search/ai_actions_search_reference/action_configuration_sort_clauses.md
-          Discounts Sort Clauses:
-          - search/discounts_search_reference/discounts_sort_clauses.md
-        Aggregation reference:
-        - search/aggregation_reference/*.md
-        Search in trash reference:
-        - search/search_in_trash_reference.md
-        Extend search:
-        - search/extensibility/*.md
-        Reindex search:
-        - search/reindex_search.md
+      - search/*.md
+      - search/activity_log_search_reference/*.md
+      - search/aggregation_reference/*.md
+      - search/ai_actions_search_reference/*.md
+      - search/collaboration_search_reference/*.md
+      - search/content_type_search_reference/*.md
+      - search/criteria_reference/*.md
+      - search/discounts_search_reference/*.md
+      - search/extensibility/*.md
+      - search/search_engines/search_engines.md
+      - search/search_engines/elasticsearch/*.md
+      - search/search_engines/legacy_search_engine/*.md
+      - search/search_engines/solr_search_engine/*.md
+      - search/sort_clause_reference/*.md
+      - search/url_search_reference/*.md
       Ibexa Cloud:
       - ibexa_cloud/*.md
       Infrastructure and maintenance:
-        Infrastructure and maintenance:
-        - infrastructure_and_maintenance/infrastructure_and_maintenance.md
-        Request lifecycle:
-        - infrastructure_and_maintenance/request_lifecycle.md
-        Databases:
-        - infrastructure_and_maintenance/databases.md
-        Cache:
-          Cache:
-          - infrastructure_and_maintenance/cache/cache.md
-          HTTP cache:
-          - infrastructure_and_maintenance/cache/http_cache/*.md
-          Persistence cache:
-          - infrastructure_and_maintenance/cache/persistence_cache.md
-        Clustering:
-        - infrastructure_and_maintenance/clustering/*.md
-        DevOps:
-        - infrastructure_and_maintenance/devops.md
-        Backup:
-        - infrastructure_and_maintenance/backup.md
-        Performance:
-        - infrastructure_and_maintenance/performance.md
-        Background tasks:
-        - infrastructure_and_maintenance/background_tasks.md
-        Environments:
-        - infrastructure_and_maintenance/environments.md
-        Sessions:
-        - infrastructure_and_maintenance/sessions.md
-        Logging:
-        - infrastructure_and_maintenance/logging.md
-        Security:
-        - infrastructure_and_maintenance/security/*.md
-        Support and maintenance FAQ:
-        - infrastructure_and_maintenance/support_and_maintenance_faq.md
+      - infrastructure_and_maintenance/*.md
+      - infrastructure_and_maintenance/cache/*.md
+      - infrastructure_and_maintenance/cache/http_cache/*.md
+      - infrastructure_and_maintenance/clustering/*.md
+      - infrastructure_and_maintenance/security/*.md
       Update and migration:
-        Update Ibexa DXP:
-        - update_and_migration/update_ibexa_dxp.md
-        Update from v4.0:
-          Update to v4.1:
-          - update_and_migration/from_4.0/to_4.1.md
-        Update from v4.1:
-          Update to v4.2:
-          - update_and_migration/from_4.1/update_from_4.1.md
-        Update from v4.2:
-          Update to v4.3:
-          - update_and_migration/from_4.2/update_from_4.2.md
-        Update from v4.3:
-        - update_and_migration/from_4.3/*.md
-        Update from v4.4:
-          Update to v4.5:
-          - update_and_migration/from_4.4/update_from_4.4.md
-        Update from v4.5:
-          Update to v4.6:
-          - update_and_migration/from_4.5/update_from_4.5.md
-        Update from v4.6:
-        - update_and_migration/from_4.6/*.md
-        Update from v5.0:
-          Update to v5.0:
-          - update_and_migration/from_5.0/update_from_5.0.md
-        Migrate to Ibexa DXP:
-        - update_and_migration/migrate_to_ibexa_dxp/*.md
+      - update_and_migration/update_ibexa_dxp.md
+      - update_and_migration/from_4.0/to_4.1.md
+      - update_and_migration/from_4.1/update_from_4.1.md
+      - update_and_migration/from_4.2/update_from_4.2.md
+      - update_and_migration/from_4.3/*.md
+      - update_and_migration/from_4.4/update_from_4.4.md
+      - update_and_migration/from_4.5/update_from_4.5.md
+      - update_and_migration/from_4.6/*.md
+      - update_and_migration/from_5.0/update_from_5.0.md
+      - update_and_migration/migrate_to_ibexa_dxp/*.md
       Resources:
-        Resources:
-        - resources/resources.md
-        Release process and roadmap:
-        - resources/release_process_and_roadmap.md
-        Ibexa DXP PhpStorm plugin:
-        - resources/phpstorm_plugin.md
-        New in documentation:
-        - resources/new_in_doc.md
-        Contributing:
-        - resources/contributing/*.md
+      - resources/*.md
+      - resources/contributing/*.md
       Product guides:
-        Product guides:
-        - product_guides/product_guides.md
+      - product_guides/product_guides.md
       Release notes:
-        Release notes:
-        - release_notes/release_notes.md
-        Ibexa DXP v5.0 LTS:
-        - release_notes/ibexa_dxp_v5.0.md
-        Ibexa DXP v5.0 deprecations and BC breaks:
-        - release_notes/ibexa_dxp_v5.0_deprecations.md
-        Ibexa DXP v4.6 LTS:
-        - release_notes/ibexa_dxp_v4.6.md
-        Ibexa DXP v4.5:
-        - release_notes/ibexa_dxp_v4.5.md
-        Ibexa DXP v4.4:
-        - release_notes/ibexa_dxp_v4.4.md
-        Ibexa DXP v4.3:
-        - release_notes/ibexa_dxp_v4.3.md
-        Ibexa DXP v4.2:
-        - release_notes/ibexa_dxp_v4.2.md
-        Ibexa DXP v4.1:
-        - release_notes/ibexa_dxp_v4.1.md
-        Ibexa DXP v4.0:
-        - release_notes/ibexa_dxp_v4.0.md
+      - release_notes/release_notes.md
+      - release_notes/ibexa_dxp_v5.0.md
+      - release_notes/ibexa_dxp_v5.0_deprecations.md
+      - release_notes/ibexa_dxp_v4.6.md
+      - release_notes/ibexa_dxp_v4.5.md
+      - release_notes/ibexa_dxp_v4.4.md
+      - release_notes/ibexa_dxp_v4.3.md
+      - release_notes/ibexa_dxp_v4.2.md
+      - release_notes/ibexa_dxp_v4.1.md
+      - release_notes/ibexa_dxp_v4.0.md

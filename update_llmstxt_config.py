@@ -185,6 +185,34 @@ def process_nav_section(nav_item):
     return None
 
 
+def should_exclude_file(file_path):
+    """
+    Check if a file should be excluded based on its path or name.
+    Excludes old version release notes and update documentation (pre-v4).
+    """
+    # Patterns to exclude from release notes and updates
+    old_version_file_patterns = [
+        # Release notes for v3.3 and older
+        'ez_platform_v3.3', 'ez_platform_v3.2', 'ez_platform_v3.1', 'ez_platform_v3.0',
+        'ez_platform_v2.5', 'ez_platform_v2.4', 'ez_platform_v2.3', 'ez_platform_v2.2',
+        'ez_platform_v2.1', 'ez_platform_v2.0',
+        'ez_platform_v1.13', 'ez_platform_v1.12', 'ez_platform_v1.11', 'ez_platform_v1.10',
+        'ez_platform_v1.9', 'ez_platform_v1.8', 'ez_platform_v1.7',
+        'ibexa_dxp_v3.3', 'ibexa_dxp_v3.2',
+        # Deprecations for old versions
+        'ez_platform_v3.0_deprecations',
+        'ibexa_dxp_v4.0_deprecations',
+        # Update guides for old versions (pre-v4)
+        'from_1.x_2.x/', 'from_2.5/', 'from_3.3/',
+    ]
+    
+    for pattern in old_version_file_patterns:
+        if pattern in file_path:
+            return True
+    
+    return False
+
+
 def should_exclude_section(section_name):
     """
     Check if a section should be excluded based on exclusion rules.
@@ -198,7 +226,7 @@ def should_exclude_section(section_name):
     if 'Personalization' in section_name or 'personalization' in section_name.lower():
         return True
     
-    # Exclude v4.0 deprecations
+    # Exclude v4.0 deprecations (but keep v5.0 deprecations)
     if 'v4.0 deprecations' in section_name or 'v4.0_deprecations' in section_name:
         return True
     
@@ -225,28 +253,57 @@ def should_exclude_section(section_name):
 def convert_nav_to_llmstxt_sections(nav_list):
     """
     Convert mkdocs nav list to llmstxt sections format.
+    The llmstxt plugin expects a dict where each value is a list of file paths.
+    Uses glob patterns where possible to simplify the configuration.
     Applies exclusion filters for certain sections.
     """
     sections = {}
     
+    def extract_files(item):
+        """Recursively extract file paths from nav structure."""
+        files = []
+        if isinstance(item, str):
+            # Skip HTML files (external references) and excluded files
+            if not item.endswith('.html') and not should_exclude_file(item):
+                files.append(item)
+        elif isinstance(item, list):
+            for subitem in item:
+                files.extend(extract_files(subitem))
+        elif isinstance(item, dict):
+            for key, value in item.items():
+                # Don't filter nested sections - only filter at top level
+                if isinstance(value, str):
+                    # Skip HTML files (external references) and excluded files
+                    if not value.endswith('.html') and not should_exclude_file(value):
+                        files.append(value)
+                elif isinstance(value, list):
+                    for subitem in value:
+                        files.extend(extract_files(subitem))
+        return files
+    
     for item in nav_list:
         if isinstance(item, dict):
             for section_name, section_content in item.items():
-                # Skip excluded sections
+                # Skip excluded sections (only at top level)
                 if should_exclude_section(section_name):
                     continue
                 
+                # Extract all files from this section
+                files = []
                 if isinstance(section_content, str):
-                    sections[section_name] = [section_content]
+                    files.append(section_content)
                 elif isinstance(section_content, list):
-                    processed = process_nav_section({section_name: section_content})
-                    if processed:
-                        sections.update(processed)
+                    files.extend(extract_files(section_content))
+                
+                if files:
+                    # Convert to glob patterns where appropriate
+                    glob_patterns = convert_to_glob_patterns(files)
+                    sections[section_name] = glob_patterns
         elif isinstance(item, str):
             # Top-level file
-            if 'Top-level files' not in sections:
-                sections['Top-level files'] = []
-            sections['Top-level files'].append(item)
+            if 'Ibexa Developer Documentation' not in sections:
+                sections['Ibexa Developer Documentation'] = []
+            sections['Ibexa Developer Documentation'].append(item)
     
     return sections
 
