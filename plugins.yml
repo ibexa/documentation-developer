@@ -540,6 +540,7 @@ plugins:
       discounts/install_discounts.md: discounts/configure_discounts.md
       content_management/collaborative_editing/install_collaborative_editing.md: content_management/collaborative_editing/configure_collaborative_editing.md
 - llmstxt:
+    preprocess: llmstxt_preprocess.py
     markdown_description: |
       Ibexa DXP developer documentation - comprehensive technical guide for building digital experiences with Ibexa, a modern PHP-based Digital Experience Platform built on Symfony Full Stack Framework. 
       Ibexa is an enterprise-grade content management and digital commerce platform that comes in three editions: Headless (API-first content management), Experience (full DXP with Page Builder and forms), and Commerce (complete e-commerce solution). 
