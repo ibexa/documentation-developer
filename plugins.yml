@@ -689,3 +689,6 @@ plugins:
       - release_notes/ibexa_dxp_v4.2.md
       - release_notes/ibexa_dxp_v4.1.md
       - release_notes/ibexa_dxp_v4.0.md
+      PHP API Reference - Signatures:
+      - api/php_api/php_api_reference.md
+      - api/php_api/php_api_signatures.md

@@ -12,6 +12,10 @@ You can use it to create, read, update, manage, and delete all objects available
 The PHP API is built on top of a layered architecture, including a persistence SPI that abstracts storage.
 Using the API ensures that your code is forward compatible with future releases based on other storage engines.
 
+## Method Signatures Reference
+
+For quick reference during development, see **[PHP API Signatures](php_api_signatures.md)**
+
 ## Using API services
 
 The API provides access to content, user, content types, and other features through various services.
