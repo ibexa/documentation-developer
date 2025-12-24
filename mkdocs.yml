@@ -12,6 +12,7 @@ validation:
 not_in_nav: |
     search_results.md
     personalization/legacy_recommendation_api.md
+    api/php_api/php_api_signatures.md
     /snippets/*
 nav:
     - Ibexa Developer Documentation: index.md

@@ -542,7 +542,7 @@ plugins:
 - llmstxt:
     preprocess: llmstxt_preprocess.py
     markdown_description: |
-      Ibexa DXP developer documentation - comprehensive technical guide for building digital experiences with Ibexa, a modern PHP-based Digital Experience Platform built on Symfony Full Stack Framework. 
+      > Ibexa DXP developer documentation - comprehensive technical guide for building digital experiences with Ibexa, a modern PHP-based Digital Experience Platform built on Symfony Full Stack Framework. 
       Ibexa is an enterprise-grade content management and digital commerce platform that comes in three editions: Headless (API-first content management), Experience (full DXP with Page Builder and forms), and Commerce (complete e-commerce solution). 
       Key technical capabilities include: flexible content modeling with custom field types, powerful REST and GraphQL APIs, headless and traditional architecture support, Product Information Management (PIM), integrated commerce features (cart, checkout, payment, shipping), multi-site and multi-language support, advanced search with Elasticsearch/Solr, customizable Twig templating, Symfony-based extensibility, workflow management, AI Actions for content generation, Form Builder, and comprehensive user/permission management.
       The platform is designed for developers to build scalable content-driven applications, e-commerce sites, and headless solutions with enterprise features like Customer Data Platform (CDP), personalization, editorial workflows, and extensive APIs. Built with modern PHP practices on Symfony 7.x, supporting MySQL/MariaDB and PostgreSQL databases.
@@ -692,3 +692,5 @@ plugins:
       PHP API Reference - Signatures:
       - api/php_api/php_api_reference.md
       - api/php_api/php_api_signatures.md
+      REST API Reference:
+      - api/rest_api/rest_api_reference_overview.md

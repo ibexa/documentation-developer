@@ -10,7 +10,15 @@ def preprocess(soup: "BeautifulSoup", output: str) -> None:
     
     Converts card macro HTML structure into markdown lists with links
     so they are preserved in the llms.txt output.
+    
+    Filters out release notes filter UI elements.
     """
+    # Remove release notes filter UI (checkboxes and labels)
+    # These are interactive filters, not content
+    filter_containers = soup.find_all("div", class_="release-notes-filters")
+    for container in filter_containers:
+        container.decompose()
+    
     # Find all cards wrapper divs (these contain groups of cards)
     cards_divs = soup.find_all("div", class_=lambda c: c and c.startswith("cards "))
     
