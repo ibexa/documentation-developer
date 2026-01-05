@@ -154,8 +154,8 @@ Run the provided SQL upgrade script to add the missing indexes to your database:
 
 ### Database update [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
 
-On a platform first installed on v5.0.3, you need to execute the requests below.
-If the platform comes from an earlier version, you don't need this (but if you run the requests anyway, you just obtain error messages).
+From a platform first installed on v5.0.3 or updated precisely to v5.0.3, you need to execute the requests below.
+If the platform comes from lower than v5.0.3 and is updated to higher than v5.0.3, you don't need this part (but if you run the requests anyway, you just obtain error messages, nothing being broken or lost).
 
 === "MySQL"
 
