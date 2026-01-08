@@ -27,6 +27,57 @@ The `ddev config --php-version` option should set the same PHP version as the pr
 
 To run an [[= product_name_cloud =]] project locally, you may refer to [DDEV and Ibexa Cloud](ddev_and_ibexa_cloud.md) instead.
 
+## Install reverse proxy
+
+### Varnish
+
+The following sequence of commands:
+
+1. Set some variables to distinguish Varnish versions, here for Varnish 7.1
+1. Copy and customize VCL files in .ddev/varnish (which will be mounted as /etc/varnish)
+2. Set the Varnish version to use and its demon starting parameters to use the files
+3. Adds the Varnish container
+4. Restarts the DDEV cluster
+
+```bash
+VARNISH_VERSION=7.1
+vcl_path=vcl_path
+vcl_file=varnish7.vcl
+mkdir -p .ddev/varnish
+cp vendor/ibexa/http-cache/docs/varnish/vcl/$vcl_file .ddev/varnish/
+sed 's/.host = "127.0.0.1";/.host = "web";/' vendor/ibexa/http-cache/docs/varnish/vcl/parameters.vcl > .ddev/varnish/parameters.vcl
+ddev exec -s varnish "sed -i 's/acl invalidators/acl invalidators +log/' parameters.vcl; \
+sed -i '/^acl debuggers {$/a \\    "0.0.0.0"/0; \/\/ debug from whatever IP' parameters.vcl; \
+sed -i 's/acl debuggers/acl debuggers +log/' parameters.vcl;"
+ddev dotenv set .ddev/.env.varnish --varnish-docker-image=varnish:$VARNISH_VERSION --varnish-varnishd-params " -p $vcl_path=/etc/varnish -f /etc/varnish/$vcl_file"
+
+ddev get ddev/ddev-varnish
+ddev restart
+```
+
+To use Varnish 6.0LTS:
+
+```bash
+VARNISH_VERSION=6.0
+vcl_path=vcl_dir
+vcl_file=varnish6.vcl
+```
+
+The Varnish server replace the web server in some places.
+If you run `ddev describe`, you can see that Varnish is now the one responding to DDEV domain `.ddev.site`
+while the web server still replies to `127.0.0.1`. 
+
+TODO: Is there a way to still have access to web server directly from `.ddev.site`?
+
+### Fastly
+
+TODO: confirm and detail
+
+For Fastly (as for [Ibexa Connect](https://doc.ibexa.co/projects/connect/en/latest/)), your instance must be visible from Internet.
+
+To use [ngrok](ngrok.com) alongside [`ddev share`](https://docs.ddev.com/en/stable/users/topics/sharing/#using-ddev-share-easiest) is probably the easiest way to achieve this.
+TODO: Be very careful with closing ngrok tunnels when not needed anymore, to not communicate your ngrok URL to unintended people (don't use it for demo, don't store it on a Fastly or Ibexa Connect account used by too many people), etc.
+
 ## Install search engine
 
 A [search engine](search_engines.md) can be added to the cluster.
