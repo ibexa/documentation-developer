@@ -19,7 +19,7 @@ TODO: Other personas?
 
 ## Shopping list management overview
 
-Each user have a default shopping list and can create new ones.
+Each authenticated user have a default shopping list and can create new ones.
 TODO: Policy: Is there a policy to add to customer role to enable shopping list features?
 TODO: Limit: How many shopping lists can be created per user?
 

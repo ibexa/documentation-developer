@@ -14,23 +14,79 @@ The cart APIs includes methods to move products from cart to shopping list and v
 There is one default shopping list per user. This default shopping list is created only when a user uses it for the first time.
 
 The default shopping list is created by [`\Ibexa\Contracts\ShoppingList\ShoppingListServiceInterface::getOrCreateDefaultShoppingList()`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ShoppingList-ShoppingListServiceInterface.html#method_getOrCreateDefaultShoppingList).
-For example, starting to use the default list from REST API will create it if it doesn't exist, as during a call to [`POST /shopping-list/default/entries](/api/rest_api/rest_api_reference/rest_api_reference.html#tag/Shopping-Lists/operation/api_shopping-listdefaultentries_post) or [`POST /cart/{identifier}/move-to-shopping-list`]().
+For example, starting to use the default list from REST API will create it if it doesn't exist, as during a call
+to [`POST /shopping-list/default/entries`](/api/rest_api/rest_api_reference/rest_api_reference.html#tag/Shopping-Lists/operation/api_shopping-listdefaultentries_post)
+or [`POST /cart/{identifier}/move-to-shopping-list`](/api/rest_api/rest_api_reference/rest_api_reference.html#tag/Cart/operation/api_cart_identifiermove-to-shopping-list_post).
 
 ## PHP API
 
-TODO: [`Ibexa\Contracts\ShoppingList`](/api/php_api/php_api_reference/namespaces/ibexa-contracts-shoppinglist.html)
+In the [`Ibexa\Contracts\ShoppingList`](/api/php_api/php_api_reference/namespaces/ibexa-contracts-shoppinglist.html) namespace are the interfaces to manipulate shopping lists.
+The [`Ibexa\Contracts\ShoppingList\ShoppingListServiceInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ShoppingList-ShoppingListServiceInterface.html) defines methods to
+create, get, find, update, clear, and delete shopping lists, and to add, get, move, and remove entries.
 
-TODO: [`Ibexa\Contracts\ShoppingList\ShoppingListServiceInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ShoppingList-ShoppingListServiceInterface.html)
+To get all shopping lists (of the current user or of the whole repository depending on the current user limitation), use the search method without criterion:
 
-TODO: [`Ibexa\Contracts\Cart\CartShoppingListTransferServiceInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Cart-CartShoppingListTransferServiceInterface.html)
+```php
+$lists = $this->shoppingListService->findShoppingLists(new ShoppingListQuery());
+```
+
+Methods editing the shopping list first store the change in the persistence layer then return the updated shopping list object.
+If you forgot to retrieve this result in your variable, the local object isn't synchronized with the database.
+In the following example, if the two last assignments (`$list =`) are removed, the dumped `$list` object won't contain the stored shopping list.
+If only the middle assignment is removed, the dumped variable contains the up-to-date shopping list.
+
+```php
+$list = $this->shoppingListService->getOrCreateDefaultShoppingList();
+$list = $this->shoppingListService->clearShoppingList($list);
+$list = $this->shoppingListService->addEntries($list, [new EntryAddStruct($productCode)]);
+dump($list);
+```
+
+When adding array of entries with `ShoppingListService::addEntries()` or `ShoppingListService::moveEntries()`,
+an exception is thrown if a product is already in the shopping list and the whole array is canceled.
+If you work with batch of products, filter it before adding it, or add entries one by one.
+
+The following examples both add products to a shopping list while avoiding error on duplicate:
+
+```php
+$filteredProductCodes = array_filter($desiredProductCodes, function ($productCode) use ($list) {
+    return !$list->getEntries()->hasEntryWithProductCode($productCode);
+});
+$list = $this->shoppingListService->addEntries($list, array_map(function ($productCode) { return new EntryAddStruct($productCode); }, $filteredProductCodes));
+```
+
+```php
+foreach ($desiredProductCodes as $productCode) {
+    try {
+        $list = $this->shoppingListService->addEntries($list, [new EntryAddStruct($productCode)]);
+    } catch (\Ibexa\Contracts\Core\Validation\ValidationFailedException $exception) {}
+}
+```
+
+TODO: How to choose which solution above to use?
+
+`ShoppingListService::moveEntries()` doesn't return an updated shopping list because several lists might be updated.
+TODO: The following example merge two shopping lists into a new third one.
 
 TODO: [Shopping list event reference](shopping_list_events.md)
 
+TODO: [`Ibexa\Contracts\Cart\CartShoppingListTransferServiceInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Cart-CartShoppingListTransferServiceInterface.html)
+
+There is no specific event for the transfer operations.
+
+- When adding from shopping list to cart, the `Ibexa\Contracts\Cart\Event\BeforeAddEntryEvent` and `Ibexa\Contracts\Cart\Event\AddEntryEvent` are dispatched for each entry that weren't previously in the cart.
+- When moving from cart to shopping list, `Ibexa\Contracts\ShoppingList\Event\BeforeAddEntriesEvent` and `Ibexa\Contracts\ShoppingList\Event\AddEntriesEvent` are dispatched for the batch of entries that weren't already in the shopping list,
+  then `Ibexa\Contracts\Cart\Event\BeforeRemoveEntryEvent` and `Ibexa\Contracts\Cart\Event\BeforeRemoveEntryEvent` are dispatched for each entry removed from the cart.
+
+
 ## REST API
 
-TODO: `* /shopping-list/*`
+The REST API has several resources to manage shopping lists and their entries
+and few to move products between cart and shopping list.
 
-TODO: `POST /cart/{identifier}/move-entries-to-shopping-list`
-TODO: `POST /cart/{identifier}/move-entries-to-shopping-list/{shoppingListIdentifier}`
-TODO: `POST /cart/{identifier}/move-to-shopping-list`
-TODO: `POST /cart/{identifier}/move-to-shopping-list/{shoppingListIdentifier}`
+TODO: [`/shopping-list/*`](/api/rest_api/rest_api_reference/rest_api_reference.html#tag/Shopping-List)
+
+TODO: [`POST /cart/{identifier}/move-entries-to-shopping-list`](/api/rest_api/rest_api_reference/rest_api_reference.html#tag/Cart/operation/api_cart_identifiermove-entries-to-shopping-list_post)
+TODO: [`POST /cart/{identifier}/move-entries-to-shopping-list/{shoppingListIdentifier}`](/api/rest_api/rest_api_reference/rest_api_reference.html#tag/Cart/operation/api_cart_identifiermove-entries-to-shopping-list_shoppingListIdentifier_post)
+TODO: [`POST /cart/{identifier}/move-to-shopping-list`](/api/rest_api/rest_api_reference/rest_api_reference.html#tag/Cart/operation/api_cart_identifiermove-to-shopping-list_post)
+TODO: [`POST /cart/{identifier}/move-to-shopping-list/{shoppingListIdentifier}`](/api/rest_api/rest_api_reference/rest_api_reference.html#tag/Cart/operation/api_cart_identifiermove-to-shopping-list_shoppingListIdentifier_post)

@@ -43,13 +43,18 @@ TODO: ~~Default shopping list creation for existing customers?~~ The default sho
 
 ## Configure
 
-TODO
+By default, the maximum shopping list count per user is 10 and the maximum entries per list is 100.
 
-TODO: `ibexa.site_access.config.default.shopping_list.pagination.list_per_page_limit`
+TODO: explain `list_per_page_limit`
 
-TODO: Max shopping list count per user
+You can override the following parameters to change their values:
 
-TODO: Max product type count per shopping list
+```yaml
+parameters:
+    ibexa.site_access.config.default.shopping_list.limits.max_lists_per_user: 10
+    ibexa.site_access.config.default.shopping_list.limits.max_entries_per_list: 100
+    ibexa.site_access.config.default.shopping_list.pagination.list_per_page_limit: 25
+```
 
 TODO: Probably a file that will be created by recipe:
 
@@ -64,4 +69,4 @@ ibexa.rest.shopping_list:
     prefix: '%ibexa.rest.path_prefix%'
 ```
 
-TODO: Add `shopping_list/*` permissions to the right roles. Don't give the rights to Anonymous. Role migration file example?
+TODO: Add `shopping_list/*` permissions to the right roles. Don't give the rights to Anonymous. Role migration file example? Set limitation 'Shopping List Owner: Self' so regular customers can't access each other lists.
