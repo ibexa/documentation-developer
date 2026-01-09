@@ -68,8 +68,6 @@ ddev config --web-environment-add TRUSTED_PROXIES=varnish
 ddev restart
 ```
 
-TODO: [Apache TRUSTED_PROXIES](https://github.com/ibexa/post-install/blob/main/resources/templates/apache2/vhost.template#L67)
-
 To use Varnish 6.0LTS, set the following variables instead:
 
 ```bash
@@ -78,9 +76,46 @@ vcl_path=vcl_dir
 vcl_file=varnish6.vcl
 ```
 
+If you're using [Apache as web server](install_with_ddev.md#switch-to-apache-and-its-virtual-host),
+you must set `varnish` as a trusted proxy in `.ddev/apache/apache-site.conf` before restarting DDEV:
+
+```bash
+sed -i 's/#SetEnv TRUSTED_PROXIES ""/SetEnv TRUSTED_PROXIES "varnish"/' .ddev/apache/apache-site.conf
+
+ddev restart
+```
+
 The Varnish server replace the web server in some places.
 If you run `ddev describe`, you can see that Varnish is now the one responding to DDEV domain `.ddev.site`
 while the web server still replies to `127.0.0.1` with its own ports.
+
+You can see Varnish headers in HTTP responses, for example:
+
+```console
+% curl -s -c cookies.txt -b cookies.txt -I https://<your-project>.ddev.site:<port>/
+HTTP/2 200 
+server: Apache/2.4.65 (Debian)
+vary: Origin,X-Editorial-Mode
+via: 1.1 varnish (Varnish/7.1)
+x-cache: HIT
+x-cache-debug: 1
+x-cache-hits: 5
+x-cache-ttl: 87654.321
+x-debug-token: 012345
+x-debug-token-link: https://ddev-ibexa-tmp2.ddev.site:8443/_profiler/012345
+x-powered-by: Ibexa Commerce v5
+x-robots-tag: noindex
+x-varnish: 12345 67890
+xkey: ez-all c52 ct42 l2 pl1 p1 p2
+content-length: 45678
+```
+
+You can see how the `web` server is responding to `varnish`:
+
+```console
+% curl -s -H "Surrogate-Capability: abc=ESI/1.0" http://127.0.0.1:<web-port>/product-catalog | grep 'esi:include'
+            <esi:include src="/_fragment?_hash=…
+```
 
 You can use `ddev varnishlog` command to monitor Varnish logs in real time.
 Due to how parameters are passed to the container, you may have to wrap some parameters in quotes twice, for example, the purge request monitoring:
