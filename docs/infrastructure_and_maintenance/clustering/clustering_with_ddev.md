@@ -92,7 +92,7 @@ while the web server still replies to `127.0.0.1` with its own ports.
 You can see Varnish headers in HTTP responses, for example:
 
 ```console
-% curl -s -c cookies.txt -b cookies.txt -I https://<your-project>.ddev.site:<port>/
+% curl -s -c cookies.txt -b cookies.txt -I https://<your-project>.ddev.site:<https-port>/
 HTTP/2 200 
 server: Apache/2.4.65 (Debian)
 vary: Origin,X-Editorial-Mode
@@ -113,7 +113,7 @@ content-length: 45678
 You can see how the `web` server is responding to `varnish`:
 
 ```console
-% curl -s -H "Surrogate-Capability: abc=ESI/1.0" http://127.0.0.1:<web-port>/product-catalog | grep 'esi:include'
+% curl -s -H "Surrogate-Capability: abc=ESI/1.0" http://127.0.0.1:<http-web-port>/product-catalog | grep 'esi:include'
             <esi:include src="/_fragment?_hash=…
 ```
 
