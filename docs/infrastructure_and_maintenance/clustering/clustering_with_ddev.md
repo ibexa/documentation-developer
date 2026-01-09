@@ -124,17 +124,21 @@ Due to how parameters are passed to the container, you may have to wrap some par
 ddev varnishlog -q "'ReqMethod ~ PURGE.*'";
 ```
 
+For more information on topics such as available configurations, command lines, or monitoring, see [ddev/ddev-varnish README](https://github.com/ddev/ddev-varnish).
+
 ### Fastly
 
 For Fastly (as for [Ibexa Connect](https://doc.ibexa.co/projects/connect/en/latest/)), your instance must be visible from Internet.
 
 To use [ngrok](https://ngrok.com/) alongside [`ddev share`](https://docs.ddev.com/en/stable/users/topics/sharing/#using-ddev-share-easiest) is probably the easiest way to achieve this.
 
-Be very careful,
-close ngrok tunnels when not needed anymore,
-don't communicate your ngrok URL to unintended people
-(for example, don't use it for live demo on shared screen,
-don't store it on a Fastly or Ibexa Connect account used by too many people or externals).
+Be very careful when making a local development instance visible from Interne.
+For example,
+
+- close ngrok tunnels when not needed anymore,
+- don't communicate your ngrok URL to unintended people,
+- don't use it for live demo on shared screen,
+- don't store it on a Fastly or Ibexa Connect account used by external people…
 
 ## Install search engine
 
