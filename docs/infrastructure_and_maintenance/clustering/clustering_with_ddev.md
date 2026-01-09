@@ -80,9 +80,7 @@ vcl_file=varnish6.vcl
 
 The Varnish server replace the web server in some places.
 If you run `ddev describe`, you can see that Varnish is now the one responding to DDEV domain `.ddev.site`
-while the web server still replies to `127.0.0.1`. 
-
-TODO: Is there a way to still have access to web server directly from `.ddev.site`?
+while the web server still replies to `127.0.0.1` with its own ports.
 
 You can use `ddev varnishlog` command to monitor Varnish logs in real time.
 Due to how parameters are passed to the container, you may have to wrap some parameters in quotes twice, for example, the purge request monitoring:
