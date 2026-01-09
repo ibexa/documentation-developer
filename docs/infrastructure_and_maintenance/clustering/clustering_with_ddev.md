@@ -126,12 +126,15 @@ ddev varnishlog -q "'ReqMethod ~ PURGE.*'";
 
 ### Fastly
 
-TODO: confirm and detail
-
 For Fastly (as for [Ibexa Connect](https://doc.ibexa.co/projects/connect/en/latest/)), your instance must be visible from Internet.
 
 To use [ngrok](https://ngrok.com/) alongside [`ddev share`](https://docs.ddev.com/en/stable/users/topics/sharing/#using-ddev-share-easiest) is probably the easiest way to achieve this.
-TODO: Be very careful with closing ngrok tunnels when not needed anymore, to not communicate your ngrok URL to unintended people (don't use it for demo, don't store it on a Fastly or Ibexa Connect account used by too many people), etc.
+
+Be very careful,
+close ngrok tunnels when not needed anymore,
+don't communicate your ngrok URL to unintended people
+(for example, don't use it for live demo on shared screen,
+don't store it on a Fastly or Ibexa Connect account used by too many people or externals).
 
 ## Install search engine
 
