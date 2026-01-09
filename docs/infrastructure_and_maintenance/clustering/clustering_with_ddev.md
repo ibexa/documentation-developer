@@ -36,8 +36,9 @@ The following sequence of commands:
 1. Set some variables to distinguish Varnish versions, here for Varnish 7.1
 2. Copy and customize VCL files in `.ddev/varnish/` (which will be mounted as `/etc/varnish/`)
     - set `web` container has the backend host
-    - enable logging of access control list matching for both `invalidators` and `debuggers` lists
     - add "all IPs" CIDR notation to `debuggers` list to allow debugging info from any IP
+    - on Varnish 7, enable logging of access control list matching for both `invalidators` and `debuggers` lists
+      (new Varnish 7 syntax, it was enabled by default on previous versions)
 3. Set the Varnish version to use and its demon starting parameters to use the files
 4. Adds the Varnish container
 5. Sets Varnish as the HTTP cache server
