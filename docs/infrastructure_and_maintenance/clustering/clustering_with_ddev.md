@@ -51,7 +51,8 @@ vcl_file=varnish7.vcl
 mkdir -p .ddev/varnish
 cp vendor/ibexa/http-cache/docs/varnish/vcl/$vcl_file .ddev/varnish/
 sed 's/.host = "127.0.0.1";/.host = "web";/' vendor/ibexa/http-cache/docs/varnish/vcl/parameters.vcl > .ddev/varnish/parameters.vcl
-sed -i '/^acl debuggers {$/a \\    "0.0.0.0"/0; \/\/ debug from whatever IP' .ddev/varnish/parameters.vcl
+sed -i '/^acl invalidators {$/a \\    "web";' .ddev/varnish/parameters.vcl
+sed -i '/^acl debuggers {$/a \\    "0.0.0.0"/0; \/\/ debug from any IP' .ddev/varnish/parameters.vcl
 if [[ $VARNISH_VERSION == 7.* ]]; then
   sed -i 's/acl invalidators {/acl invalidators +log {/' .ddev/varnish/parameters.vcl
   sed -i 's/acl debuggers {/acl debuggers +log {/' .ddev/varnish/parameters.vcl
@@ -82,6 +83,13 @@ If you run `ddev describe`, you can see that Varnish is now the one responding t
 while the web server still replies to `127.0.0.1`. 
 
 TODO: Is there a way to still have access to web server directly from `.ddev.site`?
+
+You can use `ddev varnishlog` command to monitor Varnish logs in real time.
+Due to how parameters are passed to the container, you may have to wrap some parameters in quotes twice, for example, the purge request monitoring:
+
+```bash
+ddev varnishlog -q "'ReqMethod ~ PURGE.*'";
+```
 
 ### Fastly
 
