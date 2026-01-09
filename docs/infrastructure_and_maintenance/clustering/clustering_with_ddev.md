@@ -34,7 +34,10 @@ To run an [[= product_name_cloud =]] project locally, you may refer to [DDEV and
 The following sequence of commands:
 
 1. Set some variables to distinguish Varnish versions, here for Varnish 7.1
-2. Copy and customize VCL files in .ddev/varnish (which will be mounted as /etc/varnish)
+2. Copy and customize VCL files in `.ddev/varnish/` (which will be mounted as `/etc/varnish/`)
+    - set `web` container has the backend host
+    - enable logging of access control list matching for both `invalidators` and `debuggers` lists
+    - add "all IPs" CIDR notation to `debuggers` list to allow debugging info from any IP
 3. Set the Varnish version to use and its demon starting parameters to use the files
 4. Adds the Varnish container
 5. Sets Varnish as the HTTP cache server
@@ -47,9 +50,11 @@ vcl_file=varnish7.vcl
 mkdir -p .ddev/varnish
 cp vendor/ibexa/http-cache/docs/varnish/vcl/$vcl_file .ddev/varnish/
 sed 's/.host = "127.0.0.1";/.host = "web";/' vendor/ibexa/http-cache/docs/varnish/vcl/parameters.vcl > .ddev/varnish/parameters.vcl
-ddev exec -s varnish "sed -i 's/acl invalidators {/acl invalidators +log {/' parameters.vcl; \
-  sed -i '/^acl debuggers {$/a \\    \"0.0.0.0\"/0; \/\/ debug from whatever IP' parameters.vcl; \
-  sed -i 's/acl debuggers {/acl debuggers +log {/' parameters.vcl;"
+sed -i '/^acl debuggers {$/a \\    "0.0.0.0"/0; \/\/ debug from whatever IP' .ddev/varnish/parameters.vcl
+if [[ $VARNISH_VERSION == 7.* ]]; then
+  sed -i 's/acl invalidators {/acl invalidators +log {/' .ddev/varnish/parameters.vcl
+  sed -i 's/acl debuggers {/acl debuggers +log {/' .ddev/varnish/parameters.vcl
+fi
 ddev dotenv set .ddev/.env.varnish --varnish-docker-image=varnish:$VARNISH_VERSION --varnish-varnishd-params " -p $vcl_path=/etc/varnish -f /etc/varnish/$vcl_file"
 
 ddev get ddev/ddev-varnish
@@ -63,7 +68,7 @@ ddev restart
 
 TODO: [Apache TRUSTED_PROXIES](https://github.com/ibexa/post-install/blob/main/resources/templates/apache2/vhost.template#L67)
 
-To use Varnish 6.0LTS:
+To use Varnish 6.0LTS, set the following variables instead:
 
 ```bash
 VARNISH_VERSION=6.0
