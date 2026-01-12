@@ -34,7 +34,8 @@ Next, configure your DDEV environment with the following command:
 ddev config --project-type=symfony --php-version 8.3 --nodejs-version 22 --docroot=public
 ```
 
-This command sets the project type to PHP, the PHP version to 8.3, the document root to `public` directory, and creates the document root if it doesn't exist.
+This command sets the project type to Symfony, the PHP version to 8.3, the document root to `public` directory, and creates the document root if it doesn't exist.
+The Symfony project type add the `ddev console` command (equivalent to `ddev php bin/console` from PHP project type).
 
 #### Use another database type (optional)
 
