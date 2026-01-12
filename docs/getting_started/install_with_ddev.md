@@ -31,7 +31,7 @@ mkdir my-ddev-project && cd my-ddev-project
 Next, configure your DDEV environment with the following command:
 
 ```bash
-ddev config --project-type=php --php-version 8.3 --nodejs-version 22 --docroot=public
+ddev config --project-type=symfony --php-version 8.3 --nodejs-version 22 --docroot=public
 ```
 
 This command sets the project type to PHP, the PHP version to 8.3, the document root to `public` directory, and creates the document root if it doesn't exist.
@@ -158,7 +158,7 @@ ddev composer create ibexa/<edition>-skeleton:<version>
 Once you've made this change, you can proceed to install [[= product_name =]].
 
 ```bash
-ddev php bin/console ibexa:install
+ddev console ibexa:install
 ```
 
 ### 7. Open browser
@@ -177,7 +177,7 @@ You can edit the configuration and code in the DDEV project directory.
 You can use commands listed in the documentation by prefixing them with `ddev exec` or by opening a terminal inside the container by using `ddev ssh`.
 For example, if a guideline invites you to run `php bin/console cache:clear`, you can do it in the DDEV container in one of the following ways:
 
-- run `ddev php bin/console cache:clear`
+- run `ddev console cache:clear`
 - enter `ddev ssh` and run `php bin/console cache:clear` after the new prompt
 
 ## Other options for configuration
@@ -366,7 +366,7 @@ To run an existing project, you need to:
 1. Add Composer authentication.
 1. Install dependencies packages with Composer.
 1. Populate the contents, which could mean:
-    - getting a clean database with `ddev php bin/console ibexa:install` and adding some data with [Ibexa data migration](importing_data.md), or
+    - getting a clean database with `ddev console ibexa:install` and adding some data with [Ibexa data migration](importing_data.md), or
     - injecting a dump with [`ddev import-db`](https://ddev.readthedocs.io/en/latest/users/usage/commands/#import-db) and copying related binary files into `public/var`.
 
 The following examples run an already [version-controlled project](install_ibexa_dxp.md#add-project-to-version-control) and have the right content structure (but no content):
@@ -377,7 +377,7 @@ git clone <repository> my-ddev-project && cd my-ddev-project
 # Exclude the whole `.ddev/` directory from version control (some DDEV config could have been committed and shared, see notice below)
 .ddev/ >> .gitignore
 # Configure the DDEV project then start it
-ddev config --project-type=php --php-version 8.3 \
+ddev config --project-type=symfony --php-version 8.3 \
   --docroot=public \
   --web-environment-add DATABASE_URL=mysql://db:db@db:3306/db \
   --http-port=8080 --https-port=8443
@@ -387,9 +387,9 @@ ddev composer config --global http-basic.updates.ibexa.co <installation-key> <to
 # Install the dependencies packages
 ddev composer install
 # Populate the database with a clean install
-ddev php bin/console ibexa:install
+ddev console ibexa:install
 # Add some content types using a migration file (previously created on another installation) and update the GraphQL schema
-ddev php bin/console ibexa:migrations:migrate --file=project_content_types.yaml
+ddev console ibexa:migrations:migrate --file=project_content_types.yaml
 # Open the project in the default browser which should display the default SiteAccess frontpage
 ddev launch
 ```
