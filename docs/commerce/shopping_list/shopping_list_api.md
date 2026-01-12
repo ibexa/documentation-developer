@@ -44,9 +44,9 @@ dump($list);
 
 When adding array of entries with `ShoppingListService::addEntries()` or `ShoppingListService::moveEntries()`,
 an exception is thrown if a product is already in the shopping list and the whole array is canceled.
-If you work with batch of products, filter it before adding it, or add entries one by one.
 
-The following examples both add products to a shopping list while avoiding error on duplicate:
+The two following examples both add products to a shopping list while avoiding error on duplicate.
+(To stay short, this examples doesn't track down duplicates but it could be implemented for notification to the user.)
 
 ```php
 $filteredProductCodes = array_filter($desiredProductCodes, function ($productCode) use ($list) {
@@ -63,21 +63,42 @@ foreach ($desiredProductCodes as $productCode) {
 }
 ```
 
-TODO: How to choose which solution above to use?
+TODO: How to choose which solution to use between the two above?
 
 `ShoppingListService::moveEntries()` doesn't return an updated shopping list because several lists might be updated.
-TODO: The following example merge two shopping lists into a new third one.
 
-TODO: [Shopping list event reference](shopping_list_events.md)
+The following example moves products from a source shopping list to a target shopping list after filtering products already in the target list.
+Notice how the source and target lists' variables are updated from persistence after the move:
 
-TODO: [`Ibexa\Contracts\Cart\CartShoppingListTransferServiceInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Cart-CartShoppingListTransferServiceInterface.html)
+```php
+$entriesToMove = [];
+$entriesToRemove = [];
+foreach ($movedProductCodes as $productCode) {
+    if ($targetList->getEntries()->hasEntryWithProductCode($productCode)) {
+        $entriesToRemove[] = $sourceList->getEntries()->getEntryWithProductCode($productCode);
+    } else {
+        $entriesToMove[] = $sourceList->getEntries()->getEntryWithProductCode($productCode);
+    }
+}
+$this->shoppingListService->moveEntries($targetList, $entriesToMove);
+$targetList = $this->shoppingListService->getShoppingList($targetList->getIdentifier()); // Refresh local object from persistence
+$sourceList = $this->shoppingListService->removeEntries($sourceList, $entriesToRemove); // Refresh local object from persistence even if $entriesToRemove is empty
+```
+
+When the shopping list service methods are called, event are dispatched before and after the action so its parameters or results can be customized.
+TODO: Event example?
+For more information, see [Shopping list event reference](shopping_list_events.md).
+
+Interactions between shopping list and cart are managed by
+[`Ibexa\Contracts\Cart\CartShoppingListTransferServiceInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Cart-CartShoppingListTransferServiceInterface.html)
+
+TODO: example and reco. Maybe clarify duplicate handling of this case methods
 
 There is no specific event for the transfer operations.
 
 - When adding from shopping list to cart, the `Ibexa\Contracts\Cart\Event\BeforeAddEntryEvent` and `Ibexa\Contracts\Cart\Event\AddEntryEvent` are dispatched for each entry that weren't previously in the cart.
 - When moving from cart to shopping list, `Ibexa\Contracts\ShoppingList\Event\BeforeAddEntriesEvent` and `Ibexa\Contracts\ShoppingList\Event\AddEntriesEvent` are dispatched for the batch of entries that weren't already in the shopping list,
   then `Ibexa\Contracts\Cart\Event\BeforeRemoveEntryEvent` and `Ibexa\Contracts\Cart\Event\BeforeRemoveEntryEvent` are dispatched for each entry removed from the cart.
-
 
 ## REST API
 
