@@ -34,7 +34,7 @@ To run an [[= product_name_cloud =]] project locally, you may refer to [DDEV and
 The following sequence of commands:
 
 1. Set some variables to distinguish Varnish versions, here for Varnish 7.1
-2. Copy and customize VCL files in `.ddev/varnish/` (which will be mounted as `/etc/varnish/`)
+2. Copy and customize VCL files in `.ddev/varnish/` (which is mounted as `/etc/varnish/` into the container)
     - set `web` container has the backend host and an invalidator (so back office can purge cache)
     - add "all IPs" CIDR notation to `debuggers` list to allow debugging info from any IP
     - on Varnish 7, enable logging of access control list matching for both `invalidators` and `debuggers` lists
@@ -128,17 +128,17 @@ For more information on topics such as available configurations, command lines, 
 
 ### Fastly
 
-For Fastly (as for [Ibexa Connect](https://doc.ibexa.co/projects/connect/en/latest/)), your instance must be visible from Internet.
+For Fastly (as for [[[= product_name_connect =]]](https://doc.ibexa.co/projects/connect/en/latest/)), the instance must be visible from Internet.
 
 To use [ngrok](https://ngrok.com/) alongside [`ddev share`](https://docs.ddev.com/en/stable/users/topics/sharing/#using-ddev-share-easiest) is probably the easiest way to achieve this.
 
-Be very careful when making a local development instance visible from Interne.
+Be careful when making a local development instance visible from Interne.
 For example,
 
 - close ngrok tunnels when not needed anymore,
 - don't communicate your ngrok URL to unintended people,
 - don't use it for live demo on shared screen,
-- don't store it on a Fastly or Ibexa Connect account used by external people…
+- don't store it on a Fastly or [[= product_name_connect =]] account used by external people…
 
 ## Install search engine
 
