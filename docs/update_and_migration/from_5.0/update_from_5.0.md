@@ -220,7 +220,7 @@ ibexa_elasticsearch:
             node_pool_resurrect: 'Elastic\Transport\NodePool\Resurrect\NoResurrect'
 ```
 
-For more information, see [Node pool](https://www.elastic.co/docs/reference/elasticsearch/clients/php/node_pool#_using_a_custom_nodepool_selector_and_resurrect).
+For more information, see [Node pool settings](configure_elasticsearch.md#node-pool-settings).
 
 ##### Remove trace option
 

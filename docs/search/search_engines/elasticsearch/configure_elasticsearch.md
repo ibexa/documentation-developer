@@ -108,13 +108,13 @@ ibexa_elasticsearch:
 
 When you configure a cluster-based connection, and the cluster consists of many nodes, you can choose strategies that govern how the cluster reacts to changing operating conditions, or how workload is distributed among the nodes.
 
-#### Node pool
+#### Node pool settings
 
-With this setting you decide how nodes in the cluster are selected and how failed nodes are resurrected.
+With these settings you decide how nodes in the cluster are selected and how failed nodes are resurrected.
 The node pool manages the list of active nodes, which can change over time due to connectivity issues, host malfunction, or when you add new nodes to the cluster to increase performance.
 By default, Elasticsearch 8 uses `SimpleNodePool` with `RoundRobin` selector and `NoResurrect` strategy.
 
-You can customize the node pool behavior with the following keys:
+You can customize the node pool behavior with the following settings:
 
 ``` yaml
 <connection_name>:
