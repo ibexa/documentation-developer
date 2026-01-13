@@ -294,7 +294,7 @@ By default, debugging is disabled. To enable debugging, you can use the followin
     debug:	<true/false>
 ```
 
-- `debug` logs information about requests, including request status and timing.
+- `debug` logs information about requests, including request status and timing
 
 !!! tip
 
