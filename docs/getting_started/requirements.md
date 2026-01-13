@@ -1,6 +1,6 @@
 ---
 description: System, component and package requirements for running Ibexa DXP.
-month_change: false
+month_change: true
 ---
 
 <!-- vale off -->
