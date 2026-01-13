@@ -14,7 +14,7 @@ Instead of searching text directly, it searches and index.
 Thanks to this mechanism, it's able to achieve fast response.
 
 For a detailed description of advanced settings that you might require in a specific production environment, see the documentation provided by Elastic.
-Start with the [Set up Elasticsearch](https://www.elastic.co/guide/en/elasticsearch/reference/7.7/setup.html) section.
+Start with the [Set up Elasticsearch](https://www.elastic.co/guide/en/elasticsearch/reference/8.19/setup.html) section.
 
 **Prerequisite**
 

@@ -180,6 +180,86 @@ If the platform comes from lower than v5.0.3 and is updated to higher than v5.0.
       WHERE tree_root_location_id IS NULL AND config::jsonb ? 'ibexa.site_access.config.content.tree_root.location_id';
     ```
 
+## v5.0.5
+
+### Removed support for Elasticsearch 7
+
+As of v5.0.5, Elasticsearch 7 is no longer supported by [[= product_name =]].
+If you're using Elasticsearch as your search engine, you must upgrade to Elasticsearch 8.19 or higher.
+
+#### Update Elasticsearch server
+
+Before updating your [[= product_name =]] installation, upgrade your Elasticsearch server to version 8.19 or higher.
+Follow the [Elasticsearch upgrade guide](https://www.elastic.co/guide/en/elastic-stack/8.19/upgrading-elastic-stack.html#prepare-to-upgrade) for detailed instructions.
+
+When using [[= product_name_cloud =]], see [Elasticsearch service](https://docs.upsun.com/add-services/elasticsearch.html) for a list of supported versions.
+
+#### Update configuration
+
+Next, you need to update your configuration in `config/packages/ibexa_elasticsearch.yaml`.
+
+##### Update connection pool setting
+
+The `connection_pool` and `connection_selector` settings have been removed and `node_pool_selector` and `node_pool_resurrect` have been added:
+
+``` yaml
+# Old configuration (Elasticsearch 7)
+ibexa_elasticsearch:
+    connections:
+        default:
+            connection_pool: 'Elasticsearch\ConnectionPool\StaticNoPingConnectionPool'
+            connection_selector: 'Elasticsearch\ConnectionPool\Selectors\RoundRobinSelector'
+```
+
+``` yaml
+# New configuration (Elasticsearch 8)
+ibexa_elasticsearch:
+    connections:
+        default:
+            node_pool_selector: 'Elastic\Transport\NodePool\Selector\RoundRobin'
+            node_pool_resurrect: 'Elastic\Transport\NodePool\Resurrect\NoResurrect'
+```
+
+For more information, see [Node pool](https://www.elastic.co/docs/reference/elasticsearch/clients/php/node_pool#_using_a_custom_nodepool_selector_and_resurrect).
+
+##### Remove trace option
+
+The `trace` configuration option has been removed:
+
+``` yaml
+# Old configuration (Elasticsearch 7)
+ibexa_elasticsearch:
+    connections:
+        default:
+            debug: true
+            trace: true
+```
+
+``` yaml
+# New configuration (Elasticsearch 8)
+ibexa_elasticsearch:
+    connections:
+        default:
+            debug: true
+            # trace option removed
+```
+
+#### Reindex content
+
+After upgrading to Elasticsearch 8 and updating your configuration, you must reindex the search engine:
+
+1. Push the index templates:
+
+    ``` bash
+    php bin/console ibexa:elasticsearch:put-index-template --overwrite
+    ```
+
+2. Reindex your content:
+
+    ``` bash
+    php bin/console ibexa:reindex
+    ```
+
 ## LTS Updates and additional packages
 
 [LTS Updates](editions.md#lts-updates) are standalone packages with their own update procedures.
