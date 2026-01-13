@@ -2,7 +2,7 @@
 description: Install the Collaborative editing LTS update.
 editions:
     - lts-update
-month_change: true
+month_change: false
 ---
 
 # Install Collaborative editing
