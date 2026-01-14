@@ -112,6 +112,7 @@ When you configure a cluster-based connection, and the cluster consists of many 
 
 With these settings you decide how nodes in the cluster are selected and how failed nodes are resurrected.
 The node pool manages the list of active nodes, which can change over time due to connectivity issues, host malfunction, or when you add new nodes to the cluster to increase performance.
+
 By default, Elasticsearch 8 uses `SimpleNodePool` with `RoundRobin` selector and `NoResurrect` strategy.
 
 You can customize the node pool behavior with the following settings:
@@ -141,7 +142,7 @@ By default, `null` is used, which means that the number of retries equals to the
     retries: null
 ```
 
-Depending on the connection pool that you select, [[= product_name =]]'s reaction to reaching the maximum number of retries might differ.
+Depending on the node pool settings that you select, [[= product_name =]]'s reaction to reaching the maximum number of retries might differ.
 
 For more information, see [Set retries](https://www.elastic.co/guide/en/elasticsearch/client/php-api/8.19/set-retries.html).
 
@@ -215,7 +216,7 @@ When using API key authentication, you must pass the following parameters to aut
     # ...
     authentication:
         type: api_key
-        credentials: ['<api_key>', '<api_secret>']
+        credentials: ['<api_key>', '<api_key_id>']
 ```
 
 For example:
@@ -228,8 +229,33 @@ ibexa_elasticsearch:
             elastic_cloud_id: 	'test:ZWFzdHVzMi5henVyZS5lbGFzdGljLWNsb3VkLmNvbTo5MjQzJGUwZ'
             authentication:
                 type: api_key
-                credentials: ['8Ek5f3IBGQlWj6v4M7zG', 'rmI6IechSnSJymWJ4LZqUw']
+                credentials: ['ui2lp2axTNmsyakw9tvNnw', 'VuaCfGcBCdbkQm-e5aOx']
 ```
+
+Alternatively, pass the encoded API key value (Elasticsearch also calls it "API key credentials"):
+
+``` yaml
+<connection_name>:
+    # ...
+    authentication:
+        type: api_key
+        credentials: ['<api_key_encoded>']
+```
+
+For example:
+
+``` yaml
+ibexa_elasticsearch:
+    connections:
+        cloud:
+            debug: true
+            elastic_cloud_id: 	'test:ZWFzdHVzMi5henVyZS5lbGFzdGljLWNsb3VkLmNvbTo5MjQzJGUwZ'
+            authentication:
+                type: api_key
+                credentials: ['VnVhQ2ZHY0JDZGJrUW0tZTVhT3g6dWkybHAyYXhUTm1zeWFrdzl0dk5udw==']
+```
+
+Refer to the [examples in Elasticsearch documentation](https://www.elastic.co/guide/en/elasticsearch/reference/8.19/security-api-create-api-key.html#security-api-create-api-key-example) to see the difference between API key, API key id and encoded API key.
 
 ### SSL
 
@@ -295,6 +321,11 @@ By default, debugging is disabled. To enable debugging, you can use the followin
 ```
 
 - `debug` logs information about requests, including request status and timing
+
+!!! note "Elasticsearch 7 compatibility"
+
+    If you're using Elasticsearch 7, you can also use the `trace` setting for additional debugging information.
+    This setting is deprecated and removed in Elasticsearch 8.
 
 !!! tip
 

@@ -182,28 +182,33 @@ If the platform comes from lower than v5.0.3 and is updated to higher than v5.0.
 
 ## v5.0.5
 
-### Removed support for Elasticsearch 7
+### Elasticsearch 8 support
 
-As of v5.0.5, Elasticsearch 7 is no longer supported by [[= product_name =]].
-If you're using Elasticsearch as your search engine, you must upgrade to Elasticsearch 8.19 or higher.
+As of v5.0.5, [[= product_name =]] adds support for Elasticsearch 8.19 or higher.
+You can continue using Elasticsearch 7.16.2+, or upgrade to Elasticsearch 8 for improved performance and security features.
+
+When choosing to keep using Elasticsearch 7.16.2, adjust your configuration as described in the [Update configuration](#update-configuration) section below to avoid using deprecated settings.
+
+If you choose to upgrade to Elasticsearch 8, follow these steps:
 
 #### Update Elasticsearch server
 
-Before updating your [[= product_name =]] installation, upgrade your Elasticsearch server to version 8.19 or higher.
+Upgrade your Elasticsearch server to version 8.19 or higher.
 Follow the [Elasticsearch upgrade guide](https://www.elastic.co/guide/en/elastic-stack/8.19/upgrading-elastic-stack.html#prepare-to-upgrade) for detailed instructions.
 
 When using [[= product_name_cloud =]], see [Elasticsearch service](https://docs.upsun.com/add-services/elasticsearch.html) for a list of supported versions.
 
 #### Update configuration
 
-Next, you need to update your configuration in `config/packages/ibexa_elasticsearch.yaml`.
+Update your configuration in `config/packages/ibexa_elasticsearch.yaml`.
 
-##### Update connection pool setting
+##### Replace deprecated connection pool settings
 
-The `connection_pool` and `connection_selector` settings have been removed and `node_pool_selector` and `node_pool_resurrect` have been added:
+The deprecated `connection_pool` and `connection_selector` settings are now ignored and don't have any effect.
+Replace them with appriopriate `node_pool_selector` and `node_pool_resurrect` settings:
 
 ``` yaml
-# Old configuration (Elasticsearch 7)
+# Old configuration (Elasticsearch 7 - deprecated)
 ibexa_elasticsearch:
     connections:
         default:
@@ -224,8 +229,7 @@ For more information, see [Node pool settings](configure_elasticsearch.md#node-p
 
 ##### Remove trace option
 
-The `trace` configuration option has been removed:
-
+The `trace` debugging option is no longer available.
 ``` yaml
 # Old configuration (Elasticsearch 7)
 ibexa_elasticsearch:
@@ -241,12 +245,12 @@ ibexa_elasticsearch:
     connections:
         default:
             debug: true
-            # trace option removed
+            # Trace option is no longer available
 ```
 
 #### Reindex content
 
-After upgrading to Elasticsearch 8 and updating your configuration, you must reindex the search engine:
+After upgrading to Elasticsearch 8 and updating your configuration, reindex the search engine:
 
 1. Push the index templates:
 
