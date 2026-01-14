@@ -17,7 +17,7 @@ The following server requirements cover both running the software on-premise and
     For running on [[[= product_name_cloud =]]](https://www.ibexa.co/products/ibexa-cloud), where recommended configuration and support is provided out of the box, see separate [[[= product_name_cloud =]] section](#ibexa-cloud-requirements-and-setup) for further reading on its requirements.
 
 The minimal setup requires PHP, MySQL/MariaDB, Apache/Nginx, Node.js and `yarn`.
-For production setups it's recommended that you use Varnish/Fastly, Redis, NFS/EFS/S3 and Solr/Elasticsearch in a [clustered setup](clustering.md).
+For production setups it's recommended that you use Varnish/Fastly, Redis/Valkey, NFS/EFS/S3 and Solr/Elasticsearch in a [clustered setup](clustering.md).
 
 !!! caution "Recommended versions"
 
