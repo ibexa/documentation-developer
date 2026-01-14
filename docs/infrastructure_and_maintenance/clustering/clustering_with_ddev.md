@@ -33,16 +33,18 @@ To run an [[= product_name_cloud =]] project locally, you may refer to [DDEV and
 
 The following sequence of commands:
 
-1. Set some variables to distinguish between Varnish versions, here for Varnish 7.1
-2. Copy and customize VCL files in `.ddev/varnish/` (which is mounted as `/etc/varnish/` into the container)
+1. Sets a variable with the desired Varnish version, here Varnish 7.1
+2. Copies and customizes `parameters.vcl` file in `.ddev/varnish/` (which is mounted as `/etc/varnish/` into the container)
     - set `web` container has the backend host and an invalidator (so back office can purge cache)
     - add "all IPs" CIDR notation to `debuggers` list to allow debugging info from any IP
     - on Varnish 7, enable logging of access control list matching for both `invalidators` and `debuggers` lists
       (new Varnish 7 syntax, it was enabled by default on previous versions)
-3. Set the Varnish version to use and its demon starting parameters to use the files
-4. Adds the Varnish container
-5. Sets Varnish as the HTTP cache server
-6. Restarts the DDEV cluster
+3. Sets main `varnish*.vcl` file to use and "path to VCL directory" argument name depending on Varnish version
+4. Copies the main VCL file to `.ddev/varnish/`
+5. Sets the Varnish version to use and its demon starting parameters to use the files
+6. Adds the Varnish container
+7. Sets Varnish as the HTTP cache server
+8. Restarts the DDEV cluster and clear the Ibexa DXP cache
 
 ```bash
 VARNISH_VERSION=7.1
