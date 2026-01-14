@@ -557,5 +557,4 @@ plugins:
             'getting_started/install_on_ibexa_cloud.md': 'ibexa_cloud/install_on_ibexa_cloud.md'
             'infrastructure_and_maintenance/clustering/ddev_and_ibexa_cloud.md': 'ibexa_cloud/ddev_and_ibexa_cloud.md'
             'ai_actions/configure_ai_actions.md': 'ai_actions/install_ai_actions.md'
-            'discounts/configure_discounts.md': 'discounts/install_discounts.md'
             'content_management/collaborative_editing/configure_collaborative_editing.md': 'content_management/collaborative_editing/install_collaborative_editing.md'
