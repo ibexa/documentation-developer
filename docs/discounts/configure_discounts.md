@@ -54,8 +54,8 @@ php bin/console messenger:consume ibexa.messenger.transport --bus=ibexa.messenge
 
 4\. Use a scheduler of your choice, for example, [cron](https://en.wikipedia.org/wiki/Cron), to periodically run the following command:
 
-``` bash
-php bin/console ibexa:discounts:reindex
+``` cron
+*/5 * * * * cd [path-to-ibexa]; php bin/console ibexa:discounts:reindex --quiet --env=prod
 ```
 
 !!! note "Deploying Symfony Messenger"
