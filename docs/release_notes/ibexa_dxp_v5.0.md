@@ -32,7 +32,7 @@ Valkey is now [officially supported](requirements.md) alongside Redis.
 
 In Symfony's `dev` environment, use the "Open profiler" action to quickly debug Page Builder's block rendering failures.
 
-![Quickly debug failing Page Builder blocks with "Open profiler" action](img/5_0_integrated_help_menu.png "Quickly debug failing Page Builder blocks with 'Open profiler' action")
+![Quickly debug failing Page Builder blocks with "Open profiler" action](img/5.0_open_in_profiler.png "Quickly debug failing Page Builder blocks with 'Open profiler' action")
 
 ##### Improved logging for Ibexa CDP
 
