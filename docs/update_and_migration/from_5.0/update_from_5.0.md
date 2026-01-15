@@ -1,6 +1,6 @@
 ---
 description: Update your installation to the latest v5.0 version from an earlier v5.0 version.
-month_change: true
+month_change: false
 ---
 
 # Update from v5.0.x to v5.0.latest
@@ -263,6 +263,21 @@ After upgrading to Elasticsearch 8 and updating your configuration, reindex the 
 
     ``` bash
     php bin/console ibexa:reindex
+
+### Database update
+
+Run the provided SQL upgrade script to ensure the Messenger tables for [background tasks](background_tasks.md) exist in your database:
+
+=== "MySQL"
+
+    ``` sql
+    mysql -u <username> -p <password> <database_name> < vendor/ibexa/installer/upgrade/db/mysql/ibexa-5.0.4-to-5.0.5.sql
+    ```
+
+=== "PostgreSQL"
+
+    ``` sql
+    psql <database_name> < vendor/ibexa/installer/upgrade/db/postgresql/ibexa-5.0.4-to-5.0.5.sql
     ```
 
 ## LTS Updates and additional packages

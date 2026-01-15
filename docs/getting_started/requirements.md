@@ -1,6 +1,6 @@
 ---
 description: System, component and package requirements for running Ibexa DXP.
-month_change: false
+month_change: true
 ---
 
 <!-- vale off -->
@@ -295,7 +295,7 @@ For production setups it's recommended that you use Varnish/Fastly, Redis, NFS/E
 === "[[= product_name =]] v5.0"
 
     - Linux NFS or S3/EFS (for IO, aka binary files stored in content repository, not supported with legacy)
-    - Redis 7.2+ (separate instances for session and cache, both using a `volatile-*` [eviction policy](https://redis.io/docs/latest/develop/reference/eviction/), session instance configured for persistence)
+    - Redis 7.2+, 8.4+, or Valkey 9.0+ (separate instances for session and cache, both using a `volatile-*` [eviction policy](https://redis.io/docs/latest/develop/reference/eviction/), session instance configured for persistence)
     - [Varnish](http://varnish-cache.org/) 6.0LTS or 7.1 with [varnish-modules](https://github.com/varnish/varnish-modules/blob/master/README.md) or [Fastly](https://www.fastly.com/) using [the provided bundle](http_cache.md) (for HTTP Cache)
 
     If you see a "+" next to the product version, it indicates a recommended version or higher within the same major release.
@@ -304,7 +304,7 @@ For production setups it's recommended that you use Varnish/Fastly, Redis, NFS/E
 === "[[= product_name =]] v4.6"
 
     - Linux NFS or S3/EFS (for IO, aka binary files stored in content repository, not supported with legacy)
-    - Redis 4.0+, 5.0+, and 7.2+ (separate instances for session and cache, both using a `volatile-*` [eviction policy](https://redis.io/docs/latest/develop/reference/eviction/), session instance configured for persistence) or [Memcached](https://memcached.org/) 1.5 or higher
+    - Redis 4.0+, 5.0+, 7.2+, 8.4+, or Valkey 9.0+ (separate instances for session and cache, both using a `volatile-*` [eviction policy](https://redis.io/docs/latest/develop/reference/eviction/), session instance configured for persistence), or [Memcached](https://memcached.org/) 1.5 or higher
     - [Varnish](http://varnish-cache.org/) 6.0LTS or 7.1 with [varnish-modules](https://github.com/varnish/varnish-modules/blob/master/README.md) or [Fastly](https://www.fastly.com/) using [the provided bundle](http_cache.md) (for HTTP Cache)
 
     If you see a "+" next to the product version, it indicates a recommended version or higher within the same major release.

@@ -7,6 +7,23 @@ month_change: true
 
 This page contains recent highlights and notable changes in [[= product_name =]] documentation.
 
+## December 2025
+
+### Discounts
+
+- Extending Discounts
+    - Added documentation about how to [create custom conditions and rules](https://doc.ibexa.co/en/latest/discounts/extend_discounts/#create-custom-conditions-and-rules) and [change discount priority](https://doc.ibexa.co/en/latest/discounts/extend_discounts/#change-discount-priority)
+    - Added documentation about how to [extend Discounts wizard](https://doc.ibexa.co/en/latest/discounts/extend_discounts_wizard/)
+    - Example [how to deal with discounts products using the API](https://doc.ibexa.co/en/latest/discounts/discounts_api/#example-api-usage) added in the Discounts API page
+
+### Infrastructure
+
+- Updated [requirements](https://doc.ibexa.co/en/4.6/getting_started/requirements/) for [[= product_name =]] 4.6 and 5.0: PostgreSQL 18 is now officially supported
+
+### Ibexa Cloud
+
+- Naming update in the documentation: [renamed Platform.sh to Upsun](https://upsun.com/platform-sh-is-now-upsun/)
+
 ## November 2025
 
 ### Releases
@@ -14,7 +31,7 @@ This page contains recent highlights and notable changes in [[= product_name =]]
 - [v5.0.4 release notes](https://doc.ibexa.co/en/5.0/release_notes/ibexa_dxp_v5.0/#ibexa-dxp-v504)
 - [v4.6.26 release notes](https://doc.ibexa.co/en/4.6/release_notes/ibexa_dxp_v4.6/#ibexa-dxp-v4626)
 
-### Infrastructure:
+### Infrastructure
 
  - [MariaDB 11.4 is officially supported on v5 and v4.6](requirements.md#dbms)
 
