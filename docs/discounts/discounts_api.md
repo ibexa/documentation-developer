@@ -45,7 +45,7 @@ Only a single discount can be applied to a given product, and a discount can onl
 
 When creating a rule, not with the user interface but an API, you must pass the required expression values for the rule to be valid:
 
-- using PHP, the values are passed through the constuctor which converts them into an expression variable
+- using PHP, the values are passed through the constructor which converts them into an expression variable
 - using data migrations and the REST API, the values are specified using the `expressionValues` key
 
 See the following examples for data migrations and the REST API usage:
@@ -83,7 +83,7 @@ When multiple conditions are specified, all of them must be met.
 
 As with rules, when creating a condition through other means than the user interface, you must pass the required expression values for the condition to be valid:
 
-- using PHP, the values are passed through the constuctor which converts them into an expression variable
+- using PHP, the values are passed through the constructor which converts them into an expression variable
 - using data migrations and the REST API, the values are specified using the `expressionValues` key
 
 See the following examples for data migrations and the REST API usage:
