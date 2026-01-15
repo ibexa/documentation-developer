@@ -173,7 +173,7 @@ It uses three expressions:
 
 - the built-in `amount` variable, holding the purchase amount
 - the built-in `get_current_region()` function, returning the current region
-- a custom `power_parity_map` variable, holding the purchasing power parity map. It's defined in the constructor.
+- a custom `power_parity_map` variable, holding the purchasing power parity map. It's defined in the constructor
 
 As with conditions, create a dedicated rule factory:
 
