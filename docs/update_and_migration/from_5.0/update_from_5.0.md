@@ -205,7 +205,7 @@ Update your configuration in `config/packages/ibexa_elasticsearch.yaml`.
 ##### Replace deprecated connection pool settings
 
 The deprecated `connection_pool` and `connection_selector` settings are now ignored and don't have any effect.
-Replace them with appriopriate `node_pool_selector` and `node_pool_resurrect` settings:
+Replace them with appropriate `node_pool_selector` and `node_pool_resurrect` settings:
 
 ``` yaml
 # Old configuration (Elasticsearch 7 - deprecated)
@@ -230,6 +230,7 @@ For more information, see [Node pool settings](configure_elasticsearch.md#node-p
 ##### Remove trace option
 
 The `trace` debugging option is no longer available.
+
 ``` yaml
 # Old configuration (Elasticsearch 7)
 ibexa_elasticsearch:

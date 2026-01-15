@@ -255,7 +255,7 @@ ibexa_elasticsearch:
                 credentials: ['VnVhQ2ZHY0JDZGJrUW0tZTVhT3g6dWkybHAyYXhUTm1zeWFrdzl0dk5udw==']
 ```
 
-Refer to the [examples in Elasticsearch documentation](https://www.elastic.co/guide/en/elasticsearch/reference/8.19/security-api-create-api-key.html#security-api-create-api-key-example) to see the difference between API key, API key id and encoded API key.
+Refer to the [examples in Elasticsearch documentation](https://www.elastic.co/guide/en/elasticsearch/reference/8.19/security-api-create-api-key.html#security-api-create-api-key-example) to see the difference between API key, API key id, and encoded API key.
 
 ### SSL
 
