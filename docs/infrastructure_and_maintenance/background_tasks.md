@@ -14,6 +14,78 @@ These messages are stored in a queue and picked up by a background worker, which
 
 [[= product_name_base =]] Messenger supports multiple storage backends, such as Doctrine, Redis, and PostgreSQL, and gives developers the flexibility to create their own message handlers for custom use cases.
 
+## Installation
+
+To use [[= product_name_base =]] Messenger, you must first install the package and set up the database tables.
+
+### Install package
+
+Install the `ibexa/messenger` package:
+
+```bash
+composer require ibexa/messenger:[[= latest_tag_4_6 =]]
+```
+
+### Set up database
+
+Run the following SQL script to create the required database tables.
+
+=== "MySQL"
+
+    ```sql
+    -- ibexa/messenger
+    CREATE TABLE IF NOT EXISTS ibexa_messenger_messages (
+        id BIGINT AUTO_INCREMENT NOT NULL,
+        body LONGTEXT NOT NULL,
+        headers LONGTEXT NOT NULL,
+        queue_name VARCHAR(190) NOT NULL,
+        created_at DATETIME NOT NULL COMMENT '(DC2Type:datetime_immutable)',
+        available_at DATETIME NOT NULL COMMENT '(DC2Type:datetime_immutable)',
+        delivered_at DATETIME DEFAULT NULL COMMENT '(DC2Type:datetime_immutable)',
+        INDEX ibexa_messenger_created_at_idx (created_at),
+        INDEX ibexa_messenger_available_at_idx (available_at),
+        INDEX ibexa_messenger_delivered_at_idx (delivered_at),
+        PRIMARY KEY(id)
+    ) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_520_ci` ENGINE = InnoDB;
+
+    CREATE TABLE IF NOT EXISTS ibexa_messenger_lock_keys (
+        key_id VARCHAR(64) NOT NULL,
+        key_token VARCHAR(44) NOT NULL,
+        key_expiration INT UNSIGNED NOT NULL,
+        PRIMARY KEY(key_id)
+    ) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_520_ci` ENGINE = InnoDB;
+    ```
+
+=== "PostgreSQL"
+
+    ```sql
+    -- ibexa/messenger
+    CREATE TABLE IF NOT EXISTS ibexa_messenger_messages (
+        id BIGSERIAL NOT NULL,
+        body TEXT NOT NULL,
+        headers TEXT NOT NULL,
+        queue_name VARCHAR(190) NOT NULL,
+        created_at TIMESTAMP(0) WITHOUT TIME ZONE NOT NULL,
+        available_at TIMESTAMP(0) WITHOUT TIME ZONE NOT NULL,
+        delivered_at TIMESTAMP(0) WITHOUT TIME ZONE DEFAULT NULL,
+        PRIMARY KEY(id)
+    );
+
+    CREATE INDEX IF NOT EXISTS ibexa_messenger_created_at_idx ON ibexa_messenger_messages (created_at);
+    CREATE INDEX IF NOT EXISTS ibexa_messenger_available_at_idx ON ibexa_messenger_messages (available_at);
+    CREATE INDEX IF NOT EXISTS ibexa_messenger_delivered_at_idx ON ibexa_messenger_messages (delivered_at);
+    COMMENT ON COLUMN ibexa_messenger_messages.created_at IS '(DC2Type:datetime_immutable)';
+    COMMENT ON COLUMN ibexa_messenger_messages.available_at IS '(DC2Type:datetime_immutable)';
+    COMMENT ON COLUMN ibexa_messenger_messages.delivered_at IS '(DC2Type:datetime_immutable)';
+
+    CREATE TABLE IF NOT EXISTS ibexa_messenger_lock_keys (
+        key_id VARCHAR(64) NOT NULL,
+        key_token VARCHAR(44) NOT NULL,
+        key_expiration INT NOT NULL,
+        PRIMARY KEY(key_id)
+    );
+    ```
+
 ## How it works
 
 [[= product_name_base =]] Messenger uses a command bus as a queue that stores messages, or commands, which tell the system what you want to happen, and separates them from the handler, which is the code that actually performs the task.

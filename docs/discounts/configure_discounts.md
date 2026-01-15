@@ -42,18 +42,20 @@ The worker passes the messages to the handler, which then starts the re-indexing
 
 To run discount re-indexing in the background:
 
-1\. Make sure that the transport layer is [defined properly](background_tasks.md#configure-package) in [[= product_name_base =]] Messenger configuration.
+1\. Install and configure [Ibexa Messenger](background_tasks.md#installation).
 
-2\. Make sure that the [worker starts](background_tasks.md#start-worker) together with the application to watch the transport bus:
+2\. Make sure that the transport layer is [defined properly](background_tasks.md#configure-package) in [[= product_name_base =]] Messenger configuration.
+
+3\. Make sure that the [worker starts](background_tasks.md#start-worker) together with the application to watch the transport bus:
 
 ``` bash
 php bin/console messenger:consume ibexa.messenger.transport --bus=ibexa.messenger.bus
 ```
 
-3\. Use a scheduler of your choice, for example, [cron](https://en.wikipedia.org/wiki/Cron), to periodically run the following command:
+4\. Use a scheduler of your choice, for example, [cron](https://en.wikipedia.org/wiki/Cron), to periodically run the following command:
 
-``` bash
-php bin/console ibexa:discounts:reindex
+``` cron
+*/5 * * * * cd [path-to-ibexa]; php bin/console ibexa:discounts:reindex --quiet --env=prod
 ```
 
 !!! note "Deploying Symfony Messenger"
