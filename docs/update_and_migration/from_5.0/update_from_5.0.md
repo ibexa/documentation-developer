@@ -217,7 +217,7 @@ ibexa_elasticsearch:
 ```
 
 ``` yaml
-# New configuration (Elasticsearch 8)
+# New configuration (Elasticsearch 7 and 8)
 ibexa_elasticsearch:
     connections:
         default:
@@ -241,7 +241,7 @@ ibexa_elasticsearch:
 ```
 
 ``` yaml
-# New configuration (Elasticsearch 8)
+# New configuration (Elasticsearch 7 and 8)
 ibexa_elasticsearch:
     connections:
         default:
