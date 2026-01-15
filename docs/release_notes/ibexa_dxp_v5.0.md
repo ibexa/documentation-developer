@@ -12,7 +12,7 @@ month_change: false
 
 [[% set version = 'v5.0.5' %]]
 
-[[= release_note_entry_begin("Integrated help " + version, '2026-01-15', ['Headless', 'Experience', 'Commerce']) =]]
+[[= release_note_entry_begin("Ibexa DXP " + version, '2026-01-15', ['Headless', 'Experience', 'Commerce']) =]]
 
 #### Infrastucture
 
@@ -54,6 +54,7 @@ when@prod:
 ##### Added OpenAPI support for Collaborative editing REST API
 
 TODO: update rest api link when it's regenerated
+
 The [Collaborative editing](collaborative_editing.md) REST API endpoints are now included in the [OpenAPI-based REST API reference](#).
 
 #### PHP API Changes
