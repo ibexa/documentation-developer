@@ -232,7 +232,7 @@ ibexa_elasticsearch:
                 credentials: ['ui2lp2axTNmsyakw9tvNnw', 'VuaCfGcBCdbkQm-e5aOx']
 ```
 
-Alternatively, pass the encoded API key value (Elasticsearch also calls it "API key credentials"):
+Alternatively, pass the encoded API key value, which Elasticsearch also calls "API key credentials":
 
 ``` yaml
 <connection_name>:
