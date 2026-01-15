@@ -19,7 +19,7 @@ month_change: false
 ##### Added support for Elasticsearch 8
 
 Elasticsearch 8 is now officially supported.
-If you're currently using the [no longer maintened Elasticsearch 7](https://www.elastic.co/support/eol#prior-versions), it's recommended to upgrade.
+If you're currently using the [no longer maintened Elasticsearch 7](https://www.elastic.co/support/eol), it's recommended to upgrade.
 See the [update instructions](update_from_5.0.md#update-elasticsearch-server) for more information.
 
 ##### Added support for Valkey
