@@ -10,6 +10,62 @@ month_change: false
 
 <div class="release-notes" markdown="1">
 
+[[% set version = 'v5.0.5' %]]
+
+[[= release_note_entry_begin("Integrated help " + version, '2026-01-15', ['Headless', 'Experience', 'Commerce']) =]]
+
+#### Infrastucture
+
+##### Added support for Elasticsearch 8
+
+Elasticsearch 8 is now officially supported.
+If you're currently using the [no longer maintened Elasticsearch 7](https://www.elastic.co/support/eol#prior-versions), it's recommended to upgrade.
+See the [update instructions](update_from_5.0.md#update-elasticsearch-server) for more information.
+
+##### Added support for Valkey
+
+Valkey is now [officially supported](requirements.md) alongside Redis.
+
+#### Developer experience
+
+##### Easier debugging of Page Builder blocks
+
+In Symfony's `dev` environment, use the "Open profiler" action to quickly debug Page Builder's block rendering failures.
+
+![Quickly debug failing Page Builder blocks with "Open profiler" action](img/5_0_integrated_help_menu.png "Quickly debug failing Page Builder blocks with 'Open profiler' action")
+
+##### Improved logging for Ibexa CDP
+
+You can configure the new `ibexa.cdp.webhook` Monolog channels to direct all CDP webhook logs to specific output for easier separation of logs.
+
+Example configuration:
+
+```yaml
+when@prod:
+    monolog:
+        handlers:
+            cdp_webhook:
+                type: stream
+                path: "%kernel.logs_dir%/cdp_webhook_%kernel.environment%.log"
+                level: debug
+                channels: [ 'ibexa.cdp.webhook' ]
+```
+
+##### Added OpenAPI support for Collaborative editing REST API
+
+#TODO: update rest api link when it's regenerated
+The [Collaborative editing](collaborative_editing.md) REST API endpoints are now included in the [OpenAPI-based REST API reference](#todo-link).
+
+#### PHP API Changes
+
+#TODO when PHP API is regenerated
+
+### Full changelog
+
+[[% include 'snippets/release_50.md' %]]
+
+[[= release_note_entry_end() =]]
+
 [[% set version = 'v5.0.4' %]]
 
 [[= release_note_entry_begin("Integrated help " + version, '2025-12-10', ['Headless', 'Experience', 'Commerce', 'LTS Update', 'New feature']) =]]
