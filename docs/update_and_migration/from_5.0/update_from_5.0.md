@@ -185,7 +185,7 @@ If the platform comes from lower than v5.0.3 and is updated to higher than v5.0.
 ### Elasticsearch 8 support
 
 As of v5.0.5, [[= product_name =]] adds support for Elasticsearch 8.19 or higher.
-You can continue using Elasticsearch 7.16.2+, or upgrade to Elasticsearch 8 for improved performance and security features.
+You can continue using [unsupported Elasticsearch 7.16.2+]((https://www.elastic.co/support/eol#prior-versions)), but it's recommended to upgrade to Elasticsearch 8 for improved performance and security features.
 
 When choosing to keep using Elasticsearch 7.16.2, adjust your configuration as described in the [Update configuration](#update-configuration) section below to avoid using deprecated settings.
 

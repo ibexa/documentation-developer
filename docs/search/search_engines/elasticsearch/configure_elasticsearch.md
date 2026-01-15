@@ -113,7 +113,7 @@ When you configure a cluster-based connection, and the cluster consists of many 
 With these settings you decide how nodes in the cluster are selected and how failed nodes are resurrected.
 The node pool manages the list of active nodes, which can change over time due to connectivity issues, host malfunction, or when you add new nodes to the cluster to increase performance.
 
-By default, Elasticsearch 8 uses `SimpleNodePool` with `RoundRobin` selector and `NoResurrect` strategy.
+By default, Elasticsearch uses `SimpleNodePool` with `RoundRobin` selector and `NoResurrect` strategy.
 
 You can customize the node pool behavior with the following settings:
 
@@ -124,7 +124,7 @@ You can customize the node pool behavior with the following settings:
     node_pool_resurrect: Elastic\Transport\NodePool\Resurrect\NoResurrect
 ```
 
-For more information and a list of available choices, see [Node pool](https://www.elastic.co/docs/reference/elasticsearch/clients/php/node_pool).
+For more information and a list of available choices, see [Node pool](https://www.elastic.co/guide/en/elasticsearch/client/php-api/8.19/node_pool.html).
 
 !!! tip "Load tests recommendation"
 
