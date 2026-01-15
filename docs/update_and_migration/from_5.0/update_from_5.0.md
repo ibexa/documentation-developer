@@ -182,6 +182,88 @@ If the platform comes from lower than v5.0.3 and is updated to higher than v5.0.
 
 ## v5.0.5
 
+### Elasticsearch 8 support
+
+As of v5.0.5, [[= product_name =]] adds support for Elasticsearch 8.19 or higher.
+You can continue using [unsupported Elasticsearch 7.16.2+]((https://www.elastic.co/support/eol#prior-versions)), but it's recommended to upgrade to Elasticsearch 8 for improved performance and security features.
+
+When choosing to keep using Elasticsearch 7.16.2, adjust your configuration as described in the [Update configuration](#update-configuration) section below to avoid using deprecated settings.
+
+If you choose to upgrade to Elasticsearch 8, follow these steps:
+
+#### Update Elasticsearch server
+
+Upgrade your Elasticsearch server to version 8.19 or higher.
+Follow the [Elasticsearch upgrade guide](https://www.elastic.co/guide/en/elastic-stack/8.19/upgrading-elastic-stack.html#prepare-to-upgrade) for detailed instructions.
+
+When using [[= product_name_cloud =]], see [Elasticsearch service](https://docs.upsun.com/add-services/elasticsearch.html) for a list of supported versions.
+
+#### Update configuration
+
+Update your configuration in `config/packages/ibexa_elasticsearch.yaml`.
+
+##### Replace deprecated connection pool settings
+
+The deprecated `connection_pool` and `connection_selector` settings are now ignored and don't have any effect.
+Replace them with appropriate `node_pool_selector` and `node_pool_resurrect` settings:
+
+``` yaml
+# Old configuration (Elasticsearch 7 - deprecated)
+ibexa_elasticsearch:
+    connections:
+        default:
+            connection_pool: 'Elasticsearch\ConnectionPool\StaticNoPingConnectionPool'
+            connection_selector: 'Elasticsearch\ConnectionPool\Selectors\RoundRobinSelector'
+```
+
+``` yaml
+# New configuration (Elasticsearch 8)
+ibexa_elasticsearch:
+    connections:
+        default:
+            node_pool_selector: 'Elastic\Transport\NodePool\Selector\RoundRobin'
+            node_pool_resurrect: 'Elastic\Transport\NodePool\Resurrect\NoResurrect'
+```
+
+For more information, see [Node pool settings](configure_elasticsearch.md#node-pool-settings).
+
+##### Remove trace option
+
+The `trace` debugging option is no longer available.
+
+``` yaml
+# Old configuration (Elasticsearch 7)
+ibexa_elasticsearch:
+    connections:
+        default:
+            debug: true
+            trace: true
+```
+
+``` yaml
+# New configuration (Elasticsearch 8)
+ibexa_elasticsearch:
+    connections:
+        default:
+            debug: true
+            # Trace option is no longer available
+```
+
+#### Reindex content
+
+After upgrading to Elasticsearch 8 and updating your configuration, reindex the search engine:
+
+1. Push the index templates:
+
+    ``` bash
+    php bin/console ibexa:elasticsearch:put-index-template --overwrite
+    ```
+
+2. Reindex your content:
+
+    ``` bash
+    php bin/console ibexa:reindex
+
 ### Database update
 
 Run the provided SQL upgrade script to ensure the Messenger tables for [background tasks](background_tasks.md) exist in your database:

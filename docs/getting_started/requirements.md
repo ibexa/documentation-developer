@@ -215,7 +215,7 @@ For production setups it's recommended that you use Varnish/Fastly, Redis, NFS/E
     |Name|Version|
     |---|---|
     |Solr|8.11.1+ or 9.8.1+|
-    |Elasticsearch| 7.16.2+ |
+    |Elasticsearch| 7.16.2+ or 8.19+ |
 
     If you see a "+" next to the product version, it indicates a recommended version or higher within the same major release.
     For example, "1.18+" means any 1.x version equal to or higher than 1.18, but not 2.x.
