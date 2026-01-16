@@ -58,17 +58,6 @@ jobs:
                     php tools/raml2html/raml2html.php build --non-standard-http-methods=COPY,MOVE,PUBLISH,SWAP -t default -o docs/api/rest_api/rest_api_reference/ docs/api/rest_api/rest_api_reference/input/ibexa.raml
                   fi
 
-            - name: Set up Python
-              uses: actions/setup-python@v5
-              with:
-                  python-version: '3.x'
-
-            - name: Install Python dependencies
-              run: pip install -r requirements.txt
-
-            - name: Extract shared navigation from PHP API Reference
-              run: python tools/api_refs/extract_navigation.py docs/api/php_api/php_api_reference
-
             - name: Commit
               env:
                   BASE_BRANCH: ${{ steps.version_and_branches.outputs.base_branch }}
