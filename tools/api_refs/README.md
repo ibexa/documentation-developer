@@ -26,15 +26,6 @@ git commit -m "Rebuild PHP API Ref's HTML"
 git push
 ```
 
-## HTML Optimization
-
-The PHP API Reference generates large HTML files (~2.5MB each, 7.5GB total) because phpDocumentor embeds the complete navigation tree in every file. 
-Extract the navigation to a single shared file and load it dynamically with JavaScript by running:
-
-```bash
-python3 tools/api_refs/extract_navigation.py
-```
-
 ## Maintenance
 
 In `tools/api_refs/api_refs.sh`:
