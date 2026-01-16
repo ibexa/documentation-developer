@@ -69,48 +69,28 @@
         }
     }
 
-    function handleError(err) {
-        console.error('Navigation load failed:', err);
-        navContainer.innerHTML = '<div class="main_nav_content"><div style="padding: 1rem; color: #c00;">Navigation failed to load. <a href="index.html">Go to index</a></div></div><div class="main_nav__resize-handler"></div>';
-    }
-
     if (cached) {
         // Use cached navigation
         loadNav(cached);
     } else {
         // Fetch navigation
-        if (window.fetch) {
-            fetch(navPath)
-                .then(function(r) {
-                    if (!r.ok) throw new Error('HTTP ' + r.status);
-                    return r.text();
-                })
-                .then(function(html) {
-                    parser = new DOMParser();
-                    doc = parser.parseFromString(html, 'text/html');
-                    nav = doc.querySelector('.main_nav_content');
-                    sessionStorage.setItem('phpdoc-nav', nav.outerHTML);
-                    loadNav(nav.outerHTML);
-                })
-                .catch(handleError);
-        } else {
-            // Fallback for older browsers
-            var xhr = new XMLHttpRequest();
-            xhr.open('GET', navPath, true);
-            xhr.onload = function() {
-                if (xhr.status >= 200 && xhr.status < 300) {
-                    parser = new DOMParser();
-                    doc = parser.parseFromString(xhr.responseText, 'text/html');
-                    nav = doc.querySelector('.main_nav_content');
-                    sessionStorage.setItem('phpdoc-nav', nav.outerHTML);
-                    loadNav(nav.outerHTML);
-                } else {
-                    handleError(new Error('HTTP ' + xhr.status));
-                }
-            };
-            xhr.onerror = handleError;
-            xhr.send();
-        }
+        fetch(navPath)
+            .then(function(r) {
+                if (!r.ok) throw new Error('HTTP ' + r.status);
+                return r.text();
+            })
+            .then(function(html) {
+                parser = new DOMParser();
+                doc = parser.parseFromString(html, 'text/html');
+                nav = doc.querySelector('.main_nav_content');
+                sessionStorage.setItem('phpdoc-nav', nav.outerHTML);
+                loadNav(nav.outerHTML);
+            })
+            .catch(function(err) {
+                console.error('Navigation load failed:', err);
+                navContainer.innerHTML = '<div class="main_nav_content"><div style="padding: 1rem; color: #c00;">Navigation failed to load. <a href="index.html">Go to index</a></div></div><div class="main_nav__resize-handler"></div>';
+            })
+        ;
     }
 })();
 </script>
