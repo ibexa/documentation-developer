@@ -152,15 +152,7 @@ when one or more given limitations are not valid." />
         }
 
         // Highlight current page in navigation
-        var currentPath = window.location.pathname;
-        var links = navContainer.getElementsByTagName('a');
-        for (var i = 0; i < links.length; i++) {
-            if (links[i].href && links[i].getAttribute('href') &&
-                currentPath.endsWith(links[i].getAttribute('href'))) {
-                links[i].classList.add('current-page');
-                links[i].style.fontWeight = 'bold';
-            }
-        }
+        activeMenu(window, window.document);
     }
 
     if (cached) {
