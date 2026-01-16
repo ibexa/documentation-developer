@@ -14,12 +14,12 @@ month_change: false
 
 [[= release_note_entry_begin("Ibexa DXP " + version, '2026-01-15', ['Headless', 'Experience', 'Commerce']) =]]
 
-### Infrastucture
+### Infrastructure
 
 #### Added support for Elasticsearch 8
 
 Elasticsearch 8 is now officially supported.
-If you're currently using the [no longer maintened Elasticsearch 7](https://www.elastic.co/support/eol), it's recommended to upgrade.
+If you're currently using Elasticsearch 7, which is [no longer maintained](https://www.elastic.co/support/eol), it's recommended to upgrade.
 See the [update instructions](update_from_5.0.md#update-elasticsearch-server) for more information.
 
 #### Added support for Valkey
