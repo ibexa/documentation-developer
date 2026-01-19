@@ -470,7 +470,7 @@ composer why guzzlehttp/guzzle
 composer why php-http/guzzle6-adapter
 ```
 
-If only the `ibexa/core` entry appears in the output, check your codebase to determine if you use Guzzle directly. 
+If only the `ibexa/core` entry appears in the output, check your codebase to determine if you use Guzzle directly.
 If you do, add the required dependencies to your project:
 
 ```bash
