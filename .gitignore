@@ -11,4 +11,3 @@ auth.json
 .yarn
 yarn.lock
 docs/css/*.map
-*.pyc
