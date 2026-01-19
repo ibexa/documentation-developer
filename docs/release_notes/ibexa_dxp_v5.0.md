@@ -26,6 +26,10 @@ See the [update instructions](update_from_5.0.md#update-elasticsearch-server) fo
 
 Valkey is now [officially supported](requirements.md) alongside Redis.
 
+#### Added support for PostgreSQL 18
+
+PostgreSQL 18 is now [officially supported](requirements.md#dbms).
+
 ### Developer experience
 
 #### Easier debugging of Page Builder blocks
