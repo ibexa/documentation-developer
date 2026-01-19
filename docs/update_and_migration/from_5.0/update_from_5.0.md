@@ -263,6 +263,7 @@ After upgrading to Elasticsearch 8 and updating your configuration, reindex the 
 
     ``` bash
     php bin/console ibexa:reindex
+    ```
 
 ### Database update
 

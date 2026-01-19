@@ -53,13 +53,7 @@ when@prod:
 
 #### Added OpenAPI support for Collaborative editing REST API
 
-TODO: update rest api link when it's regenerated
-
-The [Collaborative editing](collaborative_editing.md) REST API endpoints are now included in the [OpenAPI-based REST API reference](#).
-
-### PHP API Changes
-
-TODO when PHP API is regenerated
+The [Collaborative editing](collaborative_editing.md) REST API endpoints are now included in the [OpenAPI-based REST API reference](/api/rest_api/rest_api_reference/rest_api_reference.html#tag/Collaboration-Sessions).
 
 ### Full changelog
 
