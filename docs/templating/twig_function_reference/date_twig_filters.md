@@ -26,11 +26,11 @@ The filters also accept an optional `timezone` parameter for displaying date and
 {{ content.contentInfo.publishedDate|ibexa_short_datetime('PST')  }}
 ```
 
-## Considerations for usage outside back office
+## Considerations for use outside the back office
 
 The filters rely on user preferences.
-When the preferences are not set, for example for logged out users, the filters fallback to a default date format.
-In case of some filters, the fallback date format contains locale-aware fragments, for example: full name of the month or day.
+When the preferences are not set, for example, for logged out users, the filters fallback to a default date format.
+For some filters, the fallback date format includes locale-aware fragments, such as the full month or day name.
 When combined with [reverse proxies like Varnish or Fastly](http_cache.md), it's possible to cache a localized version of a date and display it to other users, even if they're not using the same locale.
 
 Consider these alternatives:
