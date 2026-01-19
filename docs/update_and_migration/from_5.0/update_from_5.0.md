@@ -1,6 +1,6 @@
 ---
 description: Update your installation to the latest v5.0 version from an earlier v5.0 version.
-month_change: true
+month_change: false
 ---
 
 # Update from v5.0.x to v5.0.latest
@@ -152,7 +152,33 @@ Run the provided SQL upgrade script to add the missing indexes to your database:
 
 ## v5.0.4
 
-No additional steps needed.
+### Database update [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
+
+From a platform first installed on v5.0.3 or updated precisely to v5.0.3, you need to execute the requests below.
+If the platform comes from lower than v5.0.3 and is updated to higher than v5.0.3, you don't need this part
+(but if you run the requests anyway, you only obtain error messages, nothing being broken or lost).
+
+=== "MySQL"
+
+    ``` sql
+    ALTER TABLE `ibexa_site_public_access` ADD COLUMN `tree_root_location_id` INT DEFAULT NULL;
+    ALTER TABLE `ibexa_site_public_access` ADD INDEX `ibexa_spa_trl_id` (`tree_root_location_id`);
+
+    UPDATE ibexa_site_public_access
+      SET tree_root_location_id = CAST(JSON_UNQUOTE(JSON_EXTRACT(config, '$."ibexa.site_access.config.content.tree_root.location_id"')) AS SIGNED)
+      WHERE tree_root_location_id IS NULL AND JSON_EXTRACT(config, '$."ibexa.site_access.config.content.tree_root.location_id"') IS NOT NULL;
+    ```
+
+=== "PostgreSQL"
+
+    ``` sql
+    ALTER TABLE ibexa_site_public_access ADD COLUMN tree_root_location_id INT DEFAULT NULL;
+    CREATE INDEX "ibexa_spa_trl_id" ON "ibexa_site_public_access" ("tree_root_location_id");
+
+    UPDATE ibexa_site_public_access
+      SET tree_root_location_id = (config::jsonb ->> 'ibexa.site_access.config.content.tree_root.location_id')::integer
+      WHERE tree_root_location_id IS NULL AND config::jsonb ? 'ibexa.site_access.config.content.tree_root.location_id';
+    ```
 
 ## LTS Updates and additional packages
 

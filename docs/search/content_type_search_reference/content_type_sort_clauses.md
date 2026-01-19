@@ -1,6 +1,6 @@
 ---
 description: Content Type Search Sort Clauses
-month_change: true
+month_change: false
 ---
 
 # Content Type Search Sort Clauses
