@@ -20,15 +20,15 @@ month_change: false
 
 Elasticsearch 8 is now officially supported.
 If you're currently using Elasticsearch 7, which is [no longer maintained](https://www.elastic.co/support/eol), it's recommended to upgrade.
-See the [update instructions](update_from_5.0.md#update-elasticsearch-server) for more information.
+See the [update instructions](https://doc.ibexa.co/en/5.0/update_and_migration/from_5.0/update_from_5.0/#update-elasticsearch-server) for more information.
 
 #### Added support for Valkey
 
-Valkey is now [officially supported](requirements.md) alongside Redis.
+Valkey is now [officially supported](https://doc.ibexa.co/en/5.0/getting_started/requirements/) alongside Redis.
 
 #### Added support for PostgreSQL 18
 
-PostgreSQL 18 is now [officially supported](requirements.md#dbms).
+PostgreSQL 18 is now [officially supported](https://doc.ibexa.co/en/5.0/getting_started/requirements#dbms).
 
 ### Developer experience
 
@@ -57,7 +57,7 @@ when@prod:
 
 #### Added OpenAPI support for Collaborative editing REST API
 
-The [Collaborative editing](collaborative_editing.md) REST API endpoints are now included in the [OpenAPI-based REST API reference](/api/rest_api/rest_api_reference/rest_api_reference.html#tag/Collaboration-Sessions).
+The [Collaborative editing](https://doc.ibexa.co/en/5.0/content_management/collaborative_editing/collaborative_editing/) REST API endpoints are now included in the [OpenAPI-based REST API reference](https://doc.ibexa.co/en/5.0/api/rest_api/rest_api_reference/rest_api_reference.html#tag/Collaboration-Sessions).
 
 ### Full changelog
 
