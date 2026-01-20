@@ -1,4 +1,4 @@
-To delete an index, you can use the ElasticSearch's REST API.
+To delete an index, you can use the Elasticsearch's REST API.
 
 First, use the [`_cat/indices` endpoint](https://www.elastic.co/guide/en/elasticsearch/reference/8.19/cat-indices.html) to list existing indices:
 
