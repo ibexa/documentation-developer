@@ -126,6 +126,7 @@ By default, references are stored in memory and can be reused within the same mi
 
 To reuse them across different migration files, you can save them to disk.
 Reference files are located in a separate directory `src/Migrations/Ibexa/references` (for more information, see [previewing reference](#preview-configuration) `ibexa_migrations.migration_directory` and `ibexa_migrations.references_files_subdir` options).
+When saving references, existing files with the same name are overwritten.
 
 Reference files **aren't** loaded by default. A separate step (`type: reference`, `mode: load`, with `filename` with a relative path as value) is required.
 Similarly, saving a reference file is done using `type: reference`, `mode: save` step, with filename.
