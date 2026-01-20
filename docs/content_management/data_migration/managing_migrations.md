@@ -130,7 +130,7 @@ Reference files are located in a separate directory `src/Migrations/Ibexa/refere
 Reference files are **NOT** loaded by default. A separate step (type: "reference", mode: "load", with filename as "value") is required.
 Similarly, saving a reference file is done using type: "reference", mode: "save" step, with filename.
 
-References must be loaded **before** they can be used in the same migration file. 
+References must be loaded **before** they can be used in the same migration file.
 The order of migration steps matters - they are executed sequentially from top to bottom.
 
 ```yaml
