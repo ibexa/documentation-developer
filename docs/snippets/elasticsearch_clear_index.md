@@ -25,7 +25,7 @@ curl --request DELETE 'https://elasticsearch:9200/default_content*'
 
 !!! tip
 
-    To quickly delete all existing Elasticsearch indices, you can use the `_all` keyword as the name of the index, as in the following request: `curl --request DELETE 'https://elasticsearch:9200/_all`.
+    To quickly delete all existing Elasticsearch indices, you can use the `_all` keyword as the name of the index, as in the following request: `curl --request DELETE https://elasticsearch:9200/_all`.
     Always review the list of existing indices and confirm they are safe to delete before executing this command, as it permanently removes data.
 
 To update the schema and then reindex the search, use the following commands:
