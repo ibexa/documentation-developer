@@ -1,6 +1,7 @@
 To delete an index, you can use the Elasticsearch's REST API.
 
-First, use the [`_cat/indices` endpoint](https://www.elastic.co/guide/en/elasticsearch/reference/8.19/cat-indices.html) to list existing indices:
+First, use the [`_cat/indices` endpoint](https://www.elastic.co/guide/en/elasticsearch/reference/8.19/cat-indices.html) to list existing indices.
+For example, the command `curl  -H "Accept: application/text" elasticsearch:9200/_cat/indices` returns output like the following:
 
 ``` bash
 yellow open default_location_eng_gb_54 DoSFV-CtQFylKKVvd48YfA 1 1  1 0 16.7kb 16.7kb
@@ -21,6 +22,11 @@ curl --request DELETE 'https://elasticsearch:9200/default_location*'
 curl --request DELETE 'https://elasticsearch:9200/default_content*'
 (...)
 ```
+
+!!! tip
+
+    To quickly delete all existing Elasticsearch indices, you can use the `_all` keyword as the name of the index, as in the following request: `curl --request DELETE 'https://elasticsearch:9200/_all`.
+    Always review the list of existing indices and confirm they are safe to delete before executing this command, as it permanently removes data.
 
 To update the schema and then reindex the search, use the following commands:
 
