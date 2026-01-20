@@ -41,7 +41,8 @@ See [persistence cache documentation](persistence_cache.md#persistence-cache-con
 ### Shared sessions
 
 For a [cluster](clustering.md) setup you need to configure sessions to use a back end that is shared between web servers.
-The main option out of the box in Symfony is the PHP Redis session handler (also compatible with Valkey), alternatively there is Symfony session handler for PDO (database).
+The main option out of the box in Symfony is the PHP Redis session handler (also compatible with Valkey).
+Alternatively, there is Symfony session handler for PDO (database).
 
 To avoid concurrent access to session data from front-end nodes, if possible you should either:
 
