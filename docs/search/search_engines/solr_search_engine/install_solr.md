@@ -287,13 +287,13 @@ ibexa_solr:
     endpoints:
         main:
             dsn: '%env(string:SOLR_DSN)%'
-            core: '%env(string:SOLR_MAIN_CORE)%'
+            core: '%solr_main_core%'
         en:
             dsn: '%env(string:SOLR_DSN)%'
-            core: '%env(string:SOLR_EN_CORE)%'
+            core: '%solr_en_core%'
         fr:
             dsn: '%env(string:SOLR_DSN)%'
-            core: '%env(string:SOLR_FR_CORE)%'
+            core: '%solr_fr_core%'
         # ...
     connections:
         default:

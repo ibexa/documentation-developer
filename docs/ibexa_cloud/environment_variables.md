@@ -4,20 +4,27 @@ description: Environment variables automatically generated based on Ibexa Cloud 
 
 # Environment variables on Ibexa Cloud
 
-[[= product_name_cloud =]] automatically generates environment variables based on the Platform.sh relationships and routes configuration.
+[[= product_name_cloud =]] automatically generates environment variables based on the Upsun relationships and routes configuration.
 It parses `PLATFORM_RELATIONSHIPS` and `PLATFORM_ROUTES` environment variables and exposes them as application-specific variables.
 
 Environment variable prefixes are created by converting relationship names to uppercase and replacing hyphens with underscores.
-When multiple endpoints are defined for a single relationship, numerical indices are used, for example: `SOLR_1_`, `SOLR_2`.
+
+When multiple endpoints are defined for a single relationship, numerical indices are used for all entries except the first one, for example: `SOLR`, `SOLR_1_`, `SOLR_2`.
+When multiple services of the same type are present, environment variables are exposed for each service accordingly based on their relationship names.
 
 ## Relationship naming conventions
 
-Use the following relationship names in `.platform.app.yaml`:
+You can choose relationship names freely in `.platform.app.yaml` for most services.
+
+The only required names are:
+
+- `dfs_database` - DFS database (required for DFS functionality)
+- `redissession` - Redis for sessions (required for dedicated session storage)
+
+Common relationship name include:
 
 - `database` - main application database
-- `dfs_database` - DFS database (required name for DFS functionality)
 - `rediscache` - Redis for cache
-- `redissession` - Redis for sessions (recommended name for dedicated session storage)
 - `elasticsearch` - Elasticsearch search service
 - `solr` - Solr search service
 
