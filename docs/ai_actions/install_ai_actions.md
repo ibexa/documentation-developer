@@ -79,8 +79,15 @@ OPENAI_API_KEY=<your_api_key>
 
 ### Install sample OpenAI action configurations (optional)
 
-By installing a collection of sample AI action configurations you can quickly start using the feature.
-You do it by following a standard [data migration](importing_data.md) procedure:
+The AI actions come with sample AI action configurations to quickly get you started on using the feature.
+
+Based on these examples, which reflect the most common use cases, you can learn to configure your own AI actions with greater ease.
+
+!!! note "Taxonomy suggestions"
+
+    OpenAI connector is also used by the [Taxonomy suggestions](taxonomy.md#taxonomy-suggestions) feature to generate embeddings for suggesting tags and product categories.
+    After you configure the connector, you can [create AI actions that use the Text to Taxonomy action type]([[= user_doc =]]/ai_actions/work_with_ai_actions/#create-ai-actions-that-control-taxonomy-suggestions).
+    You can also create [your own embedding provider](taxonomy.md#replace-the-embedding-provider).
 
 ```bash
 php bin/console ibexa:migrations:import vendor/ibexa/connector-openai/src/bundle/Resources/migrations/action_configurations.yaml
