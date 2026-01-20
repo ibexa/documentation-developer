@@ -29,7 +29,7 @@ The filters also accept an optional `timezone` parameter for displaying date and
 ## Considerations for use outside the back office
 
 The filters rely on user preferences.
-When the preferences are not set, for example, for logged out users, the filters fallback to a default date format.
+When the preferences are not set, for example, for logged out users, the filters fall back to a default date format.
 For some filters, the fallback date format includes locale-aware fragments, such as the full month or day name.
 When combined with [reverse proxies like Varnish or Fastly](http_cache.md), it's possible to cache a localized version of a date and display it to other users, even if they're not using the same locale.
 
@@ -53,5 +53,18 @@ Consider these alternatives:
     By implementing this solution, you can keep the date format locale-aware.
 
 - Client-side JavaScript formatting
+
+    ``` html+twig
+    <span data-datetime="{{ content.contentInfo.publishedDate|date('c') }}">{{ content.contentInfo.publishedDate|date('Y-m-d H:i:s') }}</span>
+    …
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        document.querySelectorAll('[data-datetime]').forEach(function(elem) {
+            var datetime = new Date(elem.getAttribute('data-datetime'));
+            elem.innerHTML = datetime.toLocaleString();
+        });
+    });
+    </script>
+    ```
 
 For more information, see [HTTP Cache](http_cache.md) and [Delivering personalized responses](context_aware_cache.md#personalize-responses).
