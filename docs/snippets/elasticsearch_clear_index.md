@@ -1,6 +1,6 @@
 To delete an index, you can use the ElasticSearch's REST API.
 
-First, use the [`_cat/indices` endpoint](https://www.elastic.co/guide/en/elasticsearch/reference/7.17/cat-indices.html) to list existing indices:
+First, use the [`_cat/indices` endpoint](https://www.elastic.co/guide/en/elasticsearch/reference/8.19/cat-indices.html) to list existing indices:
 
 ``` bash
 yellow open default_location_eng_gb_54 DoSFV-CtQFylKKVvd48YfA 1 1  1 0 16.7kb 16.7kb
@@ -14,7 +14,7 @@ yellow open default_location_eng_gb_46 fSGtpljwTpGfascFechmww 1 1  1 0   21kb   
 
 Create a list containing all indices used by the DXP, including the [custom indices](search/search_engines/elasticsearch/configure_elasticsearch.md#define-field-type-mappingtemplates) as well.
 
-Then, delete them by using the [delete index endpoint](https://www.elastic.co/guide/en/elasticsearch/reference/7.17/indices-delete-index.html) 
+Then, delete them by using the [delete index endpoint](https://www.elastic.co/guide/en/elasticsearch/reference/8.19/indices-delete-index.html) 
 
 ``` bash
 curl --request DELETE 'https://elasticsearch:9200/default_location*'
