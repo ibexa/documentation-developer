@@ -78,7 +78,7 @@ Redis and its alternatives, like Valkey, can in some cases perform better than f
     Check if your cloud provider has native service for Redis, as those might be better tuned.
 
 When using Redis or Valkey, make sure to tune it for in-memory cache usage. 
-Its persistence feature isn't needed with cache and severely slows down execution time.
+The persistence feature isn't needed with cache and severely slows down execution time.
 [For use with sessions](sessions.md#cluster-setup) however, persistence can be a good fit if you want sessions to survive service interruptions.
 
 For more information, see [Redis clustering](persistence_cache.md#redis-clustering).
