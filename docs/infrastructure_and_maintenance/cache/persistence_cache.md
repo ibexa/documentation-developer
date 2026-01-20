@@ -121,12 +121,15 @@ parameters:
     The only case where it's safe to increase these values is for dev environment with single concurrency on writes.
     In prod environment you should only consider reducing them if you have heavy concurrency writes.
 
-### Redis
+### Redis/Valkey
 
 [Redis](https://redis.io/), an in-memory data structure store, is one of the supported cache solutions for clustering.
 Redis is used via [Redis pecl extension](https://pecl.php.net/package/redis).
 
 See [Redis Cache Adapter in Symfony documentation]([[= symfony_doc =]]/components/cache/adapters/redis_adapter.html#configure-the-connection for information on how to connect to Redis.
+
+[Valkey](https://valkey.io/), an alternative data structure store compatible with Redis, is also supported.
+To set it up with [[= product_name =]], follow the same steps as for Redis.
 
 #### Supported Adapters
 

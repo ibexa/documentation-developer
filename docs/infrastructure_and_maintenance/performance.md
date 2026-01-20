@@ -16,7 +16,7 @@ If you're in a hurry, the most important recommendations on this page are:
 - Dump optimized Composer autoload classmap
 - Use a full web (Nginx/Apache) server with vhost
 - Avoid shared filesystems for code (Docker for Mac/Win, VirtualBox/*, Vagrant, and more), or find ways to optimize or work around the issues.
-- For clustering (mainly relevant for production/staging), reduce latency to Redis/Memcached, use Varnish and [Solr](solr_overview.md).
+- For clustering (mainly relevant for production/staging), reduce latency to Redis/Valkey/Memcached, use Varnish and [Solr](solr_overview.md).
 
 ## Client
 
@@ -76,19 +76,20 @@ In production setups:
 
 !!! note
 
-    Redis is currently recommended over Memcached, as the latter has had big performance issues.
+    Redis or Valkey are currently recommended over Memcached, as the latter has had big performance issues.
     [Symfony v3.4.15](https://github.com/symfony/symfony/pull/28249) may have resolved this.
 
-- Memcached/Redis can in some cases perform better than filesystem cache even with a single server, as it offers better general performance for operations invalidating cache.
+- Memcached, Redis, or Valkey can in some cases perform better than filesystem cache even with a single server, as it offers better general performance for operations invalidating cache.
     - However, pure read performance is slower, especially if the next points aren't optimized.
     - With cache being on different node(s) than web server, make sure to try to tune latency between the two.
 
 !!! tip
 
-    Check if your cloud provider has native service for Memcached/Redis, as those might be better tuned.
+    Check if your cloud provider has native service for Memcached/Redis/Valkey, as those might be better tuned.
 
-- If you use Redis, make sure to tune it for in-memory cache usage. Its persistence feature isn't needed with cache and severely slows down execution time.
-    - [For use with sessions](sessions.md#cluster-setup) however, persistence can be a good fit if you want sessions to survive service interruptions.
+When using Redis or Valkey, make sure to tune it for in-memory cache usage.
+The persistence feature isn't needed with cache and severely slows down execution time.
+[For use with sessions](sessions.md#cluster-setup) however, persistence can be a good fit if you want sessions to survive service interruptions.
 
 For more information, see [Redis clustering](persistence_cache.md#redis-clustering).
 
