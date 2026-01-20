@@ -12,7 +12,7 @@ To solve this, [[= product_name =]] provides a package called [[= product_name_b
 [[= product_name =]] sends messages (or commands) that represent the work to be done later.
 These messages are stored in a queue and picked up by a background worker, which ensures that resource-heavy tasks are executed at a convenient time, without putting excessive load on the system.
 
-[[= product_name_base =]] Messenger supports multiple storage backends, such as Doctrine, Redis, and PostgreSQL, and gives developers the flexibility to create their own message handlers for custom use cases.
+[[= product_name_base =]] Messenger supports multiple storage backends, such as Doctrine, Redis/Valkey, and PostgreSQL, and gives developers the flexibility to create their own message handlers for custom use cases.
 
 ## How it works
 
@@ -23,7 +23,7 @@ The process works as follows:
 1. A message PHP object is dispatched, for example, `ProductPriceReindex`.
 2. The message is wrapped in an envelope, which may contain additional metadata, called stamps, for example, `DeduplicateStamp`.
 3. The message is placed in the transport queue.
-It can be a Doctrine table, a Redis queue, and so on.
+It can be a Doctrine table, a Redis/Valkey queue, and so on.
 4. A worker process continuously reads messages from the queue, pulls them into the default bus `ibexa.messenger.bus` and assigns them to the right handler.
 5. A handler service processes the message (executes the command).
 You can register multiple handlers for different jobs.
