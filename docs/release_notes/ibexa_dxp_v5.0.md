@@ -10,6 +10,61 @@ month_change: false
 
 <div class="release-notes" markdown="1">
 
+[[% set version = 'v5.0.5' %]]
+
+[[= release_note_entry_begin("Ibexa DXP " + version, '2026-01-15', ['Headless', 'Experience', 'Commerce']) =]]
+
+### Infrastructure
+
+#### Added support for Elasticsearch 8
+
+Elasticsearch 8 is now officially supported.
+If you're currently using Elasticsearch 7, which is [no longer maintained](https://www.elastic.co/support/eol), it's recommended to upgrade.
+See the [update instructions](update_from_5.0.md#update-elasticsearch-server) for more information.
+
+#### Added support for Valkey
+
+Valkey is now [officially supported](requirements.md) alongside Redis.
+
+#### Added support for PostgreSQL 18
+
+PostgreSQL 18 is now [officially supported](requirements.md#dbms).
+
+### Developer experience
+
+#### Easier debugging of Page Builder blocks
+
+In Symfony's `dev` environment, use the "Open profiler" action to quickly debug Page Builder's block rendering failures.
+
+![Quickly debug failing Page Builder blocks with "Open profiler" action](img/5.0_open_in_profiler.png "Quickly debug failing Page Builder blocks with 'Open profiler' action")
+
+#### Improved logging for Ibexa CDP
+
+You can configure the new `ibexa.cdp.webhook` Monolog channels to direct all CDP webhook logs to specific output for easier separation of logs.
+
+Example configuration:
+
+```yaml
+when@prod:
+    monolog:
+        handlers:
+            cdp_webhook:
+                type: stream
+                path: "%kernel.logs_dir%/cdp_webhook_%kernel.environment%.log"
+                level: debug
+                channels: [ 'ibexa.cdp.webhook' ]
+```
+
+#### Added OpenAPI support for Collaborative editing REST API
+
+The [Collaborative editing](collaborative_editing.md) REST API endpoints are now included in the [OpenAPI-based REST API reference](/api/rest_api/rest_api_reference/rest_api_reference.html#tag/Collaboration-Sessions).
+
+### Full changelog
+
+[[% include 'snippets/release_50.md' %]]
+
+[[= release_note_entry_end() =]]
+
 [[% set version = 'v5.0.4' %]]
 
 [[= release_note_entry_begin("Integrated help " + version, '2025-12-10', ['Headless', 'Experience', 'Commerce', 'LTS Update', 'New feature']) =]]
@@ -35,12 +90,12 @@ For more information, see how to [install Anthropic connector](configure_ai_acti
 
 [[= release_note_entry_begin("Ibexa DXP " + version, '2025-12-10', ['Headless', 'Experience', 'Commerce', 'New feature']) =]]
 
-#### Security
+### Security
 
 This release includes security fixes.
 To learn more, see the [corresponding security advisory](https://developers.ibexa.co/security-advisories/ibexa-sa-2025-005-password-change-and-xss-vulnerabilities-in-back-office).
 
-#### Real-time collaborative editing
+### Real-time collaborative editing
 
 Real-time editing is now part of the [Collaborative editing](collaborative_editing.md) feature.
 
@@ -53,7 +108,7 @@ This extends the already existing capabilities allowing editors to work on the s
 
 For more information, see how to [configure Collaborative editing](configure_collaborative_editing.md).
 
-#### Taxonomy suggestions for faster content classification
+### Taxonomy suggestions for faster content classification
 
 You can now speed up taxonomy assignment with AI-powered taxonomy suggestions.
 
@@ -65,17 +120,17 @@ This approach reduces manual effort, minimizes errors, and significantly improve
 
 For more information, see [Taxonomy suggestions](taxonomy.md#taxonomy-suggestions).
 
-#### Infrastructure
+### Infrastructure
 
 - MariaDB 11.4 is now [officially supported](requirements.md#dbms)
 
-#### Developer experience
+### Developer experience
 
-##### PHP API
+#### PHP API
 
 The following additions were made to the PHP API:
 
-###### Real-time collaborative editing:
+##### Real-time collaborative editing:
 
 - [`Ibexa\Contracts\Collaboration\Invitation\Query\Criterion\ParticipantScope`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-Collaboration-Invitation-Query-Criterion-ParticipantScope.html)
 - [`Ibexa\Contracts\Collaboration\Invitation\Query\Criterion\ParticipantType`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-Collaboration-Invitation-Query-Criterion-ParticipantType.html)
@@ -91,7 +146,7 @@ The following additions were made to the PHP API:
 - [`Ibexa\Contracts\Share\Mapper\Action\ShareActionItemsMapperInterface`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-Share-Mapper-Action-ShareActionItemsMapperInterface.html)
 
 
-###### AI Taxonomy suggestions:
+##### AI Taxonomy suggestions:
 
 - [`Ibexa\Contracts\ConnectorAi\Action\DataType\Taxonomy`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorAi-Action-DataType-Taxonomy.html)
 - [`Ibexa\Contracts\ConnectorAi\Action\DataType\TaxonomyEntry`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorAi-Action-DataType-TaxonomyEntry.html)
@@ -121,13 +176,13 @@ The following additions were made to the PHP API:
 - [`Ibexa\Contracts\Taxonomy\Embedding\TaxonomyEmbeddingFieldProviderInterface`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-Taxonomy-Embedding-TaxonomyEmbeddingFieldProviderInterface.html)
 - [`Ibexa\Contracts\Taxonomy\Search\Query\Value\TaxonomyEmbedding`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-Taxonomy-Search-Query-Value-TaxonomyEmbedding.html)
 
-###### Search:
+##### Search:
 
 - [`Ibexa\Contracts\AdminUi\ContentType\ContentTypeFieldsByExpressionServiceInterface`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-AdminUi-ContentType-ContentTypeFieldsByExpressionServiceInterface.html)
 - [`Ibexa\Contracts\CoreSearch\Values\Query\PaginationAwareInterface`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-CoreSearch-Values-Query-PaginationAwareInterface.html)
 - [`Ibexa\Contracts\SiteFactory\Values\Query\Criterion\MatchTreeRootLocationIds`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-SiteFactory-Values-Query-Criterion-MatchTreeRootLocationIds.html)
 
-###### Other:
+##### Other:
 
 - [`Ibexa\Contracts\ProductCatalog\CapabilitiesEnum`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-CapabilitiesEnum.html)
 - [`Ibexa\Contracts\ProductCatalog\CapabilitiesServiceInterface`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-CapabilitiesServiceInterface.html)
@@ -139,14 +194,14 @@ The following additions were made to the PHP API:
 [[% set version = 'v5.0.3' %]]
 [[= release_note_entry_begin("Ibexa DXP " + version, '2024-10-17', ['Headless', 'Experience', 'Commerce']) =]]
 
-#### Security
+### Security
 
 This release includes security fixes.
 To learn more, see the [corresponding security advisory](https://developers.ibexa.co/security-advisories/ibexa-sa-2025-004-xss-and-enumeration-vulnerabilities-in-back-office).
 
-#### Developer experience
+### Developer experience
 
-##### PHP API
+#### PHP API
 
 The PHP API has been expanded with the following:
 
@@ -187,7 +242,7 @@ The PHP API has been expanded with the following:
 [[% set version = 'v5.0.2' %]]
 [[= release_note_entry_begin("Ibexa DXP " + version, '2025-09-09', ['Headless', 'Experience', 'Commerce', 'New feature']) =]]
 
-#### Collaboration
+### Collaboration
 
 The new [Collaborative editing feature](collaborative_editing_guide.md) allows multiple users to preview, review, and edit the same content, improving teamwork and streamlining the review process.
 Internal and external users can be invited to a collaboration session, through different sharing options.
@@ -196,36 +251,36 @@ With Real-time editing, more advanced part of the feature, users can see each ot
 
 Additionally, shared drafts can be accessed and managed through new dashboard tabs: **My shared drafts** and **Drafts shared with me**, helping users stay organized. 
 
-#### Discount indexing
+### Discount indexing
 
 Discounts now allow scheduling a re-indexing of discounted product catalog prices at the most convenient time by using the Ibexa Messenger package.
 Ibexa Messenger is a customization of the Symfony Messenger package, created to adjust it to [[= product_name =]]'s needs.
 
 Once properly configured, it uses a background queue to trigger price re-indexing, ensuring efficient use of system resources without causing performance disruptions.
 
-#### Improvements to notifications
+### Improvements to notifications
 
 An improved notifications system is now more intuitive.
 Developers can now create and configure their own notification types, while users can now [browse through a list of notifications](https://doc.ibexa.co/projects/userguide/en/latest/getting_started/notifications/), where they can either act on them or dismiss them.
 
 ![A searchable notifications list](502_notifications_screen.png "A searchable notifications list")
 
-#### Chat GPT 5.0 support
+### Chat GPT 5.0 support
 
 With improved reasoning and greater accuracy in mind, the AI Connector package has been enhanced by adding ChatGPT 5.0 to its list of supported LLMs.
 
 ![ChatGPT 5.0 on a list of supported LLMs](502_ai_connector_gpt_50.png "ChatGPT 5.0 on a list of supported LLMs")
 
-#### Developer experience
+### Developer experience
 
-##### New packages
+#### New packages
 
 The following packages have been introduced in Ibexa DXP v5.0.2:
 
 - ibexa/collaboration
 - ibexa/messenger
 
-##### New version of PHP Storm Plugin
+#### New version of PHP Storm Plugin
 
 To further improve your experience with Ibexa DXP, a 1.14.0 version of [PHP Storm Plugin](phpstorm_plugin.md) has been released, which brings the following changes:
 
@@ -235,7 +290,7 @@ To further improve your experience with Ibexa DXP, a 1.14.0 version of [PHP Stor
 - Added code completion for Twig Component Groups in YAML config files and AsTwigComponent attribute
 - Added code completion for Twig Component Types in YAML config files
 
-##### REST APIs
+#### REST APIs
 
 Ibexa DXP v5.0.2 adds REST API coverage for the following features:
 
@@ -254,7 +309,7 @@ Ibexa DXP v5.0.2 adds REST API coverage for the following features:
     - Discount
     - DiscountList
 
-##### PHP API
+#### PHP API
 
 The PHP API has been expanded with the following:
 
@@ -312,7 +367,7 @@ The PHP API has been expanded with the following:
     - [`Ibexa\Contracts\Collaboration\Session\Query\SortClause\Id`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-Collaboration-Session-Query-SortClause-Id.html)
     - [`Ibexa\Contracts\Collaboration\Session\Query\SortClause\UpdatedAt`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-Collaboration-Session-Query-SortClause-UpdatedAt.html)
 
-#### Full changelog
+### Full changelog
 
 [[% include 'snippets/release_50.md' %]]
 
@@ -322,36 +377,36 @@ The PHP API has been expanded with the following:
 
 [[= release_note_entry_begin("Ibexa DXP " + version, '2025-08-19', ['Headless', 'Experience', 'Commerce', 'New feature']) =]]
 
-#### Special characters in online editor
+### Special characters in online editor
 
 The [online editor](online_editor_guide.md) now allows to easily enter special characters like currency symbols.
 It uses the [special characters plugin](https://ckeditor.com/docs/ckeditor5/latest/features/special-characters.html).
 
 ![Special characters in online editor](4.6_special_characters.png "Special characters in online editor")
 
-#### Support for Solr 9
+### Support for Solr 9
 
 With this release, [[= product_name =]] starts supporting [Solr 9](requirements.md#search).
 
 Solr 9 comes with support for [Dense Vector Search](https://solr.apache.org/guide/solr/latest/query-guide/dense-vector-search.html), paving the way for incoming improvements to the [AI Actions](ai_actions.md) feature.
 
-#### Improved content creation interface
+### Improved content creation interface
 
 The editing interface of the back office is now improved to better highlight the language, creator, and the publication date when working with content items.
 
 ![Improved interface for content creation](4.6_improved_editing.png "Improved interface for content creation")
 
-#### Taxonomy Subtree limitation
+### Taxonomy Subtree limitation
 
 You can now manage access to [taxonomy items](taxonomy.md) more effectively by using the new [Taxonomy Subtree limitation](limitation_reference.md#taxonomy-subtree-limitation).
 
 In addition, you can now use the [Taxonomy limitation](limitation_reference.md#taxonomy-limitation) together with the `taxonomy/assign` policy.
 
-#### Base price column added to a Product Picker view
+### Base price column added to a Product Picker view
 
 The Product Picker tool that, for example, lets you [select products eligible for discounts]([[= user_doc =]]/commerce/discounts/work_with_discounts/#create-new-discount), now displays a **Base price** column for products and product variants.
 
-#### PHP API
+### PHP API
 
 The PHP API has been enhanced with the following new classes:
 
@@ -361,7 +416,7 @@ The PHP API has been enhanced with the following new classes:
 
 This release brings additional minor improvements to the developer's experience that result from capabilities offered by PHP in version 8.3.
 
-#### Full changelog
+### Full changelog
 
 [[% include 'snippets/release_50.md' %]]
 
