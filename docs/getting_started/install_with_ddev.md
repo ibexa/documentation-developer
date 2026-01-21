@@ -163,7 +163,7 @@ ddev php bin/console ibexa:install
 
 This installation asks for a password to create the `admin` account, password with the following constraints:
 
-- 10 characters long
+- a minimum length of 10 characters
 - at least one upper case letter
 - at least one number
 
