@@ -44,7 +44,7 @@ The following sequence of commands:
 5. Sets the Varnish version to use and its demon starting parameters to use the files
 6. Adds the Varnish container
 7. Sets Varnish as the HTTP cache server
-8. Restarts the DDEV cluster and clear the Ibexa DXP cache
+8. Restarts the DDEV cluster and clear the [[= product_name =]] cache
 
 ```bash
 VARNISH_VERSION=7.1
