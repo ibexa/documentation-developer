@@ -6,43 +6,85 @@ description: Install Elasticsearch to use it with Ibexa DXP.
 
 ## Download and install Elasticsearch
 
-[Install Elasticsearch](https://www.elastic.co/guide/en/elasticsearch/reference/7.7/install-elasticsearch.html) on your server.
-As an example, use the following [Docker](https://docs.docker.com/get-started/docker-overview/) command:
 
-```yml
-docker run -d --name ibexa-dxp-elasticsearch -p 9200:9200 -p 9300:9300 -e "discovery.type=single-node" docker.elastic.co/elasticsearch/elasticsearch:7.16.2
+[[= product_name =]] supports Elasticsearch in version 7.16 with the `ibexa/elasticsearch` package, installed by default.
+You can use Elasticsearch 8.19 by installing the `ibexa/elasticsearch8` package instead.
+
+To install it, run:
+
+``` console
+composer require ibexa/elasticsearch8
 ```
 
-!!! note
+Then, install Elasticsearch on your server:
 
-    [[= product_name =]] supports Elasticsearch in version 7.16.2 or higher.
+- Elasticsearch 7: [Install Elasticsearch 7](https://www.elastic.co/guide/en/elasticsearch/reference/7.7/install-elasticsearch.html)
+- Elasticsearch 8: [Install Elasticsearch 8](https://www.elastic.co/guide/en/elasticsearch/reference/8.19/install-elasticsearch.html)
+
+As an example, you can use the following [Docker](https://docs.docker.com/get-started/docker-overview/) commands:
+
+=== Elasticsearch 7
+
+    ```yml
+    docker run -d --name ibexa-dxp-elasticsearch -p 9200:9200 -p 9300:9300 -e "discovery.type=single-node" docker.elastic.co/elasticsearch/elasticsearch:7.16.2
+    ```
+
+=== Elasticsearch 8:**
+
+    ```yml
+    docker run -d --name ibexa-dxp-elasticsearch -p 9200:9200 -p 9300:9300 -e "discovery.type=single-node" docker.elastic.co/elasticsearch/elasticsearch:8.19.0
+    ```
 
 ## Verify the instance
 
 To make sure that the Elasticsearch instance operates properly, access the instance (for example, with `curl http://localhost:9200/`).
 
 If Elasticsearch operates properly, an object with cluster details is displayed.
-It should be similar to the following example:
+It should be similar to one of the following examples:
 
-``` json
-{
-    "name" : "doej-MacPro-mTkBe",
-    "cluster_name" : "elasticsearch",
-    "cluster_uuid" : "WLYqnQ_lSZGbX-vDIe_vZQ",
+=== Elasticsearch 7
+
+    ``` json
+    {
+        "name" : "doej-MacPro-mTkBe",
+        "cluster_name" : "elasticsearch",
+        "cluster_uuid" : "WLYqnQ_lSZGbX-vDIe_vZQ",
+        "version" : {
+            "number" : "7.7.0",
+            "build_flavor" : "default",
+            "build_type" : "tar",
+            "build_hash" : "5b1fea5",
+            "build_date" : "2020-05-10T02:35:59.208Z",
+            "build_snapshot" : false,
+            "lucene_version" : "8.5.1",
+            "minimum_wire_compatibility_version" : "6.8.0",
+            "minimum_index_compatibility_version" : "6.0.0-beta1"
+        },
+        "tagline" : "You Know, for Search"
+    }
+    ```
+
+=== Elasticsearch 8
+
+    ``` json
+    {
+    "name" : "f45b86ab3726",
+    "cluster_name" : "docker-cluster",
+    "cluster_uuid" : "5OAEghGPTLSd4jUJColoNQ",
     "version" : {
-        "number" : "7.7.0",
+        "number" : "8.19.0",
         "build_flavor" : "default",
-        "build_type" : "tar",
-        "build_hash" : "5b1fea5",
-        "build_date" : "2020-05-10T02:35:59.208Z",
+        "build_type" : "docker",
+        "build_hash" : "93788a8c2882eb5b606510680fac214cff1c7a22",
+        "build_date" : "2025-07-23T22:10:18.138212839Z",
         "build_snapshot" : false,
-        "lucene_version" : "8.5.1",
-        "minimum_wire_compatibility_version" : "6.8.0",
-        "minimum_index_compatibility_version" : "6.0.0-beta1"
+        "lucene_version" : "9.12.2",
+        "minimum_wire_compatibility_version" : "7.17.0",
+        "minimum_index_compatibility_version" : "7.0.0"
     },
     "tagline" : "You Know, for Search"
-}
-```
+    }
+    ```
 
 ## Set the default search engine
 
@@ -91,4 +133,9 @@ php bin/console ibexa:reindex
 !!! caution "Risks of premature indexing"
 
     Don't reindex your data before you create index templates.
-    Otherwise Elasticsearch attempts to use its [dynamic field mapping](https://www.elastic.co/guide/en/elasticsearch/reference/7.7/dynamic-field-mapping.html) feature to create type mappings automatically.
+    Otherwise Elasticsearch attempts to use its dynamic field mapping feature to create type mappings automatically.
+    
+    For more information, see:
+    
+    - Elasticsearch 7: [Dynamic field mapping](https://www.elastic.co/guide/en/elasticsearch/reference/7.7/dynamic-field-mapping.html)
+    - Elasticsearch 8: [Dynamic field mapping](https://www.elastic.co/guide/en/elasticsearch/reference/8.19/dynamic-field-mapping.html)
