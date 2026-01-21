@@ -34,9 +34,9 @@ To run an [[= product_name_cloud =]] project locally, you may refer to [DDEV and
 The following sequence of commands:
 
 1. Sets a variable with the desired Varnish version, here Varnish 7.1
-2. Copies and customizes `parameters.vcl` file in `.ddev/varnish/` (which is mounted as `/etc/varnish/` into the container)
-    - set `web` container has the backend host and an invalidator (so back office can purge cache)
-    - add "all IPs" CIDR notation to `debuggers` list to allow debugging info from any IP
+2. Copies and customizes `parameters.vcl` file in `.ddev/varnish/` (which is mounted as `/etc/varnish/` into the container):
+    - sets `web` container as the backend host and an invalidator (so back office can purge cache)
+    - adds "all IPs" CIDR notation to `debuggers` list to allow debugging from any IP
     - on Varnish 7, enable logging of access control list matching for both `invalidators` and `debuggers` lists
       (new Varnish 7 syntax, it was enabled by default on previous versions)
 3. Sets main `varnish*.vcl` file to use and "path to VCL directory" argument name depending on Varnish version
@@ -81,6 +81,7 @@ To use Varnish 6.0LTS, set the following variable instead:
 
 ```bash
 VARNISH_VERSION=6.0
+```
 
 If you're using [Apache as web server](install_with_ddev.md#switch-to-apache-and-its-virtual-host),
 you must set `varnish` as a trusted proxy in `.ddev/apache/apache-site.conf` before restarting DDEV:
@@ -91,7 +92,7 @@ sed -i 's/#SetEnv TRUSTED_PROXIES ""/SetEnv TRUSTED_PROXIES "varnish"/' .ddev/ap
 ddev restart
 ```
 
-The Varnish server replace the web server in some places.
+The Varnish server acts as the application’s primary entry point.
 If you run `ddev describe`, you can see that Varnish is now the one responding to DDEV domain `.ddev.site`
 while the web server still replies to `127.0.0.1` with its own ports.
 
@@ -108,7 +109,7 @@ x-cache-debug: 1
 x-cache-hits: 5
 x-cache-ttl: 87654.321
 x-debug-token: 012345
-x-debug-token-link: https://ddev-ibexa-tmp2.ddev.site:8443/_profiler/012345
+x-debug-token-link: https://<your-project>.ddev.site:<https-port>//_profiler/012345
 x-powered-by: Ibexa Commerce v5
 x-robots-tag: noindex
 x-varnish: 12345 67890
@@ -138,13 +139,13 @@ For Fastly (as for [[[= product_name_connect =]]](https://doc.ibexa.co/projects/
 
 To use [ngrok](https://ngrok.com/) alongside [`ddev share`](https://docs.ddev.com/en/stable/users/topics/sharing/#using-ddev-share-easiest) is probably the easiest way to achieve this.
 
-Be careful when making a local development instance visible from Interne.
-For example,
+Be careful when making a local development instance visible from the internet.
+For example:
 
-- close ngrok tunnels when not needed anymore,
-- don't communicate your ngrok URL to unintended people,
-- don't use it for live demo on shared screen,
-- don't store it on a Fastly or [[= product_name_connect =]] account used by external people…
+- close ngrok tunnels when not needed anymore
+- keep your ngrok URL private and share it only with trusted recipients
+- don't use it for live demo where the URL could be seen
+- don't store it on a Fastly or [[= product_name_connect =]] accounts used by external people
 
 ## Install search engine
 
