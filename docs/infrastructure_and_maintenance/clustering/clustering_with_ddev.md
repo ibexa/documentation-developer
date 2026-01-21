@@ -29,6 +29,8 @@ To run an [[= product_name_cloud =]] project locally, you may refer to [DDEV and
 
 ## Install reverse proxy
 
+A reverse proxy can be added to the cluster to have [HTTP cache](http_cache.md).
+
 ### Varnish
 
 The following sequence of commands:
@@ -60,9 +62,6 @@ if [[ $VARNISH_VERSION == 7.* ]]; then
 elif [[ $VARNISH_VERSION == 6.* ]]
   vcl_path=vcl_dir
   vcl_file=varnish6.vcl
-elif [[ $VARNISH_VERSION == 5.* ]]
-  vcl_path=vcl_dir
-  vcl_file=varnish5.vcl
 fi
 cp vendor/ibexa/http-cache/docs/varnish/vcl/$vcl_file .ddev/varnish/
 ddev dotenv set .ddev/.env.varnish --varnish-docker-image=varnish:$VARNISH_VERSION --varnish-varnishd-params " -p $vcl_path=/etc/varnish -f /etc/varnish/$vcl_file"
@@ -124,6 +123,8 @@ You can see how the `web` server is responding to `varnish`:
             <esi:include src="/_fragment?_hash=…
 ```
 
+To explore more the communication between the web server and Varnish, you can find other examples of requests done directly to the web server while pretending being Varnish in [Fetching user context hash](content_aware_cache.md#fetching-user-context-hash) and [Fetching HTML response](content_aware_cache.md#fetching-html-response).
+
 You can use `ddev varnishlog` command to monitor Varnish logs in real time.
 Due to how parameters are passed to the container, you may have to wrap some parameters in quotes twice, for example, the purge request monitoring:
 
@@ -146,6 +147,8 @@ For example:
 - keep your ngrok URL private and share it only with trusted recipients
 - don't use it for live demo where the URL could be seen
 - don't store it on a Fastly or [[= product_name_connect =]] accounts used by external people
+
+See [Configure and customize Fastly](fastly.md) for the Fastly side.
 
 ## Install search engine
 
