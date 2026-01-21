@@ -16,7 +16,13 @@
             <span class="phpdocumentor-signature__argument__name">${{ argument.name }}</span>
             {% if argument.default is not null %}
                 <span> = </span>
-                <span class="phpdocumentor-signature__argument__default-value">{{ argument.default }}</span>
+                <span class="phpdocumentor-signature__argument__default-value">
+                    {%- if argument.default.render starts with '\\Ibexa\\Contracts\\' -%}
+                        {{ argument.default.render|route('class:short') }}
+                    {%- else -%}
+                        {{ argument.default }}
+                    {%- endif -%}
+                </span>
                 <span> ]</span>
             {% endif %}
         </span>

@@ -22,6 +22,8 @@
                         {% if argument.default is not empty %}
                             {% if 'self::' in argument.default.render %}
                                 {{ argument.default.render|replace({'\\self':argument.method|split('::')[0]})|route('class:short')|raw }}
+                            {% elseif argument.default.render starts with '\\Ibexa\\Contracts\\' %}
+                                {{ argument.default.render|route('class:short') }}
                             {% else %}
                                 {{ argument.default }}
                             {% endif %}
