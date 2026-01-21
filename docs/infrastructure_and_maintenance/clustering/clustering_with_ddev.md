@@ -235,7 +235,12 @@ In the following examples:
 - the same service is used to store both persistence cache and sessions
 - the session handler is set on Symfony side, not on PHP side
 
-### Install Redis
+### Install Redis or Valkey
+
+DDEV supports multiple Redis-compatible implementation, including Redis itself and Valkey.
+You can switch between them using the `ddev redis-backend <backend>` command after adding the `ddev/ddev-redis` add-on. 
+For example, you can switch to Valkey by running `ddev add-on get ddev/ddev-redis; ddev redis-backend valkey/valkey:9`.
+For more information, see [Swappable Redis backends](https://github.com/ddev/ddev-redis?tab=readme-ov-file#swappable-redis-backends) in DDEV's `dddev-redis` add-on documentation.
 
 The following sequence of commands:
 
@@ -256,7 +261,7 @@ ddev restart
 ddev php bin/console cache:clear
 ```
 
-You can now check whether Redis works.
+You can now check whether the data store backend works.
 
 For example, the `ddev redis-cli MONITOR` command returns outputs, for example, `"SETEX" "ezp:`, `"MGET" "ezp:`, `"SETEX" "PHPREDIS_SESSION:`, or `"GET" "PHPREDIS_SESSION:`, while navigating into the website, in particular the back office.
 
