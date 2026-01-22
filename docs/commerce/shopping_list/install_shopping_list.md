@@ -69,4 +69,39 @@ ibexa.rest.shopping_list:
     prefix: '%ibexa.rest.path_prefix%'
 ```
 
-TODO: Add `shopping_list/*` permissions to the right roles. Don't give the rights to Anonymous. Role migration file example? Set limitation 'Shopping List Owner: Self' so regular customers can't access each other lists.
+### Role
+
+As anonymous users can't have shopping lists, create a new role and then assign it to registered customer groups who should be able to use this feature.
+Use the limitation 'Shopping List Owner: Self' to restrict to only their own lists.
+
+To create such role, you can use a [migration file](importing_data.md#roles), for example, with the following content:
+
+```yaml
+-   type: role
+    mode: create
+    metadata:
+        identifier: Shopping List User
+    policies:
+        -   module: shopping_list
+            function: create
+            limitations:
+                -   identifier: ShoppingListOwner
+                    values: [self]
+        -   module: shopping_list
+            function: view
+            limitations:
+                -   identifier: ShoppingListOwner
+                    values: [self]
+        -   module: shopping_list
+            function: edit
+            limitations:
+                -   identifier: ShoppingListOwner
+                    values: [self]
+        -   module: shopping_list
+            function: delete
+            limitations:
+                -   identifier: ShoppingListOwner
+                    values: [self]
+```
+
+TODO: On a clean install, which user groups would be the best candidates to have this role assigned to?
