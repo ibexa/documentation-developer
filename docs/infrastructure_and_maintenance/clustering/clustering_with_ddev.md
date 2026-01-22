@@ -29,7 +29,7 @@ To run an [[= product_name_cloud =]] project locally, you may refer to [DDEV and
 
 ## Install reverse proxy
 
-A reverse proxy can be added to the cluster to have [HTTP cache](http_cache.md).
+A reverse proxy can be added to the cluster to enable [HTTP caching](http_cache.md).
 
 ### Varnish
 
@@ -123,7 +123,7 @@ You can see how the `web` server is responding to `varnish`:
             <esi:include src="/_fragment?_hash=…
 ```
 
-To explore more the communication between the web server and Varnish, you can find other examples of requests done directly to the web server while pretending being Varnish in [Fetching user context hash](content_aware_cache.md#fetching-user-context-hash) and [Fetching HTML response](content_aware_cache.md#fetching-html-response).
+To explore more the communication between the web server and Varnish, you can find other examples of requests done directly to the web server while impersonating Varnish in [Fetching user context hash](content_aware_cache.md#fetching-user-context-hash) and [Fetching HTML response](content_aware_cache.md#fetching-html-response).
 
 You can use `ddev varnishlog` command to monitor Varnish logs in real time.
 Due to how parameters are passed to the container, you may have to wrap some parameters in quotes twice, for example, the purge request monitoring:
