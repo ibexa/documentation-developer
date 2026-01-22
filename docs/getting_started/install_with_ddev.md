@@ -167,6 +167,8 @@ This installation asks for a password to create the `admin` account, password wi
 - at least one upper case letter
 - at least one number
 
+You may use the `--no-interaction` option to skip the password question and keep the default `publish`.
+
 ### 7. Open browser
 
 Once the above steps are completed, open the [[= product_name =]]'s webpage by running the `ddev launch` command.
