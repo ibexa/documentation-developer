@@ -108,7 +108,7 @@ ibexa_elasticsearch:
 
 When you configure a cluster-based connection, and the cluster consists of many nodes, you can choose strategies that govern how the cluster reacts to changing operating conditions, or how workload is distributed among the nodes.
 
-#### Connection pool / Node pool settings
+#### Connection pool and Node pool settings
 
 The way you configure cluster node management depends on which Elasticsearch version you're using.
 
