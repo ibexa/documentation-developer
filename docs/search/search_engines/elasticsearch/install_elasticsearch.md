@@ -23,13 +23,13 @@ Then, install Elasticsearch on your server:
 
 As an example, you can use the following [Docker](https://docs.docker.com/get-started/docker-overview/) commands:
 
-=== Elasticsearch 7
+=== "Elasticsearch 7"
 
     ```yml
     docker run -d --name ibexa-dxp-elasticsearch -p 9200:9200 -p 9300:9300 -e "discovery.type=single-node" docker.elastic.co/elasticsearch/elasticsearch:7.16.2
     ```
 
-=== Elasticsearch 8:**
+=== "Elasticsearch 8"
 
     ```yml
     docker run -d --name ibexa-dxp-elasticsearch -p 9200:9200 -p 9300:9300 -e "discovery.type=single-node" docker.elastic.co/elasticsearch/elasticsearch:8.19.0
@@ -42,7 +42,7 @@ To make sure that the Elasticsearch instance operates properly, access the insta
 If Elasticsearch operates properly, an object with cluster details is displayed.
 It should be similar to one of the following examples:
 
-=== Elasticsearch 7
+=== "Elasticsearch 7"
 
     ``` json
     {
@@ -64,7 +64,7 @@ It should be similar to one of the following examples:
     }
     ```
 
-=== Elasticsearch 8
+=== "Elasticsearch 8"
 
     ``` json
     {

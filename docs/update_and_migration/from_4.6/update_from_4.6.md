@@ -458,7 +458,7 @@ No additional steps needed.
 
 As of v4.6.27, [[= product_name =]] adds optional support for Elasticsearch 8.19 or higher through the new `ibexa/elasticsearch8` package.
 
-By default, [[= product_name =]] continues to use Elasticsearch 7.16.2+ with the `ibexa/elasticsearch` package.
+By default, [[= product_name =]] continues to support Elasticsearch 7.16.2+ with the `ibexa/elasticsearch` package.
 If you want to use Elasticsearch 8, follow these steps:
 
 #### Install the Elasticsearch 8 package

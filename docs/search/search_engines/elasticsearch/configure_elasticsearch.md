@@ -112,7 +112,7 @@ When you configure a cluster-based connection, and the cluster consists of many 
 
 The way you configure cluster node management depends on which Elasticsearch version you're using.
 
-=== Elasticsearch 7
+=== "Elasticsearch 7"
 
     With this setting you decide how a list of hosts that form a cluster is managed.
     The list of active hosts tends to change in time, due to different reasons, such as connectivity issues, host malfunction, or the fact that you add new hosts to the cluster to increase its performance.
@@ -143,7 +143,7 @@ The way you configure cluster node management depends on which Elasticsearch ver
 
         If you change the connection pool setting, it's recommended that you to perform load tests to check whether the change doesn't negatively impact the performance of your environment.
 
-=== Elasticsearch 8
+=== "Elasticsearch 8"
 
     With these settings you decide how nodes in the cluster are selected and how failed nodes are resurrected.
     The node pool manages the list of active nodes, which can change over time due to connectivity issues, host malfunction, or when you add new nodes to the cluster to increase performance.
@@ -249,7 +249,7 @@ For more information, see:
 - Elasticsearch 7: [Create API key](https://www.elastic.co/guide/en/elasticsearch/reference/7.x/security-api-create-api-key.html) and [Security privileges](https://www.elastic.co/guide/en/elasticsearch/reference/7.x/security-privileges.html#privileges-list-indices)
 - Elasticsearch 8: [Create API key](https://www.elastic.co/guide/en/elasticsearch/reference/8.19/security-api-create-api-key.html) and [Security privileges](https://www.elastic.co/guide/en/elasticsearch/reference/8.19/security-privileges.html#privileges-list-indices)
 
-=== Elasticsearch 7
+=== "Elasticsearch 7"
 
     When using API key authentication with Elasticsearch 7, you must pass the following parameters to authenticate access to the cluster:
 
@@ -272,9 +272,9 @@ For more information, see:
                 authentication:
                     type: api_key
                     credentials: ['8Ek5f3IBGQlWj6v4M7zG', 'rmI6IechSnSJymWJ4LZqUw']
-```
+    ```
 
-=== Elasticsearch 8
+=== "Elasticsearch 8"
 
     When using API key authentication with Elasticsearch 8, you can pass either the API key and key ID pair, or the encoded API key value:
 
