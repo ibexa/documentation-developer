@@ -48,9 +48,9 @@ Using a different proxy is highly recommended as they provide better performance
 For reverse proxies to work properly with your installation, you need to add the corresponding VCL files for your HTTP Cache.
 
 - Varnish config can be found in `vendor/ibexa/http-cache/docs/varnish/vcl`:
-    - use [parameters.vcl](https://github.com/ibexa/http-cache/blob/main/docs/varnish/vcl/parameters.vcl) for installation specific settings
+    - use [parameters.vcl](https://github.com/ibexa/http-cache/blob/v[[= latest_tag_5_0 =]]/docs/varnish/vcl/parameters.vcl) for installation specific settings
     - plus one of the `varnish*.vcl` corresponding to your Varnish version
-        - For example, [varnish7.vcl](https://github.com/ibexa/http-cache/blob/main/docs/varnish/vcl/varnish7.vcl) when using Varnish 7
+        - For example, [varnish7.vcl](https://github.com/ibexa/http-cache/blob/v[[= latest_tag_5_0 =]]/docs/varnish/vcl/varnish7.vcl) when using Varnish 7
 - Fastly config can be found in `vendor/ibexa/fastly/fastly`. You must install the following to use Fastly:
     - `ibexa_main.vcl` as the **main** custom VCL
     - `ibexa_user_hash.vcl` as another custom VCL
