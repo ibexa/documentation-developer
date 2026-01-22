@@ -47,13 +47,16 @@ Using a different proxy is highly recommended as they provide better performance
 
 For reverse proxies to work properly with your installation, you need to add the corresponding VCL files for your HTTP Cache.
 
-- [Varnish VCL xkey example](https://github.com/ibexa/http-cache/blob/4.6/docs/varnish/vcl/varnish5.vcl)
+- Varnish config can be found in `vendor/ibexa/http-cache/docs/varnish/vcl`:
+    - use [parameters.vcl](https://github.com/ibexa/http-cache/blob/v[[= latest_tag_4_6 =]]/docs/varnish/vcl/parameters.vcl) for installation specific settings
+    - plus one of the `varnish*.vcl` corresponding to your Varnish version
+        - For example, [varnish7.vcl](https://github.com/ibexa/http-cache/blob/v[[= latest_tag_4_6 =]]/docs/varnish/vcl/varnish7.vcl) when using Varnish 7
 - Fastly can be found in `vendor/ibexa/fastly/fastly`. You must install the following to use Fastly:
     - `ez_main.vcl` as the **main** custom VCL
     - `ez_user_hash.vcl` as another custom VCL
     - `snippet_re_enable_shielding.vcl` as snippet
 
-The provided `.vcl` files work both with [Fastly Shielding](https://docs.fastly.com/en/guides/shielding) enabled and without it.
+The provided `.vcl` files work both with [Fastly Shielding](https://www.fastly.com/documentation/guides/getting-started/hosts/shielding/) enabled and without it.
 If you decide to use Fastly VCL, consider using [Fastly CLI](https://www.fastly.com/documentation/reference/tools/cli/#installing) with it to manage VCL files from the command line.
 To learn more, see [Prepare to use Fastly locally](fastly.md#prepare-for-using-fastly-locally) and [Introduction to Fastly CLI](fastly.md#quick-introduction-to-fastly-cli).
 
@@ -155,7 +158,7 @@ If you want to use Basic Auth with Fastly on [[= product_name_cloud =]], please 
 
 !!! note "Invalidating Varnish cache by using tokens"
 
-    In setups where the Varnish server IP can change (for example, on [[= product_name_cloud =]]), you can use token-based cache invalidation through [`ez_purge_acl`](https://github.com/ibexa/http-cache/blob/4.6/docs/varnish/vcl/varnish5.vcl#L174).
+    In setups where the Varnish server IP can change (for example, on [[= product_name_cloud =]]), you can use token-based cache invalidation through [`ibexa_purge_acl`](https://github.com/ibexa/http-cache/blob/main/docs/varnish/vcl/varnish5.vcl#L174).
 
     In such situation, use strong, secure hash and make sure to keep the token secret.
 
@@ -192,14 +195,14 @@ If you created a custom Captcha block for your site by overriding the default fi
 data-field-id="{{ field.id }}"
 ```
 
-As a result, your file should be similar to the `vendor/ibexa/form-builder/src/bundle/Resources/views/themes/standard/fields/captcha.html.twig` file.
+As a result, your file should be similar to [this example](https://github.com/ibexa/form-builder/blob/main/src/bundle/Resources/views/themes/standard/fields/captcha.html.twig).
 
 For more information about configuring Captcha fields, see [Captcha field](work_with_forms.md#captcha-field).
 
 ### Use Fastly as HttpCache proxy
 
 [Fastly](https://www.fastly.com/) delivers Varnish as a CDN service and is supported with [[= product_name =]].
-To learn how it works, see [Fastly documentation](https://docs.fastly.com/en/guides/using-fastlys-global-pop-network).
+To learn how it works, see [Fastly documentation](https://www.fastly.com/documentation/guides/getting-started/concepts/using-fastlys-global-pop-network).
 
 #### Configure Fastly in YML
 
@@ -244,7 +247,7 @@ To get the service ID, log in to https://www.fastly.com/.
 In the upper menu, click the **CONFIGURE** tab.
 The service ID is displayed next to the name of your service on any page.
 
-For instructions on how to generate a Fastly API token, see [the Fastly guide](https://docs.fastly.com/en/guides/using-api-tokens).
+For instructions on how to generate a Fastly API token, see [the Fastly guide](https://www.fastly.com/documentation/guides/account-info/account-management/using-api-tokens).
 The API token needs the `purge_all` an `purge_select` scopes.
 
 ### Configuration examples

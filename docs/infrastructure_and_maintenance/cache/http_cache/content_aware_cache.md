@@ -521,7 +521,7 @@ The output is:
 Now, investigate the response of each of these ESI fragments to understand what is going on.
 It's important to put that URL in single quotes as the URLS to the ESIs include special characters that can be interpreted by the shell.
 
-#### 1st ESI
+#### 1st&nbsp;ESI
 
 ```bash
     $ curl -IXGET --resolve www.staging.foobar.com.us-2.platformsh.site:443:1.2.3.4 --header "Surrogate-Capability: abc=ESI/1.0" --header "x-user-context-hash: daea248406c0043e62997b37292bf93a8c91434e8661484983408897acd93814" 'https://www.staging.foobar.com.us-2.platformsh.site/_fragment?_hash=B%2BLUWB2kxTCc6nc5aEEn0eEqBSFar%2Br6jNm8fvSKdWU%3D&_path=locationId%3D2%26contentId%3D52%26blockId%3D11%26versionNo%3D3%26languageCode%3Deng-GB%26serialized_siteaccess%3D%257B%2522name%2522%253A%2522site%2522%252C%2522matchingType%2522%253A%2522default%2522%252C%2522matcher%2522%253Anull%252C%2522provider%2522%253Anull%257D%26serialized_siteaccess_matcher%3Dnull%26_format%3Dhtml%26_locale%3Den_GB%26_controller%3DEzSystems%255CEzPlatformPageFieldTypeBundle%255CController%255CBlockController%253A%253ArenderAction'
@@ -549,7 +549,7 @@ Surrogate-Key: ez-all c52 l2
 The headers here look correct and don't indicate that this ESI isn't cached by the HTTP cache.
 The second ESI has a similar response.
 
-#### 3rd ESI
+#### 3rd&nbsp;ESI
 
 ```bash
     $ curl -IXGET --resolve www.staging.foobar.com.us-2.platformsh.site:443:1.2.3.4 --header "Surrogate-Capability: abc=ESI/1.0" --header "x-user-context-hash: daea248406c0043e62997b37292bf93a8c91434e8661484983408897acd93814" 'https://www.staging.foobar.com.us-2.platformsh.site//_fragment?_hash=lnKTnmv6bb1XpaMPWRjV3sNazbn9rDXskhjGae1BDw8%3D&_path=locationId%3D2%26contentId%3D52%26blockId%3D13%26versionNo%3D3%26languageCode%3Deng-GB%26serialized_siteaccess%3D%257B%2522name%2522%253A%2522site%2522%252C%2522matchingType%2522%253A%2522default%2522%252C%2522matcher%2522%253Anull%252C%2522provider%2522%253Anull%257D%26serialized_siteaccess_matcher%3Dnull%26_format%3Dhtml%26_locale%3Den_GB%26_controller%3DEzSystems%255CCustomBundle%255CController%255CFooController%253A%253AcustomAction'
