@@ -15,7 +15,7 @@ There is one default shopping list per user. This default shopping list is creat
 
 The default shopping list is created by [`\Ibexa\Contracts\ShoppingList\ShoppingListServiceInterface::getOrCreateDefaultShoppingList()`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ShoppingList-ShoppingListServiceInterface.html#method_getOrCreateDefaultShoppingList).
 For example, starting to use the default list from REST API will create it if it doesn't exist, as during a call
-to [`POST /shopping-list/default/entries`](/api/rest_api/rest_api_reference/rest_api_reference.html#tag/Shopping-Lists/operation/api_shopping-listdefaultentries_post)
+to [`POST /shopping-list/default/entries`](/api/rest_api/rest_api_reference/rest_api_reference.html#tag/Shopping-List/operation/api_shopping-listdefaultentries_post)
 or [`POST /cart/{identifier}/move-to-shopping-list`](/api/rest_api/rest_api_reference/rest_api_reference.html#tag/Cart/operation/api_cart_identifiermove-to-shopping-list_post).
 
 ## PHP API
