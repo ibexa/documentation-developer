@@ -161,6 +161,15 @@ Once you've made this change, you can proceed to install [[= product_name =]].
 ddev php bin/console ibexa:install
 ```
 
+The installer will prompt you for a new password for the `admin` user.
+The password must meet the following rules:
+
+- a minimum length of 10 characters
+- at least one upper case letter
+- at least one number
+
+You may use the `--no-interaction` option to skip the password question and keep the default `publish`.
+
 ### 7. Open browser
 
 Once the above steps are completed, open the [[= product_name =]]'s webpage by running the `ddev launch` command.

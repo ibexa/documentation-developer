@@ -84,7 +84,7 @@ References are key-value pairs necessary when one migration depends on another.
 Since some migrations generate object properties (like IDs) during their execution, which cannot be known in advance, references provide migrations with the ability to use previously created object properties in further migrations.
 They can be subsequently used by passing them in their desired place with `reference:` prefix.
 
-The example below creates a content item of type "folder", and stores its location path as `"ref_path__folder__media"`.
+The example below creates the content item of type "folder" named "Media" below the root, and stores its location path as `"ref__path__folder__media"` to use it later while creating a related role.
 Then this reference is reused as part of a new role, as a limitation.
 
 ```yaml
@@ -115,10 +115,10 @@ Then this reference is reused as part of a new role, as a limitation.
             name: ref__content__folder__media
             type: content_id
         -
-            name: ref_location__folder__media
+            name: ref__location__folder__media
             type: location_id
         -
-            name: ref_path__folder__media
+            name: ref__path__folder__media
             type: path
 
 -
@@ -133,34 +133,40 @@ Then this reference is reused as part of a new role, as a limitation.
             limitations:
                 -
                     identifier: Subtree
-                    values: ['reference:ref_path__folder__media']
+                    values: ['reference:ref__path__folder__media']
 
 ```
 
-By default, reference files are located in a separate directory `src/Migrations/Ibexa/references` (for more information, see [previewing reference](#preview-configuration) `ibexa_migrations.migration_directory` and `ibexa_migrations.references_files_subdir` options).
+By default, references are stored in memory and can be reused within the same migration file without additional steps.
 
-Reference files are **NOT** loaded by default. A separate step (type: "reference", mode: "load", with filename as "value") is required.
-Similarly, saving a reference file is done using type: "reference", mode: "save" step, with filename.
+To reuse them across different migration files, you can save them to disk.
+Reference files are located in a separate directory `src/Migrations/Ibexa/references` (for more information, see [previewing reference](#preview-configuration) `ibexa_migrations.migration_directory` and `ibexa_migrations.references_files_subdir` options).
+When saving references, existing files with the same name are overwritten.
 
-For example:
+Reference files **aren't** loaded by default. A separate step (`type: reference`, `mode: load`, with `filename` with a relative path as value) is required.
+Similarly, saving a reference file is done using `type: reference`, `mode: save` step, with filename.
+
+References must be **loaded before** they can be used in the same migration file.
+The order of migration steps matters - they are executed sequentially from top to bottom.
 
 ```yaml
 -
     type: reference
     mode: load
-    filename: 'references.yaml'
+    filename: 'references/references.yaml' # Load references created by other migrations
 
+# Use them
+-
+    type: content
+    mode: create
+    # ...
+
+# Save any new references if needed
 -
     type: reference
     mode: save
-    # You can also use 'references.yaml', in this case it's overridden
-    filename: 'new_references.yaml'
+    filename: 'references/new_references.yaml'
 ```
-
-!!! note
-
-    You don't need to save references if they're used in the same migration file.
-    References are stored in memory during migration, whether they're used or not.
 
 ## Available reference types
 

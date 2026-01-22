@@ -21,6 +21,7 @@ AI Actions solution comes pre-configured with the following action types:
 
 - [Refine text](#refining-text): Rewrite existing text according to instructions set in a prompt
 - [Generate alternative text](#generating-alternative-text): Generate alt text for images for accessibility purposes
+- [Suggest taxonomy entries](#suggesting-taxonomy-entries): Generate tag or product category suggestions based on content fields
 
 ![AI Actions schematic](img/guide_ai_actions.png)
 
@@ -159,6 +160,11 @@ Once the feature is configured, editors can generate alt text for images they up
 ![Alt text generation](img/alt_text_use_ai.png)
 
 With some customization, administrators could use the API to run a batch process against a larger collection of illustrations.
+
+### Suggesting taxonomy entries
+
+Content editors and product managers can use [taxonomy suggestions](taxonomy.md#taxonomy-suggestions) when assigning tags or product categorie to content items and products.
+Instead of manually browsing through extensive taxonomy trees, editors can request suggestions based on the content's text fields, such as name and description.
 
 ### Performing advanced image to text analysis
 

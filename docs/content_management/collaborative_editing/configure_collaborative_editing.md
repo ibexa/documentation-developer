@@ -1,6 +1,6 @@
 ---
 description: Configure the Collaborative editing feature.
-month_change: true
+month_change: false
 ---
 
 # Collaborative editing

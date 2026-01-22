@@ -2611,6 +2611,31 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/Ibexa-Contracts-Cart-CartServiceInterface.html#method_mergeCarts"
         },                {
+            "fqsen": "\\Ibexa\\Contracts\\Cart\\CartShoppingListTransferServiceInterface",
+            "name": "CartShoppingListTransferServiceInterface",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Cart-CartShoppingListTransferServiceInterface.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Cart\\CartShoppingListTransferServiceInterface\u003A\u003AaddShoppingListToCart\u0028\u0029",
+            "name": "addShoppingListToCart",
+            "summary": "Adds\u0020all\u0020entries\u0020from\u0020a\u0020shopping\u0020list\u0020to\u0020the\u0020cart.",
+            "url": "classes/Ibexa-Contracts-Cart-CartShoppingListTransferServiceInterface.html#method_addShoppingListToCart"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Cart\\CartShoppingListTransferServiceInterface\u003A\u003AaddSelectedEntriesToCart\u0028\u0029",
+            "name": "addSelectedEntriesToCart",
+            "summary": "Adds\u0020selected\u0020entries\u0020from\u0020a\u0020shopping\u0020list\u0020to\u0020the\u0020cart.",
+            "url": "classes/Ibexa-Contracts-Cart-CartShoppingListTransferServiceInterface.html#method_addSelectedEntriesToCart"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Cart\\CartShoppingListTransferServiceInterface\u003A\u003AmoveCartToShoppingList\u0028\u0029",
+            "name": "moveCartToShoppingList",
+            "summary": "Moves\u0020all\u0020cart\u0020entries\u0020to\u0020a\u0020shopping\u0020list\u0020\u0028save\u0020for\u0020later\u0029.",
+            "url": "classes/Ibexa-Contracts-Cart-CartShoppingListTransferServiceInterface.html#method_moveCartToShoppingList"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Cart\\CartShoppingListTransferServiceInterface\u003A\u003AmoveSelectedCartEntriesToShoppingList\u0028\u0029",
+            "name": "moveSelectedCartEntriesToShoppingList",
+            "summary": "Moves\u0020selected\u0020cart\u0020entries\u0020to\u0020a\u0020shopping\u0020list\u0020\u0028save\u0020for\u0020later\u0029.",
+            "url": "classes/Ibexa-Contracts-Cart-CartShoppingListTransferServiceInterface.html#method_moveSelectedCartEntriesToShoppingList"
+        },                {
             "fqsen": "\\Ibexa\\Contracts\\Cart\\Event\\AddEntryEvent",
             "name": "AddEntryEvent",
             "summary": "Event\u0020emitted\u0020after\u0020action\u0020execution.",
@@ -34931,6 +34956,11 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/Ibexa-Contracts-CorporateAccount-Service-ShippingAddressService.html#method_newShippingAddressUpdateStruct"
         },                {
+            "fqsen": "\\Ibexa\\Contracts\\CorporateAccount\\Service\\ShippingAddressService\u003A\u003AcountCompanyShippingAddresses\u0028\u0029",
+            "name": "countCompanyShippingAddresses",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-CorporateAccount-Service-ShippingAddressService.html#method_countCompanyShippingAddresses"
+        },                {
             "fqsen": "\\Ibexa\\Contracts\\CorporateAccount\\Values\\Application",
             "name": "Application",
             "summary": "The\u0020base\u0020class\u0020for\u0020all\u0020value\u0020objects\u0020and\u0020structs.",
@@ -55280,6 +55310,11 @@ Search.appendIndex(
             "name": "render",
             "summary": "",
             "url": "classes/Ibexa-Contracts-Share-UI-Component-AbstractShareComponent.html#method_render"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Share\\UI\\Component\\AbstractShareComponent\u003A\u003AisSessionParticipant\u0028\u0029",
+            "name": "isSessionParticipant",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Share-UI-Component-AbstractShareComponent.html#method_isSessionParticipant"
         },                {
             "fqsen": "\\Ibexa\\Contracts\\Share\\UI\\Component\\AbstractShareComponent\u003A\u003A\u0024permissionResolver",
             "name": "permissionResolver",

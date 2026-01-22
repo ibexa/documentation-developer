@@ -1,4 +1,4 @@
-(function(global, doc) {
+function activeMenu(global, doc) {
     const fullPath = doc.location.pathname.split('/');
     const pageUrl = fullPath.slice(-2).join('/');
     let activeElement = doc.querySelector(`a[href="${pageUrl}"]`);
@@ -21,4 +21,5 @@
         $('.md-nav__item--active > label').last()[0].scrollIntoView(false);
     }
 
-})(window, window.document);
+}
+activeMenu(window, window.document);

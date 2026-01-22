@@ -69,7 +69,7 @@ And mark it as a service using the `ibexa.discounts.expression_language.variable
 - New function: `is_anniversary()`
 
 It's a function returning a boolean value indicating if today is the anniversary of the date passed as an argument.
-The function accepts an optional argument, `tolerance`, allowing you to extend the range of dates that are acccepted as anniversaries.
+The function accepts an optional argument, `tolerance`, allowing you to extend the range of dates that are accepted as anniversaries.
 This implementation is simplified and does not cover the approach for accounts created on February 29 during leap years.
 
 ``` php
@@ -125,7 +125,7 @@ The example uses three expressions:
 - the custom `current_user_registration_date` variable, holding the value of current user's registration date
 - the custom `tolerance` variable, holding the acceptable tolerance (in days) for the calculation
 
-For each custom condition class, you must create a dedicated condition factory, a class implementing the `\Ibexa\Discounts\Repository\DiscountCondition\DiscountConditionFactoryInterface` inteface.
+For each custom condition class, you must create a dedicated condition factory, a class implementing the `\Ibexa\Discounts\Repository\DiscountCondition\DiscountConditionFactoryInterface` interface.
 
 This allows you to create conditions when working in the context of the Symfony service container.
 
@@ -173,7 +173,7 @@ It uses three expressions:
 
 - the built-in `amount` variable, holding the purchase amount
 - the built-in `get_current_region()` function, returning the current region
-- a custom `power_parity_map` variable, holding the purchasing power partity map. It's defined in the constuctor.
+- a custom `power_parity_map` variable, holding the purchasing power parity map. It's defined in the constructor
 
 As with conditions, create a dedicated rule factory:
 
