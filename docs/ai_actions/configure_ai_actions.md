@@ -77,6 +77,114 @@ ibexa_connector_anthropic:
 ```
 You can now use the Anthropic connector in your project.
 
+## Install Google Gemini connector [[% include 'snippets/lts-update_badge.md' %]]
+
+Run the following command to install the package:
+
+``` bash
+composer require ibexa/connector-gemini
+```
+
+This command adds the feature code, including basic handlers that let you refine text or generate alternative text for images.
+
+### Get API key
+
+To use the connector with the Gemini services, you need to create an account, set up billing, enable Gemini API and get an API key.
+
+#### Create the Google Cloud project
+
+1. Sign in to the [Google Cloud Console](https://console.cloud.google.com/).
+1. In the top bar, click **Default Gemini Project** to open a project picker.
+1. Click **New project** and provide project details:
+    1. Add project name, for example, "My project".
+    1. Modify the automatically generated **Project ID** if necessary.
+    1. Select location: choose your organization.
+1.  Click **Create**.
+
+#### Configure billing
+
+1. Navigate to the Google Cloud Console's **Billing** page.
+1. If you do not have one, click **Add billing account** and add a payment method.
+1. In **Your projects** tab, locate your project, and in it's line, from the **Actions** menu, select **Change billing**.
+1. Select your active billing account, and click **Set account**. 
+
+#### Enable the Gemini API 
+
+1. Navigate to the Google Cloud Console's **APIs & Services** page.
+1. From the left-hand menu, select **Library** and search for the Generative Language API.
+1. In the API's details page, click **Enable**.
+    
+#### Generate the API key     
+
+1. Go to [Google AI Studio](https://aistudio.google.com/app/api-keys)'s **API keys** page, and click **Create API key**.
+1. Provide a name for the API key, select "My project" from a list of projects and click **Create key**.
+1. Back inn the **API keys** list, in your project's line, copy the API key.
+
+### Set API key in configuration
+
+Then, in the root folder of your project, modify the `.env` file: add an `GEMINI_API_KEY` variable and populate its value with the API key that you got from the AI service.
+
+```bash
+###> ibexa/connector-gemini ###
+GEMINI_API_KEY=<your_api_key>
+###< ibexa/connector-gemini ###
+```
+
+!!! note "Different API keys for different SiteAccesses"
+
+    If there are multiple SiteAccesses in your installation, you can set different API keys for each SiteAccess.
+    To do it, set the keys under the `ibexa.system.<scope>` [configuration key](configuration.md#configuration-files), like so:
+
+    ```yaml
+    ibexa:
+        system:
+        default:
+            connector_gemini:
+            gemini:
+                api_key: '%env(GEMINI_API_KEY)%'
+                base_url: 'https://generativelanguage.googleapis.com/v1beta/'
+    ```
+
+### Configure default models
+
+By default, when reaching out for responses, the Gemini connector uses the Gemini Pro [model](https://ai.google.dev/gemini-api/docs/models) for text refinement and Gemini Flash model for alternative text generation.
+Users can override this setting at runtime when they [edit or create an AI action]([[= user_doc =]]/ai_actions/work_with_ai_actions/#edit-existing-ai-actions).
+You can also change the default values globally.
+To do it, in `config/packages` folder, create a YAML file similar to this example:
+
+```yaml
+  ibexa_connector_gemini:
+    text_to_text:
+      models:
+        gemini-pro-latest:
+          label: 'Gemini Pro Latest'
+          max_tokens: 4096
+        gemini-flash-latest:
+          label: 'Gemini Flash Latest'
+          max_tokens: 4096
+      default_model: gemini-pro-latest
+      default_max_tokens: 4096   # must be <= the model’s max_tokens
+      default_temperature: 0.8
+    image_to_text:
+      models:
+        gemini-flash-latest:
+          label: 'Gemini Flash Latest'
+          max_tokens: 4096
+      default_model: gemini-flash-latest
+      default_max_tokens: 4096
+      default_temperature: 1.0
+```
+
+When setting up models, make sure that you follow these rules:
+
+- `default_model` must reference a configured model
+- `default_max_tokens` must not exceed the model’s limit
+- If you use the same model for different action types, settings must be consistent
+
+You can now use the Gemini connector in your project.
+
+For more information, see [Extend AI actions](extend_ai_actions.md#extend-gemini-connector).
+
 ## Configure access to [[= product_name_connect =]]
 
 First, get the credentials by contacting [Ibexa Support](https://support.ibexa.co).
