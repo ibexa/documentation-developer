@@ -27,7 +27,7 @@ Place the icon in `public/assets/images` and run `yarn encore <dev|prod>` after 
 
 Use the scope if you want different icons for different SiteAccesses.
 
-To see more `ibexaadminuiassets` icons, see [the icon reference](icon_twig_functions.md#icons-reference).
+To see more Admin UI's `ids-assets` icons, see [the icon reference](icon_twig_functions.md#icons-reference).
 
 ### Access icons in Twig templates
 
