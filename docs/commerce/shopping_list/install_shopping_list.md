@@ -71,8 +71,9 @@ ibexa.rest.shopping_list:
 
 ### Role
 
-As anonymous users can't have shopping lists, create a new role and then assign it to registered customer groups who should be able to use this feature.
-Use the limitation 'Shopping List Owner: Self' to restrict to only their own lists.
+Create a new role and then assign it to registered customer groups who should be able to use this feature.
+Use the limitation 'Shopping List Owner: Self' to restrict authenticated users to only their own lists.
+Anonymous users can't have shopping lists as they're internally sharing the same account.
 
 To create such role, you can use a [migration file](importing_data.md#roles), for example, with the following content:
 
