@@ -394,7 +394,7 @@ Extend the models map by defining:
 Optionally, you can set the default model that would be used for the action type that you're modifying, the default allowed tokens limit and the default temperature.
 Default values must stay within the limits supported by the [Gemini API](https://ai.google.dev/gemini-api/docs/models).
 
-### Add a custom  action handler
+### Add a custom Action Handler
 
 To introduce a new Gemini-based AI action:
 
@@ -411,7 +411,7 @@ This follows the same extension mechanism as other [custom AI actions](#create-c
 
 To change how Gemini responses are post-processed or normalized:
 
-1. Implement the `GeminiResponseFormatterInterface` class.
+1. Implement the `GeminiResponseFormatterInterface` interface.
 1. Alias your implementation in the service container to override the default formatter.
 
 ### Add custom validation
@@ -430,7 +430,7 @@ Add extra validation rules for Gemini action configuration options by tagging cu
     ibexa.connector_ai.action_configuration.options.validator.gemini_image_to_text
     ```
 
-### Replace the Gemini client impplementation
+### Replace the Gemini client implementation
 
 To get full control over the low-level API communication without modifying the connector itself, you can swap the Gemini client implementation  enetirely with your own:
 

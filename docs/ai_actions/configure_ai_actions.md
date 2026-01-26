@@ -105,7 +105,7 @@ To use the connector with the Gemini services, you need to create an account, se
 
 1. Navigate to the Google Cloud Console's **Billing** page.
 1. If you do not have one, click **Add billing account** and add a payment method.
-1. In **Your projects** tab, locate your project, and in it's line, from the **Actions** menu, select **Change billing**.
+1. In **Your projects** tab, locate your project, and in its line, from the **Actions** menu, select **Change billing**.
 1. Select your active billing account, and click **Set account**. 
 
 #### Enable the Gemini API 
@@ -113,8 +113,8 @@ To use the connector with the Gemini services, you need to create an account, se
 1. Navigate to the Google Cloud Console's **APIs & Services** page.
 1. From the left-hand menu, select **Library** and search for the Generative Language API.
 1. In the API's details page, click **Enable**.
-    
-#### Generate the API key     
+
+#### Generate the API key
 
 1. Go to [Google AI Studio](https://aistudio.google.com/app/api-keys)'s **API keys** page, and click **Create API key**.
 1. Provide a name for the API key, select "My project" from a list of projects and click **Create key**.
@@ -138,11 +138,11 @@ GEMINI_API_KEY=<your_api_key>
     ```yaml
     ibexa:
         system:
-        default:
-            connector_gemini:
-            gemini:
-                api_key: '%env(GEMINI_API_KEY)%'
-                base_url: 'https://generativelanguage.googleapis.com/v1beta/'
+            default:
+                connector_gemini:
+                    gemini:
+                        api_key: '%env(GEMINI_API_KEY)%'
+                        base_url: 'https://generativelanguage.googleapis.com/v1beta/' # Google Gemini's API endpoint
     ```
 
 ### Configure default models
@@ -163,7 +163,7 @@ To do it, in `config/packages` folder, create a YAML file similar to this exampl
           label: 'Gemini Flash Latest'
           max_tokens: 4096
       default_model: gemini-pro-latest
-      default_max_tokens: 4096   # must be <= the model’s max_tokens
+      default_max_tokens: 4096   # Must be <= the model’s max_tokens
       default_temperature: 0.8
     image_to_text:
       models:
