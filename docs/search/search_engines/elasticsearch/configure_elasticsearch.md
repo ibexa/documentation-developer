@@ -141,7 +141,7 @@ The way you configure cluster node management depends on which Elasticsearch ver
 
     !!! tip "Load tests recommendation"
 
-        If you change the connection pool setting, it's recommended that you to perform load tests to check whether the change doesn't negatively impact the performance of your environment.
+        If you change the connection pool setting, it's recommended that you perform load tests to check whether the change doesn't negatively impact the performance of your environment.
 
 === "Elasticsearch 8"
 
@@ -386,7 +386,7 @@ For more information, see:
 In a staging environment, you can log messages about the status of communication with Elasticsearch.
 You can then use Symfony Profiler to review the logs.
 
-By default, debugging is disabled. To enable debugging, you can use the following setting:
+By default, debugging is disabled. To enable debugging, you can use the following settings:
 
 ``` yaml
 <connection_name>:
