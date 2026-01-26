@@ -612,4 +612,4 @@ The following icons are available out-of-the-box:
 |----------------|----------|--------------------------|
 | `content_type` | `string` | Content type identifier. |
 
-See [Customize content type icons](custom_icons.md#customize-content-type-icons] to associate custom icons to content types.
+See [Customize content type icons](custom_icons.md#customize-content-type-icons] to associate icons to content types.

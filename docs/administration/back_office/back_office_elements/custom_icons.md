@@ -33,7 +33,7 @@ To see more Admin UI's `ids-assets` icons, see [the icon reference](icon_twig_fu
 
 #### Content type icons
 
-Content type icons are accessible in Twig templates via the `ibexa_content_type_icon` function.
+Content type icons are accessible in Twig templates via the [`ibexa_content_type_icon()` function](icon_twig_functions.md#ibexa_content_type_icon).
 It requires content type identifier as an argument. The function returns the path to a content type icon.
 
 ```twig
@@ -44,7 +44,7 @@ It requires content type identifier as an argument. The function returns the pat
 
 #### UI Icons
 
-See [`ibexa_icon_path`](icon_twig_functions.md#ibexa_icon_path).
+User interface icons are accessible with [`ibexa_icon_path()` function](icon_twig_functions.md#ibexa_icon_path). The function returns a path from an icon identifier and an [icon set](#icon-sets) identifier arguments.
 
 ### Access icons in JavaScript
 
