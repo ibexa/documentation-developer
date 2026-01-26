@@ -8,27 +8,6 @@ editions: lts-update commerce
 
 Shopping lists give customers a simple yet powerful way to manage future purchases.
 It can cover many purchase planning cases.
-For example, users can save in shopping lists frequently rebought supplies, products which still need some customisation reflexion, acquisition project still needing discussion, or budget validation.
-
-TODO: Limitation: Shopping list doesn't store quantity
-
-Knowing products added to shopping lists, sellers can organise campaign about most added products, encourage conversion.
-
-TODO: develop a bit more.
-TODO: Other personas?
-
-## Shopping list management overview
-
-Each authenticated user have a default shopping list and can create new ones.
-TODO: Policy: Is there a policy to add to customer role to enable shopping list features?
-TODO: Limit: How many shopping lists can be created per user?
-
-A customer can create a shopping list
-- from catalog when adding a product to a shopping list and choosing to create a new one instead of targeting an existing one
-- in shopping lists management interface
-- TODO: when saving for later from cart to shopping list?
-
-A shopping list is named 
 
 ## Use case examples
 
@@ -41,4 +20,27 @@ Only quantities need to be input, it's time adjust the amount of each product, d
 ### Project wishlist
 
 Every purchase needed by an incoming project can be stored,
-even several products fulfilling the same purpose to decide latter wish one to keep in the final cart.
+even several products fulfilling the same purpose to decide latter wish ones to keep in the final cart.
+
+## Shopping list management overview
+
+Policies can give the rights to create, view, edit, and delete shopping lists.
+Authenticated customers can be granted with those rights on their own shopping lists.
+
+Such customer can
+
+- Create a shopping list
+    - from catalog when adding a product to a shopping list and choosing to create a new one instead of targeting an existing one
+    - in shopping lists management interface
+    - TODO: when saving for later from cart to shopping list, does it create the shopping list?
+- Add product (or product variant) to a shopping list while browsing a product catalog
+- Rename a shopping list (except the default "My Wishlist")
+- List existing shopping lists
+- View a shopping list product list
+- Remove product from a shopping list
+- Copy product from a shopping list to cart (products are kept in shopping list while added to the cart)
+- Move product from cart to a shopping list (product are removed from cart and added to the shopping list)
+- Delete a shopping list
+
+A shopping list only stores product codes.
+A shopping list doesn't store quantities.
