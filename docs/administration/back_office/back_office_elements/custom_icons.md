@@ -116,8 +116,8 @@ ibexa:
 
 The icon sets are used by [`ibexa_icon_path()` Twig function](icon_twig_functions.md#ibexa_icon_path).
 
-- If you change the `default_icon_set` from one SiteAccess to another, `ibexa_icon_path(icon)` without `set` argument targets icons from different set files.
-- If you change the file path of an icon set from one SiteAccess to another, `ibexa_icon_path(icon, set)` with the same `set` argument targets icons from different set files.
+- If you change the `default_icon_set` from one SiteAccess to another, `ibexa_icon_path(icon)` without `set` argument targets icons from different set files
+- If you change the file path of an icon set from one SiteAccess to another, `ibexa_icon_path(icon, set)` with the same `set` argument targets icons from different set files
 
 The built-in default icon set is `ids-assets` (corresponding to `/bundles/ibexaadminuiassets/vendors/ids-assets/dist/img/all-icons.svg`).
 To see the icons available in this set, see [the icon reference](icon_twig_functions.md#icons-reference).
