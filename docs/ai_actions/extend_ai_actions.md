@@ -432,6 +432,6 @@ Add extra validation rules for Gemini action configuration options by tagging cu
 
 ### Replace the Gemini client implementation
 
-To get full control over the low-level API communication without modifying the connector itself, you can swap the Gemini client implementation  enetirely with your own:
+To get full control over the low-level API communication without modifying the connector itself, you can swap the Gemini client implementation entirely with your own:
 
 - Use dependency injection to bind your own implementation to `Ibexa\ConnectorGemini\Client\GeminiClientInterface`.
