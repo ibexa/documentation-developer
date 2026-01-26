@@ -114,7 +114,7 @@ ibexa:
                 default_icon_set: my_icons
 ```
 
-The icon sets are used by `ibexa_icon_path()` Twig function.
+The icon sets are used by [`ibexa_icon_path()` Twig function](icon_twig_functions.md#ibexa_icon_path).
 If you change the `default_icon_set` from one SiteAccess to another, `ibexa_icon_path()` without `set` argument targets icons from different set files.
 If you change the file path of an icon set from one SiteAccess to another, ibexa_icon_path with the same `set` argument targets icons from different set files.
 
