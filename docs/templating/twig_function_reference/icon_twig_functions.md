@@ -8,7 +8,7 @@ month_change: false
 
 ## `ibexa_icon_path()`
 
-`ibexa_icon_path()` generates a path to the selected icon from an [icon set](#icon-sets).
+`ibexa_icon_path()` generates a path to the selected icon from an [icon set](custom_icons.md#icon-sets).
 
 | Argument | Type     | Description                                                                    |
 |----------|----------|--------------------------------------------------------------------------------|
