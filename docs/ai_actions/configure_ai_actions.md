@@ -118,7 +118,7 @@ To use the connector with the Gemini services, you need to create an account, se
 
 1. Go to [Google AI Studio](https://aistudio.google.com/app/api-keys)'s **API keys** page, and click **Create API key**.
 1. Provide a name for the API key, select "My project" from a list of projects and click **Create key**.
-1. Back inn the **API keys** list, in your project's line, copy the API key.
+1. Back in the **API keys** list, in your project's line, copy the API key.
 
 ### Set API key in configuration
 

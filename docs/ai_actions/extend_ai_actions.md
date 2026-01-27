@@ -411,7 +411,7 @@ This follows the same extension mechanism as other [custom AI actions](#create-c
 
 To change how Gemini responses are post-processed or normalized:
 
-1. Implement the `GeminiResponseFormatterInterface` interface.
+1. Implement the `Ibexa\ConnectorGemini\Response\GeminiResponseFormatterInterface` interface.
 1. Alias your implementation in the service container to override the default formatter.
 
 ### Add custom validation
