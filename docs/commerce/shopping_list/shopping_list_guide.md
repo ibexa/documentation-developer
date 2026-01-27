@@ -1,7 +1,7 @@
 ---
 description: Shopping list feature allows to store potential purchases, recurrent product set, and other whish lists for later use into carts.
-month_change: true
 editions: lts-update commerce
+month_change: true
 ---
 
 # Shopping list feature guide

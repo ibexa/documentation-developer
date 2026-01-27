@@ -603,4 +603,3 @@ The following icons are available out-of-the-box:
 | ![x](img/icons/x.svg.png) | `x` |
 | ![zoom-in](img/icons/zoom-in.svg.png) | `zoom-in` |
 | ![zoom-out](img/icons/zoom-out.svg.png) | `zoom-out` |
-

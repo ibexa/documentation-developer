@@ -1,7 +1,8 @@
 ---
 description: Events that are triggered when working with shopping lists.
-editions: lts-update commerce
 page_type: reference
+editions: lts-update commerce
+month_change: true
 ---
 
 # Shopping List events

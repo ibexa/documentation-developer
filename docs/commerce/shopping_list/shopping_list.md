@@ -1,7 +1,6 @@
 ---
 description: Shopping list feature allows to store potential purchases, recurrent product sets, and other wish lists for later use into carts.
 page_type: landing_page
-month_change: true
 editions: lts-update commerce
 ---
 
