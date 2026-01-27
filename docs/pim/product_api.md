@@ -165,7 +165,7 @@ Finally, create the product type with `LocalProductTypeServiceInterface::createP
 Get a product type object by using `ProductTypeServiceInterface::getProductType()`:
 
 ``` php
-[[= include_file('code_samples/api/product_catalog/src/Command/ProductTypeCommand.php', 96, 96) =]]
+[[= include_file('code_samples/api/product_catalog/src/Command/ProductTypeCommand.php', 96, 97) =]]
 ```
 
 You can also get a list of product types with `ProductTypeServiceInterface::findProductTypes()`:
