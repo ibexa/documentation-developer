@@ -247,11 +247,15 @@ php bin/console ibexa:install
 Before executing the command make sure that the database user has sufficient permissions.
 
 The installer will prompt you for a new password for the `admin` user.
-Make sure to use a [strong password](security_checklist.md#strong-passwords) meeting all the [password rules](passwords.md#password-rules).
+Make sure to use a [strong password](security_checklist.md#strong-passwords) meeting all the default [password rules](passwords.md#password-rules):
+
+- a minimum length of 10 characters
+- at least one upper case letter
+- at least one number
 
 !!! note
 
-	In scenarios where entering the new password isn't possible, for example, in automated deployments and Continuous Integration environments, use the `--no-interaction` option to skip changing the password and keep the default one, `publish`:
+    In scenarios where entering the new password isn't possible, for example, in automated deployments and Continuous Integration environments, use the `--no-interaction` option to skip changing the password and keep the default one, `publish`:
 
     ``` bash
     php bin/console ibexa:install --no-interaction

@@ -72,7 +72,7 @@ final class WhisperAudioToTextActionHandler implements ActionHandlerInterface
     {
         $lines = explode(PHP_EOL, $text);
 
-        $processedLines = array_map(static fn (string $line): string => preg_replace(self::TIMESTAMP_FORMAT, '', $line) ?? '', $lines);
+        $processedLines = array_map(static fn (string $line): string => preg_replace(self::TIMESTAMP_FORMAT, '', (string) $line) ?? '', $lines);
 
         return implode(PHP_EOL, $processedLines);
     }
