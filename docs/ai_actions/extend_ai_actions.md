@@ -375,7 +375,7 @@ Your custom Action Type is now fully integrated into the back office UI and can 
 
 ![Transcribe Audio Action Type integrated into the back office](img/transcribe_audio.png "Transcribe Audio Action Type integrated into the back office")
 
-## Extend Gemini connector [[% include 'snippets/lts-update_badge.md' %]]
+## Extend Google Gemini connector [[% include 'snippets/lts-update_badge.md' %]]
 
 The Gemini connector provides several extension points that allow you to customize available models, behavior, validation, and response handling, while remaining compatible with the AI Actions framework.
 

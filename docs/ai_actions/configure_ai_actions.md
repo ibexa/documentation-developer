@@ -189,7 +189,7 @@ When setting up models, make sure that you follow these rules:
 
 You can now use the Gemini connector in your project.
 
-For more information, see [Extend AI actions](extend_ai_actions.md#extend-gemini-connector).
+For more information, see [Extend Gemini connector](extend_ai_actions.md#extend-google-gemini-connector).
 
 ## Configure access to [[= product_name_connect =]]
 
