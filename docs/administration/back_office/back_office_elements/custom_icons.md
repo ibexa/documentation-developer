@@ -25,7 +25,7 @@ Place the icon in `public/assets/images` and run `yarn encore <dev|prod>` after 
 
     To ensure proper display in the back office, all icons should have SVG format with `symbol`.
 
-Use the scope if you want different icons for different SiteAccesses.
+Use the [scope](multisite_configuration.md#scope) if you want different icons for different SiteAccesses.
 
 To see more Admin UI's `ids-assets` icons, see [the icon reference](icon_twig_functions.md#icons-reference).
 
