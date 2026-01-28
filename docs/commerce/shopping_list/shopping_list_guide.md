@@ -37,7 +37,10 @@ Such customer can
 - Rename a shopping list (except the default "My Wishlist")
 - List existing shopping lists
 - View a shopping list product list
+- Move products from a shopping list to another shopping list
+- TODO: Copy products from a shopping list to another shopping list
 - Remove product from a shopping list
+- Clear all products from a shopping list
 - Copy product from a shopping list to cart (products are kept in shopping list while added to the cart)
 - Move product from cart to a shopping list (product are removed from cart and added to the shopping list)
 - Delete a shopping list

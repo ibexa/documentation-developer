@@ -21,10 +21,8 @@ TODO: more precise introduction
 ## Development
 
 [[= cards([
+"commerce/shopping_list/shopping_list_templates",
+"commerce/shopping_list/shopping_list_api",
 ("api/php_api/php_api_reference/namespaces/ibexa-contracts-shoppinglist.html", "PHP API Reference", "<code>Ibexa\Contracts\ShoppingList</code>"),
 ("api/rest_api/rest_api_reference/rest_api_reference.html#tag/Shopping-List", "REST API Reference", "<code>commerce/shopping-list</code> resources"),
 ], columns=2) =]]
-
-TODO:
-
-- Custom storefront: JS API, design, templates,…
