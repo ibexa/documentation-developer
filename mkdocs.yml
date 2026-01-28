@@ -86,7 +86,7 @@ nav:
             - Location events: api/event_reference/location_events.md
             - Catalog events: api/event_reference/catalog_events.md
             - Cart events: api/event_reference/cart_events.md
-            - Shopping List events: api/event_reference/shopping_list_events.md
+            - Shopping list events: api/event_reference/shopping_list_events.md
             - Order management events: api/event_reference/order_management_events.md
             - Payment events: api/event_reference/payment_events.md
             - Language events: api/event_reference/language_events.md
@@ -380,6 +380,7 @@ nav:
             - Shopping list: commerce/shopping_list/shopping_list.md
             - Shopping list guide: commerce/shopping_list/shopping_list_guide.md
             - Install shopping list: commerce/shopping_list/install_shopping_list.md
+            - TODO Shopping list templates: commerce/shopping_list/shopping_list_templates.md
             - Shopping list API: commerce/shopping_list/shopping_list_api.md
         - Checkout:
             - Checkout: commerce/checkout/checkout.md
