@@ -459,9 +459,9 @@ No additional steps needed.
 As of v4.6.27, [[= product_name =]] adds optional support for Elasticsearch 8.19 or higher through the new `ibexa/elasticsearch8` package.
 
 By default, [[= product_name =]] continues to support Elasticsearch 7.16.2+ with the `ibexa/elasticsearch` package.
-If you want to use Elasticsearch 8, follow these steps:
+To use Elasticsearch 8, follow these steps:
 
-#### Install the Elasticsearch 8 package
+#### Install Elasticsearch 8 package
 
 Replace the existing Elasticsearch package and install Elasticsearch 8:
 
@@ -472,9 +472,9 @@ composer require ibexa/elasticsearch8:[[= latest_tag_4_6 =]]
 #### Update Elasticsearch server
 
 Upgrade your Elasticsearch server to version 8.19 or higher.
-Follow the [Elasticsearch upgrade guide](https://www.elastic.co/guide/en/elastic-stack/8.19/upgrading-elastic-stack.html#prepare-to-upgrade) for detailed instructions.
+For detailed instructions, follow the [Elasticsearch upgrade guide](https://www.elastic.co/guide/en/elastic-stack/8.19/upgrading-elastic-stack.html#prepare-to-upgrade).
 
-When using [[= product_name_cloud =]], see [Elasticsearch service](https://docs.upsun.com/add-services/elasticsearch.html) for a list of supported versions.
+When you use [[= product_name_cloud =]], see [Elasticsearch service](https://docs.upsun.com/add-services/elasticsearch.html) for a list of supported versions.
 
 #### Update configuration
 

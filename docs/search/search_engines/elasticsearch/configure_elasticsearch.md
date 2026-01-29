@@ -276,7 +276,7 @@ For more information, see:
 
 === "Elasticsearch 8"
 
-    When using API key authentication with Elasticsearch 8, you can pass either the API key and key ID pair, or the encoded API key value:
+    When using API key authentication with Elasticsearch 8, you can pass either the API key and key ID pair, or the encoded API key value, which Elasticsearch also calls "API key credentials". 
 
     **Using API key and key ID:**
 
@@ -303,8 +303,6 @@ For more information, see:
 
     **Using encoded API key:**
 
-    Alternatively, pass the encoded API key value, which Elasticsearch also calls "API key credentials":
-
     ``` yaml
     <connection_name>:
         # ...
@@ -326,7 +324,7 @@ For more information, see:
                     credentials: ['VnVhQ2ZHY0JDZGJrUW0tZTVhT3g6dWkybHAyYXhUTm1zeWFrdzl0dk5udw==']
     ```
 
-    Refer to the [examples in Elasticsearch documentation](https://www.elastic.co/guide/en/elasticsearch/reference/8.19/security-api-create-api-key.html#security-api-create-api-key-example) to see the difference between API key, API key id, and encoded API key.
+    To see the difference between API key, API key id, and encoded API key, refer to the [examples in Elasticsearch documentation](https://www.elastic.co/guide/en/elasticsearch/reference/8.19/security-api-create-api-key.html#security-api-create-api-key-example).
 
 ### SSL
 
@@ -379,14 +377,15 @@ verification: false
 For more information, see:
 
 - Elasticsearch 7: [SSL Encryption](https://www.elastic.co/guide/en/elasticsearch/client/php-api/7.x/connceting.html#ssl-encryption)
-- Elasticsearch 8: [SSL Encryption](https://www.elastic.co/guide/en/elasticsearch/client/php-api/8.19/connecting.html#ssl-encryption)
+- Elasticsearch 8: [Security by default (HTTPS)](https://www.elastic.co/guide/en/elasticsearch/client/php-api/8.19/connecting.html#auth-http)
 
 ### Enable debugging
 
 In a staging environment, you can log messages about the status of communication with Elasticsearch.
 You can then use Symfony Profiler to review the logs.
 
-By default, debugging is disabled. To enable debugging, you can use the following settings:
+By default, debugging is disabled.
+To enable debugging, you can use the following settings:
 
 ``` yaml
 <connection_name>:
@@ -588,7 +587,7 @@ For information about configuring an analyzer for each specific language, see:
 - Elasticsearch 7: [Language analyzers](https://www.elastic.co/guide/en/elasticsearch/reference/7.17/analysis-lang-analyzer.html)
 - Elasticsearch 8: [Language analyzers](https://www.elastic.co/guide/en/elasticsearch/reference/8.19/analysis-lang-analyzer.html)
 
-An adoption of the English analyzer in [[= product_name =]] configuration looks like this:
+An adoption of the `english` analyzer in [[= product_name =]] configuration looks like this:
 
 ```yaml hl_lines="3-5 15-23 35 41-52 94 99"
 [[= include_file('code_samples/search/custom/config/packages/elasticsearch-en.yaml') =]]

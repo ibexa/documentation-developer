@@ -214,8 +214,8 @@ If you were using the separate `ibexa/elasticsearch8` package in v4.6, you shoul
 composer remove --no-update ibexa/elasticsearch8
 ```
 
-The `ibexa/elasticsearch` package will be automatically installed as part of your [[= product_name =]] 5.0 update.
-Your existing Elasticsearch 8 server and configuration will continue to work with the `ibexa/elasticsearch` package.
+The `ibexa/elasticsearch` package is automatically installed as part of your [[= product_name =]] 5.0 update.
+Your existing Elasticsearch 8 server and configuration continue to work with the `ibexa/elasticsearch` package.
 
 #### Remove PHP 8.2 error handler
 

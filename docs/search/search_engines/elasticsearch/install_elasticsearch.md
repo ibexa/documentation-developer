@@ -7,7 +7,7 @@ description: Install Elasticsearch to use it with Ibexa DXP.
 ## Download and install Elasticsearch
 
 
-[[= product_name =]] supports Elasticsearch in version 7.16 with the `ibexa/elasticsearch` package, installed by default.
+[[= product_name =]] supports Elasticsearch in version 7.16 with the `ibexa/elasticsearch` package that is installed by default.
 You can use Elasticsearch 8.19 by installing the `ibexa/elasticsearch8` package instead.
 
 To install it, run:
@@ -37,7 +37,7 @@ As an example, you can use the following [Docker](https://docs.docker.com/get-st
 
 ## Verify the instance
 
-To make sure that the Elasticsearch instance operates properly, access the instance (for example, with `curl http://localhost:9200/`).
+To make sure that the Elasticsearch instance operates properly, access the instance, for example, with `curl http://localhost:9200/`.
 
 If Elasticsearch operates properly, an object with cluster details is displayed.
 It should be similar to one of the following examples:
@@ -133,7 +133,7 @@ php bin/console ibexa:reindex
 !!! caution "Risks of premature indexing"
 
     Don't reindex your data before you create index templates.
-    Otherwise Elasticsearch attempts to use its dynamic field mapping feature to create type mappings automatically.
+    Otherwise, Elasticsearch attempts to use its dynamic field mapping feature to create type mappings automatically.
     
     For more information, see:
     
