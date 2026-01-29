@@ -50,8 +50,8 @@ Add the tables needed by the bundle:
 
 TODO: possible charset issue, see https://github.com/ibexa/doctrine-schema/pull/38
 
-Notice that a user has no shopping list at this stage, not even the default one.
-The users' default shopping lists are created when used.
+Notice that a user has no shopping list at this stage, not even the default "My Wishlist" one.
+Each user's default shopping list is created when used for the first time.
 
 ## Configure
 
@@ -68,10 +68,10 @@ parameters:
     ibexa.site_access.config.default.shopping_list.pagination.list_per_page_limit: 25
 ```
 
-### Role
+### Shopping list user role
 
 Create a new role and then assign it to registered customer groups who should be able to use this feature.
-Use the limitation 'Shopping List Owner: Self' to restrict authenticated users to only their own lists.
+The four functions from the Shopping List module must be granted with the limitation 'Shopping List Owner: Self' to restrict authenticated users to only their own lists.
 Anonymous users can't have shopping lists as they're internally sharing the same account.
 
 To create such role, you can use a [migration file](importing_data.md#roles), for example, with the following content:
@@ -105,3 +105,5 @@ To create such role, you can use a [migration file](importing_data.md#roles), fo
 ```
 
 TODO: On a clean install, which user groups would be the best candidates to have this role assigned to?
+
+TODO: If I set `max_lists_per_user: 1` can a user create another list than the default list? (and get stuck by not being able to create own default list)
