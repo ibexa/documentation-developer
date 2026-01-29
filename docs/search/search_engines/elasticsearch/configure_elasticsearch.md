@@ -481,14 +481,14 @@ For more information and a list of available settings, see:
 
 - `mappings` - Settings under this key define mapping for fields in the index.
 
-For more information about mappings, see:
+    For more information about mappings, see:
 
-- Elasticsearch 7: [Mapping](https://www.elastic.co/guide/en/elasticsearch/reference/7.x/mapping.html)
-- Elasticsearch 8: [Mapping](https://www.elastic.co/guide/en/elasticsearch/reference/8.19/mapping.html)
+    - Elasticsearch 7: [Mapping](https://www.elastic.co/guide/en/elasticsearch/reference/7.x/mapping.html)
+    - Elasticsearch 8: [Mapping](https://www.elastic.co/guide/en/elasticsearch/reference/8.19/mapping.html)
 
     When you create a custom index template, with settings for your own field and document types, make sure that it contains mappings for all searchable fields that are available in [[= product_name =]].
-    For an example of default configuration with a list of searchable fields.
-    To see the default configuration, go to `vendor/ibexa/elasticsearch/src/bundle/Resources/config/` and open the `default-config.yaml` file.
+
+To see the default configuration, go to `vendor/ibexa/elasticsearch/src/bundle/Resources/config/` and open the `default-config.yaml` file.
 
 ### Fine-tune the search results
 
