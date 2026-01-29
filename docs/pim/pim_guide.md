@@ -88,6 +88,7 @@ Product types in [[= product_name =]] can be either virtual or physical:
 
 This product type property can affect the checkout process.
 A cart of only virtual products skips the [shipping step](shipping_management.md) during checkout.
+To learn more about working with virtual products, see [Virtual products]([[= user_doc =]]/pim/create_virtual_product/) in the User Documentation.
 
 ### Currencies
 
