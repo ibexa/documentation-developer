@@ -84,10 +84,10 @@ Before you can assign categories to products, you need to [enable product catego
 Product types in [[= product_name =]] can be either virtual or physical:
 
 - **Physical products** are tangible items that require shipping (for example: books, clothing, electronics).
-- **Virtual products** are digital items that don't require physical delivery (for example: software licenses, e-books, online courses, digital downloads).
+- **Virtual products** are items that don't require physical delivery (for example: software licenses, e-books, online courses, digital downloads, additional warranty, tickets for an event).
 
-This product type property affects the checkout process.
-Virtual products skip the [shipping step](shipping_management.md) during checkout.
+This product type property can affect the checkout process.
+A cart of only virtual products skips the [shipping step](shipping_management.md) during checkout.
 
 ### Currencies
 

@@ -121,7 +121,7 @@ You can set names in multiple languages by using `setNames()`:
 [[= include_file('code_samples/api/product_catalog/src/Command/ProductTypeCommand.php', 67, 71) =]]
 ```
 
-To create a virtual product type (for digital products that don't require shipping), use `setVirtual()`:
+To create a virtual product type (for products that don't require shipping), use `setVirtual()`:
 
 ``` php
 [[= include_file('code_samples/api/product_catalog/src/Command/ProductTypeCommand.php', 72, 73) =]]
@@ -140,7 +140,7 @@ For more information about working with content types, see [Adding content types
 
 To assign product attributes to the product type, use `setAssignedAttributesDefinitions()` with an array of [`AssignAttributeDefinitionStruct`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Local-Values-ProductType-AssignAttributeDefinitionStruct.html) objects.
 
-First, retrieve the attribute definition using [`AttributeDefinitionServiceInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-AttributeDefinitionServiceInterface.html):
+First, retrieve the attribute definition by using [`AttributeDefinitionServiceInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-AttributeDefinitionServiceInterface.html):
 
 ``` php
 [[= include_file('code_samples/api/product_catalog/src/Command/ProductTypeCommand.php', 84, 85) =]]
@@ -153,6 +153,8 @@ Then create the assignment struct with the attribute definition, and set whether
 ```
 
 For more information about working with attributes through PHP API, see [Attributes](#attributes).
+
+#### Storing new product type
 
 Finally, create the product type with `LocalProductTypeServiceInterface::createProductType()`:
 
