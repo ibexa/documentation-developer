@@ -358,7 +358,7 @@ $query->aggregations[] = new IntegerRangeAggregation('range', 'person', 'age',
     `null` means that a range doesn't have an end.
     In the example all values above (and including) 60 are included in the last range.
 
-See [Agrregation reference](aggregation_reference.md) for details of all available aggregations.
+See [Aggregation reference](aggregation_reference.md) for details of all available aggregations.
 
 ## Search with embeddings
 
