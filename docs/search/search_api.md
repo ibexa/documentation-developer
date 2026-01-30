@@ -105,7 +105,7 @@ The following BatchIterator adapters are available, for both `query` and `filter
 | [`CurrencyFetchAdapter`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Iterator-BatchIteratorAdapter-CurrencyFetchAdapter.html)                       | [`Ibexa\Contracts\ProductCatalog\CurrencyServiceInterface::findCurrencies`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-CurrencyServiceInterface.html#method_findCurrencies)                                        |
 | [`ProductTypeListAdapter`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Iterator-BatchIteratorAdapter-ProductTypeListAdapter.html)                   | [`Ibexa\Contracts\ProductCatalog\ProductTypeServiceInterface::findProductTypes`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-ProductTypeServiceInterface.html#method_findProductTypes)                              |
 
-## Filter repository
+## Repository filtering
 
 You can use the `ContentService::find(Filter)` method to find content items or `LocationService::find(Filter)` to find locations by using a defined Filter.
 
