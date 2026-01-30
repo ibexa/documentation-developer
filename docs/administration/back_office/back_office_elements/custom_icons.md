@@ -1,4 +1,5 @@
 ---
+month_change: true
 description: Configure custom icons to use for content types.
 ---
 
