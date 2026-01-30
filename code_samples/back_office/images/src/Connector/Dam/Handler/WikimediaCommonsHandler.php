@@ -15,6 +15,7 @@ use Ibexa\Contracts\Connector\Dam\Search\Query;
 class WikimediaCommonsHandler implements HandlerInterface
 {
     private const USER_AGENT = 'Ibexa DXP Commons Dam Connector';
+
     public function search(Query $query, int $offset = 0, int $limit = 20): AssetSearchResult
     {
         $searchUrl = 'https://commons.wikimedia.org/w/api.php?action=query&list=search&format=json&srnamespace=6'
@@ -24,12 +25,12 @@ class WikimediaCommonsHandler implements HandlerInterface
         ;
 
         $opts = [
-            "http" => [
-                "method" => "GET",
+            'http' => [
+                'method' => 'GET',
                 'header' => [
                     'User-Agent: ' . self::USER_AGENT,
                 ],
-            ]
+            ],
         ];
 
         $jsonResponse = file_get_contents($searchUrl, false, stream_context_create($opts));
@@ -61,12 +62,12 @@ class WikimediaCommonsHandler implements HandlerInterface
         ;
 
         $opts = [
-            "http" => [
-                "method" => "GET",
+            'http' => [
+                'method' => 'GET',
                 'header' => [
                     'User-Agent: ' . self::USER_AGENT,
                 ],
-            ]
+            ],
         ];
 
         $jsonResponse = file_get_contents($metadataUrl, false, stream_context_create($opts));
