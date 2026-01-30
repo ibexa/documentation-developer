@@ -1,9 +1,9 @@
 ---
 month_change: true
-description: Search Criteria available for Action Configuration search
+description: Embedding queries, embedding configuration, providers, and embedding search fields
 ---
 
-# Embeddings reference
+# Embeddings search reference
 
 Embeddings provide vector representations of content or text, enabling semantic similarity search.
 Foundational abstractions are provided for embedding-based search, while embedding providers generate vector representations.
