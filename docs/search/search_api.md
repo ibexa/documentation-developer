@@ -18,7 +18,7 @@ The service should be [injected into the constructor of your command or controll
 
     `SearchService` is also used in the back office of [[= product_name =]], in components such as Universal Discovery Widget or Sub-items List.
 
-### Performing a search
+### Perform a search
 
 To search through content you need to create a [`LocationQuery`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-LocationQuery.html) and provide your Search Criteria as a series of Criterion objects.
 
@@ -70,7 +70,7 @@ As such, `query` is recommended when the search is based on user input.
 The difference between `query` and `filter` is only relevant when using Solr or Elasticsearch search engine.
 With the Legacy search engine both properties give identical results.
 
-#### Processing large result sets
+#### Process large result sets
 
 To process a large result set, use [`Ibexa\Contracts\Core\Repository\Iterator\BatchIterator`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Iterator-BatchIterator.html).
 `BatchIterator` divides the results of search or filtering into smaller batches.
@@ -104,7 +104,7 @@ The following BatchIterator adapters are available, for both `query` and `filter
 | [`CurrencyFetchAdapter`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Iterator-BatchIteratorAdapter-CurrencyFetchAdapter.html)                       | [`Ibexa\Contracts\ProductCatalog\CurrencyServiceInterface::findCurrencies`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-CurrencyServiceInterface.html#method_findCurrencies)                                        |
 | [`ProductTypeListAdapter`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Iterator-BatchIteratorAdapter-ProductTypeListAdapter.html)                   | [`Ibexa\Contracts\ProductCatalog\ProductTypeServiceInterface::findProductTypes`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-ProductTypeServiceInterface.html#method_findProductTypes)                              |
 
-## Repository filtering
+## Filter repository
 
 You can use the `ContentService::find(Filter)` method to find content items or `LocationService::find(Filter)` to find locations by using a defined Filter.
 
@@ -175,7 +175,7 @@ $filter
     It's recommended to use an IDE that can recognize type hints when working with Repository Filtering.
     If you try to use an unsupported Criterion or Sort Clause, the IDE indicates an issue.
 
-## Searching in a controller
+## Search in controller
 
 You can use the `SearchService` or repository filtering in a controller, as long as you provide the required parameters.
 For example, in the code below, `locationId` is provided to list all children of a location by using the `SearchService`.
@@ -196,7 +196,7 @@ When using Repository filtering, provide the results of `ContentService::find()`
 [[= include_file('code_samples/api/public_php_api/src/Controller/CustomFilterController.php', 16, 31) =]]
 ```
 
-### Paginating search results
+### Paginate search results
 
 To paginate search or filtering results, it's recommended to use the [Pagerfanta library](https://github.com/BabDev/Pagerfanta) and [[[= product_name =]]'s adapters for it.](https://github.com/ibexa/core/blob/main/src/lib/Pagination/Pagerfanta/Pagerfanta.php)
 
@@ -258,7 +258,7 @@ that doesn't belong to the provided Section:
 [[= include_file('code_samples/api/public_php_api/src/Command/FindComplexCommand.php', 46, 54) =]]
 ```
 
-### Combining independent Criteria
+### Combine independent Criteria
 
 Criteria are independent of one another.
 This can lead to unexpected behavior, for instance because content can have multiple locations.
@@ -281,7 +281,7 @@ Even though the location B is hidden, the query finds the content because both c
 - the content item is visible (it has the visible location A)
 
 
-## Sorting results
+## Sort results
 
 To sort the results of a query, use one of more [Sort Clauses](sort_clause_reference.md).
 
@@ -294,27 +294,6 @@ For example, to order search results by their publication date, from oldest to n
 !!! tip
 
     For the full list and details of available Sort Clauses, see [Sort Clause reference](sort_clause_reference.md).
-
-## Searching in trash
-
-In the user interface, on the **Trash** screen, you can search for content items, and then sort the results based on different criteria.
-To search the trash with the API, use the `TrashService::findInTrash` method to submit a query for content items that are held in trash.
-Searching in trash supports a limited set of Criteria and Sort Clauses.
-For a list of supported Criteria and Sort Clauses, see [Search in trash reference](search_in_trash_reference.md).
-
-!!! note
-
-    Searching through the trashed content items operates directly on the database, therefore you cannot use external search engines, such as Solr or Elasticsearch, and it's impossible to reindex the data.
-
-``` php
-[[= include_file('code_samples/api/public_php_api/src/Command/FindInTrashCommand.php', 4, 6) =]]//...
-[[= include_file('code_samples/api/public_php_api/src/Command/FindInTrashCommand.php', 35, 42) =]]
-```
-
-!!! caution
-
-    Make sure that you set the Criterion on the `filter` property.
-    It's impossible to use the `query` property, because the search in trash operation filters the database instead of querying.
 
 ## Aggregation
 
@@ -379,3 +358,146 @@ $query->aggregations[] = new IntegerRangeAggregation('range', 'person', 'age',
     In the example all values above (and including) 60 are included in the last range.
 
 See [Agrregation reference](aggregation_reference.md) for details of all available aggregations.
+
+## Search with embeddings
+
+Embeddings are numerical representations that capture the meaning of text, images, or other content.
+Embeddings are generated by AI by converting words or documents into lists of numbers, instead of treating them as plain text.
+Such lists, aka. vectors, can then be compared to find content with similar meaning.
+
+Searching with embeddings enables matching content based on meaning rather than exact text matches.
+Instead of comparing keywords, the system compares vectors that represent the semantic meaning of content and the query input.
+
+!!! note "Taxonomy suggestions"
+
+    Embedding queries have been introduced primarily to support the [Taxonomy suggestions](taxonomy.md#taxonomy-suggestions) feature but you use them in other scenarios.
+    
+Searching with embeddings can be combined with traditional search criteria and filters, which allows the semantic search to be constrained by content type, location, permissions, or other search criteria.
+
+An embedding query is represented by the `Ibexa\Contracts\Core\Repository\Values\Content\EmbeddingQuery` value object.
+The object encapsulates the vector to search for, along with configuration such as the embedding model and similarity threshold.
+The query is validated before being executed to ensure that the embedding configuration is consistent with the system setup.
+
+The following components are used to build and validate embedding-based queries:
+
+- [EmbeddingQuery](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-EmbeddingQuery.html):
+    Represents a semantic similarity search request.
+    It contains the input vector and configuration parameters such as the embedding model.
+
+- [EmbeddingQueryBuilder](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-EmbeddingQueryBuilder.html):
+    A fluent builder for constructing `EmbeddingQuery` instances.
+    It enforces required parameters and integrates embedding queries with the search query pipeline.
+
+- [QueryValidatorInterface](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-QueryValidatorInterface.html):
+    Validates embedding queries before they are passed to the search engine.
+    Implementations ensure that the embedding model exists and that vector dimensions match the configured embedding field.
+
+
+### Use embedding queries in search
+
+Embedding queries are executed through the search API in the same way as other search requests.
+You build an `EmbeddingQuery` instance by using a builder and pass it to the search service.
+Embedding queries can also be combined with filters and search criteria to narrow down results, such as by content type, location, or permissions.
+
+``` php
+use Ibexa\Contracts\Core\Repository\Values\Content\EmbeddingQueryBuilder;
+use Ibexa\Contracts\Core\Repository\Values\Content\Embedding;
+use Ibexa\Contracts\Core\Repository\Values\Content\Query\Aggregation;
+
+// Create an embedding object that represents the search input
+$embedding = new Embedding('Find content similar to this text');
+
+// Build the embedding query by using the fluent builder
+$embeddingQuery = EmbeddingQueryBuilder::create()
+    ->withEmbedding($embedding)
+    ->setLimit(10)              // maximum number of results
+    ->setOffset(0)              // result offset for pagination
+    ->setPerformCount(true)     // optionally count total matching items
+    ->setAggregations([
+        new Aggregation('count_by_type'),
+    ])
+    ->build();
+
+// Execute the query via the repository
+$results = $repository->findContent($embeddingQuery);
+```
+
+The `EmbeddingQueryBuilder` ensures that the query is correctly configured before execution.
+
+!!! note "Embedding query properties"
+
+    Embedding queries do not allow standard Query properties such as `query`, `sortClauses`, `facetBuilders`, or `spellcheck`.
+
+### Embedding configuration and providers
+
+Models used to resolve embedding queries must be configured in [system configuration](configuration.md).
+Each key defines the model's name, vector dimensionality, the field suffix used in the search index, and the embedding provider that generates vectors.
+
+``` yaml
+ibexa:
+  system:
+    default:
+      embedding_models:
+        text-embedding-3-small:
+          name: 'text-embedding-3-small'
+          dimensions: 1536
+          field_suffix: '3small'
+          embedding_provider: 'ibexa_openai'
+```
+
+For a real-life example of embedding configuration, see [Taxonomy suggestions](taxonomy.md#change-the-embedding-generation-model).
+
+Embedding providers implement the contract for generating vector representations of input data.
+At runtime, the system resolves right provider and assigns embedding generation to it.
+
+- [EmbeddingConfigurationInterface](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Search-Embedding-EmbeddingConfigurationInterface.html) defines how embedding models are configured in the system (model name, vector dimensionality, provider reference, field suffix).
+
+- [EmbeddingProviderInterface](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Search-Embedding-EmbeddingProviderInterface.html) is the runtime contract for generating vector representations from text or other inputs.
+
+- [EmbeddingProviderRegistryInterface](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Search-Embedding-EmbeddingProviderRegistryInterface.html) lists all available embedding providers.
+
+- [EmbeddingProviderResolverInterface](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Search-Embedding-EmbeddingProviderResolverInterface.html) determines which provider should be used for a given embedding configuration.
+
+### Embedding fields
+
+Embedding vectors are stored in dedicated search fields that are created by `Ibexa\Contracts\Core\Search\FieldType\EmbeddingFieldFactory`.
+These fields are then used by the search engine to perform vector similarity comparisons when embedding queries are executed.
+
+``` php
+use Ibexa\Contracts\Core\Search\FieldType\EmbeddingFieldFactory;
+use Ibexa\Contracts\Core\Search\Embedding\EmbeddingConfigurationInterface;
+
+// $config is an existing EmbeddingConfigurationInterface
+$factory = new EmbeddingFieldFactory($config);
+
+// Create a default embedding field (type derived from config suffix)
+$embeddingField = $factory->create();
+echo $embeddingField->getType(); // for example, "ibexa_dense_vector_model_123"
+
+// Create a custom embedding field with a specific type
+$customField = $factory->create('custom_embedding_type');
+echo $customField->getType(); // "custom_embedding_type"
+```
+
+For more information, see [Embeddings reference](embeddings_reference.md).
+
+## Search in trash
+
+In the user interface, on the **Trash** screen, you can search for content items, and then sort the results based on different criteria.
+To search the trash with the API, use the `TrashService::findInTrash` method to submit a query for content items that are held in trash.
+Searching in trash supports a limited set of Criteria and Sort Clauses.
+For a list of supported Criteria and Sort Clauses, see [Search in trash reference](search_in_trash_reference.md).
+
+!!! note
+
+    Searching through the trashed content items operates directly on the database, therefore you cannot use external search engines, such as Solr or Elasticsearch, and it's impossible to reindex the data.
+
+``` php
+[[= include_file('code_samples/api/public_php_api/src/Command/FindInTrashCommand.php', 4, 6) =]]//...
+[[= include_file('code_samples/api/public_php_api/src/Command/FindInTrashCommand.php', 35, 42) =]]
+```
+
+!!! caution
+
+    Make sure that you set the Criterion on the `filter` property.
+    It's impossible to use the `query` property, because the search in trash operation filters the database instead of querying.
