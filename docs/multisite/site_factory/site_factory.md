@@ -1,4 +1,5 @@
 ---
+month_change: true
 description: Site Factory allows creating multiple sites (SiteAccesses) from the back office.
 edition: experience
 ---
