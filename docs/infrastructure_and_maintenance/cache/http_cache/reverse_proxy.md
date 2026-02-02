@@ -1,6 +1,6 @@
 ---
 description: You can use Symfony HttpCache Proxy, Varnish or Fastly as reverse proxies with Ibexa DXP.
-month_change: false
+month_change: true
 ---
 
 # Reverse proxy

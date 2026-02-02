@@ -1,4 +1,5 @@
 ---
+month_change: true
 description: Install Elasticsearch to use it with Ibexa DXP.
 ---
 

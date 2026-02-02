@@ -1,6 +1,6 @@
 ---
 description: Update your installation to the latest v5.0 version from an earlier v5.0 version.
-month_change: false
+month_change: true
 ---
 
 # Update from v5.0.x to v5.0.latest
