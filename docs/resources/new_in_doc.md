@@ -36,7 +36,7 @@ This page contains recent highlights and notable changes in [[= product_name =]]
 
 - Added support for Elasticsearch 8.19+:
     - Updated the [requirements](requirements.md)
-    - Updated the Elasticsearch [overview](elasticsearch_overview.md)
+    - Updated the [Elasticsearch overview](elasticsearch_overview.md)
     - Modified the [configuration instructions](configure_elasticsearch.md)
     - Modified the [installation instructions](install_elasticsearch.md)
     - Modified the [system update instructions](update_from_5.0.md)
