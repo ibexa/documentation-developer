@@ -14,7 +14,7 @@ use Ibexa\Contracts\Connector\Dam\Search\Query;
 
 class WikimediaCommonsHandler implements HandlerInterface
 {
-    private const USER_AGENT = 'Ibexa DXP Commons Dam Connector';
+    private const string USER_AGENT = 'Ibexa DXP Commons Dam Connector';
 
     public function search(Query $query, int $offset = 0, int $limit = 20): AssetSearchResult
     {
