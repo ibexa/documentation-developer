@@ -49,7 +49,7 @@ This page contains recent highlights and notable changes in [[= product_name =]]
 
 ### Documentation improvements
 
-- Improved navigation and reduced the overall size of [PHP API reference](/api/php_api/php_api_reference/) to improve responsiveness
+- Improved navigation and reduced the overall size of [PHP API reference](/api/php_api/php_api_reference/index.html) to improve responsiveness
 
 ## December 2025
 
