@@ -53,7 +53,7 @@ The `renderAction` has the following parameters:
 | `languageCode` | Language code of the content item to render.                                     |
 
 Use `ibexa_append_cacheable_query_params(block)` as the third parameter of the [`controller()` Twig function]([[= symfony_doc =]]/reference/twig_reference.html#controller)
-so if the block type has a `cacheable_query_params` configuration, it will be passed for its cache to vary on those query parameters.
+so if the block type has a `cacheable_query_params` configuration, it's passed for its cache to vary on those query parameters.
 
 Example usage:
 
