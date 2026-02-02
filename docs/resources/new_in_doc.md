@@ -45,11 +45,7 @@ This page contains recent highlights and notable changes in [[= product_name =]]
 
 - Added [reverse proxy installation instructions](clustering_with_ddev.md#install-reverse-proxy) to DDEV cluster description
 - Modified the [system update instructions](update_from_5.0.md) to account for numerous changes in the product
-- Updated the [reverse proxy configuration instructions](reverse_proxy.md#vcl-base-files) by mentioning specific VCL files that must be used in various scenarios
-
-### Documentation improvements
-
-- Improved navigation and reduced the overall size of [PHP API reference](/api/php_api/php_api_reference/index.html) to improve responsiveness
+- Detailed the Varnish [reverse proxy configuration instructions](reverse_proxy.md#vcl-base-files) by mentioning specific VCL files that must be used
 
 ## December 2025
 
