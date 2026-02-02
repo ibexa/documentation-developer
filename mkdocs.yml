@@ -311,6 +311,7 @@ nav:
             - Content Twig functions: templating/twig_function_reference/content_twig_functions.md
             - Date Twig filters: templating/twig_function_reference/date_twig_filters.md
             - Field Twig functions: templating/twig_function_reference/field_twig_functions.md
+            - Page Twig functions: templating/twig_function_reference/page_twig_functions.md
             - Icon Twig functions: templating/twig_function_reference/icon_twig_functions.md
             - Image Twig functions: templating/twig_function_reference/image_twig_functions.md
             - Product Twig functions: templating/twig_function_reference/product_twig_functions.md
