@@ -54,7 +54,7 @@ The `renderAction` has the following parameters:
 
 Optionally, if the layout uses custom block types with a [`cacheable_query_params configuration`](page_blocks.md#block-configuration), pass [`ibexa_append_cacheable_query_params(block)`](page_twig_functions.md#ibexa_append_cacheable_query_params) as the third argument to the [`controller()` Twig function]([[= symfony_doc =]]/reference/twig_reference.html#controller) so that the HTTP cache can vary based on those query parameters.
 
-Note that in a fresh installation, none of the built-in frontend blocks use this feature; it is currently only used by the [Dashboard blocks[([[= user_doc =]]/getting_started/dashboard/dashboard_block_reference/): "My content" and "Review queue".
+In a fresh installation, none of the built-in frontend blocks use this feature. It's only used by the [Dashboard blocks]([[= user_doc =]]/getting_started/dashboard/dashboard_block_reference/): "My content" and "Review queue".
 
 Example usage:
 
