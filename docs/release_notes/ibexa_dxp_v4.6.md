@@ -85,7 +85,7 @@ when@prod:
 
 #### Simplified creation of product types
 
-Use the new (`ProductTypeCreateStruct::setNames()`)[https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Local-Values-ProductType-ProductTypeCreateStruct.html#method_setNames] method to set names, in multiple languages, of a product type during its creation.
+Use the new [`ProductTypeCreateStruct::setNames()`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Local-Values-ProductType-ProductTypeCreateStruct.html#method_setNames) method to set names, in multiple languages, of a product type during its creation.
 
 See [creating product types](product_api.md#creating-product-types) for an example.
 
@@ -93,9 +93,8 @@ See [creating product types](product_api.md#creating-product-types) for an examp
 
 The PHP API has been enhanced with the following classes and interfaces:
 
-- [`Ibexa\Contracts\Core\Search\Embedding\EmbeddingProviderExceptionInterface`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Search-Embedding-EmbeddingProviderExceptionInterface.html)
-- [`Ibexa\Contracts\Taxonomy\Embedding\Exception`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/namespaces/ibexa-contracts-taxonomy-embedding-exception.html)
-- [`Ibexa\Contracts\Taxonomy\Embedding\Exception\TaxonomyEmbeddingConfigurationException`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-Taxonomy-Embedding-Exception-TaxonomyEmbeddingConfigurationException.html)
+- [`Ibexa\Contracts\Core\Search\Embedding\EmbeddingProviderExceptionInterface`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Search-Embedding-EmbeddingProviderExceptionInterface.html)
+- [`Ibexa\Contracts\Taxonomy\Embedding\Exception\TaxonomyEmbeddingConfigurationException`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-Taxonomy-Embedding-Exception-TaxonomyEmbeddingConfigurationException.html)
 
 
 ### Full changelog
