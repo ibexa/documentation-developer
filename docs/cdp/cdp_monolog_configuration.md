@@ -11,7 +11,7 @@ CDP Monolog channel handles webhook logs for easier separation of logs.
 - { name: monolog.logger, channel: ibexa.cdp.webhook }
 ```
 
-It's possible to configure `ibexa.cdp.webhook` Monolog channels to direct all logs to specific stream, file, or service.
+It's possible to configure `ibexa.cdp.webhook` Monolog channel to direct all logs to specific stream, file, or service.
 This allows webhook logs to be stored separately from the main application logs for easier debugging and analysis.
 
 To do it, in `config/packages/monolog.yaml` file, define a new handler for the `ibexa.cdp.webhook` channel that directs CPD Webhook events to a separate file.
