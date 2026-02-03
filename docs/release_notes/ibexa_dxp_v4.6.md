@@ -4,7 +4,7 @@ title: Ibexa DXP v4.6 LTS
 month_change: false
 ---
 
-<!-- vale VariablesVersion = NO -->
+<!-- vale Ibexa.VariablesVersion = NO -->
 
 [[= release_notes_filters('Ibexa DXP v4.6 LTS', ['Headless', 'Experience', 'Commerce', 'LTS Update', 'New feature']) =]]
 
@@ -39,7 +39,7 @@ Otherwise, they are processed synchronously.
 
 You can now indicate which [query parameters](https://en.wikipedia.org/wiki/Query_string) must be used as keys when generating [HTTP cache](http_cache.md) for block requests.
 
-This allows you to improve performance for blocks using the query parameters, for example, paginated blocks in the [dashboard](customize_dashboard.md).
+This allows you to improve performance for blocks by utilizing HTTP cache more effectively, for example, for paginated blocks in the [dashboard](customize_dashboard.md).
 
 To set it up, use the new `cacheable_query_params` [block setting](page_blocks.md#block-configuration).
 
@@ -82,6 +82,8 @@ when@prod:
                 level: debug
                 channels: [ 'ibexa.cdp.webhook' ]
 ```
+
+#### 
 
 ### Full changelog
 
