@@ -87,7 +87,7 @@ when@prod:
 
 Use the new [`ProductTypeCreateStruct::setNames()`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Local-Values-ProductType-ProductTypeCreateStruct.html#method_setNames) method to set names, in multiple languages, of a product type during its creation.
 
-See [creating product types](product_api.md#creating-product-types) for an example.
+See [creating product types](https://doc.ibexa.co/en/4.6/pim/product_api/#creating-product-types) for an example.
 
 #### PHP API
 

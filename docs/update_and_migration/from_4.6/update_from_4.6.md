@@ -503,7 +503,7 @@ ibexa_elasticsearch:
             node_pool_resurrect: 'Elastic\Transport\NodePool\Resurrect\NoResurrect'
 ```
 
-For more information, see [Connection pool and node pool settings](configure_elasticsearch.md#connection-pool-and-node-pool-settings).
+For more information, see [Connection pool and node pool settings](https://doc.ibexa.co/en/4.6/search/search_engines/elasticsearch/configure_elasticsearch/#connection-pool-and-node-pool-settings).
 
 ##### Remove trace option
 
