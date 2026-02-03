@@ -454,6 +454,95 @@ No additional steps needed.
 
 ## v4.6.27
 
+### Elasticsearch 8 support
+
+As of v4.6.27, [[= product_name =]] adds optional support for Elasticsearch 8.19 or higher through the new `ibexa/elasticsearch8` package.
+
+By default, [[= product_name =]] continues to support Elasticsearch 7.16.2+ with the `ibexa/elasticsearch` package.
+To use Elasticsearch 8, follow these steps:
+
+#### Install Elasticsearch 8 package
+
+Replace the existing Elasticsearch package and install Elasticsearch 8:
+
+```bash
+composer require ibexa/elasticsearch8:[[= latest_tag_4_6 =]]
+```
+
+#### Update Elasticsearch server
+
+Upgrade your Elasticsearch server to version 8.19 or higher.
+For detailed instructions, follow the [Elasticsearch upgrade guide](https://www.elastic.co/guide/en/elastic-stack/8.19/upgrading-elastic-stack.html#prepare-to-upgrade).
+
+When you use [[= product_name_cloud =]], see [Elasticsearch service](https://docs.upsun.com/add-services/elasticsearch.html) for a list of supported versions.
+
+#### Update configuration
+
+Update your configuration in `config/packages/ibexa_elasticsearch.yaml` as decribed below:
+
+##### Replace connection pool settings
+
+The `connection_pool` and `connection_selector` settings are ignored when using Elasticsearch 8.
+Replace them with appropriate `node_pool_selector` and `node_pool_resurrect` settings:
+
+``` yaml
+# Elasticsearch 7 configuration
+ibexa_elasticsearch:
+    connections:
+        default:
+            connection_pool: 'Elasticsearch\ConnectionPool\StaticNoPingConnectionPool'
+            connection_selector: 'Elasticsearch\ConnectionPool\Selectors\RoundRobinSelector'
+```
+
+``` yaml
+# Elasticsearch 8 configuration
+ibexa_elasticsearch:
+    connections:
+        default:
+            node_pool_selector: 'Elastic\Transport\NodePool\Selector\RoundRobin'
+            node_pool_resurrect: 'Elastic\Transport\NodePool\Resurrect\NoResurrect'
+```
+
+For more information, see [Connection pool and node pool settings](configure_elasticsearch.md#connection-pool-and-node-pool-settings).
+
+##### Remove trace option
+
+The `trace` debugging option is no longer available in Elasticsearch 8:
+
+``` yaml
+# Elasticsearch 7 configuration
+ibexa_elasticsearch:
+    connections:
+        default:
+            debug: true
+            trace: true
+```
+
+``` yaml
+# Elasticsearch 8 configuration
+ibexa_elasticsearch:
+    connections:
+        default:
+            debug: true
+            # Trace option is no longer available
+```
+
+#### Reindex content
+
+After upgrading to Elasticsearch 8 and updating your configuration, reindex the search engine:
+
+1. Push the index templates:
+
+    ``` bash
+    php bin/console ibexa:elasticsearch:put-index-template --overwrite
+    ```
+
+2. Reindex your content:
+
+    ``` bash
+    php bin/console ibexa:reindex
+    ```
+
 ### Removed Composer dependencies
 
 The following unused Composer dependencies have been removed from `ibexa/core`:
