@@ -1,4 +1,5 @@
 ---
+month_change: true
 description: Configure Elasticsearch to use it with Ibexa DXP.
 ---
 

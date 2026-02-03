@@ -79,6 +79,17 @@ Before you can assign categories to products, you need to [enable product catego
 
 ![Product categories](img/product_categories.png)
 
+### Virtual and physical products
+
+Product types in [[= product_name =]] can be either virtual or physical:
+
+- **Physical products** are tangible items that require shipping (for example: books, clothing, electronics).
+- **Virtual products** are items that don't require physical delivery (for example: software licenses, e-books, online courses, digital downloads, additional warranty, tickets for an event).
+
+This product type property can affect the checkout process.
+A cart of only virtual products skips the [shipping step](shipping_management.md) during checkout.
+To learn more about working with virtual products, see [Virtual products]([[= user_doc =]]/pim/create_virtual_product/) in the User Documentation.
+
 ### Currencies
 
 Currencies are used when calculating product price. In the system you can find a list of available currencies, but you can also create custom ones by providing its code.
