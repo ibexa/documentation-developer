@@ -35,11 +35,6 @@ This allows the user to grant preview access to logged-in users, as well as shar
 You can share a direct link to the collaborative session using the **Copy link** button.
 Link is copied to the clipboard and you can share it with the users through communication channels.
 
-!!! caution "Browser Compatibility"
-
-    To use the **Copy link** option, which allows you to copy a link to the clipboard and share it through communication channels with other users, the Clipboard API is required.
-    As a result, this option may not work in some browsers, such as Safari.
-
 ### Collaboration session
 
 Collaborative editing allows to work together on the same content items.
