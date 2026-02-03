@@ -52,8 +52,9 @@ The `renderAction` has the following parameters:
 | `versionNo`    | Version number of the content item to render.                                    |
 | `languageCode` | Language code of the content item to render.                                     |
 
-Use `ibexa_append_cacheable_query_params(block)` as the third parameter of the [`controller()` Twig function]([[= symfony_doc =]]/reference/twig_reference.html#controller)
-so if the block type has a `cacheable_query_params` configuration, it's passed for its cache to vary on those query parameters.
+Optionally, use `ibexa_append_cacheable_query_params(block)` as the third parameter of the [`controller()` Twig function]([[= symfony_doc =]]/reference/twig_reference.html#controller)
+if this layout use custom block types with a [`cacheable_query_params` configuration](page_blocks.md#block-configuration), so it's passed for its cache to vary on those query parameters.
+Notice that, on a fresh install, no frontend built-in blocks use this feature, only Dashboard blocks.
 
 Example usage:
 
