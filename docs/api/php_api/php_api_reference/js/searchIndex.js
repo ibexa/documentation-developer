@@ -32346,6 +32346,11 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/Ibexa-Contracts-Core-Search-Embedding-EmbeddingConfigurationInterface.html#method_getDefaultModelFieldSuffix"
         },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Search\\Embedding\\EmbeddingProviderExceptionInterface",
+            "name": "EmbeddingProviderExceptionInterface",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Search-Embedding-EmbeddingProviderExceptionInterface.html"
+        },                {
             "fqsen": "\\Ibexa\\Contracts\\Core\\Search\\Embedding\\EmbeddingProviderInterface",
             "name": "EmbeddingProviderInterface",
             "summary": "",
@@ -35405,6 +35410,11 @@ Search.appendIndex(
             "name": "newShippingAddressUpdateStruct",
             "summary": "",
             "url": "classes/Ibexa-Contracts-CorporateAccount-Service-ShippingAddressService.html#method_newShippingAddressUpdateStruct"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\CorporateAccount\\Service\\ShippingAddressService\u003A\u003AcountCompanyShippingAddresses\u0028\u0029",
+            "name": "countCompanyShippingAddresses",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-CorporateAccount-Service-ShippingAddressService.html#method_countCompanyShippingAddresses"
         },                {
             "fqsen": "\\Ibexa\\Contracts\\CorporateAccount\\Values\\Application",
             "name": "Application",
@@ -40461,6 +40471,16 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/Ibexa-Contracts-FieldTypePage-FieldType-Page-Block-Definition-BlockDefinition.html#method_setVisible"
         },                {
+            "fqsen": "\\Ibexa\\Contracts\\FieldTypePage\\FieldType\\Page\\Block\\Definition\\BlockDefinition\u003A\u003AgetCacheableQueryParams\u0028\u0029",
+            "name": "getCacheableQueryParams",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-FieldTypePage-FieldType-Page-Block-Definition-BlockDefinition.html#method_getCacheableQueryParams"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\FieldTypePage\\FieldType\\Page\\Block\\Definition\\BlockDefinition\u003A\u003AsetCacheableQueryParams\u0028\u0029",
+            "name": "setCacheableQueryParams",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-FieldTypePage-FieldType-Page-Block-Definition-BlockDefinition.html#method_setCacheableQueryParams"
+        },                {
             "fqsen": "\\Ibexa\\Contracts\\FieldTypePage\\FieldType\\Page\\Block\\Definition\\BlockDefinition\u003A\u003A\u0024identifier",
             "name": "identifier",
             "summary": "",
@@ -40500,6 +40520,11 @@ Search.appendIndex(
             "name": "attributes",
             "summary": "",
             "url": "classes/Ibexa-Contracts-FieldTypePage-FieldType-Page-Block-Definition-BlockDefinition.html#property_attributes"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\FieldTypePage\\FieldType\\Page\\Block\\Definition\\BlockDefinition\u003A\u003A\u0024cacheableQueryParams",
+            "name": "cacheableQueryParams",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-FieldTypePage-FieldType-Page-Block-Definition-BlockDefinition.html#property_cacheableQueryParams"
         },                {
             "fqsen": "\\Ibexa\\Contracts\\FieldTypePage\\FieldType\\Page\\Block\\Definition\\BlockDefinitionEvents",
             "name": "BlockDefinitionEvents",
@@ -48996,6 +49021,16 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/Ibexa-Contracts-ProductCatalog-Local-Values-ProductType-ProductTypeCreateStruct.html#method_setVirtual"
         },                {
+            "fqsen": "\\Ibexa\\Contracts\\ProductCatalog\\Local\\Values\\ProductType\\ProductTypeCreateStruct\u003A\u003AgetNames\u0028\u0029",
+            "name": "getNames",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-ProductCatalog-Local-Values-ProductType-ProductTypeCreateStruct.html#method_getNames"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\ProductCatalog\\Local\\Values\\ProductType\\ProductTypeCreateStruct\u003A\u003AsetNames\u0028\u0029",
+            "name": "setNames",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-ProductCatalog-Local-Values-ProductType-ProductTypeCreateStruct.html#method_setNames"
+        },                {
             "fqsen": "\\Ibexa\\Contracts\\ProductCatalog\\Local\\Values\\ProductType\\ProductTypeUpdateStruct",
             "name": "ProductTypeUpdateStruct",
             "summary": "The\u0020base\u0020class\u0020for\u0020all\u0020value\u0020objects\u0020and\u0020structs.",
@@ -55596,6 +55631,11 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/Ibexa-Contracts-Share-UI-Component-AbstractShareComponent.html#method_render"
         },                {
+            "fqsen": "\\Ibexa\\Contracts\\Share\\UI\\Component\\AbstractShareComponent\u003A\u003AisSessionParticipant\u0028\u0029",
+            "name": "isSessionParticipant",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Share-UI-Component-AbstractShareComponent.html#method_isSessionParticipant"
+        },                {
             "fqsen": "\\Ibexa\\Contracts\\Share\\UI\\Component\\AbstractShareComponent\u003A\u003A\u0024permissionResolver",
             "name": "permissionResolver",
             "summary": "",
@@ -58550,6 +58590,16 @@ Search.appendIndex(
             "name": "contains",
             "summary": "Returns\u0020true\u0020if\u0020\u0024needle\u0020is\u0020a\u0020descendant\u0020of\u0020a\u0020given\u0020\u0024haystack.",
             "url": "classes/Ibexa-Contracts-Storefront-Repository-TaxonomyTreeServiceInterface.html#method_contains"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Taxonomy\\Embedding\\Exception\\TaxonomyEmbeddingConfigurationException",
+            "name": "TaxonomyEmbeddingConfigurationException",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Taxonomy-Embedding-Exception-TaxonomyEmbeddingConfigurationException.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Taxonomy\\Embedding\\Exception\\TaxonomyEmbeddingConfigurationException\u003A\u003AforModelIdentifier\u0028\u0029",
+            "name": "forModelIdentifier",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Taxonomy-Embedding-Exception-TaxonomyEmbeddingConfigurationException.html#method_forModelIdentifier"
         },                {
             "fqsen": "\\Ibexa\\Contracts\\Taxonomy\\Embedding\\TaxonomyEmbeddingConfigurationInterface",
             "name": "TaxonomyEmbeddingConfigurationInterface",
@@ -64115,6 +64165,11 @@ Search.appendIndex(
             "name": "Event",
             "summary": "",
             "url": "namespaces/ibexa-contracts-storefront-repository-event.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Taxonomy\\Embedding\\Exception",
+            "name": "Exception",
+            "summary": "",
+            "url": "namespaces/ibexa-contracts-taxonomy-embedding-exception.html"
         },                {
             "fqsen": "\\Ibexa\\Contracts\\Taxonomy\\Embedding",
             "name": "Embedding",
