@@ -109,40 +109,62 @@ ibexa_elasticsearch:
 
 When you configure a cluster-based connection, and the cluster consists of many nodes, you can choose strategies that govern how the cluster reacts to changing operating conditions, or how workload is distributed among the nodes.
 
-#### Connection pool
+#### Connection pool and Node pool settings
 
-With this setting you decide how a list of hosts that form a cluster is managed.
-The list of active hosts tends to change in time, due to different reasons, such as connectivity issues, host malfunction, or the fact that you add new hosts to the cluster to increase its performance.
-By default, the `StaticNoPingConnectionPool` setting is used.
+The way you configure cluster node management depends on which Elasticsearch version you're using.
 
-You can change the default setting with the following key:
+=== "Elasticsearch 7"
 
-``` yaml
-<connection_name>:
-    # ...
-    connection_pool: Elasticsearch\ConnectionPool\<connection_pool_name>
-```
+    With this setting you decide how a list of hosts that form a cluster is managed.
+    The list of active hosts tends to change in time, due to different reasons, such as connectivity issues, host malfunction, or the fact that you add new hosts to the cluster to increase its performance.
+    By default, the `StaticNoPingConnectionPool` setting is used.
 
-For more information and a list of available choices, see [Connection pool](https://www.elastic.co/guide/en/elasticsearch/client/php-api/7.x/connection_pool.html).
+    You can change the default setting with the following key:
 
-!!! tip "Load tests recommendation"
+    ``` yaml
+    <connection_name>:
+        # ...
+        connection_pool: Elasticsearch\ConnectionPool\<connection_pool_name>
+    ```
 
-    If you change the connection pool setting, it's recommended that you to perform load tests to check whether the change doesn't negatively impact the performance of your environment.
+    When the cluster consists of many hosts, the `connection_selector` setting decides what strategy is used to pick a node to send query requests to.
+    By default, the `RoundRobinSelector` setting is used.
 
-#### Connection selector
+    If you prefer a different strategy, or have created your own, custom strategy, you can change the default setting with the following key:
 
-When the cluster consists of many hosts, the `connection_selector` setting decides what strategy is used to pick a node to send query requests to.
-By default, the `RoundRobinSelector` setting is used.
+    ``` yaml
+    <connection_name>:
+        # ...
+        connection_selector: Elasticsearch\ConnectionPool\Selectors\<selector_name>
+    ```
 
-If you prefer a different strategy, or have created your own, custom strategy, you can change the default setting with the following key:
+    For more information and a list of available choices, see [Connection pool](https://www.elastic.co/guide/en/elasticsearch/client/php-api/7.x/connection_pool.html) and [Selectors](https://www.elastic.co/guide/en/elasticsearch/client/php-api/7.x/selectors.html).
 
-``` yaml
-<connection_name>:
-    # ...
-    connection_selector: Elasticsearch\ConnectionPool\Selectors\<selector_name>
-```
+    !!! tip "Load tests recommendation"
 
-For more information and a list of available choices, see [Selectors](https://www.elastic.co/guide/en/elasticsearch/client/php-api/7.x/selectors.html).
+        If you change the connection pool setting, it's recommended that you perform load tests to check whether the change doesn't negatively impact the performance of your environment.
+
+=== "Elasticsearch 8"
+
+    With these settings you decide how nodes in the cluster are selected and how failed nodes are resurrected.
+    The node pool manages the list of active nodes, which can change over time due to connectivity issues, host malfunction, or when you add new nodes to the cluster to increase performance.
+
+    By default, Elasticsearch uses the `SimpleNodePool` algorithm with `RoundRobin` selector and `NoResurrect` strategy.
+
+    You can customize the node pool behavior with the following settings:
+
+    ``` yaml
+    <connection_name>:
+        # ...
+        node_pool_selector: Elastic\Transport\NodePool\Selector\RoundRobin
+        node_pool_resurrect: Elastic\Transport\NodePool\Resurrect\NoResurrect
+    ```
+
+    For more information and a list of available choices, see [Node pool](https://www.elastic.co/guide/en/elasticsearch/client/php-api/8.19/node_pool.html).
+
+    !!! tip "Load tests recommendation"
+
+        If you change the node pool settings, it's recommended that you perform load tests to check whether the change doesn't negatively impact the performance of your environment.
 
 ##### Number of retries
 
@@ -155,9 +177,12 @@ By default, `null` is used, which means that the number of retries equals to the
     retries: null
 ```
 
-Depending on the connection pool that you select, [[= product_name =]]'s reaction to reaching the maximum number of retries might differ.
+Depending on the connection pool/node pool that you select, [[= product_name =]]'s reaction to reaching the maximum number of retries might differ.
 
-For more information, see [Set retries](https://www.elastic.co/guide/en/elasticsearch/client/php-api/7.x/set-retries.html).
+For more information, see:
+
+- Elasticsearch 7: [Set retries](https://www.elastic.co/guide/en/elasticsearch/client/php-api/7.x/set-retries.html)
+- Elasticsearch 8: [Set retries](https://www.elastic.co/guide/en/elasticsearch/client/php-api/8.19/set-retries.html)
 
 ## Configure Elasticsearch Cloud
 
@@ -217,33 +242,90 @@ ibexa_elasticsearch:
 ### API key authentication
 
 If your Elasticsearch cluster is protected by API keys, you must provide the key and secret in authentication configuration to connect [[= product_name =]] with the cluster.
-With API key authentication you can define different authorization levels, such as [`create_index` or `index`](https://www.elastic.co/guide/en/elasticsearch/reference/7.x/security-privileges.html#privileges-list-indices).
+With API key authentication you can define different authorization levels, such as `create_index` or `index`.
 Such approach proves useful if the cluster is available to the public.
 
-For more information, see [Create API key](https://www.elastic.co/guide/en/elasticsearch/reference/7.x/security-api-create-api-key.html).
+For more information, see:
 
-When using API key authentication, you must pass the following parameters to authenticate access to the cluster:
+- Elasticsearch 7: [Create API key](https://www.elastic.co/guide/en/elasticsearch/reference/7.x/security-api-create-api-key.html) and [Security privileges](https://www.elastic.co/guide/en/elasticsearch/reference/7.x/security-privileges.html#privileges-list-indices)
+- Elasticsearch 8: [Create API key](https://www.elastic.co/guide/en/elasticsearch/reference/8.19/security-api-create-api-key.html) and [Security privileges](https://www.elastic.co/guide/en/elasticsearch/reference/8.19/security-privileges.html#privileges-list-indices)
 
-``` yaml
-<connection_name>:
-    # ...
-    authentication:
-        type: api_key
-        credentials: ['<api_key>', '<api_secret>']
-```
+=== "Elasticsearch 7"
 
-For example:
+    When using API key authentication with Elasticsearch 7, you must pass the following parameters to authenticate access to the cluster:
 
-``` yaml
-ibexa_elasticsearch:
-    connections:
-        cloud:
-            debug: true
-            elastic_cloud_id: 	'test:ZWFzdHVzMi5henVyZS5lbGFzdGljLWNsb3VkLmNvbTo5MjQzJGUwZ'
-            authentication:
-                type: api_key
-                credentials: ['8Ek5f3IBGQlWj6v4M7zG', 'rmI6IechSnSJymWJ4LZqUw']
-```
+    ``` yaml
+    <connection_name>:
+        # ...
+        authentication:
+            type: api_key
+            credentials: ['<api_key>', '<api_secret>']
+    ```
+
+    For example:
+
+    ``` yaml
+    ibexa_elasticsearch:
+        connections:
+            cloud:
+                debug: true
+                elastic_cloud_id: 	'test:ZWFzdHVzMi5henVyZS5lbGFzdGljLWNsb3VkLmNvbTo5MjQzJGUwZ'
+                authentication:
+                    type: api_key
+                    credentials: ['8Ek5f3IBGQlWj6v4M7zG', 'rmI6IechSnSJymWJ4LZqUw']
+    ```
+
+=== "Elasticsearch 8"
+
+    When using API key authentication with Elasticsearch 8, you can pass either the API key and key ID pair, or the encoded API key value, which Elasticsearch also calls "API key credentials". 
+
+    **Using API key and key ID:**
+
+    ``` yaml
+    <connection_name>:
+        # ...
+        authentication:
+            type: api_key
+            credentials: ['<api_key>', '<api_key_id>']
+    ```
+
+    For example:
+
+    ``` yaml
+    ibexa_elasticsearch:
+        connections:
+            cloud:
+                debug: true
+                elastic_cloud_id: 	'test:ZWFzdHVzMi5henVyZS5lbGFzdGljLWNsb3VkLmNvbTo5MjQzJGUwZ'
+                authentication:
+                    type: api_key
+                    credentials: ['ui2lp2axTNmsyakw9tvNnw', 'VuaCfGcBCdbkQm-e5aOx']
+    ```
+
+    **Using encoded API key:**
+
+    ``` yaml
+    <connection_name>:
+        # ...
+        authentication:
+            type: api_key
+            credentials: ['<api_key_encoded>']
+    ```
+
+    For example:
+
+    ``` yaml
+    ibexa_elasticsearch:
+        connections:
+            cloud:
+                debug: true
+                elastic_cloud_id: 	'test:ZWFzdHVzMi5henVyZS5lbGFzdGljLWNsb3VkLmNvbTo5MjQzJGUwZ'
+                authentication:
+                    type: api_key
+                    credentials: ['VnVhQ2ZHY0JDZGJrUW0tZTVhT3g6dWkybHAyYXhUTm1zeWFrdzl0dk5udw==']
+    ```
+
+    To see the difference between API key, API key id, and encoded API key, refer to the [examples in Elasticsearch documentation](https://www.elastic.co/guide/en/elasticsearch/reference/8.19/security-api-create-api-key.html#security-api-create-api-key-example).
 
 ### SSL
 
@@ -293,24 +375,28 @@ To do this, pass the following setting under the `ssl` key:
 verification: false
 ```
 
-For more information, see [Elasticsearch: SSL Encryption](https://www.elastic.co/guide/en/elasticsearch/client/php-api/7.x/connceting.html#ssl-encryption).
+For more information, see:
+
+- Elasticsearch 7: [SSL Encryption](https://www.elastic.co/guide/en/elasticsearch/client/php-api/7.x/connceting.html#ssl-encryption)
+- Elasticsearch 8: [Security by default (HTTPS)](https://www.elastic.co/guide/en/elasticsearch/client/php-api/8.19/connecting.html#auth-http)
 
 ### Enable debugging
 
 In a staging environment, you can log messages about the status of communication with Elasticsearch.
 You can then use Symfony Profiler to review the logs.
 
-By default, debugging is disabled. To enable debugging, you can toggle either of the following two settings:
+By default, debugging is disabled.
+To enable debugging, you can use the following settings:
 
 ``` yaml
 <connection_name>:
     # ...
     debug:	<true/false>
-    trace:	<true/false>
+    trace:	<true/false> # Elasticsearch 7 only
 ```
 
 - `debug` logs basic information about a request, such as request status and time.
-- `trace` logs additional information, such as steps to reproduce an exact copy of a query.
+- `trace` logs additional information, such as steps to reproduce an exact copy of a query. Available only for Elasticsearch 7.
 
 !!! tip
 
@@ -371,7 +457,10 @@ Index names use the following pattern:
 
 - `settings` - Settings under this key control all aspects related to an index.
 
-For more information and a list of available settings, see [Elasticsearch documentation](https://www.elastic.co/guide/en/elasticsearch/reference/7.x/index-modules.html#index-modules-settings).
+For more information and a list of available settings, see:
+
+- Elasticsearch 7: [Index modules](https://www.elastic.co/guide/en/elasticsearch/reference/7.x/index-modules.html#index-modules-settings)
+- Elasticsearch 8: [Index modules](https://www.elastic.co/guide/en/elasticsearch/reference/8.19/index-modules.html#index-modules-settings)
 
     For example, you can define settings that convert text into a format that is optimized for search, like a normalizer that changes a case of all phrases in the index:
 
@@ -393,16 +482,22 @@ For more information and a list of available settings, see [Elasticsearch docume
 
 - `mappings` - Settings under this key define mapping for fields in the index.
 
-For more information about mappings, see [Elasticsearch documentation](https://www.elastic.co/guide/en/elasticsearch/reference/7.x/mapping.html).
+    For more information about mappings, see:
+
+    - Elasticsearch 7: [Mapping](https://www.elastic.co/guide/en/elasticsearch/reference/7.x/mapping.html)
+    - Elasticsearch 8: [Mapping](https://www.elastic.co/guide/en/elasticsearch/reference/8.19/mapping.html)
 
     When you create a custom index template, with settings for your own field and document types, make sure that it contains mappings for all searchable fields that are available in [[= product_name =]].
-    For an example of default configuration with a list of searchable fields.
-    To see the default configuration, go to `vendor/ibexa/elasticsearch/src/bundle/Resources/config/` and open the `default-config.yaml` file.
+
+To see the default configuration, go to `vendor/ibexa/elasticsearch/src/bundle/Resources/config/` and open the `default-config.yaml` file.
 
 ### Fine-tune the search results
 
 Your search results can be adjusted by configuring additional parameters.
-For a list of available mapping parameters and their usage, see [Elasticsearch documentation](https://www.elastic.co/guide/en/elasticsearch/reference/7.x/mapping-params.html).
+For a list of available mapping parameters and their usage, see:
+
+- Elasticsearch 7: [Mapping parameters](https://www.elastic.co/guide/en/elasticsearch/reference/7.x/mapping-params.html)
+- Elasticsearch 8: [Mapping parameters](https://www.elastic.co/guide/en/elasticsearch/reference/8.19/mapping-params.html)
 
 For example, you can apply a mapping parameter, in this case, a normalizer, to a specific mapping under the `dynamic_templates` key:
 
@@ -488,9 +583,12 @@ For more information about specifying the pattern for your language, see [Define
 
 #### Create config for language specific analyzer
 
-For information about configuring an analyzer for each specific language, see [Elasticsearch documentation](https://www.elastic.co/guide/en/elasticsearch/reference/7.17/analysis-lang-analyzer.html).
+For information about configuring an analyzer for each specific language, see:
 
-An adoption of the [English analyzer](https://www.elastic.co/guide/en/elasticsearch/reference/7.17/analysis-lang-analyzer.html#english-analyzer) in [[= product_name =]] configuration looks like this:
+- Elasticsearch 7: [Language analyzers](https://www.elastic.co/guide/en/elasticsearch/reference/7.17/analysis-lang-analyzer.html)
+- Elasticsearch 8: [Language analyzers](https://www.elastic.co/guide/en/elasticsearch/reference/8.19/analysis-lang-analyzer.html)
+
+An adoption of the `english` analyzer in [[= product_name =]] configuration looks like this:
 
 ```yaml hl_lines="3-5 15-23 35 41-52 94 99"
 [[= include_file('code_samples/search/custom/config/packages/elasticsearch-en.yaml') =]]
@@ -520,7 +618,10 @@ ibexa_elasticsearch:
                 - ger_de
 ```
 
-For more information about how Elasticsearch handles settings and mappings from multiple templates that match the same index, see [Elasticsearch documentation](https://www.elastic.co/guide/en/elasticsearch/reference/7.x/indices-templates-v1.html#multiple-templates-v1).
+For more information about how Elasticsearch handles settings and mappings from multiple templates that match the same index, see:
+
+- Elasticsearch 7: [Multiple templates](https://www.elastic.co/guide/en/elasticsearch/reference/7.x/indices-templates-v1.html#multiple-templates-v1)
+- Elasticsearch 8: [Index templates](https://www.elastic.co/guide/en/elasticsearch/reference/8.19/index-templates.html)
 
 # Extend Elasticsearch
 

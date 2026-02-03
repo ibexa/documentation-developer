@@ -4526,6 +4526,10 @@ ProductTypeCreate:
         assigned_attributes:
             type: array
             items: ProductTypeAssignedAttribute
+        is_virtual:
+            type: boolean
+            required: false
+            description: 'Determines whether the product type is virtual (digital products) or physical. Defaults to false (physical).'
 
 ProductTypeUpdateWrapper:
     description: 'JSON object with only a ProductTypeUpdate property.'
