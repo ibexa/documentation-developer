@@ -83,7 +83,11 @@ when@prod:
                 channels: [ 'ibexa.cdp.webhook' ]
 ```
 
-#### 
+#### Simplified creation of product types
+
+Use the new `ProductTypeCreateStruct::setNames()` method to set names, in multiple languages, of a product type during its creation.
+
+See [creating product types](product_api.md#creating-product-types) for an example.
 
 ### Full changelog
 
