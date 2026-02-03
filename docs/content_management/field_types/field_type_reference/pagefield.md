@@ -54,7 +54,7 @@ The `renderAction` has the following parameters:
 
 Optionally, use `ibexa_append_cacheable_query_params(block)` as the third parameter of the [`controller()` Twig function]([[= symfony_doc =]]/reference/twig_reference.html#controller)
 if this layout use custom block types with a [`cacheable_query_params` configuration](page_blocks.md#block-configuration), so it's passed for its cache to vary on those query parameters.
-Notice that, on a fresh install, no frontend built-in blocks use this feature, only Dashboard blocks.
+Notice that, on a fresh install, no frontend built-in blocks use this feature, but it's only used by [Dashboard blocks]([[= user_doc =]]/getting_started/dashboard/dashboard_block_reference/) My content and Review queue.
 
 Example usage:
 
