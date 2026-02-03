@@ -11,7 +11,7 @@ month_change: false
 <div class="release-notes" markdown="1">
 
 [[% set version = 'v4.6.27' %]]
-[= release_note_entry_begin("Ibexa DXP " + version, '2026-02-03', ['Headless', 'Experience', 'Commerce']) =]]
+[[= release_note_entry_begin("Ibexa DXP " + version, '2026-02-03', ['Headless', 'Experience', 'Commerce']) =]]
 
 ### Added support for Elasticsearch 8
 
@@ -42,8 +42,8 @@ You can now indicate which [query parameters](https://en.wikipedia.org/wiki/Quer
 This allows you to improve performance for blocks using the query parameters, for example, paginated blocks in the [dashboard](customize_dashboard.md).
 
 To set it up, use the new `cacheable_query_params` [block setting](page_blocks.md#block-configuration).
-Then, adjust your [layouts](render_page.md#configure-layout) and pass the parameters to Symfony's `controller function`([[= symfony_doc =]]/reference/twig_reference.html#controller) by using the new `ibexa_append_cacheable_query_params` Twig function.
-See the example below:
+
+Then, adjust your [layouts](render_page.md#configure-layout) and pass the parameters to [Symfony's `controller function`]([[= symfony_doc =]]/reference/twig_reference.html#controller) by using the new `ibexa_append_cacheable_query_params` Twig function, as in the example below:
 
 ``` html+twig
 {{ render_esi(controller('Ibexa\\Bundle\\FieldTypePage\\Controller\\BlockController::renderAction',
