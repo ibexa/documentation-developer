@@ -13,13 +13,13 @@ ibexa_fieldtype_page:
                         attributes:
                             attribute_1:
                                 name: Name 1
-                                type: type
+                                type: string
                                 validators:
                                     not_blank:
                                         message: 'Provide a value'
                             attribute_2:
                                 name: Name 2
-                                type: type
+                                type: string
                         multiple: true
                     validators:
                         not_blank:
