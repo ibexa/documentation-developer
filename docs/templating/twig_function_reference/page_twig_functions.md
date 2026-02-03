@@ -10,6 +10,7 @@ month_change: true
 ## `ibexa_append_cacheable_query_params()`
 
 Get the query parameters of a page block as [configured in `cacheable_query_params`](page_blocks.md#block-configuration).
+If the block type has no configured query parameters, an empty array is returned.
 
 ```twig
 {{ render_esi(controller('Ibexa\\Bundle\\FieldTypePage\\Controller\\BlockController::renderAction', {
