@@ -210,12 +210,12 @@ The [discount](discounts.md) policies decide which actions can be executed by gi
 
 #### Shopping lists [[% include 'snippets/lts-update_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
 
-| Module                       | Function              | Effect                 | Possible limitations                                                                  |
-|------------------------------|-----------------------|------------------------|---------------------------------------------------------------------------------------|
-| <nobr>`shopping_list`</nobr> | <nobr>`create`</nobr> | create a shopping list | TODO: Something like […Owner:self](limitation_reference.md#shopping-list-limitation)? |
-|                              | <nobr>`delete`</nobr> | delete a shopping list |
-|                              | <nobr>`edit`</nobr>   | modify a shopping list |
-|                              | <nobr>`view`</nobr>   | view shopping lists    |
+| Module                       | Function              | Effect                 | Possible limitations                                                  |
+|------------------------------|-----------------------|------------------------|-----------------------------------------------------------------------|
+| <nobr>`shopping_list`</nobr> | <nobr>`create`</nobr> | create a shopping list | [ShoppingListOwner](limitation_reference.md#shopping-list-limitation) |
+|                              | <nobr>`delete`</nobr> | delete a shopping list | [ShoppingListOwner](limitation_reference.md#shopping-list-limitation) |
+|                              | <nobr>`edit`</nobr>   | modify a shopping list | [ShoppingListOwner](limitation_reference.md#shopping-list-limitation) |
+|                              | <nobr>`view`</nobr>   | view shopping lists    | [ShoppingListOwner](limitation_reference.md#shopping-list-limitation) |
 
 ### Content management
 
