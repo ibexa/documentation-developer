@@ -22,3 +22,9 @@ For a detailed description of advanced settings that you might require in a spec
 **Prerequisite**
 
 To proceed you need to be familiar with how indexing, filtering and queries work.
+
+## Update Elasticsearch schema
+
+Whenever you make any changes in case of variables (for example, environmental ones) or configuration files, you need to erase Elasticsearch index, update the schema, and rebuild the index.
+
+[[% include 'snippets/elasticsearch_clear_index.md' %]]
