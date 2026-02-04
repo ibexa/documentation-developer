@@ -4,11 +4,103 @@ title: Ibexa DXP v4.6 LTS
 month_change: false
 ---
 
-<!-- vale VariablesVersion = NO -->
+<!-- vale Ibexa.VariablesVersion = NO -->
 
 [[= release_notes_filters('Ibexa DXP v4.6 LTS', ['Headless', 'Experience', 'Commerce', 'LTS Update', 'New feature']) =]]
 
 <div class="release-notes" markdown="1">
+
+[[% set version = 'v4.6.27' %]]
+[[= release_note_entry_begin("Ibexa DXP " + version, '2026-02-03', ['Headless', 'Experience', 'Commerce']) =]]
+
+### Added support for Elasticsearch 8
+
+Elasticsearch 8 is now officially supported.
+If you're currently using Elasticsearch 7, which is [no longer maintained](https://www.elastic.co/support/eol), it's recommended to upgrade.
+See the [update instructions](update_from_4.6.md#elasticsearch-8-support) for more information.
+
+### Added asynchronous processing of data in Ibexa DXP
+
+You can now process requests from [[[= product_name_cdp =]]](/cdp/cdp.md) asynchronously, in the background.
+Use it to improve performance and prevent data loss.
+
+To enable this behavior, install and configure the [Ibexa Messenger package](background_tasks.md).
+Then, set the batch size that triggers asynchronous processing:
+
+``` yaml
+ibexa_cdp:
+    bulk_async_threshold: 100
+```
+
+When the number of [audience](https://content.raptorservices.com/help-center/how-to-build-audiences-in-the-customer-data-platform) changes coming from [Raptor](https://www.raptorservices.com/) exceeds this number, the changes are sent to the queue and processed in the background.
+Otherwise, they are processed synchronously.
+
+### Improved HTTP caching for Page Builder and dashboard blocks
+
+You can now indicate which [query parameters](https://en.wikipedia.org/wiki/Query_string) must be used as keys when generating [HTTP cache](http_cache.md) for block requests.
+
+This allows you to improve performance for blocks by utilizing HTTP cache more effectively, for example, for paginated blocks in the [dashboard](customize_dashboard.md).
+
+To set it up, use the new `cacheable_query_params` [block setting](page_blocks.md#block-configuration).
+
+Then, adjust your [layouts](render_page.md#configure-layout) and pass the parameters to [Symfony's `controller function`]([[= symfony_doc =]]/reference/twig_reference.html#controller) by using the new `ibexa_append_cacheable_query_params` Twig function, as in the example below:
+
+``` html+twig
+{{ render_esi(controller('Ibexa\\Bundle\\FieldTypePage\\Controller\\BlockController::renderAction',
+    {
+        'locationId': locationId,
+        'contentId': contentInfo.id,
+        'blockId': block.id,
+        'versionNo': versionInfo.versionNo,
+        'languageCode': field.languageCode
+    },
+    ibexa_append_cacheable_query_params(block)
+)) }}
+```
+
+### Developer experience
+
+#### Easier debugging of Page Builder blocks
+
+In Symfony's `dev` environment, use the "Open profiler" action to quickly debug Page Builder's block rendering failures.
+
+![Quickly debug failing Page Builder blocks with "Open profiler" action](img/5.0_open_in_profiler.png "Quickly debug failing Page Builder blocks with 'Open profiler' action")
+
+#### Improved logging for Ibexa CDP
+
+You can configure the new `ibexa.cdp.webhook` Monolog channels to direct all CDP webhook logs to specific output for easier separation of logs.
+
+Example configuration:
+
+```yaml
+when@prod:
+    monolog:
+        handlers:
+            cdp_webhook:
+                type: stream
+                path: "%kernel.logs_dir%/cdp_webhook_%kernel.environment%.log"
+                level: debug
+                channels: [ 'ibexa.cdp.webhook' ]
+```
+
+#### Simplified creation of product types
+
+Use the new [`ProductTypeCreateStruct::setNames()`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Local-Values-ProductType-ProductTypeCreateStruct.html#method_setNames) method to set names, in multiple languages, of a product type during its creation.
+
+See [creating product types](https://doc.ibexa.co/en/4.6/pim/product_api/#creating-product-types) for an example.
+
+#### PHP API
+
+The PHP API has been enhanced with the following classes and interfaces:
+
+- [`Ibexa\Contracts\Core\Search\Embedding\EmbeddingProviderExceptionInterface`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Search-Embedding-EmbeddingProviderExceptionInterface.html)
+- [`Ibexa\Contracts\Taxonomy\Embedding\Exception\TaxonomyEmbeddingConfigurationException`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-Taxonomy-Embedding-Exception-TaxonomyEmbeddingConfigurationException.html)
+
+
+### Full changelog
+
+[[% include 'snippets/release_46.md' %]]
+[[= release_note_entry_end() =]]
 
 [[% set version = 'v4.6.26' %]]
 
