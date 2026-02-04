@@ -572,6 +572,11 @@ composer require guzzlehttp/guzzle:^6.5 php-http/guzzle6-adapter:^2.0
 
 With the product updated to the latest version, you can now finish the update process or proceed to updating the LTS Updates packages.
 
+### Messenger support in CDP
+
+If you are using CDP and have not configured Ibexa Messenger yet, do so now.
+Follow the [Messenger setup instructions](https://doc.ibexa.co/en/4.6/infrastructure_and_maintenance/background_tasks/#install-package) to continue.
+
 ## LTS Updates
 
 [LTS Updates](https://doc.ibexa.co/en/4.6/ibexa_products/editions/#lts-updates) are standalone packages with their own update procedures.
