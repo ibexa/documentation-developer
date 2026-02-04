@@ -134,7 +134,7 @@ Finally, you can specify the audiences you wish to include.
 
     All CDP requests are logged in with `debug` severity.
 
-## CDP Monolog channel
+### CDP Monolog channel
 
 CDP Monolog channel handles webhook logs for easier separation of logs.
 
@@ -158,7 +158,7 @@ monolog:
             channels: [ 'ibexa.cdp.webhook' ]
 ```
 
-If you want to avoid redundant or duplicate entries in the other log, exclude the webhook channel by:
+If you want to avoid redundant or duplicate entries in the other logs, exclude the webhook channel by:
 
 ```yaml
 channels: ["!ibexa.cdp.webhook"]
