@@ -92,4 +92,4 @@ You should not use ESI for parts that are effectively uncached, because your rev
 
 !!! note "ESI limitations with the URIElement SiteAccess matcher"
 
-    Is isn't possible to share ESIs across the SiteAccesses when using URI matching as URI contains the SiteAccess name encoded in its path information.
+    It isn't possible to share ESIs across the SiteAccesses when using URI matching as URI contains the SiteAccess name encoded in its path information.

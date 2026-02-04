@@ -41,7 +41,7 @@ You can access them using twig (for example, `{{ zones[0].id }}` ).
 
 Each div that's a zone should have the `data-ibexa-zone-id` attribute with zone ID as a value for a zone container.
 
-To render a block inside the layout, use the Twig `render_esi()` function to call `Ibexa\\Bundle\\FieldTypePage\\Controller\\BlockController::renderAction`.
+To render a block inside the layout, use the Twig [`render_esi()`]([[= symfony_doc =]]/reference/twig_reference.html#render-esi) function to call `Ibexa\\Bundle\\FieldTypePage\\Controller\\BlockController::renderAction`.
 
 The `renderAction` has the following parameters:
 
