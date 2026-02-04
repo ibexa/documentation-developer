@@ -203,7 +203,7 @@ channels: ["!ibexa.cdp.webhook"]
 ```
 ### [[= product_name_base =]] Messenger support for large batches of data
 
-CDP uses [[= product_name_base =]] Messenger to process incoming data from [Raptor](www.raptorservices.com/).
+CDP uses [[= product_name_base =]] Messenger to process incoming data from [Raptor](https://www.raptorservices.com/).
 This approach improves performance and reliability when processing large amounts of CDP user records.
 For more information, see [Background tasks: How it works](background_tasks.md#how-it-works).
 
