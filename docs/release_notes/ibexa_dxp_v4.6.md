@@ -10,6 +10,37 @@ month_change: false
 
 <div class="release-notes" markdown="1">
 
+[[% set version = 'v4.6.28' %]]
+[[= release_note_entry_begin("Ibexa DXP " + version, '2026-02-04', ['Headless', 'Experience', 'Commerce']) =]]
+
+### Developer experience
+
+#### Pass custom parameters to `ibexa_render()` Twig function
+
+You can now pass custom parameters to templates when using the `ibexa_render()` Twig function with the new `params` option, similar to how you can with `render(controller())`.
+
+This allows you to provide additional context or data to your view templates:
+
+``` html+twig
+{{ ibexa_render(content, {
+    'viewType': 'line',
+    'method': 'inline',
+    'params': {
+        'custom_param': 'custom_value',
+        'another_param': 'another_value'
+    }
+}) }}
+```
+
+The parameters are available in your template as regular variables.
+
+For more information, see [`ibexa_render()` Twig function](content_twig_functions.md#ibexa_render).
+
+### Full changelog
+
+[[% include 'snippets/release_46.md' %]]
+[[= release_note_entry_end() =]]
+
 [[% set version = 'v4.6.27' %]]
 [[= release_note_entry_begin("Ibexa DXP " + version, '2026-02-03', ['Headless', 'Experience', 'Commerce']) =]]
 
