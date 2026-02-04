@@ -1,5 +1,5 @@
 ---
-description: TODO
+description: Shopping list search criteria help define and fine-tune search queries for shopping lists.
 editions: lts-update commerce
 month_change: true
 ---
@@ -30,7 +30,7 @@ The following query example gets all shopping lists if current user doesn't have
 $query = new ShoppingListQuery();
 ```
 
-The following query example gets current user's shopping lists except the default one sorted by name:
+The following query example gets current user's shopping lists, except the default one, and sorted by name:
 
 ```php
 $query = new ShoppingListQuery(new Query\Criterion\LogicalAnd(
