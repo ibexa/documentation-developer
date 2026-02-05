@@ -566,6 +566,10 @@ If you do, add the required dependencies to your project:
 composer require guzzlehttp/guzzle:^6.5 php-http/guzzle6-adapter:^2.0
 ```
 
+## v4.6.28
+
+No additional steps needed.
+
 <!-- End of update instructions -->
 
 [[% include 'snippets/update/notify_support.md' %]]
