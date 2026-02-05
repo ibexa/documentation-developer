@@ -566,16 +566,16 @@ If you do, add the required dependencies to your project:
 composer require guzzlehttp/guzzle:^6.5 php-http/guzzle6-adapter:^2.0
 ```
 
+### Messenger support in CDP
+
+If you're using [CDP](cdp.md) and haven't configured Ibexa Messenger yet, do so now.
+Follow the [Messenger setup instructions](https://doc.ibexa.co/en/4.6/infrastructure_and_maintenance/background_tasks/#install-package) to continue.
+
 <!-- End of update instructions -->
 
 [[% include 'snippets/update/notify_support.md' %]]
 
 With the product updated to the latest version, you can now finish the update process or proceed to updating the LTS Updates packages.
-
-### Messenger support in CDP
-
-If you are using CDP and have not configured Ibexa Messenger yet, do so now.
-Follow the [Messenger setup instructions](https://doc.ibexa.co/en/4.6/infrastructure_and_maintenance/background_tasks/#install-package) to continue.
 
 ## LTS Updates
 
