@@ -285,7 +285,6 @@ Run the provided SQL upgrade script to ensure the Messenger tables for [backgrou
 
 No additional steps needed.
 
-
 ## LTS Updates and additional packages
 
 [LTS Updates](editions.md#lts-updates) are standalone packages with their own update procedures.
