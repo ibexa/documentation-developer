@@ -53,3 +53,12 @@ The following example shows how to link to the shopping list listing page, using
 <svg><use xlink:href="{{ ibexa_icon_path('heart') }}"></use></svg>
 </a>
 ```
+
+## User menu
+
+The `\Ibexa\Bundle\Storefront\EventSubscriber\ShoppingList\UserMenuSubscriber` is responsible for
+adding the "Shopping lists" item between "Orders" and "Change password" to the user menu
+previously initiated by the `\Ibexa\Bundle\Storefront\Menu\Builder\UserMenuBuilder`.
+You can look at how this subscriber tests that the user isn't anonymous
+and then has the `shopping_list/view` policy (`\Ibexa\Contracts\ShoppingList\Permission\Policy\ShoppingList\View`)
+before adding the "Shopping lists" item.
