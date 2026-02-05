@@ -186,7 +186,7 @@ It can be configured in both `dev` and `prod` environments, for example:
 
 ```yaml
 monolog:
-     handlers:
+    handlers:
         cdp_webhook:
             type: stream
             path: "%kernel.logs_dir%/cdp_webhook_%kernel.environment%.log"
