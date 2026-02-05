@@ -10,6 +10,15 @@ month_change: false
 
 <div class="release-notes" markdown="1">
 
+<!--DRAFT for v5.0.6 release -->
+#### Query subtree limit configuration
+
+A new `query_subtree.limit` configuration option improves performance when working with large content trees by limiting count operations.
+This prevents performance degradation from database queries when determining if locations have children or calculating subtree sizes.
+
+For more information, see [Subtree operations configuration](back_office_configuration.md#subtree-operations).
+
+
 [[% set version = 'v5.0.5' %]]
 
 [[= release_note_entry_begin("Ibexa DXP " + version, '2026-01-15', ['Headless', 'Experience', 'Commerce']) =]]
