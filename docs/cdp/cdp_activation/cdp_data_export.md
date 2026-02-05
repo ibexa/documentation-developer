@@ -144,7 +144,7 @@ By using Messenger while working with large batches of data, requests are queued
 
 - queuing items starts automatically once a certain number of actions is reached (below this number, items are processed in a single request, using the standard synchronous behavior)
 - every single data is recorded in the database
-- a background worker retrieves records from the queue, processing them one by one or in batches, depending on the [Messenger]([[= symfony_doc =]]//messenger.html) configuration
+- a background worker retrieves records from the queue, processing them one by one or in batches, depending on the [Messenger]([[= symfony_doc =]]/messenger.html) configuration
 - processing happens at set intervals to avoid timeouts and keep the system stable
 
 1\. Make sure that the transport layer is [defined properly](background_tasks.md#configure-package) in [[= product_name_base =]] Messenger configuration.
