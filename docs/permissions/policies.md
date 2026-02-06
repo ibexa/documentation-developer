@@ -280,7 +280,7 @@ The [discount](discounts.md) policies decide which actions can be executed by gi
 | <nobr>`comparison`</nobr> | <nobr>`view`</nobr>         | view version comparison                |
 | <nobr>`workflow`</nobr>   | <nobr>`change_stage`</nobr> | change stage in the specified workflow | [Workflow Transition](limitation_reference.md#workflow-transition-limitation) |
 
-### PIM
+### Product Catalog
 
 #### Catalogs
 

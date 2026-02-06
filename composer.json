@@ -78,7 +78,9 @@
         "ibexa/messenger": "~5.0.x-dev",
         "ibexa/collaboration": "~5.0.x-dev",
         "ibexa/share": "~5.0.x-dev",
-        "ibexa/phpstan": "~5.0.-dev"
+        "ibexa/phpstan": "~5.0.-dev",
+        "ibexa/connector-quable": "5.0.x-dev",
+        "ibexa/quable-client": "dev-reverted-open-api as 5.0.x-dev"
     },
     "scripts": {
         "fix-cs": "php-cs-fixer fix --config=.php-cs-fixer.php -v --show-progress=dots",

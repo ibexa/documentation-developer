@@ -1,5 +1,5 @@
 ---
-description: Ibexa DXP v4.6 brings improvements to Commerce, PIM and Personalization offerings, and a number of changes in CDP and Ibexa Connect.
+description: Ibexa DXP v4.6 brings improvements to Commerce, Product Catalog and Personalization offerings, and a number of changes in CDP and Ibexa Connect.
 title: Ibexa DXP v4.6 LTS
 month_change: false
 ---
@@ -361,7 +361,7 @@ The Product Picker tool that, for example, lets you [select products eligible fo
 [[% set version = 'v4.6.22' %]]
 [[= release_note_entry_begin("Symbol attribute", '2025-08-05', ['Headless', 'Experience', 'Commerce', 'LTS Update', 'New feature']) =]]
 
-The Symbol attribute allows you to store standardized identifiers of your products in the [Product Information Management](pim_guide.md) system.
+The Symbol attribute allows you to store standardized identifiers of your products in the [product catalog](product_catalog_guide.md).
 
 For more information, see [Symbol attribute type](symbol_attribute_type.md).
 
@@ -644,7 +644,7 @@ The PHP API has been enhanced with the following new classes:
 
 [[= release_note_entry_begin("Date and time attribute", '2025-03-04', ['Headless', 'Experience', 'Commerce', 'LTS Update', 'New feature']) =]]
 
-The Date and time attributes allow you to represent date and time values as part of the product specification in the [Product Information Management](pim_guide.md) system.
+The Date and time attributes allow you to represent date and time values as part of the product specification in the [product catalog](product_catalog_guide.md).
 
 For more information, see [Date and time attributes](date_and_time.md).
 
@@ -1221,11 +1221,11 @@ Editors can now use a Digital Asset Management platform that enables storing med
 
 For more information, see [Ibexa DAM](https://doc.ibexa.co/projects/userguide/en/master/dam/ibexa_dam/).
 
-#### New features and improvements in PIM
+#### New features and improvements in Product Catalog
 
 ##### Remote PIM support
 
-This release introduces a foundation for connecting [[= product_name =]] to other sources of product data.
+This release introduces a foundation for connecting [[= product_name =]]'s product catalog capabilities to external Product Information Management (PIM) systems.
 You can use it to implement a custom solution and connect to external PIM or ERP systems, import product data, and present it side-by-side with your organization's existing content, while managing product data in a remote system of your choice.
 
 Here are the most important benefits of Remote PIM support:
@@ -1244,7 +1244,7 @@ Among other things, the Remote PIM support feature allows [[= product_name =]] c
 - use Customer Groups to apply different prices to products,
 - define and use currencies.
 
-For more information about Remote PIM support and the solution's limitations, see [PIM product guide](https://doc.ibexa.co/en/master/pim/pim_guide/#limitations).
+For more information about Remote PIM support and the solution's limitations, see [Product catalog](https://doc.ibexa.co/en/5.0/product_catalog/product_catalog_guide/#limitations).
 
 ##### Virtual products
 

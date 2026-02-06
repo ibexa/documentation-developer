@@ -139,6 +139,6 @@ A new version is also created when a new [language](languages.md) is added to th
 
 ## Products
 
-Products are a special type of content that holds products you can manage in the built-in PIM system.
+Products are a special type of content that holds products you can manage with the product catalog capabilities.
 
-For more information, see [PIM](pim.md).
+For more information, see [Product catalog](../product_catalog/product_catalog.md).

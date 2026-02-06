@@ -1,5 +1,5 @@
 ---
-description: Ibexa DXP v4.1 enhances the PIM capabilities, adds a Measurement field type and attribute and a Dynamic Targeting block for the Page Builder.
+description: Ibexa DXP v4.1 enhances the product catalog capabilities, adds a Measurement field type and attribute and a Dynamic Targeting block for the Page Builder.
 ---
 <!-- vale VariablesVersion = NO -->
 

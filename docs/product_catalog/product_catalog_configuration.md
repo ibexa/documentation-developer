@@ -1,10 +1,10 @@
 ---
-description: Configure PIM settings per Repository, with different catalog engines and VAT configurations.
+description: Configure product catalog settings per repository, with different catalog engines and VAT configurations.
 ---
 
-# PIM configuration
+# Product catalog configuration
 
-You can configure PIM per [Repository](repository_configuration.md).
+You can configure the product catalog per [Repository](repository_configuration.md).
 
 Under `ibexa.repositories.<repository_name>.product_catalog` [configuration key](configuration.md#configuration-files), indicate the catalog engine to use:
 
