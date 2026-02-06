@@ -158,6 +158,8 @@ From a platform first installed on v5.0.3 or updated precisely to v5.0.3, you ne
 If the platform comes from lower than v5.0.3 and is updated to higher than v5.0.3, you don't need this part
 (but if you run the requests anyway, you only obtain error messages, nothing being broken or lost).
 
+TMP Change 1
+
 === "MySQL"
 
     ``` sql
