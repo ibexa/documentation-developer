@@ -15,11 +15,11 @@ It can cover many purchase planning cases.
 
 Every quarter, almost the same consumables must be bought.
 Thanks to a dedicated shopping list, the cart can be quickly drafted, filled with all the necessary products.
-Only quantities need to be input, it's time adjust the amount of each product, depending on what's left from previous quarter.
+Only quantities need to be input, the amount of each product is adjusted depending on what's left from previous quarter and known consumption for the same period from previous years.
 
 ### Project wishlist
 
-Every purchase needed by an incoming project can be stored,
+Every purchase needed by an incoming project can be stored in a dedicated shopping list,
 even several products fulfilling the same purpose to decide latter wish ones to keep in the final cart.
 
 ## Shopping list management overview
@@ -47,3 +47,5 @@ Such customer can
 
 A shopping list only stores product codes.
 A shopping list doesn't store quantities.
+
+TODO: illustrate with storefront screenshots?

@@ -7,7 +7,7 @@ editions: lts-update commerce
 # Shopping list
 
 A shopping list allows to store potential purchases, recurrent product set, and other wishes for later use into cart.
-A user can have several shopping lists.
+A user can have several shopping lists, including a default one named "My Wishlist" created on first use.
 
 TODO: more precise introduction
 

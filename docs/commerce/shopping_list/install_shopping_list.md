@@ -55,7 +55,7 @@ Each user's default shopping list is created when used for the first time.
 
 ## Configure
 
-By default, the maximum shopping list count per user is 10 and the maximum entries per list is 100.
+By default, the maximum shopping list count per user is 10 custom plus 1 default, and the maximum entries per list is 100.
 When listing their shopping list, the use see 25 lists per page
 (and as it's over the shopping list count, there is always one page of shopping lists in this default scenario).
 
@@ -68,7 +68,8 @@ parameters:
     ibexa.site_access.config.default.shopping_list.pagination.list_per_page_limit: 25
 ```
 
-Notice that if a customer reach the `max_lists_per_user`, if not already created, this customer can still create a default shopping list.
+Notice that if a customer reach the `max_lists_per_user`, if not already created, this customer can still create the default shopping list.
+If you want to restrict to only the default shopping list, you can set `max_lists_per_user` to 0.
 
 ### Shopping list user role
 
