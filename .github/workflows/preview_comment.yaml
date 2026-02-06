@@ -22,8 +22,9 @@ jobs:
 
         steps:
             - uses: actions/checkout@v4
-              with:
-                  fetch-depth: 0
+
+            -   name: Fetch base branch for comparison
+                run: git fetch origin ${{ github.base_ref }} --depth=1
 
             -   name: Create comment for changed files
                 run: |
