@@ -5,6 +5,8 @@ set +x;
 AUTH_JSON=${1:-~/.composer/auth.json}; # Path to an auth.json file allowing to install the targeted edition and version
 PHP_API_OUTPUT_DIR=${2:-./docs/api/php_api/php_api_reference}; # Path to the directory where the built PHP API Reference is hosted
 REST_API_OUTPUT_FILE=${3:-./docs/api/rest_api/rest_api_reference/rest_api_reference.html}; # Path to the REST API Reference file
+REST_API_OPENAPI_FILE_YAML=${4:-./docs/api/rest_api/rest_api_reference/openapi.yaml}; # Path to the REST API OpenAPI spec file
+REST_API_OPENAPI_FILE_JSON=${5:-./docs/api/rest_api/rest_api_reference/openapi.json}; # Path to the REST API OpenAPI spec file
 
 DXP_EDITION='commerce'; # Edition from and for which the Reference is built
 DXP_VERSION='5.0.*'; # Version from and for which the Reference is built
@@ -37,6 +39,8 @@ if [ ! -d $PHP_API_OUTPUT_DIR ]; then
 fi;
 PHP_API_OUTPUT_DIR=$(realpath $PHP_API_OUTPUT_DIR); # Transform into absolute path before changing the working directory
 REST_API_OUTPUT_FILE=$(realpath $REST_API_OUTPUT_FILE); # Transform into absolute path before changing the working directory
+REST_API_OPENAPI_FILE_YAML=$(realpath $REST_API_OPENAPI_FILE_YAML); # Transform into absolute path before changing the working directory
+REST_API_OPENAPI_FILE_JSON=$(realpath $REST_API_OPENAPI_FILE_JSON); # Transform into absolute path before changing the working directory
 
 if [ 1 -eq $FORCE_DXP_INSTALL ]; then
   echo 'Remove temporary directory…';
@@ -217,10 +221,16 @@ echo 'Dump REST OpenAPI schema… ';
 $PHP_BINARY bin/console ibexa:openapi --yaml \
   | sed "s@info:@info:\n  x-logo:\n    url: 'https://doc.ibexa.co/en/latest/images/ibexa-dxp-logo.png'@" \
 > openapi.yaml;
+$PHP_BINARY bin/console ibexa:openapi \
+  | sed 's@"info": {@"info": {\n    "x-logo": {\n      "url": "https://doc.ibexa.co/en/latest/images/ibexa-dxp-logo.png"\n    },@' \
+> openapi.json;
 echo 'Fix REST OpenAPI schema… ';
 $PHP_BINARY $OPENAPI_FIX;
 echo 'Build REST Reference… ';
 redocly build-docs openapi.yaml --output $REST_API_OUTPUT_FILE --config $REDOCLY_CONFIG --template $REDOCLY_TEMPLATE;
+echo 'Copy OpenAPI spec to documentation… ';
+cp openapi.yaml $REST_API_OPENAPI_FILE_YAML;
+cp openapi.json $REST_API_OPENAPI_FILE_JSON;
 
 if [ 1 -eq $FORCE_DXP_INSTALL ]; then
   echo 'Remove temporary directory…';
