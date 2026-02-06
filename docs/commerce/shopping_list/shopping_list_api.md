@@ -24,29 +24,42 @@ In the [`Ibexa\Contracts\ShoppingList`](/api/php_api/php_api_reference/namespace
 The [`Ibexa\Contracts\ShoppingList\ShoppingListServiceInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ShoppingList-ShoppingListServiceInterface.html) defines methods to
 create, get, find, update, clear, and delete shopping lists, and to add, get, move, and remove entries.
 
+### List and search shopping lists
+
 To get all shopping lists (of the current user or of the whole repository depending on the current user limitation), use the search method without criterion:
 
 ```php
 $lists = $this->shoppingListService->findShoppingLists(new ShoppingListQuery());
 ```
 
+For more information about the shopping list search,
+see [`ShoppingListQuery`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ShoppingList-Value-ShoppingListQuery.html),
+[Shopping list criteria](shopping_list_criteria.md),
+and [Shopping list sort clauses](shopping_list_sort_clauses.md).
+
+### Manage shopping lists entries
+
 Methods editing the shopping list first store the change in the persistence layer then return the updated shopping list object.
 If you forgot to retrieve this result in your variable, the local object isn't synchronized with the database.
-In the following example, if the two last assignments (`$list =`) are removed, the dumped `$list` object won't contain the stored shopping list.
-If only the middle assignment is removed, the dumped variable contains the up-to-date shopping list.
+In the following example, if some assignments (`$list =`) are removed, the dumped `$list` object doesn't contain the stored shopping list at that time.
+If only the middle assignment is removed, the last dumped variable contains the up-to-date shopping list.
 
 ```php
 $list = $this->shoppingListService->getOrCreateDefaultShoppingList();
+dump($list);
 $list = $this->shoppingListService->clearShoppingList($list);
+dump($list);
 $list = $this->shoppingListService->addEntries($list, [new EntryAddStruct($productCode)]);
 dump($list);
 ```
+
+You can choose to not keep the local object up-to-date until the end of your operations and just reload it when needed, for example, for display.
 
 When adding array of entries with `ShoppingListService::addEntries()` or `ShoppingListService::moveEntries()`,
 an exception is thrown if a product is already in the shopping list and the whole array is canceled.
 
 The two following examples both add products to a shopping list while avoiding error on duplicate.
-(To stay short, this examples doesn't track down duplicates but it could be implemented for notification to the user.)
+(To stay short, this examples doesn't track down duplicates, but it could be implemented for notification to the user.)
 
 ```php
 $filteredProductCodes = array_filter($desiredProductCodes, function ($productCode) use ($list) {
@@ -85,12 +98,14 @@ $targetList = $this->shoppingListService->getShoppingList($targetList->getIdenti
 $sourceList = $this->shoppingListService->removeEntries($sourceList, $entriesToRemove); // Refresh local object from persistence even if $entriesToRemove is empty
 ```
 
+Interactions between shopping list and cart are managed by
+[`Ibexa\Contracts\Cart\CartShoppingListTransferServiceInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Cart-CartShoppingListTransferServiceInterface.html)
+
+### Events
+
 When the shopping list service methods are called, event are dispatched before and after the action so its parameters or results can be customized.
 TODO: Event example?
 For more information, see [Shopping list event reference](shopping_list_events.md).
-
-Interactions between shopping list and cart are managed by
-[`Ibexa\Contracts\Cart\CartShoppingListTransferServiceInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Cart-CartShoppingListTransferServiceInterface.html)
 
 TODO: example and reco. Maybe clarify duplicate handling of this case methods
 
