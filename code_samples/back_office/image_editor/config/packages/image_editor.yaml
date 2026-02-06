@@ -38,3 +38,4 @@ ibexa:
                                 id: dot
                                 priority: 50
                 image_quality: 0.8
+                gaussian_blur_strength: 0.05
