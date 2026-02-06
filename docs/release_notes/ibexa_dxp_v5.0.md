@@ -10,6 +10,15 @@ month_change: false
 
 <div class="release-notes" markdown="1">
 
+<!-- draft release notes -->
+#### Improved product variant querying
+
+Product variant querying now supports filtering by variant codes and product attribute criteria.
+
+You can now use [`ProductServiceInterface::findVariants()`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-ProductServiceInterface.html#method_findVariants) to search for variants across all products, regardless of their base product.
+
+For more information, see [Product API - Searching variants](product_api.md#searching-variants-across-products).
+
 [[% set version = 'v5.0.5' %]]
 
 [[= release_note_entry_begin("Ibexa DXP " + version, '2026-01-15', ['Headless', 'Experience', 'Commerce']) =]]
