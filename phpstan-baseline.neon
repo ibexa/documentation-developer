@@ -43,18 +43,6 @@ parameters:
 			path: code_samples/api/product_catalog/src/Command/ProductPriceCommand.php
 
 		-
-			message: '#^Parameter \#1 \$criterion of method Ibexa\\Contracts\\ProductCatalog\\Values\\Product\\ProductVariantQuery\:\:setAttributesCriterion\(\) expects Ibexa\\Contracts\\ProductCatalog\\Values\\Content\\Query\\Criterion\\ProductCriterionAdapter\<Ibexa\\Contracts\\ProductCatalog\\Values\\Product\\Query\\CriterionInterface\>\|null, Ibexa\\Contracts\\ProductCatalog\\Values\\Content\\Query\\Criterion\\ProductCriterionAdapter\<Ibexa\\Contracts\\ProductCatalog\\Values\\Product\\Query\\Criterion\\ColorAttribute\> given\.$#'
-			identifier: argument.type
-			count: 1
-			path: code_samples/api/product_catalog/src/Command/ProductVariantCommand.php
-
-		-
-			message: '#^Parameter \#1 \$criterion of method Ibexa\\Contracts\\ProductCatalog\\Values\\Product\\ProductVariantQuery\:\:setAttributesCriterion\(\) expects Ibexa\\Contracts\\ProductCatalog\\Values\\Content\\Query\\Criterion\\ProductCriterionAdapter\<Ibexa\\Contracts\\ProductCatalog\\Values\\Product\\Query\\CriterionInterface\>\|null, Ibexa\\Contracts\\ProductCatalog\\Values\\Content\\Query\\Criterion\\ProductCriterionAdapter\<Ibexa\\Contracts\\ProductCatalog\\Values\\Product\\Query\\Criterion\\LogicalAnd\> given\.$#'
-			identifier: argument.type
-			count: 1
-			path: code_samples/api/product_catalog/src/Command/ProductVariantCommand.php
-
-		-
 			message: '#^Cannot call method getDateTime\(\) on Ibexa\\Contracts\\Calendar\\Event\|null\.$#'
 			identifier: method.nonObject
 			count: 1
