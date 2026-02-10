@@ -19,7 +19,7 @@ PHPDOC_CONF="$(pwd)/tools/api_refs/phpdoc.dist.xml"; # Absolute path to phpDocum
 PHPDOC_TEMPLATE_VERSION='3.9.1'; # Version of the phpDocumentor base template set
 PHPDOC_DIR="$(pwd)/tools/api_refs/.phpdoc"; # Absolute path to phpDocumentor resource directory (containing the override template set)
 REDOCLY_CONFIG_TEMPLATE="$(pwd)/tools/api_refs/redocly.yaml.template"; # Absolute path to Redocly configuration template file
-REDOCLY_CONFIG="$TMP_DXP_DIR/redocly.yaml"; # Absolute path to Redocly configuration file (generated from template)
+REDOCLY_CONFIG="$(pwd)/tools/api_refs/redocly.yaml"; # Absolute path to Redocly configuration file (generated from template)
 REDOCLY_TEMPLATE="$(pwd)/tools/api_refs/redocly.hbs"; # Absolute path to Redocly wrapping template
 OPENAPI_FIX="$(pwd)/tools/api_refs/openapi.php"; # A script editing and fixing few things on the dumped schema (should be temporary and fixes reported to source)
 
