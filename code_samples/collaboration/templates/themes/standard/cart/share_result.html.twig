@@ -1,0 +1,10 @@
+{% extends '@ibexadesign/storefront/layout.html.twig' %}
+
+{% block content %}
+    <p class="ibexa-store-notice-card ibexa-store-notice-card--success">
+        Cart has been shared successfully! Link to session: &nbsp;
+        <a href="{{ path('app.shared_cart.join', { token: session.getToken() }) }}">
+            {{ url('app.shared_cart.join', { token: session.getToken() }) }}
+        </a>
+    </p>
+{% endblock %}

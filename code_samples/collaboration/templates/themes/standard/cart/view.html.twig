@@ -1,0 +1,57 @@
+{% extends '@ibexadesign/storefront/layout.html.twig' %}
+
+{% trans_default_domain 'ibexa_storefront' %}
+
+{% macro render_notice_messages(messages) %}
+    {% for message in messages -%}
+        {{ message }}{{ not loop.last ? '<br/>' }}
+    {%- endfor %}
+{% endmacro %}
+
+{% block content %}
+    <div style="text-align: right">
+        <a href="{{ path('app.shared_cart.create') }}" class="ibexa-store-btn ibexa-store-btn--secondary">Share cart</a>
+    </div>
+
+    {% set quick_order_errors = app.flashes('quick_order_errors') %}
+    {% set quick_order_successes = app.flashes('quick_order_successes') %}
+    {% set cart_products_with_errors_codes = app.flashes('cart_products_with_errors_codes') %}
+
+    {% set reorder_errors = app.flashes('reorder_errors') %}
+    {% set reorder_errors_products_codes = app.flashes('reorder_errors_products_codes') %}
+
+    {% set products_to_highlight_codes = cart_products_with_errors_codes|merge(reorder_errors_products_codes) %}
+
+    {% if quick_order_errors|length %}
+        {% include '@ibexadesign/storefront/component/notice_card/notice_card.html.twig' with {
+            type: 'warning',
+            content: _self.render_notice_messages(quick_order_errors),
+        } %}
+    {% endif %}
+
+    {% if quick_order_successes|length %}
+        {% include '@ibexadesign/storefront/component/notice_card/notice_card.html.twig' with {
+            type: 'success',
+            content: _self.render_notice_messages(quick_order_successes),
+        } %}
+    {% endif %}
+
+    {% if reorder_errors|length %}
+        {% include '@ibexadesign/storefront/component/notice_card/notice_card.html.twig' with {
+            type: 'warning',
+            content:  _self.render_notice_messages(reorder_errors),
+        } %}
+    {% endif %}
+
+    {% include '@ibexadesign/cart/component/maincart/maincart.html.twig' with {
+        products_to_highlight_codes,
+        checkout_identifier: app.request.get('checkout_identifier'),
+        checkout_step: app.request.get('checkout_step'),
+    } %}
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+
+    {{ encore_entry_script_tags('ibexa-storefront-notice-card-js', null, 'storefront') }}
+{% endblock %}

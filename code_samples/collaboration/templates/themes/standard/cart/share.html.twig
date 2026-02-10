@@ -1,0 +1,8 @@
+{% extends '@ibexadesign/storefront/layout.html.twig' %}
+
+{% block content %}
+    {{ form_start(form) }}
+        {{ form_widget(form) }}
+        <button class="ibexa-store-btn ibexa-store-btn--primary" type="submit">Share</button>
+    {{ form_end(form) }}
+{% endblock %}
