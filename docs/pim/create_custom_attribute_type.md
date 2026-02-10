@@ -120,6 +120,29 @@ Register the validator as a service and tag it with `ibexa.product_catalog.attri
 
 To ensure that values of the new attributes are stored correctly, you need to provide a storage converter and storage definition services.
 
+### Database schema design
+
+The values are going to be stored within a table named `app_product_specification_attribute_percent`, in a column named `value`.
+
+=== "MySQL"
+
+    ``` sql
+    CREATE TABLE app_product_specification_attribute_percent (
+        id INT NOT NULL,
+        value DOUBLE PRECISION DEFAULT NULL,
+        INDEX app_product_specification_attribute_percent_value_idx (value),
+        PRIMARY KEY (id)
+    ) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_520_ci` ENGINE = InnoDB;
+    ```
+
+=== "PostgreSQL"
+
+    ``` sql
+    CREATE TABLE app_product_specification_attribute_percent (id INT NOT NULL, value DOUBLE PRECISION DEFAULT NULL, PRIMARY KEY(id));
+    CREATE INDEX app_product_specification_attribute_percent_value_idx ON app_product_specification_attribute_percent (value);
+    ALTER TABLE app_product_specification_attribute_percent ADD CONSTRAINT app_product_specification_attribute_percent_fk FOREIGN KEY (id) REFERENCES ibexa_product_specification_attribute (id) ON UPDATE CASCADE ON DELETE CASCADE NOT DEFERRABLE INITIALLY IMMEDIATE;
+    ```
+
 ### Storage converter
 
 Start by creating a `PercentStorageConverter` class, which implements `Ibexa\Contracts\ProductCatalog\Local\Attribute\StorageConverterInterface`.
