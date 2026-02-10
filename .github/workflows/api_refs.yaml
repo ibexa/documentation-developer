@@ -27,7 +27,7 @@ jobs:
             - name: Checkout documentation
               uses: actions/checkout@v4
               with:
-                  ref: openapi-file
+                  ref: ${{ steps.version_and_branches.outputs.base_branch }}
 
             - name: Disable PHP coverage
               uses: shivammathur/setup-php@v2
@@ -43,7 +43,7 @@ jobs:
               env:
                   SATIS_NETWORK_KEY: ${{ secrets.SATIS_NETWORK_KEY }}
                   SATIS_NETWORK_TOKEN: ${{ secrets.SATIS_NETWORK_TOKEN }}
-                  BASE_BRANCH: openapi-file
+                  BASE_BRANCH: ${{ steps.version_and_branches.outputs.base_branch }}
               run: |
                   composer config --global http-basic.updates.ibexa.co $SATIS_NETWORK_KEY $SATIS_NETWORK_TOKEN
                   if [[ '4.6' != $BASE_BRANCH ]]; then
