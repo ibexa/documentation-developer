@@ -18,7 +18,8 @@ PHPDOC_CONF="$(pwd)/tools/api_refs/phpdoc.dist.xml"; # Absolute path to phpDocum
 #PHPDOC_CONF="$(pwd)/tools/api_refs/phpdoc.dev.xml"; # Absolute path to phpDocumentor configuration file
 PHPDOC_TEMPLATE_VERSION='3.9.1'; # Version of the phpDocumentor base template set
 PHPDOC_DIR="$(pwd)/tools/api_refs/.phpdoc"; # Absolute path to phpDocumentor resource directory (containing the override template set)
-REDOCLY_CONFIG="$(pwd)/tools/api_refs/redocly.yaml"; # Absolute path to Redocly configuration file
+REDOCLY_CONFIG_TEMPLATE="$(pwd)/tools/api_refs/redocly.yaml.template"; # Absolute path to Redocly configuration template file
+REDOCLY_CONFIG="$(pwd)/tools/api_refs/redocly.yaml"; # Absolute path to Redocly configuration file (generated from template)
 REDOCLY_TEMPLATE="$(pwd)/tools/api_refs/redocly.hbs"; # Absolute path to Redocly wrapping template
 OPENAPI_FIX="$(pwd)/tools/api_refs/openapi.php"; # A script editing and fixing few things on the dumped schema (should be temporary and fixes reported to source)
 
@@ -227,11 +228,10 @@ $PHP_BINARY bin/console ibexa:openapi \
 echo 'Fix REST OpenAPI schema… ';
 $PHP_BINARY $OPENAPI_FIX;
 echo 'Build REST Reference… ';
-echo 'Replace download URLs in Redocly config… ';
+echo 'Generate Redocly config from template… ';
 # Replace version with the base branch
 BRANCH_VERSION=$(echo $DXP_VERSION | cut -d '.' -f 1-2);
-sed -i.bak "s/\$VERSION/$BRANCH_VERSION/g" $REDOCLY_CONFIG;
-rm -f "${REDOCLY_CONFIG}.bak";
+sed "s/\$VERSION/$BRANCH_VERSION/g" $REDOCLY_CONFIG_TEMPLATE > $REDOCLY_CONFIG;
 redocly build-docs openapi.yaml --output $REST_API_OUTPUT_FILE --config $REDOCLY_CONFIG --template $REDOCLY_TEMPLATE;
 echo 'Copy OpenAPI spec to documentation… ';
 cp openapi.yaml $REST_API_OPENAPI_FILE_YAML;
