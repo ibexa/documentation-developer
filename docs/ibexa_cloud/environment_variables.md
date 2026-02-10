@@ -19,7 +19,7 @@ You can choose relationship names freely in `.platform.app.yaml` for most servic
 The only required names are:
 
 - `dfs_database` - DFS database (required for DFS functionality)
-- `redissession` - Redis for sessions (required for dedicated session storage)
+- `redissession` or `valkeysession` - Redis/Valkey for sessions (required for dedicated session storage)
 
 Common relationship name include:
 
@@ -56,12 +56,12 @@ In addition to the database variables listed above, additional DFS-specific vari
 
 ## Cache variables
 
-For Redis and Memcached cache services, the following variables are available.
+For Redis, Valkey, and Memcached cache services, the following variables are available.
 
-- `{RELATIONSHIP_NAME}_URL` (Redis only)
+- `{RELATIONSHIP_NAME}_URL` (Redis/Valkey only)
 - `{RELATIONSHIP_NAME}_HOST`
 - `{RELATIONSHIP_NAME}_PORT`
-- `{RELATIONSHIP_NAME}_SCHEME` (Redis only)
+- `{RELATIONSHIP_NAME}_SCHEME` (Redis/Valkey only)
 
 In addition, the following global variables are defined:
 
@@ -69,7 +69,7 @@ In addition, the following global variables are defined:
 - `CACHE_DSN` - cache connection string
 
 !!! note
-    Redis services have higher priority than Memcached services when building the global cache variables.
+    Redis/Valkey services have higher priority than Memcached services when building the global cache variables.
 
 For more information about persistence cache configuration, see [Persistence cache](persistence_cache.md).
 
@@ -80,7 +80,8 @@ For Redis-based session storage, the following variables are available.
 - `SESSION_HANDLER_ID` - session handler class name
 - `SESSION_SAVE_PATH` - Redis connection in `host:port` format
 
-The system looks for a relationship named `redissession` first. If not found, it uses the first available Redis service.
+The system looks for a relationships named `redissession` or `valkeysession` first.
+If not found, it uses the first available Redis-compatible service.
 
 For more information about session configuration, see [Sessions](sessions.md).
 
