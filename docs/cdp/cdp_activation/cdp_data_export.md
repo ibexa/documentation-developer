@@ -133,3 +133,69 @@ Finally, you can specify the audiences you wish to include.
 !!! note "CDP requests"
 
     All CDP requests are logged in with `debug` severity.
+
+### [[= product_name_base =]] Messenger support for large batches of data
+
+CDP uses [[= product_name_base =]] Messenger to process incoming data from [Raptor](https://www.raptorservices.com/).
+This approach improves performance and reliability when processing large amounts of CDP user records.
+For more information, see [Background tasks: How it works](background_tasks.md#how-it-works).
+
+By using Messenger while working with large batches of data, requests are queued instead of being processed synchronously:
+
+- queuing items starts automatically once a certain number of actions is reached (below this number, items are processed in a single request, using the standard synchronous behavior)
+- every single data is recorded in the database
+- a background worker retrieves records from the queue, processing them one by one or in batches, depending on the [Messenger]([[= symfony_doc =]]/messenger.html) configuration
+- processing happens at set intervals to avoid timeouts and keep the system stable
+
+1\. Make sure that the transport layer is [defined properly](background_tasks.md#configure-package) in [[= product_name_base =]] Messenger configuration.
+
+2\. Add `bulk_async_threshold` setting in the `config/packages/ibexa_cdp.yaml` configuration:
+
+``` bash
+ibexa_cdp:
+      bulk_async_threshold: 100  # Default: 100 items
+```
+
+Available options:
+
+- `bulk_async_threshold` (integer, default: 100) - minimum number of items required to trigger asynchronous processing
+    - below threshold - items are processed immediately in a single request, using the standard synchronous behavior
+    - at/above threshold - items are automatically dispatched to the asynchronous queue for background processing
+
+3\. Make sure that the [worker starts](background_tasks.md#start-worker) together with the application to watch the transport bus:
+
+``` bash
+php bin/console messenger:consume ibexa.messenger.transport --bus=ibexa.messenger.bus
+```
+
+For more information, see [Start background task worker](background_tasks.md#start-worker).
+
+### CDP Monolog channel
+
+CDP Monolog channel handles webhook logs for easier separation of logs.
+
+```bash
+- { name: monolog.logger, channel: ibexa.cdp.webhook }
+```
+
+It's possible to configure `ibexa.cdp.webhook` Monolog channel to direct all logs to specific stream, file, or service.
+This allows webhook logs to be stored separately from the main application logs for easier debugging and analysis.
+
+To do it, in `config/packages/monolog.yaml` file, define a new handler for the `ibexa.cdp.webhook` channel that directs CPD Webhook events to a separate file.
+It can be configured in both `dev` and `prod` environments, for example:
+
+```yaml
+monolog:
+    handlers:
+        cdp_webhook:
+            type: stream
+            path: "%kernel.logs_dir%/cdp_webhook_%kernel.environment%.log"
+            level: debug
+            channels: [ 'ibexa.cdp.webhook' ]
+```
+
+If you want to avoid redundant or duplicate entries in the other logs, exclude the webhook channel by:
+
+```yaml
+channels: ["!ibexa.cdp.webhook"]
+```

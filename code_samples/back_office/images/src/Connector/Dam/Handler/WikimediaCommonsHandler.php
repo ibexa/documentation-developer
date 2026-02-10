@@ -14,6 +14,8 @@ use Ibexa\Contracts\Connector\Dam\Search\Query;
 
 class WikimediaCommonsHandler implements HandlerInterface
 {
+    private const string USER_AGENT = 'Ibexa DXP Commons Dam Connector';
+
     public function search(Query $query, int $offset = 0, int $limit = 20): AssetSearchResult
     {
         $searchUrl = 'https://commons.wikimedia.org/w/api.php?action=query&list=search&format=json&srnamespace=6'
@@ -22,7 +24,16 @@ class WikimediaCommonsHandler implements HandlerInterface
             . '&srlimit=' . $limit
         ;
 
-        $jsonResponse = file_get_contents($searchUrl);
+        $opts = [
+            'http' => [
+                'method' => 'GET',
+                'header' => [
+                    'User-Agent: ' . self::USER_AGENT,
+                ],
+            ],
+        ];
+
+        $jsonResponse = file_get_contents($searchUrl, false, stream_context_create($opts));
         if ($jsonResponse === false) {
             return new AssetSearchResult(0, new AssetCollection([]));
         }
@@ -50,7 +61,16 @@ class WikimediaCommonsHandler implements HandlerInterface
             . '&titles=File%3a' . urlencode($id)
         ;
 
-        $jsonResponse = file_get_contents($metadataUrl);
+        $opts = [
+            'http' => [
+                'method' => 'GET',
+                'header' => [
+                    'User-Agent: ' . self::USER_AGENT,
+                ],
+            ],
+        ];
+
+        $jsonResponse = file_get_contents($metadataUrl, false, stream_context_create($opts));
         if ($jsonResponse === false) {
             throw new \RuntimeException('Couldn\'t retrieve asset metadata');
         }
