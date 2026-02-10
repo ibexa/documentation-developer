@@ -17,8 +17,8 @@ The REST API is built on top of [API Platform](https://api-platform.com/docs/sym
 
 You can download the OpenAPI specification in:
 
-- [YAML format](openapi.yaml)
-- [JSON format](openapi.json)
+- [YAML format](/api/rest_api/rest_api_reference/openapi.yaml)
+- [JSON format](/api/rest_api/rest_api_reference/openapi.json)
 
 You can also generate one for your project by running one of the commands below:
 
