@@ -9,7 +9,10 @@ month_change: true
 Shopping lists give customers a simple yet powerful way to manage future purchases.
 It can cover many purchase planning cases.
 
-## Use case examples
+## Use cases
+
+Shopping lists can be used in various ways, depending on the customer's needs and preferences.
+Here are some examples.
 
 ### Recurrent purchases
 
@@ -30,10 +33,10 @@ Authenticated customers can be granted with those rights on their own shopping l
 Such customer can
 
 - Create a shopping list
-    - from catalog when adding a product to a shopping list and choosing to create a new one instead of targeting an existing one
     - in shopping lists management interface
-    - TODO: when saving for later from cart to shopping list, does it create the shopping list?
-- Add product (or product variant) to a shopping list while browsing a product catalog
+    - from catalog when adding a product to a shopping list
+    - from cart when saving for later into a shopping list
+- Add product (or product variant) to a shopping list
 - Rename a shopping list (except the default "My Wishlist")
 - List existing shopping lists
 - View a shopping list product list
@@ -42,7 +45,9 @@ Such customer can
 - Remove product from a shopping list
 - Clear all products from a shopping list
 - Copy product from a shopping list to cart (products are kept in shopping list while added to the cart)
-- Move product from cart to a shopping list (product are removed from cart and added to the shopping list)
+- Copy a whole shopping list to cart (products are kept in shopping list while added to the cart)
+- Move products from cart to a shopping list (product are removed from cart and added to the shopping list)
+- Move a whole cart to a shopping list (products are removed from cart and added to the shopping list)
 - Delete a shopping list
 
 A shopping list only stores product codes.

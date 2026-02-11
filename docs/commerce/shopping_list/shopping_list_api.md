@@ -45,7 +45,8 @@ $lists = $this->shoppingListService->findShoppingLists(new ShoppingListQuery());
 
 For more information about the shopping list search,
 see [Shopping list criteria](shopping_list_criteria.md),
-and [Shopping list sort clauses](shopping_list_sort_clauses.md).
+and [Shopping list sort clauses](shopping_list_sort_clauses.md)
+references.
 
 ### Manage shopping lists entries
 
@@ -108,31 +109,38 @@ $targetList = $this->shoppingListService->getShoppingList($targetList->getIdenti
 $sourceList = $this->shoppingListService->removeEntries($sourceList, $entriesToRemove); // Refresh local object from persistence even if $entriesToRemove is empty
 ```
 
+### Transfer between shopping list and cart
+
 Interactions between shopping list and cart are managed by
 [`Ibexa\Contracts\Cart\CartShoppingListTransferServiceInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Cart-CartShoppingListTransferServiceInterface.html)
 
 ### Events
 
 When the shopping list service methods are called, event are dispatched before and after the action so its parameters or results can be customized.
-TODO: Event example?
 For more information, see [Shopping list event reference](shopping_list_events.md).
-
-TODO: example and reco. Maybe clarify duplicate handling of this case methods
 
 There is no specific event for the transfer operations.
 
-- When adding from shopping list to cart, the `Ibexa\Contracts\Cart\Event\BeforeAddEntryEvent` and `Ibexa\Contracts\Cart\Event\AddEntryEvent` are dispatched for each entry that weren't previously in the cart.
-- When moving from cart to shopping list, `Ibexa\Contracts\ShoppingList\Event\BeforeAddEntriesEvent` and `Ibexa\Contracts\ShoppingList\Event\AddEntriesEvent` are dispatched for the batch of entries that weren't already in the shopping list,
-  then `Ibexa\Contracts\Cart\Event\BeforeRemoveEntryEvent` and `Ibexa\Contracts\Cart\Event\BeforeRemoveEntryEvent` are dispatched for each entry removed from the cart.
+- When adding from shopping list to cart, the [`Ibexa\Contracts\Cart\Event\BeforeAddEntryEvent`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Cart-Event-BeforeAddEntryEvent.html) and [`Ibexa\Contracts\Cart\Event\AddEntryEvent`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Cart-Event-AddEntryEvent.html) are dispatched for each entry that weren't previously in the cart.
+- When moving from cart to shopping list, [`Ibexa\Contracts\ShoppingList\Event\BeforeAddEntriesEvent`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ShoppingList-Event-BeforeAddEntriesEvent.html) and [`Ibexa\Contracts\ShoppingList\Event\AddEntriesEvent`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ShoppingList-Event-AddEntriesEvent.html) are dispatched for the batch of entries that weren't already in the shopping list,
+  then [`Ibexa\Contracts\Cart\Event\BeforeRemoveEntryEvent`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Cart-Event-BeforeRemoveEntryEvent.html) and [`Ibexa\Contracts\Cart\Event\BeforeRemoveEntryEvent`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Cart-Event-RemoveEntryEvent.html) are dispatched for each entry removed from the cart.
 
 ## REST API
 
 The REST API has several resources to manage shopping lists and their entries
 and few to move products between cart and shopping list.
 
-TODO: [`/shopping-list/*`](/api/rest_api/rest_api_reference/rest_api_reference.html#tag/Shopping-List)
+This resources start with [`/shopping-list/*`](/api/rest_api/rest_api_reference/rest_api_reference.html#tag/Shopping-List).
 
-TODO: [`POST /cart/{identifier}/move-entries-to-shopping-list`](/api/rest_api/rest_api_reference/rest_api_reference.html#tag/Cart/operation/api_cart_identifiermove-entries-to-shopping-list_post)
-TODO: [`POST /cart/{identifier}/move-entries-to-shopping-list/{shoppingListIdentifier}`](/api/rest_api/rest_api_reference/rest_api_reference.html#tag/Cart/operation/api_cart_identifiermove-entries-to-shopping-list_shoppingListIdentifier_post)
-TODO: [`POST /cart/{identifier}/move-to-shopping-list`](/api/rest_api/rest_api_reference/rest_api_reference.html#tag/Cart/operation/api_cart_identifiermove-to-shopping-list_post)
-TODO: [`POST /cart/{identifier}/move-to-shopping-list/{shoppingListIdentifier}`](/api/rest_api/rest_api_reference/rest_api_reference.html#tag/Cart/operation/api_cart_identifiermove-to-shopping-list_shoppingListIdentifier_post)
+TODO: Examples, at least with `GET /shopping-list` and `GET /shopping-list/{identifier}`
+
+### Transfer between shopping list and cart
+
+- [`POST /shopping-list/{identifier}/add-entries-to-cart`](/api/rest_api/rest_api_reference/rest_api_reference.html#tag/Shopping-List/operation/api_shopping-list_identifieradd-entries-to-cart_post) to add some shopping list entries to the default cart
+- [`POST /shopping-list/{identifier}/add-entries-to-cart/{cartIdentifier}`](/api/rest_api/rest_api_reference/rest_api_reference.html#tag/Shopping-List/operation/api_shopping-list_identifieradd-entries-to-cart_cartIdentifier_post) to add some shopping list entries to a specific cart
+- [`POST /shopping-list/{identifier}/add-to-cart`](/api/rest_api/rest_api_reference/rest_api_reference.html#tag/Shopping-List/operation/api_shopping-list_identifieradd-to-cart_post) to add all entries from a shopping list to the default cart
+- [`POST /shopping-list/{identifier}/add-to-cart/{cartIdentifier}`](/api/rest_api/rest_api_reference/rest_api_reference.html#tag/Shopping-List/operation/api_shopping-list_identifieradd-to-cart_cartIdentifier_post) to add all entries from a shopping list to a specific cart
+- [`POST /cart/{identifier}/move-entries-to-shopping-list`](/api/rest_api/rest_api_reference/rest_api_reference.html#tag/Cart/operation/api_cart_identifiermove-entries-to-shopping-list_post) to move some cart entries to the default shopping list
+- [`POST /cart/{identifier}/move-entries-to-shopping-list/{shoppingListIdentifier}`](/api/rest_api/rest_api_reference/rest_api_reference.html#tag/Cart/operation/api_cart_identifiermove-entries-to-shopping-list_shoppingListIdentifier_post) to move some cart entries to a specific shopping list
+- [`POST /cart/{identifier}/move-to-shopping-list`](/api/rest_api/rest_api_reference/rest_api_reference.html#tag/Cart/operation/api_cart_identifiermove-to-shopping-list_post) to move all entries from a cart to the default shopping list
+- [`POST /cart/{identifier}/move-to-shopping-list/{shoppingListIdentifier}`](/api/rest_api/rest_api_reference/rest_api_reference.html#tag/Cart/operation/api_cart_identifiermove-to-shopping-list_shoppingListIdentifier_post) to move all entries from a cart to a specific shopping list

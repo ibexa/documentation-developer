@@ -4,7 +4,7 @@ editions: lts-update commerce
 month_change: true
 ---
 
-# Install Shopping list
+# Install shopping list
 
 ## Install framework
 

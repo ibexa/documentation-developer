@@ -1,5 +1,5 @@
 ---
-description: Shopping list feature allows to store potential purchases, recurrent product sets, and other wish lists for later use into carts.
+description: Shopping list feature allows to store potential purchases, recurrent product sets, and other wishes for later use into carts.
 page_type: landing_page
 editions: lts-update commerce
 ---
@@ -8,8 +8,6 @@ editions: lts-update commerce
 
 A shopping list allows to store potential purchases, recurrent product set, and other wishes for later use into cart.
 A user can have several shopping lists, including a default one named "My Wishlist" created on first use.
-
-TODO: more precise introduction
 
 ##  Getting Started
 

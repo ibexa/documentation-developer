@@ -1,11 +1,11 @@
 ---
-description: Events that are triggered when working with shopping lists.
+description: Events that are triggered while managing shopping lists.
 page_type: reference
 editions: lts-update commerce
 month_change: true
 ---
 
-# Shopping List events
+# Shopping list events
 
 | Event                                                                                                                                           | Dispatched by                                                                                                                                                                | Description                                                                                       |
 |-------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------|
