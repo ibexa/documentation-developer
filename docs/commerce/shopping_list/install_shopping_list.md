@@ -55,7 +55,7 @@ Each user's default shopping list is created when used for the first time.
 
 ## Configure
 
-By default, the maximum shopping list count per user is 10 custom plus 1 default, and the maximum entries per list is 100.
+By default, the maximum shopping list count per user is 10 and the maximum entries per list is 100.
 When listing their shopping list, the use see 25 lists per page
 (and as it's over the shopping list count, there is always one page of shopping lists in this default scenario).
 
