@@ -54,7 +54,7 @@ Then, you're able to use the component in your template with something like the 
 {% endblock %}
 ```
 
-To have a more complete example, lets continue with a product full view template which could work on a fresh installation.
+To have a more complete example, let's continue with a product full view template which could work on a fresh installation.
 
 `src/Controller/ProductViewController.php` to add the variants to the product view:
 ``` php hl_lines="24-30"
