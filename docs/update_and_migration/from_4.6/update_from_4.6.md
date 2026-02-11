@@ -566,8 +566,6 @@ If you do, add the required dependencies to your project:
 composer require guzzlehttp/guzzle:^6.5 php-http/guzzle6-adapter:^2.0
 ```
 
-## v4.6.28
-
 ### Messenger support in CDP
 
 If you're using [CDP](cdp.md) and haven't configured Ibexa Messenger yet, do so now.

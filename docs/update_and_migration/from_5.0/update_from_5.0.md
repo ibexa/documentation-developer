@@ -281,10 +281,6 @@ Run the provided SQL upgrade script to ensure the Messenger tables for [backgrou
     psql <database_name> < vendor/ibexa/installer/upgrade/db/postgresql/ibexa-5.0.4-to-5.0.5.sql
     ```
 
-## v5.0.6
-
-No additional steps needed.
-
 ## LTS Updates and additional packages
 
 [LTS Updates](editions.md#lts-updates) are standalone packages with their own update procedures.

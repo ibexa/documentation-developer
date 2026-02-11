@@ -10,9 +10,7 @@ month_change: false
 
 <div class="release-notes" markdown="1">
 
-[[% set version = 'v5.0.6' %]]
-[[= release_note_entry_begin("Ibexa DXP " + version, '2026-02-04', ['Headless', 'Experience', 'Commerce']) =]]
-
+<draft release notes>
 ### Developer experience
 
 #### Pass custom parameters to `ibexa_render()` Twig function
@@ -35,11 +33,6 @@ This allows you to provide additional context or data to your view templates:
 The parameters are available in your template as regular variables.
 
 For more information, see [`ibexa_render()` Twig function](content_twig_functions.md#ibexa_render).
-
-### Full changelog
-
-[[% include 'snippets/release_50.md' %]]
-[[= release_note_entry_end() =]]
 
 [[% set version = 'v5.0.5' %]]
 
