@@ -59,6 +59,20 @@ when@prod:
 
 The [Collaborative editing](collaborative_editing.md) REST API endpoints are now included in the [OpenAPI-based REST API reference](/api/rest_api/rest_api_reference/rest_api_reference.html#tag/Collaboration-Sessions).
 
+<draft release notes entry>
+#### Try-catch support in data migrations
+
+Data migrations now support try-catch error handling, allowing you to wrap migration steps with exception handling logic.
+This is useful for migrations that might fail under certain conditions but should not break the entire migration process.
+
+For example, you can create languages without checking if they already exist:
+
+[[= include_file('code_samples/data_migration/examples/try_catch_step.yaml') =]]
+
+The try-catch step allows you to specify which exceptions to catch and whether to continue executing remaining steps after an exception occurs.
+
+For more information, see [Error handling with try-catch](importing_data.md#error-handling-with-try-catch).
+
 ### Full changelog
 
 [[% include 'snippets/release_50.md' %]]
