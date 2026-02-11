@@ -18,6 +18,9 @@ For example, starting to use the default list from REST API will create it if it
 to [`POST /shopping-list/default/entries`](/api/rest_api/rest_api_reference/rest_api_reference.html#tag/Shopping-List/operation/api_shopping-listdefaultentries_post)
 or [`POST /cart/{identifier}/move-to-shopping-list`](/api/rest_api/rest_api_reference/rest_api_reference.html#tag/Cart/operation/api_cart_identifiermove-to-shopping-list_post).
 
+As soon a user has the create shopping list permission [`shopping_list/create`](policies.md#shopping-lists),
+the default shopping list can be created regardless of the maximum shopping list count per user configuration [`max_lists_per_user`](install_shopping_list.md#configure).
+
 ## PHP API
 
 In the [`Ibexa\Contracts\ShoppingList`](/api/php_api/php_api_reference/namespaces/ibexa-contracts-shoppinglist.html) namespace are the interfaces to manipulate shopping lists.
@@ -26,6 +29,14 @@ create, get, find, update, clear, and delete shopping lists, and to add, get, mo
 
 ### List and search shopping lists
 
+Shopping list search can be done with
+[`Ibexa\Contracts\ShoppingList\ShoppingListServiceInterface::findShoppingLists()` method](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ShoppingList-ShoppingListServiceInterface.html#method_findShoppingLists)
+with a [`Ibexa\Contracts\ShoppingList\Value\ShoppingListQuery`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ShoppingList-Value-ShoppingListQuery.html)
+built with criteria from the [`Ibexa\Contracts\ShoppingList\ShoppingList\Query\Criterion` namespace](/api/php_api/php_api_reference/namespaces/ibexa-contracts-shoppinglist-value-query-criterion.html),
+and with sort clauses from the [`Ibexa\Contracts\ShoppingList\ShoppingList\Query\SortClause` namespace](/api/php_api/php_api_reference/namespaces/ibexa-contracts-shoppinglist-value-query-sortclause.html).
+
+TODO: implementing the [`Ibexa\Contracts\ShoppingList\Value\Query\CriterionInterface` interface](/api/php_api/php_api_reference/classes/Ibexa-Contracts-CoreSearch-Values-Query-Criterion-CriterionInterface.html)
+
 To get all shopping lists (of the current user or of the whole repository depending on the current user limitation), use the search method without criterion:
 
 ```php
@@ -33,8 +44,7 @@ $lists = $this->shoppingListService->findShoppingLists(new ShoppingListQuery());
 ```
 
 For more information about the shopping list search,
-see [`ShoppingListQuery`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ShoppingList-Value-ShoppingListQuery.html),
-[Shopping list criteria](shopping_list_criteria.md),
+see [Shopping list criteria](shopping_list_criteria.md),
 and [Shopping list sort clauses](shopping_list_sort_clauses.md).
 
 ### Manage shopping lists entries

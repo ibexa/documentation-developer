@@ -6,13 +6,7 @@ month_change: true
 
 # Shopping List Search Criterion reference
 
-Shopping list search can be done with
-[`Ibexa\Contracts\ShoppingList\ShoppingListServiceInterface::findShoppingLists()` method](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ShoppingList-ShoppingListServiceInterface.html#method_findShoppingLists)
-with a [`Ibexa\Contracts\ShoppingList\Value\ShoppingListQuery`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ShoppingList-Value-ShoppingListQuery.html)
-built with criteria from the [`Ibexa\Contracts\ShoppingList\ShoppingList\Query\Criterion` namespace](/api/php_api/php_api_reference/namespaces/ibexa-contracts-shoppinglist-value-query-criterion.html),
-implementing the [`Ibexa\Contracts\ShoppingList\Value\Query\CriterionInterface` interface](/api/php_api/php_api_reference/classes/Ibexa-Contracts-CoreSearch-Values-Query-Criterion-CriterionInterface.html):
-
-TODO: `Ibexa\Contracts\CoreSearch\Values\Query\Criterion\CriterionInterface` is directly used instead of the `ShoppingList` one.
+The criteria are in the [`Ibexa\Contracts\ShoppingList\ShoppingList\Query\Criterion` namespace](/api/php_api/php_api_reference/namespaces/ibexa-contracts-shoppinglist-value-query-criterion.html).
 
 | Criterion                                                                                                                                     | Description                                                                |
 |-----------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------|
@@ -24,7 +18,8 @@ TODO: `Ibexa\Contracts\CoreSearch\Values\Query\Criterion\CriterionInterface` is 
 | [`ProductCodeCriterion`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ShoppingList-Value-Query-Criterion-ProductCodeCriterion.html) | Find shopping lists containing an entry with the given product code.       |
 | [`LogicalAnd`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ShoppingList-Value-Query-Criterion-LogicalAnd.html)                     | Combine the criteria passed as arguments.                                  |
 
-The following query example gets all shopping lists if current user doesn't have any limitation, or get all current user's lists otherwise:
+The following query example gets all shopping lists if current user doesn't have any limitation,
+or get all current user's lists if there is the [`ShoppingListOwner` `self` limitation](limitation_reference.md#shopping-list-limitation):
 
 ```php
 $query = new ShoppingListQuery();
@@ -38,3 +33,5 @@ $query = new ShoppingListQuery(new Query\Criterion\LogicalAnd(
     new Query\Criterion\IsDefaultCriterion(false)
 ), [new Query\SortClause\Name()]);
 ```
+
+For more information about shopping lists search, see [List and search shopping lists](shopping_list_api.md#list-and-search-shopping-lists).
