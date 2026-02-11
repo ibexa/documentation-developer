@@ -69,8 +69,8 @@ You can choose to not keep the local object up-to-date until the end of your ope
 When adding array of entries with `ShoppingListService::addEntries()` or `ShoppingListService::moveEntries()`,
 an exception is thrown if a product is already in the shopping list and the whole array is canceled.
 
-The two following examples both add products to a shopping list while avoiding error on duplicate.
-(To stay short, this examples doesn't track down duplicates, but it could be implemented for notification to the user.)
+The following example add products to a shopping list while avoiding error on duplicate.
+(To stay short, this example doesn't track down duplicates, but it could be implemented for notification to the user.)
 
 ```php
 $filteredProductCodes = array_filter($desiredProductCodes, function ($productCode) use ($list) {
@@ -78,16 +78,6 @@ $filteredProductCodes = array_filter($desiredProductCodes, function ($productCod
 });
 $list = $this->shoppingListService->addEntries($list, array_map(function ($productCode) { return new EntryAddStruct($productCode); }, $filteredProductCodes));
 ```
-
-```php
-foreach ($desiredProductCodes as $productCode) {
-    try {
-        $list = $this->shoppingListService->addEntries($list, [new EntryAddStruct($productCode)]);
-    } catch (\Ibexa\Contracts\Core\Validation\ValidationFailedException $exception) {}
-}
-```
-
-TODO: How to choose which solution to use between the two above?
 
 `ShoppingListService::moveEntries()` doesn't return an updated shopping list because several lists might be updated.
 
