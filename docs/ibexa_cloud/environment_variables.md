@@ -18,7 +18,7 @@ If you're referencing [[= product_name_cloud =]] environment variables in your c
 
 Do it only for the variables that are required for the Symfony container to build.
 
-For example, if your `doctrine.yaml` uses:
+For example, if your `doctrine.yaml` uses a [database variable](#database-variables) created for a relationship named `pgsql`:
 
 ``` yaml
 doctrine:
