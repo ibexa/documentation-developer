@@ -133,7 +133,7 @@ This step generates field values with fake personal names.
 ### SQL migrations
 
 You can execute raw SQL queries directly in migrations using the `sql` migration type.
-This is useful for custom database operations that don't fit into standard entity migrations, such as creating custom tables or performing bulk updates.
+Use it for custom database operations that don't fit into standard entity migrations, such as creating custom tables or performing bulk updates.
 
 Each query requires a `driver` property that specifies which database system the query is for.
 The migration system automatically filters queries and executes only those matching your current database driver.
@@ -145,11 +145,11 @@ The migration system automatically filters queries and executes only those match
 The supported database drivers are:
 
 - `mysql` - MySQL/MariaDB
-- `postgresql` - PostgreSQL  
+- `postgresql` - PostgreSQL
 - `sqlite` - SQLite
 
 You can define queries for multiple database drivers in a single migration step.
-The system will execute only the queries that match your configured database platform.
+The system executes only the queries that match your configured database platform.
 If no matching queries are found, the migration throws an error.
 
 !!! caution
@@ -161,9 +161,9 @@ If no matching queries are found, the migration throws an error.
 
 You can wrap one or more migration steps with a `try_catch` step to handle exceptions gracefully.
 
-This is useful for migrations that may fail under specific conditions but should not halt the entire migration process.
+Use it for migrations that may fail under specific conditions but should not halt the entire migration process.
 
-For example, you can ensure a language creation migration succeeds even if the language already exists. 
+For example, you can ensure a language creation migration succeeds even if the language already exists.
 If the migration fails for this reason, the exception is suppressed, allowing the remaining migrations to proceed without interruption.
 
 A `try_catch` migration requires the `steps` property and accepts optional `allowed_exceptions` and `stop_after_first_exception` settings.
