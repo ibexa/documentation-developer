@@ -18,9 +18,11 @@ use Symfony\Component\Console\Output\OutputInterface;
 #[AsCommand(name: 'app:shopping-list:move', description: 'Test move entries between shopping lists')]
 class ShoppingListMoveCommand extends Command
 {
-    public function __construct(private UserService $userService, private PermissionResolver $permissionResolver,
-                                private ShoppingListServiceInterface $shoppingListService)
-    {
+    public function __construct(
+        private UserService $userService,
+        private PermissionResolver $permissionResolver,
+        private ShoppingListServiceInterface $shoppingListService
+    ) {
         parent::__construct();
     }
 
@@ -34,8 +36,8 @@ class ShoppingListMoveCommand extends Command
         $user = $this->userService->loadUserByLogin($login);
         $this->permissionResolver->setCurrentUserReference($user);
 
-        $sourceList = $this->shoppingListService->createShoppingList(new ShoppingListCreateStruct($prefix.'-source'));
-        $targetList = $this->shoppingListService->createShoppingList(new ShoppingListCreateStruct($prefix.'-target'));
+        $sourceList = $this->shoppingListService->createShoppingList(new ShoppingListCreateStruct($prefix . '-source'));
+        $targetList = $this->shoppingListService->createShoppingList(new ShoppingListCreateStruct($prefix . '-target'));
 
         $sourceList = $this->shoppingListService->addEntries($sourceList, [new EntryAddStruct($productCodes[0]), new EntryAddStruct($productCodes[1])]);
         $targetList = $this->shoppingListService->addEntries($targetList, [new EntryAddStruct($productCodes[1])]);

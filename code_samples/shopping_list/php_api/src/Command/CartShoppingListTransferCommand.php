@@ -65,8 +65,10 @@ class CartShoppingListTransferCommand extends Command
 
         $cart = $this->cartShoppingListTransferService->addSelectedEntriesToCart($list, [$list->getEntries()->getEntryWithProductCode($productCode)->getIdentifier()], $cart);
 
-        dump($list->getEntries()->hasEntryWithProductCode($productCode),
-            $cart->getEntries()->hasEntryForProduct($this->productService->getProduct($productCode)));
+        dump(
+            $list->getEntries()->hasEntryWithProductCode($productCode),
+            $cart->getEntries()->hasEntryForProduct($this->productService->getProduct($productCode))
+        );
 
         return $list->getEntries()->hasEntryWithProductCode($productCode) &&
         $cart->getEntries()->hasEntryForProduct($this->productService->getProduct($productCode)) ?
