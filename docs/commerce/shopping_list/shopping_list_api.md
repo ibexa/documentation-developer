@@ -104,6 +104,13 @@ $sourceList = $this->shoppingListService->removeEntries($sourceList, $entriesToR
 Interactions between shopping list and cart are managed by
 [`Ibexa\Contracts\Cart\CartShoppingListTransferServiceInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Cart-CartShoppingListTransferServiceInterface.html)
 
+The following example start with an empty cart and an empty shopping list,
+then add a product to the shopping list and copy it to the cart.
+
+```php
+[[= include_file('code_samples/shopping_list/php_api/src/Command/CartShoppingListTransferCommand.php', 60, 69) =]]
+```
+
 ### Events
 
 When the shopping list service methods are called, event are dispatched before and after the action so its parameters or results can be customized.
