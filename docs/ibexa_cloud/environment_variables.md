@@ -12,6 +12,27 @@ Environment variable prefixes are created by converting relationship names to up
 When multiple endpoints are defined for a single relationship, numerical indices are used for all entries except the first one, for example: `SOLR`, `SOLR_1_`, `SOLR_2`.
 When multiple services of the same type are present, environment variables are exposed for each service accordingly based on their relationship names.
 
+## Using environment variables in configuration files
+
+When referencing [[= product_name_cloud =]] environment variables in your configuration files, you must define placeholder values in your `.env` file to prevent Symfony container initialization failures.
+
+For example, if your `doctrine.yaml` uses:
+
+``` yaml
+doctrine:
+    dbal:
+        url: '%env(resolve:PGSQL_URL)%'
+```
+
+You must define a placeholder in `.env`:
+
+``` env
+PGSQL_URL="postgresql://app:!ChangeMe!@127.0.0.1:5432/app?serverVersion=16&charset=utf8"
+```
+
+The actual value of the environment variable is provided by [[= product_name_cloud =]] at runtime.
+The placeholder in `.env` is only required to prevent Symfony container compilation errors during build.
+
 ## Relationship naming conventions
 
 You can choose relationship names freely in `.platform.app.yaml` for most services.
