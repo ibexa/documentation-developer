@@ -82,34 +82,11 @@ Anonymous users can't have shopping lists as they're internally sharing the same
 
 To create such role, you can use a [migration file](importing_data.md#roles), for example, with the following content:
 
-```yaml
--   type: role
-    mode: create
-    metadata:
-        identifier: Shopping List User
-    policies:
-        -   module: shopping_list
-            function: create
-            limitations:
-                -   identifier: ShoppingListOwner
-                    values: [self]
-        -   module: shopping_list
-            function: view
-            limitations:
-                -   identifier: ShoppingListOwner
-                    values: [self]
-        -   module: shopping_list
-            function: edit
-            limitations:
-                -   identifier: ShoppingListOwner
-                    values: [self]
-        -   module: shopping_list
-            function: delete
-            limitations:
-                -   identifier: ShoppingListOwner
-                    values: [self]
+``` yaml
+[[= include_file('code_samples/shopping_list/install/src/Migrations/Ibexa/migrations/shopping_list_user.yaml', 4, 29) =]]
 ```
 
 On a clean install, you can, for example, assign this "Shopping List User" role to the "Customers" user group.
 
-ddev php bin/console ibexa:migrations:migrate --file=shopping_list_user.yaml --siteaccess=admin
+If saved as `src/Migrations/Ibexa/migrations/shopping_list_user.yaml`, it can be imported with the command
+`php bin/console ibexa:migrations:migrate --file=shopping_list_user.yaml --siteaccess=admin`.
