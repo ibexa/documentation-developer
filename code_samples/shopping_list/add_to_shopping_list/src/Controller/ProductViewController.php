@@ -28,8 +28,8 @@ class ProductViewController extends AbstractController
                     new ProductVariantQuery(),
                 )),
             ]);
-
-            return $view;
         }
+
+        return $view;
     }
 }
