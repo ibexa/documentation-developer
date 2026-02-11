@@ -85,18 +85,7 @@ The following example moves products from a source shopping list to a target sho
 Notice how the source and target lists' variables are updated from persistence after the move:
 
 ```php
-$entriesToMove = [];
-$entriesToRemove = [];
-foreach ($movedProductCodes as $productCode) {
-    if ($targetList->getEntries()->hasEntryWithProductCode($productCode)) {
-        $entriesToRemove[] = $sourceList->getEntries()->getEntryWithProductCode($productCode);
-    } else {
-        $entriesToMove[] = $sourceList->getEntries()->getEntryWithProductCode($productCode);
-    }
-}
-$this->shoppingListService->moveEntries($targetList, $entriesToMove);
-$targetList = $this->shoppingListService->getShoppingList($targetList->getIdentifier()); // Refresh local object from persistence
-$sourceList = $this->shoppingListService->removeEntries($sourceList, $entriesToRemove); // Refresh local object from persistence even if $entriesToRemove is empty
+[[= include_file('code_samples/shopping_list/php_api/src/Command/ShoppingListMoveCommand.php', 42, 56) =]]
 ```
 
 ### Transfer between shopping list and cart
