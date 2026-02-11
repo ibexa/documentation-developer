@@ -132,7 +132,7 @@ This step generates field values with fake personal names.
 
 ### SQL migrations
 
-You can execute raw SQL queries directly in migrations using the `sql` migration type.
+You can execute raw SQL queries directly in migrations by using the `sql` migration type.
 Use it for custom database operations that don't fit into standard entity migrations, such as creating custom tables or performing bulk updates.
 
 Each query requires a `driver` property that specifies which database system the query is for.
