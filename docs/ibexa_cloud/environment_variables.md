@@ -14,7 +14,9 @@ When multiple services of the same type are present, environment variables are e
 
 ## Using environment variables in configuration files
 
-When referencing [[= product_name_cloud =]] environment variables in your configuration files, you must define placeholder values in your `.env` file to prevent Symfony container initialization failures.
+If you're referencing [[= product_name_cloud =]] environment variables in your configuration files, you must define placeholder values for them in your `.env` file to prevent Symfony container initialization failures.
+
+Do it only for the variables that are required for the Symfony container to build.
 
 For example, if your `doctrine.yaml` uses:
 
@@ -24,7 +26,7 @@ doctrine:
         url: '%env(resolve:PGSQL_URL)%'
 ```
 
-You must define a placeholder in `.env`:
+You must define a placeholder value in `.env`:
 
 ``` env
 PGSQL_URL="postgresql://app:!ChangeMe!@127.0.0.1:5432/app?serverVersion=16&charset=utf8"
