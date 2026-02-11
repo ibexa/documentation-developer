@@ -168,13 +168,19 @@ If the migration fails for this reason, the exception is suppressed, allowing th
 
 A `try_catch` migration requires the `steps` property and accepts optional `allowed_exceptions` and `stop_after_first_exception` settings.
 
+Default values are:
+
+- `allowed_exceptions`: empty list
+- `stop_after_first_exception`: `true`
+
 ```yaml
 [[= include_file('code_samples/data_migration/examples/try_catch_step.yaml') =]]
 ```
 
 When an exception is thrown within a try-catch step, it's compared against the list of `allowed_exceptions`.
 If the exception matches, it's caught and the migration continues or stops depending on the `stop_after_first_exception` configuration setting.
-The default value of `stop_after_first_exception` is `true`.
+The migration is marked as successful.
+Non-matching exceptions throw immediately, halting the migration process and returning an error.
 
 ### Expression syntax
 
