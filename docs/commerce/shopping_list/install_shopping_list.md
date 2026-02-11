@@ -68,9 +68,11 @@ parameters:
     ibexa.site_access.config.default.shopping_list.pagination.list_per_page_limit: 25
 ```
 
-Notice that if a customer reach the `max_lists_per_user`, if not already created, this customer can still create the default shopping list.
-So, for 10 as the default limit, the user may have 11 lists if the user created 10 custom lists before even creating the default one.
-If you want to restrict to only the default shopping list, you can set `max_lists_per_user` to 0.
+!!! caution "Max lists per user and default shopping list"
+
+    Notice that if a customer reach the `max_lists_per_user`, if not already created, this customer can still create the default shopping list.
+    So, for 10 as the default limit, the user may have 11 lists if the user created 10 custom lists before even creating the default one.
+    If you want to restrict to only the default shopping list, you can set `max_lists_per_user` to 0.
 
 ### Shopping list user role
 
@@ -109,3 +111,5 @@ To create such role, you can use a [migration file](importing_data.md#roles), fo
 ```
 
 On a clean install, you can, for example, assign this "Shopping List User" role to the "Customers" user group.
+
+ddev php bin/console ibexa:migrations:migrate --file=shopping_list_user.yaml --siteaccess=admin
