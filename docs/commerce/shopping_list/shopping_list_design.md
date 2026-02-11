@@ -1,21 +1,19 @@
 ---
-description: TODO
+description: Learn how to integrate the shopping list features to your own online store design.
 editions: lts-update commerce
 month_change: true
 ---
 
-# TODO: Storefront shopping list templates
+# Shopping list design
 
 To integrate the shopping list features to your own online store design, you can
 
 - look at the default shopping list templates for the `standard` theme in
 `vendor/ibexa/shopping-list/src/bundle/Resources/views/themes/standard/shopping_list/` directory
-- look at their overrides and complements in the [`storefront`](storefront.md) theme at
+- look at their overrides and complements in the [`storefront` theme](storefront.md) at
 `vendor/ibexa/storefront/src/bundle/Resources/views/themes/storefront/shopping_list/`
 
-## TODO: UI components
-
-### "Add to shopping list" widget
+## "Add to shopping list" widget
 
 Some Twig and TypeScript components can help you insert an "Add to shopping list" widget for a product:
 
