@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace App\Command;
+namespace App\Controller;
 
 use Ibexa\Contracts\Cart\CartServiceInterface;
 use Ibexa\Contracts\Cart\CartShoppingListTransferServiceInterface;
@@ -15,20 +15,29 @@ use Ibexa\Contracts\ShoppingList\Value\Query\Criterion\NameCriterion;
 use Ibexa\Contracts\ShoppingList\Value\ShoppingListCreateStruct;
 use Ibexa\Contracts\ShoppingList\Value\ShoppingListQuery;
 use Ibexa\ProductCatalog\Local\Repository\ProductService;
-use Symfony\Component\Console\Attribute\AsCommand;
-use Symfony\Component\Console\Command\Command;
-use Symfony\Component\Console\Input\InputInterface;
-use Symfony\Component\Console\Output\OutputInterface;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Routing\Attribute\Route;
 
-#[AsCommand(name: 'app:shopping-list:cart', description: 'Test transferring shopping list entries to cart')]
-class CartShoppingListTransferCommand extends Command
+class CartShoppingListTransferController extends AbstractController
 {
-    public function __construct(private UserService $userService, private PermissionResolver $permissionResolver, private CurrencyServiceInterface $currencyService, private CartServiceInterface $cartService, private ShoppingListServiceInterface $shoppingListService, private CartShoppingListTransferServiceInterface $cartShoppingListTransferService, private ProductService $productService)
-    {
-        parent::__construct();
-    }
+    public function __construct(
+        private UserService $userService,
+        private PermissionResolver $permissionResolver,
+        private CurrencyServiceInterface $currencyService,
+        private CartServiceInterface $cartService,
+        private ShoppingListServiceInterface $shoppingListService,
+        private CartShoppingListTransferServiceInterface $cartShoppingListTransferService,
+        private ProductService $productService
+    ) {}
 
-    protected function execute(InputInterface $input, OutputInterface $output): int
+    #[Route(
+        path: '/app-shopping-list-cart',
+        name: 'app.shopping-list.cart',
+        methods: ['GET']
+    )]
+    public function __invoke(Request $request): Response
     {
         $login = 'admin';
         $currency = 'EUR';
@@ -39,7 +48,9 @@ class CartShoppingListTransferCommand extends Command
 
         $name = 'cart-shopping-list-transfer-test';
 
-        $cartsList = $this->cartService->findCarts((new CartQuery())->setOwnerId($user->getId()));
+        $cartQuery = new CartQuery();
+        $cartQuery->setOwnerId($user->getId());
+        $cartsList = $this->cartService->findCarts($cartQuery);
         $cart = null;
         foreach ($cartsList->getCarts() as $cart) {
             if ($cart->getName() === $name) {
@@ -70,8 +81,16 @@ class CartShoppingListTransferCommand extends Command
             $cart->getEntries()->hasEntryForProduct($this->productService->getProduct($productCode)) // true
         );
 
-        return $list->getEntries()->hasEntryWithProductCode($productCode) &&
-        $cart->getEntries()->hasEntryForProduct($this->productService->getProduct($productCode)) ?
-            Command::SUCCESS : Command::FAILURE;
+        $list = $this->shoppingListService->clearShoppingList($list); // Empty the list to avoid duplicate and test the move from cart
+
+        $list = $this->cartShoppingListTransferService->moveCartToShoppingList($cart, $list);
+        $cart = $this->cartService->getCart($cart->getIdentifier()); // Refresh local object from persistence
+
+        dump(
+            $list->getEntries()->hasEntryWithProductCode($productCode), // true as, after the clear, the entry is moved from cart
+            $cart->getEntries()->hasEntryForProduct($this->productService->getProduct($productCode)) // false as the entry was moved
+        );
+
+        return new Response('<html><head></head><body></body></html>');
     }
 }

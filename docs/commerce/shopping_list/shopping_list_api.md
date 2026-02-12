@@ -95,9 +95,10 @@ Interactions between shopping list and cart are managed by
 
 The following example start with an empty cart and an empty shopping list,
 then add a product to the shopping list and copy it to the cart.
+It continues with moving the whole cart to an empty list.
 
 ```php
-[[= include_file('code_samples/shopping_list/php_api/src/Controller/CartShoppingListTransferController.php', 60, 71) =]]
+[[= include_file('code_samples/shopping_list/php_api/src/Controller/CartShoppingListTransferController.php', 71, 92) =]]
 ```
 
 ### Events
