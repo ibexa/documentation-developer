@@ -97,7 +97,7 @@ The following example start with an empty cart and an empty shopping list,
 then add a product to the shopping list and copy it to the cart.
 
 ```php
-[[= include_file('code_samples/shopping_list/php_api/src/Command/CartShoppingListTransferCommand.php', 60, 71) =]]
+[[= include_file('code_samples/shopping_list/php_api/src/Controller/CartShoppingListTransferController.php', 60, 71) =]]
 ```
 
 ### Events
