@@ -7,7 +7,6 @@ use Ibexa\Contracts\Cart\CartShoppingListTransferServiceInterface;
 use Ibexa\Contracts\Cart\Value\CartCreateStruct;
 use Ibexa\Contracts\Cart\Value\CartQuery;
 use Ibexa\Contracts\Core\Repository\PermissionResolver;
-use Ibexa\Contracts\Core\Repository\UserService;
 use Ibexa\Contracts\ProductCatalog\CurrencyServiceInterface;
 use Ibexa\Contracts\ShoppingList\ShoppingListServiceInterface;
 use Ibexa\Contracts\ShoppingList\Value\EntryAddStruct as ShoppingListEntryAddStruct;
@@ -29,7 +28,8 @@ class CartShoppingListTransferController extends AbstractController
         private ShoppingListServiceInterface $shoppingListService,
         private CartShoppingListTransferServiceInterface $cartShoppingListTransferService,
         private ProductService $productService
-    ) {}
+    ) {
+    }
 
     #[Route(
         path: '/app-shopping-list-cart',
