@@ -9,12 +9,12 @@ use Ibexa\Contracts\Cart\Value\CartQuery;
 use Ibexa\Contracts\Core\Repository\PermissionResolver;
 use Ibexa\Contracts\Core\Repository\UserService;
 use Ibexa\Contracts\ProductCatalog\CurrencyServiceInterface;
+use Ibexa\Contracts\ProductCatalog\Local\LocalProductServiceInterface;
 use Ibexa\Contracts\ShoppingList\ShoppingListServiceInterface;
 use Ibexa\Contracts\ShoppingList\Value\EntryAddStruct as ShoppingListEntryAddStruct;
 use Ibexa\Contracts\ShoppingList\Value\Query\Criterion\NameCriterion;
 use Ibexa\Contracts\ShoppingList\Value\ShoppingListCreateStruct;
 use Ibexa\Contracts\ShoppingList\Value\ShoppingListQuery;
-use Ibexa\ProductCatalog\Local\Repository\ProductService;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -29,7 +29,7 @@ class CartShoppingListTransferController extends AbstractController
         private CartServiceInterface $cartService,
         private ShoppingListServiceInterface $shoppingListService,
         private CartShoppingListTransferServiceInterface $cartShoppingListTransferService,
-        private ProductService $productService
+        private LocalProductServiceInterface $productService
     ) {
     }
 
