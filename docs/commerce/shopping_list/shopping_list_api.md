@@ -98,7 +98,7 @@ then add a product to the shopping list and copy it to the cart.
 It continues with moving the whole cart to an empty list.
 
 ```php
-[[= include_file('code_samples/shopping_list/php_api/src/Controller/CartShoppingListTransferController.php', 67, 88) =]]
+[[= include_file('code_samples/shopping_list/php_api/src/Controller/CartShoppingListTransferController.php', 69, 90) =]]
 ```
 
 ### Events

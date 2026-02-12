@@ -7,6 +7,7 @@ use Ibexa\Contracts\Cart\CartShoppingListTransferServiceInterface;
 use Ibexa\Contracts\Cart\Value\CartCreateStruct;
 use Ibexa\Contracts\Cart\Value\CartQuery;
 use Ibexa\Contracts\Core\Repository\PermissionResolver;
+use Ibexa\Contracts\Core\Repository\UserService;
 use Ibexa\Contracts\ProductCatalog\CurrencyServiceInterface;
 use Ibexa\Contracts\ShoppingList\ShoppingListServiceInterface;
 use Ibexa\Contracts\ShoppingList\Value\EntryAddStruct as ShoppingListEntryAddStruct;
@@ -22,6 +23,7 @@ use Symfony\Component\Routing\Attribute\Route;
 class CartShoppingListTransferController extends AbstractController
 {
     public function __construct(
+        private UserService $userService,
         private PermissionResolver $permissionResolver,
         private CurrencyServiceInterface $currencyService,
         private CartServiceInterface $cartService,
@@ -41,11 +43,11 @@ class CartShoppingListTransferController extends AbstractController
         $currency = 'EUR';
         $productCode = 'TODO';
 
-        $user = $this->permissionResolver->getCurrentUserReference();
+        $user = $this->userService->loadUser($this->permissionResolver->getCurrentUserReference()->getUserId());
         $name = 'cart-shopping-list-transfer-test';
 
         $cartQuery = new CartQuery();
-        $cartQuery->setOwnerId($user->getUserId());
+        $cartQuery->setOwnerId($user->getId());
         $cartsList = $this->cartService->findCarts($cartQuery);
         $cart = null;
         foreach ($cartsList->getCarts() as $cart) {
