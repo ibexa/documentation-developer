@@ -23,7 +23,6 @@ use Symfony\Component\Routing\Attribute\Route;
 class CartShoppingListTransferController extends AbstractController
 {
     public function __construct(
-        private UserService $userService,
         private PermissionResolver $permissionResolver,
         private CurrencyServiceInterface $currencyService,
         private CartServiceInterface $cartService,
@@ -39,17 +38,14 @@ class CartShoppingListTransferController extends AbstractController
     )]
     public function __invoke(Request $request): Response
     {
-        $login = 'admin';
         $currency = 'EUR';
         $productCode = 'TODO';
 
-        $user = $this->userService->loadUserByLogin($login);
-        $this->permissionResolver->setCurrentUserReference($user);
-
+        $user = $this->permissionResolver->getCurrentUserReference();
         $name = 'cart-shopping-list-transfer-test';
 
         $cartQuery = new CartQuery();
-        $cartQuery->setOwnerId($user->getId());
+        $cartQuery->setOwnerId($user->getUserId());
         $cartsList = $this->cartService->findCarts($cartQuery);
         $cart = null;
         foreach ($cartsList->getCarts() as $cart) {
