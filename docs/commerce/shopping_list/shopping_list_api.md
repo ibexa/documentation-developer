@@ -85,7 +85,7 @@ The following example moves products from a source shopping list to a target sho
 Notice how the source and target lists' variables are updated from persistence after the move:
 
 ```php
-[[= include_file('code_samples/shopping_list/php_api/src/Command/ShoppingListMoveCommand.php', 44, 58) =]]
+[[= include_file('code_samples/shopping_list/php_api/src/Command/ShoppingListMoveCommand.php', 42, 56) =]]
 ```
 
 ### Transfer between shopping list and cart
