@@ -45,6 +45,9 @@ There are two versions of this command `--draft/--no-draft`.
 The first one is used to send the test user data to the Data Manager.
 If it passes a validation test in the **Activation** section, use the latter one to send a full version.
 
+You can extend exported user data with custom fields from your user content, such as date of birth, preferences, or other profile information.
+For more information, see [Data customization](../cdp_data_customization.md#export-additional-user-data).
+
 Next, go back to [[= product_name_cdp =]] and select **Validate & download**.
 If the file passes, you can see a confirmation message.
 Now, you can go to the **File mapping** section.
@@ -62,6 +65,9 @@ If you make any alterations, select the **Parse File** to generate columns with 
 
 In the **Transform & Map** section you transform data and map it to a schema.
 At this point, you can map **email** to **email** and **id** to **integer**  fields to get custom columns.
+
+If you have [extended user data export with custom fields](cdp_data_customization.md#export-additional-user-data), those fields appear as additional columns in this section.
+Make sure to add them to your schema in Raptor so they can be used for segmentation and personalization.
 
 Next, select **Create schema based on the downloaded columns**.
 It moves you to Schema Creator.
