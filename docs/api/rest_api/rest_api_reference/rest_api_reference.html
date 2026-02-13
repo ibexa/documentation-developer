@@ -132101,9 +132101,11 @@ application/vnd.ibexa.api.CustomerGroupViewInput+json
                 &quot;is_required&quot;: false,
                 &quot;is_discriminator&quot;: true
             }
-        ]
+        ],
+        &quot;is_virtual&quot;: false
     }
-}</code>
+}
+</code>
                                         </pre>
                                     </div>
                                                             </div>
@@ -132156,6 +132158,7 @@ application/vnd.ibexa.api.CustomerGroupViewInput+json
         &quot;_media-type&quot;: &quot;application/vnd.ibexa.api.ProductType+json&quot;,
         &quot;identifier&quot;: &quot;test_pt321&quot;,
         &quot;name&quot;: &quot;New Product Type&quot;,
+        &quot;is_virtual&quot;: false,
         &quot;AttributeAssignmentList&quot;: [
             {
                 &quot;_media-type&quot;: &quot;application/vnd.ibexa.api.AttributeAssignment+json&quot;,
@@ -132242,6 +132245,7 @@ application/vnd.ibexa.api.CustomerGroupViewInput+json
         &quot;_media-type&quot;: &quot;application/vnd.ibexa.api.ProductType+json&quot;,
         &quot;identifier&quot;: &quot;test_pt321&quot;,
         &quot;name&quot;: &quot;New Product Type&quot;,
+        &quot;is_virtual&quot;: false,
         &quot;AttributeAssignmentList&quot;: [
             {
                 &quot;_media-type&quot;: &quot;application/vnd.ibexa.api.AttributeAssignment+json&quot;,
@@ -133064,9 +133068,11 @@ application/vnd.ibexa.api.ProductType+json
         &quot;_media-type&quot;: &quot;application/vnd.ibexa.api.ProductType+json&quot;,
         &quot;identifier&quot;: &quot;d_rope&quot;,
         &quot;name&quot;: &quot;Dynamic ropes&quot;,
+        &quot;is_virtual&quot;: false,
         &quot;AttributeAssignmentList&quot;: []
     }
-}</code>
+}
+</code>
                             </pre>
                         </div>
                         <a href="" data-toggle="modal" data-target="#product-catalog-product_types-id-get-response-200Modal" class="btn btn--example-view-more text-center">View more</a>
@@ -133131,9 +133137,11 @@ application/vnd.ibexa.api.ProductType+json
         &quot;_media-type&quot;: &quot;application/vnd.ibexa.api.ProductType+json&quot;,
         &quot;identifier&quot;: &quot;d_rope&quot;,
         &quot;name&quot;: &quot;Dynamic ropes&quot;,
+        &quot;is_virtual&quot;: false,
         &quot;AttributeAssignmentList&quot;: []
     }
-}</code>
+}
+</code>
                                         </pre>
                                     </div>
                                                             </div>
@@ -134081,11 +134089,11 @@ application/vnd.ibexa.api.ProductTypeViewInput+json
                         &quot;_media-type&quot;: &quot;application/vnd.ibexa.api.ProductType+json&quot;,
                         &quot;identifier&quot;: &quot;climbing_shoe&quot;,
                         &quot;name&quot;: &quot;New Product Type&quot;,
+                        &quot;is_virtual&quot;: false,
                         &quot;AttributeAssignmentList&quot;: [
                             {
                                 &quot;_media-type&quot;: &quot;application/vnd.ibexa.api.AttributeAssignment+json&quot;,
-                                &quot;is_required&quot;: false,
-                                </code>
+                                &quot;is_requi</code>
                             </pre>
                         </div>
                         <a href="" data-toggle="modal" data-target="#product-catalog-product_types-view-post-response-200Modal" class="btn btn--example-view-more text-center">View more</a>
@@ -134162,6 +134170,7 @@ application/vnd.ibexa.api.ProductTypeViewInput+json
                         &quot;_media-type&quot;: &quot;application/vnd.ibexa.api.ProductType+json&quot;,
                         &quot;identifier&quot;: &quot;climbing_shoe&quot;,
                         &quot;name&quot;: &quot;New Product Type&quot;,
+                        &quot;is_virtual&quot;: false,
                         &quot;AttributeAssignmentList&quot;: [
                             {
                                 &quot;_media-type&quot;: &quot;application/vnd.ibexa.api.AttributeAssignment+json&quot;,
@@ -178241,6 +178250,17 @@ application/vnd.ibexa.api.ai.ActionType+xml
  - 
 <span>
     </span>
+
+
+                </li>
+                            <li>
+                    <span class="font-weight-medium">is_virtual</span>
+
+
+(<span class="font-italic">boolean</span>)
+ - 
+<span>
+    Determines whether the product type is virtual (digital products) or physical. Defaults to false (physical).</span>
 
 
                 </li>
