@@ -5,14 +5,14 @@ edition: experience
 
 # Data customization
 ​
-You can customize content and product data exported to CDP and you can control what field type information you want to export.
+You can customize user, content, and product data exported to CDP and you can control what field type information you want to export.
 By default, custom field types have basic export functionality.
 It casts their `Value` object to string, thanks to `\Stringable` implementation.
 ​
 ## Export additional user data
 
-You can extend user data exported to CDP by attaching custom information from user content fields, such as date of birth, preferences, or custom profile data.
-Use it for for advanced customer segmentation and personalization in marketing campaigns.
+You can extend user data exported to CDP by attaching custom information, for example user content fields or user preferences.
+Use it for advanced customer segmentation and personalization in marketing campaigns.
 
 To add custom data to user exports, create a class that extends [`\Ibexa\Contracts\Cdp\Export\User\AbstractUserItemProcessor`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Cdp-Export-User-AbstractUserItemProcessor.html) and implement the `doProcess()` method.
 The base class handles user field validation and provides helper methods for working with user content.
