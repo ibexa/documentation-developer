@@ -34,23 +34,20 @@ final class DateOfBirthUserItemProcessor extends AbstractUserItemProcessor
             throw new InvalidArgumentException('$userContent', 'User content does not contain user field');
         }
 
+        $dateOfBirth = '';
         $dateOfBirthField = $userContent->getField($this->dateOfBirthFieldIdentifier);
 
-        if (null === $dateOfBirthField || !$dateOfBirthField->value instanceof DateValue) {
-            return $processedItemData;
-        }
-
-        /** @var \Ibexa\Core\FieldType\Date\Value $dateValue */
-        $dateValue = $dateOfBirthField->value;
-
-        if (null === $dateValue->date) {
-            return $processedItemData;
+        if ($dateOfBirthField !== null
+            && $dateOfBirthField->value instanceof DateValue
+            && $dateOfBirthField->value->date !== null
+        ) {
+            $dateOfBirth = $dateOfBirthField->value->date->format('Y-m-d');
         }
 
         return array_merge(
             $processedItemData,
             [
-                'date_of_birth' => $dateValue->date->format('Y-m-d'),
+                'date_of_birth' => $dateOfBirth,
             ]
         );
     }
