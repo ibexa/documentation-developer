@@ -6,36 +6,32 @@
  */
 declare(strict_types=1);
 
-namespace App\Collaboration\Cart;
+namespace App\Collaboration\Cart\Persistence\Values;
 
-use DateTimeInterface;
-use Ibexa\Contracts\Cart\Value\CartInterface;
-use Ibexa\Contracts\Collaboration\Participant\ParticipantCollectionInterface;
-use Ibexa\Contracts\Collaboration\Session\AbstractSession;
-use Ibexa\Contracts\Core\Repository\Values\User\User;
+use DateTimeImmutable;
+use Ibexa\Collaboration\Persistence\Values\AbstractSession;
 
 final class CartSession extends AbstractSession
 {
-    private CartInterface $cart;
+    private string $cartIdentifier;
 
     public function __construct(
         int $id,
-        CartInterface $cart,
+        string $cartIdentifier,
         string $token,
-        User $owner,
-        ParticipantCollectionInterface $participants,
+        int $userId,
         bool $isActive,
         bool $hasPublicLink,
-        DateTimeInterface $createdAt,
-        DateTimeInterface $updatedAt
+        DateTimeImmutable $createdAt,
+        DateTimeImmutable $updatedAt
     ) {
-        parent::__construct($id, $token, $owner, $participants, $isActive, $hasPublicLink, $createdAt, $updatedAt);
+        parent::__construct($id, $token, $userId, $isActive, $hasPublicLink, $createdAt, $updatedAt);
 
-        $this->cart = $cart;
+        $this->cartIdentifier = $cartIdentifier;
     }
 
-    public function getCart(): CartInterface
+    public function getCartIdentifier(): string
     {
-        return $this->cart;
+        return $this->cartIdentifier;
     }
 }

@@ -71,19 +71,19 @@ When creating the Database Gateways and mappers, you can use the build-in servic
 
 In the `Collaboration/Cart/Persistence/Gateway` directory create the following files:
 
-- `DatabaseGateway` - implements the gateway logic for getting and retrieving shared Cart collaboration data from the database, using a Discriminator to indicate the type of session (in this case, a Cart session):
-
-``` php
-[[= include_file('code_samples/collaboration/src/Collaboration/Cart/Persistence/Gateway/DatabaseGateway.php') =]]
-```
-
 - `DatabaseSchema` - defines and creates the database tables needed to store shared Cart collaboration session data:
 
 ``` php
 [[= include_file('code_samples/collaboration/src/Collaboration/Cart/Persistence/Gateway/DatabaseSchema.php') =]]
 ```
 
-### Define database Value objects
+- `DatabaseGateway` - implements the gateway logic for getting and retrieving shared Cart collaboration data from the database, using a Discriminator to indicate the type of session (in this case, a Cart session):
+
+``` php
+[[= include_file('code_samples/collaboration/src/Collaboration/Cart/Persistence/Gateway/DatabaseGateway.php') =]]
+```
+
+### Define persistence Value objects
 
 Value objects describe how collaboration session data is represented in the database.
 Persistence gateway uses them to store, retrieve, and manipulate session information, such as the session ID, associated Cart, participants, and scopes.
@@ -93,19 +93,19 @@ In the `Collaboration/Cart/Persistence/Values` directory create the following Va
 - `CartSession` - represents the Cart collaboration session data:
 
 ``` php
-[[= include_file('code_samples/collaboration/src/Collaboration/Cart/CartSession.php') =]]
+[[= include_file('code_samples/collaboration/src/Collaboration/Cart/Persistence/Values/CartSession.php') =]]
 ```
 
 - `CartSessionCreateStruct` - defines the data needed to create a new Cart collaboration session:
 
 ``` php
-[[= include_file('code_samples/collaboration/src/Collaboration/Cart/CartSessionCreateStruct.php') =]]
+[[= include_file('code_samples/collaboration/src/Collaboration/Cart/Persistence/Values/CartSessionCreateStruct.php') =]]
 ```
 
 - `CartSessionUpdateStruct` - defines the data used to update an existing Cart collaboration session:
 
 ``` php
-[[= include_file('code_samples/collaboration/src/Collaboration/Cart/CartSessionUpdateStruct.php') =]]
+[[= include_file('code_samples/collaboration/src/Collaboration/Cart/Persistence/Values/CartSessionUpdateStruct.php') =]]
 ```
 
 ### Create the Cart session Struct objects
@@ -139,32 +139,7 @@ In the `Collaboration/Cart` directory create the following Session Structs:
 [[= include_file('code_samples/collaboration/src/Collaboration/Cart/CartSessionType.php') =]]
 ```
 
-## Allow participants to access the Cart
-
-To start collaborating, you need to work on permissions.
-This involves decorating the `PermissionResolver` and `CartResolver`.
-
-This step makes sure that if a Cart is part of a Cart collaboration session, users can access it due to the given permission, and in all other cases, it falls back to the default implementation.
-
-!!! caution "Decorating permissions"
-
-    Be careful when decorating permissions to change the behavior only as necessary, ensuring the Cart is shared only with the intended users.
-
-In the `src/Collaboration/Cart` directory, create the following files:
-
-- `PermissionResolverDecorator` – customizes the permission resolver to handle access rules for Cart collaboration sessions, allowing participants to view or edit shared Carts while preserving default permission checks for all other cases. Here you can decide what scope is available for this collaboration session by choosing between `view` or `edit`.
-
-``` php
-[[= include_file('code_samples/collaboration/src/Collaboration/Cart/PermissionResolverDecorator.php') =]]
-```
-
-- `CartResolverDecorator` – extends the permission resolver to allow access to shared Carts in collaboration sessions, it checks if a Cart belongs to a collaboration session.
-
-``` php
-[[= include_file('code_samples/collaboration/src/Collaboration/Cart/CartResolverDecorator.php') =]]
-```
-
-### Create mappers
+## Create mappers
 
 Mappers are used to return session data into the format the database needs and to send it to the repository.
 
@@ -192,6 +167,31 @@ In the `src\Collaboration\Cart\Mapper` folder create four mappers:
 
 ``` php
 [[= include_file('code_samples/collaboration/src/Collaboration/Cart/Mapper/CartSessionPersistenceMapper.php') =]]
+```
+
+## Allow participants to access the Cart
+
+To start collaborating, you need to work on permissions.
+This involves decorating the `PermissionResolver` and `CartResolver`.
+
+This step makes sure that if a Cart is part of a Cart collaboration session, users can access it due to the given permission, and in all other cases, it falls back to the default implementation.
+
+!!! caution "Decorating permissions"
+
+    Be careful when decorating permissions to change the behavior only as necessary, ensuring the Cart is shared only with the intended users.
+
+In the `src/Collaboration/Cart` directory, create the following files:
+
+- `PermissionResolverDecorator` – customizes the permission resolver to handle access rules for Cart collaboration sessions, allowing participants to view or edit shared Carts while preserving default permission checks for all other cases. Here you can decide what scope is available for this collaboration session by choosing between `view` or `edit`.
+
+``` php
+[[= include_file('code_samples/collaboration/src/Collaboration/Cart/PermissionResolverDecorator.php') =]]
+```
+
+- `CartResolverDecorator` – extends the permission resolver to allow access to shared Carts in collaboration sessions, it checks if a Cart belongs to a collaboration session.
+
+``` php
+[[= include_file('code_samples/collaboration/src/Collaboration/Cart/CartResolverDecorator.php') =]]
 ```
 
 ## Build dedicated controllers to manage the Cart sharing flow
@@ -232,8 +232,8 @@ Finally, `redirectToRoute` redirects the user to the Cart view and passes the id
 !!! caution "Session parameter"
 
     Avoid using a generic session parameter name such as `current_collaboration_session` (it's used here only for example purposes).
-    If multiple collaboration session types exist, for example, Content and Cart sessions, the parameter may be overwritten when another session is started.
-    Try to use more specific and unique parameter name to prevent conflicts between different session types.
+    The user can participate in multiple sessions simultaneously (of one or many types), so using this parameter would cause it to be constantly overwritten.
+    Therefore, active sessions should not be resolved based on such parameter.
 
 ## Integrate with Symfony forms by adding forms and templates
 
