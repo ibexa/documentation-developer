@@ -190,7 +190,7 @@ document.body.addEventListener('ibexa-shopping-list:shopping-lists-data-changed'
 })
 ```
 
-### Shopping list prepare request event
+### Prepare request event
 
 The `ibexa-shopping-list:prepare-request` event is dispatched by the `document` before each REST API call,
 with the request details in the event's `detail` property.
