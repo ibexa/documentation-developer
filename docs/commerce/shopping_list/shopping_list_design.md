@@ -70,6 +70,137 @@ To have a more complete example, let's continue with a product full view templat
 ```
 Because the component uses some global variables, it can't be used directly in the macro.
 
+## `ibexaShoppingList` global object
+
+The `window.ibexaShoppingList` object of type `ShoppingList` contents the shopping lists and their entries,
+and has methods to manipulate the shopping lists.
+
+It's created when a script calls `shoppingList.init` (like in the ["Add to shopping list" widget](#add-to-shopping-list-widget) example).
+It's updated by the `ShoppingList.createShoppingList` and `ShoppingList.loadShoppingLists` methods.
+
+It has the following methods:
+
+- `createShoppingList(name)` creates a new shopping list and returns a [`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise) for an array with
+    - at index 0, the created shopping list
+    - at index 1, the whole `ShoppingList` object with all the user's shopping lists
+- `getShoppingLists()` returns the local `window.ibexaShoppingList.shoppingLists` property
+- `loadShoppingLists()` loads the shopping lists from the server, then updates the local `window.ibexaShoppingList.shoppingLists` property, and returns it
+- `loadShoppingList(list_identifier: string)` returns a `Promise` for the shopping list with the given identifier
+- `addShoppingListEntries(list_identifier: string, product_codes: string[])` adds entries to the given shopping list for the given product codes, and returns a `Promise` for the [`Response`](https://developer.mozilla.org/docs/Web/API/Response)
+- `removeShoppingListEntries(list_identifier: string, entry_identifiers: string[])` remove from the given shopping list the given entries, and returns a `Promise` for the `Response`
+
+It has the following data structure:
+
+```json
+{
+    "shoppingLists": {
+        "totalCount": 2,
+        "count": 2,
+        "ShoppingList": [
+            {
+                "identifier": "12345678-1234-1234-1234-123456789abc",
+                "name": "My Wishlist",
+                "isDefault": true,
+                "owner": {
+                    "_href": "/api/ibexa/v2/user/users/…",
+                    "_media-type": "application/vnd.ibexa.api.User+json"
+                },
+                "entries": [
+                    {
+                        "identifier": "…",
+                        "product": {
+                            "_href": "/api/ibexa/v2/product/catalog/products/PRODUCT_CODE",
+                            "_media-type": "application/vnd.ibexa.api.Product+json",
+                            "code": "PRODUCT_CODE",
+                            "name": "Product name"
+                        },
+                        "addedAt": "YYYY-MM-DD hh:mm:ss"
+                    }
+                ],
+                "createdAt": "YYYY-MM-DD hh:mm:ss",
+                "updatedAt": "YYYY-MM-DD hh:mm:ss"
+            },
+            {
+                "identifier": "hhhhhhhh-aaaa-ssss-hhhh-0123456789ab",
+                "identifier": "325d1f8d-877d-40bf-9389-e8eb3e0de58a",
+                "name": "My own custom list",
+                "isDefault": false,
+                "owner": {
+                    "_href": "/api/ibexa/v2/user/users/…",
+                    "_media-type": "application/vnd.ibexa.api.User+json"
+                },
+                "entries": [
+                    {
+                        "identifier": "…",
+                        "product": {
+                            "_href": "/api/ibexa/v2/product/catalog/products/ANOTHER_PRODUCT_CODE",
+                            "_media-type": "application/vnd.ibexa.api.Product+json",
+                            "code": "ANOTHER_PRODUCT_CODE",
+                            "name": "Another product name"
+                        },
+                        "addedAt": "YYYY-MM-DD hh:mm:ss"
+                    }
+                ],
+                "createdAt": "YYYY-MM-DD hh:mm:ss",
+                "updatedAt": "YYYY-MM-DD hh:mm:ss"
+            }
+        ]
+    }
+}
+```
+
+The following script create a shopping list, add a product to it, then refresh the local `window.ibexaShoppingList` (as `addShoppingListEntries` method doesn't do it).
+
+```javascript
+let product_code = '<PRODUCT_CODE>';
+let shopping_list_name = '<SHOPPING_LIST_NAME>';
+window.ibexaShoppingList.createShoppingList(shopping_list_name).then((data) => {
+    let shopping_list_identifier = data[0].identifier;
+    window.ibexaShoppingList.addShoppingListEntries(shopping_list_identifier, [product_code]).then(() => {
+        window.ibexaShoppingList.loadShoppingLists(); // Refresh local object
+    });
+});
+```
+
+If the "Add to shopping list" widget is used, it could be updated with the following addition to the previous script:
+
+```javascript hl_lines="4-7"
+window.ibexaShoppingList.createShoppingList(shopping_list_name).then((data) => {
+    let shopping_list_identifier = data[0].identifier;
+    window.ibexaShoppingList.addShoppingListEntries(shopping_list_identifier, [product_code]).then(() => {
+        window.ibexaShoppingList.loadShoppingLists().then(() => {
+            let selector = '.ibexa-sl-add-to-shopping-list[data-product-code="' + product_code + '"] input[type="checkbox"][value="' + shopping_list_identifier + '"]';
+            document.querySelector(selector).checked = true; // Check the new list in product's "Add to shopping list" widget
+        });
+    });
+});
+```
+
+## JavaScript events
+
+### Shopping lists data changed event
+
+The `ibexa-shopping-list:shopping-lists-data-changed` event is dispatched by the `document.body`
+- on `shoppingList.init()` (and the `window.ibexaShoppingList` global variable is set)
+- on `shoppingList.createShoppingList()` (and the `window.ibexaShoppingList` global variable is updated)
+
+```javascript
+document.body.addEventListener('ibexa-shopping-list:shopping-lists-data-changed', (event) => {
+    console.log(event, window.ibexaShoppingList);
+})
+```
+
+### Shopping list prepare request event
+
+The `ibexa-shopping-list:prepare-request` event is dispatched by the `document` before each REST API call,
+with the request details in the event's `detail` property.
+
+```javascript
+document.addEventListener('ibexa-shopping-list:prepare-request', (event) => {
+    console.log(event, event.detail.request);
+})
+```
+
 ## Built-in views
 
 Some routes lead to views (when used with `GET` method) through controllers from the `\Ibexa\Bundle\ShoppingList\Controller` namespace.
