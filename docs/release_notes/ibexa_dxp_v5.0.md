@@ -18,7 +18,6 @@ This prevents performance degradation from database queries when determining if 
 
 For more information, see [Subtree operations configuration](back_office_configuration.md#subtree-operations).
 
-
 [[% set version = 'v5.0.5' %]]
 
 [[= release_note_entry_begin("Ibexa DXP " + version, '2026-01-15', ['Headless', 'Experience', 'Commerce']) =]]
