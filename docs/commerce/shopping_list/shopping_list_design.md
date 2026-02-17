@@ -28,7 +28,7 @@ Some Twig and TypeScript components can help you insert an "Add to shopping list
 ```
 
 `webpack.config.js` bottom part:
-``` js hl_lines="3-11"
+``` js hl_lines="3-12"
 [[= include_file('code_samples/shopping_list/add_to_shopping_list/webpack.config.js', 43) =]]
 ```
 

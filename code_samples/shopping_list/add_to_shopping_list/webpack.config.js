@@ -47,6 +47,7 @@ Encore
     .enableTypeScriptLoader()
     .addAliases({
         '@ibexa-shopping-list': path.resolve('./vendor/ibexa/shopping-list'),
+        '@ibexa-admin-ui': path.resolve('./vendor/ibexa/admin-ui'), // @ibexa-admin-ui/…/text.helper dependency
     })
     .addEntry('add-to-shopping-list-js', [
         path.resolve(__dirname, './assets/js/add-to-shopping-list.ts'),
