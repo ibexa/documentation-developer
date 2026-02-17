@@ -22,7 +22,7 @@ For example, you can create languages without checking if they already exist:
 [[= include_file('code_samples/data_migration/examples/try_catch_step.yaml') =]]
 ```
 
-The try-catch step allows you to specify which exceptions to catch and whether to continue executing remaining steps after an exception occurs.
+The `try_catch` step allows you to specify which exceptions to catch and whether to continue executing remaining steps after an exception occurs.
 
 For more information, see [Error handling with try-catch](importing_data.md#error-handling-with-try-catch).
 

@@ -177,7 +177,7 @@ Default values are:
 [[= include_file('code_samples/data_migration/examples/try_catch_step.yaml') =]]
 ```
 
-When an exception is thrown within a try-catch step, it's compared against the list of `allowed_exceptions`.
+When an exception is thrown within a `try_catch` step, it's compared against the list of `allowed_exceptions`.
 If the exception matches, it's caught and the migration continues or stops depending on the `stop_after_first_exception` configuration setting.
 The migration is marked as successful.
 Non-matching exceptions throw immediately, halting the migration process and returning an error.
