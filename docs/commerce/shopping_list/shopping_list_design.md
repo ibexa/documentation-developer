@@ -70,7 +70,7 @@ To have a more complete example, let's continue with a product full view templat
 ```
 Because the component uses some global variables, it can't be used directly in the macro.
 
-## `ShoppingList` JS class and `ibexaShoppingList` global
+## `ShoppingList` JS class and `ibexaShoppingList` global
 
 The `ShoppingList` class is responsible for handling the shopping lists data and interactions with the REST API.
 An object of this class contents the shopping lists and their entries, and has methods to manipulate the shopping lists.
