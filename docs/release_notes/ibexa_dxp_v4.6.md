@@ -34,7 +34,6 @@ The parameters are available in your template as regular variables.
 
 For more information, see [`ibexa_render()` Twig function](content_twig_functions.md#ibexa_render).
 
-
 [[% set version = 'v4.6.27' %]]
 [[= release_note_entry_begin("Ibexa DXP " + version, '2026-02-03', ['Headless', 'Experience', 'Commerce']) =]]
 
