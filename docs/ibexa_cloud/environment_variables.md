@@ -79,20 +79,17 @@ In addition to the database variables listed above, additional DFS-specific vari
 
 ## Cache variables
 
-For Redis, Valkey, and Memcached cache services, the following variables are available.
+For Redis and Valkey cache services, the following variables are available:
 
-- `{RELATIONSHIP_NAME}_URL` (Redis/Valkey only)
+- `{RELATIONSHIP_NAME}_URL`
 - `{RELATIONSHIP_NAME}_HOST`
 - `{RELATIONSHIP_NAME}_PORT`
-- `{RELATIONSHIP_NAME}_SCHEME` (Redis/Valkey only)
+- `{RELATIONSHIP_NAME}_SCHEME`
 
 In addition, the following global variables are defined:
 
-- `CACHE_POOL` - either `cache.redis` or `cache.memcached`
+- `CACHE_POOL` - `cache.redis` for both Redis and Valkey
 - `CACHE_DSN` - cache connection string
-
-!!! note
-    Redis/Valkey services have higher priority than Memcached services when building the global cache variables.
 
 For more information about persistence cache configuration, see [Persistence cache](persistence_cache.md).
 
