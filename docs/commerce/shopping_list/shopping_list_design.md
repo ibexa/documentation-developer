@@ -70,7 +70,7 @@ To have a more complete example, let's continue with a product full view templat
 ```
 Because the component uses some global variables, it can't be used directly in the macro.
 
-## `ShoppingList` JavaScript class and `ibexaShoppingList` global object
+## `ShoppingList` JS class and `ibexaShoppingList` global
 
 The `ShoppingList` class is responsible for handling the shopping lists data and interactions with the REST API.
 An object of this class contents the shopping lists and their entries, and has methods to manipulate the shopping lists.
@@ -78,15 +78,7 @@ An object of this class contents the shopping lists and their entries, and has m
 An object of this class can be initialized with the `shoppingList.init()` function only once.
 This initialization creates the `window.ibexaShoppingList` global variable pointing to the object.
 If you have several scripts needing an instance of `ShoppingList` class, `window.ibexaShoppingList` is the indicator if it has been initialized and it points the object you need.
-
-You could eventually test `window.ibexaShoppingList` existence and initialize it if it doesn't exist like in the following example:
-
-```
-const shoppingList = window.ibexaShoppingList ?? new ShoppingList();
-if (!window.ibexaShoppingList) { shoppingList.init(); }
-```
-
-Or preferably initialize it in a top script then just use `window.ibexaShoppingList`.
+Preferably initialize an object of class `ShoppingList` in a top script, then use `window.ibexaShoppingList` in the next scripts.
 
 It has the following methods:
 
@@ -150,11 +142,11 @@ shoppingLists_Mockup = {
     ]
 };
 ```
-Again,a `ShoppingList` object like the `window.ibexaShoppingList` has its data updated by the `ShoppingList.createShoppingList` and `ShoppingList.loadShoppingLists` methods.
+Remember that a `ShoppingList` object like the `window.ibexaShoppingList` has its data updated by the `ShoppingList.createShoppingList` and `ShoppingList.loadShoppingLists` methods.
 
 The following script create a shopping list, add a product to it, then refresh the local `window.ibexaShoppingList.shoppingLists` (as `addShoppingListEntries` method doesn't do it):
 
-```javascript
+```javascript hl_lines="6-8"
 if (!window.ibexaShoppingList) {
   throw new Error('ShoppingList object not initialized, window.ibexaShoppingList not defined');
 }
