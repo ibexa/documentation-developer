@@ -1,7 +1,7 @@
 ---
 description: Integrated help provides quick access to documentation, training, and support resources.
 edition: lts-update
-month_change: false
+month_change: true
 ---
 
 # Integrated help
@@ -13,9 +13,18 @@ With this feature installed, users can click the ![Help icon](about-info.png){.i
 
 Integrated help is contextual, therefore, apart from user documentation, release notes, and partner guidelines, which are available to editors and store managers, developers can access API references, the GraphQL console, or the support portal.
 
+## Product tours
+
+Product tours are interactive guided walkthroughs that help users discover and learn [[= product_name =]] features, available starting with [[= product_name =]] v4.6.28.
+They provide step-by-step guidance directly within the application interface, accelerating user adoption and reducing training time.
+
+Developers can create custom onboarding journeys tailored to specific client implementations, user roles, or business processes.
+
+For more information, see [Product tour](product_tour.md).
+
 ## Install package
 
-Integrated help is optional. 
+The Integrated help LTS Update is optional.
 To enable it, run the following command:
 
 ```bash
@@ -24,8 +33,13 @@ composer require ibexa/integrated-help
 
 After installation, you must [enable the help center in user settings]([[= user_doc =]]/getting_started/discover_ui#enable-help-center) to use the feature.
 
-## Customize help menu
+## Learn more
 
-You can extend or alter the integrated help menu by quickly changing the link to user documentation, or adding or removing menu items or even entire menu sections.
+[[= cards([
+    "administration/back_office/customize_integrated_help",
+    "administration/back_office/product_tour",
+    "administration/back_office/configure_product_tour",
+    "api/event_reference/integrated_help_events",
+]) =]]
 
-For more information, see [Customize integrated help](customize_integrated_help.md).
+TODO: Add PHP API link here

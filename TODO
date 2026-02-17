@@ -1,0 +1,45 @@
+TODO:
+1) PHP API reference + links
+2) Arcade video
+1) Czy typ image działa? Chyba nie?
+5) Screenshoty
+6) Custom block type?
+
+---
+description: Customize product tour scenarios by creating custom step blocks
+edition: lts-update
+month_change: false
+---
+
+# Create custom step blocks
+
+TODO: This is not possible
+
+When creating [product tour scenarios](integrated_help.md#product-tours) you're not limited to the [built-in step blocks](configure_product_tour.md#block-types).
+You can create custom block types, allowing you create reusable blocks that can be shared between scenarios.
+
+It's a more customizable alternative the [custom Twig block](configure_product_tour.md#custom-twig-template-block), as you can pass custom variables and add additional logic before rendering the template.
+
+The following example creates a custom `tip` block, a reusable component that you can use in different steps to provide tips to the user.
+
+To create a custom step block, start by creating a class implementing the `Ibexa\Contracts\IntegratedHelp\Builder\Block\BlockBuilderInterface` interface.
+This class is responsbile for converting the YAML configuration into PHP objects.
+
+``` php
+```
+
+Register it as a Symfony service and use the `ibexa.product_tour.block_factory` service tag to register is as a custom block configuration option:
+
+``` yaml
+```
+
+Then, create a class responsible for rendering the block:
+
+``` php
+```
+
+Register it as a Symfony service and use the `ibexa.product_tour.block_renderer` service tag to mark the class as a custom block renderer.
+
+``` yaml
+
+```
