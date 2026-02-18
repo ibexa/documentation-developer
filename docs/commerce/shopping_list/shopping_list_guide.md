@@ -65,7 +65,7 @@ In the out-of-the-box storefront, a shopping list user can:
 
 ## Extensibility
 
-The [PHP API](shopping_list_api.md#php-api) and the [REST API](shopping_list_api.md#rest-api) already offers few functionalities not used in the default storefront,
+The shopping list's [PHP API](shopping_list_api.md#php-api) and [REST API](shopping_list_api.md#rest-api) already offer few functionalities not used in the default storefront,
 such as to empty a whole shopping list, or to copy products from a shopping list to another (instead of moving them).
 
 Those APIs can be used to implement custom features, and can themselves be extended to cover more use cases.
