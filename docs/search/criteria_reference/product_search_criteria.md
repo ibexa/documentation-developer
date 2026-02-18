@@ -9,8 +9,8 @@ Product Search Criteria are supported by [Product Search (`ProductServiceInterfa
 
 Search Criterion let you filter product by specific attributes, for example, color, availability, or price.
 
-Product Search Criteria can also be used with `ProductVariantQuery` when wrapped in a [`ProductCriterionAdapter`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Values-Content-Query-Criterion-ProductCriterionAdapter.html)
-. See the [product variant search examples](product_api.md#searching-variants-across-products) for more information.
+Product Search Criteria can also be used with `ProductVariantQuery` when wrapped in a [`ProductCriterionAdapter`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Values-Content-Query-Criterion-ProductCriterionAdapter.html).
+See the [product variant search examples](product_api.md#searching-variants-across-products) for more information.
 
 ## Product Search Criteria
 
