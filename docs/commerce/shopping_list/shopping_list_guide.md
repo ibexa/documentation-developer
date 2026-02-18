@@ -36,6 +36,7 @@ which is created automatically on first use,
 which can't be renamed, and can't be deleted.
 According to configuration, customers can have a limited amount of additional custom shopping lists.
 The number of products a shopping list can contain is also limited by configuration.
+For more information, see [Configure shopping list](install_shopping_list.md#configure).
 
 A shopping list only stores product codes.
 A shopping list doesn't store quantities.
