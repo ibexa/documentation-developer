@@ -8,7 +8,7 @@ description: Configure default upload locations, pagination limits, and more set
 ## Pagination limits
 
 Default pagination limits for different sections of the back office can be defined through respective settings in
-[`ezplatform_default_settings.yaml`](https://github.com/ibexa/admin-ui/blob/main/src/bundle/Resources/config/ezplatform_default_settings.yaml#L7)
+[`ezplatform_default_settings.yaml`](https://github.com/ibexa/admin-ui/blob/main/src/bundle/Resources/config/ezplatform_default_settings.yaml#L7).
 
 You can set the pagination limit for user settings under the `ibexa.system.<scope>.pagination_user` [configuration key](configuration.md#configuration-files):
 
@@ -46,9 +46,15 @@ ibexa:
 
 Copying large subtrees can cause performance issues, so you can limit the number of content items that can be copied at once by setting the `ibexa.system.<scope>.subtree_operations.copy_subtree.limit` [configuration key](configuration.md#configuration-files).
 
+The limit applies only to the UI of the back office and disables the "Copy subtree" operation.
+
 The default value is `100`. You can set it to `-1` for no limit, or to `0` to completely disable copying subtrees.
 
-You can copy a subtree by calling the following command in CLI: `bin/console ibexa:copy-subtree <sourceLocationId> <targetLocationId>`.
+To copy a subtree regardless of the limit, use the following console command: 
+
+``` bash
+php bin/console ibexa:copy-subtree <sourceLocationId> <targetLocationId>
+```
 
 ### Query subtree limit
 
@@ -69,8 +75,14 @@ ibexa:
 The default value for `query_subtree.limit` is `500`.
 You can set it to `-1` to disable the limit.
 
-This limit is applied when the back office needs to determine if a location has children or calculate the number of items in a subtree.
-Instead of performing a full count, the query stops after finding the specified number of items, which significantly improves performance on locations with large numbers of children.
+This limit is applied in some cases when the back office needs to determine if a location has children or calculate the number of items in a subtree.
+The limit does not affect the sub-items list, which still displays all child elements in a paginated way.
+
+When a limit is set, the query stops after finding the specified number of items instead of performing a full count.
+This significantly improves performance on locations with large numbers of children.
+The resulting count is displayed with a `+` sign, indicating that the result is not exact.
+
+![Example of subtree count with exceeded limit](img/query_subtree_limit_locations_tab.png "Example of subtree count with exceeded limit")
 
 ## Default locations
 
