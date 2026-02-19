@@ -39,6 +39,7 @@ After installation, you must [enable the help center in user settings]([[= user_
     "administration/back_office/customize_integrated_help",
     "administration/back_office/product_tour",
     "administration/back_office/configure_product_tour",
+    "administration/back_office/customize_product_tour",
     "api/event_reference/integrated_help_events",
 ]) =]]
 

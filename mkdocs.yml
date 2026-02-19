@@ -167,6 +167,7 @@ nav:
                 - Customize integrated help: administration/back_office/customize_integrated_help.md
                 - Product tour: administration/back_office/product_tour.md
                 - Configure product tour: administration/back_office/configure_product_tour.md
+                - Customize product tour: administration/back_office/customize_product_tour.md
             - Customize search:
                 - Customize search suggestion: administration/back_office/customize_search_suggestion.md
                 - Customize search sorting: administration/back_office/customize_search_sorting.md

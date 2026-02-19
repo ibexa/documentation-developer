@@ -1,0 +1,53 @@
+---
+description: Customize product tour scenarios with custom event listeners
+edition: lts-update
+month_change: true
+---
+
+# Customize scenarios with PHP code
+
+You can customize the product tour scenarios with the [`RenderProductTourScenarioEvent`](integrated_help_events.md) event.
+This event is dispatched before rendering a product tour scenario and you can use it to:
+
+- Modify tour steps based on user permissions or roles
+- Add or remove steps dynamically
+- Change block content based on runtime conditions
+- Integrate custom data into tour scenarios
+
+With the following example, a custom onboarding scenario is built.
+It starts only when the current user has a pending [notification]([[= user_doc =]]/getting_started/notifications/).
+
+First, define a custom product tour scenario.
+It contains a placeholder step with a single block.
+
+``` yaml
+ibexa:
+    system:
+        default:
+            product_tour:
+                notifications:
+                    type: 'targetable'
+                    steps:
+                        placeholder_step:
+                            step_title_translation_key: 'This is a placeholder step'
+                            target: '.ibexa-header-user-menu__notifications-toggler'
+                            blocks:
+                                - type: text
+                                  params:
+                                      text_translation_key: 'This is a placeholder block, modified during event subscriber execution'
+```
+
+Then, create a subscriber modifying the scenario.
+
+```php hl_lines="35-37 39-41 43-45 47-58"
+[[= include_file('code_samples/back_office/product_tour/src/EventSubscriber/NotificationScenarioSubscriber.php') =]]
+```
+
+The subscriber executes the following actions:
+
+- makes sure the correct scenario is being processed
+- removes all the existing scenario steps
+- verifies that the current user has a pending notification
+- adds a custom clickable step to highlight the unread notification
+
+TODO: Screenshot here

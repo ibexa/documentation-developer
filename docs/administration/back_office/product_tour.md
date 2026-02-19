@@ -66,7 +66,12 @@ TODO: Screenshot here
 Depending on scenario configuration, they automatically appear to users when they first log in or visit a specific page.
 Each scenario appears only once for each user.
 
-Users can complete a tour by finishing all steps or by skipping it with the "Exit tour" button.
+Users can complete a tour with one of the following actions:
+
+- by finishing all steps
+- by skipping it with the **Exit tour** button
+- by skipping it with the **Escape** key
+
 At any time, users can manually restart completed tours from their [user settings]([[= user_doc =]]/getting_started/get_started/#user-settings).
 
 To start building your custom onboarding scenarios, see [configure product tour](configure_product_tour.md).
