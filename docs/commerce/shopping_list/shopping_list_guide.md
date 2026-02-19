@@ -60,7 +60,7 @@ In the out-of-the-box storefront, a shopping list user can:
 - Copy a whole shopping list to cart
     - products are kept in shopping list while added to the cart
     - products out-of-stock aren't copied and the user is warned
-    - products quantities are incremented by 1, the user can adjust quantities in the cart
+    - product quantities are incremented by 1, the user can adjust quantities in the cart
   ![Shopping list product list with highligts on "Add to cart" and "Add all to cart" buttons](img/add_to_cart.png "“Add to cart” and “Add all to cart” buttons")
 - Move a product from cart to “My Wishlist” (product is removed from cart and added to the default shopping list)
 - Move a whole cart to “My Wishlist” (products are removed from cart and added to the default shopping list)
