@@ -10,6 +10,16 @@ month_change: false
 
 <div class="release-notes" markdown="1">
 
+[[% set version = 'v5.0.X' %]]
+
+[[= release_note_entry_begin("Shopping list " + version, '202X-TODO', ['Commerce', 'LTS Update', 'New feature']) =]]
+
+Shopping list is a new feature that allows users to save products into wishlists for later purchase.
+
+For more information, see [Shopping list feature guide](shopping_list_guide.md).
+
+[[= release_note_entry_end() =]]
+
 [[% set version = 'v5.0.5' %]]
 
 [[= release_note_entry_begin("Ibexa DXP " + version, '2026-01-15', ['Headless', 'Experience', 'Commerce']) =]]
