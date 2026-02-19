@@ -58,13 +58,25 @@ To delete a product, use `LocalProductServiceInterface::deleteProduct()`:
 
 ### Product variants
 
+#### Searching for variants of a specific product
+
 You can access the variants of a product by using the [`ProductServiceInterface::findProductVariants()`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-ProductServiceInterface.html#method_findProductVariants) method.
 The method takes the product object and a [`ProductVariantQuery`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Values-Product-ProductVariantQuery.html) object as parameters.
 
-You can filter variants by variant codes or use product criteria:
+You can filter variants by:
+
+- variant codes:
 
 ``` php
-[[= include_file('code_samples/api/product_catalog/src/Command/ProductVariantCommand.php', 50, 66) =]]
+[[= include_file('code_samples/api/product_catalog/src/Command/ProductVariantCommand.php', 50, 54) =]]
+```
+
+- product criteria:
+
+To use [Product Search Criteria](product_search_criteria.md) and [Product Sort Clauses](product_sort_clauses.md) with [`ProductVariantQuery`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Values-Product-ProductVariantQuery.html), wrap it with a [`ProductCriterionAdapter`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Values-Content-Query-Criterion-ProductCriterionAdapter.html) class, as in the example below:
+
+``` php
+[[= include_file('code_samples/api/product_catalog/src/Command/ProductVariantCommand.php', 55, 66) =]]
 ```
 
 From a variant ([`ProductVariantInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Values-ProductVariantInterface.html)), you can access the attributes that are used to generate the variant by using [`ProductVariantInterface::getDiscriminatorAttributes()`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Values-ProductVariantInterface.html#method_getDiscriminatorAttributes).
@@ -73,20 +85,27 @@ From a variant ([`ProductVariantInterface`](/api/php_api/php_api_reference/class
 [[= include_file('code_samples/api/product_catalog/src/Command/ProductVariantCommand.php', 69, 73) =]]
 ```
 
-See [Product Search Criteria](product_search_criteria.md) and [Product Sort Clauses](product_sort_clauses.md) references for more information about how to use the [`ProductVariantQuery`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Values-Product-ProductVariantQuery.html) class.
-
-#### Searching variants across products
+#### Searching for variants across all products
 
 To search for variants across all products, use [`ProductServiceInterface::findVariants()`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-ProductServiceInterface.html#method_findVariants).
 This method takes a [`ProductVariantQuery`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Values-Product-ProductVariantQuery.html) object and returns variants regardless of their base product.
 
 Unlike `findProductVariants()`, which requires a specific product object, `findVariants()` allows you to search the entire variant catalog.
 
-You can filter variants using Product Criteria wrapped in a [`ProductCriterionAdapter`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Values-Content-Query-Criterion-ProductCriterionAdapter.html).
-For example, you can search for variants with specific product codes or attribute values, as below:
+You can filter variants by:
+
+- variant codes:
 
 ``` php
-[[= include_file('code_samples/api/product_catalog/src/Command/ProductVariantCommand.php', 83, 100) =]]
+[[= include_file('code_samples/api/product_catalog/src/Command/ProductVariantCommand.php', 83, 87) =]]
+```
+
+- product criteria:
+
+To use [Product Search Criteria](product_search_criteria.md) and [Product Sort Clauses](product_sort_clauses.md) with [`ProductVariantQuery`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Values-Product-ProductVariantQuery.html), wrap it with a [`ProductCriterionAdapter`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Values-Content-Query-Criterion-ProductCriterionAdapter.html) class, as in the example below:
+
+``` php
+[[= include_file('code_samples/api/product_catalog/src/Command/ProductVariantCommand.php', 92, 100) =]]
 ```
 
 #### Creating variants
