@@ -5,7 +5,7 @@ page_type: reference
 
 # Product Search Criteria reference
 
-Product Search Criteria are supported by [product and product variant search)](product_api.md#products) with the following methods:
+Product Search Criteria are supported by [product and product variant search](product_api.md#products) with the following methods:
 
 - `ProductServiceInterface::findProducts()`
 - `ProductServiceInterface::findProductVariants()`
