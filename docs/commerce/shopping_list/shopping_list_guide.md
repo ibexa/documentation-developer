@@ -31,7 +31,7 @@ Policies can give the rights to create, view, edit, and delete shopping lists.
 Authenticated customers can be granted with those rights on their own shopping lists.
 For more information, see [Shopping list user role](install_shopping_list.md#shopping-list-user-role).
 
-A customer always have a default shopping list named "My Wishlist"
+A customer always have a default shopping list named “My Wishlist”
 which is created automatically on first use,
 which can't be renamed, and can't be deleted.
 According to configuration, customers can have a limited amount of additional custom shopping lists.
@@ -51,22 +51,25 @@ In the out-of-the-box storefront, a shopping list user can:
     - from a shopping list when moving products from one shopping list to another
       !["Move to another list" pop-in with an highlight on the "+ Create a new shopping list" option](img/create_from_move.png "Create a new shopping list from the move target selection interface")
 - Add product (or product variant) to a shopping list
-- Rename a shopping list (except the default "My Wishlist")
+- Rename a shopping list (except the default “My Wishlist”)
 - View the list of their shopping lists
 - View a shopping list and its product list
 - Move products from a shopping list to another shopping list
 - Remove product from a shopping list
 - Copy product from a shopping list to cart (product is kept in shopping list while added to the cart)
-- Copy a whole shopping list to cart (products are kept in shopping list while added to the cart)
+- Copy a whole shopping list to cart
     - products are kept in shopping list while added to the cart
     - products out-of-stock aren't copied and the user is warned
-    - products are added with quantity 1, the user can adjust quantities in the cart afterward
-- Move a whole cart to a shopping list (products are removed from cart and added to the shopping list)
+    - products are added with quantity 1, the user can adjust quantities in the cart
+  ![Shopping list product list with highligts on "Add to cart" and "Add all to cart" buttons](img/add_to_cart.png "“Add to cart” and “Add all to cart” buttons")
+- Move a product from cart to “My Wishlist” (product is removed from cart and added to the default shopping list)
+- Move a whole cart to “My Wishlist” (products are removed from cart and added to the default shopping list)
+  ![Cart's product list with highligts on "Move to My Wishlist" and "Move all to wishlist" buttons](img/move_to_my_wishlist.png "“Move to My Wishlist” and “Move all to wishlist” buttons")
 - Delete a shopping list
 
 ## Extensibility
 
 The shopping list's [PHP API](shopping_list_api.md#php-api) and [REST API](shopping_list_api.md#rest-api) already offer few functionalities not used in the default storefront,
-such as to empty a whole shopping list, or to copy products from a shopping list to another (instead of moving them).
+such as to empty a whole shopping list, move from cart to a specific shopping list, or to copy from a shopping list to another (instead of moving them).
 
 Those APIs can be used to implement custom features, and can themselves be extended to cover more use cases.
