@@ -58,7 +58,7 @@ php bin/console ibexa:copy-subtree <sourceLocationId> <targetLocationId>
 
 ### Query subtree limit
 
-When working with large content trees, counting child items or calculating subtree sizes can cause significant performance degradation due to unbounded database queries. 
+When working with large content trees, counting child items or calculating subtree sizes can cause significant performance degradation due to unbounded database queries.
 You can limit these count operations by setting the `ibexa.system.<scope>.subtree_operations.query_subtree.limit` [configuration key](configuration.md#configuration-files):
 
 ``` yaml
@@ -75,7 +75,7 @@ ibexa:
 The default value for `query_subtree.limit` is `500`.
 You can set it to `-1` to disable the limit.
 
-This limit is applied in some cases when the back office needs to determine if a location has children or calculate the number of items in a subtree.
+This limit applies in some cases when the back office needs to determine if a location has children or calculate the number of items in a subtree.
 The limit does not affect the sub-items list, which still displays all child elements in a paginated way.
 
 When a limit is set, the query stops after finding the specified number of items instead of performing a full count.
