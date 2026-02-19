@@ -50,7 +50,7 @@ final class ProductVariantCommand extends Command
 
         // Get variants filtered by variant codes
         $codeQuery = new ProductVariantQuery();
-        $codeQuery->setVariantCodes(['DESK1', 'DESK2']);
+        $codeQuery->setVariantCodes(['DESK-red', 'DESK-blue']);
         $specificVariants = $this->productService->findProductVariants($product, $codeQuery)->getVariants();
 
         // Get variants with specific attributes
@@ -75,15 +75,15 @@ final class ProductVariantCommand extends Command
 
         // Create a variant
         $variantCreateStructs = [
-            new ProductVariantCreateStruct(['color' => 'oak', 'frame_color' => 'white'], 'DESK1'),
-            new ProductVariantCreateStruct(['color' => 'white', 'frame_color' => 'black'], 'DESK2'),
+            new ProductVariantCreateStruct(['color' => 'oak', 'frame_color' => 'white'], 'DESK-red'),
+            new ProductVariantCreateStruct(['color' => 'white', 'frame_color' => 'black'], 'DESK-blue'),
         ];
 
         $this->localProductService->createProductVariants($product, $variantCreateStructs);
 
         // Search variants across all products
         $query = new ProductVariantQuery();
-        $query->setVariantCodes(['DESK1', 'DESK2']);
+        $query->setVariantCodes(['DESK-red', 'DESK-blue']);
         $variantList = $this->productService->findVariants($query);
 
         foreach ($variantList->getVariants() as $variant) {
