@@ -2,7 +2,7 @@
     type: try_catch
     mode: execute
     allowed_exceptions:
-        - Throwable
+        - Ibexa\Contracts\Core\Repository\Exceptions\InvalidArgumentException
     stop_after_first_exception: true
     steps:
         -

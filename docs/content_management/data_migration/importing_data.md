@@ -161,10 +161,10 @@ If no matching queries are found, the migration throws an error.
 
 You can wrap one or more migration steps with a `try_catch` step to handle exceptions gracefully.
 
-Use it for migrations that may fail under specific conditions but should not halt the entire migration process.
+Use it for migration steps that may fail under specific conditions but should not halt the entire migration process.
 
-For example, you can ensure a language creation migration succeeds even if the language already exists.
-If the migration fails for this reason, the exception is suppressed, allowing the remaining migrations to proceed without interruption.
+For example, you can ensure a language creation migration step succeeds even if the language already exists.
+If the migration step fails for this reason, the exception is suppressed, allowing the remaining migrations to proceed without interruption.
 
 A `try_catch` migration requires the `steps` property and accepts optional `allowed_exceptions` and `stop_after_first_exception` settings.
 
@@ -178,8 +178,8 @@ Default values are:
 ```
 
 When an exception is thrown within a `try_catch` step, it's compared against the list of `allowed_exceptions`.
-If the exception matches, it's caught and the migration continues or stops depending on the `stop_after_first_exception` configuration setting.
-The migration is marked as successful.
+If the exception matches, it's caught and the migration step continues or stops depending on the `stop_after_first_exception` configuration setting.
+The migration step is marked as successful and the migration process continues.
 Non-matching exceptions throw immediately, halting the migration process and returning an error.
 
 ### Expression syntax
