@@ -75,7 +75,7 @@ You can filter variants by:
 
 To use [Product Search Criteria](product_search_criteria.md) with [`ProductVariantQuery`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Values-Product-ProductVariantQuery.html), wrap it with the [`ProductCriterionAdapter`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Values-Content-Query-Criterion-ProductCriterionAdapter.html) class, as in the example below:
 
-``` php
+``` php hl_lines="4"
 [[= include_file('code_samples/api/product_catalog/src/Command/ProductVariantCommand.php', 55, 66) =]]
 ```
 
@@ -104,7 +104,7 @@ You can filter variants by:
 
 To use [Product Search Criteria](product_search_criteria.md) with [`ProductVariantQuery`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Values-Product-ProductVariantQuery.html), wrap it with the [`ProductCriterionAdapter`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Values-Content-Query-Criterion-ProductCriterionAdapter.html) class, as in the example below:
 
-``` php
+``` php hl_lines="4"
 [[= include_file('code_samples/api/product_catalog/src/Command/ProductVariantCommand.php', 92, 100) =]]
 ```
 
