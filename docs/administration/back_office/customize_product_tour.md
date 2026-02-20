@@ -9,10 +9,10 @@ month_change: true
 You can customize the product tour scenarios with the [`RenderProductTourScenarioEvent`](integrated_help_events.md) event.
 This event is dispatched before rendering a product tour scenario and you can use it to:
 
-- Modify tour steps based on user permissions or roles
-- Add or remove steps dynamically
-- Change block content based on runtime conditions
-- Integrate custom data into tour scenarios
+- modify tour steps based on user permissions or roles
+- add or remove steps dynamically
+- change block content based on runtime conditions
+- integrate custom data into tour scenarios
 
 With the following example, a custom onboarding scenario is built.
 It starts only when the current user has a pending [notification]([[= user_doc =]]/getting_started/notifications/).

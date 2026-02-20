@@ -8,7 +8,7 @@ month_change: false
 
 You can configure the product tour scenarios to adapt it to your project needs, covering different onboarding scenarios.
 
-Product tour scenarios are configured using YAML configuration files.
+Product tour scenarios are configured with YAML configuration files.
 Configuration is SiteAccess-aware, allowing you to create separate onboarding experiences for different back offices in [multisite setups](multisite.md).
 
 For more advanced customization cases that require PHP code, see [Customize product tour](customize_product_tour.md).
@@ -272,7 +272,7 @@ The following example showcases all the built-in block types for a `general` sce
 
 ### Example 2: Targeted feature tour with interactive steps
 
-The following example showcases the 3 interaction modes of a `targetable` scenario building an onboarding scenario for the [customizable dashboard](customize_dashboard.md):
+The following example showcases the three interaction modes of a `targetable` scenario building an onboarding scenario for the [customizable dashboard](customize_dashboard.md):
 
 ```yaml
 [[= include_file('code_samples/back_office/product_tour/config/targetable_scenario.yaml') =]]
