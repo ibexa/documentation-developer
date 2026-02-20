@@ -32,10 +32,9 @@ create, get, find, update, clear, and delete shopping lists, and to add, get, mo
 Shopping list search can be done with
 [`Ibexa\Contracts\ShoppingList\ShoppingListServiceInterface::findShoppingLists()` method](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ShoppingList-ShoppingListServiceInterface.html#method_findShoppingLists)
 with a [`Ibexa\Contracts\ShoppingList\Value\ShoppingListQuery`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ShoppingList-Value-ShoppingListQuery.html)
-built with criteria from the [`Ibexa\Contracts\ShoppingList\ShoppingList\Query\Criterion` namespace](/api/php_api/php_api_reference/namespaces/ibexa-contracts-shoppinglist-value-query-criterion.html),
+built with criteria from the [`Ibexa\Contracts\ShoppingList\ShoppingList\Query\Criterion` namespace](/api/php_api/php_api_reference/namespaces/ibexa-contracts-shoppinglist-value-query-criterion.html)
+implementing the [`Ibexa\Contracts\ShoppingList\Value\Query\CriterionInterface` interface](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ShoppingList-Value-Query-CriterionInterface.html),
 and with sort clauses from the [`Ibexa\Contracts\ShoppingList\ShoppingList\Query\SortClause` namespace](/api/php_api/php_api_reference/namespaces/ibexa-contracts-shoppinglist-value-query-sortclause.html).
-
-TODO: implementing the [`Ibexa\Contracts\ShoppingList\Value\Query\CriterionInterface` interface](/api/php_api/php_api_reference/classes/Ibexa-Contracts-CoreSearch-Values-Query-Criterion-CriterionInterface.html)
 
 To get all shopping lists (of the current user or of the whole repository depending on the current user limitation), use the search method without criterion:
 
