@@ -4236,6 +4236,11 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/Ibexa-Contracts-Cdp-Value-Webhook-Action-MembershipChange.html#method_isMembership"
         },                {
+            "fqsen": "\\Ibexa\\Contracts\\Cdp\\Value\\Webhook\\Action\\MembershipChange\u003A\u003AgetPersonIdType\u0028\u0029",
+            "name": "getPersonIdType",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Cdp-Value-Webhook-Action-MembershipChange.html#method_getPersonIdType"
+        },                {
             "fqsen": "\\Ibexa\\Contracts\\Cdp\\Value\\Webhook\\Action\\MembershipChangesType",
             "name": "MembershipChangesType",
             "summary": "",
@@ -4355,6 +4360,46 @@ Search.appendIndex(
             "name": "getData",
             "summary": "",
             "url": "classes/Ibexa-Contracts-Cdp-Value-Webhook-Message.html#method_getData"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Cdp\\Value\\Webhook\\PersonIdType",
+            "name": "PersonIdType",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Cdp-Value-Webhook-PersonIdType.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Cdp\\Value\\Webhook\\PersonIdType\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Cdp-Value-Webhook-PersonIdType.html#method___construct"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Cdp\\Value\\Webhook\\PersonIdType\u003A\u003AgetValue\u0028\u0029",
+            "name": "getValue",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Cdp-Value-Webhook-PersonIdType.html#method_getValue"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Cdp\\Value\\Webhook\\PersonIdType\u003A\u003ADEFAULT",
+            "name": "DEFAULT",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Cdp-Value-Webhook-PersonIdType.html#constant_DEFAULT"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Cdp\\Webhook\\PersonIdResolverInterface",
+            "name": "PersonIdResolverInterface",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Cdp-Webhook-PersonIdResolverInterface.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Cdp\\Webhook\\PersonIdResolverInterface\u003A\u003AgetType\u0028\u0029",
+            "name": "getType",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Cdp-Webhook-PersonIdResolverInterface.html#method_getType"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Cdp\\Webhook\\PersonIdResolverInterface\u003A\u003Asupports\u0028\u0029",
+            "name": "supports",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Cdp-Webhook-PersonIdResolverInterface.html#method_supports"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Cdp\\Webhook\\PersonIdResolverInterface\u003A\u003Aresolve\u0028\u0029",
+            "name": "resolve",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Cdp-Webhook-PersonIdResolverInterface.html#method_resolve"
         },                {
             "fqsen": "\\Ibexa\\Contracts\\Checkout\\Address\\AddressFormatResolverInterface",
             "name": "AddressFormatResolverInterface",
@@ -15105,6 +15150,16 @@ Search.appendIndex(
             "name": "SORT_ORDER_MAP",
             "summary": "",
             "url": "classes/Ibexa-Contracts-Core-Persistence-Filter-Doctrine-FilteringQueryBuilder.html#constant_SORT_ORDER_MAP"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Persistence\\Filter\\Query\\CountQueryBuilder",
+            "name": "CountQueryBuilder",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Persistence-Filter-Query-CountQueryBuilder.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Persistence\\Filter\\Query\\CountQueryBuilder\u003A\u003Awrap\u0028\u0029",
+            "name": "wrap",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Persistence-Filter-Query-CountQueryBuilder.html#method_wrap"
         },                {
             "fqsen": "\\Ibexa\\Contracts\\Core\\Persistence\\Handler",
             "name": "Handler",
@@ -48491,6 +48546,11 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/Ibexa-Contracts-ProductCatalog-Local-LocalProductServiceDecorator.html#method_findProductVariants"
         },                {
+            "fqsen": "\\Ibexa\\Contracts\\ProductCatalog\\Local\\LocalProductServiceDecorator\u003A\u003AfindVariants\u0028\u0029",
+            "name": "findVariants",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-ProductCatalog-Local-LocalProductServiceDecorator.html#method_findVariants"
+        },                {
             "fqsen": "\\Ibexa\\Contracts\\ProductCatalog\\Local\\LocalProductServiceDecorator\u003A\u003AgetDistinctProductVariantsAttributesValues\u0028\u0029",
             "name": "getDistinctProductVariantsAttributesValues",
             "summary": "",
@@ -50450,6 +50510,11 @@ Search.appendIndex(
             "name": "findProductVariants",
             "summary": "",
             "url": "classes/Ibexa-Contracts-ProductCatalog-ProductServiceInterface.html#method_findProductVariants"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\ProductCatalog\\ProductServiceInterface\u003A\u003AfindVariants\u0028\u0029",
+            "name": "findVariants",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-ProductCatalog-ProductServiceInterface.html#method_findVariants"
         },                {
             "fqsen": "\\Ibexa\\Contracts\\ProductCatalog\\ProductTypeServiceInterface",
             "name": "ProductTypeServiceInterface",
@@ -58351,25 +58416,95 @@ Search.appendIndex(
             "summary": "Marker\u0020interface\u0020for\u0020Criterion\u0020classes,\u0020used\u0020to\u0020filter\u0020shopping\u0020lists.",
             "url": "classes/Ibexa-Contracts-ShoppingList-Value-Query-CriterionInterface.html"
         },                {
-            "fqsen": "\\Ibexa\\Contracts\\ShoppingList\\Value\\Query\\Filter\\DateRangeInterface",
-            "name": "DateRangeInterface",
+            "fqsen": "\\Ibexa\\Contracts\\ShoppingList\\Value\\Query\\Filter\\DateRangeFilter",
+            "name": "DateRangeFilter",
             "summary": "",
-            "url": "classes/Ibexa-Contracts-ShoppingList-Value-Query-Filter-DateRangeInterface.html"
+            "url": "classes/Ibexa-Contracts-ShoppingList-Value-Query-Filter-DateRangeFilter.html"
         },                {
-            "fqsen": "\\Ibexa\\Contracts\\ShoppingList\\Value\\Query\\Filter\\DateRangeInterface\u003A\u003AgetMin\u0028\u0029",
+            "fqsen": "\\Ibexa\\Contracts\\ShoppingList\\Value\\Query\\Filter\\DateRangeFilter\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-ShoppingList-Value-Query-Filter-DateRangeFilter.html#method___construct"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\ShoppingList\\Value\\Query\\Filter\\DateRangeFilter\u003A\u003AgetMin\u0028\u0029",
             "name": "getMin",
             "summary": "",
-            "url": "classes/Ibexa-Contracts-ShoppingList-Value-Query-Filter-DateRangeInterface.html#method_getMin"
+            "url": "classes/Ibexa-Contracts-ShoppingList-Value-Query-Filter-DateRangeFilter.html#method_getMin"
         },                {
-            "fqsen": "\\Ibexa\\Contracts\\ShoppingList\\Value\\Query\\Filter\\DateRangeInterface\u003A\u003AgetMax\u0028\u0029",
+            "fqsen": "\\Ibexa\\Contracts\\ShoppingList\\Value\\Query\\Filter\\DateRangeFilter\u003A\u003AgetMax\u0028\u0029",
             "name": "getMax",
             "summary": "",
-            "url": "classes/Ibexa-Contracts-ShoppingList-Value-Query-Filter-DateRangeInterface.html#method_getMax"
+            "url": "classes/Ibexa-Contracts-ShoppingList-Value-Query-Filter-DateRangeFilter.html#method_getMax"
         },                {
-            "fqsen": "\\Ibexa\\Contracts\\ShoppingList\\Value\\Query\\Filter\\DateRangeInterface\u003A\u003AisEmpty\u0028\u0029",
+            "fqsen": "\\Ibexa\\Contracts\\ShoppingList\\Value\\Query\\Filter\\DateRangeFilter\u003A\u003AisEmpty\u0028\u0029",
             "name": "isEmpty",
             "summary": "",
-            "url": "classes/Ibexa-Contracts-ShoppingList-Value-Query-Filter-DateRangeInterface.html#method_isEmpty"
+            "url": "classes/Ibexa-Contracts-ShoppingList-Value-Query-Filter-DateRangeFilter.html#method_isEmpty"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\ShoppingList\\Value\\Query\\Filter\\DateRangeFilterInterface",
+            "name": "DateRangeFilterInterface",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-ShoppingList-Value-Query-Filter-DateRangeFilterInterface.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\ShoppingList\\Value\\Query\\Filter\\DateRangeFilterInterface\u003A\u003AgetMin\u0028\u0029",
+            "name": "getMin",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-ShoppingList-Value-Query-Filter-DateRangeFilterInterface.html#method_getMin"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\ShoppingList\\Value\\Query\\Filter\\DateRangeFilterInterface\u003A\u003AgetMax\u0028\u0029",
+            "name": "getMax",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-ShoppingList-Value-Query-Filter-DateRangeFilterInterface.html#method_getMax"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\ShoppingList\\Value\\Query\\Filter\\DateRangeFilterInterface\u003A\u003AisEmpty\u0028\u0029",
+            "name": "isEmpty",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-ShoppingList-Value-Query-Filter-DateRangeFilterInterface.html#method_isEmpty"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\ShoppingList\\Value\\Query\\Filter\\ShoppingListFilter",
+            "name": "ShoppingListFilter",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-ShoppingList-Value-Query-Filter-ShoppingListFilter.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\ShoppingList\\Value\\Query\\Filter\\ShoppingListFilter\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-ShoppingList-Value-Query-Filter-ShoppingListFilter.html#method___construct"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\ShoppingList\\Value\\Query\\Filter\\ShoppingListFilter\u003A\u003AgetName\u0028\u0029",
+            "name": "getName",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-ShoppingList-Value-Query-Filter-ShoppingListFilter.html#method_getName"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\ShoppingList\\Value\\Query\\Filter\\ShoppingListFilter\u003A\u003AgetCreatedAt\u0028\u0029",
+            "name": "getCreatedAt",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-ShoppingList-Value-Query-Filter-ShoppingListFilter.html#method_getCreatedAt"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\ShoppingList\\Value\\Query\\Filter\\ShoppingListFilter\u003A\u003AgetUpdatedAt\u0028\u0029",
+            "name": "getUpdatedAt",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-ShoppingList-Value-Query-Filter-ShoppingListFilter.html#method_getUpdatedAt"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\ShoppingList\\Value\\Query\\Filter\\ShoppingListFilter\u003A\u003AgetIsDefault\u0028\u0029",
+            "name": "getIsDefault",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-ShoppingList-Value-Query-Filter-ShoppingListFilter.html#method_getIsDefault"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\ShoppingList\\Value\\Query\\Filter\\ShoppingListFilter\u003A\u003AgetSortField\u0028\u0029",
+            "name": "getSortField",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-ShoppingList-Value-Query-Filter-ShoppingListFilter.html#method_getSortField"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\ShoppingList\\Value\\Query\\Filter\\ShoppingListFilter\u003A\u003AgetSortDirection\u0028\u0029",
+            "name": "getSortDirection",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-ShoppingList-Value-Query-Filter-ShoppingListFilter.html#method_getSortDirection"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\ShoppingList\\Value\\Query\\Filter\\ShoppingListFilter\u003A\u003AgetOwnerId\u0028\u0029",
+            "name": "getOwnerId",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-ShoppingList-Value-Query-Filter-ShoppingListFilter.html#method_getOwnerId"
         },                {
             "fqsen": "\\Ibexa\\Contracts\\ShoppingList\\Value\\Query\\Filter\\ShoppingListFilterInterface",
             "name": "ShoppingListFilterInterface",
@@ -58405,6 +58540,11 @@ Search.appendIndex(
             "name": "getSortDirection",
             "summary": "",
             "url": "classes/Ibexa-Contracts-ShoppingList-Value-Query-Filter-ShoppingListFilterInterface.html#method_getSortDirection"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\ShoppingList\\Value\\Query\\Filter\\ShoppingListFilterInterface\u003A\u003AgetOwnerId\u0028\u0029",
+            "name": "getOwnerId",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-ShoppingList-Value-Query-Filter-ShoppingListFilterInterface.html#method_getOwnerId"
         },                {
             "fqsen": "\\Ibexa\\Contracts\\ShoppingList\\Value\\Query\\Filter\\ShoppingListFilterInterface\u003A\u003AIS_DEFAULT_ALL",
             "name": "IS_DEFAULT_ALL",
@@ -62666,6 +62806,11 @@ Search.appendIndex(
             "summary": "",
             "url": "namespaces/ibexa-contracts-cdp-value.html"
         },                {
+            "fqsen": "\\Ibexa\\Contracts\\Cdp\\Webhook",
+            "name": "Webhook",
+            "summary": "",
+            "url": "namespaces/ibexa-contracts-cdp-webhook.html"
+        },                {
             "fqsen": "\\Ibexa\\Contracts\\Checkout\\Address",
             "name": "Address",
             "summary": "",
@@ -63355,6 +63500,11 @@ Search.appendIndex(
             "name": "Doctrine",
             "summary": "",
             "url": "namespaces/ibexa-contracts-core-persistence-filter-doctrine.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Persistence\\Filter\\Query",
+            "name": "Query",
+            "summary": "",
+            "url": "namespaces/ibexa-contracts-core-persistence-filter-query.html"
         },                {
             "fqsen": "\\Ibexa\\Contracts\\Core\\Persistence\\Notification",
             "name": "Notification",
