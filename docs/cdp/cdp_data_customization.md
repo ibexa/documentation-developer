@@ -36,7 +36,7 @@ Register your processor as a Symfony service and tag it with `ibexa.cdp.export.u
 
 The `priority` parameter controls the order of execution when multiple processors are registered.
 Higher priority values run first.
-Your custom processor merges data with `$processedItemData` from previous processors, allowing you to chain multiple processors together.
+Your custom processor can modify the data returned from the previous processors, for example by adding new entries or modifying the existing ones.
 
 The exported user data includes your custom fields:
 
