@@ -94,11 +94,11 @@ Interactions between shopping list and cart are managed by
 [`Ibexa\Contracts\Cart\CartShoppingListTransferServiceInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Cart-CartShoppingListTransferServiceInterface.html)
 
 The following example start with an empty cart and an empty shopping list,
-then add a product to the shopping list and copy it to the cart.
+then add a product to the shopping list and copy it twice to the cart.
 It continues with moving the whole cart to an empty list.
 
 ```php
-[[= include_file('code_samples/shopping_list/php_api/src/Controller/CartShoppingListTransferController.php', 69, 90) =]]
+[[= include_file('code_samples/shopping_list/php_api/src/Controller/CartShoppingListTransferController.php', 69, 92) =]]
 ```
 
 ### Events

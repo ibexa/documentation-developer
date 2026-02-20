@@ -72,11 +72,13 @@ class CartShoppingListTransferController extends AbstractController
 
         $list = $this->shoppingListService->addEntries($list, [new ShoppingListEntryAddStruct($productCode)]);
 
-        $cart = $this->cartShoppingListTransferService->addSelectedEntriesToCart($list, [$list->getEntries()->getEntryWithProductCode($productCode)->getIdentifier()], $cart);
+        $entry = $list->getEntries()->getEntryWithProductCode($productCode)->getIdentifier();
+        $cart = $this->cartShoppingListTransferService->addSelectedEntriesToCart($list, [$entry], $cart);
+        $cart = $this->cartShoppingListTransferService->addSelectedEntriesToCart($list, [$entry], $cart);
 
         dump(
             $list->getEntries()->hasEntryWithProductCode($productCode), // true as the entry is copied and not moved
-            $cart->getEntries()->hasEntryForProduct($this->productService->getProduct($productCode)) // true
+            $cart->getEntries()->getEntryForProduct($this->productService->getProduct($productCode))->getQuantity() // 2 as the entry was added twice
         );
 
         $list = $this->shoppingListService->clearShoppingList($list); // Empty the list to avoid duplicate and test the move from cart
