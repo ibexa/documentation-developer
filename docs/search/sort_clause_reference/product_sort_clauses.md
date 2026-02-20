@@ -5,12 +5,9 @@ page_type: reference
 
 # Product Sort Clauses
 
-Product Sort Clauses are supported by [Product Search (`ProductServiceInterface::findProduct`)](product_api.md#products).
+Product Sort Clauses are only supported by [Product Search (`ProductServiceInterface::findProduct`)](product_api.md#products).
 
 By using Sort Clause you can filter product by specific attributes, for example: price, code, or availability.
-
-Product Sort Clauses can also be used with `ProductVariantQuery` when wrapped in a [`ProductCriterionAdapter`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Values-Content-Query-Criterion-ProductCriterionAdapter.html).
-See the [product variant search examples](product_api.md#searching-for-variants-across-all-products) for more information.
 
 | Sort Clause | Sorting based on |
 |-----|-----|
