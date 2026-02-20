@@ -25562,6 +25562,20 @@
                         "allowReserved": false
                     },
                     {
+                        "name": "ownerId",
+                        "in": "query",
+                        "description": "Filter shopping lists by owner user ID.",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "style": "form",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
                         "name": "sort",
                         "in": "query",
                         "description": "Sort shopping lists by field. Available fields: name, is_default, created_at, updated_at.",
