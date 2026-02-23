@@ -1,13 +1,13 @@
 ibexa:
     system:
-        default:
+        admin_group:
             product_tour:
                 my_general_scenario:
                     type: 'general'
                     steps:
                         welcome_step:
                           step_title_translation_key: title
-                          background_image: build/images/headless.png
+                          background_image: /public/img/background.jpg
                           blocks:
                               - type: title
                                 params:
@@ -21,7 +21,7 @@ ibexa:
                                     text_translation_key: tour.link.documentation
                               - type: image
                                 params:
-                                    src: /bundles/ibexaadminui/img/feature-screenshot.jpg
+                                    src: /public/img/diagram.jpg
                                     alt_translation_key: tour.image.alt
                               - type: video
                                 params:

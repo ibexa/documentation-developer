@@ -17,7 +17,7 @@ Use the default provided configuration, available in `config/packages/ibexa_inte
 
 ## Configuration structure
 
-Product tour scenarios are configured under the `ibexa.system.<siteaccess>.product_tour` key.
+Configure product tour scenarios under the `ibexa.system.<siteaccess>.product_tour` key.
 Each scenario has a unique identifier and contains steps, which in turn contain blocks.
 
 Basic configuration structure of a scenario:
@@ -72,11 +72,13 @@ The order of scenarios in the configuration file determines the order in which t
 
 For **general scenario**, the scenario appears at the earliest opportunity (on any page after logging in), with an exception of the user settings area.
 
-For **targeted scenarios**, the scenario begins if the target element is found in the DOM.
-This means the scenario only appears on pages where the target element exists.
-To control where a targeted tour appears, ensure the first step targets an element unique to that specific page or section.
+For **targeted scenarios**, the scenario begins if the target element is found in the DOM when the page is loaded.
+Targeted scenarios don't trigger in the user settings area as well.
 
-Once a scenario ends, the next scenario from the configuration is evaluated and, if applicable, displayed.
+To control where a targeted tour appears, ensure that the first step targets an element unique to that specific page.
+You can target elements that appear after a user action (for example, modals like [content browser](browser.md)), but the first step's target must be present in the DOM when the page is loaded.
+
+Once a scenario ends, the system evaluates the next scenario from the configuration and, if applicable, displays it.
 
 ### Scenario type
 
@@ -113,7 +115,9 @@ The configuration differs based on scenario type:
 
 ### General scenario steps
 
-General scenario steps display centered modals and support the `background_image` settings, allowing you to set a shared background image for each step.
+General scenario steps display centered modals and support the `background_image` setting, allowing you to set a shared background image for each step.
+For the background, you can use an absolute URL or place your image in the `public` directory and provide the path relative to it.
+To resolve the path relative to the site root, [prefix it with `/`](https://developer.mozilla.org/en-US/docs/Web/API/URL_API/Resolving_relative_references#root_relative).
 
 ```yaml hl_lines="6 10"
 [[= include_file('code_samples/back_office/product_tour/config/general_scenario.yaml', 0, 14) =]]
@@ -121,14 +125,14 @@ General scenario steps display centered modals and support the `background_image
 
 ### Targeted tour steps
 
-Targeted tour steps highlight specific UI elements using CSS selectors.
+Targeted tour steps highlight specific UI elements by using CSS selectors.
 You can select a specific element by using the `target` setting.
 
 ```yaml hl_lines="6 10"
 [[= include_file('code_samples/back_office/product_tour/config/targetable_scenario.yaml', 0, 15) =]]
 ```
 
-If a step's target element doesn't exist on the page, the step isn't be displayed and the scenario is be stopped.
+If a step's target element doesn't exist on the page, the step isn't displayed and the scenario is stopped.
 Ensure your configuration matches the actual DOM structure to avoid broken scenarios.
 Use unique selectors to avoid triggering your scenarios on other pages.
 
@@ -143,11 +147,12 @@ TODO: 2 pane screenshot here, showing the UI for each of types.
 
     Clickable and draggable modes are designed for single actions only (buttons, links).
     You can't select an entire form.
-    If the interaction with the highlighted element results in redirection to a new page or opening a modal window where the previous target element can't be found, the "Previous" navigation step will be disabled.
+    If the interaction with the highlighted element results in redirection to a new page or opening a modal window where the previous target element can't be found, the "Previous" navigation button won't be displayed.
 
 **Standard mode**:
 
-The default value. A tooltip attached to specific element on the page is displayed.
+The default value. 
+A tooltip attached to specific element on the page is displayed.
 Users continue the scenario with Previous/Next buttons:
 
 ```yaml
@@ -171,6 +176,8 @@ Users continue the scenario by [dragging](https://developer.mozilla.org/en-US/do
 ```yaml
 [[= include_file('code_samples/back_office/product_tour/config/targetable_scenario.yaml', 31, 39) =]]
 ```
+
+You can use this mode only with HTML elements that have the [`draggable` attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Global_attributes/draggable) set to `true`.
 
 ## Block types
 
@@ -216,15 +223,15 @@ The `title_translation_key` property is optional.
 
 ### Media blocks
 
-To provide data to the media block, place your image or video files in the `public` directory and provide the relative path to it.
-
-!!! tip
-
-    To resolve the path relative to the site root, [prefix it with `/`](https://developer.mozilla.org/en-US/docs/Web/API/URL_API/Resolving_relative_references#root_relative).
+To provide data to the media block, provide absolute URLs or place your image or video files in the `public` directory and provide the path relative to it.
+To resolve the path relative to the site root, [prefix it with `/`](https://developer.mozilla.org/en-US/docs/Web/API/URL_API/Resolving_relative_references#root_relative).
 
 #### Image block
 
-Embed images with alternative text:
+Embed images inside the step.
+You can provide alternative text by using the `alt_translation_key` property.
+
+Assuming a `public/img/diagram.jpg` image exists, set the configuration value to `/img/diagram.jpg`.
 
 ```yaml
 [[= include_file('code_samples/back_office/product_tour/config/general_scenario.yaml', 21, 25) =]]

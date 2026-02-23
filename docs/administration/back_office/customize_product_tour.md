@@ -23,7 +23,7 @@ It contains a placeholder step with a single block.
 ``` yaml
 ibexa:
     system:
-        default:
+        admin_group:
             product_tour:
                 notifications:
                     type: 'targetable'

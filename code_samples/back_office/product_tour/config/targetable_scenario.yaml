@@ -1,6 +1,6 @@
 ibexa:
     system:
-        default:
+        admin_group:
             product_tour:
                 targetable_dashboard_scenario:
                     type: 'targetable'
