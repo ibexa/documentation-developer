@@ -60,7 +60,7 @@ if [[ $VARNISH_VERSION == 7.* ]]; then
   sed -i 's/acl debuggers {/acl debuggers +log {/' .ddev/varnish/parameters.vcl
   vcl_path=vcl_path
   vcl_file=varnish7.vcl
-elif [[ $VARNISH_VERSION == 6.* ]]
+elif [[ $VARNISH_VERSION == 6.* ]]; then
   vcl_path=vcl_dir
   vcl_file=varnish6.vcl
 fi

@@ -175,7 +175,7 @@ The biggest benefit of this feature is saving load time on complex landing pages
 
     ### Update eZ Enterprise v2.4 to v2.4.2
 
-    This release brings [full support for Map\Host matcher](https://issues.ibexa.co/browse/EZEE-2572) when SiteAccesses are configured for different domains.
+    This release brings full support for Map\Host matcher when SiteAccesses are configured for different domains.
 
     Token-based authentication (based on JSON Web Token specification) replaced cookie-based authentication that did not work with SiteAccesses configured for a different domains in the Page Builder.
     Authentication mechanizm is enabled by default in v2.4.2, however, the following steps are required during upgrade from v2.4 to v2.4.2+ Enterprise installation:

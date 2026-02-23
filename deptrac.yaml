@@ -1,0 +1,54 @@
+imports:
+  - deptrac.baseline.yaml
+
+deptrac:
+    paths:
+        - ./code_samples
+    layers:
+        - name: CodeSamples
+          collectors:
+              - type: directory
+                value: code_samples
+        - name: IbexaContracts
+          collectors:
+              - type: classLike
+                value: .*Ibexa\\Contracts\\.*
+        - name: IbexaSiteAccessConfiguration
+          collectors:
+              - type: classLike
+                value: .*Ibexa\\Bundle\\Core\\DependencyInjection\\Configuration\\SiteAccessAware\\.*
+        - name: IbexaInternal
+          collectors:
+            - type: tagValueRegex
+              tag: '@internal'
+        - name: IbexaRest
+          collectors:
+              - type: classLike
+                value: .*Ibexa\\.*\\Rest\\.*
+              - type: classLike
+                value: .*Ibexa\\Rest\\.*
+        - name: IbexaConstraints
+          collectors:
+              - type: classLike
+                value: .*Ibexa\\.*\\Constraints\\.*
+        - name: IbexaNotAllowed
+          collectors:
+          - type: bool
+            must:
+              - type: classLike
+                value: .*Ibexa\\.*
+            must_not:
+              - type: layer
+                value: IbexaContracts
+              - type: layer
+                value: IbexaSiteAccessConfiguration
+              - type: layer
+                value: IbexaRest
+              - type: layer
+                value: IbexaConstraints
+    ruleset:
+        CodeSamples:
+          - IbexaContracts
+          - IbexaSiteAccessConfiguration
+          - IbexaRest
+          - IbexaConstraints

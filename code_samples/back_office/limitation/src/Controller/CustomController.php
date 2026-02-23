@@ -52,6 +52,7 @@ class CustomController extends Controller implements RestrictedControllerInterfa
         return $customLimitationValues['value'] ?? false;
     }
 
+    #[\Override]
     public function performAccessCheck(): void
     {
         $this->traitPerformAccessCheck();

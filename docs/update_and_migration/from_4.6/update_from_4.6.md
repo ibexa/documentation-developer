@@ -167,7 +167,7 @@ If the new bundle `ibexa/core-search` has not been added by the recipes, enable 
 
 ## v4.6.13
 
-This release comes with a command to clean up duplicated entries in the `ezcontentobject_attribute` table, which were created due to an issue described in [IBX-8562](https://issues.ibexa.co/browse/IBX-8562).
+This release comes with a command to clean up duplicated entries in the `ezcontentobject_attribute` table, which were created due to an issue related to previewing content in different languages.
 
 If you're affected, remove the duplicated entries by running the following command:
 ``` bash
@@ -565,6 +565,11 @@ If you do, add the required dependencies to your project:
 ```bash
 composer require guzzlehttp/guzzle:^6.5 php-http/guzzle6-adapter:^2.0
 ```
+
+### Messenger support in CDP
+
+If you're using [CDP](cdp.md) and haven't configured Ibexa Messenger yet, do so now.
+Follow the [Messenger setup instructions](https://doc.ibexa.co/en/4.6/infrastructure_and_maintenance/background_tasks/#install-package) to continue.
 
 <!-- End of update instructions -->
 
