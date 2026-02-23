@@ -6,7 +6,7 @@ month_change: false
 
 <!-- vale VariablesVersion = NO -->
 
-[[= release_notes_filters('Ibexa DXP v5.0 LTS', ['Headless', 'Experience', 'Commerce', 'LTS Update', 'New feature']) =]]
+[[= release_notes_filters('Ibexa DXP v5.0 LTS', ['Headless', 'Experience', 'Commerce', 'LTS Update', 'New feature', 'First release']) =]]
 
 <div class="release-notes" markdown="1">
 
@@ -67,7 +67,7 @@ The [Collaborative editing](collaborative_editing.md) REST API endpoints are now
 
 [[% set version = 'v5.0.4' %]]
 
-[[= release_note_entry_begin("Integrated help " + version, '2025-12-10', ['Headless', 'Experience', 'Commerce', 'LTS Update', 'New feature']) =]]
+[[= release_note_entry_begin("Integrated help " + version, '2025-12-10', ['Headless', 'Experience', 'Commerce', 'LTS Update', 'New feature', 'First release']) =]]
 
 Integrated help brings contextual documentation, guidance, and partner-specific resources right into the user interface of [[= product_name =]].
 It helps editors, store managers, and developers to quickly access relevant content, training and resources without leaving the UI, narrowing the gap between product and documentation.
@@ -80,7 +80,7 @@ For more information, see [Integrated help](integrated_help.md).
 
 [[= release_note_entry_end() =]]
 
-[[= release_note_entry_begin("Anthropic connector " + version, '2025-12-10', ['Headless', 'Experience', 'Commerce', 'LTS Update', 'New feature']) =]]
+[[= release_note_entry_begin("Anthropic connector " + version, '2025-12-10', ['Headless', 'Experience', 'Commerce', 'LTS Update', 'New feature', 'First release']) =]]
 
 This release introduces a new AI connector that allows you to integrate [AI Actions](ai_actions.md) with [Anthropic Claude](https://claude.com/product/overview).
 
@@ -145,7 +145,6 @@ The following additions were made to the PHP API:
 - [`Ibexa\Contracts\FieldTypeRichTextRTE\ToS\ToSServiceInterface`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-FieldTypeRichTextRTE-ToS-ToSServiceInterface.html)
 - [`Ibexa\Contracts\Share\Mapper\Action\ShareActionItemsMapperInterface`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-Share-Mapper-Action-ShareActionItemsMapperInterface.html)
 
-
 ##### AI Taxonomy suggestions:
 
 - [`Ibexa\Contracts\ConnectorAi\Action\DataType\Taxonomy`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorAi-Action-DataType-Taxonomy.html)
@@ -176,22 +175,24 @@ The following additions were made to the PHP API:
 - [`Ibexa\Contracts\Taxonomy\Embedding\TaxonomyEmbeddingFieldProviderInterface`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-Taxonomy-Embedding-TaxonomyEmbeddingFieldProviderInterface.html)
 - [`Ibexa\Contracts\Taxonomy\Search\Query\Value\TaxonomyEmbedding`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-Taxonomy-Search-Query-Value-TaxonomyEmbedding.html)
 
-##### Search:
+##### Search
 
 - [`Ibexa\Contracts\AdminUi\ContentType\ContentTypeFieldsByExpressionServiceInterface`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-AdminUi-ContentType-ContentTypeFieldsByExpressionServiceInterface.html)
 - [`Ibexa\Contracts\CoreSearch\Values\Query\PaginationAwareInterface`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-CoreSearch-Values-Query-PaginationAwareInterface.html)
 - [`Ibexa\Contracts\SiteFactory\Values\Query\Criterion\MatchTreeRootLocationIds`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-SiteFactory-Values-Query-Criterion-MatchTreeRootLocationIds.html)
 
-##### Other:
+##### Other
 
 - [`Ibexa\Contracts\ProductCatalog\CapabilitiesEnum`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-CapabilitiesEnum.html)
 - [`Ibexa\Contracts\ProductCatalog\CapabilitiesServiceInterface`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-CapabilitiesServiceInterface.html)
 - [`Ibexa\Contracts\User\PasswordReset\NotifierInterface`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-User-PasswordReset-NotifierInterface.html)
 
 [[% include 'snippets/release_50.md' %]]
+
 [[= release_note_entry_end() =]]
 
 [[% set version = 'v5.0.3' %]]
+
 [[= release_note_entry_begin("Ibexa DXP " + version, '2024-10-17', ['Headless', 'Experience', 'Commerce']) =]]
 
 ### Security
@@ -234,12 +235,13 @@ The PHP API has been expanded with the following:
     - [`Ibexa\Contracts\Core\Repository\Values\ContentType\Query\SortClause\Id`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-ContentType-Query-SortClause-Id.html)
     - [`Ibexa\Contracts\Core\Repository\Values\ContentType\Query\SortClause\Identifier`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-ContentType-Query-SortClause-Identifier.html)
     - [`Ibexa\Contracts\Core\Repository\Values\ContentType\Query\SortClause\Name`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-ContentType-Query-SortClause-Name.html)
-    
 
 [[% include 'snippets/release_50.md' %]]
+
 [[= release_note_entry_end() =]]
 
 [[% set version = 'v5.0.2' %]]
+
 [[= release_note_entry_begin("Ibexa DXP " + version, '2025-09-09', ['Headless', 'Experience', 'Commerce', 'New feature']) =]]
 
 ### Collaboration
@@ -423,7 +425,8 @@ This release brings additional minor improvements to the developer's experience 
 [[= release_note_entry_end() =]]
 
 [[% set version = 'v5.0.0' %]]
-[[= release_note_entry_begin("Ibexa DXP " + version, '2025-07-22', ['Headless', 'Experience', 'Commerce', 'New feature']) =]]
+
+[[= release_note_entry_begin("Ibexa DXP " + version, '2025-07-22', ['Headless', 'Experience', 'Commerce', 'New feature', 'First release']) =]]
 
 ### Notable changes
 

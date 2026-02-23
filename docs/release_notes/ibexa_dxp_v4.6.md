@@ -6,11 +6,12 @@ month_change: false
 
 <!-- vale Ibexa.VariablesVersion = NO -->
 
-[[= release_notes_filters('Ibexa DXP v4.6 LTS', ['Headless', 'Experience', 'Commerce', 'LTS Update', 'New feature']) =]]
+[[= release_notes_filters('Ibexa DXP v4.6 LTS', ['Headless', 'Experience', 'Commerce', 'LTS Update', 'New feature', 'First release']) =]]
 
 <div class="release-notes" markdown="1">
 
 [[% set version = 'v4.6.27' %]]
+
 [[= release_note_entry_begin("Ibexa DXP " + version, '2026-02-03', ['Headless', 'Experience', 'Commerce']) =]]
 
 ### Added support for Elasticsearch 8
@@ -104,7 +105,7 @@ The PHP API has been enhanced with the following classes and interfaces:
 
 [[% set version = 'v4.6.26' %]]
 
-[[= release_note_entry_begin("Integrated help " + version, '2025-12-10', ['Headless', 'Experience', 'Commerce', 'LTS Update', 'New feature']) =]]
+[[= release_note_entry_begin("Integrated help " + version, '2025-12-10', ['Headless', 'Experience', 'Commerce', 'LTS Update', 'New feature', 'First release']) =]]
 
 Integrated help, a new [LTS Update](editions.md#lts-updates), brings contextual documentation, guidance, and partner-specific resources right into the user interface of [[= product_name =]].
 It helps editors, store managers, and developers to quickly access relevant content, training and resources without leaving the UI, narrowing the gap between product and documentation.
@@ -117,7 +118,7 @@ For more information, see [Integrated help](integrated_help.md).
 
 [[= release_note_entry_end() =]]
 
-[[= release_note_entry_begin("Collaboration " + version, '2025-12-10', ['LTS Update', 'New feature']) =]]
+[[= release_note_entry_begin("Collaboration " + version, '2025-12-10', ['Headless', 'Experience', 'Commerce', 'LTS Update', 'New feature']) =]]
 
 #### Real-time collaborative editing
 
@@ -151,7 +152,7 @@ The PHP API has been enhanced with the following classes and interfaces:
 
 [[= release_note_entry_end() =]]
 
-[[= release_note_entry_begin("AI Actions " + version, '2025-12-10', ['LTS Update', 'New feature']) =]]
+[[= release_note_entry_begin("AI Actions " + version, '2025-12-10', ['Headless', 'Experience', 'Commerce', 'LTS Update', 'New feature']) =]]
 
 #### Taxonomy suggestions for faster content classification
 
@@ -233,7 +234,7 @@ To learn more, see the [corresponding security advisory](https://developers.ibex
 
 [[% set version = 'v4.6.24' %]]
 
-[[= release_note_entry_begin("Collaboration ", '2025-09-09', ['Headless', 'Experience', 'Commerce', 'LTS Update', 'New feature']) =]]
+[[= release_note_entry_begin("Collaboration " + version, '2025-09-09', ['Headless', 'Experience', 'Commerce', 'LTS Update', 'New feature', 'First release']) =]]
 
 #### Collaboration
 
@@ -246,7 +247,7 @@ Additionally, shared drafts can be accessed and managed through new dashboard ta
 
 [[= release_note_entry_end() =]]
 
-[[= release_note_entry_begin("AI Actions " + version, '2025-09-09', ['LTS Update']) =]]
+[[= release_note_entry_begin("AI Actions " + version, '2025-09-09', ['Headless', 'Experience', 'Commerce', 'LTS Update']) =]]
 
 #### Chat GPT 5.0 support
 
@@ -256,7 +257,7 @@ With improved reasoning and greater accuracy in mind, the AI Connector package h
 
 [[= release_note_entry_end() =]]
 
-[[= release_note_entry_begin("Discounts " + version, '2025-09-09', ['LTS Update', 'Commerce']) =]]
+[[= release_note_entry_begin("Discounts " + version, '2025-09-09', ['Commerce', 'LTS Update']) =]]
 
 #### Discount indexing
 
@@ -359,7 +360,8 @@ The Product Picker tool that, for example, lets you [select products eligible fo
 [[= release_note_entry_end() =]]
 
 [[% set version = 'v4.6.22' %]]
-[[= release_note_entry_begin("Symbol attribute", '2025-08-05', ['Headless', 'Experience', 'Commerce', 'LTS Update', 'New feature']) =]]
+
+[[= release_note_entry_begin("Symbol attribute " + version, '2025-08-05', ['Headless', 'Experience', 'Commerce', 'LTS Update', 'New feature', 'First release']) =]]
 
 The Symbol attribute allows you to store standardized identifiers of your products in the [Product Information Management](pim_guide.md) system.
 
@@ -374,7 +376,7 @@ The PHP API has been enhanced with the following new classes:
 
 [[= release_note_entry_end() =]]
 
-[[= release_note_entry_begin("Discounts " + version, '2025-08-05', ['LTS Update', 'Commerce']) =]]
+[[= release_note_entry_begin("Discounts " + version, '2025-08-05', ['Commerce', 'LTS Update']) =]]
 
 #### Global discount codes limits
 
@@ -460,11 +462,12 @@ The PHP API has been enhanced with the following new classes:
 #### Full changelog
 
 [[% include 'snippets/release_46.md' %]]
+
 [[= release_note_entry_end() =]]
 
 [[% set version = 'v4.6.21' %]]
 
-[[= release_note_entry_begin("Discounts " + version, '2025-06-11', ['LTS Update', 'Commerce']) =]]
+[[= release_note_entry_begin("Discounts " + version, '2025-06-11', ['Commerce', 'LTS Update']) =]]
 
 #### REST API
 
@@ -477,6 +480,7 @@ The PHP API has been enhanced with the following new classes:
 - [`Ibexa\Contracts\Discounts\Exception\DiscountValueResolutionException`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-Discounts-Exception-DiscountValueResolutionException.html)
 
 [[= release_note_entry_end() =]]
+
 [[= release_note_entry_begin("Ibexa DXP " + version, '2025-06-11', ['Headless', 'Experience', 'Commerce']) =]]
 
 #### Security
@@ -492,11 +496,13 @@ The PHP API has been enhanced with the following new classes:
 - [`Ibexa\Contracts\Checkout\Discounts\DiscountsValidationFailedException`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-Checkout-Discounts-DiscountsValidationFailedException.html)
 
 #### Full changelog
+
 [[% include 'snippets/release_46.md' %]]
 
 [[= release_note_entry_end() =]]
 
 [[% set version = 'v4.6.20' %]]
+
 [[= release_note_entry_begin("Discounts " + version, '2025-05-28', ['Commerce', 'LTS Update']) =]]
 
 #### Features
@@ -546,15 +552,15 @@ The PHP API has been enhanced with the following new classes:
 - [`Ibexa\Contracts\TwigComponents\Exception\InvalidArgumentException`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-TwigComponents-Exception-InvalidArgumentException.html)
 - [`Ibexa\Contracts\TwigComponents\Renderer\RendererInterface`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-TwigComponents-Renderer-RendererInterface.html)
 
-
 #### Full changelog
+
 [[% include 'snippets/release_46.md' %]]
 
 [[= release_note_entry_end() =]]
 
 [[% set version = 'v4.6.19' %]]
 
-[[= release_note_entry_begin("Discounts", '2025-04-09', ['Commerce', 'LTS Update', 'New feature']) =]]
+[[= release_note_entry_begin("Discounts " + version, '2025-04-09', ['Commerce', 'LTS Update', 'New feature', 'First release']) =]]
 
 With the Discounts LTS Update, you can temporarily or permanently reduce prices on specific products or categories, making deals more attractive to potential buyers.
 
@@ -568,7 +574,7 @@ For more information, see [Discounts product guide](discounts_guide.md).
 
 [[= release_note_entry_end() =]]
 
-[[= release_note_entry_begin("AI Actions " + version, '2025-04-09', ['LTS Update', 'New feature']) =]]
+[[= release_note_entry_begin("AI Actions " + version, '2025-04-09', ['Headless', 'Experience', 'Commerce', 'LTS Update', 'New feature']) =]]
 
 #### Features
 
@@ -623,14 +629,17 @@ The PHP API has been enhanced with the following new classes:
 - [`Ibexa\Contracts\ProductCatalog\Values\CustomerGroup\AssignedItemInterface`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Values-CustomerGroup-AssignedItemInterface.html)
 
 #### Full changelog
+
 [[% include 'snippets/release_46.md' %]]
 
 [[= release_note_entry_end() =]]
 
 [[% set version = 'v4.6.18' %]]
+
 [[= release_note_entry_begin("Ibexa DXP " + version, '2025-03-06', ['Headless', 'Experience', 'Commerce']) =]]
 
 #### PHP API
+
 The PHP API has been enhanced with the following new classes:
 
 - [`Ibexa\Contracts\ProductCatalog\Form\Data\ProductSelectorData`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Form-Data-ProductSelectorData.html)
@@ -638,11 +647,12 @@ The PHP API has been enhanced with the following new classes:
 - [`Ibexa\Contracts\ProductCatalog\Form\Type\ProductSelectorType`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Form-Type-ProductSelectorType.html)
 
 #### Full changelog
+
 [[% include 'snippets/release_46.md' %]]
 
 [[= release_note_entry_end() =]]
 
-[[= release_note_entry_begin("Date and time attribute", '2025-03-04', ['Headless', 'Experience', 'Commerce', 'LTS Update', 'New feature']) =]]
+[[= release_note_entry_begin("Date and time attribute " + version, '2025-03-04', ['Headless', 'Experience', 'Commerce', 'LTS Update', 'New feature', 'First release']) =]]
 
 The Date and time attributes allow you to represent date and time values as part of the product specification in the [Product Information Management](pim_guide.md) system.
 
@@ -651,7 +661,8 @@ For more information, see [Date and time attributes](date_and_time.md).
 [[= release_note_entry_end() =]]
 
 [[% set version = 'v4.6.17' %]]
-[[= release_note_entry_begin("AI Actions " + version, '2025-03-04', ['LTS Update', 'New feature']) =]]
+
+[[= release_note_entry_begin("AI Actions " + version, '2025-03-04', ['Headless', 'Experience', 'Commerce', 'LTS Update', 'New feature']) =]]
 
 #### Features
 You can now [duplicate AI actions]([[= user_doc =]]/ai_actions/work_with_ai_actions/#duplicate-ai-actions) in the AI actions list.
@@ -667,7 +678,9 @@ The PHP API has been expanded with the following classes and interfaces:
 - [`Ibexa\Contracts\ConnectorAi\PromptResolverInterface`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorAi-PromptResolverInterface.html)
 
 [[= release_note_entry_end() =]]
+
 [[= release_note_entry_begin("Ibexa DXP " + version, '2025-03-04', ['Headless', 'Experience', 'Commerce', 'New feature']) =]]
+
 #### Security
 
 This release includes security fixes.
@@ -762,11 +775,14 @@ The PHP API has been enhanced with the following new classes and interfaces:
     - [`Value\Scheduling`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-Connect-Value-Scheduling.html)
 
 #### Full changelog
+
 [[% include 'snippets/release_46.md' %]]
+
 [[= release_note_entry_end() =]]
 
 [[% set version = 'v4.6.16' %]]
-[[= release_note_entry_begin("AI Actions " + version, '2025-01-16', ['LTS Update', 'New feature']) =]]
+
+[[= release_note_entry_begin("AI Actions " + version, '2025-01-16', ['Headless', 'Experience', 'Commerce', 'LTS Update', 'New feature']) =]]
 
 #### Features
 
@@ -786,11 +802,14 @@ The PHP API has been enhanced with the following new classes:
 - [`Ibexa\Contracts\Seo\Resolver\FieldValueResolverInterface`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-Seo-Resolver-FieldValueResolverInterface.html)
 
 #### Full changelog
+
 [[% include 'snippets/release_46.md' %]]
+
 [[= release_note_entry_end() =]]
 
 [[% set version = 'v4.6.15' %]]
-[[= release_note_entry_begin("AI Actions " + version, '2024-12-13', ['LTS Update', 'New feature']) =]]
+
+[[= release_note_entry_begin("AI Actions " + version, '2024-12-13', ['Headless', 'Experience', 'Commerce', 'LTS Update', 'New feature']) =]]
 
 #### REST API
 
@@ -798,8 +817,8 @@ The REST API has been extended to include endpoints for:
 
 - [Action Configurations](https://doc.ibexa.co/en/4.6/api/rest_api/rest_api_reference/rest_api_reference.html#ai-actions-list-action-configurations)
 - [Action Types](https://doc.ibexa.co/en/4.6/api/rest_api/rest_api_reference/rest_api_reference.html#ai-actions-list-action-types)
-[[= release_note_entry_end() =]]
 
+[[= release_note_entry_end() =]]
 
 [[= release_note_entry_begin("Ibexa DXP " + version, '2024-12-13', ['Headless', 'Experience', 'Commerce', 'New feature']) =]]
 
@@ -808,6 +827,7 @@ The REST API has been extended to include endpoints for:
 You can now reuse Page Builder blocks between landing pages using the ["Copy block" action]([[= user_doc =]]/content_management/create_edit_pages/#copy-blocks).
 
 #### PHP API
+
 The PHP API has been enhanced with the following new classes and interfaces:
 
 - [`Ibexa\Contracts\ProductCatalog\Values\Price\PriceEnvelopeInterface`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Values-Price-PriceEnvelopeInterface.html)
@@ -815,13 +835,17 @@ The PHP API has been enhanced with the following new classes and interfaces:
 - [`Ibexa\Contracts\ProductCatalog\Values\StampInterface`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Values-StampInterface.html)
 
 #### Full changelog
+
 [[% include 'snippets/release_46.md' %]]
+
 [[= release_note_entry_end() =]]
 
 [[% set version = 'v4.6.14' %]]
+
 [[= release_note_entry_begin("Ibexa DXP " + version, '2024-11-28', ['Headless', 'Experience', 'Commerce']) =]]
 
 #### Security
+
 This release includes security fixes.
 To learn more, see the [corresponding security advisory](https://developers.ibexa.co/security-advisories/ibexa-sa-2024-006-vulnerabilities-in-content-name-pattern-commerce-shop-and-varnish-vhost-templates).
 
@@ -852,10 +876,13 @@ The PHP API has been enhanced with the following new classes and interfaces:
 - [`Ibexa\Contracts\ProductCatalog\Values\Product\Query\Criterion\UpdatedAtRange`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Values-Product-Query-Criterion-UpdatedAtRange.html)
 
 #### Full changelog
+
 [[% include 'snippets/release_46.md' %]]
+
 [[= release_note_entry_end() =]]
 
 [[% set version = 'v4.6.13' %]]
+
 [[= release_note_entry_begin("Ibexa DXP " + version, '2024-10-22', ['Headless', 'Experience', 'Commerce']) =]]
 
 #### PHP API
@@ -870,11 +897,12 @@ The PHP API has been enhanced with the following new classes and interfaces:
 #### Full changelog
 
 [[% include 'snippets/release_46.md' %]]
+
 [[= release_note_entry_end() =]]
 
 [[% set version = 'v4.6.12' %]]
 
-[[= release_note_entry_begin("AI Actions", '2024-10-04', ['Headless', 'Experience', 'Commerce', 'LTS Update', 'New feature']) =]]
+[[= release_note_entry_begin("AI Actions " + version, '2024-10-04', ['Headless', 'Experience', 'Commerce', 'LTS Update', 'New feature', 'First release']) =]]
 
 The AI Actions LTS update enhances the usability and flexibility of [[=product_name=]] v4.6 LTS by harnessing the potential of artificial intelligence to automate time-consuming editorial tasks.
 By default, the AI Actions feature can help users with their work in following scenarios:
@@ -887,7 +915,6 @@ By default, the AI Actions feature can help users with their work in following s
 For more information, see [AI Actions product guide](ai_actions_guide.md).
 
 [[= release_note_entry_end() =]]
-
 
 [[= release_note_entry_begin("Ibexa DXP " + version, '2024-10-04', ['Headless', 'Experience', 'Commerce']) =]]
 
@@ -918,15 +945,19 @@ The PHP API has been enhanced with the following new classes and interfaces:
 #### Full changelog
 
 [[% include 'snippets/release_46.md' %]]
+
 [[= release_note_entry_end() =]]
 
 [[% set version = 'v4.6.11' %]]
+
 [[= release_note_entry_begin("Ibexa DXP " + version, '2024-09-16', ['Headless', 'Experience', 'Commerce']) =]]
 
 #### Search
+
 - New search criterion: [IsBookmarked](isbookmarked_criterion.md)
 
 #### PHP API
+
 The PHP API has been enhanced with the following new classes and interfaces:
 
 - [`Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion\Location\IsBookmarked`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Criterion-Location-IsBookmarked.html)
@@ -940,20 +971,26 @@ And the new methods are:
 - [`Ibexa\Contracts\ProductCatalog\Local\LocalProductTypeServiceInterface::removeContentTypeFieldDefinition()`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Local-LocalProductTypeServiceInterface.html#method_removeContentTypeFieldDefinition)
 
 [[% include 'snippets/release_46.md' %]]
+
 [[= release_note_entry_end() =]]
 
 [[% set version = 'v4.6.10' %]]
+
 [[= release_note_entry_begin("Ibexa DXP " + version, '2024-08-14', ['Headless', 'Experience', 'Commerce']) =]]
+
 #### Security
 
 This release includes security fixes.
 To learn more, see the [corresponding security advisory](https://developers.ibexa.co/security-advisories/ibexa-sa-2024-005-persistent-xss-in-richtext).
 
 [[% include 'snippets/release_46.md' %]]
+
 [[= release_note_entry_end() =]]
 
 [[% set version = 'v4.6.9' %]]
+
 [[= release_note_entry_begin("Ibexa DXP " + version, '2024-07-31', ['Headless', 'Experience', 'Commerce']) =]]
+
 #### Security
 
 This release includes security fixes.
@@ -969,9 +1006,11 @@ The PHP API has been enhanced with the following new classes and interfaces:
 - [`Ibexa\Contracts\ConnectorQualifio\Exception\NotConfiguredException`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorQualifio-Exception-NotConfiguredException.html)
 
 [[% include 'snippets/release_46.md' %]]
+
 [[= release_note_entry_end() =]]
 
 [[% set version = 'v4.6.8' %]]
+
 [[= release_note_entry_begin("Ibexa DXP " + version, '2024-07-11', ['Headless', 'Experience', 'Commerce']) =]]
 
 #### PHP API
@@ -983,9 +1022,11 @@ The PHP API has been enhanced with the following new class:
 #### Full changelog
 
 [[% include 'snippets/release_46.md' %]]
+
 [[= release_note_entry_end() =]]
 
 [[% set version = 'v4.6.7' %]]
+
 [[= release_note_entry_begin("Ibexa DXP " + version, '2024-06-10', ['Headless', 'Experience', 'Commerce']) =]]
 
 #### PHP API
@@ -1000,20 +1041,29 @@ The PHP API has been enhanced with the following new classes:
 #### Full changelog
 
 [[% include 'snippets/release_46.md' %]]
+
 [[= release_note_entry_end() =]]
 
 [[% set version = 'v4.6.6' %]]
+
 [[= release_note_entry_begin("Ibexa DXP " + version, '2024-05-17', ['Headless', 'Experience', 'Commerce']) =]]
+
 [[% include 'snippets/release_46.md' %]]
+
 [[= release_note_entry_end() =]]
 
 [[% set version = 'v4.6.5' %]]
+
 [[= release_note_entry_begin("Ibexa DXP " + version, '2024-05-14', ['Headless', 'Experience', 'Commerce']) =]]
+
 [[% include 'snippets/release_46.md' %]]
+
 [[= release_note_entry_end() =]]
 
 [[% set version = 'v4.6.4' %]]
+
 [[= release_note_entry_begin("Ibexa DXP " + version, '2024-05-13', ['Headless', 'Experience', 'Commerce', 'New feature']) =]]
+
 #### Security
 
 This release includes security fixes.
@@ -1026,14 +1076,19 @@ To learn more, see the [corresponding security advisory](https://developers.ibex
 #### Full changelog
 
 [[% include 'snippets/release_46.md' %]]
+
 [[= release_note_entry_end() =]]
 
 [[% set version = 'v4.6.3' %]]
+
 [[= release_note_entry_begin("Ibexa DXP " + version, '2024-04-11', ['Headless', 'Experience', 'Commerce']) =]]
+
 [[% include 'snippets/release_46.md' %]]
+
 [[= release_note_entry_end() =]]
 
 [[% set version = 'v4.6.2' %]]
+
 [[= release_note_entry_begin("Ibexa DXP " + version, '2024-03-20', ['Headless', 'Experience', 'Commerce']) =]]
 
 #### Security
@@ -1044,15 +1099,20 @@ To learn more, see the [corresponding security advisory](https://developers.ibex
 #### Full changelog
 
 [[% include 'snippets/release_46.md' %]]
+
 [[= release_note_entry_end() =]]
 
 [[% set version = 'v4.6.1' %]]
+
 [[= release_note_entry_begin("Ibexa DXP " + version, '2024-02-28', ['Headless', 'Experience', 'Commerce']) =]]
+
 [[% include 'snippets/release_46.md' %]]
+
 [[= release_note_entry_end() =]]
 
 [[% set version = 'v4.6.0' %]]
-[[= release_note_entry_begin("Ibexa DXP " + version, '2024-02-13', ['Headless', 'Experience', 'Commerce', 'New feature']) =]]
+
+[[= release_note_entry_begin("Ibexa DXP " + version, '2024-02-13', ['Headless', 'Experience', 'Commerce', 'New feature', 'First release']) =]]
 
 ### Notable changes
 
