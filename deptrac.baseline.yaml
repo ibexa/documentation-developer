@@ -63,6 +63,9 @@ deptrac:
     App\Controller\PaginationController:
       - Ibexa\Bundle\Core\Controller
       - Ibexa\Core\Pagination\Pagerfanta\ContentSearchAdapter
+    App\Controller\ProductViewController:
+      - Ibexa\Core\MVC\Symfony\View\ContentView
+      - Ibexa\Core\MVC\Symfony\View\View
     App\Controller\RelationController:
       - Ibexa\Core\MVC\Symfony\View\View
     App\Controller\SvgController:
