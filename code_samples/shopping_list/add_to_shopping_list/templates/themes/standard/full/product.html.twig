@@ -9,8 +9,8 @@
 {% endblock %}
 
 {% block content %}
-    {{ ibexa_content_name(content) }}
-    {{ product.code }}
+    <span>{{ ibexa_content_name(content) }}</span>
+    <code>{{ product.code }}</code>
     {% if not product.isBaseProduct() and can_view_shopping_list and can_edit_shopping_list %}
         {% set component %}
             {% include '@ibexadesign/shopping_list/component/add_to_shopping_list/add_to_shopping_list.html.twig' with {
@@ -24,8 +24,8 @@
         <ul>
             {% for variant in variants %}
                 <li>
-                    {{ variant.name }}
-                    {{ variant.code }}
+                    <span>{{ variant.name }}</span>
+                    <code>{{ variant.code }}</code>
                     {% if can_view_shopping_list and can_edit_shopping_list %}
                         {% set component %}
                             {% include '@ibexadesign/shopping_list/component/add_to_shopping_list/add_to_shopping_list.html.twig' with {
@@ -46,11 +46,12 @@
 
 {% macro add_to_shopping_list(product, component) %}
     {% set widget_id = 'add-to-shopping-list-' ~ product.code|slug %}
-    <button
-            onclick="(function(){let e=document.getElementById('{{ widget_id }}'); e.style.display=('none'===window.getComputedStyle(e).display)?'block':'none';})()">
-        Add to shopping list
-    </button>
-    <div id="{{ widget_id }}" style="display: none;">
-        {{ component }}
+    <div style="display: inline-block;">
+        <button onclick="(function(){let e=document.getElementById('{{ widget_id }}'); e.style.display=('none'===window.getComputedStyle(e).display)?'block':'none';})()">
+            Add to shopping list
+        </button>
+        <div id="{{ widget_id }}" style="display: none; position: absolute; background: #fff;">
+            {{ component }}
+        </div>
     </div>
 {% endmacro %}

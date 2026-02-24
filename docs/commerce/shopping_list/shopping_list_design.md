@@ -68,7 +68,9 @@ To have a more complete example, let's continue with a product full view templat
 ``` twig hl_lines="7 8 16-18 31-33 44"
 [[= include_file('code_samples/shopping_list/add_to_shopping_list/templates/themes/standard/full/product.html.twig') =]]
 ```
-Because the component uses some global variables, it can't be used directly in the macro.
+Because the component uses some global variables, it can't be used directly in a macro.
+
+![](img/add_to_shopping_list_widget.png "Preview of this “Add to shopping list” widget example")
 
 ## `ShoppingList` JS class and `ibexaShoppingList` global
 
