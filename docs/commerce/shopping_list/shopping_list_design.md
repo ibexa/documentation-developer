@@ -178,8 +178,10 @@ window.ibexaShoppingList.createShoppingList(shopping_list_name).then((data) => {
 ### Shopping lists data changed event
 
 The `ibexa-shopping-list:shopping-lists-data-changed` event is dispatched by the `document.body`
-- on `shoppingList.init()` (and the `window.ibexaShoppingList` global variable is set)
-- on `shoppingList.createShoppingList()` (and the `window.ibexaShoppingList` global variable is updated)
+- on `ShoppingList.init()` (and the `window.ibexaShoppingList` global variable is set)
+- on `ShoppingList.createShoppingList()` (and the `window.ibexaShoppingList` global variable is updated)
+- on `ShoppingList.addShoppingListEntries()`
+- on `ShoppingList.removeShoppingListEntries()`
 
 ```javascript
 document.body.addEventListener('ibexa-shopping-list:shopping-lists-data-changed', (event) => {
