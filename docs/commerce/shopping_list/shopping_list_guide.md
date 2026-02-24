@@ -48,14 +48,13 @@ In the out-of-the-box storefront, a shopping list user can:
       ![Shopping lists management interface with an highlight on the "Create" button](img/create_from_management.png "Create a new shopping list from the shopping lists management interface")
     - from catalog when adding a product to a shopping list
       ![Product "Add to cart" button and "Add to list" drop-down menu zone with an highlight on the "+ Create an new shopping list" option](img/create_from_product.png "Create a new shopping list from the product page")
-    - from a shopping list when moving products from one shopping list to another
-      !["Move to another list" pop-in with an highlight on the "+ Create a new shopping list" option](img/create_from_move.png "Create a new shopping list from the move target selection interface")
-- Add product (or product variant) to a shopping list
+    - from a shopping list when adding a product to another shopping list
+      ![Shopping list product list with three-dots drop-down menu having "Add to shopping list", the "Add to shopping list" pop-in modal with an highlight on the "+ Create an new shopping list" option](img/create_from_shopping_list.png "Create a new shopping list from another shopping list")
+- Manage to which shopping lists a product (or product variant) belongs to, from a product page or from a shopping list's product list
+  !["Add to shopping list" belonging menu with "My Wishlist" selected](img/shopping_list_belonging_1.png "The product belongs to “My Wishlist”") !["Add to shopping list" belonging menu with "Bikes" selected](img/shopping_list_belonging_2.png "The product has been moved by unchecking the default list and checking a custom one")
 - Rename a shopping list (except the default “My Wishlist”)
 - View the list of their shopping lists
 - View a shopping list and its product list
-- Move products from a shopping list to another shopping list
-- Remove product from a shopping list
 - Copy product from a shopping list to cart (product is kept in shopping list while added to the cart, quantity in the cart is incremented by 1 each time)
 - Copy a whole shopping list to cart
     - products are kept in shopping list while added to the cart
