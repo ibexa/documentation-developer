@@ -15,14 +15,10 @@ use Ibexa\Core\FieldType\Date\Value as DateValue;
 
 final class DateOfBirthUserItemProcessor extends AbstractUserItemProcessor
 {
-    private string $dateOfBirthFieldIdentifier;
-
     public function __construct(
-        string $dateOfBirthFieldIdentifier,
+        private readonly string $dateOfBirthFieldIdentifier,
         string $userFieldTypeIdentifier
     ) {
-        $this->dateOfBirthFieldIdentifier = $dateOfBirthFieldIdentifier;
-
         parent::__construct($userFieldTypeIdentifier);
     }
 
