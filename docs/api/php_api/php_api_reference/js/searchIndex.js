@@ -57811,26 +57811,6 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/Ibexa-Contracts-ShoppingList-Event-BeforeDeleteShoppingListEvent.html#method_getShoppingList"
         },                {
-            "fqsen": "\\Ibexa\\Contracts\\ShoppingList\\Event\\BeforeMoveEntriesEvent",
-            "name": "BeforeMoveEntriesEvent",
-            "summary": "Event\u0020emitted\u0020before\u0020action\u0020execution.",
-            "url": "classes/Ibexa-Contracts-ShoppingList-Event-BeforeMoveEntriesEvent.html"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\ShoppingList\\Event\\BeforeMoveEntriesEvent\u003A\u003A__construct\u0028\u0029",
-            "name": "__construct",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-ShoppingList-Event-BeforeMoveEntriesEvent.html#method___construct"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\ShoppingList\\Event\\BeforeMoveEntriesEvent\u003A\u003AgetTargetShoppingList\u0028\u0029",
-            "name": "getTargetShoppingList",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-ShoppingList-Event-BeforeMoveEntriesEvent.html#method_getTargetShoppingList"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\ShoppingList\\Event\\BeforeMoveEntriesEvent\u003A\u003AgetEntries\u0028\u0029",
-            "name": "getEntries",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-ShoppingList-Event-BeforeMoveEntriesEvent.html#method_getEntries"
-        },                {
             "fqsen": "\\Ibexa\\Contracts\\ShoppingList\\Event\\BeforeRemoveEntriesEvent",
             "name": "BeforeRemoveEntriesEvent",
             "summary": "Event\u0020emitted\u0020before\u0020action\u0020execution.",
@@ -57955,26 +57935,6 @@ Search.appendIndex(
             "name": "getShoppingList",
             "summary": "",
             "url": "classes/Ibexa-Contracts-ShoppingList-Event-DeleteShoppingListEvent.html#method_getShoppingList"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\ShoppingList\\Event\\MoveEntriesEvent",
-            "name": "MoveEntriesEvent",
-            "summary": "Event\u0020emitted\u0020after\u0020action\u0020execution.",
-            "url": "classes/Ibexa-Contracts-ShoppingList-Event-MoveEntriesEvent.html"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\ShoppingList\\Event\\MoveEntriesEvent\u003A\u003A__construct\u0028\u0029",
-            "name": "__construct",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-ShoppingList-Event-MoveEntriesEvent.html#method___construct"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\ShoppingList\\Event\\MoveEntriesEvent\u003A\u003AgetTargetShoppingList\u0028\u0029",
-            "name": "getTargetShoppingList",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-ShoppingList-Event-MoveEntriesEvent.html#method_getTargetShoppingList"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\ShoppingList\\Event\\MoveEntriesEvent\u003A\u003AgetEntries\u0028\u0029",
-            "name": "getEntries",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-ShoppingList-Event-MoveEntriesEvent.html#method_getEntries"
         },                {
             "fqsen": "\\Ibexa\\Contracts\\ShoppingList\\Event\\RemoveEntriesEvent",
             "name": "RemoveEntriesEvent",
@@ -58251,11 +58211,6 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/Ibexa-Contracts-ShoppingList-ShoppingListServiceDecorator.html#method_removeEntries"
         },                {
-            "fqsen": "\\Ibexa\\Contracts\\ShoppingList\\ShoppingListServiceDecorator\u003A\u003AmoveEntries\u0028\u0029",
-            "name": "moveEntries",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-ShoppingList-ShoppingListServiceDecorator.html#method_moveEntries"
-        },                {
             "fqsen": "\\Ibexa\\Contracts\\ShoppingList\\ShoppingListServiceDecorator\u003A\u003AgetOrCreateDefaultShoppingList\u0028\u0029",
             "name": "getOrCreateDefaultShoppingList",
             "summary": "Returns\u0020the\u0020default\u0020shopping\u0020list\u0020for\u0020the\u0020current\u0020user.",
@@ -58315,11 +58270,6 @@ Search.appendIndex(
             "name": "removeEntries",
             "summary": "",
             "url": "classes/Ibexa-Contracts-ShoppingList-ShoppingListServiceInterface.html#method_removeEntries"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\ShoppingList\\ShoppingListServiceInterface\u003A\u003AmoveEntries\u0028\u0029",
-            "name": "moveEntries",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-ShoppingList-ShoppingListServiceInterface.html#method_moveEntries"
         },                {
             "fqsen": "\\Ibexa\\Contracts\\ShoppingList\\ShoppingListServiceInterface\u003A\u003AgetOrCreateDefaultShoppingList\u0028\u0029",
             "name": "getOrCreateDefaultShoppingList",
