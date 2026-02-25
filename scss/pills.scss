@@ -8,6 +8,8 @@ $color-lts-update: #5DA7C0;
 $color-new-feature: #2C9445;
 $color-first-release: #2C9445;
 
+$color-new-doc: #3562A0
+
 .pill {
     font-size: 12px;
     font-weight: initial;
@@ -49,7 +51,7 @@ $color-first-release: #2C9445;
     &--new {
       margin-right: 15px;
       align-self: center;
-      color: #3562a0;
+      color: $color-new-doc;
       text-transform: lowercase;
     }
 }
