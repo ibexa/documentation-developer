@@ -954,7 +954,7 @@ The PHP API has been enhanced with the following new classes and interfaces:
 
 #### Search
 
-- New search criterion: [IsBookmarked](isbookmarked_criterion.md)
+- New search criterion: [`IsBookmarked`](isbookmarked_criterion.md)
 
 #### PHP API
 
