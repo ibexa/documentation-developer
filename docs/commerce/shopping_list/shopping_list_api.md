@@ -78,11 +78,10 @@ $filteredProductCodes = array_filter($desiredProductCodes, function ($productCod
 $list = $this->shoppingListService->addEntries($list, array_map(function ($productCode) { return new EntryAddStruct($productCode); }, $filteredProductCodes));
 ```
 
-The following example moves products from a source shopping list to a target shopping list after filtering products already in the target list.
-Notice how the source and target lists' variables are updated from persistence after the move:
+The following example moves products from a source shopping list to a target shopping list after filtering out products already in the target list:
 
 ```php
-[[= include_file('code_samples/shopping_list/php_api/src/Command/ShoppingListMoveCommand.php', 42, 56) =]]
+[[= include_file('code_samples/shopping_list/php_api/src/Command/ShoppingListMoveCommand.php', 42, 54) =]]
 ```
 
 ### Transfer between shopping list and cart

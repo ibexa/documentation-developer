@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace App\shopping_list\php_api\src\Command;
+namespace App\Command;
 
 use Ibexa\Contracts\Core\Repository\PermissionResolver;
 use Ibexa\Contracts\Core\Repository\UserService;
@@ -40,20 +40,18 @@ class ShoppingListMoveCommand extends Command
         $sourceList = $this->shoppingListService->addEntries($sourceList, [new EntryAddStruct($productCodes[0]), new EntryAddStruct($productCodes[1])]);
         $targetList = $this->shoppingListService->addEntries($targetList, [new EntryAddStruct($productCodes[1])]);
 
-        $entriesToMove = [];
         $entriesToRemove = [];
+        $entriesToAdd = [];
         foreach ($movedProductCodes as $productCode) {
             if ($sourceList->getEntries()->hasEntryWithProductCode($productCode)) {
-                if ($targetList->getEntries()->hasEntryWithProductCode($productCode)) {
-                    $entriesToRemove[] = $sourceList->getEntries()->getEntryWithProductCode($productCode);
-                } else {
-                    $entriesToMove[] = $sourceList->getEntries()->getEntryWithProductCode($productCode);
+                $entriesToRemove[] = $sourceList->getEntries()->getEntryWithProductCode($productCode);
+                if (!$targetList->getEntries()->hasEntryWithProductCode($productCode)) {
+                    $entriesToAdd[] = new EntryAddStruct($productCode);
                 }
             }
         }
-        $this->shoppingListService->moveEntries($targetList, $entriesToMove);
-        $targetList = $this->shoppingListService->getShoppingList($targetList->getIdentifier()); // Refresh local object from persistence
-        $sourceList = $this->shoppingListService->removeEntries($sourceList, $entriesToRemove); // Refresh local object from persistence even if $entriesToRemove is empty
+        $sourceList = $this->shoppingListService->removeEntries($sourceList, $entriesToRemove);
+        $targetList = $this->shoppingListService->addEntries($targetList, $entriesToAdd);
 
         $this->displayList($output, $sourceList);
         $this->displayList($output, $targetList);
