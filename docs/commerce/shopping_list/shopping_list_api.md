@@ -65,7 +65,7 @@ dump($list);
 
 You can choose to not keep the local object up-to-date until the end of your operations and just reload it when needed, for example, for display.
 
-When adding array of entries with `ShoppingListService::addEntries()` or `ShoppingListService::moveEntries()`,
+When adding array of entries with `ShoppingListService::addEntries()`,
 an exception is thrown if a product is already in the shopping list and the whole array is canceled.
 
 The following example add products to a shopping list while avoiding error on duplicate.
@@ -77,8 +77,6 @@ $filteredProductCodes = array_filter($desiredProductCodes, function ($productCod
 });
 $list = $this->shoppingListService->addEntries($list, array_map(function ($productCode) { return new EntryAddStruct($productCode); }, $filteredProductCodes));
 ```
-
-`ShoppingListService::moveEntries()` doesn't return an updated shopping list because several lists might be updated.
 
 The following example moves products from a source shopping list to a target shopping list after filtering products already in the target list.
 Notice how the source and target lists' variables are updated from persistence after the move:
