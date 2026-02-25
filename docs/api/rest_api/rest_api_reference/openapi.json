@@ -26888,135 +26888,6 @@
                 ]
             }
         },
-        "/shopping-list/{targetIdentifier}/entries/move": {
-            "post": {
-                "operationId": "api_shopping-list_targetIdentifierentriesmove_post",
-                "tags": [
-                    "Shopping List"
-                ],
-                "responses": {
-                    "200": {
-                        "description": "200",
-                        "content": {
-                            "application/vnd.ibexa.api.ShoppingList+json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/ShoppingListWrapper"
-                                },
-                                "example": {
-                                    "ShoppingList": {
-                                        "identifier": "550e8400-e29b-41d4-a716-446655440000",
-                                        "name": "My Shopping List",
-                                        "isDefault": false,
-                                        "owner": {
-                                            "_href": "/api/ibexa/v2/user/users/14",
-                                            "_media-type": "application/vnd.ibexa.api.User+json"
-                                        },
-                                        "entries": [
-                                            {
-                                                "identifier": "650e8400-e29b-41d4-a716-446655440001",
-                                                "product": {
-                                                    "_href": "/api/ibexa/v2/product/catalog/products/PRODUCT-001",
-                                                    "_media-type": "application/vnd.ibexa.api.Product+json",
-                                                    "code": "PRODUCT-001",
-                                                    "name": "Sample Product"
-                                                },
-                                                "addedAt": "2024-10-29T12:15:00+00:00"
-                                            }
-                                        ],
-                                        "createdAt": "2024-10-29T12:00:00+00:00",
-                                        "updatedAt": "2024-10-29T12:00:00+00:00"
-                                    }
-                                }
-                            },
-                            "application/vnd.ibexa.api.ShoppingList+xml": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/ShoppingList"
-                                },
-                                "example": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<ShoppingList xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\">\n  <identifier>550e8400-e29b-41d4-a716-446655440000</identifier>\n  <name>My Shopping List</name>\n  <isDefault>0</isDefault>\n  <owner href=\"/api/ibexa/v2/user/users/14\" media-type=\"application/vnd.ibexa.api.User+xml\"/>\n  <entries>\n    <identifier>650e8400-e29b-41d4-a716-446655440001</identifier>\n    <product href=\"/api/ibexa/v2/product/catalog/products/PRODUCT-001\" media-type=\"application/vnd.ibexa.api.Product+xml\">\n      <code>PRODUCT-001</code>\n      <name>Sample Product</name>\n    </product>\n    <addedAt>2024-10-29T12:15:00+00:00</addedAt>\n  </entries>\n  <createdAt>2024-10-29T12:00:00+00:00</createdAt>\n  <updatedAt>2024-10-29T12:00:00+00:00</updatedAt>\n</ShoppingList>\n"
-                            }
-                        }
-                    },
-                    "400": {
-                        "description": "Error - The input does not match the input schema definition."
-                    },
-                    "401": {
-                        "description": "Error - The user is not authorized to move entries."
-                    },
-                    "403": {
-                        "description": "Error - Invalid request (e.g., invalid entry identifier, product already exists in target list)."
-                    },
-                    "406": {
-                        "description": "Error - Shopping list entry limit exceeded."
-                    },
-                    "404": {
-                        "description": "Error - Shopping list not found."
-                    }
-                },
-                "summary": "Move or copy entries to shopping list",
-                "description": "Moves or copies one or more product entries from their source shopping lists to the target shopping list. Use the \"copy\" parameter to control whether entries are copied (kept in source) or moved (removed from source).",
-                "parameters": [
-                    {
-                        "name": "targetIdentifier",
-                        "in": "path",
-                        "description": "The unique identifier (UUID) of the target shopping list where entries will be moved.",
-                        "required": true,
-                        "deprecated": false,
-                        "allowEmptyValue": false,
-                        "schema": {
-                            "type": "string"
-                        },
-                        "style": "simple",
-                        "explode": false,
-                        "allowReserved": false
-                    },
-                    {
-                        "name": "X-CSRF-Token",
-                        "in": "header",
-                        "description": "CSRF Token is needed to execute this unsafe request.",
-                        "required": true,
-                        "deprecated": false,
-                        "allowEmptyValue": false,
-                        "schema": {
-                            "type": "string"
-                        },
-                        "style": "simple",
-                        "explode": false,
-                        "allowReserved": false
-                    }
-                ],
-                "requestBody": {
-                    "description": "The new ShoppingListMoveEntriesController resource",
-                    "content": {
-                        "application/vnd.ibexa.api.ShoppingListEntriesMove+json": {
-                            "schema": {
-                                "$ref": "#/components/schemas/ShoppingListEntriesMoveWrapper"
-                            },
-                            "x-ibexa-example-file": "@IbexaShoppingListBundle/Resources/api_platform/examples/shopping-list/POST/ShoppingListEntriesMove.json.example"
-                        },
-                        "application/vnd.ibexa.api.ShoppingListEntriesMove+xml": {
-                            "schema": {
-                                "$ref": "#/components/schemas/ShoppingListEntriesMove"
-                            },
-                            "x-ibexa-example-file": "@IbexaShoppingListBundle/Resources/api_platform/examples/shopping-list/POST/ShoppingListEntriesMove.xml.example"
-                        }
-                    },
-                    "required": false
-                },
-                "deprecated": false,
-                "x-badges": [
-                    {
-                        "name": "Commerce",
-                        "color": "#A32768",
-                        "position": "after"
-                    },
-                    {
-                        "name": "LTS Update",
-                        "color": "#5DA7C0",
-                        "position": "after"
-                    }
-                ]
-            }
-        },
         "/taxonomy/{taxonomyName}/entries": {
             "delete": {
                 "operationId": "api_taxonomy_taxonomyNameentries_delete",
@@ -35466,22 +35337,7 @@
                 },
                 "summary": "Load current User",
                 "description": "Loads the current user.",
-                "parameters": [
-                    {
-                        "name": "Accept",
-                        "in": "header",
-                        "description": "If set, the User is returned in XML or JSON format.",
-                        "required": true,
-                        "deprecated": false,
-                        "allowEmptyValue": false,
-                        "schema": {
-                            "type": "string"
-                        },
-                        "style": "simple",
-                        "explode": false,
-                        "allowReserved": false
-                    }
-                ],
+                "parameters": [],
                 "deprecated": false
             }
         },
@@ -40912,38 +40768,10 @@
                 "description": "Performs a login for the user or checks if session exists and returns the session and session cookie. The client will need to remember both session name/ID and CSRF token as this is for security reasons not exposed via GET.",
                 "parameters": [
                     {
-                        "name": "Accept",
-                        "in": "header",
-                        "description": "If set, the session is returned in XML or JSON format.",
-                        "required": true,
-                        "deprecated": false,
-                        "allowEmptyValue": false,
-                        "schema": {
-                            "type": "string"
-                        },
-                        "style": "simple",
-                        "explode": false,
-                        "allowReserved": false
-                    },
-                    {
-                        "name": "Content-Type",
-                        "in": "header",
-                        "description": "The SessionInput schema encoded in XML or JSON format.",
-                        "required": true,
-                        "deprecated": false,
-                        "allowEmptyValue": false,
-                        "schema": {
-                            "type": "string"
-                        },
-                        "style": "simple",
-                        "explode": false,
-                        "allowReserved": false
-                    },
-                    {
                         "name": "Cookie",
                         "in": "header",
                         "description": "Only needed for session's checking {sessionName}={sessionID}.",
-                        "required": true,
+                        "required": false,
                         "deprecated": false,
                         "allowEmptyValue": false,
                         "schema": {
@@ -40957,7 +40785,7 @@
                         "name": "X-CSRF-Token",
                         "in": "header",
                         "description": "Only needed for session's checking. The {csrfToken} needed on all unsafe HTTP methods with session.",
-                        "required": true,
+                        "required": false,
                         "deprecated": false,
                         "allowEmptyValue": false,
                         "schema": {
@@ -41035,21 +40863,7 @@
                         "name": "Cookie",
                         "in": "header",
                         "description": "Only needed for session's checking {sessionName}={sessionID}.",
-                        "required": true,
-                        "deprecated": false,
-                        "allowEmptyValue": false,
-                        "schema": {
-                            "type": "string"
-                        },
-                        "style": "simple",
-                        "explode": false,
-                        "allowReserved": false
-                    },
-                    {
-                        "name": "Accept",
-                        "in": "header",
-                        "description": "If set, the session is returned in XML or JSON format.",
-                        "required": true,
+                        "required": false,
                         "deprecated": false,
                         "allowEmptyValue": false,
                         "schema": {
@@ -52819,40 +52633,6 @@
                 "properties": {
                     "ShoppingListEntriesRemove": {
                         "$ref": "#/components/schemas/ShoppingListEntriesRemove"
-                    }
-                }
-            },
-            "ShoppingListEntriesMove": {
-                "description": "Moves or copies one or more entries from their source shopping lists to a target shopping list.",
-                "type": "object",
-                "required": [
-                    "identifiers"
-                ],
-                "properties": {
-                    "identifiers": {
-                        "description": "Array of entry identifiers (UUIDs) to move/copy (required, min 1).",
-                        "type": "array",
-                        "minItems": 1,
-                        "items": {
-                            "type": "string",
-                            "format": "uuid"
-                        }
-                    },
-                    "copy": {
-                        "description": "If true, copies entries without deleting from source. If false or omitted, moves entries (deletes from source). Default is false.",
-                        "type": "boolean",
-                        "default": false
-                    }
-                }
-            },
-            "ShoppingListEntriesMoveWrapper": {
-                "type": "object",
-                "required": [
-                    "ShoppingListEntriesMove"
-                ],
-                "properties": {
-                    "ShoppingListEntriesMove": {
-                        "$ref": "#/components/schemas/ShoppingListEntriesMove"
                     }
                 }
             },
