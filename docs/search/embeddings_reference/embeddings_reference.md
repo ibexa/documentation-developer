@@ -11,8 +11,8 @@ Foundational abstractions are provided for embedding-based search, while embeddi
 ## EmbeddingQuery
 
 - [`Ibexa\Contracts\Core\Repository\Values\Content\EmbeddingQuery`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-EmbeddingQuery.html): Represents a semantic similarity search request.
-It encapsulates an [Embedding](#embedding) instance and supports pagination and aggregations through the same API as standard content queries.
-Embedding queries do not support criteria, sort clauses, facet builders, or spellcheck
+It encapsulates an [Embedding](#embedding) instance and supports filtering, pagination, aggregations, and result counting through the same API as standard content queries.
+Embedding queries do not support criteria, Sort Clauses, facet builders, or spellcheck
 
 ## Embedding
 
@@ -37,7 +37,7 @@ Embedding providers generate vector representations for inputs.
 
 ## Validation
 
-- [`Ibexa\Contracts\Core\Repository\Values\Content\QueryValidatorInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-QueryValidatorInterface.html): Validates embedding queries and configurations are validated before reaching the search engine
+- [`Ibexa\Contracts\Core\Repository\Values\Content\QueryValidatorInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-QueryValidatorInterface.html): Validates embedding queries before they reach the search engine
 
 !!! note "Taxonomy embeddings"
 
