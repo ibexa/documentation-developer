@@ -1,5 +1,5 @@
 ---
-description: Environment variables automatically generated based on Ibexa Cloud relationships and routes.
+description: Automatically generated environment variables based on Ibexa Cloud relationships and routes.
 ---
 
 # Environment variables on Ibexa Cloud
@@ -12,7 +12,7 @@ Environment variable prefixes are created by converting relationship names to up
 When multiple endpoints are defined for a single relationship, numerical indices are used for all entries except the first one, for example: `SOLR`, `SOLR_1_`, `SOLR_2`.
 When multiple services of the same type are present, environment variables are exposed for each service accordingly based on their relationship names.
 
-## Using environment variables in configuration files
+## Environment variables in configuration files
 
 If you're referencing [[= product_name_cloud =]] environment variables in your configuration files, you must define placeholder values for them in your `.env` file to prevent Symfony container initialization failures.
 
@@ -71,7 +71,7 @@ For more information about database configuration, see [Databases](databases.md)
 ## DFS database variables
 
 When using [distributed file storage (DFS) using a separate database](clustering.md#dfs-io-handler), you must use the relationship name `dfs_database`.
-In addition to the database variables listed above, additional DFS-specific variables are created when `PLATFORMSH_DFS_NFS_PATH` is set:
+In addition to the database variables listed above, additional DFS-specific variables are availabld when `PLATFORMSH_DFS_NFS_PATH` is set:
 
 - `DFS_NFS_PATH` - NFS path for DFS storage
 - `DFS_DATABASE_CHARSET` - database character set
@@ -79,14 +79,14 @@ In addition to the database variables listed above, additional DFS-specific vari
 
 ## Cache variables
 
-For Redis and Valkey cache services, the following variables are available:
+For Redis and Valkey cache services,  you can use the following variables:
 
 - `{RELATIONSHIP_NAME}_URL`
 - `{RELATIONSHIP_NAME}_HOST`
 - `{RELATIONSHIP_NAME}_PORT`
 - `{RELATIONSHIP_NAME}_SCHEME`
 
-In addition, the following global variables are defined:
+In addition, you can use the following global variables:
 
 - `CACHE_POOL` - `cache.redis` for both Redis and Valkey
 - `CACHE_DSN` - cache connection string
@@ -109,7 +109,7 @@ For more information about session configuration, see [Sessions](sessions.md).
 
 ### Solr
 
-For Solr search engine configuration, the following variables are generated:
+For Solr search engine configuration, you can use the following variables:
 
 - `SEARCH_ENGINE` - set to `solr`
 - `SOLR_DSN` - Solr connection string
@@ -122,7 +122,7 @@ For more information, see [Solr search engine](solr_overview.md).
 
 ### Elasticsearch
 
-For Elasticsearch search engine configuration, the following variables are generated:
+For Elasticsearch search engine configuration, you can use the following variables:
 
 - `SEARCH_ENGINE` - set to `elasticsearch`
 - `ELASTICSEARCH_DSN` - Elasticsearch connection string

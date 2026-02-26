@@ -293,9 +293,10 @@ First, install the `ibexa/cloud` package:
 composer require ibexa/cloud
 ```
 
-Then, update your cloud configuration. The old command `composer ibexa:setup --platformsh` has been replaced with:
+Then, update your cloud configuration.
+Instead of the old `composer ibexa:setup --platformsh` command, use:
 
-```bash
+``` bash
 php bin/console ibexa:cloud:setup --upsun
 ```
 
