@@ -33,7 +33,7 @@ final class CartProxyMapper implements CartProxyMapperInterface
             &$initializer
         ) use ($identifier): bool {
             $initializer = null;
-            $wrappedObject = $this->repository->sudo(fn () => $this->cartService->getCart($identifier));
+            $wrappedObject = $this->repository->sudo(fn (): CartInterface => $this->cartService->getCart($identifier));
 
             return true;
         };

@@ -35,11 +35,14 @@ final class CartResolverDecorator implements CartResolverInterface
 
     private function getSharedCart(): ?CartInterface
     {
-        /** @var \App\Collaboration\Cart\CartSession $session */
         try {
             $session = $this->sessionService->getSessionByToken(
                 $this->requestStack->getSession()->get(PermissionResolverDecorator::COLLABORATION_SESSION_ID)
             );
+
+            if (!$session instanceof CartSession) {
+                return null;
+            }
 
             return $session->getCart();
         } catch (NotFoundException|\Ibexa\ProductCatalog\Exception\UnauthorizedException $e) {

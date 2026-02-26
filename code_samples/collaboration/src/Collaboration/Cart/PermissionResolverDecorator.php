@@ -33,7 +33,8 @@ final class PermissionResolverDecorator implements PermissionResolverInterface
 
     public function canUser(PolicyInterface $policy): bool
     {
-        if ($this->nested === false && $this->isCartPolicy($policy) && $this->isSharedCart($policy->getObject())) {
+        $object = $policy->getObject();
+        if ($this->nested === false && $this->isCartPolicy($policy) && $object instanceof CartInterface && $this->isSharedCart($object)) {
             return true;
         }
 
@@ -42,7 +43,8 @@ final class PermissionResolverDecorator implements PermissionResolverInterface
 
     public function assertPolicy(PolicyInterface $policy): void
     {
-        if ($this->nested === false && $this->isCartPolicy($policy) && $this->isSharedCart($policy->getObject())) {
+        $object = $policy->getObject();
+        if ($this->nested === false && $this->isCartPolicy($policy) && $object instanceof CartInterface && $this->isSharedCart($object)) {
             return;
         }
 

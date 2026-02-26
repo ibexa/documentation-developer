@@ -14,6 +14,7 @@ use App\Form\Type\ShareCartType;
 use Ibexa\Contracts\Cart\CartResolverInterface;
 use Ibexa\Contracts\Collaboration\Participant\ExternalParticipantCreateStruct;
 use Ibexa\Contracts\Collaboration\SessionServiceInterface;
+use InvalidArgumentException;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -52,10 +53,15 @@ final class ShareCartCreateController extends AbstractController
                 new CartSessionCreateStruct($cart)
             );
 
+            $email = $data->getEmail();
+            if ($email === null) {
+                throw new InvalidArgumentException('Email cannot be null');
+            }
+
             $this->sessionService->addParticipant(
                 $session,
                 new ExternalParticipantCreateStruct(
-                    $data->getEmail(),
+                    $email,
                     CartSessionType::SCOPE_EDIT
                 )
             );

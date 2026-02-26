@@ -25,12 +25,20 @@ final class CartSessionPersistenceMapper implements SessionPersistenceMapperInte
     public function toPersistenceCreateStruct(
         SessionCreateStruct $createStruct
     ): PersistenceSessionCreateStruct {
+        $token = $createStruct->getToken();
+        $owner = $createStruct->getOwner();
+        $hasPublicLink = $createStruct->hasPublicLink();
+
+        assert($token !== null);
+        assert($owner !== null);
+        assert($hasPublicLink !== null);
+
         return new CartSessionCreateStruct(
-            $createStruct->getToken(),
+            $token,
             $createStruct->getCart()->getIdentifier(),
-            $createStruct->getOwner()->getUserId(),
+            $owner->getUserId(),
             $createStruct->isActive(),
-            $createStruct->hasPublicLink(),
+            $hasPublicLink,
             new \DateTimeImmutable(),
             new \DateTimeImmutable()
         );
