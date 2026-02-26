@@ -47,7 +47,7 @@ In this example, it represents the shopping Cart (identified by the Cart identif
     );
     ```
 
-## Set up the persistance layer
+## Set up the persistence layer
 
 To extend Collaborative editing feature to support shared Cart collaboration, you need to prepare the persistence layer.
 This layer handles how the data about collaboration session and the Cart is stored, retrieved, and managed in the database.
@@ -62,7 +62,7 @@ It handles all the create, read, update, and delete operations for collaboration
 It also uses a Discriminator to specify the session type, so it can interact with the correct tables and data structures.
 This way, the system knows which Gateway to use to get or save the right data for each session type.
 
-When creating the Database Gateways and mappers, you can use the build-in service tag: `ibexa.collaboration.persistence.session.gateway`:
+When creating the Database Gateways and mappers, you can use the built-in service tag: `ibexa.collaboration.persistence.session.gateway`:
 
 ```yaml
     tags:
@@ -143,7 +143,7 @@ In the `Collaboration/Cart` directory create the following Session Structs:
 
 Mappers are used to return session data into the format the database needs and to send it to the repository.
 
-In the `src\Collaboration\Cart\Mapper` folder create four mappers:
+In the `src/Collaboration/Cart/Mapper` folder create four mappers:
 
 - `CartProxyMapper` - creates a simplified version of the Cart with only the necessary data to reduce memory usage in collaboration sessions.
 
@@ -188,7 +188,7 @@ In the `src/Collaboration/Cart` directory, create the following files:
 [[= include_file('code_samples/collaboration/src/Collaboration/Cart/PermissionResolverDecorator.php') =]]
 ```
 
-- `CartResolverDecorator` – extends the permission resolver to allow access to shared Carts in collaboration sessions, it checks if a Cart belongs to a collaboration session.
+- `CartResolverDecorator` – resolves the shared Carts in collaboration sessions, it checks if a Cart belongs to a collaboration session.
 
 ``` php
 [[= include_file('code_samples/collaboration/src/Collaboration/Cart/CartResolverDecorator.php') =]]
@@ -222,7 +222,7 @@ In the next step, `addParticipant`, the user whose email address was provided is
 It enables joining a Cart session.
 The session token created earlier is passed in the URL, and in the `Join` action the system attempts to retrieve the session associated with that token.
 If the token is invalid, an exception is thrown indicating that the session cannot be accessed.
-If the session exists, the session parameter (`current_collaboration_session`) is retrieved and store the token.
+If the session exists, the session parameter (`collaboration_session`) is retrieved and store the token.
 Finally, `redirectToRoute` redirects the user to the Cart view and passes the identifier of the shared Cart.
 
 ``` php
@@ -231,7 +231,7 @@ Finally, `redirectToRoute` redirects the user to the Cart view and passes the id
 
 !!! caution "Session parameter"
 
-    Avoid using a generic session parameter name such as `current_collaboration_session` (it's used here only for example purposes).
+    Avoid using a generic session parameter name such as `collaboration_session` (it's used here only for example purposes).
     The user can participate in multiple sessions simultaneously (of one or many types), so using this parameter would cause it to be constantly overwritten.
     Therefore, active sessions should not be resolved based on such parameter.
 
