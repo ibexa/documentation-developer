@@ -41,7 +41,7 @@ For more information, see [Configure shopping list](install_shopping_list.md#con
 A shopping list only stores product codes.
 A shopping list doesn't store quantities.
 
-In the out-of-the-box storefront, a shopping list user can:
+In the out-of-the-box [storefront](storefront.md), a shopping list user can:
 
 - Create a shopping list
     - in shopping lists management interface
@@ -69,6 +69,6 @@ In the out-of-the-box storefront, a shopping list user can:
 ## Extensibility
 
 The shopping list's [PHP API](shopping_list_api.md#php-api) and [REST API](shopping_list_api.md#rest-api) already offer few functionalities not used in the default storefront,
-such as to empty a whole shopping list, move from cart to a specific shopping list, or to copy from a shopping list to another (instead of moving them).
+such as to empty a whole shopping list, or to move from a cart to a specific shopping list.
 
 Those APIs can be used to implement custom features, and can themselves be extended to cover more use cases.
