@@ -16,12 +16,17 @@ Embedding queries do not support criteria, Sort Clauses, facet builders, or spel
 
 ## Embedding
 
-- [`Ibexa\Contracts\Core\Repository\Values\Content\Query\Embedding`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Embedding.html): Represents the semantic input used for similarity search.
-Depending on the embedding provider, it can encapsulate text or vector data
+- [`Ibexa\Contracts\Core\Repository\Values\Content\Query\Embedding`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Embedding.html): Represents the vector input used
+for similarity search.
+It stores embedding values as float arrays, while providers generate those vectors from text input
 
 ## Embedding providers
 
 Embedding providers generate vector representations for inputs.
+Out of the box, embedding search integration is provided for TaxonomyEmbedding.
+If you use a custom embedding value type, implement matching embedding
+visitors for your search engine (Solr/Elasticsearch).
+Otherwise, query execution may fail with "No visitor available".
 
 ### Provider contracts
 
