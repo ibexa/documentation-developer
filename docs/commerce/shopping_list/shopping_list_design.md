@@ -15,12 +15,20 @@ To integrate the shopping list features to your own online store design, you can
 
 ## "Add to shopping list" widget
 
+This widget is a list of shopping lists with interactive checkboxes to show and set if a product is in or not,
+it includes a button to create a new shopping list on the fly.
+It's used in the `storefront` theme in several places, dressed as a drop-down menu or a modal.
+See [Shopping list management overview](shopping_list_guide.md#shopping-list-management-overview) for some screenshots.
+
 Some Twig and TypeScript components can help you insert an "Add to shopping list" widget for a product:
 
 - `vendor/ibexa/shopping-list/src/bundle/Resources/views/themes/standard/shopping_list/component/add_to_shopping_list/add_to_shopping_list.html.twig` displays a list of shopping lists preceded with checkboxes showing if the product is in.
 - `vendor/ibexa/shopping-list/src/bundle/Resources/public/js/component/add.to.shopping.list.ts` handles the interaction with the list of shopping lists' checkboxes and the new shopping list creation on the fly.
 - `vendor/ibexa/shopping-list/src/bundle/Resources/public/js/component/shopping.list.ts` handles the REST API calls.
 - `vendor/ibexa/shopping-list/src/bundle/Resources/public/js/component/shopping.lists.list.ts` handles the list of shopping lists.
+
+The following example shows the set-up of an "Add to shopping list" widget on a product full view page in the `standard` theme without implying the `storefront` theme.
+For a base product, the variants are listed with an instance of the widget to demonstrate that it can be used several time on the same page.
 
 `assets/js/add-to-shopping-list.ts`:
 ``` ts
@@ -240,5 +248,5 @@ The `\Ibexa\Bundle\Storefront\EventSubscriber\ShoppingList\UserMenuSubscriber` i
 adding the "Shopping lists" item between "Orders" and "Change password" to the user menu
 previously initiated by the `\Ibexa\Bundle\Storefront\Menu\Builder\UserMenuBuilder`.
 You can look at how this subscriber tests that the user isn't anonymous
-and then has the `shopping_list/view` policy (`\Ibexa\Contracts\ShoppingList\Permission\Policy\ShoppingList\View`)
+and then has the [`shopping_list/view` policy](policies.md#shopping-lists) ([`\Ibexa\Contracts\ShoppingList\Permission\Policy\ShoppingList\View`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ShoppingList-Permission-Policy-ShoppingList-View.html))
 before adding the "Shopping lists" item.
