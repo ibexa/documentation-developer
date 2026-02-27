@@ -19,7 +19,7 @@ The service should be [injected into the constructor of your command or controll
 
     `SearchService` is also used in the back office of [[= product_name =]], in components such as Universal Discovery Widget or Sub-items List.
 
-### Perform a search
+### Perform search
 
 To search through content you need to create a [`LocationQuery`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-LocationQuery.html) and provide your Search Criteria as a series of Criterion objects.
 
@@ -372,7 +372,7 @@ Instead of comparing keywords, the system compares vectors that represent the se
 !!! note "Taxonomy suggestions"
 
     Embedding queries have been introduced primarily to support the [Taxonomy suggestions](taxonomy.md#taxonomy-suggestions) feature but you can use them in other scenarios.
-    
+
 Searching with embeddings can be combined with filtering, which allows the semantic search results to be constrained by content type, location, permissions, or other criteria.
 
 An embedding query is represented by the `Ibexa\Contracts\Core\Repository\Values\Content\EmbeddingQuery` value object.
@@ -401,29 +401,57 @@ Embedding queries can also be combined with filters to narrow down results, such
 
 ``` php
 use Ibexa\Contracts\Core\Repository\Values\Content\EmbeddingQueryBuilder;
-use Ibexa\Contracts\Core\Repository\Values\Content\Query\Embedding;
+use Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion\ContentTypeIdentifier;
+use Ibexa\Contracts\Taxonomy\Search\Query\Value\TaxonomyEmbedding;
 
-// Example embedding vector (float[])
 $vector = [
-    0.0123,
-    -0.9876,
-    0.4567,
-    // ...
+  0.0123,
+  -0.9876,
+  0.4567,
+  ...
 ];
 
-// Create an Embedding instance with a float[] vector
-$embedding = new Embedding($vector);
+$embedding = new TaxonomyEmbedding($vector);
 
-// Build the embedding query with the fluent builder
 $embeddingQuery = EmbeddingQueryBuilder::create()
-    ->withEmbedding($embedding)
-    ->setLimit(10)          // maximum number of results
-    ->setOffset(0)          // result offset for pagination
-    ->setPerformCount(true) // optionally count total matching items
-    ->build();
+  ->withEmbedding($embedding)
+  ->setFilter(new ContentTypeIdentifier('article'))
+  ->setLimit(10)
+  ->setOffset(0)
+  ->setPerformCount(true)
+  ->build();
 
 // Execute the query via the repository
-$results = $repository->findContent($embeddingQuery);
+use Ibexa\Contracts\Core\Repository\Repository;
+use Ibexa\Contracts\Core\Repository\SearchService;
+use Ibexa\Contracts\Core\Repository\Values\Content\EmbeddingQueryBuilder;
+use Ibexa\Contracts\Taxonomy\Search\Query\Value\TaxonomyEmbedding;
+
+final class ExampleService
+  {
+      private SearchService $searchService;
+
+      public function __construct(Repository $repository)
+      {
+          $this->searchService = $repository->getSearchService();
+      }
+
+      public function searchByEmbedding(array $vector): void
+      {
+          $query = EmbeddingQueryBuilder::create()
+              ->withEmbedding(new TaxonomyEmbedding($vector))
+              ->setLimit(10)
+              ->setOffset(0)
+              ->build();
+
+          $result = $this->searchService->findContent($query);
+
+          foreach ($result->searchHits as $hit) {
+              // ...
+          }
+      }
+  }
+
 ```
 
 The `EmbeddingQueryBuilder` ensures that the query is correctly configured before execution.
