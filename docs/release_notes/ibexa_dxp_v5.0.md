@@ -72,6 +72,22 @@ The parameters are available in your template as regular variables.
 
 For more information, see [`ibexa_render()` Twig function](content_twig_functions.md#ibexa_render).
 
+<draft release notes entry>
+#### Try-catch support in data migrations
+
+Data migrations now support try-catch error handling, allowing you to wrap migration steps with exception handling logic.
+You can use it for migrations that might fail under certain conditions but should not break the entire migration process.
+
+For example, you can create languages without checking if they already exist:
+
+``` yaml
+[[= include_file('code_samples/data_migration/examples/try_catch_step.yaml') =]]
+```
+
+The `try_catch` step allows you to specify which exceptions to catch and whether to continue executing remaining steps after an exception occurs.
+
+For more information, see [Error handling with try-catch](importing_data.md#error-handling-with-try-catch).
+
 [[% set version = 'v5.0.5' %]]
 
 [[= release_note_entry_begin("Ibexa DXP " + version, '2026-01-15', ['Headless', 'Experience', 'Commerce']) =]]

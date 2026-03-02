@@ -74,6 +74,14 @@ The following data migration step modes are available:
 | `user`                 | &#10004; | &#10004; |          |          |          |
 | `user_group`           | &#10004; | &#10004; | &#10004; |          |          |
 
+Additionally, the following special migration types are available:
+
+| `type`                 | `execute` |
+|------------------------|:---------:|
+| `repeatable`           | &#10004;  |
+| `sql`                  | &#10004;  |
+| `try_catch`            | &#10004;  |
+
 ### Repeatable steps
 
 You can run a set of one or more similar migration steps multiple times by using the special `repeatable` migration type.
@@ -121,6 +129,58 @@ Then, you can use `faker()` in expressions, for example:
 ```
 
 This step generates field values with fake personal names.
+
+### SQL migrations
+
+You can execute raw SQL queries directly in migrations by using the `sql` migration type.
+Use it for custom database operations that don't fit into standard entity migrations, such as creating custom tables or performing bulk updates.
+
+Each query requires a `driver` property that specifies which database system the query is for.
+The migration system automatically filters queries and executes only those matching your current database driver.
+
+```yaml
+[[= include_file('code_samples/data_migration/examples/sql_execute.yaml') =]]
+```
+
+The supported database drivers are:
+
+- `mysql` - MySQL/MariaDB
+- `postgresql` - PostgreSQL
+- `sqlite` - SQLite
+
+You can define queries for multiple database drivers in a single migration step.
+The system executes only the queries that match your configured database platform.
+If no matching queries are found, the migration throws an error.
+
+!!! caution
+
+    SQL migrations bypass the content model abstraction layer and directly modify the database.
+    Use them with caution and ensure your queries are compatible with your target database system.
+
+### Error handling with try-catch
+
+You can wrap one or more migration steps with a `try_catch` step to handle exceptions gracefully.
+
+Use it for migration steps that may fail under specific conditions but should not halt the entire migration process.
+
+For example, you can ensure a language creation migration step succeeds even if the language already exists.
+If the migration step fails for this reason, the exception is suppressed, allowing the remaining migrations to proceed without interruption.
+
+A `try_catch` migration requires the `steps` property and accepts optional `allowed_exceptions` and `stop_after_first_exception` settings.
+
+Default values are:
+
+- `allowed_exceptions`: empty list
+- `stop_after_first_exception`: `true`
+
+```yaml
+[[= include_file('code_samples/data_migration/examples/try_catch_step.yaml') =]]
+```
+
+When an exception is thrown within a `try_catch` step, it's compared against the list of `allowed_exceptions`.
+If the exception matches, it's caught and the migration step continues or stops depending on the `stop_after_first_exception` configuration setting.
+The migration step is marked as successful and the migration process continues.
+Non-matching exceptions throw immediately, halting the migration process and returning an error.
 
 ### Expression syntax
 
