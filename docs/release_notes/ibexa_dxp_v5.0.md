@@ -10,9 +10,13 @@ month_change: true
 
 <div class="release-notes" markdown="1">
 
-[[% set version = 'v5.0.X' %]]
+[[% set version = 'v5.0.6' %]]
 
-[[= release_note_entry_begin('Shopping list ' + version, '202X-TODO', ['Commerce', 'LTS Update', 'New feature']) =]]
+[[= release_note_entry_begin(
+    'Shopping Lists ' + version,
+    'YYYY-MM-DD',
+    ['Commerce', 'LTS Update', 'New feature']
+) =]]
 
 Shopping list is a new feature that allows users to save products into wishlists.
 A authenticated customer has a default "My wishlist" created on first use, and can create custom shopping lists to organize their potential or recurrent purchases.
@@ -22,38 +26,46 @@ For more information, see [Shopping list feature guide](shopping_list_guide.md).
 
 [[= release_note_entry_end() =]]
 
-[[% set version = 'v5.0.6' %]]
+[[= release_note_entry_begin(
+    "Ibexa DXP " + version,
+    'YYYY-MM-DD',
+    ['Headless', 'Experience', 'Commerce', 'New feature']
+) =]]
 
-[[= release_note_entry_begin("Ibexa DXP " + version, '2025-XX-XX', ['Headless', 'Experience', 'Commerce', 'New feature']) =]]
+### Infrastructure
 
-#### Ibexa Cloud improvements
-
-##### New cloud configuration package
+#### Ibexa Cloud package
 
 A new `ibexa/cloud` package is now available for [[= product_name_cloud =]] deployments.
 This package replaces the previous `composer ibexa:setup --platformsh` command with a dedicated console command.
 
-The package automatically generates environment variables based on [[= product_name_cloud =]] relationships and routes configuration, making it easier to configure services like databases, cache, search engines, and session storage.
+The package automatically generates environment variables based on the configuration of relationships and routes in [[= product_name_cloud =]],
+making it easier to configure services like databases, cache, search engines, and session storage.
 
 For more information, see [Install on Ibexa Cloud](install_on_ibexa_cloud.md) and [Environment variables on Ibexa Cloud](environment_variables.md).
 
-### Full changelog
+#### PHP 8.4 support
 
-<!-- [[% include 'snippets/release_50.md' %]] -->
+PHP 8.4 is now [officially supported](requirements.md#php).
 
-[[= release_note_entry_end() =]]
+### Gaussian blur optimization in Image Editor
 
-<!--DRAFT for v5.0.6 release -->
-#### Query subtree limit configuration
+The [Image Editor]([[= user_doc =]]/image_management/edit_images/) now supports configurable gaussian blur strength for image optimization.
+You can adjust the blur level to balance between file size reduction and image sharpness.
+For more information, see [Configure image editor](configure_image_editor.md#gaussian-blur-strength).
+
+### Query subtree limit configuration
 
 A new `query_subtree.limit` configuration option improves performance when working with large content trees by limiting count operations.
 This prevents performance degradation from database queries when determining if locations have children or calculating subtree sizes.
 
 For more information, see [Subtree operations configuration](back_office_configuration.md#subtree-operations).
 
-#### Pass custom parameters to `ibexa_render()` Twig function
+### Developer experience
 
-You can now pass custom parameters to templates when using the `ibexa_render()` Twig function with the new `params` option, similar to how you can with `render(controller())`.
+#### Custom parameters in `ibexa_render()`
+
+You can now pass custom parameters to templates when using the `ibexa_render()` Twig function with the new `params` option, similar to how you can with `render(controller())`.Collapse annotationCheck notice on line R18[vale] docs/release_notes/ibexa_dxp_v4.6.md#L18Check notice: [vale] docs/release_notes/ibexa_dxp_v4.6.md#L18[Ibexa.ByUsing] Prefer 'by using' or 'with' to plain 'using'.Build & test documentation / valeView details
 
 This allows you to provide additional context or data to your view templates:
 
@@ -72,7 +84,6 @@ The parameters are available in your template as regular variables.
 
 For more information, see [`ibexa_render()` Twig function](content_twig_functions.md#ibexa_render).
 
-<draft release notes entry>
 #### Try-catch support in data migrations
 
 Data migrations now support try-catch error handling, allowing you to wrap migration steps with exception handling logic.
@@ -88,9 +99,13 @@ The `try_catch` step allows you to specify which exceptions to catch and whether
 
 For more information, see [Error handling with try-catch](importing_data.md#error-handling-with-try-catch).
 
-[[% set version = 'v5.0.X' %]]
+[[= release_note_entry_end() =]]
 
-[[= release_note_entry_begin("Ibexa DXP " + version, 'YYYY-MM-DD', ['Experience', 'Commerce']) =]]
+[[= release_note_entry_begin(
+    "Ibexa DXP " + version,
+    'YYYY-MM-DD',
+    ['Experience', 'Commerce']
+) =]]
 
 ### Improved HTTP caching for Page Builder and dashboard blocks
 
@@ -117,14 +132,26 @@ Then, adjust your [layouts](render_page.md#configure-layout) and pass the parame
 
 [[= release_note_entry_end() =]]
 
-<!-- draft release notes -->
-#### Improved product variant querying
+[[= release_note_entry_begin(
+    "Ibexa DXP " + version,
+    'YYYY-MM-DD',
+    ['Commerce']
+) =]]
+
+https://github.com/ibexa/documentation-developer/pull/3045
+### Improved product variant querying
 
 Product variant querying now supports filtering by variant codes and product attribute criteria.
 
 You can now use the [`ProductServiceInterface::findVariants()`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-ProductServiceInterface.html#method_findVariants) method to search for variants across all products, regardless of their base product.
 
 For more information, see [Product API - Searching variants](product_api.md#searching-for-variants-across-all-products).
+
+### Full changelog
+
+[[% include 'snippets/release_50.md' %]]
+
+[[= release_note_entry_end() =]]
 
 [[% set version = 'v5.0.5' %]]
 
