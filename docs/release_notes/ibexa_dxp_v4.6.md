@@ -13,7 +13,7 @@ month_change: false
 <!-- draft release notes -->
 ### Gaussian Blur Configuration in Image Editor
 
-The [Image Editor]([[= user_doc =]]/image_management/edit_images/) now supports configurable gaussian blur strength for image optimization. 
+The [Image Editor]([[= user_doc =]]/image_management/edit_images/) now supports configurable gaussian blur strength for image optimization.
 You can adjust the blur level to balance between file size reduction and image sharpness.
 For more information, see [Configure image editor](configure_image_editor.md#gaussian-blur-strength).
 
