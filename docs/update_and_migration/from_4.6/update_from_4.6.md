@@ -34,7 +34,7 @@ Then execute the instructions below starting from the version you're upgrading f
 
 !!! caution
 
-    To avoid deprecations when using PHP 8.2 or 8.3, run the following commands:
+    To avoid deprecations when using PHP 8.2, 8.3, or 8.4, run the following commands:
 
     ``` bash
     composer config extra.runtime.error_handler "\\Ibexa\\Contracts\\Core\\MVC\\Symfony\\ErrorHandler\\Php82HideDeprecationsErrorHandler"
