@@ -58,21 +58,55 @@ To delete a product, use `LocalProductServiceInterface::deleteProduct()`:
 
 ### Product variants
 
-You can access the variants of a product by using `ProductServiceInterface::findProductVariants()`.
+#### Searching for variants of a specific product
+
+You can access the variants of a product by using the [`ProductServiceInterface::findProductVariants()`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-ProductServiceInterface.html#method_findProductVariants) method.
 The method takes the product object and a [`ProductVariantQuery`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Values-Product-ProductVariantQuery.html) object as parameters.
 
-A `ProductVariantQuery` lets you define the offset and limit of the variant query.
-The default offset is 0, and limit is 25.
+You can filter variants by:
+
+- variant codes:
+
+    ``` php
+[[= include_file('code_samples/api/product_catalog/src/Command/ProductVariantCommand.php', 50, 54) =]]
+    ```
+
+- product criteria:
+
+    To use [Product Search Criteria](product_search_criteria.md) with [`ProductVariantQuery`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Values-Product-ProductVariantQuery.html), wrap it with the [`ProductCriterionAdapter`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Values-Content-Query-Criterion-ProductCriterionAdapter.html) class, as in the example below:
+
+    ``` php hl_lines="4"
+[[= include_file('code_samples/api/product_catalog/src/Command/ProductVariantCommand.php', 55, 66) =]]
+    ```
+
+From a variant ([`ProductVariantInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Values-ProductVariantInterface.html)), you can access the attributes that are used to generate the variant by using the [`ProductVariantInterface::getDiscriminatorAttributes()`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Values-ProductVariantInterface.html#method_getDiscriminatorAttributes) method.
 
 ``` php
-[[= include_file('code_samples/api/product_catalog/src/Command/ProductVariantCommand.php', 49, 52) =]]
+[[= include_file('code_samples/api/product_catalog/src/Command/ProductVariantCommand.php', 69, 73) =]]
 ```
 
-From a variant ([`ProductVariantInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Values-ProductVariantInterface.html)), you can access the attributes that are used to generate the variant by using `ProductVariantInterface::getDiscriminatorAttributes()`.
+#### Searching for variants across all products
 
-``` php
-[[= include_file('code_samples/api/product_catalog/src/Command/ProductVariantCommand.php', 53, 60) =]]
-```
+To search for variants across all products, use the [`ProductServiceInterface::findVariants()`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-ProductServiceInterface.html#method_findVariants) method.
+This method takes a [`ProductVariantQuery`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Values-Product-ProductVariantQuery.html) object and returns variants regardless of their base product.
+
+Unlike `findProductVariants()`, which requires a specific product object, `findVariants()` allows you to search the entire variant catalog.
+
+You can filter variants by:
+
+- variant codes:
+
+    ``` php
+[[= include_file('code_samples/api/product_catalog/src/Command/ProductVariantCommand.php', 83, 87) =]]
+    ```
+
+- product criteria:
+
+    To use [Product Search Criteria](product_search_criteria.md) with [`ProductVariantQuery`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Values-Product-ProductVariantQuery.html), wrap it with the [`ProductCriterionAdapter`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Values-Content-Query-Criterion-ProductCriterionAdapter.html) class, as in the example below:
+
+    ``` php hl_lines="4"
+[[= include_file('code_samples/api/product_catalog/src/Command/ProductVariantCommand.php', 92, 100) =]]
+    ```
 
 #### Creating variants
 
@@ -81,7 +115,7 @@ This method takes the product and an array of [`ProductVariantCreateStruct`](/ap
 `ProductVariantCreateStruct` specifies the attribute values and the code for the new variant.
 
 ``` php
-[[= include_file('code_samples/api/product_catalog/src/Command/ProductVariantCommand.php', 62, 68) =]]
+[[= include_file('code_samples/api/product_catalog/src/Command/ProductVariantCommand.php', 85, 91) =]]
 ```
 
 ### Product assets
