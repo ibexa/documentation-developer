@@ -10,8 +10,8 @@ namespace App\Export\User;
 
 use Ibexa\Contracts\Cdp\Export\User\AbstractUserItemProcessor;
 use Ibexa\Contracts\Core\Repository\Values\Content\Content;
-use Ibexa\Core\Base\Exceptions\InvalidArgumentException;
 use Ibexa\Core\FieldType\Date\Value as DateValue;
+use InvalidArgumentException;
 
 final class DateOfBirthUserItemProcessor extends AbstractUserItemProcessor
 {
@@ -27,7 +27,7 @@ final class DateOfBirthUserItemProcessor extends AbstractUserItemProcessor
         $userField = $this->getUserField($userContent);
 
         if (null === $userField) {
-            throw new InvalidArgumentException('$userContent', 'User content does not contain user field');
+            throw new InvalidArgumentException('Content does not contain user field');
         }
 
         $dateOfBirth = '';
