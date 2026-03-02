@@ -12,28 +12,28 @@ Environment variable prefixes are created by converting relationship names to up
 When multiple endpoints are defined for a single relationship, numerical indices are used for all entries except the first one, for example: `SOLR`, `SOLR_1_`, `SOLR_2`.
 When multiple services of the same type are present, environment variables are exposed for each service accordingly based on their relationship names.
 
-## Environment variables in configuration files
+!!! warning "Environment variables in configuration files"
 
-If you're referencing [[= product_name_cloud =]] environment variables in your configuration files, you must define placeholder values for them in your `.env` file to prevent Symfony container initialization failures.
+    To prevent Symfony container initialization failures, you must define placeholder values for [[= product_name_cloud =]] environment variables in your `.env` file when referencing them in configuration files.
 
-Do it only for the variables that are required for the Symfony container to build.
+    Do it only for the variables that are required for the Symfony container to build.
 
-For example, if your `doctrine.yaml` uses a [database variable](#database-variables) created for a relationship named `pgsql`:
+    For example, if your `doctrine.yaml` uses a [database variable](#database-variables) created for a relationship named `pgsql`:
 
-``` yaml
-doctrine:
-    dbal:
-        url: '%env(resolve:PGSQL_URL)%'
-```
+    ``` yaml
+    doctrine:
+        dbal:
+            url: '%env(resolve:PGSQL_URL)%'
+    ```
 
-You must define a placeholder value in `.env`:
+    You must define a placeholder value in `.env`:
 
-``` env
-PGSQL_URL="postgresql://app:!ChangeMe!@127.0.0.1:5432/app?serverVersion=16&charset=utf8"
-```
+    ``` env
+    PGSQL_URL="placeholder"
+    ```
 
-The actual value of the environment variable is provided by [[= product_name_cloud =]] at runtime.
-The placeholder in `.env` is only required to prevent Symfony container compilation errors during build.
+    The actual value of the environment variable is provided by [[= product_name_cloud =]] at runtime.
+    The placeholder in `.env` is only required to prevent Symfony container compilation errors during build.
 
 ## Relationship naming conventions
 
