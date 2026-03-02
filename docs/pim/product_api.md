@@ -67,17 +67,17 @@ You can filter variants by:
 
 - variant codes:
 
-``` php
+    ``` php
 [[= include_file('code_samples/api/product_catalog/src/Command/ProductVariantCommand.php', 50, 54) =]]
-```
+    ```
 
 - product criteria:
 
-To use [Product Search Criteria](product_search_criteria.md) with [`ProductVariantQuery`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Values-Product-ProductVariantQuery.html), wrap it with the [`ProductCriterionAdapter`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Values-Content-Query-Criterion-ProductCriterionAdapter.html) class, as in the example below:
+    To use [Product Search Criteria](product_search_criteria.md) with [`ProductVariantQuery`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Values-Product-ProductVariantQuery.html), wrap it with the [`ProductCriterionAdapter`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Values-Content-Query-Criterion-ProductCriterionAdapter.html) class, as in the example below:
 
-``` php hl_lines="4"
+    ``` php hl_lines="4"
 [[= include_file('code_samples/api/product_catalog/src/Command/ProductVariantCommand.php', 55, 66) =]]
-```
+    ```
 
 From a variant ([`ProductVariantInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Values-ProductVariantInterface.html)), you can access the attributes that are used to generate the variant by using [`ProductVariantInterface::getDiscriminatorAttributes()`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Values-ProductVariantInterface.html#method_getDiscriminatorAttributes).
 
@@ -96,17 +96,17 @@ You can filter variants by:
 
 - variant codes:
 
-``` php
+    ``` php
 [[= include_file('code_samples/api/product_catalog/src/Command/ProductVariantCommand.php', 83, 87) =]]
-```
+    ```
 
 - product criteria:
 
-To use [Product Search Criteria](product_search_criteria.md) with [`ProductVariantQuery`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Values-Product-ProductVariantQuery.html), wrap it with the [`ProductCriterionAdapter`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Values-Content-Query-Criterion-ProductCriterionAdapter.html) class, as in the example below:
+    To use [Product Search Criteria](product_search_criteria.md) with [`ProductVariantQuery`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Values-Product-ProductVariantQuery.html), wrap it with the [`ProductCriterionAdapter`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Values-Content-Query-Criterion-ProductCriterionAdapter.html) class, as in the example below:
 
-``` php hl_lines="4"
+    ``` php hl_lines="4"
 [[= include_file('code_samples/api/product_catalog/src/Command/ProductVariantCommand.php', 92, 100) =]]
-```
+    ```
 
 #### Creating variants
 
