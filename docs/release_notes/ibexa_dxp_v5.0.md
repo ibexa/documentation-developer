@@ -10,12 +10,29 @@ month_change: false
 
 <div class="release-notes" markdown="1">
 
-<!-- draft release notes -->
-### Gaussian Blur Configuration in Image Editor
+<draft release notes>
+### Developer experience
 
-The [Image Editor]([[= user_doc =]]/image_management/edit_images/) now supports configurable gaussian blur strength for image optimization.
-You can adjust the blur level to balance between file size reduction and image sharpness.
-For more information, see [Configure image editor](configure_image_editor.md#gaussian-blur-strength).
+#### Pass custom parameters to `ibexa_render()` Twig function
+
+You can now pass custom parameters to templates when using the `ibexa_render()` Twig function with the new `params` option, similar to how you can with `render(controller())`.
+
+This allows you to provide additional context or data to your view templates:
+
+``` html+twig
+{{ ibexa_render(content, {
+    'viewType': 'line',
+    'method': 'inline',
+    'params': {
+        'custom_param': 'custom_value',
+        'another_param': 'another_value'
+    }
+}) }}
+```
+
+The parameters are available in your template as regular variables.
+
+For more information, see [`ibexa_render()` Twig function](content_twig_functions.md#ibexa_render).
 
 [[% set version = 'v5.0.5' %]]
 

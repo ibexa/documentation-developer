@@ -18,6 +18,30 @@ You can adjust the blur level to balance between file size reduction and image s
 For more information, see [Configure image editor](configure_image_editor.md#gaussian-blur-strength).
 
 
+<draft release notes>
+### Developer experience
+
+#### Pass custom parameters to `ibexa_render()` Twig function
+
+You can now pass custom parameters to templates when using the `ibexa_render()` Twig function with the new `params` option, similar to how you can with `render(controller())`.
+
+This allows you to provide additional context or data to your view templates:
+
+``` html+twig
+{{ ibexa_render(content, {
+    'viewType': 'line',
+    'method': 'inline',
+    'params': {
+        'custom_param': 'custom_value',
+        'another_param': 'another_value'
+    }
+}) }}
+```
+
+The parameters are available in your template as regular variables.
+
+For more information, see [`ibexa_render()` Twig function](content_twig_functions.md#ibexa_render).
+
 [[% set version = 'v4.6.27' %]]
 [[= release_note_entry_begin("Ibexa DXP " + version, '2026-02-03', ['Headless', 'Experience', 'Commerce']) =]]
 
