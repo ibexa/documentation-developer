@@ -21,7 +21,7 @@ month_change: false
 A new `ibexa/cloud` package is now available for [[= product_name_cloud =]] deployments.
 This package replaces the previous `composer ibexa:setup --platformsh` command with a dedicated console command.
 
-The package automatically generates environment variables based on [[= product_name_cloud =]] relationships and routes configuration, making it easier to configure services like databases, cache, search engines, and session storage.
+The package automatically generates environment variables based on the configuration of relationships and routes in [[= product_name_cloud =]], making it easier to configure services like databases, cache, search engines, and session storage.
 
 For more information, see [Install on Ibexa Cloud](install_on_ibexa_cloud.md) and [Environment variables on Ibexa Cloud](environment_variables.md).
 
