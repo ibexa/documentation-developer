@@ -136,7 +136,7 @@ To use Composer to instantly create a project in the current folder with all the
 
 ??? note "Using PHP 8.4, 8.2 or older"
 
-    If you're using PHP 8.4, 8.2 or any older version, use a different set of commands:
+    If you aren't using PHP 8.3 but are using PHP 8.4, PHP 8.2, or any older version, use a different set of commands:
 
     === "[[= product_name_headless =]]"
 
