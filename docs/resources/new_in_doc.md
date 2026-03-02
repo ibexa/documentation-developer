@@ -11,7 +11,7 @@ This page contains recent highlights and notable changes in [[= product_name =]]
 
 ### Ibexa Cloud
 
-- Added documentation describing [how to use the new `ibexa/cloud` package](install_on_ibexa_cloud.md) and the [environment variables it provides]
+- Added documentation describing [how to use the new `ibexa/cloud` package](install_on_ibexa_cloud.md) and the [environment variables it provides](environment_variables.md)
 
 ### Configuration
 
