@@ -97,10 +97,10 @@ The PHP API has been enhanced with the following classes and interfaces:
 - [`Ibexa\Contracts\Core\Search\Embedding\EmbeddingProviderExceptionInterface`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Search-Embedding-EmbeddingProviderExceptionInterface.html)
 - [`Ibexa\Contracts\Taxonomy\Embedding\Exception\TaxonomyEmbeddingConfigurationException`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-Taxonomy-Embedding-Exception-TaxonomyEmbeddingConfigurationException.html)
 
-
 ### Full changelog
 
 [[% include 'snippets/release_46.md' %]]
+
 [[= release_note_entry_end() =]]
 
 [[% set version = 'v4.6.26' %]]
@@ -181,8 +181,8 @@ The PHP API has been enhanced with the following classes:
 - [`Ibexa\Contracts\ConnectorAi\Action\TextToTaxonomy\ActionResponse`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorAi-Action-TextToTaxonomy-ActionResponse.html)
 - [`Ibexa\Contracts\ConnectorAi\Action\TextToTaxonomy\ActionType`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorAi-Action-TextToTaxonomy-ActionType.html)
 
-
 [[= release_note_entry_end() =]]
+
 [[= release_note_entry_begin("Ibexa DXP " + version, '2025-12-10', ['Headless', 'Experience', 'Commerce', 'New feature']) =]]
 
 #### Security
@@ -221,7 +221,9 @@ The PHP API has been enhanced with the following classes and interfaces:
 - [`Ibexa\Contracts\User\PasswordReset\NotifierInterface`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-User-PasswordReset-NotifierInterface.html)
 
 [[= release_note_entry_end() =]]
+
 [[% set version = 'v4.6.25' %]]
+
 [[= release_note_entry_begin("Ibexa DXP " + version, '2024-10-17', ['Headless', 'Experience', 'Commerce']) =]]
 
 #### Security
@@ -230,6 +232,7 @@ This release includes security fixes.
 To learn more, see the [corresponding security advisory](https://developers.ibexa.co/security-advisories/ibexa-sa-2025-004-xss-and-enumeration-vulnerabilities-in-back-office).
 
 [[% include 'snippets/release_46.md' %]]
+
 [[= release_note_entry_end() =]]
 
 [[% set version = 'v4.6.24' %]]
@@ -311,7 +314,6 @@ To further improve your experience with Ibexa DXP, a 1.14.0 version of [PHP Stor
 
 - Redis 7.2+ is now [officially supported](https://doc.ibexa.co/en/4.6/getting_started/requirements/)
 
-
 ##### PHP API
 
 The PHP API has been enhanced with the following:
@@ -355,6 +357,7 @@ The PHP API has been enhanced with the following:
 The Product Picker tool that, for example, lets you [select products eligible for discounts]([[= user_doc =]]/commerce/discounts/work_with_discounts/#create-new-discount), now displays a **Base price** column for products and product variants.
 
 #### Full changelog
+
 [[% include 'snippets/release_46.md' %]]
 
 [[= release_note_entry_end() =]]
@@ -398,6 +401,7 @@ The PHP API has been enhanced with the following new classes:
 - [`Ibexa\Contracts\Discounts\Value\Query\SortClause\OverridePrioritization`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-Discounts-Value-Query-SortClause-OverridePrioritization.html)
 
 [[= release_note_entry_end() =]]
+
 [[= release_note_entry_begin("Ibexa DXP " + version, '2025-08-05', ['Headless', 'Experience', 'Commerce', 'New feature']) =]]
 
 #### Special characters in online editor
@@ -584,6 +588,7 @@ To learn more, see the [setup instructions for this integration](configure_ai_ac
 [[= release_note_entry_end() =]]
 
 [[% set version = 'v4.6.19' %]]
+
 [[= release_note_entry_begin("Ibexa DXP " + version, '2025-04-09', ['Headless', 'Experience', 'Commerce']) =]]
 
 #### Security
@@ -1448,11 +1453,8 @@ While they experience improved fulfillment of their needs, more engaged customer
 The feature requires that your organization exposes an endpoint that passes data to an internal message delivery system and supports the following use cases:
 
 - Inducing a purchase by pushing a message with cart contents or equivalents, when the customer's cart status remains unchanged for a set time.
-
 - Inviting a customer to come back to the site by pushing a message with recommendations, when they haven't returned to the site for a set time.
-
 - Reviving the customer's interest by pushing a message with products that are similar to the ones the customer has already seen.
-
 - Inducing a purchase by pushing a message when a price of the product from the customer's wishlist decreases.
 
 For more information, see [Email triggers](https://doc.ibexa.co/projects/userguide/en/master/personalization/triggers/).
