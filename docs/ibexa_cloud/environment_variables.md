@@ -53,7 +53,7 @@ Common relationship name include:
 
 ## Database variables
 
-For MySQL and PostgreSQL databases, the following variables are generated based on the relationship name (e.g., `database`):
+For MySQL and PostgreSQL databases, the following variables are generated based on the relationship name (for example, `database`):
 
 - `{RELATIONSHIP_NAME}_URL` - full database URL with charset and server version
 - `{RELATIONSHIP_NAME}_USER` / `{RELATIONSHIP_NAME}_USERNAME` - database user
@@ -64,13 +64,13 @@ For MySQL and PostgreSQL databases, the following variables are generated based 
 - `{RELATIONSHIP_NAME}_DRIVER` - database driver
 - `{RELATIONSHIP_NAME}_SERVER` - database server
 
-For example, for a relationship called `database` the environment variables are named `DATABASE_URL`, `DATABASE_HOST`, `DATABASE_USER`, etc.
+For example, for a relationship called `database`, the environment variables are named `DATABASE_URL`, `DATABASE_HOST`, `DATABASE_USER`, etc.
 
 For more information about database configuration, see [Databases](databases.md).
 
 ## DFS database variables
 
-When using [distributed file storage (DFS) using a separate database](clustering.md#dfs-io-handler), you must use the relationship name `dfs_database`.
+When using [distributed file storage (DFS) that uses a separate database](clustering.md#dfs-io-handler), you must use the relationship name `dfs_database`.
 In addition to the database variables listed above, additional DFS-specific variables are availabld when `PLATFORMSH_DFS_NFS_PATH` is set:
 
 - `DFS_NFS_PATH` - NFS path for DFS storage
@@ -79,7 +79,7 @@ In addition to the database variables listed above, additional DFS-specific vari
 
 ## Cache variables
 
-For Redis and Valkey cache services,  you can use the following variables:
+For Redis and Valkey cache services, you can use the following variables:
 
 - `{RELATIONSHIP_NAME}_URL`
 - `{RELATIONSHIP_NAME}_HOST`
@@ -100,7 +100,7 @@ For Redis-based session storage, the following variables are available.
 - `SESSION_HANDLER_ID` - session handler class name
 - `SESSION_SAVE_PATH` - Redis connection in `host:port` format
 
-The system looks for a relationships named `redissession` or `valkeysession` first.
+The system looks for relationships named `redissession` or `valkeysession` first.
 If not found, it uses the first available Redis-compatible service.
 
 For more information about session configuration, see [Sessions](sessions.md).
