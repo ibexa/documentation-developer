@@ -71,7 +71,7 @@ For more information about database configuration, see [Databases](databases.md)
 ## DFS database variables
 
 When using [distributed file storage (DFS) using a separate database](clustering.md#dfs-io-handler), you must use the relationship name `dfs_database`.
-In addition to the database variables listed above, additional DFS-specific variables are availabld when `PLATFORMSH_DFS_NFS_PATH` is set:
+In addition to the database variables listed above, additional DFS-specific variables are available when `PLATFORMSH_DFS_NFS_PATH` is set:
 
 - `DFS_NFS_PATH` - NFS path for DFS storage
 - `DFS_DATABASE_CHARSET` - database character set
