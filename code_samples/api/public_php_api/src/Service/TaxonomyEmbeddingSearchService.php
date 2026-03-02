@@ -18,7 +18,7 @@ final class TaxonomyEmbeddingSearchService
      *
      * @param float[] $vector
      */
-    public function searchByEmbedding(array $vector): array
+    public function searchByEmbedding(array $vector): void
     {
         $query = EmbeddingQueryBuilder::create()
             ->withEmbedding(new TaxonomyEmbedding($vector))
@@ -27,7 +27,5 @@ final class TaxonomyEmbeddingSearchService
             ->build();
 
         $result = $this->searchService->findContent($query);
-
-        return $result->searchHits;
     }
 }

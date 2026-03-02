@@ -45,7 +45,7 @@ class FindByTaxonomyEmbeddingCommand extends Command
         $output->writeln('Found ' . $result->totalCount . ' items');
 
         foreach ($result->searchHits as $searchHit) {
-            $output->writeln((string) $searchHit->valueObject->name);
+            $output->writeln((string) $searchHit->valueObject->id);
         }
 
         return self::SUCCESS;
