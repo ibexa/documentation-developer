@@ -1,0 +1,13 @@
+-
+    type: sql
+    mode: execute
+    query:
+        -
+            driver: mysql
+            sql: 'INSERT INTO test_table (test_value) VALUES ("foo");'
+        -
+            driver: sqlite
+            sql: 'INSERT INTO test_table (test_value) VALUES ("foo");'
+        -
+            driver: postgresql
+            sql: "INSERT INTO test_table (test_value) VALUES ('foo');"
