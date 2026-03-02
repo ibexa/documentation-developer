@@ -6,10 +6,10 @@ use Ibexa\Contracts\Core\Repository\SearchService;
 use Ibexa\Contracts\Core\Repository\Values\Content\EmbeddingQueryBuilder;
 use Ibexa\Contracts\Taxonomy\Search\Query\Value\TaxonomyEmbedding;
 
-final class TaxonomyEmbeddingSearchService
+final readonly class TaxonomyEmbeddingSearchService
 {
     public function __construct(
-        private readonly SearchService $searchService,
+        private SearchService $searchService,
     ) {
     }
 
