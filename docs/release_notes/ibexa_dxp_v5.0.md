@@ -14,9 +14,9 @@ month_change: false
 
 [[= release_note_entry_begin("Ibexa DXP " + version, '2025-XX-XX', ['Headless', 'Experience', 'Commerce', 'New feature']) =]]
 
-#### Ibexa Cloud improvements
+### Infrastructure
 
-##### New cloud configuration package
+#### New cloud configuration package
 
 A new `ibexa/cloud` package is now available for [[= product_name_cloud =]] deployments.
 This package replaces the previous `composer ibexa:setup --platformsh` command with a dedicated console command.
