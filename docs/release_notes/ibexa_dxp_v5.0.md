@@ -22,6 +22,27 @@ For more information, see [Shopping list feature guide](shopping_list_guide.md).
 
 [[= release_note_entry_end() =]]
 
+[[% set version = 'v5.0.6' %]]
+
+[[= release_note_entry_begin("Ibexa DXP " + version, '2025-XX-XX', ['Headless', 'Experience', 'Commerce', 'New feature']) =]]
+
+#### Ibexa Cloud improvements
+
+##### New cloud configuration package
+
+A new `ibexa/cloud` package is now available for [[= product_name_cloud =]] deployments.
+This package replaces the previous `composer ibexa:setup --platformsh` command with a dedicated console command.
+
+The package automatically generates environment variables based on [[= product_name_cloud =]] relationships and routes configuration, making it easier to configure services like databases, cache, search engines, and session storage.
+
+For more information, see [Install on Ibexa Cloud](install_on_ibexa_cloud.md) and [Environment variables on Ibexa Cloud](environment_variables.md).
+
+### Full changelog
+
+<!-- [[% include 'snippets/release_50.md' %]] -->
+
+[[= release_note_entry_end() =]]
+
 [[% set version = 'v5.0.5' %]]
 
 [[= release_note_entry_begin("Ibexa DXP " + version, '2026-01-15', ['Headless', 'Experience', 'Commerce']) =]]

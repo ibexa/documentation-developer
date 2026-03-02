@@ -159,7 +159,7 @@ Out of the box in `config/packages/cache_pool/cache.redis.yaml` you can find a d
 
 !!! note "[[= product_name_cloud =]]"
 
-    For [[= product_name_cloud =]]: This is automatically configured in `vendor/ibexa/core/src/bundle/Core/DependencyInjection/IbexaCoreExtension.php` if you have enabled Redis as `rediscache` Upsun service.
+    For [[= product_name_cloud =]], it's configured based on the `.platform.app.yaml` file by the [`ibexa/cloud` package](install_on_ibexa_cloud.md).
 
 For anything else, you can enable it with environment variables.
 For instance, if you set the following environment variables `export CACHE_POOL="cache.redis" CACHE_DSN="secret@example.com:1234/13"`, it results in config like this:
