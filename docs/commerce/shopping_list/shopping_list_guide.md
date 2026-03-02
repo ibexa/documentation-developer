@@ -1,0 +1,74 @@
+---
+description: Shopping list feature allows to store potential purchases, recurrent product set, and other whish lists for later use into carts.
+editions: lts-update commerce
+month_change: true
+---
+
+# Shopping list feature guide
+
+Shopping lists give logged-in customers a simple yet powerful way to manage future purchases.
+It can cover many purchase planning cases.
+
+## Use cases
+
+Shopping lists can be used in various ways, depending on the customer's needs and preferences.
+Here are some examples.
+
+### Recurrent purchases
+
+Every quarter, almost the same consumables must be bought.
+Thanks to a dedicated shopping list, the cart can be quickly drafted, filled with all the necessary products.
+Only quantities need to be input, the amount of each product is adjusted depending on what's left from previous quarter and known consumption for the same period from previous years.
+
+### Project wishlist
+
+Every purchase needed by an incoming project can be stored in a dedicated shopping list,
+even several products fulfilling the same purpose to decide latter wish ones to keep in the final cart.
+
+## Shopping list management overview
+
+Policies can give the rights to create, view, edit, and delete shopping lists.
+Authenticated customers can be granted with those rights on their own shopping lists.
+For more information, see [Shopping list user role](install_shopping_list.md#shopping-list-user-role).
+
+A customer always have a default shopping list named “My Wishlist”
+which is created automatically on first use,
+which can't be renamed, and can't be deleted.
+According to configuration, customers can have a limited amount of additional custom shopping lists.
+The number of products a shopping list can contain is also limited by configuration.
+For more information, see [Configure shopping list](install_shopping_list.md#configure).
+
+A shopping list only stores product codes.
+A shopping list doesn't store quantities.
+
+In the out-of-the-box [storefront](storefront.md), a shopping list user can:
+
+- Create a shopping list
+    - in shopping lists management interface
+      ![Shopping lists management interface with an highlight on the "Create" button](img/create_from_management.png "Create a new shopping list from the shopping lists management interface")
+    - from catalog when adding a product to a shopping list
+      ![Product "Add to cart" button and "Add to list" drop-down menu zone with an highlight on the "+ Create an new shopping list" option](img/create_from_product.png "Create a new shopping list from the product page")
+    - from a shopping list when adding a product to another shopping list
+      ![Shopping list product list with three-dots drop-down menu having "Add to shopping list", the "Add to shopping list" pop-in modal with an highlight on the "+ Create an new shopping list" option](img/create_from_shopping_list.png "Create a new shopping list from another shopping list")
+- Manage to which shopping lists a product (or product variant) belongs to, from a product page or from a shopping list's product list
+  !["Add to shopping list" belonging menu with "My Wishlist" selected](img/shopping_list_belonging_1.png "The product belongs to “My Wishlist”") !["Add to shopping list" belonging menu with "Bikes" selected](img/shopping_list_belonging_2.png "The product has been moved by unchecking the default list and checking a custom one")
+- Rename a shopping list (except the default “My Wishlist”)
+- View the list of their shopping lists
+- View a shopping list and its product list
+- Copy product from a shopping list to cart (product is kept in shopping list while added to the cart, quantity in the cart is incremented by 1 each time)
+- Copy a whole shopping list to cart
+    - products are kept in shopping list while added to the cart
+    - products out-of-stock aren't copied and the user is warned
+    - product quantities are incremented by 1, the user can adjust quantities in the cart
+  ![Shopping list product list with highligts on "Add to cart" and "Add all to cart" buttons](img/add_to_cart.png "“Add to cart” and “Add all to cart” buttons")
+- Move a product from cart to “My Wishlist” (product is removed from cart and added to the default shopping list)
+- Move a whole cart to “My Wishlist” (products are removed from cart and added to the default shopping list)
+  ![Cart's product list with highligts on "Move to My Wishlist" and "Move all to wishlist" buttons](img/move_to_my_wishlist.png "“Move to My Wishlist” and “Move all to wishlist” buttons")
+- Delete a shopping list
+
+## Extensibility
+
+The shopping list's [PHP API](shopping_list_api.md#php-api) and [REST API](shopping_list_api.md#rest-api) already offer few functionalities not used in the default storefront,
+such as to empty a whole shopping list, or to move from a cart to a specific shopping list.
+
+Those APIs can be used to implement custom features, and can themselves be extended to cover more use cases.

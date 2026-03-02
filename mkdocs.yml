@@ -86,6 +86,7 @@ nav:
             - Location events: api/event_reference/location_events.md
             - Catalog events: api/event_reference/catalog_events.md
             - Cart events: api/event_reference/cart_events.md
+            - Shopping list events: api/event_reference/shopping_list_events.md
             - Order management events: api/event_reference/order_management_events.md
             - Payment events: api/event_reference/payment_events.md
             - Language events: api/event_reference/language_events.md
@@ -375,6 +376,12 @@ nav:
             - Cart: commerce/cart/cart.md
             - Cart API: commerce/cart/cart_api.md
             - Quick order: commerce/cart/quick_order.md
+        - Shopping list:
+            - Shopping list: commerce/shopping_list/shopping_list.md
+            - Shopping list guide: commerce/shopping_list/shopping_list_guide.md
+            - Install shopping list: commerce/shopping_list/install_shopping_list.md
+            - Shopping list design: commerce/shopping_list/shopping_list_design.md
+            - Shopping list API: commerce/shopping_list/shopping_list_api.md
         - Checkout:
             - Checkout: commerce/checkout/checkout.md
             - Configure checkout: commerce/checkout/configure_checkout.md
@@ -661,6 +668,7 @@ nav:
             - ShippingMethod: search/criteria_reference/shipment_shipping_method_criterion.md
             - StatusCriterion: search/criteria_reference/shipment_status_criterion.md
             - UpdatedAtCriterion: search/criteria_reference/shipment_updatedat_criterion.md
+        - Shopping List Search Criteria: search/shopping_list_search_reference/shopping_list_criteria.md
         - URL Search Criteria:
             - URL Search Criteria: search/url_search_reference/url_search_criteria.md
             - MatchAll Criterion: search/url_search_reference/matchall_url_criterion.md
@@ -750,6 +758,7 @@ nav:
                 - CreatedAt: search/sort_clause_reference/shipment_createdat_sort_clause.md
                 - UpdatedAt: search/sort_clause_reference/shipment_updatedat_sort_clause.md
                 - Status: search/sort_clause_reference/shipment_status_sort_clause.md
+            - Shopping List Sort Clauses: search/shopping_list_search_reference/shopping_list_sort_clauses.md
             - URL Sort Clauses:
                 - URL Sort Clauses: search/url_search_reference/url_search_sort_clauses.md
                 - Id Sort Clause: search/url_search_reference/id_url_sort_clause.md

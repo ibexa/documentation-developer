@@ -10,6 +10,18 @@ month_change: true
 
 <div class="release-notes" markdown="1">
 
+[[% set version = 'v5.0.X' %]]
+
+[[= release_note_entry_begin('Shopping list ' + version, '202X-TODO', ['Commerce', 'LTS Update', 'New feature']) =]]
+
+Shopping list is a new feature that allows users to save products into wishlists.
+A authenticated customer has a default "My wishlist" created on first use, and can create custom shopping lists to organize their potential or recurrent purchases.
+Products can be moved from cart to shopping list, from a shopping list to another shopping list, and copied from a shopping list to the cart.
+
+For more information, see [Shopping list feature guide](shopping_list_guide.md).
+
+[[= release_note_entry_end() =]]
+
 [[% set version = 'v5.0.5' %]]
 
 [[= release_note_entry_begin("Ibexa DXP " + version, '2026-01-15', ['Headless', 'Experience', 'Commerce']) =]]
