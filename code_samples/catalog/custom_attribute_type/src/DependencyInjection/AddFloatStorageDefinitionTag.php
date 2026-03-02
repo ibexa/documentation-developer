@@ -8,8 +8,8 @@ declare(strict_types=1);
 namespace App\DependencyInjection;
 
 use Ibexa\ProductCatalog\Local\Persistence\Legacy\Attribute\Float\StorageDefinition;
-use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Compiler\CompilerPassInterface;
+use Symfony\Component\DependencyInjection\ContainerBuilder;
 
 class AddFloatStorageDefinitionTag implements CompilerPassInterface
 {
