@@ -15,7 +15,7 @@ month_change: false
 
 Product variant querying now supports filtering by variant codes and product attribute criteria.
 
-You can now use [`ProductServiceInterface::findVariants()`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-ProductServiceInterface.html#method_findVariants) method to search for variants across all products, regardless of their base product.
+You can now use the [`ProductServiceInterface::findVariants()`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-ProductServiceInterface.html#method_findVariants) method to search for variants across all products, regardless of their base product.
 
 For more information, see [Product API - Searching variants](product_api.md#searching-for-variants-across-all-products).
 

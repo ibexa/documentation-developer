@@ -79,7 +79,7 @@ You can filter variants by:
 [[= include_file('code_samples/api/product_catalog/src/Command/ProductVariantCommand.php', 55, 66) =]]
     ```
 
-From a variant ([`ProductVariantInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Values-ProductVariantInterface.html)), you can access the attributes that are used to generate the variant by using [`ProductVariantInterface::getDiscriminatorAttributes()`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Values-ProductVariantInterface.html#method_getDiscriminatorAttributes).
+From a variant ([`ProductVariantInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Values-ProductVariantInterface.html)), you can access the attributes that are used to generate the variant by using the [`ProductVariantInterface::getDiscriminatorAttributes()`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Values-ProductVariantInterface.html#method_getDiscriminatorAttributes) method.
 
 ``` php
 [[= include_file('code_samples/api/product_catalog/src/Command/ProductVariantCommand.php', 69, 73) =]]
@@ -87,7 +87,7 @@ From a variant ([`ProductVariantInterface`](/api/php_api/php_api_reference/class
 
 #### Searching for variants across all products
 
-To search for variants across all products, use [`ProductServiceInterface::findVariants()`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-ProductServiceInterface.html#method_findVariants).
+To search for variants across all products, use the [`ProductServiceInterface::findVariants()`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-ProductServiceInterface.html#method_findVariants) method.
 This method takes a [`ProductVariantQuery`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Values-Product-ProductVariantQuery.html) object and returns variants regardless of their base product.
 
 Unlike `findProductVariants()`, which requires a specific product object, `findVariants()` allows you to search the entire variant catalog.
