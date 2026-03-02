@@ -10,20 +10,31 @@ month_change: false
 
 <div class="release-notes" markdown="1">
 
-<!-- draft release notes -->
-### Gaussian Blur Configuration in Image Editor
+[[% set version = 'v4.6.28' %]]
+
+[[= release_note_entry_begin(
+    "Ibexa DXP " + version,
+    'YYYY-MM-DD',
+    ['Headless', 'Experience', 'Commerce']
+) =]]
+
+### Infrastructure
+
+#### PHP 8.4 support
+
+PHP 8.4 is now [officially supported](requirements.md#php).
+
+### Gaussian blur optimization in Image Editor
 
 The [Image Editor]([[= user_doc =]]/image_management/edit_images/) now supports configurable gaussian blur strength for image optimization.
 You can adjust the blur level to balance between file size reduction and image sharpness.
 For more information, see [Configure image editor](configure_image_editor.md#gaussian-blur-strength).
 
-
-<draft release notes>
 ### Developer experience
 
-#### Pass custom parameters to `ibexa_render()` Twig function
+#### Custom parameters in `ibexa_render()`
 
-You can now pass custom parameters to templates when using the `ibexa_render()` Twig function with the new `params` option, similar to how you can with `render(controller())`.
+You can now pass custom parameters to templates when using the `ibexa_render()` Twig function with the new `params` option, similar to how you can with `render(controller())`.Collapse annotationCheck notice on line R18[vale] docs/release_notes/ibexa_dxp_v4.6.md#L18Check notice: [vale] docs/release_notes/ibexa_dxp_v4.6.md#L18[Ibexa.ByUsing] Prefer 'by using' or 'with' to plain 'using'.Build & test documentation / valeView details
 
 This allows you to provide additional context or data to your view templates:
 
@@ -41,6 +52,12 @@ This allows you to provide additional context or data to your view templates:
 The parameters are available in your template as regular variables.
 
 For more information, see [`ibexa_render()` Twig function](content_twig_functions.md#ibexa_render).
+
+### Full changelog
+
+[[% include 'snippets/release_46.md' %]]
+
+[[= release_note_entry_end() =]]
 
 [[% set version = 'v4.6.27' %]]
 [[= release_note_entry_begin("Ibexa DXP " + version, '2026-02-03', ['Headless', 'Experience', 'Commerce']) =]]
