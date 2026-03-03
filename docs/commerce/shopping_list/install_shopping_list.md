@@ -38,17 +38,15 @@ Add the tables needed by the bundle:
 
 === "MySQL"
 
-    ```bash
-    php bin/console ibexa:doctrine:schema:dump-sql vendor/ibexa/shopping-list/src/bundle/Resources/config/schema.yaml | mysql -u <username> -p <password> <database_name>
+    ```sql
+    [[= include_file('code_samples/shopping_list/install/schema.mysql.sql', 0, None, '    ') =]]
     ```
 
 === "PostgreSQL"
 
-    ```bash
-    php bin/console ibexa:doctrine:schema:dump-sql --force-platform=postgres vendor/ibexa/shopping-list/src/bundle/Resources/config/schema.yaml | psql <database_name>
+    ```sql
+    [[= include_file('code_samples/shopping_list/install/schema.postgresql.sql', 0, None, '    ') =]]
     ```
-
-TODO: possible charset issue, see https://github.com/ibexa/doctrine-schema/pull/38
 
 Notice that a user has no shopping list at this stage, not even the default "My Wishlist" one.
 Each user's default shopping list is created when used for the first time.
