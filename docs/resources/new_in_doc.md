@@ -7,7 +7,12 @@ month_change: true
 
 This page contains recent highlights and notable changes in [[= product_name =]] documentation.
 
-## DRAFT 2026
+## February 2026
+
+### Releases
+
+- [v5.0.6 release notes](https://doc.ibexa.co/en/5.0/release_notes/ibexa_dxp_v5.0/#ibexa-dxp-v506)
+- [v4.6.28 release notes](https://doc.ibexa.co/en/5.0/release_notes/ibexa_dxp_v5.0/#ibexa-dxp-v4628)
 
 ### Ibexa Cloud
 
