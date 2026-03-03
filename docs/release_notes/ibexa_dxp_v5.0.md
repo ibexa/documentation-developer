@@ -1,7 +1,7 @@
 ---
 description: Ibexa DXP v5.0 incorporates features brought by LTS Updates from previous versions, brings upgrades to the tech stack and improvements to developer experience.
 title: Ibexa DXP v5.0 LTS
-month_change: false
+month_change: true
 ---
 
 <!-- vale VariablesVersion = NO -->
@@ -10,12 +10,68 @@ month_change: false
 
 <div class="release-notes" markdown="1">
 
-<draft release notes>
+[[% set version = 'v5.0.6' %]]
+
+https://github.com/ibexa/documentation-developer/pull/2969
+[[= release_note_entry_begin(
+    'Shopping Lists ' + version,
+    'YYYY-MM-DD',
+    ['Commerce', 'LTS Update', 'New feature']
+) =]]
+
+Shopping list is a new feature that allows users to save products into wishlists.
+A authenticated customer has a default "My wishlist" created on first use, and can create custom shopping lists to organize their potential or recurrent purchases.
+Products can be moved from cart to shopping list, from a shopping list to another shopping list, and copied from a shopping list to the cart.
+
+For more information, see [Shopping list feature guide](shopping_list_guide.md).
+
+[[= release_note_entry_end() =]]
+
+[[= release_note_entry_begin(
+    "Ibexa DXP " + version,
+    'YYYY-MM-DD',
+    ['Headless', 'Experience', 'Commerce', 'New feature']
+) =]]
+
+### Infrastructure
+
+https://github.com/ibexa/documentation-developer/pull/2985
+#### Ibexa Cloud package
+
+A new `ibexa/cloud` package is now available for [[= product_name_cloud =]] deployments.
+This package replaces the previous `composer ibexa:setup --platformsh` command with a dedicated console command.
+
+The package automatically generates environment variables based on the configuration of relationships and routes in [[= product_name_cloud =]],
+making it easier to configure services like databases, cache, search engines, and session storage.
+
+For more information, see [Install on Ibexa Cloud](install_on_ibexa_cloud.md) and [Environment variables on Ibexa Cloud](environment_variables.md).
+
+https://github.com/ibexa/documentation-developer/pull/3067
+#### PHP 8.4 support
+
+PHP 8.4 is now [officially supported](requirements.md#php).
+
+https://github.com/ibexa/documentation-developer/pull/3046
+### Gaussian blur optimization in Image Editor
+
+The [Image Editor]([[= user_doc =]]/image_management/edit_images/) now supports configurable gaussian blur strength for image optimization.
+You can adjust the blur level to balance between file size reduction and image sharpness.
+For more information, see [Configure image editor](configure_image_editor.md#gaussian-blur-strength).
+
+https://github.com/ibexa/documentation-developer/pull/3044
+### Query subtree limit configuration
+
+A new `query_subtree.limit` configuration option improves performance when working with large content trees by limiting count operations.
+This prevents performance degradation from database queries when determining if locations have children or calculating subtree sizes.
+
+For more information, see [Subtree operations configuration](back_office_configuration.md#subtree-operations).
+
 ### Developer experience
 
-#### Pass custom parameters to `ibexa_render()` Twig function
+https://github.com/ibexa/documentation-developer/pull/3043
+#### Custom parameters in `ibexa_render()`
 
-You can now pass custom parameters to templates when using the `ibexa_render()` Twig function with the new `params` option, similar to how you can with `render(controller())`.
+You can now pass custom parameters to templates when using the `ibexa_render()` Twig function with the new `params` option, similar to how you can with `render(controller())`.Collapse annotationCheck notice on line R18[vale] docs/release_notes/ibexa_dxp_v4.6.md#L18Check notice: [vale] docs/release_notes/ibexa_dxp_v4.6.md#L18[Ibexa.ByUsing] Prefer 'by using' or 'with' to plain 'using'.Build & test documentation / valeView details
 
 This allows you to provide additional context or data to your view templates:
 
@@ -33,6 +89,77 @@ This allows you to provide additional context or data to your view templates:
 The parameters are available in your template as regular variables.
 
 For more information, see [`ibexa_render()` Twig function](content_twig_functions.md#ibexa_render).
+
+https://github.com/ibexa/documentation-developer/pull/3060
+#### Try-catch support in data migrations
+
+Data migrations now support try-catch error handling, allowing you to wrap migration steps with exception handling logic.
+You can use it for migrations that might fail under certain conditions but should not break the entire migration process.
+
+For example, you can create languages without checking if they already exist:
+
+``` yaml
+[[= include_file('code_samples/data_migration/examples/try_catch_step.yaml') =]]
+```
+
+The `try_catch` step allows you to specify which exceptions to catch and whether to continue executing remaining steps after an exception occurs.
+
+For more information, see [Error handling with try-catch](importing_data.md#error-handling-with-try-catch).
+
+[[= release_note_entry_end() =]]
+
+https://github.com/ibexa/documentation-developer/pull/3033
+[[= release_note_entry_begin(
+    "Ibexa DXP " + version,
+    'YYYY-MM-DD',
+    ['Experience', 'Commerce']
+) =]]
+
+### Improved HTTP caching for Page Builder and dashboard blocks
+
+You can now indicate which [query parameters](https://en.wikipedia.org/wiki/Query_string) must be used as keys when generating [HTTP cache](http_cache.md) for block requests.
+
+This allows you to improve performance for blocks by utilizing HTTP cache more effectively, for example, for paginated blocks in the [dashboard](customize_dashboard.md).
+
+To set it up, use the new `cacheable_query_params` [block setting](page_blocks.md#block-configuration).
+
+Then, adjust your [layouts](render_page.md#configure-layout) and pass the parameters to [Symfony's `controller function`]([[= symfony_doc =]]/reference/twig_reference.html#controller) by using the new `ibexa_append_cacheable_query_params` Twig function, as in the example below:
+
+``` html+twig
+{{ render_esi(controller('Ibexa\\Bundle\\FieldTypePage\\Controller\\BlockController::renderAction',
+    {
+        'locationId': locationId,
+        'contentId': contentInfo.id,
+        'blockId': block.id,
+        'versionNo': versionInfo.versionNo,
+        'languageCode': field.languageCode
+    },
+    ibexa_append_cacheable_query_params(block)
+)) }}
+```
+
+[[= release_note_entry_end() =]]
+
+[[= release_note_entry_begin(
+    "Ibexa DXP " + version,
+    'YYYY-MM-DD',
+    ['Commerce']
+) =]]
+
+https://github.com/ibexa/documentation-developer/pull/3045
+### Improved product variant querying
+
+Product variant querying now supports filtering by variant codes and product attribute criteria.
+
+You can now use the [`ProductServiceInterface::findVariants()`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-ProductServiceInterface.html#method_findVariants) method to search for variants across all products, regardless of their base product.
+
+For more information, see [Product API - Searching variants](product_api.md#searching-for-variants-across-all-products).
+
+### Full changelog
+
+[[% include 'snippets/release_50.md' %]]
+
+[[= release_note_entry_end() =]]
 
 [[% set version = 'v5.0.5' %]]
 
@@ -454,7 +581,7 @@ This release brings additional minor improvements to the developer's experience 
 
 ### Notable changes
 
-This version incorporates into the product numerous features brought by [LTS Updates] from previous versions, brings upgrades to the tech stack and improvements to developer experience.
+This version incorporates into the product numerous features brought by LTS Updates from previous versions, brings upgrades to the tech stack and improvements to developer experience.
 
 #### AI Actions
 
@@ -515,9 +642,9 @@ With this release, [[= product_name =]] moves to Symfony 7.3 from the previously
 
 For details, see [Symfony 7.3](https://symfony.com/blog/symfony-7-3-curated-new-features).
 
-#### Doctrine 3.9
+#### Doctrine DBAL 3.9
 
-By moving to Doctrine 3.9, [[= product_name =]] brings developers better performance, cleaner code, and stronger foundation for a more modern and maintainable application.
+By moving to Doctrine DBAL 3.9, [[= product_name =]] brings developers better performance, cleaner code, and stronger foundation for a more modern and maintainable application.
 
 #### PHP 8.3
 
@@ -527,7 +654,7 @@ With performance, coding safety and security in mind, with this version, [[= pro
 
 Adding support for generating the [OpenAPI](https://www.openapis.org/) specification for our REST API makes future changes more manageable, and helps our partners automatically generate REST API clients.
 
-For more information, see [REST API usage](https://doc.ibexa.co/en/latehttps://doc.ibexa.co/en/5.0/api/rest_api/rest_api_usage/rest_api_usage/#openapi-support).
+For more information, see [REST API usage](https://doc.ibexa.co/en/5.0/api/rest_api/rest_api_usage/rest_api_usage/#openapi-support).
 
 Support for serialization and deserialization of REST payloads with the [Symfony Serializer](https://symfony.com/doc/current/serializer.html) component improves data reliability and simplifies debugging.
 
