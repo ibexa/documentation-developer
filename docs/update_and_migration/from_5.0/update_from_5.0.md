@@ -194,9 +194,9 @@ If you choose to upgrade to Elasticsearch 8, follow these steps:
 #### Update Elasticsearch server
 
 Upgrade your Elasticsearch server to version 8.19 or higher.
-Follow the [Elasticsearch upgrade guide](https://www.elastic.co/guide/en/elastic-stack/8.19/upgrading-elastic-stack.html#prepare-to-upgrade) for detailed instructions.
+For detailed instructions, follow the [Elasticsearch upgrade guide](https://www.elastic.co/guide/en/elastic-stack/8.19/upgrading-elastic-stack.html#prepare-to-upgrade).
 
-When using [[= product_name_cloud =]], see [Elasticsearch service](https://docs.upsun.com/add-services/elasticsearch.html) for a list of supported versions.
+When you use [[= product_name_cloud =]], see [Elasticsearch service](https://docs.upsun.com/add-services/elasticsearch.html) for a list of supported versions.
 
 #### Update configuration
 
@@ -281,6 +281,37 @@ Run the provided SQL upgrade script to ensure the Messenger tables for [backgrou
     psql <database_name> < vendor/ibexa/installer/upgrade/db/postgresql/ibexa-5.0.4-to-5.0.5.sql
     ```
 
+## v5.0.5
+
+No additional steps needed.
+
+## v5.0.6
+
+### [[= product_name_cloud =]] configuration update
+
+If you're using [[= product_name_cloud =]], you must install a new package and update your cloud configuration.
+
+First, install the `ibexa/cloud` package:
+
+```bash
+composer require ibexa/cloud
+```
+
+Then, update your cloud configuration.
+Instead of the old `composer ibexa:setup --platformsh` command, use:
+
+``` bash
+php bin/console ibexa:cloud:setup --upsun
+```
+
+This command generates or updates the cloud configuration files.
+
+Additionally, you must remove the following line from your `.platform.app.yaml` file if it exists:
+
+```yaml
+curl -fs https://get.symfony.com/cloud/configurator | bash
+```
+
 ## LTS Updates and additional packages
 
 [LTS Updates](editions.md#lts-updates) are standalone packages with their own update procedures.
@@ -302,7 +333,7 @@ To use the [latest features](ibexa_dxp_v5.0.md) added to them, update them separ
 
     ### Anthropic connector [[% include 'snippets/lts-update_badge.md' %]]
 
-    See [how to configure Anthropic connector](https://doc.ibexa.co/en/5.0/ai_actions/configure_ai_actions#install-anthropic-connector) for more information.
+    See [how to configure Anthropic connector](https://doc.ibexa.co/en/5.0/ai_actions/configure_ai_actions/#install-anthropic-connector) for more information.
 
     If you're already using it, run the following command to get the latest version of this feature:
 
@@ -321,3 +352,9 @@ To use the [latest features](ibexa_dxp_v5.0.md) added to them, update them separ
     ```bash
     composer require ibexa/fieldtype-richtext-rte:[[= latest_tag_5_0 =]] ibexa/ckeditor-premium:[[= latest_tag_5_0 =]]
     ```
+
+=== "Shopping list"
+
+    ### Shopping list [[% include 'snippets/lts-update_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
+
+    To learn more about the [Shopping list](https://doc.ibexa.co/en/5.0/commerce/shopping_list/shopping_list_guide/), see the [installation and configuration instructions](https://doc.ibexa.co/en/5.0/commerce/shopping_list/install_shopping_list/).
