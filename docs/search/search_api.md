@@ -405,22 +405,22 @@ This example shows a minimal embedding query executed directly through the searc
 
 ``` php
 // ...
-[[= include_file('code_samples/api/public_php_api/src/Command/FindByTaxonomyEmbeddingCommand.php', 4, 8) =]]
+[[= include_file('code_samples/api/public_php_api/src/Command/FindByTaxonomyEmbeddingCommand.php', 10, 21) =]]
 // ...
-[[= include_file('code_samples/api/public_php_api/src/Command/FindByTaxonomyEmbeddingCommand.php', 17, 19) =]]
+[[= include_file('code_samples/api/public_php_api/src/Command/FindByTaxonomyEmbeddingCommand.php', 26, 28) =]]
 // ...
-[[= include_file('code_samples/api/public_php_api/src/Command/FindByTaxonomyEmbeddingCommand.php', 24, 55) =]]
+[[= include_file('code_samples/api/public_php_api/src/Command/FindByTaxonomyEmbeddingCommand.php', 33, 78) =]]
 ```
 
 This example shows how to encapsulate an embedding query inside a reusable service class:
 
 ``` php
 // ...
-[[= include_file('code_samples/api/public_php_api/src/Service/TaxonomyEmbeddingSearchService.php', 4, 7) =]]
+[[= include_file('code_samples/api/public_php_api/src/Service/TaxonomyEmbeddingSearchService.php', 10, 15) =]]
 // ...
-[[= include_file('code_samples/api/public_php_api/src/Service/TaxonomyEmbeddingSearchService.php', 8, 10) =]]
+[[= include_file('code_samples/api/public_php_api/src/Service/TaxonomyEmbeddingSearchService.php', 16, 18) =]]
 // ...
-[[= include_file('code_samples/api/public_php_api/src/Service/TaxonomyEmbeddingSearchService.php', 20, 33) =]]
+[[= include_file('code_samples/api/public_php_api/src/Service/TaxonomyEmbeddingSearchService.php', 25, 36) =]]
 ```
 
 The `EmbeddingQueryBuilder` ensures that the query is correctly configured before execution.
