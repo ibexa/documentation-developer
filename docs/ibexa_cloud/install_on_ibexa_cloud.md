@@ -16,7 +16,7 @@ composer require ibexa/cloud
 php bin/console ibexa:cloud:setup --upsun
 ```
 
-These commands add the necessary package and configuration files required for using [[= product_name_cloud =]].
+These commands add the necessary package and configuration files required for [[= product_name_cloud =]].
 
 You can adapt the configuration in the following places:
 
