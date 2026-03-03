@@ -17,9 +17,9 @@ use Symfony\Component\Console\Output\OutputInterface;
 class ShoppingListMoveCommand extends Command
 {
     public function __construct(
-        private UserService $userService,
-        private PermissionResolver $permissionResolver,
-        private ShoppingListServiceInterface $shoppingListService
+        private readonly UserService $userService,
+        private readonly PermissionResolver $permissionResolver,
+        private readonly ShoppingListServiceInterface $shoppingListService
     ) {
         parent::__construct();
     }

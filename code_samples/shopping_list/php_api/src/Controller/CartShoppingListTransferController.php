@@ -23,13 +23,13 @@ use Symfony\Component\Routing\Attribute\Route;
 class CartShoppingListTransferController extends AbstractController
 {
     public function __construct(
-        private UserService $userService,
-        private PermissionResolver $permissionResolver,
-        private CurrencyServiceInterface $currencyService,
-        private CartServiceInterface $cartService,
-        private ShoppingListServiceInterface $shoppingListService,
-        private CartShoppingListTransferServiceInterface $cartShoppingListTransferService,
-        private LocalProductServiceInterface $productService
+        private readonly UserService $userService,
+        private readonly PermissionResolver $permissionResolver,
+        private readonly CurrencyServiceInterface $currencyService,
+        private readonly CartServiceInterface $cartService,
+        private readonly ShoppingListServiceInterface $shoppingListService,
+        private readonly CartShoppingListTransferServiceInterface $cartShoppingListTransferService,
+        private readonly LocalProductServiceInterface $productService
     ) {
     }
 
