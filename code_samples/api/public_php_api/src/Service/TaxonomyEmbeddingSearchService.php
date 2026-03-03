@@ -16,7 +16,9 @@ use Ibexa\Contracts\Taxonomy\Search\Query\Value\TaxonomyEmbedding;
 
 final class TaxonomyEmbeddingSearchService
 {
-    public function __construct(private readonly SearchService $searchService) {}
+    public function __construct(private readonly SearchService $searchService)
+    {
+    }
 
     /**
      * @param float[] $vector
