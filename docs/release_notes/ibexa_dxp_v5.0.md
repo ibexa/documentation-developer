@@ -12,7 +12,6 @@ month_change: true
 
 [[% set version = 'v5.0.6' %]]
 
-https://github.com/ibexa/documentation-developer/pull/2969
 [[= release_note_entry_begin(
     'Shopping Lists ' + version,
     'YYYY-MM-DD',
@@ -35,7 +34,6 @@ For more information, see [Shopping list feature guide](shopping_list_guide.md).
 
 ### Infrastructure
 
-https://github.com/ibexa/documentation-developer/pull/2985
 #### Ibexa Cloud package
 
 A new `ibexa/cloud` package is now available for [[= product_name_cloud =]] deployments.
@@ -46,19 +44,16 @@ making it easier to configure services like databases, cache, search engines, an
 
 For more information, see [Install on Ibexa Cloud](install_on_ibexa_cloud.md) and [Environment variables on Ibexa Cloud](environment_variables.md).
 
-https://github.com/ibexa/documentation-developer/pull/3067
 #### PHP 8.4 support
 
 PHP 8.4 is now [officially supported](requirements.md#php).
 
-https://github.com/ibexa/documentation-developer/pull/3046
 ### Gaussian blur optimization in Image Editor
 
 The [Image Editor]([[= user_doc =]]/image_management/edit_images/) now supports configurable gaussian blur strength for image optimization.
 You can adjust the blur level to balance between file size reduction and image sharpness.
 For more information, see [Configure image editor](configure_image_editor.md#gaussian-blur-strength).
 
-https://github.com/ibexa/documentation-developer/pull/3044
 ### Query subtree limit configuration
 
 A new `query_subtree.limit` configuration option improves performance when working with large content trees by limiting count operations.
@@ -68,7 +63,6 @@ For more information, see [Subtree operations configuration](back_office_configu
 
 ### Developer experience
 
-https://github.com/ibexa/documentation-developer/pull/3043
 #### Custom parameters in `ibexa_render()`
 
 You can now pass custom parameters to templates when using the `ibexa_render()` Twig function with the new `params` option, similar to how you can with `render(controller())`.Collapse annotationCheck notice on line R18[vale] docs/release_notes/ibexa_dxp_v4.6.md#L18Check notice: [vale] docs/release_notes/ibexa_dxp_v4.6.md#L18[Ibexa.ByUsing] Prefer 'by using' or 'with' to plain 'using'.Build & test documentation / valeView details
@@ -92,7 +86,6 @@ For more information, see [`ibexa_render()` Twig function](content_twig_function
 
 [[= release_note_entry_end() =]]
 
-https://github.com/ibexa/documentation-developer/pull/3033
 [[= release_note_entry_begin(
     "Ibexa DXP " + version,
     'YYYY-MM-DD',
