@@ -283,6 +283,10 @@ Run the provided SQL upgrade script to ensure the Messenger tables for [backgrou
 
 ## v5.0.5
 
+No additional steps needed.
+
+## v5.0.6
+
 ### [[= product_name_cloud =]] configuration update
 
 If you're using [[= product_name_cloud =]], you must install a new package and update your cloud configuration.
