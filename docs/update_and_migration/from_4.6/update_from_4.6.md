@@ -1,6 +1,6 @@
 ---
 description: Update your installation to the latest v4.6 version from an earlier v4.6 version.
-month_change: false
+month_change: true
 ---
 
 # Update from v4.6.x to v4.6.latest
@@ -577,6 +577,10 @@ Follow the [Messenger setup instructions](https://doc.ibexa.co/en/4.6/infrastruc
 
 With the product updated to the latest version, you can now finish the update process or proceed to updating the LTS Updates packages.
 
+## v4.6.28
+
+No additional steps needed.
+
 ## LTS Updates
 
 [LTS Updates](https://doc.ibexa.co/en/4.6/ibexa_products/editions/#lts-updates) are standalone packages with their own update procedures.
@@ -842,4 +846,3 @@ To use the [latest features](ibexa_dxp_v4.6.md) added to them, update them separ
     ```bash
     composer require ibexa/fieldtype-richtext-rte:[[= latest_tag_4_6 =]] ibexa/ckeditor-premium:[[= latest_tag_4_6 =]]
     ```
-
