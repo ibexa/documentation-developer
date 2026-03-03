@@ -409,7 +409,7 @@ This example shows a minimal embedding query executed directly through the searc
 // ...
 [[= include_file('code_samples/api/public_php_api/src/Command/FindByTaxonomyEmbeddingCommand.php', 17, 19) =]]
 // ...
-[[= include_file('code_samples/api/public_php_api/src/Command/FindByTaxonomyEmbeddingCommand.php', 24, 53) =]]
+[[= include_file('code_samples/api/public_php_api/src/Command/FindByTaxonomyEmbeddingCommand.php', 24, 55) =]]
 ```
 
 This example shows how to encapsulate an embedding query inside a reusable service class:

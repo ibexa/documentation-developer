@@ -4,21 +4,20 @@ namespace App\Service;
 
 use Ibexa\Contracts\Core\Repository\SearchService;
 use Ibexa\Contracts\Core\Repository\Values\Content\EmbeddingQueryBuilder;
+use Ibexa\Contracts\Core\Repository\Values\Content\Search\SearchResult;
 use Ibexa\Contracts\Taxonomy\Search\Query\Value\TaxonomyEmbedding;
 
-final readonly class TaxonomyEmbeddingSearchService
+final class TaxonomyEmbeddingSearchService
 {
     public function __construct(
-        private SearchService $searchService,
+        private readonly SearchService $searchService,
     ) {
     }
 
     /**
-     * Executes a taxonomy embedding search.
-     *
      * @param float[] $vector
      */
-    public function searchByEmbedding(array $vector): void
+    public function searchByEmbedding(array $vector): SearchResult
     {
         $query = EmbeddingQueryBuilder::create()
             ->withEmbedding(new TaxonomyEmbedding($vector))
@@ -26,6 +25,6 @@ final readonly class TaxonomyEmbeddingSearchService
             ->setOffset(0)
             ->build();
 
-        $result = $this->searchService->findContent($query);
+        return $this->searchService->findContent($query);
     }
 }
