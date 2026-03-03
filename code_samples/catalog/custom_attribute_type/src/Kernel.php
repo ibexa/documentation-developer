@@ -16,6 +16,6 @@ class Kernel extends BaseKernel
     {
         parent::build($container);
 
-        $container->addCompilerPass(new AddFloatStorageDefinitionTag(), PassConfig::TYPE_BEFORE_OPTIMIZATION, 10);
+        $container->addCompilerPass(new AddFloatStorageDefinitionTag());
     }
 }
