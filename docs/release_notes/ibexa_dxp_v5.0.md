@@ -148,15 +148,15 @@ For more information, see [Product API - Searching variants](product_api.md#sear
 
 Elasticsearch 8 is now officially supported.
 If you're currently using Elasticsearch 7, which is [no longer maintained](https://www.elastic.co/support/eol), it's recommended to upgrade.
-See the [update instructions](update_from_5.0.md#update-elasticsearch-server) for more information.
+See the [update instructions](https://doc.ibexa.co/en/5.0/update_and_migration/from_5.0/update_from_5.0/#update-elasticsearch-server) for more information.
 
 #### Added support for Valkey
 
-Valkey is now [officially supported](requirements.md) alongside Redis.
+Valkey is now [officially supported](https://doc.ibexa.co/en/5.0/getting_started/requirements/) alongside Redis.
 
 #### Added support for PostgreSQL 18
 
-PostgreSQL 18 is now [officially supported](requirements.md#dbms).
+PostgreSQL 18 is now [officially supported](https://doc.ibexa.co/en/5.0/getting_started/requirements#dbms).
 
 ### Developer experience
 
@@ -185,7 +185,7 @@ when@prod:
 
 #### Added OpenAPI support for Collaborative editing REST API
 
-The [Collaborative editing](collaborative_editing.md) REST API endpoints are now included in the [OpenAPI-based REST API reference](/api/rest_api/rest_api_reference/rest_api_reference.html#tag/Collaboration-Sessions).
+The [Collaborative editing](https://doc.ibexa.co/en/5.0/content_management/collaborative_editing/collaborative_editing/) REST API endpoints are now included in the [OpenAPI-based REST API reference](https://doc.ibexa.co/en/5.0/api/rest_api/rest_api_reference/rest_api_reference.html#tag/Collaboration-Sessions).
 
 ### Full changelog
 
@@ -212,7 +212,7 @@ For more information, see [Integrated help](integrated_help.md).
 
 This release introduces a new AI connector that allows you to integrate [AI Actions](ai_actions.md) with [Anthropic Claude](https://claude.com/product/overview).
 
-For more information, see how to [install Anthropic connector](configure_ai_actions.md#install-anthropic-connector).
+For more information, see how to [install Anthropic connector](https://doc.ibexa.co/en/5.0/ai_actions/configure_ai_actions#install-anthropic-connector).
 
 [[= release_note_entry_end() =]]
 
@@ -234,7 +234,7 @@ This extends the already existing capabilities allowing editors to work on the s
 
 ![Participants list](img/participants_list.png)
 
-For more information, see how to [configure Collaborative editing](configure_collaborative_editing.md).
+For more information, see how to [configure Collaborative editing](https://doc.ibexa.co/en/5.0/content_management/collaborative_editing/configure_collaborative_editing/).
 
 ### Taxonomy suggestions for faster content classification
 
@@ -596,7 +596,7 @@ For more information, see [Date and time attributes](date_and_time.md).
 
 The Symbol attributes allow you to efficiently represent the string-based data as part of the product specification in the [Product Information Management](pim_guide.md) system.
 
-For more information, see [Symbol attributes](symbol_attribute_type.md).
+For more information, see [Symbol attributes](https://doc.ibexa.co/en/5.0/pim/attributes/symbol_attribute_type/).
 
 #### Collaboration
 
@@ -631,7 +631,7 @@ With performance, coding safety and security in mind, with this version, [[= pro
 
 Adding support for generating the [OpenAPI](https://www.openapis.org/) specification for our REST API makes future changes more manageable, and helps our partners automatically generate REST API clients.
 
-For more information, see [REST API usage](https://doc.ibexa.co/en/latest/api/rest_api/rest_api_usage/rest_api_usage/#openapi-support).
+For more information, see [REST API usage](https://doc.ibexa.co/en/5.0/api/rest_api/rest_api_usage/rest_api_usage/#openapi-support).
 
 Support for serialization and deserialization of REST payloads with the [Symfony Serializer](https://symfony.com/doc/current/serializer.html) component improves data reliability and simplifies debugging.
 
@@ -866,17 +866,17 @@ The following events have been added in the v5.0 release:
 
 The following Twig functions have been added in the v5.0 release:
 
-- [`ibexa_ai_config`](../templating/twig_function_reference/ai_actions_twig_functions.md#ibexa_ai_config)
-- [`ibexa_render_discount_rule_type`](../templating/twig_function_reference/discounts_twig_functions.md#ibexa_render_discount_rule_type)
-- [`ibexa_discounts_render_discount_badge`](../templating/twig_function_reference/discounts_twig_functions.md#ibexa_discounts_render_discount_badge)
-- [`ibexa_get_original_price`](../templating/twig_function_reference/discounts_twig_functions.md#ibexa_get_original_price)
-- [`ibexa_format_discount_value`](../templating/twig_function_reference/discounts_twig_functions.md#ibexa_format_discount_value)
-- [`ibexa_discounts_is_active`](../templating/twig_function_reference/discounts_twig_functions.md#ibexa_discounts_is_active)
-- [`ibexa_discounts_form_themes`](../templating/twig_function_reference/discounts_twig_functions.md#ibexa_discounts_form_themes)
-- [`ibexa_discounts_can_edit`](../templating/twig_function_reference/discounts_twig_functions.md#ibexa_discounts_can_edit)
-- [`ibexa_discounts_can_enable`](../templating/twig_function_reference/discounts_twig_functions.md#ibexa_discounts_can_enable)
-- [`ibexa_discounts_can_disable`](../templating/twig_function_reference/discounts_twig_functions.md#ibexa_discounts_can_disable)
-- [`ibexa_discounts_can_delete`](../templating/twig_function_reference/discounts_twig_functions.md#ibexa_discounts_can_delete)
+- [`ibexa_ai_config`](https://doc.ibexa.co/en/5.0/templating/twig_function_reference/ai_actions_twig_functions#ibexa_ai_config)
+- [`ibexa_render_discount_rule_type`](https://doc.ibexa.co/en/5.0/templating/twig_function_reference/discounts_twig_functions#ibexa_render_discount_rule_type)
+- [`ibexa_discounts_render_discount_badge`](https://doc.ibexa.co/en/5.0/templating/twig_function_reference/discounts_twig_functions#ibexa_discounts_render_discount_badge)
+- [`ibexa_get_original_price`](https://doc.ibexa.co/en/5.0/templating/twig_function_reference/discounts_twig_functions#ibexa_get_original_price)
+- [`ibexa_format_discount_value`](https://doc.ibexa.co/en/5.0/templating/twig_function_reference/discounts_twig_functions#ibexa_format_discount_value)
+- [`ibexa_discounts_is_active`](https://doc.ibexa.co/en/5.0/templating/twig_function_reference/discounts_twig_functions#ibexa_discounts_is_active)
+- [`ibexa_discounts_form_themes`](https://doc.ibexa.co/en/5.0/templating/twig_function_reference/discounts_twig_functions#ibexa_discounts_form_themes)
+- [`ibexa_discounts_can_edit`](https://doc.ibexa.co/en/5.0/templating/twig_function_reference/discounts_twig_functions#ibexa_discounts_can_edit)
+- [`ibexa_discounts_can_enable`](https://doc.ibexa.co/en/5.0/templating/twig_function_reference/discounts_twig_functions#ibexa_discounts_can_enable)
+- [`ibexa_discounts_can_disable`](https://doc.ibexa.co/en/5.0/templating/twig_function_reference/discounts_twig_functions#ibexa_discounts_can_disable)
+- [`ibexa_discounts_can_delete`](https://doc.ibexa.co/en/5.0/templating/twig_function_reference/discounts_twig_functions#ibexa_discounts_can_delete)
 
 #### Other upgrades
 
@@ -887,7 +887,7 @@ This release brings other minor upgrades intended to improve the developer's exp
 - Developer experience has improved with capabilities offered by PHP in version 8.3. For example, the `AsTwigComponent` attribute [facilitates autoconfiguration](components.md#php-code) of Twig components
 - With protection against breaking changes and easier refactoring in mind, [TypeScript](https://www.typescriptlang.org/) can now be used to extend the Back Office
 - [[[= product_name_base =]] Rector package](https://github.com/ibexa/rector) has been introduced that is based on [Rector](https://github.com/rectorphp) and comes with additional rules for working with Ibexa code. You can use it to get rid of PHP code deprecations
-- [New icons](../templating/twig_function_reference/icon_twig_functions.md#icons-reference) replace the ones found in previous versions and serve as a highlight of a future system design
+- [New icons](https://doc.ibexa.co/en/5.0/templating/twig_function_reference/icon_twig_functions#icons-reference) replace the ones found in previous versions and serve as a highlight of a future system design
 
 ### Deprecations
 

@@ -295,7 +295,7 @@ Internal and external users can be invited to a collaboration session, through d
 
 With Real-time editing, more advanced part of the feature, users can see each other’s changes in the real time, or work on the content asynchronously.
 
-Additionally, shared drafts can be accessed and managed through new dashboard tabs: **My shared drafts** and **Drafts shared with me**, helping users stay organized. 
+Additionally, shared drafts can be accessed and managed through new dashboard tabs: **My shared drafts** and **Drafts shared with me**, helping users stay organized.
 
 [[= release_note_entry_end() =]]
 
@@ -1630,7 +1630,7 @@ For more information, see [CDP Activation](https://doc.ibexa.co/en/master/cdp/cd
 
 ### Developer experience
 
-#### New packages 
+#### New packages
 
 The following packages have been introduced in [[= product_name =]] v4.6.0:
 
@@ -1753,7 +1753,7 @@ The following events have been added in the v4.6.0 release (39 events in total):
 - ibexa/cart
     - `\Ibexa\Contracts\AdminUi\Event\FocusModeChangedEvent`
     - `\Ibexa\Contracts\Cart\Event\BeforeMergeCartsEvent`
-- ibexa/core 
+- ibexa/core
     - URL and name schema resolving events:
         - `\Ibexa\Contracts\Core\Event\NameSchema\ResolveUrlAliasSchemaEvent`
         - `\Ibexa\Contracts\Core\Event\NameSchema\ResolveNameSchemaEvent`
