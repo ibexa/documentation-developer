@@ -62,9 +62,6 @@ dump($list);
 $list = $this->shoppingListService->addEntries($list, [new EntryAddStruct($productCode)]);
 dump($list);
 ```
-
-You can choose to not keep the local object up-to-date until the end of your operations and just reload it when needed, for example, for display.
-
 When adding array of entries with `ShoppingListService::addEntries()`,
 an exception is thrown if at least product is already in the shopping list and no entries are added to the list.
 
