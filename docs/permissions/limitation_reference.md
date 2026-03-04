@@ -322,7 +322,7 @@ This limitation can be used as a role limitation.
 
 ## Shopping list limitation [[% include 'snippets/lts-update_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
 
-The Shopping List Owner (`ShoppingListOwner`) limitation specifies whether the user can modify a shopping list.
+The Shopping List Owner (`ShoppingListOwner`) limitation specifies whether the user can modify a [shopping list](shopping_list.md).
 
 ### Possible values
 
