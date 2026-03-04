@@ -110,8 +110,8 @@ There is no specific event for the transfer operations.
 
 ## REST API
 
-The REST API has several resources to manage shopping lists and their entries
-and few to move products between cart and shopping list.
+The REST API provides resources for managing shopping lists and their entries,
+as well as for moving products between the cart and the shopping list.
 
 This resources start with [`/shopping-list/*`](/api/rest_api/rest_api_reference/rest_api_reference.html#tag/Shopping-List).
 On a instance in `dev` mode, you can consult and test the REST API at `/api/ibexa/v2/doc#/Shopping%20List`.
