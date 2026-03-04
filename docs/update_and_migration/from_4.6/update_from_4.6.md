@@ -579,7 +579,24 @@ With the product updated to the latest version, you can now finish the update pr
 
 ## v4.6.28
 
-No additional steps needed.
+### Database update
+
+Run the provided SQL upgrade script to adapt your database to latest change in [form builder](form_builder_guide.md)'s `max_length` validator behavior:
+
+=== "MySQL"
+
+    ``` sql
+    mysql -u <username> -p <password> <database_name> < vendor/ibexa/installer/upgrade/db/mysql/ibexa-4.6.27-to-4.6.28.sql
+    ```
+
+=== "PostgreSQL"
+
+    ``` sql
+    psql <database_name> < vendor/ibexa/installer/upgrade/db/postgresql/ibexa-4.6.27-to-4.6.28.sql
+    ```
+
+Prior, `0` was interpreted as "no length limit".
+Now, `0` is interpreted as "length limited to zero character" and `NULL` as "no length limit".
 
 ## LTS Updates
 
