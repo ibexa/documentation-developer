@@ -66,13 +66,10 @@ When adding array of entries with `ShoppingListService::addEntries()`,
 an exception is thrown if at least product is already in the shopping list and no entries are added to the list.
 
 The following example adds products to a shopping list while avoiding error on duplicated entries.
-In this example the duplicates are ignored,, but you could extend it to, for example, notify the user about each found duplicate.
+In this example the duplicates are ignored, but you could extend it to, for example, notify the user about each found duplicate.
 
 ```php
-$filteredProductCodes = array_filter($desiredProductCodes, function ($productCode) use ($list) {
-    return !$list->getEntries()->hasEntryWithProductCode($productCode);
-});
-$list = $this->shoppingListService->addEntries($list, array_map(function ($productCode) { return new EntryAddStruct($productCode); }, $filteredProductCodes));
+[[= include_file('code_samples/shopping_list/php_api/src/Command/ShoppingListFilterCommand.php', 39, 41) =]]
 ```
 
 The following example moves products from a source shopping list to a target shopping list after filtering out products already in the target list:
