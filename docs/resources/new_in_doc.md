@@ -12,13 +12,22 @@ This page contains recent highlights and notable changes in [[= product_name =]]
 ### Releases
 
 - [v5.0.6 release notes](https://doc.ibexa.co/en/5.0/release_notes/ibexa_dxp_v5.0/#ibexa-dxp-v506)
-- [v4.6.28 release notes](https://doc.ibexa.co/en/5.0/release_notes/ibexa_dxp_v5.0/#ibexa-dxp-v4628)
+- [v4.6.28 release notes](https://doc.ibexa.co/en/4.6/release_notes/ibexa_dxp_v4.6/#ibexa-dxp-v4628)
 
-### Ibexa Cloud
+### CDP
+
+- Illustrated how to [export additional user data](cdp_data_customization.md#export-additional-user-data)
+- Detailed [Ibexa Messenger support for large batches of data](cdp_data_export.md#ibexa-messenger-support-for-large-batches-of-data)
+- Introduced the [CDP Monolog channel](cdp_data_export.md#cdp-monolog-channel)
+- Added [`Ibexa\Contracts\Cdp` PHP API reference](/api/php_api/php_api_reference/namespaces/ibexa-contracts-cdp.html)
+
+### Infrastructure
+
+#### [[= product_name_cloud =]]
 
 - Added documentation describing [how to use the new `ibexa/cloud` package](install_on_ibexa_cloud.md) and the [environment variables it provides](environment_variables.md)
 
-### Configuration
+#### DFS configuration
 
 - Updated [DFS](clustering.md#configuring-the-dfs-io-handler) and [Solr](install_solr.md#configure-the-bundle) configuration examples to use environment variables directly with [Environment Variable Processors]([[= symfony_doc =]]/configuration/env_var_processors.html) syntax instead of intermediate parameters.
 This promotes skipping the rebuild of the Symfony container when environment variable values change.
@@ -28,6 +37,7 @@ This promotes skipping the rebuild of the Symfony container when environment var
 ### Releases
 
 - [v5.0.5 release notes](https://doc.ibexa.co/en/5.0/release_notes/ibexa_dxp_v5.0/#ibexa-dxp-v505)
+- [v4.6.27 release notes](https://doc.ibexa.co/en/4.6/release_notes/ibexa_dxp_v4.6/#ibexa-dxp-v4627)
 
 ### Getting started
 
