@@ -17,18 +17,21 @@ First, run:
 === "[[= product_name_headless =]]"
 
     ``` bash
+    yarn upgrade @ibexa/frontend-config @ibexa/ts-config
     composer require ibexa/headless:[[= latest_tag_5_0 =]] --with-all-dependencies --no-scripts
     composer recipes:install ibexa/headless --force -v
     ```
 === "[[= product_name_exp =]]"
 
     ``` bash
+    yarn upgrade @ibexa/frontend-config @ibexa/ts-config
     composer require ibexa/experience:[[= latest_tag_5_0 =]] --with-all-dependencies --no-scripts
     composer recipes:install ibexa/experience --force -v
     ```
 === "[[= product_name_com =]]"
 
     ``` bash
+    yarn upgrade @ibexa/frontend-config @ibexa/ts-config
     composer require ibexa/commerce:[[= latest_tag_5_0 =]] --with-all-dependencies --no-scripts
     composer recipes:install ibexa/commerce --force -v
     ```
