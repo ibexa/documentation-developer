@@ -69,7 +69,7 @@ The following example adds products to a shopping list while avoiding error on d
 In this example the duplicates are ignored, but you could extend it to, for example, notify the user about each found duplicate.
 
 ```php
-[[= include_file('code_samples/shopping_list/php_api/src/Command/ShoppingListFilterCommand.php', 39, 41) =]]
+[[= include_file('code_samples/shopping_list/php_api/src/Command/ShoppingListFilterCommand.php', 39, 50) =]]
 ```
 
 The following example moves products from a source shopping list to a target shopping list after filtering out products already in the target list:

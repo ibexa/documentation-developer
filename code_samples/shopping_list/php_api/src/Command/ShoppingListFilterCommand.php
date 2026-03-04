@@ -37,8 +37,17 @@ class ShoppingListFilterCommand extends Command
 
         $list = $this->shoppingListService->addEntries($list, [new EntryAddStruct($desiredProductCodes[1])]);
 
-        $filteredProductCodes = array_filter($desiredProductCodes, static fn ($productCode): bool => !$list->getEntries()->hasEntryWithProductCode($productCode));
-        $list = $this->shoppingListService->addEntries($list, array_map(static fn ($productCode): EntryAddStruct => new EntryAddStruct($productCode), $filteredProductCodes));
+        $filteredProductCodes = array_filter(
+            $desiredProductCodes,
+            static fn ($productCode): bool => !$list->getEntries()->hasEntryWithProductCode($productCode)
+        );
+        $list = $this->shoppingListService->addEntries(
+            $list,
+            array_map(
+                static fn ($productCode): EntryAddStruct => new EntryAddStruct($productCode),
+                $filteredProductCodes
+            )
+        );
 
         $this->displayList($output, $list);
 
