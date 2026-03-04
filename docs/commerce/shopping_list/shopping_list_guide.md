@@ -32,10 +32,10 @@ Authenticated customers can be granted with those rights on their own shopping l
 For more information, see [Shopping list user role](install_shopping_list.md#shopping-list-user-role).
 
 A customer always have a default shopping list named “My Wishlist”
-which is created automatically on first use,
-which can't be renamed, and can't be deleted.
-According to configuration, customers can have a limited amount of additional custom shopping lists.
-The number of products a shopping list can contain is also limited by configuration.
+which is created automatically on first use.
+It can't be renamed and can't be deleted.
+
+You can configure how many shopping lists a customer can have, and how much products they can contain.
 For more information, see [Configure shopping list](install_shopping_list.md#configure).
 
 A shopping list only stores product codes.
@@ -62,13 +62,13 @@ In the out-of-the-box [storefront](storefront.md), a shopping list user can:
     - product quantities are incremented by 1, the user can adjust quantities in the cart
   ![Shopping list product list with highligts on "Add to cart" and "Add all to cart" buttons](img/add_to_cart.png "“Add to cart” and “Add all to cart” buttons")
 - Move a product from cart to “My Wishlist” (product is removed from cart and added to the default shopping list)
-- Move a whole cart to “My Wishlist” (products are removed from cart and added to the default shopping list)
+- Move the whole cart to “My Wishlist” (products are removed from cart and added to the default shopping list)
   ![Cart's product list with highligts on "Move to My Wishlist" and "Move all to wishlist" buttons](img/move_to_my_wishlist.png "“Move to My Wishlist” and “Move all to wishlist” buttons")
 - Delete a shopping list
 
 ## Extensibility
 
 The shopping list's [PHP API](shopping_list_api.md#php-api) and [REST API](shopping_list_api.md#rest-api) already offer few functionalities not used in the default storefront,
-such as to empty a whole shopping list, or to move from a cart to a specific shopping list.
+such as emptying shopping lists, or moving products from a cart to a specific shopping list.
 
 Those APIs can be used to implement custom features, and can themselves be extended to cover more use cases.

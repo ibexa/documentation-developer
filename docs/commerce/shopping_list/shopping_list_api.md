@@ -18,8 +18,8 @@ For example, starting to use the default list from REST API will create it if it
 to [`POST /shopping-list/default/entries`](/api/rest_api/rest_api_reference/rest_api_reference.html#tag/Shopping-List/operation/api_shopping-listdefaultentries_post)
 or [`POST /cart/{identifier}/move-to-shopping-list`](/api/rest_api/rest_api_reference/rest_api_reference.html#tag/Cart/operation/api_cart_identifiermove-to-shopping-list_post).
 
-As soon a user has the create shopping list permission [`shopping_list/create`](policies.md#shopping-lists),
-the default shopping list can be created regardless of the maximum shopping list count per user configuration [`max_lists_per_user`](install_shopping_list.md#configure).
+When a user has permissions to create shopping lists [`shopping_list/create`](policies.md#shopping-lists),
+they can always create a default shopping list, regardless of the maximum shopping list count per user configuration [`max_lists_per_user`](install_shopping_list.md#configure).
 
 ## PHP API
 
@@ -66,10 +66,10 @@ dump($list);
 You can choose to not keep the local object up-to-date until the end of your operations and just reload it when needed, for example, for display.
 
 When adding array of entries with `ShoppingListService::addEntries()`,
-an exception is thrown if a product is already in the shopping list and the whole array is canceled.
+an exception is thrown if at least product is already in the shopping list and no entries are added to the list.
 
-The following example add products to a shopping list while avoiding error on duplicate.
-(To stay short, this example doesn't track down duplicates, but it could be implemented for notification to the user.)
+The following example adds products to a shopping list while avoiding error on duplicated entries.
+In this example the duplicates are ignored,, but you could extend it to, for example, notify the user about each found duplicate.
 
 ```php
 $filteredProductCodes = array_filter($desiredProductCodes, function ($productCode) use ($list) {
@@ -89,8 +89,8 @@ The following example moves products from a source shopping list to a target sho
 Interactions between shopping list and cart are managed by
 [`Ibexa\Contracts\Cart\CartShoppingListTransferServiceInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Cart-CartShoppingListTransferServiceInterface.html)
 
-The following example start with an empty cart and an empty shopping list,
-then add a product to the shopping list and copy it twice to the cart.
+The following example starts with an empty cart and an empty shopping list,
+then adds a product to the shopping list and copies it twice to the cart.
 It continues with moving the whole cart to an empty list.
 
 ```php
@@ -104,7 +104,7 @@ For more information, see [Shopping list event reference](shopping_list_events.m
 
 There is no specific event for the transfer operations.
 
-- When adding from shopping list to cart, the [`Ibexa\Contracts\Cart\Event\BeforeAddEntryEvent`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Cart-Event-BeforeAddEntryEvent.html) and [`Ibexa\Contracts\Cart\Event\AddEntryEvent`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Cart-Event-AddEntryEvent.html) are dispatched for each entry that weren't previously in the cart.
+- When adding from shopping list to cart, the [`Ibexa\Contracts\Cart\Event\BeforeAddEntryEvent`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Cart-Event-BeforeAddEntryEvent.html) and [`Ibexa\Contracts\Cart\Event\AddEntryEvent`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Cart-Event-AddEntryEvent.html) are dispatched for each entry that wasn't previously in the cart.
 - When moving from cart to shopping list, [`Ibexa\Contracts\ShoppingList\Event\BeforeAddEntriesEvent`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ShoppingList-Event-BeforeAddEntriesEvent.html) and [`Ibexa\Contracts\ShoppingList\Event\AddEntriesEvent`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ShoppingList-Event-AddEntriesEvent.html) are dispatched for the batch of entries that weren't already in the shopping list,
   then [`Ibexa\Contracts\Cart\Event\BeforeRemoveEntryEvent`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Cart-Event-BeforeRemoveEntryEvent.html) and [`Ibexa\Contracts\Cart\Event\BeforeRemoveEntryEvent`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Cart-Event-RemoveEntryEvent.html) are dispatched for each entry removed from the cart.
 

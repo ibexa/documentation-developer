@@ -20,14 +20,14 @@ it includes a button to create a new shopping list on the fly.
 It's used in the `storefront` theme in several places, dressed as a drop-down menu or a modal.
 See [Shopping list management overview](shopping_list_guide.md#shopping-list-management-overview) for some screenshots.
 
-Some Twig and TypeScript components can help you insert an "Add to shopping list" widget for a product:
+You can use the following Twig and TypeScript components to insert an "Add to shopping list" widget for a product into your storefront:
 
-- `vendor/ibexa/shopping-list/src/bundle/Resources/views/themes/standard/shopping_list/component/add_to_shopping_list/add_to_shopping_list.html.twig` displays a list of shopping lists preceded with checkboxes showing if the product is in.
+- `vendor/ibexa/shopping-list/src/bundle/Resources/views/themes/standard/shopping_list/component/add_to_shopping_list/add_to_shopping_list.html.twig` displays a list of shopping lists preceded with checkboxes showing if the product is in it.
 - `vendor/ibexa/shopping-list/src/bundle/Resources/public/js/component/add.to.shopping.list.ts` handles the interaction with the list of shopping lists' checkboxes and the new shopping list creation on the fly.
 - `vendor/ibexa/shopping-list/src/bundle/Resources/public/js/component/shopping.list.ts` handles the REST API calls.
 - `vendor/ibexa/shopping-list/src/bundle/Resources/public/js/component/shopping.lists.list.ts` handles the list of shopping lists.
 
-The following example shows the set-up of an "Add to shopping list" widget on a product full view page in the `standard` theme without implying the `storefront` theme.
+The following example shows the setup of an "Add to shopping list" widget on a product full view page in the `standard` theme without implying the `storefront` theme.
 For a base product, the variants are listed with an instance of the widget to demonstrate that it can be used several time on the same page.
 
 `assets/js/add-to-shopping-list.ts`:
@@ -40,7 +40,7 @@ For a base product, the variants are listed with an instance of the widget to de
 [[= include_file('code_samples/shopping_list/add_to_shopping_list/webpack.config.js', 43) =]]
 ```
 
-Then, you're able to use the component in your template with something like the following:
+Then, you can use the component in your template as in the following example:
 
 ```twig hl_lines="4 5 9-11 14"
 {% block meta %}
@@ -62,45 +62,45 @@ Then, you're able to use the component in your template with something like the 
 
 To have a more complete example, let's continue with a product full view template which could work on a fresh installation.
 
-`src/Controller/ProductViewController.php` to add the variants to the product view:
+In `src/Controller/ProductViewController.php`, create a new controller to add the variants to the product view:
 ``` php hl_lines="24-30"
 [[= include_file('code_samples/shopping_list/add_to_shopping_list/src/Controller/ProductViewController.php') =]]
 ```
 
-`config/packages/views.yaml` to associate the controller and template to the product full view:
+In `config/packages/views.yaml`, configure the controller and template used to render the product full view:
 ``` yaml hl_lines="7 8"
 [[= include_file('code_samples/shopping_list/add_to_shopping_list/config/packages/views.yaml') =]]
 ```
 
-`templates/themes/standard/full/product.html.twig`:
+In `templates/themes/standard/full/product.html.twig`, create a template to render the the product in full view:
 ``` twig hl_lines="7 8 16-18 31-33 44"
 [[= include_file('code_samples/shopping_list/add_to_shopping_list/templates/themes/standard/full/product.html.twig') =]]
 ```
-Because the component uses some global variables, it can't be used directly in a macro.
+Because the component uses global variables, it can't be used directly in a macro.
 
 ![](img/add_to_shopping_list_widget.png "Preview of this “Add to shopping list” widget example")
 
 ## `ShoppingList` JS class and `ibexaShoppingList` global
 
 The `ShoppingList` class is responsible for handling the shopping lists data and interactions with the REST API.
-An object of this class contents the shopping lists and their entries, and has methods to manipulate the shopping lists.
+An object of this class contains the shopping lists and their entries, and has methods to manipulate the shopping lists.
 
 An object of this class can be initialized with the `shoppingList.init()` function only once.
 This initialization creates the `window.ibexaShoppingList` global variable pointing to the object.
-If you have several scripts needing an instance of `ShoppingList` class, `window.ibexaShoppingList` is the indicator if it has been initialized and it points the object you need.
-Preferably initialize an object of class `ShoppingList` in a top script, then use `window.ibexaShoppingList` in the next scripts.
+If you have several scripts needing an instance of `ShoppingList` class, `window.ibexaShoppingList` is the indicator if it has been initialized already and it points the object you should use.
+Preferably initialize an object of class `ShoppingList` on the top of the script, then use `window.ibexaShoppingList` in the next lines.
 
 It has the following methods:
 
 - `createShoppingList(name)` creates a new shopping list, updates the local `window.ibexaShoppingList.shoppingLists` property,
-  and returns a [`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise) for an array with
+  and returns a [`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise) resolving to an array with
     - at index 0, the created shopping list
     - at index 1, the whole `ShoppingList` object with all the user's shopping lists
 - `getShoppingLists()` returns the local `window.ibexaShoppingList.shoppingLists` property
 - `loadShoppingLists()` loads the shopping lists from the server, then updates the local `window.ibexaShoppingList.shoppingLists` property, and returns it
 - `loadShoppingList(list_identifier: string)` returns a `Promise` for the shopping list with the given identifier
 - `addShoppingListEntries(list_identifier: string, product_codes: string[])` adds entries to the given shopping list for the given product codes, and returns a `Promise` for the [`Response`](https://developer.mozilla.org/docs/Web/API/Response)
-- `removeShoppingListEntries(list_identifier: string, entry_identifiers: string[])` remove from the given shopping list the given entries, and returns a `Promise` for the `Response`
+- `removeShoppingListEntries(list_identifier: string, entry_identifiers: string[])` remove from the given shopping list the given entries, and returns a `Promise` resolving to a `Response`
 
 `window.ibexaShoppingList.shoppingLists` has the following data structure:
 
@@ -154,7 +154,7 @@ shoppingLists_Mockup = {
 ```
 Remember that a `ShoppingList` object like the `window.ibexaShoppingList` has its data updated by the `ShoppingList.createShoppingList` and `ShoppingList.loadShoppingLists` methods.
 
-The following script create a shopping list, add a product to it, then refresh the local `window.ibexaShoppingList.shoppingLists` (as `addShoppingListEntries` method doesn't do it):
+The following script creates a shopping list, adds a product to it, then refreshes the local `window.ibexaShoppingList.shoppingLists` (as `addShoppingListEntries` method doesn't do it):
 
 ```javascript hl_lines="6-8"
 if (!window.ibexaShoppingList) {
@@ -188,6 +188,7 @@ window.ibexaShoppingList.createShoppingList(shopping_list_name).then((data) => {
 ### Shopping lists data changed event
 
 The `ibexa-shopping-list:shopping-lists-data-changed` event is dispatched by the `document.body`
+
 - on `ShoppingList.init()` (and the `window.ibexaShoppingList` global variable is set)
 - on `ShoppingList.createShoppingList()` (and the `window.ibexaShoppingList` global variable is updated)
 - on `ShoppingList.addShoppingListEntries()`
@@ -213,7 +214,7 @@ document.addEventListener('ibexa-shopping-list:prepare-request', (event) => {
 ## Built-in views
 
 Some routes lead to views (when used with `GET` method) through controllers from the `\Ibexa\Bundle\ShoppingList\Controller` namespace.
-Each use a template which receives one or several variables, including forms to handle user interactions.
+Each uses a template which receives one or several variables, including forms to handle user interactions.
 
 | Route path,<br>name,<br>and controller                                                                                  | Template                                      | Available variables                                                                                                                                                                                                    | Description                                                          |
 |-------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------|
@@ -223,7 +224,7 @@ Each use a template which receives one or several variables, including forms to 
 | `GET /shopping-list/{identifier}/update`<br><nobr>`ibexa.shopping_list.update`</nobr><br>`ShoppingListUpdateController` | `@ibexadesign/shopping_list/update.html.twig` | `shopping_list`,<br>`form`                                                                                                                                                                                             | Form to rename a shopping list                                       |
 | `GET /shopping-list/add`<br><nobr>`ibexa.shopping_list.add`</nobr><br>`AddProductToShoppingListController`              | `@ibexadesign/shopping_list/add.html.twig`    | `products` ([`ProductListInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Values-Product-ProductListInterface.html)),<br>`forms` (associative array of forms indexed on product code) | List of products with for each the form to add it to a shopping list |
 
-For all those templates (but `add.html.twig`), you'll find two implementations:
+For all those templates (except `add.html.twig`), you'll find two implementations:
 
 - a generic one for the `standard` theme in `vendor/ibexa/shopping-list/src/bundle/Resources/views/themes/standard/`
 - a more advanced demo one for the `storefront` theme in `vendor/ibexa/storefront/src/bundle/Resources/views/themes/storefront/`
