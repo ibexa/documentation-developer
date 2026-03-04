@@ -89,12 +89,12 @@
         <div class="col-12 col-lg-6">
             <div class="notification notification--lts-update" id="tile3">
                 <div class="notification__content">
-                    <h2>The newest LTS Update is Integrated help</h2>
-                    <div>Access contextual documentation, guidance, and resources right from the user interface.</div>
+                    <h2>The newest LTS Update is Shopping list</h2>
+                    <div>Customers can store potential purchases, recurrent product set, and other whish lists for later use into carts.</div>
                 </div>
                 <div class="notification__cta">
-                    <a href="administration/back_office/integrated_help">Learn more about this LTS Update</a>
-                    <a href="ibexa_products/editions#lts-updates">Discover other LTS Updates</a>
+                    <a href="commerce/shopping_list/shopping_list_guide/">Learn more about this LTS Update</a>
+                    <a href="ibexa_products/editions/#lts-updates">Discover other LTS Updates</a>
                 </div>
                 <div class="notification__image">
                     <img src="images/notification-lts-update.svg" alt="LTS Update" />
