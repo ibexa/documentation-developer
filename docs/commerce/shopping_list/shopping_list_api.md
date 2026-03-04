@@ -101,7 +101,7 @@ For more information, see [Shopping list event reference](shopping_list_events.m
 There is no specific event for the transfer operations.
 
 - When adding from shopping list to cart, the [`Ibexa\Contracts\Cart\Event\BeforeAddEntryEvent`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Cart-Event-BeforeAddEntryEvent.html) and [`Ibexa\Contracts\Cart\Event\AddEntryEvent`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Cart-Event-AddEntryEvent.html) are dispatched for each entry that wasn't previously in the cart.
-- When moving from cart to shopping list, [`Ibexa\Contracts\ShoppingList\Event\BeforeAddEntriesEvent`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ShoppingList-Event-BeforeAddEntriesEvent.html) and [`Ibexa\Contracts\ShoppingList\Event\AddEntriesEvent`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ShoppingList-Event-AddEntriesEvent.html) are dispatched for the batch of entries that weren't already in the shopping list,
+- When moving from cart to shopping list, single [`Ibexa\Contracts\ShoppingList\Event\BeforeAddEntriesEvent`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ShoppingList-Event-BeforeAddEntriesEvent.html) and [`Ibexa\Contracts\ShoppingList\Event\AddEntriesEvent`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ShoppingList-Event-AddEntriesEvent.html) events are dispatched for the batch of entries,
   then [`Ibexa\Contracts\Cart\Event\BeforeRemoveEntryEvent`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Cart-Event-BeforeRemoveEntryEvent.html) and [`Ibexa\Contracts\Cart\Event\BeforeRemoveEntryEvent`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Cart-Event-RemoveEntryEvent.html) are dispatched for each entry removed from the cart.
 
 ## REST API
@@ -109,8 +109,8 @@ There is no specific event for the transfer operations.
 The REST API provides resources for managing shopping lists and their entries,
 as well as for moving products between the cart and the shopping list.
 
-This resources start with [`/shopping-list/*`](/api/rest_api/rest_api_reference/rest_api_reference.html#tag/Shopping-List).
-On a instance in `dev` mode, you can consult and test the REST API at `/api/ibexa/v2/doc#/Shopping%20List`.
+These resources start with [`/shopping-list/*`](/api/rest_api/rest_api_reference/rest_api_reference.html#tag/Shopping-List).
+In Symfony's `dev` environment, you can consult and test the REST API at `/api/ibexa/v2/doc#/Shopping%20List`.
 
 The following REST example uses `curl` and [`jq`](https://jqlang.org/) to:
 
@@ -124,6 +124,8 @@ The following REST example uses `curl` and [`jq`](https://jqlang.org/) to:
 ```
 
 ### Transfer between shopping list and cart
+
+You can use:
 
 - [`POST /shopping-list/{identifier}/add-entries-to-cart`](/api/rest_api/rest_api_reference/rest_api_reference.html#tag/Shopping-List/operation/api_shopping-list_identifieradd-entries-to-cart_post) to add some shopping list entries to the default cart
 - [`POST /shopping-list/{identifier}/add-entries-to-cart/{cartIdentifier}`](/api/rest_api/rest_api_reference/rest_api_reference.html#tag/Shopping-List/operation/api_shopping-list_identifieradd-entries-to-cart_cartIdentifier_post) to add some shopping list entries to a specific cart
