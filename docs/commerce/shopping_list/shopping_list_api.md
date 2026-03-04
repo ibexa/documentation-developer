@@ -116,7 +116,7 @@ and few to move products between cart and shopping list.
 This resources start with [`/shopping-list/*`](/api/rest_api/rest_api_reference/rest_api_reference.html#tag/Shopping-List).
 On a instance in `dev` mode, you can consult and test the REST API at `/api/ibexa/v2/doc#/Shopping%20List`.
 
-The following REST example using `curl` and `jq
+The following REST example uses `curl` and [`jq`](https://jqlang.org/) to:
 
 - log in a user
 - search for the default shopping list to get its identifier
