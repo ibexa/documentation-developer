@@ -239,7 +239,7 @@ The following example shows how to link to the shopping list listing page, using
 </a>
 ```
 
-The `\Ibexa\Bundle\Storefront\EventSubscriber\ShoppingListViewSubscriber` passes an additional `selected_entries_form` variable to the template.
+The `\Ibexa\Bundle\Storefront\EventSubscriber\ShoppingList\DetailsViewSubscriber` passes an additional `selected_entries_form` variable to the template.
 This form allows to have "Add to cart" button for selected entries on top of the shopping list view in `storefront` theme
 through `vendor/ibexa/storefront/src/bundle/Resources/views/themes/storefront/shopping_list/view.html.twig`.
 
