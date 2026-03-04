@@ -15,10 +15,9 @@ To integrate the shopping list features to your own online store design, you can
 
 ## "Add to shopping list" widget
 
-This widget is a list of shopping lists with interactive checkboxes to show and set if a product is in or not,
-it includes a button to create a new shopping list on the fly.
-It's used in the `storefront` theme in several places, dressed as a drop-down menu or a modal.
-See [Shopping list management overview](shopping_list_guide.md#shopping-list-management-overview) for some screenshots.
+This widget contains a list of shopping lists indicating whether a product belongs to given list and allows to create a new shopping list on the fly.
+It's used in the `storefront` theme in several places, embedded within a drop-down menu or a modal.
+!["Add to shopping list" belonging menu with "Bikes" selected](img/shopping_list_belonging_2.png "List of shopping lists for a product belonging to a "Bikes" shopping list")
 
 You can use the following Twig and TypeScript components to insert an "Add to shopping list" widget for a product into your storefront:
 
