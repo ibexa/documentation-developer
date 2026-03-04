@@ -231,7 +231,7 @@ For all those templates (except `add.html.twig`), you'll find two implementation
 - a generic one for the `standard` theme in `vendor/ibexa/shopping-list/src/bundle/Resources/views/themes/standard/`
 - a more advanced demo one for the `storefront` theme in `vendor/ibexa/storefront/src/bundle/Resources/views/themes/storefront/`
 
-The `add` route is less interesting, and you should consider using the ["Add to shopping list" widget](#add-to-shopping-list-widget) first.
+Instead of using the `add` route, you should consider using the ["Add to shopping list" widget](#add-to-shopping-list-widget) first.
 
 The following example shows how to link to the shopping list listing page, using a heart icon:
 
