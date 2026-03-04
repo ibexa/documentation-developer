@@ -18,6 +18,8 @@ For example, starting to use the default list from REST API will create it if it
 to [`POST /shopping-list/default/entries`](/api/rest_api/rest_api_reference/rest_api_reference.html#tag/Shopping-List/operation/api_shopping-listdefaultentries_post)
 or [`POST /cart/{identifier}/move-to-shopping-list`](/api/rest_api/rest_api_reference/rest_api_reference.html#tag/Cart/operation/api_cart_identifiermove-to-shopping-list_post).
 
+Note that `default` isn't the default shopping list identifier. Each user's default shopping list has a unique identifier, a hash string like `01234567-89ab-cdef-0123-456789abcdef`.
+
 When a user has permissions to create shopping lists [`shopping_list/create`](policies.md#shopping-lists),
 they can always create a default shopping list, regardless of the maximum shopping list count per user configuration [`max_lists_per_user`](install_shopping_list.md#configure).
 
@@ -114,7 +116,7 @@ The following REST example uses `curl` and [`jq`](https://jqlang.org/) to:
 
 - log in a user
 - search for the default shopping list to get its identifier
-- clear the default shopping list if it exists
+- clear the default shopping list if it exists using its identifier
 - add a product to the default shopping list
 
 ```bash
