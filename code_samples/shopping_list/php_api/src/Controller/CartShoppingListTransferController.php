@@ -61,7 +61,7 @@ class CartShoppingListTransferController extends AbstractController
         }
 
         $lists = $this->shoppingListService->findShoppingLists(new ShoppingListQuery(new NameCriterion($name)));
-        if ($lists->getTotalCount()) {
+        if ($lists->getTotalCount() > 0) {
             $list = $lists->getShoppingLists()[0];
         } else {
             $list = $this->shoppingListService->createShoppingList(new ShoppingListCreateStruct($name));
