@@ -19,7 +19,7 @@ month_change: true
 ) =]]
 
 Shopping list is a new feature that allows users to save products into wishlists.
-A authenticated customer has a default "My wishlist" created on first use, and can create custom shopping lists to organize their potential or recurrent purchases.
+An authenticated customer has a default "My wishlist", and can create custom shopping lists to organize their potential or recurrent purchases.
 Products can be moved from cart to shopping list, from a shopping list to another shopping list, and copied from a shopping list to the cart.
 
 For more information, see [Shopping list feature guide](https://doc.ibexa.co/en/5.0/commerce/shopping_list/shopping_list_guide/).
