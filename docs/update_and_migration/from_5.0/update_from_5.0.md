@@ -287,7 +287,7 @@ No additional steps needed.
 
 ## v5.0.6
 
-### Database update
+### Database update [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
 
 Run the provided SQL upgrade script to adapt your database to latest change in [form builder](form_builder_guide.md)'s `max_length` validator behavior:
 
@@ -304,7 +304,7 @@ Run the provided SQL upgrade script to adapt your database to latest change in [
     ```
 
 Prior, `0` was interpreted as "no length limit".
-Now, `0` is interpreted as "length limited to zero character" and `NULL` as "no length limit".
+Now, `0` is interpreted as "length limited to zero characters" and `NULL` as "no length limit".
 
 ### [[= product_name_cloud =]] configuration update
 
