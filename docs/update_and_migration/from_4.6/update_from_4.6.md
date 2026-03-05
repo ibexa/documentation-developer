@@ -1,6 +1,6 @@
 ---
 description: Update your installation to the latest v4.6 version from an earlier v4.6 version.
-month_change: false
+month_change: true
 ---
 
 # Update from v4.6.x to v4.6.latest
@@ -34,7 +34,7 @@ Then execute the instructions below starting from the version you're upgrading f
 
 !!! caution
 
-    To avoid deprecations when using PHP 8.2 or 8.3, run the following commands:
+    To avoid deprecations when using PHP 8.2, 8.3, or 8.4, run the following commands:
 
     ``` bash
     composer config extra.runtime.error_handler "\\Ibexa\\Contracts\\Core\\MVC\\Symfony\\ErrorHandler\\Php82HideDeprecationsErrorHandler"
@@ -577,6 +577,27 @@ Follow the [Messenger setup instructions](https://doc.ibexa.co/en/4.6/infrastruc
 
 With the product updated to the latest version, you can now finish the update process or proceed to updating the LTS Updates packages.
 
+## v4.6.28
+
+### Database update [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
+
+Run the provided SQL upgrade script to adapt your database to latest change in [form builder](form_builder_guide.md)'s `max_length` validator behavior:
+
+=== "MySQL"
+
+    ``` sql
+    mysql -u <username> -p <password> <database_name> < vendor/ibexa/installer/upgrade/db/mysql/ibexa-4.6.27-to-4.6.28.sql
+    ```
+
+=== "PostgreSQL"
+
+    ``` sql
+    psql <database_name> < vendor/ibexa/installer/upgrade/db/postgresql/ibexa-4.6.27-to-4.6.28.sql
+    ```
+
+Prior, `0` was interpreted as "no length limit".
+Now, `0` is interpreted as "length limited to zero characters" and `NULL` as "no length limit".
+
 ## LTS Updates
 
 [LTS Updates](https://doc.ibexa.co/en/4.6/ibexa_products/editions/#lts-updates) are standalone packages with their own update procedures.
@@ -842,4 +863,3 @@ To use the [latest features](ibexa_dxp_v4.6.md) added to them, update them separ
     ```bash
     composer require ibexa/fieldtype-richtext-rte:[[= latest_tag_4_6 =]] ibexa/ckeditor-premium:[[= latest_tag_4_6 =]]
     ```
-

@@ -33131,6 +33131,11 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/Ibexa-Contracts-Core-Search-Embedding-EmbeddingProviderResolverInterface.html#method_resolve"
         },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Search\\Embedding\\EmbeddingProviderResolverInterface\u003A\u003AresolveByModelIdentifier\u0028\u0029",
+            "name": "resolveByModelIdentifier",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Search-Embedding-EmbeddingProviderResolverInterface.html#method_resolveByModelIdentifier"
+        },                {
             "fqsen": "\\Ibexa\\Contracts\\Core\\Search\\Embedding\\EmbeddingResolverNotFoundException",
             "name": "EmbeddingResolverNotFoundException",
             "summary": "",
@@ -42140,6 +42145,36 @@ Search.appendIndex(
             "name": "tag",
             "summary": "Extracts\u0020tags\u0020from\u0020a\u0020value.",
             "url": "classes/Ibexa-Contracts-HttpCache-ResponseTagger-ResponseTagger.html#method_tag"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\ImageEditor\\Event\\ConfigureImageOptimizersEvent",
+            "name": "ConfigureImageOptimizersEvent",
+            "summary": "Event\u0020is\u0020the\u0020base\u0020class\u0020for\u0020classes\u0020containing\u0020event\u0020data.",
+            "url": "classes/Ibexa-Contracts-ImageEditor-Event-ConfigureImageOptimizersEvent.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\ImageEditor\\Event\\ConfigureImageOptimizersEvent\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-ImageEditor-Event-ConfigureImageOptimizersEvent.html#method___construct"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\ImageEditor\\Event\\ConfigureImageOptimizersEvent\u003A\u003AgetOptimizers\u0028\u0029",
+            "name": "getOptimizers",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-ImageEditor-Event-ConfigureImageOptimizersEvent.html#method_getOptimizers"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\ImageEditor\\Event\\ConfigureImageOptimizersEvent\u003A\u003AsetOptimizers\u0028\u0029",
+            "name": "setOptimizers",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-ImageEditor-Event-ConfigureImageOptimizersEvent.html#method_setOptimizers"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\ImageEditor\\Event\\ConfigureImageOptimizersEvent\u003A\u003AaddOptimizer\u0028\u0029",
+            "name": "addOptimizer",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-ImageEditor-Event-ConfigureImageOptimizersEvent.html#method_addOptimizer"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\ImageEditor\\Event\\ConfigureImageOptimizersEvent\u003A\u003AremoveOptimizer\u0028\u0029",
+            "name": "removeOptimizer",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-ImageEditor-Event-ConfigureImageOptimizersEvent.html#method_removeOptimizer"
         },                {
             "fqsen": "\\Ibexa\\Contracts\\ImageEditor\\Optimizer\\OptimizerInterface",
             "name": "OptimizerInterface",
@@ -63646,15 +63681,20 @@ Search.appendIndex(
             "summary": "",
             "url": "namespaces/ibexa-contracts-httpcache-responsetagger.html"
         },                {
-            "fqsen": "\\Ibexa\\Contracts\\ImageEditor\\Optimizer",
-            "name": "Optimizer",
+            "fqsen": "\\Ibexa\\Contracts\\ImageEditor\\Event",
+            "name": "Event",
             "summary": "",
-            "url": "namespaces/ibexa-contracts-imageeditor-optimizer.html"
+            "url": "namespaces/ibexa-contracts-imageeditor-event.html"
         },                {
             "fqsen": "\\Ibexa\\Contracts\\ImageEditor",
             "name": "ImageEditor",
             "summary": "",
             "url": "namespaces/ibexa-contracts-imageeditor.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\ImageEditor\\Optimizer",
+            "name": "Optimizer",
+            "summary": "",
+            "url": "namespaces/ibexa-contracts-imageeditor-optimizer.html"
         },                {
             "fqsen": "\\Ibexa\\Contracts\\Measurement\\Converter",
             "name": "Converter",
