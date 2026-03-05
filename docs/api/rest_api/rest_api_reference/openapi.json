@@ -6,7 +6,7 @@
         },
         "title": "Ibexa DXP REST API",
         "description": "",
-        "version": "5.0.5"
+        "version": "5.0.6"
     },
     "servers": [
         {
@@ -1689,6 +1689,378 @@
                             }
                         }
                     },
+                    "required": false
+                },
+                "deprecated": false,
+                "x-badges": [
+                    {
+                        "name": "Commerce",
+                        "color": "#A32768",
+                        "position": "after"
+                    }
+                ]
+            }
+        },
+        "/cart/{identifier}/move-entries-to-shopping-list": {
+            "post": {
+                "operationId": "api_cart_identifiermove-entries-to-shopping-list_post",
+                "tags": [
+                    "Cart"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK - returns the shopping list with added cart entries",
+                        "content": {
+                            "application/vnd.ibexa.api.ShoppingList+json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ShoppingListWrapper"
+                                }
+                            },
+                            "application/vnd.ibexa.api.ShoppingList+xml": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ShoppingList"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Error - The input does not match the input schema definition."
+                    },
+                    "401": {
+                        "description": "Error - the user is not authorized to move cart entries to shopping list."
+                    },
+                    "404": {
+                        "description": "Error - the cart identifier doesn't match any existing resource."
+                    }
+                },
+                "summary": "Move Selected Cart Entries to Default Shopping List",
+                "description": "Moves selected entries from the given Cart to the default Shopping List (save for later). After moving, selected entries are removed from the cart.",
+                "parameters": [
+                    {
+                        "name": "identifier",
+                        "in": "path",
+                        "description": "The Cart identifier",
+                        "required": true,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "style": "simple",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "X-CSRF-Token",
+                        "in": "header",
+                        "description": "CSRF Token is needed to execute this unsafe request.",
+                        "required": true,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "style": "simple",
+                        "explode": false,
+                        "allowReserved": false
+                    }
+                ],
+                "requestBody": {
+                    "description": "The new MoveCartEntriesToShoppingListController resource",
+                    "content": {
+                        "application/vnd.ibexa.api.CartEntryIdentifiers+json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/CartEntryIdentifiersWrapper"
+                            },
+                            "example": {
+                                "$ref": "#/components/examples/CartEntryIdentifiersJsonExample"
+                            }
+                        },
+                        "application/vnd.ibexa.api.CartEntryIdentifiers+xml": {
+                            "schema": {
+                                "$ref": "#/components/schemas/CartEntryIdentifiers"
+                            },
+                            "example": {
+                                "$ref": "#/components/examples/CartEntryIdentifiersXmlExample"
+                            }
+                        }
+                    },
+                    "required": false
+                },
+                "deprecated": false,
+                "x-badges": [
+                    {
+                        "name": "Commerce",
+                        "color": "#A32768",
+                        "position": "after"
+                    }
+                ]
+            }
+        },
+        "/cart/{identifier}/move-entries-to-shopping-list/{shoppingListIdentifier}": {
+            "post": {
+                "operationId": "api_cart_identifiermove-entries-to-shopping-list_shoppingListIdentifier_post",
+                "tags": [
+                    "Cart"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK - returns the shopping list with added cart entries",
+                        "content": {
+                            "application/vnd.ibexa.api.ShoppingList+json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ShoppingListWrapper"
+                                }
+                            },
+                            "application/vnd.ibexa.api.ShoppingList+xml": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ShoppingList"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Error - The input does not match the input schema definition."
+                    },
+                    "401": {
+                        "description": "Error - the user is not authorized to move cart entries to shopping list."
+                    },
+                    "404": {
+                        "description": "Error - the cart or shopping list don't match any existing resource."
+                    }
+                },
+                "summary": "Move Selected Cart Entries to Specific Shopping List",
+                "description": "Moves selected entries from the given Cart to the specified Shopping List (save for later). After moving, selected entries are removed from the cart.",
+                "parameters": [
+                    {
+                        "name": "identifier",
+                        "in": "path",
+                        "description": "The Cart identifier",
+                        "required": true,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "style": "simple",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "shoppingListIdentifier",
+                        "in": "path",
+                        "description": "The Shopping List identifier",
+                        "required": true,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "style": "simple",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "X-CSRF-Token",
+                        "in": "header",
+                        "description": "CSRF Token is needed to execute this unsafe request.",
+                        "required": true,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "style": "simple",
+                        "explode": false,
+                        "allowReserved": false
+                    }
+                ],
+                "requestBody": {
+                    "description": "The new MoveCartEntriesToShoppingListController resource",
+                    "content": {
+                        "application/vnd.ibexa.api.CartEntryIdentifiers+json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/CartEntryIdentifiersWrapper"
+                            },
+                            "example": {
+                                "$ref": "#/components/examples/CartEntryIdentifiersJsonExample"
+                            }
+                        },
+                        "application/vnd.ibexa.api.CartEntryIdentifiers+xml": {
+                            "schema": {
+                                "$ref": "#/components/schemas/CartEntryIdentifiers"
+                            },
+                            "example": {
+                                "$ref": "#/components/examples/CartEntryIdentifiersXmlExample"
+                            }
+                        }
+                    },
+                    "required": false
+                },
+                "deprecated": false,
+                "x-badges": [
+                    {
+                        "name": "Commerce",
+                        "color": "#A32768",
+                        "position": "after"
+                    }
+                ]
+            }
+        },
+        "/cart/{identifier}/move-to-shopping-list": {
+            "post": {
+                "operationId": "api_cart_identifiermove-to-shopping-list_post",
+                "tags": [
+                    "Cart"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK - returns the shopping list with added cart entries",
+                        "content": {
+                            "application/vnd.ibexa.api.ShoppingList+json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ShoppingListWrapper"
+                                }
+                            },
+                            "application/vnd.ibexa.api.ShoppingList+xml": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ShoppingList"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Error - the user is not authorized to move cart to shopping list."
+                    },
+                    "404": {
+                        "description": "Error - the cart identifier doesn't match any existing resource."
+                    }
+                },
+                "summary": "Move Cart to Default Shopping List",
+                "description": "Moves all entries from the given Cart to the default Shopping List (save for later). After moving, entries are removed from the cart.",
+                "parameters": [
+                    {
+                        "name": "identifier",
+                        "in": "path",
+                        "description": "The Cart identifier",
+                        "required": true,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "style": "simple",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "X-CSRF-Token",
+                        "in": "header",
+                        "description": "CSRF Token is needed to execute this unsafe request.",
+                        "required": true,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "style": "simple",
+                        "explode": false,
+                        "allowReserved": false
+                    }
+                ],
+                "requestBody": {
+                    "description": "No payload required",
+                    "content": [],
+                    "required": false
+                },
+                "deprecated": false,
+                "x-badges": [
+                    {
+                        "name": "Commerce",
+                        "color": "#A32768",
+                        "position": "after"
+                    }
+                ]
+            }
+        },
+        "/cart/{identifier}/move-to-shopping-list/{shoppingListIdentifier}": {
+            "post": {
+                "operationId": "api_cart_identifiermove-to-shopping-list_shoppingListIdentifier_post",
+                "tags": [
+                    "Cart"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK - returns the shopping list with added cart entries",
+                        "content": {
+                            "application/vnd.ibexa.api.ShoppingList+json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ShoppingListWrapper"
+                                }
+                            },
+                            "application/vnd.ibexa.api.ShoppingList+xml": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ShoppingList"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Error - the user is not authorized to move cart to shopping list."
+                    },
+                    "404": {
+                        "description": "Error - the cart or shopping list identifier doesn't match any existing resource."
+                    }
+                },
+                "summary": "Move Cart to Specific Shopping List",
+                "description": "Moves all entries from the given Cart to the specified Shopping List (save for later). After moving, entries are removed from the cart.",
+                "parameters": [
+                    {
+                        "name": "identifier",
+                        "in": "path",
+                        "description": "The Cart identifier",
+                        "required": true,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "style": "simple",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "shoppingListIdentifier",
+                        "in": "path",
+                        "description": "The Shopping List identifier",
+                        "required": true,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "style": "simple",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "X-CSRF-Token",
+                        "in": "header",
+                        "description": "CSRF Token is needed to execute this unsafe request.",
+                        "required": true,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "style": "simple",
+                        "explode": false,
+                        "allowReserved": false
+                    }
+                ],
+                "requestBody": {
+                    "description": "No payload required",
+                    "content": [],
                     "required": false
                 },
                 "deprecated": false,
@@ -24994,6 +25366,1528 @@
                 ]
             }
         },
+        "/shopping-list": {
+            "get": {
+                "operationId": "api_shopping-list_get",
+                "tags": [
+                    "Shopping List"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "200",
+                        "content": {
+                            "application/vnd.ibexa.api.ShoppingListCollection+json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ShoppingListCollectionWrapper"
+                                },
+                                "example": {
+                                    "ShoppingListCollection": {
+                                        "totalCount": 2,
+                                        "count": 2,
+                                        "ShoppingList": [
+                                            {
+                                                "identifier": "550e8400-e29b-41d4-a716-446655440000",
+                                                "name": "My Shopping List",
+                                                "isDefault": true,
+                                                "owner": {
+                                                    "_href": "/api/ibexa/v2/user/users/14",
+                                                    "_media-type": "application/vnd.ibexa.api.User+json"
+                                                },
+                                                "entries": [
+                                                    {
+                                                        "identifier": "650e8400-e29b-41d4-a716-446655440001",
+                                                        "product": {
+                                                            "_href": "/api/ibexa/v2/product/catalog/products/PRODUCT-001",
+                                                            "_media-type": "application/vnd.ibexa.api.Product+json",
+                                                            "code": "PRODUCT-001",
+                                                            "name": "Sample Product"
+                                                        },
+                                                        "addedAt": "2024-10-29T12:15:00+00:00"
+                                                    }
+                                                ],
+                                                "createdAt": "2024-10-29T12:00:00+00:00",
+                                                "updatedAt": "2024-10-29T12:00:00+00:00"
+                                            },
+                                            {
+                                                "identifier": "660e8400-e29b-41d4-a716-446655440001",
+                                                "name": "Weekend Shopping",
+                                                "isDefault": false,
+                                                "owner": {
+                                                    "_href": "/api/ibexa/v2/user/users/14",
+                                                    "_media-type": "application/vnd.ibexa.api.User+json"
+                                                },
+                                                "entries": [],
+                                                "createdAt": "2024-10-30T08:30:00+00:00",
+                                                "updatedAt": "2024-10-30T08:30:00+00:00"
+                                            }
+                                        ]
+                                    }
+                                }
+                            },
+                            "application/vnd.ibexa.api.ShoppingListCollection+xml": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ShoppingListCollection"
+                                },
+                                "example": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<ShoppingListCollection xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\">\n  <totalCount>2</totalCount>\n  <count>2</count>\n  <ShoppingList>\n    <identifier>550e8400-e29b-41d4-a716-446655440000</identifier>\n    <name>My Shopping List</name>\n    <isDefault>1</isDefault>\n    <owner href=\"/api/ibexa/v2/user/users/14\" media-type=\"application/vnd.ibexa.api.User+xml\"/>\n    <entries>\n      <identifier>650e8400-e29b-41d4-a716-446655440001</identifier>\n      <product href=\"/api/ibexa/v2/product/catalog/products/PRODUCT-001\" media-type=\"application/vnd.ibexa.api.Product+xml\">\n        <code>PRODUCT-001</code>\n        <name>Sample Product</name>\n      </product>\n      <addedAt>2024-10-29T12:15:00+00:00</addedAt>\n    </entries>\n    <createdAt>2024-10-29T12:00:00+00:00</createdAt>\n    <updatedAt>2024-10-29T12:00:00+00:00</updatedAt>\n  </ShoppingList>\n  <ShoppingList>\n    <identifier>660e8400-e29b-41d4-a716-446655440001</identifier>\n    <name>Weekend Shopping</name>\n    <isDefault>0</isDefault>\n    <owner href=\"/api/ibexa/v2/user/users/14\" media-type=\"application/vnd.ibexa.api.User+xml\"/>\n    <entries/>\n    <createdAt>2024-10-30T08:30:00+00:00</createdAt>\n    <updatedAt>2024-10-30T08:30:00+00:00</updatedAt>\n  </ShoppingList>\n</ShoppingListCollection>\n"
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Error - The user is not authorized to list shopping lists."
+                    }
+                },
+                "summary": "List shopping lists",
+                "description": "Returns a list of shopping lists owned by the current user.",
+                "parameters": [
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "description": "The maximum number of shopping lists to return. Default is 25.",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "integer",
+                            "default": 25
+                        },
+                        "style": "form",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "offset",
+                        "in": "query",
+                        "description": "The offset for pagination. Default is 0.",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "integer",
+                            "default": 0
+                        },
+                        "style": "form",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "name",
+                        "in": "query",
+                        "description": "Filter shopping lists by name (partial match).",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "style": "form",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "createdFrom",
+                        "in": "query",
+                        "description": "Filter shopping lists created on or after this date (ISO 8601 format).",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string",
+                            "format": "date-time"
+                        },
+                        "style": "form",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "createdTo",
+                        "in": "query",
+                        "description": "Filter shopping lists created on or before this date (ISO 8601 format).",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string",
+                            "format": "date-time"
+                        },
+                        "style": "form",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "updatedFrom",
+                        "in": "query",
+                        "description": "Filter shopping lists updated on or after this date (ISO 8601 format).",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string",
+                            "format": "date-time"
+                        },
+                        "style": "form",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "updatedTo",
+                        "in": "query",
+                        "description": "Filter shopping lists updated on or before this date (ISO 8601 format).",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string",
+                            "format": "date-time"
+                        },
+                        "style": "form",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "isDefault",
+                        "in": "query",
+                        "description": "Filter shopping lists by default flag. Use \"true\" for default lists only, \"false\" for non-default lists only.",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string",
+                            "enum": [
+                                "true",
+                                "false"
+                            ]
+                        },
+                        "style": "form",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "ownerId",
+                        "in": "query",
+                        "description": "Filter shopping lists by owner user ID.",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "style": "form",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "sort",
+                        "in": "query",
+                        "description": "Sort shopping lists by field. Available fields: name, is_default, created_at, updated_at.",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string",
+                            "enum": [
+                                "name",
+                                "is_default",
+                                "created_at",
+                                "updated_at"
+                            ]
+                        },
+                        "style": "form",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "order",
+                        "in": "query",
+                        "description": "Sort direction. Default is \"asc\".",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string",
+                            "enum": [
+                                "asc",
+                                "desc"
+                            ],
+                            "default": "asc"
+                        },
+                        "style": "form",
+                        "explode": false,
+                        "allowReserved": false
+                    }
+                ],
+                "deprecated": false,
+                "x-badges": [
+                    {
+                        "name": "Commerce",
+                        "color": "#A32768",
+                        "position": "after"
+                    },
+                    {
+                        "name": "LTS Update",
+                        "color": "#5DA7C0",
+                        "position": "after"
+                    }
+                ]
+            },
+            "post": {
+                "operationId": "api_shopping-list_post",
+                "tags": [
+                    "Shopping List"
+                ],
+                "responses": {
+                    "201": {
+                        "description": "201",
+                        "content": {
+                            "application/vnd.ibexa.api.ShoppingList+json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ShoppingListWrapper"
+                                },
+                                "example": {
+                                    "ShoppingList": {
+                                        "identifier": "550e8400-e29b-41d4-a716-446655440000",
+                                        "name": "My Shopping List",
+                                        "isDefault": false,
+                                        "owner": {
+                                            "_href": "/api/ibexa/v2/user/users/14",
+                                            "_media-type": "application/vnd.ibexa.api.User+json"
+                                        },
+                                        "entries": [
+                                            {
+                                                "identifier": "650e8400-e29b-41d4-a716-446655440001",
+                                                "product": {
+                                                    "_href": "/api/ibexa/v2/product/catalog/products/PRODUCT-001",
+                                                    "_media-type": "application/vnd.ibexa.api.Product+json",
+                                                    "code": "PRODUCT-001",
+                                                    "name": "Sample Product"
+                                                },
+                                                "addedAt": "2024-10-29T12:15:00+00:00"
+                                            }
+                                        ],
+                                        "createdAt": "2024-10-29T12:00:00+00:00",
+                                        "updatedAt": "2024-10-29T12:00:00+00:00"
+                                    }
+                                }
+                            },
+                            "application/vnd.ibexa.api.ShoppingList+xml": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ShoppingList"
+                                },
+                                "example": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<ShoppingList xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\">\n  <identifier>550e8400-e29b-41d4-a716-446655440000</identifier>\n  <name>My Shopping List</name>\n  <isDefault>0</isDefault>\n  <owner href=\"/api/ibexa/v2/user/users/14\" media-type=\"application/vnd.ibexa.api.User+xml\"/>\n  <entries>\n    <identifier>650e8400-e29b-41d4-a716-446655440001</identifier>\n    <product href=\"/api/ibexa/v2/product/catalog/products/PRODUCT-001\" media-type=\"application/vnd.ibexa.api.Product+xml\">\n      <code>PRODUCT-001</code>\n      <name>Sample Product</name>\n    </product>\n    <addedAt>2024-10-29T12:15:00+00:00</addedAt>\n  </entries>\n  <createdAt>2024-10-29T12:00:00+00:00</createdAt>\n  <updatedAt>2024-10-29T12:00:00+00:00</updatedAt>\n</ShoppingList>\n"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Error - The input does not match the input schema definition."
+                    },
+                    "401": {
+                        "description": "Error - The user is not authorized to create a shopping list."
+                    },
+                    "403": {
+                        "description": "Error - Invalid request (e.g., missing required name)."
+                    },
+                    "406": {
+                        "description": "Error - Shopping list limit exceeded for the current user."
+                    }
+                },
+                "summary": "Create shopping list",
+                "description": "Creates a new shopping list for the current user. The list will be owned by the authenticated user.",
+                "parameters": [
+                    {
+                        "name": "X-CSRF-Token",
+                        "in": "header",
+                        "description": "CSRF Token is needed to execute this unsafe request.",
+                        "required": true,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "style": "simple",
+                        "explode": false,
+                        "allowReserved": false
+                    }
+                ],
+                "requestBody": {
+                    "description": "The new ShoppingListCreateController resource",
+                    "content": {
+                        "application/vnd.ibexa.api.ShoppingListCreate+json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ShoppingListCreateWrapper"
+                            },
+                            "x-ibexa-example-file": "@IbexaShoppingListBundle/Resources/api_platform/examples/shopping-list/POST/ShoppingListCreate.json.example"
+                        },
+                        "application/vnd.ibexa.api.ShoppingListCreate+xml": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ShoppingListCreate"
+                            },
+                            "x-ibexa-example-file": "@IbexaShoppingListBundle/Resources/api_platform/examples/shopping-list/POST/ShoppingListCreate.xml.example"
+                        }
+                    },
+                    "required": false
+                },
+                "deprecated": false,
+                "x-badges": [
+                    {
+                        "name": "Commerce",
+                        "color": "#A32768",
+                        "position": "after"
+                    },
+                    {
+                        "name": "LTS Update",
+                        "color": "#5DA7C0",
+                        "position": "after"
+                    }
+                ]
+            }
+        },
+        "/shopping-list/default/entries": {
+            "post": {
+                "operationId": "api_shopping-listdefaultentries_post",
+                "tags": [
+                    "Shopping List"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "200",
+                        "content": {
+                            "application/vnd.ibexa.api.ShoppingList+json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ShoppingListWrapper"
+                                },
+                                "example": {
+                                    "ShoppingList": {
+                                        "identifier": "550e8400-e29b-41d4-a716-446655440000",
+                                        "name": "My Shopping List",
+                                        "isDefault": false,
+                                        "owner": {
+                                            "_href": "/api/ibexa/v2/user/users/14",
+                                            "_media-type": "application/vnd.ibexa.api.User+json"
+                                        },
+                                        "entries": [
+                                            {
+                                                "identifier": "650e8400-e29b-41d4-a716-446655440001",
+                                                "product": {
+                                                    "_href": "/api/ibexa/v2/product/catalog/products/PRODUCT-001",
+                                                    "_media-type": "application/vnd.ibexa.api.Product+json",
+                                                    "code": "PRODUCT-001",
+                                                    "name": "Sample Product"
+                                                },
+                                                "addedAt": "2024-10-29T12:15:00+00:00"
+                                            }
+                                        ],
+                                        "createdAt": "2024-10-29T12:00:00+00:00",
+                                        "updatedAt": "2024-10-29T12:00:00+00:00"
+                                    }
+                                }
+                            },
+                            "application/vnd.ibexa.api.ShoppingList+xml": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ShoppingList"
+                                },
+                                "example": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<ShoppingList xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\">\n  <identifier>550e8400-e29b-41d4-a716-446655440000</identifier>\n  <name>My Shopping List</name>\n  <isDefault>0</isDefault>\n  <owner href=\"/api/ibexa/v2/user/users/14\" media-type=\"application/vnd.ibexa.api.User+xml\"/>\n  <entries>\n    <identifier>650e8400-e29b-41d4-a716-446655440001</identifier>\n    <product href=\"/api/ibexa/v2/product/catalog/products/PRODUCT-001\" media-type=\"application/vnd.ibexa.api.Product+xml\">\n      <code>PRODUCT-001</code>\n      <name>Sample Product</name>\n    </product>\n    <addedAt>2024-10-29T12:15:00+00:00</addedAt>\n  </entries>\n  <createdAt>2024-10-29T12:00:00+00:00</createdAt>\n  <updatedAt>2024-10-29T12:00:00+00:00</updatedAt>\n</ShoppingList>\n"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Error - The input does not match the input schema definition."
+                    },
+                    "401": {
+                        "description": "Error - The user is not authorized to add entries to the default shopping list."
+                    },
+                    "403": {
+                        "description": "Error - Invalid request (e.g., invalid product code, duplicate entry)."
+                    },
+                    "406": {
+                        "description": "Error - Shopping list entry limit exceeded."
+                    }
+                },
+                "summary": "Add entries to default shopping list",
+                "description": "Adds one or more product entries to the default shopping list. If the default shopping list does not exist, it will be created automatically.",
+                "parameters": [
+                    {
+                        "name": "X-CSRF-Token",
+                        "in": "header",
+                        "description": "CSRF Token is needed to execute this unsafe request.",
+                        "required": true,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "style": "simple",
+                        "explode": false,
+                        "allowReserved": false
+                    }
+                ],
+                "requestBody": {
+                    "description": "The new ShoppingListAddToDefaultEntriesController resource",
+                    "content": {
+                        "application/vnd.ibexa.api.ShoppingListEntriesAdd+json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ShoppingListEntriesAddWrapper"
+                            },
+                            "x-ibexa-example-file": "@IbexaShoppingListBundle/Resources/api_platform/examples/shopping-list/POST/ShoppingListEntriesAdd.json.example"
+                        },
+                        "application/vnd.ibexa.api.ShoppingListEntriesAdd+xml": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ShoppingListEntriesAdd"
+                            },
+                            "x-ibexa-example-file": "@IbexaShoppingListBundle/Resources/api_platform/examples/shopping-list/POST/ShoppingListEntriesAdd.xml.example"
+                        }
+                    },
+                    "required": false
+                },
+                "deprecated": false,
+                "x-badges": [
+                    {
+                        "name": "Commerce",
+                        "color": "#A32768",
+                        "position": "after"
+                    },
+                    {
+                        "name": "LTS Update",
+                        "color": "#5DA7C0",
+                        "position": "after"
+                    }
+                ]
+            }
+        },
+        "/shopping-list/{identifier}": {
+            "get": {
+                "operationId": "api_shopping-list_identifier_get",
+                "tags": [
+                    "Shopping List"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "200",
+                        "content": {
+                            "application/vnd.ibexa.api.ShoppingList+json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ShoppingListWrapper"
+                                },
+                                "example": {
+                                    "ShoppingList": {
+                                        "identifier": "550e8400-e29b-41d4-a716-446655440000",
+                                        "name": "My Shopping List",
+                                        "isDefault": false,
+                                        "owner": {
+                                            "_href": "/api/ibexa/v2/user/users/14",
+                                            "_media-type": "application/vnd.ibexa.api.User+json"
+                                        },
+                                        "entries": [
+                                            {
+                                                "identifier": "650e8400-e29b-41d4-a716-446655440001",
+                                                "product": {
+                                                    "_href": "/api/ibexa/v2/product/catalog/products/PRODUCT-001",
+                                                    "_media-type": "application/vnd.ibexa.api.Product+json",
+                                                    "code": "PRODUCT-001",
+                                                    "name": "Sample Product"
+                                                },
+                                                "addedAt": "2024-10-29T12:15:00+00:00"
+                                            },
+                                            {
+                                                "identifier": "650e8400-e29b-41d4-a716-446655440002",
+                                                "product": {
+                                                    "_href": "/api/ibexa/v2/product/catalog/products/PRODUCT-002",
+                                                    "_media-type": "application/vnd.ibexa.api.Product+json",
+                                                    "code": "PRODUCT-002",
+                                                    "name": "Another Product"
+                                                },
+                                                "addedAt": "2024-10-29T12:30:00+00:00"
+                                            }
+                                        ],
+                                        "createdAt": "2024-10-29T12:00:00+00:00",
+                                        "updatedAt": "2024-10-29T12:00:00+00:00"
+                                    }
+                                }
+                            },
+                            "application/vnd.ibexa.api.ShoppingList+xml": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ShoppingList"
+                                },
+                                "example": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<ShoppingList xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\">\n  <identifier>550e8400-e29b-41d4-a716-446655440000</identifier>\n  <name>My Shopping List</name>\n  <isDefault>0</isDefault>\n  <owner href=\"/api/ibexa/v2/user/users/14\" media-type=\"application/vnd.ibexa.api.User+xml\"/>\n  <entries>\n    <identifier>650e8400-e29b-41d4-a716-446655440001</identifier>\n    <product href=\"/api/ibexa/v2/product/catalog/products/PRODUCT-001\" media-type=\"application/vnd.ibexa.api.Product+xml\">\n      <code>PRODUCT-001</code>\n      <name>Sample Product</name>\n    </product>\n    <addedAt>2024-10-29T12:15:00+00:00</addedAt>\n  </entries>\n  <entries>\n    <identifier>650e8400-e29b-41d4-a716-446655440002</identifier>\n    <product href=\"/api/ibexa/v2/product/catalog/products/PRODUCT-002\" media-type=\"application/vnd.ibexa.api.Product+xml\">\n      <code>PRODUCT-002</code>\n      <name>Another Product</name>\n    </product>\n    <addedAt>2024-10-29T12:30:00+00:00</addedAt>\n  </entries>\n  <createdAt>2024-10-29T12:00:00+00:00</createdAt>\n  <updatedAt>2024-10-29T12:00:00+00:00</updatedAt>\n</ShoppingList>\n"
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Error - the user is not authorized to access this shopping list."
+                    },
+                    "404": {
+                        "description": "Error - the identifier does not match any shopping list."
+                    }
+                },
+                "summary": "Get shopping list",
+                "description": "Gets a shopping list by its identifier.",
+                "parameters": [
+                    {
+                        "name": "identifier",
+                        "in": "path",
+                        "description": "The shopping list identifier (UUID)",
+                        "required": true,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "style": "simple",
+                        "explode": false,
+                        "allowReserved": false
+                    }
+                ],
+                "deprecated": false,
+                "x-badges": [
+                    {
+                        "name": "Commerce",
+                        "color": "#A32768",
+                        "position": "after"
+                    },
+                    {
+                        "name": "LTS Update",
+                        "color": "#5DA7C0",
+                        "position": "after"
+                    }
+                ]
+            },
+            "delete": {
+                "operationId": "api_shopping-list_identifier_delete",
+                "tags": [
+                    "Shopping List"
+                ],
+                "responses": {
+                    "204": {
+                        "description": "No Content - shopping list deleted successfully."
+                    },
+                    "401": {
+                        "description": "Error - The user is not authorized to delete this shopping list."
+                    },
+                    "403": {
+                        "description": "Error - Cannot delete the default shopping list."
+                    },
+                    "404": {
+                        "description": "Error - Shopping list with the given identifier does not exist."
+                    }
+                },
+                "summary": "Delete shopping list",
+                "description": "Deletes a shopping list by its identifier. The default shopping list cannot be deleted.",
+                "parameters": [
+                    {
+                        "name": "identifier",
+                        "in": "path",
+                        "description": "The shopping list identifier (UUID).",
+                        "required": true,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "style": "simple",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "X-CSRF-Token",
+                        "in": "header",
+                        "description": "CSRF Token is needed to execute this unsafe request.",
+                        "required": true,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "style": "simple",
+                        "explode": false,
+                        "allowReserved": false
+                    }
+                ],
+                "deprecated": false,
+                "x-badges": [
+                    {
+                        "name": "Commerce",
+                        "color": "#A32768",
+                        "position": "after"
+                    },
+                    {
+                        "name": "LTS Update",
+                        "color": "#5DA7C0",
+                        "position": "after"
+                    }
+                ]
+            },
+            "patch": {
+                "operationId": "api_shopping-list_identifier_patch",
+                "tags": [
+                    "Shopping List"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "200",
+                        "content": {
+                            "application/vnd.ibexa.api.ShoppingList+json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ShoppingListWrapper"
+                                },
+                                "example": {
+                                    "ShoppingList": {
+                                        "identifier": "550e8400-e29b-41d4-a716-446655440000",
+                                        "name": "Updated Shopping List Name",
+                                        "isDefault": false,
+                                        "owner": {
+                                            "_href": "/api/ibexa/v2/user/users/14",
+                                            "_media-type": "application/vnd.ibexa.api.User+json"
+                                        },
+                                        "entries": [
+                                            {
+                                                "identifier": "650e8400-e29b-41d4-a716-446655440001",
+                                                "product": {
+                                                    "_href": "/api/ibexa/v2/product/catalog/products/PRODUCT-001",
+                                                    "_media-type": "application/vnd.ibexa.api.Product+json",
+                                                    "code": "PRODUCT-001",
+                                                    "name": "Sample Product"
+                                                },
+                                                "addedAt": "2024-10-29T12:15:00+00:00"
+                                            }
+                                        ],
+                                        "createdAt": "2024-10-29T12:00:00+00:00",
+                                        "updatedAt": "2024-10-29T12:30:00+00:00"
+                                    }
+                                }
+                            },
+                            "application/vnd.ibexa.api.ShoppingList+xml": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ShoppingList"
+                                },
+                                "example": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<ShoppingList xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\">\n  <identifier>550e8400-e29b-41d4-a716-446655440000</identifier>\n  <name>Updated Shopping List Name</name>\n  <isDefault>0</isDefault>\n  <owner href=\"/api/ibexa/v2/user/users/14\" media-type=\"application/vnd.ibexa.api.User+xml\"/>\n  <entries>\n    <identifier>650e8400-e29b-41d4-a716-446655440001</identifier>\n    <product href=\"/api/ibexa/v2/product/catalog/products/PRODUCT-001\" media-type=\"application/vnd.ibexa.api.Product+xml\">\n      <code>PRODUCT-001</code>\n      <name>Sample Product</name>\n    </product>\n    <addedAt>2024-10-29T12:15:00+00:00</addedAt>\n  </entries>\n  <createdAt>2024-10-29T12:00:00+00:00</createdAt>\n  <updatedAt>2024-10-29T12:30:00+00:00</updatedAt>\n</ShoppingList>\n"
+                            }
+                        }
+                    },
+                    "204": {
+                        "description": "Shopping list updated (no content returned)."
+                    },
+                    "400": {
+                        "description": "Error - The input does not match the input schema definition."
+                    },
+                    "401": {
+                        "description": "Error - The user is not authorized to update this shopping list."
+                    },
+                    "403": {
+                        "description": "Error - Invalid request (e.g., validation failed)."
+                    },
+                    "404": {
+                        "description": "Error - The shopping list does not exist."
+                    }
+                },
+                "summary": "Update shopping list",
+                "description": "Updates an existing shopping list. Only the name can be updated.",
+                "parameters": [
+                    {
+                        "name": "identifier",
+                        "in": "path",
+                        "description": "The shopping list identifier (UUID).",
+                        "required": true,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "style": "simple",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "X-CSRF-Token",
+                        "in": "header",
+                        "description": "CSRF Token is needed to execute this unsafe request.",
+                        "required": true,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "style": "simple",
+                        "explode": false,
+                        "allowReserved": false
+                    }
+                ],
+                "requestBody": {
+                    "description": "The updated ShoppingListUpdateController resource",
+                    "content": {
+                        "application/vnd.ibexa.api.ShoppingListUpdate+json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ShoppingListUpdateWrapper"
+                            },
+                            "x-ibexa-example-file": "@IbexaShoppingListBundle/Resources/api_platform/examples/shopping-list/PATCH/ShoppingListUpdate.json.example"
+                        },
+                        "application/vnd.ibexa.api.ShoppingListUpdate+xml": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ShoppingListUpdate"
+                            },
+                            "x-ibexa-example-file": "@IbexaShoppingListBundle/Resources/api_platform/examples/shopping-list/PATCH/ShoppingListUpdate.xml.example"
+                        }
+                    },
+                    "required": false
+                },
+                "deprecated": false,
+                "x-badges": [
+                    {
+                        "name": "Commerce",
+                        "color": "#A32768",
+                        "position": "after"
+                    },
+                    {
+                        "name": "LTS Update",
+                        "color": "#5DA7C0",
+                        "position": "after"
+                    }
+                ]
+            }
+        },
+        "/shopping-list/{identifier}/add-entries-to-cart": {
+            "post": {
+                "operationId": "api_shopping-list_identifieradd-entries-to-cart_post",
+                "tags": [
+                    "Shopping List"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK - returns the cart with added shopping list entries",
+                        "content": {
+                            "application/vnd.ibexa.api.Cart+json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/CartWrapper"
+                                }
+                            },
+                            "application/vnd.ibexa.api.Cart+xml": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Cart"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Error - The input does not match the input schema definition."
+                    },
+                    "401": {
+                        "description": "Error - the user is not authorized to add shopping list entries to cart."
+                    },
+                    "404": {
+                        "description": "Error - the shopping list or entry identifiers don't match any existing resource."
+                    }
+                },
+                "summary": "Add Selected Entries from Shopping List to Default Cart",
+                "description": "Adds selected entries from the given Shopping List to the default Cart (creates a new Cart if not found).",
+                "parameters": [
+                    {
+                        "name": "identifier",
+                        "in": "path",
+                        "description": "The Shopping List identifier",
+                        "required": true,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "style": "simple",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "X-CSRF-Token",
+                        "in": "header",
+                        "description": "CSRF Token is needed to execute this unsafe request.",
+                        "required": true,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "style": "simple",
+                        "explode": false,
+                        "allowReserved": false
+                    }
+                ],
+                "requestBody": {
+                    "description": "The new AddEntriesToCartController resource",
+                    "content": {
+                        "application/vnd.ibexa.api.ShoppingListEntryIdentifiers+json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ShoppingListEntryIdentifiersWrapper"
+                            },
+                            "example": {
+                                "$ref": "#/components/examples/ShoppingListEntryIdentifiersJsonExample"
+                            }
+                        },
+                        "application/vnd.ibexa.api.ShoppingListEntryIdentifiers+xml": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ShoppingListEntryIdentifiers"
+                            },
+                            "example": {
+                                "$ref": "#/components/examples/ShoppingListEntryIdentifiersXmlExample"
+                            }
+                        }
+                    },
+                    "required": false
+                },
+                "deprecated": false,
+                "x-badges": [
+                    {
+                        "name": "Commerce",
+                        "color": "#A32768",
+                        "position": "after"
+                    },
+                    {
+                        "name": "LTS Update",
+                        "color": "#5DA7C0",
+                        "position": "after"
+                    }
+                ]
+            }
+        },
+        "/shopping-list/{identifier}/add-entries-to-cart/{cartIdentifier}": {
+            "post": {
+                "operationId": "api_shopping-list_identifieradd-entries-to-cart_cartIdentifier_post",
+                "tags": [
+                    "Shopping List"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK - returns the cart with added shopping list entries",
+                        "content": {
+                            "application/vnd.ibexa.api.Cart+json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/CartWrapper"
+                                }
+                            },
+                            "application/vnd.ibexa.api.Cart+xml": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Cart"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Error - The input does not match the input schema definition."
+                    },
+                    "401": {
+                        "description": "Error - the user is not authorized to add shopping list entries to cart."
+                    },
+                    "404": {
+                        "description": "Error - the shopping list, cart, or entry identifiers don't match any existing resource."
+                    }
+                },
+                "summary": "Add Selected Entries from Shopping List to Specific Cart",
+                "description": "Adds selected entries from the given Shopping List to the specified Cart.",
+                "parameters": [
+                    {
+                        "name": "identifier",
+                        "in": "path",
+                        "description": "The Shopping List identifier",
+                        "required": true,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "style": "simple",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "cartIdentifier",
+                        "in": "path",
+                        "description": "The Cart identifier",
+                        "required": true,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "style": "simple",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "X-CSRF-Token",
+                        "in": "header",
+                        "description": "CSRF Token is needed to execute this unsafe request.",
+                        "required": true,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "style": "simple",
+                        "explode": false,
+                        "allowReserved": false
+                    }
+                ],
+                "requestBody": {
+                    "description": "The new AddEntriesToCartController resource",
+                    "content": {
+                        "application/vnd.ibexa.api.ShoppingListEntryIdentifiers+json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ShoppingListEntryIdentifiersWrapper"
+                            },
+                            "example": {
+                                "$ref": "#/components/examples/ShoppingListEntryIdentifiersJsonExample"
+                            }
+                        },
+                        "application/vnd.ibexa.api.ShoppingListEntryIdentifiers+xml": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ShoppingListEntryIdentifiers"
+                            },
+                            "example": {
+                                "$ref": "#/components/examples/ShoppingListEntryIdentifiersXmlExample"
+                            }
+                        }
+                    },
+                    "required": false
+                },
+                "deprecated": false,
+                "x-badges": [
+                    {
+                        "name": "Commerce",
+                        "color": "#A32768",
+                        "position": "after"
+                    },
+                    {
+                        "name": "LTS Update",
+                        "color": "#5DA7C0",
+                        "position": "after"
+                    }
+                ]
+            }
+        },
+        "/shopping-list/{identifier}/add-to-cart": {
+            "post": {
+                "operationId": "api_shopping-list_identifieradd-to-cart_post",
+                "tags": [
+                    "Shopping List"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK - returns the cart with added shopping list entries",
+                        "content": {
+                            "application/vnd.ibexa.api.Cart+json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/CartWrapper"
+                                }
+                            },
+                            "application/vnd.ibexa.api.Cart+xml": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Cart"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Error - the user is not authorized to add shopping list to cart."
+                    },
+                    "404": {
+                        "description": "Error - the shopping list identifier doesn't match any existing resource."
+                    }
+                },
+                "summary": "Add Shopping List to Default Cart",
+                "description": "Adds all entries from the given Shopping List to the default Cart (creates a new Cart if not found).",
+                "parameters": [
+                    {
+                        "name": "identifier",
+                        "in": "path",
+                        "description": "The Shopping List identifier",
+                        "required": true,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "style": "simple",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "X-CSRF-Token",
+                        "in": "header",
+                        "description": "CSRF Token is needed to execute this unsafe request.",
+                        "required": true,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "style": "simple",
+                        "explode": false,
+                        "allowReserved": false
+                    }
+                ],
+                "requestBody": {
+                    "description": "No payload required",
+                    "content": [],
+                    "required": false
+                },
+                "deprecated": false,
+                "x-badges": [
+                    {
+                        "name": "Commerce",
+                        "color": "#A32768",
+                        "position": "after"
+                    },
+                    {
+                        "name": "LTS Update",
+                        "color": "#5DA7C0",
+                        "position": "after"
+                    }
+                ]
+            }
+        },
+        "/shopping-list/{identifier}/add-to-cart/{cartIdentifier}": {
+            "post": {
+                "operationId": "api_shopping-list_identifieradd-to-cart_cartIdentifier_post",
+                "tags": [
+                    "Shopping List"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK - returns the cart with added shopping list entries",
+                        "content": {
+                            "application/vnd.ibexa.api.Cart+json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/CartWrapper"
+                                }
+                            },
+                            "application/vnd.ibexa.api.Cart+xml": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Cart"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Error - the user is not authorized to add shopping list to cart."
+                    },
+                    "404": {
+                        "description": "Error - the shopping list or cart identifier doesn't match any existing resource."
+                    }
+                },
+                "summary": "Add Shopping List to Specific Cart",
+                "description": "Adds all entries from the given Shopping List to the specified Cart.",
+                "parameters": [
+                    {
+                        "name": "identifier",
+                        "in": "path",
+                        "description": "The Shopping List identifier",
+                        "required": true,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "style": "simple",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "cartIdentifier",
+                        "in": "path",
+                        "description": "The Cart identifier",
+                        "required": true,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "style": "simple",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "X-CSRF-Token",
+                        "in": "header",
+                        "description": "CSRF Token is needed to execute this unsafe request.",
+                        "required": true,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "style": "simple",
+                        "explode": false,
+                        "allowReserved": false
+                    }
+                ],
+                "requestBody": {
+                    "description": "No payload required",
+                    "content": [],
+                    "required": false
+                },
+                "deprecated": false,
+                "x-badges": [
+                    {
+                        "name": "Commerce",
+                        "color": "#A32768",
+                        "position": "after"
+                    },
+                    {
+                        "name": "LTS Update",
+                        "color": "#5DA7C0",
+                        "position": "after"
+                    }
+                ]
+            }
+        },
+        "/shopping-list/{identifier}/clear": {
+            "post": {
+                "operationId": "api_shopping-list_identifierclear_post",
+                "tags": [
+                    "Shopping List"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "200",
+                        "content": {
+                            "application/vnd.ibexa.api.ShoppingList+json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ShoppingListWrapper"
+                                },
+                                "example": {
+                                    "ShoppingList": {
+                                        "identifier": "550e8400-e29b-41d4-a716-446655440000",
+                                        "name": "My Shopping List",
+                                        "isDefault": false,
+                                        "owner": {
+                                            "_href": "/api/ibexa/v2/user/users/14",
+                                            "_media-type": "application/vnd.ibexa.api.User+json"
+                                        },
+                                        "entries": [],
+                                        "createdAt": "2024-10-29T12:00:00+00:00",
+                                        "updatedAt": "2024-10-29T12:15:00+00:00"
+                                    }
+                                }
+                            },
+                            "application/vnd.ibexa.api.ShoppingList+xml": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ShoppingList"
+                                },
+                                "example": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<ShoppingList xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\">\n  <identifier>550e8400-e29b-41d4-a716-446655440000</identifier>\n  <name>My Shopping List</name>\n  <isDefault>0</isDefault>\n  <owner href=\"/api/ibexa/v2/user/users/14\" media-type=\"application/vnd.ibexa.api.User+xml\"/>\n  <entries/>\n  <createdAt>2024-10-29T12:00:00+00:00</createdAt>\n  <updatedAt>2024-10-29T12:15:00+00:00</updatedAt>\n</ShoppingList>\n"
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Error - The user is not authorized to clear this shopping list."
+                    },
+                    "403": {
+                        "description": "Error - Invalid request."
+                    },
+                    "404": {
+                        "description": "Error - Shopping list not found."
+                    }
+                },
+                "summary": "Clear shopping list",
+                "description": "Removes all entries from a shopping list while keeping the list itself.",
+                "parameters": [
+                    {
+                        "name": "identifier",
+                        "in": "path",
+                        "description": "The unique identifier (UUID) of the shopping list.",
+                        "required": true,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "style": "simple",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "X-CSRF-Token",
+                        "in": "header",
+                        "description": "CSRF Token is needed to execute this unsafe request.",
+                        "required": true,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "style": "simple",
+                        "explode": false,
+                        "allowReserved": false
+                    }
+                ],
+                "requestBody": {
+                    "description": "No payload required",
+                    "content": [],
+                    "required": false
+                },
+                "deprecated": false,
+                "x-badges": [
+                    {
+                        "name": "Commerce",
+                        "color": "#A32768",
+                        "position": "after"
+                    },
+                    {
+                        "name": "LTS Update",
+                        "color": "#5DA7C0",
+                        "position": "after"
+                    }
+                ]
+            }
+        },
+        "/shopping-list/{identifier}/entries": {
+            "post": {
+                "operationId": "api_shopping-list_identifierentries_post",
+                "tags": [
+                    "Shopping List"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "200",
+                        "content": {
+                            "application/vnd.ibexa.api.ShoppingList+json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ShoppingListWrapper"
+                                },
+                                "example": {
+                                    "ShoppingList": {
+                                        "identifier": "550e8400-e29b-41d4-a716-446655440000",
+                                        "name": "My Shopping List",
+                                        "isDefault": false,
+                                        "owner": {
+                                            "_href": "/api/ibexa/v2/user/users/14",
+                                            "_media-type": "application/vnd.ibexa.api.User+json"
+                                        },
+                                        "entries": [
+                                            {
+                                                "identifier": "650e8400-e29b-41d4-a716-446655440001",
+                                                "product": {
+                                                    "_href": "/api/ibexa/v2/product/catalog/products/PRODUCT-001",
+                                                    "_media-type": "application/vnd.ibexa.api.Product+json",
+                                                    "code": "PRODUCT-001",
+                                                    "name": "Sample Product"
+                                                },
+                                                "addedAt": "2024-10-29T12:15:00+00:00"
+                                            }
+                                        ],
+                                        "createdAt": "2024-10-29T12:00:00+00:00",
+                                        "updatedAt": "2024-10-29T12:00:00+00:00"
+                                    }
+                                }
+                            },
+                            "application/vnd.ibexa.api.ShoppingList+xml": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ShoppingList"
+                                },
+                                "example": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<ShoppingList xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\">\n  <identifier>550e8400-e29b-41d4-a716-446655440000</identifier>\n  <name>My Shopping List</name>\n  <isDefault>0</isDefault>\n  <owner href=\"/api/ibexa/v2/user/users/14\" media-type=\"application/vnd.ibexa.api.User+xml\"/>\n  <entries>\n    <identifier>650e8400-e29b-41d4-a716-446655440001</identifier>\n    <product href=\"/api/ibexa/v2/product/catalog/products/PRODUCT-001\" media-type=\"application/vnd.ibexa.api.Product+xml\">\n      <code>PRODUCT-001</code>\n      <name>Sample Product</name>\n    </product>\n    <addedAt>2024-10-29T12:15:00+00:00</addedAt>\n  </entries>\n  <createdAt>2024-10-29T12:00:00+00:00</createdAt>\n  <updatedAt>2024-10-29T12:00:00+00:00</updatedAt>\n</ShoppingList>\n"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Error - The input does not match the input schema definition."
+                    },
+                    "401": {
+                        "description": "Error - The user is not authorized to add entries to this shopping list."
+                    },
+                    "403": {
+                        "description": "Error - Invalid request (e.g., invalid product code, duplicate entry)."
+                    },
+                    "406": {
+                        "description": "Error - Shopping list entry limit exceeded."
+                    },
+                    "404": {
+                        "description": "Error - Shopping list not found."
+                    }
+                },
+                "summary": "Add entries to shopping list",
+                "description": "Adds one or more product entries to an existing shopping list.",
+                "parameters": [
+                    {
+                        "name": "identifier",
+                        "in": "path",
+                        "description": "The unique identifier (UUID) of the shopping list.",
+                        "required": true,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "style": "simple",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "X-CSRF-Token",
+                        "in": "header",
+                        "description": "CSRF Token is needed to execute this unsafe request.",
+                        "required": true,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "style": "simple",
+                        "explode": false,
+                        "allowReserved": false
+                    }
+                ],
+                "requestBody": {
+                    "description": "The new ShoppingListAddEntriesController resource",
+                    "content": {
+                        "application/vnd.ibexa.api.ShoppingListEntriesAdd+json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ShoppingListEntriesAddWrapper"
+                            },
+                            "x-ibexa-example-file": "@IbexaShoppingListBundle/Resources/api_platform/examples/shopping-list/POST/ShoppingListEntriesAdd.json.example"
+                        },
+                        "application/vnd.ibexa.api.ShoppingListEntriesAdd+xml": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ShoppingListEntriesAdd"
+                            },
+                            "x-ibexa-example-file": "@IbexaShoppingListBundle/Resources/api_platform/examples/shopping-list/POST/ShoppingListEntriesAdd.xml.example"
+                        }
+                    },
+                    "required": false
+                },
+                "deprecated": false,
+                "x-badges": [
+                    {
+                        "name": "Commerce",
+                        "color": "#A32768",
+                        "position": "after"
+                    },
+                    {
+                        "name": "LTS Update",
+                        "color": "#5DA7C0",
+                        "position": "after"
+                    }
+                ]
+            }
+        },
+        "/shopping-list/{identifier}/entries/remove": {
+            "post": {
+                "operationId": "api_shopping-list_identifierentriesremove_post",
+                "tags": [
+                    "Shopping List"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "200",
+                        "content": {
+                            "application/vnd.ibexa.api.ShoppingList+json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ShoppingListWrapper"
+                                },
+                                "example": {
+                                    "ShoppingList": {
+                                        "identifier": "550e8400-e29b-41d4-a716-446655440000",
+                                        "name": "My Shopping List",
+                                        "isDefault": false,
+                                        "owner": {
+                                            "_href": "/api/ibexa/v2/user/users/14",
+                                            "_media-type": "application/vnd.ibexa.api.User+json"
+                                        },
+                                        "entries": [
+                                            {
+                                                "identifier": "650e8400-e29b-41d4-a716-446655440001",
+                                                "product": {
+                                                    "_href": "/api/ibexa/v2/product/catalog/products/PRODUCT-001",
+                                                    "_media-type": "application/vnd.ibexa.api.Product+json",
+                                                    "code": "PRODUCT-001",
+                                                    "name": "Sample Product"
+                                                },
+                                                "addedAt": "2024-10-29T12:15:00+00:00"
+                                            }
+                                        ],
+                                        "createdAt": "2024-10-29T12:00:00+00:00",
+                                        "updatedAt": "2024-10-29T12:00:00+00:00"
+                                    }
+                                }
+                            },
+                            "application/vnd.ibexa.api.ShoppingList+xml": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ShoppingList"
+                                },
+                                "example": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<ShoppingList xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\">\n  <identifier>550e8400-e29b-41d4-a716-446655440000</identifier>\n  <name>My Shopping List</name>\n  <isDefault>0</isDefault>\n  <owner href=\"/api/ibexa/v2/user/users/14\" media-type=\"application/vnd.ibexa.api.User+xml\"/>\n  <entries>\n    <identifier>650e8400-e29b-41d4-a716-446655440001</identifier>\n    <product href=\"/api/ibexa/v2/product/catalog/products/PRODUCT-001\" media-type=\"application/vnd.ibexa.api.Product+xml\">\n      <code>PRODUCT-001</code>\n      <name>Sample Product</name>\n    </product>\n    <addedAt>2024-10-29T12:15:00+00:00</addedAt>\n  </entries>\n  <createdAt>2024-10-29T12:00:00+00:00</createdAt>\n  <updatedAt>2024-10-29T12:00:00+00:00</updatedAt>\n</ShoppingList>\n"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Error - The input does not match the input schema definition."
+                    },
+                    "401": {
+                        "description": "Error - The user is not authorized to remove entries from this shopping list."
+                    },
+                    "403": {
+                        "description": "Error - Invalid request (e.g., invalid entry identifier, entry does not exist)."
+                    },
+                    "404": {
+                        "description": "Error - Shopping list not found."
+                    }
+                },
+                "summary": "Remove entries from shopping list",
+                "description": "Removes one or more product entries from an existing shopping list by their identifiers.",
+                "parameters": [
+                    {
+                        "name": "identifier",
+                        "in": "path",
+                        "description": "The unique identifier (UUID) of the shopping list.",
+                        "required": true,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "style": "simple",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "X-CSRF-Token",
+                        "in": "header",
+                        "description": "CSRF Token is needed to execute this unsafe request.",
+                        "required": true,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "style": "simple",
+                        "explode": false,
+                        "allowReserved": false
+                    }
+                ],
+                "requestBody": {
+                    "description": "The new ShoppingListRemoveEntriesController resource",
+                    "content": {
+                        "application/vnd.ibexa.api.ShoppingListEntriesRemove+json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ShoppingListEntriesRemoveWrapper"
+                            },
+                            "x-ibexa-example-file": "@IbexaShoppingListBundle/Resources/api_platform/examples/shopping-list/POST/ShoppingListEntriesRemove.json.example"
+                        },
+                        "application/vnd.ibexa.api.ShoppingListEntriesRemove+xml": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ShoppingListEntriesRemove"
+                            },
+                            "x-ibexa-example-file": "@IbexaShoppingListBundle/Resources/api_platform/examples/shopping-list/POST/ShoppingListEntriesRemove.xml.example"
+                        }
+                    },
+                    "required": false
+                },
+                "deprecated": false,
+                "x-badges": [
+                    {
+                        "name": "Commerce",
+                        "color": "#A32768",
+                        "position": "after"
+                    },
+                    {
+                        "name": "LTS Update",
+                        "color": "#5DA7C0",
+                        "position": "after"
+                    }
+                ]
+            }
+        },
         "/taxonomy/{taxonomyName}/entries": {
             "delete": {
                 "operationId": "api_taxonomy_taxonomyNameentries_delete",
@@ -33443,22 +35337,7 @@
                 },
                 "summary": "Load current User",
                 "description": "Loads the current user.",
-                "parameters": [
-                    {
-                        "name": "Accept",
-                        "in": "header",
-                        "description": "If set, the User is returned in XML or JSON format.",
-                        "required": true,
-                        "deprecated": false,
-                        "allowEmptyValue": false,
-                        "schema": {
-                            "type": "string"
-                        },
-                        "style": "simple",
-                        "explode": false,
-                        "allowReserved": false
-                    }
-                ],
+                "parameters": [],
                 "deprecated": false
             }
         },
@@ -38889,38 +40768,10 @@
                 "description": "Performs a login for the user or checks if session exists and returns the session and session cookie. The client will need to remember both session name/ID and CSRF token as this is for security reasons not exposed via GET.",
                 "parameters": [
                     {
-                        "name": "Accept",
-                        "in": "header",
-                        "description": "If set, the session is returned in XML or JSON format.",
-                        "required": true,
-                        "deprecated": false,
-                        "allowEmptyValue": false,
-                        "schema": {
-                            "type": "string"
-                        },
-                        "style": "simple",
-                        "explode": false,
-                        "allowReserved": false
-                    },
-                    {
-                        "name": "Content-Type",
-                        "in": "header",
-                        "description": "The SessionInput schema encoded in XML or JSON format.",
-                        "required": true,
-                        "deprecated": false,
-                        "allowEmptyValue": false,
-                        "schema": {
-                            "type": "string"
-                        },
-                        "style": "simple",
-                        "explode": false,
-                        "allowReserved": false
-                    },
-                    {
                         "name": "Cookie",
                         "in": "header",
                         "description": "Only needed for session's checking {sessionName}={sessionID}.",
-                        "required": true,
+                        "required": false,
                         "deprecated": false,
                         "allowEmptyValue": false,
                         "schema": {
@@ -38934,7 +40785,7 @@
                         "name": "X-CSRF-Token",
                         "in": "header",
                         "description": "Only needed for session's checking. The {csrfToken} needed on all unsafe HTTP methods with session.",
-                        "required": true,
+                        "required": false,
                         "deprecated": false,
                         "allowEmptyValue": false,
                         "schema": {
@@ -39012,21 +40863,7 @@
                         "name": "Cookie",
                         "in": "header",
                         "description": "Only needed for session's checking {sessionName}={sessionID}.",
-                        "required": true,
-                        "deprecated": false,
-                        "allowEmptyValue": false,
-                        "schema": {
-                            "type": "string"
-                        },
-                        "style": "simple",
-                        "explode": false,
-                        "allowReserved": false
-                    },
-                    {
-                        "name": "Accept",
-                        "in": "header",
-                        "description": "If set, the session is returned in XML or JSON format.",
-                        "required": true,
+                        "required": false,
                         "deprecated": false,
                         "allowEmptyValue": false,
                         "schema": {
@@ -50574,6 +52411,280 @@
                         "additionalProperties": true
                     }
                 }
+            },
+            "ShoppingList": {
+                "allOf": [
+                    {
+                        "$ref": "#/components/schemas/BaseObject"
+                    },
+                    {
+                        "description": "This class represents a shopping list in the Repository.",
+                        "type": "object",
+                        "required": [
+                            "id",
+                            "identifier",
+                            "owner",
+                            "entries",
+                            "createdAt",
+                            "updatedAt"
+                        ],
+                        "properties": {
+                            "id": {
+                                "description": "The unique shopping list ID.",
+                                "type": "integer"
+                            },
+                            "identifier": {
+                                "description": "The unique identifier (UUID) of the shopping list.",
+                                "type": "string"
+                            },
+                            "name": {
+                                "description": "The name of the shopping list (optional).",
+                                "type": "string",
+                                "nullable": true
+                            },
+                            "isDefault": {
+                                "description": "Indicates if this is the user's default shopping list.",
+                                "type": "boolean"
+                            },
+                            "owner": {
+                                "description": "Reference to the user who owns this shopping list.",
+                                "$ref": "#/components/schemas/Ref"
+                            },
+                            "entries": {
+                                "description": "Array of shopping list entries.",
+                                "type": "array",
+                                "items": {
+                                    "$ref": "#/components/schemas/ShoppingListEntry"
+                                }
+                            },
+                            "createdAt": {
+                                "description": "The date and time when the shopping list was created.",
+                                "type": "string",
+                                "format": "date-time"
+                            },
+                            "updatedAt": {
+                                "description": "The date and time when the shopping list was last updated.",
+                                "type": "string",
+                                "format": "date-time"
+                            }
+                        }
+                    }
+                ]
+            },
+            "ShoppingListWrapper": {
+                "type": "object",
+                "required": [
+                    "ShoppingList"
+                ],
+                "properties": {
+                    "ShoppingList": {
+                        "$ref": "#/components/schemas/ShoppingList"
+                    }
+                }
+            },
+            "ShoppingListEntry": {
+                "description": "This class represents an entry in a shopping list.",
+                "type": "object",
+                "required": [
+                    "identifier",
+                    "product",
+                    "addedAt"
+                ],
+                "properties": {
+                    "identifier": {
+                        "description": "The unique identifier (UUID) of the entry.",
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    "product": {
+                        "description": "Reference to the product with embedded details.",
+                        "type": "object",
+                        "required": [
+                            "_href",
+                            "_media-type",
+                            "code",
+                            "name"
+                        ],
+                        "properties": {
+                            "_href": {
+                                "description": "URI to the product resource.",
+                                "type": "string"
+                            },
+                            "_media-type": {
+                                "description": "Media type of the product resource.",
+                                "type": "string"
+                            },
+                            "code": {
+                                "description": "Product code.",
+                                "type": "string"
+                            },
+                            "name": {
+                                "description": "Product name.",
+                                "type": "string"
+                            }
+                        }
+                    },
+                    "addedAt": {
+                        "description": "The date and time when the entry was added.",
+                        "type": "string",
+                        "format": "date-time"
+                    }
+                }
+            },
+            "ShoppingListCreate": {
+                "description": "Creates a new shopping list.",
+                "type": "object",
+                "required": [
+                    "name"
+                ],
+                "properties": {
+                    "name": {
+                        "description": "The name of the shopping list (required).",
+                        "type": "string"
+                    }
+                }
+            },
+            "ShoppingListCreateWrapper": {
+                "type": "object",
+                "required": [
+                    "ShoppingListCreate"
+                ],
+                "properties": {
+                    "ShoppingListCreate": {
+                        "$ref": "#/components/schemas/ShoppingListCreate"
+                    }
+                }
+            },
+            "ShoppingListUpdate": {
+                "description": "Updates an existing shopping list.",
+                "type": "object",
+                "required": [
+                    "name"
+                ],
+                "properties": {
+                    "name": {
+                        "description": "The name of the shopping list (required).",
+                        "type": "string"
+                    }
+                }
+            },
+            "ShoppingListUpdateWrapper": {
+                "type": "object",
+                "required": [
+                    "ShoppingListUpdate"
+                ],
+                "properties": {
+                    "ShoppingListUpdate": {
+                        "$ref": "#/components/schemas/ShoppingListUpdate"
+                    }
+                }
+            },
+            "ShoppingListEntriesAdd": {
+                "description": "Adds one or more product entries to an existing shopping list.",
+                "type": "object",
+                "required": [
+                    "entries"
+                ],
+                "properties": {
+                    "entries": {
+                        "description": "Array of entries to add (required, min 1).",
+                        "type": "array",
+                        "minItems": 1,
+                        "items": {
+                            "$ref": "#/components/schemas/ShoppingListEntryAdd"
+                        }
+                    }
+                }
+            },
+            "ShoppingListEntriesAddWrapper": {
+                "type": "object",
+                "required": [
+                    "ShoppingListEntriesAdd"
+                ],
+                "properties": {
+                    "ShoppingListEntriesAdd": {
+                        "$ref": "#/components/schemas/ShoppingListEntriesAdd"
+                    }
+                }
+            },
+            "ShoppingListEntriesRemove": {
+                "description": "Removes one or more entries from a shopping list by their identifiers.",
+                "type": "object",
+                "required": [
+                    "identifiers"
+                ],
+                "properties": {
+                    "identifiers": {
+                        "description": "Array of entry identifiers (UUIDs) to remove (required, min 1).",
+                        "type": "array",
+                        "minItems": 1,
+                        "items": {
+                            "type": "string",
+                            "format": "uuid"
+                        }
+                    }
+                }
+            },
+            "ShoppingListEntriesRemoveWrapper": {
+                "type": "object",
+                "required": [
+                    "ShoppingListEntriesRemove"
+                ],
+                "properties": {
+                    "ShoppingListEntriesRemove": {
+                        "$ref": "#/components/schemas/ShoppingListEntriesRemove"
+                    }
+                }
+            },
+            "ShoppingListEntryAdd": {
+                "description": "Represents a single entry to add to a shopping list.",
+                "type": "object",
+                "required": [
+                    "productCode"
+                ],
+                "properties": {
+                    "productCode": {
+                        "description": "Product code (required).",
+                        "type": "string"
+                    }
+                }
+            },
+            "ShoppingListCollection": {
+                "description": "This class represents a collection of shopping lists.",
+                "type": "object",
+                "required": [
+                    "totalCount",
+                    "count",
+                    "ShoppingList"
+                ],
+                "properties": {
+                    "totalCount": {
+                        "description": "Total number of shopping lists.",
+                        "type": "integer"
+                    },
+                    "count": {
+                        "description": "Number of shopping lists in this response.",
+                        "type": "integer"
+                    },
+                    "ShoppingList": {
+                        "description": "Array of shopping lists.",
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/ShoppingList"
+                        }
+                    }
+                }
+            },
+            "ShoppingListCollectionWrapper": {
+                "type": "object",
+                "required": [
+                    "ShoppingListCollection"
+                ],
+                "properties": {
+                    "ShoppingListCollection": {
+                        "$ref": "#/components/schemas/ShoppingListCollection"
+                    }
+                }
             }
         },
         "responses": [],
@@ -50690,6 +52801,9 @@
         },
         {
             "name": "Cart"
+        },
+        {
+            "name": "Shopping List"
         },
         {
             "name": "Orders"
