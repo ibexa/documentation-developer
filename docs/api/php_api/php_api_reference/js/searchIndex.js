@@ -32726,6 +32726,11 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/Ibexa-Contracts-Core-Search-Embedding-EmbeddingProviderResolverInterface.html#method_resolve"
         },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Search\\Embedding\\EmbeddingProviderResolverInterface\u003A\u003AresolveByModelIdentifier\u0028\u0029",
+            "name": "resolveByModelIdentifier",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Search-Embedding-EmbeddingProviderResolverInterface.html#method_resolveByModelIdentifier"
+        },                {
             "fqsen": "\\Ibexa\\Contracts\\Core\\Search\\Embedding\\EmbeddingResolverNotFoundException",
             "name": "EmbeddingResolverNotFoundException",
             "summary": "",
@@ -41133,7 +41138,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\Ibexa\\Contracts\\FieldTypeRichTextRTE\\ToS\\Status\u003A\u003AgetDaysLeftInGracePeriod\u0028\u0029",
             "name": "getDaysLeftInGracePeriod",
-            "summary": "",
+            "summary": "Returns\u0020the\u0020number\u0020of\u0020days\u0020left\u0020in\u0020the\u0020grace\u0020period.",
             "url": "classes/Ibexa-Contracts-FieldTypeRichTextRTE-ToS-Status.html#method_getDaysLeftInGracePeriod"
         },                {
             "fqsen": "\\Ibexa\\Contracts\\FieldTypeRichTextRTE\\ToS\\Status\u003A\u003AgetTos\u0028\u0029",
@@ -41685,6 +41690,36 @@ Search.appendIndex(
             "name": "tag",
             "summary": "Extracts\u0020tags\u0020from\u0020a\u0020value.",
             "url": "classes/Ibexa-Contracts-HttpCache-ResponseTagger-ResponseTagger.html#method_tag"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\ImageEditor\\Event\\ConfigureImageOptimizersEvent",
+            "name": "ConfigureImageOptimizersEvent",
+            "summary": "Event\u0020is\u0020the\u0020base\u0020class\u0020for\u0020classes\u0020containing\u0020event\u0020data.",
+            "url": "classes/Ibexa-Contracts-ImageEditor-Event-ConfigureImageOptimizersEvent.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\ImageEditor\\Event\\ConfigureImageOptimizersEvent\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-ImageEditor-Event-ConfigureImageOptimizersEvent.html#method___construct"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\ImageEditor\\Event\\ConfigureImageOptimizersEvent\u003A\u003AgetOptimizers\u0028\u0029",
+            "name": "getOptimizers",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-ImageEditor-Event-ConfigureImageOptimizersEvent.html#method_getOptimizers"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\ImageEditor\\Event\\ConfigureImageOptimizersEvent\u003A\u003AsetOptimizers\u0028\u0029",
+            "name": "setOptimizers",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-ImageEditor-Event-ConfigureImageOptimizersEvent.html#method_setOptimizers"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\ImageEditor\\Event\\ConfigureImageOptimizersEvent\u003A\u003AaddOptimizer\u0028\u0029",
+            "name": "addOptimizer",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-ImageEditor-Event-ConfigureImageOptimizersEvent.html#method_addOptimizer"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\ImageEditor\\Event\\ConfigureImageOptimizersEvent\u003A\u003AremoveOptimizer\u0028\u0029",
+            "name": "removeOptimizer",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-ImageEditor-Event-ConfigureImageOptimizersEvent.html#method_removeOptimizer"
         },                {
             "fqsen": "\\Ibexa\\Contracts\\ImageEditor\\Optimizer\\OptimizerInterface",
             "name": "OptimizerInterface",
@@ -46210,6 +46245,26 @@ Search.appendIndex(
             "name": "deleteCatalogTranslation",
             "summary": "",
             "url": "classes/Ibexa-Contracts-ProductCatalog-CatalogServiceInterface.html#method_deleteCatalogTranslation"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\ProductCatalog\\Config\\ConfigProviderInterface",
+            "name": "ConfigProviderInterface",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-ProductCatalog-Config-ConfigProviderInterface.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\ProductCatalog\\Config\\ConfigProviderInterface\u003A\u003AgetEngineAlias\u0028\u0029",
+            "name": "getEngineAlias",
+            "summary": "Return\u0020currently\u0020used\u0020engine\u0020alias.",
+            "url": "classes/Ibexa-Contracts-ProductCatalog-Config-ConfigProviderInterface.html#method_getEngineAlias"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\ProductCatalog\\Config\\ConfigProviderInterface\u003A\u003AgetEngineType\u0028\u0029",
+            "name": "getEngineType",
+            "summary": "Returns\u0020current\u0020engine\u0020type\u0020e.g.\u0020\u0027local\u0027,\u0020\u0027pim\u0027.",
+            "url": "classes/Ibexa-Contracts-ProductCatalog-Config-ConfigProviderInterface.html#method_getEngineType"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\ProductCatalog\\Config\\ConfigProviderInterface\u003A\u003AgetEngineOption\u0028\u0029",
+            "name": "getEngineOption",
+            "summary": "Returns\u0020current\u0020engine\u0020option\u0020name.",
+            "url": "classes/Ibexa-Contracts-ProductCatalog-Config-ConfigProviderInterface.html#method_getEngineOption"
         },                {
             "fqsen": "\\Ibexa\\Contracts\\ProductCatalog\\CurrencyResolverInterface",
             "name": "CurrencyResolverInterface",
@@ -64531,15 +64586,20 @@ Search.appendIndex(
             "summary": "",
             "url": "namespaces/ibexa-contracts-httpcache-responsetagger.html"
         },                {
-            "fqsen": "\\Ibexa\\Contracts\\ImageEditor\\Optimizer",
-            "name": "Optimizer",
+            "fqsen": "\\Ibexa\\Contracts\\ImageEditor\\Event",
+            "name": "Event",
             "summary": "",
-            "url": "namespaces/ibexa-contracts-imageeditor-optimizer.html"
+            "url": "namespaces/ibexa-contracts-imageeditor-event.html"
         },                {
             "fqsen": "\\Ibexa\\Contracts\\ImageEditor",
             "name": "ImageEditor",
             "summary": "",
             "url": "namespaces/ibexa-contracts-imageeditor.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\ImageEditor\\Optimizer",
+            "name": "Optimizer",
+            "summary": "",
+            "url": "namespaces/ibexa-contracts-imageeditor-optimizer.html"
         },                {
             "fqsen": "\\Ibexa\\Contracts\\Measurement\\Converter",
             "name": "Converter",
@@ -64970,6 +65030,11 @@ Search.appendIndex(
             "name": "CatalogFilters",
             "summary": "",
             "url": "namespaces/ibexa-contracts-productcatalog-catalogfilters.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\ProductCatalog\\Config",
+            "name": "Config",
+            "summary": "",
+            "url": "namespaces/ibexa-contracts-productcatalog-config.html"
         },                {
             "fqsen": "\\Ibexa\\Contracts\\ProductCatalog\\Events",
             "name": "Events",
