@@ -24,6 +24,14 @@ month_change: true
 
 PHP 8.4 is now [officially supported](https://doc.ibexa.co/en/4.6/getting_started/requirements/#php).
 
+### Developer experience
+
+#### PHP API
+
+The following event have been added to the PHP API:
+
+- [`Ibexa\Contracts\ImageEditor\Event\ConfigureImageOptimizersEvent`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ImageEditor-Event-ConfigureImageOptimizersEvent.html)
+
 ### Full changelog
 
 [[% include 'snippets/release_46.md' %]]
