@@ -50,18 +50,18 @@ class CartShoppingListTransferController extends AbstractController
         $cartQuery->setOwnerId($user->getId());
         $cartsList = $this->cartService->findCarts($cartQuery);
         $cart = null;
-        foreach ($cartsList->getCarts() as $cart) {
-            if ($cart->getName() === $name) {
+        foreach ($cartsList->getCarts() as $cartItem) {
+            if ($cartItem->getName() === $name) {
+                $cart = $cartItem;
                 break;
             }
-            $cart = null;
         }
         if (null === $cart) {
             $cart = $this->cartService->createCart(new CartCreateStruct($name, $this->currencyService->getCurrencyByCode($currency), $user));
         }
 
         $lists = $this->shoppingListService->findShoppingLists(new ShoppingListQuery(new NameCriterion($name)));
-        if ($lists->getTotalCount()) {
+        if ($lists->getTotalCount() > 0) {
             $list = $lists->getShoppingLists()[0];
         } else {
             $list = $this->shoppingListService->createShoppingList(new ShoppingListCreateStruct($name));
@@ -72,7 +72,7 @@ class CartShoppingListTransferController extends AbstractController
 
         $list = $this->shoppingListService->addEntries($list, [new ShoppingListEntryAddStruct($productCode)]);
 
-        $entry = $list->getEntries()->getEntryWithProductCode($productCode)->getIdentifier();
+        $entry = $list->getEntries()->getEntryWithProductCode($productCode)->getIdentifier(); // Get entry's automatically generated identifier
         $cart = $this->cartShoppingListTransferService->addSelectedEntriesToCart($list, [$entry], $cart);
         $cart = $this->cartShoppingListTransferService->addSelectedEntriesToCart($list, [$entry], $cart);
 

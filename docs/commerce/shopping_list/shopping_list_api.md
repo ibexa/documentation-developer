@@ -18,8 +18,10 @@ For example, starting to use the default list from REST API will create it if it
 to [`POST /shopping-list/default/entries`](/api/rest_api/rest_api_reference/rest_api_reference.html#tag/Shopping-List/operation/api_shopping-listdefaultentries_post)
 or [`POST /cart/{identifier}/move-to-shopping-list`](/api/rest_api/rest_api_reference/rest_api_reference.html#tag/Cart/operation/api_cart_identifiermove-to-shopping-list_post).
 
-As soon a user has the create shopping list permission [`shopping_list/create`](policies.md#shopping-lists),
-the default shopping list can be created regardless of the maximum shopping list count per user configuration [`max_lists_per_user`](install_shopping_list.md#configure).
+Note that `default` isn't the default shopping list identifier. Each user's default shopping list has a unique identifier, a hash string like `01234567-89ab-cdef-0123-456789abcdef`.
+
+When a user has permissions to create shopping lists [`shopping_list/create`](policies.md#shopping-lists),
+they can always create a default shopping list, regardless of the maximum shopping list count per user configuration [`max_lists_per_user`](install_shopping_list.md#configure).
 
 ## PHP API
 
@@ -30,11 +32,11 @@ create, get, find, update, clear, and delete shopping lists, and to add, get, mo
 ### List and search shopping lists
 
 Shopping list search can be done with
-[`Ibexa\Contracts\ShoppingList\ShoppingListServiceInterface::findShoppingLists()` method](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ShoppingList-ShoppingListServiceInterface.html#method_findShoppingLists)
-with a [`Ibexa\Contracts\ShoppingList\Value\ShoppingListQuery`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ShoppingList-Value-ShoppingListQuery.html)
-built with criteria from the [`Ibexa\Contracts\ShoppingList\ShoppingList\Query\Criterion` namespace](/api/php_api/php_api_reference/namespaces/ibexa-contracts-shoppinglist-value-query-criterion.html)
-implementing the [`Ibexa\Contracts\ShoppingList\Value\Query\CriterionInterface` interface](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ShoppingList-Value-Query-CriterionInterface.html),
-and with sort clauses from the [`Ibexa\Contracts\ShoppingList\ShoppingList\Query\SortClause` namespace](/api/php_api/php_api_reference/namespaces/ibexa-contracts-shoppinglist-value-query-sortclause.html).
+[`ShoppingListServiceInterface::findShoppingLists()` method](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ShoppingList-ShoppingListServiceInterface.html#method_findShoppingLists)
+with a [`ShoppingListQuery`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ShoppingList-Value-ShoppingListQuery.html)
+built with criteria from the [`Criterion` namespace](/api/php_api/php_api_reference/namespaces/ibexa-contracts-shoppinglist-value-query-criterion.html)
+implementing the [`CriterionInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ShoppingList-Value-Query-CriterionInterface.html),
+and with sort clauses from the [`SortClause` namespace](/api/php_api/php_api_reference/namespaces/ibexa-contracts-shoppinglist-value-query-sortclause.html).
 
 To get all shopping lists (of the current user or of the whole repository depending on the current user limitation), use the search method without criterion:
 
@@ -62,20 +64,14 @@ dump($list);
 $list = $this->shoppingListService->addEntries($list, [new EntryAddStruct($productCode)]);
 dump($list);
 ```
-
-You can choose to not keep the local object up-to-date until the end of your operations and just reload it when needed, for example, for display.
-
 When adding array of entries with `ShoppingListService::addEntries()`,
-an exception is thrown if a product is already in the shopping list and the whole array is canceled.
+an exception is thrown if at least product is already in the shopping list and no entries are added to the list.
 
-The following example add products to a shopping list while avoiding error on duplicate.
-(To stay short, this example doesn't track down duplicates, but it could be implemented for notification to the user.)
+The following example adds products to a shopping list while avoiding error on duplicated entries.
+In this example the duplicates are ignored, but you could extend it to, for example, notify the user about each found duplicate.
 
 ```php
-$filteredProductCodes = array_filter($desiredProductCodes, function ($productCode) use ($list) {
-    return !$list->getEntries()->hasEntryWithProductCode($productCode);
-});
-$list = $this->shoppingListService->addEntries($list, array_map(function ($productCode) { return new EntryAddStruct($productCode); }, $filteredProductCodes));
+[[= include_file('code_samples/shopping_list/php_api/src/Command/ShoppingListFilterCommand.php', 39, 50) =]]
 ```
 
 The following example moves products from a source shopping list to a target shopping list after filtering out products already in the target list:
@@ -89,8 +85,8 @@ The following example moves products from a source shopping list to a target sho
 Interactions between shopping list and cart are managed by
 [`Ibexa\Contracts\Cart\CartShoppingListTransferServiceInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Cart-CartShoppingListTransferServiceInterface.html)
 
-The following example start with an empty cart and an empty shopping list,
-then add a product to the shopping list and copy it twice to the cart.
+The following example starts with an empty cart and an empty shopping list,
+then adds a product to the shopping list and copies it twice to the cart.
 It continues with moving the whole cart to an empty list.
 
 ```php
@@ -104,23 +100,23 @@ For more information, see [Shopping list event reference](shopping_list_events.m
 
 There is no specific event for the transfer operations.
 
-- When adding from shopping list to cart, the [`Ibexa\Contracts\Cart\Event\BeforeAddEntryEvent`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Cart-Event-BeforeAddEntryEvent.html) and [`Ibexa\Contracts\Cart\Event\AddEntryEvent`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Cart-Event-AddEntryEvent.html) are dispatched for each entry that weren't previously in the cart.
-- When moving from cart to shopping list, [`Ibexa\Contracts\ShoppingList\Event\BeforeAddEntriesEvent`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ShoppingList-Event-BeforeAddEntriesEvent.html) and [`Ibexa\Contracts\ShoppingList\Event\AddEntriesEvent`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ShoppingList-Event-AddEntriesEvent.html) are dispatched for the batch of entries that weren't already in the shopping list,
+- When adding from shopping list to cart, the [`Ibexa\Contracts\Cart\Event\BeforeAddEntryEvent`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Cart-Event-BeforeAddEntryEvent.html) and [`Ibexa\Contracts\Cart\Event\AddEntryEvent`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Cart-Event-AddEntryEvent.html) are dispatched for each entry that wasn't previously in the cart.
+- When moving from cart to shopping list, single [`Ibexa\Contracts\ShoppingList\Event\BeforeAddEntriesEvent`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ShoppingList-Event-BeforeAddEntriesEvent.html) and [`Ibexa\Contracts\ShoppingList\Event\AddEntriesEvent`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ShoppingList-Event-AddEntriesEvent.html) events are dispatched for the batch of entries,
   then [`Ibexa\Contracts\Cart\Event\BeforeRemoveEntryEvent`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Cart-Event-BeforeRemoveEntryEvent.html) and [`Ibexa\Contracts\Cart\Event\BeforeRemoveEntryEvent`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Cart-Event-RemoveEntryEvent.html) are dispatched for each entry removed from the cart.
 
 ## REST API
 
-The REST API has several resources to manage shopping lists and their entries
-and few to move products between cart and shopping list.
+The REST API provides resources for managing shopping lists and their entries,
+as well as for moving products between the cart and the shopping list.
 
-This resources start with [`/shopping-list/*`](/api/rest_api/rest_api_reference/rest_api_reference.html#tag/Shopping-List).
-On a instance in `dev` mode, you can consult and test the REST API at `/api/ibexa/v2/doc#/Shopping%20List`.
+These resources start with [`/shopping-list/*`](/api/rest_api/rest_api_reference/rest_api_reference.html#tag/Shopping-List).
+In Symfony's `dev` environment, you can consult and test the REST API at `/api/ibexa/v2/doc#/Shopping%20List`.
 
-The following REST example using `curl` and `jq
+The following REST example uses `curl` and [`jq`](https://jqlang.org/) to:
 
 - log in a user
 - search for the default shopping list to get its identifier
-- clear the default shopping list if it exists
+- clear the default shopping list if it exists using its identifier
 - add a product to the default shopping list
 
 ```bash
@@ -128,6 +124,8 @@ The following REST example using `curl` and `jq
 ```
 
 ### Transfer between shopping list and cart
+
+You can use:
 
 - [`POST /shopping-list/{identifier}/add-entries-to-cart`](/api/rest_api/rest_api_reference/rest_api_reference.html#tag/Shopping-List/operation/api_shopping-list_identifieradd-entries-to-cart_post) to add some shopping list entries to the default cart
 - [`POST /shopping-list/{identifier}/add-entries-to-cart/{cartIdentifier}`](/api/rest_api/rest_api_reference/rest_api_reference.html#tag/Shopping-List/operation/api_shopping-list_identifieradd-entries-to-cart_cartIdentifier_post) to add some shopping list entries to a specific cart

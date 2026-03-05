@@ -14,9 +14,9 @@ Run the following command to install the package:
 composer require ibexa/shopping-list
 ```
 
-The associated recipe declares the bundle and its routes.
+The associated Symfony Flex recipe configures the bundle and its routes.
 
-Check that the following line have been added by the recipe to `config/bundles.php` file's array:
+Check that the following line has been added by the recipe to `config/bundles.php` file's array:
 ```php
     Ibexa\Bundle\ShoppingList\IbexaShoppingListBundle::class => ['all' => true],
 ```
@@ -48,13 +48,15 @@ Add the tables needed by the bundle:
     [[= include_file('code_samples/shopping_list/install/schema.postgresql.sql', 0, None, '    ') =]]
     ```
 
-Notice that a user has no shopping list at this stage, not even the default "My Wishlist" one.
-Each user's default shopping list is created when used for the first time.
+The script creates the required data structures, but doesn't add any data to the database.
+
+The users don't have any shopping lists, not even the default “My Wishlist” list.
+The default shopping list is created automatically when the user triggers the "Add to wishlist" action for the first time.
 
 ## Configure
 
 By default, the maximum shopping list count per user is 10 and the maximum entries per list is 100.
-When listing their shopping list, the use see 25 lists per page
+When listing their shopping lists, the user see 25 lists per page
 (and as it's over the shopping list count, there is always one page of shopping lists in this default scenario).
 
 You can override the following parameters to change their values:
@@ -68,14 +70,15 @@ parameters:
 
 !!! caution "Max lists per user and default shopping list"
 
-    Notice that if a customer reach the `max_lists_per_user`, if not already created, this customer can still create the default shopping list.
-    So, for 10 as the default limit, the user may have 11 lists if the user created 10 custom lists before even creating the default one.
-    If you want to restrict to only the default shopping list, you can set `max_lists_per_user` to 0.
+    The customer can always create the default shopping list if it doesn't exist yet, even if they have already reached the limit defined by `max_lists_per_user`.
+    So, for 10 as the default limit, the user may have 11 lists if the user created 10 custom lists before creating the default one.
+    If you want to restrict users to only the default shopping list, you can set `max_lists_per_user` to 0.
 
 ### Shopping list user role
 
-Create a new role and then assign it to registered customer groups who should be able to use this feature.
-The four functions from the Shopping List module must be granted with the limitation 'Shopping List Owner: Self' to restrict authenticated users to only their own lists.
+To allow customers to use the shopping list feature, create a new role and assign it to registered customer groups.
+To restrict authenticated users access to only their own lists, you must grant the four functions from the Shopping List module with the limitation 'Shopping List Owner: Self'.
+Otherwise, they will be able to interact with all shopping lists existing in the system.
 Anonymous users can't have shopping lists as they're internally sharing the same account.
 
 To create such role, you can use a [migration file](importing_data.md#roles), for example, with the following content:
@@ -86,5 +89,8 @@ To create such role, you can use a [migration file](importing_data.md#roles), fo
 
 On a clean install, you can, for example, assign this "Shopping List User" role to the "Customers" user group.
 
-If saved as `src/Migrations/Ibexa/migrations/shopping_list_user.yaml`, it can be imported with the command
-`php bin/console ibexa:migrations:migrate --file=shopping_list_user.yaml --siteaccess=admin`.
+After placing the migration content in `src/Migrations/Ibexa/migrations/shopping_list_user.yaml`, you can import and execute it with:
+
+```bash
+php bin/console ibexa:migrations:migrate --file=shopping_list_user.yaml --siteaccess=admin
+```

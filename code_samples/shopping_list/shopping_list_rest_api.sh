@@ -26,7 +26,7 @@ if [ "" != "$default_list_identifier" ]; then
   curl -s -b cookie.txt -X 'POST' \
     "$BASE_URL/api/ibexa/v2/shopping-list/$default_list_identifier/clear" \
     -H 'accept: application/vnd.ibexa.api.ShoppingList+json' \
-    -H "X-CSRF-Token: $csrf_token"
+    -H "X-CSRF-Token: $csrf_token" | jq
 fi
 
 # Add entries to the default shopping list,
