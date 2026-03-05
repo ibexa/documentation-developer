@@ -6,7 +6,7 @@ month_change: true
 
 <!-- vale Ibexa.VariablesVersion = NO -->
 
-[[= release_notes_filters('Ibexa DXP v4.6 LTS', ['Headless', 'Experience', 'Commerce', 'LTS Update', 'New feature', 'First release']) =]]
+[[= release_notes_filters('Ibexa DXP v4.6 LTS', ['Headless', 'Experience', 'Commerce', 'LTS Update', 'New feature', 'Feature launch']) =]]
 
 <div class="release-notes" markdown="1">
 
@@ -133,7 +133,7 @@ The PHP API has been enhanced with the following classes and interfaces:
 
 [[% set version = 'v4.6.26' %]]
 
-[[= release_note_entry_begin("Integrated help " + version, '2025-12-10', ['Headless', 'Experience', 'Commerce', 'LTS Update', 'New feature', 'First release']) =]]
+[[= release_note_entry_begin("Integrated help " + version, '2025-12-10', ['Headless', 'Experience', 'Commerce', 'LTS Update', 'New feature', 'Feature launch']) =]]
 
 Integrated help, a new [LTS Update](https://doc.ibexa.co/en/4.6/ibexa_products/editions/#lts-updates), brings contextual documentation, guidance, and partner-specific resources right into the user interface of [[= product_name =]].
 It helps editors, store managers, and developers to quickly access relevant content, training and resources without leaving the UI, narrowing the gap between product and documentation.
@@ -265,7 +265,7 @@ To learn more, see the [corresponding security advisory](https://developers.ibex
 
 [[% set version = 'v4.6.24' %]]
 
-[[= release_note_entry_begin("Collaboration " + version, '2025-09-09', ['Headless', 'Experience', 'Commerce', 'LTS Update', 'New feature', 'First release']) =]]
+[[= release_note_entry_begin("Collaboration " + version, '2025-09-09', ['Headless', 'Experience', 'Commerce', 'LTS Update', 'New feature', 'Feature launch']) =]]
 
 #### Collaboration
 
@@ -392,7 +392,7 @@ The Product Picker tool that, for example, lets you [select products eligible fo
 
 [[% set version = 'v4.6.22' %]]
 
-[[= release_note_entry_begin("Symbol attribute " + version, '2025-08-05', ['Headless', 'Experience', 'Commerce', 'LTS Update', 'New feature', 'First release']) =]]
+[[= release_note_entry_begin("Symbol attribute " + version, '2025-08-05', ['Headless', 'Experience', 'Commerce', 'LTS Update', 'New feature', 'Feature launch']) =]]
 
 The Symbol attribute allows you to store standardized identifiers of your products in the [Product Information Management](https://doc.ibexa.co/en/4.6/pim/pim_guide/) system.
 
@@ -592,7 +592,7 @@ The PHP API has been enhanced with the following new classes:
 
 [[% set version = 'v4.6.19' %]]
 
-[[= release_note_entry_begin("Discounts " + version, '2025-04-09', ['Commerce', 'LTS Update', 'New feature', 'First release']) =]]
+[[= release_note_entry_begin("Discounts " + version, '2025-04-09', ['Commerce', 'LTS Update', 'New feature', 'Feature launch']) =]]
 
 With the Discounts LTS Update, you can temporarily or permanently reduce prices on specific products or categories, making deals more attractive to potential buyers.
 
@@ -685,7 +685,7 @@ The PHP API has been enhanced with the following new classes:
 
 [[= release_note_entry_end() =]]
 
-[[= release_note_entry_begin("Date and time attribute " + version, '2025-03-04', ['Headless', 'Experience', 'Commerce', 'LTS Update', 'New feature', 'First release']) =]]
+[[= release_note_entry_begin("Date and time attribute " + version, '2025-03-04', ['Headless', 'Experience', 'Commerce', 'LTS Update', 'New feature', 'Feature launch']) =]]
 
 The Date and time attributes allow you to represent date and time values as part of the product specification in the [Product Information Management](https://doc.ibexa.co/en/4.6/pim/pim_guide/) system.
 
@@ -935,7 +935,7 @@ The PHP API has been enhanced with the following new classes and interfaces:
 
 [[% set version = 'v4.6.12' %]]
 
-[[= release_note_entry_begin("AI Actions " + version, '2024-10-04', ['Headless', 'Experience', 'Commerce', 'LTS Update', 'New feature', 'First release']) =]]
+[[= release_note_entry_begin("AI Actions " + version, '2024-10-04', ['Headless', 'Experience', 'Commerce', 'LTS Update', 'New feature', 'Feature launch']) =]]
 
 The AI Actions LTS update enhances the usability and flexibility of [[=product_name=]] v4.6 LTS by harnessing the potential of artificial intelligence to automate time-consuming editorial tasks.
 By default, the AI Actions feature can help users with their work in following scenarios:
@@ -1145,7 +1145,7 @@ To learn more, see the [corresponding security advisory](https://developers.ibex
 
 [[% set version = 'v4.6.0' %]]
 
-[[= release_note_entry_begin("Ibexa DXP " + version, '2024-02-13', ['Headless', 'Experience', 'Commerce', 'New feature', 'First release']) =]]
+[[= release_note_entry_begin("Ibexa DXP " + version, '2024-02-13', ['Headless', 'Experience', 'Commerce', 'New feature', 'Feature launch']) =]]
 
 ### Notable changes
 
