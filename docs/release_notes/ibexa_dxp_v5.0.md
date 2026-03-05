@@ -32,6 +32,10 @@ For more information, see [Shopping list feature guide](https://doc.ibexa.co/en/
     ['Headless', 'Experience', 'Commerce', 'New feature']
 ) =]]
 
+### Security
+
+This release fixes a vulnerability which will be documented soon as the public advisory IBEXA-SA-2026-001 at https://developers.ibexa.co/security-advisories
+
 ### Improved product variant querying
 
 Product variant querying now supports filtering by variant codes and product attribute criteria.
