@@ -132,6 +132,30 @@ To use Composer to instantly create a project in the current folder with all the
     composer create-project ibexa/commerce-skeleton .
     ```
 
+??? note "Using PHP versions other than 8.3"
+
+    If you aren't using PHP 8.3 but are using PHP 8.4, PHP 8.2, or any older version, use a different set of commands:
+
+    === "[[= product_name_headless =]]"
+
+        ``` bash
+        composer create-project ibexa/headless-skeleton --no-install .
+        composer update
+        ```
+
+    === "[[= product_name_exp =]]"
+
+        ``` bash
+        composer create-project ibexa/experience-skeleton --no-install .
+        composer update
+        ```
+
+    === "[[= product_name_com =]]"
+
+        ``` bash
+        composer create-project ibexa/commerce-skeleton --no-install .
+        composer update
+        ```
 
 !!! tip "Authentication token"
 

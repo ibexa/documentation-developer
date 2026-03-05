@@ -12,11 +12,11 @@ use Ibexa\Contracts\Cart\Value\CartQuery;
 use Ibexa\Contracts\Cart\Value\EntryAddStruct;
 use Ibexa\Contracts\Cart\Value\EntryUpdateStruct;
 use Ibexa\Contracts\Checkout\Reorder\ReorderService;
+use Ibexa\Contracts\Core\Repository\PermissionResolver;
 use Ibexa\Contracts\Core\Repository\UserService;
 use Ibexa\Contracts\OrderManagement\OrderServiceInterface;
 use Ibexa\Contracts\ProductCatalog\CurrencyServiceInterface;
 use Ibexa\Contracts\ProductCatalog\ProductServiceInterface;
-use Ibexa\Core\Repository\Permission\PermissionResolver;
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
@@ -54,7 +54,7 @@ final class CartCommand extends Command
         $cartsList = $this->cartService->findCarts($cartQuery);
 
         $cartsList->getCarts(); // array of CartInterface objects
-        $cartsList->getTotalCount(); // number of returned carts
+        $cartsList->getTotalCount(); // number of matching carts regardless of the limit
 
         foreach ($cartsList as $cart) {
             $output->writeln($cart->getIdentifier() . ': ' . $cart->getName());

@@ -1,7 +1,7 @@
 ---
 description: Policies are the main building block of the permissions system which lets you define the accesses for specific user roles.
 page_type: reference
-month_change: false
+month_change: true
 ---
 
 # Policies
@@ -207,6 +207,15 @@ The [discount](discounts.md) policies decide which actions can be executed by gi
 |                                | <nobr>`delete`</nobr> | delete a shipping method |
 |                                | <nobr>`update`</nobr> | modify a shipping method |
 |                                | <nobr>`view`</nobr>   | view shipping methods    |
+
+#### Shopping lists [[% include 'snippets/lts-update_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
+
+| Module                       | Function              | Effect                 | Possible limitations                                                  |
+|------------------------------|-----------------------|------------------------|-----------------------------------------------------------------------|
+| <nobr>`shopping_list`</nobr> | <nobr>`create`</nobr> | create a shopping list | [ShoppingListOwner](limitation_reference.md#shopping-list-limitation) |
+|                              | <nobr>`delete`</nobr> | delete a shopping list | [ShoppingListOwner](limitation_reference.md#shopping-list-limitation) |
+|                              | <nobr>`edit`</nobr>   | modify a shopping list | [ShoppingListOwner](limitation_reference.md#shopping-list-limitation) |
+|                              | <nobr>`view`</nobr>   | view shopping lists    | [ShoppingListOwner](limitation_reference.md#shopping-list-limitation) |
 
 ### Content management
 
