@@ -99,6 +99,10 @@ final class ProductVariantCommand extends Command
         );
         $redVariants = $this->productService->findVariants($colorQuery);
 
+        foreach ($redVariants->getVariants() as $variant) {
+            $output->writeln($variant->getName());
+        }
+
         return self::SUCCESS;
     }
 }
