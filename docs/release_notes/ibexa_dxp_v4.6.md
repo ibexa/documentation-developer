@@ -56,7 +56,7 @@ ibexa_cdp:
 When the number of [audience](https://content.raptorservices.com/help-center/how-to-build-audiences-in-the-customer-data-platform) changes coming from [Raptor](https://www.raptorservices.com/) exceeds this number, the changes are sent to the queue and processed in the background.
 Otherwise, they are processed synchronously.
 
-### Improved HTTP caching for Page Builder and dashboard blocks
+### Improved HTTP caching for Page Builder and dashboard blocks [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
 
 You can now indicate which [query parameters](https://en.wikipedia.org/wiki/Query_string) must be used as keys when generating [HTTP cache](https://doc.ibexa.co/en/4.6/infrastructure_and_maintenance/cache/http_cache/http_cache/) for block requests.
 

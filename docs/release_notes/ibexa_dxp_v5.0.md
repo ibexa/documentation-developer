@@ -32,6 +32,14 @@ For more information, see [Shopping list feature guide](https://doc.ibexa.co/en/
     ['Headless', 'Experience', 'Commerce', 'New feature']
 ) =]]
 
+### Improved product variant querying
+
+Product variant querying now supports filtering by variant codes and product attribute criteria.
+
+You can now use the [`ProductServiceInterface::findVariants()`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-ProductServiceInterface.html#method_findVariants) method to search for variants across all products, regardless of their base product.
+
+For more information, see [Product API - Searching variants](https://doc.ibexa.co/en/5.0/pim/product_api/#searching-for-variants-across-all-products).
+
 ### Infrastructure
 
 #### Ibexa Cloud package
@@ -55,7 +63,7 @@ This prevents performance degradation from database queries when determining if 
 
 For more information, see [Subtree operations configuration](https://doc.ibexa.co/en/5.0/administration/back_office/back_office_configuration/#subtree-operations).
 
-### Improved HTTP caching for Page Builder and dashboard blocks
+### Improved HTTP caching for Page Builder and dashboard blocks [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
 
 You can now indicate which [query parameters](https://en.wikipedia.org/wiki/Query_string) must be used as keys when generating [HTTP cache](https://doc.ibexa.co/en/5.0/infrastructure_and_maintenance/cache/http_cache/http_cache/) for block requests.
 
@@ -77,23 +85,6 @@ Then, adjust your [layouts](https://doc.ibexa.co/en/5.0/templating/render_conten
     ibexa_append_cacheable_query_params(block)
 )) }}
 ```
-
-[[= release_note_entry_end() =]]
-
-[[= release_note_entry_begin(
-    "Ibexa DXP " + version,
-    'YYYY-MM-DD',
-    ['Commerce']
-) =]]
-
-https://github.com/ibexa/documentation-developer/pull/3045
-### Improved product variant querying
-
-Product variant querying now supports filtering by variant codes and product attribute criteria.
-
-You can now use the [`ProductServiceInterface::findVariants()`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-ProductServiceInterface.html#method_findVariants) method to search for variants across all products, regardless of their base product.
-
-For more information, see [Product API - Searching variants](https://doc.ibexa.co/en/5.0/pim/product_api/#searching-for-variants-across-all-products).
 
 ### Full changelog
 
