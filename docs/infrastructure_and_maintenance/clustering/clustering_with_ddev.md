@@ -169,9 +169,9 @@ ddev add-on get ddev/ddev-elasticsearch
 ddev config --web-environment-add SEARCH_ENGINE=elasticsearch
 ddev config --web-environment-add ELASTICSEARCH_DSN=http://elasticsearch:9200
 ddev restart
-ddev php bin/console cache:clear
-ddev php bin/console ibexa:elasticsearch:put-index-template
-ddev php bin/console ibexa:reindex
+ddev console cache:clear
+ddev console ibexa:elasticsearch:put-index-template
+ddev console ibexa:reindex
 ```
 
 You can now check whether Elasticsearch works.
@@ -210,8 +210,8 @@ mkdir .ddev/solr/configsets/collection1
 ddev exec -s solr cp -R /opt/solr/server/solr/configsets/_default/conf/* /mnt/ddev_config/solr/configsets/collection1/
 cp -R vendor/ibexa/solr/src/lib/Resources/config/solr/* .ddev/solr/configsets/collection1/
 ddev restart
-ddev php bin/console cache:clear
-ddev php bin/console ibexa:reindex
+ddev console cache:clear
+ddev console ibexa:reindex
 ```
 
 You can now check whether Solr works.
@@ -263,7 +263,7 @@ ddev config --web-environment-add SESSION_HANDLER_ID='Ibexa\\Bundle\\Core\\Sessi
 ddev config --web-environment-add SESSION_SAVE_PATH=tcp://redis:6379
 sed -i 's/maxmemory-policy allkeys-lfu/maxmemory-policy volatile-lfu/' .ddev/redis/redis.conf;
 ddev restart
-ddev php bin/console cache:clear
+ddev console cache:clear
 ```
 
 You can now check whether the data store backend works.
