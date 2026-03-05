@@ -287,6 +287,25 @@ No additional steps needed.
 
 ## v5.0.6
 
+### Database update [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
+
+Run the provided SQL upgrade script to adapt your database to latest change in [form builder](form_builder_guide.md)'s `max_length` validator behavior:
+
+=== "MySQL"
+
+    ``` sql
+    mysql -u <username> -p <password> <database_name> < vendor/ibexa/installer/upgrade/db/mysql/ibexa-5.0.5-to-5.0.6.sql
+    ```
+
+=== "PostgreSQL"
+
+    ``` sql
+    psql <database_name> < vendor/ibexa/installer/upgrade/db/postgresql/ibexa-5.0.5-to-5.0.6.sql
+    ```
+
+Prior, `0` was interpreted as "no length limit".
+Now, `0` is interpreted as "length limited to zero characters" and `NULL` as "no length limit".
+
 ### [[= product_name_cloud =]] configuration update
 
 If you're using [[= product_name_cloud =]], you must install a new package and update your cloud configuration.
