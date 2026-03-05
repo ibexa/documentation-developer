@@ -90,7 +90,7 @@
             <div class="notification notification--lts-update" id="tile3">
                 <div class="notification__content">
                     <h2>The newest LTS Update is Shopping list</h2>
-                    <div>Customers can store potential purchases, recurrent product set, and other whish lists for later use into carts.</div>
+                    <div> Customers can use it to save potential purchases, recurring product sets, and other items for future use in the cart.</div>
                 </div>
                 <div class="notification__cta">
                     <a href="commerce/shopping_list/shopping_list_guide/">Learn more about this LTS Update</a>
