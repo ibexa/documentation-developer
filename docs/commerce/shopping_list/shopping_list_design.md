@@ -88,7 +88,7 @@ An object of this class contains the shopping lists and their entries, and has m
 
 An object of this class can be initialized with the `shoppingList.init()` function only once.
 This initialization creates the `window.ibexaShoppingList` global variable pointing to the object.
-If you have several scripts needing an instance of `ShoppingList` class, `window.ibexaShoppingList` is the indicator if it has been initialized already and it points the object you should use.
+If you have several scripts needing an instance of `ShoppingList` class, `window.ibexaShoppingList` is the indicator if it has been initialized already and it points to the object you should use.
 Preferably initialize an object of class `ShoppingList` on the top of the script, then use `window.ibexaShoppingList` in the next lines.
 
 It has the following methods:

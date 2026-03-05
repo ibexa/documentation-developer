@@ -29,7 +29,7 @@ $query = new ShoppingListQuery();
 
 The following example query returns current user's shopping lists, excluding the default one, and sorts them by name:
 
-```php hl_lines="8-9"
+```php hl_lines="7-8"
 [[= include_file('code_samples/shopping_list/search/criteria.php', 2) =]]
 ```
 
