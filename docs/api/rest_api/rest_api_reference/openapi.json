@@ -35337,22 +35337,7 @@
                 },
                 "summary": "Load current User",
                 "description": "Loads the current user.",
-                "parameters": [
-                    {
-                        "name": "Accept",
-                        "in": "header",
-                        "description": "If set, the User is returned in XML or JSON format.",
-                        "required": true,
-                        "deprecated": false,
-                        "allowEmptyValue": false,
-                        "schema": {
-                            "type": "string"
-                        },
-                        "style": "simple",
-                        "explode": false,
-                        "allowReserved": false
-                    }
-                ],
+                "parameters": [],
                 "deprecated": false
             }
         },
@@ -40783,38 +40768,10 @@
                 "description": "Performs a login for the user or checks if session exists and returns the session and session cookie. The client will need to remember both session name/ID and CSRF token as this is for security reasons not exposed via GET.",
                 "parameters": [
                     {
-                        "name": "Accept",
-                        "in": "header",
-                        "description": "If set, the session is returned in XML or JSON format.",
-                        "required": true,
-                        "deprecated": false,
-                        "allowEmptyValue": false,
-                        "schema": {
-                            "type": "string"
-                        },
-                        "style": "simple",
-                        "explode": false,
-                        "allowReserved": false
-                    },
-                    {
-                        "name": "Content-Type",
-                        "in": "header",
-                        "description": "The SessionInput schema encoded in XML or JSON format.",
-                        "required": true,
-                        "deprecated": false,
-                        "allowEmptyValue": false,
-                        "schema": {
-                            "type": "string"
-                        },
-                        "style": "simple",
-                        "explode": false,
-                        "allowReserved": false
-                    },
-                    {
                         "name": "Cookie",
                         "in": "header",
                         "description": "Only needed for session's checking {sessionName}={sessionID}.",
-                        "required": true,
+                        "required": false,
                         "deprecated": false,
                         "allowEmptyValue": false,
                         "schema": {
@@ -40828,7 +40785,7 @@
                         "name": "X-CSRF-Token",
                         "in": "header",
                         "description": "Only needed for session's checking. The {csrfToken} needed on all unsafe HTTP methods with session.",
-                        "required": true,
+                        "required": false,
                         "deprecated": false,
                         "allowEmptyValue": false,
                         "schema": {
@@ -40906,21 +40863,7 @@
                         "name": "Cookie",
                         "in": "header",
                         "description": "Only needed for session's checking {sessionName}={sessionID}.",
-                        "required": true,
-                        "deprecated": false,
-                        "allowEmptyValue": false,
-                        "schema": {
-                            "type": "string"
-                        },
-                        "style": "simple",
-                        "explode": false,
-                        "allowReserved": false
-                    },
-                    {
-                        "name": "Accept",
-                        "in": "header",
-                        "description": "If set, the session is returned in XML or JSON format.",
-                        "required": true,
+                        "required": false,
                         "deprecated": false,
                         "allowEmptyValue": false,
                         "schema": {

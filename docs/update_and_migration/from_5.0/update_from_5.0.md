@@ -284,6 +284,56 @@ Run the provided SQL upgrade script to ensure the Messenger tables for [backgrou
     psql <database_name> < vendor/ibexa/installer/upgrade/db/postgresql/ibexa-5.0.4-to-5.0.5.sql
     ```
 
+## v5.0.5
+
+No additional steps needed.
+
+## v5.0.6
+
+### Database update [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
+
+Run the provided SQL upgrade script to adapt your database to latest change in [form builder](form_builder_guide.md)'s `max_length` validator behavior:
+
+=== "MySQL"
+
+    ``` sql
+    mysql -u <username> -p <password> <database_name> < vendor/ibexa/installer/upgrade/db/mysql/ibexa-5.0.5-to-5.0.6.sql
+    ```
+
+=== "PostgreSQL"
+
+    ``` sql
+    psql <database_name> < vendor/ibexa/installer/upgrade/db/postgresql/ibexa-5.0.5-to-5.0.6.sql
+    ```
+
+Prior, `0` was interpreted as "no length limit".
+Now, `0` is interpreted as "length limited to zero characters" and `NULL` as "no length limit".
+
+### [[= product_name_cloud =]] configuration update
+
+If you're using [[= product_name_cloud =]], you must install a new package and update your cloud configuration.
+
+First, install the `ibexa/cloud` package:
+
+```bash
+composer require ibexa/cloud
+```
+
+Then, update your cloud configuration.
+Instead of the old `composer ibexa:setup --platformsh` command, use:
+
+``` bash
+php bin/console ibexa:cloud:setup --upsun
+```
+
+This command generates or updates the cloud configuration files.
+
+Additionally, you must remove the following line from your `.platform.app.yaml` file if it exists:
+
+```yaml
+curl -fs https://get.symfony.com/cloud/configurator | bash
+```
+
 ## LTS Updates and additional packages
 
 [LTS Updates](editions.md#lts-updates) are standalone packages with their own update procedures.
@@ -324,3 +374,9 @@ To use the [latest features](ibexa_dxp_v5.0.md) added to them, update them separ
     ```bash
     composer require ibexa/fieldtype-richtext-rte:[[= latest_tag_5_0 =]] ibexa/ckeditor-premium:[[= latest_tag_5_0 =]]
     ```
+
+=== "Shopping list"
+
+    ### Shopping list [[% include 'snippets/lts-update_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
+
+    To learn more about the [Shopping list](shopping_list_guide.md), see the [installation and configuration instructions](install_shopping_list.md).

@@ -1,5 +1,5 @@
 ---
-month_change: true
+month_change: false
 description: Use DDEV to run a cluster infrastructure locally.
 ---
 

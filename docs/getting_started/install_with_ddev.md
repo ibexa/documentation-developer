@@ -31,10 +31,10 @@ mkdir my-ddev-project && cd my-ddev-project
 Next, configure your DDEV environment with the following command:
 
 ```bash
-ddev config --project-type=php --php-version 8.3 --nodejs-version 22 --docroot=public
+ddev config --project-type=php --php-version 8.4 --nodejs-version 22 --docroot=public
 ```
 
-This command sets the project type to PHP, the PHP version to 8.3, the document root to `public` directory, and creates the document root if it doesn't exist.
+This command sets the project type to PHP, the PHP version to 8.4, the document root to `public` directory, and creates the document root if it doesn't exist.
 
 #### Use another database type (optional)
 
