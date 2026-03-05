@@ -63,6 +63,9 @@ deptrac:
     App\Controller\PaginationController:
       - Ibexa\Bundle\Core\Controller
       - Ibexa\Core\Pagination\Pagerfanta\ContentSearchAdapter
+    App\Controller\ProductViewController:
+      - Ibexa\Core\MVC\Symfony\View\ContentView
+      - Ibexa\Core\MVC\Symfony\View\View
     App\Controller\RelationController:
       - Ibexa\Core\MVC\Symfony\View\View
     App\Controller\SvgController:
@@ -115,6 +118,8 @@ deptrac:
       - Ibexa\FieldTypePage\FieldType\Page\Block\Renderer\Event\PreRenderEvent
       - Ibexa\FieldTypePage\FieldType\Page\Block\Renderer\Twig\TwigRenderRequest
       - Ibexa\FieldTypeRichText\RichText\DOMDocumentFactory
+    App\Export\User\DateOfBirthUserItemProcessor:
+      - Ibexa\Core\FieldType\Date\Value
     App\FieldType\HelloWorld\Comparison\Comparable:
       - Ibexa\VersionComparison\ComparisonValue\StringComparisonValue
     App\FieldType\HelloWorld\Comparison\HelloWorldComparisonEngine:
