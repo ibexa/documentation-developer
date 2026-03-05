@@ -65,7 +65,7 @@ The following events are dispatched when changing the user settings available in
 The following event is dispatched when the Image Editor optimizes an image.
 You can subscribe to it to customize the list of active image optimizers at runtime.
 
-For more information, see [Customizing image optimizers with an event](images.md#customizing-image-optimizers-with-an-event).
+For more information, see [Customizing image optimizers with an event](images.md#customizing-image-optimizers).
 
 | Event | Dispatched by | Properties |
 |---|---|---|
