@@ -33,9 +33,7 @@ The following example sets the aspect ratio values and label names for buttons u
 [[= include_file('code_samples/back_office/image_editor/config/packages/image_editor.yaml', 0, 36) =]]
 ```
 
-### Image file size optimization
-
-#### Image quality
+### Image quality
 
 You can configure the quality of the images modified in the Image Editor with the following configuration.
 
@@ -45,17 +43,6 @@ The default quality is 0.92:
 ``` yaml
 [[= include_file('code_samples/back_office/image_editor/config/packages/image_editor.yaml', 0, 4) =]] [[= include_file('code_samples/back_office/image_editor/config/packages/image_editor.yaml', 39, 40) =]]
 ```
-
-#### Gaussian blur strength
-
-You can configure the gaussian blur strength applied during image optimization with the following configuration.
-
-``` yaml
-[[= include_file('code_samples/back_office/image_editor/config/packages/image_editor.yaml', 0, 4) =]] [[= include_file('code_samples/back_office/image_editor/config/packages/image_editor.yaml', 40, 41) =]]
-```
-
-The setting accepts float values between 0 and 10.0, where higher values increase blur and reduce file size, while lower values maintain sharpness.
-The default value is 0.05.
 
 ### Additional information
 

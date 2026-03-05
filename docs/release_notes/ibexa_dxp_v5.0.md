@@ -48,12 +48,6 @@ For more information, see [Install on Ibexa Cloud](https://doc.ibexa.co/en/5.0/i
 
 PHP 8.4 is now [officially supported](https://doc.ibexa.co/en/5.0/getting_started/requirements/#php).
 
-### Gaussian blur optimization in Image Editor
-
-The [Image Editor]([[= user_doc =]]/image_management/edit_images/) now supports configurable gaussian blur strength for image optimization.
-You can adjust the blur level to balance between file size reduction and image sharpness.
-For more information, see [Configure image editor](https://doc.ibexa.co/en/5.0/content_management/images/configure_image_editor/#gaussian-blur-strength).
-
 ### Query subtree limit configuration
 
 A new `query_subtree.limit` configuration option improves performance when working with large content trees by limiting count operations.
