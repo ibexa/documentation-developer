@@ -42,12 +42,12 @@
 .pill--new-feature::after {
   content: "New feature";
 }
-.pill--first-release {
+.pill--feature-launch {
   color: #2C9445;
   border-color: #2C9445;
 }
-.pill--first-release::after {
-  content: "First release";
+.pill--feature-launch::after {
+  content: "Feature launch";
 }
 .pill--inline:first-of-type {
   margin-left: 8px;

@@ -16,7 +16,7 @@
         "commerce": (variables.$color-commerce, "Commerce"),
         "lts-update": (variables.$color-lts-update, "LTS Update"),
         "new-feature": (variables.$color-new-feature, "New feature"),
-        "first-release": (variables.$color-first-release, "First release")
+        "feature-launch": (variables.$color-feature-launch, "Feature launch")
       );
       
       @each $name, $values in $types {

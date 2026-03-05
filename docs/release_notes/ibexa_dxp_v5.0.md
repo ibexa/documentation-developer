@@ -6,7 +6,7 @@ month_change: false
 
 <!-- vale VariablesVersion = NO -->
 
-[[= release_notes_filters('Ibexa DXP v5.0 LTS', ['Headless', 'Experience', 'Commerce', 'LTS Update', 'New feature', 'First release']) =]]
+[[= release_notes_filters('Ibexa DXP v5.0 LTS', ['Headless', 'Experience', 'Commerce', 'LTS Update', 'New feature', 'Feature launch']) =]]
 
 <div class="release-notes" markdown="1">
 
@@ -67,7 +67,7 @@ The [Collaborative editing](collaborative_editing.md) REST API endpoints are now
 
 [[% set version = 'v5.0.4' %]]
 
-[[= release_note_entry_begin("Integrated help " + version, '2025-12-10', ['Headless', 'Experience', 'Commerce', 'LTS Update', 'New feature', 'First release']) =]]
+[[= release_note_entry_begin("Integrated help " + version, '2025-12-10', ['Headless', 'Experience', 'Commerce', 'LTS Update', 'New feature', 'Feature launch']) =]]
 
 Integrated help brings contextual documentation, guidance, and partner-specific resources right into the user interface of [[= product_name =]].
 It helps editors, store managers, and developers to quickly access relevant content, training and resources without leaving the UI, narrowing the gap between product and documentation.
@@ -80,7 +80,7 @@ For more information, see [Integrated help](integrated_help.md).
 
 [[= release_note_entry_end() =]]
 
-[[= release_note_entry_begin("Anthropic connector " + version, '2025-12-10', ['Headless', 'Experience', 'Commerce', 'LTS Update', 'New feature', 'First release']) =]]
+[[= release_note_entry_begin("Anthropic connector " + version, '2025-12-10', ['Headless', 'Experience', 'Commerce', 'LTS Update', 'New feature', 'Feature launch']) =]]
 
 This release introduces a new AI connector that allows you to integrate [AI Actions](ai_actions.md) with [Anthropic Claude](https://claude.com/product/overview).
 
@@ -426,7 +426,7 @@ This release brings additional minor improvements to the developer's experience 
 
 [[% set version = 'v5.0.0' %]]
 
-[[= release_note_entry_begin("Ibexa DXP " + version, '2025-07-22', ['Headless', 'Experience', 'Commerce', 'New feature', 'First release']) =]]
+[[= release_note_entry_begin("Ibexa DXP " + version, '2025-07-22', ['Headless', 'Experience', 'Commerce', 'New feature', 'Feature launch']) =]]
 
 ### Notable changes
 
