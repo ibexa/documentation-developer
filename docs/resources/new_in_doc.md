@@ -23,13 +23,13 @@ This page contains recent highlights and notable changes in [[= product_name =]]
 
 ### Infrastructure
 
-#### [[= product_name_cloud =]]
+#### 5.0 on [[= product_name_cloud =]]
 
-- Added documentation describing [how to use the new `ibexa/cloud` package](install_on_ibexa_cloud.md) and the [environment variables it provides](environment_variables.md)
+- Added documentation describing [how to use the new `ibexa/cloud` package](https://doc.ibexa.co/en/5.0/ibexa_cloud/install_on_ibexa_cloud/) and the [environment variables it provides](https://doc.ibexa.co/en/5.0/ibexa_cloud/environment_variables/)
 
-#### DFS configuration
+#### DFS configuration on 5.0
 
-- Updated [DFS](clustering.md#configuring-the-dfs-io-handler) and [Solr](install_solr.md#configure-the-bundle) configuration examples to use environment variables directly with [Environment Variable Processors]([[= symfony_doc =]]/configuration/env_var_processors.html) syntax instead of intermediate parameters.
+- Updated [DFS](https://doc.ibexa.co/en/5.0/infrastructure_and_maintenance/clustering/clustering/#configuring-the-dfs-io-handler) and [Solr](https://doc.ibexa.co/en/5.0/search/search_engines/solr_search_engine/install_solr/#configure-the-bundle) configuration examples to use environment variables directly with [Environment Variable Processors]([[= symfony_doc =]]/configuration/env_var_processors.html) syntax instead of intermediate parameters.
 This promotes skipping the rebuild of the Symfony container when environment variable values change.
 
 ## January 2026
