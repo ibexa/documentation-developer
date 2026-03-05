@@ -60,6 +60,16 @@ The following events are dispatched when changing the user settings available in
 |---|---|---|
 |`PublishVersionEvent`|`PublishAssetEventDispatcher::emitPublishAssetEvent`|`Content $content`</br>`Connector\Dam\AssetIdentifier $assetIdentifier`</br>`Connector\Dam\AssetSource $assetSource`|
 
+## Image Editor
+
+The following event is dispatched when the Image Editor optimizes an image.
+You can subscribe to it to customize the list of active image optimizers at runtime.
+For more information, see [Customizing image optimizers with an event](images.md#customizing-image-optimizers-with-an-event).
+
+| Event | Dispatched by | Properties |
+|---|---|---|
+|`ConfigureImageOptimizersEvent`|`SpatieChainOptimizer::optimize()`|`array<Spatie\ImageOptimizer\Optimizer> $optimizers`|
+
 ## Form Builder [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
 
 | Event | Dispatched by | Properties |

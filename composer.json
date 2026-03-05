@@ -76,7 +76,8 @@
         "ibexa/collaboration": "~4.6.x-dev",
         "ibexa/share": "~4.6.x-dev",
         "ibexa/phpstan": "~4.6.-dev",
-        "ibexa/cdp": "~4.6.x-dev"
+        "ibexa/cdp": "~4.6.x-dev",
+        "ibexa/image-editor": "~4.6.x-dev"
     },
     "scripts": {
         "fix-cs": "php-cs-fixer fix --config=.php-cs-fixer.php -v --show-progress=dots",
