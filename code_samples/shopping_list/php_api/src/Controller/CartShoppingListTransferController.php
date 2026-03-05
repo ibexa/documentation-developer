@@ -50,11 +50,11 @@ class CartShoppingListTransferController extends AbstractController
         $cartQuery->setOwnerId($user->getId());
         $cartsList = $this->cartService->findCarts($cartQuery);
         $cart = null;
-        foreach ($cartsList->getCarts() as $cart) {
-            if ($cart->getName() === $name) {
+        foreach ($cartsList->getCarts() as $cartItem) {
+            if ($cartItem->getName() === $name) {
+                $cart = $cartItem;
                 break;
             }
-            $cart = null;
         }
         if (null === $cart) {
             $cart = $this->cartService->createCart(new CartCreateStruct($name, $this->currencyService->getCurrencyByCode($currency), $user));
