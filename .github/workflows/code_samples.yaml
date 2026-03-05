@@ -46,6 +46,9 @@ jobs:
             - name: Run PHPStan analysis
               run: composer phpstan
 
+            - name: Deptrac
+              run: composer deptrac
+
             - name: Run rector
               run: vendor/bin/rector process --dry-run --ansi
 
