@@ -72,7 +72,7 @@ class CartShoppingListTransferController extends AbstractController
 
         $list = $this->shoppingListService->addEntries($list, [new ShoppingListEntryAddStruct($productCode)]);
 
-        $entry = $list->getEntries()->getEntryWithProductCode($productCode)->getIdentifier(); // Get entry's automatically generated identifier 
+        $entry = $list->getEntries()->getEntryWithProductCode($productCode)->getIdentifier(); // Get entry's automatically generated identifier
         $cart = $this->cartShoppingListTransferService->addSelectedEntriesToCart($list, [$entry], $cart);
         $cart = $this->cartShoppingListTransferService->addSelectedEntriesToCart($list, [$entry], $cart);
 
