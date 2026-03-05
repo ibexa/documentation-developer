@@ -90,6 +90,20 @@ Then, adjust your [layouts](https://doc.ibexa.co/en/5.0/templating/render_conten
 )) }}
 ```
 
+### Developer experience
+
+#### PHP API
+
+The following additions were made to the PHP API:
+
+- [`Ibexa\Contracts\Cdp\Value\Webhook\PersonIdType`](https://ez-systems-developer-documentation--3074.com.readthedocs.build/en/3074/api/php_api/php_api_reference/classes/Ibexa-Contracts-Cdp-Value-Webhook-PersonIdType.html)
+- [`Ibexa\Contracts\Cdp\Webhook`](https://ez-systems-developer-documentation--3074.com.readthedocs.build/en/3074/api/php_api/php_api_reference/namespaces/ibexa-contracts-cdp-webhook.html)
+- [`Ibexa\Contracts\Core\Persistence\Filter\Query`](https://ez-systems-developer-documentation--3074.com.readthedocs.build/en/3074/api/php_api/php_api_reference/namespaces/ibexa-contracts-core-persistence-filter-query.html)
+- [`Ibexa\Contracts\ImageEditor\Event`](https://ez-systems-developer-documentation--3074.com.readthedocs.build/en/3074/api/php_api/php_api_reference/namespaces/ibexa-contracts-imageeditor-event.html)
+- [`Ibexa\Contracts\ProductCatalog\Config`](https://ez-systems-developer-documentation--3074.com.readthedocs.build/en/3074/api/php_api/php_api_reference/namespaces/ibexa-contracts-productcatalog-config.html)
+- [`Ibexa\Contracts\ShoppingList`](https://ez-systems-developer-documentation--3074.com.readthedocs.build/en/3074/api/php_api/php_api_reference/namespaces/ibexa-contracts-shoppinglist.html)
+- [`Ibexa\Contracts\Taxonomy\Embedding\Exception`](https://ez-systems-developer-documentation--3074.com.readthedocs.build/en/3074/api/php_api/php_api_reference/namespaces/ibexa-contracts-taxonomy-embedding-exception.html)
+
 ### Full changelog
 
 [[% include 'snippets/release_50.md' %]]
