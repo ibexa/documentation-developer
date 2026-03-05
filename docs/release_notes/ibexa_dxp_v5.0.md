@@ -14,7 +14,7 @@ month_change: true
 
 [[= release_note_entry_begin(
     'Shopping Lists ' + version,
-    'YYYY-MM-DD',
+    '2026-03-05',
     ['Commerce', 'LTS Update', 'New feature']
 ) =]]
 
@@ -28,7 +28,7 @@ For more information, see [Shopping list feature guide](https://doc.ibexa.co/en/
 
 [[= release_note_entry_begin(
     "Ibexa DXP " + version,
-    'YYYY-MM-DD',
+    '2026-03-05',
     ['Headless', 'Experience', 'Commerce', 'New feature']
 ) =]]
 
