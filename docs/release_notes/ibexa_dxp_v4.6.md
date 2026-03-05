@@ -24,29 +24,6 @@ month_change: true
 
 PHP 8.4 is now [officially supported](https://doc.ibexa.co/en/4.6/getting_started/requirements/#php).
 
-### Developer experience
-
-#### Custom parameters in `ibexa_render()`
-
-You can now pass custom parameters to templates when using the `ibexa_render()` Twig function with the new `params` option, similar to how you can with `render(controller())`.Collapse annotationCheck notice on line R18[vale] docs/release_notes/ibexa_dxp_v4.6.md#L18Check notice: [vale] docs/release_notes/ibexa_dxp_v4.6.md#L18[Ibexa.ByUsing] Prefer 'by using' or 'with' to plain 'using'.Build & test documentation / valeView details
-
-This allows you to provide additional context or data to your view templates:
-
-``` html+twig
-{{ ibexa_render(content, {
-    'viewType': 'line',
-    'method': 'inline',
-    'params': {
-        'custom_param': 'custom_value',
-        'another_param': 'another_value'
-    }
-}) }}
-```
-
-The parameters are available in your template as regular variables.
-
-For more information, see [`ibexa_render()` Twig function](https://doc.ibexa.co/en/4.6/templating/twig_function_reference/content_twig_functions/#ibexa_render).
-
 ### Full changelog
 
 [[% include 'snippets/release_46.md' %]]
