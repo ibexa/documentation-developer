@@ -12,6 +12,7 @@ This page contains recent highlights and notable changes in [[= product_name =]]
 ### Releases
 
 - [v5.0.5 release notes](https://doc.ibexa.co/en/5.0/release_notes/ibexa_dxp_v5.0/#ibexa-dxp-v505)
+- [v4.6.27 release notes](https://doc.ibexa.co/en/4.6/release_notes/ibexa_dxp_v4.6/#ibexa-dxp-v4627)
 
 ### Getting started
 
