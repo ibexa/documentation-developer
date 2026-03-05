@@ -23,6 +23,10 @@ This page contains recent highlights and notable changes in [[= product_name =]]
 
 ### Infrastructure
 
+#### Modified 5.0 update instructions
+
+To [update from v5.0.x to v5.0.latest](update_from_5.0.md), you have to ensure that Yarn dependencies are up-to-date before running Composer.
+
 #### [[= product_name_cloud =]]
 
 - Added documentation describing [how to use the new `ibexa/cloud` package](install_on_ibexa_cloud.md) and the [environment variables it provides](environment_variables.md)
