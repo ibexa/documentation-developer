@@ -382,4 +382,3 @@ Here are the most common issues you may encounter:
       to balance performance and load on your Solr instance against needs you have for "[NRT](https://solr.apache.org/guide/7_7/near-real-time-searching.html)".
 - Running out of memory during indexing
     - In general make sure to run indexing using the prod environment to avoid debuggers and loggers from filling up memory.
-    - Flysystem: You can find further info in https://issues.ibexa.co/browse/EZP-25325.

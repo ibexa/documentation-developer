@@ -16,11 +16,9 @@ You also have new options to format your text using subscript, superscript, quot
 
 ![New text formatting options](oe-formatting-new-options.png)
 
-For more information, see [EZP-28030](https://issues.ibexa.co/browse/EZP-28030).
-
 #### Improved full text search capabilities
 
-For more information, see [EZP-26806](https://issues.ibexa.co/browse/EZP-26806).
+Added support for full-text search query syntax in Solr.
 
 #### Deleting translations
 
@@ -29,7 +27,6 @@ You can now remove translations from content item Versions through the PHP API.
 For more information, see the section on [deleting translations](https://doc.ibexa.co/en/latest/api/public_php_api_creating_content/#deleting-a-translation).
 
 You also have a new endpoint available for deleting a single Version.
-For more information, see [EZP-27864](https://issues.ibexa.co/browse/EZP-27864).
 
 #### Improved Security for password storage
 
