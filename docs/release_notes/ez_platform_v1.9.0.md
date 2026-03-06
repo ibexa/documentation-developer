@@ -46,7 +46,7 @@ To reflect this change, the content tree button has been renamed **Content brows
 
 ### eZ Platform Enterprise Edition - Studio
 
--   It's now possible to configure landing page blocks used by the landing page editor in a simpler way. The configuration is done in a YAML file (see <https://issues.ibexa.co/browse/EZEE-1421>)
+-   It's now possible to configure landing page blocks used by the landing page editor in a simpler way. The configuration is done in a YAML file
 -   *..lots of other bug fixes and smaller improvements..*
 
 ### eZ Platform Enterprise Edition - Studio Demo
@@ -59,8 +59,8 @@ The eZ Enterprise Demo now uses the [Netgen Tags bundle](https://github.com/netg
 
 #### Miscellaneous
 
--   [DEMO-94](https://issues.ibexa.co/browse/DEMO-94): As an editor, I want to personalize content based on user persona
--   [DEMO-87](https://issues.ibexa.co/browse/DEMO-87): As an editor, I want to embed a video
+-   As an editor, I want to personalize content based on user persona
+-   As an editor, I want to embed a video
 
 ## Full list of new features, improvements and bug fixes since v1.8.0
 

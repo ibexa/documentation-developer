@@ -1057,6 +1057,14 @@ If you are using GraphQL in your project, you can generate its schema by running
 php bin/console ibexa:graphql:generate-schema
 ```
 
+### Upgrade GraphQL usage
+
+- In 4.6, pagination for [RelationList field type](https://doc.ibexa.co/en/5.0/content_management/field_types/field_type_reference/relationlistfield/) is disabled by default, and can be enabled using the `ibexa.graphql.schema.ibexa_object_relation_list.enable_pagination` parameter
+- In 5.0, pagination for RelationList field type is always activated and can't be disabled. The previous parameter doesn't exist anymore and is ignored if set
+
+If you have code based on `relations` request returning the entire list, you have to update it.
+For more information, see [Pagination in GraphQL](https://doc.ibexa.co/en/5.0/api/graphql/graphql_queries/#pagination).
+
 ### Update search indexes
 
 Ensure your search index is up to date with the following command:

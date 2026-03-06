@@ -54,7 +54,7 @@ In production setups:
 
 !!! caution
 
-    To avoid deprecations when using PHP 8.2 or 8.3, [[= product_name =]] v4.6 needs an additional error handler.
+    To avoid deprecations when using PHP 8.2, 8.3, or 8.4, [[= product_name =]] v4.6 needs an additional error handler.
     The error handler is present by default for projects that started with 4.6.8 or later.
     For projects that started with earlier versions, you need to add the error handler manually by running the following commands:
 
