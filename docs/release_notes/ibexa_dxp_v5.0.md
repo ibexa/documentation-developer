@@ -10,6 +10,78 @@ month_change: true
 
 <div class="release-notes" markdown="1">
 
+[[% set version = 'v5.0.7' %]]
+
+[[= release_note_entry_begin(
+    "Google Gemini connector " + version,
+    'YYYY-MM-DD',
+    ['Headless', 'Experience', 'Commerce', 'LTS Update', 'New feature', 'First release']
+) =]]
+
+This release introduces a new AI connector that allows you to integrate [AI Actions](https://doc.ibexa.co/en/5.0/ai_actions/ai_actions/) with [Google Gemini](https://gemini.google/overview/#what-gemini-is).
+
+For more information, see how to [install and configure the Google Gemini connector](https://doc.ibexa.co/en/5.0/ai_actions/configure_ai_actions/#install-google-gemini-connector).
+
+[[= release_note_entry_end() =]]
+
+[[= release_note_entry_begin(
+    "Ibexa DXP " + version,
+    'YYYY-MM-DD',
+    ['Headless', 'Experience', 'Commerce', 'New feature']
+) =]]
+
+### Developer experience
+
+#### Custom parameters in `ibexa_render()`
+
+You can now pass custom parameters to templates when using the `ibexa_render()` Twig function with the new `params` option, similar to how you can with `render(controller())`.Collapse annotationCheck notice on line R18[vale] docs/release_notes/ibexa_dxp_v5.0.md#L18Check notice: [vale] docs/release_notes/ibexa_dxp_v5.0.md#L18[Ibexa.ByUsing] Prefer 'by using' or 'with' to plain 'using'.Build & test documentation / valeView details
+
+This allows you to provide additional context or data to your view templates:
+
+``` html+twig
+{{ ibexa_render(content, {
+    'viewType': 'line',
+    'method': 'inline',
+    'params': {
+        'custom_param': 'custom_value',
+        'another_param': 'another_value'
+    }
+}) }}
+```
+
+The parameters are available in your template as regular variables.
+
+For more information, see [`ibexa_render()` Twig function](https://doc.ibexa.co/en/5.0/templating/twig_function_reference/content_twig_functions/#ibexa_render).
+
+#### Try-catch support in data migrations
+
+Data migrations now support try-catch error handling, allowing you to wrap migration steps with exception handling logic.
+You can use it for migrations that might fail under certain conditions but should not break the entire migration process.
+
+For example, you can create languages without checking if they already exist:
+
+``` yaml
+[[#
+[[= include_file('code_samples/data_migration/examples/try_catch_step.yaml') =]]
+#]]
+```
+
+The `try_catch` step allows you to specify which exceptions to catch and whether to continue executing remaining steps after an exception occurs.
+
+For more information, see [Error handling with try-catch](https://doc.ibexa.co/en/5.0/content_management/data_migration/importing_data/#error-handling-with-try-catch).
+
+### Gaussian blur optimization in Image Editor
+
+The [Image Editor]([[= user_doc =]]/image_management/edit_images/) now supports configurable gaussian blur strength for image optimization.
+You can adjust the blur level to balance between file size reduction and image sharpness.
+For more information, see [Configure image editor](https://doc.ibexa.co/en/5.0/content_management/images/configure_image_editor/#gaussian-blur-strength).
+
+### Full changelog
+
+[[% include 'snippets/release_50.md' %]]
+
+[[= release_note_entry_end() =]]
+
 [[% set version = 'v5.0.6' %]]
 
 [[= release_note_entry_begin(
