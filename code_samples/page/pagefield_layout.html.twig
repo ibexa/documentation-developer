@@ -1,0 +1,22 @@
+<div>
+    {# The required attribute for the displayed zone #}
+    <div data-ibexa-zone-id="{{ zones[0].id }}">
+        {# If a zone with [0] index contains any blocks #}
+        {% if zones[0].blocks %}
+            {# for each block #}
+            {% for block in blocks %}
+                {# create a new layer with appropriate ID #}
+                <div class="landing-page__block block_{{ block.type }}" data-ibexa-block-id="{{ block.id }}">
+                    {# render the block by using the "Ibexa\\Bundle\\FieldTypePage\\Controller\\BlockController::renderAction" controller #}
+                    {# location.id is the ID of the Location of the current content item, block.id is the ID of the current block #}
+                    {{ render_esi(controller('Ibexa\\Bundle\\FieldTypePage\\Controller\\BlockController::renderAction', {
+                        'locationId': locationId,
+                        'blockId': block.id,
+                        'versionNo': versionInfo.versionNo,
+                        'languageCode': field.languageCode
+                    }, ibexa_append_cacheable_query_params(block))) }}
+                </div>
+            {% endfor %}
+        {% endif %}
+    </div>
+</div>
