@@ -69,8 +69,7 @@ For more information, see [Customizing image optimizers with an event](images.md
 
 | Event | Dispatched by | Properties |
 |---|---|---|
-|[`ConfigureImageOptimizersEvent`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ImageEditor-Event-ConfigureImageOptimizersEvent.html)
-|`SpatieChainOptimizer::optimize()`|`array<Spatie\ImageOptimizer\Optimizer> $optimizers`|
+|[`ConfigureImageOptimizersEvent`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ImageEditor-Event-ConfigureImageOptimizersEvent.html)|`SpatieChainOptimizer::optimize()`|`array<Spatie\ImageOptimizer\Optimizer> $optimizers`|
 
 ## Form Builder [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
 
