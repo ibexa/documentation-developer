@@ -9,7 +9,7 @@ use Ibexa\Contracts\Core\Repository\Exceptions\NotFoundException;
 use Ibexa\Contracts\Core\Repository\Values\User\User;
 use Symfony\Component\HttpFoundation\RequestStack;
 
-final class CartResolverDecorator implements CartResolverInterface
+final readonly class CartResolverDecorator implements CartResolverInterface
 {
     public function __construct(
         private CartResolverInterface $innerCartResolver,
@@ -39,7 +39,7 @@ final class CartResolverDecorator implements CartResolverInterface
             }
 
             return $session->getCart();
-        } catch (NotFoundException|\Ibexa\ProductCatalog\Exception\UnauthorizedException $e) {
+        } catch (NotFoundException|\Ibexa\ProductCatalog\Exception\UnauthorizedException) {
             return null;
         }
     }

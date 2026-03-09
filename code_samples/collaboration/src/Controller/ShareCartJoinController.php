@@ -8,16 +8,16 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\Attribute\AsController;
-use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Routing\Attribute\Route;
 
 #[AsController]
 #[Route('/shared-cart/join/{token}', name: 'app.shared_cart.join')]
 final class ShareCartJoinController extends AbstractController
 {
-    public const CURRENT_COLLABORATION_SESSION = 'collaboration_session';
+    public const string CURRENT_COLLABORATION_SESSION = 'collaboration_session';
 
     public function __construct(
-        private SessionServiceInterface $sessionService,
+        private readonly SessionServiceInterface $sessionService,
     ) {
     }
 

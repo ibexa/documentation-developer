@@ -4,10 +4,10 @@ namespace App\Collaboration\Cart\Persistence\Gateway;
 
 final class DatabaseSchema
 {
-    public const TABLE_NAME = 'ibexa_collaboration_cart';
+    public const string TABLE_NAME = 'ibexa_collaboration_cart';
 
-    public const COLUMN_ID = 'id';
-    public const COLUMN_CART_IDENTIFIER = 'cart_identifier';
+    public const string COLUMN_ID = 'id';
+    public const string COLUMN_CART_IDENTIFIER = 'cart_identifier';
 
     private function __construct()
     {

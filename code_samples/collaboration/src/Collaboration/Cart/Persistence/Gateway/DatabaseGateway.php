@@ -24,7 +24,7 @@ use Ibexa\Contracts\CorePersistence\Gateway\DoctrineSchemaMetadataInterface;
  */
 final class DatabaseGateway extends AbstractDoctrineDatabase implements GatewayInterface
 {
-    public const DISCRIMINATOR = 'cart';
+    public const string DISCRIMINATOR = 'cart';
 
     protected function buildMetadata(): DoctrineSchemaMetadataInterface
     {

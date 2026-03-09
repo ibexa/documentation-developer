@@ -8,7 +8,7 @@ use Ibexa\Contracts\Core\Repository\Repository;
 use Ibexa\Core\Repository\ProxyFactory\ProxyGeneratorInterface;
 use ProxyManager\Proxy\LazyLoadingInterface;
 
-final class CartProxyMapper implements CartProxyMapperInterface
+final readonly class CartProxyMapper implements CartProxyMapperInterface
 {
     public function __construct(
         private Repository $repository,

@@ -14,14 +14,14 @@ use Symfony\Component\HttpFoundation\RequestStack;
 
 final class PermissionResolverDecorator implements PermissionResolverInterface
 {
-    public const COLLABORATION_SESSION_ID = 'collaboration_session';
+    public const string COLLABORATION_SESSION_ID = 'collaboration_session';
 
     private bool $nested = false;
 
     public function __construct(
-        private PermissionResolverInterface $innerPermissionResolver,
-        private SessionServiceInterface $sessionService,
-        private RequestStack $requestStack,
+        private readonly PermissionResolverInterface $innerPermissionResolver,
+        private readonly SessionServiceInterface $sessionService,
+        private readonly RequestStack $requestStack,
     ) {
     }
 
@@ -64,7 +64,7 @@ final class PermissionResolverDecorator implements PermissionResolverInterface
             if ($session !== null) {
                 try {
                     return $cart->getId() === $session->getCart()->getId();
-                } catch (NotFoundException $e) {
+                } catch (NotFoundException) {
                 }
             }
         } finally {
