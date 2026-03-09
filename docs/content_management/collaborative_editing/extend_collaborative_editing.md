@@ -25,26 +25,13 @@ In this example, it represents the shopping Cart (identified by the Cart identif
 === "MySQL"
 
     ``` sql
-        CREATE TABLE ibexa_collaboration_cart
-        (
-            id INT NOT NULL PRIMARY KEY,
-            cart_identifier VARCHAR(255) NOT NULL,
-            CONSTRAINT ibexa_collaboration_cart_ibexa_collaboration_id_fk
-                FOREIGN KEY (id) REFERENCES ibexa_collaboration (id)
-                    ON DELETE CASCADE
-        ) COLLATE = utf8mb4_general_ci;
+    [[= include_file('code_samples/collaboration/ibexa_collaboration_cart.mysql.sql', 0, None, '    ') =]]
     ```
 
 === "PostgreSQL"
 
     ``` sql
-    CREATE TABLE ibexa_collaboration_cart (
-    id INTEGER NOT NULL PRIMARY KEY,
-    cart_identifier VARCHAR(255) NOT NULL,
-    CONSTRAINT ibexa_collaboration_cart_ibexa_collaboration_id_fk
-        FOREIGN KEY (id) REFERENCES ibexa_collaboration (id)
-        ON DELETE CASCADE
-    );
+    [[= include_file('code_samples/collaboration/ibexa_collaboration_cart.postgresql.sql', 0, None, '    ') =]]
     ```
 
 ## Set up the persistence layer
