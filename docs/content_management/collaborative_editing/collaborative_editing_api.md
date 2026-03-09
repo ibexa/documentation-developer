@@ -114,9 +114,8 @@ You can check the participant of the collaboration session with [`SessionService
 
 You can get an invitation with [`InvitationService::getInvitation()`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Collaboration-InvitationServiceInterface.html#method_getInvitation):
 
-
 ``` php
-[[= include_file('code_samples/collaboration/src/Command/ManageSessionsCommand.php', 119, 127) =]]
+[[= include_file('code_samples/collaboration/src/Command/ManageSessionsCommand.php', 126, 127) =]]
 ```
 
 ### Create invitation
@@ -147,7 +146,11 @@ You can delete an invitation with [`InvitationService::deleteInvitation()`](/api
 
 ### Find invitations
 
-You can find an invitation with [`InvitationService::findInvitations()`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Collaboration-InvitationServiceInterface.html#method_findInvitations).
+You can find an invitation with [`InvitationService::findInvitations()`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Collaboration-InvitationServiceInterface.html#method_findInvitations):
+
+``` php
+[[= include_file('code_samples/collaboration/src/Command/ManageSessionsCommand.php', 119, 125) =]]
+```
 
 To learn more about the available search options, see [Search Criteria](collaboration_criteria.md) and [Sort Clauses](collaboration_sort_clauses.md) for Collaborative editing.
 
