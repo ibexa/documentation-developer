@@ -22,14 +22,14 @@ Add the tables needed by the bundle:
 
 === "MySQL"
 
-    ```bash
-    [[= include_file('docs/users/sql/install_mysql.sql') =]]
+    ``` sql
+    [[= include_file('docs/users/sql/install_mysql.sql', glue='    ') =]]
     ```
 
 === "PostgreSQL"
 
-    ```bash
-    [[= include_file('docs/users/sql/install_postgresql.sql') =]]
+    ``` sql
+    [[= include_file('docs/users/sql/install_postgresql.sql', glue='    ') =]]
     ```
 
 Then, in `config/bundles.php`, at the end of an array with a list of bundles, add the following two lines :
