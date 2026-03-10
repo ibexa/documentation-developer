@@ -20,6 +20,8 @@ services:
     # please note that last definitions always *replace* previous ones
 
     App\Collaboration\Cart\Persistence\Gateway\DatabaseGateway:
+        arguments:
+            $connection: '@ibexa.persistence.connection'
         tags:
             - name: 'ibexa.collaboration.persistence.session.gateway'
               discriminator: !php/const App\Collaboration\Cart\Persistence\Gateway\DatabaseGateway::DISCRIMINATOR
@@ -38,3 +40,9 @@ services:
         tags:
             -   name: 'ibexa.collaboration.service.session.domain.mapper'
                 type: App\Collaboration\Cart\Persistence\Values\CartSession
+
+    App\Collaboration\Cart\PermissionResolverDecorator:
+        decorates: Ibexa\Contracts\ProductCatalog\PermissionResolverInterface
+
+    App\Collaboration\Cart\CartResolverDecorator:
+        decorates: Ibexa\Contracts\Cart\CartResolverInterface
