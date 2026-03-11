@@ -12,6 +12,7 @@ use Ibexa\Contracts\Core\Repository\SearchService;
 use Ibexa\Contracts\Core\Repository\Values\Content\EmbeddingQueryBuilder;
 use Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion\ContentTypeIdentifier;
 use Ibexa\Contracts\Core\Repository\Values\Content\Search\SearchHit;
+use Ibexa\Contracts\Core\Search\Embedding\EmbeddingProviderResolverInterface;
 use Ibexa\Contracts\Taxonomy\Search\Query\Value\TaxonomyEmbedding;
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
@@ -25,8 +26,10 @@ use Symfony\Component\Console\Style\SymfonyStyle;
 )]
 final class FindByTaxonomyEmbeddingCommand extends Command
 {
-    public function __construct(private readonly SearchService $searchService)
-    {
+    public function __construct(
+        private readonly SearchService $searchService,
+        private readonly EmbeddingProviderResolverInterface $embeddingProviderResolver,
+    ) {
         parent::__construct();
     }
 
@@ -37,7 +40,7 @@ final class FindByTaxonomyEmbeddingCommand extends Command
         $io = new SymfonyStyle($input, $output);
 
         // Example embedding vector.
-        // In a real-life scenario, generate it with an embedding provider
+        // In a real-life scenario, generate it with an embedding provider as shown below
         // and make sure its dimensions match the configured model.
         $vector = [
             0.0123,
@@ -46,8 +49,11 @@ final class FindByTaxonomyEmbeddingCommand extends Command
             0.1111,
         ];
 
+        $embeddingProvider = $this->embeddingProviderResolver->resolve();
+        $embedding = $embeddingProvider->getEmbedding('example_content');
+
         $query = EmbeddingQueryBuilder::create()
-            ->withEmbedding(new TaxonomyEmbedding($vector))
+            ->withEmbedding(new TaxonomyEmbedding($embedding))
             ->setFilter(new ContentTypeIdentifier('article'))
             ->setLimit(10)
             ->setOffset(0)

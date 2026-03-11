@@ -465,19 +465,7 @@ Embedding vectors are stored in dedicated search fields that are created by `Ibe
 These fields are then used by the search engine to perform vector similarity comparisons when embedding queries are executed.
 
 ``` php
-use Ibexa\Contracts\Core\Search\FieldType\EmbeddingFieldFactory;
-use Ibexa\Contracts\Core\Search\Embedding\EmbeddingConfigurationInterface;
-
-// $config is an existing EmbeddingConfigurationInterface
-$factory = new EmbeddingFieldFactory($config);
-
-// Create a default embedding field (type derived from config suffix)
-$embeddingField = $factory->create();
-echo $embeddingField->getType(); // for example, "ibexa_dense_vector_model_123"
-
-// Create a custom embedding field with a specific type
-$customField = $factory->create('custom_embedding_type');
-echo $customField->getType(); // "custom_embedding_type"
+[[= include_file('code_samples/api/public_php_api/src/embedding_fields.php') =]]
 ```
 
 For more information, see [Embeddings reference](embeddings_reference.md).
