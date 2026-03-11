@@ -8,9 +8,10 @@ use Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion\LogicalAnd;
 use Ibexa\Contracts\Taxonomy\Search\Query\Criterion\TaxonomySubtree;
 
 $query = new Query();
-$query->query = new LogicalAnd([
-    new TaxonomySubtree(42),
-    new ContentTypeIdentifier('article'),
+$query->query = new LogicalAnd(
+    [
+        new TaxonomySubtree(42),
+        new ContentTypeIdentifier('article'),
     ]
 );
 
