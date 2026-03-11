@@ -14,9 +14,9 @@ use Ibexa\Contracts\Core\Repository\Values\Content\EmbeddingQueryBuilder;
 use Ibexa\Contracts\Core\Repository\Values\Content\Search\SearchResult;
 use Ibexa\Contracts\Taxonomy\Search\Query\Value\TaxonomyEmbedding;
 
-final class TaxonomyEmbeddingSearchService
+final readonly class TaxonomyEmbeddingSearchService
 {
-    public function __construct(private readonly SearchService $searchService)
+    public function __construct(private SearchService $searchService)
     {
     }
 
