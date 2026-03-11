@@ -151,6 +151,19 @@ This means that editors who have access to Code blocks could add malicious JS in
 As site administrator, be aware of this when giving editors access to the Page Builder features, and limit that access only to trusted editors.
 You can [limit access to specific blocks per content type]([[= user_doc =]]/content_management/configure_ct_field_settings/#default-configuration-of-pages) by defining which page blocks are available to editors.
 
+### Uncomment config for MCP
+
+Uncomment the `ibexa_jwt_mcp` rule in `security.yaml` if you are using Ibexa MCP:
+
+    ```yaml
+        #ibexa_jwt_mcp:
+        #    request_matcher: Ibexa\Mcp\Security\McpRequestMatcher
+        #    user_checker: Ibexa\Core\MVC\Symfony\Security\UserChecker
+        #    provider: ibexa
+        #    stateless: true
+        #    jwt: ~
+    ```
+
 ## Symfony
 
 ### `APP_SECRET` and other secrets
