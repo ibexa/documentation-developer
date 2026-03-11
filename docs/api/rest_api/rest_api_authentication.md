@@ -271,7 +271,6 @@ X-CSRF-Token: 23lk.neri34ijajedfw39orj-3j93
 ### Configuration
 
 See [JWT authentication](development_security.md#jwt-authentication) for configuration instructions.
-JWT authentication can also be used with [GraphQL](graphql.md#jwt-authentication).
 
 ### Usage example
 
