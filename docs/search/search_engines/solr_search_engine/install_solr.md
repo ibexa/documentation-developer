@@ -183,8 +183,8 @@ Out of the box in [[= product_name =]] the following is enabled for a setup:
 ibexa_solr:
     endpoints:
         endpoint0:
-            dsn: '%solr_dsn%'
-            core: '%solr_core%'
+            dsn: '%env(string:SOLR_DSN)%'
+            core: '%env(string:SOLR_CORE)%'
     connections:
         default:
             entry_endpoints:
@@ -202,10 +202,10 @@ The installation contains several similar languages, and one different language 
 ibexa_solr:
     endpoints:
         endpoint0:
-            dsn: '%solr_dsn%'
+            dsn: '%env(string:SOLR_DSN)%'
             core: core0
         endpoint1:
-            dsn: '%solr_dsn%'
+            dsn: '%env(string:SOLR_DSN)%'
             core: core1
     connections:
         default:
@@ -232,25 +232,25 @@ ibexa_solr:
     version: '9.8.1' # Required only if using Solr 9
     endpoints:
         endpoint0:
-            dsn: '%solr_dsn%'
+            dsn: '%env(string:SOLR_DSN)%'
             core: core0
         endpoint1:
-            dsn: '%solr_dsn%'
+            dsn: '%env(string:SOLR_DSN)%'
             core: core1
         endpoint2:
-            dsn: '%solr_dsn%'
+            dsn: '%env(string:SOLR_DSN)%'
             core: core2
         endpoint3:
-            dsn: '%solr_dsn%'
+            dsn: '%env(string:SOLR_DSN)%'
             core: core3
         endpoint4:
-            dsn: '%solr_dsn%'
+            dsn: '%env(string:SOLR_DSN)%'
             core: core4
         endpoint5:
-            dsn: '%solr_dsn%'
+            dsn: '%env(string:SOLR_DSN)%'
             core: core5
         endpoint6:
-            dsn: '%solr_dsn%'
+            dsn: '%env(string:SOLR_DSN)%'
             core: core6
     connections:
         default:
@@ -286,13 +286,13 @@ The example is based on multi-core setup so any specific language analysis optio
 ibexa_solr:
     endpoints:
         main:
-            dsn: '%solr_dsn%'
+            dsn: '%env(string:SOLR_DSN)%'
             core: '%solr_main_core%'
         en:
-            dsn: '%solr_dsn%'
+            dsn: '%env(string:SOLR_DSN)%'
             core: '%solr_en_core%'
         fr:
-            dsn: '%solr_dsn%'
+            dsn: '%env(string:SOLR_DSN)%'
             core: '%solr_fr_core%'
         # ...
     connections:
@@ -325,7 +325,7 @@ In the example below we configured Solr Bundle to work with secured Solr core.
 ibexa_solr:
     endpoints:
         endpoint0:
-            dsn: '%solr_dsn%'
+            dsn: '%env(string:SOLR_DSN)%'
             core: core0
             user: example
             pass: password
@@ -381,4 +381,3 @@ Here are the most common issues you may encounter:
       to balance performance and load on your Solr instance against needs you have for "[NRT](https://solr.apache.org/guide/7_7/near-real-time-searching.html)".
 - Running out of memory during indexing
     - In general make sure to run indexing using the prod environment to avoid debuggers and loggers from filling up memory.
-    - Flysystem: You can find further info in https://issues.ibexa.co/browse/EZP-25325.
