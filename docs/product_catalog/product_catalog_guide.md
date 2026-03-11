@@ -10,7 +10,7 @@ month_change: false
 The Product Catalog is a comprehensive set of capabilities for managing products in [[= product_name =]] that can be used standalone.
 It lets you create, configure, and manage products, their specifications, assets, variants, and prices, and group products into categories and catalogs.
 
-You can also use [Quable PIM](quable_integration.md) that's fully integrated into the [[= product_name_base =]] ecosystem, or the [Remote PIM](add_remote_pim_support.md) to add integration with any Product Information Management (PIM) system.
+You can also use [Quable PIM](quable/quable.md) that's fully integrated into the [[= product_name_base =]] ecosystem, or the [Remote PIM](add_remote_pim_support.md) to add integration with any Product Information Management (PIM) system.
 
 ## Availability
 
@@ -158,7 +158,7 @@ Besides, the built-in catalog filters, you can also [create custom ones](create_
 
 ### Remote PIM support
 
-[[= product_name =]] provides flexible product catalog infrastructure that works with external Product Information Management (PIM) systems. For enterprise product data management, we recommend [Quable PIM](quable_integration.md), our trusted integration partner that offers comprehensive PIM capabilities.
+[[= product_name =]] provides flexible product catalog infrastructure that works with external Product Information Management (PIM) systems. For enterprise product data management, we recommend [Quable PIM](quable/quable.md), our trusted integration partner that offers comprehensive PIM capabilities.
 
 In [[= product_name =]], products are created and maintained by using the REST API or the back office, and their data is stored in a local database.
 However, in your project or organization, you might have an existing product database, or be specifically concerned about product information security.
