@@ -270,11 +270,12 @@ X-CSRF-Token: 23lk.neri34ijajedfw39orj-3j93
 
 ### Configuration
 
-See [JWT authentication](#jwt-authentication) or GraphQL.
+See [JWT authentication](development_security.md#jwt-authentication) for configuration instructions.
+JWT authentication can also be used with [GraphQL](graphql.md#jwt-authentication).
 
 ### Usage example
 
-After you [configure JWT authentication](development_security.md#jwt-authentication) at least for REST, you can get the JWT token through the following request:
+After you configure JWT authentication for REST, you can get the JWT token through the following request:
 
 === "XML"
 
