@@ -81,5 +81,6 @@ You can search for content based on its taxonomy entry assignments by using the 
 |---|---|
 | [TaxonomyEntryId](taxonomy_entry_id.md) | Find content assigned to a specific taxonomy entry |
 | [TaxonomyNoEntries](taxonomy_no_entries.md) | Find content that has no entries assigned from a given taxonomy |
+| [TaxonomySubtree](taxonomy_subtree.md) | Find content assigned to a taxonomy entry or any of its descendants |
 
 You can also use the [TaxonomyEntryId Aggregation](taxonomyentryid_aggregation.md) to count content items per taxonomy entry.
