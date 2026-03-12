@@ -1,10 +1,4 @@
-<?php
-
-/**
- * @copyright Copyright (C) Ibexa AS. All rights reserved.
- * @license For full copyright and license information view LICENSE file distributed with this source code.
- */
-declare(strict_types=1);
+<?php declare(strict_types=1);
 
 namespace App\Collaboration\Cart\Mapper;
 
@@ -20,7 +14,7 @@ use Ibexa\Contracts\Collaboration\Session\SessionInterface;
  *     \App\Collaboration\Cart\Persistence\Values\CartSession
  * >
  */
-final class CartSessionDomainMapper implements SessionDomainMapperInterface
+final readonly class CartSessionDomainMapper implements SessionDomainMapperInterface
 {
     public function __construct(
         private CartProxyMapperInterface $cartProxyMapper,

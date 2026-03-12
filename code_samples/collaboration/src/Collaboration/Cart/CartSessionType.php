@@ -1,10 +1,4 @@
-<?php
-
-/**
- * @copyright Copyright (C) Ibexa AS. All rights reserved.
- * @license For full copyright and license information view LICENSE file distributed with this source code.
- */
-declare(strict_types=1);
+<?php declare(strict_types=1);
 
 namespace App\Collaboration\Cart;
 
@@ -12,10 +6,10 @@ use Ibexa\Contracts\Collaboration\Session\SessionScopeInterface;
 
 final class CartSessionType implements SessionScopeInterface
 {
-    public const SCOPE_VIEW = 'view';
-    public const SCOPE_EDIT = 'edit';
+    public const string SCOPE_VIEW = 'view';
+    public const string SCOPE_EDIT = 'edit';
 
-    public const IDENTIFIER = 'cart';
+    public const string IDENTIFIER = 'cart';
 
     private function __construct()
     {

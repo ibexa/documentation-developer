@@ -1,10 +1,4 @@
-<?php
-
-/**
- * @copyright Copyright (C) Ibexa AS. All rights reserved.
- * @license For full copyright and license information view LICENSE file distributed with this source code.
- */
-declare(strict_types=1);
+<?php declare(strict_types=1);
 
 namespace App\Collaboration\Cart;
 
@@ -13,13 +7,9 @@ use Ibexa\Contracts\Collaboration\Session\AbstractSessionCreateStruct;
 
 final class CartSessionCreateStruct extends AbstractSessionCreateStruct
 {
-    private CartInterface $cart;
-
-    public function __construct(CartInterface $cart)
+    public function __construct(private CartInterface $cart)
     {
         parent::__construct();
-
-        $this->cart = $cart;
     }
 
     public function getCart(): CartInterface

@@ -1,10 +1,4 @@
-<?php
-
-/**
- * @copyright Copyright (C) Ibexa AS. All rights reserved.
- * @license For full copyright and license information view LICENSE file distributed with this source code.
- */
-declare(strict_types=1);
+<?php declare(strict_types=1);
 
 namespace App\Collaboration\Cart;
 
@@ -15,7 +9,7 @@ use Ibexa\Contracts\Core\Repository\Exceptions\NotFoundException;
 use Ibexa\Contracts\Core\Repository\Values\User\User;
 use Symfony\Component\HttpFoundation\RequestStack;
 
-final class CartResolverDecorator implements CartResolverInterface
+final readonly class CartResolverDecorator implements CartResolverInterface
 {
     public function __construct(
         private CartResolverInterface $innerCartResolver,
@@ -45,7 +39,7 @@ final class CartResolverDecorator implements CartResolverInterface
             }
 
             return $session->getCart();
-        } catch (NotFoundException|\Ibexa\ProductCatalog\Exception\UnauthorizedException $e) {
+        } catch (NotFoundException|\Ibexa\ProductCatalog\Exception\UnauthorizedException) {
             return null;
         }
     }

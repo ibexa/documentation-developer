@@ -1,10 +1,4 @@
-<?php
-
-/**
- * @copyright Copyright (C) Ibexa AS. All rights reserved.
- * @license For full copyright and license information view LICENSE file distributed with this source code.
- */
-declare(strict_types=1);
+<?php declare(strict_types=1);
 
 namespace App\Collaboration\Cart\Persistence\Gateway;
 
@@ -30,7 +24,7 @@ use Ibexa\Contracts\CorePersistence\Gateway\DoctrineSchemaMetadataInterface;
  */
 final class DatabaseGateway extends AbstractDoctrineDatabase implements GatewayInterface
 {
-    public const DISCRIMINATOR = 'cart';
+    public const string DISCRIMINATOR = 'cart';
 
     protected function buildMetadata(): DoctrineSchemaMetadataInterface
     {

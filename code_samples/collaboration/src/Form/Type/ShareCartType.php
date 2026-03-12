@@ -1,16 +1,11 @@
-<?php
-
-/**
- * @copyright Copyright (C) Ibexa AS. All rights reserved.
- * @license For full copyright and license information view LICENSE file distributed with this source code.
- */
-declare(strict_types=1);
+<?php declare(strict_types=1);
 
 namespace App\Form\Type;
 
 use App\Form\Data\ShareCartData;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -23,6 +18,8 @@ final class ShareCartType extends AbstractType
     {
         $builder->add('email', EmailType::class, [
             'label' => 'E-mail',
+        ])->add('submit', SubmitType::class, [
+            'label' => 'Share',
         ]);
     }
 

@@ -1,10 +1,4 @@
-<?php
-
-/**
- * @copyright Copyright (C) Ibexa AS. All rights reserved.
- * @license For full copyright and license information view LICENSE file distributed with this source code.
- */
-declare(strict_types=1);
+<?php declare(strict_types=1);
 
 namespace App\Collaboration\Cart\Mapper;
 
@@ -14,7 +8,7 @@ use Ibexa\Contracts\Core\Repository\Repository;
 use Ibexa\Core\Repository\ProxyFactory\ProxyGeneratorInterface;
 use ProxyManager\Proxy\LazyLoadingInterface;
 
-final class CartProxyMapper implements CartProxyMapperInterface
+final readonly class CartProxyMapper implements CartProxyMapperInterface
 {
     public function __construct(
         private Repository $repository,

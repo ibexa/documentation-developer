@@ -25,26 +25,13 @@ In this example, it represents the shopping Cart (identified by the Cart identif
 === "MySQL"
 
     ``` sql
-        CREATE TABLE ibexa_collaboration_cart
-        (
-            id INT NOT NULL PRIMARY KEY,
-            cart_identifier VARCHAR(255) NOT NULL,
-            CONSTRAINT ibexa_collaboration_cart_ibexa_collaboration_id_fk
-                FOREIGN KEY (id) REFERENCES ibexa_collaboration (id)
-                    ON DELETE CASCADE
-        ) COLLATE = utf8mb4_general_ci;
+    [[= include_file('code_samples/collaboration/ibexa_collaboration_cart.mysql.sql', 0, None, '    ') =]]
     ```
 
 === "PostgreSQL"
 
     ``` sql
-    CREATE TABLE ibexa_collaboration_cart (
-    id INTEGER NOT NULL PRIMARY KEY,
-    cart_identifier VARCHAR(255) NOT NULL,
-    CONSTRAINT ibexa_collaboration_cart_ibexa_collaboration_id_fk
-        FOREIGN KEY (id) REFERENCES ibexa_collaboration (id)
-        ON DELETE CASCADE
-    );
+    [[= include_file('code_samples/collaboration/ibexa_collaboration_cart.postgresql.sql', 0, None, '    ') =]]
     ```
 
 ## Set up the persistence layer
@@ -255,22 +242,22 @@ The form collects the email address of the user that you want to invite, and the
 The last step is to integrate the new session type into your application by adding templates.
 In this step, the view is rendered.
 
-You need to add following templates in the `templates/themes/standard/cart` folder:
+You need to add following templates in the `templates/themes/storefront/cart` folder:
 
 - `share` - this Twig template defines the view for the Cart sharing form. It renders the form where a user can enter an email address to invite someone to collaborate on the Cart.
 
 ``` php
-[[= include_file('code_samples/collaboration/templates/themes/standard/cart/share.html.twig') =]]
+[[= include_file('code_samples/collaboration/templates/themes/storefront/cart/share.html.twig') =]]
 ```
 
 - `share_result` - this Twig template renders the result page after a Cart has been shared. If the shared Cart exists in the system, the created session object is passed to the view and displayed. A message like "Cart has been shared…" is displayed, along with a link to access the session.
 
 ``` php
-[[= include_file('code_samples/collaboration/templates/themes/standard/cart/share_result.html.twig') =]]
+[[= include_file('code_samples/collaboration/templates/themes/storefront/cart/share_result.html.twig') =]]
 ```
 
 - `view` - is the template that shows the Cart page. It displays the Cart content and includes the “Share Cart” button and other elements for Cart collaboration.
 
 ``` php
-[[= include_file('code_samples/collaboration/templates/themes/standard/cart/view.html.twig') =]]
+[[= include_file('code_samples/collaboration/templates/themes/storefront/cart/view.html.twig') =]]
 ```

@@ -1,10 +1,4 @@
-<?php
-
-/**
- * @copyright Copyright (C) Ibexa AS. All rights reserved.
- * @license For full copyright and license information view LICENSE file distributed with this source code.
- */
-declare(strict_types=1);
+<?php declare(strict_types=1);
 
 namespace App\Collaboration\Cart;
 
@@ -16,11 +10,9 @@ use Ibexa\Contracts\Core\Repository\Values\User\User;
 
 final class CartSession extends AbstractSession
 {
-    private CartInterface $cart;
-
     public function __construct(
         int $id,
-        CartInterface $cart,
+        private readonly CartInterface $cart,
         string $token,
         User $owner,
         ParticipantCollectionInterface $participants,
@@ -30,8 +22,6 @@ final class CartSession extends AbstractSession
         DateTimeInterface $updatedAt
     ) {
         parent::__construct($id, $token, $owner, $participants, $isActive, $hasPublicLink, $createdAt, $updatedAt);
-
-        $this->cart = $cart;
     }
 
     public function getCart(): CartInterface
