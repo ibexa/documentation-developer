@@ -8,7 +8,7 @@ This page provides a complete reference for configuring the [[= pim_product_name
 
 Use the `ibexa_connector_quable` key in `config/packages/ibexa_connector_quable.yaml` to customize [[= pim_product_name =]] behaviour.
 
-## Configuration
+## Configuration example
 
 ``` yaml
 ibexa_connector_quable:
@@ -27,7 +27,7 @@ ibexa_connector_quable:
         product_type: true
 ```
 
-## Connector options
+## Configuration options
 
 | Parameter | Default value | Description |
 |-----------|--------------------------|-------------|
