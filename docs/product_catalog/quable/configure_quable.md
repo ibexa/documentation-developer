@@ -2,7 +2,7 @@
 description: Quable PIM connector configuration reference for Ibexa DXP
 ---
 
-# Quable configuration reference
+# Configure Quable
 
 This page provides a complete reference for configuring the Quable PIM connector in [[= product_name =]].
 
@@ -25,10 +25,14 @@ ibexa_connector_quable:
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
-| `instance_url` | string | Yes | The URL of your Quable PIM instance (e.g., `https://example.quable.com`) |
-| `api_token` | string | Yes | API authentication token from Quable. Use environment variables for security. |
+| `instance_url` | string | Yes | The URL of your Quable PIM instance (for example, `https://example.quable.com`) |
+| `api_token` | string | Yes | API authentication token from Quable. For security, using environment variables is recommended |
 | `webhook_secret` | string | No | Secret key for validating webhook requests from Quable. Required if using real-time synchronization. |
-| `cache.enabled` | boolean | No | Enable or disable caching of Quable data. Default: `true`. Recommended for production. |
+| `cache.enabled` | boolean | No | Globally enable or disable all Quable caches. Default: `true`. Set to `false` to bypass all service caches at once. |
+| `cache.attribute` | boolean | No | Enable or disable caching for attribute definitions. Default: `true`. |
+| `cache.attribute_group` | boolean | No | Enable or disable caching for attribute group definitions. Default: `true`. |
+| `cache.product` | boolean | No | Enable or disable caching for product data. Default: `true`. |
+| `cache.product_type` | boolean | No | Enable or disable caching for product type definitions. Default: `true`. |
 
 !!! tip "Environment variables"
 
@@ -99,6 +103,10 @@ ibexa_connector_quable:
     api_token: '%env(QUABLE_API_TOKEN)%'
     cache:
         enabled: true
+        attribute: true
+        attribute_group: true
+        product: true
+        product_type: true
 ```
 
 ### Cache behavior
@@ -109,6 +117,12 @@ When caching is enabled:
 - Subsequent requests use cached data instead of calling Quable API
 - Cache is automatically invalidated when webhooks receive update notifications
 - Manual cache clearing: `php bin/console cache:clear`
+
+Each of the four service caches (`attribute`, `attribute_group`, `product`, `product_type`) can be disabled independently while the others remain active. When a service cache is disabled, it falls back to an in-memory adapter that is not shared between requests (effectively bypassing persistence while still avoiding unbounded API call loops within a single request).
+
+!!! tip "Granular cache control"
+
+    Use per-service cache flags instead of globally disabling all caches. For example, when debugging product queries you can disable only the `product` cache while keeping `attribute` and `attribute_group` caches enabled. This avoids flooding Quable's API with redundant attribute definition requests (which can reach 80+ extra calls per product list request when fully uncached).
 
 !!! note "Production recommendation"
 
@@ -226,8 +240,15 @@ ibexa_connector_quable:
     instance_url: 'https://example.quable.com'
     api_token: '%env(QUABLE_API_TOKEN)%'
     cache:
-        enabled: false  # Disable for development to always fetch fresh data
+        enabled: true
+        product: false  # Disable only product cache to see live query effects
+        # attribute, attribute_group, and product_type remain cached
+        # to avoid excessive API calls for definition data
 ```
+
+!!! note "Disabling all caches"
+
+    Setting `enabled: false` disables all service caches at once. Use this only when you need to debug the full pipeline without any caching, as it significantly increases the number of API calls to Quable.
 
 ### Production environment
 

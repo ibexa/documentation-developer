@@ -356,7 +356,7 @@ nav:
         - Quable PIM integration:
             - Quable overview: product_catalog/quable/quable.md
             - Install Quable: product_catalog/quable/install_quable.md
-            - Quable configuration: product_catalog/quable/quable_configuration.md
+            - Configure Quable: product_catalog/quable/configure_quable.md
             - Additional information: product_catalog/quable/quable_other.md
         - Product catalog configuration: product_catalog/product_catalog_configuration.md
         - Products: product_catalog/products.md
@@ -990,6 +990,7 @@ extra:
   product_name_cloud: 'Ibexa Cloud'
   product_name_oss: 'Ibexa OSS'
   product_name_engage: 'Ibexa Engage'
+  pim_product_name: 'Quable'
 
   eol_versions: ['2.5']
 

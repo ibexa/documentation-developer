@@ -4,11 +4,13 @@ description: Install and configure Quable PIM connector for Ibexa DXP
 
 # Install Quable connector
 
-To integrate [[= product_name =]] with Quable PIM, you need to install the Quable connector packages, configure the connection, and set up synchronization.
+To integrate [[= product_name =]] with [[= pim_product_name =]] PIM, you need to install the [[= pim_product_name =]] connector packages, configure the connection, and set up synchronization.
+
+## Create [[= pim_product_name =]] instance
+
+Before installing the [[= pim_product_name =]] connector, ensure you have access to a [[[= pim_product_name =]] PIM instance](https://quable.com).
 
 ## Install packages
-
-Before installing the Quable connector, ensure you have access to a [Quable PIM instance](https://quable.com).
 
 Run the following commands to install the required packages:
 
@@ -17,19 +19,19 @@ composer require ibexa/quable-client
 composer require ibexa/connector-quable
 ```
 
-These commands add the Quable connector code, including services that enable communication with the Quable PIM system.
+These commands add the [[= pim_product_name =]] connector code, including services that enable communication with [[= pim_product_name =]] PIM.
 
 ## Get API credentials
 
-To connect to Quable PIM, you need an API token:
+To connect to [[= pim_product_name =]] PIM, you need an API token:
 
-1. Log in to your Quable instance (for example, `https:/example.quable.com`).
+1. Log in to your [[= pim_product_name =]] instance (for example, `https:/example.quable.com`).
 2. Navigate to the [API Tokens](https://docs.quable.com/v5-EN/docs/system-api-tokens) section
 3. Copy the **Read Access Token** value for use in the configuration.
 
-## Configure Quable connector
+## Configure [[= pim_product_name =]] connector
 
-In the `config/packages` folder, create a configuration file for the Quable connector, for example, `ibexa_connector_quable.yaml`:
+In `config/packages/ibexa_connector_quable.yaml`, specify the configuration for the [[= pim_product_name =]] connector:
 
 ``` yaml
 ibexa_connector_quable:
@@ -38,20 +40,22 @@ ibexa_connector_quable:
     channel_code: '<channel_code>'
 ```
 
-Replace `<your_api_token>` with the Read Access API token you obtained from Quable.
+Replace `<your_api_token>` with the Read Access API token you obtained from [[= pim_product_name =]] in the previous step.
 
-[Quable's channels](https://docs.quable.com/v5-EN/docs/content-channels) allow you to distribute your product information to defined recipients, for example e-commerce platforms.
-Select the Quable channel you want to integrate with [[= product_name =]].
+[[[= pim_product_name =]]'s channels](https://docs.quable.com/v5-EN/docs/content-channels) allow you to distribute your product information to defined recipients, for example e-commerce platforms.
+Select the [[= pim_product_name =]] channel you want to integrate with [[= product_name =]].
+
+For all available configuration options, see [Configure [[= pim_product_name =]]](configure_quable.md).
 
 ## Configure product catalog engine
 
-To use Quable as the product data source, configure [[= product_name =]]'s product catalog to use the Quable engine.
+To use [[= pim_product_name =]] as the product data source, configure [[= product_name =]]'s [product catalog](product_catalog_guide.md) to use the [[= pim_product_name =]] engine.
 
-### Define Quable engine
+### Define [[= pim_product_name =]] engine
 
 In `config/packages/ibexa_product_catalog.yaml`, add a new engine configuration:
 
-``` yaml
+``` yaml hl_lines="8-13"
 ibexa_product_catalog:
     engines:
         local:
@@ -67,13 +71,15 @@ ibexa_product_catalog:
                 product_type_group_identifier: product
 ```
 
-This configuration defines two engines: the default `local` engine and the new `quable` engine.
+This configuration defines two engines: the default `local` engine and the new `quable` engine, allowing you to work with products defined within [[= pim_product_name =]].
 
-### Set Quable as default engine
+To learn more about product catalog configuration, see [Product catalog configuration](product_catalog_configuration.md).
 
-In your repository configuration, typically in `config/packages/ibexa.yaml`, configure the Product Catalog to use the Quable engine as the product data source:
+### Set [[= pim_product_name =]] as default engine
 
-``` yaml
+In your repository configuration, typically in `config/packages/ibexa.yaml`, configure the product catalog to use the [[= pim_product_name =]] engine as the product data source:
+
+``` yaml hl_lines="9"
 ibexa:
     repositories:
         default:
@@ -89,7 +95,15 @@ ibexa:
 
 ## Set up languages
 
-When working with Quable products, 
+To use the products from [[= pim_product_name =]] within [[= product_name =]] content, make sure the [data languages](https://docs.quable.com/v5-EN/docs/data-languages) in [[= product_pim =]] have corresponding [languages](languages.md) in [[= product_name =]].
+
+To preview the current language configuration in both systems, run the following command:
+
+``` bash
+php bin/console ibexa:quable:languages:check
+```
+
+Based on the returned data, adjust the language configuration as your use case requires.
 
 ## Synchronize taxonomy
 
@@ -101,37 +115,56 @@ Run the following command to synchronize classifications:
 php bin/console ibexa:quable:classification:sync
 ```
 
-This command imports the product classification structure from Quable PIM into [[= product_name =]], ensuring that product categories and taxonomies are aligned.
+This command imports the product classification structure from [[= pim_product_name =]] PIM into [[= product_name =]], ensuring that product categories are aligned.
 
-!!! note "Verbose output"
+!!! tip
 
-    Add the `-vv` flag to see detailed information about the requests sent to Quable:
-
-    ``` bash
-    php bin/console ibexa:quable:classification:sync -vv
-    ```
+    To keep the classifications aligned, we recommended to run the `ibexa:quable:classification:sync` command very night, even when using synchronization with webhooks.
 
 ## Set up real-time synchronization
 
-Quable PIM can notify [[= product_name =]] about product data changes in real-time using webhooks. 
-This ensures that product information stays synchronized automatically without manual intervention.
+[[= pim_product_name =]] PIM can notify [[= product_name =]] about product data and classification changes in real-time using webhooks.
+This invalidates the [cache](configure_quable.md#cache-behavior) kept in [[= product_name =]] and ensures that product information stays up to date.
 
 Webhook configuration requires setup in both Quable PIM and [[= product_name =]].
 
+### Create webhook in [[= pim_product_name =]]
+
 1. Create a new [webhook in Quable](https://docs.quable.com/v5-EN/docs/webhook).
-2. Set the webhook's name and provide the URL to your [[= product_name =]] instance
-3. Mark it as **Activated**
-4. Enter a secret value for the **Authorization Header**
-5. Choose the following scopes:
-  - Products: created, updated, deleted
-  - Classifications: created, updated, deleted
+2. Set the webhook's code (used as the webhook's name)
+3. Provide the URL to your [[= product_name =]] instance suffixed by `/webhook/quable`, for example: `https://example.com/webhook/quable`
+4. Mark it as **Activated**
+5. Enter a secret value for the **Authorization Header**
+6. Choose the following scopes:
+
+- Products: created, updated, deleted
+- Classifications: created, updated, deleted
 
 The **Authorization Header** value is a [secret that must be kept secure](security_checklist.md#app-secret-and-other-secrets).
 
 !!! note
 
-    For local development and testing, consider using one of the avalable [tunnel providers](https://github.com/anderspitman/awesome-tunneling) to make your instance accessible 
+    For local development and testing, you can consider using one of the avalable [tunnel providers](https://github.com/anderspitman/awesome-tunneling) to make your local instance accessible.
 
+### Configure webhook in [[= product_name =]]
 
+In `config/packages/ibexa_connector_quable.yaml`, specify the configuration for the [[= pim_product_name =]] connector:
 
-For information about working with products in the user interface, see [Product management]([[= user_doc =]]/persona_paths/manage_products/).
+``` yaml
+ibexa_connector_quable:
+    
+    # Existing configuration (...)
+
+    webhook_secret: '<webhook authorization header>'
+```
+
+!!! warning
+
+    [Quable uses dynamic IP addresses]((https://faq.quable.com/en/articles/8250056-what-are-the-ip-addresses-of-quable-to-add-to-the-whitelist)) to connect to [[= product_name =]].
+    If your DXP instance is protected by a firewall, make sure your configuration allows connections from changing IP addresses.
+
+### Configure background task
+
+[[= product_name =]]'s webhook processes Quable's classification change events and queues them to be processed in the background.
+
+To process them, [configure Ibexa Messenger](background_tasks.md) and make sure the `messenger:consume` command is run periodically.
