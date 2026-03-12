@@ -53,7 +53,7 @@ security:
                     # You will then be able to login with username "user" and password "userpass"
                     user:  { password: userpass, roles: [ 'ROLE_USER' ] }
     # The "in memory" provider requires an encoder for Symfony\Component\Security\Core\User\User
-    encoders:
+    password_hashers:
         Symfony\Component\Security\Core\User\User: plaintext
 ```
 
@@ -66,7 +66,7 @@ services:
     App\EventListener\InteractiveLoginListener:
         arguments: ['@ibexa.api.service.user']
         tags:
-            - { name: kernel.event_subscriber } 
+            - { name: kernel.event_subscriber }
 ```
 
 Don't mix `MVCEvents::INTERACTIVE_LOGIN` event (specific to [[= product_name =]]) and `SecurityEvents::INTERACTIVE_LOGIN` event (fired by Symfony security component).
@@ -77,7 +77,7 @@ Don't mix `MVCEvents::INTERACTIVE_LOGIN` event (specific to [[= product_name =]]
 namespace App\EventListener;
 
 use Ibexa\Contracts\Core\Repository\UserService;
-use eIbexa\Core\MVC\Symfony\Event\InteractiveLoginEvent;
+use Ibexa\Core\MVC\Symfony\Event\InteractiveLoginEvent;
 use Ibexa\Core\MVC\Symfony\MVCEvents;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
