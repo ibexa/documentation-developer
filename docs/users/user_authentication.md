@@ -52,9 +52,15 @@ security:
                 users:
                     # You will then be able to login with username "user" and password "userpass"
                     user:  { password: userpass, roles: [ 'ROLE_USER' ] }
-    # The "in memory" provider requires an encoder for Symfony\Component\Security\Core\User\User
-    encoders:
-        Symfony\Component\Security\Core\User\User: plaintext
+    password_hashers:
+        # The "in memory" provider requires an encoder
+        Symfony\Component\Security\Core\User\InMemoryUser: plaintext
+        Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface: 'auto'
+    firewalls:
+        ibexa_front:
+            pattern: ^/
+            provider: chain_provider
+            # …
 ```
 
 ### Implement the listener
