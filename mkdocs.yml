@@ -357,7 +357,6 @@ nav:
             - Quable overview: product_catalog/quable/quable.md
             - Install Quable: product_catalog/quable/install_quable.md
             - Configure Quable: product_catalog/quable/configure_quable_connector.md
-            - Additional information: product_catalog/quable/quable_other.md
         - Product catalog configuration: product_catalog/product_catalog_configuration.md
         - Products: product_catalog/products.md
         - Attributes:
