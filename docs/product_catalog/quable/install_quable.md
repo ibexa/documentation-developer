@@ -45,7 +45,7 @@ Replace `<your_api_token>` with the Read Access API token you obtained from [[= 
 [[[= pim_product_name =]]'s channels](https://docs.quable.com/v5-EN/docs/content-channels) allow you to distribute your product information to defined recipients, for example e-commerce platforms.
 Select the [[= pim_product_name =]] channel you want to integrate with [[= product_name =]].
 
-For all available configuration options, see [Configure [[= pim_product_name =]]](configure_quable.md).
+For all available configuration options, see [Configure [[= pim_product_name =]]](configure_quable_connector.md).
 
 ## Configure product catalog engine
 
@@ -124,7 +124,7 @@ This command imports the product classification structure from [[= pim_product_n
 ## Set up real-time synchronization
 
 [[= pim_product_name =]] PIM can notify [[= product_name =]] about product data and classification changes in real-time using webhooks.
-This invalidates the [cache](configure_quable.md#cache-behavior) kept in [[= product_name =]] and ensures that product information stays up to date.
+This invalidates the cache kept in [[= product_name =]] and ensures that product information stays up to date.
 
 Webhook configuration requires setup in both Quable PIM and [[= product_name =]].
 

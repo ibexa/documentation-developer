@@ -22,5 +22,5 @@ Teams, partners, and customers have seamless access to product information—det
 
 [[= cards([
     "product_catalog/quable/install_quable",
-    "product_catalog/quable/configure_quable",
+    "product_catalog/quable/configure_quable_connector",
 ], columns=3) =]]
