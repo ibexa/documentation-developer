@@ -18,8 +18,9 @@ Teams, partners, and customers have seamless access to product information—det
 
 ## Learn more
 
+// TODO: Update this when complete
+
 [[= cards([
     "product_catalog/quable/install_quable",
     "product_catalog/quable/configure_quable",
-    "product_catalog/quable/work_with_quable",
 ], columns=3) =]]

@@ -140,7 +140,7 @@ Webhook configuration requires setup in both Quable PIM and [[= product_name =]]
 - Products: created, updated, deleted
 - Classifications: created, updated, deleted
 
-The **Authorization Header** value is a [secret that must be kept secure](security_checklist.md#app-secret-and-other-secrets).
+The **Authorization Header** value is a [secret that must be kept secure](security_checklist.md#app_secret-and-other-secrets).
 
 !!! note
 
@@ -160,7 +160,7 @@ ibexa_connector_quable:
 
 !!! warning
 
-    [Quable uses dynamic IP addresses]((https://faq.quable.com/en/articles/8250056-what-are-the-ip-addresses-of-quable-to-add-to-the-whitelist)) to connect to [[= product_name =]].
+    [Quable uses dynamic IP addresses](https://faq.quable.com/en/articles/8250056-what-are-the-ip-addresses-of-quable-to-add-to-the-whitelist)) to connect to [[= product_name =]].
     If your DXP instance is protected by a firewall, make sure your configuration allows connections from changing IP addresses.
 
 ### Configure background task
