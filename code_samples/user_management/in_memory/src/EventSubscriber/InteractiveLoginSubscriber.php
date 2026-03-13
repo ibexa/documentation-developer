@@ -26,10 +26,10 @@ class InteractiveLoginSubscriber implements EventSubscriberInterface
         ];
     }
 
-    public function onInteractiveLogin(InteractiveLoginEvent $event)
+    public function onInteractiveLogin(InteractiveLoginEvent $event): void
     {
         // This loads a generic User and assigns it back to the event.
         // You may want to create Users here, or even load predefined Users depending on your own rules.
-        $event->setApiUser($this->userService->loadUserByLogin('lolautruche'));
+        $event->setApiUser($this->userService->loadUserByLogin('generic_user'));
     }
 }
