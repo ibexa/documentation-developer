@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace App\user_management\in_memory\src\EventSubscriber;
+namespace App\EventSubscriber;
 
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\Security\Core\User\InMemoryUser;
