@@ -5,12 +5,16 @@ namespace App\EventSubscriber;
 use Ibexa\Contracts\Core\Repository\UserService;
 use Ibexa\Core\MVC\Symfony\Security\User;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
+use Symfony\Component\Security\Core\User\InMemoryUser;
 use Symfony\Component\Security\Http\Event\InteractiveLoginEvent;
 use Symfony\Component\Security\Http\SecurityEvents;
 
 class InteractiveLoginSubscriber implements EventSubscriberInterface
 {
-    public function __construct(private readonly UserService $userService)
+    public function __construct(
+        private readonly UserService $userService,
+        private readonly array $userMap = [],
+    )
     {
     }
 
@@ -23,12 +27,12 @@ class InteractiveLoginSubscriber implements EventSubscriberInterface
 
     public function onInteractiveLogin(InteractiveLoginEvent $event): InteractiveLoginEvent
     {
-        $userMap = [
-            'from_memory_user' => 'generic_customer_account',
-        ];
-        $userLogin = $userMap[$event->getAuthenticationToken()->getUserIdentifier()] ?? 'anonymous';
-        $ibexaUser = $this->userService->loadUserByLogin($userLogin);
-        $event->getAuthenticationToken()->setUser(new User($ibexaUser));
+        $tokenUser = $event->getAuthenticationToken()->getUser();
+        if ($tokenUser instanceof InMemoryUser) {
+            $userLogin = $this->userMap[$event->getAuthenticationToken()->getUserIdentifier()] ?? 'anonymous';
+            $ibexaUser = $this->userService->loadUserByLogin($userLogin);
+            $event->getAuthenticationToken()->setUser(new User($ibexaUser));
+        }
 
         return $event;
     }

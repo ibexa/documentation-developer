@@ -14,44 +14,38 @@ This is mainly for the kernel to be able to manage content-related permissions (
 
 Depending on your context, you either want to create and return an Ibexa user, or return an existing user, even a generic one.
 
-Whenever an *external* user is matched (i.e. one that doesn't come from Platform repository, like coming from LDAP), [[= product_name =]] kernel initiates a `SecurityEvents::INTERACTIVE_LOGIN` event.
-Every service listening to this event receives an `Symfony\Component\Security\Http\Event\InteractiveLoginEvent` object which contains the original security token (that holds the matched user) and the request.
+Whenever a user is matched, Symfony initiates a `SecurityEvents::INTERACTIVE_LOGIN` event.
+Every service listening to this event receives an `InteractiveLoginEvent` object which contains the original security token (that holds the matched user) and the request.
 
-Then, it's up to the listener to retrieve an Ibexa user from the repository and to assign it back to the event object.
+Then, it's up to a listener to retrieve an Ibexa user from the repository and to assign it back to the event object.
 This user is injected into the repository and used for the rest of the request.
 
-If no [[= product_name =]] user is returned, the Anonymous user is used. TODO: check this statement.
+### User mapping example
 
-### User exposed and security token
+The following example uses the [memory user provider]([[= symfony_doc =]]/security/user_providers.html#memory-user-provider),
+maps memory user to Ibexa repository user,
+and [chains]([[= symfony_doc =]]/security/user_providers.html#chain-user-provider) with the Ibexa user provider to be able to use both:
 
-When an *external* user is matched, a different token is injected into the security context, the `InteractiveLoginToken`.
-TODO: There is no such token class
-This token holds a `UserWrapped` instance which contains the originally matched user and the *API user* (the one from the [[= product_name =]] repository).
-
-The *API user* is mainly used for permission checks against the repository and thus stays *under the hood*.
-
-### Customize the user class
-
-It's possible to customize the user class used by extending `Ibexa\Core\MVC\Symfony\Security\EventListener\SecurityListener` service, which defaults to `Ibexa\Core\MVC\Symfony\Security\EventListener\SecurityListener`.
-TODO: There is no such class
-
-You can override `getUser()` to return whatever user class you want, as long as it implements `Ibexa\Core\MVC\Symfony\Security\UserInterface`.
-
-The following is an example of using the in-memory user provider:
-
-``` yaml
-# config/packages/security.yaml
-[[= include_file('code_samples/user_management/in_memory/config/packages/security.yaml') =]]
-```
-
-### Implement the subscriber
-
-In the `config/services.yaml` file:
-
-``` yaml
-[[= include_file('code_samples/user_management/in_memory/config/services.yaml') =]]
-```
+Create as `src/EventSubscriber/InteractiveLoginSubscriber.php` a subscriber listening to the `SecurityEvents::INTERACTIVE_LOGIN` event
+and mapping when needed an in-memory authenticated user to an Ibexa user:
 
 ``` php
 [[= include_file('code_samples/user_management/in_memory/src/EventSubscriber/InteractiveLoginSubscriber.php') =]]
+```
+
+In `config/packages/security.yaml`,
+add the `memory` and `chain` user providers,
+store some in-memory users with their passwords in plain text and a basic role,
+set a `plaintext` password encoder for the `memory` provider's `InMemoryUser`,
+and configure the firewall to use the `chain` provider:
+
+``` yaml
+[[= include_file('code_samples/user_management/in_memory/config/packages/security.yaml') =]]
+```
+
+In the `config/services.yaml` file, declare the subscriber as a service to pass your user map
+(it's automatically tagged `kernel.event_subscriber` as implementing the `EventSubscriberInterface`, the user service injection is auto-wired):
+
+``` yaml
+[[= include_file('code_samples/user_management/in_memory/config/services.yaml') =]]
 ```

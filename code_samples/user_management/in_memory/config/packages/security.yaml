@@ -6,15 +6,15 @@ security:
 
     # https://symfony.com/doc/current/security.html#b-configuring-how-users-are-loaded
     providers:
-        ibexa:
-            id: ibexa.security.user_provider
         in_memory:
             memory:
                 users:
-                    # You will then be able to log in with username "from_memory_user" and password "from_memory_pass"
                     from_memory_user: { password: from_memory_pass, roles: [ 'ROLE_USER' ] }
+                    from_memory_admin: { password: from_memory_publish, roles: [ 'ROLE_USER' ] }
+        ibexa:
+            id: ibexa.security.user_provider
         # Chaining in_memory and ibexa user providers
-        chain_provider:
+        chained:
             chain:
                 providers: [ in_memory, ibexa ]
 
@@ -22,7 +22,7 @@ security:
         # …
         ibexa_front:
             pattern: ^/
-            provider: chain_provider
+            provider: chained
             user_checker: Ibexa\Core\MVC\Symfony\Security\UserChecker
             context: ibexa
             form_login:

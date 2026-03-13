@@ -1,5 +1,5 @@
-services:
-    App\EventSubscriber\InteractiveLoginSubscriber:
-        arguments: ['@ibexa.api.service.user']
-        tags:
-            - { name: kernel.event_subscriber }
+App\EventSubscriber\InteractiveLoginSubscriber:
+    arguments:
+        $userMap:
+            from_memory_user: customer
+            from_memory_admin: admin
