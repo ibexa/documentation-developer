@@ -1,0 +1,5 @@
+services:
+    App\EventSubscriber\InteractiveLoginSubscriber:
+        arguments: ['@ibexa.api.service.user']
+        tags:
+            - { name: kernel.event_subscriber }

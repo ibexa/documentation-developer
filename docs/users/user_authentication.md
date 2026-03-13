@@ -39,28 +39,7 @@ The following is an example of using the in-memory user provider:
 
 ``` yaml
 # config/packages/security.yaml
-security:
-    providers:
-        # Chaining in_memory and ibexa user providers
-        chain_provider:
-            chain:
-                providers: [in_memory, ibexa]
-        ibexa:
-            id: ibexa.security.user_provider
-        in_memory:
-            memory:
-                users:
-                    # You will then be able to log in with username "from_memory_user" and password "from_memory_pass"
-                    from_memory_user: { password: from_memory_pass, roles: [ 'ROLE_USER' ] }
-    password_hashers:
-        # The "in memory" provider requires an encoder
-        Symfony\Component\Security\Core\User\InMemoryUser: plaintext
-        Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface: 'auto'
-    firewalls:
-        ibexa_front:
-            pattern: ^/
-            provider: chain_provider
-            # …
+[[= include_file('code_samples/user_management/in_memory/config/packages/security.yaml') =]]
 ```
 
 ### Implement the listener
@@ -68,49 +47,11 @@ security:
 In the `config/services.yaml` file:
 
 ``` yaml
-services:
-    App\EventSubscriber\InteractiveLoginSubscriber:
-        arguments: ['@ibexa.api.service.user']
-        tags:
-            - { name: kernel.event_subscriber }
+[[= include_file('code_samples/user_management/in_memory/config/services.yaml') =]]
 ```
 
 Don't mix `MVCEvents::INTERACTIVE_LOGIN` event (specific to [[= product_name =]]) and `SecurityEvents::INTERACTIVE_LOGIN` event (fired by Symfony security component).
 
 ``` php
-<?php
-
-namespace App\EventSubscriber;
-
-use Ibexa\Contracts\Core\Repository\UserService;
-use Ibexa\Core\MVC\Symfony\Security\User;
-use Symfony\Component\EventDispatcher\EventSubscriberInterface;
-use Symfony\Component\Security\Http\Event\InteractiveLoginEvent;
-use Symfony\Component\Security\Http\SecurityEvents;
-
-class InteractiveLoginSubscriber implements EventSubscriberInterface
-{
-    public function __construct(private readonly UserService $userService)
-    {
-    }
-
-    public static function getSubscribedEvents()
-    {
-        return [
-            SecurityEvents::INTERACTIVE_LOGIN => 'onInteractiveLogin'
-        ];
-    }
-
-    public function onInteractiveLogin(InteractiveLoginEvent $event)
-    {
-        $userMap = [
-            'from_memory_user' => 'generic_customer_account',
-        ];
-        $userLogin = $userMap[$event->getAuthenticationToken()->getUserIdentifier()] ?? 'anonymous';
-        $ibexaUser = $this->userService->loadUserByLogin($userLogin);
-        $event->getAuthenticationToken()->setUser(new User($ibexaUser));
-
-        return $event;
-    }
-}
+[[= include_file('code_samples/user_management/in_memory/src/EventSubscriber/InteractiveLoginSubscriber.php') =]]
 ```
