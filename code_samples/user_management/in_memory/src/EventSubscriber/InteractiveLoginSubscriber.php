@@ -21,7 +21,7 @@ class InteractiveLoginSubscriber implements EventSubscriberInterface
         ];
     }
 
-    public function onInteractiveLogin(InteractiveLoginEvent $event)
+    public function onInteractiveLogin(InteractiveLoginEvent $event): InteractiveLoginEvent
     {
         $userMap = [
             'from_memory_user' => 'generic_customer_account',
