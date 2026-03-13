@@ -1,5 +1,6 @@
-App\EventSubscriber\InteractiveLoginSubscriber:
-    arguments:
-        $userMap:
-            from_memory_user: customer
-            from_memory_admin: admin
+services:
+    App\EventSubscriber\InteractiveLoginSubscriber:
+        arguments:
+            $userMap:
+                from_memory_user: customer
+                from_memory_admin: admin
