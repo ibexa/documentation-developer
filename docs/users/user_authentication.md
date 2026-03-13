@@ -50,8 +50,8 @@ security:
         in_memory:
             memory:
                 users:
-                    # You will then be able to login with username "user" and password "userpass"
-                    user:  { password: userpass, roles: [ 'ROLE_USER' ] }
+                    # You will then be able to log in with username "from_memory_user" and password "from_memory_pass"
+                    from_memory_user: { password: from_memory_pass, roles: [ 'ROLE_USER' ] }
     password_hashers:
         # The "in memory" provider requires an encoder
         Symfony\Component\Security\Core\User\InMemoryUser: plaintext
@@ -69,10 +69,10 @@ In the `config/services.yaml` file:
 
 ``` yaml
 services:
-    App\EventListener\InteractiveLoginListener:
+    App\EventSubscriber\InteractiveLoginSubscriber:
         arguments: ['@ibexa.api.service.user']
         tags:
-            - { name: kernel.event_subscriber } 
+            - { name: kernel.event_subscriber }
 ```
 
 Don't mix `MVCEvents::INTERACTIVE_LOGIN` event (specific to [[= product_name =]]) and `SecurityEvents::INTERACTIVE_LOGIN` event (fired by Symfony security component).
@@ -80,37 +80,37 @@ Don't mix `MVCEvents::INTERACTIVE_LOGIN` event (specific to [[= product_name =]]
 ``` php
 <?php
 
-namespace App\EventListener;
+namespace App\EventSubscriber;
 
 use Ibexa\Contracts\Core\Repository\UserService;
-use eIbexa\Core\MVC\Symfony\Event\InteractiveLoginEvent;
-use Ibexa\Core\MVC\Symfony\MVCEvents;
+use Ibexa\Core\MVC\Symfony\Security\User;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
+use Symfony\Component\Security\Http\Event\InteractiveLoginEvent;
+use Symfony\Component\Security\Http\SecurityEvents;
 
-class InteractiveLoginListener implements EventSubscriberInterface
+class InteractiveLoginSubscriber implements EventSubscriberInterface
 {
-    /**
-     * @var \Ibexa\Contracts\Core\Repository\UserService
-     */
-    private $userService;
-
-    public function __construct(UserService $userService)
+    public function __construct(private readonly UserService $userService)
     {
-        $this->userService = $userService;
     }
 
     public static function getSubscribedEvents()
     {
         return [
-            MVCEvents::INTERACTIVE_LOGIN => 'onInteractiveLogin'
+            SecurityEvents::INTERACTIVE_LOGIN => 'onInteractiveLogin'
         ];
     }
 
     public function onInteractiveLogin(InteractiveLoginEvent $event)
     {
-        // This loads a generic User and assigns it back to the event.
-        // You may want to create Users here, or even load predefined Users depending on your own rules.
-        $event->setApiUser($this->userService->loadUserByLogin( 'lolautruche' ));
+        $userMap = [
+            'from_memory_user' => 'generic_customer_account',
+        ];
+        $userLogin = $userMap[$event->getAuthenticationToken()->getUserIdentifier()] ?? 'anonymous';
+        $ibexaUser = $this->userService->loadUserByLogin($userLogin);
+        $event->getAuthenticationToken()->setUser(new User($ibexaUser));
+
+        return $event;
     }
-} 
+}
 ```
