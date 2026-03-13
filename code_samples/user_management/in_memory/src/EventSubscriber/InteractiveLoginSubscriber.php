@@ -11,6 +11,7 @@ use Symfony\Component\Security\Http\SecurityEvents;
 
 class InteractiveLoginSubscriber implements EventSubscriberInterface
 {
+    /** @param array<string, string> $userMap */
     public function __construct(
         private readonly UserService $userService,
         private readonly array $userMap = [],
