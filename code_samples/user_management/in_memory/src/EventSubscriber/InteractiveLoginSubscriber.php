@@ -14,8 +14,7 @@ class InteractiveLoginSubscriber implements EventSubscriberInterface
     public function __construct(
         private readonly UserService $userService,
         private readonly array $userMap = [],
-    )
-    {
+    ) {
     }
 
     public static function getSubscribedEvents()
