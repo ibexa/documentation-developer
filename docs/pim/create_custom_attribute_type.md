@@ -180,7 +180,8 @@ If you prefer to use an existing storage definition, you need to create a Storag
 [[= include_file('code_samples/catalog/custom_attribute_type/src/DependencyInjection/AddFloatStorageDefinitionTag.php') =]]
 ```
 
-Add the CompilerPass to the container. Do it in a `src/Kernel.php` file or in your Bundle class:
+Add the CompilerPass to the container.
+Do it in a `src/Kernel.php` file or in your Bundle class:
 
 ``` php hl_lines="5 7-8 14-20"
 [[= include_file('code_samples/catalog/custom_attribute_type/src/Kernel.php') =]]
