@@ -48,7 +48,7 @@ It handles all the create, read, update, and delete operations for collaboration
 It also uses a Discriminator to specify the session type, so it can interact with the correct tables and data structures.
 This way, the system uses the correct Gateway to get or save data for each session type.
 
-When creating the Database Gateways and mappers, you can use the built-in service tag: `ibexa.collaboration.persistence.session.gateway`:
+When creating the Database Gateways and mappers, you can use the built-in service tag:
 
 - `ibexa.collaboration.persistence.session.gateway` - for the database gateway:
 
@@ -78,7 +78,7 @@ When creating the Database Gateways and mappers, you can use the built-in servic
      - { name: 'ibexa.collaboration.service.session.persistence.mapper', type: 'my_session_type' }
    ```
 
-In the `Collaboration/Cart/Persistence/Gateway` directory, create the following files:
+In the `src/Collaboration/Cart/Persistence/Gateway/` directory, create the following files:
 
 - `DatabaseSchema` - defines the database tables needed to store shared Cart collaboration session data:
 
@@ -101,7 +101,7 @@ Persistence gateway uses them to store, retrieve, and manipulate session informa
 [[= include_file('code_samples/collaboration/config/services.yaml', 33, 38) =]]
 ```
 
-In the `Collaboration/Cart/Persistence/Values` directory, create the following Value Objects:
+In the `src/Collaboration/Cart/Persistence/Values/` directory, create the following Value Objects:
 
 - `CartSession` - represents the Cart collaboration session data:
 
@@ -127,7 +127,7 @@ The next step is to integrate the Public API with the database so that it can st
 You need to create new files to define the data that is passed into the public API.
 This data is then used by the [`SessionService`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Collaboration-SessionServiceInterface.html) and public API handlers.
 
-In the `Collaboration/Cart` directory, create the following Session Structs:
+In the `src/Collaboration/Cart/` directory, create the following Session Structs:
 
 - `CartSessionCreateStruct` - holds all necessary properties (like session token, participants, scopes, and the Cart reference) needed by the `SessionService` to create the shared Cart session:
 
@@ -157,7 +157,7 @@ In the `Collaboration/Cart` directory, create the following Session Structs:
 
 Mappers convert session data into the format required by the database and pass it to the repository.
 
-In the `src/Collaboration/Cart/Mapper` folder, create following mappers:
+In the `src/Collaboration/Cart/Mapper/` directory, create following mappers:
 
 - `CartProxyMapper` - creates a simplified version of the Cart with only the necessary data to reduce memory usage in collaboration sessions:
 
@@ -182,6 +182,8 @@ In the `src/Collaboration/Cart/Mapper` folder, create following mappers:
 ``` php
 [[= include_file('code_samples/collaboration/src/Collaboration/Cart/Mapper/CartSessionPersistenceMapper.php') =]]
 ```
+
+Then, in the `src/Collaboration/Cart/Persistence/` directory, create the following mapper:
 
 - `Persistence/Mapper` - builds the session object from persistence row:
 
@@ -209,7 +211,7 @@ In all other cases, the system falls back to the default implementation.
 
     When decorating permissions, be careful to change the behavior only as necessary, to ensure that the Cart is shared only with the intended users.
 
-In the `src/Collaboration/Cart` directory, create the following files:
+In the `src/Collaboration/Cart/` directory, create the following files:
 
 - `PermissionResolverDecorator` – customizes the permission resolver to handle access rules for Cart collaboration sessions. It allows participants to view or edit shared Carts while preserving default permission checks for all other cases. Here you can decide what scope is available for this collaboration session by choosing between `view` or `edit`:
 
@@ -239,7 +241,7 @@ They are responsible for starting a sharing session, adding participants, and al
 You need to create two controllers:
 
 - `ShareCartCreateController` - creates the Cart collaboration session and adds participants
-- `ShareCartJoinController` - enables joining the session.
+- `ShareCartJoinController` - allows to join the session
 
 ### `ShareCartCreateController`
 
@@ -292,7 +294,7 @@ The form collects the email address of the user that you want to invite, and the
 The last step is to integrate the new session type into your application by adding templates.
 In this step, the view is rendered.
 
-You need to add the following Twig templates in the `templates/themes/storefront/cart` folder:
+You need to add the following Twig templates in the `src/templates/themes/storefront/cart/` directory:
 
 - `share` - defines the view for the Cart sharing form. It renders the form where a user can enter an email address to invite someone to collaborate on the Cart:
 
