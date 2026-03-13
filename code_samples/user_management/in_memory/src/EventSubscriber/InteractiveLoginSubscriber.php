@@ -25,7 +25,7 @@ class InteractiveLoginSubscriber implements EventSubscriberInterface
         ];
     }
 
-    public function onInteractiveLogin(InteractiveLoginEvent $event): InteractiveLoginEvent
+    public function onInteractiveLogin(InteractiveLoginEvent $event): void
     {
         $tokenUser = $event->getAuthenticationToken()->getUser();
         if ($tokenUser instanceof InMemoryUser) {
@@ -33,7 +33,5 @@ class InteractiveLoginSubscriber implements EventSubscriberInterface
             $ibexaUser = $this->userService->loadUserByLogin($userLogin);
             $event->getAuthenticationToken()->setUser(new User($ibexaUser));
         }
-
-        return $event;
     }
 }
