@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace App\EventSubscriber;
 
@@ -22,7 +22,7 @@ class InteractiveLoginSubscriber implements EventSubscriberInterface
     public static function getSubscribedEvents()
     {
         return [
-            MVCEvents::INTERACTIVE_LOGIN => 'onInteractiveLogin'
+            MVCEvents::INTERACTIVE_LOGIN => 'onInteractiveLogin',
         ];
     }
 
@@ -30,6 +30,6 @@ class InteractiveLoginSubscriber implements EventSubscriberInterface
     {
         // This loads a generic User and assigns it back to the event.
         // You may want to create Users here, or even load predefined Users depending on your own rules.
-        $event->setApiUser($this->userService->loadUserByLogin( 'lolautruche' ));
+        $event->setApiUser($this->userService->loadUserByLogin('lolautruche'));
     }
 }
