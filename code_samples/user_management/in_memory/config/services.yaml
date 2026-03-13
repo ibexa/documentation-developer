@@ -1,6 +1,7 @@
 services:
     App\EventSubscriber\InteractiveLoginSubscriber:
         arguments:
+            $userProvider: '@ibexa.security.user_provider.username'
             $userMap:
                 from_memory_user: customer
                 from_memory_admin: admin
