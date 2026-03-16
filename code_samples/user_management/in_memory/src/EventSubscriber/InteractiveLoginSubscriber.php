@@ -12,6 +12,7 @@ class InteractiveLoginSubscriber implements EventSubscriberInterface
 {
     /**
      * @param array<string, string> $userMap
+     *
      * @phpstan-param UserProviderInterface<\Ibexa\Core\MVC\Symfony\Security\UserInterface> $userProvider
      */
     public function __construct(
