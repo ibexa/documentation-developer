@@ -32,8 +32,8 @@ class InteractiveLoginSubscriber implements EventSubscriberInterface
         $tokenUser = $event->getAuthenticationToken()->getUser();
         if ($tokenUser instanceof InMemoryUser) {
             $userLogin = $this->userMap[$event->getAuthenticationToken()->getUserIdentifier()] ?? 'anonymous';
-            $wrappedUser = $this->userProvider->loadUserByIdentifier($userLogin);
-            $event->getAuthenticationToken()->setUser($wrappedUser);
+            $ibexaSecurityUser = $this->userProvider->loadUserByIdentifier($userLogin);
+            $event->getAuthenticationToken()->setUser($ibexaSecurityUser);
         }
     }
 }
