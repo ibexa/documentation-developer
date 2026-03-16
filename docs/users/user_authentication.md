@@ -17,8 +17,8 @@ Depending on your context, you either want to create and return an Ibexa user, o
 Whenever a user is matched, Symfony initiates a `SecurityEvents::INTERACTIVE_LOGIN` event.
 Every service listening to this event receives an `InteractiveLoginEvent` object which contains the original security token (that holds the matched user) and the request.
 
-Then, it's up to a listener to retrieve an Ibexa user from the repository and to assign it back to the event object.
-This user is injected into the repository and used for the rest of the request.
+Then, it's up to a listener to retrieve an Ibexa user from the repository.
+This user is wrapped within `Ibexa\Core\MVC\Symfony\Security\User` and assigned back into the event's token for the rest of the request.
 
 ### User mapping example
 
