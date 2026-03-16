@@ -26,8 +26,9 @@ The following example uses the [memory user provider]([[= symfony_doc =]]/securi
 maps memory user to Ibexa repository user,
 and [chains]([[= symfony_doc =]]/security/user_providers.html#chain-user-provider) with the Ibexa user provider to be able to use both:
 
-Create as `src/EventSubscriber/InteractiveLoginSubscriber.php` subscribing to the `SecurityEvents::INTERACTIVE_LOGIN` event
-and mapping when needed an in-memory authenticated user to an Ibexa user:
+Create as `src/EventSubscriber/InteractiveLoginSubscriber.php` subscribing to the `SecurityEvents::INTERACTIVE_LOGIN` event,
+mapping when needed an in-memory authenticated user to an Ibexa user,
+and using the Ibexa `UsernameProvider` implementation of `UserProviderInterface::loadUserByIdentifier()` to have a repository user wrapped into a security user:
 
 ``` php
 [[= include_file('code_samples/user_management/in_memory/src/EventSubscriber/InteractiveLoginSubscriber.php') =]]
