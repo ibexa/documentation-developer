@@ -81,6 +81,8 @@ deptrac:
       - Ibexa\CorporateAccount\Event\ApplicationWorkflowEvents
       - Ibexa\CorporateAccount\Persistence\Legacy\ApplicationState\HandlerInterface
       - Ibexa\CorporateAccount\Persistence\Values\ApplicationStateUpdateStruct
+    App\DependencyInjection\AddFloatStorageDefinitionTag:
+      - Ibexa\ProductCatalog\Local\Persistence\Legacy\Attribute\Float\StorageDefinition
     App\Discounts\Condition\IsAccountAnniversary:
       - Ibexa\Discounts\Value\AbstractDiscountExpressionAware
     App\Discounts\Condition\IsAccountAnniversaryConditionFactory:
@@ -148,8 +150,6 @@ deptrac:
       - Ibexa\Bundle\Shipping\Form\Type\ShippingMethodChoiceType
     App\GraphQL\Schema\MyCustomFieldDefinitionMapper:
       - Ibexa\GraphQL\Schema\Domain\Content\Mapper\FieldDefinition\DecoratingFieldDefinitionMapper
-    App\Kernel:
-      - Ibexa\Bundle\Core\DependencyInjection\IbexaCoreExtension
     App\Migrations\Action\AssignSection:
       - Ibexa\Migration\ValueObject\Step\Action
     App\Migrations\Action\AssignSectionExecutor:
