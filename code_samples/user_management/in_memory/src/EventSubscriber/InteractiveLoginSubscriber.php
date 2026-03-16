@@ -10,7 +10,10 @@ use Symfony\Component\Security\Http\SecurityEvents;
 
 class InteractiveLoginSubscriber implements EventSubscriberInterface
 {
-    /** @param array<string, string> $userMap */
+    /**
+     * @param array<string, string> $userMap
+     * @phpstan-param UserProviderInterface<\Ibexa\Core\MVC\Symfony\Security\UserInterface> $userProvider
+     */
     public function __construct(
         private readonly UserProviderInterface $userProvider,
         private readonly array $userMap = [],
