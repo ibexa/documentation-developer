@@ -33,23 +33,54 @@ TODO: What about notifications outside the `Ibexa\Contracts` namespace??
 * `Ibexa\Share\Notification\ContentViewInvitationNotification`
 * `Ibexa\Share\Notification\ExternalParticipantContentViewInvitationNotification`
 
+Available notification channels:
+
+```bash
+php bin/console debug:container --tag=notifier.channel
+```
+
 For example, let's subscribe to Commerce activity with a Slack channel:
+
+```bash
+composer require symfony/slack-notifier
+```
+
+* `browser` - Notification as flash message TODO: Test from a controller to see if it works
+* `chat` - Notification sent to a communication platform like Slack, Microsoft Teams, Google Chat, etc.
+* `desktop` - Notification sent to JoliNotif TODO: Do we support this?
+* `email` - Notification sent to email addresses
+* `ibexa` - Notification sent to back office user profiles
+* `push` - TODO
+* `sms` - Notification sent to phone numbers
+
+In a .env file, [set the DSN for the targetted Slack channel or user](https://github.com/symfony/slack-notifier?tab=readme-ov-file#dsn-example):
+
+```dotenv
+SLACK_DSN=slack://xoxb-token@default?channel=ibexa-notifications
+```
 
 ``` yaml
 [[= include_file('code_samples/user_management/notifications/config/packages/custom_notifications.yaml', 0, 18) =]]
 ```
 
-Create a notification class
+## Create a notification class
+
+A new notification class can be created to send a new type of message to a new set of channels.
+It must extend `Symfony\Component\Notifier\Notification\Notification`
+and optionally implements some interfaces depending on the channels it could be sent to.
+
+- Some channels don't accept the notification if it doesn't implement its related notification interface.
+- Some channels accept every notification and have a default behavior if the notification doesn't implement their related notification interface.
 
 TODO: List what type of channel notification interfaces can be implemented
 TODO: Namespaces, Ibexa custom vs Symfony native
 
-| Channel | Notification interface                                                                                                                                    | Description |
-|:--------|:----------------------------------------------------------------------------------------------------------------------------------------------------------|:------------|
-| `ibexa` | [`SystemNotificationInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Notifications-SystemNotification-SystemNotificationInterface.html) | TODO        |
-| `email` | `EmailNotificationInterface`                                                                                                                              | TODO        |
-| `chat`  | `ChatNotificationInterface`                                                                                                                               | TODO        |
-| `sms`   | `SmsNotificationInterface`                                                                                                                                | TODO        |
+| Channel | Notification interface                                                                                                                                    | ! | Description |
+|:--------|:----------------------------------------------------------------------------------------------------------------------------------------------------------|---|:------------|
+| `chat`  | `ChatNotificationInterface`                                                                                                                               |   | TODO        |
+| `email` | `EmailNotificationInterface`                                                                                                                              | &#10004; | TODO        |
+| `ibexa` | [`SystemNotificationInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Notifications-SystemNotification-SystemNotificationInterface.html) | &#10004; | TODO        |
+| `sms`   | `SmsNotificationInterface`                                                                                                                                | &#10004; | TODO        |
 
 TODO: About `ibexa` channel being the [🔔 user notification](/administration/back_office/notifications.md#create-custom-notifications)
 https://github.com/ibexa/notifications/blob/v5.0.6/src/lib/SystemNotification/SystemNotificationChannel.php#L51
@@ -81,4 +112,20 @@ TODO: Explain the command
 
 ``` php
 [[= include_file('code_samples/user_management/notifications/src/Command/NotificationSenderCommand.php') =]]
+```
+
+TODO: Screenshots
+
+## Create a channel
+
+A channel is a service implementing `Symfony\Component\Notifier\Channel\ChannelInterface`, and tagged `notifier.channel` alongside a `channel` shortname.
+
+The following example is a custom channel that sends notifications to the logger.
+
+``` php
+[[= include_file('code_samples/user_management/notifications/src/Notifier/Channel/LogChannel.php') =]]
+```
+
+``` yaml
+[[= include_file('code_samples/user_management/notifications/config/services.yaml') =]]
 ```

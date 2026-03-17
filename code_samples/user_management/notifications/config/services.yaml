@@ -1,0 +1,4 @@
+services:
+    App\Notifier\Channel\LogChannel:
+        tags:
+            - { name: 'notifier.channel', channel: 'log' }
