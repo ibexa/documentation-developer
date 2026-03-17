@@ -5,17 +5,17 @@ month_change: false
 
 # Notifications
 
-You can send two types on notifications to the users.
+You can send two types of notifications to the users.
 
 [Notification bar](#notification-bars) is displayed in specific situations as a message bar appearing at the bottom of the page.
 It appears to whoever is doing a specific operation in the back office.
 
-![Example of an info notification](notification2.png "Example of the notification bar")
+![Example of an info notification](notification2.png "Example of notification bar")
 
 [Custom notifications](#create-custom-notifications) are sent to a specific user.
 They appear in their profile in the back office.
 
-![Notification in profile](notification3.png)
+![Notification in profile](notification3.png "Profile notification bell menu")
 
 ## Notification bars
 
@@ -56,7 +56,7 @@ Dispatch the event with `document.body.dispatchEvent(eventInfo);`.
 
 You can send your own custom notifications to the user which are displayed in the user menu.
 
-To create a new notification you must use the `createNotification(Ibexa\Contracts\Core\Repository\Values\Notification\CreateStruct $createStruct)` method from `Ibexa\Contracts\Core\Repository\NotificationService`.
+To create a new notification you can use the [core `NotificationService::createNotification(CreateStruct $createStruct)` method](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-NotificationService.html#method_createNotification) like in the example below.
 
 Example:
 
@@ -117,3 +117,9 @@ ibexa:
 
 The values shown above are the defaults.
 `0` means the notification doesn't hide automatically.
+
+### `ibexa` notification channel
+
+You can also subscribe to a notification with the channel `ibexa`
+
+See [Notifications to users](users/notifications.md) for more details about notifications and channel subscription.
