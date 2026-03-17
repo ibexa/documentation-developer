@@ -1,0 +1,18 @@
+ibexa:
+    system:
+        default:
+            notifier:
+                subscriptions:
+                    Ibexa\Contracts\User\Notification\UserPasswordReset:
+                        channels:
+                            - email
+                    Ibexa\Contracts\User\Notification\UserInvitation:
+                        channels:
+                            - email
+                    Ibexa\Contracts\FormBuilder\Notifications\FormSubmitted:
+                        channels:
+                            - email
+                    App\Notifications\CommandExecuted:
+                        channels:
+                            - ibexa
+                            - email

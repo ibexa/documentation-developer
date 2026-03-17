@@ -479,6 +479,7 @@ nav:
         - User grouping:
           - Customer groups: users/customer_groups.md
           - Segment API: users/segment_api.md
+        - User notifications: users/notifications.md
     - Personalization:
         - Personalization: personalization/personalization.md
         - Personalization guide : personalization/personalization_guide.md
