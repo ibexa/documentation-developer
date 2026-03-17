@@ -6,7 +6,7 @@ month_change: true
 # Extend Collaborative editing
 
 Thanks to the ability to extend the [Collaborative editing](collaborative_editing_guide.md) feature, you can introduce additional functionalities to enhance workflows not only in the context of content editing but also when working with products.
-In the example below, you will learn how to extend this feature to enable a shared Cart functionality in the Commerce system.
+The example below demonstrates how to extend the feature to enable a shared Cart functionality in the Commerce system.
 
 !!! tip
 
@@ -45,7 +45,8 @@ It ensures that when a user creates, joins, or updates a Cart session, the syste
 The Gateway is the layer that connects the collaboration feature to the database.
 It handles all the create, read, update, and delete operations for collaboration sessions, ensuring that session data is stored and retrieved correctly.
 
-It also uses a Discriminator to specify the session type, so it can interact with the correct tables and data structures.
+It also uses a Discriminator to specify the session type.
+Based on the type, the Gateway interacts with the appropriate tables and data structures.
 This way, the system uses the correct Gateway to get or save data for each session type.
 
 When creating the Database Gateways and mappers, you can use the built-in service tag:
@@ -86,7 +87,7 @@ In the `src/Collaboration/Cart/Persistence/Gateway/` directory, create the follo
 [[= include_file('code_samples/collaboration/src/Collaboration/Cart/Persistence/Gateway/DatabaseSchema.php') =]]
 ```
 
-- `DatabaseGateway` - implements the gateway logic for getting and retrieving shared Cart collaboration data from the database, using a Discriminator to indicate the type of session (in this case, a Cart session):
+- `DatabaseGateway` - implements the gateway logic for getting and retrieving shared Cart collaboration data from the database. It uses a Discriminator to identify the type of session (in this case, a Cart session):
 
 ``` php
 [[= include_file('code_samples/collaboration/src/Collaboration/Cart/Persistence/Gateway/DatabaseGateway.php') =]]
