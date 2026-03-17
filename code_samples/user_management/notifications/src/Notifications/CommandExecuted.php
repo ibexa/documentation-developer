@@ -21,13 +21,12 @@ class CommandExecuted extends Notification implements SystemNotificationInterfac
         private readonly int $exitCode,
         private readonly array $exceptions
     ) {
-        parent::__construct($this->command->getName());
+        parent::__construct((Command::SUCCESS === $this->exitCode ? '✔' : '✖') . $this->command->getName());
+        $this->importance(Command::SUCCESS === $this->exitCode ? Notification::IMPORTANCE_LOW : Notification::IMPORTANCE_HIGH);
     }
 
     public function asEmailMessage(EmailRecipientInterface $recipient, ?string $transport = null): ?EmailMessage
     {
-        $subject = (0 === $this->exitCode ? '✔' : '✖') . $this->command->getName();
-
         $body = '';
         foreach ($this->exceptions as $exception) {
             $body .= $exception->getMessage() . '<br>';
@@ -35,7 +34,7 @@ class CommandExecuted extends Notification implements SystemNotificationInterfac
 
         $email = NotificationEmail::asPublicEmail()
             ->to($recipient->getEmail())
-            ->subject($subject)
+            ->subject($this->getSubject())
             ->html($body);
 
         return new EmailMessage($email);
@@ -45,9 +44,9 @@ class CommandExecuted extends Notification implements SystemNotificationInterfac
     {
         $message = new SystemMessage($recipient->getUser());
         $message->setContext([
-            'icon' => 0 === $this->exitCode ? 'check-circle' : 'discard-circle',
+            'icon' => Command::SUCCESS === $this->exitCode ? 'check-circle' : 'discard-circle',
             'subject' => $this->command->getName(),
-            'content' => 0 === $this->exitCode ? 'No error' : count($this->exceptions) . ' error' . (count($this->exceptions) > 1 ? 's' : ''),
+            'content' => Command::SUCCESS === $this->exitCode ? 'No error' : count($this->exceptions) . ' error' . (count($this->exceptions) > 1 ? 's' : ''),
         ]);
 
         return $message;
