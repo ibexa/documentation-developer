@@ -10,8 +10,8 @@ jobs:
         strategy:
             matrix:
                 php:
-                    - "8.4"
-                    - "8.3"
+                    - "8.4" # Upper supported version
+                    - "8.3" # Lower supported version
         steps:
             - uses: actions/checkout@v4
 
