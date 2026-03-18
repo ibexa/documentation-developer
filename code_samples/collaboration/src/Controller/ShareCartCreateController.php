@@ -19,8 +19,8 @@ use Symfony\Component\Routing\Annotation\Route;
 final class ShareCartCreateController extends AbstractController
 {
     public function __construct(
-        private readonly SessionServiceInterface $sessionService,
-        private readonly CartResolverInterface $cartResolver
+        private SessionServiceInterface $sessionService,
+        private CartResolverInterface $cartResolver
     ) {
     }
 
