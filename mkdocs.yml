@@ -289,6 +289,7 @@ nav:
             - Collaborative editing product guide: content_management/collaborative_editing/collaborative_editing_guide.md
             - Configure Collaborative editing: content_management/collaborative_editing/configure_collaborative_editing.md
             - Collaborative editing API: content_management/collaborative_editing/collaborative_editing_api.md
+            - Extend Collaborative editing: content_management/collaborative_editing/extend_collaborative_editing.md
     - Templating:
         - Templating: templating/templating.md
         - Render content:
