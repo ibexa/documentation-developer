@@ -12,6 +12,30 @@ deptrac:
       - Ibexa\Checkout\Value\Workflow\Workflow
     App\Checkout\Workflow\Strategy\NewWorkflowConditionalStep:
       - Ibexa\Checkout\Value\Workflow\Workflow
+    App\Collaboration\Cart\Mapper\CartProxyMapper:
+      - Ibexa\Core\Repository\ProxyFactory\ProxyGeneratorInterface
+    App\Collaboration\Cart\Mapper\CartSessionDomainMapper:
+      - Ibexa\Collaboration\Mapper\Domain\ParticipantCollectionDomainMapperInterface
+      - Ibexa\Collaboration\Mapper\Domain\SessionDomainMapperInterface
+      - Ibexa\Collaboration\Mapper\Domain\UserProxyDomainMapperInterface
+      - Ibexa\Collaboration\Persistence\Values\AbstractSession
+    App\Collaboration\Cart\Mapper\CartSessionPersistenceMapper:
+      - Ibexa\Collaboration\Persistence\Values\AbstractSessionCreateStruct
+      - Ibexa\Collaboration\Persistence\Values\AbstractSessionUpdateStruct
+      - Ibexa\Collaboration\Mapper\Persistence\SessionPersistenceMapperInterface
+    App\Collaboration\Cart\Persistence\Gateway\DatabaseGateway:
+      - Ibexa\Collaboration\Persistence\Session\Inner\GatewayInterface
+      - Ibexa\Collaboration\Persistence\Values\AbstractSessionCreateStruct
+      - Ibexa\Collaboration\Persistence\Values\AbstractSessionUpdateStruct
+    App\Collaboration\Cart\Persistence\Mapper:
+      - Ibexa\Collaboration\Persistence\Values\AbstractSession
+      - Ibexa\Collaboration\Persistence\Session\Inner\MapperInterface
+    App\Collaboration\Cart\Persistence\Values\CartSession:
+      - Ibexa\Collaboration\Persistence\Values\AbstractSession
+    App\Collaboration\Cart\Persistence\Values\CartSessionCreateStruct:
+      - Ibexa\Collaboration\Persistence\Values\AbstractSessionCreateStruct
+    App\Collaboration\Cart\Persistence\Values\CartSessionUpdateStruct:
+      - Ibexa\Collaboration\Persistence\Values\AbstractSessionUpdateStruct
     App\Command\AddMissingAltTextCommand:
       - Ibexa\Core\FieldType\Image\Value
       - Ibexa\Core\IO\IOBinarydataHandler
