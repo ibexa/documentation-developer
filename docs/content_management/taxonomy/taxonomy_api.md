@@ -74,8 +74,7 @@ and a `position` parameter, which is either `TaxonomyServiceInterface::MOVE_POSI
 
 ## Search
 
-You can search for content based on its taxonomy entry assignments by using the standard
-[`SearchService`](search_api.md) with taxonomy-specific Search Criteria:
+You can search for content based on its taxonomy entry assignments by using the standard [`SearchService`](search_api.md) with taxonomy-specific Search Criteria:
 
 | Criterion | Description |
 |---|---|

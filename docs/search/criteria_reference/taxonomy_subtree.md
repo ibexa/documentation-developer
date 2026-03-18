@@ -4,7 +4,7 @@ description: TaxonomySubtree Search Criterion
 
 # TaxonomySubtree Criterion
 
-The [`TaxonomySubtree` Search Criterion](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Taxonomy-Search-Query-Criterion-TaxonomySubtree.html) searches for content assigned to the specified [taxonomy](taxonomy.md) entry or any of its descendants.
+The [`TaxonomySubtree`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Taxonomy-Search-Query-Criterion-TaxonomySubtree.html) Search Criterion searches for content assigned to the specified [taxonomy](taxonomy.md) entry or any of its descendants.
 
 ## Arguments
 
@@ -20,7 +20,7 @@ The following example searches for articles assigned to taxonomy entry with ID `
 [[= include_file('code_samples/search/content/taxonomy_subtree_criterion.php') =]]
 ```
 
-The criteria limit the results to content matching all of the conditions listed below:
+The criteria limit the results to content that match all of the conditions listed below:
 
 - content is assigned to taxonomy entry `42` or any of its descendants
 - content type is `article`
