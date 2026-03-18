@@ -121,6 +121,12 @@ parameters:
 			path: code_samples/api/public_php_api/src/Controller/CustomFilterController.php
 
 		-
+			message: '#^Parameter \#1 \$string of function base64_encode expects string, string\|false given\.$#'
+			identifier: argument.type
+			count: 1
+			path: code_samples/api/rest_api/create_image.json.php
+
+		-
 			message: '#^Cannot access property \$nodeName on DOMNode\|null\.$#'
 			identifier: property.nonObject
 			count: 3
@@ -141,6 +147,12 @@ parameters:
 		-
 			message: '#^Cannot call method hasAttribute\(\) on DOMNode\|null\.$#'
 			identifier: method.nonObject
+			count: 1
+			path: code_samples/api/rest_api/create_image.xml.php
+
+		-
+			message: '#^Parameter \#1 \$string of function base64_encode expects string, string\|false given\.$#'
+			identifier: argument.type
 			count: 1
 			path: code_samples/api/rest_api/create_image.xml.php
 
