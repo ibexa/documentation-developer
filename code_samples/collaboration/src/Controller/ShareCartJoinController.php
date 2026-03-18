@@ -16,7 +16,7 @@ final class ShareCartJoinController extends AbstractController
     public const string CURRENT_COLLABORATION_SESSION = 'collaboration_session';
 
     public function __construct(
-        private readonly SessionServiceInterface $sessionService,
+        private SessionServiceInterface $sessionService,
     ) {
     }
 

@@ -12,7 +12,7 @@ final class CartSession extends AbstractSession
 {
     public function __construct(
         int $id,
-        private readonly CartInterface $cart,
+        private CartInterface $cart,
         string $token,
         User $owner,
         ParticipantCollectionInterface $participants,

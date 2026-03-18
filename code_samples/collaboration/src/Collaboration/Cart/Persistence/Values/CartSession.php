@@ -9,7 +9,7 @@ final class CartSession extends AbstractSession
 {
     public function __construct(
         int $id,
-        private readonly string $cartIdentifier,
+        private string $cartIdentifier,
         string $token,
         int $userId,
         bool $isActive,

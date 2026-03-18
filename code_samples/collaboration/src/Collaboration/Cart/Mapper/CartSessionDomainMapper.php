@@ -14,7 +14,7 @@ use Ibexa\Contracts\Collaboration\Session\SessionInterface;
  *     \App\Collaboration\Cart\Persistence\Values\CartSession
  * >
  */
-final readonly class CartSessionDomainMapper implements SessionDomainMapperInterface
+final class CartSessionDomainMapper implements SessionDomainMapperInterface
 {
     public function __construct(
         private CartProxyMapperInterface $cartProxyMapper,

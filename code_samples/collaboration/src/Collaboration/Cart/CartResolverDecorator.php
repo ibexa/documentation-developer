@@ -10,7 +10,7 @@ use Ibexa\Contracts\Core\Repository\Exceptions\UnauthorizedException;
 use Ibexa\Contracts\Core\Repository\Values\User\User;
 use Symfony\Component\HttpFoundation\RequestStack;
 
-final readonly class CartResolverDecorator implements CartResolverInterface
+final class CartResolverDecorator implements CartResolverInterface
 {
     public function __construct(
         private CartResolverInterface $innerCartResolver,
