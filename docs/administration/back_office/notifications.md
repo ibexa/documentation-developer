@@ -122,4 +122,4 @@ The values shown above are the defaults.
 
 You can also subscribe to a notification with the channel `ibexa`
 
-See [Notifications to users](users/notifications.md) for more details about notifications and channel subscription.
+See [Notifications to channels](notification_channels.md) for more details about notifications and channel subscription.

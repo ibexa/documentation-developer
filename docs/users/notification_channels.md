@@ -3,12 +3,12 @@ description: Notify users TODO.
 month_change: true
 ---
 
-# Notifications
+# Notification channels
 
-the `ibexa/notifications` package offers an extension to the [Symfony notifier]([[= symfony_doc =]]/notifier.html) allowing to subscribe to notifications and sent them to information channels like email addresses, SMS, communication platforms, etc., including the [🔔 Back Office user profile notification](/administration/back_office/notifications.md#create-custom-notifications).
+the `ibexa/notifications` package offers an extension to the [Symfony notifier]([[= symfony_doc =]]/notifier.html) allowing to subscribe to notifications and sent them to information channels like email addresses, SMS, communication platforms, etc., including the [🔔 Back Office user profile notification](notifications.md#create-custom-notifications).
 
-Those notifications must not be confused with the [notification bars](/administration/back_office/notifications.md) (sent with [`TranslatableNotificationHandlerInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-AdminUi-Notification-TranslatableNotificationHandlerInterface.html))
-or the [🔔 user notifications](/administration/back_office/notifications.md#create-custom-notifications) (sent with [`Ibexa\Contracts\Core\Repository\NotificationService`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-NotificationService.html)).
+Those notifications must not be confused with the [notification bars](notifications.md#notification-bars) (sent with [`TranslatableNotificationHandlerInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-AdminUi-Notification-TranslatableNotificationHandlerInterface.html))
+or the [🔔 user notifications](notifications.md#create-custom-notifications) (sent with [`Ibexa\Contracts\Core\Repository\NotificationService`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-NotificationService.html)).
 
 TODO: Introduce the [`Ibexa\Contracts\Notifications\Service\NotificationServiceInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Notifications-Service-NotificationServiceInterface.html)
 
@@ -82,7 +82,7 @@ TODO: Namespaces, Ibexa custom vs Symfony native
 | `ibexa` | [`SystemNotificationInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Notifications-SystemNotification-SystemNotificationInterface.html) | &#10004; | TODO        |
 | `sms`   | `SmsNotificationInterface`                                                                                                                                | &#10004; | TODO        |
 
-TODO: About `ibexa` channel being the [🔔 user notification](/administration/back_office/notifications.md#create-custom-notifications)
+TODO: About `ibexa` channel being the [🔔 user notification](notifications.md#create-custom-notifications)
 https://github.com/ibexa/notifications/blob/v5.0.6/src/lib/SystemNotification/SystemNotificationChannel.php#L51
 
 TODO: How to deal with channels not needing a user like `chat` + Slack channel?
