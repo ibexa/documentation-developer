@@ -88,7 +88,7 @@ class ViewContentMetaDataCommand extends Command
 
         $versionInfoArray = $this->contentService->loadVersions($contentInfo, VersionInfo::STATUS_ARCHIVED);
         if ($versionInfoArray instanceof \Traversable) {
-        $versionInfoArray = iterator_to_array($versionInfoArray);
+            $versionInfoArray = iterator_to_array($versionInfoArray);
         }
         if (count($versionInfoArray)) {
             $output->writeln('Archived versions:');
