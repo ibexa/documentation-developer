@@ -77,7 +77,7 @@ Create a `form_field.html.twig` file in `templates/fields/`:
 ```
 
 Next, assign the template to the page.
-In `config/packages/views.yaml`, at the same level as `pagelayout`, add:
+In `config/packages/views.yaml`, at the same level as `page_layout`, add:
 
 ``` yaml
 [[= include_file('code_samples/tutorials/page_tutorial/config/packages/views.yaml', 7, 9) =]]
