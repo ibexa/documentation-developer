@@ -6,6 +6,7 @@ use Ibexa\Contracts\Cart\CartResolverInterface;
 use Ibexa\Contracts\Cart\Value\CartInterface;
 use Ibexa\Contracts\Collaboration\SessionServiceInterface;
 use Ibexa\Contracts\Core\Repository\Exceptions\NotFoundException;
+use Ibexa\Contracts\Core\Repository\Exceptions\UnauthorizedException;
 use Ibexa\Contracts\Core\Repository\Values\User\User;
 use Symfony\Component\HttpFoundation\RequestStack;
 
@@ -39,7 +40,7 @@ final readonly class CartResolverDecorator implements CartResolverInterface
             }
 
             return $session->getCart();
-        } catch (NotFoundException|\Ibexa\ProductCatalog\Exception\UnauthorizedException) {
+        } catch (NotFoundException|UnauthorizedException) {
             return null;
         }
     }
