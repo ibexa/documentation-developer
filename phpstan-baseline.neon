@@ -121,7 +121,7 @@ parameters:
 			path: code_samples/api/public_php_api/src/Controller/CustomFilterController.php
 
 		-
-			message: '#^Parameter \#1 \$string of function base64_encode expects string, string\|false given\.$#'
+			message: '#^Parameter \#1 \$str(ing)? of function base64_encode expects string, string\|false given\.$#'
 			identifier: argument.type
 			count: 1
 			path: code_samples/api/rest_api/create_image.json.php
@@ -151,7 +151,7 @@ parameters:
 			path: code_samples/api/rest_api/create_image.xml.php
 
 		-
-			message: '#^Parameter \#1 \$string of function base64_encode expects string, string\|false given\.$#'
+			message: '#^Parameter \#1 \$str(ing)? of function base64_encode expects string, string\|false given\.$#'
 			identifier: argument.type
 			count: 1
 			path: code_samples/api/rest_api/create_image.xml.php
