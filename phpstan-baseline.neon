@@ -283,7 +283,7 @@ parameters:
 			path: code_samples/back_office/search/src/EventSubscriber/MySuggestionEventSubscriber.php
 
 		-
-			message: '#^Parameter \#2 \$string of function explode expects string, string\|null given\.$#'
+			message: '#^Parameter \#2 \$str(ing)? of function explode expects string, string\|null given\.$#'
 			identifier: argument.type
 			count: 1
 			path: code_samples/back_office/search/src/EventSubscriber/MySuggestionEventSubscriber.php
