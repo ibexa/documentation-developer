@@ -14,11 +14,13 @@ class LogChannel implements ChannelInterface, LoggerAwareInterface
 
     public function notify(Notification $notification, RecipientInterface $recipient, ?string $transportName = null): void
     {
-        $this->logger->info($notification->getSubject(), [
-            'class' => get_class($notification),
-            'importance' => $notification->getImportance(),
-            'content' => $notification->getContent(),
-        ]);
+        if (isset($this->logger)) {
+            $this->logger->info($notification->getSubject(), [
+                'class' => get_class($notification),
+                'importance' => $notification->getImportance(),
+                'content' => $notification->getContent(),
+            ]);
+        }
     }
 
     public function supports(Notification $notification, RecipientInterface $recipient): bool
