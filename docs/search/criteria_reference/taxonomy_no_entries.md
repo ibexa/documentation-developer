@@ -7,7 +7,7 @@ description: TaxonomyNoEntries Search Criterion
 The [`TaxonomyNoEntries`](https://example.com/api/php_api/php_api_reference/classes/Ibexa-Contracts-Taxonomy-Search-Query-Criterion-TaxonomyNoEntries.html) Search Criterion searches for content that has no entries assigned from the specified [taxonomy](taxonomy.md).
 
 Use it when you need to find content items to which no taxonomy entries have been assigned (for example, articles without tags).
-It's available for all supported search engines and in [repository filtering](search_api.md#repository-filtering)
+It's available for all supported search engines and in [repository filtering](search_api.md#repository-filtering).
 
 ## Arguments
 
