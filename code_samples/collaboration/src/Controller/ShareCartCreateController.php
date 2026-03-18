@@ -13,10 +13,9 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Attribute\AsController;
-use Symfony\Component\Routing\Attribute\Route;
+use Symfony\Component\Routing\Annotation\Route;
 
 #[AsController]
-#[Route('/shared-cart/create', name: 'app.shared_cart.create')]
 final class ShareCartCreateController extends AbstractController
 {
     public function __construct(
@@ -25,6 +24,7 @@ final class ShareCartCreateController extends AbstractController
     ) {
     }
 
+    #[Route('/shared-cart/create', name: 'app.shared_cart.create')]
     public function __invoke(Request $request): Response
     {
         $form = $this->createForm(
