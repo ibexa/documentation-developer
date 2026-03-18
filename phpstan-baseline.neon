@@ -199,7 +199,7 @@ parameters:
 			path: code_samples/api/rest_api/src/Rest/ValueObjectVisitor/RestLocation.php
 
 		-
-			message: '#^Parameter \#2 (\.\.\.\$arrays|\$args) of function array_merge expects array, iterable\<Ibexa\\Contracts\\Core\\Repository\\Values\\Content\\URLAlias\> given\.$#'
+			message: '#^Parameter \#2 \.\.\.(\$arrays|\$args) of function array_merge expects array, iterable\<Ibexa\\Contracts\\Core\\Repository\\Values\\Content\\URLAlias\> given\.$#'
 			identifier: argument.type
 			count: 1
 			path: code_samples/api/rest_api/src/Rest/ValueObjectVisitor/RestLocation.php
