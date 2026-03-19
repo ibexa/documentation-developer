@@ -334,6 +334,56 @@ Additionally, you must remove the following line from your `.platform.app.yaml` 
 curl -fs https://get.symfony.com/cloud/configurator | bash
 ```
 
+## v5.0.7
+
+### Update Symfony from 7.3 to 7.4
+
+This version of [[= product_name =]] requires [Symfony 7.4](https://symfony.com/releases/7.4).
+Update Symfony constraints in `composer.json` before updating the packages.
+
+1. In `composer.json`, update `extra.symfony.require` to allow installing higher Symfony version:
+
+    ```json
+    "extra": {
+        "symfony": {
+            "require": "7.4.*"
+        }
+    }
+    ```
+
+2. Review your code, configuration, and third-party bundles for Symfony 7.4 compatibility.
+
+3. Update packages by running:
+
+=== "[[= product_name_headless =]]"
+
+    ``` bash
+    yarn upgrade @ibexa/frontend-config @ibexa/ts-config
+    composer require ibexa/headless:v5.0.7 --with-all-dependencies --no-scripts
+    composer recipes:install ibexa/headless --force -v
+    ```
+=== "[[= product_name_exp =]]"
+
+    ``` bash
+    yarn upgrade @ibexa/frontend-config @ibexa/ts-config
+    composer require ibexa/experience:v5.0.7 --with-all-dependencies --no-scripts
+    composer recipes:install ibexa/experience --force -v
+    ```
+=== "[[= product_name_com =]]"
+
+    ``` bash
+    yarn upgrade @ibexa/frontend-config @ibexa/ts-config
+    composer require ibexa/commerce:v5.0.7 --with-all-dependencies --no-scripts
+    composer recipes:install ibexa/commerce --force -v
+    ```
+
+!!! tip
+
+    As part of the [array-based PHP configuration format](https://symfony.com/blog/new-in-symfony-7-4-better-php-configuration), a `config/reference.php` file will be created.
+    You should commit this file to the repository.
+
+For more details about the new version, see the official Symfony [upgrade instructions](https://github.com/symfony/symfony/blob/7.4/UPGRADE-7.4.md) and [blog posts introducing this release](https://symfony.com/blog/category/living-on-the-edge/8.0-7.4).
+
 ## LTS Updates and additional packages
 
 [LTS Updates](editions.md#lts-updates) are standalone packages with their own update procedures.
