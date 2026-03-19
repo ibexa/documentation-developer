@@ -99,7 +99,7 @@ Value objects describe how collaboration session data is represented in the data
 Persistence gateway uses them to store, retrieve, and manipulate session information, such as the session ID, associated Cart, participants, and scopes.
 
 ``` yaml
-[[= include_file('code_samples/collaboration/config/services.yaml', 33, 38) =]]
+[[= include_file('code_samples/collaboration/config/services.yaml', 37, 42) =]]
 ```
 
 In the `src/Collaboration/Cart/Persistence/Values/` directory, create the following Value Objects:
@@ -197,7 +197,7 @@ In `services.yaml`, declare and tags the gateway and the mappers:
 ``` yaml
 services:
     # …
-[[= include_file('code_samples/collaboration/config/services.yaml', 21, 42) =]]
+[[= include_file('code_samples/collaboration/config/services.yaml', 25, 46) =]]
 ```
 
 ## Allow participants to access Cart
@@ -231,7 +231,7 @@ In `services.yaml`, declare those decorator services associated with what they d
 ``` yaml
 services:
     # …
-[[= include_file('code_samples/collaboration/config/services.yaml', 43) =]]
+[[= include_file('code_samples/collaboration/config/services.yaml', 47) =]]
 ```
 
 ## Build dedicated controllers to manage Cart sharing flow
