@@ -5,6 +5,7 @@ namespace App\Form\Data;
 final class ShareCartData
 {
     private ?string $email;
+
     public function __construct(
         ?string $email = null
     ) {
