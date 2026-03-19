@@ -8,7 +8,7 @@ use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 
 final class ValueNormalizer implements NormalizerInterface
 {
-    public function normalize($object, string $format = null, array $context = [])
+    public function normalize($object, ?string $format = null, array $context = [])
     {
         return [
             $object->getX(),
@@ -16,7 +16,7 @@ final class ValueNormalizer implements NormalizerInterface
         ];
     }
 
-    public function supportsNormalization($data, string $format = null)
+    public function supportsNormalization($data, ?string $format = null)
     {
         return $data instanceof Value;
     }
