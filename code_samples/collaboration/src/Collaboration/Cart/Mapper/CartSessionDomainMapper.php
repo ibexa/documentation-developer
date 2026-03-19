@@ -16,11 +16,18 @@ use Ibexa\Contracts\Collaboration\Session\SessionInterface;
  */
 final class CartSessionDomainMapper implements SessionDomainMapperInterface
 {
+    private CartProxyMapperInterface $cartProxyMapper;
+    private UserProxyDomainMapperInterface $userDomainMapper;
+    private ParticipantCollectionDomainMapperInterface $participantCollectionDomainMapper;
+
     public function __construct(
-        private CartProxyMapperInterface $cartProxyMapper,
-        private UserProxyDomainMapperInterface $userDomainMapper,
-        private ParticipantCollectionDomainMapperInterface $participantCollectionDomainMapper
+        CartProxyMapperInterface $cartProxyMapper,
+        UserProxyDomainMapperInterface $userDomainMapper,
+        ParticipantCollectionDomainMapperInterface $participantCollectionDomainMapper
     ) {
+        $this->cartProxyMapper = $cartProxyMapper;
+        $this->userDomainMapper = $userDomainMapper;
+        $this->participantCollectionDomainMapper = $participantCollectionDomainMapper;
     }
 
     /**

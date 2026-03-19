@@ -8,15 +8,18 @@ use Ibexa\Collaboration\Persistence\Values\AbstractSessionCreateStruct;
 
 final class CartSessionCreateStruct extends AbstractSessionCreateStruct
 {
+    private string $cartIdentifier;
+
     public function __construct(
         string $token,
-        private string $cartIdentifier,
+        string $cartIdentifier,
         int $ownerId,
         bool $isActive,
         bool $hasPublicLink,
         ?DateTimeImmutable $createdAt = null,
         ?DateTimeImmutable $updatedAt = null
     ) {
+        $this->cartIdentifier = $cartIdentifier;
         parent::__construct($token, $ownerId, $isActive, $hasPublicLink, $createdAt, $updatedAt);
     }
 

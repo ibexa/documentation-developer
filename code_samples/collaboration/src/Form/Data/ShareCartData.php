@@ -4,9 +4,11 @@ namespace App\Form\Data;
 
 final class ShareCartData
 {
+    private ?string $email;
     public function __construct(
-        private ?string $email = null
+        ?string $email = null
     ) {
+        $this->email = $email;
     }
 
     public function getEmail(): ?string

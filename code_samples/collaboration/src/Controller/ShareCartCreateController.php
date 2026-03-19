@@ -18,10 +18,15 @@ use Symfony\Component\Routing\Annotation\Route;
 #[AsController]
 final class ShareCartCreateController extends AbstractController
 {
+    private SessionServiceInterface $sessionService;
+    private CartResolverInterface $cartResolver;
+
     public function __construct(
-        private SessionServiceInterface $sessionService,
-        private CartResolverInterface $cartResolver
+        SessionServiceInterface $sessionService,
+        CartResolverInterface $cartResolver
     ) {
+        $this->sessionService = $sessionService;
+        $this->cartResolver = $cartResolver;
     }
 
     #[Route('/shared-cart/create', name: 'app.shared_cart.create')]

@@ -15,9 +15,12 @@ final class ShareCartJoinController extends AbstractController
 {
     public const CURRENT_COLLABORATION_SESSION = 'collaboration_session';
 
+    private SessionServiceInterface $sessionService;
+
     public function __construct(
-        private SessionServiceInterface $sessionService,
+        SessionServiceInterface $sessionService,
     ) {
+        $this->sessionService = $sessionService;
     }
 
     #[Route('/shared-cart/join/{token}', name: 'app.shared_cart.join')]

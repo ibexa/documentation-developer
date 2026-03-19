@@ -10,11 +10,18 @@ use ProxyManager\Proxy\LazyLoadingInterface;
 
 final class CartProxyMapper implements CartProxyMapperInterface
 {
+    private Repository $repository;
+    private CartServiceInterface $cartService;
+    private ProxyGeneratorInterface $proxyGenerator;
+
     public function __construct(
-        private Repository $repository,
-        private CartServiceInterface $cartService,
-        private ProxyGeneratorInterface $proxyGenerator
+        Repository $repository,
+        CartServiceInterface $cartService,
+        ProxyGeneratorInterface $proxyGenerator
     ) {
+        $this->repository = $repository;
+        $this->cartService = $cartService;
+        $this->proxyGenerator = $proxyGenerator;
     }
 
     public function createCartProxy(string $identifier): CartInterface

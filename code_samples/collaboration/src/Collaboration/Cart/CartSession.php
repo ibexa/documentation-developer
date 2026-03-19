@@ -10,9 +10,11 @@ use Ibexa\Contracts\Core\Repository\Values\User\User;
 
 final class CartSession extends AbstractSession
 {
+    private CartInterface $cart;
+
     public function __construct(
         int $id,
-        private CartInterface $cart,
+        CartInterface $cart,
         string $token,
         User $owner,
         ParticipantCollectionInterface $participants,
@@ -21,6 +23,7 @@ final class CartSession extends AbstractSession
         DateTimeInterface $createdAt,
         DateTimeInterface $updatedAt
     ) {
+        $this->cart = $cart;
         parent::__construct($id, $token, $owner, $participants, $isActive, $hasPublicLink, $createdAt, $updatedAt);
     }
 

@@ -2,6 +2,8 @@
 
 namespace App\Collaboration\Cart;
 
+use Ibexa\Cart\Service\CartResolver;
+use Ibexa\Collaboration\SessionService;
 use Ibexa\Contracts\Cart\CartResolverInterface;
 use Ibexa\Contracts\Cart\Value\CartInterface;
 use Ibexa\Contracts\Collaboration\SessionServiceInterface;
@@ -12,11 +14,18 @@ use Symfony\Component\HttpFoundation\RequestStack;
 
 final class CartResolverDecorator implements CartResolverInterface
 {
+    private CartResolverInterface $innerCartResolver;
+    private SessionServiceInterface $sessionService;
+    private RequestStack $requestStack;
+
     public function __construct(
-        private CartResolverInterface $innerCartResolver,
-        private SessionServiceInterface $sessionService,
-        private RequestStack $requestStack
+        CartResolverInterface $innerCartResolver,
+        SessionServiceInterface $sessionService,
+        RequestStack $requestStack
     ) {
+        $this->innerCartResolver = $innerCartResolver;
+        $this->sessionService = $sessionService;
+        $this->requestStack = $requestStack;
     }
 
     public function resolveCart(?User $user = null): CartInterface

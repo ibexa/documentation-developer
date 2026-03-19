@@ -7,8 +7,11 @@ use Ibexa\Contracts\Collaboration\Session\AbstractSessionCreateStruct;
 
 final class CartSessionCreateStruct extends AbstractSessionCreateStruct
 {
-    public function __construct(private CartInterface $cart)
+    private CartInterface $cart;
+
+    public function __construct(CartInterface $cart)
     {
+        $this->cart = $cart;
         parent::__construct();
     }
 

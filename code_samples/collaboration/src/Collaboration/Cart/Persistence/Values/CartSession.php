@@ -7,9 +7,11 @@ use Ibexa\Collaboration\Persistence\Values\AbstractSession;
 
 final class CartSession extends AbstractSession
 {
+    private string $cartIdentifier;
+
     public function __construct(
         int $id,
-        private string $cartIdentifier,
+        string $cartIdentifier,
         string $token,
         int $userId,
         bool $isActive,
@@ -17,6 +19,7 @@ final class CartSession extends AbstractSession
         DateTimeImmutable $createdAt,
         DateTimeImmutable $updatedAt
     ) {
+        $this->cartIdentifier = $cartIdentifier;
         parent::__construct($id, $token, $userId, $isActive, $hasPublicLink, $createdAt, $updatedAt);
     }
 
