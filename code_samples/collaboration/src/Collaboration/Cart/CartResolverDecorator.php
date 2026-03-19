@@ -49,7 +49,7 @@ final class CartResolverDecorator implements CartResolverInterface
             }
 
             return $session->getCart();
-        } catch (NotFoundException|UnauthorizedException) {
+        } catch (NotFoundException|UnauthorizedException $exception) {
             return null;
         }
     }
