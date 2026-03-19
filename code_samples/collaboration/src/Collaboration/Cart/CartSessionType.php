@@ -6,10 +6,10 @@ use Ibexa\Contracts\Collaboration\Session\SessionScopeInterface;
 
 final class CartSessionType implements SessionScopeInterface
 {
-    public const string SCOPE_VIEW = 'view';
-    public const string SCOPE_EDIT = 'edit';
+    public const SCOPE_VIEW = 'view';
+    public const SCOPE_EDIT = 'edit';
 
-    public const string IDENTIFIER = 'cart';
+    public const IDENTIFIER = 'cart';
 
     private function __construct()
     {

@@ -13,7 +13,7 @@ use Symfony\Component\Routing\Annotation\Route;
 #[AsController]
 final class ShareCartJoinController extends AbstractController
 {
-    public const string CURRENT_COLLABORATION_SESSION = 'collaboration_session';
+    public const CURRENT_COLLABORATION_SESSION = 'collaboration_session';
 
     public function __construct(
         private SessionServiceInterface $sessionService,

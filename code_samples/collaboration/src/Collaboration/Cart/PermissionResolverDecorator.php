@@ -14,15 +14,22 @@ use Symfony\Component\HttpFoundation\RequestStack;
 
 final class PermissionResolverDecorator implements PermissionResolverInterface
 {
-    public const string COLLABORATION_SESSION_ID = 'collaboration_session';
+    public const COLLABORATION_SESSION_ID = 'collaboration_session';
 
     private bool $nested = false;
 
+    private PermissionResolverInterface $innerPermissionResolver;
+    private SessionServiceInterface $sessionService;
+    private RequestStack $requestStack;
+
     public function __construct(
-        private PermissionResolverInterface $innerPermissionResolver,
-        private SessionServiceInterface $sessionService,
-        private RequestStack $requestStack,
+        PermissionResolverInterface $innerPermissionResolver,
+        SessionServiceInterface $sessionService,
+        RequestStack $requestStack,
     ) {
+        $this->innerPermissionResolver = $innerPermissionResolver;
+        $this->sessionService = $sessionService;
+        $this->requestStack = $requestStack;
     }
 
     public function canUser(PolicyInterface $policy): bool
