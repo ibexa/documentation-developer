@@ -12,10 +12,8 @@ use InvalidArgumentException;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\HttpKernel\Attribute\AsController;
 use Symfony\Component\Routing\Annotation\Route;
 
-#[AsController]
 final class ShareCartCreateController extends AbstractController
 {
     private SessionServiceInterface $sessionService;
@@ -30,7 +28,7 @@ final class ShareCartCreateController extends AbstractController
         $this->cartResolver = $cartResolver;
     }
 
-    #[Route('/shared-cart/create', name: 'app.shared_cart.create')]
+    /** @Route("/shared-cart/create", name="app.shared_cart.create") */
     public function __invoke(Request $request): Response
     {
         $form = $this->createForm(

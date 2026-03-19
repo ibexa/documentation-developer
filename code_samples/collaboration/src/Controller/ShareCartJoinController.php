@@ -7,10 +7,8 @@ use Ibexa\Contracts\Collaboration\SessionServiceInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpKernel\Attribute\AsController;
 use Symfony\Component\Routing\Annotation\Route;
 
-#[AsController]
 final class ShareCartJoinController extends AbstractController
 {
     public const CURRENT_COLLABORATION_SESSION = 'collaboration_session';
@@ -23,7 +21,7 @@ final class ShareCartJoinController extends AbstractController
         $this->sessionService = $sessionService;
     }
 
-    #[Route('/shared-cart/join/{token}', name: 'app.shared_cart.join')]
+    /** @Route("/shared-cart/join/{token}", name="app.shared_cart.join") */
     public function __invoke(Request $request, string $token): RedirectResponse
     {
         $session = $this->sessionService->getSessionByToken($token);
