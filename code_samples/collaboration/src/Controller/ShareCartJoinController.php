@@ -18,7 +18,7 @@ final class ShareCartJoinController extends AbstractController
     private SessionServiceInterface $sessionService;
 
     public function __construct(
-        SessionServiceInterface $sessionService,
+        SessionServiceInterface $sessionService
     ) {
         $this->sessionService = $sessionService;
     }
