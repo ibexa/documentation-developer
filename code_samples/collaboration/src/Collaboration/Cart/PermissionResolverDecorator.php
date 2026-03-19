@@ -27,7 +27,7 @@ final class PermissionResolverDecorator implements PermissionResolverInterface
     public function __construct(
         PermissionResolverInterface $innerPermissionResolver,
         SessionServiceInterface $sessionService,
-        RequestStack $requestStack,
+        RequestStack $requestStack
     ) {
         $this->innerPermissionResolver = $innerPermissionResolver;
         $this->sessionService = $sessionService;
@@ -73,7 +73,7 @@ final class PermissionResolverDecorator implements PermissionResolverInterface
             if ($session !== null) {
                 try {
                     return $cart->getId() === $session->getCart()->getId();
-                } catch (NotFoundException) {
+                } catch (NotFoundException $exception) {
                 }
             }
         } finally {
@@ -95,7 +95,7 @@ final class PermissionResolverDecorator implements PermissionResolverInterface
             if ($session instanceof CartSession) {
                 return $session;
             }
-        } catch (NotFoundException|UnauthorizedException) {
+        } catch (NotFoundException|UnauthorizedException $exception) {
         }
 
         return null;
