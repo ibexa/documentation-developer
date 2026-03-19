@@ -19,7 +19,9 @@ final class PermissionResolverDecorator implements PermissionResolverInterface
     private bool $nested = false;
 
     private PermissionResolverInterface $innerPermissionResolver;
+
     private SessionServiceInterface $sessionService;
+
     private RequestStack $requestStack;
 
     public function __construct(
