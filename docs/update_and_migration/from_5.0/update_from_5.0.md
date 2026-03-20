@@ -351,31 +351,48 @@ Update Symfony constraints in `composer.json` before updating the packages.
     }
     ```
 
-2. Review your code, configuration, and third-party bundles for Symfony 7.4 compatibility.
+2. To allow installing Symfony 7.4, update the requirements for `symfony` packages in `composer.json` as in the example below::
 
-3. Update packages by running:
-
-=== "[[= product_name_headless =]]"
-
-    ``` bash
-    yarn upgrade @ibexa/frontend-config @ibexa/ts-config
-    composer require ibexa/headless:v5.0.7 --with-all-dependencies --no-scripts
-    composer recipes:install ibexa/headless --force -v
+    ``` diff
+    -        "symfony/console": "7.3.*",
+    +        "symfony/console": "7.4.*",
     ```
-=== "[[= product_name_exp =]]"
 
-    ``` bash
-    yarn upgrade @ibexa/frontend-config @ibexa/ts-config
-    composer require ibexa/experience:v5.0.7 --with-all-dependencies --no-scripts
-    composer recipes:install ibexa/experience --force -v
-    ```
-=== "[[= product_name_com =]]"
+3. Review your code, configuration, and third-party bundles for Symfony 7.4 compatibility.
 
-    ``` bash
-    yarn upgrade @ibexa/frontend-config @ibexa/ts-config
-    composer require ibexa/commerce:v5.0.7 --with-all-dependencies --no-scripts
-    composer recipes:install ibexa/commerce --force -v
+4. Update packages by running:
+
+    === "[[= product_name_headless =]]"
+
+        ``` bash
+        yarn upgrade @ibexa/frontend-config @ibexa/ts-config
+        composer require ibexa/headless:v5.0.7 --with-all-dependencies --no-scripts
+        composer recipes:install ibexa/headless --force -v
+        ```
+    === "[[= product_name_exp =]]"
+
+        ``` bash
+        yarn upgrade @ibexa/frontend-config @ibexa/ts-config
+        composer require ibexa/experience:v5.0.7 --with-all-dependencies --no-scripts
+        composer recipes:install ibexa/experience --force -v
+        ```
+    === "[[= product_name_com =]]"
+
+        ``` bash
+        yarn upgrade @ibexa/frontend-config @ibexa/ts-config
+        composer require ibexa/commerce:v5.0.7 --with-all-dependencies --no-scripts
+        composer recipes:install ibexa/commerce --force -v
+        ```
+
+5. Restore manually the entry for `JMSTranslationBundle` in `config/bundles.php` to [its previous position](https://github.com/ibexa/commerce-skeleton/blob/v5.0.6/config/bundles.php#L14):
+
+    ``` hl_lines="2"
+        FOS\HttpCacheBundle\FOSHttpCacheBundle::class => ['all' => true],
+        JMS\TranslationBundle\JMSTranslationBundle::class => ['all' => true],
+        Liip\ImagineBundle\LiipImagineBundle::class => ['all' => true],
     ```
+
+
 
 !!! tip
 
