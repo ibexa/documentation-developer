@@ -351,7 +351,7 @@ Update Symfony constraints in `composer.json` before updating the packages.
     }
     ```
 
-2. To allow installing Symfony 7.4, update the requirements for `symfony` packages in `composer.json` as in the example below::
+2. To allow installing Symfony 7.4, update the requirements for `symfony` packages in `composer.json` as in the example below:
 
     ``` diff
     -        "symfony/console": "7.3.*",
