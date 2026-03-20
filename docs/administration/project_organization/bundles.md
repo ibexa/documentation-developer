@@ -124,8 +124,8 @@ To remove a bundle (either one you created yourself, or an out-of-the-box one th
 |ibexa/experience|Metapackage for Symfony Flex-based [[= product_name =]] Experience installation|
 |ibexa/cart|Main store functionalities|
 |ibexa/checkout|Store checkout functionality|
-|ibexa/corporate-account-commerce-bridge|Additional functionality for [corporate accounts](corporate_admin_panel.md|
-|ibexa/discounts|Adds [discounts](discounts.md) functionality|feature
+|ibexa/corporate-account-commerce-bridge|Additional functionality for [corporate accounts](corporate_admin_panel.md)|
+|ibexa/discounts|Adds [discounts](discounts.md) functionality|
 |ibexa/discounts-codes|Adds the possibility to use discount codes with the [Discounts](discounts.md) functionality|
 |ibexa/storefront|A storefront starting kit|
 |ibexa/order-management|Order management|

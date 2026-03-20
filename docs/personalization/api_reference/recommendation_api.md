@@ -95,7 +95,7 @@ For more information, see [Submodels]([[= user_doc =]]/personalization/recommend
 
 If you have configured segments, you can use them in the recommendation model. Pass the following parameter to request recommendations for a specific segment or segment group.
 
-Parameter|Example|Description|Value|
+|Parameter|Example|Description|Value|
 |---|---|---|---|
 |`segments`|`&segments=7,8,10,11`|ID from segment group management|string|
 

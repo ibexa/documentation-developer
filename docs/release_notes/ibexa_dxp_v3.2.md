@@ -112,4 +112,4 @@ to [get object states and object state groups](https://doc.ibexa.co/en/latest/ap
 
 | Ibexa Platform  | [[= product_name =]]  | [[= product_name_com =]] |
 |--------------|------------|------------|
-| [Ibexa Platform v3.2.0](https://github.com/ezsystems/ezplatform/releases/tag/v3.2.0) | [[[= product_name =]] v3.2.0](https://github.com/ezsystems/ezplatform-ee/releases/tag/v3.2.0) | [[[= product_name_com =]] v3.2.0](https://github.com/ezsystems/ezcommerce/releases/tag/v3.2.0)
+| [Ibexa Platform v3.2.0](https://github.com/ezsystems/ezplatform/releases/tag/v3.2.0) | [[[= product_name =]] v3.2.0](https://github.com/ezsystems/ezplatform-ee/releases/tag/v3.2.0) | [[[= product_name_com =]] v3.2.0](https://github.com/ezsystems/ezcommerce/releases/tag/v3.2.0) |

@@ -373,7 +373,7 @@ The following event names have been changed:
 |`openUdw`|`ez-open-udw`|
 |`updateFieldName`|`ez-update-field-name`|
 |`fbFormBuilderLoaded`|`ez-form-builder-loaded`|
-|`fbFormBuilderUnloaded`|`ez-form-builder-unloaded`
+|`fbFormBuilderUnloaded`|`ez-form-builder-unloaded`|
 
 ## ezplatform-http-cache
 
@@ -820,7 +820,7 @@ The following namespaces have been changed:
 |Namespace|Former location|New location|
 |---------|------------|---------------|
 |`FieldData`|`EzSystems\RepositoryForms\Data\Content\`|`EzSystems\EzPlatformContentForms\Data\Content\`|
-|`FieldValueFormMapperInterface`|`EzSystems\RepositoryForms\FieldType\`|`EzSystems\EzPlatformContentForms\FieldType\`
+|`FieldValueFormMapperInterface`|`EzSystems\RepositoryForms\FieldType\`|`EzSystems\EzPlatformContentForms\FieldType\`|
 
 ## ezplatform-rest
 

@@ -20,18 +20,9 @@ If you'd like to see Ibexa DXP in your language, you can [contribute to the tran
 
 ### Contribute to API reference
 
-The REST API Reference is located in the `docs/api/rest_api/rest_api_reference/rest_api_reference.html` 
-file, which is generated automatically by the RAML2HTML tool.
-It is based on `*.raml` files located in the `docs/api/rest_api/rest_api_reference/input` directory that you can edit in your editor/IDE.
-
-After you modify relevant files in the input folder, you can generate an HTML file from repository root (this step can also be performed by one of the Tech Writers during PR review): 
-
-`php tools/raml2html/raml2html.php build --non-standard-http-methods=COPY,MOVE,PUBLISH,SWAP -t default -o docs/api/rest_api/rest_api_reference/output/ docs/api/rest_api/rest_api_reference/input/ibexa.raml`
-
-In case of errors, look for mistakes in the RAML file, for example, double apostrophes.
-Move `rest_api_reference.html`  from the output folder to `docs/api/rest_api/rest_api_reference/` root.
-
-See `tools/raml2html/README.md` for more information.
+The REST API Reference is located in the `docs/api/rest_api/rest_api_reference/` directory.
+It is based on an OpenAPI specification (`openapi.yaml` / `openapi.json`) generated from the Ibexa DXP source code.
+To contribute to the REST API reference, you must modify the source code annotations directly.
 
 ## Build and preview documentation
 
@@ -52,6 +43,28 @@ After a short while your documentation should be reachable at http://localhost:8
 of the command.
 
 ## Testing the code samples
+
+### markdownlint
+
+This repository uses [markdownlint-cli2](https://github.com/DavidAnson/markdownlint-cli2) to check Markdown formatting, including table syntax.
+
+Install dependencies:
+
+```bash
+yarn install
+```
+
+Run the linter:
+
+```bash
+yarn markdownlint
+```
+
+Some issues can be fixed automatically:
+
+```bash
+yarn markdownlint --fix
+```
 
 ### PHPStan
 

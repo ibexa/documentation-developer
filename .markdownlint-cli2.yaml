@@ -1,0 +1,19 @@
+config:
+  default: false
+  heading-style: consistent
+  list-indent: true
+  no-reversed-links: true
+  no-missing-space-atx: true
+  heading-start-left: true
+  no-multiple-space-blockquote: true
+  no-blanks-blockquote: true
+  hr-style: true
+  no-empty-links: true
+  code-fence-style: backtick
+  strong-style: asterisk
+  table-pipe-style:
+    style: leading_and_trailing
+
+ignores:
+  - "docs/snippets/**"
+  - "docs/index.md"
