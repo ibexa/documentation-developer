@@ -1,9 +1,5 @@
 <?php
 
-/**
- * @copyright Copyright (C) Ibexa AS. All rights reserved.
- * @license For full copyright and license information view LICENSE file distributed with this source code.
- */
 declare(strict_types=1);
 
 namespace Ibexa\Taxonomy;
@@ -12,6 +8,7 @@ use Ibexa\Contracts\Core\Repository\SearchService;
 use Ibexa\Contracts\Core\Repository\Values\Content\EmbeddingQueryBuilder;
 use Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion\ContentTypeIdentifier;
 use Ibexa\Contracts\Core\Repository\Values\Content\Search\SearchHit;
+use Ibexa\Contracts\Core\Search\Embedding\EmbeddingProviderResolverInterface;
 use Ibexa\Contracts\Taxonomy\Search\Query\Value\TaxonomyEmbedding;
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
@@ -25,8 +22,10 @@ use Symfony\Component\Console\Style\SymfonyStyle;
 )]
 final class FindByTaxonomyEmbeddingCommand extends Command
 {
-    public function __construct(private readonly SearchService $searchService)
-    {
+    public function __construct(
+        private readonly SearchService $searchService,
+        private readonly EmbeddingProviderResolverInterface $embeddingProviderResolver,
+    ) {
         parent::__construct();
     }
 
@@ -36,18 +35,11 @@ final class FindByTaxonomyEmbeddingCommand extends Command
     ): int {
         $io = new SymfonyStyle($input, $output);
 
-        // Example embedding vector.
-        // In a real-life scenario, generate it with an embedding provider
-        // and make sure its dimensions match the configured model.
-        $vector = [
-            0.0123,
-            -0.9876,
-            0.4567,
-            0.1111,
-        ];
+        $embeddingProvider = $this->embeddingProviderResolver->resolve();
+        $embedding = $embeddingProvider->getEmbedding('example_content');
 
         $query = EmbeddingQueryBuilder::create()
-            ->withEmbedding(new TaxonomyEmbedding($vector))
+            ->withEmbedding(new TaxonomyEmbedding($embedding))
             ->setFilter(new ContentTypeIdentifier('article'))
             ->setLimit(10)
             ->setOffset(0)
