@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Ibexa\Taxonomy;
+namespace App\Command;
 
 use Ibexa\Contracts\Core\Repository\SearchService;
 use Ibexa\Contracts\Core\Repository\Values\Content\EmbeddingQueryBuilder;
