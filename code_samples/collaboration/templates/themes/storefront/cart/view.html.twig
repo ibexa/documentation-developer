@@ -1,0 +1,8 @@
+{% extends '@IbexaStorefront/themes/storefront/cart/view.html.twig' %}
+
+{% block content %}
+    <div style="text-align: right">
+        <a href="{{ path('app.shared_cart.create') }}" class="ibexa-store-btn ibexa-store-btn--secondary">Share cart</a>
+    </div>
+    {{ parent() }}
+{% endblock %}
