@@ -508,6 +508,8 @@ nav:
             - CDP add client-side tracking: cdp/cdp_activation/cdp_add_clientside_tracking.md
         - CDP data export schedule: cdp/cdp_data_export_schedule.md
         - CDP data customization: cdp/cdp_data_customization.md
+        - Integration with Raptor:
+            - Recommendations blocks: cdp/raptor_integration/pb_blocks.md
     - Search:
         - Search: search/search.md
         - Search engines: 
