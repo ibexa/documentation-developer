@@ -42,6 +42,8 @@ for similarity search.
 Embedding queries are executed by the search engine by using the configured embedding model and provider.
 
 At runtime, the system resolves the appropriate embedding provider and ensures that the embedding vector is compatible with the configured model.
+Runtime validation includes validating vector dimensionality and selecting the correct indexed field for similarity search.
+Field selection is determined by the configured embedding model and backend specific query mapping, while vector dimensionality is validated when the query reaches the search engine.
 
 ## Embedding providers
 
