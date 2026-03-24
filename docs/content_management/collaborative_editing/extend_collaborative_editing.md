@@ -1,6 +1,8 @@
 ---
 description: Extend Collaborative editing
 month_change: true
+editions:
+    - lts-update
 ---
 
 # Extend Collaborative editing
