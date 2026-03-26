@@ -11,9 +11,9 @@ Foundational abstractions are provided for embedding-based search, while embeddi
 Searching with embeddings is designed for use with the [Taxonomy suggestions](taxonomy.md#taxonomy-suggestions) feature.
 The [`Ibexa\Contracts\Taxonomy\Search\Query\Value\TaxonomyEmbedding`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Taxonomy-Search-Query-Value-TaxonomyEmbedding.html) class allows embedding queries to target taxonomy data.
 
-!!! tip
+!!! note "Feature support"
 
-    Searching with embeddings isn't possible with the Legacy Search engine.
+    Searching with embeddings requires a search engine that supports it, such as Elasticsearch or Solr 9.8.1+.
 
 ## Core query objects
 
@@ -25,7 +25,7 @@ The [`Ibexa\Contracts\Taxonomy\Search\Query\Value\TaxonomyEmbedding`](/api/php_a
     !!! note "Embedding query properties"
 
         Embedding queries do not use criteria for similarity, but for additional filtering applied through the query filter. 
-        Also, embedding queries do not allow standard Query properties supported by [search engines](search_engines.md) other than the Legacy Search, such as `query`, `sortClauses`, or `spellcheck` 
+        Also, embedding queries do not allow standard Query properties supported by [search engines](search_engines.md) other than the Legacy Search, such as `query`, `sortClauses`, or `spellcheck`.
 
 - [EmbeddingQueryBuilder](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-EmbeddingQueryBuilder.html) is a builder for constructing `EmbeddingQuery` instances.
     It helps construct queries consistently and integrates embedding queries with the search query pipeline.
@@ -62,20 +62,20 @@ Otherwise, query execution may fail due to no visitor available.
 
 Models used to resolve embedding queries must be configured per SiteAccess in [system configuration](configuration.md).
 Each entry defines the model's name, vector dimensionality, the field suffix, and the embedding provider that generates vectors.
-Field suffixes assigned to the models must be unique, as they becomes part of the indexed field name.
+Field suffixes assigned to the models must be unique, as they become part of the indexed field name.
 You select the default model by setting a value in the `default_embedding_model` key.
 
 ``` yaml
 ibexa:
     system:
         default:
-        embedding_models:
-            text-embedding-3-small:
-                name: 'text-embedding-3-small'
-                dimensions: 1536
-                field_suffix: '3small'
-                embedding_provider: 'ibexa_openai'
-        default_embedding_model: text-embedding-ada-002
+            embedding_models:
+                text-embedding-3-small:
+                    name: 'text-embedding-3-small'
+                    dimensions: 1536
+                    field_suffix: '3small'
+                    embedding_provider: 'ibexa_openai'
+            default_embedding_model: text-embedding-ada-002
 ```
 
 For a real-life example of embedding models configuration, see [Taxonomy suggestions](taxonomy.md#change-the-embedding-generation-model).

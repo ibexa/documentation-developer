@@ -363,9 +363,9 @@ See [Aggregation reference](aggregation_reference.md) for details of all availab
 ## Search with embeddings
 
 
-!!! caution "Feature support"
+!!! note "Feature support"
 
-    Search with embeddings is only available with the Solr and Elasticsearch search engines.
+    Searching with embeddings requires a search engine that supports it, such as Elasticsearch or Solr 9.8.1+.
     
 Embeddings are numerical representations that capture the meaning of text, images, or other content.
 AI providers generate embeddings by converting words or documents into lists of numbers, instead of treating them as plain text.
@@ -382,7 +382,7 @@ You can narrow down the search results, for example, by content type or location
 To do this, combine searching with embeddings with filters.
 Repository search also respects the permissions of the current user.
 
-An embedding query is represented by the [`Ibexa\Contracts\Core\Repository\Values\Content\EmbeddingQuery`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-EmbeddingQuery.html)` value object.
+An embedding query is represented by the [`Ibexa\Contracts\Core\Repository\Values\Content\EmbeddingQuery`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-EmbeddingQuery.html) value object.
 The object encapsulates the embedding used for similarity search and optional search parameters such as filtering, pagination, aggregations, and result counting.
 
 ### Use embedding queries in search
@@ -392,8 +392,7 @@ You build an `EmbeddingQuery` instance by using a builder and pass it to the sea
 
 This example shows a minimal embedding query executed directly through the search service:
 
-``` php
-// ...
+``` php hl_lines="38-39 41-47 49" 
 [[= include_file('code_samples/api/public_php_api/src/Command/FindByTaxonomyEmbeddingCommand.php') =]]
 ```
 
