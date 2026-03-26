@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\src\Command;
+namespace App\Command;
 
 use App\Notifications\CommandExecuted;
 use Ibexa\Contracts\Core\Repository\UserService;
