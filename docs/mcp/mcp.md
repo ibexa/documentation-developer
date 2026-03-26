@@ -6,6 +6,9 @@ month_change: true
 
 # MCP Servers
 
+MCP servers allow AI interactions with the system.
+Learn more about this protocol and [[= product_name_base =]] MCP Servers:
+
 [[= cards([
 ("mcp/mcp_guide", "MCP Servers guide", "TODO."),
 "mcp/mcp_config",
