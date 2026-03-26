@@ -126,24 +126,29 @@ It's already provided in `config/packages/security.yaml`, you only need to uncom
 security:
     firewalls:
         ibexa_jwt_rest:
-            request_matcher: Ibexa\Contracts\Rest\Security\AuthorizationHeaderRESTRequestMatcher
+            request_matcher: Ibexa\Rest\Security\JWTTokenCreationRESTRequestMatcher
             user_checker: Ibexa\Core\MVC\Symfony\Security\UserChecker
-            anonymous: ~
-            guard:
-                authenticators:
-                    - lexik_jwt_authentication.jwt_token_authenticator
-                entry_point: lexik_jwt_authentication.jwt_token_authenticator
             stateless: true
+            provider: ibexa
+            json_login:
+                check_path: ibexa.rest.create_token
+                username_path: JWTInput.username
+                password_path: JWTInput.password
+                success_handler: lexik_jwt_authentication.handler.authentication_success
+                failure_handler: lexik_jwt_authentication.handler.authentication_failure
+
+        ibexa_jwt_rest.api:
+            request_matcher: Ibexa\Rest\Security\AuthorizationHeaderRESTRequestMatcher
+            user_checker: Ibexa\Core\MVC\Symfony\Security\UserChecker
+            provider: ibexa
+            stateless: true
+            jwt: ~
 
         ibexa_jwt_graphql:
             request_matcher: Ibexa\GraphQL\Security\NonAdminGraphQLRequestMatcher
-            user_checker: Ibexa\Core\MVC\Symfony\Security\UserChecker
-            anonymous: ~
-            guard:
-                authenticators:
-                    - lexik_jwt_authentication.jwt_token_authenticator
-                entry_point: lexik_jwt_authentication.jwt_token_authenticator
+            provider: ibexa
             stateless: true
+            jwt: ~
 ```
 
 Finish the setup by generating a [PEM encoded key pair](https://symfony.com/bundles/LexikJWTAuthenticationBundle/2.x/index.html#generate-the-ssl-keys) by using the command:
