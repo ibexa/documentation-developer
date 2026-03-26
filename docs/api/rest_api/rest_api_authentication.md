@@ -276,39 +276,6 @@ See [JWT authentication](development_security.md#jwt-authentication) for configu
 
 After you configure JWT authentication for REST, you can get the JWT token through the following request:
 
-=== "XML"
-
-    ```
-    POST /user/token/jwt HTTP/1.1
-    Host: <yourdomain>
-    Accept: application/vnd.ibexa.api.JWT+xml
-    Content-Type: application/vnd.ibexa.api.JWTInput+xml
-    ```
-
-    Provide the username and password in the request body:
-
-    ```xml
-    <JWTInput>
-        <username>admin</username>
-        <password>publish</password>
-    </JWTInput>
-    ```
-
-    If credentials are valid, the server response contains a token:
-
-    ```xml
-    <JWT media-type="application/vnd.ibexa.api.JWT+xml" token="eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9…-QBE4-6eKNjg"/>
-    ```
-
-    You can then use this token in your request instead of username and password.
-
-    ```
-    GET /content/locations/1/5/children
-    Host: <yourdomain>
-    Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9…-QBE4-6eKNjg
-    Accept: application/vnd.ibexa.api.LocationList+xml
-    ```
-
 === "JSON"
 
     ```
