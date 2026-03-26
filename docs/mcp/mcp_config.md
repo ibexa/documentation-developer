@@ -67,8 +67,8 @@ TODO
 
 #### Options
 
-| Option    | Type    | Default  | Description                                       |
-|-----------|---------|----------|---------------------------------------------------|
+| Option      | Type    | Default  | Description                                       |
+|-------------|---------|----------|---------------------------------------------------|
 | `type`      | enum    | `memory` | Session store type: `psr16`, `file`, or `memory`  |
 | `service`   | string  | `null`   | PSR-16 cache service ID for `psr16` session store |
 | `prefix`    | string  | `mcp_`   | Key prefix for `psr16` session store              |
@@ -125,7 +125,10 @@ TODO: `Ibexa\Contracts\Mcp\Attribute` namespace
 
 ## Example
 
-This example introduce an `example` MCP server with a single `greet` tool, enabled on all SiteAccesses.
+This example introduce an `example` MCP server with a single `greet` tool.
+It's enabled on all SiteAccesses.
+It's accessible with the path `/mcp/example` (for example, on `http://localhost/mcp/example` and `http://localhost/admin/mcp/example`).
+It uses files for both discovery cache and session storage.
 
 In a new `config/packages/mcp.yaml` file, the configuration of the MCP server:
 
