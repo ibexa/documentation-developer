@@ -1,6 +1,6 @@
 baseUrl='http://localhost' # Adapt to your test case
 
-jwtToken=`curl -s -X 'POST' \
+jwtToken=$(curl -s -X 'POST' \
   "$baseUrl/api/ibexa/v2/user/token/jwt" \
   -H 'Content-Type: application/json' \
   -d '{
@@ -9,9 +9,9 @@ jwtToken=`curl -s -X 'POST' \
           "username": "admin",
           "password": "publish"
         }
-      }' | jq -r .JWT.token`
+      }' | jq -r .JWT.token)
 
-mcpSessionId=`curl -s -i -X 'POST' "$baseUrl/mcp/example" \
+mcpSessionId=$(curl -s -i -X 'POST' "$baseUrl/mcp/example" \
   -H "Authorization: Bearer $jwtToken" \
   -d '{
         "jsonrpc": "2.0",
@@ -25,7 +25,7 @@ mcpSessionId=`curl -s -i -X 'POST' "$baseUrl/mcp/example" \
             "version": "1.0.0"
           }
         }
-      }' | grep 'Mcp-Session-Id:' | sed 's/Mcp-Session-Id: \([0-9a-f-]*\).*/\1/'`
+      }' | grep 'Mcp-Session-Id:' | sed 's/Mcp-Session-Id: \([0-9a-f-]*\).*/\1/')
 
 curl -s -i -X 'POST' "$baseUrl/mcp/example" \
   -H "Authorization: Bearer $jwtToken" \
