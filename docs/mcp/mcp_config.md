@@ -9,7 +9,7 @@ TODO: built-in MCP servers VS custom MCP servers
 
 ## JWT
 
-MCP servers use JWT for authentification.
+MCP servers use JWT for authentication.
 
 TODO: [Enable authorization header in `config/packages/lexik_jwt_authentication.yaml`](development_security.md#jwt-authentication).
 
