@@ -36,7 +36,7 @@ ibexa:
 
 To find the value for the `customer_id` identifier, log in to Raptor Control Panel, and look for "Account number":
 
-A. A. In the top-left corner, above the account name, you can find the account number for the currently active account.
+A. In the top-left corner, above the account name, you can find the account number for the currently active account.
 B. Click the arrow icon in the top-left corner to expand the window. There you can see a list of all your accounts, with their numbers shown in the “Account number” column on the right (if you have multiple accounts, you can easily locate and copy the number of any of your accounts, not just the active one).
 
 ![Account number](account_number.png)
