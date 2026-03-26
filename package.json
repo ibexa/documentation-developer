@@ -17,6 +17,7 @@
     "markdownlint-cli2": "^0.21.0"
   },
   "dependencies": {
-    "sass": "^1.82.0"
+    "sass": "^1.82.0",
+    "yarn": "^1.22.22"
   }
 }
