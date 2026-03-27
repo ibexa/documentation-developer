@@ -1,7 +1,7 @@
 @use '../../vendor/ibexa/admin-ui/src/bundle/Resources/public/scss/_alerts.scss' as *;
 
 .ibexa-alert {
-  &--notification {
-    @extend .ibexa-alert--info;
-  }
+    &--notification {
+        @extend .ibexa-alert--info;
+    }
 }
