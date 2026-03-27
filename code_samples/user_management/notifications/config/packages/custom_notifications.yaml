@@ -20,3 +20,11 @@ ibexa:
                         channels:
                             - ibexa
                             - email
+                            - log
+        admin_group:
+            notifier:
+                subscriptions:
+                    App\Notifications\ControllerFeedback:
+                        channels:
+                            - browser
+                            - log
