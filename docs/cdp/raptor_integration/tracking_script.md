@@ -15,7 +15,7 @@ By default, the function returns the script for client-side use, while it can re
 ## Embedd tracking script
 
 To enable tracking, tracking script must be embedded into the website’s layout.
-To embedd tracking script, add the twig function `ibexa_tracking_script()` into the <head> section of your base layout template: `layout.html.twig`.
+To embedd tracking script, add the twig function `ibexa_tracking_script()` into the <head> section of your base layout template, for example, `layout.html.twig`.
 
 This function accepts following parameters:
 
@@ -24,7 +24,12 @@ This function accepts following parameters:
 |`customerId`  |string |From SiteAccess configuration|Can be overridden for custom customer IDs.|
 |`hasConsented`|boolean|false                        |Controls loading of tracking based on user consent at render time.|
 
-Example setup:
+Default setup:
+
+``` bash
+{{ ibexa_tracking_script() }}
+```
+Example setup using parameters:
 
 ``` bash
 {{ ibexa_tracking_script(customerId: '123', hasConsented: true) }}
