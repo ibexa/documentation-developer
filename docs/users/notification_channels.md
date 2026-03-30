@@ -82,7 +82,7 @@ SLACK_DSN=slack://xoxb-token@default?channel=ibexa-notifications
 Subscribe to notification types related to Commerce like order, payment, and shipment status changes.
 For example, in a new `config/packages/notifications.yaml` file:
 
-``` yaml
+``` yaml hl_lines="12-20"
 [[= include_file('code_samples/user_management/notifications/config/packages/notifications.yaml', 0, 20) =]]
 ```
 
@@ -163,9 +163,8 @@ As constructor arguments, an instance takes the command itself, the exit code of
 
 The channels subscribing to this notification are set in `config/packages/notifications.yaml`:
 
-``` yaml
-[[= include_file('code_samples/user_management/notifications/config/packages/notifications.yaml', 4, 9) =]]                    # …
-[[= include_file('code_samples/user_management/notifications/config/packages/notifications.yaml', 20, 24) =]]
+``` yaml hl_lines="17-20"
+[[= include_file('code_samples/user_management/notifications/config/packages/notifications.yaml', 4, 24) =]]
 ```
 
 The example command sends a `CommandExecuted` notification at the end of what could be a regular execution.
@@ -232,9 +231,9 @@ Subscribe to this new notification type in `config/packages/notifications.yaml`:
 - in the `admin_group` scope with the `browser` channel
 - For Commerce edition, in the `storefront_group` scope with the `browser` channel
 
-``` yaml
+``` yaml hl_lines="13-15 43-45"
 [[= include_file('code_samples/user_management/notifications/config/packages/notifications.yaml', 4, 6) =]]        # …
-[[= include_file('code_samples/user_management/notifications/config/packages/notifications.yaml', 25, 60) =]][[= include_file('code_samples/user_management/notifications/config/packages/notifications.yaml', 61) =]]
+[[= include_file('code_samples/user_management/notifications/config/packages/notifications.yaml', 25, 34) =]][[= include_file('code_samples/user_management/notifications/config/packages/notifications.yaml', 35, 65) =]][[= include_file('code_samples/user_management/notifications/config/packages/notifications.yaml', 66) =]]
 ```
 
 Reaching this controller in the back office (at `/admin/notification-sender`) triggers the notification as a flash message in the bottom-right corner:
@@ -262,7 +261,7 @@ The following example is a custom channel that sends notifications to the logger
 
 Now, [`CommandExecuted` notification](#commandexecuted-example) can be subscribed to with the `log` channel:
 
-``` yaml
+``` yaml hl_lines="5"
 [[= include_file('code_samples/user_management/notifications/config/packages/notifications.yaml', 20, 25) =]]
 ```
 

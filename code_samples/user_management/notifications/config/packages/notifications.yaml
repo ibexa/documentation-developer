@@ -7,7 +7,7 @@ ibexa:
         default:
             notifier:
                 subscriptions:
-                    # Default subscriptions from ibexa.yaml are properly added.
+                    # Default subscriptions from ibexa.yaml are properly merged.
                     # Custom subscriptions:
                     Ibexa\OrderManagement\Notification\OrderStatusChange:
                         channels:
@@ -26,8 +26,13 @@ ibexa:
         admin_group:
             notifier:
                 subscriptions:
-                    # Default subscriptions from ibexa_admin_ui.yaml are properly added
+                    # Default subscriptions from ibexa_admin_ui.yaml are properly merged
                     # Custom subscriptions:
+                    App\Notifications\CommandExecuted:
+                        channels:
+                            - ibexa
+                            - email
+                            - log
                     App\Notifications\ControllerFeedback:
                         channels:
                             - browser
