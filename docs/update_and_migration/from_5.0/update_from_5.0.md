@@ -392,14 +392,18 @@ Update Symfony constraints in `composer.json` before updating the packages.
         Liip\ImagineBundle\LiipImagineBundle::class => ['all' => true],
     ```
 
+For more details about the new version, see the official Symfony [upgrade instructions](https://github.com/symfony/symfony/blob/7.4/UPGRADE-7.4.md) and [blog posts introducing this release](https://symfony.com/blog/category/living-on-the-edge/8.0-7.4).
+Among the changes are:
 
-
-!!! tip
+- Array-based PHP configuration format
 
     As part of the [array-based PHP configuration format](https://symfony.com/blog/new-in-symfony-7-4-better-php-configuration), a `config/reference.php` file will be created.
     You should commit this file to the repository.
 
-For more details about the new version, see the official Symfony [upgrade instructions](https://github.com/symfony/symfony/blob/7.4/UPGRADE-7.4.md) and [blog posts introducing this release](https://symfony.com/blog/category/living-on-the-edge/8.0-7.4).
+- Independent application cache directory
+
+    Symfony 7.4 introduces a new [share directory](https://symfony.com/blog/new-in-symfony-7-4-share-directory), dedicated for storing application cache on the file system.
+    If you decide to configure it (for example, by setting the `APP_SHARE_DIR` environment variable), review your existing scripts for explicit `var/cache` usage (for example, `rm -rf var/cache`) and decide whether to include `var/share` in the script.
 
 ## LTS Updates and additional packages
 
