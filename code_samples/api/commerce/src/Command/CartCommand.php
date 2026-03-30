@@ -79,7 +79,7 @@ final class CartCommand extends Command
         $cartsList = $this->cartService->findCarts($cartQuery);
 
         $cartsList->getCarts(); // array of CartInterface objects
-        $cartsList->getTotalCount(); // number of returned carts
+        $cartsList->getTotalCount(); // number of matching carts regardless of the limit
 
         foreach ($cartsList as $cart) {
             $output->writeln($cart->getIdentifier() . ': ' . $cart->getName());

@@ -9,9 +9,12 @@ use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
 final class HelpMenuSubscriber implements EventSubscriberInterface
 {
+    private bool $kernelDebug;
+
     public function __construct(
-        private readonly bool $kernelDebug
+        bool $kernelDebug
     ) {
+        $this->kernelDebug = $kernelDebug;
     }
 
     public static function getSubscribedEvents(): array

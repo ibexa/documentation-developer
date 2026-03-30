@@ -109,6 +109,7 @@ s
  * @copyright Copyright (C) Ibexa AS. All rights reserved.
  * @license For full copyright and license information view LICENSE file distributed with this source code.
  */
+
 namespace Ibexa\Bundle\Core\URLChecker;
 
 interface URLHandlerInterface
@@ -147,7 +148,6 @@ For each URL alias definition the history of changes is preserved, so that users
 !!! caution "Legacy storage engine limitation"
 
     The [Legacy storage engine](field_type_storage.md#legacy-storage-engine) doesn't archive URL aliases, which initially had the same name in multiple languages.
-    For more information, see [the Jira ticket](https://issues.ibexa.co/browse/EZP-31818).
 
 URL aliases aren't SiteAccess-aware. When creating an alias, you can select a SiteAccess to base it on.
 If the SiteAccess root path (configured in `content.tree_root.location_id`) is different than the default,

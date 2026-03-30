@@ -127,15 +127,17 @@ For production setups it's recommended that you use Varnish/Fastly, Redis/Valkey
 
 === "[[= product_name =]] v5.0"
 
+    - 8.4
     - 8.3
 
 === "[[= product_name =]] v4.6"
 
+    - 8.4
     - 8.3
     - 8.2
-    - 8.1
-    - 8.0 (PHP 8.0 has reached its End of Life. Unless you have extended support from vendors like Debian or Zend, you should use PHP 8.1)
-    - 7.4 (PHP 7.4 has reached its End of Life. Unless you have extended support from vendors like Debian or Zend, you should use PHP 8.1)
+    - 8.1 (PHP 8.1 has reached its End of Life. Unless you have extended support from vendors like Debian or Zend, you should use PHP 8.2)
+    - 8.0 (PHP 8.0 has reached its End of Life. Unless you have extended support from vendors like Debian or Zend, you should use PHP 8.2)
+    - 7.4 (PHP 7.4 has reached its End of Life. Unless you have extended support from vendors like Debian or Zend, you should use PHP 8.2)
 
 === "[[= product_name =]] v3.3"
 

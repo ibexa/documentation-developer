@@ -295,6 +295,7 @@ nav:
             - Collaborative editing product guide: content_management/collaborative_editing/collaborative_editing_guide.md
             - Install and configure Collaborative editing: content_management/collaborative_editing/install_collaborative_editing.md
             - Collaborative editing API: content_management/collaborative_editing/collaborative_editing_api.md
+            - Extend Collaborative editing: content_management/collaborative_editing/extend_collaborative_editing.md
     - Templating:
         - Templating: templating/templating.md
         - Render content:
@@ -806,6 +807,7 @@ nav:
             - ProductPriceRangeAggregation: search/aggregation_reference/productpricerange_aggregation.md
             - ProductTypeTermAggregation: search/aggregation_reference/producttypeterm_aggregation.md
             - TaxonomyEntryIdAggregation: search/aggregation_reference/taxonomyentryid_aggregation.md
+        - Embeddings search reference: search/embeddings_reference/embeddings_reference.md
         - Search in trash reference: search/search_in_trash_reference.md
         - Extend search:
             - Create custom Search Criterion: search/extensibility/create_custom_search_criterion.md
@@ -994,8 +996,8 @@ extra:
   latest_tag_4_3: '4.3.5'
   latest_tag_4_4: '4.4.4'
   latest_tag_4_5: '4.5.7'
-  latest_tag_4_6: '4.6.27'
-  latest_tag_5_0: '5.0.5'
+  latest_tag_4_6: '4.6.28'
+  latest_tag_5_0: '5.0.6'
 
   symfony_doc: 'https://symfony.com/doc/5.x'
   user_doc: 'https://doc.ibexa.co/projects/userguide/en/4.6'
