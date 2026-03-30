@@ -20,7 +20,7 @@ This connector ensures a smooth and unified integration layer, enabling:
 This approach reduces integration complexity while providing a scalable foundation for personalization use cases across multiple sites and markets.
 
 Follow a step-by-step procedure that allows you to activate SiteAccess-aware Raptor connector.
-Activation includes configuration, adding tracking scripts and events, and using [Page Builder]([[= user_doc =]]/content_management/pages/page_builder_guide/) blocks.
+Activation includes configuration, adding tracking scripts and events, and using [Page Builder](page_builder_guide.md) blocks.
 
 [[= cards([
     "cdp/raptor_integration/connector_configuration",
