@@ -1,16 +1,16 @@
 ---
-description: Raptor tracking event function.
+description: Raptor tracking function.
 ---
 
-# Raptor tracking event function
+# Raptor tracking function
 
-This module introduces visit tracking functionality for collecting user interactions with products and content.
+Raptor [tracking function](https://content.raptorservices.com/help-center/introduction-to-tracking-documentation) introduces visit tracking functionality for collecting user interactions with products and content.
 The implementation includes product visit tracking with mapping to tracking parameters and automatic price formatting, as well as Twig functions for straightforward integration.
 It supports multi-currency setups with automatic decimal formatting (0, 2, or 3 decimals) based on configuration, and integrates with taxonomy to extract and format category paths for product categorization.
 
 ## Initialize Raptor tracking script
 
-First, initialize the Raptor tracking script in your base layout template, typically within the <head> section or before the closing <body> tag:
+First, initialize the `ibexa_tracking_script()` tracking script in your base layout template, typically within the <head> section or before the closing <body> tag:
 
 ``` html+twig
 {# templates/base.html.twig #}
@@ -28,16 +28,86 @@ First, initialize the Raptor tracking script in your base layout template, typic
 </html>
 ```
 
+## Tracking parameters
+
+Tracking is handled through twig function that accept following parameters:
+
+``` html+twig
+ibexa_tracking_track_event(
+    eventType,     {# string: 'visit', 'contentvisit', 'buy', 'basket', 'itemclick' #}
+    data,          {# mixed: Product, Content, or null (optional) #}
+    context,       {# array: additional context data (optional) #}
+    template       {# string: custom template path (optional) #}
+)
+```
+
+- **eventType** - type: string, defines the type of tracking event to be sent, for example, `visit`, `contentvisit`, `buy`, `basket`, `itemclick`
+- **data** (optional) - type: mixed, defines the primary object associated with the event, such as a Product or Content, can be null if not required
+- **context** (optional)- type: array, additional event data, such as quantity, basket details, or custom parameters
+- **template** (optional) - type: string, path to a custom Twig template used to render the tracking event, allows overriding the default tracking output
+
+### `context` parameter - example usage
+
+You can use `context` parameter to add additional data.
+
+During tracking, for products assigned to multiple categories, the system uses the first category.
+In this case, `context` parameter allows to override the product category by passing a category identifier:
+
+``` html+twig
+{% block content %}
+    <div class="product-details">
+        <h1>{{ product.name }}</h1>
+        {# ... product content ... #}
+    </div>
+
+    {# Track with category identifier - automatic loading and formatting #}
+    {{ ibexa_tracking_track_event('visit', product, {
+        'categoryIdentifier': 'electronics'
+    }) }}
+{% endblock %}
+```
+
+## Tracking modes
+
+Tracking user interactions can be implemented on the Client side or the Server side.
+Each approach differs in where events are captured and how they are sent to the tracking backend.
+The `ibexa_tracking_track_event()` function works for both client-side and server-side tracking based on `tracking_type` configuration.
+
+The tracking function outputs different content depending on the mode:
+
+``` yaml
+# Server-side tracking
+connector_raptor:
+    tracking_type: 'server'  # Returns HTML comments
+
+# Client-side tracking
+connector_raptor:
+    tracking_type: 'client'  # Returns <script> tags
+```
+
+- **server** - returns HTML comments, leaving placeholders without running JavaScript.
+- **client** - returns `script` tags to load the tracking script in the browser.
+
+You can switch tracking mode anytime by changing the `tracking_type` parameter.
+
+For more information on Tracking modes, see Raptor documentation:
+
+- [Client-side tracking](https://content.raptorservices.com/help-center/client-side-tracking)
+- [Server-side tracking](https://content.raptorservices.com/help-center/server-side-tracking)
+- [Client-side vs. Server-side tracking](https://content.raptorservices.com/help-center/client-side-vs.-server-side-tracking)
+
 ## Tracking events
 
-### Product Visit Event
+The following events are supported and can be triggered from Twig templates:
+
+### Product Visit event
 
 This event tracks product page visits by users.
-This is the most common e-commerce tracking event used to capture product views for analytics, recommendation models, and user behavior processing.
+It's the most common e-commerce tracking event used to capture product views for analytics, recommendation models, and user behavior processing.
 
-Required Data:
+Required data:
 
-- Product object (implements `ProductInterface`)
+- **Product object** - defines the product being tracked. It implements `ProductInterface` so the system can read its information (for example, ID, price, category).
 
 Example:
 
@@ -57,14 +127,22 @@ Example:
 {% endblock %}
 ```
 
-### Basket Event
+### Content Visit event
+
+This event tracks content page visits by users.
+It can used to check content views for analytics, personalization, and user behavior tracking.
+
+- **Content object** - defines the content being tracked.
+
+### Basket event
 
 This event tracks when a product is added to the shopping basket.
 It catches user interest and helps with conversion tracking and product recommendations.
 
-Required Data:
-- Product object (the product being added to cart)
-- Context array with basket information
+Required data:
+
+- **Product object** - defines the product being added to the basket.
+- **Context array with basket information** - provides optional data about the basket, like quantity or basket ID, to provide context for the event.
 
 Example:
 
@@ -121,4 +199,51 @@ You can override the default tracking templates by providing a custom template p
     {},
     '@MyBundle/tracking/custom_visit.html.twig'
 ) }}
+```
+
+## Event subscriber
+
+If you need to track events automatically based on application events, you can use Event Subscriber.
+It reacts to specific events in the application and triggers tracking logic without the need to add it manually in templates.
+
+Example:
+
+``` php
+use Ibexa\Contracts\ConnectorRaptor\Tracking\EventMapperInterface;
+use Ibexa\Contracts\ConnectorRaptor\Tracking\ServerSideTrackingDispatcherInterface;
+use Ibexa\Contracts\ConnectorRaptor\Tracking\EventType;
+use Symfony\Component\EventDispatcher\EventSubscriberInterface;
+use Symfony\Component\HttpKernel\Event\ResponseEvent;
+use Symfony\Component\HttpKernel\KernelEvents;
+
+class ProductViewTrackingSubscriber implements EventSubscriberInterface
+{
+    public function __construct(
+        private readonly EventMapperInterface $eventMapper,
+        private ServerSideTrackingDispatcherInterface $trackingDispatcher,
+    ) {}
+
+    public static function getSubscribedEvents(): array
+    {
+        return [KernelEvents::RESPONSE => ['onResponse', -10]];
+    }
+
+    public function onResponse(ResponseEvent $event): void
+    {
+        if (!$event->isMainRequest()) {
+            return;
+        }
+
+        $request = $event->getRequest();
+
+        // Example: track only if request has specific attribute
+        $product = $request->attributes->get('product');
+        if (!$product) {
+            return;
+        }
+
+        $eventData = $this->eventMapper->map(EventType::VISIT, $product);
+        $this->trackingDispatcher->dispatch($eventData);
+    }
+}
 ```
