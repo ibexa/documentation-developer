@@ -112,6 +112,15 @@ Then, you can add a link attribute to provide target for the button, and a style
 
 Refer to [Extend Online Editor](extend_online_editor.md#link-tag) for a similar use case.
 
+### Product marketing campaigns
+
+With Online Editor, editors can embed products from the product catalog directly into RichText fields.
+Products can be embedded as block-level or inline elements.
+
+You can use it to weave marketing content around your product data, showcasing your product capabilities and bringing it closer to your customers.
+
+See [Embed products in content](products.md#embed-products-in-content) for details.
+
 ### Embed external resources
 
 Custom tags allow embedding content from external resources inside RichText fields.

@@ -377,6 +377,7 @@ nav:
             - Create product code generator: product_catalog/create_product_code_generator.md
             - Create custom catalog filter: product_catalog/create_custom_catalog_filter.md
             - Create custom name schema: product_catalog/create_custom_name_schema_strategy.md
+            - Customize product embed templates: product_catalog/customize_product_embed_templates.md
         - Add remote PIM support: product_catalog/add_remote_pim_support.md
     - Commerce:
         - Commerce: commerce/commerce.md
