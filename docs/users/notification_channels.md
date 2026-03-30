@@ -50,7 +50,18 @@ php bin/console debug:container --tag=notifier.channel
 * [`push`]([[= symfony_doc =]]/notifier.html#push-channel) - Notification forwarded to specific applications
 * [`sms`]([[= symfony_doc =]]/notifier.html#sms-channel) - Notification forwarded to phone numbers
 
-Some default subscriptions can be found in `config/packages/ibexa.yaml`.
+Some default subscriptions can be found in `config/packages/ibexa.yaml` and `config/packages/ibexa_admin_ui.yaml`.
+
+!!! caution "Scopes may not merge as expected"
+
+    Subscriptions defined for a scope may not merge with subscriptions from others scopes or from other files.
+    For example, `default` scope might not be merged within a siteaccess group scope.
+    To ensure you don't unsubscribe against your will,
+    always use the following command to check subscriptions for a siteaccess before and after additions:
+
+    ```bash
+    php bin/console ibexa:debug:config notifications.subscriptions --siteaccess=<siteaccess>
+    ```
 
 ### Subscription example
 
@@ -69,10 +80,10 @@ SLACK_DSN=slack://xoxb-token@default?channel=ibexa-notifications
 ```
 
 Subscribe to notification types related to Commerce like order, payment, and shipment status changes.
-For example in a new `config/packages/custom_notifications.yaml` file:
+For example, in a new `config/packages/notifications.yaml` file:
 
 ``` yaml
-[[= include_file('code_samples/user_management/notifications/config/packages/custom_notifications.yaml', 0, 18) =]]
+[[= include_file('code_samples/user_management/notifications/config/packages/notifications.yaml', 0, 20) =]]
 ```
 
 ## Create a notification class
@@ -150,11 +161,11 @@ As constructor arguments, an instance takes the command itself, the exit code of
 [[= include_file('code_samples/user_management/notifications/src/Notifications/CommandExecuted.php') =]]
 ```
 
-The channels subscribing to this notification are set in `config/packages/custom_notifications.yaml`:
+The channels subscribing to this notification are set in `config/packages/notifications.yaml`:
 
 ``` yaml
-[[= include_file('code_samples/user_management/notifications/config/packages/custom_notifications.yaml', 4, 9) =]]                    # …
-[[= include_file('code_samples/user_management/notifications/config/packages/custom_notifications.yaml', 18, 22) =]]
+[[= include_file('code_samples/user_management/notifications/config/packages/notifications.yaml', 4, 9) =]]                    # …
+[[= include_file('code_samples/user_management/notifications/config/packages/notifications.yaml', 20, 24) =]]
 ```
 
 The example command sends a `CommandExecuted` notification at the end of what could be a regular execution.
@@ -216,14 +227,14 @@ This `assets/scss/notifications.scss` is added to the Admin UI layout in `webpac
 On the storefront, a notification sent as a flash message has the `ibexa-store-notification--notification` CSS class.
 This class already has a default style.
 
-Subscribe to this new notification type in `config/packages/custom_notifications.yaml`:
+Subscribe to this new notification type in `config/packages/notifications.yaml`:
 
 - in the `admin_group` scope with the `browser` channel
 - For Commerce edition, in the `storefront_group` scope with the `browser` channel
 
 ``` yaml
-[[= include_file('code_samples/user_management/notifications/config/packages/custom_notifications.yaml', 4, 6) =]]        # …
-[[= include_file('code_samples/user_management/notifications/config/packages/custom_notifications.yaml', 23) =]]
+[[= include_file('code_samples/user_management/notifications/config/packages/notifications.yaml', 4, 6) =]]        # …
+[[= include_file('code_samples/user_management/notifications/config/packages/notifications.yaml', 25, 60) =]][[= include_file('code_samples/user_management/notifications/config/packages/notifications.yaml', 61) =]]
 ```
 
 Reaching this controller in the back office (at `/admin/notification-sender`) triggers the notification as a flash message in the bottom-right corner:
@@ -252,7 +263,7 @@ The following example is a custom channel that sends notifications to the logger
 Now, [`CommandExecuted` notification](#commandexecuted-example) can be subscribed to with the `log` channel:
 
 ``` yaml
-[[= include_file('code_samples/user_management/notifications/config/packages/custom_notifications.yaml', 18, 23) =]]
+[[= include_file('code_samples/user_management/notifications/config/packages/notifications.yaml', 20, 25) =]]
 ```
 
 The log file contains the notifications:
