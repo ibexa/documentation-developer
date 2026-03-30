@@ -6,7 +6,7 @@ month_change: true
 
 # Integrated help
 
-Integrated help is an [LTS Update](editions.md#lts-updates) that brings documentation, training resources and product roadmap-related information into the back office.
+Integrated help is an [LTS Update](editions.md#lts-updates) that brings documentation, training resources, and product roadmap-related information into the back office, together with user onboarding capabilities.
 With this feature installed, users can click the ![Help icon](about-info.png){.inline-image} icon to access relevant content straight from the UI.
 
 ![Integrated help menu](5_0_integrated_help_menu.png)
@@ -15,7 +15,7 @@ Integrated help is contextual, therefore, apart from user documentation, release
 
 ## Product tours
 
-Product tours are interactive guided walkthroughs that help users discover and learn [[= product_name =]] features, available starting with [[= product_name =]] v4.6.28.
+Product tours are interactive guided walkthroughs that help users discover and learn [[= product_name =]] features, available starting with [[= product_name =]] v4.6.29.
 They provide step-by-step guidance directly within the application interface, accelerating user adoption and reducing training time.
 
 Developers can create custom onboarding journeys tailored to specific client implementations, user roles, or business processes.

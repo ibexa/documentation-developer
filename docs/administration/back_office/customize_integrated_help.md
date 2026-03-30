@@ -21,7 +21,7 @@ After you have installed the integrated help package, you can disable the entire
 
 ### Disable all features
 
-To disable both the Help Center and the Product tour globally, for example, to run UI tests in a `dev` [environment](environments.md), in `config/packages` create the `ibexa_integrated_help.yaml` file with the following configuration:
+To disable both the Help center and the Product tour globally, for example, to run UI tests in a `dev` [environment](environments.md), in `config/packages` create the `ibexa_integrated_help.yaml` file with the following configuration:
 
 ``` yaml
 ibexa_integrated_help:
