@@ -137,7 +137,7 @@ General scenario steps display centered modals and support the `background_image
 For the background, you can use an absolute URL or place your image in the `public` directory and provide the path relative to it.
 To resolve the path relative to the site root, [prefix it with `/`](https://developer.mozilla.org/en-US/docs/Web/API/URL_API/Resolving_relative_references#root_relative).
 
-```yaml hl_lines="6 10"
+```yaml hl_lines="6 11"
 [[= include_file('code_samples/back_office/product_tour/config/general_scenario.yaml', 0, 14) =]]
 ```
 
@@ -146,7 +146,7 @@ To resolve the path relative to the site root, [prefix it with `/`](https://deve
 Targeted tour steps highlight specific UI elements by using CSS selectors.
 You can select a specific element by using the `target` setting.
 
-```yaml hl_lines="6 10"
+```yaml hl_lines="6 11"
 [[= include_file('code_samples/back_office/product_tour/config/targetable_scenario.yaml', 0, 15) =]]
 ```
 
@@ -174,7 +174,7 @@ A tooltip attached to specific element on the page is displayed.
 Users continue the scenario with Previous/Next buttons:
 
 ```yaml
-[[= include_file('code_samples/back_office/product_tour/config/targetable_scenario.yaml', 7, 15) =]]
+[[= include_file('code_samples/back_office/product_tour/config/targetable_scenario.yaml', 8, 16) =]]
 ```
 
 **Clickable mode**:
@@ -183,7 +183,7 @@ A tooltip attached to specific element on the page is displayed.
 Users continue the scenario by clicking the highlighted element.
 
 ```yaml
-[[= include_file('code_samples/back_office/product_tour/config/targetable_scenario.yaml', 15, 23) =]]
+[[= include_file('code_samples/back_office/product_tour/config/targetable_scenario.yaml', 16, 24) =]]
 ```
 
 **Draggable mode**:
@@ -192,7 +192,7 @@ A tooltip attached to specific element on the page is displayed.
 Users continue the scenario by [dragging](https://developer.mozilla.org/en-US/docs/Web/API/HTML_Drag_and_Drop_API#draggable_items) the highlighted element.
 
 ```yaml
-[[= include_file('code_samples/back_office/product_tour/config/targetable_scenario.yaml', 31, 39) =]]
+[[= include_file('code_samples/back_office/product_tour/config/targetable_scenario.yaml', 32, 40) =]]
 ```
 
 You can use this mode only with HTML elements that have the [`draggable` attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Global_attributes/draggable) set to `true`.
@@ -210,7 +210,7 @@ TODO: Step screenshot with all 7 blocks available?
 Display bold, prominent titles:
 
 ```yaml
-[[= include_file('code_samples/back_office/product_tour/config/general_scenario.yaml', 11, 14) =]]
+[[= include_file('code_samples/back_office/product_tour/config/general_scenario.yaml', 12, 15) =]]
 ```
 
 ### Text block
@@ -218,7 +218,7 @@ Display bold, prominent titles:
 Display regular text content:
 
 ```yaml
-[[= include_file('code_samples/back_office/product_tour/config/general_scenario.yaml', 14, 17) =]]
+[[= include_file('code_samples/back_office/product_tour/config/general_scenario.yaml', 15, 18) =]]
 ```
 
 ### Link block
@@ -226,7 +226,7 @@ Display regular text content:
 Add external or internal links:
 
 ```yaml
-[[= include_file('code_samples/back_office/product_tour/config/general_scenario.yaml', 17, 21) =]]
+[[= include_file('code_samples/back_office/product_tour/config/general_scenario.yaml', 18, 22) =]]
 ```
 
 ### List block
@@ -234,7 +234,7 @@ Add external or internal links:
 Create bulleted lists with title:
 
 ```yaml
-[[= include_file('code_samples/back_office/product_tour/config/general_scenario.yaml', 29, 36) =]]
+[[= include_file('code_samples/back_office/product_tour/config/general_scenario.yaml', 30, 37) =]]
 ```
 
 The `title_translation_key` property is optional.
@@ -252,7 +252,7 @@ You can provide alternative text by using the `alt_translation_key` property.
 Assuming a `public/img/diagram.jpg` image exists, set the configuration value to `/img/diagram.jpg`.
 
 ```yaml
-[[= include_file('code_samples/back_office/product_tour/config/general_scenario.yaml', 21, 25) =]]
+[[= include_file('code_samples/back_office/product_tour/config/general_scenario.yaml', 22, 26) =]]
 ```
 
 #### Video block
@@ -260,7 +260,7 @@ Assuming a `public/img/diagram.jpg` image exists, set the configuration value to
 Embed video content by using the [`video` HTML element](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/video):
 
 ```yaml
-[[= include_file('code_samples/back_office/product_tour/config/general_scenario.yaml', 25, 29) =]]
+[[= include_file('code_samples/back_office/product_tour/config/general_scenario.yaml', 26, 30) =]]
 ```
 
 ### Custom Twig template block
@@ -268,7 +268,7 @@ Embed video content by using the [`video` HTML element](https://developer.mozill
 For advanced content, use custom Twig templates that allows you to fully control the styling of the block:
 
 ```yaml
-[[= include_file('code_samples/back_office/product_tour/config/general_scenario.yaml', 36, 39) =]]
+[[= include_file('code_samples/back_office/product_tour/config/general_scenario.yaml', 37, 40) =]]
 ```
 
 Create the dedicated template, for example in `templates/custom_template.html.twig`.
