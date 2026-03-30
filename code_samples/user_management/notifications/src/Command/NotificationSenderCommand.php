@@ -35,7 +35,7 @@ class NotificationSenderCommand extends Command
 
         try {
             // Do something
-            if (rand(0, 1) == 1) {
+            if (random_int(0, 1) == 1) {
                 throw new \RuntimeException('Something went wrong');
             }
             $exitCode = Command::SUCCESS;

@@ -16,7 +16,7 @@ class LogChannel implements ChannelInterface, LoggerAwareInterface
     {
         if (isset($this->logger)) {
             $this->logger->info($notification->getSubject(), [
-                'class' => get_class($notification),
+                'class' => $notification::class,
                 'importance' => $notification->getImportance(),
                 'content' => $notification->getContent(),
             ]);
