@@ -163,8 +163,8 @@ For tagging needs in controllers, there are several options, here presented in r
 
 Examples for tagging everything needed for content using the autowireable [`ResponseTagger`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-HttpCache-ResponseTagger-ResponseTagger.html) interface:
 
-``` php hl_lines="5 8 11"
-[[= include_file('code_samples/cache/http_cache/src/response_tagging.php') =]]
+``` php hl_lines="3 6 9"
+[[= include_file('code_samples/cache/http_cache/src/response_tagging.php', 2, 11) =]]
 ```
 
 2\. Use `ContentTagInterface` API for content related tags.
