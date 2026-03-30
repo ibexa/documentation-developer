@@ -202,7 +202,7 @@ However, criteria and Sort Clauses within product catalog relying on [[= product
 Depending on your source of product information, you might need to adjust the implementation to be compatible with your data format.
 For reference, you could review the [`CriterionVisitor` class](https://github.com/ibexa/example-in-memory-product-catalog/blob/main/src/lib/PIM/InMemory/CriterionVisitor.php) that is part of [Remote PIM example package](add_remote_pim_support.md#install-remote-pim-example-package).
 
-For more information about product search, see [Product Search Criteria reference](product_search_criteria.md) and [Product Search Sort Clauses](product_search_sort_clauses.md).
+For more information about product search, see [Product Search Criteria reference](product_search_criteria.md) and [Product Sort Clauses](product_sort_clauses.md).
 
 ##### Catalogs
 

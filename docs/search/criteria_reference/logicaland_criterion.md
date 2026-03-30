@@ -6,7 +6,7 @@ description: LogicalAnd Search Criterion
 
 The [`LogicalAnd` Search Criterion](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Criterion-LogicalAnd.html) matches content if all provided Criteria match.
 
-Whe querying for [products](product_api.md), use [LogicalAnd](/api//php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Values-Product-Query-Criterion-LogicalAnd.html) instead.
+Whe querying for [products](product_api.md), use [LogicalAnd](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Values-Product-Query-Criterion-LogicalAnd.html) instead.
 
 ## Arguments
 

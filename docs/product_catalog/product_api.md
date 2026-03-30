@@ -12,7 +12,7 @@ month_change: false
 | Service name | Description |
 | ------------ | ----------- |
 | [`ProductServiceInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-ProductServiceInterface.html) | Use it to retrieve product data regardless of the source: [[= product_name =]], [[[= pim_product_name =]]](/product_catalog/quable/quable.md), or [remote PIM](add_remote_pim_support.md) |
-| [`LocalProductServiceInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Local-LocalProductServiceInterface.html) | Use it to modify products defined in [[= product_name =] |
+| [`LocalProductServiceInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Local-LocalProductServiceInterface.html) | Use it to modify products defined in [[= product_name =]] |
 
 !!! tip "Product REST API"
 

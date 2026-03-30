@@ -1,4 +1,5 @@
-description: Use 
+---
+description: Quable API
 month_change: true
 ---
 
@@ -35,24 +36,26 @@ The following example shows how you can retrieve a single product, or multiple o
 
 When working with [[= pim_product_name =]] products, the following search criteria are supported:
 
-- 
+|Search Criterion|Search based on|
+|-----|-----|
+|[CreatedAt](createdat_criterion.md)|Date and time when product was created|
+|[LogicalAnd](logicaland_criterion.md)|Composite criterion combining multiple criteria with AND|
+|[LogicalOr](logicalor_criterion.md)|Supported only when a pair of criteria is given: `ProductCode` followed by `ProductName`|
+|[MatchAll](matchall_criterion.md)|All products|
+|[ProductCategory](productcategory_criterion.md)|Product category assigned to product|
+|[ProductCategorySubtree](productcategorysubtree_criterion.md)|Product category subtree|
+|[ProductCode](productcode_criterion.md)|Product's code|
+|[ProductName](productname_criterion.md)|Product's name|
+|[ProductType](producttype_criterion.md)|Product type|
+|[UpdatedAt](updated_at_criterion.md)|Date and time when product was last updated|
 
 The following sort clauses are supported:
 
-| Sort clause | Comment |
-| --------- | ------- |
-| ProductCode  |
-| ProductName
-| CreatedAt |
-
-  Supported criteria: , , LogicalAnd, , , , , , CreatedAt, , and limited LogicalOr (only admin search pattern: ProductCode(['x']) OR ProductName('*x*')).
-
-
-● Currently 3 sort clauses are supported:
-\ProductCode → order[id]
-   - ...SortClause\ProductName → order[name]
-   - ...SortClause\CreatedAt → order[dateCreated]
-
+|Sort Clause|Sorting based on|
+|-----|-----|
+|[CreatedAt](createdat_sort_clause.md)|Date and time of the creation of a product|
+|[ProductCode](productcode_sort_clause.md)|Product's code|
+|[ProductName](productname_sort_clause.md)|Product's name|
 
 
 ### Manage stock and pricing

@@ -15,7 +15,7 @@ Search Criterion let you filter product by specific attributes, for example, col
 
 ## Product Search Criteria
 
-To [query for products coming from [[= pim_product_name =]] PIM](quable_api.md#search-for-products), see the list below for search criteria supported by this integration.
+To [query for products coming from [[= pim_product_name =]] PIM](quable_api.md#search-for-products), see the column below for search criteria supported by this integration.
 
 |Search Criterion|Search based on| Supported by [[= pim_product_name =]] PIM |
 |-----|-----|----|
@@ -40,7 +40,8 @@ To [query for products coming from [[= pim_product_name =]] PIM](quable_api.md#s
 |[IntegerAttributeRange](integerattributerange_criterion.md)|Value of product's integer attribute| |
 |[IsVirtual](isvirtual_criterion.md)|Product type (virtual or physical)| |
 |[ProductAvailability](productavailability_criterion.md)|Product's availability| |
-|[UpdatedAt](updatedat_criterion.md)|Product modification date|  &#10004; |
+|[UpdatedAt](updated_at_criterion.md)|Product modification date|  &#10004; |
+|[UpdatedAtRange](updated_at_range_criterion.md)|Product modification date range| |
 |[ProductCategory](productcategory_criterion.md)|Product category assigned to product| &#10004; |
 |[ProductCategorySubtree](productcategorysubtree_criterion.md)|Product category subtree assigned to product| &#10004; |
 |[MatchAll](matchall_criterion.md)|All products| &#10004; |
