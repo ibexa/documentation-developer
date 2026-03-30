@@ -27,4 +27,9 @@ ibexa:
                     App\Notifications\ControllerFeedback:
                         channels:
                             - browser
-                            - log
+        storefront_group:
+            notifier:
+                subscriptions:
+                    App\Notifications\ControllerFeedback:
+                        channels:
+                            - browser

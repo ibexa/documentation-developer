@@ -184,14 +184,21 @@ The `ControllerFeedback` notification is sent in a controller action:
 [[= include_file('code_samples/user_management/notifications/src/Controller/NotificationSenderController.php') =]]
 ```
 
-For the example, the notification is sent in a back office context.
-An empty template is used for the demonstration.
+For the example, the notification is sent in a back office context for all editions and on the front end for Commerce edition.
+An empty template only extending the pagelayout is used for the demonstration.
 
+`templates/themes/admin/notification-sender-controller.html.twig`:
 ``` twig
 [[= include_file('code_samples/user_management/notifications/templates/themes/admin/notification-sender-controller.html.twig') =]]
 ```
 
-A notification sent as a flash message has the `ibexa-alert--notification` CSS class.
+`templates/themes/storefront/notification-sender-controller.html.twig`:
+``` twig
+[[= include_file('code_samples/user_management/notifications/templates/themes/storefront/notification-sender-controller.html.twig') =]]
+```
+
+In the back office, a notification sent as a flash message has the `ibexa-alert--notification` CSS class.
+This hasn't a default style.
 For this example, the style will be the same as an existing alert message type.
 
 The `assets/scss/notifications.scss` declare the CSS class `ibexa-alert--notification` as being the same as the `ibexa-alert--info` CSS class
@@ -206,16 +213,27 @@ This `assets/scss/notifications.scss` is added to the Admin UI layout in `webpac
 [[= include_file('code_samples/user_management/notifications/webpack.config.js', 49) =]]
 ```
 
-Subscribe to this new notification type in the `admin_group` scope and the `browser` channel in `config/packages/custom_notifications.yaml`
+On the storefront, a notification sent as a flash message has the `ibexa-store-notification--notification` CSS class.
+This class already has a default style.
+
+Subscribe to this new notification type in `config/packages/custom_notifications.yaml`:
+
+- in the `admin_group` scope with the `browser` channel
+- For Commerce edition, in the `storefront_group` scope with the `browser` channel
 
 ``` yaml
 [[= include_file('code_samples/user_management/notifications/config/packages/custom_notifications.yaml', 4, 6) =]]        # …
-[[= include_file('code_samples/user_management/notifications/config/packages/custom_notifications.yaml', 23, 29) =]]
+[[= include_file('code_samples/user_management/notifications/config/packages/custom_notifications.yaml', 23) =]]
 ```
 
 Reaching this controller in the back office (at `/admin/notification-sender`) triggers the notification as a flash message in the bottom-right corner:
 
-![Browser notification example](notification-browser.png "Controller message displayed as a flash message in the browser")
+![Browser back office notification example](notification-browser-admin.png "Controller message displayed as a flash message in the browser")
+
+Reaching the controller in the default siteaccess on Commerce edition (at `/notification-sender`) also triggers the notification as a flash message in the bottom-right corner:
+
+![Browser storefront notification example](notification-browser-storefront.png "Controller message displayed as a flash message in the browser")
+
 
 ## Create a custom channel
 
