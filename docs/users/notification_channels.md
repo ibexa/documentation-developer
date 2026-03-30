@@ -93,7 +93,7 @@ and optionally implements some interfaces depending on the channels it could be 
 | `push`    | `PushNotificationInterface`    |          |
 | `sms`     | `SmsNotificationInterface`     | &#10004; |
 
-The [`SystemNotificationInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Notifications-SystemNotification-SystemNotificationInterface.html) is not part of Symfony and has its own namespace.
+Notice tha the [`SystemNotificationInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Notifications-SystemNotification-SystemNotificationInterface.html) is not part of Symfony and has its own namespace.
 
 The `ibexa` channel send notifications to users through their profile menu, exactly as [user notification](notifications.md#create-custom-notifications).
 The [`SystemNotificationChannel` uses the core `NotificationService`](https://github.com/ibexa/notifications/blob/v5.0.6/src/lib/SystemNotification/SystemNotificationChannel.php#L51) to do so.
@@ -101,9 +101,41 @@ The [`SystemNotificationChannel` uses the core `NotificationService`](https://gi
 Some channels don't need a recipient:
 
 - `browser`: Always send a flash message to the current user
-- `chat`: Always send message to same ressource
+- `chat`: Always send message to the same connection resource
 
-TODO: About `SymfonyNotificationAdapter` and `SymfonyRecipientAdapter`
+### Notification sending
+
+In the [`Ibexa\Contracts\Notifications`](/api/php_api/php_api_reference/namespaces/ibexa-contracts-notifications.html) namespace can be found everything needed to work with notifications.
+
+The [`…\Service\NotificationServiceInterface::send()`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Notifications-Service-NotificationServiceInterface.html#method_send) expects two arguments:
+
+- The first argument is an [`…\Value\NotificationInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Notifications-Value-NotificationInterface.html).
+  This interface is implemented by the [`…\Value\Notification\SymfonyNotificationAdapter`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Notifications-Value-Notification-SymfonyNotificationAdapter.html)
+  which allows to wrap any class extending `Symfony\Component\Notifier\Notification\Notification`.
+- The optional second argument is an array of [`…\Value\RecipientInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Notifications-Value-RecipientInterface.html).
+  This interface is implemented by the [`…\Value\Recipent\SymfonyRecipientAdapter`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Notifications-Value-Recipent-SymfonyRecipientAdapter.html)
+  made to wrap `Symfony\Component\Notifier\Recipient\RecipientInterface`.
+     - This Symfony interface is implemented by [`…\Value\Recipent\UserRecipient`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Notifications-Value-Recipent-UserRecipient.html)
+       which can wrap classes implementing the [`Ibexa\Contracts\Core\Repository\Values\User\UserReference` interaface](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-User-UserReference.html)
+         - The [`UserService` methods to load a user](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-UserService.html#method_loadUser) are returning objects implementing this `UserReference` interface.
+         - The [`PermissionResolver::getCurrentUserReference()` method](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-PermissionResolver.html#method_getCurrentUserReference) is returning objects implementing this `UserReference` interface.
+
+So, for example, to send a notification, you often as this kind of combo:
+
+```php hl_lines="8-11"
+use App\Notifications\MyNotification; // Extends Symfony\Component\Notifier\Notification\Notification
+use Ibexa\Contracts\Core\Repository\PermissionResolver;
+use Ibexa\Contracts\Notifications\Service\NotificationServiceInterface;
+use Ibexa\Contracts\Notifications\Value\Notification\SymfonyNotificationAdapter;
+use Ibexa\Contracts\Notifications\Value\Recipent\SymfonyRecipientAdapter;
+use Ibexa\Contracts\Notifications\Value\Recipent\UserRecipient;
+//…
+$this->notificationService->send(
+    new SymfonyNotificationAdapter(new MyNotification($subject)),
+    [new SymfonyRecipientAdapter(new UserRecipient($this->permissionResolver->getCurrentUserReference()))],
+);
+//…
+```
 
 ### `CommandExecuted` example
 
