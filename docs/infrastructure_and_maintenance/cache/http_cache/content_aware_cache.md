@@ -140,7 +140,7 @@ The `ConfigurableResponseCacheConfigurator` (`Ibexa\HttpCache\ResponseConfigurat
 For example, a `ContentView` is covered both by the `ContentValueViewTagger` and `LocationValueViewTagger`, where the first extracts the content from the `ContentView` and passes it to the `ContentInfoTagger`.
 - Value taggers - extract the `Location` and pass it on to the `LocationViewTagger`.
 
-The built-in taggers recognize the following value types:
+The built-in taggers support the following value types:
 
 - [`ContentInfo`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-ContentInfo.html)
 - [`Location`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Location.html)
