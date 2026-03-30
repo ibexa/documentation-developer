@@ -4,6 +4,7 @@ ibexa:
             product_tour:
                 my_general_scenario:
                     type: 'general'
+                    scenario_title_translation_key: tour.my_general_scenario.title
                     steps:
                         welcome_step:
                           step_title_translation_key: title

@@ -29,6 +29,7 @@ ibexa:
             product_tour:
                 <scenario_identifier>:
                     type: <general|targetable>
+                    scenario_title_translation_key: <translation_key>  # Optional
                     user_groups_excluded: [<user_group_remote_content_id>, ...]  # Optional
                     steps:
                         <step_identifier>: # Scenario step, unique within a scenario
@@ -50,6 +51,7 @@ Use the `ibexa_integrated_help` translation domain.
 For all the examples below, you can provide the translations by creating a `translations/ibexa_integrated_help.en.yaml` file with the following content:
 
 ``` yaml
+tour.my_general_scenario.title: "My general scenario"
 title: "Welcome!"
 subtitle: "This is the subtitle"
 tour.step.description: "This is the description of the step, you can use it to explain what to do in this step."
@@ -89,6 +91,22 @@ product_tour:
     welcome_tour:
         type: general
 ```
+
+### Scenario title
+
+Use the optional `scenario_title_translation_key` field to provide a human-readable label for a scenario.
+This label is displayed in the user settings page where users can reset their product tour progress.
+
+```yaml
+product_tour:
+    welcome_tour:
+        type: general
+        scenario_title_translation_key: tour.welcome_tour.title
+```
+
+If the translation key is not set, the raw scenario identifier is used as the label.
+
+Translations must be provided in the `ibexa_integrated_help` translation domain (for example, in `translations/ibexa_integrated_help.en.yaml`).
 
 ### User group restrictions
 

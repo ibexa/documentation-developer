@@ -4,6 +4,7 @@ ibexa:
             product_tour:
                 targetable_dashboard_scenario:
                     type: 'targetable'
+                    scenario_title_translation_key: tour.targetable_dashboard_scenario.title
                     steps:
                         dashboard_options:
                             step_title_translation_key: Open Dashboard options
