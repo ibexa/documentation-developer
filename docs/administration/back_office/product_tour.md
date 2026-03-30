@@ -1,7 +1,7 @@
 ---
 description: Product tours provide interactive guided walkthroughs to help users learn Ibexa DXP features.
 edition: lts-update
-month_change: false
+month_change: true
 ---
 
 # Product tour
@@ -55,9 +55,9 @@ Targeted scenarios are ideal for:
 
 The steps building the scenario support three interaction modes:
 
-- Standard - Users navigate between steps using "Previous" and "Next" buttons
-- Clickable - Users must click the highlighted element to proceed to the next step
-- Draggable - Users must drag and drop an element to continue the scenario
+- **Standard** - Users navigate between steps using "Previous" and "Next" buttons
+- **Clickable** - Users must click the highlighted element to proceed to the next step
+- **Draggable** - Users must drag and drop an element to continue the scenario
 
 TODO: Screenshot here
 
@@ -71,6 +71,9 @@ Users can complete a tour with one of the following actions:
 - by finishing all steps
 - by skipping it with the **Exit tour** button
 - by skipping it with the **Escape** key
+
+For **Standard** scenario steps, users can move freely between the previous and next steps.
+For **Clickable** and **Draggable** steps, users can't go back to the previous step without restarting the scenario and starting from the beginning.
 
 At any time, users can manually restart completed tours from their [user settings]([[= user_doc =]]/getting_started/get_started/#user-settings).
 
