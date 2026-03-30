@@ -11,5 +11,4 @@ build:
 
 python:
   install:
-    - requirements: pip_require.txt
     - requirements: requirements.txt
