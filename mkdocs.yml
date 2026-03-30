@@ -359,6 +359,7 @@ nav:
             - Quable product guide: product_catalog/quable/quable_guide.md
             - Install Quable: product_catalog/quable/install_quable.md
             - Configure Quable: product_catalog/quable/configure_quable_connector.md
+            - Quable API: product_catalog/quable/quable_api.md
         - Product catalog configuration: product_catalog/product_catalog_configuration.md
         - Products: product_catalog/products.md
         - Attributes:
@@ -611,6 +612,7 @@ nav:
             - ProductStock: search/criteria_reference/productstock_criterion.md
             - ProductStockRange: search/criteria_reference/productstockrange_criterion.md
             - ProductCategory: search/criteria_reference/productcategory_criterion.md
+            - ProductCategorySubtree: search/criteria_reference/productcategorysubtree_criterion.md
             - ProductCode: search/criteria_reference/productcode_criterion.md
             - ProductName: search/criteria_reference/productname_criterion.md
             - ProductType: search/criteria_reference/producttype_criterion.md
@@ -619,6 +621,7 @@ nav:
             - SimpleMeasurementAttribute: search/criteria_reference/simplemeasurementattribute_criterion.md
             - SelectionAttribute: search/criteria_reference/selectionattribute_criterion.md
             - SymbolAttribute: search/criteria_reference/symbolattribute_criterion.md
+            - UpdatedAt: search/criteria_reference/updated_at_criterion.md
         - Order Search Criteria: 
             - Order Search Criteria: search/criteria_reference/order_search_criteria.md
             - CompanyName: search/criteria_reference/order_company_name_criterion.md

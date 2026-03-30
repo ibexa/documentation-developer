@@ -1,5 +1,6 @@
 ---
 description: Quable PIM connector configuration reference for Ibexa DXP
+page_type: reference
 ---
 
 # Configure Quable connector
