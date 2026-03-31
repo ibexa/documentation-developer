@@ -14,8 +14,6 @@ As part of the Ibexa orchestration platform, [[= pim_product_name =]] acts as th
 
 You can use the product information for marketing, recommendations, and personalized campaign across different markets.
 
-// TODO: Update this when complete
-
 ## Getting started
 
 [[= cards([
@@ -28,7 +26,7 @@ You can use the product information for marketing, recommendations, and personal
     "product_catalog/quable/install_quable",
     "product_catalog/quable/configure_quable_connector",
     "templating/twig_function_reference/quable_twig_functions",
-    "customize_product_attribute_templates.md"
+    "product_catalog/customize_product_attribute_templates"
 ]) =]]
 
 ## Learn more about Quable

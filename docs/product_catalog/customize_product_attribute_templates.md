@@ -9,7 +9,7 @@ Each template contains Twig blocks that control how specific [attribute types](p
 
 You can customize this rendering by:
 
-- adding your own template [to the configuration](product_catalg_configuration.md#attribute-rendering-templates).
+- adding your own template [to the configuration](product_catalog_configuration.md#attribute-rendering-templates).
 - injecting a template by subscribing to the [`ProductAttributeRenderEvent`](product_catalog_events.md#attribute-rendering) event
 
 ## Template blocks
@@ -28,7 +28,7 @@ If none is found, it falls back to the first `generic_attribute` block available
 
 ### Quable attribute types
 
-When using [[[= pim_product_name =]] PIM](/product_catalog/quable.md), use the following identifiers to override the templates for [[[= pim_product_name =]]'s attribute types](https://docs.quable.com/docs/objects-and-attributes#attribute-types):
+When using [[[= pim_product_name =]] PIM](/product_catalog/quable/quable.md), use the following identifiers to override the templates for [[[= pim_product_name =]]'s attribute types](https://docs.quable.com/docs/objects-and-attributes#attribute-types):
 
 | Attribute name | Identifier |
 |---|---|
@@ -72,7 +72,7 @@ The following example adds a custom template for an `integer` attribute type:
 {% endblock %}
 ```
 
-Then, [configure the product catalog](product_catalg_configuration.md#attribute-rendering-templates) to use it:
+Then, [configure the product catalog](product_catalog_configuration.md#attribute-rendering-templates) to use it:
 
 ``` yaml
 ibexa_product_catalog:

@@ -15,7 +15,7 @@ Search Criterion let you filter product by specific attributes, for example, col
 
 ## Product Search Criteria
 
-To [query for products coming from [[= pim_product_name =]] PIM](quable_api.md#search-for-products), see the column below for search criteria supported by this integration.
+To [query for products coming from [[= pim_product_name =]] PIM](../../product_catalog/quable/quable_api.md#search-for-products), see the column below for search criteria supported by this integration.
 
 |Search Criterion|Search based on| Supported by [[= pim_product_name =]] PIM |
 |-----|-----|----|

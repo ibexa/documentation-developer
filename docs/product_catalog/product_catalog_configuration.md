@@ -102,7 +102,7 @@ You can also [create your own custom code generation strategy](create_product_co
 
 ## Attribute rendering templates
 
-You can configure which Twig templates are used to render product attribute values with the [`ibexa_format_product_attribute` Twig filter](product_twig_functions.md#ibexa-format-product-attribute).
+You can configure which Twig templates are used to render product attribute values with the [`ibexa_format_product_attribute` Twig filter](product_twig_functions.md#ibexa_format_product_attribute).
 
 ```yaml
 ibexa_product_catalog:
