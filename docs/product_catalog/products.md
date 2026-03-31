@@ -81,7 +81,6 @@ A collection is assigned to the variant or variants that have these attribute va
 ## Embed products in content
 
 You can embed products directly into content, including the [landing pages](pages.md), by using the [Online Editor](online_editor_guide.md).
-The product embed is available as a block-level or inline element.
 
 Use it to build marketing campaigns directly around the products, bridging product marketing and product data together.
 

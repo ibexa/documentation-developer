@@ -22,6 +22,7 @@ plugins:
             'guide/config_repository.md': 'administration/configuration/repository_configuration.md'
             'guide/configuration.md': 'administration/configuration/configuration.md'
             'guide/shop_configuration.md': 'commerce/commerce.md'
+            'commerce/basket.md': 'commerce/commerce.md'
             'templating/layout/customize_basket.md': 'commerce/commerce.md'
             'guide/search/extend_solr.md': 'search/search_engines/solr_search_engine/solr_overview.md'
             'guide/search/extend_elasticsearch.md': 'search/search_engines/elasticsearch/elasticsearch_overview.md'

@@ -305,6 +305,7 @@ nav:
         - Assets: templating/assets.md
         - Image variations: templating/image_variations.md
         - Twig function reference:
+            - Twig function reference: templating/twig_function_reference/twig_function_reference.md
             - AI Twig functions: templating/twig_function_reference/ai_actions_twig_functions.md
             - Cart Twig functions: templating/twig_function_reference/cart_twig_functions.md
             - Catalog Twig functions: templating/twig_function_reference/catalog_twig_functions.md
@@ -321,7 +322,6 @@ nav:
             - Quable functions: templating/twig_function_reference/quable_twig_functions.md
             - Site context Twig functions: templating/twig_function_reference/site_context_twig_functions.md
             - Storefront Twig functions: templating/twig_function_reference/storefront_twig_functions.md
-            - Twig function reference: templating/twig_function_reference/twig_function_reference.md
             - URL Twig functions: templating/twig_function_reference/url_twig_functions.md
             - User Twig functions: templating/twig_function_reference/user_twig_functions.md
         - Twig Components: templating/components.md
@@ -356,7 +356,7 @@ nav:
         - Product catalog: product_catalog/product_catalog.md
         - Product catalog guide: product_catalog/product_catalog_guide.md
         - Quable PIM integration:
-            - Quable overview: product_catalog/quable/quable.md
+            - Quable PIM Integration: product_catalog/quable/quable.md
             - Quable product guide: product_catalog/quable/quable_guide.md
             - Install Quable: product_catalog/quable/install_quable.md
             - Configure Quable: product_catalog/quable/configure_quable_connector.md

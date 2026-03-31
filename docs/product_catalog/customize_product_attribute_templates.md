@@ -18,7 +18,7 @@ Each template can define the following blocks:
 
 | Block | Used for |
 |---|---|
-| `<type_identifier>_attribute` | Rendering an attribute of a specific type. Replace `<type_identifier>` with the attribute type identifier, for example `color_attribute` or `integer_attribute`. |
+| <nobr>`<type_identifier>_attribute`</nobr> | Rendering an attribute of a specific type. Replace `<type_identifier>` with the attribute type identifier, for example `color_attribute` or `integer_attribute`. |
 | `generic_attribute` | Fallback block used when no type-specific block is found. |
 
 For a list of available attributes, see [product attributes](products.md#product-attributes).
@@ -58,9 +58,10 @@ The following variables are available in attribute template blocks:
 
 ## Create a custom attribute template
 
-Create a Twig file and define the blocks for the attribute types you want to customize.
-To customize a specific attribute type, define a block named `<type_identifier>_attribute`.
-To handle all remaining types, define a `generic_attribute` block.
+Create a Twig template and define the blocks for the attribute types you want to customize:
+
+- To customize a specific attribute type, define a block named `<type_identifier>_attribute`.
+- To handle all remaining types, define a `generic_attribute` block.
 
 The following example adds a custom template for an `integer` attribute type:
 

@@ -1,5 +1,5 @@
 ---
-description: Ibexa DXP v4.6 brings improvements to Commerce, Product Catalog and Personalization offerings, and a number of changes in CDP and Ibexa Connect.
+description: Ibexa DXP v4.6 brings improvements to Commerce, Product catalog and Personalization offerings, and a number of changes in CDP and Ibexa Connect.
 title: Ibexa DXP v4.6 LTS
 month_change: true
 ---
@@ -1314,7 +1314,7 @@ Editors can now use a Digital Asset Management platform that enables storing med
 
 For more information, see [Ibexa DAM](https://doc.ibexa.co/projects/userguide/en/master/dam/ibexa_dam/).
 
-#### New features and improvements in Product Catalog
+#### New features and improvements in product catalog
 
 ##### Remote PIM support
 

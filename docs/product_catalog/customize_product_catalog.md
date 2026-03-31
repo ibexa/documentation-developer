@@ -1,9 +1,9 @@
 ---
-description: Customize the Product catalog to the needs of your organization.
+description: Customize the product catalog to the needs of your organization.
 page_type: landing_page
 ---
 
-# Customize Product catalog
+# Customize product catalog
 
 You can customize various areas of the product catalog capabilities to adjust it to the specific requirements of your organization.
 
