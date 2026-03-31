@@ -69,9 +69,9 @@ In this case, `context` parameter allows to override the product category by pas
 
 ## Tracking modes
 
-Tracking user interactions can be implemented on the Client side or the Server side.
+Tracking user interactions can be implemented on the client-side or the server-side.
 Each approach differs in where events are captured and how they are sent to the tracking backend.
-The `ibexa_tracking_track_event()` function works for both client-side and server-side tracking based on `tracking_type` configuration.
+The `ibexa_tracking_track_event()` function works based on `tracking_type` configuration.
 
 The tracking function outputs different content depending on the mode:
 
@@ -195,7 +195,6 @@ class ProductViewTrackingSubscriber implements EventSubscriberInterface
     }
 }
 ```
-
 
 ## Tracking events
 
