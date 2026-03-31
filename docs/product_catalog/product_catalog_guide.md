@@ -165,8 +165,8 @@ However, in your project or organization, you might have an existing product dat
 To address such needs, [[= product_name =]] provides a foundation for remote PIM support.
 You can build upon it to connect to a remote PIM or ERP system, pull product data and present it on your website.
 
-For enterprise product data management, [[= product_name =]] comes with a built-in [[[= pim_product_name =]] PIM](/product_catalog/quable/quable.md) connector, allowing you to use [[= pim_product_name =]] as the source of truth for product catalg information.
-For more informantion about the specific capabilities and limitations of this integration, see [[[= pim_product_name =]] product guide](/product_catalog/quable/quable_guide.md).
+For enterprise product data management, [[= product_name =]] comes with a built-in [[[= pim_product_name =]] PIM](/product_catalog/quable/quable.md) connector, allowing you to use [[= pim_product_name =]] as the source of truth for product catalog information.
+For more information about the specific capabilities and limitations of this integration, see [[[= pim_product_name =]] product guide](/product_catalog/quable/quable_guide.md).
 
 ![Remote PIM](img/remote_pim_support.png)
 
@@ -178,7 +178,7 @@ With remote PIM support, you can take advantage of the following capabilities:
 
 ##### Product marketing
 
-Use the product information coming from another system in your marketing campaings to promote certain products or brands.
+Use the product information coming from another system in your marketing campaigns to promote certain products or brands.
 By embedding the products within content items and landing pages, you can leverage [[= product_name =]] marketing capabilities to showcase products.
 
 ##### Purchasing
