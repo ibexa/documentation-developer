@@ -69,7 +69,7 @@ Each scenario appears only once for each user.
 Users can complete a tour with one of the following actions:
 
 - by finishing all steps
-- by skipping it with the **Exit tour** button
+- by skipping it with the **Skip** button in general tours and **Exit tour** in targeted tours
 - by skipping it with the **Escape** key
 
 For **Standard** scenario steps, users can move freely between the previous and next steps.
