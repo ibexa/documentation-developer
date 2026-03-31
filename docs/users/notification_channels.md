@@ -151,7 +151,7 @@ $this->notificationService->send(
 ### `CommandExecuted` example
 
 The following example is a command that sends a notification to users on several channels simultaneously.
-it could be a scheduled task, a cronjob, warning users about its final result. 
+it could be a scheduled task, a cronjob, warning users about its final result.
 
 First, a `CommandExecuted` notification type is created.
 It is supported by two channels for the example but could be extended to more.
@@ -175,7 +175,7 @@ It could be declared as a service to set the list of recipients' logins `$recipi
 [[= include_file('code_samples/user_management/notifications/src/Command/NotificationSenderCommand.php') =]]
 ```
 
-If you execute this command, it will sometimes succeed, sometimes fails.
+If you execute this command, it sometimes succeeds, sometimes fails.
 
 ![Ibexa notification example](notification-ibexa.png "Command notifications shown in the `ibexa` channel, the back office user notification menu")
 
@@ -183,7 +183,7 @@ If you execute this command, it will sometimes succeed, sometimes fails.
 
 The following example shows a custom notification sent by a controller and displayed as a flash message on the corresponding page in the browser.
 
-The following `ControllerFeedback` notification type is just a class extending the base:
+The following `ControllerFeedback` notification type is a class only extending the base:
 
 ``` php
 [[= include_file('code_samples/user_management/notifications/src/Notifications/ControllerFeedback.php') =]]
@@ -242,10 +242,8 @@ Subscribe to this new notification type in `config/packages/notifications.yaml`:
     Notice that when introducing subscriptions configuration for `storefront_group` scope coming with Commerce edition,
     several subscriptions had to be copy-pasted into this SiteAccess group to have the same subscriptions as before
     when it was configured only by the `default` scope.
-    
     For example, the subscriptions for the `site` SiteAccess belonging this group
     can be checked with the following command during the configuration:
-    
     ```bash
     php bin/console ibexa:debug:config notifications.subscriptions --siteaccess=site
     ```
@@ -254,14 +252,14 @@ Reaching this controller in the back office (at `/admin/notification-sender`) tr
 
 ![Browser back office notification example](notification-browser-admin.png "Controller message displayed as a flash message in the browser")
 
-Reaching the controller in the default siteaccess on Commerce edition (at `/notification-sender`) also triggers the notification as a flash message in the bottom-right corner:
+Reaching the controller in the default SiteAccess on Commerce edition (at `/notification-sender`) also triggers the notification as a flash message in the bottom-right corner:
 
 ![Browser storefront notification example](notification-browser-storefront.png "Controller message displayed as a flash message in the browser")
 
 
 ## Create a custom channel
 
-A channel is a service implementing `Symfony\Component\Notifier\Channel\ChannelInterface`, and tagged `notifier.channel` alongside a `channel` shortname.
+A channel is a service implementing `Symfony\Component\Notifier\Channel\ChannelInterface`, and tagged `notifier.channel` alongside a `channel` identifier.
 
 The following example is a custom channel that sends notifications to the logger.
 
