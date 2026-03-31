@@ -32,6 +32,12 @@ For more information, see how to [install and configure the Google Gemini connec
 
 ### Developer experience
 
+#### Symfony 7.4
+
+Symfony is upgraded from 7.3 to 7.4.
+See [what's new in Symfony 7.4](https://symfony.com/blog/category/living-on-the-edge/8.0-7.4)
+and [how to update Symfony within [[= product_name =]]](https://doc.ibexa.co/en/5.0/update_and_migration/from_5.0/update_from_5.0/#update-symfony-from-73-to-74).
+
 #### Custom parameters in `ibexa_render()`
 
 You can now pass custom parameters to templates when using the `ibexa_render()` Twig function with the new `params` option, similar to how you can with `render(controller())`.Collapse annotationCheck notice on line R18[vale] docs/release_notes/ibexa_dxp_v5.0.md#L18Check notice: [vale] docs/release_notes/ibexa_dxp_v5.0.md#L18[Ibexa.ByUsing] Prefer 'by using' or 'with' to plain 'using'.Build & test documentation / valeView details
