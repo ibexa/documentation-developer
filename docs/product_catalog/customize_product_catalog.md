@@ -12,5 +12,6 @@ You can customize various areas of the product catalog capabilities to adjust it
     "product_catalog/create_product_code_generator",
     "product_catalog/create_custom_catalog_filter",
     "product_catalog/create_custom_name_schema_strategy",
+    "product_catalog/customize_product_attribute_templates",
     "product_catalog/customize_product_embed_templates",
 ], columns=4) =]]
