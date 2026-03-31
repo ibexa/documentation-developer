@@ -50,6 +50,8 @@ def define_env(env):
                 indent = min(len(l) - len(l.lstrip()) for l in non_empty)
                 line_range = [l[indent:] if l.strip() else l for l in line_range]
 
+        return glue.join(line_range)
+
     @env.macro
     def cards(pages, columns=1, style="cards", force_version=False):
         current_page = env.variables.page
