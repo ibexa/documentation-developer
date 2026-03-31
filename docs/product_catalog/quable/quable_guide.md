@@ -59,6 +59,7 @@ The integration with [[= pim_product_name =]] has the following known limitation
 - It's not possible to create [catalogs](product_catalog_guide.md#catalogs) with products coming from [[= pim_product_name =]].
 - It's not possible to use the Commerce functionalities like [cart](cart.md), [order management](order_management.md), or [shopping lists](shopping_list.md) with products coming from [[= pim_product_name =]].
 - It's not possible to limit access to products using the existing [product limitations](policies.md#products).
+- It's not possible to synchronize products with the `/` symbol in the product code, or with product codes longer than 64 characters.
 
 ## Use cases
 
