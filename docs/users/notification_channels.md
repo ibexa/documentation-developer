@@ -236,6 +236,17 @@ Subscribe to this new notification type in `config/packages/notifications.yaml`:
 [[= include_file('code_samples/user_management/notifications/config/packages/notifications.yaml', 25, 34) =]][[= include_file('code_samples/user_management/notifications/config/packages/notifications.yaml', 35, 65) =]][[= include_file('code_samples/user_management/notifications/config/packages/notifications.yaml', 66) =]]
 ```
 
+Notice that when introducing subscriptions configuration for `storefront_group` scope,
+several subscriptions had to be copy-pasted into this SiteAccess group to have the same subscriptions as before,
+when it was configured by the `default` scope.
+
+For example, the subscriptions for default `site` SiteAccess coming with Commerce edition
+can be checked with the following command during the configuration:
+
+```bash
+php bin/console ibexa:debug:config notifications.subscriptions --siteaccess=site
+```
+
 Reaching this controller in the back office (at `/admin/notification-sender`) triggers the notification as a flash message in the bottom-right corner:
 
 ![Browser back office notification example](notification-browser-admin.png "Controller message displayed as a flash message in the browser")
