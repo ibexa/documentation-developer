@@ -6,7 +6,7 @@ month_change: true
 # Notification channels
 
 The `ibexa/notifications` package offers an extension to the [Symfony notifier]([[= symfony_doc =]]/notifier.html).
-It allows to subscribe to notifications and forward them to various channels such as email, SMS, communication platforms,
+It allows you to subscribe to notifications and forward them to various channels such as email, SMS, communication platforms,
 and the [Back Office user notifications](notifications.md#create-custom-notifications).
 
 Those notifications must not be confused with the [notification bars](notifications.md#notification-bars) or the [user notifications](notifications.md#create-custom-notifications).
@@ -15,7 +15,11 @@ Those notifications must not be confused with the [notification bars](notificati
 |--------------------------------------------------------------------|-----------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------|
 | [notification bars](notifications.md#notification-bars)            | `ibexa/admin-ui`      | [`TranslatableNotificationHandlerInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-AdminUi-Notification-TranslatableNotificationHandlerInterface.html) | Rendered as a message bar in the bottom-right corner.                |
 | [user notifications](notifications.md#create-custom-notifications) | `ibexa/core`          | [`NotificationService`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-NotificationService.html)                                                | Rendered as a message in the back office bell menu.                  |
-| [Channel subscribable notification](#subscribe-to-notifications)   | `ìbexa/notifications` | [`NotificationServiceInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Notifications-Service-NotificationServiceInterface.html)                        | Render depends on the channels subscribing to the notification type. |
+| [Channel subscribable notification](#subscribe-to-notifications)   | `ibexa/notifications` | [`NotificationServiceInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Notifications-Service-NotificationServiceInterface.html)                        | Render depends on the channels subscribing to the notification type. |
+
+Those notifications don't have a predefined channel like the ones from the first two bundles.
+The channels you subscribe to notifications with determine the way the user recive the information.
+A several channels are proposed, and you can create your owns.
 
 The service implementing the [`Ibexa\Contracts\Notifications\Service\NotificationServiceInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Notifications-Service-NotificationServiceInterface.html)
 sends notifications extending the `Symfony\Component\Notifier\Notification\Notification`.
@@ -56,10 +60,12 @@ php bin/console debug:container --tag=notifier.channel
 * [`sms`]([[= symfony_doc =]]/notifier.html#sms-channel) - Notification forwarded to phone numbers
 
 Some default subscriptions can be found in `config/packages/ibexa.yaml` and `config/packages/ibexa_admin_ui.yaml`.
+You can modify them or add your own subscriptions.
+This page contains several examples of subscriptions configuration.
 
 !!! caution "Scopes may not merge as expected"
 
-    Subscriptions defined for a scope may not merge with subscriptions from others scopes or from other files.
+    Subscriptions defined for a scope may not merge with subscriptions from other scopes or from other files.
     For example, `default` scope might not be merged within a siteaccess group scope.
     To ensure you don't unsubscribe against your will,
     always use the following command to check subscriptions for a siteaccess before and after additions:
@@ -95,7 +101,7 @@ For example, in a new `config/packages/notifications.yaml` file:
 
 A new notification class can be created to send a new type of message to a new set of channels.
 It must extend `Symfony\Component\Notifier\Notification\Notification`
-and optionally implements some interfaces depending on the channels it can be sent to.
+and can optionally implement interfaces required by specific channels.
 
 - Some channels don't accept the notification if it doesn't implement its related notification interface. They have checkmark in the ⚠ column below.
 - Some channels accept every notification and have a default behavior if the notification doesn't implement their related notification interface.
@@ -136,7 +142,7 @@ The [`…\Service\NotificationServiceInterface::send()`](/api/php_api/php_api_re
          - The [`UserService` methods to load a user](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-UserService.html#method_loadUser) are returning objects implementing this `UserReference` interface.
          - The [`PermissionResolver::getCurrentUserReference()` method](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-PermissionResolver.html#method_getCurrentUserReference) is returning objects implementing this `UserReference` interface.
 
-So, for example, to send a notification, you often as this kind of combo:
+For example, to send a notification, you often use a combination like this:
 
 ```php hl_lines="8-11"
 use App\Notifications\MyNotification; // Extends Symfony\Component\Notifier\Notification\Notification
@@ -173,7 +179,7 @@ The channels subscribing to this notification are set in `config/packages/notifi
 ```
 
 The example command sends a `CommandExecuted` notification at the end of what could be a regular execution.
-It randomly succeeds or fails to show how the notification can be used to communicate different execution results.
+It randomly succeeds or fails to demonstrate how notifications can communicate different execution results.
 It could be declared as a service to set the list of recipients' logins `$recipientLogins` from a configuration file.
 
 ``` php
@@ -217,7 +223,7 @@ In the back office, a notification sent as a flash message has the `ibexa-alert-
 This doesn't have a default style.
 For this example, the style will be the same as an existing alert message type.
 
-The `assets/scss/notifications.scss` declare the CSS class `ibexa-alert--notification` as being the same as the `ibexa-alert--info` CSS class
+The `assets/scss/notifications.scss` declares the CSS class `ibexa-alert--notification` as being the same as the `ibexa-alert--info` CSS class
 
 ``` scss
 [[= include_file('code_samples/user_management/notifications/assets/scss/notifications.scss') =]]
@@ -255,11 +261,11 @@ Subscribe to this new notification type in `config/packages/notifications.yaml`:
 
 Reaching this controller in the back office (at `/admin/notification-sender`) triggers the notification as a flash message in the bottom-right corner:
 
-![Browser back office notification example](notification-browser-admin.png "Controller message displayed as a flash message in the browser")
+![Notification in back office](notification-browser-admin.png "Controller message displayed as a flash message in the browser")
 
 Reaching the controller in the default SiteAccess on Commerce edition (at `/notification-sender`) also triggers the notification as a flash message in the bottom-right corner:
 
-![Browser storefront notification example](notification-browser-storefront.png "Controller message displayed as a flash message in the browser")
+![Notification in storefront](notification-browser-storefront.png "Controller message displayed as a flash message in the browser")
 
 
 ## Create a custom channel
