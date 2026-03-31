@@ -104,7 +104,7 @@ and optionally implements some interfaces depending on the channels it could be 
 | `push`    | `PushNotificationInterface`    |          |
 | `sms`     | `SmsNotificationInterface`     | &#10004; |
 
-Notice tha the [`SystemNotificationInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Notifications-SystemNotification-SystemNotificationInterface.html) is not part of Symfony and has its own namespace.
+Notice that the [`SystemNotificationInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Notifications-SystemNotification-SystemNotificationInterface.html) is not part of Symfony and has its own namespace.
 
 The `ibexa` channel send notifications to users through their profile menu, exactly as [user notification](notifications.md#create-custom-notifications).
 The [`SystemNotificationChannel` uses the core `NotificationService`](https://github.com/ibexa/notifications/blob/v5.0.6/src/lib/SystemNotification/SystemNotificationChannel.php#L51) to do so.
@@ -236,16 +236,18 @@ Subscribe to this new notification type in `config/packages/notifications.yaml`:
 [[= include_file('code_samples/user_management/notifications/config/packages/notifications.yaml', 25, 34) =]][[= include_file('code_samples/user_management/notifications/config/packages/notifications.yaml', 35, 65) =]][[= include_file('code_samples/user_management/notifications/config/packages/notifications.yaml', 66) =]]
 ```
 
-Notice that when introducing subscriptions configuration for `storefront_group` scope,
-several subscriptions had to be copy-pasted into this SiteAccess group to have the same subscriptions as before,
-when it was configured by the `default` scope.
+!!! note "Subscriptions for `storefront_group`"
 
-For example, the subscriptions for default `site` SiteAccess coming with Commerce edition
-can be checked with the following command during the configuration:
-
-```bash
-php bin/console ibexa:debug:config notifications.subscriptions --siteaccess=site
-```
+    Notice that when introducing subscriptions configuration for `storefront_group` scope coming with Commerce edition,
+    several subscriptions had to be copy-pasted into this SiteAccess group to have the same subscriptions as before
+    when it was configured only by the `default` scope.
+    
+    For example, the subscriptions for `site` SiteAccess belonging this group
+    can be checked with the following command during the configuration:
+    
+    ```bash
+    php bin/console ibexa:debug:config notifications.subscriptions --siteaccess=site
+    ```
 
 Reaching this controller in the back office (at `/admin/notification-sender`) triggers the notification as a flash message in the bottom-right corner:
 
