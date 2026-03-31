@@ -40,8 +40,9 @@ The following attribute types are available:
 - [date and time](date_and_time.md)
 - float
 - integer
-- measurement
+- measurement (`measurement_range` and `measurement_single`)
 - selection
+- [symbol](symbol_attribute_type.md)
 
 Product attributes are collected in groups.
 An example of an attribute group can be dimensions (length, width, height).

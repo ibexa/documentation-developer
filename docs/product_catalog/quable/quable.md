@@ -28,6 +28,7 @@ You can use the product information for marketing, recommendations, and personal
     "product_catalog/quable/install_quable",
     "product_catalog/quable/configure_quable_connector",
     "templating/twig_function_reference/quable_twig_functions",
+    "customize_product_attribute_templates.md"
 ]) =]]
 
 ## Learn more about Quable

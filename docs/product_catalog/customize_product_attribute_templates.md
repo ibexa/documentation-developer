@@ -21,8 +21,30 @@ Each template can define the following blocks:
 | `<type_identifier>_attribute` | Rendering an attribute of a specific type. Replace `<type_identifier>` with the attribute type identifier, for example `color_attribute` or `integer_attribute`. |
 | `generic_attribute` | Fallback block used when no type-specific block is found. |
 
+For a list of available attributes, see [product attributes](products.md#product-attributes).
+
 When rendering an attribute, the system iterates through the configured templates in order and uses the first matching type-specific block it finds.
 If none is found, it falls back to the first `generic_attribute` block available.
+
+### Quable attribute types
+
+When using [[[= pim_product_name =]] PIM](/product_catalog/quable.md), use the following identifiers to override the templates for [[[= pim_product_name =]]'s attribute types](https://docs.quable.com/docs/objects-and-attributes#attribute-types):
+
+| Attribute name | Identifier |
+|---|---|
+| Simple text not localized | `unlocalized_text` |
+| Simple text localized | `localized_text` |
+| Text area localized | `multiline_text` |
+| HTML code | `html_text` |
+| JSON code | `json_text` |
+| Integer | `integer` |
+| Decimal | `decimal` |
+| Date | `date` |
+| Time | `time` |
+| Checkbox | `switch` |
+| Simple select of predefined values | `simple_select` |
+| Select of multiple predefined values | `multi_select` |
+| Calculated | `calculated` |
 
 ### Template variables
 
