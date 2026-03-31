@@ -1,12 +1,12 @@
 <?php declare(strict_types=1);
 
-use DateTime;
+use DateTimeImmutable;
 use Ibexa\Contracts\ProductCatalog\Values\Product\ProductQuery;
 use Ibexa\Contracts\ProductCatalog\Values\Product\Query\Criterion\Operator;
 use Ibexa\Contracts\ProductCatalog\Values\Product\Query\Criterion\UpdatedAt;
 
 $criteria = new UpdatedAt(
-    new DateTime('2023-03-01'),
+    new DateTimeImmutable('2023-03-01'),
     Operator::GTE,
 );
 
