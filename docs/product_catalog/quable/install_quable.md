@@ -25,8 +25,8 @@ These commands add the [[= pim_product_name =]] connector code, including servic
 
 To connect to [[= pim_product_name =]] PIM, you need an API token:
 
-1. Log in to your [[= pim_product_name =]] instance (for example, `https:/example.quable.com`).
-2. Navigate to the [API Tokens](https://docs.quable.com/v5-EN/docs/system-api-tokens) section
+1. Log in to your [[= pim_product_name =]] instance (for example, `https://example.quable.com`).
+2. Navigate to the [API Tokens](https://docs.quable.com/v5-EN/docs/system-api-tokens) section.
 3. Copy the **Read Access Token** value for use in the configuration.
 
 ## Configure [[= pim_product_name =]] connector
@@ -119,7 +119,7 @@ This command imports the product classification structure from [[= pim_product_n
 
 !!! tip
 
-    To keep the classifications aligned, we recommended to run the `ibexa:quable:classification:sync` command very night, even when using synchronization with webhooks.
+    To keep the classifications aligned, we recommend running the `ibexa:quable:classification:sync` command every night, even when using synchronization with webhooks.
 
 ## Set up real-time synchronization
 
@@ -131,10 +131,10 @@ Webhook configuration requires setup in both Quable PIM and [[= product_name =]]
 ### Create webhook in [[= pim_product_name =]]
 
 1. Create a new [webhook in Quable](https://docs.quable.com/v5-EN/docs/webhook).
-2. Set the webhook's code (used as the webhook's name)
-3. Provide the URL to your [[= product_name =]] instance suffixed by `/webhook/quable`, for example: `https://example.com/webhook/quable`
-4. Mark it as **Activated**
-5. Enter a secret value for the **Authorization Header**
+2. Set the webhook's code (used as the webhook's name).
+3. Provide the URL to your [[= product_name =]] instance suffixed by `/webhook/quable`, for example: `https://example.com/webhook/quable`.
+4. Mark it as **Activated**.
+5. Enter a secret value for the **Authorization Header**.
 6. Choose the following scopes:
 
 - Products: created, updated, deleted
@@ -144,7 +144,7 @@ The **Authorization Header** value is a [secret that must be kept secure](securi
 
 !!! note
 
-    For local development and testing, you can consider using one of the avalable [tunnel providers](https://github.com/anderspitman/awesome-tunneling) to make your local instance accessible.
+    For local development and testing, you can consider using one of the available [tunnel providers](https://github.com/anderspitman/awesome-tunneling) to make your local instance accessible from the internet.
 
 ### Configure webhook in [[= product_name =]]
 
@@ -160,7 +160,7 @@ ibexa_connector_quable:
 
 !!! warning
 
-    [Quable uses dynamic IP addresses](https://faq.quable.com/en/articles/8250056-what-are-the-ip-addresses-of-quable-to-add-to-the-whitelist)) to connect to [[= product_name =]].
+    [Quable uses dynamic IP addresses](https://faq.quable.com/en/articles/8250056-what-are-the-ip-addresses-of-quable-to-add-to-the-whitelist) to connect to [[= product_name =]].
     If your DXP instance is protected by a firewall, make sure your configuration allows connections from changing IP addresses.
 
 ### Configure background task

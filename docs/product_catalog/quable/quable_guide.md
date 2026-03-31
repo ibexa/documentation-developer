@@ -16,7 +16,7 @@ Instead of maintaining product data in two places, teams manage it once and dist
 
 ## Availability
 
-Product Catalog capabilities are available in all [[= product_name =]] editions, starting with [[= product_name =]] v5.0.7.
+Integration with [[= pim_product_name =]] PIM is available in all [[= product_name =]] editions, starting with [[= product_name =]] v5.0.7.
 
 Before installing and enabling the integration, ensure that you have an active [[= pim_product_name =]] Product Information Management (PIM) instance with products and product families configured.
 
@@ -40,7 +40,7 @@ The data can then be displayed in storefronts, back office views, and API respon
 Product management, such as adding attributes, translations, and digital assets, is done in [[= pim_product_name =]].
 [[= product_name =]] consumes this enriched data and exposes it through storefronts, back office, and APIs.
 
-Editorial teams that need to add DXP-specific content, such as promotional text or page layout, can still do so by resuing the product data, for example by using the [Online Editor](online_editor_guide.md) and workflows including [collaborative editing](collaborative_editing_guide.md).
+Editorial teams that need to add DXP-specific content, such as promotional text or page layout, can still do so by reusing the product data, for example by using the [Online Editor](online_editor_guide.md) and workflows including [collaborative editing](collaborative_editing_guide.md).
 
 ### Products, variants, and categories
 
@@ -50,9 +50,7 @@ Editorial teams that need to add DXP-specific content, such as promotional text 
 
 ### Prices, availability, and market context
 
-You can use [[= product_name =]] to manage product availability and pricing for [[= pim_product_name =]]'s products, including creating advanced pricing strategies with [discounts](discounts.md).
-
-Then, use the [regions](product_catalog_guide.md#regions) and [currencies](product_catalog_guide.md#currencies)
+You can use [[= product_name =]] to manage product availability and pricing for [[= pim_product_name =]]'s products, including creating advanced pricing strategies with [discounts](discounts.md) combined with [regions](product_catalog_guide.md#regions) and [currencies](product_catalog_guide.md#currencies).
 
 ## Known limitations
 
@@ -60,7 +58,7 @@ The integration with [[= pim_product_name =]] has the following known limitation
 
 - It's not possible to create [catalogs](product_catalog_guide.md#catalogs) with products coming from [[= pim_product_name =]].
 - It's not possible to use the Commerce functionalities like [cart](cart.md), [order management](order_management.md), or [shopping lists](shopping_list.md) with products coming from [[= pim_product_name =]].
-- It's not possible to limit access to products using the exiting [product limitations](policies.md#products).
+- It's not possible to limit access to products using the existing [product limitations](policies.md#products).
 
 ## Use cases
 
@@ -73,4 +71,3 @@ A retailer operating in multiple European markets maintains a single product cat
 
 A fashion brand's store manager can add a new seasonal collection in [[= pim_product_name =]] with attributes, variants, and assets.
 The marketing team can then immediately start working on their campaign, using the product data from [[= pim_product_name =]] both in [Page Builder](page_builder_guide.md) and regular content items.
-By using the 

@@ -7,7 +7,7 @@ page_type: reference
 
 This page provides a complete reference for configuring the [[= pim_product_name =]] PIM connector in [[= product_name =]].
 
-Use the `ibexa_connector_quable` key in `config/packages/ibexa_connector_quable.yaml` to customize [[= pim_product_name =]] behaviour.
+Use the `ibexa_connector_quable` key in `config/packages/ibexa_connector_quable.yaml` to customize [[= pim_product_name =]] behavior.
 
 ## Configuration example
 

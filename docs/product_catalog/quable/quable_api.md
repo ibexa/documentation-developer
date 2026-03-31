@@ -8,14 +8,14 @@ month_change: true
 
 As [[= pim_product_name =]] products are represented as [[= product_name =]] products, you can use the existing [Product APIs](product_api.md) to retrieve the product information.
 
-[[= pim_product_name =]] is the source of truth about products and categories and you can should only use the [[= product_name =]] APIs to read the information coming from [[= pim_product_name =]], but you can't use them to modify it.
+[[= pim_product_name =]] is the source of truth about products and categories and you should only use the [[= product_name =]] APIs to read the information coming from [[= pim_product_name =]], but you can't use them to modify it.
 To modify the information, use the [[[= pim_product_name =]] interface](https://quable.com) or the dedicated [[[= pim_product_name =]]](https://developers.quable.com/quable-api/) APIs.
 
 ## REST API Usage
 
 To learn how to work with [[= product_name =]] REST API, see [REST API reference](rest_api_usage.md).
 
-You can use the following endpoints to retrive product and category information:
+You can use the following endpoints to retrieve product and category information:
 
 - [Product REST API](/api/rest_api/rest_api_reference/rest_api_reference.html#tag/Product)
 - [Taxonomy REST API](/api/rest_api/rest_api_reference/rest_api_reference.html#tag/Taxonomy)
@@ -24,7 +24,7 @@ You can use the following endpoints to retrive product and category information:
 
 ### Retrieve products
 
-To retrive product information coming from [[= pim_product_name =]], use the same APIs as described in [Product API](product_api.md).
+To retrieve product information coming from [[= pim_product_name =]], use the same APIs as described in [Product API](product_api.md).
 
 The following example shows how you can retrieve a single product, or multiple ones:
 
@@ -40,7 +40,7 @@ When working with [[= pim_product_name =]] products, the following search criter
 |-----|-----|
 |[CreatedAt](createdat_criterion.md)|Date and time when product was created|
 |[LogicalAnd](logicaland_criterion.md)|Composite criterion combining multiple criteria with AND|
-|[LogicalOr](logicalor_criterion.md)|Supported only when a pair of criteria is given: `ProductCode` followed by `ProductName`|
+|[LogicalOr](logicalor_criterion.md)|Composite criterion combining multiple criteria with OR.<br/>Supports only a pair of criteria: `ProductCode` followed by `ProductName`|
 |[MatchAll](matchall_criterion.md)|All products|
 |[ProductCategory](productcategory_criterion.md)|Product category assigned to product|
 |[ProductCategorySubtree](productcategorysubtree_criterion.md)|Product category subtree|

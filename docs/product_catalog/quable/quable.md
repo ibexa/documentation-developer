@@ -12,7 +12,7 @@ page_type: landing_page
 [[= pim_product_name =]] is Ibexa's PIM solution for managing complex product catalogs. 
 As part of the Ibexa orchestration platform, [[= pim_product_name =]] acts as the source of truth about products that feeds every channel with accurate product data.
 
-You can use the product information for marketing, recommendations, and personalized campaign across different markets.
+You can use the product information for marketing, recommendations, and personalized campaigns across different markets.
 
 ## Getting started
 
