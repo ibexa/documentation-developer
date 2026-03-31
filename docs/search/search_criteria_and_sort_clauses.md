@@ -79,7 +79,7 @@ Available tags for Sort Clause handlers in Legacy Storage Engine are:
     - for Criterion handlers: `ibexa.core.trash.search.legacy.gateway.criterion_handler`
     - for Sort Clause handlers: `ibexa.core.trash.search.legacy.gateway.sort_clause_handler`
 
-    For more information about searching for content items in Trash, see [Searching in trash](search_api.md#searching-in-trash).
+    For more information about searching for content items in Trash, see [Search in trash](search_api.md#search-in-trash).
 
     For more information about the Criteria and Sort Clauses that are supported when searching for trashed content items, see [Searching in trash reference](search_in_trash_reference.md).
 
