@@ -96,6 +96,107 @@ For more information on Tracking modes, see Raptor documentation:
 - [Server-side tracking](https://content.raptorservices.com/help-center/server-side-tracking)
 - [Client-side vs. Server-side tracking](https://content.raptorservices.com/help-center/client-side-vs.-server-side-tracking)
 
+## Advanced usage – direct interaction with the service
+
+### `EventMapper` method
+
+The recommended method, providing full control over event tracking, is `EventMapper` method.
+It allows to interact directly with the service, supporting advanced configuration beyond what the Page Builder offers.
+
+Check the following example:
+
+``` php
+use Ibexa\Contracts\ConnectorRaptor\Tracking\EventMapperInterface;
+use Ibexa\Contracts\ConnectorRaptor\Tracking\ServerSideTrackingDispatcherInterface;
+use Ibexa\Contracts\ConnectorRaptor\Tracking\EventType;
+
+class MyCustomService
+{
+    public function __construct(
+        private readonly EventMapperInterface $eventMapper,
+        private ServerSideTrackingDispatcherInterface $trackingDispatcher,
+    ) {}
+
+    public function trackProductView(ProductInterface $product, string $url): void
+    {
+        // Map product to VisitEventData automatically
+        $eventData = $this->eventMapper->map(EventType::VISIT, $product);
+
+        // Send tracking event
+        $this->trackingDispatcher->dispatch($eventData);
+    }
+}
+```
+
+### Manual `EventData` creation
+
+Manual creation of EventData allows precise control over the events sent to the service.
+It enables to define custom event parameters, track specific user interactions, and tailor data collection to advanced use cases.
+
+Check the following example:
+
+``` php
+use Ibexa\Contracts\ConnectorRaptor\Tracking\Event\VisitEventData;
+
+$eventData = new VisitEventData(
+    productId: $product->getCode(),
+    productName: $product->getName(),
+    categoryPath: '25#Electronics;26#Smartphones',  // Build manually
+    currency: 'USD',
+    itemPrice: '999.99'
+);
+
+$this->trackingDispatcher->dispatch($eventData);
+```
+
+### Example - event subscriber
+
+If you need to track events automatically based on application events, you can use Event Subscriber.
+It reacts to specific events in the application and triggers tracking logic without the need to add it manually in templates.
+
+Example:
+
+``` php
+use Ibexa\Contracts\ConnectorRaptor\Tracking\EventMapperInterface;
+use Ibexa\Contracts\ConnectorRaptor\Tracking\ServerSideTrackingDispatcherInterface;
+use Ibexa\Contracts\ConnectorRaptor\Tracking\EventType;
+use Symfony\Component\EventDispatcher\EventSubscriberInterface;
+use Symfony\Component\HttpKernel\Event\ResponseEvent;
+use Symfony\Component\HttpKernel\KernelEvents;
+
+class ProductViewTrackingSubscriber implements EventSubscriberInterface
+{
+    public function __construct(
+        private readonly EventMapperInterface $eventMapper,
+        private ServerSideTrackingDispatcherInterface $trackingDispatcher,
+    ) {}
+
+    public static function getSubscribedEvents(): array
+    {
+        return [KernelEvents::RESPONSE => ['onResponse', -10]];
+    }
+
+    public function onResponse(ResponseEvent $event): void
+    {
+        if (!$event->isMainRequest()) {
+            return;
+        }
+
+        $request = $event->getRequest();
+
+        // Example: track only if request has specific attribute
+        $product = $request->attributes->get('product');
+        if (!$product) {
+            return;
+        }
+
+        $eventData = $this->eventMapper->map(EventType::VISIT, $product);
+        $this->trackingDispatcher->dispatch($eventData);
+    }
+}
+```
+
+
 ## Tracking events
 
 The following events are supported and can be triggered from Twig templates:
@@ -199,51 +300,4 @@ You can override the default tracking templates by providing a custom template p
     {},
     '@MyBundle/tracking/custom_visit.html.twig'
 ) }}
-```
-
-## Event subscriber
-
-If you need to track events automatically based on application events, you can use Event Subscriber.
-It reacts to specific events in the application and triggers tracking logic without the need to add it manually in templates.
-
-Example:
-
-``` php
-use Ibexa\Contracts\ConnectorRaptor\Tracking\EventMapperInterface;
-use Ibexa\Contracts\ConnectorRaptor\Tracking\ServerSideTrackingDispatcherInterface;
-use Ibexa\Contracts\ConnectorRaptor\Tracking\EventType;
-use Symfony\Component\EventDispatcher\EventSubscriberInterface;
-use Symfony\Component\HttpKernel\Event\ResponseEvent;
-use Symfony\Component\HttpKernel\KernelEvents;
-
-class ProductViewTrackingSubscriber implements EventSubscriberInterface
-{
-    public function __construct(
-        private readonly EventMapperInterface $eventMapper,
-        private ServerSideTrackingDispatcherInterface $trackingDispatcher,
-    ) {}
-
-    public static function getSubscribedEvents(): array
-    {
-        return [KernelEvents::RESPONSE => ['onResponse', -10]];
-    }
-
-    public function onResponse(ResponseEvent $event): void
-    {
-        if (!$event->isMainRequest()) {
-            return;
-        }
-
-        $request = $event->getRequest();
-
-        // Example: track only if request has specific attribute
-        $product = $request->attributes->get('product');
-        if (!$product) {
-            return;
-        }
-
-        $eventData = $this->eventMapper->map(EventType::VISIT, $product);
-        $this->trackingDispatcher->dispatch($eventData);
-    }
-}
 ```
