@@ -95,7 +95,7 @@ ibexa:
 
 ## Set up languages
 
-To use the products from [[= pim_product_name =]] within [[= product_name =]] content, make sure the [data languages](https://docs.quable.com/v5-EN/docs/data-languages) in [[= product_pim =]] have corresponding [languages](languages.md) in [[= product_name =]].
+To use the products from [[= pim_product_name =]] within [[= product_name =]] content, make sure the [data languages](https://docs.quable.com/v5-EN/docs/data-languages) in [[= pim_product_name =]] have corresponding [languages](languages.md) in [[= product_name =]].
 
 To preview the current language configuration in both systems, run the following command:
 
@@ -131,14 +131,14 @@ Webhook configuration requires setup in both Quable PIM and [[= product_name =]]
 ### Create webhook in [[= pim_product_name =]]
 
 1. Create a new [webhook in Quable](https://docs.quable.com/v5-EN/docs/webhook).
-2. Set the webhook's code (used as the webhook's name).
+2. Set the webhook code (used as the webhook name).
 3. Provide the URL to your [[= product_name =]] instance suffixed by `/webhook/quable`, for example: `https://example.com/webhook/quable`.
 4. Mark it as **Activated**.
 5. Enter a secret value for the **Authorization Header**.
 6. Choose the following scopes:
 
-- Products: created, updated, deleted
-- Classifications: created, updated, deleted
+    - Products: created, updated, deleted
+    - Classifications: created, updated, deleted
 
 The **Authorization Header** value is a [secret that must be kept secure](security_checklist.md#app_secret-and-other-secrets).
 

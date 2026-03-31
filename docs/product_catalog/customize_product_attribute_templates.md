@@ -4,7 +4,7 @@ description: Customize the Twig templates used to render product attribute value
 
 # Customize product attribute templates
 
-The `ibexa_format_product_attribute` Twig filter renders a product attribute value using a configurable list of Twig templates.
+The `ibexa_format_product_attribute` Twig filter renders a product attribute value by using a configurable list of Twig templates.
 Each template contains Twig blocks that control how specific [attribute types](products.md#product-attributes) are displayed.
 
 You can customize this rendering by:
@@ -53,10 +53,10 @@ The following variables are available in attribute template blocks:
 | Variable | Type | Description |
 |---|---|---|
 | `attribute` | [`AttributeInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Values-AttributeInterface.html) | The attribute object being rendered. |
-| `value` | `string\|null` | The pre-formatted attribute value, produced by the value formatter. |
+| `value` | `?string` | The pre-formatted attribute value, produced by the value formatter. |
 | `parameters` | `array` | Optional rendering parameters passed to the filter or modified by an event subscriber. |
 
-## Create a custom attribute template
+## Create custom attribute template
 
 Create a Twig template and define the blocks for the attribute types you want to customize:
 
@@ -82,7 +82,7 @@ ibexa_product_catalog:
             - 'templates/product/attributes/integer_attribute.html.twig'
 ```
 
-## Inject templates at runtime with an event
+## Inject templates at runtime
 
 You can inject additional templates by listening to the [`ProductAttributeRenderEvent`](product_catalog_events.md#attribute-rendering) event.
 Use this option when you want to add templates conditionally, for example based on the active catalog engine or region.

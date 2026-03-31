@@ -7,16 +7,14 @@ month_change: false
 
 ## What is product catalog
 
-The Product Catalog is a comprehensive set of capabilities for managing products in [[= product_name =]] that can be used standalone.
+The product catalog is a comprehensive set of capabilities for managing products in [[= product_name =]] that can be used standalone.
 It lets you create, configure, and manage products, their specifications, assets, variants, and prices, and group products into categories and catalogs.
-
-You can also use [Quable PIM](quable/quable.md) that's fully integrated into the [[= product_name_base =]] ecosystem, or the [Remote PIM](add_remote_pim_support.md) to create a custom integration with any Product Information Management (PIM) system.
 
 ## Availability
 
 Product Catalog capabilities are available in all [[= product_name =]] editions.
 
-## How does Product Catalog work
+## How does product catalog work
 
 Products in [[= product_name =]]’s PIM have underlying content items enriched with product-specific information such as attributes, assets, prices, and others.
 
@@ -158,15 +156,12 @@ Besides, the built-in catalog filters, you can also [create custom ones](create_
 
 ### Remote PIM support
 
-[[= product_name =]] provides flexible product catalog infrastructure that works with external Product Information Management (PIM) systems.
+[[= product_name =]] provides flexible product catalog infrastructure that works with external PIM systems.
 
 In [[= product_name =]], products are created and maintained by using the REST API or the back office, and their data is stored in a local database.
 However, in your project or organization, you might have an existing product database, or be specifically concerned about product information security.
-To address such needs, [[= product_name =]] provides a foundation for remote PIM support.
-You can build upon it to connect to a remote PIM or ERP system, pull product data and present it on your website.
-
-For enterprise product data management, [[= product_name =]] comes with a built-in [[[= pim_product_name =]] PIM](/product_catalog/quable/quable.md) connector, allowing you to use [[= pim_product_name =]] as the source of truth for product catalog information.
-For more information about the specific capabilities and limitations of this integration, see [[[= pim_product_name =]] product guide](/product_catalog/quable/quable_guide.md).
+To address such needs, [[= product_name =]] provides remote PIM support.
+You can use the existing [Quable PIM integration](quable/quable.md), or build a custom one to connect to a remote PIM or ERP system, pull product data and present it on your website.
 
 ![Remote PIM](img/remote_pim_support.png)
 
@@ -183,7 +178,7 @@ By embedding the products within content items and landing pages, you can levera
 
 ##### Purchasing
 
-Remote PIM support can integrate with [Commerce features](commerce.md).
+Remote PIM systems can integrate with [Commerce features](commerce.md).
 This versatility allows for a consistent and user-friendly purchasing workflow regardless of the product's origin.
 
 ##### Pricing, stock and availability
@@ -193,12 +188,17 @@ A product can only be ordered when it has defined [availability]([[= user_doc =]
 By default, such information is held in the [[= product_name =]]'s local database.
 In your specific scenario, you can implement the support for availability and pricing information coming from an external source as well, by using a price/availability matching strategy that is an extension point exposed in the Product catalog module.
 
-##### Filtering
-
 #### Limitations
 
+The limitation of remote PIM depend on implementation details of specific integration and may arise in areas relying on [content model](content_model.md).
+
+To see limitations of the [[= pim_product_name =]] PIM integration, see [[[= pim_product_name =]] PIM known limitations](/product_catalog/quable/quable_guide.md#known-limitations).
+
+##### Searching
+
 Filtering and pagination function the same as with the product catalog, relying on product attributes for effective organization of product data.
-However, criteria and Sort Clauses within product catalog relying on [[= product_name =]]'s content model are not supported.
+However, criteria and sort clauses within product catalog relying on [[= product_name =]]'s content model are not supported.
+
 Depending on your source of product information, you might need to adjust the implementation to be compatible with your data format.
 For reference, you could review the [`CriterionVisitor` class](https://github.com/ibexa/example-in-memory-product-catalog/blob/main/src/lib/PIM/InMemory/CriterionVisitor.php) that is part of [Remote PIM example package](add_remote_pim_support.md#install-remote-pim-example-package).
 

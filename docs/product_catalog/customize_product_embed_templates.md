@@ -9,7 +9,7 @@ You can override the default templates to customize the appearance of embedded p
 
 ## Embed types
 
-There are six embed types, each with its own template:
+Six embed types exist in the system, each with its own template:
 
 | Embed type | Description |
 | --- | --- |
@@ -26,10 +26,9 @@ The following variables are available in the embed templates:
 
 | Variable | Available in | Description |
 |---|---|---|
-| `product` | `product`, `product_inline` | A [`ProductInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Values-ProductInterface.html
-) object. |
-| `productCode` | `product_denied`, `product_inline_denied`, `product_not_found`, `product_inline_not_found` | The product code string, used to identify the product that could not be loaded. |
-| `embedParams` | all block types | Optional parameters set by the editor, for example `align` or `class` properties |
+| `product` | `product`, `product_inline` | A [`ProductInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Values-ProductInterface.html) object. |
+| <nobr>`productCode`</nobr> | `product_denied`, `product_inline_denied`, `product_not_found`, `product_inline_not_found` | The product code string, used to identify the product that could not be loaded. |
+| <nobr>`embedParams`</nobr> | All block types | Optional parameters set by the online editor, for example `align` or `class` properties |
 
 ## Override a template
 
@@ -54,7 +53,7 @@ And a minimal inline embed template (`product_inline.html.twig`):
 
 ## Configure template paths
 
-If you want to use a template outside of the default theme resolution, you can explicitly set the template path for any embed type in your [SiteAccess configuration](multisite_configuration.md):
+In addition to overriding the templates with [Design engine](design_engine.md), you can explicitly set the template path for any embed type in your [SiteAccess configuration](multisite_configuration.md):
 
 ```yaml
 ibexa:
@@ -78,5 +77,3 @@ ibexa:
 ```
 
 Replace `<siteaccess>` with the name of your SiteAccess or SiteAccess group (for example, `default`).
-The `@ibexadesign` namespace resolves to the active theme, so if your template follows the standard theme directory structure, you can rely on theme resolution rather than configuring explicit paths.
-For more information, see [Design engine](design_engine.md).

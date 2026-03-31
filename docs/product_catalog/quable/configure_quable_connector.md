@@ -5,11 +5,11 @@ page_type: reference
 
 # Configure Quable connector
 
-This page provides a complete reference for configuring the [[= pim_product_name =]] PIM connector in [[= product_name =]].
-
-Use the `ibexa_connector_quable` key in `config/packages/ibexa_connector_quable.yaml` to customize [[= pim_product_name =]] behavior.
+You can customize the behavior of the [[= pim_product_name =]] integration by using the following [configuration](configuration.md).
 
 ## Configuration example
+
+In `config/packages/ibexa_connector_quable.yaml`, specify your configuration by using the `ibexa_connector_quable` key:
 
 ``` yaml
 ibexa_connector_quable:
@@ -32,20 +32,21 @@ ibexa_connector_quable:
 
 | Parameter | Default value | Description |
 |-----------|--------------------------|-------------|
-| `enabled` | `false` | Enables the connector bundle configuration. |
+| `enabled` | `false` | Enables the connector. |
 | `instance_url` | string | Base URL of your [[= pim_product_name =]] instance, for example `https://example.quable.com`. |
-| `api_token` | string | Read Access API token used to authenticate requests to [[= pim_product_name =]]. |
-| `channel_code` | string | Code of the [[= pim_product_name =]] channel used as the source of product data. |
-| `webhook_secret` | string | Secret expected in the webhook authorization header. |
-| `throw_on_invalid_criteria` | `%kernel.debug%` | Controls behavior for unsupported filter/search criteria: `true` throws an exception, `false` ignores unsupported criteria. |
-| `throw_on_invalid_mapping` | `%kernel.debug%` | Controls behavior for mapping errors during data transformation: `true` throws an exception, `false` ignores mapping errors. |
+| `api_token` | string | [Read Access API token](https://docs.quable.com/v5-EN/docs/system-api-tokens) used to authenticate requests to [[= pim_product_name =]]. |
+| `channel_code` | string | Code of the [[[= pim_product_name =]] channel](https://docs.quable.com/v5-EN/docs/content-channels) used as the source of product data. |
+| `webhook_secret` | string | Secret expected in the [webhook](https://docs.quable.com/v5-EN/docs/webhook) authorization header. |
+| <nobr>`throw_on_invalid_criteria`</nobr> | <nobr>`%kernel.debug%`</nobr> | Controls behavior for unsupported search criteria: `true` throws an exception, `false` only logs unsupported criteria. |
+| <nobr>`throw_on_invalid_mapping`</nobr> | <nobr>`%kernel.debug%`</nobr> | Controls behavior for mapping errors during data transformation: `true` throws an exception, `false` only logs mapping errors. |
 | `cache.enabled` | `true` | Global cache switch for the connector. When `false`, cache decorators use only [in-memory cache](persistence_cache.md#in-memory-cache-configuration). |
 | `cache.attribute` | `true` | Enables caching for attribute definition requests. |
-| `cache.attribute_group` | `true` | Enables caching for attribute group requests. |
-| `cache.product` | `true` | Enables caching for product requests. |
-| `cache.product_type` | `true` | Enables caching for product type requests. |
+| `cache.`<br>`attribute_group` | `true` | Enables caching for attribute group requests. |
+| `cache.`<br>`product` | `true` | Enables caching for product requests. |
+| `cache.`<br>`product_type` | `true` | Enables caching for product type requests. |
 
 In production environments, it's recommended to:
 
+- keep the `api_token` and the `webhook_secret` [secure](security_checklist.md#app_secret-and-other-secrets)
 - enable caching for better performance, using Redis or Valkey as [persistence cache](persistence_cache.md#redisvalkey)
 - disable `throw_on_invalid_criteria` and `throw_on_invalid_mapping` to prevent non-critical errors from causing application crashes

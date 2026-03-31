@@ -9,7 +9,7 @@ month_change: true
 As [[= pim_product_name =]] products are represented as [[= product_name =]] products, you can use the existing [Product APIs](product_api.md) to retrieve the product information.
 
 [[= pim_product_name =]] is the source of truth about products and categories and you should only use the [[= product_name =]] APIs to read the information coming from [[= pim_product_name =]], but you can't use them to modify it.
-To modify the information, use the [[[= pim_product_name =]] interface](https://quable.com) or the dedicated [[[= pim_product_name =]]](https://developers.quable.com/quable-api/) APIs.
+To modify the information, use the [[[= pim_product_name =]] interface](https://quable.com) or the dedicated [[[= pim_product_name =]] APIs](https://developers.quable.com/quable-api/).
 
 ## REST API Usage
 
@@ -26,13 +26,19 @@ You can use the following endpoints to retrieve product and category information
 
 To retrieve product information coming from [[= pim_product_name =]], use the same APIs as described in [Product API](product_api.md).
 
-The following example shows how you can retrieve a single product, or multiple ones:
+The following example shows how you can retrieve a single product:
 
 ``` php
-[[= include_file('code_samples/api/product_catalog/src/Command/ProductCommand.php', 54, 68) =]]
+[[= include_file('code_samples/api/product_catalog/src/Command/ProductCommand.php', 54, 57, remove_indent=True) =]]
 ```
 
 ### Search for products
+
+Use [`ProductQuery`](product_api.md#getting-product-information) to search for mulitple products:
+
+``` php
+[[= include_file('code_samples/api/product_catalog/src/Command/ProductCommand.php', 58, 68, remove_indent=True) =]]
+```
 
 When working with [[= pim_product_name =]] products, the following search criteria are supported:
 
@@ -60,8 +66,13 @@ The following sort clauses are supported:
 
 ### Manage stock and pricing
 
-For information that is stored outside of [[= pim_product_name =]], such as [product availability](product_api.md#product-availability) or [pricing](price_api.md), you can use the existing services to manage them:
+For information stored outside of [[= pim_product_name =]], such as [product availability](product_api.md#product-availability) or [pricing](price_api.md), you can use the existing services to manage them:
 
-``` php
+``` php hl_lines="6 14"
+// Manage availability
 [[= include_file('code_samples/api/product_catalog/src/Command/ProductCommand.php', 84, 89, remove_indent=True) =]]
+// Manage prices
+[[= include_file('code_samples/api/product_catalog/src/Command/ProductPriceCommand.php', 69, 75, remove_indent=True) =]]
 ```
+
+For advanced pricing strategies, use the [Discounts API](discounts_api.md) to specify prices for [[= pim_product_name =]]'s products.

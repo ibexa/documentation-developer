@@ -326,7 +326,7 @@ The [discount](discounts.md) policies decide which actions can be executed by gi
 | <nobr>`product_type`</nobr> | <nobr>`create`</nobr> | create a product type, a new attribute, a new attribute group, and add translation to product type and attribute | [Product Type](limitation_reference.md#product-type-limitation) |
 |                             | <nobr>`delete`</nobr> | delete a product type, attribute, attribute group                                                                |                      |
 |                             | <nobr>`edit`</nobr>   | edit a product type, attribute, attribute group                                                                  | [Product Type](limitation_reference.md#product-type-limitation) |
-|                             | <nobr>`view`</nobr>   | view product types, attributes and attribute groups                                                              |                      | 
+|                             | <nobr>`view`</nobr>   | view product types, attributes and attribute groups                                                              |                      |
 
 !!! warning
 
