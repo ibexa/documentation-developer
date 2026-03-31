@@ -9,7 +9,7 @@ month_change: false
 
 [[= pim_product_name =]] integration connects [[= product_name =]] with [[[= pim_product_name =]] PIM](https://www.quable.com/en), making [[= pim_product_name =]] the authoritative source of product information for every website powered by [[= product_name =]].
 
-Store managers can manage their product catalog in [[= pim_product_name =]], creating product families, managing attributes, uploading assets, and translating content — while [[= product_name =]] automatically receives that data and makes it available for digital experiences: storefronts, landing pages, personalized campaigns, and more.
+Store managers can manage their product catalog in [[= pim_product_name =]], creating product families, managing attributes, and translating content — while [[= product_name =]] automatically receives that data and makes it available for digital experiences: storefronts, landing pages, personalized campaigns, and more.
 
 The integration complements the native [Product Catalog](../product_catalog_guide.md) by replacing local product storage with a live connection to [[= pim_product_name =]].
 Instead of maintaining product data in two places, teams manage it once and distribute it everywhere.
@@ -37,7 +37,7 @@ The data can then be displayed in storefronts, back office views, and API respon
 ### Single source of product truth
 
 [[= pim_product_name =]] is the authoritative system for product data.
-Product management, such as adding attributes, translations, and digital assets, is done in [[= pim_product_name =]].
+Product management, such as adding attributes and translations, is done in [[= pim_product_name =]].
 [[= product_name =]] consumes this enriched data and exposes it through storefronts, back office, and APIs.
 
 Editorial teams that need to add DXP-specific content, such as promotional text or page layout, can still do so by reusing the product data, for example by using the [Online Editor](online_editor_guide.md) and workflows including [collaborative editing](collaborative_editing_guide.md).
@@ -56,6 +56,7 @@ You can use [[= product_name =]] to manage product availability and pricing for 
 
 The integration with [[= pim_product_name =]] has the following known limitations:
 
+- Product assets are not synchronized. Only the main asset thumbnail URL from [[= pim_product_name =]] is used as the product image. Asset collections, asset management, and variant thumbnails are not available.
 - It's not possible to create [catalogs](product_catalog_guide.md#catalogs) with products coming from [[= pim_product_name =]].
 - It's not possible to use the Commerce functionalities like [cart](cart.md), [order management](order_management.md), or [shopping lists](shopping_list.md) with products coming from [[= pim_product_name =]].
 - It's not possible to limit access to products using the existing [product limitations](policies.md#products).
@@ -66,9 +67,9 @@ The integration with [[= pim_product_name =]] has the following known limitation
 ### Multi-market channel operations
 
 A retailer operating in multiple European markets maintains a single product catalog in [[= pim_product_name =]] with separate channels and data languages per market.
-[[= product_name =]] connects to each market's channel and serves localized product names, descriptions, and market-specific assets to each regional storefront, all from a single [[= pim_product_name =]] instance.
+[[= product_name =]] connects to each market's channel and serves localized product names and descriptions to each regional storefront, all from a single [[= pim_product_name =]] instance.
 
 ### Faster marketing launches
 
-A fashion brand's store manager can add a new seasonal collection in [[= pim_product_name =]] with attributes, variants, and assets.
+A fashion brand's store manager can add a new seasonal collection in [[= pim_product_name =]] with attributes and variants.
 The marketing team can then immediately start working on their campaign, using the product data from [[= pim_product_name =]] both in [Page Builder](page_builder_guide.md) and regular content items.
