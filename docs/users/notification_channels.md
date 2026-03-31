@@ -169,12 +169,13 @@ The channels subscribing to this notification are set in `config/packages/notifi
 
 The example command sends a `CommandExecuted` notification at the end of what could be a regular execution.
 It randomly succeeds or fails to show how the notification can be used to communicate different execution results.
+It could be declared as a service to set the list of recipients' logins `$recipientLogins` from a configuration file.
 
 ``` php
 [[= include_file('code_samples/user_management/notifications/src/Command/NotificationSenderCommand.php') =]]
 ```
 
-If you execute this command, it will some time succeed, some time fails.
+If you execute this command, it will sometimes succeed, sometimes fails.
 
 ![Ibexa notification example](notification-ibexa.png "Command notifications shown in the `ibexa` channel, the back office user notification menu")
 
