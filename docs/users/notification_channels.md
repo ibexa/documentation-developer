@@ -242,7 +242,7 @@ Subscribe to this new notification type in `config/packages/notifications.yaml`:
     several subscriptions had to be copy-pasted into this SiteAccess group to have the same subscriptions as before
     when it was configured only by the `default` scope.
     
-    For example, the subscriptions for `site` SiteAccess belonging this group
+    For example, the subscriptions for the `site` SiteAccess belonging this group
     can be checked with the following command during the configuration:
     
     ```bash
