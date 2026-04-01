@@ -27,6 +27,7 @@ In the DXP, you can use the product information for marketing, recommendations, 
 [[= cards([
     "product_catalog/quable/install_quable",
     "product_catalog/quable/configure_quable_connector",
+    "product_catalog/quable/quable_api",
     "templating/twig_function_reference/quable_twig_functions",
     "product_catalog/customize_product_attribute_templates",
     ("https://developers.quable.com/", "Quable technical documentation", "Explore Quable's technical documentation"),
