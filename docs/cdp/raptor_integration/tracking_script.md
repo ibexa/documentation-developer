@@ -1,6 +1,5 @@
 ---
 description: Integrate the tracking script to collect user interactions.
-edition: experience
 ---
 
 # Tracking script
