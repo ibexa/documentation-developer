@@ -13,9 +13,9 @@ month_change: true
 [[% set version = 'v5.0.X' %]]
 
 [[= release_note_entry_begin(
-"Raptor connector " + version,
-'YYYY-MM-DD',
-['Headless', 'Experience', 'Commerce', 'LTS Update', 'New feature', 'First release']
+    "Raptor connector " + version,
+    'YYYY-MM-DD',
+    ['Headless', 'Experience', 'Commerce', 'LTS Update', 'New feature', 'First release']
 ) =]]
 
 The SiteAccess-aware [Raptor](https://www.raptorservices.com/) connector provides a seamless integration between [[= product_name =]] and Raptor Recommendation Engine.
