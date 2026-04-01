@@ -10,7 +10,7 @@ month_change: true
 
 <div class="release-notes" markdown="1">
 
-[[% set version = 'v4.6.29' %]]
+[[% set version = 'v4.6.X' %]]
 
 [[= release_note_entry_begin(
     "Ibexa DXP " + version,
@@ -22,10 +22,10 @@ month_change: true
 
 #### Taxonomy search
 
-Two [taxonomy search](https://doc.ibexa.co/en/5.0/content_management/taxonomy/taxonomy_api/search) criteria are added:
+Two [taxonomy search](https://doc.ibexa.co/en/4.6/content_management/taxonomy/taxonomy_api/search) criteria are added:
 
-- [`TaxonomyNoEntries`](https://doc.ibexa.co/en/5.0/search/criteria_reference/taxonomy_no_entries/) to find content items to which no taxonomy entries have been assigned.
-- [`TaxonomySubtree`](https://doc.ibexa.co/en/5.0/search/criteria_reference/taxonomy_subtree/) for content items assigned to a taxonomy entry or any of its descendants.
+- [`TaxonomyNoEntries`](https://doc.ibexa.co/en/4.6/search/criteria_reference/taxonomy_no_entries/) to find content items to which no taxonomy entries have been assigned.
+- [`TaxonomySubtree`](https://doc.ibexa.co/en/4.6/search/criteria_reference/taxonomy_subtree/) for content items assigned to a taxonomy entry or any of its descendants.
 
 #### Custom parameters in `ibexa_render()`
 
