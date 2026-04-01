@@ -62,6 +62,12 @@ def define_env(env):
         version = force_version or version
         version = os.getenv("READTHEDOCS_VERSION_NAME", version)
 
+        rtd_canonical = os.getenv("READTHEDOCS_CANONICAL_URL", "")
+        if rtd_canonical:
+            rtd_domain = re.search("//([^/]+)/", rtd_canonical)
+            if rtd_domain:
+                site = rtd_domain.group(1)
+
         if isinstance(pages, str):
             pages = [pages]
         cards = []
