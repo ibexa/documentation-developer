@@ -18,7 +18,7 @@ month_change: true
     ['Headless', 'Experience', 'Commerce', 'LTS Update', 'New feature', 'First release']
 ) =]]
 
-The SiteAccess-aware [Raptor](https://www.raptorservices.com/) connector provides a seamless integration between [[= product_name =]] and Raptor Recommendation Engine.
+The SiteAccess-aware Raptor connector provides a seamless integration between [[= product_name =]] and [Raptor Recommendation Engine](https://www.raptorservices.com/website-recommendations/).
 
 For more information, see [SiteAccess-aware Raptor connector](https://doc.ibexa.co/en/5.0/cdp/raptor_integration/raptor_connector/).
 
