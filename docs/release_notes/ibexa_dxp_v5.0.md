@@ -64,6 +64,13 @@ Symfony is upgraded from 7.3 to 7.4.
 See [what's new in Symfony 7.4](https://symfony.com/blog/category/living-on-the-edge/8.0-7.4)
 and [how to update Symfony within [[= product_name =]]](https://doc.ibexa.co/en/5.0/update_and_migration/from_5.0/update_from_5.0/#update-symfony-from-73-to-74).
 
+#### Taxonomy search
+
+Two [taxonomy search](https://doc.ibexa.co/en/5.0/content_management/taxonomy/taxonomy_api/search) criteria are added:
+
+- [`TaxonomyNoEntries`](https://doc.ibexa.co/en/5.0/search/criteria_reference/taxonomy_no_entries/) to find content items to which no taxonomy entries have been assigned.
+- [`TaxonomySubtree`](https://doc.ibexa.co/en/5.0/search/criteria_reference/taxonomy_subtree/) for content items assigned to a taxonomy entry or any of its descendants.
+
 #### Custom parameters in `ibexa_render()`
 
 You can now pass custom parameters to templates when using the `ibexa_render()` Twig function with the new `params` option, similar to how you can with `render(controller())`.Collapse annotationCheck notice on line R18[vale] docs/release_notes/ibexa_dxp_v5.0.md#L18Check notice: [vale] docs/release_notes/ibexa_dxp_v5.0.md#L18[Ibexa.ByUsing] Prefer 'by using' or 'with' to plain 'using'.Build & test documentation / valeView details

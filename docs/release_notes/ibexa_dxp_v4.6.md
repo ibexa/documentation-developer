@@ -20,6 +20,13 @@ month_change: true
 
 ### Developer experience
 
+#### Taxonomy search
+
+Two [taxonomy search](https://doc.ibexa.co/en/5.0/content_management/taxonomy/taxonomy_api/search) criteria are added:
+
+- [`TaxonomyNoEntries`](https://doc.ibexa.co/en/5.0/search/criteria_reference/taxonomy_no_entries/) to find content items to which no taxonomy entries have been assigned.
+- [`TaxonomySubtree`](https://doc.ibexa.co/en/5.0/search/criteria_reference/taxonomy_subtree/) for content items assigned to a taxonomy entry or any of its descendants.
+
 #### Custom parameters in `ibexa_render()`
 
 You can now pass custom parameters to templates when using the `ibexa_render()` Twig function with the new `params` option, similar to how you can with `render(controller())`.Collapse annotationCheck notice on line R18[vale] docs/release_notes/ibexa_dxp_v5.0.md#L18Check notice: [vale] docs/release_notes/ibexa_dxp_v5.0.md#L18[Ibexa.ByUsing] Prefer 'by using' or 'with' to plain 'using'.Build & test documentation / valeView details
