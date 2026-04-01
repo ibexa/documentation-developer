@@ -31,10 +31,10 @@ This LTS Update includes two Twig functions to ease tracking setting:
 
 ### Recommendations blocks [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
 
-This LTS Update includes a nice variety of Page Builder blocks to make recommendations to the reader or customer,
-like most popular contents or products, or other items that other users have seen after or before the current page.
+This LTS update introduces a set of recommendation blocks available in the [Page Builder](https://doc.ibexa.co/en/5.0/content_management/pages/page_builder_guide/),
+designed to suggest relevant content or products to users, such as the most popular items or viewed by others.
 
-For more information such as the list of available blocks, see [Recommendation blocks in Page Builder](https://doc.ibexa.co/en/5.0/cdp/raptor_integration/pb_blocks/).
+For more information, see [Recommendation blocks in Page Builder](https://doc.ibexa.co/en/5.0/cdp/raptor_integration/pb_blocks/).
 
 [[= release_note_entry_end() =]]
 
