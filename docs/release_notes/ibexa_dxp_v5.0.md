@@ -102,6 +102,16 @@ The `try_catch` step allows you to specify which exceptions to catch and whether
 
 For more information, see [Error handling with try-catch](https://doc.ibexa.co/en/5.0/content_management/data_migration/importing_data/#error-handling-with-try-catch).
 
+#### Translation-related Twig Component groups
+
+Four groups of [Twig components](https://doc.ibexa.co/en/5.0/templating/components/) related to Admin UI translation are added.
+
+For more information, see [Customizing the back office with Twig Components > Admin UI](https://doc.ibexa.co/en/5.0/administration/back_office/back_office_elements/custom_components/#admin-ui).
+
+### AI Actions in Page Builder blocks [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
+
+You can now use the [refining text AI Actions](https://doc.ibexa.co/en/5.0/ai_actions/ai_actions_guide/#refining-text) in Page Builder blocks string and text inputs.
+
 ### Gaussian blur optimization in Image Editor
 
 The [Image Editor]([[= user_doc =]]/image_management/edit_images/) now supports configurable gaussian blur strength for image optimization.
