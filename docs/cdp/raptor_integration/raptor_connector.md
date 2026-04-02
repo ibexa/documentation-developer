@@ -24,4 +24,7 @@ Activation includes configuration, adding tracking scripts and events, and using
 
 [[= cards([
     "cdp/raptor_integration/connector_configuration",
-], columns=3) =]]
+    "cdp/raptor_integration/tracking_script",
+    "cdp/raptor_integration/pb_blocks",
+    "cdp/raptor_integration/tracking_event_function"
+], columns=2) =]]
