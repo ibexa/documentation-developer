@@ -13,6 +13,20 @@ month_change: true
 [[% set version = 'v4.6.X' %]]
 
 [[= release_note_entry_begin(
+"Integrated help " + version,
+'YYYY-MM-DD',
+['Headless', 'Experience', 'Commerce', 'LTS Update', 'New feature']
+) =]]
+
+### Product tour
+
+The product tour is a new Integrated help feature that helps back office contributors to discover [[= product_name =]].
+
+For more information, see [Product tour](https://doc.ibexa.co/en/4.6/administration/back_office/product_tour/).
+
+[[= release_note_entry_end() =]]
+
+[[= release_note_entry_begin(
     "Ibexa DXP " + version,
     'YYYY-MM-DD',
     ['Headless', 'Experience', 'Commerce', 'New feature']
