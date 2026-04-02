@@ -52,14 +52,14 @@ For more information, see [SiteAccess-aware Raptor connector](https://doc.ibexa.
 
 #### Tracking
 
-This LTS Update includes two Twig functions to ease tracking setting:
+This add-on includes two Twig functions to ease tracking setting:
 
 - `ibexa_tracking_script` to load the JavaScript tracking code, for more information, see [Tracking script](https://doc.ibexa.co/en/5.0/cdp/raptor_integration/tracking_script/)
 - `ibexa_tracking_track_event` to send tracking events from your pages, for more information, see [Tracking event function](https://doc.ibexa.co/en/5.0/cdp/raptor_integration/tracking_event_function/)
 
 #### Recommendations blocks [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
 
-This LTS update introduces a set of recommendation blocks available in the [Page Builder](https://doc.ibexa.co/en/5.0/content_management/pages/page_builder_guide/),
+This add-on introduces a set of recommendation blocks available in the [Page Builder](https://doc.ibexa.co/en/5.0/content_management/pages/page_builder_guide/),
 designed to suggest relevant content or products to users, such as the most popular items or viewed by others.
 
 For more information, see [Recommendation blocks in Page Builder](https://doc.ibexa.co/en/5.0/cdp/raptor_integration/pb_blocks/).
