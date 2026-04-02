@@ -3,6 +3,8 @@ description: Recommendation blocks in Page Builder
 edition: experience
 ---
 
+# Recommendation blocks in Page Builder
+
 One of the Raptor Integration elements is the introduction of recommendation blocks available in the [Page Builder](page_builder_guide.md).
 
 Each Content, Product, or Commerce recommendation can be added to a landing page using the blocks.
