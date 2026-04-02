@@ -135,7 +135,7 @@ You can now use the [refining text AI Actions](https://doc.ibexa.co/en/5.0/ai_ac
 
 ### Quable PIM [[% include 'snippets/commerce_badge.md' %]]
 
-Integrate [[[= pim_product_name =]]](https://www.quable.com/en) with [[= product_name =]].
+Add-on to integrate [[[= pim_product_name =]]](https://www.quable.com/en) with [[= product_name =]].
 
 For more information, see [Quable PIM Integration](https://doc.ibexa.co/en/5.0/product_catalog/quable/).
 
