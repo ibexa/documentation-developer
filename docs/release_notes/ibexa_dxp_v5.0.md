@@ -13,32 +13,6 @@ month_change: true
 [[% set version = 'v5.0.X' %]]
 
 [[= release_note_entry_begin(
-    "Raptor connector " + version,
-    'YYYY-MM-DD',
-    ['Headless', 'Experience', 'Commerce', 'LTS Update', 'New feature', 'First release']
-) =]]
-
-The SiteAccess-aware Raptor connector provides a seamless integration between [[= product_name =]] and [Raptor Recommendation Engine](https://www.raptorservices.com/website-recommendations/).
-
-For more information, see [SiteAccess-aware Raptor connector](https://doc.ibexa.co/en/5.0/cdp/raptor_integration/raptor_connector/).
-
-### Tracking
-
-This LTS Update includes two Twig functions to ease tracking setting:
-
-- `ibexa_tracking_script` to load the JavaScript tracking code, for more information, see [Tracking script](https://doc.ibexa.co/en/5.0/cdp/raptor_integration/tracking_script/)
-- `ibexa_tracking_track_event` to send tracking events from your pages, for more information, see [Tracking event function](https://doc.ibexa.co/en/5.0/cdp/raptor_integration/tracking_event_function/)
-
-### Recommendations blocks [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
-
-This LTS update introduces a set of recommendation blocks available in the [Page Builder](https://doc.ibexa.co/en/5.0/content_management/pages/page_builder_guide/),
-designed to suggest relevant content or products to users, such as the most popular items or viewed by others.
-
-For more information, see [Recommendation blocks in Page Builder](https://doc.ibexa.co/en/5.0/cdp/raptor_integration/pb_blocks/).
-
-[[= release_note_entry_end() =]]
-
-[[= release_note_entry_begin(
     "Google Gemini connector " + version,
     'YYYY-MM-DD',
     ['Headless', 'Experience', 'Commerce', 'LTS Update', 'New feature', 'First release']
@@ -69,6 +43,26 @@ For more information, see [Product tour](https://doc.ibexa.co/en/5.0/administrat
     'YYYY-MM-DD',
     ['Headless', 'Experience', 'Commerce', 'New feature']
 ) =]]
+
+### Raptor connector
+
+The SiteAccess-aware Raptor connector provides a seamless integration between [[= product_name =]] and [Raptor Recommendation Engine](https://www.raptorservices.com/website-recommendations/).
+
+For more information, see [SiteAccess-aware Raptor connector](https://doc.ibexa.co/en/5.0/cdp/raptor_integration/raptor_connector/).
+
+#### Tracking
+
+This LTS Update includes two Twig functions to ease tracking setting:
+
+- `ibexa_tracking_script` to load the JavaScript tracking code, for more information, see [Tracking script](https://doc.ibexa.co/en/5.0/cdp/raptor_integration/tracking_script/)
+- `ibexa_tracking_track_event` to send tracking events from your pages, for more information, see [Tracking event function](https://doc.ibexa.co/en/5.0/cdp/raptor_integration/tracking_event_function/)
+
+#### Recommendations blocks [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
+
+This LTS update introduces a set of recommendation blocks available in the [Page Builder](https://doc.ibexa.co/en/5.0/content_management/pages/page_builder_guide/),
+designed to suggest relevant content or products to users, such as the most popular items or viewed by others.
+
+For more information, see [Recommendation blocks in Page Builder](https://doc.ibexa.co/en/5.0/cdp/raptor_integration/pb_blocks/).
 
 ### Developer experience
 
