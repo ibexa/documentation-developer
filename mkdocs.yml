@@ -509,7 +509,7 @@ nav:
         - CDP data export schedule: cdp/cdp_data_export_schedule.md
         - CDP data customization: cdp/cdp_data_customization.md
         - Integration with Raptor:
-            - Recommendations blocks: cdp/raptor_integration/pb_blocks.md
+            - Recommendations blocks: cdp/raptor_integration/recommendation_blocks.md
     - Search:
         - Search: search/search.md
         - Search engines: 
