@@ -133,7 +133,9 @@ For more information, see [Quable PIM Integration](https://doc.ibexa.co/en/5.0/p
 
 ### Full changelog
 
+[[#
 [[% include 'snippets/release_50.md' %]]
+#]]
 
 [[= release_note_entry_end() =]]
 

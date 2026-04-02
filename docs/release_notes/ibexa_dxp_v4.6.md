@@ -57,7 +57,9 @@ For more information, see [Configure image editor](https://doc.ibexa.co/en/4.6/c
 
 ### Full changelog
 
+[[#
 [[% include 'snippets/release_46.md' %]]
+#]]
 
 [[= release_note_entry_end() =]]
 
