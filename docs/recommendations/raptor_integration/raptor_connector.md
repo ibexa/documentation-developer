@@ -21,13 +21,14 @@ This connector ensures a smooth and unified integration layer, enabling:
 This approach reduces integration complexity while providing a scalable foundation for personalization use cases across multiple sites and markets.
 
 To configure the Raptor integration, follow a step-by-step procedure that allows you to activate the Raptor connector.
-Activation includes [configuration](connector_configuration.md), adding tracking scripts and events, and using [Page Builder](page_builder_guide.md) blocks.
+Activation includes [configuration](connector_installation_configuration.md), adding tracking scripts and events, and using [Page Builder](page_builder_guide.md) blocks.
 
 For more information on tracking, check the Raptor documentation: [Implementing tracking](https://content.raptorservices.com/help-center/data-management#implementing-tracking).
 
 [[= cards([
     "recommendations/raptor_integration/connector_installation_configuration",
-    "recommendations/raptor_integration/tracking_script",
-    "recommendations/raptor_integration/tracking_event_function",
+    "recommendations/raptor_integration/tracking_functions",
+    "recommendations/raptor_integration/tracking_php_api",
     "recommendations/raptor_integration/recommendation_blocks",
-], columns=2) =]]
+    "templating/twig_function_reference/recommendations_twig_functions",
+], columns=3) =]]

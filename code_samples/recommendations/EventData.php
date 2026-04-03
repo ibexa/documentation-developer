@@ -1,0 +1,13 @@
+<php>
+use Ibexa\Contracts\ConnectorRaptor\Tracking\Event\VisitEventData;
+
+$eventData = new VisitEventData(
+    productId: $product->getCode(),
+    productName: $product->getName(),
+    categoryPath: '25#Electronics;26#Smartphones',  // Build manually
+        currency: 'USD',
+    itemPrice: '999.99'
+);
+
+$this->trackingDispatcher->dispatch($eventData);
+</php>

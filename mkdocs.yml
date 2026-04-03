@@ -501,8 +501,9 @@ nav:
     - Recommendations:
         - Integration with Raptor:
             - Raptor connector: recommendations/raptor_integration/raptor_connector.md
-            - Raptor connector - installation and configuration: recommendations/raptor_integration/connector_installation_configuration.md
-            - Tracking script: recommendations/raptor_integration/tracking_script.md
+            - Installation and configuration: recommendations/raptor_integration/connector_installation_configuration.md
+            - Tracking functions: recommendations/raptor_integration/tracking_functions.md
+            - Tracking with PHP API: recommendations/raptor_integration/tracking_php_api.md
             - Recommendations blocks: recommendations/raptor_integration/recommendation_blocks.md
     - CDP (Customer Data Platform):
         - Customer Data Platform: cdp/cdp.md
