@@ -5,7 +5,7 @@ page_type: landing_page
 
 # Raptor connector
 
-The SiteAccess-aware [Raptor](https://www.raptorservices.com/) connector provides a seamless integration between [[= product_name =]] and Raptor Recommendation Engine.
+The [Raptor](https://www.raptorservices.com/) connector provides a seamless integration between [[= product_name =]] and Raptor Recommendation Engine.
 
 Its primary goal is to enable editors and managers to deliver personalized experiences across digital channels, which helps to increase conversion rates, drive sales, and improve user engagement.
 
