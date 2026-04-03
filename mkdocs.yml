@@ -322,7 +322,8 @@ nav:
             - URL Twig functions: templating/twig_function_reference/url_twig_functions.md
             - User Twig functions: templating/twig_function_reference/user_twig_functions.md
             - AI Twig functions: templating/twig_function_reference/ai_actions_twig_functions.md
-            - Discounts functions: templating/twig_function_reference/discounts_twig_functions.md
+            - Discounts Twig functions: templating/twig_function_reference/discounts_twig_functions.md
+            - Recommendations Twig functions: templating/twig_function_reference/recommendations_twig_functions.md
         - Twig Components: templating/components.md
         - URLs and routes:
             - URLs and routes: templating/urls_and_routes/urls_and_routes.md
@@ -501,7 +502,7 @@ nav:
         - Integration with Raptor:
             - Raptor connector: recommendations/raptor_integration/raptor_connector.md
             - Raptor connector - installation and configuration: recommendations/raptor_integration/connector_installation_configuration.md
-            - Tracking Twig functions: recommendations/raptor_integration/tracking_twig_functions.md
+            - Tracking script: recommendations/raptor_integration/tracking_script.md
             - Recommendations blocks: recommendations/raptor_integration/recommendation_blocks.md
     - CDP (Customer Data Platform):
         - Customer Data Platform: cdp/cdp.md
