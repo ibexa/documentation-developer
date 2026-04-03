@@ -5,8 +5,7 @@ description: Raptor tracking function.
 # Raptor tracking function
 
 Raptor [tracking function](https://content.raptorservices.com/help-center/introduction-to-tracking-documentation) introduces visit tracking functionality for collecting user interactions with products and content.
-The implementation includes product visit tracking with mapping to tracking parameters and automatic price formatting, as well as Twig functions for straightforward integration.
-It supports multi-currency setups with automatic decimal formatting (0, 2, or 3 decimals) based on configuration, and integrates with taxonomy to extract and format category paths for product categorization.
+The implementation includes product visit tracking with mapping to tracking parameters, as well as Twig functions for straightforward integration.
 
 ## Initialize Raptor tracking script
 
@@ -35,14 +34,14 @@ Tracking is handled through twig function that accept following parameters:
 ``` html+twig
 ibexa_tracking_track_event(
     eventType,     {# string: 'visit', 'contentvisit', 'buy', 'basket', 'itemclick' #}
-    data,          {# mixed: Product, Content, or null (optional) #}
+    data,          {# mixed: product, content, or null (optional) #}
     context,       {# array: additional context data (optional) #}
     template       {# string: custom template path (optional) #}
 )
 ```
 
 - **eventType** - type: string, defines the type of tracking event to be sent, for example, `visit`, `contentvisit`, `buy`, `basket`, `itemclick`
-- **data** (optional) - type: mixed, defines the primary object associated with the event, such as a Product or Content, can be null if not required
+- **data** (optional) - type: mixed, accepts the primary object associated with the event, such as a Product or Content, can be null if not required
 - **context** (optional)- type: array, additional event data, such as quantity, basket details, or custom parameters
 - **template** (optional) - type: string, path to a custom Twig template used to render the tracking event, allows overriding the default tracking output
 
@@ -85,7 +84,7 @@ connector_raptor:
     tracking_type: 'client'  # Returns <script> tags
 ```
 
-- **server** - returns HTML comments, leaving placeholders without running JavaScript.
+- **server** - returns HTML comments, placeholders that do not perform any action. Instead, the tracking is done server-side.
 - **client** - returns `script` tags to load the tracking script in the browser.
 
 You can switch tracking mode anytime by changing the `tracking_type` parameter.
@@ -101,7 +100,7 @@ For more information on Tracking modes, see Raptor documentation:
 ### `EventMapper` method
 
 The recommended method, providing full control over event tracking, is `EventMapper` method.
-It allows to interact directly with the service, supporting advanced configuration beyond what the Page Builder offers.
+It allows to interact directly with the service, supporting advanced use cases not covered by default implementation.
 
 Check the following example:
 
@@ -200,7 +199,7 @@ class ProductViewTrackingSubscriber implements EventSubscriberInterface
 
 The following events are supported and can be triggered from Twig templates:
 
-### Product Visit event
+### Product `visit` event
 
 This event tracks product page visits by users.
 It's the most common e-commerce tracking event used to capture product views for analytics, recommendation models, and user behavior processing.
@@ -227,7 +226,7 @@ Example:
 {% endblock %}
 ```
 
-### Content Visit event
+### Content `visit` event
 
 This event tracks content page visits by users.
 It can used to check content views for analytics, personalization, and user behavior tracking.
