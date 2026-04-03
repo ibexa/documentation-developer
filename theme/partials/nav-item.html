@@ -47,8 +47,7 @@
   <li class="{{ class }}">
     <a href="{{ nav_item.url | url }}" class="md-nav__link level-{{ level }}">
       {{ nav_item.title }}
-      {% set nav_item_meta = nav_item | attr("meta") %}
-      {% if nav_item_meta is defined and nav_item_meta and nav_item_meta.get("month_change") %}<span class="pill pill--new">New</span>{% endif %}
+      {% if nav_item.meta.month_change %}<span class="pill pill--new">New</span>{% endif %}
     </a>
   </li>
 {% endif %}
