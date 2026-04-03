@@ -510,8 +510,8 @@ nav:
         - CDP data customization: cdp/cdp_data_customization.md
     - Recommendations:
         - Integration with Raptor:
-            - Integration with Raptor: cdp/raptor_integration/raptor_connector.md
-            - Connector configuration: cdp/raptor_integration/connector_configuration.md
+            - Integration with Raptor: recommendations/raptor_integration/raptor_connector.md
+            - Connector installation and configuration: recommendations/raptor_integration/connector_configuration.md
     - Search:
         - Search: search/search.md
         - Search engines: 
