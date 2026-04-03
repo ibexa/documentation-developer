@@ -499,6 +499,9 @@ nav:
         - Attribute search in Elasticsearch: personalization/attribute_search_in_elasticsearch.md
     - Recommendations:
         - Integration with Raptor:
+            - Raptor connector: recommendations/raptor_integration/raptor_connector.md
+            - Raptor connector - installation and configuration: recommendations/raptor_integration/connector_installation_configuration.md
+            - Tracking Twig functions: recommendations/raptor_integration/tracking_twig_functions.md
             - Recommendations blocks: recommendations/raptor_integration/recommendation_blocks.md
     - CDP (Customer Data Platform):
         - Customer Data Platform: cdp/cdp.md

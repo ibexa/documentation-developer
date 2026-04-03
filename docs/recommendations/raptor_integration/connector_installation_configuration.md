@@ -28,7 +28,7 @@ To configure Raptor connector, use the `ibexa.system.<scope>.connector_raptor` c
 - `recommendations_api_key` - an API key used to authenticate requests to the Recommendations API. This key allows the Connector to retrieve personalized recommendations from the Recommendation Engine. This value can be found as `API key` in Raptor Control Panel.
 - `recommendations_api_url` (optional) - overrides the default Raptor address, should be left unset unless a custom endpoint is required.
 
-By default, `tracking_type` is set to `client` because client-side tracking is the standard Raptor mode.
+By default, `tracking_type` is set to `client` as client-side tracking is the standard Raptor mode.
 To understand the differences between client and server tracking types, including their advantages and disadvantages, refer to the [Raptor documentation](https://content.raptorservices.com/help-center/client-side-vs.-server-side-tracking).
 
 !!! note
@@ -56,14 +56,13 @@ Click on the **Show API information** and copy the value.
 
 ![API key](api_key.png)
 
-# Global configuration (Non-SiteAccess-aware)
+# Global configuration (non-SiteAccess-aware)
 
-The following settings are global and apply to the entire application (they are not scoped per siteaccess):
+The following settings are global and apply to the entire application (they are not scoped per SiteAccess):
 
 - `strict_exceptions` – when enabled, tracking exceptions are thrown instead of being silently handled. Default value: `%kernel.debug%`.
 
 This value can be overriden in `config/packages/ibexa_connector_raptor.yaml` file, for example:
-
 
 ``` yaml hl_lines="14-17"
 [[= include_file('code_samples/recommendations/config/packages/ibexa_connector_raptor.yaml') =]]
