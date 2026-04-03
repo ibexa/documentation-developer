@@ -1,9 +1,9 @@
 ---
-description: Step-by-step activation procedure of setting up SiteAccess-aware Raptor connector.
+description: Step-by-step activation procedure of setting up the Raptor connector.
 page_type: landing_page
 ---
 
-# SiteAccess-aware Raptor connector
+# Raptor connector
 
 The SiteAccess-aware [Raptor](https://www.raptorservices.com/) connector provides a seamless integration between [[= product_name =]] and Raptor Recommendation Engine.
 
@@ -19,8 +19,10 @@ This connector ensures a smooth and unified integration layer, enabling:
 
 This approach reduces integration complexity while providing a scalable foundation for personalization use cases across multiple sites and markets.
 
-Follow a step-by-step procedure that allows you to activate SiteAccess-aware Raptor connector.
-Activation includes configuration, adding tracking scripts and events, and using [Page Builder](page_builder_guide.md) blocks.
+To configure the Raptor integration. follow a step-by-step procedure that allows you to activate the Raptor connector.
+Activation includes [configuration](connector_configuration.md), adding tracking scripts and events, and using [Page Builder](page_builder_guide.md) blocks.
+
+For more information on tracking, check the Raptor documentation: [Implementing tracking](https://content.raptorservices.com/help-center/data-management#implementing-tracking).
 
 [[= cards([
     "cdp/raptor_integration/connector_configuration",
