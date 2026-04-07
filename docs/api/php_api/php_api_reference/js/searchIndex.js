@@ -11551,6 +11551,11 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/Ibexa-Contracts-ConnectorRaptor-Tracking-EventContext.html#constant_WEBSITE_ID"
         },                {
+            "fqsen": "\\Ibexa\\Contracts\\ConnectorRaptor\\Tracking\\EventContext\u003A\u003ACATEGORY_IDENTIFIER",
+            "name": "CATEGORY_IDENTIFIER",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-ConnectorRaptor-Tracking-EventContext.html#constant_CATEGORY_IDENTIFIER"
+        },                {
             "fqsen": "\\Ibexa\\Contracts\\ConnectorRaptor\\Tracking\\EventMapperInterface",
             "name": "EventMapperInterface",
             "summary": "Maps\u0020domain\u0020objects\u0020to\u0020tracking\u0020event\u0020data\u0020using\u0020registered\u0020strategies.",
@@ -11690,11 +11695,6 @@ Search.appendIndex(
             "name": "QUANTITY",
             "summary": "",
             "url": "classes/Ibexa-Contracts-ConnectorRaptor-Tracking-RaptorParameter.html#constant_QUANTITY"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\ConnectorRaptor\\Tracking\\RaptorParameter\u003A\u003ACATEGORY_NAME",
-            "name": "CATEGORY_NAME",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-ConnectorRaptor-Tracking-RaptorParameter.html#constant_CATEGORY_NAME"
         },                {
             "fqsen": "\\Ibexa\\Contracts\\ConnectorRaptor\\Tracking\\RaptorParameter\u003A\u003AMASTER_PRODUCT_ID",
             "name": "MASTER_PRODUCT_ID",
