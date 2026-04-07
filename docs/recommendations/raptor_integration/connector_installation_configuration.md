@@ -3,7 +3,11 @@ description: Step-by-step configuration procedure of the Raptor connector.
 month_change: true
 ---
 
-# Installation
+# Configuration procedure
+
+To configure the Raptor integration, follow a step-by-step procedure that allows you to activate the Raptor connector.
+
+## Installation
 
 First, install the Raptor connector.
 To do it, run the following command:
@@ -12,7 +16,7 @@ To do it, run the following command:
 composer require ibexa/connector-raptor
 ```
 
-# SiteAccess-aware configuration
+## SiteAccess-aware configuration
 
 To configure Raptor connector, use the `ibexa.system.<scope>.connector_raptor` configuration key in the `config/packages/ibexa_connector_raptor.yaml` file:
 
@@ -36,7 +40,7 @@ To understand the differences between client and server tracking types, includin
     Only one tracking mode can be enabled at a time.
     Client-side and server-side tracking cannot be used together.
 
-## Customer ID
+### Customer ID
 
 To find the value for the `customer_id` identifier, log in to Raptor Control Panel, and look for "Account number":
 
@@ -45,7 +49,7 @@ B. Click the arrow icon in the top-left corner to expand the window. There you c
 
 ![Account number](account_number.png)
 
-## Recommendations API key
+### Recommendations API key
 
 To find the value for the `recommendations_api_key`, log in to Raptor Control Panel, and look for "API key".
 To do it, in the left panel, open the **Recommendations** section, and select **Website**.
@@ -56,7 +60,7 @@ Click on the **Show API information** and copy the value.
 
 ![API key](api_key.png)
 
-# Global configuration (non-SiteAccess-aware)
+## Global configuration (non-SiteAccess-aware)
 
 The following settings are global and apply to the entire application (they are not scoped per SiteAccess):
 

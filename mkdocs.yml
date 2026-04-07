@@ -501,6 +501,7 @@ nav:
     - Recommendations:
         - Integration with Raptor:
             - Raptor connector: recommendations/raptor_integration/raptor_connector.md
+            - Raptor connector guide: recommendations/raptor_integration/raptor_connector_guide.md
             - Installation and configuration: recommendations/raptor_integration/connector_installation_configuration.md
             - Tracking functions: recommendations/raptor_integration/tracking_functions.md
             - Tracking with PHP API: recommendations/raptor_integration/tracking_php_api.md
