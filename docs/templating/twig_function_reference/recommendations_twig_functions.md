@@ -5,7 +5,7 @@ month_change: true
 
 # Recommendations Twig functions
 
-The following events are supported and can be triggered from Twig templates:
+The following Twig functions are supported while using [Raptor connector](raptor_connector.md):
 
 ## `ibexa_tracking_script()` function
 
@@ -40,6 +40,7 @@ It can be overridden by providing a custom value if needed.
 If `hasConsented` is set to `true` in the template, the tracking script is initialized automatically.
 This value should be set if user consent for tracking cookies is already known at render time.
 If `hasConsented` parameter is set to `false`, tracking should be enabled by dispatching a custom JavaScript event after consent is granted, for example through a custom script in layout.
+When set dynamically, avoid enabling the [HTTP cache](context_aware_cache.md) for users without consent.
 
 The recommended method to integrate the tracking script with custom front-end logic is to dispatch the `enableTracking` JavaScript event after tracking cookie consent is granted:
 
@@ -68,9 +69,65 @@ ibexa_tracking_track_event(
 ```
 
 - **eventType** - type: string, defines the type of tracking event to be sent, for example, `visit`, `contentvisit`, `buy`, `basket`, `itemclick`
-- **data** (optional) - type: mixed, accepts the primary object associated with the event, such as a Product or Content, can be null if not required
-- **context** (optional)- type: array, additional event data, such as quantity, basket details, or custom parameters
+- **data** (optional) - type: mixed, accepts the primary object associated with the event, such as a Product or Content, can be null if not required. For more information, check [tracking event examples](tracking_php_api.md#tracking-events).
+- **context** (optional)- type: array, additional event data, such as quantity, basket details, or custom parameters. For more information, see [example usage](#context-parameter-example-usage).
 - **template** (optional) - type: string, path to a custom Twig template used to render the tracking event, allows overriding the default tracking output
+
+#### Tracking events
+
+The following events are supported and can be triggered from Twig templates:
+
+### Product `visit` event
+
+This event tracks product page visits by users.
+It's the most common e-commerce tracking event used to capture product views for analytics, recommendation models, and user behavior processing.
+
+Required data:
+
+- **Product object** - defines the product being tracked. It implements `ProductInterface` so the system can read its information (for example, ID, price, category).
+
+Example:
+
+``` html+twig
+[[= include_file('code_samples/recommendations/events/product_visit_event.html.twig') =]]
+```
+
+### Content `visit` event
+
+This event tracks content page visits by users.
+It can used to check content views for analytics, personalization, and user behavior tracking.
+
+- **Content object** - defines the content being tracked.
+
+### Basket event
+
+This event tracks when a product is added to the shopping basket.
+
+It catches user interest and helps with conversion tracking and product recommendations.
+
+Required data:
+
+- **Product object** - defines the product being added to the basket.
+- **Context array with basket information** - provides optional data about the basket, like quantity or basket ID, to provide context for the event.
+
+Example:
+
+``` html+twig
+[[= include_file('code_samples/recommendations/events/basket_event.html.twig') =]]
+```
+
+Simplified example with Twig filter:
+
+``` html+twig
+{# If you have a custom Twig filter to format basket content #}
+{% set basketContext = {
+    'basketContent': basket|format_basket_content,  {# Returns "SKU-1:2;SKU-2:1;SKU-3:5" #}
+    'basketId': basket.id,
+    'quantity': addedQuantity
+} %}
+
+{{ ibexa_tracking_track_event('basket', product, basketContext) }}
+```
 
 ### `context` parameter - example usage
 
@@ -92,6 +149,8 @@ In this case, `context` parameter allows to override the product category by pas
     }) }}
 {% endblock %}
 ```
+
+For another example of `context` parameter usage, see [Basket event](tracking_php_api.md#basket-event).
 
 ### Custom Templates
 

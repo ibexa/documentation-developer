@@ -9,7 +9,7 @@ To configure the Raptor integration, follow a step-by-step procedure that allows
 
 ## Installation
 
-First, install the Raptor connector.
+First, install the [Raptor](https://www.raptorservices.com/).
 To do it, run the following command:
 
 ``` bash

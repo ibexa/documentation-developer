@@ -5,7 +5,7 @@ month_change: true
 
 # Raptor tracking functions
 
-Raptor [tracking functions](https://content.raptorservices.com/help-center/introduction-to-tracking-documentation) introduce visit tracking functionality for collecting user interactions with products and content.
+[Raptor connector](raptor_connector.md) introduces [visit tracking functionality](https://content.raptorservices.com/help-center/introduction-to-tracking-documentation) for collecting user interactions with products and content.
 The implementation includes product visit tracking with mapping to tracking parameters, as well as Twig functions for straightforward integration.
 
 Raptor integration introduces two Twig functions:
@@ -27,7 +27,7 @@ To embed tracking script, add the twig function `ibexa_tracking_script()` into t
 Tracking user interactions can be implemented on the client-side or the server-side.
 Each approach differs in where events are captured and how they are sent to the tracking backend.
 
-The tracking function outputs different content depending on the mode:
+The [tracking Twig function](#embed-tracking-script) outputs different content depending on the mode:
 
 ``` yaml
 # Server-side tracking
@@ -49,3 +49,46 @@ For more information on Tracking modes, see Raptor documentation:
 - [Client-side tracking](https://content.raptorservices.com/help-center/client-side-tracking)
 - [Server-side tracking](https://content.raptorservices.com/help-center/server-side-tracking)
 - [Client-side vs. Server-side tracking](https://content.raptorservices.com/help-center/client-side-vs.-server-side-tracking)
+
+## Complex integration
+
+For more complex integrations, the [[= product_name_base =]] Design Engine can be used to override parts or entire templates that render the tracking script.
+
+|Template|Description|Example project path|
+|--------|-----------|--------------------|
+|`@ibexadesign/ibexa/tracking/script.html.twig`|Responsible for creating the `window.raptor` object and handling consent. Loads tracking only if consent is given and listens for the `enableTracking` event.|`templates/themes/standard/ibexa/tracking/script.html.twig`|
+|`@ibexadesign/ibexa/tracking/script.js.twig`|Handles the loading of the tracking JavaScript.|`templates/themes/standard/ibexa/tracking/script.js.twig`  |
+
+Available variables are:
+
+- **customer_id** - type: string, Raptor account ID used for tracking
+- **script_url** - type: string, URL of the tracking script, by default `//deliver.raptorstatic.com/script/raptor-3.0.min.js`, configurable through `ibexa.connector.raptor.tracking_script.url` Symfony Dependency Injection container parameter (not SiteAccess-aware)
+- **has_consented** - type: boolean, indicates whether the user has given consent, default value: `false` (unless explicitly passed as function argument)
+- **debug** - type: boolean, `kernel.debug` Symfony dependency injection container parameter, typically `true` in development environments and `false` in production
+
+The default template defines a Twig block that includes `script.js.twig`.
+When extending the template, this block can be overridden to customize the script’s behavior.
+
+You can override the default templates, either individually or both at the same time.
+
+## Extension
+
+It's possible to extend `script.html.twig` by combining the [[= product_name_base =]] Design Engine with standard Symfony template reference in `templates/themes/standard/ibexa/tracking/script.html.twig`:
+
+``` html+twig
+[[= include_file('code_samples/recommendations/templates/themes/standard/ibexa/tracking/script.html.twig') =]]
+```
+
+In most cases, the preferred approach is to do the opposite:
+
+``` html+twig
+[[= include_file('code_samples/recommendations/templates/themes/standard/ibexa/tracking/script.js.twig') =]]
+```
+
+### Example custom integration
+
+Example custom integration with [TermsFeed](https://www.termsfeed.com/):
+
+``` html
+[[= include_file('code_samples/recommendations/custom_integration.html') =]]
+```
