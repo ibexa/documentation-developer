@@ -147,15 +147,15 @@ The [Image Editor]([[= user_doc =]]/image_management/edit_images/) now supports 
 You can adjust the blur level to balance between file size reduction and image sharpness.
 For more information, see [Configure image editor](https://doc.ibexa.co/en/5.0/content_management/images/configure_image_editor/#gaussian-blur-strength).
 
-### AI Actions in Page Builder blocks [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
-
-You can now use the [refining text AI Actions](https://doc.ibexa.co/en/5.0/ai_actions/ai_actions_guide/#refining-text) in Page Builder blocks string and text inputs.
-
-### Quable PIM [[% include 'snippets/commerce_badge.md' %]]
+### Quable PIM [[#% include 'snippets/headless_badge.md' %#]] [[% include 'snippets/experience_badge.md' %]]
 
 Add-on to integrate [[[= pim_product_name =]]](https://www.quable.com/en) with [[= product_name =]].
 
 For more information, see [Quable PIM Integration](https://doc.ibexa.co/en/5.0/product_catalog/quable/).
+
+### AI Actions in Page Builder blocks [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
+
+You can now use the [refining text AI Actions](https://doc.ibexa.co/en/5.0/ai_actions/ai_actions_guide/#refining-text) in Page Builder blocks string and text inputs.
 
 ### Full changelog
 
