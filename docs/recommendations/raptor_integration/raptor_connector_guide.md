@@ -1,19 +1,20 @@
 ---
 description:  Discover Raptor integration - an add-on focused on recommendations and tracking customer behaviors.
+month_change: true
 ---
 
 # Raptor integration guide
 
 Discover [Raptor](https://www.raptorservices.com/)integration - an add-on that is focused on recommendations and tracking customer behaviors.
-It includes Raptor Connector with tracking scripts and events, used to track and analyze customer behaviors, and a set of Recommendation blocks.
+It includes Raptor connector with tracking scripts and events, used to track and analyze customer behaviors, and a set of Recommendation blocks.
 
-## What is Raptor Connector
+## What is Raptor connector
 
-The SiteAccess-aware [Raptor Connector](raptor_connector.md) provides a seamless integration between [[= product_name =]] and Raptor Recommendation Engine.
+The SiteAccess-aware [Raptor connector](raptor_connector.md) provides a seamless integration between [[= product_name =]] and Raptor recommendation engine.
 
 Its primary goal is to enable editors and managers to deliver personalized experiences across digital channels, which helps to increase conversion rates, drive sales, and improve user engagement.
 
-By bringing content and recommendations together, the Connector makes it easy to build and manage personalized experiences.
+By bringing content and recommendations together, the connector makes it easy to build and manage personalized experiences.
 
 It provides a seamless integration layer that supports:
 
