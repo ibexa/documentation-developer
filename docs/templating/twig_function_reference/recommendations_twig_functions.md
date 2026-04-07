@@ -69,7 +69,7 @@ ibexa_tracking_track_event(
 ```
 
 - **eventType** - type: string, defines the type of tracking event to be sent, for example, `visit`, `contentvisit`, `buy`, `basket`, `itemclick`
-- **data** (optional) - type: mixed, accepts the primary object associated with the event, such as a Product or Content, can be null if not required. For more information, check [tracking event examples](tracking_php_api.md#tracking-events).
+- **data** (optional) - type: mixed, accepts the primary object associated with the event, such as a Product or Content, can be null if not required. For more information, check [tracking event examples](#tracking-events).
 - **context** (optional)- type: array, additional event data, such as quantity, basket details, or custom parameters. For more information, see [example usage](#context-parameter-example-usage).
 - **template** (optional) - type: string, path to a custom Twig template used to render the tracking event, allows overriding the default tracking output
 
@@ -150,7 +150,7 @@ In this case, `context` parameter allows to override the product category by pas
 {% endblock %}
 ```
 
-For another example of `context` parameter usage, see [Basket event](tracking_php_api.md#basket-event).
+For another example of `context` parameter usage, see [Basket event](#basket-event).
 
 ### Custom Templates
 
