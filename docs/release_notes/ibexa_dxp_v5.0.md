@@ -127,10 +127,18 @@ For more information, see [Customizing the back office with Twig Components > Ad
 
 You can now find examples for some REST request bodies in the [OpenAPI REST API](rest_api_usage.md#openapi-support):
 
-- in the right column of the [online reference](/api/rest_api/rest_api_reference/rest_api_reference.html) where the example is used as a sample instead of a duplicate of middle column schema,
+- in the right column of the [online reference](https://doc.ibexa.co/en/5.0/api/rest_api/rest_api_reference/rest_api_reference.html) where the example is used as a sample instead of a duplicate of middle column schema,
   and in the downloadable OpenAPI specification files
 - on your dev instance at `/api/ibexa/v2/doc` in an “Example Value” tab of the "Request Body" section, alongside the "Schema" tab
 - in the generated JSON or YAML OpenAPI specifications when running `ibexa:openapi` command
+
+#### PHP API
+
+The following additions were made to the PHP API:
+
+- [`Ibexa\Contracts\CorporateAccount\Order\OrderStatusLabelProviderInterface`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-CorporateAccount-Order-OrderStatusLabelProviderInterface.html)
+- [`Ibexa\Contracts\ProductCatalog\Events\ProductAttributeRenderEvent`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Events-ProductAttributeRenderEvent.html)
+- [`Ibexa\Contracts\Taxonomy\Search\Query\Criterion\TaxonomyNoEntries`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-Taxonomy-Search-Query-Criterion-TaxonomyNoEntries.html) (for more information, see [its search criteria reference entry](taxonomy_no_entries.md))
 
 ### Gaussian blur optimization in Image Editor
 
