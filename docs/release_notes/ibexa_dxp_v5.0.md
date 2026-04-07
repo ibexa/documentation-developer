@@ -123,6 +123,15 @@ Four groups of [Twig components](https://doc.ibexa.co/en/5.0/templating/componen
 
 For more information, see [Customizing the back office with Twig Components > Admin UI](https://doc.ibexa.co/en/5.0/administration/back_office/back_office_elements/custom_components/#admin-ui).
 
+#### REST API
+
+You can now find examples for some REST request bodies in the [OpenAPI REST API](rest_api_usage.md#openapi-support):
+
+- in the right column of the [online reference](/api/rest_api/rest_api_reference/rest_api_reference.html) where the example is used as a sample instead of a duplicate of middle column schema,
+  and in the downloadable OpenAPI specification files
+- on your dev instance at `/api/ibexa/v2/doc` in an “Example Value” tab of the "Request Body" section, alongside the "Schema" tab
+- in the generated JSON or YAML OpenAPI specifications when running `ibexa:openapi` command
+
 ### Gaussian blur optimization in Image Editor
 
 The [Image Editor]([[= user_doc =]]/image_management/edit_images/) now supports configurable gaussian blur strength for image optimization.
