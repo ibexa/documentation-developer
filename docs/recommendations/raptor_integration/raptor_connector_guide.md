@@ -32,7 +32,7 @@ Recommendation blocks provided in Page Builder, are available in [[= product_nam
 
 ## How does Raptor tracking work
 
-To start [tracking]((https://content.raptorservices.com/help-center/introduction-to-tracking-documentation)) user interactions, the tracking script needs to be added to the website’s layout.
+To start [tracking](https://content.raptorservices.com/help-center/introduction-to-tracking-documentation) user interactions, the tracking script needs to be added to the website’s layout.
 Tracking can be set up either on the client-side or server-side, depending on how you want to capture and process the events.
 
 The tracking works differently depending on the mode you choose.
