@@ -23683,6 +23683,703 @@ paths:
       - name: Commerce
         color: '#A32768'
         position: after
+  /shopping-list:
+    get:
+      operationId: api_shopping-list_get
+      tags:
+      - Shopping List
+      responses:
+        200:
+          description: "200"
+          content:
+            application/vnd.ibexa.api.ShoppingListCollection+json:
+              schema:
+                $ref: '#/components/schemas/ShoppingListCollectionWrapper'
+              example:
+                ShoppingListCollection:
+                  totalCount: 2
+                  count: 2
+                  ShoppingList:
+                  - identifier: 550e8400-e29b-41d4-a716-446655440000
+                    name: My Shopping List
+                    isDefault: true
+                    owner:
+                      _href: /api/ibexa/v2/user/users/14
+                      _media-type: application/vnd.ibexa.api.User+json
+                    entries:
+                    - identifier: 650e8400-e29b-41d4-a716-446655440001
+                      product:
+                        _href: /api/ibexa/v2/product/catalog/products/PRODUCT-001
+                        _media-type: application/vnd.ibexa.api.Product+json
+                        code: PRODUCT-001
+                        name: Sample Product
+                      addedAt: "2024-10-29T12:15:00+00:00"
+                    createdAt: "2024-10-29T12:00:00+00:00"
+                    updatedAt: "2024-10-29T12:00:00+00:00"
+                  - identifier: 660e8400-e29b-41d4-a716-446655440001
+                    name: Weekend Shopping
+                    isDefault: false
+                    owner:
+                      _href: /api/ibexa/v2/user/users/14
+                      _media-type: application/vnd.ibexa.api.User+json
+                    entries: []
+                    createdAt: "2024-10-30T08:30:00+00:00"
+                    updatedAt: "2024-10-30T08:30:00+00:00"
+            application/vnd.ibexa.api.ShoppingListCollection+xml:
+              schema:
+                $ref: '#/components/schemas/ShoppingListCollection'
+              example: |
+                <?xml version="1.0" encoding="UTF-8"?>
+                <ShoppingListCollection xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                  <totalCount>2</totalCount>
+                  <count>2</count>
+                  <ShoppingList>
+                    <identifier>550e8400-e29b-41d4-a716-446655440000</identifier>
+                    <name>My Shopping List</name>
+                    <isDefault>1</isDefault>
+                    <owner href="/api/ibexa/v2/user/users/14" media-type="application/vnd.ibexa.api.User+xml"/>
+                    <entries>
+                      <identifier>650e8400-e29b-41d4-a716-446655440001</identifier>
+                      <product href="/api/ibexa/v2/product/catalog/products/PRODUCT-001" media-type="application/vnd.ibexa.api.Product+xml">
+                        <code>PRODUCT-001</code>
+                        <name>Sample Product</name>
+                      </product>
+                      <addedAt>2024-10-29T12:15:00+00:00</addedAt>
+                    </entries>
+                    <createdAt>2024-10-29T12:00:00+00:00</createdAt>
+                    <updatedAt>2024-10-29T12:00:00+00:00</updatedAt>
+                  </ShoppingList>
+                  <ShoppingList>
+                    <identifier>660e8400-e29b-41d4-a716-446655440001</identifier>
+                    <name>Weekend Shopping</name>
+                    <isDefault>0</isDefault>
+                    <owner href="/api/ibexa/v2/user/users/14" media-type="application/vnd.ibexa.api.User+xml"/>
+                    <entries/>
+                    <createdAt>2024-10-30T08:30:00+00:00</createdAt>
+                    <updatedAt>2024-10-30T08:30:00+00:00</updatedAt>
+                  </ShoppingList>
+                </ShoppingListCollection>
+        401:
+          description: Error - The user is not authorized to list shopping lists.
+      summary: List shopping lists
+      description: Returns a list of shopping lists owned by the current user.
+      parameters:
+      - name: limit
+        in: query
+        description: The maximum number of shopping lists to return. Default is 25.
+        required: false
+        deprecated: false
+        allowEmptyValue: false
+        schema:
+          type: integer
+          default: 25
+        style: form
+        explode: false
+        allowReserved: false
+      - name: offset
+        in: query
+        description: The offset for pagination. Default is 0.
+        required: false
+        deprecated: false
+        allowEmptyValue: false
+        schema:
+          type: integer
+          default: 0
+        style: form
+        explode: false
+        allowReserved: false
+      - name: name
+        in: query
+        description: Filter shopping lists by name (partial match).
+        required: false
+        deprecated: false
+        allowEmptyValue: false
+        schema:
+          type: string
+        style: form
+        explode: false
+        allowReserved: false
+      - name: createdFrom
+        in: query
+        description: Filter shopping lists created on or after this date (ISO 8601
+          format).
+        required: false
+        deprecated: false
+        allowEmptyValue: false
+        schema:
+          type: string
+          format: date-time
+        style: form
+        explode: false
+        allowReserved: false
+      - name: createdTo
+        in: query
+        description: Filter shopping lists created on or before this date (ISO 8601
+          format).
+        required: false
+        deprecated: false
+        allowEmptyValue: false
+        schema:
+          type: string
+          format: date-time
+        style: form
+        explode: false
+        allowReserved: false
+      - name: updatedFrom
+        in: query
+        description: Filter shopping lists updated on or after this date (ISO 8601
+          format).
+        required: false
+        deprecated: false
+        allowEmptyValue: false
+        schema:
+          type: string
+          format: date-time
+        style: form
+        explode: false
+        allowReserved: false
+      - name: updatedTo
+        in: query
+        description: Filter shopping lists updated on or before this date (ISO 8601
+          format).
+        required: false
+        deprecated: false
+        allowEmptyValue: false
+        schema:
+          type: string
+          format: date-time
+        style: form
+        explode: false
+        allowReserved: false
+      - name: isDefault
+        in: query
+        description: Filter shopping lists by default flag. Use "true" for default
+          lists only, "false" for non-default lists only.
+        required: false
+        deprecated: false
+        allowEmptyValue: false
+        schema:
+          type: string
+          enum:
+          - "true"
+          - "false"
+        style: form
+        explode: false
+        allowReserved: false
+      - name: ownerId
+        in: query
+        description: Filter shopping lists by owner user ID.
+        required: false
+        deprecated: false
+        allowEmptyValue: false
+        schema:
+          type: integer
+        style: form
+        explode: false
+        allowReserved: false
+      - name: sort
+        in: query
+        description: 'Sort shopping lists by field. Available fields: name, is_default,
+          created_at, updated_at.'
+        required: false
+        deprecated: false
+        allowEmptyValue: false
+        schema:
+          type: string
+          enum:
+          - name
+          - is_default
+          - created_at
+          - updated_at
+        style: form
+        explode: false
+        allowReserved: false
+      - name: order
+        in: query
+        description: Sort direction. Default is "asc".
+        required: false
+        deprecated: false
+        allowEmptyValue: false
+        schema:
+          type: string
+          enum:
+          - asc
+          - desc
+          default: asc
+        style: form
+        explode: false
+        allowReserved: false
+      deprecated: false
+      x-badges:
+      - name: Commerce
+        color: '#A32768'
+        position: after
+      - name: LTS Update
+        color: '#5DA7C0'
+        position: after
+    post:
+      operationId: api_shopping-list_post
+      tags:
+      - Shopping List
+      responses:
+        201:
+          description: "201"
+          content:
+            application/vnd.ibexa.api.ShoppingList+json:
+              schema:
+                $ref: '#/components/schemas/ShoppingListWrapper'
+              example:
+                ShoppingList:
+                  identifier: 550e8400-e29b-41d4-a716-446655440000
+                  name: My Shopping List
+                  isDefault: false
+                  owner:
+                    _href: /api/ibexa/v2/user/users/14
+                    _media-type: application/vnd.ibexa.api.User+json
+                  entries:
+                  - identifier: 650e8400-e29b-41d4-a716-446655440001
+                    product:
+                      _href: /api/ibexa/v2/product/catalog/products/PRODUCT-001
+                      _media-type: application/vnd.ibexa.api.Product+json
+                      code: PRODUCT-001
+                      name: Sample Product
+                    addedAt: "2024-10-29T12:15:00+00:00"
+                  createdAt: "2024-10-29T12:00:00+00:00"
+                  updatedAt: "2024-10-29T12:00:00+00:00"
+            application/vnd.ibexa.api.ShoppingList+xml:
+              schema:
+                $ref: '#/components/schemas/ShoppingList'
+              example: |
+                <?xml version="1.0" encoding="UTF-8"?>
+                <ShoppingList xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                  <identifier>550e8400-e29b-41d4-a716-446655440000</identifier>
+                  <name>My Shopping List</name>
+                  <isDefault>0</isDefault>
+                  <owner href="/api/ibexa/v2/user/users/14" media-type="application/vnd.ibexa.api.User+xml"/>
+                  <entries>
+                    <identifier>650e8400-e29b-41d4-a716-446655440001</identifier>
+                    <product href="/api/ibexa/v2/product/catalog/products/PRODUCT-001" media-type="application/vnd.ibexa.api.Product+xml">
+                      <code>PRODUCT-001</code>
+                      <name>Sample Product</name>
+                    </product>
+                    <addedAt>2024-10-29T12:15:00+00:00</addedAt>
+                  </entries>
+                  <createdAt>2024-10-29T12:00:00+00:00</createdAt>
+                  <updatedAt>2024-10-29T12:00:00+00:00</updatedAt>
+                </ShoppingList>
+        400:
+          description: Error - The input does not match the input schema definition.
+        401:
+          description: Error - The user is not authorized to create a shopping list.
+        403:
+          description: Error - Invalid request (e.g., missing required name).
+        406:
+          description: Error - Shopping list limit exceeded for the current user.
+      summary: Create shopping list
+      description: Creates a new shopping list for the current user. The list will
+        be owned by the authenticated user.
+      parameters:
+      - name: X-CSRF-Token
+        in: header
+        description: CSRF Token is needed to execute this unsafe request.
+        required: true
+        deprecated: false
+        allowEmptyValue: false
+        schema:
+          type: string
+        style: simple
+        explode: false
+        allowReserved: false
+      requestBody:
+        description: The new ShoppingListCreateController resource
+        content:
+          application/vnd.ibexa.api.ShoppingListCreate+json:
+            schema:
+              $ref: '#/components/schemas/ShoppingListCreateWrapper'
+            example:
+              ShoppingListCreate:
+                name: My Shopping List
+          application/vnd.ibexa.api.ShoppingListCreate+xml:
+            schema:
+              $ref: '#/components/schemas/ShoppingListCreate'
+            example: |
+              <?xml version="1.0" encoding="UTF-8"?>
+              <ShoppingListCreate xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                <name>My Shopping List</name>
+              </ShoppingListCreate>
+        required: false
+      deprecated: false
+      x-badges:
+      - name: Commerce
+        color: '#A32768'
+        position: after
+      - name: LTS Update
+        color: '#5DA7C0'
+        position: after
+  /shopping-list/default/entries:
+    post:
+      operationId: api_shopping-listdefaultentries_post
+      tags:
+      - Shopping List
+      responses:
+        200:
+          description: "200"
+          content:
+            application/vnd.ibexa.api.ShoppingList+json:
+              schema:
+                $ref: '#/components/schemas/ShoppingListWrapper'
+              example:
+                ShoppingList:
+                  identifier: 550e8400-e29b-41d4-a716-446655440000
+                  name: My Shopping List
+                  isDefault: false
+                  owner:
+                    _href: /api/ibexa/v2/user/users/14
+                    _media-type: application/vnd.ibexa.api.User+json
+                  entries:
+                  - identifier: 650e8400-e29b-41d4-a716-446655440001
+                    product:
+                      _href: /api/ibexa/v2/product/catalog/products/PRODUCT-001
+                      _media-type: application/vnd.ibexa.api.Product+json
+                      code: PRODUCT-001
+                      name: Sample Product
+                    addedAt: "2024-10-29T12:15:00+00:00"
+                  createdAt: "2024-10-29T12:00:00+00:00"
+                  updatedAt: "2024-10-29T12:00:00+00:00"
+            application/vnd.ibexa.api.ShoppingList+xml:
+              schema:
+                $ref: '#/components/schemas/ShoppingList'
+              example: |
+                <?xml version="1.0" encoding="UTF-8"?>
+                <ShoppingList xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                  <identifier>550e8400-e29b-41d4-a716-446655440000</identifier>
+                  <name>My Shopping List</name>
+                  <isDefault>0</isDefault>
+                  <owner href="/api/ibexa/v2/user/users/14" media-type="application/vnd.ibexa.api.User+xml"/>
+                  <entries>
+                    <identifier>650e8400-e29b-41d4-a716-446655440001</identifier>
+                    <product href="/api/ibexa/v2/product/catalog/products/PRODUCT-001" media-type="application/vnd.ibexa.api.Product+xml">
+                      <code>PRODUCT-001</code>
+                      <name>Sample Product</name>
+                    </product>
+                    <addedAt>2024-10-29T12:15:00+00:00</addedAt>
+                  </entries>
+                  <createdAt>2024-10-29T12:00:00+00:00</createdAt>
+                  <updatedAt>2024-10-29T12:00:00+00:00</updatedAt>
+                </ShoppingList>
+        400:
+          description: Error - The input does not match the input schema definition.
+        401:
+          description: Error - The user is not authorized to add entries to the default
+            shopping list.
+        403:
+          description: Error - Invalid request (e.g., invalid product code, duplicate
+            entry).
+        406:
+          description: Error - Shopping list entry limit exceeded.
+      summary: Add entries to default shopping list
+      description: Adds one or more product entries to the default shopping list.
+        If the default shopping list does not exist, it will be created automatically.
+      parameters:
+      - name: X-CSRF-Token
+        in: header
+        description: CSRF Token is needed to execute this unsafe request.
+        required: true
+        deprecated: false
+        allowEmptyValue: false
+        schema:
+          type: string
+        style: simple
+        explode: false
+        allowReserved: false
+      requestBody:
+        description: The new ShoppingListAddToDefaultEntriesController resource
+        content:
+          application/vnd.ibexa.api.ShoppingListEntriesAdd+json:
+            schema:
+              $ref: '#/components/schemas/ShoppingListEntriesAddWrapper'
+            example:
+              ShoppingListEntriesAdd:
+                entries:
+                - productCode: PRODUCT-001
+                - productCode: PRODUCT-002
+          application/vnd.ibexa.api.ShoppingListEntriesAdd+xml:
+            schema:
+              $ref: '#/components/schemas/ShoppingListEntriesAdd'
+            example: |
+              <?xml version="1.0" encoding="UTF-8"?>
+              <ShoppingListEntriesAdd xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                  <entries>
+                      <Entry>
+                          <productCode>PRODUCT-001</productCode>
+                      </Entry>
+                      <Entry>
+                          <productCode>PRODUCT-002</productCode>
+                      </Entry>
+                  </entries>
+              </ShoppingListEntriesAdd>
+        required: false
+      deprecated: false
+      x-badges:
+      - name: Commerce
+        color: '#A32768'
+        position: after
+      - name: LTS Update
+        color: '#5DA7C0'
+        position: after
+  /shopping-list/{identifier}:
+    get:
+      operationId: api_shopping-list_identifier_get
+      tags:
+      - Shopping List
+      responses:
+        200:
+          description: "200"
+          content:
+            application/vnd.ibexa.api.ShoppingList+json:
+              schema:
+                $ref: '#/components/schemas/ShoppingListWrapper'
+              example:
+                ShoppingList:
+                  identifier: 550e8400-e29b-41d4-a716-446655440000
+                  name: My Shopping List
+                  isDefault: false
+                  owner:
+                    _href: /api/ibexa/v2/user/users/14
+                    _media-type: application/vnd.ibexa.api.User+json
+                  entries:
+                  - identifier: 650e8400-e29b-41d4-a716-446655440001
+                    product:
+                      _href: /api/ibexa/v2/product/catalog/products/PRODUCT-001
+                      _media-type: application/vnd.ibexa.api.Product+json
+                      code: PRODUCT-001
+                      name: Sample Product
+                    addedAt: "2024-10-29T12:15:00+00:00"
+                  - identifier: 650e8400-e29b-41d4-a716-446655440002
+                    product:
+                      _href: /api/ibexa/v2/product/catalog/products/PRODUCT-002
+                      _media-type: application/vnd.ibexa.api.Product+json
+                      code: PRODUCT-002
+                      name: Another Product
+                    addedAt: "2024-10-29T12:30:00+00:00"
+                  createdAt: "2024-10-29T12:00:00+00:00"
+                  updatedAt: "2024-10-29T12:00:00+00:00"
+            application/vnd.ibexa.api.ShoppingList+xml:
+              schema:
+                $ref: '#/components/schemas/ShoppingList'
+              example: |
+                <?xml version="1.0" encoding="UTF-8"?>
+                <ShoppingList xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                  <identifier>550e8400-e29b-41d4-a716-446655440000</identifier>
+                  <name>My Shopping List</name>
+                  <isDefault>0</isDefault>
+                  <owner href="/api/ibexa/v2/user/users/14" media-type="application/vnd.ibexa.api.User+xml"/>
+                  <entries>
+                    <identifier>650e8400-e29b-41d4-a716-446655440001</identifier>
+                    <product href="/api/ibexa/v2/product/catalog/products/PRODUCT-001" media-type="application/vnd.ibexa.api.Product+xml">
+                      <code>PRODUCT-001</code>
+                      <name>Sample Product</name>
+                    </product>
+                    <addedAt>2024-10-29T12:15:00+00:00</addedAt>
+                  </entries>
+                  <entries>
+                    <identifier>650e8400-e29b-41d4-a716-446655440002</identifier>
+                    <product href="/api/ibexa/v2/product/catalog/products/PRODUCT-002" media-type="application/vnd.ibexa.api.Product+xml">
+                      <code>PRODUCT-002</code>
+                      <name>Another Product</name>
+                    </product>
+                    <addedAt>2024-10-29T12:30:00+00:00</addedAt>
+                  </entries>
+                  <createdAt>2024-10-29T12:00:00+00:00</createdAt>
+                  <updatedAt>2024-10-29T12:00:00+00:00</updatedAt>
+                </ShoppingList>
+        401:
+          description: Error - the user is not authorized to access this shopping
+            list.
+        404:
+          description: Error - the identifier does not match any shopping list.
+      summary: Get shopping list
+      description: Gets a shopping list by its identifier.
+      parameters:
+      - name: identifier
+        in: path
+        description: The shopping list identifier (UUID)
+        required: true
+        deprecated: false
+        allowEmptyValue: false
+        schema:
+          type: string
+        style: simple
+        explode: false
+        allowReserved: false
+      deprecated: false
+      x-badges:
+      - name: Commerce
+        color: '#A32768'
+        position: after
+      - name: LTS Update
+        color: '#5DA7C0'
+        position: after
+    delete:
+      operationId: api_shopping-list_identifier_delete
+      tags:
+      - Shopping List
+      responses:
+        204:
+          description: No Content - shopping list deleted successfully.
+        401:
+          description: Error - The user is not authorized to delete this shopping
+            list.
+        403:
+          description: Error - Cannot delete the default shopping list.
+        404:
+          description: Error - Shopping list with the given identifier does not exist.
+      summary: Delete shopping list
+      description: Deletes a shopping list by its identifier. The default shopping
+        list cannot be deleted.
+      parameters:
+      - name: identifier
+        in: path
+        description: The shopping list identifier (UUID).
+        required: true
+        deprecated: false
+        allowEmptyValue: false
+        schema:
+          type: string
+        style: simple
+        explode: false
+        allowReserved: false
+      - name: X-CSRF-Token
+        in: header
+        description: CSRF Token is needed to execute this unsafe request.
+        required: true
+        deprecated: false
+        allowEmptyValue: false
+        schema:
+          type: string
+        style: simple
+        explode: false
+        allowReserved: false
+      deprecated: false
+      x-badges:
+      - name: Commerce
+        color: '#A32768'
+        position: after
+      - name: LTS Update
+        color: '#5DA7C0'
+        position: after
+    patch:
+      operationId: api_shopping-list_identifier_patch
+      tags:
+      - Shopping List
+      responses:
+        200:
+          description: "200"
+          content:
+            application/vnd.ibexa.api.ShoppingList+json:
+              schema:
+                $ref: '#/components/schemas/ShoppingListWrapper'
+              example:
+                ShoppingList:
+                  identifier: 550e8400-e29b-41d4-a716-446655440000
+                  name: Updated Shopping List Name
+                  isDefault: false
+                  owner:
+                    _href: /api/ibexa/v2/user/users/14
+                    _media-type: application/vnd.ibexa.api.User+json
+                  entries:
+                  - identifier: 650e8400-e29b-41d4-a716-446655440001
+                    product:
+                      _href: /api/ibexa/v2/product/catalog/products/PRODUCT-001
+                      _media-type: application/vnd.ibexa.api.Product+json
+                      code: PRODUCT-001
+                      name: Sample Product
+                    addedAt: "2024-10-29T12:15:00+00:00"
+                  createdAt: "2024-10-29T12:00:00+00:00"
+                  updatedAt: "2024-10-29T12:30:00+00:00"
+            application/vnd.ibexa.api.ShoppingList+xml:
+              schema:
+                $ref: '#/components/schemas/ShoppingList'
+              example: |
+                <?xml version="1.0" encoding="UTF-8"?>
+                <ShoppingList xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                  <identifier>550e8400-e29b-41d4-a716-446655440000</identifier>
+                  <name>Updated Shopping List Name</name>
+                  <isDefault>0</isDefault>
+                  <owner href="/api/ibexa/v2/user/users/14" media-type="application/vnd.ibexa.api.User+xml"/>
+                  <entries>
+                    <identifier>650e8400-e29b-41d4-a716-446655440001</identifier>
+                    <product href="/api/ibexa/v2/product/catalog/products/PRODUCT-001" media-type="application/vnd.ibexa.api.Product+xml">
+                      <code>PRODUCT-001</code>
+                      <name>Sample Product</name>
+                    </product>
+                    <addedAt>2024-10-29T12:15:00+00:00</addedAt>
+                  </entries>
+                  <createdAt>2024-10-29T12:00:00+00:00</createdAt>
+                  <updatedAt>2024-10-29T12:30:00+00:00</updatedAt>
+                </ShoppingList>
+        204:
+          description: Shopping list updated (no content returned).
+        400:
+          description: Error - The input does not match the input schema definition.
+        401:
+          description: Error - The user is not authorized to update this shopping
+            list.
+        403:
+          description: Error - Invalid request (e.g., validation failed).
+        404:
+          description: Error - The shopping list does not exist.
+      summary: Update shopping list
+      description: Updates an existing shopping list. Only the name can be updated.
+      parameters:
+      - name: identifier
+        in: path
+        description: The shopping list identifier (UUID).
+        required: true
+        deprecated: false
+        allowEmptyValue: false
+        schema:
+          type: string
+        style: simple
+        explode: false
+        allowReserved: false
+      - name: X-CSRF-Token
+        in: header
+        description: CSRF Token is needed to execute this unsafe request.
+        required: true
+        deprecated: false
+        allowEmptyValue: false
+        schema:
+          type: string
+        style: simple
+        explode: false
+        allowReserved: false
+      requestBody:
+        description: The updated ShoppingListUpdateController resource
+        content:
+          application/vnd.ibexa.api.ShoppingListUpdate+json:
+            schema:
+              $ref: '#/components/schemas/ShoppingListUpdateWrapper'
+            example:
+              ShoppingListUpdate:
+                name: Updated Shopping List Name
+          application/vnd.ibexa.api.ShoppingListUpdate+xml:
+            schema:
+              $ref: '#/components/schemas/ShoppingListUpdate'
+            example: |
+              <?xml version="1.0" encoding="UTF-8"?>
+              <ShoppingListUpdate xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                <name>Updated Shopping List Name</name>
+              </ShoppingListUpdate>
+        required: false
+      deprecated: false
+      x-badges:
+      - name: Commerce
+        color: '#A32768'
+        position: after
+      - name: LTS Update
+        color: '#5DA7C0'
+        position: after
   /shopping-list/{identifier}/add-entries-to-cart:
     post:
       operationId: api_shopping-list_identifieradd-entries-to-cart_post
@@ -23956,6 +24653,328 @@ paths:
       requestBody:
         description: No payload required
         content: []
+        required: false
+      deprecated: false
+      x-badges:
+      - name: Commerce
+        color: '#A32768'
+        position: after
+      - name: LTS Update
+        color: '#5DA7C0'
+        position: after
+  /shopping-list/{identifier}/clear:
+    post:
+      operationId: api_shopping-list_identifierclear_post
+      tags:
+      - Shopping List
+      responses:
+        200:
+          description: "200"
+          content:
+            application/vnd.ibexa.api.ShoppingList+json:
+              schema:
+                $ref: '#/components/schemas/ShoppingListWrapper'
+              example:
+                ShoppingList:
+                  identifier: 550e8400-e29b-41d4-a716-446655440000
+                  name: My Shopping List
+                  isDefault: false
+                  owner:
+                    _href: /api/ibexa/v2/user/users/14
+                    _media-type: application/vnd.ibexa.api.User+json
+                  entries: []
+                  createdAt: "2024-10-29T12:00:00+00:00"
+                  updatedAt: "2024-10-29T12:15:00+00:00"
+            application/vnd.ibexa.api.ShoppingList+xml:
+              schema:
+                $ref: '#/components/schemas/ShoppingList'
+              example: |
+                <?xml version="1.0" encoding="UTF-8"?>
+                <ShoppingList xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                  <identifier>550e8400-e29b-41d4-a716-446655440000</identifier>
+                  <name>My Shopping List</name>
+                  <isDefault>0</isDefault>
+                  <owner href="/api/ibexa/v2/user/users/14" media-type="application/vnd.ibexa.api.User+xml"/>
+                  <entries/>
+                  <createdAt>2024-10-29T12:00:00+00:00</createdAt>
+                  <updatedAt>2024-10-29T12:15:00+00:00</updatedAt>
+                </ShoppingList>
+        401:
+          description: Error - The user is not authorized to clear this shopping list.
+        403:
+          description: Error - Invalid request.
+        404:
+          description: Error - Shopping list not found.
+      summary: Clear shopping list
+      description: Removes all entries from a shopping list while keeping the list
+        itself.
+      parameters:
+      - name: identifier
+        in: path
+        description: The unique identifier (UUID) of the shopping list.
+        required: true
+        deprecated: false
+        allowEmptyValue: false
+        schema:
+          type: string
+        style: simple
+        explode: false
+        allowReserved: false
+      - name: X-CSRF-Token
+        in: header
+        description: CSRF Token is needed to execute this unsafe request.
+        required: true
+        deprecated: false
+        allowEmptyValue: false
+        schema:
+          type: string
+        style: simple
+        explode: false
+        allowReserved: false
+      requestBody:
+        description: No payload required
+        content: []
+        required: false
+      deprecated: false
+      x-badges:
+      - name: Commerce
+        color: '#A32768'
+        position: after
+      - name: LTS Update
+        color: '#5DA7C0'
+        position: after
+  /shopping-list/{identifier}/entries:
+    post:
+      operationId: api_shopping-list_identifierentries_post
+      tags:
+      - Shopping List
+      responses:
+        200:
+          description: "200"
+          content:
+            application/vnd.ibexa.api.ShoppingList+json:
+              schema:
+                $ref: '#/components/schemas/ShoppingListWrapper'
+              example:
+                ShoppingList:
+                  identifier: 550e8400-e29b-41d4-a716-446655440000
+                  name: My Shopping List
+                  isDefault: false
+                  owner:
+                    _href: /api/ibexa/v2/user/users/14
+                    _media-type: application/vnd.ibexa.api.User+json
+                  entries:
+                  - identifier: 650e8400-e29b-41d4-a716-446655440001
+                    product:
+                      _href: /api/ibexa/v2/product/catalog/products/PRODUCT-001
+                      _media-type: application/vnd.ibexa.api.Product+json
+                      code: PRODUCT-001
+                      name: Sample Product
+                    addedAt: "2024-10-29T12:15:00+00:00"
+                  createdAt: "2024-10-29T12:00:00+00:00"
+                  updatedAt: "2024-10-29T12:00:00+00:00"
+            application/vnd.ibexa.api.ShoppingList+xml:
+              schema:
+                $ref: '#/components/schemas/ShoppingList'
+              example: |
+                <?xml version="1.0" encoding="UTF-8"?>
+                <ShoppingList xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                  <identifier>550e8400-e29b-41d4-a716-446655440000</identifier>
+                  <name>My Shopping List</name>
+                  <isDefault>0</isDefault>
+                  <owner href="/api/ibexa/v2/user/users/14" media-type="application/vnd.ibexa.api.User+xml"/>
+                  <entries>
+                    <identifier>650e8400-e29b-41d4-a716-446655440001</identifier>
+                    <product href="/api/ibexa/v2/product/catalog/products/PRODUCT-001" media-type="application/vnd.ibexa.api.Product+xml">
+                      <code>PRODUCT-001</code>
+                      <name>Sample Product</name>
+                    </product>
+                    <addedAt>2024-10-29T12:15:00+00:00</addedAt>
+                  </entries>
+                  <createdAt>2024-10-29T12:00:00+00:00</createdAt>
+                  <updatedAt>2024-10-29T12:00:00+00:00</updatedAt>
+                </ShoppingList>
+        400:
+          description: Error - The input does not match the input schema definition.
+        401:
+          description: Error - The user is not authorized to add entries to this shopping
+            list.
+        403:
+          description: Error - Invalid request (e.g., invalid product code, duplicate
+            entry).
+        406:
+          description: Error - Shopping list entry limit exceeded.
+        404:
+          description: Error - Shopping list not found.
+      summary: Add entries to shopping list
+      description: Adds one or more product entries to an existing shopping list.
+      parameters:
+      - name: identifier
+        in: path
+        description: The unique identifier (UUID) of the shopping list.
+        required: true
+        deprecated: false
+        allowEmptyValue: false
+        schema:
+          type: string
+        style: simple
+        explode: false
+        allowReserved: false
+      - name: X-CSRF-Token
+        in: header
+        description: CSRF Token is needed to execute this unsafe request.
+        required: true
+        deprecated: false
+        allowEmptyValue: false
+        schema:
+          type: string
+        style: simple
+        explode: false
+        allowReserved: false
+      requestBody:
+        description: The new ShoppingListAddEntriesController resource
+        content:
+          application/vnd.ibexa.api.ShoppingListEntriesAdd+json:
+            schema:
+              $ref: '#/components/schemas/ShoppingListEntriesAddWrapper'
+            example:
+              ShoppingListEntriesAdd:
+                entries:
+                - productCode: PRODUCT-001
+                - productCode: PRODUCT-002
+          application/vnd.ibexa.api.ShoppingListEntriesAdd+xml:
+            schema:
+              $ref: '#/components/schemas/ShoppingListEntriesAdd'
+            example: |
+              <?xml version="1.0" encoding="UTF-8"?>
+              <ShoppingListEntriesAdd xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                  <entries>
+                      <Entry>
+                          <productCode>PRODUCT-001</productCode>
+                      </Entry>
+                      <Entry>
+                          <productCode>PRODUCT-002</productCode>
+                      </Entry>
+                  </entries>
+              </ShoppingListEntriesAdd>
+        required: false
+      deprecated: false
+      x-badges:
+      - name: Commerce
+        color: '#A32768'
+        position: after
+      - name: LTS Update
+        color: '#5DA7C0'
+        position: after
+  /shopping-list/{identifier}/entries/remove:
+    post:
+      operationId: api_shopping-list_identifierentriesremove_post
+      tags:
+      - Shopping List
+      responses:
+        200:
+          description: "200"
+          content:
+            application/vnd.ibexa.api.ShoppingList+json:
+              schema:
+                $ref: '#/components/schemas/ShoppingListWrapper'
+              example:
+                ShoppingList:
+                  identifier: 550e8400-e29b-41d4-a716-446655440000
+                  name: My Shopping List
+                  isDefault: false
+                  owner:
+                    _href: /api/ibexa/v2/user/users/14
+                    _media-type: application/vnd.ibexa.api.User+json
+                  entries:
+                  - identifier: 650e8400-e29b-41d4-a716-446655440001
+                    product:
+                      _href: /api/ibexa/v2/product/catalog/products/PRODUCT-001
+                      _media-type: application/vnd.ibexa.api.Product+json
+                      code: PRODUCT-001
+                      name: Sample Product
+                    addedAt: "2024-10-29T12:15:00+00:00"
+                  createdAt: "2024-10-29T12:00:00+00:00"
+                  updatedAt: "2024-10-29T12:00:00+00:00"
+            application/vnd.ibexa.api.ShoppingList+xml:
+              schema:
+                $ref: '#/components/schemas/ShoppingList'
+              example: |
+                <?xml version="1.0" encoding="UTF-8"?>
+                <ShoppingList xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                  <identifier>550e8400-e29b-41d4-a716-446655440000</identifier>
+                  <name>My Shopping List</name>
+                  <isDefault>0</isDefault>
+                  <owner href="/api/ibexa/v2/user/users/14" media-type="application/vnd.ibexa.api.User+xml"/>
+                  <entries>
+                    <identifier>650e8400-e29b-41d4-a716-446655440001</identifier>
+                    <product href="/api/ibexa/v2/product/catalog/products/PRODUCT-001" media-type="application/vnd.ibexa.api.Product+xml">
+                      <code>PRODUCT-001</code>
+                      <name>Sample Product</name>
+                    </product>
+                    <addedAt>2024-10-29T12:15:00+00:00</addedAt>
+                  </entries>
+                  <createdAt>2024-10-29T12:00:00+00:00</createdAt>
+                  <updatedAt>2024-10-29T12:00:00+00:00</updatedAt>
+                </ShoppingList>
+        400:
+          description: Error - The input does not match the input schema definition.
+        401:
+          description: Error - The user is not authorized to remove entries from this
+            shopping list.
+        403:
+          description: Error - Invalid request (e.g., invalid entry identifier, entry
+            does not exist).
+        404:
+          description: Error - Shopping list not found.
+      summary: Remove entries from shopping list
+      description: Removes one or more product entries from an existing shopping list
+        by their identifiers.
+      parameters:
+      - name: identifier
+        in: path
+        description: The unique identifier (UUID) of the shopping list.
+        required: true
+        deprecated: false
+        allowEmptyValue: false
+        schema:
+          type: string
+        style: simple
+        explode: false
+        allowReserved: false
+      - name: X-CSRF-Token
+        in: header
+        description: CSRF Token is needed to execute this unsafe request.
+        required: true
+        deprecated: false
+        allowEmptyValue: false
+        schema:
+          type: string
+        style: simple
+        explode: false
+        allowReserved: false
+      requestBody:
+        description: The new ShoppingListRemoveEntriesController resource
+        content:
+          application/vnd.ibexa.api.ShoppingListEntriesRemove+json:
+            schema:
+              $ref: '#/components/schemas/ShoppingListEntriesRemoveWrapper'
+            example:
+              ShoppingListEntriesRemove:
+                identifiers:
+                - 650e8400-e29b-41d4-a716-446655440001
+                - 650e8400-e29b-41d4-a716-446655440002
+          application/vnd.ibexa.api.ShoppingListEntriesRemove+xml:
+            schema:
+              $ref: '#/components/schemas/ShoppingListEntriesRemove'
+            example: |
+              <?xml version="1.0" encoding="UTF-8"?>
+              <ShoppingListEntriesRemove>
+                  <identifiers>
+                      <identifier>650e8400-e29b-41d4-a716-446655440001</identifier>
+                      <identifier>650e8400-e29b-41d4-a716-446655440002</identifier>
+                  </identifiers>
+              </ShoppingListEntriesRemove>
         required: false
       deprecated: false
       x-badges:
