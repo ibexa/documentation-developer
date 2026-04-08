@@ -14,8 +14,8 @@ You can also extend it to perform other tasks or support additional AI services.
 ##  Getting Started
 
 [[= cards([
-"ai_actions/ai_actions_guide",
-"ai_actions/configure_ai_actions",
+"ai/ai_actions/ai_actions_guide",
+"ai/ai_actions/configure_ai_actions",
 ("content_management/taxonomy/taxonomy#taxonomy-suggestions", "Taxonomy suggestions", "Learn how to use AI to suggest tags and categories"),
 ("permissions/policies#ai-actions", "Policies", "Learn about the available AI Actions policies"),
 ("https://doc.ibexa.co/projects/userguide/en/5.0/ai_actions/work_with_ai_actions/"),
@@ -24,7 +24,7 @@ You can also extend it to perform other tasks or support additional AI services.
 ## Development
 
 [[= cards([
-"ai_actions/extend_ai_actions",
+"ai/ai_actions/extend_ai_actions",
 "api/event_reference/ai_action_events",
 ("https://doc.ibexa.co/en/5.0/api/rest_api/rest_api_reference/rest_api_reference.html#tag/Connector-AI", "REST API Reference", "See the available endpoints for AI Actions"),
 "templating/twig_function_reference/ai_actions_twig_functions",
@@ -32,4 +32,3 @@ You can also extend it to perform other tasks or support additional AI services.
 "search/ai_actions_search_reference/action_configuration_sort_clauses",
 ("content_management/data_migration/importing_data#ai-action-configurations", "Importing AI actions", "Learn how to manage Action Configurations using data migrations"),
 ], columns=4) =]]
-

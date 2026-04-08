@@ -347,15 +347,16 @@ nav:
             - Add navigation menu: templating/layout/add_navigation_menu.md
             - Add search form to front page: templating/layout/add_search_form.md
     - AI:
+        - AI: ai/ai.md
         - AI Actions:
-            - AI Actions: ai_actions/ai_actions.md
-            - AI Actions guide: ai_actions/ai_actions_guide.md
-            - Configure AI Actions: ai_actions/configure_ai_actions.md
-            - Extend AI Actions: ai_actions/extend_ai_actions.md
+            - AI Actions: ai/ai_actions/ai_actions.md
+            - AI Actions guide: ai/ai_actions/ai_actions_guide.md
+            - Configure AI Actions: ai/ai_actions/configure_ai_actions.md
+            - Extend AI Actions: ai/ai_actions/extend_ai_actions.md
         - MCP Servers:
-            - MCP Servers: mcp/mcp.md
-            - MCP Servers guide: mcp/mcp_guide.md
-            - Configure MCP Servers: mcp/mcp_config.md
+            - MCP Servers: ai/mcp/mcp.md
+            - MCP Servers guide: ai/mcp/mcp_guide.md
+            - Configure MCP Servers: ai/mcp/mcp_config.md
     - PIM (Product management):
         - PIM (Product management): pim/pim.md
         - PIM guide: pim/pim_guide.md

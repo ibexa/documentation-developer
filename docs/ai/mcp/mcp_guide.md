@@ -3,7 +3,7 @@ description: TODO.
 month_change: true
 ---
 
-# Model Context Protocol and [[= product_name_base =]] MCP Servers
+# Model Context Protocol and Ibexa MCP Servers
 
 [Model Context Protocol (MCP)](https://en.wikipedia.org/wiki/Model_Context_Protocol) is a protocol standardizing interactions between AIs and systems.
 
