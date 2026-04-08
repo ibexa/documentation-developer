@@ -66,7 +66,7 @@ The following settings are global and apply to the entire application (they are 
 
 - `strict_exceptions` – when enabled, tracking exceptions are thrown instead of being silently handled. Default value: `%kernel.debug%`.
 
-This value can be overriden in `config/packages/ibexa_connector_raptor.yaml` file, for example:
+This value can be overridden in `config/packages/ibexa_connector_raptor.yaml` file, for example:
 
 ``` yaml hl_lines="14-17"
 [[= include_file('code_samples/recommendations/config/packages/ibexa_connector_raptor.yaml') =]]

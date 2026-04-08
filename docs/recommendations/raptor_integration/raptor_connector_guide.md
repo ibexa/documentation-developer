@@ -5,7 +5,7 @@ month_change: true
 
 # Raptor integration guide
 
-Discover [Raptor](https://www.raptorservices.com/)integration - an add-on that is focused on recommendations and tracking customer behaviors.
+Discover [Raptor](https://www.raptorservices.com/) integration - an add-on that is focused on recommendations and tracking customer behaviors.
 It includes Raptor connector with tracking scripts and events, used to track and analyze customer behaviors, and a set of Recommendation blocks.
 
 ## What is Raptor connector
@@ -75,6 +75,8 @@ Recommendation blocks are organized into dedicated categories, each grouping blo
     - [The Personal Shopping Assistant]([[= user_doc =]]/personalization/raptor_integration/raptor_recommendation_blocks/#the-personal-shopping-assistant-block)
     - [User's item history or current basket items sorted by recent items or top items]([[= user_doc =]]/personalization/raptor_integration/raptor_recommendation_blocks/#users-item-history-or-current-basket-items-sorted-by-recent-items-or-top-items-block)
 
+![Recommendation blocks](recommendation_blocks.png)
+
 For a complete description of Recommendation blocks see [Recommendation blocks in User Documentation]([[= user_doc =]]/personalization/raptor_integration/raptor_recommendation_blocks/).
 
 ### Advanced usage for complex tracking scenarios
@@ -101,7 +103,7 @@ Showing visitors content and products that match their interests helps keep them
 
 ### Meet customer expectations and increase engagement
 
-Recommendation blocks highlight products that match customers interests.
+Recommendation blocks highlight products that match customers' interests.
 Tailored content boosts engagement by showing visitors information and products that align with their interests and fulfill their needs.
 This strengthens the connection between your brand and your audience, encouraging them to spend more time on your site and return more often.
 
@@ -118,4 +120,4 @@ Keep track of which recommendations are shown to visitors and measure conversion
 ### Flexible tracking with PHP API
 
 Tracking using PHP API gives you full control over how events are recorded and processed.
-You can use it for a complex scenarios, so tracking can be adapted to your specific needs or business requirements.
+You can use it for complex scenarios, so tracking can be adapted to your specific needs or business requirements.
