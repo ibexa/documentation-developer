@@ -118,8 +118,8 @@ ibexa:
 The values shown above are the defaults.
 `0` means the notification doesn't hide automatically.
 
-### `ibexa` notification channel
+## `ibexa` notification channel
 
-You can also subscribe to a notification with the channel `ibexa`
+You can also subscribe to a notification with the `ibexa` channel.
 
-See [Notifications to channels](notification_channels.md) for more details about notifications and channel subscription.
+For more information, see [Notifications to channels](notification_channels.md).
