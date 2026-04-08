@@ -5,7 +5,7 @@ month_change: true
 
 # Model Context Protocol and Ibexa MCP Servers
 
-[Model Context Protocol (MCP)](https://en.wikipedia.org/wiki/Model_Context_Protocol) is a protocol standardizing interactions between AIs and systems.
+[Model Context Protocol (MCP)](https://modelcontextprotocol.io/docs/getting-started/intro) is a protocol standardizing interactions between AIs and systems.
 
 While [AI actions](ai_actions_guide.md) integrate AI to the back office,
 [[= product_name =]]'s MCP servers offer a web interface usable by AIs outside the system.
