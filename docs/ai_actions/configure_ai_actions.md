@@ -14,8 +14,8 @@ Only then you can restart you application and start [working with the AI Actions
 
 !!! note "Taxonomy suggestions"
 
-    The default OpenAI and the optional Google Gemini connectors are used by the [Taxonomy suggestions](taxonomy.md#taxonomy-suggestions) feature to generate embeddings for suggesting tags and product categories.
-    After you configure the OpenAI connector, or install and configure the Google Gemini connector, you can [create AI actions that use the Text to Taxonomy action type]([[= user_doc =]]/ai_actions/work_with_ai_actions/#create-ai-actions-that-control-taxonomy-suggestions).
+    The default OpenAI or the optional Google Gemini connectors can used by the [Taxonomy suggestions](taxonomy.md#taxonomy-suggestions) feature to generate embeddings for suggesting tags and product categories.
+    After you configure the OpenAI connector, or set up the optional Google Gemini connector and [modify the default taxonomy suggestions settings](taxonomy.md#change-embeddings-provider-to-google-gemini), you can [create AI actions that use the Text to Taxonomy action type]([[= user_doc =]]/ai_actions/work_with_ai_actions/#create-ai-actions-that-control-taxonomy-suggestions).
     You can also create [your own embedding provider](taxonomy.md#replace-the-embedding-provider).
 
 ## Configure access to OpenAI

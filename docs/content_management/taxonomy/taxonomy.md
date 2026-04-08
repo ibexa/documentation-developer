@@ -145,7 +145,11 @@ However, before you can enable it, make sure the following prerequisites have be
 
 - [Search engine](search_engines.md): Taxonomy suggestions require a search engine that supports vector search.
 The feature has been tested to work with Elasticsearch or Solr 9.8.1+.
-- [AI Actions](ai_actions.md): To be able to process embeddings, Taxonomy suggestions require that you have the AI Actions configured to support the [OpenAI](configure_ai_actions.md#configure-access-to-openai) or [Google Gemini](configure_ai_actions.md#install-google-gemini-connector) service.
+- [AI Actions](ai_actions.md): To be able to process embeddings, Taxonomy suggestions require that you have the AI Actions configured to support the default [OpenAI](configure_ai_actions.md#configure-access-to-openai) or the optional [Google Gemini](configure_ai_actions.md#install-google-gemini-connector) service.
+
+!!! note "Alternative embeddings provider"
+
+    To use Google Gemini as an alternative embeddings provider, you must also modify the default [taxonomy suggestions settings](taxonomy.md#change-embeddings-provider-to-google-gemini).
 
 #### Enable taxonomy embedding indexing
 
@@ -159,7 +163,7 @@ ibexa:
             taxonomy:
                 search:
                     index_embeddings: true
-                    default_embedding_model: `text-embedding-ada-002`
+                    default_embedding_model: 'text-embedding-ada-002'
 ```
 
 If you are happy with the default settings, clear the cache and reindex the search engine.
@@ -233,21 +237,21 @@ ibexa:
         default:
             embedding_models:
                 text-embedding-3-small:
-                    name: `text-embedding-3-small`
+                    name: 'text-embedding-3-small'
                     dimensions: 1536
-                    field_suffix: `3small`
-                    embedding_provider: `ibexa_openai`
+                    field_suffix: '3small'
+                    embedding_provider: 'ibexa_openai'
                 text-embedding-3-large:
-                    name: `text-embedding-3-large`
+                    name: 'text-embedding-3-large'
                     dimensions: 3072
-                    field_suffix: `3large`
-                    embedding_provider: `ibexa_openai`
+                    field_suffix: '3large'
+                    embedding_provider: 'ibexa_openai'
                 text-embedding-ada-002:
-                    name: `text-embedding-ada-002`
+                    name: 'text-embedding-ada-002'
                     dimensions: 1536
-                    field_suffix: `ada002`
-                    embedding_provider: `ibexa_openai`
-            default_embedding_model: `text-embedding-ada-002`
+                    field_suffix: 'ada002'
+                    embedding_provider: 'ibexa_openai'
+            default_embedding_model: 'text-embedding-ada-002'
 ```
 
 !!! warning "Change both embedding generation models"
@@ -255,33 +259,33 @@ ibexa:
     When you change the default suggestions generation model, ensure that you update the `ibexa.system.default.taxonomy.search.default_embedding_model` setting that is used for taxonomy indexing purposes.
     Otherwise the taxonomy suggestions feature fails to find matching entries.
 
-#### Change embeddings provider to Google Gemini [[% include 'snippets/lts-update_badge.md' %]]
+#### Change embeddings provider to Google Gemini [[% include 'snippets/lts-update_badge.md' %]] 
 
 Once you have installed and configured the [Google Gemini connector](configure_ai_actions.md#install-google-gemini-connector), you can modify the default configuration to use the `ibexa_gemini` embedding provider and one of the supported models:
 
-```yaml hl_lines="20"
+```yaml hl_lines="15 22"
 ibexa:
     system:
         default:
             embedding_models:
                 gemini_embedding_001_1536:
-                    name: gemini-embedding-001
+                    name: 'gemini-embedding-001'
                     dimensions: 1536
-                    field_suffix: gemini_embedding_001_1536_dv
-                    embedding_provider: ibexa_gemini
+                    field_suffix: 'gemini_embedding_001_1536_dv'
+                    embedding_provider: 'ibexa_gemini'
                 gemini_embedding_001_3072:
-                    name: gemini-embedding-001
+                    name: 'gemini-embedding-001'
                     dimensions: 3072
-                    field_suffix: gemini_embedding_001_3072_dv
-                    embedding_provider: ibexa_gemini
-            default_embedding_model: `gemini_embedding_001_1536`
+                    field_suffix: 'gemini_embedding_001_3072_dv'
+                    embedding_provider: 'ibexa_gemini'
+            default_embedding_model: 'gemini_embedding_001_1536'
 
 # ...
 
             taxonomy:
                 search:
                     index_embeddings: true
-                    default_embedding_model: `gemini_embedding_001_1536`
+                    default_embedding_model: 'gemini_embedding_001_1536'
 ```
 
 After you make the change:
