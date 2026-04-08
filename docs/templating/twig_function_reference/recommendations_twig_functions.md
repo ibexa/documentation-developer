@@ -68,7 +68,7 @@ ibexa_tracking_track_event(
 )
 ```
 
-- **eventType** - type: string, defines the type of tracking event to be sent, for example, `visit`, `contentvisit`, `buy`, `basket`, `itemclick`
+- **eventType** - type: string, defines the type of tracking event to be sent, for example, `visit`, `contentvisit`, `buy`, `basket`, `itemclick`. For more information, see [Tracking events for recommendations](https://content.raptorservices.com/help-center/tracking-events-for-recommendation).
 - **data** (optional) - type: mixed, accepts the primary object associated with the event, such as a Product or Content, can be null if not required. For more information, check [tracking event examples](#tracking-events).
 - **context** (optional)- type: array, additional event data, such as quantity, basket details, or custom parameters. For more information, see [example usage](#context-parameter-example-usage).
 - **template** (optional) - type: string, path to a custom Twig template used to render the tracking event, allows overriding the default tracking output
@@ -99,6 +99,12 @@ It can used to check content views for analytics, personalization, and user beha
 
 - **Content object** - defines the content being tracked.
 
+Example:
+
+``` html+twig
+[[= include_file('code_samples/recommendations/events/content_visit_event.html.twig') =]]
+```
+
 ### Basket event
 
 This event tracks when a product is added to the shopping basket.
@@ -119,14 +125,7 @@ Example:
 Simplified example with Twig filter:
 
 ``` html+twig
-{# If you have a custom Twig filter to format basket content #}
-{% set basketContext = {
-    'basketContent': basket|format_basket_content,  {# Returns "SKU-1:2;SKU-2:1;SKU-3:5" #}
-    'basketId': basket.id,
-    'quantity': addedQuantity
-} %}
-
-{{ ibexa_tracking_track_event('basket', product, basketContext) }}
+[[= include_file('code_samples/recommendations/events/basket_event_simplified.html.twig') =]]
 ```
 
 ### `context` parameter - example usage
@@ -143,7 +142,7 @@ In this case, `context` parameter allows to override the product category by pas
         {# ... product content ... #}
     </div>
 
-    {# Track with category identifier - automatic loading and formatting #}
+    {# Track with category identifier - CategoryID automatic loading and formatting #}
         {{ ibexa_tracking_track_event('visit', product, {
         'categoryIdentifier': 'electronics'
     }) }}
@@ -154,13 +153,20 @@ For another example of `context` parameter usage, see [Basket event](#basket-eve
 
 ### Custom Templates
 
+You can create a custom template for tracking in the `/templates/tracking/` directory.
+Check the following `custom_visit.html.twig` example:
+
+``` html+twig
+[[= include_file('code_samples/recommendations/templates/tracking/custom_visit.html.twig') =]]
+```
+
 You can override the default tracking templates by providing a custom template path:
 
-``` bash
+``` html+twig
 {{ ibexa_tracking_track_event(
-    'visit',
-    product,
-    {},
-    '@MyBundle/tracking/custom_visit.html.twig'
+      'visit',
+      product,
+      {},
+      '@App/tracking/custom_visit.html.twig'
 ) }}
 ```

@@ -28,7 +28,7 @@ class ProductViewTrackingSubscriber implements EventSubscriberInterface
 
         // Example: track only if request has specific attribute
         $product = $request->attributes->get('product');
-        if (!$product) {
+        if (null === $product) {
             return;
         }
 

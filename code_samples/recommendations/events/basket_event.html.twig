@@ -1,4 +1,4 @@
-# templates/cart/add_confirmation.html.twig #}
+{# templates/cart/add_confirmation.html.twig #}
 {% extends 'base.html.twig' %}
 
 {% block content %}
@@ -24,16 +24,3 @@
 
     <a href="{{ path('cart_view') }}">View Cart</a>
 {% endblock %}
-```
-
-Simplified example with Twig filter:
-
-``` html+twig
-{# If you have a custom Twig filter to format basket content #}
-{% set basketContext = {
-    'basketContent': basket|format_basket_content,  {# Returns "SKU-1:2;SKU-2:1;SKU-3:5" #}
-    'basketId': basket.id,
-    'quantity': addedQuantity
-} %}
-
-{{ ibexa_tracking_track_event('basket', product, basketContext) }}

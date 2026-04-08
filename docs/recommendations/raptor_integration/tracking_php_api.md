@@ -31,13 +31,22 @@ Check the following example:
 [[= include_file('code_samples/recommendations/EventData.php') =]]
 ```
 
+`categoryPath` parameter sets the category path for recommendations and needs to be composed manually following the specified format and rules:
+
+- format: `CategoryId#CategoryName;CategoryId#CategoryName`, for example, `25#Electronics;26#Smartphones`
+- if `CategoryName` is missing, repeat the ID, for example, `25#25;26#26`
+- if `CategoryId` is missing, use the `CategoryName`, for example, `Electronics;Smartphones`
+
 For more information, see available events in the [tracking event namespace](/api/php_api/php_api_reference/namespaces/ibexa-contracts-connectorraptor-tracking-event.html)
 
 ### Example - event subscriber
 
-If you need to track events automatically based on application events, you can use Event Subscriber.
+If you need to track [events](../../api/event_reference/event_reference.md) automatically based on application events, you can use Event Subscriber.
 It reacts to specific events in the application and triggers tracking logic without the need to add it manually in templates.
 
 ``` php
 [[= include_file('code_samples/recommendations/EventSubscriber.php') =]]
 ```
+
+You can as well use [[= product_name_base =]] order management events, for example `CreateOrderEvent`.
+For more information, see [Order management events](../../api/event_reference/order_management_events.md).
