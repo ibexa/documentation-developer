@@ -64,6 +64,12 @@ designed to suggest relevant content or products to users, such as the most popu
 
 For more information, see [Recommendation blocks in Page Builder](https://doc.ibexa.co/en/5.0/cdp/raptor_integration/pb_blocks/).
 
+### Quable PIM
+
+Add-on to integrate [[[= pim_product_name =]]](https://www.quable.com/en) with [[= product_name =]].
+
+For more information, see [Quable PIM Integration](https://doc.ibexa.co/en/5.0/product_catalog/quable/).
+
 ### Developer experience
 
 #### Symfony 7.4
@@ -146,12 +152,6 @@ The following additions were made to the PHP API:
 The [Image Editor]([[= user_doc =]]/image_management/edit_images/) now supports configurable gaussian blur strength for image optimization.
 You can adjust the blur level to balance between file size reduction and image sharpness.
 For more information, see [Configure image editor](https://doc.ibexa.co/en/5.0/content_management/images/configure_image_editor/#gaussian-blur-strength).
-
-### Quable PIM [[#% include 'snippets/headless_badge.md' %#]] [[% include 'snippets/experience_badge.md' %]]
-
-Add-on to integrate [[[= pim_product_name =]]](https://www.quable.com/en) with [[= product_name =]].
-
-For more information, see [Quable PIM Integration](https://doc.ibexa.co/en/5.0/product_catalog/quable/).
 
 ### AI Actions in Page Builder blocks [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
 
