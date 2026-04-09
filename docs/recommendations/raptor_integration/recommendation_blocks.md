@@ -30,7 +30,7 @@ In the toolbar, corresponding categories for recommendation blocks are available
 - **Recommendations: Commerce** - shows recommendations based on visitors' purchase history (buy and basket events):
     - [Other Customers Have also Purchased block]([[= user_doc =]]/personalization/raptor_integration/raptor_recommendation_blocks/#other-customers-have-also-purchased-block)
     - [The Personal Shopping Assistant]([[= user_doc =]]/personalization/raptor_integration/raptor_recommendation_blocks/#the-personal-shopping-assistant-block)
-    - [User's item history or current basket items sorted by recent items or top items]([[= user_doc =]]/personalization/raptor_integration/raptor_recommendation_blocks/#users-item-history-or-current-basket-items-sorted-by-recent-items-or-top-items-block)
+    - [User's item history]([[= user_doc =]]/personalization/raptor_integration/raptor_recommendation_blocks/#users-item-history-block)
 
 ![Recommendation blocks](img/recommendation_blocks.png)
 
