@@ -10,12 +10,11 @@ To integrate [[= product_name =]] with [[= pim_product_name =]] PIM, you need to
 
 Before installing the [[= pim_product_name =]] connector, ensure you have access to a [[[= pim_product_name =]] PIM instance](https://quable.com).
 
-## Install packages
+## Install package
 
-Run the following commands to install the required packages:
+Run the following commands to install the required package:
 
 ``` bash
-composer require ibexa/quable-client
 composer require ibexa/connector-quable
 ```
 

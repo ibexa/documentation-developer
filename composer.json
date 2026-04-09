@@ -80,7 +80,6 @@
         "ibexa/share": "~5.0.x-dev",
         "ibexa/phpstan": "~5.0.-dev",
         "ibexa/connector-quable": "5.0.x-dev",
-        "ibexa/quable-client": "dev-reverted-open-api as 5.0.x-dev",
         "ibexa/shopping-list": "~5.0.x-dev",
         "deptrac/deptrac": "^3.0",
         "ibexa/cdp": "~5.0.x-dev",
