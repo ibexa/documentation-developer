@@ -297,7 +297,7 @@ The following example showcases all the built-in block types for a `general` sce
 
 ### Example 2: Targeted feature tour with interactive steps
 
-The following example showcases the three interaction modes of a `targetable` scenario building an onboarding scenario for the [customizable dashboard](customize_dashboard.md):
+The following example showcases the three interaction modes of a `targetable` scenario building an onboarding tour for the [customizable dashboard](customize_dashboard.md):
 
 ```yaml
 [[= include_file('code_samples/back_office/product_tour/config/targetable_scenario.yaml') =]]

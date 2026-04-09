@@ -31,16 +31,5 @@ To enable it, run the following command:
 composer require ibexa/integrated-help
 ```
 
-After installation, you must [enable the help center in user settings]([[= user_doc =]]/getting_started/discover_ui#enable-help-center) to use the feature.
-
-## Learn more
-
-[[= cards([
-    "administration/back_office/customize_integrated_help",
-    "administration/back_office/product_tour",
-    "administration/back_office/configure_product_tour",
-    "administration/back_office/customize_product_tour",
-    "api/event_reference/integrated_help_events",
-]) =]]
-
-TODO: Add PHP API link here
+After installation, the help center is enabled by default for all back office users.
+If needed, they can [disable it in user settings](([[= user_doc =]]/getting_started/discover_ui#disable-help-center)).
