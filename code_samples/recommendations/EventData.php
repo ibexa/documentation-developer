@@ -2,7 +2,7 @@
 use Ibexa\Contracts\ConnectorRaptor\Tracking\Event\VisitEventData;
 
 $eventData = new VisitEventData(
-    productId: $product->getCode(),
+    productCode: $product->getCode(),
     productName: $product->getName(),
     categoryPath: '25#Electronics;26#Smartphones',  // Build manually
         currency: 'USD',
