@@ -6,13 +6,13 @@ month_change: true
 
 # Product tour
 
-Product tour is an in-app onboarding tool that helps users discover and learn [[= product_name =]] features through interactive, step-by-step guided walkthroughs.
+Product tour is an in-app onboarding tool that helps back office contributors discover [[= product_name =]] features through interactive, step-by-step guided walkthroughs.
 Unlike static documentation, product tours provide real-time, contextual guidance directly within the application interface.
 
 With product tours, you can create customized onboarding journeys tailored to specific client implementations, user roles, or business processes.
 This accelerates user adoption, reduces training time, and helps users confidently navigate the platform.
 
-Product tour functionality is available from version 4.6.28 as part of the Integrated help package.
+Product tour functionality is available from versions 4.6.29 and 5.0.7 as part of the Integrated help package.
 To use product tours, you must first [install the Integrated help LTS Update](integrated_help.md#install-package).
 
 TODO: Arcade video here, showing a quick demo of the feature
@@ -21,9 +21,9 @@ TODO: Arcade video here, showing a quick demo of the feature
 
 Product tour consists of three main elements:
 
-- **Scenario** - A complete onboarding scenario containing multiple steps that guide users through a specific feature or workflow
-- **Step** - An individual instruction or explanation within a scenario, containing blocks, displayed as an overlay or tooltip
-- **Block** - A content element within a step, such as text, images, videos, or links that provide information to the user
+- **Scenario** - a complete onboarding scenario containing multiple steps that guide users through a specific feature or workflow
+- **Step** - an individual instruction or explanation within a scenario, containing blocks, displayed as an overlay or tooltip
+- **Block** - a content element within a step, such as text, images, videos, or links that provide information to the user
 
 ## Scenario types
 
@@ -34,7 +34,7 @@ TODO: screenshot for each type
 ### General scenarios
 
 General tours display information in centered modals without targeting specific UI elements.
-These tours provide an overview of features or concepts without requiring interaction with particular interface elements.
+These tours provide an overview of features or concepts and do not require interaction with particular interface elements.
 
 General tours are ideal for:
 
@@ -45,7 +45,7 @@ General tours are ideal for:
 ### Targeted scenarios
 
 Targeted scenarios highlight specific UI elements on the page and guide users through interactive workflows.
-Each step targets a particular element using CSS selectors, drawing attention to buttons, navigation elements, or other interface components.
+Each step targets a particular element by using a CSS selector, and can draw attention to buttons, navigation elements, or other interface components.
 
 Targeted scenarios are ideal for:
 
@@ -55,7 +55,7 @@ Targeted scenarios are ideal for:
 
 The steps building the scenario support three interaction modes:
 
-- **Standard** - Users navigate between steps using "Previous" and "Next" buttons
+- **Standard** - Users navigate between steps by clicking **Previous** and **Next** buttons
 - **Clickable** - Users must click the highlighted element to proceed to the next step
 - **Draggable** - Users must drag and drop an element to continue the scenario
 
@@ -77,4 +77,4 @@ For **Clickable** and **Draggable** steps, users can't go back to the previous s
 
 At any time, users can manually restart completed tours from their [user settings]([[= user_doc =]]/getting_started/get_started/#user-settings).
 
-To start building your custom onboarding scenarios, see [configure product tour](configure_product_tour.md).
+To start building your custom onboarding scenarios, see [Configure product tour](configure_product_tour.md).

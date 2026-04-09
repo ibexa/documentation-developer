@@ -7,7 +7,8 @@ month_change: true
 # Customize scenarios with PHP code
 
 You can customize the product tour scenarios with the [`RenderProductTourScenarioEvent`](integrated_help_events.md) event.
-This event is dispatched before rendering a product tour scenario and you can use it to:
+This event is dispatched before a product tour scenario is rendered.
+You can use it to:
 
 - modify tour steps based on user permissions or roles
 - add or remove steps dynamically
@@ -37,7 +38,7 @@ ibexa:
                                       text_translation_key: 'This is a placeholder block, modified during event subscriber execution'
 ```
 
-Then, create a subscriber modifying the scenario.
+Then, create a subscriber that modifies the scenario.
 
 ```php hl_lines="35-37 39-41 43-45 47-58"
 [[= include_file('code_samples/back_office/product_tour/src/EventSubscriber/NotificationScenarioSubscriber.php') =]]

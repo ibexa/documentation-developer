@@ -17,10 +17,10 @@ Use the default provided configuration, available in `config/packages/ibexa_inte
 
 ## Configuration structure
 
-Configure product tour scenarios under the `ibexa.system.<siteaccess>.product_tour` key.
+You configure product tour scenarios under the `ibexa.system.<siteaccess>.product_tour` key.
 Each scenario has a unique identifier and contains steps, which in turn contain blocks.
 
-Basic configuration structure of a scenario:
+The basic configuration structure of a scenario is as follows:
 
 ```yaml
 ibexa:
@@ -72,13 +72,13 @@ Each scenario must specify its type and can optionally restrict access by user g
 
 The order of scenarios in the configuration file determines the order in which they are evaluated and, if the right conditions are met, displayed.
 
-For **general scenario**, the scenario appears at the earliest opportunity (on any page after logging in), with an exception of the user settings area.
+For the scenarios of `general` type, they appear at the earliest opportunity (on any page after logging in), with an exception of the user settings area.
 
-For **targeted scenarios**, the scenario begins if the target element is found in the DOM when the page is loaded.
+For the scenarios of `targeted` type, they begin if their `target` element is found in the DOM when the page is loaded.
 Targeted scenarios don't trigger in the user settings area as well.
 
 To control where a targeted tour appears, ensure that the first step targets an element unique to that specific page.
-You can target elements that appear after a user action (for example, modals like [content browser](browser.md)), but the first step's target must be present in the DOM when the page is loaded.
+You can target elements that appear after a user action, for example, modals like [content browser](browser.md), but the first step's target must be present in the DOM when the page is loaded.
 
 Once a scenario ends, the system evaluates the next scenario from the configuration and, if applicable, displays it.
 
@@ -106,7 +106,7 @@ product_tour:
 
 If the translation key is not set, the raw scenario identifier is used as the label.
 
-Translations must be provided in the `ibexa_integrated_help` translation domain (for example, in `translations/ibexa_integrated_help.en.yaml`).
+Translations must be provided in the `ibexa_integrated_help` translation domain, for example, in `translations/ibexa_integrated_help.en.yaml`.
 
 ### User group restrictions
 
@@ -118,7 +118,7 @@ product_tour:
         user_groups_excluded: ['user_group_content_remote_id_1', 'user_group_content_remote_id_2']  # Exclude specific user groups
 ```
 
-When creating new [back office user groups](user_registration.md#user-types), you should decide whether the existing product tour scenarios should be available for the new user group.
+When creating new [back office user groups](user_registration.md#user-types), decide whether the existing product tour scenarios should be available for these new user groups.
 If not, add the new group to the exclusion list.
 
 !!! warning
@@ -170,8 +170,8 @@ TODO: 2 pane screenshot here, showing the UI for each of types.
 **Standard mode**:
 
 The default value. 
-A tooltip attached to specific element on the page is displayed.
-Users continue the scenario with Previous/Next buttons:
+A tooltip attached to a specific element on the page is displayed.
+Users continue the scenario with **Previous**/**Next** buttons:
 
 ```yaml
 [[= include_file('code_samples/back_office/product_tour/config/targetable_scenario.yaml', 8, 16) =]]
@@ -179,7 +179,7 @@ Users continue the scenario with Previous/Next buttons:
 
 **Clickable mode**:
 
-A tooltip attached to specific element on the page is displayed.
+A tooltip attached to a specific element on the page is displayed.
 Users continue the scenario by clicking the highlighted element.
 
 ```yaml
@@ -188,7 +188,7 @@ Users continue the scenario by clicking the highlighted element.
 
 **Draggable mode**:
 
-A tooltip attached to specific element on the page is displayed.
+A tooltip attached to a specific element on the page is displayed.
 Users continue the scenario by [dragging](https://developer.mozilla.org/en-US/docs/Web/API/HTML_Drag_and_Drop_API#draggable_items) the highlighted element.
 
 ```yaml
@@ -282,7 +282,7 @@ Create the dedicated template, for example in `templates/custom_template.html.tw
 and provide the required translations in `translations/app.en.yaml`:
 
 ``` yaml
-custom_step_description: "This is a description coming from custom template"
+custom_step_description: "This is a description coming from a custom template."
 ```
 
 ## Configuration examples

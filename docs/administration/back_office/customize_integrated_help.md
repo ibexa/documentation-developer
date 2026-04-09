@@ -17,11 +17,11 @@ You can extend or modify the integrated menu in two ways:
 
 ## Disable integrated help features
 
-After you have installed the integrated help package, you can disable the entire feature or specific features on the system level.
+After you have installed the integrated help package, you can disable the entire feature or specific functionalities on the system level.
 
 ### Disable all features
 
-To disable both the Help center and the Product tour globally, for example, to run UI tests in a `dev` [environment](environments.md), in `config/packages` create the `ibexa_integrated_help.yaml` file with the following configuration:
+To disable both the Help center and the Product tour globally, for example, to run UI tests in a `dev` [environment](environments.md), in `config/packages`, create the `ibexa_integrated_help.yaml` file with the following configuration:
 
 ``` yaml
 ibexa_integrated_help:
@@ -30,7 +30,7 @@ ibexa_integrated_help:
 
 ### Disable features independently
 
-To disable only the Help center or only the Product tour features, use the dedicated feature flags as in the example below:
+To disable only the Help center or only the Product tour functionalities, use the dedicated flags as in the example below:
 
 ``` yaml
 ibexa_integrated_help:
