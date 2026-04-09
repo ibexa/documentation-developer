@@ -63,7 +63,6 @@ The following sort clauses are supported:
 |[ProductCode](productcode_sort_clause.md)|Product's code|
 |[ProductName](productname_sort_clause.md)|Product's name|
 
-
 ### Manage stock and pricing
 
 For information stored outside of [[= pim_product_name =]], such as [product availability](product_api.md#product-availability) or [pricing](price_api.md), you can use the existing services to manage them:

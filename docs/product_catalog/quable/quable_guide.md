@@ -1,6 +1,6 @@
 ---
 description: The Quable product guide describes how you can use the product data from Quable in Ibexa DXP to create marketing campaigns built around your products.
-month_change: false
+month_change: true
 ---
 
 # Quable product guide
@@ -23,7 +23,7 @@ Before installing and enabling the integration, ensure that you have an active [
 
 Then, [perform the initial configuration](install_quable.md).
 
-## How does Quable integration work
+## How does [[= pim_product_name =]] integration work
 
 [[= pim_product_name =]] acts as the single source of truth for product information.
 The [[= pim_product_name =]] integration is built on [[= product_name =]]'s [Remote PIM framework](add_remote_pim_support.md), which provides a foundation for connecting external PIM systems to the DXP.
@@ -53,16 +53,6 @@ Editorial teams that need to add DXP-specific content, such as promotional text 
 
 You can use [[= product_name =]] to manage product availability and pricing for [[= pim_product_name =]]'s products, including creating advanced pricing strategies with [discounts](discounts.md) combined with [regions](product_catalog_guide.md#regions) and [currencies](product_catalog_guide.md#currencies).
 
-## Known limitations
-
-The integration with [[= pim_product_name =]] has the following known limitations:
-
-- Product assets are not synchronized. Only the main asset thumbnail URL from [[= pim_product_name =]] is used as the product image. Asset collections, asset management, and variant thumbnails are not available.
-- It's not possible to create [catalogs](product_catalog_guide.md#catalogs) with products coming from [[= pim_product_name =]].
-- It's not possible to use the Commerce functionalities like [cart](cart.md), [order management](order_management.md), or [shopping lists](shopping_list.md) with products coming from [[= pim_product_name =]].
-- It's not possible to limit access to products using the existing [`ProductType` product limitations](policies.md#products).
-- It's not possible to synchronize products with the `/` symbol in the product code, or with product codes longer than 64 characters.
-
 ## Use cases
 
 ### Multi-market channel operations
@@ -74,3 +64,13 @@ A retailer operating in multiple European markets can maintain a single product 
 
 A fashion brand's store manager can add a new seasonal collection in [[= pim_product_name =]] to a dedicated channel.
 The marketing team can then immediately start working on their campaign within [[= product_name =]], using the product data from [[= pim_product_name =]] both in [Page Builder](page_builder_guide.md) and regular content items.
+
+## Known limitations
+
+The integration with [[= pim_product_name =]] has the following known limitations:
+
+- It's not compatible with [Commerce](commerce.md) functionalities. [Carts](cart.md), [order management](order_management.md), and [shopping lists](shopping_list.md) can't be used with products coming from [[= pim_product_name =]].
+- It's not possible to create [catalogs](product_catalog_guide.md#catalogs) with products coming from [[= pim_product_name =]].
+- Product assets are not synchronized. Only the main asset thumbnail URL from [[= pim_product_name =]] is used as the product image. Asset collections, asset management, and variant thumbnails are not available.
+- It's not possible to limit access to products using the existing [`ProductType` product limitations](policies.md#products).
+- It's not possible to synchronize products with the `/` symbol in the product code, or with product codes longer than 64 characters.

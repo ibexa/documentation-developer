@@ -1,5 +1,6 @@
 ---
 description: Install and configure Quable PIM connector for Ibexa DXP
+month_change: true
 ---
 
 # Install Quable connector
@@ -42,7 +43,7 @@ ibexa_connector_quable:
 Replace `<your_api_token>` with the Read Access API token you obtained from [[= pim_product_name =]] in the previous step.
 
 [[[= pim_product_name =]]'s channels](https://docs.quable.com/v5-EN/docs/content-channels) allow you to distribute your product information to defined recipients, for example e-commerce platforms.
-Select the [[= pim_product_name =]] channel you want to integrate with [[= product_name =]].
+Select the [[= pim_product_name =]] channel you want to integrate within [[= product_name =]].
 
 For all available configuration options, see [Configure [[= pim_product_name =]]](configure_quable_connector.md).
 
@@ -73,6 +74,9 @@ ibexa_product_catalog:
 This configuration defines two engines: the default `local` engine and the new `quable` engine, allowing you to work with products defined within [[= pim_product_name =]].
 
 To learn more about product catalog configuration, see [Product catalog configuration](product_catalog_configuration.md).
+
+The [[= pim_product_name =]] integration comes with a new [taxonomy](taxonomy.md) called `quable`.
+By setting the `options.taxonomy` key to `quable`, you configure the engine to use it for storing product categories.
 
 ### Set [[= pim_product_name =]] as default engine
 
@@ -106,7 +110,7 @@ Based on the returned data, adjust the language configuration as your use case r
 
 ## Synchronize taxonomy
 
-After configuring the integration, synchronize [product classifications from Quable](https://docs.quable.com/v5-EN/docs/documents-classification-new-version) to [[= product_name =]]'s [taxonomies](taxonomy.md).
+After configuring the integration, synchronize [product classifications from [[= pim_product_name =]]](https://docs.quable.com/v5-EN/docs/documents-classification-new-version) to [[= product_name =]]'s [taxonomies](taxonomy.md).
 
 Run the following command to synchronize classifications:
 

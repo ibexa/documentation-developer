@@ -1,5 +1,6 @@
 ---
 description: Customize the Twig templates used to render product attribute values.
+month_change: true
 ---
 
 # Customize product attribute templates
@@ -26,7 +27,7 @@ For a list of available attributes, see [product attributes](products.md#product
 When rendering an attribute, the system iterates through the configured templates in order and uses the first matching type-specific block it finds.
 If none is found, it falls back to the first `generic_attribute` block available.
 
-### Quable attribute types
+### [[= pim_product_name =]] attribute types
 
 When using [[[= pim_product_name =]] PIM](/product_catalog/quable/quable.md), use the following identifiers to override the templates for [[[= pim_product_name =]]'s attribute types](https://docs.quable.com/docs/objects-and-attributes#attribute-types):
 

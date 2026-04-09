@@ -1,5 +1,6 @@
 ---
 description: ProductCategory Search Criterion
+month_change: true
 ---
 
 # ProductCategory Criterion

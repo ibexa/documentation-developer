@@ -32,7 +32,11 @@ ibexa_product_catalog:
                 product_type_group_identifier: 'product'
 ```
 
-The `local` type is the built-in type of catalog based on the repository.
+The `local` type is the built-in type of catalog based on the content repository.
+With [[[= pim_product_name =]] PIM integration](/product_catalog/quable/quable_guide.md), by using the `quable` type you can retrieve product data coming from [[= pim_product_name =]].
+
+You can use a single engine across all repositories, or assign different ones per repository.
+Each repository can use only one product catalog engine.
 
 Under `options.product_type_group_identifier` you can define the identifier of the content type Group used for storing products.
 
