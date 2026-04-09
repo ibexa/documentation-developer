@@ -497,6 +497,9 @@ nav:
         - Importing historical user tracking data: personalization/importing_historical_user_tracking_data.md
         - Track with ibexa-tracker.js: personalization/tracking_with_ibexa-tracker.md
         - Attribute search in Elasticsearch: personalization/attribute_search_in_elasticsearch.md
+    - Recommendations:
+        - Integration with Raptor:
+            - Custom recommendation rendering: recommendations/raptor_integration/custom_recommendation_rendering.md
     - CDP (Customer Data Platform):
         - Customer Data Platform: cdp/cdp.md
         - CDP guide: cdp/cdp_guide.md
