@@ -142,11 +142,14 @@ You can now find examples for some REST request bodies in the [OpenAPI REST API]
 
 The following additions were made to the PHP API:
 
+- [`Ibexa\Contracts\Core\FieldType\ReferenceAwareExternalStorage`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-FieldType-ReferenceAwareExternalStorage.html)
+- [`Ibexa\Contracts\Core\Options\Context`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Options-Context.html)
 - [`Ibexa\Contracts\CorporateAccount\Order\OrderStatusLabelProviderInterface`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-CorporateAccount-Order-OrderStatusLabelProviderInterface.html)
 - [`Ibexa\Contracts\ProductCatalog\Events\ProductAttributeRenderEvent`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Events-ProductAttributeRenderEvent.html)
 - [`Ibexa\Contracts\Taxonomy\Search\Query\Criterion\TaxonomyNoEntries`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-Taxonomy-Search-Query-Criterion-TaxonomyNoEntries.html)
   (for more information, see [its search criteria reference entry](https://doc.ibexa.co/en/5.0/search/criteria_reference/taxonomy_no_entries/))
-- And, optionally, from the [Raptor connector add-on](#raptor-connector), classes of the [`Ibexa\Contracts\ConnectorRaptor` namespace](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/namespaces/ibexa-contracts-connectorraptor.html)
+- optionally, from the [Raptor connector add-on](https://doc.ibexa.co/en/5.0/cdp/raptor_integration/raptor_connector/), classes of the [`Ibexa\Contracts\ConnectorRaptor` namespace](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/namespaces/ibexa-contracts-connectorraptor.html)
+- optionally, from the [Integrated help LTS-Update](https://doc.ibexa.co/en/5.0/administration/back_office/integrated_help/), classes of the [`Ibexa\Contracts\IntegratedHelp` namespace](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/namespaces/ibexa-contracts-integratedhelp.html)
 
 ### Gaussian blur optimization in Image Editor
 

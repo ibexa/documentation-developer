@@ -13,9 +13,9 @@ month_change: true
 [[% set version = 'v4.6.X' %]]
 
 [[= release_note_entry_begin(
-"Integrated help " + version,
-'YYYY-MM-DD',
-['Headless', 'Experience', 'Commerce', 'LTS Update', 'New feature']
+    "Integrated help " + version,
+    'YYYY-MM-DD',
+    ['Headless', 'Experience', 'Commerce', 'LTS Update', 'New feature']
 ) =]]
 
 ### Product tour
@@ -62,6 +62,17 @@ The parameters are available in your template as regular variables.
 
 For more information, see [`ibexa_render()` Twig function](https://doc.ibexa.co/en/4.6/templating/twig_function_reference/content_twig_functions/#ibexa_render).
 
+#### PHP API
+
+The following additions were made to the PHP API:
+
+- [`Ibexa\Contracts\Core\FieldType\ReferenceAwareExternalStorage`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-FieldType-ReferenceAwareExternalStorage.html)
+- [`Ibexa\Contracts\Core\Options\Context`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Options-Context.html)
+- [`Ibexa\Contracts\CorporateAccount\Order`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/namespaces/ibexa-contracts-corporateaccount-order.html)
+- [`Ibexa\Contracts\CorporateAccount\Order\OrderStatusLabelProviderInterface`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-CorporateAccount-Order-OrderStatusLabelProviderInterface.html)
+- [`Ibexa\Contracts\Taxonomy\Search\Query\Criterion\TaxonomyNoEntries`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-Taxonomy-Search-Query-Criterion-TaxonomyNoEntries.html)
+  (for more information, see [its search criteria reference entry](https://doc.ibexa.co/en/4.6/search/criteria_reference/taxonomy_no_entries/))
+- optionally, from the [Integrated help LTS-Update](https://doc.ibexa.co/en/4.6/administration/back_office/integrated_help/), classes of the - [`Ibexa\Contracts\IntegratedHelp` namespace](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/namespaces/ibexa-contracts-integratedhelp.html)
 
 ### Gaussian blur optimization in Image Editor
 
