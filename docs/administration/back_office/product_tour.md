@@ -15,7 +15,7 @@ This accelerates user adoption, reduces training time, and helps users confident
 Product tour functionality is available from versions 4.6.29 and 5.0.7 as part of the Integrated help package.
 To use product tours, you must first [install the Integrated help LTS Update](integrated_help.md#install-package).
 
-TODO: Arcade video here, showing a quick demo of the feature
+<!--ARCADE EMBED START--><div style="position: relative; padding-bottom: calc(51.27314814814815% + 41px); height: 0; width: 100%;"><iframe src="https://demo.arcade.software/AHb1fy7MCrXRRSsXwKKG?embed&embed_mobile=tab&embed_desktop=inline&show_copy_link=true" title="Form Builder interface" frameborder="0" loading="lazy" webkitallowfullscreen mozallowfullscreen allowfullscreen allow="clipboard-write" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; color-scheme: light;" ></iframe></div><!--ARCADE EMBED END-->
 
 ## Key concepts
 
@@ -29,8 +29,6 @@ Product tour consists of three main elements:
 
 [[= product_name =]] supports two types of scenarios, each designed for different use cases:
 
-TODO: screenshot for each type
-
 ### General scenarios
 
 General tours display information in centered modals without targeting specific UI elements.
@@ -42,12 +40,14 @@ General tours are ideal for:
 - Explaining high-level concepts or feature overviews
 - Welcoming users with customizable background images and branding
 
-### Targeted scenarios
+![General scenario type](img/product_tour/general_scenario.png "General scenario type")
 
-Targeted scenarios highlight specific UI elements on the page and guide users through interactive workflows.
+### Targetable scenarios
+
+Targetable scenarios highlight specific UI elements on the page and guide users through interactive workflows.
 Each step targets a particular element by using a CSS selector, and can draw attention to buttons, navigation elements, or other interface components.
 
-Targeted scenarios are ideal for:
+Targetable scenarios are ideal for:
 
 - Demonstrating specific features or workflows
 - Guiding users through multi-step processes
@@ -59,7 +59,7 @@ The steps building the scenario support three interaction modes:
 - **Clickable** - Users must click the highlighted element to proceed to the next step
 - **Draggable** - Users must drag and drop an element to continue the scenario
 
-TODO: Screenshot here
+![Targetable scenario type](img/product_tour/targetable_scenario.png "Targetable scenario type")
 
 ## Scenario lifecycle
 
@@ -69,7 +69,7 @@ Each scenario appears only once for each user.
 Users can complete a tour with one of the following actions:
 
 - by finishing all steps
-- by skipping it with the **Skip** button in general tours and **Exit tour** in targeted tours
+- by skipping it with the **Skip** button in general tours and **Exit tour** in targetable tours
 - by skipping it with the **Escape** key
 
 For **Standard** scenario steps, users can move freely between the previous and next steps.

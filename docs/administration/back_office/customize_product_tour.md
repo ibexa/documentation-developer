@@ -51,4 +51,5 @@ The subscriber executes the following actions:
 - verifies that the current user has a pending notification
 - adds a custom clickable step to highlight the unread notification
 
-TODO: Screenshot here
+![Scenario built with PHP triggered on unread notification](img/product_tour/custom_scenario.png "Scenario built with PHP triggered on unread notification")
+

@@ -72,25 +72,16 @@ Each scenario must specify its type and can optionally restrict access by user g
 
 The order of scenarios in the configuration file determines the order in which they are evaluated and, if the right conditions are met, displayed.
 
-For the scenarios of `general` type, they appear at the earliest opportunity (on any page after logging in), with an exception of the user settings area.
+There are two [scenario types](product_tour.md#scenario-types):
 
-For the scenarios of `targeted` type, they begin if their `target` element is found in the DOM when the page is loaded.
-Targeted scenarios don't trigger in the user settings area as well.
+- `general` scenarios appear at the earliest opportunity (on any page after logging in), with an exception of the user settings area
+- `targetable` scenarios begin if their `target` element is found in the DOM when the page is loaded.
+Targetable scenarios don't trigger in the user settings area as well.
 
-To control where a targeted tour appears, ensure that the first step targets an element unique to that specific page.
+To control where a targetable tour appears, ensure that the first step targets an element unique to that specific page.
 You can target elements that appear after a user action, for example, modals like [content browser](browser.md), but the first step's target must be present in the DOM when the page is loaded.
 
 Once a scenario ends, the system evaluates the next scenario from the configuration and, if applicable, displays it.
-
-### Scenario type
-
-Set the scenario type to either `general` or `targetable` to [control how the scenario is displayed](product_tour.md#scenario-types).
-
-```yaml
-product_tour:
-    welcome_tour:
-        type: general
-```
 
 ### Scenario title
 
@@ -141,9 +132,9 @@ To resolve the path relative to the site root, [prefix it with `/`](https://deve
 [[= include_file('code_samples/back_office/product_tour/config/general_scenario.yaml', 0, 14) =]]
 ```
 
-### Targeted tour steps
+### Targetable tour steps
 
-Targeted tour steps highlight specific UI elements by using CSS selectors.
+Targetable tour steps highlight specific UI elements by using CSS selectors.
 You can select a specific element by using the `target` setting.
 
 ```yaml hl_lines="6 11"
@@ -157,9 +148,7 @@ Use unique selectors to avoid triggering your scenarios on other pages.
 #### Interaction modes
 
 Select how the scenario step interacts with the target element by using the `interaction_mode` setting.
-Targeted steps support [three interaction modes](product_tour.md#targeted-scenarios):
-
-TODO: 2 pane screenshot here, showing the UI for each of types.
+Targetable steps support [three interaction modes](product_tour.md#targetable-scenarios):
 
 !!! note
 
@@ -169,13 +158,15 @@ TODO: 2 pane screenshot here, showing the UI for each of types.
 
 **Standard mode**:
 
-The default value. 
+The default value.
 A tooltip attached to a specific element on the page is displayed.
 Users continue the scenario with **Previous**/**Next** buttons:
 
 ```yaml
 [[= include_file('code_samples/back_office/product_tour/config/targetable_scenario.yaml', 8, 16) =]]
 ```
+
+![Standard interaction mode](img/product_tour/standard_mode.png "Standard interaction mode")
 
 **Clickable mode**:
 
@@ -185,6 +176,8 @@ Users continue the scenario by clicking the highlighted element.
 ```yaml
 [[= include_file('code_samples/back_office/product_tour/config/targetable_scenario.yaml', 16, 24) =]]
 ```
+
+![Clickable interaction mode](img/product_tour/clickable_mode.png "Clickable interaction mode")
 
 **Draggable mode**:
 
@@ -197,13 +190,13 @@ Users continue the scenario by [dragging](https://developer.mozilla.org/en-US/do
 
 You can use this mode only with HTML elements that have the [`draggable` attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Global_attributes/draggable) set to `true`.
 
+![Draggable interaction mode](img/product_tour/draggable_mode.png "Draggable interaction mode")
+
 ## Block types
 
 Blocks are content elements that make up each step, available both for `general` and `targetable` scenarios.
 Seven block types are available for building step content, and a scenario step must contain at least one.
 If multiple blocks are defined for a step, they are displayed one after the other.
-
-TODO: Step screenshot with all 7 blocks available?
 
 ### Title block
 
@@ -295,7 +288,7 @@ The following example showcases all the built-in block types for a `general` sce
 [[= include_file('code_samples/back_office/product_tour/config/general_scenario.yaml') =]]
 ```
 
-### Example 2: Targeted feature tour with interactive steps
+### Example 2: Targetable feature tour with interactive steps
 
 The following example showcases the three interaction modes of a `targetable` scenario building an onboarding tour for the [customizable dashboard](customize_dashboard.md):
 
