@@ -18,6 +18,9 @@ ibexa_connector_quable:
     api_token: '<your_api_token>'
     channel_code: '<channel_code>'
     webhook_secret: '<webhook authorization header>' # Needed for webhook authentication
+    language_map:
+        eng-GB: en_GB
+        fre-FR: fr_FR
     throw_on_invalid_criteria: '%kernel.debug%'
     throw_on_invalid_mapping: '%kernel.debug%'
     cache:
@@ -37,6 +40,7 @@ ibexa_connector_quable:
 | `api_token` | string | [Read Access API token](https://docs.quable.com/v5-EN/docs/system-api-tokens) used to authenticate requests to [[= pim_product_name =]]. |
 | `channel_code` | string | Code of the [[[= pim_product_name =]] channel](https://docs.quable.com/v5-EN/docs/content-channels) used as the source of product data. |
 | `webhook_secret` | string | Secret expected in the [webhook](https://docs.quable.com/v5-EN/docs/webhook) authorization header. |
+| `language_map` | Empty | Maps [[= product_name =]] language codes (for example, `eng-GB`) to [[= pim_product_name =]] locale codes (for example, `en_GB`). For more information, see [Set up [[= pim_product_name =]] languages](/product_catalog/quable/install_quable.md) |
 | <nobr>`throw_on_invalid_criteria`</nobr> | <nobr>`%kernel.debug%`</nobr> | Controls behavior for unsupported search criteria: `true` throws an exception, `false` only logs unsupported criteria. |
 | <nobr>`throw_on_invalid_mapping`</nobr> | <nobr>`%kernel.debug%`</nobr> | Controls behavior for mapping errors during data transformation: `true` throws an exception, `false` only logs mapping errors. |
 | `cache.enabled` | `true` | Global cache switch for the connector. When `false`, cache decorators use only [in-memory cache](persistence_cache.md#in-memory-cache-configuration). |
