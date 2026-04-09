@@ -64,6 +64,7 @@ Editors can use these blocks to display tailored product recommendations, promot
 Recommendation blocks are organized into dedicated categories, each grouping blocks based on the type of recommendation they provide:
 
 - **Recommendations: Content** - presents content recommendations:
+    - [Content that have been seen along with the item category]([[= user_doc =]]/personalization/raptor_integration/raptor_recommendation_blocks/#content-that-have-been-seen-along-with-the-item-category-block)
     - [Most popular content]([[= user_doc =]]/personalization/raptor_integration/raptor_recommendation_blocks/#most-popular-content-block)
     - [Other customers have also seen this content]([[= user_doc =]]/personalization/raptor_integration/raptor_recommendation_blocks/#other-customers-have-also-seen-this-content-block)
     - [Personalized content recommendations]([[= user_doc =]]/personalization/raptor_integration/raptor_recommendation_blocks/#personalized-content-recommendations-block)
@@ -72,8 +73,9 @@ Recommendation blocks are organized into dedicated categories, each grouping blo
     - [Most popular products in category]([[= user_doc =]]/personalization/raptor_integration/raptor_recommendation_blocks/#most-popular-products-in-category-block)
     - [Other customers have also seen]([[= user_doc =]]/personalization/raptor_integration/raptor_recommendation_blocks/#other-customers-have-also-seen-block)
 - **Recommendations: Commerce** - shows recommendations based on visitors' purchase history (buy and basket events):
+    - [Other Customers Have also Purchased block]([[= user_doc =]]/personalization/raptor_integration/raptor_recommendation_blocks/#other-customers-have-also-purchased-block)
     - [The Personal Shopping Assistant]([[= user_doc =]]/personalization/raptor_integration/raptor_recommendation_blocks/#the-personal-shopping-assistant-block)
-    - [User's item history or current basket items sorted by recent items or top items]([[= user_doc =]]/personalization/raptor_integration/raptor_recommendation_blocks/#users-item-history-or-current-basket-items-sorted-by-recent-items-or-top-items-block)
+    - [User's item history]([[= user_doc =]]/personalization/raptor_integration/raptor_recommendation_blocks/#users-item-history-block)
 
 ![Recommendation blocks](recommendation_blocks.png)
 
