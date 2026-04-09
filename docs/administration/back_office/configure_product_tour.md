@@ -1,7 +1,7 @@
 ---
 description: Configure custom product tour scenarios with steps, blocks, and interaction modes.
 edition: lts-update
-month_change: false
+month_change: true
 ---
 
 # Configure product tour scenarios
@@ -45,7 +45,7 @@ ibexa:
 ```
 
 The product tour scenarios are meant to be translatable.
-It's recommended to use translation keys instead of literal values in the YAML configuration, and provide the translations separately.
+[[= product_name_base =]] recommends using translation keys instead of literal values in the YAML configuration, and providing the translations separately.
 Use the `ibexa_integrated_help` translation domain.
 
 For all the examples below, you can provide the translations by creating a `translations/ibexa_integrated_help.en.yaml` file with the following content:

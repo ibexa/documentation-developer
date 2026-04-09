@@ -15,7 +15,7 @@ Integrated help is contextual, therefore, apart from user documentation, release
 
 ## Product tours
 
-Product tours are interactive guided walkthroughs that help users discover and learn [[= product_name =]] features, available starting with [[= product_name =]] v4.6.29.
+Product tours are interactive guided walkthroughs that help back office users discover [[= product_name =]] features, available starting with [[= product_name =]] v4.6.29.
 They provide step-by-step guidance directly within the application interface, accelerating user adoption and reducing training time.
 
 Developers can create custom onboarding journeys tailored to specific client implementations, user roles, or business processes.
