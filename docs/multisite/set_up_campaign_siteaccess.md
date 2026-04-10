@@ -60,7 +60,7 @@ ibexa:
             content:
                 tree_root:
                     location_id: 57
-                    excluded_uri_prefixes: [ /media/images/logos ]
+                    excluded_uri_prefixes: [ /media/images/logos/ ]
 ```
 
 Now, when you use the `campaign` SiteAccess, you can reach `<your site>/campaign/Media/Images/Logos`, despite the fact that it's not a sub-item of the "Campaign" location.
