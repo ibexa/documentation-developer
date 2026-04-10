@@ -163,8 +163,13 @@ With some customization, administrators could use the API to run a batch process
 
 ### Suggesting taxonomy entries
 
-Content editors and product managers can use [taxonomy suggestions](taxonomy.md#taxonomy-suggestions) when assigning tags or product categorie to content items and products.
+Content editors and product managers can use [taxonomy suggestions](taxonomy.md#taxonomy-suggestions) when assigning tags or product categories to content items and products.
 Instead of manually browsing through extensive taxonomy trees, editors can request suggestions based on the content's text fields, such as name and description.
+
+!!! note "Alternative suggestion provider"
+
+    By default, embeddings used by the taxonomy suggestions feature are generated with OpenAI.
+    If you install and configure the [Google Gemini connector](configure_ai_actions.md#install-google-gemini-connector), you can modify the [taxonomy suggestions settings](taxonomy.md#change-embeddings-provider-to-google-gemini) and use Google Gemini as an alternative embeddings provider.
 
 ### Performing advanced image to text analysis
 

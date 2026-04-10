@@ -8,13 +8,17 @@ month_change: false
 AI Actions are available in [[= product_name =]] regardless of its edition.
 To use this feature you must first configure the built-in service connectors or build your own ones.
 
-!!! note "Next steps"
+Once the framework is configured, before you can start using AI Actions, you can configure access to [[= product_name_base =]]-made service connectors by following the instructions below, or [create your own](extend_ai_actions.md#create-custom-action-handler).
 
-    Once the framework is configured, before you can start using AI Actions, you can configure access to [[= product_name_base =]]-made service connectors by following the instructions below, or [create your own](extend_ai_actions.md#create-custom-action-handler).
+Only then you can restart you application and start [working with the AI Actions feature]([[= user_doc =]]/ai_actions/work_with_ai_actions/).
 
-    Only then you can restart you application and start [working with the AI Actions feature]([[= user_doc =]]/ai_actions/work_with_ai_actions/).
+!!! note "Taxonomy suggestions"
 
-## Configure access to OpenAI (optional)
+    The default OpenAI or the optional Google Gemini connectors can used by the [Taxonomy suggestions](taxonomy.md#taxonomy-suggestions) feature to generate embeddings for suggesting tags and product categories.
+    After you configure the OpenAI connector, or set up the optional Google Gemini connector and [modify the default taxonomy suggestions settings](taxonomy.md#change-embeddings-provider-to-google-gemini), you can [create AI actions that use the Text to Taxonomy action type]([[= user_doc =]]/ai_actions/work_with_ai_actions/#create-ai-actions-that-control-taxonomy-suggestions).
+    You can also create [your own embedding provider](taxonomy.md#replace-the-embedding-provider).
+
+## Configure access to OpenAI
 
 To use the built-in connector with the OpenAI service, you need to create an OpenAI account, [get an API key](https://help.openai.com/en/articles/4936850-where-do-i-find-my-openai-api-key), and make sure that you [set up a billing method](https://help.openai.com/en/articles/9038407-how-can-i-set-up-billing-for-my-account).
 
@@ -31,12 +35,6 @@ OPENAI_API_KEY=<your_api_key>
 The AI actions come with sample AI action configurations to quickly get you started on using the feature.
 
 Based on these examples, which reflect the most common use cases, you can learn to configure your own AI actions with greater ease.
-
-!!! note "Taxonomy suggestions"
-
-    OpenAI connector is also used by the [Taxonomy suggestions](taxonomy.md#taxonomy-suggestions) feature to generate embeddings for suggesting tags and product categories.
-    After you configure the connector, you can [create AI actions that use the Text to Taxonomy action type]([[= user_doc =]]/ai_actions/work_with_ai_actions/#create-ai-actions-that-control-taxonomy-suggestions).
-    You can also create [your own embedding provider](taxonomy.md#replace-the-embedding-provider).
 
 ## Install Anthropic connector [[% include 'snippets/lts-update_badge.md' %]]
 
@@ -186,6 +184,10 @@ When setting up models, make sure that you follow these rules:
 - `default_model` must reference a configured model
 - `default_max_tokens` must not exceed the model’s limit
 - If you use the same model for different action types, settings must be consistent
+
+!!! note "Google Gemini and taxonomy suggestions"
+
+    To use Google Gemini for generating taxonomy suggestions, ensure that you [change the embeddings provider and model setting accordingly](taxonomy.md#change-embeddings-provider-to-google-gemini).
 
 You can now use the Gemini connector in your project.
 
