@@ -5,15 +5,14 @@ month_change: true
 
 # Quable product guide
 
-## What is [[= pim_product_name =]] integration
+## Overview
 
 [[= pim_product_name =]] integration connects [[= product_name =]] with [[[= pim_product_name =]] Product Information Management (PIM)](https://www.quable.com/en), making [[= pim_product_name =]] the authoritative source of product information for every website powered by [[= product_name =]].
 
-Store managers can manage their product catalog in [[= pim_product_name =]], creating product classification, managing attributes, and translating them.
-At the same time, [[= product_name =]] can automatically receive that data and make it available for building digital experiences: storefronts, landing pages, personalized campaigns, and more.
+[[= pim_product_name =]] serves as the single source of truth for all product data, including attributes, classifications, variants, and translations.
+[[= product_name =]] consumes this data and makes it available for use in content and digital experiences.
 
-The integration complements the native [Product catalog](product_catalog_guide.md) by replacing local product storage with [[= pim_product_name =]].
-Instead of maintaining product data in two places, teams manage it once and distribute it everywhere.
+This approach eliminates the need to manage product data in multiple systems, while preserving a clear separation of responsibilities between product management and content usage.
 
 ## Availability
 
@@ -25,52 +24,51 @@ Then, [perform the initial configuration](install_quable.md).
 
 ## How does [[= pim_product_name =]] integration work
 
-[[= pim_product_name =]] acts as the single source of truth for product information.
-The [[= pim_product_name =]] integration is built on [[= product_name =]]'s [Remote PIM framework](add_remote_pim_support.md), which provides a foundation for connecting external PIM systems to the DXP.
+The integration is built on [[= product_name =]]'s [Remote PIM framework](add_remote_pim_support.md), which enables connection to external product data sources.
 
-The system synchronizes the data from [[= pim_product_name =]] to [[= product_name =]] and represents it using the built-in [product catalog data model](product_catalog_guide.md#how-does-product-catalog-work).
-The data can then be displayed in storefronts, back office views, and API responses.
+Once configured, the system performs:
 
-[Product categories](product_catalog_guide.md#product-taxonomy) are also synchronized from [[= pim_product_name =]] into [[= product_name =]], allowing you to reuse the existing channel classifications in [[= product_name =]].
+- an initial synchronization of product data from Quable
+- ongoing updates via webhooks (near real-time)
+
+Product data is mapped to the Ibexa DXP product data model, including variants, attributes and [product categorties](product_catalog_guide.md#product-taxonomy).
+
+This data is then available in the back office, content editing tools like [Online Editor](online_editor_guide.md) and [Page Builder](page_builder_guide.md), and APIs.
+
+All product management operations remain handled in [[= pim_product_name =]].
 
 ## Capabilities
 
-### Single source of product truth
+### Single source of truth
 
-[[= pim_product_name =]] is the authoritative system for product data.
-Product management, such as adding attributes and translations, is done in [[= pim_product_name =]].
-[[= product_name =]] consumes this enriched data and exposes it through storefronts, back office, and APIs.
+[[= pim_product_name =]] is the authoritative system for product data, including attributes, classifications, variants, and translations.
+All product management operations are performed in [[= pim_product_name =]].
 
-Editorial teams that need to add DXP-specific content, such as promotional text or page layout, can still do so by reusing the product data, for example by using the [Online Editor](online_editor_guide.md#product-marketing-campaigns) and workflows including [collaborative editing](collaborative_editing_guide.md).
 
-### Products, variants, and categories
+[[= product_name =]] consumes this data and makes it available for use within content and back office interfaces, enabling editorial teams to enrich content by reusing product information.
 
-[[= pim_product_name =]] product types map to [[= product_name =]] product types, and [[= pim_product_name =]] product variants are exposed as [[= product_name =]] product variants.
+### Pricing and availability
 
-[[= pim_product_name =]]'s [product classifications](https://docs.quable.com/v5-EN/docs/documents-classification-new-version) are synchronized into [[= product_name =]]'s taxonomy, using product categories to organize products into structures.
-
-### Prices, availability, and market context
-
-You can use [[= product_name =]] to manage product availability and pricing for [[= pim_product_name =]]'s products, including creating advanced pricing strategies with [discounts](discounts.md) combined with [regions](product_catalog_guide.md#regions) and [currencies](product_catalog_guide.md#currencies).
+[[= product_name =]] can be used to manage pricing and availability for products sourced from [[= pim_product_name =]], including support for market-specific configurations such as regions and currencies.
 
 ## Use cases
 
-### Multi-market channel operations
+### Multi-market operations
 
-A retailer operating in multiple European markets can maintain a single product catalog in [[= pim_product_name =]] with separate channels and data languages per market.
-[[= product_name =]] connects to each market's channel and serves localized product names and descriptions to each regional storefront, all from a single [[= pim_product_name =]] instance.
+A retailer operating across multiple markets can manage product data in [[= pim_product_name =]] using channels and localized languages.
+[[= product_name =]] connects to the relevant channel and makes localized product information available for use in content and back office interfaces, ensuring consistency across markets from a single [[= pim_product_name =]] instance.
 
-### Faster marketing launches
+## Faster campaign execution
 
-A fashion brand's store manager can add a new seasonal collection in [[= pim_product_name =]] to a dedicated channel.
-The marketing team can then immediately start working on their campaign within [[= product_name =]], using the product data from [[= pim_product_name =]] both in [Page Builder](page_builder_guide.md) and regular content items.
+Product data defined in [[= pim_product_name =]] can be immediately used in [[= product_name =]] for building content and campaigns.
+Marketing teams can create pages and enrich content using up-to-date product information, without the need to duplicate or manually synchronize data.
 
 ## Known limitations
 
 The integration with [[= pim_product_name =]] has the following known limitations:
 
 - It's not compatible with [Commerce](commerce.md) functionalities. [Carts](cart.md), [order management](order_management.md), and [shopping lists](shopping_list.md) can't be used with products coming from [[= pim_product_name =]].
-- It's not possible to create [catalogs](product_catalog_guide.md#catalogs) with products coming from [[= pim_product_name =]].
-- Product assets are not synchronized. Only the main asset thumbnail URL from [[= pim_product_name =]] is used as the product image. Asset collections, asset management, and variant thumbnails are not available.
-- It's not possible to limit access to products using the existing [`ProductType` product limitations](policies.md#products).
-- It's not possible to synchronize products with the `/` symbol in the product code, or with product codes longer than 64 characters.
+- [Catalogs](product_catalog_guide.md#catalogs) can't be created using Quable products.
+- Product assets are not fully synchronized. Only the main asset thumbnail URL from [[= pim_product_name =]] is used.
+- [Product-level access restrictions](policies.md#products) based on product type are not supported.
+- Products with unsupported identifiers (containing `/` or exceeding 64 characters) are not synchronized.

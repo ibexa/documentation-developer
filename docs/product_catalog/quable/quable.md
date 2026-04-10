@@ -8,12 +8,9 @@ month_change: true
 
 [[= product_name =]] integrates with [[[= pim_product_name =]]](https://www.quable.com/en) to provide product information management as part of the [[= product_name_base =]] orchestration platform.
 
-## About [[= pim_product_name =]] and Ibexa
-
-[[= pim_product_name =]] is Ibexa's PIM solution for managing complex product catalogs. 
-In integration betwen [[= pim_product_name =]] and [[= product_name =]], [[= pim_product_name =]] acts as the source of truth about products that feeds every channel with accurate product data.
-
-In the DXP, you can use the product information for marketing, recommendations, and personalized campaigns across different markets.
+[[= pim_product_name =]] is [[= product_name_base =]]’s PIM solution for managing complex product catalogs and serves as the single source of truth.
+Once configured, the integration performs an initial synchronization of product data, followed by ongoing updates via webhooks.
+Products can be viewed, selected, and embedded in [[= product_name =]], while all product management operations remain handled in [[= pim_product_name =]].
 
 ## Getting started
 
