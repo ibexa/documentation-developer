@@ -506,6 +506,7 @@ nav:
             - Tracking functions: recommendations/raptor_integration/tracking_functions.md
             - Tracking with PHP API: recommendations/raptor_integration/tracking_php_api.md
             - Recommendations blocks: recommendations/raptor_integration/recommendation_blocks.md
+            - Custom recommendation rendering: recommendations/raptor_integration/custom_recommendation_rendering.md
     - CDP (Customer Data Platform):
         - Customer Data Platform: cdp/cdp.md
         - CDP guide: cdp/cdp_guide.md
