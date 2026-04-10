@@ -11,7 +11,7 @@ The following Twig functions are supported while using [Raptor connector](raptor
 
 `ibexa_tracking_script()` Twig function allows you to embed main tracking script into the website.
 It loads the initial script into `window.raptor`, enabling events tracking, for example, page visits, product views, or buys, from the front-end.
-It can be overridden in multiple ways to support custom implementations and to render code snippet through `[[= product_name_base =]]` in [Design Engine](../../templating/design_engine/design_engine.md).
+It can be overridden in multiple ways to support custom implementations and to render code snippet through [[= product_name_base =]] in [Design Engine](../../templating/design_engine/design_engine.md).
 
 Tracking can be conditionally initialized depending on cookie consent logic.
 By default, the function returns the script for client-side use, while it can return nothing when used server-side.
@@ -84,7 +84,7 @@ It's the most common e-commerce tracking event used to capture product views for
 
 Required data:
 
-- **Product object** - defines the product being tracked. It implements `ProductInterface` so the system can read its information (for example, ID, price, category).
+- **Product object** - defines the product being tracked. It implements [`Ibexa\Contracts\ProductCatalog\Values\ProductInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Values-ProductInterface.html) so the system can read its information (for example, code, price, category).
 
 Example:
 
@@ -95,7 +95,7 @@ Example:
 ### Content `visit` event
 
 This event tracks content page visits by users.
-It can used to check content views for analytics, personalization, and user behavior tracking.
+It implements [`Ibexa\Contracts\Core\Repository\Values\Content\Content`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Content.html) and can used to check content views for analytics, personalization, and user behavior tracking.
 
 - **Content object** - defines the content being tracked.
 
@@ -107,14 +107,14 @@ Example:
 
 ### Basket event
 
-This event tracks when a product is added to the shopping basket.
+This event tracks when a product is added to the [cart](cart.md).
 
 It catches user interest and helps with conversion tracking and product recommendations.
 
 Required data:
 
 - **Product object** - defines the product being added to the basket.
-- **Context array with basket information** - provides optional data about the basket, like quantity or basket ID, to provide context for the event.
+- **Context array with cart information** - provides optional data about the cart, like product quantity or cart identifier, to provide context for the event.
 
 Example:
 

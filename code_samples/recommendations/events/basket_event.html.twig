@@ -7,7 +7,7 @@
         <p>Quantity: {{ addedQuantity }}</p>
     </div>
 
-    {# Build basket content string: "SKU:quantity;SKU:quantity" #}
+    {# Build basket content string: "product-code:quantity;product-code:quantity" #}
     {% set basketContent = [] %}
     {% for item in basket.items %}
         {% set basketContent = basketContent|merge([item.product.code ~ ':' ~ item.quantity]) %}

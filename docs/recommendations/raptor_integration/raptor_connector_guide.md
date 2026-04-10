@@ -10,7 +10,7 @@ It includes Raptor connector with tracking scripts and events, used to track and
 
 ## What is Raptor connector
 
-The SiteAccess-aware [Raptor connector](raptor_connector.md) provides a seamless integration between [[= product_name =]] and Raptor recommendation engine.
+The [Raptor connector](raptor_connector.md) provides a seamless integration between [[= product_name =]] and Raptor recommendation engine.
 
 Its primary goal is to enable editors and managers to deliver personalized experiences across digital channels, which helps to increase conversion rates, drive sales, and improve user engagement.
 
@@ -19,16 +19,16 @@ By bringing content and recommendations together, the connector makes it easy to
 It provides a seamless integration layer that supports:
 
 - event tracking of user interactions through the Tracking API
-- delivery of tailored content through the Recommendations API
+- personalized delivery of content and product recommendations through the Recommendations API
 - flexible SiteAccess-aware configuration adapted to different sites and contexts
 
 This approach simplifies integration while supporting personalization across different sites and markets.
 
 ## Availability
 
-Raptor integration elements, such as tracking, twig functions, and public API, are available in all supported [[= product_name =]] editions starting from [[= latest_tag_5_0 =]] version.
+Raptor integration elements, such as tracking, Twig functions, and public API, are available in all supported [[= product_name =]] editions starting from v5.0.7 version.
 
-Recommendation blocks provided in Page Builder, are available in [[= product_name_exp =]] edition.
+Recommendation blocks provided in Page Builder, are available in [[= product_name_exp =]] and [[= product_name_com =]] editions.
 
 ## How does Raptor tracking work
 
@@ -36,7 +36,7 @@ To start [tracking](https://content.raptorservices.com/help-center/introduction-
 Tracking can be set up either on the client-side or server-side, depending on how you want to capture and process the events.
 
 The tracking works differently depending on the mode you choose.
-In server-side mode, it uses HTML placeholders and comments, handling all tracking without loading scripts in the browser.
+In server-side mode, tracking happens on the server, handling all events without loading scripts in the browser.
 In client-side mode, it inserts script tags so tracking runs directly in the browser.
 
 You can switch between server and client tracking at any time by changing the tracking type to fit your setup and needs.

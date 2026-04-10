@@ -9,7 +9,7 @@ You can interact directly with the [Raptor connector](raptor_connector.md)'s ser
 
 ## Advanced usage – direct interaction with the service
 
-### `EventMapper`'s method
+### Mapping event data
 
 The recommended method, providing full control over event tracking, is [`EventMapperInterface::map()`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorRaptor-Tracking-EventMapperInterface.html#method_map) method.
 It allows you to interact directly with the service, supporting advanced use cases not covered by default implementation.
@@ -48,5 +48,5 @@ It reacts to specific events in the application and triggers tracking logic with
 [[= include_file('code_samples/recommendations/EventSubscriber.php') =]]
 ```
 
-You can also use [[= product_name_base =]] order management events, for example `CreateOrderEvent`.
-For more information, see [Order management events](../../api/event_reference/order_management_events.md).
+You can also use [[= product_name =]] events, for example `CreateOrderEvent` from [Order management events](../../api/event_reference/order_management_events.md).
+For more information, see [Event reference](event_reference.md).

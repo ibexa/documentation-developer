@@ -10,12 +10,12 @@ The [Raptor](https://www.raptorservices.com/) connector is an add-on that provid
 
 Its primary goal is to enable editors and managers to deliver personalized experiences across digital channels, which helps increase conversion rates, drive sales, and improve user engagement.
 
-By combining content management capabilities with advanced recommendation features, the connector allows teams to build and manage personalized experiences directly within a single platform.
+By combining content management capabilities with advanced recommendation features, the connector allows teams to build and manage personalized experiences across integrated tools.
 
 The connector ensures a smooth and unified integration layer, enabling:
 
 - event tracking through the tracking API
-- personalized content delivery through the Recommendations API
+- personalized delivery of content and product recommendations through the Recommendations API
 - flexible, SiteAccess-aware configuration
 
 This approach reduces integration complexity while providing a scalable foundation for personalization use cases across multiple sites and markets.

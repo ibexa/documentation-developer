@@ -1,4 +1,4 @@
-<php>
+<?php declare(strict_types=1);
 use Ibexa\Contracts\ConnectorRaptor\Tracking\Event\VisitEventData;
 
 $eventData = new VisitEventData(
@@ -10,4 +10,3 @@ $eventData = new VisitEventData(
 );
 
 $this->trackingDispatcher->dispatch($eventData);
-</php>

@@ -8,7 +8,7 @@ month_change: true
 
 One of the Raptor Integration elements is the introduction of recommendation blocks available in the [Page Builder](page_builder_guide.md).
 
-Each Content, Product, and Commerce recommendation can be added to a landing page using the blocks.
+Content, Product, and Commerce recommendations can be added to a landing page using the blocks.
 
 Editors can configure these blocks to display:
 

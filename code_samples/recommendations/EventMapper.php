@@ -1,4 +1,4 @@
-<php>
+<?php declare(strict_types=1);
 use Ibexa\Contracts\ConnectorRaptor\Tracking\EventMapperInterface;
 use Ibexa\Contracts\ConnectorRaptor\Tracking\ServerSideTrackingDispatcherInterface;
 use Ibexa\Contracts\ConnectorRaptor\Tracking\EventType;
@@ -19,4 +19,3 @@ class MyCustomService
         $this->trackingDispatcher->dispatch($eventData);
     }
 }
-</php>

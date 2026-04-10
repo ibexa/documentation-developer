@@ -66,12 +66,12 @@ Available variables are:
 - **has_consented** - type: boolean, indicates whether the user has given consent, default value: `false` (unless explicitly passed as function argument)
 - **debug** - type: boolean, `kernel.debug` Symfony dependency injection container parameter, typically `true` in development environments and `false` in production
 
-The default template defines a Twig block that includes `script.js.twig`.
+The default template defines a `ibexa_tracking_script` Twig block that includes the `script.js.twig` template.
 When extending the template, this block can be overridden to customize the script’s behavior.
 
 You can override the default templates, either individually or both at the same time.
 
-## Extension
+## Extending default templates
 
 It's possible to extend `script.html.twig` by combining the [[= product_name_base =]] Design Engine with standard Symfony template reference in `templates/themes/standard/ibexa/tracking/script.html.twig`:
 
@@ -79,7 +79,7 @@ It's possible to extend `script.html.twig` by combining the [[= product_name_bas
 [[= include_file('code_samples/recommendations/templates/themes/standard/ibexa/tracking/script.html.twig') =]]
 ```
 
-In most cases, the preferred approach is to do the opposite:
+As an alternative approach, you can override the template by providing a custom template path:
 
 ``` html+twig
 [[= include_file('code_samples/recommendations/templates/themes/standard/ibexa/tracking/script.js.twig') =]]
