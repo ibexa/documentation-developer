@@ -16,6 +16,11 @@ To do it, run the following command:
 composer require ibexa/connector-raptor
 ```
 
+!!! note
+
+    The [Ibexa Messenger](background_tasks.md) package is installed automatically as a dependency, but must be configured to enable server-side tracking.
+    See the Ibexa Messenger documentation for [configuration](background_tasks/#configure-package) details.
+
 ## SiteAccess-aware configuration
 
 To configure the Raptor connector, use the `ibexa.system.<scope>.connector_raptor` configuration key in the `config/packages/ibexa_connector_raptor.yaml` file:
