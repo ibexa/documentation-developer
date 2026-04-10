@@ -1,11 +1,25 @@
-{% set basketProductCodes = [] %}
-{% for entry in cart.entries %}
-    {% set basketProductCodes = basketProductCodes|merge([entry.product.code]) %}
-{% endfor %}
+{# templates/cart/add_confirmation.html.twig #}
+{% extends 'base.html.twig' %}
 
-{% set basketContext = {
-    'basketContent': basketProductCodes|join(','),  {# Comma-separated list: "PROD-001,PROD-002,PROD-003" #}
-    'basketId': cart.id|default(cart.identifier)
-} %}
+{% block content %}
+    <div class="cart-notification">
+        <p>Product "{{ product.name }}" has been added to your cart!</p>
+        <p>Quantity: {{ addedQuantity }}</p>
+    </div>
 
-{{ ibexa_tracking_track_event('basket', product, basketContext) }}
+    {# Build basket content string: "product-code:quantity;product-code:quantity" #}
+    {% set basketContent = [] %}
+    {% for entry in cart.entries %}
+        {% set basketContent = basketContent|merge([entry.product.code ~ ':' ~ entry.quantity]) %}
+    {% endfor %}
+    {# Track basket addition #}
+    {% set basketContext = {
+        'basketContent': basketContent|join(';'),
+        'basketId': cart.id,
+        'quantity': addedQuantity
+    } %}
+
+    {{ ibexa_tracking_track_event('basket', product, basketContext) }}
+
+    <a href="{{ path('cart_view') }}">View Cart</a>
+{% endblock %}
