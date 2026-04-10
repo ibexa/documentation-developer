@@ -261,7 +261,7 @@ ibexa:
 
 #### Change embeddings provider to Google Gemini [[% include 'snippets/lts-update_badge.md' %]] 
 
-Once you have installed and configured the [Google Gemini connector](configure_ai_actions.md#install-google-gemini-connector), you can modify the default configuration to use the `ibexa_gemini` embedding provider and one of the [supported models](https://docs.cloud.google.com/vertex-ai/generative-ai/docs/embeddings/get-text-embeddings#supported-models):
+Once you have installed and configured the [Google Gemini connector](configure_ai_actions.md#install-google-gemini-connector), you can modify the default configuration to use the `ibexa_gemini` embedding provider and one of the [supported models](https://ai.google.dev/gemini-api/docs/embeddings):
 
 ```yaml hl_lines="15 22"
 ibexa:
