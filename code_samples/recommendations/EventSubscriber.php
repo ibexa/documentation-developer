@@ -1,17 +1,18 @@
 <?php declare(strict_types=1);
 use Ibexa\Contracts\ConnectorRaptor\Tracking\EventMapperInterface;
-use Ibexa\Contracts\ConnectorRaptor\Tracking\ServerSideTrackingDispatcherInterface;
 use Ibexa\Contracts\ConnectorRaptor\Tracking\EventType;
+use Ibexa\Contracts\ConnectorRaptor\Tracking\ServerSideTrackingDispatcherInterface;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\HttpKernel\Event\ResponseEvent;
 use Symfony\Component\HttpKernel\KernelEvents;
 
-class ProductViewTrackingSubscriber implements EventSubscriberInterface
+class EventSubscriber implements EventSubscriberInterface
 {
     public function __construct(
         private readonly EventMapperInterface $eventMapper,
         private ServerSideTrackingDispatcherInterface $trackingDispatcher,
-    ) {}
+    ) {
+    }
 
     public static function getSubscribedEvents(): array
     {

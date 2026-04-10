@@ -1,15 +1,16 @@
 <?php declare(strict_types=1);
 use Ibexa\Contracts\ConnectorRaptor\Tracking\EventMapperInterface;
-use Ibexa\Contracts\ConnectorRaptor\Tracking\ServerSideTrackingDispatcherInterface;
 use Ibexa\Contracts\ConnectorRaptor\Tracking\EventType;
+use Ibexa\Contracts\ConnectorRaptor\Tracking\ServerSideTrackingDispatcherInterface;
 use Ibexa\Contracts\ProductCatalog\Values\ProductInterface;
 
-class MyCustomService
+class EventMapper
 {
     public function __construct(
         private readonly EventMapperInterface $eventMapper,
         private ServerSideTrackingDispatcherInterface $trackingDispatcher,
-    ) {}
+    ) {
+    }
 
     public function trackProductView(ProductInterface $product, string $url): void
     {
