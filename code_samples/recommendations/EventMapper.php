@@ -2,6 +2,7 @@
 use Ibexa\Contracts\ConnectorRaptor\Tracking\EventMapperInterface;
 use Ibexa\Contracts\ConnectorRaptor\Tracking\ServerSideTrackingDispatcherInterface;
 use Ibexa\Contracts\ConnectorRaptor\Tracking\EventType;
+use Ibexa\Contracts\ProductCatalog\Values\ProductInterface;
 
 class MyCustomService
 {

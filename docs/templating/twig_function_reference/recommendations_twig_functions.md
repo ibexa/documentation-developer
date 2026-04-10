@@ -92,10 +92,10 @@ Example:
 [[= include_file('code_samples/recommendations/events/product_visit_event.html.twig') =]]
 ```
 
-### Content `visit` event
+### `contentvisit` event
 
 This event tracks content page visits by users.
-It implements [`Ibexa\Contracts\Core\Repository\Values\Content\Content`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Content.html) and can used to check content views for analytics, personalization, and user behavior tracking.
+It implements [`Ibexa\Contracts\Core\Repository\Values\Content\Content`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Content.html) and can be used to check content views for analytics, personalization, and user behavior tracking.
 
 - **Content object** - defines the content being tracked.
 
@@ -120,12 +120,6 @@ Example:
 
 ``` html+twig
 [[= include_file('code_samples/recommendations/events/basket_event.html.twig') =]]
-```
-
-Simplified example with Twig filter:
-
-``` html+twig
-[[= include_file('code_samples/recommendations/events/basket_event_simplified.html.twig') =]]
 ```
 
 ### `context` parameter - example usage
