@@ -1,4 +1,7 @@
 <?php declare(strict_types=1);
+
+namespace App\Tracking;
+
 use Ibexa\Contracts\ConnectorRaptor\Tracking\EventMapperInterface;
 use Ibexa\Contracts\ConnectorRaptor\Tracking\EventType;
 use Ibexa\Contracts\ConnectorRaptor\Tracking\ServerSideTrackingDispatcherInterface;
