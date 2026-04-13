@@ -54,7 +54,7 @@ This gives you the data you need to better understand user behavior, improve rec
 
 ### Recommendation blocks
 
-The Raptor Integration provides a set of ready-to-use recommendation blocks that can be added directly in the [Page Builder](page_builder_guide.md).
+The Raptor Integration add-on provides a set of ready-to-use recommendation blocks that can be added directly in the [Page Builder](page_builder_guide.md).
 
 These blocks can be configured to adjust how they work and what they display.
 Content, Product, and Commerce recommendations can be placed on landing pages using these components.

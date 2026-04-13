@@ -40,7 +40,7 @@ Any other required parameters are specific to each controller and are detailed i
 |[The Personal Shopping Assistant]([[= user_doc =]]/personalization/raptor_integration/raptor_recommendation_blocks/#the-personal-shopping-assistant-block)| <nobr>`UserItemRecommendationsBlockController`</nobr><br><nobr>`::showAction()`</nobr>                         |<nobr>`productCode` (string),</nobr><br><nobr>`showInStock` (boolean),</nobr><br><nobr>`limit` (integer),</nobr><br><nobr>`template` (string)</nobr>|Product|
 |[User's item history]([[= user_doc =]]/personalization/raptor_integration/raptor_recommendation_blocks/#users-item-history-block)| <nobr>`UserItemHistoryBlockController`</nobr><br><nobr>`::showAction()`</nobr>                                 |<nobr>`showInStock` (boolean),</nobr><br><nobr>`limit` (integer),</nobr><br><nobr>`template` (string)</nobr>|Product|
 
-Each template receives a `recommendations` Twig variable, which is a list containing either [`Ibexa\Contracts\ProductCatalog\Values\ProductInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Values-ProductInterface.html) instances for product recommendations or [`Ibexa\Contracts\Core\Repository\Values\Content\Content`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Content.html) instances for content recommendations.
+Each template receives a `recommendations` Twig variable, which is a list with either [`Ibexa\Contracts\ProductCatalog\Values\ProductInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Values-ProductInterface.html) instances for product recommendations or [`Ibexa\Contracts\Core\Repository\Values\Content\Content`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Content.html) instances for content recommendations.
 
 Two generic templates are provided and can be used in `./templates/themes/<theme>` directory:
 
@@ -73,6 +73,6 @@ Two generic templates are provided and can be used in `./templates/themes/<theme
 
 To fetch recommendations for the remaining modules, you need to [create a custom controller](controllers.md) and use a method from [`Ibexa\Contracts\ConnectorRaptor\Recommendations\RecommendationsServiceInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorRaptor-Recommendations-RecommendationsServiceInterface.html).
 
-Using this method, recommendations can be displayed on any page, for example on a specific product page, as shown below:
+Use this method to display recommendations on any page, for example, on a specific product page, as shown below:
 
 ![Custom rendering](custom_rendering.png)

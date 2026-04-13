@@ -15,8 +15,8 @@ Raptor integration introduces two Twig functions:
 
 ## Embed tracking script
 
-To enable tracking, tracking script must be embedded into the website’s layout.
-To embed tracking script, add the twig function `ibexa_tracking_script()` into the <head> section of your base layout template, for example, `@ibexadesign/pagelayout.html.twig`:
+You must embed the tracking script into the website’s layout to enable tracking.
+To do it, add the `ibexa_tracking_script()` twig function into the <head> section of your base layout template, for example, `@ibexadesign/pagelayout.html.twig`:
 
 ``` html+twig
 [[= include_file('code_samples/recommendations/templates/themes/standard/pagelayout.html.twig') =]]
