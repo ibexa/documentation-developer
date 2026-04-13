@@ -9,12 +9,13 @@ The following Twig functions are supported while using [Raptor connector](raptor
 
 ## `ibexa_tracking_script()` function
 
-`ibexa_tracking_script()` Twig function allows you to embed main tracking script into the website.
-It loads the initial script into `window.raptor`, enabling events tracking, for example, page visits, product views, or buys, from the front-end.
-It can be overridden in multiple ways to support custom implementations and to render code snippet through [[= product_name_base =]] in [Design Engine](../../templating/design_engine/design_engine.md).
+The `ibexa_tracking_script()` Twig function allows you to embed the main tracking script into the website.
+It loads the initial script into `window.raptor`.
+The script then enables event tracking, such as page visits, product views, or buys, from the front end.
+It can be overridden in multiple ways to support custom implementations and to render code snippet through [[= product_name_base =]] in the [design engine](design_engine.md).
 
 Tracking can be conditionally initialized depending on cookie consent logic.
-By default, the function returns the script for client-side use, while it can return nothing when used server-side.
+By default, for client-side use, the function returns a script, but it can return nothing when used server-side.
 
 This function accepts the following parameters:
 
@@ -34,13 +35,13 @@ Example setup using parameters:
 {{ ibexa_tracking_script(customerId: '123', hasConsented: true) }}
 ```
 
-Without setting custom `customerId` parameter, the function renders the tracking script using the configured `customerID` from the [connector configuration](connector_installation_configuration.md#siteaccess-aware-configuration).
+If the custom `customerId` parameter is not set, the function uses the `customerID` from the [connector configuration](connector_installation_configuration.md#siteaccess-aware-configuration) to render the tracking script.
 It can be overridden by providing a custom value if needed.
 
-If `hasConsented` is set to `true` in the template, the tracking script is initialized automatically.
+If the `hasConsented` parameter is set to `true` in the template, the tracking script is initialized automatically.
 This value should be set if user consent for tracking cookies is already known at render time.
-If `hasConsented` parameter is set to `false`, tracking should be enabled by dispatching a custom JavaScript event after consent is granted, for example through a custom script in layout.
-When set dynamically, avoid enabling the [HTTP cache](context_aware_cache.md) for users without consent.
+If `hasConsented` is set to `false`, tracking should be enabled by dispatching a custom JavaScript event after consent is granted, for example through a custom script in layout.
+If it's set dynamically, avoid enabling the [HTTP cache](context_aware_cache.md) for users without consent.
 
 The recommended method to integrate the tracking script with custom front-end logic is to dispatch the `enableTracking` JavaScript event after tracking cookie consent is granted:
 
@@ -55,9 +56,9 @@ document.dispatchEvent(new CustomEvent('enableTracking'));
 
 ## `ibexa_tracking_track_event()` function
 
-The `ibexa_tracking_track_event()` function is responsible for sending event data to the service, enabling tracking of user interactions and behaviors.
+The `ibexa_tracking_track_event()` function is responsible for sending event data to the service, which enables tracking of user interactions and behaviors.
 
-Tracking is handled through twig function that accept following parameters:
+Tracking is handled through a twig function that accept following parameters:
 
 ``` html+twig
 ibexa_tracking_track_event(
@@ -69,9 +70,9 @@ ibexa_tracking_track_event(
 ```
 
 - **eventType** - type: string, defines the type of tracking event to be sent, for example, `visit`, `contentvisit`, `buy`, `basket`, `itemclick`. For more information, see [Tracking events for recommendations](https://content.raptorservices.com/help-center/tracking-events-for-recommendation).
-- **data** (optional) - type: mixed, accepts the primary object associated with the event, such as a Product or Content, can be null if not required. For more information, check [tracking event examples](#tracking-events).
+- **data** (optional) - type: mixed, accepts the primary object associated with the event, such as a Product or Content, can be null if not required. For more information, see [tracking event examples](#tracking-events).
 - **context** (optional)- type: array, additional event data, such as quantity, basket details, or custom parameters. For more information, see [example usage](#context-parameter-example-usage).
-- **template** (optional) - type: string, path to a custom Twig template used to render the tracking event, allows overriding the default tracking output
+- **template** (optional) - type: string, path to a custom Twig template used to render the tracking event, allows overriding the default tracking output.
 
 #### Tracking events
 
@@ -107,12 +108,12 @@ Example:
 
 ### `itemclicked` event
 
-This event tracks when a user clicks on a Raptor recommendation, including adding products to the cart from the recommendation module.
+This event tracks when a user clicks a Raptor recommendation, including adding products to the cart from the recommendation module.
 
 Required data:
 
 - **Product code** - defines the product code added to the cart.
-- **Context** - provides optional data about, like `moduleName` or `redirectUrl`, to provide context for the event.
+- **Context** - provides optional data, like `moduleName` or `redirectUrl`, to provide context for the event.
 
 Example:
 
@@ -124,7 +125,7 @@ Example:
 
 This event tracks when a product is added to the [cart](cart.md).
 
-It catches user interest and helps with conversion tracking and product recommendations.
+It captures user interactions that indicate interest, which can be used for conversion tracking and to improve product recommendations.
 
 Required data:
 
@@ -139,10 +140,10 @@ Example:
 
 ### `context` parameter - example usage
 
-You can use `context` parameter to add additional data.
+You can use the `context` parameter to pass additional data.
 
 During tracking, for products assigned to multiple categories, the system uses the first category.
-In this case, `context` parameter allows to override the product category by passing a category identifier:
+In this case, `context` allows to override the product category by passing a category identifier:
 
 ``` html+twig
 {% block content %}
@@ -158,12 +159,12 @@ In this case, `context` parameter allows to override the product category by pas
 {% endblock %}
 ```
 
-For another example of `context` parameter usage, see [Basket event](#basket-event).
+For another usage example, see the [Basket event](#basket-event).
 
-### Custom Templates
+### Custom templates
 
 You can create a custom template for tracking in the `/templates/tracking/` directory.
-Check the following `custom_visit.html.twig` example:
+See the following example of `custom_visit.html.twig`:
 
 ``` html+twig
 [[= include_file('code_samples/recommendations/templates/tracking/custom_visit.html.twig') =]]

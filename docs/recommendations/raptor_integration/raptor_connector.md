@@ -23,7 +23,7 @@ This approach reduces integration complexity while providing a scalable foundati
 To configure the integration with Raptor, follow a step-by-step procedure that allows you to activate the Raptor connector.
 Activation includes [configuration](connector_installation_configuration.md), adding tracking scripts and events, and using [Page Builder](page_builder_guide.md) blocks.
 
-For more information on tracking, check the Raptor documentation: [Implementing tracking](https://content.raptorservices.com/help-center/data-management#implementing-tracking).
+For more information about tracking, check the Raptor documentation: [Implementing tracking](https://content.raptorservices.com/help-center/data-management#implementing-tracking).
 
 [[= cards([
     "recommendations/raptor_integration/connector_installation_configuration",
