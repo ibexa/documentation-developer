@@ -6,10 +6,10 @@ use Ibexa\Contracts\ConnectorRaptor\Tracking\Event\VisitEventData;
 use Ibexa\Contracts\ConnectorRaptor\Tracking\ServerSideTrackingDispatcherInterface;
 use Ibexa\Contracts\ProductCatalog\Values\ProductInterface;
 
-class TrackingEventDispatchingExample
+class EventData
 {
     public function __construct(
-        private ServerSideTrackingDispatcherInterface $trackingDispatcher,
+        private readonly ServerSideTrackingDispatcherInterface $trackingDispatcher,
     ) {
     }
 
