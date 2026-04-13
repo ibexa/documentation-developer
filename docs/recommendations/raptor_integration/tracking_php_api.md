@@ -9,15 +9,33 @@ You can interact directly with the [Raptor connector](raptor_connector.md)'s ser
 
 ## Advanced usage – direct interaction with the service
 
+The [`ServerSideTrackingDispatcherInterface::dispatch()`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorRaptor-Tracking-ServerSideTrackingDispatcherInterface.html#method_dispatch) method allows to send tracking data fom the server side.
+It can be used in controllers, event subscribers, or any other part of the application.
+This method receives an [`EventDataInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorRaptor-Tracking-Event-EventDataInterface.html).
+For more information, see available events in the [tracking event namespace](/api/php_api/php_api_reference/namespaces/ibexa-contracts-connectorraptor-tracking-event.html).
+
 ### Mapping event data
 
-The recommended method, providing full control over event tracking, is [`EventMapperInterface::map()`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorRaptor-Tracking-EventMapperInterface.html#method_map) method.
-It allows you to interact directly with the service, supporting advanced use cases not covered by default implementation.
+The recommended method is [`EventMapperInterface::map()`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorRaptor-Tracking-EventMapperInterface.html#method_map) method.
+This method receives an [`EventType`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorRaptor-Tracking-EventType.html#cases) case, a data depending on the event type,
+and a context's associative array using [`EventContext`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorRaptor-Tracking-EventContext.html) constants as keys.
+
+For more information, see the same arguments of the Twig function [`ibexa_tracking_track_event`](recommendations_twig_functions.md#ibexa_tracking_track_event-function).
+
+| Event type                 | Data class              | Context keys                                                                                                             |
+|:---------------------------|:------------------------|:-------------------------------------------------------------------------------------------------------------------------|
+| `EventType::VISIT`         | `ProductInterface`      | (optional) `EventContext::WEBSITE_ID`                                                                                    |
+| `EventType::CONTENT_VISIT` | `Content`               | (optional) `EventContext::WEBSITE_ID`                                                                                               |
+| `EventType::BUY`           | `ProductInterface`      | `EventContext::SUBTOTAL`,<br>`EventContext::CURRENCY`,<br>`EventContext::QUANTITY`,<br>(optional) `EventContext::WEBSITE_ID`        |
+| `EventType::BASKET`        | `ProductInterface`      | `EventContext::BASKET_CONTENT`,<br>`EventContext::BASKET_ID`,<br>(optional) `EventContext::QUANTITY`,<br>(optional) `EventContext::WEBSITE_ID` |
+| `EventType::ITEM_CLICK`    | `string` (product code) | `EventContext::MODULE_NAME`,<br>`EventContext::REDIRECT_URL`                                                             |
 
 Check the following example:
 
 ``` php
-[[= include_file('code_samples/recommendations/EventMapper.php') =]]
+[[= include_file('code_samples/recommendations/EventMapper.php', 4, 8) =]]//…
+
+[[= include_file('code_samples/recommendations/EventMapper.php', 20, 29, remove_indent=True) =]]
 ```
 
 ### Manual `EventData` creation
@@ -30,7 +48,7 @@ Check the following example:
 ``` php
 [[= include_file('code_samples/recommendations/EventData.php', 4, 6) =]]// …
 
-[[= include_file('code_samples/recommendations/EventData.php', 16, 25, remove_indent=True) =]]
+[[= include_file('code_samples/recommendations/EventData.php', 17, 26, remove_indent=True) =]]
 ```
 
 `categoryPath` parameter sets the category path for recommendations and needs to be composed manually following the specified format and rules:
@@ -39,16 +57,16 @@ Check the following example:
 - if `CategoryName` is missing, repeat the ID, for example, `25#25;26#26`
 - if `CategoryId` is missing, use the `CategoryName`, for example, `Electronics;Smartphones`
 
-For more information, see available events in the [tracking event namespace](/api/php_api/php_api_reference/namespaces/ibexa-contracts-connectorraptor-tracking-event.html)
+For more information, see available events in the [tracking event namespace](/api/php_api/php_api_reference/namespaces/ibexa-contracts-connectorraptor-tracking-event.html).
 
 ### Example - event subscriber
 
-If you need to track [events](../../api/event_reference/event_reference.md) automatically based on application events, you can use Event Subscriber.
+If you need to track [events](event_reference.md) automatically based on application events, you can use Event Subscriber.
 It reacts to specific events in the application and triggers tracking logic without the need to add it manually in templates.
 
 ``` php
 [[= include_file('code_samples/recommendations/EventSubscriber.php') =]]
 ```
 
-You can also use [[= product_name =]] events, for example `CreateOrderEvent` from [Order management events](../../api/event_reference/order_management_events.md).
+You can also use [[= product_name =]] events, for example `CreateOrderEvent` from [Order management events](order_management_events.md).
 For more information, see [Event reference](event_reference.md).

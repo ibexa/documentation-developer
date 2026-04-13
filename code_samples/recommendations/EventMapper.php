@@ -2,6 +2,7 @@
 
 namespace App\Tracking;
 
+use Ibexa\Contracts\ConnectorRaptor\Tracking\EventContext;
 use Ibexa\Contracts\ConnectorRaptor\Tracking\EventMapperInterface;
 use Ibexa\Contracts\ConnectorRaptor\Tracking\EventType;
 use Ibexa\Contracts\ConnectorRaptor\Tracking\ServerSideTrackingDispatcherInterface;
@@ -15,10 +16,14 @@ class EventMapper
     ) {
     }
 
-    public function trackProductView(ProductInterface $product, string $url): void
+    public function trackProductView(ProductInterface $product): void
     {
-        // Map product to VisitEventData automatically
-        $eventData = $this->eventMapper->map(EventType::VISIT, $product);
+        // Map product to BuyEventData automatically
+        $eventData = $this->eventMapper->map(EventType::BUY, $product, [
+            EventContext::SUBTOTAL => '200',
+            EventContext::CURRENCY => 'EUR',
+            EventContext::QUANTITY => '2',
+        ]);
 
         // Send tracking event
         $this->trackingDispatcher->dispatch($eventData);
