@@ -4,6 +4,7 @@ namespace App\Tracking;
 
 use Ibexa\Contracts\ConnectorRaptor\Tracking\Event\VisitEventData;
 use Ibexa\Contracts\ConnectorRaptor\Tracking\ServerSideTrackingDispatcherInterface;
+use Ibexa\Contracts\ProductCatalog\Values\ProductInterface;
 
 class TrackingEventDispatchingExample
 {
