@@ -11411,10 +11411,10 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/Ibexa-Contracts-ConnectorRaptor-Tracking-Event-BasketEventData.html#property_basketId"
         },                {
-            "fqsen": "\\Ibexa\\Contracts\\ConnectorRaptor\\Tracking\\Event\\BasketEventData\u003A\u003A\u0024productId",
-            "name": "productId",
+            "fqsen": "\\Ibexa\\Contracts\\ConnectorRaptor\\Tracking\\Event\\BasketEventData\u003A\u003A\u0024productCode",
+            "name": "productCode",
             "summary": "",
-            "url": "classes/Ibexa-Contracts-ConnectorRaptor-Tracking-Event-BasketEventData.html#property_productId"
+            "url": "classes/Ibexa-Contracts-ConnectorRaptor-Tracking-Event-BasketEventData.html#property_productCode"
         },                {
             "fqsen": "\\Ibexa\\Contracts\\ConnectorRaptor\\Tracking\\Event\\BasketEventData\u003A\u003A\u0024productName",
             "name": "productName",
@@ -11466,10 +11466,10 @@ Search.appendIndex(
             "summary": "Returns\u0020Raptor\u0020tracking\u0020parameters.",
             "url": "classes/Ibexa-Contracts-ConnectorRaptor-Tracking-Event-BuyEventData.html#method_toArray"
         },                {
-            "fqsen": "\\Ibexa\\Contracts\\ConnectorRaptor\\Tracking\\Event\\BuyEventData\u003A\u003A\u0024productId",
-            "name": "productId",
+            "fqsen": "\\Ibexa\\Contracts\\ConnectorRaptor\\Tracking\\Event\\BuyEventData\u003A\u003A\u0024productCode",
+            "name": "productCode",
             "summary": "",
-            "url": "classes/Ibexa-Contracts-ConnectorRaptor-Tracking-Event-BuyEventData.html#property_productId"
+            "url": "classes/Ibexa-Contracts-ConnectorRaptor-Tracking-Event-BuyEventData.html#property_productCode"
         },                {
             "fqsen": "\\Ibexa\\Contracts\\ConnectorRaptor\\Tracking\\Event\\BuyEventData\u003A\u003A\u0024productName",
             "name": "productName",
@@ -11586,10 +11586,10 @@ Search.appendIndex(
             "summary": "Returns\u0020optional\u0020template\u0020hint\u0020for\u0020special\u0020rendering\u0020needs.",
             "url": "classes/Ibexa-Contracts-ConnectorRaptor-Tracking-Event-ItemClickEventData.html#method_getTemplateHint"
         },                {
-            "fqsen": "\\Ibexa\\Contracts\\ConnectorRaptor\\Tracking\\Event\\ItemClickEventData\u003A\u003A\u0024productId",
-            "name": "productId",
+            "fqsen": "\\Ibexa\\Contracts\\ConnectorRaptor\\Tracking\\Event\\ItemClickEventData\u003A\u003A\u0024productCode",
+            "name": "productCode",
             "summary": "",
-            "url": "classes/Ibexa-Contracts-ConnectorRaptor-Tracking-Event-ItemClickEventData.html#property_productId"
+            "url": "classes/Ibexa-Contracts-ConnectorRaptor-Tracking-Event-ItemClickEventData.html#property_productCode"
         },                {
             "fqsen": "\\Ibexa\\Contracts\\ConnectorRaptor\\Tracking\\Event\\ItemClickEventData\u003A\u003A\u0024moduleName",
             "name": "moduleName",
@@ -11621,10 +11621,10 @@ Search.appendIndex(
             "summary": "Returns\u0020Raptor\u0020tracking\u0020parameters.",
             "url": "classes/Ibexa-Contracts-ConnectorRaptor-Tracking-Event-VisitEventData.html#method_toArray"
         },                {
-            "fqsen": "\\Ibexa\\Contracts\\ConnectorRaptor\\Tracking\\Event\\VisitEventData\u003A\u003A\u0024productId",
-            "name": "productId",
+            "fqsen": "\\Ibexa\\Contracts\\ConnectorRaptor\\Tracking\\Event\\VisitEventData\u003A\u003A\u0024productCode",
+            "name": "productCode",
             "summary": "",
-            "url": "classes/Ibexa-Contracts-ConnectorRaptor-Tracking-Event-VisitEventData.html#property_productId"
+            "url": "classes/Ibexa-Contracts-ConnectorRaptor-Tracking-Event-VisitEventData.html#property_productCode"
         },                {
             "fqsen": "\\Ibexa\\Contracts\\ConnectorRaptor\\Tracking\\Event\\VisitEventData\u003A\u003A\u0024productName",
             "name": "productName",
@@ -42651,6 +42651,176 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/Ibexa-Contracts-ImageEditor-Optimizer-OptimizerInterface.html#method_optimize"
         },                {
+            "fqsen": "\\Ibexa\\Contracts\\IntegratedHelp\\Builder\\Block\\BlockBuilderInterface",
+            "name": "BlockBuilderInterface",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-IntegratedHelp-Builder-Block-BlockBuilderInterface.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\IntegratedHelp\\Builder\\Block\\BlockBuilderInterface\u003A\u003Abuild\u0028\u0029",
+            "name": "build",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-IntegratedHelp-Builder-Block-BlockBuilderInterface.html#method_build"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\IntegratedHelp\\Event\\RenderProductTourScenarioEvent",
+            "name": "RenderProductTourScenarioEvent",
+            "summary": "Event\u0020is\u0020the\u0020base\u0020class\u0020for\u0020classes\u0020containing\u0020event\u0020data.",
+            "url": "classes/Ibexa-Contracts-IntegratedHelp-Event-RenderProductTourScenarioEvent.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\IntegratedHelp\\Event\\RenderProductTourScenarioEvent\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-IntegratedHelp-Event-RenderProductTourScenarioEvent.html#method___construct"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\IntegratedHelp\\Event\\RenderProductTourScenarioEvent\u003A\u003AgetScenario\u0028\u0029",
+            "name": "getScenario",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-IntegratedHelp-Event-RenderProductTourScenarioEvent.html#method_getScenario"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\IntegratedHelp\\Event\\RenderProductTourScenarioEvent\u003A\u003AsetScenario\u0028\u0029",
+            "name": "setScenario",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-IntegratedHelp-Event-RenderProductTourScenarioEvent.html#method_setScenario"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\IntegratedHelp\\ProductTour\\ProductTourBlockInterface",
+            "name": "ProductTourBlockInterface",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-IntegratedHelp-ProductTour-ProductTourBlockInterface.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\IntegratedHelp\\ProductTour\\ProductTourBlockInterface\u003A\u003AgetType\u0028\u0029",
+            "name": "getType",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-IntegratedHelp-ProductTour-ProductTourBlockInterface.html#method_getType"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\IntegratedHelp\\ProductTour\\ProductTourScenarioInterface",
+            "name": "ProductTourScenarioInterface",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-IntegratedHelp-ProductTour-ProductTourScenarioInterface.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\IntegratedHelp\\ProductTour\\ProductTourScenarioInterface\u003A\u003AsetIdentifier\u0028\u0029",
+            "name": "setIdentifier",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-IntegratedHelp-ProductTour-ProductTourScenarioInterface.html#method_setIdentifier"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\IntegratedHelp\\ProductTour\\ProductTourScenarioInterface\u003A\u003AgetIdentifier\u0028\u0029",
+            "name": "getIdentifier",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-IntegratedHelp-ProductTour-ProductTourScenarioInterface.html#method_getIdentifier"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\IntegratedHelp\\ProductTour\\ProductTourScenarioInterface\u003A\u003AsetType\u0028\u0029",
+            "name": "setType",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-IntegratedHelp-ProductTour-ProductTourScenarioInterface.html#method_setType"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\IntegratedHelp\\ProductTour\\ProductTourScenarioInterface\u003A\u003AgetType\u0028\u0029",
+            "name": "getType",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-IntegratedHelp-ProductTour-ProductTourScenarioInterface.html#method_getType"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\IntegratedHelp\\ProductTour\\ProductTourScenarioInterface\u003A\u003AsetUserGroupsExcluded\u0028\u0029",
+            "name": "setUserGroupsExcluded",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-IntegratedHelp-ProductTour-ProductTourScenarioInterface.html#method_setUserGroupsExcluded"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\IntegratedHelp\\ProductTour\\ProductTourScenarioInterface\u003A\u003AgetUserGroupsExcluded\u0028\u0029",
+            "name": "getUserGroupsExcluded",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-IntegratedHelp-ProductTour-ProductTourScenarioInterface.html#method_getUserGroupsExcluded"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\IntegratedHelp\\ProductTour\\ProductTourScenarioInterface\u003A\u003AaddStep\u0028\u0029",
+            "name": "addStep",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-IntegratedHelp-ProductTour-ProductTourScenarioInterface.html#method_addStep"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\IntegratedHelp\\ProductTour\\ProductTourScenarioInterface\u003A\u003AgetSteps\u0028\u0029",
+            "name": "getSteps",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-IntegratedHelp-ProductTour-ProductTourScenarioInterface.html#method_getSteps"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\IntegratedHelp\\ProductTour\\ProductTourScenarioInterface\u003A\u003AremoveStep\u0028\u0029",
+            "name": "removeStep",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-IntegratedHelp-ProductTour-ProductTourScenarioInterface.html#method_removeStep"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\IntegratedHelp\\ProductTour\\ProductTourStepInterface",
+            "name": "ProductTourStepInterface",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-IntegratedHelp-ProductTour-ProductTourStepInterface.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\IntegratedHelp\\ProductTour\\ProductTourStepInterface\u003A\u003AsetIdentifier\u0028\u0029",
+            "name": "setIdentifier",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-IntegratedHelp-ProductTour-ProductTourStepInterface.html#method_setIdentifier"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\IntegratedHelp\\ProductTour\\ProductTourStepInterface\u003A\u003AgetIdentifier\u0028\u0029",
+            "name": "getIdentifier",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-IntegratedHelp-ProductTour-ProductTourStepInterface.html#method_getIdentifier"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\IntegratedHelp\\ProductTour\\ProductTourStepInterface\u003A\u003AsetTitle\u0028\u0029",
+            "name": "setTitle",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-IntegratedHelp-ProductTour-ProductTourStepInterface.html#method_setTitle"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\IntegratedHelp\\ProductTour\\ProductTourStepInterface\u003A\u003AgetTitle\u0028\u0029",
+            "name": "getTitle",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-IntegratedHelp-ProductTour-ProductTourStepInterface.html#method_getTitle"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\IntegratedHelp\\ProductTour\\ProductTourStepInterface\u003A\u003AsetBackgroundImage\u0028\u0029",
+            "name": "setBackgroundImage",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-IntegratedHelp-ProductTour-ProductTourStepInterface.html#method_setBackgroundImage"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\IntegratedHelp\\ProductTour\\ProductTourStepInterface\u003A\u003AgetBackgroundImage\u0028\u0029",
+            "name": "getBackgroundImage",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-IntegratedHelp-ProductTour-ProductTourStepInterface.html#method_getBackgroundImage"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\IntegratedHelp\\ProductTour\\ProductTourStepInterface\u003A\u003AsetTarget\u0028\u0029",
+            "name": "setTarget",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-IntegratedHelp-ProductTour-ProductTourStepInterface.html#method_setTarget"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\IntegratedHelp\\ProductTour\\ProductTourStepInterface\u003A\u003AgetTarget\u0028\u0029",
+            "name": "getTarget",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-IntegratedHelp-ProductTour-ProductTourStepInterface.html#method_getTarget"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\IntegratedHelp\\ProductTour\\ProductTourStepInterface\u003A\u003AsetInteractionMode\u0028\u0029",
+            "name": "setInteractionMode",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-IntegratedHelp-ProductTour-ProductTourStepInterface.html#method_setInteractionMode"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\IntegratedHelp\\ProductTour\\ProductTourStepInterface\u003A\u003AgetInteractionMode\u0028\u0029",
+            "name": "getInteractionMode",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-IntegratedHelp-ProductTour-ProductTourStepInterface.html#method_getInteractionMode"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\IntegratedHelp\\ProductTour\\ProductTourStepInterface\u003A\u003AaddBlock\u0028\u0029",
+            "name": "addBlock",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-IntegratedHelp-ProductTour-ProductTourStepInterface.html#method_addBlock"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\IntegratedHelp\\ProductTour\\ProductTourStepInterface\u003A\u003AgetBlocks\u0028\u0029",
+            "name": "getBlocks",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-IntegratedHelp-ProductTour-ProductTourStepInterface.html#method_getBlocks"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\IntegratedHelp\\ProductTour\\ProductTourStepInterface\u003A\u003AremoveBlock\u0028\u0029",
+            "name": "removeBlock",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-IntegratedHelp-ProductTour-ProductTourStepInterface.html#method_removeBlock"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\IntegratedHelp\\Renderer\\BlockRendererInterface",
+            "name": "BlockRendererInterface",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-IntegratedHelp-Renderer-BlockRendererInterface.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\IntegratedHelp\\Renderer\\BlockRendererInterface\u003A\u003Arender\u0028\u0029",
+            "name": "render",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-IntegratedHelp-Renderer-BlockRendererInterface.html#method_render"
+        },                {
             "fqsen": "\\Ibexa\\Contracts\\Measurement\\Converter\\UnitConverterInterface",
             "name": "UnitConverterInterface",
             "summary": "",
@@ -65655,6 +65825,36 @@ Search.appendIndex(
             "name": "Optimizer",
             "summary": "",
             "url": "namespaces/ibexa-contracts-imageeditor-optimizer.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\IntegratedHelp\\Builder\\Block",
+            "name": "Block",
+            "summary": "",
+            "url": "namespaces/ibexa-contracts-integratedhelp-builder-block.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\IntegratedHelp\\Builder",
+            "name": "Builder",
+            "summary": "",
+            "url": "namespaces/ibexa-contracts-integratedhelp-builder.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\IntegratedHelp",
+            "name": "IntegratedHelp",
+            "summary": "",
+            "url": "namespaces/ibexa-contracts-integratedhelp.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\IntegratedHelp\\Event",
+            "name": "Event",
+            "summary": "",
+            "url": "namespaces/ibexa-contracts-integratedhelp-event.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\IntegratedHelp\\ProductTour",
+            "name": "ProductTour",
+            "summary": "",
+            "url": "namespaces/ibexa-contracts-integratedhelp-producttour.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\IntegratedHelp\\Renderer",
+            "name": "Renderer",
+            "summary": "",
+            "url": "namespaces/ibexa-contracts-integratedhelp-renderer.html"
         },                {
             "fqsen": "\\Ibexa\\Contracts\\Measurement\\Converter",
             "name": "Converter",
