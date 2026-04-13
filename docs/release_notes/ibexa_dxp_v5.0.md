@@ -10,11 +10,11 @@ month_change: true
 
 <div class="release-notes" markdown="1">
 
-[[% set version = 'v5.0.X' %]]
+[[% set version = 'v5.0.7' %]]
 
 [[= release_note_entry_begin(
     "Google Gemini connector " + version,
-    'YYYY-MM-DD',
+    '2026-04-14',
     ['Headless', 'Experience', 'Commerce', 'LTS Update', 'New feature', 'First release']
 ) =]]
 
@@ -27,7 +27,7 @@ For more information, see how to [install and configure the Google Gemini connec
 
 [[= release_note_entry_begin(
     "Integrated help " + version,
-    'YYYY-MM-DD',
+    '2026-04-14',
     ['Headless', 'Experience', 'Commerce', 'LTS Update', 'New feature']
 ) =]]
 
@@ -41,7 +41,7 @@ For more information, see [Product tour](https://doc.ibexa.co/en/5.0/administrat
 
 [[= release_note_entry_begin(
     "Ibexa DXP " + version,
-    'YYYY-MM-DD',
+    '2026-04-14',
     ['Headless', 'Experience', 'Commerce', 'New feature']
 ) =]]
 
@@ -151,12 +151,6 @@ The following additions were made to the PHP API:
   (for more information, see [its search criteria reference entry](https://doc.ibexa.co/en/5.0/search/criteria_reference/taxonomy_no_entries/))
 - optionally, from the [Raptor connector add-on](https://doc.ibexa.co/en/5.0/cdp/raptor_integration/raptor_connector/), classes of the [`Ibexa\Contracts\ConnectorRaptor` namespace](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/namespaces/ibexa-contracts-connectorraptor.html)
 - optionally, from the [Integrated help LTS-Update](https://doc.ibexa.co/en/5.0/administration/back_office/integrated_help/), classes of the [`Ibexa\Contracts\IntegratedHelp` namespace](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/namespaces/ibexa-contracts-integratedhelp.html)
-
-### Gaussian blur optimization in Image Editor
-
-The [Image Editor]([[= user_doc =]]/image_management/edit_images/) now supports configurable gaussian blur strength for image optimization.
-You can adjust the blur level to balance between file size reduction and image sharpness.
-For more information, see [Configure image editor](https://doc.ibexa.co/en/5.0/content_management/images/configure_image_editor/#gaussian-blur-strength).
 
 ### AI Actions in Page Builder blocks [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
 
