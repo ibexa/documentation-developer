@@ -18,11 +18,9 @@ class EventMapper
 
     public function trackProductView(ProductInterface $product): void
     {
-        // Map product to BuyEventData automatically
-        $eventData = $this->eventMapper->map(EventType::BUY, $product, [
-            EventContext::SUBTOTAL => '200',
-            EventContext::CURRENCY => 'EUR',
-            EventContext::QUANTITY => '2',
+        // Map product to VisitEventData automatically, override its category
+        $eventData = $this->eventMapper->map(EventType::VISIT, $product, [
+            EventContext::CATEGORY_IDENTIFIER => 'electronics',
         ]);
 
         // Send tracking event

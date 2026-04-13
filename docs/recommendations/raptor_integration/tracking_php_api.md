@@ -21,20 +21,20 @@ This method receives an [`EventType`](/api/php_api/php_api_reference/classes/Ibe
 
 For more information, see the same arguments of the Twig function [`ibexa_tracking_track_event`](recommendations_twig_functions.md#ibexa_tracking_track_event-function).
 
-| Event type                 | Data class              | Context keys                                                                                                             |
-|:---------------------------|:------------------------|:-------------------------------------------------------------------------------------------------------------------------|
-| `EventType::VISIT`         | `ProductInterface`      | (optional) `EventContext::WEBSITE_ID`                                                                                    |
-| `EventType::CONTENT_VISIT` | `Content`               | (optional) `EventContext::WEBSITE_ID`                                                                                               |
-| `EventType::BUY`           | `ProductInterface`      | `EventContext::SUBTOTAL`,<br>`EventContext::CURRENCY`,<br>`EventContext::QUANTITY`,<br>(optional) `EventContext::WEBSITE_ID`        |
-| `EventType::BASKET`        | `ProductInterface`      | `EventContext::BASKET_CONTENT`,<br>`EventContext::BASKET_ID`,<br>(optional) `EventContext::QUANTITY`,<br>(optional) `EventContext::WEBSITE_ID` |
-| `EventType::ITEM_CLICK`    | `string` (product code) | `EventContext::MODULE_NAME`,<br>`EventContext::REDIRECT_URL`                                                             |
+| Event type                 | Data class              | Context keys                                                                                                                                   |
+|:---------------------------|:------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------|
+| `EventType::VISIT`         | `ProductInterface`      | (optional) `EventContext::CATEGORY_IDENTIFIER`,<br>(optional) `EventContext::WEBSITE_ID`                                                       |
+| `EventType::CONTENT_VISIT` | `Content`               | (optional) `EventContext::WEBSITE_ID`                                                                                                          |
+| `EventType::BUY`           | `ProductInterface`      | `EventContext::SUBTOTAL`,<br>`EventContext::CURRENCY`,<br>`EventContext::QUANTITY`,<br>(optional) `EventContext::CATEGORY_IDENTIFIER`,<br>(optional) `EventContext::WEBSITE_ID`                   |
+| `EventType::BASKET`        | `ProductInterface`      | `EventContext::BASKET_CONTENT`,<br>`EventContext::BASKET_ID`,<br>(optional) `EventContext::CATEGORY_IDENTIFIER`,<br>(optional) `EventContext::QUANTITY`,<br>(optional) `EventContext::WEBSITE_ID` |
+| `EventType::ITEM_CLICK`    | `string` (product code) | `EventContext::MODULE_NAME`,<br>`EventContext::REDIRECT_URL`                                                                                   |
 
 Check the following example:
 
 ``` php
 [[= include_file('code_samples/recommendations/EventMapper.php', 4, 8) =]]//…
 
-[[= include_file('code_samples/recommendations/EventMapper.php', 20, 29, remove_indent=True) =]]
+[[= include_file('code_samples/recommendations/EventMapper.php', 20, 27, remove_indent=True) =]]
 ```
 
 ### Manual `EventData` creation
