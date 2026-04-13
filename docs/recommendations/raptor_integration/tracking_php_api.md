@@ -9,16 +9,15 @@ You can interact directly with the [Raptor connector](raptor_connector.md)'s ser
 
 ## Advanced usage – direct interaction with the service
 
-The [`ServerSideTrackingDispatcherInterface::dispatch()`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorRaptor-Tracking-ServerSideTrackingDispatcherInterface.html#method_dispatch) method allows to send tracking data fom the server side.
+The [`ServerSideTrackingDispatcherInterface::dispatch()`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorRaptor-Tracking-ServerSideTrackingDispatcherInterface.html#method_dispatch) method allows to send tracking data from the server side.
 It can be used in controllers, event subscribers, or any other part of the application.
 This method receives an [`EventDataInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorRaptor-Tracking-Event-EventDataInterface.html).
-For more information, see available events in the [tracking event namespace](/api/php_api/php_api_reference/namespaces/ibexa-contracts-connectorraptor-tracking-event.html).
+For more information, see the available events in the [tracking event namespace](/api/php_api/php_api_reference/namespaces/ibexa-contracts-connectorraptor-tracking-event.html).
 
 ### Mapping event data
 
-The recommended method is [`EventMapperInterface::map()`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorRaptor-Tracking-EventMapperInterface.html#method_map) method.
-This method receives an [`EventType`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorRaptor-Tracking-EventType.html#cases) case, a data depending on the event type,
-and a context's associative array using [`EventContext`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorRaptor-Tracking-EventContext.html) constants as keys.
+The recommended method is [`EventMapperInterface::map()`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorRaptor-Tracking-EventMapperInterface.html#method_map).
+This method receives an [`EventType`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorRaptor-Tracking-EventType.html#cases) case, a data depending on the event type, and a context's associative array that uses [`EventContext`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorRaptor-Tracking-EventContext.html) constants as keys.
 
 For more information, see the same arguments of the Twig function [`ibexa_tracking_track_event`](recommendations_twig_functions.md#ibexa_tracking_track_event-function).
 
@@ -57,11 +56,11 @@ Check the following example:
 - if `CategoryName` is missing, repeat the ID, for example, `25#25;26#26`
 - if `CategoryId` is missing, use the `CategoryName`, for example, `Electronics;Smartphones`
 
-For more information, see available events in the [tracking event namespace](/api/php_api/php_api_reference/namespaces/ibexa-contracts-connectorraptor-tracking-event.html).
+For more information, see the available events in the [tracking event namespace](/api/php_api/php_api_reference/namespaces/ibexa-contracts-connectorraptor-tracking-event.html).
 
 ### Example - event subscriber
 
-If you need to track [events](event_reference.md) automatically based on application events, you can use Event Subscriber.
+If you need to track [events](event_reference.md) automatically based on application events, you can use an event subscriber.
 It reacts to specific events in the application and triggers tracking logic without the need to add it manually in templates.
 
 ``` php
