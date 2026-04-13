@@ -11,7 +11,7 @@ class EventMapper
 {
     public function __construct(
         private readonly EventMapperInterface $eventMapper,
-        private ServerSideTrackingDispatcherInterface $trackingDispatcher,
+        private readonly ServerSideTrackingDispatcherInterface $trackingDispatcher,
     ) {
     }
 
