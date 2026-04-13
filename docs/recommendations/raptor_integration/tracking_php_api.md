@@ -30,7 +30,7 @@ Check the following example:
 ``` php
 [[= include_file('code_samples/recommendations/EventData.php', 4, 6) =]]// …
 
-[[= include_file('code_samples/recommendations/EventData.php', 16, 25, remove_indent=True) =]]
+[[= include_file('code_samples/recommendations/EventData.php', 17, 26, remove_indent=True) =]]
 ```
 
 `categoryPath` parameter sets the category path for recommendations and needs to be composed manually following the specified format and rules:
