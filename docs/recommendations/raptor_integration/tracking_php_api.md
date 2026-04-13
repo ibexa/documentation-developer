@@ -29,6 +29,11 @@ For more information, see the same arguments of the Twig function [`ibexa_tracki
 | `EventType::BASKET`        | `ProductInterface`      | `EventContext::BASKET_CONTENT`,<br>`EventContext::BASKET_ID`,<br>(optional) `EventContext::CATEGORY_IDENTIFIER`,<br>(optional) `EventContext::QUANTITY`,<br>(optional) `EventContext::WEBSITE_ID` |
 | `EventType::ITEM_CLICK`    | `string` (product code) | `EventContext::MODULE_NAME`,<br>`EventContext::REDIRECT_URL`                                                                                   |
 
+!!! caution
+
+    The `EventType::BUY` type and the `BuyEventData` class aren't production-ready yet, they're missing the [`BrandId` parameter (P8)](https://content.raptorservices.com/help-center/tracking-events-for-recommendation), and their usage may change in the future.
+
+
 Check the following example:
 
 ``` php
@@ -57,6 +62,10 @@ Check the following example:
 - if `CategoryId` is missing, use the `CategoryName`, for example, `Electronics;Smartphones`
 
 For more information, see the available events in the [tracking event namespace](/api/php_api/php_api_reference/namespaces/ibexa-contracts-connectorraptor-tracking-event.html).
+
+!!! caution
+
+    The `BuyEventData` class isn't production-ready yet, it's missing the [`BrandId` parameter (P8)](https://content.raptorservices.com/help-center/tracking-events-for-recommendation), and its usage may change in the future.
 
 ### Example - event subscriber
 
