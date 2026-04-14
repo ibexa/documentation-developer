@@ -90,7 +90,7 @@
             <div class="notification notification--lts-update" id="tile3">
                 <div class="notification__content">
                     <h2>The newest LTS Update is Google Gemini connector</h2>
-                    <div>Integrate Google's AI services with Ibexa DXP capabilities.</div>
+                    <div>Integrate Google's AI services into Ibexa DXP.</div>
                 </div>
                 <div class="notification__cta">
                     <a href="ai_actions/configure_ai_actions#install-google-gemini-connector">Learn more about this LTS Update</a>
