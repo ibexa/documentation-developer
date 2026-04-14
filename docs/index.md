@@ -93,7 +93,7 @@
                     <div>Integrate Google's AI services into Ibexa DXP.</div>
                 </div>
                 <div class="notification__cta">
-                    <a href="ai_actions/configure_ai_actions#install-google-gemini-connector">Learn more about this LTS Update</a>
+                    <a href="ai_actions/configure_ai_actions/#install-google-gemini-connector">Learn more about this LTS Update</a>
                     <a href="ibexa_products/editions/#lts-updates">Discover other LTS Updates</a>
                 </div>
                 <div class="notification__image">
