@@ -334,6 +334,79 @@ Additionally, you must remove the following line from your `.platform.app.yaml` 
 curl -fs https://get.symfony.com/cloud/configurator | bash
 ```
 
+## v5.0.7
+
+### Update Symfony from 7.3 to 7.4
+
+This version of [[= product_name =]] requires [Symfony 7.4](https://symfony.com/releases/7.4).
+Update Symfony constraints in `composer.json` before updating the packages.
+
+1. In `composer.json`, update `extra.symfony.require` to allow installing a higher Symfony version:
+
+    ```json
+    "extra": {
+        "symfony": {
+            "require": "7.4.*"
+        }
+    }
+    ```
+
+2. To allow installing Symfony 7.4, update the requirements for `symfony` packages in `composer.json` as in the example below:
+
+    ``` diff
+    -        "symfony/console": "7.3.*",
+    +        "symfony/console": "7.4.*",
+    ```
+
+3. Review your code, configuration, and third-party bundles for Symfony 7.4 compatibility.
+
+    For more details about the new version, see the official Symfony [upgrade instructions](https://github.com/symfony/symfony/blob/7.4/UPGRADE-7.4.md) and [blog posts introducing this release](https://symfony.com/blog/category/living-on-the-edge/8.0-7.4).
+    Key changes include:
+
+    - Array-based PHP configuration format
+
+        As part of the [array-based PHP configuration format](https://symfony.com/blog/new-in-symfony-7-4-better-php-configuration), a `config/reference.php` file will be created.
+        You should commit this file to the repository.
+
+    - Independent application cache directory
+
+        Symfony 7.4 introduces a new [share directory](https://symfony.com/blog/new-in-symfony-7-4-share-directory), dedicated for storing application cache on the file system.
+        If you decide to configure it (for example, by setting the `APP_SHARE_DIR` environment variable), review your existing scripts for explicit `var/cache` usage (for example, `rm -rf var/cache`) and decide whether to include `var/share` in the script.
+
+4. Update Ibexa packages by running:
+
+    === "[[= product_name_headless =]]"
+
+        ``` bash
+        yarn upgrade @ibexa/frontend-config @ibexa/ts-config
+        composer require ibexa/headless:v5.0.7 --with-all-dependencies --no-scripts
+        composer recipes:install ibexa/headless --force -v
+        ```
+    === "[[= product_name_exp =]]"
+
+        ``` bash
+        yarn upgrade @ibexa/frontend-config @ibexa/ts-config
+        composer require ibexa/experience:v5.0.7 --with-all-dependencies --no-scripts
+        composer recipes:install ibexa/experience --force -v
+        ```
+    === "[[= product_name_com =]]"
+
+        ``` bash
+        yarn upgrade @ibexa/frontend-config @ibexa/ts-config
+        composer require ibexa/commerce:v5.0.7 --with-all-dependencies --no-scripts
+        composer recipes:install ibexa/commerce --force -v
+        ```
+
+5. Manually restore the entry for `JMSTranslationBundle` in `config/bundles.php` to [its previous position](https://github.com/ibexa/commerce-skeleton/blob/v5.0.6/config/bundles.php#L14):
+
+    ``` hl_lines="2"
+        FOS\HttpCacheBundle\FOSHttpCacheBundle::class => ['all' => true],
+        JMS\TranslationBundle\JMSTranslationBundle::class => ['all' => true],
+        Liip\ImagineBundle\LiipImagineBundle::class => ['all' => true],
+    ```
+
+You're now running [Symfony 7.4, the current long-term support version](https://symfony.com/releases/7.4).
+
 ## LTS Updates and additional packages
 
 [LTS Updates](editions.md#lts-updates) are standalone packages with their own update procedures.
