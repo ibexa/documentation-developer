@@ -76,7 +76,7 @@ This configuration defines two engines: the default `local` engine and the new `
 To learn more about product catalog configuration, see [Product catalog configuration](product_catalog_configuration.md).
 
 The [[= pim_product_name =]] integration add-on comes with a new [taxonomy](taxonomy.md) called `quable`.
-By setting the `options.taxonomy` key to `quable`, you configure the engine to use it for storing product categories.
+By setting the `ibexa_product_catalog.engines.quable.options.taxonomy` key to `quable`, you configure the engine to use it for storing product categories.
 
 ### Set [[= pim_product_name =]] as default engine
 
