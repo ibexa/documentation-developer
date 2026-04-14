@@ -76,6 +76,9 @@
           {% endif %}
           {% include "partials/eol_warning.html" %}
           {{ page.content }}
+          {% if config.extra.analytics and config.extra.analytics.feedback %}
+            {% include "partials/feedback.html" %}
+          {% endif %}
           {% include "partials/tags.html" %}
         </div>
     {% endblock %}

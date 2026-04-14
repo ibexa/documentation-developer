@@ -1,0 +1,24 @@
+# .git-blame-ignore-revs
+#
+# Bulk stylistic/housekeeping commits that touched many files without making
+# meaningful content changes. Listed here so `git blame` (locally and on GitHub)
+# skips these revisions and shows the last *meaningful* change to each line.
+#
+# Also consumed by tools/doc_audit/audit.py to improve staleness scoring.
+#
+# To activate for local blame:
+#   git config blame.ignoreRevsFile .git-blame-ignore-revs
+#
+# Format: one full commit SHA per line, preceded by a comment explaining it.
+
+# IBX-8917: Bulk "Content fixes" pass — 683 files, mostly wording/punctuation
+cceaa734d79c2dcdea0fc1d0c044e71e67a6a461
+
+# IBX-7869: "Content Type" → "content type" capitalisation sweep — 163 files
+a98c3737ad0f58daad3d17e3d5f6d3e4595e08f5
+
+# IBX-6618: Global variable updates (product name macros etc.) — 75 files
+b3bd55faf1095aa39258997896442eb01740f6ff
+
+# IBX-4175: Bulk internal/external link fix pass — 134 files
+29220b9150d1d49035b3a1c3ad17ec7c71a324fb
