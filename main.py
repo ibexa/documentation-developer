@@ -72,78 +72,59 @@ def define_env(env):
                 page = page_data
                 custom_title = None
                 custom_description = None
-
-            path, hash = page.split("#") if "#" in page else (page, "")
-            if hash:
-                hash = '#' + hash
-
-            if re.search("^https://[^@/]+.ibexa.co", path):
-                html = True
-                content = urllib.request.urlopen(path).read().decode('utf-8')
-            elif re.search(".html$", path):
-                html = True
-                content = open("docs/%s" % path, "r").read()
-                page = '/'.join((
-                    '/',
-                    site,
-                    language,
-                    version,
-                    page
-                ))
-            else:
-                html = False
-                path = path.rstrip('/')
-                content = open("docs/%s.md" % path, "r").read()
-                page = '/'.join((
-                    '/',
-                    site,
-                    language,
-                    version,
-                    path,
-                    hash
-                ))
-
-            if html:
-                match = re.search("<meta property=\"og:title\" content=\"(.*)\"", content, re.MULTILINE)
-                if match:
-                    title = match.groups()[0]
-                else:
-                    match = re.search("<title>(.*)</title>", content, re.MULTILINE)
+            match = re.search("https://[^@/]+.ibexa.co", page)
+            if match:
+                with urllib.request.urlopen(page) as file:
+                    content = file.read().decode('utf-8')
+                    match = re.search("<meta property=\"og:title\" content=\"(.*)\"", content, re.MULTILINE)
                     if match:
                         title = match.groups()[0]
                     else:
-                        title = ""
-                match = re.search("<meta property=\"og:description\" content=\"(.*)\"", content, re.MULTILINE)
-                if match:
-                    description = match.groups()[0]
-                else:
-                    match = re.search("<meta name=\"description\" content=\"(.*)\"", content, re.MULTILINE)
+                        match = re.search("<title>(.*)</title>", content, re.MULTILINE)
+                        if match:
+                            title = match.groups()[0]
+                        else:
+                            title = ""
+                    match = re.search("<meta property=\"og:description\" content=\"(.*)\"", content, re.MULTILINE)
                     if match:
                         description = match.groups()[0]
                     else:
-                        description = ""
-                href = page
+                        match = re.search("<meta name=\"description\" content=\"(.*)\"", content, re.MULTILINE)
+                        if match:
+                            description = match.groups()[0]
+                        else:
+                            description = ""
+                    href = page
                 title = custom_title if custom_title else title
                 title = title.replace("(Ibexa Documentation)", "").strip()
                 description = custom_description if custom_description else description
             else:
-                match = re.search("^# (.*)", content, re.MULTILINE)
-                if match:
-                    header = match.groups()[0]
-                else:
-                    header = ""
-                default_meta = {
-                    "title": header,
-                    "short": "",
-                    "description": ""
-                }
-                current_meta = {
-                    **default_meta,
-                    **meta.get_data(content)[1]
-                }
-                href = page
-                title = custom_title if custom_title else current_meta['short'] or current_meta['title']
-                description = custom_description if custom_description else current_meta['description'] or "&nbsp;"
+                file, _ = page.split("#") if "#" in page else (page, "")
+                with open("docs/%s.md" % file, "r") as doc_file:
+                    doc = doc_file.read()
+                    match = re.search("^# (.*)", doc, re.MULTILINE)
+                    if match:
+                        header = match.groups()[0]
+                    else:
+                        header = ""
+                    default_meta = {
+                        "title": header,
+                        "short": "",
+                        "description": ""
+                    }
+                    doc_meta = {
+                        **default_meta,
+                        **meta.get_data(doc)[1]
+                    }
+                    href = '/'.join((
+                        '/',
+                        site,
+                        language,
+                        version,
+                        page
+                    ))
+                title = custom_title if custom_title else doc_meta['short'] or doc_meta['title']
+                description = custom_description if custom_description else doc_meta['description'] or "&nbsp;"
 
             cards.append(
                 CARDS_TEMPLATE % (
@@ -235,7 +216,7 @@ def define_env(env):
         return text.lower().replace(' ', '-')
 
     def validate_categories(categories: List[str]) -> None:
-        available_categories = ['Headless', 'Experience', 'Commerce', 'LTS Update', 'New feature', 'First release']
+        available_categories = ['Headless', 'Experience', 'Commerce', 'LTS Update', 'New feature', 'Feature launch']
 
         for category in categories:
             if category not in available_categories:
