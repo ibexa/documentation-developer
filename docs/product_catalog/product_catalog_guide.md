@@ -1,30 +1,31 @@
 ---
-description: The PIM product guide provides a full description of the features and benefits that this module brings to the clients.
+description: The product catalog guide provides a full description of the features and capabilities for managing products, their specifications, variants, pricing, and organization.
 month_change: false
 ---
 
-# PIM product guide
+# Product catalog guide
 
-## What is PIM
+## What is product catalog
 
-PIM is a Product Information Management module that lets you create, configure, and manage products, their specifications, assets, variants, and prices, but also group products into categories and catalogs.
+The product catalog is a comprehensive set of capabilities for managing products in [[= product_name =]] that can be used standalone.
+It lets you create, configure, and manage products, their specifications, assets, variants, and prices, and group products into categories and catalogs.
 
 ## Availability
 
-PIM is available in all [[= product_name =]] editions.
+Product catalog capabilities are available in all [[= product_name =]] editions.
 
-## How does PIM work
+## How does product catalog work
 
-Products in [[= product_name =]]’s PIM have underlying content items enriched with product-specific information such as attributes, assets, prices, and others.
+Products in [[= product_name =]]’s product catalog have underlying content items enriched with product-specific information such as attributes, assets, prices, and others.
 
-PIM lets you group products into categories and catalogs.
+The product catalog lets you group products into categories and catalogs.
 
 Catalogs are collections of products selected by using configurable filters.
 They're specific to each of your sites or storefronts and only contain the products in them that you wish to sell in their associated storefronts.
 
 Catalogs contain a complete list of related products that can be displayed on a store site. You can have as many catalogs as required.
 
-![How does PIM work](img/how_pim_works.png)
+![How does product catalog work](img/how_pim_works.png)
 
 ## Capabilities
 
@@ -70,7 +71,7 @@ A product can only be ordered when it has either positive stock, or stock set to
 
 ### Product categories
 
-Product categories help you to organize your products within PIM and also create relationships between them.
+Product categories help you to organize your products within the product catalog and also create relationships between them.
 Each product can belong to multiple categories of, depending on user’s choice, different or similar character.
 Category can also be assigned to multiple products.
 
@@ -150,29 +151,35 @@ To have a better overview for a specific group of products, you can filter the l
 - product category
 - the date when the product was created
 
-Catalog filters let you narrow down the products from the PIM that are available in the given catalog.
+Catalog filters let you narrow down the products from the product catalog that are available in the given catalog.
 Besides, the built-in catalog filters, you can also [create custom ones](create_custom_catalog_filter.md).
 
 ### Remote PIM support
 
+[[= product_name =]] provides flexible product catalog infrastructure that works with external PIM systems.
+
 In [[= product_name =]], products are created and maintained by using the REST API or the back office, and their data is stored in a local database.
 However, in your project or organization, you might have an existing product database, or be specifically concerned about product information security.
-To address such needs, [[= product_name =]] provides a foundation for remote PIM support.
-You can build upon it to connect to a remote PIM or ERP system, pull product data and present it on your website.
+To address such needs, [[= product_name =]] provides remote PIM support.
+You can install and configure a readily available [[[= pim_product_name =]] PIM integration](/product_catalog/quable/quable.md) add-on, or build a custom one to connect to a remote PIM or ERP system, pull product data and present it on your website.
 
 ![Remote PIM](img/remote_pim_support.png)
 
-Remote PIM support is available in all [[= product_name =]] editions as of version v4.6.0.
 An example implementation is delivered as an optional package that you can [install and customize](add_remote_pim_support.md) to fulfill your requirements.
 
 #### Capabilities
 
 With remote PIM support, you can take advantage of the following capabilities:
 
+##### Product marketing
+
+Use the product information coming from another system in your marketing campaigns to promote certain products or brands.
+By embedding the products within content items and landing pages, you can leverage [[= product_name =]] marketing capabilities to showcase products.
+
 ##### Purchasing
 
-Remote PIM support ensures that integration with [Commerce features](commerce.md) mirrors the efficiency of the local PIM, even with [quick orders](quick_order.md).
-This versatility allows for a consistent and user-friendly workflow regardless of the product's origin.
+Remote PIM systems can integrate with [Commerce features](commerce.md).
+This versatility allows for a consistent and user-friendly purchasing workflow regardless of the product's origin.
 
 ##### Pricing, stock and availability
 
@@ -181,18 +188,25 @@ A product can only be ordered when it has defined [availability]([[= user_doc =]
 By default, such information is held in the [[= product_name =]]'s local database.
 In your specific scenario, you can implement the support for availability and pricing information coming from an external source as well, by using a price/availability matching strategy that is an extension point exposed in the Product catalog module.
 
-##### Filtering
+#### Limitations
 
-Filtering and pagination function the same as with the local PIM, relying on product attributes for effective organization of product data.
-However, criteria and Sort Clauses within local PIM correspond with [[= product_name =]]'s content model.
+The limitation of remote PIM depend on implementation details of specific integration and may arise in areas relying on [content model](content_model.md).
+
+To see the limitations of the [[= pim_product_name =]] PIM integration add-on, see [[[= pim_product_name =]] PIM known limitations](/product_catalog/quable/quable_guide.md#known-limitations).
+
+##### Searching
+
+Filtering and pagination function the same as with the product catalog, relying on product attributes for effective organization of product data.
+However, criteria and sort clauses within product catalog relying on [[= product_name =]]'s content model are not supported.
+
 Depending on your source of product information, you might need to adjust the implementation to be compatible with your data format.
-For reference, you could review the `CriterionVisitor.php` file that is part of [Remote PIM example package](add_remote_pim_support.md#install-remote-pim-example-package).
+For reference, you could review the [`CriterionVisitor` class](https://github.com/ibexa/example-in-memory-product-catalog/blob/main/src/lib/PIM/InMemory/CriterionVisitor.php) that is part of [Remote PIM example package](add_remote_pim_support.md#install-remote-pim-example-package).
+
+For more information about product search, see [Product Search Criteria reference](product_search_criteria.md) and [Product Sort Clauses](product_sort_clauses.md).
 
 ##### Catalogs
 
-Catalogs can be created just like with the local PIM, but the criteria are limited to type, availability, and attributes.
-
-#### Limitations
+Depending on the implementation, creating [catalogs](#catalogs) might be supported, but the criteria for filtering can be limited.
 
 The default implementation, which serves as a basis for the example remote PIM package, has some limitations: certain functionalities either don't operate or operate within defined constraints.
 Therefore, if your specific requirements aren't met, you may need to extend [[= product_name =]].
@@ -213,7 +227,7 @@ Therefore, if your specific requirements aren't met, you must extend the applica
 - Taxonomy
 - URL aliases
 
-##### Simplified presentation of PIM-related blocks and views
+##### Simplified presentation of product-related blocks and views
 
 Enabling Remote PIM impacts a number of application views and blocks, such as Product view, Product list, Catalog, and Product Collection.
 They're simplified, for example, they don't include thumbnails and other assets, or refer to URL aliases.
@@ -281,7 +295,7 @@ You can set up different prices depending on customer group - it means that you 
 
 ### Product taxonomy
 
-The taxonomy mechanism enables creating tags or categories with a tree structure and assign them to a content item, for example, Products. Thanks to this mechanism product categories can be organized into a Category tree to make it easy for the users to browse and to deliver content appropriate for them.
+The [taxonomy mechanism](taxonomy.md) enables creating tags or categories with a tree structure and assign them to a content item, for example, Products. Thanks to this mechanism product categories can be organized into a Category tree to make it easy for the users to browse and to deliver content appropriate for them.
 
 ### Grouping products into catalogs
 

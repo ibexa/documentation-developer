@@ -9,8 +9,10 @@ month_change: false
 
 [[= product_name =]]'s Product API provides two services for handling product information, which differ in function:
 
-- [`ProductServiceInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-ProductServiceInterface.html) is used to request product data
-- [`LocalProductServiceInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Local-LocalProductServiceInterface.html) is used to modify products
+| Service name | Description |
+| ------------ | ----------- |
+| [`ProductServiceInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-ProductServiceInterface.html) | Use it to retrieve product data regardless of the source: [[= product_name =]], [[[= pim_product_name =]]](/product_catalog/quable/quable.md), or [remote PIM](add_remote_pim_support.md) |
+| [`LocalProductServiceInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Local-LocalProductServiceInterface.html) | Use it to modify products defined in [[= product_name =]] |
 
 !!! tip "Product REST API"
 

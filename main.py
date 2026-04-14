@@ -1,6 +1,7 @@
 import os
 import pprint
 import re
+import urllib.error
 import urllib.request
 from mkdocs.structure.pages import Page
 from mkdocs.utils import meta
@@ -77,9 +78,12 @@ def define_env(env):
             if hash:
                 hash = '#' + hash
 
-            if re.search("^https://[^@/]+.ibexa.co", path):
+            if re.search(r"^https?://", path):
                 html = True
-                content = urllib.request.urlopen(path).read().decode('utf-8')
+                try:
+                    content = urllib.request.urlopen(path).read().decode('utf-8')
+                except urllib.error.URLError:
+                    content = ""
             elif re.search(".html$", path):
                 html = True
                 content = open("docs/%s" % path, "r").read()

@@ -6,7 +6,7 @@ description: Create a symbol attribute type that enables for the efficient repre
 
 In product specifications, the symbol attribute type enables the efficient representation of string-based data and enforces their format.
 
-This feature allows you to store standard product identifiers (such as EAN or ISBN) in the [Product Information Management](pim_guide.md) system.
+This feature allows you to store standard product identifiers (such as EAN or ISBN) in the [product catalog](product_catalog_guide.md).
 
 ## Build-in symbol attribute formats
 
@@ -66,7 +66,7 @@ To validate checksum of symbol:
 See below the example implementation of checksum validation using Luhn formula:
 
 ``` php
-[[= include_file('code_samples/pim/Symbol/Format/Checksum/LuhnChecksum.php') =]]
+[[= include_file('code_samples/product_catalog/Symbol/Format/Checksum/LuhnChecksum.php') =]]
 ```
 
 Example service definition:

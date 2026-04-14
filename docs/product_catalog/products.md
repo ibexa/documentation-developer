@@ -1,5 +1,5 @@
 ---
-description: Products in the PIM are characterized by attributes describing their characteristics. You can create product variants and add assets to each product and variant.
+description: Products are characterized by attributes describing their characteristics. You can create product variants and add assets to each product and variant.
 month_change: false
 ---
 
@@ -40,8 +40,9 @@ The following attribute types are available:
 - [date and time](date_and_time.md)
 - float
 - integer
-- measurement
+- measurement (`measurement_range` and `measurement_single`)
 - selection
+- [symbol](symbol_attribute_type.md)
 
 Product attributes are collected in groups.
 An example of an attribute group can be dimensions (length, width, height).
@@ -64,7 +65,7 @@ You can create product variants automatically based on attributes that have the 
 You can create variants for any combination of values of selected attributes.
 In the back office you can automatically generate all possible variants for a product.
 
-Codes for product variants are generated automatically based on the [selected strategy](pim_configuration.md#code-generation-strategy).
+Codes for product variants are generated automatically based on the [selected strategy](product_catalog_configuration.md#code-generation-strategy).
 
 Each product variant has separate availability and stock information.
 Each variant can also have separate price rules.
@@ -76,6 +77,14 @@ Product assets are images that are assigned to products and their specific varia
 
 You can group assets in collections which correspond to specific values of attributes.
 A collection is assigned to the variant or variants that have these attribute values.
+
+## Embed products in content
+
+You can embed products directly into content, including the [landing pages](pages.md), by using the [Online Editor](online_editor_guide.md).
+
+Use it to build marketing campaigns directly around the products, bridging product marketing and product data together.
+
+To customize the design of the embedded products, see [Customize product embed templates](customize_product_embed_templates.md).
 
 ## Product availability and stock
 

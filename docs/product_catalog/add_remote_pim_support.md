@@ -4,7 +4,10 @@ description: Install and configure the Remote PIM example package.
 
 # Add Remote PIM support
 
-To implement [Remote PIM support](pim_guide.md#remote-pim-support) you can build upon a foundation provided by [[= product_name_base =]].
+[[= product_name =]] provides flexible product catalog infrastructure that works with external Product Information Management (PIM) systems.
+For advanced product data management without custom development, you can use the readily available [[[= pim_product_name =]] PIM integration](quable/quable.md) with [[= product_name =]].
+
+To implement [Remote PIM support](product_catalog_guide.md#remote-pim-support) for a custom integration, you can build upon a foundation provided by [[= product_name_base =]].
 
 While doing so, you must implement services that process data coming from the remote PIM.
 
@@ -22,7 +25,7 @@ To connect to your remote PIM, provide your implementation of the following serv
 
 ## Switch to the new product catalog engine
 
-To inform the application that the local PIM engine has been replaced by an external one, in `config/packages/ibexa_product_catalog.yaml`, set the new product catalog engine, for example:
+To inform the application that the product catalog engine has been replaced by an external one, in `config/packages/ibexa_product_catalog.yaml`, set the new product catalog engine, for example:
 
 ``` yaml
 ibexa_product_catalog:
@@ -46,12 +49,12 @@ ibexa:
 
 !!! note "Enabling the remote PIM support"
 
-    By default, the `ibexa.repositories.<repository_name>.product_catalog.engine.type` key is set to `local`, which informs [[= product_name =]] that the built-in PIM solution is used.
+    By default, the `ibexa.repositories.<repository_name>.product_catalog.engine.type` key is set to `local`, which informs [[= product_name =]] that the built-in product catalog capabilities are used.
     By changing this setting and the `ibexa.repositories.<repository_name>.product_catalog.engine` setting from `default` to your custom value, you inform [[= product_name =]] that you're using a remote PIM.
 
 ## Install Remote PIM example package
 
-The example implementation provides services that take over the role of services provided by the local PIM package.
+The example implementation provides services that take over the role of services provided by the product catalog package.
 You can modify them to suit your needs.
 
 Install the `ibexa/example-in-memory-product-catalog` package:

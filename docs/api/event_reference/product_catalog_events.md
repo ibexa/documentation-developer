@@ -1,9 +1,10 @@
 ---
-description: Events that are triggered when working with products, prices and currencies.
+description: Events that are triggered when working with products, prices, currencies, and attribute rendering.
 page_type: reference
+month_change: true
 ---
 
-# Catalog events
+# Product catalog events
 
 ## Products
 
@@ -84,3 +85,13 @@ page_type: reference
 |`CreateCatalogEvent`|`CatalogService::createCatalog`|`CatalogCreateStruct $createStruct`</br>`CatalogInterface $catalog`|
 |`DeleteCatalogEvent`|`CatalogService::deleteCatalog`|`CatalogInterface $catalog`|
 |`UpdateCatalogEvent`|`CatalogService::updateCatalog`|`CatalogUpdateStruct $updateStruct`|
+
+## Attribute rendering
+
+The following event is dispatched when the [`ibexa_format_product_attribute`](product_twig_functions.md#ibexa_format_product_attribute) Twig filter renders an attribute value.
+
+| Event | Dispatched by | Properties |
+|---|---|---|
+|`ProductAttributeRenderEvent`|`ibexa_format_product_attribute` Twig filter|`list<string> $templates`</br>[`AttributeInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Values-AttributeInterface.html)</br>`array $parameters`|
+
+For a usage example, see [Customize product attribute templates](customize_product_attribute_templates.md).

@@ -290,6 +290,10 @@ The Personalization limitation specifies the SiteAccesses for which the user can
 
 The Product Type (`ProductType`) limitation specifies whether the user has access to products belonging to a specific product type.
 
+!!! warning
+
+    The `ProductType` limitation can't be used when using [[[= pim_product_name =]]](/product_catalog/quable/quable.md).
+
 ### Possible values
 
 |Value|UI value|Description|

@@ -1,10 +1,10 @@
 ---
-description: Configure PIM settings per Repository, with different catalog engines and VAT configurations.
+description: Configure product catalog settings per repository, with different catalog engines and VAT configurations.
 ---
 
-# PIM configuration
+# Product catalog configuration
 
-You can configure PIM per [Repository](repository_configuration.md).
+You can configure the product catalog per [Repository](repository_configuration.md).
 
 Under `ibexa.repositories.<repository_name>.product_catalog` [configuration key](configuration.md#configuration-files), indicate the catalog engine to use:
 
@@ -32,7 +32,11 @@ ibexa_product_catalog:
                 product_type_group_identifier: 'product'
 ```
 
-The `local` type is the built-in type of catalog based on the repository.
+The `local` type is the built-in type of catalog based on the content repository.
+With [[[= pim_product_name =]] PIM integration](/product_catalog/quable/quable_guide.md) add-on installed and configured, by using the `quable` type you can retrieve product data coming from [[= pim_product_name =]].
+
+You can use a single engine across all repositories, or assign different ones per repository.
+Each repository can use only one product catalog engine.
 
 Under `options.product_type_group_identifier` you can define the identifier of the content type Group used for storing products.
 
@@ -99,6 +103,21 @@ ibexa_product_catalog:
 ```
 
 You can also [create your own custom code generation strategy](create_product_code_generator.md).
+
+## Attribute rendering templates
+
+You can configure which Twig templates are used to render product attribute values with the [`ibexa_format_product_attribute` Twig filter](product_twig_functions.md#ibexa_format_product_attribute).
+
+```yaml
+ibexa_product_catalog:
+    templates:
+        attributes:
+            - 'templates/product/attributes/my_attribute_blocks.html.twig'
+```
+
+The default template (`@ibexadesign/product_catalog/product/attributes/attribute_blocks.html.twig`) is always appended as the last fallback, even if not listed explicitly.
+
+For more information, see [Customize product attribute templates](customize_product_attribute_templates.md).
 
 ## Catalogs
 

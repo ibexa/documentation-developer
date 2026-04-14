@@ -289,7 +289,7 @@ The [discount](discounts.md) policies decide which actions can be executed by gi
 | <nobr>`comparison`</nobr> | <nobr>`view`</nobr>         | view version comparison                |
 | <nobr>`workflow`</nobr>   | <nobr>`change_stage`</nobr> | change stage in the specified workflow | [Workflow Transition](limitation_reference.md#workflow-transition-limitation) |
 
-### PIM
+### Product catalog
 
 #### Catalogs
 
@@ -309,6 +309,10 @@ The [discount](discounts.md) policies decide which actions can be executed by gi
 |                        | <nobr>`edit`</nobr>   | edit a product                              | [Product Type](limitation_reference.md#product-type-limitation)</br>[Language](limitation_reference.md#language-limitation) |
 |                        | <nobr>`view`</nobr>   | view products listed in the product catalog | [Product Type](limitation_reference.md#product-type-limitation)                                                             |
 
+!!! warning
+
+    The `ProductType` limitation can't be used when using [[[= pim_product_name =]]](/product_catalog/quable/quable.md).
+
 #### Product collaborative editing
 
 | Module               | Function              | Effect                                                                   | Possible limitations |
@@ -317,12 +321,16 @@ The [discount](discounts.md) policies decide which actions can be executed by gi
 
 #### Product types
 
-| Module                      | Function              | Effect                                                                                                          | Possible limitations |
-|-----------------------------|-----------------------|-----------------------------------------------------------------------------------------------------------------|----------------------|
-| <nobr>`product_type`</nobr> | <nobr>`create`</nobr> | create a product type, a new attribute, a new attribute group, and add translation to product type and attribute |
-|                             | <nobr>`delete`</nobr> | delete a product type, attribute, attribute group                                                               |
-|                             | <nobr>`edit`</nobr>   | edit a product type, attribute, attribute group                                                                 |
-|                             | <nobr>`view`</nobr>   | view product types, attributes and attribute groups                                                             |
+| Module                      | Function              | Effect                                                                                                           | Possible limitations |
+|-----------------------------|-----------------------|------------------------------------------------------------------------------------------------------------------|----------------------|
+| <nobr>`product_type`</nobr> | <nobr>`create`</nobr> | create a product type, a new attribute, a new attribute group, and add translation to product type and attribute | [Product Type](limitation_reference.md#product-type-limitation) |
+|                             | <nobr>`delete`</nobr> | delete a product type, attribute, attribute group                                                                |                      |
+|                             | <nobr>`edit`</nobr>   | edit a product type, attribute, attribute group                                                                  | [Product Type](limitation_reference.md#product-type-limitation) |
+|                             | <nobr>`view`</nobr>   | view product types, attributes and attribute groups                                                              |                      |
+
+!!! warning
+
+    The `ProductType` limitation can't be used when using [[[= pim_product_name =]]](/product_catalog/quable/quable.md).
 
 ## Combining policies
 
