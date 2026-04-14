@@ -592,6 +592,8 @@ nav:
             - Sibling: search/criteria_reference/sibling_criterion.md
             - Subtree: search/criteria_reference/subtree_criterion.md
             - TaxonomyEntryID: search/criteria_reference/taxonomy_entry_id.md
+            - TaxonomyNoEntries: search/criteria_reference/taxonomy_no_entries.md
+            - TaxonomySubtree: search/criteria_reference/taxonomy_subtree.md
             - UserEmail: search/criteria_reference/useremail_criterion.md
             - UserId: search/criteria_reference/userid_criterion.md
             - UserLogin: search/criteria_reference/userlogin_criterion.md
