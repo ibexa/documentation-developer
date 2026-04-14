@@ -115,9 +115,7 @@ You can use it for migrations that might fail under certain conditions but shoul
 For example, you can create languages without checking if they already exist:
 
 ``` yaml
-[[#
 [[= include_file('code_samples/data_migration/examples/try_catch_step.yaml') =]]
-#]]
 ```
 
 The `try_catch` step allows you to specify which exceptions to catch and whether to continue executing remaining steps after an exception occurs.
