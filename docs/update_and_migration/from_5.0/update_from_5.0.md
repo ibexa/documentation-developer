@@ -341,7 +341,7 @@ curl -fs https://get.symfony.com/cloud/configurator | bash
 This version of [[= product_name =]] requires [Symfony 7.4](https://symfony.com/releases/7.4).
 Update Symfony constraints in `composer.json` before updating the packages.
 
-1. In `composer.json`, update `extra.symfony.require` to allow installing higher Symfony version:
+1. In `composer.json`, update `extra.symfony.require` to allow installing a higher Symfony version:
 
     ```json
     "extra": {
@@ -361,7 +361,7 @@ Update Symfony constraints in `composer.json` before updating the packages.
 3. Review your code, configuration, and third-party bundles for Symfony 7.4 compatibility.
 
     For more details about the new version, see the official Symfony [upgrade instructions](https://github.com/symfony/symfony/blob/7.4/UPGRADE-7.4.md) and [blog posts introducing this release](https://symfony.com/blog/category/living-on-the-edge/8.0-7.4).
-    Among the changes are:
+    Key changes include:
 
     - Array-based PHP configuration format
 
@@ -397,7 +397,7 @@ Update Symfony constraints in `composer.json` before updating the packages.
         composer recipes:install ibexa/commerce --force -v
         ```
 
-5. Restore manually the entry for `JMSTranslationBundle` in `config/bundles.php` to [its previous position](https://github.com/ibexa/commerce-skeleton/blob/v5.0.6/config/bundles.php#L14):
+5. Manually restore the entry for `JMSTranslationBundle` in `config/bundles.php` to [its previous position](https://github.com/ibexa/commerce-skeleton/blob/v5.0.6/config/bundles.php#L14):
 
     ``` hl_lines="2"
         FOS\HttpCacheBundle\FOSHttpCacheBundle::class => ['all' => true],
