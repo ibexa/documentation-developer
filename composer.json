@@ -82,6 +82,7 @@
         "ibexa/phpstan": "~5.0.-dev",
         "deptrac/deptrac": "^3.0",
         "ibexa/cdp": "~5.0.x-dev",
+        "ibexa/connector-raptor": "~5.0.x-dev",
         "ibexa/image-editor": "~5.0.x-dev"
     },
     "scripts": {
