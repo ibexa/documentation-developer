@@ -67,5 +67,6 @@ The features brought by LTS Updates become standard parts of the next LTS releas
 | Feature | [[= product_name_headless =]] | [[= product_name_exp =]] | [[= product_name_com =]] |
 |-----------------|-----------------|-----------------|-----------------|
 | [Anthropic connector](configure_ai_actions.md#install-anthropic-connector) | &#10004; | &#10004; | &#10004; |
+| [Google Gemini connector](configure_ai_actions.md#install-google-gemini-connector) | &#10004; | &#10004; | &#10004; |
 | [Integrated help](integrated_help.md) | &#10004; | &#10004; | &#10004; |
 | [Shopping list](shopping_list_guide.md) |  |  | &#10004; |
