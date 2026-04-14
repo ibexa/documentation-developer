@@ -5,7 +5,7 @@ description: Install and configure the Remote PIM example package.
 # Add Remote PIM support
 
 [[= product_name =]] provides flexible product catalog infrastructure that works with external Product Information Management (PIM) systems.
-For advanced product data management without custom development, you can use the existing [[[= pim_product_name =]] PIM integration](/product_catalog/quable/quable.md) with [[= product_name =]].
+For advanced product data management without custom development, you can use the readily available [[[= pim_product_name =]] PIM integration](quable.md) with [[= product_name =]].
 
 To implement [Remote PIM support](product_catalog_guide.md#remote-pim-support) for a custom integration, you can build upon a foundation provided by [[= product_name_base =]].
 
