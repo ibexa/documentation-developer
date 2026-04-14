@@ -11,3 +11,4 @@ auth.json
 .yarn
 yarn.lock
 docs/css/*.map
+.deptrac.cache

@@ -424,7 +424,7 @@ Next, use nslookup to find the IP:
 ### Fetching user context hash
 
 As explained in [User Context Hash caching](context_aware_cache.md#user-context-hash-caching), the HTTP cache indexes the cache based on the user-context-hash.
-Users with the same user-context-hash here the same cache (as long as [[= product_name =]] responds with `Vary: X-Context-User-Hash`).
+Users with the same user-context-hash share the same cache (as long as [[= product_name =]] responds with `Vary: X-User-Context-Hash`).
 
 To simulate the requests the HTTP cache sends to [[= product_name =]], you need this user-context-hash.
 To obtain it, use `curl`.

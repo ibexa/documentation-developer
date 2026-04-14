@@ -590,7 +590,7 @@ all versions are copied, otherwise only the given version.</p>
                 </td>
                 <td class="code">
                     <div>
-                        <pre><code><span class="phpdocumentor-signature__visibility">public </span><span class="phpdocumentor-signature__name">count</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/Ibexa-Contracts-Core-Repository-Values-Filter-Filter.html"><abbr title="\Ibexa\Contracts\Core\Repository\Values\Filter\Filter">Filter</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$filter</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$languages</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">int</span></code></pre>
+                        <pre><code><span class="phpdocumentor-signature__visibility">public </span><span class="phpdocumentor-signature__name">count</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/Ibexa-Contracts-Core-Repository-Values-Filter-Filter.html"><abbr title="\Ibexa\Contracts\Core\Repository\Values\Filter\Filter">Filter</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$filter</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$languages</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">int|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$limit</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">int</span></code></pre>
                     </div>
                 </td>
             </tr>
@@ -640,6 +640,25 @@ all versions are copied, otherwise only the given version.</p>
                                                                         </td>
                     <td class="empty">
                                                     -
+                                            </td>
+                </tr>
+                            <tr>
+                    <td>
+                        $limit
+                    </td>
+                    <td>
+                        int|null
+                    </td>
+                    <td>
+                                                                                    null
+                                                                        </td>
+                    <td>
+                                                        <section class="phpdocumentor-description">
+        <p>If set, the count will be limited to first $limit items found.
+In some cases it can significantly speed up a count operation for more complex filters.</p>
+
+    </section>
+
                                             </td>
                 </tr>
                     </tbody>

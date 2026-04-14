@@ -92,7 +92,7 @@ Alternatively if you have needs to configure the servers dynamically:
 
 !!! note "[[= product_name_cloud =]]"
 
-    For [[= product_name_cloud =]], this is already configured based on `.platform.app.yaml` config.
+    For [[= product_name_cloud =]] installations, the [`ibexa/cloud` package](install_on_ibexa_cloud.md) performs configuration based on the `.platform.app.yaml` file.
 
 If you're on `php-redis` v4.2.0 and higher, you can optionally tweak [`php-redis` settings](https://github.com/phpredis/phpredis#session-locking) for session locking.
 

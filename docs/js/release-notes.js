@@ -16,10 +16,13 @@
     const releaseNotesItems = [...releaseNotesNodes].map((releaseNotesNode) => {
         const tagsNodes = releaseNotesNode.querySelectorAll('.release-note__tags .pill');
         const tagsItems = [...tagsNodes].map((tagNode) => `filter-${tagNode.dataset.filter}`);
+        const id = releaseNotesNode.getElementsByTagName('h2')[0].getAttribute('id');
+        const tocEntry = doc.querySelector(`.md-sidebar--secondary a[href="#${id}"]`).parentNode;
 
         return {
             node: releaseNotesNode,
             tags: tagsItems,
+            toc: tocEntry,
         };
     });
     const handleClickOutside = ({ target }) => {
@@ -46,10 +49,11 @@
         filterItem.addEventListener('change', () => {
             const checkedItems = [...filterItems].filter(({ checked }) => checked).map(({ id }) => id);
 
-            releaseNotesItems.forEach(({ node, tags }) => {
+            releaseNotesItems.forEach(({ node, tags, toc }) => {
                 const isVisible = checkedItems.length === 0 || tags.some((tag) => checkedItems.includes(tag));
 
                 node.classList.toggle('release-note--hidden', !isVisible);
+                toc.classList.toggle('release-note--hidden', !isVisible);
             });
             visibleItems.forEach((visibleItem) => {
                 const isVisible = checkedItems.includes(visibleItem.dataset.filter);

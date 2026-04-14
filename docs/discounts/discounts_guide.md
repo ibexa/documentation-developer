@@ -71,7 +71,7 @@ After choosing where the discount applies (catalog or cart), you can choose the 
 - **Fixed amount** - where a specified amount of money, for example, 5 Euro, is deducted from the base price of the product
 - **Percentage** - where a specified percentage, for example, 10%, is used to calculate the deducted amount from the product's base price
 
-Discounts are translatable and you can limit them to specific [regions](pim_guide.md#regions) or a single currency.
+Discounts are translatable and you can limit them to specific [regions](product_catalog_guide.md#regions) or a single currency.
 They can be permanent or be active only in a specified time frame.
 Regardless of the specified dates, you can disable a discount at any time to prevent customers from using it.
 
@@ -86,10 +86,10 @@ With discounts, you can target your entire customer base or only a subset of it 
 
 #### Product selection
 
-All products, including [product variants](pim_guide.md#product-variants), can be selected when creating a discount.
+All products, including [product variants](product_catalog_guide.md#product-variants), can be selected when creating a discount.
 You can also limit this choice to a subset of products:
 
-- belonging to selected [product categories](pim_guide.md#product-categories)
+- belonging to selected [product categories](product_catalog_guide.md#product-categories)
 - hand-picked manually for special cases
 
 #### Conditions

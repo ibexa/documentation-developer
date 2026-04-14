@@ -12,13 +12,13 @@ If you're looking for the Long Term Support (LTS) release, see [https://ezplatfo
 
 #### Improved way of writing field type gateways
 
-[EZP-26885](https://issues.ibexa.co/browse/EZP-26885): you now have access to the Doctrine connection instead of
+You now have access to the Doctrine connection instead of
 the Zeta Components Database connection-like object which has been exposed to field types until now.
 The former way will be removed in a future major version.
 
 #### Content type limitation for Relation (single) field
 
-[EZP-24800](https://issues.ibexa.co/browse/EZP-24800): you can now specify a content type limitation for the Relation field,
+You can now specify a content type limitation for the Relation field,
 just like with the Relation List field. This enables you to limit what kind of relations Editors can select also on singular relation fields.
 
 ![Adding a new Relation (single) Field with allowed content types](relation_single_allowed_cts.png)
@@ -27,7 +27,7 @@ This has been made possible by initial legacy contribution from [@peterkeung](ht
 
 #### API endpoint for removing translations
 
-[EZP-27417](https://issues.ibexa.co/browse/EZP-27417) provides an API endpoint to remove a given translation completely from a content item.
+You can now use an API endpoint to remove a given translation completely from a content item.
 
 ### eZ Platform Enterprise Edition
 
@@ -53,8 +53,6 @@ instead of a new one each time a visitor arrives at the site.
 Fetching recommendations was also refactored to use the v2 of the Recommendation API.
 With this step the *clickrecommended* event now includes detailed feedback information about how recommendations were generated.
 This is very important for the analysis of statistics to measure the performance of recommendations.
-
-See [EZEE-1611](https://issues.ibexa.co/browse/EZEE-1611) for details.
 
 #### Official Enterprise Support for Legacy Bridge
 

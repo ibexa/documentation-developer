@@ -1,4 +1,5 @@
 ---
+month_change: false
 description: Install Elasticsearch to use it with Ibexa DXP.
 ---
 
@@ -19,7 +20,7 @@ docker run -d --name ibexa-dxp-elasticsearch -p 9200:9200 -p 9300:9300 -e "disco
 
 ## Verify the instance
 
-To make sure that the Elasticsearch instance operates properly, access the instance (for example, with `curl http://localhost:9200/`).
+To make sure that the Elasticsearch instance operates properly, access the instance, for example, with `curl http://localhost:9200/`.
 
 If Elasticsearch operates properly, an object with cluster details is displayed.
 It should be similar to the following example:
@@ -91,4 +92,4 @@ php bin/console ibexa:reindex
 !!! caution "Risks of premature indexing"
 
     Don't reindex your data before you create index templates.
-    Otherwise Elasticsearch attempts to use its [dynamic field mapping](https://www.elastic.co/guide/en/elasticsearch/reference/8.19/dynamic-field-mapping.html) feature to create type mappings automatically.
+    Otherwise, Elasticsearch attempts to use its [dynamic field mapping](https://www.elastic.co/guide/en/elasticsearch/reference/8.19/dynamic-field-mapping.html) feature to create type mappings automatically.

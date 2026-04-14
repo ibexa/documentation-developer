@@ -155,11 +155,11 @@ Depending on the number of lookups and latency to cache server this might affect
 
 #### Adjusting configuration
 
-Out of the box in `config/packages/cache_pool/cache.redis.yaml` you can find a default example that can be used.
+A default example that you can use out-of-the-box is found in `config/packages/cache_pool/cache.redis.yaml`.
 
 !!! note "[[= product_name_cloud =]]"
 
-    For [[= product_name_cloud =]]: This is automatically configured in `vendor/ibexa/core/src/bundle/Core/DependencyInjection/IbexaCoreExtension.php` if you have enabled Redis as `rediscache` Upsun service.
+    For [[= product_name_cloud =]] installations, the [`ibexa/cloud` package](install_on_ibexa_cloud.md) performs configuration based on the `.platform.app.yaml` file.
 
 For anything else, you can enable it with environment variables.
 For instance, if you set the following environment variables `export CACHE_POOL="cache.redis" CACHE_DSN="secret@example.com:1234/13"`, it results in config like this:

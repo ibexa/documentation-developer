@@ -173,7 +173,7 @@ Instead of manually browsing through extensive taxonomy trees, editors can reque
 
 ### Performing advanced image to text analysis
 
-With some additional customization, store managers could benefit from automating part of product management by integrating their [[= product_name =]] with Google Cloud Vision and [PIM](pim_guide.md) by using [[= product_name_connect =]].
+With some additional customization, store managers could benefit from automating part of product management by integrating their [[= product_name =]] with Google Cloud Vision and the [product catalog](product_catalog_guide.md) by using [[= product_name_connect =]].
 Instead of manually selecting and linking images stored in a [DAM](add_image_asset_from_dam.md) solution to their products, they could use of a no-code workflow where an AI service, for example, Google Cloud Vision, extracts text and attributes from product images, which are then matched with existing items in a product catalog.
 
 This would enable automatic product identification, tagging, and catalog updates, resulting in less manual work and more efficient product management.

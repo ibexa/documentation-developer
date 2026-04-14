@@ -1,4 +1,5 @@
 ---
+month_change: false
 description: Configure Elasticsearch to use it with Ibexa DXP.
 ---
 
@@ -255,7 +256,7 @@ ibexa_elasticsearch:
                 credentials: ['VnVhQ2ZHY0JDZGJrUW0tZTVhT3g6dWkybHAyYXhUTm1zeWFrdzl0dk5udw==']
 ```
 
-Refer to the [examples in Elasticsearch documentation](https://www.elastic.co/guide/en/elasticsearch/reference/8.19/security-api-create-api-key.html#security-api-create-api-key-example) to see the difference between API key, API key id, and encoded API key.
+To see the difference between API key, API key id, and encoded API key, refer to the [examples in Elasticsearch documentation](https://www.elastic.co/guide/en/elasticsearch/reference/8.19/security-api-create-api-key.html#security-api-create-api-key-example).
 
 ### SSL
 
@@ -312,7 +313,8 @@ For more information, see [Elasticsearch: SSL Encryption](https://www.elastic.co
 In a staging environment, you can log messages about the status of communication with Elasticsearch.
 You can then use Symfony Profiler to review the logs.
 
-By default, debugging is disabled. To enable debugging, you can use the following setting:
+By default, debugging is disabled.
+To enable debugging, you can use the following setting:
 
 ``` yaml
 <connection_name>:
@@ -411,8 +413,8 @@ For more information and a list of available settings, see [Elasticsearch docume
 For more information about mappings, see [Elasticsearch documentation](https://www.elastic.co/guide/en/elasticsearch/reference/8.19/mapping.html).
 
     When you create a custom index template, with settings for your own field and document types, make sure that it contains mappings for all searchable fields that are available in [[= product_name =]].
-    For an example of default configuration with a list of searchable fields.
-    To see the default configuration, go to `vendor/ibexa/elasticsearch/src/bundle/Resources/config/` and open the `default-config.yaml` file.
+
+To see the default configuration, go to `vendor/ibexa/elasticsearch/src/bundle/Resources/config/` and open the `default-config.yaml` file.
 
 ### Fine-tune the search results
 
@@ -505,7 +507,7 @@ For more information about specifying the pattern for your language, see [Define
 
 For information about configuring an analyzer for each specific language, see [Elasticsearch documentation](https://www.elastic.co/guide/en/elasticsearch/reference/8.19/analysis-lang-analyzer.html).
 
-An adoption of the [English analyzer](https://www.elastic.co/guide/en/elasticsearch/reference/8.19/analysis-lang-analyzer.html#english-analyzer) in [[= product_name =]] configuration looks like this:
+An adoption of the [`english` analyzer](https://www.elastic.co/guide/en/elasticsearch/reference/8.19/analysis-lang-analyzer.html#english-analyzer) in [[= product_name =]] configuration looks like this:
 
 ```yaml hl_lines="3-5 15-23 35 41-52 94 99"
 [[= include_file('code_samples/search/custom/config/packages/elasticsearch-en.yaml') =]]

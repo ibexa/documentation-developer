@@ -30,7 +30,7 @@ Compare all features available in [[= product_name_headless =]], [[= product_nam
 | [Search]([[= user_doc =]]/search/search_for_content/) | &#10004; | &#10004; | &#10004; |
 | [Editorial workflow]([[= user_doc =]]/content_management/workflow_management/editorial_workflow/) | &#10004; | &#10004; | &#10004; |
 | [Digital Asset Management]([[= user_doc =]]/dam/ibexa_dam/) | &#10004; | &#10004; | &#10004; |
-| [Product Information Management]([[= user_doc =]]/pim/pim/) | &#10004; | &#10004; | &#10004; |
+| [Product catalog capabilities]([[= user_doc =]]/pim/pim/) | &#10004; | &#10004; | &#10004; |
 | [Date and time attribute type](date_and_time.md) | &#10004; | &#10004; | &#10004; |
 | [Symbol attribute type](symbol_attribute_type.md) | &#10004; | &#10004; | &#10004; |
 | [Personalization](personalization_guide.md) | &#10004; | &#10004; | &#10004; |
@@ -69,3 +69,4 @@ The features brought by LTS Updates become standard parts of the next LTS releas
 | [Anthropic connector](configure_ai_actions.md#install-anthropic-connector) | &#10004; | &#10004; | &#10004; |
 | [Google Gemini connector](configure_ai_actions.md#install-google-gemini-connector) | &#10004; | &#10004; | &#10004; |
 | [Integrated help](integrated_help.md) | &#10004; | &#10004; | &#10004; |
+| [Shopping list](shopping_list_guide.md) |  |  | &#10004; |
