@@ -13,7 +13,7 @@ Before installing the [[= pim_product_name =]] connector, ensure you have access
 
 ## Install package
 
-Run the following commands to install the required package:
+Run the following command to install the required package:
 
 ``` bash
 composer require ibexa/connector-quable
