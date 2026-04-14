@@ -19,6 +19,7 @@ month_change: true
 ) =]]
 
 This release introduces a new AI connector that allows you to integrate [AI Actions](https://doc.ibexa.co/en/5.0/ai_actions/ai_actions/) with [Google Gemini](https://gemini.google/overview/#what-gemini-is).
+Among other things, you can use it as an alternative embeddings provider for the taxonomy suggestions feature.
 
 For more information, see how to [install and configure the Google Gemini connector](https://doc.ibexa.co/en/5.0/ai_actions/configure_ai_actions/#install-google-gemini-connector).
 
