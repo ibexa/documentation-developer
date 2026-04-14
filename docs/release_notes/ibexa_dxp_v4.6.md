@@ -13,8 +13,28 @@ month_change: true
 [[% set version = 'v4.6.X' %]]
 
 [[= release_note_entry_begin(
-    "Integrated help " + version,
+    "Ibexa DXP " + version,
     'YYYY-MM-DD',
+    ['Headless', 'Experience', 'Commerce', 'New feature']
+) =]]
+
+### Gaussian blur optimization in Image Editor
+
+The [Image Editor]([[= user_doc =]]/image_management/edit_images/) now supports configurable gaussian blur strength for image optimization.
+You can adjust the blur level to balance between file size reduction and image sharpness.
+For more information, see [Configure image editor](https://doc.ibexa.co/en/4.6/content_management/images/configure_image_editor/#gaussian-blur-strength).
+
+### Full changelog
+
+[[% include 'snippets/release_46.md' %]]
+
+[[= release_note_entry_end() =]]
+
+[[% set version = 'v4.6.29' %]]
+
+[[= release_note_entry_begin(
+    "Integrated help " + version,
+    '2026-04-14',
     ['Headless', 'Experience', 'Commerce', 'LTS Update', 'New feature']
 ) =]]
 
@@ -28,7 +48,7 @@ For more information, see [Product tour](https://doc.ibexa.co/en/4.6/administrat
 
 [[= release_note_entry_begin(
     "Ibexa DXP " + version,
-    'YYYY-MM-DD',
+    '2026-04-14',
     ['Headless', 'Experience', 'Commerce', 'New feature']
 ) =]]
 
@@ -73,12 +93,6 @@ The following additions were made to the PHP API:
 - [`Ibexa\Contracts\Taxonomy\Search\Query\Criterion\TaxonomyNoEntries`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-Taxonomy-Search-Query-Criterion-TaxonomyNoEntries.html)
   (for more information, see [its search criteria reference entry](https://doc.ibexa.co/en/4.6/search/criteria_reference/taxonomy_no_entries/))
 - optionally, from the [Integrated help LTS-Update](https://doc.ibexa.co/en/4.6/administration/back_office/integrated_help/), classes of the - [`Ibexa\Contracts\IntegratedHelp` namespace](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/namespaces/ibexa-contracts-integratedhelp.html)
-
-### Gaussian blur optimization in Image Editor
-
-The [Image Editor]([[= user_doc =]]/image_management/edit_images/) now supports configurable gaussian blur strength for image optimization.
-You can adjust the blur level to balance between file size reduction and image sharpness.
-For more information, see [Configure image editor](https://doc.ibexa.co/en/4.6/content_management/images/configure_image_editor/#gaussian-blur-strength).
 
 ### Full changelog
 
