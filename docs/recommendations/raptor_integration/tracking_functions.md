@@ -32,14 +32,14 @@ The [tracking Twig function](#embed-tracking-script) outputs different content d
 ``` yaml
 # Server-side tracking
 connector_raptor:
-    tracking_type: 'server'  # Returns HTML comments
+    tracking_type: 'server'  # Returns nothing (prod) or HTML comments (dev)
 
 # Client-side tracking
 connector_raptor:
     tracking_type: 'client'  # Returns <script> tags
 ```
 
-- **server** - returns HTML comments, placeholders that do not perform any action. Instead, the tracking is done server-side.
+- **server** - doesn't return anything in the `prod` environment, while returns HTML comments in the `dev` environment or any environment where `kernel.debug` Symfony container parameter is set to `true`. Tracking is performed server-side.
 - **client** - returns `script` tags to load the tracking script in the browser.
 
 You can switch tracking mode anytime by changing the `tracking_type` parameter.
