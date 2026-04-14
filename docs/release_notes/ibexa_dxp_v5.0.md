@@ -10,16 +10,6 @@ month_change: false
 
 <div class="release-notes" markdown="1">
 
-[[% set version = 'v5.0.6' %]]
-
-[[= release_note_entry_begin("Google Gemini connector " + version, '2026-02-03', ['Headless', 'Experience', 'Commerce', 'LTS Update', 'New feature']) =]]
-
-This release introduces a new AI connector that allows you to integrate [AI Actions](ai_actions.md) with [Google Gemini](https://gemini.google/overview/#what-gemini-is).
-
-For more information, see how to [install and configure the Google Gemini connector](configure_ai_actions.md#install-google-gemini-connector).
-
-[[= release_note_entry_end() =]]
-
 [[% set version = 'v5.0.5' %]]
 
 [[= release_note_entry_begin("Ibexa DXP " + version, '2026-01-15', ['Headless', 'Experience', 'Commerce']) =]]
