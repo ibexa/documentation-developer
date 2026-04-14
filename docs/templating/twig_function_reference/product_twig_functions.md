@@ -19,7 +19,7 @@ The `ibexa_get_product()` filter gets the selected product based on either a pro
 ### `ibexa_format_product_attribute`
 
 The `ibexa_format_product_attribute` filter formats the attribute value to a readable, translated form.
-Rendering is performed using a configurable list of Twig templates with named blocks.
+Rendering is performed by using Twig templates with named blocks, defined in a configurable list.
 
 You can customize this behavior by adding templates or by listening to the [`ProductAttributeRenderEvent`](product_catalog_events.md#attribute-rendering).
 For more information, see [Customize product attribute templates](customize_product_attribute_templates.md).

@@ -8,8 +8,8 @@ month_change: true
 
 [[= product_name =]] integrates with [[[= pim_product_name =]]](https://www.quable.com/en) to provide product information management as part of the [[= product_name_base =]] orchestration platform.
 
-[[= pim_product_name =]] is [[= product_name_base =]]’s PIM solution for managing complex product catalogs and serves as the single source of truth.
-Once configured, the integration performs an initial synchronization of product data, followed by ongoing updates via webhooks.
+[[= pim_product_name =]] is [[= product_name_base =]]’s PIM solution for managing complex product catalogs and serves as the single source of truth, available as an add-on for [[= product_name =]].
+Once you install and configure it, the integration performs an initial synchronization of product data, followed by ongoing updates via webhooks.
 Products can be viewed, selected, and embedded in [[= product_name =]], while all product management operations remain handled in [[= pim_product_name =]].
 
 ## Getting started

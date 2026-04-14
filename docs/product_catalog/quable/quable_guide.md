@@ -37,6 +37,8 @@ This data is then available in the back office, content editing tools like [Onli
 
 All product management operations remain handled in [[= pim_product_name =]].
 
+[[= product_name =]] can be used to manage pricing and availability for products sourced from [[= pim_product_name =]], including support for market-specific configurations such as regions and currencies.
+
 ## Capabilities
 
 ### Single source of truth
@@ -45,10 +47,6 @@ All product management operations remain handled in [[= pim_product_name =]].
 
 
 [[= product_name =]] consumes this data and makes it available for use within content and back office interfaces, enabling editorial teams to enrich content by reusing product information.
-
-### Pricing and availability
-
-[[= product_name =]] can be used to manage pricing and availability for products sourced from [[= pim_product_name =]], including support for market-specific configurations such as regions and currencies.
 
 ## Use cases
 
@@ -68,6 +66,6 @@ The integration with [[= pim_product_name =]] has the following known limitation
 
 - It's not compatible with [Commerce](commerce.md) functionalities. [Carts](cart.md), [order management](order_management.md), and [shopping lists](shopping_list.md) can't be used with products coming from [[= pim_product_name =]].
 - [Catalogs](product_catalog_guide.md#catalogs) can't be created from [[= pim_product_name =]] products.
-- Product assets are not fully synchronized. Only the main asset thumbnail URL from [[= pim_product_name =]] is used.
+- [Product assets](product_catalog_guide.md#product-assets) are not fully synchronized. Only the main product thumbnail from [[= pim_product_name =]] is used.
 - [Product-level access restrictions](policies.md#products) based on product type are not supported.
 - Products with unsupported identifiers (containing `/` or exceeding 64 characters) are not synchronized.

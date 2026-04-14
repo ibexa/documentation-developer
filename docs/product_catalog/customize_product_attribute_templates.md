@@ -29,7 +29,7 @@ If none is found, it falls back to the first `generic_attribute` block available
 
 ### [[= pim_product_name =]] attribute types
 
-When using [[[= pim_product_name =]] PIM](/product_catalog/quable/quable.md), use the following identifiers to override the templates for [[[= pim_product_name =]]'s attribute types](https://docs.quable.com/docs/objects-and-attributes#attribute-types):
+When using [[[= pim_product_name =]] PIM](/product_catalog/quable/quable.md), use the following identifiers to override the templates for [[[= pim_product_name =]]'s attribute types](https://docs.quable.com/v5-EN/docs/objects-and-attributes#attribute-types):
 
 | Attribute name | Identifier |
 |---|---|
