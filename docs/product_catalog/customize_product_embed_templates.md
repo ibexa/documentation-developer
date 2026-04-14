@@ -5,7 +5,7 @@ month_change: true
 
 # Customize product embed templates
 
-When a product is [embedded in a RichText field](products.md#embed-products-in-content), it is rendered using a Twig template.
+When a product is [embedded in a RichText field](products.md#embed-products-in-content), it is rendered by using a Twig template.
 You can override the default templates to customize the appearance of embedded products.
 
 ## Embed types
