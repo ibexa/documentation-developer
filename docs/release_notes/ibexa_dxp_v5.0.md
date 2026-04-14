@@ -19,7 +19,7 @@ month_change: true
 ) =]]
 
 This release introduces a new AI connector that allows you to integrate [AI Actions](https://doc.ibexa.co/en/5.0/ai_actions/ai_actions/) with [Google Gemini](https://gemini.google/overview/#what-gemini-is).
-Among other things, you can use it as an alternative embeddings provider for the taxonomy suggestions feature.
+You can use it as an alternative embeddings provider for the [taxonomy suggestions feature](taxonomy.md#taxonomy-suggestions).
 
 For more information, see how to [install and configure the Google Gemini connector](https://doc.ibexa.co/en/5.0/ai_actions/configure_ai_actions/#install-google-gemini-connector).
 
@@ -47,9 +47,9 @@ For more information, see [Product tour](https://doc.ibexa.co/en/5.0/administrat
 
 ### Raptor connector
 
-The SiteAccess-aware Raptor connector provides a seamless integration between [[= product_name =]] and [Raptor Recommendation Engine](https://www.raptorservices.com/website-recommendations/).
+The Raptor connector provides a seamless integration between [[= product_name =]] and [Raptor Recommendation Engine](https://www.raptorservices.com/website-recommendations/).
 
-For more information, see [SiteAccess-aware Raptor connector](https://doc.ibexa.co/en/5.0/cdp/raptor_integration/raptor_connector/).
+For more information, see [Raptor connector](https://doc.ibexa.co/en/5.0/cdp/raptor_integration/raptor_connector/).
 
 #### Tracking
 
@@ -60,14 +60,13 @@ This add-on includes two Twig functions to ease tracking setting:
 
 #### Recommendations blocks [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
 
-This add-on introduces a set of recommendation blocks available in the [Page Builder](https://doc.ibexa.co/en/5.0/content_management/pages/page_builder_guide/),
-designed to suggest relevant content or products to users, such as the most popular items or viewed by others.
+This add-on introduces a set of recommendation blocks available in the [Page Builder](https://doc.ibexa.co/en/5.0/content_management/pages/page_builder_guide/), designed to suggest relevant content or products to users, such as the most popular items or viewed by others.
 
-For more information, see [Recommendation blocks in Page Builder](https://doc.ibexa.co/en/5.0/cdp/raptor_integration/pb_blocks/).
+For more information about Recommendation blocks in Page Builder, see the relevant [Developer Documentation](https://doc.ibexa.co/en/5.0/cdp/raptor_integration/pb_blocks/) and [User Documentation](https://doc.ibexa.co/projects/userguide/en/5.0/recommendations/raptor_integration/raptor_recommendation_blocks/).
 
 ### Quable PIM
 
-Add-on to integrate [[[= pim_product_name =]]](https://www.quable.com/en) with [[= product_name =]].
+This add-on enables integration between [[[= pim_product_name =]]](https://www.quable.com/en) and [[= product_name =]].
 
 For more information, see [Quable PIM Integration](https://doc.ibexa.co/en/5.0/product_catalog/quable/).
 
@@ -76,8 +75,7 @@ For more information, see [Quable PIM Integration](https://doc.ibexa.co/en/5.0/p
 #### Symfony 7.4
 
 Symfony is upgraded from 7.3 to 7.4.
-See [what's new in Symfony 7.4](https://symfony.com/blog/category/living-on-the-edge/8.0-7.4)
-and [how to update Symfony within [[= product_name =]]](https://doc.ibexa.co/en/5.0/update_and_migration/from_5.0/update_from_5.0/#update-symfony-from-73-to-74).
+See [what's new in Symfony 7.4](https://symfony.com/blog/category/living-on-the-edge/8.0-7.4) and [how to update Symfony within [[= product_name =]]](https://doc.ibexa.co/en/5.0/update_and_migration/from_5.0/update_from_5.0/#update-symfony-from-73-to-74).
 
 #### Taxonomy search
 
