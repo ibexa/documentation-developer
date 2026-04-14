@@ -89,11 +89,11 @@
         <div class="col-12 col-lg-6">
             <div class="notification notification--lts-update" id="tile3">
                 <div class="notification__content">
-                    <h2>The newest LTS Update is Shopping list</h2>
-                    <div>Customers can use it to save potential purchases, recurring product sets, and other items for future use in the cart.</div>
+                    <h2>The newest LTS Update is Google Gemini connector</h2>
+                    <div>Integrate Google's AI services with Ibexa DXP capabilities.</div>
                 </div>
                 <div class="notification__cta">
-                    <a href="commerce/shopping_list/shopping_list_guide/">Learn more about this LTS Update</a>
+                    <a href="ai_actions/configure_ai_actions#install-google-gemini-connector">Learn more about this LTS Update</a>
                     <a href="ibexa_products/editions/#lts-updates">Discover other LTS Updates</a>
                 </div>
                 <div class="notification__image">
