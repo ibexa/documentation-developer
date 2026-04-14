@@ -39,7 +39,7 @@ To query for products coming from [[= pim_product_name =]] PIM, see [[[= pim_pro
 |[IntegerAttributeRange](integerattributerange_criterion.md)|Value of product's integer attribute| &#10004;| |
 |[IsVirtual](isvirtual_criterion.md)|Product type (virtual or physical)| &#10004;| |
 |[LogicalAnd](logicaland_criterion.md)|Composite criterion to group multiple criteria using the AND condition| &#10004;| &#10004;|
-|[LogicalOr](logicalor_criterion.md)|Composite criterion to group multiple criteria using the OR condition| &#10004;|[Partially supported](quable_api.md#search-for-products)|
+|[LogicalOr](logicalor_criterion.md)|Composite criterion to group multiple criteria using the OR condition| &#10004;| |
 |[MatchAll](matchall_criterion.md)|All products| &#10004;| &#10004;|
 |[ProductAvailability](productavailability_criterion.md)|Product's availability| &#10004;| |
 |[ProductCategory](productcategory_criterion.md)|Product category assigned to product| &#10004;| &#10004;|

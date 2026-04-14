@@ -46,7 +46,6 @@ When working with [[= pim_product_name =]] products, the following search criter
 |-----|-----|
 |[CreatedAt](createdat_criterion.md)|Date and time when product was created|
 |[LogicalAnd](logicaland_criterion.md)|Composite criterion combining multiple criteria with AND|
-|[LogicalOr](logicalor_criterion.md)|Composite criterion combining multiple criteria with OR.<br/>Supports only a pair of criteria: `ProductCode` followed by `ProductName`|
 |[MatchAll](matchall_criterion.md)|All products|
 |[ProductCategory](productcategory_criterion.md)|Product category assigned to product|
 |[ProductCategorySubtree](productcategorysubtree_criterion.md)|Product category subtree|

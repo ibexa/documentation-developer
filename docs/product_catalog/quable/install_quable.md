@@ -26,8 +26,8 @@ The command adds the [[= pim_product_name =]] connector code, including services
 To connect to [[= pim_product_name =]] PIM, you need an API token:
 
 1. Log in to your [[= pim_product_name =]] instance, for example, `https://example.quable.com`.
-2. Navigate to the [API Tokens](https://docs.quable.com/v5-EN/docs/system-api-tokens) section.
-3. Create & copy the **Read Access Token** value for use in the configuration.
+2. Navigate to the [API Tokens](https://docs.quable.com/v5-EN/docs/api-tokens) section.
+3. Create a new **Read Access Token** for use in the configuration.
 
 ## Configure [[= pim_product_name =]] connector
 

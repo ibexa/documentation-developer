@@ -40,7 +40,7 @@ ibexa_connector_quable:
 | `webhook_secret` | string | Secret expected in the [webhook](https://docs.quable.com/v5-EN/docs/webhook) authorization header. |
 | <nobr>`throw_on_invalid_criteria`</nobr> | <nobr>`%kernel.debug%`</nobr> | Controls behavior for unsupported search criteria: `true` throws an exception, `false` only logs unsupported criteria. |
 | <nobr>`throw_on_invalid_mapping`</nobr> | <nobr>`%kernel.debug%`</nobr> | Controls behavior for mapping errors during data transformation: `true` throws an exception, `false` only logs mapping errors. |
-| `cache.enabled` | `true` | Global cache switch for the connector. When set to `false`, cache decorators use only [in-memory cache](persistence_cache.md#in-memory-cache-configuration). |
+| `cache.enabled` | `true` | Global cache switch for the connector. When set to `false`, only [in-memory cache](persistence_cache.md#in-memory-cache-configuration) is used. When set to `true`, [Symfony's `cache.app` cache pool]([[= symfony_doc =]]/cache.html#system-cache-and-application-cache) is used. |
 | `cache.attribute` | `true` | Enables caching for attribute definition requests. |
 | `cache.`<br>`attribute_group` | `true` | Enables caching for attribute group requests. |
 | `cache.`<br>`product` | `true` | Enables caching for product requests. |

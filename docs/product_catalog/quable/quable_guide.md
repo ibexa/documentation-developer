@@ -68,4 +68,4 @@ The integration with [[= pim_product_name =]] has the following known limitation
 - [Catalogs](product_catalog_guide.md#catalogs) can't be created from [[= pim_product_name =]] products.
 - [Product assets](product_catalog_guide.md#product-assets) are not fully synchronized. Only the main product thumbnail from [[= pim_product_name =]] is used.
 - [Product-level access restrictions](policies.md#products) based on product type are not supported.
-- Products with unsupported identifiers (containing `/` or exceeding 64 characters) are not synchronized.
+- You can't define prices and availability for products with product codes exceeding 64 characters.
