@@ -11,13 +11,10 @@ use Ibexa\IntegratedHelp\ProductTour\Block\TextBlock;
 use Ibexa\IntegratedHelp\ProductTour\ProductTourStep;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
-final class NotificationScenarioSubscriber implements EventSubscriberInterface
+final readonly class NotificationScenarioSubscriber implements EventSubscriberInterface
 {
-    private NotificationService $notificationService;
-
-    public function __construct(NotificationService $notificationService)
+    public function __construct(private NotificationService $notificationService)
     {
-        $this->notificationService = $notificationService;
     }
 
     public static function getSubscribedEvents(): array
