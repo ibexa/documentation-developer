@@ -113,7 +113,7 @@ ibexa_connector_quable:
         fre-FR: fr_FR
 ```
 
-The system uses the language map to resolve attribute values in the correct language when retrieving product data from [[= pim_product_name =]].
+The system uses the language map to retrieve data in the correct language from [[= pim_product_name =]].
 
 After configuring the map, rerun the `ibexa:quable:languages:check` command to confirm all languages are correctly mapped.
 
