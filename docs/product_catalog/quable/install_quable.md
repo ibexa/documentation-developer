@@ -100,13 +100,25 @@ ibexa:
 
 To use the products from [[= pim_product_name =]] within [[= product_name =]] content, make sure the [data languages](https://docs.quable.com/v5-EN/docs/data-languages) in [[= pim_product_name =]] have corresponding [languages](languages.md) in [[= product_name =]].
 
-To preview the current language configuration in both systems, run the following command:
+To compare the language configuration in both systems, run the following command:
 
 ``` bash
 php bin/console ibexa:quable:languages:check
 ```
 
-Based on the returned data, adjust the language configuration as your use case requires.
+Based on the command output, configure the `language_map` in `config/packages/ibexa_connector_quable.yaml`, mapping each [[= product_name =]] language code to its [[= pim_product_name =]] locale code as in the following example:
+
+``` yaml
+ibexa_connector_quable:
+    # ...
+    language_map:
+        eng-GB: en_GB
+        fre-FR: fr_FR
+```
+
+The system uses the language map to retrieve data in the correct language from [[= pim_product_name =]].
+
+After configuring the map, rerun the `ibexa:quable:languages:check` command to confirm all languages are correctly mapped.
 
 ## Synchronize taxonomy
 
@@ -155,9 +167,8 @@ In `config/packages/ibexa_connector_quable.yaml`, specify the configuration for 
 
 ``` yaml
 ibexa_connector_quable:
-    
-    # Existing configuration (...)
 
+    # ...
     webhook_secret: '<webhook authorization header>'
 ```
 
