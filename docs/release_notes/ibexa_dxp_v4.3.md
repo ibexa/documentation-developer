@@ -1,5 +1,5 @@
 ---
-description: Ibexa DXP v4.3 adds the improvements to the Customer Portal, Product catalog and SEO.
+description: Ibexa DXP v4.3 adds the improvements to the Customer Portal, product catalog and SEO.
 ---
 <!-- vale VariablesVersion = NO -->
 

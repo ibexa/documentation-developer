@@ -9,7 +9,7 @@ Product Sort Clauses are only supported by [Product Search (`ProductServiceInter
 
 By using Sort Clause you can filter product by specific attributes, for example: price, code, or availability.
 
-To sort products coming from [[= pim_product_name =]] PIM, see [[[= pim_product_name =]] Search API](../../product_catalog/quable/quable_api.md#search-for-products) for details about the integration.
+To sort products coming from [[= pim_product_name =]] PIM, see [[[= pim_product_name =]] Search API](../../product_catalog/quable/quable_api.md#search-for-products) for details about the add-on.
 
 | Sort Clause | Sorting based on | Local product catalog | [[= pim_product_name =]] PIM |
 |-----|-----|-----|-----|

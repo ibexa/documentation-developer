@@ -6,7 +6,7 @@ month_change: true
 
 # Configure Quable connector
 
-You can customize the behavior of the [[= pim_product_name =]] integration by using the following [configuration](configuration.md).
+You can customize the behavior of the [[= pim_product_name =]] integration add-on by using the following [configuration](configuration.md).
 
 ## Configuration example
 
@@ -40,7 +40,7 @@ ibexa_connector_quable:
 | `webhook_secret` | string | Secret expected in the [webhook](https://docs.quable.com/v5-EN/docs/webhook) authorization header. |
 | <nobr>`throw_on_invalid_criteria`</nobr> | <nobr>`%kernel.debug%`</nobr> | Controls behavior for unsupported search criteria: `true` throws an exception, `false` only logs unsupported criteria. |
 | <nobr>`throw_on_invalid_mapping`</nobr> | <nobr>`%kernel.debug%`</nobr> | Controls behavior for mapping errors during data transformation: `true` throws an exception, `false` only logs mapping errors. |
-| `cache.enabled` | `true` | Global cache switch for the connector. When `false`, cache decorators use only [in-memory cache](persistence_cache.md#in-memory-cache-configuration). |
+| `cache.enabled` | `true` | Global cache switch for the connector. When set to `false`, cache decorators use only [in-memory cache](persistence_cache.md#in-memory-cache-configuration). |
 | `cache.attribute` | `true` | Enables caching for attribute definition requests. |
 | `cache.`<br>`attribute_group` | `true` | Enables caching for attribute group requests. |
 | `cache.`<br>`product` | `true` | Enables caching for product requests. |
@@ -49,5 +49,5 @@ ibexa_connector_quable:
 In production environments, it's recommended to:
 
 - keep the `api_token` and the `webhook_secret` [secure](security_checklist.md#app_secret-and-other-secrets)
-- enable caching for better performance, using Redis or Valkey as [persistence cache](persistence_cache.md#redisvalkey)
+- enable caching for better performance, by using Redis or Valkey as [persistence cache](persistence_cache.md#redisvalkey)
 - disable `throw_on_invalid_criteria` and `throw_on_invalid_mapping` to prevent non-critical errors from causing application crashes

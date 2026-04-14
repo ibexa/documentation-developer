@@ -12,20 +12,20 @@ It lets you create, configure, and manage products, their specifications, assets
 
 ## Availability
 
-Product Catalog capabilities are available in all [[= product_name =]] editions.
+Product catalog capabilities are available in all [[= product_name =]] editions.
 
 ## How does product catalog work
 
-Products in [[= product_name =]]’s PIM have underlying content items enriched with product-specific information such as attributes, assets, prices, and others.
+Products in [[= product_name =]]’s product catalog have underlying content items enriched with product-specific information such as attributes, assets, prices, and others.
 
-The Product Catalog lets you group products into categories and catalogs.
+The product catalog lets you group products into categories and catalogs.
 
 Catalogs are collections of products selected by using configurable filters.
 They're specific to each of your sites or storefronts and only contain the products in them that you wish to sell in their associated storefronts.
 
 Catalogs contain a complete list of related products that can be displayed on a store site. You can have as many catalogs as required.
 
-![How does PIM work](img/how_pim_works.png)
+![How does product catalog work](img/how_pim_works.png)
 
 ## Capabilities
 
@@ -161,7 +161,7 @@ Besides, the built-in catalog filters, you can also [create custom ones](create_
 In [[= product_name =]], products are created and maintained by using the REST API or the back office, and their data is stored in a local database.
 However, in your project or organization, you might have an existing product database, or be specifically concerned about product information security.
 To address such needs, [[= product_name =]] provides remote PIM support.
-You can use the existing [[[= pim_product_name =]] PIM integration](/product_catalog/quable/quable.md), or build a custom one to connect to a remote PIM or ERP system, pull product data and present it on your website.
+You can install and configure a readily available [[[= pim_product_name =]] PIM integration](/product_catalog/quable/quable.md) add-on, or build a custom one to connect to a remote PIM or ERP system, pull product data and present it on your website.
 
 ![Remote PIM](img/remote_pim_support.png)
 
@@ -192,7 +192,7 @@ In your specific scenario, you can implement the support for availability and pr
 
 The limitation of remote PIM depend on implementation details of specific integration and may arise in areas relying on [content model](content_model.md).
 
-To see limitations of the [[= pim_product_name =]] PIM integration, see [[[= pim_product_name =]] PIM known limitations](/product_catalog/quable/quable_guide.md#known-limitations).
+To see the limitations of the [[= pim_product_name =]] PIM integration add-on, see [[[= pim_product_name =]] PIM known limitations](/product_catalog/quable/quable_guide.md#known-limitations).
 
 ##### Searching
 

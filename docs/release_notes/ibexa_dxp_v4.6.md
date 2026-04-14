@@ -1,5 +1,5 @@
 ---
-description: Ibexa DXP v4.6 brings improvements to Commerce, Product catalog and Personalization offerings, and a number of changes in CDP and Ibexa Connect.
+description: Ibexa DXP v4.6 brings improvements to Commerce, product catalog and Personalization offerings, and a number of changes in CDP and Ibexa Connect.
 title: Ibexa DXP v4.6 LTS
 month_change: true
 ---

@@ -16,9 +16,9 @@ This approach eliminates the need to manage product data in multiple systems, wh
 
 ## Availability
 
-Integration with [[= pim_product_name =]] PIM is available in all [[= product_name =]] editions, starting with [[= product_name =]] v5.0.7.
+The integration with [[= pim_product_name =]] PIM is available as an add-on for all [[= product_name =]] editions, starting with [[= product_name =]] v5.0.7.
 
-Before installing and enabling the integration, ensure that you have an active [[= pim_product_name =]] PIM instance with defined products, classifications, and channels.
+Before installing and enabling the add-on, ensure that you have an active [[= pim_product_name =]] PIM instance with defined products, classifications, and channels.
 
 Then, [perform the initial configuration](install_quable.md).
 
@@ -31,7 +31,7 @@ Once configured, the system performs:
 - an initial synchronization of product data from Quable
 - ongoing updates via webhooks (near real-time)
 
-Product data is mapped to the Ibexa DXP product data model, including variants, attributes and [product categorties](product_catalog_guide.md#product-taxonomy).
+Product data is mapped to the [[= product_name =]]'s product data model, including variants, attributes and [product categorties](product_catalog_guide.md#product-taxonomy).
 
 This data is then available in the back office, content editing tools like [Online Editor](online_editor_guide.md) and [Page Builder](page_builder_guide.md), and APIs.
 
@@ -42,7 +42,6 @@ All product management operations remain handled in [[= pim_product_name =]].
 ### Single source of truth
 
 [[= pim_product_name =]] is the authoritative system for product data, including attributes, classifications, variants, and translations.
-All product management operations are performed in [[= pim_product_name =]].
 
 
 [[= product_name =]] consumes this data and makes it available for use within content and back office interfaces, enabling editorial teams to enrich content by reusing product information.
@@ -68,7 +67,7 @@ Marketing teams can create pages and enrich content using up-to-date product inf
 The integration with [[= pim_product_name =]] has the following known limitations:
 
 - It's not compatible with [Commerce](commerce.md) functionalities. [Carts](cart.md), [order management](order_management.md), and [shopping lists](shopping_list.md) can't be used with products coming from [[= pim_product_name =]].
-- [Catalogs](product_catalog_guide.md#catalogs) can't be created using Quable products.
+- [Catalogs](product_catalog_guide.md#catalogs) can't be created from [[= pim_product_name =]] products.
 - Product assets are not fully synchronized. Only the main asset thumbnail URL from [[= pim_product_name =]] is used.
 - [Product-level access restrictions](policies.md#products) based on product type are not supported.
 - Products with unsupported identifiers (containing `/` or exceeding 64 characters) are not synchronized.

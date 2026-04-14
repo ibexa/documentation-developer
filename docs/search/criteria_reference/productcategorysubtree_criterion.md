@@ -1,5 +1,6 @@
 ---
 description: ProductCategorySubtree Search Criterion
+month_change: true
 ---
 
 # ProductCategorySubtree Criterion

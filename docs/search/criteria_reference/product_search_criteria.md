@@ -49,10 +49,10 @@ To query for products coming from [[= pim_product_name =]] PIM, see [[[= pim_pro
 |[ProductStock](productstock_criterion.md)|Product's numerical stock| &#10004;| |
 |[ProductStockRange](productstockrange_criterion.md)|Product's numerical stock| &#10004;| |
 |[ProductType](producttype_criterion.md)|Product type| &#10004;| &#10004;|
-|[RangeMeasurementAttributeMaximum](rangemeasurementattributemaximum_criterion.md)|Maximum value of product's measurement attribute| &#10004;| |
-|[RangeMeasurementAttributeMinimum](rangemeasurementattributeminimum_criterion.md)|Minimum value of product's measurement attribute| &#10004;| |
+|[RangeMeasurementAttributeMaximum](rangemeasurementattributemaximum_criterion.md)|Maximum value of product's measurement range attribute| &#10004;| |
+|[RangeMeasurementAttributeMinimum](rangemeasurementattributeminimum_criterion.md)|Minimum value of product's measurement range attribute| &#10004;| |
 |[SelectionAttribute](selectionattribute_criterion.md)|Value of product's selection attribute| &#10004;| |
-|[SimpleMeasurementAttribute](simplemeasurementattribute_criterion.md)|Value of product's measurement attribute| &#10004;| |
+|[SimpleMeasurementAttribute](simplemeasurementattribute_criterion.md)|Value of product's single measurement attribute| &#10004;| |
 |[SymbolAttribute](symbolattribute_criterion.md)|Value of product's symbol attribute| &#10004;| |
 |[UpdatedAt](updated_at_criterion.md)|Product modification date| &#10004;| &#10004;|
 |[UpdatedAtRange](updated_at_range_criterion.md)|Product modification date range| &#10004;| |

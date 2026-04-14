@@ -19,13 +19,13 @@ Run the following commands to install the required package:
 composer require ibexa/connector-quable
 ```
 
-These commands add the [[= pim_product_name =]] connector code, including services that enable communication with [[= pim_product_name =]] PIM.
+The command adds the [[= pim_product_name =]] connector code, including services that enable communication with [[= pim_product_name =]] PIM.
 
 ## Get API credentials
 
 To connect to [[= pim_product_name =]] PIM, you need an API token:
 
-1. Log in to your [[= pim_product_name =]] instance (for example, `https://example.quable.com`).
+1. Log in to your [[= pim_product_name =]] instance, for example, `https://example.quable.com`.
 2. Navigate to the [API Tokens](https://docs.quable.com/v5-EN/docs/system-api-tokens) section.
 3. Copy the **Read Access Token** value for use in the configuration.
 
@@ -43,13 +43,13 @@ ibexa_connector_quable:
 Replace `<your_api_token>` with the Read Access API token you obtained from [[= pim_product_name =]] in the previous step.
 
 [[[= pim_product_name =]]'s channels](https://docs.quable.com/v5-EN/docs/content-channels) allow you to distribute your product information to defined recipients, for example e-commerce platforms.
-Select the [[= pim_product_name =]] channel you want to integrate within [[= product_name =]].
+Select the [[= pim_product_name =]] channel that you want to integrate within [[= product_name =]].
 
 For all available configuration options, see [Configure [[= pim_product_name =]]](configure_quable_connector.md).
 
 ## Configure product catalog engine
 
-To use [[= pim_product_name =]] as the product data source, configure [[= product_name =]]'s [product catalog](product_catalog_guide.md) to use the [[= pim_product_name =]] engine.
+To use [[= pim_product_name =]] as a product data source, configure [[= product_name =]]'s [product catalog](product_catalog_guide.md) to use the [[= pim_product_name =]] engine.
 
 ### Define [[= pim_product_name =]] engine
 
@@ -75,7 +75,7 @@ This configuration defines two engines: the default `local` engine and the new `
 
 To learn more about product catalog configuration, see [Product catalog configuration](product_catalog_configuration.md).
 
-The [[= pim_product_name =]] integration comes with a new [taxonomy](taxonomy.md) called `quable`.
+The [[= pim_product_name =]] integration add-on comes with a new [taxonomy](taxonomy.md) called `quable`.
 By setting the `options.taxonomy` key to `quable`, you configure the engine to use it for storing product categories.
 
 ### Set [[= pim_product_name =]] as default engine
@@ -126,10 +126,10 @@ This command imports the product classification structure from [[= pim_product_n
 
 ## Set up real-time synchronization
 
-[[= pim_product_name =]] PIM can notify [[= product_name =]] about product data and classification changes in real-time using webhooks.
+[[= pim_product_name =]] PIM can notify [[= product_name =]] about product data and classification changes in real-time by using webhooks.
 This invalidates the cache kept in [[= product_name =]] and ensures that product information stays up to date.
 
-Webhook configuration requires setup in both Quable PIM and [[= product_name =]].
+Webhook configuration must be set up in both Quable PIM and [[= product_name =]].
 
 ### Create webhook in [[= pim_product_name =]]
 

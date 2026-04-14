@@ -77,7 +77,7 @@ For more information, see [Extend Online Editor](extend_online_editor.md#custom-
 
 ### Plugins
 
-Because Online Editor is based on CKEditor 5, you can use CKEditor's capabilities to [create plugins](extend_online_editor.md#add-ckeditor-plugins) for the editor.
+Online Editor is based on CKEditor 5, and you can use CKEditor's capabilities to [create plugins](extend_online_editor.md#add-ckeditor-plugins) for the editor.
 
 ## Benefits
 
@@ -114,7 +114,7 @@ Refer to [Extend Online Editor](extend_online_editor.md#link-tag) for a similar 
 
 ### Product marketing campaigns
 
-With Online Editor, editors can embed products from the product catalog directly into RichText fields.
+With the Online Editor, editors can embed products from the product catalog directly into RichText fields.
 Products can be embedded as block-level or inline elements.
 
 You can use it to weave marketing content around your product data, showcasing your product capabilities and bringing it closer to your customers.

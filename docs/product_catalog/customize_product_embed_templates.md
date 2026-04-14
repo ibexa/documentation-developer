@@ -31,7 +31,7 @@ The following variables are available in the embed templates:
 | <nobr>`productCode`</nobr> | `product_denied`, `product_inline_denied`, `product_not_found`, `product_inline_not_found` | The product code string, used to identify the product that could not be loaded. |
 | <nobr>`embedParams`</nobr> | All block types | Optional parameters set by the online editor, for example `align` or `class` properties |
 
-## Override a template
+## Override template
 
 The default templates are located in `vendor/ibexa/product-catalog/src/bundle/Resources/views/themes/standard/product_catalog/richtext/embed/`.
 
@@ -54,7 +54,7 @@ And a minimal inline embed template (`product_inline.html.twig`):
 
 ## Configure template paths
 
-In addition to overriding the templates with [Design engine](design_engine.md), you can explicitly set the template path for any embed type in your [SiteAccess configuration](multisite_configuration.md):
+In addition to overriding the templates with the [design engine](design_engine.md), you can explicitly set the template path for any embed type in your [SiteAccess configuration](multisite_configuration.md):
 
 ```yaml
 ibexa:

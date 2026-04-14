@@ -1,5 +1,5 @@
 ---
-description: Twig functions exposed by Quable connector
+description: Twig functions exposed by the Quable connector.
 page_type: reference
 month_change: true
 ---
@@ -11,7 +11,7 @@ The [[[= pim_product_name =]] connector](/product_catalog/quable/quable.md) prov
 ## `ibexa_quable_instance_url()`
 
 Returns the [configured [[= pim_product_name =]] instance URL](/product_catalog/quable/configure_quable_connector.md#configuration-example), value of the `ibexa_connector_quable.instance_url` parameter.
-You can use it to inject a link to [[= pim_product_name =]]'s back office into [[= product_name =]]'s back office, improving the experience for your editors.
+You can use it to inject a link to the [[= pim_product_name =]]'s back office into [[= product_name =]]'s back office, to improve the experience for your editors.
 
 ### Example
 
