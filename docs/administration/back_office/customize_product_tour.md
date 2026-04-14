@@ -40,7 +40,7 @@ ibexa:
 
 Then, create a subscriber that modifies the scenario.
 
-```php hl_lines="35-37 39-41 43-45 47-58"
+```php hl_lines="32-34 36-38 40-42 44-55"
 [[= include_file('code_samples/back_office/product_tour/src/EventSubscriber/NotificationScenarioSubscriber.php') =]]
 ```
 
@@ -52,4 +52,3 @@ The subscriber executes the following actions:
 - adds a custom clickable step to highlight the unread notification
 
 ![Scenario built with PHP triggered on unread notification](img/product_tour/custom_scenario.png "Scenario built with PHP triggered on unread notification")
-
