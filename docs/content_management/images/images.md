@@ -250,6 +250,17 @@ Install these libraries using your package manager, for example:
 sudo apt-get install optipng
 ```
 
+### Customizing image optimizers
+
+When the Image Editor saves a modified image, the system dispatches the [`ConfigureImageOptimizersEvent`](other_events.md#image-editor) event before running the optimizer chain.
+You can listen to this event to customize the list of image optimizers at runtime.
+
+The following example shows how to remove the Pngquant optimizer to prevent grayscale conversion of low-saturation PNG images:
+
+``` php
+[[= include_file('code_samples/back_office/images/src/Event/RemovePngquantOptimizer.php') =]]
+```
+
 ## Embedding images in Rich Text
 
 The [RichText](richtextfield.md) field allows you to embed other content items within the field.

@@ -81,19 +81,22 @@
         "ibexa/shopping-list": "~5.0.x-dev",
         "ibexa/phpstan": "~5.0.-dev",
         "deptrac/deptrac": "^3.0",
-        "ibexa/cdp": "~5.0.x-dev"
+        "ibexa/cdp": "~5.0.x-dev",
+        "ibexa/image-editor": "~5.0.x-dev"
     },
     "scripts": {
         "fix-cs": "php-cs-fixer fix --config=.php-cs-fixer.php -v --show-progress=dots",
         "check-cs": "@fix-cs --dry-run",
         "phpstan": "phpstan analyse",
-        "deptrac": "deptrac analyse"
+        "deptrac": "deptrac analyse",
+        "check-rector": "rector process --dry-run --ansi"
     },
     "scripts-descriptions": {
         "fix-cs": "Automatically fixes code style in all files",
         "check-cs": "Run code style checker for all files",
         "phpstan": "Run static code analysis",
-        "deptrac": "Run Deptrac architecture testing"
+        "deptrac": "Run Deptrac architecture testing",
+        "check-rector": "Check for code refactoring opportunities"
     },
     "config": {
         "allow-plugins": false

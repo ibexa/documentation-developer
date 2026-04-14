@@ -10,7 +10,8 @@ jobs:
         strategy:
             matrix:
                 php:
-                    - "8.3"
+                    - "8.4" # Upper supported version
+                    - "8.3" # Lower supported version
         steps:
             - uses: actions/checkout@v4
 
@@ -46,11 +47,11 @@ jobs:
             - name: Run PHPStan analysis
               run: composer phpstan
 
-            - name: Deptrac
+            - name: Run Deptrac analysis
               run: composer deptrac
 
-            - name: Run rector
-              run: vendor/bin/rector process --dry-run --ansi
+            - name: Run Rector check
+              run: composer check-rector
 
     code-samples-inclusion-check:
         name: Check code samples inclusion

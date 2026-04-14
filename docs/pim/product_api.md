@@ -139,16 +139,75 @@ You can retrieve the tags (corresponding to attribute values) of assets with the
 
 To work with product types, use [`ProductTypeServiceInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-ProductTypeServiceInterface.html).
 
+### Creating product types
+
+To create a product type, use [`LocalProductTypeServiceInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Local-LocalProductTypeServiceInterface.html).
+
+First, create a product type struct with `LocalProductTypeServiceInterface::newProductTypeCreateStruct()`, providing the identifier and main language code:
+
+``` php
+[[= include_file('code_samples/api/product_catalog/src/Command/ProductTypeCommand.php', 48, 52) =]]
+```
+
+You can set names in multiple languages by using `setNames()`:
+
+``` php
+[[= include_file('code_samples/api/product_catalog/src/Command/ProductTypeCommand.php', 53, 57) =]]
+```
+
+To create a virtual product type (for products that don't require shipping), use `setVirtual()`:
+
+``` php
+[[= include_file('code_samples/api/product_catalog/src/Command/ProductTypeCommand.php', 58, 59) =]]
+```
+
+#### Adding field definitions
+
+To add custom field definitions to the product type, use `getContentTypeCreateStruct()` to access the underlying content type struct.
+For more information about working with content types, see [Adding content types](../content_management/content_api/managing_content.md#adding-content-types).
+
+``` php
+[[= include_file('code_samples/api/product_catalog/src/Command/ProductTypeCommand.php', 62, 69) =]]
+```
+
+#### Assigning attributes
+
+To assign product attributes to the product type, use `setAssignedAttributesDefinitions()` with an array of [`AssignAttributeDefinitionStruct`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Local-Values-ProductType-AssignAttributeDefinitionStruct.html) objects.
+
+First, retrieve the attribute definition by using [`AttributeDefinitionServiceInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-AttributeDefinitionServiceInterface.html):
+
+``` php
+[[= include_file('code_samples/api/product_catalog/src/Command/ProductTypeCommand.php', 70, 71) =]]
+```
+
+Then create the assignment struct with the attribute definition, and set whether it's required and whether it's a discriminator (used for product variants):
+
+``` php
+[[= include_file('code_samples/api/product_catalog/src/Command/ProductTypeCommand.php', 72, 79) =]]
+```
+
+For more information about working with attributes through PHP API, see [Attributes](#attributes).
+
+#### Storing new product type
+
+Finally, create the product type with `LocalProductTypeServiceInterface::createProductType()`:
+
+``` php
+[[= include_file('code_samples/api/product_catalog/src/Command/ProductTypeCommand.php', 80, 81) =]]
+```
+
+### Getting product types
+
 Get a product type object by using `ProductTypeServiceInterface::getProductType()`:
 
 ``` php
-[[= include_file('code_samples/api/product_catalog/src/Command/ProductTypeCommand.php', 41, 42) =]]
+[[= include_file('code_samples/api/product_catalog/src/Command/ProductTypeCommand.php', 82, 83) =]]
 ```
 
 You can also get a list of product types with `ProductTypeServiceInterface::findProductTypes()`:
 
 ``` php
-[[= include_file('code_samples/api/product_catalog/src/Command/ProductTypeCommand.php', 45, 50) =]]
+[[= include_file('code_samples/api/product_catalog/src/Command/ProductTypeCommand.php', 86, 91) =]]
 ```
 
 ## Product availability

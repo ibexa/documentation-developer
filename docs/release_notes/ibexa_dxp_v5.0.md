@@ -191,7 +191,8 @@ For more information, see [Shopping list feature guide](https://doc.ibexa.co/en/
 
 ### Security
 
-This release fixes a vulnerability which will be documented soon as the public advisory IBEXA-SA-2026-001 at https://developers.ibexa.co/security-advisories
+This release includes security fixes.
+To learn more, see the [corresponding security advisory](https://developers.ibexa.co/security-advisories/ibexa-sa-2026-001-insufficient-main-landing-page-access-control).
 
 ### Improved product variant querying
 

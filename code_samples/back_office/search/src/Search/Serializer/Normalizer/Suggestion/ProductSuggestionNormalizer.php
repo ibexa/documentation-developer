@@ -16,7 +16,7 @@ class ProductSuggestionNormalizer implements
     /**
      * @return array<string, string|null>
      */
-    public function normalize($object, string $format = null, array $context = []): array
+    public function normalize($object, ?string $format = null, array $context = []): array
     {
         /** @var \App\Search\Model\Suggestion\ProductSuggestion $object */
         return [

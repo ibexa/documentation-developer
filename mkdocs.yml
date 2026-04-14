@@ -289,6 +289,7 @@ nav:
             - Collaborative editing product guide: content_management/collaborative_editing/collaborative_editing_guide.md
             - Configure Collaborative editing: content_management/collaborative_editing/configure_collaborative_editing.md
             - Collaborative editing API: content_management/collaborative_editing/collaborative_editing_api.md
+            - Extend Collaborative editing: content_management/collaborative_editing/extend_collaborative_editing.md
     - Templating:
         - Templating: templating/templating.md
         - Render content:
@@ -808,6 +809,7 @@ nav:
             - ProductPriceRangeAggregation: search/aggregation_reference/productpricerange_aggregation.md
             - ProductTypeTermAggregation: search/aggregation_reference/producttypeterm_aggregation.md
             - TaxonomyEntryIdAggregation: search/aggregation_reference/taxonomyentryid_aggregation.md
+        - Embeddings search reference: search/embeddings_reference/embeddings_reference.md
         - Search in trash reference: search/search_in_trash_reference.md
         - Extend search:
             - Create custom Search Criterion: search/extensibility/create_custom_search_criterion.md
