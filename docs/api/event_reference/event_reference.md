@@ -19,7 +19,7 @@ For example, copying a content item is connected with two events: `BeforeCopyCon
 [[= cards([
     "api/event_reference/ai_action_events",
     "api/event_reference/cart_events",
-    "api/event_reference/catalog_events",
+    "api/event_reference/product_catalog_events",
     "api/event_reference/collaboration_events",
     "api/event_reference/content_events",
     "api/event_reference/content_type_events",

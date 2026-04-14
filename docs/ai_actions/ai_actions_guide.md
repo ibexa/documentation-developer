@@ -12,7 +12,7 @@ Wherever you look, artificial intelligence becomes more and more important by en
 AI Actions is an extensible solution for integrating features provided by AI services into your workflows, all managed through a user-friendly interface.
 
 Out-of-the-box, AI Actions solution includes two essential components: a framework package and an OpenAI connector package.
-The Anthropic connector is also available - as an [LTS update](editions.md#lts-updates).
+The Anthropic and Gemini connectors are also available - as [LTS updates](editions.md#lts-updates).
 
 AI Actions can integrate with [[[= product_name_connect =]]]([[= connect_doc =]]/general/ibexa_connect/), to give you an opportunity to build complex data transformation workflows without having to rely on custom code.
 From the developer's perspective, the integration removes the burden of maintaining third-party AI handlers, and accelerates the deployment of AI-based solutions.
@@ -163,8 +163,13 @@ With some customization, administrators could use the API to run a batch process
 
 ### Suggesting taxonomy entries
 
-Content editors and product managers can use [taxonomy suggestions](taxonomy.md#taxonomy-suggestions) when assigning tags or product categorie to content items and products.
+Content editors and product managers can use [taxonomy suggestions](taxonomy.md#taxonomy-suggestions) when assigning tags or product categories to content items and products.
 Instead of manually browsing through extensive taxonomy trees, editors can request suggestions based on the content's text fields, such as name and description.
+
+!!! note "Alternative suggestion provider"
+
+    By default, embeddings used by the taxonomy suggestions feature are generated with OpenAI.
+    If you install and configure the [Google Gemini connector](configure_ai_actions.md#install-google-gemini-connector), you can modify the [taxonomy suggestions settings](taxonomy.md#change-embeddings-provider-to-google-gemini) and use Google Gemini as an alternative embeddings provider.
 
 ### Performing advanced image to text analysis
 
