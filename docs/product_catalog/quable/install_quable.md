@@ -27,7 +27,7 @@ To connect to [[= pim_product_name =]] PIM, you need an API token:
 
 1. Log in to your [[= pim_product_name =]] instance, for example, `https://example.quable.com`.
 2. Navigate to the [API Tokens](https://docs.quable.com/v5-EN/docs/system-api-tokens) section.
-3. Copy the **Read Access Token** value for use in the configuration.
+3. Create & copy the **Read Access Token** value for use in the configuration.
 
 ## Configure [[= pim_product_name =]] connector
 
@@ -127,7 +127,7 @@ This command imports the product classification structure from [[= pim_product_n
 ## Set up real-time synchronization
 
 [[= pim_product_name =]] PIM can notify [[= product_name =]] about product data and classification changes in real-time by using webhooks.
-This invalidates the cache kept in [[= product_name =]] and ensures that product information stays up to date.
+This invalidates the cache kept in [[= product_name =]], ensuring that product information stays up to date.
 
 Webhook configuration must be set up in both Quable PIM and [[= product_name =]].
 
