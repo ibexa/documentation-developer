@@ -104,6 +104,7 @@ nav:
             - AI Action events: api/event_reference/ai_action_events.md
             - Discounts events: api/event_reference/discounts_events.md
             - Collaboration events: api/event_reference/collaboration_events.md
+            - Integrated help events: api/event_reference/integrated_help_events.md
             - Other events: api/event_reference/other_events.md
     - Administration:
         - Administration: administration/administration.md
@@ -165,6 +166,9 @@ nav:
             - Integrated help:
                 - Integrated help: administration/back_office/integrated_help.md
                 - Customize integrated help: administration/back_office/customize_integrated_help.md
+                - Product tour: administration/back_office/product_tour.md
+                - Configure product tour: administration/back_office/configure_product_tour.md
+                - Customize product tour: administration/back_office/customize_product_tour.md
             - Customize search:
                 - Customize search suggestion: administration/back_office/customize_search_suggestion.md
                 - Customize search sorting: administration/back_office/customize_search_sorting.md
