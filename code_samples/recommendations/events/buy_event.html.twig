@@ -1,0 +1,8 @@
+
+
+{% set buyContext = {
+    'subtotal': '10.00',
+    'currency': 'EUR',
+    'quantity': 1
+} %}
+{{ ibexa_tracking_track_event('buy', product, buyContext) }}

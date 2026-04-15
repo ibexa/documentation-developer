@@ -106,22 +106,18 @@ Example:
 [[= include_file('code_samples/recommendations/events/content_visit_event.html.twig') =]]
 ```
 
-### `itemclicked` event
+### Product `buy` event
 
-This event tracks when a user clicks a Raptor recommendation, including adding products to the cart from the recommendation module.
+This event tracks when a product is bought.
 
-Required data:
-
-- **Product code** - defines the product code added to the cart.
-- **Context** - provides optional data, like `moduleName` or `redirectUrl`, to provide context for the event.
-
-Example:
+- **Product object** defines the product being purchased.
+- **Context array with purchase conditions** - provide optional data about the product purchase context, like quantity, price, or currency.
 
 ``` html+twig
-[[= include_file('code_samples/recommendations/events/itemclicked_event.html.twig') =]]
+[[= include_file('code_samples/recommendations/events/buy_event.html.twig') =]]
 ```
 
-### Basket event
+### Product `basket` event
 
 This event tracks when a product is added to the [cart](cart.md).
 
@@ -136,6 +132,21 @@ Example:
 
 ``` html+twig
 [[= include_file('code_samples/recommendations/events/basket_event.html.twig') =]]
+```
+
+### `itemclicked` event
+
+This event tracks when a user clicks a Raptor recommendation, including adding products to the cart from the recommendation module.
+
+Required data:
+
+- **Product code** - defines the product code added to the cart.
+- **Context** - provides optional data, like `moduleName` or `redirectUrl`, to provide context for the event.
+
+Example:
+
+``` html+twig
+[[= include_file('code_samples/recommendations/events/itemclicked_event.html.twig') =]]
 ```
 
 ### `context` parameter - example usage
