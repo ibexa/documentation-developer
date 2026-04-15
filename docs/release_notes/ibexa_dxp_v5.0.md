@@ -35,6 +35,9 @@ For more information, see how to [install and configure the Google Gemini connec
 
 The product tour is a new Integrated help feature that helps back office contributors to discover [[= product_name =]].
 
+With product tours, you can create customized onboarding journeys.
+This accelerates user adoption, reduces training time, and helps users confidently navigate the platform.
+
 For more information, see [Product tour](https://doc.ibexa.co/en/5.0/administration/back_office/product_tour/).
 
 [[= release_note_entry_end() =]]
