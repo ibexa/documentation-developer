@@ -19,7 +19,7 @@ month_change: true
 ) =]]
 
 This release introduces a new AI connector that allows you to integrate [AI Actions](https://doc.ibexa.co/en/5.0/ai_actions/ai_actions/) with [Google Gemini](https://gemini.google/overview/#what-gemini-is).
-You can use it as an alternative embeddings provider for the [taxonomy suggestions feature](taxonomy.md#taxonomy-suggestions).
+You can also use it as an alternative embeddings provider for the [taxonomy suggestions feature](taxonomy.md#taxonomy-suggestions).
 
 For more information, see how to [install and configure the Google Gemini connector](https://doc.ibexa.co/en/5.0/ai_actions/configure_ai_actions/#install-google-gemini-connector).
 
@@ -66,7 +66,10 @@ For more information about Recommendation blocks in Page Builder, see the releva
 
 ### Quable PIM
 
-This add-on enables integration between [[[= pim_product_name =]]](https://www.quable.com/en) and [[= product_name =]].
+The [[= pim_product_name =]] integration add-on allows you to connect [[= product_name =]] with [[[= pim_product_name =]] Product Information Management (PIM)](https://www.quable.com/en), making [[= pim_product_name =]] the authoritative source of product information for every website powered by [[= product_name =]].
+
+[[= pim_product_name =]] can serve as the single source of truth for all product data, including attributes, classifications, variants, and translations. 
+[[= product_name =]] consumes this data and makes it available for use in content and digital experiences.
 
 For more information, see [Quable PIM Integration](https://doc.ibexa.co/en/5.0/product_catalog/quable/).
 
@@ -75,6 +78,7 @@ For more information, see [Quable PIM Integration](https://doc.ibexa.co/en/5.0/p
 #### Symfony 7.4
 
 Symfony is upgraded from 7.3 to 7.4.
+It's the latest [LTS release](https://symfony.com/releases#long-term-support-release), maintainted till November 2029.
 See [what's new in Symfony 7.4](https://symfony.com/blog/category/living-on-the-edge/8.0-7.4) and [how to update Symfony within [[= product_name =]]](https://doc.ibexa.co/en/5.0/update_and_migration/from_5.0/update_from_5.0/#update-symfony-from-73-to-74).
 
 #### Taxonomy search
@@ -122,15 +126,20 @@ For more information, see [Error handling with try-catch](https://doc.ibexa.co/e
 
 #### Translation-related Twig Component groups
 
-Four groups of [Twig components](https://doc.ibexa.co/en/5.0/templating/components/) related to Admin UI translation are added.
+Four new [Twig component groups](https://doc.ibexa.co/en/5.0/templating/components/) related to Admin UI translation are added:
 
-For more information, see [Customizing the back office with Twig Components > Admin UI](https://doc.ibexa.co/en/5.0/administration/back_office/back_office_elements/custom_components/#admin-ui).
+- `admin-ui-product-translation-modal-footer`
+- `admin-ui-product-translations-actions-modal`
+- `admin-ui-product-translations-actions`
+- `admin-ui-product-translations-row-actions`
+
+For more information, see [available Admin UI Twig Component groups](https://doc.ibexa.co/en/5.0/administration/back_office/back_office_elements/custom_components/#admin-ui).
 
 #### REST API
 
 You can now find examples for some REST request bodies in the [OpenAPI REST API](rest_api_usage.md#openapi-support):
 
-- in the right column of the [online reference](https://doc.ibexa.co/en/5.0/api/rest_api/rest_api_reference/rest_api_reference.html) where the example is used as a sample instead of a duplicate of middle column schema,
+- in the right column of the [online reference](https://doc.ibexa.co/en/5.0/api/rest_api/rest_api_reference/rest_api_reference.html),
   and in the downloadable OpenAPI specification files
 - on your dev instance at `/api/ibexa/v2/doc` in an “Example Value” tab of the "Request Body" section, alongside the "Schema" tab
 - in the generated JSON or YAML OpenAPI specifications when running `ibexa:openapi` command
