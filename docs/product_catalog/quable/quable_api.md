@@ -1,5 +1,5 @@
 ---
-description: Quable API
+description: Learn how to use PHP and REST APIs to retrieve product data from Quable
 month_change: true
 ---
 

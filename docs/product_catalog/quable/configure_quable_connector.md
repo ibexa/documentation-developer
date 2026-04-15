@@ -38,7 +38,7 @@ ibexa_connector_quable:
 |-----------|--------------------------|-------------|
 | `enabled` | `false` | Enables the connector. |
 | `instance_url` | string | Base URL of your [[= pim_product_name =]] instance, for example `https://example.quable.com`. |
-| `api_token` | string | [Read Access API token](https://docs.quable.com/v5-EN/docs/system-api-tokens) used to authenticate requests to [[= pim_product_name =]]. |
+| `api_token` | string | [Read Access API token](https://docs.quable.com/v5-EN/docs/api-tokens) used to authenticate requests to [[= pim_product_name =]]. |
 | `channel_code` | string | Code of the [[[= pim_product_name =]] channel](https://docs.quable.com/v5-EN/docs/content-channels) used as the source of product data. |
 | `webhook_secret` | string | Secret expected in the [webhook](https://docs.quable.com/v5-EN/docs/webhook) authorization header. |
 | `language_map` | Empty | Maps [[= product_name =]] language codes (for example, `eng-GB`) to [[= pim_product_name =]] locale codes (for example, `en_GB`). For more information, see [Set up [[= pim_product_name =]] languages](/product_catalog/quable/install_quable.md) |
