@@ -39,10 +39,9 @@ For more information, see [Product tour](https://doc.ibexa.co/en/4.6/administrat
 
 #### Taxonomy search
 
-Two [taxonomy search](https://doc.ibexa.co/en/4.6/content_management/taxonomy/taxonomy_api/search) criteria are added:
+One [taxonomy search](https://doc.ibexa.co/en/4.6/content_management/taxonomy/taxonomy_api/search) criterion is added:
 
 - [`TaxonomyNoEntries`](https://doc.ibexa.co/en/4.6/search/criteria_reference/taxonomy_no_entries/) to find content items to which no taxonomy entries have been assigned.
-- [`TaxonomySubtree`](https://doc.ibexa.co/en/4.6/search/criteria_reference/taxonomy_subtree/) for content items assigned to a taxonomy entry or any of its descendants.
 
 #### Custom parameters in `ibexa_render()`
 

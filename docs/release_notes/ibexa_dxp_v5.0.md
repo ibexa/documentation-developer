@@ -90,10 +90,9 @@ See [what's new in Symfony 7.4](https://symfony.com/blog/category/living-on-the-
 
 #### Taxonomy search
 
-Two [taxonomy search](https://doc.ibexa.co/en/5.0/content_management/taxonomy/taxonomy_api/search) criteria are added:
+One [taxonomy search](https://doc.ibexa.co/en/5.0/content_management/taxonomy/taxonomy_api/search) criterion is added:
 
 - [`TaxonomyNoEntries`](https://doc.ibexa.co/en/5.0/search/criteria_reference/taxonomy_no_entries/) to find content items to which no taxonomy entries have been assigned.
-- [`TaxonomySubtree`](https://doc.ibexa.co/en/5.0/search/criteria_reference/taxonomy_subtree/) for content items assigned to a taxonomy entry or any of its descendants.
 
 #### Custom parameters in `ibexa_render()`
 
