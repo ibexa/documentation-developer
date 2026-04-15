@@ -16,7 +16,7 @@ The [`TaxonomySubtree`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-T
 
 The following example searches for articles assigned to taxonomy entry with ID `42` or any of its child entries:
 
-```php hl_lines="11-14"
+```php hl_lines="11-16"
 [[= include_file('code_samples/search/content/taxonomy_subtree_criterion.php') =]]
 ```
 
