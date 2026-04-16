@@ -598,6 +598,24 @@ Run the provided SQL upgrade script to adapt your database to latest change in [
 Prior, `0` was interpreted as "no length limit".
 Now, `0` is interpreted as "length limited to zero characters" and `NULL` as "no length limit".
 
+## v4.6.29
+
+### Database update [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
+
+Run the provided SQL upgrade script to update your database:
+
+=== "MySQL"
+
+    ``` bash
+    mysql -u <username> -p <password> <database_name> < vendor/ibexa/installer/upgrade/db/mysql/ibexa-4.6.28-to-4.6.29.sql
+    ```
+
+=== "PostgreSQL"
+
+    ``` bash
+    psql <database_name> < vendor/ibexa/installer/upgrade/db/postgresql/ibexa-4.6.28-to-4.6.29.sql
+    ```
+
 ## LTS Updates
 
 [LTS Updates](https://doc.ibexa.co/en/4.6/ibexa_products/editions/#lts-updates) are standalone packages with their own update procedures.
