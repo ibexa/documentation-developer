@@ -17,22 +17,17 @@ For more information, see the available events in the [tracking event namespace]
 ### Mapping event data
 
 The recommended method is [`EventMapperInterface::map()`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorRaptor-Tracking-EventMapperInterface.html#method_map).
-This method receives an [`EventType`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorRaptor-Tracking-EventType.html#cases) case, a data depending on the event type, and a context's associative array that uses [`EventContext`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorRaptor-Tracking-EventContext.html) constants as keys.
+This method receives an [`EventType`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorRaptor-Tracking-EventType.html#cases) case, a data depending on the event type (a [`ProductInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Values-ProductInterface.html), a [`Content`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Content.html), or a `string`), and a context's associative array that uses [`EventContext`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorRaptor-Tracking-EventContext.html) constants as keys.
 
 For more information, see the same arguments of the Twig function [`ibexa_tracking_track_event`](recommendations_twig_functions.md#ibexa_tracking_track_event-function).
 
-| Event type                 | Data class              | Context keys                                                                                                                                   |
-|:---------------------------|:------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------|
-| `EventType::VISIT`         | `ProductInterface`      | (optional) `EventContext::CATEGORY_IDENTIFIER`,<br>(optional) `EventContext::WEBSITE_ID`                                                       |
-| `EventType::CONTENT_VISIT` | `Content`               | (optional) `EventContext::WEBSITE_ID`                                                                                                          |
+| Event type                 | Data class              | Context keys                                                                                                                                                                                      |
+|:---------------------------|:------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `EventType::VISIT`         | `ProductInterface`      | (optional) `EventContext::CATEGORY_IDENTIFIER`,<br>(optional) `EventContext::WEBSITE_ID`                                                                                                          |
+| `EventType::CONTENT_VISIT` | `Content`               | (optional) `EventContext::WEBSITE_ID`                                                                                                                                                             |
 | `EventType::BUY`           | `ProductInterface`      | `EventContext::SUBTOTAL`,<br>`EventContext::CURRENCY`,<br>`EventContext::QUANTITY`,<br>(optional) `EventContext::CATEGORY_IDENTIFIER`,<br>(optional) `EventContext::WEBSITE_ID`                   |
 | `EventType::BASKET`        | `ProductInterface`      | `EventContext::BASKET_CONTENT`,<br>`EventContext::BASKET_ID`,<br>(optional) `EventContext::CATEGORY_IDENTIFIER`,<br>(optional) `EventContext::QUANTITY`,<br>(optional) `EventContext::WEBSITE_ID` |
-| `EventType::ITEM_CLICK`    | `string` (product code) | `EventContext::MODULE_NAME`,<br>`EventContext::REDIRECT_URL`                                                                                   |
-
-!!! caution
-
-    The `EventType::BUY` type and the `BuyEventData` class aren't production-ready yet, they're missing the [`BrandId` parameter (P8)](https://content.raptorservices.com/help-center/tracking-events-for-recommendation), and their usage may change in the future.
-
+| `EventType::ITEM_CLICK`    | `string` (product code) | `EventContext::MODULE_NAME`,<br>`EventContext::REDIRECT_URL`                                                                                                                                      |
 
 Check the following example:
 
@@ -62,10 +57,6 @@ Check the following example:
 - if `CategoryId` is missing, use the `CategoryName`, for example, `Electronics;Smartphones`
 
 For more information, see the available events in the [tracking event namespace](/api/php_api/php_api_reference/namespaces/ibexa-contracts-connectorraptor-tracking-event.html).
-
-!!! caution
-
-    The `BuyEventData` class isn't production-ready yet, it's missing the [`BrandId` parameter (P8)](https://content.raptorservices.com/help-center/tracking-events-for-recommendation), and its usage may change in the future.
 
 ### Example - event subscriber
 
