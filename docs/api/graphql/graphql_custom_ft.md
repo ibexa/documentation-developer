@@ -57,10 +57,10 @@ The `$innerMapper` argument passes the decorated mapper to the constructor.
 You can use the `DecoratingFieldDefinitionMapper` from the `graphql` package.
 It requires that you implement the `getFieldTypeIdentifier` method to tell which field type is covered by the mapper.
 
-Add `MyCustomFieldDefinitionMapper.php` mapper to `src/GraphQL/Schema`:
+Add `MyFieldDefinitionMapper.php` mapper to `src/GraphQL/Schema`:
 
 ``` php
-[[= include_file('code_samples/api/graphql/src/GraphQL/Schema/MyCustomFieldDefinitionMapper.php') =]]
+[[= include_file('code_samples/api/graphql/src/GraphQL/Schema/MyFieldDefinitionMapper.php', 9, 15) =]]
 ```
 
 The `FieldDefinitionMapper` interface defines following methods:
@@ -75,14 +75,14 @@ When a mapper method is decorated, you need to call the decorated service method
 To do that, you need to replace `mapXXX` by the method it's in:
 
 ```php
-[[= include_file('code_samples/api/graphql/src/GraphQL/Schema/RelationFieldDefinitionMapper.php', start_line=4, end_line=7, remove_indent=True) =]]
+[[= include_file('code_samples/api/graphql/src/GraphQL/Schema/RelationFieldDefinitionMapper.php', start_line=28, end_line=31, remove_indent=True) =]]
 ```
 
 It's required for every implemented method, so that other mappers are called for the other field types.
 
 The [`RelationFieldDefinitionMapper`](https://github.com/ibexa/graphql/blob/4.6/src/lib/Schema/Domain/Content/Mapper/FieldDefinition/RelationFieldDefinitionMapper.php) example:
 
-```php hl_lines="14"
+```php hl_lines="38"
 [[= include_file('code_samples/api/graphql/src/GraphQL/Schema/RelationFieldDefinitionMapper.php') =]]
 ```
 
@@ -100,7 +100,7 @@ The cardinality (single or collection) depends on the selection limit setting:
 The `mapToFieldValueInputType` method is used to document what input type is expected by field types that require a more complex input value.
 For example, `ezmatrix` generates its own input types depending on the configured columns.
 
-Example of a `MyCustomFieldDefinitionMapper` mapper for a complex field type:
+Example of a `MyFieldDefinitionMapper` mapper for a complex field type:
 
 ```php
 [[= include_file('code_samples/api/graphql/src/GraphQL/Schema/MyFieldDefinitionMapper.php') =]]
