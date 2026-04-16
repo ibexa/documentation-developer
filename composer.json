@@ -86,9 +86,6 @@
         "phpstan": "phpstan analyse"
     },
     "config": {
-        "allow-plugins": false,
-        "audit": {
-            "ignore": ["GHSA-68jq-c3rv-pcrr"]
-        }
+        "allow-plugins": false
     }
 }
