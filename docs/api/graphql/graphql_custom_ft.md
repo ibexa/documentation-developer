@@ -75,16 +75,12 @@ When a mapper method is decorated, you need to call the decorated service method
 To do that, you need to replace `mapXXX` by the method it's in:
 
 ```php
-[[= include_file('code_samples/api/graphql/src/GraphQL/Schema/RelationFieldDefinitionMapper.php', start_line=28, end_line=31, remove_indent=True) =]]
+[[= include_file('code_samples/api/graphql/src/GraphQL/Schema/MyFieldDefinitionMapper.php', 19, 22, remove_indent=True) =]]
 ```
 
 It's required for every implemented method, so that other mappers are called for the other field types.
 
-The [`RelationFieldDefinitionMapper`](https://github.com/ibexa/graphql/blob/4.6/src/lib/Schema/Domain/Content/Mapper/FieldDefinition/RelationFieldDefinitionMapper.php) example:
-
-```php hl_lines="38"
-[[= include_file('code_samples/api/graphql/src/GraphQL/Schema/RelationFieldDefinitionMapper.php') =]]
-```
+For an example implementation, look at the [`RelationFieldDefinitionMapper`](https://github.com/ibexa/graphql/blob/4.6/src/lib/Schema/Domain/Content/Mapper/FieldDefinition/RelationFieldDefinitionMapper.php) class.
 
 The value type depends on the field definition allowed content types setting:
 

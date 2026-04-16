@@ -619,7 +619,7 @@ If you choose to implement countermeasures without updating the packages, you ca
 }
 ```
 
-In addition, consider upgrading your project to one of [the actively supported PHP versions](/getting_stated/requirements.md#php).
+In addition, consider upgrading your project to one of [the actively supported PHP versions](/getting_started/requirements.md#php).
 
 ### Database update [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
 
