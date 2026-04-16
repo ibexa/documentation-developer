@@ -7,29 +7,21 @@ month_change: true
 
 This page contains recent highlights and notable changes in [[= product_name =]] documentation.
 
-## April 2026
-
-### Releases
-
-- [v5.0.7](TODO)
-- [v4.6.29](TODO)
-
 ## March 2026
-
 
 ### Products
 
-- Distinguish [physical and virtual products in product catalog guide](product_catalog_guide.md#virtual-and-physical-products)
-- Added [creating product type example in product API](product_api.md#creating-product-types)
-- Detailed [how to add a custom attribute type to an existing storage definition](create_custom_attribute_type.md#storage-definition)
+- Distinguish [physical and virtual products in product catalog guide](https://doc.ibexa.co/en/5.0/pim/pim_guide/#virtual-and-physical-products)
+- Added [creating product type example in product API](https://doc.ibexa.co/en/5.0/pim/product_api/#creating-product-types)
+- Detailed [how to add a custom attribute type to an existing storage definition](https://doc.ibexa.co/en/5.0/pim/create_custom_attribute_type/#storage-definition)
 
 ### Search
 
-- TODO: `EmbeddingQueryBuilder` and `TaxonomyEmbedding`
+- Introduced [embeddings search API for taxonomy](https://doc.ibexa.co/en/5.0/search/embeddings_reference/embeddings_reference/)
 
 ### Images
 
-- Illustrated [customizing image optimizers](images.md#customizing-image-optimizers)
+- Illustrated [image optimizer customization](https://doc.ibexa.co/en/5.0/content_management/images/images/#customizing-image-optimizers)
 
 ## February 2026
 
