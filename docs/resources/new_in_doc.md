@@ -7,13 +7,20 @@ month_change: true
 
 This page contains recent highlights and notable changes in [[= product_name =]] documentation.
 
+## April 2026
+
+### Releases
+
+- [v5.0.7 release notes](https://doc.ibexa.co/en/5.0/release_notes/ibexa_dxp_v5.0/#ibexa-dxp-v507)
+- [v4.6.29 release notes](https://doc.ibexa.co/en/4.6/release_notes/ibexa_dxp_v4.6/#ibexa-dxp-v4629)
+
 ## March 2026
 
 ### Products
 
-- Distinguish [physical and virtual products in product catalog guide](https://doc.ibexa.co/en/5.0/pim/pim_guide/#virtual-and-physical-products)
-- Added [creating product type example in product API](https://doc.ibexa.co/en/5.0/pim/product_api/#creating-product-types)
-- Detailed [how to add a custom attribute type to an existing storage definition](https://doc.ibexa.co/en/5.0/pim/create_custom_attribute_type/#storage-definition)
+- Distinguish [physical and virtual products in product catalog guide](https://doc.ibexa.co/en/5.0/product_catalog/product_catalog_guide/#virtual-and-physical-products)
+- Added [creating product type example in product API](https://doc.ibexa.co/en/5.0/product_catalog/product_api/#creating-product-types)
+- Detailed [how to add a custom attribute type to an existing storage definition](https://doc.ibexa.co/en/5.0/product_catalog/create_custom_attribute_type/#storage-definition)
 
 ### Collaborative editing
 
