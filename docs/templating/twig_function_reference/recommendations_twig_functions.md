@@ -111,7 +111,7 @@ Example:
 This event tracks when a product is bought.
 
 - **Product object** defines the product being purchased.
-- **Context array with purchase conditions** - provide optional data about the product purchase context, like quantity, price, or currency.
+- **Context array with purchase conditions** - provides optional data about the product purchase context, like quantity, price, or currency.
 
 ``` html+twig
 [[= include_file('code_samples/recommendations/events/buy_event.html.twig') =]]
@@ -140,7 +140,7 @@ This event tracks when a user clicks a Raptor recommendation, including adding p
 
 Required data:
 
-- **Product code** - defines the product code added to the cart.
+- **Product code** - code of the product the visitor interacted with.
 - **Context** - provides optional data, like `moduleName` or `redirectUrl`, to provide context for the event.
 
 Example:
