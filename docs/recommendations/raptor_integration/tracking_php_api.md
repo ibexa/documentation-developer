@@ -17,7 +17,7 @@ For more information, see the available events in the [tracking event namespace]
 ### Mapping event data
 
 The recommended method is [`EventMapperInterface::map()`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorRaptor-Tracking-EventMapperInterface.html#method_map).
-This method receives an [`EventType`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorRaptor-Tracking-EventType.html#cases) case, a data depending on the event type, and a context's associative array that uses [`EventContext`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorRaptor-Tracking-EventContext.html) constants as keys.
+This method receives an [`EventType`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorRaptor-Tracking-EventType.html#cases) case, a data depending on the event type (a [`ProductInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Values-ProductInterface.html), a [`Content`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Content.html), or a `string`), and a context's associative array that uses [`EventContext`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorRaptor-Tracking-EventContext.html) constants as keys.
 
 For more information, see the same arguments of the Twig function [`ibexa_tracking_track_event`](recommendations_twig_functions.md#ibexa_tracking_track_event-function).
 
