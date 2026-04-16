@@ -170,7 +170,7 @@ In this case, `context` allows to override the product category by passing a cat
 {% endblock %}
 ```
 
-For another usage examples, see the [`buy`](#product-buy-event) and [`basket`](#product-basket-event) events.
+For other usage examples, see the [`buy`](#product-buy-event) and [`basket`](#product-basket-event) events.
 
 ### Custom templates
 
