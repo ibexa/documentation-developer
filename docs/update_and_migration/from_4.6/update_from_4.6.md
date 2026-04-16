@@ -605,9 +605,9 @@ php bin/console ibexa:graphql:generate-schema
 
 #### Implement other countermeasures
 
-If updating the GraphQl packages isn't possible right now, for example because the project is using PHP 7.4 where the fix is not available, review the security issue carefully and asses the danger.
+If updating the GraphQL packages isn't possible right now, for example because the project is using PHP 7.4 where the fix is not available, review the security issue carefully and asses the danger.
 
-If you choose to implement countermeasures without updating the package, you can silence the advisory in `composer.json`:
+If you choose to implement countermeasures without updating the packages, you can silence the advisory in `composer.json`:
 
 ```json
 "config": {
