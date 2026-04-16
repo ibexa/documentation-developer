@@ -407,6 +407,22 @@ Update Symfony constraints in `composer.json` before updating the packages.
 
 You're now running [Symfony 7.4, the current long-term support version](https://symfony.com/releases/7.4).
 
+### Database update [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
+
+Run the provided SQL upgrade script to update your database:
+
+=== "MySQL"
+
+    ``` bash
+    mysql -u <username> -p <password> <database_name> < vendor/ibexa/installer/upgrade/db/mysql/ibexa-5.0.6-to-5.0.7.sql
+    ```
+
+=== "PostgreSQL"
+
+    ``` bash
+    psql <database_name> < vendor/ibexa/installer/upgrade/db/postgresql/ibexa-5.0.6-to-5.0.7.sql
+    ```
+
 ## LTS Updates and additional packages
 
 [LTS Updates](editions.md#lts-updates) are standalone packages with their own update procedures.
