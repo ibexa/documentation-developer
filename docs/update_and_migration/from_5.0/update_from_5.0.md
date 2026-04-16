@@ -423,6 +423,15 @@ Run the provided SQL upgrade script to update your database:
     psql <database_name> < vendor/ibexa/installer/upgrade/db/postgresql/ibexa-5.0.6-to-5.0.7.sql
     ```
 
+### `ibexa:setup` command deprecated
+
+Following the changes introduced in v5.0.6, the `ibexa:setup` command is now deprecated as of v5.0.7 and will be removed in v6.0.0.
+Use the `ibexa/cloud` package instead.
+
+Additionally, the `ibexa/cloud` package must be installed for the [[= product_name_cloud =]] build to succeed.
+
+To learn how to adjust your configuration, see [update instructions for v5.0.6](#ibexa-cloud-configuration-update).
+
 ## LTS Updates and additional packages
 
 [LTS Updates](editions.md#lts-updates) are standalone packages with their own update procedures.
