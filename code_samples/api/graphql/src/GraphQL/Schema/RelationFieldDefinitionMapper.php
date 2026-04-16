@@ -53,7 +53,7 @@ class RelationFieldDefinitionMapper extends DecoratingFieldDefinitionMapper impl
 
         $isMultiple = $this->isMultiple($fieldDefinition) ? 'true' : 'false';
 
-        return sprintf('@=resolver("DomainRelationFieldValue", [field, %s])', $isMultiple);
+        return sprintf('@=query("DomainRelationFieldValue", field, %s)', $isMultiple);
     }
 
     protected function getFieldTypeIdentifier(): string
