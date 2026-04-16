@@ -50,11 +50,7 @@ The `FieldDefinitionMapper` API uses service decorators.
 To register your own mapper, make it decorate the `Ibexa\GraphQL\Schema\Domain\Content\Mapper\FieldDefinition\DecoratingFieldDefinitionMapper` service:
 
 ```yaml
-services:
-    App\GraphQL\Schema\MyCustomFieldDefinitionMapper:
-        decorates: Ibexa\GraphQL\Schema\Domain\Content\Mapper\FieldDefinition\DecoratingFieldDefinitionMapper
-        arguments:
-            $innerMapper: '@.inner'
+[[= include_file('code_samples/api/graphql/config/services.yaml') =]]
 ```
 
 The `$innerMapper` argument passes the decorated mapper to the constructor.
@@ -79,9 +75,7 @@ When a mapper method is decorated, you need to call the decorated service method
 To do that, you need to replace `mapXXX` by the method it's in:
 
 ```php
-        if (!$this->canMap($fieldDefinition)) {
-             return parent::mapToFieldValueType($fieldDefinition);
-         }
+[[= include_file('code_samples/api/graphql/src/GraphQL/Schema/RelationFieldDefinitionMapper.php', start_line=4, end_line=7, remove_indent=True) =]]
 ```
 
 It's required for every implemented method, so that other mappers are called for the other field types.
@@ -89,48 +83,7 @@ It's required for every implemented method, so that other mappers are called for
 The [`RelationFieldDefinitionMapper`](https://github.com/ibexa/graphql/blob/4.6/src/lib/Schema/Domain/Content/Mapper/FieldDefinition/RelationFieldDefinitionMapper.php) example:
 
 ```php hl_lines="14"
-class RelationFieldDefinitionMapper extends DecoratingFieldDefinitionMapper implements FieldDefinitionMapper
-{
-    public function mapToFieldValueType(FieldDefinition $fieldDefinition): ?string
-    {
-        if (!$this->canMap($fieldDefinition)) {
-            return parent::mapToFieldValueType($fieldDefinition);
-        }
-        $settings = $fieldDefinition->getFieldSettings();
-
-        if (count($settings['selectionContentTypes']) === 1) {
-            $contentType = $this->contentTypeService->loadContentTypeByIdentifier($settings['selectionContentTypes'][0]);
-            $type = $this->nameHelper->itemName($contentType);
-        } else {
-            $type = 'Item';
-        }
-
-        if (this->isMultiple(fieldDefinition)) {
-            type = "[type]";
-        }
-
-        return $type;
-    }
-
-    public function mapToFieldValueResolver(FieldDefinition $fieldDefinition): ?string
-    {
-        if (!$this->canMap($fieldDefinition)) {
-            return parent::mapToFieldValueResolver($fieldDefinition);
-        }
-
-        isMultiple = this->isMultiple($fieldDefinition) ? 'true' : 'false';
-
-        return sprintf('@=resolver("DomainRelationFieldValue", [field, %s])', $isMultiple);
-    }
-
-    private function isMultiple(FieldDefinition $fieldDefinition)
-    {
-        $constraints = $fieldDefinition->getValidatorConfiguration();
-
-        return isset(constraints['RelationListValueValidator'])
-            && constraints'RelationListValueValidator' !== 1;
-  }
-}
+[[= include_file('code_samples/api/graphql/src/GraphQL/Schema/RelationFieldDefinitionMapper.php') =]]
 ```
 
 The value type depends on the field definition allowed content types setting:
@@ -150,17 +103,7 @@ For example, `ezmatrix` generates its own input types depending on the configure
 Example of a `MyCustomFieldDefinitionMapper` mapper for a complex field type:
 
 ```php
-class MyFieldDefinitionMapper extends DecoratingFieldDefinitionMapper implements FieldDefinitionMapper
-{
-    public function mapToFieldValueInputType(ContentType contentType, FieldDefinition fieldDefinition): ?string
-    {
-        if (!this->canMap(fieldDefinition)) {
-            return parent::mapToFieldValueInputType($fieldDefinition);
-        }
-
-        return this->nameMyFieldType(fieldDefinition);
-    }
-}
+[[= include_file('code_samples/api/graphql/src/GraphQL/Schema/MyFieldDefinitionMapper.php') =]]
 ```
 
 ## Resolver expressions

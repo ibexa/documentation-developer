@@ -1,0 +1,5 @@
+services:
+    App\GraphQL\Schema\MyCustomFieldDefinitionMapper:
+        decorates: Ibexa\GraphQL\Schema\Domain\Content\Mapper\FieldDefinition\DecoratingFieldDefinitionMapper
+        arguments:
+            $innerMapper: '@.inner'
