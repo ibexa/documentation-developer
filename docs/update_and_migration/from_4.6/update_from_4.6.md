@@ -579,6 +579,41 @@ With the product updated to the latest version, you can now finish the update pr
 
 ## v4.6.28
 
+### GraphQL package update
+
+Due to the [GHSA-68jq-c3rv-pcrr security issue](https://github.com/advisories/GHSA-68jq-c3rv-pcrr), the GraphQL package requirements have been updated to allow installing higher versions where this issue is resolved.
+
+When doing the update, you have two options:
+
+#### Update GraphQL packages and custom code (recommended)
+
+Make sure the `webonyx/graphql-php` package to installed in a version higher or equal to 15.31.5.
+
+If you [extended GraphQL to support custom field types](graphql_custom_ft.md), update the returned expression from `@=resolver(...)` to `@=query(...)` and change the argument syntax from an array to variadic arguments as in the following example:
+
+```diff
+-return sprintf('@=resolver("MyFieldValue", [field, %s])', $myArg);
++return sprintf('@=query("MyFieldValue", field, %s)', $myArg);
+```
+
+#### Implement other countermeasures
+
+If updating the GraphQl packages isn't possible right now, for example because the project is using PHP 7.4 where the fix is not available, review the security issue carefully and asses the danger.
+
+If you choose to implement countermeasures without updating the package, you can silence the advisory in `composer.json`:
+
+```json
+"config": {
+    "audit": {
+        "ignore": {
+            "GHSA-68jq-c3rv-pcrr": "Description the countermeasures you've implemented."
+        }
+    }
+}
+```
+
+In addition, consider upgrading your project to one of [the actively supported PHP versions](https://www.php.net/supported-versions.php).
+
 ### Database update [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
 
 Run the provided SQL upgrade script to adapt your database to latest change in [form builder](form_builder_guide.md)'s `max_length` validator behavior:
