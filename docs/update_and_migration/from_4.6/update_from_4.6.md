@@ -596,6 +596,13 @@ If you [extended GraphQL to support custom field types](graphql_custom_ft.md), u
 +return sprintf('@=query("MyFieldValue", field, %s)', $myArg);
 ```
 
+Then, regenerate the GraphQL schema by running:
+
+``` bash
+rm -rf config/graphql/types/ibexa/
+php bin/console ibexa:graphql:generate-schema
+```
+
 #### Implement other countermeasures
 
 If updating the GraphQl packages isn't possible right now, for example because the project is using PHP 7.4 where the fix is not available, review the security issue carefully and asses the danger.
@@ -606,13 +613,13 @@ If you choose to implement countermeasures without updating the package, you can
 "config": {
     "audit": {
         "ignore": {
-            "GHSA-68jq-c3rv-pcrr": "Description the countermeasures you've implemented."
+            "GHSA-68jq-c3rv-pcrr": "Description of the countermeasures you've implemented."
         }
     }
 }
 ```
 
-In addition, consider upgrading your project to one of [the actively supported PHP versions](https://www.php.net/supported-versions.php).
+In addition, consider upgrading your project to one of [the actively supported PHP versions](/getting_stated/requirements.md#php).
 
 ### Database update [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
 
