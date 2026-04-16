@@ -1,5 +1,4 @@
 ---
-month_change: true
 description: You can search for content, locations and products by using the PHP API. Fine-tune the search with Search Criteria, Sort Clauses and Aggregations.
 month_change: true
 ---
@@ -394,7 +393,7 @@ You build an `EmbeddingQuery` instance by using a builder and pass it to the sea
 
 This example shows a minimal embedding query executed directly through the search service:
 
-``` php hl_lines="38-39 41-47 49" 
+``` php hl_lines="38-39 41-47 49"
 [[= include_file('code_samples/api/public_php_api/src/Command/FindByTaxonomyEmbeddingCommand.php') =]]
 ```
 
