@@ -54,6 +54,7 @@ TODO: Maybe explain that routes are built automatically from MCP server `path` c
 | `version`         | string  | No       | `1.0.0` | MCP server version                            |
 | `description`     | string  | No       | `null`  | Human-readable server description             |
 | `instructions`    | string  | No       | `null`  | Instructions dedicated for LLM interaction    |
+| `tools`           | string  | No       | `[]`    | List of tool classes                          |
 | `discovery_cache` | string  | Yes      |         | PSR-6 ou PSR-16 cache pool service identifier |
 | `session`         | object  | Yes      |         | Session storage configuration                 |
 
@@ -119,9 +120,23 @@ TODO: Might not work with DDEV or Docker
 
 ## MCP server capabilities
 
-TODO: `Ibexa\Contracts\Mcp\McpCapabilityInterface`
+The Ibexa DXP MCP server framework (`ibexa/mcp`) is built on top of [the official PHP SDK for MCP (`mcp/sdk`)](https://github.com/modelcontextprotocol/php-sdk)
 
-TODO: `Ibexa\Contracts\Mcp\Attribute` namespace
+A PHP class implementing MCP server capabilities like tools, prompts, or resources, must:
+
+- implements [`Ibexa\Contracts\Mcp\McpCapabilityInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Mcp-McpCapabilityInterface.html) to be scanned for capabilities
+- uses attributes from the [`Ibexa\Contracts\Mcp\Attribute` namespace](/api/php_api/php_api_reference/namespaces/ibexa-contracts-mcp-attribute.html) to define capabilities.
+- TODO: be added to an MCP server configuration
+
+### Tools
+
+The [`Ibexa\Contracts\Mcp\Attribute\McpTool` attribute](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Mcp-Attribute-McpTool.html) declared a method as an MCP tool.
+It has several arguments to describe the tool usage and output:
+
+- `name` (optional): the name of the tool - if not set, the function name is used as the tool name
+- `description` (optional): a human-readable description of the tool, useful for the LLM to understand the tool purpose and eventually choose it when it matches the prompt intent
+- `inputSchema` (optional): for JSON object output, an associative array describing this object
+- `annotations` (optional): a [`Mcp\Schema\ToolAnnotations`](https://github.com/modelcontextprotocol/php-sdk/blob/main/src/Schema/ToolAnnotations.php) instance 
 
 ## Example
 
@@ -136,7 +151,8 @@ In a new `config/packages/mcp.yaml` file, the configuration of the MCP server:
 [[= include_file('code_samples/mcp/config/packages/mcp.yaml') =]]
 ```
 
-Then, a `McpCapabilityInterface`containing a `greet` function with a `McpTool` attribute associating with the `example` server:
+Then, a `McpCapabilityInterface` containing a `greetByName` function with a `McpTool` attribute,
+the `App\Mcp\ExampleTools` class listed in the server's `tools`:
 
 ``` php
 [[= include_file('code_samples/mcp/src/Mcp/ExampleTools.php') =]]
