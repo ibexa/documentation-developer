@@ -411,6 +411,7 @@ You're now running [Symfony 7.4, the current long-term support version](https://
 
 Following the changes introduced in v5.0.6, the `ibexa:setup` command is deprecated as of v5.0.7 and will be removed in v6.0.0.
 Additionally, the `ibexa/cloud` package must be installed for the [[= product_name_cloud =]] build to succeed.
+The command `ibexa:cloud:setup` from this package replaces the deprecated `ibexa:setup`.
 
 To learn how to adjust your configuration, see [update instructions for v5.0.6](#ibexa-cloud-configuration-update).
 
