@@ -608,7 +608,7 @@ When doing the update, you have two options:
 
 #### Update GraphQL packages and custom code (recommended)
 
-Make sure the `webonyx/graphql-php` package to installed in a version higher or equal to 15.31.5.
+Make sure the `webonyx/graphql-php` package is installed in a version higher or equal to v15.31.5.
 
 If you [extended GraphQL to support custom field types](graphql_custom_ft.md), update the returned expression from `@=resolver(...)` to `@=query(...)` and change the argument syntax from an array to variadic arguments as in the following example:
 
