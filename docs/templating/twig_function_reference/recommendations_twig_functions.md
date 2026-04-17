@@ -12,7 +12,7 @@ The following Twig functions are supported while using [Raptor connector](raptor
 The `ibexa_tracking_script()` Twig function allows you to embed the main tracking script into the website.
 It loads the initial script into `window.raptor`.
 The script then enables event tracking, such as page visits, product views, or buys, from the front end.
-It can be overridden in multiple ways to support custom implementations and to render code snippet through [[= product_name_base =]] in the [design engine](design_engine.md).
+It can be overridden in multiple ways to support custom implementations and to render code snippet through [[= product_name =]] in the [design engine](design_engine.md).
 
 Tracking can be conditionally initialized depending on cookie consent logic.
 By default, for client-side use, the function returns a script, but it can return nothing when used server-side.
@@ -58,7 +58,7 @@ document.dispatchEvent(new CustomEvent('enableTracking'));
 
 The `ibexa_tracking_track_event()` function is responsible for sending event data to the service, which enables tracking of user interactions and behaviors.
 
-Tracking is handled through a twig function that accept following parameters:
+Tracking is handled through a Twig function that accept following parameters:
 
 ``` html+twig
 ibexa_tracking_track_event(

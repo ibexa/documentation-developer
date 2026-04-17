@@ -1,37 +1,33 @@
-{{ ibexa_tracking_track_event(
-      'visit',
-      product,
-      {},
-      '@App/tracking/custom_visit.html.twig'
-) }}
-```
-
 {# templates/tracking/custom_visit.html.twig #}
 
-  {#
-   # Custom visit tracking template
-   #
-   # Available variables:
-   # - parameters: array of Raptor tracking parameters (p1, p2, p3, etc.)
-   # - debug: boolean flag to enable debug console messages
-   #}
+{#
+# Custom visit tracking template
+#
+# Available variables, passed to the template by `ibexa_tracking_track_event`:
+# - parameters: array of Raptor tracking parameters (p1, p2, p3, etc.)
+# - debug: boolean flag to enable debug console messages
+#}
 
-  <script type="text/javascript">
-      {% autoescape 'js' %}
-          (function () {
-              // Custom logic before tracking
-              console.log('Custom visit tracking template');
-              console.log('Tracking parameters:', {{ parameters|json_encode|raw }});
+<script type="text/javascript">
+    {% autoescape 'js' %}
+        (function () {
+            // Custom logic before tracking
+            {# For example, always override the website ID by editing the received parameters: #}
+            {% set parameters = parameters|merge({'p7': 'custom-website-id'}) %}
+            {% if debug %}
+            console.log('Custom visit tracking template');
+            console.log('Tracking parameters:', {{ parameters|json_encode|raw }});
+            {% endif %}  
 
-              // Send the tracking event (REQUIRED for tracking to work)
-              const event = 'trackEvent';
-              const params = {{ parameters|json_encode|raw }};
-              window.raptor.push(event, params);
+            // Send the tracking event (REQUIRED for tracking to work)
+            const event = 'trackEvent'; // Don't change this - Raptor API method name
+            const params = {{ parameters|json_encode|raw }};
+            window.raptor.push(event, params);
 
-              // Custom logic after tracking
-              {% if debug %}
-              console.log('Visit event tracked successfully');
-              {% endif %}
-          })();
-      {% endautoescape %}
-  </script>
+            // Custom logic after tracking
+            {% if debug %}
+            console.log('Visit event tracked successfully');
+            {% endif %}
+        })();
+    {% endautoescape %}
+</script>

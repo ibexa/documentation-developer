@@ -9,7 +9,7 @@ month_change: false
 The integrated help menu is part of the Integrated help introduced as an [LTS Update](editions.md#lts-updates).
 By default, it provides editors and developers with convenient access to documentation, training and other resources directly from the back office.
 
-You can extend or modify the integrated menu in two ways:
+You can extend or modify the integrated menu in the following ways:
 
 - by disabling it for all users
 - by modifying a link to user documentation

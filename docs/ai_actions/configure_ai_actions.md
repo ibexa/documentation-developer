@@ -157,26 +157,7 @@ You can also change the default values globally.
 To do it, in `config/packages` folder, create a YAML file similar to this example:
 
 ```yaml
-  ibexa_connector_gemini:
-    text_to_text:
-      models:
-        gemini-pro-latest:
-          label: 'Gemini Pro Latest'
-          max_tokens: 4096
-        gemini-flash-latest:
-          label: 'Gemini Flash Latest'
-          max_tokens: 4096
-      default_model: gemini-pro-latest
-      default_max_tokens: 4096   # Must be <= the model’s max_tokens
-      default_temperature: 0.8
-    image_to_text:
-      models:
-        gemini-flash-latest:
-          label: 'Gemini Flash Latest'
-          max_tokens: 4096
-      default_model: gemini-flash-latest
-      default_max_tokens: 4096
-      default_temperature: 1.0
+[[= include_file('code_samples/ai_actions/config/packages/ibexa_connector_gemini.yaml') =]]
 ```
 
 When setting up models, make sure that you follow these rules:
