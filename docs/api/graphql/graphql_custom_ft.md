@@ -60,7 +60,7 @@ It requires that you implement the `getFieldTypeIdentifier` method to tell which
 Add `MyFieldDefinitionMapper.php` mapper to `src/GraphQL/Schema`:
 
 ``` php
-[[= include_file('code_samples/api/graphql/src/GraphQL/Schema/MyFieldDefinitionMapper.php', 9, 15) =]]
+[[= include_file('code_samples/api/graphql/src/GraphQL/Schema/MyFieldDefinitionMapper.php', 0, 16) =]][[= include_file('code_samples/api/graphql/src/GraphQL/Schema/MyFieldDefinitionMapper.php', 36, 37) =]]
 ```
 
 The `FieldDefinitionMapper` interface defines following methods:

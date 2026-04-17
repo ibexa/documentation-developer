@@ -579,9 +579,30 @@ With the product updated to the latest version, you can now finish the update pr
 
 ## v4.6.28
 
+### Database update [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
+
+Run the provided SQL upgrade script to adapt your database to latest change in [form builder](form_builder_guide.md)'s `max_length` validator behavior:
+
+=== "MySQL"
+
+    ``` sql
+    mysql -u <username> -p <password> <database_name> < vendor/ibexa/installer/upgrade/db/mysql/ibexa-4.6.27-to-4.6.28.sql
+    ```
+
+=== "PostgreSQL"
+
+    ``` sql
+    psql <database_name> < vendor/ibexa/installer/upgrade/db/postgresql/ibexa-4.6.27-to-4.6.28.sql
+    ```
+
+Prior, `0` was interpreted as "no length limit".
+Now, `0` is interpreted as "length limited to zero characters" and `NULL` as "no length limit".
+
+## v4.6.29
+
 ### GraphQL package update
 
-Due to the [GHSA-68jq-c3rv-pcrr security issue](https://github.com/advisories/GHSA-68jq-c3rv-pcrr), the GraphQL package requirements have been updated to allow installing higher versions where this issue is resolved.
+Due to the [GHSA-68jq-c3rv-pcrr security issue](https://github.com/advisories/GHSA-68jq-c3rv-pcrr), the GraphQL package requirements have been updated to allow installing higher versions in which this issue is resolved.
 
 When doing the update, you have two options:
 
@@ -605,42 +626,21 @@ php bin/console ibexa:graphql:generate-schema
 
 #### Implement other countermeasures
 
-If updating the GraphQL packages isn't possible right now, for example because the project is using PHP 7.4 where the fix is not available, review the security issue carefully and asses the danger.
+If updating the GraphQL packages isn't possible right now, for example because the project is using PHP 7.4 where the fix is not available, review the security issue carefully and assess the danger.
 
-If you choose to implement countermeasures without updating the packages, you can silence the advisory in `composer.json`:
+If you choose to implement countermeasures without updating the GraphQL packages, for example by restricting access to the GrapQL endpoint with rate limiting, authentication, or [WAF](https://en.wikipedia.org/wiki/Web_application_firewall), then you can silence the advisory in `composer.json`:
 
 ```json
 "config": {
     "audit": {
         "ignore": {
-            "GHSA-68jq-c3rv-pcrr": "Description of the countermeasures you've implemented."
+            "GHSA-68jq-c3rv-pcrr": "Description of the countermeasures you've implemented causing this one to be safe to ignore."
         }
     }
 }
 ```
 
 In addition, consider upgrading your project to one of [the actively supported PHP versions](/getting_started/requirements.md#php).
-
-### Database update [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
-
-Run the provided SQL upgrade script to adapt your database to latest change in [form builder](form_builder_guide.md)'s `max_length` validator behavior:
-
-=== "MySQL"
-
-    ``` sql
-    mysql -u <username> -p <password> <database_name> < vendor/ibexa/installer/upgrade/db/mysql/ibexa-4.6.27-to-4.6.28.sql
-    ```
-
-=== "PostgreSQL"
-
-    ``` sql
-    psql <database_name> < vendor/ibexa/installer/upgrade/db/postgresql/ibexa-4.6.27-to-4.6.28.sql
-    ```
-
-Prior, `0` was interpreted as "no length limit".
-Now, `0` is interpreted as "length limited to zero characters" and `NULL` as "no length limit".
-
-## v4.6.29
 
 ### Database update [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
 
