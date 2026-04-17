@@ -407,7 +407,7 @@ Update Symfony constraints in `composer.json` before updating the packages.
 
 You're now running [Symfony 7.4, the current long-term support version](https://symfony.com/releases/7.4).
 
-### `ibexa:setup` command deprecated
+### [[= product_name_cloud =]] `ibexa:setup` command deprecation
 
 Following the changes introduced in v5.0.6, the `ibexa:setup` command is deprecated as of v5.0.7 and will be removed in v6.0.0.
 Additionally, the `ibexa/cloud` package must be installed for the [[= product_name_cloud =]] build to succeed.
