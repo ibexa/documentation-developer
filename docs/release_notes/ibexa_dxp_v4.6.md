@@ -14,7 +14,7 @@ month_change: true
 
 [[= release_note_entry_begin(
     "Integrated help " + version,
-    '2026-04-14',
+    '2026-04-20',
     ['Headless', 'Experience', 'Commerce', 'LTS Update', 'New feature']
 ) =]]
 
@@ -31,7 +31,7 @@ For more information, see [Product tour](https://doc.ibexa.co/en/4.6/administrat
 
 [[= release_note_entry_begin(
     "Ibexa DXP " + version,
-    '2026-04-14',
+    '2026-04-20',
     ['Headless', 'Experience', 'Commerce', 'New feature']
 ) =]]
 
