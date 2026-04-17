@@ -3,7 +3,7 @@
 {#
 # Custom visit tracking template
 #
-# Available variables:
+# Available variables, assed to the template by `ibexa_tracking_track_event`:
 # - parameters: array of Raptor tracking parameters (p1, p2, p3, etc.)
 # - debug: boolean flag to enable debug console messages
 #}
@@ -12,11 +12,15 @@
     {% autoescape 'js' %}
         (function () {
             // Custom logic before tracking
+            {# For example, always override the website ID by editing the received parameters: #}
+            {% set parameters = parameters|merge({'p7': 'custom-website-id'}) %}
+            {% if debug %}
             console.log('Custom visit tracking template');
             console.log('Tracking parameters:', {{ parameters|json_encode|raw }});
+            {% endif %}  
 
             // Send the tracking event (REQUIRED for tracking to work)
-            const event = 'trackEvent';
+            const event = 'trackEvent'; // Don't change this - Raptor API method name
             const params = {{ parameters|json_encode|raw }};
             window.raptor.push(event, params);
 
