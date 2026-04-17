@@ -407,6 +407,30 @@ Update Symfony constraints in `composer.json` before updating the packages.
 
 You're now running [Symfony 7.4, the current long-term support version](https://symfony.com/releases/7.4).
 
+### [[= product_name_cloud =]] `ibexa:setup` command deprecation
+
+Following the changes introduced in v5.0.6, the `ibexa:setup` command is deprecated as of v5.0.7 and will be removed in v6.0.0.
+Additionally, the `ibexa/cloud` package must be installed for the [[= product_name_cloud =]] build to succeed.
+The command `ibexa:cloud:setup` from this package replaces the deprecated `ibexa:setup`.
+
+To learn how to adjust your configuration, see [update instructions for v5.0.6](#ibexa-cloud-configuration-update).
+
+### Database update [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
+
+Run the provided SQL upgrade script to update your database:
+
+=== "MySQL"
+
+    ``` bash
+    mysql -u <username> -p <password> <database_name> < vendor/ibexa/installer/upgrade/db/mysql/ibexa-5.0.6-to-5.0.7.sql
+    ```
+
+=== "PostgreSQL"
+
+    ``` bash
+    psql <database_name> < vendor/ibexa/installer/upgrade/db/postgresql/ibexa-5.0.6-to-5.0.7.sql
+    ```
+
 ## LTS Updates and additional packages
 
 [LTS Updates](editions.md#lts-updates) are standalone packages with their own update procedures.
