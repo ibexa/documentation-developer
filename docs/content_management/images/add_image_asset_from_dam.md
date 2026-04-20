@@ -160,7 +160,6 @@ The `commons_search_tab` service uses the `GenericSearchTab` class as a base, an
 It is linked to the `commons` DAM source and uses the identifier `commons`. 
 The DAM search tab is registered in the `connector-dam-search` [tab group](back_office_tabs.md#tab-groups) using the `ibexa.admin_ui.tab` tag.
 
-
 ```yaml
 [[= include_file('code_samples/back_office/images/config/services.yaml', 22, 33) =]]
 ```

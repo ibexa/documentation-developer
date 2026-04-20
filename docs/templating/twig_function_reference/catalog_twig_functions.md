@@ -11,7 +11,6 @@ With the catalog Twig functions you can get catalog location and render catalog 
 
 The `ibexa_get_product_catalog_root()` function gets a root location of the product catalog (configured in `ibexa_product_catalog.engines.default.type.options.root_location_remote_id`).
 
-
 ``` html+twig
 {{ ibexa_url(ibexa_get_product_catalog_root()) }}
 ```

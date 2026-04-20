@@ -974,7 +974,6 @@ Features which were optional 4.6 LTS Updates are now part of 5.0.0.
     psql <database_name> < schema_symbol-attribute.sql
     ```
 
-
 #### Install collaboration
 
 === "MySQL"

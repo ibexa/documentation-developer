@@ -75,7 +75,6 @@ class Ibexa[ProductGroup]<PackageName>Bundle // ...
 
 Examples:
 
-
 ```php
 namespace Ibexa\Bundle\Search;
 

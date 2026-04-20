@@ -288,7 +288,6 @@ In the event when a new version of `Child` is published, the following keys are 
 In summary, HTTP Cache for any location representing `[Child]`, any Content that relates to the Content `[Child]`, the location for `[Child]`, any children of `[Child]`, any location that relates to the location `[Child]`, location for `[Parent1]`, any children on `[Parent1]`.
 Effectively, in this example HTTP cache for `[Parent1]` and `[Child]` is cleared.
 
-
 ### Tags purged on move event
 
 With the same content structure as above, the `[Child]` location is moved below `[Parent2]`.

@@ -14,4 +14,3 @@ This ensures the issue can be quickly prioritized according to its impact.
 !!! caution "Security issues"
 
     If you discover a security issue, please don't report it through regular channels, but instead take a look at the [Security section](reporting_issues.md).
-

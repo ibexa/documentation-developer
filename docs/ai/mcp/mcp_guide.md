@@ -6,7 +6,6 @@ month_change: true
 
 # MCP Servers product guide
 
-
 ## What is MCP Servers
 
 MCP ([Model Context Protocol](https://modelcontextprotocol.io/docs/getting-started/intro)) is a protocol that standardizes how AI systems interact with external systems.

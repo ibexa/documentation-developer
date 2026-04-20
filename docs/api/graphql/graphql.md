@@ -114,7 +114,6 @@ mutation CreateToken {
 
 ![GraphiQL with a JWT token request and its response](jwt-graphiql.png "GraphiQL JWT token request and response")
 
-
 ## Usage
 
 You can access GraphQL with `<yourdomain>/graphql`.

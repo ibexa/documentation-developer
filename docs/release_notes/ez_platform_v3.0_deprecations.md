@@ -958,7 +958,6 @@ The following classes have been moved to `EzPlatformContentFormsBundle`:
 |`EzSystems\EzPlatformAdminUi\Validator\Constraints\UserPassword`|`EzSystems\EzPlatformUser\Validator\Constraints\UserPassword`|
 |`EzSystems\EzPlatformAdminUi\Validator\Constraints\UserPasswordValidator`|`EzSystems\EzPlatformUser\Validator\Constraints\UserPasswordValidator\ValidationErrorsProcessor`|
 
-
 The following methods have been moved to `EzPlatformUserBundle`:
 
 |Former method|Current method|
@@ -967,7 +966,6 @@ The following methods have been moved to `EzPlatformUserBundle`:
 |`EzSystems\EzPlatformAdminUi\Form\Factory\FormFactory::forgotUserPassword`|`EzSystems\EzPlatformUser\Form\Factory\FormFactory::forgotUserPassword`|
 |`EzSystems\EzPlatformAdminUi\Form\Factory\FormFactory::resetUserPassword`|`EzSystems\EzPlatformUser\Form\Factory\FormFactory::resetUserPassword`|
 |`EzSystems\EzPlatformAdminUi\Form\Factory\FormFactory::updateUserSetting`|`EzSystems\EzPlatformUser\Form\Factory\FormFactory::updateUserSetting`|
-
 
 The following classes have been moved to `EzPlatformContentFormsBundle`.
 

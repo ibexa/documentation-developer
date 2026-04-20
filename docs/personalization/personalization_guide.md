@@ -24,9 +24,7 @@ Now, you can start collecting data and boost your business.
 
 ## How does Personalization work
 
-
 ![How it works](how_perso_works.png)
-
 
 Personalization with tracking scripts, monitors  individual sessions from user’s behavior and interest data through events (clicks, viewed articles, pages, purchases) and demographic data (location, industry, occupation).
 
@@ -58,7 +56,6 @@ Personalization service includes the following model types:
 
 ![Structure](categories.png)
 
-
 ### Scenarios
 
 Scenarios are sequences of events.
@@ -73,7 +70,6 @@ Segments calculate models based on the segment attribute factor. Assign users to
 ![Segments](perso_segment_group_or.png)
 
 ![Recommendations](recommendations.png)
-
 
 ### REST API
 
@@ -120,7 +116,6 @@ Apply collaborative models with predictive analysis and find out what motivates 
 Start building predictions of their behaviors and suggest items, products your visitors are willing to buy.
 
 ![Dashboard](perso_dashboard_revenue.png)
-
 
 ### Measure your return and boost conversion rates
 

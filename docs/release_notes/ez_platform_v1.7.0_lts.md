@@ -2,7 +2,6 @@
 
 # eZ Platform v1.7.0 LTS
 
-
 **The v1.7.0 release of eZ Platform and eZ Platform Enterprise Edition is available as of December 15, 2016.**
 
 **<https://ezplatform.com/Blog/Long-Term-Support-is-Here>**
@@ -14,7 +13,6 @@ eZ Platform Enterprise Edition v1.7.0 is the first version of the 2017 Long Ter
 As of v1.7.0, PHP requirements have been updated to remove PHP 5.5, leaving PHP 5.6 and 7.0 as supported PHP versions.
 
 With the LTS release, the [new product naming](http://ez.no/Blog/eZ-Announces-Name-Changes-to-Product-Portfolio) takes effect: "eZ Platform" for the Open Source edition, and "eZ Platform Enterprise Edition" for subscribers.
-
 
 ## Notable Changes Since v1.6.0
 
@@ -60,8 +58,6 @@ Community members are more than welcome to contribute to the translation process
     - Add SiteAccess collector to debug toolbar
     - Make IO exceptions more user friendly
     - Make it possible to retrieve original exception when repo-&gt;commit() fails
-
- 
 
 *For more fixes and improvements scroll down for full change log.*
 

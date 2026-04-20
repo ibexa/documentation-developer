@@ -22,7 +22,6 @@ You can get additional information about a field by using the following Twig fun
 - [`ibexa_field_group_name()`](#ibexa_field_group_name) returns a human-readable name of the field group.
 - [`ibexa_has_field()`](#ibexa_has_field) checks whether a field is present in the content item.
 
-
 ## Field rendering
 
 ### `ibexa_render_field()`
@@ -144,7 +143,6 @@ If the content item doesn't have a translation in the prioritized or passed lang
 | `fieldDefIdentifier` | `string` | Identifier of the field. |
 | `forcedLanguage` | `string` | (optional) Language to use (for example, `fre-FR`). |
 
-
 ``` html+twig
 {{ ibexa_field_name(content, 'title') }}
 
@@ -223,7 +221,6 @@ For example, use `ibexa_field_is_empty()` to check whether a field is empty or f
 | Argument | Type | Description |
 |---------------|------|-------------|
 | `fieldGroupIdentifier` | `string` | Field group [identifier](repository_configuration.md#field-groups-configuration). |
-
 
 ``` html+twig
 {{ ibexa_field_group_name('content') }}

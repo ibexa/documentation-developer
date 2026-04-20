@@ -195,7 +195,6 @@ Add the following lines at the end of `templates/full/ride.html.twig`, before th
 
 You can now check the Ride page again to see all the connected Landmarks.
 
-
 !!! tip
 
     You can use `dump()` in Twig templates to display all available variables.

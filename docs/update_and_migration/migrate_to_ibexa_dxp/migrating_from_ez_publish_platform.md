@@ -34,7 +34,6 @@ You can then proceed with consecutive upgrades to further versions: v1.13 LTS an
         While we have a strict backwards compatibility focus, some deprecated API features were removed and some changes were done to internal parts of the system.
         See [ezpublish-kernel:doc/bc/changes-6.0.md](https://github.com/ezsystems/ezpublish-kernel/blob/v6.7.0/doc/bc/changes-6.0.md)
 
-
 !!! caution "Unsupported legacy sorting methods"
 
     In older eZ Publish versions, sub-items of content items could be sorted by Class identifier (option value 6) or Class name (option value 7).
@@ -106,7 +105,6 @@ If you plan to use Legacy Bridge for a while before migrating content, you also 
 !!! note
 
     As of v1.3, be aware this field type now uses the Content View system introduced in eZ Platform 1.0, so make sure you adapt custom templates and override rules if you plan to use this for rendering content (in Legacy Bridge setup).
-
 
 ### 2.3. Config
 
@@ -190,7 +188,6 @@ ezpublish:
 Move over registration of _your_ bundles you have from src and from composer packages, from old to new kernel:
 
 `<old-ez-root>/ezpublish/EzPublishKernel.php => <new-ez-root>/app/AppKernel.php`
-
 
 ### 2.5. Optional: Install Legacy Bridge
 
@@ -350,7 +347,6 @@ But later realize the last identifier should be `profile`, not ``custom_image``,
 
 The last command would then ensure embedded objects with content type identifier `custom_image` are no longer tagged as images, while embedded objects with content type identifier `profile` are.
 
-
 Using the option `--export-dir`, the conversion exports problematic `ezxmltext` to files with the name pattern `[export-dir]/ezxmltext_[contentobject_id]_[contentobject_attribute_id]_[version]_[language].xml`. A corresponding `.log` file is also created which includes information about why the conversion failed. Be aware that the reported location of the problem may not be accurate or may be misleading.
 
 Below is an example of a xml dump, `ezxmltext_12_1234_2_eng-GB.xml`:
@@ -492,7 +488,6 @@ Below is a table of the tags that are currently supported, and their correspondi
 | `csssize4`    | Not supported |   Use `string` as workaround |
 | `cssborder`   | Not supported |   Use `string` as workaround |
 
-
 #### 3.2.2 Migrate page field to page (eZ Enterprise only)
 
 **If** you use page field (ezflow) and an eZ Enterprise subscription, and are ready to migrate your eZ Publish Flow content to the eZ Enterprise page format, you can use a script to migrate your old page content to new page, to start using a pure eZ Enterprise setup.
@@ -554,7 +549,6 @@ In case of URLs with extended UTF-encoded names, the workaround must make use of
             - '@ezpublish.api.storage_engine.transformation_processor'
             - { transformation: urlalias_iri }
 ```
-
 
 ## Migrating legacy page field (ezflow) to new page (Enterprise)
 

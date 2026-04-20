@@ -211,7 +211,6 @@ DDEV offers several ways to get the same result, offering different levels of fl
 
     Learn more about DDEV configuration from [`ddev config` command documentation](https://docs.ddev.com/en/stable/users/usage/commands/#config) and [advanced configuration files documentation](https://docs.ddev.com/en/stable/users/configuration/config/).
 
-
 ### Using `auth.json`
 
 An `auth.json` file can be used for one project, or globally for all projects, with the [DDEV `homeaddition` feature](https://docs.ddev.com/en/stable/users/extend/in-container-configuration/).

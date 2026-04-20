@@ -574,7 +574,6 @@ If the content type associated with the tags is changed, the configuration shoul
 !!! note
     If there are multiple taxonomies, the `taxonomy` field is then necessary here (line 21).
 
-
 You can use the following example to assign tags to a Content (content type Article has an additional field):
 
 ``` yaml

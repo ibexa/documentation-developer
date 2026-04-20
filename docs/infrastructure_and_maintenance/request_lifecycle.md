@@ -4,7 +4,6 @@ description: See the lifecycle of an HTTP request in Ibexa DXP, from request to 
 
 # Request lifecycle: from request to response
 
-
 ## Beginning of HTTP request
 
 When entering the server infrastructure, the HTTP request can be handled by several component such as a firewall, a load balancer, or a reverse proxy before arriving on the web server itself.
@@ -22,7 +21,6 @@ The front controller transforms the HTTP request into a PHP [`Request` object]([
 
 The schemas start with a regular `Request` object from a browser that enters Symfony and [[= product_name =]].
 There is no ESI, no REST, and no GraphQL request performed.
-
 
 ## Lifecycle flowcharts
 
@@ -59,7 +57,6 @@ This schema is described below event by event.
     ```bash
     php bin/console debug:container --tag=router
     ```
-
 
 ## Kernel's request event
 
@@ -122,7 +119,6 @@ The `locale_listener` (priority 16) sets the request's **`_locale`** attribute.
 
 Now, when the `Request` knows its controller, the `HttpKernel` dispatches the `kernel.controller` event.
 
-
 ## Kernel's controller event
 
 ### View building and matching
@@ -150,7 +146,6 @@ The `ViewControllerListener` eventually updates the request's `_controller` attr
 
 The `HttpKernel` then dispatches a `kernel.controller_arguments` (`KernelEvents::CONTROLLER_ARGUMENTS`) but nothing from [[= product_name =]] is listening to it.
 
-
 ## Controller execution
 
 The `HttpKernel` extracts from the request the controller and the arguments to pass to the controller.
@@ -167,14 +162,12 @@ As a reminder, the controller and its argument can be:
 
     See [Permissions for custom controller](permission_overview.md#permissions-for-custom-controllers).
 
-
 ## Kernel's view event and `ContentView` rendering
 
 If the controller returns something other than `Response`, the `HttpKernel` dispatches a `kernel.view` event (`KernelEvents::VIEW`).
 In the case of a URL Alias, the controller most likely returns a ContentView.
 The `ViewRendererListener` (`Ibexa\Bundle\Core\EventListener\ViewRendererListener`) uses the `ContentView` and the `TemplateRenderer` (`Ibexa\Core\MVC\Symfony\View\Renderer\TemplateRenderer`) to get the content of the `Response` and attach this new `Response` to the event.
 The `HttpKernel` retrieves the response attached to the event and continues.
-
 
 ## Summary
 
@@ -230,7 +223,6 @@ The `HttpKernel` retrieves the response attached to the event and continues.
 | kernel.controller                 | Ibexa\Bundle\Core\EventListener\ViewControllerListener | _controller              | ibexa_content::viewAction                  |
 | (controller execution)            | http_kernel                                            |                          | ContentView                                |
 | kernel.view                       | Ibexa\Bundle\Core\EventListener\ViewRendererListener   | response                 | Response                                   |
-
 
 ## End of HTTP response
 

@@ -372,7 +372,6 @@ Last edited (UTC): 2023-07-03 10:33
 
 In the example above, the ID is `ltC6Rg4pqw4qaNKF5tEW`.
 
-
 ### Create record in dictionary
 
 Add username and password to the dictionary:

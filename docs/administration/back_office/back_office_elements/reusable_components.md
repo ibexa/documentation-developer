@@ -135,7 +135,6 @@ The table component consists of the following blocks:
 - `thead` - table header content
 - `tbody` - table body content
 
-
 ### Override specific cell
 
 For the `twig` table component to have full control over rendering the rows of specific cells, only data are passed to it.
@@ -250,7 +249,6 @@ See the example:
 ```
 
 - `empty_table_info_text` and `empty_table_action_text` specify texts which are displayed when the table is empty.
-
 
 ```html+twig
 {{ form_start(form_remove, {

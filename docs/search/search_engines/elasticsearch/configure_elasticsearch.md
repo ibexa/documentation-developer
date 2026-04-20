@@ -131,7 +131,6 @@ For more information and a list of available choices, see [Node pool](https://ww
 
     If you change the node pool settings, it's recommended that you perform load tests to check whether the change doesn't negatively impact the performance of your environment.
 
-
 ##### Number of retries
 
 The `retries` setting configures the number of attempts that [[= product_name =]] makes to connect to the nodes of the cluster before it throws an exception.
