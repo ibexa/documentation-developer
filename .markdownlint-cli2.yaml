@@ -16,6 +16,7 @@ config:
 
   list-marker-space: true
   blanks-around-fences: true
+  no-multiple-space-atx: true
   ul-style: dash
   ol-prefix: 
     style: one_or_ordered

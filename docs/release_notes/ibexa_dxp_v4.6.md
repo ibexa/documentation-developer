@@ -1516,7 +1516,7 @@ With `IsVirtual` criterion that searches for virtual or physical products, produ
 
 [Product variants](https://doc.ibexa.co/en/5.0/content_management/data_migration/importing_data/#product-variants) and [product assets](https://doc.ibexa.co/en/5.0/content_management/data_migration/importing_data/#product-assets) can now be created through [data migration](https://doc.ibexa.co/en/5.0/content_management/data_migration/data_migration/).
 
-####  New features and improvements in Commerce [[% include 'snippets/commerce_badge.md' %]]
+#### New features and improvements in Commerce [[% include 'snippets/commerce_badge.md' %]]
 
 ##### Reorder
 

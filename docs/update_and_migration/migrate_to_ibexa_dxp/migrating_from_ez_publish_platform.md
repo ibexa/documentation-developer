@@ -233,7 +233,7 @@ The easiest way to upgrade the distribution files is to copy the directories tha
 
     Since writable directories and files have been replaced / copied, their permissions might have changed. You most likely need to reconfigure webserver user permissions as instructed further down.
 
-###  2.6 Binary files
+### 2.6 Binary files
 
 Binary files can simply be copied from the old to the new installation:
 
@@ -243,7 +243,7 @@ Binary files can simply be copied from the old to the new installation:
 
     In the eZ Publish Platform 5.x installation `web/var` is a symlink to `ezpublish_legacy/var`, so if you can't find it in path above you can instead copy the storage files to the similar `ezpublish_legacy/var[/<site_name>]/storage` path.
 
-###  2.7 Re-apply permissions and update composer
+### 2.7 Re-apply permissions and update composer
 
 Since writable directories and files have been replaced / copied, their permissions might have changed. You need to re-apply them.
 
