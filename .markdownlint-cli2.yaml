@@ -35,7 +35,7 @@ config:
 # no-alt-text: true
 # single-trailing-newline: true
 # no-emphasis-as-heading: true
-# no-space-in-code: true
+  no-space-in-code: true
 # no-space-in-links: true
 # fenced-code-language: true
 # first-line-heading: true
