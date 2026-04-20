@@ -759,7 +759,7 @@ The PHP API has been enhanced with the following new classes:
 
 [[= release_note_entry_begin("Date and time attribute " + version, '2025-03-04', ['Headless', 'Experience', 'Commerce', 'LTS Update', 'New feature', 'First release']) =]]
 
-The Date and time attributes allow you to represent date and time values as part of the product specification in the [product catalog](product_catalog_guide.md).
+The Date and time attributes allow you to represent date and time values as part of the product specification in the [product catalog](https://doc.ibexa.co/en/4.6/pim/pim_guide/).
 
 For more information, see [Date and time attributes](https://doc.ibexa.co/en/4.6/pim/attributes/date_and_time/).
 
