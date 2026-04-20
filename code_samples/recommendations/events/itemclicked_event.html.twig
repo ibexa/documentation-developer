@@ -1,0 +1,4 @@
+{{ ibexa_tracking_track_event('itemclick', product.code, {
+    'moduleName': 'homepage-recommendations',
+    'redirectUrl': path('ibexa.product.view', {'productCode': product.code})
+}) }}

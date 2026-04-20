@@ -374,3 +374,64 @@ See [configuring assets from main project files](importing_assets_from_bundle.md
 Your custom Action Type is now fully integrated into the back office UI and can be used by the Editors.
 
 ![Transcribe Audio Action Type integrated into the back office](img/transcribe_audio.png "Transcribe Audio Action Type integrated into the back office")
+
+## Extend Google Gemini connector [[% include 'snippets/lts-update_badge.md' %]]
+
+The Gemini connector provides several extension points that allow you to customize available models, behavior, validation, and response handling, while remaining compatible with the AI Actions framework.
+
+The connector builds Gemini requests in an options provider and formats responses through a response formatter.
+Both components can be replaced or extended to customize how requests are constructed and how responses are normalized.
+
+### Add or customize models
+
+You can register additional Gemini models or customize existing ones by extending the connector’s model [configuration](configure_ai_actions.md#configure-default-models).
+
+Extend the models map by defining:
+
+- a human-readable label
+- a `max_tokens` limit
+
+Optionally, you can set the default model that would be used for the action type that you're modifying, the default allowed tokens limit and the default temperature.
+Default values must stay within the limits supported by the [Gemini API](https://ai.google.dev/gemini-api/docs/models).
+
+### Add a custom Action Handler
+
+To introduce a new Gemini-based AI action:
+
+1. Create a handler that extends `Ibexa\Contracts\ConnectorAi\Action\AbstractActionHandler`.
+1. Register the handler in `services/ai_action_handlers.yaml`.
+1. Provide supporting components as needed:
+    - a prompt factory
+    - a form type for configuration
+    - validators for action options
+
+This follows the same extension mechanism as other [custom AI actions](#create-custom-action-handler).
+
+### Add custom response formatting
+
+To change how Gemini responses are post-processed or normalized:
+
+1. Implement the `Ibexa\ConnectorGemini\Response\GeminiResponseFormatterInterface` interface.
+1. Alias your implementation in the service container to override the default formatter.
+
+### Add custom validation
+
+Add extra validation rules for Gemini action configuration options by tagging custom validators:
+
+- For `text-to-text` actions:
+
+    ``` yaml
+    ibexa.connector_ai.action_configuration.options.validator.gemini_text_to_text
+    ```
+
+- For `image-to-text` actions:
+
+    ``` yaml
+    ibexa.connector_ai.action_configuration.options.validator.gemini_image_to_text
+    ```
+
+### Replace the Gemini client implementation
+
+To get full control over the low-level API communication without modifying the connector itself, you can swap the Gemini client implementation entirely with your own:
+
+- Use dependency injection to bind your own implementation to `Ibexa\ConnectorGemini\Client\GeminiClientInterface`.

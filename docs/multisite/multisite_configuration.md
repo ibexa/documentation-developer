@@ -184,13 +184,14 @@ ibexa:
             content:
                 tree_root:
                     location_id: 42
-                    excluded_uri_prefixes: [/media, /images]
+                    excluded_uri_prefixes: [/media/, /images/]
             index_page: /EventFrontPage
 ```
 
 - `location_id` defines the location ID of the content root for the SiteAccess.
 - `excluded_uri_prefixes` defines which URIs ignore the root limit set by using `location_id`.
-In the example above, to access the Media and Images folders, you can use their own URI, even though they're outside the location provided in `content.tree_root.location_id`.
+  In the example above, to access the Media and Images folders, you can use their own URI, even though they're outside the location provided in `content.tree_root.location_id`.
+  It's an array of prefixes. So, for example, `[/media]` would also exclude `/mediation` from root limit.
 - `index_page` is the page shown when you access the root index `/`.
 
 !!! note

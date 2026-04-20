@@ -8,13 +8,17 @@ month_change: false
 AI Actions are available in [[= product_name =]] regardless of its edition.
 To use this feature you must first configure the built-in service connectors or build your own ones.
 
-!!! note "Next steps"
+Once the framework is configured, before you can start using AI Actions, you can configure access to [[= product_name_base =]]-made service connectors by following the instructions below, or [create your own](extend_ai_actions.md#create-custom-action-handler).
 
-    Once the framework is configured, before you can start using AI Actions, you can configure access to [[= product_name_base =]]-made service connectors by following the instructions below, or [create your own](extend_ai_actions.md#create-custom-action-handler).
+Only then you can restart you application and start [working with the AI Actions feature]([[= user_doc =]]/ai_actions/work_with_ai_actions/).
 
-    Only then you can restart you application and start [working with the AI Actions feature]([[= user_doc =]]/ai_actions/work_with_ai_actions/).
+!!! note "Taxonomy suggestions"
 
-## Configure access to OpenAI (optional)
+    The default OpenAI or the optional Google Gemini connectors can used by the [Taxonomy suggestions](taxonomy.md#taxonomy-suggestions) feature to generate embeddings for suggesting tags and product categories.
+    After you configure the OpenAI connector, or set up the optional Google Gemini connector and [modify the default taxonomy suggestions settings](taxonomy.md#change-embeddings-provider-to-google-gemini), you can [create AI actions that use the Text to Taxonomy action type]([[= user_doc =]]/ai_actions/work_with_ai_actions/#create-ai-actions-that-control-taxonomy-suggestions).
+    You can also create [your own embedding provider](taxonomy.md#replace-the-embedding-provider).
+
+## Configure access to OpenAI
 
 To use the built-in connector with the OpenAI service, you need to create an OpenAI account, [get an API key](https://help.openai.com/en/articles/4936850-where-do-i-find-my-openai-api-key), and make sure that you [set up a billing method](https://help.openai.com/en/articles/9038407-how-can-i-set-up-billing-for-my-account).
 
@@ -31,12 +35,6 @@ OPENAI_API_KEY=<your_api_key>
 The AI actions come with sample AI action configurations to quickly get you started on using the feature.
 
 Based on these examples, which reflect the most common use cases, you can learn to configure your own AI actions with greater ease.
-
-!!! note "Taxonomy suggestions"
-
-    OpenAI connector is also used by the [Taxonomy suggestions](taxonomy.md#taxonomy-suggestions) feature to generate embeddings for suggesting tags and product categories.
-    After you configure the connector, you can [create AI actions that use the Text to Taxonomy action type]([[= user_doc =]]/ai_actions/work_with_ai_actions/#create-ai-actions-that-control-taxonomy-suggestions).
-    You can also create [your own embedding provider](taxonomy.md#replace-the-embedding-provider).
 
 ## Install Anthropic connector [[% include 'snippets/lts-update_badge.md' %]]
 
@@ -82,6 +80,99 @@ ibexa_connector_anthropic:
             claude-opus-4-20250514: 'Claude Opus 4 (2025-05-14)'
 ```
 You can now use the Anthropic connector in your project.
+
+## Install Google Gemini connector [[% include 'snippets/lts-update_badge.md' %]]
+
+Run the following command to install the package:
+
+``` bash
+composer require ibexa/connector-gemini
+```
+
+This command adds the feature code, including basic handlers that let you refine text or generate alternative text for images.
+
+### Get API key
+
+To use the connector with the Gemini services, you need to create an account, set up billing, enable Gemini API and get an API key.
+
+#### Create the Google Cloud project
+
+1. Sign in to the [Google Cloud Console](https://console.cloud.google.com/).
+1. In the top bar, click **Default Gemini Project** to open a project picker.
+1. Click **New project** and provide project details:
+    1. Add project name, for example, "My project".
+    1. Modify the automatically generated **Project ID** if necessary.
+    1. Select location: choose your organization.
+1.  Click **Create**.
+
+#### Configure billing
+
+1. Navigate to the Google Cloud Console's **Billing** page.
+1. If you do not have one, click **Add billing account** and add a payment method.
+1. In **Your projects** tab, locate your project, and in its line, from the **Actions** menu, select **Change billing**.
+1. Select your active billing account, and click **Set account**. 
+
+#### Enable the Gemini API 
+
+1. Navigate to the Google Cloud Console's **APIs & Services** page.
+1. From the left-hand menu, select **Library** and search for the Generative Language API.
+1. In the API's details page, click **Enable**.
+
+#### Generate the API key
+
+1. Go to [Google AI Studio](https://aistudio.google.com/app/api-keys)'s **API keys** page, and click **Create API key**.
+1. Provide a name for the API key, select "My project" from a list of projects and click **Create key**.
+1. Back in the **API keys** list, in your project's line, copy the API key.
+
+### Set API key in configuration
+
+Then, in the root folder of your project, modify the `.env` file: add an `GEMINI_API_KEY` variable and populate its value with the API key that you got from the AI service.
+
+```bash
+###> ibexa/connector-gemini ###
+GEMINI_API_KEY=<your_api_key>
+###< ibexa/connector-gemini ###
+```
+
+!!! note "Different API keys for different SiteAccesses"
+
+    If there are multiple SiteAccesses in your installation, you can set different API keys for each SiteAccess.
+    To do it, set the keys under the `ibexa.system.<scope>` [configuration key](configuration.md#configuration-files), like so:
+
+    ```yaml
+    ibexa:
+        system:
+            default:
+                connector_gemini:
+                    gemini:
+                        api_key: '%env(GEMINI_API_KEY)%'
+                        base_url: 'https://generativelanguage.googleapis.com/v1beta/' # Google Gemini's API endpoint
+    ```
+
+### Configure default models
+
+By default, when reaching out for responses, the Gemini connector uses the Gemini Pro [model](https://ai.google.dev/gemini-api/docs/models) for text refinement and Gemini Flash model for alternative text generation.
+Users can override this setting at runtime when they [edit or create an AI action]([[= user_doc =]]/ai_actions/work_with_ai_actions/#edit-existing-ai-actions).
+You can also change the default values globally.
+To do it, in `config/packages` folder, create a YAML file similar to this example:
+
+```yaml
+[[= include_file('code_samples/ai_actions/config/packages/ibexa_connector_gemini.yaml') =]]
+```
+
+When setting up models, make sure that you follow these rules:
+
+- `default_model` must reference a configured model
+- `default_max_tokens` must not exceed the model’s limit
+- If you use the same model for different action types, settings must be consistent
+
+!!! note "Google Gemini and taxonomy suggestions"
+
+    To use Google Gemini for generating taxonomy suggestions, ensure that you [change the embeddings provider and model setting accordingly](taxonomy.md#change-embeddings-provider-to-google-gemini).
+
+You can now use the Gemini connector in your project.
+
+For more information, see [Extend Gemini connector](extend_ai_actions.md#extend-google-gemini-connector).
 
 ## Configure access to [[= product_name_connect =]]
 

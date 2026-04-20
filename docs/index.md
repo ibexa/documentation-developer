@@ -89,11 +89,11 @@
         <div class="col-12 col-lg-6">
             <div class="notification notification--lts-update" id="tile3">
                 <div class="notification__content">
-                    <h2>The newest LTS Update is Shopping list</h2>
-                    <div>Customers can use it to save potential purchases, recurring product sets, and other items for future use in the cart.</div>
+                    <h2>The newest LTS Update is Google Gemini connector</h2>
+                    <div>Integrate Google's AI services into Ibexa DXP.</div>
                 </div>
                 <div class="notification__cta">
-                    <a href="commerce/shopping_list/shopping_list_guide/">Learn more about this LTS Update</a>
+                    <a href="ai_actions/configure_ai_actions/#install-google-gemini-connector">Learn more about this LTS Update</a>
                     <a href="ibexa_products/editions/#lts-updates">Discover other LTS Updates</a>
                 </div>
                 <div class="notification__image">
@@ -122,8 +122,8 @@
                         </div>
                         <div class="col-12 col-lg-6 col-fhd-3">
                             <ul>
-                                <li><a href="release_notes/ibexa_dxp_v5.0/#date-and-time-attribute">Date and time attibute for PIM</a></li>
-                                <li><a href="release_notes/ibexa_dxp_v5.0/#symbol-attribute">Symbol attribute for PIM</a></li>
+                                <li><a href="release_notes/ibexa_dxp_v5.0/#date-and-time-attribute">Date and time attribute for product catalog</a></li>
+                                <li><a href="release_notes/ibexa_dxp_v5.0/#symbol-attribute">Symbol attribute for product catalog</a></li>
                                 <li><a href="release_notes/ibexa_dxp_v5.0/#developer-experience">Developer experience improvements</a></li>
                             </ul>
                         </div>
@@ -185,15 +185,16 @@
             <div class="info-tile info-tile--link-card">
                 <div class="info-tile__content">
                     <h3>
-                        <a href="pim/pim/">
+                        <a href="product_catalog/product_catalog/">
                             <svg><use xlink:href="images/icons.svg#product" /></svg>
-                            Product
+                            Product catalog
                         </a>
                     </h3>
                     <ul>
-                        <li><a href="pim/pim_configuration/">PIM configuration</a></li>
-                        <li><a href="pim/catalogs/">Catalogs</a></li>
-                        <li><a href="pim/prices/">Prices</a></li>
+                        <li><a href="product_catalog/product_catalog_configuration/">Product catalog configuration</a></li>
+                        <li><a href="product_catalog/quable_integration/">Quable PIM Integration</a></li>
+                        <li><a href="product_catalog/catalogs/">Catalogs</a></li>
+                        <li><a href="product_catalog/prices/">Prices</a></li>
                     </ul>
                 </div>
             </div>
