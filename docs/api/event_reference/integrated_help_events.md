@@ -13,6 +13,6 @@ The following event is dispatched when rendering a [product tour scenario](produ
 
 | Event | Dispatched by |
 |---|---|
-|`RenderProductTourScenarioEvent`|`Ibexa\IntegratedHelp\Renderer\ProductTourRenderer::render()`|
+|[`RenderProductTourScenarioEvent`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-IntegratedHelp-Event-RenderProductTourScenarioEvent.html)|`Ibexa\IntegratedHelp\Renderer\ProductTourRenderer::render()`|
 
 To learn how you can use this event to customize your product tour scenarios, see [Customize product tour](customize_product_tour.md).
