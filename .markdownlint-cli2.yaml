@@ -14,6 +14,7 @@ config:
   table-pipe-style:
     style: leading_and_trailing
 
+  first-line-heading: true
   list-marker-space: true
   blanks-around-fences: true
   single-title: true
