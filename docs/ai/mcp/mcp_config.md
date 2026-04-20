@@ -160,6 +160,8 @@ It has several arguments to describe the tool usage and output:
 
 ## Example
 
+### Configure MCP server
+
 This example introduce an `example` MCP server with a single `greet` tool.
 It's enabled on all SiteAccesses.
 It's accessible with the path `/mcp/example` (for example, on `http://localhost/mcp/example` and `http://localhost/admin/mcp/example`).
@@ -171,6 +173,8 @@ In a new `config/packages/mcp.yaml` file, the configuration of the MCP server:
 [[= include_file('code_samples/mcp/config/packages/mcp.yaml') =]]
 ```
 
+### Create tool class
+
 Then, a `McpCapabilityInterface` containing a `greetByName` function with a `McpTool` attribute,
 the `App\Mcp\ExampleTools` class listed in the server's `tools`:
 
@@ -178,11 +182,15 @@ the `App\Mcp\ExampleTools` class listed in the server's `tools`:
 [[= include_file('code_samples/mcp/src/Mcp/ExampleTools.php') =]]
 ```
 
+### Create MCP server list command
+
 To check the server configuration, a short command using the MCP server configuration registry (injected through `McpServerConfigurationRegistryInterface` and autowiring):
 
 ``` php
 [[= include_file('code_samples/mcp/src/Command/McpServerListCommand.php') =]]
 ```
+
+### cURL test
 
 To test the `example` MCP server, a sequence of `curl` commands is used to simulate an AI to MCP server communication.
 
@@ -261,4 +269,39 @@ The `greet` [tool usage](https://modelcontextprotocol.io/specification/draft/ser
 }
 ```
 
-TODO: Connect an AI client to the MCP server. [Copilot CLI MCP server addition](https://docs.github.com/en/copilot/how-tos/copilot-cli/customize-copilot/add-mcp-servers) is strangely asking for some OAuth ID even with a proper JWT/Bearer header.
+### MCP Inspector test
+
+To test your server, you can use the [MCP Inspector](https://modelcontextprotocol.io/docs/tools/inspector).
+It's even possible to use it as a DDEV add-on with [`craftpulse/ddev-mcp-inspector`](https://github.com/craftpulse/ddev-mcp-inspector).
+You still need to ask for a JWT token through REST and use it in the MCP Inspector configuration to connect to your server.
+
+To use the MCP Inspector for this example, the settings are:
+
+- Transport Type: Streamable HTTP
+- URL: addition of the actual domain and the server `path`, for example `http://localhost/mcp/example`
+- Connection Type: Via Proxy
+- Authentication:
+    - Custom Headers:
+        - ✓ Authorization
+        - Bearer <JWT token obtained through REST>
+    - OAuth 2.0 Flow: leave unedited
+
+![Screenshot of the left pannel of the MCP Inspector with the connection settings for the example MCP server](img/mcp-inspector-config.png "MCP Inspector connection settings")
+
+In the right panel, in the **Tools** tab, click **List Tools** button in the left column.
+The `greet` tool appears preceded by its icon.
+It can be selected and tested in the right column.
+
+![Screenshot of the right pannel of the MCP Inspector with the list of tools obtained from the example MCP server, and the test of the `greet` tool](img/mcp-inspector-greet.png "MCP Inspector `greet` tool test")
+
+### TODO: Copilot CLI test
+
+TODO: Test the server with [Copilot CLI](https://docs.github.com/en/copilot/concepts/agents/copilot-cli/about-copilot-cli).
+
+TODO: Create an .mcp.json file at the project root so the MCP server will only exist for a session of Copilot CLI opened from project root (for example, in a terminal tab of your IDE).
+
+TODO: [Copilot CLI MCP server addition](https://docs.github.com/en/copilot/how-tos/copilot-cli/customize-copilot/add-mcp-servers) is strangely asking for some OAuth ID even with a proper JWT/Bearer header.
+
+### TODO: Other clients?
+
+TODO: Connect AI clients to the MCP server.
