@@ -37,7 +37,7 @@ config:
 # no-emphasis-as-heading: true
   no-space-in-code: true
   no-space-in-links: true
-# fenced-code-language: true
+  fenced-code-language: true
 # first-line-heading: true
 # ol-prefix: one_or_ordered
 # list-marker-space: true
