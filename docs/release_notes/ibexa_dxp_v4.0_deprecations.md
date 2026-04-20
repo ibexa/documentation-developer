@@ -238,6 +238,7 @@ The following Twig functions and filter have been renamed, including:
 
 
 ## URL Alias route name
+
 URL Alias route name has changed from `ez_urlalias` to `ibexa.url.alias`.
 
 ## Configuration file names

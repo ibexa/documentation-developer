@@ -824,6 +824,7 @@ For more information, see [Date and time attributes](https://doc.ibexa.co/en/4.6
 [[= release_note_entry_begin("AI Actions " + version, '2025-03-04', ['Headless', 'Experience', 'Commerce', 'LTS Update', 'New feature']) =]]
 
 #### Features
+
 You can now [duplicate AI actions]([[= user_doc =]]/ai_actions/work_with_ai_actions/#duplicate-ai-actions) in the AI actions list.
 
 #### PHP API
