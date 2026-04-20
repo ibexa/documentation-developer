@@ -10,7 +10,7 @@ description: See various tools that can help you debug your Ibexa DXP installati
 
 Symfony provides a command for clearing cache.
 It deletes all file-based caches, which mainly consist of a Twig template, a [service container](php_api.md#service-container), and the Symfony route cache, but also everything else stored in the cache folder.
-Out of the box on a single-server setup this includes Content cache. 
+Out of the box on a single-server setup this includes Content cache.
 
 For further information on the command's use, see its help text:
 
@@ -30,7 +30,7 @@ php bin/console --env=prod cache:clear -h
 ### Clearing content cache on a cluster setup
 
 For a [cluster](clustering.md) setup, the content cache ([HTTP cache](http_cache.md) and [Persistence cache](persistence_cache.md)) must be set up to be shared among the servers.
-While all relevant cache is cleared for you on repository changes when using the APIs, there might be times where you need to clear cache manually: 
+While all relevant cache is cleared for you on repository changes when using the APIs, there might be times where you need to clear cache manually:
 
 - Varnish: [Cache purge](reverse_proxy.md#using-varnish-or-fastly)
 - Persistence Cache: [Using Cache service](persistence_cache.md#using-cache-service)

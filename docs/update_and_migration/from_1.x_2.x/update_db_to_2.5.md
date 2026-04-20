@@ -88,7 +88,7 @@ In v2.2 Page Builder doesn't offer all blocks that landing page editor did. The 
 The Places block has been removed from the clean installation and is only available in the demo out of the box.
 If you use this block in your site, re-apply its configuration based on the [demo](https://github.com/ezsystems/ezplatform-ee-demo/blob/v2.2.2/app/config/blocks.yml).
 
-Later versions of Page Builder come with a Content Scheduler block and new Form Blocks, but migration of Schedule blocks to Content Scheduler blocks and of Form Blocks isn't supported. 
+Later versions of Page Builder come with a Content Scheduler block and new Form Blocks, but migration of Schedule blocks to Content Scheduler blocks and of Form Blocks isn't supported.
 
 If there are missing block definitions, such as Form Block or Schedule Block,
 you have an option to continue, but migrated landing pages come without those blocks.
@@ -112,7 +112,7 @@ See [documentation](render_page.md#render-a-layout) for an example on usage of t
 
 ###### Migrate custom blocks
 
-Landing page blocks (from v2.1 and earlier) were defined using a class implementing `EzSystems\LandingPageFieldTypeBundle\FieldType\LandingPage\Model\AbstractBlockType`. 
+Landing page blocks (from v2.1 and earlier) were defined using a class implementing `EzSystems\LandingPageFieldTypeBundle\FieldType\LandingPage\Model\AbstractBlockType`.
 In Page Builder (from v2.2 onwards), this interface is no longer present. Instead the logic of your block must be implemented in a [Listener](page_blocks.md#block-events).
 Typically, what you previously would do in `getTemplateParameters()`, you now do in the `onBlockPreRender()` event handler.
 
@@ -139,7 +139,7 @@ This converter is only needed when running the `ezplatform:page:migrate` script 
 
 ###### Page migration example
 
-Below is an example how to migrate a landing page Layout and Block to new Page Builder. The code is based on the Random block 
+Below is an example how to migrate a landing page Layout and Block to new Page Builder. The code is based on the Random block
 defined in the [Enterprise Beginner tutorial](page_and_form_tutorial.md)
 
 ??? tip "Landing page code"
@@ -720,7 +720,7 @@ The old configuration is deprecated, so if you use custom tags, you need to modi
 
 
 ### D. Update to v2.5
-    
+
 #### Database update script
 
 Apply the following database update script:
@@ -867,7 +867,7 @@ You do this manually by following this procedure:
 
 1. Update your project to v2.5.18 and run the `php bin/console cache:clear` command to generate the [service container](php_api.md#service-container).
 
-1. Run the following command to discover the names of the new entity managers. 
+1. Run the following command to discover the names of the new entity managers.
     Take note of the names that you discover:
 
     `php bin/console debug:container --parameter=doctrine.entity_managers --format=json | grep ibexa_`

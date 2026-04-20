@@ -18,7 +18,7 @@ In addition, it's possible to extend the system by creating custom types for spe
 
     For general field type documentation, see [field type](field_types.md).
 
-Custom field types have to be programmed in PHP. 
+Custom field types have to be programmed in PHP.
 However, the built-in field types are usually enough for typical scenarios.
 The following table gives an overview of the supported field types that come with [[= product_name =]].
 

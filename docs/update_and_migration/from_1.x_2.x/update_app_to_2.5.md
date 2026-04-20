@@ -15,7 +15,7 @@ latest_tag: '2.5.30'
 
 ## 3. Update the app
 
-If `EzSystemsPlatformEEAssetsBundle` is present in `app/AppKernel.php`, 
+If `EzSystemsPlatformEEAssetsBundle` is present in `app/AppKernel.php`,
 disable it by removing the `new EzSystems\PlatformEEAssetsBundle\EzSystemsPlatformEEAssetsBundle(),` entry.
 
 Since v2.5 eZ Platform uses [Webpack Encore]([[= symfony_doc =]]/frontend.html#webpack-encore) for asset management.

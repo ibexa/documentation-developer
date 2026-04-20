@@ -116,9 +116,9 @@ To use the connector with the Gemini services, you need to create an account, se
 1. Navigate to the Google Cloud Console's **Billing** page.
 1. If you do not have one, click **Add billing account** and add a payment method.
 1. In **Your projects** tab, locate your project, and in its line, from the **Actions** menu, select **Change billing**.
-1. Select your active billing account, and click **Set account**. 
+1. Select your active billing account, and click **Set account**.
 
-#### Enable the Gemini API 
+#### Enable the Gemini API
 
 1. Navigate to the Google Cloud Console's **APIs & Services** page.
 1. From the left-hand menu, select **Library** and search for the Generative Language API.

@@ -243,7 +243,7 @@ In the following examples:
 ### Install Redis or Valkey
 
 DDEV supports multiple Redis-compatible implementation, including Redis itself and Valkey.
-You can switch between them using the `ddev redis-backend <backend>` command after adding the `ddev/ddev-redis` add-on. 
+You can switch between them using the `ddev redis-backend <backend>` command after adding the `ddev/ddev-redis` add-on.
 For example, you can switch to Valkey by running `ddev add-on get ddev/ddev-redis; ddev redis-backend valkey/valkey:9`.
 For more information, see [Swappable Redis backends](https://github.com/ddev/ddev-redis?tab=readme-ov-file#swappable-redis-backends) in DDEV's `dddev-redis` add-on documentation.
 

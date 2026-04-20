@@ -58,7 +58,7 @@ If you're looking for the Long Term Support (LTS) release, see[ https://ezplatf
     -   Captcha
     -   File Upload
 
- 
+
 
 ![](formb.png)
 

@@ -466,7 +466,7 @@ Configure the `spellcheck` component in `solrconfig.xml`:
   </searchComponent>
 ```
 
-Add this `spellcheck` component to the `/select` request handler: 
+Add this `spellcheck` component to the `/select` request handler:
 
 ```xml
   <requestHandler name="/select" class="solr.SearchHandler">

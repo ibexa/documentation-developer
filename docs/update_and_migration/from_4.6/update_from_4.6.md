@@ -303,7 +303,7 @@ No additional steps needed.
 ### Security
 
 This release fixes a critical vulnerability in the [RichText field type](richtextfield.md).
-By entering a maliciously crafted input into the RichText field type's XML, the attacker could perform an attack using [XML external entity (XXE) injection](https://portswigger.net/web-security/xxe). 
+By entering a maliciously crafted input into the RichText field type's XML, the attacker could perform an attack using [XML external entity (XXE) injection](https://portswigger.net/web-security/xxe).
 To exploit this vulnerability, an attacker would need to have edit permission to content with RichText fields.
 
 For more information, see the [published security advisory IBEXA-SA-2025-002](https://developers.ibexa.co/security-advisories/ibexa-sa-2025-002-xxe-vulnerability-in-richtext).
@@ -333,7 +333,7 @@ composer require --dev ibexa/rector:^4.6
 
 2. Adjust the created `rector.php` configuration file to match your project structure
 
-3. Run Rector in the dry-run mode to preview the changes: 
+3. Run Rector in the dry-run mode to preview the changes:
 ``` bash
 vendor/bin/rector --dry-run
 ```

@@ -53,7 +53,7 @@ To reflect this change, the content tree button has been renamed **Content brows
 
 #### Tag and taxonomy management
 
-The eZ Enterprise Demo now uses the [Netgen Tags bundle](https://github.com/netgen/TagsBundle). This bundle was recently ported to eZ Platform and provides a powerful, solid and user-friendly way to categorize content using tags. The solution lets editors and administrators define their taxonomies in a dedicated interface. These taxonomies that are immediately available for editors working on content who want to categorize any content types. 
+The eZ Enterprise Demo now uses the [Netgen Tags bundle](https://github.com/netgen/TagsBundle). This bundle was recently ported to eZ Platform and provides a powerful, solid and user-friendly way to categorize content using tags. The solution lets editors and administrators define their taxonomies in a dedicated interface. These taxonomies that are immediately available for editors working on content who want to categorize any content types.
 
 ![](eztags.gif)
 

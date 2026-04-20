@@ -117,7 +117,7 @@ You do this manually by following this procedure:
 
 1. Update your project to v3.3.2 and run the `php bin/console cache:clear` command to generate the service container.
 
-1. Run the following command to discover the names of the new entity managers. 
+1. Run the following command to discover the names of the new entity managers.
     Take note of the names that you discover:
 
     `php bin/console debug:container --parameter=doctrine.entity_managers --format=json | grep ibexa_`
@@ -178,7 +178,7 @@ mysql -u<username> -p<password> <database_name> < vendor/ibexa/installer/upgrade
 ### v3.3.4
 
 #### Migration Bundle
-    
+
 Remove `Kaliop\eZMigrationBundle\eZMigrationBundle::class => ['all' => true],`
 from `config/bundles.php` before running `composer require`.
 
@@ -449,7 +449,7 @@ No additional steps needed.
 
 This release contains security fixes.
 For more information, see [the published security advisory](https://developers.ibexa.co/security-advisories/ibexa-sa-2024-006-vulnerabilities-in-content-name-pattern-commerce-shop-and-varnish-vhost-templates).
-For each of the following fixes, evaluate the vulnerability to determine whether you might have been affected. 
+For each of the following fixes, evaluate the vulnerability to determine whether you might have been affected.
 If so, take appropriate action, for example by [revoking passwords](https://doc.ibexa.co/en/latest/users/passwords/#revoking-passwords) for all affected users.
 
 ##### <abbr title="Browser Reconnaissance & Exfiltration via Adaptive Compression of Hypertext">BREACH</abbr> vulnerability

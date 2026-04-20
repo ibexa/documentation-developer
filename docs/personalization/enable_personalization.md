@@ -16,7 +16,7 @@ First, either you or another [[= product_name_base =]] user responsible for mana
 
 When you receive the credentials, add them to your configuration.
 
-In the root folder of your project, edit the `.env.local` file by adding the following lines with your customer ID and license key: 
+In the root folder of your project, edit the `.env.local` file by adding the following lines with your customer ID and license key:
 
 ```bash
 PERSONALIZATION_CUSTOMER_ID=12345

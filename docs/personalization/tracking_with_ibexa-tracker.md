@@ -60,7 +60,7 @@ These can be any JavaScript value.
 
 ## Tracking code
 
-The `_ycq` global object can be used directly for asynchronous page tracking with the `push(...)` method. 
+The `_ycq` global object can be used directly for asynchronous page tracking with the `push(...)` method.
 
 ### `_ycq` object methods
 
@@ -68,9 +68,9 @@ The `_ycq` global object can be used directly for asynchronous page tracking w
 
 `push(commandArray)`
 
-Executes the command array, which is a JavaScript array that conforms to the following format. 
-The first element of the array must be the name of a tracker object method passed as a string. 
-The rest of the array elements are the values to be passed in as arguments to the function. 
+Executes the command array, which is a JavaScript array that conforms to the following format.
+The first element of the array must be the name of a tracker object method passed as a string.
+The rest of the array elements are the values to be passed in as arguments to the function.
 
 Here is an example of typical usage of the method:
 

@@ -51,7 +51,7 @@ Community members are more than welcome to contribute to the translation process
     -   ezplatform:reindex added, a generic command for reindexing search index on the SiteAccess configured search engine
 -   Extensibility:
     -    QueryType's now support using alias when being used as service so you can define several services with same  QueryType class
-        -    Example: Generic location child QueryType being reused several times for specific services for article or blog post listings 
+        -    Example: Generic location child QueryType being reused several times for specific services for article or blog post listings
 -   API:
     -   New method:` Location->getSortClauses()` to get Sort Clauses based on what kind of sorting has been set on the Location
     -   Add Content Version archives limit by configuration & enforce on publish
@@ -62,7 +62,7 @@ Community members are more than welcome to contribute to the translation process
     -   Make IO exceptions more user friendly
     -   Make it possible to retrieve original exception when repo-&gt;commit() fails
 
- 
+
 
 *For more fixes and improvements scroll down for full change log.*
 
@@ -92,7 +92,7 @@ Submitted results can be previewed in the UI or downloaded in a CSV file, and a 
 
 The Enterprise demo site has been significantly improved featuring a new **Product content type** that is used to show products in the Tasteful Planet demo.
 The product we used are meals that, in a non-demo ideal world, would be available to order and consume.
-This ordering part isn't in the demo, nevertheless, the content looks really yummy... 
+This ordering part isn't in the demo, nevertheless, the content looks really yummy...
 Other improvements includes the good setup of all content type field categories and the demonstration of basic SEO field types. Demo content itself has also been upgraded with more content to better demonstrate the capabilities.
 
 ![](productcontenttype.png)

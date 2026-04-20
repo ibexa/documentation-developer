@@ -80,15 +80,15 @@ See [Install Ibexa Platform](https://doc.ibexa.co/en/latest/getting_started/inst
 
 ### Site Factory improvements [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
 
-You can now define user group skeletons where you define policies and limitations that apply to a specific user group. 
-You can then associate a number of such skeletons with a site template. 
+You can now define user group skeletons where you define policies and limitations that apply to a specific user group.
+You can then associate a number of such skeletons with a site template.
 User group skeletons survive deleting a site.
 
 For more information, see [Configure user group skeleton](https://doc.ibexa.co/en/latest/guide/multisite/site_factory_configuration/#user-group-skeletons).
 
 ### Calendar widget improvements
 
-You can now see the scheduled blocks in the calendar after you configure the reveal and/or hide dates for them. 
+You can now see the scheduled blocks in the calendar after you configure the reveal and/or hide dates for them.
 This way you can envision what content will be available in the future.
 
 Also, you can now apply new filters that are intended to help you declutter the calendar view.
