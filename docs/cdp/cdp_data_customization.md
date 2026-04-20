@@ -64,7 +64,7 @@ The interface is plain and has two methods that you need to provide:
 - **process** - takes `Field` instance and then returns a flat array of scalar values that are combined with the payload data.
 ​
 A common field type is serialized to:
-​
+
 ```json
 {
     "field_measurement_simple_id": 1792,
@@ -109,13 +109,13 @@ To customize export of field type values, provide your own [`\Ibexa\Contracts\Cd
 New implementation has to be registered as a service manually or by using autoconfiguration.
 The service has to use the tag `ibexa.cdp.export.content.field_value_processor`.
 You can also provide `priority` property to override other Field Value Processors.
-​
+
 * `FieldValueProcessorInterface::process` - takes `Field` instance and returns an `array` with scalar values that are applied to export data payload.
 If the field type returns a single value, provides a `value` key in the array.
 You can return multiple values.
 
 * `FieldValueProcessorInterface::supports` - decides whether `FieldValueProcessor` can work with the `Field`.
-​
+
 ### Built in Field Value Processors for custom field types
 ​
 Several system Field Value Processors either work by default or can be registered for custom field types:

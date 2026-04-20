@@ -15,6 +15,7 @@ config:
     style: leading_and_trailing
 
   no-trailing-spaces: true
+  blanks-around-lists: true
   no-trailing-punctuation:
     punctuation: [".", ":", ";",]
 

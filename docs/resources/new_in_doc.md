@@ -766,6 +766,7 @@ Enhanced the PHP API with the following new classes and interfaces:
 - Added edition information to [PHP API reference](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/) to aid navigation
 
 ### REST API
+
 - Removed multiple obsolete RAML types from the [REST API reference](https://doc.ibexa.co/en/4.6/api/rest_api/rest_api_reference/rest_api_reference.html)
 
 ### User management
@@ -1173,6 +1174,7 @@ Enhanced the PHP API with the following new classes and interfaces:
 - [Work with product attributes](https://doc.ibexa.co/projects/userguide/en/latest/pim/work_with_product_attributes/) in User Documentation
 
 ### REST API
+
 - Added example of input payload in JSON format for [ContentTypeCreate in REST API reference](https://doc.ibexa.co/en/4.6/api/rest_api/rest_api_reference/rest_api_reference.html#managing-content-create-content-type)
 - [Expected user](https://doc.ibexa.co/en/4.6/api/rest_api/rest_api_usage/rest_requests/#expected-user) header support
 

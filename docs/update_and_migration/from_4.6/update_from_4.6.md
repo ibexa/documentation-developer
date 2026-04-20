@@ -327,6 +327,7 @@ You can use it to get rid of PHP code deprecations and start preparing your proj
 To get started with [[= product_name_base =]] Rector, execute the following steps:
 
 1. Add the Composer dependency:
+
 ``` bash
 composer require --dev ibexa/rector:^4.6
 ```
@@ -334,11 +335,13 @@ composer require --dev ibexa/rector:^4.6
 2. Adjust the created `rector.php` configuration file to match your project structure
 
 3. Run Rector in the dry-run mode to preview the changes:
+
 ``` bash
 vendor/bin/rector --dry-run
 ```
 
 4. Run Rector:
+
 ``` bash
 vendor/bin/rector
 ```
