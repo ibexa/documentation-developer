@@ -466,7 +466,7 @@ The Product Picker tool that, for example, lets you [select products eligible fo
 
 [[= release_note_entry_begin("Symbol attribute " + version, '2025-08-05', ['Headless', 'Experience', 'Commerce', 'LTS Update', 'New feature', 'First release']) =]]
 
-The Symbol attribute allows you to store standardized identifiers of your products in the [product catalog](product_catalog_guide.md).
+The Symbol attribute allows you to store standardized identifiers of your products in the [product catalog](https://doc.ibexa.co/en/4.6/pim/pim_guide/).
 
 For more information, see [Symbol attribute type](https://doc.ibexa.co/en/4.6/pim/attributes/symbol_attribute_type/).
 
