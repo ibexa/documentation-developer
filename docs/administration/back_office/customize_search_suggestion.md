@@ -31,7 +31,7 @@ After this event, the suggestion collection is sorted by score and truncated to 
 
     You can list listeners and subscribers with the following command:
 
-    ``` shell
+    ```bash
     php bin/console debug:event BuildSuggestionCollectionEvent
     ```
 

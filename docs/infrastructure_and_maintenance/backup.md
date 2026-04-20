@@ -14,20 +14,20 @@ You should shut down the DXP if it's running before making a backup.
 
 1\. Navigate into the [[= product_name =]] directory:
 
-```shell
+```bash
 cd /path/to/ibexa
 ```
 
 2\. Clear all caches:
 
-```shell
+```bash
 var/cache/*
 var/logs/*
 ```
 
 3\. Create a dump of the database:
 
-```shell
+```bash
 # MySQL
 mysqldump -u <database_user> --add-drop-table <database_name> > db_backup.sql
 
@@ -37,7 +37,7 @@ pg_dump -c --if-exists <database_name> > db_backup.sql
 
 4\. In parent directory create a tar archive of the files (including the database dump) using the "tar" command:
 
-```shell
+```bash
 tar cfz backup_of_ibexa.tar.gz ibexa
 ```
 

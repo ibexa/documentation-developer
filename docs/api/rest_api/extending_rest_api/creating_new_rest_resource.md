@@ -127,7 +127,7 @@ services:
 
 Now you can test both `GET` and `POST` methods, and both `XML` and `JSON` format for inputs and outputs.
 
-```shell
+```bash
 curl https://api.example.com/api/ibexa/v2/greet --include;
 curl https://api.example.com/api/ibexa/v2/greet --include --request POST \
     --header 'Content-Type: application/vnd.ibexa.api.GreetingInput+xml' \
