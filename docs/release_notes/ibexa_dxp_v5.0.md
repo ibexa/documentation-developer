@@ -57,20 +57,20 @@ To learn more, see the [corresponding security advisory](https://developers.ibex
 
 The Raptor connector provides a seamless integration between [[= product_name =]] and [Raptor Recommendation Engine](https://www.raptorservices.com/website-recommendations/).
 
-For more information, see [Raptor connector](https://doc.ibexa.co/en/5.0/cdp/raptor_integration/raptor_connector/).
+For more information, see [Raptor connector](https://doc.ibexa.co/en/5.0/recommendations/raptor_integration/raptor_connector/).
 
 #### Tracking
 
 This add-on includes two Twig functions to ease tracking setting:
 
-- `ibexa_tracking_script` to load the JavaScript tracking code, for more information, see [Tracking script](https://doc.ibexa.co/en/5.0/cdp/raptor_integration/tracking_script/)
-- `ibexa_tracking_track_event` to send tracking events from your pages, for more information, see [Tracking event function](https://doc.ibexa.co/en/5.0/cdp/raptor_integration/tracking_event_function/)
+- `ibexa_tracking_script` to load the JavaScript tracking code, for more information, see [Tracking script](https://doc.ibexa.co/en/5.0/recommendations/raptor_integration/tracking_functions/)
+- `ibexa_tracking_track_event` to send tracking events from your pages, for more information, see [Tracking event function](https://doc.ibexa.co/en/5.0/recommendations/raptor_integration/tracking_functions/)
 
 #### Recommendations blocks [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
 
 This add-on introduces a set of recommendation blocks available in the [Page Builder](https://doc.ibexa.co/en/5.0/content_management/pages/page_builder_guide/), designed to suggest relevant content or products to users, such as the most popular items or viewed by others.
 
-For more information about Recommendation blocks in Page Builder, see the relevant [Developer Documentation](https://doc.ibexa.co/en/5.0/cdp/raptor_integration/pb_blocks/) and [User Documentation](https://doc.ibexa.co/projects/userguide/en/5.0/recommendations/raptor_integration/raptor_recommendation_blocks/).
+For more information about Recommendation blocks in Page Builder, see the relevant [Developer Documentation](https://doc.ibexa.co/en/5.0/recommendations/raptor_integration/recommendation_blocks/) and [User Documentation](https://doc.ibexa.co/projects/userguide/en/5.0/recommendations/raptor_integration/raptor_recommendation_blocks/).
 
 ### [[= pim_product_name =]] PIM
 
@@ -79,7 +79,7 @@ The [[= pim_product_name =]] integration add-on allows you to connect [[= produc
 [[= pim_product_name =]] can serve as the single source of truth for all product data, including attributes, classifications, variants, and translations. 
 [[= product_name =]] consumes this data and makes it available for use in content and digital experiences.
 
-For more information, see [Quable PIM Integration](https://doc.ibexa.co/en/5.0/product_catalog/quable/).
+For more information, see [Quable PIM Integration](https://doc.ibexa.co/en/5.0/product_catalog/quable/quable/).
 
 ### AI Actions in Page Builder blocks [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
 
