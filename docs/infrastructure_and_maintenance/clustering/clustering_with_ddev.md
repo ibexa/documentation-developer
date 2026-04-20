@@ -67,7 +67,7 @@ fi
 cp vendor/ibexa/http-cache/docs/varnish/vcl/$vcl_file .ddev/varnish/
 ddev dotenv set .ddev/.env.varnish --varnish-docker-image=varnish:$VARNISH_VERSION --varnish-varnishd-params " -p $vcl_path=/etc/varnish -f /etc/varnish/$vcl_file"
 
-ddev get ddev/ddev-varnish
+ddev add-on get ddev/ddev-varnish
 
 ddev config --web-environment-add HTTPCACHE_PURGE_SERVER=http://varnish
 ddev config --web-environment-add HTTPCACHE_PURGE_TYPE=varnish
