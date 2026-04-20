@@ -494,6 +494,7 @@ There are no additional update steps to execute.
 This release comes with a command to clean up duplicated entries in the `ezcontentobject_attribute` table, which were created due to an issue related to previewing content in different languages.
 
 If you're affected, remove the duplicated entries by running the following command:
+
 ``` bash
 php bin/console ibexa:content:remove-duplicate-fields
 ```

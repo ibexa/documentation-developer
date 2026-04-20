@@ -93,6 +93,7 @@ In `config/packages`, add a `gregwar_captcha.yaml` file with the following confi
 ``` yaml
 [[= include_file('code_samples/tutorials/page_tutorial/config/packages/gregwar_captcha.yaml') =]]
 ```
+
 The configuration resizes the CAPTCHA image (line 2), changes the error message (line 3), and shortens the authentication code (line 4).
 
 ### Add stylesheet
@@ -103,12 +104,14 @@ Add the following code to `assets/css/style.css`:
 ``` css
 [[= include_file('code_samples/tutorials/page_tutorial/assets/css/style.css', 229, 277) =]]
 ```
+
 Reinstall the assets and clear the cache by running the following commands:
 
 ``` bash
 yarn encore <dev|prod>
 php bin/console cache:clear
 ```
+
 Your newsletter form block is ready.
 
 ![Newsletter Form Block](enterprise_tut_final_form.png "Newsletter Form Block")

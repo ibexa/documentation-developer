@@ -835,6 +835,7 @@ To promote use of eZ Platform, `ezsystems/ez-support-tools` v1.0.10, as of eZ Pl
 It's enabled by default and generates a header like `Powered-By: eZ Platform Enterprise v2`.
 
 To omit the version number, use the following configuration:
+
 ``` yaml
 ezplatform_support_tools:
     system_info:

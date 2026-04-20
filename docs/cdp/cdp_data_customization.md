@@ -80,7 +80,7 @@ A common field type is serialized to:
     "field_measurement_simple_value_simple_base_unit": 800000000
 }
 ```
-​
+
 Field identifier is a prefix that is automatically added to each key.
 You can only use scalar values.
 ​
@@ -93,6 +93,7 @@ You can provide your own CDP export functionality by using one of the system Fie
 It results in the field type being excluded from the exported payload.
 To avoid adding the field type data to the payload, register a new service as follows:
 ​
+
 ```yaml
 custom_fieldtype.cdp.export.field_processor:
     class: Ibexa\Cdp\Export\Content\FieldProcessor\SkippingFieldProcessor
@@ -102,6 +103,7 @@ custom_fieldtype.cdp.export.field_processor:
     tags:
         - { name: 'ibexa.cdp.export.content.field_processor', priority: 0 }
 ```
+
 ​
 ## Export field type values
 ​
@@ -134,6 +136,7 @@ This Processor generates JSON data from hash representation of the field type (i
 
 To use `JsonHashFieldValueProcessor`, you need to register a new service:
 ​
+
 ```yaml
 custom_fieldtype.cdp.export.field_processor:
     class: Ibexa\Cdp\Export\Content\FieldValueProcessor\JsonHashFieldValueProcessor

@@ -45,6 +45,7 @@ It expects two comma-separated strings, corresponding to the link and text.
 // Instantiates an Url Value object
 $UrlValue = new Url\Value( "https://www.ibexa.co/", "Ibexa" );
 ```
+
 ### Hash format
 
 | Key    | Type     | Description   | Example                 |

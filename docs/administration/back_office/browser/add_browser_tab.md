@@ -45,6 +45,7 @@ The module governs the creation of the new tab.
 ## Add tab to webpack config
 
 In `webpack.config.js`, add the following declaration:
+
 ```js
 const ibexaConfigManager = require('./ibexa.webpack.config.manager.js');
 ```

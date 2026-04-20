@@ -206,6 +206,7 @@ The `note_box.html.twig` template wraps the content of the selected text
 ```
 
 You can now define the custom CSS for this template, for example by using [Webpack Encore and assets](assets.md):
+
 ``` css
 .note {
     display: block;
@@ -248,6 +249,7 @@ The `highlight.html.twig` template wraps the content of the selected text
 ```
 
 You can now define the custom CSS for this template, for example by using [Webpack Encore and assets](assets.md):
+
 ``` css
 .highlight {
     background-color: #fcc672;
@@ -462,6 +464,7 @@ window.ibexa.addConfig('richText.CKEditor.extraConfig', {your_custom_config_obje
 ```
 
 To have `Arrows` category from [previously added Special characters plugin](#add-ckeditor-plugins) on [top of the filter menu](https://ckeditor.com/docs/ckeditor5/latest/features/special-characters.html#ordering-categories):
+
 ```js
 ibexa.addConfig('richText.CKEditor.extraConfig', { specialCharacters: { order: ['Arrows'] } }, true);
 ```

@@ -12,6 +12,7 @@ Sort Clauses are found in the `Ibexa\Contracts\ConnectorAi\ActionConfiguration\Q
 - [Identifier](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorAi-ActionConfiguration-Query-SortClause-Identifier.html)
 
 The following example shows how to use them to sort the searched Action Configurations:
+
 ``` php
 [[= include_code('code_samples/ai_actions/src/Query/Search.php') =]]
 ```

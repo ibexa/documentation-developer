@@ -66,7 +66,9 @@ return RectorConfig::configure()
     ->withComposerBased(symfony: true)
 ;
 ```
+
 Run the following command to preview the changes done by Rector:
+
 ```bash
 php vendor/bin/rector --dry-run
 ```

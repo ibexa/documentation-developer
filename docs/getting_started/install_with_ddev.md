@@ -232,6 +232,7 @@ The following example shows the use of `.env.local` with database configuration:
 
 - Skip step [2. Configure DDEV / Configure database connection](#configure-database-connection).
 - Modify step [5. Create [[= product_name =]] project](#5-create-project) to insert the database setting:
+
   ```bash
   ddev composer create-project ibexa/commerce-skeleton --no-install;
   echo "DATABASE_URL=mysql://db:db@db:3306/db" >> .env.local;

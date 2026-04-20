@@ -87,6 +87,7 @@ ibexa_connector_anthropic:
             claude-opus-4-6: 'Claude Opus 4.6 (advanced reasoning)'
             claude-opus-4-7: 'Claude Opus 4.7 (most capable)'
 ```
+
 You can now use the Anthropic connector in your project.
 
 !!! note "Current model availability"

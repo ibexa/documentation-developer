@@ -42,6 +42,7 @@ Next, under the `ibexa_taxonomy.taxonomies` [key](configuration.md#configuration
 Replace `<content_categories_remote_id>` with the new container's location remote ID.
 
 Translate the configuration identifier in the `ibexa_taxonomy` domain by, for example, creating a `translations/ibexa_taxonomy.en.yaml` file containing the following:
+
 ```yaml
 taxonomy.content_categories: 'Content categories'
 ```

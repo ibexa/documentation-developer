@@ -102,6 +102,7 @@ For more information about [[= product_name_base =]] configuration, see [Configu
 You can extend the external URL address validation with a custom protocol.
 To do this, you must provide a service that implements the `Ibexa\Bundle\Core\URLChecker\URLHandlerInterface` interface:
 s
+
 ```php
 <?php
 
