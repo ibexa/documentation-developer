@@ -60,6 +60,26 @@ TODO: Maybe explain that routes are built automatically from MCP server `path` c
 
 Notice that a server is disabled by default, it needs to be explicitly enabled.
 
+### Tools configuration
+
+TODO: Tools are… (VS Prompt templates are… VS Resources are…)
+
+You can create your own tools, see [MCP server capabilities](#mcp-server-capabilities).
+
+Ibexa DXP come with several built-in tool classes:
+
+- `Ibexa\Mcp\Tool\TranslationTools`
+    - `list_languages`: TODO
+    - `list_content_translations`: TODO
+- `Ibexa\Mcp\Tool\SeoTools`
+    - `get_non_seo_content_ids`: TODO
+
+```yaml
+                    tools:
+                        - Ibexa\Mcp\Tool\TranslationTools
+                        - Ibexa\Mcp\Tool\SeoTools
+```
+
 ### MCP server discovery cache
 
 TODO
