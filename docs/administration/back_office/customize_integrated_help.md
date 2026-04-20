@@ -36,7 +36,7 @@ To disable only the Help center or only the Product tour functionalities, use th
 ibexa_integrated_help:
     help_center:
         enabled: false # Disable only the Help center
-    product_tour: 
+    product_tour:
         enabled: false # Disable only the Product tour
 ```
 
