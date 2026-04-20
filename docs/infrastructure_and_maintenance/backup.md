@@ -37,7 +37,7 @@ pg_dump -c --if-exists <database_name> > db_backup.sql
 
 4\. In parent directory create a tar archive of the files (including the database dump) using the "tar" command:
 
-```bash
+```shell
 tar cfz backup_of_ibexa.tar.gz ibexa
 ```
 

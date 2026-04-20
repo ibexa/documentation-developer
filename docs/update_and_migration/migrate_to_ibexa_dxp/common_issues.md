@@ -67,7 +67,7 @@ Always available flag is set on all fields, instead of only on fields in the mai
 This problem occurs when [[= product_name =]] is used to create content that is both always available and has multiple translations.
 The cleanup script correctly sets always available flag for prioritized language filtering in Legacy search engine.
 
-```console
+```shell
 php bin/console ezpublish:update:legacy_storage_fix_fields_always_available_flag
 ```
 

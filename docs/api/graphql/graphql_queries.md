@@ -566,7 +566,7 @@ Response:
 
 To filter products based on content fields:
 
-```text
+```graphql
 {
   products {
     all {
@@ -726,7 +726,7 @@ Response:
 
 You can sort query results using `sortBy`:
 
-```text
+```graphql
 {
   content {
     articles(sortBy: _datePublished) {
@@ -742,7 +742,7 @@ You can sort query results using `sortBy`:
 
 You can use an array of clauses as well. To reverse the item list, add `_desc` after the clause:
 
-```text
+```graphql
 articles(sortBy:[_datePublished,_desc])
 ```
 
@@ -752,7 +752,7 @@ GraphQL offers [cursor-based pagination](https://graphql.org/learn/pagination/) 
 
 You can paginate plural fields by using `edges`:
 
-```text
+```graphql
 {
   content {
     articles(sortBy: _datePublished, first:3) {

@@ -304,7 +304,7 @@ The script also has an `--image-content-types` option which you should use if yo
 
 The script needs to know these identifiers to convert `<ezembed>` tags correctly. Failing to do so prevents the editor from showing image thumbnails of embedded image objects. You may find the image content types in your installation by looking for these settings in `content.ini(.append.php)`:
 
-```text
+```ini
 [RelationGroupSettings]
 ImagesClassList[]
 ImagesClassList[]=image
@@ -367,7 +367,7 @@ Below is an example of a xml dump, `ezxmltext_12_1234_2_eng-GB.xml`:
 
 The corresponding log file, `ezxmltext_12_1234_2_eng-GB.log`:
 
-```yaml
+``` text
 notice: Found ez-temporary attribute in a ezxmltext paragraphs. Removing such attribute where contentobject_attribute.id=1234
 error: Validation errors when converting ezxmltext for contentobject_attribute.id=1234
 - context : Error in 2:0: Element section has extra content: informaltable

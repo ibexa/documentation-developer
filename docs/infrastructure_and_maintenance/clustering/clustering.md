@@ -266,8 +266,8 @@ Configured binary data handlers: default, nfs, aws_s3
 
 You can do the actual migration like this:
 
-```shell
-> php bin/console ibexa:io:migrate-files --from=default,default --to=dfs,nfs --env=prod
+```bash
+php bin/console ibexa:io:migrate-files --from=default,default --to=dfs,nfs --env=prod
 ```
 
 The `--from` and `--to` values must be specified as `<metadata_handler>,<binarydata_handler>`.

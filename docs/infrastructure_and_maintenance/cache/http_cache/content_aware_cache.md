@@ -450,7 +450,7 @@ Some notes about each of these parameters:
 
 The output for this command should look similar to this:
 
-```text
+```http
     HTTP/1.1 200 OK
     Server: nginx/1.27.0
     Content-Type: application/vnd.fos.user-context-hash
@@ -531,7 +531,7 @@ This ESI is handled by a controller in the `FieldTypePage` bundle provided by [[
 
 The output is:
 
-```text
+```http
 HTTP/1.1 200 OK
 Server: nginx/1.27.0
 Content-Type: text/html; charset=UTF-8
@@ -559,7 +559,7 @@ This ESI is handled by a custom `FooController::customAction` and the output of 
 
 Output:
 
-```text
+```http
 HTTP/1.1 200 OK
 Server: nginx/1.27.0
 Content-Type: text/html; charset=UTF-8
