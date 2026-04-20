@@ -55,7 +55,7 @@ config:
 # no-trailing-spaces: true
 # no-multiple-blanks: true
   no-multiple-blanks: true
-# commands-show-output: true
+  commands-show-output: true
 
 ignores:
   - "docs/snippets/**"
