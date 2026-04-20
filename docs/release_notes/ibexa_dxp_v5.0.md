@@ -67,7 +67,7 @@ This add-on introduces a set of recommendation blocks available in the [Page Bui
 
 For more information about Recommendation blocks in Page Builder, see the relevant [Developer Documentation](https://doc.ibexa.co/en/5.0/cdp/raptor_integration/pb_blocks/) and [User Documentation](https://doc.ibexa.co/projects/userguide/en/5.0/recommendations/raptor_integration/raptor_recommendation_blocks/).
 
-### Quable PIM
+### [[= pim_product_name =]] PIM
 
 The [[= pim_product_name =]] integration add-on allows you to connect [[= product_name =]] with [[[= pim_product_name =]] Product Information Management (PIM)](https://www.quable.com/en), making [[= pim_product_name =]] the authoritative source of product information for every website powered by [[= product_name =]].
 
@@ -85,7 +85,7 @@ You can now use the [refining text AI Actions](https://doc.ibexa.co/en/5.0/ai_ac
 #### Symfony 7.4
 
 Symfony is upgraded from 7.3 to 7.4.
-It's the latest [LTS release](https://symfony.com/releases#long-term-support-release), maintainted till November 2029.
+It's the latest [LTS release](https://symfony.com/releases#long-term-support-release), maintained till November 2029.
 See [what's new in Symfony 7.4](https://symfony.com/blog/category/living-on-the-edge/8.0-7.4) and [how to update Symfony within [[= product_name =]]](https://doc.ibexa.co/en/5.0/update_and_migration/from_5.0/update_from_5.0/#update-symfony-from-73-to-74).
 
 #### Taxonomy search
