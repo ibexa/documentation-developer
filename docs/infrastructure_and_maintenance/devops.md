@@ -40,7 +40,7 @@ While all relevant cache is cleared for you on repository changes when using the
 As of [[= product_name =]] v4.5, the [Symfony Web Debug Toolbar]([[= symfony_doc =]]/profiler.html) is no longer installed by default.
 To install it, run the following command:
 
-```
+```bash
 composer require symfony/debug-pack
 ```
 

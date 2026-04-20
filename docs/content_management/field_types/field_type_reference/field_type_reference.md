@@ -32,7 +32,7 @@ The following table gives an overview of the supported field types that come wi
 | [Checkbox](checkboxfield.md) | Stores a boolean value. | Yes | Yes |
 | [Content query](contentqueryfield.md) | Maps an executable repository query to a field. | No | No |
 | [Country](countryfield.md) | Stores country names as a string. | Yes[^1^](#1-note-on-legacy-search-engine) | Yes |
-| [Customer group](customergroupfield.md) | Stores customer group to which a user belongs.
+| [Customer group](customergroupfield.md) | Stores customer group to which a user belongs. | Yes, in [Search](customergroupid_criterion.md) and [Price Search](price_customergroup_criterion.md)     | Yes                                |
 | [DateAndTime](dateandtimefield.md) | Stores a full date including time information. | Yes | Yes |
 | [Date](datefield.md) | Stores date information. | Yes | Yes  |
 | [EmailAddress](emailaddressfield.md) | Validates and stores an email address. | Yes  | Yes  |

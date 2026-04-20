@@ -88,4 +88,4 @@ which prevents multiple processes from executing the same migration and causing 
 
 | [[= product_name_content =]]  | [[= product_name_exp =]]  | [[= product_name_com =]] |
 |--------------|------------|------------|
-| [[[= product_name_content =]] v4.1](https://github.com/ibexa/content/releases/tag/v4.1.0) | [[[= product_name_exp =]] v4.1](https://github.com/ibexa/experience/releases/tag/v4.1.0) | [[[= product_name_com =]] v4.1](https://github.com/ibexa/commerce/releases/tag/v4.1.0)
+| [[[= product_name_content =]] v4.1](https://github.com/ibexa/content/releases/tag/v4.1.0) | [[[= product_name_exp =]] v4.1](https://github.com/ibexa/experience/releases/tag/v4.1.0) | [[[= product_name_com =]] v4.1](https://github.com/ibexa/commerce/releases/tag/v4.1.0) |

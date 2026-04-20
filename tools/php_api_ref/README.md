@@ -57,7 +57,7 @@ Time is saved. The DXP's code could even be modified for test purpose.
 
 If you change some of those values, please do not commit those changes, and don't commit their output.
 To prevent that, you can make a local copy, and use this copy to generate in a temporary output directory:
-```shell
+```bash
 cp tools/php_api_ref/phpdoc.sh tools/php_api_ref/phpdoc.dev.sh
 nano phpdoc.dev.sh # Edit and make your changes. For example, change PHPDOC_CONF to use phpdoc.dev.xml.
 nano phpdoc.dev.xml # Edit and make your changes. For example, target only your package.

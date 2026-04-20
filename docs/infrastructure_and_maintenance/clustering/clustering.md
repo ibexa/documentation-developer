@@ -238,7 +238,7 @@ In any case, this specific rewrite rule must be placed before the ones that "ign
 
 #### Apache
 
-```
+```apacheconf
 RewriteRule ^/var/([^/]+/)?storage/images(-versioned)?/.* /index.php [L]
 ```
 
@@ -246,7 +246,7 @@ Place this before the standard image rewrite rule in your vhost config (or uncom
 
 #### nginx
 
-```
+```nginx
 rewrite "^/var/([^/]+/)?storage/images(-versioned)?/(.*)" "/index.php" break;
 ```
 
@@ -260,7 +260,7 @@ You can also use it when you're migrating from one data handler to another, for 
 
 This command shows which handlers are configured:
 
-```
+```bash
 > php bin/console ibexa:io:migrate-files --list-io-handlers
 Configured meta data handlers: default, dfs, aws_s3
 Configured binary data handlers: default, nfs, aws_s3
@@ -268,8 +268,8 @@ Configured binary data handlers: default, nfs, aws_s3
 
 You can do the actual migration like this:
 
-```
-> php bin/console ibexa:io:migrate-files --from=default,default --to=dfs,nfs --env=prod
+```bash
+php bin/console ibexa:io:migrate-files --from=default,default --to=dfs,nfs --env=prod
 ```
 
 The `--from` and `--to` values must be specified as `<metadata_handler>,<binarydata_handler>`.

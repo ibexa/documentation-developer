@@ -130,7 +130,7 @@ Replace `<installation-key>` and `<token-password>` with your actual installatio
 ddev composer config --global http-basic.updates.ibexa.co <installation-key> <token-password>
 ```
 
-This authentication doesn't persist if the project is restarted (by `ddev restart` or `ddev composer create`).
+This authentication doesn't persist if the project is restarted (by `ddev restart` or `ddev composer create-project`).
 You can back up the authentication file (`auth.json`) by using the following command:
 
 ```bash
@@ -145,7 +145,7 @@ Once DDEV is running, use Composer to create a new [[= product_name =]] project.
 Remember to replace `<edition>` and `<version>` with your desired edition and version.
 
 ```bash
-ddev composer create ibexa/<edition>-skeleton:<version>
+ddev composer create-project ibexa/<edition>-skeleton:<version>
 ```
 
 !!! tip
@@ -216,7 +216,7 @@ The following example shows the use of `.env.local` with database configuration:
 - Skip step [2. Configure DDEV / Configure database connection](#configure-database-connection).
 - Modify step [5. Create [[= product_name =]] project](#5-create-project) to insert the database setting:
   ```bash
-  ddev composer create ibexa/commerce-skeleton --no-install;
+  ddev composer create-project ibexa/commerce-skeleton --no-install;
   echo "DATABASE_URL=mysql://db:db@db:3306/db" >> .env.local;
   ddev composer install;
   ```
@@ -402,7 +402,7 @@ Some DDEV configs can be shared among developers. For example, a common `.ddev/c
 Compared to running a clean install like described in [Installation steps](#installation), you can proceed as follows:
 
 - In [1. Create a DDEV project directory](#1-create-a-ddev-project-directory), you can use an existing directory that contains an [[= product_name =]] project instead of creating an empty directory.
-- In [5. Create [[= product_name =]] project](#5-create-project), use only `ddev composer install` instead of `ddev composer create`.
+- In [5. Create [[= product_name =]] project](#5-create-project), use only `ddev composer install` instead of `ddev composer create-project`.
 - Populate the database with [Ibexa data migration](importing_data.md) or [`ddev import-db`](https://ddev.readthedocs.io/en/latest/users/usage/commands/#import-db).
 
 ### Hostnames and domains
