@@ -64,7 +64,7 @@ composer phpstan
 Code samples must be compatible with PHP 7.4.
 Rector is used to check and downgrade PHP 8.x syntax and functions to PHP 7.4-compatible equivalents.
 
-To check which files need downgrading (dry-run, no changes applied):
+To check which files need downgrading (dry-run, no changes applied), run:
 ```bash
 composer require --dev ibexa/rector:~4.6.x-dev
 composer check-rector
