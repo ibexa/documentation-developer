@@ -48,6 +48,11 @@ For more information, see [Product tour](https://doc.ibexa.co/en/5.0/administrat
     ['Headless', 'Experience', 'Commerce', 'New feature']
 ) =]]
 
+### Security
+
+This release includes security fixes.
+To learn more, see the [corresponding security advisory](https://developers.ibexa.co/security-advisories/ibexa-sa-2026-002-access_control-in-security.yaml-not-working).
+
 ### Raptor connector
 
 The Raptor connector provides a seamless integration between [[= product_name =]] and [Raptor Recommendation Engine](https://www.raptorservices.com/website-recommendations/).
