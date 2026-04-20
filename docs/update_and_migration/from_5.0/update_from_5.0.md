@@ -17,18 +17,21 @@ First, run:
 === "[[= product_name_headless =]]"
 
     ``` bash
+    yarn upgrade @ibexa/frontend-config @ibexa/ts-config
     composer require ibexa/headless:[[= latest_tag_5_0 =]] --with-all-dependencies --no-scripts
     composer recipes:install ibexa/headless --force -v
     ```
 === "[[= product_name_exp =]]"
 
     ``` bash
+    yarn upgrade @ibexa/frontend-config @ibexa/ts-config
     composer require ibexa/experience:[[= latest_tag_5_0 =]] --with-all-dependencies --no-scripts
     composer recipes:install ibexa/experience --force -v
     ```
 === "[[= product_name_com =]]"
 
     ``` bash
+    yarn upgrade @ibexa/frontend-config @ibexa/ts-config
     composer require ibexa/commerce:[[= latest_tag_5_0 =]] --with-all-dependencies --no-scripts
     composer recipes:install ibexa/commerce --force -v
     ```
@@ -152,7 +155,184 @@ Run the provided SQL upgrade script to add the missing indexes to your database:
 
 ## v5.0.4
 
+### Database update [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
+
+From a platform first installed on v5.0.3 or updated precisely to v5.0.3, you need to execute the requests below.
+If the platform comes from lower than v5.0.3 and is updated to higher than v5.0.3, you don't need this part
+(but if you run the requests anyway, you only obtain error messages, nothing being broken or lost).
+
+=== "MySQL"
+
+    ``` sql
+    ALTER TABLE `ibexa_site_public_access` ADD COLUMN `tree_root_location_id` INT DEFAULT NULL;
+    ALTER TABLE `ibexa_site_public_access` ADD INDEX `ibexa_spa_trl_id` (`tree_root_location_id`);
+
+    UPDATE ibexa_site_public_access
+      SET tree_root_location_id = CAST(JSON_UNQUOTE(JSON_EXTRACT(config, '$."ibexa.site_access.config.content.tree_root.location_id"')) AS SIGNED)
+      WHERE tree_root_location_id IS NULL AND JSON_EXTRACT(config, '$."ibexa.site_access.config.content.tree_root.location_id"') IS NOT NULL;
+    ```
+
+=== "PostgreSQL"
+
+    ``` sql
+    ALTER TABLE ibexa_site_public_access ADD COLUMN tree_root_location_id INT DEFAULT NULL;
+    CREATE INDEX "ibexa_spa_trl_id" ON "ibexa_site_public_access" ("tree_root_location_id");
+
+    UPDATE ibexa_site_public_access
+      SET tree_root_location_id = (config::jsonb ->> 'ibexa.site_access.config.content.tree_root.location_id')::integer
+      WHERE tree_root_location_id IS NULL AND config::jsonb ? 'ibexa.site_access.config.content.tree_root.location_id';
+    ```
+
+## v5.0.5
+
+### Elasticsearch 8 support
+
+As of v5.0.5, [[= product_name =]] adds support for Elasticsearch 8.19 or higher.
+You can continue using [unsupported Elasticsearch 7.16.2+](https://www.elastic.co/support/eol), but it's recommended to upgrade to Elasticsearch 8 for improved performance and security features.
+
+When choosing to keep using Elasticsearch 7.16.2, adjust your configuration as described in the [Update configuration](#update-configuration) section below to avoid using deprecated settings.
+
+If you choose to upgrade to Elasticsearch 8, follow these steps:
+
+#### Update Elasticsearch server
+
+Upgrade your Elasticsearch server to version 8.19 or higher.
+For detailed instructions, follow the [Elasticsearch upgrade guide](https://www.elastic.co/guide/en/elastic-stack/8.19/upgrading-elastic-stack.html#prepare-to-upgrade).
+
+When you use [[= product_name_cloud =]], see [Elasticsearch service](https://docs.upsun.com/add-services/elasticsearch.html) for a list of supported versions.
+
+#### Update configuration
+
+Update your configuration in `config/packages/ibexa_elasticsearch.yaml`.
+
+##### Replace deprecated connection pool settings
+
+The deprecated `connection_pool` and `connection_selector` settings are now ignored and don't have any effect.
+Replace them with appropriate `node_pool_selector` and `node_pool_resurrect` settings:
+
+``` yaml
+# Old configuration (Elasticsearch 7 - deprecated)
+ibexa_elasticsearch:
+    connections:
+        default:
+            connection_pool: 'Elasticsearch\ConnectionPool\StaticNoPingConnectionPool'
+            connection_selector: 'Elasticsearch\ConnectionPool\Selectors\RoundRobinSelector'
+```
+
+``` yaml
+# New configuration (Elasticsearch 7 and 8)
+ibexa_elasticsearch:
+    connections:
+        default:
+            node_pool_selector: 'Elastic\Transport\NodePool\Selector\RoundRobin'
+            node_pool_resurrect: 'Elastic\Transport\NodePool\Resurrect\NoResurrect'
+```
+
+For more information, see [Node pool settings](configure_elasticsearch.md#node-pool-settings).
+
+##### Remove trace option
+
+The `trace` debugging option is no longer available.
+
+``` yaml
+# Old configuration (Elasticsearch 7)
+ibexa_elasticsearch:
+    connections:
+        default:
+            debug: true
+            trace: true
+```
+
+``` yaml
+# New configuration (Elasticsearch 7 and 8)
+ibexa_elasticsearch:
+    connections:
+        default:
+            debug: true
+            # Trace option is no longer available
+```
+
+#### Reindex content
+
+After upgrading to Elasticsearch 8 and updating your configuration, reindex the search engine:
+
+1. Push the index templates:
+
+    ``` bash
+    php bin/console ibexa:elasticsearch:put-index-template --overwrite
+    ```
+
+2. Reindex your content:
+
+    ``` bash
+    php bin/console ibexa:reindex
+    ```
+
+### Database update
+
+Run the provided SQL upgrade script to ensure the Messenger tables for [background tasks](background_tasks.md) exist in your database:
+
+=== "MySQL"
+
+    ``` sql
+    mysql -u <username> -p <password> <database_name> < vendor/ibexa/installer/upgrade/db/mysql/ibexa-5.0.4-to-5.0.5.sql
+    ```
+
+=== "PostgreSQL"
+
+    ``` sql
+    psql <database_name> < vendor/ibexa/installer/upgrade/db/postgresql/ibexa-5.0.4-to-5.0.5.sql
+    ```
+
+## v5.0.5
+
 No additional steps needed.
+
+## v5.0.6
+
+### Database update [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
+
+Run the provided SQL upgrade script to adapt your database to latest change in [form builder](form_builder_guide.md)'s `max_length` validator behavior:
+
+=== "MySQL"
+
+    ``` sql
+    mysql -u <username> -p <password> <database_name> < vendor/ibexa/installer/upgrade/db/mysql/ibexa-5.0.5-to-5.0.6.sql
+    ```
+
+=== "PostgreSQL"
+
+    ``` sql
+    psql <database_name> < vendor/ibexa/installer/upgrade/db/postgresql/ibexa-5.0.5-to-5.0.6.sql
+    ```
+
+Prior, `0` was interpreted as "no length limit".
+Now, `0` is interpreted as "length limited to zero characters" and `NULL` as "no length limit".
+
+### [[= product_name_cloud =]] configuration update
+
+If you're using [[= product_name_cloud =]], you must install a new package and update your cloud configuration.
+
+First, install the `ibexa/cloud` package:
+
+```bash
+composer require ibexa/cloud
+```
+
+Then, update your cloud configuration.
+Instead of the old `composer ibexa:setup --platformsh` command, use:
+
+``` bash
+php bin/console ibexa:cloud:setup --upsun
+```
+
+This command generates or updates the cloud configuration files.
+
+Additionally, you must remove the following line from your `.platform.app.yaml` file if it exists:
+
+```yaml
+curl -fs https://get.symfony.com/cloud/configurator | bash
+```
 
 ## LTS Updates and additional packages
 
@@ -194,3 +374,9 @@ To use the [latest features](ibexa_dxp_v5.0.md) added to them, update them separ
     ```bash
     composer require ibexa/fieldtype-richtext-rte:[[= latest_tag_5_0 =]] ibexa/ckeditor-premium:[[= latest_tag_5_0 =]]
     ```
+
+=== "Shopping list"
+
+    ### Shopping list [[% include 'snippets/lts-update_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
+
+    To learn more about the [Shopping list](shopping_list_guide.md), see the [installation and configuration instructions](install_shopping_list.md).

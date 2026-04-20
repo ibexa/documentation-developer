@@ -132,6 +132,30 @@ To use Composer to instantly create a project in the current folder with all the
     composer create-project ibexa/commerce-skeleton .
     ```
 
+??? note "Using PHP versions other than 8.3"
+
+    If you aren't using PHP 8.3 but are using PHP 8.4, PHP 8.2, or any older version, use a different set of commands:
+
+    === "[[= product_name_headless =]]"
+
+        ``` bash
+        composer create-project ibexa/headless-skeleton --no-install .
+        composer update
+        ```
+
+    === "[[= product_name_exp =]]"
+
+        ``` bash
+        composer create-project ibexa/experience-skeleton --no-install .
+        composer update
+        ```
+
+    === "[[= product_name_com =]]"
+
+        ``` bash
+        composer create-project ibexa/commerce-skeleton --no-install .
+        composer update
+        ```
 
 !!! tip "Authentication token"
 
@@ -145,15 +169,17 @@ To use Composer to instantly create a project in the current folder with all the
     composer create-project ibexa/experience-skeleton:[[= latest_tag_5_0 =]] .
     ```
 
-!!! note "Platform.sh"
+!!! note "[[= product_name_cloud =]]"
 
-    If you're deploying your installation on [Platform.sh](https://docs.platform.sh/guides/ibexa/deploy.html), run the following command:
+    If you're deploying your installation on [Upsun](https://fixed.docs.upsun.com/guides/ibexa/deploy.html), run the following commands:
 
     ``` bash
-    composer ibexa:setup --platformsh
+    composer require ibexa/cloud
+    php bin/console ibexa:cloud:setup --upsun
     ```
 
-    This command provides the necessary configuration for using Platform.sh.
+    These commands add the necessary package and provide the required configuration for using Upsun.
+    For more information, see [Install on Ibexa Cloud](install_on_ibexa_cloud.md).
 
 #### Add project to version control
 
@@ -247,11 +273,15 @@ php bin/console ibexa:install
 Before executing the command make sure that the database user has sufficient permissions.
 
 The installer will prompt you for a new password for the `admin` user.
-Make sure to use a [strong password](security_checklist.md#strong-passwords) meeting all the [password rules](passwords.md#password-rules).
+Make sure to use a [strong password](security_checklist.md#strong-passwords) meeting all the default [password rules](passwords.md#password-rules):
+
+- a minimum length of 10 characters
+- at least one upper case letter
+- at least one number
 
 !!! note
 
-	In scenarios where entering the new password isn't possible, for example, in automated deployments and Continuous Integration environments, use the `--no-interaction` option to skip changing the password and keep the default one, `publish`:
+    In scenarios where entering the new password isn't possible, for example, in automated deployments and Continuous Integration environments, use the `--no-interaction` option to skip changing the password and keep the default one, `publish`:
 
     ``` bash
     php bin/console ibexa:install --no-interaction
@@ -267,7 +297,7 @@ Run the post-installation script with the following command:
 composer run post-install-cmd
 ```
 
-## Use PHPs built-in server
+## Use PHP's built-in server
 
 For development you can use the built-in PHP server.
 

@@ -79,7 +79,7 @@ It contains default UI components and widgets that can be modified to [create a 
 
 Search becomes crucial when your product catalog is extensive.
 Products can be sorted according to a variety of criteria using faceted search.
-The value it brings makes it a vital component in merchandizing.
+The value it brings makes it a vital component in merchandising.
 You can set up your search engine using [[= product_name_com =]] to help clients find what they're looking for more easily, which could result in more purchases.
 
 #### Catalog management

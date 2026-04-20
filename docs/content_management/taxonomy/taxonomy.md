@@ -1,6 +1,6 @@
 ---
 description: A taxonomy uses tags to categorize and organize content
-month_change: true
+month_change: false
 ---
 
 # Taxonomy

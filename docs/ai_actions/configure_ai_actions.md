@@ -32,6 +32,12 @@ The AI actions come with sample AI action configurations to quickly get you star
 
 Based on these examples, which reflect the most common use cases, you can learn to configure your own AI actions with greater ease.
 
+!!! note "Taxonomy suggestions"
+
+    OpenAI connector is also used by the [Taxonomy suggestions](taxonomy.md#taxonomy-suggestions) feature to generate embeddings for suggesting tags and product categories.
+    After you configure the connector, you can [create AI actions that use the Text to Taxonomy action type]([[= user_doc =]]/ai_actions/work_with_ai_actions/#create-ai-actions-that-control-taxonomy-suggestions).
+    You can also create [your own embedding provider](taxonomy.md#replace-the-embedding-provider).
+
 ## Install Anthropic connector [[% include 'snippets/lts-update_badge.md' %]]
 
 Run the following command to install the package:

@@ -415,9 +415,9 @@ Once you have fixed all the dump files in `ezxmltext-export/`, you may skip the 
 
 Typical problems that needs manual fixing:
 
-**Duplicate xhtml IDs**
+**Duplicate XHTML IDs**
 
-Xhtml IDs needs to be unique. The following `ezxmltext` results in a warning:
+XHTML IDs needs to be unique. The following `ezxmltext` results in a warning:
 
 ```xml
     <paragraph>
@@ -446,8 +446,6 @@ When the conversion tool detects links with no reference it issues a warning and
 **`<literal>`**
 
 The `<literal>` tag isn't yet supported in eZ Platform.
-
-For more information, see [EZP-29328](https://issues.ibexa.co/browse/EZP-29328) and [EZP-29027](https://issues.ibexa.co/browse/EZP-29027).
 
 When you're ready to migrate your eZ Publish XmlText content to the eZ Platform RichText format and start using pure eZ Platform setup, start the conversion script without the `--dry-run` option. Execute the following from &lt;new-ez-root&gt;:
 

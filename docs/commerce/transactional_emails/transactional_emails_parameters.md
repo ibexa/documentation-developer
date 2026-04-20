@@ -39,7 +39,7 @@ If this extensive list of variables isn't sufficient, you can [extend it to incl
 | |billingAddressPhoneNumber|Phone number|123456789|
 |Payment|paymentMethodIdentifier|Technical identifier of payment method| | |
 | |paymentMethodName|Human readable name of payment method| | |
-| |paymentMethodDescription|Human readable description of payment method|Prepaid cards and gift cards (offline ver.)| |
+| |paymentMethodDescription|Human readable description of payment method|Prepaid cards and gift cards (offline version)| |
 | |paymentMethodTypeName|Human readable name of payment method type|Offline| |
 | |paymentStatus|Technical identifier of payment status|pending, failed|Only available in PaymentStatusChange notification|
 |Shipment|shippingMethodIdentifier|Technical identifier of shipping method| | |

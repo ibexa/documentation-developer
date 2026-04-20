@@ -6,7 +6,7 @@ description: Use PHP API to manage currencies in the shop and product prices.
 
 ## Currencies
 
-To manage currencies, use `CurrencyServiceInterface`.
+To manage currencies, use [`CurrencyServiceInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-CurrencyServiceInterface.html).
 
 To access a currency object by its code, use `CurrencyServiceInterface::getCurrencyByCode`.
 To access a whole list of currencies, use `CurrencyServiceInterface::findCurrencies`.
@@ -23,7 +23,7 @@ To create a new currency, use `CurrencyServiceInterface::createCurrency()` and p
 
 ## Prices
 
-To manage prices, use `ProductPriceService`.
+To manage prices, use [`ProductPriceServiceInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-ProductPriceServiceInterface.html).
 
 To retrieve the price of a product in the currency for the current context, use `Product::getPrice()`:
 
@@ -37,7 +37,7 @@ To retrieve the price of a product in a specific currency, use `ProductPriceServ
 [[= include_file('code_samples/api/product_catalog/src/Command/ProductPriceCommand.php', 64, 67) =]]
 ```
 
-To get all prices (in different currencies) for a given product, use `ProductPriceService::findPricesByProductCode`:
+To get all prices (in different currencies) for a given product, use `ProductPriceServiceInterface::findPricesByProductCode`:
 
 ``` php
 [[= include_file('code_samples/api/product_catalog/src/Command/ProductPriceCommand.php', 78, 84) =]]
@@ -51,7 +51,7 @@ To load price definitions that match given criteria, use `ProductPriceServiceInt
 [[= include_file('code_samples/api/product_catalog/src/Command/ProductPriceCommand.php', 85, 95) =]]
 ```
 
-You can also use `ProductPriceService` to create or modify existing prices.
+You can also use `ProductPriceServiceInterface` to create or modify existing prices.
 For example, to create a new price for a given currency, use `ProductPriceService::createProductPrice` and provide it with a `ProductPriceCreateStruct` object:
 
 ``` php
@@ -68,12 +68,13 @@ For example, to create a new price for a given currency, use `ProductPriceServic
 
 To display a product price on a product page or in the cart, you must calculate its value based on a base price and the context.
 Context contains information about any price modifiers that may apply to a specific customer group.
-To determine the final price, or resolve the price, use the `PriceResolverInterface` service, which uses the following logic:
+To determine the final price, or resolve the price, use the [`PriceResolverInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-PriceResolverInterface.html) service, which takes the following conditions into account:
 
-1. Checks whether a price exists for the product and currency, returns `null` if no such price exists.
-2. Verifies whether a customer group-related modifier exists:
-    1. If yes, it returns a custom price that is valid for the selected customer group.
-    2. If not, it returns a base product price in the selected currency.
+1. Existence of base price for the product in the specified currency
+2. Existence of customer group-related modifiers
+3. Existence of applicable [discounts](discounts.md)
+
+If the base price in the specified currency is missing, the return value is `null`.
 
 To resolve a price of a product in the currency for the current context, use either `PriceResolverInterface::resolvePrice()` or `PriceResolverInterface::resolvePrices()`:
 
@@ -85,8 +86,8 @@ To resolve a price of a product in the currency for the current context, use eit
 
 ## VAT
 
-To get information about the VAT categories and rates configured in the system, use `VatServiceInterface`.
-VAT is configured per region, so you also need to use `RegionServiceInterface` to get the relevant region object.
+To get information about the VAT categories and rates configured in the system, use [`VatServiceInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-VatServiceInterface.html).
+VAT is configured per region, so you also need to use [`RegionServiceInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-RegionServiceInterface.html) to get the relevant region object.
 
 ``` php
 [[= include_file('code_samples/api/product_catalog/src/Command/VatCommand.php', 41, 42) =]]

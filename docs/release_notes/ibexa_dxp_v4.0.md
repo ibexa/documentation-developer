@@ -98,7 +98,7 @@ For more information, see [Forms](https://doc.ibexa.co/en/latest/guide/form_buil
 
 ### External datasource handling
 
-Pesronalization has been given an option to fetch content feed from external sources.
+Personalization has been given an option to fetch content feed from external sources.
 
 ### Category exclusion
 

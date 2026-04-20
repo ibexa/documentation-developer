@@ -66,7 +66,7 @@ Useful commands:
 php bin/console cache:clear --env prod
 ```
 
-- clearing Redis cache
+- clearing Redis/Valkey cache
 
 ```bash
 php bin/console cache:pool:clear cache.redis

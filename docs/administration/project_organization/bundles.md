@@ -53,8 +53,9 @@ To remove a bundle (either one you created yourself, or an out-of-the-box one th
 |[ibexa/graphql](https://github.com/ibexa/graphql)|GraphQL server for [[= product_name =]]|
 |[ibexa/http-cache](https://github.com/ibexa/http-cache)|[HTTP cache handling](http_cache.md), using multi tagging|
 |[ibexa/i18n](https://github.com/ibexa/i18n)|Centralized translations to ease synchronization with Crowdin|
+|[ibexa/messenger](https://github.com/ibexa/messenger)|[Background and asynchronous task processing](background_tasks.md) using Symfony Messenger|
 |[ibexa/notifications](https://github.com/ibexa/notifications)| Sending [notifications](notifications.md)|
-|[ibexa/post-install](https://github.com/ibexa/post-install)|Post installation tool|
+|[ibexa/post-install](https://github.com/ibexa/post-install)|Apache and nginx templates|
 |[ibexa/rest](https://github.com/ibexa/rest)|REST API|
 |[ibexa/search](https://github.com/ibexa/search)|Common search functionalities|
 |[ibexa/solr](https://github.com/ibexa/solr)|[Solr-powered](https://solr.apache.org/) search handler|
@@ -77,7 +78,7 @@ To remove a bundle (either one you created yourself, or an out-of-the-box one th
 |ibexa/connector-openai|Integrates the AI framework with [OpenAI](https://openai.com) |
 |ibexa/content-tree|Content tree functionality|
 |ibexa/elasticsearch|Integration with Elasticsearch search engine|
-|ibexa/fastly|Fastly support for `http-cache`, for use on Platform.sh or standalone|
+|ibexa/fastly|Fastly support for `http-cache`, for use on [[= product_name_cloud =]] or standalone|
 |ibexa/headless-assets|Assets for the back office|
 |ibexa/icons|Icon set for the back office|
 |ibexa/image-editor|[Image Editor](configure_image_editor.md)|
@@ -131,3 +132,15 @@ To remove a bundle (either one you created yourself, or an out-of-the-box one th
 |ibexa/payment|Payment handling|
 |ibexa/shipping|Shipping handling|
 |ibexa/connector-payum|[Payum integration](payum_integration.md)|
+
+## Optional packages
+
+The following packages are optional and can be installed independently.
+
+|Bundle|Description|
+|---------|-----------|
+|[ibexa/automated-translation](https://github.com/ibexa/automated-translation)|Automated translation of content using [Google Translate or DeepL](automated_translations.md)|
+|ibexa/cdp|Integration with the [Customer Data Platform](cdp.md)|
+|[ibexa/cloud](https://github.com/ibexa/cloud)|Integration with [[[= product_name_cloud =]]](/ibexa_cloud/ibexa_cloud.md)|
+
+In addition, you can extend the capabitilies of your project by installing additional [LTS Updates](editions.md#lts-updates).

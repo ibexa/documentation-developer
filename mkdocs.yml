@@ -3,7 +3,7 @@ INHERIT: plugins.yml
 site_name: Developer Documentation
 repo_url: https://github.com/ibexa/documentation-developer
 site_url: https://doc.ibexa.co/en/latest/
-copyright: "Copyright 1999-2024 Ibexa AS and others"
+copyright: "Copyright 1999-2026 Ibexa AS and others"
 validation:
     omitted_files: warn
     absolute_links: relative_to_docs
@@ -86,6 +86,7 @@ nav:
             - Location events: api/event_reference/location_events.md
             - Catalog events: api/event_reference/catalog_events.md
             - Cart events: api/event_reference/cart_events.md
+            - Shopping list events: api/event_reference/shopping_list_events.md
             - Order management events: api/event_reference/order_management_events.md
             - Payment events: api/event_reference/payment_events.md
             - Language events: api/event_reference/language_events.md
@@ -288,6 +289,7 @@ nav:
             - Collaborative editing product guide: content_management/collaborative_editing/collaborative_editing_guide.md
             - Configure Collaborative editing: content_management/collaborative_editing/configure_collaborative_editing.md
             - Collaborative editing API: content_management/collaborative_editing/collaborative_editing_api.md
+            - Extend Collaborative editing: content_management/collaborative_editing/extend_collaborative_editing.md
     - Templating:
         - Templating: templating/templating.md
         - Render content:
@@ -311,6 +313,7 @@ nav:
             - Content Twig functions: templating/twig_function_reference/content_twig_functions.md
             - Date Twig filters: templating/twig_function_reference/date_twig_filters.md
             - Field Twig functions: templating/twig_function_reference/field_twig_functions.md
+            - Page Twig functions: templating/twig_function_reference/page_twig_functions.md
             - Icon Twig functions: templating/twig_function_reference/icon_twig_functions.md
             - Image Twig functions: templating/twig_function_reference/image_twig_functions.md
             - Product Twig functions: templating/twig_function_reference/product_twig_functions.md
@@ -375,6 +378,12 @@ nav:
             - Cart: commerce/cart/cart.md
             - Cart API: commerce/cart/cart_api.md
             - Quick order: commerce/cart/quick_order.md
+        - Shopping list:
+            - Shopping list: commerce/shopping_list/shopping_list.md
+            - Shopping list guide: commerce/shopping_list/shopping_list_guide.md
+            - Install shopping list: commerce/shopping_list/install_shopping_list.md
+            - Shopping list design: commerce/shopping_list/shopping_list_design.md
+            - Shopping list API: commerce/shopping_list/shopping_list_api.md
         - Checkout:
             - Checkout: commerce/checkout/checkout.md
             - Configure checkout: commerce/checkout/configure_checkout.md
@@ -415,6 +424,8 @@ nav:
         - Discounts guide: discounts/discounts_guide.md
         - Customize Discounts: discounts/configure_discounts.md
         - Discounts API: discounts/discounts_api.md
+        - Extend Discounts: discounts/extend_discounts.md
+        - Extend Discounts wizard: discounts/extend_discounts_wizard.md
     - Customer management:
         - Customer Portal: customer_management/customer_portal.md
         - Customer Portal guide: customer_management/customer_portal_guide.md
@@ -659,6 +670,7 @@ nav:
             - ShippingMethod: search/criteria_reference/shipment_shipping_method_criterion.md
             - StatusCriterion: search/criteria_reference/shipment_status_criterion.md
             - UpdatedAtCriterion: search/criteria_reference/shipment_updatedat_criterion.md
+        - Shopping List Search Criteria: search/shopping_list_search_reference/shopping_list_criteria.md
         - URL Search Criteria:
             - URL Search Criteria: search/url_search_reference/url_search_criteria.md
             - MatchAll Criterion: search/url_search_reference/matchall_url_criterion.md
@@ -748,6 +760,7 @@ nav:
                 - CreatedAt: search/sort_clause_reference/shipment_createdat_sort_clause.md
                 - UpdatedAt: search/sort_clause_reference/shipment_updatedat_sort_clause.md
                 - Status: search/sort_clause_reference/shipment_status_sort_clause.md
+            - Shopping List Sort Clauses: search/shopping_list_search_reference/shopping_list_sort_clauses.md
             - URL Sort Clauses:
                 - URL Sort Clauses: search/url_search_reference/url_search_sort_clauses.md
                 - Id Sort Clause: search/url_search_reference/id_url_sort_clause.md
@@ -796,6 +809,7 @@ nav:
             - ProductPriceRangeAggregation: search/aggregation_reference/productpricerange_aggregation.md
             - ProductTypeTermAggregation: search/aggregation_reference/producttypeterm_aggregation.md
             - TaxonomyEntryIdAggregation: search/aggregation_reference/taxonomyentryid_aggregation.md
+        - Embeddings search reference: search/embeddings_reference/embeddings_reference.md
         - Search in trash reference: search/search_in_trash_reference.md
         - Extend search:
             - Create custom Search Criterion: search/extensibility/create_custom_search_criterion.md
@@ -810,6 +824,7 @@ nav:
         - Ibexa Cloud: ibexa_cloud/ibexa_cloud.md
         - Ibexa Cloud guide: ibexa_cloud/ibexa_cloud_guide.md
         - Install on Ibexa Cloud: ibexa_cloud/install_on_ibexa_cloud.md
+        - Environment variables: ibexa_cloud/environment_variables.md
         - DDEV and Ibexa Cloud: ibexa_cloud/ddev_and_ibexa_cloud.md
     - Infrastructure and maintenance:
         - Infrastructure and maintenance: infrastructure_and_maintenance/infrastructure_and_maintenance.md
@@ -984,8 +999,8 @@ extra:
   latest_tag_4_3: '4.3.5'
   latest_tag_4_4: '4.4.4'
   latest_tag_4_5: '4.5.7'
-  latest_tag_4_6: '4.6.26'
-  latest_tag_5_0: '5.0.4'
+  latest_tag_4_6: '4.6.28'
+  latest_tag_5_0: '5.0.6'
 
   symfony_doc: 'https://symfony.com/doc/7.3'
   user_doc: 'https://doc.ibexa.co/projects/userguide/en/5.0'

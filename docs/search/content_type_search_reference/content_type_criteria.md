@@ -1,7 +1,7 @@
 ---
 description: Content Type Search Criteria help define and fine-tune search queries for content types.
 page_type: reference
-month_change: true
+month_change: false
 ---
 
 # Content Type Search Criteria reference

@@ -18,15 +18,16 @@ For information on how to create and configure new layouts for the Page, see [Pa
 
 Each configured block has an identifier and the following settings:
 
-| Setting                  | Description                                                                                                                                                   |
-|--------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `name`                   | Name of the block used in the Page Builder interface. Translatable using the `ibexa_page_fieldtype` translation domain.                                                                                                         |
-| `category`               | Category in the Page Builder **Page blocks** toolbox that the block is shown in. Translatable using the `ibexa_page_fieldtype` translation domain.                                                                                        |
-| `thumbnail`              | Thumbnail used in the Page Builder **Page blocks** toolbox.                                                                                                             |
-| `views`                  | Available [templates for the block](#block-templates).                                                                                                        |
-| `visible`                | (Optional) Toggles the block's visibility in the Page Builder **Page blocks** toolbox. Remove the block from the layout before you publish another version of the page. |
-| `configuration_template` | (Optional) Template for the block settings modal.                                                                                                             |
-| `attributes`             | (Optional) List of [block attributes](page_block_attributes.md).                                                                                              |
+| Setting                               | Description                                                                                                                                                             |
+|---------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `name`                                | Name of the block used in the Page Builder interface. Translatable using the `ibexa_page_fieldtype` translation domain.                                                 |
+| `category`                            | Category in the Page Builder **Page blocks** toolbox that the block is shown in. Translatable using the `ibexa_page_fieldtype` translation domain.                      |
+| `thumbnail`                           | Thumbnail used in the Page Builder **Page blocks** toolbox.                                                                                                             |
+| `views`                               | Available [templates for the block](#block-templates).                                                                                                                  |
+| `visible`                             | (Optional) Toggles the block's visibility in the Page Builder **Page blocks** toolbox. Remove the block from the layout before you publish another version of the page. |
+| `configuration_template`              | (Optional) Template for the block settings modal.                                                                                                                       |
+| `attributes`                          | (Optional) List of [block attributes](page_block_attributes.md).                                                                                                        |
+| <nobr>`cacheable_query_params`</nobr> | (Optional) List of query parameters the block's [ESI HTTP cache](http_cache_configuration.md#when-to-use-esi) varies on.<br>For example, if the block is paginated using `?page=ℕ` from the page URL, add `page` to this list.<br>See [`ibexa_append_cacheable_query_params()`Twig function](page_twig_functions.md#ibexa_append_cacheable_query_params). |
 
 For example:
 

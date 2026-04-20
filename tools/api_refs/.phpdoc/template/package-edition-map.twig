@@ -16,6 +16,7 @@
 'ibexa/graphql': 'oss',
 'ibexa/http-cache': 'oss',
 'ibexa/i18n': 'oss',
+'ibexa/messenger': 'oss',
 'ibexa/notifications': 'oss',
 'ibexa/post-install': 'oss',
 'ibexa/rest': 'oss',
@@ -79,6 +80,8 @@
 'ibexa/integrated-help': 'optional',
 'ibexa/fieldtype-richtext-rte': 'optional',
 'ibexa/connector-anthropic': 'optional',
+'ibexa/cdp': 'optional',
+'ibexa/shopping-list': 'optional',
 } %}
 {% set namespace_package_map = {
 
@@ -134,6 +137,9 @@
 'Ibexa\\Bundle\\HttpCache': 'ibexa/http-cache',
 'Ibexa\\Contracts\\HttpCache': 'ibexa/http-cache',
 
+'Ibexa\\Messenger': 'ibexa/messenger',
+'Ibexa\\Bundle\\Messenger': 'ibexa/messenger',
+'Ibexa\\Contracts\\Messenger': 'ibexa/messenger',
 'Ibexa\\Notifications': 'ibexa/notifications',
 'Ibexa\\Bundle\\Notifications': 'ibexa/notifications',
 'Ibexa\\Contracts\\Notifications': 'ibexa/notifications',
@@ -320,5 +326,11 @@
 'Ibexa\\Bundle\\ConnectorAnthropic': 'ibexa/connector-anthropic',
 'Ibexa\\Contracts\\ConnectorAnthropic': 'ibexa/connector-anthropic',
 'Ibexa\\ConnectorAnthropic': 'ibexa/connector-anthropic',
+'Ibexa\\Bundle\\Cdp': 'ibexa/cdp',
+'Ibexa\\Contracts\\Cdp': 'ibexa/cdp',
+'Ibexa\\Cdp': 'ibexa/cdp',
+'Ibexa\\Bundle\\ShoppingList': 'ibexa/shopping-list',
+'Ibexa\\Contracts\\ShoppingList': 'ibexa/shopping-list',
+'Ibexa\\ShoppingList': 'ibexa/shopping-list',
 } %}
 {% block content %}{% endblock %}

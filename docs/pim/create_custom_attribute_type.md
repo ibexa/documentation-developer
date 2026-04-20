@@ -120,6 +120,29 @@ Register the validator as a service and tag it with `ibexa.product_catalog.attri
 
 To ensure that values of the new attributes are stored correctly, you need to provide a storage converter and storage definition services.
 
+### Database schema design
+
+The values are going to be stored within a table named `app_product_specification_attribute_percent`, in a column named `value`.
+
+=== "MySQL"
+
+    ``` sql
+    CREATE TABLE app_product_specification_attribute_percent (
+        id INT NOT NULL,
+        value DOUBLE PRECISION DEFAULT NULL,
+        INDEX app_product_specification_attribute_percent_value_idx (value),
+        PRIMARY KEY (id)
+    ) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_520_ci` ENGINE = InnoDB;
+    ```
+
+=== "PostgreSQL"
+
+    ``` sql
+    CREATE TABLE app_product_specification_attribute_percent (id INT NOT NULL, value DOUBLE PRECISION DEFAULT NULL, PRIMARY KEY(id));
+    CREATE INDEX app_product_specification_attribute_percent_value_idx ON app_product_specification_attribute_percent (value);
+    ALTER TABLE app_product_specification_attribute_percent ADD CONSTRAINT app_product_specification_attribute_percent_fk FOREIGN KEY (id) REFERENCES ibexa_product_specification_attribute (id) ON UPDATE CASCADE ON DELETE CASCADE NOT DEFERRABLE INITIALLY IMMEDIATE;
+    ```
+
 ### Storage converter
 
 Start by creating a `PercentStorageConverter` class, which implements `Ibexa\Contracts\ProductCatalog\Local\Attribute\StorageConverterInterface`.
@@ -137,7 +160,9 @@ Register the converter as a service and tag it with `ibexa.product_catalog.attri
 
 ### Storage definition
 
-Next, prepare a `PercentStorageDefinition` class, which implements `Ibexa\Contracts\ProductCatalog\Local\Attribute\StorageDefinitionInterface`.
+You can either create a new storage definition or use an existing one.
+
+To create a new storage definition, prepare a `PercentStorageDefinition` class, which implements `Ibexa\Contracts\ProductCatalog\Local\Attribute\StorageDefinitionInterface`.
 
 ``` php
 [[= include_file('code_samples/catalog/custom_attribute_type/src/Attribute/Percent/Storage/PercentStorageDefinition.php') =]]
@@ -147,6 +172,19 @@ Register the storage definition as a service and tag it with `ibexa.product_cata
 
 ``` yaml
 [[= include_file('code_samples/catalog/custom_attribute_type/config/custom_services.yaml', 41, 44) =]]
+```
+
+If you prefer to use an existing storage definition, you need to create a Storage Definition Tag CompilerPass `src/DependencyInjection/AddFloatStorageDefinitionTag.php`:
+
+``` php
+[[= include_file('code_samples/catalog/custom_attribute_type/src/DependencyInjection/AddFloatStorageDefinitionTag.php') =]]
+```
+
+Add the CompilerPass to the container.
+Do it in a `src/Kernel.php` file or in your Bundle class:
+
+``` php hl_lines="5 7-8 14-20"
+[[= include_file('code_samples/catalog/custom_attribute_type/src/Kernel.php') =]]
 ```
 
 ## Use new attribute type

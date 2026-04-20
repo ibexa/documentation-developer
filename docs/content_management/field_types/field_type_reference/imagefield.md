@@ -39,8 +39,8 @@ They're `Ibexa\Contracts\Core\Variation\Values\ImageVariation` objects with the 
 
 | Property       | Type     | Example                                          | Description                                                                                                                                |
 |----------------|----------|--------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------|
-| `width`        | int      | `200`                                            | The variation's width in pixels. For more details see Caution note below.                                                                  |
-| `height`       | int      | `112`                                            | The variation's height in pixels. For more details see Caution note below.                                                                 |
+| `width`        | int      | `200`                                            | The variation's width in pixels.                                                                                                           |
+| `height`       | int      | `112`                                            | The variation's height in pixels.                                                                                                          |
 | `name`         | string   | `medium`                                         | The variation's identifier, name of the image variation.                                                                                   |
 | `info`         | mixed    | n/a                                              | Extra information about the image, depending on the image type, such as EXIF data. If there is no information, the `info` value is `null`. |
 | `fileSize`     | int      | `31010`                                          | Size (in byte) of current variation.                                                                                                       |

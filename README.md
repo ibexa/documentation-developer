@@ -9,7 +9,6 @@ a digital experience platform that is based on the Symfony Full Stack Framework 
 
 1. Ibexa DXP Developer Hub: https://developers.ibexa.co
 1. Ibexa DXP Repository: https://github.com/ibexa/oss
-1. Open JIRA board: https://issues.ibexa.co
 1. Ibexa Website: https://ibexa.co
 1. User documentation: https://doc.ibexa.co/projects/userguide
 
@@ -54,10 +53,31 @@ of the command.
 
 ## Testing the code samples
 
+### PHPStan
+
 This repository uses PHPStan to test the code samples. To run the tests locally execute the commands below:
 ```bash
 composer update
 composer phpstan
+```
+
+Regenerate the baseline by running:
+```bash
+composer phpstan -- --generate-baseline
+```
+
+### Deptrac
+
+This repository uses Deptrac to test the code samples. To run the tests locally execute the commands below:
+
+```bash
+composer update
+composer deptrac
+```
+
+Regenerate the baseline by running:
+```bash
+vendor/bin/deptrac --formatter=baseline
 ```
 
 ## Where to View

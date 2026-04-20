@@ -74,11 +74,11 @@ If you're looking for the Long Term Support (LTS) release, see[ https://ezplatf
 
 ## Full list of new features, improvements and bug fixes since v1.7.0 LTS:
 
-| eZ Plaform   | eZ Studio  |
+| eZ Platform   | eZ Studio  |
 |--------------|------------|
-| [List of changes for final of eZ Platform v1.8.0 on Github](https://github.com/ezsystems/ezplatform/releases/tag/v1.8.0)         | [List of changes for final for eZ Platform Enterprise Edition v1.8.0 on Github](https://github.com/ezsystems/ezplatform-ee/releases/tag/v1.8.0)       |
-| [List of changes for rc1 of eZ Platform v1.8.0 on Github](https://github.com/ezsystems/ezplatform/releases/tag/v1.8.0-rc1)         | [List of changes for rc1 for eZ Platform Enterprise Edition v1.8.0 on Github](https://github.com/ezsystems/ezplatform-ee/releases/tag/v1.8.0-rc1)       |
-| [List of changes for beta1 of eZ Platform v1.8.0 on Github](https://github.com/ezsystems/ezplatform/releases/tag/v1.8.0-beta1)         | [List of changes for beta2 of eZ Platform Enterprise Edition v1.8.0 on Github](https://github.com/ezsystems/ezplatform-ee/releases/tag/v1.8.0-beta2)       |
+| [List of changes for final of eZ Platform v1.8.0 on GitHub](https://github.com/ezsystems/ezplatform/releases/tag/v1.8.0)         | [List of changes for final for eZ Platform Enterprise Edition v1.8.0 on GitHub](https://github.com/ezsystems/ezplatform-ee/releases/tag/v1.8.0)       |
+| [List of changes for rc1 of eZ Platform v1.8.0 on GitHub](https://github.com/ezsystems/ezplatform/releases/tag/v1.8.0-rc1)         | [List of changes for rc1 for eZ Platform Enterprise Edition v1.8.0 on GitHub](https://github.com/ezsystems/ezplatform-ee/releases/tag/v1.8.0-rc1)       |
+| [List of changes for beta1 of eZ Platform v1.8.0 on GitHub](https://github.com/ezsystems/ezplatform/releases/tag/v1.8.0-beta1)         | [List of changes for beta2 of eZ Platform Enterprise Edition v1.8.0 on GitHub](https://github.com/ezsystems/ezplatform-ee/releases/tag/v1.8.0-beta2)       |
 
 
 ### Installation

@@ -107,6 +107,8 @@ ibexa:
 
 The following subset of the [ICU date and time formats](https://unicode-org.github.io/icu-docs/apidoc/released/icu4c/classSimpleDateFormat.html#details) is allowed:
 
+<!-- vale Ibexa.Spellcheck = NO -->
+
 |Symbol|Meaning|
 |---|---|
 |y, yy, yyyy, Y, YY, YYYY|year|

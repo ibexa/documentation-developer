@@ -34,7 +34,7 @@ Then execute the instructions below starting from the version you're upgrading f
 
 !!! caution
 
-    To avoid deprecations when using PHP 8.2 or 8.3, run the following commands:
+    To avoid deprecations when using PHP 8.2, 8.3, or 8.4, run the following commands:
 
     ``` bash
     composer config extra.runtime.error_handler "\\Ibexa\\Contracts\\Core\\MVC\\Symfony\\ErrorHandler\\Php82HideDeprecationsErrorHandler"
@@ -167,7 +167,7 @@ If the new bundle `ibexa/core-search` has not been added by the recipes, enable 
 
 ## v4.6.13
 
-This release comes with a command to clean up duplicated entries in the `ezcontentobject_attribute` table, which were created due to an issue described in [IBX-8562](https://issues.ibexa.co/browse/IBX-8562).
+This release comes with a command to clean up duplicated entries in the `ezcontentobject_attribute` table, which were created due to an issue related to previewing content in different languages.
 
 If you're affected, remove the duplicated entries by running the following command:
 ``` bash
@@ -452,11 +452,151 @@ Run the provided SQL upgrade script to add the missing indexes to your database:
 
 No additional steps needed.
 
+## v4.6.27
+
+### Elasticsearch 8 support
+
+As of v4.6.27, [[= product_name =]] adds optional support for Elasticsearch 8.19 or higher through the new `ibexa/elasticsearch8` package.
+
+By default, [[= product_name =]] continues to support Elasticsearch 7.16.2+ with the `ibexa/elasticsearch` package.
+To use Elasticsearch 8, follow these steps:
+
+#### Install Elasticsearch 8 package
+
+Replace the existing Elasticsearch package and install Elasticsearch 8:
+
+```bash
+composer require ibexa/elasticsearch8:[[= latest_tag_4_6 =]]
+```
+
+#### Update Elasticsearch server
+
+Upgrade your Elasticsearch server to version 8.19 or higher.
+For detailed instructions, follow the [Elasticsearch upgrade guide](https://www.elastic.co/guide/en/elastic-stack/8.19/upgrading-elastic-stack.html#prepare-to-upgrade).
+
+When you use [[= product_name_cloud =]], see [Elasticsearch service](https://docs.upsun.com/add-services/elasticsearch.html) for a list of supported versions.
+
+#### Update configuration
+
+Update your configuration in `config/packages/ibexa_elasticsearch.yaml` as decribed below:
+
+##### Replace connection pool settings
+
+The `connection_pool` and `connection_selector` settings are ignored when using Elasticsearch 8.
+Replace them with appropriate `node_pool_selector` and `node_pool_resurrect` settings:
+
+``` yaml
+# Elasticsearch 7 configuration
+ibexa_elasticsearch:
+    connections:
+        default:
+            connection_pool: 'Elasticsearch\ConnectionPool\StaticNoPingConnectionPool'
+            connection_selector: 'Elasticsearch\ConnectionPool\Selectors\RoundRobinSelector'
+```
+
+``` yaml
+# Elasticsearch 8 configuration
+ibexa_elasticsearch:
+    connections:
+        default:
+            node_pool_selector: 'Elastic\Transport\NodePool\Selector\RoundRobin'
+            node_pool_resurrect: 'Elastic\Transport\NodePool\Resurrect\NoResurrect'
+```
+
+For more information, see [Connection pool and node pool settings](https://doc.ibexa.co/en/4.6/search/search_engines/elasticsearch/configure_elasticsearch/#connection-pool-and-node-pool-settings).
+
+##### Remove trace option
+
+The `trace` debugging option is no longer available in Elasticsearch 8:
+
+``` yaml
+# Elasticsearch 7 configuration
+ibexa_elasticsearch:
+    connections:
+        default:
+            debug: true
+            trace: true
+```
+
+``` yaml
+# Elasticsearch 8 configuration
+ibexa_elasticsearch:
+    connections:
+        default:
+            debug: true
+            # Trace option is no longer available
+```
+
+#### Reindex content
+
+After upgrading to Elasticsearch 8 and updating your configuration, reindex the search engine:
+
+1. Push the index templates:
+
+    ``` bash
+    php bin/console ibexa:elasticsearch:put-index-template --overwrite
+    ```
+
+2. Reindex your content:
+
+    ``` bash
+    php bin/console ibexa:reindex
+    ```
+
+### Removed Composer dependencies
+
+The following unused Composer dependencies have been removed from `ibexa/core`:
+
+- `guzzlehttp/guzzle`
+- `php-http/guzzle6-adapter`
+
+If your project uses Guzzle directly, you should add these dependencies to your project's `composer.json` file.
+
+To check if you need to add these dependencies, run:
+
+```bash
+composer why guzzlehttp/guzzle
+composer why php-http/guzzle6-adapter
+```
+
+If only the `ibexa/core` entry appears in the output, check your codebase to determine if you use Guzzle directly.
+If you do, add the required dependencies to your project:
+
+```bash
+composer require guzzlehttp/guzzle:^6.5 php-http/guzzle6-adapter:^2.0
+```
+
+### Messenger support in CDP
+
+If you're using [CDP](cdp.md) and haven't configured Ibexa Messenger yet, do so now.
+Follow the [Messenger setup instructions](https://doc.ibexa.co/en/4.6/infrastructure_and_maintenance/background_tasks/#install-package) to continue.
+
 <!-- End of update instructions -->
 
 [[% include 'snippets/update/notify_support.md' %]]
 
 With the product updated to the latest version, you can now finish the update process or proceed to updating the LTS Updates packages.
+
+## v4.6.28
+
+### Database update [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
+
+Run the provided SQL upgrade script to adapt your database to latest change in [form builder](form_builder_guide.md)'s `max_length` validator behavior:
+
+=== "MySQL"
+
+    ``` sql
+    mysql -u <username> -p <password> <database_name> < vendor/ibexa/installer/upgrade/db/mysql/ibexa-4.6.27-to-4.6.28.sql
+    ```
+
+=== "PostgreSQL"
+
+    ``` sql
+    psql <database_name> < vendor/ibexa/installer/upgrade/db/postgresql/ibexa-4.6.27-to-4.6.28.sql
+    ```
+
+Prior, `0` was interpreted as "no length limit".
+Now, `0` is interpreted as "length limited to zero characters" and `NULL` as "no length limit".
 
 ## LTS Updates
 
@@ -723,4 +863,3 @@ To use the [latest features](ibexa_dxp_v4.6.md) added to them, update them separ
     ```bash
     composer require ibexa/fieldtype-richtext-rte:[[= latest_tag_4_6 =]] ibexa/ckeditor-premium:[[= latest_tag_4_6 =]]
     ```
-

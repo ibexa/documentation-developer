@@ -1,6 +1,6 @@
 ---
 description: Configure the Collaborative editing feature.
-month_change: true
+month_change: false
 ---
 
 # Collaborative editing
@@ -128,7 +128,7 @@ To add the real-time editing capabilities, continue with the instruction below.
 
 ## Configure real-time editing
 
-You must have an arrangment with [[= product_name_base =]] before configuring the real-time editing.
+You must have an arrangement with [[= product_name_base =]] before configuring the real-time editing.
 If you haven't already, you must also accept the Terms of Service in the [Service portal](https://support.ibexa.co/).
 
 Only then you can create a new Collaborative editing environment.

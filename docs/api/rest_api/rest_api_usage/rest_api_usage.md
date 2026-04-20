@@ -15,7 +15,12 @@ The REST API uses HTTP methods (such as `GET` and `PUBLISH`), and HTTP headers t
 
 The REST API is built on top of [API Platform](https://api-platform.com/docs/symfony/) and meets the [OpenAPI](https://www.openapis.org/) standard.
 
-You can download the OpenAPI specification from the [REST API Reference](/api/rest_api/rest_api_reference/rest_api_reference.html), or generate it for your project by running one of the commands below: 
+You can download the OpenAPI specification in:
+
+- [YAML format](/api/rest_api/rest_api_reference/openapi.yaml)
+- [JSON format](/api/rest_api/rest_api_reference/openapi.json)
+
+You can also generate one for your project by running one of the commands below:
 
 ``` bash
 php bin/console ibexa:openapi --output=openapi.json # JSON output

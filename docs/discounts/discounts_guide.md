@@ -94,6 +94,13 @@ You can also limit this choice to a subset of products:
 
 #### Conditions
 
+Use conditions to limit the applicability of a discount, for example by checking that:
+
+- the product belongs to a specific category
+- the customer belongs to a specific customer group
+
+before applying the discount.
+
 For **cart discounts**, you can specify additional conditions that must be met for the discount to apply.
 
 These conditions can include:
@@ -101,6 +108,8 @@ These conditions can include:
 - minimum purchase quantity (per product)
 - minimum purchase amount (total cart value)
 - special [discount codes](#discount-codes)
+
+See [the built-in list of conditions](discounts_api.md#conditions) and [creating custom conditions](extend_discounts.md#implement-custom-condition) for more information.
 
 ##### Discount codes
 

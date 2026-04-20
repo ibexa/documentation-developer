@@ -1,4 +1,5 @@
 ---
+month_change: false
 description: Use DDEV to run a cluster infrastructure locally.
 ---
 
@@ -26,6 +27,129 @@ The `ddev config --php-version` option should set the same PHP version as the pr
    Discover more commands in [DDEV documentation](https://ddev.readthedocs.io/en/latest/users/usage/commands/).
 
 To run an [[= product_name_cloud =]] project locally, you may refer to [DDEV and Ibexa Cloud](ddev_and_ibexa_cloud.md) instead.
+
+## Install reverse proxy
+
+A reverse proxy can be added to the cluster to enable [HTTP caching](http_cache.md).
+
+### Varnish
+
+The following sequence of commands:
+
+1. Sets a variable with the desired Varnish version, here Varnish 7.1
+2. Copies and customizes `parameters.vcl` file in `.ddev/varnish/` (which is mounted as `/etc/varnish/` into the container):
+    - sets `web` container as the backend host and an invalidator (so back office can purge cache)
+    - adds "all IPs" CIDR notation to `debuggers` list to allow debugging from any IP
+    - on Varnish 7, enable logging of access control list matching for both `invalidators` and `debuggers` lists
+      (new Varnish 7 syntax, it was enabled by default on previous versions)
+3. Sets main `varnish*.vcl` file to use and "path to VCL directory" argument name depending on Varnish version
+4. Copies the main VCL file to `.ddev/varnish/`
+5. Sets the Varnish version to use and its demon starting parameters to use the files
+6. Adds the Varnish container
+7. Sets Varnish as the HTTP cache server
+8. Restarts the DDEV cluster and clear the [[= product_name =]] cache
+
+```bash
+VARNISH_VERSION=7.1
+mkdir -p .ddev/varnish
+sed 's/.host = "127.0.0.1";/.host = "web";/' vendor/ibexa/http-cache/docs/varnish/vcl/parameters.vcl > .ddev/varnish/parameters.vcl
+sed -i '/^acl invalidators {$/a \\    "web";' .ddev/varnish/parameters.vcl
+sed -i '/^acl debuggers {$/a \\    "0.0.0.0"/0; \/\/ debug from any IP' .ddev/varnish/parameters.vcl
+if [[ $VARNISH_VERSION == 7.* ]]; then
+  sed -i 's/acl invalidators {/acl invalidators +log {/' .ddev/varnish/parameters.vcl
+  sed -i 's/acl debuggers {/acl debuggers +log {/' .ddev/varnish/parameters.vcl
+  vcl_path=vcl_path
+  vcl_file=varnish7.vcl
+elif [[ $VARNISH_VERSION == 6.* ]]; then
+  vcl_path=vcl_dir
+  vcl_file=varnish6.vcl
+fi
+cp vendor/ibexa/http-cache/docs/varnish/vcl/$vcl_file .ddev/varnish/
+ddev dotenv set .ddev/.env.varnish --varnish-docker-image=varnish:$VARNISH_VERSION --varnish-varnishd-params " -p $vcl_path=/etc/varnish -f /etc/varnish/$vcl_file"
+
+ddev get ddev/ddev-varnish
+
+ddev config --web-environment-add HTTPCACHE_PURGE_SERVER=http://varnish
+ddev config --web-environment-add HTTPCACHE_PURGE_TYPE=varnish
+ddev config --web-environment-add TRUSTED_PROXIES=varnish
+
+ddev restart
+ddev php bin/console cache:clear
+```
+
+To use Varnish 6.0LTS, set the following variable instead:
+
+```bash
+VARNISH_VERSION=6.0
+```
+
+If you're using [Apache as web server](install_with_ddev.md#switch-to-apache-and-its-virtual-host),
+you must set `varnish` as a trusted proxy in `.ddev/apache/apache-site.conf` before restarting DDEV:
+
+```bash
+sed -i 's/#SetEnv TRUSTED_PROXIES ""/SetEnv TRUSTED_PROXIES "varnish"/' .ddev/apache/apache-site.conf
+
+ddev restart
+```
+
+The Varnish server acts as the application’s primary entry point.
+If you run `ddev describe`, you can see that Varnish is now the one responding to DDEV domain `.ddev.site`
+while the web server still replies to `127.0.0.1` with its own ports.
+
+You can see Varnish headers in HTTP responses, for example:
+
+```console
+% curl -s -c cookies.txt -b cookies.txt -I https://<your-project>.ddev.site:<https-port>/
+HTTP/2 200 
+server: Apache/2.4.65 (Debian)
+vary: Origin,X-Editorial-Mode
+via: 1.1 varnish (Varnish/7.1)
+x-cache: HIT
+x-cache-debug: 1
+x-cache-hits: 5
+x-cache-ttl: 87654.321
+x-debug-token: 012345
+x-debug-token-link: https://<your-project>.ddev.site:<https-port>//_profiler/012345
+x-powered-by: Ibexa Commerce v5
+x-robots-tag: noindex
+x-varnish: 12345 67890
+xkey: ez-all c52 ct42 l2 pl1 p1 p2
+content-length: 45678
+```
+
+You can see how the `web` server is responding to `varnish`:
+
+```console
+% curl -s -H "Surrogate-Capability: abc=ESI/1.0" http://127.0.0.1:<http-web-port>/product-catalog | grep 'esi:include'
+            <esi:include src="/_fragment?_hash=…
+```
+
+To explore more the communication between the web server and Varnish, you can find other examples of requests done directly to the web server while impersonating Varnish in [Fetching user context hash](content_aware_cache.md#fetching-user-context-hash) and [Fetching HTML response](content_aware_cache.md#fetching-html-response).
+
+You can use `ddev varnishlog` command to monitor Varnish logs in real time.
+Due to how parameters are passed to the container, you may have to wrap some parameters in quotes twice, for example, the purge request monitoring:
+
+```bash
+ddev varnishlog -q "'ReqMethod ~ PURGE.*'";
+```
+
+For more information on topics such as available configurations, command lines, or monitoring, see [ddev/ddev-varnish README](https://github.com/ddev/ddev-varnish).
+
+### Fastly
+
+For Fastly (as for [[[= product_name_connect =]]](https://doc.ibexa.co/projects/connect/en/latest/)), the instance must be visible from Internet.
+
+To use [ngrok](https://ngrok.com/) alongside [`ddev share`](https://docs.ddev.com/en/stable/users/topics/sharing/#using-ddev-share-easiest) is probably the easiest way to achieve this.
+
+Be careful when making a local development instance visible from the internet.
+For example:
+
+- close ngrok tunnels when not needed anymore
+- keep your ngrok URL private and share it only with trusted recipients
+- don't use it for live demo where the URL could be seen
+- don't store it on a Fastly or [[= product_name_connect =]] accounts used by external people
+
+See [Configure and customize Fastly](fastly.md) for the Fastly side.
 
 ## Install search engine
 
@@ -116,7 +240,12 @@ In the following examples:
 - the same service is used to store both persistence cache and sessions
 - the session handler is set on Symfony side, not on PHP side
 
-### Install Redis
+### Install Redis or Valkey
+
+DDEV supports multiple Redis-compatible implementation, including Redis itself and Valkey.
+You can switch between them using the `ddev redis-backend <backend>` command after adding the `ddev/ddev-redis` add-on. 
+For example, you can switch to Valkey by running `ddev add-on get ddev/ddev-redis; ddev redis-backend valkey/valkey:9`.
+For more information, see [Swappable Redis backends](https://github.com/ddev/ddev-redis?tab=readme-ov-file#swappable-redis-backends) in DDEV's `dddev-redis` add-on documentation.
 
 The following sequence of commands:
 
@@ -137,7 +266,7 @@ ddev restart
 ddev php bin/console cache:clear
 ```
 
-You can now check whether Redis works.
+You can now check whether the data store backend works.
 
 For example, the `ddev redis-cli MONITOR` command returns outputs, for example, `"SETEX" "ezp:`, `"MGET" "ezp:`, `"SETEX" "PHPREDIS_SESSION:`, or `"GET" "PHPREDIS_SESSION:`, while navigating into the website, in particular the back office.
 
