@@ -91,7 +91,7 @@ Starting with 1.10, a new command `ezplatform:io:migrate-files` has been added
 ### eZ Platform Enterprise Edition - Studio Demo
 
 - [NovaeZSEOBundle](https://github.com/Novactive/NovaeZSEOBundle/) is now included in Studio Demo. NovaeZSEOBundle includes a new field type that lets you manage your SEO strategy in very advanced and powerful ways.
-- We also improved the way we provide personalization in the site using a profiling block and letting the end user manage their preferences by themselves. In this new version, the end user, once logged on the site, can access a page where they can define their content preferences. See [here](https://ez.no/Blog/Personalization-Does-Not-Have-to-Be-that-Complex) for more information.
+- We also improved the way we provide personalization in the site using a profiling block and letting the end user manage their preferences by themselves. In this new version, the end user, once logged on the site, can access a page where they can define their content preferences.
 
 ## Full list of new features, improvements and bug fixes since v1.9.0
 
