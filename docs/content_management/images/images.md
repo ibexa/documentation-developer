@@ -51,8 +51,8 @@ php bin/console liip:imagine:cache:remove
 With [image variations](image_variations.md) (image aliases) you can define and use different versions of the same image.
 You generate variations based on [filters](image_variations.md#available-variation-filters) that modify aspects such as size and proportions, quality or effects.
 
-Image variations are generated with [LiipImagineBundle](https://github.com/liip/LiipImagineBundle), by using the underlying [Imagine library](https://imagine.readthedocs.io/en/latest/). 
-The LiipImagineBundle bundle supports GD (default), Imagick or Gmagick PHP extensions, and enables you to define flexible filters in PHP. 
+Image variations are generated with [LiipImagineBundle](https://github.com/liip/LiipImagineBundle), by using the underlying [Imagine library](https://imagine.readthedocs.io/en/latest/).
+The LiipImagineBundle bundle supports GD (default), Imagick or Gmagick PHP extensions, and enables you to define flexible filters in PHP.
 Image files are stored by using the `IOService,` and are completely independent from the Image field type.
 They're generated only once and cleared on demand, for example, on content removal).
 

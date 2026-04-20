@@ -21,7 +21,7 @@ security:
 ## Commands
 
 The `ContainerAwareCommand` class isn't available in Symfony 5. Therefore, if your custom commands use `Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand`
-as a base class, you must rewrite them to use `Symfony\Component\Console\Command\Command` instead. 
+as a base class, you must rewrite them to use `Symfony\Component\Console\Command\Command` instead.
 
 ## Permissions
 
@@ -32,7 +32,7 @@ If your code uses them, you must rewrite it to use the permission resolver.
 
 A number of Symfony [service container](php_api.md#service-container) parameters [have been dropped](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/doc/bc/1.0/dropped-container-parameters.md).
 
-Check if your code uses such invalid parameters: search for them by using the `ezpublish\..*\.class` regular expression pattern. 
+Check if your code uses such invalid parameters: search for them by using the `ezpublish\..*\.class` regular expression pattern.
 When found, replace all the occurrences with fully-qualified class names.
 
 ## QueryTypes
@@ -42,7 +42,7 @@ you need to register your QueryTypes as services and tag them with `ezpublish.qu
 
 ## Symfony namespaces
 
-A number of Symfony namespaces have changed, and you must update your code if it uses them. 
+A number of Symfony namespaces have changed, and you must update your code if it uses them.
 For example, the following namespaces are now different:
 
 |Use|Instead of|
@@ -60,7 +60,7 @@ for an example.
 
 ## Deprecations
 
-Due to a number of compatibility breaks and deprecations introduced in eZ Platform v3.0, the changes that result from the above considerations might not be sufficient. 
+Due to a number of compatibility breaks and deprecations introduced in eZ Platform v3.0, the changes that result from the above considerations might not be sufficient.
 Make sure that you review your code and account for all changes listed in [Deprecations and backwards compatibility breaks](ez_platform_v3.0_deprecations.md).
 
 ## Next steps

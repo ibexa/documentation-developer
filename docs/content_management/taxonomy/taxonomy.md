@@ -178,7 +178,7 @@ php bin/console ibexa:reindex
 
 Once you enable the Taxonomy suggestions feature, you must [configure an AI action]([[= user_doc =]]/ai_actions/work_with_ai_actions/#create-ai-actions-that-control-taxonomy-suggestions) that handles the generation of embeddings for newly created or edited content items or products.
 
-That's where you decide which exact fields from which content type should be used as input for embedding generation, how many suggestions are being presenter to the editor, and so on. 
+That's where you decide which exact fields from which content type should be used as input for embedding generation, how many suggestions are being presenter to the editor, and so on.
 
 After you do it, your users are be able to assign tags and/or product categories by using suggestions provided by an AI engine.
 
@@ -260,7 +260,7 @@ ibexa:
     When you change the default suggestions generation model, ensure that you update the `ibexa.system.default.taxonomy.search.default_embedding_model` setting that is used for taxonomy indexing purposes.
     Otherwise the taxonomy suggestions feature fails to find matching entries.
 
-#### Change embeddings provider to Google Gemini [[% include 'snippets/lts-update_badge.md' %]] 
+#### Change embeddings provider to Google Gemini [[% include 'snippets/lts-update_badge.md' %]]
 
 Once you have installed and configured the [Google Gemini connector](configure_ai_actions.md#install-google-gemini-connector), you can modify the default configuration to use the `ibexa_gemini` embedding provider and one of the [supported models](https://ai.google.dev/gemini-api/docs/embeddings):
 

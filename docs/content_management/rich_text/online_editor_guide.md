@@ -17,14 +17,14 @@ Online Editor is available in all supported [[= product_name =]] versions and ed
 
 ## How to get started
 
-Online Editor is the default editing interface for all RichText fields. 
+Online Editor is the default editing interface for all RichText fields.
 To start using it, create any content item with a RichText field (for example, based on the built-in Article content type) and edit this field.
 
 ## Capabilities
 
 ### Rich Text editor
 
-Online Editor covers all fundamental formatting options for rich text, such as headings, lists, tables, inline text formatting, anchors, and links. 
+Online Editor covers all fundamental formatting options for rich text, such as headings, lists, tables, inline text formatting, anchors, and links.
 It also allows embedding other content from the repository, but also from Facebook, Twitter, or YouTube.
 
 <!--ARCADE EMBED START--><div style="position: relative; padding-bottom: calc(51.27314814814815% + 41px); height: 0; width: 100%;"><iframe src="https://demo.arcade.software/wkdL1r9PRunTeF6hPtEs?embed&embed_mobile=tab&embed_desktop=inline&show_copy_link=true" title="Online Editor - work in Rich Text field" frameborder="0" loading="lazy" webkitallowfullscreen mozallowfullscreen allowfullscreen allow="clipboard-write" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; color-scheme: light;" ></iframe></div><!--ARCADE EMBED END-->

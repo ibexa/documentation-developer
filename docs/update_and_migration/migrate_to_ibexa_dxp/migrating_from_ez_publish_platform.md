@@ -256,7 +256,7 @@ When that is done, execute the following to update and install all packages from
 
 Add the following new bundle to your new kernel file, `<new-ez-root>/app/AppKernel.php`:
 
-`new EzSystems\EzPlatformXmlTextFieldTypeBundle\EzSystemsEzPlatformXmlTextFieldTypeBundle(),` 
+`new EzSystems\EzPlatformXmlTextFieldTypeBundle\EzSystemsEzPlatformXmlTextFieldTypeBundle(),`
 
 ## Step 3: Upgrade the database
 

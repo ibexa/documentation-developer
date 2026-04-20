@@ -21,7 +21,7 @@ Each Ride may be related to multiple Landmarks.
 - **Name**: Landmark
 - **Identifier**: landmark
 
-Then add all fields with the following information: 
+Then add all fields with the following information:
 
 | Field type   | Name             | Identifier       |  Required | Searchable | Translatable |
 | ------------ | ---------------- | ---------------- | --------- | ---------- | ------------ |

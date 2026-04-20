@@ -106,7 +106,7 @@ Now, the attribute value can be stored in the new Form.
 
 ## Create submission converter
 
-The new field is based on a checkbox, so to display the submissions of this field, you can use the `BooleanFieldSubmissionConverter`. 
+The new field is based on a checkbox, so to display the submissions of this field, you can use the `BooleanFieldSubmissionConverter`.
 
 Create a `src/FormBuilder/FormSubmission/Converter/RichtextDescriptionFieldSubmissionConverter.php` file.
 

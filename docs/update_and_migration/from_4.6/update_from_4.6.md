@@ -304,7 +304,7 @@ No additional steps needed.
 ### Security
 
 This release fixes a critical vulnerability in the [RichText field type](richtextfield.md).
-By entering a maliciously crafted input into the RichText field type's XML, the attacker could perform an attack using [XML external entity (XXE) injection](https://portswigger.net/web-security/xxe). 
+By entering a maliciously crafted input into the RichText field type's XML, the attacker could perform an attack using [XML external entity (XXE) injection](https://portswigger.net/web-security/xxe).
 To exploit this vulnerability, an attacker would need to have edit permission to content with RichText fields.
 
 For more information, see the [published security advisory IBEXA-SA-2025-002](https://developers.ibexa.co/security-advisories/ibexa-sa-2025-002-xxe-vulnerability-in-richtext).
@@ -702,7 +702,7 @@ For more information, see the following security advisories:
     - [PKSA-1tmc-rt7x-12w6](https://packagist.org/security-advisories/PKSA-1tmc-rt7x-12w6)
     - [PKSA-xx6c-6d96-db2w](https://packagist.org/security-advisories/PKSA-xx6c-6d96-db2w)
 
-To use these packages in versions not affected by security vulnerabilities, PHP 8.1 is the minimum required version. 
+To use these packages in versions not affected by security vulnerabilities, PHP 8.1 is the minimum required version.
 
 For projects meeting this requirement, you can update the packages with Composer.
 

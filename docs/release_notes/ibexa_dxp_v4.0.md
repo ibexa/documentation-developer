@@ -40,14 +40,14 @@ Separate currencies enable you to set different price rules for different curren
 
 ### Taxonomy management
 
-You can now organize content adding tags and create taxonomy categories to make it easy for your 
+You can now organize content adding tags and create taxonomy categories to make it easy for your
 site users to browse and to deliver content appropriate for them.
 
 ### Separate recommendations for different websites
 
-Personalization service has been enhanced to allow returning separate recommendations 
-for different websites. 
-This way you can eliminate irrelevant recommendations when you set up stores that 
+Personalization service has been enhanced to allow returning separate recommendations
+for different websites.
+This way you can eliminate irrelevant recommendations when you set up stores that
 operate on different markets or under different brands.
 
 For more information, see [Support for multiple websites](https://doc.ibexa.co/projects/userguide/en/latest/personalization/use_cases/#multiple-website-hosting).
@@ -56,8 +56,8 @@ For more information, see [Support for multiple websites](https://doc.ibexa.co/p
 
 ### Draft locking
 
-You can now configure and use the locking feature to lock a draft of a content item, 
-so that only an assigned person can edit it, and no other user can take it over. 
+You can now configure and use the locking feature to lock a draft of a content item,
+so that only an assigned person can edit it, and no other user can take it over.
 
 For more information, see the [Draft locking](https://doc.ibexa.co/en/latest/guide/workflow/workflow/#draft-locking)
 and relevant [User Documentation](https://doc.ibexa.co/projects/userguide/en/latest/publishing/editorial_workflow/#releasing-locked-drafts).

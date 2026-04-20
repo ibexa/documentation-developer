@@ -27,11 +27,11 @@ The 6th generation is aimed at being fully backwards compatible on the following
 
 The specific incompatibilities
 
-The specific changes that are migrated and are incompatible with legacy are: 
+The specific changes that are migrated and are incompatible with legacy are:
 
 - XmlText fields have been replaced with a new [RichText](richtextfield.md) field
 - Page field (ezflow) has been replaced by the [LandingPage](pagefield.md) field, and is now provided by our commercial product [eZ Platform Enterprise Edition](http://ezstudio.com/)
-- Incremental future improvements to the database schema to improve features and scalability of the content repository 
+- Incremental future improvements to the database schema to improve features and scalability of the content repository
 
 Together these major improvements make it practically impossible to run eZ Platform side by side with eZ Publish legacy, like it was possible in 5.x series.
 *For these reasons we recommend that you use eZ Publish Enterprise 5.4  ([which is supported until end of 2021](https://support.ez.no/Public/Service-Life)) if you don't have the option to remake your web application yet, or want to do it gradually.*
