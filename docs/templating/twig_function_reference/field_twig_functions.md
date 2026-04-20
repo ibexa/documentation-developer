@@ -36,27 +36,11 @@ The field is rendered with the default template, but you can optionally pass a d
 | `params` | `hash` | (optional) Hash of parameters passed to the template block. |
 
 ``` html+twig
-{{ ibexa_render_field(content, 'title') }}
-
-{{ ibexa_render_field(content, 'image', {
-    'template': '@ibexadesign/fields/image.html.twig',
-    'attr': {class: 'thumbnail-image'},
-    'parameters': {
-        'alias': 'small'
-    }
-}) }}
+[[= include_code('code_samples/templates/field_twig_functions/render_content.html.twig') =]]
 ```
 
 ``` html+twig
-{{ ibexa_render_field(product, 'name') }}
-
-{{ ibexa_render_field(product, 'image', {
-    'template': '@ibexadesign/fields/image.html.twig',
-    'attr': {class: 'thumbnail-image'},
-    'parameters': {
-        'alias': 'small'
-    }
-}) }}
+[[= include_code('code_samples/templates/field_twig_functions/render_product.html.twig') =]]
 ```
 
 #### Parameters
