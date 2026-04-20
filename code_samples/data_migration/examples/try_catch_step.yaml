@@ -1,0 +1,14 @@
+-
+    type: try_catch
+    mode: execute
+    allowed_exceptions:
+        - Ibexa\Contracts\Core\Repository\Exceptions\InvalidArgumentException
+    stop_after_first_exception: true
+    steps:
+        -
+            type: language
+            mode: create
+            metadata:
+                languageCode: ger-DE
+                name: German
+                enabled: true

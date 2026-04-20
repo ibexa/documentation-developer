@@ -131,6 +131,10 @@ deptrac:
     App\EventSubscriber\MyMenuSubscriber:
       - Ibexa\AdminUi\Menu\Event\ConfigureMenuEvent
       - Ibexa\AdminUi\Menu\MainMenuBuilder
+    App\EventSubscriber\NotificationScenarioSubscriber:
+      - Ibexa\IntegratedHelp\ProductTour\Block\LinkBlock
+      - Ibexa\IntegratedHelp\ProductTour\Block\TextBlock
+      - Ibexa\IntegratedHelp\ProductTour\ProductTourStep
     App\Event\RandomBlockListener:
       - Ibexa\FieldTypePage\FieldType\Page\Block\Renderer\BlockRenderEvents
       - Ibexa\FieldTypePage\FieldType\Page\Block\Renderer\Event\PreRenderEvent
