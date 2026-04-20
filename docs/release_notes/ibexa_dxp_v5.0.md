@@ -161,7 +161,7 @@ For more information, see [available Admin UI Twig Component groups](https://doc
 
 #### REST API
 
-You can now find examples for some REST request bodies in the [OpenAPI REST API](rest_api_usage.md#openapi-support):
+You can now find examples for some REST request bodies in the [OpenAPI REST API](https://doc.ibexa.co/en/5.0/api/rest_api/rest_api_usage/rest_api_usage/#openapi-support):
 
 - in the right column of the [online reference](https://doc.ibexa.co/en/5.0/api/rest_api/rest_api_reference/rest_api_reference.html),
   and in the downloadable OpenAPI specification files
