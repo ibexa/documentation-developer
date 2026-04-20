@@ -36,6 +36,7 @@ config:
   no-multiple-blanks: true
   commands-show-output: true
   no-trailing-spaces: true
+  blanks-around-lists: true
   no-trailing-punctuation:
     punctuation: [".", ":", ";",]
 
