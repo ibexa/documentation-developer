@@ -18,9 +18,7 @@ Invitation Search Criteria are implementing the [CriterionInterface](/api/php_ap
 | [Id](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Collaboration-Invitation-Query-Criterion-Id.html) | Find invitations with given invitation ID |
 | [LogicalAnd](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Collaboration-Invitation-Query-Criterion-LogicalAnd.html) | Composite criterion to group multiple criteria using the AND condition |
 | [LogicalOr](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Collaboration-Invitation-Query-Criterion-LogicalOr.html) | Composite criterion to group multiple criteria using the OR condition |
-| [ParticipantScope](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Collaboration-Invitation-Query-Criterion-ParticipantScope.html)
- | Find invitations based on participant's scope, see [`ContentSessionScope`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Share-Collaboration-ContentSessionScope.html)
- for content-sharing sessions |
+| [ParticipantScope](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Collaboration-Invitation-Query-Criterion-ParticipantScope.html) | Find invitations based on participant's scope, see [`ContentSessionScope`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Share-Collaboration-ContentSessionScope.html) for content-sharing sessions |
 | [ParticipantType](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Collaboration-Invitation-Query-Criterion-ParticipantType.html) | Find invitations based on participant type, see [`ParticipantDiscriminator`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Collaboration-Participant-ParticipantDiscriminator.html) |
 | [Sender](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Collaboration-Invitation-Query-Criterion-Sender.html) | Find invitations by invitation sender |
 | [Session](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Collaboration-Invitation-Query-Criterion-Session.html) | Find invitations by collaboration session |
