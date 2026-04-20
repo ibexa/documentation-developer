@@ -58,9 +58,9 @@ To use the connector with the Anthropic services, you need to create an account,
 
 2. Go to **API keys** and click **Create Key**.
 
-4. Select the workspace, enter a **Key Name** and click **Add**.
+3. Select the workspace, enter a **Key Name** and click **Add**.
 
-5. Take a note of the API key, because it is displayed only once.
+4. Take a note of the API key, because it is displayed only once.
 
 Then, in the root folder of your project, modify the `.env` file: add an `ANTHROPIC_API_KEY` variable and populate its value with the API key that you got from the AI service.
 

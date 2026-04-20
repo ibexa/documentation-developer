@@ -16,6 +16,8 @@ config:
 
   blanks-around-fences: true
   ul-style: dash
+  ol-prefix: 
+    style: one_or_ordered
 
 ignores:
   - "docs/snippets/**"
