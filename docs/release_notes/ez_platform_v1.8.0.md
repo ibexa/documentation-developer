@@ -72,7 +72,7 @@ If you're looking for the Long Term Support (LTS) release, see[ https://ezplatf
 
 ![](demo-product-filters.png)
 
-## Full list of new features, improvements and bug fixes since v1.7.0 LTS:
+## Full list of new features, improvements and bug fixes since v1.7.0 LTS
 
 | eZ Platform   | eZ Studio  |
 |--------------|------------|

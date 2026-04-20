@@ -38,9 +38,7 @@ Community members are more than welcome to contribute to the translation process
 
 -   The online editor also brings a range of improvements that improve the editorial experience. The most noticeable one is to offer the possibility to switch from Headings to Paragraph styles for the same element.
 
- 
-
-##### Notable technical improvements:
+##### Notable technical improvements
 
 -   Search:
     -   Solr Search Engine: Plugins, extend the Solr index with custom data on Content, Translation and Location block level
