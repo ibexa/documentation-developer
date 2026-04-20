@@ -33,7 +33,7 @@ config:
 # table-column-style: aligned
 # link-fragments: true
 # no-alt-text: true
-# single-trailing-newline: true
+  single-trailing-newline: true
 # no-emphasis-as-heading: true
   no-space-in-code: true
   no-space-in-links: true
