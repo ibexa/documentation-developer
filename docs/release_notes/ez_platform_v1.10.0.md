@@ -78,20 +78,20 @@ Starting with 1.10, a new command `ezplatform:io:migrate-files` has been added
 
 #### Miscellaneous
 
--   Kernel: Don't store full User object in Sessions anymore, just User Id
+- Kernel: Don't store full User object in Sessions anymore, just User Id
 
 ### eZ Platform Enterprise Edition - Studio
 
--   Form deletion is managed more gracefully, including warnings and the option to download collected data before deleting a form
+- Form deletion is managed more gracefully, including warnings and the option to download collected data before deleting a form
 
 ![Deleting a form with data](delete-form.gif "Deleting a form with data")
 
--   Schedule block logic has been updated and improved.
+- Schedule block logic has been updated and improved.
 
 ### eZ Platform Enterprise Edition - Studio Demo
 
--   [NovaeZSEOBundle](https://github.com/Novactive/NovaeZSEOBundle/) is now included in Studio Demo. NovaeZSEOBundle includes a new field type that lets you manage your SEO strategy in very advanced and powerful ways.
--   We also improved the way we provide personalization in the site using a profiling block and letting the end user manage their preferences by themselves. In this new version, the end user, once logged on the site, can access a page where they can define their content preferences. See [here](https://ez.no/Blog/Personalization-Does-Not-Have-to-Be-that-Complex) for more information.
+- [NovaeZSEOBundle](https://github.com/Novactive/NovaeZSEOBundle/) is now included in Studio Demo. NovaeZSEOBundle includes a new field type that lets you manage your SEO strategy in very advanced and powerful ways.
+- We also improved the way we provide personalization in the site using a profiling block and letting the end user manage their preferences by themselves. In this new version, the end user, once logged on the site, can access a page where they can define their content preferences. See [here](https://ez.no/Blog/Personalization-Does-Not-Have-to-Be-that-Complex) for more information.
 
 ## Full list of new features, improvements and bug fixes since v1.9.0
 

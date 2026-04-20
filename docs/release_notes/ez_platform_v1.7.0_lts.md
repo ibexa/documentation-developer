@@ -20,7 +20,7 @@ With the LTS release, the [new product naming](http://ez.no/Blog/eZ-Announces-Na
 
 ### eZ Platform (Open Source)
 
--   **i18n! Internationalization of the eZ Platform** User Interface is now possible. The new system selects the language to use based on the browser settings of the end user.
+- **i18n! Internationalization of the eZ Platform** User Interface is now possible. The new system selects the language to use based on the browser settings of the end user.
 The system makes it possible to create translations for eZ Platform UI.
 Studio internationalization and translations ready to use are shipped in further releases.
 Community members are more than welcome to contribute to the translation process.
@@ -28,39 +28,39 @@ Community members are more than welcome to contribute to the translation process
 
 <!-- -->
 
--   **Universal Discovery Widget** ("UDW") provides a range of small improvements. The most noticeable one is the preview of content which is more usable and also provides a way to get a full preview of the content object.
+- **Universal Discovery Widget** ("UDW") provides a range of small improvements. The most noticeable one is the preview of content which is more usable and also provides a way to get a full preview of the content object.
 
 ![](udwre.png)
 
--   The **Admin** panel now provides a way to get a clean **digest view of content types** configured in the system, with the ability to clearly get access to properties and field definitions.
+- The **Admin** panel now provides a way to get a clean **digest view of content types** configured in the system, with the ability to clearly get access to properties and field definitions.
 
 ![](contenttypeviews.png)
 
--   The online editor also brings a range of improvements that improve the editorial experience. The most noticeable one is to offer the possibility to switch from Headings to Paragraph styles for the same element.
+- The online editor also brings a range of improvements that improve the editorial experience. The most noticeable one is to offer the possibility to switch from Headings to Paragraph styles for the same element.
 
  
 
 ##### Notable technical improvements:
 
--   Search:
-    -   Solr Search Engine: Plugins, extend the Solr index with custom data on Content, Translation and Location block level
-        -   For when you need to extend the index with additional data not applicable for FieldType custom fields feature
-        -   *[See Solr Bundle documentation for more info ](https://doc.ibexa.co/en/2.5/guide/search/solr/)*
-    -   Solr Search Engine: Support for FieldRelation on location search
-    -   Legacy Search Engine: Improve word boundaries detection
-    -   ezplatform:reindex added, a generic command for reindexing search index on the SiteAccess configured search engine
--   Extensibility:
-    -    QueryType's now support using alias when being used as service so you can define several services with same  QueryType class
-        -    Example: Generic location child QueryType being reused several times for specific services for article or blog post listings 
--   API:
-    -   New method:` Location->getSortClauses()` to get Sort Clauses based on what kind of sorting has been set on the Location
-    -   Add Content Version archives limit by configuration & enforce on publish
--   Debug:
-    -   ez-support-tools:dump-info command now able to dump system info in several formats, and default is now json
-        -   *Making it more useful for attaching system info when reporting issues*
-    -   Add SiteAccess collector to debug toolbar
-    -   Make IO exceptions more user friendly
-    -   Make it possible to retrieve original exception when repo-&gt;commit() fails
+- Search:
+    - Solr Search Engine: Plugins, extend the Solr index with custom data on Content, Translation and Location block level
+        - For when you need to extend the index with additional data not applicable for FieldType custom fields feature
+        - *[See Solr Bundle documentation for more info ](https://doc.ibexa.co/en/2.5/guide/search/solr/)*
+    - Solr Search Engine: Support for FieldRelation on location search
+    - Legacy Search Engine: Improve word boundaries detection
+    - ezplatform:reindex added, a generic command for reindexing search index on the SiteAccess configured search engine
+- Extensibility:
+    - QueryType's now support using alias when being used as service so you can define several services with same  QueryType class
+        - Example: Generic location child QueryType being reused several times for specific services for article or blog post listings 
+- API:
+    - New method:` Location->getSortClauses()` to get Sort Clauses based on what kind of sorting has been set on the Location
+    - Add Content Version archives limit by configuration & enforce on publish
+- Debug:
+    - ez-support-tools:dump-info command now able to dump system info in several formats, and default is now json
+        - *Making it more useful for attaching system info when reporting issues*
+    - Add SiteAccess collector to debug toolbar
+    - Make IO exceptions more user friendly
+    - Make it possible to retrieve original exception when repo-&gt;commit() fails
 
  
 

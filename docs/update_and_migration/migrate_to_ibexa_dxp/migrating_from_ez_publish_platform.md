@@ -113,11 +113,11 @@ If you plan to use Legacy Bridge for a while before migrating content, you also 
 To move over your own custom configurations, follow the conventions below and manually move the settings over:
 
 - `<old-ez-root>/ezpublish/config/parameters.yaml => <new-ez-root>/app/config/parameters.yaml`
-    -  *For parameters like before, for new parameters you'll be prompted on later step.*
+    - *For parameters like before, for new parameters you'll be prompted on later step.*
 - `<old-ez-root>/ezpublish/config/config.yaml =>  <new-ez-root>/app/config/config.yaml`
-    -  *For system/framework config, and for defining global db, cache, search settings.*
+    - *For system/framework config, and for defining global db, cache, search settings.*
 - `<old-ez-root>/ezpublish/config/ezpublish.yaml => <new-ez-root>/app/config/ezplatform.yaml`
-    -  *For SiteAccess, site groups and repository settings.*
+    - *For SiteAccess, site groups and repository settings.*
 
 !!! note "Changes to repository configuration"
 

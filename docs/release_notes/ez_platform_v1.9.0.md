@@ -32,22 +32,22 @@ To reflect this change, the content tree button has been renamed **Content brows
 
 #### Miscellaneous
 
--   The **Details** tab in content view now provides information about the Section the content item belongs to.
+- The **Details** tab in content view now provides information about the Section the content item belongs to.
 
 ![Section details in Details tab](section-details.png "Section details in Details tab")
 
--   You can now edit a content item directly from its parent's Sub-items table, and sort the table:
+- You can now edit a content item directly from its parent's Sub-items table, and sort the table:
 
 ![Sub-items table with Edit button and sorting](sub-items-improved.png "Sub-items table with Edit button and sorting")
 
--   You can now restore from Trash content whose original Location has been deleted.
--   Pasted thead/tfood tags are now kept in RichText field type, and its Online Editor
--   Solr 6 is now supported in [Solr Bundle](https://doc.ibexa.co/en/latest/guide/search/solr)
+- You can now restore from Trash content whose original Location has been deleted.
+- Pasted thead/tfood tags are now kept in RichText field type, and its Online Editor
+- Solr 6 is now supported in [Solr Bundle](https://doc.ibexa.co/en/latest/guide/search/solr)
 
 ### eZ Platform Enterprise Edition - Studio
 
--   It's now possible to configure landing page blocks used by the landing page editor in a simpler way. The configuration is done in a YAML file
--   *..lots of other bug fixes and smaller improvements..*
+- It's now possible to configure landing page blocks used by the landing page editor in a simpler way. The configuration is done in a YAML file
+- *..lots of other bug fixes and smaller improvements..*
 
 ### eZ Platform Enterprise Edition - Studio Demo
 
@@ -59,8 +59,8 @@ The eZ Enterprise Demo now uses the [Netgen Tags bundle](https://github.com/netg
 
 #### Miscellaneous
 
--   As an editor, I want to personalize content based on user persona
--   As an editor, I want to embed a video
+- As an editor, I want to personalize content based on user persona
+- As an editor, I want to embed a video
 
 ## Full list of new features, improvements and bug fixes since v1.8.0
 

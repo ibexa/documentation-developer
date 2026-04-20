@@ -14,6 +14,7 @@ config:
   table-pipe-style:
     style: leading_and_trailing
 
+  list-marker-space: true
   blanks-around-fences: true
   ul-style: dash
   ol-prefix: 
