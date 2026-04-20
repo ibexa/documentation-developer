@@ -226,7 +226,7 @@ ibexa:
 
 See the example below to configure Fastly with the `.env` file:
 
-```
+```bash
 HTTPCACHE_PURGE_TYPE="fastly"
 # Optional
 HTTPCACHE_PURGE_SERVER="https://api.fastly.com"

@@ -51,7 +51,7 @@ This way you can adjust menu sections that are reproduced by the front end as ta
 The default `menu` object is structured as follows.
 Recreate this pattern when modifying an existing event with an intention to send it to the front end.
 
-```
+```text
 root (MenuItem)
 │
 ├── help__general // ("General" section)

@@ -212,7 +212,7 @@ In addition, image data can be provided using the `data` property, with the imag
 
 #### Creating an Image field
 
-```
+```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <ContentCreate>
     <!-- [...metadata...] -->

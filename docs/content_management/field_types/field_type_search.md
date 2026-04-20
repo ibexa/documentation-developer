@@ -21,7 +21,7 @@ They're described below in further detail.
 
 To be able to query data properly an indexable field type also is required to return search specification. You must return an associative array of `Ibexa\Contracts\Core\Search\FieldType` instances from this method, which could look like:
 
-```
+```php
 [
     'url'  => new Search\FieldType\StringField(),
     'text' => new Search\FieldType\StringField(),
@@ -105,7 +105,7 @@ You can define custom `dynamicField` definitions to match, for example, on your 
 
 You could also define a custom field definition for certain fields, like for the name field in an article:
 
-```
+```xml
 <field name="article/name/value_s" type="string" indexed="true" stored="true" required="false"/>
 ```
 
