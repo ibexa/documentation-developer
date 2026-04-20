@@ -44,7 +44,7 @@ Community members are more than welcome to contribute to the translation process
 - Search:
     - Solr Search Engine: Plugins, extend the Solr index with custom data on Content, Translation and Location block level
         - For when you need to extend the index with additional data not applicable for FieldType custom fields feature
-        - *[See Solr Bundle documentation for more info ](https://doc.ibexa.co/en/2.5/guide/search/solr/)*
+        - *[See Solr Bundle documentation for more info](https://doc.ibexa.co/en/2.5/guide/search/solr/)*
     - Solr Search Engine: Support for FieldRelation on location search
     - Legacy Search Engine: Improve word boundaries detection
     - ezplatform:reindex added, a generic command for reindexing search index on the SiteAccess configured search engine

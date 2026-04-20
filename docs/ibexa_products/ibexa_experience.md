@@ -63,7 +63,7 @@ Additionally, you can monitor and manage the information obtained from website v
 
 #### Site Factory
 
-[Site Factory ](site_factory.md) is a site management interface, integrated with the back office.
+[Site Factory](site_factory.md) is a site management interface, integrated with the back office.
 It enables you to configure new sites without leaving the administration interface and editing SiteAccess configuration.
 With this feature you can create and deploy multiple websites at lightning speed and at scale.
 It allows you to manage expenses and resources while industrializing your web presence.
