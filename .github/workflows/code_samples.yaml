@@ -1,6 +1,10 @@
 name: "Check code samples"
 
 on:
+    push:
+        branches:
+            - master
+            - "[0-9]+.[0-9]+"
     pull_request: ~
 
 jobs:
@@ -43,7 +47,8 @@ jobs:
 
             - name: Ignore audit advisory for PHP 7.4
               if: matrix.php == '7.4'
-              run: composer config audit.ignore --json '{"GHSA-68jq-c3rv-pcrr": "As this is for code quality tests and not to run a production DXP, this can be ignored."}'
+              run: |
+                  composer config audit.ignore --json '{"GHSA-68jq-c3rv-pcrr": "As this is for code quality tests and not to run a production DXP, this can be ignored."}'
 
             - uses: ramsey/composer-install@v3
               with:
