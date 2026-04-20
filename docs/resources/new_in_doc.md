@@ -181,7 +181,7 @@ This promotes skipping the rebuild of the Symfony container when environment var
 
 ### Infrastructure
 
- - [MariaDB 11.4 is officially supported on v5 and v4.6](requirements.md#dbms)
+- [MariaDB 11.4 is officially supported on v5 and v4.6](requirements.md#dbms)
 
 ### Taxonomy
 

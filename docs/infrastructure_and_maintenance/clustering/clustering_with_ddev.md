@@ -218,9 +218,9 @@ You can now check whether Solr works.
 
 For example, the `ddev exec curl -s http://solr:SolrRocks@solr:8983/api/cores/` command:
 
- - checks whether the `web` server can access the `solr` server
- - checks whether `collection1` exists and its status
- - displays `collection1`'s `numDocs` that shouldn't be zero if indexing worked correctly
+- checks whether the `web` server can access the `solr` server
+- checks whether `collection1` exists and its status
+- displays `collection1`'s `numDocs` that shouldn't be zero if indexing worked correctly
 
 You can access the Solr admin UI from the host by:
 

@@ -23,6 +23,8 @@ config:
   ul-style: dash
   ol-prefix: 
     style: one_or_ordered
+  ul-indent:
+    indent: 4
 
 ignores:
   - "docs/snippets/**"

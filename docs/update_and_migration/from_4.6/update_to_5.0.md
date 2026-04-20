@@ -43,8 +43,8 @@ Customize the `rector.php` config file by:
 
 - making it match your directory structure (for example, you may not have the `tests` directory)
 - adding project-specific rules:
-  - specify [PHP rules by using `withPhpSets`](https://getrector.com/documentation/set-lists#content-php-sets)
-  - specify [Symfony, Twig, or Doctrine rules by using `withComposerBased`](https://getrector.com/documentation/composer-based-sets).
+    - specify [PHP rules by using `withPhpSets`](https://getrector.com/documentation/set-lists#content-php-sets)
+    - specify [Symfony, Twig, or Doctrine rules by using `withComposerBased`](https://getrector.com/documentation/composer-based-sets).
 
 It's recommended to activate one rule set at a time and preview the output by running Rector with the `--dry-run` option to decide which rulesets should be used and in which order.
 
