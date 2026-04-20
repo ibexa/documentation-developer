@@ -106,7 +106,7 @@ The following example adds a new Action Handler connecting to a local AI run usi
 
 When creating an Action Handler for [[= product_name_connect =]], add the new handler identifier to the [`Ibexa AI handler` custom property](configure_ai_actions.md#initiate-integration) in [[= product_name_connect =]] user interface.
 
-### Register a custom Action Handler in the system.
+### Register a custom Action Handler in the system
 
 Create a class implementing the [ActionHandlerInterface](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorAi-Action-ActionHandlerInterface.html) and register it as a service:
 

@@ -36,6 +36,8 @@ config:
   no-multiple-blanks: true
   commands-show-output: true
   no-trailing-spaces: true
+  no-trailing-punctuation:
+    punctuation: [".", ":", ";",]
 
 ignores:
   - "docs/snippets/**"
