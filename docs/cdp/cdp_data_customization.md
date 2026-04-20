@@ -112,11 +112,11 @@ New implementation has to be registered as a service manually or by using autoco
 The service has to use the tag `ibexa.cdp.export.content.field_value_processor`.
 You can also provide `priority` property to override other Field Value Processors.
 ​
-* `FieldValueProcessorInterface::process` - takes `Field` instance and returns an `array` with scalar values that are applied to export data payload.
+- `FieldValueProcessorInterface::process` - takes `Field` instance and returns an `array` with scalar values that are applied to export data payload.
 If the field type returns a single value, provides a `value` key in the array.
 You can return multiple values.
 
-* `FieldValueProcessorInterface::supports` - decides whether `FieldValueProcessor` can work with the `Field`.
+- `FieldValueProcessorInterface::supports` - decides whether `FieldValueProcessor` can work with the `Field`.
 ​
 ### Built in Field Value Processors for custom field types
 ​

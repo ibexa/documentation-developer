@@ -18,10 +18,10 @@ The associated content type is `tag`.
 
 ## Configuration keys
 
-* `ibexa_taxonomies` - section responsible for taxonomy structure where you can [configure other taxonomies](#customize-taxonomy-structure)
-* `ibexa_taxonomies.tags.parent_location_remote_id` - Remote ID for location where new content items representing tags are created
-* `ibexa_taxonomies.tags.content_type` - Content type identifier which stands for the tags
-* `ibexa_taxonomies.tags.field_mappings` - field types map of a content type which taxonomy receives information about the tag from.
+- `ibexa_taxonomies` - section responsible for taxonomy structure where you can [configure other taxonomies](#customize-taxonomy-structure)
+- `ibexa_taxonomies.tags.parent_location_remote_id` - Remote ID for location where new content items representing tags are created
+- `ibexa_taxonomies.tags.content_type` - Content type identifier which stands for the tags
+- `ibexa_taxonomies.tags.field_mappings` - field types map of a content type which taxonomy receives information about the tag from.
 
 Three fields are available: `identifier`, `parent` and `name`.
 The identifiers correspond to field names defined in the content type. The `name` field is used to automatically generate an identifier.
@@ -49,9 +49,9 @@ taxonomy.content_categories: 'Content categories'
 
 Then, create a content type with `content_category` identifier and include the following field definitions:
 
-* `name` of `ibexa_string` type and required. Use this field, as `<name>`, for content name pattern.
-* `category_identifier` of `ibexa_string` type and required.
-* `parent_category` of `ibexa_taxonomy_entry` type and not required. In its Taxonomy drop-down menu, select Content categories (or `taxonomy.content_categories` if no translation has been provided).
+- `name` of `ibexa_string` type and required. Use this field, as `<name>`, for content name pattern.
+- `category_identifier` of `ibexa_string` type and required.
+- `parent_category` of `ibexa_taxonomy_entry` type and not required. In its Taxonomy drop-down menu, select Content categories (or `taxonomy.content_categories` if no translation has been provided).
 
 Finish taxonomy setup by creating a new Content category named Root with identifier `content_categories_root` under the previously created container folder named Content categories.
 

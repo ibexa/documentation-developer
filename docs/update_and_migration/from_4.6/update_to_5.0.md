@@ -915,10 +915,10 @@ The following example illustrates the update of a custom page block's icon:
 
 Features which were optional 4.6 LTS Updates are now part of 5.0.0.
 
-* If you have already installed the feature, its schema has been updated by the previous step.
-* If you haven't installed the feature, you need to add its schema to your database.
+- If you have already installed the feature, its schema has been updated by the previous step.
+- If you haven't installed the feature, you need to add its schema to your database.
   Store the SQL of the schema into a file, **review it carefully**, then run it.
-* If you mistakenly reinstall a schema, you might encounter "Table already exists" errors which can be ignored.
+- If you mistakenly reinstall a schema, you might encounter "Table already exists" errors which can be ignored.
 
 #### Install AI actions schema
 

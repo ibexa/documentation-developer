@@ -49,19 +49,19 @@ It's important, because each type of content/product must have its own parameter
 
 Accepted options can be listed with the command below:
 
-* for User:
+- for User:
 
 ```bash
 php bin/console ibexa:cdp:stream-user-data --help
 ```
 
-* for Product:
+- for Product:
 
 ```bash
 php bin/console ibexa:cdp:stream-product-data --help
 ```
 
-* for Content:
+- for Content:
 
 ```bash
 php bin/console ibexa:cdp:stream-content-data --help

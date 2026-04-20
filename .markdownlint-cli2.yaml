@@ -15,6 +15,7 @@ config:
     style: leading_and_trailing
 
   blanks-around-fences: true
+  ul-style: dash
 
 ignores:
   - "docs/snippets/**"
