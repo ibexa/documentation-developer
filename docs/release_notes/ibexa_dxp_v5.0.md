@@ -720,15 +720,15 @@ For more information, see [Discounts product guide](https://doc.ibexa.co/en/5.0/
 
 #### Date and time attribute
 
-The Date and time attributes allow you to represent date and time values as part of the product specification in the [product catalog](product_catalog_guide.md).
+The Date and time attributes allow you to represent date and time values as part of the product specification in the [product catalog](https://doc.ibexa.co/en/5.0/product_catalog/product_catalog_guide).
 
-For more information, see [Date and time attributes](https://doc.ibexa.co/en/5.0/pim/attributes/date_and_time/).
+For more information, see [Date and time attributes](https://doc.ibexa.co/en/5.0/product_catalog/attributes/date_and_time/).
 
 #### Symbol attribute
 
-The Symbol attributes allow you to efficiently represent the string-based data as part of the product specification in the [product catalog](product_catalog_guide.md).
+The Symbol attributes allow you to efficiently represent the string-based data as part of the product specification in the [product catalog](https://doc.ibexa.co/en/5.0/product_catalog/product_catalog_guide).
 
-For more information, see [Symbol attributes](https://doc.ibexa.co/en/5.0/pim/attributes/symbol_attribute_type/).
+For more information, see [Symbol attributes](https://doc.ibexa.co/en/5.0/product_catalog/attributes/symbol_attribute_type/).
 
 #### Collaboration
 
