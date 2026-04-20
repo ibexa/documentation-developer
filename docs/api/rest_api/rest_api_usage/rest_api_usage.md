@@ -72,7 +72,7 @@ GET /api/ibexa/v2/user/groups?roleId=/api/ibexa/v2/user/roles/1 HTTP/1.1
 The `/` root route is answered by a reference list with the main resource routes and media-types.
 It's presented in XML by default, but you can also switch to JSON output.
 
-```shell
+```bash
 curl https://api.example.com/api/ibexa/v2/
 curl -H "Accept: application/json" https://api.example.com/api/ibexa/v2/
 ```
