@@ -85,7 +85,7 @@ In `config/packages/views.yaml`, configure the controller and template used to r
 [[= include_file('code_samples/shopping_list/add_to_shopping_list/config/packages/views.yaml') =]]
 ```
 
-![](img/add_to_shopping_list_widget.png "Preview of this “Add to shopping list” widget example")
+![Preview of this “Add to shopping list” widget example](img/add_to_shopping_list_widget.png "Preview of this “Add to shopping list” widget example")
 
 ## `ShoppingList` JS class and `ibexaShoppingList` global
 

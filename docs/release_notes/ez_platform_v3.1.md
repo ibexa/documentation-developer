@@ -45,7 +45,7 @@ This release of eZ Platform introduces the following new features:
 
     You can now filter elements in the sidebar during site creation process to get to the desired blocks faster.
 
-    ![](3_1_filter_elements.png)
+    ![""](3_1_filter_elements.png)
 
     ### Field group permissions
 

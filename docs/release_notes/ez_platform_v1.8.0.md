@@ -14,14 +14,14 @@ If you're looking for the Long Term Support (LTS) release, see[ https://ezplatf
 
 - In Universal Discovery Widget (UDW) the browse view now uses a completely new browser widget, which replaces Treeview. This solves limitations on how many items you can browse for, and provides a more intuitive user experience.
 
-![](udw.png)
+![""](udw.png)
 
 - Improvements in the Online Editor:
     - You now have the ability to rearrange elements in the editor by moving them up and down.
-    - You can now add links to internal content items in the Online Editor, decide in which tab the link should open, and set link title:![](link-options-oe.png)
+    - You can now add links to internal content items in the Online Editor, decide in which tab the link should open, and set link title:![""](link-options-oe.png)
 - Improvements to the Sub-Items view of a content item: You can now sort content items by clicking column headings
 
-![](subitem-sorting.png)
+![""](subitem-sorting.png)
 
 - The main titles of the ContentTypeView now expand and retract with an accordion function
 - Updated and added icons for the Admin Interface
@@ -60,7 +60,7 @@ If you're looking for the Long Term Support (LTS) release, see[ https://ezplatf
 
  
 
-![](formb.png)
+![""](formb.png)
 
 #### Under the Hood
 
@@ -70,7 +70,7 @@ If you're looking for the Long Term Support (LTS) release, see[ https://ezplatf
 
 - You can now search and filter products in the Product Page of the EE Demo distribution:
 
-![](demo-product-filters.png)
+![""](demo-product-filters.png)
 
 ## Full list of new features, improvements and bug fixes since v1.7.0 LTS:
 
