@@ -63,8 +63,17 @@ def define_env(env):
         version = force_version or version
         version = os.getenv("READTHEDOCS_VERSION_NAME", version)
 
+        rtd_canonical = os.getenv("READTHEDOCS_CANONICAL_URL", "")
+        if rtd_canonical:
+            rtd_domain = re.search("//([^/]+)/", rtd_canonical)
+            if rtd_domain:
+                site = rtd_domain.group(1)
+
         if isinstance(pages, str):
             pages = [pages]
+        variables = env.conf.get('extra', {})
+        var_start = env.config['j2_variable_start_string']
+        var_end = env.config['j2_variable_end_string']
         cards = []
         for page_data in pages:
             if isinstance(page_data, tuple):
@@ -148,6 +157,8 @@ def define_env(env):
                 href = page
                 title = custom_title if custom_title else current_meta['short'] or current_meta['title']
                 description = custom_description if custom_description else current_meta['description'] or "&nbsp;"
+                title = resolve_variables(title, var_start, var_end, variables)
+                description = resolve_variables(description, var_start, var_end, variables)
 
             cards.append(
                 CARDS_TEMPLATE % (
@@ -235,6 +246,16 @@ def define_env(env):
     def release_note_entry_end() -> str:
         return "</div>"
 
+    def resolve_variables(text, var_start, var_end, variables):
+        """Replace variable references (e.g. [[= var =]]) with variables."""
+        pattern = re.escape(var_start) + r'\s*([\w.]+)\s*' + re.escape(var_end)
+        def replacer(match):
+            key = match.group(1).strip()
+            if key not in variables:
+                raise KeyError("Undefined variable '%s' used in cards macro" % key)
+            return str(variables[key])
+        return re.sub(pattern, replacer, text)
+
     def slugify(text: str) -> str:
         return text.lower().replace(' ', '-')
 
@@ -246,3 +267,16 @@ def define_env(env):
                 raise ValueError(
                     "Unknown category: {category}. Available categories are: {available_categories}".format(category=category, available_categories=" ".join(available_categories))
                     )
+
+
+def on_pre_page_macros(env):
+    """
+    Resolve variable references in the page's description front matter field
+    so that they are substituted before MkDocs renders the <meta> tag.
+    """
+    page = env._page
+    if page.meta and 'description' in page.meta:
+        page.meta['description'] = env.render(
+            markdown=page.meta['description'],
+            force_rendering=True
+        )

@@ -14,7 +14,7 @@ You should shut down the DXP if it's running before making a backup.
 
 1\. Navigate into the [[= product_name =]] directory:
 
-```
+```bash
 cd /path/to/ibexa
 ```
 
@@ -42,7 +42,7 @@ rm -rf var/logs/*
 
 4\. In parent directory create a tar archive of the files (including the database dump) using the "tar" command:
 
-```
+```bash
 tar cfz backup_of_ibexa.tar.gz ibexa
 ```
 

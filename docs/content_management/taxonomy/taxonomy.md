@@ -168,7 +168,7 @@ ibexa:
 
 If you are happy with the default settings, clear the cache and reindex the search engine.
 
-``` shell
+```bash
 php bin/console cache:clear
 php bin/console ibexa:reindex
 ```
