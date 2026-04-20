@@ -1,5 +1,4 @@
 ---
-title: Ibexa Headless
 description: Get to know Ibexa Headless - an edition that focuses on content management.
 ---
 

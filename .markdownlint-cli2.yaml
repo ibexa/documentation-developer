@@ -16,6 +16,7 @@ config:
 
   list-marker-space: true
   blanks-around-fences: true
+  single-title: true
   no-multiple-space-atx: true
   blanks-around-headings: true
   ul-style: dash
