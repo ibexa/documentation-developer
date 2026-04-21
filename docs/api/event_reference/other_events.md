@@ -23,7 +23,7 @@ The following events refer to [notifications displayed in the user menu](notific
 
 | Event | Dispatched by | Properties |
 |---|---|---|
-|[`BeforeCreateNotificationEvent`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Events-Notification-BeforeCreateNotificationEvent.html)|[`NotificationService::createNotification`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-NotificationService.html#method_createNotification)|`CreateStruct $createStruct`</br>`Notification|null $notification`|
+|[`BeforeCreateNotificationEvent`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Events-Notification-BeforeCreateNotificationEvent.html)|[`NotificationService::createNotification`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-NotificationService.html#method_createNotification)|`CreateStruct $createStruct`</br>`?Notification $notification`|
 |[`CreateNotificationEvent`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Events-Notification-CreateNotificationEvent.html)|[`NotificationService::createNotification`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-NotificationService.html#method_createNotification)|`Notification $notification`</br>`CreateStruct $createStruct`|
 |[`BeforeDeleteNotificationEvent`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Events-Notification-BeforeDeleteNotificationEvent.html)|[`NotificationService::deleteNotification`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-NotificationService.html#method_deleteNotification)|`Notification $notification`|
 |[`DeleteNotificationEvent`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Events-Notification-DeleteNotificationEvent.html)|[`NotificationService::deleteNotification`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-NotificationService.html#method_deleteNotification)|`Notification $notification`|
@@ -38,9 +38,9 @@ The following events refer to key/value application-wide settings in database.
 
 | Event | Dispatched by | Properties |
 |---|---|---|
-|`BeforeCreateSettingEvent`|`SettingService::createSetting`|`SettingCreateStruct $settingCreateStruct`</br>`Setting|null $setting`|
+|`BeforeCreateSettingEvent`|`SettingService::createSetting`|`SettingCreateStruct $settingCreateStruct`</br>`?Setting $setting`|
 |`CreateSettingEvent`|`SettingService::createSetting`|`Setting $setting`</br>`SettingCreateStruct $settingCreateStruct`|
-|`BeforeUpdateSettingEvent`|`SettingService::updateSetting`|`Setting $setting`</br>`SettingUpdateStruct $settingUpdateStruct`</br>`Setting|null $updatedSetting`|
+|`BeforeUpdateSettingEvent`|`SettingService::updateSetting`|`Setting $setting`</br>`SettingUpdateStruct $settingUpdateStruct`</br>`?Setting $updatedSetting`|
 |`UpdateSettingEvent`|`SettingService::updateSetting`|`Setting $updatedSetting`</br>`Setting $setting`</br>`SettingUpdateStruct $settingUpdateStruct`|
 |`BeforeDeleteSettingEvent`|`SettingService::deleteSetting`|`Setting $setting`|
 |`DeleteSettingEvent`|`SettingService::deleteSetting`|`Setting $setting`|

@@ -9,7 +9,7 @@ page_type: reference
 
 | Event | Dispatched by | Properties |
 |---|---|---|
-|`BeforeUpdateUrlEvent`|`URLService::updateUrl`|`URL $url`</br>`URLUpdateStruct $struct`</br>`URL|null $updatedUrl`|
+|`BeforeUpdateUrlEvent`|`URLService::updateUrl`|`URL $url`</br>`URLUpdateStruct $struct`</br>`?URL $updatedUrl`|
 |`UpdateUrlEvent`|`URLService::updateUrl`|`URL $url`</br>`URLUpdateStruct $struct`</br>`URL $updatedUrl`|
 
 ## URL aliases
@@ -18,9 +18,9 @@ The following events are dispatched when creating and managing [URL aliases](url
 
 | Event | Dispatched by | Properties |
 |---|---|---|
-|`BeforeCreateGlobalUrlAliasEvent`|`URLAliasService::createGlobalUrlAlias`|`private $resource`</br>`private $path`</br>`private $languageCode`</br>`private $forwarding`</br>`private $alwaysAvailable`</br>`URLAlias|null $urlAlias`|
+|`BeforeCreateGlobalUrlAliasEvent`|`URLAliasService::createGlobalUrlAlias`|`private $resource`</br>`private $path`</br>`private $languageCode`</br>`private $forwarding`</br>`private $alwaysAvailable`</br>`?URLAlias $urlAlias`|
 |`CreateGlobalUrlAliasEvent`|`URLAliasService::createGlobalUrlAlias`|`private $resource`</br>`private $path`</br>`private $languageCode`</br>`private $forwarding`</br>`private $alwaysAvailable`</br>`URLAlias $urlAlias`|
-|`BeforeCreateUrlAliasEvent`|`URLAliasService::createUrlAlias`|`Location $location`</br>`private $path`</br>`private $languageCode`</br>`private $forwarding`</br>`private $alwaysAvailable`</br>`URLAlias|null $urlAlias`|
+|`BeforeCreateUrlAliasEvent`|`URLAliasService::createUrlAlias`|`Location $location`</br>`private $path`</br>`private $languageCode`</br>`private $forwarding`</br>`private $alwaysAvailable`</br>`?URLAlias $urlAlias`|
 |`CreateUrlAliasEvent`|`URLAliasService::createUrlAlias`|`Location $location`</br>`private $path`</br>`private $languageCode`</br>`private $forwarding`</br>`private $alwaysAvailable`</br>`URLAlias $urlAlias`|
 |`BeforeRefreshSystemUrlAliasesForLocationEvent`|`URLAliasService::refreshSystemUrlAliasesForLocation`|`Location $location`|
 |`RefreshSystemUrlAliasesForLocationEvent`|`URLAliasService::refreshSystemUrlAliasesForLocation`|`Location $location`|
@@ -33,11 +33,11 @@ The following events are dispatched when creating and managing [URL wildcards](u
 
 | Event | Dispatched by | Properties |
 |---|---|---|
-|`BeforeCreateEvent`|`URLWildcardService::create`|`private $sourceUrl`</br>`private $destinationUrl`</br>`private $forward`</br>`URLWildcard|null $urlWildcard`|
+|`BeforeCreateEvent`|`URLWildcardService::create`|`private $sourceUrl`</br>`private $destinationUrl`</br>`private $forward`</br>`?URLWildcard $urlWildcard`|
 |`CreateEvent`|`URLWildcardService::create`|`private $sourceUrl`</br>`private $destinationUrl`</br>`private $forward`</br>`URLWildcard $urlWildcard`|
 |`BeforeUpdateEvent`|`URLWildcardService::update`|`URLWildcard $urlWildcard`</br>`URLWildcardUpdateStruct $updateStruct`|
 |`UpdateEvent`|`URLWildcardService::update`|`URLWildcard $urlWildcard`</br>`URLWildcardUpdateStruct $updateStruct`|
-|`BeforeTranslateEvent`|`URLWildcardService::translate`|`private $url`</br>`URLWildcardTranslationResult|null $result`|
+|`BeforeTranslateEvent`|`URLWildcardService::translate`|`private $url`</br>`?URLWildcardTranslationResult $result`|
 |`TranslateEvent`|`URLWildcardService::translate`|`private $url`</br>`URLWildcardTranslationResult $result`|
 |`BeforeRemoveEvent`|`URLWildcardService::remove`|`URLWildcard $urlWildcard`|
 |`RemoveEvent`|`URLWildcardService::remove`|`URLWildcard $urlWildcard`|
