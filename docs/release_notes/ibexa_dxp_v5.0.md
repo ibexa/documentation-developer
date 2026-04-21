@@ -63,8 +63,10 @@ For more information, see [Raptor connector](https://doc.ibexa.co/en/5.0/recomme
 
 This add-on includes two Twig functions to ease tracking setting:
 
-- `ibexa_tracking_script` to load the JavaScript tracking code, for more information, see [Tracking script](https://doc.ibexa.co/en/5.0/recommendations/raptor_integration/tracking_functions/)
-- `ibexa_tracking_track_event` to send tracking events from your pages, for more information, see [Tracking event function](https://doc.ibexa.co/en/5.0/recommendations/raptor_integration/tracking_functions/)
+- `ibexa_tracking_script` to load the JavaScript tracking code
+- `ibexa_tracking_track_event` to send tracking events from your pages
+
+For more information, see [Raptor tracking functions](https://doc.ibexa.co/en/5.0/recommendations/raptor_integration/tracking_functions/).
 
 #### Recommendations blocks [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
 
