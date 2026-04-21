@@ -102,7 +102,7 @@ The `ActionServiceInterface` service extracts the configuration options from the
 
 [[= product_name =]] comes with a built-in connector to OpenAI services, but you're not limited to it and can add support for additional AI services in your application.
 
-The following example adds a new Action Handler connecting to a local AI run using [the llamafile project](https://github.com/Mozilla-Ocho/llamafile) which you can use to execute Text-To-Text Actions, such as the built-in "Refine Text" Action.
+The following example adds a new Action Handler connecting to a local AI run using [the llamafile project](https://github.com/mozilla-ai/llamafile) which you can use to execute Text-To-Text Actions, such as the built-in "Refine Text" Action.
 
 When creating an Action Handler for [[= product_name_connect =]], add the new handler identifier to the [`Ibexa AI handler` custom property](configure_ai_actions.md#initiate-integration) in [[= product_name_connect =]] user interface.
 
