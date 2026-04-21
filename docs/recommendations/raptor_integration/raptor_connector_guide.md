@@ -64,7 +64,7 @@ Editors can use these blocks to display tailored product recommendations, promot
 Recommendation blocks are organized into dedicated categories, each grouping blocks based on the type of recommendation they provide:
 
 - **Recommendations: Content** - presents content recommendations:
-    - [Content that has been seen along with the item category]([[= user_doc =]]/recommendations/raptor_integration/raptor_recommendation_blocks/#content-that-have-been-seen-along-with-the-item-category-block)
+    - [Content that has been seen along with the item category]([[= user_doc =]]/recommendations/raptor_integration/raptor_recommendation_blocks/#content-that-has-been-seen-along-with-the-item-category-block)
     - [Most popular content]([[= user_doc =]]/recommendations/raptor_integration/raptor_recommendation_blocks/#most-popular-content-block)
     - [Other customers have also seen this content]([[= user_doc =]]/recommendations/raptor_integration/raptor_recommendation_blocks/#other-customers-have-also-seen-this-content-block)
     - [Personalized content recommendations]([[= user_doc =]]/recommendations/raptor_integration/raptor_recommendation_blocks/#personalized-content-recommendations-block)
