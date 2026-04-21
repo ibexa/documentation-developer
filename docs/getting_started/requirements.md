@@ -1,6 +1,6 @@
 ---
 description: System, component and package requirements for running Ibexa DXP.
-month_change: true
+month_change: false
 ---
 
 <!-- vale off -->
@@ -17,7 +17,7 @@ The following server requirements cover both running the software on-premise and
     For running on [[[= product_name_cloud =]]](https://www.ibexa.co/products/ibexa-cloud), where recommended configuration and support is provided out of the box, see separate [[[= product_name_cloud =]] section](#ibexa-cloud-requirements-and-setup) for further reading on its requirements.
 
 The minimal setup requires PHP, MySQL/MariaDB, Apache/Nginx, Node.js and `yarn`.
-For production setups it's recommended that you use Varnish/Fastly, Redis, NFS/EFS/S3 and Solr/Elasticsearch in a [clustered setup](clustering.md).
+For production setups it's recommended that you use Varnish/Fastly, Redis/Valkey, NFS/EFS/S3 and Solr/Elasticsearch in a [clustered setup](clustering.md).
 
 !!! caution "Recommended versions"
 
@@ -127,15 +127,17 @@ For production setups it's recommended that you use Varnish/Fastly, Redis, NFS/E
 
 === "[[= product_name =]] v5.0"
 
+    - 8.4
     - 8.3
 
 === "[[= product_name =]] v4.6"
 
+    - 8.4
     - 8.3
     - 8.2
-    - 8.1
-    - 8.0 (PHP 8.0 has reached its End of Life. Unless you have extended support from vendors like Debian or Zend, you should use PHP 8.1)
-    - 7.4 (PHP 7.4 has reached its End of Life. Unless you have extended support from vendors like Debian or Zend, you should use PHP 8.1)
+    - 8.1 (PHP 8.1 has reached its End of Life. Unless you have extended support from vendors like Debian or Zend, you should use PHP 8.2)
+    - 8.0 (PHP 8.0 has reached its End of Life. Unless you have extended support from vendors like Debian or Zend, you should use PHP 8.2)
+    - 7.4 (PHP 7.4 has reached its End of Life. Unless you have extended support from vendors like Debian or Zend, you should use PHP 8.2)
 
 === "[[= product_name =]] v3.3"
 
@@ -225,7 +227,7 @@ For production setups it's recommended that you use Varnish/Fastly, Redis, NFS/E
     |Name|Version|
     |---|---|
     |Solr|7.7+, 8.11.1+ or 9.8.1+|
-    |Elasticsearch| 7.16.2+ |
+    |Elasticsearch| 7.16.2+ or 8.19+ |
 
     If you see a "+" next to the product version, it indicates a recommended version or higher within the same major release.
     For example, "1.18+" means any 1.x version equal to or higher than 1.18, but not 2.x.

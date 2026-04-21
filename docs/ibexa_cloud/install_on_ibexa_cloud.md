@@ -1,6 +1,6 @@
 ---
 description: Install and configure Ibexa DXP to run in cloud using Ibexa Cloud.
-month_change: true
+month_change: false
 ---
 
 # Install on Ibexa Cloud
@@ -9,13 +9,14 @@ month_change: true
 
 ## 1. Prepare configuration files
 
-If you didn't run the `composer ibexa:setup` command during installation, run it now:
+If you didn't add cloud configuration during installation, run the following commands now:
 
 ``` bash
-composer ibexa:setup --platformsh
+composer require ibexa/cloud
+php bin/console ibexa:cloud:setup --upsun
 ```
 
-This command adds to your project configuration files required for using [[= product_name_cloud =]].
+These commands add the necessary package and configuration files required for [[= product_name_cloud =]].
 
 You can adapt the configuration in the following places:
 
@@ -48,6 +49,8 @@ Configuration under `hooks` defines the process of building and deploying your p
 For information about available services, see [Upsun documentation](https://fixed.docs.upsun.com/add-services.html#available-services).
 
 If you enable any of the services, you must uncomment the relevant relationship under the `relationship` key in `.platform.app.yaml` as well.
+
+For information about environment variables automatically generated based on your service configuration, see [Environment variables on [[= product_name_cloud =]]](environment_variables.md).
 
 ## 2. Create an account
 

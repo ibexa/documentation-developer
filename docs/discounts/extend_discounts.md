@@ -3,7 +3,7 @@ description: Extend Discounts by adding your own rules and conditions
 editions:
     - lts-update
     - commerce
-month_change: true
+month_change: false
 ---
 
 # Extend Discounts
@@ -32,7 +32,7 @@ You can also [create your own](#custom-expressions).
 | Type | Name | Value | Available for |
 | --- | --- | --- | --- |
 | Function | `get_current_region()` | [Region object](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Values-RegionInterface.html) of the current siteaccess.| Conditions, rules |
-| Function | `is_in_category()` | `true/false`, depending if a product belongs to given [product categories](pim_guide.md#product-categories).| Conditions, rules |
+| Function | `is_in_category()` | `true/false`, depending if a product belongs to given [product categories](product_catalog_guide.md#product-categories).| Conditions, rules |
 | Function | `is_user_in_customer_group()` | `true/false`, depending if an user belongs to given [customer groups](customer_groups.md). | Conditions, rules |
 | Function | `calculate_purchase_amount()` | Purchase amount, calculated for all products in the cart before the discounts are applied.| Conditions, rules |
 | Function | <nobr>`is_product_in_product_codes()`</nobr> | Parameters: <br> - [Product object](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Values-ProductInterface.html)<br>- array of product codes<br> Returns `true` if the product is part of the given list.| Conditions, rules |

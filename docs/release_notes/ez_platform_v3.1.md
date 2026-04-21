@@ -122,7 +122,7 @@ A customizable search controller has been extracted and placed in `ezplatform-se
 
 You can now search through the contents of Trash and sort the search results based on a number of Search Criteria and Sort Clauses that can be used by the `\eZ\Publish\API\Repository\TrashService::findTrashItems` method only.
 
-For more information, see [Searching in trash](https://doc.ibexa.co/en/latest/api/public_php_api_search/#searching-in-trash).
+For more information, see [Search in trash](https://doc.ibexa.co/en/latest/api/public_php_api_search/#search-in-trash).
 
 ### Repository filtering
 

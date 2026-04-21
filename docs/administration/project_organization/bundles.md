@@ -53,8 +53,9 @@ To remove a bundle (either one you created yourself, or an out-of-the-box one th
 |[ibexa/graphql](https://github.com/ibexa/graphql)|GraphQL server for [[= product_name =]]|
 |[ibexa/http-cache](https://github.com/ibexa/http-cache)|[HTTP cache handling](http_cache.md), using multi tagging|
 |[ibexa/i18n](https://github.com/ibexa/i18n)|Centralized translations to ease synchronization with Crowdin|
+|[ibexa/messenger](https://github.com/ibexa/messenger)|[Background and asynchronous task processing](background_tasks.md) using Symfony Messenger|
 |[ibexa/notifications](https://github.com/ibexa/notifications)| Sending [notifications](notifications.md)|
-|[ibexa/post-install](https://github.com/ibexa/post-install)|Post installation tool|
+|[ibexa/post-install](https://github.com/ibexa/post-install)|Apache and nginx templates|
 |[ibexa/rest](https://github.com/ibexa/rest)|REST API|
 |[ibexa/search](https://github.com/ibexa/search)|Common search functionalities|
 |[ibexa/solr](https://github.com/ibexa/solr)|[Solr-powered](https://solr.apache.org/) search handler|
@@ -123,11 +124,23 @@ To remove a bundle (either one you created yourself, or an out-of-the-box one th
 |ibexa/experience|Metapackage for Symfony Flex-based [[= product_name =]] Experience installation|
 |ibexa/cart|Main store functionalities|
 |ibexa/checkout|Store checkout functionality|
-|ibexa/corporate-account-commerce-bridge|Additional functionality for [corporate accounts](corporate_admin_panel.md|
-|ibexa/discounts|Adds [discounts](discounts.md) functionality|feature
+|ibexa/corporate-account-commerce-bridge|Additional functionality for [corporate accounts](corporate_admin_panel.md)|
+|ibexa/discounts|Adds [discounts](discounts.md) functionality|
 |ibexa/discounts-codes|Adds the possibility to use discount codes with the [Discounts](discounts.md) functionality|
 |ibexa/storefront|A storefront starting kit|
 |ibexa/order-management|Order management|
 |ibexa/payment|Payment handling|
 |ibexa/shipping|Shipping handling|
 |ibexa/connector-payum|[Payum integration](payum_integration.md)|
+
+## Optional packages
+
+The following packages are optional and can be installed independently.
+
+|Bundle|Description|
+|---------|-----------|
+|[ibexa/automated-translation](https://github.com/ibexa/automated-translation)|Automated translation of content using [Google Translate or DeepL](automated_translations.md)|
+|ibexa/cdp|Integration with the [Customer Data Platform](cdp.md)|
+|[ibexa/cloud](https://github.com/ibexa/cloud)|Integration with [[[= product_name_cloud =]]](/ibexa_cloud/ibexa_cloud.md)|
+
+In addition, you can extend the capabitilies of your project by installing additional [LTS Updates](editions.md#lts-updates).

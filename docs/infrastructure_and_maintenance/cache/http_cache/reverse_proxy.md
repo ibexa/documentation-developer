@@ -20,7 +20,7 @@ To use the Symfony reverse proxy, you must change your `public/index.php` front 
 
  require_once dirname(__DIR__).'/vendor/autoload_runtime.php';
 
- return function (array $context) {
+ return static function (array $context) {
 -    return new Kernel($context['APP_ENV'], (bool) $context['APP_DEBUG']);
 +    return new AppCache(new Kernel($context['APP_ENV'], (bool) $context['APP_DEBUG']));
  };
@@ -47,8 +47,11 @@ Using a different proxy is highly recommended as they provide better performance
 
 For reverse proxies to work properly with your installation, you need to add the corresponding VCL files for your HTTP Cache.
 
-- [Varnish VCL xkey example](https://github.com/ibexa/http-cache/blob/main/docs/varnish/vcl/varnish5.vcl)
-- Fastly can be found in `vendor/ibexa/fastly/fastly`. You must install the following to use Fastly:
+- Varnish config can be found in `vendor/ibexa/http-cache/docs/varnish/vcl`:
+    - use [parameters.vcl](https://github.com/ibexa/http-cache/blob/v[[= latest_tag_5_0 =]]/docs/varnish/vcl/parameters.vcl) for installation specific settings
+    - plus one of the `varnish*.vcl` corresponding to your Varnish version
+        - For example, [varnish7.vcl](https://github.com/ibexa/http-cache/blob/v[[= latest_tag_5_0 =]]/docs/varnish/vcl/varnish7.vcl) when using Varnish 7
+- Fastly config can be found in `vendor/ibexa/fastly/fastly`. You must install the following to use Fastly:
     - `ibexa_main.vcl` as the **main** custom VCL
     - `ibexa_user_hash.vcl` as another custom VCL
     - `snippet_re_enable_shielding.vcl` as snippet
@@ -223,7 +226,7 @@ ibexa:
 
 See the example below to configure Fastly with the `.env` file:
 
-```
+```bash
 HTTPCACHE_PURGE_TYPE="fastly"
 # Optional
 HTTPCACHE_PURGE_SERVER="https://api.fastly.com"

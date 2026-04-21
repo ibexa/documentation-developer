@@ -1,7 +1,7 @@
 ---
 description: Limitations let you fine-tune the permission system by specifying limits to roles granted to users.
 page_type: reference
-month_change: false
+month_change: true
 ---
 
 # Limitation reference
@@ -290,6 +290,10 @@ The Personalization limitation specifies the SiteAccesses for which the user can
 
 The Product Type (`ProductType`) limitation specifies whether the user has access to products belonging to a specific product type.
 
+!!! warning
+
+    The `ProductType` limitation can't be used when using [[[= pim_product_name =]]](/product_catalog/quable/quable.md).
+
 ### Possible values
 
 |Value|UI value|Description|
@@ -319,6 +323,17 @@ This limitation can be used as a role limitation.
 |Value|UI value|Description|
 |------|------|------|
 |`<Segment_group_id>`|`<Segment_group_name>`|All valid segment group IDs can be set as value(s).|
+
+## Shopping list limitation [[% include 'snippets/lts-update_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
+
+The Shopping List Owner (`ShoppingListOwner`) limitation specifies whether the user can modify a [shopping list](shopping_list.md).
+
+### Possible values
+
+| Value  | UI value | Description                                                      |
+|--------|----------|------------------------------------------------------------------|
+| "self" | "self"   | Only the user who is the owner of the shopping list gets access. |
+| `null` | none     | User can access all shopping lists.                              |
 
 ## SiteAccess limitation
 

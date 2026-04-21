@@ -17,7 +17,7 @@
     
 
     <script>
-        window.symfonyVersion = '7.3';
+        window.symfonyVersion = '7.4';
         window.addEventListener('keyup', (event) => {
             if (event.key === '/') {
                 event.stopImmediatePropagation();
@@ -255,10 +255,8 @@
 
                     
 
-
-
-
-
+    
+    
 
 
 
@@ -298,8 +296,8 @@
     </table>
 </div>
                     
-
-            <div class="content-header">
+    
+                <div class="content-header">
         <h3 id="constant_SORT_ASC">
                 <img src="./images/public.svg" alt="public" title="public" />SORT_ASC        <a class="headerlink" href="classes/Ibexa-Contracts-ProductCatalog-Values-Product-ProductQuery.html#constant_SORT_ASC" title="Permanent link">¶</a>
     </h3>
@@ -330,8 +328,8 @@
     </table>
 </div>
                     
-
-            <div class="content-header">
+    
+                <div class="content-header">
         <h3 id="constant_SORT_DESC">
                 <img src="./images/public.svg" alt="public" title="public" />SORT_DESC        <a class="headerlink" href="classes/Ibexa-Contracts-ProductCatalog-Values-Product-ProductQuery.html#constant_SORT_DESC" title="Permanent link">¶</a>
     </h3>
@@ -362,8 +360,8 @@
     </table>
 </div>
                     
-
-        
+    
+            
     
     <h2 id="methods">
         Methods<a class="headerlink" href="classes/Ibexa-Contracts-ProductCatalog-Values-Product-ProductQuery.html#methods" title="Permanent link">¶</a>
@@ -393,7 +391,7 @@
                 </td>
                 <td class="code">
                     <div>
-                        <pre><code><span class="phpdocumentor-signature__visibility">public </span><span class="phpdocumentor-signature__name">__construct</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type"><a href="classes/Ibexa-Contracts-ProductCatalog-Values-Product-Query-CriterionInterface.html"><abbr title="\Ibexa\Contracts\ProductCatalog\Values\Product\Query\CriterionInterface">CriterionInterface</abbr></a>|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$filter</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type"><a href="classes/Ibexa-Contracts-ProductCatalog-Values-Product-Query-CriterionInterface.html"><abbr title="\Ibexa\Contracts\ProductCatalog\Values\Product\Query\CriterionInterface">CriterionInterface</abbr></a>|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$query</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, <a href="classes/Ibexa-Contracts-ProductCatalog-Values-Product-Query-SortClause.html"><abbr title="\Ibexa\Contracts\ProductCatalog\Values\Product\Query\SortClause">SortClause</abbr></a>&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$sortClauses</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">[]</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$offset</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">0</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$limit</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">self::DEFAULT_LIMIT</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, <a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Aggregation.html"><abbr title="\Ibexa\Contracts\Core\Repository\Values\Content\Query\Aggregation">Aggregation</abbr></a>&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$aggregations</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">[]</span><span> ]</span></span><span>)</span></code></pre>
+                        <pre><code><span class="phpdocumentor-signature__visibility">public </span><span class="phpdocumentor-signature__name">__construct</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type"><a href="classes/Ibexa-Contracts-ProductCatalog-Values-Product-Query-CriterionInterface.html"><abbr title="\Ibexa\Contracts\ProductCatalog\Values\Product\Query\CriterionInterface">CriterionInterface</abbr></a>|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$filter</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type"><a href="classes/Ibexa-Contracts-ProductCatalog-Values-Product-Query-CriterionInterface.html"><abbr title="\Ibexa\Contracts\ProductCatalog\Values\Product\Query\CriterionInterface">CriterionInterface</abbr></a>|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$query</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, <a href="classes/Ibexa-Contracts-ProductCatalog-Values-Product-Query-SortClause.html"><abbr title="\Ibexa\Contracts\ProductCatalog\Values\Product\Query\SortClause">SortClause</abbr></a>&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$sortClauses</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">[]</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$offset</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">0</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$limit</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">\self::DEFAULT_LIMIT</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, <a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Aggregation.html"><abbr title="\Ibexa\Contracts\Core\Repository\Values\Content\Query\Aggregation">Aggregation</abbr></a>&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$aggregations</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">[]</span><span> ]</span></span><span>)</span></code></pre>
                     </div>
                 </td>
             </tr>
@@ -500,8 +498,8 @@
                     </tbody>
     </table>
                     
-
-            <div class="content-header">
+    
+                <div class="content-header">
         <h3 id="method_getAggregations">
                 <img src="./images/public.svg" alt="public" title="public" />getAggregations()
             <a class="headerlink" href="classes/Ibexa-Contracts-ProductCatalog-Values-Product-ProductQuery.html#method_getAggregations" title="Permanent link">¶</a>
@@ -509,7 +507,7 @@
         <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/product-catalog/src/contracts/Values/Product/ProductQuery.php">
         <abbr title="vendor/ibexa/product-catalog/src/contracts/Values/Product/ProductQuery.php">ProductQuery.php</abbr>
                 :
-        <span title="at line 124">124</span>
+        <span title="at line 130">130</span>
                 <img src="./images/copy.svg" title="Copy path" />
     </div>
         </div>
@@ -537,8 +535,8 @@
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Aggregation.html"><abbr title="\Ibexa\Contracts\Core\Repository\Values\Content\Query\Aggregation">Aggregation</abbr></a>&gt;</p>
                         
-
-            <div class="content-header">
+    
+                <div class="content-header">
         <h3 id="method_getFilter">
                 <img src="./images/public.svg" alt="public" title="public" />getFilter()
             <a class="headerlink" href="classes/Ibexa-Contracts-ProductCatalog-Values-Product-ProductQuery.html#method_getFilter" title="Permanent link">¶</a>
@@ -574,8 +572,8 @@
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type"><a href="classes/Ibexa-Contracts-ProductCatalog-Values-Product-Query-CriterionInterface.html"><abbr title="\Ibexa\Contracts\ProductCatalog\Values\Product\Query\CriterionInterface">CriterionInterface</abbr></a>|null</p>
                         
-
-            <div class="content-header">
+    
+                <div class="content-header">
         <h3 id="method_getLimit">
                 <img src="./images/public.svg" alt="public" title="public" />getLimit()
             <a class="headerlink" href="classes/Ibexa-Contracts-ProductCatalog-Values-Product-ProductQuery.html#method_getLimit" title="Permanent link">¶</a>
@@ -583,7 +581,7 @@
         <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/product-catalog/src/contracts/Values/Product/ProductQuery.php">
         <abbr title="vendor/ibexa/product-catalog/src/contracts/Values/Product/ProductQuery.php">ProductQuery.php</abbr>
                 :
-        <span title="at line 95">95</span>
+        <span title="at line 101">101</span>
                 <img src="./images/copy.svg" title="Copy path" />
     </div>
         </div>
@@ -611,8 +609,8 @@
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type">int</p>
                         
-
-            <div class="content-header">
+    
+                <div class="content-header">
         <h3 id="method_getOffset">
                 <img src="./images/public.svg" alt="public" title="public" />getOffset()
             <a class="headerlink" href="classes/Ibexa-Contracts-ProductCatalog-Values-Product-ProductQuery.html#method_getOffset" title="Permanent link">¶</a>
@@ -620,7 +618,7 @@
         <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/product-catalog/src/contracts/Values/Product/ProductQuery.php">
         <abbr title="vendor/ibexa/product-catalog/src/contracts/Values/Product/ProductQuery.php">ProductQuery.php</abbr>
                 :
-        <span title="at line 85">85</span>
+        <span title="at line 91">91</span>
                 <img src="./images/copy.svg" title="Copy path" />
     </div>
         </div>
@@ -648,8 +646,8 @@
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type">int</p>
                         
-
-            <div class="content-header">
+    
+                <div class="content-header">
         <h3 id="method_getQuery">
                 <img src="./images/public.svg" alt="public" title="public" />getQuery()
             <a class="headerlink" href="classes/Ibexa-Contracts-ProductCatalog-Values-Product-ProductQuery.html#method_getQuery" title="Permanent link">¶</a>
@@ -657,7 +655,7 @@
         <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/product-catalog/src/contracts/Values/Product/ProductQuery.php">
         <abbr title="vendor/ibexa/product-catalog/src/contracts/Values/Product/ProductQuery.php">ProductQuery.php</abbr>
                 :
-        <span title="at line 70">70</span>
+        <span title="at line 73">73</span>
                 <img src="./images/copy.svg" title="Copy path" />
     </div>
         </div>
@@ -685,8 +683,8 @@
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type"><a href="classes/Ibexa-Contracts-ProductCatalog-Values-Product-Query-CriterionInterface.html"><abbr title="\Ibexa\Contracts\ProductCatalog\Values\Product\Query\CriterionInterface">CriterionInterface</abbr></a>|null</p>
                         
-
-            <div class="content-header">
+    
+                <div class="content-header">
         <h3 id="method_getSortClauses">
                 <img src="./images/public.svg" alt="public" title="public" />getSortClauses()
             <a class="headerlink" href="classes/Ibexa-Contracts-ProductCatalog-Values-Product-ProductQuery.html#method_getSortClauses" title="Permanent link">¶</a>
@@ -694,7 +692,7 @@
         <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/product-catalog/src/contracts/Values/Product/ProductQuery.php">
         <abbr title="vendor/ibexa/product-catalog/src/contracts/Values/Product/ProductQuery.php">ProductQuery.php</abbr>
                 :
-        <span title="at line 108">108</span>
+        <span title="at line 114">114</span>
                 <img src="./images/copy.svg" title="Copy path" />
     </div>
         </div>
@@ -722,8 +720,8 @@
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Ibexa-Contracts-ProductCatalog-Values-Product-Query-SortClause.html"><abbr title="\Ibexa\Contracts\ProductCatalog\Values\Product\Query\SortClause">SortClause</abbr></a>&gt;</p>
                         
-
-            <div class="content-header">
+    
+                <div class="content-header">
         <h3 id="method_hasFilter">
                 <img src="./images/public.svg" alt="public" title="public" />hasFilter()
             <a class="headerlink" href="classes/Ibexa-Contracts-ProductCatalog-Values-Product-ProductQuery.html#method_hasFilter" title="Permanent link">¶</a>
@@ -731,7 +729,7 @@
         <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/product-catalog/src/contracts/Values/Product/ProductQuery.php">
         <abbr title="vendor/ibexa/product-catalog/src/contracts/Values/Product/ProductQuery.php">ProductQuery.php</abbr>
                 :
-        <span title="at line 60">60</span>
+        <span title="at line 63">63</span>
                 <img src="./images/copy.svg" title="Copy path" />
     </div>
         </div>
@@ -759,8 +757,8 @@
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type">bool</p>
                         
-
-            <div class="content-header">
+    
+                <div class="content-header">
         <h3 id="method_hasQuery">
                 <img src="./images/public.svg" alt="public" title="public" />hasQuery()
             <a class="headerlink" href="classes/Ibexa-Contracts-ProductCatalog-Values-Product-ProductQuery.html#method_hasQuery" title="Permanent link">¶</a>
@@ -768,7 +766,7 @@
         <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/product-catalog/src/contracts/Values/Product/ProductQuery.php">
         <abbr title="vendor/ibexa/product-catalog/src/contracts/Values/Product/ProductQuery.php">ProductQuery.php</abbr>
                 :
-        <span title="at line 75">75</span>
+        <span title="at line 81">81</span>
                 <img src="./images/copy.svg" title="Copy path" />
     </div>
         </div>
@@ -796,8 +794,8 @@
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type">bool</p>
                         
-
-            <div class="content-header">
+    
+                <div class="content-header">
         <h3 id="method_setAggregations">
                 <img src="./images/public.svg" alt="public" title="public" />setAggregations()
             <a class="headerlink" href="classes/Ibexa-Contracts-ProductCatalog-Values-Product-ProductQuery.html#method_setAggregations" title="Permanent link">¶</a>
@@ -805,7 +803,7 @@
         <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/product-catalog/src/contracts/Values/Product/ProductQuery.php">
         <abbr title="vendor/ibexa/product-catalog/src/contracts/Values/Product/ProductQuery.php">ProductQuery.php</abbr>
                 :
-        <span title="at line 132">132</span>
+        <span title="at line 138">138</span>
                 <img src="./images/copy.svg" title="Copy path" />
     </div>
         </div>
@@ -858,8 +856,8 @@
                     </tbody>
     </table>
                     
-
-            <div class="content-header">
+    
+                <div class="content-header">
         <h3 id="method_setFilter">
                 <img src="./images/public.svg" alt="public" title="public" />setFilter()
             <a class="headerlink" href="classes/Ibexa-Contracts-ProductCatalog-Values-Product-ProductQuery.html#method_setFilter" title="Permanent link">¶</a>
@@ -867,7 +865,7 @@
         <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/product-catalog/src/contracts/Values/Product/ProductQuery.php">
         <abbr title="vendor/ibexa/product-catalog/src/contracts/Values/Product/ProductQuery.php">ProductQuery.php</abbr>
                 :
-        <span title="at line 65">65</span>
+        <span title="at line 68">68</span>
                 <img src="./images/copy.svg" title="Copy path" />
     </div>
         </div>
@@ -920,8 +918,8 @@
                     </tbody>
     </table>
                     
-
-            <div class="content-header">
+    
+                <div class="content-header">
         <h3 id="method_setLimit">
                 <img src="./images/public.svg" alt="public" title="public" />setLimit()
             <a class="headerlink" href="classes/Ibexa-Contracts-ProductCatalog-Values-Product-ProductQuery.html#method_setLimit" title="Permanent link">¶</a>
@@ -929,7 +927,7 @@
         <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/product-catalog/src/contracts/Values/Product/ProductQuery.php">
         <abbr title="vendor/ibexa/product-catalog/src/contracts/Values/Product/ProductQuery.php">ProductQuery.php</abbr>
                 :
-        <span title="at line 100">100</span>
+        <span title="at line 106">106</span>
                 <img src="./images/copy.svg" title="Copy path" />
     </div>
         </div>
@@ -982,8 +980,8 @@
                     </tbody>
     </table>
                     
-
-            <div class="content-header">
+    
+                <div class="content-header">
         <h3 id="method_setOffset">
                 <img src="./images/public.svg" alt="public" title="public" />setOffset()
             <a class="headerlink" href="classes/Ibexa-Contracts-ProductCatalog-Values-Product-ProductQuery.html#method_setOffset" title="Permanent link">¶</a>
@@ -991,7 +989,7 @@
         <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/product-catalog/src/contracts/Values/Product/ProductQuery.php">
         <abbr title="vendor/ibexa/product-catalog/src/contracts/Values/Product/ProductQuery.php">ProductQuery.php</abbr>
                 :
-        <span title="at line 90">90</span>
+        <span title="at line 96">96</span>
                 <img src="./images/copy.svg" title="Copy path" />
     </div>
         </div>
@@ -1044,8 +1042,8 @@
                     </tbody>
     </table>
                     
-
-            <div class="content-header">
+    
+                <div class="content-header">
         <h3 id="method_setQuery">
                 <img src="./images/public.svg" alt="public" title="public" />setQuery()
             <a class="headerlink" href="classes/Ibexa-Contracts-ProductCatalog-Values-Product-ProductQuery.html#method_setQuery" title="Permanent link">¶</a>
@@ -1053,7 +1051,7 @@
         <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/product-catalog/src/contracts/Values/Product/ProductQuery.php">
         <abbr title="vendor/ibexa/product-catalog/src/contracts/Values/Product/ProductQuery.php">ProductQuery.php</abbr>
                 :
-        <span title="at line 80">80</span>
+        <span title="at line 86">86</span>
                 <img src="./images/copy.svg" title="Copy path" />
     </div>
         </div>
@@ -1106,8 +1104,8 @@
                     </tbody>
     </table>
                     
-
-            <div class="content-header">
+    
+                <div class="content-header">
         <h3 id="method_setSortClauses">
                 <img src="./images/public.svg" alt="public" title="public" />setSortClauses()
             <a class="headerlink" href="classes/Ibexa-Contracts-ProductCatalog-Values-Product-ProductQuery.html#method_setSortClauses" title="Permanent link">¶</a>
@@ -1115,7 +1113,7 @@
         <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/product-catalog/src/contracts/Values/Product/ProductQuery.php">
         <abbr title="vendor/ibexa/product-catalog/src/contracts/Values/Product/ProductQuery.php">ProductQuery.php</abbr>
                 :
-        <span title="at line 116">116</span>
+        <span title="at line 122">122</span>
                 <img src="./images/copy.svg" title="Copy path" />
     </div>
         </div>
@@ -1168,8 +1166,8 @@
                     </tbody>
     </table>
                     
-
-                            </div>
+    
+                                </div>
                     </article>
                 </div>
 

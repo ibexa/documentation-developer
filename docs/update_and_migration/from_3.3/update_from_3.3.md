@@ -229,13 +229,13 @@ Run the following scripts:
 
 === "MySQL"
 
-    ``` shell
+    ```bash
     mysql -u<username> -p<password> <database_name> < vendor/ibexa/installer/upgrade/db/mysql/ibexa-3.3.6-to-3.3.7.sql
     ```
 
 === "PostgreSQL"
 
-    ``` shell
+    ```bash
     psql <database_name> < vendor/ibexa/installer/upgrade/db/postgresql/ibexa-3.3.6-to-3.3.7.sql
     ```
 
@@ -279,13 +279,13 @@ Run the following scripts:
 
 === "MySQL"
 
-    ``` shell
+    ```bash
     mysql -u<username> -p<password> <database_name> < vendor/ibexa/installer/upgrade/db/mysql/ibexa-3.3.8-to-3.3.9.sql
     ```
 
 === "PostgreSQL"
 
-    ``` shell
+    ```bash
     psql <database_name> < vendor/ibexa/installer/upgrade/db/postgresql/ibexa-3.3.8-to-3.3.9.sql
     ```
 
@@ -303,7 +303,7 @@ Run the following scripts:
     The following `sed` commands should update the relevant lines.
     Use them with caution and properly check the result:
 
-    ```shell
+    ```bash
     sed -i -E 's/"symfony\/(.+)": "5.3.*"/"symfony\/\1": "5.4.*"/' composer.json;
     sed -i -E 's/"require": "5.3.*"/"require": "5.4.*"/' composer.json;
     ```
@@ -313,7 +313,7 @@ Run the following scripts:
     You may need to adapt configuration to fit the new minor version of Symfony.
     For example, you might have to remove `timeout` related config from `nelmio_solarium` bundle config:
     
-    ```shell
+    ```bash
     sed -i -E '/ *timeout: [0-9]+/d' ./config/packages/nelmio_solarium.yaml ./config/packages/ezcommerce/ezcommerce_advanced.yaml
     composer update "symfony/*"
     ```
@@ -403,13 +403,13 @@ On Experience or Commerce edition, run the following scripts:
 
 === "MySQL"
 
-    ``` shell
+    ```bash
     mysql -u<username> -p<password> <database_name> < vendor/ibexa/installer/upgrade/db/mysql/ibexa-3.3.24-to-3.3.25.sql
     ```
 
 === "PostgreSQL"
 
-    ``` shell
+    ```bash
     psql <database_name> < vendor/ibexa/installer/upgrade/db/postgresql/ibexa-3.3.24-to-3.3.25.sql
     ```
 
@@ -491,7 +491,7 @@ There are no additional update steps to execute.
 
 ##### Remove duplicated entries in `ezcontentobject_attribute` table
 
-This release comes with a command to clean up duplicated entries in the `ezcontentobject_attribute` table, which were created due to an issue described in [IBX-8562](https://issues.ibexa.co/browse/IBX-8562).
+This release comes with a command to clean up duplicated entries in the `ezcontentobject_attribute` table, which were created due to an issue related to previewing content in different languages.
 
 If you're affected, remove the duplicated entries by running the following command:
 ``` bash

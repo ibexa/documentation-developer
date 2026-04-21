@@ -45,6 +45,9 @@ There are two versions of this command `--draft/--no-draft`.
 The first one is used to send the test user data to the Data Manager.
 If it passes a validation test in the **Activation** section, use the latter one to send a full version.
 
+You can extend exported user data with custom fields from your user content, such as date of birth, preferences, or other profile information.
+For more information, see [Data customization](cdp_data_customization.md#export-additional-user-data).
+
 Next, go back to [[= product_name_cdp =]] and select **Validate & download**.
 If the file passes, you can see a confirmation message.
 Now, you can go to the **File mapping** section.
@@ -62,6 +65,9 @@ If you make any alterations, select the **Parse File** to generate columns with 
 
 In the **Transform & Map** section you transform data and map it to a schema.
 At this point, you can map **email** to **email** and **id** to **integer**  fields to get custom columns.
+
+If you have [extended user data export with custom fields](cdp_data_customization.md#export-additional-user-data), those fields appear as additional columns in this section.
+Make sure to add them to your schema in Raptor so they can be used for segmentation and personalization.
 
 Next, select **Create schema based on the downloaded columns**.
 It moves you to Schema Creator.
@@ -133,3 +139,69 @@ Finally, you can specify the audiences you wish to include.
 !!! note "CDP requests"
 
     All CDP requests are logged in with `debug` severity.
+
+### [[= product_name_base =]] Messenger support for large batches of data
+
+CDP uses [[= product_name_base =]] Messenger to process incoming data from [Raptor](https://www.raptorservices.com/).
+This approach improves performance and reliability when processing large amounts of CDP user records.
+For more information, see [Background tasks: How it works](background_tasks.md#how-it-works).
+
+By using Messenger while working with large batches of data, requests are queued instead of being processed synchronously:
+
+- queuing items starts automatically once a certain number of actions is reached (below this number, items are processed in a single request, using the standard synchronous behavior)
+- every single data is recorded in the database
+- a background worker retrieves records from the queue, processing them one by one or in batches, depending on the [Messenger]([[= symfony_doc =]]/messenger.html) configuration
+- processing happens at set intervals to avoid timeouts and keep the system stable
+
+1\. Make sure that the transport layer is [defined properly](background_tasks.md#configure-package) in [[= product_name_base =]] Messenger configuration.
+
+2\. Add `bulk_async_threshold` setting in the `config/packages/ibexa_cdp.yaml` configuration:
+
+``` bash
+ibexa_cdp:
+      bulk_async_threshold: 100  # Default: 100 items
+```
+
+Available options:
+
+- `bulk_async_threshold` (integer, default: 100) - minimum number of items required to trigger asynchronous processing
+    - below threshold - items are processed immediately in a single request, using the standard synchronous behavior
+    - at/above threshold - items are automatically dispatched to the asynchronous queue for background processing
+
+3\. Make sure that the [worker starts](background_tasks.md#start-worker) together with the application to watch the transport bus:
+
+``` bash
+php bin/console messenger:consume ibexa.messenger.transport --bus=ibexa.messenger.bus
+```
+
+For more information, see [Start background task worker](background_tasks.md#start-worker).
+
+### CDP Monolog channel
+
+CDP Monolog channel handles webhook logs for easier separation of logs.
+
+```bash
+- { name: monolog.logger, channel: ibexa.cdp.webhook }
+```
+
+It's possible to configure `ibexa.cdp.webhook` Monolog channel to direct all logs to specific stream, file, or service.
+This allows webhook logs to be stored separately from the main application logs for easier debugging and analysis.
+
+To do it, in `config/packages/monolog.yaml` file, define a new handler for the `ibexa.cdp.webhook` channel that directs CPD Webhook events to a separate file.
+It can be configured in both `dev` and `prod` environments, for example:
+
+```yaml
+monolog:
+    handlers:
+        cdp_webhook:
+            type: stream
+            path: "%kernel.logs_dir%/cdp_webhook_%kernel.environment%.log"
+            level: debug
+            channels: [ 'ibexa.cdp.webhook' ]
+```
+
+If you want to avoid redundant or duplicate entries in the other logs, exclude the webhook channel by:
+
+```yaml
+channels: ["!ibexa.cdp.webhook"]
+```

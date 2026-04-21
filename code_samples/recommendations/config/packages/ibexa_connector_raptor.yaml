@@ -1,0 +1,16 @@
+ibexa:
+    system:
+        <scope>:
+            connector_raptor:
+                enabled:              true
+                customer_id:          ~ # Required
+                tracking_type:        client # One of: "client" or "server"
+
+                # Raptor Recommendations API key
+                recommendations_api_key: ~ # Required
+
+                # Raptor Recommendations API URL, optional, set by default
+                recommendations_api_url: '%ibexa.connector.raptor.recommendations.api_url%'
+ibexa_connector_raptor:
+    # When enabled, tracking exceptions are thrown instead of being silently handled
+    strict_exceptions: true

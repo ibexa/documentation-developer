@@ -10,7 +10,7 @@ This is called (user) context-aware cache.
 It means that HTTP cache is unique per set of user permissions (roles and limitations), and there are variations of cache shared only among users that have the exact same permissions.
 So if a user browses a list of children locations, they only see children locations they have access to, even if their rendering is served from HTTP cache.
 
-This is accomplished by varying on a header called `X-Context-User-Hash`, which the system populates on the request.
+This is accomplished by varying on a header called `X-User-Context-Hash`, which the system populates on the request.
 The [logic for this](#request-lifecycle) is accomplished in the provided VCL for Varnish and Fastly.
 A similar but internal logic is done in the provided enhanced Symfony Proxy (AppCache).
 
@@ -21,9 +21,9 @@ This expands steps covered in [FOSHttpCacheBundle documentation on user context 
 1. A client (browser) requests URI `/foo`.
 1. The caching proxy receives the request and holds it. It first sends a hash request to the application's context hash route: `/_fos_user_context_hash`.
 1. The application receives the hash request. An event subscriber (`UserContextSubscriber`) aborts the request immediately after the Symfony firewall is applied.
-   The application calculates the hash (`HashGenerator`) and then sends a response with the hash in a custom header (`X-Context-User-Hash`).
+   The application calculates the hash (`HashGenerator`) and then sends a response with the hash in a custom header (`X-User-Context-Hash`).
 1. The caching proxy receives the hash response, copies the hash header to the client's original request for `/foo` and restarts the modified original request.
-1. If the response to `/foo` should differ per user context, the application sets a `Vary: X-Context-User-Hash` header, which makes Proxy store the variations of this cache varying on the hash value.
+1. If the response to `/foo` should differ per user context, the application sets a `Vary: X-User-Context-Hash` header, which makes Proxy store the variations of this cache varying on the hash value.
 
 The next time a request comes in from the same user, application lookup for the hash (step 3) doesn't take place, as the hash lookup itself is cached by the cache proxy as described below.
 
@@ -31,9 +31,9 @@ The next time a request comes in from the same user, application lookup for the 
 
 Example of a response sent to reverse proxy from `/_fos_user_context_hash` with [[[= product_name =]]'s default config](#default-options-for-foshttpcachebundle):
 
-```
+```http
 HTTP/1.1 200 OK
-X-Context-User-Hash: <hash>
+X-User-Context-Hash: <hash>
 Content-Type: application/vnd.fos.user-context-hash
 Cache-Control: public, max-age=600
 Vary: Cookie, Authorization
@@ -104,7 +104,7 @@ This should be done as Ajax/JS lookup to avoid the uncached request that slows d
 
 This solution requires more effort depending on project requirements (for example, traffic load).
 
-3\. Custom vary by logic, for example, `X-User-Preference-Hash` inspired by `X-Context-User-Hash`:
+3\. Custom vary by logic, for example, `X-User-Preference-Hash` inspired by `X-User-Context-Hash`:
 
 This method allows for fine-grained caching as you can explicitly vary on this in only the places that need it.
 
@@ -157,7 +157,7 @@ public function addPreferenceHash(FilterResponseEvent $event)
 @@ -174,6 +174,7 @@ sub ibexa_user_context_hash {
      if (req.restarts == 0
          && (req.http.accept ~ "application/vnd.fos.user-context-hash"
-             || req.http.X-Context-User-Hash
+             || req.http.x-user-context-hash
 +            || req.http.x-user-preference-hash
          )
      ) {
@@ -165,7 +165,7 @@ public function addPreferenceHash(FilterResponseEvent $event)
 @@ -263,12 +264,19 @@ sub vcl_deliver {
          && resp.http.content-type ~ "application/vnd.fos.user-context-hash"
      ) {
-         set req.http.X-Context-User-Hash = resp.http.X-Context-User-Hash;
+         set req.http.x-user-context-hash = resp.http.x-user-context-hash;
 +        set req.http.x-user-preference-hash = resp.http.x-user-preference-hash;
 
          return (restart);
@@ -181,7 +181,7 @@ public function addPreferenceHash(FilterResponseEvent $event)
 +
      // Remove the vary on user context hash, this is nothing public. Keep all
      // other vary headers.
-     if (resp.http.Vary ~ "X-Context-User-Hash") {
+     if (resp.http.Vary ~ "X-User-Context-Hash") {
 ```
 
 3\. Add `Vary` in your custom controller or content view controller:
@@ -190,5 +190,5 @@ public function addPreferenceHash(FilterResponseEvent $event)
 $response->setVary('X-User-Preference-Hash');
 
 // If you _also_ need to vary on [[= product_name =]] permissions, instead use:
-//$response->setVary(['X-Context-User-Hash', 'X-User-Preference-Hash']);
+//$response->setVary(['X-User-Context-Hash', 'X-User-Preference-Hash']);
 ```

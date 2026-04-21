@@ -92,7 +92,7 @@ Each column is at the same time a zone, and each zone renders the blocks that it
 !!! note
 
     A zone in a layout template **must have** the `data-ibexa-zone-id` attribute (lines 2 and 19).
-    A block **must have** the `data-ez-block-id` attribute (lines 7 and 24).
+    A block **must have** the `data-ibexa-block-id` attribute (lines 7 and 24).
 
 With these three elements: configuration, icon and template, the new layout is ready to use.
 

@@ -247,4 +247,46 @@ $(document).ready(function() {
 
     // Mark higher-level nodes with "New" pill, not only the actual item
     $('.pill--new:not([hidden])').parents('.md-nav__item').children('label').children('.pill--new[hidden]').removeAttr('hidden');
+
+    function activateTabForHash() {
+        var hash = document.location.hash;
+        if (!hash) return;
+
+        var target = document.getElementById(hash.substring(1));
+        if (!target) return;
+
+        var tabbedBlock = $(target).closest('.tabbed-block');
+        if (!tabbedBlock.length) return;
+
+        var container = tabbedBlock.parent();
+        var index = container.children('.tabbed-block').index(tabbedBlock);
+        var tabbedSet = container.parent();
+        var inputs = tabbedSet.children('input');
+        var targetInput = inputs.eq(index);
+
+        if (!targetInput.length || targetInput.prop('checked')) return;
+
+        // Find and click the associated label to properly activate the tab
+        var label = tabbedSet.find('label[for="' + targetInput.attr('id') + '"]');
+        if (label.length) {
+            label[0].click();
+        } else {
+            // Fallback to direct input manipulation
+            targetInput.prop('checked', true).trigger('change');
+        }
+
+        setTimeout(function() {
+            var headerHeight = $('.md-header').outerHeight() || 60;
+            var elementPosition = target.getBoundingClientRect().top;
+            var offsetPosition = elementPosition + window.pageYOffset - headerHeight - 20;
+
+            window.scrollTo({
+                top: offsetPosition,
+                behavior: "smooth"
+            });
+        }, 50);
+    }
+
+    $(window).on('hashchange', activateTabForHash);
+    activateTabForHash();
 });

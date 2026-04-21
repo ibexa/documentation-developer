@@ -7,6 +7,96 @@ month_change: true
 
 This page contains recent highlights and notable changes in [[= product_name =]] documentation.
 
+## March 2026
+
+### Products
+
+- Distinguish [physical and virtual products in product catalog guide](https://doc.ibexa.co/en/5.0/pim/pim_guide/#virtual-and-physical-products)
+- Added [creating product type example in product API](https://doc.ibexa.co/en/5.0/pim/product_api/#creating-product-types)
+- Detailed [how to add a custom attribute type to an existing storage definition](https://doc.ibexa.co/en/5.0/pim/create_custom_attribute_type/#storage-definition)
+
+### Collaborative editing
+
+- Documented [how to extend collaboration](https://doc.ibexa.co/en/5.0/content_management/collaborative_editing/extend_collaborative_editing/) with a shared cart example
+
+### Search
+
+- Introduced [embeddings search API for taxonomy](https://doc.ibexa.co/en/5.0/search/embeddings_reference/embeddings_reference/)
+
+### Images
+
+- Illustrated [image optimizer customization](https://doc.ibexa.co/en/5.0/content_management/images/images/#customizing-image-optimizers)
+
+## February 2026
+
+### Releases
+
+- [v5.0.6 release notes](https://doc.ibexa.co/en/5.0/release_notes/ibexa_dxp_v5.0/#ibexa-dxp-v506)
+- [v4.6.28 release notes](https://doc.ibexa.co/en/4.6/release_notes/ibexa_dxp_v4.6/#ibexa-dxp-v4628)
+
+### CDP
+
+- Illustrated how to [export additional user data](cdp_data_customization.md#export-additional-user-data)
+- Detailed [Ibexa Messenger support for large batches of data](cdp_data_export.md#ibexa-messenger-support-for-large-batches-of-data)
+- Introduced the [CDP Monolog channel](cdp_data_export.md#cdp-monolog-channel)
+- Added [`Ibexa\Contracts\Cdp` PHP API reference](/api/php_api/php_api_reference/namespaces/ibexa-contracts-cdp.html)
+
+### Infrastructure
+
+#### Modified 5.0 update instructions
+
+To [update from v5.0.x to v5.0.latest](update_from_5.0.md), you have to ensure that Yarn dependencies are up-to-date before running Composer.
+
+#### [[= product_name_cloud =]]
+
+- Added documentation describing [how to use the new `ibexa/cloud` package](install_on_ibexa_cloud.md) and the [environment variables it provides](environment_variables.md)
+
+#### DFS configuration
+
+- Updated [DFS](clustering.md#configuring-the-dfs-io-handler) and [Solr](install_solr.md#configure-the-bundle) configuration examples to use environment variables directly with [Environment Variable Processors]([[= symfony_doc =]]/configuration/env_var_processors.html) syntax instead of intermediate parameters.
+This promotes skipping the rebuild of the Symfony container when environment variable values change.
+
+## January 2026
+
+### Releases
+
+- [v5.0.5 release notes](https://doc.ibexa.co/en/5.0/release_notes/ibexa_dxp_v5.0/#ibexa-dxp-v505)
+- [v4.6.27 release notes](https://doc.ibexa.co/en/4.6/release_notes/ibexa_dxp_v4.6/#ibexa-dxp-v4627)
+
+### Getting started
+
+- Added a description of password constraints in [Install Ibexa DXP](install_ibexa_dxp.md#create-a-database) and [Install with DDEV](install_with_ddev.md#6-install-the-platform-and-its-database)
+
+### Administration
+
+- Updated icon function and icon set usage instructions in [Custom icons](custom_icons.md)
+
+### Discounts
+
+- Added Ibexa Messenger instructions for [[= product_name =]] 4.6
+    - Modified [discounts configuration](https://doc.ibexa.co/en/4.6/discounts/configure_discounts/#discount-re-indexing)
+    - Added [installation instructions](https://doc.ibexa.co/en/4.6/infrastructure_and_maintenance/background_tasks/#installation)
+
+### Multisite
+
+- Site Factory
+    - Fixed an issue with [design configuration](site_factory.md#configure-designs)
+
+### Search
+
+- Added support for Elasticsearch 8.19+:
+    - Updated the [requirements](requirements.md)
+    - Updated the [Elasticsearch overview](elasticsearch_overview.md)
+    - Modified the [configuration instructions](configure_elasticsearch.md)
+    - Modified the [installation instructions](install_elasticsearch.md)
+    - Modified the [system update instructions](update_from_5.0.md)
+
+### Infrastructure and maintenance
+
+- Added [reverse proxy installation instructions](clustering_with_ddev.md#install-reverse-proxy) to DDEV cluster description
+- Modified the [system update instructions](update_from_5.0.md) to account for numerous changes in the product
+- Detailed the Varnish [reverse proxy configuration instructions](reverse_proxy.md#vcl-base-files) by mentioning specific VCL files that must be used
+
 ## December 2025
 
 ### Discounts

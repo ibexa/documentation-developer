@@ -17,7 +17,7 @@
     
 
     <script>
-        window.symfonyVersion = '7.3';
+        window.symfonyVersion = '7.4';
         window.addEventListener('keyup', (event) => {
             if (event.key === '/') {
                 event.stopImmediatePropagation();
@@ -255,10 +255,8 @@
 
                     
 
-
-
-
-
+    
+    
 
 
 
@@ -303,8 +301,8 @@
     </table>
 </div>
                     
-
-            </section>
+    
+                </section>
     
     <h2 id="methods">
         Methods<a class="headerlink" href="classes/Ibexa-Contracts-Core-Repository-Decorator-LocationServiceDecorator.html#methods" title="Permanent link">¶</a>
@@ -371,8 +369,8 @@
                     </tbody>
     </table>
                     
-
-            <div class="content-header">
+    
+                <div class="content-header">
         <h3 id="method_copySubtree">
                 <img src="./images/public.svg" alt="public" title="public" />copySubtree()
             <a class="headerlink" href="classes/Ibexa-Contracts-Core-Repository-Decorator-LocationServiceDecorator.html#method_copySubtree" title="Permanent link">¶</a>
@@ -467,8 +465,8 @@
     </section>
 
                         
-
-            <div class="content-header">
+    
+                <div class="content-header">
         <h3 id="method_count">
                 <img src="./images/public.svg" alt="public" title="public" />count()
             <a class="headerlink" href="classes/Ibexa-Contracts-Core-Repository-Decorator-LocationServiceDecorator.html#method_count" title="Permanent link">¶</a>
@@ -493,7 +491,7 @@
                 </td>
                 <td class="code">
                     <div>
-                        <pre><code><span class="phpdocumentor-signature__visibility">public </span><span class="phpdocumentor-signature__name">count</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/Ibexa-Contracts-Core-Repository-Values-Filter-Filter.html"><abbr title="\Ibexa\Contracts\Core\Repository\Values\Filter\Filter">Filter</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$filter</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$languages</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">int</span></code></pre>
+                        <pre><code><span class="phpdocumentor-signature__visibility">public </span><span class="phpdocumentor-signature__name">count</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/Ibexa-Contracts-Core-Repository-Values-Filter-Filter.html"><abbr title="\Ibexa\Contracts\Core\Repository\Values\Filter\Filter">Filter</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$filter</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$languages</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">int|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$limit</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">int</span></code></pre>
                     </div>
                 </td>
             </tr>
@@ -551,13 +549,32 @@ for a SiteAccess in a current context will be used.</p>
 
                                             </td>
                 </tr>
+                            <tr>
+                    <td>
+                        $limit
+                    </td>
+                    <td>
+                        int|null
+                    </td>
+                    <td>
+                                                                                    null
+                                                                        </td>
+                    <td>
+                                                        <section class="phpdocumentor-description">
+        <p>If set, the count will be limited to first $limit items found.
+In some cases it can significantly speed up a count operation for more complex filters.</p>
+
+    </section>
+
+                                            </td>
+                </tr>
                     </tbody>
     </table>
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type">int</p>
                         
-
-            <div class="content-header">
+    
+                <div class="content-header">
         <h3 id="method_createLocation">
                 <img src="./images/public.svg" alt="public" title="public" />createLocation()
             <a class="headerlink" href="classes/Ibexa-Contracts-Core-Repository-Decorator-LocationServiceDecorator.html#method_createLocation" title="Permanent link">¶</a>
@@ -640,8 +657,8 @@ for a SiteAccess in a current context will be used.</p>
     </section>
 
                         
-
-            <div class="content-header">
+    
+                <div class="content-header">
         <h3 id="method_deleteLocation">
                 <img src="./images/public.svg" alt="public" title="public" />deleteLocation()
             <a class="headerlink" href="classes/Ibexa-Contracts-Core-Repository-Decorator-LocationServiceDecorator.html#method_deleteLocation" title="Permanent link">¶</a>
@@ -703,8 +720,8 @@ for a SiteAccess in a current context will be used.</p>
                     </tbody>
     </table>
                     
-
-            <div class="content-header">
+    
+                <div class="content-header">
         <h3 id="method_find">
                 <img src="./images/public.svg" alt="public" title="public" />find()
             <a class="headerlink" href="classes/Ibexa-Contracts-Core-Repository-Decorator-LocationServiceDecorator.html#method_find" title="Permanent link">¶</a>
@@ -788,8 +805,8 @@ for a SiteAccess in a current context will be used.</p>
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type"><a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-LocationList.html"><abbr title="\Ibexa\Contracts\Core\Repository\Values\Content\LocationList">LocationList</abbr></a></p>
                         
-
-            <div class="content-header">
+    
+                <div class="content-header">
         <h3 id="method_getAllLocationsCount">
                 <img src="./images/public.svg" alt="public" title="public" />getAllLocationsCount()
             <a class="headerlink" href="classes/Ibexa-Contracts-Core-Repository-Decorator-LocationServiceDecorator.html#method_getAllLocationsCount" title="Permanent link">¶</a>
@@ -831,8 +848,8 @@ for a SiteAccess in a current context will be used.</p>
     </section>
 
                         
-
-            <div class="content-header">
+    
+                <div class="content-header">
         <h3 id="method_getLocationChildCount">
                 <img src="./images/public.svg" alt="public" title="public" />getLocationChildCount()
             <a class="headerlink" href="classes/Ibexa-Contracts-Core-Repository-Decorator-LocationServiceDecorator.html#method_getLocationChildCount" title="Permanent link">¶</a>
@@ -857,7 +874,7 @@ for a SiteAccess in a current context will be used.</p>
                 </td>
                 <td class="code">
                     <div>
-                        <pre><code><span class="phpdocumentor-signature__visibility">public </span><span class="phpdocumentor-signature__name">getLocationChildCount</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-Location.html"><abbr title="\Ibexa\Contracts\Core\Repository\Values\Content\Location">Location</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$location</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">int</span></code></pre>
+                        <pre><code><span class="phpdocumentor-signature__visibility">public </span><span class="phpdocumentor-signature__name">getLocationChildCount</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-Location.html"><abbr title="\Ibexa\Contracts\Core\Repository\Values\Content\Location">Location</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$location</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">int|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$limit</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">int</span></code></pre>
                     </div>
                 </td>
             </tr>
@@ -891,13 +908,31 @@ for a SiteAccess in a current context will be used.</p>
                                                     -
                                             </td>
                 </tr>
+                            <tr>
+                    <td>
+                        $limit
+                    </td>
+                    <td>
+                        int|null
+                    </td>
+                    <td>
+                                                                                    null
+                                                                        </td>
+                    <td>
+                                                        <section class="phpdocumentor-description">
+        <p>If set, the count will be limited to first $limit items found.</p>
+
+    </section>
+
+                                            </td>
+                </tr>
                     </tbody>
     </table>
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type">int</p>
                         
-
-            <div class="content-header">
+    
+                <div class="content-header">
         <h3 id="method_getSubtreeSize">
                 <img src="./images/public.svg" alt="public" title="public" />getSubtreeSize()
             <a class="headerlink" href="classes/Ibexa-Contracts-Core-Repository-Decorator-LocationServiceDecorator.html#method_getSubtreeSize" title="Permanent link">¶</a>
@@ -922,7 +957,7 @@ for a SiteAccess in a current context will be used.</p>
                 </td>
                 <td class="code">
                     <div>
-                        <pre><code><span class="phpdocumentor-signature__visibility">public </span><span class="phpdocumentor-signature__name">getSubtreeSize</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-Location.html"><abbr title="\Ibexa\Contracts\Core\Repository\Values\Content\Location">Location</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$location</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">int</span></code></pre>
+                        <pre><code><span class="phpdocumentor-signature__visibility">public </span><span class="phpdocumentor-signature__name">getSubtreeSize</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-Location.html"><abbr title="\Ibexa\Contracts\Core\Repository\Values\Content\Location">Location</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$location</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">int|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$limit</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">int</span></code></pre>
                     </div>
                 </td>
             </tr>
@@ -960,13 +995,27 @@ for a SiteAccess in a current context will be used.</p>
                                                     -
                                             </td>
                 </tr>
+                            <tr>
+                    <td>
+                        $limit
+                    </td>
+                    <td>
+                        int|null
+                    </td>
+                    <td>
+                                                                                    null
+                                                                        </td>
+                    <td class="empty">
+                                                    -
+                                            </td>
+                </tr>
                     </tbody>
     </table>
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type">int</p>
                         
-
-            <div class="content-header">
+    
+                <div class="content-header">
         <h3 id="method_hideLocation">
                 <img src="./images/public.svg" alt="public" title="public" />hideLocation()
             <a class="headerlink" href="classes/Ibexa-Contracts-Core-Repository-Decorator-LocationServiceDecorator.html#method_hideLocation" title="Permanent link">¶</a>
@@ -1035,8 +1084,8 @@ for a SiteAccess in a current context will be used.</p>
     </section>
 
                         
-
-            <div class="content-header">
+    
+                <div class="content-header">
         <h3 id="method_loadAllLocations">
                 <img src="./images/public.svg" alt="public" title="public" />loadAllLocations()
             <a class="headerlink" href="classes/Ibexa-Contracts-Core-Repository-Decorator-LocationServiceDecorator.html#method_loadAllLocations" title="Permanent link">¶</a>
@@ -1114,8 +1163,8 @@ for a SiteAccess in a current context will be used.</p>
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type">array&lt;int, <a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-Location.html"><abbr title="\Ibexa\Contracts\Core\Repository\Values\Content\Location">Location</abbr></a>&gt;</p>
                         
-
-            <div class="content-header">
+    
+                <div class="content-header">
         <h3 id="method_loadLocation">
                 <img src="./images/public.svg" alt="public" title="public" />loadLocation()
             <a class="headerlink" href="classes/Ibexa-Contracts-Core-Repository-Decorator-LocationServiceDecorator.html#method_loadLocation" title="Permanent link">¶</a>
@@ -1215,8 +1264,8 @@ for a SiteAccess in a current context will be used.</p>
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type"><a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-Location.html"><abbr title="\Ibexa\Contracts\Core\Repository\Values\Content\Location">Location</abbr></a></p>
                         
-
-            <div class="content-header">
+    
+                <div class="content-header">
         <h3 id="method_loadLocationByRemoteId">
                 <img src="./images/public.svg" alt="public" title="public" />loadLocationByRemoteId()
             <a class="headerlink" href="classes/Ibexa-Contracts-Core-Repository-Decorator-LocationServiceDecorator.html#method_loadLocationByRemoteId" title="Permanent link">¶</a>
@@ -1316,8 +1365,8 @@ for a SiteAccess in a current context will be used.</p>
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type"><a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-Location.html"><abbr title="\Ibexa\Contracts\Core\Repository\Values\Content\Location">Location</abbr></a></p>
                         
-
-            <div class="content-header">
+    
+                <div class="content-header">
         <h3 id="method_loadLocationChildren">
                 <img src="./images/public.svg" alt="public" title="public" />loadLocationChildren()
             <a class="headerlink" href="classes/Ibexa-Contracts-Core-Repository-Decorator-LocationServiceDecorator.html#method_loadLocationChildren" title="Permanent link">¶</a>
@@ -1441,8 +1490,8 @@ Consider using <a href="classes/Ibexa-Contracts-Core-Repository-SearchService.ht
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type"><a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-LocationList.html"><abbr title="\Ibexa\Contracts\Core\Repository\Values\Content\LocationList">LocationList</abbr></a></p>
                         
-
-            <div class="content-header">
+    
+                <div class="content-header">
         <h3 id="method_loadLocationList">
                 <img src="./images/public.svg" alt="public" title="public" />loadLocationList()
             <a class="headerlink" href="classes/Ibexa-Contracts-Core-Repository-Decorator-LocationServiceDecorator.html#method_loadLocationList" title="Permanent link">¶</a>
@@ -1546,8 +1595,8 @@ Consider using <a href="classes/Ibexa-Contracts-Core-Repository-SearchService.ht
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type">array&lt;int, <a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-Location.html"><abbr title="\Ibexa\Contracts\Core\Repository\Values\Content\Location">Location</abbr></a>&gt;|iterable&lt;string|int, <a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-Location.html"><abbr title="\Ibexa\Contracts\Core\Repository\Values\Content\Location">Location</abbr></a>&gt;</p>
                         
-
-            <div class="content-header">
+    
+                <div class="content-header">
         <h3 id="method_loadLocations">
                 <img src="./images/public.svg" alt="public" title="public" />loadLocations()
             <a class="headerlink" href="classes/Ibexa-Contracts-Core-Repository-Decorator-LocationServiceDecorator.html#method_loadLocations" title="Permanent link">¶</a>
@@ -1653,8 +1702,8 @@ The location list is also filtered by permissions on reading locations.</p>
     </section>
 
                         
-
-            <div class="content-header">
+    
+                <div class="content-header">
         <h3 id="method_loadParentLocationsForDraftContent">
                 <img src="./images/public.svg" alt="public" title="public" />loadParentLocationsForDraftContent()
             <a class="headerlink" href="classes/Ibexa-Contracts-Core-Repository-Decorator-LocationServiceDecorator.html#method_loadParentLocationsForDraftContent" title="Permanent link">¶</a>
@@ -1741,8 +1790,8 @@ The location list is also filtered by permissions on reading locations.</p>
     </section>
 
                         
-
-            <div class="content-header">
+    
+                <div class="content-header">
         <h3 id="method_moveSubtree">
                 <img src="./images/public.svg" alt="public" title="public" />moveSubtree()
             <a class="headerlink" href="classes/Ibexa-Contracts-Core-Repository-Decorator-LocationServiceDecorator.html#method_moveSubtree" title="Permanent link">¶</a>
@@ -1823,8 +1872,8 @@ he can do it regardless of an existing descendant on which the user has no permi
                     </tbody>
     </table>
                     
-
-            <div class="content-header">
+    
+                <div class="content-header">
         <h3 id="method_newLocationCreateStruct">
                 <img src="./images/public.svg" alt="public" title="public" />newLocationCreateStruct()
             <a class="headerlink" href="classes/Ibexa-Contracts-Core-Repository-Decorator-LocationServiceDecorator.html#method_newLocationCreateStruct" title="Permanent link">¶</a>
@@ -1892,8 +1941,8 @@ he can do it regardless of an existing descendant on which the user has no permi
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type"><a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-LocationCreateStruct.html"><abbr title="\Ibexa\Contracts\Core\Repository\Values\Content\LocationCreateStruct">LocationCreateStruct</abbr></a></p>
                         
-
-            <div class="content-header">
+    
+                <div class="content-header">
         <h3 id="method_newLocationUpdateStruct">
                 <img src="./images/public.svg" alt="public" title="public" />newLocationUpdateStruct()
             <a class="headerlink" href="classes/Ibexa-Contracts-Core-Repository-Decorator-LocationServiceDecorator.html#method_newLocationUpdateStruct" title="Permanent link">¶</a>
@@ -1930,8 +1979,8 @@ he can do it regardless of an existing descendant on which the user has no permi
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type"><a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-LocationUpdateStruct.html"><abbr title="\Ibexa\Contracts\Core\Repository\Values\Content\LocationUpdateStruct">LocationUpdateStruct</abbr></a></p>
                         
-
-            <div class="content-header">
+    
+                <div class="content-header">
         <h3 id="method_swapLocation">
                 <img src="./images/public.svg" alt="public" title="public" />swapLocation()
             <a class="headerlink" href="classes/Ibexa-Contracts-Core-Repository-Decorator-LocationServiceDecorator.html#method_swapLocation" title="Permanent link">¶</a>
@@ -2007,8 +2056,8 @@ he can do it regardless of an existing descendant on which the user has no permi
                     </tbody>
     </table>
                     
-
-            <div class="content-header">
+    
+                <div class="content-header">
         <h3 id="method_unhideLocation">
                 <img src="./images/public.svg" alt="public" title="public" />unhideLocation()
             <a class="headerlink" href="classes/Ibexa-Contracts-Core-Repository-Decorator-LocationServiceDecorator.html#method_unhideLocation" title="Permanent link">¶</a>
@@ -2082,8 +2131,8 @@ until a hidden location is found.</p>
     </section>
 
                         
-
-            <div class="content-header">
+    
+                <div class="content-header">
         <h3 id="method_updateLocation">
                 <img src="./images/public.svg" alt="public" title="public" />updateLocation()
             <a class="headerlink" href="classes/Ibexa-Contracts-Core-Repository-Decorator-LocationServiceDecorator.html#method_updateLocation" title="Permanent link">¶</a>
@@ -2166,8 +2215,8 @@ until a hidden location is found.</p>
     </section>
 
                         
-
-                            </div>
+    
+                                </div>
                     </article>
                 </div>
 

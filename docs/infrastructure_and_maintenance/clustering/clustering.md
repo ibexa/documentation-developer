@@ -13,12 +13,12 @@ The parts illustrate the different roles needed for a successful cluster setup.
 
 ![Server setup for clustering](server_setup.png)
 
-The number of web servers, Redis, Solr, Varnish, Database, and NFS servers, but also whether some servers play several of these roles (typically running Redis across the web server), is up to you and your performance needs.
+The number of web servers, Redis/Valkey, Solr, Varnish, Database, and NFS servers, but also whether some servers play several of these roles (typically running Redis/Valkey across the web server), is up to you and your performance needs.
 
 The minimal requirements are:
 
 - [Shared HTTP cache (using Varnish)](reverse_proxy.md#using-varnish-or-fastly)
-- [Shared persistence cache](#shared-persistence-cache) and [sessions](#shared-sessions) (using Redis)
+- [Shared persistence cache](#shared-persistence-cache) and [sessions](#shared-sessions) (using Redis/Valkey)
 - Shared database (using MySQL/MariaDB)
 - [Shared binary files](#shared-binary-files) (using NFS, or S3)
 
@@ -34,14 +34,15 @@ It's also recommended to use:
 
 ### Shared persistence cache
 
-Redis is the recommended cache solution for clustering.
+Redis and Valkey are the recommended cache solutions for clustering.
 
 See [persistence cache documentation](persistence_cache.md#persistence-cache-configuration) on information on how to configure them.
 
 ### Shared sessions
 
 For a [cluster](clustering.md) setup you need to configure sessions to use a back end that is shared between web servers.
-The main option out of the box in Symfony is the PHP Redis session handler, alternatively there is Symfony session handler for PDO (database).
+The main option out of the box in Symfony is the PHP Redis session handler (also compatible with Valkey).
+Alternatively, there is Symfony session handler for PDO (database).
 
 To avoid concurrent access to session data from front-end nodes, if possible you should either:
 
@@ -50,7 +51,7 @@ To avoid concurrent access to session data from front-end nodes, if possible you
 
 Session locking is available with `php-redis` (v4.2.0 and higher).
 
-On [[= product_name_cloud =]] (and Upsun) Redis is preferred and supported.
+On [[= product_name_cloud =]] (and Upsun) Redis and Valkey are preferred and supported.
 
 ### Shared binary files
 
@@ -135,18 +136,14 @@ For production, it's recommended to create the DFS table in its own database, ma
     CREATE INDEX ibexa_dfs_file_name_trunk ON ibexa_dfs_file USING btree (name_trunk);
     ```
 
-!!! note
-    On [[= product_name_cloud =]] a separate DFS database is supported for MySQL only.
-
 This example uses Doctrine connection named `dfs`:
 
 ``` yaml
 parameters:
     env(DFS_DATABASE_URL): '%env(resolve:DATABASE_URL)%'
-    dfs_nfs_path: '%env(resolve:DFS_NFS_PATH)%'
     dfs_database_url: '%env(resolve:DFS_DATABASE_URL)%'
     ibexa.io.nfs.adapter.config:
-        root: '%dfs_nfs_path%'
+        root: '%kernel.project_dir%/%env(string:DFS_NFS_PATH)%'
         path: '$var_dir$/$storage_dir$/'
         writeFlags: ~
         linkHandling: ~
@@ -158,12 +155,12 @@ doctrine:
         connections:
             dfs:
                 # configure these for your database server
-                driver: '%dfs_database_driver%'
-                charset: '%dfs_database_charset%'
+                driver: '%env(string:DFS_DATABASE_DRIVER)%'
+                charset: '%env(string:DFS_DATABASE_CHARSET)%'
                 default_table_options:
-                    charset: '%dfs_database_charset%'
-                    collate: '%dfs_database_collation%'
-                url: '%dfs_database_url%'
+                    charset: '%env(string:DFS_DATABASE_CHARSET)%'
+                    collate: '%env(string:DFS_DATABASE_COLLATION)%'
+                url: '%env(string:DFS_DATABASE_URL)%'
 
 # define the Flysystem handler
 oneup_flysystem:
@@ -236,7 +233,7 @@ In any case, this specific rewrite rule must be placed before the ones that "ign
 
 #### Apache
 
-```
+```apacheconf
 RewriteRule ^/var/([^/]+/)?storage/images(-versioned)?/.* /index.php [L]
 ```
 
@@ -244,7 +241,7 @@ Place this before the standard image rewrite rule in your vhost config (or uncom
 
 #### nginx
 
-```
+```nginx
 rewrite "^/var/([^/]+/)?storage/images(-versioned)?/(.*)" "/index.php" break;
 ```
 
@@ -258,7 +255,7 @@ You can also use it when you're migrating from one data handler to another, for 
 
 This command shows which handlers are configured:
 
-```
+```bash
 > php bin/console ibexa:io:migrate-files --list-io-handlers
 Configured meta data handlers: default, dfs, aws_s3
 Configured binary data handlers: default, nfs, aws_s3
@@ -266,8 +263,8 @@ Configured binary data handlers: default, nfs, aws_s3
 
 You can do the actual migration like this:
 
-```
-> php bin/console ibexa:io:migrate-files --from=default,default --to=dfs,nfs --env=prod
+```bash
+php bin/console ibexa:io:migrate-files --from=default,default --to=dfs,nfs --env=prod
 ```
 
 The `--from` and `--to` values must be specified as `<metadata_handler>,<binarydata_handler>`.

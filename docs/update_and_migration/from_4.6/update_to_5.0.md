@@ -206,6 +206,17 @@ composer remove --no-update \
 ;
 ```
 
+#### Remove separate Elasticsearch 8 package
+
+If you were using the separate `ibexa/elasticsearch8` package in v4.6, you should switch back to the built-in `ibexa/elasticsearch` package, as it now supports both Elasticsearch 7 and Elasticsearch 8.
+
+```bash
+composer remove --no-update ibexa/elasticsearch8
+```
+
+The `ibexa/elasticsearch` package is automatically installed as part of your [[= product_name =]] 5.0 update.
+Your existing Elasticsearch 8 server and configuration continue to work with the `ibexa/elasticsearch` package.
+
 #### Remove PHP 8.2 error handler
 
 If you were using the [`Php82HideDeprecationsErrorHandler`](update_from_4.6.md#v468) to avoid deprecation messages,
@@ -1068,7 +1079,7 @@ php bin/console ibexa:reindex
 
 Finish the update process:
 
-```
+```bash
 composer run-script post-update-cmd
 ```
 

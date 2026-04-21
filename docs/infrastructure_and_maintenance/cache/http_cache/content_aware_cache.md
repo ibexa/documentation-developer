@@ -106,7 +106,7 @@ parameters:
 
 For content views response tagging is done automatically, and cache system outputs headers as follows:
 
-```
+```http
 HTTP/1.1 200 OK
 Cache-Control: public, max-age=86400
 xkey: ez-all c1 ct1 l2 pl1 p1 p2
@@ -258,7 +258,7 @@ All event subscribers can be found in `http-cache/src/lib/EventSubscriber/CacheP
 Below is an example of a content structure.
 The tags which the content view controller adds to each location are also listed:
 
-```
+```text
    - [Home] (content-id=52, location-id=2)
      ez-all c52 ct42 l2 pl1 p1 p2
      |
@@ -291,7 +291,7 @@ With the same content structure as above, the `[Child]` location is moved below 
 
 The new structure is then:
 
-```
+```yaml
    - [Home] (content-id=52, location-id=2)
      ez-all c52 ct42 l2 pl1 p1 p2
      |
@@ -374,7 +374,7 @@ If you run the command multiple times:
 
 it always outputs:
 
-```
+```http
 HTTP/2 200
 (...)
 x-cache: MISS
@@ -424,7 +424,7 @@ Next, use nslookup to find the IP:
 ### Fetching user context hash
 
 As explained in [User Context Hash caching](context_aware_cache.md#user-context-hash-caching), the HTTP cache indexes the cache based on the user-context-hash.
-Users with the same user-context-hash here the same cache (as long as [[= product_name =]] responds with `Vary: X-Context-User-Hash`).
+Users with the same user-context-hash share the same cache (as long as [[= product_name =]] responds with `Vary: X-User-Context-Hash`).
 
 To simulate the requests the HTTP cache sends to [[= product_name =]], you need this user-context-hash.
 To obtain it, use `curl`.
@@ -450,7 +450,7 @@ Some notes about each of these parameters:
 
 The output for this command should look similar to this:
 
-```
+```http
     HTTP/1.1 200 OK
     Server: nginx/1.27.0
     Content-Type: application/vnd.fos.user-context-hash
@@ -478,7 +478,7 @@ Now you have the user-context-hash, and you can ask origin for the actual resour
 
 The output :
 
-```
+```http
 HTTP/1.1 200 OK
 Server: nginx/1.27.0
 Content-Type: text/html; charset=UTF-8
@@ -521,7 +521,7 @@ The output is:
 Now, investigate the response of each of these ESI fragments to understand what is going on.
 It's important to put that URL in single quotes as the URLS to the ESIs include special characters that can be interpreted by the shell.
 
-#### 1st ESI
+#### 1st&nbsp;ESI
 
 ```bash
     $ curl -IXGET --resolve www.staging.foobar.com.us-2.platformsh.site:443:1.2.3.4 --header "Surrogate-Capability: abc=ESI/1.0" --header "x-user-context-hash: daea248406c0043e62997b37292bf93a8c91434e8661484983408897acd93814" 'https://www.staging.foobar.com.us-2.platformsh.site/_fragment?_hash=B%2BLUWB2kxTCc6nc5aEEn0eEqBSFar%2Br6jNm8fvSKdWU%3D&_path=locationId%3D2%26contentId%3D52%26blockId%3D11%26versionNo%3D3%26languageCode%3Deng-GB%26serialized_siteaccess%3D%257B%2522name%2522%253A%2522site%2522%252C%2522matchingType%2522%253A%2522default%2522%252C%2522matcher%2522%253Anull%252C%2522provider%2522%253Anull%257D%26serialized_siteaccess_matcher%3Dnull%26_format%3Dhtml%26_locale%3Den_GB%26_controller%3DEzSystems%255CEzPlatformPageFieldTypeBundle%255CController%255CBlockController%253A%253ArenderAction'
@@ -531,7 +531,7 @@ This ESI is handled by a controller in the `FieldTypePage` bundle provided by [[
 
 The output is:
 
-```
+```http
 HTTP/1.1 200 OK
 Server: nginx/1.27.0
 Content-Type: text/html; charset=UTF-8
@@ -549,7 +549,7 @@ Surrogate-Key: ez-all c52 l2
 The headers here look correct and don't indicate that this ESI isn't cached by the HTTP cache.
 The second ESI has a similar response.
 
-#### 3rd ESI
+#### 3rd&nbsp;ESI
 
 ```bash
     $ curl -IXGET --resolve www.staging.foobar.com.us-2.platformsh.site:443:1.2.3.4 --header "Surrogate-Capability: abc=ESI/1.0" --header "x-user-context-hash: daea248406c0043e62997b37292bf93a8c91434e8661484983408897acd93814" 'https://www.staging.foobar.com.us-2.platformsh.site//_fragment?_hash=lnKTnmv6bb1XpaMPWRjV3sNazbn9rDXskhjGae1BDw8%3D&_path=locationId%3D2%26contentId%3D52%26blockId%3D13%26versionNo%3D3%26languageCode%3Deng-GB%26serialized_siteaccess%3D%257B%2522name%2522%253A%2522site%2522%252C%2522matchingType%2522%253A%2522default%2522%252C%2522matcher%2522%253Anull%252C%2522provider%2522%253Anull%257D%26serialized_siteaccess_matcher%3Dnull%26_format%3Dhtml%26_locale%3Den_GB%26_controller%3DEzSystems%255CCustomBundle%255CController%255CFooController%253A%253AcustomAction'
@@ -559,7 +559,7 @@ This ESI is handled by a custom `FooController::customAction` and the output of 
 
 Output:
 
-```
+```http
 HTTP/1.1 200 OK
 Server: nginx/1.27.0
 Content-Type: text/html; charset=UTF-8

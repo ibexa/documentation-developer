@@ -51,7 +51,7 @@ It only happens after the article is edited and published.
 If this error occurs use the console command below.
 It cleans up redundant Relations rows:
 
-```
+```bash
 php bin/console ezpublish:update:legacy_storage_clean_up_relation_type_eq_zero
 ```
 The command can be executed in two modes:
@@ -59,21 +59,17 @@ The command can be executed in two modes:
 - list / dry-run - prints table with all corrupted Relations that are deleted (to be executed first)
 - fix - executes clean up
 
-You can read more about this issue here: [EZP-27254](https://issues.ibexa.co/browse/EZP-27254)
-
 ## Always available flag set on all fields
 
 Always available flag is set on all fields, instead of only on fields in the main language.
 This problem occurs when [[= product_name =]] is used to create content that is both always available and has multiple translations.
 The cleanup script correctly sets always available flag for prioritized language filtering in Legacy search engine.
 
-```
+```bash
 php bin/console ezpublish:update:legacy_storage_fix_fields_always_available_flag
 ```
 
 Only affected fields are processed by the cleanup command.
-
-You can read more about this issue here: [EZP-24882](https://issues.ibexa.co/browse/EZP-24882)
 
 ## Listing sub-content
 
@@ -83,8 +79,6 @@ The cleanup script checks if fields of given field type have correct sort key, a
 
 Execute the following command from the installation root directory:
 
-```
+```bash
 php bin/console ezpublish:update:legacy_storage_update_sort_keys
 ```
-
-You can read more about this issue here: [EZP-23924](https://issues.ibexa.co/browse/EZP-23924)

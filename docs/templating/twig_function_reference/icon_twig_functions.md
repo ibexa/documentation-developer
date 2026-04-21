@@ -6,14 +6,14 @@ month_change: false
 
 # Icon Twig functions
 
-### `ibexa_icon_path()`
+## `ibexa_icon_path()`
 
-`ibexa_icon_path()` generates a path to the selected icon from an icon set.
+`ibexa_icon_path()` generates a path to the selected icon from an [icon set](custom_icons.md#icon-sets).
 
-|Argument|Type|Description|
-|------|------|------|
-|`icon`|`string`|Identifier of an icon in the icon set.|
-|`set`|`string`|Identifier of the configured icon set. If empty, the default icon set is used.|
+| Argument | Type     | Description                                                                    |
+|----------|----------|--------------------------------------------------------------------------------|
+| `icon`   | `string` | Identifier of an icon in the icon set.                                         |
+| `set`    | `string` | Identifier of the configured icon set. If empty, the default icon set is used. |
 
 ```html+twig
 <svg class="ibexa-icon ibexa-icon--medium ibexa-icon--light">
@@ -23,7 +23,7 @@ month_change: false
 
 The icons can be displayed in different colors and sizes.
 
-#### Icon color variants
+### Icon color variants
 
 By default, the icon inherits the [`fill`](https://developer.mozilla.org/en-US/docs/Web/CSS/fill) attribute from the parent element.
 You can change it by using one of the available CSS modifiers:
@@ -42,7 +42,7 @@ You can change it by using one of the available CSS modifiers:
 </svg>
 ```
 
-#### Icon size variants
+### Icon size variants
 
 The default icon size in the back office is `32px`.
 To change the default size, in the template add the modifier to the class name.
@@ -66,7 +66,7 @@ The list of available icon sizes:
 |`--large`|`48px`|
 |`--extra-large`|`64px`|
 
-#### Icons reference
+### Icons reference
 
 The following icons are available out-of-the-box:
 
@@ -604,3 +604,12 @@ The following icons are available out-of-the-box:
 | ![zoom-in](img/icons/zoom-in.svg.png) | `zoom-in` |
 | ![zoom-out](img/icons/zoom-out.svg.png) | `zoom-out` |
 
+## `ibexa_content_type_icon()`
+
+`ibexa_content_type_icon()` generates a path to a content type icon.
+
+| Argument       | Type     | Description              |
+|----------------|----------|--------------------------|
+| `content_type` | `string` | Content type identifier. |
+
+See [Customize content type icons](custom_icons.md#customize-content-type-icons) to associate icons to content types.

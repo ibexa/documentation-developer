@@ -1,14 +1,279 @@
 ---
 description: Ibexa DXP v5.0 incorporates features brought by LTS Updates from previous versions, brings upgrades to the tech stack and improvements to developer experience.
 title: Ibexa DXP v5.0 LTS
-month_change: false
+month_change: true
 ---
 
 <!-- vale VariablesVersion = NO -->
 
-[[= release_notes_filters('Ibexa DXP v5.0 LTS', ['Headless', 'Experience', 'Commerce', 'LTS Update', 'New feature']) =]]
+[[= release_notes_filters('Ibexa DXP v5.0 LTS', ['Headless', 'Experience', 'Commerce', 'LTS Update', 'New feature', 'First release']) =]]
 
 <div class="release-notes" markdown="1">
+
+[[% set version = 'v5.0.7' %]]
+
+[[= release_note_entry_begin(
+    "Google Gemini connector " + version,
+    '2026-04-20',
+    ['Headless', 'Experience', 'Commerce', 'LTS Update', 'New feature', 'First release']
+) =]]
+
+This release introduces a new AI connector that allows you to integrate [AI Actions](https://doc.ibexa.co/en/5.0/ai_actions/ai_actions/) with [Google Gemini](https://gemini.google/overview/#what-gemini-is).
+You can also use it as an alternative embeddings provider for the [taxonomy suggestions feature](taxonomy.md#taxonomy-suggestions).
+
+For more information, see how to [install and configure the Google Gemini connector](https://doc.ibexa.co/en/5.0/ai_actions/configure_ai_actions/#install-google-gemini-connector).
+
+[[= release_note_entry_end() =]]
+
+[[= release_note_entry_begin(
+    "Integrated help " + version,
+    '2026-04-20',
+    ['Headless', 'Experience', 'Commerce', 'LTS Update', 'New feature']
+) =]]
+
+### Product tour
+
+The product tour is a new Integrated help feature that helps back office contributors to discover [[= product_name =]].
+
+With product tours, you can create customized onboarding journeys.
+This accelerates user adoption, reduces training time, and helps users confidently navigate the platform.
+
+For more information, see [Product tour](https://doc.ibexa.co/en/5.0/administration/back_office/product_tour/).
+
+[[= release_note_entry_end() =]]
+
+[[= release_note_entry_begin(
+    "Ibexa DXP " + version,
+    '2026-04-20',
+    ['Headless', 'Experience', 'Commerce', 'New feature']
+) =]]
+
+### Security
+
+This release includes security fixes.
+To learn more, see the [corresponding security advisory](https://developers.ibexa.co/security-advisories/ibexa-sa-2026-002-access_control-in-security.yaml-not-working).
+
+### Raptor connector
+
+The Raptor connector provides a seamless integration between [[= product_name =]] and [Raptor Recommendation Engine](https://www.raptorservices.com/website-recommendations/).
+
+For more information, see [Raptor connector](https://doc.ibexa.co/en/5.0/recommendations/raptor_integration/raptor_connector/).
+
+#### Tracking
+
+This add-on includes two Twig functions to ease tracking setting:
+
+- `ibexa_tracking_script` to load the JavaScript tracking code, for more information, see [Tracking script](https://doc.ibexa.co/en/5.0/recommendations/raptor_integration/tracking_functions/)
+- `ibexa_tracking_track_event` to send tracking events from your pages, for more information, see [Tracking event function](https://doc.ibexa.co/en/5.0/recommendations/raptor_integration/tracking_functions/)
+
+#### Recommendations blocks [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
+
+This add-on introduces a set of recommendation blocks available in the [Page Builder](https://doc.ibexa.co/en/5.0/content_management/pages/page_builder_guide/), designed to suggest relevant content or products to users, such as the most popular items or viewed by others.
+
+For more information about Recommendation blocks in Page Builder, see the relevant [Developer Documentation](https://doc.ibexa.co/en/5.0/recommendations/raptor_integration/recommendation_blocks/) and [User Documentation](https://doc.ibexa.co/projects/userguide/en/5.0/recommendations/raptor_integration/raptor_recommendation_blocks/).
+
+### [[= pim_product_name =]] PIM
+
+The [[= pim_product_name =]] integration add-on allows you to connect [[= product_name =]] with [[[= pim_product_name =]] Product Information Management (PIM)](https://www.quable.com/en), making [[= pim_product_name =]] the authoritative source of product information for every website powered by [[= product_name =]].
+
+[[= pim_product_name =]] can serve as the single source of truth for all product data, including attributes, classifications, variants, and translations. 
+[[= product_name =]] consumes this data and makes it available for use in content and digital experiences.
+
+For more information, see [Quable PIM Integration](https://doc.ibexa.co/en/5.0/product_catalog/quable/quable/).
+
+### AI Actions in Page Builder blocks [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
+
+You can now use the [refining text AI Actions](https://doc.ibexa.co/en/5.0/ai_actions/ai_actions_guide/#refining-text) in Page Builder blocks string and text inputs.
+
+### Developer experience
+
+#### Symfony 7.4
+
+Symfony is upgraded from 7.3 to 7.4.
+It's the latest [LTS release](https://symfony.com/releases#long-term-support-release), maintained till November 2029.
+See [what's new in Symfony 7.4](https://symfony.com/blog/category/living-on-the-edge/8.0-7.4) and [how to update Symfony within [[= product_name =]]](https://doc.ibexa.co/en/5.0/update_and_migration/from_5.0/update_from_5.0/#update-symfony-from-73-to-74).
+
+#### Taxonomy search
+
+One [taxonomy search](https://doc.ibexa.co/en/5.0/content_management/taxonomy/taxonomy_api/#search) criterion is added:
+
+- [`TaxonomyNoEntries`](https://doc.ibexa.co/en/5.0/search/criteria_reference/taxonomy_no_entries/) to find content items to which no taxonomy entries have been assigned.
+
+#### Custom parameters in `ibexa_render()`
+
+You can now pass custom parameters to templates when using the `ibexa_render()` Twig function with the new `params` option, similar to how you can with `render(controller())`.
+
+This allows you to provide additional context or data to your view templates:
+
+``` html+twig
+{{ ibexa_render(content, {
+    'viewType': 'line',
+    'method': 'inline',
+    'params': {
+        'custom_param': 'custom_value',
+        'another_param': 'another_value'
+    }
+}) }}
+```
+
+The parameters are available in your template as regular variables.
+
+For more information, see [`ibexa_render()` Twig function](https://doc.ibexa.co/en/5.0/templating/twig_function_reference/content_twig_functions/#ibexa_render).
+
+#### Try-catch support in data migrations
+
+Data migrations now support try-catch error handling, allowing you to wrap migration steps with exception handling logic.
+You can use it for migrations that might fail under certain conditions but should not break the entire migration process.
+
+For example, you can create languages without checking if they already exist:
+
+``` yaml
+[[= include_file('code_samples/data_migration/examples/try_catch_step.yaml') =]]
+```
+
+The `try_catch` step allows you to specify which exceptions to catch and whether to continue executing remaining steps after an exception occurs.
+
+For more information, see [Error handling with try-catch](https://doc.ibexa.co/en/5.0/content_management/data_migration/importing_data/#error-handling-with-try-catch).
+
+#### Translation-related Twig Component groups
+
+Four new [Twig component groups](https://doc.ibexa.co/en/5.0/templating/components/) related to Admin UI translation are added:
+
+- `admin-ui-product-translation-modal-footer`
+- `admin-ui-product-translations-actions-modal`
+- `admin-ui-product-translations-actions`
+- `admin-ui-product-translations-row-actions`
+
+For more information, see [available Admin UI Twig Component groups](https://doc.ibexa.co/en/5.0/administration/back_office/back_office_elements/custom_components/#admin-ui).
+
+#### REST API
+
+You can now find examples for some REST request bodies in the [OpenAPI REST API](rest_api_usage.md#openapi-support):
+
+- in the right column of the [online reference](https://doc.ibexa.co/en/5.0/api/rest_api/rest_api_reference/rest_api_reference.html),
+  and in the downloadable OpenAPI specification files
+- on your dev instance at `/api/ibexa/v2/doc` in an “Example Value” tab of the "Request Body" section, alongside the "Schema" tab
+- in the generated JSON or YAML OpenAPI specifications when running `ibexa:openapi` command
+
+#### PHP API
+
+The following additions were made to the PHP API:
+
+- [`Ibexa\Contracts\Core\FieldType\ReferenceAwareExternalStorage`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-FieldType-ReferenceAwareExternalStorage.html)
+- [`Ibexa\Contracts\Core\Options\Context`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Options-Context.html)
+- [`Ibexa\Contracts\CorporateAccount\Order\OrderStatusLabelProviderInterface`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-CorporateAccount-Order-OrderStatusLabelProviderInterface.html)
+- [`Ibexa\Contracts\ProductCatalog\Events\ProductAttributeRenderEvent`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Events-ProductAttributeRenderEvent.html)
+- [`Ibexa\Contracts\Taxonomy\Search\Query\Criterion\TaxonomyNoEntries`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-Taxonomy-Search-Query-Criterion-TaxonomyNoEntries.html)
+  <br>For more information, see [search criteria reference entry](https://doc.ibexa.co/en/5.0/search/criteria_reference/taxonomy_no_entries/).
+- [`Ibexa\Contracts\ConnectorRaptor` namespace](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/namespaces/ibexa-contracts-connectorraptor.html) from the [Raptor connector add-on](https://doc.ibexa.co/en/5.0/cdp/raptor_integration/raptor_connector/)
+- [`Ibexa\Contracts\IntegratedHelp` namespace](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/namespaces/ibexa-contracts-integratedhelp.html) from the [Integrated help LTS-Update](https://doc.ibexa.co/en/5.0/administration/back_office/integrated_help/)
+
+### Full changelog
+
+[[% include 'snippets/release_50.md' %]]
+
+[[= release_note_entry_end() =]]
+
+[[% set version = 'v5.0.6' %]]
+
+[[= release_note_entry_begin(
+    'Shopping Lists ' + version,
+    '2026-03-05',
+    ['Commerce', 'LTS Update', 'New feature']
+) =]]
+
+Shopping list is a new feature that allows users to save products into wishlists.
+An authenticated customer has a default "My wishlist", and can create custom shopping lists to organize their potential or recurrent purchases.
+Products can be moved from cart to shopping list, from a shopping list to another shopping list, and copied from a shopping list to the cart.
+
+For more information, see [Shopping list feature guide](https://doc.ibexa.co/en/5.0/commerce/shopping_list/shopping_list_guide/).
+
+[[= release_note_entry_end() =]]
+
+[[= release_note_entry_begin(
+    "Ibexa DXP " + version,
+    '2026-03-05',
+    ['Headless', 'Experience', 'Commerce', 'New feature']
+) =]]
+
+### Security
+
+This release includes security fixes.
+To learn more, see the [corresponding security advisory](https://developers.ibexa.co/security-advisories/ibexa-sa-2026-001-insufficient-main-landing-page-access-control).
+
+### Improved product variant querying
+
+Product variant querying now supports filtering by variant codes and product attribute criteria.
+
+You can now use the [`ProductServiceInterface::findVariants()`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-ProductServiceInterface.html#method_findVariants) method to search for variants across all products, regardless of their base product.
+
+For more information, see [Product API - Searching variants](https://doc.ibexa.co/en/5.0/pim/product_api/#searching-for-variants-across-all-products).
+
+### Infrastructure
+
+#### Ibexa Cloud package
+
+A new `ibexa/cloud` package is now available for [[= product_name_cloud =]] deployments.
+This package replaces the previous `composer ibexa:setup --platformsh` command with a dedicated console command.
+
+The package automatically generates environment variables based on the configuration of relationships and routes in [[= product_name_cloud =]],
+making it easier to configure services like databases, cache, search engines, and session storage.
+
+For more information, see [Install on Ibexa Cloud](https://doc.ibexa.co/en/5.0/ibexa_cloud/install_on_ibexa_cloud/) and [Environment variables on Ibexa Cloud](https://doc.ibexa.co/en/5.0/ibexa_cloud/environment_variables/).
+
+#### PHP 8.4 support
+
+PHP 8.4 is now [officially supported](https://doc.ibexa.co/en/5.0/getting_started/requirements/#php).
+
+### Query subtree limit configuration
+
+A new `query_subtree.limit` configuration option improves performance when working with large content trees by limiting count operations.
+This prevents performance degradation from database queries when determining if locations have children or calculating subtree sizes.
+
+For more information, see [Subtree operations configuration](https://doc.ibexa.co/en/5.0/administration/back_office/back_office_configuration/#subtree-operations).
+
+### Improved HTTP caching for Page Builder and dashboard blocks [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
+
+You can now indicate which [query parameters](https://en.wikipedia.org/wiki/Query_string) must be used as keys when generating [HTTP cache](https://doc.ibexa.co/en/5.0/infrastructure_and_maintenance/cache/http_cache/http_cache/) for block requests.
+
+This allows you to improve performance for blocks by utilizing HTTP cache more effectively, for example, for paginated blocks in the [dashboard](https://doc.ibexa.co/en/5.0/administration/dashboard/customize_dashboard/).
+
+To set it up, use the new `cacheable_query_params` [block setting](https://doc.ibexa.co/en/5.0/content_management/pages/page_blocks/#block-configuration).
+
+Then, adjust your [layouts](https://doc.ibexa.co/en/5.0/templating/render_content/render_page/#configure-layout) and pass the parameters to [Symfony's `controller function`]([[= symfony_doc =]]/reference/twig_reference.html#controller) by using the new `ibexa_append_cacheable_query_params` Twig function, as in the example below:
+
+``` html+twig
+{{ render_esi(controller('Ibexa\\Bundle\\FieldTypePage\\Controller\\BlockController::renderAction',
+    {
+        'locationId': locationId,
+        'contentId': contentInfo.id,
+        'blockId': block.id,
+        'versionNo': versionInfo.versionNo,
+        'languageCode': field.languageCode
+    },
+    ibexa_append_cacheable_query_params(block)
+)) }}
+```
+
+### Developer experience
+
+#### PHP API
+
+The following additions were made to the PHP API:
+
+- [`Ibexa\Contracts\Cdp\Value\Webhook\PersonIdType`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Cdp-Value-Webhook-PersonIdType.html)
+- [`Ibexa\Contracts\Cdp\Webhook`](/api/php_api/php_api_reference/namespaces/ibexa-contracts-cdp-webhook.html)
+- [`Ibexa\Contracts\Core\Persistence\Filter\Query`](/api/php_api/php_api_reference/namespaces/ibexa-contracts-core-persistence-filter-query.html)
+- [`Ibexa\Contracts\ImageEditor\Event`](/api/php_api/php_api_reference/namespaces/ibexa-contracts-imageeditor-event.html)
+- [`Ibexa\Contracts\ProductCatalog\Config`](/api/php_api/php_api_reference/namespaces/ibexa-contracts-productcatalog-config.html)
+- [`Ibexa\Contracts\ShoppingList`](/api/php_api/php_api_reference/namespaces/ibexa-contracts-shoppinglist.html)
+- [`Ibexa\Contracts\Taxonomy\Embedding\Exception`](/api/php_api/php_api_reference/namespaces/ibexa-contracts-taxonomy-embedding-exception.html)
+
+### Full changelog
+
+[[% include 'snippets/release_50.md' %]]
+
+[[= release_note_entry_end() =]]
 
 [[% set version = 'v5.0.5' %]]
 
@@ -20,15 +285,15 @@ month_change: false
 
 Elasticsearch 8 is now officially supported.
 If you're currently using Elasticsearch 7, which is [no longer maintained](https://www.elastic.co/support/eol), it's recommended to upgrade.
-See the [update instructions](update_from_5.0.md#update-elasticsearch-server) for more information.
+See the [update instructions](https://doc.ibexa.co/en/5.0/update_and_migration/from_5.0/update_from_5.0/#update-elasticsearch-server) for more information.
 
 #### Added support for Valkey
 
-Valkey is now [officially supported](requirements.md) alongside Redis.
+Valkey is now [officially supported](https://doc.ibexa.co/en/5.0/getting_started/requirements/) alongside Redis.
 
 #### Added support for PostgreSQL 18
 
-PostgreSQL 18 is now [officially supported](requirements.md#dbms).
+PostgreSQL 18 is now [officially supported](https://doc.ibexa.co/en/5.0/getting_started/requirements#dbms).
 
 ### Developer experience
 
@@ -57,7 +322,7 @@ when@prod:
 
 #### Added OpenAPI support for Collaborative editing REST API
 
-The [Collaborative editing](collaborative_editing.md) REST API endpoints are now included in the [OpenAPI-based REST API reference](/api/rest_api/rest_api_reference/rest_api_reference.html#tag/Collaboration-Sessions).
+The [Collaborative editing](https://doc.ibexa.co/en/5.0/content_management/collaborative_editing/collaborative_editing/) REST API endpoints are now included in the [OpenAPI-based REST API reference](https://doc.ibexa.co/en/5.0/api/rest_api/rest_api_reference/rest_api_reference.html#tag/Collaboration-Sessions).
 
 ### Full changelog
 
@@ -67,7 +332,7 @@ The [Collaborative editing](collaborative_editing.md) REST API endpoints are now
 
 [[% set version = 'v5.0.4' %]]
 
-[[= release_note_entry_begin("Integrated help " + version, '2025-12-10', ['Headless', 'Experience', 'Commerce', 'LTS Update', 'New feature']) =]]
+[[= release_note_entry_begin("Integrated help " + version, '2025-12-10', ['Headless', 'Experience', 'Commerce', 'LTS Update', 'New feature', 'First release']) =]]
 
 Integrated help brings contextual documentation, guidance, and partner-specific resources right into the user interface of [[= product_name =]].
 It helps editors, store managers, and developers to quickly access relevant content, training and resources without leaving the UI, narrowing the gap between product and documentation.
@@ -76,15 +341,15 @@ The default help menu can be modified to include links to internal editorial gui
 
 ![Integrated help menu](../administration/back_office/img/5_0_integrated_help_menu.png)
 
-For more information, see [Integrated help](integrated_help.md).
+For more information, see [Integrated help](https://doc.ibexa.co/en/5.0/administration/back_office/integrated_help/).
 
 [[= release_note_entry_end() =]]
 
-[[= release_note_entry_begin("Anthropic connector " + version, '2025-12-10', ['Headless', 'Experience', 'Commerce', 'LTS Update', 'New feature']) =]]
+[[= release_note_entry_begin("Anthropic connector " + version, '2025-12-10', ['Headless', 'Experience', 'Commerce', 'LTS Update', 'New feature', 'First release']) =]]
 
-This release introduces a new AI connector that allows you to integrate [AI Actions](ai_actions.md) with [Anthropic Claude](https://claude.com/product/overview).
+This release introduces a new AI connector that allows you to integrate [AI Actions](https://doc.ibexa.co/en/5.0/ai_actions/ai_actions/) with [Anthropic Claude](https://claude.com/product/overview).
 
-For more information, see how to [install Anthropic connector](configure_ai_actions.md#install-anthropic-connector).
+For more information, see how to [install Anthropic connector](https://doc.ibexa.co/en/5.0/ai_actions/configure_ai_actions#install-anthropic-connector).
 
 [[= release_note_entry_end() =]]
 
@@ -97,7 +362,7 @@ To learn more, see the [corresponding security advisory](https://developers.ibex
 
 ### Real-time collaborative editing
 
-Real-time editing is now part of the [Collaborative editing](collaborative_editing.md) feature.
+Real-time editing is now part of the [Collaborative editing](https://doc.ibexa.co/en/5.0/content_management/collaborative_editing/collaborative_editing/) feature.
 
 By using it, users can edit and review content in real time, making teamwork faster, more efficient, and streamlining the content review process.
 The system automatically tracks changes, allowing seamless collaboration within a single content item.
@@ -106,7 +371,7 @@ This extends the already existing capabilities allowing editors to work on the s
 
 ![Participants list](img/participants_list.png)
 
-For more information, see how to [configure Collaborative editing](configure_collaborative_editing.md).
+For more information, see how to [configure Collaborative editing](https://doc.ibexa.co/en/5.0/content_management/collaborative_editing/configure_collaborative_editing/).
 
 ### Taxonomy suggestions for faster content classification
 
@@ -118,11 +383,11 @@ This approach reduces manual effort, minimizes errors, and significantly improve
 
 ![Taxonomy entries suggested by the AI Assistant](img/taxonomy_suggestions_content.png "Taxonomy entries suggested by the AI Assistant")
 
-For more information, see [Taxonomy suggestions](taxonomy.md#taxonomy-suggestions).
+For more information, see [Taxonomy suggestions](https://doc.ibexa.co/en/5.0/content_management/taxonomy/taxonomy/#taxonomy-suggestions).
 
 ### Infrastructure
 
-- MariaDB 11.4 is now [officially supported](requirements.md#dbms)
+- MariaDB 11.4 is now [officially supported](https://doc.ibexa.co/en/5.0/getting_started/requirements/#dbms)
 
 ### Developer experience
 
@@ -144,7 +409,6 @@ The following additions were made to the PHP API:
 - [`Ibexa\Contracts\FieldTypeRichTextRTE\ToS\Status`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-FieldTypeRichTextRTE-ToS-Status.html)
 - [`Ibexa\Contracts\FieldTypeRichTextRTE\ToS\ToSServiceInterface`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-FieldTypeRichTextRTE-ToS-ToSServiceInterface.html)
 - [`Ibexa\Contracts\Share\Mapper\Action\ShareActionItemsMapperInterface`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-Share-Mapper-Action-ShareActionItemsMapperInterface.html)
-
 
 ##### AI Taxonomy suggestions:
 
@@ -176,22 +440,24 @@ The following additions were made to the PHP API:
 - [`Ibexa\Contracts\Taxonomy\Embedding\TaxonomyEmbeddingFieldProviderInterface`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-Taxonomy-Embedding-TaxonomyEmbeddingFieldProviderInterface.html)
 - [`Ibexa\Contracts\Taxonomy\Search\Query\Value\TaxonomyEmbedding`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-Taxonomy-Search-Query-Value-TaxonomyEmbedding.html)
 
-##### Search:
+##### Search
 
 - [`Ibexa\Contracts\AdminUi\ContentType\ContentTypeFieldsByExpressionServiceInterface`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-AdminUi-ContentType-ContentTypeFieldsByExpressionServiceInterface.html)
 - [`Ibexa\Contracts\CoreSearch\Values\Query\PaginationAwareInterface`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-CoreSearch-Values-Query-PaginationAwareInterface.html)
 - [`Ibexa\Contracts\SiteFactory\Values\Query\Criterion\MatchTreeRootLocationIds`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-SiteFactory-Values-Query-Criterion-MatchTreeRootLocationIds.html)
 
-##### Other:
+##### Other
 
 - [`Ibexa\Contracts\ProductCatalog\CapabilitiesEnum`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-CapabilitiesEnum.html)
 - [`Ibexa\Contracts\ProductCatalog\CapabilitiesServiceInterface`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-CapabilitiesServiceInterface.html)
 - [`Ibexa\Contracts\User\PasswordReset\NotifierInterface`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-User-PasswordReset-NotifierInterface.html)
 
 [[% include 'snippets/release_50.md' %]]
+
 [[= release_note_entry_end() =]]
 
 [[% set version = 'v5.0.3' %]]
+
 [[= release_note_entry_begin("Ibexa DXP " + version, '2024-10-17', ['Headless', 'Experience', 'Commerce']) =]]
 
 ### Security
@@ -234,17 +500,18 @@ The PHP API has been expanded with the following:
     - [`Ibexa\Contracts\Core\Repository\Values\ContentType\Query\SortClause\Id`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-ContentType-Query-SortClause-Id.html)
     - [`Ibexa\Contracts\Core\Repository\Values\ContentType\Query\SortClause\Identifier`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-ContentType-Query-SortClause-Identifier.html)
     - [`Ibexa\Contracts\Core\Repository\Values\ContentType\Query\SortClause\Name`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-ContentType-Query-SortClause-Name.html)
-    
 
 [[% include 'snippets/release_50.md' %]]
+
 [[= release_note_entry_end() =]]
 
 [[% set version = 'v5.0.2' %]]
+
 [[= release_note_entry_begin("Ibexa DXP " + version, '2025-09-09', ['Headless', 'Experience', 'Commerce', 'New feature']) =]]
 
 ### Collaboration
 
-The new [Collaborative editing feature](collaborative_editing_guide.md) allows multiple users to preview, review, and edit the same content, improving teamwork and streamlining the review process.
+The new [Collaborative editing feature](https://doc.ibexa.co/en/5.0/content_management/collaborative_editing/collaborative_editing_guide/) allows multiple users to preview, review, and edit the same content, improving teamwork and streamlining the review process.
 Internal and external users can be invited to a collaboration session, through different sharing options.
 
 With Real-time editing, more advanced part of the feature, users can see each other’s changes in the real time, or work on the content asynchronously.
@@ -282,7 +549,7 @@ The following packages have been introduced in Ibexa DXP v5.0.2:
 
 #### New version of PHP Storm Plugin
 
-To further improve your experience with Ibexa DXP, a 1.14.0 version of [PHP Storm Plugin](phpstorm_plugin.md) has been released, which brings the following changes:
+To further improve your experience with Ibexa DXP, a 1.14.0 version of [PHP Storm Plugin](https://doc.ibexa.co/en/5.0/resources/phpstorm_plugin/) has been released, which brings the following changes:
 
 - Added support for Ibexa DXP v5.0
 - Added compatibility with PhpStorm 2024.3.6+
@@ -379,16 +646,16 @@ The PHP API has been expanded with the following:
 
 ### Special characters in online editor
 
-The [online editor](online_editor_guide.md) now allows to easily enter special characters like currency symbols.
+The [online editor](https://doc.ibexa.co/en/5.0/content_management/rich_text/online_editor_guide/) now allows to easily enter special characters like currency symbols.
 It uses the [special characters plugin](https://ckeditor.com/docs/ckeditor5/latest/features/special-characters.html).
 
 ![Special characters in online editor](4.6_special_characters.png "Special characters in online editor")
 
 ### Support for Solr 9
 
-With this release, [[= product_name =]] starts supporting [Solr 9](requirements.md#search).
+With this release, [[= product_name =]] starts supporting [Solr 9](https://doc.ibexa.co/en/5.0/getting_started/requirements/#search).
 
-Solr 9 comes with support for [Dense Vector Search](https://solr.apache.org/guide/solr/latest/query-guide/dense-vector-search.html), paving the way for incoming improvements to the [AI Actions](ai_actions.md) feature.
+Solr 9 comes with support for [Dense Vector Search](https://solr.apache.org/guide/solr/latest/query-guide/dense-vector-search.html), paving the way for incoming improvements to the [AI Actions](https://doc.ibexa.co/en/5.0/ai_actions/ai_actions/) feature.
 
 ### Improved content creation interface
 
@@ -398,9 +665,9 @@ The editing interface of the back office is now improved to better highlight the
 
 ### Taxonomy Subtree limitation
 
-You can now manage access to [taxonomy items](taxonomy.md) more effectively by using the new [Taxonomy Subtree limitation](limitation_reference.md#taxonomy-subtree-limitation).
+You can now manage access to [taxonomy items](https://doc.ibexa.co/en/5.0/content_management/taxonomy/taxonomy/) more effectively by using the new [Taxonomy Subtree limitation](https://doc.ibexa.co/en/5.0/permissions/limitation_reference/#taxonomy-subtree-limitation).
 
-In addition, you can now use the [Taxonomy limitation](limitation_reference.md#taxonomy-limitation) together with the `taxonomy/assign` policy.
+In addition, you can now use the [Taxonomy limitation](https://doc.ibexa.co/en/5.0/permissions/limitation_reference/#taxonomy-limitation) together with the `taxonomy/assign` policy.
 
 ### Base price column added to a Product Picker view
 
@@ -423,7 +690,8 @@ This release brings additional minor improvements to the developer's experience 
 [[= release_note_entry_end() =]]
 
 [[% set version = 'v5.0.0' %]]
-[[= release_note_entry_begin("Ibexa DXP " + version, '2025-07-22', ['Headless', 'Experience', 'Commerce', 'New feature']) =]]
+
+[[= release_note_entry_begin("Ibexa DXP " + version, '2025-07-22', ['Headless', 'Experience', 'Commerce', 'New feature', 'First release']) =]]
 
 ### Notable changes
 
@@ -441,7 +709,7 @@ By default, the AI Actions feature can help users with their work in following s
 
 AI Actions integrate with [Ibexa Connect]([[= connect_doc =]]), giving you an opportunity to build complex data transformation workflows without having to rely on custom code.
 
-For more information, see [AI Actions product guide](ai_actions_guide.md).
+For more information, see [AI Actions product guide](https://doc.ibexa.co/en/5.0/ai_actions/ai_actions_guide/).
 
 #### Discounts [[% include 'snippets/commerce_badge.md' %]]
 
@@ -453,19 +721,19 @@ By displaying discounted prices clearly in the catalog or cart, businesses can c
 
 ![Discounts for products in the cart](4.6_discounts.png)
 
-For more information, see [Discounts product guide](discounts_guide.md).
+For more information, see [Discounts product guide](https://doc.ibexa.co/en/5.0/discounts/discounts_guide/).
 
 #### Date and time attribute
 
-The Date and time attributes allow you to represent date and time values as part of the product specification in the [Product Information Management](pim_guide.md) system.
+The Date and time attributes allow you to represent date and time values as part of the product specification in the [product catalog](https://doc.ibexa.co/en/5.0/product_catalog/product_catalog_guide).
 
-For more information, see [Date and time attributes](date_and_time.md).
+For more information, see [Date and time attributes](https://doc.ibexa.co/en/5.0/product_catalog/attributes/date_and_time/).
 
 #### Symbol attribute
 
-The Symbol attributes allow you to efficiently represent the string-based data as part of the product specification in the [Product Information Management](pim_guide.md) system.
+The Symbol attributes allow you to efficiently represent the string-based data as part of the product specification in the [product catalog](https://doc.ibexa.co/en/5.0/product_catalog/product_catalog_guide).
 
-For more information, see [Symbol attributes](symbol_attribute_type.md).
+For more information, see [Symbol attributes](https://doc.ibexa.co/en/5.0/product_catalog/attributes/symbol_attribute_type/).
 
 #### Collaboration
 
@@ -480,7 +748,7 @@ For more information, see [Collaboration PHP API](https://doc.ibexa.co/en/5.0/ap
 
 With improved compatibility, performance and increased security, as well as better developer experience in mind, [[= product_name_base =]] decided to introduce several significant tech stack upgrades.
 
-For a full list of updated system requirements, see [Requirements](../getting_started/requirements.md).
+For a full list of updated system requirements, see [Requirements](https://doc.ibexa.co/en/5.0/getting_started/requirements/).
 
 #### Symfony 7.3
 
@@ -500,7 +768,7 @@ With performance, coding safety and security in mind, with this version, [[= pro
 
 Adding support for generating the [OpenAPI](https://www.openapis.org/) specification for our REST API makes future changes more manageable, and helps our partners automatically generate REST API clients.
 
-For more information, see [REST API usage](https://doc.ibexa.co/en/latest/api/rest_api/rest_api_usage/rest_api_usage/#openapi-support).
+For more information, see [REST API usage](https://doc.ibexa.co/en/5.0/api/rest_api/rest_api_usage/rest_api_usage/#openapi-support).
 
 Support for serialization and deserialization of REST payloads with the [Symfony Serializer](https://symfony.com/doc/current/serializer.html) component improves data reliability and simplifies debugging.
 
@@ -635,7 +903,7 @@ The PHP API has been expanded with the following classes and interfaces:
     - [`Ibexa\Contracts\DiscountsCodes\Value\Struct\DiscountCodeCreateStruct `](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-DiscountsCodes-Value-Struct-DiscountCodeCreateStruct.html)
     - [`Ibexa\Contracts\DiscountsCodes\Value\StructDiscountCodeUpdateStruct `](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-DiscountsCodes-Value-Struct-DiscountCodeUpdateStruct.html)
 
-??? note "PIM Attributes"
+??? note "Product catalog attributes"
 
     - [`Ibexa\Contracts\ProductCatalogDateTimeAttribute`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/namespaces/ibexa-contracts-productcatalogdatetimeattribute.html)
     - [`Ibexa\Contracts\ProductCatalogSymbolAttribute`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/namespaces/ibexa-contracts-productcatalogsymbolattribute.html)
@@ -667,7 +935,7 @@ The following search criteria have been added in the v5.0 release:
     - [`Ibexa\Contracts\Discounts\Value\Query\Criterion\StartDateCriterion`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-Discounts-Value-Query-Criterion-StartDateCriterion.html)
     - [`Ibexa\Contracts\Discounts\Value\Query\Criterion\TypeCriterion`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-Discounts-Value-Query-Criterion-TypeCriterion.html)
 
-??? note "PIM Attributes"
+??? note "Product catalog attributes"
 
     - [`Ibexa\Contracts\ProductCatalogDateTimeAttribute\Search\Criterion\DateTimeAttribute`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalogDateTimeAttribute-Search-Criterion-DateTimeAttribute.html)
     - [`Ibexa\Contracts\ProductCatalogDateTimeAttribute\Search\Criterion\DateTimeAttributeRange`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalogDateTimeAttribute-Search-Criterion-DateTimeAttributeRange.html)
@@ -735,17 +1003,17 @@ The following events have been added in the v5.0 release:
 
 The following Twig functions have been added in the v5.0 release:
 
-- [`ibexa_ai_config`](../templating/twig_function_reference/ai_actions_twig_functions.md#ibexa_ai_config)
-- [`ibexa_render_discount_rule_type`](../templating/twig_function_reference/discounts_twig_functions.md#ibexa_render_discount_rule_type)
-- [`ibexa_discounts_render_discount_badge`](../templating/twig_function_reference/discounts_twig_functions.md#ibexa_discounts_render_discount_badge)
-- [`ibexa_get_original_price`](../templating/twig_function_reference/discounts_twig_functions.md#ibexa_get_original_price)
-- [`ibexa_format_discount_value`](../templating/twig_function_reference/discounts_twig_functions.md#ibexa_format_discount_value)
-- [`ibexa_discounts_is_active`](../templating/twig_function_reference/discounts_twig_functions.md#ibexa_discounts_is_active)
-- [`ibexa_discounts_form_themes`](../templating/twig_function_reference/discounts_twig_functions.md#ibexa_discounts_form_themes)
-- [`ibexa_discounts_can_edit`](../templating/twig_function_reference/discounts_twig_functions.md#ibexa_discounts_can_edit)
-- [`ibexa_discounts_can_enable`](../templating/twig_function_reference/discounts_twig_functions.md#ibexa_discounts_can_enable)
-- [`ibexa_discounts_can_disable`](../templating/twig_function_reference/discounts_twig_functions.md#ibexa_discounts_can_disable)
-- [`ibexa_discounts_can_delete`](../templating/twig_function_reference/discounts_twig_functions.md#ibexa_discounts_can_delete)
+- [`ibexa_ai_config`](https://doc.ibexa.co/en/5.0/templating/twig_function_reference/ai_actions_twig_functions#ibexa_ai_config)
+- [`ibexa_render_discount_rule_type`](https://doc.ibexa.co/en/5.0/templating/twig_function_reference/discounts_twig_functions#ibexa_render_discount_rule_type)
+- [`ibexa_discounts_render_discount_badge`](https://doc.ibexa.co/en/5.0/templating/twig_function_reference/discounts_twig_functions#ibexa_discounts_render_discount_badge)
+- [`ibexa_get_original_price`](https://doc.ibexa.co/en/5.0/templating/twig_function_reference/discounts_twig_functions#ibexa_get_original_price)
+- [`ibexa_format_discount_value`](https://doc.ibexa.co/en/5.0/templating/twig_function_reference/discounts_twig_functions#ibexa_format_discount_value)
+- [`ibexa_discounts_is_active`](https://doc.ibexa.co/en/5.0/templating/twig_function_reference/discounts_twig_functions#ibexa_discounts_is_active)
+- [`ibexa_discounts_form_themes`](https://doc.ibexa.co/en/5.0/templating/twig_function_reference/discounts_twig_functions#ibexa_discounts_form_themes)
+- [`ibexa_discounts_can_edit`](https://doc.ibexa.co/en/5.0/templating/twig_function_reference/discounts_twig_functions#ibexa_discounts_can_edit)
+- [`ibexa_discounts_can_enable`](https://doc.ibexa.co/en/5.0/templating/twig_function_reference/discounts_twig_functions#ibexa_discounts_can_enable)
+- [`ibexa_discounts_can_disable`](https://doc.ibexa.co/en/5.0/templating/twig_function_reference/discounts_twig_functions#ibexa_discounts_can_disable)
+- [`ibexa_discounts_can_delete`](https://doc.ibexa.co/en/5.0/templating/twig_function_reference/discounts_twig_functions#ibexa_discounts_can_delete)
 
 #### Other upgrades
 
@@ -753,20 +1021,20 @@ This release brings other minor upgrades intended to improve the developer's exp
 
 - To improve code clarity, reliability, and error detection, type hint declarations that specify the expected data type have been added in multiple places throughout the product
 - In anticipation of [changes coming with PHP 8.4](https://php.watch/versions/8.4/implicitly-marking-parameter-type-nullable-deprecated), implicit nullable type declarations have been replaced with nullable type declarations throughout the product code. It is recommended that you update your custom code in the same way
-- Developer experience has improved with capabilities offered by PHP in version 8.3. For example, the `AsTwigComponent` attribute [facilitates autoconfiguration](components.md#php-code) of Twig components
+- Developer experience has improved with capabilities offered by PHP in version 8.3. For example, the `AsTwigComponent` attribute [facilitates autoconfiguration](https://doc.ibexa.co/en/5.0/templating/components/#php-code) of Twig components
 - With protection against breaking changes and easier refactoring in mind, [TypeScript](https://www.typescriptlang.org/) can now be used to extend the Back Office
 - [[[= product_name_base =]] Rector package](https://github.com/ibexa/rector) has been introduced that is based on [Rector](https://github.com/rectorphp) and comes with additional rules for working with Ibexa code. You can use it to get rid of PHP code deprecations
-- [New icons](../templating/twig_function_reference/icon_twig_functions.md#icons-reference) replace the ones found in previous versions and serve as a highlight of a future system design
+- [New icons](https://doc.ibexa.co/en/5.0/templating/twig_function_reference/icon_twig_functions#icons-reference) replace the ones found in previous versions and serve as a highlight of a future system design
 
 ### Deprecations
 
-Refer to [Ibexa DXP v5.0 renames, deprecations and removals](ibexa_dxp_v5.0_deprecations.md) for a full list of changes and how they influence your project.
+Refer to [Ibexa DXP v5.0 renames, deprecations and removals](https://doc.ibexa.co/en/5.0/release_notes/ibexa_dxp_v5.0_deprecations/) for a full list of changes and how they influence your project.
 
 ### Full changelog
 
 [[% include 'snippets/release_50.md' %]]
 
-To update your application, see the [update instructions](../update_and_migration/from_4.6/update_to_5.0.md).
+To update your application, see the [update instructions](https://doc.ibexa.co/en/5.0/update_and_migration/from_4.6/update_to_5.0/).
 
 [[= release_note_entry_end() =]]
 

@@ -73,6 +73,11 @@ jobs:
                   git diff-index --quiet --cached HEAD || git commit -m "PHP API Ref HTML"
                   git add docs/api/rest_api/rest_api_reference/rest_api_reference.html
                   git diff-index --quiet --cached HEAD || git commit -m "REST API Ref HTML"
+                  if [[ '4.6' != $BASE_BRANCH ]]; then
+                    git add docs/api/rest_api/rest_api_reference/openapi.yaml
+                    git add docs/api/rest_api/rest_api_reference/openapi.json
+                    git diff-index --quiet --cached HEAD || git commit -m "REST API OpenAPI spec"
+                  fi
 
             - name: Create Pull Request
               uses: peter-evans/create-pull-request@v7
