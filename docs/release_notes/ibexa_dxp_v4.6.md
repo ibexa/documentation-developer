@@ -19,6 +19,7 @@ month_change: true
     ['Headless', 'Experience', 'Commerce', 'New feature']
 ) =]]
 
+<!-- markdownlint-disable-next-line heading-increment -->
 ### Security
 
 This release includes security fixes.

@@ -7,13 +7,13 @@ description: In Ibexa DXP you store and manage configuration in project files, t
 [[= product_name =]] configuration is delivered by means of a number of dedicated configuration files.
 It contains everything from selecting the content repository to SiteAccesses to language settings.
 
-### Configuration format
+## Configuration format
 
 The recommended configuration format is YAML.
 It's used by default in the kernel (and in examples throughout the documentation).
 However, you can also use XML or PHP formats for configuration.
 
-### Configuration files
+## Configuration files
 
 Configuration files are located in the `config` folder.
 Configuration is provided per package in the `config/packages` folder, and routes are defined per package in `config/routes`.
@@ -43,7 +43,7 @@ These files contain additional settings and point to the general (not environmen
 
     Be careful when copy-pasting text from a word processing software or a PDF, because it might contain hidden characters like the [soft hyphen](https://en.wikipedia.org/wiki/Soft_hyphen).
 
-### Configuration handling
+## Configuration handling
 
 !!! note
 

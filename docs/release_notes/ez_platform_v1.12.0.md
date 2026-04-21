@@ -8,7 +8,7 @@ If you're looking for the Long Term Support (LTS) release, see [https://ezplatfo
 
 ## Notable changes since v1.11.0
 
-#### New Options in the Rich Text editor
+### New Options in the Rich Text editor
 
 The Rich Text editor now enables you to add both ordered and unordered lists.
 
@@ -16,11 +16,11 @@ You also have new options to format your text using subscript, superscript, quot
 
 ![New text formatting options](oe-formatting-new-options.png)
 
-#### Improved full text search capabilities
+### Improved full text search capabilities
 
 Added support for full-text search query syntax in Solr.
 
-#### Deleting translations
+### Deleting translations
 
 You can now remove translations from content item Versions through the PHP API.
 
@@ -28,14 +28,14 @@ For more information, see the section on [deleting translations](https://doc.ibe
 
 You also have a new endpoint available for deleting a single Version.
 
-#### Improved Security for password storage
+### Improved Security for password storage
 
 1.12 introduces and enables by default more secure user passwords hashing using bcrypt,
 and is future-proofed for new hashing formats being added to PHP, like Argon2i coming with PHP 7.2.
 
 This feature is added both in eZ Platform and the accompanying eZ Publish legacy 2017.10 release for projects looking to migrate to a newer version of Platform and take advantage of the new features.
 
-#### Improved Varnish performance
+### Improved Varnish performance
 
 This release switches default HTTPCache usage to use ezplatform-http-cache package, which uses Varnish xkey allowing: soft purge, better cache clearing logic and longer ttl.
 

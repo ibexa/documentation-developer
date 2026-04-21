@@ -19,7 +19,7 @@ This field type makes it possible to store and retrieve values of a relation to 
 
 ### Value Object
 
-##### Properties
+#### Properties
 
 `Ibexa\Core\FieldType\RelationList\Value` contains the following properties:
 
@@ -36,7 +36,7 @@ $relationList->destinationContentId = [
 ];
 ```
 
-##### Constructor
+#### Constructor
 
 The `RelationList\Value` constructor initializes a new value object with the value provided.
 It expects a mixed array as value.

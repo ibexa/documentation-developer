@@ -11,7 +11,7 @@ It's capable of handling up to 255 characters.
 
 ### Value object
 
-##### Properties
+#### Properties
 
 The Value class of this field type contains the following properties:
 

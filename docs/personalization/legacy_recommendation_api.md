@@ -151,7 +151,7 @@ The format of error messages can be changed and should not be used for automated
 
 There are some additional special request parameters.
 
-###### any attribute name (used only if submodels are configured)
+### any attribute name (used only if submodels are configured)
 
 Item's attribute, for example, color, price, and more.
 These are customer specific and can only be understood by the recommender system if the item attributes are imported by using the YOOCHOOSE content import APIs.
@@ -161,7 +161,7 @@ Legacy Recommendation API and [Submodel configuration]([[= user_doc =]]/personal
 
 **Values**: alphanumeric=alphanumeric [&alphanumeric=alphanumeric]
 
-###### `usecontextcategorypath`
+### `usecontextcategorypath`
 
 If set to true, the category path of the contextitem(s) is resolved by the recommender engine from the internal store and used as base category path.
 If more than one category is returned, all categories are used for providing recommendations.
@@ -170,7 +170,7 @@ Use the parameter categorypath to provide the category to the recommender engine
 
 **Values**: true or false (default "false")
 
-###### `recommendCategory` (to be used only in the eZ Recommendation extension)
+### `recommendCategory` (to be used only in the eZ Recommendation extension)
 
 If passed in combination with a "categorypath" value, the "closest" category the recommended items linked with is delivered in the response as additional field "category".
 
@@ -226,30 +226,30 @@ You just need to make sure that the Expires header is used in the configuration 
 
 There are several ways to integrate the REST calls to the Recommendation engine and avoid the blocking of the web page rendering, if the communication with the Recommender is distrusted or interrupted.
 
-#### **Simple Way**
+### **Simple Way**
 
 The simplest way to load recommendations is to synchronously request the Recommendation Engine for recommendations as they're needed.
 This way is sufficient in most cases. The most important drawback is that the request time increases by the time of the recommendation request.
 If the network is overloaded or the Recommendation Engine isn't available it can lock the request.
 
-#### Loading in the bottom
+### Loading in the bottom
 
 You can place the code that loads the data from the eZ Recommender at the bottom of the generated document and flush the output buffer to the client just before requesting recommendations.
 The browser gets a whole page to render and can display it even if the very end of the page is still loading.
 Then the JavaScript code with the recommendation information loaded at the bottom of the page must fill the gaps on the page with recommendation as soon as it's completely loaded.
 
-#### Non-blocking loading in the background
+### Non-blocking loading in the background
 
 If the website is implemented in a language which supports multithreading or non-blocking I/O, it's possible to start the recommendation request just after the browser request is received.
 The page generation and the recommendation requests are accomplished in parallel.
 By combining this idea with the previous solution and placing the recommendation results at the bottom of the page you can avoid any interruption in the processing.
 
-#### Using JSONP to load from JavaScript
+### Using JSONP to load from JavaScript
 
 It's not possible to request the recommendation controller server directly from the JavaScript (over AJAX library or directly over XMLHttpRequest) because of the cross-domain restriction in most browsers.
 One of the possible technique to work around this limitation is [JSONP](https://en.wikipedia.org/wiki/JSONP).
 
-#### Loading over proxy
+### Loading over proxy
 
 A better solution in comparison with JSONP is to provide the proxy on the server side, which forwards script requests to the Recommender system.
 It can be implemented as a very simple proxy using the [mod\_proxy module](https://httpd.apache.org/docs/2.2/mod/mod_proxy.html) of Apache Webserver.
@@ -259,7 +259,7 @@ An alternative approach is creating the HTML code on the server side for every t
 
 As a possible implementation of such a proxy following tools can be used: the apache proxy module, some independent daemon like “netcat” or a PHP script.
 
-#### Comparison
+### Comparison
 
 An overview of pros and cons for each of the above techniques:
 

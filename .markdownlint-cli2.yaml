@@ -26,6 +26,7 @@ config:
     style: one_or_ordered
   ul-indent:
     indent: 4
+  heading-increment: true
 
 ignores:
   - "docs/snippets/**"

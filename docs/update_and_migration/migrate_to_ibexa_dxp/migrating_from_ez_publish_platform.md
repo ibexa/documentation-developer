@@ -528,11 +528,11 @@ php bin/console assetic:dump --env=prod
 
 ## Potential pitfalls
 
-##### Unstyled login screen after upgrade
+### Unstyled login screen after upgrade
 
 It's possible that after the upgrade your admin screen is unstyled. This may happen because the new SiteAccess isn't available in the database. You can fix it by editing the permissions for the Anonymous user. Go to **Roles** in the **Admin** panel and edit the limitations of the Anonymous user's `user/login` policy. Add all SiteAccesses to the limitation, save, and clear the browser cache. The login screen should now show proper styling.
 
-##### Translating URLs
+### Translating URLs
 
 If your legacy site uses old-style URL aliases, to upgrade them successfully you need to apply a workaround to the slug converter. Where the slug converter service is defined, set second config parameter to use `urlalias_compat` by adding a new argument to the existing settings:
 

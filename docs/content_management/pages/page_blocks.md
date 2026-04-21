@@ -113,7 +113,7 @@ You can use this parameter, for example, in block template:
 [[= include_file('code_samples/page/page_listener/templates/themes/standard/block/my_block.html.twig') =]]
 ```
 
-#### Exposing content relations from blocks
+### Exposing content relations from blocks
 
 Page blocks, for example Embed block or Collection block, can embed other content items.
 Publishing a page with such blocks creates Relations to those content items.

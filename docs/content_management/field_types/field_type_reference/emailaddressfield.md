@@ -10,7 +10,7 @@ The EmailAddress field type represents an email address, in the form of a string
 
 ### Value object
 
-##### Properties
+#### Properties
 
 The `Value` class of this field type contains the following properties:
 

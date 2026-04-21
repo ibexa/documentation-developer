@@ -10,7 +10,7 @@ The Checkbox field type stores the current status for a checkbox input, checked 
 
 ### Value object
 
-##### Properties
+#### Properties
 
 The Value class of this field type contains the following properties:
 

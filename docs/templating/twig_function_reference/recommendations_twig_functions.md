@@ -75,17 +75,17 @@ ibexa_tracking_track_event(
 - **context** (optional)- type: array, additional event data, such as quantity, basket details, or custom parameters. For more information, see [example usage](#context-parameter-example-usage).
 - **template** (optional) - type: string, path to a custom Twig template used to render the tracking event, allows overriding the default tracking output.
 
-#### Tracking events
+### Tracking events
 
 The following events are supported and can be triggered from Twig templates:
 
-### `pageview` event
+#### `pageview` event
 
 The `ibexa_tracking_script()` Twig function automatically sends a [`pageview`](https://content.raptorservices.com/help-center/tracking-events-parameters-reference#:~:text=Event%20Specifications%20%28Full%20Reference) event to Raptor for every incoming GET request, in both `client` and `server` tracking types.
 
 Use it for basic page metrics and debugging the Live Tracking Stream.
 
-### Product `visit` event
+#### Product `visit` event
 
 This event tracks product page visits by users.
 It's the most common e-commerce tracking event used to capture product views for analytics, recommendation models, and user behavior processing.
@@ -100,7 +100,7 @@ Example:
 [[= include_file('code_samples/recommendations/events/product_visit_event.html.twig') =]]
 ```
 
-### `contentvisit` event
+#### `contentvisit` event
 
 This event tracks content page visits by users.
 It implements [`Ibexa\Contracts\Core\Repository\Values\Content\Content`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Content.html) and can be used to check content views for analytics, personalization, and user behavior tracking.
@@ -113,7 +113,7 @@ Example:
 [[= include_file('code_samples/recommendations/events/content_visit_event.html.twig') =]]
 ```
 
-### Product `buy` event
+#### Product `buy` event
 
 This event tracks when a product is bought.
 
@@ -124,7 +124,7 @@ This event tracks when a product is bought.
 [[= include_file('code_samples/recommendations/events/buy_event.html.twig') =]]
 ```
 
-### Product `basket` event
+#### Product `basket` event
 
 This event tracks when a product is added to the [cart](cart.md).
 
@@ -141,7 +141,7 @@ Example:
 [[= include_file('code_samples/recommendations/events/basket_event.html.twig') =]]
 ```
 
-### `itemclicked` event
+#### `itemclicked` event
 
 This event tracks when a user clicks a Raptor recommendation, including adding products to the cart from the recommendation module.
 

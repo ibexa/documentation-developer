@@ -49,7 +49,7 @@ No additional steps needed.
 
 ## v4.6.2
 
-#### Database update
+### Database update
 
 Run the following scripts:
 
@@ -102,7 +102,7 @@ ibexa:
 
 ## v4.6.4
 
-#### Database update
+### Database update
 
 Run the following scripts:
 

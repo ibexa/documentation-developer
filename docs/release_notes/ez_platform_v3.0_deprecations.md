@@ -324,7 +324,7 @@ Following the upgrade to Symfony 5, the following event classes have been deprec
 Also, as of Symfony 5, the `transchoice` Twig filter has been replaced with `trans`.
 New translation strings are required.
 
-##### SubtreeQuery
+### SubtreeQuery
 
 Deprecated `SubtreeQuery` class has been removed. In v3.0, it was replaced by `EzSystems\EzPlatformAdminUi\QueryType\SubtreeQueryType`.
 
@@ -795,7 +795,7 @@ You should rely on injected Connection instead.
 
 ## ezplatform-page-builder
 
-#### JavaScript
+### JavaScript
 
 #### Event names changed
 

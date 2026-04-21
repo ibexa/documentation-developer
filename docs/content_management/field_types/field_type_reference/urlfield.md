@@ -18,7 +18,7 @@ It's formed by the combination of a link and the respective text.
 
 ### Value object
 
-##### Properties
+#### Properties
 
 The Value class of this field type contains the following properties:
 
@@ -34,7 +34,7 @@ $url->link = "https://www.ibexa.co";
 $url->text = "Ibexa";
 ```
 
-##### Constructor
+#### Constructor
 
 The `Url\Value` constructor initializes a new value object with the provided value.
 It expects two comma-separated strings, corresponding to the link and text.

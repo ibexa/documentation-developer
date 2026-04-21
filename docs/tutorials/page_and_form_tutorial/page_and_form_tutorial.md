@@ -8,12 +8,12 @@ edition: experience
 This tutorial is a step-by-step guide to building an advanced website with [[= product_name_exp =]].
 It focuses on creating a front page using a feature called **Page Builder**.
 
-### Intended audience
+## Intended audience
 
 This tutorial is intended for users who have basic knowledge of [[= product_name =]].
 Ideally, you should be familiar with the concepts covered in the [Beginner tutorial](beginner_tutorial.md).
 
-### Learning outcomes
+## Learning outcomes
 
 After finishing this tutorial, you:
 

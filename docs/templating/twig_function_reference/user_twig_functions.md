@@ -5,7 +5,7 @@ page_type: reference
 
 # User Twig functions
 
-### `ibexa_user_get_current()`
+## `ibexa_user_get_current()`
 
 `ibexa_user_get_current()` returns the User object (`Ibexa\Contracts\Core\Repository\Values\User\User`) of the current user.
 
@@ -19,16 +19,15 @@ You can get the underlying content item, for example to display the user's last 
 {{ ibexa_render_field(ibexa_user_get_current().content, 'last_name') }}
 ```
 
-### `ibexa_current_user()`
+## `ibexa_current_user()`
 
 `ibexa_current_user()` is a deprecated alias of `ibexa_user_get_current()`.
 
-
-### `ibexa_is_current_user()`
+## `ibexa_is_current_user()`
 
 The `ibexa_is_current_user()` Twig function checks whether a user is the current repository user.
 
-#### Examples
+### Examples
 
 ```html+twig
 {% if ibexa_is_current_user(version_info.author) %}

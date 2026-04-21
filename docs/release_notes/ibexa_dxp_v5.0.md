@@ -32,6 +32,7 @@ For more information, see [MCP Servers product guide](https://doc.ibexa.co/en/5.
     ['Headless', 'Experience', 'Commerce', 'New feature']
 ) =]]
 
+<!-- markdownlint-disable-next-line heading-increment -->
 ### Security
 
 This release includes security fixes.

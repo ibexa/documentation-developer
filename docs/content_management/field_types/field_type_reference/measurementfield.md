@@ -27,7 +27,7 @@ Assuming that the service exists as `$measurementService`, the expected input ex
 
 ### Value object
 
-##### Properties
+#### Properties
 
 The Value class of this field type contains the following properties:
 
@@ -35,7 +35,7 @@ The Value class of this field type contains the following properties:
 |----------|----------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `$value` | `Ibexa\Contracts\Measurement\Value\ValueInterface` | Stores the Measurement API Value, which can be either an instance of `Ibexa\Contracts\Measurement\Value\SimpleValueInterface` or `Ibexa\Contracts\Measurement\Value\RangeValueInterface`. |
 
-##### Constructor
+#### Constructor
 
 The `Measurement\Value` constructor for this value object initializes a new value object with the value provided. 
 As its first argument it accepts an object of `Ibexa\Contracts\Measurement\Value\ValueInterface` type.

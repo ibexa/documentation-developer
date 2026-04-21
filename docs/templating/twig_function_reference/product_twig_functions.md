@@ -5,18 +5,18 @@ page_type: reference
 
 # Product Twig functions
 
-### `ibexa_get_product`
+## `ibexa_get_product`
 
 The `ibexa_get_product()` filter gets the selected product based on either a product object or a content item object that contains a product.
 
-#### Examples
+### Examples
 
 ``` html+twig
 {{ (product|ibexa_get_product).code }}
 {{ (content|ibexa_get_product).code }}
 ```
 
-### `ibexa_format_product_attribute`
+## `ibexa_format_product_attribute`
 
 The `ibexa_format_product_attribute` filter formats the attribute value to a readable, translated form.
 Rendering is performed by using Twig templates with named blocks, defined in a configurable list.
@@ -24,7 +24,7 @@ Rendering is performed by using Twig templates with named blocks, defined in a c
 You can customize this behavior by adding templates or by listening to the [`ProductAttributeRenderEvent`](product_catalog_events.md#attribute-rendering).
 For more information, see [Customize product attribute templates](customize_product_attribute_templates.md).
 
-#### Examples
+### Examples
 
 ``` html+twig
 {% for attribute in product.attributes %}
@@ -32,21 +32,21 @@ For more information, see [Customize product attribute templates](customize_prod
 {% endfor %}
 ```
 
-### `ibexa_product`
+## `ibexa_product`
 
 `ibexa_product` enables you to check whether the provided object is a product.
 
-#### Examples
+### Examples
 
 ``` html+twig
 {$ if content is ibexa_product %}
 ```
 
-### `ibexa_has_product_availability`
+## `ibexa_has_product_availability`
 
 The `ibexa_has_product_availability` Twig function is used to check whether a product has defined availability.
 
-#### Examples
+### Examples
 
 ```html+twig
 {% if ibexa_has_product_availability(product) %}
@@ -56,11 +56,11 @@ The `ibexa_has_product_availability` Twig function is used to check whether a pr
 {% endif %}
 ```
 
-### `ibexa_get_product_availability`
+## `ibexa_get_product_availability`
 
 The `ibexa_get_product_availability` Twig function retrieves the availability for a product.
 
-#### Examples
+### Examples
 
 ```html+twig
 {% set availability = ibexa_get_product_availability(product) %}
@@ -74,11 +74,11 @@ The `ibexa_get_product_availability` Twig function retrieves the availability fo
 
 ```
 
-### `ibexa_is_product_available`
+## `ibexa_is_product_available`
 
 The `ibexa_is_product_available` Twig function checks whether a product is available for purchase based on its availability status.
 
-#### Examples
+### Examples
 
 ```html+twig
 {% if ibexa_is_product_available(product) %}
@@ -91,11 +91,11 @@ The `ibexa_is_product_available` Twig function checks whether a product is avail
 
 ```
 
-### `ibexa_get_product_stock`
+## `ibexa_get_product_stock`
 
 The `ibexa_get_product_stock` Twig function retrieves the stock quantity for a product.
 
-#### Examples
+### Examples
 
 ```html+twig
 {% set stock = ibexa_get_product_stock(product) %}
@@ -109,11 +109,11 @@ The `ibexa_get_product_stock` Twig function retrieves the stock quantity for a p
 
 ```
 
-### `ibexa_format_price`
+## `ibexa_format_price`
 
 The `ibexa_format_price` filter formats the price value by placing currency code either on the left or on the right of the numerical value.
 
-#### Examples
+### Examples
 
 ``` html+twig
 {{ order.getValue().getTotalGross()|ibexa_format_price }}
@@ -121,11 +121,11 @@ The `ibexa_format_price` filter formats the price value by placing currency code
 {{ ibexa_get_original_price(discount_product)|ibexa_format_price ?: '-' }}
 ```
 
-### `ibexa_is_pim_local`
+## `ibexa_is_pim_local`
 
 The `ibexa_is_pim_local` is a helper Twig function that enables changing the behavior of templates depending on the source of product data.
 
-#### Examples
+### Examples
 
 ``` html+twig
 {% if ibexa_is_pim_local() == true %}
@@ -135,11 +135,11 @@ The `ibexa_is_pim_local` is a helper Twig function that enables changing the beh
 {% endif %}
 ```
 
-### `ibexa_product_catalog_group_attributes`
+## `ibexa_product_catalog_group_attributes`
 
 The `ibexa_product_catalog_group_attributes` filter groups product attributes based on the [attribute group]([[= user_doc =]]/product_catalog/work_with_product_attributes/#create-attribute-groups) they belong to.
 
-#### Example
+### Example
 
 ``` html+twig
 {% for group, attributes in product.attributes | ibexa_product_catalog_group_attributes %}
