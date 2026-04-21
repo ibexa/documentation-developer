@@ -458,6 +458,7 @@ class TestableUrl
             case 403: // Forbidden
             case 404: // Not Found
             case 405: // Method Not Allowed
+            case 455: // Method Not Valid in This State
             case 500: // Internal Server Error
             case 521: // Web Server Is Down
             default:
@@ -1076,7 +1077,7 @@ class UrlTester
             ],
             'header' => [
                 function (string $url, int $code, array $headers, ?string $file = null) {
-                    return 403 === $code && in_array('Server: cloudflare', $headers);
+                    return in_array($code, [403, 455]) && in_array('server: cloudflare', array_map('strtolower', $headers));
                 },
             ],
             'location' => [
