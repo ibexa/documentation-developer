@@ -21,6 +21,7 @@ final readonly class ExampleTools implements McpCapabilityInterface
             idempotentHint: true,
             openWorldHint: false,
         ),
+        servers: ['example'],
     )]
     public function greetByName(string $name): string
     {

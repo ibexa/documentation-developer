@@ -64,7 +64,10 @@ Notice that a server is disabled by default, it needs to be explicitly enabled.
 
 TODO: Tools are… (VS Prompt templates are… VS Resources are…)
 
-You can create your own tools, see [MCP server capabilities](#mcp-server-capabilities).
+There is two ways to associate tools with a server:
+
+- `tools` in server configuration lists classes from which **all** the `McpTool` attributes are associated with the server
+- `servers` argument in `McpTool` attribute associated the **specified** tool to servers 
 
 Ibexa DXP come with several built-in tool classes:
 
@@ -78,9 +81,6 @@ Ibexa DXP come with several built-in tool classes:
                     tools:
                         - Ibexa\Mcp\Tool\TranslationTools
                         - Ibexa\Mcp\Tool\SeoTools
-```
-
-### MCP server discovery cache
 
 TODO
 
@@ -157,6 +157,7 @@ It has several arguments to describe the tool usage and output:
 - `description` (optional): a human-readable description of the tool, useful for the LLM to understand the tool purpose and eventually choose it when it matches the prompt intent
 - `inputSchema` (optional): for JSON object output, an associative array describing this object
 - `annotations` (optional): a [`Mcp\Schema\ToolAnnotations`](https://github.com/modelcontextprotocol/php-sdk/blob/main/src/Schema/ToolAnnotations.php) instance 
+- `servers` (optional): an array of identifiers of servers proposing this tool
 
 ## Example
 
@@ -175,8 +176,7 @@ In a new `config/packages/mcp.yaml` file, the configuration of the MCP server:
 
 ### Create tool class
 
-Then, a `McpCapabilityInterface` containing a `greetByName` function with a `McpTool` attribute,
-the `App\Mcp\ExampleTools` class listed in the server's `tools`:
+Then, an `McpCapabilityInterface` containing a function with an `McpTool` attribute associating it to the `example` server as `greet` tool:
 
 ``` php
 [[= include_file('code_samples/mcp/src/Mcp/ExampleTools.php') =]]

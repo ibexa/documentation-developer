@@ -7,8 +7,6 @@ ibexa:
                     enabled: true
                     description: 'Example MCP Server'
                     instructions: 'Use this server to greet someone.'
-                    tools:
-                        - App\Mcp\ExampleTools
                     discovery_cache: cache.tagaware.filesystem
                     session:
                         type: file
