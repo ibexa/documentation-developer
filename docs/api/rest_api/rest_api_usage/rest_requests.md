@@ -132,9 +132,9 @@ It's used for a `COPY`, `MOVE` or `SWAP` operation to indicate where the resourc
 
 Examples of such requests are:
 
-- [copying a Content](../rest_api_reference/rest_api_reference.html#managing-content-copy-content)
-- [moving a Location and its subtree](../rest_api_reference/rest_api_reference.html#managing-content-move-subtree)
-- [swapping a Location with another](../rest_api_reference/rest_api_reference.html#managing-content-swap-location)
+- [copying a Content](https://doc.ibexa.co/en/4.6/api/rest_api/rest_api_reference/rest_api_reference.html#managing-content-copy-content)
+- [moving a Location and its subtree](https://doc.ibexa.co/en/4.6/api/rest_api/rest_api_reference/rest_api_reference.html#managing-content-move-subtree)
+- [swapping a Location with another](https://doc.ibexa.co/en/4.6/api/rest_api/rest_api_reference/rest_api_reference.html#managing-content-swap-location)
 
 ### Expected user
 
@@ -164,7 +164,7 @@ This script:
 - receives an image path and optionally a name as command-line arguments,
 - uses the [HTTP basic authentication](rest_api_authentication.md#http-basic-authentication), if it's enabled,
 - creates a draft in the /Media/Images folder by posting (`POST`) data to [`/content/objects`](/api/rest_api/rest_api_reference/rest_api_reference.html#tag/Objects/operation/api_contentobjects_post),
-- and, publishes (`PUBLISH`) the draft through [`/content/objects/{contentId}/versions/{versionNo}`](../rest_api_reference/rest_api_reference.html#managing-content-publish-a-content-version).
+- and, publishes (`PUBLISH`) the draft through [`/content/objects/{contentId}/versions/{versionNo}`](https://doc.ibexa.co/en/4.6/api/rest_api/rest_api_reference/rest_api_reference.html#managing-content-publish-a-content-version).
 
 === "XML"
 
