@@ -65,7 +65,7 @@ ibexa:
 You can also use environmental variables to configure a specific handler for a SiteAccess.
 See the example below to configure it with the `.env` file:
 
-```
+```bash
 IBEXA_VARIATION_HANDLER_IDENTIFIER="fastly"
 ```
 

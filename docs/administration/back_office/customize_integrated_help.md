@@ -9,20 +9,35 @@ month_change: false
 The integrated help menu is part of the Integrated help introduced as an [LTS Update](editions.md#lts-updates).
 By default, it provides editors and developers with convenient access to documentation, training and other resources directly from the back office.
 
-You can extend or modify the integrated menu in two ways:
+You can extend or modify the integrated menu in the following ways:
 
 - by disabling it for all users
 - by modifying a link to user documentation
 - by subscribing to the `ibexa_integrated_help.menu_configure.help_menu` event
 
-## Disable integrated help for all users
+## Disable integrated help functionalities
 
-After you have installed the integrated help package, you may still want to disable it globally, for example, to run UI tests in a `dev` [environment](environments.md).
-To do it, in `config/packages` create the `ibexa_integrated_help.yaml` file, with the following configuration:
+After you have installed the integrated help package, you can disable the entire feature or specific functionalities on the system level.
+
+### Disable all functionalities
+
+To disable both the Help center and the Product tour globally, for example, to run UI tests in a `dev` [environment](environments.md), in `config/packages`, create the `ibexa_integrated_help.yaml` file with the following configuration:
 
 ``` yaml
 ibexa_integrated_help:
     enabled: false
+```
+
+### Disable functionalities independently
+
+To disable only the Help center or only the Product tour functionalities, use the dedicated flags as in the example below:
+
+``` yaml
+ibexa_integrated_help:
+    help_center:
+        enabled: false # Disable only the Help center
+    product_tour:
+        enabled: false # Disable only the Product tour
 ```
 
 ## Modify user documentation link
@@ -51,7 +66,7 @@ This way you can adjust menu sections that are reproduced by the front end as ta
 The default `menu` object is structured as follows.
 Recreate this pattern when modifying an existing event with an intention to send it to the front end.
 
-```
+```text
 root (MenuItem)
 │
 ├── help__general // ("General" section)

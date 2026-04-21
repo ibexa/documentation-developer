@@ -77,7 +77,7 @@ services:
 
 In the following example, `curl` and `diff` commands are used to compare the default media type (`application/vnd.ibexa.api.Location+xml`) with the new `application/app.api.Location+xml`.
 
-```shell
+```bash
 diff --ignore-space-change \
   <(curl --silent https://api.example.com/api/ibexa/v2/content/locations/1/2) \
   <(curl --silent https://api.example.com/api/ibexa/v2/content/locations/1/2 --header 'Accept: application/app.api.Location+xml');

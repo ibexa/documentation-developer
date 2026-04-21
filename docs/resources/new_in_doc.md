@@ -7,6 +7,26 @@ month_change: true
 
 This page contains recent highlights and notable changes in [[= product_name =]] documentation.
 
+## March 2026
+
+### Products
+
+- Distinguish [physical and virtual products in product catalog guide](https://doc.ibexa.co/en/5.0/pim/pim_guide/#virtual-and-physical-products)
+- Added [creating product type example in product API](https://doc.ibexa.co/en/5.0/pim/product_api/#creating-product-types)
+- Detailed [how to add a custom attribute type to an existing storage definition](https://doc.ibexa.co/en/5.0/pim/create_custom_attribute_type/#storage-definition)
+
+### Collaborative editing
+
+- Documented [how to extend collaboration](https://doc.ibexa.co/en/5.0/content_management/collaborative_editing/extend_collaborative_editing/) with a shared cart example
+
+### Search
+
+- Introduced [embeddings search API for taxonomy](https://doc.ibexa.co/en/5.0/search/embeddings_reference/embeddings_reference/)
+
+### Images
+
+- Illustrated [image optimizer customization](https://doc.ibexa.co/en/5.0/content_management/images/images/#customizing-image-optimizers)
+
 ## February 2026
 
 ### Releases
