@@ -121,12 +121,15 @@ parameters:
     The only case where it's safe to increase these values is for dev environment with single concurrency on writes.
     In prod environment you should only consider reducing them if you have heavy concurrency writes.
 
-### Redis
+### Redis/Valkey
 
 [Redis](https://redis.io/), an in-memory data structure store, is one of the supported cache solutions for clustering.
 Redis is used via [Redis pecl extension](https://pecl.php.net/package/redis).
 
 See [Redis Cache Adapter in Symfony documentation]([[= symfony_doc =]]/components/cache/adapters/redis_adapter.html#configure-the-connection for information on how to connect to Redis.
+
+[Valkey](https://valkey.io/), an alternative data structure store compatible with Redis, is also supported.
+To set it up with [[= product_name =]], follow the same steps as for Redis.
 
 #### Supported Adapters
 
@@ -152,11 +155,11 @@ Depending on the number of lookups and latency to cache server this might affect
 
 #### Adjusting configuration
 
-Out of the box in `config/packages/cache_pool/cache.redis.yaml` you can find a default example that can be used.
+A default example that you can use out-of-the-box is found in `config/packages/cache_pool/cache.redis.yaml`.
 
 !!! note "[[= product_name_cloud =]]"
 
-    For [[= product_name_cloud =]]/Platform.sh: This is automatically configured in `vendor/ibexa/core/src/bundle/Core/DependencyInjection/IbexaCoreExtension.php` if you have enabled Redis as `rediscache` Platform.sh service.
+    For [[= product_name_cloud =]] installations, the [`ibexa/cloud` package](install_on_ibexa_cloud.md) performs configuration based on the `.platform.app.yaml` file.
 
 For anything else, you can enable it with environment variables.
 For instance, if you set the following environment variables `export CACHE_POOL="cache.redis" CACHE_DSN="secret@example.com:1234/13"`, it results in config like this:
@@ -194,7 +197,7 @@ With that in mind, the following configurations of Redis are possible:
 - [Redis Sentinel](https://redis.io/docs/latest/operate/oss_and_stack/management/sentinel/)
     - Provides high availability by providing one or several slaves (ideally 2 slaves or more, for example, minimum 3 servers), and handle failover
     - [Slaves are asynchronously replicated](https://redis.io/docs/latest/operate/oss_and_stack/management/sentinel/#fundamental-things-to-know-about-sentinel-before-deploying), so they can't be used for reads
-    - Typically used with a load balancer (for example, HAproxy with occasional calls to Redis Sentinel API) in the front to only speak to elected master
+    - Typically used with a load balancer (for example, HAProxy with occasional calls to Redis Sentinel API) in the front to only speak to elected master
     - As of v3 you can also configure this [directly on the connection string]([[= symfony_doc =]]/components/cache/adapters/redis_adapter.html#configure-the-connection), **if** you use `Predis` instead of `php-redis`
 
 Several cloud providers have managed services that are easier to set up, handle replication and scalability for you, and might perform better. Notable services include:
@@ -203,12 +206,12 @@ Several cloud providers have managed services that are easier to set up, handle 
 - [Azure Redis Cache](https://azure.microsoft.com/en-us/products/cache/)
 - [Google Cloud Memorystore](https://cloud.google.com/memorystore)
 
-###### [[= product_name_cloud =]] / Platform.sh usage
+###### [[= product_name_cloud =]] usage
 
 !!! note "[[= product_name_cloud =]]"
 
-    If you use Platform.sh Enterprise you can benefit from the Redis Sentinel across three nodes for great fault tolerance.
-    Platform.sh Professional and lower versions offer Redis in single instance mode only.
+    If you use Upsun Enterprise you can benefit from the Redis Sentinel across three nodes for great fault tolerance.
+    Upsun Professional and lower versions offer Redis in single instance mode only.
 
 ## Using cache service
 

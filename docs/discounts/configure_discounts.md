@@ -1,6 +1,6 @@
 ---
 description: Customize the behavior of the Discounts feature.
-month_change: true
+month_change: false
 editions:
     - commerce
 ---
@@ -29,6 +29,35 @@ ibexa:
                     list_per_page_limit: 10
                     products_list_per_page_limit: 15
 ```
+
+## Discount re-indexing
+
+Discounts feature uses [[= product_name_base =]] Messenger to reindex discounts and product prices as [background tasks](background_tasks.md).
+This way changes are processed efficiently without slowing down the system and disrupting the user experience.
+
+When triggered periodically, the `ibexa:discounts:reindex` command identifies discounts that require re-indexing, ensuring prices always remain up-to-date.
+If there are edits to discounts that should result in changed product catalog prices, messages are dispatched to the [[= product_name_base =]] Messenger's queue and consumed by a background worker.
+The worker passes the messages to the handler, which then starts the re-indexing process at the most convenient moment.
+
+To run discount re-indexing in the background:
+
+1\. Make sure that the transport layer is [defined properly](background_tasks.md#configure-package) in [[= product_name_base =]] Messenger configuration.
+
+2\. Make sure that the [worker starts](background_tasks.md#start-worker) together with the application to watch the transport bus:
+
+``` bash
+php bin/console messenger:consume ibexa.messenger.transport --bus=ibexa.messenger.bus
+```
+
+3\. Use a scheduler of your choice, for example, [cron](https://en.wikipedia.org/wiki/Cron), to periodically run the following command:
+
+``` bash
+php bin/console ibexa:discounts:reindex
+```
+
+!!! note "Deploying Symfony Messenger"
+
+    For more information about deploying the Messenger to production, see [Symfony documentation]([[= symfony_doc =]]/messenger.html#deploying-to-production).
 
 ## Rate limiting
 

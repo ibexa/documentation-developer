@@ -25,17 +25,14 @@ class Unit implements ValueDefinitionInterface, FormMapperInterface
 
     public function getDisplayValue(string $storageValue): string
     {
-        switch ($storageValue) {
-            case self::METRIC_OPTION:
-                return 'Metric';
-            case self::IMPERIAL_OPTION:
-                return 'Imperial';
-            default:
-                throw new InvalidArgumentException(
-                    '$storageValue',
-                    sprintf('There is no \'%s\' option', $storageValue)
-                );
-        }
+        return match ($storageValue) {
+            self::METRIC_OPTION => 'Metric',
+            self::IMPERIAL_OPTION => 'Imperial',
+            default => throw new InvalidArgumentException(
+                '$storageValue',
+                sprintf('There is no \'%s\' option', $storageValue)
+            ),
+        };
     }
 
     public function getDefaultValue(): string

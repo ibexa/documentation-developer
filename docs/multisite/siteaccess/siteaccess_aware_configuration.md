@@ -35,7 +35,7 @@ Acme\ExampleBundle\AcmeExampleBundle::class => ['all' => true],
 
 To parse semantic configuration, create a `Configuration` class which extends `Ibexa\Bundle\Core\DependencyInjection\Configuration\SiteAccessAware\Configuration` and then extend its `generateScopeBaseNode()` method:
 
-``` php hl_lines="16"
+``` php hl_lines="19"
 [[= include_file('code_samples/multisite/siteaccess/Configuration.php') =]]
 ```
 
@@ -68,7 +68,7 @@ Semantic configuration must always be mapped to internal key/value settings with
 You usually do it in the [service container](php_api.md#service-container) extension.
 
 ``` php
-[[= include_file('code_samples/multisite/siteaccess/AcmeExampleExtension.php', 0, 42) =]][[= include_file('code_samples/multisite/siteaccess/AcmeExampleExtension.php', 53, 61) =]]
+[[= include_file('code_samples/multisite/siteaccess/AcmeExampleExtension.php', 0, 42) =]][[= include_file('code_samples/multisite/siteaccess/AcmeExampleExtension.php', 53, 62) =]]
 ```
 
 You can also map simple settings by calling `$processor->mapSetting()`, without having to call `$processor->mapConfig()` with a callable.

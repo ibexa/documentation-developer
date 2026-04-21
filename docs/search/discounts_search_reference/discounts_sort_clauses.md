@@ -1,7 +1,8 @@
 ---
-month_change: true
+month_change: false
 editions:
     - commerce
+description: Sort Clauses available for Discounts search
 ---
 
 # Discounts Search Sort Clauses reference
@@ -14,6 +15,7 @@ Sort Clauses are found in the [`Ibexa\Contracts\Discounts\Value\Query\SortClause
 | [EndDate](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Discounts-Value-Query-SortClause-EndDate.html)| Sort by discount's end date |
 | [Id](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Discounts-Value-Query-SortClause-Id.html)| Sort by discount's database ID |
 | [Identifier](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Discounts-Value-Query-SortClause-Identifier.html)| Sort by discount identifier |
+| [OverridePrioritization](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Discounts-Value-Query-SortClause-OverridePrioritization.html)| Sort prioritizing discounts with discount code over automatic ones |
 | [Priority](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Discounts-Value-Query-SortClause-Priority.html)| Sort by discount priority |
 | [StartDate](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Discounts-Value-Query-SortClause-StartDate.html)| Sort by discount start date |
 | [Type](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Discounts-Value-Query-SortClause-Type.html)| Sort by the place where the discount activates: catalog or cart. When sorting with ascending order, cart discounts are returned first. |

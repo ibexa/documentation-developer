@@ -18,12 +18,41 @@ The following example shows how to create a block that showcases an event.
 First, add the following [YAML configuration](configuration.md#configuration-files):
 
 ``` yaml
-[[= include_file('code_samples/page/custom_page_block/config/packages/page_blocks.yaml', 0, 6) =]][[= include_file('code_samples/page/custom_page_block/config/packages/page_blocks.yaml', 16, 47) =]]
+[[= include_file('code_samples/page/custom_page_block/config/packages/page_blocks.yaml', 0, 6) =]][[= include_file('code_samples/page/custom_page_block/config/packages/page_blocks.yaml', 16, 49) =]]
+```
+
+And provide the translations for the labels:
+
+- in `translations/ibexa_page_builder_block_config.en.yaml`:
+
+``` yaml
+event_block.view.default: Default
+event_block.view.featured: Featured
+
+event_block.name.name: Name
+event_block.category.name: Category
+event_block.event.name: Event
+```
+
+- in `translations/ibexa_page_fieldtype.en.yaml`:
+
+``` yaml
+custom_category.name: Custom category
+event_block.name: Event
+```
+
+- in `translations/validators.en.yaml`:
+
+``` yaml
+validators.message.event_block.name.validator.not_blank: Event name should not be blank.
+validators.message.event_block.embed.validator.not_blank: Event content should not be blank.
+validators.message.event_block.embed.validator.content_type: Event content should be of type "event".
+validators.message.event_block.embed.validator.content_item: Event content should have a numerical ID.
 ```
 
 `event` is the internal name for the block, and `name` indicates the name under which the block is available in the interface.
 You also set up the category in the **Page blocks** toolbox that the block appears in.
-In this case, it doesn't show with the rest of the built-in blocks, but in a separate "Custom" category.
+In this case, it doesn't show up with the rest of the built-in blocks, but in a separate "Custom category" category.
 The thumbnail for the block can be one of the pre-existing icons, like in the example above, or you can use a custom SVG file.
 
 A block can have multiple attributes that you edit when adding it to a page.
@@ -35,6 +64,15 @@ Each attribute can have [validators](page_block_validators.md).
 The `not_blank` validators in the example ensure that the user fills in the two block fields.
 The `content_type` validator in the example ensure that the user choose a content item of the content type `event`.
 The `regexp` validator ensure that the final value looks like a content ID.
+
+The following UDW configuration is used with the `udw_config_name` key so only an event typed content item can be selected:
+
+``` yaml
+[[= include_file('code_samples/page/custom_page_block/config/packages/page_blocks.yaml', 50, 59) =]]
+```
+
+For more information, see [UDW configuration](browser.md#udw-configuration).
+
 
 ## Add block templates
 
@@ -120,22 +158,6 @@ Place the edit template in `templates/themes/<your_theme>/blocks/event/config.ht
 ``` html+twig
 [[= include_file('code_samples/page/custom_page_block/templates/themes/standard/blocks/event/config.html.twig') =]]
 ```
-
-This example template overrides the `embed` attribute widget to customize the Universal Discovery Widget (UDW).
-It adds itself to the `form_templates` and defines a `block_configuration_attribute_embed_widget` block.
-The following UDW configuration is used so only an `event` typed content item can be selected:
-
-``` yaml
-[[= include_file('code_samples/page/custom_page_block/config/packages/page_blocks.yaml', 48, 57) =]]
-```
-
-For more information, see [UDW configuration](browser.md#udw-configuration).
-
-Your custom page block is now ready.
-
-!!! caution
-
-    Before you can use it in Page Builder, you must [enable it in Page field settings]([[= user_doc =]]/content_management/configure_ct_field_settings/#block-display).
 
 Your custom page block is now registered in the system.
 

@@ -138,7 +138,7 @@ See [Image documentation page](images.md) for information about how to define im
 
 For an example, see a legacy image alias defined as follows in `ezpublish_legacy/settings/siteaccess/ezdemo_site/image.ini.append.php`:
 
-```
+```ini
 [articleimage]
 Reference=
 Filters[]
@@ -304,7 +304,7 @@ The script also has an `--image-content-types` option which you should use if yo
 
 The script needs to know these identifiers to convert `<ezembed>` tags correctly. Failing to do so prevents the editor from showing image thumbnails of embedded image objects. You may find the image content types in your installation by looking for these settings in `content.ini(.append.php)`:
 
-```
+```ini
 [RelationGroupSettings]
 ImagesClassList[]
 ImagesClassList[]=image
@@ -367,7 +367,7 @@ Below is an example of a xml dump, `ezxmltext_12_1234_2_eng-GB.xml`:
 
 The corresponding log file, `ezxmltext_12_1234_2_eng-GB.log`:
 
-```
+``` text
 notice: Found ez-temporary attribute in a ezxmltext paragraphs. Removing such attribute where contentobject_attribute.id=1234
 error: Validation errors when converting ezxmltext for contentobject_attribute.id=1234
 - context : Error in 2:0: Element section has extra content: informaltable
@@ -415,11 +415,11 @@ Once you have fixed all the dump files in `ezxmltext-export/`, you may skip the 
 
 Typical problems that needs manual fixing:
 
-**Duplicate xhtml IDs**
+**Duplicate XHTML IDs**
 
-Xhtml IDs needs to be unique. The following `ezxmltext` results in a warning:
+XHTML IDs needs to be unique. The following `ezxmltext` results in a warning:
 
-```
+```xml
     <paragraph>
         <link target="_blank" xhtml:id="inv5" url_id="2309">link with id inv5</link>
     </paragraph>
@@ -437,7 +437,7 @@ In `ezxmltext` you may have links which refer to other objects by their remote I
 
 In older eZ Publish databases you may also have invalid links due to lack of reference to a target (for example, no `href` or `url_id`):
 
-```
+```xml
     <link>some text</link>
 ```
 
@@ -446,8 +446,6 @@ When the conversion tool detects links with no reference it issues a warning and
 **`<literal>`**
 
 The `<literal>` tag isn't yet supported in eZ Platform.
-
-For more information, see [EZP-29328](https://issues.ibexa.co/browse/EZP-29328) and [EZP-29027](https://issues.ibexa.co/browse/EZP-29027).
 
 When you're ready to migrate your eZ Publish XmlText content to the eZ Platform RichText format and start using pure eZ Platform setup, start the conversion script without the `--dry-run` option. Execute the following from &lt;new-ez-root&gt;:
 

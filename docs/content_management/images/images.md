@@ -113,16 +113,12 @@ You can also pass two additional parameters:
 With a placeholder generator you can download or generate placeholder images for any missing image.
 It proves useful when you're working on an existing database and are unable to download uploaded images to your local development environment, due to, for example, a large size of files.
 
-If the original image cannot be resolved, the `PlaceholderAliasGenerator::getVariation` method generates a placeholder by delegating it to the implementation of the `PlaceholderProvider` interface, and saves it under the original path.
+If the original image cannot be resolved, the `PlaceholderAliasGenerator::getVariation` method generates a placeholder by delegating it to the implementation of the [PlaceholderProvider](https://github.com/ibexa/core/blob/main/src/bundle/Core/Imagine/PlaceholderProvider.php) interface, and saves it under the original path.
 
 In [[= product_name =]], there are two implementations of the `PlaceholderProvider` interface:
 
 - [GenericProvider](#genericprovider)
 - [RemoteProvider](#remoteprovider)
-
-``` php
-[[= include_file('code_samples/back_office/images/src/PlaceholderProvider.php') =]]
-```
 
 ### GenericProvider
 
@@ -243,7 +239,7 @@ If you use other formats, such a PNG, SVG, GIF, or WEBP, and you use the Image E
 |Image format|Library|
 |---|---|
 |JPEG|JpegOptim|
-|PNG|Either Optipng or Pngquant 2|
+|PNG|Either OptiPNG or Pngquant 2|
 |SVG|SVGO 1|
 |GIF|Gifsicle|
 |WEBP|cwebp|
@@ -252,6 +248,17 @@ Install these libraries using your package manager, for example:
 
 ``` bash
 sudo apt-get install optipng
+```
+
+### Customizing image optimizers
+
+When the Image Editor saves a modified image, the system dispatches the [`ConfigureImageOptimizersEvent`](other_events.md#image-editor) event before running the optimizer chain.
+You can listen to this event to customize the list of image optimizers at runtime.
+
+The following example shows how to remove the Pngquant optimizer to prevent grayscale conversion of low-saturation PNG images:
+
+``` php
+[[= include_file('code_samples/back_office/images/src/Event/RemovePngquantOptimizer.php') =]]
 ```
 
 ## Embedding images in Rich Text

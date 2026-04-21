@@ -11,14 +11,10 @@ use Symfony\Component\HttpFoundation\Response;
 
 class BreadcrumbController extends Controller
 {
-    private LocationService $locationService;
-
-    private SearchService $searchService;
-
-    public function __construct(LocationService $locationService, SearchService $searchService)
-    {
-        $this->locationService = $locationService;
-        $this->searchService = $searchService;
+    public function __construct(
+        private readonly LocationService $locationService,
+        private readonly SearchService $searchService
+    ) {
     }
 
     public function showBreadcrumbsAction($locationId): Response

@@ -14,7 +14,7 @@ final class ReplaceNameStepNormalizer extends AbstractStepNormalizer
 {
     protected function normalizeStep(
         StepInterface $object,
-        string $format = null,
+        ?string $format = null,
         array $context = []
     ): array {
         assert($object instanceof ReplaceNameStep);

@@ -7,6 +7,11 @@ namespace App\Query\Aggregation;
 use Ibexa\Contracts\Core\Repository\Values\Content\Query\Aggregation\AbstractRangeAggregation;
 use Ibexa\Contracts\Core\Repository\Values\Content\Query\Aggregation\LocationAggregation;
 
+/**
+ * @phpstan-template TValue
+ *
+ * @phpstan-extends \Ibexa\Contracts\Core\Repository\Values\Content\Query\Aggregation\AbstractRangeAggregation<TValue>
+ */
 final class PriorityRangeAggregation extends AbstractRangeAggregation implements LocationAggregation
 {
 }

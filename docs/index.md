@@ -72,17 +72,32 @@
         </div>
     </div>
     <div class="row notifications">
-        <div class="col-12 col-lg-12">
+        <div class="col-12 col-lg-6">
             <div class="notification notification--latest-release" id="tile2">
                 <div class="notification__content">
-                    <h2>The latest release is [[= latest_tag_5_0 =]]</h2>
-                    <div>The latest version of Ibexa DXP is [[= latest_tag_5_0 =]]. You can now update your application to the latest version.</div>
+                    <h2>The latest Ibexa DXP is v5.0 LTS</h2>
+                    <div>The latest v5.0 LTS release is [[= latest_tag_5_0 =]]. You can now update your application.</div>
                 </div>
                 <div class="notification__cta">
                     <a href="release_notes/ibexa_dxp_v5.0/">Release notes</a>
                 </div>
                 <div class="notification__image">
                     <img src="images/notification-latest-release.svg" alt="The latest release" />
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-lg-6">
+            <div class="notification notification--lts-update" id="tile3">
+                <div class="notification__content">
+                    <h2>The newest LTS Update is Google Gemini connector</h2>
+                    <div>Integrate Google's AI services into Ibexa DXP.</div>
+                </div>
+                <div class="notification__cta">
+                    <a href="ai_actions/configure_ai_actions/#install-google-gemini-connector">Learn more about this LTS Update</a>
+                    <a href="ibexa_products/editions/#lts-updates">Discover other LTS Updates</a>
+                </div>
+                <div class="notification__image">
+                    <img src="images/notification-lts-update.svg" alt="LTS Update" />
                 </div>
             </div>
         </div>
@@ -100,15 +115,15 @@
                     <div class="row">
                         <div class="col-12 col-lg-6 col-fhd-3">
                             <ul>
+                                <li><a href="release_notes/ibexa_dxp_v5.0/#collaboration">Collaboration</a></li>
                                 <li><a href="release_notes/ibexa_dxp_v5.0/#ai-actions">AI Actions</a></li>
                                 <li><a href="release_notes/ibexa_dxp_v5.0/#discounts">Discounts</a></li>
-                                <li><a href="release_notes/ibexa_dxp_v5.0/#software-architecture-upgrades">Tech stack upgrades</a></li>
                             </ul>
                         </div>
                         <div class="col-12 col-lg-6 col-fhd-3">
                             <ul>
-                                <li><a href="release_notes/ibexa_dxp_v5.0/#date-and-time-attribute">Date and time attibute for PIM</a></li>
-                                <li><a href="release_notes/ibexa_dxp_v5.0/#symbol-attribute">Symbol attribute for PIM</a></li>
+                                <li><a href="release_notes/ibexa_dxp_v5.0/#date-and-time-attribute">Date and time attribute for product catalog</a></li>
+                                <li><a href="release_notes/ibexa_dxp_v5.0/#symbol-attribute">Symbol attribute for product catalog</a></li>
                                 <li><a href="release_notes/ibexa_dxp_v5.0/#developer-experience">Developer experience improvements</a></li>
                             </ul>
                         </div>
@@ -170,15 +185,16 @@
             <div class="info-tile info-tile--link-card">
                 <div class="info-tile__content">
                     <h3>
-                        <a href="pim/pim/">
+                        <a href="product_catalog/product_catalog/">
                             <svg><use xlink:href="images/icons.svg#product" /></svg>
-                            Product
+                            Product catalog
                         </a>
                     </h3>
                     <ul>
-                        <li><a href="pim/pim_configuration/">PIM configuration</a></li>
-                        <li><a href="pim/catalogs/">Catalogs</a></li>
-                        <li><a href="pim/prices/">Prices</a></li>
+                        <li><a href="product_catalog/product_catalog_configuration/">Product catalog configuration</a></li>
+                        <li><a href="product_catalog/quable_integration/">Quable PIM Integration</a></li>
+                        <li><a href="product_catalog/catalogs/">Catalogs</a></li>
+                        <li><a href="product_catalog/prices/">Prices</a></li>
                     </ul>
                 </div>
             </div>

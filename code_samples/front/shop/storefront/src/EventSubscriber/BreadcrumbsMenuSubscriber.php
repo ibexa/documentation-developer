@@ -10,7 +10,7 @@ use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
 class BreadcrumbsMenuSubscriber implements EventSubscriberInterface
 {
-    public static function getSubscribedEvents()
+    public static function getSubscribedEvents(): array
     {
         return [
             BreadcrumbsMenuBuilder::PRODUCT_MENU => ['onBreadcrumbsMenuConfigure', 0],

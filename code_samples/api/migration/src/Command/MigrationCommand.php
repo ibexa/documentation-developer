@@ -2,7 +2,7 @@
 
 namespace App\Command;
 
-use Ibexa\Migration\MigrationService;
+use Ibexa\Contracts\Migration\MigrationService;
 use Ibexa\Migration\Repository\Migration;
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
@@ -14,12 +14,8 @@ use Symfony\Component\Console\Output\OutputInterface;
 )]
 final class MigrationCommand extends Command
 {
-    private MigrationService $migrationService;
-
-    public function __construct(MigrationService $migrationService)
+    public function __construct(private readonly MigrationService $migrationService)
     {
-        $this->migrationService = $migrationService;
-
         parent::__construct();
     }
 

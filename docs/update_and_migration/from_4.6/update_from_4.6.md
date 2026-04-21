@@ -32,6 +32,15 @@ First, run:
 
 Then execute the instructions below starting from the version you're upgrading from.
 
+!!! caution
+
+    To avoid deprecations when using PHP 8.2, 8.3, or 8.4, run the following commands:
+
+    ``` bash
+    composer config extra.runtime.error_handler "\\Ibexa\\Contracts\\Core\\MVC\\Symfony\\ErrorHandler\\Php82HideDeprecationsErrorHandler"
+    composer dump-autoload
+    ```
+
 <!-- vale Ibexa.VariablesVersion = NO -->
 
 ## v4.6.1
@@ -123,12 +132,7 @@ No additional steps needed.
 
 ## v4.6.8
 
-To avoid deprecations when updating from an older PHP version to PHP 8.2 or 8.3, run the following commands:
-
-``` bash
-composer config extra.runtime.error_handler "\\Ibexa\\Contracts\\Core\\MVC\\Symfony\\ErrorHandler\\Php82HideDeprecationsErrorHandler"
-composer dump-autoload
-```
+No additional steps needed.
 
 ## v4.6.9
 
@@ -163,7 +167,7 @@ If the new bundle `ibexa/core-search` has not been added by the recipes, enable 
 
 ## v4.6.13
 
-This release comes with a command to clean up duplicated entries in the `ezcontentobject_attribute` table, which were created due to an issue described in [IBX-8562](https://issues.ibexa.co/browse/IBX-8562).
+This release comes with a command to clean up duplicated entries in the `ezcontentobject_attribute` table, which were created due to an issue related to previewing content in different languages.
 
 If you're affected, remove the duplicated entries by running the following command:
 ``` bash
@@ -372,9 +376,287 @@ Run the following scripts:
     psql <database_name> < vendor/ibexa/installer/upgrade/db/postgresql/ibexa-4.6.20-to-4.6.21.sql
     ```
 
+## v4.6.22
+
+### Added support for Solr 9
+
+This release adds support for [Solr 9](requirements.md#search).
+
+To update Solr within an existing [[= product_name =]] project, first refer to the [Solr 9 upgrade planning](https://solr.apache.org/guide/solr/latest/upgrade-notes/major-changes-in-solr-9.html) instructions.
+
+Then, follow the [instructions for setting up Solr 9 with [[= product_name =]]](/search/search_engines/solr_search_engine/install_solr.md#configure-and-start-solr) and merge them with your custom configuration.
+
+Changes include:
+
+1. Configuration files
+
+    - the `schema.xml` configuration file became [`managed-schema.xml`](https://solr.apache.org/guide/solr/latest/upgrade-notes/major-changes-in-solr-6.html#managed-schema-is-now-the-default)
+    - the [removed `LatLonType` field is replaced by the `LatLonPointSpatialField` field](https://solr.apache.org/guide/solr/latest/upgrade-notes/major-changes-in-solr-7.html#deprecations-and-removed-features)
+
+2. New [Solr version parameter](install_solr.md#configure-solr-version)
+
+Once Solr 9 is fully configured, [refresh the search index](reindex_search.md).
+
+### Set character set for activity log tables [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
+
+When using MySQL or MariaDB, run the following script to ensure correct character set for activity log tables:
+
+=== "MySQL"
+
+    ``` bash
+    mysql -u <username> -p <password> <database_name> < vendor/ibexa/installer/upgrade/db/mysql/ibexa-4.6.21-to-4.6.22.sql
+    ```
+
+## v4.6.23
+
+No additional steps needed.
+
+## v4.6.24
+
+### Database update
+
+=== "MySQL"
+
+    ``` bash
+    mysql -u <username> -p <password> <database_name> < vendor/ibexa/installer/upgrade/db/mysql/ibexa-4.6.23-to-4.6.24.sql
+    ```
+
+=== "PostgreSQL"
+
+    ``` bash
+    psql <database_name> < vendor/ibexa/installer/upgrade/db/postgresql/ibexa-4.6.23-to-4.6.24.sql
+    ```
+
+## v4.6.25
+
+### Form Builder performance fix: missing indexes on form submission data [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
+
+In large production databases, the `ezform_form_submissions` and `ezform_form_submission_data` tables may contain a lot of rows.
+Missing indexes can cause high CPU load and slow queries.
+
+Run the provided SQL upgrade script to add the missing indexes to your database:
+
+=== "MySQL"
+
+    ``` bash
+    mysql -u <username> -p <password> <database_name> < vendor/ibexa/installer/upgrade/db/mysql/ibexa-4.6.24-to-4.6.25.sql
+    ```
+
+=== "PostgreSQL"
+
+    ``` bash
+    psql <database_name> < vendor/ibexa/installer/upgrade/db/postgresql/ibexa-4.6.24-to-4.6.25.sql
+    ```
+
+## v4.6.26
+
+No additional steps needed.
+
+## v4.6.27
+
+### Elasticsearch 8 support
+
+As of v4.6.27, [[= product_name =]] adds optional support for Elasticsearch 8.19 or higher through the new `ibexa/elasticsearch8` package.
+
+By default, [[= product_name =]] continues to support Elasticsearch 7.16.2+ with the `ibexa/elasticsearch` package.
+To use Elasticsearch 8, follow these steps:
+
+#### Install Elasticsearch 8 package
+
+Replace the existing Elasticsearch package and install Elasticsearch 8:
+
+```bash
+composer require ibexa/elasticsearch8:[[= latest_tag_4_6 =]]
+```
+
+#### Update Elasticsearch server
+
+Upgrade your Elasticsearch server to version 8.19 or higher.
+For detailed instructions, follow the [Elasticsearch upgrade guide](https://www.elastic.co/guide/en/elastic-stack/8.19/upgrading-elastic-stack.html#prepare-to-upgrade).
+
+When you use [[= product_name_cloud =]], see [Elasticsearch service](https://docs.upsun.com/add-services/elasticsearch.html) for a list of supported versions.
+
+#### Update configuration
+
+Update your configuration in `config/packages/ibexa_elasticsearch.yaml` as decribed below:
+
+##### Replace connection pool settings
+
+The `connection_pool` and `connection_selector` settings are ignored when using Elasticsearch 8.
+Replace them with appropriate `node_pool_selector` and `node_pool_resurrect` settings:
+
+``` yaml
+# Elasticsearch 7 configuration
+ibexa_elasticsearch:
+    connections:
+        default:
+            connection_pool: 'Elasticsearch\ConnectionPool\StaticNoPingConnectionPool'
+            connection_selector: 'Elasticsearch\ConnectionPool\Selectors\RoundRobinSelector'
+```
+
+``` yaml
+# Elasticsearch 8 configuration
+ibexa_elasticsearch:
+    connections:
+        default:
+            node_pool_selector: 'Elastic\Transport\NodePool\Selector\RoundRobin'
+            node_pool_resurrect: 'Elastic\Transport\NodePool\Resurrect\NoResurrect'
+```
+
+For more information, see [Connection pool and node pool settings](https://doc.ibexa.co/en/4.6/search/search_engines/elasticsearch/configure_elasticsearch/#connection-pool-and-node-pool-settings).
+
+##### Remove trace option
+
+The `trace` debugging option is no longer available in Elasticsearch 8:
+
+``` yaml
+# Elasticsearch 7 configuration
+ibexa_elasticsearch:
+    connections:
+        default:
+            debug: true
+            trace: true
+```
+
+``` yaml
+# Elasticsearch 8 configuration
+ibexa_elasticsearch:
+    connections:
+        default:
+            debug: true
+            # Trace option is no longer available
+```
+
+#### Reindex content
+
+After upgrading to Elasticsearch 8 and updating your configuration, reindex the search engine:
+
+1. Push the index templates:
+
+    ``` bash
+    php bin/console ibexa:elasticsearch:put-index-template --overwrite
+    ```
+
+2. Reindex your content:
+
+    ``` bash
+    php bin/console ibexa:reindex
+    ```
+
+### Removed Composer dependencies
+
+The following unused Composer dependencies have been removed from `ibexa/core`:
+
+- `guzzlehttp/guzzle`
+- `php-http/guzzle6-adapter`
+
+If your project uses Guzzle directly, you should add these dependencies to your project's `composer.json` file.
+
+To check if you need to add these dependencies, run:
+
+```bash
+composer why guzzlehttp/guzzle
+composer why php-http/guzzle6-adapter
+```
+
+If only the `ibexa/core` entry appears in the output, check your codebase to determine if you use Guzzle directly.
+If you do, add the required dependencies to your project:
+
+```bash
+composer require guzzlehttp/guzzle:^6.5 php-http/guzzle6-adapter:^2.0
+```
+
+### Messenger support in CDP
+
+If you're using [CDP](cdp.md) and haven't configured Ibexa Messenger yet, do so now.
+Follow the [Messenger setup instructions](https://doc.ibexa.co/en/4.6/infrastructure_and_maintenance/background_tasks/#install-package) to continue.
+
+<!-- End of update instructions -->
+
 [[% include 'snippets/update/notify_support.md' %]]
 
 With the product updated to the latest version, you can now finish the update process or proceed to updating the LTS Updates packages.
+
+## v4.6.28
+
+### Database update [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
+
+Run the provided SQL upgrade script to adapt your database to latest change in [form builder](form_builder_guide.md)'s `max_length` validator behavior:
+
+=== "MySQL"
+
+    ``` sql
+    mysql -u <username> -p <password> <database_name> < vendor/ibexa/installer/upgrade/db/mysql/ibexa-4.6.27-to-4.6.28.sql
+    ```
+
+=== "PostgreSQL"
+
+    ``` sql
+    psql <database_name> < vendor/ibexa/installer/upgrade/db/postgresql/ibexa-4.6.27-to-4.6.28.sql
+    ```
+
+Prior, `0` was interpreted as "no length limit".
+Now, `0` is interpreted as "length limited to zero characters" and `NULL` as "no length limit".
+
+## v4.6.29
+
+### GraphQL package update
+
+Due to the [GHSA-68jq-c3rv-pcrr security issue](https://github.com/advisories/GHSA-68jq-c3rv-pcrr), the GraphQL package requirements have been updated to allow installing higher versions in which this issue is resolved.
+
+When doing the update, you have two options:
+
+#### Update GraphQL packages and custom code (recommended)
+
+Make sure the `webonyx/graphql-php` package is installed in a version higher or equal to v15.31.5.
+
+If you [extended GraphQL to support custom field types](graphql_custom_ft.md), update the returned expression from `@=resolver(...)` to `@=query(...)` and change the argument syntax from an array to variadic arguments as in the following example:
+
+```diff
+-return sprintf('@=resolver("MyFieldValue", [field, %s])', $myArg);
++return sprintf('@=query("MyFieldValue", field, %s)', $myArg);
+```
+
+Then, regenerate the GraphQL schema by running:
+
+``` bash
+rm -rf config/graphql/types/ibexa/
+php bin/console ibexa:graphql:generate-schema
+```
+
+#### Implement other countermeasures
+
+If updating the GraphQL packages isn't possible right now, for example because the project is using PHP 7.4 where the fix is not available, review the security issue carefully and assess the danger.
+
+If you choose to implement countermeasures without updating the GraphQL packages, for example by restricting access to the GrapQL endpoint with rate limiting, authentication, or [WAF](https://en.wikipedia.org/wiki/Web_application_firewall), then you can silence the advisory in `composer.json`:
+
+```json
+"config": {
+    "audit": {
+        "ignore": {
+            "GHSA-68jq-c3rv-pcrr": "Description of the countermeasures you've implemented causing this one to be safe to ignore."
+        }
+    }
+}
+```
+
+In addition, consider upgrading your project to one of [the actively supported PHP versions](/getting_started/requirements.md#php).
+
+### Database update [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
+
+Run the provided SQL upgrade script to update your database:
+
+=== "MySQL"
+
+    ``` bash
+    mysql -u <username> -p <password> <database_name> < vendor/ibexa/installer/upgrade/db/mysql/ibexa-4.6.28-to-4.6.29.sql
+    ```
+
+=== "PostgreSQL"
+
+    ``` bash
+    psql <database_name> < vendor/ibexa/installer/upgrade/db/postgresql/ibexa-4.6.28-to-4.6.29.sql
+    ```
 
 ## LTS Updates
 
@@ -383,7 +665,12 @@ To use the [latest features](ibexa_dxp_v4.6.md) added to them, update them separ
 
 === "Discounts"
 
-    Run the following command to get the latest version:
+    ### Discounts [[% include 'snippets/lts-update_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
+
+    To install the [Discounts feature](discounts_guide.md), see the [installation instructions](https://doc.ibexa.co/en/4.6/discounts/install_discounts/).
+
+    If you're already using it, run the following command to get the latest version of this feature:
+
 
     ```bash
     composer require ibexa/discounts:[[= latest_tag_4_6 =]] ibexa/discounts-codes:[[= latest_tag_4_6 =]]
@@ -391,16 +678,16 @@ To use the [latest features](ibexa_dxp_v4.6.md) added to them, update them separ
 
     Then apply manually the changes described below.
 
-    ## 4.6.20
+    ### Discounts v4.6.20
 
-    ### Policy changes
+    #### Policy changes
 
     The `discount/view` policy is no longer required for the store customers to use a discount and must be removed from all users who are not managing discounts.
     The policy allows to access all the discount details, including the coupon codes to activate them, which could lead to system abuse.
 
     To learn more, see the [discounts policies overview](https://doc.ibexa.co/en/4.6/permissions/policies/).
 
-    ### Database update
+    #### Database update
 
     Run the following scripts:
 
@@ -522,9 +809,62 @@ To use the [latest features](ibexa_dxp_v4.6.md) added to them, update them separ
                 REFERENCES ezuser (contentobject_id) ON UPDATE CASCADE ON DELETE CASCADE NOT DEFERRABLE INITIALLY IMMEDIATE;
         ```
 
-=== "AI actions"
+    ### Discounts v4.6.22
 
-    Run the following command to get the latest version:
+    #### Database update
+
+    Run the following scripts:
+
+    === "MySQL"
+
+        ``` sql
+        ALTER TABLE ibexa_discount ADD override_prioritization tinyint(1) NOT NULL DEFAULT 0;
+        CREATE INDEX ibexa_discount_prioritization_idx ON ibexa_discount (override_prioritization, type, priority);
+        ALTER TABLE ibexa_discount_code ADD global_limit INT DEFAULT NULL;
+        ```
+
+    === "PostgreSQL"
+
+        ``` sql
+        ALTER TABLE ibexa_discount ADD override_prioritization tinyint(1) NOT NULL DEFAULT 0;
+        CREATE INDEX ibexa_discount_prioritization_idx ON ibexa_discount (override_prioritization, type, priority);
+        ALTER TABLE ibexa_discount_code ADD global_limit INT DEFAULT NULL;
+        ```
+    ### Discounts v4.6.24
+
+    #### Database update
+
+    Run the following scripts:
+
+    === "MySQL"
+
+        ``` sql
+        ALTER TABLE ibexa_discount
+            ADD indexed_at DATETIME DEFAULT NULL COMMENT '(DC2Type:datetime_immutable)';
+
+        CREATE INDEX ibexa_discount_indexed_at_idx
+            ON ibexa_discount (indexed_at);
+        ```
+
+    === "PostgreSQL"
+
+        ``` sql
+        ALTER TABLE ibexa_discount
+            ADD indexed_at TIMESTAMP(0) WITHOUT TIME ZONE DEFAULT NULL;
+
+        COMMENT ON COLUMN ibexa_discount.indexed_at IS '(DC2Type:datetime_immutable)';
+
+        CREATE INDEX ibexa_discount_indexed_at_idx
+            ON ibexa_discount (indexed_at);
+        ```
+
+=== "AI Actions"
+
+    ### AI Actions [[% include 'snippets/lts-update_badge.md' %]]
+
+    To install the [AI actions feature](ai_actions_guide.md), see the [installation instructions](https://doc.ibexa.co/en/4.6/ai_actions/install_ai_actions/).
+
+    If you're already using it, run the following command to get the latest version of this feature:
 
     ```bash
     composer require ibexa/connector-ai:[[= latest_tag_4_6 =]] ibexa/connector-openai:[[= latest_tag_4_6 =]]
@@ -532,8 +872,54 @@ To use the [latest features](ibexa_dxp_v4.6.md) added to them, update them separ
 
 === "Date and time attribute"
 
-    Run the following command to get the latest version:
+    ### Date and time attribute [[% include 'snippets/lts-update_badge.md' %]]
+
+    To install the [Date and time attribute](date_and_time.md), see the [installation instructions](https://doc.ibexa.co/en/4.6/pim/attributes/date_and_time/#installation).
+
+    If you're already using it, run the following command to get the latest version of this feature:
 
     ```bash
     composer require ibexa/product-catalog-date-time-attribute:[[= latest_tag_4_6 =]]
+    ```
+
+=== "Symbol attribute"
+
+    ### Symbol attribute [[% include 'snippets/lts-update_badge.md' %]]
+
+    To install the [Symbol attribute](symbol_attribute_type.md), see the [installation instructions](https://doc.ibexa.co/en/4.6/pim/attributes/symbol_attribute_type/#installation).
+
+    If you're already using it, run the following command to get the latest version of this feature:
+
+    ```bash
+    composer require ibexa/product-catalog-symbol-attribute:[[= latest_tag_4_6 =]]
+    ```
+
+=== "Integrated help"
+
+    ### Integrated help [[% include 'snippets/lts-update_badge.md' %]]
+
+    See [Integrated help](integrated_help.md) for more information.
+
+    If you're already using it, run the following command to get the latest version of this feature:
+
+    ```bash
+    composer require ibexa/integrated-help:[[= latest_tag_4_6 =]]
+    ```
+
+=== "Collaborative editing"
+
+    ### Collaborative editing [[% include 'snippets/lts-update_badge.md' %]]
+
+    To learn more about the [Collaborative editing](https://doc.ibexa.co/en/latest/content_management/collaborative_editing/collaborative_editing_guide/), see the [installation instructions](https://doc.ibexa.co/en/4.6/content_management/collaborative_editing/install_collaborative_editing).
+
+    If you're already using it, run the following command to get the latest version of this feature:
+
+    ```bash
+    composer require ibexa/share:[[= latest_tag_4_6 =]] ibexa/collaboration:[[= latest_tag_4_6 =]]
+    ```
+
+    If you're using the Real-time collaborative editing, in addition run:
+
+    ```bash
+    composer require ibexa/fieldtype-richtext-rte:[[= latest_tag_4_6 =]] ibexa/ckeditor-premium:[[= latest_tag_4_6 =]]
     ```

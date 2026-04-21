@@ -24,21 +24,11 @@ use Symfony\Component\Console\Output\OutputInterface;
 )]
 final class PaymentMethodCommand extends Command
 {
-    private PermissionResolver $permissionResolver;
-
-    private UserService $userService;
-
-    private PaymentMethodServiceInterface $paymentMethodService;
-
     public function __construct(
-        PermissionResolver $permissionResolver,
-        UserService $userService,
-        PaymentMethodServiceInterface $paymentMethodService
+        private readonly PermissionResolver $permissionResolver,
+        private readonly UserService $userService,
+        private readonly PaymentMethodServiceInterface $paymentMethodService
     ) {
-        $this->paymentMethodService = $paymentMethodService;
-        $this->permissionResolver = $permissionResolver;
-        $this->userService = $userService;
-
         parent::__construct();
     }
 

@@ -40,7 +40,7 @@ Make sure to remove all occurrences of `sesspecificationstype`, `uivarvarianttyp
 
 This step should be performed on the working installation, omitting it results in an error during update:
 
-```
+```text
   [Ibexa\Core\Persistence\Legacy\Content\FieldValue\Converter\Exception\NotFound (404)]
   Could not find 'Persistence Field Value Converter' with identifier 'sesspecificationstype'
 ```

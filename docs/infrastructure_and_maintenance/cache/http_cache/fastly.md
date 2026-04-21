@@ -17,7 +17,7 @@ The information provided here is only applicable if you want to change the defau
 
 !!! note "Disable Varnish when you use Fastly"
     Varnish is automatically provisioned on [[= product_name_cloud =]]. Varnish needs to be disabled on all environments that use
-    Fastly. See [documentation on how to do that](https://docs.platform.sh/guides/ibexa/fastly.html).
+    Fastly. See [documentation on how to do that](https://fixed.docs.upsun.com/guides/ibexa/fastly.html).
 
 ## Prepare for using Fastly locally
 

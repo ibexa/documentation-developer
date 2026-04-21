@@ -69,7 +69,9 @@ One such built-in implementation is `InMemoryEventSource`.
 To add an in-memory collection as an event source, create `src/Calendar/Holidays/EventSourceFactory.php`:
 
 ```php
-[[= include_file('code_samples/back_office/calendar/src/Calendar/Holidays/EventSourceFactory.php', 0, 23) =]][[= include_file('code_samples/back_office/calendar/src/Calendar/Holidays/EventSourceFactory.php', 29, 40) =]]
+[[= include_file('code_samples/back_office/calendar/src/Calendar/Holidays/EventSourceFactory.php', 0, 20) =]]
+[[= include_file('code_samples/back_office/calendar/src/Calendar/Holidays/EventSourceFactory.php', 26, 36) =]]
+
 ```
 
 !!! note
@@ -107,7 +109,7 @@ To do this, place the following `holidays.json` file in `src/Calendar/Holidays`:
 Next, import this file in `src/Calendar/Holidays/EventSourceFactory.php`:
 
 ``` php hl_lines="6-9"
-[[= include_file('code_samples/back_office/calendar/src/Calendar/Holidays/EventSourceFactory.php', 19, 33) =]]
+[[= include_file('code_samples/back_office/calendar/src/Calendar/Holidays/EventSourceFactory.php', 16, 30) =]]
 ```
 
 The calendar now displays the events listed in the JSON file.

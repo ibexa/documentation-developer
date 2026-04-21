@@ -10,7 +10,7 @@ description: Get to know Ibexa Headless - an edition that focuses on content man
 The Headless edition of [[= product_name =]] focuses on content management.
 It provides tools to collaboratively create content, and interfaces (API) to distribute this content.
 
-Multilingual, multichannel, extensible, [[= product_name_headless =]] is an advanced Content Management Framework (CMF), a Product Information Management (PIM) platform, and a Digital Asset Management (DAM) repository.
+Multilingual, multichannel, extensible, [[= product_name_headless =]] is an advanced Content Management Framework (CMF) with product catalog capabilities, and a Digital Asset Management (DAM) repository.
 It's provided without a default front office, but with a complete back office and several APIs to manage and access content.
 
 ![Ibexa Headless](ibexa_headless.png)
@@ -43,7 +43,7 @@ For performance, several bricks can be added to your stack such as a reverse pro
 
 By using a version control system and environment variables, you can deploy your configuration and extensions on several environments including [[= product_name_cloud =]].
 
-Standard web APIs and [[[= product_name_connect =]]]([[= connect_doc =]]/general/ibexa_connect/) help establish interoperability, even if you'ren't an advanced developer.
+Standard web APIs and [[[= product_name_connect =]]]([[= connect_doc =]]/general/ibexa_connect/) help establish interoperability, even if you aren't an advanced developer.
 
 ![Ibexa Headless data inputs and outputs](img/headless.png)
 
@@ -118,7 +118,7 @@ Like everything in the back office, the calendar is extendable: you can add an e
 
 #### Many ways to structure and organize content
 
-[Product Information Management](pim_guide.md) (PIM) helps organize complex products and their catalogs:
+[Product catalog](product_catalog_guide.md) helps organize complex products and their catalogs:
 
 - Products are organized by using product types, variants, catalogs, categories, and tags.
 - Product attributes are grouped and factorized among product types. For example, fabric + color + size can be shared by many clothing product types.

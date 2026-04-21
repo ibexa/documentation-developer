@@ -1,0 +1,40 @@
+ibexa:
+    system:
+        admin_group:
+            product_tour:
+                my_general_scenario:
+                    type: 'general'
+                    scenario_title_translation_key: tour.my_general_scenario.title
+                    steps:
+                        welcome_step:
+                          step_title_translation_key: title
+                          background_image: /public/img/background.jpg
+                          blocks:
+                              - type: title
+                                params:
+                                    text_translation_key: subtitle
+                              - type: text
+                                params:
+                                    text_translation_key: tour.step.description
+                              - type: link
+                                params:
+                                    url: https://doc.ibexa.co
+                                    text_translation_key: tour.link.documentation
+                              - type: image
+                                params:
+                                    src: /public/img/diagram.jpg
+                                    alt_translation_key: tour.image.alt
+                              - type: video
+                                params:
+                                    #  'Big Buck Bunny' licensed under CC 3.0 by the Blender foundation. Hosted by archive.org
+                                    url: https://archive.org/download/BigBuckBunny_124/Content/big_buck_bunny_720p_surround.mp4
+                              - type: list
+                                params:
+                                    title_translation_key: tour.list.title
+                                    items_translation_keys:
+                                        - tour.list.item1
+                                        - tour.list.item2
+                                        - tour.list.item3
+                              - type: twig_template
+                                params:
+                                    template: custom_template.html.twig

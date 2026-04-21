@@ -52,7 +52,7 @@ To create a session, execute the following REST request:
 
 === "XML"
 
-    ```
+    ``` http
     POST /user/sessions HTTP/1.1
     Host: www.example.net
     Accept: application/vnd.ibexa.api.Session+xml
@@ -67,17 +67,17 @@ To create a session, execute the following REST request:
     </SessionInput>
     ```
 
-    ```
+    ``` http
     HTTP/1.1 201 Created
     Location: /user/sessions/go327ij2cirpo59pb6rrv2a4el2
-    Set-Cookie: eZSESSID98defd6ee70dfb1dea416=go327ij2cirpo59pb6rrv2a4el2; domain=.example.net; path=/; expires=Wed, 13-Jan-2021 22:23:01 GMT; HttpOnly
+    Set-Cookie: IBX_SESSION_ID98defd6ee70dfb1dea416=go327ij2cirpo59pb6rrv2a4el2; domain=.example.net; path=/; expires=Wed, 13-Jan-2021 22:23:01 GMT; HttpOnly
     Content-Type: application/vnd.ibexa.api.Session+xml
     ```
 
     ```xml
     <?xml version="1.0" encoding="UTF-8"?>
     <Session href="/user/sessions/sessionID" media-type="application/vnd.ibexa.api.Session+xml">
-      <name>eZSESSID98defd6ee70dfb1dea416</name>
+      <name>IBX_SESSION_ID98defd6ee70dfb1dea416</name>
       <identifier>go327ij2cirpo59pb6rrv2a4el2</identifier>
       <csrfToken>23lk.neri34ijajedfw39orj-3j93</csrfToken>
       <User href="/user/users/14" media-type="vnd.ibexa.api.User+xml"/>
@@ -86,7 +86,7 @@ To create a session, execute the following REST request:
 
 === "JSON"
 
-    ```
+    ``` http
     POST /user/sessions HTTP/1.1
     Host: www.example.net
     Accept: application/vnd.ibexa.api.Session+json
@@ -102,10 +102,10 @@ To create a session, execute the following REST request:
     }
     ```
 
-    ```
+    ``` http
     HTTP/1.1 201 Created
     Location: /user/sessions/go327ij2cirpo59pb6rrv2a4el2
-    Set-Cookie: eZSESSID98defd6ee70dfb1dea416=go327ij2cirpo59pb6rrv2a4el2; domain=.example.net; path=/; expires=Wed, 13-Jan-2021 22:23:01 GMT; HttpOnly
+    Set-Cookie: IBX_SESSION_ID98defd6ee70dfb1dea416=go327ij2cirpo59pb6rrv2a4el2; domain=.example.net; path=/; expires=Wed, 13-Jan-2021 22:23:01 GMT; HttpOnly
     Content-Type: application/vnd.ibexa.api.Session+xml
     ```
 
@@ -114,7 +114,7 @@ To create a session, execute the following REST request:
       "Session": {
         "_media-type": "application\/vnd.ibexa.api.Session+json",
         "_href": "\/api\/ibexa\/v2\/user\/sessions\/jg1nhinvepsb9ivd10hbjbdp4l",
-        "name": "eZSESSID98defd6ee70dfb1dea416",
+        "name": "IBX_SESSION_ID98defd6ee70dfb1dea416",
         "identifier": "go327ij2cirpo59pb6rrv2a4el2",
         "csrfToken": "23lk.neri34ijajedfw39orj-3j93",
         "User": {
@@ -131,12 +131,12 @@ Logging in is similar to session creation, with one important detail: the CSRF t
 
 === "XML"
 
-    ```
+    ``` http
     POST /user/sessions HTTP/1.1
     Host: www.example.net
     Accept: application/vnd.ibexa.api.Session+xml
     Content-Type: application/vnd.ibexa.api.SessionInput+xml
-    Cookie: eZSESSID98defd6ee70dfb1dea416=go327ij2cirpo59pb6rrv2a4el2
+    Cookie: IBX_SESSION_ID98defd6ee70dfb1dea416=go327ij2cirpo59pb6rrv2a4el2
     X-CSRF-Token: 23lk.neri34ijajedfw39orj-3j93
     ```
 
@@ -148,7 +148,7 @@ Logging in is similar to session creation, with one important detail: the CSRF t
     </SessionInput>
     ```
 
-    ```
+    ``` http
     HTTP/1.1 200 OK
     Content-Type: application/vnd.ibexa.api.Session+xml
     ```
@@ -156,7 +156,7 @@ Logging in is similar to session creation, with one important detail: the CSRF t
     ```xml
     <?xml version="1.0" encoding="UTF-8"?>
     <Session href="user/sessions/go327ij2cirpo59pb6rrv2a4el2/refresh" media-type="application/vnd.ibexa.api.Session+xml">
-      <name>eZSESSID98defd6ee70dfb1dea416</name>
+      <name>IBX_SESSION_ID98defd6ee70dfb1dea416</name>
       <identifier>go327ij2cirpo59pb6rrv2a4el2</identifier>
       <csrfToken>23lk.neri34ijajedfw39orj-3j93</csrfToken>
       <User href="/user/users/14" media-type="vnd.ibexa.api.User+xml"/>
@@ -165,12 +165,12 @@ Logging in is similar to session creation, with one important detail: the CSRF t
 
 === "JSON"
 
-    ```
+    ``` http
     POST /user/sessions HTTP/1.1
     Host: www.example.net
     Accept: application/vnd.ibexa.api.Session+json
     Content-Type: application/vnd.ibexa.api.SessionInput+json
-    Cookie: eZSESSID98defd6ee70dfb1dea416=go327ij2cirpo59pb6rrv2a4el2
+    Cookie: IBX_SESSION_ID98defd6ee70dfb1dea416=go327ij2cirpo59pb6rrv2a4el2
     X-CSRF-Token: 23lk.neri34ijajedfw39orj-3j93
     ```
 
@@ -183,7 +183,7 @@ Logging in is similar to session creation, with one important detail: the CSRF t
     }
     ```
 
-    ```
+    ``` http
     HTTP/1.1 200 OK
     Content-Type: application/vnd.ibexa.api.Session+json
     ```
@@ -193,7 +193,7 @@ Logging in is similar to session creation, with one important detail: the CSRF t
       "Session": {
         "_media-type": "application\/vnd.ibexa.api.Session+json",
         "_href": "\/api\/ibexa\/v2\/user\/sessions\/jg1nhinvepsb9ivd10hbjbdp4l",
-        "name": "eZSESSID98defd6ee70dfb1dea416",
+        "name": "IBX_SESSION_ID98defd6ee70dfb1dea416",
         "identifier": "go327ij2cirpo59pb6rrv2a4el2",
         "csrfToken": "23lk.neri34ijajedfw39orj-3j93",
         "User": {
@@ -210,11 +210,11 @@ Logging in is similar to session creation, with one important detail: the CSRF t
 
 You can now add the previously set cookie to requests to be executed with the logged-in user.
 
-```
+```http
 GET /content/locations/1/5 HTTP/1.1
 Host: www.example.net
 Accept: Accept: application/vnd.ibexa.api.Location+xml
-Cookie: eZSESSID98defd6ee70dfb1dea416=go327ij2cirpo59pb6rrv2a4el2
+Cookie: IBX_SESSION_ID98defd6ee70dfb1dea416=go327ij2cirpo59pb6rrv2a4el2
 ```
 
 ##### CSRF token
@@ -224,10 +224,10 @@ It should be sent with an `X-CSRF-Token` header.
 
 Only three built-in routes can accept unsafe methods without CSRF, the sessions routes starting with `/user/sessions` to create, refresh or delete a session.
 
-```
+```http
 DELETE /content/types/32 HTTP/1.1
 Host: www.example.net
-Cookie: eZSESSID98defd6ee70dfb1dea416=go327ij2cirpo59pb6rrv2a4el2
+Cookie: IBX_SESSION_ID98defd6ee70dfb1dea416=go327ij2cirpo59pb6rrv2a4el2
 X-CSRF-Token: 23lk.neri34ijajedfw39orj-3j93
 ```
 
@@ -259,10 +259,10 @@ A person with minimal insight into this application and the company can easily s
 
 To log out is to `DELETE` the session using its ID (like in the cookie). As this is an unsafe method, the CSRF token must be presented.
 
-```
+```http
 DELETE /user/sessions/go327ij2cirpo59pb6rrv2a4el2 HTTP/1.1
 Host: www.example.net
-Cookie: eZSESSID98defd6ee70dfb1dea416=go327ij2cirpo59pb6rrv2a4el2
+Cookie: IBX_SESSION_ID98defd6ee70dfb1dea416=go327ij2cirpo59pb6rrv2a4el2
 X-CSRF-Token: 23lk.neri34ijajedfw39orj-3j93
 ```
 
@@ -270,44 +270,11 @@ X-CSRF-Token: 23lk.neri34ijajedfw39orj-3j93
 
 ### Configuration
 
-See [JWT authentication](#jwt-authentication) or GraphQL.
+See [JWT authentication](development_security.md#jwt-authentication) for configuration instructions.
 
 ### Usage example
 
-After you [configure JWT authentication](development_security.md#jwt-authentication) at least for REST, you can get the JWT token through the following request:
-
-=== "XML"
-
-    ```
-    POST /user/token/jwt HTTP/1.1
-    Host: <yourdomain>
-    Accept: application/vnd.ibexa.api.JWT+xml
-    Content-Type: application/vnd.ibexa.api.JWTInput+xml
-    ```
-
-    Provide the username and password in the request body:
-
-    ```xml
-    <JWTInput>
-        <username>admin</username>
-        <password>publish</password>
-    </JWTInput>
-    ```
-
-    If credentials are valid, the server response contains a token:
-
-    ```xml
-    <JWT media-type="application/vnd.ibexa.api.JWT+xml" token="eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9…-QBE4-6eKNjg"/>
-    ```
-
-    You can then use this token in your request instead of username and password.
-
-    ```
-    GET /content/locations/1/5/children
-    Host: <yourdomain>
-    Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9…-QBE4-6eKNjg
-    Accept: application/vnd.ibexa.api.LocationList+xml
-    ```
+After you configure JWT authentication for REST, you can get the JWT token through the following request:
 
 === "JSON"
 
@@ -388,7 +355,7 @@ Most HTTP client libraries and REST libraries support this method.
 
 **Raw HTTP request with basic authentication**
 
-```
+```http
 GET / HTTP/1.1
 Host: api.example.com
 Accept: application/vnd.ibexa.api.Root+json

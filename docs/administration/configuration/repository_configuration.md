@@ -76,7 +76,7 @@ ibexa:
         entity_mappings:
             IbexaCoreBundle:
                 is_bundle: true
-                type: annotation
+                type: attribute
                 dir: Entity
                 prefix: Ibexa\Bundle\Core\Entity
 ```
@@ -148,7 +148,7 @@ ibexa:
             repository: second_repository
 ```
 
-```
+```bash
 # .env.local
 
 SECOND_DATABASE_URL=otherdb://otheruser:otherpasswd@otherhost:otherport/otherdbname?otherdbserversion

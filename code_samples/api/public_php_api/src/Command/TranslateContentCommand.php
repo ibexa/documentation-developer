@@ -16,18 +16,11 @@ use Symfony\Component\Console\Output\OutputInterface;
 )]
 class TranslateContentCommand extends Command
 {
-    private ContentService $contentService;
-
-    private UserService $userService;
-
-    private PermissionResolver $permissionResolver;
-
-    public function __construct(ContentService $contentService, UserService $userService, PermissionResolver $permissionResolver)
-    {
-        $this->contentService = $contentService;
-        $this->userService = $userService;
-        $this->permissionResolver = $permissionResolver;
-
+    public function __construct(
+        private readonly ContentService $contentService,
+        private readonly UserService $userService,
+        private readonly PermissionResolver $permissionResolver
+    ) {
         parent::__construct();
     }
 

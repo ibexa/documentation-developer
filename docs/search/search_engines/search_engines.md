@@ -17,12 +17,12 @@ Currently, they exist in their own [[= product_name =]] Bundles:
 | --- | --- | --- | --- |
 | Filtering | Yes, limited\* | Yes | Yes |
 | Query (filter with scoring) | Only filters, no scoring | Yes | Yes |
-| Fulltext search | Yes, limited\*\* | Yes | Yes, limited |
+| Full-text search | Yes, limited\*\* | Yes | Yes, limited |
 | Index-time boosting | No | No | Query-time boosting\*\*\* |
 | Aggregations | No | Yes | Yes |
 
 \* Usage of Criteria and Sort Clauses for fields doesn't perform well on medium to larger amount of data with Legacy Search Engine (SQL).
 
-\*\* For more information about fulltext search syntax support, see [Fulltext Criterion](fulltext_criterion.md).
+\*\* For more information about full-text search syntax support, see [Full-text Criterion](fulltext_criterion.md).
 
 \*\*\* Elasticsearch offers query-time boosting instead.

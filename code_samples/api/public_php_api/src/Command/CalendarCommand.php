@@ -13,28 +13,21 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
 #[AsCommand(
-    name: 'doc:calendar'
+    name: 'doc:calendar',
+    description: 'Lists Calendar event in the provided time range and reschedules them.'
 )]
 class CalendarCommand extends Command
 {
-    private PermissionResolver $permissionResolver;
-
-    private UserService $userService;
-
-    private CalendarServiceInterface $calendarService;
-
-    public function __construct(PermissionResolver $permissionResolver, UserService $userService, CalendarServiceInterface $calendarService)
-    {
-        $this->permissionResolver = $permissionResolver;
-        $this->userService = $userService;
-        $this->calendarService = $calendarService;
-
+    public function __construct(
+        private readonly PermissionResolver $permissionResolver,
+        private readonly UserService $userService,
+        private readonly CalendarServiceInterface $calendarService
+    ) {
         parent::__construct();
     }
 
     public function configure(): void
     {
-        $this->setDescription('Lists Calendar event in the provided time range and reschedules them.');
     }
 
     protected function execute(InputInterface $input, OutputInterface $output): int

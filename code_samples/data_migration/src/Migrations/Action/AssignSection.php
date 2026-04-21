@@ -6,16 +6,12 @@ namespace App\Migrations\Action;
 
 use Ibexa\Migration\ValueObject\Step\Action;
 
-final class AssignSection implements Action
+final readonly class AssignSection implements Action
 {
-    public const TYPE = 'assign_section';
+    public const string TYPE = 'assign_section';
 
-    /** @var string */
-    private $sectionIdentifier;
-
-    public function __construct(string $sectionIdentifier)
+    public function __construct(private string $sectionIdentifier)
     {
-        $this->sectionIdentifier = $sectionIdentifier;
     }
 
     /**

@@ -90,7 +90,7 @@ For more information, see [data customization](https://doc.ibexa.co/en/latest/cd
 ### Client-side Tracking
 
 The final step is setting up a tracking script.
-For more information, see [CDP add client-side tracking](https://doc.ibexa.co/en/latest/cdp/cdp_activation/cdp_add_clientside_tracking/) and [tutorial in Raptor documentation](https://support.raptorsmartadvisor.com/hc/en-us/articles/9563346335004-Client-Side-Tracking).
+For more information, see [CDP add client-side tracking](https://doc.ibexa.co/en/latest/cdp/cdp_activation/cdp_add_clientside_tracking/) and [Introduction to tracking in Raptor documentation](https://content.raptorservices.com/help-center/introduction-to-tracking-documentation).
 
 ### Audience Builder
 

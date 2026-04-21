@@ -16,7 +16,7 @@ From the developer's perspective, shipments are referenced with a UUID identifie
 To access a single shipment by using its string identifier, use the `ShipmentService::getShipmentByIdentifier` method:
 
 ``` php
-[[= include_file('code_samples/api/commerce/src/Command/ShipmentCommand.php', 73, 82) =]]
+[[= include_file('code_samples/api/commerce/src/Command/ShipmentCommand.php', 57, 66) =]]
 ```
 
 ### Get single shipment by id
@@ -24,7 +24,7 @@ To access a single shipment by using its string identifier, use the `ShipmentSer
 To access a single shipment by using its numerical id, use the `ShipmentService::getShipment` method:
 
 ``` php
-[[= include_file('code_samples/api/commerce/src/Command/ShipmentCommand.php', 61, 71) =]]
+[[= include_file('code_samples/api/commerce/src/Command/ShipmentCommand.php', 45, 55) =]]
 ```
 
 ## Get multiple shipments
@@ -33,7 +33,7 @@ To fetch multiple shipments, use the `ShipmentService::findShipments` method.
 It follows the same search query pattern as other APIs:
 
 ``` php
-[[= include_file('code_samples/api/commerce/src/Command/ShipmentCommand.php', 84, 103) =]]
+[[= include_file('code_samples/api/commerce/src/Command/ShipmentCommand.php', 68, 87) =]]
 ```
 
 ## Create shipment
@@ -41,7 +41,7 @@ It follows the same search query pattern as other APIs:
 To create a shipment, use the `ShipmentService::createShipment` method and provide it with an `Ibexa\Contracts\Shipping\Value\ShipmentCreateStruct` object that takes two parameters, a `shippingMethod` string and a `Money` object.
 
 ``` php
-[[= include_file('code_samples/api/commerce/src/Command/ShipmentCommand.php', 105, 119) =]]
+[[= include_file('code_samples/api/commerce/src/Command/ShipmentCommand.php', 89, 103) =]]
 ```
 
 ## Update shipment
@@ -51,7 +51,7 @@ You could do it to support a scenario when, for example, the shipment is process
 To update shipment information, use the `ShipmentService::updateShipment` method:
 
 ``` php
-[[= include_file('code_samples/api/commerce/src/Command/ShipmentCommand.php', 121, 132) =]]
+[[= include_file('code_samples/api/commerce/src/Command/ShipmentCommand.php', 105, 116) =]]
 ```
 ## Delete shipment
 
@@ -59,5 +59,5 @@ To delete a shipment from the system, use the `ShipmentService::deleteShipment` 
 
 
 ``` php
-[[= include_file('code_samples/api/commerce/src/Command/ShipmentCommand.php', 134, 135) =]]
+[[= include_file('code_samples/api/commerce/src/Command/ShipmentCommand.php', 118, 119) =]]
 ```

@@ -343,7 +343,7 @@ Use the example below to add a class choice to the Paragraph element in the `adm
     For example:
 
     ``` bash
-    php ./bin/console translation:extract --enable-extractor=ez_online_editor_attributes \
+    php ./bin/console jms:translation:extract --enable-extractor=ez_online_editor_attributes \
     --dir=./templates --output-dir=./translations/ --output-format=yaml
     ```
 

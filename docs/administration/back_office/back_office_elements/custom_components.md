@@ -47,6 +47,7 @@ The available groups for the back office are:
 |`admin-ui-systeminfo-tab-groups`| `vendor/ibexa/system-info/src/bundle/Resources/views/themes/admin/system_info/info.html.twig` |
 |`admin-ui-user-menu`| `vendor/ibexa/admin-ui-ui/src/bundle/Resources/views/themes/admin/ui/layout.html.twig` |
 |`admin-ui-user-profile-blocks`| `vendor/ibexa/admin-ui/src/bundle/Resources/views/themes/admin/account/profile/view.html.twig` |
+|`admin-ui-versions-table-before`|`vendor/ibexa/admin-ui/src/bundle/Resources/views/themes/admin/content/tab/versions/table.html.twig`|
 
 For more information, see [this example using few of those components](components.md#example).
 
@@ -77,6 +78,10 @@ For more information, see [this example using few of those components](component
 |`admin-ui-product-edit-form-header-actions`| `vendor/ibexa/product-catalog/src/bundle/Resources/views/themes/admin/product_catalog/product/edit.html.twig` |
 |`admin-ui-product-edit-form-after`| `vendor/ibexa/product-catalog/src/bundle/Resources/views/themes/admin/product_catalog/product/edit.html.twig` |
 |`admin-ui-product-block`| `vendor/ibexa/product-catalog/src/bundle/Resources/views/themes/admin/product_catalog/product/view.html.twig` |
+|`admin-ui-product-translation-modal-footer`| `vendor/ibexa/product-catalog/src/bundle/Resources/views/themes/admin/product_catalog/product/modal/add_translation.html.twig` |
+|`admin-ui-product-translations-actions-modal`| `vendor/ibexa/product-catalog/src/bundle/Resources/views/themes/admin/product_catalog/product/tab/translations.html.twig` |
+|`admin-ui-product-translations-actions`| `vendor/ibexa/product-catalog/src/bundle/Resources/views/themes/admin/product_catalog/product/tab/translations.html.twig` |
+|`admin-ui-product-translations-row-actions`| `vendor/ibexa/product-catalog/src/bundle/Resources/views/themes/admin/product_catalog/product/tab/translations.html.twig` |
 |`admin-ui-product-type-block`| `vendor/ibexa/product-catalog/src/bundle/Resources/views/themes/admin/product_catalog/product_type/view.html.twig` |
 
 ## Taxonomy

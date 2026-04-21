@@ -12,6 +12,7 @@ Wherever you look, artificial intelligence becomes more and more important by en
 AI Actions is an extensible solution for integrating features provided by AI services into your workflows, all managed through a user-friendly interface.
 
 Out-of-the-box, AI Actions solution includes two essential components: a framework package and an OpenAI connector package.
+The Anthropic and Gemini connectors are also available - as [LTS updates](editions.md#lts-updates).
 
 AI Actions can integrate with [[[= product_name_connect =]]]([[= connect_doc =]]/general/ibexa_connect/), to give you an opportunity to build complex data transformation workflows without having to rely on custom code.
 From the developer's perspective, the integration removes the burden of maintaining third-party AI handlers, and accelerates the deployment of AI-based solutions.
@@ -20,6 +21,7 @@ AI Actions solution comes pre-configured with the following action types:
 
 - [Refine text](#refining-text): Rewrite existing text according to instructions set in a prompt
 - [Generate alternative text](#generating-alternative-text): Generate alt text for images for accessibility purposes
+- [Suggest taxonomy entries](#suggesting-taxonomy-entries): Generate tag or product category suggestions based on content fields
 
 ![AI Actions schematic](img/guide_ai_actions.png)
 
@@ -34,7 +36,7 @@ To begin using AI Actions, you must first [perform the initial configuration](co
 
 ### Prerequisites
 
-The OpenAI connector requires that you first [get an API key](https://help.openai.com/en/articles/4936850-where-do-i-find-my-openai-api-key) and make sure that you [set up a billing method](https://help.openai.com/en/articles/9038407-how-can-i-set-up-billing-for-my-account).
+Connectors with external AI services delivered by [[= product_name_base =]] require that you first install them, and [configure other settings, such as an API key and billing method](configure_ai_actions.md).
 
 Integration with [[= product_name_connect =]] requires that you first [get the credentials]([[= connect_doc =]]/general/ibexa_connect/#access-ibexa-connect) to your account, and the [API token](configure_ai_actions.md#create-token).
 
@@ -159,9 +161,19 @@ Once the feature is configured, editors can generate alt text for images they up
 
 With some customization, administrators could use the API to run a batch process against a larger collection of illustrations.
 
+### Suggesting taxonomy entries
+
+Content editors and product managers can use [taxonomy suggestions](taxonomy.md#taxonomy-suggestions) when assigning tags or product categories to content items and products.
+Instead of manually browsing through extensive taxonomy trees, editors can request suggestions based on the content's text fields, such as name and description.
+
+!!! note "Alternative suggestion provider"
+
+    By default, embeddings used by the taxonomy suggestions feature are generated with OpenAI.
+    If you install and configure the [Google Gemini connector](configure_ai_actions.md#install-google-gemini-connector), you can modify the [taxonomy suggestions settings](taxonomy.md#change-embeddings-provider-to-google-gemini) and use Google Gemini as an alternative embeddings provider.
+
 ### Performing advanced image to text analysis
 
-With some additional customization, store managers could benefit from automating part of product management by integrating their [[= product_name =]] with Google Cloud Vision and [PIM](pim_guide.md) by using [[= product_name_connect =]].
+With some additional customization, store managers could benefit from automating part of product management by integrating their [[= product_name =]] with Google Cloud Vision and the [product catalog](product_catalog_guide.md) by using [[= product_name_connect =]].
 Instead of manually selecting and linking images stored in a [DAM](add_image_asset_from_dam.md) solution to their products, they could use of a no-code workflow where an AI service, for example, Google Cloud Vision, extracts text and attributes from product images, which are then matched with existing items in a product catalog.
 
 This would enable automatic product identification, tagging, and catalog updates, resulting in less manual work and more efficient product management.

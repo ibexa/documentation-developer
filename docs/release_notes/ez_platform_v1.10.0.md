@@ -31,7 +31,7 @@ For more information, see [Bundle documentation](https://github.com/ezsystems/ez
 
 #### API: Simplified usage with translations
 
-As part of ongoing effort to simplify everyday aspects of the API for v2, [one notable part](https://issues.ibexa.co/browse/EZP-27428) that did not cause any BC was added to v1.10, enabling you to simplify how you deal with SiteAccess languages and translations.
+As part of ongoing effort to simplify everyday aspects of the API for v2, you can now simpler deal with SiteAccess languages and translations.
 
 ###### Example
 
@@ -64,8 +64,6 @@ $name = $content->getName();
 $value = $content->getFieldValue('body');
 ```
 
-*Further improvements such as getting the system to inject languages on api calls as shown in the first call above [are planned as part of the API epic](https://issues.ibexa.co/browse/EZP-26519)**, suggestions for further improvements are always welcome.*
-
 #### SOLR: Index time boosting & Improved Facets support
 
 One of the new features in 1.10 *(Solr Bundle 1.4)* is the possibility to [configure index time boosting](https://doc.ibexa.co/en/latest/guide/search/solr/#boost-configuration), which enables you to properly tune the search results to be relevant for your content architecture.
@@ -81,28 +79,27 @@ Starting with 1.10, a new command `ezplatform:io:migrate-files` has been added
 #### Miscellaneous
 
 -   Kernel: Don't store full User object in Sessions anymore, just User Id
-    -    [![](https://issues.ibexa.co/images/icons/issuetypes/bug.png)EZP-24852](https://issues.ibexa.co/browse/EZP-24852?src=confmacro) - Add UserReference support in Authentication/User providers Closed
 
 ### eZ Platform Enterprise Edition - Studio
 
--   Form deletion is managed more gracefully, including warnings and the option to download collected data before deleting a form ([EZEE-1400](https://issues.ibexa.co/browse/EZEE-1400))
+-   Form deletion is managed more gracefully, including warnings and the option to download collected data before deleting a form
 
 ![Deleting a form with data](delete-form.gif "Deleting a form with data")
 
--   [EZEE-1411](https://issues.ibexa.co/browse/EZEE-1411): Schedule block logic has been updated and improved.
+-   Schedule block logic has been updated and improved.
 
 ### eZ Platform Enterprise Edition - Studio Demo
 
--   [DEMO-102](https://issues.ibexa.co/browse/DEMO-102): [NovaeZSEOBundle](https://github.com/Novactive/NovaeZSEOBundle/) is now included in Studio Demo. NovaeZSEOBundle includes a new field type that lets you manage your SEO strategy in very advanced and powerful ways.
--   [DEMO-100](https://issues.ibexa.co/browse/DEMO-100): We also improved the way we provide personalization in the site using a profiling block and letting the end user manage their preferences by themselves. In this new version, the end user, once logged on the site, can access a page where they can define their content preferences. See [here](https://ez.no/Blog/Personalization-Does-Not-Have-to-Be-that-Complex) for more information.
+-   [NovaeZSEOBundle](https://github.com/Novactive/NovaeZSEOBundle/) is now included in Studio Demo. NovaeZSEOBundle includes a new field type that lets you manage your SEO strategy in very advanced and powerful ways.
+-   We also improved the way we provide personalization in the site using a profiling block and letting the end user manage their preferences by themselves. In this new version, the end user, once logged on the site, can access a page where they can define their content preferences. See [here](https://ez.no/Blog/Personalization-Does-Not-Have-to-Be-that-Complex) for more information.
 
 ## Full list of new features, improvements and bug fixes since v1.9.0
 
 | eZ Platform | eZ Studio |
 |-------------|-----------|
-| [List of changes for final of eZ Platform v1.10.0 on Github](https://github.com/ezsystems/ezplatform/releases/tag/v1.10.0) | [List of changes for final for eZ Platform Enterprise Edition v1.10.0 on Github](https://github.com/ezsystems/ezplatform-ee/releases/tag/v1.10.0) |
-| [List of changes for rc2 of eZ Platform v1.10.0 on Github](https://github.com/ezsystems/ezplatform/releases/tag/v1.10.0-rc2) | [List of changes for rc1 for eZ Platform Enterprise Edition v1.10.0 on Github](https://github.com/ezsystems/ezplatform-ee/releases/tag/v1.10.0-rc1) |
-| [List of changes for beta3 of eZ Platform v1.10.0 on Github](https://github.com/ezsystems/ezplatform/releases/tag/v1.10.0-beta3) | [List of changes for beta1 of eZ Platform Enterprise Edition v1.10.0 on Github](https://github.com/ezsystems/ezplatform-ee/releases/tag/v1.10.0-beta1) |
+| [List of changes for final of eZ Platform v1.10.0 on GitHub](https://github.com/ezsystems/ezplatform/releases/tag/v1.10.0) | [List of changes for final for eZ Platform Enterprise Edition v1.10.0 on GitHub](https://github.com/ezsystems/ezplatform-ee/releases/tag/v1.10.0) |
+| [List of changes for rc2 of eZ Platform v1.10.0 on GitHub](https://github.com/ezsystems/ezplatform/releases/tag/v1.10.0-rc2) | [List of changes for rc1 for eZ Platform Enterprise Edition v1.10.0 on GitHub](https://github.com/ezsystems/ezplatform-ee/releases/tag/v1.10.0-rc1) |
+| [List of changes for beta3 of eZ Platform v1.10.0 on GitHub](https://github.com/ezsystems/ezplatform/releases/tag/v1.10.0-beta3) | [List of changes for beta1 of eZ Platform Enterprise Edition v1.10.0 on GitHub](https://github.com/ezsystems/ezplatform-ee/releases/tag/v1.10.0-beta1) |
 
 ### Acknowledgements
 

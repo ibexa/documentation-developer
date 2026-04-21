@@ -11,23 +11,19 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
 #[AsCommand(
-    name: 'doc:browse_locations'
+    name: 'doc:browse_locations',
+    description: 'Lists all descendants of the Location'
 )]
 class BrowseLocationsCommand extends Command
 {
-    private LocationService $locationService;
-
-    public function __construct(LocationService $locationService)
+    public function __construct(private readonly LocationService $locationService)
     {
-        $this->locationService = $locationService;
-
         parent::__construct();
     }
 
     protected function configure(): void
     {
         $this
-            ->setDescription('Lists all descendants of the Location')
             ->setDefinition([
                 new InputArgument('locationId', InputArgument::REQUIRED, 'Location ID to browse from'),
             ]);

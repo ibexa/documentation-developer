@@ -11,7 +11,7 @@ use Symfony\Component\DependencyInjection\Loader;
 
 final class AcmeExampleExtension extends Extension
 {
-    public const ACME_CONFIG_DIR = __DIR__ . '/../../../config/acme';
+    public const string ACME_CONFIG_DIR = __DIR__ . '/../../../config/acme';
 
     /**
      * @throws \Exception
@@ -29,7 +29,7 @@ final class AcmeExampleExtension extends Extension
             $config,
             // Any kind of callable can be used here.
             // It is called for each declared scope/SiteAccess.
-            static function ($scopeSettings, $currentScope, ContextualizerInterface $contextualizer) {
+            static function ($scopeSettings, $currentScope, ContextualizerInterface $contextualizer): void {
                 // Maps the "name" setting to "acme_example.<$currentScope>.name" container parameter
                 // It is then possible to retrieve this parameter through ConfigResolver in the application code:
                 // $helloSetting = $configResolver->getParameter( 'name', 'acme_example' );
@@ -54,6 +54,7 @@ final class AcmeExampleExtension extends Extension
     }
 
     /** @param array<mixed> $config */
+    #[\Override]
     public function getConfiguration(array $config, ContainerBuilder $container): Configuration
     {
         return new Configuration();

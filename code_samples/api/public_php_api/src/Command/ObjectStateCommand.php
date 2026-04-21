@@ -13,32 +13,23 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
 #[AsCommand(
-    name: 'doc:object_state'
+    name: 'doc:object_state',
+    description: 'Creates OS group with provided States and assigned the Lock OS to provided content item'
 )]
 class ObjectStateCommand extends Command
 {
-    private ContentService $contentService;
-
-    private UserService $userService;
-
-    private ObjectStateService $objectStateService;
-
-    private PermissionResolver $permissionResolver;
-
-    public function __construct(ContentService $contentService, UserService $userService, ObjectStateService $objectStateService, PermissionResolver $permissionResolver)
-    {
-        $this->contentService = $contentService;
-        $this->userService = $userService;
-        $this->objectStateService = $objectStateService;
-        $this->permissionResolver = $permissionResolver;
-
+    public function __construct(
+        private readonly ContentService $contentService,
+        private readonly UserService $userService,
+        private readonly ObjectStateService $objectStateService,
+        private readonly PermissionResolver $permissionResolver
+    ) {
         parent::__construct();
     }
 
     protected function configure(): void
     {
         $this
-            ->setDescription('Creates OS group with provided States and assigned the Lock OS to provided content item')
             ->setDefinition([
                 new InputArgument('objectStateGroupIdentifier', InputArgument::REQUIRED, 'Identifier of new OG group to create'),
                 new InputArgument('objectStateIdentifier', InputArgument::REQUIRED, 'Identifier(s) of a new Object State'),
@@ -58,7 +49,7 @@ class ObjectStateCommand extends Command
         $output->writeln($objectState->getName());
 
         $objectStateGroupIdentifier = $input->getArgument('objectStateGroupIdentifier');
-        $objectStateIdentifierList = explode(',', $input->getArgument('objectStateIdentifier'));
+        $objectStateIdentifierList = explode(',', (string) $input->getArgument('objectStateIdentifier'));
 
         $objectStateGroupStruct = $this->objectStateService->newObjectStateGroupCreateStruct($objectStateGroupIdentifier);
         $objectStateGroupStruct->defaultLanguageCode = 'eng-GB';

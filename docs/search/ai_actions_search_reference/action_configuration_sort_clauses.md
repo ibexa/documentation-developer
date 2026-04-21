@@ -1,5 +1,6 @@
 ---
 month_change: false
+description: Sort Clauses available for Action Configuration search
 ---
 
 # Action Configuration Search Sort Clauses reference

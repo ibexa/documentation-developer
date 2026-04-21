@@ -6,7 +6,7 @@ namespace App\Migrations\Step;
 
 use Ibexa\Migration\ValueObject\Step\StepInterface;
 
-final class ReplaceNameStep implements StepInterface
+final readonly class ReplaceNameStep implements StepInterface
 {
     private string $replacement;
 

@@ -1,6 +1,7 @@
 ---
 description: Events that are triggered when working with bookmarks, notifications, settings, forms and others.
 page_type: reference
+month_change: false
 ---
 
 # Other events
@@ -22,12 +23,14 @@ The following events refer to [notifications displayed in the user menu](notific
 
 | Event | Dispatched by | Properties |
 |---|---|---|
-|`BeforeCreateNotificationEvent`|`NotificationService::createNotification`|`CreateStruct $createStruct`</br>`Notification|null $notification`|
-|`CreateNotificationEvent`|`NotificationService::createNotification`|`Notification $notification`</br>`CreateStruct $createStruct`|
-|`BeforeDeleteNotificationEvent`|`NotificationService::deleteNotification`|`Notification $notification`|
-|`DeleteNotificationEvent`|`NotificationService::deleteNotification`|`Notification $notification`|
-|`BeforeMarkNotificationAsReadEvent`|`NotificationService::markNotificationAsRead`|`Notification $notification`|
-|`MarkNotificationAsReadEvent`|`NotificationService::markNotificationAsRead`|`Notification $notification`|
+|[`BeforeCreateNotificationEvent`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Events-Notification-BeforeCreateNotificationEvent.html)|[`NotificationService::createNotification`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-NotificationService.html#method_createNotification)|`CreateStruct $createStruct`</br>`Notification|null $notification`|
+|[`CreateNotificationEvent`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Events-Notification-CreateNotificationEvent.html)|[`NotificationService::createNotification`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-NotificationService.html#method_createNotification)|`Notification $notification`</br>`CreateStruct $createStruct`|
+|[`BeforeDeleteNotificationEvent`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Events-Notification-BeforeDeleteNotificationEvent.html)|[`NotificationService::deleteNotification`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-NotificationService.html#method_deleteNotification)|`Notification $notification`|
+|[`DeleteNotificationEvent`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Events-Notification-DeleteNotificationEvent.html)|[`NotificationService::deleteNotification`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-NotificationService.html#method_deleteNotification)|`Notification $notification`|
+|[`BeforeMarkNotificationAsReadEvent`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Events-Notification-BeforeMarkNotificationAsReadEvent.html)|[`NotificationService::markNotificationAsRead`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-NotificationService.html#method_markNotificationAsRead)|`Notification $notification`|
+|[`MarkNotificationAsReadEvent`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Events-Notification-MarkNotificationAsReadEvent.html)|[`NotificationService::markNotificationAsRead`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-NotificationService.html#method_markNotificationAsRead)|`Notification $notification`|
+|[`BeforeMarkNotificationAsUnreadEvent`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Events-Notification-BeforeMarkNotificationAsUnreadEvent.html)|[`NotificationService::markNotificationAsUnread`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-NotificationService.html#method_markNotificationAsUnread)|`Notification $notification`|
+|[`MarkNotificationAsUnreadEvent`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Events-Notification-MarkNotificationAsUnreadEvent.html)|[`NotificationService::markNotificationAsUnread`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-NotificationService.html#method_markNotificationAsUnread)|`Notification $notification`|
 
 ## Settings
 
@@ -56,6 +59,17 @@ The following events are dispatched when changing the user settings available in
 | Event | Dispatched by | Properties |
 |---|---|---|
 |`PublishVersionEvent`|`PublishAssetEventDispatcher::emitPublishAssetEvent`|`Content $content`</br>`Connector\Dam\AssetIdentifier $assetIdentifier`</br>`Connector\Dam\AssetSource $assetSource`|
+
+## Image Editor
+
+The following event is dispatched when the Image Editor optimizes an image.
+You can subscribe to it to customize the list of active image optimizers at runtime.
+
+For more information, see [Customizing image optimizers with an event](images.md#customizing-image-optimizers).
+
+| Event | Dispatched by | Properties |
+|---|---|---|
+|<nobr>[`ConfigureImageOptimizersEvent`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ImageEditor-Event-ConfigureImageOptimizersEvent.html)</nobr>|`SpatieChainOptimizer::`<br>`optimize`|`array<Spatie\ImageOptimizer\Optimizer> $optimizers`|
 
 ## Form Builder [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
 

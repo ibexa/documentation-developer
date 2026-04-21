@@ -45,33 +45,42 @@ Then, the step is described by additional properties depending on its type and m
 
 The following data migration step modes are available:
 
-| `type`                 | `create` | `update` | `delete` | `swap`   |
-|------------------------|:--------:|:--------:|:--------:|:--------:|
-| `action_configuration` | &#10004; | &#10004; | &#10004; |          |
-| `attribute`            | &#10004; | &#10004; | &#10004; |          |
-| `attribute_group`      | &#10004; | &#10004; | &#10004; |          |
-| `content_type`         | &#10004; | &#10004; | &#10004; |          |
-| `content_type_group`   | &#10004; | &#10004; | &#10004; |          |
-| `content`              | &#10004; | &#10004; | &#10004; |          |
-| `currency`             | &#10004; | &#10004; | &#10004; |          |
-| `customer_group`       | &#10004; | &#10004; | &#10004; |          |
-| `discount`             | &#10004; | &#10004; |          |          |
-| `language`             | &#10004; |          |          |          |
-| `location`             |          | &#10004; |          | &#10004; |
-| `object_state`         | &#10004; |          |          |          |
-| `object_state_group`   | &#10004; |          |          |          |
-| `payment_method`       | &#10004; |          |          |          |
-| `product_asset`        | &#10004; |          |          |          |
-| `product_availability` | &#10004; |          |          |          |
-| `product_price`        | &#10004; |          |          |          |
-| `product_variant`      | &#10004; |          |          |          |
-| `role`                 | &#10004; | &#10004; | &#10004; |          |
-| `section`              | &#10004; | &#10004; |          |          |
-| `segment`              | &#10004; | &#10004; | &#10004; |          |
-| `segment_group`        | &#10004; | &#10004; | &#10004; |          |
-| `setting`              | &#10004; | &#10004; | &#10004; |          |
-| `user`                 | &#10004; | &#10004; |          |          |
-| `user_group`           | &#10004; | &#10004; | &#10004; |          |
+| `type`                 | `create` | `update` | `delete` | `swap`   | `trash`  |
+|------------------------|:--------:|:--------:|:--------:|:--------:|----------|
+| `action_configuration` | &#10004; | &#10004; | &#10004; |          |          |
+| `attribute`            | &#10004; | &#10004; | &#10004; |          |          |
+| `attribute_group`      | &#10004; | &#10004; | &#10004; |          |          |
+| `content_type`         | &#10004; | &#10004; | &#10004; |          |          |
+| `content_type_group`   | &#10004; | &#10004; | &#10004; |          |          |
+| `content`              | &#10004; | &#10004; | &#10004; |          |          |
+| `currency`             | &#10004; | &#10004; | &#10004; |          |          |
+| `customer_group`       | &#10004; | &#10004; | &#10004; |          |          |
+| `discount`             | &#10004; | &#10004; |          |          |          |
+| `discount_code`        | &#10004; |          |          |          |          |
+| `language`             | &#10004; |          |          |          |          |
+| `location`             |          | &#10004; |          | &#10004; | &#10004; |
+| `object_state`         | &#10004; |          |          |          |          |
+| `object_state_group`   | &#10004; |          |          |          |          |
+| `payment_method`       | &#10004; |          |          |          |          |
+| `product_asset`        | &#10004; |          |          |          |          |
+| `product_availability` | &#10004; |          |          |          |          |
+| `product_price`        | &#10004; |          |          |          |          |
+| `product_variant`      | &#10004; |          |          |          |          |
+| `role`                 | &#10004; | &#10004; | &#10004; |          |          |
+| `section`              | &#10004; | &#10004; |          |          |          |
+| `segment`              | &#10004; | &#10004; | &#10004; |          |          |
+| `segment_group`        | &#10004; | &#10004; | &#10004; |          |          |
+| `setting`              | &#10004; | &#10004; | &#10004; |          |          |
+| `user`                 | &#10004; | &#10004; |          |          |          |
+| `user_group`           | &#10004; | &#10004; | &#10004; |          |          |
+
+Additionally, the following special migration types are available:
+
+| `type`                 | `execute` |
+|------------------------|:---------:|
+| `repeatable`           | &#10004;  |
+| `sql`                  | &#10004;  |
+| `try_catch`            | &#10004;  |
 
 ### Repeatable steps
 
@@ -120,6 +129,58 @@ Then, you can use `faker()` in expressions, for example:
 ```
 
 This step generates field values with fake personal names.
+
+### SQL migrations
+
+You can execute raw SQL queries directly in migrations by using the `sql` migration type.
+Use it for custom database operations that don't fit into standard entity migrations, such as creating custom tables or performing bulk updates.
+
+Each query requires a `driver` property that specifies which database system the query is for.
+The migration system automatically filters queries and executes only those matching your current database driver.
+
+```yaml
+[[= include_file('code_samples/data_migration/examples/sql_execute.yaml') =]]
+```
+
+The supported database drivers are:
+
+- `mysql` - MySQL/MariaDB
+- `postgresql` - PostgreSQL
+- `sqlite` - SQLite
+
+You can define queries for multiple database drivers in a single migration step.
+The system executes only the queries that match your configured database platform.
+If no matching queries are found, the migration throws an error.
+
+!!! caution
+
+    SQL migrations bypass the content model abstraction layer and directly modify the database.
+    Use them with caution and ensure your queries are compatible with your target database system.
+
+### Error handling with try-catch
+
+You can wrap one or more migration steps with a `try_catch` step to handle exceptions gracefully.
+
+Use it for migration steps that may fail under specific conditions but should not halt the entire migration process.
+
+For example, you can ensure a language creation migration step succeeds even if the language already exists.
+If the migration step fails for this reason, the exception is suppressed, allowing the remaining migrations to proceed without interruption.
+
+A `try_catch` migration requires the `steps` property and accepts optional `allowed_exceptions` and `stop_after_first_exception` settings.
+
+Default values are:
+
+- `allowed_exceptions`: empty list
+- `stop_after_first_exception`: `true`
+
+```yaml
+[[= include_file('code_samples/data_migration/examples/try_catch_step.yaml') =]]
+```
+
+When an exception is thrown within a `try_catch` step, it's compared against the list of `allowed_exceptions`.
+If the exception matches, it's caught and the migration step continues or stops depending on the `stop_after_first_exception` configuration setting.
+The migration step is marked as successful and the migration process continues.
+Non-matching exceptions throw immediately, halting the migration process and returning an error.
 
 ### Expression syntax
 
@@ -235,6 +296,12 @@ In this case you assign the `parent_folder_location_id` reference name to the lo
 [[= include_file('code_samples/data_migration/examples/create_parent_and_child_content.yaml') =]]
 ```
 
+Use the `delete` mode to delete content items:
+
+``` yaml
+[[= include_file('code_samples/data_migration/examples/delete_content.yaml') =]]
+```
+
 ### Images
 
 The following example shows how to migrate an `example-image.png` located in `public/var/site/storage/images/3/8/3/0/383-1-eng-GB` without manually placing it in the appropriate path.
@@ -298,6 +365,12 @@ The following example shows how to swap content items assigned to given location
 ```
 
 The metadata keys for Location are optional.
+
+The following example shows how to trash locations.
+
+``` yaml
+[[= include_file('code_samples/data_migration/examples/trash_location.yaml') =]]
+```
 
 ### Users
 
@@ -523,6 +596,14 @@ The provided conditions overwrite any already existing ones.
 ```
 
 For a list of available conditions, see [Discounts API](discounts_api.md#conditions).
+
+### Discount codes
+
+You can create a discount code as in the following example:
+
+``` yaml
+[[= include_file('code_samples/data_migration/examples/discounts/discount_code_create.yaml') =]]
+```
 
 ## Criteria
 

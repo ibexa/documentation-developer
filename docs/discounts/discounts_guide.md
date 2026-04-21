@@ -1,6 +1,6 @@
 ---
 description: Discount enable reducing prices on products or product categories based on a detailed logic resolution.
-month_change: true
+month_change: false
 editions:
     - commerce
 ---
@@ -57,6 +57,7 @@ A shopping cart can have multiple active discounts, but a specific product can o
 
 When two or more discounts can be applied to a single product, the system evaluates the following properties to choose the right one:
 
+- discount code existence (discounts with discount codes have priority over the others)
 - discount activation place (cart discounts rank higher over catalog discounts)
 - discount priority (higher priority ranks higher)
 - discount creation date (newer discounts rank higher)
@@ -70,7 +71,7 @@ After choosing where the discount applies (catalog or cart), you can choose the 
 - **Fixed amount** - where a specified amount of money, for example, 5 Euro, is deducted from the base price of the product
 - **Percentage** - where a specified percentage, for example, 10%, is used to calculate the deducted amount from the product's base price
 
-Discounts are translatable and you can limit them to specific [regions](pim_guide.md#regions) or a single currency.
+Discounts are translatable and you can limit them to specific [regions](product_catalog_guide.md#regions) or a single currency.
 They can be permanent or be active only in a specified time frame.
 Regardless of the specified dates, you can disable a discount at any time to prevent customers from using it.
 
@@ -85,13 +86,20 @@ With discounts, you can target your entire customer base or only a subset of it 
 
 #### Product selection
 
-All products, including [product variants](pim_guide.md#product-variants), can be selected when creating a discount.
+All products, including [product variants](product_catalog_guide.md#product-variants), can be selected when creating a discount.
 You can also limit this choice to a subset of products:
 
-- belonging to selected [product categories](pim_guide.md#product-categories)
+- belonging to selected [product categories](product_catalog_guide.md#product-categories)
 - hand-picked manually for special cases
 
 #### Conditions
+
+Use conditions to limit the applicability of a discount, for example by checking that:
+
+- the product belongs to a specific category
+- the customer belongs to a specific customer group
+
+before applying the discount.
 
 For **cart discounts**, you can specify additional conditions that must be met for the discount to apply.
 
@@ -101,15 +109,27 @@ These conditions can include:
 - minimum purchase amount (total cart value)
 - special [discount codes](#discount-codes)
 
+See [the built-in list of conditions](discounts_api.md#conditions) and [creating custom conditions](extend_discounts.md#implement-custom-condition) for more information.
+
 ##### Discount codes
 
 For **cart discounts**, you can specify an additional text value that needs to be entered in the cart for the discount to apply.
 
-The discount code usage can be limited per customer:
+The discount code usage can be limited globally, for example by making the discount valid only for the first 10 customers before it expires.
+You can also limit the usage per customer:
 
 - single use: every customer can use this code only once
 - limited use: every customer can use the code a specified number of times
 - unlimited
+
+### Discount re-indexing
+
+Discounts affect the prices shown in the product catalog.
+When a discount is created, updated, or expires, the product catalog must be re-indexed to ensure that the search results and product listings display correct prices.
+
+To prevent performance disruptions which could occur if re-indexing occurred immediately, [[= product_name =]] uses the [[= product_name_base =]] Messenger's [background queue](background_tasks.md) to process re-indexing tasks in the background.
+
+By [configuring the process](configure_discounts.md#discount-re-indexing), you ensure that re-indexing is performed at the most convenient time to maintain your application's overall stability.
 
 ## Capabilities
 

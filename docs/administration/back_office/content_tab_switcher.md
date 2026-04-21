@@ -67,7 +67,7 @@ ibexa:
 ```
 
 
-The `meta_field_groups_list` configuration can be overriden.
+The `meta_field_groups_list` configuration can be overridden.
 
 ## Add custom tab
 

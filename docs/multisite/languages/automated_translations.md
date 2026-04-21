@@ -96,7 +96,7 @@ To learn how to build custom AI actions see [Extending AI actions](extend_ai_act
 
 1. Create a service that implements the [`\Ibexa\AutomatedTranslation\Client\ClientInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-AutomatedTranslation-Client-ClientInterface.html) interface:
 
-``` php hl_lines="35-52"
+``` php hl_lines="31-48"
 [[= include_file('code_samples/multisite/automated_translation/src/AutomatedTranslation/AiClient.php') =]]
 ```
 

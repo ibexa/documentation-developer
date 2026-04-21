@@ -16,20 +16,13 @@ use Twig\Environment;
 
 class EveryoneArticleTab extends AbstractTab implements OrderedTabInterface
 {
-    protected PagerLocationToDataMapper $pagerLocationToDataMapper;
-
-    protected SearchService $searchService;
-
     public function __construct(
         Environment $twig,
         TranslatorInterface $translator,
-        PagerLocationToDataMapper $pagerLocationToDataMapper,
-        SearchService $searchService
+        protected PagerLocationToDataMapper $pagerLocationToDataMapper,
+        protected SearchService $searchService
     ) {
         parent::__construct($twig, $translator);
-
-        $this->pagerLocationToDataMapper = $pagerLocationToDataMapper;
-        $this->searchService = $searchService;
     }
 
     public function getIdentifier(): string

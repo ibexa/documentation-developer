@@ -23,29 +23,15 @@ use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
+#[\Symfony\Component\Console\Attribute\AsCommand(name: 'discounts:manage')]
 final class ManageDiscountsCommand extends Command
 {
-    protected static $defaultName = 'discounts:manage';
-
-    private DiscountServiceInterface $discountService;
-
-    private DiscountCodeServiceInterface $discountCodeService;
-
-    private PermissionResolver $permissionResolver;
-
-    private UserService $userService;
-
     public function __construct(
-        UserService $userSerice,
-        PermissionResolver $permissionResolver,
-        DiscountServiceInterface $discountService,
-        DiscountCodeServiceInterface $discountCodeService
+        private readonly UserService $userService,
+        private readonly PermissionResolver $permissionResolver,
+        private readonly DiscountServiceInterface $discountService,
+        private readonly DiscountCodeServiceInterface $discountCodeService
     ) {
-        $this->userService = $userSerice;
-        $this->discountService = $discountService;
-        $this->discountCodeService = $discountCodeService;
-        $this->permissionResolver = $permissionResolver;
-
         parent::__construct();
     }
 
@@ -60,7 +46,7 @@ final class ManageDiscountsCommand extends Command
         $discountCodeCreateStruct = new DiscountCodeCreateStruct(
             'summer10',
             10, // Global usage limit
-            null, // Unlimited usage
+            null, // Unlimited usage per customer
             $this->permissionResolver->getCurrentUserReference()->getUserId(),
             $now
         );
@@ -83,7 +69,8 @@ final class ManageDiscountsCommand extends Command
                     $discountCode->getCode(),
                     $discountCode->getGlobalLimit(),
                     $discountCode->getUsedLimit()
-                ),            ])
+                ),
+            ])
             ->setTranslations([
                 new DiscountTranslationStruct('eng-GB', 'Discount name', 'This is a discount description', 'Promotion Label', 'Promotion Description'),
                 new DiscountTranslationStruct('ger-DE', 'Discount name (German)', 'Description (German)', 'Promotion Label (German)', 'Promotion Description (German)'),

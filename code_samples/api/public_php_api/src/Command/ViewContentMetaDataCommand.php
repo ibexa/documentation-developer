@@ -16,38 +16,25 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
 #[AsCommand(
-    name: 'doc:view_metadata'
+    name: 'doc:view_metadata',
+    description: 'Output various metadata about a content item.'
 )]
 class ViewContentMetaDataCommand extends Command
 {
-    private ContentService $contentService;
-
-    private LocationService $locationService;
-
-    private URLAliasService $urlAliasService;
-
-    private UserService $userService;
-
-    private ObjectStateService $objectStateService;
-
-    private PermissionResolver $permissionResolver;
-
-    public function __construct(ContentService $contentService, LocationService $locationService, URLAliasService $urlAliasService, UserService $userService, ObjectStateService $objectStateService, PermissionResolver $permissionResolver)
-    {
-        $this->contentService = $contentService;
-        $this->locationService = $locationService;
-        $this->urlAliasService = $urlAliasService;
-        $this->userService = $userService;
-        $this->objectStateService = $objectStateService;
-        $this->permissionResolver = $permissionResolver;
-
+    public function __construct(
+        private readonly ContentService $contentService,
+        private readonly LocationService $locationService,
+        private readonly URLAliasService $urlAliasService,
+        private readonly UserService $userService,
+        private readonly ObjectStateService $objectStateService,
+        private readonly PermissionResolver $permissionResolver
+    ) {
         parent::__construct();
     }
 
     protected function configure(): void
     {
         $this
-            ->setDescription('Output various metadata about a content item.')
             ->setDefinition([
                 new InputArgument('contentId', InputArgument::REQUIRED, 'An existing content ID'),
             ]);

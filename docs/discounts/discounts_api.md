@@ -1,6 +1,6 @@
 ---
 description: Discounts enable reducing prices on products or product categories based on a detailed logic resolution.
-month_change: true
+month_change: false
 editions:
     - commerce
 ---
@@ -29,37 +29,78 @@ Discounts are applied in two places, listed in the [`DiscountType`](/api/php_api
 Regardless of activation place, discounts always apply to products and reduce their base price.
 
 To define when a discount activates and how the price is reduced, use rules and conditions.
-They make use of the [Symfony Expression language]([[= symfony_doc=]]//components/expression_language.html).
-Use the expression values provided below when using data migrations or when parsing REST API responses.
+They use the [Symfony Expression language]([[= symfony_doc=]]/components/expression_language.html) to express their logic.
 
 ### Rules
 
-Discount rules define how the calculate the price reduction.
-The following discount rule types are available:
+Discount rules define how to calculate the price reduction.
+The following discount rule types are available in the `\Ibexa\Discounts\Value\DiscountRule` namespace:
 
-| Rule type | Identifier | Description | Expression value |
-|---|---|---|---|
-| `Ibexa\Discounts\Value\DiscountRule\FixedAmount` | <nobr>`fixed_amount`</nobr> | Deducts the specified amount, for example <nobr>10 EUR</nobr>, from the base price | <nobr>`discount_amount`</nobr> |
-| `Ibexa\Discounts\Value\DiscountRule\Percentage` | <nobr>`percentage`</nobr> | Deducts the specified percentage, for example -10%, from the base price | <nobr>`discount_percentage`</nobr> |
+| Rule type<br>(identifier) | Description | Required expression value |
+|---|---|---|
+| `FixedAmount`<br><nobr>(`fixed_amount`)</nobr> | Deducts the specified amount, for example <nobr>10 EUR</nobr>, from the base price | <nobr>`discount_amount`</nobr> |
+| `Percentage`<br><nobr>(`percentage`)</nobr> | Deducts the specified percentage, for example -10%, from the base price | <nobr>`discount_percentage`</nobr> |
 
 Only a single discount can be applied to a given product, and a discount can only have a single rule.
 
+When creating a rule, not with the user interface but an API, you must pass the required expression values for the rule to be valid:
+
+- using PHP, the values are passed through the constructor which converts them into an expression variable
+- using data migrations and the REST API, the values are specified using the `expressionValues` key
+
+See the following examples for data migrations and the REST API usage:
+
+- creating discounts with [data migrations](importing_data.md#discounts):
+
+``` yaml hl_lines="4-7"
+[[= include_file('code_samples/data_migration/examples/discounts/discount_create.yaml', 0, 2) =]]# ...
+[[= include_file('code_samples/data_migration/examples/discounts/discount_create.yaml', 18, 22) =]]
+```
+
+- parsing responses from the [REST API](https://doc.ibexa.co/en/4.6/api/rest_api/rest_api_reference/rest_api_reference.html#discounts):
+
+``` json hl_lines="16-21"
+[[= include_file('code_samples/discounts/REST/Discount.json', 0, 21) =]]
+[[= include_file('code_samples/discounts/REST/Discount.json', 44, 45) =]]
+```
+
 ### Conditions
 
-With conditions you can narrow down the scenarios in which the discount applies. The following conditions are available:
+With conditions you can narrow down the scenarios in which the discount applies. The following conditions are available in the `\Ibexa\Discounts\Value\DiscountCondition` and `\Ibexa\DiscountsCodes\Value\DiscountCondition` namespaces:
 
-| Condition | Applies to | Identifier | Description | Expression values |
-|---|---|---|---|---|
-| `Ibexa\Discounts\Value\DiscountCondition\IsInCategory` | Cart, Catalog | `is_in_category` | Checks if the product belongs to specified [product categories]([[= user_doc =]]/pim/work_with_product_categories/) | `categories` |
-| `Ibexa\Discounts\Value\DiscountCondition\IsInCurrency` | Cart, Catalog |`is_in_currency` | Checks if the product has price in the specified currency | `currency_code` |
-| `Ibexa\Discounts\Value\DiscountCondition\IsInRegions` | Cart, Catalog | `is_in_regions` | Checks if the customer is making the purchase in one of the specified regions | `regions` |
-| `Ibexa\Discounts\Value\DiscountCondition\IsProductInArray` | Cart, Catalog| `is_product_in_array` | Checks if the product belongs to the group of selected products | `product_codes` |
-| `Ibexa\Discounts\Value\DiscountCondition\IsUserInCustomerGroup` | Cart, Catalog| `is_user_in_customer_group` | Check if the customer belongs to specified [customer groups](customer_groups.md) | `customer_groups` |
-| `Ibexa\Discounts\Value\DiscountCondition\IsProductInQuantityInCart` | Cart | `is_product_in_quantity_in_cart` | Checks if the required minimum quantity of a given product is present in the cart | `quantity` |
-| `Ibexa\Discounts\Value\DiscountCondition\MinimumPurchaseAmount` | Cart | `minimum_purchase_amount` | Checks if purchase amount in the cart exceeds the specified minimum | `minimum_purchase_amount` |
-| `Ibexa\DiscountsCodes\Value\DiscountCondition\IsValidDiscountCode` | Cart | `is_valid_discount_code` | Checks if the correct discount code has been provided and how many times it was used by the customer | `discount_code`, `usage_count` |
+| Condition<br>(identifier) | Applies to | Description | Required expression values |
+|---|---|---|---|
+| <nobr>`IsInCategory`</nobr><br><nobr>(`is_in_category`)</nobr> | Cart, Catalog | Checks if the product belongs to specified [product categories]([[= user_doc =]]/pim/work_with_product_categories/) | `categories` |
+| <nobr>`IsInCurrency`</nobr><br><nobr>(`is_in_currency`)</nobr> | Cart, Catalog | Checks if the product has price in the specified currency | <nobr>`currency_code`</nobr> |
+| <nobr>`IsInRegions`</nobr><br><nobr>(`is_in_regions`)</nobr> | Cart, Catalog | Checks if the customer is making the purchase in one of the specified regions | `regions` |
+| <nobr>`IsProductInArray`</nobr><br><nobr>(`is_product_in_array`)</nobr> | Cart, Catalog | Checks if the product belongs to the group of selected products | `product_codes` |
+| <nobr>`IsUserInCustomerGroup`</nobr><br><nobr>(`is_user_in_customer_group`)</nobr> | Cart, Catalog | Check if the customer belongs to specified [customer groups](customer_groups.md) | <nobr>`customer_groups`</nobr> |
+| <nobr>`IsProductInQuantityInCart`</nobr><br><nobr>(`is_product_in_quantity_in_cart`)</nobr> | Cart | Checks if the required minimum quantity of a given product is present in the cart | `quantity` |
+| <nobr>`MinimumPurchaseAmount`</nobr><br><nobr>(`minimum_purchase_amount`)</nobr> | Cart | Checks if purchase amount in the cart exceeds the specified minimum | <nobr>`minimum_purchase_amount`</nobr> |
+| <nobr>`IsValidDiscountCode`</nobr><br><nobr>(`is_valid_discount_code`)</nobr> | Cart | Checks if the correct discount code has been provided and how many times it was used by the customer | `discount_code`, <br>`usage_count` |
 
 When multiple conditions are specified, all of them must be met.
+
+As with rules, when creating a condition through other means than the user interface, you must pass the required expression values for the condition to be valid:
+
+- using PHP, the values are passed through the constructor which converts them into an expression variable
+- using data migrations and the REST API, the values are specified using the `expressionValues` key
+
+See the following examples for data migrations and the REST API usage:
+
+- creating discounts with [data migrations](importing_data.md#discounts):
+
+``` yaml hl_lines="4-14"
+[[= include_file('code_samples/data_migration/examples/discounts/discount_create.yaml', 0, 2) =]]# ...
+[[= include_file('code_samples/data_migration/examples/discounts/discount_create.yaml', 22, 33) =]]
+```
+
+- parsing responses from the [REST API](https://doc.ibexa.co/en/4.6/api/rest_api/rest_api_reference/rest_api_reference.html#discounts):
+
+``` json hl_lines="16-23"
+[[= include_file('code_samples/discounts/REST/Discount.json', 0, 15) =]][[= include_file('code_samples/discounts/REST/Discount.json', 21, 29) =]]
+[[= include_file('code_samples/discounts/REST/Discount.json', 44, 45) =]]
+```
 
 ### Priority
 
@@ -112,9 +153,9 @@ The example below contains a Command creating a cart discount. The discount:
 - [depends](#conditions) on
     - being bought from Germany or France
     - 2 products
-    - a `summer10` [discount code](#discount-codes) which can be used unlimited number of times
+    - a `summer10` [discount code](#discount-codes) which can be used only 10 times, but a single customer can use the code multiple times
 
-``` php hl_lines="60-66 68-92"
+``` php hl_lines="46-53 55-81 83"
 [[= include_file('code_samples/discounts/src/Command/ManageDiscountsCommand.php') =]]
 ```
 
@@ -126,3 +167,19 @@ You can search for Discounts using the [`DiscountServiceInterface::findDiscounts
 To learn more about the available search options, see Discounts' [Search Criteria](discounts_criteria.md) and [Sort Clauses](discounts_sort_clauses.md).
 
 For discount codes, you can query the database for discount code usage using [`DiscountCodeServiceInterface::findCodeUsages()`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-DiscountsCodes-DiscountCodeServiceInterface.html#method_findCodeUsages) and [`DiscountCodeUsageQuery`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-DiscountsCodes-Value-Query-DiscountCodeUsageQuery.html).
+
+## Retrieve applied discounts
+
+The applied discounts change final product pricing.
+To learn more about working with prices, see [Price API](price_api.md#prices).
+
+The example below shows how you can use:
+
+- [`ProductPriceServiceInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-ProductPriceServiceInterface.html) to query for base product prices
+- [`PriceResolverInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-PriceResolverInterface.html) to query for final product prices
+- [`PriceEnvelopeInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Values-Price-PriceEnvelopeInterface.html) to retrieve applied discounts
+- [`OrderServiceInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-OrderManagement-OrderServiceInterface.html) to display discount details for [orders](order_management.md)
+
+``` php hl_lines="51-52 58-59 61-74 78-104"
+[[= include_file('code_samples/discounts/src/Command/OrderPriceCommand.php') =]]
+```

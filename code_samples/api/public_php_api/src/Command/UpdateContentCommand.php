@@ -12,29 +12,22 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
 #[AsCommand(
-    name: 'doc:update_content'
+    name: 'doc:update_content',
+    description: 'Update provided content item with a new name'
 )]
 class UpdateContentCommand extends Command
 {
-    private ContentService $contentService;
-
-    private UserService $userService;
-
-    private PermissionResolver $permissionResolver;
-
-    public function __construct(ContentService $contentService, UserService $userService, PermissionResolver $permissionResolver)
-    {
-        $this->contentService = $contentService;
-        $this->userService = $userService;
-        $this->permissionResolver = $permissionResolver;
-
+    public function __construct(
+        private readonly ContentService $contentService,
+        private readonly UserService $userService,
+        private readonly PermissionResolver $permissionResolver
+    ) {
         parent::__construct();
     }
 
     protected function configure(): void
     {
         $this
-            ->setDescription('Update provided content item with a new name')
             ->setDefinition([
                 new InputArgument('contentId', InputArgument::REQUIRED, 'Content ID'),
                 new InputArgument('newName', InputArgument::REQUIRED, 'New name for the updated content item'),

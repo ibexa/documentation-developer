@@ -1,6 +1,6 @@
 ---
 description: Update your installation to v5.0 from the latest v4.6 version.
-month_change: true
+month_change: false
 ---
 
 # Update from v4.6 to v5.0
@@ -191,7 +191,7 @@ Notice the use of the `--no-update` option to only edit the `composer.json` entr
 4.6 LTS Update packages are included by default in 5.0.
 Remove them from your composer.json to avoid updating their version manually with each update.
 
-For example, the following command removes all of the released LTS Updates for 4.6 from `composer.json`:
+For example, the following command removes several released LTS Updates for 4.6 from `composer.json`:
 
 ```bash
 composer remove --no-update \
@@ -201,8 +201,21 @@ composer remove --no-update \
     ibexa/product-catalog-symbol-attribute \
     ibexa/discounts \
     ibexa/discounts-codes \
+    ibexa/collaboration \
+    ibexa/share \
 ;
 ```
+
+#### Remove separate Elasticsearch 8 package
+
+If you were using the separate `ibexa/elasticsearch8` package in v4.6, you should switch back to the built-in `ibexa/elasticsearch` package, as it now supports both Elasticsearch 7 and Elasticsearch 8.
+
+```bash
+composer remove --no-update ibexa/elasticsearch8
+```
+
+The `ibexa/elasticsearch` package is automatically installed as part of your [[= product_name =]] 5.0 update.
+Your existing Elasticsearch 8 server and configuration continue to work with the `ibexa/elasticsearch` package.
 
 #### Remove PHP 8.2 error handler
 
@@ -267,7 +280,7 @@ Your `auto-scripts` entry should look like this:
             "cache:clear": "symfony-cmd",
             "assets:install %PUBLIC_DIR%": "symfony-cmd",
             "yarn install": "script",
-            "yarn ibexa-generate-tsconfig --relative-paths": "script",
+            "yarn ibexa-generate-tsconfig --use-relative-paths": "script",
             "ibexa:encore:compile --config-name app": "symfony-cmd",
             "bazinga:js-translation:dump %PUBLIC_DIR%/assets --merge-domains": "symfony-cmd",
             "ibexa:encore:compile": "symfony-cmd",
@@ -1044,6 +1057,14 @@ If you are using GraphQL in your project, you can generate its schema by running
 php bin/console ibexa:graphql:generate-schema
 ```
 
+### Upgrade GraphQL usage
+
+- In 4.6, pagination for [RelationList field type](relationlistfield.md) is disabled by default, and can be enabled using the `ibexa.graphql.schema.ibexa_object_relation_list.enable_pagination` parameter
+- In 5.0, pagination for RelationList field type is always activated and can't be disabled. The previous parameter doesn't exist anymore and is ignored if set
+
+If you have code based on `relations` request returning the entire list, you have to update it.
+For more information, see [Pagination in GraphQL](graphql_queries.md#pagination).
+
 ### Update search indexes
 
 Ensure your search index is up to date with the following command:
@@ -1058,7 +1079,7 @@ php bin/console ibexa:reindex
 
 Finish the update process:
 
-```
+```bash
 composer run-script post-update-cmd
 ```
 
@@ -1081,3 +1102,4 @@ composer ibexa:setup --platformsh
 #### Conclusion
 
 Your project is now running the latest major version of [[= product_name =]].
+To reach the last patch version, see [Update from v5.0.x to v5.0.latest](update_from_5.0.md)

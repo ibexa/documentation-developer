@@ -46,7 +46,7 @@ The full list of available services covers:
 
 You can access the PHP API by injecting relevant services into your code:
 
-- By using [auto-wiring]([[= symfony_doc =]]/service_container/autowiring.html), and the service classname in the `Ibexa\Contracts` namespace (see `bin/console debug:autowiring | grep Ibexa.Contracts`).
+- By using [auto-wiring]([[= symfony_doc =]]/service_container/autowiring.html), and the service class name in the `Ibexa\Contracts` namespace (see `bin/console debug:autowiring | grep Ibexa.Contracts`).
 - By using [service parameters]([[= symfony_doc =]]/service_container.html#service-parameters), and service aliases (see `bin/console debug:autowiring | grep ibexa.api`).
 - By using the repository's `get[ServiceName]()` methods, for example, [`Repository::getContentService()`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Repository.html#method_getContentService), or [`getUserService()`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Repository.html#method_getUserService).
   (Prefer injecting several Repository's dedicated services instead of the whole Repository if the Repository itself isn't needed.)
@@ -126,7 +126,7 @@ While [using `sudo()`](#using-sudo) is the recommended option, you can also set 
 To identify as a different user, you need to use the `UserService` together with `PermissionResolver` (in the example `admin` is the login of the administrator user):
 
 ``` php
-[[= include_file('code_samples/api/public_php_api/src/Command/CreateContentCommand.php', 55, 57) =]]
+[[= include_file('code_samples/api/public_php_api/src/Command/CreateContentCommand.php', 44, 46) =]]
 ```
 
 !!! tip
@@ -150,11 +150,11 @@ Both cases should be covered with error messages:
 ``` php
 try {
     // ...
-    } catch (\Ibexa\Contracts\Core\Repository\Exceptions\NotFoundException $e) {
-        $output->writeln("<error>No content with id $contentId found</error>");
-    } catch (\Ibexa\Contracts\Core\Repository\Exceptions\UnauthorizedException $e) {
-        $output->writeln("<error>Permission denied on content with id $contentId</error>");
-    }
+} catch (\Ibexa\Contracts\Core\Repository\Exceptions\NotFoundException $e) {
+    $output->writeln("<error>No content with id $contentId found</error>");
+} catch (\Ibexa\Contracts\Core\Repository\Exceptions\UnauthorizedException $e) {
+    $output->writeln("<error>Permission denied on content with id $contentId</error>");
+}
 ```
 
 ## Service container

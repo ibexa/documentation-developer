@@ -17,7 +17,7 @@ To access a shipping method by using its identifier, use the `ShippingMethodServ
 The method takes a string as `$identifier` parameter and uses a prioritized language from SiteAccess settings unless you pass another language as `forcedLanguage`.
 
 ``` php
-[[= include_file('code_samples/api/commerce/src/Command/ShippingMethodCommand.php', 65, 75) =]]
+[[= include_file('code_samples/api/commerce/src/Command/ShippingMethodCommand.php', 52, 62) =]]
 ```
 
 ### Get shipping method by ID
@@ -26,7 +26,7 @@ To access a shipping method by using its ID, use the `ShippingMethodServiceInter
 The method takes a string as `$id` parameter and uses a prioritized language from SiteAccess settings unless you pass another language as `forcedLanguage`.
 
 ``` php
-[[= include_file('code_samples/api/commerce/src/Command/ShippingMethodCommand.php', 53, 63) =]]
+[[= include_file('code_samples/api/commerce/src/Command/ShippingMethodCommand.php', 40, 50) =]]
 ```
 
 ## Get multiple shipping methods
@@ -35,7 +35,7 @@ To fetch multiple shipping methods, use the `ShippingMethodServiceInterface::get
 It follows the same search query pattern as other APIs:
 
 ``` php
-[[= include_file('code_samples/api/commerce/src/Command/ShippingMethodCommand.php', 77, 95) =]]
+[[= include_file('code_samples/api/commerce/src/Command/ShippingMethodCommand.php', 64, 82) =]]
 ```
 
 ## Create shipping method
@@ -43,7 +43,7 @@ It follows the same search query pattern as other APIs:
 To create a shipping method, use the `ShippingMethodServiceInterface::createShippingMethod` method and provide it with the `Ibexa\Contracts\Shipping\Value\ShippingMethodCreateStruct` object that you created by using the  `newShippingMethodCreateStruct` method.
 
 ``` php
-[[= include_file('code_samples/api/commerce/src/Command/ShippingMethodCommand.php', 97, 120) =]]
+[[= include_file('code_samples/api/commerce/src/Command/ShippingMethodCommand.php', 84, 107) =]]
 ```
 
 ## Update shipping method
@@ -51,7 +51,7 @@ To create a shipping method, use the `ShippingMethodServiceInterface::createShip
 To update a shipping method, use the `ShippingMethodServiceInterface::updateShippingMethod` method and provide it with the `Ibexa\Contracts\Shipping\Value\ShippingMethodUpdateStruct`  object that you created by using the  `newShippingMethodUpdateStruct` method.
 
 ``` php
-[[= include_file('code_samples/api/commerce/src/Command/ShippingMethodCommand.php', 122, 137) =]]
+[[= include_file('code_samples/api/commerce/src/Command/ShippingMethodCommand.php', 109, 123) =]]
 ```
 
 ## Delete shipping method
@@ -59,7 +59,7 @@ To update a shipping method, use the `ShippingMethodServiceInterface::updateShip
 To update a shipping method, use the `ShippingMethodServiceInterface::deleteShippingMethod` method.
 
 ``` php
-[[= include_file('code_samples/api/commerce/src/Command/ShippingMethodCommand.php', 138, 144) =]]
+[[= include_file('code_samples/api/commerce/src/Command/ShippingMethodCommand.php', 125, 131) =]]
 ```
 
 ## Delete shipping method translation
@@ -67,5 +67,5 @@ To update a shipping method, use the `ShippingMethodServiceInterface::deleteShip
 To delete shipping method translation, use the `ShippingMethodServiceInterface::deleteShippingMethodTranslation` method.
 
 ``` php
-[[= include_file('code_samples/api/commerce/src/Command/ShippingMethodCommand.php', 146, 155) =]]
+[[= include_file('code_samples/api/commerce/src/Command/ShippingMethodCommand.php', 133, 142) =]]
 ```

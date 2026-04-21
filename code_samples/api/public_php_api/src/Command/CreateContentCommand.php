@@ -19,24 +19,13 @@ use Symfony\Component\Console\Output\OutputInterface;
 )]
 class CreateContentCommand extends Command
 {
-    private ContentService $contentService;
-
-    private ContentTypeService $contentTypeService;
-
-    private LocationService $locationService;
-
-    private UserService $userService;
-
-    private PermissionResolver $permissionResolver;
-
-    public function __construct(ContentService $contentService, ContentTypeService $contentTypeService, LocationService $locationService, UserService $userService, PermissionResolver $permissionResolver)
-    {
-        $this->contentService = $contentService;
-        $this->contentTypeService = $contentTypeService;
-        $this->locationService = $locationService;
-        $this->userService = $userService;
-        $this->permissionResolver = $permissionResolver;
-
+    public function __construct(
+        private readonly ContentService $contentService,
+        private readonly ContentTypeService $contentTypeService,
+        private readonly LocationService $locationService,
+        private readonly UserService $userService,
+        private readonly PermissionResolver $permissionResolver
+    ) {
         parent::__construct();
     }
 

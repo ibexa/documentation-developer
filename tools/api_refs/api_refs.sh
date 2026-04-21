@@ -5,18 +5,21 @@ set +x;
 AUTH_JSON=${1:-~/.composer/auth.json}; # Path to an auth.json file allowing to install the targeted edition and version
 PHP_API_OUTPUT_DIR=${2:-./docs/api/php_api/php_api_reference}; # Path to the directory where the built PHP API Reference is hosted
 REST_API_OUTPUT_FILE=${3:-./docs/api/rest_api/rest_api_reference/rest_api_reference.html}; # Path to the REST API Reference file
+REST_API_OPENAPI_FILE_YAML=${4:-./docs/api/rest_api/rest_api_reference/openapi.yaml}; # Path to the REST API OpenAPI spec file
+REST_API_OPENAPI_FILE_JSON=${5:-./docs/api/rest_api/rest_api_reference/openapi.json}; # Path to the REST API OpenAPI spec file
 
 DXP_EDITION='commerce'; # Edition from and for which the Reference is built
 DXP_VERSION='5.0.*'; # Version from and for which the Reference is built
-DXP_ADD_ONS=(automated-translation rector); # Packages not included in $DXP_EDITION but added to the Reference, listed without their vendor "ibexa"
+DXP_ADD_ONS=(automated-translation rector integrated-help fieldtype-richtext-rte connector-anthropic connector-gemini shopping-list cdp connector-raptor connector-quable); # Packages not included in $DXP_EDITION but added to the Reference, listed without their vendor "ibexa"
 DXP_EDITIONS=(oss headless experience commerce); # Available editions ordered by ascending capabilities
-SF_VERSION='7.3'; # Symfony version used by Ibexa DXP
-PHPDOC_VERSION='3.8.0'; # Version of phpDocumentor used to build the Reference
+SF_VERSION='7.4'; # Symfony version used by Ibexa DXP
+PHPDOC_VERSION='3.9.1'; # Version of phpDocumentor used to build the Reference
 PHPDOC_CONF="$(pwd)/tools/api_refs/phpdoc.dist.xml"; # Absolute path to phpDocumentor configuration file
 #PHPDOC_CONF="$(pwd)/tools/api_refs/phpdoc.dev.xml"; # Absolute path to phpDocumentor configuration file
-PHPDOC_TEMPLATE_VERSION='3.8.0'; # Version of the phpDocumentor base template set
+PHPDOC_TEMPLATE_VERSION='3.9.1'; # Version of the phpDocumentor base template set
 PHPDOC_DIR="$(pwd)/tools/api_refs/.phpdoc"; # Absolute path to phpDocumentor resource directory (containing the override template set)
-REDOCLY_CONFIG="$(pwd)/tools/api_refs/redocly.yaml"; # Absolute path to Redocly configuration file
+REDOCLY_CONFIG_TEMPLATE="$(pwd)/tools/api_refs/redocly.yaml.template"; # Absolute path to Redocly configuration template file
+REDOCLY_CONFIG="$(pwd)/tools/api_refs/redocly.yaml"; # Absolute path to Redocly configuration file (generated from template)
 REDOCLY_TEMPLATE="$(pwd)/tools/api_refs/redocly.hbs"; # Absolute path to Redocly wrapping template
 OPENAPI_FIX="$(pwd)/tools/api_refs/openapi.php"; # A script editing and fixing few things on the dumped schema (should be temporary and fixes reported to source)
 
@@ -37,6 +40,8 @@ if [ ! -d $PHP_API_OUTPUT_DIR ]; then
 fi;
 PHP_API_OUTPUT_DIR=$(realpath $PHP_API_OUTPUT_DIR); # Transform into absolute path before changing the working directory
 REST_API_OUTPUT_FILE=$(realpath $REST_API_OUTPUT_FILE); # Transform into absolute path before changing the working directory
+REST_API_OPENAPI_FILE_YAML=$(realpath $REST_API_OPENAPI_FILE_YAML); # Transform into absolute path before changing the working directory
+REST_API_OPENAPI_FILE_JSON=$(realpath $REST_API_OPENAPI_FILE_JSON); # Transform into absolute path before changing the working directory
 
 if [ 1 -eq $FORCE_DXP_INSTALL ]; then
   echo 'Remove temporary directory…';
@@ -91,7 +96,7 @@ export COMPOSER_ROOT_VERSION=$DXP_VERSION;
 
 if [ 0 -eq $DXP_ALREADY_EXISTS ]; then
   for additional_package in "${DXP_ADD_ONS[@]}"; do
-    composer require --no-interaction --ignore-platform-reqs --no-scripts ibexa/$additional_package:$DXP_VERSION;
+    composer require --no-interaction --ignore-platform-reqs --no-scripts --with-all-dependencies ibexa/$additional_package:$DXP_VERSION;
   done;
 fi;
 
@@ -217,10 +222,20 @@ echo 'Dump REST OpenAPI schema… ';
 $PHP_BINARY bin/console ibexa:openapi --yaml \
   | sed "s@info:@info:\n  x-logo:\n    url: 'https://doc.ibexa.co/en/latest/images/ibexa-dxp-logo.png'@" \
 > openapi.yaml;
+$PHP_BINARY bin/console ibexa:openapi \
+  | sed 's@"info": {@"info": {\n    "x-logo": {\n      "url": "https://doc.ibexa.co/en/latest/images/ibexa-dxp-logo.png"\n    },@' \
+> openapi.json;
 echo 'Fix REST OpenAPI schema… ';
 $PHP_BINARY $OPENAPI_FIX;
 echo 'Build REST Reference… ';
+echo 'Generate Redocly config from template… ';
+# Replace version with the base branch
+BRANCH_VERSION=$(echo $DXP_VERSION | cut -d '.' -f 1-2);
+sed "s/\$VERSION/$BRANCH_VERSION/g" $REDOCLY_CONFIG_TEMPLATE > $REDOCLY_CONFIG;
 redocly build-docs openapi.yaml --output $REST_API_OUTPUT_FILE --config $REDOCLY_CONFIG --template $REDOCLY_TEMPLATE;
+echo 'Copy OpenAPI spec to documentation… ';
+cp openapi.yaml $REST_API_OPENAPI_FILE_YAML;
+cp openapi.json $REST_API_OPENAPI_FILE_JSON;
 
 if [ 1 -eq $FORCE_DXP_INSTALL ]; then
   echo 'Remove temporary directory…';

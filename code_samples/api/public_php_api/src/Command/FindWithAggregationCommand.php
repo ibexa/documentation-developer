@@ -13,23 +13,14 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
 #[AsCommand(
-    name: 'doc:find_with_aggregation'
+    name: 'doc:find_with_aggregation',
+    description: 'Counts content per content type and the value of Selection Field.'
 )]
 class FindWithAggregationCommand extends Command
 {
-    private SearchService $searchService;
-
-    public function __construct(SearchService $searchService)
+    public function __construct(private readonly SearchService $searchService)
     {
-        $this->searchService = $searchService;
-
         parent::__construct();
-    }
-
-    protected function configure(): void
-    {
-        $this
-            ->setDescription('Counts content per content type and the value of Selection Field.');
     }
 
     protected function execute(InputInterface $input, OutputInterface $output): int

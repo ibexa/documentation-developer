@@ -58,7 +58,7 @@ Before you start building a page, you also need to select a layout. It has a sig
 [Form Builder](form_builder_guide.md) is an intuitive tool that allows you to transform user engagement on your website.
 With this tool, you can design, deploy, and manage online forms quickly.
 You can create a variety of forms that consist of different fields, including sign-up forms, surveys, or questionnaires.
-Additionaly, you can monitor and manage the information obtained from website visitors and adjust your forms if needed.
+Additionally, you can monitor and manage the information obtained from website visitors and adjust your forms if needed.
 
 ![Form Builder](form_builder.png)
 

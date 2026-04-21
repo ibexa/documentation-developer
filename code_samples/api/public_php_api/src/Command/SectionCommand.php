@@ -16,35 +16,24 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
 #[AsCommand(
-    name: 'doc:section'
+    name: 'doc:section',
+    description: 'Creates new section and adds selected content item to it.'
 )]
 class SectionCommand extends Command
 {
-    private SectionService $sectionService;
-
-    private UserService $userService;
-
-    private SearchService $searchService;
-
-    private ContentService $contentService;
-
-    private PermissionResolver $permissionResolver;
-
-    public function __construct(SectionService $sectionService, UserService $userService, ContentService $contentService, SearchService $searchService, PermissionResolver $permissionResolver)
-    {
-        $this->sectionService = $sectionService;
-        $this->userService = $userService;
-        $this->permissionResolver = $permissionResolver;
-        $this->searchService = $searchService;
-        $this->contentService = $contentService;
-
+    public function __construct(
+        private readonly SectionService $sectionService,
+        private readonly UserService $userService,
+        private readonly ContentService $contentService,
+        private readonly SearchService $searchService,
+        private readonly PermissionResolver $permissionResolver
+    ) {
         parent::__construct();
     }
 
     protected function configure(): void
     {
         $this
-            ->setDescription('Creates new section and adds selected content item to it.')
             ->setDefinition([
                 new InputArgument('sectionName', InputArgument::REQUIRED, 'Name of the new Section'),
                 new InputArgument('sectionIdentifier', InputArgument::REQUIRED, 'Identifier of the new Section'),

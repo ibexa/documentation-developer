@@ -1,5 +1,5 @@
 ---
-description: Ibexa DXP v4.2 adds the Customer Portal and user management capabilities, and enriches PIM with catalogs, product variants and product assets.
+description: Ibexa DXP v4.2 adds the Customer Portal and user management capabilities, and enriches the product catalog with catalogs, product variants and product assets.
 ---
 
 <!-- vale VariablesVersion = NO -->
@@ -79,7 +79,7 @@ Assets are grouped into collections based on attribute values
 
 ### Product completeness
 
-The new product completeness tab, in product view, lists all the parts of a product you can configure, for example, attributes, assets, prices, aor vailability.
+The new product completeness tab, in product view, lists all the parts of a product you can configure, for example, attributes, assets, prices, and availability.
 You can use it to get a quick overview of missing parts in the product configuration and to instantly move to the proper screen to fill the gaps.
 
 ![Product completeness tab](4.2_product_completeness.png)

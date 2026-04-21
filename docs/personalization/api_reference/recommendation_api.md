@@ -6,7 +6,7 @@ month_change: false
 # Recommendation API
 
 Recommendations are retrieved from the Personalization server with RESTful requests that rely on the HTTP GET method.
-The result can a list of item IDs that can then be used to call the underlying CMS or shop system and postload the necessary information for the rendering process.
+The result is a list of item IDs that can then be used to call the underlying CMS or shop system and load the necessary information for the rendering process.
 
 For more information about Personalization, see [Introduction](personalization.md) and [Basic integration](recommendation_integration.md).
 
@@ -70,7 +70,7 @@ For more information, see [Submodels]([[= user_doc =]]/personalization/recommend
 |Parameter|Example|Description|Value|
 |---|---|---|---|
 |attribute key|`&color=red`|Applicable if a submodel with the same name and value is configured.|string|
-|`userattribute`|gender|If defined, the Personalization server tries to find the attribute value for the current user and, if found, "prefers" recommendations that are typically followed by users with the same value of the attribute. The default value is null.|string, csv list|
+|`userattribute`|gender|If defined, the Personalization server tries to find the attribute value for the current user and, if found, "prefers" recommendations that are typically followed by users with the same value of the attribute. The default value is null.|string, CSV list|
 
 !!! note "Multiple submodels in recommendations"
 
@@ -95,7 +95,7 @@ For more information, see [Submodels]([[= user_doc =]]/personalization/recommend
 
 If you have configured segments, you can use them in the recommendation model. Pass the following parameter to request recommendations for a specific segment or segment group.
 
-Parameter|Example|Description|Value|
+|Parameter|Example|Description|Value|
 |---|---|---|---|
 |`segments`|`&segments=7,8,10,11`|ID from segment group management|string|
 
@@ -244,7 +244,7 @@ The following HTTP response codes are used by the recommendation controller:
 |400 Bad Request</br>414 Request-URI Too Long|Wrong request formatting. See response body for more information.|
 |401 Unauthorized|Invalid authentication credentials.|
 |403 Forbidden|Access denied.|
-|404 Not Found|The requested element was't found. It could be customer ID (or "mandator ID"), model ID, or scenario ID.|
+|404 Not Found|The requested element wasn't found. It could be customer ID (or "mandator ID"), model ID, or scenario ID.|
 |409 Conflict|The requested combination of models and recommendation parameters can't return recommendations. This could happen, for example, if you request personalized recommendations for a user who has no history.|
 |500 Internal Server Error|Unspecified error. Contact [[= product_name_base =]] support if this error is recurring.|
 

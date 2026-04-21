@@ -15,6 +15,7 @@ Menus are extensible using event subscribers, for example:
 
 ``` php
 [[= include_file('code_samples/back_office/menu/menu_item/src/EventSubscriber/MyMenuSubscriber.php', 0, 29) =]]
+[[= include_file('code_samples/back_office/menu/menu_item/src/EventSubscriber/MyMenuSubscriber.php', 48, 50) =]]
 ```
 
 !!! tip
@@ -35,7 +36,7 @@ You can listen to the following events:
 || `ConfigureMenuEvent::CONTENT_CREATE_SIDEBAR_RIGHT` |
 || `ConfigureMenuEvent::CONTENT_SIDEBAR_LEFT` |
 | Trash | `ConfigureMenuEvent::TRASH_SIDEBAR_RIGHT` |
-| Section | `ConfigureMenuEvent::SECTION_EDIT_SIDEBAR_RIGHT`
+| Section | `ConfigureMenuEvent::SECTION_EDIT_SIDEBAR_RIGHT` |
 || `ConfigureMenuEvent::SECTION_CREATE_SIDEBAR_RIGHT` |
 | Policies and permissions | `ConfigureMenuEvent::POLICY_EDIT_SIDEBAR_RIGHT` |
 || `ConfigureMenuEvent::POLICY_CREATE_SIDEBAR_RIGHT` |

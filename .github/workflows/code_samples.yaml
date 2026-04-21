@@ -10,7 +10,8 @@ jobs:
         strategy:
             matrix:
                 php:
-                    - "8.3"
+                    - "8.4" # Upper supported version
+                    - "8.3" # Lower supported version
         steps:
             - uses: actions/checkout@v4
 
@@ -22,14 +23,22 @@ jobs:
                   extensions: "pdo_sqlite, gd"
                   tools: cs2pr
 
-            -   name: Add composer keys for private packagist
-                run: |
-                    composer config http-basic.updates.ibexa.co $SATIS_NETWORK_KEY $SATIS_NETWORK_TOKEN
-                    composer config github-oauth.github.com $TRAVIS_GITHUB_TOKEN
-                env:
-                    SATIS_NETWORK_KEY: ${{ secrets.SATIS_NETWORK_KEY }}
-                    SATIS_NETWORK_TOKEN: ${{ secrets.SATIS_NETWORK_TOKEN }}
-                    TRAVIS_GITHUB_TOKEN: ${{ secrets.TRAVIS_GITHUB_TOKEN }}
+            - name: Generate token
+              id: generate_token
+              uses: actions/create-github-app-token@v2
+              with:
+                  app-id: ${{ secrets.AUTOMATION_CLIENT_ID }}
+                  private-key: ${{ secrets.AUTOMATION_CLIENT_SECRET }}
+                  owner: ${{ github.repository_owner }}
+
+            - name: Add composer keys for private packagist
+              run: |
+                  composer config --global http-basic.updates.ibexa.co $SATIS_NETWORK_KEY $SATIS_NETWORK_TOKEN
+                  composer config --global github-oauth.github.com $GITHUB_TOKEN
+              env:
+                  SATIS_NETWORK_KEY: ${{ secrets.SATIS_NETWORK_KEY }}
+                  SATIS_NETWORK_TOKEN: ${{ secrets.SATIS_NETWORK_TOKEN }}
+                  GITHUB_TOKEN: ${{ steps.generate_token.outputs.token }}
 
             - uses: ramsey/composer-install@v3
               with:
@@ -37,6 +46,12 @@ jobs:
 
             - name: Run PHPStan analysis
               run: composer phpstan
+
+            - name: Run Deptrac analysis
+              run: composer deptrac
+
+            - name: Run Rector check
+              run: composer check-rector
 
     code-samples-inclusion-check:
         name: Check code samples inclusion

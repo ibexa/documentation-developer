@@ -130,7 +130,7 @@ class MyPolicyProvider implements PolicyProviderInterface, TranslationContainerI
 Then, extract this translation to generate the English translation file `translations/forms.en.xlf`:
 
 ``` bash
-php bin/console translation:extract en --domain=forms --dir=src --output-dir=translations
+php bin/console jms:translation:extract en --domain=forms --dir=src --output-dir=translations
 ```
 
 ## `PolicyProvider` integration into `IbexaCoreBundle`
@@ -174,7 +174,7 @@ services:
 
 #### Form mapper
 
-To provide support for editing custom policies in the back office, you need to implement [`Ibexa\AdminUi\Limitation\LimitationFormMapperInterface`](https://github.com/ibexa/admin-ui/blob/4.5/src/lib/Limitation/LimitationFormMapperInterface.php).
+To provide support for editing custom policies in the back office, you need to implement [`Ibexa\AdminUi\Limitation\LimitationFormMapperInterface`](https://github.com/ibexa/admin-ui/blob/5.0/src/lib/Limitation/LimitationFormMapperInterface.php).
 
 - `mapLimitationForm` adds the limitation field as a child to a provided Symfony form.
 - `getFormTemplate` returns the path to the template to use for rendering the limitation form. Here it use [`form_label`]([[= symfony_doc =]]/form/form_customization.html#reference-forms-twig-label) and [`form_widget`]([[= symfony_doc =]]/form/form_customization.html#reference-forms-twig-widget) to do so.
@@ -205,7 +205,7 @@ Some abstract limitation type form mapper classes are provided to help implement
 
 #### Value mapper
 
-By default, without a value mapper, the limitation value is rendered by using the block `ez_limitation_value_fallback` of the template [`vendor/ibexa/admin-ui/src/bundle/Resources/views/themes/admin/limitation/limitation_values.html.twig`](https://github.com/ibexa/admin-ui/blob/4.5/src/bundle/Resources/views/themes/admin/limitation/limitation_values.html.twig#L1-L6).
+By default, without a value mapper, the limitation value is rendered by using the block `ibexa_limitation_value_fallback` of the template [`vendor/ibexa/admin-ui/src/bundle/Resources/views/themes/admin/limitation/limitation_values.html.twig`](https://github.com/ibexa/admin-ui/blob/v[[= latest_tag_5_0 =]]/src/bundle/Resources/views/themes/admin/limitation/limitation_values.html.twig).
 
 To customize the rendering, a value mapper eventually transforms the limitation value and sends it to a custom template.
 
@@ -223,17 +223,17 @@ Then register the service with the `ibexa.admin_ui.limitation.mapper.value` tag 
 [[= include_file('code_samples/back_office/limitation/config/append_to_services.yaml', 9, 12) =]]
 ```
 
-When a value mapper exists for a limitation, the rendering uses a Twig block named `ez_limitation_<lower_case_identifier>_value` where `<lower_case_identifier>` is the limitation identifier in lower case.
-In this example, block name is `ez_limitation_customlimitation_value` as the identifier is `CustomLimitation`.
+When a value mapper exists for a limitation, the rendering uses a Twig block named `ibexa_limitation_<lower_case_identifier>_value` where `<lower_case_identifier>` is the limitation identifier in lower case.
+In this example, block name is `ibexa_limitation_customlimitation_value` as the identifier is `CustomLimitation`.
 
-This template receives a `values` variable which is the return of the `mapLimitationValue` function from the corresponding value mapper.
+This template receives a `values` variable which is the return value of the `mapLimitationValue` function from the corresponding value mapper.
 
 ``` html+twig
 [[= include_file('code_samples/back_office/limitation/templates/themes/standard/limitation/custom_limitation_value.html.twig') =]]
 ```
 
 To have your block found, you have to register its template.
-Add the template to the configuration under `ezplatform.system.<SCOPE>.limitation_value_templates`:
+Add the template to the configuration under `ibexa.system.<SCOPE>.limitation_value_templates`:
 
 ``` yaml
 [[= include_file('code_samples/back_office/limitation/config/packages/ibexa_security.yaml') =]]
@@ -251,54 +251,5 @@ For example, `translations/ibexa_content_forms_policies.en.yaml`:
 Check if current user has this custom limitation set to true from a custom controller:
 
 ```php
-<?php declare(strict_types=1);
-
-namespace App\Controller;
-
-use Ibexa\Contracts\AdminUi\Controller\Controller;
-use Ibexa\Contracts\AdminUi\Permission\PermissionCheckerInterface;
-use Ibexa\Contracts\Core\Repository\PermissionResolver;
-use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\Response;
-
-class CustomController extends Controller
-{
-    // ...
-    /** @var PermissionResolver */
-    private $permissionResolver;
-
-    /** @var PermissionCheckerInterface */
-    private $permissionChecker;
-
-    public function __construct(
-        // ...,
-        PermissionResolver   $permissionResolver,
-        PermissionCheckerInterface $permissionChecker
-    )
-    {
-        // ...
-        $this->permissionResolver = $permissionResolver;
-        $this->permissionChecker = $permissionChecker;
-    }
-
-    // Controller actions...
-    public function customAction(Request $request): Response {
-        // ...
-        if ($this->getCustomLimitationValue()) {
-            // Action only for user having the custom limitation checked
-        }
-    }
-
-    private function getCustomLimitationValue(): bool {
-        $customLimitationValues = $this->permissionChecker->getRestrictions($this->permissionResolver->hasAccess('custom_module', 'custom_function_2'), CustomLimitationValue::class);
-
-        return $customLimitationValues['value'] ?? false;
-    }
-
-    public function performAccessCheck()
-    {
-        parent::performAccessCheck();
-        $this->denyAccessUnlessGranted(new Attribute('custom_module', 'custom_function_2'));
-    }
-}
+[[= include_file('code_samples/back_office/limitation/src/Controller/CustomController.php') =]]
 ```
