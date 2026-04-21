@@ -1668,7 +1668,7 @@ For more information, see [[[= product_name_connect =]] scenario block](https://
 
 #### DDEV
 
-[[[= product_name =]] can officially be run on DDEV](https://ddev.readthedocs.io/en/latest/users/quickstart/#ibexa-dxp).
+[[[= product_name =]] can officially be run on DDEV](https://docs.ddev.com/en/stable/users/quickstart/#ibexa-dxp).
 
 For more information, see the [DDEV guide](https://doc.ibexa.co/en/master/getting_started/install_with_ddev/), which offers a step-by-step walkthrough for installing [[= product_name =]].
 
