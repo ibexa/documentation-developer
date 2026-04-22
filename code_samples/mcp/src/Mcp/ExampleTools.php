@@ -34,7 +34,11 @@ final readonly class ExampleTools implements McpCapabilityInterface
         return sprintf('Hello, %s!', $name);
     }
 
-    /** @param string $name The name you want to be greeted by */
+    /**
+     * @param string $name The name you want to be greeted by
+     *
+     * @return array<string, mixed>
+     */
     #[McpPrompt(
         servers: ['example'],
         name: 'greet',
