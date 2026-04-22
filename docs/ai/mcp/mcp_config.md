@@ -1,11 +1,11 @@
 ---
-description: TODO.
+description: Configure an MCP server exposing built-in or custom tools TODO and prompts/resources.
 month_change: true
 ---
 
-TODO: built-in MCP servers VS custom MCP servers
-
 # Set up an MCP server
+
+[[= product_name =]] can provide [MCP servers](mcp_guide.md) to external AIs.
 
 ## JWT
 
@@ -17,7 +17,7 @@ In `config/packages/security.yaml`, uncomment the `ibexa_jwt_mcp` firewall.
 
 TODO: Config to get a JWT token in the first place. Through [REST](rest_api_authentication.md#jwt-authentication), GraphQL or something else?
 
-## MCP Server configuration
+## MCP server configuration
 
 MCP servers are configured per repository then enabled per SiteAccess scope.
 
@@ -62,27 +62,30 @@ Notice that a server is disabled by default, it needs to be explicitly enabled.
 
 ### Tools configuration
 
-TODO: Tools are… (VS Prompt templates are… VS Resources are…)
+Tools are the main capabilities of an MCP server, they are the actions that an AI can call on the system.
+
+TODO: https://modelcontextprotocol.io/docs/learn/server-concepts#core-server-features
 
 There is two ways to associate tools with a server:
 
 - `tools` in server configuration lists classes from which **all** the `McpTool` attributes are associated with the server
 - `servers` argument in `McpTool` attribute associated the **specified** tool to servers 
 
+#### Built-in tools
+
 Ibexa DXP come with several built-in tool classes:
 
 - `Ibexa\Mcp\Tool\TranslationTools`
-    - `list_languages`: TODO
-    - `list_content_translations`: TODO
+    - `list_languages`: Lists all languages in the current SiteAccess
+    - `list_content_translations`: Lists languages which have translations for a given content item
 - `Ibexa\Mcp\Tool\SeoTools`
-    - `get_non_seo_content_ids`: TODO
+    - `get_non_seo_content_ids`: Returns IDs of content items that are missing SEO optimization (no meta title tag). Useful for identifying content that needs SEO attention.
 
 ```yaml
                     tools:
                         - Ibexa\Mcp\Tool\TranslationTools
                         - Ibexa\Mcp\Tool\SeoTools
-
-TODO
+```
 
 ### MCP server session storage
 
@@ -130,8 +133,7 @@ Sessions are persisted to the filesystem. Requires directory option to be set.
 #### Memory
 
 Sessions are stored in memory. Suitable for development and STDIO transport.
-
-TODO: Might not work with DDEV or Docker
+It might not work with containers like Docker/DDEV.
 
 ```yaml
                     session:
@@ -146,7 +148,6 @@ A PHP class implementing MCP server capabilities like tools, prompts, or resourc
 
 - implements [`Ibexa\Contracts\Mcp\McpCapabilityInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Mcp-McpCapabilityInterface.html) to be scanned for capabilities
 - uses attributes from the [`Ibexa\Contracts\Mcp\Attribute` namespace](/api/php_api/php_api_reference/namespaces/ibexa-contracts-mcp-attribute.html) to define capabilities.
-- TODO: be added to an MCP server configuration
 
 ### Tools
 
@@ -158,6 +159,10 @@ It has several arguments to describe the tool usage and output:
 - `inputSchema` (optional): for JSON object output, an associative array describing this object
 - `annotations` (optional): a [`Mcp\Schema\ToolAnnotations`](https://github.com/modelcontextprotocol/php-sdk/blob/main/src/Schema/ToolAnnotations.php) instance 
 - `servers` (optional): an array of identifiers of servers proposing this tool
+
+### TODO: Prompts
+
+TODO: `McpPrompt` attribute to declare a method as an MCP prompt template…
 
 ## Example
 
@@ -181,6 +186,10 @@ Then, an `McpCapabilityInterface` containing a function with an `McpTool` attrib
 ``` php
 [[= include_file('code_samples/mcp/src/Mcp/ExampleTools.php') =]]
 ```
+
+For the example, `servers` attribute parameter is used to associate only this tool to the `example` server.
+All tools from this class could be added to a server by using the `tools` parameter in server configuration.
+For more information, see [tools configuration](#tools-configuration).
 
 ### Create MCP server list command
 
