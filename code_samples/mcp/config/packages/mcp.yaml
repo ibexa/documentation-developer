@@ -9,8 +9,8 @@ ibexa:
                     instructions: 'Use this server to greet someone.'
                     discovery_cache: cache.tagaware.filesystem
                     session:
-                        type: file
-                        directory: '%kernel.cache_dir%/mcp/sessions'
+                        type: psr16
+                        directory: cache.tagaware.filesystem
     system:
         default:
             mcp:

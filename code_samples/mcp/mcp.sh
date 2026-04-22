@@ -58,3 +58,27 @@ curl -s -X 'POST' "$baseUrl/mcp/example" \
           }
         }
       }' | jq
+
+curl -s -X 'POST' "$baseUrl/mcp/example" \
+  -H "Authorization: Bearer $jwtToken" \
+  -H "Mcp-Session-Id: $mcpSessionId" \
+  -d '{
+        "jsonrpc": "2.0",
+        "id": 4,
+        "method": "prompts/list"
+      }' | jq
+
+curl -s -X 'POST' "$baseUrl/mcp/example" \
+  -H "Authorization: Bearer $jwtToken" \
+  -H "Mcp-Session-Id: $mcpSessionId" \
+  -d '{
+        "jsonrpc": "2.0",
+        "id": 5,
+        "method": "prompts/get",
+        "params": {
+          "name": "greet",
+          "arguments": {
+            "name": "Firstname Lastname"
+          }
+        }
+      }' | jq

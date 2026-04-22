@@ -64,8 +64,6 @@ Notice that a server is disabled by default, it needs to be explicitly enabled.
 
 Tools are the main capabilities of an MCP server, they are the actions that an AI can call on the system.
 
-TODO: https://modelcontextprotocol.io/docs/learn/server-concepts#core-server-features
-
 There is two ways to associate tools with a server:
 
 - `tools` in server configuration lists classes from which **all** the `McpTool` attributes are associated with the server
@@ -87,7 +85,20 @@ Ibexa DXP come with several built-in tool classes:
                         - Ibexa\Mcp\Tool\SeoTools
 ```
 
-### MCP server session storage
+### Discovery cache
+
+Discovery is cached to avoid scanning for capabilities on every request.
+A PSR-6 or PSR-16 cache pool must be provided for this caching.
+
+For example, a dedicated Redis/Valkey could be set up:
+
+```yaml
+                    discovery_cache: cache.redis.mcp
+```
+
+### Session storage
+
+MCP servers store session data their own way.
 
 #### Options
 
@@ -122,7 +133,10 @@ services:
 
 #### File
 
-Sessions are persisted to the filesystem. Requires directory option to be set.
+Sessions are persisted to the filesystem. it requires directory option to be set.
+
+In this example, sessions are stored in `var/cache/<environment>/mcp/sessions/` directory
+(for example, `var/cache/dev/mcp/session/` in `dev` environment and `var/cache/prod/mcp/sessions/` in `prod` environment):
 
 ```yaml
                     session:
@@ -151,18 +165,41 @@ A PHP class implementing MCP server capabilities like tools, prompts, or resourc
 
 ### Tools
 
-The [`Ibexa\Contracts\Mcp\Attribute\McpTool` attribute](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Mcp-Attribute-McpTool.html) declared a method as an MCP tool.
+TODO: https://modelcontextprotocol.io/specification/latest/server/tools
+
+The [`Ibexa\Contracts\Mcp\Attribute\McpTool` attribute](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Mcp-Attribute-McpTool.html) declares a method as an MCP tool.
 It has several arguments to describe the tool usage and output:
 
+- `servers` (optional): an array of identifiers of servers proposing this tool - for more information, see [tools configuration](#tools-configuration)
 - `name` (optional): the name of the tool - if not set, the function name is used as the tool name
 - `description` (optional): a human-readable description of the tool, useful for the LLM to understand the tool purpose and eventually choose it when it matches the prompt intent
-- `inputSchema` (optional): for JSON object output, an associative array describing this object
+- `icons` (optional): an array of [`Mcp\Schema\Icon`](https://github.com/modelcontextprotocol/php-sdk/blob/main/src/Schema/Icon.php) instances
+- `outputSchema` (optional): for JSON object output, an associative array describing this object
 - `annotations` (optional): a [`Mcp\Schema\ToolAnnotations`](https://github.com/modelcontextprotocol/php-sdk/blob/main/src/Schema/ToolAnnotations.php) instance 
-- `servers` (optional): an array of identifiers of servers proposing this tool
+- `meta` (optional): TODO
 
-### TODO: Prompts
+An `inputSchema` is automatically built from the function arguments and their types.
+To override or complement the automatically generated input schema,
+use the [`Schema` attribute](https://github.com/php-mcp/server#-schema-generation-and-validation).
 
-TODO: `McpPrompt` attribute to declare a method as an MCP prompt template…
+### Prompts
+
+MCP servers can also provide prompt templates to guide the user in the interactions with the AI using the MCP server.
+
+TODO: https://modelcontextprotocol.io/specification/latest/server/prompts
+
+The [`Ibexa\Contracts\Mcp\Attribute\McpPrompt` attribute](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Mcp-Attribute-McpTool.html) declared a method as returning a prompt.
+
+It has several arguments to describe the prompt usage:
+
+- `servers`: an array of identifiers of servers proposing this prompt - notice that this is required for prompts
+- `name` (optional): the name of the prompt - if not set, the function name is used as the prompt name
+- `description` (optional): a human-readable description of the prompt
+- `icons` (optional): an array of [`Mcp\Schema\Icon`](https://github.com/modelcontextprotocol/php-sdk/blob/main/src/Schema/Icon.php) instances
+- `meta` (optional): TODO
+
+An `arguments` array is automatically built from the function arguments and their types.
+To add descriptions, use a docblock comment with `@param` tags.
 
 ## Example
 
@@ -179,9 +216,18 @@ In a new `config/packages/mcp.yaml` file, the configuration of the MCP server:
 [[= include_file('code_samples/mcp/config/packages/mcp.yaml') =]]
 ```
 
-### Create tool class
+An `ibexa.mcp.example` route is now available:
+```bash
+php bin/console debug:router ibexa.mcp.example
+```
 
-Then, an `McpCapabilityInterface` containing a function with an `McpTool` attribute associating it to the `example` server as `greet` tool:
+### Create capability class
+
+An `McpCapabilityInterface` is created.
+
+It contains a function with an `McpTool` attribute associating it to the `example` server as `greet` tool for the AI.
+
+It also contains a function with the `McpPrompt` attribute to provide a prompt template to the user.
 
 ``` php
 [[= include_file('code_samples/mcp/src/Mcp/ExampleTools.php') =]]
@@ -191,9 +237,16 @@ For the example, `servers` attribute parameter is used to associate only this to
 All tools from this class could be added to a server by using the `tools` parameter in server configuration.
 For more information, see [tools configuration](#tools-configuration).
 
+For prompt, the `servers` parameter is required.
+So, the example prompt has to use it to be associated with the `example` server.
+
+During development and testing, you may have to clear the cache to make sure new or modified capabilities are properly re-discovered.
+In this example, regarding its configuration, `php bin/console cache:pool:clear cache.tagaware.filesystem` has to be used.
+
 ### Create MCP server list command
 
-To check the server configuration, a short command using the MCP server configuration registry (injected through `McpServerConfigurationRegistryInterface` and autowiring):
+To check the server configuration, a short command using the MCP server configuration registry
+(injected through [`McpServerConfigurationRegistryInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Mcp-McpServerConfigurationRegistryInterface.html) and autowiring):
 
 ``` php
 [[= include_file('code_samples/mcp/src/Command/McpServerListCommand.php') =]]
@@ -211,7 +264,7 @@ To test the `example` MCP server, a sequence of `curl` commands is used to simul
 
 `jq`, `grep`, and `sed` are also used to parse or display outputs.
 
-The [initialization](https://modelcontextprotocol.io/specification/draft/basic/lifecycle#initialization):
+The [initialization](https://modelcontextprotocol.io/specification/latest/basic/lifecycle#initialization):
 
 ``` bash
 [[= include_file('code_samples/mcp/mcp.sh', 0, 36) =]]
@@ -224,7 +277,7 @@ Access-Control-Allow-Methods: GET, POST, DELETE, OPTIONS
 Access-Control-Expose-Headers: Mcp-Session-Id
 ```
 
-The [list of tools](https://modelcontextprotocol.io/specification/draft/server/tools#listing-tools):
+The [list of tools](https://modelcontextprotocol.io/specification/latest/server/tools#listing-tools):
 
 ``` bash
 [[= include_file('code_samples/mcp/mcp.sh', 37, 45) =]]
@@ -242,24 +295,36 @@ The [list of tools](https://modelcontextprotocol.io/specification/draft/server/t
           "type": "object",
           "properties": {
             "name": {
-              "type": "string"
+              "type": "string",
+              "description": "the name of the person to greet"
             }
           },
           "required": [
             "name"
           ]
         },
-        "description": "Greet a user by name"
+        "description": "Greet a user by name",
+        "annotations": {
+          "readOnlyHint": true,
+          "destructiveHint": false,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "icons": [
+          {
+            "src": "https://openmoji.org/data/color/svg/1F44B.svg"
+          }
+        ]
       }
     ]
   }
 }
 ```
 
-The `greet` [tool usage](https://modelcontextprotocol.io/specification/draft/server/tools#calling-tools):
+The `greet` [tool call](https://modelcontextprotocol.io/specification/latest/server/tools#calling-tools):
 
 ``` bash
-[[= include_file('code_samples/mcp/mcp.sh', 46) =]]
+[[= include_file('code_samples/mcp/mcp.sh', 46, 60) =]]
 ```
 
 ```json
@@ -274,6 +339,63 @@ The `greet` [tool usage](https://modelcontextprotocol.io/specification/draft/ser
       }
     ],
     "isError": false
+  }
+}
+```
+
+The [list of prompts](https://modelcontextprotocol.io/specification/latest/server/prompts#listing-prompts):
+
+``` bash
+[[= include_file('code_samples/mcp/mcp.sh', 61, 69) =]]
+```
+
+```json
+{
+  "jsonrpc": "2.0",
+  "id": 4,
+  "result": {
+    "prompts": [
+      {
+        "name": "greet",
+        "description": "Prompt to be greeted by the `greet` tool",
+        "arguments": [
+          {
+            "name": "name",
+            "description": "The name you want to be greeted by",
+            "required": true
+          }
+        ],
+        "icons": [
+          {
+            "src": "https://openmoji.org/data/color/svg/1F91D.svg"
+          }
+        ]
+      }
+    ]
+  }
+}
+```
+
+The `greet` [prompt obtainment](https://modelcontextprotocol.io/specification/2025-11-25/server/prompts#getting-a-prompt):
+
+``` bash
+[[= include_file('code_samples/mcp/mcp.sh', 70, 84) =]]
+```
+
+```json
+{
+  "jsonrpc": "2.0",
+  "id": 5,
+  "result": {
+    "messages": [
+      {
+        "role": "user",
+        "content": {
+          "type": "text",
+          "text": "Hi. Please, greet me. My name is Firstname Lastname."
+        }
+      }
+    ]
   }
 }
 ```
@@ -301,7 +423,13 @@ In the right panel, in the **Tools** tab, click **List Tools** button in the lef
 The `greet` tool appears preceded by its icon.
 It can be selected and tested in the right column.
 
-![Screenshot of the right pannel of the MCP Inspector with the list of tools obtained from the example MCP server, and the test of the `greet` tool](img/mcp-inspector-greet.png "MCP Inspector `greet` tool test")
+![Screenshot of the right pannel of the MCP Inspector with the list of tools obtained from the example MCP server, and the test of the `greet` tool](img/mcp-inspector-greet-tool.png "MCP Inspector `greet` tool test")
+
+In the **Prompts** tab, click **List Prompts** button in the left column.
+The `greet` prompt appears preceded by its icon.
+It can be selected and tested in the right column.
+
+![Screenshot of the right pannel of the MCP Inspector with the list of prompts obtained from the example MCP server, and the test of the `greet` prompt](img/mcp-inspector-greet-prompt.png "MCP Inspector `greet` prompt test")
 
 ### TODO: Copilot CLI test
 
