@@ -89,7 +89,7 @@ Run the following command to install the package:
 composer require ibexa/connector-gemini
 ```
 
-And add the bundle to the list in `config/bundles.php`:
+Then, add the bundle to the list in `config/bundles.php`:
 
 ``` php
     Ibexa\Bundle\ConnectorGemini\IbexaConnectorGeminiBundle::class => ['all' => true],
