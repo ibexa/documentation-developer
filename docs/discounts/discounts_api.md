@@ -70,7 +70,7 @@ With conditions you can narrow down the scenarios in which the discount applies.
 
 | Condition<br>(identifier) | Applies to | Description | Required expression values |
 |---|---|---|---|
-| <nobr>`IsInCategory`</nobr><br><nobr>(`is_in_category`)</nobr> | Cart, Catalog | Checks if the product belongs to specified [product categories]([[= user_doc =]]/pim/work_with_product_categories/) | `categories` |
+| <nobr>`IsInCategory`</nobr><br><nobr>(`is_in_category`)</nobr> | Cart, Catalog | Checks if the product belongs to specified [product categories]([[= user_doc =]]/product_catalog/work_with_product_categories/) | `categories` |
 | <nobr>`IsInCurrency`</nobr><br><nobr>(`is_in_currency`)</nobr> | Cart, Catalog | Checks if the product has price in the specified currency | <nobr>`currency_code`</nobr> |
 | <nobr>`IsInRegions`</nobr><br><nobr>(`is_in_regions`)</nobr> | Cart, Catalog | Checks if the customer is making the purchase in one of the specified regions | `regions` |
 | <nobr>`IsProductInArray`</nobr><br><nobr>(`is_product_in_array`)</nobr> | Cart, Catalog | Checks if the product belongs to the group of selected products | `product_codes` |
