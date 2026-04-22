@@ -30,8 +30,7 @@ final readonly class ExampleTools implements McpCapabilityInterface
             description: 'the name of the person to greet'
         )]
         string $name
-    ): string
-    {
+    ): string {
         return sprintf('Hello, %s!', $name);
     }
 
