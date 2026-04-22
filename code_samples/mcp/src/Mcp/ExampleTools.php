@@ -10,6 +10,7 @@ use Mcp\Schema\ToolAnnotations;
 final readonly class ExampleTools implements McpCapabilityInterface
 {
     #[McpTool(
+        servers: ['example'],
         name: 'greet',
         description: 'Greet a user by name',
         icons: [new Icon(
@@ -21,7 +22,6 @@ final readonly class ExampleTools implements McpCapabilityInterface
             idempotentHint: true,
             openWorldHint: false,
         ),
-        servers: ['example'],
     )]
     public function greetByName(string $name): string
     {
