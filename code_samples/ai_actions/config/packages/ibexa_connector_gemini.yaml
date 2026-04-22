@@ -4,17 +4,17 @@ ibexa_connector_gemini:
             gemini-pro-latest:
                 label: 'Gemini Pro Latest'
                 max_tokens: 4096
-                gemini-flash-latest:
-                    label: 'Gemini Flash Latest'
-                    max_tokens: 4096
-                    default_model: gemini-pro-latest
-                    default_max_tokens: 4096   # Must be <= the model’s max_tokens
-                    default_temperature: 0.8
-                    image_to_text:
-                        models:
-                            gemini-flash-latest:
-                                label: 'Gemini Flash Latest'
-                                max_tokens: 4096
-                                default_model: gemini-flash-latest
-                                default_max_tokens: 4096
-                                default_temperature: 1.0
+            gemini-flash-latest:
+                label: 'Gemini Flash Latest'
+                max_tokens: 4096
+        default_model: gemini-pro-latest
+        default_max_tokens: 4096 # Must be <= the model’s max_tokens
+        default_temperature: 0.8
+    image_to_text:
+        models:
+            gemini-flash-latest:
+                label: 'Gemini Flash Latest'
+                max_tokens: 4096
+        default_model: gemini-flash-latest
+        default_max_tokens: 4096
+        default_temperature: 1.0
