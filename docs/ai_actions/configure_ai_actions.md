@@ -89,6 +89,12 @@ Run the following command to install the package:
 composer require ibexa/connector-gemini
 ```
 
+Then, you **must** add the bundle to the list in `config/bundles.php` manually:
+
+``` php
+    Ibexa\Bundle\ConnectorGemini\IbexaConnectorGeminiBundle::class => ['all' => true],
+```
+
 This command adds the feature code, including basic handlers that let you refine text or generate alternative text for images.
 
 ### Get API key
