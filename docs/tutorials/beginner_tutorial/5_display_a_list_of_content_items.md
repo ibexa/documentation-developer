@@ -8,6 +8,8 @@ Now that you know how to display a single content item, you can take care of ren
 
 In this step you can display a table of all Rides on the front page.
 
+The pagination uses default styling, as this tutorial focuses on functionality.
+
 ## Customize the homepage template
 
 In `templates/full/home_page.html.twig` replace the "Hello world" with a table that displays the list of all existing Rides:
