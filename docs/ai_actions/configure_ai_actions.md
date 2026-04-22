@@ -89,7 +89,7 @@ Run the following command to install the package:
 composer require ibexa/connector-gemini
 ```
 
-Then, you **must** add the bundle to the list in `config/bundles.php` manually:
+Then, if not using Symfony Flex, enable the bundle in `config/bundles.php`:
 
 ``` php
     Ibexa\Bundle\ConnectorGemini\IbexaConnectorGeminiBundle::class => ['all' => true],
