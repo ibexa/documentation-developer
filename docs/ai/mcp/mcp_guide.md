@@ -14,7 +14,7 @@ While [AI actions](ai_actions_guide.md) integrate AI to the back office,
 
 - MCP servers [creation by configuration](mcp_config.md#mcp-server-configuration)
 - [buit-in tools](mcp_config.md#built-in-tools) to associate to MCP servers by configuration
-- a PHP API to [create custom MCP server capabilities](mcp_config.md#create-tool-class)
+- a PHP API to [create custom MCP server capabilities](mcp_config.md#create-capability-class)
 
 TODO: keep uo-to-date about prompts or resources
 
