@@ -11,7 +11,8 @@ month_change: true
 
 MCP servers use JWT for authentication.
 
-In `config/packages/lexik_jwt_authentication.yaml`, [enable the `authorization_header` token extractor](development_security.md#jwt-authentication) to allow the use of JWT in `Authorization` header.
+In `config/packages/lexik_jwt_authentication.yaml`, [enable the `authorization_header` token extractor](development_security.md#jwt-authentication)
+to allow the use of JWT token bearer in `Authorization` header.
 
 In `config/packages/security.yaml`,
 
