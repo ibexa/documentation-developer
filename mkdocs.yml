@@ -362,7 +362,7 @@ nav:
         - MCP Servers:
             - MCP Servers: ai/mcp/mcp.md
             - MCP Servers guide: ai/mcp/mcp_guide.md
-            - Configure MCP Servers: ai/mcp/mcp_config.md
+            - MCP Servers config: ai/mcp/mcp_config.md
     - Product catalog:
         - Product catalog: product_catalog/product_catalog.md
         - Product catalog guide: product_catalog/product_catalog_guide.md

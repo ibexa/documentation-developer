@@ -3,7 +3,7 @@ description: Configure an MCP server exposing built-in or custom tools TODO and 
 month_change: true
 ---
 
-# Set up an MCP server
+# MCP servers configuration
 
 [[= product_name =]] can provide [MCP servers](mcp_guide.md) to external AIs.
 
@@ -24,7 +24,7 @@ Notice that you don't need to activate JWT authentication for the REST API or Gr
 You can now request JWT tokens to use with your MCP servers.
 See examples of JWT token requests
 in [REST JWT authentication](rest_api_authentication.md#jwt-authentication),
-in [cURL test of MCP Server](#curl-test),
+in [cURL test of MCP server](#curl-test),
 in [GraphQL JWT authentication](graphql.md#jwt-authentication),
 or in [MCP Inspector test](#mcp-inspector-test) GraphIQL example.
 
@@ -475,7 +475,7 @@ It can be selected and tested in the right column.
 
 ### Copilot CLI test
 
-#### MCP Server addition to Copilot CLI
+#### MCP server addition to Copilot CLI
 
 For this example test with [Copilot CLI](https://docs.github.com/en/copilot/concepts/agents/copilot-cli/about-copilot-cli),
 the MCP server configuration is done in an `.mcp.json` file at the Ibexa DXP project root
@@ -501,7 +501,7 @@ Or you can have a shell script doing the JWT token request, extracting it from t
 When Copilot complains that it can't communicate with the MCP server:
 
 - update the JWT token in the `.mcp.json` file
-- reload the MCP Servers in Copilot CLI with one of those methods:
+- reload the MCP servers in Copilot CLI with one of those methods:
    - run `/mcp reload` command which reload all MCP servers (which can be annoying if you have several MCP servers globally enabled)
    - run `/mcp disable ibexa-example` then `/mcp enable ibexa-example` to only reload the `ibexa-example` server
 
@@ -521,7 +521,7 @@ For example, this can be achieved with [Supergateway](https://www.npmjs.com/pack
 [[= include_file('code_samples/mcp/mcp-ibexa-example-wrapper.sh') =]]
 ```
 
-When Copilot complains that it can't communicate with the MCP server, reload the MCP Servers in Copilot CLI with one of those methods:
+When Copilot complains that it can't communicate with the MCP server, reload the MCP servers in Copilot CLI with one of those methods:
 
 - run `/mcp reload` command which reload all MCP servers (which can be annoying if you have several MCP servers globally enabled)
 - run `/mcp disable ibexa-example` then `/mcp enable ibexa-example` to only reload the `ibexa-example` server
