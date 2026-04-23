@@ -18,10 +18,10 @@ In `config/packages/security.yaml`,
 - uncomment the `ibexa_jwt_rest` firewall to allow the request of JWT tokens through REST API
 - uncomment the `ibexa_jwt_mcp` firewall to allow the use of JWT for authentication against MCP servers
 
-Notice that you don't need to activate JWT for the REST API.
+Notice that you don't need to activate JWT authentication for the REST API or GraphQL.
 
 You can now request JWT tokens to use with your MCP servers.
-See examples of JWT token request in [REST JWT authentication](rest_api_authentication.md#jwt-authentication) or in [cURL test](#curl-test).
+See examples of JWT token requests in [REST JWT authentication](rest_api_authentication.md#jwt-authentication), in [cURL test of MCP Server](#curl-test), or [GraphQL JWT authentication](graphql.md#jwt-authentication).
 
 ## MCP server configuration
 
