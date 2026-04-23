@@ -182,7 +182,7 @@ If your Elasticsearch server is protected by HTTP authentication, you must provi
 In the basic authentication, you must pass the following parameters:
 
 ``` yaml
-<connection_name>
+<connection_name>:
     # ...
     authentication:
         type: basic
@@ -377,14 +377,14 @@ Index names use the following pattern:
     You can create index templates with settings that apply to a specific language only, for example, to eliminate stop words from the index, or help divide concatenations.
     You use patterns to identify index templates that contain settings specific for a given language:
 
-  ``` yaml
-  ibexa_elasticsearch:
+``` yaml
+ibexa_elasticsearch:
     # ...
     index_templates:
         default_en_us:
             patterns: ['default_*', '*eng_us*']
-            # ...
-  ```
+        # ...
+```
 
 - `settings` - Settings under this key control all aspects related to an index.
 
@@ -392,21 +392,21 @@ For more information and a list of available settings, see [Elasticsearch docume
 
     For example, you can define settings that convert text into a format that is optimized for search, like a normalizer that changes a case of all phrases in the index:
 
-  ``` yaml
-    ibexa_elasticsearch:
-        # ...
-            index_templates:
-                default:
-                    # ...
-                    settings:
-                        analysis:
-                            normalizer:
-                                lowercase_normalizer:
-                                    type: custom
-                                    char_filter: []
-                                    filter: lowercase
-                                    # ...
-  ```
+``` yaml
+ibexa_elasticsearch:
+    # ...
+    index_templates:
+        default:
+            # ...
+            settings:
+                analysis:
+                    normalizer:
+                        lowercase_normalizer:
+                            type: custom
+                            char_filter: []
+                            filter: lowercase
+                            # ...
+```
 
 - `mappings` - Settings under this key define mapping for fields in the index.
 

@@ -147,7 +147,7 @@ services:
         autoconfigure: true
         public: false
 
-    App\FieldType\MyField\Storage\MyFieldStorage: ~
+    App\FieldType\MyField\Storage\MyFieldStorage:
         tags:
             - {name: ibexa.field_type.storage.external.handler, alias: myfield}
 ```
