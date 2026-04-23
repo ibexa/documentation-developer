@@ -332,7 +332,7 @@ security:
             host: ^api\.example\.com$
             http_basic:
                 realm: Ibexa DXP REST API
-        #ibexa_front
+        #ibexa_front:
         # ...
 ```
 
