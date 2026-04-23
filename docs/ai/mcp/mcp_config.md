@@ -21,7 +21,10 @@ In `config/packages/security.yaml`,
 Notice that you don't need to activate JWT authentication for the REST API or GraphQL.
 
 You can now request JWT tokens to use with your MCP servers.
-See examples of JWT token requests in [REST JWT authentication](rest_api_authentication.md#jwt-authentication), in [cURL test of MCP Server](#curl-test), or [GraphQL JWT authentication](graphql.md#jwt-authentication).
+See examples of JWT token requests
+in [REST JWT authentication](rest_api_authentication.md#jwt-authentication),
+in [cURL test of MCP Server](#curl-test),
+or [GraphQL JWT authentication](graphql.md#jwt-authentication).
 
 ## MCP server configuration
 
