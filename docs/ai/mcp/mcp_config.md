@@ -11,11 +11,17 @@ month_change: true
 
 MCP servers use JWT for authentication.
 
-TODO: [Enable authorization header in `config/packages/lexik_jwt_authentication.yaml`](development_security.md#jwt-authentication).
+In `config/packages/lexik_jwt_authentication.yaml`, [enable the `authorization_header` token extractor](development_security.md#jwt-authentication) to allow the use of JWT in `Authorization` header.
 
-In `config/packages/security.yaml`, uncomment the `ibexa_jwt_mcp` firewall.
+In `config/packages/security.yaml`,
 
-TODO: Config to get a JWT token in the first place. Through [REST](rest_api_authentication.md#jwt-authentication), GraphQL or something else?
+- uncomment the `ibexa_jwt_rest` firewall to allow the request of JWT tokens through REST API
+- uncomment the `ibexa_jwt_mcp` firewall to allow the use of JWT for authentication against MCP servers
+
+Notice that you don't need to activate JWT for the REST API.
+
+You can now request JWT tokens to use with your MCP servers.
+See examples of JWT token request in [REST JWT authentication](rest_api_authentication.md#jwt-authentication) or in [cURL test](#curl-test).
 
 ## MCP server configuration
 
@@ -254,7 +260,7 @@ To check the server configuration, a short command using the MCP server configur
 
 ### cURL test
 
-To test the `example` MCP server, a sequence of `curl` commands is used to simulate an AI to MCP server communication.
+To test the `example` MCP server, a sequence of `curl` commands is used to simulate an AI client to MCP server communication.
 
 - Ask for a [JWT token through REST](/api/rest_api/rest_api_reference/rest_api_reference.html#tag/User-Token/operation/api_usertokenjwt_post)
 - Initialize a connection to the MCP server
@@ -264,10 +270,28 @@ To test the `example` MCP server, a sequence of `curl` commands is used to simul
 
 `jq`, `grep`, and `sed` are also used to parse or display outputs.
 
-The [initialization](https://modelcontextprotocol.io/specification/latest/basic/lifecycle#initialization):
+First, the shell script set the Ibexa DXP base URL into a variable for easier reuse:
 
 ``` bash
-[[= include_file('code_samples/mcp/mcp.sh', 0, 36) =]]
+[[= include_file('code_samples/mcp/mcp.sh', 0, 1) =]]
+```
+
+Before communicating with the MCP server, the request of a JWT token through REST API:
+
+``` bash
+[[= include_file('code_samples/mcp/mcp.sh', 0, 12) =]]
+```
+
+The [initialization](https://modelcontextprotocol.io/specification/latest/basic/lifecycle#initialization) to get an MCP session ID:
+
+``` bash
+[[= include_file('code_samples/mcp/mcp.sh', 13, 28) =]]
+```
+
+The validation of the initialization:
+
+``` bash
+[[= include_file('code_samples/mcp/mcp.sh', 29, 36) =]]
 ```
 
 ```
