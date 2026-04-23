@@ -158,7 +158,7 @@ security:
             jwt: ~
 ```
 
-- `ibexa_jwt_rest` is the firewall allowing to generate a JWT token through REST TODO: Does it allow to generate a JWT through GraphQL?
+- `ibexa_jwt_rest` is the firewall allowing to generate a JWT token through REST or GraphQL
 - `ibexa_jwt_rest.api` is the firewall to [use JWT for REST API](rest_api_authentication.md#jwt-authentication) instead of session-based authentication
 - `ibexa_jwt_mcp` is the firewall to [use JWT for MCP servers](mcp_config.md#jwt)
 - `ibexa_jwt_graphql` is the firewall to [use JWT for GraphQL API](graphql.md#jwt-authentication)
