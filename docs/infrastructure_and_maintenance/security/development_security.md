@@ -120,7 +120,7 @@ lexik_jwt_authentication:
 ```
 
 You also need to configure Symfony firewalls for the APIs with which you want to use JWT.
-It's already provided in `config/packages/security.yaml`, you only need to uncomment the main one and the ones for the desired APIs:
+It's already provided in `config/packages/security.yaml`, you need to uncomment the `ibexa_jwt_rest` and the ones for the desired APIs:
 
 ``` yaml
 security:
@@ -159,9 +159,9 @@ security:
 ```
 
 - `ibexa_jwt_rest` is the firewall allowing to generate a JWT token through REST TODO: Does it allow to generate a JWT through GraphQL?
-- `ibexa_jwt_rest.api` is the firewall to use JWT for REST API instead of session-based authentication.
-- `ibexa_jwt_mcp` is the firewall to use JWT for MCP servers
-- `ibexa_jwt_graphql` is the firewall to use JWT for GraphQL API TODO…
+- `ibexa_jwt_rest.api` is the firewall to [use JWT for REST API](rest_api_authentication.md#jwt-authentication) instead of session-based authentication
+- `ibexa_jwt_mcp` is the firewall to [use JWT for MCP servers](mcp_config.md#jwt)
+- `ibexa_jwt_graphql` is the firewall to [use JWT for GraphQL API](graphql.md#jwt-authentication)
 
 Finish the setup by generating a [PEM encoded key pair](https://symfony.com/bundles/LexikJWTAuthenticationBundle/2.x/index.html#generate-the-ssl-keys) by using the command:
 
