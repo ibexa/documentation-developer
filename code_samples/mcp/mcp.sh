@@ -1,11 +1,14 @@
+#!/bin/bash
+
 baseUrl='http://localhost' # Adapt to your test case
 
 jwtToken=$(curl -s -X 'POST' \
   "$baseUrl/api/ibexa/v2/user/token/jwt" \
-  -H 'Content-Type: application/json' \
+  -H 'Content-Type: application/vnd.ibexa.api.JWTInput+json' \
+  -H 'Accept: application/vnd.ibexa.api.JWT+json' \
   -d '{
         "JWTInput": {
-          "_media-type": "application/vnd.ibexa.api.JWTInput",
+          "_media-type": "application/vnd.ibexa.api.JWTInput+json",
           "username": "admin",
           "password": "publish"
         }

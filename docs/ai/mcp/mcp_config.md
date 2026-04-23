@@ -25,7 +25,8 @@ You can now request JWT tokens to use with your MCP servers.
 See examples of JWT token requests
 in [REST JWT authentication](rest_api_authentication.md#jwt-authentication),
 in [cURL test of MCP Server](#curl-test),
-or [GraphQL JWT authentication](graphql.md#jwt-authentication).
+in [GraphQL JWT authentication](graphql.md#jwt-authentication),
+or in [MCP Inspector test](#mcp-inspector-test) GraphIQL example.
 
 ## MCP server configuration
 
@@ -277,25 +278,25 @@ To test the `example` MCP server, a sequence of `curl` commands is used to simul
 First, the shell script set the Ibexa DXP base URL into a variable for easier reuse:
 
 ``` bash
-[[= include_file('code_samples/mcp/mcp.sh', 0, 1) =]]
+[[= include_file('code_samples/mcp/mcp.sh', 2, 3) =]]
 ```
 
 Before communicating with the MCP server, the request of a JWT token through REST API:
 
 ``` bash
-[[= include_file('code_samples/mcp/mcp.sh', 0, 12) =]]
+[[= include_file('code_samples/mcp/mcp.sh', 4, 15) =]]
 ```
 
 The [initialization](https://modelcontextprotocol.io/specification/latest/basic/lifecycle#initialization) to get an MCP session ID:
 
 ``` bash
-[[= include_file('code_samples/mcp/mcp.sh', 13, 28) =]]
+[[= include_file('code_samples/mcp/mcp.sh', 16, 31) =]]
 ```
 
 The validation of the initialization:
 
 ``` bash
-[[= include_file('code_samples/mcp/mcp.sh', 29, 36) =]]
+[[= include_file('code_samples/mcp/mcp.sh', 32, 39) =]]
 ```
 
 ```
@@ -308,7 +309,7 @@ Access-Control-Expose-Headers: Mcp-Session-Id
 The [list of tools](https://modelcontextprotocol.io/specification/latest/server/tools#listing-tools):
 
 ``` bash
-[[= include_file('code_samples/mcp/mcp.sh', 37, 45) =]]
+[[= include_file('code_samples/mcp/mcp.sh', 40, 48) =]]
 ```
 
 ```json
@@ -352,7 +353,7 @@ The [list of tools](https://modelcontextprotocol.io/specification/latest/server/
 The `greet` [tool call](https://modelcontextprotocol.io/specification/latest/server/tools#calling-tools):
 
 ``` bash
-[[= include_file('code_samples/mcp/mcp.sh', 46, 60) =]]
+[[= include_file('code_samples/mcp/mcp.sh', 49, 63) =]]
 ```
 
 ```json
@@ -374,7 +375,7 @@ The `greet` [tool call](https://modelcontextprotocol.io/specification/latest/ser
 The [list of prompts](https://modelcontextprotocol.io/specification/latest/server/prompts#listing-prompts):
 
 ``` bash
-[[= include_file('code_samples/mcp/mcp.sh', 61, 69) =]]
+[[= include_file('code_samples/mcp/mcp.sh', 64, 72) =]]
 ```
 
 ```json
@@ -407,7 +408,7 @@ The [list of prompts](https://modelcontextprotocol.io/specification/latest/serve
 The `greet` [prompt obtainment](https://modelcontextprotocol.io/specification/2025-11-25/server/prompts#getting-a-prompt):
 
 ``` bash
-[[= include_file('code_samples/mcp/mcp.sh', 70, 84) =]]
+[[= include_file('code_samples/mcp/mcp.sh', 73, 87) =]]
 ```
 
 ```json
@@ -432,7 +433,20 @@ The `greet` [prompt obtainment](https://modelcontextprotocol.io/specification/20
 
 To test your server, you can use the [MCP Inspector](https://modelcontextprotocol.io/docs/tools/inspector).
 It's even possible to use it as a DDEV add-on with [`craftpulse/ddev-mcp-inspector`](https://github.com/craftpulse/ddev-mcp-inspector).
-You still need to ask for a JWT token through REST and use it in the MCP Inspector configuration to connect to your server.
+You still need to ask for a JWT token through REST or GraphQL, and use it in the MCP Inspector configuration to connect to your server.
+
+For example, you can open GraphiQL UI (for example at `http://localhost/graphiql`), paste in the following query, adapt it, and run it to get a token:
+
+```graphql
+mutation CreateToken {
+  createToken(username: "admin", password: "publish") {
+    token
+    message
+  }
+}
+```
+
+![Screenshot of GraphiQL with a JWT token request and its response](img/graphiql-jwt.png "JWT token request and response")
 
 To use the MCP Inspector for this example, the settings are:
 
@@ -442,7 +456,7 @@ To use the MCP Inspector for this example, the settings are:
 - Authentication:
     - Custom Headers:
         - ✓ Authorization
-        - Bearer <JWT token obtained through REST>
+        - Bearer <JWT token>
     - OAuth 2.0 Flow: leave unedited
 
 ![Screenshot of the left pannel of the MCP Inspector with the connection settings for the example MCP server](img/mcp-inspector-config.png "MCP Inspector connection settings")
@@ -459,13 +473,106 @@ It can be selected and tested in the right column.
 
 ![Screenshot of the right pannel of the MCP Inspector with the list of prompts obtained from the example MCP server, and the test of the `greet` prompt](img/mcp-inspector-greet-prompt.png "MCP Inspector `greet` prompt test")
 
-### TODO: Copilot CLI test
+### Copilot CLI test
 
-TODO: Test the server with [Copilot CLI](https://docs.github.com/en/copilot/concepts/agents/copilot-cli/about-copilot-cli).
+#### MCP Server addition to Copilot CLI
 
-TODO: Create an .mcp.json file at the project root so the MCP server will only exist for a session of Copilot CLI opened from project root (for example, in a terminal tab of your IDE).
+For this example test with [Copilot CLI](https://docs.github.com/en/copilot/concepts/agents/copilot-cli/about-copilot-cli),
+the MCP server configuration is done in an `.mcp.json` file at the Ibexa DXP project root
+to make it only available for a session opened from there.
+
+There is two ways of dealing with the JWT token for this test:
+
+- to hard code the JWT token in the configuration and update it at every expiration
+- to wrap JWT token request and MCP server call into a script
+
+##### Hard coded
+
+The hard coded JWT token configuration in `.mcp.json`:
+
+``` json
+[[= include_file('code_samples/mcp/http.mcp.json') =]]
+```
+
+The `.mcp.json` file must be edited to update the JWT token each time it expires.
+You can ask a token using for example, GraphiQL web interface or a `curl` command to get a new JWT token, then edit the file manually.
+Or you can have a shell script doing the JWT token request, extracting it from the response, and replace it in the file.
+
+When Copilot complains that it can't communicate with the MCP server:
+
+- update the JWT token in the `.mcp.json` file
+- reload the MCP Servers in Copilot CLI with one of those methods:
+   - run `/mcp reload` command which reload all MCP servers (which can be annoying if you have several MCP servers globally enabled)
+   - run `/mcp disable ibexa-example` then `/mcp enable ibexa-example` to only reload the `ibexa-example` server
+
+##### Fully scripted
+
+The wrapping script configuration in `.mcp.json`:
+
+``` json
+[[= include_file('code_samples/mcp/stdio.mcp.json') =]]
+```
+
+The `mcp-ibexa-example-wrapper.sh` is a script asking for a JWT token then establishing a connection with the MCP server.
+
+For example, this can be achieved with [Supergateway](https://www.npmjs.com/package/supergateway) without local installation thanks to [`npx`](https://www.npmjs.com/package/npx):
+
+``` bash
+[[= include_file('code_samples/mcp/mcp-ibexa-example-wrapper.sh') =]]
+```
+
+When Copilot complains that it can't communicate with the MCP server, reload the MCP Servers in Copilot CLI with one of those methods:
+
+- run `/mcp reload` command which reload all MCP servers (which can be annoying if you have several MCP servers globally enabled)
+- run `/mcp disable ibexa-example` then `/mcp enable ibexa-example` to only reload the `ibexa-example` server
 
 TODO: [Copilot CLI MCP server addition](https://docs.github.com/en/copilot/how-tos/copilot-cli/customize-copilot/add-mcp-servers) is strangely asking for some OAuth ID even with a proper JWT/Bearer header.
+
+#### MCP server test with Copilot CLI
+
+Launch Copilot CLI at the project root (where the `.mcp.json` file is located):
+
+```bash
+cd /path/to/project
+copilot
+```
+
+If needed, confirm that you trust the files in this folder when prompted (with or without remembering the answer for the future).
+
+With the command `/mcp show ibexa-example`, you can check server status and details:
+
+```text
+ MCP Server: ibexa-example
+
+ Type:     http
+ URL:      http://localhost/mcp/example
+ Status:   ✓ Connected
+ Source:   /path/to/project/.mcp.json
+
+ Tools (1/1 enabled):
+  ✓ greet: Greet a user by name
+```
+
+You can prompt Copilot to greet you. It should take the initiative to use the `greet` tool to do so.
+
+- You can ask it "Please, greet me." and it might ask you your name if it doesn't already know it.
+- You can additionally give it a name to greet (like in the prompt template).
+- 
+The interaction could look like this:
+
+```
+❯ Hi. Please, greet me. My name is Firstname Lastname.
+
+◐ The user wants to be greeted with the name "Firstname Lastname".
+
+● Greet a user (MCP: ibexa-example) · name: "Firstname Lastname"
+  └ Hello, Firstname Lastname!
+
+● Hello, Firstname Lastname! 👋 How can I help you today?
+```
+
+The Copilot reflexion in the middle and and the final result might differ from this example.
+The important part is that Copilot CLI calls the `greet` tool with the right argument, displays call result, and eventually uses it.
 
 ### TODO: Other clients?
 
