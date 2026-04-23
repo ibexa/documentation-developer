@@ -163,6 +163,11 @@ security:
 - `ibexa_jwt_mcp` is the firewall to [use JWT for MCP servers](mcp_config.md#jwt)
 - `ibexa_jwt_graphql` is the firewall to [use JWT for GraphQL API](graphql.md#jwt-authentication)
 
+For example, if you want to use JWT only for MCP servers and session-based authentication for REST and GraphQL, you can:
+
+- uncomment `ibexa_jwt_rest` and `ibexa_jwt_mcp` to activate them
+- keep `ibexa_jwt_rest.api` and `ibexa_jwt_graphql` commented and disabled
+
 Finish the setup by generating a [PEM encoded key pair](https://symfony.com/bundles/LexikJWTAuthenticationBundle/2.x/index.html#generate-the-ssl-keys) by using the command:
 
 ```bash
