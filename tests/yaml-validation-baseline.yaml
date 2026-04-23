@@ -7,10 +7,6 @@ ignoreErrors:
         line: 0
         message: '~Unable to parse at line 1 \(near "    App\\FormBuilder\\FieldType\\Field\\Mapper\\CheckboxWithRichtextDescriptionFieldMapper\:"\)\.~'
     -
-        path: code_samples/recommendations/config/packages/ibexa_connector_raptor.yaml
-        line: 0
-        message: '~The path "ibexa\.system\.\<scope\>\.connector_raptor\.customer_id" cannot contain an empty value, but got ""\.~'
-    -
         path: code_samples/workflow/custom_workflow/config/packages/workflows.yaml
         line: 0
         message: '~The child config "stages" under "ibexa\.system\.default\.workflows\.quick_review" must be configured\.~'
@@ -23,17 +19,9 @@ ignoreErrors:
         line: 26
         message: '~The value "\<general\|targetable\>" is not allowed for path "ibexa\.system\.\<scope\>\>\.product_tour\.\<scenario_identifier\>\.type"\. Permissible values\: "general", "targetable"\.~'
     -
-        path: docs/administration/back_office/customize_search_suggestion.md
-        line: 16
-        message: '~Unrecognized options "min_query_length, result_limit" under "ibexa\.system\.\<scope\>\.search"\. Available option is "suggestion"\.~'
-    -
         path: docs/cdp/cdp_data_customization.md
         line: 29
         message: '~Unable to parse at line 1 \(near "    App\\Export\\User\\DateOfBirthUserItemProcessor\:"\)\.~'
-    -
-        path: docs/cdp/cdp_installation.md
-        line: 30
-        message: '~Unrecognized options "pattern, guard, stateless" under "ibexa_cdp"\. Available options are "bulk_async_threshold", "data_export"\.~'
     -
         path: docs/commerce/checkout/customize_checkout.md
         line: 130
@@ -55,28 +43,16 @@ ignoreErrors:
         line: 55
         message: '~Unrecognized option "payment_method" under "ibexa"\. Available options are "http_cache", "image_placeholder", "imagemagick", "locale_conversion", "orm", "repositories", "router", "siteaccess", "system", "ui", "url_alias", "url_wildcards"\.~'
     -
-        path: docs/commerce/storefront/configure_storefront.md
-        line: 94
-        message: '~Unrecognized option "user_settings_groups" under "ibexa\.system\.site_group"\. Available options are "activity_log", "admin_ui", "admin_ui_forms", "anonymous_user_id", "api_keys", "assets", "binary_dir", "cache_service_name", "calendar", "cart", "cdp", "connector_ai", "connector_gemini", "connector_openai", "connector_raptor", "content", "content_create_view", "content_edit_view", "content_translate_view", "content_tree_module", "content_type", "content_type_field_type_groups", "content_type_group", "content_view", "corporate_accounts", "dashboard", "default_embedding_model", "default_page", "design", "discounts", "embedding_models", "field_comparison_templates", "field_edit_templates", "field_templates", "fielddefinition_edit_templates", "fielddefinition_settings_templates", "fieldtype_richtext_rte", "fieldtypes", "form_builder", "http_cache", "image_asset_view", "image_editor", "image_host", "image_variations", "index_page", "io", "languages", "limitation_value_templates", "location_ids", "location_view", "notification_count", "notifications", "notifier", "oauth2", "order_management", "page_builder", "page_builder_forms", "page_layout", "pagination", "pagination_site_factory", "pagination_user", "payment", "personalization", "product_catalog", "product_tour", "repository", "search", "search_view", "security", "segmentation", "seo", "session", "share", "shipment", "shipping", "shopping_list", "site_context", "site_factory", "storage_dir", "storefront", "subitems_module", "subtree_operations", "subtree_paths", "taxonomy", "translation_siteaccesses", "twig_variables", "universal_discovery_widget_module", "url_checker", "user", "user_change_password", "user_content_type_identifier", "user_edit", "user_forgot_password", "user_forgot_password_login", "user_forgot_password_success", "user_group_content_type_identifier", "user_invitation", "user_preferences", "user_profile", "user_registration", "user_reset_password", "user_settings_update_view", "users_group_root_subtree_path", "var_dir", "variation_handler_identifier", "workflows", "workflows_config"\.~'
-    -
         path: docs/commerce/transactional_emails/extend_transactional_emails.md
         line: 17
         message: '~The child config "transitions" under "framework\.workflows\.workflows\.ibexa_payment" must be configured\.~'
-    -
-        path: docs/commerce/transactional_emails/transactional_emails.md
-        line: 54
-        message: '~Unrecognized option "connector_actito" under "ibexa\.system\.default"\. Available options are "activity_log", "admin_ui", "admin_ui_forms", "anonymous_user_id", "api_keys", "assets", "binary_dir", "cache_service_name", "calendar", "cart", "cdp", "connector_ai", "connector_gemini", "connector_openai", "connector_raptor", "content", "content_create_view", "content_edit_view", "content_translate_view", "content_tree_module", "content_type", "content_type_field_type_groups", "content_type_group", "content_view", "corporate_accounts", "dashboard", "default_embedding_model", "default_page", "design", "discounts", "embedding_models", "field_comparison_templates", "field_edit_templates", "field_templates", "fielddefinition_edit_templates", "fielddefinition_settings_templates", "fieldtype_richtext_rte", "fieldtypes", "form_builder", "http_cache", "image_asset_view", "image_editor", "image_host", "image_variations", "index_page", "io", "languages", "limitation_value_templates", "location_ids", "location_view", "notification_count", "notifications", "notifier", "oauth2", "order_management", "page_builder", "page_builder_forms", "page_layout", "pagination", "pagination_site_factory", "pagination_user", "payment", "personalization", "product_catalog", "product_tour", "repository", "search", "search_view", "security", "segmentation", "seo", "session", "share", "shipment", "shipping", "shopping_list", "site_context", "site_factory", "storage_dir", "storefront", "subitems_module", "subtree_operations", "subtree_paths", "taxonomy", "translation_siteaccesses", "twig_variables", "universal_discovery_widget_module", "url_checker", "user", "user_change_password", "user_content_type_identifier", "user_edit", "user_forgot_password", "user_forgot_password_login", "user_forgot_password_success", "user_group_content_type_identifier", "user_invitation", "user_preferences", "user_profile", "user_registration", "user_reset_password", "user_settings_update_view", "users_group_root_subtree_path", "var_dir", "variation_handler_identifier", "workflows", "workflows_config"\.~'
     -
         path: docs/content_management/collaborative_editing/configure_collaborative_editing.md
         line: 48
         message: '~The child config "firewalls" under "security" must be configured\.~'
     -
         path: docs/content_management/collaborative_editing/configure_collaborative_editing.md
-        line: 58
-        message: '~Unrecognized option "ibexa_shareable_link" under "security"\. Available options are "access_control", "access_decision_manager", "access_denied_url", "erase_credentials", "expose_security_errors", "firewalls", "hide_user_not_found", "password_hashers", "providers", "role_hierarchy", "session_fixation_strategy"\.~'
-    -
-        path: docs/content_management/collaborative_editing/configure_collaborative_editing.md
-        line: 77
+        line: 78
         message: '~Invalid type for path "ibexa\.repositories\.\<repository_name\>\.collaboration\.participants\.auto_invite"\. Expected "bool", but got "string"\.~'
     -
         path: docs/content_management/data_migration/data_migration_actions.md
@@ -127,29 +103,9 @@ ignoreErrors:
         line: 313
         message: '~Unable to parse at line 1 \(near "        \-   fieldDefIdentifier\: image"\)\.~'
     -
-        path: docs/content_management/field_types/field_type_reference/measurementfield.md
-        line: 106
-        message: '~Unrecognized option "measurement" under "ibexa\.system\.default"\. Available options are "activity_log", "admin_ui", "admin_ui_forms", "anonymous_user_id", "api_keys", "assets", "binary_dir", "cache_service_name", "calendar", "cart", "cdp", "connector_ai", "connector_gemini", "connector_openai", "connector_raptor", "content", "content_create_view", "content_edit_view", "content_translate_view", "content_tree_module", "content_type", "content_type_field_type_groups", "content_type_group", "content_view", "corporate_accounts", "dashboard", "default_embedding_model", "default_page", "design", "discounts", "embedding_models", "field_comparison_templates", "field_edit_templates", "field_templates", "fielddefinition_edit_templates", "fielddefinition_settings_templates", "fieldtype_richtext_rte", "fieldtypes", "form_builder", "http_cache", "image_asset_view", "image_editor", "image_host", "image_variations", "index_page", "io", "languages", "limitation_value_templates", "location_ids", "location_view", "notification_count", "notifications", "notifier", "oauth2", "order_management", "page_builder", "page_builder_forms", "page_layout", "pagination", "pagination_site_factory", "pagination_user", "payment", "personalization", "product_catalog", "product_tour", "repository", "search", "search_view", "security", "segmentation", "seo", "session", "share", "shipment", "shipping", "shopping_list", "site_context", "site_factory", "storage_dir", "storefront", "subitems_module", "subtree_operations", "subtree_paths", "taxonomy", "translation_siteaccesses", "twig_variables", "universal_discovery_widget_module", "url_checker", "user", "user_change_password", "user_content_type_identifier", "user_edit", "user_forgot_password", "user_forgot_password_login", "user_forgot_password_success", "user_group_content_type_identifier", "user_invitation", "user_preferences", "user_profile", "user_registration", "user_reset_password", "user_settings_update_view", "users_group_root_subtree_path", "var_dir", "variation_handler_identifier", "workflows", "workflows_config"\.~'
-    -
-        path: docs/content_management/field_types/field_type_reference/measurementfield.md
-        line: 88
-        message: '~Unrecognized option "measurement" under "ibexa\.system\.default"\. Available options are "activity_log", "admin_ui", "admin_ui_forms", "anonymous_user_id", "api_keys", "assets", "binary_dir", "cache_service_name", "calendar", "cart", "cdp", "connector_ai", "connector_gemini", "connector_openai", "connector_raptor", "content", "content_create_view", "content_edit_view", "content_translate_view", "content_tree_module", "content_type", "content_type_field_type_groups", "content_type_group", "content_view", "corporate_accounts", "dashboard", "default_embedding_model", "default_page", "design", "discounts", "embedding_models", "field_comparison_templates", "field_edit_templates", "field_templates", "fielddefinition_edit_templates", "fielddefinition_settings_templates", "fieldtype_richtext_rte", "fieldtypes", "form_builder", "http_cache", "image_asset_view", "image_editor", "image_host", "image_variations", "index_page", "io", "languages", "limitation_value_templates", "location_ids", "location_view", "notification_count", "notifications", "notifier", "oauth2", "order_management", "page_builder", "page_builder_forms", "page_layout", "pagination", "pagination_site_factory", "pagination_user", "payment", "personalization", "product_catalog", "product_tour", "repository", "search", "search_view", "security", "segmentation", "seo", "session", "share", "shipment", "shipping", "shopping_list", "site_context", "site_factory", "storage_dir", "storefront", "subitems_module", "subtree_operations", "subtree_paths", "taxonomy", "translation_siteaccesses", "twig_variables", "universal_discovery_widget_module", "url_checker", "user", "user_change_password", "user_content_type_identifier", "user_edit", "user_forgot_password", "user_forgot_password_login", "user_forgot_password_success", "user_group_content_type_identifier", "user_invitation", "user_preferences", "user_profile", "user_registration", "user_reset_password", "user_settings_update_view", "users_group_root_subtree_path", "var_dir", "variation_handler_identifier", "workflows", "workflows_config"\.~'
-    -
-        path: docs/content_management/field_types/form_and_template.md
-        line: 192
-        message: '~Unrecognized option "systems" under "ibexa"\. Did you mean "system"\?~'
-    -
-        path: docs/content_management/images/fastly_io.md
-        line: 93
-        message: '~Unrecognized option "fastly_variations" under "ibexa\.system\.default"\. Available options are "activity_log", "admin_ui", "admin_ui_forms", "anonymous_user_id", "api_keys", "assets", "binary_dir", "cache_service_name", "calendar", "cart", "cdp", "connector_ai", "connector_gemini", "connector_openai", "connector_raptor", "content", "content_create_view", "content_edit_view", "content_translate_view", "content_tree_module", "content_type", "content_type_field_type_groups", "content_type_group", "content_view", "corporate_accounts", "dashboard", "default_embedding_model", "default_page", "design", "discounts", "embedding_models", "field_comparison_templates", "field_edit_templates", "field_templates", "fielddefinition_edit_templates", "fielddefinition_settings_templates", "fieldtype_richtext_rte", "fieldtypes", "form_builder", "http_cache", "image_asset_view", "image_editor", "image_host", "image_variations", "index_page", "io", "languages", "limitation_value_templates", "location_ids", "location_view", "notification_count", "notifications", "notifier", "oauth2", "order_management", "page_builder", "page_builder_forms", "page_layout", "pagination", "pagination_site_factory", "pagination_user", "payment", "personalization", "product_catalog", "product_tour", "repository", "search", "search_view", "security", "segmentation", "seo", "session", "share", "shipment", "shipping", "shopping_list", "site_context", "site_factory", "storage_dir", "storefront", "subitems_module", "subtree_operations", "subtree_paths", "taxonomy", "translation_siteaccesses", "twig_variables", "universal_discovery_widget_module", "url_checker", "user", "user_change_password", "user_content_type_identifier", "user_edit", "user_forgot_password", "user_forgot_password_login", "user_forgot_password_success", "user_group_content_type_identifier", "user_invitation", "user_preferences", "user_profile", "user_registration", "user_reset_password", "user_settings_update_view", "users_group_root_subtree_path", "var_dir", "variation_handler_identifier", "workflows", "workflows_config"\.~'
-    -
         path: docs/content_management/taxonomy/taxonomy.md
         line: 194
-        message: '~Unrecognized option "taxonomy" under "ibexa"\. Available options are "http_cache", "image_placeholder", "imagemagick", "locale_conversion", "orm", "repositories", "router", "siteaccess", "system", "ui", "url_alias", "url_wildcards"\.~'
-    -
-        path: docs/content_management/user_generated_content.md
-        line: 62
-        message: '~Unrecognized option "content_edit" under "ibexa\.system\.default"\. Available options are "activity_log", "admin_ui", "admin_ui_forms", "anonymous_user_id", "api_keys", "assets", "binary_dir", "cache_service_name", "calendar", "cart", "cdp", "connector_ai", "connector_gemini", "connector_openai", "connector_raptor", "content", "content_create_view", "content_edit_view", "content_translate_view", "content_tree_module", "content_type", "content_type_field_type_groups", "content_type_group", "content_view", "corporate_accounts", "dashboard", "default_embedding_model", "default_page", "design", "discounts", "embedding_models", "field_comparison_templates", "field_edit_templates", "field_templates", "fielddefinition_edit_templates", "fielddefinition_settings_templates", "fieldtype_richtext_rte", "fieldtypes", "form_builder", "http_cache", "image_asset_view", "image_editor", "image_host", "image_variations", "index_page", "io", "languages", "limitation_value_templates", "location_ids", "location_view", "notification_count", "notifications", "notifier", "oauth2", "order_management", "page_builder", "page_builder_forms", "page_layout", "pagination", "pagination_site_factory", "pagination_user", "payment", "personalization", "product_catalog", "product_tour", "repository", "search", "search_view", "security", "segmentation", "seo", "session", "share", "shipment", "shipping", "shopping_list", "site_context", "site_factory", "storage_dir", "storefront", "subitems_module", "subtree_operations", "subtree_paths", "taxonomy", "translation_siteaccesses", "twig_variables", "universal_discovery_widget_module", "url_checker", "user", "user_change_password", "user_content_type_identifier", "user_edit", "user_forgot_password", "user_forgot_password_login", "user_forgot_password_success", "user_group_content_type_identifier", "user_invitation", "user_preferences", "user_profile", "user_registration", "user_reset_password", "user_settings_update_view", "users_group_root_subtree_path", "var_dir", "variation_handler_identifier", "workflows", "workflows_config"\.~'
+        message: '~The child config "default_embedding_max_tokens" under "ibexa_taxonomy\.text_to_taxonomy" must be configured\: Maximum number of tokens sent when generating embeddings~'
     -
         path: docs/content_management/workflow/workflow.md
         line: 135
@@ -157,19 +113,15 @@ ignoreErrors:
     -
         path: docs/customer_management/cp_page_builder.md
         line: 119
-        message: '~Invalid type for path "ibexa\.system\.custom_portal\.content\.tree_root\.location_id"\. Expected "int", but got "string"\.~'
+        message: '~The child config "default_siteaccess" under "ibexa\.siteaccess" must be configured\: Name of the default siteaccess~'
     -
         path: docs/customer_management/cp_page_builder.md
         line: 207
         message: '~The child config "list" under "ibexa\.siteaccess" must be configured\: Available SiteAccess list~'
     -
         path: docs/customer_management/cp_page_builder.md
-        line: 229
-        message: '~Invalid type for path "ibexa\.system\.custom_portal\.content\.tree_root\.location_id"\. Expected "int", but got "string"\.~'
-    -
-        path: docs/customer_management/cp_page_builder.md
         line: 35
-        message: '~Invalid type for path "ibexa\.system\.custom_portal\.content\.tree_root\.location_id"\. Expected "int", but got "string"\.~'
+        message: '~The child config "default_siteaccess" under "ibexa\.siteaccess" must be configured\: Name of the default siteaccess~'
     -
         path: docs/discounts/extend_discounts.md
         line: 139
@@ -204,8 +156,12 @@ ignoreErrors:
         message: '~The child config "default_siteaccess" under "ibexa\.siteaccess" must be configured\: Name of the default siteaccess~'
     -
         path: docs/infrastructure_and_maintenance/cache/http_cache/reverse_proxy.md
-        line: 213
-        message: '~Unrecognized option "fastly" under "ibexa\.system\.my_siteaccess_group\.http_cache"\. Available options are "purge_servers", "varnish_invalidate_token"\.~'
+        line: 128
+        message: '~The child config "fastly" under "ibexa\.system\.my_siteaccess_group\.http_cache" must be configured\.~'
+    -
+        path: docs/infrastructure_and_maintenance/cache/http_cache/reverse_proxy.md
+        line: 145
+        message: '~The child config "fastly" under "ibexa\.system\.my_siteaccess_group\.http_cache" must be configured\.~'
     -
         path: docs/infrastructure_and_maintenance/security/development_security.md
         line: 20
@@ -238,14 +194,6 @@ ignoreErrors:
         path: docs/multisite/set_up_translation_siteaccess.md
         line: 43
         message: '~The child config "default_siteaccess" under "ibexa\.siteaccess" must be configured\: Name of the default siteaccess~'
-    -
-        path: docs/multisite/site_factory/site_factory.md
-        line: 204
-        message: '~Invalid type for path "doctrine\.dbal\.connections"\. Expected "array", but got "string"~'
-    -
-        path: docs/multisite/site_factory/site_factory.md
-        line: 215
-        message: '~Invalid type for path "framework\.cache"\. Expected "array", but got "string"~'
     -
         path: docs/multisite/site_factory/site_factory.md
         line: 40
@@ -327,10 +275,6 @@ ignoreErrors:
         line: 16
         message: '~The child config "match" under "ibexa\.siteaccess" must be configured\: Siteaccess match configuration\. First key is the matcher class, value is passed to the matcher\. Key can be a service identifier \(prepended by "@"\), or a FQ class name \(prepended by "\\"\)~'
     -
-        path: docs/templating/image_variations.md
-        line: 22
-        message: '~Invalid type for path "ibexa\.system\.\<scope\>\.image_variations\.\<variation_name\>\.filters\.\<filter\>"\. Expected "array", but got "string"~'
-    -
         path: docs/templating/templates/template_configuration.md
         line: 99
         message: '~Duplicate key "match" detected at line 3 \(near "match\: \[\]"\)\.~'
@@ -366,10 +310,6 @@ ignoreErrors:
         path: docs/users/oauth_server.md
         line: 78
         message: '~The child config "firewalls" under "security" must be configured\.~'
-    -
-        path: docs/users/oauth_server.md
-        line: 90
-        message: '~The attribute "name" must be set for path "security\.firewalls"\.~'
     -
         path: docs/users/user_authentication.md
         line: 41

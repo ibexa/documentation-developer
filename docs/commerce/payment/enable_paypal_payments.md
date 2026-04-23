@@ -42,5 +42,4 @@ ibexa:
         type:
             pp_express_checkout:
                 name: "Translated PayPal Express Checkout name"
-
 ```
