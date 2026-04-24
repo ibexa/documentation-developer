@@ -52,9 +52,9 @@ ibexa:
                     - <server_identifier>
 ```
 
-TODO: `ddev php bin/console debug:router --siteaccess=<within_scope_siteaccess>` should list some `ibexa.mcp.<server_identifier> GET|POST|DELETE|OPTIONS <server_route_path>`
-
-TODO: Maybe explain that routes are built automatically from MCP server `path` configs thank to `config/routes/ibexa_mcp.yaml` and `\Ibexa\Bundle\Mcp\Routing\McpRouteLoader`
+Routes are built automatically from MCP server `path` configs.
+Those routes are identified as `ibexa.mcp.<server_identifier>`.
+They can be listed and checked with `php bin/console debug:router --siteaccess=<within_scope_siteaccess> ibexa.mcp`.
 
 ### MCP server options
 
@@ -73,7 +73,8 @@ Notice that a server is disabled by default, it needs to be explicitly enabled.
 
 ### Tools configuration
 
-Tools are the main capabilities of an MCP server, they are the actions that an AI can call on the system.
+[Tools](https://modelcontextprotocol.io/specification/latest/server/tools) are the main capabilities of an MCP server,
+they are the actions that an AI can call on the system.
 
 There is two ways to associate tools with a server:
 
@@ -88,7 +89,8 @@ Ibexa DXP come with several built-in tool classes:
     - `list_languages`: Lists all languages in the current SiteAccess
     - `list_content_translations`: Lists languages which have translations for a given content item
 - `Ibexa\Mcp\Tool\SeoTools`
-    - `get_non_seo_content_ids`: Returns IDs of content items that are missing SEO optimization (no meta title tag). Useful for identifying content that needs SEO attention.
+    - `get_non_seo_content_ids`: Returns IDs of content items that are missing SEO optimization (no meta title tag).
+      Useful for identifying content that needs SEO attention.
 
 ```yaml
                     tools:
@@ -176,8 +178,6 @@ A PHP class implementing MCP server capabilities like tools, prompts, or resourc
 
 ### Tools
 
-TODO: https://modelcontextprotocol.io/specification/latest/server/tools
-
 The [`Ibexa\Contracts\Mcp\Attribute\McpTool` attribute](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Mcp-Attribute-McpTool.html) declares a method as an MCP tool.
 It has several arguments to describe the tool usage and output:
 
@@ -195,9 +195,7 @@ use the [`Schema` attribute](https://github.com/php-mcp/server#-schema-generatio
 
 ### Prompts
 
-MCP servers can also provide prompt templates to guide the user in the interactions with the AI using the MCP server.
-
-TODO: https://modelcontextprotocol.io/specification/latest/server/prompts
+MCP servers can also provide [prompt templates](https://modelcontextprotocol.io/specification/latest/server/prompts) to guide the user in the interactions with the AI using the MCP server.
 
 The [`Ibexa\Contracts\Mcp\Attribute\McpPrompt` attribute](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Mcp-Attribute-McpTool.html) declared a method as returning a prompt.
 
@@ -300,10 +298,7 @@ The validation of the initialization:
 ```
 
 ```
-HTTP/1.1 202 Accepted
-Access-Control-Allow-Headers: Content-Type, Mcp-Session-Id, Mcp-Protocol-Version, Last-Event-ID, Authorization, Accept
-Access-Control-Allow-Methods: GET, POST, DELETE, OPTIONS
-Access-Control-Expose-Headers: Mcp-Session-Id
+[[= include_file('code_samples/mcp/mcp.sh.output.txt', 0, 5) =]]
 ```
 
 The [list of tools](https://modelcontextprotocol.io/specification/latest/server/tools#listing-tools):
@@ -312,42 +307,8 @@ The [list of tools](https://modelcontextprotocol.io/specification/latest/server/
 [[= include_file('code_samples/mcp/mcp.sh', 40, 48) =]]
 ```
 
-```json
-{
-  "jsonrpc": "2.0",
-  "id": 2,
-  "result": {
-    "tools": [
-      {
-        "name": "greet",
-        "inputSchema": {
-          "type": "object",
-          "properties": {
-            "name": {
-              "type": "string",
-              "description": "the name of the person to greet"
-            }
-          },
-          "required": [
-            "name"
-          ]
-        },
-        "description": "Greet a user by name",
-        "annotations": {
-          "readOnlyHint": true,
-          "destructiveHint": false,
-          "idempotentHint": true,
-          "openWorldHint": false
-        },
-        "icons": [
-          {
-            "src": "https://openmoji.org/data/color/svg/1F44B.svg"
-          }
-        ]
-      }
-    ]
-  }
-}
+``` json
+[[= include_file('code_samples/mcp/mcp.sh.output.txt', 17, 77) =]]
 ```
 
 The `greet` [tool call](https://modelcontextprotocol.io/specification/latest/server/tools#calling-tools):
@@ -356,20 +317,8 @@ The `greet` [tool call](https://modelcontextprotocol.io/specification/latest/ser
 [[= include_file('code_samples/mcp/mcp.sh', 49, 63) =]]
 ```
 
-```json
-{
-  "jsonrpc": "2.0",
-  "id": 3,
-  "result": {
-    "content": [
-      {
-        "type": "text",
-        "text": "Hello, World!"
-      }
-    ],
-    "isError": false
-  }
-}
+``` json
+[[= include_file('code_samples/mcp/mcp.sh.output.txt', 77, 97) =]]
 ```
 
 The [list of prompts](https://modelcontextprotocol.io/specification/latest/server/prompts#listing-prompts):
@@ -378,31 +327,8 @@ The [list of prompts](https://modelcontextprotocol.io/specification/latest/serve
 [[= include_file('code_samples/mcp/mcp.sh', 64, 72) =]]
 ```
 
-```json
-{
-  "jsonrpc": "2.0",
-  "id": 4,
-  "result": {
-    "prompts": [
-      {
-        "name": "greet",
-        "description": "Prompt to be greeted by the `greet` tool",
-        "arguments": [
-          {
-            "name": "name",
-            "description": "The name you want to be greeted by",
-            "required": true
-          }
-        ],
-        "icons": [
-          {
-            "src": "https://openmoji.org/data/color/svg/1F91D.svg"
-          }
-        ]
-      }
-    ]
-  }
-}
+``` json
+[[= include_file('code_samples/mcp/mcp.sh.output.txt', 97, 121) =]]
 ```
 
 The `greet` [prompt obtainment](https://modelcontextprotocol.io/specification/2025-11-25/server/prompts#getting-a-prompt):
@@ -411,22 +337,8 @@ The `greet` [prompt obtainment](https://modelcontextprotocol.io/specification/20
 [[= include_file('code_samples/mcp/mcp.sh', 73, 87) =]]
 ```
 
-```json
-{
-  "jsonrpc": "2.0",
-  "id": 5,
-  "result": {
-    "messages": [
-      {
-        "role": "user",
-        "content": {
-          "type": "text",
-          "text": "Hi. Please, greet me. My name is Firstname Lastname."
-        }
-      }
-    ]
-  }
-}
+``` json
+[[= include_file('code_samples/mcp/mcp.sh.output.txt', 121, 136) =]]
 ```
 
 ### MCP Inspector test
@@ -502,7 +414,7 @@ When Copilot complains that it can't communicate with the MCP server:
 
 - update the JWT token in the `.mcp.json` file
 - reload the MCP servers in Copilot CLI with one of those methods:
-   - run `/mcp reload` command which reload all MCP servers (which can be annoying if you have several MCP servers globally enabled)
+   - run `/mcp reload` command which reload all MCP servers
    - run `/mcp disable ibexa-example` then `/mcp enable ibexa-example` to only reload the `ibexa-example` server
 
 ##### Fully scripted
@@ -526,7 +438,7 @@ When Copilot complains that it can't communicate with the MCP server, reload the
 - run `/mcp reload` command which reload all MCP servers (which can be annoying if you have several MCP servers globally enabled)
 - run `/mcp disable ibexa-example` then `/mcp enable ibexa-example` to only reload the `ibexa-example` server
 
-TODO: [Copilot CLI MCP server addition](https://docs.github.com/en/copilot/how-tos/copilot-cli/customize-copilot/add-mcp-servers) is strangely asking for some OAuth ID even with a proper JWT/Bearer header.
+TODO: [`/mcp add` Copilot CLI MCP server addition](https://docs.github.com/en/copilot/how-tos/copilot-cli/customize-copilot/add-mcp-servers) is strangely asking for some OAuth ID even with a proper JWT/Bearer header.
 
 #### MCP server test with Copilot CLI
 
@@ -557,22 +469,54 @@ You can prompt Copilot to greet you. It should take the initiative to use the `g
 
 - You can ask it "Please, greet me." and it might ask you your name if it doesn't already know it.
 - You can additionally give it a name to greet (like in the prompt template).
-- 
-The interaction could look like this:
+
+During a morning session, the interaction could look like this:
 
 ```
-❯ Hi. Please, greet me. My name is Firstname Lastname.
+❯ Hi. Please, greet me.
 
-◐ The user wants to be greeted with the name "Firstname Lastname".
+◐ The user wants to be greeted. I'll use the ibexa-example-greet tool, but I don't know their name. Let me ask them first... actually, the tool requires a name. Let me ask the user for their name.
 
-● Greet a user (MCP: ibexa-example) · name: "Firstname Lastname"
-  └ Hello, Firstname Lastname!
+  Wait, actually I can just greet them without knowing their name using a general greeting, but the tool requires a name parameter. Let me ask for their name.
 
-● Hello, Firstname Lastname! 👋 How can I help you today?
+● Asked user What's your name?
+  └ Pulley
+
+● Greet a user (MCP: ibexa-example) · name: "Pulley"
+  └ {"general":"Hello, Pulley!","close":"Hey, Pulley!","morning":"Good morning, P...
+
+● Good morning, Pulley! ☀️
+
+❯ Hi. Please, greet me. We're close friends.
+
+◐ The user wants a close friend greeting. From the previous response, I can see the "close" greeting is "Hey, Pulley!"
+
+● Greet a user (MCP: ibexa-example) · name: "Pulley"
+  └ {"general":"Hello, Pulley!","close":"Hey, Pulley!","morning":"Good morning, P...
+
+● Hey, Pulley! 😄
+
+❯ Please, greet someone named "ElePHPant" in a general way (so I could reuse it at any time)
+
+◐ The user wants a general greeting for someone named "ElePHPant".
+
+● greet (MCP: ibexa-example) · name: "ElePHPant"
+  └ {"general":"Hello, ElePHPant!","close":"Hey, ElePHPant!","morning":"Good morn...
+
+● Hello, ElePHPant! 🐘
+
+❯ Please, greet someone named "ElePHPant" like it's 22:30
+
+◐ 22:30 is evening time, so I'll use the evening greeting.
+
+● greet (MCP: ibexa-example) · name: "ElePHPant"
+  └ {"general":"Hello, ElePHPant!","close":"Hey, ElePHPant!","morning":"Good morn...
+
+● Good evening, ElePHPant! 🌙
 ```
 
-The Copilot reflexion in the middle and and the final result might differ from this example.
-The important part is that Copilot CLI calls the `greet` tool with the right argument, displays call result, and eventually uses it.
+The Copilot reflexion and its final answer, like the improvised emoji, might differ from this session example.
+The important part is that Copilot CLI thinks to use the `greet` tool, calls it with the right argument, displays the call result, and uses it.
 
 ### TODO: Other clients?
 

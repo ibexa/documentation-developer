@@ -1,0 +1,136 @@
+HTTP/1.1 202 Accepted
+Access-Control-Allow-Headers: Content-Type, Mcp-Session-Id, Mcp-Protocol-Version, Last-Event-ID, Authorization, Accept
+Access-Control-Allow-Methods: GET, POST, DELETE, OPTIONS
+Access-Control-Allow-Origin: *
+Access-Control-Expose-Headers: Mcp-Session-Id
+Cache-Control: no-cache, private
+Content-Length: 0
+Content-Type: text/html; charset=UTF-8
+Date: Fri, 24 Apr 2026 11:16:27 GMT
+Server: Apache/2.4.66 (Debian)
+Vary: cookie,authorization
+X-Cache-Debug: 1
+X-Debug-Token: 145f0a
+X-Debug-Token-Link: http://ddev-ibexa-tmp.ddev.site:8080/_profiler/145f0a
+X-Powered-By: Ibexa Commerce v5
+X-Robots-Tag: noindex
+
+{
+  "jsonrpc": "2.0",
+  "id": 2,
+  "result": {
+    "tools": [
+      {
+        "name": "greet",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string",
+              "description": "the name of the person to greet"
+            }
+          },
+          "required": [
+            "name"
+          ]
+        },
+        "description": "Greet a user by name",
+        "annotations": {
+          "readOnlyHint": true,
+          "destructiveHint": false,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "icons": [
+          {
+            "src": "https://openmoji.org/data/color/svg/1F44B.svg"
+          }
+        ],
+        "outputSchema": {
+          "type": "object",
+          "properties": {
+            "general": {
+              "type": "string",
+              "description": "the safe way to greet someone"
+            },
+            "close": {
+              "type": "string",
+              "description": "when you're close to the person, like friends or relatives"
+            },
+            "morning": {
+              "type": "string",
+              "description": "when it's in the morning"
+            },
+            "afternoon": {
+              "type": "string",
+              "description": "when it's the afternoon"
+            },
+            "evening": {
+              "type": "string",
+              "description": "when it's late in the day"
+            }
+          }
+        }
+      }
+    ]
+  }
+}
+{
+  "jsonrpc": "2.0",
+  "id": 3,
+  "result": {
+    "content": [
+      {
+        "type": "text",
+        "text": "{\n    \"general\": \"Hello, World!\",\n    \"close\": \"Hey, World!\",\n    \"morning\": \"Good morning, World!\",\n    \"afternoon\": \"Good afternoon, World!\",\n    \"evening\": \"Good evening, World!\"\n}"
+      }
+    ],
+    "isError": false,
+    "structuredContent": {
+      "general": "Hello, World!",
+      "close": "Hey, World!",
+      "morning": "Good morning, World!",
+      "afternoon": "Good afternoon, World!",
+      "evening": "Good evening, World!"
+    }
+  }
+}
+{
+  "jsonrpc": "2.0",
+  "id": 4,
+  "result": {
+    "prompts": [
+      {
+        "name": "greet",
+        "description": "Prompt to be greeted by the `greet` tool",
+        "arguments": [
+          {
+            "name": "name",
+            "description": "The name you want to be greeted by",
+            "required": true
+          }
+        ],
+        "icons": [
+          {
+            "src": "https://openmoji.org/data/color/svg/1F91D.svg"
+          }
+        ]
+      }
+    ]
+  }
+}
+{
+  "jsonrpc": "2.0",
+  "id": 5,
+  "result": {
+    "messages": [
+      {
+        "role": "user",
+        "content": {
+          "type": "text",
+          "text": "Hi. Please, greet me. My name is Firstname Lastname."
+        }
+      }
+    ]
+  }
+}

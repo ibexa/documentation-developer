@@ -11,6 +11,7 @@ use Mcp\Schema\ToolAnnotations;
 
 final readonly class ExampleCapabilities implements McpCapabilityInterface
 {
+    /** @return array<string, string> */
     #[McpTool(
         servers: ['example'],
         name: 'greet',
@@ -24,14 +25,46 @@ final readonly class ExampleCapabilities implements McpCapabilityInterface
         icons: [new Icon(
             src: 'https://openmoji.org/data/color/svg/1F44B.svg',
         )],
+        outputSchema: [
+            'type' => 'object',
+            'properties' => [
+                'general' => [
+                    'type' => 'string',
+                    'description' => 'the safe way to greet someone',
+                ],
+                'close' => [
+                    'type' => 'string',
+                    'description' => 'when you\'re close to the person, like friends or relatives',
+                ],
+                'morning' => [
+                    'type' => 'string',
+                    'description' => 'when it\'s in the morning',
+                ],
+                'afternoon' => [
+                    'type' => 'string',
+                    'description' => 'when it\'s the afternoon',
+                ],
+                'evening' => [
+                    'type' => 'string',
+                    'description' => 'when it\'s late in the day',
+                ],
+
+            ],
+        ],
     )]
     public function greetByName(
         #[Schema(
             description: 'the name of the person to greet'
         )]
         string $name
-    ): string {
-        return sprintf('Hello, %s!', $name);
+    ): array {
+        return [
+            'general' => sprintf('Hello, %s!', $name),
+            'close' => sprintf('Hey, %s!', $name),
+            'morning' => sprintf('Good morning, %s!', $name),
+            'afternoon' => sprintf('Good afternoon, %s!', $name),
+            'evening' => sprintf('Good evening, %s!', $name),
+        ];
     }
 
     /**
@@ -53,7 +86,7 @@ final readonly class ExampleCapabilities implements McpCapabilityInterface
             'role' => 'user',
             'content' => [
                 'type' => 'text',
-                'text' => "Hi. Please, greet me. My name is $name.",
+                'text' => "Hi. My name is $name. Please, greet me.",
             ],
         ];
     }
