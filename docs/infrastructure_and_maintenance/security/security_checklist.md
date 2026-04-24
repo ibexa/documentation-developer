@@ -151,6 +151,13 @@ This means that editors who have access to Code blocks could add malicious JS in
 As site administrator, be aware of this when giving editors access to the Page Builder features, and limit that access only to trusted editors.
 You can [limit access to specific blocks per content type]([[= user_doc =]]/content_management/configure_ct_field_settings/#default-configuration-of-pages) by defining which page blocks are available to editors.
 
+### Activate JWT for MCP, Rest, or GraphQL
+
+If you're using [MCP servers](mcp_guide.md), you must enable JWT for them.
+You can optionally consider enabling JWT for [REST API](rest_api_usage.md) or [GraphQL API](graphql.md) as well.
+
+For more information, see how to [enable JWT authentication for specific features](development_security.md#jwt-authentication).
+
 ## Symfony
 
 ### `APP_SECRET` and other secrets
