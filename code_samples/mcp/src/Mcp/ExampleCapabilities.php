@@ -48,7 +48,6 @@ final readonly class ExampleCapabilities implements McpCapabilityInterface
                     'type' => 'string',
                     'description' => 'when it\'s late in the day',
                 ],
-
             ],
         ],
     )]
