@@ -234,14 +234,14 @@ php bin/console debug:router ibexa.mcp.example
 
 ### Create capability class
 
-An `McpCapabilityInterface` is created.
+An `ExampleCapabilities` class implementing the `McpCapabilityInterface` is created.
 
 It contains a function with an `McpTool` attribute associating it to the `example` server as `greet` tool for the AI.
 
 It also contains a function with the `McpPrompt` attribute to provide a prompt template to the user.
 
 ``` php
-[[= include_file('code_samples/mcp/src/Mcp/ExampleTools.php') =]]
+[[= include_file('code_samples/mcp/src/Mcp/ExampleCapabilities.php') =]]
 ```
 
 For the example, `servers` attribute parameter is used to associate only this tool to the `example` server.

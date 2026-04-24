@@ -9,7 +9,7 @@ use Mcp\Capability\Attribute\Schema;
 use Mcp\Schema\Icon;
 use Mcp\Schema\ToolAnnotations;
 
-final readonly class ExampleTools implements McpCapabilityInterface
+final readonly class ExampleCapabilities implements McpCapabilityInterface
 {
     #[McpTool(
         servers: ['example'],
