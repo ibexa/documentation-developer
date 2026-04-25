@@ -1,5 +1,5 @@
 ---
-description: Configure an MCP server exposing built-in or custom tools TODO and prompts/resources.
+description: Configure an MCP server exposing built-in or custom tools, prompts, and resources.
 month_change: true
 ---
 
@@ -75,6 +75,12 @@ Notice that a server is disabled by default, it needs to be explicitly enabled.
 
 [Tools](https://modelcontextprotocol.io/specification/latest/server/tools) are the main capabilities of an MCP server,
 they are the actions that an AI can call on the system.
+
+!!! note "MCP server design best practice"
+
+    An MCP server with too many tools doesn't help the AI to choose the right one.
+    Create several servers with specific sets of tools for different contexts and purposes.
+    Focus on AI's user needs and task when designing your servers and capabilities, not on the technical possibilities.
 
 There is two ways to associate tools with a server:
 
@@ -212,6 +218,8 @@ An `arguments` array is automatically built from the function arguments and thei
 To add descriptions, use a DocBlock comment with `@param` tags.
 
 ## Example
+
+To focus on the MCP server configuration and capabilities creation, this example doesn't even interact with [[= product_name =]] repository.
 
 ### Configure MCP server
 
