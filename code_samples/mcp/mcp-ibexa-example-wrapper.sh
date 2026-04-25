@@ -10,8 +10,8 @@ jwtToken=$(curl -s -X 'POST' \
   -d '{
         "JWTInput": {
           "_media-type": "application/vnd.ibexa.api.JWTInput+json",
-          "username": "admin",
-          "password": "publish"
+          "username": "ibexa-example",
+          "password": "Ibexa-3xample"
         }
       }' | jq -r .JWT.token)
 

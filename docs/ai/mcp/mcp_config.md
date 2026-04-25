@@ -7,7 +7,9 @@ month_change: true
 
 [[= product_name =]] can provide [MCP servers](mcp_guide.md) to external AIs.
 
-## JWT
+## Authentication
+
+### JWT
 
 MCP servers use JWT for authentication.
 
@@ -27,6 +29,11 @@ in [REST JWT authentication](rest_api_authentication.md#jwt-authentication),
 in [cURL test of MCP server](#curl-test),
 in [GraphQL JWT authentication](graphql.md#jwt-authentication),
 or in [MCP Inspector test](#mcp-inspector-test) GraphIQL example.
+
+### Repository user
+
+- The user can generate a JWT token with their own account, or a secondary dedicated account, and pass the token to the MCP client.
+- A gateway can use a dedicated shared user to generate a JWT token and establish the connection.
 
 ## MCP server configuration
 
@@ -221,6 +228,12 @@ To add descriptions, use a DocBlock comment with `@param` tags.
 
 To focus on the MCP server configuration and capabilities creation, this example doesn't even interact with [[= product_name =]] repository.
 
+### User account
+
+In this example, the MCP server uses JWT tokens created with a dedicated account.
+
+In [[= product_name =]]'s back office, create a user, for example, in **Guest accounts** user group, with login `ibexa-example`, and password `Ibexa-3xample`.
+
 ### Configure MCP server
 
 This example introduce an `example` MCP server with a single `greet` tool.
@@ -360,7 +373,7 @@ For example, you can open GraphiQL UI (for example at `http://localhost/graphiql
 
 ```graphql
 mutation CreateToken {
-  createToken(username: "admin", password: "publish") {
+  createToken(username: "ibexa-example", password: "Ibexa-3xample") {
     token
     message
   }
