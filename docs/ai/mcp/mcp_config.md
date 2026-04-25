@@ -16,10 +16,10 @@ to allow the use of JWT token bearer in `Authorization` header.
 
 In `config/packages/security.yaml`,
 
-- uncomment the `ibexa_jwt_rest` firewall to allow the request of JWT tokens through REST API
-- uncomment the `ibexa_jwt_mcp` firewall to allow the use of JWT for authentication against MCP servers
+- uncomment the `ibexa_jwt_rest` firewall to allow the request of JWT tokens through REST or GraphQL
+- uncomment the `ibexa_jwt_mcp` firewall to allow the use of JWT authentication against MCP servers
 
-Notice that you don't need to activate JWT authentication for the REST API or GraphQL.
+Notice that you don't need to activate JWT authentication for the REST API or the GraphQL API.
 
 You can now request JWT tokens to use with your MCP servers.
 See examples of JWT token requests
@@ -78,19 +78,18 @@ they are the actions that an AI can call on the system.
 
 There is two ways to associate tools with a server:
 
-- `tools` in server configuration lists classes from which **all** the `McpTool` attributes are associated with the server
-- `servers` argument in `McpTool` attribute associated the **specified** tool to servers 
+- `tools` in server configuration lists PHP classes (FQCN) from which **all** the `McpTool` attributes are associated with the server
+- `servers` argument in `McpTool` attribute associated the **specified** tool to servers
 
 #### Built-in tools
 
-Ibexa DXP come with several built-in tool classes:
+[[= product_name =]] come with several built-in tool classes:
 
 - `Ibexa\Mcp\Tool\TranslationTools`
     - `list_languages`: Lists all languages in the current SiteAccess
     - `list_content_translations`: Lists languages which have translations for a given content item
 - `Ibexa\Mcp\Tool\SeoTools`
-    - `get_non_seo_content_ids`: Returns IDs of content items that are missing SEO optimization (no meta title tag).
-      Useful for identifying content that needs SEO attention.
+    - `get_non_seo_content_ids`: Returns IDs of content items that are missing SEO optimization (no meta title tag)
 
 ```yaml
                     tools:
@@ -125,7 +124,9 @@ MCP servers store session data their own way.
 
 #### PSR-16
 
-Sessions are stored using a PSR-16 compatible cache implementation. Requires service option pointing to a valid cache service ID.
+Sessions are stored with a PSR-16 compatible cache implementation.
+It requires `service` option pointing to a valid cache service ID.
+And optionally a more specific `prefix` option than the default `mcp_` to avoid key collisions with other cache usages.
 
 ```yaml
                     session:
@@ -169,7 +170,7 @@ It might not work with containers like Docker/DDEV.
 
 ## MCP server capabilities
 
-The Ibexa DXP MCP server framework (`ibexa/mcp`) is built on top of [the official PHP SDK for MCP (`mcp/sdk`)](https://github.com/modelcontextprotocol/php-sdk)
+The [[= product_name =]] MCP server framework (`ibexa/mcp`) is built on top of [the official PHP SDK for MCP (`mcp/sdk`)](https://github.com/modelcontextprotocol/php-sdk)
 
 A PHP class implementing MCP server capabilities like tools, prompts, or resources, must:
 
@@ -186,7 +187,7 @@ It has several arguments to describe the tool usage and output:
 - `description` (optional): a human-readable description of the tool, useful for the LLM to understand the tool purpose and eventually choose it when it matches the prompt intent
 - `icons` (optional): an array of [`Mcp\Schema\Icon`](https://github.com/modelcontextprotocol/php-sdk/blob/main/src/Schema/Icon.php) instances
 - `outputSchema` (optional): for JSON object output, an associative array describing this object
-- `annotations` (optional): a [`Mcp\Schema\ToolAnnotations`](https://github.com/modelcontextprotocol/php-sdk/blob/main/src/Schema/ToolAnnotations.php) instance 
+- `annotations` (optional): a [`Mcp\Schema\ToolAnnotations`](https://github.com/modelcontextprotocol/php-sdk/blob/main/src/Schema/ToolAnnotations.php) instance
 - `meta` (optional): TODO
 
 An `inputSchema` is automatically built from the function arguments and their types.
@@ -195,7 +196,7 @@ use the [`Schema` attribute](https://github.com/php-mcp/server#-schema-generatio
 
 ### Prompts
 
-MCP servers can also provide [prompt templates](https://modelcontextprotocol.io/specification/latest/server/prompts) to guide the user in the interactions with the AI using the MCP server.
+MCP servers can also provide [prompt templates](https://modelcontextprotocol.io/specification/latest/server/prompts) to guide the user interacting with the AI having this MCP server at its disposal.
 
 The [`Ibexa\Contracts\Mcp\Attribute\McpPrompt` attribute](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Mcp-Attribute-McpTool.html) declared a method as returning a prompt.
 
@@ -208,7 +209,7 @@ It has several arguments to describe the prompt usage:
 - `meta` (optional): TODO
 
 An `arguments` array is automatically built from the function arguments and their types.
-To add descriptions, use a docblock comment with `@param` tags.
+To add descriptions, use a DocBlock comment with `@param` tags.
 
 ## Example
 
@@ -273,7 +274,7 @@ To test the `example` MCP server, a sequence of `curl` commands is used to simul
 
 `jq`, `grep`, and `sed` are also used to parse or display outputs.
 
-First, the shell script set the Ibexa DXP base URL into a variable for easier reuse:
+First, the shell script set the [[= product_name =]] base URL into a variable for easier reuse:
 
 ``` bash
 [[= include_file('code_samples/mcp/mcp.sh', 2, 3) =]]
@@ -390,7 +391,7 @@ It can be selected and tested in the right column.
 #### MCP server addition to Copilot CLI
 
 For this example test with [Copilot CLI](https://docs.github.com/en/copilot/concepts/agents/copilot-cli/about-copilot-cli),
-the MCP server configuration is done in an `.mcp.json` file at the Ibexa DXP project root
+the MCP server configuration is done in an `.mcp.json` file at the [[= product_name =]] project root
 to make it only available for a session opened from there.
 
 There is two ways of dealing with the JWT token for this test:
