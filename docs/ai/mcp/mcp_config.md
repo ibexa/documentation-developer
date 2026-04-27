@@ -198,10 +198,10 @@ It has several arguments to describe the tool usage and output:
 - `servers` (optional): an array of identifiers of servers proposing this tool - for more information, see [tools configuration](#tools-configuration)
 - `name` (optional): the name of the tool - if not set, the function name is used as the tool name
 - `description` (optional): a human-readable description of the tool, useful for the LLM to understand the tool purpose and eventually choose it when it matches the prompt intent
-- `icons` (optional): an array of [`Mcp\Schema\Icon`](https://github.com/modelcontextprotocol/php-sdk/blob/main/src/Schema/Icon.php) instances
+- `icons` (optional): an array of [`Mcp\Schema\Icon`](https://github.com/modelcontextprotocol/php-sdk/blob/main/src/Schema/Icon.php) instances - for more information, see [`icons` specification](https://modelcontextprotocol.io/specification/latest/basic/index#icons)
 - `outputSchema` (optional): for JSON object output, an associative array describing this object
 - `annotations` (optional): a [`Mcp\Schema\ToolAnnotations`](https://github.com/modelcontextprotocol/php-sdk/blob/main/src/Schema/ToolAnnotations.php) instance
-- `meta` (optional): TODO
+- `meta` (optional): a rarely used free-form array for any additional metadata - for more information, see [`_meta` specification](https://modelcontextprotocol.io/specification/latest/basic/index#_meta)
 
 An `inputSchema` is automatically built from the function arguments and their types.
 To override or complement the automatically generated input schema,
@@ -220,11 +220,12 @@ It has several arguments to describe the prompt usage:
 - `servers`: an array of identifiers of servers proposing this prompt - notice that this is required for prompts
 - `name` (optional): the name of the prompt - if not set, the function name is used as the prompt name
 - `description` (optional): a human-readable description of the prompt
-- `icons` (optional): an array of [`Mcp\Schema\Icon`](https://github.com/modelcontextprotocol/php-sdk/blob/main/src/Schema/Icon.php) instances
-- `meta` (optional): TODO
+- `icons` (optional): an array of [`Mcp\Schema\Icon`](https://github.com/modelcontextprotocol/php-sdk/blob/main/src/Schema/Icon.php) instances - for more information, see [`icons` specification](https://modelcontextprotocol.io/specification/latest/basic/index#icons)
+- `meta` (optional): a rarely used free-form array for any additional metadata - for more information, see [`_meta` specification](https://modelcontextprotocol.io/specification/latest/basic/index#_meta)
 
 An `arguments` array is automatically built from the function arguments and their types.
-To add descriptions, use a DocBlock comment with `@param` tags.
+Those prompt arguments must be strings (to respect the [`GetPromptRequestParams` schema](https://modelcontextprotocol.io/specification/latest/schema#getpromptrequestparams)).
+To add descriptions (as in the [`PromptArgument` schema](https://modelcontextprotocol.io/specification/latest/schema#promptargument)), use a DocBlock comment with `@param` tags.
 
 ## Example
 
