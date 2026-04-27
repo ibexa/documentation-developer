@@ -61,7 +61,7 @@ php bin/console ibexa:discounts:reindex
 
 ## Rate limiting
 
-To prevent malicious actors from trying all the possible discount code combinations using brute-force attacks, the [`/discounts_codes/{cartIdentifier}/apply` endpoint](/api/rest_api/rest_api_reference/rest_api_reference.html#discount-codes-apply-discount-to-cart) is rate limited using the [Rate Limiter Symfony component]([[= symfony_doc =]]/rate_limiter.html).
+To prevent malicious actors from trying all the possible discount code combinations using brute-force attacks, the [`/discounts_codes/{cartIdentifier}/apply` endpoint](https://doc.ibexa.co/en/4.6/api/rest_api/rest_api_reference/rest_api_reference.html#discount-codes-apply-discount-to-cart) is rate limited using the [Rate Limiter Symfony component]([[= symfony_doc =]]/rate_limiter.html).
 
 You can adjust the default configuration by modifying the `config/packages/ibexa_discounts_codes.yaml` file created during installation process.
 
