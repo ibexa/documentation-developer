@@ -68,9 +68,9 @@ Mutation:
             createSomething:
                 builder: Mutation
                 builderConfig:
-                    inputType: CreateSomethingInput
-                    payloadType: SomethingPayload
-                    mutateAndGetPayload: "@=mutation('CreateSomething', [value])"
+                        inputType: CreateSomethingInput
+                        payloadType: SomethingPayload
+                        mutateAndGetPayload: '@=mutation('CreateSomething', [value])'
 
 CreateSomethingInput:
     type: relay-mutation-input

@@ -17,9 +17,8 @@ ibexa:
     system:
         <scope>:
             search:
-                suggestion:
-                    min_query_length: 3
-                    result_limit: 5
+                min_query_length: 3
+                result_limit: 5
 ```
 
 ## Add custom suggestion source

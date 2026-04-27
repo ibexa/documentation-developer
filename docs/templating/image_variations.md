@@ -26,9 +26,7 @@ ibexa:
                 <variation_name>:
                     reference: null
                     filters:
-                        filter_name:
-                          - parameter1
-                          - parameter2
+                        <filter>: <parameters>
 ```
 
 Variation name must be unique.

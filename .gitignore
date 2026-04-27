@@ -12,4 +12,3 @@ auth.json
 yarn.lock
 docs/css/*.map
 .deptrac.cache
-.phpunit.result.cache

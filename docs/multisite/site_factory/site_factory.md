@@ -204,7 +204,7 @@ Keep in mind that with disabled Site Factory you're unable to add new sites or u
 doctrine:
     dbal:
         connections:
-            # ...
+            ...
             # This connection is dedicated for SiteFactory to avoid known issues
             site_factory:
 ```
@@ -214,7 +214,7 @@ doctrine:
 ``` yaml
 framework:
     cache:
-        # ...
+        ...
         pools:
             # This pool should be used only by SiteFactory bundle
             site_factory_pool:

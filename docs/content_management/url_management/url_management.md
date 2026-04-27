@@ -67,13 +67,13 @@ ibexa:
             url_checker:
                 handlers:
                     http:
-                        enabled: true
-                        batch_size: 64
+                    	enabled: true
+                    	batch_size: 64
                     https:
-                        enabled: true
-                        ignore_certificate: false
+                    	enabled: true
+                    	ignore_certificate: false
                     mailto:
-                        enabled: false
+                    	enabled: false
 ```
 
 Available options are protocol-specific.
@@ -128,6 +128,7 @@ Then you must register the service with an `ibexa.url_checker.handler` tag, like
 ```yaml
 app.url_checker.handler.custom:
     class: 'App\URLChecker\Handler\CustomHandler'
+    ...
     tags:
         - { name: ibexa.url_checker.handler, scheme: custom }
 ```

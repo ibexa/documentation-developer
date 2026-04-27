@@ -66,7 +66,7 @@ services:
     App\EventListener\InteractiveLoginListener:
         arguments: ['@ibexa.api.service.user']
         tags:
-            - { name: kernel.event_subscriber }
+            - { name: kernel.event_subscriber } 
 ```
 
 Don't mix `MVCEvents::INTERACTIVE_LOGIN` event (specific to [[= product_name =]]) and `SecurityEvents::INTERACTIVE_LOGIN` event (fired by Symfony security component).

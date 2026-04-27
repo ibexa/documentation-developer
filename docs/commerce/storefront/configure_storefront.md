@@ -94,10 +94,9 @@ Settings for a Storefront user are configured under the `ibexa.system.<scope>.st
 ibexa:
     system:
         site_group:
-            storefront:
-                user_settings_groups:
-                    - location
-                    - custom_group
+            user_settings_groups:
+                - location
+                - custom_group
 ```
 
 By default, only the `location` user settings is provided:

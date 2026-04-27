@@ -18,7 +18,7 @@ parameters:
     # Internal configuration
     ibexa.site_access.config.default.content.default_ttl: 60
     ibexa.site_access.config.site_group.content.default_ttl: 3600
-
+ 
     # Here "myapp" is the namespace, followed by the SiteAccess name as the parameter scope
     # Parameter "my_param" will have a different value in site_group and admin_group
     myapp.site_group.my_param: value

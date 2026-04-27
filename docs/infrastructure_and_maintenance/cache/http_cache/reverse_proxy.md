@@ -142,9 +142,6 @@ ibexa:
 If the Varnish server is protected by Basic Auth, specify the Basic Auth credentials within the `purge_servers` setting using the format:
 
 ``` yaml
-ibexa:
-    system:
-        my_siteaccess_group:
             http_cache:
                 purge_servers: [http://myuser:mypasswd@my.varnish.server:8081]
 ```

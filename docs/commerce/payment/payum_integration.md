@@ -43,7 +43,7 @@ ibexa_connector_payum:
         refunded: cancelled
         captured: pending
         authorized: authorized
-# ...
+[...]
 ```
 
 ## Payment service name translations

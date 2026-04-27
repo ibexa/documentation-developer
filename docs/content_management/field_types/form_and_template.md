@@ -190,7 +190,7 @@ If you don't use the design engine, apply the following configuration:
 
 ``` yaml
 ibexa:
-    system:
+    systems:
         admin_group:
             field_templates:
                 - { template: 'adminui/field/custom_field_view.html.twig', priority: 10 }

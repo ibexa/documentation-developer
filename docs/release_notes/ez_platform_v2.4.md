@@ -197,18 +197,18 @@ The biggest benefit of this feature is saving load time on complex landing pages
     2\. Add the following configuration to `/app/config/config.yml`
 
     ``` yaml
-    lexik_jwt_authentication:
-        secret_key: '%secret%'
-        encoder:
+     lexik_jwt_authentication:
+         secret_key: '%secret%'
+         encoder:
              signature_algorithm: HS256
          # Disabled by default, because Page Builder uses custom extractor
-        token_extractors:
-            authorization_header:
-                enabled: false
-            cookie:
-                enabled: false
-            query_parameter:
-                enabled: false
+         token_extractors:
+             authorization_header:
+                 enabled: false
+             cookie:
+                 enabled: false
+             query_parameter:
+                 enabled: false
     ```
 
     By default `HS256` is used as signature algorithm for generated token but we strongly recommend switching to SSH keys.
@@ -218,23 +218,23 @@ The biggest benefit of this feature is saving load time on complex landing pages
     3\. Add `EzSystems\EzPlatformPageBuilder\Security\EditorialMode\TokenAuthenticator` authentication provider to `ezpublish_front` firewall before `form_login` in `app/config/security.yml`:
 
     ``` yaml
-    security:
+     security:
          # ...
-        firewalls:
-            ezpublish_front:
-                # ...
-                simple_preauth:
-                    authenticator: 'EzSystems\EzPlatformPageBuilder\Security\EditorialMode\TokenAuthenticator'
-                form_login:
-                    require_previous_session: false
-                # ...
+         firewalls:
+             ezpublish_front:
+                 # ...
+                 simple_preauth:
+                     authenticator: 'EzSystems\EzPlatformPageBuilder\Security\EditorialMode\TokenAuthenticator'
+                 form_login:
+                     require_previous_session: false
+                 # ...
     ```
 
     4\. Make sure that parameter `page_builder.token_authenticator.enabled` has value `true`. If the parameter isn't present, add it to `/app/config/config.yml`:
 
     ``` yaml
-    # ...
-    parameters:
+     # ...
+     parameters:
         # ...
         page_builder.token_authenticator.enabled: true
     ```

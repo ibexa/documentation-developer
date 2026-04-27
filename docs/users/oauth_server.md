@@ -89,7 +89,7 @@ In `config/packages/security.yaml`, uncomment the three following lines under th
 ```yaml
 security:
     #…
-    firewalls:
+    firewall:
         #…
 
         # Uncomment oauth2_token firewall if you wish to use product as an OAuth2 Server.

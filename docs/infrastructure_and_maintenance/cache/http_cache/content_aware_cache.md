@@ -291,7 +291,7 @@ With the same content structure as above, the `[Child]` location is moved below 
 
 The new structure is then:
 
-```text
+```yaml
    - [Home] (content-id=52, location-id=2)
      ez-all c52 ct42 l2 pl1 p1 p2
      |

@@ -27,14 +27,11 @@ Symfony Flex installs and activates the package.
 After an installation process is finished, go to `config/packages/security.yaml` and uncomment `ibexa_cdp` rule.
 
 ```yaml
-security:
-    firewalls:
-        # ...
-        ibexa_cdp:
-            request_matcher: Ibexa\Cdp\Security\RequestMatcher
-            custom_authenticators:
-                - 'Ibexa\Cdp\Security\CdpRequestAuthenticator'
-            stateless: true
+ibexa_cdp:
+    pattern: /cdp/webhook
+    guard:
+        authenticator: 'Ibexa\Cdp\Security\CdpRequestAuthenticator'
+    stateless: true
 ```
 
 Now, you can configure [[= product_name_cdp =]].

@@ -12,6 +12,7 @@ ibexa_twig_components:
             priority: 0
             arguments:
                 content: '<b>Hello world!</b>'
+    admin-ui-user-menu:
         duplicated_user_menu:
             type: menu
             arguments:

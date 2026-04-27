@@ -50,7 +50,7 @@ You can configure a different folder by using the following settings:
 
 ``` yaml
 ibexa_migrations:
-    migration_directory: '%kernel.project_dir%/src/Migrations/MyMigrations/'
+    migration_directory: %kernel.project_dir%/src/Migrations/MyMigrations/
     migrations_files_subdir: migration_files
 ```
 
@@ -64,6 +64,7 @@ ibexa_migrations:
     ``` yaml
     ibexa_migrations:
         migration_directory: '%kernel.project_dir%/data/<repository>'
+        ...
     ```
 
     Then, when you run the migration command, you must use the [`--siteaccess` option](exporting_data.md#siteaccess) and provide the name of the SiteAccess that you want to migrate.
