@@ -5,7 +5,6 @@ namespace App\Mcp;
 use Ibexa\Contracts\Mcp\Attribute\McpPrompt;
 use Ibexa\Contracts\Mcp\Attribute\McpTool;
 use Ibexa\Contracts\Mcp\McpCapabilityInterface;
-use Mcp\Capability\Attribute\Schema;
 use Mcp\Schema\Icon;
 use Mcp\Schema\ToolAnnotations;
 
@@ -55,7 +54,8 @@ final readonly class ExampleCapabilities implements McpCapabilityInterface
             ],
         ],
     )]
-    public function greetByName(string $name): array {
+    public function greetByName(string $name): array
+    {
         return [
             'general' => sprintf('Hello, %s!', $name),
             'close' => sprintf('Hey, %s!', $name),
