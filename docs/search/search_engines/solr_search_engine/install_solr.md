@@ -160,9 +160,9 @@ The Solr Search Engine Bundle can be configured in many ways.
 The config further below assumes you have parameters set up for Solr DSN and search engine *(however both are optional)*, for example:
 
 ``` yaml
-    env(SEARCH_ENGINE): solr
-    env(SOLR_DSN): 'http://localhost:8983/solr'
-    env(SOLR_CORE): collection1
+env(SEARCH_ENGINE): solr
+env(SOLR_DSN): 'http://localhost:8983/solr'
+env(SOLR_CORE): collection1
 ```
 
 ### Configure Solr version

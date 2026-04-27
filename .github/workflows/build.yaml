@@ -89,8 +89,8 @@ jobs:
                   TOKEN: ${{ secrets.EZROBOT_PAT }}
               run: |
                   curl -H "Authorization: token $TOKEN" -L https://github.com/ibexa/vale-styles/archive/refs/heads/main.zip -o vale.zip
+                  rm -rf tests
                   unzip vale.zip
-                  rm vale.zip
                   mv vale-styles-main/* vale-styles-main/.vale.ini .
 
             - name: Run Vale.sh

@@ -53,6 +53,9 @@ jobs:
             - name: Run Rector check
               run: composer check-rector
 
+            - name: Run PHPUnit tests
+              run: composer phpunit
+
     code-samples-inclusion-check:
         name: Check code samples inclusion
         runs-on: ubuntu-latest
