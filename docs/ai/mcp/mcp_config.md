@@ -240,7 +240,7 @@ In [[= product_name =]]'s back office, create a user, for example, in **Guest ac
 ### Configure MCP server
 
 This example introduce an `example` MCP server with a single `greet` tool.
-It's enabled on all SiteAccesses.
+It's enabled on the default repository and all SiteAccesses.
 It's accessible with the path `/mcp/example` (for example, on `http://localhost/mcp/example` and `http://localhost/admin/mcp/example`).
 It uses files for both discovery cache and session storage.
 (Redis/Valkey would probably be better for session storage in production, but file storage is easier for this example and testing.)
