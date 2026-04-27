@@ -11,7 +11,11 @@ use Mcp\Schema\ToolAnnotations;
 
 final readonly class ExampleCapabilities implements McpCapabilityInterface
 {
-    /** @return array<string, string> */
+    /**
+     * @param string $name The name of the person to greet
+     *
+     * @return array<string, string>
+     */
     #[McpTool(
         servers: ['example'],
         name: 'greet',
@@ -51,12 +55,7 @@ final readonly class ExampleCapabilities implements McpCapabilityInterface
             ],
         ],
     )]
-    public function greetByName(
-        #[Schema(
-            description: 'the name of the person to greet'
-        )]
-        string $name
-    ): array {
+    public function greetByName(string $name): array {
         return [
             'general' => sprintf('Hello, %s!', $name),
             'close' => sprintf('Hey, %s!', $name),

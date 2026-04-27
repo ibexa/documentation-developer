@@ -205,7 +205,9 @@ It has several arguments to describe the tool usage and output:
 
 An `inputSchema` is automatically built from the function arguments and their types.
 To override or complement the automatically generated input schema,
-use the [`Schema` attribute](https://github.com/php-mcp/server#-schema-generation-and-validation).
+you can use a DocBlock comment with `@param` tags to add descriptions,
+or use the [`Schema` attribute](https://github.com/php-mcp/server#-schema-generation-and-validation).
+If an argument is an [enum](https://www.php.net/manual/en/language.types.enumerations.php), its possible values are listed in the schema ([`UntitledSingleSelectEnumSchema`](https://modelcontextprotocol.io/specification/latest/schema#untitledsingleselectenumschema)).
 
 ### Prompts
 
