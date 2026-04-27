@@ -39,24 +39,8 @@ or in [MCP Inspector test](#mcp-inspector-test) GraphIQL example.
 
 MCP servers are configured per repository then enabled per SiteAccess scope.
 
-```yaml
-ibexa:
-    repositories:
-        <repository_identifier>:
-            mcp:
-                <server_identifier>:
-                    path: <server_route_path>
-                    enabled: true
-                    # Server options…
-                    discovery_cache: <cache_pool_service>
-                    session:
-                        type: <psr16|file|memory>
-                        # Session options…
-    system:
-        <siteaccess_scope>:
-            mcp:
-                servers:
-                    - <server_identifier>
+``` yaml
+[[= include_file('code_samples/mcp/mcp.matrix.yaml', 0, 8) =]][[= include_file('code_samples/mcp/mcp.matrix.yaml', 11, 15) =]][[= include_file('code_samples/mcp/mcp.matrix.yaml', 28, 33) =]]
 ```
 
 Routes are built automatically from MCP server `path` configs.
@@ -104,10 +88,8 @@ There is two ways to associate tools with a server:
 - `Ibexa\Mcp\Tool\SeoTools`
     - `get_non_seo_content_ids`: Returns IDs of content items that are missing SEO optimization (no meta title tag)
 
-```yaml
-                    tools:
-                        - Ibexa\Mcp\Tool\TranslationTools
-                        - Ibexa\Mcp\Tool\SeoTools
+``` yaml
+[[= include_file('code_samples/mcp/mcp.matrix.yaml', 8, 11) =]]
 ```
 
 ### Discovery cache
@@ -117,8 +99,8 @@ A PSR-6 or PSR-16 cache pool must be provided for this caching.
 
 For example, a dedicated Redis/Valkey could be set up:
 
-```yaml
-                    discovery_cache: cache.redis.mcp
+``` yaml
+[[= include_file('code_samples/mcp/mcp.matrix.yaml', 16, 17) =]]
 ```
 
 ### Session storage
@@ -141,21 +123,8 @@ Sessions are stored with a PSR-16 compatible cache implementation.
 It requires `service` option pointing to a valid cache service ID.
 And optionally a more specific `prefix` option than the default `mcp_` to avoid key collisions with other cache usages.
 
-```yaml
-                    session:
-                        type: psr16
-                        service: cache.redis.mcp
-                        prefix: 'mcp_<server_identifier>_'
-services:
-    cache.redis.mcp:
-        public: true
-        class: Symfony\Component\Cache\Adapter\RedisTagAwareAdapter
-        parent: cache.adapter.redis
-        tags:
-            -   name: cache.pool
-                clearer: cache.app_clearer
-                provider: 'redis://mcp.redis:6379'
-                namespace: 'mcp'
+``` yaml
+[[= include_file('code_samples/mcp/mcp.matrix.yaml', 17, 21) =]][[= include_file('code_samples/mcp/mcp.matrix.yaml', 33, 43) =]]
 ```
 
 #### File
@@ -165,10 +134,8 @@ Sessions are persisted to the filesystem. it requires directory option to be set
 In this example, sessions are stored in `var/cache/<environment>/mcp/sessions/` directory
 (for example, `var/cache/dev/mcp/session/` in `dev` environment and `var/cache/prod/mcp/sessions/` in `prod` environment):
 
-```yaml
-                    session:
-                        type: file
-                        directory: '%kernel.cache_dir%/mcp/sessions'
+``` yaml
+[[= include_file('code_samples/mcp/mcp.matrix.yaml', 22, 25) =]]
 ```
 
 #### Memory
@@ -176,9 +143,8 @@ In this example, sessions are stored in `var/cache/<environment>/mcp/sessions/` 
 Sessions are stored in memory. Suitable for development and STDIO transport.
 It might not work with containers like Docker/DDEV.
 
-```yaml
-                    session:
-                        type: memory
+``` yaml
+[[= include_file('code_samples/mcp/mcp.matrix.yaml', 26, 28) =]]
 ```
 
 ## MCP server capabilities
