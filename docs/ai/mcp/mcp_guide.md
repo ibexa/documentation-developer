@@ -22,5 +22,3 @@ MCP servers ease the discovery of the functionalities by AIs and help them to in
 MCP servers capabilities (tools, prompts, and resources) can be created and associated to MCP servers thanks to a PHP API mainly based on attributes.
 
 MCP servers are configured per repository then enabled per SiteAccess scope, allowing for flexible configurations adapted to different contexts.
-
-MCP servers have their own session storage mechanism, TODO: why, benefit,…
