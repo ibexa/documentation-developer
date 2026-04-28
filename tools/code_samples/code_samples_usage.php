@@ -189,8 +189,12 @@ function getBlockContents(array $block): array
                     }
                     $sample = array_slice($includedFilesLines[$includedFilePath], (int)$matches['start'][$matchIndex], (int)$matches['end'][$matchIndex] - (int)$matches['start'][$matchIndex]);
                 }
-                if ('include_code' === $matches['function'][$matchIndex] && !empty($matches['indent_level'][$matchIndex])) {
-                    $matches['indent_level'][$matchIndex] = str_repeat('    ', $matches['indent_level'][$matchIndex]);
+                if (!empty($matches['indent_level'][$matchIndex])) {
+                    if ('include_code' === $matches['function'][$matchIndex]) {
+                        $matches['indent_level'][$matchIndex] = str_repeat('    ', $matches['indent_level'][$matchIndex]);
+                    } elseif ('include_file' === $matches['function'][$matchIndex]) {
+                        $matches['indent_level'][$matchIndex] = trim($matches['indent_level'][$matchIndex], '"\'');
+                    }
                 }
                 if ('True' === $matches['remove_indent'][$matchIndex]) {
                     $removable = null;
