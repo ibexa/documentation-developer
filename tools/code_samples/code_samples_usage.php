@@ -148,7 +148,7 @@ function getBlockContents(array $block): array
                 }
             }
         } elseif (str_contains($blockSourceLine, '[[= include_file') || str_contains($blockSourceLine, '[[= include_code')) {
-            preg_match_all("@\[\[= (?<function>include_file|include_code)\('(?<file>[^']+)'(, (?<start>[0-9]+)(, (?<end>([0-9]+|None))(, '(?<glue>[^']+)')?)?)?\) =\]\]@", $blockSourceLine, $matches);
+            preg_match_all("@\[\[= (?<function>include_file|include_code)\('(?<file>[^']+)'(, (?<start>[^,\)]+)(, (?<end>([^,\)]+))(, (?<indent_level>[^,\)]+)(, (?<remove_indent>[^,\)]+))?)?)?)?\) =\]\]@", $blockSourceLine, $matches);
             $solvedLine = $blockSourceLine;
             if (empty($matches['file'])) {
                 throw new RuntimeException("The following line doesn't include file correctly: $blockSourceLine");
@@ -161,6 +161,23 @@ function getBlockContents(array $block): array
                         throw new RuntimeException("The following included file can't be opened: $includedFilePath");
                     }
                 }
+
+                // Named argument mapping
+                foreach(['start', 'end', 'indent_level', 'remove_indent'] as $key) {
+                    if (str_starts_with($matches[$key][$matchIndex], 'glue=')) {
+                        $matches['indent_level'][$matchIndex] = str_replace('glue=', '', $matches[$key][$matchIndex]);
+                        $matches[$key][$matchIndex] = '';
+                    }
+                    elseif (str_starts_with($matches[$key][$matchIndex], 'indent_level=')) {
+                        $matches['indent_level'][$matchIndex] = str_replace('indent_level=', '', $matches[$key][$matchIndex]);
+                        $matches[$key][$matchIndex] = '';
+                    }
+                    elseif (str_starts_with($matches[$key][$matchIndex], 'remove_indent=')) {
+                        $matches['remove_indent'][$matchIndex] = str_replace('remove_indent=', '', $matches[$key][$matchIndex]);
+                        $matches[$key][$matchIndex] = '';
+                    }
+                }
+
                 if ('None' === $matches['end'][$matchIndex]) {
                     $matches['end'][$matchIndex] = count($includedFilesLines[$includedFilePath]);
                 }
@@ -172,10 +189,10 @@ function getBlockContents(array $block): array
                     }
                     $sample = array_slice($includedFilesLines[$includedFilePath], (int)$matches['start'][$matchIndex], (int)$matches['end'][$matchIndex] - (int)$matches['start'][$matchIndex]);
                 }
-                if ('include_code' === $matches['function'][$matchIndex] && !empty($matches['glue'][$matchIndex])) {
-                    $matches['glue'][$matchIndex] = str_repeat('    ', $matches['glue'][$matchIndex]);
+                if ('include_code' === $matches['function'][$matchIndex] && !empty($matches['indent_level'][$matchIndex])) {
+                    $matches['indent_level'][$matchIndex] = str_repeat('    ', $matches['indent_level'][$matchIndex]);
                 }
-                $solvedLine = str_replace($matchString, implode(PHP_EOL . $matches['glue'][$matchIndex], $sample) . ('include_code' === $matches['function'][$matchIndex] ? '' : PHP_EOL), $solvedLine);
+                $solvedLine = str_replace($matchString, implode(PHP_EOL . $matches['indent_level'][$matchIndex], $sample) . ('include_code' === $matches['function'][$matchIndex] ? '' : PHP_EOL), $solvedLine);
             }
             $rawBlockCodeLines = array_merge($rawBlockCodeLines, explode(PHP_EOL, $solvedLine));
         } elseif (str_contains($blockSourceLine, '--8<--')) {
