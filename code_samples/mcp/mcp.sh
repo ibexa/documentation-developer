@@ -1,20 +1,28 @@
 #!/bin/bash
+set -e
+set +x
 
 baseUrl='http://localhost' # Adapt to your test case
+username='ibexa-example'
+password='Ibexa-3xample'
 
-jwtToken=$(curl -s -X 'POST' \
+curl -s -X 'POST' \
   "$baseUrl/api/ibexa/v2/user/token/jwt" \
   -H 'Content-Type: application/vnd.ibexa.api.JWTInput+json' \
   -H 'Accept: application/vnd.ibexa.api.JWT+json' \
-  -d '{
-        "JWTInput": {
-          "_media-type": "application/vnd.ibexa.api.JWTInput+json",
-          "username": "ibexa-example",
-          "password": "Ibexa-3xample"
+  -d "{
+        \"JWTInput\": {
+          \"_media-type\": \"application/vnd.ibexa.api.JWTInput+json\",
+          \"username\": \"$username\",
+          \"password\": \"$password\"
         }
-      }' | jq -r .JWT.token)
+      }" > response.tmp.txt
 
-mcpSessionId=$(curl -s -i -X 'POST' "$baseUrl/mcp/example" \
+cat response.tmp.txt | jq
+jwtToken=$(cat response.tmp.txt | jq -r .JWT.token)
+rm response.tmp.txt
+
+curl -s -i -X 'POST' "$baseUrl/mcp/example" \
   -H "Authorization: Bearer $jwtToken" \
   -d '{
         "jsonrpc": "2.0",
@@ -28,7 +36,12 @@ mcpSessionId=$(curl -s -i -X 'POST' "$baseUrl/mcp/example" \
             "version": "1.0.0"
           }
         }
-      }' | grep 'Mcp-Session-Id:' | sed 's/Mcp-Session-Id: \([0-9a-f-]*\).*/\1/')
+      }' > response.tmp.txt
+
+sed '$d' response.tmp.txt
+tail -n 1 response.tmp.txt | jq
+mcpSessionId=$(cat response.tmp.txt | grep 'Mcp-Session-Id:' | sed 's/Mcp-Session-Id: \([0-9a-f-]*\).*/\1/')
+rm response.tmp.txt
 
 curl -s -i -X 'POST' "$baseUrl/mcp/example" \
   -H "Authorization: Bearer $jwtToken" \

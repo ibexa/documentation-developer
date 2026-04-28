@@ -1,3 +1,54 @@
+{
+  "JWT": {
+    "_media-type": "application/vnd.ibexa.api.JWT+json",
+    "_token": "1234567890ABCDEFGHIJKLMNOPQRSTUVWXYZ.abcdefghijklmnopqrstuvwxyz1234567890ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890abcdefghijklmnopqrstuvwxyz1234567890ABCD.EFGHIJKL-MNOPQRSTUVWXYZ12345678901234567890",
+    "token": "1234567890ABCDEFGHIJKLMNOPQRSTUVWXYZ.abcdefghijklmnopqrstuvwxyz1234567890ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890abcdefghijklmnopqrstuvwxyz1234567890ABCD.EFGHIJKL-MNOPQRSTUVWXYZ12345678901234567890"
+  }
+}
+HTTP/1.1 200 OK
+Access-Control-Allow-Headers: Content-Type, Mcp-Session-Id, Mcp-Protocol-Version, Last-Event-ID, Authorization, Accept
+Access-Control-Allow-Methods: GET, POST, DELETE, OPTIONS
+Access-Control-Allow-Origin: *
+Access-Control-Expose-Headers: Mcp-Session-Id
+Cache-Control: no-cache, private
+Content-Type: application/json
+Date: Tue, 28 Apr 2026 09:53:27 GMT
+Mcp-Session-Id: 12345678-9abc-def0-1234-56789abcdef0
+Server: Apache/2.4.66 (Debian)
+Vary: cookie,authorization
+X-Cache-Debug: 1
+X-Debug-Token: 123456
+X-Debug-Token-Link: http://localhost/_profiler/123456
+X-Powered-By: Ibexa Commerce v5
+X-Robots-Tag: noindex
+Transfer-Encoding: chunked
+
+{
+  "jsonrpc": "2.0",
+  "id": 1,
+  "result": {
+    "protocolVersion": "2025-06-18",
+    "capabilities": {
+      "logging": {},
+      "completions": {},
+      "prompts": {
+        "listChanged": true
+      },
+      "resources": {
+        "listChanged": true
+      },
+      "tools": {
+        "listChanged": true
+      }
+    },
+    "serverInfo": {
+      "name": "example",
+      "version": "1.0.0",
+      "description": "Example MCP Server"
+    },
+    "instructions": "Use this server to greet someone."
+  }
+}
 HTTP/1.1 202 Accepted
 Access-Control-Allow-Headers: Content-Type, Mcp-Session-Id, Mcp-Protocol-Version, Last-Event-ID, Authorization, Accept
 Access-Control-Allow-Methods: GET, POST, DELETE, OPTIONS
@@ -10,8 +61,8 @@ Date: Fri, 24 Apr 2026 11:16:27 GMT
 Server: Apache/2.4.66 (Debian)
 Vary: cookie,authorization
 X-Cache-Debug: 1
-X-Debug-Token: 145f0a
-X-Debug-Token-Link: http://ddev-ibexa-tmp.ddev.site:8080/_profiler/145f0a
+X-Debug-Token: 7890ab
+X-Debug-Token-Link: http://localhost/_profiler/7890ab
 X-Powered-By: Ibexa Commerce v5
 X-Robots-Tag: noindex
 
@@ -27,7 +78,7 @@ X-Robots-Tag: noindex
           "properties": {
             "name": {
               "type": "string",
-              "description": "the name of the person to greet"
+              "description": "The name of the person to greet"
             }
           },
           "required": [
@@ -128,7 +179,7 @@ X-Robots-Tag: noindex
         "role": "user",
         "content": {
           "type": "text",
-          "text": "Hi. Please, greet me. My name is Firstname Lastname."
+          "text": "Hi. My name is Firstname Lastname. Please, greet me."
         }
       }
     ]

@@ -265,72 +265,84 @@ To test the `example` MCP server, a sequence of `curl` commands is used to simul
 
 `jq`, `grep`, and `sed` are also used to parse or display outputs.
 
-First, the shell script set the [[= product_name =]] base URL into a variable for easier reuse:
+First, the shell script set the [[= product_name =]] base URL and the user credentials into variables for easier reuse:
 
 ``` bash
-[[= include_file('code_samples/mcp/mcp.sh', 2, 3) =]]
+[[= include_file('code_samples/mcp/mcp.sh', 4, 7) =]]
 ```
 
 Before communicating with the MCP server, the request of a JWT token through REST API:
 
 ``` bash
-[[= include_file('code_samples/mcp/mcp.sh', 4, 15) =]]
+[[= include_file('code_samples/mcp/mcp.sh', 8, 23) =]]
+```
+
+``` json
+[[= include_file('code_samples/mcp/mcp.sh.output.txt', 0, 7) =]]
 ```
 
 The [initialization](https://modelcontextprotocol.io/specification/latest/basic/lifecycle#initialization) to get an MCP session ID:
 
 ``` bash
-[[= include_file('code_samples/mcp/mcp.sh', 16, 31) =]]
+[[= include_file('code_samples/mcp/mcp.sh', 20, 44) =]]
+```
+
+``` http
+[[= include_file('code_samples/mcp/mcp.sh.output.txt', 7, 16) =]]
+```
+
+``` json
+[[= include_file('code_samples/mcp/mcp.sh.output.txt', 25, 51) =]]
 ```
 
 The validation of the initialization:
 
 ``` bash
-[[= include_file('code_samples/mcp/mcp.sh', 32, 39) =]]
+[[= include_file('code_samples/mcp/mcp.sh', 45, 52) =]]
 ```
 
-```
-[[= include_file('code_samples/mcp/mcp.sh.output.txt', 0, 5) =]]
+``` http
+[[= include_file('code_samples/mcp/mcp.sh.output.txt', 51, 56) =]]
 ```
 
 The [list of tools](https://modelcontextprotocol.io/specification/latest/server/tools#listing-tools):
 
 ``` bash
-[[= include_file('code_samples/mcp/mcp.sh', 40, 48) =]]
+[[= include_file('code_samples/mcp/mcp.sh', 53, 61) =]]
 ```
 
 ``` json
-[[= include_file('code_samples/mcp/mcp.sh.output.txt', 17, 77) =]]
+[[= include_file('code_samples/mcp/mcp.sh.output.txt', 68, 128) =]]
 ```
 
 The `greet` [tool call](https://modelcontextprotocol.io/specification/latest/server/tools#calling-tools):
 
 ``` bash
-[[= include_file('code_samples/mcp/mcp.sh', 49, 63) =]]
+[[= include_file('code_samples/mcp/mcp.sh', 62, 76) =]]
 ```
 
 ``` json
-[[= include_file('code_samples/mcp/mcp.sh.output.txt', 77, 97) =]]
+[[= include_file('code_samples/mcp/mcp.sh.output.txt', 128, 148) =]]
 ```
 
 The [list of prompts](https://modelcontextprotocol.io/specification/latest/server/prompts#listing-prompts):
 
 ``` bash
-[[= include_file('code_samples/mcp/mcp.sh', 64, 72) =]]
+[[= include_file('code_samples/mcp/mcp.sh', 77, 85) =]]
 ```
 
 ``` json
-[[= include_file('code_samples/mcp/mcp.sh.output.txt', 97, 121) =]]
+[[= include_file('code_samples/mcp/mcp.sh.output.txt', 148, 172) =]]
 ```
 
 The `greet` [prompt obtainment](https://modelcontextprotocol.io/specification/2025-11-25/server/prompts#getting-a-prompt):
 
 ``` bash
-[[= include_file('code_samples/mcp/mcp.sh', 73, 87) =]]
+[[= include_file('code_samples/mcp/mcp.sh', 86, 100) =]]
 ```
 
 ``` json
-[[= include_file('code_samples/mcp/mcp.sh.output.txt', 121, 136) =]]
+[[= include_file('code_samples/mcp/mcp.sh.output.txt', 172, 187) =]]
 ```
 
 ### MCP Inspector test
