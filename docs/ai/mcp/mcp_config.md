@@ -411,7 +411,7 @@ The hard coded JWT token configuration in `.mcp.json`:
 ```
 
 The `.mcp.json` file must be edited to update the JWT token each time it expires.
-You can ask a token using for example, GraphiQL web interface or a `curl` command to get a new JWT token, then edit the file manually.
+You can ask a token using, for example, GraphiQL web interface or a `curl` command, then edit the file manually.
 Or you can have a shell script doing the JWT token request, extracting it from the response, and replace it in the file.
 
 When Copilot complains that it can't communicate with the MCP server:
