@@ -53,6 +53,10 @@ def define_env(env):
         return glue.join(line_range)
 
     @env.macro
+    def include_code(filename, start_line=1, end_line=None, indent_level=0, remove_indent=False):
+        return include_file(filename, start_line-1, end_line, '    ' * indent_level, remove_indent).rstrip()
+
+    @env.macro
     def cards(pages, columns=1, style="cards", force_version=False):
         current_page = env.variables.page
         absolute_url = current_page.abs_url
