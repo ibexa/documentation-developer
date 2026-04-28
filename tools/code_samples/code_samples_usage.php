@@ -35,7 +35,7 @@ function displayBlocks(array $docFileBlocks, ?string $docFilePath = null, $lineO
         try {
             $blockContents = getBlockContents($block);
             foreach ($blockContents['contents'] as $contentLineNumber => $contentLine) {
-                $prefixedBlockContentLines[] = str_pad($contentLineNumber, 3, 0, STR_PAD_LEFT) . (in_array($contentLineNumber, $blockContents['highlights']) ? '❇️' : '⫶') . $contentLine;
+                $prefixedBlockContentLines[] = str_pad($contentLineNumber, 3, '0', STR_PAD_LEFT) . (in_array($contentLineNumber, $blockContents['highlights']) ? '❇️' : '⫶') . $contentLine;
             }
             echo implode(PHP_EOL, $prefixedBlockContentLines) . PHP_EOL . PHP_EOL;
         } catch (Exception $exception) {
@@ -55,9 +55,9 @@ function displayBlocks(array $docFileBlocks, ?string $docFilePath = null, $lineO
  */
 function getIncludingFileList(?string $codeSampleFilePath = null): array
 {
-    $pattern = null === $codeSampleFilePath ? '= include_file' : $codeSampleFilePath;
+    $pattern = null === $codeSampleFilePath ? '= (include_file|include_code)' : $codeSampleFilePath;
     $pattern = escapeshellarg($pattern);
-    $command = "grep $pattern -Rl docs | sort";
+    $command = "grep -E $pattern -Rl docs | sort";
     exec($command, $rawIncludingFileList, $commandResultCode);
     if (0 === $commandResultCode) {
         return $rawIncludingFileList;
@@ -73,7 +73,7 @@ function getIncludingFileList(?string $codeSampleFilePath = null): array
  */
 function getInclusionBlocks(string $docFilePath, ?string $codeSampleFilePath = null): array
 {
-    $pattern = null === $codeSampleFilePath ? '= include_file' : $codeSampleFilePath;
+    $pattern = null === $codeSampleFilePath ? '@= (include_file|include_code)@' : "@$codeSampleFilePath@";
 
     $docFileLines = file($docFilePath, FILE_IGNORE_NEW_LINES);
     if (!$docFileLines) {
@@ -87,7 +87,7 @@ function getInclusionBlocks(string $docFilePath, ?string $codeSampleFilePath = n
         if ($includingFileLineIndex <= $blockEndingLineIndex + 1) {
             continue;
         }
-        if (str_contains($includingFileLine, $pattern)) {
+        if (preg_match($pattern, $includingFileLine)) {
             for ($blockStartingLineIndex = $includingFileLineIndex - 1; 0 <= $blockStartingLineIndex; $blockStartingLineIndex--) {
                 $previousLine = $docFileLines[$blockStartingLineIndex];
                 if (str_contains($previousLine, '```')) {
@@ -147,8 +147,8 @@ function getBlockContents(array $block): array
                     $blockHighlightedLines[] = (int)$rawHighlightedLine;
                 }
             }
-        } elseif (str_contains($blockSourceLine, '[[= include_file')) {
-            preg_match_all("@\[\[= include_file\('(?<file>[^']+)'(, (?<start>[0-9]+)(, (?<end>([0-9]+|None))(, '(?<glue>[^']+)')?)?)?\) =\]\]@", $blockSourceLine, $matches);
+        } elseif (str_contains($blockSourceLine, '[[= include_file') || str_contains($blockSourceLine, '[[= include_code')) {
+            preg_match_all("@\[\[= (?<function>include_file|include_code)\('(?<file>[^']+)'(, (?<start>[0-9]+)(, (?<end>([0-9]+|None))(, '(?<glue>[^']+)')?)?)?\) =\]\]@", $blockSourceLine, $matches);
             $solvedLine = $blockSourceLine;
             if (empty($matches['file'])) {
                 throw new RuntimeException("The following line doesn't include file correctly: $blockSourceLine");
@@ -167,9 +167,15 @@ function getBlockContents(array $block): array
                 if ('' === $matches['start'][$matchIndex]) {
                     $sample = $includedFilesLines[$includedFilePath];
                 } else {
+                    if ('include_code' === $matches['function'][$matchIndex]) {
+                        $matches['start'][$matchIndex] = (int)$matches['start'][$matchIndex] -1;
+                    }
                     $sample = array_slice($includedFilesLines[$includedFilePath], (int)$matches['start'][$matchIndex], (int)$matches['end'][$matchIndex] - (int)$matches['start'][$matchIndex]);
                 }
-                $solvedLine = str_replace($matchString, implode(PHP_EOL . $matches['glue'][$matchIndex], $sample) . PHP_EOL, $solvedLine);
+                if ('include_code' === $matches['function'][$matchIndex] && !empty($matches['glue'][$matchIndex])) {
+                    $matches['glue'][$matchIndex] = str_repeat('    ', $matches['glue'][$matchIndex]);
+                }
+                $solvedLine = str_replace($matchString, implode(PHP_EOL . $matches['glue'][$matchIndex], $sample) . ('include_code' === $matches['function'][$matchIndex] ? '' : PHP_EOL), $solvedLine);
             }
             $rawBlockCodeLines = array_merge($rawBlockCodeLines, explode(PHP_EOL, $solvedLine));
         } elseif (str_contains($blockSourceLine, '--8<--')) {
