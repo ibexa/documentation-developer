@@ -124,8 +124,8 @@ For example, the following command lists all content items under the specified p
 // ...
 [[= include_code('code_samples/api/public_php_api/src/Command/FilterCommand.php', 5, 9) =]]
 
-// ...
 [[= include_code('code_samples/api/public_php_api/src/Command/FilterCommand.php', 20, 21) =]]
+    // ...
 [[= include_code('code_samples/api/public_php_api/src/Command/FilterCommand.php', 34, 53) =]]
 ```
 
@@ -136,7 +136,7 @@ The same Filter can be applied to find locations instead of content items, for e
 [[= include_code('code_samples/api/public_php_api/src/Command/FilterLocationCommand.php', 5, 9) =]]
 
 [[= include_code('code_samples/api/public_php_api/src/Command/FilterCommand.php', 20, 21) =]]
-// ...
+    // ...
 [[= include_code('code_samples/api/public_php_api/src/Command/FilterLocationCommand.php', 34, 53) =]]
 ```
 
@@ -423,7 +423,7 @@ For a list of supported Criteria and Sort Clauses, see [Search in trash referenc
 ``` php
 [[= include_code('code_samples/api/public_php_api/src/Command/FindInTrashCommand.php', 5, 6) =]]
 //...
-[[= include_code('code_samples/api/public_php_api/src/Command/FindInTrashCommand.php', 36, 42) =]]
+[[= include_code('code_samples/api/public_php_api/src/Command/FindInTrashCommand.php', 36, 42, remove_indent=True) =]]
 ```
 
 !!! caution
