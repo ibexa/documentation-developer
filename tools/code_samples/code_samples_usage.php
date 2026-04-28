@@ -192,6 +192,19 @@ function getBlockContents(array $block): array
                 if ('include_code' === $matches['function'][$matchIndex] && !empty($matches['indent_level'][$matchIndex])) {
                     $matches['indent_level'][$matchIndex] = str_repeat('    ', $matches['indent_level'][$matchIndex]);
                 }
+                if ('True' === $matches['remove_indent'][$matchIndex]) {
+                    $removable = null;
+                    foreach ($sample as $line) {
+                        if ('' !== $line) {
+                            $removable = min($removable ?? strlen($line), strlen($line) - strlen(ltrim($line)));
+                        }
+                    }
+                    if ($removable) {
+                        foreach ($sample as $n => $line) {
+                            $sample[$n] = substr($line, $removable);
+                        }
+                    }
+                }
                 $solvedLine = str_replace($matchString, implode(PHP_EOL . $matches['indent_level'][$matchIndex], $sample) . ('include_code' === $matches['function'][$matchIndex] ? '' : PHP_EOL), $solvedLine);
             }
             $rawBlockCodeLines = array_merge($rawBlockCodeLines, explode(PHP_EOL, $solvedLine));
