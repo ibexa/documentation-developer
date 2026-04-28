@@ -83,9 +83,6 @@ In the following example, log groups that contain at least one creation of a Con
 It uses the default `admin` user that has a [permission](#permission-and-security) to list everyone's entries.
 
 ```php hl_lines="34-38"
-[[= include_file('code_samples/recent_activity/src/Command/MonitorRecentContentCreationCommand.php') =]]
-```
-```php hl_lines="34-38"
 [[= include_code('code_samples/recent_activity/src/Command/MonitorRecentContentCreationCommand.php') =]]
 ```
 
@@ -146,9 +143,6 @@ In the following example, an event subscriber is subscribing to an event dispatc
 This event has the information needed by a log entry (see details after the example).
 
 ```php
-[[= include_file('code_samples/recent_activity/src/EventSubscriber/MyFeatureEventSubscriber.php') =]]
-```
-```php
 [[= include_code('code_samples/recent_activity/src/EventSubscriber/MyFeatureEventSubscriber.php') =]]
 ```
 
@@ -196,9 +190,6 @@ In the following example, several actions are logged into one context group, eve
     - `complete`
 
 ``` php
-[[= include_file('code_samples/recent_activity/src/Command/ActivityLogContextTestCommand.php', 46, 66, remove_indent=True) =]]
-```
-``` php
 [[= include_code('code_samples/recent_activity/src/Command/ActivityLogContextTestCommand.php', 47, 66, remove_indent=True) =]]
 ```
 
@@ -236,17 +227,11 @@ First, follow an example of a default template overriding the one from the bundl
 It can be used during development as a fallback for classes that aren't mapped yet.
 
 ``` twig
-[[= include_file('code_samples/recent_activity/templates/themes/admin/activity_log/ui/default.html.twig') =]]
-```
-``` twig
 [[= include_code('code_samples/recent_activity/templates/themes/admin/activity_log/ui/default.html.twig') =]]
 ```
 
 Here is an example of a `ClassNameMapperInterface` associating the class `App\MyFeature\MyFeature` with the identifier `my_feature`:
 
-``` php
-[[= include_file('code_samples/recent_activity/src/ActivityLog/ClassNameMapper/MyFeatureNameMapper.php') =]]
-```
 ``` php
 [[= include_code('code_samples/recent_activity/src/ActivityLog/ClassNameMapper/MyFeatureNameMapper.php') =]]
 ```
@@ -257,17 +242,11 @@ This translation can be extracted with `php bin/console jms:translation:extract 
 To be taken into account, this mapper must be registered as a service:
 
 ``` yaml
-[[= include_file('code_samples/recent_activity/config/append_to_services.yaml') =]]
-```
-``` yaml
 [[= include_code('code_samples/recent_activity/config/append_to_services.yaml') =]]
 ```
 
 Here is an example of a `PostActivityListLoadEvent` subscriber which loads the related object when it's an `App\MyFeature\MyFeature`, and attaches it to the log entry:
 
-``` php
-[[= include_file('code_samples/recent_activity/src/EventSubscriber/MyFeaturePostActivityListLoadEventSubscriber.php') =]]
-```
 ``` php
 [[= include_code('code_samples/recent_activity/src/EventSubscriber/MyFeaturePostActivityListLoadEventSubscriber.php') =]]
 ```
@@ -276,9 +255,6 @@ The following template is made to display the object of `App\MyFeature\MyFeature
 so, it's named in `templates/themes/admin/activity_log/ui/my_feature/simulate.html.twig`.
 Thanks to the previous subscriber, the related object is available at display time:
 
-``` twig
-[[= include_file('code_samples/recent_activity/templates/themes/admin/activity_log/ui/my_feature/simulate.html.twig') =]]
-```
 ``` twig
 [[= include_code('code_samples/recent_activity/templates/themes/admin/activity_log/ui/my_feature/simulate.html.twig') =]]
 ```
