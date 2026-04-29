@@ -1,5 +1,5 @@
 ---
-description: TODO.
+description: MCP servers expose functionalities to AIs.
 page_type: landing_page
 month_change: true
 ---
