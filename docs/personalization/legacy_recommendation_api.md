@@ -174,7 +174,7 @@ Use the parameter categorypath to provide the category to the recommender engine
 
 If passed in combination with a "categorypath" value, the "closest" category the recommended items linked with is delivered in the response as additional field "category".
 
-```
+```javascript
 recommendationResponseList: [ {
         itemId: 1007640000,
         category: "09/0901/090113", ... } ... ]

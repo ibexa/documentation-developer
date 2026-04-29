@@ -34,12 +34,12 @@ For more information, see [Configure image editor](https://doc.ibexa.co/en/5.0/c
 
 [[= release_note_entry_begin(
     "Google Gemini connector " + version,
-    '2026-04-14',
+    '2026-04-20',
     ['Headless', 'Experience', 'Commerce', 'LTS Update', 'New feature', 'First release']
 ) =]]
 
 This release introduces a new AI connector that allows you to integrate [AI Actions](https://doc.ibexa.co/en/5.0/ai_actions/ai_actions/) with [Google Gemini](https://gemini.google/overview/#what-gemini-is).
-Among other things, you can use it as an alternative embeddings provider for the taxonomy suggestions feature.
+You can also use it as an alternative embeddings provider for the [taxonomy suggestions feature](taxonomy.md#taxonomy-suggestions).
 
 For more information, see how to [install and configure the Google Gemini connector](https://doc.ibexa.co/en/5.0/ai_actions/configure_ai_actions/#install-google-gemini-connector).
 
@@ -47,7 +47,7 @@ For more information, see how to [install and configure the Google Gemini connec
 
 [[= release_note_entry_begin(
     "Integrated help " + version,
-    '2026-04-14',
+    '2026-04-20',
     ['Headless', 'Experience', 'Commerce', 'LTS Update', 'New feature']
 ) =]]
 
@@ -55,60 +55,75 @@ For more information, see how to [install and configure the Google Gemini connec
 
 The product tour is a new Integrated help feature that helps back office contributors to discover [[= product_name =]].
 
+With product tours, you can create customized onboarding journeys.
+This accelerates user adoption, reduces training time, and helps users confidently navigate the platform.
+
 For more information, see [Product tour](https://doc.ibexa.co/en/5.0/administration/back_office/product_tour/).
 
 [[= release_note_entry_end() =]]
 
 [[= release_note_entry_begin(
     "Ibexa DXP " + version,
-    '2026-04-14',
+    '2026-04-20',
     ['Headless', 'Experience', 'Commerce', 'New feature']
 ) =]]
 
+### Security
+
+This release includes security fixes.
+To learn more, see the [corresponding security advisory](https://developers.ibexa.co/security-advisories/ibexa-sa-2026-002-access_control-in-security.yaml-not-working).
+
 ### Raptor connector
 
-The SiteAccess-aware Raptor connector provides a seamless integration between [[= product_name =]] and [Raptor Recommendation Engine](https://www.raptorservices.com/website-recommendations/).
+The Raptor connector provides a seamless integration between [[= product_name =]] and [Raptor Recommendation Engine](https://www.raptorservices.com/website-recommendations/).
 
-For more information, see [SiteAccess-aware Raptor connector](https://doc.ibexa.co/en/5.0/cdp/raptor_integration/raptor_connector/).
+For more information, see [Raptor connector](https://doc.ibexa.co/en/5.0/recommendations/raptor_integration/raptor_connector/).
 
 #### Tracking
 
 This add-on includes two Twig functions to ease tracking setting:
 
-- `ibexa_tracking_script` to load the JavaScript tracking code, for more information, see [Tracking script](https://doc.ibexa.co/en/5.0/cdp/raptor_integration/tracking_script/)
-- `ibexa_tracking_track_event` to send tracking events from your pages, for more information, see [Tracking event function](https://doc.ibexa.co/en/5.0/cdp/raptor_integration/tracking_event_function/)
+- `ibexa_tracking_script` to load the JavaScript tracking code
+- `ibexa_tracking_track_event` to send tracking events from your pages
+
+For more information, see [Raptor tracking functions](https://doc.ibexa.co/en/5.0/recommendations/raptor_integration/tracking_functions/).
 
 #### Recommendations blocks [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
 
-This add-on introduces a set of recommendation blocks available in the [Page Builder](https://doc.ibexa.co/en/5.0/content_management/pages/page_builder_guide/),
-designed to suggest relevant content or products to users, such as the most popular items or viewed by others.
+This add-on introduces a set of recommendation blocks available in the [Page Builder](https://doc.ibexa.co/en/5.0/content_management/pages/page_builder_guide/), designed to suggest relevant content or products to users, such as the most popular items or viewed by others.
 
-For more information, see [Recommendation blocks in Page Builder](https://doc.ibexa.co/en/5.0/cdp/raptor_integration/pb_blocks/).
+For more information about Recommendation blocks in Page Builder, see the relevant [Developer Documentation](https://doc.ibexa.co/en/5.0/recommendations/raptor_integration/recommendation_blocks/) and [User Documentation](https://doc.ibexa.co/projects/userguide/en/5.0/recommendations/raptor_integration/raptor_recommendation_blocks/).
 
-### Quable PIM
+### [[= pim_product_name =]] PIM
 
-Add-on to integrate [[[= pim_product_name =]]](https://www.quable.com/en) with [[= product_name =]].
+The [[= pim_product_name =]] integration add-on allows you to connect [[= product_name =]] with [[[= pim_product_name =]] Product Information Management (PIM)](https://www.quable.com/en), making [[= pim_product_name =]] the authoritative source of product information for every website powered by [[= product_name =]].
 
-For more information, see [Quable PIM Integration](https://doc.ibexa.co/en/5.0/product_catalog/quable/).
+[[= pim_product_name =]] can serve as the single source of truth for all product data, including attributes, classifications, variants, and translations. 
+[[= product_name =]] consumes this data and makes it available for use in content and digital experiences.
+
+For more information, see [Quable PIM Integration](https://doc.ibexa.co/en/5.0/product_catalog/quable/quable/).
+
+### AI Actions in Page Builder blocks [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
+
+You can now use the [refining text AI Actions](https://doc.ibexa.co/en/5.0/ai_actions/ai_actions_guide/#refining-text) in Page Builder blocks string and text inputs.
 
 ### Developer experience
 
 #### Symfony 7.4
 
 Symfony is upgraded from 7.3 to 7.4.
-See [what's new in Symfony 7.4](https://symfony.com/blog/category/living-on-the-edge/8.0-7.4)
-and [how to update Symfony within [[= product_name =]]](https://doc.ibexa.co/en/5.0/update_and_migration/from_5.0/update_from_5.0/#update-symfony-from-73-to-74).
+It's the latest [LTS release](https://symfony.com/releases#long-term-support-release), maintained till November 2029.
+See [what's new in Symfony 7.4](https://symfony.com/blog/category/living-on-the-edge/8.0-7.4) and [how to update Symfony within [[= product_name =]]](https://doc.ibexa.co/en/5.0/update_and_migration/from_5.0/update_from_5.0/#update-symfony-from-73-to-74).
 
 #### Taxonomy search
 
-Two [taxonomy search](https://doc.ibexa.co/en/5.0/content_management/taxonomy/taxonomy_api/search) criteria are added:
+One [taxonomy search](https://doc.ibexa.co/en/5.0/content_management/taxonomy/taxonomy_api/#search) criterion is added:
 
 - [`TaxonomyNoEntries`](https://doc.ibexa.co/en/5.0/search/criteria_reference/taxonomy_no_entries/) to find content items to which no taxonomy entries have been assigned.
-- [`TaxonomySubtree`](https://doc.ibexa.co/en/5.0/search/criteria_reference/taxonomy_subtree/) for content items assigned to a taxonomy entry or any of its descendants.
 
 #### Custom parameters in `ibexa_render()`
 
-You can now pass custom parameters to templates when using the `ibexa_render()` Twig function with the new `params` option, similar to how you can with `render(controller())`.Collapse annotationCheck notice on line R18[vale] docs/release_notes/ibexa_dxp_v5.0.md#L18Check notice: [vale] docs/release_notes/ibexa_dxp_v5.0.md#L18[Ibexa.ByUsing] Prefer 'by using' or 'with' to plain 'using'.Build & test documentation / valeView details
+You can now pass custom parameters to templates when using the `ibexa_render()` Twig function with the new `params` option, similar to how you can with `render(controller())`.
 
 This allows you to provide additional context or data to your view templates:
 
@@ -144,15 +159,20 @@ For more information, see [Error handling with try-catch](https://doc.ibexa.co/e
 
 #### Translation-related Twig Component groups
 
-Four groups of [Twig components](https://doc.ibexa.co/en/5.0/templating/components/) related to Admin UI translation are added.
+Four new [Twig component groups](https://doc.ibexa.co/en/5.0/templating/components/) related to Admin UI translation are added:
 
-For more information, see [Customizing the back office with Twig Components > Admin UI](https://doc.ibexa.co/en/5.0/administration/back_office/back_office_elements/custom_components/#admin-ui).
+- `admin-ui-product-translation-modal-footer`
+- `admin-ui-product-translations-actions-modal`
+- `admin-ui-product-translations-actions`
+- `admin-ui-product-translations-row-actions`
+
+For more information, see [available Admin UI Twig Component groups](https://doc.ibexa.co/en/5.0/administration/back_office/back_office_elements/custom_components/#admin-ui).
 
 #### REST API
 
 You can now find examples for some REST request bodies in the [OpenAPI REST API](rest_api_usage.md#openapi-support):
 
-- in the right column of the [online reference](https://doc.ibexa.co/en/5.0/api/rest_api/rest_api_reference/rest_api_reference.html) where the example is used as a sample instead of a duplicate of middle column schema,
+- in the right column of the [online reference](https://doc.ibexa.co/en/5.0/api/rest_api/rest_api_reference/rest_api_reference.html),
   and in the downloadable OpenAPI specification files
 - on your dev instance at `/api/ibexa/v2/doc` in an “Example Value” tab of the "Request Body" section, alongside the "Schema" tab
 - in the generated JSON or YAML OpenAPI specifications when running `ibexa:openapi` command
@@ -166,13 +186,9 @@ The following additions were made to the PHP API:
 - [`Ibexa\Contracts\CorporateAccount\Order\OrderStatusLabelProviderInterface`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-CorporateAccount-Order-OrderStatusLabelProviderInterface.html)
 - [`Ibexa\Contracts\ProductCatalog\Events\ProductAttributeRenderEvent`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Events-ProductAttributeRenderEvent.html)
 - [`Ibexa\Contracts\Taxonomy\Search\Query\Criterion\TaxonomyNoEntries`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-Taxonomy-Search-Query-Criterion-TaxonomyNoEntries.html)
-  (for more information, see [its search criteria reference entry](https://doc.ibexa.co/en/5.0/search/criteria_reference/taxonomy_no_entries/))
-- optionally, from the [Raptor connector add-on](https://doc.ibexa.co/en/5.0/cdp/raptor_integration/raptor_connector/), classes of the [`Ibexa\Contracts\ConnectorRaptor` namespace](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/namespaces/ibexa-contracts-connectorraptor.html)
-- optionally, from the [Integrated help LTS-Update](https://doc.ibexa.co/en/5.0/administration/back_office/integrated_help/), classes of the [`Ibexa\Contracts\IntegratedHelp` namespace](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/namespaces/ibexa-contracts-integratedhelp.html)
-
-### AI Actions in Page Builder blocks [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
-
-You can now use the [refining text AI Actions](https://doc.ibexa.co/en/5.0/ai_actions/ai_actions_guide/#refining-text) in Page Builder blocks string and text inputs.
+  <br>For more information, see [search criteria reference entry](https://doc.ibexa.co/en/5.0/search/criteria_reference/taxonomy_no_entries/).
+- [`Ibexa\Contracts\ConnectorRaptor` namespace](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/namespaces/ibexa-contracts-connectorraptor.html) from the [Raptor connector add-on](https://doc.ibexa.co/en/5.0/cdp/raptor_integration/raptor_connector/)
+- [`Ibexa\Contracts\IntegratedHelp` namespace](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/namespaces/ibexa-contracts-integratedhelp.html) from the [Integrated help LTS-Update](https://doc.ibexa.co/en/5.0/administration/back_office/integrated_help/)
 
 ### Full changelog
 
@@ -731,15 +747,15 @@ For more information, see [Discounts product guide](https://doc.ibexa.co/en/5.0/
 
 #### Date and time attribute
 
-The Date and time attributes allow you to represent date and time values as part of the product specification in the [Product Information Management](https://doc.ibexa.co/en/5.0/pim/pim_guide/) system.
+The Date and time attributes allow you to represent date and time values as part of the product specification in the [product catalog](https://doc.ibexa.co/en/5.0/product_catalog/product_catalog_guide).
 
-For more information, see [Date and time attributes](https://doc.ibexa.co/en/5.0/pim/attributes/date_and_time/).
+For more information, see [Date and time attributes](https://doc.ibexa.co/en/5.0/product_catalog/attributes/date_and_time/).
 
 #### Symbol attribute
 
-The Symbol attributes allow you to efficiently represent the string-based data as part of the product specification in the [Product Information Management](https://doc.ibexa.co/en/5.0/pim/pim_guide/) system.
+The Symbol attributes allow you to efficiently represent the string-based data as part of the product specification in the [product catalog](https://doc.ibexa.co/en/5.0/product_catalog/product_catalog_guide).
 
-For more information, see [Symbol attributes](https://doc.ibexa.co/en/5.0/pim/attributes/symbol_attribute_type/).
+For more information, see [Symbol attributes](https://doc.ibexa.co/en/5.0/product_catalog/attributes/symbol_attribute_type/).
 
 #### Collaboration
 
@@ -909,7 +925,7 @@ The PHP API has been expanded with the following classes and interfaces:
     - [`Ibexa\Contracts\DiscountsCodes\Value\Struct\DiscountCodeCreateStruct `](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-DiscountsCodes-Value-Struct-DiscountCodeCreateStruct.html)
     - [`Ibexa\Contracts\DiscountsCodes\Value\StructDiscountCodeUpdateStruct `](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-DiscountsCodes-Value-Struct-DiscountCodeUpdateStruct.html)
 
-??? note "PIM Attributes"
+??? note "Product catalog attributes"
 
     - [`Ibexa\Contracts\ProductCatalogDateTimeAttribute`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/namespaces/ibexa-contracts-productcatalogdatetimeattribute.html)
     - [`Ibexa\Contracts\ProductCatalogSymbolAttribute`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/namespaces/ibexa-contracts-productcatalogsymbolattribute.html)
@@ -941,7 +957,7 @@ The following search criteria have been added in the v5.0 release:
     - [`Ibexa\Contracts\Discounts\Value\Query\Criterion\StartDateCriterion`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-Discounts-Value-Query-Criterion-StartDateCriterion.html)
     - [`Ibexa\Contracts\Discounts\Value\Query\Criterion\TypeCriterion`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-Discounts-Value-Query-Criterion-TypeCriterion.html)
 
-??? note "PIM Attributes"
+??? note "Product catalog attributes"
 
     - [`Ibexa\Contracts\ProductCatalogDateTimeAttribute\Search\Criterion\DateTimeAttribute`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalogDateTimeAttribute-Search-Criterion-DateTimeAttribute.html)
     - [`Ibexa\Contracts\ProductCatalogDateTimeAttribute\Search\Criterion\DateTimeAttributeRange`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalogDateTimeAttribute-Search-Criterion-DateTimeAttributeRange.html)

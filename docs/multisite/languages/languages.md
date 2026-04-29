@@ -25,7 +25,7 @@ The multilanguage system operates based on a global translation list that contai
 Languages can be [added to this list from the **Admin** panel]([[= user_doc =]]/content_management/translate_content/) in the back office.
 After adding a language be sure to dump all assets to the file system:
 
-```
+```bash
 yarn encore <environment>
 # OR php bin/console ibexa:encore:compile
 ```

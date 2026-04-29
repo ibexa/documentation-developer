@@ -73,7 +73,7 @@ You can use an unique group name when creating a Twig Component to create your o
 | [HTML](https://github.com/ibexa/twig-components/blob/main/src/lib/Component/HtmlComponent.php) | Renders static HTML |`html` |
 | [Menu](https://github.com/ibexa/twig-components/blob/main/src/lib/Component/MenuComponent.php) | Renders a [menu](https://symfony.com/bundles/KnpMenuBundle/current/index.html) |`menu` |
 | [Script](https://github.com/ibexa/twig-components/blob/main/src/lib/Component/ScriptComponent.php) | Renders a [`<script>` tag](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/script) | `script` |
-| [Stylesheet](https://github.com/ibexa/twig-components/blob/main/src/lib/Component/LinkComponent.php) | Renders a [`<link>` tag](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/link) | `stylesheet`
+| [Stylesheet](https://github.com/ibexa/twig-components/blob/main/src/lib/Component/LinkComponent.php) | Renders a [`<link>` tag](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/link) | `stylesheet` |
 | [Template](https://github.com/ibexa/twig-components/blob/main/src/lib/Component/TemplateComponent.php) | Renders a Twig template|`template` |
 
 For the menu component, the following properties are available:

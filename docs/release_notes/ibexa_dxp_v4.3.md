@@ -1,5 +1,5 @@
 ---
-description: Ibexa DXP v4.3 adds the improvements to the Customer Portal, PIM and SEO.
+description: Ibexa DXP v4.3 adds the improvements to the Customer Portal, product catalog and SEO.
 ---
 <!-- vale VariablesVersion = NO -->
 
@@ -49,7 +49,7 @@ For more information, see [Work with SEO](https://doc.ibexa.co/projects/userguid
 
 ## Other changes
 
-### PIM improvements
+### Product catalog improvements
 
 #### Price Sort Clauses
 
@@ -60,7 +60,7 @@ When querying for products, you can now use one of two price-related Sort Clause
 
 #### Usability improvements
 
-This release also includes a number of usability improvements in PIM,
+This release also includes a number of usability improvements in the product catalog,
 such as full information about available attribute values or improved display of Selection attributes.
 
 You can now move assets between collections by using drag and drop.
@@ -94,7 +94,7 @@ For more information, refer to upgrade documentation.
 
 ### API improvements
 
-The catalogs functionality in PIM is now covered in REST API, including:
+The catalogs functionality in the product catalog is now covered in REST API, including:
 
 - [Getting catalog list](https://doc.ibexa.co/en/4.3/api/rest_api/rest_api_reference/rest_api_reference.html#product-catalog-filter-catalogs)
 - [Creating, modifying, copying and deleting catalogs](https://doc.ibexa.co/en/4.3/api/rest_api/rest_api_reference/rest_api_reference.html#product-catalog-create-catalog)
@@ -150,7 +150,7 @@ You can retrieve the defined languages with:
 The new release adds `Ibexa\Contracts\Rest\Security\AuthorizationHeaderRESTRequestMatcher` service that can be used instead of `Ibexa\AdminUi\REST\Security\NonAdminRESTRequestMatcher`.
 It allows REST API endpoints to work with cookie-based authentication.
 
-### PIM improvements
+### Product catalog improvements
 
 #### HTTP cache support for product-related responses
 
@@ -166,6 +166,6 @@ You can now retrieve customer group by implementing the `Ibexa\Contracts\Product
 - When `UserService::updateUserPassword` method throws `ContentFieldValidationException`,
 it now uses the format accessible via `ContentFieldValidationException::getFieldErrors`:
 
-```
+```text
 array<<int fieldId>, array<<string language code>, array<\Ibexa\Contracts\Core\FieldType\ValidationError>>>
 ```
