@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace App\Security;
 
@@ -19,6 +19,7 @@ use Twig\Environment;
 class FormSubmissionsTabDecorator extends SubmissionsTab implements TabInterface, OrderedTabInterface, ConditionalTabInterface
 {
     private $innerTab;
+
     private $permissionResolver;
 
     public function __construct(

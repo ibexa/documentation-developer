@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace App\Security;
 
@@ -12,8 +12,8 @@ class FormPolicyProvider implements PolicyProviderInterface, TranslationContaine
     public function addPolicies(ConfigBuilderInterface $configBuilder): void
     {
         $configBuilder->addConfig([
-            "form" => [
-                "read_submissions" => null,
+            'form' => [
+                'read_submissions' => null,
             ],
         ]);
     }

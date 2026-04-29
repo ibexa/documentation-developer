@@ -1,15 +1,15 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace App\Security;
 
+use Ibexa\Contracts\Core\Repository\ContentService;
+use Ibexa\Contracts\Core\Repository\PermissionResolver;
 use Ibexa\Contracts\Core\Repository\Values\Content\ContentInfo;
 use Ibexa\Contracts\FormBuilder\FieldType\Model\Form;
 use Ibexa\Contracts\FormBuilder\FieldType\Model\FormSubmission;
 use Ibexa\Contracts\FormBuilder\FieldType\Model\FormSubmissionList;
 use Ibexa\Contracts\FormBuilder\FormSubmission\FormSubmissionServiceInterface;
-use Ibexa\Contracts\Core\Repository\PermissionResolver;
 use Ibexa\Core\Base\Exceptions\NotFoundException;
-use Ibexa\Contracts\Core\Repository\ContentService;
 use Ibexa\Core\Base\Exceptions\UnauthorizedException;
 use Ibexa\FormBuilder\FormSubmission\Gateway\FormSubmissionGateway;
 
@@ -40,6 +40,7 @@ class FormSubmissionServiceDecorator implements FormSubmissionServiceInterface
         if (!$this->permissionResolver->canUser('form', 'read_submissions', $content)) {
             throw new UnauthorizedException('form', 'read_submissions', ['contentId' => $content->getId()]); // Permission check
         }
+
         return $this->innerService->loadById($id); // Second data fetch through inner service
     }
 
