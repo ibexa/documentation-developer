@@ -33,8 +33,7 @@ The following command takes the content type identifier as an argument and lists
 // ...
 [[= include_code('code_samples/api/public_php_api/src/Command/FindContentCommand.php', 18, 19) =]]
     // ...
-[[= include_code('code_samples/api/public_php_api/src/Command/FindContentCommand.php', 33, 48) =]]
-[[= include_code('code_samples/api/public_php_api/src/Command/FindContentCommand.php', 49, 49) =]]
+[[= include_code('code_samples/api/public_php_api/src/Command/FindContentCommand.php', 33, 49) =]]
 ```
 
 [`SearchService::findContentInfo`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-SearchService.html#method_findContentInfo) (line 16)
