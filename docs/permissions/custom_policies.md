@@ -302,7 +302,7 @@ services:
 ...and in `src/Resources/config/policies.yaml`:
 
 ``` yaml
-[[= include_file('code_samples/back_office/limitation/src/Resources/config/policies.yaml') =]]
+[[= include_file('code_samples/back_office/limitation/src/Resources/config/policies.yaml', 3, 5) =]]
 ```
 
 This way, after you clean the cache, the new policy becomes available when you [edit the policies assigned to a Role](https://doc.ibexa.co/projects/userguide/en/latest/permission_management/work_with_permissions/).
