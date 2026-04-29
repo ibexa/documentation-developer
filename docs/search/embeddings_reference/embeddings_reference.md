@@ -78,7 +78,7 @@ ibexa:
             default_embedding_model: text-embedding-ada-002
 ```
 
-For a real-life example of embedding models configuration, see [Taxonomy suggestions](taxonomy.md#change-the-embedding-generation-model).
+For a real-life example of embedding models configuration, see [Taxonomy suggestions](taxonomy.md#change-embedding-generation-models-or-embedding-provider).
 
 - [EmbeddingConfigurationInterface](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Search-Embedding-EmbeddingConfigurationInterface.html) allows access to the embedding model configuration in the system (for example, list of available models, default model name, default provider, field suffix, and so on)
 

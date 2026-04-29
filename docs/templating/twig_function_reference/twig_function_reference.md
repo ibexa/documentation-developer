@@ -16,6 +16,7 @@ In addition to the [native functions provided by Twig](https://twig.symfony.com/
     "templating/twig_function_reference/field_twig_functions",
     "templating/twig_function_reference/page_twig_functions",
     "templating/twig_function_reference/product_twig_functions",
+    "templating/twig_function_reference/recommendations_twig_functions",
     "templating/twig_function_reference/site_context_twig_functions",
     "templating/twig_function_reference/storefront_twig_functions",
     "templating/twig_function_reference/icon_twig_functions",
@@ -24,4 +25,5 @@ In addition to the [native functions provided by Twig](https://twig.symfony.com/
     "templating/twig_function_reference/date_twig_filters",
     "templating/twig_function_reference/ai_actions_twig_functions",
     "templating/twig_function_reference/discounts_twig_functions",
+    "templating/twig_function_reference/quable_twig_functions"
 ], columns=4) =]]
