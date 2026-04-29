@@ -174,7 +174,7 @@ Fill in the form and register a user.
 
 ## Set up Permissions
 
-Users created through the registration form are placed in the default user group (_Guest accounts_ for [[= product_name_exp =]] and _Customers_ for [[= product_name_com =]] edition).
+Users created through the registration form are placed in the default user group (_Guest accounts_ for [[= product_name_headless =]] and [[= product_name_exp =]], _Customers_ for [[= product_name_com =]] edition).
 The user you created has the roles assigned to this group.
 
 !!! tip
