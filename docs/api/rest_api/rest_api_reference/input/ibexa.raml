@@ -22,6 +22,10 @@ baseUri: ../rest_api_usage/rest_api_usage/
     # /assets: !include ibexa-content-assets.raml
     #/binary: !include ibexa-content-binary.raml
 
+/collaboration:
+    displayName: Collaborative editing
+    /sessions: !include ibexa-collaborativeediting-session.raml
+
 /views: !include ibexa-views.raml
 
 /calendar: !include ibexa-calendar.raml
@@ -78,5 +82,11 @@ baseUri: ../rest_api_usage/rest_api_usage/
 /taxonomy: !include ibexa-taxonomy.raml
 
 /activity-log-group: !include ibexa-activityloggroup.raml
+
+/ai: !include ibexa-ai.raml
+
+/discounts: !include ibexa-discounts.raml
+
+/discounts_codes: !include ibexa-discounts-codes.raml
 
 types: !include ibexa-types.raml

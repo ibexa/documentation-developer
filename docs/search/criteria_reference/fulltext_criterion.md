@@ -1,7 +1,10 @@
-# FullText Criterion
+---
+description: Full-Text Search Criterion
+---
 
-The [`FullText` Search Criterion](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Criterion-FullText.html)
-searches for content based on the full text content of its Fields.
+# Full-Text Criterion
+
+The [`FullText` Search Criterion](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Criterion-FullText.html) searches for content based on the full text content of its fields.
 
 ## Arguments
 
@@ -21,8 +24,7 @@ searches for content based on the full text content of its Fields.
 
 \*\* When using the Legacy search engine, a full text query performs an OR query.
 
-\*\*\* Asteriks may only be located at the beginning or end of a query.
-
+\*\*\* Asterisk may only be located at the beginning or end of a query.
 
 ## Limitations
 
@@ -31,7 +33,7 @@ supports asterisks as wildcards located at the beginning or end of a query.
 
 When using the Elasticsearch search engine, a full text query performs an OR query by default, while the OR and AND operators return unexpected results.
 
-The `FullText` Criterion is not available in [Repository filtering](search_api.md#repository-filtering).
+The `FullText` Criterion isn't available in [Repository filtering](search_api.md#repository-filtering).
 
 ## Example
 
@@ -83,7 +85,7 @@ Assume the following search query:
 $query->query = new Criterion\FullText('(cup AND ba*ball) "breaking news"');
 ```
 
-It will return content containing phrases such as "Breaking news", "Baseball world cup", "Basketball cup",
+It returns content containing phrases such as "Breaking news", "Baseball world cup", "Basketball cup",
 or "Breaking news: Baseball world cup victory".
 
-It will not return content with phrases such as "Football world cup" or "Breaking sports news".
+It doesn't return content with phrases such as "Football world cup" or "Breaking sports news".

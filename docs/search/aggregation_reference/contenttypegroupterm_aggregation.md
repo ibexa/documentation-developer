@@ -1,6 +1,10 @@
+---
+description: ContentTypeGroupTermAggregation
+---
+
 # ContentTypeGroupTermAggregation
 
-The [ContentTypeGroupTermAggregation](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Aggregation-ContentTypeGroupTermAggregation.html) aggregates search results by the content item's content type group.
+The [ContentTypeGroupTermAggregation](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Aggregation-ContentTypeGroupTermAggregation.html) aggregates search results by the content item's content type group.
 
 ## Arguments
 

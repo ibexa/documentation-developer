@@ -6,6 +6,8 @@ plugins:
         j2_block_end_string: '%]]'
         j2_variable_start_string: '[[='
         j2_variable_end_string: '=]]'
+        j2_comment_start_string: '[[#'
+        j2_comment_end_string: '#]]'
     - tags
     - redirects:
         redirect_maps:
@@ -23,7 +25,7 @@ plugins:
             'commerce/basket.md': 'commerce/commerce.md'
             'templating/layout/customize_basket.md': 'commerce/commerce.md'
             'guide/search/extend_solr.md': 'search/search_engines/solr_search_engine/solr_overview.md'
-            'guide/search/extend_elasticsearch.md': 'search/search_engines/elastic_search/elastic_search_overview.md'
+            'guide/search/extend_elasticsearch.md': 'search/search_engines/elasticsearch/elasticsearch_overview.md'
 
             'api/public_php_api.md': 'api/php_api/php_api.md'
             'api/rest_api_usage.md': 'api/rest_api/rest_api_usage/rest_api_usage.md'
@@ -105,6 +107,9 @@ plugins:
             'guide/page/create_custom_page_block.md': 'content_management/pages/create_custom_page_block.md'
             'guide/form_builder/forms.md': 'content_management/forms/forms.md'
             'api/public_php_api_managing_forms.md': 'content_management/forms/form_api.md'
+            'ibexa_products/experience.md': 'ibexa_products/ibexa_experience.md'
+            'ibexa_products/headless.md': 'ibexa_products/ibexa_headless.md'
+            'personalization/personalization_brochure.md': 'personalization/personalization_guide.md'
             'guide/form_builder/create_custom_form_field.md': 'content_management/forms/create_custom_form_field.md'
             'guide/form_builder/customize_email_notifications.md': 'content_management/forms/customize_email_notifications.md'
             'guide/workflow/workflow.md': 'content_management/workflow/workflow.md'
@@ -187,7 +192,7 @@ plugins:
             'guide/content_rendering/twig_function_reference/image_twig_functions.md': 'templating/twig_function_reference/image_twig_functions.md'
             'guide/content_rendering/twig_function_reference/url_twig_functions.md': 'templating/twig_function_reference/url_twig_functions.md'
             'guide/content_rendering/twig_function_reference/date_twig_filters.md': 'templating/twig_function_reference/date_twig_filters.md'
-            'guide/content_rendering/twig_function_reference/other_twig_filters.md': 'templating/twig_function_reference/other_twig_filters.md'
+            'guide/content_rendering/twig_function_reference/other_twig_filters.md': 'templating/twig_function_reference/icon_twig_functions.md'
             'guide/content_rendering/urls_and_routes.md': 'templating/urls_and_routes/urls_and_routes.md'
             'guide/content_rendering/custom_breadcrumbs.md': 'templating/urls_and_routes/custom_breadcrumbs.md'
             'guide/content_rendering/design_engine/design_engine.md': 'templating/design_engine/design_engine.md'
@@ -297,7 +302,7 @@ plugins:
             'guide/personalization/best_practices/recommendation_integration.md': 'personalization/recommendation_integration.md'
 
             'guide/search/search.md': 'search/search.md'
-            'guide/search/elastic.md': 'search/search_engines/elastic_search/elastic_search_overview.md'
+            'guide/search/elastic.md': 'search/search_engines/elasticsearch/elasticsearch_overview.md'
             'guide/search/solr.md': 'search/search_engines/solr_search_engine/solr_overview.md'
             'api/public_php_api_search.md': 'search/search_api.md'
             'guide/search/criteria_reference/search_criteria_reference.md': 'search/criteria_reference/search_criteria_reference.md'
@@ -441,6 +446,9 @@ plugins:
             'search/shop_search/search_indexing.md': 'search/search.md'
             'search/shop_search/search_synonyms.md': 'search/search.md'
             'search/shop_search/search_autosuggest.md': 'search/search.md'
+            'search/search_engines/elastic_search/install_elastic_search.md': 'search/search_engines/elasticsearch/install_elasticsearch.md'
+            'search/search_engines/elastic_search/configure_elastic_search.md': 'search/search_engines/elasticsearch/configure_elasticsearch.md'
+            'search/search_engines/elastic_search/elastic_search_overview.md': 'search/search_engines/elasticsearch/elasticsearch_overview.md'
 
             'api/public_php_api_managing_repository.md': 'content_management/content_management_api/bookmark_api.md'
             'guide/request_lifecycle.md': 'infrastructure_and_maintenance/request_lifecycle.md'
@@ -489,7 +497,7 @@ plugins:
             'updating/from_2.5/update_code/8_update_rest.md': 'update_and_migration/from_2.5/update_code/8_update_rest.md'
             'updating/from_2.5/update_code/9_update_other.md': 'update_and_migration/from_2.5/update_code/9_update_other.md'
             'updating/from_2.5/to_3.3.md': 'update_and_migration/from_2.5/to_3.3.md'
-            'updating/from_2.5/to_3.3.latest.md': 'update_and_migration/from_2.5/to_3.3.latest.md'
+            'updating/from_2.5/to_3.3.latest.md': 'update_and_migration/from_3.3/update_from_3.3.md'
             'updating/from_3.3/update_from_3.3.md': 'update_and_migration/from_3.3/update_from_3.3.md'
             'updating/from_3.3/to_4.0.md': 'update_and_migration/from_3.3/to_4.0.md'
             'updating/from_4.0/to_4.1.md': 'update_and_migration/from_4.0/to_4.1.md'
@@ -497,6 +505,7 @@ plugins:
             'migrating/migrating_from_ez_publish_platform.md': 'update_and_migration/migrate_to_ibexa_dxp/migrating_from_ez_publish_platform.md'
             'migrating/migrating_from_ez_publish.md': 'update_and_migration/migrate_to_ibexa_dxp/migrating_from_ez_publish.md'
             'migrating/common_issues.md': 'update_and_migration/migrate_to_ibexa_dxp/common_issues.md'
+            'update_and_migration/from_2.5/to_3.3.latest.md': 'update_and_migration/from_3.3/update_from_3.3.md'
 
             'releases/ibexa_dxp_v4.2.md': 'release_notes/ibexa_dxp_v4.2.md'
             'releases/ibexa_dxp_v4.1.md': 'release_notes/ibexa_dxp_v4.1.md'
@@ -524,6 +533,7 @@ plugins:
             'getting_started/install_ez_platform.md': 'getting_started/install_ibexa_dxp.md'
 
             'templating/layout/create_user_registration_form.md': 'customer_management/create_user_registration_form.md'
+            'templating/twig_function_reference/other_twig_filters.md': 'templating/twig_function_reference/icon_twig_functions.md'
 
             'tutorials/platform_beginner/building_a_bicycle_route_tracker_in_ez_platform.md': 'tutorials/beginner_tutorial/beginner_tutorial.md'
             'tutorials/platform_beginner/1_get_ready.md': 'tutorials/beginner_tutorial/1_get_ready.md'
@@ -544,3 +554,9 @@ plugins:
             'infrastructure_and_maintenance/repository_api.md': 'api/php_api/php_api.md'
 
             'content_management/customize_field_type_metadata.md': 'content_management/field_types/customize_field_type_metadata.md'
+
+            'getting_started/ibexa_cloud_guide.md': 'ibexa_cloud/ibexa_cloud_guide.md'
+            'getting_started/install_on_ibexa_cloud.md': 'ibexa_cloud/install_on_ibexa_cloud.md'
+            'infrastructure_and_maintenance/clustering/ddev_and_ibexa_cloud.md': 'ibexa_cloud/ddev_and_ibexa_cloud.md'
+            'ai_actions/configure_ai_actions.md': 'ai_actions/install_ai_actions.md'
+            'content_management/collaborative_editing/configure_collaborative_editing.md': 'content_management/collaborative_editing/install_collaborative_editing.md'

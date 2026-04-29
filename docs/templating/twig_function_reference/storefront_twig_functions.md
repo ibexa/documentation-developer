@@ -57,8 +57,7 @@ You can use storefront Twig functions to control the rendering of storefront ele
 
 `ibexa_storefront_get_main_category()` returns the main (first-level) category for a given category.
 
-For example: if a given category is "Desks" and it has the following ancestors: "Furniture" > "Office" > "Desks",
-then the main category for "Office" is "Furniture".
+For example: if a given category is "Desks" and it has the following ancestors: "Furniture" > "Office" > "Desks", then the main category for "Office" is "Furniture".
 
 ``` html+twig
 {% set main_category = ibexa_storefront_get_main_category(category) %}
@@ -106,8 +105,20 @@ You can use this, for example, to [parametrize the display of products by using 
 
 ### `ibexa_get_anonymous_user_id()`
 
-`ibexa_get_anonymous_user_id()` returns the configured User ID for the anonymous user (configured in `ibexa.system.<scope>.anonymous_user_id`).
+`ibexa_get_anonymous_user_id()` returns the configured user ID for the anonymous user (configured in `ibexa.system.<scope>.anonymous_user_id`).
 
 ``` html+twig
 {{ ibexa_get_anonymous_user_id() }}
+```
+
+### `ibexa_storefront_are_discounts_enabled()`
+
+This function detects if the [Discounts LTS Update](discounts_guide.md) is installed.
+
+``` html+twig
+{% if ibexa_storefront_are_discounts_enabled() %}
+    <div class="ibexa-store-maincart-item__subtotal-original-price-net ibexa-store-discount-price">
+        {{- product_price_original_subtotal -}}
+    </div>
+{% endif %}
 ```

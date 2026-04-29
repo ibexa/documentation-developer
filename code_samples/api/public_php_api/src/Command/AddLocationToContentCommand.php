@@ -45,8 +45,8 @@ class AddLocationToContentCommand extends Command
         $user = $this->userService->loadUserByLogin('admin');
         $this->permissionResolver->setCurrentUserReference($user);
 
-        $parentLocationId = $input->getArgument('parentLocationId');
-        $contentId = $input->getArgument('contentId');
+        $parentLocationId = (int) $input->getArgument('parentLocationId');
+        $contentId = (int) $input->getArgument('contentId');
 
         $locationCreateStruct = $this->locationService->newLocationCreateStruct($parentLocationId);
 

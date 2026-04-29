@@ -1,12 +1,11 @@
-# Content query Field Type
+# Content query field type
 
-This Field Type maps an executable Repository query to a Field.
+This field type maps an executable repository query to a field.
 
 | Name      | Internal name | Expected input |
 |-----------|---------------|----------------|
 | `Content query` | `ezcontentquery`   | `string`        |
 
-The Content query Field Type is available via the Query Field Type Bundle
-provided by the [fieldtype-query](https://github.com/ibexa/fieldtype-query) package.
+The Content query field type is available via the Query field type Bundle provided by the [fieldtype-query](https://github.com/ibexa/fieldtype-query) package.
 
-For information about the Field Type's usage, see [Content queries](content_queries.md#content-query-field).
+For information about the field type's usage, see [Content queries](content_queries.md#content-query-field).

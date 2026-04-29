@@ -9,7 +9,6 @@ a digital experience platform that is based on the Symfony Full Stack Framework 
 
 1. Ibexa DXP Developer Hub: https://developers.ibexa.co
 1. Ibexa DXP Repository: https://github.com/ibexa/oss
-1. Open JIRA board: https://issues.ibexa.co
 1. Ibexa Website: https://ibexa.co
 1. User documentation: https://doc.ibexa.co/projects/userguide
 
@@ -52,7 +51,31 @@ mkdocs serve
 After a short while your documentation should be reachable at http://localhost:8000. If it isn't, check the output
 of the command.
 
+### markdownlint
+
+This repository uses [markdownlint-cli2](https://github.com/DavidAnson/markdownlint-cli2) to check Markdown formatting, including table syntax.
+
+Install dependencies:
+
+```bash
+yarn install
+```
+
+Run the linter:
+
+```bash
+yarn markdownlint
+```
+
+Some issues can be fixed automatically:
+
+```bash
+yarn markdownlint --fix
+```
+
 ## Testing the code samples
+
+### PHPStan
 
 This repository uses PHPStan to test the code samples. To run the tests locally execute the commands below:
 ```bash

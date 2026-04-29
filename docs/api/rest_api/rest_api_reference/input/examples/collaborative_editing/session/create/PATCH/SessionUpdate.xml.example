@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CollaborationSession media-type="application/vnd.ibexa.api.ContentSession+xml">
+    <id>3</id>
+    <token>dc1b9c13-6e56-4aca-a1f1-b64bfa8ddca4</token>
+    <createdAt>2025-09-19T10:53:40+00:00</createdAt>
+    <updatedAt>2025-09-19T11:26:39+00:00</updatedAt>
+    <ParticipantList media-type="application/vnd.ibexa.api.ParticipantList+xml">
+        <Participant media-type="application/vnd.ibexa.api.InternalParticipant+xml">
+            <id>4</id>
+            <name>Administrator User</name>
+            <scope>view</scope>
+            <User media-type="application/vnd.ibexa.api.User+xml" href="/api/ibexa/v2/user/users/14"/>
+            <createdAt>2025-09-19T10:53:40+00:00</createdAt>
+            <updatedAt>2025-09-19T10:53:40+00:00</updatedAt>
+        </Participant>
+        <Participant media-type="application/vnd.ibexa.api.ExternalParticipant+xml">
+            <id>5</id>
+            <name>user@link.invalid</name>
+            <scope>view</scope>
+            <email>user@link.invalid</email>
+            <createdAt>2025-09-19T10:53:40+00:00</createdAt>
+            <updatedAt>2025-09-19T10:53:40+00:00</updatedAt>
+        </Participant>
+    </ParticipantList>
+    <Owner media-type="application/vnd.ibexa.api.User+xml" href="/api/ibexa/v2/user/users/14"/>
+    <isActive>true</isActive>
+    <hasPublicLink>true</hasPublicLink>
+    <VersionInfo>
+        <id>517</id>
+        <versionNo>1</versionNo>
+        <status>PUBLISHED</status>
+        <modificationDate>2025-09-17T08:05:26+00:00</modificationDate>
+        <Creator media-type="application/vnd.ibexa.api.User+xml" href="/api/ibexa/v2/user/users/14"/>
+        <creationDate>2025-09-17T08:05:26+00:00</creationDate>
+        <initialLanguageCode>eng-GB</initialLanguageCode>
+        <languageCodes>eng-GB</languageCodes>
+        <VersionTranslationInfo media-type="application/vnd.ibexa.api.VersionTranslationInfo+xml">
+            <Language>
+                <languageCode>eng-GB</languageCode>
+            </Language>
+        </VersionTranslationInfo>
+        <names>
+            <value languageCode="eng-GB">Tags</value>
+        </names>
+        <Content media-type="application/vnd.ibexa.api.ContentInfo+xml" href="/api/ibexa/v2/content/objects/57"/>
+    </VersionInfo>
+    <Language media-type="application/vnd.ibexa.api.Language+xml" href="/api/ibexa/v2/languages/eng-GB">
+        <languageId>2</languageId>
+        <languageCode>eng-GB</languageCode>
+        <name>English (United Kingdom)</name>
+    </Language>
+</CollaborationSession>

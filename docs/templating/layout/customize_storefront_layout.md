@@ -5,17 +5,33 @@ edition: commerce
 
 # Customize storefront layout
 
-The built-in storefront offers a set of templates covering all functionalities of a shop,
-divided into smaller components.
+The built-in storefront offers a set of templates covering all functionalities of a shop, divided into smaller components.
 
 To customize your shop, you can override either whole templates, or specific components.
 The built-in templates belong to the `storefront` [theme](design_engine.md).
 To override any of them, copy its directory structure in your template directory.
 
+## Customize with Twig Components
+
+You can customize parts of the storefront by using [Twig components](components.md).
+It allows you to inject your own widgets, extending the storefront behavior.
+
+The available groups for the storefront are:
+
+| Group name | Template file |
+|---|---|
+| `storefront-before-maincart` | `vendor/ibexa/storefront/src/bundle/Resources/views/themes/storefront/cart/component/maincart/maincart.html.twig` |
+| `storefront-after-maincart` | `vendor/ibexa/storefront/src/bundle/Resources/views/themes/storefront/cart/component/maincart/maincart.html.twig` |
+| `storefront-before-minicart` | `vendor/ibexa/storefront/src/bundle/Resources/views/themes/storefront/cart/component/minicart/minicart.html.twig` |
+| `storefront-after-minicart` | `vendor/ibexa/storefront/src/bundle/Resources/views/themes/storefront/cart/component/minicart/minicart.html.twig` |
+| `storefront-before-add-to-cart` | `vendor/ibexa/storefront/src/bundle/Resources/views/themes/storefront/cart/component/add_to_cart/add_to_cart.html.twig` |
+| `storefront-after-add-to-cart` | `vendor/ibexa/storefront/src/bundle/Resources/views/themes/storefront/cart/component/add_to_cart/add_to_cart.html.twig` |
+| `storefront-before-summary` | `vendor/ibexa/storefront/src/bundle/Resources/views/themes/storefront/cart/component/summary/summary.html.twig` |
+| `storefront-after-summary` | `vendor/ibexa/storefront/src/bundle/Resources/views/themes/storefront/cart/component/summary/summary.html.twig` |
+
 ## Template customization example
 
-As an example, to change the cart display when it contains no products,
-you need to override [`vendor/ibexa/storefront/src/bundle/Resources/views/themes/storefront/cart/component/maincart/maincart_empty_cart.html.twig`](https://github.com/ibexa/storefront/blob/main/src/bundle/Resources/views/themes/storefront/cart/component/maincart/maincart_empty_cart.html.twig) template.
+As an example, to change the cart display when it contains no products, you need to override `vendor/ibexa/storefront/src/bundle/Resources/views/themes/storefront/cart/component/maincart/maincart_empty_cart.html.twig` template.
 
 To do it, create your own template in `templates/theme/storefront/cart/component/maincart/maincart_empty_cart.html.twig`.
 
@@ -85,9 +101,9 @@ The most important templates are:
 
 To avoid self-reference, `@IbexaCart` is used instead of `@ibexadesign`.
 
-Built-in components are not styled, so you can freely customize them according to your needs.
-You can add CSS classes to the base Twig using attributes' objects.
-For example, if you want to add custom CSS classes to quantity input in Add to Cart component, use the following:
+Built-in components aren't styled, so you can freely customize them according to your needs.
+You can add CSS classes to the base Twig by using attribute objects.
+For example, to add custom CSS classes to quantity input in the "Add to Cart" component, use the following:
 
 ```html+twig
 {% set quantity_input_attr = {
@@ -136,7 +152,8 @@ Next, add the button in the Twig file.
 ### Main cart
 
 You must customize the base widget for the main cart view, because out-of-the-box it consists only of the container with items.
-Each item consists of `<div>` wrappers with quantity input and remove item button. With customization you can add layout containers and items' data such as title or price.
+Each item consists of `<div>` wrappers with quantity input and remove item button.
+With customization you can add layout containers and items' data such as title or price.
 
 Available Twigs:
 
@@ -174,11 +191,11 @@ Available Twig:
 
 with parameters:
 
-    - `is_disabled`
-    - `attr`
-    - `product_code`
-    - `quantity_input_attr`
-    - `add_to_cart_btn_attr`
+- `is_disabled`
+- `attr`
+- `product_code`
+- `quantity_input_attr`
+- `add_to_cart_btn_attr`
 
 JavaScript class:
 
@@ -195,9 +212,9 @@ Available Twig:
 
 with parameters:
 
-    - `count`
-    - `attr`
-    - `counter_attr`
+- `count`
+- `attr`
+- `counter_attr`
 
 ### Checkout
 
@@ -214,8 +231,7 @@ with parameters:
 
 ### Summary
 
-You could extend the summary widget to let buyers navigate from this view, 
-for example, to checkout, or back to shopping, by adding respective buttons.
+You could extend the summary widget to let buyers navigate from this view, for example, to checkout, or back to shopping, by adding respective buttons.
 
 |Template|Component|
 |---|---|

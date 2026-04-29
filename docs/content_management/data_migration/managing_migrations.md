@@ -1,14 +1,13 @@
 ---
 description: Manage data migrations by adding files, converting from Kaliop migration bundle, checking migration status, and setting up configuration.
+month_change: false
 ---
 
 # Managing migrations
 
 ## Converting migration files
 
-If you want to convert a file from the format used by the
-[Kaliop migration bundle](https://github.com/kaliop-uk/ezmigrationbundle)
-to the current migration format, use the `ibexa:migrations:kaliop:convert` command.
+If you want to convert a file from the format used by the [Kaliop migration bundle](https://github.com/kaliop-uk/ezmigrationbundle) to the current migration format, use the `ibexa:migrations:kaliop:convert` command.
 
 The source file must use Kaliop mode and type combinations.
 The converter handles Kaliop types that are different from [[= product_name_base =]] types.
@@ -23,12 +22,11 @@ You can also convert multiple files using `ibexa:migrations:kaliop:bulk-convert`
 php bin/console ibexa:migrations:kaliop:bulk-convert --recursive kaliop_files ibexa_files
 ```
 
-If you do not specify the output folder, the command overwrites the input files.
+If you don't specify the output folder, the command overwrites the input files.
 
 ## Adding migration files
 
-Use the `ibexa:migrations:import` command to add files to the migration folder defined in configuration
-(by default, `src/Migrations/Ibexa/migrations`).
+Use the `ibexa:migrations:import` command to add files to the migration folder defined in configuration (by default, `src/Migrations/Ibexa/migrations`).
 
 ``` bash
 php bin/console ibexa:migrations:import my_data_export.yaml
@@ -36,8 +34,7 @@ php bin/console ibexa:migrations:import my_data_export.yaml
 
 ## Checking migration status
 
-To check the status of migration files in the migration folder defined in configuration,
-run the following command:
+To check the status of migration files in the migration folder defined in configuration, run the following command:
 
 ``` bash
 php bin/console ibexa:migrations:status
@@ -69,11 +66,10 @@ bin/console config:dump-reference ibexa_migrations
 
 References are key-value pairs necessary when one migration depends on another.
 
-Since some migrations generate object properties (like IDs) during their execution, which cannot be known in advance,
-references provide migrations with the ability to use previously created object properties in further migrations.
+Since some migrations generate object properties (like IDs) during their execution, which cannot be known in advance, references provide migrations with the ability to use previously created object properties in further migrations.
 They can be subsequently used by passing them in their desired place with `reference:` prefix.
 
-The example below creates a content item of type "folder", and stores its Location path as `"ref_path__folder__media"`.
+The example below creates the content item of type "folder" named "Media" below the root, and stores its location path as `"ref__path__folder__media"` to use it later while creating a related role.
 Then this reference is reused as part of a new role, as a limitation.
 
 ```yaml
@@ -104,10 +100,10 @@ Then this reference is reused as part of a new role, as a limitation.
             name: ref__content__folder__media
             type: content_id
         -
-            name: ref_location__folder__media
+            name: ref__location__folder__media
             type: location_id
         -
-            name: ref_path__folder__media
+            name: ref__path__folder__media
             type: path
 
 -
@@ -122,35 +118,40 @@ Then this reference is reused as part of a new role, as a limitation.
             limitations:
                 -
                     identifier: Subtree
-                    values: ['reference:ref_path__folder__media']
+                    values: ['reference:ref__path__folder__media']
 
 ```
 
-By default, reference files are located in a separate directory `src/Migrations/Ibexa/references`
-(see [previewing reference](#preview-configuration)
-`ibexa_migrations.migration_directory` and `ibexa_migrations.references_files_subdir` options).
+By default, references are stored in memory and can be reused within the same migration file without additional steps.
 
-Reference files are **NOT** loaded by default. A separate step (type: "reference", mode: "load", with filename as "value")
-is required. Similarly, saving a reference file is done using type: "reference", mode: "save" step, with filename.
+To reuse them across different migration files, you can save them to disk.
+Reference files are located in a separate directory `src/Migrations/Ibexa/references` (for more information, see [previewing reference](#preview-configuration) `ibexa_migrations.migration_directory` and `ibexa_migrations.references_files_subdir` options).
+When saving references, existing files with the same name are overwritten.
 
-For example:
+Reference files **aren't** loaded by default. A separate step (`type: reference`, `mode: load`, with `filename` with a relative path as value) is required.
+Similarly, saving a reference file is done using `type: reference`, `mode: save` step, with filename.
+
+References must be **loaded before** they can be used in the same migration file.
+The order of migration steps matters - they are executed sequentially from top to bottom.
+
 ```yaml
 -
     type: reference
     mode: load
-    filename: 'references.yaml'
+    filename: 'references/references.yaml' # Load references created by other migrations
 
+# Use them
+-
+    type: content
+    mode: create
+    # ...
+
+# Save any new references if needed
 -
     type: reference
     mode: save
-    # You can also use 'references.yaml', in this case it is overridden
-    filename: 'new_references.yaml'
+    filename: 'references/new_references.yaml'
 ```
-
-!!! note
-
-    You don't need to save references if they are used in the same migration file.
-    References are stored in memory during migration, whether they are used or not.
 
 ## Available reference types
 

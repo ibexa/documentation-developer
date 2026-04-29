@@ -1,14 +1,12 @@
 ---
-description: The cart component covers adding items to the shopping cart, as well as previewing and modifying the cart information.
+description: The cart component covers adding items to the shopping cart, and previewing or modifying the cart information.
 edition: commerce
 ---
 
 # Cart
 
-The cart component is a foundation of the Commerce offering delivered as part 
-of [[= product_name =]].
-It covers actions related to the creation and handling of a list of products 
-that the buyer intends to purchase.
+The cart component is a foundation of the Commerce offering delivered as part of [[= product_name_com =]].
+It covers actions related to the creation and handling of a list of products that the buyer intends to purchase.
 
 The component exposes the following:
 
@@ -27,42 +25,34 @@ Cart constructor takes the following arguments:
 
 ## Cart data handling
 
-Cart data is handled by two storages, depending on whether the buyer is anonymous 
-or has been authenticated.
-Information that relates to anonymous users is stored in the PHP session, while 
-registered user data is stored in a database.
+Cart data is handled by two storages, depending on whether the buyer is anonymous or has been authenticated.
+Information that relates to anonymous users is stored in the PHP session, while registered user data is stored in a database.
 
-By default, anonymous users can add items to cart, but to display the cart view, 
-they have to log in and transition into an authenticated user.
+By default, anonymous users can add items to cart, but to display the cart view, they have to log in and transition into an authenticated user.
 
-!!! note 
+!!! note
 
-    For information about roles and permissions that control access to the cart, 
-    see [Permission use cases](permission_use_cases.md#commerce).
+    For information about roles and permissions that control access to the cart, see [Permission use cases](permission_use_cases.md#commerce).
 
 ### Cart data merging
 
-When a buyer browses the storefront anonymously and fills the cart with items, 
-anonymous cart data is stored in the PHP session storage.
-Then, when an anonymous user logs into the storefront, cart data from the PHP session 
-storage is persisted and merged with any cart information that might already exist in the database for this authenticated user.
+When a buyer browses the storefront anonymously and fills the cart with items, anonymous cart data is stored in the PHP session storage.
+Then, when an anonymous user logs into the storefront, cart data from the PHP session storage is persisted and merged with any cart information that might already exist in the database for this authenticated user.
 
 If no previous cart data exists, a new cart is created.
 
 ### Cart data validation
 
-When a buyer tries to add products to the cart, increase cart item quantity or proceed to checkout, the cart component performs cart item validation and checks whether:
+When a buyer tries to add products to the cart, increase cart item quantity, or proceed to checkout, the cart component performs cart item validation and checks whether:
 
-- the product is available 
-- the requested quantity of product is available 
-- the product is available at a price in the currency selected for the cart 
+- the product is available
+- the requested quantity of product is available
+- the product is available at a price in the currency selected for the cart
 
 ## Front-end perspective
 
-From the front-end perspective, the cart consists of a main `Cart` object 
-and several widgets.
-`Cart` is a standalone JavaScript object that manages cart data and has no user interface, 
-while widgets consist of JavaScript code and accompanying Twig templates.
+From the front-end perspective, the cart consists of a main `Cart` object and several widgets.
+`Cart` is a standalone JavaScript object that manages cart data and has no user interface, while widgets consist of JavaScript code and accompanying Twig templates.
 
 ### Cart service object
 
@@ -85,12 +75,11 @@ document.body.addEventListener(
 );
 ```
 
-### Cart service 
+### Cart service
 
-The Cart package provides `Ibexa\Contracts\Cart\CartServiceInterface` Symfony service, 
-which is the entrypoint for calling the [backend API](cart_api.md).
+The Cart package provides `Ibexa\Contracts\Cart\CartServiceInterface` Symfony service, which is the entrypoint for calling the [backend API](cart_api.md).
 
-You can import the service using the following code:
+You can import the service with the following code:
 
 ```js
 import * as cartService from '@ibexa-cart/src/bundle/Resources/public/js/service/cart';
@@ -103,7 +92,7 @@ cartService.deleteCartEntry(cartIdentifier, entryIdentifier);
 ```
 
 Every cart service function returns a `Promise` object with a parsed response.
-When the request is not `OK`, it can throw an error with the response `statusText`.
+When the request isn't `OK`, it can throw an error with the response `statusText`.
 
 - `loadUserCarts(ownerId)` - loads 10 user carts
 - `loadCartSummary(cartIdentifier)` - load cart summary data

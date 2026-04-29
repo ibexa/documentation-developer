@@ -1,3 +1,7 @@
+---
+description: FloatAttributeRange Search Criterion
+---
+
 # FloatAttributeRange Criterion
 
 The `FloatAttributeRange` Search Criterion searches for products by the range of values of their float attribute.

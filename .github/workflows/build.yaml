@@ -17,7 +17,7 @@ jobs:
         runs-on: ubuntu-latest
         strategy:
             matrix:
-                python-version: [3.8]
+                python-version: [3.13]
 
         steps:
             - uses: actions/checkout@v4
@@ -35,10 +35,17 @@ jobs:
             - name: Run PHP CS Fixer
               run: tools/php-cs-fixer/vendor/bin/php-cs-fixer fix --config=.php-cs-fixer.php -v --show-progress=dots
 
+            - name: Run Prettier
+              run: |
+                    yarn install
+                    yarn prettier-test --write
+                    rm -rf node_modules 
+                    rm yarn.lock
+
             - name: Commit changes
               uses: stefanzweifel/git-auto-commit-action@v4
               with:
-                  commit_message: PHP CS Fixes
+                  commit_message: PHP & JS CS Fixes
 
             - name: Install dependencies
               run: |
@@ -48,6 +55,27 @@ jobs:
             - name: Run build
               run: |
                   mkdocs build --strict
+
+            - name: Verify that there are no variables in generated HTML
+              run: |
+                    # Check for raw MkDocs variables in the generated HTML
+                    if grep -Erl "\[\[=.*=\]\]" site > /dev/null; then
+                        echo "Raw variables detected in the following files:"
+                        grep -Erl "\[\[=.*=\]\]" site
+                        exit 1
+                    fi
+
+    markdownlint:
+        runs-on: ubuntu-latest
+        if: github.event_name == 'pull_request'
+
+        steps:
+            - uses: actions/checkout@v4
+
+            - name: Run markdownlint
+              uses: DavidAnson/markdownlint-cli2-action@v20
+              with:
+                  globs: "docs/**/*.md"
 
     vale-check:
         runs-on: ubuntu-latest
@@ -66,41 +94,7 @@ jobs:
                   mv vale-styles-main/* vale-styles-main/.vale.ini .
 
             - name: Run Vale.sh
-              uses: errata-ai/vale-action@reviewdog
+              uses: vale-cli/vale-action@v2
               with:
                   reporter: github-check
                   filter_mode: added
-
-    code-samples:
-        name: Validate code samples
-        runs-on: "ubuntu-22.04"
-        strategy:
-            matrix:
-                php:
-                    - "8.3"
-        steps:
-            - uses: actions/checkout@v4
-
-            - name: Setup PHP Action
-              uses: shivammathur/setup-php@v2
-              with:
-                  php-version: ${{ matrix.php }}
-                  coverage: none
-                  extensions: "pdo_sqlite, gd"
-                  tools: cs2pr
-
-            -   name: Add composer keys for private packagist
-                run: |
-                    composer config http-basic.updates.ibexa.co $SATIS_NETWORK_KEY $SATIS_NETWORK_TOKEN
-                    composer config github-oauth.github.com $TRAVIS_GITHUB_TOKEN
-                env:
-                    SATIS_NETWORK_KEY: ${{ secrets.SATIS_NETWORK_KEY }}
-                    SATIS_NETWORK_TOKEN: ${{ secrets.SATIS_NETWORK_TOKEN }}
-                    TRAVIS_GITHUB_TOKEN: ${{ secrets.TRAVIS_GITHUB_TOKEN }}
-
-            - uses: ramsey/composer-install@v3
-              with:
-                    dependency-versions: highest
-
-            - name: Run PHPStan analysis
-              run: composer phpstan

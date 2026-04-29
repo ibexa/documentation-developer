@@ -1,0 +1,2185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+            <title>DiscountCreateStruct | PHP API Reference (Ibexa Documentation)</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="The base class for all value objects and structs." />
+        
+    <base href="../">
+    <link rel="icon" href="images/favicon.png"/>
+            <link rel="stylesheet" href="css/base.css">
+        <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css">
+                    <script src="https://cdn.jsdelivr.net/npm/fuse.js@3.4.6"></script>
+        <script src="js/search.js"></script>
+        <script defer src="js/searchIndex.js"></script>
+    
+
+    <script>
+        window.symfonyVersion = '5.4';
+        window.addEventListener('keyup', (event) => {
+            if (event.key === '/') {
+                event.stopImmediatePropagation();
+            }
+        });
+    </script>
+</head>
+<body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue-grey" data-md-color-accent="deep-orange">
+    <div class="popover popover--copied">Copied!</div>
+
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+
+    <header class="md-header" data-md-component="header">
+    <nav class="md-header__inner md-grid" aria-label="">
+        
+<a href="../php_api/"
+   title="PHP API Reference"
+   aria-label="PHP API Reference"
+   class="md-header__button md-logo"
+>
+    <img src="./images/ibexa-dxp-logo.png">
+</a>
+        <div class="md-header__switcher push">
+    <div class="md-flex__ellipsis md-header__title switcher docs-switcher" data-md-component="title">
+        <div class="switcher__selected-item" tab-index="-1">
+            <div class="switcher__label" title="Developer Documentation">Developer Documentation</div>
+        </div>
+        <div class="switcher__list">
+            <dl>
+                <strong>
+                    <dd>
+                        <a href="/" title="Developer Documentation">Developer Documentation</a>
+                    </dd>
+                </strong>
+                <dd>
+                    <a href="/projects/userguide" title="User Documentation">User Documentation</a>
+                </dd>
+                <dd>
+                    <a href="/projects/connect" title="Connect Documentation">Connect Documentation</a>
+                </dd>
+            </dl>
+        </div>
+    </div>
+</div>
+        <div class="md-header__switcher">
+    <div class="md-flex__ellipsis md-header__title switcher version-switcher" data-md-component="title">
+        <div class="rst-other-versions switcher__list"></div>
+    </div>
+</div>
+        <div class="md-search" data-md-component="search" role="dialog">
+    <label class="md-search__overlay" for="__search"></label>
+    <div class="md-search__inner phpdocumentor-search" role="search" data-search-form>
+        <form class="md-search__form" name="search" >
+            <span class="algolia-autocomplete algolia-autocomplete-left">
+                <input
+                    type="search"
+                    id="search_input"
+                    class="md-search__input phpdocumentor-field phpdocumentor-search__field"
+                    name="query"
+                    aria-label="Search"
+                    placeholder="Search"
+                    autocapitalize="off"
+                    autocorrect="off"
+                    autocomplete="off"
+                    spellcheck="false"
+                    data-md-component="search-query"
+                    data-md-state="active"
+                    required
+                >
+                <label class="md-search__icon md-icon" for="__search">
+                    <img src="images/search.svg" alt="search">
+                </label>
+                <span
+    class="ds-dropdown-menu ds-with-1 phpdocumentor-search-results phpdocumentor-search-results--hidden"
+    role="listbox"
+    data-search-results
+>
+    <button class="phpdocumentor-search-results__close"><i class="fas fa-times"></i></button>
+    <div class="ds-dataset-1">
+        <ul class="ds-suggestions phpdocumentor-search-results__entries">
+        </ul>
+    </div>
+</span>
+            </span>
+        </form>
+    </div>
+</div>
+        <div class="md-header__source">
+                                        <a href="https://github.com/ibexa/documentation-developer/tree/master/docs/api/php_api" title="" class="source-github">
+        <div class="md-source__icon md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 512"><!--! Font Awesome Free 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M186.1 328.7c0 20.9-10.9 55.1-36.7 55.1s-36.7-34.2-36.7-55.1 10.9-55.1 36.7-55.1 36.7 34.2 36.7 55.1zM480 278.2c0 31.9-3.2 65.7-17.5 95-37.9 76.6-142.1 74.8-216.7 74.8-75.8 0-186.2 2.7-225.6-74.8-14.6-29-20.2-63.1-20.2-95 0-41.9 13.9-81.5 41.5-113.6-5.2-15.8-7.7-32.4-7.7-48.8 0-21.5 4.9-32.3 14.6-51.8 45.3 0 74.3 9 108.8 36 29-6.9 58.8-10 88.7-10 27 0 54.2 2.9 80.4 9.2 34-26.7 63-35.2 107.8-35.2 9.8 19.5 14.6 30.3 14.6 51.8 0 16.4-2.6 32.7-7.7 48.2 27.5 32.4 39 72.3 39 114.2zm-64.3 50.5c0-43.9-26.7-82.6-73.5-82.6-18.9 0-37 3.4-56 6-14.9 2.3-29.8 3.2-45.1 3.2-15.2 0-30.1-.9-45.1-3.2-18.7-2.6-37-6-56-6-46.8 0-73.5 38.7-73.5 82.6 0 87.8 80.4 101.3 150.4 101.3h48.2c70.3 0 150.6-13.4 150.6-101.3zm-82.6-55.1c-25.8 0-36.7 34.2-36.7 55.1s10.9 55.1 36.7 55.1 36.7-34.2 36.7-55.1-10.9-55.1-36.7-55.1z"></path></svg>
+        </div>
+        View on GitHub
+    </a>
+</div>
+    </nav>
+</header>
+
+    <div class="md-container" data-md-component="container">
+        <main class="md-main" data-md-component="main">
+            <div class="md-main__inner md-grid">
+                
+<div class="main_nav" id="nav-container">
+    <div class="nav-loading-wrapper" style="padding: 2rem; text-align: center; color: #666;">
+        <p>Loading navigation...</p>
+    </div>
+</div>
+
+<script>
+(function() {
+    var navPath = document.baseURI + '/index.html';
+    var cached = sessionStorage.getItem('phpdoc-nav');
+    var navContainer = document.getElementById('nav-container');
+
+    function loadNav(html) {
+        // Use innerHTML to replace content while keeping the nav-container div
+        navContainer.innerHTML = html;
+
+        // Restore scroll position if saved
+        var scrollWrap = navContainer.querySelector('.md-sidebar__scrollwrap');
+        if (scrollWrap) {
+            var scrollPos = sessionStorage.getItem('nav-scroll');
+            if (scrollPos) {
+                scrollWrap.scrollTop = parseInt(scrollPos, 10);
+            }
+
+            // Save scroll position on scroll
+            scrollWrap.addEventListener('scroll', function() {
+                sessionStorage.setItem('nav-scroll', scrollWrap.scrollTop);
+            });
+        }
+
+        // Highlight current page in navigation
+        activeMenu(window, window.document);
+    }
+
+    if (cached) {
+        // Use cached navigation
+        loadNav(cached);
+    } else {
+        // Fetch navigation
+        fetch(navPath)
+            .then(function(r) {
+                if (!r.ok) throw new Error('HTTP ' + r.status);
+                return r.text();
+            })
+            .then(function(html) {
+                parser = new DOMParser();
+                doc = parser.parseFromString(html, 'text/html');
+                nav = doc.querySelector('.main_nav_content');
+                sessionStorage.setItem('phpdoc-nav', nav.outerHTML);
+                loadNav(nav.outerHTML);
+            })
+            .catch(function(err) {
+                console.error('Navigation load failed:', err);
+                navContainer.innerHTML = '<div class="main_nav_content"><div style="padding: 1rem; color: #c00;">Navigation failed to load. <a href="index.html">Go to index</a></div></div><div class="main_nav__resize-handler"></div>';
+            })
+        ;
+    }
+})();
+</script>
+
+<noscript>
+    <div class="main_nav">
+        <div class="main_nav_content">
+            <div class="site-header" id="site-name">
+                <a href=".">PHP API Reference</a>
+            </div>
+            <div style="padding: 1rem; background: #ffe; border: 1px solid #cc0;">
+                <p><strong>JavaScript is disabled.</strong></p>
+                <p>Navigation requires JavaScript. Please enable it or go to <a href="namespaces/ibexa-contracts.html"><code>Ibexa\\Contracts</code></a> to navigate.</p>
+            </div>
+        </div>
+        <div class="main_nav__resize-handler"></div>
+    </div>
+</noscript>
+
+
+                <div class="md-content" data-md-component="content">
+                    <article class="md-content__inner md-typeset">
+                        <div>
+                                
+<ul class="breadcrumbs">
+            <li class="breadcrumb-item">
+            <a href="namespaces/ibexa.html">Ibexa</a>
+            &gt;
+        </li>
+            <li class="breadcrumb-item">
+            <a href="namespaces/ibexa-contracts.html">Contracts</a>
+            &gt;
+        </li>
+            <li class="breadcrumb-item">
+            <a href="namespaces/ibexa-contracts-discounts.html">Discounts</a>
+            &gt;
+        </li>
+            <li class="breadcrumb-item">
+            <a href="namespaces/ibexa-contracts-discounts-value.html">Value</a>
+            &gt;
+        </li>
+            <li class="breadcrumb-item">
+            <a href="namespaces/ibexa-contracts-discounts-value-struct.html">Struct</a>
+            &gt;
+        </li>
+        <li class="breadcrumb-item breadcrumb-item-current">
+        <span>
+            DiscountCreateStruct
+        </span>
+    </li>
+</ul>
+    
+<div class="content-header">
+            <div class="pills">
+                    
+                    
+            <div class="pill optional-pill" title="Included in the optional package&#x000A;ibexa/discounts"></div>
+            </div>
+        <h1 id="DiscountCreateStruct">
+        DiscountCreateStruct            </h1>
+            <button class="content-header__copy-fqcn copy-to-clipboard" title="Ibexa\Contracts\Discounts\Value\Struct\DiscountCreateStruct" data-copy-value="Ibexa\Contracts\Discounts\Value\Struct\DiscountCreateStruct">Copy FQCN</button>
+        <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/discounts/src/contracts/Value/Struct/DiscountCreateStruct.php">
+        <abbr title="vendor/ibexa/discounts/src/contracts/Value/Struct/DiscountCreateStruct.php">DiscountCreateStruct.php</abbr>
+                :
+        <span title="at line 19">19</span>
+                <img src="./images/copy.svg" title="Copy path" />
+    </div>
+                                <div class="content-header__subheader">Final</div>
+                
+                    <div class="content-header__subheader">
+                Extends <a href="classes/Ibexa-Contracts-Core-Repository-Values-ValueObject.html"><abbr title="\Ibexa\Contracts\Core\Repository\Values\ValueObject">ValueObject</abbr></a>
+            </div>
+        
+                    <div class="content-header__subheader">
+                Implements
+                                    <a href="classes/Ibexa-Contracts-Discounts-Value-Struct-TranslationAwareDiscountStructInterface.html"><abbr title="\Ibexa\Contracts\Discounts\Value\Struct\TranslationAwareDiscountStructInterface">TranslationAwareDiscountStructInterface</abbr></a>,                                     <a href="classes/Ibexa-Contracts-Discounts-Value-Struct-DiscountStructInterface.html"><abbr title="\Ibexa\Contracts\Discounts\Value\Struct\DiscountStructInterface">DiscountStructInterface</abbr></a>                            </div>
+        
+                    <div class="content-header__subheader">
+                Uses
+                                    <a href="classes/Ibexa-Contracts-Discounts-Value-Struct-TranslationAwareDiscountStructTrait.html"><abbr title="\Ibexa\Contracts\Discounts\Value\Struct\TranslationAwareDiscountStructTrait">TranslationAwareDiscountStructTrait</abbr></a>                            </div>
+                </div>
+        <p>The base class for all value objects and structs.</p>
+
+
+    <section class="phpdocumentor-description">
+        <p>Supports read-only properties by marking them as protected.
+In this case they will only be writable using constructor, and need to be documented
+using <code class="prettyprint">@property-read &lt;type&gt; &lt;$var&gt;</code> annotation in class doc in addition to inline property doc.
+Writable properties must be public and must be documented inline.</p>
+
+    </section>
+
+                    
+
+    
+    
+
+
+
+
+    
+    
+    
+    <h2 id="methods">
+        Methods<a class="headerlink" href="classes/Ibexa-Contracts-Discounts-Value-Struct-DiscountCreateStruct.html#methods" title="Permanent link">¶</a>
+</h2>
+
+            <div class="content-header">
+        <h3 id="method___construct">
+                <img src="./images/public.svg" alt="public" title="public" />__construct()
+            <a class="headerlink" href="classes/Ibexa-Contracts-Discounts-Value-Struct-DiscountCreateStruct.html#method___construct" title="Permanent link">¶</a>
+    </h3>
+        <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/discounts/src/contracts/Value/Struct/DiscountCreateStruct.php">
+        <abbr title="vendor/ibexa/discounts/src/contracts/Value/Struct/DiscountCreateStruct.php">DiscountCreateStruct.php</abbr>
+                :
+        <span title="at line 92">92</span>
+                <img src="./images/copy.svg" title="Copy path" />
+    </div>
+        </div>
+    <p>Construct object optionally with a set of properties.</p>
+
+<div class="highlight">
+    <table class="highlighttable">
+        <tbody>
+            <tr>
+                <td class="linenos">
+                    <div class="linenodiv">
+                        <pre><span></span></pre>
+                    </div>
+                </td>
+                <td class="code">
+                    <div>
+                        <pre><code><span class="phpdocumentor-signature__visibility">public </span><span class="phpdocumentor-signature__name">__construct</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type">string|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$identifier</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$type</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">int|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$priority</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">bool|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$isEnabled</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type"><a href="classes/Ibexa-Contracts-Core-Repository-Values-User-User.html"><abbr title="\Ibexa\Contracts\Core\Repository\Values\User\User">User</abbr></a>|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$user</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type"><a href="classes/Ibexa-Contracts-Discounts-Value-DiscountRuleInterface.html"><abbr title="\Ibexa\Contracts\Discounts\Value\DiscountRuleInterface">DiscountRuleInterface</abbr></a>|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$rule</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type"><abbr title="\DateTimeInterface">DateTimeInterface</abbr>|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$startDate</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, <a href="classes/Ibexa-Contracts-Discounts-Value-DiscountConditionInterface.html"><abbr title="\Ibexa\Contracts\Discounts\Value\DiscountConditionInterface">DiscountConditionInterface</abbr></a>&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$conditions</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">[]</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, <a href="classes/Ibexa-Contracts-Discounts-Value-Struct-DiscountTranslationStruct.html"><abbr title="\Ibexa\Contracts\Discounts\Value\Struct\DiscountTranslationStruct">DiscountTranslationStruct</abbr></a>&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$translations</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">[]</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type"><abbr title="\DateTimeInterface">DateTimeInterface</abbr>|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$endDate</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type"><abbr title="\DateTimeInterface">DateTimeInterface</abbr>|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$createdAt</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type"><abbr title="\DateTimeInterface">DateTimeInterface</abbr>|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$updatedAt</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type"><a href="classes/Ibexa-Contracts-Core-Collection-MapInterface.html"><abbr title="\Ibexa\Contracts\Core\Collection\MapInterface">MapInterface</abbr></a>&lt;string, mixed&gt;|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$context</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span></code></pre>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div class="phpdocumentor-label-line">
+    </div>
+    <h4>Parameters</h4>
+    <table class="method-parameters">
+        <thead>
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Type</th>
+                <th scope="col">Default value</th>
+                <th scope="col">Description</th>
+            </tr>
+        </thead>
+        <tbody>
+                            <tr>
+                    <td>
+                        $identifier
+                    </td>
+                    <td>
+                        string|null
+                    </td>
+                    <td>
+                                                                                    null
+                                                                        </td>
+                    <td class="empty">
+                                                    -
+                                            </td>
+                </tr>
+                            <tr>
+                    <td>
+                        $type
+                    </td>
+                    <td>
+                        string|null
+                    </td>
+                    <td>
+                                                                                    null
+                                                                        </td>
+                    <td class="empty">
+                                                    -
+                                            </td>
+                </tr>
+                            <tr>
+                    <td>
+                        $priority
+                    </td>
+                    <td>
+                        int|null
+                    </td>
+                    <td>
+                                                                                    null
+                                                                        </td>
+                    <td class="empty">
+                                                    -
+                                            </td>
+                </tr>
+                            <tr>
+                    <td>
+                        $isEnabled
+                    </td>
+                    <td>
+                        bool|null
+                    </td>
+                    <td>
+                                                                                    null
+                                                                        </td>
+                    <td class="empty">
+                                                    -
+                                            </td>
+                </tr>
+                            <tr>
+                    <td>
+                        $user
+                    </td>
+                    <td>
+                        <a href="classes/Ibexa-Contracts-Core-Repository-Values-User-User.html"><abbr title="\Ibexa\Contracts\Core\Repository\Values\User\User">User</abbr></a>|null
+                    </td>
+                    <td>
+                                                                                    null
+                                                                        </td>
+                    <td class="empty">
+                                                    -
+                                            </td>
+                </tr>
+                            <tr>
+                    <td>
+                        $rule
+                    </td>
+                    <td>
+                        <a href="classes/Ibexa-Contracts-Discounts-Value-DiscountRuleInterface.html"><abbr title="\Ibexa\Contracts\Discounts\Value\DiscountRuleInterface">DiscountRuleInterface</abbr></a>|null
+                    </td>
+                    <td>
+                                                                                    null
+                                                                        </td>
+                    <td class="empty">
+                                                    -
+                                            </td>
+                </tr>
+                            <tr>
+                    <td>
+                        $startDate
+                    </td>
+                    <td>
+                        <abbr title="\DateTimeInterface">DateTimeInterface</abbr>|null
+                    </td>
+                    <td>
+                                                                                    null
+                                                                        </td>
+                    <td class="empty">
+                                                    -
+                                            </td>
+                </tr>
+                            <tr>
+                    <td>
+                        $conditions
+                    </td>
+                    <td>
+                        array&lt;string|int, <a href="classes/Ibexa-Contracts-Discounts-Value-DiscountConditionInterface.html"><abbr title="\Ibexa\Contracts\Discounts\Value\DiscountConditionInterface">DiscountConditionInterface</abbr></a>&gt;
+                    </td>
+                    <td>
+                                                                                    []
+                                                                        </td>
+                    <td class="empty">
+                                                    -
+                                            </td>
+                </tr>
+                            <tr>
+                    <td>
+                        $translations
+                    </td>
+                    <td>
+                        array&lt;string|int, <a href="classes/Ibexa-Contracts-Discounts-Value-Struct-DiscountTranslationStruct.html"><abbr title="\Ibexa\Contracts\Discounts\Value\Struct\DiscountTranslationStruct">DiscountTranslationStruct</abbr></a>&gt;
+                    </td>
+                    <td>
+                                                                                    []
+                                                                        </td>
+                    <td class="empty">
+                                                    -
+                                            </td>
+                </tr>
+                            <tr>
+                    <td>
+                        $endDate
+                    </td>
+                    <td>
+                        <abbr title="\DateTimeInterface">DateTimeInterface</abbr>|null
+                    </td>
+                    <td>
+                                                                                    null
+                                                                        </td>
+                    <td class="empty">
+                                                    -
+                                            </td>
+                </tr>
+                            <tr>
+                    <td>
+                        $createdAt
+                    </td>
+                    <td>
+                        <abbr title="\DateTimeInterface">DateTimeInterface</abbr>|null
+                    </td>
+                    <td>
+                                                                                    null
+                                                                        </td>
+                    <td class="empty">
+                                                    -
+                                            </td>
+                </tr>
+                            <tr>
+                    <td>
+                        $updatedAt
+                    </td>
+                    <td>
+                        <abbr title="\DateTimeInterface">DateTimeInterface</abbr>|null
+                    </td>
+                    <td>
+                                                                                    null
+                                                                        </td>
+                    <td class="empty">
+                                                    -
+                                            </td>
+                </tr>
+                            <tr>
+                    <td>
+                        $context
+                    </td>
+                    <td>
+                        <a href="classes/Ibexa-Contracts-Core-Collection-MapInterface.html"><abbr title="\Ibexa\Contracts\Core\Collection\MapInterface">MapInterface</abbr></a>&lt;string, mixed&gt;|null
+                    </td>
+                    <td>
+                                                                                    null
+                                                                        </td>
+                    <td class="empty">
+                                                    -
+                                            </td>
+                </tr>
+                    </tbody>
+    </table>
+                    
+    
+                <div class="content-header">
+        <h3 id="method_addCondition">
+                <img src="./images/public.svg" alt="public" title="public" />addCondition()
+            <a class="headerlink" href="classes/Ibexa-Contracts-Discounts-Value-Struct-DiscountCreateStruct.html#method_addCondition" title="Permanent link">¶</a>
+    </h3>
+        <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/discounts/src/contracts/Value/Struct/DiscountCreateStruct.php">
+        <abbr title="vendor/ibexa/discounts/src/contracts/Value/Struct/DiscountCreateStruct.php">DiscountCreateStruct.php</abbr>
+                :
+        <span title="at line 216">216</span>
+                <img src="./images/copy.svg" title="Copy path" />
+    </div>
+        </div>
+
+<div class="highlight">
+    <table class="highlighttable">
+        <tbody>
+            <tr>
+                <td class="linenos">
+                    <div class="linenodiv">
+                        <pre><span></span></pre>
+                    </div>
+                </td>
+                <td class="code">
+                    <div>
+                        <pre><code><span class="phpdocumentor-signature__visibility">public </span><span class="phpdocumentor-signature__name">addCondition</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/Ibexa-Contracts-Discounts-Value-DiscountConditionInterface.html"><abbr title="\Ibexa\Contracts\Discounts\Value\DiscountConditionInterface">DiscountConditionInterface</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$condition</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">$this</span></code></pre>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div class="phpdocumentor-label-line">
+    </div>
+    <h4>Parameters</h4>
+    <table class="method-parameters">
+        <thead>
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Type</th>
+                <th scope="col">Default value</th>
+                <th scope="col">Description</th>
+            </tr>
+        </thead>
+        <tbody>
+                            <tr>
+                    <td>
+                        $condition
+                    </td>
+                    <td>
+                        <a href="classes/Ibexa-Contracts-Discounts-Value-DiscountConditionInterface.html"><abbr title="\Ibexa\Contracts\Discounts\Value\DiscountConditionInterface">DiscountConditionInterface</abbr></a>
+                    </td>
+                    <td class="empty">
+                                                    -
+                                            </td>
+                    <td class="empty">
+                                                    -
+                                            </td>
+                </tr>
+                    </tbody>
+    </table>
+    <h4>Return values</h4>
+    <p class="phpdocumentor-signature__response_type">$this</p>
+                        
+    
+                <div class="content-header">
+        <h3 id="method_getConditions">
+                <img src="./images/public.svg" alt="public" title="public" />getConditions()
+            <a class="headerlink" href="classes/Ibexa-Contracts-Discounts-Value-Struct-DiscountCreateStruct.html#method_getConditions" title="Permanent link">¶</a>
+    </h3>
+        <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/discounts/src/contracts/Value/Struct/DiscountCreateStruct.php">
+        <abbr title="vendor/ibexa/discounts/src/contracts/Value/Struct/DiscountCreateStruct.php">DiscountCreateStruct.php</abbr>
+                :
+        <span title="at line 211">211</span>
+                <img src="./images/copy.svg" title="Copy path" />
+    </div>
+        </div>
+
+<div class="highlight">
+    <table class="highlighttable">
+        <tbody>
+            <tr>
+                <td class="linenos">
+                    <div class="linenodiv">
+                        <pre><span></span></pre>
+                    </div>
+                </td>
+                <td class="code">
+                    <div>
+                        <pre><code><span class="phpdocumentor-signature__visibility">public </span><span class="phpdocumentor-signature__name">getConditions</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Ibexa-Contracts-Discounts-Value-DiscountConditionInterface.html"><abbr title="\Ibexa\Contracts\Discounts\Value\DiscountConditionInterface">DiscountConditionInterface</abbr></a>&gt;</span></code></pre>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div class="phpdocumentor-label-line">
+    </div>
+    <h4>Return values</h4>
+    <p class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Ibexa-Contracts-Discounts-Value-DiscountConditionInterface.html"><abbr title="\Ibexa\Contracts\Discounts\Value\DiscountConditionInterface">DiscountConditionInterface</abbr></a>&gt;</p>
+                        
+    
+                <div class="content-header">
+        <h3 id="method_getContext">
+                <img src="./images/public.svg" alt="public" title="public" />getContext()
+            <a class="headerlink" href="classes/Ibexa-Contracts-Discounts-Value-Struct-DiscountCreateStruct.html#method_getContext" title="Permanent link">¶</a>
+    </h3>
+        <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/discounts/src/contracts/Value/Struct/DiscountCreateStruct.php">
+        <abbr title="vendor/ibexa/discounts/src/contracts/Value/Struct/DiscountCreateStruct.php">DiscountCreateStruct.php</abbr>
+                :
+        <span title="at line 266">266</span>
+                <img src="./images/copy.svg" title="Copy path" />
+    </div>
+        </div>
+    <p>Returns the discount context.</p>
+
+<div class="highlight">
+    <table class="highlighttable">
+        <tbody>
+            <tr>
+                <td class="linenos">
+                    <div class="linenodiv">
+                        <pre><span></span></pre>
+                    </div>
+                </td>
+                <td class="code">
+                    <div>
+                        <pre><code><span class="phpdocumentor-signature__visibility">public </span><span class="phpdocumentor-signature__name">getContext</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Ibexa-Contracts-Core-Collection-MapInterface.html"><abbr title="\Ibexa\Contracts\Core\Collection\MapInterface">MapInterface</abbr></a>&lt;string, mixed&gt;|null</span></code></pre>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div class="phpdocumentor-label-line">
+    </div>
+    <section class="phpdocumentor-description">
+        <p>The context is a set of key-value pairs that can be used to store additional information about the discount.</p>
+
+    </section>
+    <h4>Return values</h4>
+    <p class="phpdocumentor-signature__response_type"><a href="classes/Ibexa-Contracts-Core-Collection-MapInterface.html"><abbr title="\Ibexa\Contracts\Core\Collection\MapInterface">MapInterface</abbr></a>&lt;string, mixed&gt;|null</p>
+                        
+    
+                <div class="content-header">
+        <h3 id="method_getCreatedAt">
+                <img src="./images/public.svg" alt="public" title="public" />getCreatedAt()
+            <a class="headerlink" href="classes/Ibexa-Contracts-Discounts-Value-Struct-DiscountCreateStruct.html#method_getCreatedAt" title="Permanent link">¶</a>
+    </h3>
+        <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/discounts/src/contracts/Value/Struct/DiscountCreateStruct.php">
+        <abbr title="vendor/ibexa/discounts/src/contracts/Value/Struct/DiscountCreateStruct.php">DiscountCreateStruct.php</abbr>
+                :
+        <span title="at line 242">242</span>
+                <img src="./images/copy.svg" title="Copy path" />
+    </div>
+        </div>
+
+<div class="highlight">
+    <table class="highlighttable">
+        <tbody>
+            <tr>
+                <td class="linenos">
+                    <div class="linenodiv">
+                        <pre><span></span></pre>
+                    </div>
+                </td>
+                <td class="code">
+                    <div>
+                        <pre><code><span class="phpdocumentor-signature__visibility">public </span><span class="phpdocumentor-signature__name">getCreatedAt</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><abbr title="\DateTimeInterface">DateTimeInterface</abbr>|null</span></code></pre>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div class="phpdocumentor-label-line">
+    </div>
+    <h4>Return values</h4>
+    <p class="phpdocumentor-signature__response_type"><abbr title="\DateTimeInterface">DateTimeInterface</abbr>|null</p>
+                        
+    
+                <div class="content-header">
+        <h3 id="method_getEndDate">
+                <img src="./images/public.svg" alt="public" title="public" />getEndDate()
+            <a class="headerlink" href="classes/Ibexa-Contracts-Discounts-Value-Struct-DiscountCreateStruct.html#method_getEndDate" title="Permanent link">¶</a>
+    </h3>
+        <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/discounts/src/contracts/Value/Struct/DiscountCreateStruct.php">
+        <abbr title="vendor/ibexa/discounts/src/contracts/Value/Struct/DiscountCreateStruct.php">DiscountCreateStruct.php</abbr>
+                :
+        <span title="at line 230">230</span>
+                <img src="./images/copy.svg" title="Copy path" />
+    </div>
+        </div>
+
+<div class="highlight">
+    <table class="highlighttable">
+        <tbody>
+            <tr>
+                <td class="linenos">
+                    <div class="linenodiv">
+                        <pre><span></span></pre>
+                    </div>
+                </td>
+                <td class="code">
+                    <div>
+                        <pre><code><span class="phpdocumentor-signature__visibility">public </span><span class="phpdocumentor-signature__name">getEndDate</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><abbr title="\DateTimeInterface">DateTimeInterface</abbr>|null</span></code></pre>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div class="phpdocumentor-label-line">
+    </div>
+    <h4>Return values</h4>
+    <p class="phpdocumentor-signature__response_type"><abbr title="\DateTimeInterface">DateTimeInterface</abbr>|null</p>
+                        
+    
+                <div class="content-header">
+        <h3 id="method_getIdentifier">
+                <img src="./images/public.svg" alt="public" title="public" />getIdentifier()
+            <a class="headerlink" href="classes/Ibexa-Contracts-Discounts-Value-Struct-DiscountCreateStruct.html#method_getIdentifier" title="Permanent link">¶</a>
+    </h3>
+        <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/discounts/src/contracts/Value/Struct/DiscountCreateStruct.php">
+        <abbr title="vendor/ibexa/discounts/src/contracts/Value/Struct/DiscountCreateStruct.php">DiscountCreateStruct.php</abbr>
+                :
+        <span title="at line 124">124</span>
+                <img src="./images/copy.svg" title="Copy path" />
+    </div>
+        </div>
+
+<div class="highlight">
+    <table class="highlighttable">
+        <tbody>
+            <tr>
+                <td class="linenos">
+                    <div class="linenodiv">
+                        <pre><span></span></pre>
+                    </div>
+                </td>
+                <td class="code">
+                    <div>
+                        <pre><code><span class="phpdocumentor-signature__visibility">public </span><span class="phpdocumentor-signature__name">getIdentifier</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string|null</span></code></pre>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div class="phpdocumentor-label-line">
+    </div>
+    <h4>Return values</h4>
+    <p class="phpdocumentor-signature__response_type">string|null</p>
+                        
+    
+                <div class="content-header">
+        <h3 id="method_getPriority">
+                <img src="./images/public.svg" alt="public" title="public" />getPriority()
+            <a class="headerlink" href="classes/Ibexa-Contracts-Discounts-Value-Struct-DiscountCreateStruct.html#method_getPriority" title="Permanent link">¶</a>
+    </h3>
+        <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/discounts/src/contracts/Value/Struct/DiscountCreateStruct.php">
+        <abbr title="vendor/ibexa/discounts/src/contracts/Value/Struct/DiscountCreateStruct.php">DiscountCreateStruct.php</abbr>
+                :
+        <span title="at line 151">151</span>
+                <img src="./images/copy.svg" title="Copy path" />
+    </div>
+        </div>
+
+<div class="highlight">
+    <table class="highlighttable">
+        <tbody>
+            <tr>
+                <td class="linenos">
+                    <div class="linenodiv">
+                        <pre><span></span></pre>
+                    </div>
+                </td>
+                <td class="code">
+                    <div>
+                        <pre><code><span class="phpdocumentor-signature__visibility">public </span><span class="phpdocumentor-signature__name">getPriority</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">int|null</span></code></pre>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div class="phpdocumentor-label-line">
+    </div>
+    <h4>Return values</h4>
+    <p class="phpdocumentor-signature__response_type">int|null</p>
+                        
+    
+                <div class="content-header">
+        <h3 id="method_getRule">
+                <img src="./images/public.svg" alt="public" title="public" />getRule()
+            <a class="headerlink" href="classes/Ibexa-Contracts-Discounts-Value-Struct-DiscountCreateStruct.html#method_getRule" title="Permanent link">¶</a>
+    </h3>
+        <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/discounts/src/contracts/Value/Struct/DiscountCreateStruct.php">
+        <abbr title="vendor/ibexa/discounts/src/contracts/Value/Struct/DiscountCreateStruct.php">DiscountCreateStruct.php</abbr>
+                :
+        <span title="at line 187">187</span>
+                <img src="./images/copy.svg" title="Copy path" />
+    </div>
+        </div>
+
+<div class="highlight">
+    <table class="highlighttable">
+        <tbody>
+            <tr>
+                <td class="linenos">
+                    <div class="linenodiv">
+                        <pre><span></span></pre>
+                    </div>
+                </td>
+                <td class="code">
+                    <div>
+                        <pre><code><span class="phpdocumentor-signature__visibility">public </span><span class="phpdocumentor-signature__name">getRule</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Ibexa-Contracts-Discounts-Value-DiscountRuleInterface.html"><abbr title="\Ibexa\Contracts\Discounts\Value\DiscountRuleInterface">DiscountRuleInterface</abbr></a>|null</span></code></pre>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div class="phpdocumentor-label-line">
+    </div>
+    <h4>Return values</h4>
+    <p class="phpdocumentor-signature__response_type"><a href="classes/Ibexa-Contracts-Discounts-Value-DiscountRuleInterface.html"><abbr title="\Ibexa\Contracts\Discounts\Value\DiscountRuleInterface">DiscountRuleInterface</abbr></a>|null</p>
+                        
+    
+                <div class="content-header">
+        <h3 id="method_getStartDate">
+                <img src="./images/public.svg" alt="public" title="public" />getStartDate()
+            <a class="headerlink" href="classes/Ibexa-Contracts-Discounts-Value-Struct-DiscountCreateStruct.html#method_getStartDate" title="Permanent link">¶</a>
+    </h3>
+        <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/discounts/src/contracts/Value/Struct/DiscountCreateStruct.php">
+        <abbr title="vendor/ibexa/discounts/src/contracts/Value/Struct/DiscountCreateStruct.php">DiscountCreateStruct.php</abbr>
+                :
+        <span title="at line 199">199</span>
+                <img src="./images/copy.svg" title="Copy path" />
+    </div>
+        </div>
+
+<div class="highlight">
+    <table class="highlighttable">
+        <tbody>
+            <tr>
+                <td class="linenos">
+                    <div class="linenodiv">
+                        <pre><span></span></pre>
+                    </div>
+                </td>
+                <td class="code">
+                    <div>
+                        <pre><code><span class="phpdocumentor-signature__visibility">public </span><span class="phpdocumentor-signature__name">getStartDate</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><abbr title="\DateTimeInterface">DateTimeInterface</abbr>|null</span></code></pre>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div class="phpdocumentor-label-line">
+    </div>
+    <h4>Return values</h4>
+    <p class="phpdocumentor-signature__response_type"><abbr title="\DateTimeInterface">DateTimeInterface</abbr>|null</p>
+                        
+    
+                <div class="content-header">
+        <h3 id="method_getTranslations">
+                <img src="./images/public.svg" alt="public" title="public" />getTranslations()
+            <a class="headerlink" href="classes/Ibexa-Contracts-Discounts-Value-Struct-TranslationAwareDiscountStructTrait.html#method_getTranslations" title="Permanent link">¶</a>
+    </h3>
+        <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/discounts/src/contracts/Value/Struct/TranslationAwareDiscountStructTrait.php">
+        <abbr title="vendor/ibexa/discounts/src/contracts/Value/Struct/TranslationAwareDiscountStructTrait.php">TranslationAwareDiscountStructTrait.php</abbr>
+                :
+        <span title="at line 19">19</span>
+                <img src="./images/copy.svg" title="Copy path" />
+    </div>
+        </div>
+
+<div class="highlight">
+    <table class="highlighttable">
+        <tbody>
+            <tr>
+                <td class="linenos">
+                    <div class="linenodiv">
+                        <pre><span></span></pre>
+                    </div>
+                </td>
+                <td class="code">
+                    <div>
+                        <pre><code><span class="phpdocumentor-signature__visibility">public </span><span class="phpdocumentor-signature__name">getTranslations</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Ibexa-Contracts-Discounts-Value-Struct-DiscountTranslationStruct.html"><abbr title="\Ibexa\Contracts\Discounts\Value\Struct\DiscountTranslationStruct">DiscountTranslationStruct</abbr></a>&gt;</span></code></pre>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div class="phpdocumentor-label-line">
+    </div>
+    <h4>Return values</h4>
+    <p class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Ibexa-Contracts-Discounts-Value-Struct-DiscountTranslationStruct.html"><abbr title="\Ibexa\Contracts\Discounts\Value\Struct\DiscountTranslationStruct">DiscountTranslationStruct</abbr></a>&gt;</p>
+                        
+    
+                <div class="content-header">
+        <h3 id="method_getType">
+                <img src="./images/public.svg" alt="public" title="public" />getType()
+            <a class="headerlink" href="classes/Ibexa-Contracts-Discounts-Value-Struct-DiscountCreateStruct.html#method_getType" title="Permanent link">¶</a>
+    </h3>
+        <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/discounts/src/contracts/Value/Struct/DiscountCreateStruct.php">
+        <abbr title="vendor/ibexa/discounts/src/contracts/Value/Struct/DiscountCreateStruct.php">DiscountCreateStruct.php</abbr>
+                :
+        <span title="at line 136">136</span>
+                <img src="./images/copy.svg" title="Copy path" />
+    </div>
+        </div>
+
+<div class="highlight">
+    <table class="highlighttable">
+        <tbody>
+            <tr>
+                <td class="linenos">
+                    <div class="linenodiv">
+                        <pre><span></span></pre>
+                    </div>
+                </td>
+                <td class="code">
+                    <div>
+                        <pre><code><span class="phpdocumentor-signature__visibility">public </span><span class="phpdocumentor-signature__name">getType</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string|null</span></code></pre>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div class="phpdocumentor-label-line">
+    </div>
+    <h4>Return values</h4>
+    <p class="phpdocumentor-signature__response_type">string|null</p>
+                        
+    
+                <div class="content-header">
+        <h3 id="method_getUpdatedAt">
+                <img src="./images/public.svg" alt="public" title="public" />getUpdatedAt()
+            <a class="headerlink" href="classes/Ibexa-Contracts-Discounts-Value-Struct-DiscountCreateStruct.html#method_getUpdatedAt" title="Permanent link">¶</a>
+    </h3>
+        <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/discounts/src/contracts/Value/Struct/DiscountCreateStruct.php">
+        <abbr title="vendor/ibexa/discounts/src/contracts/Value/Struct/DiscountCreateStruct.php">DiscountCreateStruct.php</abbr>
+                :
+        <span title="at line 254">254</span>
+                <img src="./images/copy.svg" title="Copy path" />
+    </div>
+        </div>
+
+<div class="highlight">
+    <table class="highlighttable">
+        <tbody>
+            <tr>
+                <td class="linenos">
+                    <div class="linenodiv">
+                        <pre><span></span></pre>
+                    </div>
+                </td>
+                <td class="code">
+                    <div>
+                        <pre><code><span class="phpdocumentor-signature__visibility">public </span><span class="phpdocumentor-signature__name">getUpdatedAt</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><abbr title="\DateTimeInterface">DateTimeInterface</abbr>|null</span></code></pre>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div class="phpdocumentor-label-line">
+    </div>
+    <h4>Return values</h4>
+    <p class="phpdocumentor-signature__response_type"><abbr title="\DateTimeInterface">DateTimeInterface</abbr>|null</p>
+                        
+    
+                <div class="content-header">
+        <h3 id="method_getUser">
+                <img src="./images/public.svg" alt="public" title="public" />getUser()
+            <a class="headerlink" href="classes/Ibexa-Contracts-Discounts-Value-Struct-DiscountCreateStruct.html#method_getUser" title="Permanent link">¶</a>
+    </h3>
+        <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/discounts/src/contracts/Value/Struct/DiscountCreateStruct.php">
+        <abbr title="vendor/ibexa/discounts/src/contracts/Value/Struct/DiscountCreateStruct.php">DiscountCreateStruct.php</abbr>
+                :
+        <span title="at line 175">175</span>
+                <img src="./images/copy.svg" title="Copy path" />
+    </div>
+        </div>
+
+<div class="highlight">
+    <table class="highlighttable">
+        <tbody>
+            <tr>
+                <td class="linenos">
+                    <div class="linenodiv">
+                        <pre><span></span></pre>
+                    </div>
+                </td>
+                <td class="code">
+                    <div>
+                        <pre><code><span class="phpdocumentor-signature__visibility">public </span><span class="phpdocumentor-signature__name">getUser</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Ibexa-Contracts-Core-Repository-Values-User-User.html"><abbr title="\Ibexa\Contracts\Core\Repository\Values\User\User">User</abbr></a>|null</span></code></pre>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div class="phpdocumentor-label-line">
+    </div>
+    <h4>Return values</h4>
+    <p class="phpdocumentor-signature__response_type"><a href="classes/Ibexa-Contracts-Core-Repository-Values-User-User.html"><abbr title="\Ibexa\Contracts\Core\Repository\Values\User\User">User</abbr></a>|null</p>
+                        
+    
+                <div class="content-header">
+        <h3 id="method_isEnabled">
+                <img src="./images/public.svg" alt="public" title="public" />isEnabled()
+            <a class="headerlink" href="classes/Ibexa-Contracts-Discounts-Value-Struct-DiscountCreateStruct.html#method_isEnabled" title="Permanent link">¶</a>
+    </h3>
+        <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/discounts/src/contracts/Value/Struct/DiscountCreateStruct.php">
+        <abbr title="vendor/ibexa/discounts/src/contracts/Value/Struct/DiscountCreateStruct.php">DiscountCreateStruct.php</abbr>
+                :
+        <span title="at line 163">163</span>
+                <img src="./images/copy.svg" title="Copy path" />
+    </div>
+        </div>
+
+<div class="highlight">
+    <table class="highlighttable">
+        <tbody>
+            <tr>
+                <td class="linenos">
+                    <div class="linenodiv">
+                        <pre><span></span></pre>
+                    </div>
+                </td>
+                <td class="code">
+                    <div>
+                        <pre><code><span class="phpdocumentor-signature__visibility">public </span><span class="phpdocumentor-signature__name">isEnabled</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool|null</span></code></pre>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div class="phpdocumentor-label-line">
+    </div>
+    <h4>Return values</h4>
+    <p class="phpdocumentor-signature__response_type">bool|null</p>
+                        
+    
+                <div class="content-header">
+        <h3 id="method_setConditions">
+                <img src="./images/public.svg" alt="public" title="public" />setConditions()
+            <a class="headerlink" href="classes/Ibexa-Contracts-Discounts-Value-Struct-DiscountCreateStruct.html#method_setConditions" title="Permanent link">¶</a>
+    </h3>
+        <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/discounts/src/contracts/Value/Struct/DiscountCreateStruct.php">
+        <abbr title="vendor/ibexa/discounts/src/contracts/Value/Struct/DiscountCreateStruct.php">DiscountCreateStruct.php</abbr>
+                :
+        <span title="at line 223">223</span>
+                <img src="./images/copy.svg" title="Copy path" />
+    </div>
+        </div>
+
+<div class="highlight">
+    <table class="highlighttable">
+        <tbody>
+            <tr>
+                <td class="linenos">
+                    <div class="linenodiv">
+                        <pre><span></span></pre>
+                    </div>
+                </td>
+                <td class="code">
+                    <div>
+                        <pre><code><span class="phpdocumentor-signature__visibility">public </span><span class="phpdocumentor-signature__name">setConditions</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$conditions</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">$this</span></code></pre>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div class="phpdocumentor-label-line">
+    </div>
+    <h4>Parameters</h4>
+    <table class="method-parameters">
+        <thead>
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Type</th>
+                <th scope="col">Default value</th>
+                <th scope="col">Description</th>
+            </tr>
+        </thead>
+        <tbody>
+                            <tr>
+                    <td>
+                        $conditions
+                    </td>
+                    <td>
+                        array&lt;string|int, mixed&gt;
+                    </td>
+                    <td class="empty">
+                                                    -
+                                            </td>
+                    <td class="empty">
+                                                    -
+                                            </td>
+                </tr>
+                    </tbody>
+    </table>
+    <h4>Return values</h4>
+    <p class="phpdocumentor-signature__response_type">$this</p>
+                        
+    
+                <div class="content-header">
+        <h3 id="method_setContext">
+                <img src="./images/public.svg" alt="public" title="public" />setContext()
+            <a class="headerlink" href="classes/Ibexa-Contracts-Discounts-Value-Struct-DiscountCreateStruct.html#method_setContext" title="Permanent link">¶</a>
+    </h3>
+        <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/discounts/src/contracts/Value/Struct/DiscountCreateStruct.php">
+        <abbr title="vendor/ibexa/discounts/src/contracts/Value/Struct/DiscountCreateStruct.php">DiscountCreateStruct.php</abbr>
+                :
+        <span title="at line 271">271</span>
+                <img src="./images/copy.svg" title="Copy path" />
+    </div>
+        </div>
+    <p>Sets the discount context.</p>
+
+<div class="highlight">
+    <table class="highlighttable">
+        <tbody>
+            <tr>
+                <td class="linenos">
+                    <div class="linenodiv">
+                        <pre><span></span></pre>
+                    </div>
+                </td>
+                <td class="code">
+                    <div>
+                        <pre><code><span class="phpdocumentor-signature__visibility">public </span><span class="phpdocumentor-signature__name">setContext</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/Ibexa-Contracts-Core-Collection-MapInterface.html"><abbr title="\Ibexa\Contracts\Core\Collection\MapInterface">MapInterface</abbr></a>|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$context</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">self</span></code></pre>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div class="phpdocumentor-label-line">
+    </div>
+    <section class="phpdocumentor-description">
+        <p>The context is a set of key-value pairs that can be used to store additional information about the discount.</p>
+
+    </section>
+    <h4>Parameters</h4>
+    <table class="method-parameters">
+        <thead>
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Type</th>
+                <th scope="col">Default value</th>
+                <th scope="col">Description</th>
+            </tr>
+        </thead>
+        <tbody>
+                            <tr>
+                    <td>
+                        $context
+                    </td>
+                    <td>
+                        <a href="classes/Ibexa-Contracts-Core-Collection-MapInterface.html"><abbr title="\Ibexa\Contracts\Core\Collection\MapInterface">MapInterface</abbr></a>|null
+                    </td>
+                    <td class="empty">
+                                                    -
+                                            </td>
+                    <td class="empty">
+                                                    -
+                                            </td>
+                </tr>
+                    </tbody>
+    </table>
+    <h4>Return values</h4>
+    <p class="phpdocumentor-signature__response_type">self</p>
+                        
+    
+                <div class="content-header">
+        <h3 id="method_setCreatedAt">
+                <img src="./images/public.svg" alt="public" title="public" />setCreatedAt()
+            <a class="headerlink" href="classes/Ibexa-Contracts-Discounts-Value-Struct-DiscountCreateStruct.html#method_setCreatedAt" title="Permanent link">¶</a>
+    </h3>
+        <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/discounts/src/contracts/Value/Struct/DiscountCreateStruct.php">
+        <abbr title="vendor/ibexa/discounts/src/contracts/Value/Struct/DiscountCreateStruct.php">DiscountCreateStruct.php</abbr>
+                :
+        <span title="at line 247">247</span>
+                <img src="./images/copy.svg" title="Copy path" />
+    </div>
+        </div>
+
+<div class="highlight">
+    <table class="highlighttable">
+        <tbody>
+            <tr>
+                <td class="linenos">
+                    <div class="linenodiv">
+                        <pre><span></span></pre>
+                    </div>
+                </td>
+                <td class="code">
+                    <div>
+                        <pre><code><span class="phpdocumentor-signature__visibility">public </span><span class="phpdocumentor-signature__name">setCreatedAt</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><abbr title="\DateTimeInterface">DateTimeInterface</abbr>|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$createdAt</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">$this</span></code></pre>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div class="phpdocumentor-label-line">
+    </div>
+    <h4>Parameters</h4>
+    <table class="method-parameters">
+        <thead>
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Type</th>
+                <th scope="col">Default value</th>
+                <th scope="col">Description</th>
+            </tr>
+        </thead>
+        <tbody>
+                            <tr>
+                    <td>
+                        $createdAt
+                    </td>
+                    <td>
+                        <abbr title="\DateTimeInterface">DateTimeInterface</abbr>|null
+                    </td>
+                    <td class="empty">
+                                                    -
+                                            </td>
+                    <td class="empty">
+                                                    -
+                                            </td>
+                </tr>
+                    </tbody>
+    </table>
+    <h4>Return values</h4>
+    <p class="phpdocumentor-signature__response_type">$this</p>
+                        
+    
+                <div class="content-header">
+        <h3 id="method_setEnabled">
+                <img src="./images/public.svg" alt="public" title="public" />setEnabled()
+            <a class="headerlink" href="classes/Ibexa-Contracts-Discounts-Value-Struct-DiscountCreateStruct.html#method_setEnabled" title="Permanent link">¶</a>
+    </h3>
+        <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/discounts/src/contracts/Value/Struct/DiscountCreateStruct.php">
+        <abbr title="vendor/ibexa/discounts/src/contracts/Value/Struct/DiscountCreateStruct.php">DiscountCreateStruct.php</abbr>
+                :
+        <span title="at line 168">168</span>
+                <img src="./images/copy.svg" title="Copy path" />
+    </div>
+        </div>
+
+<div class="highlight">
+    <table class="highlighttable">
+        <tbody>
+            <tr>
+                <td class="linenos">
+                    <div class="linenodiv">
+                        <pre><span></span></pre>
+                    </div>
+                </td>
+                <td class="code">
+                    <div>
+                        <pre><code><span class="phpdocumentor-signature__visibility">public </span><span class="phpdocumentor-signature__name">setEnabled</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">bool&nbsp;</span><span class="phpdocumentor-signature__argument__name">$isEnabled</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">$this</span></code></pre>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div class="phpdocumentor-label-line">
+    </div>
+    <h4>Parameters</h4>
+    <table class="method-parameters">
+        <thead>
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Type</th>
+                <th scope="col">Default value</th>
+                <th scope="col">Description</th>
+            </tr>
+        </thead>
+        <tbody>
+                            <tr>
+                    <td>
+                        $isEnabled
+                    </td>
+                    <td>
+                        bool
+                    </td>
+                    <td class="empty">
+                                                    -
+                                            </td>
+                    <td class="empty">
+                                                    -
+                                            </td>
+                </tr>
+                    </tbody>
+    </table>
+    <h4>Return values</h4>
+    <p class="phpdocumentor-signature__response_type">$this</p>
+                        
+    
+                <div class="content-header">
+        <h3 id="method_setEndDate">
+                <img src="./images/public.svg" alt="public" title="public" />setEndDate()
+            <a class="headerlink" href="classes/Ibexa-Contracts-Discounts-Value-Struct-DiscountCreateStruct.html#method_setEndDate" title="Permanent link">¶</a>
+    </h3>
+        <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/discounts/src/contracts/Value/Struct/DiscountCreateStruct.php">
+        <abbr title="vendor/ibexa/discounts/src/contracts/Value/Struct/DiscountCreateStruct.php">DiscountCreateStruct.php</abbr>
+                :
+        <span title="at line 235">235</span>
+                <img src="./images/copy.svg" title="Copy path" />
+    </div>
+        </div>
+
+<div class="highlight">
+    <table class="highlighttable">
+        <tbody>
+            <tr>
+                <td class="linenos">
+                    <div class="linenodiv">
+                        <pre><span></span></pre>
+                    </div>
+                </td>
+                <td class="code">
+                    <div>
+                        <pre><code><span class="phpdocumentor-signature__visibility">public </span><span class="phpdocumentor-signature__name">setEndDate</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><abbr title="\DateTimeInterface">DateTimeInterface</abbr>|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$endDate</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">$this</span></code></pre>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div class="phpdocumentor-label-line">
+    </div>
+    <h4>Parameters</h4>
+    <table class="method-parameters">
+        <thead>
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Type</th>
+                <th scope="col">Default value</th>
+                <th scope="col">Description</th>
+            </tr>
+        </thead>
+        <tbody>
+                            <tr>
+                    <td>
+                        $endDate
+                    </td>
+                    <td>
+                        <abbr title="\DateTimeInterface">DateTimeInterface</abbr>|null
+                    </td>
+                    <td class="empty">
+                                                    -
+                                            </td>
+                    <td class="empty">
+                                                    -
+                                            </td>
+                </tr>
+                    </tbody>
+    </table>
+    <h4>Return values</h4>
+    <p class="phpdocumentor-signature__response_type">$this</p>
+                        
+    
+                <div class="content-header">
+        <h3 id="method_setIdentifier">
+                <img src="./images/public.svg" alt="public" title="public" />setIdentifier()
+            <a class="headerlink" href="classes/Ibexa-Contracts-Discounts-Value-Struct-DiscountCreateStruct.html#method_setIdentifier" title="Permanent link">¶</a>
+    </h3>
+        <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/discounts/src/contracts/Value/Struct/DiscountCreateStruct.php">
+        <abbr title="vendor/ibexa/discounts/src/contracts/Value/Struct/DiscountCreateStruct.php">DiscountCreateStruct.php</abbr>
+                :
+        <span title="at line 129">129</span>
+                <img src="./images/copy.svg" title="Copy path" />
+    </div>
+        </div>
+
+<div class="highlight">
+    <table class="highlighttable">
+        <tbody>
+            <tr>
+                <td class="linenos">
+                    <div class="linenodiv">
+                        <pre><span></span></pre>
+                    </div>
+                </td>
+                <td class="code">
+                    <div>
+                        <pre><code><span class="phpdocumentor-signature__visibility">public </span><span class="phpdocumentor-signature__name">setIdentifier</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$identifier</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">$this</span></code></pre>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div class="phpdocumentor-label-line">
+    </div>
+    <h4>Parameters</h4>
+    <table class="method-parameters">
+        <thead>
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Type</th>
+                <th scope="col">Default value</th>
+                <th scope="col">Description</th>
+            </tr>
+        </thead>
+        <tbody>
+                            <tr>
+                    <td>
+                        $identifier
+                    </td>
+                    <td>
+                        string
+                    </td>
+                    <td class="empty">
+                                                    -
+                                            </td>
+                    <td class="empty">
+                                                    -
+                                            </td>
+                </tr>
+                    </tbody>
+    </table>
+    <h4>Return values</h4>
+    <p class="phpdocumentor-signature__response_type">$this</p>
+                        
+    
+                <div class="content-header">
+        <h3 id="method_setPriority">
+                <img src="./images/public.svg" alt="public" title="public" />setPriority()
+            <a class="headerlink" href="classes/Ibexa-Contracts-Discounts-Value-Struct-DiscountCreateStruct.html#method_setPriority" title="Permanent link">¶</a>
+    </h3>
+        <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/discounts/src/contracts/Value/Struct/DiscountCreateStruct.php">
+        <abbr title="vendor/ibexa/discounts/src/contracts/Value/Struct/DiscountCreateStruct.php">DiscountCreateStruct.php</abbr>
+                :
+        <span title="at line 156">156</span>
+                <img src="./images/copy.svg" title="Copy path" />
+    </div>
+        </div>
+
+<div class="highlight">
+    <table class="highlighttable">
+        <tbody>
+            <tr>
+                <td class="linenos">
+                    <div class="linenodiv">
+                        <pre><span></span></pre>
+                    </div>
+                </td>
+                <td class="code">
+                    <div>
+                        <pre><code><span class="phpdocumentor-signature__visibility">public </span><span class="phpdocumentor-signature__name">setPriority</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$priority</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">$this</span></code></pre>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div class="phpdocumentor-label-line">
+    </div>
+    <h4>Parameters</h4>
+    <table class="method-parameters">
+        <thead>
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Type</th>
+                <th scope="col">Default value</th>
+                <th scope="col">Description</th>
+            </tr>
+        </thead>
+        <tbody>
+                            <tr>
+                    <td>
+                        $priority
+                    </td>
+                    <td>
+                        int
+                    </td>
+                    <td class="empty">
+                                                    -
+                                            </td>
+                    <td class="empty">
+                                                    -
+                                            </td>
+                </tr>
+                    </tbody>
+    </table>
+    <h4>Return values</h4>
+    <p class="phpdocumentor-signature__response_type">$this</p>
+                        
+    
+                <div class="content-header">
+        <h3 id="method_setRule">
+                <img src="./images/public.svg" alt="public" title="public" />setRule()
+            <a class="headerlink" href="classes/Ibexa-Contracts-Discounts-Value-Struct-DiscountCreateStruct.html#method_setRule" title="Permanent link">¶</a>
+    </h3>
+        <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/discounts/src/contracts/Value/Struct/DiscountCreateStruct.php">
+        <abbr title="vendor/ibexa/discounts/src/contracts/Value/Struct/DiscountCreateStruct.php">DiscountCreateStruct.php</abbr>
+                :
+        <span title="at line 192">192</span>
+                <img src="./images/copy.svg" title="Copy path" />
+    </div>
+        </div>
+
+<div class="highlight">
+    <table class="highlighttable">
+        <tbody>
+            <tr>
+                <td class="linenos">
+                    <div class="linenodiv">
+                        <pre><span></span></pre>
+                    </div>
+                </td>
+                <td class="code">
+                    <div>
+                        <pre><code><span class="phpdocumentor-signature__visibility">public </span><span class="phpdocumentor-signature__name">setRule</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/Ibexa-Contracts-Discounts-Value-DiscountRuleInterface.html"><abbr title="\Ibexa\Contracts\Discounts\Value\DiscountRuleInterface">DiscountRuleInterface</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$rule</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">$this</span></code></pre>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div class="phpdocumentor-label-line">
+    </div>
+    <h4>Parameters</h4>
+    <table class="method-parameters">
+        <thead>
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Type</th>
+                <th scope="col">Default value</th>
+                <th scope="col">Description</th>
+            </tr>
+        </thead>
+        <tbody>
+                            <tr>
+                    <td>
+                        $rule
+                    </td>
+                    <td>
+                        <a href="classes/Ibexa-Contracts-Discounts-Value-DiscountRuleInterface.html"><abbr title="\Ibexa\Contracts\Discounts\Value\DiscountRuleInterface">DiscountRuleInterface</abbr></a>
+                    </td>
+                    <td class="empty">
+                                                    -
+                                            </td>
+                    <td class="empty">
+                                                    -
+                                            </td>
+                </tr>
+                    </tbody>
+    </table>
+    <h4>Return values</h4>
+    <p class="phpdocumentor-signature__response_type">$this</p>
+                        
+    
+                <div class="content-header">
+        <h3 id="method_setStartDate">
+                <img src="./images/public.svg" alt="public" title="public" />setStartDate()
+            <a class="headerlink" href="classes/Ibexa-Contracts-Discounts-Value-Struct-DiscountCreateStruct.html#method_setStartDate" title="Permanent link">¶</a>
+    </h3>
+        <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/discounts/src/contracts/Value/Struct/DiscountCreateStruct.php">
+        <abbr title="vendor/ibexa/discounts/src/contracts/Value/Struct/DiscountCreateStruct.php">DiscountCreateStruct.php</abbr>
+                :
+        <span title="at line 204">204</span>
+                <img src="./images/copy.svg" title="Copy path" />
+    </div>
+        </div>
+
+<div class="highlight">
+    <table class="highlighttable">
+        <tbody>
+            <tr>
+                <td class="linenos">
+                    <div class="linenodiv">
+                        <pre><span></span></pre>
+                    </div>
+                </td>
+                <td class="code">
+                    <div>
+                        <pre><code><span class="phpdocumentor-signature__visibility">public </span><span class="phpdocumentor-signature__name">setStartDate</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><abbr title="\DateTimeInterface">DateTimeInterface</abbr>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$startDate</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">$this</span></code></pre>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div class="phpdocumentor-label-line">
+    </div>
+    <h4>Parameters</h4>
+    <table class="method-parameters">
+        <thead>
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Type</th>
+                <th scope="col">Default value</th>
+                <th scope="col">Description</th>
+            </tr>
+        </thead>
+        <tbody>
+                            <tr>
+                    <td>
+                        $startDate
+                    </td>
+                    <td>
+                        <abbr title="\DateTimeInterface">DateTimeInterface</abbr>
+                    </td>
+                    <td class="empty">
+                                                    -
+                                            </td>
+                    <td class="empty">
+                                                    -
+                                            </td>
+                </tr>
+                    </tbody>
+    </table>
+    <h4>Return values</h4>
+    <p class="phpdocumentor-signature__response_type">$this</p>
+                        
+    
+                <div class="content-header">
+        <h3 id="method_setTranslations">
+                <img src="./images/public.svg" alt="public" title="public" />setTranslations()
+            <a class="headerlink" href="classes/Ibexa-Contracts-Discounts-Value-Struct-TranslationAwareDiscountStructTrait.html#method_setTranslations" title="Permanent link">¶</a>
+    </h3>
+        <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/discounts/src/contracts/Value/Struct/TranslationAwareDiscountStructTrait.php">
+        <abbr title="vendor/ibexa/discounts/src/contracts/Value/Struct/TranslationAwareDiscountStructTrait.php">TranslationAwareDiscountStructTrait.php</abbr>
+                :
+        <span title="at line 29">29</span>
+                <img src="./images/copy.svg" title="Copy path" />
+    </div>
+        </div>
+
+<div class="highlight">
+    <table class="highlighttable">
+        <tbody>
+            <tr>
+                <td class="linenos">
+                    <div class="linenodiv">
+                        <pre><span></span></pre>
+                    </div>
+                </td>
+                <td class="code">
+                    <div>
+                        <pre><code><span class="phpdocumentor-signature__visibility">public </span><span class="phpdocumentor-signature__name">setTranslations</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, <a href="classes/Ibexa-Contracts-Discounts-Value-Struct-DiscountTranslationStruct.html"><abbr title="\Ibexa\Contracts\Discounts\Value\Struct\DiscountTranslationStruct">DiscountTranslationStruct</abbr></a>&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$translations</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">$this</span></code></pre>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div class="phpdocumentor-label-line">
+    </div>
+    <h4>Parameters</h4>
+    <table class="method-parameters">
+        <thead>
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Type</th>
+                <th scope="col">Default value</th>
+                <th scope="col">Description</th>
+            </tr>
+        </thead>
+        <tbody>
+                            <tr>
+                    <td>
+                        $translations
+                    </td>
+                    <td>
+                        array&lt;string|int, <a href="classes/Ibexa-Contracts-Discounts-Value-Struct-DiscountTranslationStruct.html"><abbr title="\Ibexa\Contracts\Discounts\Value\Struct\DiscountTranslationStruct">DiscountTranslationStruct</abbr></a>&gt;
+                    </td>
+                    <td class="empty">
+                                                    -
+                                            </td>
+                    <td class="empty">
+                                                    -
+                                            </td>
+                </tr>
+                    </tbody>
+    </table>
+    <h4>Return values</h4>
+    <p class="phpdocumentor-signature__response_type">$this</p>
+                        
+    
+                <div class="content-header">
+        <h3 id="method_setType">
+                <img src="./images/public.svg" alt="public" title="public" />setType()
+            <a class="headerlink" href="classes/Ibexa-Contracts-Discounts-Value-Struct-DiscountCreateStruct.html#method_setType" title="Permanent link">¶</a>
+    </h3>
+        <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/discounts/src/contracts/Value/Struct/DiscountCreateStruct.php">
+        <abbr title="vendor/ibexa/discounts/src/contracts/Value/Struct/DiscountCreateStruct.php">DiscountCreateStruct.php</abbr>
+                :
+        <span title="at line 144">144</span>
+                <img src="./images/copy.svg" title="Copy path" />
+    </div>
+        </div>
+
+<div class="highlight">
+    <table class="highlighttable">
+        <tbody>
+            <tr>
+                <td class="linenos">
+                    <div class="linenodiv">
+                        <pre><span></span></pre>
+                    </div>
+                </td>
+                <td class="code">
+                    <div>
+                        <pre><code><span class="phpdocumentor-signature__visibility">public </span><span class="phpdocumentor-signature__name">setType</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$type</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">$this</span></code></pre>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div class="phpdocumentor-label-line">
+    </div>
+    <h4>Parameters</h4>
+    <table class="method-parameters">
+        <thead>
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Type</th>
+                <th scope="col">Default value</th>
+                <th scope="col">Description</th>
+            </tr>
+        </thead>
+        <tbody>
+                            <tr>
+                    <td>
+                        $type
+                    </td>
+                    <td>
+                        string
+                    </td>
+                    <td class="empty">
+                                                    -
+                                            </td>
+                    <td class="empty">
+                                                    -
+                                            </td>
+                </tr>
+                    </tbody>
+    </table>
+    <h4>Return values</h4>
+    <p class="phpdocumentor-signature__response_type">$this</p>
+                        
+    
+                <div class="content-header">
+        <h3 id="method_setUpdatedAt">
+                <img src="./images/public.svg" alt="public" title="public" />setUpdatedAt()
+            <a class="headerlink" href="classes/Ibexa-Contracts-Discounts-Value-Struct-DiscountCreateStruct.html#method_setUpdatedAt" title="Permanent link">¶</a>
+    </h3>
+        <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/discounts/src/contracts/Value/Struct/DiscountCreateStruct.php">
+        <abbr title="vendor/ibexa/discounts/src/contracts/Value/Struct/DiscountCreateStruct.php">DiscountCreateStruct.php</abbr>
+                :
+        <span title="at line 259">259</span>
+                <img src="./images/copy.svg" title="Copy path" />
+    </div>
+        </div>
+
+<div class="highlight">
+    <table class="highlighttable">
+        <tbody>
+            <tr>
+                <td class="linenos">
+                    <div class="linenodiv">
+                        <pre><span></span></pre>
+                    </div>
+                </td>
+                <td class="code">
+                    <div>
+                        <pre><code><span class="phpdocumentor-signature__visibility">public </span><span class="phpdocumentor-signature__name">setUpdatedAt</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><abbr title="\DateTimeInterface">DateTimeInterface</abbr>|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$updatedAt</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">$this</span></code></pre>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div class="phpdocumentor-label-line">
+    </div>
+    <h4>Parameters</h4>
+    <table class="method-parameters">
+        <thead>
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Type</th>
+                <th scope="col">Default value</th>
+                <th scope="col">Description</th>
+            </tr>
+        </thead>
+        <tbody>
+                            <tr>
+                    <td>
+                        $updatedAt
+                    </td>
+                    <td>
+                        <abbr title="\DateTimeInterface">DateTimeInterface</abbr>|null
+                    </td>
+                    <td class="empty">
+                                                    -
+                                            </td>
+                    <td class="empty">
+                                                    -
+                                            </td>
+                </tr>
+                    </tbody>
+    </table>
+    <h4>Return values</h4>
+    <p class="phpdocumentor-signature__response_type">$this</p>
+                        
+    
+                <div class="content-header">
+        <h3 id="method_setUser">
+                <img src="./images/public.svg" alt="public" title="public" />setUser()
+            <a class="headerlink" href="classes/Ibexa-Contracts-Discounts-Value-Struct-DiscountCreateStruct.html#method_setUser" title="Permanent link">¶</a>
+    </h3>
+        <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/discounts/src/contracts/Value/Struct/DiscountCreateStruct.php">
+        <abbr title="vendor/ibexa/discounts/src/contracts/Value/Struct/DiscountCreateStruct.php">DiscountCreateStruct.php</abbr>
+                :
+        <span title="at line 180">180</span>
+                <img src="./images/copy.svg" title="Copy path" />
+    </div>
+        </div>
+
+<div class="highlight">
+    <table class="highlighttable">
+        <tbody>
+            <tr>
+                <td class="linenos">
+                    <div class="linenodiv">
+                        <pre><span></span></pre>
+                    </div>
+                </td>
+                <td class="code">
+                    <div>
+                        <pre><code><span class="phpdocumentor-signature__visibility">public </span><span class="phpdocumentor-signature__name">setUser</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/Ibexa-Contracts-Core-Repository-Values-User-User.html"><abbr title="\Ibexa\Contracts\Core\Repository\Values\User\User">User</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$user</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">$this</span></code></pre>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div class="phpdocumentor-label-line">
+    </div>
+    <h4>Parameters</h4>
+    <table class="method-parameters">
+        <thead>
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Type</th>
+                <th scope="col">Default value</th>
+                <th scope="col">Description</th>
+            </tr>
+        </thead>
+        <tbody>
+                            <tr>
+                    <td>
+                        $user
+                    </td>
+                    <td>
+                        <a href="classes/Ibexa-Contracts-Core-Repository-Values-User-User.html"><abbr title="\Ibexa\Contracts\Core\Repository\Values\User\User">User</abbr></a>
+                    </td>
+                    <td class="empty">
+                                                    -
+                                            </td>
+                    <td class="empty">
+                                                    -
+                                            </td>
+                </tr>
+                    </tbody>
+    </table>
+    <h4>Return values</h4>
+    <p class="phpdocumentor-signature__response_type">$this</p>
+                        
+    
+                <div class="content-header">
+        <h3 id="method_getProperties">
+                <img src="./images/protected.svg" alt="protected" title="protected" />getProperties()
+            <a class="headerlink" href="classes/Ibexa-Contracts-Core-Repository-Values-ValueObject.html#method_getProperties" title="Permanent link">¶</a>
+    </h3>
+        <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/core/src/contracts/Repository/Values/ValueObject.php">
+        <abbr title="vendor/ibexa/core/src/contracts/Repository/Values/ValueObject.php">ValueObject.php</abbr>
+                :
+        <span title="at line 54">54</span>
+                <img src="./images/copy.svg" title="Copy path" />
+    </div>
+        </div>
+    <p>Returns list of available properties&#039; names.</p>
+
+<div class="highlight">
+    <table class="highlighttable">
+        <tbody>
+            <tr>
+                <td class="linenos">
+                    <div class="linenodiv">
+                        <pre><span></span></pre>
+                    </div>
+                </td>
+                <td class="code">
+                    <div>
+                        <pre><code><span class="phpdocumentor-signature__visibility">protected </span><span class="phpdocumentor-signature__name">getProperties</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type">array&lt;int, string&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$dynamicProperties</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">[]</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;int, string&gt;</span></code></pre>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div class="phpdocumentor-label-line">
+    </div>
+    <section class="phpdocumentor-description">
+        <p>Override to add dynamic properties.</p>
+
+    </section>
+    <h4>Parameters</h4>
+    <table class="method-parameters">
+        <thead>
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Type</th>
+                <th scope="col">Default value</th>
+                <th scope="col">Description</th>
+            </tr>
+        </thead>
+        <tbody>
+                            <tr>
+                    <td>
+                        $dynamicProperties
+                    </td>
+                    <td>
+                        array&lt;int, string&gt;
+                    </td>
+                    <td>
+                                                                                    []
+                                                                        </td>
+                    <td>
+                                                        <section class="phpdocumentor-description">
+        <p>Additional dynamic properties exposed on the object</p>
+
+    </section>
+
+                                            </td>
+                </tr>
+                    </tbody>
+    </table>
+    <h4>Return values</h4>
+    <p class="phpdocumentor-signature__response_type">array&lt;int, string&gt;</p>
+                                                    
+    <h5 class="phpdocumentor-tag-list__heading">
+        Tags
+        <a href="classes/Ibexa-Contracts-Core-Repository-Values-ValueObject.html#method_getProperties#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                                                                                            <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">Serializerignore</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                                             <section class="phpdocumentor-description">
+        <p>()</p>
+
+    </section>
+
+                                    </dd>
+                        </dl>
+    
+                                </div>
+                    </article>
+                </div>
+
+                                    <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                        <div class="md-sidebar__scrollwrap">
+                            <div class="md-sidebar__inner">
+                                <nav class="md-nav md-nav--secondary" aria-label="">
+                                                
+            <label class="md-nav__title" for="__toc" title="DiscountCreateStruct">
+            DiscountCreateStruct
+        </label>
+    
+    <ul class="md-nav__list">
+                                    <li class="md-nav__item level-1 with-children">
+                <a href="classes/Ibexa-Contracts-Discounts-Value-Struct-DiscountCreateStruct.html#methods" title="Methods" class="md-nav__link">
+                    Methods
+                </a>
+                <nav class="md-nav">
+                    <ul class="md-nav__list">
+                                                    <li class="md-nav__item level-2">
+                                <a href="classes/Ibexa-Contracts-Discounts-Value-Struct-DiscountCreateStruct.html#method___construct" title="__construct" class="md-nav__link">
+                                    __construct()
+                                </a>
+                            </li>
+                                                    <li class="md-nav__item level-2">
+                                <a href="classes/Ibexa-Contracts-Discounts-Value-Struct-DiscountCreateStruct.html#method_addCondition" title="addCondition" class="md-nav__link">
+                                    addCondition()
+                                </a>
+                            </li>
+                                                    <li class="md-nav__item level-2">
+                                <a href="classes/Ibexa-Contracts-Discounts-Value-Struct-DiscountCreateStruct.html#method_getConditions" title="getConditions" class="md-nav__link">
+                                    getConditions()
+                                </a>
+                            </li>
+                                                    <li class="md-nav__item level-2">
+                                <a href="classes/Ibexa-Contracts-Discounts-Value-Struct-DiscountCreateStruct.html#method_getContext" title="getContext" class="md-nav__link">
+                                    getContext()
+                                </a>
+                            </li>
+                                                    <li class="md-nav__item level-2">
+                                <a href="classes/Ibexa-Contracts-Discounts-Value-Struct-DiscountCreateStruct.html#method_getCreatedAt" title="getCreatedAt" class="md-nav__link">
+                                    getCreatedAt()
+                                </a>
+                            </li>
+                                                    <li class="md-nav__item level-2">
+                                <a href="classes/Ibexa-Contracts-Discounts-Value-Struct-DiscountCreateStruct.html#method_getEndDate" title="getEndDate" class="md-nav__link">
+                                    getEndDate()
+                                </a>
+                            </li>
+                                                    <li class="md-nav__item level-2">
+                                <a href="classes/Ibexa-Contracts-Discounts-Value-Struct-DiscountCreateStruct.html#method_getIdentifier" title="getIdentifier" class="md-nav__link">
+                                    getIdentifier()
+                                </a>
+                            </li>
+                                                    <li class="md-nav__item level-2">
+                                <a href="classes/Ibexa-Contracts-Discounts-Value-Struct-DiscountCreateStruct.html#method_getPriority" title="getPriority" class="md-nav__link">
+                                    getPriority()
+                                </a>
+                            </li>
+                                                    <li class="md-nav__item level-2">
+                                <a href="classes/Ibexa-Contracts-Discounts-Value-Struct-DiscountCreateStruct.html#method_getRule" title="getRule" class="md-nav__link">
+                                    getRule()
+                                </a>
+                            </li>
+                                                    <li class="md-nav__item level-2">
+                                <a href="classes/Ibexa-Contracts-Discounts-Value-Struct-DiscountCreateStruct.html#method_getStartDate" title="getStartDate" class="md-nav__link">
+                                    getStartDate()
+                                </a>
+                            </li>
+                                                    <li class="md-nav__item level-2">
+                                <a href="classes/Ibexa-Contracts-Discounts-Value-Struct-TranslationAwareDiscountStructTrait.html#method_getTranslations" title="getTranslations" class="md-nav__link">
+                                    getTranslations()
+                                </a>
+                            </li>
+                                                    <li class="md-nav__item level-2">
+                                <a href="classes/Ibexa-Contracts-Discounts-Value-Struct-DiscountCreateStruct.html#method_getType" title="getType" class="md-nav__link">
+                                    getType()
+                                </a>
+                            </li>
+                                                    <li class="md-nav__item level-2">
+                                <a href="classes/Ibexa-Contracts-Discounts-Value-Struct-DiscountCreateStruct.html#method_getUpdatedAt" title="getUpdatedAt" class="md-nav__link">
+                                    getUpdatedAt()
+                                </a>
+                            </li>
+                                                    <li class="md-nav__item level-2">
+                                <a href="classes/Ibexa-Contracts-Discounts-Value-Struct-DiscountCreateStruct.html#method_getUser" title="getUser" class="md-nav__link">
+                                    getUser()
+                                </a>
+                            </li>
+                                                    <li class="md-nav__item level-2">
+                                <a href="classes/Ibexa-Contracts-Discounts-Value-Struct-DiscountCreateStruct.html#method_isEnabled" title="isEnabled" class="md-nav__link">
+                                    isEnabled()
+                                </a>
+                            </li>
+                                                    <li class="md-nav__item level-2">
+                                <a href="classes/Ibexa-Contracts-Discounts-Value-Struct-DiscountCreateStruct.html#method_setConditions" title="setConditions" class="md-nav__link">
+                                    setConditions()
+                                </a>
+                            </li>
+                                                    <li class="md-nav__item level-2">
+                                <a href="classes/Ibexa-Contracts-Discounts-Value-Struct-DiscountCreateStruct.html#method_setContext" title="setContext" class="md-nav__link">
+                                    setContext()
+                                </a>
+                            </li>
+                                                    <li class="md-nav__item level-2">
+                                <a href="classes/Ibexa-Contracts-Discounts-Value-Struct-DiscountCreateStruct.html#method_setCreatedAt" title="setCreatedAt" class="md-nav__link">
+                                    setCreatedAt()
+                                </a>
+                            </li>
+                                                    <li class="md-nav__item level-2">
+                                <a href="classes/Ibexa-Contracts-Discounts-Value-Struct-DiscountCreateStruct.html#method_setEnabled" title="setEnabled" class="md-nav__link">
+                                    setEnabled()
+                                </a>
+                            </li>
+                                                    <li class="md-nav__item level-2">
+                                <a href="classes/Ibexa-Contracts-Discounts-Value-Struct-DiscountCreateStruct.html#method_setEndDate" title="setEndDate" class="md-nav__link">
+                                    setEndDate()
+                                </a>
+                            </li>
+                                                    <li class="md-nav__item level-2">
+                                <a href="classes/Ibexa-Contracts-Discounts-Value-Struct-DiscountCreateStruct.html#method_setIdentifier" title="setIdentifier" class="md-nav__link">
+                                    setIdentifier()
+                                </a>
+                            </li>
+                                                    <li class="md-nav__item level-2">
+                                <a href="classes/Ibexa-Contracts-Discounts-Value-Struct-DiscountCreateStruct.html#method_setPriority" title="setPriority" class="md-nav__link">
+                                    setPriority()
+                                </a>
+                            </li>
+                                                    <li class="md-nav__item level-2">
+                                <a href="classes/Ibexa-Contracts-Discounts-Value-Struct-DiscountCreateStruct.html#method_setRule" title="setRule" class="md-nav__link">
+                                    setRule()
+                                </a>
+                            </li>
+                                                    <li class="md-nav__item level-2">
+                                <a href="classes/Ibexa-Contracts-Discounts-Value-Struct-DiscountCreateStruct.html#method_setStartDate" title="setStartDate" class="md-nav__link">
+                                    setStartDate()
+                                </a>
+                            </li>
+                                                    <li class="md-nav__item level-2">
+                                <a href="classes/Ibexa-Contracts-Discounts-Value-Struct-TranslationAwareDiscountStructTrait.html#method_setTranslations" title="setTranslations" class="md-nav__link">
+                                    setTranslations()
+                                </a>
+                            </li>
+                                                    <li class="md-nav__item level-2">
+                                <a href="classes/Ibexa-Contracts-Discounts-Value-Struct-DiscountCreateStruct.html#method_setType" title="setType" class="md-nav__link">
+                                    setType()
+                                </a>
+                            </li>
+                                                    <li class="md-nav__item level-2">
+                                <a href="classes/Ibexa-Contracts-Discounts-Value-Struct-DiscountCreateStruct.html#method_setUpdatedAt" title="setUpdatedAt" class="md-nav__link">
+                                    setUpdatedAt()
+                                </a>
+                            </li>
+                                                    <li class="md-nav__item level-2">
+                                <a href="classes/Ibexa-Contracts-Discounts-Value-Struct-DiscountCreateStruct.html#method_setUser" title="setUser" class="md-nav__link">
+                                    setUser()
+                                </a>
+                            </li>
+                                                    <li class="md-nav__item level-2">
+                                <a href="classes/Ibexa-Contracts-Core-Repository-Values-ValueObject.html#method_getProperties" title="getProperties" class="md-nav__link">
+                                    getProperties()
+                                </a>
+                            </li>
+                                            </ul>
+                </nav>
+            </li>
+            </ul>
+
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                            </div>
+        </main>
+    </div>
+    <script
+        src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+        crossorigin="anonymous">
+    </script>
+    <script src="js/active-menu.js"></script>
+    <script src="js/menu-resizer.js"></script>
+    <script src="js/docs.switcher.js"></script>
+    <script src="js/toc.js"></script>
+    <script src="js/search_custom.js"></script>
+    <script src="js/copy_to_clipboard.js"></script>
+    <script src="js/version_switcher_custom.js"></script>
+    <script src="js/external-links.js"></script>
+</body>
+</html>

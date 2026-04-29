@@ -1,5 +1,6 @@
 ---
-description: You can send notifications to users who work with the Back Office by using notification bars or notifications in the user menu.
+description: You can send notifications to users who work with the back office by using notification bars or notifications in the user menu.
+month_change: false
 ---
 
 # Notifications
@@ -7,18 +8,18 @@ description: You can send notifications to users who work with the Back Office b
 You can send two types on notifications to the users.
 
 [Notification bar](#notification-bars) is displayed in specific situations as a message bar appearing at the bottom of the page.
-It appears to whoever is doing a specific operation in the Back Office.
+It appears to whoever is doing a specific operation in the back office.
 
 ![Example of an info notification](notification2.png "Example of the notification bar")
 
 [Custom notifications](#create-custom-notifications) are sent to a specific user.
-They will appear in their profile in the Back Office.
+They appear in their profile in the back office.
 
 ![Notification in profile](notification3.png)
 
 ## Notification bars
 
-Notifications are displayed as a message bar in the Back Office.
+Notifications are displayed as a message bar in the back office.
 There are four types of notifications: `info`, `success`, `warning` and `error`.
 
 ### Displaying notifications from PHP
@@ -53,7 +54,7 @@ Dispatch the event with `document.body.dispatchEvent(eventInfo);`.
 
 ## Create custom notifications
 
-You can send your own custom notifications to the user which will be displayed in the user menu.
+You can send your own custom notifications to the user which are displayed in the user menu.
 
 To create a new notification you must use the `createNotification(Ibexa\Contracts\Core\Repository\Values\Notification\CreateStruct $createStruct)` method from `Ibexa\Contracts\Core\Repository\NotificationService`.
 
@@ -63,7 +64,9 @@ Example:
 [[= include_file('code_samples/back_office/notifications/src/EventListener/ContentPublishEventListener.php') =]]
 ```
 
-To display the notification, write a renderer and tag it as a service.
+### Display single notification
+
+To display a single notification, write a renderer and tag it as a service.
 
 The example below presents a renderer that uses Twig to render a view:
 
@@ -83,10 +86,19 @@ Finally, you need to add an entry to `config/services.yaml`:
 [[= include_file('code_samples/back_office/notifications/config/custom_services.yaml') =]]
 ```
 
+### Display notification list
+
+To display a list of notifications, expand the above renderer.
+
+The example below presents a modified renderer that uses Twig to render a list view:
+
+```php
+[[= include_file('code_samples/back_office/notifications/src/Notification/ListRenderer.php') =]]
+```
+
 ## Notification timeout
 
-To define the timeout for hiding Back-Office notification bars, per notification type,
-use the `ibexa.system.<scope>.notifications.<notification_type>.timeout` [configuration key](configuration.md#configuration-files):
+To define the timeout for hiding Back-Office notification bars, per notification type, use the `ibexa.system.<scope>.notifications.<notification_type>.timeout` [configuration key](configuration.md#configuration-files):
 
 ``` yaml
 ibexa:
@@ -103,4 +115,5 @@ ibexa:
                     timeout: 0
 ```
 
-The values shown above are the defaults. `0` means the notification does not hide automatically.
+The values shown above are the defaults.
+`0` means the notification doesn't hide automatically.

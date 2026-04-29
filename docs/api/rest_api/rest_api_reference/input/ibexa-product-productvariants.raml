@@ -13,7 +13,7 @@
                     application/vnd.ibexa.api.ProductVariantCreate+json
         body:
             application/vnd.ibexa.api.ProductVariantCreate+json:
-                type: ProductVariantCreate
+                type: ProductVariantCreateWrapper
                 example: !include examples/product/catalog/product_variants/POST/ProductVariantCreate.json.example
         responses:
             201:
@@ -41,7 +41,7 @@
                     application/vnd.ibexa.api.ProductVariantGenerate+json
         body:
             application/vnd.ibexa.api.ProductVariantGenerate+json:
-                type: ProductVariantGenerate
+                type: ProductVariantGenerateWrapper
                 example: !include examples/product/catalog/product_variants/POST/ProductVariantGenerate.json.example
         responses:
             201:
@@ -77,13 +77,13 @@
                     application/vnd.ibexa.api.ProductVariantUpdate+json
         body:
             application/vnd.ibexa.api.ProductVariantUpdate+json:
-                type: ProductVariantUpdate
+                type: ProductVariantUpdateWrapper
                 example: !include examples/product/catalog/product_variants/code/PATCH/ProductVariantUpdate.json.example
         responses:
             201:
                 body:
                     application/vnd.ibexa.api.ProductVariant+json:
-                        type: ProductVariant
+                        type: ProductVariantWrapper
                         example: !include examples/product/catalog/product_variants/code/PATCH/ProductVariant.json.example
             400:
                 description: Error - the input does not match the input schema definition.
@@ -112,7 +112,7 @@
             application/vnd.ibexa.api.ProductVariantViewInput+xml:
                 type: ProductVariantViewInput
             application/vnd.ibexa.api.ProductVariantViewInput+json:
-                type: ProductVariantViewInput
+                type: ProductVariantViewInputWrapper
                 example: !include examples/product/catalog/product_variants/POST/ProductVariantViewInput.json.example
         responses:
             200:
@@ -120,7 +120,7 @@
                     application/vnd.ibexa.api.ProductVariantView+xml:
                         type: ProductVariantView
                     application/vnd.ibexa.api.ProductVariantView+json:
-                        type: ProductVariantView
+                        type: ProductVariantViewWrapper
                         example: !include examples/product/catalog/product_variants/POST/ProductVariantView.json.example
             400:
                 description: Error - the input does not match the input schema definition.

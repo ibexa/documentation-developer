@@ -5,7 +5,7 @@ edition: commerce
 
 # Payum integration
 
-[Payum](https://payum.gitbook.io/payum/) is a payment processing solution that simplifies the integration of various payment services like Stripe and PayPal into your application.
+[Payum](https://payum.gitbook.io/payum) is a payment processing solution that simplifies the integration of various payment services like Stripe and PayPal into your application.
 These services provide security of online transactions, and allow you to accept multiple payment methods while ensuring a seamless experience for the customers.
 By configuring service gateways, mapping workflow actions and translating payment service names, you streamline the online payment process, and can offer a diverse payment experience.
 
@@ -27,7 +27,9 @@ payum:
 ## Workflow mapping
 
 In [[= product_name =]], the default payment workflow has certain places, such as `pending`, `failed`, `paid`, or `cancelled`, and their corresponding transitions.
-However, for your application to use other transitions and places, for example, `authorized`, `notified`, `refunded` etc., and to present them in the user interface, you need to:
+
+However, for your application to use other transitions and places, for example, `authorized`, `notified`, or `refunded`, and to present them in the user interface, you need to:
+
 - override the default payment workflow
 - create a custom workflow and enable it by using semantic configuration
 
@@ -75,5 +77,5 @@ For a list of events, see [Event dispatcher](https://github.com/Payum/Payum/blob
 !!! caution
 
     In certain cases, depending on the payment processing service, when a customer closes the payment page in a browser and the bank has not processed the payment yet, the payment status can remain unchanged.
-    Depending on how your checkout process is configured, it may result in unwanted effects, for example, cause that the cart does not purge after the purchase.
+    Depending on how your checkout process is configured, it may result in unwanted effects, for example, cause that the cart doesn't purge after the purchase.
     Make sure that you account for this fact in your implementation.

@@ -14,7 +14,7 @@ get:
                 application/vnd.ibexa.api.AttributeTypeList+xml:
                     type: AttributeTypeList
                 application/vnd.ibexa.api.AttributeTypeList+json:
-                    type: AttributeTypeList
+                    type: AttributeTypeListWrapper
 /{identifier}:
     get:
         displayName: Get Attribute Type
@@ -32,6 +32,6 @@ get:
                     application/vnd.ibexa.api.AttributeType+xml:
                         type: AttributeType
                     application/vnd.ibexa.api.AttributeType+json:
-                        type: AttributeType
+                        type: AttributeTypeWrapper
             404:
                 description: Error - The Attribute Type does not exist.

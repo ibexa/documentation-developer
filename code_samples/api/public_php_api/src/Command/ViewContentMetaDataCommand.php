@@ -53,7 +53,7 @@ class ViewContentMetaDataCommand extends Command
         $user = $this->userService->loadUserByLogin('admin');
         $this->permissionResolver->setCurrentUserReference($user);
 
-        $contentId = $input->getArgument('contentId');
+        $contentId = (int) $input->getArgument('contentId');
 
         // Metadata
         $contentInfo = $this->contentService->loadContentInfo($contentId);
@@ -86,7 +86,10 @@ class ViewContentMetaDataCommand extends Command
             $output->writeln(' in ' . $versionInfo->getInitialLanguage()->name);
         }
 
-        $versionInfoArray = iterator_to_array($this->contentService->loadVersions($contentInfo, VersionInfo::STATUS_ARCHIVED));
+        $versionInfoArray = $this->contentService->loadVersions($contentInfo, VersionInfo::STATUS_ARCHIVED);
+        if ($versionInfoArray instanceof \Traversable) {
+            $versionInfoArray = iterator_to_array($versionInfoArray);
+        }
         if (count($versionInfoArray)) {
             $output->writeln('Archived versions:');
             foreach ($versionInfoArray as $versionInfo) {
@@ -99,10 +102,11 @@ class ViewContentMetaDataCommand extends Command
 
         // Relations
         $versionInfo = $this->contentService->loadVersionInfo($contentInfo);
-        $relations = $this->contentService->loadRelations($versionInfo);
-        foreach ($relations as $relation) {
-            $name = $relation->destinationContentInfo->name;
-            $output->writeln('Relation to content ' . $name);
+        $relationCount = $this->contentService->countRelations($versionInfo);
+        $relationList = $this->contentService->loadRelationList($versionInfo, 0, $relationCount);
+        foreach ($relationList as $relationListItem) {
+            $name = $relationListItem->hasRelation() ? $relationListItem->getRelation()->destinationContentInfo->name : '(Unauthorized)';
+            $output->writeln("Relation to content '$name'");
         }
 
         // Owner

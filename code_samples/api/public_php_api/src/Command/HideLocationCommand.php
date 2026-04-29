@@ -40,7 +40,7 @@ class HideLocationCommand extends Command
         $user = $this->userService->loadUserByLogin('admin');
         $this->permissionResolver->setCurrentUserReference($user);
 
-        $locationId = $input->getArgument('location_id');
+        $locationId = (int) $input->getArgument('location_id');
 
         $location = $this->locationService->loadLocation($locationId);
 

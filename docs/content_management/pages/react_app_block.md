@@ -8,8 +8,7 @@ React App block allows an editor to embed a preconfigured React application into
 It's configured in YAML files, under the `ibexa_fieldtype_page` key.
 Page block configuration isn't SiteAccess-aware.
 
-Another element of React App Block is `\Ibexa\FieldTypePage\FieldType\Page\Block\Event\Listener\ReactBlock` Listener 
-which adds component and props variables.
+Another element of React App Block is `\Ibexa\FieldTypePage\FieldType\Page\Block\Event\Listener\ReactBlock` Listener  which adds component and props variables.
 
 It's common to all the blocks.
 
@@ -28,10 +27,10 @@ Each configured React app block has an identifier and the following settings:
 | Setting      | Description                                                                                                                                                   |
 |--------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `name`       | Name of the block used in the Page Builder interface.                                                                                                         |
-| `category`   | Category in the Page Builder elements menu that the block is shown in.                                                                                        |
-| `thumbnail`  | Thumbnail used in the Page Builder elements menu.                                                                                                             |
+| `category`   | Category in the Page Builder **Page blocks** toolbox that the block is shown in.                                                                                        |
+| `thumbnail`  | Thumbnail used in the Page Builder **Page blocks** toolbox.                                                                                                             |
 | `component`  | React App Component name used in `assets/page-builder/react/blocks` directory.                                                                                |
-| `visible`    | (Optional) Toggles the block's visibility in the Page Builder elements menu. Remove the block from the layout before you publish another version of the page. |
+| `visible`    | (Optional) Toggles the block's visibility in the Page Builder **Page blocks** toolbox. Remove the block from the layout before you publish another version of the page. |
 | <nobr>`attributes`</nobr> | (Optional) List of [block attributes](page_block_attributes.md).                                                                                              |
 
 For example:
@@ -61,8 +60,7 @@ attributes:
       ...
 ```
 
-Apps that are registered this way must be configured and referenced in the 
-semantic configuration to be registered as blocks.
+Apps that are registered this way must be configured and referenced in the semantic configuration to be registered as blocks.
 
 Parameters passed as props must be converted so that they can be used as the configured type in the app.
 
@@ -87,7 +85,7 @@ In the following example, create `Calculator.jsx` file in `assets/page-builder/c
 Then, create a `Calculator.js` file in `assets/page-builder/react/blocks` directory.
 
 Files in this directory create a map of Components which then are imported to `react.blocks.js` file.
-As a result, the components are rendered on the page. 
+As a result, the components are rendered on the page.
 
 ``` js
 [[= include_file('code_samples/page/react_app_block/assets/page-builder/react/blocks/Calculator.js') =]]

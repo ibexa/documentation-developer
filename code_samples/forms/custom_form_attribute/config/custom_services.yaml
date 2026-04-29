@@ -18,4 +18,4 @@
             $typeIdentifier: 'checkbox_with_richtext_description'
             $twig: '@twig'
         tags:
-            - { name: ibexa.form_builder.field_submission_converter }
+            - { name: ibexa.form_builder.field.submission.converter }

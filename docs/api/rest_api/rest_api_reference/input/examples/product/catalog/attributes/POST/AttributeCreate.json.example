@@ -4,10 +4,10 @@
         "type": "checkbox",
         "group": "attr_group_test",
         "names": {
-            "eng-GB": "Attribute" 
+            "eng-GB": "Attribute"
         },
         "descriptions": {
-            "eng-GB": "description" 
+            "eng-GB": "description"
         },
         "position": 0,
         "options": {

@@ -1,5 +1,5 @@
 ---
-description: Image Dimensions Criterion
+description: Image Dimensions Search Criterion
 ---
 
 # Image Dimension Criterion
@@ -8,7 +8,7 @@ The `Dimensions` Search Criterion searches for image with specified dimensions.
 
 ## Arguments
 
-- `fieldDefIdentifier` - string representing the identifier of the Field
+- `fieldDefIdentifier` - string representing the identifier of the field
 - `imageCriteriaData` - an array representing minimum and maximum values for width and height, expressed in pixels
 
 ## Example

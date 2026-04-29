@@ -1,3 +1,7 @@
+---
+description: ProductTypeTerm
+---
+
 # ProductTypeTerm
 
 The ProductTypeTermAggregation aggregates search results by the product type.

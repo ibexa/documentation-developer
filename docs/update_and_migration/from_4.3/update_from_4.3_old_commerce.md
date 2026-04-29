@@ -6,7 +6,7 @@ description: Update procedure to v4.4 for people who use deprecated Commerce pac
 
 This update procedure applies if you have a v4.3 installation, you use Commerce packages and would like to continue to use them.
 
-Note that all commerce packages as of v4.4 are deprecated and will be removed in v5.
+All commerce packages as of v4.4 are deprecated and will be removed in v5.
 Until that time, they will be maintained by Ibexa with fixes, including security fixes, but they won't be further developed.
 Old packages are replaced by [the all-new Ibexa Commerce packages](ibexa_dxp_v4.4.md#all-new-ibexa-commerce-packages).
 
@@ -73,7 +73,7 @@ Review the old YAML files and move your custom configuration to the relevant new
 #### Flysystem v2
 
 Local adapters' `directory` key changed to `location`.
-It is defined in `config/packages/oneup_flysystem.yaml`:
+It's defined in `config/packages/oneup_flysystem.yaml`:
 
 ```yaml
 oneup_flysystem:
@@ -174,8 +174,8 @@ ibexa:
 
 ### Update the database
 
-Next, update the database if you are using Ibexa Commerce.
-Ibexa Content and Ibexa Experience do not require the database update.
+Next, update the database if you're using [[= product_name_com =]].
+[[= product_name_content =]] and [[= product_name_exp=]] don't require the database update.
 
 [[% include 'snippets/update/db/db_backup_warning.md' %]]
 
@@ -195,7 +195,7 @@ Apply the following database update scripts:
 
 #### Ibexa Open Source
 
-If you have no access to Ibexa DXP's `ibexa/installer` package, database upgrade is not necessary.
+If you have no access to [[= product_name =]]'s `ibexa/installer` package, database upgrade isn't necessary.
 
 ## Ensure password safety
 
@@ -215,7 +215,7 @@ composer run post-install-cmd
 
 ### Customer Portal self-registration
 
-If you are using Ibexa Experience or Ibexa Commerce,
+If you're using [[= product_name_exp =]] or [[= product_name_com =]],
 run data migration required by the Customer Portal applications feature:
 
 ```bash

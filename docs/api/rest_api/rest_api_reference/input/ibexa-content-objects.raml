@@ -19,7 +19,7 @@ post:
             type: ContentCreate
             example: !include examples/content/objects/POST/ContentCreate.xml.example
         application/vnd.ibexa.api.ContentCreate+json:
-            type: ContentCreate
+            type: ContentCreateWrapper
             example: !include examples/content/objects/POST/ContentCreate.json.example
     responses:
         201:
@@ -28,10 +28,10 @@ post:
                     type: Content
                     example: !include examples/content/objects/POST/Content.xml.example
                 application/vnd.ibexa.api.Content+json:
-                    type: Content
+                    type: ContentWrapper
                     example: !include examples/content/objects/POST/Content.json.example
                 application/vnd.ibexa.api.ContentInfo+xml:
-                    type: ContentInfo
+                    type: ContentInfoWrapper
                     example: !include examples/content/objects/POST/ContentInfo.xml.example
         400:
             description: Error - the input does not match the input schema definition or the validation on a field fails.
@@ -76,13 +76,13 @@ get:
                         type: Content
                         example: !include examples/content/objects/content_id/GET/Content.xml.example
                     application/vnd.ibexa.api.Content+json:
-                        type: Content
+                        type: ContentWrapper
                         example: !include examples/content/objects/content_id/GET/Content.json.example
                     application/vnd.ibexa.api.ContentInfo+xml:
                         type: ContentInfo
                         example: !include examples/content/objects/content_id/GET/ContentInfo.xml.example
                     application/vnd.ibexa.api.ContentInfo+json:
-                        type: ContentInfo
+                        type: ContentInfoWrapper
             401:
                 description: Error - the user is not authorized to read this object. This could also happen if there is no published version yet and another user owns a draft of this content item.
             404:
@@ -109,7 +109,7 @@ get:
                 type: ContentInfo
                 example: !include examples/content/objects/content_id/PATCH/ContentUpdate.xml.example
             application/vnd.ibexa.api.ContentUpdate+json:
-                type: ContentInfo
+                type: ContentInfoWrapper
         responses:
             200:
                 body:
@@ -117,7 +117,7 @@ get:
                         type: ContentInfo
                         example: !include examples/content/objects/content_id/PATCH/ContentInfo.xml.example
                     application/vnd.ibexa.api.ContentInfo+json:
-                        type: ContentInfo
+                        type: ContentInfoWrapper
             400:
                 description: Error - the input does not match the input schema definition.
             401:
@@ -177,7 +177,7 @@ get:
                             type: Version
                             example: !include examples/content/objects/content_id/currentversion/GET/Version.xml.example
                         application/vnd.ibexa.api.Version+json:
-                            type: Version
+                            type: VersionWrapper
                             example: !include examples/content/objects/content_id/currentversion/GET/Version.json.example
                 307:
                     description: Temporary redirect.
@@ -200,7 +200,7 @@ get:
                             type: Version
                             example: !include examples/content/objects/content_id/currentversion/COPY/Version.xml.example
                         application/vnd.ibexa.api.Version+json:
-                            type: Version
+                            type: VersionWrapper
                             example: !include examples/content/objects/content_id/currentversion/COPY/Version.json.example
                 401:
                     description: Error - the user is not authorized to update this content item.
@@ -225,7 +225,7 @@ get:
                             type: VersionList
                             example: !include examples/content/objects/content_id/versions/GET/VersionList.xml.example
                         application/vnd.ibexa.api.VersionList+json:
-                            type: VersionList
+                            type: VersionListWrapper
                             example: !include examples/content/objects/content_id/versions/GET/VersionList.json.example
                 401:
                     description: Error - the user has no permission to read the versions.
@@ -259,7 +259,7 @@ get:
                                 type: Version
                                 example: !include examples/content/objects/content_id/versions/version_no/GET/Version.xml.example
                             application/vnd.ibexa.api.Version+json:
-                                type: Version
+                                type: VersionWrapper
                                 example: !include examples/content/objects/content_id/versions/version_no/GET/Version.json.example
                     304:
                         description: Error - the ETag does not match the current one.
@@ -292,7 +292,7 @@ get:
                         type: VersionUpdate
                         example: !include examples/content/objects/content_id/versions/version_no/PATCH/VersionUpdate.xml.example
                     application/vnd.ibexa.api.VersionUpdate+json:
-                        type: VersionUpdate
+                        type: VersionUpdateWrapper
                 responses:
                     200:
                         body:
@@ -300,7 +300,7 @@ get:
                                 type: Version
                                 example: !include examples/content/objects/content_id/versions/version_no/PATCH/Version.xml.example
                             application/vnd.ibexa.api.Version+json:
-                                type: Version
+                                type: VersionWrapper
                     400:
                         description: Error - the input does not match the input schema definition.
                     401:
@@ -328,7 +328,7 @@ get:
                                 type: Version
                                 example: !include examples/content/objects/content_id/versions/version_no/COPY/Version.xml.example
                             application/vnd.ibexa.api.Version+json:
-                                type: Version
+                                type: VersionWrapper
                                 example: !include examples/content/objects/content_id/versions/version_no/COPY/Version.json.example
                     401:
                         description: Error - the user is not authorized to update this content item.
@@ -399,7 +399,7 @@ get:
                                     type: RelationList
                                     example: !include examples/content/objects/content_id/versions/version_no/relations/GET/RelationList.xml.example
                                 application/vnd.ibexa.api.RelationList+json:
-                                    type: RelationList
+                                    type: RelationListWrapper
                                     example: !include examples/content/objects/content_id/versions/version_no/relations/GET/RelationList.json.example
                         401:
                             description: Error - the user is not authorized to read this content item.
@@ -421,10 +421,10 @@ get:
                                 application/vnd.ibexa.api.RelationCreate+json
                     body:
                         application/vnd.ibexa.api.RelationCreate+xml:
-                            type: Relation
+                            type: RelationCreate
                             example: !include examples/content/objects/content_id/versions/version_no/relations/POST/RelationCreate.xml.example
                         application/vnd.ibexa.api.RelationCreate+json:
-                            type: Relation
+                            type: RelationCreateWrapper
                             example: !include examples/content/objects/content_id/versions/version_no/relations/POST/RelationCreate.json.example
                     responses:
                         201:
@@ -433,9 +433,8 @@ get:
                                     type: Relation
                                     example: !include examples/content/objects/content_id/versions/version_no/relations/POST/Relation.xml.example
                                 application/vnd.ibexa.api.Relation+json:
-                                    type: Relation
+                                    type: RelationWrapper
                                     example: !include examples/content/objects/content_id/versions/version_no/relations/POST/Relation.json.example
-                                
                 /{relationId}:
                     get:
                         displayName: Load Relation
@@ -454,8 +453,7 @@ get:
                                         type: Relation
                                         example: !include examples/content/objects/content_id/versions/version_no/relations/relation_id/GET/Relation.xml.example
                                     application/vnd.ibexa.api.Relation+json:
-                                        type: Relation
-                                        example: examples/content/objects/content_id/versions/version_no/relations/relation_id/GET/Relation.json.example
+                                        type: RelationWrapper
                             401:
                                 description: Error - the user is not authorized to read this content item.
                             404:
@@ -503,7 +501,7 @@ get:
                     type: LocationCreate
                     example: !include examples/content/objects/content_id/locations/POST/LocationCreate.xml.example
                 application/vnd.ibexa.api.LocationCreate+json:
-                    type: LocationCreate
+                    type: LocationCreateWrapper
                     example: !include examples/content/objects/content_id/locations/POST/LocationCreate.json.example
             responses:
                 201:
@@ -512,7 +510,7 @@ get:
                             type: Location
                             example: !include examples/content/objects/content_id/locations/POST/Location.xml.example
                         application/vnd.ibexa.api.Location+json:
-                            type: Location
+                            type: LocationWrapper
                             example: !include examples/content/objects/content_id/locations/POST/Location.json.example
                 400:
                     description: Error - the input does not match the input schema definition.
@@ -538,7 +536,7 @@ get:
                             type: LocationList
                             example: !include examples/content/objects/content_id/locations/GET/LocationList.xml.example
                         application/vnd.ibexa.api.LocationList+json:
-                            type: LocationList
+                            type: LocationListWrapper
                             example: !include examples/content/objects/content_id/locations/GET/LocationList.json.example
                 401:
                     description: Error - the user is not authorized to read this content item.
@@ -564,7 +562,7 @@ get:
                             type: ContentObjectStates
                             example: !include examples/content/objects/content_id/objectstates/GET/ContentObjectStates.xml.example
                         application/vnd.ibexa.api.ContentObjectStates+json:
-                            type: ContentObjectStates
+                            type: ContentObjectStatesWrapper
                             example: !include examples/content/objects/content_id/objectstates/GET/ContentObjectStates.json.example
                 404:
                     description: Error - The content item does not exist.
@@ -589,7 +587,7 @@ get:
                     type: ContentObjectStates
                     example: !include examples/content/objects/content_id/objectstates/PATCH/ContentObjectStates.request.xml.example
                 application/vnd.ibexa.api.ContentObjectStates+json:
-                    type: ContentObjectStates
+                    type: ContentObjectStatesWrapper
                     example: !include examples/content/objects/content_id/objectstates/PATCH/ContentObjectStates.request.json.example
             responses:
                 204:
@@ -599,7 +597,7 @@ get:
                             type: ContentObjectStates
                             example: !include examples/content/objects/content_id/objectstates/PATCH/ContentObjectStates.response.xml.example
                         application/vnd.ibexa.api.ContentObjectStates+json:
-                            type: ContentObjectStates
+                            type: ContentObjectStatesWrapper
                             example: !include examples/content/objects/content_id/objectstates/PATCH/ContentObjectStates.response.json.example
                 400:
                     description: Error - The input does not match the input schema definition.

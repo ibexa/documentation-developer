@@ -1,10 +1,10 @@
 ---
-description: Tabs are used for content view, in dashboard, system information and other parts of the Back Office and are extensible.
+description: Tabs are used for content view, in dashboard, system information and other parts of the back office and are extensible.
 ---
 
-# Back Office tabs
+# Back office tabs
 
-Many elements of the Back Office interface, such as content view, dashboard or system information, are built using tabs.
+Many elements of the back office interface, such as content view, dashboard, or system information, are built with tabs.
 
 ![Tabs in System Information](tabs_system_info.png)
 
@@ -53,17 +53,17 @@ Tabs are displayed according to this value in ascending order.
 
 !!! tip
 
-    It is good practice to reserve some distance between these values, for example to stagger them by step of 10.
+    It's a good practice to reserve some distance between these values, for example to stagger them by step of 10.
     It may come useful if you later need to place something between the existing tabs.
 
-You can also influence tab display (for example, order tabs, remove or modify them) by using the following event listeners:
+You can also influence tab display (for example, order tabs, remove, or modify them) by using the following event listeners:
 
 - `TabEvents::TAB_GROUP_PRE_RENDER`
 - `TabEvents::TAB_PRE_RENDER`
 
 ## Tab groups
 
-You can create new tab groups by using the [`TabsComponent`](https://github.com/ibexa/admin-ui/blob/main/src/lib/Component/TabsComponent.php).
+You can create new tab groups by using the [`TabsComponent`](https://github.com/ibexa/admin-ui/blob/4.6/src/lib/Component/TabsComponent.php).
 
 To create a tab group, register it as a service:
 
@@ -71,6 +71,8 @@ To create a tab group, register it as a service:
 [[= include_file('code_samples/back_office/dashboard/article_tab/config/custom_services.yaml', 0, 1) =]][[= include_file('code_samples/back_office/dashboard/article_tab/config/custom_services.yaml', 7, 13) =]]
 ```
 
-Tag the group with `ibexa.admin_ui.component`.
+Tag the group with `ibexa.twig.component`.
 `group` indicates where the group is rendered.
-For a list of possible rendering places, see [Injecting custom components](custom_components.md).
+
+To learn more about this mechanism, see [Twig Components](components.md).
+And for the groups available in the back office, see [custom components in the back office](custom_components.md).

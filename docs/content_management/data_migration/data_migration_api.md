@@ -8,8 +8,7 @@ You can use the PHP API to manage and run [data migrations](data_migration.md).
 
 ## Getting migration information
 
-To list all migration files available in the directory defined in configuration (by default, `src/Migrations/Ibexa`),
-use the `MigrationService:listMigrations()` method:
+To list all migration files available in the directory defined in configuration (by default, `src/Migrations/Ibexa`), use the `MigrationService:listMigrations()` method:
 
 ``` php
 [[= include_file('code_samples/api/migration/src/Command/MigrationCommand.php', 30, 33) =]]
