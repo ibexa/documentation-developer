@@ -29,10 +29,11 @@ The following command takes the content type identifier as an argument and lists
 
 ``` php hl_lines="14 16"
 // ...
-[[= include_file('code_samples/api/public_php_api/src/Command/FindContentCommand.php', 4, 7) =]]// ...
-[[= include_file('code_samples/api/public_php_api/src/Command/FindContentCommand.php', 17, 19) =]]    // ...
-[[= include_file('code_samples/api/public_php_api/src/Command/FindContentCommand.php', 32, 48) =]]
-[[= include_file('code_samples/api/public_php_api/src/Command/FindContentCommand.php', 48, 49) =]]
+[[= include_code('code_samples/api/public_php_api/src/Command/FindContentCommand.php', 5, 7) =]]
+// ...
+[[= include_code('code_samples/api/public_php_api/src/Command/FindContentCommand.php', 18, 19) =]]
+    // ...
+[[= include_code('code_samples/api/public_php_api/src/Command/FindContentCommand.php', 33, 49) =]]
 ```
 
 [`SearchService::findContentInfo`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-SearchService.html#method_findContentInfo) (line 16)
@@ -120,18 +121,22 @@ For example, the following command lists all content items under the specified p
 
 ``` php hl_lines="15-18"
 // ...
-[[= include_file('code_samples/api/public_php_api/src/Command/FilterCommand.php', 4, 9) =]]
-// ...
-[[= include_file('code_samples/api/public_php_api/src/Command/FilterCommand.php', 19, 21) =]][[= include_file('code_samples/api/public_php_api/src/Command/FilterCommand.php', 33, 53) =]]
+[[= include_code('code_samples/api/public_php_api/src/Command/FilterCommand.php', 5, 9) =]]
+
+[[= include_code('code_samples/api/public_php_api/src/Command/FilterCommand.php', 20, 21) =]]
+    // ...
+[[= include_code('code_samples/api/public_php_api/src/Command/FilterCommand.php', 34, 53) =]]
 ```
 
 The same Filter can be applied to find locations instead of content items, for example:
 
 ``` php hl_lines="20"
 // ...
-[[= include_file('code_samples/api/public_php_api/src/Command/FilterLocationCommand.php', 4, 9) =]]
-[[= include_file('code_samples/api/public_php_api/src/Command/FilterCommand.php', 19, 21) =]]// ...
-[[= include_file('code_samples/api/public_php_api/src/Command/FilterLocationCommand.php', 33, 53) =]]
+[[= include_code('code_samples/api/public_php_api/src/Command/FilterLocationCommand.php', 5, 9) =]]
+
+[[= include_code('code_samples/api/public_php_api/src/Command/FilterCommand.php', 20, 21) =]]
+    // ...
+[[= include_code('code_samples/api/public_php_api/src/Command/FilterLocationCommand.php', 34, 53) =]]
 ```
 
 !!! caution
@@ -183,8 +188,9 @@ For example, in the code below, `locationId` is provided to list all children of
 
 ``` php hl_lines="22-24"
 // ...
-[[= include_file('code_samples/api/public_php_api/src/Controller/CustomController.php', 4, 12) =]]    // ...
-[[= include_file('code_samples/api/public_php_api/src/Controller/CustomController.php', 16, 32) =]]
+[[= include_code('code_samples/api/public_php_api/src/Controller/CustomController.php', 5, 12) =]]
+    // ...
+[[= include_code('code_samples/api/public_php_api/src/Controller/CustomController.php', 17, 32) =]]
 ```
 
 The rendering of results is then relegated to [templates](templates.md) (lines 22-24).
@@ -193,8 +199,9 @@ When using Repository filtering, provide the results of `ContentService::find()`
 
 ``` php hl_lines="19"
 // ...
-[[= include_file('code_samples/api/public_php_api/src/Controller/CustomFilterController.php', 4, 12) =]]    // ...
-[[= include_file('code_samples/api/public_php_api/src/Controller/CustomFilterController.php', 16, 31) =]]
+[[= include_code('code_samples/api/public_php_api/src/Controller/CustomFilterController.php', 5, 12) =]]
+    // ...
+[[= include_code('code_samples/api/public_php_api/src/Controller/CustomFilterController.php', 17, 31) =]]
 ```
 
 ### Paginate search results
@@ -203,14 +210,15 @@ To paginate search or filtering results, it's recommended to use the [Pagerfanta
 
 ``` php
 // ...
-[[= include_file('code_samples/api/public_php_api/src/Controller/PaginationController.php', 8, 15) =]]    // ...
-[[= include_file('code_samples/api/public_php_api/src/Controller/PaginationController.php', 19, 39) =]]
+[[= include_code('code_samples/api/public_php_api/src/Controller/PaginationController.php', 9, 15) =]]
+    // ...
+[[= include_code('code_samples/api/public_php_api/src/Controller/PaginationController.php', 20, 39) =]]
 ```
 
 Pagination can then be rendered for example using the following template:
 
 ``` html+twig
-[[= include_file('code_samples/api/public_php_api/templates/themes/standard/full/custom_pagination.html.twig') =]]
+[[= include_code('code_samples/api/public_php_api/templates/themes/standard/full/custom_pagination.html.twig') =]]
 ```
 
 For more information and examples, see [PagerFanta documentation](https://www.babdev.com/open-source/packages/pagerfanta/docs/2.x/usage).
@@ -241,9 +249,10 @@ For more complex searches, you need to combine multiple Criteria.
 You can do it using logical operators: `LogicalAnd`, `LogicalOr`, and `LogicalNot`.
 
 ``` php
-[[= include_file('code_samples/api/public_php_api/src/Command/FindComplexCommand.php', 44, 49) =]][[= include_file('code_samples/api/public_php_api/src/Command/FindComplexCommand.php', 53, 54) =]]
-[[= include_file('code_samples/api/public_php_api/src/Command/FindComplexCommand.php', 60, 65) =]]
+[[= include_code('code_samples/api/public_php_api/src/Command/FindComplexCommand.php', 45, 49) =]]
+[[= include_code('code_samples/api/public_php_api/src/Command/FindComplexCommand.php', 54, 54) =]]
 
+[[= include_code('code_samples/api/public_php_api/src/Command/FindComplexCommand.php', 61, 65) =]]
 ```
 
 This example takes three parameters from a command — `$text`, `$contentTypeId`, and `$locationId`.
@@ -257,7 +266,7 @@ The example below uses the `LogicalNot` operator to search for all content conta
 that doesn't belong to the provided Section:
 
 ``` php
-[[= include_file('code_samples/api/public_php_api/src/Command/FindComplexCommand.php', 46, 54) =]]
+[[= include_code('code_samples/api/public_php_api/src/Command/FindComplexCommand.php', 47, 54) =]]
 ```
 
 ### Combine independent Criteria
@@ -290,7 +299,7 @@ To sort the results of a query, use one of more [Sort Clauses](sort_clause_refer
 For example, to order search results by their publication date, from oldest to newest, and then alphabetically by content name, add the following Sort Clauses to the query:
 
 ``` php
-[[= include_file('code_samples/api/public_php_api/src/Command/FindComplexCommand.php', 55, 59) =]]
+[[= include_code('code_samples/api/public_php_api/src/Command/FindComplexCommand.php', 56, 59) =]]
 ```
 
 !!! tip
@@ -308,7 +317,7 @@ With aggregations you can find the count of search results or other result infor
 To do this, you use of the query's `$aggregations` property:
 
 ``` php
-[[= include_file('code_samples/api/public_php_api/src/Command/FindWithAggregationCommand.php', 30, 35) =]]
+[[= include_code('code_samples/api/public_php_api/src/Command/FindWithAggregationCommand.php', 31, 35) =]]
 ```
 
 The name of the aggregation must be unique in the given query.
@@ -316,13 +325,13 @@ The name of the aggregation must be unique in the given query.
 Access the results by using the `get()` method of the aggregation:
 
 ``` php
-[[= include_file('code_samples/api/public_php_api/src/Command/FindWithAggregationCommand.php', 39, 40) =]]
+[[= include_code('code_samples/api/public_php_api/src/Command/FindWithAggregationCommand.php', 40, 40) =]]
 ```
 
 Aggregation results contain the name of the result and the count of found items:
 
 ``` php
-[[= include_file('code_samples/api/public_php_api/src/Command/FindWithAggregationCommand.php', 42, 45) =]]
+[[= include_code('code_samples/api/public_php_api/src/Command/FindWithAggregationCommand.php', 43, 45) =]]
 ```
 
 With field aggregations you can group search results according to the value of a specific field.
@@ -331,14 +340,14 @@ In this case the aggregation takes the content type identifier and the field ide
 The following example creates an aggregation named `selection` that groups results according to the value of the `topic` field in the `article` content type:
 
 ``` php
-[[= include_file('code_samples/api/public_php_api/src/Command/FindWithAggregationCommand.php', 35, 36) =]]
+[[= include_code('code_samples/api/public_php_api/src/Command/FindWithAggregationCommand.php', 36, 36) =]]
 ```
 
 With term aggregation you can define additional limits to the results.
 The following example limits the number of terms returned to 5 and only considers terms that have 10 or more results:
 
 ``` php
-[[= include_file('code_samples/api/public_php_api/src/Command/FindWithAggregationCommand.php', 30, 33) =]]
+[[= include_code('code_samples/api/public_php_api/src/Command/FindWithAggregationCommand.php', 31, 33) =]]
 ```
 
 To use a range aggregation, you must provide a `ranges` array containing a set of `Range` objects that define the borders of the specific range sets.
@@ -394,7 +403,7 @@ You build an `EmbeddingQuery` instance by using a builder and pass it to the sea
 This example shows a minimal embedding query executed directly through the search service:
 
 ``` php hl_lines="38-39 41-47 49"
-[[= include_file('code_samples/api/public_php_api/src/Command/FindByTaxonomyEmbeddingCommand.php') =]]
+[[= include_code('code_samples/api/public_php_api/src/Command/FindByTaxonomyEmbeddingCommand.php') =]]
 ```
 
 For more information, see [Embeddings reference](embeddings_reference.md).
@@ -411,8 +420,9 @@ For a list of supported Criteria and Sort Clauses, see [Search in trash referenc
     Searching through the trashed content items operates directly on the database, therefore you cannot use external search engines, such as Solr or Elasticsearch, and it's impossible to reindex the data.
 
 ``` php
-[[= include_file('code_samples/api/public_php_api/src/Command/FindInTrashCommand.php', 4, 6) =]]//...
-[[= include_file('code_samples/api/public_php_api/src/Command/FindInTrashCommand.php', 35, 42) =]]
+[[= include_code('code_samples/api/public_php_api/src/Command/FindInTrashCommand.php', 5, 6) =]]
+//...
+[[= include_code('code_samples/api/public_php_api/src/Command/FindInTrashCommand.php', 36, 42, remove_indent=True) =]]
 ```
 
 !!! caution
