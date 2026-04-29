@@ -169,13 +169,13 @@ This script:
 === "XML"
 
     ``` php
-    [[= include_file('code_samples/api/rest_api/create_image.xml.php', 0, None, '    ') =]]
+    [[= include_code('code_samples/api/rest_api/create_image.xml.php', 1, None, 1) =]]
     ```
 
 === "JSON"
 
     ``` php
-    [[= include_file('code_samples/api/rest_api/create_image.json.php', 0, None, '    ') =]]
+    [[= include_code('code_samples/api/rest_api/create_image.json.php', indent_level=1) =]]
     ```
 
 ### Search (`/views`)
