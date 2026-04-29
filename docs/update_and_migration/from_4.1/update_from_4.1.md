@@ -8,8 +8,6 @@ This update procedure applies if you're using a v4.1 installation.
 
 [[% include 'snippets/update/temporary_v4_conflicts.md' %]]
 
-[[% include 'snippets/update/temporary_v4_conflicts.md' %]]
-
 ## Update from v4.1.x to v4.1.latest
 
 Before you update to v4.2, you need to go through the following steps to update to the latest maintenance release of v4.1 (v[[= latest_tag_4_1 =]]).
