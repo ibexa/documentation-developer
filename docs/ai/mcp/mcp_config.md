@@ -40,7 +40,9 @@ or in [MCP Inspector test](#mcp-inspector-test) GraphIQL example.
 MCP servers are configured per repository then enabled per SiteAccess scope.
 
 ``` yaml
-[[= include_file('code_samples/mcp/mcp.matrix.yaml', 0, 8) =]][[= include_file('code_samples/mcp/mcp.matrix.yaml', 11, 15) =]][[= include_file('code_samples/mcp/mcp.matrix.yaml', 28, 33) =]]
+[[= include_code('code_samples/mcp/mcp.matrix.yaml', 1, 8) =]]
+[[= include_code('code_samples/mcp/mcp.matrix.yaml', 12, 15) =]]
+[[= include_code('code_samples/mcp/mcp.matrix.yaml', 29, 33) =]]
 ```
 
 Routes are built automatically from MCP server `path` configs.
@@ -89,7 +91,7 @@ There is two ways to associate tools with a server:
     - `get_non_seo_content_ids`: Returns IDs of content items that are missing SEO optimization (no meta title tag)
 
 ``` yaml
-[[= include_file('code_samples/mcp/mcp.matrix.yaml', 8, 11) =]]
+[[= include_code('code_samples/mcp/mcp.matrix.yaml', 9, 11) =]]
 ```
 
 ### Discovery cache
@@ -100,7 +102,7 @@ A PSR-6 or PSR-16 cache pool must be provided for this caching.
 For example, a dedicated Redis/Valkey could be set up:
 
 ``` yaml
-[[= include_file('code_samples/mcp/mcp.matrix.yaml', 16, 17) =]]
+[[= include_code('code_samples/mcp/mcp.matrix.yaml', 17, 17) =]]
 ```
 
 ### Session storage
@@ -124,7 +126,8 @@ It requires `service` option pointing to a valid cache service ID.
 And optionally a more specific `prefix` option than the default `mcp_` to avoid key collisions with other cache usages.
 
 ``` yaml
-[[= include_file('code_samples/mcp/mcp.matrix.yaml', 17, 21) =]][[= include_file('code_samples/mcp/mcp.matrix.yaml', 33, 43) =]]
+[[= include_code('code_samples/mcp/mcp.matrix.yaml', 18, 21) =]]
+[[= include_code('code_samples/mcp/mcp.matrix.yaml', 34, 43) =]]
 ```
 
 #### File
@@ -135,7 +138,7 @@ In this example, sessions are stored in `var/cache/<environment>/mcp/sessions/` 
 (for example, `var/cache/dev/mcp/session/` in `dev` environment and `var/cache/prod/mcp/sessions/` in `prod` environment):
 
 ``` yaml
-[[= include_file('code_samples/mcp/mcp.matrix.yaml', 22, 25) =]]
+[[= include_code('code_samples/mcp/mcp.matrix.yaml', 23, 25) =]]
 ```
 
 #### Memory
@@ -144,7 +147,7 @@ Sessions are stored in memory. Suitable for development and STDIO transport.
 It might not work with containers like Docker/DDEV.
 
 ``` yaml
-[[= include_file('code_samples/mcp/mcp.matrix.yaml', 26, 28) =]]
+[[= include_code('code_samples/mcp/mcp.matrix.yaml', 27, 28) =]]
 ```
 
 ## MCP server capabilities
@@ -214,7 +217,7 @@ It uses files for both discovery cache and session storage.
 In a new `config/packages/mcp.yaml` file, the configuration of the MCP server:
 
 ``` yaml
-[[= include_file('code_samples/mcp/config/packages/mcp.yaml') =]]
+[[= include_code('code_samples/mcp/config/packages/mcp.yaml') =]]
 ```
 
 An `ibexa.mcp.example` route is now available:
@@ -231,7 +234,7 @@ It contains a function with an `McpTool` attribute associating it to the `exampl
 It also contains a function with the `McpPrompt` attribute to provide a prompt template to the user.
 
 ``` php
-[[= include_file('code_samples/mcp/src/Mcp/ExampleCapabilities.php') =]]
+[[= include_code('code_samples/mcp/src/Mcp/ExampleCapabilities.php') =]]
 ```
 
 For the example, `servers` attribute parameter is used to associate only this tool to the `example` server.
@@ -250,7 +253,7 @@ To check the server configuration, a short command using the MCP server configur
 (injected through [`McpServerConfigurationRegistryInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Mcp-McpServerConfigurationRegistryInterface.html) and autowiring):
 
 ``` php
-[[= include_file('code_samples/mcp/src/Command/McpServerListCommand.php') =]]
+[[= include_code('code_samples/mcp/src/Command/McpServerListCommand.php') =]]
 ```
 
 ### cURL test
@@ -268,81 +271,81 @@ To test the `example` MCP server, a sequence of `curl` commands is used to simul
 First, the shell script set the [[= product_name =]] base URL and the user credentials into variables for easier reuse:
 
 ``` bash
-[[= include_file('code_samples/mcp/mcp.sh', 4, 7) =]]
+[[= include_code('code_samples/mcp/mcp.sh', 5, 7) =]]
 ```
 
 Before communicating with the MCP server, the request of a JWT token through REST API:
 
 ``` bash
-[[= include_file('code_samples/mcp/mcp.sh', 8, 23) =]]
+[[= include_code('code_samples/mcp/mcp.sh', 9, 23) =]]
 ```
 
 ``` json
-[[= include_file('code_samples/mcp/mcp.sh.output.txt', 0, 7) =]]
+[[= include_code('code_samples/mcp/mcp.sh.output.txt', 1, 7) =]]
 ```
 
 The [initialization](https://modelcontextprotocol.io/specification/latest/basic/lifecycle#initialization) to get an MCP session ID:
 
 ``` bash
-[[= include_file('code_samples/mcp/mcp.sh', 20, 44) =]]
+[[= include_code('code_samples/mcp/mcp.sh', 21, 44) =]]
 ```
 
 ``` http
-[[= include_file('code_samples/mcp/mcp.sh.output.txt', 7, 16) =]]
+[[= include_code('code_samples/mcp/mcp.sh.output.txt', 8, 16) =]]
 ```
 
 ``` json
-[[= include_file('code_samples/mcp/mcp.sh.output.txt', 25, 51) =]]
+[[= include_code('code_samples/mcp/mcp.sh.output.txt', 26, 51) =]]
 ```
 
 The validation of the initialization:
 
 ``` bash
-[[= include_file('code_samples/mcp/mcp.sh', 45, 52) =]]
+[[= include_code('code_samples/mcp/mcp.sh', 46, 52) =]]
 ```
 
 ``` http
-[[= include_file('code_samples/mcp/mcp.sh.output.txt', 51, 56) =]]
+[[= include_code('code_samples/mcp/mcp.sh.output.txt', 52, 56) =]]
 ```
 
 The [list of tools](https://modelcontextprotocol.io/specification/latest/server/tools#listing-tools):
 
 ``` bash
-[[= include_file('code_samples/mcp/mcp.sh', 53, 61) =]]
+[[= include_code('code_samples/mcp/mcp.sh', 54, 61) =]]
 ```
 
 ``` json
-[[= include_file('code_samples/mcp/mcp.sh.output.txt', 68, 128) =]]
+[[= include_code('code_samples/mcp/mcp.sh.output.txt', 69, 128) =]]
 ```
 
 The `greet` [tool call](https://modelcontextprotocol.io/specification/latest/server/tools#calling-tools):
 
 ``` bash
-[[= include_file('code_samples/mcp/mcp.sh', 62, 76) =]]
+[[= include_code('code_samples/mcp/mcp.sh', 63, 76) =]]
 ```
 
 ``` json
-[[= include_file('code_samples/mcp/mcp.sh.output.txt', 128, 148) =]]
+[[= include_code('code_samples/mcp/mcp.sh.output.txt', 129, 148) =]]
 ```
 
 The [list of prompts](https://modelcontextprotocol.io/specification/latest/server/prompts#listing-prompts):
 
 ``` bash
-[[= include_file('code_samples/mcp/mcp.sh', 77, 85) =]]
+[[= include_code('code_samples/mcp/mcp.sh', 78, 85) =]]
 ```
 
 ``` json
-[[= include_file('code_samples/mcp/mcp.sh.output.txt', 148, 172) =]]
+[[= include_code('code_samples/mcp/mcp.sh.output.txt', 149, 172) =]]
 ```
 
 The `greet` [prompt obtainment](https://modelcontextprotocol.io/specification/2025-11-25/server/prompts#getting-a-prompt):
 
 ``` bash
-[[= include_file('code_samples/mcp/mcp.sh', 86, 100) =]]
+[[= include_code('code_samples/mcp/mcp.sh', 87, 100) =]]
 ```
 
 ``` json
-[[= include_file('code_samples/mcp/mcp.sh.output.txt', 172, 187) =]]
+[[= include_code('code_samples/mcp/mcp.sh.output.txt', 173, 187) =]]
 ```
 
 ### MCP Inspector test
@@ -407,7 +410,7 @@ There is two ways of dealing with the JWT token for this test:
 The hard coded JWT token configuration in `.mcp.json`:
 
 ``` json
-[[= include_file('code_samples/mcp/http.mcp.json') =]]
+[[= include_code('code_samples/mcp/http.mcp.json') =]]
 ```
 
 The `.mcp.json` file must be edited to update the JWT token each time it expires.
@@ -426,7 +429,7 @@ When Copilot complains that it can't communicate with the MCP server:
 The wrapping script configuration in `.mcp.json`:
 
 ``` json
-[[= include_file('code_samples/mcp/stdio.mcp.json') =]]
+[[= include_code('code_samples/mcp/stdio.mcp.json') =]]
 ```
 
 The `mcp-ibexa-example-wrapper.sh` is a script asking for a JWT token then establishing a connection with the MCP server.
@@ -434,7 +437,7 @@ The `mcp-ibexa-example-wrapper.sh` is a script asking for a JWT token then estab
 For example, this can be achieved with [Supergateway](https://www.npmjs.com/package/supergateway) without local installation thanks to [`npx`](https://www.npmjs.com/package/npx):
 
 ``` bash
-[[= include_file('code_samples/mcp/mcp-ibexa-example-wrapper.sh') =]]
+[[= include_code('code_samples/mcp/mcp-ibexa-example-wrapper.sh') =]]
 ```
 
 When Copilot complains that it can't communicate with the MCP server, reload the MCP servers in Copilot CLI with one of those methods:
