@@ -29,7 +29,7 @@ Disable the Focus mode, go to content types screen and in the Content group add 
 | Text line  | Name              | `name`              | yes      | yes        | yes          |
 | Text line  | Short Description | `short_description` | yes      | yes        | yes          |
 | Image Asset | Photo             | `photo`             | yes      | no         | no           |
-| RichText   | Full Description  | `description`       | yes      | yes        | yes          |
+| RichText   | Full Description  | `full_description`       | yes      | yes        | yes          |
 
 ### Tip
 
