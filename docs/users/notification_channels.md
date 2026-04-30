@@ -72,7 +72,7 @@ This page contains several examples of subscriptions configuration.
     To ensure you don't unsubscribe against your will,
     always use the following command to check subscriptions for a siteaccess before and after additions:
 
-    
+#### Subscription example
 
 For example, let's subscribe to Commerce activity with a Slack channel.
 
