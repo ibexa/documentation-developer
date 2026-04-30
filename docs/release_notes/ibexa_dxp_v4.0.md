@@ -119,4 +119,4 @@ for full details of changes and how they influence your project.
 
 | [[= product_name_content =]]  | [[= product_name_exp =]]  | [[= product_name_com =]] |
 |--------------|------------|------------|
-| [[[= product_name_content =]] v4.0](https://github.com/ibexa/content/releases/tag/v4.0.0) | [[[= product_name_exp =]] v4.0](https://github.com/ibexa/experience/releases/tag/v4.0.0) | [[[= product_name_com =]] v4.0](https://github.com/ibexa/commerce/releases/tag/v4.0.0)
+| [[[= product_name_content =]] v4.0](https://github.com/ibexa/content/releases/tag/v4.0.0) | [[[= product_name_exp =]] v4.0](https://github.com/ibexa/experience/releases/tag/v4.0.0) | [[[= product_name_com =]] v4.0](https://github.com/ibexa/commerce/releases/tag/v4.0.0) |

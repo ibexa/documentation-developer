@@ -78,11 +78,14 @@
         "ibexa/messenger": "~5.0.x-dev",
         "ibexa/collaboration": "~5.0.x-dev",
         "ibexa/share": "~5.0.x-dev",
-        "ibexa/shopping-list": "~5.0.x-dev",
         "ibexa/phpstan": "~5.0.-dev",
+        "ibexa/connector-quable": "5.0.x-dev",
+        "ibexa/shopping-list": "~5.0.x-dev",
         "deptrac/deptrac": "^3.0",
         "ibexa/cdp": "~5.0.x-dev",
-        "ibexa/image-editor": "~5.0.x-dev"
+        "ibexa/connector-raptor": "~5.0.x-dev",
+        "ibexa/image-editor": "~5.0.x-dev",
+        "ibexa/integrated-help": "~5.0.x-dev"
     },
     "scripts": {
         "fix-cs": "php-cs-fixer fix --config=.php-cs-fixer.php -v --show-progress=dots",

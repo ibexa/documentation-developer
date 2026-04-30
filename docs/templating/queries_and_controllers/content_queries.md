@@ -96,7 +96,7 @@ Select the content type of items you want to return in the **Returned type** dro
 To take it into account, your Query type must filter on the content type.
 Provide the selected content type through the `returnedType` variable:
 
-```
+```yaml
 contentType: '@=returnedType'
 ```
 
@@ -118,7 +118,7 @@ You can override the pagination settings from field definition by setting the `e
 You can also define an offset for the results.
 Provide the offset in the Query type, or in parameters:
 
-```
+```yaml
 offset: 3
 ```
 
