@@ -354,7 +354,30 @@ To test your server, you can use the [MCP Inspector](https://modelcontextprotoco
 It's even possible to use it as a DDEV add-on with [`craftpulse/ddev-mcp-inspector`](https://github.com/craftpulse/ddev-mcp-inspector).
 You still need to ask for a JWT token through REST or GraphQL, and use it in the MCP Inspector configuration to connect to your server.
 
-For example, you can open GraphiQL UI (for example at `http://localhost/graphiql`), paste in the following query, adapt it, and run it to get a token:
+For REST example, you can:
+
+- open REST API live doc (for example at `http://localhost/api/ibexa/v2/doc`)
+- go to **User Token** section **POST /user/token/jwt** resource (for example at `http://localhost/api/ibexa/v2/doc#/User%20Token/api_usertokenjwt_post`)
+- click the **Try it out** button
+- fill in the following adapted payload with the user credentials
+- click the **Execute** button to get a token
+
+```json
+{
+  "JWTInput": {
+    "username": "ibexa-example",
+    "password": "Ibexa-3xample"
+  }
+}
+```
+![Screenshot of REST API live documentation with a JWTInput payload, a JWT token request and its response](img/jwt-rest-doc.png "REST doc JWT token request and response")
+
+
+For GraphQL example, you can:
+
+  - open GraphiQL UI (for example at `http://localhost/graphiql`)
+  - paste in the following adapted query with the user credentials
+  - click the execute button **▶** to get a token
 
 ```graphql
 mutation CreateToken {
@@ -365,7 +388,7 @@ mutation CreateToken {
 }
 ```
 
-![Screenshot of GraphiQL with a JWT token request and its response](img/graphiql-jwt.png "JWT token request and response")
+![Screenshot of GraphiQL with a JWT token request and its response](img/jwt-graphiql.png "GraphiQL JWT token request and response")
 
 To use the MCP Inspector for this example, the settings are:
 
@@ -374,9 +397,9 @@ To use the MCP Inspector for this example, the settings are:
 - Connection Type: Via Proxy
 - Authentication:
     - Custom Headers:
-        - ✓ Authorization
-        - Bearer <JWT token>
-    - OAuth 2.0 Flow: leave unedited
+        - <big>☑</big> `Authorization`
+        - `Bearer <JWT token>`
+    - OAuth 2.0 Flow: left unedited
 
 ![Screenshot of the left pannel of the MCP Inspector with the connection settings for the example MCP server](img/mcp-inspector-config.png "MCP Inspector connection settings")
 
