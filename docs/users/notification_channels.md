@@ -94,7 +94,7 @@ Subscribe to notification types related to Commerce, such as order, payment, and
 For example, in a new `config/packages/notifications.yaml` file:
 
 ``` yaml hl_lines="12-20"
-[[= include_file('code_samples/user_management/notifications/config/packages/notifications.yaml', 0, 20) =]]
+[[= include_code('code_samples/user_management/notifications/config/packages/notifications.yaml', 1, 20) =]]
 ```
 
 ## Create a notification class
@@ -169,13 +169,13 @@ It's supported by two channels in this example but could be extended to more.
 As constructor arguments, an instance takes the command itself, the exit code of the run, and any caught exceptions.
 
 ``` php
-[[= include_file('code_samples/user_management/notifications/src/Notifications/CommandExecuted.php') =]]
+[[= include_code('code_samples/user_management/notifications/src/Notifications/CommandExecuted.php') =]]
 ```
 
 The channels subscribing to this notification are set in `config/packages/notifications.yaml`:
 
 ``` yaml hl_lines="17-20"
-[[= include_file('code_samples/user_management/notifications/config/packages/notifications.yaml', 4, 24) =]]
+[[= include_code('code_samples/user_management/notifications/config/packages/notifications.yaml', 5, 24) =]]
 ```
 
 The example command sends a `CommandExecuted` notification at the end of what could be a regular execution.
@@ -183,7 +183,7 @@ It randomly succeeds or fails to demonstrate how notifications can communicate d
 It could be declared as a service to set the list of recipients' logins (`$recipientLogins`) from a configuration file.
 
 ``` php
-[[= include_file('code_samples/user_management/notifications/src/Command/NotificationSenderCommand.php') =]]
+[[= include_code('code_samples/user_management/notifications/src/Command/NotificationSenderCommand.php') =]]
 ```
 
 If you execute this command, it sometimes succeeds, sometimes fails.
@@ -197,13 +197,13 @@ The following example shows a custom notification sent by a controller and displ
 The following `ControllerFeedback` notification type is a class that only extends the base:
 
 ``` php
-[[= include_file('code_samples/user_management/notifications/src/Notifications/ControllerFeedback.php') =]]
+[[= include_code('code_samples/user_management/notifications/src/Notifications/ControllerFeedback.php') =]]
 ```
 
 The `ControllerFeedback` notification is sent in a controller action:
 
 ``` php
-[[= include_file('code_samples/user_management/notifications/src/Controller/NotificationSenderController.php') =]]
+[[= include_code('code_samples/user_management/notifications/src/Controller/NotificationSenderController.php') =]]
 ```
 
 For the example, the notification is sent in a back office context for all editions and on the front end for Commerce edition.
@@ -211,12 +211,12 @@ An empty template only extending the pagelayout is used for the demonstration.
 
 `templates/themes/admin/notification-sender-controller.html.twig`:
 ``` twig
-[[= include_file('code_samples/user_management/notifications/templates/themes/admin/notification-sender-controller.html.twig') =]]
+[[= include_code('code_samples/user_management/notifications/templates/themes/admin/notification-sender-controller.html.twig') =]]
 ```
 
 `templates/themes/storefront/notification-sender-controller.html.twig`:
 ``` twig
-[[= include_file('code_samples/user_management/notifications/templates/themes/storefront/notification-sender-controller.html.twig') =]]
+[[= include_code('code_samples/user_management/notifications/templates/themes/storefront/notification-sender-controller.html.twig') =]]
 ```
 
 In the back office, a notification sent as a flash message has the `ibexa-alert--notification` CSS class.
@@ -226,13 +226,13 @@ For this example, the style will be the same as an existing alert message type.
 The `assets/scss/notifications.scss` declares the CSS class `ibexa-alert--notification` as being the same as the `ibexa-alert--info` CSS class
 
 ``` scss
-[[= include_file('code_samples/user_management/notifications/assets/scss/notifications.scss') =]]
+[[= include_code('code_samples/user_management/notifications/assets/scss/notifications.scss') =]]
 ```
 
 This `assets/scss/notifications.scss` is added to the Admin UI layout in `webpack.config.js`:
 
 ``` javascript
-[[= include_file('code_samples/user_management/notifications/webpack.config.js', 49) =]]
+[[= include_code('code_samples/user_management/notifications/webpack.config.js', 50) =]]
 ```
 
 On the storefront, a notification sent as a flash message has the `ibexa-store-notification--notification` CSS class.
@@ -244,8 +244,11 @@ Subscribe to this new notification type in `config/packages/notifications.yaml`:
 - For Commerce edition, in the `storefront_group` scope with the `browser` channel
 
 ``` yaml hl_lines="13-15 43-45"
-[[= include_file('code_samples/user_management/notifications/config/packages/notifications.yaml', 4, 6) =]]        # …
-[[= include_file('code_samples/user_management/notifications/config/packages/notifications.yaml', 25, 34) =]][[= include_file('code_samples/user_management/notifications/config/packages/notifications.yaml', 35, 65) =]][[= include_file('code_samples/user_management/notifications/config/packages/notifications.yaml', 66) =]]
+[[= include_code('code_samples/user_management/notifications/config/packages/notifications.yaml', 5, 6) =]]
+        # …
+[[= include_code('code_samples/user_management/notifications/config/packages/notifications.yaml', 26, 34) =]]
+[[= include_code('code_samples/user_management/notifications/config/packages/notifications.yaml', 36, 65) =]]
+[[= include_code('code_samples/user_management/notifications/config/packages/notifications.yaml', 67) =]]
 ```
 
 !!! note "Subscriptions for `storefront_group`"
@@ -278,17 +281,17 @@ A channel is a service implementing `Symfony\Component\Notifier\Channel\ChannelI
 The following example is a custom channel that sends notifications to the logger.
 
 ``` php
-[[= include_file('code_samples/user_management/notifications/src/Notifier/Channel/LogChannel.php') =]]
+[[= include_code('code_samples/user_management/notifications/src/Notifier/Channel/LogChannel.php') =]]
 ```
 
 ``` yaml
-[[= include_file('code_samples/user_management/notifications/config/services.yaml') =]]
+[[= include_code('code_samples/user_management/notifications/config/services.yaml') =]]
 ```
 
 Now, the [`CommandExecuted` notification](#commandexecuted-example) can be subscribed to with the `log` channel:
 
 ``` yaml hl_lines="5"
-[[= include_file('code_samples/user_management/notifications/config/packages/notifications.yaml', 20, 25) =]]
+[[= include_code('code_samples/user_management/notifications/config/packages/notifications.yaml', 21, 25) =]]
 ```
 
 The log contains the notifications
