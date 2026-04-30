@@ -51,6 +51,7 @@ Available notification channels:
 php bin/console debug:container --tag=notifier.channel
 ```
 
+* `actito` - Notification forwarded as [transactional email](transactional_emails.md)
 * `browser` - Notification forwarded as flash message
 * [`chat`]([[= symfony_doc =]]/notifier.html#chat-channel) - Notification forwarded to a communication platform like Slack, Microsoft Teams, or Google Chat
 * [`desktop`]([[= symfony_doc =]]/notifier.html#chat-channel) - Notification forwarded to desktop applications like JoliNotif
@@ -108,6 +109,7 @@ and can optionally implement interfaces required by specific channels.
 
 | Channel   | Notification interface         | <span title="The channel needs the notification to implement its interface.">⚠</span> |
 |:----------|:-------------------------------|---------------------------------------------------------------------------------------|
+| `actito`  | `EmailNotificationInterface`   | &#10004;                                                                              |
 | `chat`    | `ChatNotificationInterface`    |                                                                                       |
 | `desktop` | `DesktopNotificationInterface` |                                                                                       |
 | `email`   | `EmailNotificationInterface`   | &#10004;                                                                              |
