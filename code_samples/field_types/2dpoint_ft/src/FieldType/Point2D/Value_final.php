@@ -8,12 +8,17 @@ use Symfony\Component\Validator\Constraints as Assert;
 
 final class Value implements ValueInterface
 {
-    public function __construct(
-        #[Assert\NotBlank]
-        private ?float $x = null,
-        #[Assert\NotBlank]
-        private ?float $y = null
-    ) {
+    #[Assert\NotBlank]
+    private ?float $x = null;
+    #[Assert\NotBlank]
+    private ?float $y = null;
+
+    public function __construct(array $coords = [])
+    {
+        if (!empty($coords)) {
+            $this->x = $coords[0];
+            $this->y = $coords[1];
+        }
     }
 
     public function getX(): ?float
