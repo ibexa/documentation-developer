@@ -256,8 +256,8 @@ Check if current user has this custom limitation set to true from a custom contr
 
 ## Restrict access to form submissions
 
-By default, access to a [Form content item](work_with_forms.md) is controlled by the `content/read` policy.
-As a result, all users who can view a form in the Admin UI can also access its **Submissions** tab.
+By default, access to a [Form content item](form_builder_guide.md#forms-management) is controlled by the `content/read` policy.
+As a result, all users who can view a form in the Admin UI can also [access](form_builder_guide.md#view-results) its [**Submissions** tab](back_office_tabs.md).
 
 However, form submissions may require stricter access control than the form itself, for example, to conform with GDPR regulations.
 To tackle this, you must separate the permissions by introducing a dedicated policy that manages access to form submission:
