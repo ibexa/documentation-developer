@@ -58,7 +58,7 @@ module.exports = [ eZConfig, ibexaConfig, ...customConfigs ];
 !!! note
 
     Make sure all fields are marked as *Translatable*.
-    This setting is required to enable [content translation](first_steps#add-a-language-and-translate-content) for all fields in the created content type.
+    This setting is required to enable [content translation](#add-a-language-and-translate-content) for all fields in the created content type.
 
 8\. Save the content type.
 
