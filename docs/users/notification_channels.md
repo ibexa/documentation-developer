@@ -115,7 +115,7 @@ and can optionally implement interfaces required by specific channels.
 | `push`    | `PushNotificationInterface`    |                                                                                       |
 | `sms`     | `SmsNotificationInterface`     | &#10004;                                                                              |
 
-Note that the [`SystemNotificationInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Notifications-SystemNotification-SystemNotificationInterface.html) is not part of Symfony and has its own namespace.
+The [`SystemNotificationInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Notifications-SystemNotification-SystemNotificationInterface.html) is not part of Symfony and has its own namespace.
 
 The `ibexa` channel sends notifications to users through their profile menu, exactly as [user notifications](notifications.md#create-custom-notifications).
 The [`SystemNotificationChannel` uses the core `NotificationService`](https://github.com/ibexa/notifications/blob/v5.0.6/src/lib/SystemNotification/SystemNotificationChannel.php#L51) to do so.
