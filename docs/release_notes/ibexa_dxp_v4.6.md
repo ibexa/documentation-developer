@@ -1,5 +1,5 @@
 ---
-description: Ibexa DXP v4.6 brings improvements to Commerce, PIM and Personalization offerings, and a number of changes in CDP and Ibexa Connect.
+description: Ibexa DXP v4.6 brings improvements to Commerce, product catalog and Personalization offerings, and a number of changes in CDP and Ibexa Connect.
 title: Ibexa DXP v4.6 LTS
 month_change: true
 ---
@@ -9,6 +9,78 @@ month_change: true
 [[= release_notes_filters('Ibexa DXP v4.6 LTS', ['Headless', 'Experience', 'Commerce', 'LTS Update', 'New feature', 'First release']) =]]
 
 <div class="release-notes" markdown="1">
+
+[[% set version = 'v4.6.29' %]]
+
+[[= release_note_entry_begin(
+    "Integrated help " + version,
+    '2026-04-20',
+    ['Headless', 'Experience', 'Commerce', 'LTS Update', 'New feature']
+) =]]
+
+### Product tour
+
+The product tour is a new Integrated help feature that helps back office contributors to discover [[= product_name =]].
+
+With product tours, you can create customized onboarding journeys.
+This accelerates user adoption, reduces training time, and helps users confidently navigate the platform.
+
+For more information, see [Product tour](https://doc.ibexa.co/en/4.6/administration/back_office/product_tour/).
+
+[[= release_note_entry_end() =]]
+
+[[= release_note_entry_begin(
+    "Ibexa DXP " + version,
+    '2026-04-20',
+    ['Headless', 'Experience', 'Commerce', 'New feature']
+) =]]
+
+### Developer experience
+
+#### Taxonomy search
+
+One [taxonomy search](https://doc.ibexa.co/en/4.6/content_management/taxonomy/taxonomy_api/search) criterion is added:
+
+- [`TaxonomyNoEntries`](https://doc.ibexa.co/en/4.6/search/criteria_reference/taxonomy_no_entries/) to find content items to which no taxonomy entries have been assigned.
+
+#### Custom parameters in `ibexa_render()`
+
+You can now pass custom parameters to templates when using the `ibexa_render()` Twig function with the new `params` option, similar to how you can with `render(controller())`.
+
+This allows you to provide additional context or data to your view templates:
+
+``` html+twig
+{{ ibexa_render(content, {
+    'viewType': 'line',
+    'method': 'inline',
+    'params': {
+        'custom_param': 'custom_value',
+        'another_param': 'another_value'
+    }
+}) }}
+```
+
+The parameters are available in your template as regular variables.
+
+For more information, see [`ibexa_render()` Twig function](https://doc.ibexa.co/en/4.6/templating/twig_function_reference/content_twig_functions/#ibexa_render).
+
+#### PHP API
+
+The following additions were made to the PHP API:
+
+- [`Ibexa\Contracts\Core\FieldType\ReferenceAwareExternalStorage`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-FieldType-ReferenceAwareExternalStorage.html)
+- [`Ibexa\Contracts\Core\Options\Context`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Options-Context.html)
+- [`Ibexa\Contracts\CorporateAccount\Order`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/namespaces/ibexa-contracts-corporateaccount-order.html)
+- [`Ibexa\Contracts\CorporateAccount\Order\OrderStatusLabelProviderInterface`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-CorporateAccount-Order-OrderStatusLabelProviderInterface.html)
+- [`Ibexa\Contracts\Taxonomy\Search\Query\Criterion\TaxonomyNoEntries`](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/classes/Ibexa-Contracts-Taxonomy-Search-Query-Criterion-TaxonomyNoEntries.html)
+  <br>For more information, see [search criteria reference entry](https://doc.ibexa.co/en/4.6/search/criteria_reference/taxonomy_no_entries/).
+- [`Ibexa\Contracts\IntegratedHelp` namespace](https://doc.ibexa.co/en/4.6/api/php_api/php_api_reference/namespaces/ibexa-contracts-integratedhelp.html) from the [Integrated help LTS-Update](https://doc.ibexa.co/en/4.6/administration/back_office/integrated_help/)
+
+### Full changelog
+
+[[% include 'snippets/release_46.md' %]]
+
+[[= release_note_entry_end() =]]
 
 [[% set version = 'v4.6.28' %]]
 
@@ -394,7 +466,7 @@ The Product Picker tool that, for example, lets you [select products eligible fo
 
 [[= release_note_entry_begin("Symbol attribute " + version, '2025-08-05', ['Headless', 'Experience', 'Commerce', 'LTS Update', 'New feature', 'First release']) =]]
 
-The Symbol attribute allows you to store standardized identifiers of your products in the [Product Information Management](https://doc.ibexa.co/en/4.6/pim/pim_guide/) system.
+The Symbol attribute allows you to store standardized identifiers of your products in the [product catalog](https://doc.ibexa.co/en/4.6/pim/pim_guide/).
 
 For more information, see [Symbol attribute type](https://doc.ibexa.co/en/4.6/pim/attributes/symbol_attribute_type/).
 
@@ -687,7 +759,7 @@ The PHP API has been enhanced with the following new classes:
 
 [[= release_note_entry_begin("Date and time attribute " + version, '2025-03-04', ['Headless', 'Experience', 'Commerce', 'LTS Update', 'New feature', 'First release']) =]]
 
-The Date and time attributes allow you to represent date and time values as part of the product specification in the [Product Information Management](https://doc.ibexa.co/en/4.6/pim/pim_guide/) system.
+The Date and time attributes allow you to represent date and time values as part of the product specification in the [product catalog](https://doc.ibexa.co/en/4.6/pim/pim_guide/).
 
 For more information, see [Date and time attributes](https://doc.ibexa.co/en/4.6/pim/attributes/date_and_time/).
 
@@ -1314,11 +1386,11 @@ Editors can now use a Digital Asset Management platform that enables storing med
 
 For more information, see [Ibexa DAM](https://doc.ibexa.co/projects/userguide/en/master/dam/ibexa_dam/).
 
-#### New features and improvements in PIM
+#### New features and improvements in product catalog
 
 ##### Remote PIM support
 
-This release introduces a foundation for connecting [[= product_name =]] to other sources of product data.
+This release introduces a foundation for connecting [[= product_name =]]'s product catalog capabilities to external Product Information Management (PIM) systems.
 You can use it to implement a custom solution and connect to external PIM or ERP systems, import product data, and present it side-by-side with your organization's existing content, while managing product data in a remote system of your choice.
 
 Here are the most important benefits of Remote PIM support:
@@ -1337,7 +1409,7 @@ Among other things, the Remote PIM support feature allows [[= product_name =]] c
 - use Customer Groups to apply different prices to products,
 - define and use currencies.
 
-For more information about Remote PIM support and the solution's limitations, see [PIM product guide](https://doc.ibexa.co/en/master/pim/pim_guide/#limitations).
+For more information about Remote PIM support and the solution's limitations, see [Product catalog](https://doc.ibexa.co/en/5.0/product_catalog/product_catalog_guide/#limitations).
 
 ##### Virtual products
 
@@ -1596,7 +1668,7 @@ For more information, see [[[= product_name_connect =]] scenario block](https://
 
 #### DDEV
 
-[[[= product_name =]] can officially be run on DDEV](https://ddev.readthedocs.io/en/latest/users/quickstart/#ibexa-dxp).
+[[[= product_name =]] can officially be run on DDEV](https://docs.ddev.com/en/stable/users/quickstart/#ibexa-dxp).
 
 For more information, see the [DDEV guide](https://doc.ibexa.co/en/master/getting_started/install_with_ddev/), which offers a step-by-step walkthrough for installing [[= product_name =]].
 

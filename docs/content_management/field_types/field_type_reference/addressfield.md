@@ -93,7 +93,7 @@ By default, each field is a simple text input with a label made of field identif
 To change the type of field, you need to listen to a specific event.
 For each field below events are dispatched (in order):
 
-```
+```yaml
 ibexa.address.field.{FIELD_IDENTIFIER}
 ibexa.address.field.{FIELD_IDENTIFIER}.{ADDRESS_TYPE}
 ibexa.address.field.{FIELD_IDENTIFIER}.{ADDRESS_TYPE}.{COUNTRY_CODE}
@@ -101,7 +101,7 @@ ibexa.address.field.{FIELD_IDENTIFIER}.{ADDRESS_TYPE}.{COUNTRY_CODE}
 
 #### Example
 
-```
+```yaml
 ibexa.address.field.tax_number
 ibexa.address.field.tax_number.billing_address
 ibexa.address.field.tax_number.billing_address.DE
