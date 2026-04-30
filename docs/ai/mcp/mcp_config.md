@@ -59,7 +59,7 @@ They can be listed and checked with `php bin/console debug:router --siteaccess=<
 | `description`     | string  | No       | `null`  | Human-readable server description             |
 | `instructions`    | string  | No       | `null`  | Instructions dedicated for LLM interaction    |
 | `tools`           | string  | No       | `[]`    | List of tool classes                          |
-| `discovery_cache` | string  | Yes      |         | PSR-6 ou PSR-16 cache pool service identifier |
+| `discovery_cache` | string  | Yes      |         | PSR-6 or PSR-16 cache pool service identifier |
 | `session`         | object  | Yes      |         | Session storage configuration                 |
 
 Notice that a server is disabled by default, it needs to be explicitly enabled.
@@ -256,7 +256,7 @@ To check the server configuration, a short command using the MCP server configur
 [[= include_code('code_samples/mcp/src/Command/McpServerListCommand.php') =]]
 ```
 
-### cURL test
+### `curl` test
 
 To test the `example` MCP server, a sequence of `curl` commands is used to simulate an AI client to MCP server communication.
 
