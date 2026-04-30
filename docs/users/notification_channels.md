@@ -31,7 +31,7 @@ and take actions, such as conveying notifications to users through various trans
 
 Some events send notifications you can subscribe to with one or more channels.
 
-Available notifications:
+### Available notifications
 
 * [`Ibexa\Contracts\FormBuilder\Notifications\FormSubmitted`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-FormBuilder-Notifications-FormSubmitted.html)
 * [`Ibexa\Contracts\Notifications\SystemNotification\SystemNotification`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Notifications-SystemNotification-SystemNotification.html)
@@ -45,11 +45,10 @@ Available notifications:
 * `Ibexa\Share\Notification\ContentViewInvitationNotification`
 * `Ibexa\Share\Notification\ExternalParticipantContentViewInvitationNotification`
 
-Available notification channels:
+### Available notification channels
 
-```bash
-php bin/console debug:container --tag=notifier.channel
-```
+You can list the notification channel services with the following command:
+
 
 * `actito` - Notification forwarded as [transactional email](transactional_emails.md)
 * `browser` - Notification forwarded as flash message
@@ -59,6 +58,8 @@ php bin/console debug:container --tag=notifier.channel
 * `ibexa` - Notification forwarded to back office user profiles
 * [`push`]([[= symfony_doc =]]/notifier.html#push-channel) - Notification forwarded to specific applications
 * [`sms`]([[= symfony_doc =]]/notifier.html#sms-channel) - Notification forwarded to phone numbers
+
+### Subscriptions configuration
 
 Some default subscriptions can be found in `config/packages/ibexa.yaml` and `config/packages/ibexa_admin_ui.yaml`.
 You can modify them or add your own subscriptions.
@@ -71,11 +72,7 @@ This page contains several examples of subscriptions configuration.
     To ensure you don't unsubscribe against your will,
     always use the following command to check subscriptions for a siteaccess before and after additions:
 
-    ```bash
-    php bin/console ibexa:debug:config notifications.subscriptions --siteaccess=<siteaccess>
-    ```
-
-### Subscription example
+    
 
 For example, let's subscribe to Commerce activity with a Slack channel.
 
