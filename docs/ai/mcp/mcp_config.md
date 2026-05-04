@@ -354,7 +354,10 @@ To test your server, you can use the [MCP Inspector](https://modelcontextprotoco
 It's even possible to use it as a DDEV add-on with [`craftpulse/ddev-mcp-inspector`](https://github.com/craftpulse/ddev-mcp-inspector).
 You still need to ask for a JWT token through REST or GraphQL, and use it in the MCP Inspector configuration to connect to your server.
 
-For REST example, you can:
+#### JWT token obtained through REST documentation
+
+To Obtain a JWT token with REST, you can use the REST API live documentation on your development installation
+(`kernel.debug` must be `true` to access it, as on a `dev` environment).
 
 - open REST API live doc (for example at `http://localhost/api/ibexa/v2/doc`)
 - go to **User Token** section **POST /user/token/jwt** resource (for example at `http://localhost/api/ibexa/v2/doc#/User%20Token/api_usertokenjwt_post`)
@@ -372,12 +375,14 @@ For REST example, you can:
 ```
 ![Screenshot of REST API live documentation with a JWTInput payload, a JWT token request and its response](img/jwt-rest-doc.png "REST doc JWT token request and response")
 
+#### JWT token obtained through GraphiQL
 
-For GraphQL example, you can:
+To Obtain a JWT token, you can use the GraphQL request interface on your development installation
+(`kernel.debug` must be `true` to access it, as on a `dev` environment).
 
-  - open GraphiQL UI (for example at `http://localhost/graphiql`)
-  - paste in the following adapted query with the user credentials
-  - click the execute button **▶** to get a token
+- open GraphiQL UI (for example at `http://localhost/graphiql`)
+- paste in the following adapted query with the user credentials
+- click the execute button **▶** to get a token
 
 ```graphql
 mutation CreateToken {
@@ -390,10 +395,12 @@ mutation CreateToken {
 
 ![Screenshot of GraphiQL with a JWT token request and its response](img/jwt-graphiql.png "GraphiQL JWT token request and response")
 
+#### MCP server settings
+
 To use the MCP Inspector for this example, the settings are:
 
 - Transport Type: Streamable HTTP
-- URL: addition of the actual domain and the server `path`, for example `http://localhost/mcp/example`
+- URL: actual domain and server `path`, for example `http://localhost/mcp/example`
 - Connection Type: Via Proxy
 - Authentication:
     - Custom Headers:
@@ -402,6 +409,8 @@ To use the MCP Inspector for this example, the settings are:
     - OAuth 2.0 Flow: left unedited
 
 ![Screenshot of the left pannel of the MCP Inspector with the connection settings for the example MCP server](img/mcp-inspector-config.png "MCP Inspector connection settings")
+
+#### MCP server test within MCP Inspector
 
 In the right panel, in the **Tools** tab, click **List Tools** button in the left column.
 The `greet` tool appears preceded by its icon.
