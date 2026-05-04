@@ -6,7 +6,7 @@ namespace App\FieldType\Point2D;
 use Ibexa\Contracts\Core\FieldType\Value as ValueInterface;
 use Symfony\Component\Validator\Constraints as Assert;
 
-final class Value_final implements ValueInterface
+final readonly class ValueFinal implements ValueInterface
 {
     #[Assert\NotBlank]
     private ?float $x = null;

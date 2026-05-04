@@ -36,7 +36,7 @@ To accept old versions of the field type you need to add support for denormaliza
 To change the format on the fly, you need to replace the constructor and class properties in `src/FieldType/Point2D/Value.php`:
 
 ```php
-[[= include_file('code_samples/field_types/2dpoint_ft/src/FieldType/Point2D/Value_final.php', 10, 22) =]]
+[[= include_file('code_samples/field_types/2dpoint_ft/src/FieldType/Point2D/ValueFinal.php', 10, 23) =]]
 ```
 
 Now you can change the internal representation format of the Point 2D field type.

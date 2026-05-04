@@ -8,8 +8,8 @@ To provide basic validation that ensures both coordinates are provided, add asse
 
 ```php
 [[=
-include_file('code_samples/field_types/2dpoint_ft/src/FieldType/Point2D/Value.php', 6, 7)
-~ include_file('code_samples/field_types/2dpoint_ft/src/FieldType/Point2D/Value.php', 10, 16)
+include_file('code_samples/field_types/2dpoint_ft/src/FieldType/Point2D/Value.php', 6, 8)
+~ include_file('code_samples/field_types/2dpoint_ft/src/FieldType/Point2D/Value.php', 10, 17)
 =]]
 ```
 
