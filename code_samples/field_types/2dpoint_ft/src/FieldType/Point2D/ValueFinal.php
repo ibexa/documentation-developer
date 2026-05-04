@@ -14,6 +14,7 @@ final class ValueFinal implements ValueInterface
     #[Assert\NotBlank]
     private ?float $y = null;
 
+    /** @param list<float|null> $coords */
     public function __construct(array $coords = [])
     {
         if (!empty($coords)) {
