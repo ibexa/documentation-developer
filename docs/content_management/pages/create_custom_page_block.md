@@ -73,7 +73,6 @@ The following UDW configuration is used with the `udw_config_name` key so only a
 
 For more information, see [UDW configuration](browser.md#udw-configuration).
 
-
 ## Add block templates
 
 A block can have different templates that you select when adding it to a page.
@@ -164,3 +163,23 @@ Your custom page block is now registered in the system.
 !!! caution
 
     To use the new block in Page Builder, add it to the list of available blocks in a given content type's settings. This can be done manually in [Page field settings]([[= user_doc =]]/content_management/configure_ct_field_settings/#block-display) or by using the migration action [`add_block_to_available_blocks`](data_migration_actions.md#content-types).
+
+## Configure checkbox appearance
+
+For the blocks with the `checkbox` type, you can change the look of the checkbox in block configuration forms.
+
+You can do it by adding the `block_prefix: block_configuration_attribute_checkbox_toggle` option in the block configuration as follows:
+
+``` yaml hl_lines="4 5"
+<attribute_identifier>:
+    name: <name>
+    type: checkbox
+    options:
+        block_prefix: block_configuration_attribute_checkbox_toggle
+```
+
+This setting changes the checkbox appearance to a toggle widget.
+
+![Toggle widget](toggle_widget.png)
+
+If you remove the above setting from the configuration, the attribute reverts to the default checkbox appearance.
