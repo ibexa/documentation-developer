@@ -113,7 +113,7 @@ You can also pass two additional parameters:
 With a placeholder generator you can download or generate placeholder images for any missing image.
 It proves useful when you're working on an existing database and are unable to download uploaded images to your local development environment, due to, for example, a large size of files.
 
-If the original image cannot be resolved, the `PlaceholderAliasGenerator::getVariation` method generates a placeholder by delegating it to the implementation of the [PlaceholderProvider](https://github.com/ibexa/core/blob/main/src/bundle/Core/Imagine/PlaceholderProvider.php) interface, and saves it under the original path.
+If the original image cannot be resolved, the `PlaceholderAliasGenerator::getVariation` method generates a placeholder by delegating it to the implementation of the [PlaceholderProvider](https://github.com/ibexa/core/blob/5.0/src/bundle/Core/Imagine/PlaceholderProvider.php) interface, and saves it under the original path.
 
 In [[= product_name =]], there are two implementations of the `PlaceholderProvider` interface:
 
@@ -122,7 +122,7 @@ In [[= product_name =]], there are two implementations of the `PlaceholderProvid
 
 ### GenericProvider
 
-The [`GenericProvider`](https://github.com/ibexa/core/blob/main/src/bundle/Core/Imagine/PlaceholderProvider.php) package generates placeholders with basic information about the original image (see [example 1](#configuration-examples)).
+The [`GenericProvider`](https://github.com/ibexa/core/blob/5.0/src/bundle/Core/Imagine/PlaceholderProvider.php) package generates placeholders with basic information about the original image (see [example 1](#configuration-examples)).
 
 ![Placeholder image GenericProvider](placeholder_info.jpg "Example of a generic placeholder image")
 
@@ -139,7 +139,7 @@ The [`GenericProvider`](https://github.com/ibexa/core/blob/main/src/bundle/Core/
 
 ### RemoteProvider
 
-With the [`RemoteProvider`](https://github.com/ibexa/core/blob/main/src/bundle/Core/Imagine/PlaceholderProvider/RemoteProvider.php) you can download placeholders from:
+With the [`RemoteProvider`](https://github.com/ibexa/core/blob/5.0/src/bundle/Core/Imagine/PlaceholderProvider/RemoteProvider.php) you can download placeholders from:
 
  - remote sources, for example, <http://placekitten.com> (see [example 2](#configuration-examples))
  - live version of a site (see [example 3](#configuration-examples))
