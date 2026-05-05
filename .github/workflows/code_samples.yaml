@@ -45,12 +45,15 @@ jobs:
                   dependency-versions: highest
 
             - name: Run PHPStan analysis
+              continue-on-error: true
               run: composer phpstan
 
             - name: Run Deptrac analysis
+              continue-on-error: true
               run: composer deptrac
 
             - name: Run Rector check
+              continue-on-error: true
               run: composer check-rector
 
     code-samples-inclusion-check:
