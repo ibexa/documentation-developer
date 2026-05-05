@@ -247,6 +247,15 @@ So, the example prompt has to use it to be associated with the `example` server.
 During development and testing, you may have to clear the cache to make sure new or modified capabilities are properly re-discovered.
 In this example, regarding its configuration, `php bin/console cache:pool:clear cache.tagaware.filesystem` has to be used.
 
+!!! tip "Cache clearing"
+
+    Have no mercy for the cache during development. But use the right commands to be sure to delete it.
+    The following pair of commands ensure all types of caches are cleared wherever stored:
+    ```bash
+    php bin/console cache:clear
+    php bin/console cache:pool:clear --all
+    ```
+
 ### Create MCP server list command
 
 To check the server configuration, a short command using the MCP server configuration registry
