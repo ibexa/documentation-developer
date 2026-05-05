@@ -363,15 +363,32 @@ Update Symfony constraints in `composer.json` before updating the packages.
     For more details about the new version, see the official Symfony [upgrade instructions](https://github.com/symfony/symfony/blob/7.4/UPGRADE-7.4.md) and [blog posts introducing this release](https://symfony.com/blog/category/living-on-the-edge/8.0-7.4).
     Key changes include:
 
-    - Array-based PHP configuration format
-
-        As part of the [array-based PHP configuration format](https://symfony.com/blog/new-in-symfony-7-4-better-php-configuration), a `config/reference.php` file will be created.
-        You should commit this file to the repository.
 
     - Independent application cache directory
 
         Symfony 7.4 introduces a new [share directory](https://symfony.com/blog/new-in-symfony-7-4-share-directory), dedicated for storing application cache on the file system.
         If you decide to configure it (for example, by setting the `APP_SHARE_DIR` environment variable), review your existing scripts for explicit `var/cache` usage (for example, `rm -rf var/cache`) and decide whether to include `var/share` in the script.
+
+        !!! caution "Always clear the persistence cache with `cache:pool:clear` command"
+
+            Starting with Symfony 7.4, running `php bin/console cache:clear` doesn't clear the [[= product_name =]] persistence cache, even when using a filesystem-based cache pool.
+
+            To clear the persistence cache, for example after adding a [custom Page Builder block](create_custom_page_block.md), you must always run:
+
+            ```bash
+            php bin/console cache:pool:clear [cache-pool]
+            ```
+
+            The default cache-pool is named `cache.tagaware.filesystem`. 
+            The default cache-pool when running Redis or Valkey is named `cache.redis`. 
+            If you have customized the persistence cache configuration, the name of your cache pool might be different.
+
+            For more information about persistence cache, see [Persistence cache](persistence_cache.md).
+
+    - Array-based PHP configuration format
+
+        As part of the [array-based PHP configuration format](https://symfony.com/blog/new-in-symfony-7-4-better-php-configuration), a `config/reference.php` file will be created.
+        You should commit this file to the repository.
 
 4. Update Ibexa packages by running:
 

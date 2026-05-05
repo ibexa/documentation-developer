@@ -278,6 +278,20 @@ For more info on usage, see [Symfony Cache's documentation]([[= symfony_doc =]]/
 
 ### Clearing persistence cache
 
+!!! caution "Always clear the persistence with `cache:pool:clear` command"
+
+    Running `php bin/console cache:clear` doesn't clear the persistence cache, even when using a filesystem-based cache pool.
+    
+    You must always clear the persistence cache by running:
+
+    ```bash
+    php bin/console cache:pool:clear [cache-pool]
+    ```
+
+    The default cache-pool is named `cache.tagaware.filesystem`. 
+    The default cache-pool when running Redis or Valkey is named `cache.redis`. 
+    If you have customized the persistence cache configuration, the name of your cache pool might be different.
+
 Persistence cache prefixes it's cache using "ibx-". Clearing persistence cache can thus be done in the following ways:
 
 ``` php
