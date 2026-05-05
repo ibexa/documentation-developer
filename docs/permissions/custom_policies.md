@@ -257,14 +257,14 @@ Check if current user has this custom limitation set to true from a custom contr
 ## Restrict access to form submissions
 
 By default, access to a [Form content item](form_builder_guide.md#forms-management) is controlled by the `content/read` policy.
-As a result, all users who can view a form in the Admin UI can also [access](form_builder_guide.md#view-results) its [**Submissions** tab](back_office_tabs.md).
+As a result, all users who can view a form in the back office can also [access](form_builder_guide.md#view-results) its [**Submissions** tab](back_office_tabs.md).
 
 However, form submissions may require stricter access control than the form itself, for example, to conform with GDPR regulations.
 To tackle this, you must separate the permissions by introducing a dedicated policy that manages access to form submission:
 
 - define a custom policy: `form/read_submissions`
-- enforce the policy in the backend
-- enforce the policy in the Admin UI
+- enforce the policy on the PHP API level
+- enforce the policy in the back office
 
 With this setup, users with `content/read` permission can view the form, but cannot see the **Submissions** tab, while users with `form/read_submissions` can access the submissions, export and manage submitted data (depending on other permissions).
 
@@ -287,11 +287,11 @@ Next, extract the [translations](#translations) to the `translations/forms.en.xl
 Then, register the provider in the Kernel by overriding the `build()` method.
 Unlike standard Symfony runtime services, policy providers must be registered explicitly in the application kernel, because they are consumed during the container compilation phase.
 
-``` php hl_lines="21 24"
+``` php hl_lines="19 22"
 [[= include_file('code_samples/back_office/limitation/src/Kernel.php', 0, 7) =]][[= include_file('code_samples/back_office/limitation/src/Kernel.php', 8, 18) =]][[= include_file('code_samples/back_office/limitation/src/Kernel.php', 19, 24) =]][[= include_file('code_samples/back_office/limitation/src/Kernel.php', 25, 28) =]]
 ```
 
-Finally, add a service definition to `config/services.yaml`...
+Then, add a service definition to `config/services.yaml`:
 
 ``` yaml
 services:
@@ -299,7 +299,7 @@ services:
 [[= include_file('code_samples/back_office/limitation/config/append_to_services.yaml', 13, 16) =]]
 ```
 
-...and in `src/Resources/config/policies.yaml`:
+Finally, add the policy definition  in `src/Resources/config/policies.yaml`:
 
 ``` yaml
 [[= include_file('code_samples/back_office/limitation/src/Resources/config/policies.yaml', 3, 5) =]]
@@ -307,12 +307,12 @@ services:
 
 This way, after you clean the cache, the new policy becomes available when you [edit the policies assigned to a Role](https://doc.ibexa.co/projects/userguide/en/latest/permission_management/work_with_permissions/).
 
-### Secure backend access
+### Secure access on PHP API level
 
-To enforce the policy in the backend, decorate the form submission service to enforce permission checks.
+To enforce the policy on the PHP API level, decorate the form submission service to enforce permission checks.
 In `src/Security`, create the `FormSubmissionServiceDecorator.php` file:
 
-```php hl_lines="19 33 40 41 43"
+```php hl_lines="19 33 40 41 44"
 [[= include_file('code_samples/back_office/limitation/src/Security/Form/FormSubmissionServiceDecorator.php') =]]
 ```
 
@@ -331,12 +331,12 @@ services:
 
 This way, users can't access the submission data unless they have the `form/read_submissions` policy added to their Role.
 
-### Secure Admin UI
+### Secure back office access
 
-To enforce the policy in the Admin UI, decorate the **Submissions** tab to hide it when the user lacks permission.
+To enforce the policy in the back office, decorate the **Submissions** tab to hide it when the user lacks permission.
 In `src/Security`, create the `FormSubmissionsTabDecorator.php` file:
 
-```php hl_lines="19 21 33 61 62"
+```php hl_lines="19 21 34 62 63"
 [[= include_file('code_samples/back_office/limitation/src/Security/Form/FormSubmissionsTabDecorator.php') =]]
 ```
 

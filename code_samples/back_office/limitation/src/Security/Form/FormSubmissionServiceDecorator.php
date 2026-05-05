@@ -44,7 +44,7 @@ class FormSubmissionServiceDecorator implements FormSubmissionServiceInterface
         return $this->innerService->loadById($id); // Second data fetch through inner service
     }
 
-        // The same permission check pattern is repeated in the methods below
+    // The same permission check pattern is repeated in the methods below
 
     public function delete(FormSubmission $submission): void
     {

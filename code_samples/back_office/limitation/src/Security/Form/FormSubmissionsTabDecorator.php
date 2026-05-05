@@ -18,9 +18,9 @@ use Twig\Environment;
 
 class FormSubmissionsTabDecorator extends SubmissionsTab implements TabInterface, OrderedTabInterface, ConditionalTabInterface
 {
-    private $innerTab;
+    private SubmissionsTab $innerTab;
 
-    private $permissionResolver;
+    private PermissionResolver $permissionResolver;
 
     public function __construct(
         Environment $twig,
@@ -31,7 +31,7 @@ class FormSubmissionsTabDecorator extends SubmissionsTab implements TabInterface
         LanguageService $languageService,
         Type $formBuilderType,
         ConfigResolverInterface $configResolver,
-        TabInterface $innerTab,
+        SubmissionsTab $innerTab,
         PermissionResolver $permissionResolver
     ) {
         parent::__construct($twig, $translator, $formSubmissionService, $formFactory, $contentTypeService, $languageService, $formBuilderType, $configResolver);
