@@ -54,5 +54,10 @@ This class represents the point 2D.
 The final code should look like this:
 
 ```php
-[[= include_file('code_samples/field_types/2dpoint_ft/steps/step_1/Value.php') =]]
+[[= 
+include_file('code_samples/field_types/2dpoint_ft/src/FieldType/Point2D/Value.php', 0, 6)
+~ include_file('code_samples/field_types/2dpoint_ft/src/FieldType/Point2D/Value.php', 7, 11)
+~ include_file('code_samples/field_types/2dpoint_ft/src/FieldType/Point2D/Value.php', 12, 13)
+~ include_file('code_samples/field_types/2dpoint_ft/src/FieldType/Point2D/Value.php', 14)
+=]]
 ```
