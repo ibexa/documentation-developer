@@ -160,7 +160,7 @@ Then create the `templates/user/registration_confirmation.html.twig` template:
 
 In the main menu, go to **Admin** (gear icon) -> **Roles**, and click the **Anonymous** role.
 Add the `Content/Create` policy to the Anonymous user.
-This enables filling in the registration form.
+This allows users to fill in the registration form.
 
 Now return to `<yourdomain>/register`:
 

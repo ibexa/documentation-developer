@@ -177,7 +177,7 @@ Because this template is rendered inside a table, it starts with a `<tr>` tag.
 ```
 ### Media permission
 
-To be able to view the `photo` field you need to have a `read` permission to `Media` section.
+To be able to view the `photo` field you need to have a `content/read` permission to `Media` section.
 
 To verify that you have this permission, in the main menu, go to **Admin** (gear icon) -> **Roles**, and click the **Anonymous** role.
 If needed, edit the **Content/Read** policy line to add the `Media` section to **Limitation** along with the `Standard` section.
