@@ -75,6 +75,8 @@ Recommendation blocks are organized into dedicated categories, each grouping blo
 - **Recommendations: Commerce** - shows recommendations based on visitors' purchase history (buy and basket events):
     - [Other customers have also purchased block]([[= user_doc =]]/recommendations/raptor_integration/raptor_recommendation_blocks/#other-customers-have-also-purchased-block)
     - [The Personal Shopping Assistant]([[= user_doc =]]/recommendations/raptor_integration/raptor_recommendation_blocks/#the-personal-shopping-assistant-block)
+    - [The Personal Shopping Assistant (additional sales)]([[= user_doc =]]/recommendations/raptor_integration/raptor_recommendation_blocks/#the-personal-shopping-assistant-additional-sales-block)
+    - [The Personal Shopping Assistant (conversion)]([[= user_doc =]]/recommendations/raptor_integration/raptor_recommendation_blocks/#the-personal-shopping-assistant-conversion-block)
     - [User's item history]([[= user_doc =]]/recommendations/raptor_integration/raptor_recommendation_blocks/#users-item-history-block)
 
 ![Recommendation blocks](recommendation_blocks.png)
