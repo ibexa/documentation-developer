@@ -57,6 +57,9 @@ You can configure the gaussian blur strength applied during image optimization w
 The setting accepts float values between 0 and 10.0, where higher values increase blur and reduce file size, while lower values maintain sharpness.
 The default value is 0.05.
 
+Processing large images with high blur values (above 5) can be time-consuming and may result in request timeouts.
+Keep this in mind when configuring blur strength for environments that handle high-resolution images, and adjust [PHP's `max_execution_time`](https://www.php.net/manual/en/info.configuration.php#ini.max-execution-time) if needed.
+
 ### Additional information
 
 Each image can be accompanied by additional information that isn't visible to the user.
