@@ -272,7 +272,6 @@ With this setup, users with `content/read` permission can view the form, but can
     - This implementation uses service decoration and extends internal classes.
     - Some internal methods are not publicly reusable, which may require additional calls, for example, `gateway->loadById($id)` or minor workarounds.
     - When upgrading, review these customizations to ensure compatibility with internal API changes.
-    
 
 ### Define custom policy
 
@@ -329,7 +328,7 @@ services:
 [[= include_file('code_samples/back_office/limitation/config/append_to_services.yaml', 23, 27) =]]
 ```
 
-This way, users can't access the submission data unless they have the `form/read_submissions` policy added to their Role.
+This way, users can't access the submission data unless they have the `form/read_submissions` policy added to their role.
 
 ### Secure back office access
 
@@ -348,4 +347,4 @@ services:
 [[= include_file('code_samples/back_office/limitation/config/append_to_services.yaml', 17, 22) =]]
 ```
 
-This way, users can't view the **Submissions** tab unless they have the `form/read_submissions` policy added to their Role.
+This way, users can't view the **Submissions** tab unless they have the `form/read_submissions` policy added to their role.
