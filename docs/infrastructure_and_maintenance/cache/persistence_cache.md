@@ -288,8 +288,8 @@ For more info on usage, see [Symfony Cache's documentation]([[= symfony_doc =]]/
     php bin/console cache:pool:clear [cache-pool]
     ```
 
-    The default cache-pool is named `cache.tagaware.filesystem`. 
-    The default cache-pool when running Redis or Valkey is named `cache.redis`. 
+    The default cache pool is named `cache.tagaware.filesystem`. 
+    The default cache pool when running Redis or Valkey is named `cache.redis`. 
     If you have customized the persistence cache configuration, the name of your cache pool might be different.
 
 Persistence cache prefixes it's cache using "ibx-". Clearing persistence cache can thus be done in the following ways:

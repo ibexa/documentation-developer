@@ -379,8 +379,8 @@ Update Symfony constraints in `composer.json` before updating the packages.
             php bin/console cache:pool:clear [cache-pool]
             ```
 
-            The default cache-pool is named `cache.tagaware.filesystem`. 
-            The default cache-pool when running Redis or Valkey is named `cache.redis`. 
+            The default cache pool is named `cache.tagaware.filesystem`. 
+            The default cache pool when running Redis or Valkey is named `cache.redis`. 
             If you have customized the persistence cache configuration, the name of your cache pool might be different.
 
             For more information about persistence cache, see [Persistence cache](persistence_cache.md).
