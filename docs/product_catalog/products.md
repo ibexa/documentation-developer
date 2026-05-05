@@ -35,14 +35,15 @@ Typical product attribute examples are: length, weight, color, format, and more.
 
 The following attribute types are available:
 
-- checkbox
-- color
-- [date and time](date_and_time.md)
-- float
-- integer
-- measurement (`measurement_range` and `measurement_single`)
-- selection
-- [symbol](symbol_attribute_type.md)
+| Name | Identifier | Description |
+|------|------------|-------------|
+| Checkbox | `checkbox` | Boolean attribute with a true/false value. |
+| Color | `color` | Stores a color value as a hex code. |
+| [Date and time](date_and_time.md) | `datetime` | Date and time value with configurable accuracy levels. |
+| Float | `float` | Decimal number value. |
+| Integer | `integer` | Integer number value. |
+| Selection | `selection` | A value selected from a predefined list of labeled options. |
+| [Symbol](symbol_attribute_type.md) | `symbol` | String value with an enforced format, suitable for standardized identifiers such as EAN or ISBN. |
 
 Product attributes are collected in groups.
 An example of an attribute group can be dimensions (length, width, height).
