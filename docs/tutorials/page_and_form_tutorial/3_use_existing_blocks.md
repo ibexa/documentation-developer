@@ -41,11 +41,11 @@ Run `yarn encore <dev|prod>` to regenerate assets.
 At this point you can start adding blocks to the page.
 You do it in the page's Edit mode by dragging a block from the menu on the right to the correct zone on the page.
 
-Drag a Content List block from the menu to the left zone on the page.
+Drag a *Content List* block from the menu to the left zone on the page.
 Click the block and fill in the form.
 Here you name the block and decide what it displays.
-Choose the "Dog Breed Catalog" folder as the Parent, select Dog Breed as the content type to be displayed, and choose a limit (3).
-Display the first three Dog Breeds from the database.
+Choose the *Dog Breed Catalog* folder as the Parent, select *Dog Breed* as the content type to be displayed, and choose a limit (3).
+This block will display the first three Dog Breeds from the database.
 
 ![Window with Content List options](enterprise_tut_content_list_window.png)
 
@@ -114,10 +114,10 @@ At this point you can add a new Content Scheduler block to your page and fill it
 
     If you don't see the featured block template, you may need to clear the cache (using `php bin/console cache:clear`) and/or reload the app.
 
-Go back to editing the Home page and drag a Content Scheduler block from the pane on the right to the main zone in the layout, above the Content List block.
-Select the block and click the Block Settings icon.
+Go back to editing the Home page and drag a *Content Scheduler* block from the pane on the right to the main zone in the layout, above the *Content List* block.
+Select the block and click the **Block Settings** icon.
 
-Set the Limit to three and click Select Content.
+Set the *Limit* to 3 and click **Select Content**.
 Navigate to the "All Articles" folder and select the articles you had created and confirm.
 
 ![Selecting Articles for the Schedule Block](enterprise_tut_select_articles.png)
@@ -131,8 +131,10 @@ This article is listed in the queue.
 
 Publish the page.
 
-Now open the Timeline at the top of the screen.
-You can move the slider to different times and preview what the Content Scheduler block looks like at different hours.
+Return to the editing page.
+Click the **Schedule** button on the left of the top bar, click the **Show timeline** button, and close.
+You can now see a slider at the top of the page.
+You can move it to different times and preview what the *Content Scheduler* block looks like at different hours.
 Content is shown when you move the slider to the point when it airs.
 
 !!! tip

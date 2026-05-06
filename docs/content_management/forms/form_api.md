@@ -9,6 +9,12 @@ edition: experience
 
 To manage form submissions created in the [Form Builder](form_builder_guide.md), use `FormSubmissionServiceInterface`.
 
+!!! tip "Restricting access to form submissions"
+
+    By default, back office users with access to the form content item can access the form submissions.
+    
+    If your form submissions require stricter access control than the form itself, you can introduce a [dedicated policy that manages access to submission data](custom_policies.md#restrict-access-to-form-submissions).
+
 ### Getting form submissions
 
 To get existing form submissions, use `FormSubmissionServiceInterface::loadByContent()` (which takes a `ContentInfo` object as parameter), or `FormSubmissionServiceInterface::loadById()`.
