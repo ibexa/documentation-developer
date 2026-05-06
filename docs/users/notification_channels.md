@@ -54,11 +54,11 @@ php bin/console debug:container --tag=notifier.channel
 ```
 
 * `actito` - Notification forwarded as [transactional email](transactional_emails.md)
-* `browser` - Notification forwarded as flash message
+* `browser` - Notification forwarded as [flash message]([[= symfony_doc =]]/session.html#flash-messages)
 * [`chat`]([[= symfony_doc =]]/notifier.html#chat-channel) - Notification forwarded to a communication platform like Slack, Microsoft Teams, or Google Chat
-* [`desktop`]([[= symfony_doc =]]/notifier.html#chat-channel) - Notification forwarded to desktop applications like JoliNotif
-* `email` - Notification forwarded to email addresses
-* `ibexa` - Notification forwarded to back office user profiles
+* [`desktop`]([[= symfony_doc =]]/notifier.html#desktop-channel) - Notification forwarded to desktop applications like JoliNotif
+* [`email`]([[= symfony_doc =]]/notifier.html#email-channel) - Notification forwarded to email addresses
+* `ibexa` - Notification forwarded as [back office user notifications](notifications.md#user-notifications)
 * [`push`]([[= symfony_doc =]]/notifier.html#push-channel) - Notification forwarded to specific applications
 * [`sms`]([[= symfony_doc =]]/notifier.html#sms-channel) - Notification forwarded to phone numbers
 
