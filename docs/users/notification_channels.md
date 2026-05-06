@@ -112,20 +112,18 @@ and can optionally implement interfaces required by specific channels.
   Those interfaces come with a method to specifically format the notification for the channel.
 - Some channels accept every notification and have a default formatting if the notification doesn't implement their related notification interface.
 
-| Channel   | Specific notification interface | Accept any notification |
-|:----------|:--------------------------------|-------------------------|
-| `actito`  | `EmailNotificationInterface`    | **No**                  |
-| `chat`    | `ChatNotificationInterface`     | Yes                     |
-| `desktop` | `DesktopNotificationInterface`  | Yes                     |
-| `email`   | `EmailNotificationInterface`    | **No**                  |
-| `ibexa`   | `SystemNotificationInterface`   | **No**                  |
-| `push`    | `PushNotificationInterface`     | Yes                     |
-| `sms`     | `SmsNotificationInterface`      | **No**                  |
-
-The [`SystemNotificationInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Notifications-SystemNotification-SystemNotificationInterface.html) is not part of Symfony and has its own namespace.
+| Channel   | Specific notification interface                                                                                                                                                                                         | Accept any notification |
+|:----------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------|
+| `actito`  | `Symfony\Component\Notifier\Notification\EmailNotificationInterface`                                                                                                                                                    | **No**                  |
+| `chat`    | `Symfony\Component\Notifier\Notification\ChatNotificationInterface`                                                                                                                                                     | Yes                     |
+| `desktop` | `Symfony\Component\Notifier\Notification\DesktopNotificationInterface`                                                                                                                                                  | Yes                     |
+| `email`   | `Symfony\Component\Notifier\Notification\EmailNotificationInterface`                                                                                                                                                    | **No**                  |
+| `ibexa`   | <nobr>[`Ibexa\Contracts\Notifications\SystemNotification\SystemNotificationInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Notifications-SystemNotification-SystemNotificationInterface.html)</nobr> | **No**                  |
+| `push`    | `Symfony\Component\Notifier\Notification\PushNotificationInterface`                                                                                                                                                     | Yes                     |
+| `sms`     | `Symfony\Component\Notifier\Notification\SmsNotificationInterface`                                                                                                                                                      | **No**                  |
 
 The `ibexa` channel sends notifications to users through their profile menu, exactly as [user notifications](notifications.md#user-notifications).
-The [`SystemNotificationChannel` uses the core `NotificationService`](https://github.com/ibexa/notifications/blob/v5.0.6/src/lib/SystemNotification/SystemNotificationChannel.php#L51) to do so.
+The [`SystemNotificationChannel` uses the core `NotificationService`](https://github.com/ibexa/notifications/blob/v5.0.7/src/lib/SystemNotification/SystemNotificationChannel.php#L51) to do so.
 
 Some channels don't need a recipient:
 
