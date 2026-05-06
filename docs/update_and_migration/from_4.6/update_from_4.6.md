@@ -602,13 +602,17 @@ Now, `0` is interpreted as "length limited to zero characters" and `NULL` as "no
 
 ### GraphQL package update
 
-Due to the [GHSA-68jq-c3rv-pcrr security issue](https://github.com/advisories/GHSA-68jq-c3rv-pcrr), the GraphQL package requirements have been updated to allow installing higher versions in which this issue is resolved.
+The GraphQL dependency constraints have been updated to allow installing versions of `webonyx/graphql-php` that address the following security advisories:
+
+- [GHSA-68jq-c3rv-pcrr](https://github.com/advisories/GHSA-68jq-c3rv-pcrr)
+- [GHSA-fc86-6rv6-2jpm](https://github.com/advisories/GHSA-fc86-6rv6-2jpm)
+- [GHSA-r7cg-qjjm-xhqq](https://github.com/advisories/GHSA-r7cg-qjjm-xhqq)
 
 When doing the update, you have two options:
 
 #### Update GraphQL packages and custom code (recommended)
 
-Make sure the `webonyx/graphql-php` package is installed in a version higher or equal to v15.31.5.
+Make sure the `webonyx/graphql-php` package is installed in a version higher or equal to v15.32.3.
 
 If you [extended GraphQL to support custom field types](graphql_custom_ft.md), update the returned expression from `@=resolver(...)` to `@=query(...)` and change the argument syntax from an array to variadic arguments as in the following example:
 
@@ -626,15 +630,17 @@ php bin/console ibexa:graphql:generate-schema
 
 #### Implement other countermeasures
 
-If updating the GraphQL packages isn't possible right now, for example because the project is using PHP 7.4 where the fix is not available, review the security issue carefully and assess the danger.
+If updating the GraphQL packages isn't possible right now, for example because the project is using PHP 7.4 where the fix is not available, review the security issues carefully and assess the danger.
 
-If you choose to implement countermeasures without updating the GraphQL packages, for example by restricting access to the GrapQL endpoint with rate limiting, authentication, or [WAF](https://en.wikipedia.org/wiki/Web_application_firewall), then you can silence the advisory in `composer.json`:
+If you choose to implement countermeasures without updating the GraphQL packages, for example by restricting access to the GraphQL endpoint with rate limiting, authentication, or [WAF](https://en.wikipedia.org/wiki/Web_application_firewall), then you can silence the advisories in `composer.json`:
 
 ```json
 "config": {
     "audit": {
         "ignore": {
-            "GHSA-68jq-c3rv-pcrr": "Description of the countermeasures you've implemented causing this one to be safe to ignore."
+            "GHSA-68jq-c3rv-pcrr": "Description of the countermeasures you've implemented causing this one to be safe to ignore.",
+            "GHSA-fc86-6rv6-2jpm": "Description of the countermeasures you've implemented causing this one to be safe to ignore.",
+            "GHSA-r7cg-qjjm-xhqq": "Description of the countermeasures you've implemented causing this one to be safe to ignore."
         }
     }
 }
