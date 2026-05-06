@@ -106,6 +106,7 @@ nav:
             - Collaboration events: api/event_reference/collaboration_events.md
             - Integrated help events: api/event_reference/integrated_help_events.md
             - Other events: api/event_reference/other_events.md
+        - Notification channels: users/notification_channels.md
     - Administration:
         - Administration: administration/administration.md
         - Project organization:
@@ -494,7 +495,6 @@ nav:
         - User grouping:
           - Customer groups: users/customer_groups.md
           - Segment API: users/segment_api.md
-        - Notification channels: users/notification_channels.md
     - Personalization:
         - Personalization: personalization/personalization.md
         - Personalization guide : personalization/personalization_guide.md
