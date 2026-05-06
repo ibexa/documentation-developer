@@ -19,7 +19,9 @@ use Twig\Environment;
 class FormSubmissionsTabDecorator extends SubmissionsTab implements TabInterface, OrderedTabInterface, ConditionalTabInterface
 {
     private SubmissionsTab $innerTab;
+
     private PermissionResolver $permissionResolver;
+
     public function __construct(
         Environment $twig,
         TranslatorInterface $translator,

@@ -16,9 +16,13 @@ use Ibexa\FormBuilder\FormSubmission\Gateway\FormSubmissionGateway;
 class FormSubmissionServiceDecorator implements FormSubmissionServiceInterface
 {
     public FormSubmissionServiceInterface $innerService;
+
     public PermissionResolver $permissionResolver;
+
     public ContentService $contentService;
+
     public FormSubmissionGateway $gateway;
+
     public function __construct(FormSubmissionServiceInterface $innerService, PermissionResolver $permissionResolver, ContentService $contentService, FormSubmissionGateway $gateway)
     {
         $this->innerService = $innerService;
