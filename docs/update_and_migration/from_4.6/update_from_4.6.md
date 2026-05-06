@@ -612,7 +612,7 @@ When doing the update, you have two options:
 
 #### Update GraphQL packages and custom code (recommended)
 
-Make sure the `webonyx/graphql-php` package is installed in a version higher or equal to v15.32.3.
+Make sure the `webonyx/graphql-php` package is in version v15.32.3 or higher.
 
 If you [extended GraphQL to support custom field types](graphql_custom_ft.md), update the returned expression from `@=resolver(...)` to `@=query(...)` and change the argument syntax from an array to variadic arguments as in the following example:
 
@@ -630,9 +630,9 @@ php bin/console ibexa:graphql:generate-schema
 
 #### Implement other countermeasures
 
-If updating the GraphQL packages isn't possible right now, for example because the project is using PHP 7.4 where the fix is not available, review the security issues carefully and assess the danger.
+If updating the GraphQL packages isn't possible, for example, because the project is using PHP 7.4 where the fix is not available, review the security issues carefully and assess the danger.
 
-If you choose to implement countermeasures without updating the GraphQL packages, for example by restricting access to the GraphQL endpoint with rate limiting, authentication, or [WAF](https://en.wikipedia.org/wiki/Web_application_firewall), then you can silence the advisories in `composer.json`:
+If you choose to implement countermeasures without updating the GraphQL packages, for example by restricting access to the GraphQL endpoint with rate limiting, authentication, or [WAF](https://en.wikipedia.org/wiki/Web_application_firewall), you can silence the advisories in `composer.json`:
 
 ```json
 "config": {
