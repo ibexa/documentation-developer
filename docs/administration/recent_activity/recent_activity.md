@@ -152,7 +152,7 @@ Call [`ActivityLogService::disable()`](/api/php_api/php_api_reference/classes/Ib
 When disabled, any call to [`ActivityLogService::save()`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ActivityLog-ActivityLogServiceInterface.html#method_save) has no effect and no entries are written to the database.
 
 You can check the current state with [`ActivityLogService::isEnabled()`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ActivityLog-ActivityLogServiceInterface.html#method_isEnabled)
-` and [`ActivityLogService::isDisabled()`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ActivityLog-ActivityLogServiceInterface.html#method_isDisabled).
+ and [`ActivityLogService::isDisabled()`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ActivityLog-ActivityLogServiceInterface.html#method_isDisabled).
 
 ### Add custom Activity Log entries
 
