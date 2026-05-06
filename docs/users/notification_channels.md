@@ -108,18 +108,19 @@ You can define a new notification type and assign a new set of channels to it, c
 It must extend the `Symfony\Component\Notifier\Notification\Notification` class
 and can optionally implement interfaces required by specific channels.
 
-- Some channels don't accept the notification if it doesn't implement their related notification interface. They have a checkmark in the ⚠ column below.
-- Some channels accept every notification and have a default behavior if the notification doesn't implement their related notification interface.
+- Some channels don't accept the notification if it doesn't implement their related notification interface.
+  Those interfaces come with a method to specifically format the notification for the channel.
+- Some channels accept every notification and have a default formatting if the notification doesn't implement their related notification interface.
 
-| Channel   | Notification interface         | <span title="The channel needs the notification to implement its interface.">⚠</span> |
-|:----------|:-------------------------------|---------------------------------------------------------------------------------------|
-| `actito`  | `EmailNotificationInterface`   | &#10004;                                                                              |
-| `chat`    | `ChatNotificationInterface`    |                                                                                       |
-| `desktop` | `DesktopNotificationInterface` |                                                                                       |
-| `email`   | `EmailNotificationInterface`   | &#10004;                                                                              |
-| `ibexa`   | `SystemNotificationInterface`  | &#10004;                                                                              |
-| `push`    | `PushNotificationInterface`    |                                                                                       |
-| `sms`     | `SmsNotificationInterface`     | &#10004;                                                                              |
+| Channel   | Specific notification interface | Accept any notification |
+|:----------|:--------------------------------|-------------------------|
+| `actito`  | `EmailNotificationInterface`    | **No**                  |
+| `chat`    | `ChatNotificationInterface`     | Yes                     |
+| `desktop` | `DesktopNotificationInterface`  | Yes                     |
+| `email`   | `EmailNotificationInterface`    | **No**                  |
+| `ibexa`   | `SystemNotificationInterface`   | **No**                  |
+| `push`    | `PushNotificationInterface`     | Yes                     |
+| `sms`     | `SmsNotificationInterface`      | **No**                  |
 
 The [`SystemNotificationInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Notifications-SystemNotification-SystemNotificationInterface.html) is not part of Symfony and has its own namespace.
 
