@@ -73,6 +73,12 @@ ibexa:
 The values shown above are the defaults.
 `0` means the notification doesn't hide automatically.
 
+### `browser` notification channel
+
+To send notification bars, you can also subscribe to a notification with the `browser` channel.
+
+For more information, see [Notifications to channels](notification_channels.md).
+
 ## User notifications
 
 You can send notifications to the user which are displayed in the user menu.
