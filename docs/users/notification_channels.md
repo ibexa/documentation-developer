@@ -151,19 +151,8 @@ The [`…\Service\NotificationServiceInterface::send()`](/api/php_api/php_api_re
 
 For example, to send a notification, you often use a combination like the following:
 
-```php hl_lines="8-11"
-use App\Notifications\MyNotification; // Extends Symfony\Component\Notifier\Notification\Notification
-use Ibexa\Contracts\Core\Repository\PermissionResolver;
-use Ibexa\Contracts\Notifications\Service\NotificationServiceInterface;
-use Ibexa\Contracts\Notifications\Value\Notification\SymfonyNotificationAdapter;
-use Ibexa\Contracts\Notifications\Value\Recipent\SymfonyRecipientAdapter;
-use Ibexa\Contracts\Notifications\Value\Recipent\UserRecipient;
-//…
-$this->notificationService->send(
-    new SymfonyNotificationAdapter(new MyNotification($subject)),
-    [new SymfonyRecipientAdapter(new UserRecipient($this->permissionResolver->getCurrentUserReference()))],
-);
-//…
+```php hl_lines="11-14"
+[[= include_code('code_samples/user_management/notifications/notification_send.php', 2) =]]
 ```
 
 ### `CommandExecuted` example
