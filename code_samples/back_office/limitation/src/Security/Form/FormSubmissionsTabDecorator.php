@@ -18,10 +18,6 @@ use Twig\Environment;
 
 class FormSubmissionsTabDecorator extends SubmissionsTab implements TabInterface, OrderedTabInterface, ConditionalTabInterface
 {
-    private SubmissionsTab $innerTab;
-
-    private PermissionResolver $permissionResolver;
-
     public function __construct(
         Environment $twig,
         TranslatorInterface $translator,
@@ -31,29 +27,31 @@ class FormSubmissionsTabDecorator extends SubmissionsTab implements TabInterface
         LanguageService $languageService,
         Type $formBuilderType,
         ConfigResolverInterface $configResolver,
-        SubmissionsTab $innerTab,
-        PermissionResolver $permissionResolver
+        private readonly SubmissionsTab $innerTab,
+        private readonly PermissionResolver $permissionResolver
     ) {
         parent::__construct($twig, $translator, $formSubmissionService, $formFactory, $contentTypeService, $languageService, $formBuilderType, $configResolver);
-        $this->innerTab = $innerTab;
-        $this->permissionResolver = $permissionResolver;
     }
 
+    #[\Override]
     public function getIdentifier(): string
     {
         return $this->innerTab->getIdentifier();
     }
 
+    #[\Override]
     public function getName(): string
     {
         return $this->innerTab->getName();
     }
 
+    #[\Override]
     public function renderView(array $parameters): string
     {
         return $this->innerTab->renderView($parameters);
     }
 
+    #[\Override]
     public function evaluate(array $parameters): bool
     {
         /** @var \Ibexa\Contracts\Core\Repository\Values\Content\Content $content */
@@ -63,6 +61,7 @@ class FormSubmissionsTabDecorator extends SubmissionsTab implements TabInterface
             $this->permissionResolver->canUser('form', 'read_submissions', $content);
     }
 
+    #[\Override]
     public function getOrder(): int
     {
         return  $this->innerTab->getOrder();

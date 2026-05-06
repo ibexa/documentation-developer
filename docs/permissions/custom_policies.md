@@ -335,7 +335,7 @@ This way, users can't access the submission data unless they have the `form/read
 To enforce the policy in the back office, decorate the **Submissions** tab to hide it when the user lacks permission.
 In `src/Security`, create the `FormSubmissionsTabDecorator.php` file:
 
-```php hl_lines="19 21 34 62 63"
+```php hl_lines="19 30 60-61"
 [[= include_file('code_samples/back_office/limitation/src/Security/Form/FormSubmissionsTabDecorator.php') =]]
 ```
 
