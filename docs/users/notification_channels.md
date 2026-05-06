@@ -100,6 +100,7 @@ For example, define the following configuration in a new `config/packages/notifi
 
 ``` yaml hl_lines="12-20"
 [[= include_code('code_samples/user_management/notifications/config/packages/notifications.yaml', 1, 20) =]]
+```
 
 ## Create a notification class
 
@@ -187,6 +188,7 @@ As constructor arguments, an instance takes the command itself, the exit code of
 It randomly succeeds or fails to demonstrate how notifications can communicate different execution results.
 It could be declared as a service to set the list of recipients' logins (`$recipientLogins`) from a configuration file.
 
+``` php
 [[= include_code('code_samples/user_management/notifications/src/Command/NotificationSenderCommand.php') =]]
 ```
 
