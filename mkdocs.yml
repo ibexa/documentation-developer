@@ -106,7 +106,7 @@ nav:
             - Collaboration events: api/event_reference/collaboration_events.md
             - Integrated help events: api/event_reference/integrated_help_events.md
             - Other events: api/event_reference/other_events.md
-        - Notification channels: users/notification_channels.md
+        - Notification channels: api/notification_channels.md
     - Administration:
         - Administration: administration/administration.md
         - Project organization:
