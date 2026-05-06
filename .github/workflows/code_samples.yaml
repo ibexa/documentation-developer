@@ -9,6 +9,7 @@ jobs:
         runs-on: "ubuntu-22.04"
         strategy:
             matrix:
+                fail-fast: false
                 php:
                     - "8.4" # Upper supported version
                     - "8.3" # Lower supported version
