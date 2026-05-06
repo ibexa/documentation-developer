@@ -7,15 +7,15 @@ month_change: true
 
 The `ibexa/notifications` package integrates the [Symfony Notifier]([[= symfony_doc =]]/notifier.html) with [[= product_name =]].
 You can use it to create notifications and send them through various channels such as email, SMS, communication platforms,
-and the [back office user notifications](notifications.md#create-custom-notifications).
+and the [back office user notifications](notifications.md#user-notifications).
 
-These notifications must not be confused with the [notification bars](notifications.md#notification-bars) or the [user notifications](notifications.md#create-custom-notifications):
+These notifications must not be confused with the [notification bars](notifications.md#notification-bars) or the [user notifications](notifications.md#user-notifications):
 
-| Notification family                                                | Package               | Service                                                                                                                                                                 | Description                                                          |
-|--------------------------------------------------------------------|-----------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------|
-| [notification bars](notifications.md#notification-bars)            | `ibexa/admin-ui`      | [`TranslatableNotificationHandlerInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-AdminUi-Notification-TranslatableNotificationHandlerInterface.html) | Rendered as a message bar in the bottom-right corner.                |
-| [user notifications](notifications.md#create-custom-notifications) | `ibexa/core`          | [`NotificationService`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-NotificationService.html)                                                | Rendered as a message in the back office bell menu.                  |
-| [Channel subscribable notification](#subscribe-to-notifications)   | `ibexa/notifications` | [`NotificationServiceInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Notifications-Service-NotificationServiceInterface.html)                        | Render depends on the channels subscribing to the notification type. |
+| Notification family                                              | Package               | Service                                                                                                                                                                 | Description                                                          |
+|------------------------------------------------------------------|-----------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------|
+| [notification bars](notifications.md#notification-bars)          | `ibexa/admin-ui`      | [`TranslatableNotificationHandlerInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-AdminUi-Notification-TranslatableNotificationHandlerInterface.html) | Rendered as a message bar in the bottom-right corner.                |
+| [user notifications](notifications.md#user-notifications)        | `ibexa/core`          | [`NotificationService`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-NotificationService.html)                                                | Rendered as a message in the back office bell menu.                  |
+| [Channel subscribable notification](#subscribe-to-notifications) | `ibexa/notifications` | [`NotificationServiceInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Notifications-Service-NotificationServiceInterface.html)                        | Render depends on the channels subscribing to the notification type. |
 
 Unlike notification bars and user notifications, channel-based notifications don't have a predefined channel.
 You can configure how they are delivered to the user by using YAML configuration.
@@ -122,7 +122,7 @@ and can optionally implement interfaces required by specific channels.
 
 The [`SystemNotificationInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Notifications-SystemNotification-SystemNotificationInterface.html) is not part of Symfony and has its own namespace.
 
-The `ibexa` channel sends notifications to users through their profile menu, exactly as [user notifications](notifications.md#create-custom-notifications).
+The `ibexa` channel sends notifications to users through their profile menu, exactly as [user notifications](notifications.md#user-notifications).
 The [`SystemNotificationChannel` uses the core `NotificationService`](https://github.com/ibexa/notifications/blob/v5.0.6/src/lib/SystemNotification/SystemNotificationChannel.php#L51) to do so.
 
 Some channels don't need a recipient:
