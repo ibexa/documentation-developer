@@ -7,7 +7,7 @@ ibexa:
         default:
             notifier:
                 subscriptions:
-                    # Default subscriptions from ibexa.yaml are properly merged.
+                    # The configuration below is added to the `default` scope without overriding the one defined in ibexa.yaml
                     # Custom subscriptions:
                     Ibexa\OrderManagement\Notification\OrderStatusChange:
                         channels:
@@ -26,7 +26,7 @@ ibexa:
         admin_group:
             notifier:
                 subscriptions:
-                    # Default subscriptions from ibexa_admin_ui.yaml are properly merged
+                    # The configuration below is added to the `admin_group` scope without overriding the one defined in ibexa_admin_ui.yaml
                     # Custom subscriptions:
                     App\Notifications\CommandExecuted:
                         channels:
@@ -39,7 +39,7 @@ ibexa:
         storefront_group:
             notifier:
                 subscriptions:
-                    # Default subscriptions from ibexa.yaml:
+                    # The configuration defined in ibexa.yaml for `default` scope is repeated as the configuration below overrides it
                     Ibexa\Contracts\User\Notification\UserPasswordReset:
                         channels:
                             - email
