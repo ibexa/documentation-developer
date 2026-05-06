@@ -70,7 +70,7 @@ You can filter variants by:
 - variant codes:
 
     ``` php
-[[= include_file('code_samples/api/product_catalog/src/Command/ProductVariantCommand.php', 50, 54, remove_indent=True) =]]
+    [[= include_code('code_samples/api/product_catalog/src/Command/ProductVariantCommand.php', 51, 54, indent_level=1,remove_indent=True) =]]
     ```
 
 - product criteria:
@@ -78,7 +78,7 @@ You can filter variants by:
     To use [Product Search Criteria](product_search_criteria.md) with [`ProductVariantQuery`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Values-Product-ProductVariantQuery.html), wrap it with the [`ProductCriterionAdapter`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Values-Content-Query-Criterion-ProductCriterionAdapter.html) class, as in the example below:
 
     ``` php hl_lines="4"
-[[= include_file('code_samples/api/product_catalog/src/Command/ProductVariantCommand.php', 55, 66, remove_indent=True) =]]
+    [[= include_code('code_samples/api/product_catalog/src/Command/ProductVariantCommand.php', 56, 66, indent_level=1, remove_indent=True) =]]
     ```
 
 From a variant ([`ProductVariantInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Values-ProductVariantInterface.html)), you can access the attributes that are used to generate the variant by using the [`ProductVariantInterface::getDiscriminatorAttributes()`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Values-ProductVariantInterface.html#method_getDiscriminatorAttributes) method.
@@ -99,7 +99,7 @@ You can filter variants by:
 - variant codes:
 
     ``` php
-[[= include_file('code_samples/api/product_catalog/src/Command/ProductVariantCommand.php', 83, 87, remove_indent=True) =]]
+    [[= include_code('code_samples/api/product_catalog/src/Command/ProductVariantCommand.php', 84, 87, indent_level=1, remove_indent=True) =]]
     ```
 
 - product criteria:
@@ -107,7 +107,7 @@ You can filter variants by:
     To use [Product Search Criteria](product_search_criteria.md) with [`ProductVariantQuery`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Values-Product-ProductVariantQuery.html), wrap it with the [`ProductCriterionAdapter`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Values-Content-Query-Criterion-ProductCriterionAdapter.html) class, as in the example below:
 
     ``` php hl_lines="4"
-[[= include_file('code_samples/api/product_catalog/src/Command/ProductVariantCommand.php', 92, 100, remove_indent=True) =]]
+    [[= include_code('code_samples/api/product_catalog/src/Command/ProductVariantCommand.php', 93, 100, indent_level=1, remove_indent=True) =]]
     ```
 
 #### Creating variants
