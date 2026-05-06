@@ -45,7 +45,7 @@ ibexa:
                 enabled: false
 ```
 
-You can also disable activity log for a single action by using the [PHP API](#disabling-activity-log).
+You can also disable activity log for a single action by using the [PHP API](#disable-logging-activities).
 
 To automate a regular truncation, the command `ibexa:activity-log:truncate` must be added to a crontab.
 To minimize the number of entries to delete, it's recommended to execute the command more than one time a day.
