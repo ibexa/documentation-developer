@@ -42,16 +42,11 @@ class CommandExecuted extends Notification implements SystemNotificationInterfac
 
     public function asSystemNotification(UserRecipientInterface $recipient, ?string $transport = null): ?SystemMessage
     {
-        $errorCount = 'No error';
-        if (count($this->exceptions) > 0) {
-            $plural = count($this->exceptions) > 1 ? 's' : '';
-            $errorCount = count($this->exceptions) . ' error' . $plural;
-        }
         $message = new SystemMessage($recipient->getUser());
         $message->setContext([
             'icon' => Command::SUCCESS === $this->exitCode ? 'check-circle' : 'discard-circle',
             'subject' => $this->command->getName(),
-            'content' => $errorCount,
+            'content' => 'Number of errors: ' . count($this->exceptions),
         ]);
 
         return $message;
