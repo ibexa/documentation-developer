@@ -18,7 +18,7 @@ class MySuggestionEventSubscriber implements EventSubscriberInterface, LoggerAwa
     private ProductServiceInterface $productService;
 
     public function __construct(
-        ProductServiceInterface $productService,
+        ProductServiceInterface $productService
     ) {
         $this->productService = $productService;
     }

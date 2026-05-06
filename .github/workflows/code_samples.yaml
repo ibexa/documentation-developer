@@ -12,6 +12,7 @@ jobs:
         name: Validate code samples
         runs-on: "ubuntu-22.04"
         strategy:
+            fail-fast: false
             matrix:
                 php:
                     - "8.4" # Upper supported version
@@ -56,6 +57,12 @@ jobs:
 
             - name: Run PHPStan analysis
               run: composer phpstan
+  
+            - if: matrix.php == '8.4' # ibexa/rector supports PHP 8.3 and higher
+              name: Run Rector check
+              run: |
+                composer require --dev ibexa/rector:~4.6.x-dev
+                composer check-rector
 
     code-samples-inclusion-check:
         name: Check code samples inclusion
