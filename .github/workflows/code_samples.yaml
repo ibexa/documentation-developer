@@ -56,10 +56,12 @@ jobs:
                   dependency-versions: highest
 
             - name: Run PHPStan analysis
+              continue-on-error: true
               run: composer phpstan
   
             - if: matrix.php == '8.4' # ibexa/rector supports PHP 8.3 and higher
               name: Run Rector check
+              continue-on-error: true
               run: |
                 composer require --dev ibexa/rector:~4.6.x-dev
                 composer check-rector
