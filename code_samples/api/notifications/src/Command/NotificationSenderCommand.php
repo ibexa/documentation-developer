@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace App\Command;
+namespace App\api\notifications\src\Command;
 
-use App\Notifications\CommandExecuted;
+use App\api\notifications\src\Notifications\CommandExecuted;
 use Ibexa\Contracts\Core\Repository\UserService;
 use Ibexa\Contracts\Notifications\Service\NotificationServiceInterface;
 use Ibexa\Contracts\Notifications\Value\Notification\SymfonyNotificationAdapter;
