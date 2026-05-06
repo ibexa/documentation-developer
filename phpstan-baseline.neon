@@ -121,7 +121,7 @@ parameters:
 			path: code_samples/api/public_php_api/src/Controller/CustomFilterController.php
 
 		-
-			message: '#^Parameter \#1 \$str(ing)? of function base64_encode expects string, string\|false given\.$#'
+			message: '#^Parameter \#1 \$string of function base64_encode expects string, string\|false given\.$#'
 			identifier: argument.type
 			count: 1
 			path: code_samples/api/rest_api/create_image.json.php
@@ -151,7 +151,7 @@ parameters:
 			path: code_samples/api/rest_api/create_image.xml.php
 
 		-
-			message: '#^Parameter \#1 \$str(ing)? of function base64_encode expects string, string\|false given\.$#'
+			message: '#^Parameter \#1 \$string of function base64_encode expects string, string\|false given\.$#'
 			identifier: argument.type
 			count: 1
 			path: code_samples/api/rest_api/create_image.xml.php
@@ -193,13 +193,13 @@ parameters:
 			path: code_samples/api/rest_api/src/Rest/ValueObjectVisitor/RestLocation.php
 
 		-
-			message: '#^Parameter \#1 (\.\.\.\$arrays|\$arr1) of function array_merge expects array, iterable\<Ibexa\\Contracts\\Core\\Repository\\Values\\Content\\URLAlias\> given\.$#'
+			message: '#^Parameter \#1 \.\.\.\$arrays of function array_merge expects array, iterable\<Ibexa\\Contracts\\Core\\Repository\\Values\\Content\\URLAlias\> given\.$#'
 			identifier: argument.type
 			count: 1
 			path: code_samples/api/rest_api/src/Rest/ValueObjectVisitor/RestLocation.php
 
 		-
-			message: '#^Parameter \#2 \.\.\.(\$arrays|\$args) of function array_merge expects array, iterable\<Ibexa\\Contracts\\Core\\Repository\\Values\\Content\\URLAlias\> given\.$#'
+			message: '#^Parameter \#2 \.\.\.\$arrays of function array_merge expects array, iterable\<Ibexa\\Contracts\\Core\\Repository\\Values\\Content\\URLAlias\> given\.$#'
 			identifier: argument.type
 			count: 1
 			path: code_samples/api/rest_api/src/Rest/ValueObjectVisitor/RestLocation.php
@@ -227,6 +227,18 @@ parameters:
 			identifier: missingType.iterableValue
 			count: 1
 			path: code_samples/back_office/images/src/PlaceholderProvider.php
+
+		-
+			message: '#^Method App\\Security\\FormSubmissionsTabDecorator\:\:evaluate\(\) has parameter \$parameters with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: code_samples/back_office/limitation/src/Security/Form/FormSubmissionsTabDecorator.php
+
+		-
+			message: '#^Method App\\Security\\FormSubmissionsTabDecorator\:\:renderView\(\) has parameter \$parameters with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: code_samples/back_office/limitation/src/Security/Form/FormSubmissionsTabDecorator.php
 
 		-
 			message: '#^Method App\\Security\\Limitation\\Mapper\\CustomLimitationFormMapper\:\:mapLimitationForm\(\) has parameter \$form with generic interface Symfony\\Component\\Form\\FormInterface but does not specify its types\: TData$#'
@@ -283,7 +295,7 @@ parameters:
 			path: code_samples/back_office/search/src/EventSubscriber/MySuggestionEventSubscriber.php
 
 		-
-			message: '#^Parameter \#2 \$str(ing)? of function explode expects string, string\|null given\.$#'
+			message: '#^Parameter \#2 \$string of function explode expects string, string\|null given\.$#'
 			identifier: argument.type
 			count: 1
 			path: code_samples/back_office/search/src/EventSubscriber/MySuggestionEventSubscriber.php
