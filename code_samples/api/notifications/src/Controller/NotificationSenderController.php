@@ -1,8 +1,8 @@
 <?php declare(strict_types=1);
 
-namespace App\api\notifications\src\Controller;
+namespace App\Controller;
 
-use App\api\notifications\src\Notifications\ControllerFeedback;
+use App\Notifications\ControllerFeedback;
 use Ibexa\Contracts\Notifications\Service\NotificationServiceInterface;
 use Ibexa\Contracts\Notifications\Value\Notification\SymfonyNotificationAdapter;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;

@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace App\api\notifications\src\Notifier\Channel;
+namespace App\Notifier\Channel;
 
 use Psr\Log\LoggerAwareInterface;
 use Psr\Log\LoggerAwareTrait;

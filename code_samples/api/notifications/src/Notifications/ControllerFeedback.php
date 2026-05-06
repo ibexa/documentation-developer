@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace App\api\notifications\src\Notifications;
+namespace App\Notifications;
 
 use Symfony\Component\Notifier\Notification\Notification;
 

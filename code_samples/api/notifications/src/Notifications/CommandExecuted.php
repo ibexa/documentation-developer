@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace App\api\notifications\src\Notifications;
+namespace App\Notifications;
 
 use Ibexa\Contracts\Notifications\SystemNotification\SystemMessage;
 use Ibexa\Contracts\Notifications\SystemNotification\SystemNotificationInterface;
