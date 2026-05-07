@@ -1,4 +1,5 @@
-# src/Resources/config/policies.yaml
 custom_module:
     custom_function_1: ~
     custom_function_2: [CustomLimitation]
+form:
+    read_submissions: ~

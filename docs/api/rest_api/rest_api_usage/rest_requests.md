@@ -48,7 +48,7 @@ Any REST API URI responds to an `OPTIONS` request.
 
 The response contains an [`Allow` header](https://www.rfc-editor.org/rfc/rfc9110.html#name-allow), which lists the methods accepted by the resource.
 
-```shell
+```bash
 curl -IX OPTIONS https://api.example.com/api/ibexa/v2/content/objects/1
 ```
 
@@ -62,7 +62,7 @@ HTTP/1.1 200 OK
 Allow: PATCH,GET,DELETE,COPY
 ```
 
-```shell
+```bash
 curl -IX OPTIONS https://api.example.com/api/ibexa/v2/content/locations/1/2
 ```
 
@@ -169,13 +169,13 @@ This script:
 === "XML"
 
     ``` php
-    [[= include_file('code_samples/api/rest_api/create_image.xml.php', 0, None, '    ') =]]
+    [[= include_code('code_samples/api/rest_api/create_image.xml.php', 1, None, 1) =]]
     ```
 
 === "JSON"
 
     ``` php
-    [[= include_file('code_samples/api/rest_api/create_image.json.php', 0, None, '    ') =]]
+    [[= include_code('code_samples/api/rest_api/create_image.json.php', indent_level=1) =]]
     ```
 
 ### Search (`/views`)

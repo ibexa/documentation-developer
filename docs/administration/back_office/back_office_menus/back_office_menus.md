@@ -36,7 +36,7 @@ You can listen to the following events:
 || `ConfigureMenuEvent::CONTENT_CREATE_SIDEBAR_RIGHT` |
 || `ConfigureMenuEvent::CONTENT_SIDEBAR_LEFT` |
 | Trash | `ConfigureMenuEvent::TRASH_SIDEBAR_RIGHT` |
-| Section | `ConfigureMenuEvent::SECTION_EDIT_SIDEBAR_RIGHT`
+| Section | `ConfigureMenuEvent::SECTION_EDIT_SIDEBAR_RIGHT` |
 || `ConfigureMenuEvent::SECTION_CREATE_SIDEBAR_RIGHT` |
 | Policies and permissions | `ConfigureMenuEvent::POLICY_EDIT_SIDEBAR_RIGHT` |
 || `ConfigureMenuEvent::POLICY_CREATE_SIDEBAR_RIGHT` |

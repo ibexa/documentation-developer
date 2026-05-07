@@ -106,7 +106,7 @@ parameters:
 
 For content views response tagging is done automatically, and cache system outputs headers as follows:
 
-```
+```http
 HTTP/1.1 200 OK
 Cache-Control: public, max-age=86400
 xkey: ez-all c1 ct1 l2 pl1 p1 p2
@@ -262,7 +262,7 @@ All event subscribers can be found in `http-cache/src/lib/EventSubscriber/CacheP
 Below is an example of a content structure.
 The tags which the content view controller adds to each location are also listed:
 
-```
+```text
    - [Home] (content-id=52, location-id=2)
      ez-all c52 ct42 l2 pl1 p1 p2
      |
@@ -295,7 +295,7 @@ With the same content structure as above, the `[Child]` location is moved below 
 
 The new structure is then:
 
-```
+```yaml
    - [Home] (content-id=52, location-id=2)
      ez-all c52 ct42 l2 pl1 p1 p2
      |
@@ -378,7 +378,7 @@ If you run the command multiple times:
 
 it always outputs:
 
-```
+```http
 HTTP/2 200
 (...)
 x-cache: MISS
@@ -454,7 +454,7 @@ Some notes about each of these parameters:
 
 The output for this command should look similar to this:
 
-```
+```http
     HTTP/1.1 200 OK
     Server: nginx/1.27.0
     Content-Type: application/vnd.fos.user-context-hash
@@ -482,7 +482,7 @@ Now you have the user-context-hash, and you can ask origin for the actual resour
 
 The output :
 
-```
+```http
 HTTP/1.1 200 OK
 Server: nginx/1.27.0
 Content-Type: text/html; charset=UTF-8
@@ -535,7 +535,7 @@ This ESI is handled by a controller in the `FieldTypePage` bundle provided by [[
 
 The output is:
 
-```
+```http
 HTTP/1.1 200 OK
 Server: nginx/1.27.0
 Content-Type: text/html; charset=UTF-8
@@ -563,7 +563,7 @@ This ESI is handled by a custom `FooController::customAction` and the output of 
 
 Output:
 
-```
+```http
 HTTP/1.1 200 OK
 Server: nginx/1.27.0
 Content-Type: text/html; charset=UTF-8

@@ -459,6 +459,8 @@ Support for facets in `ibexa/elasticsearch` has been dropped, use the `Aggregati
 | `\Ibexa\Rest\Server\Controller\User::refreshSession` | `\Ibexa\Rest\Server\Controller\SessionController::refreshSessionAction` |
 | `\Ibexa\Rest\Server\Controller\User::deleteSession` | `\Ibexa\Rest\Server\Controller\SessionController::refreshSessionAction` |
 
+To create a [JWT token](rest_api_authentication.md#jwt-authentication), XML isn't supported anymore.
+
 ### ibexa/scheduler
 
 | Old FQN                                              | New FQN / Comment                                                                |

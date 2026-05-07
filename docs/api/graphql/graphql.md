@@ -72,7 +72,7 @@ You can get your session cookie by logging in through the interface or through a
 
 If you have [JWT authentication](development_security.md#jwt-authentication) enabled, you can use the following query to get your authentication token:
 
-```
+```graphql
 mutation CreateToken {
   createToken(username: "admin", password: "publish") {
     token
@@ -83,7 +83,7 @@ mutation CreateToken {
 
 Response:
 
-```
+```json
 {
   "data": {
     "createToken": {

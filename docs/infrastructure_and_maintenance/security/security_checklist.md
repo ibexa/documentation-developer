@@ -166,7 +166,7 @@ This applies also to other secrets that may be in use, like the Varnish invalida
 
     The following command generates a 64-character-long secure random value:
 
-    ```shell
+    ```bash
     php -r "print bin2hex(random_bytes(32));"
     ```
 

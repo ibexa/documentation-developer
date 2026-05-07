@@ -1,0 +1,7 @@
+{# templates/bundles/IbexaCoreBundle/default/content/full.html.twig #}
+{% extends '@!IbexaCore/default/content/full.html.twig' %}
+
+{% block content %}
+    {{ parent() }}
+    {{ ibexa_tracking_track_event('contentvisit', content) }}
+{% endblock %}

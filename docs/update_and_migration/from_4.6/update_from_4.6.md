@@ -598,6 +598,72 @@ Run the provided SQL upgrade script to adapt your database to latest change in [
 Prior, `0` was interpreted as "no length limit".
 Now, `0` is interpreted as "length limited to zero characters" and `NULL` as "no length limit".
 
+## v4.6.29
+
+### GraphQL package update
+
+The GraphQL dependency constraints have been updated to allow installing versions of `webonyx/graphql-php` that address the following security advisories:
+
+- [GHSA-68jq-c3rv-pcrr](https://github.com/advisories/GHSA-68jq-c3rv-pcrr)
+- [GHSA-fc86-6rv6-2jpm](https://github.com/advisories/GHSA-fc86-6rv6-2jpm)
+- [GHSA-r7cg-qjjm-xhqq](https://github.com/advisories/GHSA-r7cg-qjjm-xhqq)
+
+When doing the update, you have two options:
+
+#### Update GraphQL packages and custom code (recommended)
+
+Make sure the `webonyx/graphql-php` package is in version v15.32.3 or higher.
+
+If you [extended GraphQL to support custom field types](graphql_custom_ft.md), update the returned expression from `@=resolver(...)` to `@=query(...)` and change the argument syntax from an array to variadic arguments as in the following example:
+
+```diff
+-return sprintf('@=resolver("MyFieldValue", [field, %s])', $myArg);
++return sprintf('@=query("MyFieldValue", field, %s)', $myArg);
+```
+
+Then, regenerate the GraphQL schema by running:
+
+``` bash
+rm -rf config/graphql/types/ibexa/
+php bin/console ibexa:graphql:generate-schema
+```
+
+#### Implement other countermeasures
+
+If updating the GraphQL packages isn't possible, for example, because the project is using PHP 7.4 where the fix is not available, review the security issues carefully and assess the danger.
+
+If you choose to implement countermeasures without updating the GraphQL packages, for example by restricting access to the GraphQL endpoint with rate limiting, authentication, or [WAF](https://en.wikipedia.org/wiki/Web_application_firewall), you can silence the advisories in `composer.json`:
+
+```json
+"config": {
+    "audit": {
+        "ignore": {
+            "GHSA-68jq-c3rv-pcrr": "Description of the countermeasures you've implemented causing this one to be safe to ignore.",
+            "GHSA-fc86-6rv6-2jpm": "Description of the countermeasures you've implemented causing this one to be safe to ignore.",
+            "GHSA-r7cg-qjjm-xhqq": "Description of the countermeasures you've implemented causing this one to be safe to ignore."
+        }
+    }
+}
+```
+
+In addition, consider upgrading your project to one of [the actively supported PHP versions](/getting_started/requirements.md#php).
+
+### Database update [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
+
+Run the provided SQL upgrade script to update your database:
+
+=== "MySQL"
+
+    ``` bash
+    mysql -u <username> -p <password> <database_name> < vendor/ibexa/installer/upgrade/db/mysql/ibexa-4.6.28-to-4.6.29.sql
+    ```
+
+=== "PostgreSQL"
+
+    ``` bash
+    psql <database_name> < vendor/ibexa/installer/upgrade/db/postgresql/ibexa-4.6.28-to-4.6.29.sql
+    ```
+
 ## LTS Updates
 
 [LTS Updates](https://doc.ibexa.co/en/4.6/ibexa_products/editions/#lts-updates) are standalone packages with their own update procedures.
