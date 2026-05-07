@@ -19,7 +19,7 @@ A command maintains the log size in database, it should be scheduled through CRO
 
 The `ibexa.repositories.<repository>.activity_log.truncate_after_days` setting sets the number of days a log entry is kept before it's deleted by the `ibexa:activity-log:truncate` command (default value: 30 days).
 
-For example, the following configuration sets 15 days of life to the log entries on the `default` repository, and 20 context groups per page for the `admin_group` SiteAccess group:
+For example, the following configuration sets 15 days of life to the log entries on the `default` repository:
 
 ```yaml
 ibexa:
@@ -37,7 +37,9 @@ For every exact hour, the cronjob line is:
 
 ### Display limit
 
-The `ibexa.system.<scope>.activity_log.pagination.activity_logs_limit` setting sets the number of log items shown per page in the back office (default value: 25):
+The `ibexa.system.<scope>.activity_log.pagination.activity_logs_limit` setting sets the number of log items shown per page in the back office (default value: 25).
+
+For example, the following configuration sets 20 context groups per page for the `admin_group` SiteAccess group:
 
 ```yaml
 ibexa:
@@ -297,8 +299,7 @@ Call [`ActivityLogService::disable()`](/api/php_api/php_api_reference/classes/Ib
 
 When disabled, any call to [`ActivityLogService::save()`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ActivityLog-ActivityLogServiceInterface.html#method_save) has no effect and no entries are written to the database.
 
-You can check the current state with [`ActivityLogService::isEnabled()`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ActivityLog-ActivityLogServiceInterface.html#method_isEnabled)
-` and [`ActivityLogService::isDisabled()`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ActivityLog-ActivityLogServiceInterface.html#method_isDisabled).
+You can check the current state with [`ActivityLogService::isEnabled()`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ActivityLog-ActivityLogServiceInterface.html#method_isEnabled) and [`ActivityLogService::isDisabled()`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ActivityLog-ActivityLogServiceInterface.html#method_isDisabled).
 
 ## REST API
 
