@@ -14,6 +14,10 @@ This page contains recent highlights and notable changes in [[= product_name =]]
 - [v5.0.7 release notes](https://doc.ibexa.co/en/5.0/release_notes/ibexa_dxp_v5.0/#ibexa-dxp-v507)
 - [v4.6.29 release notes](https://doc.ibexa.co/en/4.6/release_notes/ibexa_dxp_v4.6/#ibexa-dxp-v4629)
 
+### Configuration
+
+- Added trailing slashes to all `excluded_uri_prefixes` items to avoid collision with other URIs (for example, `/media` matches on both `/media` and `/mediation` while `/media/` only on `/media/`)
+
 ## March 2026
 
 ### Products
