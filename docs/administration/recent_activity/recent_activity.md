@@ -159,6 +159,7 @@ migration
     Keep activity logging as light as possible.
     Don't make database requests or heavy computation at logging time.
     Keep them for activity log list display time.
+    If needed, you can [disable logging for specific operations](#disable-logging-activities) using the PHP API.
 
 #### Create an entry
 
