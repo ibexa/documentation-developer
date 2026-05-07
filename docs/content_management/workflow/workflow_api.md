@@ -25,7 +25,7 @@ but the implementation in workflow service extends them, for example by providin
 To get information about a specific workflow for a content item, use [`WorkflowServiceInterface::loadWorkflowMetadataForContent`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Workflow-Service-WorkflowServiceInterface.html#method_loadWorkflowMetadataForContent):
 
 ``` php
-[[= include_code('code_samples/api/public_php_api/src/Command/WorkflowCommand.php', 54, 58) =]]
+[[= include_code('code_samples/api/public_php_api/src/Command/WorkflowCommand.php', 54, 58, remove_indent=True) =]]
 ```
 
 !!! tip
@@ -38,13 +38,13 @@ use [`WorkflowServiceInterface::loadWorkflowMetadataForVersionInfo`](/api/php_ap
 This method is more efficient when iterating over draft versions:
 
 ``` php
-[[= include_file('code_samples/api/public_php_api/src/Command/WorkflowCommand.php', 65, 67) =]]
+[[= include_file('code_samples/api/public_php_api/src/Command/WorkflowCommand.php', 65, 67, remove_indent=True) =]]
 ```
 
 To get a list of all workflows that can be used for a given content item, use [`WorkflowRegistryInterface::getSupportedWorkflows`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Workflow-Registry-WorkflowRegistryInterface.html#method_getSupportedWorkflows):
 
 ``` php
-[[= include_file('code_samples/api/public_php_api/src/Command/WorkflowCommand.php', 47, 48) =]]
+[[= include_file('code_samples/api/public_php_api/src/Command/WorkflowCommand.php', 47, 48, remove_indent=True) =]]
 ```
 
 ## Applying workflow transitions
@@ -52,7 +52,7 @@ To get a list of all workflows that can be used for a given content item, use [`
 To place a content item in a workflow, use [`WorkflowServiceInterface::start`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Workflow-Service-WorkflowServiceInterface.html#method_start):
 
 ``` php
-[[= include_file('code_samples/api/public_php_api/src/Command/WorkflowCommand.php', 52, 53) =]]
+[[= include_file('code_samples/api/public_php_api/src/Command/WorkflowCommand.php', 52, 53, remove_indent=True) =]]
 ```
 
 To apply a transition to a content item, use `Workflow::apply`.
