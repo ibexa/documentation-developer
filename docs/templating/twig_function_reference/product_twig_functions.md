@@ -119,7 +119,6 @@ The `ibexa_format_price` filter formats the price value by placing currency code
 {{ order.getValue().getTotalGross()|ibexa_format_price }}
 
 {{ ibexa_get_original_price(discount_product)|ibexa_format_price ?: '-' }}
-{% endfor %}
 ```
 
 ### `ibexa_is_pim_local`
