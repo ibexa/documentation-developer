@@ -9,14 +9,14 @@ You can use Fastly in caching, performance, and request handling in [[= product_
 However, it also introduces a dependency layer that can surface issues that impact authentication and caching behavior only in environments where it is enabled.
 
 Usually, Fastly isn't used during development, which means configuration or behavior mismatches are often discovered during staging or production rollout.
-To avoid production issues, ensure Fastly is included in development and staging workflows, and validate configuration changes thoroughly before moving to production.
+To avoid production issues, ensure that you include Fastly in development and staging workflows, and validate configuration changes thoroughly before moving to production.
 
 This guide explains how to:
 
-- Use Fastly safely during development and testing
-- Upgrade Fastly configuration for [[= product_name =]] v5.0
-- Identify and avoid common pitfalls
-- Validate your setup before going to production
+- Use Fastly safely during development and testing.
+- Upgrade Fastly configuration for [[= product_name =]] v5.0.
+- Identify and avoid common pitfalls.
+- Validate your setup before going to production.
 
 For detailed configuration steps, VCL structure, and CLI usage, [Configure and customize Fastly](https://doc.ibexa.co/en/5.0/infrastructure_and_maintenance/cache/http_cache/fastly/#configure-and-customize-fastly).
 
@@ -31,9 +31,9 @@ Introducing Fastly only in production may cause issues to surface at a late stag
 
 Depending on your infrastructure, you can:
 
-- Use a dedicated Fastly service for non-production environments
-- Connect staging environments to a controlled Fastly configuration
-- Use DDEV-based setups when applicable
+- Use a dedicated Fastly service for non-production environments.
+- Connect staging environments to a controlled Fastly configuration.
+- Use DDEV-based setups when applicable.
 
 For DDEV integration setup details, see [Fastly integration with DDEV environments](https://doc.ibexa.co/en/5.0/infrastructure_and_maintenance/clustering/clustering_with_ddev/#fastly).
 
@@ -51,7 +51,7 @@ Fastly is built on Varnish, therefore you could use the DDEV Varnish integration
 
 1. Enable the Varnish service in DDEV:
 
-    `ddev get ddev/ddev-varnish`
+    `ddev add-on get ddev/ddev-varnish`
 
 1. Use the [[= product_name =]] v5.0 Varnish VCL [base configuration](https://github.com/ibexa/http-cache/blob/v[[= latest_tag_5_0 =]]/docs/varnish/vcl/varnish7.vcl) as your local proxy.
 1. Test authentication, back office operations, and session persistence.
@@ -65,7 +65,7 @@ Before you move on to production, clone your production Fastly service to valida
 1. Clone the service: In the Fastly UI, clone your active production service to create a temporary, test version.
 1. Reconfigure origins: Point the backend to your staging environment instead of production.
 1. Configure temporary domains: Use a temporary Fastly-provided domain, for example, `staging-yourdomain.global.ssl.fastly.net`, or a dedicated test subdomain.
-1. Run validation: Access the staging site through the Fastly URL and verify header handling, cookie behavior, session persistence and back office functionality.
+1. Run validation: Access the staging site through the Fastly URL and verify header handling, cookie behavior, session persistence, and back office functionality.
 
 This stage allows you to test real Fastly behavior safely before moving to production.
 
@@ -78,7 +78,7 @@ Focus on session and authentication handling, cookie-based logic, cache bypass r
 
 ## Common Fastly issues during update
 
-The following issues may appear when Fastly is used as the view cache for [[= product_name =]] and you perform an update.
+The following issues may appear when you use Fastly as the view cache for [[= product_name =]] and you perform an update.
 
 | Issue | Symptoms | Common causes | Recommendation areas |
 |------|----------|---------------|-------|
@@ -124,7 +124,7 @@ if (req.http.Cookie ~ "(IBX_SESSION_ID|eZSESSID)") {
 
 - Always base configuration on official defaults.
 - Do not carry forward legacy VCL unchanged.
-- Ensure Fastly is included in a non-production environment. 
+- Ensure you include Fastly in a non-production environment.
 
 For more information about configuration management, see [List and manage Fastly configuration versions](fastly.md#list-configuration-versions).
 
@@ -133,12 +133,12 @@ For more information about configuration management, see [List and manage Fastly
 Before you deploy [[= product_name =]] with Fastly enabled in production, verify the following:
 
 - Environment validation:
-    - Fastly is enabled in staging/pre-production.
+    - You enable Fastly in staging/pre-production.
     - No Fastly-related errors appear in logs.
 
 - Fastly configuration:
     - Configuration is based on v5.0 defaults.
-    - All customizations have been reviewed and reapplied.
+    - You've reviewed and reapplied all the customizations.
     - No outdated VCL logic remains.
 
 - Authentication and sessions:
@@ -152,5 +152,5 @@ Before you deploy [[= product_name =]] with Fastly enabled in production, verify
     - No cross-user content leakage occurs.
 
 - Functional validation:
-    - Key user journeys are tested with Fastly enabled.
+    - You've tested key user journeys with Fastly enabled.
     - Behavior matches origin-only setup where expected.
