@@ -10,15 +10,14 @@ Recent activity log displays last actions in the repository (whatever their orig
 
 To learn more about its back office usage and the actions logged by default, see [Recent activity in User Documentation]([[= user_doc =]]/recent_activity/recent_activity/).
 
-## Configuration and cronjob
+## Configuration
 
 With some configuration, you can customize the log length in the database or on screen, or disable the logging completely.
 A command maintains the log size in database, it should be scheduled through CRON.
 
-- The configuration `ibexa.system.<scope>.activity_log.pagination.activity_logs_limit` sets the number of log items shown per page in the back office (default value: 25).
-A log item is a group of entries, or an entry without group.
-- The configuration `ibexa.repositories.<repository>.activity_log.truncate_after_days` sets the number of days a log entry is kept before it's deleted by the `ibexa:activity-log:truncate` command (default value: 30 days).
-- The configuration `ibexa.repositories.<repository>.activity_log.enabled` can disable activity log entirely for a given [repository](repository_configuration.md).
+### Log retention
+
+The `ibexa.repositories.<repository>.activity_log.truncate_after_days` setting sets the number of days a log entry is kept before it's deleted by the `ibexa:activity-log:truncate` command (default value: 30 days).
 
 For example, the following configuration sets 15 days of life to the log entries on the `default` repository, and 20 context groups per page for the `admin_group` SiteAccess group:
 
@@ -28,12 +27,31 @@ ibexa:
         default:
             activity_log:
                 truncate_after_days: 15
+```
+
+To automate a regular truncation, the command `ibexa:activity-log:truncate` must be added to a crontab.
+To minimize the number of entries to delete, it's recommended to execute the command more than one time a day.
+
+For every exact hour, the cronjob line is:
+`0 * * * * cd [path-to-ibexa]; php bin/console ibexa:activity-log:truncate --quiet --env=prod`
+
+### Display limit
+
+The `ibexa.system.<scope>.activity_log.pagination.activity_logs_limit` setting sets the number of log items shown per page in the back office (default value: 25):
+
+```yaml
+ibexa:
     system:
         admin_group:
             activity_log:
                 pagination:
                     activity_logs_limit: 20
 ```
+A log item is a group of entries, or an entry without group.
+
+### Disable activity log
+
+The `ibexa.repositories.<repository>.activity_log.enabled` setting can disable activity log entirely for a given [repository](repository_configuration.md).
 
 To disable the activity log for a repository:
 
@@ -45,13 +63,7 @@ ibexa:
                 enabled: false
 ```
 
-You can also disable activity log for a single action by using the [PHP API](#disabling-activity-log).
-
-To automate a regular truncation, the command `ibexa:activity-log:truncate` must be added to a crontab.
-To minimize the number of entries to delete, it's recommended to execute the command more than one time a day.
-
-For every exact hour, the cronjob line is:
-`0 * * * * cd [path-to-ibexa]; php bin/console ibexa:activity-log:truncate --quiet --env=prod`
+You can also disable activity log for a single action by using the [PHP API](#disable-logging-activities).
 
 ## Permission and security
 
@@ -138,21 +150,6 @@ migration
  --------------------------- --------- -------------------- -------------- ------- ----
 ```
 
-### Disable logging activities
-
-You can disable logging the activities with PHP API, for example, when loading large amounts of data in cases where you don't want logging to slow down the process or the actions to be included in the log.
-
-Call [`ActivityLogService::disable()`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ActivityLog-ActivityLogServiceInterface.html#method_disable)
- before running the relevant code, then [`ActivityLogService::enable()`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ActivityLog-ActivityLogServiceInterface.html#method_enable) to restore the logging process:
-
-``` php
-[[= include_code('code_samples/recent_activity/src/recent_activity_disable.php') =]]
-```
-
-When disabled, any call to [`ActivityLogService::save()`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ActivityLog-ActivityLogServiceInterface.html#method_save) has no effect and no entries are written to the database.
-
-You can check the current state with [`ActivityLogService::isEnabled()`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ActivityLog-ActivityLogServiceInterface.html#method_isEnabled)
-` and [`ActivityLogService::isDisabled()`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ActivityLog-ActivityLogServiceInterface.html#method_isDisabled).
 
 ### Add custom Activity Log entries
 
@@ -287,6 +284,22 @@ Thanks to the previous subscriber, the related object is available at display ti
 ``` twig
 [[= include_code('code_samples/recent_activity/templates/themes/admin/activity_log/ui/my_feature/simulate.html.twig') =]]
 ```
+
+### Disable logging activities
+
+You can disable logging the activities with PHP API, for example, when loading large amounts of data in cases where you don't want logging to slow down the process or the actions to be included in the log.
+
+Call [`ActivityLogService::disable()`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ActivityLog-ActivityLogServiceInterface.html#method_disable)
+ before running the relevant code, then [`ActivityLogService::enable()`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ActivityLog-ActivityLogServiceInterface.html#method_enable) to restore the logging process:
+
+``` php
+[[= include_code('code_samples/recent_activity/src/recent_activity_disable.php') =]]
+```
+
+When disabled, any call to [`ActivityLogService::save()`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ActivityLog-ActivityLogServiceInterface.html#method_save) has no effect and no entries are written to the database.
+
+You can check the current state with [`ActivityLogService::isEnabled()`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ActivityLog-ActivityLogServiceInterface.html#method_isEnabled)
+` and [`ActivityLogService::isDisabled()`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ActivityLog-ActivityLogServiceInterface.html#method_isDisabled).
 
 ## REST API
 
