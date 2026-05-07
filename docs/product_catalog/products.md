@@ -38,7 +38,7 @@ The following attribute types are available:
 | Name | Identifier | Description |
 |------|------------|-------------|
 | Checkbox | `checkbox` | Boolean attribute with a true/false value. |
-| Color | `color` | Stores a color value as a hex code. |
+| Color | `color` | Color value stored as a hex code. |
 | [Date and time](date_and_time.md) | `datetime` | Date and time value with configurable accuracy levels. |
 | Float | `float` | Decimal number value. |
 | Integer | `integer` | Integer number value. |
