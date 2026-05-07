@@ -18,6 +18,13 @@ month_change: true
     ['Headless', 'Experience', 'Commerce', 'New feature']
 ) =]]
 
+### MCP Servers
+
+MCP servers ease the discovery of interactions with [[= product_name =]] by AIs.
+This feature allows you to configure several MCP servers with their own set of tools.
+
+See [Model Context Protocol and Ibexa MCP servers](https://doc.ibexa.co/en/5.0/ai/mcp/mcp_guide/) for more information.
+
 ### Gaussian blur optimization in Image Editor
 
 The [Image Editor]([[= user_doc =]]/image_management/edit_images/) now supports configurable gaussian blur strength for image optimization.
