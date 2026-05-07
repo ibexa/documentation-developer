@@ -67,7 +67,9 @@ By default, a search query also counts all matching results.
 If you don't need the total count, set `performCount` to `false` on [`Query`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Query.html) or [`LocationQuery`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-LocationQuery.html) to improve performance, especially for large result sets.
 
 ``` php
-[[= include_code('code_samples/api/public_php_api/src/perform_count.php') =]]
+[[= include_code('code_samples/api/public_php_api/src/perform_count.php', 8, 10) =]]
+
+[[= include_code('code_samples/api/public_php_api/src/perform_count.php', 14, 16) =]]
 ```
 
 When `performCount` is set to `false`, `$result->totalCount` is `null`.
