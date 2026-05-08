@@ -1,16 +1,16 @@
 ---
-description: 
+description: Implement custom availability strategies to handle different business scenarios, for example pre-orders or per-region availability.
 ---
 
 # Create custom availability strategy
 
-The product catalog uses an availability strategy to calculate [computed availability](products.md#availability-and-computed-availability) for a product.
-The default strategy determines whether a product can be ordered based on its stored availability and stock.
+The product catalog uses an availability strategy to calculate [computed availability](products.md#availability-and-computed-availability) for a product, deciding whether the customers can order it.
+The default is based on the product availability and stock amount.
 
-You can replace this logic with a custom strategy to handle specific business scenarios, for example preoders, minimum order quantities, or per-region availability.
+You can replace this logic with a custom strategy to handle specific business scenarios, for example pre-oders, minimum order quantities, or per-region availability.
 
 The following example implements an availability strategy which allows buying products when they're set as available, without taking their stock into account.
-You could use it for [virtual products](products.md#product-types) or in preorder scenarios.
+You could use it for [virtual products](products.md#product-types) or in pre-order scenarios.
 
 ## Create a custom availability context
 
