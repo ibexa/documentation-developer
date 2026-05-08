@@ -44,7 +44,13 @@ Run the following command to install the package:
 composer require ibexa/connector-anthropic
 ```
 
-This command adds the feature code, including basic handlers that let you refine text or generate alternative text for images.
+If not using Symfony Flex, enable the bundle in `config/bundles.php`:
+
+``` php
+    Ibexa\Bundle\ConnectorAnthropic\IbexaConnectorAnthropicBundle::class => [‘all’ => true],
+```
+
+This adds the feature code, including basic handlers that let you refine text or generate alternative text for images.
 
 To use the connector with the Anthropic services, you need to create an account, make sure that you [set up a billing method](https://support.claude.com/en/articles/8325618-paid-plan-billing-faqs), and get an API key.
 
@@ -102,7 +108,7 @@ Then, if not using Symfony Flex, enable the bundle in `config/bundles.php`:
     Ibexa\Bundle\ConnectorGemini\IbexaConnectorGeminiBundle::class => ['all' => true],
 ```
 
-This command adds the feature code, including basic handlers that let you refine text or generate alternative text for images.
+This adds the feature code, including basic handlers that let you refine text or generate alternative text for images.
 
 ### Get API key
 
