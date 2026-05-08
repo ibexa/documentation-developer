@@ -86,12 +86,24 @@ You set product availability per variant or per base product:
 - if a product cannot have variants (has no attributes with the "Used for product variants" flag), you set availability per base product
 - if a product can have variants (even if no variants are configured yet), you set availability per variant.
 
-When a product is available, it can have numerical stock defined.
+When a product is set as available, it can have numerical stock defined.
 The stock can also be set to infinite (for example, in case of digital products).
 
-!!! note
+### Availability and computed availability
 
-    Availability doesn't automatically mean that a product can be ordered.
-    A product can be available, but have zero stock.
+Setting a product as available doesn't automatically mean that a product can be ordered.
+For example, a product can be set as available, but have zero stock.
 
-    A product can only be ordered when it has either positive stock, or stock set to infinite.
+The product catalog distinguishes between two types of availability:
+
+- Availability as a value set per product or variant
+
+Availability represents whether the product was set as **Available**, for example in the [back office **Availability** tab]([[= user_doc =]]/product_catalog/manage_availability_and_stock/#set-product-availability) or [PHP API](product_api.md#product-availability).
+
+- Computed availability
+
+Computed availability represents whether the product can actually be ordered.
+By default, a product can only be ordered when it's set as available and has either positive or infinite stock.
+
+You can implement a custom strategy to handle different selling scenarios, such as minimum order quantity, minimum stock quantity, or region-specific availability.
+For more information, see [Create custom availability strategy](create_custom_availability_strategy.md).

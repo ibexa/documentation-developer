@@ -1,5 +1,5 @@
 ---
-description: Use PHP API to manage products in PIM, their attributes, availability and prices.
+description: Use PHP API to manage products in PIM, their attributes, availability, and prices.
 month_change: false
 ---
 
@@ -178,24 +178,40 @@ You can also get a list of product types with `ProductTypeServiceInterface::find
 
 ## Product availability
 
-Product availability is an object which defines whether a product is available, and if so, in what stock.
+Product availability is an object which defines whether a product is set as available, in what stock, and whether it can be ordered.
 To manage it, use [`ProductAvailabilityServiceInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-ProductAvailabilityServiceInterface.html).
 
-To check whether a product is available (with or without stock defined), use `ProductAvailabilityServiceInterface::hasAvailability()`.
+The [`AvailabilityInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Values-Availability-AvailabilityInterface.html) provides two distinct availability values:
 
-Get the availability object with `ProductAvailabilityServiceInterface::getAvailability()`.
-You can then use `ProductAvailabilityServiceInterface::getStock()` to get the stock number for the product:
+- `getAvailability()` returns the value of availability flag as set for the product
+- `getComputedAvailability()` returns whether the product can be ordered
 
-```php
-[[= include_file('code_samples/api/product_catalog/src/Command/ProductCommand.php', 104, 109) =]]        }
+For more information about the distinction between these two values, see [Availability and computed availability](products.md#availability-and-computed-availability).
+
+To check whether a product is set as available, use `ProductAvailabilityServiceInterface::hasAvailability()`.
+
+You can get the availability object with `ProductAvailabilityServiceInterface::getAvailability()`.
+The returned object contains both the stored and computed availability:
+
+``` php
+[[= include_code('code_samples/api/product_catalog/src/Command/ProductCommand.php', 106, 111, remove_indent=True) =]]
+[[= include_code('code_samples/api/product_catalog/src/Command/ProductCommand.php', 134, 134, remove_indent=True) =]]
+```
+
+To evaluate computed availability for a [specific context](create_custom_availability_strategy.md), for example, a specific requested quantity or customer group, pass an optional [`AvailabilityContextInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Values-Availability-AvailabilityContextInterface.html) object as the second argument:
+
+``` php
+[[= include_code('code_samples/api/product_catalog/src/Command/ProductCommand.php', 122, 128, remove_indent=True) =]]
 ```
 
 To change availability for a product, use `ProductAvailabilityServiceInterface::updateProductAvailability()` with a [`ProductAvailabilityUpdateStruct`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Values-Availability-ProductAvailabilityUpdateStruct.html) and provide it with the product object.
 The second parameter defines whether product is available, and the third whether its stock is infinite. The fourth parameter is the stock number:
 
 ``` php
-[[= include_file('code_samples/api/product_catalog/src/Command/ProductCommand.php', 112, 115) =]]
+[[= include_code('code_samples/api/product_catalog/src/Command/ProductCommand.php', 113, 115, remove_indent=True) =]]
 ```
+
+
 
 ## Attributes
 
