@@ -2,6 +2,7 @@
 
 namespace App\Command;
 
+use App\ProductCatalog\Availability\PurchasableWithoutStockAvailabilityContext;
 use Ibexa\Contracts\Core\Repository\PermissionResolver;
 use Ibexa\Contracts\Core\Repository\UserService;
 use Ibexa\Contracts\ProductCatalog\Local\LocalProductServiceInterface;
@@ -10,7 +11,6 @@ use Ibexa\Contracts\ProductCatalog\ProductServiceInterface;
 use Ibexa\Contracts\ProductCatalog\ProductTypeServiceInterface;
 use Ibexa\Contracts\ProductCatalog\Values\Availability\ProductAvailabilityCreateStruct;
 use Ibexa\Contracts\ProductCatalog\Values\Availability\ProductAvailabilityUpdateStruct;
-use App\ProductCatalog\Availability\PurchasableWithoutStockAvailabilityContext;
 use Ibexa\Contracts\ProductCatalog\Values\Product\ProductQuery;
 use Ibexa\Contracts\ProductCatalog\Values\Product\Query\Criterion;
 use Ibexa\Contracts\ProductCatalog\Values\Product\Query\SortClause;
