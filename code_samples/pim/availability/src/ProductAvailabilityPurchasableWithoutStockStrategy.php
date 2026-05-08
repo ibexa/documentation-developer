@@ -11,9 +11,11 @@ use Ibexa\ProductCatalog\Local\Repository\Values\Availability;
 
 final class ProductAvailabilityPurchasableWithoutStockStrategy implements ProductAvailabilityStrategyInterface
 {
-    public function __construct(
-        private readonly HandlerInterface $handler,
-    ) {
+    private HandlerInterface $handler;
+
+    public function __construct(HandlerInterface $handler)
+    {
+        $this->handler = $handler;
     }
 
     public function accept(AvailabilityContextInterface $context): bool
@@ -23,7 +25,7 @@ final class ProductAvailabilityPurchasableWithoutStockStrategy implements Produc
 
     public function getProductAvailability(
         ProductInterface $product,
-        AvailabilityContextInterface $context,
+        AvailabilityContextInterface $context
     ): AvailabilityInterface {
         $productAvailability = $this->handler->find($product->getCode());
 
@@ -49,7 +51,7 @@ final class ProductAvailabilityPurchasableWithoutStockStrategy implements Produc
     private function calculateAvailability(
         bool $rawAvailable,
         ?int $stock,
-        bool $isInfinite,
+        bool $isInfinite
     ): bool {
         if ($rawAvailable === false) {
             return false;
