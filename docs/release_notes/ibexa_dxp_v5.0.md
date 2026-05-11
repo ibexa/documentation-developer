@@ -52,7 +52,7 @@ For more information, see [available Admin UI Twig Component groups](https://doc
 
 ##### Product API: Computed availability for products
 
-[`ProductAvailabilityInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Values-Availability-ProductAvailabilityInterface.html) now uses separate values for availability and computed availability:
+[`AvailabilityInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Values-Availability-AvailabilityInterface.html) now uses separate values for availability and computed availability:
 
 - `getAvailability()` returns whether the product or variant is manually set as available
 - `getComputedAvailability()` returns whether the product or variant can be ordered, for example, based on its stock level
