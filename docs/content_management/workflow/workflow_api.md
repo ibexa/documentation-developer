@@ -55,7 +55,7 @@ To place a content item in a workflow, use [`WorkflowServiceInterface::start`](/
 ```
 
 To apply a transition to a content item, use `Workflow::apply`.
-Additionally, you can check if the transition is possible for the given object using [`WorkflowServiceInterface::can`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Workflow-Service-WorkflowServiceInterface.html#method_can):
+Additionally, you can check if the transition is possible for the given object by using [`WorkflowServiceInterface::can`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Workflow-Service-WorkflowServiceInterface.html#method_can):
 
 ``` php
 [[= include_code('code_samples/api/public_php_api/src/Command/WorkflowCommand.php', 60, 64, remove_indent=True) =]]
