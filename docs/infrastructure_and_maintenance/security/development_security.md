@@ -182,7 +182,8 @@ JWT_PUBLIC_KEY=%kernel.project_dir%/config/jwt/public.pem
 JWT_PASSPHRASE=0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ……
 ```
 
-Set what you want as `JWT_PASSPHRASE` value.
+Set your `JWT_PASSPHRASE`, its value needs to be a strong, random, and securely stored value.
+For more recommendations and how to generate one, see [`APP_SECRET` and other secret](security_checklist.md#app_secret-and-other-secrets).
 
 In `config/packages/lexik_jwt_authentication.yaml`, use the following configuration:
 
