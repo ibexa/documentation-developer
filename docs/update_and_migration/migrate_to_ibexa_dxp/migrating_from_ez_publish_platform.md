@@ -34,6 +34,20 @@ You can then proceed with consecutive upgrades to further versions: v1.13 LTS an
         While we have a strict backwards compatibility focus, some deprecated API features were removed and some changes were done to internal parts of the system.
         See [ezpublish-kernel:doc/bc/changes-6.0.md](https://github.com/ezsystems/ezpublish-kernel/blob/v6.7.0/doc/bc/changes-6.0.md)
 
+
+!!! warning "Unsupported legacy sorting methods"
+
+    In older eZ Publish versions, sub-items of content items could be sorted by Class identifier (option value 6) or Class name (option value 7).
+    These sorting methods are no longer supported in [[= product_name =]].
+    After you migrate, trying to render the Sub-items tab of content items that are configured to use the unsupported sorting methods results in an error.
+
+    To mitigate the problem, before you migrate, update the affected content items to use supported sorting methods such as Name, Published, or Priority.
+    You can identify the configurations that use unsupported sorting methods with the following SQL query:
+
+    ```sql
+    SELECT node_id, parent_node_id, sort_field FROM ezcontentobject_tree WHERE sort_field IN (6, 7);
+    ```
+
 !!! note
 
     If you're migrating from a legacy eZ Publish version, this page contains the information you need.
