@@ -168,16 +168,44 @@ For example, if you want to use JWT only for MCP servers and session-based authe
 - uncomment `ibexa_jwt_rest` and `ibexa_jwt_mcp` to activate them
 - keep `ibexa_jwt_rest.api` and `ibexa_jwt_graphql` commented and disabled
 
-Finish the setup by generating a [PEM encoded key pair](https://symfony.com/bundles/LexikJWTAuthenticationBundle/2.x/index.html#generate-the-ssl-keys) by using the command:
+### Keys
+
+Out of the box, JWT tokens are created using Hash-based Message Authentication Code (HMAC) with `APP_SECRET` as the secret key and the HMAC-SHA256 (`HS256`) algorithm.
+
+You can use Privacy-enhanced Electronic Mail (PEM) keys and the RSA-SHA256 (`RS256`) algorithm instead.
+
+In a `.env` file, you should have the following variables:
+
+```dotenv
+JWT_SECRET_KEY=%kernel.project_dir%/config/jwt/private.pem
+JWT_PUBLIC_KEY=%kernel.project_dir%/config/jwt/public.pem
+JWT_PASSPHRASE=0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ……
+```
+
+Set what you want as `JWT_PASSPHRASE` value.
+
+In `config/packages/lexik_jwt_authentication.yaml`, use the following configuration:
+
+``` yaml hl_lines="2-4 6"
+lexik_jwt_authentication:
+    secret_key: '%env(resolve:JWT_SECRET_KEY)%'
+    public_key: '%env(resolve:JWT_PUBLIC_KEY)%'
+    pass_phrase: '%env(JWT_PASSPHRASE)%'
+    encoder:
+        signature_algorithm: RS256
+    # …
+```
+
+Generate a [PEM encoded key pair](https://symfony.com/bundles/LexikJWTAuthenticationBundle/2.x/index.html#generate-the-ssl-keys) in `config/jwt` directory by using the command:
 
 ```bash
 php bin/console lexik:jwt:generate-keypair
 ```
 
-The generated key pair will be stored in the `config/jwt`directory.
-
 !!! note "[[= product_name_cloud =]]"
 
-    To generate and store the tokens on [[= product_name_cloud =]], define the `config/jwt` directory as a volume in the `.platform.app.yaml` file. 
+    To store the tokens on [[= product_name_cloud =]], define the `config/jwt` directory as a volume in the `.platform.app.yaml` file. 
     In 3-node cluster setups, ensure that the key pair is the same on all 3 servers. 
     You can use a network share, or use a local mount and manually copy the key pair between the servers.
+
+For more information, see [LexikJWTAuthenticationBundle configuration reference](https://symfony.com/bundles/LexikJWTAuthenticationBundle/2.x/1-configuration-reference.html).
