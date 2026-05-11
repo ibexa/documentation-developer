@@ -31,6 +31,40 @@ The [Image Editor]([[= user_doc =]]/image_management/edit_images/) now supports 
 You can adjust the blur level to balance between file size reduction and image sharpness.
 For more information, see [Configure image editor](https://doc.ibexa.co/en/5.0/content_management/images/configure_image_editor/#gaussian-blur-strength).
 
+### Developer experience
+
+#### Repeatable migration steps with items
+
+The `repeatable` migration type now supports an `items` key, allowing you to provide a list of items to iterate over, similar to a `foreach` loop.
+
+For more information, see [Repeatable steps with items](https://doc.ibexa.co/en/5.0/content_management/data_migration/importing_data/#repeatable-steps-with-items).
+
+#### Twig Component groups
+
+Two new [Twig Component groups](https://doc.ibexa.co/en/5.0/templating/components/) are added to the back office:
+
+- `admin-ui-content-column-end`
+- `admin-ui-content-translations-row-actions`
+
+For more information, see [available Admin UI Twig Component groups](https://doc.ibexa.co/en/5.0/administration/back_office/back_office_elements/custom_components/#admin-ui).
+
+#### PHP API
+
+##### Product API: Computed availability for products
+
+[`ProductAvailabilityInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Values-Availability-ProductAvailabilityInterface.html) now uses separate values for availability and computed availability:
+
+- `getAvailability()` returns whether the product or variant is manually set as available
+- `getComputedAvailability()` returns whether the product or variant can be ordered, for example, based on its stock level
+
+For more information, see [Availability and computed availability](https://doc.ibexa.co/en/5.0/product_catalog/products/#product-availability-and-stock).
+
+##### Workflow API: new `loadWorkflowMetadataForVersionInfo` method
+
+The new [`WorkflowServiceInterface::loadWorkflowMetadataForVersionInfo`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Workflow-Service-WorkflowServiceInterface.html#method_loadWorkflowMetadataForVersionInfo) method loads workflow information directly from a [`VersionInfo`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-VersionInfo.html) object, without loading the content item.
+
+For more information, see [Workflow API](https://doc.ibexa.co/en/5.0/content_management/workflow/workflow_api/#getting-workflow-information).
+
 ### Full changelog
 
 [[% include 'snippets/release_50.md' %]]
