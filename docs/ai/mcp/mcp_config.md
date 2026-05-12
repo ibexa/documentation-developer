@@ -183,8 +183,8 @@ It has several arguments to describe the tool usage and output:
 - `description` (optional): description of the tool, used by the AI agent to understand the tool's purpose
 - `icons` (optional): an array of [`Mcp\Schema\Icon`](https://github.com/modelcontextprotocol/php-sdk/blob/main/src/Schema/Icon.php) instances - for more information, see [`icons` specification](https://modelcontextprotocol.io/specification/latest/basic/index#icons)
 - `outputSchema` (optional): for JSON object output, an associative array describing this object
-- `annotations` (optional): a [`Mcp\Schema\ToolAnnotations`](https://github.com/modelcontextprotocol/php-sdk/blob/main/src/Schema/ToolAnnotations.php) instance
-- `meta` (optional): a rarely used free-form array for any additional metadata - for more information, see [`_meta` specification](https://modelcontextprotocol.io/specification/latest/basic/index#_meta)
+- `annotations` (optional): a [`Mcp\Schema\ToolAnnotations`](https://github.com/modelcontextprotocol/php-sdk/blob/main/src/Schema/ToolAnnotations.php) instance - for more information, see [`ToolAnnotations` specification](https://modelcontextprotocol.io/specification/2025-11-25/schema#toolannotations)
+- `meta` (optional): a free-form array for any additional metadata - for more information, see [`_meta` specification](https://modelcontextprotocol.io/specification/latest/basic/index#_meta)
 
 An `inputSchema` is automatically built from the function arguments and their types.
 To override or complement the automatically generated input schema,
