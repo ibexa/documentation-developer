@@ -207,7 +207,7 @@ It has several arguments to describe the prompt usage:
 - `meta` (optional): a rarely used free-form array for any additional metadata - for more information, see [`_meta` specification](https://modelcontextprotocol.io/specification/latest/basic/index#_meta)
 
 An `arguments` array is automatically built from the function arguments and their types.
-The prompt arguments must be strings (to respect the [`GetPromptRequestParams` schema](https://modelcontextprotocol.io/specification/latest/schema#getpromptrequestparams)).
+The prompt's function arguments must be strings (to respect the [`GetPromptRequestParams` schema](https://modelcontextprotocol.io/specification/latest/schema#getpromptrequestparams)).
 To add descriptions (as in the [`PromptArgument` schema](https://modelcontextprotocol.io/specification/latest/schema#promptargument)), use a DocBlock comment with `@param` tags.
 
 ## Example
