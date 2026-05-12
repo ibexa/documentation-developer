@@ -103,8 +103,9 @@ There is two ways to associate tools with a server:
 - `Ibexa\Mcp\Tool\SeoTools`
     - `get_non_seo_content_ids`: Returns IDs of content items that are missing SEO optimization (no meta title tag)
 
-``` yaml
-[[= include_code('code_samples/mcp/mcp.matrix.yaml', 4, 11) =]]
+``` yaml hl_lines="5-7"
+[[= include_code('code_samples/mcp/mcp.matrix.yaml', 4, 7) =]]
+[[= include_code('code_samples/mcp/mcp.matrix.yaml', 9, 11) =]]
 ```
 
 ### Discovery cache
