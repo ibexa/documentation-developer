@@ -276,45 +276,56 @@ See [JWT authentication](development_security.md#jwt-authentication) for configu
 
 After you configure JWT authentication for REST, you can get the JWT token through the following request:
 
-=== "JSON"
+```http
+POST /user/token/jwt HTTP/1.1
+Host: <yourdomain>
+Accept: application/vnd.ibexa.api.JWT+json
+Content-Type: application/vnd.ibexa.api.JWTInput+json
+```
 
-    ```
-    POST /user/token/jwt HTTP/1.1
-    Host: <yourdomain>
-    Accept: application/vnd.ibexa.api.JWT+json
-    Content-Type: application/vnd.ibexa.api.JWTInput+json
-    ```
+Provide the username and password in the request body:
 
-    Provide the username and password in the request body:
-
-    ```json
-    {
-        "JWTInput": {
-            "username": "admin",
-            "password": "publish"
-        }
+```json
+{
+    "JWTInput": {
+        "username": "admin",
+        "password": "publish"
     }
-    ```
+}
+```
 
-    If credentials are valid, the server response contains a token:
+If credentials are valid, the server response contains a token:
 
-    ```json
-    {
-        "JWT": {
-            "_media-type": "application/vnd.ibexa.api.JWT+xml",
-            "_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9…-QBE4-6eKNjg"
-        }
+```json
+{
+    "JWT": {
+        "_media-type": "application/vnd.ibexa.api.JWT+xml",
+        "_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9…-QBE4-6eKNjg"
     }
-    ```
+}
+```
 
-    You can then use this token in your request instead of username and password.
+You can then use this token in your request instead of username and password.
 
-    ```
-    GET /content/locations/1/5/children
-    Host: <yourdomain>
-    Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9…-QBE4-6eKNjg
-    Accept: application/vnd.ibexa.api.LocationList+json
-    ```
+```http
+GET /content/locations/1/5/children
+Host: <yourdomain>
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9…-QBE4-6eKNjg
+Accept: application/vnd.ibexa.api.LocationList+json
+```
+
+#### JWT token obtained through REST documentation
+
+To obtain a JWT token with REST, you can use the REST API live documentation on your development installation
+(`kernel.debug` must be `true` to access it, as on a `dev` environment).
+
+- open REST API live doc (for example at `http://localhost/api/ibexa/v2/doc`)
+- go to **User Token** section **POST /user/token/jwt** resource (for example at `http://localhost/api/ibexa/v2/doc#/User%20Token/api_usertokenjwt_post`)
+- click the **Try it out** button
+- fill in the following adapted payload with the user credentials
+- click the **Execute** button to get a token
+
+![Screenshot of REST API live documentation with a JWTInput payload, a JWT token request and its response](jwt-rest-doc.png "REST doc JWT token request and response")
 
 ## HTTP basic authentication
 

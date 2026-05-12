@@ -235,6 +235,7 @@ In a new `config/packages/mcp.yaml` file, define a new MCP server for the `defau
 ```
 
 An `ibexa.mcp.example` route is now available:
+
 ```bash
 php bin/console debug:router ibexa.mcp.example
 ```
@@ -377,46 +378,10 @@ To test your server, you can use the [MCP Inspector](https://modelcontextprotoco
 It's even possible to use it as a DDEV add-on with [`craftpulse/ddev-mcp-inspector`](https://github.com/craftpulse/ddev-mcp-inspector).
 You still need to ask for a JWT token through REST or GraphQL, and use it in the MCP Inspector configuration to connect to your server.
 
-#### JWT token obtained through REST documentation
+You can use a Web interface to obtain a JWT token:
 
-To Obtain a JWT token with REST, you can use the REST API live documentation on your development installation
-(`kernel.debug` must be `true` to access it, as on a `dev` environment).
-
-- open REST API live doc (for example at `http://localhost/api/ibexa/v2/doc`)
-- go to **User Token** section **POST /user/token/jwt** resource (for example at `http://localhost/api/ibexa/v2/doc#/User%20Token/api_usertokenjwt_post`)
-- click the **Try it out** button
-- fill in the following adapted payload with the user credentials
-- click the **Execute** button to get a token
-
-```json
-{
-  "JWTInput": {
-    "username": "ibexa-example",
-    "password": "Ibexa-3xample"
-  }
-}
-```
-![Screenshot of REST API live documentation with a JWTInput payload, a JWT token request and its response](img/jwt-rest-doc.png "REST doc JWT token request and response")
-
-#### JWT token obtained through GraphiQL
-
-To Obtain a JWT token, you can use the GraphQL request interface on your development installation
-(`kernel.debug` must be `true` to access it, as on a `dev` environment).
-
-- open GraphiQL UI (for example at `http://localhost/graphiql`)
-- paste in the following adapted query with the user credentials
-- click the execute button **▶** to get a token
-
-```graphql
-mutation CreateToken {
-  createToken(username: "ibexa-example", password: "Ibexa-3xample") {
-    token
-    message
-  }
-}
-```
-
-![Screenshot of GraphiQL with a JWT token request and its response](img/jwt-graphiql.png "GraphiQL JWT token request and response")
+- [REST live documentation](rest_api_authentication.md#jwt-token-obtained-through-rest-documentation)
+- [GraphiQL](graphql.md#jwt-authentication)
 
 #### MCP server settings
 

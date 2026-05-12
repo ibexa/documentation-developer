@@ -94,6 +94,27 @@ Response:
 }
 ```
 
+#### JWT token obtained through GraphiQL
+
+To obtain a JWT token, you can use the GraphQL request user interface GraphiQL on your development installation
+(`kernel.debug` must be `true` to access it, as on a `dev` environment).
+
+- open GraphiQL UI (for example at `http://localhost/graphiql`)
+- paste in the following adapted query with the user credentials
+- click the execute button **▶** to get a token
+
+```graphql
+mutation CreateToken {
+  createToken(username: "ibexa-example", password: "Ibexa-3xample") {
+    token
+    message
+  }
+}
+```
+
+![Screenshot of GraphiQL with a JWT token request and its response](jwt-graphiql.png "GraphiQL JWT token request and response")
+
+
 ## Usage
 
 You can access GraphQL with `<yourdomain>/graphql`.
