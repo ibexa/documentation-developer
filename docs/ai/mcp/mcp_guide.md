@@ -1,5 +1,6 @@
 ---
 description: MCP servers expose tools, specialized prompts, and ressources to AI agents.
+edition: lts-update
 month_change: true
 ---
 
@@ -12,6 +13,8 @@ While [AI actions](ai_actions_guide.md) integrate AI to the back office,
 
 Some AI agents can use directly REST API or GraphQL API if their users explain to them how to do it in prompts, in skill files, etc.
 MCP servers ease the discovery of the functionalities by AIs and help them to interpret natural language prompts into actions on the system.
+
+The MCP servers feature is an [LTS Update package](editions.md#lts-updates) available since v5.0.8 to all editions.
 
 With the MCP servers feature, you can:
 

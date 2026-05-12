@@ -1,11 +1,24 @@
 ---
 description: Configure an MCP server exposing built-in or custom tools, prompts, and resources.
+edition: lts-update
 month_change: true
 ---
 
-# MCP servers configuration
+# MCP servers installation and configuration
 
-[[= product_name =]] can provide [MCP servers](mcp_guide.md) to external AI agents.
+[[= product_name =]]'s MCP Servers LTS Update package can provide [MCP servers](mcp_guide.md) to external AI agents.
+
+## Installation
+
+Install the LTS Update package with Composer:
+
+```bash
+composer require ibexa/mcp
+```
+
+MCP Servers feature doesn't come with a default configuration.
+You have to create your own MCP servers through [their configuration](#mcp-server-configuration)
+and [enable JWT athentication for them](#jwt).
 
 ## Authentication
 
