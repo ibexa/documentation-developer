@@ -64,16 +64,16 @@ List them by running `php bin/console debug:router --siteaccess=<within_scope_si
 
 ### MCP server options
 
-| Option            | Type    | Required | Default | Description                                   |
-|-------------------|---------|----------|---------|-----------------------------------------------|
-| `path`            | string  | Yes      |         | MCP server endpoint path                      |
-| `enabled`         | boolean | No       | `false` | Whether the server is enabled                 |
-| `version`         | string  | No       | `1.0.0` | MCP server version                            |
-| `description`     | string  | No       | `null`  | Human-readable server description             |
-| `instructions`    | string  | No       | `null`  | Instructions dedicated for LLM interaction    |
-| `tools`           | string  | No       | `[]`    | List of tool classes                          |
-| `discovery_cache` | string  | Yes      |         | PSR-6 or PSR-16 cache pool service identifier |
-| `session`         | object  | Yes      |         | Session storage configuration                 |
+| Option                                                                                                          | Type    | Required | Default | Description                                                      |
+|-----------------------------------------------------------------------------------------------------------------|---------|----------|---------|------------------------------------------------------------------|
+| `path`                                                                                                          | string  | Yes      |         | MCP server endpoint path (appended to SiteAccess-aware base URL) |
+| `enabled`                                                                                                       | boolean | No       | `false` | Whether the server is enabled                                    |
+| `version`                                                                                                       | string  | No       | `1.0.0` | MCP server version                                               |
+| [`description`](https://modelcontextprotocol.io/specification/2025-11-25/schema#implementation-description)     | string  | No       | `null`  | Server implementation description                                |
+| [`instructions`](https://modelcontextprotocol.io/specification/2025-11-25/schema#initializeresult-instructions) | string  | No       | `null`  | Prompt-like instructions dedicated to the AI agent               |
+| [`tools`](#tools-configuration)                                                                                 | string  | No       | `[]`    | List of tool classes                                             |
+| <nobr>[`discovery_cache`](#discovery-cache)</nobr>                                                              | string  | Yes      |         | PSR-6 or PSR-16 cache pool service identifier                    |
+| [`session`](#session-storage)                                                                                   | object  | Yes      |         | Session storage configuration                                    |
 
 Notice that a server is disabled by default, it needs to be explicitly enabled.
 
@@ -104,7 +104,7 @@ There is two ways to associate tools with a server:
     - `get_non_seo_content_ids`: Returns IDs of content items that are missing SEO optimization (no meta title tag)
 
 ``` yaml
-[[= include_code('code_samples/mcp/mcp.matrix.yaml', 9, 11) =]]
+[[= include_code('code_samples/mcp/mcp.matrix.yaml', 4, 11) =]]
 ```
 
 ### Discovery cache
