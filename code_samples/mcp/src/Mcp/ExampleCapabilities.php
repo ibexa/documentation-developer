@@ -73,7 +73,7 @@ final readonly class ExampleCapabilities implements McpCapabilityInterface
     #[McpPrompt(
         servers: ['example'],
         name: 'greet',
-        description: 'Prompt to be greeted by the `greet` tool',
+        description: 'Prompt to invoke the `greet` tool',
         icons: [new Icon(
             src: 'https://openmoji.org/data/color/svg/1F91D.svg',
         )],

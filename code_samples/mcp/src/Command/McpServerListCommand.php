@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace App\mcp\src\Command;
+namespace App\Command;
 
 use Ibexa\Contracts\Mcp\McpServerConfigurationRegistryInterface;
 use Symfony\Component\Console\Attribute\AsCommand;

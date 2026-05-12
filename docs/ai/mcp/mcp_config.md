@@ -5,7 +5,7 @@ month_change: true
 
 # MCP servers configuration
 
-[[= product_name =]] can provide [MCP servers](mcp_guide.md) to external AIs.
+[[= product_name =]] can provide [MCP servers](mcp_guide.md) to external AI agents.
 
 ## Authentication
 
@@ -37,7 +37,7 @@ or in [MCP Inspector test](#mcp-inspector-test) GraphIQL example.
 
 ## MCP server configuration
 
-MCP servers are configured per repository then enabled per SiteAccess scope.
+MCP servers are defined per repository and assigned per SiteAccess scope.
 
 ``` yaml
 [[= include_code('code_samples/mcp/mcp.matrix.yaml', 1, 8) =]]
@@ -47,7 +47,7 @@ MCP servers are configured per repository then enabled per SiteAccess scope.
 
 Routes are built automatically from MCP server `path` configs.
 Those routes are identified as `ibexa.mcp.<server_identifier>`.
-They can be listed and checked with `php bin/console debug:router --siteaccess=<within_scope_siteaccess> ibexa.mcp`.
+List them by running `php bin/console debug:router --siteaccess=<within_scope_siteaccess> ibexa.mcp`.
 
 ### MCP server options
 
@@ -71,9 +71,9 @@ they are the actions that an AI can call on the system.
 
 !!! note "MCP server design best practice"
 
-    An MCP server with too many tools doesn't help the AI to choose the right one.
+    An MCP server with too many tools makes it harder for the AI agent to choose the right one.
     Create several servers with specific sets of tools for different contexts and purposes.
-    Focus on AI's user needs and task when designing your servers and capabilities, not on the technical possibilities.
+    Focus on the needs and tasks of the human user actually prompting the AI agent when designing your MCP servers and capabilities, not on the technical possibilities.
 
 There is two ways to associate tools with a server:
 
@@ -82,11 +82,11 @@ There is two ways to associate tools with a server:
 
 #### Built-in tools
 
-[[= product_name =]] come with several built-in tool classes:
+[[= product_name =]] come with the following built-in tools:
 
 - `Ibexa\Mcp\Tool\TranslationTools`
     - `list_languages`: Lists all languages in the current SiteAccess
-    - `list_content_translations`: Lists languages which have translations for a given content item
+    - `list_content_translations`: Lists languages in which given content item has translations
 - `Ibexa\Mcp\Tool\SeoTools`
     - `get_non_seo_content_ids`: Returns IDs of content items that are missing SEO optimization (no meta title tag)
 
@@ -156,17 +156,17 @@ The [[= product_name =]] MCP server framework (`ibexa/mcp`) is built on top of [
 
 A PHP class implementing MCP server capabilities like tools, prompts, or resources, must:
 
-- implements [`Ibexa\Contracts\Mcp\McpCapabilityInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Mcp-McpCapabilityInterface.html) to be scanned for capabilities
-- uses attributes from the [`Ibexa\Contracts\Mcp\Attribute` namespace](/api/php_api/php_api_reference/namespaces/ibexa-contracts-mcp-attribute.html) to define capabilities.
+- implement [`Ibexa\Contracts\Mcp\McpCapabilityInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Mcp-McpCapabilityInterface.html) to be scanned for capabilities
+- use attributes from the [`Ibexa\Contracts\Mcp\Attribute` namespace](/api/php_api/php_api_reference/namespaces/ibexa-contracts-mcp-attribute.html) to define capabilities.
 
 ### Tools
 
 The [`Ibexa\Contracts\Mcp\Attribute\McpTool` attribute](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Mcp-Attribute-McpTool.html) declares a method as an MCP tool.
 It has several arguments to describe the tool usage and output:
 
-- `servers` (optional): an array of identifiers of servers proposing this tool - for more information, see [tools configuration](#tools-configuration)
+- `servers` (optional): an array of identifiers of servers this tool is assigned to - for more information, see [tools configuration](#tools-configuration)
 - `name` (optional): the name of the tool - if not set, the function name is used as the tool name
-- `description` (optional): a human-readable description of the tool, useful for the LLM to understand the tool purpose and eventually choose it when it matches the prompt intent
+- `description` (optional): description of the tool, used by the AI agent to understand the tool's purpose
 - `icons` (optional): an array of [`Mcp\Schema\Icon`](https://github.com/modelcontextprotocol/php-sdk/blob/main/src/Schema/Icon.php) instances - for more information, see [`icons` specification](https://modelcontextprotocol.io/specification/latest/basic/index#icons)
 - `outputSchema` (optional): for JSON object output, an associative array describing this object
 - `annotations` (optional): a [`Mcp\Schema\ToolAnnotations`](https://github.com/modelcontextprotocol/php-sdk/blob/main/src/Schema/ToolAnnotations.php) instance
@@ -182,7 +182,7 @@ If an argument is an [enum](https://www.php.net/manual/en/language.types.enumera
 
 MCP servers can also provide [prompt templates](https://modelcontextprotocol.io/specification/latest/server/prompts) to guide the user interacting with the AI having this MCP server at its disposal.
 
-The [`Ibexa\Contracts\Mcp\Attribute\McpPrompt` attribute](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Mcp-Attribute-McpTool.html) declared a method as returning a prompt.
+The [`Ibexa\Contracts\Mcp\Attribute\McpPrompt` attribute](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Mcp-Attribute-McpTool.html) defines a method as returning a prompt.
 
 It has several arguments to describe the prompt usage:
 
@@ -193,7 +193,7 @@ It has several arguments to describe the prompt usage:
 - `meta` (optional): a rarely used free-form array for any additional metadata - for more information, see [`_meta` specification](https://modelcontextprotocol.io/specification/latest/basic/index#_meta)
 
 An `arguments` array is automatically built from the function arguments and their types.
-Those prompt arguments must be strings (to respect the [`GetPromptRequestParams` schema](https://modelcontextprotocol.io/specification/latest/schema#getpromptrequestparams)).
+The prompt arguments must be strings (to respect the [`GetPromptRequestParams` schema](https://modelcontextprotocol.io/specification/latest/schema#getpromptrequestparams)).
 To add descriptions (as in the [`PromptArgument` schema](https://modelcontextprotocol.io/specification/latest/schema#promptargument)), use a DocBlock comment with `@param` tags.
 
 ## Example
@@ -214,7 +214,7 @@ It's accessible with the path `/mcp/example` (for example, on `http://localhost/
 It uses files for both discovery cache and session storage.
 (Redis/Valkey would probably be better for session storage in production, but file storage is easier for this example and testing.)
 
-In a new `config/packages/mcp.yaml` file, the configuration of the MCP server:
+In a new `config/packages/mcp.yaml` file, define a new MCP server for the `default` repository and assign it to all SiteAccesses:
 
 ``` yaml
 [[= include_code('code_samples/mcp/config/packages/mcp.yaml') =]]

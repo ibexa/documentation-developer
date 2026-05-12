@@ -119,7 +119,7 @@ lexik_jwt_authentication:
             enabled: false
 ```
 
-You also need to configure Symfony firewalls for the APIs with which you want to use JWT.
+You also need to configure Symfony firewalls for the APIs with which you want to use JWT authentication.
 It's already provided in `config/packages/security.yaml`, you need to uncomment the `ibexa_jwt_rest` and the ones for the desired APIs:
 
 ``` yaml
@@ -159,20 +159,23 @@ security:
 ```
 
 - `ibexa_jwt_rest` is the firewall allowing to generate a JWT token through REST or GraphQL
-- `ibexa_jwt_rest.api` is the firewall to [use JWT for REST API](rest_api_authentication.md#jwt-authentication) instead of session-based authentication
-- `ibexa_jwt_mcp` is the firewall to [use JWT for MCP servers](mcp_config.md#jwt)
-- `ibexa_jwt_graphql` is the firewall to [use JWT for GraphQL API](graphql.md#jwt-authentication)
+- `ibexa_jwt_rest.api` is the firewall to [use JWT authentication for REST API](rest_api_authentication.md#jwt-authentication) instead of session-based
+- `ibexa_jwt_mcp` is the firewall to [use JWT authentication for MCP servers](mcp_config.md#jwt)
+- `ibexa_jwt_graphql` is the firewall to [use JWT authentication for GraphQL API](graphql.md#jwt-authentication)
 
-For example, if you want to use JWT only for MCP servers and session-based authentication for REST and GraphQL, you can:
+For example, to use JWT authentication only for MCP servers and keep session-based authentication for REST and GraphQL:
 
 - uncomment `ibexa_jwt_rest` and `ibexa_jwt_mcp` to activate them
 - keep `ibexa_jwt_rest.api` and `ibexa_jwt_graphql` commented and disabled
 
-### Keys
+### Use PEM keys
 
 Out of the box, JWT tokens are created using Hash-based Message Authentication Code (HMAC) with `APP_SECRET` as the secret key and the HMAC-SHA256 (`HS256`) algorithm.
 
 You can use Privacy-enhanced Electronic Mail (PEM) keys and the RSA-SHA256 (`RS256`) algorithm instead.
+
+
+1. Set `JWT_PASSPHRASE` secret
 
 In a `.env` file, you should have the following variables:
 
@@ -185,7 +188,7 @@ JWT_PASSPHRASE=0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ…
 Set your `JWT_PASSPHRASE`, its value needs to be a strong, random, and securely stored value.
 For more recommendations and how to generate one, see [`APP_SECRET` and other secret](security_checklist.md#app_secret-and-other-secrets).
 
-In `config/packages/lexik_jwt_authentication.yaml`, use the following configuration:
+2. In `config/packages/lexik_jwt_authentication.yaml`, use the following configuration:
 
 ``` yaml hl_lines="2-4 6"
 lexik_jwt_authentication:
@@ -197,7 +200,7 @@ lexik_jwt_authentication:
     # …
 ```
 
-Generate a [PEM encoded key pair](https://symfony.com/bundles/LexikJWTAuthenticationBundle/2.x/index.html#generate-the-ssl-keys) in `config/jwt` directory by using the command:
+3. Generate a [PEM encoded key pair](https://symfony.com/bundles/LexikJWTAuthenticationBundle/2.x/index.html#generate-the-ssl-keys) in `config/jwt` directory by using the command:
 
 ```bash
 php bin/console lexik:jwt:generate-keypair
