@@ -376,18 +376,18 @@ Update Symfony constraints in `composer.json` before updating the packages.
             To clear the persistence cache, for example after adding a [custom Page Builder block](create_custom_page_block.md), you must always run:
 
             ```bash
-            php bin/console cache:pool:clear [cache-pool]
+            php bin/console cache:pool:clear <cache-pool>
             ```
 
-            The default cache pool is named `cache.tagaware.filesystem`. 
-            The default cache pool when running Redis or Valkey is named `cache.redis`. 
+            The default cache pool is named `cache.tagaware.filesystem`.
+            The default cache pool when running Redis or Valkey is named `cache.redis`.
             If you have customized the persistence cache configuration, the name of your cache pool might be different.
 
             For more information about persistence cache, see [Persistence cache](persistence_cache.md).
 
     - Array-based PHP configuration format
 
-        As part of the [array-based PHP configuration format](https://symfony.com/blog/new-in-symfony-7-4-better-php-configuration), a `config/reference.php` file will be created.
+        As part of the new [array-based PHP configuration format](https://symfony.com/blog/new-in-symfony-7-4-better-php-configuration), Symfony creates the `config/reference.php` file.
         You should commit this file to the repository.
 
 4. Update Ibexa packages by running:
