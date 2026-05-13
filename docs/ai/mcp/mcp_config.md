@@ -90,8 +90,8 @@ they are the actions that an AI can call on the system.
 
 There is two ways to associate tools with a server:
 
-- `tools` in server configuration lists PHP classes (FQCN) from which **all** the `McpTool` attributes are associated with the server
-- `servers` argument in `McpTool` attribute associated the **specified** tool to servers
+- `tools` in server configuration lists PHP classes (FQCN) from which **all** the `McpTool` attributes are associated with the server (for example, for [built-in tools](#built-in-tools) or third parties)
+- `servers` argument in [`McpTool` attribute](#tools) associates the **specified** tool to servers
 
 #### Built-in tools
 
@@ -106,6 +106,7 @@ There is two ways to associate tools with a server:
 ``` yaml hl_lines="5-7"
 [[= include_code('code_samples/mcp/mcp.matrix.yaml', 4, 7) =]]
 [[= include_code('code_samples/mcp/mcp.matrix.yaml', 9, 11) =]]
+                    # …
 ```
 
 ### Discovery cache
