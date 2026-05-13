@@ -1,7 +1,7 @@
 ---
 description: Shopping list search criteria help define and fine-tune search queries for shopping lists.
 editions: lts-update commerce
-month_change: true
+month_change: false
 ---
 
 # Shopping list search criteria reference

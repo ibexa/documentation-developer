@@ -1,7 +1,7 @@
 ---
 description: Shopping list search sort clauses help define result order of search queries for shopping lists.
 editions: lts-update commerce
-month_change: true
+month_change: false
 ---
 
 # Shopping list search sort clauses reference

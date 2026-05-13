@@ -20,4 +20,3 @@ Unlike the [`ProductCategory` criterion](productcategory_criterion.md), which ma
 ``` php
 [[= include_file('code_samples/back_office/search/src/Query/ProductCategorySubtreeQuery.php') =]]
 ```
-
