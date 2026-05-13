@@ -96,7 +96,7 @@ The following example shows how you can deliver notifications about Commerce-rel
     ```
 
 3. Subscribe to notification types related to Commerce, such as order, payment, and shipment status changes.
-    For example, define the following configuration in a new `config/packages/notifications.yaml` file:
+   For example, define the following configuration in a new `config/packages/notifications.yaml` file:
 
     ``` yaml hl_lines="12-20"
     [[= include_code('code_samples/api/notifications/config/packages/notifications.yaml', 1, 20, indent_level=1) =]]
@@ -159,8 +159,8 @@ The following example is a command that sends a notification to users on several
 This example could be a scheduled task or cron job that warns users about its result.
 
 1. First, create a `CommandExecuted` notification type.
-    It supports two channels (`ibexa`, `email`), but could be extended to support more.
-    As constructor arguments, an instance takes the command itself, the exit code of the run, and any caught exceptions.
+   It supports two channels (`ibexa`, `email`), but could be extended to support more.
+   As constructor arguments, an instance takes the command itself, the exit code of the run, and any caught exceptions.
 
     ``` php
     [[= include_code('code_samples/api/notifications/src/Notifications/CommandExecuted.php', indent_level=1) =]]
