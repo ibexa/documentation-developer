@@ -119,6 +119,14 @@ For example, a dedicated Redis/Valkey could be set up:
 [[= include_code('code_samples/mcp/mcp.matrix.yaml', 17, 17) =]]
 ```
 
+For production cluster, a Redis/Valkey cache pool is recommended to share this cache.
+
+When changes are made, clear the cache pool. For example:
+
+```bash
+php bin/console cache:pool:clear cache.redis.mcp
+```
+
 ### Session storage
 
 MCP servers store session data their own way.
@@ -140,6 +148,7 @@ In production, [`psr16`](#psr-16) with Redis/Valkey is recommended like for [reg
 Sessions are stored with a PSR-16 compatible cache implementation.
 It requires `service` option pointing to a valid cache service ID.
 And optionally a more specific `prefix` option than the default `mcp_` to avoid key collisions with other cache usages.
+Suitable for production.
 
 ``` yaml
 [[= include_code('code_samples/mcp/mcp.matrix.yaml', 18, 21) =]]
@@ -148,7 +157,9 @@ And optionally a more specific `prefix` option than the default `mcp_` to avoid 
 
 #### File
 
-Sessions are persisted to the filesystem. it requires directory option to be set.
+Sessions are persisted to the filesystem.
+It requires directory option to be set.
+Suitable for development.
 
 In this example, sessions are stored in `var/cache/<environment>/mcp/sessions/` directory
 (for example, `var/cache/dev/mcp/session/` in `dev` environment and `var/cache/prod/mcp/sessions/` in `prod` environment):
@@ -159,7 +170,8 @@ In this example, sessions are stored in `var/cache/<environment>/mcp/sessions/` 
 
 #### Memory
 
-Sessions are stored in memory. Suitable for development and STDIO transport.
+Sessions are stored in memory.
+Suitable for development.
 It might not work with containers like Docker/DDEV.
 
 ``` yaml
