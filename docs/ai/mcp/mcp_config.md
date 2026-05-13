@@ -18,7 +18,7 @@ composer require ibexa/mcp
 
 MCP Servers feature doesn't come with a default configuration.
 You have to create your own MCP servers through [their configuration](#mcp-server-configuration)
-and [enable JWT athentication for them](#jwt).
+and [enable JWT athentication for them](#jwt-mcp-firewall).
 
 ## Authentication configuration
 
@@ -39,9 +39,8 @@ Notice that you don't need to activate JWT authentication for the REST API or th
 You can now request JWT tokens to use with your MCP servers.
 See examples of JWT token requests
 in [REST JWT authentication](rest_api_authentication.md#jwt-authentication),
-in [cURL test of MCP server](#curl-test),
 in [GraphQL JWT authentication](graphql.md#jwt-authentication),
-or in [MCP Inspector test](#mcp-inspector-test) GraphIQL example.
+or in [cURL test of MCP server](mcp_usage.md#curl-test).
 
 ### Repository user
 

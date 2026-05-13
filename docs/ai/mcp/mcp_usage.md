@@ -23,7 +23,7 @@ A PHP class implementing MCP server capabilities like tools, prompts, or resourc
 The [`Ibexa\Contracts\Mcp\Attribute\McpTool` attribute](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Mcp-Attribute-McpTool.html) declares a method as an MCP tool.
 It has several arguments to describe the tool usage and output:
 
-- `servers` (optional): an array of identifiers of servers this tool is assigned to - for more information, see [tools configuration](#tools-configuration)
+- `servers` (optional): an array of identifiers of servers this tool is assigned to - for more information, see [tools configuration](mcp_config.md#tools-configuration)
 - `name` (optional): the name of the tool - if not set, the function name is used as the tool name
 - `description` (optional): description of the tool, used by the AI agent to understand the tool's purpose
 - `icons` (optional): an array of [`Mcp\Schema\Icon`](https://github.com/modelcontextprotocol/php-sdk/blob/main/src/Schema/Icon.php) instances - for more information, see [`icons` specification](https://modelcontextprotocol.io/specification/latest/basic/index#icons)
@@ -99,7 +99,7 @@ It also contains a function with the `McpPrompt` attribute to provide a prompt t
 
 For the example, `servers` attribute parameter is used to associate only this tool to the `example` server.
 All tools from this class could be added to a server by using the `tools` parameter in server configuration.
-For more information, see [tools configuration](#tools-configuration).
+For more information, see [tools configuration](mcp_config.md#tools-configuration).
 
 For prompt, the `servers` parameter is required.
 So, the example prompt has to use it to be associated with the `example` server.
