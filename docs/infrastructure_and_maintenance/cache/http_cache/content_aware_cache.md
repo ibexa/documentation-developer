@@ -140,6 +140,17 @@ The `ConfigurableResponseCacheConfigurator` (`Ibexa\HttpCache\ResponseConfigurat
 For example, a `ContentView` is covered both by the `ContentValueViewTagger` and `LocationValueViewTagger`, where the first extracts the content from the `ContentView` and passes it to the `ContentInfoTagger`.
 - Value taggers - extract the `Location` and pass it on to the `LocationViewTagger`.
 
+The built-in taggers support the following value types:
+
+- [`ContentInfo`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-ContentInfo.html)
+- [`Location`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Location.html)
+- Any view implementing `Ibexa\Core\MVC\Symfony\View\ContentValueView`
+- Any view implementing `Ibexa\Core\MVC\Symfony\View\LocationValueView`
+
+!!! warning
+
+    If a value of any other type is passed (for example, a [`Content`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Content.html) object), no tagger matches and the call has no effect.
+
 ## DispatcherTagger
 
 Accepts any value and passes it on to every tagger registered with the service tag `ibexa.cache.http.response.tagger`.
@@ -150,17 +161,10 @@ For tagging needs in controllers, there are several options, here presented in r
 
 1\. Reusing `DispatcherTagger` to pick correct tags.
 
-Examples for tagging everything needed for content using the autowireable `ResponseTagger` interface:
+Examples for tagging everything needed for content using the autowireable [`ResponseTagger`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-HttpCache-ResponseTagger-ResponseTagger.html) interface:
 
-``` php
-/** @var \Ibexa\Contracts\HttpCache\ResponseTagger\ResponseTagger $responseTagger */
-
-// If you have a View object you can simply call:
-$responseTagger->tag($view);
-
-// Or if you have content / Location object only, you can instead provide content info and Location:
-$responseTagger->tag($contentInfo);
-$responseTagger->tag($location);
+``` php hl_lines="3 6 9"
+[[= include_code('code_samples/cache/http_cache/src/response_tagging.php', 3, 11) =]]
 ```
 
 2\. Use `ContentTagInterface` API for content related tags.

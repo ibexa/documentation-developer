@@ -361,12 +361,6 @@ parameters:
 			path: code_samples/field_types/2dpoint_ft/src/FieldType/Point2D/Type.php
 
 		-
-			message: '#^Method App\\FieldType\\Point2D\\Value\:\:__construct\(\) has parameter \$coords with no value type specified in iterable type array\.$#'
-			identifier: missingType.iterableValue
-			count: 1
-			path: code_samples/field_types/2dpoint_ft/src/FieldType/Point2D/Value.php
-
-		-
 			message: '#^Class App\\Form\\Type\\Point2DSettingsType extends generic class Symfony\\Component\\Form\\AbstractType but does not specify its types\: TData$#'
 			identifier: missingType.generics
 			count: 1
@@ -683,6 +677,18 @@ parameters:
 			identifier: missingType.iterableValue
 			count: 1
 			path: code_samples/tutorials/page_tutorial_starting_point/src/QueryType/MenuQueryType.php
+
+		-
+			message: '#^Instantiated class App\\Notifications\\MyNotification not found\.$#'
+			identifier: class.notFound
+			count: 1
+			path: code_samples/user_management/notifications/notification_send.php
+
+		-
+			message: '#^Parameter \#1 \$notification of class Ibexa\\Contracts\\Notifications\\Value\\Notification\\SymfonyNotificationAdapter constructor expects Symfony\\Component\\Notifier\\Notification\\Notification, App\\Notifications\\MyNotification given\.$#'
+			identifier: argument.type
+			count: 1
+			path: code_samples/user_management/notifications/notification_send.php
 
 		-
 			message: '#^Parameter \#2 \$email of method Ibexa\\Contracts\\OAuth2Client\\Repository\\OAuth2UserService\:\:newOAuth2UserCreateStruct\(\) expects string, string\|null given\.$#'

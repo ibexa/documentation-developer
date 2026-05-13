@@ -122,6 +122,12 @@ Here you can view the details of each submission or delete any of them.
 
 The **Download submissions** button enables you to download all the submissions in a .CSV (comma-separated value) file.
 
+!!! tip "Restricting access to form submissions"
+
+    By default, back office users with access to the form content item can access the form submissions.
+    
+    If your form submissions require stricter access control than the form itself, you can introduce a [dedicated policy that manages access to submission data](custom_policies.md#restrict-access-to-form-submissions).
+
 ## Benefits
 
 ### General overview

@@ -192,7 +192,7 @@
                     </h3>
                     <ul>
                         <li><a href="product_catalog/product_catalog_configuration/">Product catalog configuration</a></li>
-                        <li><a href="product_catalog/quable_integration/">Quable PIM Integration</a></li>
+                        <li><a href="product_catalog/quable/quable/">Quable PIM Integration</a></li>
                         <li><a href="product_catalog/catalogs/">Catalogs</a></li>
                         <li><a href="product_catalog/prices/">Prices</a></li>
                     </ul>
