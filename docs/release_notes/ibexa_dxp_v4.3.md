@@ -55,8 +55,8 @@ For more information, see [Work with SEO](https://doc.ibexa.co/projects/userguid
 
 When querying for products, you can now use one of two price-related Sort Clauses:
 
-- [`BasePrice` Sort Clause](https://doc.ibexa.co/en/master/search/sort_clause_reference/baseprice_sort_clause/) sorts results by the products' base prices
-- [`CustomPrice` Sort Clause](https://doc.ibexa.co/en/master/search/sort_clause_reference/customprice_sort_clause/) enables sorting by the custom price configured for the provided customer group.
+- [`BasePrice` Sort Clause](https://doc.ibexa.co/en/5.0/search/sort_clause_reference/baseprice_sort_clause/) sorts results by the products' base prices
+- [`CustomPrice` Sort Clause](https://doc.ibexa.co/en/5.0/search/sort_clause_reference/customprice_sort_clause/) enables sorting by the custom price configured for the provided customer group.
 
 #### Usability improvements
 
@@ -73,7 +73,7 @@ From product's **Completeness** tab you can now jump directly to editing the pro
 
 #### Catalog filters
 
-In catalogs, you can now [configure default filters](https://doc.ibexa.co/en/master/pim/pim_configuration/#catalog-filters) that are always added to a catalog, define filter order, and group custom filters.
+In catalogs, you can now [configure default filters](https://doc.ibexa.co/en/5.0/pim/pim_configuration/#catalog-filters) that are always added to a catalog, define filter order, and group custom filters.
 Built-in filters are also divided into groups now for easier browsing.
 
 Filtering by the Color attribute is now possible.
@@ -115,8 +115,8 @@ The `TaxonomyEntryId` Search Criterion isn't available in Legacy search Engine.
 
 ### Other improvements
 
-- You can now [customize Elasticsearch index structure](https://doc.ibexa.co/en/master/search/extensibility/customize_elasticsearch_index_structure/) to manage how documents in the index are grouped.
-- A new [`ibexa_seo_is_empty()` Twig function](https://doc.ibexa.co/en/master/templating/twig_function_reference/content_twig_functions/#ibexa_content_name) checks whether SEO data is available for a content item.
+- You can now [customize Elasticsearch index structure](https://doc.ibexa.co/en/5.0/search/extensibility/customize_elasticsearch_index_structure/) to manage how documents in the index are grouped.
+- A new [`ibexa_seo_is_empty()` Twig function](https://doc.ibexa.co/en/5.0/templating/twig_function_reference/content_twig_functions/#ibexa_content_name) checks whether SEO data is available for a content item.
 
 ## Full changelog
 
