@@ -14,7 +14,7 @@ While [AI actions](ai_actions_guide.md) integrate AI to the back office,
 Some AI agents could use directly REST API or GraphQL API if their users explain to them how to do it in prompts, in skill files, etc.
 But MCP servers ease the discovery of the functionalities by AI agents and help them to interpret natural language prompts into actions on the system.
 As MCP is a standard protocol, agents are already trained to use it.
-With a singular REST API or GraphQL API, an agent can misunderstand the purpose of endpoints, hallucinate paths, and malform parameters.
+With a singular REST API or GraphQL API, an agent can misunderstand the purpose of endpoints, hallucinate paths, and misshape parameters.
 With a standard MCP server, it can list the available tools and their parameters, learn how to use them, and pick the right one.
 
 The MCP servers feature is an [LTS Update package](editions.md#lts-updates) available since v5.0.8 to all editions.
