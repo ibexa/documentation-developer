@@ -280,7 +280,7 @@ For more info on usage, see [Symfony Cache's documentation]([[= symfony_doc =]]/
 
 !!! caution "Always clear the persistence with `cache:pool:clear` command"
 
-    Running `php bin/console cache:clear` doesn't clear the persistence cache, even when using a filesystem-based cache pool.
+    Running `php bin/console cache:clear` doesn't clear the persistence cache, even when you use a filesystem-based cache pool.
     
     You must always clear the persistence cache by running:
 
