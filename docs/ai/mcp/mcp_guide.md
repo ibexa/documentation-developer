@@ -19,7 +19,8 @@ The MCP servers feature is an [LTS Update package](editions.md#lts-updates) avai
 With the MCP servers feature, you can:
 
 - create MCP servers [by using YAML configuration](mcp_config.md#mcp-server-configuration)
-- assign different [tools](mcp_config.md#built-in-tools), prompts, and resources to different MCP servers, varying them for each site
+- assign different tools, prompts, and resources to different MCP servers, varying them for each site
+- assign [built-in tools](mcp_config.md#built-in-tools) included in the package
 - [create custom server capabilities](mcp_usage.md#create-capability-class) with PHP API
 
 MCP servers are configured per [repository](repository_configuration.md) and assigned to [SiteAccesses](siteaccess.md), allowing for flexible configurations adapted to different contexts.

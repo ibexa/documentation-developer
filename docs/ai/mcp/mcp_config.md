@@ -16,9 +16,9 @@ Install the LTS Update package with Composer:
 composer require ibexa/mcp
 ```
 
-MCP Servers feature doesn't come with a default configuration.
+MCP Servers feature comes with [built-in tools](#built-in-tools) but doesn't come with a default configuration.
 You have to create your own MCP servers through [their configuration](#mcp-server-configuration)
-and [enable JWT athentication for them](#jwt-mcp-firewall).
+and [enable JWT authentication for them](#jwt-mcp-firewall).
 
 ## Authentication configuration
 
