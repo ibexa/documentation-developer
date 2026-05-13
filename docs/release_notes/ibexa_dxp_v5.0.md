@@ -13,17 +13,23 @@ month_change: true
 [[% set version = 'v5.0.X' %]]
 
 [[= release_note_entry_begin(
-    "Ibexa DXP " + version,
+    'MCP Servers ' + version,
     'YYYY-MM-DD',
-    ['Headless', 'Experience', 'Commerce', 'New feature']
+    ['Headless', 'Experience', 'Commerce', 'LTS Update', 'New feature', 'First release']
 ) =]]
 
-### MCP Servers
-
-MCP servers ease the discovery of interactions with [[= product_name =]] by AIs.
+MCP servers ease the discovery of interactions with [[= product_name =]] by AI agents.
 This feature allows you to configure several MCP servers with their own set of tools.
 
 See [Model Context Protocol and Ibexa MCP servers](https://doc.ibexa.co/en/5.0/ai/mcp/mcp_guide/) for more information.
+
+[[= release_note_entry_end() =]]
+
+[[= release_note_entry_begin(
+    'Ibexa DXP ' + version,
+    'YYYY-MM-DD',
+    ['Headless', 'Experience', 'Commerce', 'New feature']
+) =]]
 
 ### Gaussian blur optimization in Image Editor
 
