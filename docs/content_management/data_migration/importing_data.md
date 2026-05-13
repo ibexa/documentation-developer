@@ -97,7 +97,7 @@ A repeatable migration performs the defined migration steps as many times as spe
 
 #### Repeatable steps with iteration counter
 
-You can vary the operations using the iteration counter.
+You can vary the operations with the iteration counter.
 
 For example, to create five Folders, with names ranging from "Folder 0" to "Folder 4", you can run the following migration using the iteration counter `i`:
 
