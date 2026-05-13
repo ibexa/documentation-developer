@@ -310,8 +310,6 @@ When Copilot complains that it can't communicate with the MCP server, reload the
 - run `/mcp reload` command which reload all MCP servers (which can be annoying if you have several MCP servers globally enabled)
 - run `/mcp disable ibexa-example` then `/mcp enable ibexa-example` to only reload the `ibexa-example` server
 
-TODO: [`/mcp add` Copilot CLI MCP server addition](https://docs.github.com/en/copilot/how-tos/copilot-cli/customize-copilot/add-mcp-servers) is strangely asking for some OAuth ID even with a proper JWT/Bearer header.
-
 #### MCP server test with Copilot CLI
 
 Launch Copilot CLI at the project root (where the `.mcp.json` file is located):
