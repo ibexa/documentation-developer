@@ -16,4 +16,5 @@ Learn more about this protocol and [[= product_name_base =]] MCP servers:
 [[= cards([
     ("ai/mcp/mcp_guide", "MCP servers guide", "MCP servers expose functionalities to AIs."),
     "ai/mcp/mcp_config",
-], columns=2) =]]
+    "ai/mcp/mcp_usage",
+], columns=3) =]]
