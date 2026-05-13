@@ -47,7 +47,7 @@ composer require ibexa/connector-anthropic
 If not using Symfony Flex, enable the bundle in `config/bundles.php`:
 
 ``` php
-    Ibexa\Bundle\ConnectorAnthropic\IbexaConnectorAnthropicBundle::class => [‘all’ => true],
+    Ibexa\Bundle\ConnectorAnthropic\IbexaConnectorAnthropicBundle::class => ['all' => true],
 ```
 
 This adds the feature code, including basic handlers that let you refine text or generate alternative text for images.
