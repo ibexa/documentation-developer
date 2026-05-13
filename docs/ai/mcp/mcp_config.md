@@ -20,11 +20,11 @@ MCP Servers feature doesn't come with a default configuration.
 You have to create your own MCP servers through [their configuration](#mcp-server-configuration)
 and [enable JWT athentication for them](#jwt).
 
-## Authentication
+## Authentication configuration
 
-### JWT
+### JWT MCP firewall
 
-MCP servers use JWT for authentication.
+AI agents use JWT authentication against [[= product_name =]]'s  MCP servers.
 
 In `config/packages/lexik_jwt_authentication.yaml`, [enable the `authorization_header` token extractor](development_security.md#jwt-authentication)
 to allow the use of JWT token bearer in `Authorization` header.
