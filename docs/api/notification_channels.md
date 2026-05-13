@@ -85,22 +85,22 @@ The following example shows how you can deliver notifications about Commerce-rel
 
 1. Install the Slack Notifier package:
 
-```bash
-composer require symfony/slack-notifier
-```
+    ```bash
+    composer require symfony/slack-notifier
+    ```
 
 2. In a .env file, [set the DSN to target a Slack channel or a Slack user](https://github.com/symfony/slack-notifier?tab=readme-ov-file#dsn-example):
 
-```dotenv
-SLACK_DSN=slack://xoxb-token@default?channel=ibexa-notifications
-```
+    ```dotenv
+    SLACK_DSN=slack://xoxb-token@default?channel=ibexa-notifications
+    ```
 
 3. Subscribe to notification types related to Commerce, such as order, payment, and shipment status changes.
-For example, define the following configuration in a new `config/packages/notifications.yaml` file:
+    For example, define the following configuration in a new `config/packages/notifications.yaml` file:
 
-``` yaml hl_lines="12-20"
-[[= include_code('code_samples/api/notifications/config/packages/notifications.yaml', 1, 20) =]]
-```
+    ``` yaml hl_lines="12-20"
+    [[= include_code('code_samples/api/notifications/config/packages/notifications.yaml', 1, 20, indent_level=1) =]]
+    ```
 
 ## Create notification class
 
@@ -159,26 +159,26 @@ The following example is a command that sends a notification to users on several
 This example could be a scheduled task or cron job that warns users about its result.
 
 1. First, create a `CommandExecuted` notification type.
-It supports two channels (`ibexa`, `email`), but could be extended to support more.
-As constructor arguments, an instance takes the command itself, the exit code of the run, and any caught exceptions.
+    It supports two channels (`ibexa`, `email`), but could be extended to support more.
+    As constructor arguments, an instance takes the command itself, the exit code of the run, and any caught exceptions.
 
-``` php
-[[= include_code('code_samples/api/notifications/src/Notifications/CommandExecuted.php') =]]
-```
+    ``` php
+    [[= include_code('code_samples/api/notifications/src/Notifications/CommandExecuted.php', indent_level=1) =]]
+    ```
 
 2. Assign channels subscribed to this notification in `config/packages/notifications.yaml`:
 
-``` yaml hl_lines="17-20"
-[[= include_code('code_samples/api/notifications/config/packages/notifications.yaml', 5, 24) =]]
-```
+    ``` yaml hl_lines="17-20"
+    [[= include_code('code_samples/api/notifications/config/packages/notifications.yaml', 5, 24, indent_level=1) =]]
+    ```
 
 3. Create a command sending a `CommandExecuted` notification at the end of execution:
-It randomly succeeds or fails to demonstrate how notifications can communicate different execution results.
-It could be declared as a service to set the list of recipients' logins (`$recipientLogins`) from a configuration file.
+   It randomly succeeds or fails to demonstrate how notifications can communicate different execution results.
+   It could be declared as a service to set the list of recipients' logins (`$recipientLogins`) from a configuration file.
 
-``` php
-[[= include_code('code_samples/api/notifications/src/Command/NotificationSenderCommand.php') =]]
-```
+    ``` php
+    [[= include_code('code_samples/api/notifications/src/Command/NotificationSenderCommand.php', indent_level=1) =]]
+    ```
 
 When you execute this command, it fails randomly and notifies the Administrator user about the result.
 
