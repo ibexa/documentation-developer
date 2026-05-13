@@ -5,7 +5,7 @@ month_change: false
 
 # Notifications
 
-You can send two types of notifications to the users.
+You can send two types of notifications to the users:
 
 - [Notification bar](#notification-bars) is displayed in specific situations as a message bar appearing at the bottom of the page.
   It appears to whoever is doing a specific operation in the back office.
@@ -77,11 +77,11 @@ The values shown above are the defaults.
 
 To send notification bars, you can also subscribe to a notification with the `browser` channel.
 
-For more information, see [Notifications to channels](notification_channels.md).
+For more information, see [Notifications channels](notification_channels.md).
 
 ## User notifications
 
-You can send notifications to the user which are displayed in the user menu.
+You can send notifications to users which are displayed in the user menu.
 
 ![Screenshot of the user menu with an highlight on the bell icon](notification3.png "Profile notification bell menu")
 
@@ -94,7 +94,7 @@ like in the example below:
 [[= include_file('code_samples/back_office/notifications/src/EventListener/ContentPublishEventListener.php') =]]
 ```
 
-A new type of user notification is created: `ContentPublished`
+A new type of user notification is created: `ContentPublished`.
 
 ### Display a custom user notification
 
@@ -134,4 +134,4 @@ The example below presents a modified renderer that uses Twig to render a list v
 
 To send user notifications, you can also subscribe to a notification with the `ibexa` channel.
 
-For more information, see [Notifications to channels](notification_channels.md).
+For more information, see [Notifications channels](notification_channels.md).

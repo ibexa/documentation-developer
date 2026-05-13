@@ -72,7 +72,7 @@ This page contains several examples of subscriptions configuration.
 
     Subscriptions defined for a scope may not merge with subscriptions from other scopes or from other files.
     For example, `default` scope might not be merged within a siteaccess group scope.
-    To ensure you don't unsubscribe against your will,
+    To ensure you don't unsubscribe channels by mistake,
     always use the following command to check subscriptions for a siteaccess before and after any changes:
 
     ```bash
@@ -108,11 +108,11 @@ You can define a new notification type and assign a new set of channels to it, c
 It must extend the `Symfony\Component\Notifier\Notification\Notification` class
 and can optionally implement interfaces required by specific channels.
 
-- Some channels don't accept the notification if it doesn't implement their related notification interface.
-  Those interfaces come with a method to specifically format the notification for the channel.
-- Some channels accept every notification and have a default formatting if the notification doesn't implement their related notification interface.
+- Some channels don't accept the notification if it doesn't implement their specific notification interface.
+  These interfaces come with a method to specifically format the notification for the channel.
+- Some channels accept every notification and have a default formatting if the notification doesn't implement their specific notification interface.
 
-| Channel   | Specific notification interface                                                                                                                                                                                         | Accept any notification |
+| Channel   | Specific notification interface                                                                                                                                                                                         | Accepts any notification object|
 |:----------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------|
 | `actito`  | `Symfony\Component\Notifier\Notification\EmailNotificationInterface`                                                                                                                                                    | **No**                  |
 | `chat`    | `Symfony\Component\Notifier\Notification\ChatNotificationInterface`                                                                                                                                                     | Yes                     |
@@ -256,11 +256,11 @@ Subscribe to this new notification type in `config/packages/notifications.yaml`:
     php bin/console ibexa:debug:config notifications.subscriptions --siteaccess=site
     ```
 
-Reaching this controller in the back office (at `/admin/notification-sender`) triggers the notification as a flash message in the bottom-right corner:
+Visiting this controller's route in the back office (at `/admin/notification-sender`) triggers the notification as a flash message in the bottom-right corner:
 
 ![Notification in back office](notification-browser-admin.png "Controller message displayed as a flash message in the browser")
 
-Reaching the controller in the default SiteAccess on Commerce edition (at `/notification-sender`) also triggers the notification as a flash message in the bottom-right corner:
+Visiting the controller's route in the default SiteAccess on Commerce edition (at `/notification-sender`) also triggers the notification as a flash message in the bottom-right corner:
 
 ![Notification in storefront](notification-browser-storefront.png "Controller message displayed as a flash message in the browser")
 
