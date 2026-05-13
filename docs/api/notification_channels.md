@@ -102,7 +102,7 @@ For example, define the following configuration in a new `config/packages/notifi
 [[= include_code('code_samples/api/notifications/config/packages/notifications.yaml', 1, 20) =]]
 ```
 
-## Create a notification class
+## Create notification class
 
 You can define a new notification type and assign a new set of channels to it, customizing how it's delivered.
 It must extend the `Symfony\Component\Notifier\Notification\Notification` class
@@ -265,7 +265,7 @@ Visiting the controller's route in the default SiteAccess on Commerce edition (a
 ![Notification in storefront](notification-browser-storefront.png "Controller message displayed as a flash message in the browser")
 
 
-## Create a custom channel
+## Create custom channel
 
 You may need to create new channels to subscribe to notifications and send them to new destinations.
 For example, you could create a new channel for Slack that takes more than one DSN for finer dispatching.
