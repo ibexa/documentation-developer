@@ -215,7 +215,7 @@ An empty template only extending the pagelayout is used for the demonstration.
 
 In the back office, a notification sent as a flash message has the `ibexa-alert--notification` CSS class.
 This doesn't have a default style.
-For this example, the style will be the same as an existing alert message type.
+For this example, the style is the same as an existing alert message type.
 
 The `assets/scss/notifications.scss` declares the CSS class `ibexa-alert--notification` as being the same as the `ibexa-alert--info` CSS class
 
