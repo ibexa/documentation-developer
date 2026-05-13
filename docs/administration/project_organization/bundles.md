@@ -54,7 +54,7 @@ To remove a bundle (either one you created yourself, or an out-of-the-box one th
 |[ibexa/http-cache](https://github.com/ibexa/http-cache)|[HTTP cache handling](http_cache.md), using multi tagging|
 |[ibexa/i18n](https://github.com/ibexa/i18n)|Centralized translations to ease synchronization with Crowdin|
 |[ibexa/messenger](https://github.com/ibexa/messenger)|[Background and asynchronous task processing](background_tasks.md) using Symfony Messenger|
-|[ibexa/notifications](https://github.com/ibexa/notifications)| Sending [notifications](notifications.md)|
+|[ibexa/notifications](https://github.com/ibexa/notifications)| Sending [notifications to channels](notification_channels.md)|
 |[ibexa/post-install](https://github.com/ibexa/post-install)|Apache and nginx templates|
 |[ibexa/rest](https://github.com/ibexa/rest)|REST API|
 |[ibexa/search](https://github.com/ibexa/search)|Common search functionalities|

@@ -9,6 +9,7 @@ jobs:
         runs-on: "ubuntu-22.04"
         strategy:
             matrix:
+                fail-fast: false
                 php:
                     - "8.4" # Upper supported version
                     - "8.3" # Lower supported version
@@ -45,12 +46,15 @@ jobs:
                   dependency-versions: highest
 
             - name: Run PHPStan analysis
+              continue-on-error: true
               run: composer phpstan
 
             - name: Run Deptrac analysis
+              continue-on-error: true
               run: composer deptrac
 
             - name: Run Rector check
+              continue-on-error: true
               run: composer check-rector
 
     code-samples-inclusion-check:

@@ -116,9 +116,9 @@ The `ibexa_format_price` filter formats the price value by placing currency code
 #### Examples
 
 ``` html+twig
-{% for product.price in product.attributes %}
-    {{ product.price.getMoney()|ibexa_format_price }}
-{% endfor %}
+{{ order.getValue().getTotalGross()|ibexa_format_price }}
+
+{{ ibexa_get_original_price(discount_product)|ibexa_format_price ?: '-' }}
 ```
 
 ### `ibexa_is_pim_local`

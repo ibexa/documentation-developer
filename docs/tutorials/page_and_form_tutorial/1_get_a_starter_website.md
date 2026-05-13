@@ -16,7 +16,7 @@ Get it by following the [Install Ibexa DXP](install_ibexa_dxp.md) guide.
 ## Add content types
 
 Log in to the back office – add `/admin` to your installation's address (`<yourdomain>/admin`) and log in as `admin` user using the password specified during installation.
-Disable the Focus mode, go to content types screen and (under the content category) add two content types with the following settings:
+Disable the Focus mode, go to content types screen and in the Content group add two content types with the following settings:
 
 ### Dog Breed
 
@@ -29,7 +29,7 @@ Disable the Focus mode, go to content types screen and (under the content catego
 | Text line  | Name              | `name`              | yes      | yes        | yes          |
 | Text line  | Short Description | `short_description` | yes      | yes        | yes          |
 | Image Asset | Photo             | `photo`             | yes      | no         | no           |
-| RichText   | Full Description  | `description`       | yes      | yes        | yes          |
+| RichText   | Full Description  | `full_description`       | yes      | yes        | yes          |
 
 ### Tip
 
@@ -78,7 +78,7 @@ Place two configuration files in the `config/packages` folder:
 
 In the `assets` folder in the project root:
 
-- create a `css` folder and add the following stylesheet: [`style.css`](https://github.com/ibexa/documentation-developer/blob/5.0/code_samples/tutorials/page_tutorial_starting_point/assets/css/style.css) to it
+- in the `css` folder add the following stylesheet: [`style.css`](https://github.com/ibexa/documentation-developer/blob/5.0/code_samples/tutorials/page_tutorial_starting_point/assets/css/style.css) to it
 - add the [`header.jpg`](https://github.com/ibexa/documentation-developer/blob/5.0/code_samples/tutorials/page_tutorial_starting_point/assets/images/header.jpg) file to the `assets/images` folder
 
 In the `webpack.config.js` file in the project root folder, add the following line after `Encore.addEntry('app', './assets/app.js');`:
@@ -98,7 +98,7 @@ php bin/console cache:clear
 
     Compiling assets with Webpack Encore is explained in [the beginner tutorial](3_customize_the_front_page.md#configuring-webpack).
 
-In the `src` folder create a `QueryType` subfolder and add [`QueryType/MenuQueryType.php`](https://github.com/ibexa/documentation-developer/blob/5.0/code_samples/tutorials/page_tutorial_starting_point/src/QueryType/MenuQueryType.php) to it.
+In the `src` folder create a `QueryType` subfolder and add [`MenuQueryType.php`](https://github.com/ibexa/documentation-developer/blob/5.0/code_samples/tutorials/page_tutorial_starting_point/src/QueryType/MenuQueryType.php) to it.
 
 This file takes care of displaying the top menu (for more information, see [the documentation](content_queries.md#query-types)).
 
@@ -113,12 +113,12 @@ Now return to the back office and create some content for your website.
 First, you can hide unneeded content items from the project root.
 
 Go to **Content structure** and select "[[= product_name_base =]] Digital Experience Platform".
-In the **Sub-items** tab, select all the current sub-items and click the **Hide** icon:
+In the **Sub-items** tab, select all the current sub-items and click the **Hide Location** icon:
 
 ![Hiding content items you don't need](enterprise_tut_hide_content.png)
 
 Next, under "[[= product_name_base =]] Digital Experience Platform", create three Folders.
-Call them 'All Articles', 'Dog Breed Catalog' and 'All Tips'.
+Call them *All Articles*, *Dog Breed Catalog* and *All Tips*.
 Remember that you can **Save and close** them, but you should use the **Publish** button.
 
 Next, create a few content items of proper content types in each of these folders:
