@@ -112,15 +112,15 @@ and can optionally implement interfaces required by specific channels.
   These interfaces come with a method to specifically format the notification for the channel.
 - Some channels accept every notification and have a default formatting if the notification doesn't implement their specific notification interface.
 
-| Channel   | Specific notification interface                                                                                                                                                                                         | Accepts any notification object|
-|:----------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------|
-| `actito`  | `Symfony\Component\Notifier\Notification\EmailNotificationInterface`                                                                                                                                                    | **No**                  |
-| `chat`    | `Symfony\Component\Notifier\Notification\ChatNotificationInterface`                                                                                                                                                     | Yes                     |
-| `desktop` | `Symfony\Component\Notifier\Notification\DesktopNotificationInterface`                                                                                                                                                  | Yes                     |
-| `email`   | `Symfony\Component\Notifier\Notification\EmailNotificationInterface`                                                                                                                                                    | **No**                  |
-| `ibexa`   | <nobr>[`Ibexa\Contracts\Notifications\SystemNotification\SystemNotificationInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Notifications-SystemNotification-SystemNotificationInterface.html)</nobr> | **No**                  |
-| `push`    | `Symfony\Component\Notifier\Notification\PushNotificationInterface`                                                                                                                                                     | Yes                     |
-| `sms`     | `Symfony\Component\Notifier\Notification\SmsNotificationInterface`                                                                                                                                                      | **No**                  |
+| Channel   | Specific notification interface                                                                                                                                                                                         | Accepts any notification object |
+|:----------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------|
+| `actito`  | `Symfony\Component\Notifier\Notification\EmailNotificationInterface`                                                                                                                                                    | **No**                          |
+| `chat`    | `Symfony\Component\Notifier\Notification\ChatNotificationInterface`                                                                                                                                                     | Yes                             |
+| `desktop` | `Symfony\Component\Notifier\Notification\DesktopNotificationInterface`                                                                                                                                                  | Yes                             |
+| `email`   | `Symfony\Component\Notifier\Notification\EmailNotificationInterface`                                                                                                                                                    | **No**                          |
+| `ibexa`   | <nobr>[`Ibexa\Contracts\Notifications\SystemNotification\SystemNotificationInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Notifications-SystemNotification-SystemNotificationInterface.html)</nobr> | **No**                          |
+| `push`    | `Symfony\Component\Notifier\Notification\PushNotificationInterface`                                                                                                                                                     | Yes                             |
+| `sms`     | `Symfony\Component\Notifier\Notification\SmsNotificationInterface`                                                                                                                                                      | **No**                          |
 
 The `ibexa` channel sends notifications to users through their profile menu, exactly as [user notifications](notifications.md#user-notifications).
 The [`SystemNotificationChannel` uses the core `NotificationService`](https://github.com/ibexa/notifications/blob/v5.0.7/src/lib/SystemNotification/SystemNotificationChannel.php#L51) to do so.
@@ -293,6 +293,6 @@ The log contains the notifications
 
 ```console
 % tail -Fn0 var/log/dev.log | grep --line-buffered CommandExecuted
-[2026-03-26T01:01:54.123431+01:00] app.INFO: ✔app:send_notification {"class":"App\\Notifications\\CommandExecuted","importance":"low","content":""} []
-[2026-03-27T01:01:23.888014+01:00] app.INFO: ✖app:send_notification {"class":"App\\Notifications\\CommandExecuted","importance":"high","content":""} []
+[2026-03-26T01:01:23.888014+01:00] app.INFO: ✖app:send_notification {"class":"App\\Notifications\\CommandExecuted","importance":"high","content":""} []
+[2026-03-27T01:02:54.123431+01:00] app.INFO: ✔app:send_notification {"class":"App\\Notifications\\CommandExecuted","importance":"low","content":""} []
 ```
