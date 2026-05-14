@@ -113,9 +113,4 @@ Modify this password after the installation, for example, by using [data migrati
 
     Don't use Upsun CLI (`upsun`), instead, use the [[[= product_name_cloud =]] CLI (`ibexa_cloud`)](https://cli.ibexa.cloud/).
 
-    To install [[= product_name_cloud =]] CLI, follow https://cli.ibexa.cloud/ "Installation instructions".
-
-    [[= product_name_cloud =]] CLI and Upsun CLI share the same commands and the [same documentation](https://fixed.docs.upsun.com/administration/cli.html#3-use), but you have to replace `upsun` with `ibexa_cloud`.
-
-    If you have previously set up an alias to use Upsun CLI with [[= product_name_cloud =]], it's outdated.
-    Remove the alias and install [[= product_name_cloud =]] CLI instead.
+    For more information, see [[[= product_name_cloud =]] CLI](ibexa_cloud_cli.md).
