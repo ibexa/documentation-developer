@@ -1,5 +1,5 @@
 ---
-description: Install and configure Ibexa DXP to run in cloud using Ibexa Cloud.
+description: Install and configure Ibexa DXP to run in cloud using [[= product_name_cloud =]].
 month_change: false
 ---
 
@@ -82,6 +82,8 @@ In **Settings** (top right gear icon) -> **Project Settings** -> **Variables** -
 
 ### Composer authentication using the CLI command
 
+Use [Ibexa Cloud CLI](ibexa_cloud_cli.md) to create the variable:
+
 ```bash
 ibexa_cloud variable:create --level project --name env:COMPOSER_AUTH \
   --json true --visible-runtime false --sensitive true --visible-build true \
@@ -111,6 +113,6 @@ Modify this password after the installation, for example, by using [data migrati
 
 !!! caution
 
-    Don't use Upsun CLI (`upsun`), instead, use the [[[= product_name_cloud =]] CLI (`ibexa_cloud`)](https://cli.ibexa.cloud/).
+    Don't use Upsun CLI (`upsun`), instead, use the [[[= product_name_cloud =]] CLI (`ibexa_cloud`)](https://cli.ibexa.cloud/) instead.
 
     For more information, see [[[= product_name_cloud =]] CLI](ibexa_cloud_cli.md).

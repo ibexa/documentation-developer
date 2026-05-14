@@ -1,5 +1,5 @@
 ---
-description: Use the Ibexa Cloud CLI to manage your Ibexa Cloud projects from the command line.
+description: Use the [[= product_name_cloud =]] CLI to manage your I[[= product_name_cloud =]] projects from the command line.
 month_change: true
 ---
 
@@ -51,7 +51,7 @@ ibexa_cloud tunnel:open
 
 The command outputs connection details, for example:
 
-```
+``` shell-session
 SSH tunnel opened to database at: mysql://user:<PASSWORD>@127.0.0.1:30000/main
 ```
 
