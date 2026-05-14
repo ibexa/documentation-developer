@@ -78,6 +78,12 @@ ibexa_tracking_track_event(
 
 The following events are supported and can be triggered from Twig templates:
 
+### `pageview` event
+
+The `ibexa_tracking_script()` Twig function automatically sends a [`pageview`](https://content.raptorservices.com/help-center/tracking-events-parameters-reference#:~:text=Event%20Specifications%20%28Full%20Reference) event to Raptor for every incoming GET request, in both `client` and `server` tracking types.
+
+Use it for for basic page metrics and debugging the Live Tracking Stream.
+
 ### Product `visit` event
 
 This event tracks product page visits by users.
