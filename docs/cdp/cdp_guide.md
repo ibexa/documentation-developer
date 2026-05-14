@@ -105,11 +105,11 @@ You can also connect created audiences to the activations.
 
 ### Anonymous user segmentation
 
-[[= product_name =]] can resolve CDP segments for anonymour users, enabling personalised content delivery for not logged-in visitors.
+[[= product_name_cdp =]] can build audiences for anonymour users, enabling personalised experiences for not logged-in visitors.
 
 When an anonymous visitor accesses your site, Raptor starts building an [anonymous profile](https://content.raptorservices.com/help-center/introduction-to-person-identifiers-and-profile-unification).
 
-You can segment these anonymous profiles into different audiences, exactly as in case of logged-in users, and use this information in [[= product_name =]] to provide personalized experiences for them.
+You can segment these anonymous profiles into different audiences, exactly as in case of logged-in users, and use this information in [[= product_name =]] to provide personalized experiences.
 
 ## Benefits
 

@@ -32,8 +32,10 @@ ibexa:
                         client_secret: '%env(CDP_ACTIVATION_CLIENT_SECRET)%'
                         segment_group_identifier: example_segment_group_identifier
                 membership: # For anonymous user segmentation
-                    activation_id: '%env(CDP_MEMBERSHIP_ACTIVATION_ID)%'
-                    api_key: '%env(CDP_MEMBERSHIP_API_KEY)%'
+                    activation_id: '%env(CDP_API_ACTIVATION_ID)%'
+                    api_key: '%env(CDP_API_KEY)%'
+                    base_url: 'https://cdp-api.raptorsmartadvisor.com'
+                    timeout: 5
 ```
 
 - `account_number` - a [number](#account-number) obtained from Accounts settings in [[= product_name_cdp =]] dashboard
@@ -42,6 +44,8 @@ ibexa:
 - `client_id` and `client_secret` - client credentials are used to authenticate against the Webhook endpoint. Make sure they're random and secure
 - `segment_group_identifier` - a [location](#segment-group) to which CDP data is imported
 - `membership.activation_id` and `membership.api_key` - credentials for the CDP Membership API, required for [anonymous user segmentation](#anonymous-user-segmentation)
+- `membership.base_url` - base URL of the CDP Membership API (default: `https://cdp-api.raptorsmartadvisor.com`)
+- `membership.timeout` - timeout in seconds for Membership API requests (default: `5`)
 
 ## Account number
 
@@ -81,13 +85,13 @@ For instructions, see [CDP API activations](https://content.raptorservices.com/h
 
 ### Configure website tracking dataflow
 
-Set up a "website tracking" dataflow with `coid` (cookie ID) as the person identifier so that Raptor can use the tracking data in the CDP.
+Set up a "Website tracking" dataflow with `coid` (cookie ID) as the person identifier so that Raptor can use the tracking data in the CDP.
 
-For more information, see [Introduction to the Data Manager](https://content.raptorservices.com/help-center/tools/datamanager/introduction-to-the-data-manager) in Raptor documentation.
+For more information, see [Website tracking dataflow](https://content.raptorservices.com/help-center/tools/datamanager/introduction-to-the-data-manager#:~:text=Website%20tracking,-You) in Raptor documentation.
 
 ### Configuration
 
-Add the `membership.activation_id` and `membership.api_key` credentials to your [`ibexa_cdp` configuration](#configuration).
+First, add the `membership.activation_id` and `membership.api_key` credentials to your [`ibexa_cdp` configuration](#configuration), using the values for [CDP API activation](#set-up-cdp-api-activation).
 
 To control how long resolved segment memberships are cached per visitor, use the `ibexa_segmentation.anonymous.cache` configuration key:
 
