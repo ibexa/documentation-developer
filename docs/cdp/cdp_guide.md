@@ -1,5 +1,5 @@
 ---
-description: The Ibexa CDP product guide describes all the possibilities that the Customer Data Platform offers to help you build great customer experiences.
+description: The [[= product_name_cdp =]] product guide describes all the possibilities that the Customer Data Platform offers to help you build great customer experiences.
 edition: experience
 ---
 
@@ -102,6 +102,14 @@ The `have` conditions are tied to personal characteristics and can be used to tr
 You can also connect created audiences to the activations.
 
 ![Audience Builder](img/audience_builder.png)
+
+### Anonymous user segmentation
+
+[[= product_name =]] can resolve CDP segments for anonymour users, enabling personalised content delivery for not logged-in visitors.
+
+When an anonymous visitor accesses your site, Raptor starts building an [anonymous profile](https://content.raptorservices.com/help-center/introduction-to-person-identifiers-and-profile-unification).
+
+You can segment these anonymous profiles into different audiences, exactly as in case of logged-in users, and use this information in [[= product_name =]] to provide personalized experiences for them.
 
 ## Benefits
 

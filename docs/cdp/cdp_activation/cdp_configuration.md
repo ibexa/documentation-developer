@@ -31,6 +31,9 @@ ibexa:
                         client_id: '%env(CDP_ACTIVATION_CLIENT_ID)%'
                         client_secret: '%env(CDP_ACTIVATION_CLIENT_SECRET)%'
                         segment_group_identifier: example_segment_group_identifier
+                membership: # For anonymous user segmentation
+                    activation_id: '%env(CDP_MEMBERSHIP_ACTIVATION_ID)%'
+                    api_key: '%env(CDP_MEMBERSHIP_API_KEY)%'
 ```
 
 - `account_number` - a [number](#account-number) obtained from Accounts settings in [[= product_name_cdp =]] dashboard
@@ -38,6 +41,7 @@ ibexa:
 - `activations` - activation details. You can configure multiple activations. They have to be of type `Ibexa` in [[= product_name =]] dashboard
 - `client_id` and `client_secret` - client credentials are used to authenticate against the Webhook endpoint. Make sure they're random and secure
 - `segment_group_identifier` - a [location](#segment-group) to which CDP data is imported
+- `membership.activation_id` and `membership.api_key` - credentials for the CDP Membership API, required for [anonymous user segmentation](#anonymous-user-segmentation)
 
 ## Account number
 
@@ -65,3 +69,38 @@ Choose wisely, as once connected to CDP segment group cannot be changed.
 ![Creating a new segment group](cdp_create_segment_group.png)
 
 Next, add a segment group identifier to the configuration.
+
+## Anonymous user segmentation
+
+To set up [segmentation for Anonymous visitors](cdp_guide.md#anonymous-user-segmentation), execute the following steps:
+
+### Set up CDP API activation
+
+Create an activation of type "CDP API" in the Raptor dashboard.
+For instructions, see [CDP API activations](https://content.raptorservices.com/help-center/cdp/activations/cdp-api) in Raptor documentation.
+
+### Configure website tracking dataflow
+
+Set up a "website tracking" dataflow with `coid` (cookie ID) as the person identifier so that Raptor can use the tracking data in the CDP.
+
+For more information, see [Introduction to the Data Manager](https://content.raptorservices.com/help-center/tools/datamanager/introduction-to-the-data-manager) in Raptor documentation.
+
+### Configuration
+
+Add the `membership.activation_id` and `membership.api_key` credentials to your [`ibexa_cdp` configuration](#configuration).
+
+To control how long resolved segment memberships are cached per visitor, use the `ibexa_segmentation.anonymous.cache` configuration key:
+
+```yaml
+# config/packages/ibexa_segmentation.yaml
+ibexa_segmentation:
+    anonymous:
+        cache:
+            enabled: true            # default; set to false to disable
+            ttl: 300                 # cache lifetime in seconds, default 300 (5 minutes)
+            pool: 'ibexa.cache_pool' # Symfony cache pool service ID, default ibexa.cache_pool
+```
+
+- `enabled` - whether to cache CDP segment results per visitor cookie. Disabling this causes an additional API call to Raptor on every request
+- `ttl` - how long resolved segment results are cached per visitor (in seconds)
+- `pool` - the Symfony cache pool used to store the results
