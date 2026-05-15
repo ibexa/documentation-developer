@@ -42566,12 +42566,6 @@
                                         "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2MDI4NDA3ODAsImV4cCI6MTYwMjg0NDM4MCwicm9sZXMiOlsiUk9MRV9VU0VSIl0sInVzZXJuYW1lIjoiYWRtaW4ifQ.0LHa799HwSwwfDBZd2V0q2xHwGt86PpyZamKnXHQyYI"
                                     }
                                 }
-                            },
-                            "application/vnd.ibexa.api.JWT+xml": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/JWT"
-                                },
-                                "example": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<JWT media-type=\"application/vnd.ibexa.api.JWT+xml\" token=\"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2MDI4NDA3NjEsImV4cCI6MTYwMjg0NDM2MSwicm9sZXMiOlsiUk9MRV9VU0VSIl0sInVzZXJuYW1lIjoiYWRtaW4ifQ.LsmdVjad7wMwVQUo4vSftT0zHbJyArOMd23b417E2jI\">\n    <token>eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2MDI4NDA3NjEsImV4cCI6MTYwMjg0NDM2MSwicm9sZXMiOlsiUk9MRV9VU0VSIl0sInVzZXJuYW1lIjoiYWRtaW4ifQ.LsmdVjad7wMwVQUo4vSftT0zHbJyArOMd23b417E2jI</token>\n</JWT>\n"
                             }
                         }
                     },
@@ -42581,38 +42575,9 @@
                 },
                 "summary": "Create JWT token",
                 "description": "Creates JWT authentication token.",
-                "parameters": [
-                    {
-                        "name": "Accept",
-                        "in": "header",
-                        "description": "If set, the token is returned in XML or JSON format.",
-                        "required": true,
-                        "deprecated": false,
-                        "allowEmptyValue": false,
-                        "schema": {
-                            "type": "string"
-                        },
-                        "style": "simple",
-                        "explode": false,
-                        "allowReserved": false
-                    },
-                    {
-                        "name": "Content-Type",
-                        "in": "header",
-                        "description": "The SessionInput schema encoded in XML or JSON format.",
-                        "required": true,
-                        "deprecated": false,
-                        "allowEmptyValue": false,
-                        "schema": {
-                            "type": "string"
-                        },
-                        "style": "simple",
-                        "explode": false,
-                        "allowReserved": false
-                    }
-                ],
+                "parameters": [],
                 "requestBody": {
-                    "description": "The new JWT resource",
+                    "description": "The credentials in JWTInput JSON format.",
                     "content": {
                         "application/vnd.ibexa.api.JWTInput+json": {
                             "schema": {
@@ -42625,12 +42590,6 @@
                                     "password": "publish"
                                 }
                             }
-                        },
-                        "application/vnd.ibexa.api.JWTInput+xml": {
-                            "schema": {
-                                "$ref": "#/components/schemas/JWTInput"
-                            },
-                            "example": "<JWTInput>\n    <password>publish</password>\n    <username>admin</username>\n</JWTInput>\n"
                         }
                     },
                     "required": false
