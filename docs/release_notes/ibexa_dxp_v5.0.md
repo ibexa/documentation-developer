@@ -31,6 +31,25 @@ See [Model Context Protocol and Ibexa MCP servers](https://doc.ibexa.co/en/5.0/a
     ['Headless', 'Experience', 'Commerce', 'New feature']
 ) =]]
 
+### Raptor connector
+
+#### New recommendation blocks [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
+
+Four new recommendation blocks are available in Page Builder:
+
+- **User's content history** compiles a chronological list of recently interacted content or a list of most interacted content
+- **Items associated with the given Content** generates a list of complementary and relevant products that customers often view with a given content
+- **The Personal Shopping Assistant (additional sales)** encourages additional purchases by suggesting complementary cross-selling items
+- **The Personal Shopping Assistant (conversion)** helps users discover better product matches by suggesting similar items based on their activity
+
+For more information, see [recommendation blocks](https://doc.ibexa.co/en/5.0/recommendations/raptor_integration/recommendation_blocks/).
+
+#### Cookie lifetime configuration
+
+A new `cookie_id_lifetime_days` configuration option controls the lifetime in days of the server-side tracking identifier cookie.
+
+For more information, see [connector installation and configuration](https://doc.ibexa.co/en/5.0/recommendations/raptor_integration/connector_installation_configuration/).
+
 ### Anonymous user segmentation in [[= product_name_cdp =]] [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
 
 [[= product_name_cdp =]] can now build audiences for anonymous visitors, enabling personalized experiences for users who are not logged in.
