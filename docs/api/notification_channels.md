@@ -201,7 +201,7 @@ The `ControllerFeedback` notification is sent in a controller action:
 ```
 
 For the example, the notification is sent in a back office context for all editions and on the front end for Commerce edition.
-An empty template only extending the pagelayout is used for the demonstration.
+An empty template only extending the page layout is used for the demonstration.
 
 `templates/themes/admin/notification-sender-controller.html.twig`:
 ``` twig

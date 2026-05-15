@@ -124,7 +124,7 @@ parameters:
 ### Redis/Valkey
 
 [Redis](https://redis.io/), an in-memory data structure store, is one of the supported cache solutions for clustering.
-Redis is used via [Redis pecl extension](https://pecl.php.net/package/redis).
+Redis is used via [Redis PECL extension](https://pecl.php.net/package/redis).
 
 See [Redis Cache Adapter in Symfony documentation]([[= symfony_doc =]]/components/cache/adapters/redis_adapter.html#configure-the-connection for information on how to connect to Redis.
 
