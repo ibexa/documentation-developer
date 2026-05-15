@@ -43,7 +43,7 @@ To execute a SQL upgrade script on a [[= product_name_cloud =]] environment, pas
 
 ### Connect with a SQL client
 
-To connect to the database using a graphical SQL client, start a SSH tunnel by running the following command in the project directory:
+To connect to the database using any SQL client, start a SSH tunnel by running the following command in the project directory:
 
 ```bash
 ibexa_cloud tunnel:open
