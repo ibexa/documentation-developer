@@ -11121,6 +11121,11 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/Ibexa-Contracts-ConnectorRaptor-Configuration-ProviderInterface.html#method_getCurrentRecommendationsApiUri"
         },                {
+            "fqsen": "\\Ibexa\\Contracts\\ConnectorRaptor\\Configuration\\ProviderInterface\u003A\u003AgetCookieIdLifetimeDays\u0028\u0029",
+            "name": "getCookieIdLifetimeDays",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-ConnectorRaptor-Configuration-ProviderInterface.html#method_getCookieIdLifetimeDays"
+        },                {
             "fqsen": "\\Ibexa\\Contracts\\ConnectorRaptor\\Content\\Resolver\\CurrentContentResolverInterface",
             "name": "CurrentContentResolverInterface",
             "summary": "",
@@ -11130,6 +11135,51 @@ Search.appendIndex(
             "name": "resolve",
             "summary": "",
             "url": "classes/Ibexa-Contracts-ConnectorRaptor-Content-Resolver-CurrentContentResolverInterface.html#method_resolve"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\ConnectorRaptor\\Message\\TrackServerSideEventMessage",
+            "name": "TrackServerSideEventMessage",
+            "summary": "Message\u0020for\u0020asynchronous\u0020server\u002Dside\u0020tracking.",
+            "url": "classes/Ibexa-Contracts-ConnectorRaptor-Message-TrackServerSideEventMessage.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\ConnectorRaptor\\Message\\TrackServerSideEventMessage\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-ConnectorRaptor-Message-TrackServerSideEventMessage.html#method___construct"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\ConnectorRaptor\\Message\\TrackServerSideEventMessage\u003A\u003A\u0024eventData",
+            "name": "eventData",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-ConnectorRaptor-Message-TrackServerSideEventMessage.html#property_eventData"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\ConnectorRaptor\\Message\\TrackServerSideEventMessage\u003A\u003A\u0024customerId",
+            "name": "customerId",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-ConnectorRaptor-Message-TrackServerSideEventMessage.html#property_customerId"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\ConnectorRaptor\\Message\\TrackServerSideEventMessage\u003A\u003A\u0024url",
+            "name": "url",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-ConnectorRaptor-Message-TrackServerSideEventMessage.html#property_url"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\ConnectorRaptor\\Message\\TrackServerSideEventMessage\u003A\u003A\u0024cookieId",
+            "name": "cookieId",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-ConnectorRaptor-Message-TrackServerSideEventMessage.html#property_cookieId"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\ConnectorRaptor\\Message\\TrackServerSideEventMessage\u003A\u003A\u0024sessionId",
+            "name": "sessionId",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-ConnectorRaptor-Message-TrackServerSideEventMessage.html#property_sessionId"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\ConnectorRaptor\\Message\\TrackServerSideEventMessage\u003A\u003A\u0024userId",
+            "name": "userId",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-ConnectorRaptor-Message-TrackServerSideEventMessage.html#property_userId"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\ConnectorRaptor\\Message\\TrackServerSideEventMessage\u003A\u003A\u0024moduleName",
+            "name": "moduleName",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-ConnectorRaptor-Message-TrackServerSideEventMessage.html#property_moduleName"
         },                {
             "fqsen": "\\Ibexa\\Contracts\\ConnectorRaptor\\RaptorClient\\Exception\\RaptorClientException",
             "name": "RaptorClientException",
@@ -11601,6 +11651,36 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/Ibexa-Contracts-ConnectorRaptor-Tracking-Event-ItemClickEventData.html#property_redirectUrl"
         },                {
+            "fqsen": "\\Ibexa\\Contracts\\ConnectorRaptor\\Tracking\\Event\\PageViewEventData",
+            "name": "PageViewEventData",
+            "summary": "Base\u0020class\u0020for\u0020tracking\u0020event\u0020data\u0020with\u0020common\u0020parameter\u0020building\u0020logic.",
+            "url": "classes/Ibexa-Contracts-ConnectorRaptor-Tracking-Event-PageViewEventData.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\ConnectorRaptor\\Tracking\\Event\\PageViewEventData\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-ConnectorRaptor-Tracking-Event-PageViewEventData.html#method___construct"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\ConnectorRaptor\\Tracking\\Event\\PageViewEventData\u003A\u003AgetEventType\u0028\u0029",
+            "name": "getEventType",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-ConnectorRaptor-Tracking-Event-PageViewEventData.html#method_getEventType"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\ConnectorRaptor\\Tracking\\Event\\PageViewEventData\u003A\u003AtoArray\u0028\u0029",
+            "name": "toArray",
+            "summary": "Returns\u0020Raptor\u0020tracking\u0020parameters.",
+            "url": "classes/Ibexa-Contracts-ConnectorRaptor-Tracking-Event-PageViewEventData.html#method_toArray"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\ConnectorRaptor\\Tracking\\Event\\PageViewEventData\u003A\u003A\u0024url",
+            "name": "url",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-ConnectorRaptor-Tracking-Event-PageViewEventData.html#property_url"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\ConnectorRaptor\\Tracking\\Event\\PageViewEventData\u003A\u003A\u0024websiteId",
+            "name": "websiteId",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-ConnectorRaptor-Tracking-Event-PageViewEventData.html#property_websiteId"
+        },                {
             "fqsen": "\\Ibexa\\Contracts\\ConnectorRaptor\\Tracking\\Event\\VisitEventData",
             "name": "VisitEventData",
             "summary": "Base\u0020class\u0020for\u0020tracking\u0020event\u0020data\u0020with\u0020common\u0020parameter\u0020building\u0020logic.",
@@ -11706,6 +11786,11 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/Ibexa-Contracts-ConnectorRaptor-Tracking-EventContext.html#constant_CATEGORY_IDENTIFIER"
         },                {
+            "fqsen": "\\Ibexa\\Contracts\\ConnectorRaptor\\Tracking\\EventContext\u003A\u003AURL",
+            "name": "URL",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-ConnectorRaptor-Tracking-EventContext.html#constant_URL"
+        },                {
             "fqsen": "\\Ibexa\\Contracts\\ConnectorRaptor\\Tracking\\EventMapperInterface",
             "name": "EventMapperInterface",
             "summary": "Maps\u0020domain\u0020objects\u0020to\u0020tracking\u0020event\u0020data\u0020using\u0020registered\u0020strategies.",
@@ -11781,6 +11866,21 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/Ibexa-Contracts-ConnectorRaptor-Tracking-EventType.html#enumcase_ITEM_CLICK"
         },                {
+            "fqsen": "\\Ibexa\\Contracts\\ConnectorRaptor\\Tracking\\EventType\u003A\u003APAGEVIEW",
+            "name": "PAGEVIEW",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-ConnectorRaptor-Tracking-EventType.html#enumcase_PAGEVIEW"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\ConnectorRaptor\\Tracking\\PageViewTrackerInterface",
+            "name": "PageViewTrackerInterface",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-ConnectorRaptor-Tracking-PageViewTrackerInterface.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\ConnectorRaptor\\Tracking\\PageViewTrackerInterface\u003A\u003AtrackCurrentRequest\u0028\u0029",
+            "name": "trackCurrentRequest",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-ConnectorRaptor-Tracking-PageViewTrackerInterface.html#method_trackCurrentRequest"
+        },                {
             "fqsen": "\\Ibexa\\Contracts\\ConnectorRaptor\\Tracking\\RaptorParameter",
             "name": "RaptorParameter",
             "summary": "Raptor\u0020tracking\u0020parameter\u0020names.",
@@ -11851,6 +11951,11 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/Ibexa-Contracts-ConnectorRaptor-Tracking-RaptorParameter.html#constant_MASTER_PRODUCT_ID"
         },                {
+            "fqsen": "\\Ibexa\\Contracts\\ConnectorRaptor\\Tracking\\RaptorParameter\u003A\u003AURL",
+            "name": "URL",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-ConnectorRaptor-Tracking-RaptorParameter.html#constant_URL"
+        },                {
             "fqsen": "\\Ibexa\\Contracts\\ConnectorRaptor\\Tracking\\RaptorParameter\u003A\u003AMETADATA",
             "name": "METADATA",
             "summary": "",
@@ -11918,7 +12023,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\Ibexa\\Contracts\\ConnectorRaptor\\Tracking\\TrackingServiceInterface\u003A\u003Atrack\u0028\u0029",
             "name": "track",
-            "summary": "Track\u0020any\u0020event\u0020type\u0020using\u0020generic\u0020EventDataInterface.",
+            "summary": "",
             "url": "classes/Ibexa-Contracts-ConnectorRaptor-Tracking-TrackingServiceInterface.html#method_track"
         },                {
             "fqsen": "\\Ibexa\\Contracts\\ConnectorRaptor\\Tracking\\Type",
@@ -52106,6 +52211,16 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/Ibexa-Contracts-ProductCatalog-Values-Availability-AvailabilityInterface.html"
         },                {
+            "fqsen": "\\Ibexa\\Contracts\\ProductCatalog\\Values\\Availability\\AvailabilityInterface\u003A\u003AgetAvailability\u0028\u0029",
+            "name": "getAvailability",
+            "summary": "Returns\u0020the\u0020stored\u0020availability\u0020value\u0020as\u0020persisted\u0020for\u0020the\u0020product.",
+            "url": "classes/Ibexa-Contracts-ProductCatalog-Values-Availability-AvailabilityInterface.html#method_getAvailability"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\ProductCatalog\\Values\\Availability\\AvailabilityInterface\u003A\u003AgetComputedAvailability\u0028\u0029",
+            "name": "getComputedAvailability",
+            "summary": "Returns\u0020the\u0020availability\u0020value\u0020computed\u0020for\u0020the\u0020current\u0020business\u0020context.",
+            "url": "classes/Ibexa-Contracts-ProductCatalog-Values-Availability-AvailabilityInterface.html#method_getComputedAvailability"
+        },                {
             "fqsen": "\\Ibexa\\Contracts\\ProductCatalog\\Values\\Availability\\AvailabilityInterface\u003A\u003AisAvailable\u0028\u0029",
             "name": "isAvailable",
             "summary": "",
@@ -63556,6 +63671,11 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/Ibexa-Contracts-Workflow-Service-WorkflowServiceInterface.html#method_loadWorkflowMetadataForContent"
         },                {
+            "fqsen": "\\Ibexa\\Contracts\\Workflow\\Service\\WorkflowServiceInterface\u003A\u003AloadWorkflowMetadataForVersionInfo\u0028\u0029",
+            "name": "loadWorkflowMetadataForVersionInfo",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Workflow-Service-WorkflowServiceInterface.html#method_loadWorkflowMetadataForVersionInfo"
+        },                {
             "fqsen": "\\Ibexa\\Contracts\\Workflow\\Service\\WorkflowServiceInterface\u003A\u003Astart\u0028\u0029",
             "name": "start",
             "summary": "",
@@ -64460,6 +64580,11 @@ Search.appendIndex(
             "name": "Content",
             "summary": "",
             "url": "namespaces/ibexa-contracts-connectorraptor-content.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\ConnectorRaptor\\Message",
+            "name": "Message",
+            "summary": "",
+            "url": "namespaces/ibexa-contracts-connectorraptor-message.html"
         },                {
             "fqsen": "\\Ibexa\\Contracts\\ConnectorRaptor\\RaptorClient\\Exception",
             "name": "Exception",
