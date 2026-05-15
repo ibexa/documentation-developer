@@ -67,16 +67,30 @@ jobs:
             - name: Install Redocly CLI
               run: npm install -g @redocly/cli@latest
 
+            - name: Generate token
+              id: generate_token
+              if: inputs.use_dev_version == true
+              uses: actions/create-github-app-token@v2
+              with:
+                  app-id: ${{ secrets.AUTOMATION_CLIENT_ID }}
+                  private-key: ${{ secrets.AUTOMATION_CLIENT_SECRET }}
+                  owner: ibexa
+
             - name: Build API Refs
               env:
                   SATIS_NETWORK_KEY: ${{ secrets.SATIS_NETWORK_KEY }}
                   SATIS_NETWORK_TOKEN: ${{ secrets.SATIS_NETWORK_TOKEN }}
+                  GITHUB_TOKEN: ${{ steps.generate_token.outputs.token }}
                   BASE_BRANCH: ${{ steps.version_and_branches.outputs.base_branch }}
                   DXP_VERSION: ${{ steps.version_and_branches.outputs.dxp_version }}
                   BASE_DXP_BRANCH: ${{ steps.version_and_branches.outputs.base_dxp_branch }}
                   VIRTUAL_DXP_VERSION: ${{ steps.version_and_branches.outputs.virtual_dxp_version }}
               run: |
+                  if [ -n "$GITHUB_TOKEN" ]; then
+                    composer config --global github-oauth.github.com "$GITHUB_TOKEN"
+                  fi
                   composer config --global http-basic.updates.ibexa.co $SATIS_NETWORK_KEY $SATIS_NETWORK_TOKEN
+
                   if [[ '4.6' != $BASE_BRANCH ]]; then
                     tools/api_refs/api_refs.sh
                     # Fix escape character:
