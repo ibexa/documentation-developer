@@ -44,7 +44,7 @@ ibexa:
 - `activations` - activation details. You can configure multiple activations. They have to be of type `Ibexa` in [[= product_name =]] dashboard
 - `client_id` and `client_secret` - client credentials are used to authenticate against the Webhook endpoint. Make sure they're random and secure
 - `segment_group_identifier` - a [location](#segment-group) to which CDP data is imported
-- `membership.enabled` - enables support for [anonymous users segmenatation](#anonymous-user-segmentation). Set to `true` to activate the feature. Defaults to `false`
+- `membership.enabled` - enables support for [anonymous users segmentation](#anonymous-user-segmentation). Set to `true` to activate the feature. Defaults to `false`
 - `membership.activation_id` and `membership.api_key` - credentials for the CDP Membership API, required for [anonymous user segmentation](#anonymous-user-segmentation)
 - `membership.base_url` - base URL of the CDP Membership API (default: `https://cdp-api.raptorsmartadvisor.com`)
 - `membership.timeout` - timeout in seconds for Membership API requests (default: `5`)
