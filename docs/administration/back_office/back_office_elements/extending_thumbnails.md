@@ -42,7 +42,7 @@ First, create base strategy for returning custom thumbnails from a static file.
 Create `StaticStrategy.php` in `src/Strategy`.
 
 ```php
-[[= include_file('code_samples/back_office/thumbnails/src/Strategy/StaticThumbnailStrategy.php') =]]
+[[= include_code('code_samples/back_office/thumbnails/src/Strategy/StaticThumbnailStrategy.php') =]]
 ```
 
 Next, add the strategy with the `ibexa.repository.thumbnail.strategy.content` tag and `priority: 100` to `config/services.yaml`:

@@ -40,7 +40,7 @@ Block listener provides the logic for the block.
 It's contained in `src/Event/RandomBlockListener.php`:
 
 ``` php
-[[= include_file('code_samples/tutorials/page_tutorial/src/Event/RandomBlockListener.php') =]]
+[[= include_code('code_samples/tutorials/page_tutorial/src/Event/RandomBlockListener.php') =]]
 ```
 
 At this point the new custom block is ready to be used.

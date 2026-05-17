@@ -12,13 +12,13 @@ To access a currency object by its code, use `CurrencyServiceInterface::getCurre
 To access a whole list of currencies, use `CurrencyServiceInterface::findCurrencies`.
 
 ``` php
-[[= include_file('code_samples/api/product_catalog/src/Command/CurrencyCommand.php', 45, 53) =]]
+[[= include_code('code_samples/api/product_catalog/src/Command/CurrencyCommand.php', 46, 53, remove_indent=True) =]]
 ```
 
 To create a new currency, use `CurrencyServiceInterface::createCurrency()` and provide it with a `CurrencyCreateStruct` with code, number of fractional digits and a flag indicating if the currency is enabled:
 
 ``` php
-[[= include_file('code_samples/api/product_catalog/src/Command/CurrencyCommand.php', 60, 63) =]]
+[[= include_code('code_samples/api/product_catalog/src/Command/CurrencyCommand.php', 61, 63, remove_indent=True) =]]
 ```
 
 ## Prices
@@ -28,19 +28,19 @@ To manage prices, use [`ProductPriceServiceInterface`](/api/php_api/php_api_refe
 To retrieve the price of a product in the currency for the current context, use `Product::getPrice()`:
 
 ``` php
-[[= include_file('code_samples/api/product_catalog/src/Command/ProductPriceCommand.php', 60, 63) =]]
+[[= include_code('code_samples/api/product_catalog/src/Command/ProductPriceCommand.php', 61, 63, remove_indent=True) =]]
 ```
 
 To retrieve the price of a product in a specific currency, use `ProductPriceService::getPriceByProductAndCurrency`:
 
 ``` php
-[[= include_file('code_samples/api/product_catalog/src/Command/ProductPriceCommand.php', 64, 67) =]]
+[[= include_code('code_samples/api/product_catalog/src/Command/ProductPriceCommand.php', 65, 67, remove_indent=True) =]]
 ```
 
 To get all prices (in different currencies) for a given product, use `ProductPriceServiceInterface::findPricesByProductCode`:
 
 ``` php
-[[= include_file('code_samples/api/product_catalog/src/Command/ProductPriceCommand.php', 78, 84) =]]
+[[= include_code('code_samples/api/product_catalog/src/Command/ProductPriceCommand.php', 79, 84, remove_indent=True) =]]
 ```
 
 To load price definitions that match given criteria, use `ProductPriceServiceInterface::findPrices`:
@@ -55,7 +55,7 @@ You can also use `ProductPriceServiceInterface` to create or modify existing pri
 For example, to create a new price for a given currency, use `ProductPriceService::createProductPrice` and provide it with a `ProductPriceCreateStruct` object:
 
 ``` php
-[[= include_file('code_samples/api/product_catalog/src/Command/ProductPriceCommand.php', 69, 75) =]]
+[[= include_code('code_samples/api/product_catalog/src/Command/ProductPriceCommand.php', 70, 75, remove_indent=True) =]]
 ```
 
 !!! note
@@ -90,17 +90,17 @@ To get information about the VAT categories and rates configured in the system, 
 VAT is configured per region, so you also need to use [`RegionServiceInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-RegionServiceInterface.html) to get the relevant region object.
 
 ``` php
-[[= include_file('code_samples/api/product_catalog/src/Command/VatCommand.php', 41, 42) =]]
+[[= include_code('code_samples/api/product_catalog/src/Command/VatCommand.php', 42, 42, remove_indent=True) =]]
 ```
 
 To get information about all VAT categories configured for the selected region, use `VatServiceInterface::getVatCategories()`:
 
 ``` php
-[[= include_file('code_samples/api/product_catalog/src/Command/VatCommand.php', 43, 48) =]]
+[[= include_code('code_samples/api/product_catalog/src/Command/VatCommand.php', 44, 48, remove_indent=True) =]]
 ```
 
 To get a single VAT category, use `VatServiceInterface::getVatCategoryByIdentifier()` and provide it with the region object and the identifier of the VAT category:
 
 ``` php
-[[= include_file('code_samples/api/product_catalog/src/Command/VatCommand.php', 49, 50) =]]
+[[= include_code('code_samples/api/product_catalog/src/Command/VatCommand.php', 50, 50, remove_indent=True) =]]
 ```

@@ -43,7 +43,7 @@ You want to focus on what the field type exposes as an API.
 `src/FieldType/Point2D/Value.php` should have the following properties:
 
 ```php
-[[= include_file('code_samples/field_types/2dpoint_ft/steps/step_1/Value.php', 9, 14) =]]
+[[= include_code('code_samples/field_types/2dpoint_ft/steps/step_1/Value.php', 10, 14, remove_indent=True) =]]
 ```
 
 A Value class must also implement the `Ibexa\Contracts\Core\FieldType\Value` interface.

@@ -32,14 +32,14 @@ Next, implement a `mapFieldValueForm()` method and invoke `FormInterface::add` m
 Final version of the Type class should have the following statements and functions:
 
 ```php hl_lines="7 10 19-26"
-[[= include_file('code_samples/field_types/2dpoint_ft/steps/step_3/Type.php') =]]
+[[= include_code('code_samples/field_types/2dpoint_ft/steps/step_3/Type.php') =]]
 ```
 
 Finally, add a `configureOptions` method and set default value of `data_class` to `Value::class` in `src/Form/Type/Point2DType.php`.
 It allows your form to work on this object.
 
 ```php hl_lines="20-25"
-[[= include_file('code_samples/field_types/2dpoint_ft/src/Form/Type/Point2DType.php') =]]
+[[= include_code('code_samples/field_types/2dpoint_ft/src/Form/Type/Point2DType.php') =]]
 ```
 
 ## Add a new tag

@@ -74,7 +74,7 @@ It defines an abstract `getFiles()` method.
 Extend `YamlPolicyProvider` and implement `getFiles()` to return absolute paths to your YAML files.
 
 ``` php
-[[= include_file('code_samples/back_office/limitation/src/Security/MyPolicyProvider.php') =]]
+[[= include_code('code_samples/back_office/limitation/src/Security/MyPolicyProvider.php') =]]
 ```
 
 In `src/Resources/config/policies.yaml`:
@@ -150,7 +150,7 @@ The base of a custom limitation is a class to store values for the usage of this
 The value class extends `Ibexa\Contracts\Core\Repository\Values\User\Limitation` and says for which limitation it's used:
 
 ``` php
-[[= include_file('code_samples/back_office/limitation/src/Security/Limitation/CustomLimitationValue.php') =]]
+[[= include_code('code_samples/back_office/limitation/src/Security/Limitation/CustomLimitationValue.php') =]]
 ```
 
 The type class implements `Ibexa\Contracts\Core\Limitation\Type`.
@@ -159,7 +159,7 @@ The type class implements `Ibexa\Contracts\Core\Limitation\Type`.
 - `evaluate` challenges a limitation value against the current user, the subject object and other context objects to return if the limitation is satisfied or not. `evaluate` is, among others, used by `PermissionResolver::canUser` (to check if a user that has access to a function can use it in its limitations) and `PermissionResolver::lookupLimitations`.
 
 ```php
-[[= include_file('code_samples/back_office/limitation/src/Security/Limitation/CustomLimitationType.php') =]]
+[[= include_code('code_samples/back_office/limitation/src/Security/Limitation/CustomLimitationType.php') =]]
 ```
 
 The type class is set as a service tagged `ibexa.permissions.limitation_type` with an alias to identify it, and to link it to the value.
@@ -181,7 +181,7 @@ To provide support for editing custom policies in the back office, you need to i
 - `filterLimitationValues` is triggered when the form is submitted and can manipulate the limitation values, such as normalizing them.
 
 ``` php
-[[= include_file('code_samples/back_office/limitation/src/Security/Limitation/Mapper/CustomLimitationFormMapper.php') =]]
+[[= include_code('code_samples/back_office/limitation/src/Security/Limitation/Mapper/CustomLimitationFormMapper.php') =]]
 ```
 
 Provide a template corresponding to `getFormTemplate`.
@@ -214,7 +214,7 @@ The value mapper implements [`Ibexa\AdminUi\Limitation\LimitationValueMapperInte
 Its `mapLimitationValue` function returns the limitation value transformed for the needs of the template.
 
 ``` php
-[[= include_file('code_samples/back_office/limitation/src/Security/Limitation/Mapper/CustomLimitationValueMapper.php') =]]
+[[= include_code('code_samples/back_office/limitation/src/Security/Limitation/Mapper/CustomLimitationValueMapper.php') =]]
 ```
 
 Then register the service with the `ibexa.admin_ui.limitation.mapper.value` tag and set the `limitationType` attribute to limitation type's identifier:
@@ -251,7 +251,7 @@ For example, `translations/ibexa_content_forms_policies.en.yaml`:
 Check if current user has this custom limitation set to true from a custom controller:
 
 ```php
-[[= include_file('code_samples/back_office/limitation/src/Controller/CustomController.php') =]]
+[[= include_code('code_samples/back_office/limitation/src/Controller/CustomController.php') =]]
 ```
 
 ## Restrict access to form submissions
@@ -278,7 +278,7 @@ With this setup, users with `content/read` permission can view the form, but can
 First, create the `FormPolicyProvider.php` policy provider that registers the new `form` module and the `read_submissions` function by injecting the custom permission into the configuration tree:
 
 ```php hl_lines="14-18 26"
-[[= include_file('code_samples/back_office/limitation/src/Security/FormPolicyProvider.php') =]]
+[[= include_code('code_samples/back_office/limitation/src/Security/FormPolicyProvider.php') =]]
 ```
 
 Next, extract the [translations](#translations) to the `translations/forms.en.xlf` file.
@@ -312,7 +312,7 @@ To enforce the policy on the PHP API level, decorate the form submission service
 In `src/Security`, create the `FormSubmissionServiceDecorator.php` file:
 
 ```php hl_lines="19 33 40 41 44"
-[[= include_file('code_samples/back_office/limitation/src/Security/Form/FormSubmissionServiceDecorator.php') =]]
+[[= include_code('code_samples/back_office/limitation/src/Security/Form/FormSubmissionServiceDecorator.php') =]]
 ```
 
 !!! note "Duplicate method calls"
@@ -336,7 +336,7 @@ To enforce the policy in the back office, decorate the **Submissions** tab to hi
 In `src/Security`, create the `FormSubmissionsTabDecorator.php` file:
 
 ```php hl_lines="19 30 60-61"
-[[= include_file('code_samples/back_office/limitation/src/Security/Form/FormSubmissionsTabDecorator.php') =]]
+[[= include_code('code_samples/back_office/limitation/src/Security/Form/FormSubmissionsTabDecorator.php') =]]
 ```
 
 Then, add a service definition to `config/services.yaml`:

@@ -29,5 +29,5 @@ The following operators are supported:
 The following example lists all products for which the `event_date` attribute has value equal to 2025-07-06.
 
 ``` php
-[[= include_file('code_samples/back_office/search/src/Query/DateTimeAttributeQuery.php') =]]
+[[= include_code('code_samples/back_office/search/src/Query/DateTimeAttributeQuery.php') =]]
 ```

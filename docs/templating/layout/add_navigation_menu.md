@@ -20,7 +20,7 @@ To create a menu that contains a specific set of content items, for example all 
 First, in `src/QueryType`, create a custom `MenuQueryType.php` file that queries for all items that you want in the menu:
 
 ``` php hl_lines="15 16 28"
-[[= include_file('code_samples/front/layouts/menu/src/QueryType/MenuQueryType.php') =]]
+[[= include_code('code_samples/front/layouts/menu/src/QueryType/MenuQueryType.php') =]]
 ```
 
 In this case, it queries for all visible children of location `2`, the root location, (lines 15-16) and renders them in order according to their location priority.
@@ -46,7 +46,7 @@ To make a more configurable menu, where you select the specific items to render,
 To use it, first create a `MenuBuilder.php` file in `src/Menu`:
 
 ``` php hl_lines="21 22 23 27"
-[[= include_file('code_samples/front/layouts/menu/src/Menu/MenuBuilder.php') =]]
+[[= include_code('code_samples/front/layouts/menu/src/Menu/MenuBuilder.php') =]]
 ```
 
 In the builder, you can define items that you want in the menu.

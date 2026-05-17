@@ -27,7 +27,7 @@ Register it as a service by using the `AsTwigComponent` attribute or the `ibexa.
 === "PHP Attribute"
 
     ``` php hl_lines="8-11"
-    [[= include_file('code_samples/back_office/components/MyComponent.php', glue='    ') =]]
+    [[= include_code('code_samples/back_office/components/MyComponent.php', indent_level=1) =]]
     ```
 
 === "YAML configuration"

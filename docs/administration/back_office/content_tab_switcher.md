@@ -74,7 +74,7 @@ The `meta_field_groups_list` configuration can be overridden.
 First, create an event listener in the `src/EventListener/TextAnchorMenuTabListener.php`:
 
 ``` php hl_lines="28 31"
-[[= include_file('code_samples/back_office/content_type/src/EventListener/TextAnchorMenuTabListener.php') =]]
+[[= include_code('code_samples/back_office/content_type/src/EventListener/TextAnchorMenuTabListener.php') =]]
 ```
 
 A new custom tab is defined in the line 28, the line 31 defines items for the second level.

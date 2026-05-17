@@ -84,13 +84,13 @@ In the `src/Collaboration/Cart/Persistence/Gateway/` directory, create the follo
 - `DatabaseSchema` - defines the database tables needed to store shared Cart collaboration session data:
 
 ``` php
-[[= include_file('code_samples/collaboration/src/Collaboration/Cart/Persistence/Gateway/DatabaseSchema.php') =]]
+[[= include_code('code_samples/collaboration/src/Collaboration/Cart/Persistence/Gateway/DatabaseSchema.php') =]]
 ```
 
 - `DatabaseGateway` - implements the gateway logic for getting and retrieving shared Cart collaboration data from the database. It uses a Discriminator to identify the type of session (in this case, a Cart session):
 
 ``` php
-[[= include_file('code_samples/collaboration/src/Collaboration/Cart/Persistence/Gateway/DatabaseGateway.php') =]]
+[[= include_code('code_samples/collaboration/src/Collaboration/Cart/Persistence/Gateway/DatabaseGateway.php') =]]
 ```
 
 ### Define persistence Value objects
@@ -107,19 +107,19 @@ In the `src/Collaboration/Cart/Persistence/Values/` directory, create the follow
 - `CartSession` - represents the Cart collaboration session data:
 
 ``` php
-[[= include_file('code_samples/collaboration/src/Collaboration/Cart/Persistence/Values/CartSession.php') =]]
+[[= include_code('code_samples/collaboration/src/Collaboration/Cart/Persistence/Values/CartSession.php') =]]
 ```
 
 - `CartSessionCreateStruct` - defines the data needed to create a new Cart collaboration session:
 
 ``` php
-[[= include_file('code_samples/collaboration/src/Collaboration/Cart/Persistence/Values/CartSessionCreateStruct.php') =]]
+[[= include_code('code_samples/collaboration/src/Collaboration/Cart/Persistence/Values/CartSessionCreateStruct.php') =]]
 ```
 
 - `CartSessionUpdateStruct` - defines the data used to update an existing Cart collaboration session:
 
 ``` php
-[[= include_file('code_samples/collaboration/src/Collaboration/Cart/Persistence/Values/CartSessionUpdateStruct.php') =]]
+[[= include_code('code_samples/collaboration/src/Collaboration/Cart/Persistence/Values/CartSessionUpdateStruct.php') =]]
 ```
 
 ### Create Cart session Struct objects
@@ -133,25 +133,25 @@ In the `src/Collaboration/Cart/` directory, create the following Session Structs
 - `CartSessionCreateStruct` - holds all necessary properties (like session token, participants, scopes, and the Cart reference) needed by the `SessionService` to create the shared Cart session:
 
 ``` php
-[[= include_file('code_samples/collaboration/src/Collaboration/Cart/CartSessionCreateStruct.php') =]]
+[[= include_code('code_samples/collaboration/src/Collaboration/Cart/CartSessionCreateStruct.php') =]]
 ```
 
 - `CartSessionUpdateStruct` - defines the properties used to update an existing Cart collaboration session, including participants, scopes, and metadata:
 
 ``` php
-[[= include_file('code_samples/collaboration/src/Collaboration/Cart/CartSessionUpdateStruct.php') =]]
+[[= include_code('code_samples/collaboration/src/Collaboration/Cart/CartSessionUpdateStruct.php') =]]
 ```
 
 - `CartSession` - represents a Cart collaboration session, storing its ID, token, associated Cart, participants, and scope:
 
 ``` php
-[[= include_file('code_samples/collaboration/src/Collaboration/Cart/CartSession.php') =]]
+[[= include_code('code_samples/collaboration/src/Collaboration/Cart/CartSession.php') =]]
 ```
 
 - `CartSessionType` - defines the type of the collaboration session (in this case it indicates it’s a Cart session):
 
 ``` php
-[[= include_file('code_samples/collaboration/src/Collaboration/Cart/CartSessionType.php') =]]
+[[= include_code('code_samples/collaboration/src/Collaboration/Cart/CartSessionType.php') =]]
 ```
 
 ## Create mappers
@@ -163,25 +163,25 @@ In the `src/Collaboration/Cart/Mapper/` directory, create following mappers:
 - `CartProxyMapper` - creates a simplified version of the Cart with only the necessary data to reduce memory usage in collaboration sessions:
 
 ``` php
-[[= include_file('code_samples/collaboration/src/Collaboration/Cart/Mapper/CartProxyMapper.php') =]]
+[[= include_code('code_samples/collaboration/src/Collaboration/Cart/Mapper/CartProxyMapper.php') =]]
 ```
 
 - `CartProxyMapperInterface` - defines how a Cart should be converted into a simplified object that is used in collaboration session and specifies what methods the mapper must implement:
 
 ``` php
-[[= include_file('code_samples/collaboration/src/Collaboration/Cart/Mapper/CartProxyMapperInterface.php') =]]
+[[= include_code('code_samples/collaboration/src/Collaboration/Cart/Mapper/CartProxyMapperInterface.php') =]]
 ```
 
 - `CartSessionDomainMapper` - builds the session object from persistence object:
 
 ``` php
-[[= include_file('code_samples/collaboration/src/Collaboration/Cart/Mapper/CartSessionDomainMapper.php') =]]
+[[= include_code('code_samples/collaboration/src/Collaboration/Cart/Mapper/CartSessionDomainMapper.php') =]]
 ```
 
 - `CartSessionPersistenceMapper` - prepares session data to be saved or updated in the database:
 
 ``` php
-[[= include_file('code_samples/collaboration/src/Collaboration/Cart/Mapper/CartSessionPersistenceMapper.php') =]]
+[[= include_code('code_samples/collaboration/src/Collaboration/Cart/Mapper/CartSessionPersistenceMapper.php') =]]
 ```
 
 Then, in the `src/Collaboration/Cart/Persistence/` directory, create the following mapper:
@@ -189,7 +189,7 @@ Then, in the `src/Collaboration/Cart/Persistence/` directory, create the followi
 - `Persistence/Mapper` - builds the session object from persistence row:
 
 ``` php
-[[= include_file('code_samples/collaboration/src/Collaboration/Cart/Persistence/Mapper.php') =]]
+[[= include_code('code_samples/collaboration/src/Collaboration/Cart/Persistence/Mapper.php') =]]
 ```
 
 In `services.yaml`, declare and tags the gateway and the mappers:
@@ -217,13 +217,13 @@ In the `src/Collaboration/Cart/` directory, create the following files:
 - `PermissionResolverDecorator` – customizes the permission resolver to handle access rules for Cart collaboration sessions. It allows participants to view or edit shared Carts while preserving default permission checks for all other cases. Here you can decide what scope is available for this collaboration session by choosing between `view` or `edit`:
 
 ``` php
-[[= include_file('code_samples/collaboration/src/Collaboration/Cart/PermissionResolverDecorator.php') =]]
+[[= include_code('code_samples/collaboration/src/Collaboration/Cart/PermissionResolverDecorator.php') =]]
 ```
 
 - `CartResolverDecorator` – resolves the shared Carts in collaboration sessions by checking if a Cart belongs to a collaboration session:
 
 ``` php
-[[= include_file('code_samples/collaboration/src/Collaboration/Cart/CartResolverDecorator.php') =]]
+[[= include_code('code_samples/collaboration/src/Collaboration/Cart/CartResolverDecorator.php') =]]
 ```
 
 In `services.yaml`, declare those decorator services associated with what they decorate:
@@ -254,7 +254,7 @@ If a shared Cart exists, the Cart is retrieved and a session is created (`$cart`
 In the `addParticipant` step, the user whose email address was provided is added to the session and assigned a scope (either `view` or `edit`).
 
 ``` php
-[[= include_file('code_samples/collaboration/src/Controller/ShareCartCreateController.php') =]]
+[[= include_code('code_samples/collaboration/src/Controller/ShareCartCreateController.php') =]]
 ```
 
 ### `ShareCartJoinController`
@@ -266,7 +266,7 @@ If the session exists, the session parameter (`collaboration_session`) is retrie
 Finally, `redirectToRoute` redirects the user to the Cart view and passes the identifier of the shared Cart.
 
 ``` php
-[[= include_file('code_samples/collaboration/src/Controller/ShareCartJoinController.php') =]]
+[[= include_code('code_samples/collaboration/src/Controller/ShareCartJoinController.php') =]]
 ```
 
 !!! caution "Session parameter"
@@ -283,13 +283,13 @@ The form collects the email address of the user that you want to invite, and the
 - `ShareCartType` - a simple form for entering an email address of the user you want to invite to share the Cart. The form contains a single input field where you enter the email address manually:
 
 ``` php
-[[= include_file('code_samples/collaboration/src/Form/Type/ShareCartType.php') =]]
+[[= include_code('code_samples/collaboration/src/Form/Type/ShareCartType.php') =]]
 ```
 
 - `ShareCartData` - a class that holds the email address submitted through the form and passes it to the controller:
 
 ``` php
-[[= include_file('code_samples/collaboration/src/Form/Data/ShareCartData.php') =]]
+[[= include_code('code_samples/collaboration/src/Form/Data/ShareCartData.php') =]]
 ```
 
 The last step is to integrate the new session type into your application by adding templates.

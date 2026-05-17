@@ -28,7 +28,7 @@ The form mapper must implement `Ibexa\Contracts\ProductCatalog\Local\Attribute\V
 In this example, you can use the Symfony's built-in `PercentType` class (line 40).
 
 ``` php hl_lines="40"
-[[= include_file('code_samples/catalog/custom_attribute_type/src/Attribute/Percent/Form/PercentValueFormMapper.php') =]]
+[[= include_code('code_samples/catalog/custom_attribute_type/src/Attribute/Percent/Form/PercentValueFormMapper.php') =]]
 ```
 
 The `options` array contains additional options for the form, including options resulting from the selected form type.
@@ -46,7 +46,7 @@ A value formatter prepares the attribute value for rendering in the proper forma
 In this example, you can use the `NumberFormatter` to ensure the number is rendered in the percentage form (line 22).
 
 ``` php hl_lines="22"
-[[= include_file('code_samples/catalog/custom_attribute_type/src/Attribute/Percent/PercentValueFormatter.php') =]]
+[[= include_code('code_samples/catalog/custom_attribute_type/src/Attribute/Percent/PercentValueFormatter.php') =]]
 ```
 
 Register the value formatter as a service and tag it with `ibexa.product_catalog.attribute.formatter.value`:
@@ -67,7 +67,7 @@ First, create `PercentAttributeOptionsType` that defines two options, `min` and 
 Both those options need to be of `PercentType`.
 
 ``` php hl_lines="16 22"
-[[= include_file('code_samples/catalog/custom_attribute_type/src/Attribute/Percent/PercentAttributeOptionsType.php') =]]
+[[= include_code('code_samples/catalog/custom_attribute_type/src/Attribute/Percent/PercentAttributeOptionsType.php') =]]
 ```
 
 ### Options form mapper
@@ -75,7 +75,7 @@ Both those options need to be of `PercentType`.
 Next, create a `PercentOptionsFormMapper` that maps the information that the user inputs in the form into attribute definition.
 
 ``` php
-[[= include_file('code_samples/catalog/custom_attribute_type/src/Attribute/Percent/PercentOptionsFormMapper.php') =]]
+[[= include_code('code_samples/catalog/custom_attribute_type/src/Attribute/Percent/PercentOptionsFormMapper.php') =]]
 ```
 
 Register the options form mapper as a service and tag it with `ibexa.product_catalog.attribute.form_mapper.options`:
@@ -92,7 +92,7 @@ It validates the options that the user sets while creating the attribute definit
 In this example, the validator verifies whether the minimum percentage is lower than the maximum.
 
 ``` php
-[[= include_file('code_samples/catalog/custom_attribute_type/src/Attribute/Percent/PercentOptionsValidator.php') =]]
+[[= include_code('code_samples/catalog/custom_attribute_type/src/Attribute/Percent/PercentOptionsValidator.php') =]]
 ```
 
 Register the options validator as a service and tag it with `ibexa.product_catalog.attribute.validator.options`:
@@ -107,7 +107,7 @@ Finally, make sure the data provided by the user is validated.
 To do that, create `PercentValueValidator` that checks the values against `min` and `max` and dispatches an error when needed.
 
 ``` php hl_lines="23-27"
-[[= include_file('code_samples/catalog/custom_attribute_type/src/Attribute/Percent/PercentValueValidator.php') =]]
+[[= include_code('code_samples/catalog/custom_attribute_type/src/Attribute/Percent/PercentValueValidator.php') =]]
 ```
 
 Register the validator as a service and tag it with `ibexa.product_catalog.attribute.validator.value`:
@@ -149,7 +149,7 @@ Start by creating a `PercentStorageConverter` class, which implements `Ibexa\Con
 This converter is responsible for converting database results into an attribute type instance:
 
 ``` php
-[[= include_file('code_samples/catalog/custom_attribute_type/src/Attribute/Percent/Storage/PercentStorageConverter.php') =]]
+[[= include_code('code_samples/catalog/custom_attribute_type/src/Attribute/Percent/Storage/PercentStorageConverter.php') =]]
 ```
 
 Register the converter as a service and tag it with `ibexa.product_catalog.attribute.storage_converter`:
@@ -165,7 +165,7 @@ You can either create a new storage definition or use an existing one.
 To create a new storage definition, prepare a `PercentStorageDefinition` class, which implements `Ibexa\Contracts\ProductCatalog\Local\Attribute\StorageDefinitionInterface`.
 
 ``` php
-[[= include_file('code_samples/catalog/custom_attribute_type/src/Attribute/Percent/Storage/PercentStorageDefinition.php') =]]
+[[= include_code('code_samples/catalog/custom_attribute_type/src/Attribute/Percent/Storage/PercentStorageDefinition.php') =]]
 ```
 
 Register the storage definition as a service and tag it with `ibexa.product_catalog.attribute.storage_definition`:
@@ -177,14 +177,14 @@ Register the storage definition as a service and tag it with `ibexa.product_cata
 If you prefer to use an existing storage definition, you need to create a Storage Definition Tag CompilerPass `src/DependencyInjection/AddFloatStorageDefinitionTag.php`:
 
 ``` php
-[[= include_file('code_samples/catalog/custom_attribute_type/src/DependencyInjection/AddFloatStorageDefinitionTag.php') =]]
+[[= include_code('code_samples/catalog/custom_attribute_type/src/DependencyInjection/AddFloatStorageDefinitionTag.php') =]]
 ```
 
 Add the CompilerPass to the container.
 Do it in a `src/Kernel.php` file or in your Bundle class:
 
 ``` php hl_lines="5 7-8 14-20"
-[[= include_file('code_samples/catalog/custom_attribute_type/src/Kernel.php') =]]
+[[= include_code('code_samples/catalog/custom_attribute_type/src/Kernel.php') =]]
 ```
 
 ## Use new attribute type

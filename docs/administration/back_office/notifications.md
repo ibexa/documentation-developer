@@ -91,7 +91,7 @@ To create a new notification you can use the [`NotificationService::createNotifi
 like in the example below:
 
 ```php
-[[= include_file('code_samples/back_office/notifications/src/EventListener/ContentPublishEventListener.php') =]]
+[[= include_code('code_samples/back_office/notifications/src/EventListener/ContentPublishEventListener.php') =]]
 ```
 
 A new type of user notification is created: `ContentPublished`.
@@ -103,7 +103,7 @@ To display a user notification, write a renderer and tag it as a service.
 The example below presents a renderer that uses Twig to render a view:
 
 ```php
-[[= include_file('code_samples/back_office/notifications/src/Notification/MyRenderer.php') =]]
+[[= include_code('code_samples/back_office/notifications/src/Notification/MyRenderer.php') =]]
 ```
 
 You can add the template that is used in the `MyRenderer::render()` method to the `admin` theme
@@ -127,7 +127,7 @@ To display a list of notifications, expand the above renderer.
 The example below presents a modified renderer that uses Twig to render a list view:
 
 ```php
-[[= include_file('code_samples/back_office/notifications/src/Notification/ListRenderer.php') =]]
+[[= include_code('code_samples/back_office/notifications/src/Notification/ListRenderer.php') =]]
 ```
 
 ### `ibexa` notification channel

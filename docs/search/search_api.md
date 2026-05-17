@@ -279,7 +279,7 @@ The example below uses the `LogicalNot` operator to search for all content conta
 that doesn't belong to the provided Section:
 
 ``` php
-[[= include_code('code_samples/api/public_php_api/src/Command/FindComplexCommand.php', 47, 54) =]]
+[[= include_code('code_samples/api/public_php_api/src/Command/FindComplexCommand.php', 47, 54, remove_indent=True) =]]
 ```
 
 ### Combine independent Criteria
@@ -312,7 +312,7 @@ To sort the results of a query, use one of more [Sort Clauses](sort_clause_refer
 For example, to order search results by their publication date, from oldest to newest, and then alphabetically by content name, add the following Sort Clauses to the query:
 
 ``` php
-[[= include_code('code_samples/api/public_php_api/src/Command/FindComplexCommand.php', 56, 59) =]]
+[[= include_code('code_samples/api/public_php_api/src/Command/FindComplexCommand.php', 56, 59, remove_indent=True) =]]
 ```
 
 !!! tip
@@ -330,7 +330,7 @@ With aggregations you can find the count of search results or other result infor
 To do this, you use of the query's `$aggregations` property:
 
 ``` php
-[[= include_code('code_samples/api/public_php_api/src/Command/FindWithAggregationCommand.php', 31, 35) =]]
+[[= include_code('code_samples/api/public_php_api/src/Command/FindWithAggregationCommand.php', 31, 35, remove_indent=True) =]]
 ```
 
 The name of the aggregation must be unique in the given query.
@@ -338,13 +338,13 @@ The name of the aggregation must be unique in the given query.
 Access the results by using the `get()` method of the aggregation:
 
 ``` php
-[[= include_code('code_samples/api/public_php_api/src/Command/FindWithAggregationCommand.php', 40, 40) =]]
+[[= include_code('code_samples/api/public_php_api/src/Command/FindWithAggregationCommand.php', 40, 40, remove_indent=True) =]]
 ```
 
 Aggregation results contain the name of the result and the count of found items:
 
 ``` php
-[[= include_code('code_samples/api/public_php_api/src/Command/FindWithAggregationCommand.php', 43, 45) =]]
+[[= include_code('code_samples/api/public_php_api/src/Command/FindWithAggregationCommand.php', 43, 45, remove_indent=True) =]]
 ```
 
 With field aggregations you can group search results according to the value of a specific field.
@@ -353,14 +353,14 @@ In this case the aggregation takes the content type identifier and the field ide
 The following example creates an aggregation named `selection` that groups results according to the value of the `topic` field in the `article` content type:
 
 ``` php
-[[= include_code('code_samples/api/public_php_api/src/Command/FindWithAggregationCommand.php', 36, 36) =]]
+[[= include_code('code_samples/api/public_php_api/src/Command/FindWithAggregationCommand.php', 36, 36, remove_indent=True) =]]
 ```
 
 With term aggregation you can define additional limits to the results.
 The following example limits the number of terms returned to 5 and only considers terms that have 10 or more results:
 
 ``` php
-[[= include_code('code_samples/api/public_php_api/src/Command/FindWithAggregationCommand.php', 31, 33) =]]
+[[= include_code('code_samples/api/public_php_api/src/Command/FindWithAggregationCommand.php', 31, 33, remove_indent=True) =]]
 ```
 
 To use a range aggregation, you must provide a `ranges` array containing a set of `Range` objects that define the borders of the specific range sets.

@@ -14,7 +14,7 @@ Or pass entry identifier (with optionally a taxonomy identifier),
 and use `TaxonomyServiceInterface::loadEntryByIdentifier()`:
 
 ``` php
-[[= include_file('code_samples/api/public_php_api/src/Command/TaxonomyCommand.php', 34, 37) =]]
+[[= include_code('code_samples/api/public_php_api/src/Command/TaxonomyCommand.php', 35, 37, remove_indent=True) =]]
 ```
 
 !!! note
@@ -37,7 +37,7 @@ The default taxonomy identifier is given by `TaxonomyConfiguration::getDefaultTa
 The default limit is 30.
 
 ``` php
-[[= include_file('code_samples/api/public_php_api/src/Command/TaxonomyCommand.php', 32, 33) =]]
+[[= include_code('code_samples/api/public_php_api/src/Command/TaxonomyCommand.php', 33, 33, remove_indent=True) =]]
 ```
 
 To see how many entries is there, use `TaxonomyServiceInterface::countAllEntries()` with optionally a taxonomy identifier.
@@ -47,7 +47,7 @@ provide it with the entry object, and optionally specify the limit of results an
 The default limit is 30:
 
 ``` php
-[[= include_file('code_samples/api/public_php_api/src/Command/TaxonomyCommand.php', 39, 44) =]]
+[[= include_code('code_samples/api/public_php_api/src/Command/TaxonomyCommand.php', 40, 44, remove_indent=True) =]]
 ```
 
 ## Managing taxonomy entries
@@ -56,7 +56,7 @@ You can move a taxonomy entry to a different parent by using `TaxonomyServiceInt
 Provide the method with two objects: the entry that you want to move and the new parent entry:
 
 ``` php
-[[= include_file('code_samples/api/public_php_api/src/Command/TaxonomyCommand.php', 45, 49) =]]
+[[= include_code('code_samples/api/public_php_api/src/Command/TaxonomyCommand.php', 46, 49, remove_indent=True) =]]
 ```
 
 You can also move a taxonomy entry by passing its target sibling entry to `TaxonomyServiceInterface::moveEntry()`.
@@ -64,7 +64,7 @@ The method takes as parameters the entry you want to move, the future sibling,
 and a `position` parameter, which is either `TaxonomyServiceInterface::MOVE_POSITION_NEXT` or `TaxonomyServiceInterface::MOVE_POSITION_PREV`:
 
 ``` php
-[[= include_file('code_samples/api/public_php_api/src/Command/TaxonomyCommand.php', 50, 52) =]]
+[[= include_code('code_samples/api/public_php_api/src/Command/TaxonomyCommand.php', 51, 52, remove_indent=True) =]]
 ```
 
 !!! note

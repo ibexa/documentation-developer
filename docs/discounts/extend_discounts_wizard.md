@@ -55,13 +55,13 @@ To add a custom step, create a value object representing the step.
 It contains the step identifier, properties for storing form data, and extends the [`AbstractDiscountStep`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Discounts-Admin-Form-Data-AbstractDiscountStep.html):
 
 ``` php
-[[= include_file('code_samples/discounts/src/Discounts/Step/AnniversaryConditionStep.php') =]]
+[[= include_code('code_samples/discounts/src/Discounts/Step/AnniversaryConditionStep.php') =]]
 ```
 
 Then, create a new event listener listening to the [`CreateFormDataEvent` and `MapDiscountToFormDataEvent` events](discounts_events.md#form):
 
 ``` php hl_lines="18-19 26-50"
-[[= include_file('code_samples/discounts/src/Discounts/Step/Step1/AnniversaryConditionStepEventSubscriber.php') =]]
+[[= include_code('code_samples/discounts/src/Discounts/Step/Step1/AnniversaryConditionStepEventSubscriber.php') =]]
 ```
 
 Attaching the `addAnniversaryConditionStep()` method to both these events adds the custom step both in discount creation and edit forms.
@@ -88,11 +88,11 @@ The custom step is added between the "Conditions" and "Discount value"  steps.
 To add form fields to it, create an event listener adding your fields and a custom form type:
 
 ``` php
-[[= include_file('code_samples/discounts/src/Discounts/Step/AnniversaryConditionStepFormListener.php') =]]
+[[= include_code('code_samples/discounts/src/Discounts/Step/AnniversaryConditionStepFormListener.php') =]]
 ```
 
 ``` php
-[[= include_file('code_samples/discounts/src/Form/Type/AnniversaryConditionStepType.php') =]]
+[[= include_code('code_samples/discounts/src/Form/Type/AnniversaryConditionStepType.php') =]]
 ```
 
 The new form step, including its form fields, are now part of the discounts wizard.
@@ -107,7 +107,7 @@ Expand the previously created `AnniversaryConditionStepEventSubscriber` to liste
 and add the `addStepDataToStruct()` method:
 
 ``` php hl_lines="23-24 57-70"
-[[= include_file('code_samples/discounts/src/Discounts/Step/Step2/AnniversaryConditionStepEventSubscriber.php') =]]
+[[= include_code('code_samples/discounts/src/Discounts/Step/Step2/AnniversaryConditionStepEventSubscriber.php') =]]
 ```
 
 When the form is submitted, this method extracts information whether the store manager enabled the anniversary discount in the form and adds the condition to make sure this data is properly saved.
@@ -121,19 +121,19 @@ This example continues the [purchasing power parity rule example](extend_discoun
 First, create a new service implementing the `DiscountValueMapperInterface` interface, responsible for handling the new rule type:
 
 ``` php hl_lines="59-60"
-[[= include_file('code_samples/discounts/src/Form/FormMapper/PurchasingPowerParityValueMapper.php') =]]
+[[= include_code('code_samples/discounts/src/Form/FormMapper/PurchasingPowerParityValueMapper.php') =]]
 ```
 
 It uses an `PurchasingPowerParityValue` object to store the form data:
 
 ``` php
-[[= include_file('code_samples/discounts/src/Form/Data/PurchasingPowerParityValue.php') =]]
+[[= include_code('code_samples/discounts/src/Form/Data/PurchasingPowerParityValue.php') =]]
 ```
 
 This value mapper is used by a new form mapper, dedicated to the new rule type:
 
 ``` php
-[[= include_file('code_samples/discounts/src/Form/FormMapper/PurchasingPowerParityFormMapper.php') =]]
+[[= include_code('code_samples/discounts/src/Form/FormMapper/PurchasingPowerParityFormMapper.php') =]]
 ```
 
 Link them together when defining the services:
@@ -153,13 +153,13 @@ As each rule type might have a different rule calculation logic, each rule must 
 To create it, create a dedicated class implementing the [`DiscountValueFormTypeMapperInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Discounts-Admin-Form-DiscountValueFormTypeMapperInterface.html)
 
 ``` php
-[[= include_file('code_samples/discounts/src/Form/FormMapper/PurchasingPowerParityDiscountValueFormTypeMapper.php') =]]
+[[= include_code('code_samples/discounts/src/Form/FormMapper/PurchasingPowerParityDiscountValueFormTypeMapper.php') =]]
 ```
 
 and add a dedicated value type class:
 
 ``` php hl_lines="26-38 45-59 71"
-[[= include_file('code_samples/discounts/src/Form/Type/DiscountValue/PurchasingPowerParityValueType.php') =]]
+[[= include_code('code_samples/discounts/src/Form/Type/DiscountValue/PurchasingPowerParityValueType.php') =]]
 ```
 
 In the example above, the discount value step is used to display a read-only field with regions the discount is limited to.
