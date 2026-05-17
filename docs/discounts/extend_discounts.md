@@ -1,9 +1,7 @@
 ---
 description: Extend Discounts by adding your own rules and conditions
-editions:
-    - lts-update
-    - commerce
 month_change: false
+edition: commerce
 ---
 
 # Extend Discounts
