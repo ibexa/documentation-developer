@@ -123,7 +123,7 @@ To use the connector with the Gemini services, you need to create an account, se
     1. Add project name, for example, "My project".
     1. Modify the automatically generated **Project ID** if necessary.
     1. Select location: choose your organization.
-1.  Click **Create**.
+1. Click **Create**.
 
 #### Configure billing
 

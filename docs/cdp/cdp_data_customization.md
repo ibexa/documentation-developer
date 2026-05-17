@@ -64,7 +64,7 @@ The interface is plain and has two methods that you need to provide:
 - **process** - takes `Field` instance and then returns a flat array of scalar values that are combined with the payload data.
 ​
 A common field type is serialized to:
-​
+
 ```json
 {
     "field_measurement_simple_id": 1792,
@@ -117,6 +117,7 @@ You can return multiple values.
 
 - `FieldValueProcessorInterface::supports` - decides whether `FieldValueProcessor` can work with the `Field`.
 ​
+
 ### Built in Field Value Processors for custom field types
 
 Several system Field Value Processors either work by default or can be registered for custom field types:

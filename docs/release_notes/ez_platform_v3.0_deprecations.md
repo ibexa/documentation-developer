@@ -420,10 +420,10 @@ This change is introduced without BC breaks.
 
 Following API methods have been removed:
 
-* `\eZ\Publish\API\Repository\ContentService::removeTranslation`
-* `\eZ\Publish\API\Repository\UserService::loadAnonymousUser`
-* `\eZ\Publish\API\Repository\Repository::getCurrentUser`
-* `\eZ\Publish\API\Repository\Repository::getCurrentUserReference`
+- `\eZ\Publish\API\Repository\ContentService::removeTranslation`
+- `\eZ\Publish\API\Repository\UserService::loadAnonymousUser`
+- `\eZ\Publish\API\Repository\Repository::getCurrentUser`
+- `\eZ\Publish\API\Repository\Repository::getCurrentUserReference`
 - `\eZ\Publish\API\Repository\Repository::setCurrentUser`
 - `\eZ\Publish\API\Repository\Repository::hasAccess`
 - `\eZ\Publish\API\Repository\Repository::canUser`

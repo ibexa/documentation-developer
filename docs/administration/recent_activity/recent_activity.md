@@ -51,6 +51,7 @@ ibexa:
                 pagination:
                     activity_logs_limit: 20
 ```
+
 A log item is a group of entries, or an entry without group.
 
 ### Disable activity log

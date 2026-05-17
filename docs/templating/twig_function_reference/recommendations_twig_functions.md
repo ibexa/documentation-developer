@@ -29,6 +29,7 @@ Default setup:
 ``` html+twig
 {{ ibexa_tracking_script() }}
 ```
+
 Example setup using parameters:
 
 ``` html+twig
