@@ -1,6 +1,7 @@
 ---
 description: Pages are block-based special types of content that editors can create and modify by using a visual drag-and-drop editor.
 page_type: landing_page
+edition: experience
 ---
 
 # Pages

@@ -1,9 +1,7 @@
 ---
 description: Integrate custom rules and conditions into the back office forms.
-editions:
-    - lts-update
-    - commerce
 month_change: false
+edition: commerce
 ---
 
 # Extend Discounts wizard
