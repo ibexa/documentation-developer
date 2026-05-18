@@ -112,7 +112,7 @@ product_tour:
 When creating new [back office user groups](user_registration.md#user-types), decide whether the existing product tour scenarios should be available for these new user groups.
 If not, add the new group to the exclusion list.
 
-!!! warning
+!!! caution
 
     If a scenario contains information meant only for specific group of users, always use the `user_groups_excluded` setting to exclude other groups.
     Don't rely only on UI access restrictions to control the access to scenarios, as a malicious internal user could trigger and preview them outside of the intended place.

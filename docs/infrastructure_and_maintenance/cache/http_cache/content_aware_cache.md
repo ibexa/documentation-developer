@@ -147,7 +147,7 @@ The built-in taggers support the following value types:
 - Any view implementing `Ibexa\Core\MVC\Symfony\View\ContentValueView`
 - Any view implementing `Ibexa\Core\MVC\Symfony\View\LocationValueView`
 
-!!! warning
+!!! caution
 
     If a value of any other type is passed (for example, a [`Content`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Content.html) object), no tagger matches and the call has no effect.
 

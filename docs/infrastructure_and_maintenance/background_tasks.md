@@ -67,7 +67,7 @@ php bin/console messenger:consume ibexa.messenger.transport --bus=ibexa.messenge
 
 In [multi-repository setups](repository_configuration.md), the worker process always works for a [SiteAccess](multisite_configuration.md#siteaccess-configuration) that you indicate by using the `--siteaccess` option, therefore you may need to run multiple workers, one for each SiteAccess.
 
-!!! warning "Multi-repository setups"
+!!! caution "Multi-repository setups"
 
     Doctrine transport works across multiple repositories without issues, but other transports may need to be adjusted, so that queues across different repositories are not accidentally shared.
 
