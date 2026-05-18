@@ -316,11 +316,11 @@ Accept: application/vnd.ibexa.api.LocationList+json
 
 #### JWT token obtained through REST documentation
 
-To obtain a JWT token with REST, you can use the REST API live documentation on your development installation
-(`kernel.debug` must be `true` to access it, as on a `dev` environment).
+To obtain a JWT token with REST, you can use the live API documentation that is available on your development installation.
+This documentation is only accessible when `kernel.debug` is set to `true`, similarly to a development environment.
 
 - open REST API live doc (for example at `http://localhost/api/ibexa/v2/doc`)
-- go to **User Token** section **POST /user/token/jwt** resource (for example at `http://localhost/api/ibexa/v2/doc#/User%20Token/api_usertokenjwt_post`)
+- go to **User Token** section's **POST /user/token/jwt** resource (for example, at `http://localhost/api/ibexa/v2/doc#/User%20Token/api_usertokenjwt_post`)
 - click the **Try it out** button
 - fill in the following adapted payload with the user credentials
 - click the **Execute** button to get a token

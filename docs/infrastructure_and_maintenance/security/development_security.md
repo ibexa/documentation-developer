@@ -158,26 +158,26 @@ security:
             jwt: ~
 ```
 
-- `ibexa_jwt_rest` is the firewall allowing to generate a JWT token through REST or GraphQL
+- `ibexa_jwt_rest` is the firewall that allows to generate a JWT token through REST or GraphQL
 - `ibexa_jwt_rest.api` is the firewall to [use JWT authentication for REST API](rest_api_authentication.md#jwt-authentication) instead of session-based
 - `ibexa_jwt_mcp` is the firewall to [use JWT authentication for MCP servers](mcp_config.md#jwt-mcp-firewall)
 - `ibexa_jwt_graphql` is the firewall to [use JWT authentication for GraphQL API](graphql.md#jwt-authentication)
 
-For example, to use JWT authentication only for MCP servers and keep session-based authentication for REST and GraphQL:
+For example, to use JWT authentication only for MCP servers and keep session-based authentication for REST and GraphQL APIs:
 
 - uncomment `ibexa_jwt_rest` and `ibexa_jwt_mcp` to activate them
 - keep `ibexa_jwt_rest.api` and `ibexa_jwt_graphql` commented and disabled
 
 ### Use PEM keys
 
-Out of the box, JWT tokens are created using Hash-based Message Authentication Code (HMAC) with `APP_SECRET` as the secret key and the HMAC-SHA256 (`HS256`) algorithm.
+Out of the box, JWT tokens are created by using HMAC (Hash-based Message Authentication Code) with `APP_SECRET` as the secret key and the `HS256` (HMAC-SHA256) algorithm.
 
-You can use Privacy-enhanced Electronic Mail (PEM) keys and the RSA-SHA256 (`RS256`) algorithm instead.
+You can use PEM (Privacy-enhanced Electronic Mail) keys and the `RS256` (RSA-SHA256) algorithm instead.
 
 
-1. Set `JWT_PASSPHRASE` secret
+1. Set the `JWT_PASSPHRASE` secret
 
-In a `.env` file, you should have the following variables:
+In an `.env` file, you should have the following variables:
 
 ```dotenv
 JWT_SECRET_KEY=%kernel.project_dir%/config/jwt/private.pem
@@ -185,8 +185,8 @@ JWT_PUBLIC_KEY=%kernel.project_dir%/config/jwt/public.pem
 JWT_PASSPHRASE=0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ……
 ```
 
-Set your `JWT_PASSPHRASE`, its value needs to be a strong, random, and securely stored value.
-For more recommendations and how to generate one, see [`APP_SECRET` and other secret](security_checklist.md#app_secret-and-other-secrets).
+Set your `JWT_PASSPHRASE`, its value must be strong, random, and securely stored.
+For more recommendations and to learn how to generate one, see [`APP_SECRET` and other secrets](security_checklist.md#app_secret-and-other-secrets).
 
 2. In `config/packages/lexik_jwt_authentication.yaml`, use the following configuration:
 
