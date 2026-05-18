@@ -31,6 +31,18 @@ parameters:
 			path: code_samples/api/migration/src/Command/MigrationCommand.php
 
 		-
+			message: '#^Instantiated class App\\Notifications\\MyNotification not found\.$#'
+			identifier: class.notFound
+			count: 1
+			path: code_samples/api/notifications/notification_send.php
+
+		-
+			message: '#^Parameter \#1 \$notification of class Ibexa\\Contracts\\Notifications\\Value\\Notification\\SymfonyNotificationAdapter constructor expects Symfony\\Component\\Notifier\\Notification\\Notification, App\\Notifications\\MyNotification given\.$#'
+			identifier: argument.type
+			count: 1
+			path: code_samples/api/notifications/notification_send.php
+
+		-
 			message: '#^Call to an undefined method Ibexa\\Contracts\\ProductCatalog\\Values\\ProductInterface\:\:getPrice\(\)\.$#'
 			identifier: method.notFound
 			count: 1
@@ -311,12 +323,6 @@ parameters:
 			identifier: missingType.generics
 			count: 1
 			path: code_samples/catalog/custom_attribute_type/src/Attribute/Percent/Storage/PercentStorageConverter.php
-
-		-
-			message: '#^Class App\\CatalogFilter\\DataTransformer\\ProductNameCriterionTransformer implements generic interface Symfony\\Component\\Form\\DataTransformerInterface but does not specify its types\: T, R$#'
-			identifier: missingType.generics
-			count: 1
-			path: code_samples/catalog/custom_catalog_filter/src/CatalogFilter/DataTransformer/ProductNameCriterionTransformer.php
 
 		-
 			message: '#^Method App\\CatalogFilter\\ProductNameFilter\:\:getTranslationMessages\(\) return type has no value type specified in iterable type array\.$#'
@@ -677,18 +683,6 @@ parameters:
 			identifier: missingType.iterableValue
 			count: 1
 			path: code_samples/tutorials/page_tutorial_starting_point/src/QueryType/MenuQueryType.php
-
-		-
-			message: '#^Instantiated class App\\Notifications\\MyNotification not found\.$#'
-			identifier: class.notFound
-			count: 1
-			path: code_samples/user_management/notifications/notification_send.php
-
-		-
-			message: '#^Parameter \#1 \$notification of class Ibexa\\Contracts\\Notifications\\Value\\Notification\\SymfonyNotificationAdapter constructor expects Symfony\\Component\\Notifier\\Notification\\Notification, App\\Notifications\\MyNotification given\.$#'
-			identifier: argument.type
-			count: 1
-			path: code_samples/user_management/notifications/notification_send.php
 
 		-
 			message: '#^Parameter \#2 \$email of method Ibexa\\Contracts\\OAuth2Client\\Repository\\OAuth2UserService\:\:newOAuth2UserCreateStruct\(\) expects string, string\|null given\.$#'

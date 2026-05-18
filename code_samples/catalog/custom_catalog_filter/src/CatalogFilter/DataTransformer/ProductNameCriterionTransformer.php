@@ -8,6 +8,12 @@ use Ibexa\Contracts\ProductCatalog\Values\Product\Query\Criterion\ProductName;
 use Symfony\Component\Form\DataTransformerInterface;
 use Symfony\Component\Form\Exception\TransformationFailedException;
 
+/**
+ * @implements \Symfony\Component\Form\DataTransformerInterface<
+ *     \Ibexa\Contracts\ProductCatalog\Values\Product\Query\Criterion\ProductName,
+ *     \Ibexa\Bundle\ProductCatalog\Form\Data\Catalog\CatalogFilterPriceData
+ * >
+ */
 final class ProductNameCriterionTransformer implements DataTransformerInterface
 {
     public function transform($value): ?string

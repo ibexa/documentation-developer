@@ -15,6 +15,7 @@ class MyFieldDefinitionMapper extends DecoratingFieldDefinitionMapper implements
         return 'my_field_type';
     }
 
+    #[\Override]
     public function mapToFieldValueInputType(ContentType $contentType, FieldDefinition $fieldDefinition): ?string
     {
         if (!$this->canMap($fieldDefinition)) {
