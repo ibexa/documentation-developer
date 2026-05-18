@@ -177,7 +177,7 @@ Before you can communicate with the MCP server, you must first request a JWT tok
 [[= include_code('code_samples/mcp/mcp.sh.output.txt', 1, 7) =]]
 ```
 
-The, perform [initialization](https://modelcontextprotocol.io/specification/latest/basic/lifecycle#initialization) to get an MCP session ID:
+Then, perform [initialization](https://modelcontextprotocol.io/specification/latest/basic/lifecycle#initialization) to get an MCP session ID:
 
 ``` bash
 [[= include_code('code_samples/mcp/mcp.sh', 21, 44) =]]
@@ -201,7 +201,7 @@ Validate the initialization:
 [[= include_code('code_samples/mcp/mcp.sh.output.txt', 52, 56) =]]
 ```
 
-Get a [list of tools](https://modelcontextprotocol.io/specification/latest/server/tools#listing-tools):
+Get the [list of tools](https://modelcontextprotocol.io/specification/latest/server/tools#listing-tools):
 
 ``` bash
 [[= include_code('code_samples/mcp/mcp.sh', 54, 61) =]]
@@ -221,7 +221,7 @@ Get a [list of tools](https://modelcontextprotocol.io/specification/latest/serve
 [[= include_code('code_samples/mcp/mcp.sh.output.txt', 129, 148) =]]
 ```
 
-Get a [list of prompts](https://modelcontextprotocol.io/specification/latest/server/prompts#listing-prompts):
+Get the [list of prompts](https://modelcontextprotocol.io/specification/latest/server/prompts#listing-prompts):
 
 ``` bash
 [[= include_code('code_samples/mcp/mcp.sh', 78, 85) =]]
