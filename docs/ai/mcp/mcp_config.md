@@ -85,8 +85,8 @@ You can list them by running the following command:
 
 ### Tool configuration
 
-[Tools](https://modelcontextprotocol.io/specification/latest/server/tools) are the main capabilities of an MCP server,
-they are the actions that an AI can call on the system.
+The main capabilities of an MCP server are called [tools](https://modelcontextprotocol.io/specification/latest/server/tools).
+They are the actions that an AI agent can invoke on the system.
 
 !!! note "MCP server design best practices"
 
