@@ -49,7 +49,7 @@ Value of the Image field type contains the path to the image file and other basi
 
 ### Creating content with RichText
 
-The RichText field accepts values in a custom flavor of [Docbook](https://github.com/docbook/wiki/wiki) format.
+The RichText field accepts values in a custom flavor of [DocBook](https://github.com/docbook/wiki/wiki) format.
 For example, to add a RichText paragraph, provide the following as input:
 
 ``` xml

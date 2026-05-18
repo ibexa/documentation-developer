@@ -34,7 +34,7 @@ The following example shows how you can retrieve a single product:
 
 ### Search for products
 
-Use [`ProductQuery`](product_api.md#getting-product-information) to search for mulitple products:
+Use [`ProductQuery`](product_api.md#getting-product-information) to search for multiple products:
 
 ``` php
 [[= include_file('code_samples/api/product_catalog/src/Command/ProductCommand.php', 58, 68, remove_indent=True) =]]

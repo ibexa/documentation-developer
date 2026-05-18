@@ -143,4 +143,4 @@ The following packages are optional and can be installed independently.
 |ibexa/cdp|Integration with the [Customer Data Platform](cdp.md)|
 |[ibexa/cloud](https://github.com/ibexa/cloud)|Integration with [[[= product_name_cloud =]]](/ibexa_cloud/ibexa_cloud.md)|
 
-In addition, you can extend the capabitilies of your project by installing additional [LTS Updates](editions.md#lts-updates).
+In addition, you can extend the capabilities of your project by installing additional [LTS Updates](editions.md#lts-updates).

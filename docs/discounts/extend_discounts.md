@@ -1,9 +1,7 @@
 ---
 description: Extend Discounts by adding your own rules and conditions
-editions:
-    - lts-update
-    - commerce
 month_change: false
+edition: commerce
 ---
 
 # Extend Discounts
@@ -219,7 +217,7 @@ To do it, create a class implementing the [`DiscountValueFormatterInterface`](/a
 You can change the [the default discount priority](discounts_guide.md#discounts-priority) by creating a class implementing the [`DiscountPrioritizationStrategyInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Discounts-DiscountPrioritizationStrategyInterface.html) and aliasing to it the default implementation.
 
 The example below decorates the default implementation to prioritize recently updated discounts above all the others.
-It uses one of the existing [discount search criterions](discounts_criteria.md).
+It uses one of the existing [discount search criteria](discounts_criteria.md).
 
 ``` php
 [[= include_file('code_samples/discounts/src/Discounts/RecentDiscountPrioritizationStrategy.php') =]]
