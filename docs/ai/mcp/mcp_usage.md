@@ -128,6 +128,10 @@ Therefore, the example prompt must use it to be associated with the `example` se
 During development and testing, you may need to clear the cache to ensure that new or modified capabilities are properly re-discovered.
 In this example, use the following command:
 
+```bash
+php bin/console cache:pool:clear cache.tagaware.filesystem
+```
+
 !!! tip "Cache clearing"
 
     During development, clear caches aggressively.
