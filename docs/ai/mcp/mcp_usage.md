@@ -140,8 +140,7 @@ In this example, use the following command:
 
 ### Create MCP server list command
 
-To check the server configuration, a short command using the MCP server configuration registry
-(injected through [`McpServerConfigurationRegistryInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Mcp-McpServerConfigurationRegistryInterface.html) and autowiring):
+To check the MCP server configuration, create a small command that uses the MCP server configuration registry injected through [`McpServerConfigurationRegistryInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Mcp-McpServerConfigurationRegistryInterface.html) and autowiring:
 
 ``` php
 [[= include_code('code_samples/mcp/src/Command/McpServerListCommand.php') =]]
@@ -291,58 +290,64 @@ You can handle the JWT token for this test in the following ways:
 - Hard code the JWT token into the configuration and update it at every expiration.
 - Wrap a JWT token request and an MCP server call into a script.
 
-##### Hard coded
+##### Hard coded variant
 
-The hard coded JWT token configuration in `.mcp.json`:
+The hard coded JWT token configuration in `.mcp.json` looks as follows:
 
 ``` json
 [[= include_code('code_samples/mcp/http.mcp.json') =]]
 ```
 
 The `.mcp.json` file must be edited to update the JWT token each time it expires.
-You can ask a token using, for example, GraphiQL web interface or a `curl` command, then edit the file manually.
-Or you can have a shell script doing the JWT token request, extracting it from the response, and replace it in the file.
+You can request a token by using the GraphiQL web interface or a `curl` command, and then edit the file manually.
+Alterenatively, you can configure a shell script to request the JWT token, extract it from the response, and replace it in the file.
 
 When Copilot complains that it can't communicate with the MCP server:
 
-- update the JWT token in the `.mcp.json` file
-- reload the MCP servers in Copilot CLI with one of those methods:
-    - run `/mcp reload` command which reload all MCP servers
-    - run `/mcp disable ibexa-example` then `/mcp enable ibexa-example` to only reload the `ibexa-example` server
+- Update the JWT token in the `.mcp.json` file.
+- Reload the MCP servers in Copilot CLI:
+    - Run `/mcp reload` command to reload all MCP servers.
+    - Run `/mcp disable ibexa-example` and `/mcp enable ibexa-example` to only reload the `ibexa-example` server.
 
-##### Fully scripted
+##### Fully scripted variant
 
-The wrapping script configuration in `.mcp.json`:
+The wrapping script configuration in `.mcp.json` looks as follows:
 
 ``` json
 [[= include_code('code_samples/mcp/stdio.mcp.json') =]]
 ```
 
-The `mcp-ibexa-example-wrapper.sh` is a script asking for a JWT token then establishing a connection with the MCP server.
+`mcp-ibexa-example-wrapper.sh` is a script that requests a JWT token and establishes a connection with the MCP server.
 
-For example, this can be achieved with [Supergateway](https://www.npmjs.com/package/supergateway) without local installation thanks to [`npx`](https://www.npmjs.com/package/npx):
+For example, thanks to [`npx`](https://www.npmjs.com/package/npx), you can do it with [Supergateway](https://www.npmjs.com/package/supergateway) without a local installation:
 
 ``` bash
 [[= include_code('code_samples/mcp/mcp-ibexa-example-wrapper.sh') =]]
 ```
 
-When Copilot complains that it can't communicate with the MCP server, reload the MCP servers in Copilot CLI with one of those methods:
+When Copilot complains that it can't communicate with the MCP server, reload the MCP servers in Copilot CLI:
 
-- run `/mcp reload` command which reload all MCP servers (which can be annoying if you have several MCP servers globally enabled)
-- run `/mcp disable ibexa-example` then `/mcp enable ibexa-example` to only reload the `ibexa-example` server
+- Run `/mcp reload` command to reload all MCP servers.
+- Run `/mcp disable ibexa-example` and `/mcp enable ibexa-example` to only reload the `ibexa-example` server.
 
-#### MCP server test with Copilot CLI
+!!! note "Reloading multiple MCP servers"
 
-Launch Copilot CLI at the project root (where the `.mcp.json` file is located):
+    If you have several MCP servers enabled globally, reloading all of them at the same time can be time consuming.
+    Consider reloading them one by one.
+
+#### Run MCP server test with Copilot CLI
+
+Launch Copilot CLI at the project root, where the `.mcp.json` file is located:
 
 ```bash
 cd /path/to/project
 copilot
 ```
 
-If needed, confirm that you trust the files in this folder when prompted (with or without remembering the answer for the future).
+If prompted, confirm that you trust the files in this folder.
+You may choose to have your choice remembered for the future.
 
-With the command `/mcp show ibexa-example`, you can check server status and details:
+Run the `/mcp show ibexa-example` to check the MCP server status and details:
 
 ```text
  MCP Server: ibexa-example
@@ -356,10 +361,11 @@ With the command `/mcp show ibexa-example`, you can check server status and deta
   ✓ greet: Greet a user by name
 ```
 
-You can prompt Copilot to greet you. It should take the initiative to use the `greet` tool to do so.
+You can prompt Copilot to greet you.
+It should use the `greet` tool to do so.
 
-- You can ask it "Please, greet me." and it might ask you your name if it doesn't already know it.
-- You can additionally give it a name to greet (like in the prompt template).
+- You can ask it "Please, greet me." and it might respond with a request for your name if it doesn't already know it.
+- You can also give it another name to greet, like in the prompt template.
 
 During a morning session, the interaction could look like this:
 
@@ -406,5 +412,5 @@ During a morning session, the interaction could look like this:
 ● Good evening, ElePHPant! 🌙
 ```
 
-The Copilot reflexion and its final answer, like the improvised emoji, might differ from this session example.
-The important part is that Copilot CLI thinks to use the `greet` tool, calls it with the right argument, displays the call result, and uses it.
+The Copilot's reflection and its final response, including the improvised emoji, may differ from this example.
+The key point is that Copilot CLI decides to use the `greet` tool, calls it with the right argument, displays the call result, and then uses it in its final output.
