@@ -215,13 +215,13 @@ The controller's definition (that you place in the `config/services.yaml` file u
 ```
 
 ```php
-[[= include_file('code_samples/back_office/images/src/SvgController.php') =]]
+[[= include_code('code_samples/back_office/images/src/SvgController.php') =]]
 ```
 
 To be able to use a proper link in your templates, you also need a dedicated Twig extension:
 
 ```php
-[[= include_file('code_samples/back_office/images/src/SvgExtension.php') =]]
+[[= include_code('code_samples/back_office/images/src/SvgExtension.php') =]]
 ```
 
 Now you can load SVG files in your templates by using generated links and a newly created Twig helper:
@@ -258,7 +258,7 @@ You can listen to this event to customize the list of image optimizers at runtim
 The following example shows how to remove the Pngquant optimizer to prevent grayscale conversion of low-saturation PNG images:
 
 ``` php
-[[= include_file('code_samples/back_office/images/src/Event/RemovePngquantOptimizer.php') =]]
+[[= include_code('code_samples/back_office/images/src/Event/RemovePngquantOptimizer.php') =]]
 ```
 
 ## Embedding images in Rich Text

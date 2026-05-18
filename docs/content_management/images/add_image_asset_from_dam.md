@@ -102,7 +102,7 @@ which implements [`search()`](/api/php_api/php_api_reference/classes/Ibexa-Contr
 and [`fetchAsset()`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Connector-Dam-Handler-Handler.html#method_fetchAsset) to return asset objects:
 
 ```php
-[[= include_file('code_samples/back_office/images/src/Connector/Dam/Handler/WikimediaCommonsHandler.php') =]]
+[[= include_code('code_samples/back_office/images/src/Connector/Dam/Handler/WikimediaCommonsHandler.php') =]]
 ```
 
 Then, in `config/services.yaml`, register the handler as a service:
@@ -121,7 +121,7 @@ In `src/Connector/Dam/Transformation` folder, create the `WikimediaCommonsTransf
 which implements the [`TransformationFactory` interface](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Connector-Dam-Variation-TransformationFactory.html):
 
 ```php
-[[= include_file('code_samples/back_office/images/src/Connector/Dam/Transformation/WikimediaCommonsTransformationFactory.php') =]]
+[[= include_code('code_samples/back_office/images/src/Connector/Dam/Transformation/WikimediaCommonsTransformationFactory.php') =]]
 ```
 
 Then register the transformation factory as a service:

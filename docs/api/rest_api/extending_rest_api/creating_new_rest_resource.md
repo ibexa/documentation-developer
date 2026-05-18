@@ -61,7 +61,7 @@ A REST controller should:
 - extend `Ibexa\Rest\Server\Controller` to inherit utils methods and properties like `InputDispatcher` or `RequestParser`
 
 ``` php
-[[= include_file('code_samples/api/rest_api/src/Rest/Controller/DefaultController.php') =]]
+[[= include_code('code_samples/api/rest_api/src/Rest/Controller/DefaultController.php') =]]
 ```
 
 If the returned value was depending on a location, it could have been wrapped in a `CachedValue` to be cached by the reverse proxy (like Varnish) for future calls.
@@ -78,7 +78,7 @@ return new CachedValue(
 ## Value and ValueObjectVisitor
 
 ``` php
-[[= include_file('code_samples/api/rest_api/src/Rest/Values/Greeting.php') =]]
+[[= include_code('code_samples/api/rest_api/src/Rest/Values/Greeting.php') =]]
 ```
 
 A `ValueObjectVisitor` must implement the `visit` method.
@@ -90,7 +90,7 @@ A `ValueObjectVisitor` must implement the `visit` method.
 | `$data`      | The visited data. The exact object that you returned from the controller.<br/>It can't have a type declaration because the method signature is shared. |
 
 ``` php
-[[= include_file('code_samples/api/rest_api/src/Rest/ValueObjectVisitor/Greeting.php') =]]
+[[= include_code('code_samples/api/rest_api/src/Rest/ValueObjectVisitor/Greeting.php') =]]
 ```
 
 The `Values/Greeting` class is linked to its `ValueObjectVisitor` through the service tag.
@@ -111,7 +111,7 @@ A REST resource could use route parameters to handle input, but this example ill
 For this example, the structure is a `GreetingInput` root node with two leaf nodes, `Salutation` and `Recipient`.
 
 ``` php
-[[= include_file('code_samples/api/rest_api/src/Rest/InputParser/GreetingInput.php') =]]
+[[= include_code('code_samples/api/rest_api/src/Rest/InputParser/GreetingInput.php') =]]
 ```
 
 Here, this `InputParser` directly returns the right value object.

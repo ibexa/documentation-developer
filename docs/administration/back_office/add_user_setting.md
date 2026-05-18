@@ -13,7 +13,7 @@ To do so, create a setting class implementing two interfaces: `ValueDefinitionIn
 In this example the class is located in `src/Setting/Unit.php` and enables the user to select their preference for metric or imperial unit systems.
 
 ``` php
-[[= include_file('code_samples/back_office/settings/src/Setting/Unit.php') =]]
+[[= include_code('code_samples/back_office/settings/src/Setting/Unit.php') =]]
 ```
 
 Register the setting as a service:
@@ -30,7 +30,7 @@ It can be one of the built-in groups, or a custom one.
 To create a custom setting group, create an `App/Setting/Group/MyGroup.php` file:
 
 ``` php
-[[= include_file('code_samples/back_office/settings/src/Setting/Group/MyGroup.php') =]]
+[[= include_code('code_samples/back_office/settings/src/Setting/Group/MyGroup.php') =]]
 ```
 
 Register the setting group as a service:

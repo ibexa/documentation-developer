@@ -19,7 +19,7 @@ To get orders and manage them, use the [`Ibexa\Contracts\OrderManagement\OrderSe
 To access a single order by using its string identifier, use the [`OrderServiceInterface::getOrderByIdentifier`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-OrderManagement-OrderServiceInterface.html#method_getOrderByIdentifier) method:
 
 ``` php
-[[= include_file('code_samples/api/commerce/src/Command/OrderCommand.php', 51, 55) =]]
+[[= include_code('code_samples/api/commerce/src/Command/OrderCommand.php', 52, 55, remove_indent=True) =]]
 ```
 
 Use the returned [`OrderInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-OrderManagement-Value-Order-OrderInterface.html) value object to access details about the order.
@@ -31,7 +31,7 @@ See the [Discounts API](discounts_api.md#retrieve-applied-discounts) to learn ho
 To access a single order by using its numerical ID, use the [`OrderServiceInterface::getOrder`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-OrderManagement-OrderServiceInterface.html#method_getOrder) method:
 
 ``` php
-[[= include_file('code_samples/api/commerce/src/Command/OrderCommand.php', 57, 61) =]]
+[[= include_code('code_samples/api/commerce/src/Command/OrderCommand.php', 58, 61, remove_indent=True) =]]
 ```
 
 ## Get multiple orders
@@ -51,7 +51,7 @@ It follows the same search query pattern as other APIs:
 To create an order, use the [`OrderServiceInterface::createOrder`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-OrderManagement-OrderServiceInterface.html#method_createOrder) method and provide it with the [`Ibexa\Contracts\OrderManagement\Value\Struct\OrderCreateStruct`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-OrderManagement-Value-Struct-OrderCreateStruct.html) object that contains a list of products, purchased quantities, product, total prices, and tax amounts.
 
 ``` php
-[[= include_file('code_samples/api/commerce/src/Command/OrderCommand.php', 91, 102) =]]
+[[= include_code('code_samples/api/commerce/src/Command/OrderCommand.php', 92, 102, remove_indent=True) =]]
 ```
 
 ## Update order
@@ -61,5 +61,5 @@ You could do it to support a scenario when, for example, the order is processed 
 To update order information, use the [`OrderServiceInterface::updateOrder`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-OrderManagement-OrderServiceInterface.html#method_updateOrder) method:
 
 ``` php
-[[= include_file('code_samples/api/commerce/src/Command/OrderCommand.php', 104, 108) =]]
+[[= include_code('code_samples/api/commerce/src/Command/OrderCommand.php', 105, 108, remove_indent=True) =]]
 ```

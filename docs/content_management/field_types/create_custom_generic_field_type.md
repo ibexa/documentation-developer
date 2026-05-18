@@ -29,7 +29,7 @@ The `HelloWorld` Value class should contain:
 - an implementation of the `__toString()` method
 
 ```php
-[[= include_file('code_samples/field_types/generic_ft/src/FieldType/HelloWorld/Value.php') =]]
+[[= include_code('code_samples/field_types/generic_ft/src/FieldType/HelloWorld/Value.php') =]]
 ```
 
 ## Define fields and configuration
@@ -57,7 +57,7 @@ Create a `src/Form/Type/HelloWorldType.php` form.
 It enables you to edit the new field type.
 
 ```php
-[[= include_file('code_samples/field_types/generic_ft/src/Form/Type/HelloWorldType.php') =]]
+[[= include_code('code_samples/field_types/generic_ft/src/Form/Type/HelloWorldType.php') =]]
 ```
 
 Now you can map field definitions into Symfony forms with FormMapper.
@@ -65,7 +65,7 @@ Add the `mapFieldValueForm()` method required by `FieldValueFormMapperInterface`
 and the required `use` statements to `src/FieldType/HelloWorld/Type.php`:
 
 ```php hl_lines="6-7 18-26"
-[[= include_file('code_samples/field_types/generic_ft/src/FieldType/HelloWorld/Type.php') =]]
+[[= include_code('code_samples/field_types/generic_ft/src/FieldType/HelloWorld/Type.php') =]]
 ```
 
 For more information about the FormMappers, see [field type form and template](form_and_template.md).

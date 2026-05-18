@@ -64,7 +64,7 @@ If you need to track [events](event_reference.md) automatically based on applica
 It reacts to specific events in the application and triggers tracking logic without the need to add it manually in templates.
 
 ``` php
-[[= include_file('code_samples/recommendations/EventSubscriber.php') =]]
+[[= include_code('code_samples/recommendations/EventSubscriber.php') =]]
 ```
 
 You can also use [[= product_name =]] events, for example `CreateOrderEvent` from [Order management events](order_management_events.md).

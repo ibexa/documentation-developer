@@ -97,7 +97,7 @@ To learn how to build custom AI actions see [Extending AI actions](extend_ai_act
 1. Create a service that implements the [`\Ibexa\AutomatedTranslation\Client\ClientInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-AutomatedTranslation-Client-ClientInterface.html) interface:
 
 ``` php hl_lines="31-48"
-[[= include_file('code_samples/multisite/automated_translation/src/AutomatedTranslation/AiClient.php') =]]
+[[= include_code('code_samples/multisite/automated_translation/src/AutomatedTranslation/AiClient.php') =]]
 ```
 
 2\. Tag the service as `ibexa.automated_translation.client` in the Symfony container:
@@ -127,7 +127,7 @@ The following example adds support for automatically translating alternative tex
 1. Create a class implementing the [`FieldEncoderInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-AutomatedTranslation-Encoder-Field-FieldEncoderInterface.html) and add the required methods:
 
 ``` php hl_lines="11-14 16-19 21-27 33-38"
-[[= include_file('code_samples/multisite/automated_translation/src/AutomatedTranslation/ImageFieldEncoder.php') =]]
+[[= include_code('code_samples/multisite/automated_translation/src/AutomatedTranslation/ImageFieldEncoder.php') =]]
 ```
 In this example, the methods are responsible for:
 

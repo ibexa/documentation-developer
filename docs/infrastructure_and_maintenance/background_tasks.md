@@ -80,7 +80,7 @@ In [multi-repository setups](repository_configuration.md), the worker process al
 Dispatch a message from your code like in the following example:
 
 ``` php
-[[= include_file("code_samples/background_tasks/src/Dispatcher/SomeClassThatSchedulesExecutionInTheBackground.php") =]]
+[[= include_code("code_samples/background_tasks/src/Dispatcher/SomeClassThatSchedulesExecutionInTheBackground.php") =]]
 ```
 
 ### Register handler
@@ -88,7 +88,7 @@ Dispatch a message from your code like in the following example:
 Create the handler class:
 
 ``` php
-[[= include_file("code_samples/background_tasks/src/MessageHandler/SomeHandler.php") =]]
+[[= include_code("code_samples/background_tasks/src/MessageHandler/SomeHandler.php") =]]
 ```
 
 Add a service definition to `config/services.yaml`:
