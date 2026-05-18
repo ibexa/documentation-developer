@@ -325,7 +325,8 @@ This documentation is only accessible when `kernel.debug` is set to `true`, simi
 - fill in the following adapted payload with the user credentials
 - click the **Execute** button to get a token
 
-![Screenshot of REST API live documentation with a JWTInput payload, a JWT token request and its response](jwt-rest-doc.png "REST doc JWT token request and response")
+![REST API live documentation with a JWTInput payload](jwt-rest-doc-request.png "REST doc JWT token request")
+![REST API live documentation with a JWTInput payload](jwt-rest-doc-response.png "REST doc JWT token response")
 
 ## HTTP basic authentication
 
