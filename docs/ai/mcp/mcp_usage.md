@@ -13,43 +13,51 @@ Additionally, you can create your own capabilities (tools, prompts, and resource
 
 The [[= product_name =]] MCP server framework (`ibexa/mcp`) is built on top of the [official PHP SDK for MCP (`mcp/sdk`)](https://github.com/modelcontextprotocol/php-sdk).
 
-A PHP class implementing MCP server capabilities like tools, prompts, or resources, must:
+A PHP class that implements MCP server capabilities such as tools, prompts, or resources, must:
 
-- implement [`Ibexa\Contracts\Mcp\McpCapabilityInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Mcp-McpCapabilityInterface.html) to be scanned for capabilities
-- use attributes from the [`Ibexa\Contracts\Mcp\Attribute` namespace](/api/php_api/php_api_reference/namespaces/ibexa-contracts-mcp-attribute.html) to define capabilities.
+- implement [`Ibexa\Contracts\Mcp\McpCapabilityInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Mcp-McpCapabilityInterface.html) so that it can be scanned for capabilities
+- use attributes from the [`Ibexa\Contracts\Mcp\Attribute` namespace](/api/php_api/php_api_reference/namespaces/ibexa-contracts-mcp-attribute.html) to declare capabilities
 
 ### Tools
 
 The [`Ibexa\Contracts\Mcp\Attribute\McpTool` attribute](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Mcp-Attribute-McpTool.html) declares a method as an MCP tool.
-It has several arguments to describe the tool usage and output:
+It accepts the following optional arguments:
 
-- `servers` (optional): an array of identifiers of servers this tool is assigned to - for more information, see [tools configuration](mcp_config.md#tools-configuration)
-- `name` (optional): the name of the tool - if not set, the function name is used as the tool name
-- `description` (optional): description of the tool, used by the AI agent to understand the tool's purpose
-- `icons` (optional): an array of [`Mcp\Schema\Icon`](https://github.com/modelcontextprotocol/php-sdk/blob/main/src/Schema/Icon.php) instances - for more information, see [`icons` specification](https://modelcontextprotocol.io/specification/latest/basic/index#icons)
-- `outputSchema` (optional): for JSON object output, an associative array describing this object
-- `annotations` (optional): a [`Mcp\Schema\ToolAnnotations`](https://github.com/modelcontextprotocol/php-sdk/blob/main/src/Schema/ToolAnnotations.php) instance - for more information, see [`ToolAnnotations` specification](https://modelcontextprotocol.io/specification/2025-11-25/schema#toolannotations)
-- `meta` (optional): a free-form array for any additional metadata - for more information, see [`_meta` specification](https://modelcontextprotocol.io/specification/latest/basic/index#_meta)
+- `servers` - array of server identifiers the tool is assigned to
+  <br>For more information, see [tools configuration](mcp_config.md#tools-configuration)
+- `name` - tool name - if not set, function name is used
+- `description` - tool description, used by AI agents to understand the tool's purpose
+- `icons` - array of [`Mcp\Schema\Icon`](https://github.com/modelcontextprotocol/php-sdk/blob/main/src/Schema/Icon.php) instances
+  <br>For more information, see the [`icons` specification](https://modelcontextprotocol.io/specification/latest/basic/index#icons)
+- `outputSchema` - associative array describing a JSON object response
+- `annotations` - [`Mcp\Schema\ToolAnnotations`](https://github.com/modelcontextprotocol/php-sdk/blob/main/src/Schema/ToolAnnotations.php) instance
+  <br>For more information, see the [`ToolAnnotations` specification](https://modelcontextprotocol.io/specification/2025-11-25/schema#toolannotations)
+- `meta` - free-form array for additional metadata
+  <br>For more information, see the [`_meta` specification](https://modelcontextprotocol.io/specification/latest/basic/index#_meta)
 
-An `inputSchema` is automatically built from the function arguments and their types.
-To override or complement the automatically generated input schema,
-you can use a DocBlock comment with `@param` tags to add descriptions,
-or use the [`Schema` attribute](https://github.com/php-mcp/server#-schema-generation-and-validation).
+The framework automatically builds an `inputSchema` from the method arguments and their types.
+To customize or extend the generated schema, you can:
+
+- add descriptions with DocBlock `@param` tags
+- use the [`Schema` attribute](https://github.com/php-mcp/server#-schema-generation-and-validation)
+ 
 If an argument is an [enum](https://www.php.net/manual/en/language.types.enumerations.php), its possible values are listed in the schema ([`UntitledSingleSelectEnumSchema`](https://modelcontextprotocol.io/specification/latest/schema#untitledsingleselectenumschema)).
 
 ### Prompts
 
-MCP servers can also provide [prompt templates](https://modelcontextprotocol.io/specification/latest/server/prompts) to guide the user interacting with the AI having this MCP server at its disposal.
+MCP servers can also provide [prompt templates](https://modelcontextprotocol.io/specification/latest/server/prompts) to help users interact with AI agents connected to the server.
 
-The [`Ibexa\Contracts\Mcp\Attribute\McpPrompt` attribute](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Mcp-Attribute-McpTool.html) defines a method as returning a prompt.
+Methods that return a prompt are marked with the [`Ibexa\Contracts\Mcp\Attribute\McpPrompt` attribute](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Mcp-Attribute-McpTool.html).
 
-It has several arguments to describe the prompt usage:
+It accepts several arguments that describe how the prompt is used:
 
-- `servers`: an array of identifiers of servers proposing this prompt - notice that this is required for prompts
-- `name` (optional): the name of the prompt - if not set, the function name is used as the prompt name
-- `description` (optional): a human-readable description of the prompt
-- `icons` (optional): an array of [`Mcp\Schema\Icon`](https://github.com/modelcontextprotocol/php-sdk/blob/main/src/Schema/Icon.php) instances - for more information, see [`icons` specification](https://modelcontextprotocol.io/specification/latest/basic/index#icons)
-- `meta` (optional): a rarely used free-form array for any additional metadata - for more information, see [`_meta` specification](https://modelcontextprotocol.io/specification/latest/basic/index#_meta)
+- `servers` - array of server identifiers exposing this prompt - required for prompts
+- `name` (optional) - prompt name - if not set, method name is used
+- `description` (optional) - human-readable prompt description
+- `icons` (optional) - array of [`Mcp\Schema\Icon`](https://github.com/modelcontextprotocol/php-sdk/blob/main/src/Schema/Icon.php) instances
+  <br>For more information, see the [`icons` specification](https://modelcontextprotocol.io/specification/latest/basic/index#icons)
+- `meta` (optional) - rarely used free-form array for additional metadata
+  <br>For more information, see the [`_meta` specification](https://modelcontextprotocol.io/specification/latest/basic/index#_meta)
 
 An `arguments` array is automatically built from the function arguments and their types.
 The prompt's function arguments must be strings (to respect the [`GetPromptRequestParams` schema](https://modelcontextprotocol.io/specification/latest/schema#getpromptrequestparams)).
@@ -57,21 +65,31 @@ To add descriptions (as in the [`PromptArgument` schema](https://modelcontextpro
 
 ## Example
 
-To focus on the MCP server configuration and capabilities creation, this example doesn't even interact with [[= product_name =]] repository.
+To keep the example focused on MCP server configuration and capability creation, it doesn't interact with the [[= product_name =]] repository.
 
-### User account
+### Create user account
 
-In this example, the MCP server uses JWT tokens created with a dedicated account.
+In this example, the MCP server uses JWT tokens created with a dedicated user account.
 
-In [[= product_name =]]'s back office, create a user, for example, in **Guest accounts** user group, with login `ibexa-example`, and password `Ibexa-3xample`.
+In [[= product_name =]]'s back office, create a user in the **Guest accounts** user group, with login `ibexa-example` and password `Ibexa-3xample`.
 
 ### Configure MCP server
 
-This example introduce an `example` MCP server with a single `greet` tool.
-It's enabled on the default repository and all SiteAccesses.
-It's accessible with the path `/mcp/example` (for example, on `http://localhost/mcp/example` and `http://localhost/admin/mcp/example`).
-It uses files for both discovery cache and session storage.
-(Redis/Valkey would be better for session storage in production, but file storage is easier for this example and testing.)
+This example introduces an MCP server named `example`, with a single tool called `greet`.
+The server:
+
+- is enabled on the default repository
+- is available in all SiteAccesses
+- is accessible with the path `/mcp/example`
+  For example:
+  - `http://localhost/mcp/example`
+  - `http://localhost/admin/mcp/example`
+- uses file storage for both discovery cache and sessions
+
+!!! note "Storage choice recommendations"
+
+    Filesystem storage is convenient for the sake of this example and for testing.
+    For production, it is recommended that you use Redis or Valkey.
 
 In a new `config/packages/mcp.yaml` file, define a new MCP server for the `default` repository and assign it to all SiteAccesses:
 
@@ -87,30 +105,34 @@ php bin/console debug:router ibexa.mcp.example
 
 ### Create capability class
 
-An `ExampleCapabilities` class implementing the `McpCapabilityInterface` is created.
+Create an `ExampleCapabilities` class that implements `McpCapabilityInterface`.
 
 It contains a function with an `McpTool` attribute associating it to the `example` server as `greet` tool for the AI.
 
-It also contains a function with the `McpPrompt` attribute to provide a prompt template to the user.
+The class contains:
+
+- a method marked with an `McpTool` attribute that associates it to the `example` server as `greet` tool
+- a method marked with an `McpPrompt` attribute that provides a prompt template to users
 
 ``` php
 [[= include_code('code_samples/mcp/src/Mcp/ExampleCapabilities.php') =]]
 ```
 
-For the example, `servers` attribute parameter is used to associate only this tool to the `example` server.
-All tools from this class could be added to a server by using the `tools` parameter in server configuration.
+In this example, the `servers` attribute parameter associates only this tool with the `example` server.
+Alternatively, you can assign all tools from the class to a server by using the `tools` parameter in server configuration.
 For more information, see [tools configuration](mcp_config.md#tools-configuration).
 
-For prompt, the `servers` parameter is required.
-So, the example prompt has to use it to be associated with the `example` server.
+For the prompt, the `servers` parameter is required.
+Therefore, the example prompt must use it to be associated with the `example` server.
 
-During development and testing, you may have to clear the cache to make sure new or modified capabilities are properly re-discovered.
-In this example, regarding its configuration, `php bin/console cache:pool:clear cache.tagaware.filesystem` has to be used.
+During development and testing, you may need to clear the cache to ensure that new or modified capabilities are properly re-discovered.
+In this example, use the following command:
+
 
 !!! tip "Cache clearing"
 
-    Have no mercy for the cache during development. But use the right commands to be sure to delete it.
-    The following pair of commands ensure all types of caches are cleared wherever stored:
+    During development, clear caches aggressively.
+    The following commands clear all cache types, regardless of where they are stored:
     ```bash
     php bin/console cache:clear
     php bin/console cache:pool:clear --all
@@ -125,25 +147,25 @@ To check the server configuration, a short command using the MCP server configur
 [[= include_code('code_samples/mcp/src/Command/McpServerListCommand.php') =]]
 ```
 
-### `curl` test
+### Perform `curl` test
 
-To test the `example` MCP server, a sequence of `curl` commands is used to simulate an AI client to MCP server communication.
+To test the `example` MCP server, a sequence of `curl` commands is used to simulate the communication between an AI client and the MCP server.
 
-- Ask for a [JWT token through REST](/api/rest_api/rest_api_reference/rest_api_reference.html#tag/User-Token/operation/api_usertokenjwt_post)
-- Initialize a connection to the MCP server
-- Validate the MCP Session ID
-- List the available tools
-- Call a tool
+- Ask for a [JWT token through REST](/api/rest_api/rest_api_reference/rest_api_reference.html#tag/User-Token/operation/api_usertokenjwt_post).
+- Initialize a connection to the MCP server.
+- Validate the MCP Session ID.
+- List the available tools.
+- Call a tool.
 
 `jq`, `grep`, and `sed` are also used to parse or display outputs.
 
-First, the shell script set the [[= product_name =]] base URL and the user credentials into variables for easier reuse:
+First, use the shell script to set the [[= product_name =]]'s base URL and user credentials as variables for easier reuse:
 
 ``` bash
 [[= include_code('code_samples/mcp/mcp.sh', 5, 7) =]]
 ```
 
-Before communicating with the MCP server, the request of a JWT token through REST API:
+Before you can communicate with the MCP server, you must first request a JWT token through the REST API:
 
 ``` bash
 [[= include_code('code_samples/mcp/mcp.sh', 9, 23) =]]
@@ -153,7 +175,7 @@ Before communicating with the MCP server, the request of a JWT token through RES
 [[= include_code('code_samples/mcp/mcp.sh.output.txt', 1, 7) =]]
 ```
 
-The [initialization](https://modelcontextprotocol.io/specification/latest/basic/lifecycle#initialization) to get an MCP session ID:
+The, perform [initialization](https://modelcontextprotocol.io/specification/latest/basic/lifecycle#initialization) to get an MCP session ID:
 
 ``` bash
 [[= include_code('code_samples/mcp/mcp.sh', 21, 44) =]]
@@ -167,7 +189,7 @@ The [initialization](https://modelcontextprotocol.io/specification/latest/basic/
 [[= include_code('code_samples/mcp/mcp.sh.output.txt', 26, 51) =]]
 ```
 
-The validation of the initialization:
+Validate the initialization:
 
 ``` bash
 [[= include_code('code_samples/mcp/mcp.sh', 46, 52) =]]
@@ -177,7 +199,7 @@ The validation of the initialization:
 [[= include_code('code_samples/mcp/mcp.sh.output.txt', 52, 56) =]]
 ```
 
-The [list of tools](https://modelcontextprotocol.io/specification/latest/server/tools#listing-tools):
+Get a [list of tools](https://modelcontextprotocol.io/specification/latest/server/tools#listing-tools):
 
 ``` bash
 [[= include_code('code_samples/mcp/mcp.sh', 54, 61) =]]
@@ -187,7 +209,7 @@ The [list of tools](https://modelcontextprotocol.io/specification/latest/server/
 [[= include_code('code_samples/mcp/mcp.sh.output.txt', 69, 128) =]]
 ```
 
-The `greet` [tool call](https://modelcontextprotocol.io/specification/latest/server/tools#calling-tools):
+[Call](https://modelcontextprotocol.io/specification/latest/server/tools#calling-tools) the `greet` tool:
 
 ``` bash
 [[= include_code('code_samples/mcp/mcp.sh', 63, 76) =]]
@@ -197,7 +219,7 @@ The `greet` [tool call](https://modelcontextprotocol.io/specification/latest/ser
 [[= include_code('code_samples/mcp/mcp.sh.output.txt', 129, 148) =]]
 ```
 
-The [list of prompts](https://modelcontextprotocol.io/specification/latest/server/prompts#listing-prompts):
+Get a [list of prompts](https://modelcontextprotocol.io/specification/latest/server/prompts#listing-prompts):
 
 ``` bash
 [[= include_code('code_samples/mcp/mcp.sh', 78, 85) =]]
@@ -207,7 +229,7 @@ The [list of prompts](https://modelcontextprotocol.io/specification/latest/serve
 [[= include_code('code_samples/mcp/mcp.sh.output.txt', 149, 172) =]]
 ```
 
-The `greet` [prompt obtainment](https://modelcontextprotocol.io/specification/2025-11-25/server/prompts#getting-a-prompt):
+[Get the prompt](https://modelcontextprotocol.io/specification/2025-11-25/server/prompts#getting-a-prompt) of the `greet` method:
 
 ``` bash
 [[= include_code('code_samples/mcp/mcp.sh', 87, 100) =]]
@@ -217,20 +239,20 @@ The `greet` [prompt obtainment](https://modelcontextprotocol.io/specification/20
 [[= include_code('code_samples/mcp/mcp.sh.output.txt', 173, 187) =]]
 ```
 
-### MCP Inspector test
+### Perform MCP Inspector test
 
-To test your server, you can use the [MCP Inspector](https://modelcontextprotocol.io/docs/tools/inspector).
-It's even possible to use it as a DDEV add-on with [`craftpulse/ddev-mcp-inspector`](https://github.com/craftpulse/ddev-mcp-inspector).
-You still need to ask for a JWT token through REST or GraphQL, and use it in the MCP Inspector configuration to connect to your server.
+You can test your server with the [MCP Inspector](https://modelcontextprotocol.io/docs/tools/inspector).
+You can even use the inspector as a DDEV add-on with [`craftpulse/ddev-mcp-inspector`](https://github.com/craftpulse/ddev-mcp-inspector).
+You still need to ask for a JWT token through REST or GraphQL APIs, and use it in the MCP Inspector configuration to connect to the server.
 
-You can use a Web interface to obtain a JWT token:
+You can use a Web interface to obtain the JWT token:
 
 - [REST live documentation](rest_api_authentication.md#jwt-token-obtained-through-rest-documentation)
 - [GraphiQL](graphql.md#jwt-authentication)
 
 #### MCP server settings
 
-To use the MCP Inspector for this example, the settings are:
+In this example, the settings needed to use the MCP Inspector are as follows:
 
 - Transport Type: Streamable HTTP
 - URL: actual domain and server `path`, for example `http://localhost/mcp/example`
@@ -241,34 +263,33 @@ To use the MCP Inspector for this example, the settings are:
         - `Bearer <JWT token>`
     - OAuth 2.0 Flow: left unedited
 
-![Screenshot of the left pannel of the MCP Inspector with the connection settings for the example MCP server](img/mcp-inspector-config.png "MCP Inspector connection settings")
+![Left panel of MCP Inspector with connection settings for MCP server](img/mcp-inspector-config.png "MCP Inspector connection settings")
 
-#### MCP server test within MCP Inspector
+#### Test MCP server within MCP Inspector
 
-In the right panel, in the **Tools** tab, click **List Tools** button in the left column.
-The `greet` tool appears preceded by its icon.
-It can be selected and tested in the right column.
+In the right panel, in the **Tools** tab, click **List Tools** in the left column.
+The `greet` tool appears, preceded by its icon.
+You can select and test it in the right column.
 
-![Screenshot of the right pannel of the MCP Inspector with the list of tools obtained from the example MCP server, and the test of the `greet` tool](img/mcp-inspector-greet-tool.png "MCP Inspector `greet` tool test")
+![Right panel of MCP Inspector with a list of tools obtained from MCP server, and the test of the `greet` tool](img/mcp-inspector-greet-tool.png "MCP Inspector `greet` tool test")
 
-In the **Prompts** tab, click **List Prompts** button in the left column.
-The `greet` prompt appears preceded by its icon.
-It can be selected and tested in the right column.
+In the **Prompts** tab, in the left column, click **List Prompts**.
+The `greet` prompt appears, preceded by its icon.
+You can select and test it in the right column.
 
-![Screenshot of the right pannel of the MCP Inspector with the list of prompts obtained from the example MCP server, and the test of the `greet` prompt](img/mcp-inspector-greet-prompt.png "MCP Inspector `greet` prompt test")
+![Right panel of MCP Inspector with a list of prompts obtained from the MCP server, and the test of the `greet` prompt](img/mcp-inspector-greet-prompt.png "MCP Inspector `greet` prompt test")
 
-### Copilot CLI test
+### Perform Copilot CLI test
 
-#### MCP server addition to Copilot CLI
+#### Add MCP server to Copilot CLI
 
-For this example test with [Copilot CLI](https://docs.github.com/en/copilot/concepts/agents/copilot-cli/about-copilot-cli),
-the MCP server configuration is done in an `.mcp.json` file at the [[= product_name =]] project root
-to make it only available for a session opened from there.
+For the sake of the [Copilot CLI](https://docs.github.com/en/copilot/concepts/agents/copilot-cli/about-copilot-cli) test in this example, you configure the MCP server in an `.mcp.json` file at the [[= product_name =]] project root.
+This way it is only available for a session opened from there.
 
-There is two ways of dealing with the JWT token for this test:
+You can handle the JWT token for this test in the following ways:
 
-- to hard code the JWT token in the configuration and update it at every expiration
-- to wrap JWT token request and MCP server call into a script
+- Hard code the JWT token into the configuration and update it at every expiration.
+- Wrap a JWT token request and an MCP server call into a script.
 
 ##### Hard coded
 
