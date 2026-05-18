@@ -32,8 +32,8 @@ ibexa:
                         client_secret: '%env(CDP_ACTIVATION_CLIENT_SECRET)%'
                         segment_group_identifier: example_segment_group_identifier
                 membership: # For anonymous user segmentation
-                    activation_id: '%env(CDP_API_ACTIVATION_ID)%'
-                    api_key: '%env(CDP_API_KEY)%'
+                    activation_id: '%env(CDP_MEMBERSHIP_ACTIVATION_ID)%'
+                    api_key: '%env(CDP_MEMBERSHIP_API_KEY)%'
                     base_url: 'https://cdp-api.raptorsmartadvisor.com'
                     timeout: 5
 ```

@@ -47,4 +47,4 @@ raptor.push("setRuid","USER_ID_HERE")
 
 For anonymous visitors, Raptor's tracking script automatically sets an `rsa` cookie that uniquely identifies the visitor, without calling the `setRuid` method.
 
-For more information on tracking events, see [the documentation](https://content.raptorservices.com/help-center/tracking-events-for-recommendation).
+For more information on tracking events, see [the documentation](https://content.raptorservices.com/help-center/tracking-events-parameters-reference).
