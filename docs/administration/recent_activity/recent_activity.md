@@ -1,8 +1,9 @@
 ---
 description: Log and monitor activity through UI, PHP API and REST API.
+edition: experience
 ---
 
-# Recent activity [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
+# Recent activity
 
 Recent activity log displays last actions in the repository (whatever their origin is, for example, back office, REST, migration, CLI, or CRON).
 
