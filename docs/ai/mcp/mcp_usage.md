@@ -24,8 +24,8 @@ The [`Ibexa\Contracts\Mcp\Attribute\McpTool` attribute](/api/php_api/php_api_ref
 It accepts the following optional arguments:
 
 - `servers` - array of server identifiers the tool is assigned to
-  <br>For more information, see [tools configuration](mcp_config.md#tools-configuration)
-- `name` - tool name - if not set, function name is used
+  <br>For more information, see [tools configuration](mcp_config.md#tool-configuration)
+- `name` - tool name (if not set, function name is used)
 - `description` - tool description, used by AI agents to understand the tool's purpose
 - `icons` - array of [`Mcp\Schema\Icon`](https://github.com/modelcontextprotocol/php-sdk/blob/main/src/Schema/Icon.php) instances
   <br>For more information, see the [`icons` specification](https://modelcontextprotocol.io/specification/latest/basic/index#icons)
@@ -82,8 +82,8 @@ The server:
 - is available in all SiteAccesses
 - is accessible with the path `/mcp/example`
   For example:
-  - `http://localhost/mcp/example`
-  - `http://localhost/admin/mcp/example`
+    - `http://localhost/mcp/example`
+    - `http://localhost/admin/mcp/example`
 - uses file storage for both discovery cache and sessions
 
 !!! note "Storage choice recommendations"
@@ -127,7 +127,6 @@ Therefore, the example prompt must use it to be associated with the `example` se
 
 During development and testing, you may need to clear the cache to ensure that new or modified capabilities are properly re-discovered.
 In this example, use the following command:
-
 
 !!! tip "Cache clearing"
 
@@ -300,12 +299,12 @@ The hard coded JWT token configuration in `.mcp.json` looks as follows:
 
 The `.mcp.json` file must be edited to update the JWT token each time it expires.
 You can request a token by using the GraphiQL web interface or a `curl` command, and then edit the file manually.
-Alterenatively, you can configure a shell script to request the JWT token, extract it from the response, and replace it in the file.
+Alternatively, you can configure a shell script to request the JWT token, extract it from the response, and replace it in the file.
 
 When Copilot complains that it can't communicate with the MCP server:
 
 - Update the JWT token in the `.mcp.json` file.
-- Reload the MCP servers in Copilot CLI:
+- Reload the MCP servers in Copilot CLI with one of these methods:
     - Run `/mcp reload` command to reload all MCP servers.
     - Run `/mcp disable ibexa-example` and `/mcp enable ibexa-example` to only reload the `ibexa-example` server.
 
@@ -325,7 +324,7 @@ For example, thanks to [`npx`](https://www.npmjs.com/package/npx), you can do it
 [[= include_code('code_samples/mcp/mcp-ibexa-example-wrapper.sh') =]]
 ```
 
-When Copilot complains that it can't communicate with the MCP server, reload the MCP servers in Copilot CLI:
+When Copilot complains that it can't communicate with the MCP server, reload the MCP servers in Copilot CLI with one of these methods:
 
 - Run `/mcp reload` command to reload all MCP servers.
 - Run `/mcp disable ibexa-example` and `/mcp enable ibexa-example` to only reload the `ibexa-example` server.

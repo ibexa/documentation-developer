@@ -36,7 +36,7 @@ In `config/packages/security.yaml`, make the following changes:
 
     You don't need to activate JWT authentication for the REST or GraphQL API.
     
-    For sample JWT token requests, see [REST JWT authentication](rest_api_authentication.md#jwt-authentication), [GraphQL JWT authentication](graphql.md#jwt-authentication) and [cURL test of MCP server](mcp_usage.md#curl-test).
+    For sample JWT token requests, see [REST JWT authentication](rest_api_authentication.md#jwt-authentication), [GraphQL JWT authentication](graphql.md#jwt-authentication) and [cURL test of MCP server](mcp_usage.md#perform-curl-test).
 
 ### Repository user
 
@@ -68,7 +68,7 @@ You can list them by running the following command:
 | `version`                                                                                                       | string  | No       | `1.0.0` | MCP server version                                               |
 | [`description`](https://modelcontextprotocol.io/specification/2025-11-25/schema#implementation-description)     | string  | No       | `null`  | Server implementation description                                |
 | [`instructions`](https://modelcontextprotocol.io/specification/2025-11-25/schema#initializeresult-instructions) | string  | No       | `null`  | Prompt-like instructions provided to the AI agent               |
-| [`tools`](#tools-configuration)                                                                                 | string  | No       | `[]`    | List of tool classes                                             |
+| [`tools`](#tool-configuration)                                                                                 | string  | No       | `[]`    | List of tool classes                                             |
 | <nobr>[`discovery_cache`](#discovery-cache)</nobr>                                                              | string  | Yes      |         | PSR-6 or PSR-16 cache pool service identifier                    |
 | [`session`](#session-storage)                                                                                   | object  | Yes      |         | Session storage configuration                                    |
 
@@ -90,7 +90,7 @@ they are the actions that an AI can call on the system.
 
 There are two ways to associate tools with a server:
 
-By listing PHP classes (FQCNs) in the server's configuration `tools`. All tools marked with the `McpTool` attribute in those classes are automatically associated with the server (for example, for [built-in](#built-in-tools) or third party tools).
+- By listing PHP classes (FQCNs) in the server's configuration `tools`. All tools marked with the `McpTool` attribute in those classes are automatically associated with the server (for example, for [built-in](#built-in-tools) or third party tools).
 - By using the `servers` argument in [`McpTool` attribute](mcp_usage.md#tools) to explicitly associate a specific tool with MCP servers.
 
 #### Built-in tools
