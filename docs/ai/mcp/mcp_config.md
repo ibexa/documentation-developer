@@ -40,8 +40,15 @@ In `config/packages/security.yaml`, make the following changes:
 
 ### Repository user
 
-- The user can generate a JWT token with their own account, or a secondary dedicated account, and pass the token to the MCP client.
-- A gateway can use a dedicated shared user to generate a JWT token and establish the connection.
+The AI agent authenticate against the MCP server with a JWT token generated for a specific repository user account.
+
+This repository user can be:
+
+- an individual user account (for example, of an editor or administrator)
+- a dedicated account created specifically for AI integrations
+
+The repository user can generate a JWT token with their own account, or a secondary dedicated account, and pass the token to the MCP client.
+A gateway could use a dedicated shared repository user to generate a JWT token and establish the connection.
 
 ## MCP server configuration
 
