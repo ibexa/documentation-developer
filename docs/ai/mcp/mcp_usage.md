@@ -120,7 +120,7 @@ The class contains:
 
 In this example, the `servers` attribute parameter associates only this tool with the `example` server.
 Alternatively, you can assign all tools from the class to a server by using the `tools` parameter in server configuration.
-For more information, see [tools configuration](mcp_config.md#tools-configuration).
+For more information, see [tools configuration](mcp_config.md#tool-configuration).
 
 For the prompt, the `servers` parameter is required.
 Therefore, the example prompt must use it to be associated with the `example` server.
