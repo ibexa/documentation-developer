@@ -112,7 +112,7 @@ To set it up, you need to:
 Alternatively if you have needs to configure the servers dynamically:
 
 - Set `%ibexa.session.handler_id%` (or `SESSION_HANDLER_ID` env var) to `Ibexa\Bundle\Core\Session\Handler\NativeSessionHandler`
-- Set `%ibexa.session.save_path%` (or `SESSION_SAVE_PATH` env var) to [save_path config for Redis](https://github.com/phpredis/phpredis/#php-session-handler)
+- Set `%ibexa.session.save_path%` (or `SESSION_SAVE_PATH` env var) to [`save_path` config for Redis](https://github.com/phpredis/phpredis/#php-session-handler)
 
 !!! note "[[= product_name_cloud =]]"
 

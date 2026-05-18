@@ -406,7 +406,7 @@ The following example creates an image [content item](#content-items) from a loc
 ```
 
 This migration uses a [reference](managing_migrations.md#references) to store the created image content ID, and then uses it while creating the asset.
-It uses an [expression syntax](#expression-syntax) to [concat (`~`)]([[= symfony_doc =]]/reference/formats/expression_language.html#string-operators)
+It uses an [expression syntax](#expression-syntax) to [concatenate (`~`)]([[= symfony_doc =]]/reference/formats/expression_language.html#string-operators)
 the mandatory scheme `ezcontent://` and the image content ID through the [`reference` function](#built-in-functions) used on the reference's name.
 
 #### Product prices

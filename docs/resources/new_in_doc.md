@@ -364,7 +364,7 @@ Documentation examples and [PHP API Reference](https://doc.ibexa.co/en/5.0/api/p
 You can use [`ibexa/rector`](https://github.com/ibexa/rector#readme) package that allows to maintain your custom PHP code quality.
 Consult the [Ibexa DXP v5.0 renames, deprecations and removals](https://doc.ibexa.co/en/5.0/release_notes/ibexa_dxp_v5.0_deprecations/) to learn more about the changes.
 
-Major additions to the PHP API Reference are [`Ibexa\Contracts\Collaboration`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/namespaces/ibexa-contracts-collaboration.html) and [`Ibexa\Contracts\Share`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/namespaces/ibexa-contracts-share.html) namespaces, the bulding blocks for the [collaboration framework](https://doc.ibexa.co/en/5.0/release_notes/ibexa_dxp_v5.0/#collaboration).
+Major additions to the PHP API Reference are [`Ibexa\Contracts\Collaboration`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/namespaces/ibexa-contracts-collaboration.html) and [`Ibexa\Contracts\Share`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/namespaces/ibexa-contracts-share.html) namespaces, the building blocks for the [collaboration framework](https://doc.ibexa.co/en/5.0/release_notes/ibexa_dxp_v5.0/#collaboration).
 
 #### REST API
 
@@ -619,7 +619,7 @@ Enhanced the PHP API with the following new classes and interfaces:
 
 ### Trainings
 
-- The Content Editor Training has been released. Learn more in the [annoucement blogpost](https://www.ibexa.co/blog/constant-development-is-key-so-here-s-a-new-training-for-content-editors)
+- The Content Editor Training has been released. Learn more in the [announcement blog post](https://www.ibexa.co/blog/constant-development-is-key-so-here-s-a-new-training-for-content-editors)
 
 ### Infrastructure and maintenance
 
@@ -669,7 +669,7 @@ Enhanced the PHP API with the following new classes and interfaces:
 ### Search
 
 - New [`IsBookmarked` location criterion](https://doc.ibexa.co/en/latest/search/criteria_reference/isbookmarked_criterion/)
-- [`IsUserEnabled` is now available on Solr and Elastisearch](https://doc.ibexa.co/en/latest/search/criteria_reference/isuserenabled_criterion/)
+- [`IsUserEnabled` is now available on Solr and Elasticsearch](https://doc.ibexa.co/en/latest/search/criteria_reference/isuserenabled_criterion/)
 
 ### Documentation
 
@@ -1065,7 +1065,7 @@ Enhanced the PHP API with the following new classes and interfaces:
 
 ### Storefront
 
-- [Display language name instead of its code in language swticher](https://doc.ibexa.co/en/latest/templating/twig_function_reference/storefront_twig_functions/#ibexa_storefront_get_language_name_by_code)
+- [Display language name instead of its code in language switcher](https://doc.ibexa.co/en/latest/templating/twig_function_reference/storefront_twig_functions/#ibexa_storefront_get_language_name_by_code)
 
 ### Templating
 

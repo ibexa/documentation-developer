@@ -478,7 +478,7 @@ When you use [[= product_name_cloud =]], see [Elasticsearch service](https://doc
 
 #### Update configuration
 
-Update your configuration in `config/packages/ibexa_elasticsearch.yaml` as decribed below:
+Update your configuration in `config/packages/ibexa_elasticsearch.yaml` as described below:
 
 ##### Replace connection pool settings
 
