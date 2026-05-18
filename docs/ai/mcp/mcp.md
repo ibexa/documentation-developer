@@ -8,10 +8,7 @@ month_change: true
 # MCP servers
 
 MCP servers allow AI agents to interact with the system in a structured way.
-
-MCP servers are available as an [LTS Update](editions.md#lts-updates) since v5.0.8.
-
-Learn more about this protocol and [[= product_name_base =]] MCP servers:
+The feature is available as an [LTS Update](editions.md#lts-updates) since v5.0.8.
 
 [[= cards([
     ("ai/mcp/mcp_guide", "MCP servers guide", "MCP servers expose functionalities to AIs."),

@@ -4,14 +4,14 @@ edition: lts-update
 month_change: true
 ---
 
-# MCP server usage
+# Work with MCP servers
 
-MCP Servers LTS Update comes with few [built-in tools](mcp_config.md#built-in-tools).
-You can create your own capabilities (tools, prompts, and resources) to expose custom features to AI agents through your MCP servers.
+The MCP Servers [LTS Update](editions.md#lts-updates) includes several [built-in tools](mcp_config.md#built-in-tools).
+Additionally, you can create your own capabilities (tools, prompts, and resources) to expose custom features to AI agents through your MCP servers.
 
 ## MCP server capabilities
 
-The [[= product_name =]] MCP server framework (`ibexa/mcp`) is built on top of [the official PHP SDK for MCP (`mcp/sdk`)](https://github.com/modelcontextprotocol/php-sdk)
+The [[= product_name =]] MCP server framework (`ibexa/mcp`) is built on top of the [official PHP SDK for MCP (`mcp/sdk`)](https://github.com/modelcontextprotocol/php-sdk).
 
 A PHP class implementing MCP server capabilities like tools, prompts, or resources, must:
 
