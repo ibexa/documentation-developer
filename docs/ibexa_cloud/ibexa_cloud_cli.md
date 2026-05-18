@@ -20,8 +20,22 @@ ibexa_cloud auth:browser-login
 
 ## Command reference
 
-For the full list of available commands, see the [Upsun CLI reference](https://developer.upsun.com/cli/reference).
-Replace `upsun` with `ibexa_cloud` in all examples.
+To get started, try the following commands:
+
+- `ibexa_cloud list` lists all available commands
+- `ibexa_cloud ssh` opens an SSH session to the current environment, or executes a command remotely
+- `ibexa_cloud log` reads an environment's logs
+- `ibexa_cloud rel` shows an environment's service relationships
+- `ibexa_cloud var` lists environment variables
+
+To get help and see usage examples for any command, run:
+
+```bash
+ibexa_cloud <command> --help
+```
+
+For the full list of available commands, run `ibexa_cloud list` or see the [Upsun CLI reference](https://developer.upsun.com/cli/reference).
+In all examples, replace `upsun` with `ibexa_cloud`.
 
 ## Examples
 
@@ -43,13 +57,13 @@ To execute a SQL upgrade script on a [[= product_name_cloud =]] environment, pas
 
 ### Connect with a SQL client
 
-To connect to the database using any SQL client, start a SSH tunnel by running the following command in the project directory:
+To connect to the database using any SQL client, start SSH tunnels to all services (database, Redis, Solr, and others with the exception of Varnish) by running the following command in the project directory:
 
 ```bash
 ibexa_cloud tunnel:open
 ```
 
-The command outputs connection details, for example:
+The command outputs connection details for each service, for example:
 
 ``` shell-session
 SSH tunnel opened to database at: mysql://user:<PASSWORD>@127.0.0.1:30000/main
