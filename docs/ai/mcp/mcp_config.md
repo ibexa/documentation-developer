@@ -71,11 +71,11 @@ You can list them by running the following command:
 | Option                                                                                                          | Type    | Required | Default | Description                                                      |
 |-----------------------------------------------------------------------------------------------------------------|---------|----------|---------|------------------------------------------------------------------|
 | `path`                                                                                                          | string  | Yes      |         | MCP server endpoint path (appended to SiteAccess-aware base URL) |
-| `enabled`                                                                                                       | boolean | No       | `false` | Server state: decides whether it is enabled or disabled                                   |
+| `enabled`                                                                                                       | boolean | No       | `false` | Server state: decides whether it is enabled or disabled          |
 | `version`                                                                                                       | string  | No       | `1.0.0` | MCP server version                                               |
 | [`description`](https://modelcontextprotocol.io/specification/2025-11-25/schema#implementation-description)     | string  | No       | `null`  | Server implementation description                                |
-| [`instructions`](https://modelcontextprotocol.io/specification/2025-11-25/schema#initializeresult-instructions) | string  | No       | `null`  | Prompt-like instructions provided to the AI agent               |
-| [`tools`](#tool-configuration)                                                                                 | string  | No       | `[]`    | List of tool classes                                             |
+| [`instructions`](https://modelcontextprotocol.io/specification/2025-11-25/schema#initializeresult-instructions) | string  | No       | `null`  | Prompt-like instructions provided to the AI agent                |
+| [`tools`](#tool-configuration)                                                                                  | string  | No       | `[]`    | List of tool classes                                             |
 | <nobr>[`discovery_cache`](#discovery-cache)</nobr>                                                              | string  | Yes      |         | PSR-6 or PSR-16 cache pool service identifier                    |
 | [`session`](#session-storage)                                                                                   | object  | Yes      |         | Session storage configuration                                    |
 
@@ -141,13 +141,13 @@ MCP servers store session data in their own way.
 
 #### Options
 
-| Option      | Type    | Default  | Description                                       |
-|-------------|---------|----------|---------------------------------------------------|
-| `type`      | enum    | `memory` | Session store type: `psr16`, `file`, or `memory`  |
+| Option      | Type    | Default  | Description                                           |
+|-------------|---------|----------|-------------------------------------------------------|
+| `type`      | enum    | `memory` | Session store type: `psr16`, `file`, or `memory`      |
 | `service`   | string  | `null`   | PSR-16 cache service ID for the `psr16` session store |
 | `prefix`    | string  | `mcp_`   | Key prefix for the `psr16` session store              |
 | `directory` | string  | `null`   | Directory path for the `file` session store           |
-| `ttl`       | integer | `3600`   | Session TTL in seconds                            |
+| `ttl`       | integer | `3600`   | Session TTL in seconds                                |
 
 In production, it’s recommended to use [`psr16`](#psr-16) with Redis/Valkey, just like with [regular sessions](clustering.md#shared-sessions).
 
@@ -156,7 +156,7 @@ In production, it’s recommended to use [`psr16`](#psr-16) with Redis/Valkey, j
 Sessions are stored with a PSR-16 compatible cache implementation.
 It requires that a `service` option points to a valid cache service ID.
 Optionally, you could use a more specific `prefix` option than the default `mcp_` to avoid key collisions with other cache usages.
-Such configuration is suitable for production environments.
+Such setup is suitable for production environments.
 
 ``` yaml
 [[= include_code('code_samples/mcp/mcp.matrix.yaml', 18, 21) =]]
