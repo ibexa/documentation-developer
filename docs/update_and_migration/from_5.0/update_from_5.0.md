@@ -388,7 +388,7 @@ Update Symfony constraints in `composer.json` before updating the packages.
     - Array-based PHP configuration format
 
         As part of the new [array-based PHP configuration format](https://symfony.com/blog/new-in-symfony-7-4-better-php-configuration), Symfony creates the `config/reference.php` file.
-        You should commit this file to the repository.
+        Consider commiting this file to the repository.
 
 4. Update Ibexa packages by running:
 
