@@ -92,7 +92,7 @@ Display of field groups has been improved in content preview and editing.
 
 When editing, field groups are now presented in tabs:
 
-![Field group tabls in content editing](3.1_collapsible_fields_edit.png)
+![Field group tabs in content editing](3.1_collapsible_fields_edit.png)
 
 In Content preview, the group sections are collapsible:
 
