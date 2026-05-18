@@ -91,19 +91,19 @@ The stock can also be set to infinite (for example, in case of digital products)
 
 ### Availability and computed availability
 
-Setting a product as available doesn't automatically mean that a product can be ordered.
+Setting a product as available doesn't automatically mean that it can be ordered.
 For example, a product can be set as available, but have zero stock.
 
 The product catalog distinguishes between two types of availability:
 
 - Availability as a value set per product or variant
 
-Availability represents whether the product was set as **Available**, for example in the [back office **Availability** tab]([[= user_doc =]]/product_catalog/manage_availability_and_stock/#set-product-availability) or [PHP API](product_api.md#product-availability).
+    Availability represents whether the product was set as **Available**, for example in the [back office **Availability** tab]([[= user_doc =]]/product_catalog/manage_availability_and_stock/#set-product-availability) or [PHP API](product_api.md#product-availability).
 
 - Computed availability
 
-Computed availability represents whether the product can actually be ordered.
-By default, a product can only be ordered when it's set as available and has either positive or infinite stock.
+    Computed availability represents whether the product can actually be ordered.
+    By default, a product can only be ordered when it's set as available and has either positive or infinite stock.
 
 You can implement a custom strategy to handle different selling scenarios, such as minimum order quantity, minimum stock quantity, or region-specific availability.
 For more information, see [Create custom availability strategy](create_custom_availability_strategy.md).

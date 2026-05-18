@@ -4,8 +4,9 @@ description: Implement custom availability strategies to handle different busine
 
 # Create custom availability strategy
 
-The product catalog uses an availability strategy to calculate [computed availability](products.md#availability-and-computed-availability) for a product, deciding whether the customers can order it.
-The default is based on the product availability and stock amount.
+The product catalog uses an availability strategy to calculate [computed availability](products.md#availability-and-computed-availability) for a product.
+Computed availability decides whether the customers can order the product.
+The default availability strategy is based on the product availability and stock amount.
 
 You can replace this logic with a custom strategy to handle specific business scenarios, for example preorders, minimum order quantities, or per-region availability.
 
@@ -15,7 +16,7 @@ You could use it for [virtual products](products.md#product-types) or in preorde
 ## Create custom availability context
 
 Use an availability context to pass the parameters needed by the strategy to evaluate computed availability.
-To do it, create a class implementing the [`AvailabilityContextInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Values-Availability-AvailabilityContextInterface.html) interface:
+To do it, create a class that implements the [`AvailabilityContextInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Values-Availability-AvailabilityContextInterface.html) interface:
 
 ``` php
 [[= include_file('code_samples/pim/availability/src/PurchasableWithoutStockAvailabilityContext.php') =]]
@@ -23,7 +24,7 @@ To do it, create a class implementing the [`AvailabilityContextInterface`](/api/
 
 ## Create custom availability strategy
 
-Create a class implementing [`ProductAvailabilityStrategyInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-ProductAvailabilityStrategyInterface.html):
+Create a class that implements the [`ProductAvailabilityStrategyInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-ProductAvailabilityStrategyInterface.html) interface:
 
 ``` php
 [[= include_file('code_samples/pim/availability/src/ProductAvailabilityPurchasableWithoutStockStrategy.php') =]]
