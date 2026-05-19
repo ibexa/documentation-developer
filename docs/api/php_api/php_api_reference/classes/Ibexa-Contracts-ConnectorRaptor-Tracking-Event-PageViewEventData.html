@@ -2,10 +2,10 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-            <title>EventContext | PHP API Reference (Ibexa Documentation)</title>
+            <title>PageViewEventData | PHP API Reference (Ibexa Documentation)</title>
     
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="description" content="Context keys for tracking events." />
+        <meta name="description" content="Base class for tracking event data with common parameter building logic." />
         
     <base href="../">
     <link rel="icon" href="images/favicon.png"/>
@@ -217,9 +217,13 @@
             <a href="namespaces/ibexa-contracts-connectorraptor-tracking.html">Tracking</a>
             &gt;
         </li>
+            <li class="breadcrumb-item">
+            <a href="namespaces/ibexa-contracts-connectorraptor-tracking-event.html">Event</a>
+            &gt;
+        </li>
         <li class="breadcrumb-item breadcrumb-item-current">
         <span>
-            EventContext
+            PageViewEventData
         </span>
     </li>
 </ul>
@@ -230,11 +234,11 @@
                     
             <div class="pill optional-pill" title="Included in the optional package&#x000A;ibexa/connector-raptor"></div>
             </div>
-        <h1 id="EventContext">
-        EventContext            </h1>
-            <button class="content-header__copy-fqcn copy-to-clipboard" title="Ibexa\Contracts\ConnectorRaptor\Tracking\EventContext" data-copy-value="Ibexa\Contracts\ConnectorRaptor\Tracking\EventContext">Copy FQCN</button>
-        <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/connector-raptor/src/contracts/Tracking/EventContext.php">
-        <abbr title="vendor/ibexa/connector-raptor/src/contracts/Tracking/EventContext.php">EventContext.php</abbr>
+        <h1 id="PageViewEventData">
+        PageViewEventData            </h1>
+            <button class="content-header__copy-fqcn copy-to-clipboard" title="Ibexa\Contracts\ConnectorRaptor\Tracking\Event\PageViewEventData" data-copy-value="Ibexa\Contracts\ConnectorRaptor\Tracking\Event\PageViewEventData">Copy FQCN</button>
+        <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/connector-raptor/src/contracts/Tracking/Event/PageViewEventData.php">
+        <abbr title="vendor/ibexa/connector-raptor/src/contracts/Tracking/Event/PageViewEventData.php">PageViewEventData.php</abbr>
                 :
         <span title="at line 14">14</span>
                 <img src="./images/copy.svg" title="Copy path" />
@@ -242,10 +246,13 @@
                         <div class="content-header__subheader">Read-only</div>
                             <div class="content-header__subheader">Final</div>
                 
+                    <div class="content-header__subheader">
+                Extends <a href="classes/Ibexa-Contracts-ConnectorRaptor-Tracking-Event-AbstractEventData.html"><abbr title="\Ibexa\Contracts\ConnectorRaptor\Tracking\Event\AbstractEventData">AbstractEventData</abbr></a>
+            </div>
         
         
                 </div>
-        <p>Context keys for tracking events.</p>
+        <p>Base class for tracking event data with common parameter building logic.</p>
 
 
 
@@ -258,17 +265,22 @@
 
 
     
-    <h2 id="constants">
-        Constants<a class="headerlink" href="classes/Ibexa-Contracts-ConnectorRaptor-Tracking-EventContext.html#constants" title="Permanent link">¶</a>
+    
+        <h2 id="properties">
+            Properties<a class="headerlink" href="classes/Ibexa-Contracts-ConnectorRaptor-Tracking-Event-PageViewEventData.html#properties" title="Permanent link">¶</a>
 </h2>
-            <div class="content-header">
-        <h3 id="constant_BASKET_CONTENT">
-                <img src="./images/public.svg" alt="public" title="public" />BASKET_CONTENT        <a class="headerlink" href="classes/Ibexa-Contracts-ConnectorRaptor-Tracking-EventContext.html#constant_BASKET_CONTENT" title="Permanent link">¶</a>
+
+                    <div class="content-header">
+        <h3 id="property_url">
+                <img src="./images/public.svg" alt="public" title="public" />
+        $url<span class="property-tags">
+                                </span>
+            <a class="headerlink" href="classes/Ibexa-Contracts-ConnectorRaptor-Tracking-Event-PageViewEventData.html#property_url" title="Permanent link">¶</a>
     </h3>
-        <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/connector-raptor/src/contracts/Tracking/EventContext.php">
-        <abbr title="vendor/ibexa/connector-raptor/src/contracts/Tracking/EventContext.php">EventContext.php</abbr>
+        <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/connector-raptor/src/contracts/Tracking/Event/PageViewEventData.php">
+        <abbr title="vendor/ibexa/connector-raptor/src/contracts/Tracking/Event/PageViewEventData.php">PageViewEventData.php</abbr>
                 :
-        <span title="at line 22">22</span>
+        <span title="at line 17">17</span>
                 <img src="./images/copy.svg" title="Copy path" />
     </div>
         </div>
@@ -284,7 +296,7 @@
                 </td>
                 <td class="code">
                     <div>
-                        <pre><code><span class="phpdocumentor-signature__visibility">public </span><span class="phpdocumentor-signature__type">mixed </span><span class="phpdocumentor-signature__name">BASKET_CONTENT</span> = <span class="phpdocumentor-signature__default-value">&#039;basketContent&#039;</span></code></pre>
+                        <pre><code><span class="phpdocumentor-signature__visibility">public </span><span class="phpdocumentor-signature__type">string&nbsp;</span><span class="phpdocumentor-signature__name">$url</span></code></pre>
                     </div>
                 </td>
             </tr>
@@ -293,204 +305,15 @@
 </div>
                     
     
-                <div class="content-header">
-        <h3 id="constant_BASKET_ID">
-                <img src="./images/public.svg" alt="public" title="public" />BASKET_ID        <a class="headerlink" href="classes/Ibexa-Contracts-ConnectorRaptor-Tracking-EventContext.html#constant_BASKET_ID" title="Permanent link">¶</a>
+                        <div class="content-header">
+        <h3 id="property_websiteId">
+                <img src="./images/public.svg" alt="public" title="public" />
+        $websiteId<span class="property-tags">
+                                </span>
+            <a class="headerlink" href="classes/Ibexa-Contracts-ConnectorRaptor-Tracking-Event-PageViewEventData.html#property_websiteId" title="Permanent link">¶</a>
     </h3>
-        <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/connector-raptor/src/contracts/Tracking/EventContext.php">
-        <abbr title="vendor/ibexa/connector-raptor/src/contracts/Tracking/EventContext.php">EventContext.php</abbr>
-                :
-        <span title="at line 24">24</span>
-                <img src="./images/copy.svg" title="Copy path" />
-    </div>
-        </div>
-
-<div class="highlight">
-    <table class="highlighttable">
-        <tbody>
-            <tr>
-                <td class="linenos">
-                    <div class="linenodiv">
-                        <pre><span></span></pre>
-                    </div>
-                </td>
-                <td class="code">
-                    <div>
-                        <pre><code><span class="phpdocumentor-signature__visibility">public </span><span class="phpdocumentor-signature__type">mixed </span><span class="phpdocumentor-signature__name">BASKET_ID</span> = <span class="phpdocumentor-signature__default-value">&#039;basketId&#039;</span></code></pre>
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-</div>
-                    
-    
-                <div class="content-header">
-        <h3 id="constant_CATEGORY_IDENTIFIER">
-                <img src="./images/public.svg" alt="public" title="public" />CATEGORY_IDENTIFIER        <a class="headerlink" href="classes/Ibexa-Contracts-ConnectorRaptor-Tracking-EventContext.html#constant_CATEGORY_IDENTIFIER" title="Permanent link">¶</a>
-    </h3>
-        <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/connector-raptor/src/contracts/Tracking/EventContext.php">
-        <abbr title="vendor/ibexa/connector-raptor/src/contracts/Tracking/EventContext.php">EventContext.php</abbr>
-                :
-        <span title="at line 32">32</span>
-                <img src="./images/copy.svg" title="Copy path" />
-    </div>
-        </div>
-
-<div class="highlight">
-    <table class="highlighttable">
-        <tbody>
-            <tr>
-                <td class="linenos">
-                    <div class="linenodiv">
-                        <pre><span></span></pre>
-                    </div>
-                </td>
-                <td class="code">
-                    <div>
-                        <pre><code><span class="phpdocumentor-signature__visibility">public </span><span class="phpdocumentor-signature__type">mixed </span><span class="phpdocumentor-signature__name">CATEGORY_IDENTIFIER</span> = <span class="phpdocumentor-signature__default-value">&#039;categoryIdentifier&#039;</span></code></pre>
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-</div>
-                    
-    
-                <div class="content-header">
-        <h3 id="constant_CURRENCY">
-                <img src="./images/public.svg" alt="public" title="public" />CURRENCY        <a class="headerlink" href="classes/Ibexa-Contracts-ConnectorRaptor-Tracking-EventContext.html#constant_CURRENCY" title="Permanent link">¶</a>
-    </h3>
-        <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/connector-raptor/src/contracts/Tracking/EventContext.php">
-        <abbr title="vendor/ibexa/connector-raptor/src/contracts/Tracking/EventContext.php">EventContext.php</abbr>
-                :
-        <span title="at line 20">20</span>
-                <img src="./images/copy.svg" title="Copy path" />
-    </div>
-        </div>
-
-<div class="highlight">
-    <table class="highlighttable">
-        <tbody>
-            <tr>
-                <td class="linenos">
-                    <div class="linenodiv">
-                        <pre><span></span></pre>
-                    </div>
-                </td>
-                <td class="code">
-                    <div>
-                        <pre><code><span class="phpdocumentor-signature__visibility">public </span><span class="phpdocumentor-signature__type">mixed </span><span class="phpdocumentor-signature__name">CURRENCY</span> = <span class="phpdocumentor-signature__default-value">&#039;currency&#039;</span></code></pre>
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-</div>
-                    
-    
-                <div class="content-header">
-        <h3 id="constant_MODULE_NAME">
-                <img src="./images/public.svg" alt="public" title="public" />MODULE_NAME        <a class="headerlink" href="classes/Ibexa-Contracts-ConnectorRaptor-Tracking-EventContext.html#constant_MODULE_NAME" title="Permanent link">¶</a>
-    </h3>
-        <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/connector-raptor/src/contracts/Tracking/EventContext.php">
-        <abbr title="vendor/ibexa/connector-raptor/src/contracts/Tracking/EventContext.php">EventContext.php</abbr>
-                :
-        <span title="at line 26">26</span>
-                <img src="./images/copy.svg" title="Copy path" />
-    </div>
-        </div>
-
-<div class="highlight">
-    <table class="highlighttable">
-        <tbody>
-            <tr>
-                <td class="linenos">
-                    <div class="linenodiv">
-                        <pre><span></span></pre>
-                    </div>
-                </td>
-                <td class="code">
-                    <div>
-                        <pre><code><span class="phpdocumentor-signature__visibility">public </span><span class="phpdocumentor-signature__type">mixed </span><span class="phpdocumentor-signature__name">MODULE_NAME</span> = <span class="phpdocumentor-signature__default-value">&#039;moduleName&#039;</span></code></pre>
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-</div>
-                    
-    
-                <div class="content-header">
-        <h3 id="constant_QUANTITY">
-                <img src="./images/public.svg" alt="public" title="public" />QUANTITY        <a class="headerlink" href="classes/Ibexa-Contracts-ConnectorRaptor-Tracking-EventContext.html#constant_QUANTITY" title="Permanent link">¶</a>
-    </h3>
-        <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/connector-raptor/src/contracts/Tracking/EventContext.php">
-        <abbr title="vendor/ibexa/connector-raptor/src/contracts/Tracking/EventContext.php">EventContext.php</abbr>
-                :
-        <span title="at line 16">16</span>
-                <img src="./images/copy.svg" title="Copy path" />
-    </div>
-        </div>
-
-<div class="highlight">
-    <table class="highlighttable">
-        <tbody>
-            <tr>
-                <td class="linenos">
-                    <div class="linenodiv">
-                        <pre><span></span></pre>
-                    </div>
-                </td>
-                <td class="code">
-                    <div>
-                        <pre><code><span class="phpdocumentor-signature__visibility">public </span><span class="phpdocumentor-signature__type">mixed </span><span class="phpdocumentor-signature__name">QUANTITY</span> = <span class="phpdocumentor-signature__default-value">&#039;quantity&#039;</span></code></pre>
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-</div>
-                    
-    
-                <div class="content-header">
-        <h3 id="constant_REDIRECT_URL">
-                <img src="./images/public.svg" alt="public" title="public" />REDIRECT_URL        <a class="headerlink" href="classes/Ibexa-Contracts-ConnectorRaptor-Tracking-EventContext.html#constant_REDIRECT_URL" title="Permanent link">¶</a>
-    </h3>
-        <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/connector-raptor/src/contracts/Tracking/EventContext.php">
-        <abbr title="vendor/ibexa/connector-raptor/src/contracts/Tracking/EventContext.php">EventContext.php</abbr>
-                :
-        <span title="at line 28">28</span>
-                <img src="./images/copy.svg" title="Copy path" />
-    </div>
-        </div>
-
-<div class="highlight">
-    <table class="highlighttable">
-        <tbody>
-            <tr>
-                <td class="linenos">
-                    <div class="linenodiv">
-                        <pre><span></span></pre>
-                    </div>
-                </td>
-                <td class="code">
-                    <div>
-                        <pre><code><span class="phpdocumentor-signature__visibility">public </span><span class="phpdocumentor-signature__type">mixed </span><span class="phpdocumentor-signature__name">REDIRECT_URL</span> = <span class="phpdocumentor-signature__default-value">&#039;redirectUrl&#039;</span></code></pre>
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-</div>
-                    
-    
-                <div class="content-header">
-        <h3 id="constant_SUBTOTAL">
-                <img src="./images/public.svg" alt="public" title="public" />SUBTOTAL        <a class="headerlink" href="classes/Ibexa-Contracts-ConnectorRaptor-Tracking-EventContext.html#constant_SUBTOTAL" title="Permanent link">¶</a>
-    </h3>
-        <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/connector-raptor/src/contracts/Tracking/EventContext.php">
-        <abbr title="vendor/ibexa/connector-raptor/src/contracts/Tracking/EventContext.php">EventContext.php</abbr>
+        <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/connector-raptor/src/contracts/Tracking/Event/PageViewEventData.php">
+        <abbr title="vendor/ibexa/connector-raptor/src/contracts/Tracking/Event/PageViewEventData.php">PageViewEventData.php</abbr>
                 :
         <span title="at line 18">18</span>
                 <img src="./images/copy.svg" title="Copy path" />
@@ -508,7 +331,7 @@
                 </td>
                 <td class="code">
                     <div>
-                        <pre><code><span class="phpdocumentor-signature__visibility">public </span><span class="phpdocumentor-signature__type">mixed </span><span class="phpdocumentor-signature__name">SUBTOTAL</span> = <span class="phpdocumentor-signature__default-value">&#039;subtotal&#039;</span></code></pre>
+                        <pre><code><span class="phpdocumentor-signature__visibility">public </span><span class="phpdocumentor-signature__type">string|null&nbsp;</span><span class="phpdocumentor-signature__name">$websiteId</span> = <span class="phpdocumentor-signature__default-value">null</span></code></pre>
                     </div>
                 </td>
             </tr>
@@ -517,14 +340,21 @@
 </div>
                     
     
-                <div class="content-header">
-        <h3 id="constant_URL">
-                <img src="./images/public.svg" alt="public" title="public" />URL        <a class="headerlink" href="classes/Ibexa-Contracts-ConnectorRaptor-Tracking-EventContext.html#constant_URL" title="Permanent link">¶</a>
+                </section>
+    
+    <h2 id="methods">
+        Methods<a class="headerlink" href="classes/Ibexa-Contracts-ConnectorRaptor-Tracking-Event-PageViewEventData.html#methods" title="Permanent link">¶</a>
+</h2>
+
+            <div class="content-header">
+        <h3 id="method___construct">
+                <img src="./images/public.svg" alt="public" title="public" />__construct()
+            <a class="headerlink" href="classes/Ibexa-Contracts-ConnectorRaptor-Tracking-Event-PageViewEventData.html#method___construct" title="Permanent link">¶</a>
     </h3>
-        <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/connector-raptor/src/contracts/Tracking/EventContext.php">
-        <abbr title="vendor/ibexa/connector-raptor/src/contracts/Tracking/EventContext.php">EventContext.php</abbr>
+        <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/connector-raptor/src/contracts/Tracking/Event/PageViewEventData.php">
+        <abbr title="vendor/ibexa/connector-raptor/src/contracts/Tracking/Event/PageViewEventData.php">PageViewEventData.php</abbr>
                 :
-        <span title="at line 34">34</span>
+        <span title="at line 16">16</span>
                 <img src="./images/copy.svg" title="Copy path" />
     </div>
         </div>
@@ -540,23 +370,67 @@
                 </td>
                 <td class="code">
                     <div>
-                        <pre><code><span class="phpdocumentor-signature__visibility">public </span><span class="phpdocumentor-signature__type">mixed </span><span class="phpdocumentor-signature__name">URL</span> = <span class="phpdocumentor-signature__default-value">&#039;url&#039;</span></code></pre>
+                        <pre><code><span class="phpdocumentor-signature__visibility">public </span><span class="phpdocumentor-signature__name">__construct</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$url</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$websiteId</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span></code></pre>
                     </div>
                 </td>
             </tr>
         </tbody>
     </table>
 </div>
+<div class="phpdocumentor-label-line">
+    </div>
+    <h4>Parameters</h4>
+    <table class="method-parameters">
+        <thead>
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Type</th>
+                <th scope="col">Default value</th>
+                <th scope="col">Description</th>
+            </tr>
+        </thead>
+        <tbody>
+                            <tr>
+                    <td>
+                        $url
+                    </td>
+                    <td>
+                        string
+                    </td>
+                    <td class="empty">
+                                                    -
+                                            </td>
+                    <td class="empty">
+                                                    -
+                                            </td>
+                </tr>
+                            <tr>
+                    <td>
+                        $websiteId
+                    </td>
+                    <td>
+                        string|null
+                    </td>
+                    <td>
+                                                                                    null
+                                                                        </td>
+                    <td class="empty">
+                                                    -
+                                            </td>
+                </tr>
+                    </tbody>
+    </table>
                     
     
                 <div class="content-header">
-        <h3 id="constant_WEBSITE_ID">
-                <img src="./images/public.svg" alt="public" title="public" />WEBSITE_ID        <a class="headerlink" href="classes/Ibexa-Contracts-ConnectorRaptor-Tracking-EventContext.html#constant_WEBSITE_ID" title="Permanent link">¶</a>
+        <h3 id="method_getEventType">
+                <img src="./images/public.svg" alt="public" title="public" />getEventType()
+            <a class="headerlink" href="classes/Ibexa-Contracts-ConnectorRaptor-Tracking-Event-PageViewEventData.html#method_getEventType" title="Permanent link">¶</a>
     </h3>
-        <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/connector-raptor/src/contracts/Tracking/EventContext.php">
-        <abbr title="vendor/ibexa/connector-raptor/src/contracts/Tracking/EventContext.php">EventContext.php</abbr>
+        <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/connector-raptor/src/contracts/Tracking/Event/PageViewEventData.php">
+        <abbr title="vendor/ibexa/connector-raptor/src/contracts/Tracking/Event/PageViewEventData.php">PageViewEventData.php</abbr>
                 :
-        <span title="at line 30">30</span>
+        <span title="at line 21">21</span>
                 <img src="./images/copy.svg" title="Copy path" />
     </div>
         </div>
@@ -572,18 +446,174 @@
                 </td>
                 <td class="code">
                     <div>
-                        <pre><code><span class="phpdocumentor-signature__visibility">public </span><span class="phpdocumentor-signature__type">mixed </span><span class="phpdocumentor-signature__name">WEBSITE_ID</span> = <span class="phpdocumentor-signature__default-value">&#039;websiteId&#039;</span></code></pre>
+                        <pre><code><span class="phpdocumentor-signature__visibility">public </span><span class="phpdocumentor-signature__name">getEventType</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Ibexa-Contracts-ConnectorRaptor-Tracking-EventType.html"><abbr title="\Ibexa\Contracts\ConnectorRaptor\Tracking\EventType">EventType</abbr></a></span></code></pre>
                     </div>
                 </td>
             </tr>
         </tbody>
     </table>
 </div>
-                    
+<div class="phpdocumentor-label-line">
+    </div>
+    <h4>Return values</h4>
+    <p class="phpdocumentor-signature__response_type"><a href="classes/Ibexa-Contracts-ConnectorRaptor-Tracking-EventType.html"><abbr title="\Ibexa\Contracts\ConnectorRaptor\Tracking\EventType">EventType</abbr></a></p>
+                        
     
-            
+                <div class="content-header">
+        <h3 id="method_getTemplateHint">
+                <img src="./images/public.svg" alt="public" title="public" />getTemplateHint()
+            <a class="headerlink" href="classes/Ibexa-Contracts-ConnectorRaptor-Tracking-Event-AbstractEventData.html#method_getTemplateHint" title="Permanent link">¶</a>
+    </h3>
+        <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/connector-raptor/src/contracts/Tracking/Event/AbstractEventData.php">
+        <abbr title="vendor/ibexa/connector-raptor/src/contracts/Tracking/Event/AbstractEventData.php">AbstractEventData.php</abbr>
+                :
+        <span title="at line 44">44</span>
+                <img src="./images/copy.svg" title="Copy path" />
+    </div>
+        </div>
+    <p>Returns optional template hint for special rendering needs.</p>
+
+<div class="highlight">
+    <table class="highlighttable">
+        <tbody>
+            <tr>
+                <td class="linenos">
+                    <div class="linenodiv">
+                        <pre><span></span></pre>
+                    </div>
+                </td>
+                <td class="code">
+                    <div>
+                        <pre><code><span class="phpdocumentor-signature__visibility">public </span><span class="phpdocumentor-signature__name">getTemplateHint</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string|null</span></code></pre>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div class="phpdocumentor-label-line">
+    </div>
+    <h4>Return values</h4>
+    <p class="phpdocumentor-signature__response_type">string|null</p>
+                        
     
-                        </div>
+                <div class="content-header">
+        <h3 id="method_toArray">
+                <img src="./images/public.svg" alt="public" title="public" />toArray()
+            <a class="headerlink" href="classes/Ibexa-Contracts-ConnectorRaptor-Tracking-Event-PageViewEventData.html#method_toArray" title="Permanent link">¶</a>
+    </h3>
+        <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/connector-raptor/src/contracts/Tracking/Event/PageViewEventData.php">
+        <abbr title="vendor/ibexa/connector-raptor/src/contracts/Tracking/Event/PageViewEventData.php">PageViewEventData.php</abbr>
+                :
+        <span title="at line 26">26</span>
+                <img src="./images/copy.svg" title="Copy path" />
+    </div>
+        </div>
+    <p>Returns Raptor tracking parameters.</p>
+
+<div class="highlight">
+    <table class="highlighttable">
+        <tbody>
+            <tr>
+                <td class="linenos">
+                    <div class="linenodiv">
+                        <pre><span></span></pre>
+                    </div>
+                </td>
+                <td class="code">
+                    <div>
+                        <pre><code><span class="phpdocumentor-signature__visibility">public </span><span class="phpdocumentor-signature__name">toArray</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string, mixed&gt;</span></code></pre>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div class="phpdocumentor-label-line">
+    </div>
+    <h4>Return values</h4>
+    <p class="phpdocumentor-signature__response_type">array&lt;string, mixed&gt;</p>
+                        
+    
+                <div class="content-header">
+        <h3 id="method_buildParameters">
+                <img src="./images/protected.svg" alt="protected" title="protected" />buildParameters()
+            <a class="headerlink" href="classes/Ibexa-Contracts-ConnectorRaptor-Tracking-Event-AbstractEventData.html#method_buildParameters" title="Permanent link">¶</a>
+    </h3>
+        <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/connector-raptor/src/contracts/Tracking/Event/AbstractEventData.php">
+        <abbr title="vendor/ibexa/connector-raptor/src/contracts/Tracking/Event/AbstractEventData.php">AbstractEventData.php</abbr>
+                :
+        <span title="at line 24">24</span>
+                <img src="./images/copy.svg" title="Copy path" />
+    </div>
+        </div>
+
+<div class="highlight">
+    <table class="highlighttable">
+        <tbody>
+            <tr>
+                <td class="linenos">
+                    <div class="linenodiv">
+                        <pre><span></span></pre>
+                    </div>
+                </td>
+                <td class="code">
+                    <div>
+                        <pre><code><span class="phpdocumentor-signature__visibility">protected </span><span class="phpdocumentor-signature__name">buildParameters</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">array&lt;string, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$required</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">array&lt;string, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$optional</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">[]</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string, mixed&gt;</span></code></pre>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div class="phpdocumentor-label-line">
+    </div>
+    <h4>Parameters</h4>
+    <table class="method-parameters">
+        <thead>
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Type</th>
+                <th scope="col">Default value</th>
+                <th scope="col">Description</th>
+            </tr>
+        </thead>
+        <tbody>
+                            <tr>
+                    <td>
+                        $required
+                    </td>
+                    <td>
+                        array&lt;string, mixed&gt;
+                    </td>
+                    <td class="empty">
+                                                    -
+                                            </td>
+                    <td class="empty">
+                                                    -
+                                            </td>
+                </tr>
+                            <tr>
+                    <td>
+                        $optional
+                    </td>
+                    <td>
+                        array&lt;string, mixed&gt;
+                    </td>
+                    <td>
+                                                                                    []
+                                                                        </td>
+                    <td class="empty">
+                                                    -
+                                            </td>
+                </tr>
+                    </tbody>
+    </table>
+    <h4>Return values</h4>
+    <p class="phpdocumentor-signature__response_type">array&lt;string, mixed&gt;</p>
+                        
+    
+                                </div>
                     </article>
                 </div>
 
@@ -592,71 +622,65 @@
                             <div class="md-sidebar__inner">
                                 <nav class="md-nav md-nav--secondary" aria-label="">
                                                 
-            <label class="md-nav__title" for="__toc" title="EventContext">
-            EventContext
+            <label class="md-nav__title" for="__toc" title="PageViewEventData">
+            PageViewEventData
         </label>
     
     <ul class="md-nav__list">
-                    <li class="md-nav__item level-1 with-children">
-                <a href="classes/Ibexa-Contracts-ConnectorRaptor-Tracking-EventContext.html#constants" title="Constants" class="md-nav__link">
-                    Constants
+                            <li class="md-nav__item level-1 with-children">
+                <a href="classes/Ibexa-Contracts-ConnectorRaptor-Tracking-Event-PageViewEventData.html#properties" title="Properties" class="md-nav__link">
+                    Properties
                 </a>
                 <nav class="md-nav">
                     <ul class="md-nav__list">
                                                     <li class="md-nav__item level-2">
-                                <a href="classes/Ibexa-Contracts-ConnectorRaptor-Tracking-EventContext.html#constant_BASKET_CONTENT" title="BASKET_CONTENT" class="md-nav__link">
-                                    BASKET_CONTENT
+                                <a href="classes/Ibexa-Contracts-ConnectorRaptor-Tracking-Event-PageViewEventData.html#property_url" title="url" class="md-nav__link">
+                                    url
                                 </a>
                             </li>
                                                     <li class="md-nav__item level-2">
-                                <a href="classes/Ibexa-Contracts-ConnectorRaptor-Tracking-EventContext.html#constant_BASKET_ID" title="BASKET_ID" class="md-nav__link">
-                                    BASKET_ID
-                                </a>
-                            </li>
-                                                    <li class="md-nav__item level-2">
-                                <a href="classes/Ibexa-Contracts-ConnectorRaptor-Tracking-EventContext.html#constant_CATEGORY_IDENTIFIER" title="CATEGORY_IDENTIFIER" class="md-nav__link">
-                                    CATEGORY_IDENTIFIER
-                                </a>
-                            </li>
-                                                    <li class="md-nav__item level-2">
-                                <a href="classes/Ibexa-Contracts-ConnectorRaptor-Tracking-EventContext.html#constant_CURRENCY" title="CURRENCY" class="md-nav__link">
-                                    CURRENCY
-                                </a>
-                            </li>
-                                                    <li class="md-nav__item level-2">
-                                <a href="classes/Ibexa-Contracts-ConnectorRaptor-Tracking-EventContext.html#constant_MODULE_NAME" title="MODULE_NAME" class="md-nav__link">
-                                    MODULE_NAME
-                                </a>
-                            </li>
-                                                    <li class="md-nav__item level-2">
-                                <a href="classes/Ibexa-Contracts-ConnectorRaptor-Tracking-EventContext.html#constant_QUANTITY" title="QUANTITY" class="md-nav__link">
-                                    QUANTITY
-                                </a>
-                            </li>
-                                                    <li class="md-nav__item level-2">
-                                <a href="classes/Ibexa-Contracts-ConnectorRaptor-Tracking-EventContext.html#constant_REDIRECT_URL" title="REDIRECT_URL" class="md-nav__link">
-                                    REDIRECT_URL
-                                </a>
-                            </li>
-                                                    <li class="md-nav__item level-2">
-                                <a href="classes/Ibexa-Contracts-ConnectorRaptor-Tracking-EventContext.html#constant_SUBTOTAL" title="SUBTOTAL" class="md-nav__link">
-                                    SUBTOTAL
-                                </a>
-                            </li>
-                                                    <li class="md-nav__item level-2">
-                                <a href="classes/Ibexa-Contracts-ConnectorRaptor-Tracking-EventContext.html#constant_URL" title="URL" class="md-nav__link">
-                                    URL
-                                </a>
-                            </li>
-                                                    <li class="md-nav__item level-2">
-                                <a href="classes/Ibexa-Contracts-ConnectorRaptor-Tracking-EventContext.html#constant_WEBSITE_ID" title="WEBSITE_ID" class="md-nav__link">
-                                    WEBSITE_ID
+                                <a href="classes/Ibexa-Contracts-ConnectorRaptor-Tracking-Event-PageViewEventData.html#property_websiteId" title="websiteId" class="md-nav__link">
+                                    websiteId
                                 </a>
                             </li>
                                             </ul>
                 </nav>
             </li>
-                            </ul>
+                            <li class="md-nav__item level-1 with-children">
+                <a href="classes/Ibexa-Contracts-ConnectorRaptor-Tracking-Event-PageViewEventData.html#methods" title="Methods" class="md-nav__link">
+                    Methods
+                </a>
+                <nav class="md-nav">
+                    <ul class="md-nav__list">
+                                                    <li class="md-nav__item level-2">
+                                <a href="classes/Ibexa-Contracts-ConnectorRaptor-Tracking-Event-PageViewEventData.html#method___construct" title="__construct" class="md-nav__link">
+                                    __construct()
+                                </a>
+                            </li>
+                                                    <li class="md-nav__item level-2">
+                                <a href="classes/Ibexa-Contracts-ConnectorRaptor-Tracking-Event-PageViewEventData.html#method_getEventType" title="getEventType" class="md-nav__link">
+                                    getEventType()
+                                </a>
+                            </li>
+                                                    <li class="md-nav__item level-2">
+                                <a href="classes/Ibexa-Contracts-ConnectorRaptor-Tracking-Event-AbstractEventData.html#method_getTemplateHint" title="getTemplateHint" class="md-nav__link">
+                                    getTemplateHint()
+                                </a>
+                            </li>
+                                                    <li class="md-nav__item level-2">
+                                <a href="classes/Ibexa-Contracts-ConnectorRaptor-Tracking-Event-PageViewEventData.html#method_toArray" title="toArray" class="md-nav__link">
+                                    toArray()
+                                </a>
+                            </li>
+                                                    <li class="md-nav__item level-2">
+                                <a href="classes/Ibexa-Contracts-ConnectorRaptor-Tracking-Event-AbstractEventData.html#method_buildParameters" title="buildParameters" class="md-nav__link">
+                                    buildParameters()
+                                </a>
+                            </li>
+                                            </ul>
+                </nav>
+            </li>
+            </ul>
 
                                 </nav>
                             </div>
