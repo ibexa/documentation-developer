@@ -190,3 +190,23 @@ You can set the options for root or nested attribute, see the example configurat
 ```
 
 ![Help message](../img/page_block_help_message.png "Help message")
+
+## Configure checkbox appearance
+
+For the blocks with the `checkbox` type, you can change the look of the checkbox in block configuration forms.
+
+You can do it by adding the `block_prefix: block_configuration_attribute_checkbox_toggle` option in the block configuration as follows:
+
+``` yaml hl_lines="4 5"
+<attribute_identifier>:
+    name: <name>
+    type: checkbox
+    options:
+        block_prefix: block_configuration_attribute_checkbox_toggle
+```
+
+This setting changes the checkbox appearance to a toggle widget.
+
+![Toggle widget](toggle_widget.png)
+
+If you remove the above setting from the configuration, the attribute reverts to the default checkbox appearance.
