@@ -57,7 +57,7 @@ To execute a SQL upgrade script on a [[= product_name_cloud =]] environment, pas
 
 ### Connect with a SQL client
 
-To connect to the database using any SQL client, start SSH tunnels to all services (database, Redis, Solr, and others with the exception of Varnish) by running the following command in the project directory:
+To connect to the database using any SQL client, start SSH tunnels to all services (database, Redis, Solr, and others except Varnish) by running the following command in the project directory:
 
 ```bash
 ibexa_cloud tunnel:open
@@ -71,7 +71,7 @@ SSH tunnel opened to database at: mysql://user:<PASSWORD>@127.0.0.1:30000/main
 
 Use the displayed host, port, database name, username, and password to configure your SQL client.
 
-When you're done, close the tunnel:
+When you're done, close the tunnels:
 
 ```bash
 ibexa_cloud tunnel:close
