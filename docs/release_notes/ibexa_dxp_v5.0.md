@@ -75,7 +75,7 @@ For more information, see [Repeatable steps with items](https://doc.ibexa.co/en/
 
 #### Twig Component groups
 
-Two new [Twig Component groups](https://doc.ibexa.co/en/5.0/templating/components/) are added to the back office:
+Three new [Twig Component groups](https://doc.ibexa.co/en/5.0/templating/components/) are added to the back office:
 
 - `admin-ui-content-column-end`
 - `admin-ui-content-translations-row-actions`

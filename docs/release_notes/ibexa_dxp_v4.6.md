@@ -28,7 +28,7 @@ For more information, see [Configure image editor](https://doc.ibexa.co/en/4.6/c
 
 #### Twig Component group
 
-New [Twig Component groups](https://doc.ibexa.co/en/5.0/templating/components/) is available in the back office:
+New [Twig Component group](https://doc.ibexa.co/en/5.0/templating/components/) is available in the back office:
 
 - `admin-ui-content-column-end`
 
