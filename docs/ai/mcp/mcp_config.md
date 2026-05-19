@@ -141,13 +141,13 @@ MCP servers store session data in their own way.
 
 #### Options
 
-| Option      | Type    | Default  | Description                                           |
-|-------------|---------|----------|-------------------------------------------------------|
-| `type`      | enum    | `memory` | Session store type: `psr16`, `file`, or `memory`      |
-| `service`   | string  | `null`   | PSR-16 cache service ID for the `psr16` session store |
-| `prefix`    | string  | `mcp_`   | Key prefix for the `psr16` session store              |
-| `directory` | string  | `null`   | Directory path for the `file` session store           |
-| `ttl`       | integer | `3600`   | Session TTL in seconds                                |
+| Option      | Type    | Default    | Description                                               |
+|-------------|---------|------------|-----------------------------------------------------------|
+| `type`      | enum    | (required) | Session store type: [`psr16`](#psr-16) or [`file`](#file) |
+| `service`   | string  | `null`     | PSR-16 cache service ID for the `psr16` session store     |
+| `prefix`    | string  | `mcp_`     | Key prefix for the `psr16` session store                  |
+| `directory` | string  | `null`     | Directory path for the `file` session store               |
+| `ttl`       | integer | `3600`     | Session TTL in seconds                                    |
 
 In production, it’s recommended to use [`psr16`](#psr-16) with Redis/Valkey, just like with [regular sessions](clustering.md#shared-sessions).
 
@@ -173,14 +173,4 @@ In this example, sessions are stored in the `var/cache/<environment>/mcp/session
 
 ``` yaml
 [[= include_code('code_samples/mcp/mcp.matrix.yaml', 23, 25) =]]
-```
-
-#### Memory
-
-Sessions are stored in memory.
-Such setup is suitable for development environments.
-It may fail to work with containers such as Docker or DDEV.
-
-``` yaml
-[[= include_code('code_samples/mcp/mcp.matrix.yaml', 27, 28) =]]
 ```
