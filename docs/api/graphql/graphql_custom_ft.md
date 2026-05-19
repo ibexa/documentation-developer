@@ -41,7 +41,7 @@ If not specified, it uses `FieldDefinition`.
 Compiler pass example that should be placed in `src/DependencyInjection/Compiler`:
 
 ``` php
-[[= include_file('code_samples/api/graphql/src/DependencyInjection/Compiler/MyCustomTypeGraphQLCompilerPass.php') =]]
+[[= include_code('code_samples/api/graphql/src/DependencyInjection/Compiler/MyCustomTypeGraphQLCompilerPass.php') =]]
 ```
 
 ### Map with a custom `FieldDefinitionMapper`
@@ -75,7 +75,7 @@ When a mapper method is decorated, you need to call the decorated service method
 To do that, you need to replace `mapXXX` by the method it's in:
 
 ```php
-[[= include_file('code_samples/api/graphql/src/GraphQL/Schema/MyFieldDefinitionMapper.php', 19, 22, remove_indent=True) =]]
+[[= include_code('code_samples/api/graphql/src/GraphQL/Schema/MyFieldDefinitionMapper.php', 20, 22, remove_indent=True) =]]
 ```
 
 It's required for every implemented method, so that other mappers are called for the other field types.
@@ -99,7 +99,7 @@ For example, `ibexa_matrix` generates its own input types depending on the confi
 Example of a `MyFieldDefinitionMapper` mapper for a complex field type:
 
 ```php
-[[= include_file('code_samples/api/graphql/src/GraphQL/Schema/MyFieldDefinitionMapper.php') =]]
+[[= include_code('code_samples/api/graphql/src/GraphQL/Schema/MyFieldDefinitionMapper.php') =]]
 ```
 
 ## Resolver expressions

@@ -35,7 +35,7 @@ You can then proceed with consecutive upgrades to further versions: v1.13 LTS an
         See [ezpublish-kernel:doc/bc/changes-6.0.md](https://github.com/ezsystems/ezpublish-kernel/blob/v6.7.0/doc/bc/changes-6.0.md)
 
 
-!!! warning "Unsupported legacy sorting methods"
+!!! caution "Unsupported legacy sorting methods"
 
     In older eZ Publish versions, sub-items of content items could be sorted by Class identifier (option value 6) or Class name (option value 7).
     These sorting methods are no longer supported in [[= product_name =]].

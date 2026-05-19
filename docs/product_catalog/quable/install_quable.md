@@ -172,7 +172,7 @@ ibexa_connector_quable:
     webhook_secret: '<webhook authorization header>'
 ```
 
-!!! warning
+!!! caution
 
     [Quable uses dynamic IP addresses](https://faq.quable.com/en/articles/8250056-what-are-the-ip-addresses-of-quable-to-add-to-the-whitelist) to connect to [[= product_name =]].
     If your DXP instance is protected by a firewall, make sure your configuration allows connections from changing IP addresses.

@@ -73,7 +73,7 @@ for example `AbstractType` for any custom type or `IntegerType` for numeric type
 To define the type, create a `src/Block/Attribute/MyStringAttributeType.php` file:
 
 ``` php hl_lines="5 6 17"
-[[= include_file('code_samples/page/custom_attribute/src/Block/Attribute/MyStringAttributeType.php') =]]
+[[= include_code('code_samples/page/custom_attribute/src/Block/Attribute/MyStringAttributeType.php') =]]
 ```
 
 The attribute uses `AbstractType` (line 5) and `TextType` (line 6).
@@ -98,7 +98,7 @@ To use a custom mapper, create a class that inherits from `Ibexa\Contracts\Field
 for example in `src/Block/Attribute/MyStringAttributeMapper.php`:
 
 ``` php
-[[= include_file('code_samples/page/custom_attribute/src/Block/Attribute/MyStringAttributeMapper.php') =]]
+[[= include_code('code_samples/page/custom_attribute/src/Block/Attribute/MyStringAttributeMapper.php') =]]
 ```
 
 Then, add a new service definition for your mapper to `config/services.yaml`:

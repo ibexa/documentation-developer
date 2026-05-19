@@ -103,7 +103,7 @@ The following events are available:
 For example, to modify a block by adding a new parameter to it, you can create the following listener:
 
 ``` php
-[[= include_file('code_samples/page/page_listener/src/Block/Listener/MyBlockListener.php') =]]
+[[= include_code('code_samples/page/page_listener/src/Block/Listener/MyBlockListener.php') =]]
 ```
 
 Before the block is rendered, the listener adds `my_parameter` to it with value `parameter_value`.

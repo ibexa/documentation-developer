@@ -14,7 +14,7 @@ The following example shows how to create a filter that selects products with th
 To create a custom catalog filter, first you need to create a filter class in `App\CatalogFilter\ProductNameFilter`.
 
 ``` php
-[[= include_file('code_samples/catalog/custom_catalog_filter/src/CatalogFilter/ProductNameFilter.php') =]]
+[[= include_code('code_samples/catalog/custom_catalog_filter/src/CatalogFilter/ProductNameFilter.php') =]]
 ```
 
 The filter must implement `Ibexa\Contracts\ProductCatalog\CatalogFilters\FilterDefinitionInterface`, provide the filter identifier and name, and the group in which it's displayed in the editing menu.
@@ -26,7 +26,7 @@ The example above uses the built-in `ProductName` Search Criterion.
 Next, you need to add a form mapper: `ProductNameFilterFormMapper` that maps the input from the filter form to the data model:
 
 ``` php hl_lines="35"
-[[= include_file('code_samples/catalog/custom_catalog_filter/src/CatalogFilter/ProductNameFilterFormMapper.php') =]]
+[[= include_code('code_samples/catalog/custom_catalog_filter/src/CatalogFilter/ProductNameFilterFormMapper.php') =]]
 ```
 
 The filter can use the built-in `ProductName` Criterion, but you still need a data transformer for the data entered when editing the catalog (line 35).
@@ -48,7 +48,7 @@ and the form mapper with `ibexa.product_catalog.catalog_filter.form_mapper`:
 Now, create `ProductNameCriterionTransformer` in `src/CatalogFilter/DataTransformer`:
 
 ``` php
-[[= include_file('code_samples/catalog/custom_catalog_filter/src/CatalogFilter/DataTransformer/ProductNameCriterionTransformer.php') =]]
+[[= include_code('code_samples/catalog/custom_catalog_filter/src/CatalogFilter/DataTransformer/ProductNameCriterionTransformer.php') =]]
 ```
 
 ## Provide templates

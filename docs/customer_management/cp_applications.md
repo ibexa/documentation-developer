@@ -68,7 +68,7 @@ Next, create a new form type in `src/Form/VerifyType.php`.
 It's displayed in the application review stage.
 
 ``` php hl_lines="17-18 25"
-[[= include_file('code_samples/customer_portal/src/Form/VerifyType.php') =]]
+[[= include_code('code_samples/customer_portal/src/Form/VerifyType.php') =]]
 ```
 
 Line 29 defines where the form should be displayed, line 21 adds **Note** field, and line 22 adds the **Verify** button.
@@ -79,7 +79,7 @@ Add an event subscriber that passes a new form type to the frontend.
 Create `src/Corporate/EventSubscriber/ApplicationDetailsViewSubscriber.php` following the example below:
 
 ``` php hl_lines="35"
-[[= include_file('code_samples/customer_portal/src/Corporate/EventSubscriber/ApplicationDetailsViewSubscriber.php') =]]
+[[= include_code('code_samples/customer_portal/src/Corporate/EventSubscriber/ApplicationDetailsViewSubscriber.php') =]]
 ```
 
 In line 39, you can see the `verify_form` parameter that passes the `verify` form to the application review view.
@@ -104,7 +104,7 @@ Now, you need to pass the information that the button has been selected to the l
 Create another event subscriber that passes the information from the created form to the application list `src/Corporate/EventSubscriber/VerifyStateEventSubscriber.php`.
 
 ``` php hl_lines="42 68"
-[[= include_file('code_samples/customer_portal/src/Corporate/EventSubscriber/VerifyStateEventSubscriber.php') =]]
+[[= include_code('code_samples/customer_portal/src/Corporate/EventSubscriber/VerifyStateEventSubscriber.php') =]]
 ```
 
 In line 46, you can see that it handles changes to verify status.

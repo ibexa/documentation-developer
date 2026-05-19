@@ -13,7 +13,7 @@ Sort Clauses are found in the `Ibexa\Contracts\ConnectorAi\ActionConfiguration\Q
 
 The following example shows how to use them to sort the searched Action Configurations:
 ``` php
-[[= include_file('code_samples/ai_actions/src/Query/Search.php') =]]
+[[= include_code('code_samples/ai_actions/src/Query/Search.php') =]]
 ```
 
 The search results are sorted by:

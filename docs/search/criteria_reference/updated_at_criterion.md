@@ -27,7 +27,7 @@ The `UpdatedAt` Search Criterion searches for products based on the date when th
 ### PHP
 
 ``` php
-[[= include_file('code_samples/back_office/search/src/Query/UpdatedAtQuery.php') =]]
+[[= include_code('code_samples/back_office/search/src/Query/UpdatedAtQuery.php') =]]
 ```
 
 ### REST API
