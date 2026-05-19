@@ -79,6 +79,7 @@ Two new [Twig Component groups](https://doc.ibexa.co/en/5.0/templating/component
 
 - `admin-ui-content-column-end`
 - `admin-ui-content-translations-row-actions`
+- `admin-ui-form-product-add-translation-body`
 
 For more information, see [available Admin UI Twig Component groups](https://doc.ibexa.co/en/5.0/administration/back_office/back_office_elements/custom_components/#admin-ui).
 
