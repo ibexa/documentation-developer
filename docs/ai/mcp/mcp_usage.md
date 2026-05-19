@@ -107,8 +107,6 @@ php bin/console debug:router ibexa.mcp.example
 
 Create an `ExampleCapabilities` class that implements `McpCapabilityInterface`.
 
-It contains a function with an `McpTool` attribute associating it to the `example` server as `greet` tool for the AI.
-
 The class contains:
 
 - a method marked with an `McpTool` attribute that associates it to the `example` server as `greet` tool
