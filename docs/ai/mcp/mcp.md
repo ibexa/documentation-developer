@@ -11,7 +11,7 @@ The Model Context Protocol (MCP) and MCP servers allow AI agents to interact wit
 The feature is available as an [LTS Update](editions.md#lts-updates) since v5.0.8.
 
 [[= cards([
-    ("ai/mcp/mcp_guide", "MCP servers guide", "MCP servers expose functionalities to AIs."),
+    "ai/mcp/mcp_guide",
     "ai/mcp/mcp_config",
     "ai/mcp/mcp_usage",
 ], columns=3) =]]
