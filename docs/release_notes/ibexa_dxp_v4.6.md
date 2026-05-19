@@ -13,7 +13,7 @@ month_change: true
 [[% set version = 'v4.6.X' %]]
 
 [[= release_note_entry_begin(
-    "Ibexa DXP " + version,
+    'Ibexa DXP ' + version,
     'YYYY-MM-DD',
     ['Headless', 'Experience', 'Commerce', 'New feature']
 ) =]]
