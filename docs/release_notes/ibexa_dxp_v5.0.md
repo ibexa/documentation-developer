@@ -21,7 +21,7 @@ month_change: true
 MCP servers ease the discovery of interactions with [[= product_name =]] by AI agents.
 This feature allows you to configure several MCP servers with their own set of tools.
 
-See [Model Context Protocol and Ibexa MCP servers](https://doc.ibexa.co/en/5.0/ai/mcp/mcp_guide/) for more information.
+For more information, see [MCP Servers product guide](https://doc.ibexa.co/en/5.0/ai/mcp/mcp_guide/).
 
 [[= release_note_entry_end() =]]
 
