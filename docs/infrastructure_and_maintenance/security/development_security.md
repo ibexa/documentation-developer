@@ -144,13 +144,6 @@ security:
             stateless: true
             jwt: ~
 
-        ibexa_jwt_mcp:
-            request_matcher: Ibexa\Mcp\Security\McpRequestMatcher
-            user_checker: Ibexa\Core\MVC\Symfony\Security\UserChecker
-            provider: ibexa
-            stateless: true
-            jwt: ~
-
         ibexa_jwt_graphql:
             request_matcher: Ibexa\GraphQL\Security\NonAdminGraphQLRequestMatcher
             provider: ibexa
@@ -160,13 +153,12 @@ security:
 
 - `ibexa_jwt_rest` is the firewall that allows to generate a JWT token through REST or GraphQL
 - `ibexa_jwt_rest.api` is the firewall to [use JWT authentication for REST API](rest_api_authentication.md#jwt-authentication) instead of session-based
-- `ibexa_jwt_mcp` is the firewall to [use JWT authentication for MCP servers](mcp_config.md#jwt-mcp-firewall)
 - `ibexa_jwt_graphql` is the firewall to [use JWT authentication for GraphQL API](graphql.md#jwt-authentication)
 
-For example, to use JWT authentication only for MCP servers and keep session-based authentication for REST and GraphQL APIs:
+For example, to use JWT authentication only for GraphQL API and keep session-based authentication for REST API:
 
-- uncomment `ibexa_jwt_rest` and `ibexa_jwt_mcp` to activate them
-- keep `ibexa_jwt_rest.api` and `ibexa_jwt_graphql` commented and disabled
+- uncomment `ibexa_jwt_rest` and `ibexa_jwt_graphql` to activate them
+- keep `ibexa_jwt_rest.api` commented and disabled
 
 ### Use PEM keys
 

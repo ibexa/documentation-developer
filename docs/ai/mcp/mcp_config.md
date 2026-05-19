@@ -30,7 +30,11 @@ In `config/packages/lexik_jwt_authentication.yaml`, [enable the `authorization_h
 In `config/packages/security.yaml`, make the following changes:
 
 - Uncomment the `ibexa_jwt_rest` firewall to enable requesting JWT tokens through REST or GraphQL API.
-- Uncomment the `ibexa_jwt_mcp` firewall to allow the use of JWT authentication against MCP servers.
+- Add the `ibexa_jwt_mcp` firewall to allow the use of JWT authentication against MCP servers.
+
+``` yaml hl_lines="4-9"
+[[= include_code('code_samples/mcp/config/packages/mcp.security.yaml') =]]
+```
 
 !!! note "Authentication for the APIs"
 
