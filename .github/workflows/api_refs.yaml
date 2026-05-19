@@ -13,7 +13,7 @@ on:
                 # When checked, Composer installs from the x-dev branch instead of a released tag.
                 # Useful for building a reference before the final release is tagged.
                 # Example: version=5.0.9 + use_dev_version=true → DXP_VERSION=v5.0.x-dev, BASE_DXP_BRANCH=5.0, VIRTUAL_DXP_VERSION=5.0.9
-                description: 'Use dev version (install from x-dev branch, e.g. v5.0.x-dev)'
+                description: 'Use x-dev branch (default: false)'
                 required: false
                 type: boolean
                 default: false
