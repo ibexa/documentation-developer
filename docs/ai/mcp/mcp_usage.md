@@ -109,8 +109,8 @@ Create an `ExampleCapabilities` class that implements `McpCapabilityInterface`.
 
 The class contains:
 
-- a method marked with an `McpTool` attribute that associates it to the `example` server as `greet` tool
-- a method marked with an `McpPrompt` attribute that provides a prompt template to users
+- a method marked with an [`McpTool` attribute](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Mcp-Attribute-McpTool.html) that associates it to the `example` server as `greet` tool
+- a method marked with an [`McpPrompt` attribute](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Mcp-Attribute-McpPrompt.html) that provides a prompt template to users
 
 ``` php
 [[= include_code('code_samples/mcp/src/Mcp/ExampleCapabilities.php') =]]
