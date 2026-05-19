@@ -149,7 +149,7 @@ MCP servers store session data in their own way.
 | `directory` | string  | `null`     | Directory path for the `file` session store               |
 | `ttl`       | integer | `3600`     | Session TTL in seconds                                    |
 
-In production, it’s recommended to use [`psr16`](#psr-16) with Redis/Valkey, just like with [regular sessions](clustering.md#shared-sessions).
+In production, it’s recommended to use [`psr16`](#psr-16) with Redis/Valkey, like with [regular sessions](clustering.md#shared-sessions).
 
 #### PSR-16
 
