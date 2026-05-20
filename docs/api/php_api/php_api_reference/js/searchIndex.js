@@ -56526,71 +56526,6 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/Ibexa-Contracts-Share-Collaboration-ContentSessionUpdateStruct.html#method_getType"
         },                {
-            "fqsen": "\\Ibexa\\Contracts\\Share\\Event\\UsersWithPermissionInfoMappedEvent",
-            "name": "UsersWithPermissionInfoMappedEvent",
-            "summary": "Event\u0020is\u0020the\u0020base\u0020class\u0020for\u0020classes\u0020containing\u0020event\u0020data.",
-            "url": "classes/Ibexa-Contracts-Share-Event-UsersWithPermissionInfoMappedEvent.html"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\Share\\Event\\UsersWithPermissionInfoMappedEvent\u003A\u003A__construct\u0028\u0029",
-            "name": "__construct",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-Share-Event-UsersWithPermissionInfoMappedEvent.html#method___construct"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\Share\\Event\\UsersWithPermissionInfoMappedEvent\u003A\u003AgetContext\u0028\u0029",
-            "name": "getContext",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-Share-Event-UsersWithPermissionInfoMappedEvent.html#method_getContext"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\Share\\Event\\UsersWithPermissionInfoMappedEvent\u003A\u003AgetModule\u0028\u0029",
-            "name": "getModule",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-Share-Event-UsersWithPermissionInfoMappedEvent.html#method_getModule"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\Share\\Event\\UsersWithPermissionInfoMappedEvent\u003A\u003AgetFunction\u0028\u0029",
-            "name": "getFunction",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-Share-Event-UsersWithPermissionInfoMappedEvent.html#method_getFunction"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\Share\\Event\\UsersWithPermissionInfoMappedEvent\u003A\u003AgetResult\u0028\u0029",
-            "name": "getResult",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-Share-Event-UsersWithPermissionInfoMappedEvent.html#method_getResult"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\Share\\Event\\UsersWithPermissionInfoMappedEvent\u003A\u003AsetResult\u0028\u0029",
-            "name": "setResult",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-Share-Event-UsersWithPermissionInfoMappedEvent.html#method_setResult"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\Share\\Mapper\\Action\\ShareActionItemsMapperInterface",
-            "name": "ShareActionItemsMapperInterface",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-Share-Mapper-Action-ShareActionItemsMapperInterface.html"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\Share\\Mapper\\Action\\ShareActionItemsMapperInterface\u003A\u003Amap\u0028\u0029",
-            "name": "map",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-Share-Mapper-Action-ShareActionItemsMapperInterface.html#method_map"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\Share\\Permission\\Mapper\\Result",
-            "name": "Result",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-Share-Permission-Mapper-Result.html"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\Share\\Permission\\Mapper\\Result\u003A\u003AtoArray\u0028\u0029",
-            "name": "toArray",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-Share-Permission-Mapper-Result.html#method_toArray"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\Share\\Permission\\Mapper\\Result\u003A\u003A\u0024access",
-            "name": "access",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-Share-Permission-Mapper-Result.html#property_access"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\Share\\Permission\\Mapper\\Result\u003A\u003A\u0024noAccess",
-            "name": "noAccess",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-Share-Permission-Mapper-Result.html#property_noAccess"
-        },                {
             "fqsen": "\\Ibexa\\Contracts\\Share\\Permission\\PermissionCheckContextProviderInterface",
             "name": "PermissionCheckContextProviderInterface",
             "summary": "",
@@ -56621,40 +56556,10 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/Ibexa-Contracts-Share-UI-Component-AbstractShareComponent.html#method_getActiveSession"
         },                {
-            "fqsen": "\\Ibexa\\Contracts\\Share\\UI\\Component\\AbstractShareComponent\u003A\u003AisContextOwner\u0028\u0029",
-            "name": "isContextOwner",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-Share-UI-Component-AbstractShareComponent.html#method_isContextOwner"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\Share\\UI\\Component\\AbstractShareComponent\u003A\u003AcanShareWithOthers\u0028\u0029",
-            "name": "canShareWithOthers",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-Share-UI-Component-AbstractShareComponent.html#method_canShareWithOthers"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\Share\\UI\\Component\\AbstractShareComponent\u003A\u003AgetAllowedShareScopes\u0028\u0029",
-            "name": "getAllowedShareScopes",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-Share-UI-Component-AbstractShareComponent.html#method_getAllowedShareScopes"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\Share\\UI\\Component\\AbstractShareComponent\u003A\u003AcanManagePublicLink\u0028\u0029",
-            "name": "canManagePublicLink",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-Share-UI-Component-AbstractShareComponent.html#method_canManagePublicLink"
-        },                {
             "fqsen": "\\Ibexa\\Contracts\\Share\\UI\\Component\\AbstractShareComponent\u003A\u003Arender\u0028\u0029",
             "name": "render",
             "summary": "",
             "url": "classes/Ibexa-Contracts-Share-UI-Component-AbstractShareComponent.html#method_render"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\Share\\UI\\Component\\AbstractShareComponent\u003A\u003AisSessionParticipant\u0028\u0029",
-            "name": "isSessionParticipant",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-Share-UI-Component-AbstractShareComponent.html#method_isSessionParticipant"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\Share\\UI\\Component\\AbstractShareComponent\u003A\u003A\u0024permissionResolver",
-            "name": "permissionResolver",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-Share-UI-Component-AbstractShareComponent.html#property_permissionResolver"
         },                {
             "fqsen": "\\Ibexa\\Contracts\\Share\\Values\\PermissionCheckContext",
             "name": "PermissionCheckContext",
@@ -65020,26 +64925,6 @@ Search.appendIndex(
             "name": "Share",
             "summary": "",
             "url": "namespaces/ibexa-contracts-share.html"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\Share\\Event",
-            "name": "Event",
-            "summary": "",
-            "url": "namespaces/ibexa-contracts-share-event.html"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\Share\\Mapper\\Action",
-            "name": "Action",
-            "summary": "",
-            "url": "namespaces/ibexa-contracts-share-mapper-action.html"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\Share\\Mapper",
-            "name": "Mapper",
-            "summary": "",
-            "url": "namespaces/ibexa-contracts-share-mapper.html"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\Share\\Permission\\Mapper",
-            "name": "Mapper",
-            "summary": "",
-            "url": "namespaces/ibexa-contracts-share-permission-mapper.html"
         },                {
             "fqsen": "\\Ibexa\\Contracts\\Share\\Permission",
             "name": "Permission",
