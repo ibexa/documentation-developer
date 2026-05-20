@@ -92,7 +92,7 @@ For more information, see [Website tracking dataflow](https://content.raptorserv
 
 ### Configuration
 
-Add the `membership.activation_id` and `membership.api_key` credentials to your [`ibexa_cdp` configuration](#configuration), using the credentials for [CDP API activation](#set-up-cdp-api-activation).
+Add the `membership.activation_id` and `membership.api_key` credentials to your [`ibexa.system.<scope>.cdp` configuration](#configuration), using the credentials for [CDP API activation](#set-up-cdp-api-activation).
 To control how long resolved segment memberships are cached per visitor, use the `ibexa_segmentation.anonymous.cache` configuration key:
 
 ```yaml
