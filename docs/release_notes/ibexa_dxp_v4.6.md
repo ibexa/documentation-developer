@@ -10,11 +10,11 @@ month_change: true
 
 <div class="release-notes" markdown="1">
 
-[[% set version = 'v4.6.X' %]]
+[[% set version = 'v4.6.30' %]]
 
 [[= release_note_entry_begin(
     'Ibexa DXP ' + version,
-    'YYYY-MM-DD',
+    '2026-05-21',
     ['Headless', 'Experience', 'Commerce', 'New feature']
 ) =]]
 

@@ -10,11 +10,11 @@ month_change: true
 
 <div class="release-notes" markdown="1">
 
-[[% set version = 'v5.0.X' %]]
+[[% set version = 'v5.0.8' %]]
 
 [[= release_note_entry_begin(
     'MCP Servers ' + version,
-    'YYYY-MM-DD',
+    '2026-05-21',
     ['Headless', 'Experience', 'Commerce', 'LTS Update', 'New feature', 'First release']
 ) =]]
 
@@ -27,7 +27,7 @@ For more information, see [MCP Servers product guide](https://doc.ibexa.co/en/5.
 
 [[= release_note_entry_begin(
     'Ibexa DXP ' + version,
-    'YYYY-MM-DD',
+    '2026-05-21',
     ['Headless', 'Experience', 'Commerce', 'New feature']
 ) =]]
 
