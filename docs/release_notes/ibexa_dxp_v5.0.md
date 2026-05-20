@@ -100,6 +100,17 @@ The new [`WorkflowServiceInterface::loadWorkflowMetadataForVersionInfo`](/api/ph
 
 For more information, see [Workflow API](https://doc.ibexa.co/en/5.0/content_management/workflow/workflow_api/#getting-workflow-information).
 
+##### Addition summary
+
+The following additions were made to the PHP API:
+
+- [`Ibexa\Contracts\Cdp\Exception\MembershipApiException`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-Cdp-Exception-MembershipApiException.html)
+- [`Ibexa\Contracts\Cdp\Membership`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/namespaces/ibexa-contracts-cdp-membership.html)
+- [`Ibexa\Contracts\ConnectorRaptor\Message\TrackServerSideEventMessage`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorRaptor-Message-TrackServerSideEventMessage.html)
+- [`Ibexa\Contracts\ConnectorRaptor\Tracking\Event\PageViewEventData`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorRaptor-Tracking-Event-PageViewEventData.html)
+- [`Ibexa\Contracts\ConnectorRaptor\Tracking\PageViewTrackerInterface`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorRaptor-Tracking-PageViewTrackerInterface.html)
+- [`Ibexa\Contracts\Mcp`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/namespaces/ibexa-contracts-mcp.html)
+
 ### Full changelog
 
 [[% include 'snippets/release_50.md' %]]
