@@ -254,7 +254,7 @@ ibexa:
             default_embedding_model: 'text-embedding-ada-002'
 ```
 
-!!! warning "Change both embedding generation models"
+!!! caution "Change both embedding generation models"
 
     When you change the default suggestions generation model, ensure that you update the `ibexa.system.default.taxonomy.search.default_embedding_model` setting that is used for taxonomy indexing purposes.
     Otherwise the taxonomy suggestions feature fails to find matching entries.

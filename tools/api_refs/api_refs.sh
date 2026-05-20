@@ -9,14 +9,14 @@ REST_API_OPENAPI_FILE_YAML=${4:-./docs/api/rest_api/rest_api_reference/openapi.y
 REST_API_OPENAPI_FILE_JSON=${5:-./docs/api/rest_api/rest_api_reference/openapi.json}; # Path to the REST API OpenAPI spec file
 
 DXP_EDITION='commerce'; # Edition from and for which the Reference is built
-DXP_VERSION='5.0.*'; # Version from and for which the Reference is built
-DXP_ADD_ONS=(automated-translation rector integrated-help fieldtype-richtext-rte connector-anthropic connector-gemini shopping-list cdp connector-raptor connector-quable); # Packages not included in $DXP_EDITION but added to the Reference, listed without their vendor "ibexa"
+DXP_VERSION="${DXP_VERSION:-5.0.*}"; # Version from and for which the Reference is built; can be overridden by the DXP_VERSION env var (e.g. v5.0.x-dev for a dev build)
+DXP_ADD_ONS=(automated-translation rector integrated-help fieldtype-richtext-rte connector-anthropic connector-gemini shopping-list cdp connector-raptor connector-quable mcp); # Packages not included in $DXP_EDITION but added to the Reference, listed without their vendor "ibexa"
 DXP_EDITIONS=(oss headless experience commerce); # Available editions ordered by ascending capabilities
 SF_VERSION='7.4'; # Symfony version used by Ibexa DXP
-PHPDOC_VERSION='3.9.1'; # Version of phpDocumentor used to build the Reference
+PHPDOC_VERSION='3.10.0'; # Version of phpDocumentor used to build the Reference
 PHPDOC_CONF="$(pwd)/tools/api_refs/phpdoc.dist.xml"; # Absolute path to phpDocumentor configuration file
 #PHPDOC_CONF="$(pwd)/tools/api_refs/phpdoc.dev.xml"; # Absolute path to phpDocumentor configuration file
-PHPDOC_TEMPLATE_VERSION='3.9.1'; # Version of the phpDocumentor base template set
+PHPDOC_TEMPLATE_VERSION='3.10.0'; # Version of the phpDocumentor base template set
 PHPDOC_DIR="$(pwd)/tools/api_refs/.phpdoc"; # Absolute path to phpDocumentor resource directory (containing the override template set)
 REDOCLY_CONFIG_TEMPLATE="$(pwd)/tools/api_refs/redocly.yaml.template"; # Absolute path to Redocly configuration template file
 REDOCLY_CONFIG="$(pwd)/tools/api_refs/redocly.yaml"; # Absolute path to Redocly configuration file (generated from template)
@@ -26,8 +26,8 @@ OPENAPI_FIX="$(pwd)/tools/api_refs/openapi.php"; # A script editing and fixing f
 PHP_BINARY="php -d error_reporting=`php -r 'echo E_ALL & ~E_DEPRECATED;'`"; # Avoid depreciation messages from phpDocumentor/Reflection/issues/529 when using PHP 8.2 or higher
 TMP_DXP_DIR=/tmp/ibexa-dxp-phpdoc; # Absolute path of the temporary directory in which Ibexa DXP will be installed and the PHP API Reference built
 FORCE_DXP_INSTALL=1; # If 1, empty the temporary directory, install DXP from scratch, build, remove temporary directory; if 0, potentially reuse the DXP already installed in temporary directory, keep temporary directory for future uses.
-BASE_DXP_BRANCH=''; # Branch from and for which the Reference is built when using a dev branch as version
-VIRTUAL_DXP_VERSION=''; # Version for which the reference is supposedly built when using dev branch as version
+BASE_DXP_BRANCH="${BASE_DXP_BRANCH:-}"; # Branch from and for which the Reference is built when using a dev branch as version; can be overridden by the BASE_DXP_BRANCH env var
+VIRTUAL_DXP_VERSION="${VIRTUAL_DXP_VERSION:-}"; # Version for which the reference is supposedly built when using dev branch as version; can be overridden by the VIRTUAL_DXP_VERSION env var
 
 if [ ! -d $PHP_API_OUTPUT_DIR ]; then
   echo -n "Creating ${PHP_API_OUTPUT_DIR}… ";

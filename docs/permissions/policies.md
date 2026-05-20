@@ -309,7 +309,7 @@ The [discount](discounts.md) policies decide which actions can be executed by gi
 |                        | <nobr>`edit`</nobr>   | edit a product                              | [Product Type](limitation_reference.md#product-type-limitation)</br>[Language](limitation_reference.md#language-limitation) |
 |                        | <nobr>`view`</nobr>   | view products listed in the product catalog | [Product Type](limitation_reference.md#product-type-limitation)                                                             |
 
-!!! warning
+!!! caution
 
     The `ProductType` limitation can't be used when using [[[= pim_product_name =]]](/product_catalog/quable/quable.md).
 
@@ -328,7 +328,7 @@ The [discount](discounts.md) policies decide which actions can be executed by gi
 |                             | <nobr>`edit`</nobr>   | edit a product type, attribute, attribute group                                                                  | [Product Type](limitation_reference.md#product-type-limitation) |
 |                             | <nobr>`view`</nobr>   | view product types, attributes and attribute groups                                                              |                      |
 
-!!! warning
+!!! caution
 
     The `ProductType` limitation can't be used when using [[[= pim_product_name =]]](/product_catalog/quable/quable.md).
 

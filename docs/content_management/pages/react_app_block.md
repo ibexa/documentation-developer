@@ -1,5 +1,6 @@
 ---
 description: Create a block that allows an editor to embed a preconfigured React component into a page.
+edition: experience
 ---
 
 # React App block

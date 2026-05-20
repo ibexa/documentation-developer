@@ -96,7 +96,7 @@ In this example, it removes a product roadmap entry from the menu and adds a hel
 The tab is displayed in a production environment only.
 
 ``` php
-[[= include_file('code_samples/back_office/menu/menu_item/src/EventSubscriber/HelpMenuSubscriber.php') =]]
+[[= include_code('code_samples/back_office/menu/menu_item/src/EventSubscriber/HelpMenuSubscriber.php') =]]
 ```
 
 !!! tip

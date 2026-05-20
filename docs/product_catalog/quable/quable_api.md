@@ -29,15 +29,15 @@ To retrieve product information coming from [[= pim_product_name =]], use the sa
 The following example shows how you can retrieve a single product:
 
 ``` php
-[[= include_file('code_samples/api/product_catalog/src/Command/ProductCommand.php', 54, 57, remove_indent=True) =]]
+[[= include_code('code_samples/api/product_catalog/src/Command/ProductCommand.php', 55, 57, remove_indent=True) =]]
 ```
 
 ### Search for products
 
-Use [`ProductQuery`](product_api.md#getting-product-information) to search for mulitple products:
+Use [`ProductQuery`](product_api.md#getting-product-information) to search for multiple products:
 
 ``` php
-[[= include_file('code_samples/api/product_catalog/src/Command/ProductCommand.php', 58, 68, remove_indent=True) =]]
+[[= include_code('code_samples/api/product_catalog/src/Command/ProductCommand.php', 59, 68, remove_indent=True) =]]
 ```
 
 When working with [[= pim_product_name =]] products, the following search criteria are supported:

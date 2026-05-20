@@ -1,0 +1,50 @@
+<?php
+declare(strict_types=1);
+
+namespace App\FieldType\Point2D;
+
+use Ibexa\Contracts\Core\FieldType\Value as ValueInterface;
+use Symfony\Component\Validator\Constraints as Assert;
+
+final class ValueFinal implements ValueInterface
+{
+    #[Assert\NotBlank]
+    private ?float $x = null;
+
+    #[Assert\NotBlank]
+    private ?float $y = null;
+
+    /** @param list<float|null> $coords */
+    public function __construct(array $coords = [])
+    {
+        if (!empty($coords)) {
+            $this->x = $coords[0];
+            $this->y = $coords[1];
+        }
+    }
+
+    public function getX(): ?float
+    {
+        return $this->x;
+    }
+
+    public function setX(?float $x): void
+    {
+        $this->x = $x;
+    }
+
+    public function getY(): ?float
+    {
+        return $this->y;
+    }
+
+    public function setY(?float $y): void
+    {
+        $this->y = $y;
+    }
+
+    public function __toString(): string
+    {
+        return "({$this->x}, {$this->y})";
+    }
+}

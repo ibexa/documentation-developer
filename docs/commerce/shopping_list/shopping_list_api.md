@@ -1,7 +1,7 @@
 ---
 description: Manage shopping lists from PHP API or REST API.
 editions: lts-update commerce
-month_change: true
+month_change: false
 ---
 
 # Shopping list APIs
@@ -71,13 +71,13 @@ The following example adds products to a shopping list while avoiding error on d
 In this example the duplicates are ignored, but you could extend it to, for example, notify the user about each found duplicate.
 
 ```php
-[[= include_file('code_samples/shopping_list/php_api/src/Command/ShoppingListFilterCommand.php', 39, 50) =]]
+[[= include_code('code_samples/shopping_list/php_api/src/Command/ShoppingListFilterCommand.php', 40, 50, remove_indent=True) =]]
 ```
 
 The following example moves products from a source shopping list to a target shopping list after filtering out products already in the target list:
 
 ```php
-[[= include_file('code_samples/shopping_list/php_api/src/Command/ShoppingListMoveCommand.php', 42, 54) =]]
+[[= include_code('code_samples/shopping_list/php_api/src/Command/ShoppingListMoveCommand.php', 43, 54, remove_indent=True) =]]
 ```
 
 ### Transfer between shopping list and cart
@@ -90,7 +90,7 @@ then adds a product to the shopping list and copies it twice to the cart.
 It continues with moving the whole cart to an empty list.
 
 ```php
-[[= include_file('code_samples/shopping_list/php_api/src/Controller/CartShoppingListTransferController.php', 69, 92) =]]
+[[= include_code('code_samples/shopping_list/php_api/src/Controller/CartShoppingListTransferController.php', 70, 92, remove_indent=True) =]]
 ```
 
 ### Events

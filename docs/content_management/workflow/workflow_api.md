@@ -25,7 +25,7 @@ but the implementation in workflow service extends them, for example by providin
 To get information about a specific workflow for a content item, use `WorkflowServiceInterface::loadWorkflowMetadataForContent`:
 
 ``` php
-[[= include_file('code_samples/api/public_php_api/src/Command/WorkflowCommand.php', 51, 56) =]]
+[[= include_code('code_samples/api/public_php_api/src/Command/WorkflowCommand.php', 52, 56, remove_indent=True) =]]
 ```
 
 !!! tip
@@ -36,7 +36,7 @@ To get information about a specific workflow for a content item, use `WorkflowSe
 To get a list of all workflows that can be used for a given content item, use `WorkflowRegistry`:
 
 ``` php
-[[= include_file('code_samples/api/public_php_api/src/Command/WorkflowCommand.php', 45, 49) =]]
+[[= include_code('code_samples/api/public_php_api/src/Command/WorkflowCommand.php', 46, 49, remove_indent=True) =]]
 ```
 
 ## Applying workflow transitions
@@ -44,14 +44,14 @@ To get a list of all workflows that can be used for a given content item, use `W
 To place a content item in a workflow, use `WorkflowService::start`:
 
 ``` php
-[[= include_file('code_samples/api/public_php_api/src/Command/WorkflowCommand.php', 50, 51) =]]
+[[= include_code('code_samples/api/public_php_api/src/Command/WorkflowCommand.php', 51, 51, remove_indent=True) =]]
 ```
 
 To apply a transition to a content item, use `Workflow::apply`.
 Additionally, you can check if the transition is possible for the given object using `WorkflowService::can`:
 
 ``` php
-[[= include_file('code_samples/api/public_php_api/src/Command/WorkflowCommand.php', 57, 62) =]]
+[[= include_code('code_samples/api/public_php_api/src/Command/WorkflowCommand.php', 58, 62, remove_indent=True) =]]
 ```
 
 !!! tip

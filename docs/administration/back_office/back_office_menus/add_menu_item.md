@@ -35,7 +35,7 @@ The route indicates a controller that fetches all visible content items and rend
 Create the following controller file in `src/Controller/AllContentListController.php`:
 
 ``` php
-[[= include_file('code_samples/back_office/menu/menu_item/src/Controller/AllContentListController.php') =]]
+[[= include_code('code_samples/back_office/menu/menu_item/src/Controller/AllContentListController.php') =]]
 ```
 
 ## Add template
