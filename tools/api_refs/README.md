@@ -78,7 +78,6 @@ For example, to build the API Reference based on the development version of the 
 DXP_VERSION=v5.0.x-dev BASE_DXP_BRANCH=5.0 VIRTUAL_DXP_VERSION=5.0.10 tools/api_refs/api_refs.sh ~/my/path/to/auth.json
 ```
 
-
 ### Test a branch
 
 To load a package on a development branch instead of a released version,
