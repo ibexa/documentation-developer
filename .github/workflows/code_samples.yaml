@@ -60,15 +60,25 @@ jobs:
                   dependency-versions: highest
 
             - name: Run PHPStan analysis
+              id: phpstan
               continue-on-error: true
               run: composer phpstan
   
             - if: matrix.php == '8.4' # ibexa/rector supports PHP 8.3 and higher
+              id: rector
               name: Run Rector check
               continue-on-error: true
               run: |
                 composer require --dev ibexa/rector:~4.6.x-dev
                 composer check-rector
+
+            - name: Fail job if any check failed
+              if: always()
+              run: |
+                  if [[ "${{ steps.phpstan.outcome }}" == "failure" || "${{ steps.rector.outcome }}" == "failure" ]]; then
+                      echo "One or more checks failed: PHPStan=${{ steps.phpstan.outcome }}, Rector=${{ steps.rector.outcome }}"
+                      exit 1
+                  fi
 
     code-samples-inclusion-check:
         name: Check code samples inclusion

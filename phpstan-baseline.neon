@@ -157,18 +157,6 @@ parameters:
 			path: code_samples/api/rest_api/create_image.xml.php
 
 		-
-			message: '#^Result of && is always false\.$#'
-			identifier: booleanAnd.alwaysFalse
-			count: 1
-			path: code_samples/api/rest_api/create_image.xml.php
-
-		-
-			message: '#^Strict comparison using \=\=\= between ''ErrorMessage'' and ''Content'' will always evaluate to false\.$#'
-			identifier: identical.alwaysFalse
-			count: 1
-			path: code_samples/api/rest_api/create_image.xml.php
-
-		-
 			message: '#^Method App\\Rest\\Output\\ValueObjectVisitorDispatcher\:\:__construct\(\) has parameter \$visitors with no value type specified in iterable type iterable\.$#'
 			identifier: missingType.iterableValue
 			count: 1
