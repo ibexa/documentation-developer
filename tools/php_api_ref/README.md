@@ -64,6 +64,20 @@ nano phpdoc.dev.xml # Edit and make your changes. For example, target only your 
 tools/php_api_ref/phpdoc.sh ~/.composer/auth.json ./docs/api/php_api/php_api_reference-TMP
 ```
 
+### Creating a build of dev version
+
+To build the reference for an unreleased version, set the following variables:
+
+- `DXP_VERSION`
+- `BASE_DXP_BRANCH`
+- `VIRTUAL_DXP_VERSION`
+
+For example, to build the API Reference based on the development version of the DXP before the 5.0.10 release, run:
+
+``` bash
+DXP_VERSION=v5.0.x-dev BASE_DXP_BRANCH=5.0 VIRTUAL_DXP_VERSION=5.0.10 tools/api_refs/api_refs.sh ~/my/path/to/auth.json
+```
+
 ### Test a branch
 
 To load a package on a development branch instead of a released version,
