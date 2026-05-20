@@ -174,7 +174,7 @@ deptrac:
       - Ibexa\Bundle\Checkout\Form\Type\AddressType
       - Ibexa\Bundle\Payment\Form\Type\PaymentMethodChoiceType
       - Ibexa\Bundle\Shipping\Form\Type\ShippingMethodChoiceType
-    App\GraphQL\Schema\MyCustomFieldDefinitionMapper:
+    App\GraphQL\Schema\MyFieldDefinitionMapper:
       - Ibexa\GraphQL\Schema\Domain\Content\Mapper\FieldDefinition\DecoratingFieldDefinitionMapper
     App\Migrations\Action\AssignSection:
       - Ibexa\Migration\ValueObject\Step\Action
