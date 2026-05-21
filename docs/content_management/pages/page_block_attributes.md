@@ -34,7 +34,7 @@ The following attribute types are available:
 |`embed`|Embedded content item|`udw_config_name`: name of the [Universal Discovery Widget's configuration](browser.md#add-new-configuration) |
 |`embedvideo`|Embedded content item|`udw_config_name`: name of the [Universal Discovery Widget's configuration](browser.md#add-new-configuration) |
 |`select`|Drop-down with options to select|<ul><li>`choices` lists the available options in `label: value` form</li><li>`multiple`, when set to true, allows selecting more than one option</li></ul>|
-|`checkbox`|Checkbox|Selects available option if `value: true`. Checkbox appearance [can be configured](#configure-checkbox-appearance) in block configuration forms|
+|`checkbox`|Checkbox|Selects available option if `value: true`. Checkbox appearance in block configuration forms [can be configured](#configure-checkbox-appearance) |
 |`multiple`|Checkbox(es)|`choices` lists the available options in `label: value` form.|
 |`radio`|Radio buttons|`choices` lists the available options in `label: value` form.|
 |`locationlist`|Location selection| `udw_config_name`: name of the [Universal Discovery Widget's configuration](browser.md#add-new-configuration) |
