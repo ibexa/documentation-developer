@@ -14,7 +14,7 @@ AI solutions are extensible. You can create [custom AI actions](extend_ai_action
 AI integration goes even further:
 
 - Some AI agents can learn how to use the [REST](rest_api_usage.md) or [GraphQL](graphql.md) APIs.
-- Other, like those integrated into IDEs, can even learn how to use the [PHP API](php_api.md) and assist you in code development.
+- Other, like those integrated into IDEs, can learn how to use the [PHP API](php_api.md) and assist you in code development.
 
 [[= cards([
     "ai/ai_actions/ai_actions",

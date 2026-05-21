@@ -44,7 +44,7 @@ In `config/packages/security.yaml`, make the following changes:
 
 ### Repository user
 
-The AI agent authenticate against the MCP server with a JWT token generated for a specific repository user account.
+The AI agents authenticate against the MCP server with a JWT token generated for a specific repository user account.
 
 This repository user can be:
 
@@ -131,7 +131,7 @@ For example, you could set up a dedicated Redis/Valkey:
 [[= include_code('code_samples/mcp/mcp.matrix.yaml', 17, 17) =]]
 ```
 
-For a production cluster, it is recommended to use a Redis/Valkey cache pool so the cache can be shared by all nodes.
+For a production cluster, it's recommended to use a Redis/Valkey cache pool so the cache can be shared by all nodes.
 
 Clear the cache pool after making changes:
 

@@ -24,23 +24,23 @@ The [`Ibexa\Contracts\Mcp\Attribute\McpTool` attribute](/api/php_api/php_api_ref
 It accepts the following optional arguments:
 
 - `servers` - array of server identifiers the tool is assigned to
-  <br>For more information, see [tools configuration](mcp_config.md#tool-configuration)
+  <br>For more information, see [tools configuration](mcp_config.md#tool-configuration).
 - `name` - tool name (if not set, function name is used)
 - `description` - tool description, used by AI agents to understand the tool's purpose
 - `icons` - array of [`Mcp\Schema\Icon`](https://github.com/modelcontextprotocol/php-sdk/blob/main/src/Schema/Icon.php) instances
-  <br>For more information, see the [`icons` specification](https://modelcontextprotocol.io/specification/latest/basic/index#icons)
+  <br>For more information, see the [`icons` specification](https://modelcontextprotocol.io/specification/latest/basic/index#icons).
 - `outputSchema` - associative array describing a JSON object response
 - `annotations` - [`Mcp\Schema\ToolAnnotations`](https://github.com/modelcontextprotocol/php-sdk/blob/main/src/Schema/ToolAnnotations.php) instance
-  <br>For more information, see the [`ToolAnnotations` specification](https://modelcontextprotocol.io/specification/2025-11-25/schema#toolannotations)
+  <br>For more information, see the [`ToolAnnotations` specification](https://modelcontextprotocol.io/specification/2025-11-25/schema#toolannotations).
 - `meta` - free-form array for additional metadata
-  <br>For more information, see the [`_meta` specification](https://modelcontextprotocol.io/specification/latest/basic/index#_meta)
+  <br>For more information, see the [`_meta` specification](https://modelcontextprotocol.io/specification/latest/basic/index#_meta).
 
 The framework automatically builds an `inputSchema` from the method arguments and their types.
 To customize or extend the generated schema, you can:
 
 - add descriptions with DocBlock `@param` tags
 - use the [`Schema` attribute](https://github.com/php-mcp/server#-schema-generation-and-validation)
- 
+
 If an argument is an [enum](https://www.php.net/manual/en/language.types.enumerations.php), its possible values are listed in the schema ([`UntitledSingleSelectEnumSchema`](https://modelcontextprotocol.io/specification/latest/schema#untitledsingleselectenumschema)).
 
 ### Prompts
@@ -55,9 +55,9 @@ It accepts several arguments that describe how the prompt is used:
 - `name` (optional) - prompt name - if not set, method name is used
 - `description` (optional) - human-readable prompt description
 - `icons` (optional) - array of [`Mcp\Schema\Icon`](https://github.com/modelcontextprotocol/php-sdk/blob/main/src/Schema/Icon.php) instances
-  <br>For more information, see the [`icons` specification](https://modelcontextprotocol.io/specification/latest/basic/index#icons)
+  <br>For more information, see the [`icons` specification](https://modelcontextprotocol.io/specification/latest/basic/index#icons).
 - `meta` (optional) - rarely used free-form array for additional metadata
-  <br>For more information, see the [`_meta` specification](https://modelcontextprotocol.io/specification/latest/basic/index#_meta)
+  <br>For more information, see the [`_meta` specification](https://modelcontextprotocol.io/specification/latest/basic/index#_meta).
 
 The framework automatically builds the `arguments` array from the method arguments and their types.
 Prompt method arguments must be strings to comply with the [`GetPromptRequestParams` schema](https://modelcontextprotocol.io/specification/latest/schema#getpromptrequestparams).
@@ -81,7 +81,7 @@ The server:
 - is enabled on the default repository
 - is available in all SiteAccesses
 - is accessible with the path `/mcp/example`
-  For example:
+  <br>For example:
     - `http://localhost/mcp/example`
     - `http://localhost/admin/mcp/example`
 - uses file storage for both discovery cache and sessions
