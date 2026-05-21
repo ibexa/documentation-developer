@@ -448,7 +448,6 @@ Run the provided SQL upgrade script to update your database:
     psql <database_name> < vendor/ibexa/installer/upgrade/db/postgresql/ibexa-5.0.6-to-5.0.7.sql
     ```
 
-
 ## v5.0.8
 
 ### VCL configuration
