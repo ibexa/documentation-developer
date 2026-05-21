@@ -453,7 +453,7 @@ Run the provided SQL upgrade script to update your database:
 ### VCL configuration
 
 Update your [Varnish VCL file](reverse_proxy.md#vcl-base-files) to align with the one from [`vendor/ibexa/http-cache/docs/varnish/vcl/`](https://github.com/ibexa/http-cache/tree/v5.0.8/docs/varnish/vcl).
-Especially if you plan to use the [Anonymous user segmentation in Ibexa CDP](https://doc.ibexa.co/en/5.0/cdp/cdp_activation/cdp_configuration/#anonymous-user-segmentation).
+Especially if you plan to use the [Anonymous user segmentation in [[= product_name_cdp =]]](https://doc.ibexa.co/en/5.0/cdp/cdp_activation/cdp_configuration/#anonymous-user-segmentation).
 Make sure it contains the highlighted addition:
 
 ``` vcl hl_lines="2 3"
