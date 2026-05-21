@@ -494,3 +494,9 @@ To use the [latest features](ibexa_dxp_v5.0.md) added to them, update them separ
     ### Shopping list [[% include 'snippets/lts-update_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
 
     To learn more about the [Shopping list](shopping_list_guide.md), see the [installation and configuration instructions](install_shopping_list.md).
+
+=== "MCP Servers"
+
+    ### MCP Servers
+
+    To learn more about the [MCP Servers](mcp_guide.md), see the [installation and configuration instructions](mcp_config.md).
