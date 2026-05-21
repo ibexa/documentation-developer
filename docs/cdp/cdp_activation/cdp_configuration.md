@@ -43,7 +43,7 @@ ibexa:
 - `activations` - activation details. You can configure multiple activations. They have to be of type `Ibexa` in [[= product_name =]] dashboard
 - `client_id` and `client_secret` - client credentials are used to authenticate against the Webhook endpoint. Make sure they're random and secure
 - `segment_group_identifier` - a [location](#segment-group) to which CDP data is imported
-- `membership` - this configuration enables support for [anonymous user segmentation](#anonymous-user-segmentation)
+- `membership` - configuration that enables support for [anonymous user segmentation](#anonymous-user-segmentation)
 - `membership.activation_id` and `membership.api_key` - credentials for the CDP Membership API, required for [anonymous user segmentation](#anonymous-user-segmentation)
 - `membership.base_url` - base URL of the CDP Membership API (default: `https://cdp-api.raptorsmartadvisor.com`)
 - `membership.timeout` - timeout in seconds for Membership API requests (default: `5`)
@@ -77,7 +77,7 @@ Next, add a segment group identifier to the configuration.
 
 ## Anonymous user segmentation
 
-To set up [segmentation for anonymous users](cdp_guide.md#anonymous-user-segmentation), execute the following steps:
+To set up [segmentation for anonymous users](cdp_guide.md#anonymous-user-segmentation), take the following steps:
 
 ### Set up CDP API activation
 
@@ -93,7 +93,7 @@ For more information, see [Website tracking dataflow](https://content.raptorserv
 ### Configuration
 
 Add the `membership.activation_id` and `membership.api_key` credentials to your [`ibexa.system.<scope>.cdp` configuration](#configuration), using the credentials for [CDP API activation](#set-up-cdp-api-activation).
-To control how long resolved segment memberships are cached per visitor, use the `ibexa_segmentation.anonymous.cache` configuration key:
+To control for how long resolved segment memberships are cached per visitor, use the `ibexa_segmentation.anonymous.cache` configuration key:
 
 ```yaml
 # config/packages/ibexa_segmentation.yaml
