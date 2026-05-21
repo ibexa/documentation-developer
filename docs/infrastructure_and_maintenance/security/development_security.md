@@ -192,7 +192,7 @@ lexik_jwt_authentication:
     # …
 ```
 
-3. Generate a [PEM encoded key pair](https://symfony.com/bundles/LexikJWTAuthenticationBundle/2.x/index.html#generate-the-ssl-keys) in `config/jwt` directory by using the command:
+3. Generate a [PEM encoded key pair](https://symfony.com/bundles/LexikJWTAuthenticationBundle/2.x/index.html#generate-the-ssl-keys) by using the following command which outputs key files in the `config/jwt` directory:
 
 ```bash
 php bin/console lexik:jwt:generate-keypair
