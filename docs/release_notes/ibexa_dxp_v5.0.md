@@ -4,17 +4,18 @@ title: Ibexa DXP v5.0 LTS
 month_change: true
 ---
 
-<!-- vale VariablesVersion = NO -->
+<!-- vale Ibexa.VariablesVersion = NO -->
 
 [[= release_notes_filters('Ibexa DXP v5.0 LTS', ['Headless', 'Experience', 'Commerce', 'LTS Update', 'New feature', 'First release']) =]]
 
 <div class="release-notes" markdown="1">
 
 [[% set version = 'v5.0.8' %]]
+[[% set date = '2026-05-21' %]]
 
 [[= release_note_entry_begin(
     'MCP Servers ' + version,
-    '2026-05-21',
+    date,
     ['Headless', 'Experience', 'Commerce', 'LTS Update', 'New feature', 'First release']
 ) =]]
 
@@ -26,8 +27,8 @@ For more information, see [MCP Servers product guide](https://doc.ibexa.co/en/5.
 [[= release_note_entry_end() =]]
 
 [[= release_note_entry_begin(
-    'Ibexa DXP ' + version,
-    '2026-05-21',
+    product_name + ' ' + version,
+    date,
     ['Headless', 'Experience', 'Commerce', 'New feature']
 ) =]]
 
@@ -118,6 +119,7 @@ The following additions were made to the PHP API:
 [[= release_note_entry_end() =]]
 
 [[% set version = 'v5.0.7' %]]
+[[% set date = null %]]
 
 [[= release_note_entry_begin(
     "Google Gemini connector " + version,

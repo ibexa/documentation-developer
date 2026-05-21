@@ -11,10 +11,11 @@ month_change: true
 <div class="release-notes" markdown="1">
 
 [[% set version = 'v4.6.30' %]]
+[[% set date = '2026-05-21' %]]
 
 [[= release_note_entry_begin(
-    'Ibexa DXP ' + version,
-    '2026-05-21',
+    product_name + ' ' + version,
+    date,
     ['Headless', 'Experience', 'Commerce', 'New feature']
 ) =]]
 
@@ -58,6 +59,7 @@ For more information, see [Workflow API](https://doc.ibexa.co/en/5.0/content_man
 [[= release_note_entry_end() =]]
 
 [[% set version = 'v4.6.29' %]]
+[[% set date = null %]]
 
 [[= release_note_entry_begin(
     "Integrated help " + version,
