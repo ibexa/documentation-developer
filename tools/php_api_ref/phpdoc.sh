@@ -32,9 +32,6 @@ if [ ! -d $PHP_API_OUTPUT_DIR ]; then
   fi;
 fi;
 PHP_API_OUTPUT_DIR=$(realpath $PHP_API_OUTPUT_DIR); # Transform into absolute path before changing the working directory
-REST_API_OUTPUT_FILE=$(realpath $REST_API_OUTPUT_FILE); # Transform into absolute path before changing the working directory
-REST_API_OPENAPI_FILE_YAML=$(realpath $REST_API_OPENAPI_FILE_YAML); # Transform into absolute path before changing the working directory
-REST_API_OPENAPI_FILE_JSON=$(realpath $REST_API_OPENAPI_FILE_JSON); # Transform into absolute path before changing the working directory
 
 if [ 1 -eq $FORCE_DXP_INSTALL ]; then
   echo 'Remove temporary directory…';
