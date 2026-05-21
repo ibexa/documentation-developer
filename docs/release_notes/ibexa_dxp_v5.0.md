@@ -18,8 +18,8 @@ month_change: true
     ['Headless', 'Experience', 'Commerce', 'LTS Update', 'New feature', 'First release']
 ) =]]
 
-MCP servers ease the discovery of interactions with [[= product_name =]] by AI agents.
-This feature allows you to configure several MCP servers with their own set of tools.
+MCP servers make it easier for AI agents to discover the available interactions with [[= product_name =]].
+With the MCP Servers feature, you can configure multiple MCP servers with their specific sets of tools.
 
 For more information, see [MCP Servers product guide](https://doc.ibexa.co/en/5.0/ai/mcp/mcp_guide/).
 
@@ -61,7 +61,7 @@ For more information, see [Anonymous user segmentation](https://doc.ibexa.co/en/
 
 ### Gaussian blur optimization in Image Editor
 
-The [Image Editor]([[= user_doc =]]/image_management/edit_images/) now supports configurable gaussian blur strength for image optimization.
+The [Image Editor]([[= user_doc =]]/image_management/edit_images/) now supports configuring the strength of the gaussian blur that is used for image optimization.
 You can adjust the blur level to balance between file size reduction and image sharpness.
 For more information, see [Configure image editor](https://doc.ibexa.co/en/5.0/content_management/images/configure_image_editor/#gaussian-blur-strength).
 
