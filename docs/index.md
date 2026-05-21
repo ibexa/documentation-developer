@@ -90,7 +90,7 @@
             <div class="notification notification--lts-update" id="tile3">
                 <div class="notification__content">
                     <h2>The newest LTS Update is MCP Servers</h2>
-                    <div>Setup MCP servers to help AI agents interact with Ibexa DXP.</div>
+                    <div>Set up MCP servers to help AI agents interact with Ibexa DXP.</div>
                 </div>
                 <div class="notification__cta">
                     <a href="ai/mcp/mcp_guide/">Learn more about this LTS Update</a>
