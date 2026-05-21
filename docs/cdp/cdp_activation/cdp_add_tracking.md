@@ -8,14 +8,17 @@ edition: experience
 The final step is setting up a tracking script that identifies visitors and records their interactions.
 You can set it up in two ways:
 
-## Tracking with built-in Raptor tracking functions
+- with Raptor's built in tracking functions
+- manually, with tracking scripts
+
+## Set up tracking with built-in Raptor tracking functions
 
 If your project uses the [Raptor connector](raptor_connector.md), use the built-in [Raptor tracking functions](tracking_functions.md).
 This recommended approach supports both client-side and server-side tracking, handles cookie consent, and sets the tracking cookie required for [anonymous user segmentation](cdp_configuration.md#anonymous-user-segmentation).
 
 For setup instructions, see [Raptor tracking functions](tracking_functions.md).
 
-## Manual setup
+## Manually set up tracking with tracking scripts
 
 If you aren't using the Raptor connector, you can set up tracking manually.
 
@@ -24,19 +27,22 @@ It requires a head tracking script between the `<head></head>` tags on your webs
 For more information about setting up a tracking script manually, see [Raptor documentation](https://content.raptorservices.com/help-center/client-side-tracking).
 
 Now, you need to add a tracker to specific places in your website where you want to track users.
-For example, add this tracker to the landing page template to track user entrances.
+For example, add this tracker to the landing page template to track various user activities:
 
-```js
-raptor.trackEvent('visit', ..., ...);
-```
-or purchases:
+- user entrances
 
-```js
-  //Parameters for Product 1
-raptor.trackEvent('buy', ..., ...);
-  //Parameters for Product 2
-raptor.trackEvent('buy', ..., ...);
-```
+    ```js
+    raptor.trackEvent('visit', ..., ...);
+    ```
+
+- user purchases
+
+    ```js
+    //Parameters for Product 1
+    raptor.trackEvent('buy', ..., ...);
+    //Parameters for Product 2
+    raptor.trackEvent('buy', ..., ...);
+    ```
 
 For tracking to be effective, you also need to send ID of a logged-in user in the same way.
 Add the user ID information of logged-in users by using below script:
@@ -47,4 +53,4 @@ raptor.push("setRuid","USER_ID_HERE")
 
 For anonymous visitors, Raptor's tracking script automatically sets an `rsa` cookie that uniquely identifies the visitor, without calling the `setRuid` method.
 
-For more information on tracking events, see [the documentation](https://content.raptorservices.com/help-center/tracking-events-for-recommendation).
+For more information on tracking events, see [Raptor documentation](https://content.raptorservices.com/help-center/tracking-events-for-recommendation).
