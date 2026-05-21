@@ -503,9 +503,3 @@ To use the [latest features](ibexa_dxp_v5.0.md) added to them, update them separ
     ```bash
     composer require ibexa/fieldtype-richtext-rte:[[= latest_tag_5_0 =]] ibexa/ckeditor-premium:[[= latest_tag_5_0 =]]
     ```
-
-=== "Shopping list"
-
-    ### Shopping list [[% include 'snippets/lts-update_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
-
-    To learn more about the [Shopping list](shopping_list_guide.md), see the [installation and configuration instructions](install_shopping_list.md).
