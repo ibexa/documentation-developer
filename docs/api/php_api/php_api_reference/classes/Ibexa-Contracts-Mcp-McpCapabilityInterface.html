@@ -2,10 +2,10 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-            <title>AbstractEventData | PHP API Reference (Ibexa Documentation)</title>
+            <title>McpCapabilityInterface | PHP API Reference (Ibexa Documentation)</title>
     
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="description" content="Base class for tracking event data with common parameter building logic." />
+        <meta name="description" content="Marker interface for classes containing MCP capabilities (tools, prompts, resources)." />
         
     <base href="../">
     <link rel="icon" href="images/favicon.png"/>
@@ -210,20 +210,12 @@
             &gt;
         </li>
             <li class="breadcrumb-item">
-            <a href="namespaces/ibexa-contracts-connectorraptor.html">ConnectorRaptor</a>
-            &gt;
-        </li>
-            <li class="breadcrumb-item">
-            <a href="namespaces/ibexa-contracts-connectorraptor-tracking.html">Tracking</a>
-            &gt;
-        </li>
-            <li class="breadcrumb-item">
-            <a href="namespaces/ibexa-contracts-connectorraptor-tracking-event.html">Event</a>
+            <a href="namespaces/ibexa-contracts-mcp.html">Mcp</a>
             &gt;
         </li>
         <li class="breadcrumb-item breadcrumb-item-current">
         <span>
-            AbstractEventData
+            McpCapabilityInterface
         </span>
     </li>
 </ul>
@@ -232,29 +224,27 @@
             <div class="pills">
                     
                     
-            <div class="pill optional-pill" title="Included in the optional package&#x000A;ibexa/connector-raptor"></div>
+            <div class="pill optional-pill" title="Included in the optional package&#x000A;ibexa/mcp"></div>
             </div>
-        <h1 id="AbstractEventData">
-        AbstractEventData            </h1>
-            <button class="content-header__copy-fqcn copy-to-clipboard" title="Ibexa\Contracts\ConnectorRaptor\Tracking\Event\AbstractEventData" data-copy-value="Ibexa\Contracts\ConnectorRaptor\Tracking\Event\AbstractEventData">Copy FQCN</button>
-        <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/connector-raptor/src/contracts/Tracking/Event/AbstractEventData.php">
-        <abbr title="vendor/ibexa/connector-raptor/src/contracts/Tracking/Event/AbstractEventData.php">AbstractEventData.php</abbr>
+        <h1 id="McpCapabilityInterface">
+        McpCapabilityInterface            </h1>
+            <button class="content-header__copy-fqcn copy-to-clipboard" title="Ibexa\Contracts\Mcp\McpCapabilityInterface" data-copy-value="Ibexa\Contracts\Mcp\McpCapabilityInterface">Copy FQCN</button>
+        <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/mcp/src/contracts/McpCapabilityInterface.php">
+        <abbr title="vendor/ibexa/mcp/src/contracts/McpCapabilityInterface.php">McpCapabilityInterface.php</abbr>
                 :
         <span title="at line 16">16</span>
                 <img src="./images/copy.svg" title="Copy path" />
     </div>
-                        <div class="content-header__subheader">Read-only</div>
-                                    <div class="content-header__subheader">Abstract</div>
-        
-        
-                    <div class="content-header__subheader">
-                Implements
-                                    <a href="classes/Ibexa-Contracts-ConnectorRaptor-Tracking-Event-EventDataInterface.html"><abbr title="\Ibexa\Contracts\ConnectorRaptor\Tracking\Event\EventDataInterface">EventDataInterface</abbr></a>                            </div>
-        
+            <div class="content-header__subheader">Interface</div>
+
                 </div>
-        <p>Base class for tracking event data with common parameter building logic.</p>
+        <p>Marker interface for classes containing MCP capabilities (tools, prompts, resources).</p>
 
 
+    <section class="phpdocumentor-description">
+        <p>Classes implementing this interface will be scanned for MCP attributes.</p>
+
+    </section>
 
                     
 
@@ -266,128 +256,7 @@
 
     
     
-    
-    <h2 id="methods">
-        Methods<a class="headerlink" href="classes/Ibexa-Contracts-ConnectorRaptor-Tracking-Event-AbstractEventData.html#methods" title="Permanent link">¶</a>
-</h2>
-
-            <div class="content-header">
-        <h3 id="method_getTemplateHint">
-                <img src="./images/public.svg" alt="public" title="public" />getTemplateHint()
-            <a class="headerlink" href="classes/Ibexa-Contracts-ConnectorRaptor-Tracking-Event-AbstractEventData.html#method_getTemplateHint" title="Permanent link">¶</a>
-    </h3>
-        <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/connector-raptor/src/contracts/Tracking/Event/AbstractEventData.php">
-        <abbr title="vendor/ibexa/connector-raptor/src/contracts/Tracking/Event/AbstractEventData.php">AbstractEventData.php</abbr>
-                :
-        <span title="at line 44">44</span>
-                <img src="./images/copy.svg" title="Copy path" />
-    </div>
-        </div>
-    <p>Returns optional template hint for special rendering needs.</p>
-
-<div class="highlight">
-    <table class="highlighttable">
-        <tbody>
-            <tr>
-                <td class="linenos">
-                    <div class="linenodiv">
-                        <pre><span></span></pre>
-                    </div>
-                </td>
-                <td class="code">
-                    <div>
-                        <pre><code><span class="phpdocumentor-signature__visibility">public </span><span class="phpdocumentor-signature__name">getTemplateHint</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string|null</span></code></pre>
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-</div>
-<div class="phpdocumentor-label-line">
-    </div>
-    <h4>Return values</h4>
-    <p class="phpdocumentor-signature__response_type">string|null</p>
-                        
-    
-                <div class="content-header">
-        <h3 id="method_buildParameters">
-                <img src="./images/protected.svg" alt="protected" title="protected" />buildParameters()
-            <a class="headerlink" href="classes/Ibexa-Contracts-ConnectorRaptor-Tracking-Event-AbstractEventData.html#method_buildParameters" title="Permanent link">¶</a>
-    </h3>
-        <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/connector-raptor/src/contracts/Tracking/Event/AbstractEventData.php">
-        <abbr title="vendor/ibexa/connector-raptor/src/contracts/Tracking/Event/AbstractEventData.php">AbstractEventData.php</abbr>
-                :
-        <span title="at line 24">24</span>
-                <img src="./images/copy.svg" title="Copy path" />
-    </div>
-        </div>
-
-<div class="highlight">
-    <table class="highlighttable">
-        <tbody>
-            <tr>
-                <td class="linenos">
-                    <div class="linenodiv">
-                        <pre><span></span></pre>
-                    </div>
-                </td>
-                <td class="code">
-                    <div>
-                        <pre><code><span class="phpdocumentor-signature__visibility">protected </span><span class="phpdocumentor-signature__name">buildParameters</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">array&lt;string, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$required</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">array&lt;string, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$optional</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">[]</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string, mixed&gt;</span></code></pre>
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-</div>
-<div class="phpdocumentor-label-line">
-    </div>
-    <h4>Parameters</h4>
-    <table class="method-parameters">
-        <thead>
-            <tr>
-                <th scope="col">Name</th>
-                <th scope="col">Type</th>
-                <th scope="col">Default value</th>
-                <th scope="col">Description</th>
-            </tr>
-        </thead>
-        <tbody>
-                            <tr>
-                    <td>
-                        $required
-                    </td>
-                    <td>
-                        array&lt;string, mixed&gt;
-                    </td>
-                    <td class="empty">
-                                                    -
-                                            </td>
-                    <td class="empty">
-                                                    -
-                                            </td>
-                </tr>
-                            <tr>
-                    <td>
-                        $optional
-                    </td>
-                    <td>
-                        array&lt;string, mixed&gt;
-                    </td>
-                    <td>
-                                                                                    []
-                                                                        </td>
-                    <td class="empty">
-                                                    -
-                                            </td>
-                </tr>
-                    </tbody>
-    </table>
-    <h4>Return values</h4>
-    <p class="phpdocumentor-signature__response_type">array&lt;string, mixed&gt;</p>
-                        
-    
-                                </div>
+                        </div>
                     </article>
                 </div>
 
@@ -395,32 +264,10 @@
                         <div class="md-sidebar__scrollwrap">
                             <div class="md-sidebar__inner">
                                 <nav class="md-nav md-nav--secondary" aria-label="">
-                                                
-            <label class="md-nav__title" for="__toc" title="AbstractEventData">
-            AbstractEventData
-        </label>
+                                            
     
     <ul class="md-nav__list">
-                                    <li class="md-nav__item level-1 with-children">
-                <a href="classes/Ibexa-Contracts-ConnectorRaptor-Tracking-Event-AbstractEventData.html#methods" title="Methods" class="md-nav__link">
-                    Methods
-                </a>
-                <nav class="md-nav">
-                    <ul class="md-nav__list">
-                                                    <li class="md-nav__item level-2">
-                                <a href="classes/Ibexa-Contracts-ConnectorRaptor-Tracking-Event-AbstractEventData.html#method_getTemplateHint" title="getTemplateHint" class="md-nav__link">
-                                    getTemplateHint()
-                                </a>
-                            </li>
-                                                    <li class="md-nav__item level-2">
-                                <a href="classes/Ibexa-Contracts-ConnectorRaptor-Tracking-Event-AbstractEventData.html#method_buildParameters" title="buildParameters" class="md-nav__link">
-                                    buildParameters()
-                                </a>
-                            </li>
-                                            </ul>
-                </nav>
-            </li>
-            </ul>
+                    </ul>
 
                                 </nav>
                             </div>

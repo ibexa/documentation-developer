@@ -2,10 +2,10 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-            <title>EventRendererInterface | PHP API Reference (Ibexa Documentation)</title>
+            <title>McpServerConfigurationRegistryInterface | PHP API Reference (Ibexa Documentation)</title>
     
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="description" content="Renders JavaScript snippets for tracking events." />
+        <meta name="description" content="" />
         
     <base href="../">
     <link rel="icon" href="images/favicon.png"/>
@@ -210,16 +210,12 @@
             &gt;
         </li>
             <li class="breadcrumb-item">
-            <a href="namespaces/ibexa-contracts-connectorraptor.html">ConnectorRaptor</a>
-            &gt;
-        </li>
-            <li class="breadcrumb-item">
-            <a href="namespaces/ibexa-contracts-connectorraptor-tracking.html">Tracking</a>
+            <a href="namespaces/ibexa-contracts-mcp.html">Mcp</a>
             &gt;
         </li>
         <li class="breadcrumb-item breadcrumb-item-current">
         <span>
-            EventRendererInterface
+            McpServerConfigurationRegistryInterface
         </span>
     </li>
 </ul>
@@ -228,22 +224,21 @@
             <div class="pills">
                     
                     
-            <div class="pill optional-pill" title="Included in the optional package&#x000A;ibexa/connector-raptor"></div>
+            <div class="pill optional-pill" title="Included in the optional package&#x000A;ibexa/mcp"></div>
             </div>
-        <h1 id="EventRendererInterface">
-        EventRendererInterface            </h1>
-            <button class="content-header__copy-fqcn copy-to-clipboard" title="Ibexa\Contracts\ConnectorRaptor\Tracking\EventRendererInterface" data-copy-value="Ibexa\Contracts\ConnectorRaptor\Tracking\EventRendererInterface">Copy FQCN</button>
-        <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/connector-raptor/src/contracts/Tracking/EventRendererInterface.php">
-        <abbr title="vendor/ibexa/connector-raptor/src/contracts/Tracking/EventRendererInterface.php">EventRendererInterface.php</abbr>
+        <h1 id="McpServerConfigurationRegistryInterface">
+        McpServerConfigurationRegistryInterface            </h1>
+            <button class="content-header__copy-fqcn copy-to-clipboard" title="Ibexa\Contracts\Mcp\McpServerConfigurationRegistryInterface" data-copy-value="Ibexa\Contracts\Mcp\McpServerConfigurationRegistryInterface">Copy FQCN</button>
+        <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/mcp/src/contracts/McpServerConfigurationRegistryInterface.php">
+        <abbr title="vendor/ibexa/mcp/src/contracts/McpServerConfigurationRegistryInterface.php">McpServerConfigurationRegistryInterface.php</abbr>
                 :
-        <span title="at line 16">16</span>
+        <span title="at line 11">11</span>
                 <img src="./images/copy.svg" title="Copy path" />
     </div>
             <div class="content-header__subheader">Interface</div>
 
                 </div>
-        <p>Renders JavaScript snippets for tracking events.</p>
-
+    
 
 
                     
@@ -257,22 +252,21 @@
     
     
     <h2 id="methods">
-        Methods<a class="headerlink" href="classes/Ibexa-Contracts-ConnectorRaptor-Tracking-EventRendererInterface.html#methods" title="Permanent link">¶</a>
+        Methods<a class="headerlink" href="classes/Ibexa-Contracts-Mcp-McpServerConfigurationRegistryInterface.html#methods" title="Permanent link">¶</a>
 </h2>
 
             <div class="content-header">
-        <h3 id="method_renderEvent">
-                <img src="./images/public.svg" alt="public" title="public" />renderEvent()
-            <a class="headerlink" href="classes/Ibexa-Contracts-ConnectorRaptor-Tracking-EventRendererInterface.html#method_renderEvent" title="Permanent link">¶</a>
+        <h3 id="method_getServerConfiguration">
+                <img src="./images/public.svg" alt="public" title="public" />getServerConfiguration()
+            <a class="headerlink" href="classes/Ibexa-Contracts-Mcp-McpServerConfigurationRegistryInterface.html#method_getServerConfiguration" title="Permanent link">¶</a>
     </h3>
-        <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/connector-raptor/src/contracts/Tracking/EventRendererInterface.php">
-        <abbr title="vendor/ibexa/connector-raptor/src/contracts/Tracking/EventRendererInterface.php">EventRendererInterface.php</abbr>
+        <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/mcp/src/contracts/McpServerConfigurationRegistryInterface.php">
+        <abbr title="vendor/ibexa/mcp/src/contracts/McpServerConfigurationRegistryInterface.php">McpServerConfigurationRegistryInterface.php</abbr>
                 :
-        <span title="at line 21">21</span>
+        <span title="at line 26">26</span>
                 <img src="./images/copy.svg" title="Copy path" />
     </div>
         </div>
-    <p>Render JavaScript snippet for tracking event from EventDataInterface.</p>
 
 <div class="highlight">
     <table class="highlighttable">
@@ -285,7 +279,7 @@
                 </td>
                 <td class="code">
                     <div>
-                        <pre><code><span class="phpdocumentor-signature__visibility">public </span><span class="phpdocumentor-signature__name">renderEvent</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/Ibexa-Contracts-ConnectorRaptor-Tracking-Event-EventDataInterface.html"><abbr title="\Ibexa\Contracts\ConnectorRaptor\Tracking\Event\EventDataInterface">EventDataInterface</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$eventData</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$template</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code></pre>
+                        <pre><code><span class="phpdocumentor-signature__visibility">public </span><span class="phpdocumentor-signature__name">getServerConfiguration</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$serverIdentifier</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Ibexa-Contracts-Mcp-McpServerConfiguration.html"><abbr title="\Ibexa\Contracts\Mcp\McpServerConfiguration">McpServerConfiguration</abbr></a></span></code></pre>
                     </div>
                 </td>
             </tr>
@@ -307,28 +301,14 @@
         <tbody>
                             <tr>
                     <td>
-                        $eventData
+                        $serverIdentifier
                     </td>
                     <td>
-                        <a href="classes/Ibexa-Contracts-ConnectorRaptor-Tracking-Event-EventDataInterface.html"><abbr title="\Ibexa\Contracts\ConnectorRaptor\Tracking\Event\EventDataInterface">EventDataInterface</abbr></a>
+                        string
                     </td>
                     <td class="empty">
                                                     -
                                             </td>
-                    <td class="empty">
-                                                    -
-                                            </td>
-                </tr>
-                            <tr>
-                    <td>
-                        $template
-                    </td>
-                    <td>
-                        string|null
-                    </td>
-                    <td>
-                                                                                    null
-                                                                        </td>
                     <td class="empty">
                                                     -
                                             </td>
@@ -336,22 +316,49 @@
                     </tbody>
     </table>
     <h4>Return values</h4>
-    <p class="phpdocumentor-signature__response_type">string</p>
-                        
+    <p class="phpdocumentor-signature__response_type"><a href="classes/Ibexa-Contracts-Mcp-McpServerConfiguration.html"><abbr title="\Ibexa\Contracts\Mcp\McpServerConfiguration">McpServerConfiguration</abbr></a></p>
+                                                    
+    <h5 class="phpdocumentor-tag-list__heading">
+        Tags
+        <a href="classes/Ibexa-Contracts-Mcp-McpServerConfigurationRegistryInterface.html#method_getServerConfiguration_tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                                <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">Throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><abbr title="\InvalidArgumentException">InvalidArgumentException</abbr></span>
+                                                                                     
+                                    </dd>
+                            <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">Throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><a href="classes/Ibexa-Contracts-Core-Repository-Exceptions-InvalidArgumentException.html"><abbr title="\Ibexa\Contracts\Core\Repository\Exceptions\InvalidArgumentException">InvalidArgumentException</abbr></a></span>
+                                                                                     
+                                    </dd>
+                            <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">Throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><abbr title="\Psr\SimpleCache\InvalidArgumentException">InvalidArgumentException</abbr></span>
+                                                                                     
+                                    </dd>
+                                                                                    </dl>
     
                 <div class="content-header">
-        <h3 id="method_renderEventScript">
-                <img src="./images/public.svg" alt="public" title="public" />renderEventScript()
-            <a class="headerlink" href="classes/Ibexa-Contracts-ConnectorRaptor-Tracking-EventRendererInterface.html#method_renderEventScript" title="Permanent link">¶</a>
+        <h3 id="method_getServerConfigurations">
+                <img src="./images/public.svg" alt="public" title="public" />getServerConfigurations()
+            <a class="headerlink" href="classes/Ibexa-Contracts-Mcp-McpServerConfigurationRegistryInterface.html#method_getServerConfigurations" title="Permanent link">¶</a>
     </h3>
-        <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/connector-raptor/src/contracts/Tracking/EventRendererInterface.php">
-        <abbr title="vendor/ibexa/connector-raptor/src/contracts/Tracking/EventRendererInterface.php">EventRendererInterface.php</abbr>
+        <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/mcp/src/contracts/McpServerConfigurationRegistryInterface.php">
+        <abbr title="vendor/ibexa/mcp/src/contracts/McpServerConfigurationRegistryInterface.php">McpServerConfigurationRegistryInterface.php</abbr>
                 :
-        <span title="at line 31">31</span>
+        <span title="at line 19">19</span>
                 <img src="./images/copy.svg" title="Copy path" />
     </div>
         </div>
-    <p>Render JavaScript snippet for tracking event.</p>
 
 <div class="highlight">
     <table class="highlighttable">
@@ -364,7 +371,65 @@
                 </td>
                 <td class="code">
                     <div>
-                        <pre><code><span class="phpdocumentor-signature__visibility">public </span><span class="phpdocumentor-signature__name">renderEventScript</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">array&lt;string, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$parameters</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$template</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code></pre>
+                        <pre><code><span class="phpdocumentor-signature__visibility">public </span><span class="phpdocumentor-signature__name">getServerConfigurations</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string, <a href="classes/Ibexa-Contracts-Mcp-McpServerConfiguration.html"><abbr title="\Ibexa\Contracts\Mcp\McpServerConfiguration">McpServerConfiguration</abbr></a>&gt;</span></code></pre>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div class="phpdocumentor-label-line">
+    </div>
+    <h4>Return values</h4>
+    <p class="phpdocumentor-signature__response_type">array&lt;string, <a href="classes/Ibexa-Contracts-Mcp-McpServerConfiguration.html"><abbr title="\Ibexa\Contracts\Mcp\McpServerConfiguration">McpServerConfiguration</abbr></a>&gt;</p>
+                                                    
+    <h5 class="phpdocumentor-tag-list__heading">
+        Tags
+        <a href="classes/Ibexa-Contracts-Mcp-McpServerConfigurationRegistryInterface.html#method_getServerConfigurations_tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                                <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">Throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><a href="classes/Ibexa-Contracts-Core-Repository-Exceptions-InvalidArgumentException.html"><abbr title="\Ibexa\Contracts\Core\Repository\Exceptions\InvalidArgumentException">InvalidArgumentException</abbr></a></span>
+                                                                                     
+                                    </dd>
+                            <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">Throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><abbr title="\Psr\SimpleCache\InvalidArgumentException">InvalidArgumentException</abbr></span>
+                                                                                     
+                                    </dd>
+                                                                                    </dl>
+    
+                <div class="content-header">
+        <h3 id="method_hasServerConfiguration">
+                <img src="./images/public.svg" alt="public" title="public" />hasServerConfiguration()
+            <a class="headerlink" href="classes/Ibexa-Contracts-Mcp-McpServerConfigurationRegistryInterface.html#method_hasServerConfiguration" title="Permanent link">¶</a>
+    </h3>
+        <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/mcp/src/contracts/McpServerConfigurationRegistryInterface.php">
+        <abbr title="vendor/ibexa/mcp/src/contracts/McpServerConfigurationRegistryInterface.php">McpServerConfigurationRegistryInterface.php</abbr>
+                :
+        <span title="at line 32">32</span>
+                <img src="./images/copy.svg" title="Copy path" />
+    </div>
+        </div>
+
+<div class="highlight">
+    <table class="highlighttable">
+        <tbody>
+            <tr>
+                <td class="linenos">
+                    <div class="linenodiv">
+                        <pre><span></span></pre>
+                    </div>
+                </td>
+                <td class="code">
+                    <div>
+                        <pre><code><span class="phpdocumentor-signature__visibility">public </span><span class="phpdocumentor-signature__name">hasServerConfiguration</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$serverIdentifier</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code></pre>
                     </div>
                 </td>
             </tr>
@@ -386,28 +451,14 @@
         <tbody>
                             <tr>
                     <td>
-                        $parameters
+                        $serverIdentifier
                     </td>
                     <td>
-                        array&lt;string, mixed&gt;
+                        string
                     </td>
                     <td class="empty">
                                                     -
                                             </td>
-                    <td class="empty">
-                                                    -
-                                            </td>
-                </tr>
-                            <tr>
-                    <td>
-                        $template
-                    </td>
-                    <td>
-                        string|null
-                    </td>
-                    <td>
-                                                                                    null
-                                                                        </td>
                     <td class="empty">
                                                     -
                                             </td>
@@ -415,8 +466,29 @@
                     </tbody>
     </table>
     <h4>Return values</h4>
-    <p class="phpdocumentor-signature__response_type">string</p>
-                        
+    <p class="phpdocumentor-signature__response_type">bool</p>
+                                                    
+    <h5 class="phpdocumentor-tag-list__heading">
+        Tags
+        <a href="classes/Ibexa-Contracts-Mcp-McpServerConfigurationRegistryInterface.html#method_hasServerConfiguration_tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                                <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">Throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><a href="classes/Ibexa-Contracts-Core-Repository-Exceptions-InvalidArgumentException.html"><abbr title="\Ibexa\Contracts\Core\Repository\Exceptions\InvalidArgumentException">InvalidArgumentException</abbr></a></span>
+                                                                                     
+                                    </dd>
+                            <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">Throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><abbr title="\Psr\SimpleCache\InvalidArgumentException">InvalidArgumentException</abbr></span>
+                                                                                     
+                                    </dd>
+                                                                                    </dl>
     
                                 </div>
                     </article>
@@ -427,25 +499,30 @@
                             <div class="md-sidebar__inner">
                                 <nav class="md-nav md-nav--secondary" aria-label="">
                                             
-            <label class="md-nav__title" for="__toc" title="EventRendererInterface">
-            EventRendererInterface
+            <label class="md-nav__title" for="__toc" title="McpServerConfigurationRegistryInterface">
+            McpServerConfigurationRegistryInterface
         </label>
     
     <ul class="md-nav__list">
                             <li class="md-nav__item level-1 with-children">
-                <a href="classes/Ibexa-Contracts-ConnectorRaptor-Tracking-EventRendererInterface.html#methods" title="Methods" class="md-nav__link">
+                <a href="classes/Ibexa-Contracts-Mcp-McpServerConfigurationRegistryInterface.html#methods" title="Methods" class="md-nav__link">
                     Methods
                 </a>
                 <nav class="md-nav">
                     <ul class="md-nav__list">
                                                     <li class="md-nav__item level-2">
-                                <a href="classes/Ibexa-Contracts-ConnectorRaptor-Tracking-EventRendererInterface.html#method_renderEvent" title="renderEvent" class="md-nav__link">
-                                    renderEvent()
+                                <a href="classes/Ibexa-Contracts-Mcp-McpServerConfigurationRegistryInterface.html#method_getServerConfiguration" title="getServerConfiguration" class="md-nav__link">
+                                    getServerConfiguration()
                                 </a>
                             </li>
                                                     <li class="md-nav__item level-2">
-                                <a href="classes/Ibexa-Contracts-ConnectorRaptor-Tracking-EventRendererInterface.html#method_renderEventScript" title="renderEventScript" class="md-nav__link">
-                                    renderEventScript()
+                                <a href="classes/Ibexa-Contracts-Mcp-McpServerConfigurationRegistryInterface.html#method_getServerConfigurations" title="getServerConfigurations" class="md-nav__link">
+                                    getServerConfigurations()
+                                </a>
+                            </li>
+                                                    <li class="md-nav__item level-2">
+                                <a href="classes/Ibexa-Contracts-Mcp-McpServerConfigurationRegistryInterface.html#method_hasServerConfiguration" title="hasServerConfiguration" class="md-nav__link">
+                                    hasServerConfiguration()
                                 </a>
                             </li>
                                             </ul>

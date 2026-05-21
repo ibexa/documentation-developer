@@ -2,10 +2,10 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-            <title>ContentRecommendations | PHP API Reference (Ibexa Documentation)</title>
+            <title>Membership | PHP API Reference (Ibexa Documentation)</title>
     
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="description" content="Collection of recommended content items from Raptor." />
+        <meta name="description" content="" />
         
     <base href="../">
     <link rel="icon" href="images/favicon.png"/>
@@ -210,20 +210,16 @@
             &gt;
         </li>
             <li class="breadcrumb-item">
-            <a href="namespaces/ibexa-contracts-connectorraptor.html">ConnectorRaptor</a>
+            <a href="namespaces/ibexa-contracts-cdp.html">Cdp</a>
             &gt;
         </li>
             <li class="breadcrumb-item">
-            <a href="namespaces/ibexa-contracts-connectorraptor-recommendations.html">Recommendations</a>
-            &gt;
-        </li>
-            <li class="breadcrumb-item">
-            <a href="namespaces/ibexa-contracts-connectorraptor-recommendations-value.html">Value</a>
+            <a href="namespaces/ibexa-contracts-cdp-membership.html">Membership</a>
             &gt;
         </li>
         <li class="breadcrumb-item breadcrumb-item-current">
         <span>
-            ContentRecommendations
+            Membership
         </span>
     </li>
 </ul>
@@ -232,28 +228,24 @@
             <div class="pills">
                     
                     
-            <div class="pill optional-pill" title="Included in the optional package&#x000A;ibexa/connector-raptor"></div>
+            <div class="pill optional-pill" title="Included in the optional package&#x000A;ibexa/cdp"></div>
             </div>
-        <h1 id="ContentRecommendations">
-        ContentRecommendations            </h1>
-            <button class="content-header__copy-fqcn copy-to-clipboard" title="Ibexa\Contracts\ConnectorRaptor\Recommendations\Value\ContentRecommendations" data-copy-value="Ibexa\Contracts\ConnectorRaptor\Recommendations\Value\ContentRecommendations">Copy FQCN</button>
-        <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/connector-raptor/src/contracts/Recommendations/Value/ContentRecommendations.php">
-        <abbr title="vendor/ibexa/connector-raptor/src/contracts/Recommendations/Value/ContentRecommendations.php">ContentRecommendations.php</abbr>
+        <h1 id="Membership">
+        Membership            </h1>
+            <button class="content-header__copy-fqcn copy-to-clipboard" title="Ibexa\Contracts\Cdp\Membership\Membership" data-copy-value="Ibexa\Contracts\Cdp\Membership\Membership">Copy FQCN</button>
+        <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/cdp/src/contracts/Membership/Membership.php">
+        <abbr title="vendor/ibexa/cdp/src/contracts/Membership/Membership.php">Membership.php</abbr>
                 :
-        <span title="at line 21">21</span>
+        <span title="at line 11">11</span>
                 <img src="./images/copy.svg" title="Copy path" />
     </div>
                         <div class="content-header__subheader">Read-only</div>
                             <div class="content-header__subheader">Final</div>
                 
         
-                    <div class="content-header__subheader">
-                Implements
-                                    <abbr title="\IteratorAggregate">IteratorAggregate</abbr>,                                     <abbr title="\Countable">Countable</abbr>                            </div>
         
                 </div>
-        <p>Collection of recommended content items from Raptor.</p>
-
+    
 
 
                     
@@ -267,20 +259,20 @@
     
     
         <h2 id="properties">
-            Properties<a class="headerlink" href="classes/Ibexa-Contracts-ConnectorRaptor-Recommendations-Value-ContentRecommendations.html#properties" title="Permanent link">¶</a>
+            Properties<a class="headerlink" href="classes/Ibexa-Contracts-Cdp-Membership-Membership.html#properties" title="Permanent link">¶</a>
 </h2>
 
                     <div class="content-header">
-        <h3 id="property_contentItems">
+        <h3 id="property_id">
                 <img src="./images/public.svg" alt="public" title="public" />
-        $contentItems<span class="property-tags">
+        $id<span class="property-tags">
                                 </span>
-            <a class="headerlink" href="classes/Ibexa-Contracts-ConnectorRaptor-Recommendations-Value-ContentRecommendations.html#property_contentItems" title="Permanent link">¶</a>
+            <a class="headerlink" href="classes/Ibexa-Contracts-Cdp-Membership-Membership.html#property_id" title="Permanent link">¶</a>
     </h3>
-        <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/connector-raptor/src/contracts/Recommendations/Value/ContentRecommendations.php">
-        <abbr title="vendor/ibexa/connector-raptor/src/contracts/Recommendations/Value/ContentRecommendations.php">ContentRecommendations.php</abbr>
+        <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/cdp/src/contracts/Membership/Membership.php">
+        <abbr title="vendor/ibexa/cdp/src/contracts/Membership/Membership.php">Membership.php</abbr>
                 :
-        <span title="at line 27">27</span>
+        <span title="at line 14">14</span>
                 <img src="./images/copy.svg" title="Copy path" />
     </div>
         </div>
@@ -296,7 +288,7 @@
                 </td>
                 <td class="code">
                     <div>
-                        <pre><code><span class="phpdocumentor-signature__visibility">public </span><span class="phpdocumentor-signature__type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__name">$contentItems</span></code></pre>
+                        <pre><code><span class="phpdocumentor-signature__visibility">public </span><span class="phpdocumentor-signature__type">string&nbsp;</span><span class="phpdocumentor-signature__name">$id</span></code></pre>
                     </div>
                 </td>
             </tr>
@@ -306,16 +298,16 @@
                     
     
                         <div class="content-header">
-        <h3 id="property_totalCount">
+        <h3 id="property_name">
                 <img src="./images/public.svg" alt="public" title="public" />
-        $totalCount<span class="property-tags">
+        $name<span class="property-tags">
                                 </span>
-            <a class="headerlink" href="classes/Ibexa-Contracts-ConnectorRaptor-Recommendations-Value-ContentRecommendations.html#property_totalCount" title="Permanent link">¶</a>
+            <a class="headerlink" href="classes/Ibexa-Contracts-Cdp-Membership-Membership.html#property_name" title="Permanent link">¶</a>
     </h3>
-        <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/connector-raptor/src/contracts/Recommendations/Value/ContentRecommendations.php">
-        <abbr title="vendor/ibexa/connector-raptor/src/contracts/Recommendations/Value/ContentRecommendations.php">ContentRecommendations.php</abbr>
+        <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/cdp/src/contracts/Membership/Membership.php">
+        <abbr title="vendor/ibexa/cdp/src/contracts/Membership/Membership.php">Membership.php</abbr>
                 :
-        <span title="at line 28">28</span>
+        <span title="at line 15">15</span>
                 <img src="./images/copy.svg" title="Copy path" />
     </div>
         </div>
@@ -331,7 +323,7 @@
                 </td>
                 <td class="code">
                     <div>
-                        <pre><code><span class="phpdocumentor-signature__visibility">public </span><span class="phpdocumentor-signature__type">int&nbsp;</span><span class="phpdocumentor-signature__name">$totalCount</span></code></pre>
+                        <pre><code><span class="phpdocumentor-signature__visibility">public </span><span class="phpdocumentor-signature__type">string&nbsp;</span><span class="phpdocumentor-signature__name">$name</span></code></pre>
                     </div>
                 </td>
             </tr>
@@ -343,18 +335,18 @@
                 </section>
     
     <h2 id="methods">
-        Methods<a class="headerlink" href="classes/Ibexa-Contracts-ConnectorRaptor-Recommendations-Value-ContentRecommendations.html#methods" title="Permanent link">¶</a>
+        Methods<a class="headerlink" href="classes/Ibexa-Contracts-Cdp-Membership-Membership.html#methods" title="Permanent link">¶</a>
 </h2>
 
             <div class="content-header">
         <h3 id="method___construct">
                 <img src="./images/public.svg" alt="public" title="public" />__construct()
-            <a class="headerlink" href="classes/Ibexa-Contracts-ConnectorRaptor-Recommendations-Value-ContentRecommendations.html#method___construct" title="Permanent link">¶</a>
+            <a class="headerlink" href="classes/Ibexa-Contracts-Cdp-Membership-Membership.html#method___construct" title="Permanent link">¶</a>
     </h3>
-        <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/connector-raptor/src/contracts/Recommendations/Value/ContentRecommendations.php">
-        <abbr title="vendor/ibexa/connector-raptor/src/contracts/Recommendations/Value/ContentRecommendations.php">ContentRecommendations.php</abbr>
+        <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/cdp/src/contracts/Membership/Membership.php">
+        <abbr title="vendor/ibexa/cdp/src/contracts/Membership/Membership.php">Membership.php</abbr>
                 :
-        <span title="at line 26">26</span>
+        <span title="at line 13">13</span>
                 <img src="./images/copy.svg" title="Copy path" />
     </div>
         </div>
@@ -370,7 +362,7 @@
                 </td>
                 <td class="code">
                     <div>
-                        <pre><code><span class="phpdocumentor-signature__visibility">public </span><span class="phpdocumentor-signature__name">__construct</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$contentItems</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$totalCount</span></span><span>)</span></code></pre>
+                        <pre><code><span class="phpdocumentor-signature__visibility">public </span><span class="phpdocumentor-signature__name">__construct</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$id</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$name</span></span><span>)</span></code></pre>
                     </div>
                 </td>
             </tr>
@@ -392,10 +384,10 @@
         <tbody>
                             <tr>
                     <td>
-                        $contentItems
+                        $id
                     </td>
                     <td>
-                        array&lt;string|int, mixed&gt;
+                        string
                     </td>
                     <td class="empty">
                                                     -
@@ -406,10 +398,10 @@
                 </tr>
                             <tr>
                     <td>
-                        $totalCount
+                        $name
                     </td>
                     <td>
-                        int
+                        string
                     </td>
                     <td class="empty">
                                                     -
@@ -422,80 +414,6 @@
     </table>
                     
     
-                <div class="content-header">
-        <h3 id="method_count">
-                <img src="./images/public.svg" alt="public" title="public" />count()
-            <a class="headerlink" href="classes/Ibexa-Contracts-ConnectorRaptor-Recommendations-Value-ContentRecommendations.html#method_count" title="Permanent link">¶</a>
-    </h3>
-        <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/connector-raptor/src/contracts/Recommendations/Value/ContentRecommendations.php">
-        <abbr title="vendor/ibexa/connector-raptor/src/contracts/Recommendations/Value/ContentRecommendations.php">ContentRecommendations.php</abbr>
-                :
-        <span title="at line 36">36</span>
-                <img src="./images/copy.svg" title="Copy path" />
-    </div>
-        </div>
-
-<div class="highlight">
-    <table class="highlighttable">
-        <tbody>
-            <tr>
-                <td class="linenos">
-                    <div class="linenodiv">
-                        <pre><span></span></pre>
-                    </div>
-                </td>
-                <td class="code">
-                    <div>
-                        <pre><code><span class="phpdocumentor-signature__visibility">public </span><span class="phpdocumentor-signature__name">count</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">int</span></code></pre>
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-</div>
-<div class="phpdocumentor-label-line">
-    </div>
-    <h4>Return values</h4>
-    <p class="phpdocumentor-signature__response_type">int</p>
-                        
-    
-                <div class="content-header">
-        <h3 id="method_getIterator">
-                <img src="./images/public.svg" alt="public" title="public" />getIterator()
-            <a class="headerlink" href="classes/Ibexa-Contracts-ConnectorRaptor-Recommendations-Value-ContentRecommendations.html#method_getIterator" title="Permanent link">¶</a>
-    </h3>
-        <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/connector-raptor/src/contracts/Recommendations/Value/ContentRecommendations.php">
-        <abbr title="vendor/ibexa/connector-raptor/src/contracts/Recommendations/Value/ContentRecommendations.php">ContentRecommendations.php</abbr>
-                :
-        <span title="at line 31">31</span>
-                <img src="./images/copy.svg" title="Copy path" />
-    </div>
-        </div>
-
-<div class="highlight">
-    <table class="highlighttable">
-        <tbody>
-            <tr>
-                <td class="linenos">
-                    <div class="linenodiv">
-                        <pre><span></span></pre>
-                    </div>
-                </td>
-                <td class="code">
-                    <div>
-                        <pre><code><span class="phpdocumentor-signature__visibility">public </span><span class="phpdocumentor-signature__name">getIterator</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><abbr title="\Traversable">Traversable</abbr></span></code></pre>
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-</div>
-<div class="phpdocumentor-label-line">
-    </div>
-    <h4>Return values</h4>
-    <p class="phpdocumentor-signature__response_type"><abbr title="\Traversable">Traversable</abbr></p>
-                        
-    
                                 </div>
                     </article>
                 </div>
@@ -505,49 +423,39 @@
                             <div class="md-sidebar__inner">
                                 <nav class="md-nav md-nav--secondary" aria-label="">
                                                 
-            <label class="md-nav__title" for="__toc" title="ContentRecommendations">
-            ContentRecommendations
+            <label class="md-nav__title" for="__toc" title="Membership">
+            Membership
         </label>
     
     <ul class="md-nav__list">
                             <li class="md-nav__item level-1 with-children">
-                <a href="classes/Ibexa-Contracts-ConnectorRaptor-Recommendations-Value-ContentRecommendations.html#properties" title="Properties" class="md-nav__link">
+                <a href="classes/Ibexa-Contracts-Cdp-Membership-Membership.html#properties" title="Properties" class="md-nav__link">
                     Properties
                 </a>
                 <nav class="md-nav">
                     <ul class="md-nav__list">
                                                     <li class="md-nav__item level-2">
-                                <a href="classes/Ibexa-Contracts-ConnectorRaptor-Recommendations-Value-ContentRecommendations.html#property_contentItems" title="contentItems" class="md-nav__link">
-                                    contentItems
+                                <a href="classes/Ibexa-Contracts-Cdp-Membership-Membership.html#property_id" title="id" class="md-nav__link">
+                                    id
                                 </a>
                             </li>
                                                     <li class="md-nav__item level-2">
-                                <a href="classes/Ibexa-Contracts-ConnectorRaptor-Recommendations-Value-ContentRecommendations.html#property_totalCount" title="totalCount" class="md-nav__link">
-                                    totalCount
+                                <a href="classes/Ibexa-Contracts-Cdp-Membership-Membership.html#property_name" title="name" class="md-nav__link">
+                                    name
                                 </a>
                             </li>
                                             </ul>
                 </nav>
             </li>
                             <li class="md-nav__item level-1 with-children">
-                <a href="classes/Ibexa-Contracts-ConnectorRaptor-Recommendations-Value-ContentRecommendations.html#methods" title="Methods" class="md-nav__link">
+                <a href="classes/Ibexa-Contracts-Cdp-Membership-Membership.html#methods" title="Methods" class="md-nav__link">
                     Methods
                 </a>
                 <nav class="md-nav">
                     <ul class="md-nav__list">
                                                     <li class="md-nav__item level-2">
-                                <a href="classes/Ibexa-Contracts-ConnectorRaptor-Recommendations-Value-ContentRecommendations.html#method___construct" title="__construct" class="md-nav__link">
+                                <a href="classes/Ibexa-Contracts-Cdp-Membership-Membership.html#method___construct" title="__construct" class="md-nav__link">
                                     __construct()
-                                </a>
-                            </li>
-                                                    <li class="md-nav__item level-2">
-                                <a href="classes/Ibexa-Contracts-ConnectorRaptor-Recommendations-Value-ContentRecommendations.html#method_count" title="count" class="md-nav__link">
-                                    count()
-                                </a>
-                            </li>
-                                                    <li class="md-nav__item level-2">
-                                <a href="classes/Ibexa-Contracts-ConnectorRaptor-Recommendations-Value-ContentRecommendations.html#method_getIterator" title="getIterator" class="md-nav__link">
-                                    getIterator()
                                 </a>
                             </li>
                                             </ul>
