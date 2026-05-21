@@ -664,6 +664,10 @@ Run the provided SQL upgrade script to update your database:
     psql <database_name> < vendor/ibexa/installer/upgrade/db/postgresql/ibexa-4.6.28-to-4.6.29.sql
     ```
 
+## v4.6.30
+
+No additional steps needed.
+
 ## LTS Updates
 
 [LTS Updates](https://doc.ibexa.co/en/4.6/ibexa_products/editions/#lts-updates) are standalone packages with their own update procedures.
