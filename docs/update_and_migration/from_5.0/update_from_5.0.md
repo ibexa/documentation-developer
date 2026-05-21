@@ -448,6 +448,22 @@ Run the provided SQL upgrade script to update your database:
     psql <database_name> < vendor/ibexa/installer/upgrade/db/postgresql/ibexa-5.0.6-to-5.0.7.sql
     ```
 
+
+## v5.0.8
+
+### VCL configuration
+
+Update your [Varnish VCL file](reverse_proxy.md#vcl-base-files) to align with the one from [`vendor/ibexa/http-cache/docs/varnish/vcl/`](https://github.com/ibexa/http-cache/tree/v5.0.8/docs/varnish/vcl).
+Especially if you plan to use the [Anonymous user segmentation in Ibexa CDP](https://doc.ibexa.co/en/5.0/cdp/cdp_activation/cdp_configuration/#anonymous-user-segmentation).
+Make sure it contains the highlighted addition:
+
+``` vcl hl_lines="2 3"
+        set req.http.cookie = regsuball(req.http.cookie, ";(ibexa[-_][^=]*)=", "; \1=");
+        // Keep the Raptor anonymous visitor identifier cookie so CDP segmentation can resolve visitor segments.
+        set req.http.cookie = regsuball(req.http.cookie, ";(rsa)=", "; \1=");
+        set req.http.cookie = regsuball(req.http.cookie, ";[^ ][^;]*", "");
+```
+
 ## LTS Updates and additional packages
 
 [LTS Updates](editions.md#lts-updates) are standalone packages with their own update procedures.
