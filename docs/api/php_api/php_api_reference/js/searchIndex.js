@@ -51571,6 +51571,16 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/Ibexa-Contracts-ProductCatalog-Values-Availability-AvailabilityInterface.html"
         },                {
+            "fqsen": "\\Ibexa\\Contracts\\ProductCatalog\\Values\\Availability\\AvailabilityInterface\u003A\u003AgetAvailability\u0028\u0029",
+            "name": "getAvailability",
+            "summary": "Returns\u0020the\u0020stored\u0020availability\u0020value\u0020as\u0020persisted\u0020for\u0020the\u0020product.",
+            "url": "classes/Ibexa-Contracts-ProductCatalog-Values-Availability-AvailabilityInterface.html#method_getAvailability"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\ProductCatalog\\Values\\Availability\\AvailabilityInterface\u003A\u003AgetComputedAvailability\u0028\u0029",
+            "name": "getComputedAvailability",
+            "summary": "Returns\u0020the\u0020availability\u0020value\u0020computed\u0020for\u0020the\u0020current\u0020business\u0020context.",
+            "url": "classes/Ibexa-Contracts-ProductCatalog-Values-Availability-AvailabilityInterface.html#method_getComputedAvailability"
+        },                {
             "fqsen": "\\Ibexa\\Contracts\\ProductCatalog\\Values\\Availability\\AvailabilityInterface\u003A\u003AisAvailable\u0028\u0029",
             "name": "isAvailable",
             "summary": "",
@@ -61710,6 +61720,11 @@ Search.appendIndex(
             "name": "loadWorkflowMetadataForContent",
             "summary": "",
             "url": "classes/Ibexa-Contracts-Workflow-Service-WorkflowServiceInterface.html#method_loadWorkflowMetadataForContent"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Workflow\\Service\\WorkflowServiceInterface\u003A\u003AloadWorkflowMetadataForVersionInfo\u0028\u0029",
+            "name": "loadWorkflowMetadataForVersionInfo",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Workflow-Service-WorkflowServiceInterface.html#method_loadWorkflowMetadataForVersionInfo"
         },                {
             "fqsen": "\\Ibexa\\Contracts\\Workflow\\Service\\WorkflowServiceInterface\u003A\u003Astart\u0028\u0029",
             "name": "start",
