@@ -23,6 +23,7 @@ The available groups for the back office are:
 |`admin-ui-content-edit-sections`| <ul><li>`vendor/ibexa/admin-ui-ui/src/bundle/Resources/views/themes/admin/content/edit/edit.html.twig`</li><li>`vendor/ibexa/admin-ui-ui/src/bundle/Resources/views/themes/admin/ui/on_the_fly/create_on_the_fly.html.twig`</li><li>`vendor/ibexa/admin-ui-ui/src/bundle/Resources/views/themes/admin/ui/on_the_fly/edit_on_the_fly.html.twig`</li></ul> |
 |`admin-ui-content-form-create-header-actions`| `vendor/ibexa/admin-ui-ui/src/bundle/Resources/views/themes/admin/content/create/create.html.twig` |
 |`admin-ui-content-form-edit-header-actions`| `vendor/ibexa/admin-ui-ui/src/bundle/Resources/views/themes/admin/content/edit/edit.html.twig` |
+|`admin-ui-content-translations-row-actions`| `vendor/ibexa/admin-ui/src/bundle/Resources/views/themes/admin/content/tab/translations/tab.html.twig` |
 |`admin-ui-content-tree-after`| `vendor/ibexa/admin-ui/src/bundle/Resources/views/themes/admin/content/location_view.html.twig` |
 |`admin-ui-content-tree-before`| `vendor/ibexaadmin-ui/src/bundle/Resources/views/themes/admin/content/location_view.html.twig` |
 |`admin-ui-content-type-edit-sections`| `vendor/ibexa/admin-ui-ui/src/bundle/Resources/views/themes/admin/content_type/edit.html.twig` |
