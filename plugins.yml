@@ -249,7 +249,6 @@ plugins:
             'guide/basket/basket.md': 'commerce/commerce.md'
             'guide/basket/wishlist_and_stored_baskets.md': 'commerce/commerce.md'
             'commerce/wishlist_and_stored_baskets.md': 'commerce/commerce.md'
-            'commerce/basket.md': 'commerce/commerce.md'
             'guide/checkout/checkout.md': 'commerce/checkout/checkout.md'
             'guide/checkout/order_confirmation.md': 'commerce/checkout/checkout.md'
             'commerce/checkout/order_confirmation.md': 'commerce/checkout/checkout.md'
@@ -591,3 +590,5 @@ plugins:
             'ai_actions/install_ai_actions.md': 'ai/ai_actions/configure_ai_actions.md'
             'ai_actions/configure_ai_actions.md': 'ai/ai_actions/configure_ai_actions.md'
             'ai_actions/extend_ai_actions.md': 'ai/ai_actions/extend_ai_actions.md'
+
+            'cdp/cdp_activation/cdp_add_clientside_tracking.md': 'cdp/cdp_activation/cdp_add_tracking.md'
