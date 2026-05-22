@@ -672,7 +672,6 @@ For security reasons, it's highly recommenced to update `twig/twig` and `twig/in
 
 For more information, see the following security advisories:
 
-
 * [PKSA-5k7f-wvjj-jrgw](https://packagist.org/security-advisories/PKSA-5k7f-wvjj-jrgw)
 * [PKSA-sjvz-tbbr-vwth](https://packagist.org/security-advisories/PKSA-sjvz-tbbr-vwth)
 * [PKSA-h8hf-ytnd-5t9q](https://packagist.org/security-advisories/PKSA-h8hf-ytnd-5t9q)
