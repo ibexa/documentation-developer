@@ -35,7 +35,7 @@ You can then proceed with consecutive upgrades to further versions: v1.13 LTS an
         See [ezpublish-kernel:doc/bc/changes-6.0.md](https://github.com/ezsystems/ezpublish-kernel/blob/v6.7.0/doc/bc/changes-6.0.md)
 
 
-!!! warning "Unsupported legacy sorting methods"
+!!! caution "Unsupported legacy sorting methods"
 
     In older eZ Publish versions, sub-items of content items could be sorted by Class identifier (option value 6) or Class name (option value 7).
     These sorting methods are no longer supported in [[= product_name =]].
@@ -302,7 +302,7 @@ Run the conversion script on a copy of your production database as the script is
 
 `php -d memory_limit=1536M bin/console ezxmltext:convert-to-richtext --dry-run --export-dir=ezxmltext-export --export-dir-filter=notice,warning,error --concurrency 4 -v`
 
-- `-d memory_limit=1536M` specifies that each conversion process gets 1536MB of memory. This should be more than sufficient for most databases. If you have small `ezxmltext` documents, you may decrease the limit. If you have huge `ezxmltext` documents, you may need to increase it. See PHP documentation for more information about the [memory_limit setting](https://www.php.net/manual/en/ini.core.php#ini.memory-limit).
+- `-d memory_limit=1536M` specifies that each conversion process gets 1536MB of memory. This should be more than sufficient for most databases. If you have small `ezxmltext` documents, you may decrease the limit. If you have huge `ezxmltext` documents, you may need to increase it. See PHP documentation for more information about the [`memory_limit` setting](https://www.php.net/manual/en/ini.core.php#ini.memory-limit).
 - `--dry-run` prevents the conversion script from writing anything back to the database. It just tests if it's able to convert all the `ezxmltext` documents.
 - `--export-dir` specifies a directory where it dumps the `ezxmltext` for content object attributes which the conversion script finds problems with
 - `--export-dir-filter` specifies what severity the problems found needs to be before the script dumps the `ezxmltext`:

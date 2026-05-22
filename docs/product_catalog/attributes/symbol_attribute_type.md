@@ -66,7 +66,7 @@ To validate checksum of symbol:
 See below the example implementation of checksum validation using Luhn formula:
 
 ``` php
-[[= include_file('code_samples/product_catalog/Symbol/Format/Checksum/LuhnChecksum.php') =]]
+[[= include_code('code_samples/product_catalog/Symbol/Format/Checksum/LuhnChecksum.php') =]]
 ```
 
 Example service definition:

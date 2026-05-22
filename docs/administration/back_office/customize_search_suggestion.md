@@ -46,7 +46,7 @@ This example event subscriber is implemented in the `src/EventSubscriber/MySugge
 It uses [`ProductService::findProducts`](product_api.md#products), and returns the received event after having manipulated the `SuggestionCollection`:
 
 ``` php
-[[= include_file('code_samples/back_office/search/src/EventSubscriber/MySuggestionEventSubscriber.php') =]]
+[[= include_code('code_samples/back_office/search/src/EventSubscriber/MySuggestionEventSubscriber.php') =]]
 ```
 
 To have the logger injected thanks to the `LoggerAwareTrait`, this subscriber must be registered as a service:
@@ -60,7 +60,7 @@ services:
 To represent the product suggestion data, a `ProductSuggestion` class is created in `src/Search/Model/Suggestion/ProductSuggestion.php`:
 
 ``` php
-[[= include_file('code_samples/back_office/search/src/Search/Model/Suggestion/ProductSuggestion.php') =]]
+[[= include_code('code_samples/back_office/search/src/Search/Model/Suggestion/ProductSuggestion.php') =]]
 ```
 
 This representation needs a normalizer to be transformed into a JSON.
@@ -70,7 +70,7 @@ Alongside data about the product, this array must have a `type` key, whose value
 In `src/Search/Serializer/Normalizer/Suggestion/ProductSuggestionNormalizer.php`:
 
 ``` php
-[[= include_file('code_samples/back_office/search/src/Search/Serializer/Normalizer/Suggestion/ProductSuggestionNormalizer.php') =]]
+[[= include_code('code_samples/back_office/search/src/Search/Serializer/Normalizer/Suggestion/ProductSuggestionNormalizer.php') =]]
 ```
 
 This normalizer is added to suggestion normalizers by decorating `ibexa.search.suggestion.serializer` and redefining its list of normalizers:

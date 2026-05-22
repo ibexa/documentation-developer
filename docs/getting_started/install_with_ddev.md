@@ -88,6 +88,14 @@ Depending on your database of choice (MySQL or PostgreSQL), use the appropriate 
     ddev config --web-environment-add DATABASE_URL=postgresql://db:db@db:5432/db
     ```
 
+#### Configure mailer (optional)
+
+You can configure [Symfony Mailer]([[= symfony_doc =]]/mailer.html) to use the [integrated mail catcher Mailpit](https://docs.ddev.com/en/stable/users/usage/developer-tools/#email-capture-and-review-mailpit):
+
+```bash
+ddev config --web-environment-add MAILER_DSN=smtp://localhost:1025
+```
+
 #### Enable Mutagen (optional)
 
 If you're using macOS or Windows, you might want to enable [Mutagen](https://docs.ddev.com/en/stable/users/install/performance/#mutagen) to improve performance.
@@ -344,7 +352,7 @@ ddev restart
 
 #### Scripted procedure
 
-Generate the virtual host with [`vhost.sh`](https://github.com/ibexa/docker/blob/main/scripts/vhost.sh):
+Generate the virtual host with [`vhost.sh`](https://github.com/ibexa/docker/blob/5.0/scripts/vhost.sh):
 
 ```bash
 curl -O https://raw.githubusercontent.com/ibexa/docker/main/scripts/vhost.sh

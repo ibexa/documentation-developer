@@ -19,7 +19,7 @@ The following example shows how to create a step that replaces all `ibexa_string
 First, create a step class, in `src/Migrations/Step/ReplaceNameStep.php`:
 
 ``` php
-[[= include_file('code_samples/data_migration/src/Migrations/Step/ReplaceNameStep.php') =]]
+[[= include_code('code_samples/data_migration/src/Migrations/Step/ReplaceNameStep.php') =]]
 ```
 
 ## Create normalizer
@@ -28,7 +28,7 @@ Then you need a normalizer to convert data that comes from YAML into a step obje
 in `src/Migrations/Step/ReplaceNameStepNormalizer.php`:
 
 ``` php
-[[= include_file('code_samples/data_migration/src/Migrations/Step/ReplaceNameStepNormalizer.php') =]]
+[[= include_code('code_samples/data_migration/src/Migrations/Step/ReplaceNameStepNormalizer.php') =]]
 ```
 
 Then, tag the step normalizer, so it's recognized by the serializer used for migrations.
@@ -42,7 +42,7 @@ Then, tag the step normalizer, so it's recognized by the serializer used for mig
 And finally, create an executor to perform the step, in `src/Migrations/Step/ReplaceNameExecutor.php`:
 
 ``` php
-[[= include_file('code_samples/data_migration/src/Migrations/Step/ReplaceNameStepExecutor.php') =]]
+[[= include_code('code_samples/data_migration/src/Migrations/Step/ReplaceNameStepExecutor.php') =]]
 ```
 
 Tag the executor with `ibexa.migrations.step_executor` tag.

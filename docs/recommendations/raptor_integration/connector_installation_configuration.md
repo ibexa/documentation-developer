@@ -26,7 +26,7 @@ composer require ibexa/connector-raptor
 To configure the Raptor connector, use the `ibexa.system.<scope>.connector_raptor` configuration key in the `config/packages/ibexa_connector_raptor.yaml` file:
 
 ``` yaml
-[[= include_file('code_samples/recommendations/config/packages/ibexa_connector_raptor.yaml', 0, 13) =]]
+[[= include_file('code_samples/recommendations/config/packages/ibexa_connector_raptor.yaml', 0, 17) =]]
 ```
 
 - `enabled` - enables or disables the connector for a given scope. Default value: `true`. If set to `false`, no tracking or recommendation requests are executed.
@@ -36,6 +36,7 @@ To configure the Raptor connector, use the `ibexa.system.<scope>.connector_rapto
     - `server` - tracking is handled on the backend, with events sent directly to the tracking API. It's not affected by ad blockers.
 - `recommendations_api_key` - an API key used to authenticate requests to the Recommendations API. This key allows the connector to retrieve personalized recommendations from the recommendation engine. You can find this value as ["API key"](connector_installation_configuration.md#recommendations-api-key) in Raptor Control Panel.
 - `recommendations_api_url` (optional) - overrides the default Raptor address, do not set it unless a custom endpoint is required.
+- `cookie_id_lifetime_days` (optional) - the lifetime in days of the server-side tracking identifier cookies. Default value: `365` days. Minimum value: `1` day.
 
 By default, `tracking_type` is set to `client` as client-side tracking is the standard Raptor mode.
 To understand the differences between client and server tracking types, including their advantages and disadvantages, refer to the [Raptor documentation](https://content.raptorservices.com/help-center/client-side-vs.-server-side-tracking).
@@ -73,6 +74,6 @@ The following settings are global and apply to the entire application (they are 
 
 This value can be overridden in `config/packages/ibexa_connector_raptor.yaml` file, for example:
 
-``` yaml hl_lines="14-17"
+``` yaml hl_lines="18-20"
 [[= include_file('code_samples/recommendations/config/packages/ibexa_connector_raptor.yaml') =]]
 ```

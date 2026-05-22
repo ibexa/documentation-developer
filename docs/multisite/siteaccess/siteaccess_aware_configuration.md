@@ -36,7 +36,7 @@ Acme\ExampleBundle\AcmeExampleBundle::class => ['all' => true],
 To parse semantic configuration, create a `Configuration` class which extends `Ibexa\Bundle\Core\DependencyInjection\Configuration\SiteAccessAware\Configuration` and then extend its `generateScopeBaseNode()` method:
 
 ``` php hl_lines="19"
-[[= include_file('code_samples/multisite/siteaccess/Configuration.php') =]]
+[[= include_code('code_samples/multisite/siteaccess/Configuration.php') =]]
 ```
 
 !!! note
@@ -74,7 +74,7 @@ You usually do it in the [service container](php_api.md#service-container) exten
 You can also map simple settings by calling `$processor->mapSetting()`, without having to call `$processor->mapConfig()` with a callable.
 
 ``` php
-[[= include_file('code_samples/multisite/siteaccess/AcmeExampleExtension.php', 44, 46) =]]
+[[= include_code('code_samples/multisite/siteaccess/AcmeExampleExtension.php', 45, 46, remove_indent=True) =]]
 ```
 
 !!! caution "Important"
@@ -99,7 +99,7 @@ but enrich them by appending new entries.
 This is possible by using `$processor->mapConfigArray()`, which you must call outside the closure (before or after), so that it's called only once.
 
 ``` php
-[[= include_file('code_samples/multisite/siteaccess/AcmeExampleExtension.php', 48, 49) =]]
+[[= include_code('code_samples/multisite/siteaccess/AcmeExampleExtension.php', 49, 49, remove_indent=True) =]]
 ```
 
 Consider the following default config in `default_settings.yaml`:
@@ -153,7 +153,7 @@ However, because you defined the `os_types` key for `siteaccess1`, it completely
 You can add another level by passing `ContextualizerInterface::MERGE_FROM_SECOND_LEVEL` as the third argument to `$contextualizer->mapConfigArray()`:
 
 ``` php
-[[= include_file('code_samples/multisite/siteaccess/AcmeExampleExtension.php', 51, 53) =]]
+[[= include_code('code_samples/multisite/siteaccess/AcmeExampleExtension.php', 52, 53, remove_indent=True) =]]
 ```
 
 When you use `ContextualizerInterface::MERGE_FROM_SECOND_LEVEL` with the configuration above, you get the following result:

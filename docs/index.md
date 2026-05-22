@@ -89,11 +89,11 @@
         <div class="col-12 col-lg-6">
             <div class="notification notification--lts-update" id="tile3">
                 <div class="notification__content">
-                    <h2>The newest LTS Update is Google Gemini connector</h2>
-                    <div>Integrate Google's AI services into Ibexa DXP.</div>
+                    <h2>The newest LTS Update is MCP Servers</h2>
+                    <div>Set up MCP servers to help AI agents interact with Ibexa DXP.</div>
                 </div>
                 <div class="notification__cta">
-                    <a href="ai_actions/configure_ai_actions/#install-google-gemini-connector">Learn more about this LTS Update</a>
+                    <a href="ai/mcp/mcp_guide/">Learn more about this LTS Update</a>
                     <a href="ibexa_products/editions/#lts-updates">Discover other LTS Updates</a>
                 </div>
                 <div class="notification__image">

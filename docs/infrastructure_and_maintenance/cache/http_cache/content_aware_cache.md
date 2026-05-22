@@ -67,17 +67,17 @@ You can solve this issue in one of the following ways:
 
 Varnish configuration:
 
-- [http_resp_hdr_len](https://varnish-cache.org/docs/6.0/reference/varnishd.html#http-resp-hdr-len) (default 8k, change to for example, 32k)
-- [http_max_hdr](https://varnish-cache.org/docs/6.0/reference/varnishd.html#http-max-hdr) (default 64, change to for example, 128)
-- [http_resp_size](https://varnish-cache.org/docs/6.0/reference/varnishd.html#http-resp-size) (default 23k, change to for example, 96k)
-- [workspace_backend](https://varnish-cache.org/docs/6.0/reference/varnishd.html#workspace-backend) (default 64k, change to for example, 128k)
+- [`http_resp_hdr_len`](https://varnish-cache.org/docs/6.0/reference/varnishd.html#http-resp-hdr-len) (default 8k, change to for example, 32k)
+- [`http_max_hdr`](https://varnish-cache.org/docs/6.0/reference/varnishd.html#http-max-hdr) (default 64, change to for example, 128)
+- [`http_resp_size`](https://varnish-cache.org/docs/6.0/reference/varnishd.html#http-resp-size) (default 23k, change to for example, 96k)
+- [`workspace_backend`](https://varnish-cache.org/docs/6.0/reference/varnishd.html#workspace-backend) (default 64k, change to for example, 128k)
 
-If you need to see these long headers in `varnishlog`, adapt the [vsl_reclen](https://varnish-cache.org/docs/6.0/reference/varnishd.html#vsl-reclen) setting.
+If you need to see these long headers in `varnishlog`, adapt the [`vsl_reclen`](https://varnish-cache.org/docs/6.0/reference/varnishd.html#vsl-reclen) setting.
 
 Nginx has a default limit of 4k/8k when buffering responses:
 
-- For [PHP-FPM](https://www.php.net/manual/en/install.fpm.php) setup using proxy module, configure [proxy_buffer_size](https://nginx.org/en/docs/http/ngx_http_proxy_module.html#proxy_buffer_size)
-- For FastCGI setup using fastcgi module, configure [fastcgi_buffer_size](https://nginx.org/en/docs/http/ngx_http_fastcgi_module.html#fastcgi_buffer_size)
+- For [PHP-FPM](https://www.php.net/manual/en/install.fpm.php) setup using proxy module, configure [`proxy_buffer_size`](https://nginx.org/en/docs/http/ngx_http_proxy_module.html#proxy_buffer_size)
+- For FastCGI setup using fastcgi module, configure [`fastcgi_buffer_size`](https://nginx.org/en/docs/http/ngx_http_fastcgi_module.html#fastcgi_buffer_size)
 
 Fastly has a `Surrogate-Key` header limit of 16 kB, and this cannot be changed.
 
@@ -147,7 +147,7 @@ The built-in taggers support the following value types:
 - Any view implementing `Ibexa\Core\MVC\Symfony\View\ContentValueView`
 - Any view implementing `Ibexa\Core\MVC\Symfony\View\LocationValueView`
 
-!!! warning
+!!! caution
 
     If a value of any other type is passed (for example, a [`Content`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Content.html) object), no tagger matches and the call has no effect.
 

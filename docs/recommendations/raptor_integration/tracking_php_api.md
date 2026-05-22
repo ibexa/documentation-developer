@@ -28,6 +28,7 @@ For more information, see the same arguments of the Twig function [`ibexa_tracki
 | `EventType::BUY`           | `ProductInterface`      | `EventContext::SUBTOTAL`,<br>`EventContext::CURRENCY`,<br>`EventContext::QUANTITY`,<br>(optional) `EventContext::CATEGORY_IDENTIFIER`,<br>(optional) `EventContext::WEBSITE_ID`                   |
 | `EventType::BASKET`        | `ProductInterface`      | `EventContext::BASKET_CONTENT`,<br>`EventContext::BASKET_ID`,<br>(optional) `EventContext::CATEGORY_IDENTIFIER`,<br>(optional) `EventContext::QUANTITY`,<br>(optional) `EventContext::WEBSITE_ID` |
 | `EventType::ITEM_CLICK`    | `string` (product code) | `EventContext::MODULE_NAME`,<br>`EventContext::REDIRECT_URL`                                                                                                                                      |
+| `EventType::PAGEVIEW`      | `string` (URL)          | `EventContext::URL` (required),<br>(optional) `EventContext::WEBSITE_ID`                                                                                                                          |
 
 Check the following example:
 
@@ -64,7 +65,7 @@ If you need to track [events](event_reference.md) automatically based on applica
 It reacts to specific events in the application and triggers tracking logic without the need to add it manually in templates.
 
 ``` php
-[[= include_file('code_samples/recommendations/EventSubscriber.php') =]]
+[[= include_code('code_samples/recommendations/EventSubscriber.php') =]]
 ```
 
 You can also use [[= product_name =]] events, for example `CreateOrderEvent` from [Order management events](order_management_events.md).

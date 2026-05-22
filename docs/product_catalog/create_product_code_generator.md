@@ -15,7 +15,7 @@ The following example shows how to add a generator strategy that creates code, b
 First, create the generator strategy class:
 
 ``` php
-[[= include_file('code_samples/catalog/custom_code_generator_strategy/src/CodeGenerator/Strategy/CustomIncrementalCodeGenerator.php') =]]
+[[= include_code('code_samples/catalog/custom_code_generator_strategy/src/CodeGenerator/Strategy/CustomIncrementalCodeGenerator.php') =]]
 ```
 
 This generator uses the provided context to get product information (in this case the code of the base product) and the incremental number.

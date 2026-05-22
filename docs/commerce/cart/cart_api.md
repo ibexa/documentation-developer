@@ -23,7 +23,7 @@ From the developer's perspective, carts and entries are referenced with a UUID i
 To access a single cart, use the `CartServiceInterface::getCart` method:
 
 ``` php
-[[= include_file('code_samples/api/commerce/src/Command/CartCommand.php', 63, 66) =]]
+[[= include_code('code_samples/api/commerce/src/Command/CartCommand.php', 64, 66, remove_indent=True) =]]
 ```
 
 ## Get multiple carts
@@ -185,5 +185,5 @@ To combine the contents of multiple shopping carts into a target cart, use the `
 This operation is helpful when you want to consolidate items from a reorder cart and a current cart into a single order.
 
 ```php
-[[= include_file('code_samples/api/commerce/src/Command/CartCommand.php', 126, 139) =]]
+[[= include_code('code_samples/api/commerce/src/Command/CartCommand.php', 127, 139, remove_indent=True) =]]
 ```

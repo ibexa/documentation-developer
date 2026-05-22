@@ -41,7 +41,7 @@ If not specified, it uses `FieldDefinition`.
 Compiler pass example that should be placed in `src/DependencyInjection/Compiler`:
 
 ``` php
-[[= include_file('code_samples/api/graphql/src/DependencyInjection/Compiler/MyCustomTypeGraphQLCompilerPass.php') =]]
+[[= include_code('code_samples/api/graphql/src/DependencyInjection/Compiler/MyCustomTypeGraphQLCompilerPass.php') =]]
 ```
 
 ### Map with a custom `FieldDefinitionMapper`
@@ -60,7 +60,8 @@ It requires that you implement the `getFieldTypeIdentifier` method to tell which
 Add `MyFieldDefinitionMapper.php` mapper to `src/GraphQL/Schema`:
 
 ``` php
-[[= include_file('code_samples/api/graphql/src/GraphQL/Schema/MyFieldDefinitionMapper.php', 0, 16) =]][[= include_file('code_samples/api/graphql/src/GraphQL/Schema/MyFieldDefinitionMapper.php', 36, 37) =]]
+[[= include_code('code_samples/api/graphql/src/GraphQL/Schema/MyFieldDefinitionMapper.php', 1, 17) =]]
+[[= include_code('code_samples/api/graphql/src/GraphQL/Schema/MyFieldDefinitionMapper.php', 38, 39) =]]
 ```
 
 The `FieldDefinitionMapper` interface defines following methods:
@@ -75,12 +76,12 @@ When a mapper method is decorated, you need to call the decorated service method
 To do that, you need to replace `mapXXX` by the method it's in:
 
 ```php
-[[= include_file('code_samples/api/graphql/src/GraphQL/Schema/MyFieldDefinitionMapper.php', 19, 22, remove_indent=True) =]]
+[[= include_code('code_samples/api/graphql/src/GraphQL/Schema/MyFieldDefinitionMapper.php', 21, 24, remove_indent=True) =]]
 ```
 
 It's required for every implemented method, so that other mappers are called for the other field types.
 
-For an example implementation, look at the [`RelationFieldDefinitionMapper`](https://github.com/ibexa/graphql/blob/main/src/lib/Schema/Domain/Content/Mapper/FieldDefinition/RelationFieldDefinitionMapper.php) class.
+For an example implementation, look at the [`RelationFieldDefinitionMapper`](https://github.com/ibexa/graphql/blob/5.0/src/lib/Schema/Domain/Content/Mapper/FieldDefinition/RelationFieldDefinitionMapper.php) class.
 
 The value type depends on the field definition allowed content types setting:
 
@@ -99,7 +100,7 @@ For example, `ibexa_matrix` generates its own input types depending on the confi
 Example of a `MyFieldDefinitionMapper` mapper for a complex field type:
 
 ```php
-[[= include_file('code_samples/api/graphql/src/GraphQL/Schema/MyFieldDefinitionMapper.php') =]]
+[[= include_code('code_samples/api/graphql/src/GraphQL/Schema/MyFieldDefinitionMapper.php') =]]
 ```
 
 ## Resolver expressions

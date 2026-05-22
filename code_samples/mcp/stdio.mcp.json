@@ -1,0 +1,10 @@
+{
+  "mcpServers": {
+    "ibexa-example": {
+      "type": "stdio",
+      "command": "bash",
+      "args": ["mcp-ibexa-example-wrapper.sh"],
+      "tools": ["*"]
+    }
+  }
+}
