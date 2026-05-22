@@ -232,9 +232,7 @@
             <div class="pills">
                     
                     
-                                                                                                                                        <div class="pill experience-pill"></div>
-                                                                                <div class="pill commerce-pill"></div>
-                                                </div>
+            </div>
         <h1 id="SiteConfiguration">
         SiteConfiguration            </h1>
             <button class="content-header__copy-fqcn copy-to-clipboard" title="Ibexa\Contracts\SiteFactory\Values\Site\SiteConfiguration" data-copy-value="Ibexa\Contracts\SiteFactory\Values\Site\SiteConfiguration">Copy FQCN</button>
@@ -290,7 +288,7 @@
                 </td>
                 <td class="code">
                     <div>
-                        <pre><code><span class="phpdocumentor-signature__visibility">public </span><span class="phpdocumentor-signature__type">mixed </span><span class="phpdocumentor-signature__name">DESIGN</span> = <span class="phpdocumentor-signature__default-value">&#039;ibexa.site_access.config.design&#039;</span></code></pre>
+                        <pre><code><span class="phpdocumentor-signature__visibility">public </span><span class="phpdocumentor-signature__type">string </span><span class="phpdocumentor-signature__name">DESIGN</span> = <span class="phpdocumentor-signature__default-value">&#039;ibexa.site_access.config.design&#039;</span></code></pre>
                     </div>
                 </td>
             </tr>
@@ -322,7 +320,7 @@
                 </td>
                 <td class="code">
                     <div>
-                        <pre><code><span class="phpdocumentor-signature__visibility">public </span><span class="phpdocumentor-signature__type">mixed </span><span class="phpdocumentor-signature__name">LANGUAGES</span> = <span class="phpdocumentor-signature__default-value">&#039;ibexa.site_access.config.languages&#039;</span></code></pre>
+                        <pre><code><span class="phpdocumentor-signature__visibility">public </span><span class="phpdocumentor-signature__type">string </span><span class="phpdocumentor-signature__name">LANGUAGES</span> = <span class="phpdocumentor-signature__default-value">&#039;ibexa.site_access.config.languages&#039;</span></code></pre>
                     </div>
                 </td>
             </tr>
@@ -354,7 +352,7 @@
                 </td>
                 <td class="code">
                     <div>
-                        <pre><code><span class="phpdocumentor-signature__visibility">public </span><span class="phpdocumentor-signature__type">mixed </span><span class="phpdocumentor-signature__name">TREE_ROOT_LOCATION_ID</span> = <span class="phpdocumentor-signature__default-value">&#039;ibexa.site_access.config.content.tree_root.location_id&#039;</span></code></pre>
+                        <pre><code><span class="phpdocumentor-signature__visibility">public </span><span class="phpdocumentor-signature__type">string </span><span class="phpdocumentor-signature__name">TREE_ROOT_LOCATION_ID</span> = <span class="phpdocumentor-signature__default-value">&#039;ibexa.site_access.config.content.tree_root.location_id&#039;</span></code></pre>
                     </div>
                 </td>
             </tr>
@@ -393,7 +391,7 @@
                 </td>
                 <td class="code">
                     <div>
-                        <pre><code><span class="phpdocumentor-signature__visibility">public </span><span class="phpdocumentor-signature__name">__construct</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$values</span></span><span>)</span></code></pre>
+                        <pre><code><span class="phpdocumentor-signature__visibility">public </span><span class="phpdocumentor-signature__name">__construct</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">array&lt;string, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$values</span></span><span>)</span></code></pre>
                     </div>
                 </td>
             </tr>
@@ -418,7 +416,7 @@
                         $values
                     </td>
                     <td>
-                        array&lt;string|int, mixed&gt;
+                        array&lt;string, mixed&gt;
                     </td>
                     <td class="empty">
                                                     -
@@ -439,7 +437,7 @@
         <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/site-factory/src/contracts/Values/Site/SiteConfiguration.php">
         <abbr title="vendor/ibexa/site-factory/src/contracts/Values/Site/SiteConfiguration.php">SiteConfiguration.php</abbr>
                 :
-        <span title="at line 55">55</span>
+        <span title="at line 58">58</span>
                 <img src="./images/copy.svg" title="Copy path" />
     </div>
         </div>
@@ -466,7 +464,21 @@
     </div>
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type">string</p>
-                        
+                                                    
+    <h5 class="phpdocumentor-tag-list__heading">
+        Tags
+        <a href="classes/Ibexa-Contracts-SiteFactory-Values-Site-SiteConfiguration.html#method___toString_tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                                <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">Throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><abbr title="\JsonException">JsonException</abbr></span>
+                                                                                     
+                                    </dd>
+                                                                                    </dl>
     
                 <div class="content-header">
         <h3 id="method_getDesign">
@@ -640,7 +652,7 @@
                 </td>
                 <td class="code">
                     <div>
-                        <pre><code><span class="phpdocumentor-signature__visibility">public </span><span class="phpdocumentor-signature__name">getValues</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span></code></pre>
+                        <pre><code><span class="phpdocumentor-signature__visibility">public </span><span class="phpdocumentor-signature__name">getValues</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string, mixed&gt;</span></code></pre>
                     </div>
                 </td>
             </tr>
@@ -650,7 +662,7 @@
 <div class="phpdocumentor-label-line">
     </div>
     <h4>Return values</h4>
-    <p class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</p>
+    <p class="phpdocumentor-signature__response_type">array&lt;string, mixed&gt;</p>
                         
     
                 <div class="content-header">
@@ -661,7 +673,7 @@
         <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/site-factory/src/contracts/Values/Site/SiteConfiguration.php">
         <abbr title="vendor/ibexa/site-factory/src/contracts/Values/Site/SiteConfiguration.php">SiteConfiguration.php</abbr>
                 :
-        <span title="at line 60">60</span>
+        <span title="at line 63">63</span>
                 <img src="./images/copy.svg" title="Copy path" />
     </div>
         </div>
