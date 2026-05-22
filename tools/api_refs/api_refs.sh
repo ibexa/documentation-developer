@@ -233,7 +233,7 @@ $PHP_BINARY $OPENAPI_FIX;
 echo 'Build REST Reference… ';
 echo 'Generate Redocly config from template… ';
 # Replace version with the base branch
-BRANCH_VERSION=$(echo $DXP_VERSION | cut -d '.' -f 1-2);
+BRANCH_VERSION=$(echo $DXP_VERSION | sed 's/^v*\([^v.]*\.[^.]*\).*/\1/');
 sed "s/\$VERSION/$BRANCH_VERSION/g" $REDOCLY_CONFIG_TEMPLATE > $REDOCLY_CONFIG;
 redocly build-docs openapi.yaml --output $REST_API_OUTPUT_FILE --config $REDOCLY_CONFIG --template $REDOCLY_TEMPLATE;
 echo 'Copy OpenAPI spec to documentation… ';
