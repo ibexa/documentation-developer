@@ -4,32 +4,38 @@ title: Ibexa DXP v5.0 LTS
 month_change: true
 ---
 
-<!-- vale VariablesVersion = NO -->
+<!-- vale Ibexa.VariablesVersion = NO -->
 
 [[= release_notes_filters('Ibexa DXP v5.0 LTS', ['Headless', 'Experience', 'Commerce', 'LTS Update', 'New feature', 'First release']) =]]
 
 <div class="release-notes" markdown="1">
 
-[[% set version = 'v5.0.X' %]]
+[[% set version = 'v5.0.8' %]]
+[[% set date = '2026-05-21' %]]
 
 [[= release_note_entry_begin(
     'MCP Servers ' + version,
-    'YYYY-MM-DD',
+    date,
     ['Headless', 'Experience', 'Commerce', 'LTS Update', 'New feature', 'First release']
 ) =]]
 
-MCP servers ease the discovery of interactions with [[= product_name =]] by AI agents.
-This feature allows you to configure several MCP servers with their own set of tools.
+MCP servers make it easier for AI agents to discover the available interactions with [[= product_name =]].
+With the MCP Servers feature, you can configure multiple MCP servers with their specific sets of tools.
 
 For more information, see [MCP Servers product guide](https://doc.ibexa.co/en/5.0/ai/mcp/mcp_guide/).
 
 [[= release_note_entry_end() =]]
 
 [[= release_note_entry_begin(
-    'Ibexa DXP ' + version,
-    'YYYY-MM-DD',
+    product_name + ' ' + version,
+    date,
     ['Headless', 'Experience', 'Commerce', 'New feature']
 ) =]]
+
+### Security
+
+This release includes security fixes.
+To learn more, see the [corresponding security advisory](https://developers.ibexa.co/security-advisories/ibexa-sa-2026-003-vulnerabilities-in-forms-submissions-rest-sessions-and-solr-logs).
 
 ### Raptor connector
 
@@ -52,16 +58,14 @@ For more information, see [connector installation and configuration](https://doc
 
 ### Anonymous user segmentation in [[= product_name_cdp =]] [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
 
-[[= product_name_cdp =]] can now build audiences for anonymous visitors, enabling personalized experiences for users who are not logged in.
-
-When an anonymous visitor accesses your site, Raptor builds an anonymous profile based on tracking data.
-You can segment these profiles into audiences and use them in [[= product_name =]] to deliver personalized content, exactly as with logged-in users.
+[[= product_name_cdp =]] can now build audiences for anonymous visitors.
+Use them in [[= product_name =]] to deliver personalized experiences even before users log in.
 
 For more information, see [Anonymous user segmentation](https://doc.ibexa.co/en/5.0/cdp/cdp_activation/cdp_configuration/#anonymous-user-segmentation).
 
 ### Gaussian blur optimization in Image Editor
 
-The [Image Editor]([[= user_doc =]]/image_management/edit_images/) now supports configurable gaussian blur strength for image optimization.
+The [Image Editor]([[= user_doc =]]/image_management/edit_images/) now supports configuring the strength of the gaussian blur that is used for image optimization.
 You can adjust the blur level to balance between file size reduction and image sharpness.
 For more information, see [Configure image editor](https://doc.ibexa.co/en/5.0/content_management/images/configure_image_editor/#gaussian-blur-strength).
 
@@ -100,6 +104,17 @@ The new [`WorkflowServiceInterface::loadWorkflowMetadataForVersionInfo`](/api/ph
 
 For more information, see [Workflow API](https://doc.ibexa.co/en/5.0/content_management/workflow/workflow_api/#getting-workflow-information).
 
+##### Addition summary
+
+The following additions were made to the PHP API:
+
+- [`Ibexa\Contracts\Cdp\Exception\MembershipApiException`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-Cdp-Exception-MembershipApiException.html)
+- [`Ibexa\Contracts\Cdp\Membership`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/namespaces/ibexa-contracts-cdp-membership.html)
+- [`Ibexa\Contracts\ConnectorRaptor\Message\TrackServerSideEventMessage`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorRaptor-Message-TrackServerSideEventMessage.html)
+- [`Ibexa\Contracts\ConnectorRaptor\Tracking\Event\PageViewEventData`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorRaptor-Tracking-Event-PageViewEventData.html)
+- [`Ibexa\Contracts\ConnectorRaptor\Tracking\PageViewTrackerInterface`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/classes/Ibexa-Contracts-ConnectorRaptor-Tracking-PageViewTrackerInterface.html)
+- [`Ibexa\Contracts\Mcp`](https://doc.ibexa.co/en/5.0/api/php_api/php_api_reference/namespaces/ibexa-contracts-mcp.html)
+
 ### Full changelog
 
 [[% include 'snippets/release_50.md' %]]
@@ -107,6 +122,7 @@ For more information, see [Workflow API](https://doc.ibexa.co/en/5.0/content_man
 [[= release_note_entry_end() =]]
 
 [[% set version = 'v5.0.7' %]]
+[[% set date = null %]]
 
 [[= release_note_entry_begin(
     "Google Gemini connector " + version,

@@ -353,11 +353,18 @@ nav:
             - Add login form: templating/layout/add_login_form.md
             - Add navigation menu: templating/layout/add_navigation_menu.md
             - Add search form to front page: templating/layout/add_search_form.md
-    - AI Actions:
-        - AI Actions: ai_actions/ai_actions.md
-        - AI Actions guide: ai_actions/ai_actions_guide.md
-        - Configure AI Actions: ai_actions/configure_ai_actions.md
-        - Extend AI Actions: ai_actions/extend_ai_actions.md
+    - AI:
+        - AI: ai/ai.md
+        - AI Actions:
+            - AI Actions: ai/ai_actions/ai_actions.md
+            - AI Actions guide: ai/ai_actions/ai_actions_guide.md
+            - Configure AI Actions: ai/ai_actions/configure_ai_actions.md
+            - Extend AI Actions: ai/ai_actions/extend_ai_actions.md
+        - MCP Servers:
+            - MCP Servers: ai/mcp/mcp.md
+            - MCP Servers guide: ai/mcp/mcp_guide.md
+            - Install MCP Servers: ai/mcp/mcp_config.md
+            - Work with MCP servers: ai/mcp/mcp_usage.md
     - Product catalog:
         - Product catalog: product_catalog/product_catalog.md
         - Product catalog guide: product_catalog/product_catalog_guide.md
@@ -379,12 +386,13 @@ nav:
         - Prices: product_catalog/prices.md
         - Price API: product_catalog/price_api.md
         - Customize product catalog:
-            - Customize product catalog: product_catalog/customize_product_catalog.md
             - Create custom attribute type: product_catalog/create_custom_attribute_type.md
-            - Create product code generator: product_catalog/create_product_code_generator.md
+            - Create custom availability strategy: product_catalog/create_custom_availability_strategy.md
             - Create custom catalog filter: product_catalog/create_custom_catalog_filter.md
             - Create custom name schema: product_catalog/create_custom_name_schema_strategy.md
+            - Create product code generator: product_catalog/create_product_code_generator.md
             - Customize product attribute templates: product_catalog/customize_product_attribute_templates.md
+            - Customize product catalog: product_catalog/customize_product_catalog.md
             - Customize product embed templates: product_catalog/customize_product_embed_templates.md
         - Add remote PIM support: product_catalog/add_remote_pim_support.md
     - Commerce:
@@ -529,7 +537,7 @@ nav:
             - CDP activation: cdp/cdp_activation/cdp_activation.md
             - CDP configuration: cdp/cdp_activation/cdp_configuration.md
             - CDP data export: cdp/cdp_activation/cdp_data_export.md
-            - CDP add client-side tracking: cdp/cdp_activation/cdp_add_clientside_tracking.md
+            - CDP add tracking: cdp/cdp_activation/cdp_add_tracking.md
         - CDP data export schedule: cdp/cdp_data_export_schedule.md
         - CDP data customization: cdp/cdp_data_customization.md
     - Search:
@@ -643,7 +651,7 @@ nav:
             - SymbolAttribute: search/criteria_reference/symbolattribute_criterion.md
             - UpdatedAt: search/criteria_reference/updated_at_criterion.md
             - UpdatedAtRange: search/criteria_reference/updated_at_range_criterion.md
-        - Order Search Criteria: 
+        - Order Search Criteria:
             - Order Search Criteria: search/criteria_reference/order_search_criteria.md
             - CompanyName: search/criteria_reference/order_company_name_criterion.md
             - CreatedAt: search/criteria_reference/order_created_criterion.md
@@ -1029,8 +1037,8 @@ extra:
   latest_tag_4_3: '4.3.5'
   latest_tag_4_4: '4.4.4'
   latest_tag_4_5: '4.5.7'
-  latest_tag_4_6: '4.6.29'
-  latest_tag_5_0: '5.0.7'
+  latest_tag_4_6: '4.6.30'
+  latest_tag_5_0: '5.0.8'
 
   symfony_doc: 'https://symfony.com/doc/7.4'
   user_doc: 'https://doc.ibexa.co/projects/userguide/en/5.0'

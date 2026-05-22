@@ -1,5 +1,5 @@
 ---
-description: Use PHP API to manage products in PIM, their attributes, availability and prices.
+description: Use PHP API to manage products in PIM, their attributes, availability, and prices.
 month_change: false
 ---
 
@@ -23,7 +23,7 @@ month_change: false
 Get an individual product by using the `ProductServiceInterface::getProduct()` method:
 
 ``` php
-[[= include_code('code_samples/api/product_catalog/src/Command/ProductCommand.php', 55, 57, remove_indent=True) =]]
+[[= include_code('code_samples/api/product_catalog/src/Command/ProductCommand.php', 56, 58, remove_indent=True) =]]
 ```
 
 Find multiple products with `ProductServiceInterface::findProducts()`.
@@ -31,7 +31,7 @@ Find multiple products with `ProductServiceInterface::findProducts()`.
 Provide the method with optional filter, query or Sort Clauses.
 
 ``` php
-[[= include_code('code_samples/api/product_catalog/src/Command/ProductCommand.php', 59, 68, remove_indent=True) =]]
+[[= include_code('code_samples/api/product_catalog/src/Command/ProductCommand.php', 60, 69, remove_indent=True) =]]
 ```
 
 See [Product Search Criteria](product_search_criteria.md) and [Product Sort Clauses](product_sort_clauses.md) references for more information about how to use the [`ProductQuery`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Values-Product-ProductQuery.html) class.
@@ -41,7 +41,7 @@ See [Product Search Criteria](product_search_criteria.md) and [Product Sort Clau
 To create, update and delete products, use the `LocalProductServiceInterface`.
 
 ``` php
-[[= include_code('code_samples/api/product_catalog/src/Command/ProductCommand.php', 80, 83, remove_indent=True) =]]
+[[= include_code('code_samples/api/product_catalog/src/Command/ProductCommand.php', 81, 84, remove_indent=True) =]]
 ```
 
 To create a product, use `LocalProductServiceInterface::newProductCreateStruct()` to get a [`ProductCreateStruct`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Local-Values-Product-ProductCreateStruct.html).
@@ -49,13 +49,13 @@ Provide the method with the product type object and the main language code.
 You also need to set (at least) the code for the product and the required Field of the underlying content type, `name`:
 
 ``` php
-[[= include_code('code_samples/api/product_catalog/src/Command/ProductCommand.php', 70, 76, remove_indent=True) =]]
+[[= include_code('code_samples/api/product_catalog/src/Command/ProductCommand.php', 71, 77, remove_indent=True) =]]
 ```
 
 To delete a product, use `LocalProductServiceInterface::deleteProduct()`:
 
 ``` php
-[[= include_code('code_samples/api/product_catalog/src/Command/ProductCommand.php', 107, 107, remove_indent=True) =]]
+[[= include_code('code_samples/api/product_catalog/src/Command/ProductCommand.php', 116, 116, remove_indent=True) =]]
 ```
 
 ### Product variants
@@ -214,17 +214,30 @@ You can also get a list of product types with `ProductTypeServiceInterface::find
 
 ## Product availability
 
-Product availability is an object which defines whether a product is available, and if so, in what stock.
+Product availability is an object which defines whether a product is set as available, in what stock, and whether it can be ordered.
 To manage it, use [`ProductAvailabilityServiceInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-ProductAvailabilityServiceInterface.html).
 
-To check whether a product is available (with or without stock defined), use `ProductAvailabilityServiceInterface::hasAvailability()`.
+The [`AvailabilityInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Values-Availability-AvailabilityInterface.html) provides two distinct availability values:
 
-Get the availability object with `ProductAvailabilityServiceInterface::getAvailability()`.
-You can then use `ProductAvailabilityServiceInterface::getStock()` to get the stock number for the product:
+- `getAvailability()` returns the value of availability flag as set for the product
+- `getComputedAvailability()` returns whether the product can be ordered
 
-```php
-[[= include_code('code_samples/api/product_catalog/src/Command/ProductCommand.php', 91, 95, remove_indent=True) =]]
-[[= include_code('code_samples/api/product_catalog/src/Command/ProductCommand.php', 105, 105, remove_indent=True) =]]
+For more information about the distinction between these two values, see [Availability and computed availability](products.md#availability-and-computed-availability).
+
+To check whether a product is set as available, use `ProductAvailabilityServiceInterface::hasAvailability()`.
+
+You can get the availability object with `ProductAvailabilityServiceInterface::getAvailability()`.
+The returned object contains both the stored and computed availability:
+
+``` php
+[[= include_code('code_samples/api/product_catalog/src/Command/ProductCommand.php', 92, 97, remove_indent=True) =]]
+[[= include_code('code_samples/api/product_catalog/src/Command/ProductCommand.php', 120, 120, remove_indent=True) =]]
+```
+
+To evaluate computed availability for a [specific context](create_custom_availability_strategy.md), for example, a specific requested quantity or customer group, pass an optional [`AvailabilityContextInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Values-Availability-AvailabilityContextInterface.html) object as the second argument:
+
+``` php
+[[= include_code('code_samples/api/product_catalog/src/Command/ProductCommand.php', 108, 114, remove_indent=True) =]]
 ```
 
 To change availability for a product, use `ProductAvailabilityServiceInterface::updateProductAvailability()` with a [`ProductAvailabilityUpdateStruct`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Values-Availability-ProductAvailabilityUpdateStruct.html) and provide it with the product object.

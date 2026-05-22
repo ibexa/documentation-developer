@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-set +x;
+set -x;
 
 AUTH_JSON=${1:-~/.composer/auth.json}; # Path to an auth.json file allowing to install the targeted edition and version
 PHP_API_OUTPUT_DIR=${2:-./docs/api/php_api/php_api_reference}; # Path to the directory where the built PHP API Reference is hosted
@@ -102,6 +102,8 @@ fi;
 
 if [[ "$DXP_VERSION" == *".x-dev" ]]; then
   GIT_REF=$BASE_DXP_BRANCH;
+elif [[ "$DXP_VERSION" == "v"* ]]; then
+  GIT_REF="$DXP_VERSION";
 else
   GIT_REF="v$DXP_VERSION";
 fi
@@ -190,7 +192,8 @@ $PHP_BINARY $PHPDOC_BIN -t php_api_reference;
 if [ $? -eq 0 ]; then
   echo -n 'Remove unneeded from phpDocumentor output… ';
   rm -rf ./php_api_reference/files ./php_api_reference/graphs ./php_api_reference/indices ./php_api_reference/packages;
-  rm -f ./php_api_reference/classes/Symfony-*.html ./php_api_reference/namespaces/symfony*.html
+  rm -f ./php_api_reference/images/apple-touch-icon.png ./php_api_reference/images/favicon-16x16.png ./php_api_reference/images/favicon-32x32.png ./php_api_reference/images/favicon.ico;
+  rm -f ./php_api_reference/classes/Symfony-*.html ./php_api_reference/namespaces/symfony*.html;
   echo -n 'Remove Symfony namespace from index… ';
   awk 'NR==FNR{if (/.*"fqsen": "\\\\Symfony.*/) for (i=-1;i<=3;i++) del[NR+i]; next} !(FNR in del)' \
     ./php_api_reference/js/searchIndex.js \
@@ -230,7 +233,7 @@ $PHP_BINARY $OPENAPI_FIX;
 echo 'Build REST Reference… ';
 echo 'Generate Redocly config from template… ';
 # Replace version with the base branch
-BRANCH_VERSION=$(echo $DXP_VERSION | cut -d '.' -f 1-2);
+BRANCH_VERSION=$(echo $DXP_VERSION | sed 's/^v*\([^v.]*\.[^.]*\).*/\1/');
 sed "s/\$VERSION/$BRANCH_VERSION/g" $REDOCLY_CONFIG_TEMPLATE > $REDOCLY_CONFIG;
 redocly build-docs openapi.yaml --output $REST_API_OUTPUT_FILE --config $REDOCLY_CONFIG --template $REDOCLY_TEMPLATE;
 echo 'Copy OpenAPI spec to documentation… ';

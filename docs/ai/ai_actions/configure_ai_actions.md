@@ -44,7 +44,13 @@ Run the following command to install the package:
 composer require ibexa/connector-anthropic
 ```
 
-This command adds the feature code, including basic handlers that let you refine text or generate alternative text for images.
+If not using Symfony Flex, enable the bundle in `config/bundles.php`:
+
+``` php
+    Ibexa\Bundle\ConnectorAnthropic\IbexaConnectorAnthropicBundle::class => ['all' => true],
+```
+
+This adds the feature code, including basic handlers that let you refine text or generate alternative text for images.
 
 To use the connector with the Anthropic services, you need to create an account, make sure that you [set up a billing method](https://support.claude.com/en/articles/8325618-paid-plan-billing-faqs), and get an API key.
 
@@ -72,14 +78,21 @@ To do it, in `config/packages` folder, create a YAML file similar to this exampl
 ```yaml
 ibexa_connector_anthropic:
     text_to_text:
-        default_model: claude-opus-4-20250514
+        default_model: claude-sonnet-4-6
         default_temperature: 0.8
         default_max_tokens: 2045
         models:
-            claude-sonnet-4-20250514: 'Claude 4 Sonnet (2025-05-14)'
-            claude-opus-4-20250514: 'Claude Opus 4 (2025-05-14)'
+            claude-haiku-4-5-20251001: 'Claude Haiku 4.5 (fast, cost-efficient)'
+            claude-sonnet-4-6: 'Claude Sonnet 4.6 (recommended)'
+            claude-opus-4-6: 'Claude Opus 4.6 (advanced reasoning)'
+            claude-opus-4-7: 'Claude Opus 4.7 (most capable)'
 ```
 You can now use the Anthropic connector in your project.
+
+!!! note "Current model availability"
+
+    Anthropic regularly releases new models and deprecates older ones.
+    Before you configure the connector, check the [Anthropic models overview](https://docs.anthropic.com/en/docs/about-claude/models/overview) for the current list of supported model identifiers.
 
 ## Install Google Gemini connector [[% include 'snippets/lts-update_badge.md' %]]
 
@@ -95,7 +108,7 @@ Then, if not using Symfony Flex, enable the bundle in `config/bundles.php`:
     Ibexa\Bundle\ConnectorGemini\IbexaConnectorGeminiBundle::class => ['all' => true],
 ```
 
-This command adds the feature code, including basic handlers that let you refine text or generate alternative text for images.
+This adds the feature code, including basic handlers that let you refine text or generate alternative text for images.
 
 ### Get API key
 

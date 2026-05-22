@@ -10,17 +10,23 @@ month_change: true
 
 <div class="release-notes" markdown="1">
 
-[[% set version = 'v4.6.X' %]]
+[[% set version = 'v4.6.30' %]]
+[[% set date = '2026-05-21' %]]
 
 [[= release_note_entry_begin(
-    'Ibexa DXP ' + version,
-    'YYYY-MM-DD',
+    product_name + ' ' + version,
+    date,
     ['Headless', 'Experience', 'Commerce', 'New feature']
 ) =]]
 
+### Security
+
+This release includes security fixes.
+To learn more, see the [corresponding security advisory](https://developers.ibexa.co/security-advisories/ibexa-sa-2026-003-vulnerabilities-in-forms-submissions-rest-sessions-and-solr-logs).
+
 ### Gaussian blur optimization in Image Editor
 
-The [Image Editor]([[= user_doc =]]/image_management/edit_images/) now supports configurable gaussian blur strength for image optimization.
+The [Image Editor]([[= user_doc =]]/image_management/edit_images/) now supports configuring the strength of the gaussian blur that is used for image optimization.
 You can adjust the blur level to balance between file size reduction and image sharpness.
 For more information, see [Configure image editor](https://doc.ibexa.co/en/4.6/content_management/images/configure_image_editor/#gaussian-blur-strength).
 
@@ -58,6 +64,7 @@ For more information, see [Workflow API](https://doc.ibexa.co/en/5.0/content_man
 [[= release_note_entry_end() =]]
 
 [[% set version = 'v4.6.29' %]]
+[[% set date = null %]]
 
 [[= release_note_entry_begin(
     "Integrated help " + version,
