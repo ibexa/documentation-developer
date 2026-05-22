@@ -17,18 +17,21 @@ First, run:
 === "[[= product_name_headless =]]"
 
     ``` bash
+    yarn upgrade @ibexa/frontend-config @ibexa/ts-config
     composer require ibexa/headless:[[= latest_tag_5_0 =]] --with-all-dependencies --no-scripts
     composer recipes:install ibexa/headless --force -v
     ```
 === "[[= product_name_exp =]]"
 
     ``` bash
+    yarn upgrade @ibexa/frontend-config @ibexa/ts-config
     composer require ibexa/experience:[[= latest_tag_5_0 =]] --with-all-dependencies --no-scripts
     composer recipes:install ibexa/experience --force -v
     ```
 === "[[= product_name_com =]]"
 
     ``` bash
+    yarn upgrade @ibexa/frontend-config @ibexa/ts-config
     composer require ibexa/commerce:[[= latest_tag_5_0 =]] --with-all-dependencies --no-scripts
     composer recipes:install ibexa/commerce --force -v
     ```
@@ -445,6 +448,21 @@ Run the provided SQL upgrade script to update your database:
     psql <database_name> < vendor/ibexa/installer/upgrade/db/postgresql/ibexa-5.0.6-to-5.0.7.sql
     ```
 
+## v5.0.8
+
+### VCL configuration
+
+When using Varnish or Fastly, update your [VCL files](reverse_proxy.md#vcl-base-files) to align with the ones from [`vendor/ibexa/http-cache/docs/varnish/vcl/`](https://github.com/ibexa/http-cache/tree/v5.0.8/docs/varnish/vcl) or `vendor/ibexa/fastly/fastly/`,
+especially if you plan to use the [Anonymous user segmentation in [[= product_name_cdp =]]](https://doc.ibexa.co/en/5.0/cdp/cdp_activation/cdp_configuration/#anonymous-user-segmentation).
+Make sure it contains the highlighted addition:
+
+``` vcl hl_lines="2 3"
+        set req.http.cookie = regsuball(req.http.cookie, ";(ibexa[-_][^=]*)=", "; \1=");
+        // Keep the Raptor anonymous visitor identifier cookie so CDP segmentation can resolve visitor segments.
+        set req.http.cookie = regsuball(req.http.cookie, ";(rsa)=", "; \1=");
+        set req.http.cookie = regsuball(req.http.cookie, ";[^ ][^;]*", "");
+```
+
 ## LTS Updates and additional packages
 
 [LTS Updates](editions.md#lts-updates) are standalone packages with their own update procedures.
@@ -485,9 +503,3 @@ To use the [latest features](ibexa_dxp_v5.0.md) added to them, update them separ
     ```bash
     composer require ibexa/fieldtype-richtext-rte:[[= latest_tag_5_0 =]] ibexa/ckeditor-premium:[[= latest_tag_5_0 =]]
     ```
-
-=== "Shopping list"
-
-    ### Shopping list [[% include 'snippets/lts-update_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
-
-    To learn more about the [Shopping list](https://doc.ibexa.co/en/5.0/commerce/shopping_list/shopping_list_guide/), see the [installation and configuration instructions](https://doc.ibexa.co/en/5.0/commerce/shopping_list/install_shopping_list/).
