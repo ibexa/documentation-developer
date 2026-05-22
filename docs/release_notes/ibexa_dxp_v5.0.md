@@ -10,6 +10,21 @@ month_change: true
 
 <div class="release-notes" markdown="1">
 
+[[% set version = 'v5.0.X' %]]
+[[% set date = 'YYYY-MM-DD' %]]
+
+[[= release_note_entry_begin(
+    product_name + ' ' + version,
+    date,
+    []
+) =]]
+
+### Full changelog
+
+[[% include 'snippets/release_50.md' %]]
+
+[[= release_note_entry_end() =]]
+
 [[% set version = 'v5.0.8' %]]
 [[% set date = '2026-05-21' %]]
 
