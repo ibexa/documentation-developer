@@ -75,6 +75,7 @@ For more information, see [this example using few of those components](component
 |`admin-ui-attribute-group-block`| `vendor/ibexa/product-catalog/src/bundle/Resources/views/themes/admin/product_catalog/attribute_group/view.html.twig` |
 |`admin-ui-catalog-block`| `vendor/ibexa/product-catalog/src/bundle/Resources/views/themes/admin/product_catalog/catalog/view.html.twig` |
 |`admin-ui-customer-group-block`| `vendor/ibexa/product-catalog/src/bundle/Resources/views/themes/admin/product_catalog/customer_group/view.html.twig` |
+|`admin-ui-form-product-add-translation-body`| `vendor/ibexa/product-catalog/src/bundle/Resources/views/themes/admin/product_catalog/product/modal/add_translation.html.twig` |
 |`admin-ui-product-create-form-header-actions`| `vendor/ibexa/product-catalog/src/bundle/Resources/views/themes/admin/product_catalog/product/create.html.twig` |
 |`admin-ui-product-create-form-after`| `vendor/ibexa/product-catalog/src/bundle/Resources/views/themes/admin/product_catalog/product/create.html.twig` |
 |`admin-ui-product-edit-form-header-actions`| `vendor/ibexa/product-catalog/src/bundle/Resources/views/themes/admin/product_catalog/product/edit.html.twig` |
