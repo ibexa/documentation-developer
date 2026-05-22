@@ -110,7 +110,8 @@ MCP Servers LTS Update comes with the following built-in tools:
 
 - `Ibexa\Mcp\Tool\TranslationTools`
     - `list_languages` - lists all languages in the current SiteAccess
-    - `list_content_translations` - lists languages in which given content item has translations
+    - `list_content_languages` - lists languages in which given content item has translations
+    - `list_non_translated_content_ids` - lists IDs of content with missing translations for a given language code
 - `Ibexa\Mcp\Tool\SeoTools`
     - `get_non_seo_content_ids` - returns IDs of content items that are missing SEO optimization (no meta title tag)
 
