@@ -668,11 +668,11 @@ Run the provided SQL upgrade script to update your database:
 
 ### Update Twig to v3.26.0
 
-It's highly recommenced to update `twig/twig` and `twig/intl-extra` to version v3.26.0 or higher for security issues.
+For security reasons, it's highly recommenced to update `twig/twig` and `twig/intl-extra` to version v3.26.0 or higher.
 
-* [GHSA-68jq-c3rv-pcrr](https://packagist.org/security-advisories/GHSA-68jq-c3rv-pcrr)
-* [GHSA-fc86-6rv6-2jpm](https://packagist.org/security-advisories/GHSA-fc86-6rv6-2jpm)
-* [GHSA-r7cg-qjjm-xhqq](https://packagist.org/security-advisories/GHSA-r7cg-qjjm-xhqq)
+For more information, see the following security advisories:
+
+
 * [PKSA-5k7f-wvjj-jrgw](https://packagist.org/security-advisories/PKSA-5k7f-wvjj-jrgw)
 * [PKSA-sjvz-tbbr-vwth](https://packagist.org/security-advisories/PKSA-sjvz-tbbr-vwth)
 * [PKSA-h8hf-ytnd-5t9q](https://packagist.org/security-advisories/PKSA-h8hf-ytnd-5t9q)
@@ -691,20 +691,21 @@ It's highly recommenced to update `twig/twig` and `twig/intl-extra` to version v
 * [PKSA-8kk8-h2xr-h5nx](https://packagist.org/security-advisories/PKSA-8kk8-h2xr-h5nx)
 * [PKSA-2rbx-bjdx-4d4d](https://packagist.org/security-advisories/PKSA-2rbx-bjdx-4d4d)
 
-This packages version requires minimal PHP 8.1. They're automatically updated if you use PHP 8.1 or higher.
+To use these packages in versions not affected by security vulnerabilities, PHP 8.1 is the minimum required version. 
+
+For projects meeting this requirement, you can update the packages with Composer.
 
 If you're using PHP 7.4 or 8.0, to do the [[= product_name =]] update, you have two options:
 
 #### Update PHP, the custom code, then the platform (recommended)
 
-Make sure to host on PHP 8.1 or higher.
-Migrate custom code to be compatible with PHP 8.1 or higher.
-You can optionally use [Rector](https://github.com/rectorphp/rector) to help yourself.
+Make sure to use on PHP 8.1 or higher.
+Migrate custom code to be compatible with PHP 8.1 or higher, for example by using [Rector](https://github.com/rectorphp/rector).
 Then, update Ibexa DXP.
 
 #### Implement other countermeasures
 
-If updating the Twig packages isn't possible, for example, because the project is using PHP 7.4 or 8.0 where the fix is not available, and you need time to migrate while urgently needing v5.0.8 features, review the security issues carefully and assess the danger.
+If updating the Twig packages isn't possible, for example, because the project is using PHP 7.4 or 8.0 where the fixes are not available, review the security issues carefully and assess the danger.
 
 If you choose to implement countermeasures without upgrading PHP and updating Twig, you can silence the advisories in `composer.json`:
 
@@ -737,7 +738,7 @@ If you choose to implement countermeasures without upgrading PHP and updating Tw
 }
 ```
 
-In addition, consider upgrading your project to one of [the actively supported PHP versions](/getting_started/requirements.md#php).
+In addition, consider upgrading your project to one of [the actively supported PHP versions](requirements.md#php).
 
 ## LTS Updates
 
