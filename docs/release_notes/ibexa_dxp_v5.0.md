@@ -53,10 +53,8 @@ For more information, see [connector installation and configuration](https://doc
 
 ### Anonymous user segmentation in [[= product_name_cdp =]] [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
 
-[[= product_name_cdp =]] can now build audiences for anonymous visitors, enabling personalized experiences for users who are not logged in.
-
-When an anonymous visitor accesses your site, Raptor builds an anonymous profile based on tracking data.
-You can segment these profiles into audiences and use them in [[= product_name =]] to deliver personalized content, exactly as with logged-in users.
+[[= product_name_cdp =]] can now build audiences for anonymous visitors.
+Use them in [[= product_name =]] to deliver personalized experiences even before users log in.
 
 For more information, see [Anonymous user segmentation](https://doc.ibexa.co/en/5.0/cdp/cdp_activation/cdp_configuration/#anonymous-user-segmentation).
 
