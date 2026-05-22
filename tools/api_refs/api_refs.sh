@@ -102,6 +102,8 @@ fi;
 
 if [[ "$DXP_VERSION" == *".x-dev" ]]; then
   GIT_REF=$BASE_DXP_BRANCH;
+elif [[ "$DXP_VERSION" == "v"* ]]; then
+  GIT_REF="$DXP_VERSION";
 else
   GIT_REF="v$DXP_VERSION";
 fi
