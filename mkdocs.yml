@@ -353,11 +353,18 @@ nav:
             - Add login form: templating/layout/add_login_form.md
             - Add navigation menu: templating/layout/add_navigation_menu.md
             - Add search form to front page: templating/layout/add_search_form.md
-    - AI Actions:
-        - AI Actions: ai_actions/ai_actions.md
-        - AI Actions guide: ai_actions/ai_actions_guide.md
-        - Configure AI Actions: ai_actions/configure_ai_actions.md
-        - Extend AI Actions: ai_actions/extend_ai_actions.md
+    - AI:
+        - AI: ai/ai.md
+        - AI Actions:
+            - AI Actions: ai/ai_actions/ai_actions.md
+            - AI Actions guide: ai/ai_actions/ai_actions_guide.md
+            - Configure AI Actions: ai/ai_actions/configure_ai_actions.md
+            - Extend AI Actions: ai/ai_actions/extend_ai_actions.md
+        - MCP Servers:
+            - MCP Servers: ai/mcp/mcp.md
+            - MCP Servers guide: ai/mcp/mcp_guide.md
+            - Install MCP Servers: ai/mcp/mcp_config.md
+            - Work with MCP servers: ai/mcp/mcp_usage.md
     - Product catalog:
         - Product catalog: product_catalog/product_catalog.md
         - Product catalog guide: product_catalog/product_catalog_guide.md
@@ -643,7 +650,7 @@ nav:
             - SymbolAttribute: search/criteria_reference/symbolattribute_criterion.md
             - UpdatedAt: search/criteria_reference/updated_at_criterion.md
             - UpdatedAtRange: search/criteria_reference/updated_at_range_criterion.md
-        - Order Search Criteria: 
+        - Order Search Criteria:
             - Order Search Criteria: search/criteria_reference/order_search_criteria.md
             - CompanyName: search/criteria_reference/order_company_name_criterion.md
             - CreatedAt: search/criteria_reference/order_created_criterion.md
