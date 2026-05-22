@@ -374,9 +374,10 @@ nav:
         - Customize PIM:
             - Customize PIM: pim/customize_pim.md
             - Create custom attribute type: pim/create_custom_attribute_type.md
-            - Create product code generator: pim/create_product_code_generator.md
+            - Create custom availability strategy: pim/create_custom_availability_strategy.md
             - Create custom catalog filter: pim/create_custom_catalog_filter.md
             - Create custom name schema: pim/create_custom_name_schema_strategy.md
+            - Create product code generator: pim/create_product_code_generator.md
         - Add remote PIM support: pim/add_remote_pim_support.md
     - Commerce:
         - Commerce: commerce/commerce.md
