@@ -8,10 +8,10 @@ edition: experience
 
 Follow a step-by-step procedure that allows you to activate [[= product_name_cdp =]].
 
-Activation includes configuration, data export and adding Client-side Tracking.
+Activation includes configuration, data export and adding tracking.
 
 [[= cards([
     "cdp/cdp_activation/cdp_configuration",
     "cdp/cdp_activation/cdp_data_export",
-    "cdp/cdp_activation/cdp_add_clientside_tracking",
+    "cdp/cdp_activation/cdp_add_tracking",
 ], columns=3) =]]

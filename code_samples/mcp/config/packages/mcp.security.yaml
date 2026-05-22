@@ -1,0 +1,9 @@
+security:
+    firewalls:
+        # …
+        ibexa_jwt_mcp:
+            request_matcher: Ibexa\Mcp\Security\McpRequestMatcher
+            user_checker: Ibexa\Core\MVC\Symfony\Security\UserChecker
+            provider: ibexa
+            stateless: true
+            jwt: ~

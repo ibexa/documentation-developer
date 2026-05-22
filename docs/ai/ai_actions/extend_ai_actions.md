@@ -244,7 +244,7 @@ The Action Type options provided in the Action Context dictate whether the times
 ### Integrate with the REST API
 
 At this point the custom Action Type can already be executed by using the PHP API.
-To integrate it with the [AI Actions execute endpoint](../api/rest_api/rest_api_reference/rest_api_reference.html#ai-actions-execute-ai-action) you need to create additional classes responsible for parsing the request and response data.
+To integrate it with the [AI Actions execute endpoint](/api/rest_api/rest_api_reference/rest_api_reference.html#ai-actions-execute-ai-action) you need to create additional classes responsible for parsing the request and response data.
 See [adding custom media type](adding_custom_media_type.md) and [creating new REST resource](creating_new_rest_resource.md) to learn more about extending the REST API.
 
 #### Handle input data
