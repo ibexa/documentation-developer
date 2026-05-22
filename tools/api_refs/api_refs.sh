@@ -216,7 +216,7 @@ fi;
 
 if [ 0 -eq $DXP_ALREADY_EXISTS ]; then
   echo 'Set up DXP recipes…';
-  git init && git add . && git commit -m "Installed Ibexa Commerce" > /dev/null;
+  git init -b main && git add . && git commit -m "Installed Ibexa Commerce" > /dev/null;
   composer recipes:install ibexa/$DXP_EDITION --force --reset --no-interaction;
 fi;
 
