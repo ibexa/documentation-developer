@@ -200,6 +200,9 @@ deptrac:
       - Ibexa\Core\Notification\Renderer\TypedNotificationRendererInterface
     App\OAuth\GoogleResourceOwnerMapper:
       - Ibexa\OAuth2Client\ResourceOwner\ResourceOwnerToExistingOrNewUserMapper
+    App\ProductCatalog\Availability\ProductAvailabilityPurchasableWithoutStockStrategy:
+      - Ibexa\ProductCatalog\Local\Persistence\Legacy\ProductAvailability\HandlerInterface
+      - Ibexa\ProductCatalog\Local\Repository\Values\Availability
     App\QueryType\LatestContentQueryType:
       - Ibexa\Core\QueryType\QueryType
     App\QueryType\MenuQueryType:
