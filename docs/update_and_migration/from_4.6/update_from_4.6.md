@@ -666,7 +666,56 @@ Run the provided SQL upgrade script to update your database:
 
 ## v4.6.30
 
-No additional steps needed.
+### Update Twig to v3.26.0
+
+It's highly recommenced to update `twig/twig` and `twig/intl-extra` to version v3.26.0 for security issues.
+This packages requires minimal PHP 8.1. They're automatically updated if you use PHP 8.1 or higher.
+
+If you're using PHP 7.4 or 8.0, to do the [[= product_name =]] update, you have to options:
+
+#### Update PHP, the custom code, then the platform (recommended)
+
+Make sure to host on PHP 8.1 or higher.
+Migrate custom code to be compatible with PHP 8.1 or higher.
+You can optionally use [Rector](https://github.com/rectorphp/rector) to help yourself.
+Then, update Ibexa DXP.
+
+#### Implement other countermeasures
+
+If updating the Twig packages isn't possible, for example, because the project is using PHP 7.4 or 8.0 where the fix is not available, and you need time to migrate while urgently needing v5.0.8 features, review the security issues carefully and assess the danger.
+
+If you choose to implement countermeasures without upgrading PHP and updating Twig, you can silence the advisories in `composer.json`:
+
+```json
+"config": {
+    "audit": {
+        "ignore": {
+            "GHSA-68jq-c3rv-pcrr": "Description of the countermeasures you've implemented causing this one to be safe to ignore.",
+            "GHSA-fc86-6rv6-2jpm": "Description of the countermeasures you've implemented causing this one to be safe to ignore.",
+            "GHSA-r7cg-qjjm-xhqq": "Description of the countermeasures you've implemented causing this one to be safe to ignore.",
+            "PKSA-5k7f-wvjj-jrgw": "Description of the countermeasures you've implemented causing this one to be safe to ignore.",
+            "PKSA-sjvz-tbbr-vwth": "Description of the countermeasures you've implemented causing this one to be safe to ignore.",
+            "PKSA-h8hf-ytnd-5t9q": "Description of the countermeasures you've implemented causing this one to be safe to ignore.",
+            "PKSA-wwb1-81rc-pd65": "Description of the countermeasures you've implemented causing this one to be safe to ignore.",
+            "PKSA-hgmw-wn4d-hpcy": "Description of the countermeasures you've implemented causing this one to be safe to ignore.",
+            "PKSA-kvv6-36cr-fkzb": "Description of the countermeasures you've implemented causing this one to be safe to ignore.",
+            "PKSA-n14z-jjjg-g8vd": "Description of the countermeasures you've implemented causing this one to be safe to ignore.",
+            "PKSA-3mcc-k66d-pydb": "Description of the countermeasures you've implemented causing this one to be safe to ignore.",
+            "PKSA-gw7n-z4yx-7xjt": "Description of the countermeasures you've implemented causing this one to be safe to ignore.",
+            "PKSA-dpx1-78wg-1kqs": "Description of the countermeasures you've implemented causing this one to be safe to ignore.",
+            "PKSA-21g2-dzjv-sky5": "Description of the countermeasures you've implemented causing this one to be safe to ignore.",
+            "PKSA-yhcn-xrg3-68b1": "Description of the countermeasures you've implemented causing this one to be safe to ignore.",
+            "PKSA-2wrf-1xmk-1pky": "Description of the countermeasures you've implemented causing this one to be safe to ignore.",
+            "PKSA-6319-ffpf-gx66": "Description of the countermeasures you've implemented causing this one to be safe to ignore.",
+            "PKSA-n7sg-8f52-pqtf": "Description of the countermeasures you've implemented causing this one to be safe to ignore.",
+            "PKSA-8kk8-h2xr-h5nx": "Description of the countermeasures you've implemented causing this one to be safe to ignore.",
+            "PKSA-2rbx-bjdx-4d4d": "Description of the countermeasures you've implemented causing this one to be safe to ignore."
+        }
+    }
+}
+```
+
+In addition, consider upgrading your project to one of [the actively supported PHP versions](/getting_started/requirements.md#php).
 
 ## LTS Updates
 
