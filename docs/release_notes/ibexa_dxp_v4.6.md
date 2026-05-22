@@ -10,7 +10,61 @@ month_change: true
 
 <div class="release-notes" markdown="1">
 
+[[% set version = 'v4.6.30' %]]
+[[% set date = '2026-05-21' %]]
+
+[[= release_note_entry_begin(
+    product_name + ' ' + version,
+    date,
+    ['Headless', 'Experience', 'Commerce', 'New feature']
+) =]]
+
+### Security
+
+This release includes security fixes.
+To learn more, see the [corresponding security advisory](https://developers.ibexa.co/security-advisories/ibexa-sa-2026-003-vulnerabilities-in-forms-submissions-rest-sessions-and-solr-logs).
+
+### Gaussian blur optimization in Image Editor
+
+The [Image Editor]([[= user_doc =]]/image_management/edit_images/) now supports configuring the strength of the gaussian blur that is used for image optimization.
+You can adjust the blur level to balance between file size reduction and image sharpness.
+For more information, see [Configure image editor](https://doc.ibexa.co/en/4.6/content_management/images/configure_image_editor/#gaussian-blur-strength).
+
+### Developer experience
+
+#### Twig Component group
+
+New [Twig Component group](https://doc.ibexa.co/en/5.0/templating/components/) is available in the back office:
+
+- `admin-ui-content-column-end`
+
+For more information, see [available Admin UI Twig Component groups](https://doc.ibexa.co/en/5.0/administration/back_office/back_office_elements/custom_components/#admin-ui).
+
+#### PHP API
+
+##### Product API: Computed availability for products
+
+[`AvailabilityInterface`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Values-Availability-AvailabilityInterface.html) now uses separate values for availability and computed availability:
+
+- `getAvailability()` returns whether the product or variant is manually set as available
+- `getComputedAvailability()` returns whether the product or variant can be ordered, for example, based on its stock level
+
+For more information, see [Availability and computed availability](https://doc.ibexa.co/en/4.6/product_catalog/products/#product-availability-and-stock).
+
+##### Workflow API: new `loadWorkflowMetadataForVersionInfo` method
+
+The new [`WorkflowServiceInterface::loadWorkflowMetadataForVersionInfo`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Workflow-Service-WorkflowServiceInterface.html#method_loadWorkflowMetadataForVersionInfo) method loads workflow information directly from a [`VersionInfo`](/api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-VersionInfo.html) object, without loading the content item.
+
+For more information, see [Workflow API](https://doc.ibexa.co/en/5.0/content_management/workflow/workflow_api/#getting-workflow-information).
+
+### Full changelog
+
+[[% include 'snippets/release_46.md' %]]
+
+[[= release_note_entry_end() =]]
+
 [[% set version = 'v4.6.29' %]]
+[[% set date = null %]]
 
 [[= release_note_entry_begin(
     "Integrated help " + version,
