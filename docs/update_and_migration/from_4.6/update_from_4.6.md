@@ -713,9 +713,6 @@ If you choose to implement countermeasures without upgrading PHP and updating Tw
 "config": {
     "audit": {
         "ignore": {
-            "GHSA-68jq-c3rv-pcrr": "Description of the countermeasures you've implemented causing this one to be safe to ignore.",
-            "GHSA-fc86-6rv6-2jpm": "Description of the countermeasures you've implemented causing this one to be safe to ignore.",
-            "GHSA-r7cg-qjjm-xhqq": "Description of the countermeasures you've implemented causing this one to be safe to ignore.",
             "PKSA-5k7f-wvjj-jrgw": "Description of the countermeasures you've implemented causing this one to be safe to ignore.",
             "PKSA-sjvz-tbbr-vwth": "Description of the countermeasures you've implemented causing this one to be safe to ignore.",
             "PKSA-h8hf-ytnd-5t9q": "Description of the countermeasures you've implemented causing this one to be safe to ignore.",
