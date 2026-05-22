@@ -9,13 +9,10 @@ use Ibexa\Contracts\ProductCatalog\Values\ProductInterface;
 use Ibexa\ProductCatalog\Local\Persistence\Legacy\ProductAvailability\HandlerInterface;
 use Ibexa\ProductCatalog\Local\Repository\Values\Availability;
 
-final class ProductAvailabilityPurchasableWithoutStockStrategy implements ProductAvailabilityStrategyInterface
+final readonly class ProductAvailabilityPurchasableWithoutStockStrategy implements ProductAvailabilityStrategyInterface
 {
-    private HandlerInterface $handler;
-
-    public function __construct(HandlerInterface $handler)
+    public function __construct(private HandlerInterface $handler)
     {
-        $this->handler = $handler;
     }
 
     public function accept(AvailabilityContextInterface $context): bool
