@@ -114,7 +114,7 @@ This operation is performed only once, when you install [[= product_name =]] for
 
 To use Composer to instantly create a project in the current folder with all the dependencies, run the following command:
 
-!!! note "Using PHP 8.3"
+!!! note "Using PHP 8.4 or 8.3"
 
     === "[[= product_name_headless =]]"
 
@@ -134,7 +134,7 @@ To use Composer to instantly create a project in the current folder with all the
         composer create-project ibexa/commerce-skeleton .
         ```
 
-??? note "Using PHP versions 8.4, 8.2, or 8.1"
+??? note "Using PHP versions 8.2 or 8.1"
 
     If you are using PHP 8.4 (recommended), 8.2, or 8.1 (not recommended as has reached End of Life), use a different set of commands:
 
