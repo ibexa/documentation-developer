@@ -114,7 +114,7 @@ This operation is performed only once, when you install [[= product_name =]] for
 
 To use Composer to instantly create a project in the current folder with all the dependencies, run the following command:
 
-!!! note "Using PHP 8.4 or 8.3"
+!!! note "Using PHP 8.3"
 
     === "[[= product_name_headless =]]"
 
@@ -134,9 +134,9 @@ To use Composer to instantly create a project in the current folder with all the
         composer create-project ibexa/commerce-skeleton .
         ```
 
-??? note "Using PHP versions 8.2 or 8.1"
+??? note "Using PHP versions other than 8.3"
 
-    If you are using PHP 8.4 (recommended), 8.2, or 8.1 (not recommended as has reached End of Life), use a different set of commands:
+    If you aren't using PHP 8.3 but are using PHP 8.4, PHP 8.2, or any older version, use a different set of commands:
 
     === "[[= product_name_headless =]]"
 
@@ -156,97 +156,6 @@ To use Composer to instantly create a project in the current folder with all the
 
         ``` bash
         composer create-project ibexa/commerce-skeleton --no-install .
-        composer update
-        ```
-
-??? note "Using PHP versions 8.0 or older"
-
-    If you aren't using PHP 8.1 or higher, but are using PHP 8.0 or 7.4 (disrecommended as both have reached End of Life), use a different set of commands to ignore security advisories:
-
-    === "[[= product_name_headless =]]"
-
-        ``` bash
-        composer create-project ibexa/headless-skeleton --no-install .
-        composer config audit.ignore --json '{
-            "GHSA-68jq-c3rv-pcrr": "As this is for code quality tests and not to run a production DXP, this can be ignored.",
-            "GHSA-fc86-6rv6-2jpm": "As this is for code quality tests and not to run a production DXP, this can be ignored.",
-            "GHSA-r7cg-qjjm-xhqq": "As this is for code quality tests and not to run a production DXP, this can be ignored.",
-            "PKSA-5k7f-wvjj-jrgw": "As this is for code quality tests and not to run a production DXP, this can be ignored.",
-            "PKSA-sjvz-tbbr-vwth": "As this is for code quality tests and not to run a production DXP, this can be ignored.",
-            "PKSA-h8hf-ytnd-5t9q": "As this is for code quality tests and not to run a production DXP, this can be ignored.",
-            "PKSA-wwb1-81rc-pd65": "As this is for code quality tests and not to run a production DXP, this can be ignored.",
-            "PKSA-hgmw-wn4d-hpcy": "As this is for code quality tests and not to run a production DXP, this can be ignored.",
-            "PKSA-kvv6-36cr-fkzb": "As this is for code quality tests and not to run a production DXP, this can be ignored.",
-            "PKSA-n14z-jjjg-g8vd": "As this is for code quality tests and not to run a production DXP, this can be ignored.",
-            "PKSA-3mcc-k66d-pydb": "As this is for code quality tests and not to run a production DXP, this can be ignored.",
-            "PKSA-gw7n-z4yx-7xjt": "As this is for code quality tests and not to run a production DXP, this can be ignored.",
-            "PKSA-dpx1-78wg-1kqs": "As this is for code quality tests and not to run a production DXP, this can be ignored.",
-            "PKSA-21g2-dzjv-sky5": "As this is for code quality tests and not to run a production DXP, this can be ignored.",
-            "PKSA-yhcn-xrg3-68b1": "As this is for code quality tests and not to run a production DXP, this can be ignored.",
-            "PKSA-2wrf-1xmk-1pky": "As this is for code quality tests and not to run a production DXP, this can be ignored.",
-            "PKSA-6319-ffpf-gx66": "As this is for code quality tests and not to run a production DXP, this can be ignored.",
-            "PKSA-n7sg-8f52-pqtf": "As this is for code quality tests and not to run a production DXP, this can be ignored.",
-            "PKSA-8kk8-h2xr-h5nx": "As this is for code quality tests and not to run a production DXP, this can be ignored.",
-            "PKSA-2rbx-bjdx-4d4d": "As this is for code quality tests and not to run a production DXP, this can be ignored."
-        }'
-        composer update
-        ```
-
-    === "[[= product_name_exp =]]"
-
-        ``` bash
-        composer create-project ibexa/experience-skeleton --no-install .
-        composer config audit.ignore --json '{
-            "GHSA-68jq-c3rv-pcrr": "As this is for code quality tests and not to run a production DXP, this can be ignored.",
-            "GHSA-fc86-6rv6-2jpm": "As this is for code quality tests and not to run a production DXP, this can be ignored.",
-            "GHSA-r7cg-qjjm-xhqq": "As this is for code quality tests and not to run a production DXP, this can be ignored.",
-            "PKSA-5k7f-wvjj-jrgw": "As this is for code quality tests and not to run a production DXP, this can be ignored.",
-            "PKSA-sjvz-tbbr-vwth": "As this is for code quality tests and not to run a production DXP, this can be ignored.",
-            "PKSA-h8hf-ytnd-5t9q": "As this is for code quality tests and not to run a production DXP, this can be ignored.",
-            "PKSA-wwb1-81rc-pd65": "As this is for code quality tests and not to run a production DXP, this can be ignored.",
-            "PKSA-hgmw-wn4d-hpcy": "As this is for code quality tests and not to run a production DXP, this can be ignored.",
-            "PKSA-kvv6-36cr-fkzb": "As this is for code quality tests and not to run a production DXP, this can be ignored.",
-            "PKSA-n14z-jjjg-g8vd": "As this is for code quality tests and not to run a production DXP, this can be ignored.",
-            "PKSA-3mcc-k66d-pydb": "As this is for code quality tests and not to run a production DXP, this can be ignored.",
-            "PKSA-gw7n-z4yx-7xjt": "As this is for code quality tests and not to run a production DXP, this can be ignored.",
-            "PKSA-dpx1-78wg-1kqs": "As this is for code quality tests and not to run a production DXP, this can be ignored.",
-            "PKSA-21g2-dzjv-sky5": "As this is for code quality tests and not to run a production DXP, this can be ignored.",
-            "PKSA-yhcn-xrg3-68b1": "As this is for code quality tests and not to run a production DXP, this can be ignored.",
-            "PKSA-2wrf-1xmk-1pky": "As this is for code quality tests and not to run a production DXP, this can be ignored.",
-            "PKSA-6319-ffpf-gx66": "As this is for code quality tests and not to run a production DXP, this can be ignored.",
-            "PKSA-n7sg-8f52-pqtf": "As this is for code quality tests and not to run a production DXP, this can be ignored.",
-            "PKSA-8kk8-h2xr-h5nx": "As this is for code quality tests and not to run a production DXP, this can be ignored.",
-            "PKSA-2rbx-bjdx-4d4d": "As this is for code quality tests and not to run a production DXP, this can be ignored."
-        }'
-        composer update
-        ```
-
-    === "[[= product_name_com =]]"
-
-        ``` bash
-        composer create-project ibexa/commerce-skeleton --no-install .
-        composer config audit.ignore --json '{
-            "GHSA-68jq-c3rv-pcrr": "As this is for code quality tests and not to run a production DXP, this can be ignored.",
-            "GHSA-fc86-6rv6-2jpm": "As this is for code quality tests and not to run a production DXP, this can be ignored.",
-            "GHSA-r7cg-qjjm-xhqq": "As this is for code quality tests and not to run a production DXP, this can be ignored.",
-            "PKSA-5k7f-wvjj-jrgw": "As this is for code quality tests and not to run a production DXP, this can be ignored.",
-            "PKSA-sjvz-tbbr-vwth": "As this is for code quality tests and not to run a production DXP, this can be ignored.",
-            "PKSA-h8hf-ytnd-5t9q": "As this is for code quality tests and not to run a production DXP, this can be ignored.",
-            "PKSA-wwb1-81rc-pd65": "As this is for code quality tests and not to run a production DXP, this can be ignored.",
-            "PKSA-hgmw-wn4d-hpcy": "As this is for code quality tests and not to run a production DXP, this can be ignored.",
-            "PKSA-kvv6-36cr-fkzb": "As this is for code quality tests and not to run a production DXP, this can be ignored.",
-            "PKSA-n14z-jjjg-g8vd": "As this is for code quality tests and not to run a production DXP, this can be ignored.",
-            "PKSA-3mcc-k66d-pydb": "As this is for code quality tests and not to run a production DXP, this can be ignored.",
-            "PKSA-gw7n-z4yx-7xjt": "As this is for code quality tests and not to run a production DXP, this can be ignored.",
-            "PKSA-dpx1-78wg-1kqs": "As this is for code quality tests and not to run a production DXP, this can be ignored.",
-            "PKSA-21g2-dzjv-sky5": "As this is for code quality tests and not to run a production DXP, this can be ignored.",
-            "PKSA-yhcn-xrg3-68b1": "As this is for code quality tests and not to run a production DXP, this can be ignored.",
-            "PKSA-2wrf-1xmk-1pky": "As this is for code quality tests and not to run a production DXP, this can be ignored.",
-            "PKSA-6319-ffpf-gx66": "As this is for code quality tests and not to run a production DXP, this can be ignored.",
-            "PKSA-n7sg-8f52-pqtf": "As this is for code quality tests and not to run a production DXP, this can be ignored.",
-            "PKSA-8kk8-h2xr-h5nx": "As this is for code quality tests and not to run a production DXP, this can be ignored.",
-            "PKSA-2rbx-bjdx-4d4d": "As this is for code quality tests and not to run a production DXP, this can be ignored."
-        }'
         composer update
         ```
 
