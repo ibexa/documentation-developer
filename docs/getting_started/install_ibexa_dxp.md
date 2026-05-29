@@ -114,33 +114,7 @@ This operation is performed only once, when you install [[= product_name =]] for
 
 To use Composer to instantly create a project in the current folder with all the dependencies, run the following command:
 
-!!! note "Using PHP 8.4"
-
-    === "[[= product_name_headless =]]"
-
-        ``` bash
-        composer create-project --no-install ibexa/headless-skeleton .
-        composer update
-        composer config extra.runtime.error_handler "\\Ibexa\\Contracts\\Core\\MVC\\Symfony\\ErrorHandler\\Php82HideDeprecationsErrorHandler"
-        ```
-
-    === "[[= product_name_exp =]]"
-
-        ``` bash
-        composer create-project --no-install ibexa/experience-skeleton .
-        composer update
-        composer config extra.runtime.error_handler "\\Ibexa\\Contracts\\Core\\MVC\\Symfony\\ErrorHandler\\Php82HideDeprecationsErrorHandler"
-        ```
-
-    === "[[= product_name_com =]]"
-
-        ``` bash
-        composer create-project --no-install ibexa/commerce-skeleton .
-        composer update
-        composer config extra.runtime.error_handler "\\Ibexa\\Contracts\\Core\\MVC\\Symfony\\ErrorHandler\\Php82HideDeprecationsErrorHandler"
-        ```
-
-??? note "Using PHP 8.3"
+!!! note "Using PHP 8.3"
 
     === "[[= product_name_headless =]]"
 
@@ -163,9 +137,37 @@ To use Composer to instantly create a project in the current folder with all the
         composer config extra.runtime.error_handler "\\Ibexa\\Contracts\\Core\\MVC\\Symfony\\ErrorHandler\\Php82HideDeprecationsErrorHandler"
         ```
 
-??? note "Using PHP versions 8.2 or 8.1"
+??? note "Using PHP 8.4 or 8.2"
 
-    If you are using PHP 8.2, or if you are using PHP 8.1 (which is not recommended as it has reached End of Life), use a different set of commands:
+    If you're using PHP 8.4 or PHP 8.2, use a different set of commands:
+
+    === "[[= product_name_headless =]]"
+
+        ``` bash
+        composer create-project --no-install ibexa/headless-skeleton .
+        composer config extra.runtime.error_handler "\\Ibexa\\Contracts\\Core\\MVC\\Symfony\\ErrorHandler\\Php82HideDeprecationsErrorHandler"
+        composer update
+        ```
+
+    === "[[= product_name_exp =]]"
+
+        ``` bash
+        composer create-project --no-install ibexa/experience-skeleton .
+        composer config extra.runtime.error_handler "\\Ibexa\\Contracts\\Core\\MVC\\Symfony\\ErrorHandler\\Php82HideDeprecationsErrorHandler"
+        composer update
+        ```
+
+    === "[[= product_name_com =]]"
+
+        ``` bash
+        composer create-project --no-install ibexa/commerce-skeleton .
+        composer config extra.runtime.error_handler "\\Ibexa\\Contracts\\Core\\MVC\\Symfony\\ErrorHandler\\Php82HideDeprecationsErrorHandler"
+        composer update
+        ```
+
+??? note "Using PHP 8.1"
+
+    If you're using PHP 8.1 (which is not recommended as it has reached End of Life), use a different set of commands:
 
     === "[[= product_name_headless =]]"
 
@@ -190,7 +192,7 @@ To use Composer to instantly create a project in the current folder with all the
 
 ??? note "Using PHP 8.0"
 
-    If you are using PHP 8.0 (which is not recommended as it has reached End of Life), use a different set of commands to ignore security advisories about Twig:
+    If you are using PHP 8.0 (which is not recommended as it has reached End of Life and misses security fixes), use a different set of commands to ignore security advisories about Twig:
 
     === "[[= product_name_headless =]]"
 
@@ -272,7 +274,7 @@ To use Composer to instantly create a project in the current folder with all the
 
 ??? note "Using PHP 7.4"
 
-    If you are using PHP 7.4 (which is not recommended as it has reached End of Life), use a different set of commands to ignore security advisories about Twig and GraphQL:
+    If you are using PHP 7.4 (which is not recommended as it has reached End of Life and misses security fixes), use a different set of commands to ignore security advisories about Twig and GraphQL:
 
     === "[[= product_name_headless =]]"
 
